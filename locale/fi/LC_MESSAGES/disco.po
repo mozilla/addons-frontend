@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-10-30 19:07+0000\n"
 "PO-Revision-Date: 2018-10-15 17:00+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: none\n"
@@ -14,39 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Enable"
 msgstr "Ota käyttöön"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Remove"
 msgstr "Poista"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enabling"
 msgstr "Otetaan käyttöön"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Downloading"
 msgstr "Ladataan"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Installing"
 msgstr "Asennetaan"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:217
 msgid "Uninstalling"
 msgstr "Poistetaan"
 
-#: src/core/components/AMInstallButton/index.js:220
-#: src/core/components/InstallButton/index.js:235
-#: src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:225
 msgid "Install Theme"
 msgstr "Asenna teema"
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:266
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:226
 msgid "Add to Firefox"
 msgstr "Lisää Firefoxiin"
 
@@ -88,34 +84,6 @@ msgstr "Hallitse lisäosiasi napsauttamalla valikosta ”Lisäosat”."
 msgid "OK"
 msgstr "OK"
 
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "Ladataan %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "Asennetaan %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s on asennettu ja käytössä. Poista se napsauttamalla."
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s on pois käytöstä. Ota käyttöön napsauttamalla."
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "Poistetaan %(name)s asennus."
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s on poistettu. Asenna napsauttamalla."
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "Lisäosan %(name)s asennuksen tila on tuntematon."
-
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr ""
@@ -156,7 +124,7 @@ msgstr "Asennuksen poistossa tapahtui odottamaton virhe."
 msgid "An unexpected error occurred."
 msgstr "Tapahtui odottamaton virhe."
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "Sulje"
 
@@ -221,6 +189,27 @@ msgstr "Hylkää tämä ilmoitus"
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "Lisäosan %(title)s esikatselu"
+
+#~ msgid "Downloading %(name)s."
+#~ msgstr "Ladataan %(name)s."
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "Asennetaan %(name)s."
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr "%(name)s on asennettu ja käytössä. Poista se napsauttamalla."
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "%(name)s on pois käytöstä. Ota käyttöön napsauttamalla."
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "Poistetaan %(name)s asennus."
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "%(name)s on poistettu. Asenna napsauttamalla."
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "Lisäosan %(name)s asennuksen tila on tuntematon."
 
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "Tämä lisäosa poistetaan, kun käynnistät Firefoxin uudestaan."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-10-30 19:07+0000\n"
 "PO-Revision-Date: 2018-09-10 22:30+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,39 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Enable"
 msgstr "Activar"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Remove"
 msgstr "Remover"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enabling"
 msgstr "Activation"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Downloading"
 msgstr "Discargamento"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Installing"
 msgstr "Installation"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:217
 msgid "Uninstalling"
 msgstr "Disinstallation"
 
-#: src/core/components/AMInstallButton/index.js:220
-#: src/core/components/InstallButton/index.js:235
-#: src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:225
 msgid "Install Theme"
 msgstr "Installar thema"
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:266
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:226
 msgid "Add to Firefox"
 msgstr "Adder a Firefox"
 
@@ -88,34 +84,6 @@ msgstr "Gere tu additivos cliccante Additivos in le menu."
 msgid "OK"
 msgstr "OK"
 
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "Discargamento de %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "Installation de %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s installate e activate. Clicca pro disinstallar."
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s es disactivate. Clicca pro activar."
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "Disinstallation de %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s es activate. Clicca pro disactivar."
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "Le stato de installation pro %(name)s es incognite."
-
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr ""
@@ -156,7 +124,7 @@ msgstr "Un error non attendite occurreva durante le disinstallation."
 msgid "An unexpected error occurred."
 msgstr "Un error non attendite occurreva."
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "Clauder"
 
@@ -221,6 +189,27 @@ msgstr "Dimitte iste nota"
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "Vista preliminar de %(title)s"
+
+#~ msgid "Downloading %(name)s."
+#~ msgstr "Discargamento de %(name)s."
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "Installation de %(name)s."
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr "%(name)s installate e activate. Clicca pro disinstallar."
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "%(name)s es disactivate. Clicca pro activar."
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "Disinstallation de %(name)s."
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "%(name)s es activate. Clicca pro disactivar."
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "Le stato de installation pro %(name)s es incognite."
 
 #~ msgid "Please restart Firefox to use this add-on."
 #~ msgstr "Per favor re-lancea Firefox pro usar iste additivo."

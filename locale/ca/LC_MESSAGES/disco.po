@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-10-30 19:07+0000\n"
 "PO-Revision-Date: 2016-05-20 11:26+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -12,39 +12,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:209
 msgid "Remove"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Downloading"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Installing"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:217
 msgid "Uninstalling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:220
-#: src/core/components/InstallButton/index.js:235
-#: src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:225
 msgid "Install Theme"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:266
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:226
 msgid "Add to Firefox"
 msgstr ""
 
@@ -81,34 +77,6 @@ msgstr ""
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
-msgstr ""
-
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr ""
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr ""
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr ""
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr ""
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
 msgstr ""
 
 #: src/core/i18n/utils.js:254
@@ -151,7 +119,7 @@ msgstr ""
 msgid "An unexpected error occurred."
 msgstr ""
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr ""
 
