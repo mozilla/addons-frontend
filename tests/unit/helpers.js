@@ -102,6 +102,7 @@ export const fakeAddon = Object.freeze({
   authors: [fakeAuthor],
   average_daily_users: 100,
   categories: { firefox: ['other'] },
+  contributions_url: '',
   created: '2014-11-22T10:09:01Z',
   current_version: fakeVersion,
   description: 'This is a longer description of the chill out add-on',
