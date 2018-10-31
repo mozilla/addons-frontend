@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 09:10+0000\n"
+"PO-Revision-Date: 2018-10-31 09:15+0000\n"
 "Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -183,12 +183,12 @@ msgstr "%(addonName)s – Adoptez ce thème pour 🦊 Firefox sous Android (%(l
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Adoptez ce moteur de recherche pour 🦊 Firefox sous Android (%(locale)s)"
+msgstr "%(addonName)s – Adoptez ce moteur de recherche pour 🦊 Firefox sous Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:89
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Adoptez ce module pour 🦊 Firefox sous Android (%(locale)s)"
+msgstr "%(addonName)s – Adoptez ce module pour 🦊 Firefox sous Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:96
@@ -574,7 +574,7 @@ msgstr "Modules pour Firefox sous Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:236
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%(title)s – Modules pour Firefox sous Android (%(locale)s)"
+msgstr "%(title)s – Modules pour Firefox sous Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -609,9 +609,8 @@ msgid "%(categoryName)s – Themes"
 msgstr ""
 
 #: src/amo/components/CategoryHead/index.js:43
-#, fuzzy
 msgid "%(categoryName)s"
-msgstr "Catégories"
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:158
 msgid "Added to collection"
@@ -1326,14 +1325,12 @@ msgid "Stay Safe Online"
 msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:34
-#, fuzzy
 msgid "Organize Your Tabs"
-msgstr "Maîtrisez vos onglets"
+msgstr "Organisez vos onglets"
 
 #: src/amo/components/HomeHeroGuides/index.js:39
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "Évaluez votre expérience"
+msgstr "Améliorez votre expérience multimédia"
 
 #: src/amo/components/HomeHeroGuides/index.js:52
 msgid "Extensions are like apps for your browsers."
