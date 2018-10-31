@@ -34,6 +34,7 @@ import versions from 'core/reducers/versions';
 import { middleware } from 'core/store';
 import type { AddonsByAuthorsState } from 'amo/reducers/addonsByAuthors';
 import type { CollectionsState } from 'amo/reducers/collections';
+import type { GuidesState } from 'amo/reducers/guides';
 import type { HomeState } from 'amo/reducers/home';
 import type { RecommendationsState } from 'amo/reducers/recommendations';
 import type { ReviewsState } from 'amo/reducers/reviews';
@@ -67,7 +68,7 @@ type InternalAppState = {|
   errorPage: ErrorPageState,
   errors: Object,
   formOverlay: FormOverlayState,
-  guides: Object,
+  guides: GuidesState,
   heroBanners: Object,
   home: HomeState,
   infoDialog: InfoDialogState,

@@ -1,9 +1,6 @@
 import SagaTester from 'redux-saga-tester';
 
-import {
-  fetchGuidesAddons,
-  updateGuideAddonsLoadedStatus,
-} from 'amo/reducers/guides';
+import { fetchGuidesAddons } from 'amo/reducers/guides';
 import * as searchApi from 'core/api/search';
 import addonsReducer, { loadAddonResults } from 'core/reducers/addons';
 import guidesSaga from 'amo/sagas/guides';
@@ -68,16 +65,6 @@ describe(__filename, () => {
       const loadAction = await sagaTester.waitFor(expectedAction.type);
       expect(loadAction).toEqual(expectedAction);
       mockApi.verify();
-    });
-
-    it('dispatches the update loading flag status action', async () => {
-      _fetchGuidesAddons({ guid });
-
-      const expectedUpdateAction = updateGuideAddonsLoadedStatus({
-        loading: false,
-      });
-      const updateAction = await sagaTester.waitFor(expectedUpdateAction.type);
-      expect(updateAction).toEqual(expectedUpdateAction);
     });
 
     it('clears the error handler', async () => {

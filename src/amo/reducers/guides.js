@@ -1,6 +1,8 @@
 /* @flow */
 import invariant from 'invariant';
 
+import { LOAD_ADDON_RESULTS } from 'core/reducers/addons';
+
 export const FETCH_GUIDES_ADDONS: 'FETCH_GUIDES_ADDONS' = 'FETCH_GUIDES_ADDONS';
 export const UPDATE_GUIDES_ADDONS_LOADED_STATUS: 'UPDATE_GUIDES_ADDONS_LOADED_STATUS' =
   'UPDATE_GUIDES_ADDONS_LOADED_STATUS';
@@ -11,24 +13,6 @@ export type GuidesState = {|
 
 export const initialState: GuidesState = {
   loading: false,
-};
-
-export type updateGuideAddonsLoadedStatusParams = {|
-  loading: boolean,
-|};
-
-export type updateGuideAddonsLoadedStatusAction = {|
-  type: typeof UPDATE_GUIDES_ADDONS_LOADED_STATUS,
-  payload: updateGuideAddonsLoadedStatusParams,
-|};
-
-export const updateGuideAddonsLoadedStatus = ({
-  loading,
-}: updateGuideAddonsLoadedStatusParams): updateGuideAddonsLoadedStatusAction => {
-  return {
-    type: UPDATE_GUIDES_ADDONS_LOADED_STATUS,
-    payload: { loading },
-  };
 };
 
 export type FetchGuidesParams = {|
@@ -54,7 +38,7 @@ export const fetchGuidesAddons = ({
   };
 };
 
-type ActionType = updateGuideAddonsLoadedStatusAction | FetchGuidesAction;
+type ActionType = FetchGuidesAction;
 
 const reducer = (
   state: GuidesState = initialState,
@@ -66,10 +50,10 @@ const reducer = (
         ...state,
         loading: true,
       };
-    case UPDATE_GUIDES_ADDONS_LOADED_STATUS:
+    case LOAD_ADDON_RESULTS:
       return {
         ...state,
-        loading: action.payload.loading,
+        loading: false,
       };
     default:
       return state;
