@@ -169,39 +169,33 @@ msgstr "Hent %(addonName)s til Firefox. %(summary)s"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:62
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Hent denne ordbog til 🦊 Android (%(locale)s)"
+msgstr ""
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:67
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Hent denne udvidelse til 🦊 Firefox (%(locale)s)"
+msgstr ""
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:72
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Hent denne sprogpakke til 🦊 Firefox (%(locale)s)"
+msgstr ""
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:78
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Hent dette tema til 🦊 Firefox (%(locale)s)"
+msgstr ""
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:84
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Hent dette tema til 🦊 Firefox (%(locale)s)"
+msgstr ""
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:89
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Hent denne tilføjelse til 🦊 Firefox (%(locale)s)"
+msgstr ""
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:96
@@ -582,14 +576,12 @@ msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Tilføjelser til Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:232
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Tilføjelser til Firefox (%(locale)s)"
+msgstr ""
 
 #: src/amo/components/App/index.js:236
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%(title)s – Tilføjelser til Firefox (%(locale)s)"
+msgstr ""
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -952,9 +944,8 @@ msgid "Developer Hub"
 msgstr "Udviklercentral"
 
 #: src/amo/components/Footer/index.js:63
-#, fuzzy
 msgid "Developer Policies"
-msgstr "Svar fra udvikleren"
+msgstr ""
 
 #: src/amo/components/Footer/index.js:68
 msgid "Forum"
