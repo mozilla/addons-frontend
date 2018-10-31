@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-30 22:55+0000\n"
+"PO-Revision-Date: 2018-10-30 23:56+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -2023,7 +2023,7 @@ msgstr "Muat turun dan buat koleksi Firefox untuk mengikuti ekstensi dan tema ke
 
 #: src/amo/pages/Collection/index.js:506
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Muat turun dan cipta koleksi Firefox untuk mengikuti ekstensi dan tema kegemaran anda. Teroka %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:111
 msgid "Collections"
@@ -2107,7 +2107,7 @@ msgstr "Mengubah penampilan Firefox dengan tema."
 
 #: src/amo/pages/Home/index.js:234
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "Muat turun ekstensi dan tema Firefox. Ini adalah seperti aplikasi untuk pelayar imbas anda. Ini boleh menyekat iklan, melindungi kata laluan, mengubah penampilan pelayar dan banyak lagi."
 
 #: src/amo/pages/Home/index.js:323
 msgid "See more popular extensions"
@@ -2131,11 +2131,11 @@ msgstr "Kawalan parental"
 
 #: src/amo/pages/LandingPage/index.js:214
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Muat turun tema untuk mengubah penampilan Firefox. Sesuaikan pengalaman pelayaran mengikut citarasa anda. Haiwan comel, robot jahat, landskap yang indah—ribuan pilihan."
 
 #: src/amo/pages/LandingPage/index.js:219
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
-msgstr ""
+msgstr "Muat turun Ekstensi Firefox untuk menambah ciri yang menyesuaikan pelayar. Lindungi kata laluan, cari transaksi, meningkatkan video dan menyekat iklan dengan aplikasi pelayar."
 
 #: src/amo/pages/LandingPage/index.js:249
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2159,7 +2159,7 @@ msgstr "Kamus dan Pek Bahasa"
 
 #: src/amo/pages/LanguageTools/index.js:172
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Muat turun ekstensi kamus dan pek bahasa Firefox. Tambah pilihan bahasa baru sebagai penyemak ejaan atau pilihan bahasa antara muka pelayar."
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2187,7 +2187,7 @@ msgstr "Kamus"
 
 #: src/amo/pages/SearchTools/index.js:32
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "Muat turun ekstensi Firefox untuk menyesuaikan cara anda membuat carian—semuanya daripada carian privasi hingga ke carian khusus laman web, carian imej dan banyak lagi."
 
 #: src/amo/pages/StaticPages/About/index.js:103
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -2248,7 +2248,7 @@ msgstr "Perihal Add-ons Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:44
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Laman rasmi Mozilla untuk memuat turun ekstensi dan tema Firefox. Tambah ciri baharu dan ubah penampilan pelayar untuk menyesuaikan pengalaman web anda."
 
 #: src/amo/pages/StaticPages/About/index.js:53
 msgid ""
@@ -2361,7 +2361,7 @@ msgstr "Garis panduan Semakan"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:41
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Garis panduan, panduan dan Soalan Lazim untuk memberikan ulasan ekstensi dan tema yang telah anda muat turun dan gunakan dalam Firefox."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid ""
