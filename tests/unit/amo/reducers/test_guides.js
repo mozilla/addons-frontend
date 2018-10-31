@@ -1,9 +1,9 @@
 import guidesReducer, {
   fetchGuidesAddons,
-  FETCH_GUIDES_ADDONS,
   initialState,
 } from 'amo/reducers/guides';
-import { LOAD_ADDON_RESULTS } from 'core/reducers/addons';
+import { loadAddonResults } from 'core/reducers/addons';
+import { fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('reducer', () => {
@@ -15,15 +15,16 @@ describe(__filename, () => {
     it('updates the loading flag status', () => {
       const state = guidesReducer(
         undefined,
-        fetchGuidesAddons({ guid: 'test', errorHandlerId: 'test' }),
+        fetchGuidesAddons({ guids: 'test,test2', errorHandlerId: 'test' }),
       );
 
-      const newState = guidesReducer(state, { type: FETCH_GUIDES_ADDONS });
-      expect(newState.loading).toEqual(true);
+      expect(state.loading).toEqual(true);
 
-      const afterAddonsLoadedState = guidesReducer(state, {
-        type: LOAD_ADDON_RESULTS,
-      });
+      const afterAddonsLoadedState = guidesReducer(
+        undefined,
+        loadAddonResults({ addons: [fakeAddon] }),
+      );
+
       expect(afterAddonsLoadedState.loading).toEqual(false);
     });
   });

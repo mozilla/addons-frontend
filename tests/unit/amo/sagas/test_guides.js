@@ -12,7 +12,7 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const guid = 'support@lastpass.com,{b76ed4e7-12a6-4f25-a27b-fc3f93289008}';
+  const guids = 'support@lastpass.com,{b76ed4e7-12a6-4f25-a27b-fc3f93289008}';
 
   let errorHandler;
   let mockApi;
@@ -21,7 +21,9 @@ describe(__filename, () => {
   beforeEach(() => {
     errorHandler = createStubErrorHandler();
     mockApi = sinon.mock(searchApi);
+
     const initialState = dispatchClientMetadata().state;
+
     sagaTester = new SagaTester({
       initialState,
       reducers: {
@@ -44,31 +46,32 @@ describe(__filename, () => {
 
     it("calls the API to fetch a guide's addons", async () => {
       const state = sagaTester.getState();
-      const guideAddons = { results: [fakeAddon, fakeAddon] };
+      const addons = [fakeAddon, fakeAddon];
+      const guideAddons = { results: addons };
 
       mockApi
         .expects('search')
         .withArgs({
           api: state.api,
           filters: {
-            guid,
+            guid: guids,
           },
         })
         .once()
-        .resolves(guideAddons);
+        .resolves({ results: addons });
 
-      _fetchGuidesAddons({ guid });
+      _fetchGuidesAddons({ guids });
 
       const { results } = guideAddons;
 
       const expectedAction = loadAddonResults({ addons: results });
-      const loadAction = await sagaTester.waitFor(expectedAction.type);
-      expect(loadAction).toEqual(expectedAction);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
       mockApi.verify();
     });
 
     it('clears the error handler', async () => {
-      _fetchGuidesAddons({ guid });
+      _fetchGuidesAddons({ guids });
 
       const expectedAction = errorHandler.createClearingAction();
       const action = await sagaTester.waitFor(expectedAction.type);
@@ -83,7 +86,7 @@ describe(__filename, () => {
         .once()
         .rejects(error);
 
-      _fetchGuidesAddons({ guid });
+      _fetchGuidesAddons({ guids });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);

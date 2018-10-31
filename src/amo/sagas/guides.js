@@ -10,7 +10,7 @@ import type { SearchParams } from 'core/api/search';
 import type { FetchGuidesAction } from 'amo/reducers/guides';
 
 export function* fetchGuidesAddons({
-  payload: { errorHandlerId, guid },
+  payload: { errorHandlerId, guids },
 }: FetchGuidesAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -22,7 +22,7 @@ export function* fetchGuidesAddons({
     const params: SearchParams = {
       api: state.api,
       filters: {
-        guid,
+        guid: guids,
       },
     };
 

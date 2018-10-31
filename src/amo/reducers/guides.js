@@ -4,8 +4,6 @@ import invariant from 'invariant';
 import { LOAD_ADDON_RESULTS } from 'core/reducers/addons';
 
 export const FETCH_GUIDES_ADDONS: 'FETCH_GUIDES_ADDONS' = 'FETCH_GUIDES_ADDONS';
-export const UPDATE_GUIDES_ADDONS_LOADED_STATUS: 'UPDATE_GUIDES_ADDONS_LOADED_STATUS' =
-  'UPDATE_GUIDES_ADDONS_LOADED_STATUS';
 
 export type GuidesState = {|
   loading: boolean,
@@ -17,7 +15,7 @@ export const initialState: GuidesState = {
 
 export type FetchGuidesParams = {|
   errorHandlerId: string,
-  guid: string,
+  guids: string,
 |};
 
 export type FetchGuidesAction = {|
@@ -27,14 +25,14 @@ export type FetchGuidesAction = {|
 
 export const fetchGuidesAddons = ({
   errorHandlerId,
-  guid,
+  guids,
 }: FetchGuidesParams): FetchGuidesAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
-  invariant(guid, 'guid is required');
+  invariant(guids, 'guids is required');
 
   return {
     type: FETCH_GUIDES_ADDONS,
-    payload: { guid, errorHandlerId },
+    payload: { guids, errorHandlerId },
   };
 };
 
