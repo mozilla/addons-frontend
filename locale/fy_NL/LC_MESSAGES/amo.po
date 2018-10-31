@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 09:31+0000\n"
+"PO-Revision-Date: 2018-10-31 09:44+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -2124,11 +2124,13 @@ msgstr "Alderlik tafersjoch"
 
 #: src/amo/pages/LandingPage/index.js:214
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Download tema’s om te wizigjen hoe't Firefox derút sjocht. Pas jo ûnderfining nei jo smaak oan. Skattige bisten, kwea-aardige robots, prachtige lânskippen — der binne tûzenen opsjes."
 
 #: src/amo/pages/LandingPage/index.js:219
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
+"Download Firefox-útwreidingen om funksjes dy't it navigearjen oanpasse ta te foegjen. Beskermje wachtwurden, sykje oanbiedingen, ferbetterje fideo, en blokkearje ferfelende advertinsjes mei browser-"
+"apps."
 
 #: src/amo/pages/LandingPage/index.js:249
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2152,7 +2154,7 @@ msgstr "Wurdboeken en taalpakketten"
 
 #: src/amo/pages/LanguageTools/index.js:172
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Download Firefox-wurdboeken en taalpakketten. Foegje in nije taalopsje ta oan de staveringshifker fan jo browser, of wizigje de ynterfacetaal fan jo browser."
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2180,7 +2182,7 @@ msgstr "Wurdboeken"
 
 #: src/amo/pages/SearchTools/index.js:32
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "Download Firefox-útwreidingen om de manier wêrop jo sykje oan te passen — fariearjend fan sykjen mei ferbettere privacy ta spesifyk op websites sykje, sykje nei ôfbyldingen, en mear."
 
 #: src/amo/pages/StaticPages/About/index.js:103
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -2236,7 +2238,7 @@ msgstr "Oer Firefox Add-ons"
 
 #: src/amo/pages/StaticPages/About/index.js:44
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "De offisjele Mozilla-website foar it downloaden fan útwreidingen en tema’s foar Firefox. Foegje nije funksjes ta en wizigje it uterlik fan de browser om jo webûnderfining oan te passen."
 
 #: src/amo/pages/StaticPages/About/index.js:53
 msgid ""
@@ -2348,7 +2350,7 @@ msgstr "Beoardielingsrjochtlinen"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:41
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Hantliedingen, tips en faaks stelde fragen foar it skriuwen fan in beoardieling fan de útwreidingen en de tema’s dy't jo yn Firefox download en brûkt hawwe."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid ""
@@ -2425,14 +2427,15 @@ msgstr "Myn beoardielingen"
 #: src/amo/pages/UserProfile/index.js:242
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
+"It profyl fan %(user)s, in skriuwer fan in útwreiding en/of tema foar Firefox. Fyn oare apps fan %(user)s, tegearre mei gemiddelde wurdearringen, eigendomsrjocht en de opsje om problemen te melden."
 
 #: src/amo/pages/UserProfile/index.js:246
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "It profyl fan %(user)s, in skriuwer fan in útwreiding foar Firefox. Fyn oare apps fan %(user)s, tegearre mei gemiddelde wurdearringen, eigendomsrjocht en de opsje om problemen te melden."
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "It profyl fan %(user)s, in skriuwer fan in tema foar Firefox. Fyn oare apps fan %(user)s, tegearre mei gemiddelde wurdearringen, eigendomsrjocht en de opsje om problemen te melden."
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
