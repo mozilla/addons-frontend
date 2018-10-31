@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 16:05+0000\n"
+"PO-Revision-Date: 2018-10-31 19:13+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2042,11 +2042,11 @@ msgstr "Pytajće rozšěrjenja a drasty, zo byšće je swojej zběrce přidał."
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr "Sćehńće a wutworće zběrki Firefox, zo byšće přehlad wo najlubše rozšěrjenja a draty wobchował. Wuslědźće %(collectionName)s — %(collectionDescription)s."
+msgstr "Sćehńće a wutworće zběrki Firefox, zo byšće přehlad wo najlubše rozšěrjenja a drasty wobchował. Wuslědźće %(collectionName)s — %(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:506
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr "Sćehńće a wutworće zběrki Firefox, zo byšće přehlad wo najlubše rozšěrjenja a draty wobchował. Wuslědźće %(collectionName)s."
+msgstr "Sćehńće a wutworće zběrki Firefox, zo byšće přehlad wo najlubše rozšěrjenja a drasty wobchował. Wuslědźće %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:111
 msgid "Collections"
@@ -2159,7 +2159,7 @@ msgstr "Sćehńce drasty, zo byšće zwonkowne firefox změnił. Přiměrće swo
 #: src/amo/pages/LandingPage/index.js:219
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
-"Sćehńće rozšěrjenja Firefox, zo byšće funkcije přidał, kotrež přehladowanje přiměrili. Škitrajće hesła, namakajće poskitki, polěpšće wideja a blokujće mjerzace wabjenje z nałoženjemi wobhladowaka."
+"Sćehńće rozšěrjenja Firefox, zo byšće funkcije přidał, kotrež přehladowanje přiměrili. Škitajće hesła, namakajće poskitki, polěpšće wideja a blokujće mjerzace wabjenje z nałoženjemi wobhladowaka."
 
 #: src/amo/pages/LandingPage/index.js:249
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2183,7 +2183,7 @@ msgstr "Słowniki a rěčne pakćiki"
 
 #: src/amo/pages/LanguageTools/index.js:172
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr "Sćehńće słowniki Firefox a rěčne pakćiki. Přidajće swojeje prawopisnej kontroli wobhladowaka nowe rěčne nastajenje abo změńće powjerchowu rěč wobhladowaka."
+msgstr "Sćehńće słowniki Firefox a rěčne pakćiki. Přidajće swojej prawopisnej kontroli wobhladowaka nowe rěčne nastajenje abo změńće powjerchowu rěč wobhladowaka."
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2457,15 +2457,15 @@ msgstr "Moje pohódnoćenja"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr "Profil %(user)s, awtora rozšěrjenja a drasty Firefox. Namakajće druhe nałoženja wot %(user)s, inkluziwnje přerězne pojódnoćenja, čas čłonstwa a móžnosć, zo byšće problemy zdźělił."
+msgstr "Profil %(user)s, awtora rozšěrjenja a drasty Firefox. Namakajće druhe nałoženja wot %(user)s, inkluziwnje přerězne pogódnoćenja, čas čłonstwa a móžnosć, zo byšće problemy zdźělił."
 
 #: src/amo/pages/UserProfile/index.js:246
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr "Profil %(user)s, awtora rozšěrjenja Firefox. Namakajće druhe rozšěrjenja wot %(user)s, inkluziwnje přerězne pojódnoćenja, čas čłonstwa a móžnosć, zo byšće problemy zdźělił."
+msgstr "Profil %(user)s, awtora rozšěrjenja Firefox. Namakajće druhe rozšěrjenja wot %(user)s, inkluziwnje přerězne pogódnoćenja, čas čłonstwa a móžnosć, zo byšće problemy zdźělił."
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr "Profil %(user)s, awtora drasty Firefox. Namakajće druhe drasty wot %(user)s, inkluziwnje přerězne pojódnoćenja, čas čłonstwa a móžnosć, zo byšće problemy zdźělił."
+msgstr "Profil %(user)s, awtora drasty Firefox. Namakajće druhe drasty wot %(user)s, inkluziwnje přerězne pogódnoćenja, čas čłonstwa a móžnosć, zo byšće problemy zdźělił."
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
