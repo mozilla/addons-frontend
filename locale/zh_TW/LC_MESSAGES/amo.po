@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 04:56+0000\n"
+"PO-Revision-Date: 2018-10-31 06:28+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -162,39 +162,33 @@ msgstr "下載 Firefox 上的 %(addonName)s。%(summary)s"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:62
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – 下載 🦊 Firefox for Android 字典（%(locale)s）"
+msgstr "%(addonName)s – 下載 🦊 Firefox Android 字典（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:67
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – 下載 🦊 Firefox 擴充套件（%(locale)s）"
+msgstr "%(addonName)s – 下載 🦊 Firefox Android 擴充套件（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:72
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – 下載 🦊 Firefox 語言套件（%(locale)s）"
+msgstr "%(addonName)s – 下載 🦊 Firefox Android 語言套件（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:78
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – 下載 🦊 Firefox 佈景主題（%(locale)s）"
+msgstr "%(addonName)s – 下載 🦊 Firefox Android 佈景主題（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:84
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – 下載 🦊 Firefox 搜尋工具（%(locale)s）"
+msgstr "%(addonName)s – 下載 🦊 Firefox Android 搜尋工具（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:89
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – 下載 🦊 Firefox 附加元件（%(locale)s）"
+msgstr "%(addonName)s – 下載 🦊 Firefox Android 附加元件（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:96
@@ -572,14 +566,12 @@ msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Firefox 附加元件站（%(locale)s）"
 
 #: src/amo/components/App/index.js:232
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Firefox 附加元件站（%(locale)s）"
+msgstr "Firefox Android 附加元件站（%(locale)s）"
 
 #: src/amo/components/App/index.js:236
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%(title)s – Firefox 附加元件站（%(locale)s）"
+msgstr "%(title)s – Firefox Android 附加元件站（%(locale)s）"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -614,9 +606,8 @@ msgid "%(categoryName)s – Themes"
 msgstr "%(categoryName)s – 佈景主題"
 
 #: src/amo/components/CategoryHead/index.js:43
-#, fuzzy
 msgid "%(categoryName)s"
-msgstr "分類"
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:158
 msgid "Added to collection"
@@ -1323,14 +1314,12 @@ msgid "Stay Safe Online"
 msgstr "保持線上安全"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
-#, fuzzy
 msgid "Organize Your Tabs"
-msgstr "輕鬆管理分頁"
+msgstr "管理您的分頁"
 
 #: src/amo/components/HomeHeroGuides/index.js:39
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "為您的體驗打分數"
+msgstr "加強您的媒體觀賞體驗"
 
 #: src/amo/components/HomeHeroGuides/index.js:52
 msgid "Extensions are like apps for your browsers."
@@ -2402,11 +2391,11 @@ msgstr "Firefox 擴充套件與佈景主題作者 %(user)s 的資料。尋找其
 
 #: src/amo/pages/UserProfile/index.js:246
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Firefox 擴充套件作者 %(user)s 的資料。尋找其他由 %(user)s 開發的擴充套件，包含平均評分、使用時間長度以及回報問題的選項。"
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Firefox 佈景主題作者 %(user)s 的資料。尋找其他由 %(user)s 開發的佈景主題，包含平均評分、使用時間長度以及回報問題的選項。"
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
