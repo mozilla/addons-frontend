@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 18:51+0000\n"
+"PO-Revision-Date: 2018-10-31 19:12+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -162,39 +162,33 @@ msgstr "Ześěgniśo %(addonName)s za Firefox. %(summary)s"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:62
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Wobstarajśo se słownik za 🦊 Android (%(locale)s)"
+msgstr "%(addonName)s – Wobstarajśo se toś ten słownik za 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:67
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Wobstarajśo se rozšyrjenje za 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Wobstarajśo se toś to rozšyrjenje za 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:72
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Wobstarajśo se rěcny pakśik za 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Wobstarajśo se toś ten rěcny pakśik za 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:78
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Wobstarajśo se drastwu za 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Wobstarajśo se toś tu drastwu za 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:84
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Wobstarajśo se pytański rěd za 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Wobstarajśo se toś ten pytański rěd za 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:89
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Wobstarajśo se dodank za 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Wobstarajśo se toś ten dodank za 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:96
@@ -581,14 +575,12 @@ msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Dodanki za Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:232
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Dodanki za Firefox (%(locale)s)"
+msgstr "Dodanki za Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:236
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%(title)s – Dodanki za Firefox (%(locale)s)"
+msgstr "%(title)s – Dodanki za Firefox Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -623,9 +615,8 @@ msgid "%(categoryName)s – Themes"
 msgstr "%(categoryName)s – Drastwy"
 
 #: src/amo/components/CategoryHead/index.js:43
-#, fuzzy
 msgid "%(categoryName)s"
-msgstr "Kategorije"
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:158
 msgid "Added to collection"
@@ -1340,14 +1331,12 @@ msgid "Stay Safe Online"
 msgstr "Wóstańśo wěsty online"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
-#, fuzzy
 msgid "Organize Your Tabs"
-msgstr "Pójmjejśo swóje rejtarki"
+msgstr "Zastojśo swóje rejtarki"
 
 #: src/amo/components/HomeHeroGuides/index.js:39
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "Pógódnośćo swóje dožywjenje"
+msgstr "Polěpšćo swójo medijowe dožywjenje"
 
 #: src/amo/components/HomeHeroGuides/index.js:52
 msgid "Extensions are like apps for your browsers."
@@ -2165,11 +2154,12 @@ msgstr "Rědy šćita źiśi"
 
 #: src/amo/pages/LandingPage/index.js:214
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Ześěgniśo drastwy, aby wuglědanje Firefox změnił. Pśiměrśo swójo dožywjenje swójomu spódobanjeju. Wukludne zwěrjetka, złe robotery, rědne krajiny - towzynty móžnosćow."
 
 #: src/amo/pages/LandingPage/index.js:219
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
+"Ześěgniśo rozšyrjenja Firefox, aby funkcije pśidał, kótarež pśeglědowanje pśiměrili. Šćitajśo gronidła, namakajśo póbitowanja, pólěpšćo wideo a blokěrujśo gramne wabjenje z nałoženjami wobglědowaka."
 
 #: src/amo/pages/LandingPage/index.js:249
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2193,7 +2183,7 @@ msgstr "Słowniki a rěcne pakśiki"
 
 #: src/amo/pages/LanguageTools/index.js:172
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Ześěgniśo słowniki Firefox a rěcne pakśiki. Pśidajśo swójej pšawopisnej kontroli wobglědowaka nowe rěcne nastajenje abo změńśo pówjerchowu rěc wobglědowaka."
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2221,7 +2211,7 @@ msgstr "Słowniki"
 
 #: src/amo/pages/SearchTools/index.js:32
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "Ześěgniśo rozšyrjenja Firefox, aby swóju wašnju pytanja pśiměrił - wšykno wót pytanje z pólěpšoneju priwatnosću do pytanjow specifiskich za websedła, pytanja za wobrazami a wěcej."
 
 #: src/amo/pages/StaticPages/About/index.js:103
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -2278,7 +2268,7 @@ msgstr "Wó dodankach za Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:44
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Oficielne sedło Mozilla za ześěgowanje rozšyrjenjow a drastwow Firefox. Pśidajśo nowe funkcije a změńśo wuglědanje wobglědowaka, aby swójo webdožywjenje pśiměrił."
 
 #: src/amo/pages/StaticPages/About/index.js:53
 msgid ""
@@ -2390,7 +2380,7 @@ msgstr "Směrnica za pógódnośenja"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:41
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Směrnice, tipy a ceste pšašanja za pisanje pógódnośenja za rozšyrjenja a drastwy, kótarež sćo ześěgnuł a sćo wužył z Firefox."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid ""
@@ -2466,15 +2456,15 @@ msgstr "Móje pógódnosénja"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil %(user)s, awtora rozšyrjenja a drastwy Firefox. Namakajśo druge nałoženja wót %(user)s, inkluziwnje pśerězne pógódnośenja, cas cłonkojstwa a móžnosć, aby problemy k wěsći dał."
 
 #: src/amo/pages/UserProfile/index.js:246
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil %(user)s, awtora rozšyrjenja Firefox. Namakajśo druge rozšyrjenja wót %(user)s, inkluziwnje pśerězne pógódnośenja, cas cłonkojstwa a móžnosć, aby problemy k wěsći dał."
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil %(user)s, awtora drastwy Firefox. Namakajśo druge drastwy wót %(user)s, inkluziwnje pśerězne pógódnośenja, cas cłonkojstwa a móžnosć, aby problemy k wěsći dał."
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
