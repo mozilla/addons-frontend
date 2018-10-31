@@ -23,7 +23,7 @@ import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
-import { getVersionById } from 'amo/reducers/versions';
+import { getVersionById } from 'core/reducers/versions';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   fetchAddon,

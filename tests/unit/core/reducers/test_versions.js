@@ -21,7 +21,7 @@ import versionsReducer, {
   getVersionsBySlug,
   initialState,
   loadVersions,
-} from 'amo/reducers/versions';
+} from 'core/reducers/versions';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { createPlatformFiles, loadAddonResults } from 'core/reducers/addons';

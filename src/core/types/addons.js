@@ -1,5 +1,5 @@
 /* @flow */
-import type { VersionIdType } from 'amo/reducers/versions';
+import type { VersionIdType } from 'core/reducers/versions';
 import type { AddonTypeType } from 'core/constants';
 
 type AddonStatus =

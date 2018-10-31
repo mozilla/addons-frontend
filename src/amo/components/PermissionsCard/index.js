@@ -7,7 +7,7 @@ import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import type { AppState } from 'amo/store';
-import type { AddonVersionType } from 'amo/reducers/versions';
+import type { AddonVersionType } from 'core/reducers/versions';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
 

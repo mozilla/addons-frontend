@@ -3,7 +3,7 @@ import * as React from 'react';
 import PermissionsCard, {
   PermissionsCardBase,
 } from 'amo/components/PermissionsCard';
-import { createInternalVersion } from 'amo/reducers/versions';
+import { createInternalVersion } from 'core/reducers/versions';
 import {
   dispatchClientMetadata,
   fakeI18n,
