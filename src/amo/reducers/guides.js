@@ -38,11 +38,9 @@ export const fetchGuidesAddons = ({
   };
 };
 
-type ActionType = FetchGuidesAction;
-
 const reducer = (
   state: GuidesState = initialState,
-  action: ActionType,
+  action: FetchGuidesAction,
 ): GuidesState => {
   switch (action.type) {
     case FETCH_GUIDES_ADDONS:
