@@ -4,6 +4,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import * as landingActions from 'amo/actions/landing';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import LandingPage, { LandingPageBase } from 'amo/pages/LandingPage';
+import HeadLinks from 'amo/components/HeadLinks';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -11,15 +12,16 @@ import {
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import { visibleAddonType, getAddonTypeFilter } from 'core/utils';
+import {
+  visibleAddonType as getVisibleAddonType,
+  getAddonTypeFilter,
+} from 'core/utils';
 import {
   createAddonsApiResult,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  getFakeConfig,
-  onLocationChanged,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -32,7 +34,7 @@ describe(__filename, () => {
       errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
       match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION) },
       },
       store: _store,
       ...otherProps,
@@ -87,7 +89,7 @@ describe(__filename, () => {
     fakeDispatch.resetHistory();
     root.setProps({
       match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
       },
     });
 
@@ -122,7 +124,7 @@ describe(__filename, () => {
     const root = render({
       errorHandler,
       match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
       },
       store,
     });
@@ -131,7 +133,7 @@ describe(__filename, () => {
     // Now we request extension add-ons.
     root.setProps({
       match: {
-        params: { visibleAddonType: visibleAddonType(addonType) },
+        params: { visibleAddonType: getVisibleAddonType(addonType) },
       },
     });
 
@@ -148,7 +150,7 @@ describe(__filename, () => {
 
   it('does not dispatch getLanding when addon type does not change', () => {
     const addonType = ADDON_TYPE_EXTENSION;
-    const params = { visibleAddonType: visibleAddonType(addonType) };
+    const params = { visibleAddonType: getVisibleAddonType(addonType) };
     const match = { params };
     const errorHandler = createStubErrorHandler();
 
@@ -211,7 +213,7 @@ describe(__filename, () => {
   it('renders a LandingPage with no addons set', () => {
     const root = render({
       match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION) },
       },
     });
 
@@ -220,7 +222,7 @@ describe(__filename, () => {
 
   it('renders a link to all categories', () => {
     const fakeParams = {
-      visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
     };
     const match = { params: fakeParams };
 
@@ -234,7 +236,7 @@ describe(__filename, () => {
 
   it('does not render a theme class name when page type is extensions', () => {
     const root = render({
-      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+      params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION) },
     });
     expect(root).not.toHaveClassName('.LandingPage--theme');
   });
@@ -242,7 +244,7 @@ describe(__filename, () => {
   it('renders a theme class name when page type is themes', () => {
     const root = render({
       match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
       },
     });
     expect(root).toHaveClassName('.LandingPage--theme');
@@ -265,7 +267,7 @@ describe(__filename, () => {
     );
 
     const fakeParams = {
-      visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
     };
     const match = { params: fakeParams };
 
@@ -292,7 +294,7 @@ describe(__filename, () => {
     _getAndLoadLandingAddons({ addonType });
 
     const fakeParams = {
-      visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
     };
 
     const match = { params: fakeParams };
@@ -320,7 +322,7 @@ describe(__filename, () => {
     const root = render({
       match: {
         params: {
-          visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
         },
       },
     });
@@ -336,7 +338,7 @@ describe(__filename, () => {
     const root = render({
       match: {
         params: {
-          visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
         },
       },
     });
@@ -349,7 +351,7 @@ describe(__filename, () => {
   it('renders a LandingPage with themes HTML', () => {
     const root = render({
       match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
       },
     });
 
@@ -379,7 +381,7 @@ describe(__filename, () => {
 
     const root = render({
       match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
       },
     });
 
@@ -452,7 +454,7 @@ describe(__filename, () => {
   it('does not dispatch setViewContext when addonType does not change', () => {
     const addonType = ADDON_TYPE_EXTENSION;
     const errorHandler = createStubErrorHandler();
-    const params = { visibleAddonType: visibleAddonType(addonType) };
+    const params = { visibleAddonType: getVisibleAddonType(addonType) };
     const match = { params };
 
     store.dispatch(
@@ -475,7 +477,7 @@ describe(__filename, () => {
   it('does not dispatch setViewContext when context does not change', () => {
     const addonType = ADDON_TYPE_EXTENSION;
     const errorHandler = createStubErrorHandler();
-    const params = { visibleAddonType: visibleAddonType(addonType) };
+    const params = { visibleAddonType: getVisibleAddonType(addonType) };
     const match = { params };
 
     store.dispatch(
@@ -499,7 +501,7 @@ describe(__filename, () => {
 
   it('renders an HTML title for themes', () => {
     const fakeParams = {
-      visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
     };
     const match = { params: fakeParams };
 
@@ -509,7 +511,7 @@ describe(__filename, () => {
 
   it('renders an HTML title for extensions', () => {
     const fakeParams = {
-      visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
     };
     const match = { params: fakeParams };
 
@@ -591,29 +593,13 @@ describe(__filename, () => {
     expect(landingShelves.at(1)).toHaveClassName('TrendingAddons');
   });
 
-  it('renders a canonical link tag', () => {
-    const baseURL = 'https://example.org';
-    const _config = getFakeConfig({ baseURL });
-
-    const pathname = '/some-landing-pathname/';
-    store.dispatch(onLocationChanged({ pathname }));
-
-    const root = render({ _config, store });
-
-    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
-    expect(root.find('link[rel="canonical"]')).toHaveProp(
-      'href',
-      `${baseURL}${pathname}`,
-    );
-  });
-
   it.each([
     [ADDON_TYPE_EXTENSION, /Download Firefox Extensions to add features/],
     [ADDON_TYPE_THEME, /Download themes to change/],
   ])('renders a "description" meta tag for %s', (addonType, partialContent) => {
     const root = render({
       match: {
-        params: { visibleAddonType: visibleAddonType(addonType) },
+        params: { visibleAddonType: getVisibleAddonType(addonType) },
       },
     });
 
@@ -622,4 +608,16 @@ describe(__filename, () => {
       partialContent,
     );
   });
+
+  it.each([ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME])(
+    'renders a HeadLinks component for %s',
+    (addonType) => {
+      const visibleAddonType = getVisibleAddonType(addonType);
+
+      const root = render({ match: { params: { visibleAddonType } } });
+
+      expect(root.find(HeadLinks)).toHaveLength(1);
+      expect(root.find(HeadLinks)).toHaveProp('to', `/${visibleAddonType}/`);
+    },
+  );
 });

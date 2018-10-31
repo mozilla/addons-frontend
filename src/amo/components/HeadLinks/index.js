@@ -11,6 +11,7 @@ import { hrefLangs } from 'core/languages';
 import type { AppState } from 'amo/store';
 
 type Props = {|
+  prependClientApp?: boolean,
   to: string,
 |};
 
@@ -27,15 +28,26 @@ export class HeadLinksBase extends React.PureComponent<InternalProps> {
   static defaultProps = {
     _config: config,
     _hrefLangs: hrefLangs,
+    prependClientApp: true,
   };
 
   render() {
-    const { _config, _hrefLangs, currentURL, clientApp, lang, to } = this.props;
+    const {
+      _config,
+      _hrefLangs,
+      clientApp,
+      currentURL,
+      lang,
+      prependClientApp,
+      to,
+    } = this.props;
 
     invariant(to.charAt(0) === '/', 'The `to` prop must start with a slash.');
 
     const hrefLangsMap = _config.get('hrefLangsMap');
-    const canonicalURL = `/${lang}/${clientApp}${to}`;
+
+    const path = prependClientApp ? `/${clientApp}${to}` : to;
+    const canonicalURL = `/${lang}${path}`;
 
     const includeAlternateLinks =
       _config.get('unsupportedHrefLangs').includes(lang) === false &&
@@ -51,13 +63,11 @@ export class HeadLinksBase extends React.PureComponent<InternalProps> {
         {includeAlternateLinks &&
           _hrefLangs.map((hrefLang) => {
             const locale = hrefLangsMap[hrefLang] || hrefLang;
+            const locationPathname = `/${locale}${path}`;
 
             return (
               <link
-                href={getCanonicalURL({
-                  _config,
-                  locationPathname: `/${locale}/${clientApp}${to}`,
-                })}
+                href={getCanonicalURL({ _config, locationPathname })}
                 hrefLang={hrefLang}
                 key={hrefLang}
                 rel="alternate"

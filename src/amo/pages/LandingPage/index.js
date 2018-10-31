@@ -11,7 +11,7 @@ import { getLanding } from 'amo/actions/landing';
 import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Categories from 'amo/components/Categories';
-import { getCanonicalURL } from 'amo/utils';
+import HeadLinks from 'amo/components/HeadLinks';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -47,7 +47,6 @@ export class LandingPageBase extends React.Component {
     featuredAddons: PropTypes.array.isRequired,
     highlyRatedAddons: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
-    locationPathname: PropTypes.string.isRequired,
     trendingAddons: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
     match: PropTypes.shape({
@@ -214,12 +213,10 @@ export class LandingPageBase extends React.Component {
 
   render() {
     const {
-      _config,
       errorHandler,
       featuredAddons,
       highlyRatedAddons,
       loading,
-      locationPathname,
       trendingAddons,
       i18n,
     } = this.props;
@@ -247,12 +244,10 @@ export class LandingPageBase extends React.Component {
       >
         <Helmet>
           <title>{headingText[addonType]}</title>
-          <link
-            rel="canonical"
-            href={getCanonicalURL({ locationPathname, _config })}
-          />
           <meta name="description" content={this.getPageDescription()} />
         </Helmet>
+
+        <HeadLinks to={`/${getVisibleAddonType(addonType)}/`} />
 
         {errorHandler.renderErrorIfPresent()}
 
@@ -328,7 +323,6 @@ export function mapStateToProps(state) {
     featuredAddons: landing.featured.results,
     highlyRatedAddons: landing.highlyRated.results,
     loading: landing.loading,
-    locationPathname: state.router.location.pathname,
     trendingAddons: landing.trending.results,
     resultsLoaded: landing.resultsLoaded && landing.category === null,
   };

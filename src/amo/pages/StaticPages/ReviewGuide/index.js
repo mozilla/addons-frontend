@@ -1,41 +1,27 @@
 /* @flow */
-import config from 'config';
 import Helmet from 'react-helmet';
 import * as React from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
 
-import { getCanonicalURL } from 'amo/utils';
+import HeadLinks from 'amo/components/HeadLinks';
 import Card from 'ui/components/Card';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
-import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
 
 import '../styles.scss';
 
 type Props = {|
-  _config: typeof config,
   i18n: I18nType,
-  locationPathname: string,
 |};
 
 export class ReviewGuideBase extends React.Component<Props> {
-  static defaultProps = {
-    _config: config,
-  };
-
   render() {
-    const { _config, i18n, locationPathname } = this.props;
+    const { i18n } = this.props;
 
     return (
       <Card className="StaticPage" header={i18n.gettext('Review Guidelines')}>
         <Helmet>
           <title>{i18n.gettext('Review Guidelines')}</title>
-          <link
-            rel="canonical"
-            href={getCanonicalURL({ locationPathname, _config })}
-          />
           <meta
             name="description"
             content={i18n.gettext(`Guidelines, tips, and Frequently Asked
@@ -43,6 +29,8 @@ export class ReviewGuideBase extends React.Component<Props> {
               downloaded and used on Firefox.`)}
           />
         </Helmet>
+
+        <HeadLinks to="/review_guide" prependClientApp={false} />
 
         <div className="StaticPageWrapper">
           <section id="review-guide">
@@ -187,13 +175,4 @@ export class ReviewGuideBase extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: AppState) => {
-  return {
-    locationPathname: state.router.location.pathname,
-  };
-};
-
-export default compose(
-  connect(mapStateToProps),
-  translate(),
-)(ReviewGuideBase);
+export default translate()(ReviewGuideBase);

@@ -1,27 +1,22 @@
 /* @flow */
-import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
 import Helmet from 'react-helmet';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
 
-import { getCanonicalURL } from 'amo/utils';
+import HeadLinks from 'amo/components/HeadLinks';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
-import type { AppState } from 'amo/store';
 import type { CategoryType } from 'amo/types/categories';
 import type { I18nType } from 'core/types/i18n';
 
 type Props = {|
   category: CategoryType | null,
+  visibleAddonType: string,
 |};
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   i18n: I18nType,
-  locationPathname: string,
 |};
 
 export class CategoryHeadBase extends React.PureComponent<InternalProps> {
@@ -60,36 +55,25 @@ export class CategoryHeadBase extends React.PureComponent<InternalProps> {
   }
 
   render() {
-    const { _config, category, locationPathname } = this.props;
+    const { category, visibleAddonType } = this.props;
 
     if (!category) {
       return null;
     }
 
     return (
-      <Helmet>
-        <title>{this.getPageTitle()}</title>
-        <link
-          rel="canonical"
-          href={getCanonicalURL({ locationPathname, _config })}
-        />
-        {this.renderMetaDescription()}
-      </Helmet>
+      <React.Fragment>
+        <Helmet>
+          <title>{this.getPageTitle()}</title>
+          {this.renderMetaDescription()}
+        </Helmet>
+
+        <HeadLinks to={`/${visibleAddonType}/${category.slug}/`} />
+      </React.Fragment>
     );
   }
 }
 
-const mapStateToProps = (state: AppState) => {
-  const locationPathname = state.router.location.pathname;
-
-  return {
-    locationPathname,
-  };
-};
-
-const CategoryHead: React.ComponentType<Props> = compose(
-  translate(),
-  connect(mapStateToProps),
-)(CategoryHeadBase);
+const CategoryHead: React.ComponentType<Props> = translate()(CategoryHeadBase);
 
 export default CategoryHead;

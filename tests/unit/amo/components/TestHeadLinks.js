@@ -180,4 +180,43 @@ describe(__filename, () => {
 
     expect(root.find('link[rel="alternate"]')).toHaveLength(0);
   });
+
+  it('does not prepend the clientApp when prependClientApp prop is set to `false`', () => {
+    const baseURL = 'https://example.org';
+    const lang = 'de';
+    const to = '/some-url';
+
+    const _hrefLangs = ['fr', 'en-US'];
+    const _config = getFakeConfig({ baseURL });
+    const { store } = dispatchClientMetadata({
+      lang,
+      pathname: `/${lang}${to}`,
+    });
+
+    const root = render({
+      _config,
+      _hrefLangs,
+      prependClientApp: false,
+      store,
+      to,
+    });
+
+    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
+    expect(root.find('link[rel="canonical"]')).toHaveProp(
+      'href',
+      `${baseURL}/${lang}${to}`,
+    );
+
+    expect(root.find('link[rel="alternate"]')).toHaveLength(_hrefLangs.length);
+    _hrefLangs.forEach((locale, index) => {
+      expect(root.find('link[rel="alternate"]').at(index)).toHaveProp(
+        'hrefLang',
+        locale,
+      );
+      expect(root.find('link[rel="alternate"]').at(index)).toHaveProp(
+        'href',
+        `${baseURL}/${locale}${to}`,
+      );
+    });
+  });
 });

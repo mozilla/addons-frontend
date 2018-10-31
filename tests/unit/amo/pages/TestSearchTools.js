@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import SearchTools, { SearchToolsBase } from 'amo/pages/SearchTools';
 import Search from 'amo/components/Search';
+import HeadLinks from 'amo/components/HeadLinks';
 import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_RELEVANCE } from 'core/constants';
 import {
   dispatchClientMetadata,
@@ -43,5 +44,12 @@ describe(__filename, () => {
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
       /Download Firefox extensions to customize/,
     );
+  });
+
+  it('renders a HeadLinks component', () => {
+    const root = render();
+
+    expect(root.find(HeadLinks)).toHaveLength(1);
+    expect(root.find(HeadLinks)).toHaveProp('to', '/search-tools/');
   });
 });
