@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 12:49+0000\n"
+"PO-Revision-Date: 2018-10-31 13:02+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -602,16 +602,15 @@ msgstr "Kategóriák betöltése."
 
 #: src/amo/components/CategoryHead/index.js:36
 msgid "%(categoryName)s – Extensions"
-msgstr ""
+msgstr "%(categoryName)s – Kiegészítők"
 
 #: src/amo/components/CategoryHead/index.js:39
 msgid "%(categoryName)s – Themes"
-msgstr ""
+msgstr "%(categoryName)s – Témák"
 
 #: src/amo/components/CategoryHead/index.js:43
-#, fuzzy
 msgid "%(categoryName)s"
-msgstr "Kategóriák"
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:158
 msgid "Added to collection"
@@ -1319,25 +1318,23 @@ msgstr "Tonnányi nyitott lapja van? Rendezze el őket egy praktikus oldalsávon
 
 #: src/amo/components/HomeHeroGuides/index.js:29
 msgid "Stay Safe Online"
-msgstr ""
+msgstr "Legyen biztonságban az interneten"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
-#, fuzzy
 msgid "Organize Your Tabs"
-msgstr "Szelídítse meg a lapjait"
+msgstr "Rendszerezze a lapjait"
 
 #: src/amo/components/HomeHeroGuides/index.js:39
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "Értékelje a tapasztalatait"
+msgstr "Javítsa a médiaélményét"
 
 #: src/amo/components/HomeHeroGuides/index.js:52
 msgid "Extensions are like apps for your browsers."
-msgstr ""
+msgstr "A kiegészítők olyanok, mintha alkalmazások lennének böngészőkhöz."
 
 #: src/amo/components/HomeHeroGuides/index.js:55
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "Olyan funkciókat adnak a Firefoxhoz, amelyek gyorsabbá, okosabbá vagy egyszerűen szórakoztatóvá teszik a böngészést."
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
