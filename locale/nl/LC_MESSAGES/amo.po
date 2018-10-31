@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 08:12+0000\n"
+"PO-Revision-Date: 2018-10-31 08:18+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -2349,7 +2349,7 @@ msgstr "Beoordelingsrichtlijnen"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:41
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Handleidingen, tips en veelgestelde vragen voor het schrijven van een beoordeling van de extensies en de thema’s die u in Firefox hebt gedownload en gebruikt."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid ""
@@ -2426,14 +2426,17 @@ msgstr "Mijn beoordelingen"
 #: src/amo/pages/UserProfile/index.js:242
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
+"Het profiel van %(user)s, een schrijver van een extensie en/of thema voor Firefox. Vind andere apps van %(user)s, samen met gemiddelde waarderingen, eigendomsrecht en de optie om problemen te "
+"melden."
 
 #: src/amo/pages/UserProfile/index.js:246
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
+"Het profiel van %(user)s, een schrijver van een extensie voor Firefox. Vind andere extensies van %(user)s, samen met gemiddelde waarderingen, eigendomsrecht en de optie om problemen te melden."
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Het profiel van %(user)s, een schrijver van een thema voor Firefox. Vind andere thema’s van %(user)s, samen met gemiddelde waarderingen, eigendomsrecht en de optie om problemen te melden."
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
