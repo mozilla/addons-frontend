@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 04:07+0000\n"
+"PO-Revision-Date: 2018-10-31 04:22+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -2004,11 +2004,11 @@ msgstr "搜尋要加到收藏集的擴充套件與佈景主題。"
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "下載並建立 Firefox 收藏集，以記錄您最愛的擴充套件與佈景主題。探索 %(collectionName)s—%(collectionDescription)s。"
 
 #: src/amo/pages/Collection/index.js:506
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "下載並建立 Firefox 收藏集，以記錄您最愛的擴充套件與佈景主題。探索 %(collectionName)s。"
 
 #: src/amo/pages/CollectionList/index.js:111
 msgid "Collections"
@@ -2092,7 +2092,7 @@ msgstr "使用佈景主題修改 Firefox 外觀。"
 
 #: src/amo/pages/Home/index.js:234
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "下載 Firefox 擴充套件與佈景主題，它們就像是在瀏覽器中安裝外掛，可以封鎖討人厭的廣告、保護密碼、更改瀏覽器外觀，還有更多功能。"
 
 #: src/amo/pages/Home/index.js:323
 msgid "See more popular extensions"
@@ -2116,11 +2116,11 @@ msgstr "家長控制"
 
 #: src/amo/pages/LandingPage/index.js:214
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "下載佈景主題來變更 Firefox 的外觀。可根據自己的風格來調整您的體驗，不論是可愛小動物、邪惡機器人，或是美麗風景，有數以千計選項供您下載。"
 
 #: src/amo/pages/LandingPage/index.js:219
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
-msgstr ""
+msgstr "下載 Firefox 擴充套件，讓您加入功能來客製化上網體驗。可透過瀏覽器外掛來保護密碼、尋找購物折扣、加強看片體驗、封鎖廣告。"
 
 #: src/amo/pages/LandingPage/index.js:249
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2144,7 +2144,7 @@ msgstr "字典與語言套件"
 
 #: src/amo/pages/LanguageTools/index.js:172
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "下載 Firefox 字典與語言套件。新增語言選項到您瀏覽器的拼字檢查工具，或變更瀏覽器界面語言。"
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
