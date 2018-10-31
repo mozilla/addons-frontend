@@ -41,6 +41,7 @@ describe(__filename, () => {
   it('renders a single author', () => {
     const author = {
       ...fakeAddon.authors[0],
+      id: 123,
     };
 
     const root = render({
@@ -49,7 +50,7 @@ describe(__filename, () => {
 
     expect(root.find(Link)).toHaveLength(1);
     expect(root.find(Link)).toHaveProp('children', author.name);
-    expect(root.find(Link)).toHaveProp('to', `/user/${author.username}/`);
+    expect(root.find(Link)).toHaveProp('to', `/user/${author.id}/`);
   });
 
   it('renders multiple authors', () => {
@@ -57,11 +58,13 @@ describe(__filename, () => {
       ...fakeAddon.authors[0],
       name: 'Author 1',
       username: 'author-1',
+      id: 101,
     };
     const author2 = {
       ...fakeAddon.authors[0],
       name: 'Author 2',
       username: 'author-2',
+      id: 102,
     };
 
     const root = render({
@@ -70,10 +73,7 @@ describe(__filename, () => {
 
     expect(root.find(Link)).toHaveLength(2);
     expect(root.find(Link).at(1)).toHaveProp('children', author2.name);
-    expect(root.find(Link).at(1)).toHaveProp(
-      'to',
-      `/user/${author2.username}/`,
-    );
+    expect(root.find(Link).at(1)).toHaveProp('to', `/user/${author2.id}/`);
 
     const authors = root.find('.AddonTitle-author');
 
@@ -84,13 +84,13 @@ describe(__filename, () => {
     // Then it should be a Link
     expect(authors.childAt(2)).toHaveProp('to');
     expect(authors.childAt(2)).toHaveProp('children', author1.name);
-    expect(authors.childAt(2)).toHaveProp('to', `/user/${author1.username}/`);
+    expect(authors.childAt(2)).toHaveProp('to', `/user/${author1.id}/`);
     // Then, it should be a separator (comma)
     expect(authors.childAt(3).text()).toEqual(', ');
     // Then, it should be the second Link
     expect(authors.childAt(4)).toHaveProp('to');
     expect(authors.childAt(4)).toHaveProp('children', author2.name);
-    expect(authors.childAt(4)).toHaveProp('to', `/user/${author2.username}/`);
+    expect(authors.childAt(4)).toHaveProp('to', `/user/${author2.id}/`);
   });
 
   it('renders without authors', () => {
@@ -141,11 +141,13 @@ describe(__filename, () => {
       ...fakeAddon.authors[0],
       name: 'Author 1',
       username: 'author-1',
+      id: 101,
     };
     const author2 = {
       ...fakeAddon.authors[0],
       name: 'Author 2',
       username: 'author-2',
+      id: 102,
     };
 
     const root = render({
@@ -157,12 +159,12 @@ describe(__filename, () => {
 
     // First child should be a Link
     expect(authors.childAt(0)).toHaveProp('children', author1.name);
-    expect(authors.childAt(0)).toHaveProp('to', `/user/${author1.username}/`);
+    expect(authors.childAt(0)).toHaveProp('to', `/user/${author1.id}/`);
     // Then, it should be a separator (comma)
     expect(authors.childAt(1).text()).toEqual(' ,');
     // Then it should be a second Link
     expect(authors.childAt(2)).toHaveProp('children', author2.name);
-    expect(authors.childAt(2)).toHaveProp('to', `/user/${author2.username}/`);
+    expect(authors.childAt(2)).toHaveProp('to', `/user/${author2.id}/`);
     // Then it should be the empty space between "by" and the links
     expect(authors.childAt(3).text()).toEqual(' ');
     // Finally, it should be the "by"

@@ -44,7 +44,7 @@ export const AddonTitleBase = ({
     addonAuthors.forEach((author, index) => {
       authors.push(
         author.url ? (
-          <Link key={author.id} to={`/user/${author.username}/`}>
+          <Link key={author.id} to={`/user/${author.id}/`}>
             {author.name}
           </Link>
         ) : (

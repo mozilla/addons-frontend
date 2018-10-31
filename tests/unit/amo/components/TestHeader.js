@@ -96,15 +96,16 @@ describe(__filename, () => {
   });
 
   it('displays a view profile link when user is signed in', () => {
+    const id = 124;
     const { store } = dispatchSignInActions({
-      userProps: { username: 'babar' },
+      userProps: { username: 'babar', id },
     });
     const wrapper = renderHeader({ store });
     const link = wrapper.find('.Header-user-menu-view-profile-link');
 
     expect(link).toHaveLength(1);
     expect(link.prop('children')).toEqual('View My Profile');
-    expect(link.prop('to')).toEqual('/user/babar/');
+    expect(link.prop('to')).toEqual(`/user/${id}/`);
   });
 
   it('displays an edit profile link when user is signed in', () => {
