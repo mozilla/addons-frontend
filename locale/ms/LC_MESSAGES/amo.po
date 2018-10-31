@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-30 23:56+0000\n"
+"PO-Revision-Date: 2018-10-31 00:27+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -163,39 +163,33 @@ msgstr "Muat turun %(addonName)s untuk Firefox. %(summary)s"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:62
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Dapatkan Kamus ini untuk 🦊 Android (%(locale)s)"
+msgstr "%(addonName)s – Dapatkan Kamus ini untuk 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:67
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Dapatkan Ekstensi ini untuk 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dapatkan Ekstensi ini untuk 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:72
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Dapatkan Pek Bahasa ini untuk 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dapatkan Pek Bahasa ini untuk 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:78
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Dapatkan Tema ini untuk 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dapatkan Tema ini untuk 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:84
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Dapatkan Alatan Carian untuk 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dapatkan Alatan Carian untuk 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:89
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Dapatkan Add-on ini untuk 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Dapatkan Add-on ini untuk 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:96
@@ -574,14 +568,12 @@ msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Add-ons untuk Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:232
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Add-on untuk Firefox (%(locale)s)"
+msgstr "Add-on untuk Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:236
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%(title)s – Add-ons untuk Firefox (%(locale)s)"
+msgstr "%(title)s – Add-on untuk Firefox Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -616,9 +608,8 @@ msgid "%(categoryName)s – Themes"
 msgstr "Tema–%(categoryName)s"
 
 #: src/amo/components/CategoryHead/index.js:43
-#, fuzzy
 msgid "%(categoryName)s"
-msgstr "Kategori"
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:158
 msgid "Added to collection"
@@ -1334,14 +1325,12 @@ msgid "Stay Safe Online"
 msgstr "Kekal Selamat Atas Talian"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
-#, fuzzy
 msgid "Organize Your Tabs"
-msgstr "Kawal tab anda"
+msgstr "Urus Tab Anda"
 
 #: src/amo/components/HomeHeroGuides/index.js:39
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "Nilaikan pengalaman anda"
+msgstr "Tingkatkan Pengalaman Media Anda"
 
 #: src/amo/components/HomeHeroGuides/index.js:52
 msgid "Extensions are like apps for your browsers."
@@ -2437,15 +2426,15 @@ msgstr "Ulasan saya"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil %(user)s, ekstensi dan pengarang tema Firefox. Cari aplikasi lain oleh %(user)s termasuk purata penilaian, tempoh dan pilihan untuk melaporkan isu."
 
 #: src/amo/pages/UserProfile/index.js:246
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil %(user)s, pengarang ekstensi Firefox. Cari aplikasi lain oleh %(user)s termasuk purata penilaian, tempoh dan pilihan untuk melaporkan isu."
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil %(user)s, pengarang tema Firefox. Cari aplikasi lain oleh %(user)s termasuk purata penilaian, tempoh dan pilihan untuk melaporkan isu."
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
