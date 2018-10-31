@@ -128,31 +128,10 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     }
   };
 
-  onEscapeReviewOverlay = () => {
-    const { dispatch, review } = this.props;
-    if (!review) {
-      log.debug('Cannot hide review form because no review has been loaded.');
-      return;
-    }
-    // Even though an escaped overlay will be hidden, we still have to
-    // synchronize our show/hide state otherwise we won't be able to
-    // show the overlay after it has been escaped.
-    dispatch(hideEditReviewForm({ reviewId: review.id }));
-  };
-
   onCancelEditReview = () => {
     const { dispatch, review } = this.props;
     invariant(review, 'review is required');
 
-    dispatch(hideEditReviewForm({ reviewId: review.id }));
-  };
-
-  onReviewSubmitted = () => {
-    const { dispatch, review } = this.props;
-    if (!review) {
-      log.debug('Cannot hide review form because no review has been loaded.');
-      return;
-    }
     dispatch(hideEditReviewForm({ reviewId: review.id }));
   };
 

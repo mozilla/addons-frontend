@@ -858,24 +858,6 @@ describe(__filename, () => {
     ).toHaveLength(0);
   });
 
-  it('cannot escape a review edit form without a review', () => {
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ review: null });
-
-    root.instance().onEscapeReviewOverlay();
-
-    sinon.assert.notCalled(fakeDispatch);
-  });
-
-  it('cannot handle submitting a review form without a review', () => {
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ review: null });
-
-    root.instance().onReviewSubmitted();
-
-    sinon.assert.notCalled(fakeDispatch);
-  });
-
   it('renders errors', () => {
     const errorHandler = new ErrorHandler({
       id: 'some-id',
