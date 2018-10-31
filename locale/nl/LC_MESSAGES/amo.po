@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 07:32+0000\n"
+"PO-Revision-Date: 2018-10-31 08:12+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -2101,7 +2101,7 @@ msgstr "Wijzig het uiterlijk van Firefox met thema’s."
 
 #: src/amo/pages/Home/index.js:234
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr "Download Firefox-extensies en -thema’s. Ze zijn als apps voor uw browser. Ze kunnen vervelende advertenties blokkeren, wachtwoorden beschermen, wijzigen hoe de browser eruit ziet, en meer."
+msgstr "Download Firefox-extensies en -thema’s. Ze zijn als apps voor uw browser. Ze kunnen vervelende advertenties blokkeren, wachtwoorden beschermen, het uiterlijk van de browser wijzigen, en meer."
 
 #: src/amo/pages/Home/index.js:323
 msgid "See more popular extensions"
@@ -2129,7 +2129,7 @@ msgstr "Download thema’s om te wijzigen hoe Firefox eruit ziet. Pas uw ervarin
 
 #: src/amo/pages/LandingPage/index.js:219
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
-msgstr ""
+msgstr "Download Firefox-extensies om functies die het navigeren aanpassen toe te voegen. Bescherm wachtwoorden, zoek koopjes, verbeter video, en blokkeer vervelende advertenties met browser-apps."
 
 #: src/amo/pages/LandingPage/index.js:249
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2153,7 +2153,7 @@ msgstr "Woordenboeken en taalpakketten"
 
 #: src/amo/pages/LanguageTools/index.js:172
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Download Firefox-woordenboeken en taalpakketten. Voeg een nieuwe taaloptie toe aan de spellingscontrole van uw browser, of wijzig de interfacetaal van uw browser."
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2181,7 +2181,7 @@ msgstr "Woordenboeken"
 
 #: src/amo/pages/SearchTools/index.js:32
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "Download Firefox-extensies om de manier waarop u zoekt aan te passen — variërend van zoeken met verbeterde privacy tot specifiek op websites zoeken, zoeken naar afbeeldingen, en meer."
 
 #: src/amo/pages/StaticPages/About/index.js:103
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -2237,7 +2237,7 @@ msgstr "Over Firefox Add-ons"
 
 #: src/amo/pages/StaticPages/About/index.js:44
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "De officiële Mozilla-website voor het downloaden van extensies en thema’s voor Firefox. Voeg nieuwe functies toe en verander het uiterlijk van de browser om uw webervaring aan te passen."
 
 #: src/amo/pages/StaticPages/About/index.js:53
 msgid ""
