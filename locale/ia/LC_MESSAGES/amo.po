@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 09:19+0000\n"
+"PO-Revision-Date: 2018-10-31 09:39+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2142,11 +2142,13 @@ msgstr "Controlos parental"
 
 #: src/amo/pages/LandingPage/index.js:214
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Discarga themas pro cambiar le apparentia de Firefox. Personalisa tu experientia a tu gustos. Creatrices agradabile, robots diabolic, belle paisages —milles de optiones."
 
 #: src/amo/pages/LandingPage/index.js:219
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
+"Discarga extensiones de Firefox pro adder functionalitates que personalisa le exploration. Protege contrasignos, trova accordos, meliora video, e bloca enoiose avisos publicitari con le "
+"applicationes del navigator."
 
 #: src/amo/pages/LandingPage/index.js:249
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
