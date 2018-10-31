@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-30 21:28+0000\n"
+"PO-Revision-Date: 2018-10-31 07:29+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1343,11 +1343,11 @@ msgstr "Valuta tu experientia de usator"
 
 #: src/amo/components/HomeHeroGuides/index.js:52
 msgid "Extensions are like apps for your browsers."
-msgstr ""
+msgstr "Extensiones es como applicationes pro tu navigatores."
 
 #: src/amo/components/HomeHeroGuides/index.js:55
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "Illos adde functionalitates a Firefox pro render le exploration plus veloce, plus intelligente, o justo simple amusante."
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
@@ -1965,7 +1965,7 @@ msgstr "Instantaneos"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Revisiones e valutationes pro %(addonName)s. Discoperi lo que altere usatores pensa circa %(addonName)s e adde illo a tu navigator Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:243
 msgid "Reviews for %(addonName)s"
