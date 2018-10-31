@@ -19,7 +19,7 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import RatingManager, {
   RatingManagerWithI18n,
 } from 'amo/components/RatingManager';
-import { createInternalVersion } from 'amo/reducers/versions';
+import { createInternalVersion } from 'core/reducers/versions';
 import createStore from 'amo/store';
 import {
   createInternalAddon,

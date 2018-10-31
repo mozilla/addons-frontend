@@ -3,7 +3,7 @@ import * as React from 'react';
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import AddonMoreInfo, { AddonMoreInfoBase } from 'amo/components/AddonMoreInfo';
 import Link from 'amo/components/Link';
-import { loadVersions } from 'amo/reducers/versions';
+import { loadVersions } from 'core/reducers/versions';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,

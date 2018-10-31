@@ -4,7 +4,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 import UAParser from 'ua-parser-js';
 
-import { createInternalVersion } from 'amo/reducers/versions';
+import { createInternalVersion } from 'core/reducers/versions';
 import createStore from 'amo/store';
 import { setInstallError, setInstallState } from 'core/actions/installations';
 import {

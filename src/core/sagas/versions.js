@@ -1,11 +1,11 @@
 /* @flow */
 import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { getVersions } from 'amo/api/versions';
-import { FETCH_VERSIONS, loadVersions } from 'amo/reducers/versions';
+import { getVersions } from 'core/api/versions';
+import { FETCH_VERSIONS, loadVersions } from 'core/reducers/versions';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
-import type { GetVersionsParams } from 'amo/api/versions';
-import type { FetchVersionsAction } from 'amo/reducers/versions';
+import type { GetVersionsParams } from 'core/api/versions';
+import type { FetchVersionsAction } from 'core/reducers/versions';
 
 export function* fetchVersions({
   payload: { errorHandlerId, page, slug },

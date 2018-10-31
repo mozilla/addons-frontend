@@ -5,7 +5,7 @@ import { compose } from 'redux';
 
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import Link from 'amo/components/Link';
-import { getVersionById } from 'amo/reducers/versions';
+import { getVersionById } from 'core/reducers/versions';
 import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { hasPermission } from 'amo/reducers/users';
@@ -18,7 +18,7 @@ import {
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
-import type { AddonVersionType } from 'amo/reducers/versions';
+import type { AddonVersionType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
 
