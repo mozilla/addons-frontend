@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 08:18+0000\n"
-"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
+"PO-Revision-Date: 2018-10-31 10:59+0000\n"
+"Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -1327,7 +1327,7 @@ msgstr "Organiseer uw tabbladen"
 
 #: src/amo/components/HomeHeroGuides/index.js:39
 msgid "Enhance Your Media Experience"
-msgstr ""
+msgstr "Verbeter uw ervaring met media"
 
 #: src/amo/components/HomeHeroGuides/index.js:52
 msgid "Extensions are like apps for your browsers."
@@ -1951,7 +1951,7 @@ msgstr "Schermafbeeldingen"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Beoordelingen en waarderingen voor %(addonName)s. Ontdek wat andere gebruikers van %(addonName)s vinden en voeg het toe aan uw Firefox-browser."
 
 #: src/amo/pages/AddonReviewList/index.js:243
 msgid "Reviews for %(addonName)s"
@@ -2013,7 +2013,7 @@ msgstr "Naar extensies en thema’s zoeken om deze aan uw collectie toe te voege
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Download en maak Firefox-collecties om favoriete extensies en thema’s te volgen. Ontdek de %(collectionName)s–%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:506
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
@@ -2125,7 +2125,7 @@ msgstr "Ouderlijk toezicht"
 
 #: src/amo/pages/LandingPage/index.js:214
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Download thema’s om te wijzigen hoe Firefox eruitziet. Pas uw ervaring naar uw smaak aan. Schattige diertjes, boosaardige robots, prachtige landschappen – er zijn duizenden opties."
 
 #: src/amo/pages/LandingPage/index.js:219
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
@@ -2153,7 +2153,7 @@ msgstr "Woordenboeken en taalpakketten"
 
 #: src/amo/pages/LanguageTools/index.js:172
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Download Firefox-woordenboeken en taalpakketten. Voeg een nieuwe taaloptie toe aan de spellingcontrole van uw browser, of wijzig de interfacetaal van uw browser."
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2181,7 +2181,7 @@ msgstr "Woordenboeken"
 
 #: src/amo/pages/SearchTools/index.js:32
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "Download Firefox-extensies om de manier waarop u zoekt aan te passen – variërend van zoeken met verbeterde privacy tot specifiek op websites zoeken, zoeken naar afbeeldingen, en meer."
 
 #: src/amo/pages/StaticPages/About/index.js:103
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -2237,7 +2237,7 @@ msgstr "Over Firefox Add-ons"
 
 #: src/amo/pages/StaticPages/About/index.js:44
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "De officiële Mozilla-website voor het downloaden van extensies en thema’s voor Firefox. Voeg nieuwe functies toe en wijzig de vormgeving van de browser om uw webervaring aan te passen."
 
 #: src/amo/pages/StaticPages/About/index.js:53
 msgid ""
