@@ -16,11 +16,6 @@ export type UserApiParams = {|
   userId: UserId,
 |};
 
-export type UserApiParamsWithUsername = {|
-  api: ApiState,
-  username: string,
-|};
-
 export type CurrentUserAccountParams = {|
   api: ApiState,
 |};
@@ -79,28 +74,28 @@ export function updateUserAccount({
 
 export function userAccount({
   api,
-  username,
-}: UserApiParamsWithUsername): Promise<ExternalUserType> {
+  userId,
+}: UserApiParams): Promise<ExternalUserType> {
   invariant(api, 'api state is required.');
-  invariant(username, 'username is required.');
+  invariant(userId, 'userId is required.');
 
   return callApi({
     auth: true,
-    endpoint: `accounts/account/${username}`,
+    endpoint: `accounts/account/${userId}`,
     apiState: api,
   });
 }
 
 export function userNotifications({
   api,
-  username,
-}: UserApiParamsWithUsername): Promise<NotificationsType> {
+  userId,
+}: UserApiParams): Promise<NotificationsType> {
   invariant(api, 'api state is required.');
-  invariant(username, 'username is required.');
+  invariant(userId, 'userId is required.');
 
   return callApi({
     auth: true,
-    endpoint: `accounts/account/${username}/notifications`,
+    endpoint: `accounts/account/${userId}/notifications`,
     apiState: api,
   });
 }

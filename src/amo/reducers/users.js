@@ -110,7 +110,7 @@ export const initialState: UsersState = {
 
 type FetchUserAccountParams = {|
   errorHandlerId: string,
-  username: string,
+  userId: UserId,
 |};
 
 export type FetchUserAccountAction = {|
@@ -120,16 +120,16 @@ export type FetchUserAccountAction = {|
 
 export const fetchUserAccount = ({
   errorHandlerId,
-  username,
+  userId,
 }: FetchUserAccountParams): FetchUserAccountAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
-  invariant(username, 'username is required');
+  invariant(userId, 'userId is required');
 
   return {
     type: FETCH_USER_ACCOUNT,
     payload: {
       errorHandlerId,
-      username,
+      userId,
     },
   };
 };
@@ -317,7 +317,7 @@ export const deleteUserPicture = ({
 
 type FetchUserNotificationsParams = {|
   errorHandlerId: string,
-  username: string,
+  userId: UserId,
 |};
 
 export type FetchUserNotificationsAction = {|
@@ -327,20 +327,20 @@ export type FetchUserNotificationsAction = {|
 
 export const fetchUserNotifications = ({
   errorHandlerId,
-  username,
+  userId,
 }: FetchUserNotificationsParams): FetchUserNotificationsAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
-  invariant(username, 'username is required');
+  invariant(userId, 'userId is required');
 
   return {
     type: FETCH_USER_NOTIFICATIONS,
-    payload: { errorHandlerId, username },
+    payload: { errorHandlerId, userId },
   };
 };
 
 type LoadUserNotificationsParams = {|
   notifications: NotificationsType,
-  username: string,
+  userId: UserId,
 |};
 
 type LoadUserNotificationsAction = {|
@@ -350,18 +350,18 @@ type LoadUserNotificationsAction = {|
 
 export const loadUserNotifications = ({
   notifications,
-  username,
+  userId,
 }: LoadUserNotificationsParams): LoadUserNotificationsAction => {
   invariant(notifications, 'notifications is required');
-  invariant(username, 'username is required');
+  invariant(userId, 'userId is required');
 
   return {
     type: LOAD_USER_NOTIFICATIONS,
-    payload: { notifications, username },
+    payload: { notifications, userId },
   };
 };
 
-export const getUserById = (users: UsersState, userId: number) => {
+export const getUserById = (users: UsersState, userId: UserId) => {
   invariant(userId, 'userId is required');
   return users.byID[userId];
 };
@@ -518,9 +518,9 @@ const reducer = (
       };
     }
     case LOAD_USER_NOTIFICATIONS: {
-      const { notifications, username } = action.payload;
+      const { notifications, userId } = action.payload;
 
-      const user = getUserByUsername(state, username);
+      const user = getUserById(state, userId);
 
       invariant(user, 'user is required');
       invariant(notifications, 'notifications are required');

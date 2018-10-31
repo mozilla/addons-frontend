@@ -149,7 +149,7 @@ describe(__filename, () => {
         // 1. load the user
         reducer(initialState, loadUserAccount({ user })),
         // 2. load their notifications
-        loadUserNotifications({ notifications, username: user.username }),
+        loadUserNotifications({ notifications, userId: user.id }),
       );
 
       expect(prevState.byID[user.id]).toEqual({
@@ -203,7 +203,7 @@ describe(__filename, () => {
         prevState,
         loadUserNotifications({
           notifications,
-          username: user.username,
+          userId: user.id,
         }),
       );
 

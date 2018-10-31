@@ -18,7 +18,7 @@ import {
   fetchUserAccount,
   fetchUserNotifications,
   getCurrentUser,
-  getUserByUsername,
+  getUserById,
   hasPermission,
   isDeveloper,
   logOutUser,
@@ -33,7 +33,11 @@ import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import Notice from 'ui/components/Notice';
 import OverlayCard from 'ui/components/OverlayCard';
-import type { NotificationsUpdateType, UserType } from 'amo/reducers/users';
+import type {
+  NotificationsUpdateType,
+  UserId,
+  UserType,
+} from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -57,12 +61,14 @@ type Props = {|
   i18n: I18nType,
   isUpdating: boolean,
   lang: string,
+  // `match` is used in `mapStateToProps()`
+  // eslint-disable-next-line react/no-unused-prop-types
   match: {|
     ...ReactRouterMatchType,
-    params: {| username: string |},
+    params: {| userId: string |},
   |},
   user: UserType | null,
-  username: string,
+  userId: UserId,
 |};
 
 type FormValues = {|
@@ -97,7 +103,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
-    const { dispatch, errorHandler, username, user } = props;
+    const { dispatch, errorHandler, userId, user } = props;
 
     this.state = {
       showProfileDeletionModal: false,
@@ -111,20 +117,20 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       return;
     }
 
-    if (!user && username) {
+    if (!user && userId) {
       dispatch(
         fetchUserAccount({
           errorHandlerId: errorHandler.id,
-          username,
+          userId,
         }),
       );
     }
 
-    if ((!user && username) || (user && !user.notifications)) {
+    if ((!user && userId) || (user && !user.notifications)) {
       dispatch(
         fetchUserNotifications({
           errorHandlerId: errorHandler.id,
-          username,
+          userId,
         }),
       );
     }
@@ -134,7 +140,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     const {
       isUpdating: wasUpdating,
       user: oldUser,
-      username: oldUsername,
+      userId: oldUserId,
     } = this.props;
 
     const {
@@ -145,26 +151,25 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       i18n,
       isUpdating,
       lang,
-      match: { params },
       user: newUser,
-      username: newUsername,
+      userId: newUserId,
     } = props;
 
-    if (oldUsername !== newUsername) {
-      if (!newUser && newUsername) {
+    if (oldUserId !== newUserId) {
+      if (!newUser && newUserId) {
         dispatch(
           fetchUserAccount({
             errorHandlerId: errorHandler.id,
-            username: newUsername,
+            userId: newUserId,
           }),
         );
       }
 
-      if ((!newUser && newUsername) || (newUser && !newUser.notifications)) {
+      if ((!newUser && newUserId) || (newUser && !newUser.notifications)) {
         dispatch(
           fetchUserNotifications({
             errorHandlerId: errorHandler.id,
-            username: newUser ? newUser.username : newUsername,
+            userId: newUser ? newUser.id : newUserId,
           }),
         );
       }
@@ -188,12 +193,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }
 
     if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
-      history.push(`/${lang}/${clientApp}/user/${newUsername}/`);
-      return;
-    }
-
-    if (params.username && oldUsername !== newUsername) {
-      history.push(`/${lang}/${clientApp}/user/${newUsername}/edit/`);
+      history.push(`/${lang}/${clientApp}/user/${newUserId}/`);
     }
   }
 
@@ -362,7 +362,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       notifications: {},
       occupation: '',
       picture: null,
-      username: this.props.username,
+      username: '',
     };
 
     if (!user) {
@@ -412,7 +412,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       i18n,
       isUpdating,
       user,
-      username,
+      userId,
     } = this.props;
 
     if (!currentUser) {
@@ -446,7 +446,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     const isEditingCurrentUser =
       currentUser && user ? currentUser.id === user.id : false;
 
-    const userProfileURL = `/user/${username}/`;
+    const userProfileURL = `/user/${userId}/`;
 
     const overlayClassName = 'UserProfileEdit-deletion-modal';
 
@@ -494,7 +494,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 isEditingCurrentUser
                   ? i18n.gettext('Account')
                   : i18n.sprintf(i18n.gettext('Account for %(username)s'), {
-                      username,
+                      username: user ? user.username : userId,
                     })
               }
             >
@@ -568,7 +568,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                     fields are optional, but they'll help other users get to
                     know %(username)s better.`,
                       ),
-                      { username },
+                      { username: user ? user.username : userId },
                     )}
               </p>
 
@@ -653,7 +653,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                     )
                   : i18n.sprintf(
                       i18n.gettext(`Introduce %(username)s to the community`),
-                      { username },
+                      { username: user ? user.username : userId },
                     )}
               </label>
               <Textarea
@@ -855,12 +855,15 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
 export function mapStateToProps(state: AppState, ownProps: Props) {
   const { clientApp, lang } = state.api;
+
   const { params } = ownProps.match;
+  const userId = Number(params.userId);
 
   const currentUser = getCurrentUser(state.users);
-  const user = params.username
-    ? getUserByUsername(state.users, params.username)
-    : currentUser;
+  const user =
+    params.userId && !Number.isNaN(userId)
+      ? getUserById(state.users, userId)
+      : currentUser;
 
   let hasEditPermission = currentUser && user && currentUser.id === user.id;
   if (currentUser && hasPermission(state, USERS_EDIT)) {
@@ -874,12 +877,12 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     isUpdating: state.users.isUpdating,
     lang,
     user,
-    username: user ? user.username : params.username,
+    userId: user ? user.id : userId,
   };
 }
 
 export const extractId = (ownProps: Props) => {
-  return ownProps.match.params.username;
+  return ownProps.match.params.userId;
 };
 
 const UserProfileEdit: React.ComponentType<Props> = compose(

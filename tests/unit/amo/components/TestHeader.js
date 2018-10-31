@@ -66,7 +66,6 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions({
       userProps: {
         display_name: displayName,
-        username: 'babar',
       },
     });
     const wrapper = renderHeader({ store });
@@ -98,7 +97,7 @@ describe(__filename, () => {
   it('displays a view profile link when user is signed in', () => {
     const id = 124;
     const { store } = dispatchSignInActions({
-      userProps: { username: 'babar', id },
+      userProps: { id },
     });
     const wrapper = renderHeader({ store });
     const link = wrapper.find('.Header-user-menu-view-profile-link');
@@ -109,9 +108,7 @@ describe(__filename, () => {
   });
 
   it('displays an edit profile link when user is signed in', () => {
-    const { store } = dispatchSignInActions({
-      userProps: { username: 'babar' },
-    });
+    const { store } = dispatchSignInActions();
     const wrapper = renderHeader({ store });
     const link = wrapper.find('.Header-user-menu-edit-profile-link');
 
@@ -121,9 +118,7 @@ describe(__filename, () => {
   });
 
   it('allows a signed-in user to log out', () => {
-    const { store } = dispatchSignInActions({
-      userProps: { username: 'babar' },
-    });
+    const { store } = dispatchSignInActions();
     const handleLogOut = sinon.stub();
 
     const wrapper = renderHeader({ store, handleLogOut });
@@ -140,7 +135,6 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions({
       userProps: {
         permissions: ['Addons:PostReview'],
-        username: 'babar',
       },
     });
     const wrapper = renderHeader({ store });
@@ -152,9 +146,7 @@ describe(__filename, () => {
   });
 
   it('does not display the reviewer tools link when user does not have permission', () => {
-    const { store } = dispatchSignInActions({
-      userProps: { username: 'babar' },
-    });
+    const { store } = dispatchSignInActions();
     const wrapper = renderHeader({ store });
     const link = wrapper.find('.Header-user-menu-reviewer-tools-link');
 
@@ -162,10 +154,7 @@ describe(__filename, () => {
   });
 
   it('displays a "manage my submissions" link when user is logged in', () => {
-    const username = 'championshuttler';
-    const { store } = dispatchSignInActions({
-      userProps: { username },
-    });
+    const { store } = dispatchSignInActions();
     const wrapper = renderHeader({ store });
     const link = wrapper.find('.Header-user-menu-developers-submissions-link');
 

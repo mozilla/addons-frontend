@@ -57,13 +57,11 @@ describe(__filename, () => {
     const author1 = {
       ...fakeAddon.authors[0],
       name: 'Author 1',
-      username: 'author-1',
       id: 101,
     };
     const author2 = {
       ...fakeAddon.authors[0],
       name: 'Author 2',
-      username: 'author-2',
       id: 102,
     };
 
@@ -140,13 +138,11 @@ describe(__filename, () => {
     const author1 = {
       ...fakeAddon.authors[0],
       name: 'Author 1',
-      username: 'author-1',
       id: 101,
     };
     const author2 = {
       ...fakeAddon.authors[0],
       name: 'Author 2',
-      username: 'author-2',
       id: 102,
     };
 

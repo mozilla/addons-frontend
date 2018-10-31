@@ -96,7 +96,7 @@ describe(__filename, () => {
       sagaTester.dispatch(
         fetchUserAccount({
           errorHandlerId: errorHandler.id,
-          username: 'tofumatt',
+          userId: 123,
         }),
       );
 
@@ -116,7 +116,7 @@ describe(__filename, () => {
       sagaTester.dispatch(
         fetchUserAccount({
           errorHandlerId: errorHandler.id,
-          username: 'tofumatt',
+          userId: 123,
         }),
       );
 
@@ -222,8 +222,8 @@ describe(__filename, () => {
     it('can receive a non-empty notifications object (dict) in payload', async () => {
       const state = sagaTester.getState();
 
-      const username = 'babar';
-      const user = createUserAccountResponse({ id: 5001, username });
+      const userId = 5001;
+      const user = createUserAccountResponse({ id: userId, username: 'babar' });
 
       const notifications = {
         reply: false,
@@ -269,7 +269,7 @@ describe(__filename, () => {
 
       const expectedCalledAction = loadUserNotifications({
         notifications: allNotifications,
-        username,
+        userId,
       });
 
       const calledAction = await sagaTester.waitFor(expectedCalledAction.type);
@@ -314,8 +314,8 @@ describe(__filename, () => {
 
       const state = sagaTester.getState();
 
-      const username = 'babar';
-      const user = createUserAccountResponse({ id: 5001, username });
+      const userId = 5001;
+      const user = createUserAccountResponse({ id: userId, username: 'babar' });
 
       // Set the "announcements" notification to false by default.
       const currentNotifications = createUserNotificationsResponse().map(
@@ -380,7 +380,7 @@ describe(__filename, () => {
 
       const expectedCalledAction = loadUserNotifications({
         notifications: newNotifications,
-        username,
+        userId,
       });
 
       const calledAction = await sagaTester.waitFor(expectedCalledAction.type);
@@ -438,9 +438,9 @@ describe(__filename, () => {
 
   describe('fetchUserNotifications', () => {
     it('calls the API to fetch the notifications of a user', async () => {
-      const username = 'tofumatt';
+      const userId = 'tofumatt';
 
-      const user = createUserAccountResponse({ username });
+      const user = createUserAccountResponse({ id: userId });
       sagaTester.dispatch(loadCurrentUserAccount({ user }));
 
       const notifications = createUserNotificationsResponse();
@@ -453,13 +453,13 @@ describe(__filename, () => {
       sagaTester.dispatch(
         fetchUserNotifications({
           errorHandlerId: errorHandler.id,
-          username,
+          userId,
         }),
       );
 
       const expectedCalledAction = loadUserNotifications({
         notifications,
-        username,
+        userId,
       });
 
       const calledAction = await sagaTester.waitFor(expectedCalledAction.type);
@@ -475,7 +475,7 @@ describe(__filename, () => {
       sagaTester.dispatch(
         fetchUserNotifications({
           errorHandlerId: errorHandler.id,
-          username: 'tofumatt',
+          userId: 123,
         }),
       );
 
