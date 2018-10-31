@@ -288,6 +288,11 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
         description: i18n.gettext('Never lose a page again'),
         url: '/addon/undo-close-tab-button/',
       },
+      {
+        title: i18n.gettext('Ad Analysis for Facebook'),
+        description: i18n.gettext('See how Facebook ads target you'),
+        url: '/addon/ad-analysis-for-facebook/',
+      },
     ];
   }
 

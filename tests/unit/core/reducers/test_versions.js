@@ -342,6 +342,20 @@ describe(__filename, () => {
         ).toEqual(createInternalVersion(version));
       });
 
+      it('handles invalid shelves', () => {
+        const state = versionsReducer(
+          undefined,
+          loadHomeAddons({
+            collections: [],
+            shelves: {
+              featuredExtensions: null,
+            },
+          }),
+        );
+
+        expect(getVersionById({ state, id: versionId })).toEqual(null);
+      });
+
       it('loads versions for collections', () => {
         const versionId2 = 111;
         const version2 = { ...fakeVersion, id: versionId2 };

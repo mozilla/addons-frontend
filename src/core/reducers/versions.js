@@ -297,10 +297,12 @@ const reducer = (
 
       const newVersions = {};
       for (const shelf of Object.keys(shelves)) {
-        for (const addon of shelves[shelf].results) {
-          if (addon.current_version) {
-            const version = createInternalVersion(addon.current_version);
-            newVersions[version.id] = version;
+        if (shelves[shelf]) {
+          for (const addon of shelves[shelf].results) {
+            if (addon.current_version) {
+              const version = createInternalVersion(addon.current_version);
+              newVersions[version.id] = version;
+            }
           }
         }
       }
