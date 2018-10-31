@@ -21,7 +21,6 @@ describe(__filename, () => {
   } = {}) {
     const allProps = {
       i18n: fakeI18n(),
-      query: '',
       ...props,
     };
 

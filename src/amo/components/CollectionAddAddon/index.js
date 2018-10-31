@@ -138,7 +138,8 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { errorHandler, i18n, uiState } = this.props;
+    const { collection, errorHandler, i18n, uiState } = this.props;
+
     const { addonAction } = uiState;
     const addonAdded = addonAction === addonAddedAction;
 
@@ -168,9 +169,9 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
           inputPlaceholder={i18n.gettext(
             'Find an add-on to include in this collection',
           )}
-          onSearch={() => {}}
           onSuggestionSelected={this.onAddonSelected}
           selectSuggestionText={i18n.gettext('Add to collection')}
+          key={collection ? collection.id : ''}
         />
       </Card>
     );
