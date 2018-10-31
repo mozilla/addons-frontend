@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 15:13+0000\n"
+"PO-Revision-Date: 2018-10-31 16:05+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2211,7 +2211,7 @@ msgstr "Słowniki"
 
 #: src/amo/pages/SearchTools/index.js:32
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "Sćehńće rozšěrjenja Firefox, zo byšće swoje wašnje pytanja přiměrił - wšitko wot pytanje z polěpšenej priwatnosću do pytanjow specifiskich za websydła, pytanja za wobrazami a wjace."
 
 #: src/amo/pages/StaticPages/About/index.js:103
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -2268,7 +2268,7 @@ msgstr "Wo přidatkach za Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:44
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Oficielne sydło Mozilla za sćahowanje rozšěrjenjow a drastow Firefox. Přidajće nowe funkcije a změńće zwonkowne wobhladowaka, zo byšće swoje webdožiwjenje přiměrił."
 
 #: src/amo/pages/StaticPages/About/index.js:53
 msgid ""
@@ -2381,7 +2381,7 @@ msgstr "Směrnica za pohódnoćenja"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:41
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Směrnicy, pokiwy a huste prašenja za pisanje pohódnoćenja za rozšěrjenja a drasty, kotrež sće sćahnył a z Firefox wužił."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid ""
@@ -2457,15 +2457,15 @@ msgstr "Moje pohódnoćenja"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil %(user)s, awtora rozšěrjenja a drasty Firefox. Namakajće druhe nałoženja wot %(user)s, inkluziwnje přerězne pojódnoćenja, čas čłonstwa a móžnosć, zo byšće problemy zdźělił."
 
 #: src/amo/pages/UserProfile/index.js:246
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil %(user)s, awtora rozšěrjenja Firefox. Namakajće druhe rozšěrjenja wot %(user)s, inkluziwnje přerězne pojódnoćenja, čas čłonstwa a móžnosć, zo byšće problemy zdźělił."
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil %(user)s, awtora drasty Firefox. Namakajće druhe drasty wot %(user)s, inkluziwnje přerězne pojódnoćenja, čas čłonstwa a móžnosć, zo byšće problemy zdźělił."
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
