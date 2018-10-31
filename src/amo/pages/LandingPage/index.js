@@ -10,7 +10,6 @@ import { connect } from 'react-redux';
 import { getLanding } from 'amo/actions/landing';
 import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
-import NotFound from 'amo/components/ErrorPage/NotFound';
 import Categories from 'amo/components/Categories';
 import { getCanonicalURL } from 'amo/utils';
 import {
@@ -65,14 +64,6 @@ export class LandingPageBase extends React.Component {
 
   constructor(props) {
     super(props);
-
-    const { params } = props.match;
-
-    if (!apiAddonTypeIsValid(params.visibleAddonType)) {
-      log.warn(oneLine`Skipping constructor() because visibleAddonType
-        is invalid: ${params.visibleAddonType}`);
-      return;
-    }
 
     this.getLandingDataIfNeeded();
     this.setViewContextType();
@@ -233,12 +224,6 @@ export class LandingPageBase extends React.Component {
       i18n,
     } = this.props;
     const { visibleAddonType } = this.props.match.params;
-
-    if (!apiAddonTypeIsValid(visibleAddonType)) {
-      log.warn(oneLine`Rendering 404 because visibleAddonType
-        is invalid: ${visibleAddonType}`);
-      return <NotFound />;
-    }
 
     const { addonType, html } = this.contentForType(visibleAddonType);
     const headingText = {

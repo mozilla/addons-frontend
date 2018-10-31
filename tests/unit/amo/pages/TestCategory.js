@@ -228,21 +228,6 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeDispatch);
   });
 
-  it('does not dispatch any action when visible addon type is invalid', () => {
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    render(
-      {},
-      {
-        autoDispatchCategories: false,
-        paramOverrides: {
-          visibleAddonType: 'invalid',
-        },
-      },
-    );
-
-    sinon.assert.notCalled(fakeDispatch);
-  });
-
   it('does not dispatch any action when category slug is invalid', () => {
     _categoriesFetch();
     _categoriesLoad();

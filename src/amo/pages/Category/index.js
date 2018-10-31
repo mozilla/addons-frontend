@@ -26,12 +26,7 @@ import {
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import {
-  apiAddonType,
-  apiAddonTypeIsValid,
-  getAddonTypeFilter,
-  isTheme,
-} from 'core/utils';
+import { apiAddonType, getAddonTypeFilter, isTheme } from 'core/utils';
 
 import './styles.scss';
 
@@ -87,12 +82,6 @@ export class CategoryBase extends React.Component {
 
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error.');
-      return;
-    }
-
-    if (!apiAddonTypeIsValid(params.visibleAddonType)) {
-      log.warn(oneLine`Skipping loadDataIfNeeded() because visibleAddonType
-        is invalid: ${params.visibleAddonType}`);
       return;
     }
 

@@ -91,12 +91,12 @@ const Routes = ({ _config = config }: Props = {}) => (
 
     <Route
       exact
-      path="/:lang/:application/:visibleAddonType/categories/"
+      path="/:lang/:application/:visibleAddonType(extensions|themes)/categories/"
       component={CategoriesPage}
     />
     <Route
       exact
-      path="/:lang/:application/:visibleAddonType/:slug/"
+      path="/:lang/:application/:visibleAddonType(extensions|themes)/:slug/"
       component={Category}
     />
 
@@ -143,7 +143,7 @@ const Routes = ({ _config = config }: Props = {}) => (
     />
     <Route
       exact
-      path="/:lang/:application/:visibleAddonType/"
+      path="/:lang/:application/:visibleAddonType(extensions|themes)/"
       component={LandingPage}
     />
 
