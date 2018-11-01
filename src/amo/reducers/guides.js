@@ -15,7 +15,7 @@ export const initialState: GuidesState = {
 
 export type FetchGuidesParams = {|
   errorHandlerId: string,
-  guids: string,
+  guids: Array<string>,
 |};
 
 export type FetchGuidesAction = {|

@@ -12,15 +12,15 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const guids = 'support@lastpass.com,{b76ed4e7-12a6-4f25-a27b-fc3f93289008}';
-
   let errorHandler;
+  let guids = [];
   let mockApi;
   let sagaTester;
 
   beforeEach(() => {
     errorHandler = createStubErrorHandler();
     mockApi = sinon.mock(searchApi);
+    guids = ['support@lastpass.com', '{b76ed4e7-12a6-4f25-a27b-fc3f93289008}'];
 
     const initialState = dispatchClientMetadata().state;
 
@@ -54,7 +54,7 @@ describe(__filename, () => {
         .withArgs({
           api: state.api,
           filters: {
-            guid: guids,
+            guid: guids.join(','),
           },
         })
         .once()

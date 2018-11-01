@@ -20,12 +20,12 @@ describe(__filename, () => {
 
       expect(state.loading).toEqual(true);
 
-      const afterAddonsLoadedState = guidesReducer(
+      const newState = guidesReducer(
         undefined,
         loadAddonResults({ addons: [fakeAddon] }),
       );
 
-      expect(afterAddonsLoadedState.loading).toEqual(false);
+      expect(newState.loading).toEqual(false);
     });
   });
 });

@@ -22,7 +22,7 @@ export function* fetchGuidesAddons({
     const params: SearchParams = {
       api: state.api,
       filters: {
-        guid: guids,
+        guid: guids.join(','),
       },
     };
 
