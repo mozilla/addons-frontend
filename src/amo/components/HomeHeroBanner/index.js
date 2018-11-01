@@ -3,7 +3,6 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import { INSTALL_SOURCE_HERO_PROMO } from 'core/constants';
-import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { addQueryParams } from 'core/utils';
 import Hero from 'ui/components/Hero';
