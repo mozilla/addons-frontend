@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 21:23+0000\n"
+"PO-Revision-Date: 2018-11-01 14:49+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -162,39 +162,33 @@ msgstr "Discarga %(addonName)s pro Firefox. %(summary)s"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:62
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obtene iste dictionario pro 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Obtene iste dictionario pro 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:67
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obtene iste extension pro 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Obtene iste extension pro 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:72
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obtene iste pacchetto de lingua pro 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Obtene iste pacchetto de lingua pro 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:78
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obtene iste thema pro 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Obtene iste thema pro 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:84
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obtene iste utensile de recerca pro 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Obtene iste utensile de recerca pro 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:89
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obtene iste additivo pro 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Obtene iste additivo pro 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:96
@@ -577,14 +571,12 @@ msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Additivos pro Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:232
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Additivos pro Firefox (%(locale)s)"
+msgstr "Additivos pro Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:236
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%(title)s – Additivos pro Firefox (%(locale)s)"
+msgstr "%(title)s – Additivos pro Firefox Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -619,9 +611,8 @@ msgid "%(categoryName)s – Themes"
 msgstr "%(categoryName)s – Themas"
 
 #: src/amo/components/CategoryHead/index.js:43
-#, fuzzy
 msgid "%(categoryName)s"
-msgstr "Categorias"
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:158
 msgid "Added to collection"
