@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-30 22:43+0000\n"
+"PO-Revision-Date: 2018-11-01 10:31+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1333,17 +1333,16 @@ msgid "Organize Your Tabs"
 msgstr "Organizirajte svoje zavihke"
 
 #: src/amo/components/HomeHeroGuides/index.js:39
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "Ocenite svojo izkušnjo"
+msgstr "Izboljšajte izkušnjo s predstavnostjo"
 
 #: src/amo/components/HomeHeroGuides/index.js:52
 msgid "Extensions are like apps for your browsers."
-msgstr ""
+msgstr "Razširitve so kot aplikacije za brskalnike."
 
 #: src/amo/components/HomeHeroGuides/index.js:55
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "V Firefox dodajo zmožnosti, ki brskanje naredijo hitrejše, pametnejše ali pa samo zabavnejše."
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
@@ -1975,7 +1974,7 @@ msgstr "Posnetki zaslona"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Ocene za %(addonName)s. Oglejte si, kaj drugi uporabniki menijo o %(addonName)s, in ga dodajte v Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:243
 msgid "Reviews for %(addonName)s"
