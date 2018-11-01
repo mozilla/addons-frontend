@@ -58,6 +58,10 @@ export const withExperiment = ({
     constructor(props: withExperimentInternalProps) {
       super(props);
 
+      if (!this.isExperimentEnabled()) {
+        return;
+      }
+
       const { cookies, randomizer, variantA, variantB } = this.props;
 
       this.experimentCookie = cookies.get(this.getCookieName());
