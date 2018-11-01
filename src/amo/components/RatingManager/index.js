@@ -1,6 +1,5 @@
 /* @flow */
 /* eslint-disable react/no-unused-prop-types */
-import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -16,9 +15,7 @@ import {
   updateAddonReview,
 } from 'amo/actions/reviews';
 import * as reviewsApi from 'amo/api/reviews';
-import AddonReview from 'amo/components/AddonReview';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
-import AddonReviewManager from 'amo/components/AddonReviewManager';
 import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
 import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
@@ -43,10 +40,7 @@ import type { AddonVersionType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
-import type {
-  GetLatestReviewParams,
-  SubmitReviewParams,
-} from 'amo/api/reviews';
+import type { GetLatestReviewParams } from 'amo/api/reviews';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ApiState } from 'core/reducers/api';
 import type { AddonType } from 'core/types/addons';
@@ -62,24 +56,19 @@ type LoadSavedReviewFunc = ({|
   versionId: $PropertyType<GetLatestReviewParams, 'version'>,
 |}) => Promise<any>;
 
-type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
-
 type Props = {|
   addon: AddonType,
-  onReviewSubmitted?: () => void,
   version: AddonVersionType,
 |};
 
 type DispatchMappedProps = {|
   dispatch: DispatchFunc,
   loadSavedReview: LoadSavedReviewFunc,
-  submitReview: SubmitReviewFunc,
 |};
 
 type InternalProps = {|
   ...Props,
   ...DispatchMappedProps,
-  _config: typeof config,
   apiState: ApiState,
   beginningToDeleteReview: boolean,
   deletingReview: boolean,
@@ -91,20 +80,7 @@ type InternalProps = {|
   userReview?: UserReviewType | null,
 |};
 
-type State = {|
-  showTextEntry: boolean,
-|};
-
-export class RatingManagerBase extends React.Component<InternalProps, State> {
-  static defaultProps = {
-    _config: config,
-  };
-
-  constructor(props: InternalProps) {
-    super(props);
-    this.state = { showTextEntry: false };
-  }
-
+export class RatingManagerBase extends React.Component<InternalProps> {
   componentDidMount() {
     const {
       addon,
@@ -129,7 +105,6 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
 
   onSelectRating = (score: number) => {
     const {
-      _config,
       addon,
       apiState,
       dispatch,
@@ -155,31 +130,24 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
         versionId ${params.versionId || '[empty]'}`);
     }
 
-    if (_config.get('enableFeatureInlineAddonReview')) {
-      if (userReview) {
-        dispatch(
-          updateAddonReview({
-            errorHandlerId: errorHandler.id,
-            score,
-            reviewId: userReview.id,
-          }),
-        );
-      } else {
-        dispatch(
-          createAddonReview({
-            addonId: addon.id,
-            errorHandlerId: errorHandler.id,
-            score,
-            versionId: version.id,
-          }),
-        );
-      }
-      return null;
+    if (userReview) {
+      dispatch(
+        updateAddonReview({
+          errorHandlerId: errorHandler.id,
+          score,
+          reviewId: userReview.id,
+        }),
+      );
+    } else {
+      dispatch(
+        createAddonReview({
+          addonId: addon.id,
+          errorHandlerId: errorHandler.id,
+          score,
+          versionId: version.id,
+        }),
+      );
     }
-
-    return this.props.submitReview(params).then(() => {
-      this.setState({ showTextEntry: true });
-    });
   };
 
   getLogInPrompt(
@@ -215,27 +183,8 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     }
   }
 
-  onReviewSubmitted = () => {
-    this.setState({ showTextEntry: false });
-    if (this.props.onReviewSubmitted) {
-      this.props.onReviewSubmitted();
-    }
-  };
-
-  showTextEntry = (event: SyntheticEvent<any>) => {
-    event.preventDefault();
-    this.setState({ showTextEntry: true });
-  };
-
   isSignedIn() {
     return Boolean(this.props.userId);
-  }
-
-  shouldShowTextEntry() {
-    const { userReview } = this.props;
-    const { showTextEntry } = this.state;
-
-    return showTextEntry && userReview && this.isSignedIn();
   }
 
   renderLogInToRate() {
@@ -246,22 +195,6 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
         noIcon
         className="RatingManager-log-in-to-rate-button"
         logInText={this.getLogInPrompt({ addonType: addon.type })}
-      />
-    );
-  }
-
-  renderTextEntry() {
-    const { _config, userReview } = this.props;
-    invariant(userReview, 'userReview is required');
-
-    if (_config.get('enableFeatureInlineAddonReview')) {
-      return <AddonReviewManager review={userReview} />;
-    }
-
-    return (
-      <AddonReview
-        onReviewSubmitted={this.onReviewSubmitted}
-        review={userReview}
       />
     );
   }
@@ -351,11 +284,14 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
     );
   }
 
-  renderInlineReviewControls() {
-    const { addon, editingReview, userReview } = this.props;
+  render() {
+    const { addon, editingReview, userReview, version } = this.props;
+
+    invariant(addon, 'addon is required');
+    invariant(version, 'version is required');
 
     return (
-      <React.Fragment>
+      <div className="RatingManager">
         {!editingReview && this.renderUserRatingForm()}
         {userReview && (
           <AddonReviewCard
@@ -370,22 +306,6 @@ export class RatingManagerBase extends React.Component<InternalProps, State> {
             slim
           />
         )}
-      </React.Fragment>
-    );
-  }
-
-  render() {
-    const { _config, addon, version } = this.props;
-
-    invariant(addon, 'addon is required');
-    invariant(version, 'version is required');
-
-    return (
-      <div className="RatingManager">
-        {this.shouldShowTextEntry() ? this.renderTextEntry() : null}
-        {_config.get('enableFeatureInlineAddonReview')
-          ? this.renderInlineReviewControls()
-          : this.renderUserRatingForm()}
         <ReportAbuseButton addon={addon} />
       </div>
     );
@@ -475,31 +395,9 @@ export const mapDispatchToProps = (
       });
   };
 
-  const submitReview = (params) => {
-    return reviewsApi.submitReview(params).then((review) => {
-      // The API could possibly return a null review.version if that
-      // version was deleted. In that case, we fall back to the submitted
-      // versionId which came from the page data. It is highly unlikely
-      // that both of these will be empty.
-      const versionId =
-        (review.version && review.version.id) || params.versionId;
-      invariant(versionId, 'versionId cannot be empty');
-      dispatch(
-        setLatestReview({
-          addonId: review.addon.id,
-          addonSlug: review.addon.slug,
-          userId: review.user.id,
-          versionId,
-          review,
-        }),
-      );
-    });
-  };
-
   return {
     dispatch,
     loadSavedReview: ownProps.loadSavedReview || loadSavedReview,
-    submitReview: ownProps.submitReview || submitReview,
   };
 };
 
