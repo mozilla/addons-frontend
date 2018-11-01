@@ -196,7 +196,7 @@ describe(__filename, () => {
 
     dispatchSpy.resetHistory();
 
-    root.setProps({ addon });
+    root.setProps({ addon: { ...addon } });
 
     sinon.assert.notCalled(dispatchSpy);
   });
