@@ -320,3 +320,7 @@
 .Icon-video {
   @include icon($name: 'video');
 }
+
+.Icon-trophy {
+  @include icon($name: 'trophy');
+}
