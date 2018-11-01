@@ -4,6 +4,7 @@ import * as React from 'react';
 import invariant from 'invariant';
 import { withCookies, Cookies } from 'react-cookie';
 
+import log from 'core/logger';
 import { getDisplayName } from 'core/utils';
 
 export type WithExperimentInjectedProps = {|
@@ -59,6 +60,7 @@ export const withExperiment = ({
       super(props);
 
       if (!this.isExperimentEnabled()) {
+        log.debug(`Experiment "${defaultId}" is not enabled by config.`);
         return;
       }
 
