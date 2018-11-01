@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-11-01 19:49+0000\n"
+"PO-Revision-Date: 2018-11-01 19:58+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1328,9 +1328,8 @@ msgid "Organize Your Tabs"
 msgstr "Organisa tu schedas"
 
 #: src/amo/components/HomeHeroGuides/index.js:39
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "Valuta tu experientia de usator"
+msgstr "Meliora tu experientia de medios"
 
 #: src/amo/components/HomeHeroGuides/index.js:52
 msgid "Extensions are like apps for your browsers."
@@ -1469,14 +1468,12 @@ msgid "Log in to rate this add-on"
 msgstr "Authentica te pro valutar iste additivo"
 
 #: src/amo/components/RatingManager/index.js:289
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Vole tu vermente deler iste revision?"
+msgstr "Vole tu vermente deler tu revision de %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:294
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "Vole tu vermente deler iste classification?"
+msgstr "Vole tu vermente deler tu valutation de %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:299
 msgid "How are you enjoying %(addonName)s?"
@@ -2447,7 +2444,7 @@ msgstr "Le profilo de %(user)s, autor de extension de Firefox. Trova altere exte
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Le profilo de %(user)s, autor de extension de Firefox. Trova altere extensiones per %(user)s, anque le valutationes medie, possession, e le option pro reportar problemas."
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
@@ -2724,23 +2721,23 @@ msgstr "Gratias pro visitar iste sito! Per favor prende un minuta o duo pro cont
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 #: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
