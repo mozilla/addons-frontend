@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-30 19:33+0000\n"
-"Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
+"PO-Revision-Date: 2018-11-01 14:41+0000\n"
+"Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -168,27 +168,27 @@ msgstr "%(addonName)s – 下载适用于 Android 的 🦊 Firefox 字典（%(lo
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:67
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 下载适用于 Android 的 🦊 Firefox 扩展（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:72
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 下载适用于 Android 的 🦊 Firefox 语言包（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:78
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 下载适用于 Android 的 🦊 Firefox 主题（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 下载适用于 Android 的 🦊 Firefox 搜索工具（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:89
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 下载适用于 Android 的 🦊 Firefox 附加组件（%(locale)s）"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:96
@@ -567,11 +567,11 @@ msgstr "%(title)s – Firefox 附加组件（%(locale)s）"
 
 #: src/amo/components/App/index.js:232
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "适用于 Android 的 Firefox 附加组件（%(locale)s）"
 
 #: src/amo/components/App/index.js:236
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – 适用于 Android 的 Firefox 附加组件（%(locale)s）"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -599,15 +599,15 @@ msgstr "正在加载分类。"
 
 #: src/amo/components/CategoryHead/index.js:36
 msgid "%(categoryName)s – Extensions"
-msgstr ""
+msgstr "%(categoryName)s – 扩展"
 
 #: src/amo/components/CategoryHead/index.js:39
 msgid "%(categoryName)s – Themes"
-msgstr ""
+msgstr "%(categoryName)s – 主题"
 
 #: src/amo/components/CategoryHead/index.js:43
 msgid "%(categoryName)s"
-msgstr ""
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:158
 msgid "Added to collection"
@@ -1311,23 +1311,23 @@ msgstr "打开了很多的标签页？用一个整洁的侧边栏管理它们"
 
 #: src/amo/components/HomeHeroGuides/index.js:29
 msgid "Stay Safe Online"
-msgstr ""
+msgstr "确保网络安全"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 msgid "Organize Your Tabs"
-msgstr ""
+msgstr "管理您的标签页"
 
 #: src/amo/components/HomeHeroGuides/index.js:39
 msgid "Enhance Your Media Experience"
-msgstr ""
+msgstr "增强您的媒体体验"
 
 #: src/amo/components/HomeHeroGuides/index.js:52
 msgid "Extensions are like apps for your browsers."
-msgstr ""
+msgstr "扩展就像是您浏览器上的应用程序。"
 
 #: src/amo/components/HomeHeroGuides/index.js:55
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "它们为 Firefox 增添功能，让上网变得更快、更智能，或更好玩。"
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
@@ -1932,7 +1932,7 @@ msgstr "屏幕截图"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "%(addonName)s 的评价与评分。看看其他的用户觉得 %(addonName)s 如何，再安装进您的 Firefox 浏览器。"
 
 #: src/amo/pages/AddonReviewList/index.js:243
 msgid "Reviews for %(addonName)s"
@@ -1993,11 +1993,11 @@ msgstr "在您的收藏集中搜索扩展和主题。"
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "下载并创建 Firefox 收藏集，以记录您最爱的的扩展与主题。探索 %(collectionName)s——%(collectionDescription)s。"
 
 #: src/amo/pages/Collection/index.js:506
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "下载并创建 Firefox 收藏集，以记录您最爱的的扩展与主题。探索 %(collectionName)s。"
 
 #: src/amo/pages/CollectionList/index.js:111
 msgid "Collections"
@@ -2081,7 +2081,7 @@ msgstr "使用主题改变 Firefox 的外观。"
 
 #: src/amo/pages/Home/index.js:234
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "下载 Firefox 扩展与主题，它们就像是您浏览器上的应用程序，可以屏蔽讨人厌的广告、保护密码、更改浏览器外观，还有更多功能。"
 
 #: src/amo/pages/Home/index.js:323
 msgid "See more popular extensions"
@@ -2105,11 +2105,11 @@ msgstr "家长控制"
 
 #: src/amo/pages/LandingPage/index.js:214
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "下载主题来更改 Firefox 的外观。可根据自己的风格来定制您的体验，不论是可爱小动物、邪恶机器人，或是美丽风景——这里有数以千计的选择 。"
 
 #: src/amo/pages/LandingPage/index.js:219
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
-msgstr ""
+msgstr "下载 Firefox 扩展，添加功能来定制您的上网体验。通过浏览器的“应用程序”来保护密码、寻找购物折扣、增强看片体验、屏蔽讨人厌的广告。"
 
 #: src/amo/pages/LandingPage/index.js:249
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2133,7 +2133,7 @@ msgstr "字典和语言包"
 
 #: src/amo/pages/LanguageTools/index.js:172
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "下载 Firefox 字典与语言包。添加新的语言选项到您浏览器的拼写检查工具，或更改浏览器界面语言。"
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2161,7 +2161,7 @@ msgstr "字典"
 
 #: src/amo/pages/SearchTools/index.js:32
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "下载 Firefox 扩展来定制您的搜索方式——增强隐私的搜索功能、特定网站搜索、图片搜索等功能。"
 
 #: src/amo/pages/StaticPages/About/index.js:103
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -2215,7 +2215,7 @@ msgstr "关于 Firefox 附加组件"
 
 #: src/amo/pages/StaticPages/About/index.js:44
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Mozilla 用来下载 Firefox 扩展与主题的官方网站。可添加新功能、更改浏览器外观来定制您的上网体验。"
 
 #: src/amo/pages/StaticPages/About/index.js:53
 msgid ""
@@ -2315,7 +2315,7 @@ msgstr "评价指南"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:41
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "对您为 Firefox 下载使用的扩展与主题留下评价时的指南、小提示、常见问题。"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid ""
@@ -2387,15 +2387,15 @@ msgstr "我所发表的评价"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Firefox 扩展与主题作者 %(user)s 的个人资料。寻找其他由 %(user)s 开发的应用程序，包含平均得分、使用时长以及反馈问题的选项。"
 
 #: src/amo/pages/UserProfile/index.js:246
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Firefox 扩展作者 %(user)s 的个人资料。寻找其他由 %(user)s 开发的扩展，包含平均得分、使用时长以及反馈问题的选项。"
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Firefox 主题作者 %(user)s 的个人资料。寻找其他由 %(user)s 开发的主题，包含平均得分、使用时长以及反馈问题的选项。"
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
