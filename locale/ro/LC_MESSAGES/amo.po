@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-11-01 20:53+0000\n"
+"PO-Revision-Date: 2018-11-01 21:28+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1420,7 +1420,7 @@ msgstr "Află mai multe despre permisiuni"
 
 #: src/amo/components/PermissionsCard/permissions.js:24
 msgid "Read and modify bookmarks"
-msgstr "Să citească și să modifice marcajele"
+msgstr "Să citească și să modifice marcaje"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify browser settings"
@@ -1428,7 +1428,7 @@ msgstr "Să citească și să modifice setările browserului"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr "Să șteargă istoricul recent, cookie-urile și datele asociate"
+msgstr "Să șteargă istoricul recent de navigare, cookie-urile și datele asociate"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Get data from the clipboard"
@@ -1448,11 +1448,11 @@ msgstr "Să descarce fișiere și să citească sau să modifice istoricul desc�
 
 #: src/amo/components/PermissionsCard/permissions.js:37
 msgid "Open files downloaded to your computer"
-msgstr "Să deschidă fișierele descărcate pe calculator"
+msgstr "Să deschidă fișiere descărcate pe calculator"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Read the text of all open tabs"
-msgstr "Să citească textul tuturor filelor deschise"
+msgstr "Să citească textul din toate filele deschise"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Access your location"
@@ -1464,7 +1464,7 @@ msgstr "Să acceseze istoricul de navigare"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Monitor extension usage and manage themes"
-msgstr "Să monitorizeze utilizarea de extensii și să gestioneze temele"
+msgstr "Să monitorizeze utilizarea de extensii și să gestioneze teme"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Exchange messages with programs other than Firefox"
@@ -1501,7 +1501,7 @@ msgstr "Să ascundă și să afișeze filele browserului"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Store unlimited amount of client-side data"
-msgstr "Să stocheze cantitate nelimitată de date pe partea de client"
+msgstr "Să stocheze un volum nelimitat de date pe partea de client"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access browser activity during navigation"
