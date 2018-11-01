@@ -1,0 +1,85 @@
+@import '~amo/css/styles';
+
+.GuideAddonCard {
+  display: flex;
+  flex-direction: column;
+
+  // TODO: check on get-firefox button style.
+  // See https://github.com/mozilla/addons-frontend/issues/6432#issuecomment-433083079.
+  .Button--get-firefox,
+  .AMInstallButton {
+    @include respond-to(medium) {
+      align-self: center;
+      margin-left: auto;
+    }
+  }
+
+  .Icon-trophy {
+    height: 12px;
+    margin-right: 4px;
+    width: 12px;
+  }
+
+  .AddonTitle {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  .GuideAddonCard-content-header-title {
+    .AddonTitle-author {
+      font-size: 12px;
+
+      a {
+        font-size: inherit;
+      }
+    }
+  }
+}
+
+.GuideAddonCard-content {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include respond-to(medium) {
+    flex-wrap: nowrap;
+  }
+}
+
+.GuideAddonCard-content-icon {
+  height: 40px;
+  margin-bottom: 12px;
+  width: 40px;
+}
+
+.GuideAddonCard-content-header {
+  @include respond-to(medium) {
+    display: flex;
+  }
+}
+
+.GuideAddonCard-content-header-title {
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to(medium) {
+    margin: 0 16px;
+  }
+}
+
+.GuideAddonCard-content-header-staff-pick {
+  font-size: 10px;
+  margin-top: 8px;
+  white-space: nowrap;
+
+  @include respond-to(medium) {
+    margin-top: 2px;
+  }
+}
+
+.GuideAddonCard-content-description {
+  display: flex;
+
+  @include respond-to(medium) {
+    margin: 8px 16px;
+  }
+}
