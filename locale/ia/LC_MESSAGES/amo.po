@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-11-01 14:49+0000\n"
+"PO-Revision-Date: 2018-11-01 16:32+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2192,6 +2192,8 @@ msgstr "Dictionarios"
 #: src/amo/pages/SearchTools/index.js:32
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
 msgstr ""
+"Discarga extensiones de Firefox pro personalisar le maniera que tu usa pro recercar ulle cosa ab le recerca con confidentialitate augmentate al recercas specific de sito, recerca de imagine e altero"
+" ancora."
 
 #: src/amo/pages/StaticPages/About/index.js:103
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -2247,7 +2249,7 @@ msgstr "A proposito del additivos de Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:44
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Le sito official de Mozilla pro discargar extensiones e themas de Firefox. Adder nove functionalitates e cambiar le apparentia del navigator pro personalisar tu experientia del web."
 
 #: src/amo/pages/StaticPages/About/index.js:53
 msgid ""
