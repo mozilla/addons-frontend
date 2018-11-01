@@ -19,6 +19,7 @@ export type SearchParams = {|
     category?: string,
     compatibleWithVersion?: number | string,
     featured?: boolean,
+    guid?: string,
     operatingSystem?: string,
     page?: string,
     page_size?: number,

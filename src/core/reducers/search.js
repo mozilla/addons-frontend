@@ -21,6 +21,7 @@ export type FiltersType = {|
   page?: string,
   query?: Object,
   sort?: string,
+  guid?: string,
 |};
 
 export type SearchState = {|
