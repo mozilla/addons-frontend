@@ -217,9 +217,8 @@ export async function getLatestUserReview({
   }
   // There are enough constraints in the database where we should never
   // receive multiple objects so throw an error for that case.
-  // TODO: do not stringify the entier review objects.
   throw new Error(oneLine`Unexpectedly received multiple review objects:
-      ${JSON.stringify(reviews)}`);
+      ${reviews.map((r) => r.id)}`);
 }
 
 type FlagReviewParams = {|
