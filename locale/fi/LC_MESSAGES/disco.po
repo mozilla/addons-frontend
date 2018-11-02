@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:07+0000\n"
-"PO-Revision-Date: 2018-10-15 17:00+0000\n"
-"Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
+"PO-Revision-Date: 2018-11-02 16:28+0000\n"
+"Last-Translator: Jarmo <jarmo@juslin.me>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -51,15 +51,10 @@ msgid "Server Error"
 msgstr "Palvelinvirhe"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Olemme pahoillamme, tapahtui virhe, emmekä voi toteuttaa pyyntöäsi. Olemme "
-"tallentaneet virheen ja tutkimme sen syytä."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Olemme pahoillamme, tapahtui virhe, emmekä voi toteuttaa pyyntöäsi. Olemme tallentaneet virheen ja tutkimme sen syytä."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Virhekoodi: %(status)s."
 
@@ -69,8 +64,7 @@ msgstr "Sivua ei löytynyt"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
-"Olemme pahoillamme, mutta emme löytäneet syöttämästäsi osoitteesta mitään."
+msgstr "Olemme pahoillamme, mutta emme löytäneet syöttämästäsi osoitteesta mitään."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
@@ -86,23 +80,23 @@ msgstr "OK"
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s t"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s kt"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s Mt"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s Gt"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s Tt"
 
 #: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
@@ -158,17 +152,11 @@ msgstr "Mukauta Firefoxiasi"
 
 #: src/disco/pages/DiscoPane/index.js:149
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Firefoxille on tuhansia ilmaisia lisäosia, joita kehittävät ihmiset ympäri "
-"maailmaa. Voit muokata Firefoxista omanlaisesi asentamalla niitä. Lisäosia "
-"on hauskoista teemoista tehokkaisiin työkaluihin, jotka tekevät selaamisesta "
-"nopeampaa ja turvallisempaa. Näin alkajaisiksi tässä on muutamia, joita "
-"suosittelemme niiden erinomaisen suorituskyvyn ja toiminnallisuuden vuoksi."
+"Firefoxille on tuhansia ilmaisia lisäosia, joita kehittävät ihmiset ympäri maailmaa. Voit muokata Firefoxista omanlaisesi asentamalla niitä. Lisäosia on hauskoista teemoista tehokkaisiin "
+"työkaluihin, jotka tekevät selaamisesta nopeampaa ja turvallisempaa. Näin alkajaisiksi tässä on muutamia, joita suosittelemme niiden erinomaisen suorituskyvyn ja toiminnallisuuden vuoksi."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
