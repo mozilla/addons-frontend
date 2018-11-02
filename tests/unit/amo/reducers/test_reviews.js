@@ -979,9 +979,9 @@ describe(__filename, () => {
 
   describe('makeLatestUserReviewKey', () => {
     it('makes a key', () => {
-      expect(
-        makeLatestUserReviewKey({ userId: 1, addonId: 2 }),
-      ).toEqual('user-1/addon-2');
+      expect(makeLatestUserReviewKey({ userId: 1, addonId: 2 })).toEqual(
+        'user-1/addon-2',
+      );
     });
   });
 
@@ -1021,9 +1021,7 @@ describe(__filename, () => {
       );
 
       expect(
-        state.latestUserReview[
-          makeLatestUserReviewKey({ addonId, userId })
-        ],
+        state.latestUserReview[makeLatestUserReviewKey({ addonId, userId })],
       ).toEqual(review.id);
     });
 
@@ -1037,9 +1035,7 @@ describe(__filename, () => {
       );
 
       expect(
-        state.latestUserReview[
-          makeLatestUserReviewKey({ addonId, userId })
-        ],
+        state.latestUserReview[makeLatestUserReviewKey({ addonId, userId })],
       ).toBeNull();
     });
 

@@ -64,13 +64,7 @@ type InternalProps = {|
 
 export class RatingManagerBase extends React.Component<InternalProps> {
   componentDidMount() {
-    const {
-      addon,
-      dispatch,
-      errorHandler,
-      userId,
-      userReview,
-    } = this.props;
+    const { addon, dispatch, errorHandler, userId, userReview } = this.props;
 
     if (userId && userReview === undefined) {
       log.debug(`Loading a saved rating (if it exists) for user ${userId}`);
