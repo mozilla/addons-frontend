@@ -218,12 +218,10 @@ describe(__filename, () => {
           },
           apiState: undefined,
         })
-        .returns(
-          Promise.resolve(
-            getReviewsResponse({
-              reviews: [expectedReview],
-            }),
-          ),
+        .resolves(
+          getReviewsResponse({
+            reviews: [expectedReview],
+          }),
         );
 
       const review = await getLatestUserReview(params);
@@ -232,13 +230,11 @@ describe(__filename, () => {
     });
 
     it('throws an error if multple reviews are received', async () => {
-      mockApi.expects('callApi').returns(
-        Promise.resolve(
-          getReviewsResponse({
-            // In real life, the API should never return multiple reviews like this.
-            reviews: [{ ...fakeReview, id: 1 }, { ...fakeReview, id: 2 }],
-          }),
-        ),
+      mockApi.expects('callApi').resolves(
+        getReviewsResponse({
+          // In real life, the API should never return multiple reviews like this.
+          reviews: [{ ...fakeReview, id: 1 }, { ...fakeReview, id: 2 }],
+        }),
       );
 
       await getLatestUserReview({
@@ -250,52 +246,15 @@ describe(__filename, () => {
       });
     });
 
-    it('returns latest review as null when there are no reviews at all', () => {
-      mockApi
-        .expects('callApi')
-        .returns(Promise.resolve(getReviewsResponse({ reviews: [] })));
+    it('returns latest review as null when there are no reviews at all', async () => {
+      mockApi.expects('callApi').resolves(getReviewsResponse({ reviews: [] }));
 
-      return getLatestUserReview({ user: 123, addon: 321, version: 456 }).then(
-        (review) => {
-          expect(review).toBe(null);
-        },
-      );
-    });
-
-    it('requires user, addon, and version', () => {
-      mockApi.expects('callApi').returns(Promise.resolve(getReviewsResponse()));
-
-      return getLatestUserReview().then(unexpectedSuccess, (error) => {
-        expect(error.message).toMatch(
-          /user, addon, and version must be specified/,
-        );
+      const review = await getLatestUserReview({
+        user: 123,
+        addon: 321,
+        version: 456,
       });
-    });
-
-    it('requires addon and version', () => {
-      mockApi.expects('callApi').returns(Promise.resolve(getReviewsResponse()));
-
-      return getLatestUserReview({ user: 123 }).then(
-        unexpectedSuccess,
-        (error) => {
-          expect(error.message).toMatch(
-            /user, addon, and version must be specified/,
-          );
-        },
-      );
-    });
-
-    it('requires a version', () => {
-      mockApi.expects('callApi').returns(Promise.resolve(getReviewsResponse()));
-
-      return getLatestUserReview({ addon: 321, user: 123 }).then(
-        unexpectedSuccess,
-        (error) => {
-          expect(error.message).toMatch(
-            /user, addon, and version must be specified/,
-          );
-        },
-      );
+      expect(review).toBe(null);
     });
   });
 

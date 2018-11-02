@@ -53,7 +53,7 @@ type LoadSavedReviewFunc = ({|
   addonSlug: string,
   apiState: ApiState,
   userId: $PropertyType<GetLatestReviewParams, 'user'>,
-  versionId: $PropertyType<GetLatestReviewParams, 'version'>,
+  versionId: number,
 |}) => Promise<any>;
 
 type Props = {|
@@ -370,6 +370,7 @@ export const mapDispatchToProps = (
         apiState,
         user: userId,
         addon: addonId,
+        // TODO: omit this.
         version: versionId,
       })
       .then((review) => {
