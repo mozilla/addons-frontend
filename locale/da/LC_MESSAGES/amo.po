@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 13:15+0000\n"
+"PO-Revision-Date: 2018-11-02 09:30+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -156,7 +156,7 @@ msgstr "%(addonName)s – Hent dette tema til 🦊 Firefox (%(locale)s)"
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:117
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Hent dette søgeværktøj til 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:122
@@ -190,7 +190,7 @@ msgstr "%(addonName)s – Hent dette tema til 🦊 Firefox til Android (%(locale
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Hent dette søgeværktøj til 🦊 Firefox til Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:89
