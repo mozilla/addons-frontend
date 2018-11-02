@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 19:12+0000\n"
+"PO-Revision-Date: 2018-11-02 21:04+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -927,7 +927,7 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
-"Jolic nic hynac %(startNotedLink)szapisane%(endNotedLink)s, se wopśimjeśe na toś tom sedle pód %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%%(endLicenseLink)s abo "
+"Jolic nic hynac %(startNotedLink)szapisane%(endNotedLink)s, se wopśimjeśe na toś tom sedle pód %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s abo "
 "póznjejšeju wersiju licencěrujo."
 
 #: src/amo/components/Footer/index.js:22
@@ -1100,7 +1100,7 @@ msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:161
 msgid "Automatically start Firefox in full screen mode"
-msgstr "Firefox awtomatiski w modusu połneje wobrazowki awtomatiski startowaś"
+msgstr "Firefox awtomatiski w modusu połneje wobrazowki startowaś"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "Video Speed Controller"
