@@ -860,7 +860,6 @@ describe(__filename, () => {
       const body = 'This add-on works pretty well for me';
       const score = 4;
       const userId = 12345;
-      const versionId = 7653;
 
       const externalReview = createExternalReview({
         addonId,
@@ -868,19 +867,17 @@ describe(__filename, () => {
         body,
         score,
         userId,
-        versionId,
       });
 
       mockApi.expects('submitReview').resolves(externalReview);
 
-      _createAddonReview({ addonId, body, score, versionId });
+      _createAddonReview({ addonId, body, score });
 
       const expectedAction = setLatestReview({
         addonId,
         addonSlug,
         review: externalReview,
         userId,
-        versionId,
       });
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
@@ -892,7 +889,6 @@ describe(__filename, () => {
       const body = 'This add-on works pretty well for me';
       const rating = 4;
       const userId = 12345;
-      const versionId = 7653;
 
       const externalReview = createExternalReview({
         addonId,
@@ -901,7 +897,6 @@ describe(__filename, () => {
         isDeveloperReply: true,
         rating,
         userId,
-        versionId,
       });
 
       mockApi.expects('submitReview').resolves(externalReview);
@@ -916,7 +911,6 @@ describe(__filename, () => {
         addonSlug,
         review: externalReview,
         userId,
-        versionId,
       });
 
       expect(sagaTester.numCalled(unexpectedAction.type)).toEqual(0);
@@ -1096,7 +1090,6 @@ describe(__filename, () => {
           addonSlug: fakeAddon.slug,
           errorHandlerId: 'any-error-handler',
           userId: 9876,
-          versionId: 1234,
           ...params,
         }),
       );
@@ -1116,7 +1109,6 @@ describe(__filename, () => {
       const addonId = review.addon.id;
       const addonSlug = review.addon.slug;
       const userId = review.user.id;
-      const versionId = review.version.id;
       mockApi
         .expects('getLatestUserReview')
         .withArgs({
@@ -1130,7 +1122,6 @@ describe(__filename, () => {
         addonId,
         addonSlug,
         userId,
-        versionId,
       });
 
       const expectedAction = setReview(review);
@@ -1141,7 +1132,6 @@ describe(__filename, () => {
         userId,
         addonId,
         addonSlug,
-        versionId,
         review,
       });
       const setLatestAction = await matchingSagaAction(
@@ -1159,7 +1149,6 @@ describe(__filename, () => {
       const addonId = review.addon.id;
       const addonSlug = review.addon.slug;
       const userId = review.user.id;
-      const versionId = review.version.id;
 
       mockApi.expects('getLatestUserReview').resolves(null);
 
@@ -1167,14 +1156,12 @@ describe(__filename, () => {
         addonId,
         addonSlug,
         userId,
-        versionId,
       });
 
       const expectedAction = setLatestReview({
         addonId,
         addonSlug,
         userId,
-        versionId,
         review: null,
       });
       const action = await sagaTester.waitFor(expectedAction.type);

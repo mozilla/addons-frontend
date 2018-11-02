@@ -70,7 +70,6 @@ export class RatingManagerBase extends React.Component<InternalProps> {
       errorHandler,
       userId,
       userReview,
-      version,
     } = this.props;
 
     if (userId && userReview === undefined) {
@@ -81,7 +80,6 @@ export class RatingManagerBase extends React.Component<InternalProps> {
           addonId: addon.id,
           addonSlug: addon.slug,
           errorHandlerId: errorHandler.id,
-          versionId: version.id,
         }),
       );
     }
@@ -277,16 +275,14 @@ const mapStateToProps = (state: AppState, ownProps: Props) => {
   let userReview;
   if (userId && ownProps.addon) {
     const addonId = ownProps.addon.id;
-    const versionId = ownProps.version.id;
 
     log.debug(oneLine`Looking for latest review of
-      addon:${addonId}/version:${versionId} by user:${userId}`);
+      addonId "${addonId}" by userId "${userId}"`);
 
     userReview = selectLatestUserReview({
       reviewsState: state.reviews,
       userId,
       addonId,
-      versionId,
     });
   }
 

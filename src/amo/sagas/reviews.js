@@ -328,14 +328,12 @@ function* manageAddonReview(
     }
 
     if (!reviewFromResponse.is_developer_reply) {
-      invariant(reviewFromResponse.version, 'version is required');
       yield put(
         setLatestReview({
           addonId: reviewFromResponse.addon.id,
           addonSlug: reviewFromResponse.addon.slug,
           review: reviewFromResponse,
           userId: reviewFromResponse.user.id,
-          versionId: reviewFromResponse.version.id,
         }),
       );
 
@@ -382,7 +380,7 @@ function* deleteAddonReview({
 }
 
 function* fetchLatestUserReview({
-  payload: { addonId, addonSlug, errorHandlerId, userId, versionId },
+  payload: { addonId, addonSlug, errorHandlerId, userId },
 }: FetchLatestUserReviewAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -407,7 +405,6 @@ function* fetchLatestUserReview({
         userId,
         addonId,
         addonSlug,
-        versionId,
         review: value,
       });
     };

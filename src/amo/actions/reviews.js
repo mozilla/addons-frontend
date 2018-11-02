@@ -299,7 +299,6 @@ type FetchLatestUserReviewParams = {|
   addonSlug: string,
   errorHandlerId: string,
   userId: number,
-  versionId: number,
 |};
 
 export type FetchLatestUserReviewAction = {|
@@ -312,13 +311,11 @@ export function fetchLatestUserReview({
   addonSlug,
   errorHandlerId,
   userId,
-  versionId,
 }: FetchLatestUserReviewParams): FetchLatestUserReviewAction {
   invariant(addonId, 'addonId is required');
   invariant(addonSlug, 'addonSlug is required');
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(userId, 'userId is required');
-  invariant(userId, 'versionId is required');
 
   return {
     type: FETCH_LATEST_USER_REVIEW,
@@ -327,7 +324,6 @@ export function fetchLatestUserReview({
       addonSlug,
       errorHandlerId,
       userId,
-      versionId,
     },
   };
 }
@@ -620,7 +616,6 @@ type SetLatestReviewParams = {|
   addonSlug: string,
   review: ExternalReviewType | null,
   userId: number,
-  versionId: number,
 |};
 
 export type SetLatestReviewAction = {|
@@ -631,7 +626,6 @@ export type SetLatestReviewAction = {|
 export const setLatestReview = ({
   addonId,
   addonSlug,
-  versionId,
   review,
   userId,
 }: SetLatestReviewParams): SetLatestReviewAction => {
@@ -639,11 +633,10 @@ export const setLatestReview = ({
   invariant(addonSlug, 'addonSlug is required');
   invariant(review !== undefined, 'review is required');
   invariant(userId, 'userId is required');
-  invariant(versionId, 'versionId is required');
 
   return {
     type: SET_LATEST_REVIEW,
-    payload: { addonId, addonSlug, review, userId, versionId },
+    payload: { addonId, addonSlug, review, userId },
   };
 };
 
