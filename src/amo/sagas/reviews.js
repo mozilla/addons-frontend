@@ -12,6 +12,7 @@ import { delay } from 'redux-saga/lib/internal/utils';
 import {
   deleteReview,
   flagReview,
+  getLatestUserReview,
   getReview,
   getReviews,
   replyToReview,
@@ -22,6 +23,7 @@ import {
   CREATE_ADDON_REVIEW,
   DELETE_ADDON_REVIEW,
   FETCH_GROUPED_RATINGS,
+  FETCH_LATEST_USER_REVIEW,
   FETCH_REVIEW,
   FETCH_REVIEW_PERMISSIONS,
   FETCH_REVIEWS,
@@ -54,6 +56,8 @@ import type { AppState } from 'amo/store';
 import type {
   ExternalReviewReplyType,
   ExternalReviewType,
+  GetLatestUserReviewParams,
+  GetLatestUserReviewResponse,
   GetReviewsApiResponse,
   GetReviewParams,
   GetReviewsParams,
@@ -64,6 +68,7 @@ import type {
   CreateAddonReviewAction,
   DeleteAddonReviewAction,
   FetchGroupedRatingsAction,
+  FetchLatestUserReviewAction,
   FetchReviewAction,
   FetchReviewPermissionsAction,
   FetchReviewsAction,
@@ -376,6 +381,54 @@ function* deleteAddonReview({
   }
 }
 
+function* fetchLatestUserReview({
+  payload: { addonId, addonSlug, errorHandlerId, userId, versionId },
+}: FetchLatestUserReviewAction): Generator<any, any, any> {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state: AppState = yield select(getState);
+
+    const params: GetLatestUserReviewParams = {
+      addon: addonId,
+      apiState: state.api,
+      user: userId,
+    };
+
+    const review: GetLatestUserReviewResponse = yield call(
+      getLatestUserReview,
+      params,
+    );
+
+    const _setLatestReview = (value) => {
+      return setLatestReview({
+        userId,
+        addonId,
+        addonSlug,
+        versionId,
+        review: value,
+      });
+    };
+
+    if (review) {
+      yield put(setReview(review));
+      yield put(_setLatestReview(review));
+    } else {
+      log.debug(
+        `No saved review found for userId ${userId}, addonId ${addonId}`,
+      );
+      yield put(_setLatestReview(null));
+    }
+  } catch (error) {
+    log.warn(
+      `Failed to fetchLatestUserReview for addonId "${addonId}", userId "${userId}": ${error}`,
+    );
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
 function* fetchReview({
   payload: { errorHandlerId, reviewId },
 }: FetchReviewAction): Generator<any, any, any> {
@@ -404,6 +457,7 @@ export default function* reviewsSaga(
   options?: Options,
 ): Generator<any, any, any> {
   yield takeLatest(FETCH_GROUPED_RATINGS, fetchGroupedRatings);
+  yield takeLatest(FETCH_LATEST_USER_REVIEW, fetchLatestUserReview);
   yield takeLatest(FETCH_REVIEW, fetchReview);
   yield takeLatest(FETCH_REVIEW_PERMISSIONS, fetchReviewPermissions);
   yield takeLatest(FETCH_REVIEWS, fetchReviews);

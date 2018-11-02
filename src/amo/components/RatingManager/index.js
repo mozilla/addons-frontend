@@ -10,11 +10,9 @@ import {
   SAVED_RATING,
   STARTED_SAVE_RATING,
   createAddonReview,
-  setLatestReview,
-  setReview,
+  fetchLatestUserReview,
   updateAddonReview,
 } from 'amo/actions/reviews';
-import * as reviewsApi from 'amo/api/reviews';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
 import RatingManagerNotice from 'amo/components/RatingManagerNotice';
@@ -40,38 +38,22 @@ import type { AddonVersionType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { FlashMessageType, UserReviewType } from 'amo/actions/reviews';
-import type { GetLatestReviewParams } from 'amo/api/reviews';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ApiState } from 'core/reducers/api';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
-
-type LoadSavedReviewFunc = ({|
-  addonId: $PropertyType<GetLatestReviewParams, 'addon'>,
-  addonSlug: string,
-  apiState: ApiState,
-  userId: $PropertyType<GetLatestReviewParams, 'user'>,
-  versionId: number,
-|}) => Promise<any>;
 
 type Props = {|
   addon: AddonType,
   version: AddonVersionType,
 |};
 
-type DispatchMappedProps = {|
-  dispatch: DispatchFunc,
-  loadSavedReview: LoadSavedReviewFunc,
-|};
-
 type InternalProps = {|
   ...Props,
-  ...DispatchMappedProps,
-  apiState: ApiState,
   beginningToDeleteReview: boolean,
   deletingReview: boolean,
+  dispatch: DispatchFunc,
   editingReview: boolean,
   errorHandler: ErrorHandlerType,
   flashMessage?: FlashMessageType | void,
@@ -84,8 +66,8 @@ export class RatingManagerBase extends React.Component<InternalProps> {
   componentDidMount() {
     const {
       addon,
-      apiState,
-      loadSavedReview,
+      dispatch,
+      errorHandler,
       userId,
       userReview,
       version,
@@ -93,42 +75,26 @@ export class RatingManagerBase extends React.Component<InternalProps> {
 
     if (userId && userReview === undefined) {
       log.debug(`Loading a saved rating (if it exists) for user ${userId}`);
-      loadSavedReview({
-        apiState,
-        userId,
-        addonId: addon.id,
-        addonSlug: addon.slug,
-        versionId: version.id,
-      });
+      dispatch(
+        fetchLatestUserReview({
+          userId,
+          addonId: addon.id,
+          addonSlug: addon.slug,
+          errorHandlerId: errorHandler.id,
+          versionId: version.id,
+        }),
+      );
     }
   }
 
   onSelectRating = (score: number) => {
     const {
       addon,
-      apiState,
       dispatch,
       errorHandler,
       userReview,
       version,
     } = this.props;
-
-    const params = {
-      errorHandler,
-      score,
-      apiState,
-      addonId: addon.id,
-      reviewId: undefined,
-      versionId: version.id,
-    };
-
-    if (userReview) {
-      log.debug(`Editing reviewId ${userReview.id}`);
-      params.reviewId = userReview.id;
-    } else {
-      log.debug(oneLine`Submitting a new review for
-        versionId ${params.versionId || '[empty]'}`);
-    }
 
     if (userReview) {
       dispatch(
@@ -343,7 +309,6 @@ const mapStateToProps = (state: AppState, ownProps: Props) => {
   }
 
   return {
-    apiState: state.api,
     beginningToDeleteReview,
     deletingReview,
     editingReview,
@@ -353,63 +318,11 @@ const mapStateToProps = (state: AppState, ownProps: Props) => {
   };
 };
 
-export const mapDispatchToProps = (
-  dispatch: DispatchFunc,
-  // We add `DispatchMappedProps` to override these functions in the tests.
-  ownProps: Props | DispatchMappedProps,
-): DispatchMappedProps => {
-  const loadSavedReview = ({
-    apiState,
-    userId,
-    addonId,
-    addonSlug,
-    versionId,
-  }) => {
-    return reviewsApi
-      .getLatestUserReview({
-        apiState,
-        user: userId,
-        addon: addonId,
-        // TODO: omit this.
-        version: versionId,
-      })
-      .then((review) => {
-        const _setLatestReview = (value) => {
-          return setLatestReview({
-            userId,
-            addonId,
-            addonSlug,
-            versionId,
-            review: value,
-          });
-        };
-
-        if (review) {
-          dispatch(setReview(review));
-          dispatch(_setLatestReview(review));
-        } else {
-          log.debug(
-            `No saved review found for userId ${userId}, addonId ${addonId}`,
-          );
-          dispatch(_setLatestReview(null));
-        }
-      });
-  };
-
-  return {
-    dispatch,
-    loadSavedReview: ownProps.loadSavedReview || loadSavedReview,
-  };
-};
-
 export const RatingManagerWithI18n = translate()(RatingManagerBase);
 
 const RatingManager: React.ComponentType<Props> = compose(
   withRenderedErrorHandler({ name: 'RatingManager' }),
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connect(mapStateToProps),
 )(RatingManagerWithI18n);
 
 export default RatingManager;

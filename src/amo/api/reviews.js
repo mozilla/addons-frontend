@@ -186,19 +186,21 @@ export function getReviews({
   });
 }
 
-export type GetLatestReviewParams = {|
+export type GetLatestUserReviewParams = {|
   addon: number,
   apiState: ApiState,
   user: number,
   version?: number,
 |};
 
+export type GetLatestUserReviewResponse = null | ExternalReviewType;
+
 export async function getLatestUserReview({
   apiState,
   user,
   addon,
   version,
-}: GetLatestReviewParams = {}): Promise<null | ExternalReviewType> {
+}: GetLatestUserReviewParams = {}): Promise<GetLatestUserReviewResponse> {
   invariant(user, 'The user parameter is required');
   invariant(addon, 'The addon parameter is required');
 

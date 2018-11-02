@@ -9,8 +9,6 @@ import {
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
 } from 'core/constants';
-import { initialApiState } from 'core/reducers/api';
-import * as reviewsApi from 'amo/api/reviews';
 import { selectReview } from 'amo/reducers/reviews';
 import {
   SAVED_RATING,
@@ -19,6 +17,7 @@ import {
   createAddonReview,
   createInternalReview,
   deleteAddonReview,
+  fetchLatestUserReview,
   flashReviewMessage,
   hideEditReviewForm,
   hideFlashedReviewMessage,
@@ -29,10 +28,7 @@ import {
 } from 'amo/actions/reviews';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
-import RatingManager, {
-  RatingManagerBase,
-  mapDispatchToProps,
-} from 'amo/components/RatingManager';
+import RatingManager, { RatingManagerBase } from 'amo/components/RatingManager';
 import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import AuthenticateButton from 'core/components/AuthenticateButton';
@@ -54,7 +50,6 @@ describe(__filename, () => {
       addon: createInternalAddon(fakeAddon),
       errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
-      loadSavedReview: () => Promise.resolve(),
       store: dispatchSignInActions().store,
       userId: 91234,
       version: fakeAddon.current_version,
@@ -98,46 +93,50 @@ describe(__filename, () => {
     expect(prompt).toContain('Some Add-on');
   });
 
-  it('loads saved ratings on construction', () => {
+  it('dispatches fetchLatestUserReview on construction', () => {
     const userId = 12889;
     const addon = createInternalAddon({ ...fakeAddon, id: 3344 });
     const version = {
       ...fakeAddon.current_version,
       id: 9966,
     };
-    const loadSavedReview = sinon.spy();
 
     const { store } = dispatchSignInActions({ userId });
+    const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    render({ addon, loadSavedReview, store, version });
+    const root = render({ addon, store, version });
 
-    sinon.assert.calledWith(loadSavedReview, {
-      addonId: addon.id,
-      addonSlug: addon.slug,
-      apiState: store.getState().api,
-      userId,
-      versionId: version.id,
-    });
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchLatestUserReview({
+        addonId: addon.id,
+        addonSlug: addon.slug,
+        errorHandlerId: root.instance().props.errorHandler.id,
+        userId,
+        versionId: version.id,
+      }),
+    );
   });
 
-  it('does not load a saved review when none exists', () => {
+  it('does not fetchLatestUserReview when a null one was already fetched', () => {
     const addon = createInternalAddon({ ...fakeAddon, id: 3344 });
     const version = {
       ...fakeAddon.current_version,
       id: 9966,
     };
-    const loadSavedReview = sinon.spy();
 
     const { store } = createStoreWithLatestReview({
       addon,
+      // The latest review was already fetched but the result was null.
       review: null,
       userId: 12889,
       versionId: version.id,
     });
+    const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    render({ addon, version, store, loadSavedReview });
+    render({ addon, version, store });
 
-    sinon.assert.notCalled(loadSavedReview);
+    sinon.assert.notCalled(dispatchSpy);
   });
 
   it('passes review=undefined before the saved review has loaded', () => {
@@ -281,10 +280,12 @@ describe(__filename, () => {
       expect(rating).toHaveProp('review', null);
     });
 
-    it('does not load saved ratings', () => {
-      const loadSavedReview = sinon.spy();
-      renderWithoutUser({ loadSavedReview });
-      sinon.assert.notCalled(loadSavedReview);
+    it('does not fetchLatestUserReview without a user', () => {
+      const { store } = dispatchClientMetadata();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      renderWithoutUser({ store });
+
+      sinon.assert.notCalled(dispatchSpy);
     });
 
     it('renders an AuthenticateButton', () => {
@@ -578,92 +579,6 @@ describe(__filename, () => {
           versionId: newVersionId,
         }),
       );
-    });
-  });
-
-  describe('mapDispatchToProps', () => {
-    let store;
-    let mockApi;
-    let dispatch;
-    let actions;
-
-    beforeEach(() => {
-      store = dispatchSignInActions().store;
-      mockApi = sinon.mock(reviewsApi);
-      dispatch = sinon.stub();
-      actions = mapDispatchToProps(dispatch, {});
-    });
-
-    describe('loadSavedReview', () => {
-      it('finds and dispatches a review', () => {
-        const apiState = store.getState().api;
-
-        const userId = fakeReview.user.id;
-        const addonId = fakeReview.addon.id;
-        const addonSlug = fakeReview.addon.slug;
-        const versionId = fakeReview.version.id;
-        mockApi
-          .expects('getLatestUserReview')
-          .withArgs({
-            apiState,
-            user: userId,
-            addon: addonId,
-            version: versionId,
-          })
-          .returns(Promise.resolve(fakeReview));
-
-        return actions
-          .loadSavedReview({
-            apiState,
-            userId,
-            addonId,
-            addonSlug,
-            versionId,
-          })
-          .then(() => {
-            mockApi.verify();
-            sinon.assert.calledWith(dispatch, setReview(fakeReview));
-            sinon.assert.calledWith(
-              dispatch,
-              setLatestReview({
-                userId,
-                addonId,
-                addonSlug,
-                versionId,
-                review: fakeReview,
-              }),
-            );
-          });
-      });
-
-      it('sets the latest review to null when none exists', () => {
-        const userId = 123;
-        const addonId = 8765;
-        const addonSlug = 'some-slug';
-        const versionId = 5421;
-        mockApi.expects('getLatestUserReview').returns(Promise.resolve(null));
-
-        return actions
-          .loadSavedReview({
-            apiState: initialApiState,
-            userId,
-            addonId,
-            addonSlug,
-            versionId,
-          })
-          .then(() => {
-            sinon.assert.calledWith(
-              dispatch,
-              setLatestReview({
-                addonId,
-                addonSlug,
-                userId,
-                versionId,
-                review: null,
-              }),
-            );
-          });
-      });
     });
   });
 });

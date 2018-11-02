@@ -1126,7 +1126,7 @@ export async function matchingSagaAction(
 
       ${isMatch}
 
-      The saga called these action types: ${calledActions
+      The saga dispatched these action types: ${calledActions
         .map((action) => action.type)
         .join(', ') || '(none at all)'}`,
     );

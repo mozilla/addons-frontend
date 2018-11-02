@@ -20,6 +20,8 @@ export const FETCH_REVIEW: 'FETCH_REVIEW' = 'FETCH_REVIEW';
 export const FETCH_REVIEW_PERMISSIONS: 'FETCH_REVIEW_PERMISSIONS' =
   'FETCH_REVIEW_PERMISSIONS';
 export const FETCH_REVIEWS: 'FETCH_REVIEWS' = 'FETCH_REVIEWS';
+export const FETCH_LATEST_USER_REVIEW: 'FETCH_LATEST_USER_REVIEW' =
+  'FETCH_LATEST_USER_REVIEW';
 export const FETCH_USER_REVIEWS: 'FETCH_USER_REVIEWS' = 'FETCH_USER_REVIEWS';
 export const FLASH_REVIEW_MESSAGE: 'FLASH_REVIEW_MESSAGE' =
   'FLASH_REVIEW_MESSAGE';
@@ -292,11 +294,43 @@ export function setGroupedRatings({
   };
 }
 
-type FetchUserReviewsParams = {|
+type FetchLatestUserReviewParams = {|
+  addonId: number,
+  addonSlug: string,
   errorHandlerId: string,
-  page?: string,
   userId: number,
+  versionId: number,
 |};
+
+export type FetchLatestUserReviewAction = {|
+  type: typeof FETCH_LATEST_USER_REVIEW,
+  payload: FetchLatestUserReviewParams,
+|};
+
+export function fetchLatestUserReview({
+  addonId,
+  addonSlug,
+  errorHandlerId,
+  userId,
+  versionId,
+}: FetchLatestUserReviewParams): FetchLatestUserReviewAction {
+  invariant(addonId, 'addonId is required');
+  invariant(addonSlug, 'addonSlug is required');
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(userId, 'userId is required');
+  invariant(userId, 'versionId is required');
+
+  return {
+    type: FETCH_LATEST_USER_REVIEW,
+    payload: {
+      addonId,
+      addonSlug,
+      errorHandlerId,
+      userId,
+      versionId,
+    },
+  };
+}
 
 export type FetchUserReviewsAction = {|
   type: typeof FETCH_USER_REVIEWS,
@@ -311,7 +345,11 @@ export function fetchUserReviews({
   errorHandlerId,
   userId,
   page = '1',
-}: FetchUserReviewsParams): FetchUserReviewsAction {
+}: {|
+  errorHandlerId: string,
+  page?: string,
+  userId: number,
+|}): FetchUserReviewsAction {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(userId, 'userId is required');
 

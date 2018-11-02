@@ -12,6 +12,7 @@ import {
   createAddonReview,
   deleteAddonReview,
   fetchGroupedRatings,
+  fetchLatestUserReview,
   fetchReview,
   fetchReviewPermissions,
   fetchReviews,
@@ -1079,6 +1080,112 @@ describe(__filename, () => {
       mockApi.expects('getReview').rejects(error);
 
       _fetchReview();
+
+      const expectedAction = errorHandler.createErrorAction(error);
+      const action = await sagaTester.waitFor(expectedAction.type);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+
+  describe('fetchLatestUserReview', () => {
+    function _fetchLatestUserReview(params = {}) {
+      sagaTester.dispatch(
+        fetchLatestUserReview({
+          addonId: fakeAddon.id,
+          addonSlug: fakeAddon.slug,
+          errorHandlerId: 'any-error-handler',
+          userId: 9876,
+          versionId: 1234,
+          ...params,
+        }),
+      );
+    }
+
+    it('clears the error handler', async () => {
+      _fetchLatestUserReview({ errorHandlerId: errorHandler.id });
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('fetches and sets the latest user review', async () => {
+      const review = { ...fakeReview, id: 34421 };
+      const addonId = review.addon.id;
+      const addonSlug = review.addon.slug;
+      const userId = review.user.id;
+      const versionId = review.version.id;
+      mockApi
+        .expects('getLatestUserReview')
+        .withArgs({
+          apiState,
+          user: userId,
+          addon: addonId,
+        })
+        .resolves(review);
+
+      _fetchLatestUserReview({
+        addonId,
+        addonSlug,
+        userId,
+        versionId,
+      });
+
+      const expectedAction = setReview(review);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+
+      const expectedSetLatestAction = setLatestReview({
+        userId,
+        addonId,
+        addonSlug,
+        versionId,
+        review,
+      });
+      const setLatestAction = await matchingSagaAction(
+        sagaTester,
+        (a) => a.type === expectedSetLatestAction.type,
+      );
+
+      expect(setLatestAction).toEqual(expectedSetLatestAction);
+
+      mockApi.verify();
+    });
+
+    it('sets the latest review to null when none exists', async () => {
+      const review = { ...fakeReview, id: 34421 };
+      const addonId = review.addon.id;
+      const addonSlug = review.addon.slug;
+      const userId = review.user.id;
+      const versionId = review.version.id;
+
+      mockApi.expects('getLatestUserReview').resolves(null);
+
+      _fetchLatestUserReview({
+        addonId,
+        addonSlug,
+        userId,
+        versionId,
+      });
+
+      const expectedAction = setLatestReview({
+        addonId,
+        addonSlug,
+        userId,
+        versionId,
+        review: null,
+      });
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('some API error maybe');
+      mockApi.expects('getLatestUserReview').rejects(error);
+
+      _fetchLatestUserReview({ errorHandlerId: errorHandler.id });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
