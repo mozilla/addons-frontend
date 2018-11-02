@@ -190,7 +190,6 @@ export type GetLatestUserReviewParams = {|
   addon: number,
   apiState: ApiState,
   user: number,
-  version?: number,
 |};
 
 export type GetLatestUserReviewResponse = null | ExternalReviewType;
@@ -199,14 +198,12 @@ export async function getLatestUserReview({
   apiState,
   user,
   addon,
-  version,
 }: GetLatestUserReviewParams = {}): Promise<GetLatestUserReviewResponse> {
   invariant(user, 'The user parameter is required');
   invariant(addon, 'The addon parameter is required');
 
-  // When version is undefined, the API returns the latest user review
-  // for this add-on.
-  const response = await getReviews({ apiState, user, addon, version });
+  // Since version is omitted, the API returns only the latest review.
+  const response = await getReviews({ apiState, user, addon });
 
   const reviews = response.results;
   if (reviews.length === 1) {

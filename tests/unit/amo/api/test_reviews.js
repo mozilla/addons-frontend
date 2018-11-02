@@ -203,7 +203,7 @@ describe(__filename, () => {
 
   describe('getLatestUserReview', () => {
     it('returns the lone review result since that is the latest', async () => {
-      const params = { user: 123, addon: 321, version: 456 };
+      const params = { user: 123, addon: 321 };
       const expectedReview = { ...fakeReview, id: 34 };
       mockApi
         .expects('callApi')
@@ -214,7 +214,6 @@ describe(__filename, () => {
           params: {
             addon: params.addon,
             user: params.user,
-            version: params.version,
           },
           apiState: undefined,
         })
@@ -240,7 +239,6 @@ describe(__filename, () => {
       await getLatestUserReview({
         user: 123,
         addon: fakeReview.addon.id,
-        version: fakeReview.version.id,
       }).then(unexpectedSuccess, (error) => {
         expect(error.message).toMatch(/received multiple review objects/);
       });
@@ -252,7 +250,6 @@ describe(__filename, () => {
       const review = await getLatestUserReview({
         user: 123,
         addon: 321,
-        version: 456,
       });
       expect(review).toBe(null);
     });
