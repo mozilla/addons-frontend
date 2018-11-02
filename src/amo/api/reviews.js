@@ -215,8 +215,8 @@ export async function getLatestUserReview({
   if (reviews.length === 0) {
     return null;
   }
-  // There are enough constraints in the database where we should never
-  // receive multiple objects so throw an error for that case.
+  // Theoretcially, there are enough constraints in the database where we
+  // should never receive multiple objects.
   throw new Error(oneLine`Unexpectedly received multiple review objects:
       ${reviews.map((r) => r.id)}`);
 }
