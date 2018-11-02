@@ -88,13 +88,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
   }
 
   onSelectRating = (score: number) => {
-    const {
-      addon,
-      dispatch,
-      errorHandler,
-      userReview,
-      version,
-    } = this.props;
+    const { addon, dispatch, errorHandler, userReview, version } = this.props;
 
     if (userReview) {
       dispatch(
