@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-17 20:05+0000\n"
+"PO-Revision-Date: 2018-10-31 13:15+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -170,22 +170,22 @@ msgstr "Hent %(addonName)s til Firefox. %(summary)s"
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:62
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Hent denne ordbog til 🦊 Firefox til Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:67
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Hent denne udvidelse til 🦊 Firefox til Android(%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:72
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Hent denne sprogpakke til 🦊 Firefox til Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:78
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Hent dette tema til 🦊 Firefox til Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:84
@@ -195,7 +195,7 @@ msgstr ""
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:89
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Hent denne tilføjelse til 🦊 Firefox til Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:96
@@ -560,12 +560,12 @@ msgstr "%(averageRating)s stjerner i gennemsnit"
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:76 src/amo/components/AddonTitle/index.js:80
 msgid "by"
-msgstr ""
+msgstr "af"
 
 #: src/amo/components/App/index.js:220
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -577,11 +577,11 @@ msgstr "%(title)s – Tilføjelser til Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:232
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "Tilføjelser til Firefox til Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:236
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – Tilføjelser til Firefox til Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -609,15 +609,15 @@ msgstr "Indlæser kategorier."
 
 #: src/amo/components/CategoryHead/index.js:36
 msgid "%(categoryName)s – Extensions"
-msgstr ""
+msgstr "%(categoryName)s – Udvidelser"
 
 #: src/amo/components/CategoryHead/index.js:39
 msgid "%(categoryName)s – Themes"
-msgstr ""
+msgstr "%(categoryName)s – Temaer"
 
 #: src/amo/components/CategoryHead/index.js:43
 msgid "%(categoryName)s"
-msgstr ""
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:158
 msgid "Added to collection"
@@ -945,7 +945,7 @@ msgstr "Udviklercentral"
 
 #: src/amo/components/Footer/index.js:63
 msgid "Developer Policies"
-msgstr ""
+msgstr "Politikker for udviklere"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Forum"
@@ -1328,7 +1328,7 @@ msgstr "Har du tonsvis af åbne faneblade? Sortér dem i et sidepanel"
 
 #: src/amo/components/HomeHeroGuides/index.js:29
 msgid "Stay Safe Online"
-msgstr ""
+msgstr "Beskyt dig selv på nettet"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #, fuzzy
@@ -1342,11 +1342,11 @@ msgstr "Bedøm din oplevelse"
 
 #: src/amo/components/HomeHeroGuides/index.js:52
 msgid "Extensions are like apps for your browsers."
-msgstr ""
+msgstr "Udvidelser er som apps til dine browsere."
 
 #: src/amo/components/HomeHeroGuides/index.js:55
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "De føjer funktioner til Firefox, der gør din browsing hurtigere, smartere eller sjovere."
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
@@ -1478,11 +1478,11 @@ msgstr "Log ind for at bedømme denne tilføjelse"
 
 #: src/amo/components/RatingManager/index.js:289
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr ""
+msgstr "Er du sikker på, at du vil slette din anmeldelse af %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:294
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr ""
+msgstr "Er du sikker på, at du vil slette din bedømmelse af %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:299
 msgid "How are you enjoying %(addonName)s?"
@@ -1962,7 +1962,7 @@ msgstr "Skærmbilleder"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Anmeldelser og bedømmelser af %(addonName)s. Find ud af, hvad andre brugere synes om %(addonName)s, og føj den til din Firefox-browser."
 
 #: src/amo/pages/AddonReviewList/index.js:243
 msgid "Reviews for %(addonName)s"
@@ -2024,11 +2024,11 @@ msgstr "Søg efter udvidelser og temaer, du kan føje til din samling."
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Hent og opret samlinger til Firefox, og hold styr på dine favoritudvidelser og temaer. Udforsk %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:506
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Hent og opret samlinger til Firefox, og hold styr på dine favoritudvidelser og temaer. Udforsk %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:111
 msgid "Collections"
@@ -2112,7 +2112,7 @@ msgstr "Skift udseende på Firefox ved hjælp af temaer."
 
 #: src/amo/pages/Home/index.js:234
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "Hent udvidelser og temaer til Firefox. De er som apps til din browser. De kan blokere irriterende reklamer, beskytte adgangskoder, ændre din browsers udseende og meget mere."
 
 #: src/amo/pages/Home/index.js:323
 msgid "See more popular extensions"
@@ -2164,7 +2164,7 @@ msgstr "Ordbøger og sprogpakker"
 
 #: src/amo/pages/LanguageTools/index.js:172
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Hent ordbøger og sprogpakker til Firefox. Tilføj et nyt sprog til din browsers stavekontrol, eller skift sproget i browserens brugerflade."
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2720,23 +2720,23 @@ msgstr ""
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 #: src/core/utils/addons.js:28
 msgid "Installation failed. Please try again."
