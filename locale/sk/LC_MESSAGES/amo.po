@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-26 20:24+0000\n"
+"PO-Revision-Date: 2018-11-03 13:34+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -160,32 +160,28 @@ msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:62
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(title)s - Doplnky pre Android (%(locale)s)"
+msgstr ""
 
 #: src/amo/components/AddonHead/index.js:67
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(title)s - Doplnky pre Android (%(locale)s)"
+msgstr ""
 
 #: src/amo/components/AddonHead/index.js:72
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:78
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(title)s - Doplnky pre Android (%(locale)s)"
+msgstr ""
 
 #: src/amo/components/AddonHead/index.js:84
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:89
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(title)s - Doplnky pre Android (%(locale)s)"
+msgstr ""
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:96
@@ -553,7 +549,7 @@ msgstr "Priemerné hodnotenie: %(averageRating)s z 5"
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:76 src/amo/components/AddonTitle/index.js:80
@@ -570,11 +566,11 @@ msgstr "%(title)s - Doplnky pre Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:232
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "Doplnky pre Firefox pre Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:236
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(title)s - Doplnky pre Firefox pre Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:215
 msgid "Loading"
@@ -602,15 +598,15 @@ msgstr "Načítavanie kategórií."
 
 #: src/amo/components/CategoryHead/index.js:36
 msgid "%(categoryName)s – Extensions"
-msgstr ""
+msgstr "%(categoryName)s – rozšírenia"
 
 #: src/amo/components/CategoryHead/index.js:39
 msgid "%(categoryName)s – Themes"
-msgstr ""
+msgstr "%(categoryName)s – témy vzhľadu"
 
 #: src/amo/components/CategoryHead/index.js:43
 msgid "%(categoryName)s"
-msgstr ""
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:158
 msgid "Added to collection"
@@ -1319,21 +1315,19 @@ msgstr "Máte veľké množstvo otvorených kariet. Zorganizujte si ich"
 
 #: src/amo/components/HomeHeroGuides/index.js:29
 msgid "Stay Safe Online"
-msgstr ""
+msgstr "Buďte v bezpečí na internete"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
-#, fuzzy
 msgid "Organize Your Tabs"
 msgstr "Skroťte svoje karty"
 
 #: src/amo/components/HomeHeroGuides/index.js:39
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "Ohodnoťte svoju skúsenosť"
+msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:52
 msgid "Extensions are like apps for your browsers."
-msgstr ""
+msgstr "Rozšírenia sú ako aplikácie pre váš prehliadač."
 
 #: src/amo/components/HomeHeroGuides/index.js:55
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
