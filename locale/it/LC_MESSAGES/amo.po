@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-11-02 14:29+0000\n"
+"PO-Revision-Date: 2018-11-02 14:31+0000\n"
 "Last-Translator: Winfox <openlib@email.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1336,11 +1336,11 @@ msgstr "Arricchisci la tua esperienza multimediale"
 
 #: src/amo/components/HomeHeroGuides/index.js:52
 msgid "Extensions are like apps for your browsers."
-msgstr ""
+msgstr "Le estensioni sono come piccole applicazioni per i tuoi browser."
 
 #: src/amo/components/HomeHeroGuides/index.js:55
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "Aggiungono funzionalità a Firefox per rendere la navigazione più veloce, più intelligente o semplicemente divertente."
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
@@ -1956,7 +1956,7 @@ msgstr "Screenshot"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Recensioni e valutazioni per %(addonName)s. Scopri cosa pensano gli altri utenti riguardo %(addonName)s e installalo sul tuo Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:243
 msgid "Reviews for %(addonName)s"
@@ -2187,6 +2187,8 @@ msgstr "Dizionari"
 #: src/amo/pages/SearchTools/index.js:32
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
 msgstr ""
+"Scarica le estensioni di Firefox per personalizzare il modo in cui esegui la ricerca di ogni cosa, dalla gestione avanzata della privacy alle ricerche di specifici siti web, alla ricerca di "
+"immagini, e altro ancora."
 
 #: src/amo/pages/StaticPages/About/index.js:103
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -2360,7 +2362,7 @@ msgstr "Linee guida per le recensioni"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:41
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Linee guida, suggerimenti e domande frequenti per lasciare una recensione sulle estensioni e i temi che hai scaricato e utilizzato su Firefox."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid ""
