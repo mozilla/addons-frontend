@@ -32,6 +32,7 @@ import {
   createFakeAddon,
   createFakeMozWindow,
   fakeAddon,
+  getFakeLogger,
   userAgents,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
@@ -264,7 +265,7 @@ describe(__filename, () => {
       // Note that this should never happen as addons-server will mark a
       // WebExtension with no minVersion as having a minVersion of "48".
       // Still, we accept it (but it will log a warning).
-      const fakeLog = { error: sinon.stub() };
+      const fakeLog = getFakeLogger();
       const userAgentInfo = {
         browser: { name: 'Firefox', version: '54.0' },
         os: { name: 'Windows' },
