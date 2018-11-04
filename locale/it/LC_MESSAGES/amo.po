@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-11-02 14:31+0000\n"
+"PO-Revision-Date: 2018-11-03 11:32+0000\n"
 "Last-Translator: Winfox <openlib@email.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -604,11 +604,11 @@ msgstr "Caricamento delle categorie in corso…"
 
 #: src/amo/components/CategoryHead/index.js:36
 msgid "%(categoryName)s – Extensions"
-msgstr ""
+msgstr "%(categoryName)s – Estensioni"
 
 #: src/amo/components/CategoryHead/index.js:39
 msgid "%(categoryName)s – Themes"
-msgstr ""
+msgstr "%(categoryName)s – Temi"
 
 #: src/amo/components/CategoryHead/index.js:43
 msgid "%(categoryName)s"
@@ -2018,11 +2018,11 @@ msgstr "Cerca estensioni e temi da aggiungere alla tua raccolta."
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Scarica e crea le raccolte di Firefox per tenere traccia delle tue estensioni e temi preferiti. Esplora %(collectionName)s — %(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:506
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Scarica e crea le raccolte di Firefox per tenere traccia delle tue estensioni e temi preferiti. Esplora %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:111
 msgid "Collections"
@@ -2107,6 +2107,8 @@ msgstr "Modifica l’aspetto di Firefox con i temi."
 #: src/amo/pages/Home/index.js:234
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
 msgstr ""
+"Scarica estensioni e temi per Firefox. Sono come delle applicazioni per il tuo browser. Possono bloccare fastidiosi annunci pubblicitari, proteggere le tue password, modificare l’aspetto del browser"
+" e molto altro."
 
 #: src/amo/pages/Home/index.js:323
 msgid "See more popular extensions"
@@ -2130,11 +2132,13 @@ msgstr "Controllo genitori"
 
 #: src/amo/pages/LandingPage/index.js:214
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Scarica i temi per cambiare l’aspetto di Firefox. Personalizza la tua esperienza secondo i tuoi gusti. Creature carine, robot malvagi, paesaggi meravigliosi: hai migliaia di opzioni."
 
 #: src/amo/pages/LandingPage/index.js:219
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
+"Scarica le estensioni di Firefox e aggiungi nuove funzionalità che personalizzano la tua navigazione. Proteggi le tue password, trova offerte, migliora la riproduzione di video e blocca i fastidiosi"
+" annunci pubblicitari."
 
 #: src/amo/pages/LandingPage/index.js:249
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2158,7 +2162,7 @@ msgstr "Dizionari e language pack"
 
 #: src/amo/pages/LanguageTools/index.js:172
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Scarica i dizionari e i language pack per Firefox. Aggiungi una lingua come opzione al correttore ortografico o modifica la lingua dell’interfaccia del browser."
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2248,7 +2252,7 @@ msgstr "Informazioni sui componenti aggiuntivi per Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:44
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Il sito ufficiale di Mozilla per scaricare estensioni e temi di Firefox. Aggiungi nuove funzionalità e cambia l’aspetto del browser per personalizzare la tua esperienza web."
 
 #: src/amo/pages/StaticPages/About/index.js:53
 msgid ""
@@ -2438,15 +2442,15 @@ msgstr "Le mie recensioni"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Il profilo di %(user)s, un autore di estensioni e temi per Firefox. Trova altre applicazioni di %(user)s, incluse media delle valutazioni, ruolo e l’opzione per segnalare problemi."
 
 #: src/amo/pages/UserProfile/index.js:246
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Il profilo di %(user)s, un autore di estensioni per Firefox. Trova altre applicazioni di %(user)s, incluse media delle valutazioni, ruolo e l’opzione per segnalare problemi."
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Il profilo di %(user)s, un autore di temi per Firefox. Trova altre applicazioni di %(user)s, incluse media delle valutazioni, ruolo e l’opzione per segnalare problemi."
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
