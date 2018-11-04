@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-11-04 13:12+0000\n"
+"PO-Revision-Date: 2018-11-04 13:20+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -2038,11 +2038,11 @@ msgstr "Poiščite razširitve in teme za svojo zbirko."
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "s Firefoxovimi zbirkami lahko spremljate svoje najljubše razširitve in teme. Raziščite %(collectionName)s – %(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:506
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "s Firefoxovimi zbirkami lahko spremljate svoje najljubše razširitve in teme. Raziščite %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:111
 msgid "Collections"
@@ -2458,7 +2458,7 @@ msgstr "Profil uporabnika %(user)s, ustvarjalca razširitev za Firefox. Odkrijte
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil uporabnika %(user)s, ustvarjalca tem za Firefox. Odkrijte druge teme avtorja %(user)s, vključno s povprečnimi ocenami, lastništvom in možnostjo prijave težav."
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
