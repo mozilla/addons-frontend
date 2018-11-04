@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-10-30 19:00+0000\n"
-"PO-Revision-Date: 2018-10-31 09:15+0000\n"
-"Last-Translator: goofy <goofy@babelzilla.org>\n"
+"PO-Revision-Date: 2018-10-31 16:59+0000\n"
+"Last-Translator: YD <ygda+fx@free.fr>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -2437,14 +2437,16 @@ msgstr "Mes critiques"
 #: src/amo/pages/UserProfile/index.js:242
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
+"Profil de %(user)s, auteur d’extensions et de thèmes pour Firefox. Trouvez les autres applications de %(user)s, leur note moyenne, la date de son inscription et la possibilité de signaler des "
+"problèmes."
 
 #: src/amo/pages/UserProfile/index.js:246
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil de %(user)s, auteur d’extensions pour Firefox. Trouvez les autres extensions de %(user)s, leur note moyenne, la date de son inscription et la possibilité de signaler des problèmes."
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil de %(user)s, auteur de thèmes pour Firefox. Trouvez les autres thèmes de %(user)s, leur note moyenne, la date de son inscription et la possibilité de signaler des problèmes."
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
