@@ -37,6 +37,7 @@ import {
   fakeTheme,
   createFakeLocation,
   getFakeConfig,
+  getFakeLogger,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -317,7 +318,7 @@ describe(__filename, () => {
   });
 
   it('calls `window.external.AddSearchProvider` to install a search provider', () => {
-    const fakeLog = { info: sinon.stub() };
+    const fakeLog = getFakeLogger();
     const fakeWindow = createFakeMozWindow();
     const installURL = 'https://a.m.o/files/addon.xpi';
 

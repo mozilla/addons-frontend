@@ -63,9 +63,7 @@ describe(__filename, () => {
     });
 
     it('logs if no match found', () => {
-      const fakeLog = {
-        error: sinon.stub(),
-      };
+      const fakeLog = getFakeLogger();
       utils.langToLocale('whatevs-this-is-really-odd', fakeLog);
       sinon.assert.called(fakeLog.error);
     });
@@ -90,9 +88,7 @@ describe(__filename, () => {
     });
 
     it('logs if too many parts found', () => {
-      const fakeLog = {
-        error: sinon.stub(),
-      };
+      const fakeLog = getFakeLogger();
       utils.localeToLang('what_the_heck_is_this', fakeLog);
       sinon.assert.called(fakeLog.error);
     });

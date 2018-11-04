@@ -40,7 +40,7 @@ import {
   UNINSTALL_EXTENSION_CATEGORY,
   UNINSTALL_THEME_CATEGORY,
 } from 'core/constants';
-import { getFakeConfig } from 'tests/unit/helpers';
+import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 
 function createTracking({ paramOverrides = {}, configOverrides = {} } = {}) {
   return new Tracking({
@@ -411,7 +411,7 @@ describe(__filename, () => {
     });
 
     it('should log that DNT disabled tracking', () => {
-      const fakeLog = { info: sinon.stub() };
+      const fakeLog = getFakeLogger();
       isDoNotTrackEnabled({
         _log: fakeLog,
         _navigator: { doNotTrack: '1' },
