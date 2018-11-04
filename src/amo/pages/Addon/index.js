@@ -611,7 +611,8 @@ export class AddonBase extends React.Component {
 }
 
 export function mapStateToProps(state, ownProps) {
-  const { slug } = ownProps.match.params;
+  let { slug = '' } = ownProps.match.params;
+  slug = typeof slug === 'string' ? slug.trim() : slug;
   let addon = getAddonBySlug(state, slug);
 
   // It is possible to load an add-on by its ID but in the routing parameters,
