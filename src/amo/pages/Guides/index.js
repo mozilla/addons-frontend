@@ -54,7 +54,7 @@ export const getGuids = (guidesSlug: string): Array<string> | null => {
   }
 };
 
-const getContent = (guidesSlug: string, i18n: I18nType): Object => {
+export const getContent = (guidesSlug: string, i18n: I18nType): Object => {
   switch (guidesSlug) {
     case 'privacy':
       return {
@@ -126,14 +126,12 @@ export class GuidesBase extends React.Component<InternalProps> {
 
     const { guidesSlug, guids } = this.props;
 
-    if (!this.props.addons.length) {
-      this.props.dispatch(
-        fetchGuidesAddons({
-          guids,
-          errorHandlerId: guidesSlug,
-        }),
-      );
-    }
+    this.props.dispatch(
+      fetchGuidesAddons({
+        guids,
+        errorHandlerId: guidesSlug,
+      }),
+    );
   }
 
   getGuidesSectionsHtml = (
@@ -141,7 +139,7 @@ export class GuidesBase extends React.Component<InternalProps> {
   ): React.ChildrenArray<React.Node> => {
     const { addons, clientApp, i18n, lang } = this.props;
 
-    return addons
+    return addons.length
       ? addons.map((addon, key) => {
           // TODO: look into having these links use the Router (vs 'a' tag).
           // See https://github.com/mozilla/addons-frontend/issues/6787.
@@ -184,20 +182,20 @@ export class GuidesBase extends React.Component<InternalProps> {
       i18n,
     );
 
-    if (pageTitle && introText && icon && sections.length) {
-      return (
-        <div className="Guides">
-          <div className="Guides-header">
-            <Icon className="Guides-header-icon" name={icon} />
-            <h1 className="Guides-header-page-title">{pageTitle}</h1>
-            <p className="Guides-header-intro">{introText}</p>
-          </div>
-          {this.getGuidesSectionsHtml(sections)}
-        </div>
-      );
+    if (!pageTitle) {
+      return null;
     }
 
-    return null;
+    return (
+      <div className="Guides">
+        <div className="Guides-header">
+          <Icon className="Guides-header-icon" name={icon} />
+          <h1 className="Guides-header-page-title">{pageTitle}</h1>
+          <p className="Guides-header-intro">{introText}</p>
+        </div>
+        {this.getGuidesSectionsHtml(sections)}
+      </div>
+    );
   };
 
   render() {
