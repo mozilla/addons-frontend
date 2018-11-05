@@ -103,7 +103,7 @@ export const withExperiment = ({
     }
 
     getCookieName() {
-      return `experiment_${this.props.id}`;
+      return `${this.props.id}Experiment`;
     }
 
     isExperimentEnabled() {

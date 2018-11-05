@@ -86,7 +86,7 @@ type ButtonProps = {|
 
 const TRANSITION_TIMEOUT = 150;
 
-const EXPERIMENT_ID = 'install_button_color';
+const EXPERIMENT_ID = 'installButtonColor';
 export const EXPERIMENT_CATEGORY = 'AMO Install Button Color Experiment';
 export const VARIANT_BLUE = 'blue';
 export const VARIANT_GREEN = 'green';

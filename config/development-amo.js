@@ -18,6 +18,6 @@ module.exports = {
   loggingLevel: 'debug',
 
   experiments: {
-    install_button_color: true,
+    installButtonColor: true,
   },
 };

@@ -28,6 +28,6 @@ module.exports = {
   },
 
   experiments: {
-    install_button_color: true,
+    installButtonColor: true,
   },
 };
