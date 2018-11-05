@@ -5,31 +5,31 @@ import { connect } from 'react-redux';
 
 import AddonTitle from 'amo/components/AddonTitle';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
+import { makeQueryStringWithUTM } from 'amo/utils';
 import AMInstallButton from 'core/components/AMInstallButton';
 import {
   INCOMPATIBLE_NOT_FIREFOX,
-  INSTALL_SOURCE_GUIDE_PAGE,
+  INSTALL_SOURCE_GUIDES_PAGE,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import translate from 'core/i18n/translate';
 import { getClientCompatibility } from 'core/utils/compatibility';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
+import Button from 'ui/components/Button';
 import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterLocationType } from 'core/types/router';
 import type { WithInstallHelpersInjectedProps } from 'core/installAddon';
-import { makeQueryStringWithUTM } from 'amo/utils';
-import Button from 'ui/components/Button';
 
 import './styles.scss';
 
 type Props = {
   addon: AddonType,
-  addonText: string,
-  staffPick?: boolean,
+  addonCustomText: string,
+  staffPick: boolean,
 };
 
 type InternalProps = {
@@ -44,7 +44,7 @@ type InternalProps = {
   userAgentInfo: UserAgentInfoType,
 };
 
-export class GuideAddonCardBase extends React.Component<InternalProps> {
+export class GuidesAddonCardBase extends React.Component<InternalProps> {
   static defaultProps = {
     _getClientCompatibility: getClientCompatibility,
     staffPick: false,
@@ -77,23 +77,23 @@ export class GuideAddonCardBase extends React.Component<InternalProps> {
       compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
     const showInstallButton = addon && isFireFox;
 
-    // TODO: waiting to hear back on how to handle + Addon buttons on non
+    // TODO: waiting to hear back on how to handle "+Addon" buttons on non
     // firefox browsers. See:
     // https://github.com/mozilla/addons-frontend/issues/6432#issuecomment-433083079.
     const showGetFirefoxButton = addon && !isFireFox;
 
     return addon ? (
       <Card>
-        <div className="GuideAddonCard">
-          <div className="GuideAddonCard-content">
+        <div className="GuidesAddonCard">
+          <div className="GuidesAddonCard-content">
             <img
-              className="GuideAddonCard-content-icon"
+              className="GuidesAddonCard-content-icon"
               src={addon.icon_url}
               alt={addon.name}
             />
-            <div className="GuideAddonCard-content-text">
-              <div className="GuideAddonCard-content-header">
-                <div className="GuideAddonCard-content-header-title">
+            <div className="GuidesAddonCard-content-text">
+              <div className="GuidesAddonCard-content-header">
+                <div className="GuidesAddonCard-content-header-title">
                   {isFireFox && !compatible && compatibility ? (
                     <AddonCompatibilityError
                       downloadUrl={compatibility.downloadUrl}
@@ -102,19 +102,19 @@ export class GuideAddonCardBase extends React.Component<InternalProps> {
                       reason={compatibility.reason}
                     />
                   ) : null}
-                  <span className="GuideAddonCard-content-authors">
+                  <span className="GuidesAddonCard-content-authors">
                     <AddonTitle addon={addon} as="span" />
                   </span>
                 </div>
                 {staffPick && (
-                  <div className="GuideAddonCard-content-header-staff-pick">
+                  <div className="GuidesAddonCard-content-header-staff-pick">
                     <Icon name="trophy" />
                     <span>{i18n.gettext('STAFF PICK')}</span>
                   </div>
                 )}
               </div>
-              <p className="GuideAddonCard-content-description">
-                {this.props.addonText}
+              <p className="GuidesAddonCard-content-description">
+                {this.props.addonCustomText}
               </p>
             </div>
             {showInstallButton && (
@@ -155,7 +155,7 @@ export class GuideAddonCardBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps) => {
+export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const installedAddon = state.installations[ownProps.addon.guid] || {};
   return {
     clientApp: state.api.clientApp,
@@ -166,10 +166,10 @@ export const mapStateToProps = (state: AppState, ownProps) => {
   };
 };
 
-const GuideAddonCard: React.ComponentType<Props> = compose(
+const GuidesAddonCard: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
-  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_GUIDE_PAGE }),
+  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_GUIDES_PAGE }),
   translate(),
-)(GuideAddonCardBase);
+)(GuidesAddonCardBase);
 
-export default GuideAddonCard;
+export default GuidesAddonCard;

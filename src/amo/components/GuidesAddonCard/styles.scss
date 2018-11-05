@@ -1,9 +1,10 @@
 @import '~amo/css/styles';
 
-.GuideAddonCard {
+.GuidesAddonCard {
   display: flex;
   flex-direction: column;
 
+  // stylelint-disable max-line-length
   // TODO: check on get-firefox button style.
   // See https://github.com/mozilla/addons-frontend/issues/6432#issuecomment-433083079.
   .Button--get-firefox,
@@ -25,7 +26,7 @@
     margin-bottom: 0;
   }
 
-  .GuideAddonCard-content-header-title {
+  .GuidesAddonCard-content-header-title {
     .AddonTitle-author {
       font-size: 12px;
 
@@ -36,7 +37,7 @@
   }
 }
 
-.GuideAddonCard-content {
+.GuidesAddonCard-content {
   display: flex;
   flex-wrap: wrap;
 
@@ -45,19 +46,19 @@
   }
 }
 
-.GuideAddonCard-content-icon {
+.GuidesAddonCard-content-icon {
   height: 40px;
   margin-bottom: 12px;
   width: 40px;
 }
 
-.GuideAddonCard-content-header {
+.GuidesAddonCard-content-header {
   @include respond-to(medium) {
     display: flex;
   }
 }
 
-.GuideAddonCard-content-header-title {
+.GuidesAddonCard-content-header-title {
   display: flex;
   flex-direction: column;
 
@@ -66,7 +67,7 @@
   }
 }
 
-.GuideAddonCard-content-header-staff-pick {
+.GuidesAddonCard-content-header-staff-pick {
   font-size: 10px;
   margin-top: 8px;
   white-space: nowrap;
@@ -76,7 +77,7 @@
   }
 }
 
-.GuideAddonCard-content-description {
+.GuidesAddonCard-content-description {
   display: flex;
 
   @include respond-to(medium) {
