@@ -81,7 +81,6 @@ describe(__filename, () => {
     defaultInstallSource: '',
     disabled: false,
     enable: sinon.stub(),
-    experimentEnabled: false,
     hasAddonManager: true,
     i18n: fakeI18n(),
     install: sinon.stub(),
@@ -650,7 +649,7 @@ describe(__filename, () => {
   describe('install_button_color experiment', () => {
     const renderWithExperiment = (props = {}) => {
       return render({
-        experimentEnabled: true,
+        _config: getFakeConfig({ experiments: { install_button_color: true } }),
         ...props,
       });
     };
@@ -682,7 +681,12 @@ describe(__filename, () => {
     it('does not send any tracking event when experiment is disabled', () => {
       const _tracking = createFakeTracking();
 
-      render({ _tracking, experimentEnabled: false });
+      render({
+        _config: getFakeConfig({
+          experiments: { install_button_color: false },
+        }),
+        _tracking,
+      });
 
       sinon.assert.notCalled(_tracking.sendEvent);
     });
