@@ -97,6 +97,8 @@ describe(__filename, () => {
       <a href="/en-US/android/collections/mozilla/password-managers/"
       class="Guides-section-explore-more-link">password manager</a> staff picks.</div>`,
     );
+
+    expect(root.find(GuidesAddonCard)).toHaveLength(1);
   });
 
   it('renders an HTML title', () => {
