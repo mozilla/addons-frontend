@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import Footer, { FooterBase } from 'disco/components/Footer';
 import { makeQueryStringWithUTM } from 'disco/utils';
+import Button from 'ui/components/Button';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -21,22 +22,19 @@ describe(__filename, () => {
   it('renders the privacy policy link', () => {
     const root = render();
 
-    expect(root.find('.Footer-privacy-link')).toHaveProp(
+    expect(root.find(Button)).toHaveClassName('Footer-privacy-link');
+    expect(root.find(Button)).toHaveProp(
       'href',
-      `https://www.mozilla.org/privacy/websites/${makeQueryStringWithUTM({
+      `https://www.mozilla.org/privacy/firefox/${makeQueryStringWithUTM({
         utm_content: 'privacy-policy-link',
-      })}`,
+      })}#addons`,
     );
-    expect(root.find('.Footer-privacy-link')).toIncludeText('Privacy Policy');
+    expect(root.find(Button).children()).toIncludeText('Privacy Policy');
   });
 
   it('renders opens the privacy policy in a new window', () => {
     const root = render();
 
-    expect(root.find('.Footer-privacy-link')).toHaveProp(
-      'rel',
-      'noopener noreferrer',
-    );
-    expect(root.find('.Footer-privacy-link')).toHaveProp('target', '_blank');
+    expect(root.find(Button)).toHaveProp('target', '_blank');
   });
 });
