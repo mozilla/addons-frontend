@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import HrefLang, { HrefLangBase } from 'amo/components/HrefLang';
+import HeadLinks, { HeadLinksBase } from 'amo/components/HeadLinks';
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
 import {
   dispatchClientMetadata,
@@ -14,8 +14,8 @@ describe(__filename, () => {
     ...props
   } = {}) => {
     return shallowUntilTarget(
-      <HrefLang store={store} to="/foo" {...props} />,
-      HrefLangBase,
+      <HeadLinks store={store} to="/foo" {...props} />,
+      HeadLinksBase,
     );
   };
 
@@ -106,4 +106,28 @@ describe(__filename, () => {
       );
     },
   );
+
+  it('throws an invariant error when the `to` prop does not start with a slash', () => {
+    expect(() => {
+      render({ to: 'no-slash' });
+    }).toThrow();
+  });
+
+  it('renders a canonical link tag', () => {
+    const baseURL = 'https://example.org';
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'de';
+    const to = '/some-canonical-url';
+
+    const _config = getFakeConfig({ baseURL });
+    const { store } = dispatchClientMetadata({ clientApp, lang });
+
+    const root = render({ _config, store, to });
+
+    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
+    expect(root.find('link[rel="canonical"]')).toHaveProp(
+      'href',
+      `${baseURL}/${lang}/${clientApp}${to}`,
+    );
+  });
 });

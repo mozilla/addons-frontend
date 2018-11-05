@@ -6,7 +6,7 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import HrefLang from 'amo/components/HrefLang';
+import HeadLinks from 'amo/components/HeadLinks';
 import { getCanonicalURL } from 'amo/utils';
 import {
   ADDON_TYPE_DICT,
@@ -179,11 +179,6 @@ export class AddonHeadBase extends React.Component<InternalProps> {
         <Helmet titleTemplate={null}>
           <title>{this.getPageTitle()}</title>
 
-          <link
-            rel="canonical"
-            href={getCanonicalURL({ locationPathname, _config })}
-          />
-
           <meta name="description" content={this.getPageDescription()} />
           <meta name="date" content={addon.created} />
           {addon.last_updated && (
@@ -196,7 +191,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
           </script>
         </Helmet>
 
-        <HrefLang to={`/addon/${addon.slug}/`} />
+        <HeadLinks to={`/addon/${addon.slug}/`} />
       </React.Fragment>
     );
   }

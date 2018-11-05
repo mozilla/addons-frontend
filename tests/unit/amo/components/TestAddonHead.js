@@ -156,23 +156,6 @@ describe(__filename, () => {
     expect(root.find(`meta[property="og:image"]`)).toHaveLength(0);
   });
 
-  it('renders a canonical link tag', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const baseURL = 'https://example.org';
-    const _config = getFakeConfig({ baseURL });
-
-    const pathname = '/this-should-be-an-addon-slug';
-    const { store } = dispatchClientMetadata({ pathname });
-
-    const root = render({ _config, addon, store });
-
-    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
-    expect(root.find('link[rel="canonical"]')).toHaveProp(
-      'href',
-      `${baseURL}${pathname}`,
-    );
-  });
-
   it('renders JSON linked data', () => {
     const addon = createInternalAddon(fakeAddon);
     const root = render({ addon });

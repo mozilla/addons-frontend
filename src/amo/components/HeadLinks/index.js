@@ -4,6 +4,7 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import invariant from 'invariant';
 
 import { getCanonicalURL } from 'amo/utils';
 import { hrefLangs } from 'core/languages';
@@ -21,7 +22,7 @@ type InternalProps = {|
   lang: string,
 |};
 
-export class HrefLangBase extends React.PureComponent<InternalProps> {
+export class HeadLinksBase extends React.PureComponent<InternalProps> {
   static defaultProps = {
     _config: config,
     _hrefLangs: hrefLangs,
@@ -34,10 +35,20 @@ export class HrefLangBase extends React.PureComponent<InternalProps> {
       return null;
     }
 
+    invariant(to.charAt(0) === '/', 'The `to` prop must start with a slash.');
+
     const hrefLangsMap = _config.get('hrefLangsMap');
 
     return (
       <Helmet>
+        <link
+          rel="canonical"
+          href={getCanonicalURL({
+            _config,
+            locationPathname: `/${lang}/${clientApp}${to}`,
+          })}
+        />
+
         {_hrefLangs.map((hrefLang) => {
           const locale = hrefLangsMap[hrefLang] || hrefLang;
 
@@ -59,14 +70,16 @@ export class HrefLangBase extends React.PureComponent<InternalProps> {
 }
 
 const mapStateToProps = (state: AppState) => {
+  const { clientApp, lang } = state.api;
+
   return {
-    clientApp: state.api.clientApp,
-    lang: state.api.lang,
+    clientApp,
+    lang,
   };
 };
 
-const HrefLang: React.ComponentType<Props> = compose(connect(mapStateToProps))(
-  HrefLangBase,
+const HeadLinks: React.ComponentType<Props> = compose(connect(mapStateToProps))(
+  HeadLinksBase,
 );
 
-export default HrefLang;
+export default HeadLinks;
