@@ -87,6 +87,18 @@ describe(__filename, () => {
     expect(root.find('link[rel="alternate"]')).toHaveLength(0);
   });
 
+  it('always renders a "canonical" link', () => {
+    const lang = 'fr';
+    const _hrefLangs = [lang, 'en-US'];
+    // We mark the current locale as excluded.
+    const _config = getFakeConfig({ unsupportedHrefLangs: [lang] });
+    const { store } = dispatchClientMetadata({ lang });
+
+    const root = render({ _config, _hrefLangs, store });
+
+    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
+  });
+
   // This test case ensures the production configuration is taken into account.
   it.each([['x-default', 'en-US'], ['pt', 'pt-PT'], ['en', 'en-US']])(
     'renders a "%s" alternate link',
