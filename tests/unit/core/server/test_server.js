@@ -39,7 +39,7 @@ function createStoreAndSagas({
 } = {}) {
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(
-    connectRouter(history)(combineReducers(reducers)),
+    combineReducers({ ...reducers, router: connectRouter(history) }),
     // Do not define an initial state.
     undefined,
     middleware({

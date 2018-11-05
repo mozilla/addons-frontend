@@ -52,7 +52,10 @@ export const createRootReducer = ({
   history,
   reducers,
 }: CreateRootReducerParams) => {
-  return connectRouter(history)(combineReducers(reducers));
+  return combineReducers({
+    ...reducers,
+    router: connectRouter(history),
+  });
 };
 
 export const reducers: AppReducersType = {
