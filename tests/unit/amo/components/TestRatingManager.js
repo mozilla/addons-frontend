@@ -72,7 +72,6 @@ describe(__filename, () => {
     store.dispatch(
       setLatestReview({
         addonId: addon.id,
-        addonSlug: addon.slug,
         review,
         userId,
       }),

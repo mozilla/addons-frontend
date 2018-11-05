@@ -331,7 +331,6 @@ function* manageAddonReview(
       yield put(
         setLatestReview({
           addonId: reviewFromResponse.addon.id,
-          addonSlug: reviewFromResponse.addon.slug,
           review: reviewFromResponse,
           userId: reviewFromResponse.user.id,
         }),
@@ -380,7 +379,7 @@ function* deleteAddonReview({
 }
 
 function* fetchLatestUserReview({
-  payload: { addonId, addonSlug, errorHandlerId, userId },
+  payload: { addonId, errorHandlerId, userId },
 }: FetchLatestUserReviewAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -404,7 +403,6 @@ function* fetchLatestUserReview({
       return setLatestReview({
         userId,
         addonId,
-        addonSlug,
         review: value,
       });
     };

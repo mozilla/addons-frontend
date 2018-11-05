@@ -992,7 +992,6 @@ describe(__filename, () => {
     } = {}) => {
       return setLatestReview({
         addonId: 9,
-        addonSlug: 'some-slug',
         userId: 7,
         review,
         ...params,

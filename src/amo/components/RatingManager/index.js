@@ -72,7 +72,6 @@ export class RatingManagerBase extends React.Component<InternalProps> {
         fetchLatestUserReview({
           userId,
           addonId: addon.id,
-          addonSlug: addon.slug,
           errorHandlerId: errorHandler.id,
         }),
       );

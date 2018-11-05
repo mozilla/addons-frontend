@@ -856,14 +856,12 @@ describe(__filename, () => {
 
     it('dispatches setLatestReview after saving a review', async () => {
       const addonId = 98767;
-      const addonSlug = 'some-slug';
       const body = 'This add-on works pretty well for me';
       const score = 4;
       const userId = 12345;
 
       const externalReview = createExternalReview({
         addonId,
-        addonSlug,
         body,
         score,
         userId,
@@ -875,7 +873,6 @@ describe(__filename, () => {
 
       const expectedAction = setLatestReview({
         addonId,
-        addonSlug,
         review: externalReview,
         userId,
       });
@@ -885,14 +882,12 @@ describe(__filename, () => {
 
     it('does not dispatch setLatestReview after saving a reply', async () => {
       const addonId = 98767;
-      const addonSlug = 'some-slug';
       const body = 'This add-on works pretty well for me';
       const rating = 4;
       const userId = 12345;
 
       const externalReview = createExternalReview({
         addonId,
-        addonSlug,
         body,
         isDeveloperReply: true,
         rating,
@@ -908,7 +903,6 @@ describe(__filename, () => {
 
       const unexpectedAction = setLatestReview({
         addonId,
-        addonSlug,
         review: externalReview,
         userId,
       });
@@ -1087,7 +1081,6 @@ describe(__filename, () => {
       sagaTester.dispatch(
         fetchLatestUserReview({
           addonId: fakeAddon.id,
-          addonSlug: fakeAddon.slug,
           errorHandlerId: 'any-error-handler',
           userId: 9876,
           ...params,
@@ -1107,7 +1100,6 @@ describe(__filename, () => {
     it('fetches and sets the latest user review', async () => {
       const review = { ...fakeReview, id: 34421 };
       const addonId = review.addon.id;
-      const addonSlug = review.addon.slug;
       const userId = review.user.id;
       mockApi
         .expects('getLatestUserReview')
@@ -1120,7 +1112,6 @@ describe(__filename, () => {
 
       _fetchLatestUserReview({
         addonId,
-        addonSlug,
         userId,
       });
 
@@ -1131,7 +1122,6 @@ describe(__filename, () => {
       const expectedSetLatestAction = setLatestReview({
         userId,
         addonId,
-        addonSlug,
         review,
       });
       const setLatestAction = await matchingSagaAction(
@@ -1147,20 +1137,17 @@ describe(__filename, () => {
     it('sets the latest review to null when none exists', async () => {
       const review = { ...fakeReview, id: 34421 };
       const addonId = review.addon.id;
-      const addonSlug = review.addon.slug;
       const userId = review.user.id;
 
       mockApi.expects('getLatestUserReview').resolves(null);
 
       _fetchLatestUserReview({
         addonId,
-        addonSlug,
         userId,
       });
 
       const expectedAction = setLatestReview({
         addonId,
-        addonSlug,
         userId,
         review: null,
       });
