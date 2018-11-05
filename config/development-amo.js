@@ -16,4 +16,8 @@ module.exports = {
   fxaConfig: 'local',
   trackingEnabled: false,
   loggingLevel: 'debug',
+
+  experiments: {
+    install_button_color: true,
+  },
 };

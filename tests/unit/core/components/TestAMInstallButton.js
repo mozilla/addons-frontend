@@ -4,6 +4,9 @@ import { TransitionGroup } from 'react-transition-group';
 import createStore from 'amo/store';
 import AMInstallButton, {
   AMInstallButtonBase,
+  EXPERIMENT_CATEGORY,
+  VARIANT_BLUE,
+  VARIANT_GREEN,
 } from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_EXTENSION,
@@ -82,6 +85,7 @@ describe(__filename, () => {
     i18n: fakeI18n(),
     install: sinon.stub(),
     installTheme: sinon.stub(),
+    isAddonEnabled: sinon.stub(),
     location: createFakeLocation(),
     status: UNINSTALLED,
     store: createStore().store,
@@ -640,5 +644,51 @@ describe(__filename, () => {
     const root = renderOpenSearch({ status: UNKNOWN });
 
     expect(root.find(Button)).toHaveProp('disabled', false);
+  });
+
+  describe('install_button_color experiment', () => {
+    const renderWithExperiment = (props = {}) => {
+      return render({
+        _config: getFakeConfig({ experiments: { install_button_color: true } }),
+        ...props,
+      });
+    };
+
+    it('adds a CSS class name when variant is VARIANT_GREEN', () => {
+      const root = renderWithExperiment({ variant: VARIANT_GREEN });
+
+      expect(root).toHaveClassName('AMInstallButton--green');
+    });
+
+    it('does not add a CSS class name when variant is not VARIANT_GREEN', () => {
+      const root = renderWithExperiment({ variant: VARIANT_BLUE });
+
+      expect(root).not.toHaveClassName('AMInstallButton--green');
+    });
+
+    it('sends a tracking event when mounted on the client', () => {
+      const _tracking = createFakeTracking();
+      const variant = VARIANT_BLUE;
+
+      renderWithExperiment({ _tracking, variant });
+
+      sinon.assert.calledWith(_tracking.sendEvent, {
+        action: variant,
+        category: EXPERIMENT_CATEGORY,
+      });
+    });
+
+    it('does not send any tracking event when experiment is disabled', () => {
+      const _tracking = createFakeTracking();
+
+      render({
+        _config: getFakeConfig({
+          experiments: { install_button_color: false },
+        }),
+        _tracking,
+      });
+
+      sinon.assert.notCalled(_tracking.sendEvent);
+    });
   });
 });
