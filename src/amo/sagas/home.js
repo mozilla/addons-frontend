@@ -16,16 +16,22 @@ import {
   SEARCH_SORT_TRENDING,
 } from 'core/constants';
 import { search as searchApi } from 'core/api/search';
+import { getAddonTypeFilter } from 'core/utils';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { GetCollectionAddonsParams } from 'amo/api/collections';
 import type { FetchHomeAddonsAction } from 'amo/reducers/home';
 import type { SearchParams } from 'core/api/search';
-import { getAddonTypeFilter } from 'core/utils';
+import type { Saga } from 'core/types/sagas';
 
 export function* fetchHomeAddons({
-  payload: { collectionsToFetch, errorHandlerId, includeFeaturedThemes },
-}: FetchHomeAddonsAction): Generator<any, any, any> {
+  payload: {
+    collectionsToFetch,
+    errorHandlerId,
+    includeFeaturedThemes,
+    includeTrendingExtensions,
+  },
+}: FetchHomeAddonsAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -102,7 +108,9 @@ export function* fetchHomeAddons({
         ? call(searchApi, featuredThemesParams)
         : null,
       popularExtensions: call(searchApi, popularExtensionsParams),
-      trendingExtensions: call(searchApi, trendingExtensionsParams),
+      trendingExtensions: includeTrendingExtensions
+        ? call(searchApi, trendingExtensionsParams)
+        : null,
     });
   } catch (error) {
     log.warn(`Home add-ons failed to load: ${error}`);
@@ -118,6 +126,6 @@ export function* fetchHomeAddons({
   );
 }
 
-export default function* homeSaga(): Generator<any, any, any> {
+export default function* homeSaga(): Saga {
   yield takeLatest(FETCH_HOME_ADDONS, fetchHomeAddons);
 }

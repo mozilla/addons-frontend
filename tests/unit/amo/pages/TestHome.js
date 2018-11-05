@@ -169,8 +169,15 @@ describe(__filename, () => {
     expect(shelf).toHaveProp('loading', true);
   });
 
-  it('renders a trending extensions shelf', () => {
-    const root = render();
+  it('does not render a trending extensions shelf if includeTrendingExtensions is false', () => {
+    const root = render({ includeTrendingExtensions: false });
+
+    const shelves = root.find(LandingAddonsCard);
+    expect(shelves.find('.Home-TrendingExtensions')).toHaveLength(0);
+  });
+
+  it('renders a trending extensions shelf when includeTrendingExtensions is true', () => {
+    const root = render({ includeTrendingExtensions: true });
 
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-TrendingExtensions');
@@ -217,11 +224,18 @@ describe(__filename, () => {
 
   it('dispatches an action to fetch the add-ons to display', () => {
     const includeFeaturedThemes = false;
+    const includeTrendingExtensions = false;
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    render({ errorHandler, includeFeaturedThemes, store });
+
+    render({
+      errorHandler,
+      includeFeaturedThemes,
+      includeTrendingExtensions,
+      store,
+    });
 
     sinon.assert.callCount(fakeDispatch, 2);
     sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
@@ -231,11 +245,13 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
         includeFeaturedThemes,
+        includeTrendingExtensions,
       }),
     );
   });
 
-  it('includes featured themes by default', () => {
+  // This test case should be updated when we change the `defaultProps`.
+  it('fetches add-ons with some defaults', () => {
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
 
@@ -250,6 +266,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
         includeFeaturedThemes: true,
+        includeTrendingExtensions: false,
       }),
     );
   });

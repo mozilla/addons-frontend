@@ -57,6 +57,7 @@ describe(__filename, () => {
           collectionsToFetch: [{ slug: 'some-slug', user: 'some-user' }],
           errorHandlerId: errorHandler.id,
           includeFeaturedThemes: true,
+          includeTrendingExtensions: true,
           ...params,
         }),
       );
@@ -168,6 +169,42 @@ describe(__filename, () => {
       mockCollectionsApi.verify();
       mockSearchApi.verify();
 
+      expect(expectedAction).toEqual(loadAction);
+    });
+
+    it('does not fetch trending extensions if includeTrendingExtensions is false', async () => {
+      const collections = [];
+
+      const featuredExtensions = createAddonsApiResult([fakeAddon]);
+      mockSearchApi
+        .expects('search')
+        .returns(Promise.resolve(featuredExtensions));
+
+      const featuredThemes = createAddonsApiResult([fakeTheme]);
+      mockSearchApi.expects('search').returns(Promise.resolve(featuredThemes));
+
+      const popularExtensions = createAddonsApiResult([fakeAddon]);
+      mockSearchApi
+        .expects('search')
+        .returns(Promise.resolve(popularExtensions));
+
+      _fetchHomeAddons({
+        collectionsToFetch: [],
+        includeTrendingExtensions: false,
+      });
+
+      const loadAction = loadHomeAddons({
+        collections,
+        shelves: {
+          featuredExtensions,
+          featuredThemes,
+          popularExtensions,
+          trendingExtensions: null,
+        },
+      });
+
+      const expectedAction = await sagaTester.waitFor(loadAction.type);
+      mockSearchApi.verify();
       expect(expectedAction).toEqual(loadAction);
     });
 

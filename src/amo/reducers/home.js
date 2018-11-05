@@ -15,7 +15,7 @@ export const LOAD_HOME_ADDONS: 'LOAD_HOME_ADDONS' = 'LOAD_HOME_ADDONS';
 export type HomeState = {
   collections: Array<Object | null>,
   resultsLoaded: boolean,
-  shelves: { [shelfName: string]: Array<AddonType> },
+  shelves: { [shelfName: string]: Array<AddonType> | null },
 };
 
 export const initialState: HomeState = {
@@ -28,6 +28,7 @@ type FetchHomeAddonsParams = {|
   collectionsToFetch: Array<Object>,
   errorHandlerId: string,
   includeFeaturedThemes: boolean,
+  includeTrendingExtensions: boolean,
 |};
 
 export type FetchHomeAddonsAction = {|
@@ -39,6 +40,7 @@ export const fetchHomeAddons = ({
   collectionsToFetch,
   errorHandlerId,
   includeFeaturedThemes,
+  includeTrendingExtensions,
 }: FetchHomeAddonsParams): FetchHomeAddonsAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(collectionsToFetch, 'collectionsToFetch is required');
@@ -49,6 +51,7 @@ export const fetchHomeAddons = ({
       collectionsToFetch,
       errorHandlerId,
       includeFeaturedThemes,
+      includeTrendingExtensions,
     },
   };
 };
@@ -121,9 +124,11 @@ const reducer = (
         }),
         resultsLoaded: true,
         shelves: Object.keys(shelves).reduce((shelvesToLoad, shelfName) => {
+          const response = shelves[shelfName];
+
           return {
             ...shelvesToLoad,
-            [shelfName]: createInternalAddons(shelves[shelfName]),
+            [shelfName]: response ? createInternalAddons(response) : null,
           };
         }, {}),
       };

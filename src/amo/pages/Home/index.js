@@ -32,6 +32,7 @@ import './styles.scss';
 
 export const FEATURED_COLLECTIONS = [
   { slug: 'privacy-matters', username: 'mozilla' },
+  { slug: 'social-media-customization', username: 'mozilla' },
 ];
 
 export const isFeaturedCollection = (
@@ -55,8 +56,8 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
       ...FEATURED_COLLECTIONS[0],
     },
     {
-      footerText: i18n.gettext('See more parental controls'),
-      header: i18n.gettext('Parental controls'),
+      footerText: i18n.gettext('See more social media customization'),
+      header: i18n.gettext('Social media customization'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[1],
     },
@@ -72,6 +73,7 @@ export class HomeBase extends React.Component {
     shelves: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     includeFeaturedThemes: PropTypes.bool,
+    includeTrendingExtensions: PropTypes.bool,
     locationPathname: PropTypes.string.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
   };
@@ -79,6 +81,7 @@ export class HomeBase extends React.Component {
   static defaultProps = {
     _config: config,
     includeFeaturedThemes: true,
+    includeTrendingExtensions: false,
   };
 
   constructor(props) {
@@ -88,6 +91,7 @@ export class HomeBase extends React.Component {
       dispatch,
       errorHandler,
       includeFeaturedThemes,
+      includeTrendingExtensions,
       resultsLoaded,
     } = props;
 
@@ -99,6 +103,7 @@ export class HomeBase extends React.Component {
           collectionsToFetch: FEATURED_COLLECTIONS,
           errorHandlerId: errorHandler.id,
           includeFeaturedThemes,
+          includeTrendingExtensions,
         }),
       );
     }
@@ -207,6 +212,7 @@ export class HomeBase extends React.Component {
       shelves,
       i18n,
       includeFeaturedThemes,
+      includeTrendingExtensions,
       locationPathname,
       resultsLoaded,
     } = this.props;
@@ -262,37 +268,23 @@ export class HomeBase extends React.Component {
           {this.renderCuratedCollections()}
         </Card>
 
-        <LandingAddonsCard
-          addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={shelves.featuredExtensions}
-          className="Home-FeaturedExtensions"
-          header={i18n.gettext('Featured extensions')}
-          footerText={i18n.gettext('See more featured extensions')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_EXTENSION,
-              featured: true,
-            },
-          }}
-          loading={loading}
-        />
+        {(loading || collections[0]) && (
+          <FeaturedCollectionCard
+            addons={collections[0]}
+            className="Home-FeaturedCollection"
+            loading={loading}
+            {...featuredCollectionsMetadata[0]}
+          />
+        )}
 
-        <LandingAddonsCard
-          addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={shelves.trendingExtensions}
-          className="Home-TrendingExtensions"
-          header={i18n.gettext('Trending extensions')}
-          footerText={i18n.gettext('See more trending extensions')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_EXTENSION,
-              sort: SEARCH_SORT_TRENDING,
-            },
-          }}
-          loading={loading}
-        />
+        {(loading || collections[1]) && (
+          <FeaturedCollectionCard
+            addons={collections[1]}
+            className="Home-FeaturedCollection"
+            loading={loading}
+            {...featuredCollectionsMetadata[1]}
+          />
+        )}
 
         {includeFeaturedThemes && (
           <LandingAddonsCard
@@ -317,6 +309,22 @@ export class HomeBase extends React.Component {
 
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={shelves.featuredExtensions}
+          className="Home-FeaturedExtensions"
+          header={i18n.gettext('Featured extensions')}
+          footerText={i18n.gettext('See more featured extensions')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_EXTENSION,
+              featured: true,
+            },
+          }}
+          loading={loading}
+        />
+
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={shelves.popularExtensions}
           className="Home-PopularExtensions"
           header={i18n.gettext('Popular extensions')}
@@ -331,12 +339,21 @@ export class HomeBase extends React.Component {
           loading={loading}
         />
 
-        {(loading || collections[0]) && (
-          <FeaturedCollectionCard
-            addons={collections[0]}
-            className="Home-FeaturedCollection"
+        {includeTrendingExtensions && (
+          <LandingAddonsCard
+            addonInstallSource={INSTALL_SOURCE_FEATURED}
+            addons={shelves.trendingExtensions}
+            className="Home-TrendingExtensions"
+            header={i18n.gettext('Trending extensions')}
+            footerText={i18n.gettext('See more trending extensions')}
+            footerLink={{
+              pathname: '/search/',
+              query: {
+                addonType: ADDON_TYPE_EXTENSION,
+                sort: SEARCH_SORT_TRENDING,
+              },
+            }}
             loading={loading}
-            {...featuredCollectionsMetadata[0]}
           />
         )}
 
