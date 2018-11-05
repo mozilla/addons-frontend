@@ -172,7 +172,7 @@ describe(__filename, () => {
       expect(expectedAction).toEqual(loadAction);
     });
 
-    it('does not fetch featured themes if includeTrendingExtensions is false', async () => {
+    it('does not fetch trending extensions if includeTrendingExtensions is false', async () => {
       const collections = [];
 
       const featuredExtensions = createAddonsApiResult([fakeAddon]);
@@ -208,7 +208,7 @@ describe(__filename, () => {
       expect(expectedAction).toEqual(loadAction);
     });
 
-    it('does not fetch trending extensions if includeFeaturedThemes is false', async () => {
+    it('does not fetch featured themes if includeFeaturedThemes is false', async () => {
       const collections = [];
 
       const featuredExtensions = createAddonsApiResult([fakeAddon]);

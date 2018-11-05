@@ -353,7 +353,7 @@ describe(__filename, () => {
           }),
         );
 
-        expect(getVersionById({ state, id: versionId })).toEqual(null);
+        expect(state).toEqual(initialState);
       });
 
       it('loads versions for collections', () => {
