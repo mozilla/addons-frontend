@@ -646,10 +646,10 @@ describe(__filename, () => {
     expect(root.find(Button)).toHaveProp('disabled', false);
   });
 
-  describe('install_button_color experiment', () => {
+  describe('installButtonColor experiment', () => {
     const renderWithExperiment = (props = {}) => {
       return render({
-        _config: getFakeConfig({ experiments: { install_button_color: true } }),
+        _config: getFakeConfig({ experiments: { installButtonColor: true } }),
         ...props,
       });
     };
@@ -683,7 +683,7 @@ describe(__filename, () => {
 
       render({
         _config: getFakeConfig({
-          experiments: { install_button_color: false },
+          experiments: { installButtonColor: false },
         }),
         _tracking,
       });

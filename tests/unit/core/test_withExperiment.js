@@ -71,7 +71,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       _cookie.save,
-      `experiment_${id}`,
+      `${id}Experiment`,
       root.instance().experimentCookie,
     );
   });
@@ -79,7 +79,7 @@ describe(__filename, () => {
   it('does not create a cookie upon construction if one has been loaded', () => {
     const id = 'hero';
     const _cookie = fakeCookie({
-      load: sinon.stub().returns(`experiment_${id}`),
+      load: sinon.stub().returns(`${id}Experiment`),
     });
 
     render({ props: { _cookie }, experimentProps: { id } });
@@ -99,7 +99,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       _cookie.save,
-      `experiment_${id}`,
+      `${id}Experiment`,
       root.instance().experimentCookie,
       cookieConfig,
     );

@@ -21,7 +21,7 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
-export const AB_HOME_HERO_EXPERIMENT = 'home_hero';
+export const AB_HOME_HERO_EXPERIMENT = 'homeHero';
 export const AB_HOME_HERO_VARIANT_A = 'small';
 export const AB_HOME_HERO_VARIANT_B = 'large';
 export const AB_HOME_HERO_EXPERIMENT_CATEGORY = 'AMO Home Hero Experiment';

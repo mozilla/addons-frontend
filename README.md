@@ -386,7 +386,7 @@ curl https://addons-dev.allizom.org/__frontend_version__
     "build": "https://circleci.com/gh/mozilla/addons-frontend/10333",
     "commit": "47edfa6f24e333897b25516c587f504e294e8fa9",
     "experiments": {
-        "home_hero": true
+        "homeHero": true
     },
     "feature_flags": {
         "enableFeatureAMInstallButton": true,
