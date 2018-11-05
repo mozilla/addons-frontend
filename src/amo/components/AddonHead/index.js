@@ -1,5 +1,4 @@
 /* @flow */
-import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
 import Helmet from 'react-helmet';
@@ -7,7 +6,6 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import HeadLinks from 'amo/components/HeadLinks';
-import { getCanonicalURL } from 'amo/utils';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -30,18 +28,12 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   clientApp: string,
   i18n: I18nType,
   lang: string,
-  locationPathname: string,
 |};
 
 export class AddonHeadBase extends React.Component<InternalProps> {
-  static defaultProps = {
-    _config: config,
-  };
-
   getPageTitle() {
     const { addon, clientApp, i18n, lang } = this.props;
 
@@ -168,7 +160,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { _config, addon, locationPathname } = this.props;
+    const { addon } = this.props;
 
     if (!addon) {
       return null;
@@ -199,12 +191,10 @@ export class AddonHeadBase extends React.Component<InternalProps> {
 
 const mapStateToProps = (state: AppState) => {
   const { clientApp, lang } = state.api;
-  const locationPathname = state.router.location.pathname;
 
   return {
     clientApp,
     lang,
-    locationPathname,
   };
 };
 

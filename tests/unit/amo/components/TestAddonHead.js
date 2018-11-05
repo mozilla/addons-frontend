@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
 
+import HeadLinks from 'amo/components/HeadLinks';
 import AddonHead, { AddonHeadBase } from 'amo/components/AddonHead';
-import HrefLang from 'amo/components/HrefLang';
 import {
   ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
@@ -20,7 +20,6 @@ import {
   fakeAddon,
   fakeI18n,
   fakeTheme,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -192,12 +191,12 @@ describe(__filename, () => {
     expect(root.find('meta[name="last-modified"]')).toHaveLength(0);
   });
 
-  it('renders a HrefLang component', () => {
+  it('renders a HeadLinks component', () => {
     const addon = createInternalAddon(fakeAddon);
 
     const root = render({ addon });
 
-    expect(root.find(HrefLang)).toHaveLength(1);
-    expect(root.find(HrefLang)).toHaveProp('to', `/addon/${addon.slug}/`);
+    expect(root.find(HeadLinks)).toHaveLength(1);
+    expect(root.find(HeadLinks)).toHaveProp('to', `/addon/${addon.slug}/`);
   });
 });
