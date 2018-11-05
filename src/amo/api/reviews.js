@@ -187,7 +187,8 @@ export function getReviews({
 }
 
 export type GetLatestUserReviewParams = {|
-  addon: number,
+  // This is the addon ID, slug, or guid.
+  addon: number | string,
   apiState: ApiState,
   user: number,
 |};
