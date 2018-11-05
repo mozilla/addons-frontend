@@ -133,7 +133,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
       }
 
       const title = this.renderTitle(rating, readOnly, thisRating);
-      
+
       const props = {
         className: makeClassName('Rating-star', `Rating-rating-${thisRating}`, {
           'Rating-selected-star': isSelected,
@@ -143,7 +143,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
         key: `rating-${thisRating}`,
         onClick: undefined,
         onMouseEnter: () => this.onHoverStar(thisRating),
-          title
+        title,
       };
 
       if (readOnly) {
@@ -161,7 +161,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
         <React.Fragment>
           <button
             aria-describedby={id}
-            type="buttn"
+            type="button"
             value={thisRating}
             {...props}
           />
