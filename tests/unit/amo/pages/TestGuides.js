@@ -9,12 +9,7 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import Guides, {
-  GuidesBase,
-  getContent,
-  getGuids,
-  mapStateToProps,
-} from 'amo/pages/Guides';
+import Guides, { GuidesBase, getContent, getGuids } from 'amo/pages/Guides';
 
 describe(__filename, () => {
   let store;
@@ -51,7 +46,7 @@ describe(__filename, () => {
 
   it('fetches guides addons', () => {
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ dispatch: dispatchSpy });
+    render({ dispatch: dispatchSpy });
 
     sinon.assert.calledWith(
       dispatchSpy,

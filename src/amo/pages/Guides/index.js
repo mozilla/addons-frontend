@@ -73,7 +73,6 @@ export const getContent = (guidesSlug: string, i18n: I18nType): Object => {
             addonCustomText: i18n.gettext(
               'Fully encrypted password protection. Store your data securely and access logins across devices.',
             ),
-            staffPick: true,
             exploreMore: i18n.gettext(
               'Explore more %(linkStart)spassword manager%(linkEnd)s staff picks.',
             ),
@@ -88,7 +87,6 @@ export const getContent = (guidesSlug: string, i18n: I18nType): Object => {
             addonCustomText: i18n.gettext(
               'Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory.',
             ),
-            staffPick: true,
             exploreMore: i18n.gettext(
               'Explore more %(linkStart)sad blockers%(linkEnd)s staff picks.',
             ),
@@ -103,7 +101,6 @@ export const getContent = (guidesSlug: string, i18n: I18nType): Object => {
             addonCustomText: i18n.gettext(
               'Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform.',
             ),
-            staffPick: true,
             exploreMore: i18n.gettext(
               'Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks.',
             ),
@@ -160,7 +157,6 @@ export class GuidesBase extends React.Component<InternalProps> {
               <GuidesAddonCard
                 addon={addon}
                 addonCustomText={sections[key].addonCustomText}
-                staffPick={sections[key].staffPick}
               />
               {/* eslint-disable react/no-danger */}
               <div

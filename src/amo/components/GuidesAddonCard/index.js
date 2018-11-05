@@ -10,6 +10,7 @@ import AMInstallButton from 'core/components/AMInstallButton';
 import {
   INCOMPATIBLE_NOT_FIREFOX,
   INSTALL_SOURCE_GUIDES_PAGE,
+  UNKNOWN,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import translate from 'core/i18n/translate';
@@ -29,7 +30,7 @@ import './styles.scss';
 type Props = {
   addon: AddonType,
   addonCustomText: string,
-  staffPick: boolean,
+  staffPick?: boolean,
 };
 
 type InternalProps = {
@@ -47,7 +48,7 @@ type InternalProps = {
 export class GuidesAddonCardBase extends React.Component<InternalProps> {
   static defaultProps = {
     _getClientCompatibility: getClientCompatibility,
-    staffPick: false,
+    staffPick: true,
   };
 
   render() {
@@ -156,12 +157,16 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
 }
 
 export const mapStateToProps = (state: AppState, ownProps: Props) => {
-  const installedAddon = state.installations[ownProps.addon.guid] || {};
+  let installedAddon = {};
+
+  if (ownProps.addon) {
+    installedAddon = state.installations[ownProps.addon.guid];
+  }
   return {
     clientApp: state.api.clientApp,
     location: state.router.location,
-    installError: installedAddon.error,
-    installStatus: installedAddon.status,
+    installError: installedAddon ? installedAddon.error : {},
+    installStatus: installedAddon ? installedAddon.status : UNKNOWN,
     userAgentInfo: state.api.userAgentInfo,
   };
 };
