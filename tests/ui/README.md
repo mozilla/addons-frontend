@@ -25,7 +25,7 @@ echo '127.0.0.1 example.com' | sudo tee -a /etc/hosts
 The tests must be run in Firefox 57 or later.
 
 1. Install [Tox]
-1. Download geckodriver [v0.19.1][geckodriver] and ensure it's executable and
+1. Download geckodriver [v0.21.0][geckodriver] and ensure it's executable and
    in your path
 1. Make sure you have [docker][] installed and start the server with
    `yarn start-func-test-server`
@@ -39,6 +39,6 @@ command line options available. To see the options available, run
 [docker]: https://www.docker.com/
 [git-clone]: https://help.github.com/articles/cloning-a-repository/
 [git-fork]: https://help.github.com/articles/fork-a-repo/
-[geckodriver]: https://github.com/mozilla/geckodriver/releases/tag/v0.14.0
+[geckodriver]: https://github.com/mozilla/geckodriver/releases/tag/v0.21.0
 [pytest-selenium]: http://pytest-selenium.readthedocs.org/
 [Tox]: http://tox.readthedocs.io/
