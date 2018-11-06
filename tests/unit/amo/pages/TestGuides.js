@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
 import {
@@ -74,7 +73,6 @@ describe(__filename, () => {
     root.setProps({ addons });
 
     expect(root.find('.Guides-section')).toHaveLength(addonsCount);
-    expect(root.find(GuidesAddonCard)).toHaveLength(addonsCount);
   });
 
   it('renders a 404 component when there are no matching guides params', () => {

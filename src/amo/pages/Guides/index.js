@@ -5,7 +5,6 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
 import { getAddonByGUID } from 'core/reducers/addons';
 import translate from 'core/i18n/translate';
@@ -40,11 +39,7 @@ type InternalProps = {|
 export const getGuids = (guidesSlug: string): Array<string> | null => {
   switch (guidesSlug) {
     case 'privacy':
-      return [
-        '{446900e4-71c2-419f-a6a7-df9c091e268b}',
-        '{9aa5dd7e-dcf1-483c-9d38-9196f3ccf723}',
-        '@contain-facebook',
-      ];
+      return ['{446900e4-71c2-419f-a6a7-df9c091e268b}'];
     // The following will be addressed in another issue.
     // See https://github.com/mozilla/addons-frontend/issues/6744.
     case 'organize-tabs-and-bookmarks':
@@ -77,34 +72,6 @@ export const getContent = (guidesSlug: string, i18n: I18nType): Object => {
               'Explore more %(linkStart)spassword manager%(linkEnd)s staff picks.',
             ),
             exploreUrl: '/collections/mozilla/password-managers/',
-          },
-          // Ublock origin
-          {
-            header: i18n.gettext('Block annoying ads'),
-            description: i18n.gettext(
-              'Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing.',
-            ),
-            addonCustomText: i18n.gettext(
-              'Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory.',
-            ),
-            exploreMore: i18n.gettext(
-              'Explore more %(linkStart)sad blockers%(linkEnd)s staff picks.',
-            ),
-            exploreUrl: '/collections/mozilla/ad-blockers/',
-          },
-          // Facebook container
-          {
-            header: i18n.gettext('Stop online trackers from stalking you'),
-            description: i18n.gettext(
-              'Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail.',
-            ),
-            addonCustomText: i18n.gettext(
-              'Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform.',
-            ),
-            exploreMore: i18n.gettext(
-              'Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks.',
-            ),
-            exploreUrl: '/collections/mozilla/privacy-matters/',
           },
         ],
       };
@@ -154,10 +121,6 @@ export class GuidesBase extends React.Component<InternalProps> {
                 {sections[key].description}
               </p>
 
-              <GuidesAddonCard
-                addon={addon}
-                addonCustomText={sections[key].addonCustomText}
-              />
               {/* eslint-disable react/no-danger */}
               <div
                 className="Guides-section-explore-more"
