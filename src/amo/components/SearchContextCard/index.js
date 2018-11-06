@@ -26,14 +26,13 @@ export class SearchContextCardBase extends React.Component {
 
   render() {
     const { categoryName, count, filters, i18n, loading } = this.props;
-    const { addonType, query, category } = filters;
-
+    const { addonType, query } = filters;
     let searchText;
 
     if (!loading) {
       switch (addonType) {
         case ADDON_TYPE_EXTENSION:
-          if (category && categoryName) {
+          if (categoryName) {
             if (query) {
               searchText = i18n.sprintf(
                 i18n.ngettext(
@@ -74,7 +73,7 @@ export class SearchContextCardBase extends React.Component {
           }
           break;
         case ADDON_TYPE_THEMES_FILTER:
-          if (category && categoryName) {
+          if (categoryName) {
             if (query) {
               searchText = i18n.sprintf(
                 i18n.ngettext(
@@ -165,9 +164,11 @@ export function mapStateToProps(state) {
 
     if (categoriesState && clientApp) {
       Object.keys(categoriesState[clientApp]).forEach((type) => {
-        Object.keys(categoriesState[clientApp][type]).forEach((category) => {
-          const { slug } = categoriesState[clientApp][type][category];
-          const { name } = categoriesState[clientApp][type][category];
+        const searchType = categoriesState[clientApp][type];
+        Object.keys(searchType).forEach((category) => {
+          const searchCategory = searchType[category];
+          const { slug } = searchCategory;
+          const { name } = searchCategory;
           allCategories.push({
             [slug]: {
               name,
@@ -194,10 +195,11 @@ export function mapStateToProps(state) {
   }
 
   return {
+    hasCategory: !!currentCategory,
     categoryName,
     count: state.search.count,
     filters: state.search.filters,
-    loading: state.search.loading,
+    loading: state.search.loading || (currentCategory && !categoryName),
   };
 }
 
