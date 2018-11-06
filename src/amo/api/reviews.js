@@ -186,37 +186,37 @@ export function getReviews({
   });
 }
 
-export type GetLatestReviewParams = {|
-  addon: number,
+export type GetLatestUserReviewParams = {|
+  // This is the addon ID, slug, or guid.
+  addon: number | string,
   apiState: ApiState,
   user: number,
-  version: number,
 |};
 
-export function getLatestUserReview({
+export type GetLatestUserReviewResponse = null | ExternalReviewType;
+
+export async function getLatestUserReview({
   apiState,
   user,
   addon,
-  version,
-}: GetLatestReviewParams = {}): Promise<null | ExternalReviewType> {
-  return new Promise((resolve) => {
-    if (!user || !addon || !version) {
-      throw new Error('user, addon, and version must be specified');
-    }
-    // The API will only return the latest user review for this add-on
-    // and version.
-    resolve(getReviews({ apiState, user, addon, version }));
-  }).then((response) => {
-    const reviews = response.results;
-    if (reviews.length === 1) {
-      return reviews[0];
-    }
-    if (reviews.length === 0) {
-      return null;
-    }
-    throw new Error(oneLine`Unexpectedly received multiple review objects:
-        ${JSON.stringify(reviews)}`);
-  });
+}: GetLatestUserReviewParams = {}): Promise<GetLatestUserReviewResponse> {
+  invariant(user, 'The user parameter is required');
+  invariant(addon, 'The addon parameter is required');
+
+  // Since version is omitted, the API returns only the latest review.
+  const response = await getReviews({ apiState, user, addon });
+
+  const reviews = response.results;
+  if (reviews.length === 1) {
+    return reviews[0];
+  }
+  if (reviews.length === 0) {
+    return null;
+  }
+  // Theoretcially, there are enough constraints in the database where we
+  // should never receive multiple objects.
+  throw new Error(oneLine`Unexpectedly received multiple review objects:
+      ${reviews.map((r) => r.id)}`);
 }
 
 type FlagReviewParams = {|

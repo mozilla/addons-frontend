@@ -111,9 +111,9 @@ export type ReviewsState = {|
   byId: ReviewsById,
   byUserId: ReviewsByUserId,
   latestUserReview: {
-    // The latest user review for add-on / version
+    // The latest user review for an add-on
     // or null if one does not exist yet.
-    [userIdAddonIdVersionId: string]: number | null,
+    [userIdAddonId: string]: number | null,
   },
   groupedRatings: {
     [addonId: number]: ?GroupedRatingsType,
@@ -265,27 +265,23 @@ export const getReviewsByUserId = (
 export const makeLatestUserReviewKey = ({
   userId,
   addonId,
-  versionId,
 }: {|
   userId: number,
   addonId: number,
-  versionId: number,
 |}) => {
-  return `user-${userId}/addon-${addonId}/version-${versionId}`;
+  return `user-${userId}/addon-${addonId}`;
 };
 
 export const selectLatestUserReview = ({
   reviewsState,
   userId,
   addonId,
-  versionId,
 }: {|
   reviewsState: ReviewsState,
   userId: number,
   addonId: number,
-  versionId: number,
 |}): UserReviewType | null | void => {
-  const key = makeLatestUserReviewKey({ userId, addonId, versionId });
+  const key = makeLatestUserReviewKey({ userId, addonId });
   const userReviewId = reviewsState.latestUserReview[key];
 
   if (userReviewId === null) {
@@ -444,8 +440,8 @@ export default function reviewsReducer(
       });
     case SET_LATEST_REVIEW: {
       const { payload } = action;
-      const { addonId, userId, review, versionId } = payload;
-      const key = makeLatestUserReviewKey({ addonId, userId, versionId });
+      const { addonId, userId, review } = payload;
+      const key = makeLatestUserReviewKey({ addonId, userId });
 
       if (review && !selectReview(state, review.id)) {
         throw new Error(

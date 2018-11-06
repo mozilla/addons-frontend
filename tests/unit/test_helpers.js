@@ -277,7 +277,7 @@ describe(__filename, () => {
       });
 
       expect(error.message).toMatch(
-        /saga called these action types.*none at all/,
+        /saga dispatched these action types.*none at all/,
       );
     });
   });

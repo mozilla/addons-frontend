@@ -20,6 +20,8 @@ export const FETCH_REVIEW: 'FETCH_REVIEW' = 'FETCH_REVIEW';
 export const FETCH_REVIEW_PERMISSIONS: 'FETCH_REVIEW_PERMISSIONS' =
   'FETCH_REVIEW_PERMISSIONS';
 export const FETCH_REVIEWS: 'FETCH_REVIEWS' = 'FETCH_REVIEWS';
+export const FETCH_LATEST_USER_REVIEW: 'FETCH_LATEST_USER_REVIEW' =
+  'FETCH_LATEST_USER_REVIEW';
 export const FETCH_USER_REVIEWS: 'FETCH_USER_REVIEWS' = 'FETCH_USER_REVIEWS';
 export const FLASH_REVIEW_MESSAGE: 'FLASH_REVIEW_MESSAGE' =
   'FLASH_REVIEW_MESSAGE';
@@ -292,11 +294,35 @@ export function setGroupedRatings({
   };
 }
 
-type FetchUserReviewsParams = {|
+type FetchLatestUserReviewParams = {|
+  addonId: number,
   errorHandlerId: string,
-  page?: string,
   userId: number,
 |};
+
+export type FetchLatestUserReviewAction = {|
+  type: typeof FETCH_LATEST_USER_REVIEW,
+  payload: FetchLatestUserReviewParams,
+|};
+
+export function fetchLatestUserReview({
+  addonId,
+  errorHandlerId,
+  userId,
+}: FetchLatestUserReviewParams): FetchLatestUserReviewAction {
+  invariant(addonId, 'addonId is required');
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(userId, 'userId is required');
+
+  return {
+    type: FETCH_LATEST_USER_REVIEW,
+    payload: {
+      addonId,
+      errorHandlerId,
+      userId,
+    },
+  };
+}
 
 export type FetchUserReviewsAction = {|
   type: typeof FETCH_USER_REVIEWS,
@@ -311,7 +337,11 @@ export function fetchUserReviews({
   errorHandlerId,
   userId,
   page = '1',
-}: FetchUserReviewsParams): FetchUserReviewsAction {
+}: {|
+  errorHandlerId: string,
+  page?: string,
+  userId: number,
+|}): FetchUserReviewsAction {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(userId, 'userId is required');
 
@@ -579,10 +609,8 @@ export const setReviewWasFlagged = ({
 
 type SetLatestReviewParams = {|
   addonId: number,
-  addonSlug: string,
   review: ExternalReviewType | null,
   userId: number,
-  versionId: number,
 |};
 
 export type SetLatestReviewAction = {|
@@ -592,20 +620,16 @@ export type SetLatestReviewAction = {|
 
 export const setLatestReview = ({
   addonId,
-  addonSlug,
-  versionId,
   review,
   userId,
 }: SetLatestReviewParams): SetLatestReviewAction => {
   invariant(addonId, 'addonId is required');
-  invariant(addonSlug, 'addonSlug is required');
   invariant(review !== undefined, 'review is required');
   invariant(userId, 'userId is required');
-  invariant(versionId, 'versionId is required');
 
   return {
     type: SET_LATEST_REVIEW,
-    payload: { addonId, addonSlug, review, userId, versionId },
+    payload: { addonId, review, userId },
   };
 };
 

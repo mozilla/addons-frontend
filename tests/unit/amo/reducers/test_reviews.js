@@ -979,9 +979,9 @@ describe(__filename, () => {
 
   describe('makeLatestUserReviewKey', () => {
     it('makes a key', () => {
-      expect(
-        makeLatestUserReviewKey({ userId: 1, addonId: 2, versionId: 3 }),
-      ).toEqual('user-1/addon-2/version-3');
+      expect(makeLatestUserReviewKey({ userId: 1, addonId: 2 })).toEqual(
+        'user-1/addon-2',
+      );
     });
   });
 
@@ -992,8 +992,6 @@ describe(__filename, () => {
     } = {}) => {
       return setLatestReview({
         addonId: 9,
-        addonSlug: 'some-slug',
-        versionId: 8,
         userId: 7,
         review,
         ...params,
@@ -1011,7 +1009,6 @@ describe(__filename, () => {
 
     it('sets the latest review', () => {
       const addonId = 1;
-      const versionId = 2;
       const userId = 3;
       const review = { ...fakeReview, id: 2 };
 
@@ -1019,36 +1016,30 @@ describe(__filename, () => {
       state = reviewsReducer(state, setReview(review));
       state = reviewsReducer(
         state,
-        _setLatestReview({ addonId, versionId, userId, review }),
+        _setLatestReview({ addonId, userId, review }),
       );
 
       expect(
-        state.latestUserReview[
-          makeLatestUserReviewKey({ addonId, userId, versionId })
-        ],
+        state.latestUserReview[makeLatestUserReviewKey({ addonId, userId })],
       ).toEqual(review.id);
     });
 
     it('can set the latest review to null', () => {
       const addonId = 1;
-      const versionId = 2;
       const userId = 3;
 
       const state = reviewsReducer(
         undefined,
-        _setLatestReview({ addonId, versionId, userId, review: null }),
+        _setLatestReview({ addonId, userId, review: null }),
       );
 
       expect(
-        state.latestUserReview[
-          makeLatestUserReviewKey({ addonId, userId, versionId })
-        ],
+        state.latestUserReview[makeLatestUserReviewKey({ addonId, userId })],
       ).toBeNull();
     });
 
     it('preserves other latest reviews', () => {
       const userId = 1;
-      const addonId = 1;
       const review1 = { ...fakeReview, id: 1 };
       const review2 = { ...fakeReview, id: 2 };
 
@@ -1058,8 +1049,7 @@ describe(__filename, () => {
         state,
         _setLatestReview({
           userId,
-          addonId,
-          versionId: 1,
+          addonId: 1,
           review: review1,
         }),
       );
@@ -1068,21 +1058,16 @@ describe(__filename, () => {
         state,
         _setLatestReview({
           userId,
-          addonId,
-          versionId: 2,
+          addonId: 2,
           review: review2,
         }),
       );
 
       expect(
-        state.latestUserReview[
-          makeLatestUserReviewKey({ userId, addonId, versionId: 1 })
-        ],
+        state.latestUserReview[makeLatestUserReviewKey({ userId, addonId: 1 })],
       ).toEqual(1);
       expect(
-        state.latestUserReview[
-          makeLatestUserReviewKey({ userId, addonId, versionId: 2 })
-        ],
+        state.latestUserReview[makeLatestUserReviewKey({ userId, addonId: 2 })],
       ).toEqual(2);
     });
   });
