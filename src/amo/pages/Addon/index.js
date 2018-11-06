@@ -18,13 +18,13 @@ import AddonTitle from 'amo/components/AddonTitle';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import GetFirefoxButton from 'amo/components/GetFirefoxButton';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
 import { getVersionById } from 'core/reducers/versions';
-import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   fetchAddon,
   getAddonByID,
@@ -52,7 +52,6 @@ import { getClientCompatibility as _getClientCompatibility } from 'core/utils/co
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
@@ -544,20 +543,7 @@ export class AddonBase extends React.Component {
                     isAddonEnabled={isAddonEnabled}
                   />
                 )}
-                {showGetFirefoxButton && (
-                  <Button
-                    buttonType="confirm"
-                    href={`https://www.mozilla.org/firefox/new/${makeQueryStringWithUTM(
-                      {
-                        utm_content: addon.guid,
-                      },
-                    )}`}
-                    puffy
-                    className="Button--get-firefox"
-                  >
-                    {i18n.gettext('Only with Firefox—Get Firefox Now')}
-                  </Button>
-                )}
+                {showGetFirefoxButton && <GetFirefoxButton addon={addon} />}
               </div>
 
               <h2 className="visually-hidden">

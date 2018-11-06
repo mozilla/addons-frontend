@@ -1,0 +1,12 @@
+@import '~amo/css/styles';
+
+.GetFirefoxButton {
+  white-space: nowrap;
+  width: 100%;
+
+  @include respond-to(medium) {
+    align-self: flex-end;
+    margin-bottom: 12px;
+    width: auto;
+  }
+}
