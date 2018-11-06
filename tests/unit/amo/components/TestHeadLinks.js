@@ -23,11 +23,16 @@ describe(__filename, () => {
     'renders alternate links with hreflang for %s',
     (clientApp) => {
       const baseURL = 'https://example.org';
+      const lang = 'en-US';
       const to = '/some-url';
 
       const _hrefLangs = ['fr', 'en-US'];
       const _config = getFakeConfig({ baseURL });
-      const { store } = dispatchClientMetadata({ clientApp });
+      const { store } = dispatchClientMetadata({
+        clientApp,
+        lang,
+        pathname: `/${lang}/${clientApp}${to}`,
+      });
 
       const root = render({ _config, _hrefLangs, store, to });
 
@@ -50,6 +55,7 @@ describe(__filename, () => {
   it('renders alternate links for aliased locales', () => {
     const baseURL = 'https://example.org';
     const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'en-US';
     const to = '/some-url';
 
     const _hrefLangs = ['x-default'];
@@ -60,7 +66,11 @@ describe(__filename, () => {
     };
 
     const _config = getFakeConfig({ baseURL, hrefLangsMap });
-    const { store } = dispatchClientMetadata({ clientApp });
+    const { store } = dispatchClientMetadata({
+      clientApp,
+      lang,
+      pathname: `/${lang}/${clientApp}${to}`,
+    });
 
     const root = render({ _config, _hrefLangs, store, to });
 
@@ -105,10 +115,15 @@ describe(__filename, () => {
     (hrefLang, locale) => {
       const baseURL = 'https://example.org';
       const clientApp = CLIENT_APP_FIREFOX;
+      const lang = 'fr';
       const to = '/some-url';
 
       const _config = getFakeConfig({ baseURL });
-      const { store } = dispatchClientMetadata({ clientApp });
+      const { store } = dispatchClientMetadata({
+        clientApp,
+        lang,
+        pathname: `/${lang}/${clientApp}${to}`,
+      });
 
       const root = render({ _config, store, to });
 
@@ -132,7 +147,11 @@ describe(__filename, () => {
     const to = '/some-canonical-url';
 
     const _config = getFakeConfig({ baseURL });
-    const { store } = dispatchClientMetadata({ clientApp, lang });
+    const { store } = dispatchClientMetadata({
+      clientApp,
+      lang,
+      pathname: `/${lang}/${clientApp}${to}`,
+    });
 
     const root = render({ _config, store, to });
 
@@ -141,5 +160,24 @@ describe(__filename, () => {
       'href',
       `${baseURL}/${lang}/${clientApp}${to}`,
     );
+  });
+
+  it('does render the "alternate" links when current URL is not the "canonical" URL', () => {
+    const baseURL = 'https://example.org';
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'de';
+    const to = '/some-url';
+
+    const _hrefLangs = ['fr', 'en-US'];
+    const _config = getFakeConfig({ baseURL });
+    const { store } = dispatchClientMetadata({
+      clientApp,
+      lang,
+      pathname: `/${lang}/${clientApp}${to}?src=hotness`,
+    });
+
+    const root = render({ _config, _hrefLangs, store, to });
+
+    expect(root.find('link[rel="alternate"]')).toHaveLength(0);
   });
 });

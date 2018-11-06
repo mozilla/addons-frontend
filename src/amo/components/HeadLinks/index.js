@@ -19,6 +19,7 @@ type InternalProps = {|
   _config: typeof config,
   _hrefLangs: typeof hrefLangs,
   clientApp: string,
+  currentURL: string,
   lang: string,
 |};
 
@@ -29,22 +30,22 @@ export class HeadLinksBase extends React.PureComponent<InternalProps> {
   };
 
   render() {
-    const { _config, _hrefLangs, clientApp, lang, to } = this.props;
+    const { _config, _hrefLangs, currentURL, clientApp, lang, to } = this.props;
 
     invariant(to.charAt(0) === '/', 'The `to` prop must start with a slash.');
 
-    const includeAlternateLinks =
-      _config.get('unsupportedHrefLangs').includes(lang) === false;
     const hrefLangsMap = _config.get('hrefLangsMap');
+    const canonicalURL = `/${lang}/${clientApp}${to}`;
+
+    const includeAlternateLinks =
+      _config.get('unsupportedHrefLangs').includes(lang) === false &&
+      canonicalURL === currentURL;
 
     return (
       <Helmet>
         <link
           rel="canonical"
-          href={getCanonicalURL({
-            _config,
-            locationPathname: `/${lang}/${clientApp}${to}`,
-          })}
+          href={getCanonicalURL({ _config, locationPathname: canonicalURL })}
         />
 
         {includeAlternateLinks &&
@@ -70,9 +71,11 @@ export class HeadLinksBase extends React.PureComponent<InternalProps> {
 
 const mapStateToProps = (state: AppState) => {
   const { clientApp, lang } = state.api;
+  const { pathname, search } = state.router.location;
 
   return {
     clientApp,
+    currentURL: `${pathname}${search}`,
     lang,
   };
 };
