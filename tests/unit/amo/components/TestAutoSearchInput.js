@@ -121,6 +121,14 @@ describe(__filename, () => {
       expect(getInputProps(root)).toMatchObject({ value: query });
     });
 
+    it('sets the search value to an empty string when there is no `location.query`', () => {
+      const location = createFakeLocation({ query: null });
+
+      const root = render({ location });
+
+      expect(root).toHaveState('searchValue', '');
+    });
+
     it('only sets an updated query if it is unique', () => {
       const query = 'ad blocker';
       const location = createFakeLocation({ query: { query } });
