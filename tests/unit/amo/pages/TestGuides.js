@@ -139,4 +139,16 @@ describe(__filename, () => {
       expect(extractId(ownProps)).toEqual(`foobar`);
     });
   });
+
+  describe('extractId', () => {
+    it('returns a unique ID based on the guides slug', () => {
+      const ownProps = getProps({
+        match: {
+          params: { slug: 'foobar' },
+        },
+      });
+
+      expect(extractId(ownProps)).toEqual(`foobar`);
+    });
+  });
 });

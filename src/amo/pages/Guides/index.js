@@ -6,12 +6,14 @@ import { connect } from 'react-redux';
 
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
+import { withFixedErrorHandler } from 'core/errorHandler';
 import { getAddonByGUID } from 'core/reducers/addons';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Icon from 'ui/components/Icon';
 import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
+import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterMatchType } from 'core/types/router';
@@ -21,7 +23,7 @@ import './styles.scss';
 type Props = {|
   match: {
     ...ReactRouterMatchType,
-    params: {| guidesSlug: string |},
+    params: {| slug: string |},
   },
 |};
 
@@ -30,27 +32,42 @@ type InternalProps = {|
   addons: Array<AddonType>,
   clientApp: string,
   dispatch: DispatchFunc,
-  guidesSlug: string,
+  errorHandler: ErrorHandlerType,
+  slug: string,
   guids: Array<string>,
   i18n: I18nType,
   lang: string,
 |};
 
-export const getGuids = (guidesSlug: string): Array<string> | null => {
-  switch (guidesSlug) {
+type SectionsType = {|
+  header: string,
+  description: string,
+  addonCustomText: string,
+  exploreMore: string,
+  exploreUrl: string,
+|};
+
+type GetContentType = {|
+  title: string,
+  introText: string,
+  icon: string,
+  sections: Array<SectionsType>,
+|};
+
+export const getGuids = (slug: string): Array<string> | null => {
+  switch (slug) {
     case 'privacy':
       return ['{446900e4-71c2-419f-a6a7-df9c091e268b}'];
-    // The following will be addressed in another issue.
-    // See https://github.com/mozilla/addons-frontend/issues/6744.
-    case 'organize-tabs-and-bookmarks':
-    case 'enhance-your-media-experience':
     default:
       return null;
   }
 };
 
-export const getContent = (guidesSlug: string, i18n: I18nType): Object => {
-  switch (guidesSlug) {
+export const getContent = (
+  slug: string,
+  i18n: I18nType,
+): GetContentType | null => {
+  switch (slug) {
     case 'privacy':
       return {
         title: i18n.gettext('Stay Safe Online'),
@@ -75,12 +92,8 @@ export const getContent = (guidesSlug: string, i18n: I18nType): Object => {
           },
         ],
       };
-    // The following will be addressed in another issue.
-    // See https://github.com/mozilla/addons-frontend/issues/6744.
-    case 'organize-tabs-and-bookmarks':
-    case 'enhance-your-media-experience':
     default:
-      return {};
+      return null;
   }
 };
 
@@ -88,96 +101,67 @@ export class GuidesBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
     super(props);
 
-    const { guidesSlug, guids } = this.props;
+    const { errorHandler, guids } = this.props;
 
     this.props.dispatch(
       fetchGuidesAddons({
         guids,
-        errorHandlerId: guidesSlug,
+        errorHandlerId: errorHandler.id,
       }),
     );
   }
 
-  getGuidesSectionsHtml = (
-    sections: Array<Object>,
+  getGuidesSections = (
+    sections: Array<SectionsType>,
   ): React.ChildrenArray<React.Node> => {
-    const { addons, clientApp, i18n, lang } = this.props;
+    const { clientApp, i18n, lang } = this.props;
 
-    return addons.length
-      ? addons.map((addon, key) => {
-          // TODO: look into having these links use the Router (vs 'a' tag).
-          // See https://github.com/mozilla/addons-frontend/issues/6787.
-          const exploreMore = i18n.sprintf(sections[key].exploreMore, {
-            linkStart: `<a href="/${lang}/${clientApp}${
-              sections[key].exploreUrl
-            }">`,
-            linkEnd: '</a>',
-          });
+    return sections.map((section) => {
+      const exploreMore = i18n.sprintf(section.exploreMore, {
+        linkStart: `<a href="/${lang}/${clientApp}${section.exploreUrl}">`,
+        linkEnd: '</a>',
+      });
 
-          return (
-            <div className="Guides-section" key={addon && addon.url}>
-              <h2 className="Guides-section-title">{sections[key].header}</h2>
-              <p className="Guides-section-description">
-                {sections[key].description}
-              </p>
+      return (
+        <div className="Guides-section" key={section.exploreUrl}>
+          <h2 className="Guides-section-title">{section.header}</h2>
+          <p className="Guides-section-description">{section.description}</p>
 
-              {/* eslint-disable react/no-danger */}
-              <div
-                className="Guides-section-explore-more"
-                dangerouslySetInnerHTML={sanitizeHTML(exploreMore, ['a'])}
-              />
-              {/* eslint-enable react/no-danger */}
-            </div>
-          );
-        })
-      : null;
-  };
-
-  getGuidesPage = () => {
-    const { i18n, match } = this.props;
-    const { guidesSlug } = match.params;
-    const { introText, icon, title: pageTitle, sections } = getContent(
-      guidesSlug,
-      i18n,
-    );
-
-    if (!pageTitle) {
-      return null;
-    }
-
-    return (
-      <div className="Guides">
-        <div className="Guides-header">
-          <Icon className="Guides-header-icon" name={icon} />
-          <h1 className="Guides-header-page-title">{pageTitle}</h1>
-          <p className="Guides-header-intro">{introText}</p>
+          {/* eslint-disable react/no-danger */}
+          <div
+            className="Guides-section-explore-more"
+            dangerouslySetInnerHTML={sanitizeHTML(exploreMore, ['a'])}
+          />
+          {/* eslint-enable react/no-danger */}
         </div>
-        {this.getGuidesSectionsHtml(sections)}
-      </div>
-    );
+      );
+    });
   };
 
   render() {
-    const { i18n } = this.props;
-    const guidesPage = this.getGuidesPage();
+    const { i18n, match } = this.props;
+    const { slug } = match.params;
+    const content = getContent(slug, i18n);
 
-    if (!guidesPage) {
+    if (!content) {
       return <NotFound />;
     }
 
-    const { match } = this.props;
-    const { guidesSlug } = match.params;
-    const { title } = getContent(guidesSlug, i18n);
-    const pageTitle = i18n.sprintf('%(pageTitle)s', {
-      pageTitle: title,
-    });
+    const { introText, icon, title, sections } = content;
 
     return (
       <div className="Guides-page">
         <Helmet>
-          <title>{pageTitle}</title>
+          <title>{title}</title>
         </Helmet>
-        {guidesPage}
+        <div className="Guides">
+          <div className="Guides-header">
+            <Icon className="Guides-header-icon" name={icon} />
+            <h1 className="Guides-header-page-title">{title}</h1>
+            <p className="Guides-header-intro">{introText}</p>
+            {this.getGuidesSections(sections)}
+          </div>
+        </div>
       </div>
     );
   }
@@ -185,10 +169,10 @@ export class GuidesBase extends React.Component<InternalProps> {
 
 export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const { match } = ownProps;
-  const { guidesSlug } = match.params;
+  const { slug } = match.params;
 
   const addons = [];
-  const guids = getGuids(guidesSlug) || [];
+  const guids = getGuids(slug) || [];
 
   guids.forEach((guid) => {
     const addon = getAddonByGUID(state, guid);
@@ -201,14 +185,19 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
     addons,
     clientApp: state.api.clientApp,
     guids,
-    guidesSlug,
     lang: state.api.lang,
+    slug,
   };
+};
+
+export const extractId = (ownProps: InternalProps) => {
+  return ownProps.match.params.slug;
 };
 
 const Guides: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
 )(GuidesBase);
 
 export default Guides;
