@@ -50,7 +50,7 @@ const Routes = ({ _config = config }: Props = {}) => (
     {_config.get('enableFeatureHomeHeroGuides') && (
       <Route
         exact
-        path="/:lang/:application/guides/:guidesSlug"
+        path="/:lang/:application/guides/:slug/"
         component={Guides}
       />
     )}
