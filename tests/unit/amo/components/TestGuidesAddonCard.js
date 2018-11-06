@@ -13,10 +13,14 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
+  FATAL_ERROR,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_UNDER_MIN_VERSION,
+  INSTALLING,
   UNKNOWN,
 } from 'core/constants';
+import { setInstallError, setInstallState } from 'core/actions/installations';
+import { getErrorMessage } from 'core/utils/addons';
 
 describe(__filename, () => {
   const render = ({
@@ -159,6 +163,30 @@ describe(__filename, () => {
 
     expect(root.find('.Button--get-firefox').prop('href')).toMatch(
       `&utm_content=${guid}`,
+    );
+  });
+
+  it('renders an install error if there is one', () => {
+    const addon = fakeAddon;
+    const { store } = dispatchClientMetadata();
+
+    // User clicks the install button.
+    store.dispatch(
+      setInstallState({
+        guid: addon.guid,
+        status: INSTALLING,
+      }),
+    );
+    // An error has occured in FF.
+    const error = FATAL_ERROR;
+    store.dispatch(setInstallError({ error, guid: addon.guid }));
+
+    const root = render({ store });
+
+    expect(root.find('.Addon-header-install-error')).toHaveLength(1);
+    expect(root.find('.Addon-header-install-error')).toHaveProp(
+      'children',
+      getErrorMessage({ i18n: fakeI18n(), error }),
     );
   });
 });

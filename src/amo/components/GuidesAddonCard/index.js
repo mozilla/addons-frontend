@@ -14,10 +14,12 @@ import {
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import translate from 'core/i18n/translate';
+import { getErrorMessage } from 'core/utils/addons';
 import { getClientCompatibility } from 'core/utils/compatibility';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
 import Button from 'ui/components/Button';
+import Notice from 'ui/components/Notice';
 import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
 import type { UserAgentInfoType } from 'core/reducers/api';
@@ -39,6 +41,7 @@ type InternalProps = {
   _getClientCompatibility: typeof getClientCompatibility,
   clientApp: string,
   defaultInstallSource: string,
+  installError: string,
   installStatus: string,
   i18n: I18nType,
   location: ReactRouterLocationType,
@@ -50,6 +53,20 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
     _getClientCompatibility: getClientCompatibility,
     staffPick: true,
   };
+
+  renderInstallError() {
+    const { i18n, installError: error } = this.props;
+
+    if (!error) {
+      return null;
+    }
+
+    return (
+      <Notice className="Addon-header-install-error" type="error">
+        {getErrorMessage({ i18n, error })}
+      </Notice>
+    );
+  }
 
   render() {
     const {
@@ -85,6 +102,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
 
     return addon ? (
       <Card>
+        {this.renderInstallError()}
         <div className="GuidesAddonCard">
           <div className="GuidesAddonCard-content">
             <img
@@ -165,7 +183,7 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
   return {
     clientApp: state.api.clientApp,
     location: state.router.location,
-    installError: installedAddon ? installedAddon.error : {},
+    installError: installedAddon ? installedAddon.error : null,
     installStatus: installedAddon ? installedAddon.status : UNKNOWN,
     userAgentInfo: state.api.userAgentInfo,
   };
