@@ -2,6 +2,7 @@
 /* global window */
 import makeClassName from 'classnames';
 import config from 'config';
+import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -56,7 +57,7 @@ type Props = {|
   defaultButtonText?: string,
   defaultInstallSource: string,
   disabled: boolean,
-  puffy: boolean,
+  puffy?: boolean,
   status: string,
 |};
 
@@ -314,6 +315,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
           status === UNKNOWN &&
           addon.type !== ADDON_TYPE_OPENSEARCH;
 
+    invariant(this.props.puffy !== undefined, 'puffy prop is required');
     const buttonProps: ButtonProps = {
       buttonType: 'action',
       className: 'AMInstallButton-button',

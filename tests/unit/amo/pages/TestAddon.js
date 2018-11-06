@@ -17,7 +17,7 @@ import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import GetFirefoxButton from 'amo/components/GetFirefoxButton';
+import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import RatingManager, {
   RatingManagerWithI18n,
 } from 'amo/components/RatingManager';
@@ -45,11 +45,9 @@ import {
   ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
   FATAL_ERROR,
-  INSTALLED,
   INSTALLING,
   UNKNOWN,
 } from 'core/constants';
-import AMInstallButton from 'core/components/AMInstallButton';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
@@ -62,7 +60,6 @@ import {
   dispatchSignInActions,
   fakeAddon,
   fakeI18n,
-  fakeInstalledAddon,
   fakeTheme,
   fakeVersion,
   sampleUserAgentParsed,
@@ -261,7 +258,7 @@ describe(__filename, () => {
     });
 
     // These should be empty:
-    expect(root.find(AMInstallButton)).toHaveLength(0);
+    expect(root.find(InstallButtonWrapper)).toHaveLength(0);
     expect(root.find(AddonCompatibilityError)).toHaveProp('addon', null);
     expect(root.find(RatingManager)).toHaveLength(0);
 
@@ -1065,31 +1062,6 @@ describe(__filename, () => {
     expect(root.find('.Addon-theme')).toHaveLength(1);
   });
 
-  it('calls getClientCompatibility to determine the compatibility', () => {
-    const addon = fakeAddon;
-    const clientApp = CLIENT_APP_FIREFOX;
-    const currentVersion = createInternalVersion(fakeAddon.current_version);
-    const getClientCompatibility = sinon.mock().returns({
-      compatible: true,
-    });
-
-    const { store } = dispatchClientMetadata({ clientApp });
-    store.dispatch(_loadAddonResults({ addon }));
-
-    const root = renderComponent({
-      params: { slug: addon.slug },
-      store,
-      getClientCompatibility,
-    });
-
-    sinon.assert.calledWith(getClientCompatibility, {
-      addon: createInternalAddon(addon),
-      clientApp,
-      currentVersion,
-      userAgentInfo: root.instance().props.userAgentInfo,
-    });
-  });
-
   it('passes the addon to AddonCompatibilityError', () => {
     const addon = createInternalAddon(fakeAddon);
     const root = shallowRender({
@@ -1479,15 +1451,13 @@ describe(__filename, () => {
       return mapStateToProps(state, ownProps);
     }
 
-    it('sets the clientApp and userAgent', () => {
+    it('sets the clientApp', () => {
       const clientAppFromAgent = 'firefox';
       signIn({ clientApp: clientAppFromAgent });
       fetchAddon();
-      const { clientApp, userAgentInfo } = _mapStateToProps();
+      const { clientApp } = _mapStateToProps();
 
       expect(clientApp).toEqual(clientAppFromAgent);
-      const { browser, os } = sampleUserAgentParsed;
-      expect(userAgentInfo).toEqual({ browser, os });
     });
 
     it('sets the version for a loaded add-on', () => {
@@ -1505,48 +1475,6 @@ describe(__filename, () => {
       expect(currentVersion).toEqual(createInternalVersion(apiVersion));
     });
 
-    it('sets installStatus to INSTALLED when add-on is installed', () => {
-      signIn();
-      fetchAddon();
-      store.dispatch(
-        setInstallState({
-          ...fakeInstalledAddon,
-          guid: fakeAddon.guid,
-          status: INSTALLED,
-        }),
-      );
-      const { installStatus } = _mapStateToProps();
-
-      expect(installStatus).toEqual(INSTALLED);
-    });
-
-    it('sets installStatus to UNKNOWN when add-on is not installed', () => {
-      signIn();
-      fetchAddon();
-      const { installStatus } = _mapStateToProps();
-
-      expect(installStatus).toEqual(UNKNOWN);
-    });
-
-    it('sets the installation status', () => {
-      const status = INSTALLED;
-
-      signIn();
-      fetchAddon();
-      store.dispatch(
-        setInstallState({
-          ...fakeInstalledAddon,
-          guid: fakeAddon.guid,
-          status,
-        }),
-      );
-      const { installStatus } = _mapStateToProps();
-
-      // Make sure a random installedAddon prop gets passed as a component prop
-      // so that the withInstallHelpers HOC works.
-      expect(installStatus).toEqual(status);
-    });
-
     it('handles a non-existent add-on', () => {
       signIn();
       const { addon, currentVersion } = _mapStateToProps();
@@ -1556,26 +1484,31 @@ describe(__filename, () => {
     });
   });
 
-  describe('AMInstallButton', () => {
-    const renderWithAMInstallButton = (props = {}) => {
-      return shallowRender({
-        hasAddonManager: true,
-        ...props,
-      });
-    };
+  describe('InstallButtonWrapper', () => {
+    let addon;
+    let store;
 
-    it('renders the AMInstallButton', () => {
-      const root = renderWithAMInstallButton();
-
-      expect(root.find(AMInstallButton)).toHaveLength(1);
+    beforeEach(() => {
+      addon = fakeAddon;
+      store = dispatchClientMetadata().store;
+      store.dispatch(_loadAddonResults({ addon }));
     });
 
-    it('passes the addon to the InstallButton', () => {
-      const addon = createInternalAddon(fakeAddon);
-      const root = renderWithAMInstallButton({ addon });
+    it('renders the InstallButtonWrapper', () => {
+      const root = renderComponent({ store });
 
-      expect(root.find(AMInstallButton)).toHaveProp('addon', addon);
-      expect(root.find(AMInstallButton)).toHaveProp('hasAddonManager', true);
+      expect(root.find(InstallButtonWrapper)).toHaveLength(1);
+    });
+
+    it('passes the addon to the InstallButtonWrapper', () => {
+      const internalAddon = createInternalAddon(addon);
+
+      const root = renderComponent({ addon: internalAddon, store });
+
+      expect(root.find(InstallButtonWrapper)).toHaveProp(
+        'addon',
+        internalAddon,
+      );
     });
 
     it('passes install helper functions to the install button', () => {
@@ -1584,14 +1517,15 @@ describe(__filename, () => {
       const installTheme = sinon.stub();
       const uninstall = sinon.stub();
 
-      const root = renderWithAMInstallButton({
+      const root = renderComponent({
         enable,
         install,
         installTheme,
+        store,
         uninstall,
       });
 
-      const installButton = root.find(AMInstallButton);
+      const installButton = root.find(InstallButtonWrapper);
       expect(installButton).toHaveProp('enable', enable);
       expect(installButton).toHaveProp('install', install);
       expect(installButton).toHaveProp('installTheme', installTheme);
@@ -1643,19 +1577,6 @@ describe(__filename, () => {
     const root = shallowRender({ addon });
 
     expect(root.find(Notice)).toHaveLength(0);
-  });
-
-  it('passes the add-on to GetFirefoxButton', () => {
-    const guid = 'some-guid';
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      guid,
-    });
-
-    const root = shallowRender({ addon });
-
-    expect(root.find(GetFirefoxButton)).toHaveLength(1);
-    expect(root.find(GetFirefoxButton)).toHaveProp('addon', addon);
   });
 
   it('renders an AddonInstallError component', () => {

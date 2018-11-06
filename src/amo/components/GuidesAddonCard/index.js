@@ -6,27 +6,17 @@ import { withRouter } from 'react-router-dom';
 
 import AddonTitle from 'amo/components/AddonTitle';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
-import GetFirefoxButton, {
-  GET_FIREFOX_BUTTON_TYPE_ADDON,
-} from 'amo/components/GetFirefoxButton';
+import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
 import AddonInstallError from 'amo/components/AddonInstallError';
-import AMInstallButton from 'core/components/AMInstallButton';
-import {
-  INCOMPATIBLE_NOT_FIREFOX,
-  INSTALL_SOURCE_GUIDES_PAGE,
-  UNKNOWN,
-} from 'core/constants';
+import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
+import { INSTALL_SOURCE_GUIDES_PAGE } from 'core/constants';
 import { getAddonIconUrl } from 'core/imageUtils';
 import { withInstallHelpers } from 'core/installAddon';
 import translate from 'core/i18n/translate';
-import { getVersionById } from 'core/reducers/versions';
-import { getClientCompatibility } from 'core/utils/compatibility';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
 import type { AddonType } from 'core/types/addons';
-import type { AddonVersionType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
-import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
 import type { WithInstallHelpersInjectedProps } from 'core/installAddon';
 
@@ -41,50 +31,31 @@ type Props = {
 type InternalProps = {
   ...Props,
   ...WithInstallHelpersInjectedProps,
-  _getClientCompatibility: typeof getClientCompatibility,
   clientApp: string | null,
-  currentVersion: AddonVersionType | null,
   defaultInstallSource: string,
   installError: string | null,
-  installStatus: string,
   i18n: I18nType,
-  userAgentInfo: UserAgentInfoType,
 };
 
 export class GuidesAddonCardBase extends React.Component<InternalProps> {
   static defaultProps = {
-    _getClientCompatibility: getClientCompatibility,
     staffPick: true,
   };
 
   render() {
     const {
-      _getClientCompatibility,
       addon,
-      clientApp,
-      currentVersion,
+      defaultInstallSource,
+      enable,
+      hasAddonManager,
       i18n,
+      install,
+      installTheme,
+      isAddonEnabled,
+      setCurrentStatus,
       staffPick,
-      userAgentInfo,
+      uninstall,
     } = this.props;
-
-    let compatible = false;
-    let compatibility;
-
-    if (addon && clientApp) {
-      compatibility = _getClientCompatibility({
-        addon,
-        clientApp,
-        currentVersion,
-        userAgentInfo,
-      });
-
-      compatible = compatibility.compatible;
-    }
-
-    const isFireFox =
-      compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
-    const showInstallButton = addon && isFireFox;
 
     return addon ? (
       <Card>
@@ -115,29 +86,23 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                 {this.props.addonCustomText}
               </p>
             </div>
-            {showInstallButton && currentVersion && (
-              <AMInstallButton
+            {addon && (
+              <InstallButtonWrapper
                 addon={addon}
-                currentVersion={currentVersion}
+                className="guides"
                 defaultButtonText={i18n.gettext('Add')}
-                defaultInstallSource={this.props.defaultInstallSource}
-                disabled={!compatible}
-                enable={this.props.enable}
-                hasAddonManager={this.props.hasAddonManager}
-                install={this.props.install}
-                installTheme={this.props.installTheme}
-                setCurrentStatus={this.props.setCurrentStatus}
-                status={this.props.installStatus}
-                uninstall={this.props.uninstall}
-                isAddonEnabled={this.props.isAddonEnabled}
+                defaultInstallSource={defaultInstallSource}
+                enable={enable}
+                getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+                hasAddonManager={hasAddonManager}
+                install={install}
+                installTheme={installTheme}
+                isAddonEnabled={isAddonEnabled}
                 puffy={false}
+                setCurrentStatus={setCurrentStatus}
+                uninstall={uninstall}
               />
             )}
-            <GetFirefoxButton
-              addon={addon}
-              buttonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
-              className="GetFirefoxButton--guides"
-            />
           </div>
         </div>
       </Card>
@@ -151,26 +116,16 @@ export const mapStateToProps = (
 ): $Shape<InternalProps> => {
   const { addon } = ownProps;
 
-  let currentVersion = null;
   let installedAddon = {};
 
   if (addon) {
     installedAddon = state.installations[addon.guid];
-
-    if (addon.currentVersionId) {
-      currentVersion = getVersionById({
-        id: addon.currentVersionId,
-        state: state.versions,
-      });
-    }
   }
+
   return {
     clientApp: state.api.clientApp,
-    currentVersion,
     installError:
       installedAddon && installedAddon.error ? installedAddon.error : null,
-    installStatus: installedAddon ? installedAddon.status : UNKNOWN,
-    userAgentInfo: state.api.userAgentInfo,
   };
 };
 
