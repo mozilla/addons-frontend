@@ -43,14 +43,16 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  INCOMPATIBLE_NOT_FIREFOX,
   INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import { isTheme, nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
 import { getErrorMessage } from 'core/utils/addons';
-import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
+import {
+  getClientCompatibility as _getClientCompatibility,
+  isFirefox,
+} from 'core/utils/compatibility';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -463,7 +465,7 @@ export class AddonBase extends React.Component {
 
     let isCompatible = false;
     let compatibility;
-    if (addon) {
+    if (addon && isFirefox({ userAgentInfo })) {
       compatibility = getClientCompatibility({
         addon,
         clientApp,
@@ -476,10 +478,6 @@ export class AddonBase extends React.Component {
     const numberOfAddonsByAuthors = addonsByAuthors
       ? addonsByAuthors.length
       : 0;
-
-    const isFireFox =
-      compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
-    const showInstallButton = addon && isFireFox;
 
     return (
       <div
@@ -520,7 +518,7 @@ export class AddonBase extends React.Component {
                   <p className="Addon-summary" {...summaryProps} />
                 ) : null}
 
-                {showInstallButton && (
+                {addon && (
                   <AMInstallButton
                     addon={addon}
                     currentVersion={currentVersion}

@@ -25,6 +25,7 @@ import {
   getCompatibleVersions,
   getClientCompatibility,
   isCompatibleWithUserAgent,
+  isFirefox,
   isQuantumCompatible,
 } from 'core/utils/compatibility';
 import {
@@ -39,6 +40,56 @@ import {
 import { createInternalVersion } from 'core/reducers/versions';
 
 describe(__filename, () => {
+  describe('isFirefox', () => {
+    it('returns false for Android/webkit', () => {
+      userAgents.androidWebkit.forEach((userAgent) => {
+        expect(isFirefox({ userAgentInfo: UAParser(userAgent) })).toEqual(
+          false,
+        );
+      });
+    });
+
+    it('returns false for Chrome Android', () => {
+      userAgents.chromeAndroid.forEach((userAgent) => {
+        expect(isFirefox({ userAgentInfo: UAParser(userAgent) })).toEqual(
+          false,
+        );
+      });
+    });
+
+    it('returns false for Chrome desktop', () => {
+      userAgents.chrome.forEach((userAgent) => {
+        expect(isFirefox({ userAgentInfo: UAParser(userAgent) })).toEqual(
+          false,
+        );
+      });
+    });
+
+    it('returns true for Firefox desktop', () => {
+      userAgents.firefox.forEach((userAgent) => {
+        expect(isFirefox({ userAgentInfo: UAParser(userAgent) })).toEqual(true);
+      });
+    });
+
+    it('returns true for Firefox Android', () => {
+      userAgents.firefoxAndroid.forEach((userAgent) => {
+        expect(isFirefox({ userAgentInfo: UAParser(userAgent) })).toEqual(true);
+      });
+    });
+
+    it('returns true for Firefox OS', () => {
+      userAgents.firefoxOS.forEach((userAgent) => {
+        expect(isFirefox({ userAgentInfo: UAParser(userAgent) })).toEqual(true);
+      });
+    });
+
+    it('returns true for Firefox iOS', () => {
+      userAgents.firefoxIOS.forEach((userAgent) => {
+        expect(isFirefox({ userAgentInfo: UAParser(userAgent) })).toEqual(true);
+      });
+    });
+  });
+
   describe('isCompatibleWithUserAgent', () => {
     const _isCompatibleWithUserAgent = ({
       addon = createInternalAddon(fakeAddon),
@@ -54,58 +105,12 @@ describe(__filename, () => {
       });
     };
 
-    it('is incompatible with Android/webkit', () => {
-      userAgents.androidWebkit.forEach((userAgent) => {
-        expect(
-          _isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
-        ).toEqual({ compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
-      });
-    });
-
-    it('is incompatible with Chrome Android', () => {
-      userAgents.chromeAndroid.forEach((userAgent) => {
-        expect(
-          _isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
-        ).toEqual({ compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
-      });
-    });
-
-    it('is incompatible with Chrome desktop', () => {
-      userAgents.chrome.forEach((userAgent) => {
-        expect(
-          _isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
-        ).toEqual({ compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
-      });
-    });
-
-    it('is compatible with Firefox desktop', () => {
-      userAgents.firefox.forEach((userAgent) => {
-        expect(
-          _isCompatibleWithUserAgent({
-            userAgentInfo: UAParser(userAgent),
-          }),
-        ).toEqual({ compatible: true, reason: null });
-      });
-    });
-
-    it('is compatible with Firefox Android', () => {
-      userAgents.firefoxAndroid.forEach((userAgent) => {
-        expect(
-          _isCompatibleWithUserAgent({
-            userAgentInfo: UAParser(userAgent),
-          }),
-        ).toEqual({ compatible: true, reason: null });
-      });
-    });
-
-    it('is compatible with Firefox OS', () => {
-      userAgents.firefoxOS.forEach((userAgent) => {
-        expect(
-          _isCompatibleWithUserAgent({
-            userAgentInfo: UAParser(userAgent),
-          }),
-        ).toEqual({ compatible: true, reason: null });
-      });
+    it('is compatible with Firefox', () => {
+      expect(
+        _isCompatibleWithUserAgent({
+          userAgentInfo: UAParser(userAgents.firefox[0]),
+        }),
+      ).toEqual({ compatible: true, reason: null });
     });
 
     it('is incompatible with Firefox iOS', () => {
