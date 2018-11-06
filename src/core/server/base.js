@@ -10,11 +10,11 @@ import httpContext from 'express-http-context';
 import helmet from 'helmet';
 import { createMemoryHistory } from 'history';
 import Raven from 'raven';
-import cookie from 'react-cookie';
 import * as React from 'react';
 import ReactDOM from 'react-dom/server';
 import NestedStatus from 'react-nested-status';
 import { END } from 'redux-saga';
+import cookiesMiddleware from 'universal-cookie-express';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
 import log from 'core/logger';
@@ -208,6 +208,9 @@ function baseServer(
     app.use(middleware.serveAssetsLocally());
   }
 
+  // Cookies.
+  app.use(cookiesMiddleware());
+
   // Following the ops monitoring Dockerflow convention, return version info at
   // this URL. See: https://github.com/mozilla-services/Dockerflow
   app.get('/__version__', viewFrontendVersionHandler());
@@ -297,8 +300,6 @@ function baseServer(
       let runningSagas;
 
       try {
-        cookie.plugToRequest(req, res);
-
         let sagas = appSagas;
         if (!sagas) {
           // eslint-disable-next-line global-require, import/no-dynamic-require
@@ -308,13 +309,14 @@ function baseServer(
 
         // TODO: synchronize cookies with Redux store more automatically.
         // See https://github.com/mozilla/addons-frontend/issues/5617
-        const token = cookie.load(config.get('cookieName'));
+        const token = req.universalCookies.get(config.get('cookieName'));
         if (token) {
           store.dispatch(setAuthToken(token));
         }
         if (
-          cookie.load(config.get('dismissedExperienceSurveyCookieName')) !==
-          undefined
+          req.universalCookies.get(
+            config.get('dismissedExperienceSurveyCookieName'),
+          ) !== undefined
         ) {
           store.dispatch(dismissSurvey());
         }
@@ -355,7 +357,12 @@ function baseServer(
 
       const props = {
         component: (
-          <Root history={history} i18n={i18n} store={store}>
+          <Root
+            cookies={req.universalCookies}
+            history={history}
+            i18n={i18n}
+            store={store}
+          >
             <App />
           </Root>
         ),

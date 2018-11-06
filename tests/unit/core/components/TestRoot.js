@@ -1,5 +1,6 @@
 import { mount } from 'enzyme';
 import * as React from 'react';
+import { withCookies } from 'react-cookie';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
@@ -9,6 +10,7 @@ import {
   createFakeHistory,
   createFakeLocation,
   dispatchClientMetadata,
+  fakeCookies,
   fakeI18n,
 } from 'tests/unit/helpers';
 
@@ -75,5 +77,21 @@ describe(__filename, () => {
 
     const root = mountApp({ Child: AppWithRedux, store });
     expect(root.find('.App')).toHaveText(lang);
+  });
+
+  it('provides cookies capability', () => {
+    const cookieValue = 'some cookie value';
+    const _cookies = fakeCookies({
+      get: sinon.stub().returns(cookieValue),
+    });
+
+    const AppWithCookies = withCookies(({ cookies }) => (
+      <App>
+        <p>{cookies.get()}</p>
+      </App>
+    ));
+
+    const root = mountApp({ Child: AppWithCookies, cookies: _cookies });
+    expect(root.find('.App')).toHaveText(cookieValue);
   });
 });

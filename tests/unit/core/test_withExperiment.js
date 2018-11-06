@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { withExperiment } from 'core/withExperiment';
-import { fakeCookie, getFakeConfig } from 'tests/unit/helpers';
+import { fakeCookies, getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   class SomeComponentBase extends React.Component {
@@ -11,16 +11,11 @@ describe(__filename, () => {
     }
   }
 
-  function getComponentWithExperiment(experimentProps = {}) {
-    return withExperiment({
-      id: 'some-id',
-      variantA: 'some-variant-a',
-      variantB: 'some-variant-b',
-      ...experimentProps,
-    })(SomeComponentBase);
-  }
-
-  function render({ props, experimentProps } = {}) {
+  const renderWithExperiment = ({
+    props,
+    experimentProps,
+    context = fakeCookies(),
+  } = {}) => {
     const allExperimentProps = {
       id: 'some-id',
       ...experimentProps,
@@ -38,10 +33,29 @@ describe(__filename, () => {
       ...props,
     };
 
-    const SomeComponent = getComponentWithExperiment(allExperimentProps);
+    const SomeComponent = withExperiment({
+      id: 'some-id',
+      variantA: 'some-variant-a',
+      variantB: 'some-variant-b',
+      ...experimentProps,
+    })(SomeComponentBase);
 
-    return shallow(<SomeComponent {...allProps} />);
-  }
+    // Temporary workaround for supporting the React (stable) Context API.
+    // See: https://github.com/mozilla/addons-frontend/issues/6839
+    //
+    // 1. Render everything
+    const root = shallow(<SomeComponent {...allProps} />);
+    // 2. Get and render the withExperiment HOC (inside withCookies() HOC)
+    const WithExperiment = root.dive().prop('children');
+
+    return shallow(<WithExperiment {...context} />);
+  };
+
+  const render = (props = {}) => {
+    const root = renderWithExperiment(props);
+    // Return the wrapped instance (`SomeComponentBase`)
+    return root.dive();
+  };
 
   it('injects a variant prop', () => {
     const root = render();
@@ -53,24 +67,26 @@ describe(__filename, () => {
     expect(root).toHaveProp('experimentEnabled', true);
   });
 
-  it('loads a cookie upon construction', () => {
-    const _cookie = fakeCookie();
+  it('gets a cookie upon construction', () => {
+    const cookies = fakeCookies();
 
-    render({ props: { _cookie } });
+    // `react-cookie` uses the React (stable) Context API.
+    render({ context: cookies });
 
-    sinon.assert.called(_cookie.load);
+    sinon.assert.called(cookies.get);
   });
 
   it('creates a cookie upon construction if none has been loaded', () => {
     const id = 'hero';
-    const _cookie = fakeCookie({
-      load: sinon.stub().returns(undefined),
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(undefined),
     });
 
-    const root = render({ props: { _cookie }, experimentProps: { id } });
+    // `react-cookie` uses the React (stable) Context API.
+    const root = render({ context: cookies, experimentProps: { id } });
 
     sinon.assert.calledWith(
-      _cookie.save,
+      cookies.set,
       `${id}Experiment`,
       root.instance().experimentCookie,
     );
@@ -78,27 +94,29 @@ describe(__filename, () => {
 
   it('does not create a cookie upon construction if one has been loaded', () => {
     const id = 'hero';
-    const _cookie = fakeCookie({
-      load: sinon.stub().returns(`${id}Experiment`),
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(`${id}Experiment`),
     });
 
-    render({ props: { _cookie }, experimentProps: { id } });
+    // `react-cookie` uses the React (stable) Context API.
+    render({ context: cookies, experimentProps: { id } });
 
-    sinon.assert.notCalled(_cookie.save);
+    sinon.assert.notCalled(cookies.set);
   });
 
   it('allows a custom cookie configuration', () => {
     const id = 'custom_cookie_config';
-    const _cookie = fakeCookie();
+    const cookies = fakeCookies();
     const cookieConfig = { path: '/test' };
 
     const root = render({
-      props: { _cookie },
+      // `react-cookie` uses the React (stable) Context API.
+      context: cookies,
       experimentProps: { id, cookieConfig },
     });
 
     sinon.assert.calledWith(
-      _cookie.save,
+      cookies.set,
       `${id}Experiment`,
       root.instance().experimentCookie,
       cookieConfig,
@@ -106,24 +124,24 @@ describe(__filename, () => {
   });
 
   it('sets a display name', () => {
-    const SomeComponent = getComponentWithExperiment();
-    expect(SomeComponent.displayName).toMatch(
-      /WithExperiment\(SomeComponentBase\)/,
-    );
+    const SomeComponent = renderWithExperiment();
+
+    expect(SomeComponent.name()).toMatch(/WithExperiment\(SomeComponentBase\)/);
   });
 
   it('can be disabled by configuration', () => {
     const id = 'disabled_experiment';
-    const _cookie = fakeCookie();
+    const cookies = fakeCookies();
     const _config = getFakeConfig({
       experiments: {
         [id]: false,
       },
     });
 
-    render({ props: { _config }, experimentProps: { id } });
+    // `react-cookie` uses the React (stable) Context API.
+    render({ context: cookies, props: { _config }, experimentProps: { id } });
 
-    sinon.assert.notCalled(_cookie.load);
+    sinon.assert.notCalled(cookies.get);
   });
 
   it('sets experimentEnabled prop to false when experiment is disabled by config', () => {

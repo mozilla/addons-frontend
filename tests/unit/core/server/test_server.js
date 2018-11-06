@@ -61,6 +61,7 @@ export class ServerTestHelper {
   constructor() {
     this.helmetCanUseDOM = Helmet.canUseDOM;
     this.nestedStatusCanUseDOM = NestedStatus.canUseDOM;
+    this.document = global.document;
   }
 
   beforeEach() {
@@ -71,11 +72,14 @@ export class ServerTestHelper {
     global.webpackIsomorphicTools = {
       assets: () => fakeAssets,
     };
+    // We don't want the `document` object on the server.
+    delete global.document;
   }
 
   afterEach() {
     Helmet.canUseDOM = this.helmetCanUseDOM;
     NestedStatus.canUseDOM = this.nestedStatusCanUseDOM;
+    global.document = this.document;
     delete global.webpackIsomorphicTools;
   }
 
