@@ -23,7 +23,7 @@ describe(__filename, () => {
     'renders alternate links with hreflang for %s',
     (clientApp) => {
       const baseURL = 'https://example.org';
-      const lang = 'en-US';
+      const lang = 'fr';
       const to = '/some-url';
 
       const _hrefLangs = ['fr', 'en-US'];
@@ -55,7 +55,7 @@ describe(__filename, () => {
   it('renders alternate links for aliased locales', () => {
     const baseURL = 'https://example.org';
     const clientApp = CLIENT_APP_FIREFOX;
-    const lang = 'en-US';
+    const lang = 'de';
     const to = '/some-url';
 
     const _hrefLangs = ['x-default'];
