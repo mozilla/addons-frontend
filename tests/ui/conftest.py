@@ -44,11 +44,8 @@ def discovery_pane(selenium, my_base_url):
 @pytest.fixture
 def firefox_options(firefox_options):
     """Configure Firefox preferences and additonal arguments."""
-    firefox_options.set_preference('extensions.legacy.enabled', True)
-    firefox_options.set_preference('extensions.webapi.testing', True)
-    firefox_options.set_preference('xpinstall.signatures.required', False)
-    firefox_options.set_preference(
-        'extensions.install.requireBuiltInCerts', False)
     firefox_options.add_argument('-foreground')
+    firefox_options.set_preference('extensions.webapi.testing', True)
     firefox_options.set_preference('ui.popup.disable_autohide', True)
+    firefox_options.set_preference('xpinstall.signatures.dev-root', True)
     return firefox_options

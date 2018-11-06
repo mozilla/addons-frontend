@@ -15,7 +15,7 @@ const containerIdFile = path.join(root, 'docker-container-id.txt');
 // TODO: make these configurable when we need to start
 // servers for multiple apps.
 const appInstance = 'disco';
-const nodeEnv = 'uitests';
+const nodeConfigEnv = 'uitests';
 
 function logDivider(heading) {
   console.log(`${'='.repeat(35)} ${heading} ${'='.repeat(35)}`);
@@ -121,7 +121,9 @@ new Promise((resolve) => {
       '-e',
       `NODE_APP_INSTANCE=${appInstance}`,
       '-e',
-      `NODE_ENV=${nodeEnv}`,
+      `NODE_ENV=production`,
+      '-e',
+      `NODE_CONFIG_ENV=${nodeConfigEnv}`,
       '-e',
       `USE_HTTPS_FOR_DEV=true`,
       `-e`,
