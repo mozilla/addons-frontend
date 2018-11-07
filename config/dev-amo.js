@@ -26,4 +26,6 @@ module.exports = {
       ],
     },
   },
+
+  enableFeatureStaticThemesForAndroid: false,
 };

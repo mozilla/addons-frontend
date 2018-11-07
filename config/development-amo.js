@@ -16,4 +16,6 @@ module.exports = {
   fxaConfig: 'local',
   trackingEnabled: false,
   loggingLevel: 'debug',
+
+  enableFeatureStaticThemesForAndroid: false,
 };
