@@ -208,7 +208,7 @@ function baseServer(
     app.use(middleware.serveAssetsLocally());
   }
 
-  // Cookies.
+  // This middleware adds `universalCookies` to the Express request.
   app.use(cookiesMiddleware());
 
   // Following the ops monitoring Dockerflow convention, return version info at
