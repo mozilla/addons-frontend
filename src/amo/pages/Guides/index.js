@@ -4,6 +4,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import HeadLinks from 'amo/components/HeadLinks';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
@@ -132,6 +133,11 @@ export class GuidesBase extends React.Component<InternalProps> {
         <div className="Guides-section" key={section.exploreUrl}>
           <h2 className="Guides-section-title">{section.header}</h2>
           <p className="Guides-section-description">{section.description}</p>
+
+          <GuidesAddonCard
+            addonGuid={section.addonGuid}
+            addonCustomText={section.addonCustomText}
+          />
 
           <div
             className="Guides-section-explore-more"
