@@ -247,9 +247,7 @@ export type WithInstallHelpersInjectedProps = {|
   uninstall: (UninstallParams) => Promise<any>,
 |};
 
-export class WithInstallHelpers extends React.Component<
-  WithInstallHelpersInternalProps,
-> {
+export class WithInstallHelpers extends React.Component<WithInstallHelpersInternalProps> {
   static defaultProps = {
     _addonManager: addonManager,
     _installTheme: installTheme,

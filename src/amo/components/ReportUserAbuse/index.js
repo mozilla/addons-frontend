@@ -88,18 +88,17 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
       >
         {errorHandler.renderErrorIfPresent()}
 
-        {!uiVisible &&
-          !hasSubmitted && (
-            <Button
-              buttonType="neutral"
-              className="ReportUserAbuse-show-more"
-              disabled={!user}
-              onClick={this.showReportUI}
-              puffy
-            >
-              {i18n.gettext('Report this user for abuse')}
-            </Button>
-          )}
+        {!uiVisible && !hasSubmitted && (
+          <Button
+            buttonType="neutral"
+            className="ReportUserAbuse-show-more"
+            disabled={!user}
+            onClick={this.showReportUI}
+            puffy
+          >
+            {i18n.gettext('Report this user for abuse')}
+          </Button>
+        )}
 
         {!hasSubmitted && (
           <div className="ReportUserAbuse-form">

@@ -90,47 +90,42 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
             },
           ]}
         />
-        {collection &&
-          showEditButton &&
-          !editing && (
-            <Button
-              buttonType="neutral"
-              className="CollectionDetails-edit-button"
-              puffy
-              to={{
-                pathname: collectionEditUrl({ collection }),
-                query: convertFiltersToQueryParams(filters),
-              }}
-            >
-              {i18n.gettext('Edit this collection')}
-            </Button>
-          )}
-        {collection &&
-          editing &&
-          hasEditPermission && (
-            <Button
-              buttonType="neutral"
-              className="CollectionDetails-edit-details-button"
-              puffy
-              href="#editdetails"
-              onClick={this.onEditDetails}
-            >
-              {i18n.gettext('Edit collection details')}
-            </Button>
-          )}
-        {collection &&
-          editing && (
-            <Button
-              buttonType="cancel"
-              className="CollectionDetails-back-to-collection-button"
-              to={{
-                pathname: collectionUrl({ collection }),
-                query: convertFiltersToQueryParams(filters),
-              }}
-            >
-              {i18n.gettext('Back to collection')}
-            </Button>
-          )}
+        {collection && showEditButton && !editing && (
+          <Button
+            buttonType="neutral"
+            className="CollectionDetails-edit-button"
+            puffy
+            to={{
+              pathname: collectionEditUrl({ collection }),
+              query: convertFiltersToQueryParams(filters),
+            }}
+          >
+            {i18n.gettext('Edit this collection')}
+          </Button>
+        )}
+        {collection && editing && hasEditPermission && (
+          <Button
+            buttonType="neutral"
+            className="CollectionDetails-edit-details-button"
+            puffy
+            href="#editdetails"
+            onClick={this.onEditDetails}
+          >
+            {i18n.gettext('Edit collection details')}
+          </Button>
+        )}
+        {collection && editing && (
+          <Button
+            buttonType="cancel"
+            className="CollectionDetails-back-to-collection-button"
+            to={{
+              pathname: collectionUrl({ collection }),
+              query: convertFiltersToQueryParams(filters),
+            }}
+          >
+            {i18n.gettext('Back to collection')}
+          </Button>
+        )}
       </div>
     );
   }

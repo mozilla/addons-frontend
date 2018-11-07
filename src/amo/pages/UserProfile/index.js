@@ -287,23 +287,22 @@ export class UserProfileBase extends React.Component<InternalProps> {
       <div className="UserProfile-header">
         <UserAvatar className="UserProfile-avatar" user={user} />
 
-        {user &&
-          isDeveloper(user) && (
-            <div className="UserProfile-tags">
-              {user.is_addon_developer && (
-                <p className="UserProfile-developer">
-                  {i18n.gettext('Add-ons developer')}
-                  <Icon name="developer" />
-                </p>
-              )}
-              {user.is_artist && (
-                <p className="UserProfile-artist">
-                  {i18n.gettext('Theme artist')}
-                  <Icon name="artist" />
-                </p>
-              )}
-            </div>
-          )}
+        {user && isDeveloper(user) && (
+          <div className="UserProfile-tags">
+            {user.is_addon_developer && (
+              <p className="UserProfile-developer">
+                {i18n.gettext('Add-ons developer')}
+                <Icon name="developer" />
+              </p>
+            )}
+            {user.is_artist && (
+              <p className="UserProfile-artist">
+                {i18n.gettext('Theme artist')}
+                <Icon name="artist" />
+              </p>
+            )}
+          </div>
+        )}
 
         <h1 className="UserProfile-name">
           {user ? user.name : <LoadingText />}

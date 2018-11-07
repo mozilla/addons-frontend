@@ -98,20 +98,17 @@ export class UserProfileEditPictureBase extends React.Component<InternalProps> {
           </Button>
         </label>
 
-        {user &&
-          user.picture_url && (
-            <ConfirmButton
-              buttonType="cancel"
-              className={confirmButtonClassName}
-              id={confirmButtonClassName}
-              message={i18n.gettext(
-                'Do you really want to delete this picture?',
-              )}
-              onConfirm={onDelete}
-            >
-              {i18n.gettext('Delete This Picture')}
-            </ConfirmButton>
-          )}
+        {user && user.picture_url && (
+          <ConfirmButton
+            buttonType="cancel"
+            className={confirmButtonClassName}
+            id={confirmButtonClassName}
+            message={i18n.gettext('Do you really want to delete this picture?')}
+            onConfirm={onDelete}
+          >
+            {i18n.gettext('Delete This Picture')}
+          </ConfirmButton>
+        )}
       </section>
     );
   }
