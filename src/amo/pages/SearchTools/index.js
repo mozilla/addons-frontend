@@ -5,6 +5,7 @@ import { compose } from 'redux';
 import Helmet from 'react-helmet';
 
 import Search from 'amo/components/Search';
+import HeadLinks from 'amo/components/HeadLinks';
 import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_RELEVANCE } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
@@ -34,6 +35,8 @@ export class SearchToolsBase extends React.Component<InternalProps> {
               website-specific searches, image searching, and more.`)}
           />
         </Helmet>
+
+        <HeadLinks />
 
         <Search
           enableSearchFilters

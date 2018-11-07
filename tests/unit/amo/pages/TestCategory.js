@@ -19,7 +19,7 @@ import {
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import { visibleAddonType } from 'core/utils';
+import { visibleAddonType as getVisibleAddonType } from 'core/utils';
 import ErrorList from 'ui/components/ErrorList';
 import {
   createAddonsApiResult,
@@ -94,7 +94,7 @@ describe(__filename, () => {
       match: {
         params: {
           slug: fakeCategory.slug,
-          visibleAddonType: visibleAddonType(fakeCategory.type),
+          visibleAddonType: getVisibleAddonType(fakeCategory.type),
           ...paramOverrides,
         },
       },
@@ -313,7 +313,7 @@ describe(__filename, () => {
       {
         autoDispatchCategories: false,
         paramOverrides: {
-          visibleAddonType: visibleAddonType(addonType),
+          visibleAddonType: getVisibleAddonType(addonType),
         },
       },
     );
@@ -366,7 +366,7 @@ describe(__filename, () => {
       {
         autoDispatchCategories: false,
         paramOverrides: {
-          visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
         },
       },
     );
@@ -457,7 +457,7 @@ describe(__filename, () => {
       {
         autoDispatchCategories: false,
         paramOverrides: {
-          visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
         },
       },
     );
@@ -476,7 +476,7 @@ describe(__filename, () => {
       {
         autoDispatchCategories: false,
         paramOverrides: {
-          visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
         },
       },
     );
@@ -490,7 +490,7 @@ describe(__filename, () => {
       {
         autoDispatchCategories: false,
         paramOverrides: {
-          visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
         },
       },
     );
@@ -611,11 +611,9 @@ describe(__filename, () => {
       slug: 'target-slug',
     };
 
-    const _dispatchClientApp = (clientApp) =>
-      dispatchClientMetadata({
-        store,
-        clientApp,
-      });
+    const _dispatchClientApp = (clientApp) => {
+      return dispatchClientMetadata({ store, clientApp });
+    };
 
     function _render(
       props = {},
@@ -639,7 +637,7 @@ describe(__filename, () => {
         {
           paramOverrides: {
             slug: targetCategory.slug,
-            visibleAddonType: visibleAddonType(targetCategory.type),
+            visibleAddonType: getVisibleAddonType(targetCategory.type),
           },
         },
       );
@@ -664,7 +662,7 @@ describe(__filename, () => {
       const root = _render({
         params: {
           slug: targetCategory.slug,
-          visibleAddonType: visibleAddonType(targetCategory.type),
+          visibleAddonType: getVisibleAddonType(targetCategory.type),
         },
       });
 
@@ -677,7 +675,7 @@ describe(__filename, () => {
       const root = _render({
         params: {
           slug: targetCategory.slug,
-          visibleAddonType: visibleAddonType(decoyCategory.type),
+          visibleAddonType: getVisibleAddonType(decoyCategory.type),
         },
       });
 
@@ -703,7 +701,7 @@ describe(__filename, () => {
       const root = _render({
         params: {
           slug: targetCategory.slug,
-          visibleAddonType: visibleAddonType(targetCategory.type),
+          visibleAddonType: getVisibleAddonType(targetCategory.type),
         },
       });
 

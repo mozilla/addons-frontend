@@ -6,6 +6,7 @@ import LanguageTools, {
   LanguageToolList,
 } from 'amo/pages/LanguageTools';
 import Link from 'amo/components/Link';
+import HeadLinks from 'amo/components/HeadLinks';
 import { ADDON_TYPE_DICT, ADDON_TYPE_LANG } from 'core/constants';
 import {
   getAllLanguageTools,
@@ -15,7 +16,6 @@ import {
   createFakeLanguageTool,
   dispatchClientMetadata,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
@@ -305,22 +305,6 @@ describe(__filename, () => {
     ]);
   });
 
-  it('renders a canonical link tag', () => {
-    const baseURL = 'https://example.org';
-    const _config = getFakeConfig({ baseURL });
-    const pathname = '/language-tools/';
-
-    const { store } = dispatchClientMetadata({ pathname });
-
-    const root = renderShallow({ _config, store });
-
-    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
-    expect(root.find('link[rel="canonical"]')).toHaveProp(
-      'href',
-      `${baseURL}${pathname}`,
-    );
-  });
-
   it('renders a "description" meta tag', () => {
     const root = renderShallow();
 
@@ -328,5 +312,11 @@ describe(__filename, () => {
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
       /Download Firefox dictionaries and language/,
     );
+  });
+
+  it('renders a HeadLinks component', () => {
+    const root = renderShallow();
+
+    expect(root.find(HeadLinks)).toHaveLength(1);
   });
 });

@@ -10,6 +10,7 @@ import Home, {
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroGuides from 'amo/components/HomeHeroGuides';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
+import HeadLinks from 'amo/components/HeadLinks';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { fetchHomeAddons, loadHomeAddons } from 'amo/reducers/home';
 import { createInternalCollection } from 'amo/reducers/collections';
@@ -432,22 +433,6 @@ describe(__filename, () => {
     });
   });
 
-  it('renders a canonical link tag', () => {
-    const baseURL = 'https://example.org';
-    const _config = getFakeConfig({ baseURL });
-
-    const pathname = '/some-landing-pathname/';
-    const { store } = dispatchClientMetadata({ pathname });
-
-    const root = render({ _config, store });
-
-    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
-    expect(root.find('link[rel="canonical"]')).toHaveProp(
-      'href',
-      `${baseURL}${pathname}`,
-    );
-  });
-
   it('renders a "description" meta tag', () => {
     const root = render();
 
@@ -469,5 +454,11 @@ describe(__filename, () => {
     const root = render({ _config });
 
     expect(root.find(HomeHeroGuides)).toHaveLength(1);
+  });
+
+  it('renders a HeadLinks component', () => {
+    const root = render();
+
+    expect(root.find(HeadLinks)).toHaveLength(1);
   });
 });

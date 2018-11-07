@@ -14,7 +14,7 @@ describe(__filename, () => {
     ...props
   } = {}) => {
     return shallowUntilTarget(
-      <HeadLinks store={store} to="/foo" {...props} />,
+      <HeadLinks store={store} {...props} />,
       HeadLinksBase,
     );
   };
@@ -34,7 +34,7 @@ describe(__filename, () => {
         pathname: `/${lang}/${clientApp}${to}`,
       });
 
-      const root = render({ _config, _hrefLangs, store, to });
+      const root = render({ _config, _hrefLangs, store });
 
       expect(root.find('link[rel="alternate"]')).toHaveLength(
         _hrefLangs.length,
@@ -72,7 +72,7 @@ describe(__filename, () => {
       pathname: `/${lang}/${clientApp}${to}`,
     });
 
-    const root = render({ _config, _hrefLangs, store, to });
+    const root = render({ _config, _hrefLangs, store });
 
     expect(root.find('link[rel="alternate"]')).toHaveLength(_hrefLangs.length);
     expect(root.find('link[rel="alternate"]').at(0)).toHaveProp(
@@ -125,7 +125,7 @@ describe(__filename, () => {
         pathname: `/${lang}/${clientApp}${to}`,
       });
 
-      const root = render({ _config, store, to });
+      const root = render({ _config, store });
 
       expect(root.find(`link[hrefLang="${hrefLang}"]`)).toHaveProp(
         'href',
@@ -133,12 +133,6 @@ describe(__filename, () => {
       );
     },
   );
-
-  it('throws an invariant error when the `to` prop does not start with a slash', () => {
-    expect(() => {
-      render({ to: 'no-slash' });
-    }).toThrow();
-  });
 
   it('renders a canonical link tag', () => {
     const baseURL = 'https://example.org';
@@ -153,7 +147,7 @@ describe(__filename, () => {
       pathname: `/${lang}/${clientApp}${to}`,
     });
 
-    const root = render({ _config, store, to });
+    const root = render({ _config, store });
 
     expect(root.find('link[rel="canonical"]')).toHaveLength(1);
     expect(root.find('link[rel="canonical"]')).toHaveProp(
@@ -173,10 +167,11 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata({
       clientApp,
       lang,
-      pathname: `/${lang}/${clientApp}${to}?src=hotness`,
+      pathname: `/${lang}/${clientApp}${to}`,
+      search: '?src=hotness',
     });
 
-    const root = render({ _config, _hrefLangs, store, to });
+    const root = render({ _config, _hrefLangs, store });
 
     expect(root.find('link[rel="alternate"]')).toHaveLength(0);
   });

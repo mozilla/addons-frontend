@@ -4,23 +4,20 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import invariant from 'invariant';
 
 import { getCanonicalURL } from 'amo/utils';
 import { hrefLangs } from 'core/languages';
 import type { AppState } from 'amo/store';
 
-type Props = {|
-  to: string,
-|};
+type Props = {||};
 
 type InternalProps = {|
   ...Props,
   _config: typeof config,
   _hrefLangs: typeof hrefLangs,
-  clientApp: string,
   currentURL: string,
   lang: string,
+  locationPathname: string,
 |};
 
 export class HeadLinksBase extends React.PureComponent<InternalProps> {
@@ -30,13 +27,21 @@ export class HeadLinksBase extends React.PureComponent<InternalProps> {
   };
 
   render() {
-    const { _config, _hrefLangs, currentURL, clientApp, lang, to } = this.props;
+    const {
+      _config,
+      _hrefLangs,
+      currentURL,
+      lang,
+      locationPathname,
+    } = this.props;
 
-    invariant(to.charAt(0) === '/', 'The `to` prop must start with a slash.');
+    const pathWithoutLocale = locationPathname
+      .split('/')
+      .slice(2)
+      .join('/');
+    const canonicalURL = `/${lang}/${pathWithoutLocale}`;
 
     const hrefLangsMap = _config.get('hrefLangsMap');
-    const canonicalURL = `/${lang}/${clientApp}${to}`;
-
     const includeAlternateLinks =
       _config.get('unsupportedHrefLangs').includes(lang) === false &&
       canonicalURL === currentURL;
@@ -51,12 +56,13 @@ export class HeadLinksBase extends React.PureComponent<InternalProps> {
         {includeAlternateLinks &&
           _hrefLangs.map((hrefLang) => {
             const locale = hrefLangsMap[hrefLang] || hrefLang;
+            const alternateURL = `/${locale}/${pathWithoutLocale}`;
 
             return (
               <link
                 href={getCanonicalURL({
                   _config,
-                  locationPathname: `/${locale}/${clientApp}${to}`,
+                  locationPathname: alternateURL,
                 })}
                 hrefLang={hrefLang}
                 key={hrefLang}
@@ -70,13 +76,13 @@ export class HeadLinksBase extends React.PureComponent<InternalProps> {
 }
 
 const mapStateToProps = (state: AppState) => {
-  const { clientApp, lang } = state.api;
+  const { lang } = state.api;
   const { pathname, search } = state.router.location;
 
   return {
-    clientApp,
     currentURL: `${pathname}${search}`,
     lang,
+    locationPathname: pathname,
   };
 };
 

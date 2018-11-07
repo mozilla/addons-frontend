@@ -10,10 +10,10 @@ import CategoryIcon from 'amo/components/CategoryIcon';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import HomeHeroGuides from 'amo/components/HomeHeroGuides';
+import HeadLinks from 'amo/components/HeadLinks';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeAddons } from 'amo/reducers/home';
-import { getCanonicalURL } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -70,12 +70,11 @@ export class HomeBase extends React.Component {
     collections: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    shelves: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     includeFeaturedThemes: PropTypes.bool,
     includeTrendingExtensions: PropTypes.bool,
-    locationPathname: PropTypes.string.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
+    shelves: PropTypes.object.isRequired,
   };
 
   static defaultProps = {
@@ -209,12 +208,11 @@ export class HomeBase extends React.Component {
       _config,
       collections,
       errorHandler,
-      shelves,
       i18n,
       includeFeaturedThemes,
       includeTrendingExtensions,
-      locationPathname,
       resultsLoaded,
+      shelves,
     } = this.props;
 
     // translators: The ending ellipsis alludes to a row of icons for each type
@@ -231,10 +229,6 @@ export class HomeBase extends React.Component {
     return (
       <div className="Home">
         <Helmet>
-          <link
-            rel="canonical"
-            href={getCanonicalURL({ locationPathname, _config })}
-          />
           <meta
             name="description"
             content={i18n.gettext(`Download Firefox extensions and themes.
@@ -242,6 +236,8 @@ export class HomeBase extends React.Component {
               protect passwords, change browser appearance, and more.`)}
           />
         </Helmet>
+
+        <HeadLinks />
 
         <span
           className="visually-hidden do-not-remove"
@@ -376,7 +372,6 @@ export function mapStateToProps(state) {
   return {
     collections: state.home.collections,
     shelves: state.home.shelves,
-    locationPathname: state.router.location.pathname,
     resultsLoaded: state.home.resultsLoaded,
   };
 }

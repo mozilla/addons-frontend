@@ -3,16 +3,54 @@ import * as React from 'react';
 
 import Categories from 'amo/components/Categories';
 import { CategoriesPageBase } from 'amo/pages/CategoriesPage';
-import { ADDON_TYPE_EXTENSION } from 'core/constants';
+import HeadLinks from 'amo/components/HeadLinks';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import { visibleAddonType } from 'core/utils';
+import { fakeI18n } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  it('renders Categories', () => {
-    const params = {
-      visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+  const render = ({ params, ...props } = {}) => {
+    const allProps = {
+      i18n: fakeI18n(),
+      match: {
+        params: {
+          visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+          ...params,
+        },
+      },
+      ...props,
     };
-    const root = shallow(<CategoriesPageBase match={{ params }} />);
 
-    expect(root.find(Categories)).toHaveProp('addonType', ADDON_TYPE_EXTENSION);
+    return shallow(<CategoriesPageBase {...allProps} />);
+  };
+
+  it.each([ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME])(
+    'renders the %s categories',
+    (addonType) => {
+      const params = { visibleAddonType: visibleAddonType(addonType) };
+
+      const root = render({ params });
+
+      expect(root.find(Categories)).toHaveLength(1);
+      expect(root.find(Categories)).toHaveProp('addonType', addonType);
+    },
+  );
+
+  it.each([
+    [ADDON_TYPE_EXTENSION, /All extension/],
+    [ADDON_TYPE_THEME, /All theme/],
+  ])('renders an HTML title for %s', (addonType, expectedMatch) => {
+    const params = { visibleAddonType: visibleAddonType(addonType) };
+
+    const root = render({ params });
+
+    expect(root.find('title')).toHaveLength(1);
+    expect(root.find('title').text()).toMatch(expectedMatch);
+  });
+
+  it('renders a HeadLinks component', () => {
+    const root = render();
+
+    expect(root.find(HeadLinks)).toHaveLength(1);
   });
 });
