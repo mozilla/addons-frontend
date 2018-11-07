@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-06 17:27+0000\n"
-"PO-Revision-Date: 2018-10-12 21:53+0000\n"
-"Last-Translator: robbp <robbpaun@gmail.com>\n"
+"PO-Revision-Date: 2018-11-07 01:11+0000\n"
+"Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -331,9 +331,8 @@ msgid "Edit reply"
 msgstr "Editează-mi răspunsul"
 
 #: src/amo/components/AddonReviewCard/index.js:195
-#, fuzzy
 msgid "Edit review"
-msgstr "Editează-mi recenzia"
+msgstr "Editează recenzia"
 
 #: src/amo/components/AddonReviewCard/index.js:202 src/amo/components/AddonReviewCard/index.js:234
 #, fuzzy
@@ -346,21 +345,20 @@ msgid "Delete rating"
 msgstr "Editează-mi recenzia"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
-#, fuzzy
 msgid "Delete review"
-msgstr "Editează-mi recenzia"
+msgstr "Șterge recenzia"
 
 #: src/amo/components/AddonReviewCard/index.js:216
 msgid "Do you really want to delete this reply?"
-msgstr "Autentifică-te pentru a edita această colecție"
+msgstr "Chiar vrei să ștergi acest răspuns?"
 
 #: src/amo/components/AddonReviewCard/index.js:220
 msgid "Do you really want to delete this rating?"
-msgstr "Autentifică-te pentru a edita această colecție"
+msgstr "Chiar vrei să ștergi această evaluare?"
 
 #: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this review?"
-msgstr "Autentifică-te pentru a edita această colecție"
+msgstr "Chiar vrei să ștergi această recenzie?"
 
 #: src/amo/components/AddonReviewCard/index.js:230 src/ui/components/DismissibleTextForm/index.js:186
 msgid "Delete"
@@ -437,9 +435,8 @@ msgid "Submitting review"
 msgstr "Trimite recenzia"
 
 #: src/amo/components/AddonReviewManager/index.js:108
-#, fuzzy
 msgid "Update review"
-msgstr "Actualizează răspunsul"
+msgstr "Actualizează recenzia"
 
 #: src/amo/components/AddonReviewManager/index.js:111
 #, fuzzy
@@ -456,7 +453,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:82
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "Te rugăm să respecți %(linkStart)sghidul nostru pentru recenzii%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManager/index.js:99
 #, fuzzy
@@ -465,7 +462,7 @@ msgstr "Cum ți se pare experiența cu %(addonName)s?"
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "Evaluarea ta în stele:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:241
 msgid "More dictionaries by %(author)s"
@@ -564,7 +561,7 @@ msgstr "Pictograma suplimentului"
 # averageRating is a localized number, such as 4.5
 #: src/amo/components/AddonSummaryCard/index.js:61
 msgid "%(averageRating)s star average"
-msgstr ""
+msgstr "%(averageRating)s stele în medie"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
@@ -574,7 +571,7 @@ msgstr ""
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:76 src/amo/components/AddonTitle/index.js:80
 msgid "by"
-msgstr ""
+msgstr "de"
 
 #: src/amo/components/App/index.js:220
 #, fuzzy
@@ -691,26 +688,24 @@ msgid "Custom URL"
 msgstr "URL personalizat"
 
 #: src/amo/components/CollectionSort/index.js:104
-#, fuzzy
 msgid "Sort add-ons by"
-msgstr "Suplimente în topul evaluărilor"
+msgstr "Sortează suplimentele după"
 
 #: src/amo/components/CollectionSort/index.js:80
 msgid "Newest first"
-msgstr ""
+msgstr "Cele mai noi primele"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Oldest first"
-msgstr ""
+msgstr "Cele mai vechi primele"
 
 #: src/amo/components/CollectionSort/index.js:88
 msgid "Name"
-msgstr ""
+msgstr "Nume"
 
 #: src/amo/components/CollectionSort/index.js:92
-#, fuzzy
 msgid "Popularity"
-msgstr "Teme populare"
+msgstr "Popularitate"
 
 #: src/amo/components/ContributeCard/index.js:32
 msgid "Support this developer"
@@ -841,14 +836,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr ""
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "Recenzii pentru %(addonName)s"
+msgstr "Răspuns de către %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "Recenzii pentru %(addonName)s"
+msgstr "Recenzie de către %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
@@ -996,14 +989,12 @@ msgid "View My Collections"
 msgstr "Vezi colecțiile mele"
 
 #: src/amo/components/Header/index.js:109 src/amo/pages/UserProfileEdit/index.js:470
-#, fuzzy
 msgid "View My Profile"
-msgstr "Vezi profilul"
+msgstr "Vezi profilul meu"
 
 #: src/amo/components/Header/index.js:117 src/amo/pages/UserProfileEdit/index.js:476
-#, fuzzy
 msgid "Edit My Profile"
-msgstr "Editează profilul"
+msgstr "Editează profilul meu"
 
 #: src/amo/components/Header/index.js:121
 msgid "Tools"
@@ -1519,9 +1510,8 @@ msgid "Log in to rate this add-on"
 msgstr "Autentifică-te pentru a evalua acest supliment"
 
 #: src/amo/components/RatingManager/index.js:173
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Autentifică-te pentru a edita această colecție"
+msgstr "Sigur vrei să ștergi recenzia pentru %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:178
 #, fuzzy
@@ -1930,7 +1920,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:107
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "Chiar vrei să ștergi această imagine?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:112
 #, fuzzy
@@ -1943,13 +1933,12 @@ msgid "Profile picture for %(name)s"
 msgstr "Rezultatele căutării pentru „%(query)s”"
 
 #: src/amo/components/UserProfileEditPicture/index.js:68
-#, fuzzy
 msgid "Profile photo"
-msgstr "Vezi profilul"
+msgstr "Fotografie de profil"
 
 #: src/amo/components/UserProfileEditPicture/index.js:97
 msgid "Choose Photo…"
-msgstr ""
+msgstr "Alege o fotografie…"
 
 #: src/amo/pages/Addon/index.js:182 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
@@ -2007,9 +1996,8 @@ msgid "This is not a public listing. You are only seeing it because of elevated 
 msgstr ""
 
 #: src/amo/pages/Addon/index.js:557
-#, fuzzy
 msgid "Only with Firefox—Get Firefox Now"
-msgstr "Numai cu Firefox — Obține Firefox acum!"
+msgstr "Numai cu Firefox — Obține Firefox acum"
 
 #: src/amo/pages/Addon/index.js:563
 msgid "Extension Metadata"
@@ -2059,9 +2047,8 @@ msgid "See more top rated themes"
 msgstr "Vezi mai multe teme în topul evaluărilor"
 
 #: src/amo/pages/Collection/index.js:382
-#, fuzzy
 msgid "Do you really want to delete this collection?"
-msgstr "Autentifică-te pentru a edita această colecție"
+msgstr "Chiar vrei să ștergi această colecție?"
 
 #: src/amo/pages/Collection/index.js:385
 #, fuzzy
@@ -2483,9 +2470,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:214
-#, fuzzy
 msgid "My reviews"
-msgstr "Recenzii"
+msgstr "Recenziile mele"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
@@ -2500,9 +2486,8 @@ msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(use
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:295
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "Mai multe suplimente create de acești dezvoltatori"
+msgstr "Dezvoltator de suplimente"
 
 #: src/amo/pages/UserProfile/index.js:301
 #, fuzzy
@@ -2510,38 +2495,34 @@ msgid "Theme artist"
 msgstr "Mai multe teme create de acești artiști"
 
 #: src/amo/pages/UserProfile/index.js:315 src/amo/pages/UserProfileEdit/index.js:458
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "Rezultatele căutării pentru „%(query)s”"
+msgstr "Profil de utilizator pentru %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:346 src/amo/pages/UserProfileEdit/index.js:615
 msgid "Location"
-msgstr ""
+msgstr "Locație"
 
 #: src/amo/pages/UserProfile/index.js:354 src/amo/pages/UserProfileEdit/index.js:627
 msgid "Occupation"
-msgstr ""
+msgstr "Ocupație"
 
 #: src/amo/pages/UserProfile/index.js:361
-#, fuzzy
 msgid "User since"
-msgstr "Utilizatori"
+msgstr "Utilizator din"
 
 #: src/amo/pages/UserProfile/index.js:371
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "Suplimente populare"
+msgstr "Număr de suplimente"
 
 #: src/amo/pages/UserProfile/index.js:377
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Evaluarea medie a suplimentelor dezvoltatorului"
 
 #: src/amo/pages/UserProfile/index.js:392 src/amo/pages/UserProfileEdit/index.js:649
 msgid "Biography"
-msgstr ""
+msgstr "Biografie"
 
 #: src/amo/pages/UserProfile/index.js:416
-#, fuzzy
 msgid "Edit profile"
 msgstr "Editează profilul"
 
@@ -2550,9 +2531,8 @@ msgid "Picture successfully deleted"
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:424
-#, fuzzy
 msgid "Log in to edit the profile"
-msgstr "Autentifică-te pentru a edita această colecție"
+msgstr "Autentifică-te pentru a edita profilul"
 
 #: src/amo/pages/UserProfileEdit/index.js:471
 #, fuzzy
@@ -2560,40 +2540,36 @@ msgid "View user's profile"
 msgstr "Vezi profilul"
 
 #: src/amo/pages/UserProfileEdit/index.js:477
-#, fuzzy
 msgid "Edit user's profile"
-msgstr "Editează profilul"
+msgstr "Editează profilul utilizatorului"
 
 #: src/amo/pages/UserProfileEdit/index.js:495
-#, fuzzy
 msgid "Account"
-msgstr "Contul meu"
+msgstr "Cont"
 
 #: src/amo/pages/UserProfileEdit/index.js:496
-#, fuzzy
 msgid "Account for %(username)s"
-msgstr "Să îți acceseze datele pentru %(site)s"
+msgstr "Cont pentru %(username)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:502
-#, fuzzy
 msgid "Username"
-msgstr "Utilizator"
+msgstr "Nume de utilizator"
 
 #: src/amo/pages/UserProfileEdit/index.js:515
 msgid "Email Address"
-msgstr ""
+msgstr "Adresă de e-mail"
 
 #: src/amo/pages/UserProfileEdit/index.js:522
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "Adresa de e-mail nu poate fi modificată aici"
 
 #: src/amo/pages/UserProfileEdit/index.js:531
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Îți poți modifica adresa de e-mail pe Conturi Firefox. %(startLink)sAi nevoie de ajutor?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:550
 msgid "Manage Firefox Accounts…"
-msgstr ""
+msgstr "Gestionează Conturi Firefox…"
 
 #: src/amo/pages/UserProfileEdit/index.js:558
 #, fuzzy
@@ -2602,7 +2578,7 @@ msgstr "Vezi profilul"
 
 #: src/amo/pages/UserProfileEdit/index.js:562
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Spune utilizatorilor mai multe informații despre tine. Aceste câmpuri sunt opționale, însă vor ajuta alți utilizatori să te cunoască mai bine."
 
 #: src/amo/pages/UserProfileEdit/index.js:568
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
@@ -2610,27 +2586,27 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:578
 msgid "Display Name"
-msgstr ""
+msgstr "Nume afișat"
 
 #: src/amo/pages/UserProfileEdit/index.js:610
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Acest URL va fi vizibil numai pentru utilizatorii care sunt dezvoltatori."
 
 #: src/amo/pages/UserProfileEdit/index.js:653
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Prezintă-te comunității dacă dorești"
 
 #: src/amo/pages/UserProfileEdit/index.js:657
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "Prezintă pe %(username)s comunității"
 
 #: src/amo/pages/UserProfileEdit/index.js:671
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Unele etichete HTML sunt suportate: %(htmlTags)s. Linkurile sunt interzise."
 
 #: src/amo/pages/UserProfileEdit/index.js:695
 msgid "Notifications"
-msgstr ""
+msgstr "Notificări"
 
 #: src/amo/pages/UserProfileEdit/index.js:699
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
@@ -2777,7 +2753,6 @@ msgid "Next"
 msgstr "Următoarea"
 
 #: src/core/components/Paginate/index.js:160
-#, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Pagina %(currentPage)s din %(totalPages)s"
 
