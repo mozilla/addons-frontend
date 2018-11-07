@@ -226,15 +226,7 @@ export class LandingPageBase extends React.Component {
       trendingAddons,
     } = this.props;
 
-    if (
-      clientApp === CLIENT_APP_ANDROID &&
-      _config.get('enableFeatureStaticThemesForAndroid') === false
-    ) {
-      return <NotFound />;
-    }
-
     const { visibleAddonType } = this.props.match.params;
-
     const { addonType, html } = this.contentForType(visibleAddonType);
     const headingText = {
       [ADDON_TYPE_THEME]: i18n.gettext('Themes'),
@@ -248,6 +240,14 @@ export class LandingPageBase extends React.Component {
     };
 
     const isAddonTheme = isTheme(addonType);
+
+    if (
+      isAddonTheme &&
+      clientApp === CLIENT_APP_ANDROID &&
+      _config.get('enableFeatureStaticThemesForAndroid') === false
+    ) {
+      return <NotFound />;
+    }
 
     return (
       <div

@@ -52,6 +52,15 @@ describe(__filename, () => {
     );
   }
 
+  const renderTheme = (props = {}) => {
+    return render({
+      match: {
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
+      },
+      ...props,
+    });
+  };
+
   const _getAndLoadLandingAddons = ({
     addonType = ADDON_TYPE_EXTENSION,
     errorHandler = createStubErrorHandler(),
@@ -625,7 +634,7 @@ describe(__filename, () => {
       enableFeatureStaticThemesForAndroid: false,
     });
 
-    const root = render({ _config, store });
+    const root = renderTheme({ _config, store });
 
     expect(root.find(NotFound)).toHaveLength(1);
   });
@@ -636,7 +645,7 @@ describe(__filename, () => {
       enableFeatureStaticThemesForAndroid: true,
     });
 
-    const root = render({ _config, store });
+    const root = renderTheme({ _config, store });
 
     expect(root.find(NotFound)).toHaveLength(0);
     expect(root).toHaveClassName('LandingPage');
@@ -648,7 +657,22 @@ describe(__filename, () => {
       enableFeatureStaticThemesForAndroid: false,
     });
 
-    const root = render({ _config, store });
+    const root = renderTheme({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root).toHaveClassName('LandingPage');
+  });
+
+  it('does not render a 404 when it is not the "themes" landing page', () => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID }).store;
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+    const params = {
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
+    };
+
+    const root = render({ _config, store, match: { params } });
 
     expect(root.find(NotFound)).toHaveLength(0);
     expect(root).toHaveClassName('LandingPage');
