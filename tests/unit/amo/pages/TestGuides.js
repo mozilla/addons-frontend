@@ -8,22 +8,21 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import Guides, {
-  extractId,
-  GuidesBase,
-  getContent,
-  getGuids,
-} from 'amo/pages/Guides';
+import Guides, { extractId, GuidesBase, getContent } from 'amo/pages/Guides';
 
 describe(__filename, () => {
+  let content;
   let store;
   let slug;
   let i18n;
+  let guids;
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
     slug = 'privacy';
     i18n = fakeI18n();
+    content = getContent(slug, i18n);
+    guids = content.sections.map((section) => section.addonGuid);
   });
 
   const getProps = ({
@@ -59,7 +58,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(
       dispatchSpy,
       fetchGuidesAddons({
-        guids: getGuids(slug, i18n),
+        guids,
         errorHandlerId: root.instance().props.errorHandler.id,
       }),
     );
@@ -67,19 +66,14 @@ describe(__filename, () => {
 
   it('renders a Guides Page', () => {
     const root = render();
-    const sectionSample = getContent(slug, i18n);
 
-    expect(root.find('title')).toHaveText(sectionSample.title);
+    expect(root.find('title')).toHaveText(content.title);
     expect(root.find('.Guides')).toHaveLength(1);
     expect(root.find('.Guides-header-icon')).toHaveLength(1);
     expect(root.find('.Guides-header-page-title')).toHaveLength(1);
     expect(root.find('.Guides-header-intro')).toHaveLength(1);
 
-    const addonsCount = getGuids(slug).length;
-    const addons = Array(addonsCount).fill(fakeAddon);
-
-    // This simulates mapStateToProps which sets up addons asynchronously.
-    root.setProps({ addons });
+    const addonsCount = guids.length;
 
     expect(root.find('.Guides-section')).toHaveLength(addonsCount);
   });
@@ -95,9 +89,6 @@ describe(__filename, () => {
     const root = render({ addons: [] });
 
     expect(root.find('.Guides')).toHaveLength(1);
-
-    // This simulates mapStateToProps which sets up addons asynchronously.
-    root.setProps();
 
     expect(root.find('.Guide-section')).toHaveLength(0);
   });
