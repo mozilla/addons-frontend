@@ -59,8 +59,8 @@ describe(__filename, () => {
     return shallowUntilTarget(<AddonInfo {...props} />, AddonInfoBase);
   };
 
-  const loadAddon = (addon = fakeAddon) => {
-    store.dispatch(loadAddonResults({ addons: [addon] }));
+  const _loadAddonResults = (addons = [fakeAddon]) => {
+    store.dispatch(loadAddonResults({ addons }));
   };
 
   const _loadAddonInfo = ({
@@ -100,7 +100,7 @@ describe(__filename, () => {
   it('does not fetch an addon if one is already loaded', () => {
     const slug = 'some-addon-slug';
     const addon = { ...fakeAddon, slug };
-    loadAddon(addon);
+    _loadAddonResults([addon]);
     const errorHandler = createStubErrorHandler();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
@@ -188,7 +188,7 @@ describe(__filename, () => {
     const slug = 'some-slug';
     const newSlug = 'some-other-slug';
     const addon = { ...fakeAddon, slug };
-    loadAddon(addon);
+    _loadAddonResults([addon]);
     const dispatch = sinon.stub(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
     render({
@@ -240,7 +240,7 @@ describe(__filename, () => {
 
   it('renders an AddonSummaryCard with an addon', () => {
     const addon = fakeAddon;
-    loadAddon(addon);
+    _loadAddonResults([addon]);
     const root = render({ infoType: ADDON_INFO_TYPE_PRIVACY_POLICY });
 
     const summary = root.find(AddonSummaryCard);
@@ -263,7 +263,7 @@ describe(__filename, () => {
     const slug = 'some-slug';
     const addon = { ...fakeAddon, slug };
 
-    loadAddon(addon);
+    _loadAddonResults([addon]);
 
     const root = render({
       infoType: ADDON_INFO_TYPE_PRIVACY_POLICY,
@@ -279,7 +279,7 @@ describe(__filename, () => {
   });
 
   it('renders a robots meta tag', () => {
-    loadAddon();
+    _loadAddonResults();
     const root = render();
 
     expect(root.find('meta[name="robots"]')).toHaveLength(1);
@@ -302,7 +302,7 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, slug };
     const addonInfo = { ...fakeAddonInfo, privacy_policy: privacyPolicy };
 
-    loadAddon(addon);
+    _loadAddonResults([addon]);
     _loadAddonInfo({ addonInfo, slug });
 
     const root = render({
@@ -323,7 +323,7 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, slug };
     const addonInfo = { ...fakeAddonInfo, eula };
 
-    loadAddon(addon);
+    _loadAddonResults([addon]);
     _loadAddonInfo({ addonInfo, slug });
 
     const root = render({
@@ -344,7 +344,7 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, slug };
     const addonInfo = { ...fakeAddonInfo, privacy_policy: privacyPolicy };
 
-    loadAddon(addon);
+    _loadAddonResults([addon]);
     _loadAddonInfo({ addonInfo, slug });
 
     const root = render({
@@ -361,7 +361,7 @@ describe(__filename, () => {
     const addon = { ...fakeAddon, slug };
     const addonInfo = { ...fakeAddonInfo, privacy_policy: privacyPolicy };
 
-    loadAddon(addon);
+    _loadAddonResults([addon]);
     _loadAddonInfo({ addonInfo, slug });
 
     const root = render({
