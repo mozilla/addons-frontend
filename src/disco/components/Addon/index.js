@@ -1,5 +1,6 @@
 /* @flow */
 import makeClassName from 'classnames';
+import invariant from 'invariant';
 import * as React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
@@ -313,7 +314,9 @@ function mapStateToProps(state: AppState, ownProps: Props) {
   let currentVersion = null;
 
   let installation = {};
-  if (addon && addon.currentVersionId) {
+  if (addon) {
+    invariant(addon.currentVersionId, 'addon.currentVersionId is required');
+
     installation = state.installations[addon.guid] || {};
     currentVersion = getVersionById({
       id: addon.currentVersionId,

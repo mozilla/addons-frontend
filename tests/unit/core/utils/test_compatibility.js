@@ -328,19 +328,6 @@ describe(__filename, () => {
         _isCompatibleWithUserAgent({ addon, currentVersion, userAgentInfo }),
       ).toMatchObject({ compatible: true });
     });
-
-    it('works with a version', () => {
-      const userAgentInfo = {
-        browser: { name: 'Firefox', version: '10.0' },
-        os: { name: 'Windows' },
-      };
-      expect(
-        _isCompatibleWithUserAgent({
-          minVersion: '10.1',
-          userAgentInfo,
-        }),
-      ).toEqual({ compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION });
-    });
   });
 
   describe('getCompatibleVersions', () => {

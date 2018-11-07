@@ -1061,25 +1061,25 @@ describe(__filename, () => {
   it('calls getClientCompatibility to determine the compatibility', () => {
     const addon = createInternalAddon(fakeAddon);
     const clientApp = CLIENT_APP_FIREFOX;
-    const currentVersion = createInternalVersion(fakeVersion);
+    const currentVersion = createInternalVersion(fakeAddon.current_version);
     const getClientCompatibility = sinon.mock().returns({
       compatible: true,
     });
-    const userAgentInfo = sampleUserAgentParsed;
 
-    shallowRender({
-      addon,
-      clientApp,
-      currentVersion,
+    const { store } = dispatchClientMetadata({ clientApp });
+    store.dispatch(_loadAddonResults({ addon }));
+
+    const root = renderComponent({
+      params: { slug: addon.slug },
+      store,
       getClientCompatibility,
-      userAgentInfo,
     });
 
     sinon.assert.calledWith(getClientCompatibility, {
       addon,
       clientApp,
       currentVersion,
-      userAgentInfo,
+      userAgentInfo: root.instance().props.userAgentInfo,
     });
   });
 

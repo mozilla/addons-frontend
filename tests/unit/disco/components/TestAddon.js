@@ -1,6 +1,5 @@
 import { oneLine } from 'common-tags';
 import * as React from 'react';
-import UAParser from 'ua-parser-js';
 
 import Addon, { AddonBase } from 'disco/components/Addon';
 import { setInstallError, setInstallState } from 'core/actions/installations';
@@ -427,9 +426,8 @@ describe(__filename, () => {
       const addon = fakeAddon;
       const clientApp = CLIENT_APP_FIREFOX;
       const userAgent = sampleUserAgent;
-      const userAgentInfo = UAParser(userAgent);
       dispatchClientMetadata({ clientApp, store, userAgent });
-      render({
+      const root = render({
         _getClientCompatibility,
         addon,
       });
@@ -438,8 +436,7 @@ describe(__filename, () => {
         addon: createInternalAddon(addon),
         clientApp,
         currentVersion: createInternalVersion(fakeVersion),
-        // userAgentInfo stored in state.api only includes browser and os.
-        userAgentInfo: { browser: userAgentInfo.browser, os: userAgentInfo.os },
+        userAgentInfo: root.instance().props.userAgentInfo,
       });
     });
 

@@ -80,7 +80,7 @@ export type IsCompatibleWithUserAgentParams = {|
   userAgentInfo: UserAgentInfoType,
 |};
 
-export type CompatibleWithUserAgentType = {|
+export type UserAgentCompatibilityType = {|
   compatible: boolean,
   reason: string | null,
 |};
@@ -94,7 +94,7 @@ export function isCompatibleWithUserAgent({
   maxVersion,
   minVersion,
   userAgentInfo,
-}: IsCompatibleWithUserAgentParams = {}): CompatibleWithUserAgentType {
+}: IsCompatibleWithUserAgentParams = {}): UserAgentCompatibilityType {
   // If the userAgent is false there was likely a programming error.
   invariant(userAgentInfo, 'userAgentInfo is required');
 
@@ -190,7 +190,7 @@ export type GetClientCompatibilityParams = {|
 
 export type ClientCompatibilityType = {|
   compatible: boolean,
-  downloadUrl?: string,
+  downloadUrl: string | void,
   maxVersion: string | null,
   minVersion: string | null,
   reason: string | null,
@@ -204,6 +204,7 @@ export function getClientCompatibility({
   _window = typeof window !== 'undefined' ? window : {},
   _log = log,
 }: GetClientCompatibilityParams = {}): ClientCompatibilityType {
+  invariant(currentVersion, 'currentVersion is required');
   // Check compatibility with client app.
   const { supportsClientApp, maxVersion, minVersion } = getCompatibleVersions({
     addon,
