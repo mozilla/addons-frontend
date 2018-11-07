@@ -28,6 +28,7 @@ import {
   fakeAddon,
   fakeCategory,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -748,5 +749,40 @@ describe(__filename, () => {
 
       expect(root.find(NotFound)).toHaveLength(0);
     });
+  });
+
+  it('renders a 404 when clientApp is Android and enableFeatureStaticThemesForAndroid is false', () => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID }).store;
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+
+    const root = render({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(1);
+  });
+
+  it('does not render a 404 when clientApp is Android and enableFeatureStaticThemesForAndroid is true', () => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID }).store;
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: true,
+    });
+
+    const root = render({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root).toHaveClassName('Category');
+  });
+
+  it('does not render a 404 when clientApp is not Android', () => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store;
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+
+    const root = render({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root).toHaveClassName('Category');
   });
 });

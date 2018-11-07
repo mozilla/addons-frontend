@@ -17,6 +17,7 @@ import { categoriesFetch } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_TOP_RATED,
   INSTALL_SOURCE_TRENDING,
@@ -213,6 +214,7 @@ export class CategoryBase extends React.Component {
 
   render() {
     const {
+      _config,
       categories,
       clientApp,
       errorHandler,
@@ -240,6 +242,13 @@ export class CategoryBase extends React.Component {
       if (!errorHandler.hasError() && !category) {
         return <NotFound />;
       }
+    }
+
+    if (
+      clientApp === CLIENT_APP_ANDROID &&
+      _config.get('enableFeatureStaticThemesForAndroid') === false
+    ) {
+      return <NotFound />;
     }
 
     const { html } = this.contentForType(addonType);

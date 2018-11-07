@@ -5,9 +5,12 @@ import * as landingActions from 'amo/actions/landing';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import LandingPage, { LandingPageBase } from 'amo/pages/LandingPage';
 import HeadLinks from 'amo/components/HeadLinks';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
@@ -22,6 +25,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -613,5 +617,40 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find(HeadLinks)).toHaveLength(1);
+  });
+
+  it('renders a 404 when clientApp is Android and enableFeatureStaticThemesForAndroid is false', () => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID }).store;
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+
+    const root = render({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(1);
+  });
+
+  it('does not render a 404 when clientApp is Android and enableFeatureStaticThemesForAndroid is true', () => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID }).store;
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: true,
+    });
+
+    const root = render({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root).toHaveClassName('LandingPage');
+  });
+
+  it('does not render a 404 when clientApp is not Android', () => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store;
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+
+    const root = render({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root).toHaveClassName('LandingPage');
   });
 });

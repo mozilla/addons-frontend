@@ -229,7 +229,7 @@ export class HomeBase extends React.Component {
 
     const loading = resultsLoaded === false;
 
-    let showThemes =
+    const showThemes =
       clientApp === CLIENT_APP_ANDROID
         ? _config.get('enableFeatureStaticThemesForAndroid')
         : true;
