@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-06 17:27+0000\n"
-"PO-Revision-Date: 2018-11-07 01:25+0000\n"
+"PO-Revision-Date: 2018-11-07 01:37+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -340,9 +340,8 @@ msgid "Delete reply"
 msgstr "Editează-mi răspunsul"
 
 #: src/amo/components/AddonReviewCard/index.js:206 src/amo/components/AddonReviewCard/index.js:238
-#, fuzzy
 msgid "Delete rating"
-msgstr "Editează-mi recenzia"
+msgstr "Șterge evaluarea"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete review"
@@ -375,9 +374,8 @@ msgid "Keep reply"
 msgstr "Editează-mi răspunsul"
 
 #: src/amo/components/AddonReviewCard/index.js:256
-#, fuzzy
 msgid "Keep rating"
-msgstr "Editează-mi recenzia"
+msgstr "Păstrează evaluarea"
 
 #: src/amo/components/AddonReviewCard/index.js:259
 #, fuzzy
@@ -413,9 +411,8 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr "de %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewCard/index.js:399
-#, fuzzy
 msgid "Deleting…"
-msgstr "Se caută…"
+msgstr "Se șterge…"
 
 #: src/amo/components/AddonReviewCard/index.js:429
 msgid "Reply to this review"
@@ -853,7 +850,7 @@ msgstr "Aceasta este un raport al unei probleme sau o cerere de asistență"
 
 #: src/amo/components/FlagReviewMenu/index.js:106
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Semnalat(ă) ca raport de eroare sau cerere de suport"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
@@ -1514,18 +1511,16 @@ msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr "Sigur vrei să ștergi recenzia pentru %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:178
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "Autentifică-te pentru a edita această colecție"
+msgstr "Sigur vrei să ștergi evaluarea pentru %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:183
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
-msgstr "Cum ți se pare experiența cu %(addonName)s?"
+msgstr "Cum ți se pare %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
-msgstr ""
+msgstr "Se salvează evaluarea în stele"
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
@@ -2870,9 +2865,8 @@ msgid "Dismiss this notice"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:104
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Evaluat(ă) cu %(rating)s din 5 stele"
+msgstr "Evaluează acest supliment cu %(starRating)s din 5"
 
 #: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
 #, fuzzy
