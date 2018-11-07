@@ -11,10 +11,17 @@ import { INSTALL_SOURCE_HERO_PROMO } from 'core/constants';
 import Hero from 'ui/components/Hero';
 import {
   dispatchClientMetadata,
+  fakeCookies,
   fakeI18n,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
+
+// Skip `withCookies` HOC since Enzyme does not support the React Context API.
+// See: https://github.com/mozilla/addons-frontend/issues/6839
+jest.mock('react-cookie', () => ({
+  withCookies: (component) => component,
+}));
 
 describe(__filename, () => {
   const defaultProps = {
@@ -23,6 +30,7 @@ describe(__filename, () => {
         [AB_HOME_HERO_EXPERIMENT]: true,
       },
     }),
+    cookies: fakeCookies(),
     i18n: fakeI18n(),
     store: dispatchClientMetadata().store,
   };

@@ -15,12 +15,18 @@ import Notice from 'ui/components/Notice';
 import {
   createFakeTracking,
   dispatchClientMetadata,
-  fakeCookie,
+  fakeCookies,
   fakeI18n,
   createFakeLocation,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
+
+// Skip `withCookies` HOC since Enzyme does not support the React Context API.
+// See: https://github.com/mozilla/addons-frontend/issues/6839
+jest.mock('react-cookie', () => ({
+  withCookies: (component) => component,
+}));
 
 describe(__filename, () => {
   const render = ({
@@ -32,11 +38,13 @@ describe(__filename, () => {
       _config: getFakeConfig({
         enableFeatureExperienceSurvey: true,
       }),
+      cookies: fakeCookies(),
       i18n: fakeI18n(),
       location: createFakeLocation(),
       store,
       ...customProps,
     };
+
     return shallowUntilTarget(<SurveyNotice {...props} />, SurveyNoticeBase);
   };
 
@@ -173,13 +181,13 @@ describe(__filename, () => {
     });
 
     it('saves a cookie', () => {
-      const _cookie = fakeCookie();
-      const root = render({ _cookie });
+      const cookies = fakeCookies();
 
+      const root = render({ cookies });
       root.instance().dismissNotice();
 
       sinon.assert.calledWith(
-        _cookie.save,
+        cookies.set,
         config.get('dismissedExperienceSurveyCookieName'),
         '',
         { maxAge: sinon.match.any, path: '/' },

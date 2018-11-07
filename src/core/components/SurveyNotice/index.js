@@ -1,7 +1,7 @@
 /* @flow */
 import config from 'config';
 import * as React from 'react';
-import cookie from 'react-cookie';
+import { withCookies, Cookies } from 'react-cookie';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -30,9 +30,9 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   _config: typeof config,
-  _cookie: typeof cookie,
   _supportedLangs: Array<string>,
   _tracking: typeof tracking,
+  cookies: typeof Cookies,
   dispatch: DispatchFunc,
   i18n: I18nType,
   siteLang: string,
@@ -42,7 +42,6 @@ type InternalProps = {|
 export class SurveyNoticeBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
-    _cookie: cookie,
     _supportedLangs: [
       'de',
       'en-US',
@@ -81,14 +80,14 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
   }
 
   dismissNotice = () => {
-    const { _config, _cookie, dispatch } = this.props;
+    const { _config, cookies, dispatch } = this.props;
     dispatch(dismissSurvey());
     // Even though a dismissal action is dispatched here, also save a
     // cookie to manually synchronize state. The server code will load
     // the cookie and synchronize state as part of the request.
     // TODO: make this synchronization more automatic.
     // See https://github.com/mozilla/addons-frontend/issues/5617
-    _cookie.save(_config.get('dismissedExperienceSurveyCookieName'), '', {
+    cookies.set(_config.get('dismissedExperienceSurveyCookieName'), '', {
       // Expire 180 days from now. This value is in seconds.
       maxAge: 24 * 60 * 60 * 180,
       path: '/',
@@ -151,6 +150,7 @@ const mapStateToProps = (state: AppState) => {
 const SurveyNotice: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
+  withCookies,
 )(SurveyNoticeBase);
 
 export default SurveyNotice;

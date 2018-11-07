@@ -1074,8 +1074,15 @@ export function setUIState({ root, change, store }) {
   applyUIStateChanges({ root, store });
 }
 
-export function fakeCookie(overrides = {}) {
-  return { load: sinon.stub(), save: sinon.stub(), ...overrides };
+export function fakeCookies(overrides = {}) {
+  return {
+    addChangeListener: sinon.stub(),
+    get: sinon.stub(),
+    getAll: sinon.stub(),
+    removeChangeListener: sinon.stub(),
+    set: sinon.stub(),
+    ...overrides,
+  };
 }
 
 export const createFakeTracking = (overrides = {}) => {

@@ -22,11 +22,17 @@ import {
   createContextWithFakeRouter,
   dispatchClientMetadata,
   dispatchSignInActions,
-  fakeCookie,
+  fakeCookies,
   fakeI18n,
   shallowUntilTarget,
   userAuthToken,
 } from 'tests/unit/helpers';
+
+// Skip `withCookies` HOC since Enzyme does not support the React Context API.
+// See: https://github.com/mozilla/addons-frontend/issues/6839
+jest.mock('react-cookie', () => ({
+  withCookies: (component) => component,
+}));
 
 describe(__filename, () => {
   function renderProps(customProps = {}) {
@@ -38,7 +44,7 @@ describe(__filename, () => {
     };
   }
 
-  const render = ({ ...props }) => {
+  const render = (props = {}) => {
     const allProps = {
       ...renderProps(),
       ...props,
@@ -58,15 +64,13 @@ describe(__filename, () => {
         reload: sinon.stub(),
       },
     };
-    const _cookie = fakeCookie();
+    const cookies = fakeCookies();
 
-    const root = render();
-    root.instance().onViewDesktop(fakeEvent, {
-      _window: fakeWindow,
-      _cookie,
-    });
+    const root = render({ cookies });
+    root.instance().onViewDesktop(fakeEvent, { _window: fakeWindow });
+
     sinon.assert.called(fakeEvent.preventDefault);
-    sinon.assert.calledWith(_cookie.save, 'mamo', 'off', { path: '/' });
+    sinon.assert.calledWith(cookies.set, 'mamo', 'off', { path: '/' });
     sinon.assert.called(fakeWindow.location.reload);
   });
 
