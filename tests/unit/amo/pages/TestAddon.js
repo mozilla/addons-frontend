@@ -524,6 +524,31 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
+  it('dispatches a server redirect when slug has trailing spaces', () => {
+    const slug = 'some-slug';
+
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { store } = dispatchClientMetadata({ clientApp });
+    const addon = createInternalAddon({ ...fakeAddon, slug });
+    store.dispatch(_loadAddonResults({ addon }));
+
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    renderComponent({
+      // Add trailing spaces to the slug
+      params: { slug: `${slug}  ` },
+      store,
+    });
+
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/en-US/${clientApp}/addon/${slug}/`,
+      }),
+    );
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
   it('dispatches a server redirect when slug is a stringified integer greater than 0', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
