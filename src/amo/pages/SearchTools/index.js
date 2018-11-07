@@ -54,9 +54,7 @@ export function mapStateToProps() {
     sort: SEARCH_SORT_RELEVANCE,
   };
 
-  return {
-    filters,
-  };
+  return { filters };
 }
 
 const SearchTools: React.ComponentType<Props> = compose(
