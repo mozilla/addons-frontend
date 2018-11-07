@@ -14,9 +14,10 @@ export type ExternalAddonInfoType = {|
   privacy_policy: string | null,
 |};
 
-export const getAddonInfo = ({ api, slug }: GetAddonInfoParams = {}): Promise<
-  ExternalAddonInfoType,
-> => {
+export const getAddonInfo = ({
+  api,
+  slug,
+}: GetAddonInfoParams = {}): Promise<ExternalAddonInfoType> => {
   invariant(slug, 'slug is required');
 
   return callApi({

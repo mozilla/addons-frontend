@@ -90,13 +90,12 @@ export const UserReviewBase = (props: InternalProps) => {
         {review && showRating ? (
           <UserRating styleSize="small" review={review} readOnly />
         ) : null}
-        {review &&
-          isReply && (
-            <h4 className="UserReview-reply-header">
-              <Icon name="reply-arrow" />
-              {i18n.gettext('Developer response')}
-            </h4>
-          )}
+        {review && isReply && (
+          <h4 className="UserReview-reply-header">
+            <Icon name="reply-arrow" />
+            {i18n.gettext('Developer response')}
+          </h4>
+        )}
         {byLine}
       </div>
       {body}

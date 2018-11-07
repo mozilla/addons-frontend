@@ -46,9 +46,7 @@ type InternalProps = {|
   uiState: UIStateType,
 |};
 
-export class EditableCollectionAddonBase extends React.Component<
-  InternalProps,
-> {
+export class EditableCollectionAddonBase extends React.Component<InternalProps> {
   onEditNote = (event: SyntheticEvent<HTMLElement>) => {
     event.preventDefault();
     this.props.setUIState({ editingNote: true });
