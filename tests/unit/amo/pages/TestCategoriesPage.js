@@ -56,7 +56,7 @@ describe(__filename, () => {
     expect(root.find(HeadLinks)).toHaveLength(1);
   });
 
-  it('renders Categories', () => {
+  it('renders a Categories component', () => {
     const addonType = ADDON_TYPE_EXTENSION;
     const params = { visibleAddonType: visibleAddonType(addonType) };
 
