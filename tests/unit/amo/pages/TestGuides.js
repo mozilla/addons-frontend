@@ -4,7 +4,6 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
 import {
   dispatchClientMetadata,
-  fakeAddon,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -26,7 +25,6 @@ describe(__filename, () => {
   });
 
   const getProps = ({
-    addons = Array(3).fill(fakeAddon),
     dispatch = store.dispatch,
     match = {
       params: {
@@ -36,7 +34,6 @@ describe(__filename, () => {
     ...customProps
   } = {}) => {
     return {
-      addons,
       dispatch,
       i18n,
       match,
@@ -83,14 +80,6 @@ describe(__filename, () => {
 
     expect(root.find('.Guides')).toHaveLength(0);
     expect(root.find(NotFound)).toHaveLength(1);
-  });
-
-  it('does not render Guides sections when addons are null', () => {
-    const root = render({ addons: [] });
-
-    expect(root.find('.Guides')).toHaveLength(1);
-
-    expect(root.find('.Guide-section')).toHaveLength(0);
   });
 
   describe('extractId', () => {
