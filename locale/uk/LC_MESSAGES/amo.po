@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-06 17:27+0000\n"
-"PO-Revision-Date: 2018-11-07 07:51+0000\n"
+"PO-Revision-Date: 2018-11-07 08:05+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1952,7 +1952,7 @@ msgstr "Знімки екрану"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Відгуки та оцінки для %(addonName)s. Дізнайтеся, які в інших користувачів враження від %(addonName)s і додайте його до свого Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:243
 msgid "Reviews for %(addonName)s"
@@ -2015,11 +2015,11 @@ msgstr "Шукайте розширення і теми, щоб додати д�
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Завантажуйте і створюйте збірки Firefox, щоб стежити за улюбленими розширеннями і темами. Ознайомтеся з %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:506
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Завантажуйте і створюйте збірки Firefox, щоб стежити за улюбленими розширеннями і темами. Ознайомтеся з %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:111
 msgid "Collections"
@@ -2103,7 +2103,7 @@ msgstr "Змініть вигляд Firefox за допомогою тем."
 
 #: src/amo/pages/Home/index.js:240
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "Завантажуйте розширення і теми для Firefox. Це як програми для браузера. Вони можуть блокувати надокучливу рекламу, зберігати паролі, змінювати зовнішній вигляд браузера та інше."
 
 #: src/amo/pages/Home/index.js:331
 msgid "See more popular extensions"
@@ -2127,11 +2127,11 @@ msgstr "Налаштування соціальних медіа"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Завантажуйте теми, щоб змінити зовнішній вигляд Firefox. Підлаштуйте браузер для своїх потреб. Гарні звірі, злі роботи, прекрасні пейзажі — тисячі варіантів."
 
 #: src/amo/pages/LandingPage/index.js:210
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
-msgstr ""
+msgstr "Завантажуйте розширення для Firefox, щоб додати функції та покращити роботу. Зберігайте паролі, знаходьте пропозиції, вдосконалюйте відео, а також блокуйте надокучливу рекламу."
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2155,7 +2155,7 @@ msgstr "Словники та мовні пакунки"
 
 #: src/amo/pages/LanguageTools/index.js:172
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Завантажуйте словники і мовні пакунки для Firefox. Додайте нову мову для перевірки правопису в браузері, або зміни його інтерфейсу."
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
