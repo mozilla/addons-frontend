@@ -7,11 +7,9 @@ import { connect } from 'react-redux';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
 import { withFixedErrorHandler } from 'core/errorHandler';
-import { getAddonByGUID } from 'core/reducers/addons';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Icon from 'ui/components/Icon';
-import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
@@ -29,7 +27,6 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  addons: Array<AddonType>,
   clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
@@ -40,6 +37,7 @@ type InternalProps = {|
 |};
 
 type SectionsType = {|
+  addonGuid: string,
   header: string,
   description: string,
   addonCustomText: string,
@@ -53,15 +51,6 @@ type GetContentType = {|
   icon: string,
   sections: Array<SectionsType>,
 |};
-
-export const getGuids = (slug: string): Array<string> | null => {
-  switch (slug) {
-    case 'privacy':
-      return ['{446900e4-71c2-419f-a6a7-df9c091e268b}'];
-    default:
-      return null;
-  }
-};
 
 export const getContent = (
   slug: string,
@@ -78,6 +67,7 @@ export const getContent = (
         sections: [
           // Bitwarden free password manager
           {
+            addonGuid: '{446900e4-71c2-419f-a6a7-df9c091e268b}',
             header: i18n.gettext('Create and manage strong passwords'),
             description: i18n.gettext(
               'Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are.',
@@ -101,7 +91,15 @@ export class GuidesBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
     super(props);
 
-    const { errorHandler, guids } = this.props;
+    const { errorHandler, i18n, match } = this.props;
+    const { slug } = match.params;
+    const content = getContent(slug, i18n);
+
+    if (!content) {
+      return null;
+    }
+
+    const guids = content.sections.map((section) => section.addonGuid);
 
     this.props.dispatch(
       fetchGuidesAddons({
@@ -167,26 +165,12 @@ export class GuidesBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
-  const { match } = ownProps;
-  const { slug } = match.params;
-
-  const addons = [];
-  const guids = getGuids(slug) || [];
-
-  guids.forEach((guid) => {
-    const addon = getAddonByGUID(state, guid);
-    if (addon) {
-      addons.push(addon);
-    }
-  });
+export const mapStateToProps = (state: AppState) => {
+  const { clientApp, lang } = state.api;
 
   return {
-    addons,
-    clientApp: state.api.clientApp,
-    guids,
-    lang: state.api.lang,
-    slug,
+    clientApp,
+    lang,
   };
 };
 
