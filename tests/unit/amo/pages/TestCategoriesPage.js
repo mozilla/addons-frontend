@@ -38,6 +38,18 @@ describe(__filename, () => {
     );
   };
 
+  it.each([ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME])(
+    'renders the %s categories',
+    (addonType) => {
+      const params = { visibleAddonType: visibleAddonType(addonType) };
+
+      const root = render({ params });
+
+      expect(root.find(Categories)).toHaveLength(1);
+      expect(root.find(Categories)).toHaveProp('addonType', addonType);
+    },
+  );
+
   it.each([
     [ADDON_TYPE_EXTENSION, /All extension/],
     [ADDON_TYPE_THEME, /All theme/],
@@ -54,15 +66,6 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find(HeadLinks)).toHaveLength(1);
-  });
-
-  it('renders a Categories component', () => {
-    const addonType = ADDON_TYPE_EXTENSION;
-    const params = { visibleAddonType: visibleAddonType(addonType) };
-
-    const root = render({ params });
-
-    expect(root.find(Categories)).toHaveProp('addonType', addonType);
   });
 
   it('returns a 404 when clientApp is Android and enableFeatureStaticThemesForAndroid is false', () => {
