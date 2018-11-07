@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-06 17:27+0000\n"
-"PO-Revision-Date: 2018-11-07 11:31+0000\n"
+"PO-Revision-Date: 2018-11-06 18:32+0000\n"
 "Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -2108,7 +2108,6 @@ msgid "Privacy & security"
 msgstr "Vie privée et sécurité"
 
 #: src/amo/pages/Home/index.js:59
-#, fuzzy
 msgid "See more social media customization"
 msgstr "Voir plus d’extensions de personnalisation des réseaux sociaux"
 
