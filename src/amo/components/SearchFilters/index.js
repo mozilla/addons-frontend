@@ -113,11 +113,12 @@ export class SearchFiltersBase extends React.Component {
       { children: i18n.gettext('Search Tool'), value: ADDON_TYPE_OPENSEARCH },
     ];
 
-    if (
-      clientApp !== CLIENT_APP_ANDROID ||
-      (clientApp === CLIENT_APP_ANDROID &&
-        _config.get('enableFeatureStaticThemesForAndroid'))
-    ) {
+    const includeThemes =
+      clientApp === CLIENT_APP_ANDROID
+        ? _config.get('enableFeatureStaticThemesForAndroid')
+        : true;
+
+    if (includeThemes) {
       options.push({
         children: i18n.gettext('Theme'),
         value: getAddonTypeFilter(ADDON_TYPE_THEME, {
