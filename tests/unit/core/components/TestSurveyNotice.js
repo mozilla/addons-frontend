@@ -22,6 +22,12 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
+// Skip `withCookies` HOC since Enzyme does not support the React Context API.
+// See: https://github.com/mozilla/addons-frontend/issues/6839
+jest.mock('react-cookie', () => ({
+  withCookies: (component) => component,
+}));
+
 describe(__filename, () => {
   const render = ({
     store = dispatchClientMetadata().store,
