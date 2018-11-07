@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-06 17:27+0000\n"
-"PO-Revision-Date: 2018-11-07 08:05+0000\n"
+"PO-Revision-Date: 2018-11-07 08:41+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -2183,7 +2183,7 @@ msgstr "Словники"
 
 #: src/amo/pages/SearchTools/index.js:32
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "Завантажуйте розширення для Firefox, щоб змінювати спосіб пошуку — від приватного пошуку до пошуку на веб-сайтах, пошуку зображень та іншого."
 
 #: src/amo/pages/StaticPages/About/index.js:103
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -2240,7 +2240,7 @@ msgstr "Про додатки Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:44
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Офіційний веб-сайт Mozilla для завантаження розширень і тем для Firefox. Додавайте нові функції та змінюйте вигляд браузера, щоб підлаштувати браузер для своїх потреб."
 
 #: src/amo/pages/StaticPages/About/index.js:53
 msgid ""
@@ -2352,7 +2352,7 @@ msgstr "Вимоги до відгуків"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:41
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Настанови, поради та часті питання щодо відгуків для розширень і тем, які ви завантажили і використовуєте в Firefox."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid ""
@@ -2428,15 +2428,15 @@ msgstr "Мої відгуки"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Профіль %(user)s, автора розширень і тем для Firefox. Знайдіть інші розширення від %(user)s, включаючи середню оцінку, дату створення, а також можливість повідомити про проблему."
 
 #: src/amo/pages/UserProfile/index.js:246
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Профіль %(user)s, автора розширень для Firefox. Знайдіть інші розширення від %(user)s, включаючи середню оцінку, дату створення, а також можливість повідомити про проблему."
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Профіль %(user)s, автора тем для Firefox. Знайдіть інші теми від %(user)s, включаючи середню оцінку, дату створення, а також можливість повідомити про проблему."
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
