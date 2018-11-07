@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-06 17:27+0000\n"
-"PO-Revision-Date: 2018-11-07 01:11+0000\n"
+"PO-Revision-Date: 2018-11-07 01:25+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1880,43 +1880,43 @@ msgstr "Pagina de start pentru suplimente"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "stai la curent cu știrile și evenimentele relevante pentru dezvoltatorii de suplimente (inclusiv buletinul de știri about:addons)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:21
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla trebuie să mă contacteze cu privire la suplimentul meu individual"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:24
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "suplimente sau funcții Firefox noi devin disponibile"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:26
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "cineva scrie o recenzie a suplimentului meu"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:28
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "un dezvoltator de suplimente răspunde la recenzia mea"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:30
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "suplimentul meu este recenzat de un recenzor"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:32
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "suplimentul meu bazat pe SDK nu poate fi actualizat"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:34
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "suplimentul meu bazat pe SDK a fost actualizat cu succes"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:36
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "compatibilitatea suplimentului meu nu poate fi actualizată"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:38
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "compatibilitatea suplimentului meu este actualizată cu succes"
 
 #: src/amo/components/UserProfileEditPicture/index.js:107
 msgid "Do you really want to delete this picture?"
@@ -2610,25 +2610,25 @@ msgstr "Notificări"
 
 #: src/amo/pages/UserProfileEdit/index.js:699
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Din când în când, Mozilla îți poate trimite e-mailuri despre evenimente viitoare și evenimente privind dezvoltarea de suplimente. Te rugăm să selectezi subiectele care te interesează."
 
 #: src/amo/pages/UserProfileEdit/index.js:704
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
+"Din când în când, Mozilla poate trimite acestui utilizator e-mailuri despre evenimente viitoare și evenimente privind dezvoltarea de suplimente. Te rugăm să selectezi subiectele de care acest "
+"utilizator ar putea fi interesat."
 
 #: src/amo/pages/UserProfileEdit/index.js:719
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla își rezervă dreptul de a te contacta individual despre probleme specifice legate de suplimentele găzduite de tine."
 
 #: src/amo/pages/UserProfileEdit/index.js:737
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Actualizează răspunsul"
+msgstr "Ți se actualizează profilul…"
 
 #: src/amo/pages/UserProfileEdit/index.js:738
-#, fuzzy
 msgid "Update My Profile"
-msgstr "Actualizează răspunsul"
+msgstr "Actualizează-mi profilul"
 
 #: src/amo/pages/UserProfileEdit/index.js:740
 #, fuzzy
@@ -2641,9 +2641,8 @@ msgid "Update Profile"
 msgstr "Actualizează răspunsul"
 
 #: src/amo/pages/UserProfileEdit/index.js:752 src/amo/pages/UserProfileEdit/index.js:841
-#, fuzzy
 msgid "Delete My Profile"
-msgstr "Actualizează răspunsul"
+msgstr "Șterge-mi profilul"
 
 #: src/amo/pages/UserProfileEdit/index.js:753 src/amo/pages/UserProfileEdit/index.js:842
 #, fuzzy
