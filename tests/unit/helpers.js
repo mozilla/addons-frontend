@@ -262,13 +262,14 @@ export function dispatchClientMetadata({
   lang = 'en-US',
   userAgent = sampleUserAgent,
   pathname = `/${lang}/${clientApp}/`,
+  search = '',
 } = {}) {
   store.dispatch(setClientApp(clientApp));
   store.dispatch(setLang(lang));
   store.dispatch(setUserAgent(userAgent));
 
   // Simulate the behavior of `connected-react-router`.
-  store.dispatch(onLocationChanged({ pathname }));
+  store.dispatch(onLocationChanged({ pathname, search }));
 
   return {
     store,

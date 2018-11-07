@@ -158,7 +158,7 @@ export class LanguageToolsBase extends React.Component<Props> {
           />
         </Helmet>
 
-        <HeadLinks to="/language-tools/" />
+        <HeadLinks />
 
         {errorHandler.renderErrorIfPresent()}
 

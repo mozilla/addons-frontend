@@ -318,6 +318,5 @@ describe(__filename, () => {
     const root = renderShallow();
 
     expect(root.find(HeadLinks)).toHaveLength(1);
-    expect(root.find(HeadLinks)).toHaveProp('to', '/language-tools/');
   });
 });

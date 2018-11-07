@@ -183,7 +183,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
           </script>
         </Helmet>
 
-        <HeadLinks to={`/addon/${addon.slug}/`} />
+        <HeadLinks />
       </React.Fragment>
     );
   }

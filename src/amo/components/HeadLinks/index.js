@@ -4,51 +4,44 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import invariant from 'invariant';
 
 import { getCanonicalURL } from 'amo/utils';
 import { hrefLangs } from 'core/languages';
 import type { AppState } from 'amo/store';
 
-type Props = {|
-  prependClientApp?: boolean,
-  to: string,
-|};
+type Props = {||};
 
 type InternalProps = {|
   ...Props,
   _config: typeof config,
   _hrefLangs: typeof hrefLangs,
-  clientApp: string,
   currentURL: string,
   lang: string,
+  locationPathname: string,
 |};
 
 export class HeadLinksBase extends React.PureComponent<InternalProps> {
   static defaultProps = {
     _config: config,
     _hrefLangs: hrefLangs,
-    prependClientApp: true,
   };
 
   render() {
     const {
       _config,
       _hrefLangs,
-      clientApp,
       currentURL,
       lang,
-      prependClientApp,
-      to,
+      locationPathname,
     } = this.props;
 
-    invariant(to.charAt(0) === '/', 'The `to` prop must start with a slash.');
+    const urlWithoutLocale = locationPathname
+      .split('/')
+      .slice(2)
+      .join('/');
+    const canonicalURL = `/${lang}/${urlWithoutLocale}`;
 
     const hrefLangsMap = _config.get('hrefLangsMap');
-
-    const path = prependClientApp ? `/${clientApp}${to}` : to;
-    const canonicalURL = `/${lang}${path}`;
-
     const includeAlternateLinks =
       _config.get('unsupportedHrefLangs').includes(lang) === false &&
       canonicalURL === currentURL;
@@ -63,11 +56,14 @@ export class HeadLinksBase extends React.PureComponent<InternalProps> {
         {includeAlternateLinks &&
           _hrefLangs.map((hrefLang) => {
             const locale = hrefLangsMap[hrefLang] || hrefLang;
-            const locationPathname = `/${locale}${path}`;
+            const alternateURL = `/${locale}/${urlWithoutLocale}`;
 
             return (
               <link
-                href={getCanonicalURL({ _config, locationPathname })}
+                href={getCanonicalURL({
+                  _config,
+                  locationPathname: alternateURL,
+                })}
                 hrefLang={hrefLang}
                 key={hrefLang}
                 rel="alternate"
@@ -80,13 +76,13 @@ export class HeadLinksBase extends React.PureComponent<InternalProps> {
 }
 
 const mapStateToProps = (state: AppState) => {
-  const { clientApp, lang } = state.api;
+  const { lang } = state.api;
   const { pathname, search } = state.router.location;
 
   return {
-    clientApp,
     currentURL: `${pathname}${search}`,
     lang,
+    locationPathname: pathname,
   };
 };
 

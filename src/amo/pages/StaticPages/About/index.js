@@ -33,7 +33,7 @@ export class AboutBase extends React.Component<Props> {
           />
         </Helmet>
 
-        <HeadLinks to="/about" prependClientApp={false} />
+        <HeadLinks />
 
         <div className="StaticPageWrapper">
           <div id="about">

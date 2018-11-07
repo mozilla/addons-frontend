@@ -30,7 +30,7 @@ export class ReviewGuideBase extends React.Component<Props> {
           />
         </Helmet>
 
-        <HeadLinks to="/review_guide" prependClientApp={false} />
+        <HeadLinks />
 
         <div className="StaticPageWrapper">
           <section id="review-guide">

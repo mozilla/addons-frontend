@@ -247,7 +247,7 @@ export class LandingPageBase extends React.Component {
           <meta name="description" content={this.getPageDescription()} />
         </Helmet>
 
-        <HeadLinks to={`/${getVisibleAddonType(addonType)}/`} />
+        <HeadLinks />
 
         {errorHandler.renderErrorIfPresent()}
 

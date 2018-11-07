@@ -33,7 +33,5 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find(HeadLinks)).toHaveLength(1);
-    expect(root.find(HeadLinks)).toHaveProp('to', '/review_guide');
-    expect(root.find(HeadLinks)).toHaveProp('prependClientApp', false);
   });
 });

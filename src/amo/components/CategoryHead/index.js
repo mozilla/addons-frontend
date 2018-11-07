@@ -11,7 +11,6 @@ import type { I18nType } from 'core/types/i18n';
 
 type Props = {|
   category: CategoryType | null,
-  visibleAddonType: string,
 |};
 
 type InternalProps = {|
@@ -55,7 +54,7 @@ export class CategoryHeadBase extends React.PureComponent<InternalProps> {
   }
 
   render() {
-    const { category, visibleAddonType } = this.props;
+    const { category } = this.props;
 
     if (!category) {
       return null;
@@ -68,7 +67,7 @@ export class CategoryHeadBase extends React.PureComponent<InternalProps> {
           {this.renderMetaDescription()}
         </Helmet>
 
-        <HeadLinks to={`/${visibleAddonType}/${category.slug}/`} />
+        <HeadLinks />
       </React.Fragment>
     );
   }

@@ -36,7 +36,7 @@ export class SearchToolsBase extends React.Component<InternalProps> {
           />
         </Helmet>
 
-        <HeadLinks to="/search-tools/" />
+        <HeadLinks />
 
         <Search
           enableSearchFilters

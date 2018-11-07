@@ -609,15 +609,9 @@ describe(__filename, () => {
     );
   });
 
-  it.each([ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME])(
-    'renders a HeadLinks component for %s',
-    (addonType) => {
-      const visibleAddonType = getVisibleAddonType(addonType);
+  it('renders a HeadLinks component', () => {
+    const root = render();
 
-      const root = render({ match: { params: { visibleAddonType } } });
-
-      expect(root.find(HeadLinks)).toHaveLength(1);
-      expect(root.find(HeadLinks)).toHaveProp('to', `/${visibleAddonType}/`);
-    },
-  );
+    expect(root.find(HeadLinks)).toHaveLength(1);
+  });
 });

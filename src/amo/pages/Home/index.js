@@ -237,7 +237,7 @@ export class HomeBase extends React.Component {
           />
         </Helmet>
 
-        <HeadLinks to="/" />
+        <HeadLinks />
 
         <span
           className="visually-hidden do-not-remove"

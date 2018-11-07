@@ -130,30 +130,6 @@ describe(__filename, () => {
     expect(root.find(CategoryHead)).toHaveLength(1);
   });
 
-  it('passes the visibleAddonType param to CategoryHead', () => {
-    const category = { ...fakeCategory, type: ADDON_TYPE_EXTENSION };
-    const visibleAddonType = getVisibleAddonType(category.type);
-
-    _categoriesLoad({ results: [category] });
-
-    const root = render(
-      {},
-      {
-        autoDispatchCategories: false,
-        paramOverrides: {
-          slug: category.slug,
-          visibleAddonType,
-        },
-      },
-    );
-
-    expect(root.find(CategoryHead)).toHaveLength(1);
-    expect(root.find(CategoryHead)).toHaveProp(
-      'visibleAddonType',
-      visibleAddonType,
-    );
-  });
-
   it('should render an error', () => {
     const customErrorHandler = new ErrorHandler({
       id: 'some-error-handler-id',

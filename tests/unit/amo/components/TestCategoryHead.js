@@ -68,14 +68,8 @@ describe(__filename, () => {
 
   it('renders a HeadLinks component', () => {
     const category = { ...fakeCategory };
-    const visibleAddonType = 'addon-type';
-
-    const root = render({ category, visibleAddonType });
+    const root = render({ category });
 
     expect(root.find(HeadLinks)).toHaveLength(1);
-    expect(root.find(HeadLinks)).toHaveProp(
-      'to',
-      `/${visibleAddonType}/${category.slug}/`,
-    );
   });
 });

@@ -460,6 +460,5 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find(HeadLinks)).toHaveLength(1);
-    expect(root.find(HeadLinks)).toHaveProp('to', '/');
   });
 });
