@@ -4,6 +4,8 @@ import * as React from 'react';
 import { withExperiment } from 'core/withExperiment';
 import { fakeCookies, getFakeConfig } from 'tests/unit/helpers';
 
+jest.unmock('react-cookie');
+
 describe(__filename, () => {
   class SomeComponentBase extends React.Component {
     render() {

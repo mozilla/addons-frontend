@@ -47,12 +47,6 @@ import {
 } from 'tests/unit/helpers';
 import Button from 'ui/components/Button';
 
-// Skip `withCookies` HOC since Enzyme does not support the React Context API.
-// See: https://github.com/mozilla/addons-frontend/issues/6839
-jest.mock('react-cookie', () => ({
-  withCookies: (component) => component,
-}));
-
 describe(__filename, () => {
   const createFakeEventWithURL = ({ url }) => {
     return createFakeEvent({
