@@ -38,6 +38,13 @@ describe(__filename, () => {
     );
   };
 
+  const renderThemeCategories = (props = {}) => {
+    return render({
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+      ...props,
+    });
+  };
+
   it.each([ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME])(
     'renders the %s categories',
     (addonType) => {
@@ -74,7 +81,7 @@ describe(__filename, () => {
       enableFeatureStaticThemesForAndroid: false,
     });
 
-    const root = render({ _config, store });
+    const root = renderThemeCategories({ _config, store });
 
     expect(root.find(Categories)).toHaveLength(0);
     expect(root.find(NotFound)).toHaveLength(1);
@@ -86,7 +93,7 @@ describe(__filename, () => {
       enableFeatureStaticThemesForAndroid: true,
     });
 
-    const root = render({ _config, store });
+    const root = renderThemeCategories({ _config, store });
 
     expect(root.find(NotFound)).toHaveLength(0);
     expect(root.find(Categories)).toHaveLength(1);
@@ -94,6 +101,18 @@ describe(__filename, () => {
 
   it('does not return a 404 when clientApp is not Android', () => {
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+
+    const root = renderThemeCategories({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root.find(Categories)).toHaveLength(1);
+  });
+
+  it('does not return a 404 when addonType is not "theme"', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
     const _config = getFakeConfig({
       enableFeatureStaticThemesForAndroid: false,
     });

@@ -244,7 +244,10 @@ export class CategoryBase extends React.Component {
       }
     }
 
+    const isAddonTheme = isTheme(addonType);
+
     if (
+      isAddonTheme &&
       clientApp === CLIENT_APP_ANDROID &&
       _config.get('enableFeatureStaticThemesForAndroid') === false
     ) {
@@ -252,8 +255,6 @@ export class CategoryBase extends React.Component {
     }
 
     const { html } = this.contentForType(addonType);
-
-    const isAddonTheme = isTheme(addonType);
 
     return (
       <div

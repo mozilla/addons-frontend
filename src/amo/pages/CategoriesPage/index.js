@@ -14,7 +14,7 @@ import {
   CLIENT_APP_ANDROID,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { apiAddonType } from 'core/utils';
+import { apiAddonType, isTheme } from 'core/utils';
 import type { AppState } from 'amo/store';
 import type { ReactRouterMatchType } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
@@ -58,6 +58,7 @@ export class CategoriesPageBase extends React.Component<InternalProps> {
     const addonType = apiAddonType(match.params.visibleAddonType);
 
     if (
+      isTheme(addonType) &&
       clientApp === CLIENT_APP_ANDROID &&
       _config.get('enableFeatureStaticThemesForAndroid') === false
     ) {
