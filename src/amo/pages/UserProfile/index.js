@@ -28,6 +28,7 @@ import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  ADMIN_TOOLS,
   USERS_EDIT,
 } from 'core/constants';
 import { withFixedErrorHandler } from 'core/errorHandler';
@@ -65,6 +66,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  canAdminUser: boolean,
   canEditProfile: boolean,
   currentUser: UserType | null,
   dispatch: DispatchFunc,
@@ -264,6 +266,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
 
   render() {
     const {
+      canAdminUser,
       canEditProfile,
       errorHandler,
       i18n,
@@ -415,6 +418,18 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 {i18n.gettext('Edit profile')}
               </Button>
             ) : null}
+
+            {canAdminUser && user ? (
+              <Button
+                className="UserProfile-admin-link"
+                buttonType="neutral"
+                href={`/admin/models/users/userprofile/${user.id}/`}
+                puffy
+              >
+                {// translators: This action allows an admin to maintain a user.
+                i18n.gettext('Admin user')}
+              </Button>
+            ) : null}
           </Card>
 
           <div className="UserProfile-addons-and-reviews">
@@ -472,9 +487,16 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     user &&
     (currentUser.id === user.id || hasPermission(state, USERS_EDIT));
 
+  const canAdminUser =
+    currentUser &&
+    user &&
+    hasPermission(state, ADMIN_TOOLS) &&
+    hasPermission(state, USERS_EDIT);
+
   const reviews = user ? getReviewsByUserId(state.reviews, user.id) : null;
 
   return {
+    canAdminUser,
     canEditProfile,
     currentUser,
     isOwner,

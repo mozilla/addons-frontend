@@ -21,6 +21,7 @@ import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  ADMIN_TOOLS,
   USERS_EDIT,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
@@ -692,6 +693,67 @@ describe(__filename, () => {
     const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-edit-link')).toHaveLength(0);
+  });
+
+  it('does not render an admin link if the user is not logged in', () => {
+    const root = renderUserProfile({ store: dispatchClientMetadata().store });
+
+    expect(root.find('.UserProfile-admin-link')).toHaveLength(0);
+  });
+
+  it('does not render an admin link if no user is found', () => {
+    const username = 'current-logged-in-user';
+    const { store } = dispatchSignInActions({
+      userProps: {
+        username,
+        permissions: [USERS_EDIT, ADMIN_TOOLS],
+      },
+    });
+
+    const root = renderUserProfile({
+      params: { username: 'not-loaded' },
+      store,
+    });
+
+    expect(root.find('.UserProfile-admin-link')).toHaveLength(0);
+  });
+
+  it('renders an admin link if user has sufficient permission', () => {
+    const username = 'current-logged-in-user';
+    const { store } = dispatchSignInActions({
+      userProps: {
+        username,
+        permissions: [USERS_EDIT, ADMIN_TOOLS],
+      },
+    });
+
+    const user = createUserAccountResponse({ username });
+    store.dispatch(loadUserAccount({ user }));
+
+    const root = renderUserProfile({ params: { username }, store });
+
+    expect(root.find('.UserProfile-admin-link')).toHaveLength(1);
+    expect(root.find('.UserProfile-admin-link')).toHaveProp(
+      'href',
+      `/admin/models/users/userprofile/${user.id}/`,
+    );
+  });
+
+  it('does not render an admin link if user is not allowed to admin users', () => {
+    const username = 'current-logged-in-user';
+    const { store } = dispatchSignInActions({
+      userProps: {
+        username,
+        permissions: [],
+      },
+    });
+
+    const user = createUserAccountResponse({ username });
+    store.dispatch(loadUserAccount({ user }));
+
+    const root = renderUserProfile({ params: { username }, store });
+
+    expect(root.find('.UserProfile-admin-link')).toHaveLength(0);
   });
 
   it('does not dispatch any action when there is an error', () => {

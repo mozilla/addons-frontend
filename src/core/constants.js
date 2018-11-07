@@ -321,6 +321,8 @@ export const ADDONS_REVIEWUNLISTED = 'Addons:ReviewUnlisted';
 export const RATINGS_MODERATE = 'Ratings:Moderate';
 // Can edit user accounts.
 export const USERS_EDIT = 'Users:Edit';
+// Can access admin functions.
+export const ADMIN_TOOLS = 'Admin:Tools';
 // Super powers. It means absolutely all permissions.
 export const ALL_SUPER_POWERS = '*:*';
 
