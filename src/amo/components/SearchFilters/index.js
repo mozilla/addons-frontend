@@ -10,6 +10,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RELEVANCE,
   SEARCH_SORT_TOP_RATED,
@@ -104,19 +105,28 @@ export class SearchFiltersBase extends React.Component {
   }
 
   addonTypeOptions() {
-    const { i18n } = this.props;
+    const { _config, clientApp, i18n } = this.props;
 
-    return [
+    const options = [
       { children: i18n.gettext('All'), value: NO_FILTER },
       { children: i18n.gettext('Extension'), value: ADDON_TYPE_EXTENSION },
       { children: i18n.gettext('Search Tool'), value: ADDON_TYPE_OPENSEARCH },
-      {
+    ];
+
+    if (
+      clientApp !== CLIENT_APP_ANDROID ||
+      (clientApp === CLIENT_APP_ANDROID &&
+        _config.get('enableFeatureStaticThemesForAndroid'))
+    ) {
+      options.push({
         children: i18n.gettext('Theme'),
         value: getAddonTypeFilter(ADDON_TYPE_THEME, {
           _config: this.props._config,
         }),
-      },
-    ];
+      });
+    }
+
+    return options;
   }
 
   operatingSystemOptions() {

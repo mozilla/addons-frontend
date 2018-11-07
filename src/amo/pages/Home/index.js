@@ -17,6 +17,7 @@ import { fetchHomeAddons } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
   INSTALL_SOURCE_FEATURED,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TRENDING,
@@ -67,6 +68,7 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
 export class HomeBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
+    clientApp: PropTypes.string.isRequired,
     collections: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
@@ -206,6 +208,7 @@ export class HomeBase extends React.Component {
   render() {
     const {
       _config,
+      clientApp,
       collections,
       errorHandler,
       i18n,
@@ -225,6 +228,11 @@ export class HomeBase extends React.Component {
     const featuredCollectionsMetadata = getFeaturedCollectionsMetadata(i18n);
 
     const loading = resultsLoaded === false;
+
+    let showThemes =
+      clientApp === CLIENT_APP_ANDROID
+        ? _config.get('enableFeatureStaticThemesForAndroid')
+        : true;
 
     return (
       <div className="Home">
@@ -282,7 +290,7 @@ export class HomeBase extends React.Component {
           />
         )}
 
-        {includeFeaturedThemes && (
+        {includeFeaturedThemes && showThemes && (
           <LandingAddonsCard
             addonInstallSource={INSTALL_SOURCE_FEATURED}
             addons={shelves.featuredThemes}
@@ -353,16 +361,18 @@ export class HomeBase extends React.Component {
           />
         )}
 
-        <Card
-          className="Home-SubjectShelf Home-CuratedThemes"
-          header={themesHeader}
-        >
-          <div className="Home-SubjectShelf-text-wrapper">
-            <h2 className="Home-SubjectShelf-subheading">{themesHeader}</h2>
-          </div>
+        {showThemes && (
+          <Card
+            className="Home-SubjectShelf Home-CuratedThemes"
+            header={themesHeader}
+          >
+            <div className="Home-SubjectShelf-text-wrapper">
+              <h2 className="Home-SubjectShelf-subheading">{themesHeader}</h2>
+            </div>
 
-          {this.renderCuratedThemes()}
-        </Card>
+            {this.renderCuratedThemes()}
+          </Card>
+        )}
       </div>
     );
   }
@@ -370,6 +380,7 @@ export class HomeBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
+    clientApp: state.api.clientApp,
     collections: state.home.collections,
     shelves: state.home.shelves,
     resultsLoaded: state.home.resultsLoaded,

@@ -1,4 +1,5 @@
 /* @flow */
+import config from 'config';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
@@ -29,6 +30,7 @@ import type { ReactRouterHistoryType } from 'core/types/router';
 import './styles.scss';
 
 type Props = {|
+  _config: typeof config,
   className?: string,
   clientApp: string,
   dispatch: DispatchFunc,
@@ -38,6 +40,10 @@ type Props = {|
 |};
 
 export class SectionLinksBase extends React.Component<Props> {
+  static defaultProps = {
+    _config: config,
+  };
+
   setClientApp = (event: Object) => {
     event.preventDefault();
 
@@ -50,16 +56,19 @@ export class SectionLinksBase extends React.Component<Props> {
   };
 
   render() {
-    const { className, clientApp, i18n, viewContext } = this.props;
+    const { _config, className, clientApp, i18n, viewContext } = this.props;
     const isExploring = [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(
       viewContext,
     );
 
     let forBrowserNameText;
+    let showThemes = true;
+
     if (clientApp === CLIENT_APP_FIREFOX) {
       forBrowserNameText = i18n.gettext('for Firefox');
     } else if (clientApp === CLIENT_APP_ANDROID) {
       forBrowserNameText = i18n.gettext('for Android');
+      showThemes = _config.get('enableFeatureStaticThemesForAndroid');
     }
 
     return (
@@ -88,16 +97,22 @@ export class SectionLinksBase extends React.Component<Props> {
             {i18n.gettext('Extensions')}
           </Link>
         </li>
-        <li>
-          <Link
-            className={makeClassName('SectionLinks-link', {
-              'SectionLinks-link--active': viewContext === ADDON_TYPE_THEME,
-            })}
-            to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}
-          >
-            {i18n.gettext('Themes')}
-          </Link>
-        </li>
+        {showThemes && (
+          <li>
+            <Link
+              className={makeClassName(
+                'SectionLinks-link',
+                'SectionLinks-link-theme',
+                {
+                  'SectionLinks-link--active': viewContext === ADDON_TYPE_THEME,
+                },
+              )}
+              to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}
+            >
+              {i18n.gettext('Themes')}
+            </Link>
+          </li>
+        )}
         <li>
           <DropdownMenu
             className="SectionLinks-link SectionLinks-dropdown"
