@@ -183,26 +183,27 @@ export class DismissibleTextFormBase extends React.Component<
         onClick={this.onSubmit}
         micro={microButtons}
         puffy={puffyButtons}
+        type="submit"
       >
         {isSubmitting ? text.submitButtonInProgressText : text.submitButtonText}
       </Button>
     );
 
-    const submitAndDelete = [submitButton, deleteButton];
+    const actionButtons = [deleteButton, submitButton];
     if (reverseButtonOrder) {
-      submitAndDelete.reverse();
+      actionButtons.reverse();
     }
 
-    const submitAndDeleteContainer = (
+    const actionButtonsContainer = (
       <span
         className="DismissibleTextForm-delete-submit-buttons"
-        key="submit-and-delete"
+        key="actionButtons"
       >
-        {submitAndDelete}
+        {actionButtons}
       </span>
     );
 
-    const allButtons = [cancelButton, submitAndDeleteContainer];
+    const allButtons = [cancelButton, actionButtonsContainer];
     if (reverseButtonOrder) {
       allButtons.reverse();
     }

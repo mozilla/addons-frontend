@@ -398,10 +398,10 @@ describe(__filename, () => {
       '.DismissibleTextForm-delete-submit-buttons',
     );
     expect(submitButtons.childAt(0)).toHaveClassName(
-      'DismissibleTextForm-submit',
+      'DismissibleTextForm-delete',
     );
     expect(submitButtons.childAt(1)).toHaveClassName(
-      'DismissibleTextForm-delete',
+      'DismissibleTextForm-submit',
     );
   });
 
@@ -424,10 +424,10 @@ describe(__filename, () => {
       '.DismissibleTextForm-delete-submit-buttons',
     );
     expect(submitButtons.childAt(0)).toHaveClassName(
-      'DismissibleTextForm-delete',
+      'DismissibleTextForm-submit',
     );
     expect(submitButtons.childAt(1)).toHaveClassName(
-      'DismissibleTextForm-submit',
+      'DismissibleTextForm-delete',
     );
   });
 });
