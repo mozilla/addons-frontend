@@ -4,6 +4,7 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import type { CategoryType } from 'amo/types/categories';
@@ -41,18 +42,6 @@ export class CategoryHeadBase extends React.PureComponent<InternalProps> {
     return i18n.sprintf(title, { categoryName: category.name });
   }
 
-  renderMetaDescription() {
-    const { category } = this.props;
-
-    invariant(category, 'category is required');
-
-    if (!category.description) {
-      return null;
-    }
-
-    return <meta name="description" content={category.description} />;
-  }
-
   render() {
     const { category } = this.props;
 
@@ -64,8 +53,12 @@ export class CategoryHeadBase extends React.PureComponent<InternalProps> {
       <React.Fragment>
         <Helmet>
           <title>{this.getPageTitle()}</title>
-          {this.renderMetaDescription()}
         </Helmet>
+
+        <HeadMetaTags
+          description={category.description}
+          title={this.getPageTitle()}
+        />
 
         <HeadLinks />
       </React.Fragment>
