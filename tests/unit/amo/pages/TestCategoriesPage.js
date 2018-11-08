@@ -1,17 +1,28 @@
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import Categories from 'amo/components/Categories';
-import { CategoriesPageBase } from 'amo/pages/CategoriesPage';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import HeadLinks from 'amo/components/HeadLinks';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import CategoriesPage, { CategoriesPageBase } from 'amo/pages/CategoriesPage';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+} from 'core/constants';
 import { visibleAddonType } from 'core/utils';
-import { fakeI18n } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  fakeI18n,
+  getFakeConfig,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const render = ({ params, ...props } = {}) => {
     const allProps = {
       i18n: fakeI18n(),
+      store: dispatchClientMetadata().store,
       match: {
         params: {
           visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
@@ -21,7 +32,17 @@ describe(__filename, () => {
       ...props,
     };
 
-    return shallow(<CategoriesPageBase {...allProps} />);
+    return shallowUntilTarget(
+      <CategoriesPage {...allProps} />,
+      CategoriesPageBase,
+    );
+  };
+
+  const renderThemeCategories = (props = {}) => {
+    return render({
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+      ...props,
+    });
   };
 
   it.each([ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME])(
@@ -52,5 +73,53 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find(HeadLinks)).toHaveLength(1);
+  });
+
+  it('returns a 404 when clientApp is Android and enableFeatureStaticThemesForAndroid is false', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+
+    const root = renderThemeCategories({ _config, store });
+
+    expect(root.find(Categories)).toHaveLength(0);
+    expect(root.find(NotFound)).toHaveLength(1);
+  });
+
+  it('does not return a 404 when clientApp is Android and enableFeatureStaticThemesForAndroid is true', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: true,
+    });
+
+    const root = renderThemeCategories({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root.find(Categories)).toHaveLength(1);
+  });
+
+  it('does not return a 404 when clientApp is not Android', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+
+    const root = renderThemeCategories({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root.find(Categories)).toHaveLength(1);
+  });
+
+  it('does not return a 404 when addonType is not "theme"', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+
+    const root = render({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root.find(Categories)).toHaveLength(1);
   });
 });

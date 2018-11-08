@@ -19,7 +19,8 @@ import './styles.scss';
 /* eslint-disable import/first */
 import Routes from 'amo/components/Routes';
 import ScrollToTop from 'core/components/ScrollToTop';
-import { getDjangoBase62, getErrorComponent } from 'amo/utils';
+import { getDjangoBase62 } from 'amo/utils';
+import { getErrorComponent } from 'amo/utils/errors';
 import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';

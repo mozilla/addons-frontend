@@ -110,6 +110,7 @@ module.exports = {
     'enableDevTools',
     'enableFeatureExperienceSurvey',
     'enableFeatureHomeHeroGuides',
+    'enableFeatureStaticThemesForAndroid',
     'enableRequestID',
     'experiments',
     'fxaConfig',
@@ -348,6 +349,11 @@ module.exports = {
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
   enableFeatureHomeHeroGuides: false,
+
+  // This flag is enabled by default because the feature already exists and we
+  // want to disable it.
+  // See: https://github.com/mozilla/addons-frontend/issues/6689
+  enableFeatureStaticThemesForAndroid: true,
 
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments.

@@ -18,6 +18,8 @@ import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEMES_FILTER,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
@@ -460,5 +462,41 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find(HeadLinks)).toHaveLength(1);
+  });
+
+  it('shows the theme shelves when clientApp is Android and enableFeatureStaticThemesForAndroid is true', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: true,
+    });
+
+    const root = render({ _config, includeFeaturedThemes: true, store });
+
+    expect(root.find('.Home-CuratedThemes')).toHaveLength(1);
+    expect(root.find('.Home-FeaturedThemes')).toHaveLength(1);
+  });
+
+  it('hides the theme shelves when clientApp is Android and enableFeatureStaticThemesForAndroid is false', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+
+    const root = render({ _config, includeFeaturedThemes: true, store });
+
+    expect(root.find('.Home-CuratedThemes')).toHaveLength(0);
+    expect(root.find('.Home-FeaturedThemes')).toHaveLength(0);
+  });
+
+  it('shows the theme shelves when clientApp is not Android', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+
+    const root = render({ _config, includeFeaturedThemes: true, store });
+
+    expect(root.find('.Home-CuratedThemes')).toHaveLength(1);
+    expect(root.find('.Home-FeaturedThemes')).toHaveLength(1);
   });
 });

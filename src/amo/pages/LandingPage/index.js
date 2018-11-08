@@ -12,6 +12,8 @@ import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Categories from 'amo/components/Categories';
 import HeadLinks from 'amo/components/HeadLinks';
+import NotFound from 'amo/components/ErrorPage/NotFound';
+import { shouldShowThemes } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -42,6 +44,7 @@ export class LandingPageBase extends React.Component {
     // This is a bug; context is used in `setViewContextType()`.
     // eslint-disable-next-line react/no-unused-prop-types
     context: PropTypes.string.isRequired,
+    clientApp: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     featuredAddons: PropTypes.array.isRequired,
@@ -213,15 +216,17 @@ export class LandingPageBase extends React.Component {
 
   render() {
     const {
+      _config,
+      clientApp,
       errorHandler,
       featuredAddons,
       highlyRatedAddons,
+      i18n,
       loading,
       trendingAddons,
-      i18n,
     } = this.props;
-    const { visibleAddonType } = this.props.match.params;
 
+    const { visibleAddonType } = this.props.match.params;
     const { addonType, html } = this.contentForType(visibleAddonType);
     const headingText = {
       [ADDON_TYPE_THEME]: i18n.gettext('Themes'),
@@ -235,6 +240,10 @@ export class LandingPageBase extends React.Component {
     };
 
     const isAddonTheme = isTheme(addonType);
+
+    if (isAddonTheme && !shouldShowThemes({ _config, clientApp })) {
+      return <NotFound />;
+    }
 
     return (
       <div
@@ -319,6 +328,7 @@ export function mapStateToProps(state) {
 
   return {
     addonTypeOfResults: landing.addonType,
+    clientApp: state.api.clientApp,
     context: viewContext.context,
     featuredAddons: landing.featured.results,
     highlyRatedAddons: landing.highlyRated.results,

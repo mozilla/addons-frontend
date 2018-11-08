@@ -13,6 +13,7 @@ import CategoryHead from 'amo/components/CategoryHead';
 import CategoryHeader from 'amo/components/CategoryHeader';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import { shouldShowThemes } from 'amo/utils';
 import { categoriesFetch } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION,
@@ -213,6 +214,7 @@ export class CategoryBase extends React.Component {
 
   render() {
     const {
+      _config,
       categories,
       clientApp,
       errorHandler,
@@ -242,9 +244,13 @@ export class CategoryBase extends React.Component {
       }
     }
 
-    const { html } = this.contentForType(addonType);
-
     const isAddonTheme = isTheme(addonType);
+
+    if (isAddonTheme && !shouldShowThemes({ _config, clientApp })) {
+      return <NotFound />;
+    }
+
+    const { html } = this.contentForType(addonType);
 
     return (
       <div
