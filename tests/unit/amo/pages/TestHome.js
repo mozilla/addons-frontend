@@ -42,8 +42,8 @@ import {
 
 describe(__filename, () => {
   const fakeFeaturedCollectionsMetadata = {
-    footerText: i18n.gettext('some footer text'),
-    header: i18n.gettext('some header'),
+    footerText: 'some footer text',
+    header: 'some header',
     isTheme: false,
     slug: 'some-slug',
     username: 'some-username',
@@ -517,7 +517,7 @@ describe(__filename, () => {
     const collections = [createFakeCollectionAddonsListResponse()];
     store.dispatch(loadHomeAddons({ collections, shelves: {} }));
 
-    const _getFeaturedCollectionsMetadata = (i18n) => {
+    const _getFeaturedCollectionsMetadata = () => {
       return [{ ...fakeFeaturedCollectionsMetadata, isTheme: true }];
     };
 
@@ -535,7 +535,7 @@ describe(__filename, () => {
     const collections = [createFakeCollectionAddonsListResponse()];
     store.dispatch(loadHomeAddons({ collections, shelves: {} }));
 
-    const _getFeaturedCollectionsMetadata = (i18n) => {
+    const _getFeaturedCollectionsMetadata = () => {
       return [{ ...fakeFeaturedCollectionsMetadata, isTheme: false }];
     };
 
@@ -553,7 +553,7 @@ describe(__filename, () => {
     const collections = [createFakeCollectionAddonsListResponse()];
     store.dispatch(loadHomeAddons({ collections, shelves: {} }));
 
-    const _getFeaturedCollectionsMetadata = (i18n) => {
+    const _getFeaturedCollectionsMetadata = () => {
       return [{ ...fakeFeaturedCollectionsMetadata, isTheme: true }];
     };
 
@@ -571,7 +571,7 @@ describe(__filename, () => {
     const collections = [createFakeCollectionAddonsListResponse()];
     store.dispatch(loadHomeAddons({ collections, shelves: {} }));
 
-    const _getFeaturedCollectionsMetadata = (i18n) => {
+    const _getFeaturedCollectionsMetadata = () => {
       return [{ ...fakeFeaturedCollectionsMetadata, isTheme: true }];
     };
 
