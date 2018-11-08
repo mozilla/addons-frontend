@@ -5,6 +5,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import HeadLinks from 'amo/components/HeadLinks';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -45,23 +46,23 @@ type SectionsType = {|
   exploreUrl: string,
 |};
 
-type GetContentType = {|
+type GuideType = {|
   title: string,
   introText: string,
   icon: string,
   sections: Array<SectionsType>,
 |};
 
-export const getContent = (
-  slug: string,
-  i18n: I18nType,
-): GetContentType | null => {
+export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
   switch (slug) {
     case 'privacy':
       return {
         title: i18n.gettext('Stay Safe Online'),
         introText: i18n.gettext(
-          'The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your online privacy and security.',
+          `The web is a wonderful but wild place. Your personal data can be used
+           without your consent, your activities spied upon, and your passwords
+           stolen. Fortunately, extensions can help fortify your online privacy
+           and security.`,
         ),
         icon: 'stop-hand',
         sections: [
@@ -70,10 +71,13 @@ export const getContent = (
             addonGuid: '{446900e4-71c2-419f-a6a7-df9c091e268b}',
             header: i18n.gettext('Create and manage strong passwords'),
             description: i18n.gettext(
-              'Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are.',
+              `Password managers can help you create secure passwords, store your
+               passwords (safely) in one place, and give you easy access to your
+               login credentials wherever you are.`,
             ),
             addonCustomText: i18n.gettext(
-              'Fully encrypted password protection. Store your data securely and access logins across devices.',
+              `Fully encrypted password protection. Store your data securely and
+               access logins across devices.`,
             ),
             exploreMore: i18n.gettext(
               'Explore more %(linkStart)spassword manager%(linkEnd)s staff picks.',
@@ -96,7 +100,7 @@ export class GuidesBase extends React.Component<InternalProps> {
     const content = getContent(slug, i18n);
 
     if (!content) {
-      return null;
+      return;
     }
 
     const guids = content.sections.map((section) => section.addonGuid);
@@ -115,8 +119,10 @@ export class GuidesBase extends React.Component<InternalProps> {
     const { clientApp, i18n, lang } = this.props;
 
     return sections.map((section) => {
-      const exploreMore = i18n.sprintf(section.exploreMore, {
-        linkStart: `<a href="/${lang}/${clientApp}${section.exploreUrl}">`,
+      const exploreMoreLink = i18n.sprintf(section.exploreMore, {
+        linkStart: `<a class="Guides-section-explore-more-link" href="/${lang}/${clientApp}${
+          section.exploreUrl
+        }">`,
         linkEnd: '</a>',
       });
 
@@ -125,12 +131,11 @@ export class GuidesBase extends React.Component<InternalProps> {
           <h2 className="Guides-section-title">{section.header}</h2>
           <p className="Guides-section-description">{section.description}</p>
 
-          {/* eslint-disable react/no-danger */}
           <div
             className="Guides-section-explore-more"
-            dangerouslySetInnerHTML={sanitizeHTML(exploreMore, ['a'])}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={sanitizeHTML(exploreMoreLink, ['a'])}
           />
-          {/* eslint-enable react/no-danger */}
         </div>
       );
     });
@@ -152,6 +157,7 @@ export class GuidesBase extends React.Component<InternalProps> {
         <Helmet>
           <title>{title}</title>
         </Helmet>
+        <HeadLinks />
         <div className="Guides">
           <div className="Guides-header">
             <Icon className="Guides-header-icon" name={icon} />
