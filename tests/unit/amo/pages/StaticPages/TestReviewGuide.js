@@ -4,6 +4,7 @@ import ReviewGuide, {
   ReviewGuideBase,
 } from 'amo/pages/StaticPages/ReviewGuide';
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -20,11 +21,12 @@ describe(__filename, () => {
     expect(root.find('#review-guide')).toExist();
   });
 
-  it('renders a "description" meta tag', () => {
+  it('renders a HeadMetaTags component', () => {
     const root = render();
 
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+    expect(root.find(HeadMetaTags)).toHaveLength(1);
+    expect(root.find(HeadMetaTags).prop('title')).toEqual('Review Guidelines');
+    expect(root.find(HeadMetaTags).prop('description')).toMatch(
       /Guidelines, tips, and/,
     );
   });

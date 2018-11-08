@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import * as React from 'react';
 
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import Card from 'ui/components/Card';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
@@ -18,17 +19,20 @@ export class ReviewGuideBase extends React.Component<Props> {
   render() {
     const { i18n } = this.props;
 
+    const title = i18n.gettext('Review Guidelines');
+
     return (
-      <Card className="StaticPage" header={i18n.gettext('Review Guidelines')}>
+      <Card className="StaticPage" header={title}>
         <Helmet>
-          <title>{i18n.gettext('Review Guidelines')}</title>
-          <meta
-            name="description"
-            content={i18n.gettext(`Guidelines, tips, and Frequently Asked
+          <title>{title}</title>
+        </Helmet>
+
+        <HeadMetaTags
+          description={i18n.gettext(`Guidelines, tips, and Frequently Asked
               Questions to leave a review for the extensions and themes you’ve
               downloaded and used on Firefox.`)}
-          />
-        </Helmet>
+          title={title}
+        />
 
         <HeadLinks />
 
