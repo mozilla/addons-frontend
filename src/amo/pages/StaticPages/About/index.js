@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import * as React from 'react';
 
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import Card from 'ui/components/Card';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
@@ -18,20 +19,20 @@ export class AboutBase extends React.Component<Props> {
   render() {
     const { i18n } = this.props;
 
+    const title = i18n.gettext('About Firefox Add-ons');
+
     return (
-      <Card
-        className="StaticPage"
-        header={i18n.gettext('About Firefox Add-ons')}
-      >
+      <Card className="StaticPage" header={title}>
         <Helmet>
-          <title>{i18n.gettext('About Firefox Add-ons')}</title>
-          <meta
-            name="description"
-            content={i18n.gettext(`The official Mozilla site for downloading
-              Firefox extensions and themes. Add new features and change the
-              browser’s appearance to customize your web experience.`)}
-          />
+          <title>{title}</title>
         </Helmet>
+
+        <HeadMetaTags
+          description={i18n.gettext(`The official Mozilla site for downloading
+            Firefox extensions and themes. Add new features and change the
+            browser’s appearance to customize your web experience.`)}
+          title={title}
+        />
 
         <HeadLinks />
 
