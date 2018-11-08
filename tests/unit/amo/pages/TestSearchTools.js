@@ -3,6 +3,7 @@ import * as React from 'react';
 import SearchTools, { SearchToolsBase } from 'amo/pages/SearchTools';
 import Search from 'amo/components/Search';
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_RELEVANCE } from 'core/constants';
 import {
   dispatchClientMetadata,
@@ -37,11 +38,12 @@ describe(__filename, () => {
     });
   });
 
-  it('renders a "description" meta tag', () => {
+  it('renders a HeadMetaTags component', () => {
     const root = render();
 
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+    expect(root.find(HeadMetaTags)).toHaveLength(1);
+    expect(root.find(HeadMetaTags).prop('title')).toEqual('Search Tools');
+    expect(root.find(HeadMetaTags).prop('description')).toMatch(
       /Download Firefox extensions to customize/,
     );
   });
