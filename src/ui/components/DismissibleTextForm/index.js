@@ -178,6 +178,7 @@ export class DismissibleTextFormBase extends React.Component<
                 onClick={this.onDelete}
                 micro={microButtons}
                 puffy={puffyButtons}
+                type="button"
               >
                 {i18n.gettext('Delete')}
               </Button>
