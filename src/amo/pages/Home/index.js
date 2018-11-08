@@ -271,12 +271,15 @@ export class HomeBase extends React.Component {
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: '<!-- Godzilla of browsers -->' }}
         />
+
         {errorHandler.renderErrorIfPresent()}
+
         {_config.get('enableFeatureHomeHeroGuides') ? (
           <HomeHeroGuides />
         ) : (
           <HomeHeroBanner />
         )}
+
         <Card
           className="Home-SubjectShelf Home-CuratedCollections"
           header={extensionsHeader}
@@ -312,6 +315,7 @@ export class HomeBase extends React.Component {
             loading={loading}
           />
         )}
+
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={shelves.featuredExtensions}
@@ -327,6 +331,7 @@ export class HomeBase extends React.Component {
           }}
           loading={loading}
         />
+
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={shelves.popularExtensions}
@@ -342,6 +347,7 @@ export class HomeBase extends React.Component {
           }}
           loading={loading}
         />
+
         {includeTrendingExtensions && (
           <LandingAddonsCard
             addonInstallSource={INSTALL_SOURCE_FEATURED}
