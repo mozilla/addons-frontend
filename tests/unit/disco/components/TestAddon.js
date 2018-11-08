@@ -422,6 +422,7 @@ describe(__filename, () => {
     it('calls getClientCompatibility to determine the compatibility', () => {
       const _getClientCompatibility = sinon.mock().returns({
         compatible: true,
+        reason: null,
       });
       const addon = fakeAddon;
       const clientApp = CLIENT_APP_FIREFOX;

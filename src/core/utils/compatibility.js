@@ -49,8 +49,7 @@ export function getCompatibleVersions({
 }: GetCompatibleVersionsParams = {}): CompatibleVersionsType {
   let maxVersion = null;
   let minVersion = null;
-  // Assume the add-on is incompatible until we see explicit support
-  // in current_version.compatibility
+  // Assume the add-on is incompatible until we see explicit support.
   let supportsClientApp = false;
 
   if (currentVersion && currentVersion.compatibility) {

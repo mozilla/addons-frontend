@@ -43,12 +43,14 @@ describe(__filename, () => {
   describe('isCompatibleWithUserAgent', () => {
     const _isCompatibleWithUserAgent = ({
       addon = createInternalAddon(fakeAddon),
-      currentVersion = null,
+      currentVersion = createInternalVersion(fakeAddon.current_version),
+      userAgentInfo = UAParser(userAgentsByPlatform.windows.firefox40),
       ...rest
     }) => {
       return isCompatibleWithUserAgent({
         addon,
         currentVersion,
+        userAgentInfo,
         ...rest,
       });
     };
@@ -81,7 +83,6 @@ describe(__filename, () => {
       userAgents.firefox.forEach((userAgent) => {
         expect(
           _isCompatibleWithUserAgent({
-            currentVersion: createInternalVersion(fakeVersion),
             userAgentInfo: UAParser(userAgent),
           }),
         ).toEqual({ compatible: true, reason: null });
@@ -92,7 +93,6 @@ describe(__filename, () => {
       userAgents.firefoxAndroid.forEach((userAgent) => {
         expect(
           _isCompatibleWithUserAgent({
-            currentVersion: createInternalVersion(fakeVersion),
             userAgentInfo: UAParser(userAgent),
           }),
         ).toEqual({ compatible: true, reason: null });
@@ -103,7 +103,6 @@ describe(__filename, () => {
       userAgents.firefoxOS.forEach((userAgent) => {
         expect(
           _isCompatibleWithUserAgent({
-            currentVersion: createInternalVersion(fakeVersion),
             userAgentInfo: UAParser(userAgent),
           }),
         ).toEqual({ compatible: true, reason: null });
@@ -127,7 +126,6 @@ describe(__filename, () => {
       };
       expect(
         _isCompatibleWithUserAgent({
-          currentVersion: createInternalVersion(fakeVersion),
           minVersion: '9.0',
           userAgentInfo,
         }),
@@ -155,10 +153,6 @@ describe(__filename, () => {
     });
 
     it('should mark Firefox without OpenSearch support as incompatible', () => {
-      const userAgentInfo = {
-        browser: { name: 'Firefox' },
-        os: { name: 'Windows' },
-      };
       const fakeOpenSearchAddon = createInternalAddon({
         ...fakeAddon,
         type: ADDON_TYPE_OPENSEARCH,
@@ -169,16 +163,11 @@ describe(__filename, () => {
         _isCompatibleWithUserAgent({
           _window: fakeWindow,
           addon: fakeOpenSearchAddon,
-          userAgentInfo,
         }),
       ).toEqual({ compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH });
     });
 
     it('should mark Firefox with OpenSearch support as compatible', () => {
-      const userAgentInfo = {
-        browser: { name: 'Firefox' },
-        os: { name: 'Windows' },
-      };
       const fakeOpenSearchAddon = createInternalAddon({
         ...fakeAddon,
         type: ADDON_TYPE_OPENSEARCH,
@@ -189,8 +178,6 @@ describe(__filename, () => {
         _isCompatibleWithUserAgent({
           _window: fakeWindow,
           addon: fakeOpenSearchAddon,
-          currentVersion: createInternalVersion(fakeVersion),
-          userAgentInfo,
         }),
       ).toEqual({ compatible: true, reason: null });
     });
@@ -211,7 +198,6 @@ describe(__filename, () => {
       };
       expect(
         _isCompatibleWithUserAgent({
-          currentVersion: createInternalVersion(fakeVersion),
           minVersion: '10.1',
           userAgentInfo,
         }),
@@ -243,7 +229,6 @@ describe(__filename, () => {
       };
       expect(
         _isCompatibleWithUserAgent({
-          currentVersion: createInternalVersion(fakeVersion),
           userAgentInfo,
         }),
       ).toEqual({ compatible: true, reason: null });
@@ -258,7 +243,6 @@ describe(__filename, () => {
       };
       expect(
         _isCompatibleWithUserAgent({
-          currentVersion: createInternalVersion(fakeVersion),
           maxVersion: '*',
           userAgentInfo,
         }),
@@ -270,16 +254,10 @@ describe(__filename, () => {
       // WebExtension with no minVersion as having a minVersion of "48".
       // Still, we accept it (but it will log a warning).
       const fakeLog = getFakeLogger();
-      const userAgentInfo = {
-        browser: { name: 'Firefox', version: '54.0' },
-        os: { name: 'Windows' },
-      };
       expect(
         _isCompatibleWithUserAgent({
           _log: fakeLog,
-          currentVersion: createInternalVersion(fakeVersion),
           minVersion: '*',
-          userAgentInfo,
         }),
       ).toEqual({ compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION });
       expect(fakeLog.error.firstCall.args[0]).toContain(
@@ -306,22 +284,22 @@ describe(__filename, () => {
     });
 
     it('is incompatible if no matching platform file exists', () => {
+      const _findInstallURL = sinon.stub().returns(undefined);
       expect(
         _isCompatibleWithUserAgent({
-          _findInstallURL: sinon.stub().returns(undefined),
-          userAgentInfo: UAParser(userAgentsByPlatform.windows.firefox40),
+          _findInstallURL,
         }),
       ).toEqual({
         compatible: false,
         reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
       });
+      sinon.assert.called(_findInstallURL);
     });
 
     it('is incompatible if currentVersion is null', () => {
       expect(
         _isCompatibleWithUserAgent({
           currentVersion: null,
-          userAgentInfo: UAParser(userAgentsByPlatform.windows.firefox40),
         }),
       ).toEqual({
         compatible: false,
@@ -343,10 +321,9 @@ describe(__filename, () => {
           },
         ],
       });
-      const userAgentInfo = UAParser(userAgentsByPlatform.windows.firefox40);
 
       expect(
-        _isCompatibleWithUserAgent({ addon, currentVersion, userAgentInfo }),
+        _isCompatibleWithUserAgent({ addon, currentVersion }),
       ).toMatchObject({ compatible: true });
     });
   });
