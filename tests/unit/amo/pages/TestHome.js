@@ -41,6 +41,14 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  const fakeFeaturedCollectionsMetadata = {
+    footerText: i18n.gettext('some footer text'),
+    header: i18n.gettext('some header'),
+    isTheme: false,
+    slug: 'some-slug',
+    username: 'some-username',
+  };
+
   const getProps = () => {
     const { store } = dispatchClientMetadata();
 
@@ -510,15 +518,7 @@ describe(__filename, () => {
     store.dispatch(loadHomeAddons({ collections, shelves: {} }));
 
     const _getFeaturedCollectionsMetadata = (i18n) => {
-      return [
-        {
-          footerText: i18n.gettext('some footer text'),
-          header: i18n.gettext('some header'),
-          isTheme: true,
-          slug: 'some-slug',
-          username: 'some-username',
-        },
-      ];
+      return [{ ...fakeFeaturedCollectionsMetadata, isTheme: true }];
     };
 
     const root = render({ _config, _getFeaturedCollectionsMetadata, store });
@@ -536,15 +536,7 @@ describe(__filename, () => {
     store.dispatch(loadHomeAddons({ collections, shelves: {} }));
 
     const _getFeaturedCollectionsMetadata = (i18n) => {
-      return [
-        {
-          footerText: i18n.gettext('some footer text'),
-          header: i18n.gettext('some header'),
-          isTheme: false,
-          slug: 'some-slug',
-          username: 'some-username',
-        },
-      ];
+      return [{ ...fakeFeaturedCollectionsMetadata, isTheme: false }];
     };
 
     const root = render({ _config, _getFeaturedCollectionsMetadata, store });
@@ -562,15 +554,7 @@ describe(__filename, () => {
     store.dispatch(loadHomeAddons({ collections, shelves: {} }));
 
     const _getFeaturedCollectionsMetadata = (i18n) => {
-      return [
-        {
-          footerText: i18n.gettext('some footer text'),
-          header: i18n.gettext('some header'),
-          isTheme: true,
-          slug: 'some-slug',
-          username: 'some-username',
-        },
-      ];
+      return [{ ...fakeFeaturedCollectionsMetadata, isTheme: true }];
     };
 
     const root = render({ _config, _getFeaturedCollectionsMetadata, store });
@@ -588,15 +572,7 @@ describe(__filename, () => {
     store.dispatch(loadHomeAddons({ collections, shelves: {} }));
 
     const _getFeaturedCollectionsMetadata = (i18n) => {
-      return [
-        {
-          footerText: i18n.gettext('some footer text'),
-          header: i18n.gettext('some header'),
-          isTheme: true,
-          slug: 'some-slug',
-          username: 'some-username',
-        },
-      ];
+      return [{ ...fakeFeaturedCollectionsMetadata, isTheme: true }];
     };
 
     const root = render({ _config, _getFeaturedCollectionsMetadata, store });
