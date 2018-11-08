@@ -129,7 +129,7 @@ describe(__filename, () => {
       expect(root).toHaveState('searchValue', '');
     });
 
-    it('only sets an updated query if it is unique', () => {
+    it('does not update the query on location changes', () => {
       const query = 'ad blocker';
       const location = createFakeLocation({ query: { query } });
 
