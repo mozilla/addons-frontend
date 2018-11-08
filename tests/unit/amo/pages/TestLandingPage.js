@@ -637,6 +637,7 @@ describe(__filename, () => {
     const root = renderTheme({ _config, store });
 
     expect(root.find(NotFound)).toHaveLength(1);
+    expect(root).not.toHaveClassName('LandingPage');
   });
 
   it('does not render a 404 when clientApp is Android and enableFeatureStaticThemesForAndroid is true', () => {

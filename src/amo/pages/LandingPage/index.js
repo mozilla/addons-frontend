@@ -13,10 +13,10 @@ import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Categories from 'amo/components/Categories';
 import HeadLinks from 'amo/components/HeadLinks';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import { shouldShowThemes } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  CLIENT_APP_ANDROID,
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_TOP_RATED,
   INSTALL_SOURCE_TRENDING,
@@ -241,11 +241,7 @@ export class LandingPageBase extends React.Component {
 
     const isAddonTheme = isTheme(addonType);
 
-    if (
-      isAddonTheme &&
-      clientApp === CLIENT_APP_ANDROID &&
-      _config.get('enableFeatureStaticThemesForAndroid') === false
-    ) {
+    if (isAddonTheme && !shouldShowThemes({ _config, clientApp })) {
       return <NotFound />;
     }
 

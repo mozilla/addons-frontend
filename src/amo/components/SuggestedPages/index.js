@@ -5,11 +5,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
-import {
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
-  CLIENT_APP_ANDROID,
-} from 'core/constants';
+import { shouldShowThemes } from 'amo/utils';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { visibleAddonType } from 'core/utils';
 import type { AppState } from 'amo/store';
@@ -32,11 +29,6 @@ export class SuggestedPagesBase extends React.Component<InternalProps> {
   render() {
     const { _config, clientApp, i18n } = this.props;
 
-    const showThemes =
-      clientApp === CLIENT_APP_ANDROID
-        ? _config.get('enableFeatureStaticThemesForAndroid')
-        : true;
-
     return (
       <section className="SuggestedPages">
         <h2>{i18n.gettext('Suggested Pages')}</h2>
@@ -47,7 +39,7 @@ export class SuggestedPagesBase extends React.Component<InternalProps> {
               {i18n.gettext('Browse all extensions')}
             </Link>
           </li>
-          {showThemes && (
+          {shouldShowThemes({ _config, clientApp }) && (
             <li className="SuggestedPages-link-themes">
               <Link to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}>
                 {i18n.gettext('Browse all themes')}

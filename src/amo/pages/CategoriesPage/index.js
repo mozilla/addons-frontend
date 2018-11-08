@@ -8,11 +8,8 @@ import { compose } from 'redux';
 import Categories from 'amo/components/Categories';
 import HeadLinks from 'amo/components/HeadLinks';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import {
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
-  CLIENT_APP_ANDROID,
-} from 'core/constants';
+import { shouldShowThemes } from 'amo/utils';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { apiAddonType, isTheme } from 'core/utils';
 import type { AppState } from 'amo/store';
@@ -57,11 +54,7 @@ export class CategoriesPageBase extends React.Component<InternalProps> {
     const { _config, clientApp, match } = this.props;
     const addonType = apiAddonType(match.params.visibleAddonType);
 
-    if (
-      isTheme(addonType) &&
-      clientApp === CLIENT_APP_ANDROID &&
-      _config.get('enableFeatureStaticThemesForAndroid') === false
-    ) {
+    if (isTheme(addonType) && !shouldShowThemes({ _config, clientApp })) {
       return <NotFound />;
     }
 

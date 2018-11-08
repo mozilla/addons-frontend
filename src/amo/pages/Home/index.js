@@ -14,10 +14,10 @@ import HeadLinks from 'amo/components/HeadLinks';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeAddons } from 'amo/reducers/home';
+import { shouldShowThemes } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  CLIENT_APP_ANDROID,
   INSTALL_SOURCE_FEATURED,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TRENDING,
@@ -228,11 +228,7 @@ export class HomeBase extends React.Component {
     const featuredCollectionsMetadata = getFeaturedCollectionsMetadata(i18n);
 
     const loading = resultsLoaded === false;
-
-    const showThemes =
-      clientApp === CLIENT_APP_ANDROID
-        ? _config.get('enableFeatureStaticThemesForAndroid')
-        : true;
+    const showThemes = shouldShowThemes({ _config, clientApp });
 
     return (
       <div className="Home">

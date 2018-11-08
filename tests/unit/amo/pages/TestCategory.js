@@ -805,6 +805,7 @@ describe(__filename, () => {
     const root = renderAndroidTheme({ _config, store });
 
     expect(root.find(NotFound)).toHaveLength(1);
+    expect(root).not.toHaveClassName('Category');
   });
 
   it('does not render a 404 when clientApp is Android and enableFeatureStaticThemesForAndroid is true', () => {

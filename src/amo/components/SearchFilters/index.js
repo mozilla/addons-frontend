@@ -6,11 +6,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
+import { shouldShowThemes } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
-  CLIENT_APP_ANDROID,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RELEVANCE,
   SEARCH_SORT_TOP_RATED,
@@ -113,12 +113,7 @@ export class SearchFiltersBase extends React.Component {
       { children: i18n.gettext('Search Tool'), value: ADDON_TYPE_OPENSEARCH },
     ];
 
-    const includeThemes =
-      clientApp === CLIENT_APP_ANDROID
-        ? _config.get('enableFeatureStaticThemesForAndroid')
-        : true;
-
-    if (includeThemes) {
+    if (shouldShowThemes({ _config, clientApp })) {
       options.push({
         children: i18n.gettext('Theme'),
         value: getAddonTypeFilter(ADDON_TYPE_THEME, {

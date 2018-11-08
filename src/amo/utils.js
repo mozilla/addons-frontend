@@ -2,11 +2,13 @@
 /* eslint camelcase: 0 */
 import base62 from 'base62';
 import config from 'config';
+import invariant from 'invariant';
 
 import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ServerError from 'amo/components/ErrorPage/ServerError';
 import { makeQueryString } from 'core/api';
+import { CLIENT_APP_ANDROID } from 'core/constants';
 
 export function getErrorComponent(status: number | null) {
   switch (status) {
@@ -62,4 +64,18 @@ export const getCanonicalURL = ({
   locationPathname: string,
 |}): string => {
   return `${_config.get('baseURL')}${locationPathname}`;
+};
+
+export const shouldShowThemes = ({
+  _config = config,
+  clientApp,
+}: {|
+  _config?: typeof config,
+  clientApp: string,
+|}) => {
+  invariant(clientApp, 'clientApp is required');
+
+  return clientApp === CLIENT_APP_ANDROID
+    ? _config.get('enableFeatureStaticThemesForAndroid')
+    : true;
 };

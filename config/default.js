@@ -350,6 +350,8 @@ module.exports = {
 
   enableFeatureHomeHeroGuides: false,
 
+  // This flag is enabled by default because the feature already exists and we
+  // want to disable it.
   // See: https://github.com/mozilla/addons-frontend/issues/6689
   enableFeatureStaticThemesForAndroid: true,
 

@@ -13,11 +13,11 @@ import CategoryHead from 'amo/components/CategoryHead';
 import CategoryHeader from 'amo/components/CategoryHeader';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import { shouldShowThemes } from 'amo/utils';
 import { categoriesFetch } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  CLIENT_APP_ANDROID,
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_TOP_RATED,
   INSTALL_SOURCE_TRENDING,
@@ -246,11 +246,7 @@ export class CategoryBase extends React.Component {
 
     const isAddonTheme = isTheme(addonType);
 
-    if (
-      isAddonTheme &&
-      clientApp === CLIENT_APP_ANDROID &&
-      _config.get('enableFeatureStaticThemesForAndroid') === false
-    ) {
+    if (isAddonTheme && !shouldShowThemes({ _config, clientApp })) {
       return <NotFound />;
     }
 
