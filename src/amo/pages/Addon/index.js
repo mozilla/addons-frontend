@@ -467,6 +467,7 @@ export class AddonBase extends React.Component {
       compatibility = getClientCompatibility({
         addon,
         clientApp,
+        currentVersion,
         userAgentInfo,
       });
       isCompatible = compatibility.compatible;

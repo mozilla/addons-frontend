@@ -14,6 +14,7 @@ import installations from 'core/reducers/installations';
 import redirectTo from 'core/reducers/redirectTo';
 import survey from 'core/reducers/survey';
 import uiState from 'core/reducers/uiState';
+import versions from 'core/reducers/versions';
 import discoResults from 'disco/reducers/discoResults';
 import type { AddonsState } from 'core/reducers/addons';
 import type { ApiState } from 'core/reducers/api';
@@ -23,6 +24,7 @@ import type { InstallationsState } from 'core/reducers/installations';
 import type { RedirectToState } from 'core/reducers/redirectTo';
 import type { SurveyState } from 'core/reducers/survey';
 import type { UIStateState } from 'core/reducers/uiState';
+import type { VersionsState } from 'core/reducers/versions';
 import type { ReactRouterHistoryType } from 'core/types/router';
 import type { CreateStoreParams, CreateReducerType } from 'core/types/store';
 
@@ -37,6 +39,7 @@ export type AppState = {|
   redirectTo: RedirectToState,
   survey: SurveyState,
   uiState: UIStateState,
+  versions: VersionsState,
 |};
 
 // Given AppState, create a type for all possible application reducers.
@@ -69,6 +72,7 @@ export const reducers: AppReducersType = {
   redirectTo,
   survey,
   uiState,
+  versions,
 };
 
 export default function createStore({

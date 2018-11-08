@@ -1,11 +1,13 @@
 /* @flow */
 import makeClassName from 'classnames';
+import invariant from 'invariant';
 import * as React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
+import { getVersionById } from 'core/reducers/versions';
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import AMInstallButton from 'core/components/AMInstallButton';
 import {
@@ -28,6 +30,7 @@ import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 import { getClientCompatibility } from 'core/utils/compatibility';
 import LoadingText from 'ui/components/LoadingText';
 import ThemeImage from 'ui/components/ThemeImage';
+import type { AddonVersionType } from 'core/reducers/versions';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { InstalledAddon } from 'core/reducers/installations';
 import type { WithInstallHelpersInjectedProps } from 'core/installAddon';
@@ -53,6 +56,7 @@ type InternalProps = {|
   _tracking: typeof tracking,
   addon: AddonType,
   clientApp: string,
+  currentVersion: AddonVersionType,
   defaultInstallSource: string,
   error: string | void,
   i18n: I18nType,
@@ -210,6 +214,7 @@ export class AddonBase extends React.Component<InternalProps> {
       _getClientCompatibility,
       addon,
       clientApp,
+      currentVersion,
       defaultInstallSource,
       enable,
       hasAddonManager,
@@ -249,6 +254,7 @@ export class AddonBase extends React.Component<InternalProps> {
     const { compatible, reason } = _getClientCompatibility({
       addon,
       clientApp,
+      currentVersion,
       userAgentInfo,
     });
 
@@ -305,10 +311,17 @@ export class AddonBase extends React.Component<InternalProps> {
 
 function mapStateToProps(state: AppState, ownProps: Props) {
   const addon = getAddonByID(state, ownProps.addonId);
+  let currentVersion = null;
 
   let installation = {};
   if (addon) {
+    invariant(addon.currentVersionId, 'addon.currentVersionId is required');
+
     installation = state.installations[addon.guid] || {};
+    currentVersion = getVersionById({
+      id: addon.currentVersionId,
+      state: state.versions,
+    });
   }
 
   return {
@@ -316,6 +329,7 @@ function mapStateToProps(state: AppState, ownProps: Props) {
     error: installation.error,
     status: installation.status || UNKNOWN,
     clientApp: state.api.clientApp,
+    currentVersion,
     // In addition to this component, this also is required by the
     // `withInstallHelpers()` HOC.
     userAgentInfo: state.api.userAgentInfo,

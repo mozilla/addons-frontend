@@ -15,6 +15,7 @@ describe(__filename, () => {
       'router',
       'survey',
       'uiState',
+      'versions',
     ]);
   });
 });

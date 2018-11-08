@@ -1058,6 +1058,31 @@ describe(__filename, () => {
     expect(root.find('.Addon-theme')).toHaveLength(1);
   });
 
+  it('calls getClientCompatibility to determine the compatibility', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const clientApp = CLIENT_APP_FIREFOX;
+    const currentVersion = createInternalVersion(fakeAddon.current_version);
+    const getClientCompatibility = sinon.mock().returns({
+      compatible: true,
+    });
+
+    const { store } = dispatchClientMetadata({ clientApp });
+    store.dispatch(_loadAddonResults({ addon }));
+
+    const root = renderComponent({
+      params: { slug: addon.slug },
+      store,
+      getClientCompatibility,
+    });
+
+    sinon.assert.calledWith(getClientCompatibility, {
+      addon,
+      clientApp,
+      currentVersion,
+      userAgentInfo: root.instance().props.userAgentInfo,
+    });
+  });
+
   it('passes the downloadUrl from getClientCompatibility', () => {
     const root = shallowRender({
       getClientCompatibility: () => ({
@@ -1066,6 +1091,7 @@ describe(__filename, () => {
         reason: INCOMPATIBLE_UNDER_MIN_VERSION,
       }),
     });
+
     expect(root.find(AddonCompatibilityError).prop('downloadUrl')).toEqual(
       'https://www.seamonkey-project.org',
     );

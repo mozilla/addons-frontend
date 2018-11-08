@@ -38,6 +38,7 @@ export const fakeDiscoAddon = Object.freeze({
   current_version: {
     compatibility: { ...fakeAddon.current_version.compatibility },
     files: [...fakeAddon.current_version.files],
+    id: 123,
   },
   guid: '1234@my-addons.firefox',
   icon_url: 'https://addons.cdn.mozilla.net/webdev-64.png',
