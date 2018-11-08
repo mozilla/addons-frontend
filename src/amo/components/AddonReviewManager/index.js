@@ -142,6 +142,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
           onSubmit={this.onSubmitReview}
           placeholder={placeholder}
           puffyButtons={puffyButtons}
+          reverseButtonOrder
           submitButtonText={submitButtonText}
           submitButtonInProgressText={submitButtonInProgressText}
           text={review.body}

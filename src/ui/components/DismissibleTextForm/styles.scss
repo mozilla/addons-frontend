@@ -10,9 +10,7 @@
 
 .DismissibleTextForm-buttons {
   display: flex;
-  // The submit button is rendered first for keyboard accessibility but
-  // we want it to appear last as a final call to action.
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: space-between;
   margin-top: 6px;
 
