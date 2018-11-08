@@ -4,23 +4,8 @@ import base62 from 'base62';
 import config from 'config';
 import invariant from 'invariant';
 
-import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
-import NotFound from 'amo/components/ErrorPage/NotFound';
-import ServerError from 'amo/components/ErrorPage/ServerError';
 import { makeQueryString } from 'core/api';
 import { CLIENT_APP_ANDROID } from 'core/constants';
-
-export function getErrorComponent(status: number | null) {
-  switch (status) {
-    case 401:
-      return NotAuthorized;
-    case 404:
-      return NotFound;
-    case 500:
-    default:
-      return ServerError;
-  }
-}
 
 /*
  * Return a base62 object that encodes/decodes just like how Django does it
