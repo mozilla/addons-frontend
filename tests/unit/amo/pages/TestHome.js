@@ -11,6 +11,7 @@ import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroGuides from 'amo/components/HomeHeroGuides';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { fetchHomeAddons, loadHomeAddons } from 'amo/reducers/home';
 import { createInternalCollection } from 'amo/reducers/collections';
@@ -443,11 +444,11 @@ describe(__filename, () => {
     });
   });
 
-  it('renders a "description" meta tag', () => {
+  it('renders a HeadMetaTags component', () => {
     const root = render();
 
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+    expect(root.find(HeadMetaTags)).toHaveLength(1);
+    expect(root.find(HeadMetaTags).prop('description')).toMatch(
       /Download Firefox extensions and themes/,
     );
   });

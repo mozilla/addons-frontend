@@ -3,7 +3,6 @@ import config from 'config';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import Helmet from 'react-helmet';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import CategoryIcon from 'amo/components/CategoryIcon';
@@ -11,6 +10,7 @@ import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import HomeHeroGuides from 'amo/components/HomeHeroGuides';
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeAddons } from 'amo/reducers/home';
@@ -258,14 +258,11 @@ export class HomeBase extends React.Component {
 
     return (
       <div className="Home">
-        <Helmet>
-          <meta
-            name="description"
-            content={i18n.gettext(`Download Firefox extensions and themes.
-              They’re like apps for your browser. They can block annoying ads,
-              protect passwords, change browser appearance, and more.`)}
-          />
-        </Helmet>
+        <HeadMetaTags
+          description={i18n.gettext(`Download Firefox extensions and themes.
+            They’re like apps for your browser. They can block annoying ads,
+            protect passwords, change browser appearance, and more.`)}
+        />
 
         <HeadLinks />
 
@@ -274,15 +271,12 @@ export class HomeBase extends React.Component {
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: '<!-- Godzilla of browsers -->' }}
         />
-
         {errorHandler.renderErrorIfPresent()}
-
         {_config.get('enableFeatureHomeHeroGuides') ? (
           <HomeHeroGuides />
         ) : (
           <HomeHeroBanner />
         )}
-
         <Card
           className="Home-SubjectShelf Home-CuratedCollections"
           header={extensionsHeader}
@@ -318,7 +312,6 @@ export class HomeBase extends React.Component {
             loading={loading}
           />
         )}
-
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={shelves.featuredExtensions}
@@ -334,7 +327,6 @@ export class HomeBase extends React.Component {
           }}
           loading={loading}
         />
-
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={shelves.popularExtensions}
@@ -350,7 +342,6 @@ export class HomeBase extends React.Component {
           }}
           loading={loading}
         />
-
         {includeTrendingExtensions && (
           <LandingAddonsCard
             addonInstallSource={INSTALL_SOURCE_FEATURED}
@@ -390,8 +381,8 @@ export function mapStateToProps(state) {
   return {
     clientApp: state.api.clientApp,
     collections: state.home.collections,
-    shelves: state.home.shelves,
     resultsLoaded: state.home.resultsLoaded,
+    shelves: state.home.shelves,
   };
 }
 
