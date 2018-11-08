@@ -1,6 +1,5 @@
 /* @flow */
 import * as React from 'react';
-import { compose } from 'redux';
 
 import { INSTALL_SOURCE_HERO_PROMO } from 'core/constants';
 import translate from 'core/i18n/translate';
@@ -300,8 +299,7 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
   }
 }
 
-const HomeHeroBanner: React.ComponentType<InternalProps> = compose(translate())(
+const HomeHeroBanner: React.ComponentType<InternalProps> = translate()(
   HomeHeroBannerBase,
 );
-
 export default HomeHeroBanner;

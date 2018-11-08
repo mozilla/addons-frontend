@@ -60,7 +60,7 @@ export const withExperiment = ({
       super(props);
 
       if (!this.isExperimentEnabled()) {
-        log.debug(`Experiment "${defaultId}" is not enabled by config.`);
+        log.debug(`Experiment "${props.id}" is not enabled by config.`);
         return;
       }
 
