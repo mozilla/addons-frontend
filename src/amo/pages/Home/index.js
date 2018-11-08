@@ -68,6 +68,7 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
 export class HomeBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
+    _getFeaturedCollectionsMetadata: PropTypes.func,
     clientApp: PropTypes.string.isRequired,
     collections: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
@@ -81,6 +82,7 @@ export class HomeBase extends React.Component {
 
   static defaultProps = {
     _config: config,
+    _getFeaturedCollectionsMetadata: getFeaturedCollectionsMetadata,
     includeFeaturedThemes: true,
     includeTrendingExtensions: false,
   };
@@ -208,6 +210,7 @@ export class HomeBase extends React.Component {
   render() {
     const {
       _config,
+      _getFeaturedCollectionsMetadata,
       clientApp,
       collections,
       errorHandler,
@@ -225,10 +228,33 @@ export class HomeBase extends React.Component {
     const themesHeader = i18n.gettext(`Change the way Firefox looks with
       themes.`);
 
-    const featuredCollectionsMetadata = getFeaturedCollectionsMetadata(i18n);
+    const featuredCollectionsMetadata = _getFeaturedCollectionsMetadata(i18n);
 
     const loading = resultsLoaded === false;
     const showThemes = shouldShowThemes({ _config, clientApp });
+
+    // This is a helper function (closure) configured to render a featured
+    // collection by index.
+    const renderFeaturedCollection = (index) => {
+      const metadata = featuredCollectionsMetadata[index];
+      if (metadata && metadata.isTheme && !showThemes) {
+        return null;
+      }
+
+      const collection = collections[index];
+      if (loading || collection) {
+        return (
+          <FeaturedCollectionCard
+            addons={collection}
+            className="Home-FeaturedCollection"
+            loading={loading}
+            {...metadata}
+          />
+        );
+      }
+
+      return null;
+    };
 
     return (
       <div className="Home">
@@ -268,23 +294,9 @@ export class HomeBase extends React.Component {
           {this.renderCuratedCollections()}
         </Card>
 
-        {(loading || collections[0]) && (
-          <FeaturedCollectionCard
-            addons={collections[0]}
-            className="Home-FeaturedCollection"
-            loading={loading}
-            {...featuredCollectionsMetadata[0]}
-          />
-        )}
+        {renderFeaturedCollection(0)}
 
-        {(loading || collections[1]) && (
-          <FeaturedCollectionCard
-            addons={collections[1]}
-            className="Home-FeaturedCollection"
-            loading={loading}
-            {...featuredCollectionsMetadata[1]}
-          />
-        )}
+        {renderFeaturedCollection(1)}
 
         {includeFeaturedThemes && showThemes && (
           <LandingAddonsCard
