@@ -28,14 +28,12 @@ export class HeaderBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     isHomePage: PropTypes.bool,
     location: PropTypes.object.isRequired,
-    query: PropTypes.string,
     siteUser: PropTypes.object,
     isReviewer: PropTypes.bool.isRequired,
   };
 
   static defaultProps = {
     isHomePage: false,
-    query: '',
   };
 
   handleLogOut = (event) => {
@@ -45,14 +43,7 @@ export class HeaderBase extends React.Component {
   };
 
   render() {
-    const {
-      i18n,
-      isHomePage,
-      location,
-      query,
-      siteUser,
-      isReviewer,
-    } = this.props;
+    const { i18n, isHomePage, location, siteUser, isReviewer } = this.props;
 
     const headerLink = (
       <Link className="Header-title" to="/">
@@ -169,11 +160,7 @@ export class HeaderBase extends React.Component {
           )}
         </div>
 
-        <SearchForm
-          className="Header-search-form"
-          pathname="/search/"
-          query={query}
-        />
+        <SearchForm className="Header-search-form" pathname="/search/" />
       </header>
     );
   }

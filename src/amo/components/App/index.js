@@ -208,7 +208,6 @@ export class AppBase extends React.Component<Props> {
       location,
     } = this.props;
 
-    const query = location.query ? location.query.q : null;
     const i18nValues = {
       locale: lang,
     };
@@ -248,7 +247,6 @@ export class AppBase extends React.Component<Props> {
             <HeaderComponent
               isHomePage={isHomePage}
               location={location}
-              query={query}
               ref={(ref) => {
                 this.header = ref;
               }}

@@ -2,12 +2,12 @@
 /* eslint-disable react/prop-types, react/no-unused-prop-types */
 import { oneLine } from 'common-tags';
 import makeClassName from 'classnames';
-import invariant from 'invariant';
 import defaultDebounce from 'lodash.debounce';
 import * as React from 'react';
 import Autosuggest from 'react-autosuggest';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 import SearchSuggestion from 'amo/components/SearchSuggestion';
 import { withFixedErrorHandler } from 'core/errorHandler';
@@ -53,10 +53,8 @@ type Props = {|
   // This is the name property of the <input> tag.
   inputName: string,
   inputPlaceholder?: string,
-  location?: ReactRouterLocationType,
-  onSearch: (SearchFilters) => void,
+  onSearch?: (SearchFilters) => void,
   onSuggestionSelected: (SuggestionType) => void,
-  query?: string,
   // This is accessibility text for what selecting a suggestion will do.
   selectSuggestionText: string,
   showInputLabel?: boolean,
@@ -75,6 +73,7 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
+  location: ReactRouterLocationType,
 |};
 
 type State = {|
@@ -111,16 +110,6 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 
   constructor(props: InternalProps) {
     super(props);
-    invariant(props.inputName, 'The inputName property is required');
-    invariant(props.onSearch, 'The onSearch property is required');
-    invariant(
-      props.onSuggestionSelected,
-      'The onSuggestionSelected property is required',
-    );
-    invariant(
-      props.selectSuggestionText,
-      'The selectSuggestionText property is required',
-    );
 
     this.dispatchAutocompleteStart = this.props.debounce(
       ({ filters }) => {
@@ -139,16 +128,16 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 
     this.state = {
       autocompleteIsOpen: false,
-      searchValue: props.query || '',
+      searchValue: this.getSearchValueFromProps(props),
     };
   }
 
-  componentWillReceiveProps(nextProps: InternalProps) {
-    const { query } = nextProps;
-
-    if (this.props.query !== query) {
-      this.setState({ searchValue: query || '' });
+  getSearchValueFromProps({ location, inputName }: InternalProps) {
+    if (!location.query) {
+      return '';
     }
+
+    return location.query[inputName] || '';
   }
 
   createFiltersFromQuery(query: string) {
@@ -236,8 +225,12 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       this.searchInput.blur();
     }
 
-    const filters = this.createFiltersFromQuery(this.state.searchValue);
-    this.props.onSearch(filters);
+    const { onSearch } = this.props;
+
+    if (onSearch) {
+      const filters = this.createFiltersFromQuery(this.state.searchValue);
+      onSearch(filters);
+    }
   };
 
   handleSearchChange = (
@@ -376,6 +369,7 @@ const mapStateToProps = (state: AppState): MappedProps => {
 export const extractId = (ownProps: Props): string => ownProps.inputName;
 
 const AutoSearchInput: React.ComponentType<Props> = compose(
+  withRouter,
   withFixedErrorHandler({ fileName: __filename, extractId }),
   connect(mapStateToProps),
   translate(),
