@@ -241,6 +241,7 @@ export class LandingPageBase extends React.Component {
     };
 
     const isAddonTheme = isTheme(addonType);
+    const title = headingText[addonType];
 
     if (isAddonTheme && !shouldShowThemes({ _config, clientApp })) {
       return <NotFound />;
@@ -253,13 +254,10 @@ export class LandingPageBase extends React.Component {
         })}
       >
         <Helmet>
-          <title>{headingText[addonType]}</title>
+          <title>{title}</title>
         </Helmet>
 
-        <HeadMetaTags
-          description={this.getPageDescription()}
-          title={headingText[addonType]}
-        />
+        <HeadMetaTags description={this.getPageDescription()} title={title} />
 
         <HeadLinks />
 

@@ -47,7 +47,7 @@ export class CategoriesPageBase extends React.Component<InternalProps> {
       case ADDON_TYPE_THEME:
         return i18n.gettext('All theme categories');
       default:
-        return i18n.gettext('All categories');
+        return null;
     }
   }
 
