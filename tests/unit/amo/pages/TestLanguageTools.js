@@ -7,6 +7,7 @@ import LanguageTools, {
 } from 'amo/pages/LanguageTools';
 import Link from 'amo/components/Link';
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import { ADDON_TYPE_DICT, ADDON_TYPE_LANG } from 'core/constants';
 import {
   getAllLanguageTools,
@@ -305,11 +306,14 @@ describe(__filename, () => {
     ]);
   });
 
-  it('renders a "description" meta tag', () => {
+  it('renders a HeadMetaTags component', () => {
     const root = renderShallow();
 
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+    expect(root.find(HeadMetaTags)).toHaveLength(1);
+    expect(root.find(HeadMetaTags).prop('title')).toEqual(
+      'Dictionaries and Language Packs',
+    );
+    expect(root.find(HeadMetaTags).prop('description')).toMatch(
       /Download Firefox dictionaries and language/,
     );
   });
