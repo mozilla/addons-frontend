@@ -7,6 +7,7 @@ import { compose } from 'redux';
 
 import Categories from 'amo/components/Categories';
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { shouldShowThemes } from 'amo/utils';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
@@ -46,7 +47,7 @@ export class CategoriesPageBase extends React.Component<InternalProps> {
       case ADDON_TYPE_THEME:
         return i18n.gettext('All theme categories');
       default:
-        return null;
+        return i18n.gettext('All categories');
     }
   }
 
@@ -58,11 +59,15 @@ export class CategoriesPageBase extends React.Component<InternalProps> {
       return <NotFound />;
     }
 
+    const title = this.getPageTitle(addonType);
+
     return (
       <React.Fragment>
         <Helmet>
-          <title>{this.getPageTitle(addonType)}</title>
+          <title>{title}</title>
         </Helmet>
+
+        <HeadMetaTags title={title} />
 
         <HeadLinks />
 

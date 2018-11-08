@@ -3,6 +3,7 @@ import * as React from 'react';
 import Categories from 'amo/components/Categories';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import CategoriesPage, { CategoriesPageBase } from 'amo/pages/CategoriesPage';
 import {
   ADDON_TYPE_EXTENSION,
@@ -121,5 +122,17 @@ describe(__filename, () => {
 
     expect(root.find(NotFound)).toHaveLength(0);
     expect(root.find(Categories)).toHaveLength(1);
+  });
+
+  it.each([
+    [ADDON_TYPE_EXTENSION, /All extension/],
+    [ADDON_TYPE_THEME, /All theme/],
+  ])('renders a HeadMetaTags component for %s', (addonType, expectedMatch) => {
+    const params = { visibleAddonType: visibleAddonType(addonType) };
+
+    const root = render({ params });
+
+    expect(root.find(HeadMetaTags)).toHaveLength(1);
+    expect(root.find(HeadMetaTags).prop('title')).toMatch(expectedMatch);
   });
 });
