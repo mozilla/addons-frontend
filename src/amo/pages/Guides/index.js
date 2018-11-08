@@ -119,6 +119,8 @@ export class GuidesBase extends React.Component<InternalProps> {
     const { clientApp, i18n, lang } = this.props;
 
     return sections.map((section) => {
+      // TODO: look into having these links use the Router (vs 'a' tag).
+      // See https://github.com/mozilla/addons-frontend/issues/6787.
       const exploreMoreLink = i18n.sprintf(section.exploreMore, {
         linkStart: `<a class="Guides-section-explore-more-link" href="/${lang}/${clientApp}${
           section.exploreUrl
