@@ -463,7 +463,7 @@ export class AddonBase extends React.Component {
 
     let isCompatible = false;
     let compatibility;
-    if (addon && currentVersion) {
+    if (addon) {
       compatibility = getClientCompatibility({
         addon,
         clientApp,

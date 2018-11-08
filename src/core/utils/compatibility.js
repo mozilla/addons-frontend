@@ -32,7 +32,7 @@ export type GetCompatibleVersionsParams = {|
   _log?: typeof log,
   addon: AddonType,
   clientApp: string,
-  currentVersion: AddonVersionType,
+  currentVersion: AddonVersionType | null,
 |};
 
 export type CompatibleVersionsType = {|
@@ -53,7 +53,7 @@ export function getCompatibleVersions({
   // in current_version.compatibility
   let supportsClientApp = false;
 
-  if (currentVersion.compatibility) {
+  if (currentVersion && currentVersion.compatibility) {
     const compatInfo = currentVersion.compatibility[clientApp];
     if (compatInfo) {
       supportsClientApp = true;
@@ -74,7 +74,7 @@ export type IsCompatibleWithUserAgentParams = {|
   _log?: typeof log,
   _window?: typeof window | Object,
   addon: AddonType,
-  currentVersion: AddonVersionType,
+  currentVersion: AddonVersionType | null,
   maxVersion: string | null,
   minVersion: string | null,
   userAgentInfo: UserAgentInfoType,
@@ -106,77 +106,85 @@ export function isCompatibleWithUserAgent({
     return { compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS };
   }
 
-  if (browser.name === 'Firefox') {
-    // Do version checks, if this add-on has minimum or maximum version
-    // requirements.
-    // The mozilla-version-comparator API is quite strange; a result of
-    // `1` means the first argument is higher in version than the second.
-    //
-    // Being over the maxVersion, oddly, is not actually a reason to
-    // disable the install button or mark the add-on as incompatible
-    // with this version of Firefox. But we log the version mismatch
-    // here so it's not totally silent and a future developer isn't as
-    // confused by this as tofumatt was.
-    // See: https://github.com/mozilla/addons-frontend/issues/2074#issuecomment-286983423
-    if (maxVersion && mozCompare(browser.version, maxVersion) === 1) {
-      if (currentVersion.isStrictCompatibilityEnabled) {
-        return { compatible: false, reason: INCOMPATIBLE_OVER_MAX_VERSION };
-      }
-
-      _log.info(oneLine`maxVersion ${maxVersion} for add-on lower than
-        browser version ${browser.version}, but add-on still marked as
-        compatible because we largely ignore maxVersion. See:
-        https://github.com/mozilla/addons-frontend/issues/2074`);
-    }
-
-    // A result of `-1` means the second argument is a lower version than the
-    // first.
-    if (minVersion && mozCompare(browser.version, minVersion) === -1) {
-      if (minVersion === '*') {
-        _log.error(
-          oneLine`minVersion of "*" was passed to isCompatibleWithUserAgent();
-          bad add-on version data`,
-          { browserVersion: browser.version, minVersion },
-        );
-      }
-
-      // `minVersion` is always respected, regardless of
-      // `isStrictCompatibilityEnabled`'s value.
-      return { compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION };
-    }
-
-    if (
-      addon.type === ADDON_TYPE_OPENSEARCH &&
-      !(_window.external && 'AddSearchProvider' in _window.external)
-    ) {
-      return { compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH };
-    }
-
-    // Even if an extension's version is marked compatible,
-    // we need to make sure it has a matching platform file
-    // to work around some bugs.
-    // See https://github.com/mozilla/addons-server/issues/6576
-    const { platformFiles } = currentVersion;
-    if (
-      addon.type === ADDON_TYPE_EXTENSION &&
-      !_findInstallURL({
-        appendSource: false,
-        platformFiles,
-        userAgentInfo,
-      })
-    ) {
-      return {
-        compatible: false,
-        reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
-      };
-    }
-
-    // If we made it here we're compatible (yay!)
-    return { compatible: true, reason: null };
+  if (
+    addon.type === ADDON_TYPE_OPENSEARCH &&
+    !(_window.external && 'AddSearchProvider' in _window.external)
+  ) {
+    return { compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH };
   }
 
-  // This means the client is not Firefox, so it's incompatible.
-  return { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX };
+  if (browser.name !== 'Firefox') {
+    return { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX };
+  }
+
+  // At this point we need a currentVersion in order for an extension to be
+  // marked as compatible.
+  if (!currentVersion) {
+    return {
+      compatible: false,
+      reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+    };
+  }
+
+  // Do version checks, if this add-on has minimum or maximum version
+  // requirements.
+  // The mozilla-version-comparator API is quite strange; a result of
+  // `1` means the first argument is higher in version than the second.
+  //
+  // Being over the maxVersion, oddly, is not actually a reason to
+  // disable the install button or mark the add-on as incompatible
+  // with this version of Firefox. But we log the version mismatch
+  // here so it's not totally silent and a future developer isn't as
+  // confused by this as tofumatt was.
+  // See: https://github.com/mozilla/addons-frontend/issues/2074#issuecomment-286983423
+  if (maxVersion && mozCompare(browser.version, maxVersion) === 1) {
+    if (currentVersion.isStrictCompatibilityEnabled) {
+      return { compatible: false, reason: INCOMPATIBLE_OVER_MAX_VERSION };
+    }
+
+    _log.info(oneLine`maxVersion ${maxVersion} for add-on lower than
+      browser version ${browser.version}, but add-on still marked as
+      compatible because we largely ignore maxVersion. See:
+      https://github.com/mozilla/addons-frontend/issues/2074`);
+  }
+
+  // A result of `-1` means the second argument is a lower version than the
+  // first.
+  if (minVersion && mozCompare(browser.version, minVersion) === -1) {
+    if (minVersion === '*') {
+      _log.error(
+        oneLine`minVersion of "*" was passed to isCompatibleWithUserAgent();
+        bad add-on version data`,
+        { browserVersion: browser.version, minVersion },
+      );
+    }
+
+    // `minVersion` is always respected, regardless of
+    // `isStrictCompatibilityEnabled`'s value.
+    return { compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION };
+  }
+
+  // Even if an extension's version is marked compatible,
+  // we need to make sure it has a matching platform file
+  // to work around some bugs.
+  // See https://github.com/mozilla/addons-server/issues/6576
+  const { platformFiles } = currentVersion;
+  if (
+    addon.type === ADDON_TYPE_EXTENSION &&
+    !_findInstallURL({
+      appendSource: false,
+      platformFiles,
+      userAgentInfo,
+    })
+  ) {
+    return {
+      compatible: false,
+      reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+    };
+  }
+
+  // If we made it here we're compatible (yay!)
+  return { compatible: true, reason: null };
 }
 
 export type GetClientCompatibilityParams = {|
@@ -184,7 +192,7 @@ export type GetClientCompatibilityParams = {|
   _window?: typeof window | {},
   addon: AddonType,
   clientApp: string,
-  currentVersion: AddonVersionType,
+  currentVersion: AddonVersionType | null,
   userAgentInfo: UserAgentInfoType,
 |};
 
@@ -204,7 +212,6 @@ export function getClientCompatibility({
   _window = typeof window !== 'undefined' ? window : {},
   _log = log,
 }: GetClientCompatibilityParams = {}): ClientCompatibilityType {
-  invariant(currentVersion, 'currentVersion is required');
   // Check compatibility with client app.
   const { supportsClientApp, maxVersion, minVersion } = getCompatibleVersions({
     addon,

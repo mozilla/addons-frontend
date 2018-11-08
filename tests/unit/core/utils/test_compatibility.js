@@ -43,7 +43,7 @@ describe(__filename, () => {
   describe('isCompatibleWithUserAgent', () => {
     const _isCompatibleWithUserAgent = ({
       addon = createInternalAddon(fakeAddon),
-      currentVersion = createInternalVersion(fakeVersion),
+      currentVersion = null,
       ...rest
     }) => {
       return isCompatibleWithUserAgent({
@@ -81,6 +81,7 @@ describe(__filename, () => {
       userAgents.firefox.forEach((userAgent) => {
         expect(
           _isCompatibleWithUserAgent({
+            currentVersion: createInternalVersion(fakeVersion),
             userAgentInfo: UAParser(userAgent),
           }),
         ).toEqual({ compatible: true, reason: null });
@@ -91,6 +92,7 @@ describe(__filename, () => {
       userAgents.firefoxAndroid.forEach((userAgent) => {
         expect(
           _isCompatibleWithUserAgent({
+            currentVersion: createInternalVersion(fakeVersion),
             userAgentInfo: UAParser(userAgent),
           }),
         ).toEqual({ compatible: true, reason: null });
@@ -101,6 +103,7 @@ describe(__filename, () => {
       userAgents.firefoxOS.forEach((userAgent) => {
         expect(
           _isCompatibleWithUserAgent({
+            currentVersion: createInternalVersion(fakeVersion),
             userAgentInfo: UAParser(userAgent),
           }),
         ).toEqual({ compatible: true, reason: null });
@@ -124,6 +127,7 @@ describe(__filename, () => {
       };
       expect(
         _isCompatibleWithUserAgent({
+          currentVersion: createInternalVersion(fakeVersion),
           minVersion: '9.0',
           userAgentInfo,
         }),
@@ -185,6 +189,7 @@ describe(__filename, () => {
         _isCompatibleWithUserAgent({
           _window: fakeWindow,
           addon: fakeOpenSearchAddon,
+          currentVersion: createInternalVersion(fakeVersion),
           userAgentInfo,
         }),
       ).toEqual({ compatible: true, reason: null });
@@ -206,6 +211,7 @@ describe(__filename, () => {
       };
       expect(
         _isCompatibleWithUserAgent({
+          currentVersion: createInternalVersion(fakeVersion),
           minVersion: '10.1',
           userAgentInfo,
         }),
@@ -237,6 +243,7 @@ describe(__filename, () => {
       };
       expect(
         _isCompatibleWithUserAgent({
+          currentVersion: createInternalVersion(fakeVersion),
           userAgentInfo,
         }),
       ).toEqual({ compatible: true, reason: null });
@@ -251,6 +258,7 @@ describe(__filename, () => {
       };
       expect(
         _isCompatibleWithUserAgent({
+          currentVersion: createInternalVersion(fakeVersion),
           maxVersion: '*',
           userAgentInfo,
         }),
@@ -269,6 +277,7 @@ describe(__filename, () => {
       expect(
         _isCompatibleWithUserAgent({
           _log: fakeLog,
+          currentVersion: createInternalVersion(fakeVersion),
           minVersion: '*',
           userAgentInfo,
         }),
@@ -300,6 +309,18 @@ describe(__filename, () => {
       expect(
         _isCompatibleWithUserAgent({
           _findInstallURL: sinon.stub().returns(undefined),
+          userAgentInfo: UAParser(userAgentsByPlatform.windows.firefox40),
+        }),
+      ).toEqual({
+        compatible: false,
+        reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+      });
+    });
+
+    it('is incompatible if currentVersion is null', () => {
+      expect(
+        _isCompatibleWithUserAgent({
+          currentVersion: null,
           userAgentInfo: UAParser(userAgentsByPlatform.windows.firefox40),
         }),
       ).toEqual({
@@ -394,6 +415,21 @@ describe(__filename, () => {
         currentVersion,
       });
 
+      expect(maxVersion).toEqual(null);
+      expect(minVersion).toEqual(null);
+    });
+
+    it('returns nulls if currentVersion is null', () => {
+      const {
+        maxVersion,
+        minVersion,
+        supportsClientApp,
+      } = getCompatibleVersions({
+        clientApp: CLIENT_APP_FIREFOX,
+        currentVersion: null,
+      });
+
+      expect(supportsClientApp).toEqual(false);
       expect(maxVersion).toEqual(null);
       expect(minVersion).toEqual(null);
     });
@@ -556,6 +592,25 @@ describe(__filename, () => {
         maxVersion: currentVersion.compatibility[clientApp].max,
         minVersion: currentVersion.compatibility[clientApp].min,
         reason: INCOMPATIBLE_NOT_FIREFOX,
+      });
+    });
+
+    it('returns incompatible when currentVersion is null', () => {
+      const { browser, os } = UAParser(userAgents.firefox[0]);
+      const userAgentInfo = { browser, os };
+      const clientApp = CLIENT_APP_FIREFOX;
+
+      expect(
+        _getClientCompatibility({
+          clientApp,
+          currentVersion: null,
+          userAgentInfo,
+        }),
+      ).toEqual({
+        compatible: false,
+        maxVersion: null,
+        minVersion: null,
+        reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
       });
     });
 
