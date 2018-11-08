@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import Link from 'amo/components/Link';
+import { shouldShowThemes } from 'amo/utils';
 import { setClientApp } from 'core/actions';
 import {
   ADDON_TYPE_EXTENSION,
@@ -62,13 +63,10 @@ export class SectionLinksBase extends React.Component<Props> {
     );
 
     let forBrowserNameText;
-    let showThemes = true;
-
     if (clientApp === CLIENT_APP_FIREFOX) {
       forBrowserNameText = i18n.gettext('for Firefox');
     } else if (clientApp === CLIENT_APP_ANDROID) {
       forBrowserNameText = i18n.gettext('for Android');
-      showThemes = _config.get('enableFeatureStaticThemesForAndroid');
     }
 
     return (
@@ -97,7 +95,7 @@ export class SectionLinksBase extends React.Component<Props> {
             {i18n.gettext('Extensions')}
           </Link>
         </li>
-        {showThemes && (
+        {shouldShowThemes({ _config, clientApp }) && (
           <li>
             <Link
               className={makeClassName(

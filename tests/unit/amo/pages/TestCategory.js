@@ -136,7 +136,7 @@ describe(__filename, () => {
   const renderAndroidTheme = (props = {}) => {
     const category = {
       ...fakeCategory,
-      // This should really be et to CLIENT_APP_ANDROID *but* the reducer
+      // This should really be set to CLIENT_APP_ANDROID *but* the reducer
       // replaces android "theme" categories with firefox categories here:
       // https://github.com/mozilla/addons-frontend/blob/0ebf7b7fc559dee2cf704bad04905c8c8e430905/src/core/reducers/categories.js#L72-L82
       application: CLIENT_APP_FIREFOX,
