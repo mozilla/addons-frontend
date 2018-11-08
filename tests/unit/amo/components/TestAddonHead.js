@@ -88,7 +88,10 @@ describe(__filename, () => {
   it('renders a HeadMetaTags component', () => {
     const addon = createInternalAddon(fakeAddon);
     const lang = 'fr';
-    const { store } = dispatchClientMetadata({ lang });
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+      lang,
+    });
 
     const root = render({ addon, store });
 

@@ -108,7 +108,7 @@ describe(__filename, () => {
     });
   });
 
-  it('does not render a "og:image" meta tag when is null', () => {
+  it('does not render a "og:image" meta tag when image is null', () => {
     const root = render({ image: null });
 
     expect(root.find(`meta[property="og:image"]`)).toHaveLength(0);
