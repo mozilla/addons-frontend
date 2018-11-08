@@ -59,16 +59,6 @@ export const withExperiment = ({
     constructor(props: withExperimentInternalProps) {
       super(props);
 
-      log.info('[WithExperiment.constructor] props:', {
-        variantA: props.variantA,
-        variantB: props.variantB,
-      });
-
-      log.info('[WithExperiment.constructor] this.props:', {
-        variantA: this.props.variantA,
-        variantB: this.props.variantB,
-      });
-
       if (!this.isExperimentEnabled()) {
         log.debug(`Experiment "${props.id}" is not enabled by config.`);
         return;
@@ -78,24 +68,9 @@ export const withExperiment = ({
 
       this.experimentCookie = cookies.get(this.getCookieName());
 
-      log.info(
-        '[WithExperiment.constructor] cookie name:',
-        this.getCookieName(),
-      );
-
-      log.info(
-        '[WithExperiment.constructor] experiment cookie loaded:',
-        this.experimentCookie,
-      );
-
       if (this.experimentCookie === undefined) {
         this.experimentCookie = randomizer() >= 0.5 ? variantA : variantB;
         cookies.set(this.getCookieName(), this.experimentCookie, cookieConfig);
-
-        log.info(
-          '[WithExperiment.constructor] experiment cookie saved:',
-          this.experimentCookie,
-        );
       }
     }
 
@@ -125,8 +100,6 @@ export const withExperiment = ({
         experimentEnabled: isExperimentEnabled,
         variant: isExperimentEnabled ? cookies.get(this.getCookieName()) : null,
       };
-
-      log.info('[WithExperiment.render] exposed props:', exposedProps);
 
       return <WrappedComponent {...exposedProps} {...props} />;
     }
