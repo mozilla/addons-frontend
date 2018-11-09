@@ -81,6 +81,7 @@
   font-size: 10px;
   font-weight: 500;
   margin-top: 8px;
+  text-transform: uppercase;
   white-space: nowrap;
 
   @include respond-to(medium) {

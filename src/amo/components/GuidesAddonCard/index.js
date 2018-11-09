@@ -135,7 +135,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                 {staffPick && (
                   <div className="GuidesAddonCard-content-header-staff-pick">
                     <Icon name="trophy" />
-                    <span>{i18n.gettext('STAFF PICK')}</span>
+                    <span>{i18n.gettext('Staff Pick')}</span>
                   </div>
                 )}
               </div>
