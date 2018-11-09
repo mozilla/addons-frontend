@@ -140,11 +140,10 @@ describe(__filename, () => {
     it('handles error responses with JSON syntax errors', async () => {
       mockWindow.expects('fetch').returns(
         createApiResponse({
-          json() {
-            return Promise.reject(
-              new SyntaxError('pretend this was a response with invalid JSON'),
-            );
-          },
+          // With the specified header and text combination,
+          // this will return an invalid JSON response.
+          headers: generateHeaders({ 'Content-Type': 'application/json' }),
+          textData: 'pretend this was a response with invalid JSON',
         }),
       );
 
@@ -154,9 +153,7 @@ describe(__filename, () => {
       await api
         .callApi({ endpoint: 'resource' })
         .then(unexpectedSuccess, (err) => {
-          expect(err.message).toEqual(
-            'pretend this was a response with invalid JSON',
-          );
+          expect(err.message).toContain('invalid json response body at');
         });
     });
 
@@ -164,9 +161,7 @@ describe(__filename, () => {
       mockWindow.expects('fetch').returns(
         createApiResponse({
           headers: generateHeaders({ 'Content-Type': 'text/plain' }),
-          text() {
-            return Promise.resolve('some text response');
-          },
+          textData: 'some text response',
         }),
       );
 
@@ -179,9 +174,6 @@ describe(__filename, () => {
       mockWindow.expects('fetch').returns(
         createApiResponse({
           headers: generateHeaders({}),
-          text() {
-            return Promise.resolve();
-          },
         }),
       );
 
@@ -433,17 +425,15 @@ describe(__filename, () => {
 
     it('logs a warning message when content type is unknown', async () => {
       const body = 'long body content'.repeat(100);
-      const status = 'some-response-status';
+      const status = 204;
       const url = 'some-response-url';
 
       mockWindow.expects('fetch').returns(
         createApiResponse({
-          url,
-          status,
           headers: generateHeaders({ 'Content-Type': null }),
-          text() {
-            return Promise.resolve(body);
-          },
+          status,
+          textData: body,
+          url,
         }),
       );
 
