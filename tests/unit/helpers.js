@@ -1,4 +1,4 @@
-/* global Response */
+/* global Headers, Response */
 import url from 'url';
 
 import { LOCATION_CHANGE } from 'connected-react-router';
@@ -767,24 +767,29 @@ export const createFakeMozWindow = () => {
 export function generateHeaders(
   headerData = { 'Content-Type': 'application/json' },
 ) {
-  const response = new Response();
-  Object.keys(headerData).forEach((key) =>
-    response.headers.append(key, headerData[key]),
-  );
-  return response.headers;
+  return new Headers(headerData);
 }
 
 export function createApiResponse({
-  ok = true,
+  textData = null,
   jsonData = {},
+  ok = true,
   ...responseProps
 } = {}) {
-  const response = {
-    ok,
-    headers: generateHeaders(),
-    json: () => Promise.resolve(jsonData),
+  let body = textData;
+  let headers = generateHeaders({ 'Content-Type': 'text/plain' });
+
+  if (!body && jsonData) {
+    body = JSON.stringify(jsonData);
+    headers = generateHeaders({ 'Content-Type': 'application/json' });
+  }
+
+  const response = new Response(body, {
+    headers,
+    status: ok ? 200 : 400,
     ...responseProps,
-  };
+  });
+
   return Promise.resolve(response);
 }
 
