@@ -24,13 +24,7 @@ import { getErrorMessage } from 'core/utils/addons';
 import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
 
 describe(__filename, () => {
-  let store;
-
-  beforeEach(() => {
-    store = dispatchClientMetadata().store;
-  });
-
-  const _loadAddonResults = (addon = createInternalAddon(fakeAddon)) => {
+  const _loadAddonResults = (addon = createInternalAddon(fakeAddon), store) => {
     store.dispatch(
       loadAddonResults({
         addons: [addon],
@@ -38,27 +32,35 @@ describe(__filename, () => {
     );
   };
 
-  const render = ({
+  const getProps = ({
     addon = createInternalAddon(fakeAddon),
     addonGuid = addon.guid,
     addonCustomText = 'Some text',
+    hasAddonManager = true,
     i18n = fakeI18n(),
     setCurrentStatus = sinon.spy(),
+    store = dispatchClientMetadata().store,
     ...customProps
   } = {}) => {
-    const allProps = {
+    return {
       addon,
       addonGuid,
       addonCustomText,
-      setCurrentStatus,
+      hasAddonManager,
       i18n,
+      setCurrentStatus,
       status: UNKNOWN,
       store,
       ...customProps,
     };
+  };
+
+  const render = (customProps = {}) => {
+    const allProps = getProps(customProps);
+    const { addon, store } = allProps;
 
     if (addon) {
-      _loadAddonResults(addon);
+      _loadAddonResults(addon, store);
     }
 
     return shallowUntilTarget(
@@ -78,10 +80,6 @@ describe(__filename, () => {
     });
 
     const root = render({
-      _getClientCompatibility: sinon.stub().returns({
-        compatible: true,
-        reason: null,
-      }),
       addon,
       addonGuid: addon.guid,
       addonCustomText,
@@ -97,7 +95,6 @@ describe(__filename, () => {
     );
     expect(root.find(AddonTitle)).toHaveLength(1);
     expect(root.find(AMInstallButton)).toHaveLength(1);
-    expect(root.find(AddonCompatibilityError)).toHaveLength(0);
   });
 
   it('returns null when there is no addon', () => {
@@ -119,26 +116,43 @@ describe(__filename, () => {
     expect(root.find(AddonCompatibilityError)).toHaveLength(1);
   });
 
-  it('renders STAFF PICK content by default', () => {
+  it('does not render an AddonCompatibilityError when there is compatibility', () => {
+    const root = render({
+      _getClientCompatibility: sinon.stub().returns({
+        compatible: true,
+        reason: null,
+      }),
+    });
+
+    expect(root.find(AddonCompatibilityError)).toHaveLength(0);
+  });
+
+  it('renders Staff Pick content by default', () => {
     const root = render();
     expect(
       root.find('.GuidesAddonCard-content-header-staff-pick'),
     ).toHaveLength(1);
   });
 
-  it('does not renders STAFF PICK content when staffPick prop is false', () => {
+  it('does not render Staff Pick content when staffPick prop is false', () => {
     const root = render({ staffPick: false });
     expect(
       root.find('.GuidesAddonCard-content-header-staff-pick'),
     ).toHaveLength(0);
   });
 
-  it('passes the addon to the InstallButton', () => {
+  it('passes the addon to AddonTitle', () => {
     const addon = createInternalAddon(fakeAddon);
-    const root = render({ addon, hasAddonManager: true });
+    const root = render({ addon });
+
+    expect(root.find(AddonTitle)).toHaveProp('addon', addon);
+  });
+
+  it('passes the addon to AMInstallButton', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = render({ addon });
 
     expect(root.find(AMInstallButton)).toHaveProp('addon', addon);
-    expect(root.find(AMInstallButton)).toHaveProp('hasAddonManager', true);
   });
 
   it('passes install helper functions to the install button', () => {
@@ -161,7 +175,7 @@ describe(__filename, () => {
     expect(installButton).toHaveProp('uninstall', uninstall);
   });
 
-  // // TODO: waiting for feedback on this.
+  // TODO: This will probably change; I'm waiting for feedback on this.
   it('renders "Get Firefox Now" button when the client is not Firefox', () => {
     const root = render({
       _getClientCompatibility: sinon.stub().returns({
@@ -173,7 +187,7 @@ describe(__filename, () => {
     expect(root.find('.Button--get-firefox')).toHaveLength(1);
   });
 
-  it('passes the add-on GUID to Firefox install button', () => {
+  it('passes the addon GUID to the Firefox install button', () => {
     const guid = 'some-guid';
     const addon = createInternalAddon({
       ...fakeAddon,
@@ -195,6 +209,7 @@ describe(__filename, () => {
   });
 
   it('renders an install error if there is one', () => {
+    const { store } = dispatchClientMetadata();
     const addon = fakeAddon;
 
     // User clicks the install button.
@@ -208,12 +223,18 @@ describe(__filename, () => {
     const error = FATAL_ERROR;
     store.dispatch(setInstallError({ error, guid: addon.guid }));
 
-    const root = render();
+    const root = render({ store });
 
     expect(root.find('.Addon-header-install-error')).toHaveLength(1);
     expect(root.find('.Addon-header-install-error')).toHaveProp(
       'children',
       getErrorMessage({ i18n: fakeI18n(), error }),
     );
+  });
+
+  it('does not render an install error if there is no error', () => {
+    const root = render();
+
+    expect(root.find('.Addon-header-install-error')).toHaveLength(0);
   });
 });
