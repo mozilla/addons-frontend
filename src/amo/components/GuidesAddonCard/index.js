@@ -111,6 +111,14 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
       <Card>
         {this.renderInstallError()}
         <div className="GuidesAddonCard">
+          {isFireFox && !compatible && compatibility ? (
+            <AddonCompatibilityError
+              downloadUrl={compatibility.downloadUrl}
+              maxVersion={compatibility.maxVersion}
+              minVersion={compatibility.minVersion}
+              reason={compatibility.reason}
+            />
+          ) : null}
           <div className="GuidesAddonCard-content">
             <img
               className="GuidesAddonCard-content-icon"
@@ -120,14 +128,6 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
             <div className="GuidesAddonCard-content-text">
               <div className="GuidesAddonCard-content-header">
                 <div className="GuidesAddonCard-content-header-title">
-                  {isFireFox && !compatible && compatibility ? (
-                    <AddonCompatibilityError
-                      downloadUrl={compatibility.downloadUrl}
-                      maxVersion={compatibility.maxVersion}
-                      minVersion={compatibility.minVersion}
-                      reason={compatibility.reason}
-                    />
-                  ) : null}
                   <span className="GuidesAddonCard-content-authors">
                     <AddonTitle addon={addon} as="span" />
                   </span>
