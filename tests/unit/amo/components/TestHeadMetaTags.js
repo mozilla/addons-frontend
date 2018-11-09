@@ -2,8 +2,10 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 
 import HeadMetaTags, { HeadMetaTagsBase } from 'amo/components/HeadMetaTags';
+import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
 import {
   dispatchClientMetadata,
+  fakeI18n,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -11,9 +13,8 @@ import {
 describe(__filename, () => {
   const render = (props = {}) => {
     const allProps = {
+      i18n: fakeI18n(),
       store: dispatchClientMetadata().store,
-      description: 'some page desc',
-      title: 'some page title',
       ...props,
     };
 
@@ -32,6 +33,18 @@ describe(__filename, () => {
     const root = render({ description });
 
     expect(root.find('meta[name="description"]')).toHaveLength(1);
+  });
+
+  it('does not render a "description" meta tag when description is not defined', () => {
+    const root = render({ description: undefined });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(0);
+  });
+
+  it('does not render a "description" meta tag when description is null', () => {
+    const root = render({ description: null });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(0);
   });
 
   it('renders a "date" meta tag', () => {
@@ -97,7 +110,6 @@ describe(__filename, () => {
       ['og:description', description],
       ['og:image', image],
       ['og:locale', lang],
-      ['og:title', title],
       ['og:type', 'website'],
       ['og:url', `${baseURL}${pathname}`],
     ].forEach(([property, expectedValue]) => {
@@ -106,6 +118,11 @@ describe(__filename, () => {
         expectedValue,
       );
     });
+
+    expect(root.find(`meta[property="og:title"]`)).toHaveLength(1);
+    expect(root.find(`meta[property="og:title"]`).prop('content')).toContain(
+      title,
+    );
   });
 
   it('does not render a "og:image" meta tag when image is null', () => {
@@ -119,4 +136,55 @@ describe(__filename, () => {
 
     expect(root.find(`meta[property="og:image"]`)).toHaveLength(0);
   });
+
+  it('does not render a "og:description" meta tag when description is null', () => {
+    const root = render({ description: null });
+
+    expect(root.find(`meta[property="og:description"]`)).toHaveLength(0);
+  });
+
+  it('does not render a "og:description" meta tag when description is not defined', () => {
+    const root = render({ description: undefined });
+
+    expect(root.find(`meta[property="og:description"]`)).toHaveLength(0);
+  });
+
+  it('does not append the default title in the "og:title" meta tag when `appendDefaultTitle` is `false`', () => {
+    const title = 'some title';
+
+    const root = render({ title, appendDefaultTitle: false });
+
+    expect(root.find(`meta[property="og:title"]`).prop('content')).toEqual(
+      title,
+    );
+  });
+
+  it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
+    'appends a default %s title in the "og:title" meta tag when title is supplied',
+    (clientApp) => {
+      const title = 'some title';
+      const lang = 'fr';
+      const { store } = dispatchClientMetadata({ clientApp, lang });
+
+      const root = render({ store, title });
+
+      expect(root.find(`meta[property="og:title"]`).prop('content')).toMatch(
+        new RegExp(`^${title} – Add-ons for Firefox( Android)? \\(${lang}\\)$`),
+      );
+    },
+  );
+
+  it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
+    'uses the default %s title in the "og:title" meta tag when title is not supplied',
+    (clientApp) => {
+      const lang = 'fr';
+      const { store } = dispatchClientMetadata({ clientApp, lang });
+
+      const root = render({ store, title: null });
+
+      expect(root.find(`meta[property="og:title"]`).prop('content')).toMatch(
+        new RegExp(`^Add-ons for Firefox( Android)? \\(${lang}\\)$`),
+      );
+    },
+  );
 });

@@ -154,6 +154,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
         </Helmet>
 
         <HeadMetaTags
+          appendDefaultTitle={false}
           date={addon.created}
           description={this.getPageDescription()}
           image={image}

@@ -96,6 +96,7 @@ describe(__filename, () => {
     const root = render({ addon, store });
 
     expect(root.find(HeadMetaTags)).toHaveLength(1);
+    expect(root.find(HeadMetaTags)).toHaveProp('appendDefaultTitle', false);
     expect(root.find(HeadMetaTags)).toHaveProp('date', addon.created);
     expect(root.find(HeadMetaTags)).toHaveProp(
       'description',

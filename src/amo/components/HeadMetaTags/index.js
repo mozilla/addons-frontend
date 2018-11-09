@@ -6,33 +6,68 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { getCanonicalURL } from 'amo/utils';
+import { CLIENT_APP_ANDROID } from 'core/constants';
+import translate from 'core/i18n/translate';
 import type { AppState } from 'amo/store';
+import type { I18nType } from 'core/types/i18n';
 
 type Props = {|
+  appendDefaultTitle?: boolean,
   date?: Date | null,
-  description: string,
+  description?: string | null,
   image?: string | null,
   lastModified?: Date | null,
-  title: string,
+  title?: string | null,
 |};
 
 type InternalProps = {|
   ...Props,
   _config: typeof config,
+  clientApp: string,
+  i18n: I18nType,
   lang: string,
   locationPathname: string,
 |};
 
 export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
-  renderOpenGraph() {
+  static defaultProps = {
+    appendDefaultTitle: true,
+  };
+
+  getTitle() {
     const {
-      _config,
-      description,
-      image,
-      lang,
-      locationPathname,
+      clientApp,
+      i18n,
+      lang: locale,
       title,
+      appendDefaultTitle,
     } = this.props;
+
+    let i18nTitle;
+    let i18nValues = { locale };
+
+    if (title) {
+      if (!appendDefaultTitle) {
+        return title;
+      }
+
+      i18nTitle =
+        clientApp === CLIENT_APP_ANDROID
+          ? i18n.gettext('%(title)s – Add-ons for Firefox Android (%(locale)s)')
+          : i18n.gettext('%(title)s – Add-ons for Firefox (%(locale)s)');
+      i18nValues = { ...i18nValues, title };
+    } else {
+      i18nTitle =
+        clientApp === CLIENT_APP_ANDROID
+          ? i18n.gettext('Add-ons for Firefox Android (%(locale)s)')
+          : i18n.gettext('Add-ons for Firefox (%(locale)s)');
+    }
+
+    return i18n.sprintf(i18nTitle, i18nValues);
+  }
+
+  renderOpenGraph() {
+    const { _config, description, image, lang, locationPathname } = this.props;
 
     const tags = [
       <meta key="og:type" property="og:type" content="website" />,
@@ -41,14 +76,19 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
         property="og:url"
         content={getCanonicalURL({ _config, locationPathname })}
       />,
-      <meta key="og:title" property="og:title" content={title} />,
-      <meta
-        key="og:description"
-        property="og:description"
-        content={description}
-      />,
+      <meta key="og:title" property="og:title" content={this.getTitle()} />,
       <meta key="og:locale" property="og:locale" content={lang} />,
     ];
+
+    if (description) {
+      tags.push(
+        <meta
+          key="og:description"
+          property="og:description"
+          content={description}
+        />,
+      );
+    }
 
     if (image) {
       tags.push(<meta key="og:image" property="og:image" content={image} />);
@@ -62,7 +102,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
 
     return (
       <Helmet>
-        <meta name="description" content={description} />
+        {description && <meta name="description" content={description} />}
         {date && <meta name="date" content={date} />}
         {lastModified && <meta name="last-modified" content={lastModified} />}
         {this.renderOpenGraph()}
@@ -72,10 +112,11 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
 }
 
 const mapStateToProps = (state: AppState) => {
-  const { lang } = state.api;
+  const { clientApp, lang } = state.api;
   const { pathname: locationPathname } = state.router.location;
 
   return {
+    clientApp,
     lang,
     locationPathname,
   };
@@ -83,6 +124,7 @@ const mapStateToProps = (state: AppState) => {
 
 const HeadMetaTags: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
+  translate(),
 )(HeadMetaTagsBase);
 
 export default HeadMetaTags;
