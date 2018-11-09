@@ -18,7 +18,10 @@ import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterMatchType } from 'core/types/router';
+import type {
+  ReactRouterHistoryType,
+  ReactRouterMatchType,
+} from 'core/types/router';
 
 import './styles.scss';
 
@@ -39,6 +42,7 @@ type InternalProps = {|
   clientApp: string | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
+  history: ReactRouterHistoryType,
   slug: string,
   guids: Array<string>,
   i18n: I18nType,
@@ -309,25 +313,29 @@ export class GuidesBase extends React.Component<InternalProps> {
     );
   }
 
+  handleClick = (event: SyntheticEvent<HTMLElement>, url: string) => {
+    event.preventDefault();
+
+    // $FLOW_FIXME: the "`nodeName`is missing in EventTarget" fix.
+    const { nodeName } = event.target;
+
+    if (url && nodeName && nodeName.toLowerCase() === 'a') {
+      const { history } = this.props;
+      history.push(url);
+    }
+  };
+
   getGuidesSections = (
     sections: Array<SectionsType>,
   ): React.ChildrenArray<React.Node> => {
     const { addons, clientApp, i18n, lang } = this.props;
 
-    return sections.map((section) => {
-      // TODO: look into having these links use the Router (vs 'a' tag).
-      // See https://github.com/mozilla/addons-frontend/issues/6787.
-      let exploreMoreLink;
-      if (lang && clientApp) {
-        exploreMoreLink = i18n.sprintf(section.exploreMore, {
-          linkStart: `<a class="Guides-section-explore-more-link" href="/${lang}/${clientApp}${
-            section.exploreUrl
-          }">`,
-          linkEnd: '</a>',
-        });
-      }
-
-      const addon = addons[section.addonGuid] || null;
+    return sections.map((section, index) => {
+      const url = `/${lang}/${clientApp}${section.exploreUrl}`;
+      const exploreMoreLink = i18n.sprintf(section.exploreMore, {
+        linkStart: `<a href="${url}">`,
+        linkEnd: '</a>',
+      });
 
       return (
         <div className="Guides-section" key={section.exploreUrl}>
@@ -341,6 +349,10 @@ export class GuidesBase extends React.Component<InternalProps> {
 
           <div
             className="Guides-section-explore-more"
+            onClick={(e) => this.handleClick(e, url)}
+            onKeyDown={(e) => this.handleClick(e, url)}
+            role="link"
+            tabIndex={index}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={sanitizeHTML(exploreMoreLink, ['a'])}
           />
