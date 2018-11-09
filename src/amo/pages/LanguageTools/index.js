@@ -10,6 +10,7 @@ import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import { withErrorHandler } from 'core/errorHandler';
 import {
   ADDON_TYPE_DICT,
@@ -150,13 +151,14 @@ export class LanguageToolsBase extends React.Component<Props> {
       <Card className="LanguageTools" header={header}>
         <Helmet>
           <title>{header}</title>
-          <meta
-            name="description"
-            content={i18n.gettext(`Download Firefox dictionaries and language
-              pack extensions. Add a new language option to your browser
-              spell-checker, or change the browser's interface language.`)}
-          />
         </Helmet>
+
+        <HeadMetaTags
+          description={i18n.gettext(`Download Firefox dictionaries and language
+            pack extensions. Add a new language option to your browser
+            spell-checker, or change the browser's interface language.`)}
+          title={header}
+        />
 
         <HeadLinks />
 

@@ -12,6 +12,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Categories from 'amo/components/Categories';
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { shouldShowThemes } from 'amo/utils';
 import {
@@ -240,6 +241,7 @@ export class LandingPageBase extends React.Component {
     };
 
     const isAddonTheme = isTheme(addonType);
+    const title = headingText[addonType];
 
     if (isAddonTheme && !shouldShowThemes({ _config, clientApp })) {
       return <NotFound />;
@@ -252,9 +254,10 @@ export class LandingPageBase extends React.Component {
         })}
       >
         <Helmet>
-          <title>{headingText[addonType]}</title>
-          <meta name="description" content={this.getPageDescription()} />
+          <title>{title}</title>
         </Helmet>
+
+        <HeadMetaTags description={this.getPageDescription()} title={title} />
 
         <HeadLinks />
 

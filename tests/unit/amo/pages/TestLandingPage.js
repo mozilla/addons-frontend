@@ -5,6 +5,7 @@ import * as landingActions from 'amo/actions/landing';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import LandingPage, { LandingPageBase } from 'amo/pages/LandingPage';
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import {
   ADDON_TYPE_EXTENSION,
@@ -607,20 +608,28 @@ describe(__filename, () => {
   });
 
   it.each([
-    [ADDON_TYPE_EXTENSION, /Download Firefox Extensions to add features/],
-    [ADDON_TYPE_THEME, /Download themes to change/],
-  ])('renders a "description" meta tag for %s', (addonType, partialContent) => {
-    const root = render({
-      match: {
-        params: { visibleAddonType: getVisibleAddonType(addonType) },
-      },
-    });
+    [
+      ADDON_TYPE_EXTENSION,
+      'Extensions',
+      /Download Firefox Extensions to add features/,
+    ],
+    [ADDON_TYPE_THEME, 'Themes', /Download themes to change/],
+  ])(
+    'renders a HeadMetaTags component for %s',
+    (addonType, expectedTitle, expectedDescriptionMatch) => {
+      const root = render({
+        match: {
+          params: { visibleAddonType: getVisibleAddonType(addonType) },
+        },
+      });
 
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
-      partialContent,
-    );
-  });
+      expect(root.find(HeadMetaTags)).toHaveLength(1);
+      expect(root.find(HeadMetaTags).prop('title')).toEqual(expectedTitle);
+      expect(root.find(HeadMetaTags).prop('description')).toMatch(
+        expectedDescriptionMatch,
+      );
+    },
+  );
 
   it('renders a HeadLinks component', () => {
     const root = render();

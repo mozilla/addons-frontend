@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import CategoryHead, { CategoryHeadBase } from 'amo/components/CategoryHead';
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import { fakeCategory, fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
@@ -40,36 +41,26 @@ describe(__filename, () => {
     expect(root.find('title')).toHaveText(category.name);
   });
 
-  it('renders a "description" meta tag when category description is available', () => {
-    const description = 'some description for a category';
-    const category = { ...fakeCategory, description };
-    const root = render({ category });
-
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]')).toHaveProp(
-      'content',
-      description,
-    );
-  });
-
-  it('does not render a "description" meta tag when category description is null', () => {
-    const category = { ...fakeCategory, description: null };
-    const root = render({ category });
-
-    expect(root.find('meta[name="description"]')).toHaveLength(0);
-  });
-
-  it('does not render a "description" meta tag when category description is empty', () => {
-    const category = { ...fakeCategory, description: '' };
-    const root = render({ category });
-
-    expect(root.find('meta[name="description"]')).toHaveLength(0);
-  });
-
   it('renders a HeadLinks component', () => {
     const category = { ...fakeCategory };
     const root = render({ category });
 
     expect(root.find(HeadLinks)).toHaveLength(1);
+  });
+
+  it('renders a HeadMetaTags component', () => {
+    const category = { ...fakeCategory, type: ADDON_TYPE_THEME };
+
+    const root = render({ category });
+
+    expect(root.find(HeadMetaTags)).toHaveLength(1);
+    expect(root.find(HeadMetaTags)).toHaveProp(
+      'title',
+      `${category.name} – Themes`,
+    );
+    expect(root.find(HeadMetaTags)).toHaveProp(
+      'description',
+      category.description,
+    );
   });
 });
