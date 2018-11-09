@@ -260,6 +260,8 @@ describe(__filename, () => {
   });
 
   it('sets the current status in componentDidMount with an addonManager', () => {
+    _loadVersions({ store });
+
     const _addonManager = getFakeAddonManagerWrapper({
       getAddon: Promise.resolve({
         isActive: true,
