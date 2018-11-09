@@ -15,6 +15,7 @@ import Category from 'amo/pages/Category';
 import Collection from 'amo/pages/Collection';
 import CollectionEdit from 'amo/pages/CollectionEdit';
 import CollectionList from 'amo/pages/CollectionList';
+import Guides from 'amo/pages/Guides';
 import Home from 'amo/pages/Home';
 import LandingPage from 'amo/pages/LandingPage';
 import LanguageTools from 'amo/pages/LanguageTools';
@@ -45,6 +46,15 @@ const Routes = ({ _config = config }: Props = {}) => (
     <Route exact path="/:lang/:application/" component={Home} />
 
     <Route exact path="/:lang/:application/addon/:slug/" component={Addon} />
+
+    {_config.get('enableFeatureHomeHeroGuides') && (
+      <Route
+        exact
+        path="/:lang/:application/guides/:slug/"
+        component={Guides}
+      />
+    )}
+
     <Route
       exact
       path="/:lang/:application/addon/:addonSlug/reviews/:reviewId"
