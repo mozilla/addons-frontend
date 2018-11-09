@@ -233,7 +233,6 @@ export function createInternalAddon(
     categories: apiAddon.categories,
     contributions_url: apiAddon.contributions_url,
     created: apiAddon.created,
-    current_version: apiAddon.current_version,
     default_locale: apiAddon.default_locale,
     description: apiAddon.description,
     edit_url: apiAddon.edit_url,

@@ -599,18 +599,20 @@ describe(__filename, () => {
         ...fakeAddon,
         guid: FACEBOOK_CONTAINER_ADDON_GUID,
       });
+      const currentVersion = createInternalVersion(fakeVersion);
 
       expect(
         _getClientCompatibility({
           addon,
           clientApp,
+          currentVersion,
           userAgentInfo,
         }),
       ).toEqual({
         compatible: false,
         downloadUrl: FACEBOOK_CONTAINER_DOWNLOAD_URL,
-        maxVersion: addon.current_version.compatibility[clientApp].max,
-        minVersion: addon.current_version.compatibility[clientApp].min,
+        maxVersion: currentVersion.compatibility[clientApp].max,
+        minVersion: currentVersion.compatibility[clientApp].min,
         reason: INCOMPATIBLE_NOT_FIREFOX,
       });
     });

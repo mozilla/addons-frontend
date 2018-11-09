@@ -126,6 +126,9 @@ describe(__filename, () => {
     const extension = { ...fakeAddon, type: ADDON_TYPE_EXTENSION };
     const state = addons(undefined, loadAddonResults({ addons: [extension] }));
 
+    // We no longer store the current_version from the API addon
+    delete extension.current_version;
+
     expect(state.byID[extension.id]).toEqual({
       ...extension,
       currentVersionId: fakeAddon.current_version.id,
@@ -152,6 +155,9 @@ describe(__filename, () => {
       isMozillaSignedExtension: false,
     };
     delete expectedTheme.theme_data;
+
+    // We no longer store the current_version from the API addon
+    delete expectedTheme.current_version;
 
     expect(state.byID[theme.id]).toEqual(expectedTheme);
   });
