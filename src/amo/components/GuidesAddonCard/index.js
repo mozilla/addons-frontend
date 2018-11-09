@@ -15,6 +15,7 @@ import {
 import { withInstallHelpers } from 'core/installAddon';
 import translate from 'core/i18n/translate';
 import { getAddonByGUID } from 'core/reducers/addons';
+import { getVersionById } from 'core/reducers/versions';
 import { getErrorMessage } from 'core/utils/addons';
 import { getClientCompatibility } from 'core/utils/compatibility';
 import Card from 'ui/components/Card';
@@ -75,6 +76,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
       _getClientCompatibility,
       addon,
       clientApp,
+      currentVersion,
       i18n,
       staffPick,
       userAgentInfo,
@@ -87,6 +89,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
       compatibility = _getClientCompatibility({
         addon,
         clientApp,
+        currentVersion,
         userAgentInfo,
       });
 
@@ -141,6 +144,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
             {showInstallButton && (
               <AMInstallButton
                 addon={addon}
+                currentVersion={this.props.currentVersion}
                 defaultButtonText={i18n.gettext('Addon')}
                 defaultInstallSource={this.props.defaultInstallSource}
                 disabled={!compatible}
@@ -178,14 +182,20 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
 
 export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const addon = getAddonByGUID(state, ownProps.addonGuid);
+  let currentVersion = null;
   let installedAddon = {};
 
   if (addon) {
     installedAddon = state.installations[addon.guid];
+    currentVersion = getVersionById({
+      id: addon.currentVersionId,
+      state: state.versions,
+    });
   }
   return {
     addon,
     clientApp: state.api.clientApp,
+    currentVersion,
     location: state.router.location,
     installError:
       installedAddon && installedAddon.error ? installedAddon.error : null,
@@ -196,7 +206,7 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
 
 const GuidesAddonCard: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
-  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_GUIDES_PAGE }),
+  // withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_GUIDES_PAGE }),
   translate(),
 )(GuidesAddonCardBase);
 
