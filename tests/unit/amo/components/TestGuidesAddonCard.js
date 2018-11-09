@@ -81,7 +81,6 @@ describe(__filename, () => {
 
     const root = render({
       addon,
-      addonGuid: addon.guid,
       addonCustomText,
     });
 

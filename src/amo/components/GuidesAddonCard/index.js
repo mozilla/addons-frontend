@@ -128,7 +128,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
             <div className="GuidesAddonCard-content-text">
               <div className="GuidesAddonCard-content-header">
                 <div className="GuidesAddonCard-content-header-title">
-                  <span className="GuidesAddonCard-content-authors">
+                  <span className="GuidesAddonCard-content-header-authors">
                     <AddonTitle addon={addon} as="span" />
                   </span>
                 </div>
@@ -201,10 +201,10 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
     addon,
     clientApp: state.api.clientApp,
     currentVersion,
-    location: state.router.location,
     installError:
       installedAddon && installedAddon.error ? installedAddon.error : null,
     installStatus: installedAddon ? installedAddon.status : UNKNOWN,
+    location: state.router.location,
     userAgentInfo: state.api.userAgentInfo,
   };
 };
