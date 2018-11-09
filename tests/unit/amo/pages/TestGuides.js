@@ -2,14 +2,15 @@ import { oneLine } from 'common-tags';
 import * as React from 'react';
 
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import HeadLinks from 'amo/components/HeadLinks';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
+import Guides, { extractId, GuidesBase, getContent } from 'amo/pages/Guides';
 import {
   dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import Guides, { extractId, GuidesBase, getContent } from 'amo/pages/Guides';
 
 describe(__filename, () => {
   const getProps = ({
@@ -62,6 +63,7 @@ describe(__filename, () => {
   it('renders a Guides Page', () => {
     const slug = 'privacy';
     const content = getContent(slug, fakeI18n());
+    const guids = content.sections.map((section) => section.addonGuid);
     const root = render({ content, slug });
 
     expect(root.find('.Guides')).toHaveLength(1);
@@ -98,7 +100,7 @@ describe(__filename, () => {
       class="Guides-section-explore-more-link">password manager</a> staff picks.</div>`,
     );
 
-    expect(root.find(GuidesAddonCard)).toHaveLength(1);
+    expect(root.find(GuidesAddonCard)).toHaveLength(guids.length);
   });
 
   it('renders an HTML title', () => {

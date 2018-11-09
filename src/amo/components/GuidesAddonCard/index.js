@@ -23,6 +23,7 @@ import Icon from 'ui/components/Icon';
 import Button from 'ui/components/Button';
 import Notice from 'ui/components/Notice';
 import type { AddonType } from 'core/types/addons';
+import type { AddonVersionType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
@@ -43,6 +44,7 @@ type InternalProps = {
   _getClientCompatibility: typeof getClientCompatibility,
   addon: AddonType,
   clientApp: string,
+  currentVersion: AddonVersionType,
   defaultInstallSource: string,
   installError: string,
   installStatus: string,
@@ -144,7 +146,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
             {showInstallButton && (
               <AMInstallButton
                 addon={addon}
-                currentVersion={this.props.currentVersion}
+                currentVersion={currentVersion}
                 defaultButtonText={i18n.gettext('Addon')}
                 defaultInstallSource={this.props.defaultInstallSource}
                 disabled={!compatible}
@@ -187,10 +189,13 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
 
   if (addon) {
     installedAddon = state.installations[addon.guid];
-    currentVersion = getVersionById({
-      id: addon.currentVersionId,
-      state: state.versions,
-    });
+
+    if (addon.currentVersionId) {
+      currentVersion = getVersionById({
+        id: addon.currentVersionId,
+        state: state.versions,
+      });
+    }
   }
   return {
     addon,
@@ -206,7 +211,7 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
 
 const GuidesAddonCard: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
-  // withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_GUIDES_PAGE }),
+  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_GUIDES_PAGE }),
   translate(),
 )(GuidesAddonCardBase);
 
