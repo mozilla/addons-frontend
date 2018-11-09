@@ -114,19 +114,6 @@ describe(__filename, () => {
     expect(root.find(HeadLinks)).toHaveLength(1);
   });
 
-  it('renders an HTML title', () => {
-    const content = getContent('privacy', fakeI18n());
-    const root = render({ content });
-
-    expect(root.find('title')).toHaveText(content.title);
-  });
-
-  it('renders a HeadLinks component', () => {
-    const root = render();
-
-    expect(root.find(HeadLinks)).toHaveLength(1);
-  });
-
   it('renders a 404 component when there are no matching guides params', () => {
     const root = render({ match: { params: { slug: 'bad-slug' } } });
 
