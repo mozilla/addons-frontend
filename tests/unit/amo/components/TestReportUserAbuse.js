@@ -113,10 +113,8 @@ describe(__filename, () => {
       'submitButtonInProgressText',
       'Sending abuse report',
     );
-    expect(form).toHaveProp(
-      'id',
-      'src/amo/components/ReportUserAbuse/index.js',
-    );
+    expect(form).toHaveProp('id');
+    expect(form.prop('id')).toContain('ReportUserAbuse');
   });
 
   it('hides more content when hideReportUI is called', () => {

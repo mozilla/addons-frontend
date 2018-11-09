@@ -324,8 +324,8 @@ describe(__filename, () => {
       const root = renderAndEditNote({ notes: 'This add-on is buggy', store });
 
       const formId = root.find(DismissibleTextForm).prop('id');
-      expect(formId).toMatch(/EditableCollectionAddon/);
-      expect(formId).toMatch(extractId(root.instance().props));
+      expect(formId).toContain('EditableCollectionAddon');
+      expect(formId).toContain(extractId(root.instance().props));
     });
   });
 

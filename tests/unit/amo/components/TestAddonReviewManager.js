@@ -87,8 +87,8 @@ describe(__filename, () => {
     expect(form).toHaveProp('id');
 
     const formId = form.prop('id');
-    expect(formId).toMatch(/AddonReviewManager/);
-    expect(formId).toMatch(extractId(root.instance().props));
+    expect(formId).toContain('AddonReviewManager');
+    expect(formId).toContain(extractId(root.instance().props));
   });
 
   it('does not configure DismissibleTextForm for cancellation by default', () => {
