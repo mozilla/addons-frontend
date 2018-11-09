@@ -44,6 +44,7 @@ import { createInternalAddon } from 'core/reducers/addons';
 import { showInfoDialog } from 'core/reducers/infoDialog';
 import {
   createFakeAddon,
+  createFakeTracking,
   createFakeLocation,
   createFakeTracking,
   dispatchClientMetadata,
@@ -998,11 +999,6 @@ describe(__filename, () => {
 
     describe('install', () => {
       const installURL = 'https://mysite.com/download.xpi';
-      let store;
-
-      beforeEach(() => {
-        store = dispatchClientMetadata().store;
-      });
 
       it('calls addonManager.install()', () => {
         const hash = 'some-sha-hash';

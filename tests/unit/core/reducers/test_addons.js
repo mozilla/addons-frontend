@@ -1,10 +1,5 @@
 import { unloadAddonReviews } from 'amo/actions/reviews';
-import {
-  ADDON_TYPE_EXTENSION,
-  OS_ALL,
-  OS_MAC,
-  OS_WINDOWS,
-} from 'core/constants';
+import { ADDON_TYPE_EXTENSION, OS_MAC, OS_WINDOWS } from 'core/constants';
 import addons, {
   createInternalAddon,
   createInternalAddonInfo,
