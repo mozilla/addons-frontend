@@ -2,6 +2,7 @@
 import defaultLocalForage from 'localforage';
 
 import log from 'core/logger';
+import { normalizeFileNameId } from 'core/utils';
 
 export function configureLocalForage({
   localForage = defaultLocalForage,
@@ -11,7 +12,7 @@ export function configureLocalForage({
   localForage.config({
     name: 'addons-frontend',
     version: '1.0',
-    storeName: 'core.LocalState',
+    storeName: normalizeFileNameId(__filename),
   });
 }
 
@@ -43,14 +44,14 @@ export class LocalState {
         return data;
       })
       .catch((error) => {
-        log.error(`Error with localForage.getItem("${this.id}"): ${error}`);
+        log.info(`Error with localForage.getItem("${this.id}"): ${error}`);
         throw error;
       });
   }
 
   clear(): Promise<void> {
     return this.localForage.removeItem(this.id).catch((error) => {
-      log.error(`Error with localForage.removeItem("${this.id}"): ${error}`);
+      log.info(`Error with localForage.removeItem("${this.id}"): ${error}`);
       throw error;
     });
   }
@@ -62,7 +63,7 @@ export class LocalState {
       );
     }
     return this.localForage.setItem(this.id, data).catch((error) => {
-      log.error(`Error with localForage.setItem("${this.id}"): ${error}`);
+      log.info(`Error with localForage.setItem("${this.id}"): ${error}`);
       throw error;
     });
   }

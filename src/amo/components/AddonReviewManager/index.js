@@ -13,7 +13,7 @@ import {
 import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
+import { normalizeFileNameId, sanitizeHTML } from 'core/utils';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
@@ -37,6 +37,10 @@ type InternalProps = {|
   i18n: I18nType,
   flashMessage?: FlashMessageType | void,
 |};
+
+export const extractId = (props: Props | InternalProps): string => {
+  return props.review.id.toString();
+};
 
 export class AddonReviewManagerBase extends React.Component<InternalProps> {
   static defaultProps = {
@@ -137,6 +141,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
         <DismissibleTextForm
           dismissButtonText={i18n.gettext('Cancel')}
           formFooter={formFooter}
+          id={`${normalizeFileNameId(__filename)}-${extractId(this.props)}`}
           isSubmitting={flashMessage === STARTED_SAVE_REVIEW}
           onDismiss={onCancel}
           onSubmit={this.onSubmitReview}
@@ -156,10 +161,6 @@ const mapStateToProps = (state: AppState) => {
   return {
     flashMessage: state.reviews.flashMessage,
   };
-};
-
-export const extractId = (props: Props): string => {
-  return props.review.id.toString();
 };
 
 const AddonReviewManager: React.ComponentType<Props> = compose(

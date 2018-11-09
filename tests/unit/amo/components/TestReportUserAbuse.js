@@ -101,19 +101,21 @@ describe(__filename, () => {
       to report bugs or contact this user; your report will only be sent to
       Mozilla and not to this user.`);
 
-    expect(root.find(DismissibleTextForm)).toHaveLength(1);
-    expect(root.find(DismissibleTextForm)).toHaveProp('isSubmitting', false);
-    expect(root.find(DismissibleTextForm)).toHaveProp(
+    const form = root.find(DismissibleTextForm);
+    expect(form).toHaveLength(1);
+    expect(form).toHaveProp('isSubmitting', false);
+    expect(form).toHaveProp(
       'placeholder',
       'Explain how this user is violating our policies.',
     );
-    expect(root.find(DismissibleTextForm)).toHaveProp(
-      'submitButtonText',
-      'Send abuse report',
-    );
-    expect(root.find(DismissibleTextForm)).toHaveProp(
+    expect(form).toHaveProp('submitButtonText', 'Send abuse report');
+    expect(form).toHaveProp(
       'submitButtonInProgressText',
       'Sending abuse report',
+    );
+    expect(form).toHaveProp(
+      'id',
+      'src/amo/components/ReportUserAbuse/index.js',
     );
   });
 

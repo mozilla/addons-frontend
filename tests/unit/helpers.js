@@ -194,7 +194,7 @@ export const fakeReview = Object.freeze({
   // The API only provides a minimal add-on representation.
   addon: {
     icon_url: 'https://addons.cdn.mozilla.net/webdev-64.png',
-    id: fakeAddon.id,
+    id: 28014,
     name: 'fake add-on name',
     slug: fakeAddon.slug,
   },
@@ -1151,3 +1151,19 @@ export const getFakeLogger = (params = {}) => {
     ...params,
   };
 };
+
+// This simulates debounce() without any debouncing.
+export function createFakeDebounce() {
+  return sinon.spy((callback) => (...args) => callback(...args));
+}
+
+// This creates a fake instance with the same interface as
+// LocalState in core/localState
+export function createFakeLocalState(overrides = {}) {
+  return {
+    clear: sinon.spy(() => Promise.resolve()),
+    load: sinon.spy(() => Promise.resolve(null)),
+    save: sinon.spy(() => Promise.resolve()),
+    ...overrides,
+  };
+}

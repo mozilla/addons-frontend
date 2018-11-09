@@ -4,7 +4,9 @@ import { mount } from 'enzyme';
 
 import I18nProvider from 'core/i18n/Provider';
 import {
+  createFakeDebounce,
   createFakeEvent,
+  createFakeLocalState,
   dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
@@ -18,7 +20,10 @@ describe(__filename, () => {
 
   const renderProps = (customProps = {}) => {
     return {
+      createLocalState: createFakeLocalState,
+      debounce: createFakeDebounce(),
       i18n: fakeI18n(),
+      id: 'any-form-id',
       onDelete: null,
       onDismiss: sinon.stub(),
       onSubmit: sinon.stub(),
@@ -108,7 +113,7 @@ describe(__filename, () => {
     });
 
     expect(root.find('.DismissibleTextForm-textarea')).toHaveProp(
-      'defaultValue',
+      'value',
       'Some text to edit',
     );
   });
@@ -429,5 +434,158 @@ describe(__filename, () => {
     expect(submitButtons.childAt(1)).toHaveClassName(
       'DismissibleTextForm-delete',
     );
+  });
+
+  describe('LocalState', () => {
+    it('configures LocalState', () => {
+      const createLocalState = sinon.spy(createFakeLocalState);
+      const id = 'some-form-id';
+
+      shallowRender({ id, createLocalState });
+
+      sinon.assert.calledWith(createLocalState, id);
+    });
+
+    it('loads LocalState on mount', () => {
+      const loadSpy = sinon.spy(() => Promise.resolve(null));
+      shallowRender({
+        createLocalState: () => createFakeLocalState({ load: loadSpy }),
+      });
+
+      sinon.assert.called(loadSpy);
+    });
+
+    it('populates the form with text from LocalState', async () => {
+      const text = 'Some text that was saved to LocalState';
+      const root = shallowRender({
+        createLocalState: () =>
+          createFakeLocalState({ load: () => Promise.resolve({ text }) }),
+      });
+
+      await root.instance().checkForStoredState();
+
+      expect(root.find('.DismissibleTextForm-textarea')).toHaveProp(
+        'value',
+        text,
+      );
+    });
+
+    it('recreates LocalState on update when the ID changes', () => {
+      const loadSpy = sinon.spy(() => Promise.resolve(null));
+      const createLocalState = sinon.spy(() =>
+        createFakeLocalState({ load: loadSpy }),
+      );
+
+      const root = shallowRender({
+        id: 'first-ID',
+        createLocalState,
+      });
+
+      createLocalState.resetHistory();
+      loadSpy.resetHistory();
+
+      const secondId = 'second-ID';
+      root.setProps({ id: secondId });
+
+      sinon.assert.calledWith(createLocalState, secondId);
+      sinon.assert.called(loadSpy);
+    });
+
+    it('does not recreate LocalState on update when ID does not change', () => {
+      const loadSpy = sinon.spy(() => Promise.resolve(null));
+      const createLocalState = sinon.spy(() =>
+        createFakeLocalState({ load: loadSpy }),
+      );
+
+      const id = 'example-ID';
+      const root = shallowRender({ id, createLocalState });
+
+      createLocalState.resetHistory();
+      loadSpy.resetHistory();
+
+      root.setProps({ id });
+
+      sinon.assert.notCalled(createLocalState);
+      sinon.assert.notCalled(loadSpy);
+    });
+
+    it('does not populate the form with null data', async () => {
+      const root = shallowRender({
+        createLocalState: () =>
+          // Set up LocalState to load null data.
+          createFakeLocalState({ load: () => Promise.resolve(null) }),
+      });
+
+      const text = 'Entered text';
+      typeSomeText({ root, text });
+
+      expect(root.find('.DismissibleTextForm-textarea')).toHaveProp(
+        'value',
+        text,
+      );
+
+      // Load the null data.
+      await root.instance().checkForStoredState();
+
+      // Make sure the text was not erased.
+      expect(root.find('.DismissibleTextForm-textarea')).toHaveProp(
+        'value',
+        text,
+      );
+    });
+
+    it('saves to LocalState when typing', () => {
+      const saveSpy = sinon.spy(() => Promise.resolve());
+      const root = shallowRender({
+        createLocalState: () => createFakeLocalState({ save: saveSpy }),
+      });
+
+      const text = 'Example text';
+      typeSomeText({ root, text });
+
+      sinon.assert.calledWith(saveSpy, { text });
+    });
+
+    it('clears LocalState onDismiss', () => {
+      const clearSpy = sinon.spy(() => Promise.resolve());
+      const root = shallowRender({
+        createLocalState: () => createFakeLocalState({ clear: clearSpy }),
+        onDismiss: sinon.stub(),
+      });
+
+      root
+        .find('.DismissibleTextForm-dismiss')
+        .simulate('click', createFakeEvent());
+
+      sinon.assert.called(clearSpy);
+    });
+
+    it('clears LocalState onDelete', () => {
+      const clearSpy = sinon.spy(() => Promise.resolve());
+      const root = shallowRender({
+        createLocalState: () => createFakeLocalState({ clear: clearSpy }),
+        onDelete: sinon.stub(),
+      });
+
+      root
+        .find('.DismissibleTextForm-delete')
+        .simulate('click', createFakeEvent());
+
+      sinon.assert.called(clearSpy);
+    });
+
+    it('clears LocalState onSubmit', () => {
+      const clearSpy = sinon.spy(() => Promise.resolve());
+      const root = shallowRender({
+        createLocalState: () => createFakeLocalState({ clear: clearSpy }),
+        onSubmit: sinon.stub(),
+      });
+
+      root
+        .find('.DismissibleTextForm-submit')
+        .simulate('click', createFakeEvent());
+
+      sinon.assert.called(clearSpy);
+    });
   });
 });

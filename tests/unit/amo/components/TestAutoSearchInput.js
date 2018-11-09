@@ -19,6 +19,7 @@ import {
 import {
   createContextWithFakeRouter,
   createFakeAutocompleteResult,
+  createFakeDebounce,
   createFakeEvent,
   createFakeLocation,
   createStubErrorHandler,
@@ -36,8 +37,7 @@ describe(__filename, () => {
     ...customProps
   } = {}) => {
     return {
-      // This simulates debounce() without any debouncing.
-      debounce: (callback) => (...args) => callback(...args),
+      debounce: createFakeDebounce(),
       i18n: fakeI18n(),
       inputName: 'query',
       location: createFakeLocation(),
