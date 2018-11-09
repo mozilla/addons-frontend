@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-06 17:27+0000\n"
-"PO-Revision-Date: 2018-11-07 11:49+0000\n"
+"PO-Revision-Date: 2018-11-09 19:30+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -1947,7 +1947,7 @@ msgstr "Zrzuty ekranu"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Recenzje i oceny dodatku „%(addonName)s”. Dowiedz się, co inni użytkownicy o nim myślą i dodaj go do swojej przeglądarki Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:243
 msgid "Reviews for %(addonName)s"
@@ -2010,11 +2010,11 @@ msgstr "Wyszukaj rozszerzenia i motywy, aby dodać je do kolekcji."
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Pobieraj i twórz kolekcje Firefoksa, aby być na bieżąco ze swoimi ulubionymi rozszerzeniami i motywami. Odkrywaj „%(collectionName)s” — %(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:506
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Pobieraj i twórz kolekcje Firefoksa, aby być na bieżąco ze swoimi ulubionymi rozszerzeniami i motywami. Odkrywaj „%(collectionName)s”."
 
 #: src/amo/pages/CollectionList/index.js:111
 msgid "Collections"
@@ -2098,7 +2098,7 @@ msgstr "Zmień wygląd Firefoksa za pomocą motywów."
 
 #: src/amo/pages/Home/index.js:240
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "Pobieraj rozszerzenia i motywy Firefoksa. Są one jak aplikacje do przeglądarki. Mogą blokować irytujące reklamy, chronić hasła, zmieniać wygląd przeglądarki i nie tylko."
 
 #: src/amo/pages/Home/index.js:331
 msgid "See more popular extensions"
@@ -2122,11 +2122,13 @@ msgstr "Personalizacja serwisów społecznościowych"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Pobieraj motywy, aby zmieniać wygląd Firefoksa. Dopasuj interfejs do swoich upodobań. Urocze stworzenia, złe roboty, piękne krajobrazy — tysiące opcji."
 
 #: src/amo/pages/LandingPage/index.js:210
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
+"Pobieraj rozszerzenia Firefoksa, aby dodawać funkcje personalizujące przeglądarkę. Chroń hasła, znajduj okazje, ulepszaj odtwarzanie filmów i blokuj irytujące reklamy za pomocą aplikacji dla "
+"przeglądarki."
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2150,7 +2152,7 @@ msgstr "Słowniki i pakiety językowe"
 
 #: src/amo/pages/LanguageTools/index.js:172
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Pobieraj słowniki i pakiety językowe. Dodaj nowy język do sprawdzania pisowni przeglądarki lub zmień język jej interfejsu."
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2179,6 +2181,8 @@ msgstr "Słowniki"
 #: src/amo/pages/SearchTools/index.js:32
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
 msgstr ""
+"Pobieraj rozszerzenia Firefoksa, aby spersonalizować sposób wyszukiwania — wszystko od wyszukiwania ze zwiększoną prywatnością, do wyszukiwania na konkretnych stronach, wyszukiwania obrazów i nie "
+"tylko."
 
 #: src/amo/pages/StaticPages/About/index.js:103
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -2234,7 +2238,7 @@ msgstr "O serwisie"
 
 #: src/amo/pages/StaticPages/About/index.js:44
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Oficjalna strona Mozilli do pobierania rozszerzeń i motywów Firefoksa. Dodawaj nowe funkcje i zmieniaj wygląd przeglądarki, aby ją spersonalizować."
 
 #: src/amo/pages/StaticPages/About/index.js:53
 msgid ""
