@@ -18,6 +18,7 @@ import {
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { getPreviewImage } from 'core/imageUtils';
+import { getVersionById } from 'core/reducers/versions';
 import { getAddonJsonLinkedData } from 'core/utils/addons';
 import type { AppState } from 'amo/store';
 import type { AddonVersionType } from 'core/reducers/versions';
@@ -27,12 +28,12 @@ import type { AddonType } from 'core/types/addons';
 type Props = {|
   _getAddonJsonLinkedData?: typeof getAddonJsonLinkedData,
   addon: AddonType | null,
-  currentVersion: AddonVersionType | null,
 |};
 
 type InternalProps = {|
   ...Props,
   clientApp: string,
+  currentVersion: AddonVersionType | null,
   i18n: I18nType,
   lang: string,
 |};
@@ -175,11 +176,20 @@ export class AddonHeadBase extends React.Component<InternalProps> {
   }
 }
 
-const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState, ownProps: Props) => {
+  const { addon } = ownProps;
   const { clientApp, lang } = state.api;
+  let currentVersion = null;
+  if (addon && addon.currentVersionId) {
+    currentVersion = getVersionById({
+      id: addon.currentVersionId,
+      state: state.versions,
+    });
+  }
 
   return {
     clientApp,
+    currentVersion,
     lang,
   };
 };

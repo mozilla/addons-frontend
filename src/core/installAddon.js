@@ -44,13 +44,16 @@ import {
 } from 'core/constants';
 import * as addonManager from 'core/addonManager';
 import { showInfoDialog } from 'core/reducers/infoDialog';
+import { getVersionById } from 'core/reducers/versions';
 import { findFileForPlatform, getDisplayName } from 'core/utils';
 import { getFileHash } from 'core/utils/addons';
+import type { AppState as AmoAppState } from 'amo/store';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { AddonVersionType } from 'core/reducers/versions';
 import type { AddonType, PlatformFilesType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocationType } from 'core/types/router';
+import type { AppState as DiscoAppState } from 'disco/store';
 
 type InstallThemeParams = {|
   name: string,
@@ -217,13 +220,13 @@ type WithInstallHelpersProps = {|
   _installTheme: typeof installTheme,
   _tracking: typeof tracking,
   addon: AddonType,
-  currentVersion: AddonVersionType,
   defaultInstallSource: string,
   userAgentInfo: UserAgentInfoType,
 |};
 
 type WithInstallHelpersInternalProps = {|
   ...WithInstallHelpersProps,
+  currentVersion: AddonVersionType,
   dispatch: DispatchFunc,
   location: ReactRouterLocationType,
 |};
@@ -569,8 +572,26 @@ export function withInstallHelpers({
       WrappedComponent,
     )})`;
 
+    const mapStateToProps = (
+      state: AmoAppState | DiscoAppState,
+      ownProps: WithInstallHelpersProps,
+    ) => {
+      const { addon } = ownProps;
+      const currentVersion =
+        addon && addon.currentVersionId
+          ? getVersionById({
+              id: addon.currentVersionId,
+              state: state.versions,
+            })
+          : null;
+
+      return {
+        currentVersion,
+      };
+    };
+
     return connect(
-      undefined,
+      mapStateToProps,
       _makeMapDispatchToProps({ WrappedComponent, defaultInstallSource }),
     )(WithInstallHelpers);
   };

@@ -4,7 +4,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 import UAParser from 'ua-parser-js';
 
-import { createInternalVersion } from 'core/reducers/versions';
+import { createInternalVersion, loadVersions } from 'core/reducers/versions';
 import createStore from 'amo/store';
 import { setInstallError, setInstallState } from 'core/actions/installations';
 import {
@@ -85,11 +85,10 @@ function componentWithInstallHelpers({
 }
 
 const defaultProps = (overrides = {}) => {
-  const { store } = createStore();
+  const store = overrides.store || createStore().store;
   sinon.stub(store, 'dispatch');
 
   const addon = createInternalAddon(fakeAddon);
-  const currentVersion = createInternalVersion(fakeVersion);
 
   return {
     _addonManager: getFakeAddonManagerWrapper(),
@@ -98,7 +97,6 @@ const defaultProps = (overrides = {}) => {
     location: createFakeLocation(),
     store,
     userAgentInfo: sampleUserAgentParsed,
-    currentVersion,
     ...overrides,
   };
 };
@@ -125,6 +123,15 @@ function renderWithInstallHelpers({
 
   return { root, dispatch: props.store.dispatch };
 }
+
+const _loadVersions = ({ store, versionProps = {} }) => {
+  store.dispatch(
+    loadVersions({
+      slug: fakeAddon.slug,
+      versions: [{ ...fakeAddon.current_version, ...versionProps }],
+    }),
+  );
+};
 
 describe(__filename, () => {
   it('connects mapDispatchToProps for the component', () => {
@@ -994,24 +1001,33 @@ describe(__filename, () => {
 
     describe('install', () => {
       const installURL = 'https://mysite.com/download.xpi';
+      let store;
+
+      beforeEach(() => {
+        store = createStore().store;
+      });
 
       it('calls addonManager.install()', () => {
         const hash = 'some-sha-hash';
-        const currentVersion = createInternalVersion({
-          ...fakeVersion,
-          files: [
-            {
-              platform: OS_ALL,
-              url: installURL,
-              hash,
-            },
-          ],
+
+        _loadVersions({
+          store,
+          versionProps: {
+            files: [
+              {
+                platform: OS_ALL,
+                url: installURL,
+                hash,
+              },
+            ],
+          },
         });
+
         const fakeAddonManager = getFakeAddonManagerWrapper();
         const { root } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
-          currentVersion,
           defaultInstallSource,
+          store,
         });
         const { install } = root.instance().props;
 
@@ -1026,20 +1042,23 @@ describe(__filename, () => {
       });
 
       it('passes an undefined hash when installURL is not found', () => {
-        const currentVersion = createInternalVersion({
-          ...fakeVersion,
-          files: [
-            {
-              platform: OS_ANDROID,
-              url: installURL,
-            },
-          ],
+        _loadVersions({
+          store,
+          versionProps: {
+            files: [
+              {
+                platform: OS_ANDROID,
+                url: installURL,
+              },
+            ],
+          },
         });
+
         const fakeAddonManager = getFakeAddonManagerWrapper();
         const { root } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
-          currentVersion,
           defaultInstallSource,
+          store,
         });
         const { install } = root.instance().props;
 
@@ -1054,6 +1073,8 @@ describe(__filename, () => {
       });
 
       it('tracks the start of an addon install', () => {
+        _loadVersions({ store });
+
         const addon = createInternalAddon(fakeAddon);
         const fakeTracking = createFakeTracking();
         const { root } = renderWithInstallHelpers({
@@ -1066,6 +1087,7 @@ describe(__filename, () => {
           }),
           _tracking: fakeTracking,
           addon,
+          store,
         });
         const { install } = root.instance().props;
 
@@ -1085,11 +1107,14 @@ describe(__filename, () => {
       });
 
       it('tracks an addon install', () => {
+        _loadVersions({ store });
+
         const addon = createInternalAddon(fakeAddon);
         const fakeTracking = createFakeTracking();
         const { root } = renderWithInstallHelpers({
           _tracking: fakeTracking,
           addon,
+          store,
         });
         const { install } = root.instance().props;
 
@@ -1106,6 +1131,8 @@ describe(__filename, () => {
       });
 
       it('tracks the start of a static theme install', () => {
+        _loadVersions({ store });
+
         const addon = createInternalAddon({
           ...fakeAddon,
           type: ADDON_TYPE_STATIC_THEME,
@@ -1114,6 +1141,7 @@ describe(__filename, () => {
         const { root } = renderWithInstallHelpers({
           _tracking: fakeTracking,
           addon,
+          store,
         });
         const { install } = root.instance().props;
 
@@ -1130,6 +1158,8 @@ describe(__filename, () => {
       });
 
       it('tracks a static theme addon install', () => {
+        _loadVersions({ store });
+
         const addon = createInternalAddon({
           ...fakeAddon,
           type: ADDON_TYPE_STATIC_THEME,
@@ -1138,6 +1168,7 @@ describe(__filename, () => {
         const { root } = renderWithInstallHelpers({
           _tracking: fakeTracking,
           addon,
+          store,
         });
         const { install } = root.instance().props;
 
@@ -1154,8 +1185,10 @@ describe(__filename, () => {
       });
 
       it('should dispatch START_DOWNLOAD', () => {
+        _loadVersions({ store });
+
         const addon = createInternalAddon(fakeAddon);
-        const { root, dispatch } = renderWithInstallHelpers(addon);
+        const { root, dispatch } = renderWithInstallHelpers({ addon, store });
         const { install } = root.instance().props;
 
         return install(addon).then(() => {
@@ -1167,6 +1200,8 @@ describe(__filename, () => {
       });
 
       it('should dispatch SHOW_INFO if permissionPromptsEnabled is false', () => {
+        _loadVersions({ store });
+
         const iconUrl = `${config.get('amoCDN')}/some-icon.png`;
         const addon = createInternalAddon({
           ...fakeAddon,
@@ -1177,6 +1212,7 @@ describe(__filename, () => {
             permissionPromptsEnabled: false,
           }),
           addon,
+          store,
         };
         const { root, dispatch } = renderWithInstallHelpers(props);
         const { install } = root.instance().props;
@@ -1193,6 +1229,8 @@ describe(__filename, () => {
       });
 
       it('should not dispatch SHOW_INFO if permissionPromptsEnabled is true', () => {
+        _loadVersions({ store });
+
         const iconUrl = `${config.get('amoCDN')}/some-icon.png`;
         const addon = createInternalAddon({
           ...fakeAddon,
@@ -1203,6 +1241,7 @@ describe(__filename, () => {
             permissionPromptsEnabled: true,
           }),
           addon,
+          store,
         };
         const { root, dispatch } = renderWithInstallHelpers(props);
         const { install } = root.instance().props;
@@ -1219,6 +1258,8 @@ describe(__filename, () => {
       });
 
       it('dispatches error when addonManager.install throws', () => {
+        _loadVersions({ store });
+
         const fakeAddonManager = getFakeAddonManagerWrapper();
         fakeAddonManager.install = sinon.stub().returns(Promise.reject());
 
@@ -1226,6 +1267,7 @@ describe(__filename, () => {
         const { root, dispatch } = renderWithInstallHelpers({
           ...addon,
           _addonManager: fakeAddonManager,
+          store,
         });
         const { install } = root.instance().props;
 

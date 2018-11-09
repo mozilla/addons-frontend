@@ -492,7 +492,7 @@ export class AddonBase extends React.Component {
         })}
         data-site-identifier={addon ? addon.id : null}
       >
-        <AddonHead addon={addon} currentVersion={currentVersion} />
+        <AddonHead addon={addon} />
 
         {errorBanner}
 

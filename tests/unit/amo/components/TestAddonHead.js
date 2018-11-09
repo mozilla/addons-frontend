@@ -16,13 +16,12 @@ import {
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { createInternalVersion } from 'core/reducers/versions';
+import { createInternalVersion, loadVersions } from 'core/reducers/versions';
 import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
   fakeTheme,
-  fakeVersion,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -135,11 +134,19 @@ describe(__filename, () => {
   });
 
   it('passes both an addon and a currentVersion when rendering JSON linked data', () => {
+    const { store } = dispatchClientMetadata();
     const addon = createInternalAddon(fakeAddon);
-    const currentVersion = createInternalVersion(fakeVersion);
+    store.dispatch(
+      loadVersions({
+        slug: fakeAddon.slug,
+        versions: [fakeAddon.current_version],
+      }),
+    );
+
+    const currentVersion = createInternalVersion(fakeAddon.current_version);
     const _getAddonJsonLinkedData = sinon.spy();
 
-    render({ _getAddonJsonLinkedData, addon, currentVersion });
+    render({ _getAddonJsonLinkedData, addon, store });
 
     sinon.assert.calledWith(_getAddonJsonLinkedData, { addon, currentVersion });
   });

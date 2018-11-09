@@ -289,7 +289,6 @@ describe(__filename, () => {
     expect(root.find(AddonMoreInfo)).toHaveLength(1);
     expect(root.find(AddonTitle)).toHaveProp('addon', null);
     expect(root.find(AddonHead)).toHaveProp('addon', null);
-    expect(root.find(AddonHead)).toHaveProp('currentVersion', null);
 
     // Since withInstallHelpers relies on this, make sure it's initialized.
     expect(root.instance().props.platformFiles).toEqual({});
