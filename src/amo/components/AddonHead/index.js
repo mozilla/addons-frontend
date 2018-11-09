@@ -26,12 +26,12 @@ import type { I18nType } from 'core/types/i18n';
 import type { AddonType } from 'core/types/addons';
 
 type Props = {|
-  _getAddonJsonLinkedData?: typeof getAddonJsonLinkedData,
   addon: AddonType | null,
 |};
 
 type InternalProps = {|
   ...Props,
+  _getAddonJsonLinkedData: typeof getAddonJsonLinkedData,
   clientApp: string,
   currentVersion: AddonVersionType | null,
   i18n: I18nType,

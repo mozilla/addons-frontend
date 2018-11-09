@@ -84,8 +84,7 @@ function componentWithInstallHelpers({
   return compose(withInstallHelpers({ defaultInstallSource }))(BaseComponent);
 }
 
-const defaultProps = (overrides = {}) => {
-  const store = overrides.store || createStore().store;
+const defaultProps = ({ store = createStore().store, ...overrides } = {}) => {
   sinon.stub(store, 'dispatch');
 
   const addon = createInternalAddon(fakeAddon);

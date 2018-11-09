@@ -48,17 +48,15 @@ export const getFileHash = ({
 }: {|
   addon: AddonType,
   installURL: string,
-  version?: AddonVersionType,
+  version: AddonVersionType,
 |}): string | void => {
   const urlKey = installURL.split('?')[0];
 
-  if (version) {
-    for (const platform of Object.keys(version.platformFiles)) {
-      // The API sometimes appends ?src= to URLs so we just check the basename.
-      const file = version.platformFiles[platform];
-      if (file && file.url.startsWith(urlKey)) {
-        return file.hash;
-      }
+  for (const platform of Object.keys(version.platformFiles)) {
+    // The API sometimes appends ?src= to URLs so we just check the basename.
+    const file = version.platformFiles[platform];
+    if (file && file.url.startsWith(urlKey)) {
+      return file.hash;
     }
   }
 

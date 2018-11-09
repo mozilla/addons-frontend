@@ -101,10 +101,6 @@ describe(__filename, () => {
       ).toEqual('hash-of-file');
     });
 
-    it('does not find a file hash without a current version', () => {
-      expect(_getFileHash({ version: undefined })).toBeUndefined();
-    });
-
     it('does not find a file hash without files', () => {
       const version = createInternalVersion({
         ...fakeVersion,
