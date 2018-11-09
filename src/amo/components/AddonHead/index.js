@@ -18,8 +18,10 @@ import {
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { getPreviewImage } from 'core/imageUtils';
+import { getVersionById } from 'core/reducers/versions';
 import { getAddonJsonLinkedData } from 'core/utils/addons';
 import type { AppState } from 'amo/store';
+import type { AddonVersionType } from 'core/reducers/versions';
 import type { I18nType } from 'core/types/i18n';
 import type { AddonType } from 'core/types/addons';
 
@@ -29,12 +31,18 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _getAddonJsonLinkedData: typeof getAddonJsonLinkedData,
   clientApp: string,
+  currentVersion: AddonVersionType | null,
   i18n: I18nType,
   lang: string,
 |};
 
 export class AddonHeadBase extends React.Component<InternalProps> {
+  static defaultProps = {
+    _getAddonJsonLinkedData: getAddonJsonLinkedData,
+  };
+
   getPageTitle() {
     const { addon, clientApp, i18n, lang } = this.props;
 
@@ -133,7 +141,8 @@ export class AddonHeadBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { addon } = this.props;
+    const { _getAddonJsonLinkedData, addon, currentVersion } = this.props;
+    invariant(_getAddonJsonLinkedData, '_getAddonJsonLinkedData is required.');
 
     if (!addon) {
       return null;
@@ -149,7 +158,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
           <title>{this.getPageTitle()}</title>
 
           <script type="application/ld+json">
-            {JSON.stringify(getAddonJsonLinkedData({ addon }))}
+            {JSON.stringify(_getAddonJsonLinkedData({ addon, currentVersion }))}
           </script>
         </Helmet>
 
@@ -168,11 +177,20 @@ export class AddonHeadBase extends React.Component<InternalProps> {
   }
 }
 
-const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState, ownProps: Props) => {
+  const { addon } = ownProps;
   const { clientApp, lang } = state.api;
+  let currentVersion = null;
+  if (addon && addon.currentVersionId) {
+    currentVersion = getVersionById({
+      id: addon.currentVersionId,
+      state: state.versions,
+    });
+  }
 
   return {
     clientApp,
+    currentVersion,
     lang,
   };
 };

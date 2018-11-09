@@ -257,6 +257,7 @@ describe(__filename, () => {
     // Simulate the case when an add-on has not been loaded into state yet.
     const root = shallowRender({
       addon: null,
+      currentVersion: null,
       errorHandler,
       params: { slug: slugParam },
     });

@@ -16,6 +16,7 @@ import {
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
+import { createInternalVersion, loadVersions } from 'core/reducers/versions';
 import {
   dispatchClientMetadata,
   fakeAddon,
@@ -131,6 +132,24 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find('script[type="application/ld+json"]')).toHaveLength(1);
+  });
+
+  it('passes both an addon and a currentVersion when rendering JSON linked data', () => {
+    const { store } = dispatchClientMetadata();
+    const addon = createInternalAddon(fakeAddon);
+    store.dispatch(
+      loadVersions({
+        slug: fakeAddon.slug,
+        versions: [fakeAddon.current_version],
+      }),
+    );
+
+    const currentVersion = createInternalVersion(fakeAddon.current_version);
+    const _getAddonJsonLinkedData = sinon.spy();
+
+    render({ _getAddonJsonLinkedData, addon, store });
+
+    sinon.assert.calledWith(_getAddonJsonLinkedData, { addon, currentVersion });
   });
 
   it('renders a HeadLinks component', () => {

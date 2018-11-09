@@ -9,7 +9,8 @@ import {
   OS_WINDOWS,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { createFakeAddon, fakeAddon, fakeI18n } from 'tests/unit/helpers';
+import { createInternalVersion } from 'core/reducers/versions';
+import { fakeAddon, fakeI18n, fakeVersion } from 'tests/unit/helpers';
 import {
   getAddonJsonLinkedData,
   getErrorMessage,
@@ -37,99 +38,85 @@ describe(__filename, () => {
     const _getFileHash = ({
       addon = createInternalAddon(fakeAddon),
       installURL = 'https://a.m.o/addons/file.xpi',
+      version = createInternalVersion(fakeVersion),
     } = {}) => {
-      return getFileHash({ addon, installURL });
+      return getFileHash({ addon, installURL, version });
     };
 
     it('finds a file hash matching the URL', () => {
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [
-            {
-              platform: OS_MAC,
-              url: 'https://first-url',
-              hash: 'hash-of-first-file',
-            },
-            {
-              platform: OS_WINDOWS,
-              url: 'https://second-url',
-              hash: 'hash-of-second-file',
-            },
-          ],
-        }),
-      );
+      const version = createInternalVersion({
+        ...fakeVersion,
+        files: [
+          {
+            platform: OS_MAC,
+            url: 'https://first-url',
+            hash: 'hash-of-first-file',
+          },
+          {
+            platform: OS_WINDOWS,
+            url: 'https://second-url',
+            hash: 'hash-of-second-file',
+          },
+        ],
+      });
 
-      expect(_getFileHash({ addon, installURL: 'https://second-url' })).toEqual(
-        'hash-of-second-file',
-      );
+      expect(
+        _getFileHash({ installURL: 'https://second-url', version }),
+      ).toEqual('hash-of-second-file');
     });
 
     it('strips query string parameters from the URL', () => {
       const url = 'https://a.m.o/addons/file.xpi';
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [{ platform: OS_ALL, url, hash: 'hash-of-file' }],
-        }),
-      );
+      const version = createInternalVersion({
+        ...fakeVersion,
+        files: [{ platform: OS_ALL, url, hash: 'hash-of-file' }],
+      });
 
       expect(
         _getFileHash({
-          addon,
           installURL: `${url}?src=some-install-source`,
+          version,
         }),
       ).toEqual('hash-of-file');
     });
 
     it('handles addon file URLs with unrelated query strings', () => {
       const url = 'https://a.m.o/addons/file.xpi';
-      const addon = createInternalAddon(
-        createFakeAddon({
-          files: [
-            {
-              platform: OS_ALL,
-              url: `${url}?src=some-install-source`,
-              hash: 'hash-of-file',
-            },
-          ],
-        }),
-      );
+      const version = createInternalVersion({
+        ...fakeVersion,
+        files: [
+          {
+            platform: OS_ALL,
+            url: `${url}?src=some-install-source`,
+            hash: 'hash-of-file',
+          },
+        ],
+      });
 
       expect(
         _getFileHash({
-          addon,
           installURL: `${url}?src=some-install-source`,
+          version,
         }),
       ).toEqual('hash-of-file');
     });
 
-    it('does not find a file hash without a current version', () => {
-      const addon = createInternalAddon(
-        createFakeAddon({
-          current_version: undefined,
-        }),
-      );
-
-      expect(_getFileHash({ addon })).toBeUndefined();
-    });
-
     it('does not find a file hash without files', () => {
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        current_version: {
-          ...fakeAddon.current_version,
-          files: [],
-        },
+      const version = createInternalVersion({
+        ...fakeVersion,
+        files: [],
       });
 
-      expect(_getFileHash({ addon })).toBeUndefined();
+      expect(_getFileHash({ version })).toBeUndefined();
     });
   });
 
   describe('getAddonJsonLinkedData', () => {
     it('returns structured data', () => {
       const addon = createInternalAddon(fakeAddon);
+      const currentVersion = createInternalVersion(fakeVersion);
 
-      expect(getAddonJsonLinkedData({ addon })).toEqual({
+      expect(getAddonJsonLinkedData({ addon, currentVersion })).toEqual({
         '@context': 'http://schema.org',
         '@type': 'WebApplication',
         name: addon.name,
@@ -149,17 +136,16 @@ describe(__filename, () => {
           ratingCount: addon.ratings.count,
           ratingValue: addon.ratings.average,
         },
-        version: addon.current_version.version,
+        version: currentVersion.version,
       });
     });
 
-    it('returns structured data without the add-on version if not available', () => {
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        current_version: null,
-      });
+    it('returns structured data without the version if not available', () => {
+      const addon = createInternalAddon(fakeAddon);
 
-      expect(getAddonJsonLinkedData({ addon })).not.toHaveProperty('version');
+      expect(
+        getAddonJsonLinkedData({ addon, currentVersion: null }),
+      ).not.toHaveProperty('version');
     });
 
     it('returns structured data without rating if not available', () => {
