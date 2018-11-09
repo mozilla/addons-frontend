@@ -4882,7 +4882,6 @@ flatten@^1.0.2:
 flow-bin@^0.86.0:
   version "0.86.0"
   resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.86.0.tgz#153a28722b4dc13b7200c74b644dd4d9f4969a11"
-  integrity sha512-ulRvFH3ewGIYwg+qPk/OJXoe3Nhqi0RyR0wqgK0b1NzUDEC6O99zU39MBTickXvlrr6iwRO6Wm4lVGeDmnzbew==
 
 flush-write-stream@^1.0.0:
   version "1.0.3"
@@ -6011,10 +6010,6 @@ inquirer@^5.2.0:
     string-width "^2.1.0"
     strip-ansi "^4.0.0"
     through "^2.3.6"
-
-internet-timestamp@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/internet-timestamp/-/internet-timestamp-0.0.1.tgz#16b4a7ada6d1110d4e141fd443756b81b16d1712"
 
 interpret@^1.0.0:
   version "1.1.0"
@@ -8791,11 +8786,10 @@ pino-devtools@^2.1.0:
     through2 "^2.0.3"
     ws "^6.0.0"
 
-pino-mozlog@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/pino-mozlog/-/pino-mozlog-1.2.0.tgz#79b78751aef3611ba60327c63f3f0c73269179a6"
+pino-mozlog@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/pino-mozlog/-/pino-mozlog-2.0.0.tgz#df6377473e126a94841c7afde1526bb30f782d76"
   dependencies:
-    internet-timestamp "^0.0.1"
     minimist "^1.2.0"
     pino-syslog "^1.2.0"
     pump "^3.0.0"
