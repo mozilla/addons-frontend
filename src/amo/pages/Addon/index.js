@@ -532,6 +532,7 @@ export class AddonBase extends React.Component {
                 {showInstallButton && (
                   <AMInstallButton
                     addon={addon}
+                    currentVersion={currentVersion}
                     defaultInstallSource={defaultInstallSource}
                     disabled={!isCompatible}
                     enable={enable}

@@ -289,6 +289,7 @@ export class AddonBase extends React.Component<InternalProps> {
           <AMInstallButton
             addon={addon}
             className="Addon-install-button"
+            currentVersion={currentVersion}
             defaultInstallSource={defaultInstallSource}
             disabled={!compatible}
             enable={enable}
