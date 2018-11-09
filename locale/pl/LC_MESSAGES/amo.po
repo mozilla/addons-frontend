@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-06 17:27+0000\n"
-"PO-Revision-Date: 2018-11-09 19:30+0000\n"
+"PO-Revision-Date: 2018-11-09 19:34+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -2350,7 +2350,7 @@ msgstr "Wytyczne pisania recenzji"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:41
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Wytyczne, wskazówki i najczęściej zadawane pytania na temat pisania recenzji rozszerzeń i motywów pobranych i używanych w Firefoksie."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid ""
@@ -2426,15 +2426,15 @@ msgstr "Moje recenzje"
 
 #: src/amo/pages/UserProfile/index.js:242
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil użytkownika „%(user)s”, autora rozszerzeń i motywów Firefoksa. Znajdź jego inne aplikacje, w tym średnie oceny, staż i możliwość zgłaszania problemów."
 
 #: src/amo/pages/UserProfile/index.js:246
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil użytkownika „%(user)s”, autora rozszerzeń Firefoksa. Znajdź jego inne rozszerzenia, w tym średnie oceny, staż i możliwość zgłaszania problemów."
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil użytkownika „%(user)s”, autora motywów Firefoksa. Znajdź jego inne motywy, w tym średnie oceny, staż i możliwość zgłaszania problemów."
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
