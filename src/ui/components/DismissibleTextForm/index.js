@@ -33,6 +33,7 @@ type Props = {|
   microButtons?: boolean,
   placeholder?: string,
   puffyButtons?: boolean,
+  reverseButtonOrder?: boolean,
   submitButtonClassName?: string,
   submitButtonText?: string,
   submitButtonInProgressText?: string,
@@ -64,6 +65,7 @@ export class DismissibleTextFormBase extends React.Component<
     isSubmitting: false,
     microButtons: false,
     puffyButtons: false,
+    reverseButtonOrder: false,
   };
 
   constructor(props: InternalProps) {
@@ -115,6 +117,7 @@ export class DismissibleTextFormBase extends React.Component<
       onDismiss,
       placeholder,
       puffyButtons,
+      reverseButtonOrder,
       submitButtonClassName,
       submitButtonText,
       submitButtonInProgressText,
@@ -138,6 +141,73 @@ export class DismissibleTextFormBase extends React.Component<
       'microButtons and puffyButtons cannot both be true; choose one',
     );
 
+    const cancelButton = onDismiss ? (
+      <Button
+        buttonType="neutral"
+        className="DismissibleTextForm-dismiss"
+        disabled={isSubmitting}
+        key="cancel"
+        micro={microButtons}
+        onClick={this.onDismiss}
+        puffy={puffyButtons}
+        type="cancel"
+      >
+        {dismissButtonText || i18n.gettext('Cancel')}
+      </Button>
+    ) : null;
+
+    const deleteButton = onDelete ? (
+      <Button
+        buttonType="alert"
+        className="DismissibleTextForm-delete"
+        disabled={deleteButtonIsDisabled}
+        key="delete"
+        onClick={this.onDelete}
+        micro={microButtons}
+        puffy={puffyButtons}
+        type="button"
+      >
+        {i18n.gettext('Delete')}
+      </Button>
+    ) : null;
+
+    const submitButton = (
+      <Button
+        buttonType="action"
+        className={makeClassName(
+          'DismissibleTextForm-submit',
+          submitButtonClassName,
+        )}
+        disabled={submitButtonIsDisabled}
+        key="submit"
+        onClick={this.onSubmit}
+        micro={microButtons}
+        puffy={puffyButtons}
+        type="submit"
+      >
+        {isSubmitting ? text.submitButtonInProgressText : text.submitButtonText}
+      </Button>
+    );
+
+    const actionButtons = [deleteButton, submitButton];
+    if (reverseButtonOrder) {
+      actionButtons.reverse();
+    }
+
+    const actionButtonsContainer = (
+      <span
+        className="DismissibleTextForm-delete-submit-buttons"
+        key="actionButtons"
+      >
+        {actionButtons}
+      </span>
+    );
+
+    const allButtons = [cancelButton, actionButtonsContainer];
+    if (reverseButtonOrder) {
+      allButtons.reverse();
+    }
+
     return (
       <form className={makeClassName('DismissibleTextForm-form', className)}>
         <Textarea
@@ -153,57 +223,7 @@ export class DismissibleTextFormBase extends React.Component<
         {formFooter && (
           <div className="DismissibleTextForm-formFooter">{formFooter}</div>
         )}
-        <div className="DismissibleTextForm-buttons">
-          {/*
-            These buttons each have an href so that they become anchor tags.
-            This prevents mobile taps from triggering their hover styles.
-          */}
-          {onDismiss && (
-            <Button
-              buttonType="neutral"
-              className="DismissibleTextForm-dismiss"
-              disabled={isSubmitting}
-              href="#cancel"
-              micro={microButtons}
-              onClick={this.onDismiss}
-              puffy={puffyButtons}
-              type="cancel"
-            >
-              {dismissButtonText || i18n.gettext('Cancel')}
-            </Button>
-          )}
-          <span className="DismissibleTextForm-delete-submit-buttons">
-            {onDelete && (
-              <Button
-                buttonType="alert"
-                className="DismissibleTextForm-delete"
-                disabled={deleteButtonIsDisabled}
-                href="#delete"
-                onClick={this.onDelete}
-                micro={microButtons}
-                puffy={puffyButtons}
-              >
-                {i18n.gettext('Delete')}
-              </Button>
-            )}
-            <Button
-              buttonType="action"
-              className={makeClassName(
-                'DismissibleTextForm-submit',
-                submitButtonClassName,
-              )}
-              disabled={submitButtonIsDisabled}
-              href="#submit"
-              onClick={this.onSubmit}
-              micro={microButtons}
-              puffy={puffyButtons}
-            >
-              {isSubmitting
-                ? text.submitButtonInProgressText
-                : text.submitButtonText}
-            </Button>
-          </span>
-        </div>
+        <div className="DismissibleTextForm-buttons">{allButtons}</div>
       </form>
     );
   }

@@ -490,7 +490,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             <Button
               className="AddonReviewCard-writeReviewButton"
               onClick={this.onClickToEditReview}
-              href="#writeReview"
               buttonType="action"
               puffy={slim}
             >
