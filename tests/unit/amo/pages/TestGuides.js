@@ -99,14 +99,14 @@ describe(__filename, () => {
     );
   });
 
-  it(`renders an HTML title`, () => {
+  it('renders an HTML title', () => {
     const content = getContent('privacy', fakeI18n());
     const root = render({ content });
 
     expect(root.find('title')).toHaveText(content.title);
   });
 
-  it(`renders a HeadLinks component`, () => {
+  it('renders a HeadLinks component', () => {
     const root = render();
 
     expect(root.find(HeadLinks)).toHaveLength(1);
