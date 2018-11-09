@@ -9,8 +9,11 @@
 
 .RatingManager-log-in-to-rate-button {
   font-size: $font-size-s;
+  left: 50%;
   padding: 2px 16px;
   position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
 }
 
