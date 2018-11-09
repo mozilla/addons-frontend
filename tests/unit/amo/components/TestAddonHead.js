@@ -2,6 +2,7 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import AddonHead, { AddonHeadBase } from 'amo/components/AddonHead';
 import {
   ADDON_TYPE_COMPLETE_THEME,
@@ -84,75 +85,44 @@ describe(__filename, () => {
     );
   });
 
-  it('renders a description meta tag containing the add-on summary', () => {
+  it('renders a HeadMetaTags component', () => {
     const addon = createInternalAddon(fakeAddon);
-    const root = render({ addon });
-
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]')).toHaveProp(
-      'content',
-      `Download ${addon.name} for Firefox. ${addon.summary}`,
-    );
-  });
-
-  it('renders Open Graph meta tags', () => {
     const lang = 'fr';
-    const addon = createInternalAddon(fakeAddon);
-    const { store } = dispatchClientMetadata({ lang });
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+      lang,
+    });
+
     const root = render({ addon, store });
 
-    [
-      ['og:type', 'website'],
-      ['og:url', addon.url],
-      ['og:locale', lang],
-      ['og:image', addon.previews[0].image_url],
-    ].forEach(([property, expectedValue]) => {
-      expect(root.find(`meta[property="${property}"]`)).toHaveProp(
-        'content',
-        expectedValue,
-      );
-    });
-
-    expect(root.find(`meta[property="og:title"]`).prop('content')).toContain(
-      addon.name,
+    expect(root.find(HeadMetaTags)).toHaveLength(1);
+    expect(root.find(HeadMetaTags)).toHaveProp('date', addon.created);
+    expect(root.find(HeadMetaTags)).toHaveProp(
+      'description',
+      `Download ${addon.name} for Firefox. ${addon.summary}`,
     );
-    expect(
-      root.find(`meta[property="og:description"]`).prop('content'),
-    ).toContain(addon.summary);
+    expect(root.find(HeadMetaTags)).toHaveProp(
+      'image',
+      addon.previews[0].image_url,
+    );
+    expect(root.find(HeadMetaTags)).toHaveProp(
+      'lastModified',
+      addon.last_updated,
+    );
+    expect(root.find(HeadMetaTags)).toHaveProp(
+      'title',
+      `${addon.name} – Get this Extension for 🦊 Firefox Android (${lang})`,
+    );
   });
 
-  it('does not render a "og:image" meta tag if add-on has no previews', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      previews: [],
-    });
-    const root = render({ addon });
-
-    expect(root.find(`meta[property="og:image"]`)).toHaveLength(0);
-  });
-
-  it('renders a "og:image" meta tag with the preview URL if add-on is a lightweight theme', () => {
+  it('passes the preview URL as `image` to the HeadMetaTags component when add-on is a lightweight theme', () => {
     const addon = createInternalAddon(fakeTheme);
     const root = render({ addon });
 
-    expect(root.find(`meta[property="og:image"]`)).toHaveLength(1);
-    expect(root.find(`meta[property="og:image"]`)).toHaveProp(
-      'content',
+    expect(root.find(HeadMetaTags)).toHaveProp(
+      'image',
       addon.themeData.previewURL,
     );
-  });
-
-  it('does not render a "og:image" meta tag if lightweight theme does not have a preview URL', () => {
-    const addon = createInternalAddon({
-      ...fakeTheme,
-      theme_data: {
-        ...fakeTheme.theme_data,
-        previewURL: null,
-      },
-    });
-    const root = render({ addon });
-
-    expect(root.find(`meta[property="og:image"]`)).toHaveLength(0);
   });
 
   it('renders JSON linked data', () => {
@@ -160,35 +130,6 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find('script[type="application/ld+json"]')).toHaveLength(1);
-  });
-
-  it('renders a "date" meta tag', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const root = render({ addon });
-
-    expect(root.find('meta[name="date"]')).toHaveLength(1);
-    expect(root.find('meta[name="date"]')).toHaveProp('content', addon.created);
-  });
-
-  it('renders a "last-modified" meta tag', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const root = render({ addon });
-
-    expect(root.find('meta[name="last-modified"]')).toHaveLength(1);
-    expect(root.find('meta[name="last-modified"]')).toHaveProp(
-      'content',
-      addon.last_updated,
-    );
-  });
-
-  it('does not render a "last-modified" meta tag when date is not defined', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      last_updated: null,
-    });
-    const root = render({ addon });
-
-    expect(root.find('meta[name="last-modified"]')).toHaveLength(0);
   });
 
   it('renders a HeadLinks component', () => {

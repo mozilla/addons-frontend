@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -131,34 +132,6 @@ export class AddonHeadBase extends React.Component<InternalProps> {
     );
   }
 
-  renderMetaOpenGraph() {
-    const { addon, lang } = this.props;
-
-    invariant(addon, 'addon is required');
-
-    const tags = [
-      <meta key="og:type" property="og:type" content="website" />,
-      <meta key="og:url" property="og:url" content={addon.url} />,
-      <meta key="og:title" property="og:title" content={this.getPageTitle()} />,
-      <meta
-        key="og:description"
-        property="og:description"
-        content={this.getPageDescription()}
-      />,
-      <meta key="og:locale" property="og:locale" content={lang} />,
-    ];
-
-    const image = addon.themeData
-      ? addon.themeData.previewURL
-      : getPreviewImage(addon);
-
-    if (image) {
-      tags.push(<meta key="og:image" property="og:image" content={image} />);
-    }
-
-    return tags;
-  }
-
   render() {
     const { addon } = this.props;
 
@@ -166,22 +139,27 @@ export class AddonHeadBase extends React.Component<InternalProps> {
       return null;
     }
 
+    const image = addon.themeData
+      ? addon.themeData.previewURL
+      : getPreviewImage(addon);
+
     return (
       <React.Fragment>
         <Helmet titleTemplate={null}>
           <title>{this.getPageTitle()}</title>
 
-          <meta name="description" content={this.getPageDescription()} />
-          <meta name="date" content={addon.created} />
-          {addon.last_updated && (
-            <meta name="last-modified" content={addon.last_updated} />
-          )}
-          {this.renderMetaOpenGraph()}
-
           <script type="application/ld+json">
             {JSON.stringify(getAddonJsonLinkedData({ addon }))}
           </script>
         </Helmet>
+
+        <HeadMetaTags
+          date={addon.created}
+          description={this.getPageDescription()}
+          image={image}
+          lastModified={addon.last_updated}
+          title={this.getPageTitle()}
+        />
 
         <HeadLinks />
       </React.Fragment>
