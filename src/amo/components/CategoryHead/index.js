@@ -49,16 +49,15 @@ export class CategoryHeadBase extends React.PureComponent<InternalProps> {
       return null;
     }
 
+    const title = this.getPageTitle();
+
     return (
       <React.Fragment>
         <Helmet>
-          <title>{this.getPageTitle()}</title>
+          <title>{title}</title>
         </Helmet>
 
-        <HeadMetaTags
-          description={category.description}
-          title={this.getPageTitle()}
-        />
+        <HeadMetaTags description={category.description} title={title} />
 
         <HeadLinks />
       </React.Fragment>
