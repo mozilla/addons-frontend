@@ -183,7 +183,6 @@ export type AddonType = {|
   ...ExternalAddonType,
   // Here are some custom properties for our internal representation.
   currentVersionId: VersionIdType | null,
-  platformFiles: PlatformFilesType,
   isMozillaSignedExtension: boolean,
   isRestartRequired: boolean,
   isWebExtension: boolean,

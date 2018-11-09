@@ -274,7 +274,6 @@ export function createInternalAddon(
     isRestartRequired: false,
     isWebExtension: false,
     isMozillaSignedExtension: false,
-    platformFiles: createPlatformFiles(apiAddon.current_version),
     themeData: createInternalThemeData(apiAddon),
   };
 

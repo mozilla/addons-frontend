@@ -129,10 +129,6 @@ describe(__filename, () => {
     expect(state.byID[extension.id]).toEqual({
       ...extension,
       currentVersionId: fakeAddon.current_version.id,
-      platformFiles: {
-        ...defaultPlatformFiles,
-        [OS_ALL]: fakeAddon.current_version.files[0],
-      },
       isRestartRequired: false,
       isWebExtension: true,
       isMozillaSignedExtension: false,
@@ -151,10 +147,6 @@ describe(__filename, () => {
       themeData: theme.theme_data,
       guid: getGuid(theme),
       currentVersionId: fakeTheme.current_version.id,
-      platformFiles: {
-        ...defaultPlatformFiles,
-        [OS_ALL]: fakeTheme.current_version.files[0],
-      },
       isRestartRequired: false,
       isWebExtension: true,
       isMozillaSignedExtension: false,
@@ -191,46 +183,6 @@ describe(__filename, () => {
     const state = addons(undefined, loadAddonResults({ addons: [fakeTheme] }));
 
     expect(state.byID[fakeTheme.id].guid).toEqual('54321@personas.mozilla.org');
-  });
-
-  it('maps platforms to file objects', () => {
-    const addon = createFakeAddon({
-      files: [
-        {
-          ...fakeAddon.current_version.files[0],
-          platform: OS_MAC,
-          url: 'https://a.m.o/mac.xpi',
-        },
-        {
-          ...fakeAddon.current_version.files[0],
-          platform: OS_WINDOWS,
-          url: 'https://a.m.o/windows.xpi',
-        },
-        {
-          ...fakeAddon.current_version.files[0],
-          platform: OS_ALL,
-          url: 'https://a.m.o/all.xpi',
-        },
-      ],
-    });
-    const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].platformFiles[OS_ALL].url).toEqual(
-      'https://a.m.o/all.xpi',
-    );
-    expect(state.byID[addon.id].platformFiles[OS_MAC].url).toEqual(
-      'https://a.m.o/mac.xpi',
-    );
-    expect(state.byID[addon.id].platformFiles[OS_WINDOWS].url).toEqual(
-      'https://a.m.o/windows.xpi',
-    );
-  });
-
-  it('handles an empty array of files', () => {
-    const addon = createFakeAddon({ files: [] });
-    const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].platformFiles).toMatchObject(
-      defaultPlatformFiles,
-    );
   });
 
   it('exposes `isRestartRequired` attribute from current version files', () => {
