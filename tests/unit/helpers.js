@@ -41,9 +41,6 @@ import { selectUIState } from 'core/reducers/uiState';
 import { loadCurrentUserAccount } from 'amo/reducers/users';
 import { createUIStateMapper, mergeUIStateProps } from 'core/withUIState';
 
-const fetchMock = require('fetch-mock');
-const fetch = require('node-fetch');
-
 export const sampleUserAgent =
   'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
 export const sampleUserAgentParsed = UAParser(sampleUserAgent);
@@ -780,23 +777,15 @@ export function generateHeaders(
 export function createApiResponse({
   ok = true,
   jsonData = {},
-  endpoint = 'https://addons.allizom.org',
   ...responseProps
 } = {}) {
-  fetchMock.mock(endpoint, 200, {
+  const response = {
     ok,
     headers: generateHeaders(),
-    json: jsonData,
+    json: () => Promise.resolve(jsonData),
     ...responseProps,
-  });
-
-  const response = fetch(endpoint).then((data) => {
-    return data;
-  });
-
-  fetchMock.restore();
-
-  return response;
+  };
+  return Promise.resolve(response);
 }
 
 export function createFakeLanguageTool(otherProps = {}) {
