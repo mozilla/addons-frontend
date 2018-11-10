@@ -330,7 +330,7 @@ export class GuidesBase extends React.Component<InternalProps> {
   ): React.ChildrenArray<React.Node> => {
     const { addons, clientApp, i18n, lang } = this.props;
 
-    return sections.map((section, index) => {
+    return sections.map((section) => {
       const url = `/${lang}/${clientApp}${section.exploreUrl}`;
       const exploreMoreLink = i18n.sprintf(section.exploreMore, {
         linkStart: `<a href="${url}">`,
@@ -350,9 +350,6 @@ export class GuidesBase extends React.Component<InternalProps> {
           <div
             className="Guides-section-explore-more"
             onClick={(e) => this.handleClick(e, url)}
-            onKeyDown={(e) => this.handleClick(e, url)}
-            role="link"
-            tabIndex={index}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={sanitizeHTML(exploreMoreLink, ['a'])}
           />
