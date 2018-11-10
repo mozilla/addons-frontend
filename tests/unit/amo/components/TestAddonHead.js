@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
 
+import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import AddonHead, { AddonHeadBase } from 'amo/components/AddonHead';
 import {
   ADDON_TYPE_COMPLETE_THEME,
@@ -14,12 +16,12 @@ import {
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
+import { createInternalVersion, loadVersions } from 'core/reducers/versions';
 import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
   fakeTheme,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -84,91 +86,44 @@ describe(__filename, () => {
     );
   });
 
-  it('renders a description meta tag containing the add-on summary', () => {
+  it('renders a HeadMetaTags component', () => {
     const addon = createInternalAddon(fakeAddon);
-    const root = render({ addon });
-
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]')).toHaveProp(
-      'content',
-      `Download ${addon.name} for Firefox. ${addon.summary}`,
-    );
-  });
-
-  it('renders Open Graph meta tags', () => {
     const lang = 'fr';
-    const addon = createInternalAddon(fakeAddon);
-    const { store } = dispatchClientMetadata({ lang });
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+      lang,
+    });
+
     const root = render({ addon, store });
 
-    [
-      ['og:type', 'website'],
-      ['og:url', addon.url],
-      ['og:locale', lang],
-      ['og:image', addon.previews[0].image_url],
-    ].forEach(([property, expectedValue]) => {
-      expect(root.find(`meta[property="${property}"]`)).toHaveProp(
-        'content',
-        expectedValue,
-      );
-    });
-
-    expect(root.find(`meta[property="og:title"]`).prop('content')).toContain(
-      addon.name,
+    expect(root.find(HeadMetaTags)).toHaveLength(1);
+    expect(root.find(HeadMetaTags)).toHaveProp('appendDefaultTitle', false);
+    expect(root.find(HeadMetaTags)).toHaveProp('date', addon.created);
+    expect(root.find(HeadMetaTags)).toHaveProp(
+      'description',
+      `Download ${addon.name} for Firefox. ${addon.summary}`,
     );
-    expect(
-      root.find(`meta[property="og:description"]`).prop('content'),
-    ).toContain(addon.summary);
+    expect(root.find(HeadMetaTags)).toHaveProp(
+      'image',
+      addon.previews[0].image_url,
+    );
+    expect(root.find(HeadMetaTags)).toHaveProp(
+      'lastModified',
+      addon.last_updated,
+    );
+    expect(root.find(HeadMetaTags)).toHaveProp(
+      'title',
+      `${addon.name} – Get this Extension for 🦊 Firefox Android (${lang})`,
+    );
   });
 
-  it('does not render a "og:image" meta tag if add-on has no previews', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      previews: [],
-    });
-    const root = render({ addon });
-
-    expect(root.find(`meta[property="og:image"]`)).toHaveLength(0);
-  });
-
-  it('renders a "og:image" meta tag with the preview URL if add-on is a lightweight theme', () => {
+  it('passes the preview URL as `image` to the HeadMetaTags component when add-on is a lightweight theme', () => {
     const addon = createInternalAddon(fakeTheme);
     const root = render({ addon });
 
-    expect(root.find(`meta[property="og:image"]`)).toHaveLength(1);
-    expect(root.find(`meta[property="og:image"]`)).toHaveProp(
-      'content',
+    expect(root.find(HeadMetaTags)).toHaveProp(
+      'image',
       addon.themeData.previewURL,
-    );
-  });
-
-  it('does not render a "og:image" meta tag if lightweight theme does not have a preview URL', () => {
-    const addon = createInternalAddon({
-      ...fakeTheme,
-      theme_data: {
-        ...fakeTheme.theme_data,
-        previewURL: null,
-      },
-    });
-    const root = render({ addon });
-
-    expect(root.find(`meta[property="og:image"]`)).toHaveLength(0);
-  });
-
-  it('renders a canonical link tag', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const baseURL = 'https://example.org';
-    const _config = getFakeConfig({ baseURL });
-
-    const pathname = '/this-should-be-an-addon-slug';
-    const { store } = dispatchClientMetadata({ pathname });
-
-    const root = render({ _config, addon, store });
-
-    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
-    expect(root.find('link[rel="canonical"]')).toHaveProp(
-      'href',
-      `${baseURL}${pathname}`,
     );
   });
 
@@ -179,121 +134,29 @@ describe(__filename, () => {
     expect(root.find('script[type="application/ld+json"]')).toHaveLength(1);
   });
 
-  it('renders a "date" meta tag', () => {
+  it('passes both an addon and a currentVersion when rendering JSON linked data', () => {
+    const { store } = dispatchClientMetadata();
     const addon = createInternalAddon(fakeAddon);
+    store.dispatch(
+      loadVersions({
+        slug: fakeAddon.slug,
+        versions: [fakeAddon.current_version],
+      }),
+    );
+
+    const currentVersion = createInternalVersion(fakeAddon.current_version);
+    const _getAddonJsonLinkedData = sinon.spy();
+
+    render({ _getAddonJsonLinkedData, addon, store });
+
+    sinon.assert.calledWith(_getAddonJsonLinkedData, { addon, currentVersion });
+  });
+
+  it('renders a HeadLinks component', () => {
+    const addon = createInternalAddon(fakeAddon);
+
     const root = render({ addon });
 
-    expect(root.find('meta[name="date"]')).toHaveLength(1);
-    expect(root.find('meta[name="date"]')).toHaveProp('content', addon.created);
+    expect(root.find(HeadLinks)).toHaveLength(1);
   });
-
-  it('renders a "last-modified" meta tag', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const root = render({ addon });
-
-    expect(root.find('meta[name="last-modified"]')).toHaveLength(1);
-    expect(root.find('meta[name="last-modified"]')).toHaveProp(
-      'content',
-      addon.last_updated,
-    );
-  });
-
-  it('does not render a "last-modified" meta tag when date is not defined', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      last_updated: null,
-    });
-    const root = render({ addon });
-
-    expect(root.find('meta[name="last-modified"]')).toHaveLength(0);
-  });
-
-  it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
-    'renders alternate links with hreflang for %s',
-    (clientApp) => {
-      const addon = createInternalAddon(fakeAddon);
-      const baseURL = 'https://example.org';
-
-      const _hrefLangs = ['fr', 'en-US'];
-      const _config = getFakeConfig({ baseURL });
-      const { store } = dispatchClientMetadata({ clientApp });
-
-      const root = render({ _config, _hrefLangs, addon, store });
-
-      expect(root.find('link[rel="alternate"]')).toHaveLength(
-        _hrefLangs.length,
-      );
-      _hrefLangs.forEach((locale, index) => {
-        expect(root.find('link[rel="alternate"]').at(index)).toHaveProp(
-          'hrefLang',
-          locale,
-        );
-        expect(root.find('link[rel="alternate"]').at(index)).toHaveProp(
-          'href',
-          `${baseURL}/${locale}/${clientApp}/addon/${addon.slug}/`,
-        );
-      });
-    },
-  );
-
-  it('renders alternate links for aliased locales', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const baseURL = 'https://example.org';
-    const clientApp = CLIENT_APP_FIREFOX;
-
-    const _hrefLangs = ['x-default'];
-    const aliasKey = 'x-default';
-    const aliasValue = 'en-US';
-    const hrefLangsMap = {
-      [aliasKey]: aliasValue,
-    };
-
-    const _config = getFakeConfig({ baseURL, hrefLangsMap });
-    const { store } = dispatchClientMetadata({ clientApp });
-
-    const root = render({ _config, _hrefLangs, addon, store });
-
-    expect(root.find('link[rel="alternate"]')).toHaveLength(_hrefLangs.length);
-    expect(root.find('link[rel="alternate"]').at(0)).toHaveProp(
-      'hrefLang',
-      aliasKey,
-    );
-    expect(root.find('link[rel="alternate"]').at(0)).toHaveProp(
-      'href',
-      `${baseURL}/${aliasValue}/${clientApp}/addon/${addon.slug}/`,
-    );
-  });
-
-  it('does not render any links for unsupported alternate link locales', () => {
-    const addon = createInternalAddon(fakeAddon);
-    const lang = 'fr';
-
-    const _hrefLangs = [lang, 'en-US'];
-    // We mark the current locale as excluded.
-    const _config = getFakeConfig({ unsupportedHrefLangs: [lang] });
-    const { store } = dispatchClientMetadata({ lang });
-
-    const root = render({ _config, _hrefLangs, addon, store });
-
-    expect(root.find('link[rel="alternate"]')).toHaveLength(0);
-  });
-
-  // This test case ensures the production configuration is taken into account.
-  it.each([['x-default', 'en-US'], ['pt', 'pt-PT'], ['en', 'en-US']])(
-    'renders a "%s" alternate link',
-    (hrefLang, locale) => {
-      const addon = createInternalAddon(fakeAddon);
-      const baseURL = 'https://example.org';
-      const clientApp = CLIENT_APP_FIREFOX;
-      const _config = getFakeConfig({ baseURL });
-      const { store } = dispatchClientMetadata({ clientApp });
-
-      const root = render({ _config, addon, store });
-
-      expect(root.find(`link[hrefLang="${hrefLang}"]`)).toHaveProp(
-        'href',
-        `${baseURL}/${locale}/${clientApp}/addon/${addon.slug}/`,
-      );
-    },
-  );
 });

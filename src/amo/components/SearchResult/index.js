@@ -142,22 +142,21 @@ export class SearchResultBase extends React.Component<InternalProps> {
             </div>
           ) : null}
 
-          {addon &&
-            addon.notes && (
-              <div className="SearchResult-note">
-                <h4 className="SearchResult-note-header">
-                  <Icon name="comments-blue" />
-                  {i18n.gettext('Add-on note')}
-                </h4>
-                <p
-                  className="SearchResult-note-content"
-                  // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={sanitizeHTML(nl2br(addon.notes), [
-                    'br',
-                  ])}
-                />
-              </div>
-            )}
+          {addon && addon.notes && (
+            <div className="SearchResult-note">
+              <h4 className="SearchResult-note-header">
+                <Icon name="comments-blue" />
+                {i18n.gettext('Add-on note')}
+              </h4>
+              <p
+                className="SearchResult-note-content"
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={sanitizeHTML(nl2br(addon.notes), [
+                  'br',
+                ])}
+              />
+            </div>
+          )}
         </div>
 
         <h3 className="SearchResult-users SearchResult--meta-section">

@@ -4,7 +4,7 @@ import fs from 'fs-extra';
 import MockExpressResponse from 'mock-express-response';
 
 import { viewFrontendVersionHandler } from 'core/utils/server';
-import { getFakeConfig } from 'tests/unit/helpers';
+import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('viewFrontendVersionHandler', () => {
@@ -62,9 +62,7 @@ describe(__filename, () => {
 
     it('returns a 415 and logs an error when file does not exist', (done) => {
       const _config = getFakeConfig({ basePath: '/some/invalid/path' });
-      const _log = {
-        error: sinon.stub(),
-      };
+      const _log = getFakeLogger();
 
       const handler = viewFrontendVersionHandler({ _config, _log });
 

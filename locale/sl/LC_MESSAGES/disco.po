@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-11-06 17:31+0000\n"
 "PO-Revision-Date: 2018-10-23 21:58+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
@@ -11,38 +11,39 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:228
 msgid "Enable"
 msgstr "Omogoči"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Enabling"
 msgstr "Omogočanje"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Downloading"
 msgstr "Prenašanje"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Installing"
 msgstr "Nameščanje"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Uninstalling"
 msgstr "Odstranjevanje"
 
-#: src/core/components/AMInstallButton/index.js:220 src/core/components/InstallButton/index.js:235 src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:247
 msgid "Install Theme"
 msgstr "Namesti temo"
 
-#: src/core/components/AMInstallButton/index.js:221 src/core/components/InstallButton/index.js:266 src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Add to Firefox"
 msgstr "Dodaj v Firefox"
 
@@ -51,10 +52,15 @@ msgid "Server Error"
 msgstr "Napaka strežnika"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Žal je prišlo do napake in vaše zahteve nismo mogli izpolniti. Napako smo zabeležili in se ji bomo posvetili."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Žal je prišlo do napake in vaše zahteve nismo mogli izpolniti. Napako smo "
+"zabeležili in se ji bomo posvetili."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Koda napake: %(status)s."
 
@@ -77,34 +83,6 @@ msgstr "Za upravljanje dodatkov v meniju kliknite Dodatki."
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "V redu"
-
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "Prenašanje %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "Nameščanje %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s je nameščen in omogočen. Kliknite za odstranjevanje."
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s je onemogočen. Kliknite, da ga omogočite."
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "Odstranjevanje %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s je bil odstranjen. Kliknite za namestitev."
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "Ni znano, ali je %(name)s nameščen ali ne."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -146,7 +124,7 @@ msgstr "Med odstranjevanjem je prišlo do nepričakovane napake."
 msgid "An unexpected error occurred."
 msgstr "Prišlo je do nepričakovane napake."
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "Zapri"
 
@@ -180,11 +158,17 @@ msgstr "Prikrojite Firefox po svoji meri"
 
 #: src/disco/pages/DiscoPane/index.js:149
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Razvijalci širom sveta so ustvarili na tisoče dodatkov, s katerimi si lahko prilagodite Firefox. Od zabavnih grafičnih tem do zmogljivih orodij, ki napravijo vaše brskanje hitrejše in varnejše — "
-"dodatki naredijo vaš Firefox čisto vaš. Za začetek lahko preskusite naslednje, ki jih priporočamo zaradi izredne zmogljivosti in uporabnosti."
+"Razvijalci širom sveta so ustvarili na tisoče dodatkov, s katerimi si lahko "
+"prilagodite Firefox. Od zabavnih grafičnih tem do zmogljivih orodij, ki "
+"napravijo vaše brskanje hitrejše in varnejše — dodatki naredijo vaš Firefox "
+"čisto vaš. Za začetek lahko preskusite naslednje, ki jih priporočamo zaradi "
+"izredne zmogljivosti in uporabnosti."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -206,6 +190,27 @@ msgstr "Skrij obvestilo"
 msgid "Preview of %(title)s"
 msgstr "Predogled %(title)s"
 
+#~ msgid "Downloading %(name)s."
+#~ msgstr "Prenašanje %(name)s."
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "Nameščanje %(name)s."
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr "%(name)s je nameščen in omogočen. Kliknite za odstranjevanje."
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "%(name)s je onemogočen. Kliknite, da ga omogočite."
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "Odstranjevanje %(name)s."
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "%(name)s je bil odstranjen. Kliknite za namestitev."
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "Ni znano, ali je %(name)s nameščen ali ne."
+
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "Dodatek bo odstranjen po ponovnem zagonu Firefoxa."
 
@@ -219,7 +224,8 @@ msgstr "Predogled %(title)s"
 #~ msgstr "Sedaj lahko do %(name)s dostopate iz orodne vrstice."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "Pridržite miškin kazalec za predogled ali kliknite, da namestite %(name)s"
+#~ msgstr ""
+#~ "Pridržite miškin kazalec za predogled ali kliknite, da namestite %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Premaknite miško nad sliko za predogled"

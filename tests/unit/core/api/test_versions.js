@@ -1,4 +1,4 @@
-import { getVersions } from 'amo/api/versions';
+import { getVersions } from 'core/api/versions';
 import * as api from 'core/api';
 import { createApiResponse, dispatchSignInActions } from 'tests/unit/helpers';
 

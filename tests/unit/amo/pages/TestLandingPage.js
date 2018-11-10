@@ -2,17 +2,24 @@ import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import * as landingActions from 'amo/actions/landing';
-import NotFound from 'amo/components/ErrorPage/NotFound';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import LandingPage, { LandingPageBase } from 'amo/pages/LandingPage';
+import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import { visibleAddonType, getAddonTypeFilter } from 'core/utils';
+import {
+  visibleAddonType as getVisibleAddonType,
+  getAddonTypeFilter,
+} from 'core/utils';
 import {
   createAddonsApiResult,
   createStubErrorHandler,
@@ -20,7 +27,6 @@ import {
   fakeAddon,
   fakeI18n,
   getFakeConfig,
-  onLocationChanged,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -33,7 +39,7 @@ describe(__filename, () => {
       errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
       match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION) },
       },
       store: _store,
       ...otherProps,
@@ -46,6 +52,15 @@ describe(__filename, () => {
       LandingPageBase,
     );
   }
+
+  const renderTheme = (props = {}) => {
+    return render({
+      match: {
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
+      },
+      ...props,
+    });
+  };
 
   const _getAndLoadLandingAddons = ({
     addonType = ADDON_TYPE_EXTENSION,
@@ -88,7 +103,7 @@ describe(__filename, () => {
     fakeDispatch.resetHistory();
     root.setProps({
       match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
       },
     });
 
@@ -123,7 +138,7 @@ describe(__filename, () => {
     const root = render({
       errorHandler,
       match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
       },
       store,
     });
@@ -132,7 +147,7 @@ describe(__filename, () => {
     // Now we request extension add-ons.
     root.setProps({
       match: {
-        params: { visibleAddonType: visibleAddonType(addonType) },
+        params: { visibleAddonType: getVisibleAddonType(addonType) },
       },
     });
 
@@ -149,7 +164,7 @@ describe(__filename, () => {
 
   it('does not dispatch getLanding when addon type does not change', () => {
     const addonType = ADDON_TYPE_EXTENSION;
-    const params = { visibleAddonType: visibleAddonType(addonType) };
+    const params = { visibleAddonType: getVisibleAddonType(addonType) };
     const match = { params };
     const errorHandler = createStubErrorHandler();
 
@@ -212,7 +227,7 @@ describe(__filename, () => {
   it('renders a LandingPage with no addons set', () => {
     const root = render({
       match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION) },
       },
     });
 
@@ -221,7 +236,7 @@ describe(__filename, () => {
 
   it('renders a link to all categories', () => {
     const fakeParams = {
-      visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
     };
     const match = { params: fakeParams };
 
@@ -235,7 +250,7 @@ describe(__filename, () => {
 
   it('does not render a theme class name when page type is extensions', () => {
     const root = render({
-      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+      params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION) },
     });
     expect(root).not.toHaveClassName('.LandingPage--theme');
   });
@@ -243,7 +258,7 @@ describe(__filename, () => {
   it('renders a theme class name when page type is themes', () => {
     const root = render({
       match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
       },
     });
     expect(root).toHaveClassName('.LandingPage--theme');
@@ -266,7 +281,7 @@ describe(__filename, () => {
     );
 
     const fakeParams = {
-      visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
     };
     const match = { params: fakeParams };
 
@@ -293,7 +308,7 @@ describe(__filename, () => {
     _getAndLoadLandingAddons({ addonType });
 
     const fakeParams = {
-      visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
     };
 
     const match = { params: fakeParams };
@@ -321,7 +336,7 @@ describe(__filename, () => {
     const root = render({
       match: {
         params: {
-          visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
         },
       },
     });
@@ -337,7 +352,7 @@ describe(__filename, () => {
     const root = render({
       match: {
         params: {
-          visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
         },
       },
     });
@@ -350,7 +365,7 @@ describe(__filename, () => {
   it('renders a LandingPage with themes HTML', () => {
     const root = render({
       match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
       },
     });
 
@@ -380,7 +395,7 @@ describe(__filename, () => {
 
     const root = render({
       match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
       },
     });
 
@@ -412,21 +427,6 @@ describe(__filename, () => {
       'footerText',
       'See more featured themes',
     );
-  });
-
-  it('renders not found if add-on type is not supported', () => {
-    const root = render({ match: { params: { visibleAddonType: 'XUL' } } });
-    expect(root.find(NotFound)).toHaveLength(1);
-  });
-
-  it('renders not found if updated add-on type is not supported', () => {
-    const root = render({
-      match: {
-        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
-      },
-    });
-    root.setProps({ match: { params: { visibleAddonType: 'XUL' } } });
-    expect(root.find(NotFound)).toHaveLength(1);
   });
 
   it('dispatches getLanding when category filter is set', () => {
@@ -468,7 +468,7 @@ describe(__filename, () => {
   it('does not dispatch setViewContext when addonType does not change', () => {
     const addonType = ADDON_TYPE_EXTENSION;
     const errorHandler = createStubErrorHandler();
-    const params = { visibleAddonType: visibleAddonType(addonType) };
+    const params = { visibleAddonType: getVisibleAddonType(addonType) };
     const match = { params };
 
     store.dispatch(
@@ -491,7 +491,7 @@ describe(__filename, () => {
   it('does not dispatch setViewContext when context does not change', () => {
     const addonType = ADDON_TYPE_EXTENSION;
     const errorHandler = createStubErrorHandler();
-    const params = { visibleAddonType: visibleAddonType(addonType) };
+    const params = { visibleAddonType: getVisibleAddonType(addonType) };
     const match = { params };
 
     store.dispatch(
@@ -515,7 +515,7 @@ describe(__filename, () => {
 
   it('renders an HTML title for themes', () => {
     const fakeParams = {
-      visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
     };
     const match = { params: fakeParams };
 
@@ -525,7 +525,7 @@ describe(__filename, () => {
 
   it('renders an HTML title for extensions', () => {
     const fakeParams = {
-      visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
     };
     const match = { params: fakeParams };
 
@@ -607,35 +607,84 @@ describe(__filename, () => {
     expect(landingShelves.at(1)).toHaveClassName('TrendingAddons');
   });
 
-  it('renders a canonical link tag', () => {
-    const baseURL = 'https://example.org';
-    const _config = getFakeConfig({ baseURL });
+  it.each([
+    [
+      ADDON_TYPE_EXTENSION,
+      'Extensions',
+      /Download Firefox Extensions to add features/,
+    ],
+    [ADDON_TYPE_THEME, 'Themes', /Download themes to change/],
+  ])(
+    'renders a HeadMetaTags component for %s',
+    (addonType, expectedTitle, expectedDescriptionMatch) => {
+      const root = render({
+        match: {
+          params: { visibleAddonType: getVisibleAddonType(addonType) },
+        },
+      });
 
-    const pathname = '/some-landing-pathname/';
-    store.dispatch(onLocationChanged({ pathname }));
+      expect(root.find(HeadMetaTags)).toHaveLength(1);
+      expect(root.find(HeadMetaTags).prop('title')).toEqual(expectedTitle);
+      expect(root.find(HeadMetaTags).prop('description')).toMatch(
+        expectedDescriptionMatch,
+      );
+    },
+  );
 
-    const root = render({ _config, store });
+  it('renders a HeadLinks component', () => {
+    const root = render();
 
-    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
-    expect(root.find('link[rel="canonical"]')).toHaveProp(
-      'href',
-      `${baseURL}${pathname}`,
-    );
+    expect(root.find(HeadLinks)).toHaveLength(1);
   });
 
-  it.each([
-    [ADDON_TYPE_EXTENSION, /Extensions add/],
-    [ADDON_TYPE_THEME, /Change how Firefox looks/],
-  ])('renders a "description" meta tag for %s', (addonType, partialContent) => {
-    const root = render({
-      match: {
-        params: { visibleAddonType: visibleAddonType(addonType) },
-      },
+  it('renders a 404 when clientApp is Android and enableFeatureStaticThemesForAndroid is false', () => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID }).store;
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
     });
 
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
-      partialContent,
-    );
+    const root = renderTheme({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(1);
+    expect(root).not.toHaveClassName('LandingPage');
+  });
+
+  it('does not render a 404 when clientApp is Android and enableFeatureStaticThemesForAndroid is true', () => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID }).store;
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: true,
+    });
+
+    const root = renderTheme({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root).toHaveClassName('LandingPage');
+  });
+
+  it('does not render a 404 when clientApp is not Android', () => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store;
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+
+    const root = renderTheme({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root).toHaveClassName('LandingPage');
+  });
+
+  it('does not render a 404 when it is not the "themes" landing page', () => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID }).store;
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+    const params = {
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
+    };
+
+    const root = render({ _config, store, match: { params } });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root).toHaveClassName('LandingPage');
   });
 });

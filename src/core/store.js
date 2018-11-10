@@ -48,8 +48,8 @@ export function middleware({
   return compose(
     _applyMiddleware(...callbacks),
     _config.get('enableDevTools') &&
-    _window &&
-    _window.__REDUX_DEVTOOLS_EXTENSION__
+      _window &&
+      _window.__REDUX_DEVTOOLS_EXTENSION__
       ? _window.__REDUX_DEVTOOLS_EXTENSION__()
       : (createStore) => createStore,
   );

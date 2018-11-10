@@ -3,11 +3,8 @@ import deepcopy from 'deepcopy';
 import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
-import type {
-  ExternalAddonType,
-  SearchResultAddonType,
-} from 'core/types/addons';
 import { getAddonTypeFilter } from 'core/utils';
+import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 type AddonId = number;
 
@@ -17,7 +14,7 @@ export type AddonsByAuthorsState = {|
   // That said, these are partial add-ons returned from the search
   // results and fetching all add-on data for each add-on might be too
   // expensive.
-  byAddonId: { [AddonId]: SearchResultAddonType },
+  byAddonId: { [AddonId]: AddonType },
   byAddonSlug: { [string]: Array<AddonId> },
   byAuthorId: { [number]: Array<AddonId> },
   countFor: { [string]: number },
@@ -140,11 +137,13 @@ export const getLoadingForAuthorIds = (
   authorIds: Array<number>,
   addonType?: string,
 ): boolean | null => {
-  return (
-    addonsByAuthorsState.loadingFor[
-      joinAuthorIdsAndAddonType(authorIds, addonType)
-    ] || null
-  );
+  const key = joinAuthorIdsAndAddonType(authorIds, addonType);
+
+  if (addonsByAuthorsState.loadingFor[key] === undefined) {
+    return null;
+  }
+
+  return addonsByAuthorsState.loadingFor[key];
 };
 
 export const getCountForAuthorIds = (
@@ -162,7 +161,7 @@ export const getCountForAuthorIds = (
 export const getAddonsForSlug = (
   addonsByAuthorsState: AddonsByAuthorsState,
   slug: string,
-): Array<SearchResultAddonType> | null => {
+): Array<AddonType> | null => {
   const ids = addonsByAuthorsState.byAddonSlug[slug];
 
   return ids ? ids.map((id) => addonsByAuthorsState.byAddonId[id]) : null;
@@ -173,7 +172,7 @@ export const getAddonsForAuthorIds = (
   authorIds: Array<number>,
   addonType?: string,
   excludeSlug?: string,
-): Array<SearchResultAddonType> | null => {
+): Array<AddonType> | null => {
   invariant(
     authorIds && authorIds.length,
     'At least one authorId is required.',

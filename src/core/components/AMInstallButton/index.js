@@ -32,8 +32,10 @@ import tracking, {
   getAddonEventCategory,
 } from 'core/tracking';
 import { isTheme } from 'core/utils';
+import { withExperiment } from 'core/withExperiment';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
+import type { AddonVersionType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { WithInstallHelpersInjectedProps } from 'core/installAddon';
 import type { UserAgentInfoType } from 'core/reducers/api';
@@ -41,6 +43,7 @@ import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterLocationType } from 'core/types/router';
 import type { ButtonType } from 'ui/components/Button';
+import type { WithExperimentInjectedProps } from 'core/withExperiment';
 
 import './styles.scss';
 
@@ -48,6 +51,7 @@ type Props = {|
   ...WithInstallHelpersInjectedProps,
   addon: AddonType,
   className?: string,
+  currentVersion: AddonVersionType,
   defaultButtonText?: string,
   defaultInstallSource: string,
   disabled: boolean,
@@ -57,6 +61,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  ...WithExperimentInjectedProps,
   _config: typeof config,
   _log: typeof log,
   _tracking: typeof tracking,
@@ -83,6 +88,11 @@ type ButtonProps = {|
 
 const TRANSITION_TIMEOUT = 150;
 
+const EXPERIMENT_ID = 'installButtonColor';
+export const EXPERIMENT_CATEGORY = 'AMO Install Button Color Experiment';
+export const VARIANT_BLUE = 'blue';
+export const VARIANT_GREEN = 'green';
+
 export class AMInstallButtonBase extends React.Component<InternalProps> {
   static defaultProps = {
     _config: config,
@@ -91,6 +101,20 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     _window: typeof window !== 'undefined' ? window : {},
     puffy: true,
   };
+
+  componentDidMount() {
+    const { _log, _tracking, experimentEnabled, variant } = this.props;
+
+    if (!experimentEnabled) {
+      _log.debug(`Experiment "${EXPERIMENT_ID}" is disabled.`);
+      return;
+    }
+
+    _tracking.sendEvent({
+      action: variant,
+      category: EXPERIMENT_CATEGORY,
+    });
+  }
 
   installTheme = (event: SyntheticEvent<HTMLAnchorElement>) => {
     const { addon, status, installTheme } = this.props;
@@ -247,6 +271,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       _log,
       addon,
       className,
+      currentVersion,
       defaultInstallSource,
       disabled,
       hasAddonManager,
@@ -263,7 +288,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     const installURL = findInstallURL({
       defaultInstallSource,
       location,
-      platformFiles: addon.platformFiles,
+      platformFiles: currentVersion.platformFiles,
       userAgentInfo,
     });
 
@@ -323,7 +348,11 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     const buttonText = this.getButtonText();
 
     return (
-      <TransitionGroup className={makeClassName('AMInstallButton', className)}>
+      <TransitionGroup
+        className={makeClassName('AMInstallButton', className, {
+          'AMInstallButton--green': this.props.variant === VARIANT_GREEN,
+        })}
+      >
         {this.showLoadingAnimation() ? (
           <CSSTransition key="loading" {...transitionProps}>
             <div
@@ -363,6 +392,11 @@ const AMInstallButton: React.ComponentType<Props> = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
+  withExperiment({
+    id: EXPERIMENT_ID,
+    variantA: VARIANT_BLUE,
+    variantB: VARIANT_GREEN,
+  }),
 )(AMInstallButtonBase);
 
 export default AMInstallButton;

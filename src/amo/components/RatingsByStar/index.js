@@ -38,15 +38,16 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
     // TODO: this is intended to load on the server (before mount) but it
     // does not.
     // See: https://github.com/mozilla/addons-frontend/issues/5854
-    this.loadDataIfNeeded(props);
+    this.loadDataIfNeeded();
   }
 
-  componentWillReceiveProps(nextProps: InternalProps) {
-    this.loadDataIfNeeded(nextProps);
+  componentDidUpdate() {
+    this.loadDataIfNeeded();
   }
 
-  loadDataIfNeeded(props: InternalProps) {
-    const { addon, dispatch, errorHandler, groupedRatings } = props;
+  loadDataIfNeeded() {
+    const { addon, dispatch, errorHandler, groupedRatings } = this.props;
+
     if (!errorHandler.hasError() && addon && !groupedRatings) {
       dispatch(
         fetchGroupedRatings({

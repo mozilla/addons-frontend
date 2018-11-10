@@ -13,6 +13,7 @@ import CategoryHead from 'amo/components/CategoryHead';
 import CategoryHeader from 'amo/components/CategoryHeader';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import { shouldShowThemes } from 'amo/utils';
 import { categoriesFetch } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION,
@@ -26,12 +27,7 @@ import {
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import {
-  apiAddonType,
-  apiAddonTypeIsValid,
-  getAddonTypeFilter,
-  isTheme,
-} from 'core/utils';
+import { apiAddonType, getAddonTypeFilter, isTheme } from 'core/utils';
 
 import './styles.scss';
 
@@ -68,11 +64,11 @@ export class CategoryBase extends React.Component {
     this.loadDataIfNeeded();
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.loadDataIfNeeded(nextProps);
+  componentDidUpdate() {
+    this.loadDataIfNeeded();
   }
 
-  loadDataIfNeeded(nextProps = {}) {
+  loadDataIfNeeded() {
     const {
       addonTypeOfResults,
       categoryOfResults,
@@ -83,19 +79,10 @@ export class CategoryBase extends React.Component {
       loading,
       match: { params },
       resultsLoaded,
-    } = {
-      ...this.props,
-      ...nextProps,
-    };
+    } = this.props;
 
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error.');
-      return;
-    }
-
-    if (!apiAddonTypeIsValid(params.visibleAddonType)) {
-      log.warn(oneLine`Skipping loadDataIfNeeded() because visibleAddonType
-        is invalid: ${params.visibleAddonType}`);
       return;
     }
 
@@ -227,6 +214,7 @@ export class CategoryBase extends React.Component {
 
   render() {
     const {
+      _config,
       categories,
       clientApp,
       errorHandler,
@@ -256,9 +244,13 @@ export class CategoryBase extends React.Component {
       }
     }
 
-    const { html } = this.contentForType(addonType);
-
     const isAddonTheme = isTheme(addonType);
+
+    if (isAddonTheme && !shouldShowThemes({ _config, clientApp })) {
+      return <NotFound />;
+    }
+
+    const { html } = this.contentForType(addonType);
 
     return (
       <div

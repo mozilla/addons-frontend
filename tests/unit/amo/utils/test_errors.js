@@ -1,8 +1,7 @@
 import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ServerError from 'amo/components/ErrorPage/ServerError';
-import { getCanonicalURL, getErrorComponent } from 'amo/utils';
-import { getFakeConfig } from 'tests/unit/helpers';
+import { getErrorComponent } from 'amo/utils/errors';
 
 describe(__filename, () => {
   describe('getErrorComponent', () => {
@@ -20,18 +19,6 @@ describe(__filename, () => {
 
     it('returns a ServerError component by default', () => {
       expect(getErrorComponent(501)).toEqual(ServerError);
-    });
-  });
-
-  describe('getCanonicalURL', () => {
-    it(`returns an absolute canonical URL`, () => {
-      const locationPathname = '/path/name';
-      const baseURL = 'https://example.org';
-      const _config = getFakeConfig({ baseURL });
-
-      expect(getCanonicalURL({ _config, locationPathname })).toEqual(
-        `${baseURL}${locationPathname}`,
-      );
     });
   });
 });

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-11-06 17:31+0000\n"
 "PO-Revision-Date: 2018-10-20 21:17+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,39 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:228
 msgid "Enable"
 msgstr "Etkinleştir"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Remove"
 msgstr "Kaldır"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Enabling"
 msgstr "Etkinleştiriliyor"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Downloading"
 msgstr "İndiriliyor"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Installing"
 msgstr "Yükleniyor"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Uninstalling"
 msgstr "Kaldırılıyor"
 
-#: src/core/components/AMInstallButton/index.js:220
-#: src/core/components/InstallButton/index.js:235
-#: src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:247
 msgid "Install Theme"
 msgstr "Temayı yükle"
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:266
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Add to Firefox"
 msgstr "Firefox’a ekle"
 
@@ -88,34 +84,6 @@ msgstr ""
 msgid "OK"
 msgstr "Tamam"
 
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "%(name)s indiriliyor."
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "%(name)s yükleniyor."
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s yüklendi ve etkinleştirildi. Kaldırmak için tıklayın."
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s etkisizleştirildi. Etkinleştirmek için tıklayın."
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "%(name)s kaldırılıyor."
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s kaldırıldı. Yüklemek için tıklayın."
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "%(name)s yükleme durumu bilinmiyor."
-
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr ""
@@ -156,7 +124,7 @@ msgstr "Kaldırma sırasında beklenmeyen bir hata oluştu."
 msgid "An unexpected error occurred."
 msgstr "Beklenmeyen bir hata oluştu."
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "Kapat"
 
@@ -222,6 +190,27 @@ msgstr "Bu bildirimi kapat"
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "%(title)s ön izlemesi"
+
+#~ msgid "Downloading %(name)s."
+#~ msgstr "%(name)s indiriliyor."
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "%(name)s yükleniyor."
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr "%(name)s yüklendi ve etkinleştirildi. Kaldırmak için tıklayın."
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "%(name)s etkisizleştirildi. Etkinleştirmek için tıklayın."
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "%(name)s kaldırılıyor."
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "%(name)s kaldırıldı. Yüklemek için tıklayın."
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "%(name)s yükleme durumu bilinmiyor."
 
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "Firefox’u yeniden başlattığınızda bu eklenti kaldırılacak."

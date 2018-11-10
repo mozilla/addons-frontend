@@ -44,12 +44,16 @@ import {
 } from 'core/constants';
 import * as addonManager from 'core/addonManager';
 import { showInfoDialog } from 'core/reducers/infoDialog';
+import { getVersionById } from 'core/reducers/versions';
 import { findFileForPlatform, getDisplayName } from 'core/utils';
 import { getFileHash } from 'core/utils/addons';
+import type { AppState as AmoAppState } from 'amo/store';
 import type { UserAgentInfoType } from 'core/reducers/api';
+import type { AddonVersionType } from 'core/reducers/versions';
 import type { AddonType, PlatformFilesType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocationType } from 'core/types/router';
+import type { AppState as DiscoAppState } from 'disco/store';
 
 type InstallThemeParams = {|
   name: string,
@@ -222,6 +226,7 @@ type WithInstallHelpersProps = {|
 
 type WithInstallHelpersInternalProps = {|
   ...WithInstallHelpersProps,
+  currentVersion: AddonVersionType,
   dispatch: DispatchFunc,
   location: ReactRouterLocationType,
 |};
@@ -247,9 +252,7 @@ export type WithInstallHelpersInjectedProps = {|
   uninstall: (UninstallParams) => Promise<any>,
 |};
 
-export class WithInstallHelpers extends React.Component<
-  WithInstallHelpersInternalProps,
-> {
+export class WithInstallHelpers extends React.Component<WithInstallHelpersInternalProps> {
   static defaultProps = {
     _addonManager: addonManager,
     _installTheme: installTheme,
@@ -257,16 +260,16 @@ export class WithInstallHelpers extends React.Component<
   };
 
   componentDidMount() {
-    this.setCurrentStatus(this.props);
+    this.setCurrentStatus();
   }
 
-  componentWillReceiveProps(nextProps: WithInstallHelpersInternalProps) {
-    const oldGuid = this.props.addon ? this.props.addon.guid : null;
-    const newGuid = nextProps.addon ? nextProps.addon.guid : null;
+  componentDidUpdate(prevProps: WithInstallHelpersInternalProps) {
+    const oldGuid = prevProps.addon ? prevProps.addon.guid : null;
+    const newGuid = this.props.addon ? this.props.addon.guid : null;
 
     if (newGuid && newGuid !== oldGuid) {
       log.info('Updating add-on status');
-      this.setCurrentStatus(nextProps);
+      this.setCurrentStatus();
     }
   }
 
@@ -286,7 +289,7 @@ export class WithInstallHelpers extends React.Component<
     return false;
   }
 
-  setCurrentStatus(newProps: WithInstallHelpersInternalProps = this.props) {
+  setCurrentStatus() {
     const {
       _addonManager,
       addon,
@@ -294,10 +297,7 @@ export class WithInstallHelpers extends React.Component<
       dispatch,
       location,
       userAgentInfo,
-    } = {
-      ...this.props,
-      ...newProps,
-    };
+    } = this.props;
 
     if (!_addonManager.hasAddonManager()) {
       log.info('No addon manager, cannot set add-on status');
@@ -395,13 +395,15 @@ export class WithInstallHelpers extends React.Component<
       _addonManager,
       _tracking,
       addon,
+      currentVersion,
       defaultInstallSource,
       dispatch,
       location,
       userAgentInfo,
     } = this.props;
 
-    const { guid, name, platformFiles, type } = addon;
+    const { guid, name, type } = addon;
+    const { platformFiles } = currentVersion;
 
     return new Promise((resolve) => {
       dispatch({ type: START_DOWNLOAD, payload: { guid } });
@@ -421,7 +423,9 @@ export class WithInstallHelpers extends React.Component<
       resolve(installURL);
     })
       .then((installURL) => {
-        const hash = installURL && getFileHash({ addon, installURL });
+        const hash =
+          installURL &&
+          getFileHash({ addon, installURL, version: currentVersion });
 
         return _addonManager.install(
           installURL,
@@ -568,8 +572,26 @@ export function withInstallHelpers({
       WrappedComponent,
     )})`;
 
+    const mapStateToProps = (
+      state: AmoAppState | DiscoAppState,
+      ownProps: WithInstallHelpersProps,
+    ) => {
+      const { addon } = ownProps;
+      const currentVersion =
+        addon && addon.currentVersionId
+          ? getVersionById({
+              id: addon.currentVersionId,
+              state: state.versions,
+            })
+          : null;
+
+      return {
+        currentVersion,
+      };
+    };
+
     return connect(
-      undefined,
+      mapStateToProps,
       _makeMapDispatchToProps({ WrappedComponent, defaultInstallSource }),
     )(WithInstallHelpers);
   };

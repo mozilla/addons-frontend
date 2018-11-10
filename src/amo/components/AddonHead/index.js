@@ -1,12 +1,12 @@
 /* @flow */
-import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { getCanonicalURL } from 'amo/utils';
+import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -18,9 +18,10 @@ import {
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { getPreviewImage } from 'core/imageUtils';
-import { hrefLangs } from 'core/languages';
+import { getVersionById } from 'core/reducers/versions';
 import { getAddonJsonLinkedData } from 'core/utils/addons';
 import type { AppState } from 'amo/store';
+import type { AddonVersionType } from 'core/reducers/versions';
 import type { I18nType } from 'core/types/i18n';
 import type { AddonType } from 'core/types/addons';
 
@@ -30,18 +31,16 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
-  _hrefLangs: typeof hrefLangs,
+  _getAddonJsonLinkedData: typeof getAddonJsonLinkedData,
   clientApp: string,
+  currentVersion: AddonVersionType | null,
   i18n: I18nType,
   lang: string,
-  locationPathname: string,
 |};
 
 export class AddonHeadBase extends React.Component<InternalProps> {
   static defaultProps = {
-    _config: config,
-    _hrefLangs: hrefLangs,
+    _getAddonJsonLinkedData: getAddonJsonLinkedData,
   };
 
   getPageTitle() {
@@ -141,102 +140,58 @@ export class AddonHeadBase extends React.Component<InternalProps> {
     );
   }
 
-  renderMetaOpenGraph() {
-    const { addon, lang } = this.props;
-
-    invariant(addon, 'addon is required');
-
-    const tags = [
-      <meta key="og:type" property="og:type" content="website" />,
-      <meta key="og:url" property="og:url" content={addon.url} />,
-      <meta key="og:title" property="og:title" content={this.getPageTitle()} />,
-      <meta
-        key="og:description"
-        property="og:description"
-        content={this.getPageDescription()}
-      />,
-      <meta key="og:locale" property="og:locale" content={lang} />,
-    ];
-
-    const image = addon.themeData
-      ? addon.themeData.previewURL
-      : getPreviewImage(addon);
-
-    if (image) {
-      tags.push(<meta key="og:image" property="og:image" content={image} />);
-    }
-
-    return tags;
-  }
-
-  renderAlternateLinks() {
-    const { _config, _hrefLangs, addon, clientApp, lang } = this.props;
-
-    invariant(addon, 'addon is required');
-
-    if (_config.get('unsupportedHrefLangs').includes(lang)) {
-      return null;
-    }
-
-    const hrefLangsMap = _config.get('hrefLangsMap');
-
-    return _hrefLangs.map((hrefLang) => {
-      const locale = hrefLangsMap[hrefLang] || hrefLang;
-
-      return (
-        <link
-          href={getCanonicalURL({
-            _config,
-            locationPathname: `/${locale}/${clientApp}/addon/${addon.slug}/`,
-          })}
-          hrefLang={hrefLang}
-          key={hrefLang}
-          rel="alternate"
-        />
-      );
-    });
-  }
-
   render() {
-    const { _config, addon, locationPathname } = this.props;
+    const { _getAddonJsonLinkedData, addon, currentVersion } = this.props;
+    invariant(_getAddonJsonLinkedData, '_getAddonJsonLinkedData is required.');
 
     if (!addon) {
       return null;
     }
 
+    const image = addon.themeData
+      ? addon.themeData.previewURL
+      : getPreviewImage(addon);
+
     return (
-      <Helmet titleTemplate={null}>
-        <title>{this.getPageTitle()}</title>
+      <React.Fragment>
+        <Helmet titleTemplate={null}>
+          <title>{this.getPageTitle()}</title>
 
-        <link
-          rel="canonical"
-          href={getCanonicalURL({ locationPathname, _config })}
+          <script type="application/ld+json">
+            {JSON.stringify(_getAddonJsonLinkedData({ addon, currentVersion }))}
+          </script>
+        </Helmet>
+
+        <HeadMetaTags
+          appendDefaultTitle={false}
+          date={addon.created}
+          description={this.getPageDescription()}
+          image={image}
+          lastModified={addon.last_updated}
+          title={this.getPageTitle()}
         />
-        {this.renderAlternateLinks()}
 
-        <meta name="description" content={this.getPageDescription()} />
-        <meta name="date" content={addon.created} />
-        {addon.last_updated && (
-          <meta name="last-modified" content={addon.last_updated} />
-        )}
-        {this.renderMetaOpenGraph()}
-
-        <script type="application/ld+json">
-          {JSON.stringify(getAddonJsonLinkedData({ addon }))}
-        </script>
-      </Helmet>
+        <HeadLinks />
+      </React.Fragment>
     );
   }
 }
 
-const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState, ownProps: Props) => {
+  const { addon } = ownProps;
   const { clientApp, lang } = state.api;
-  const locationPathname = state.router.location.pathname;
+  let currentVersion = null;
+  if (addon && addon.currentVersionId) {
+    currentVersion = getVersionById({
+      id: addon.currentVersionId,
+      state: state.versions,
+    });
+  }
 
   return {
     clientApp,
+    currentVersion,
     lang,
-    locationPathname,
   };
 };
 

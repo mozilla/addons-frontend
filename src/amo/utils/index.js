@@ -2,23 +2,10 @@
 /* eslint camelcase: 0 */
 import base62 from 'base62';
 import config from 'config';
+import invariant from 'invariant';
 
-import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
-import NotFound from 'amo/components/ErrorPage/NotFound';
-import ServerError from 'amo/components/ErrorPage/ServerError';
 import { makeQueryString } from 'core/api';
-
-export function getErrorComponent(status: number | null) {
-  switch (status) {
-    case 401:
-      return NotAuthorized;
-    case 404:
-      return NotFound;
-    case 500:
-    default:
-      return ServerError;
-  }
-}
+import { CLIENT_APP_ANDROID } from 'core/constants';
 
 /*
  * Return a base62 object that encodes/decodes just like how Django does it
@@ -62,4 +49,18 @@ export const getCanonicalURL = ({
   locationPathname: string,
 |}): string => {
   return `${_config.get('baseURL')}${locationPathname}`;
+};
+
+export const shouldShowThemes = ({
+  _config = config,
+  clientApp,
+}: {|
+  _config?: typeof config,
+  clientApp: string,
+|}) => {
+  invariant(clientApp, 'clientApp is required');
+
+  return clientApp === CLIENT_APP_ANDROID
+    ? _config.get('enableFeatureStaticThemesForAndroid')
+    : true;
 };

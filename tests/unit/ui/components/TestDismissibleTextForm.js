@@ -379,4 +379,55 @@ describe(__filename, () => {
       root.find('.DismissibleTextForm-formFooter .custom-formFooter'),
     ).toHaveLength(1);
   });
+
+  it('renders all buttons in a default order', () => {
+    const root = shallowRender({
+      onDelete: sinon.stub(),
+      onDismiss: sinon.stub(),
+    });
+
+    const allButtons = root.find('.DismissibleTextForm-buttons');
+    expect(allButtons.childAt(0)).toHaveClassName(
+      'DismissibleTextForm-dismiss',
+    );
+    expect(allButtons.childAt(1)).toHaveClassName(
+      'DismissibleTextForm-delete-submit-buttons',
+    );
+
+    const submitButtons = root.find(
+      '.DismissibleTextForm-delete-submit-buttons',
+    );
+    expect(submitButtons.childAt(0)).toHaveClassName(
+      'DismissibleTextForm-delete',
+    );
+    expect(submitButtons.childAt(1)).toHaveClassName(
+      'DismissibleTextForm-submit',
+    );
+  });
+
+  it('can reverse the button order', () => {
+    const root = shallowRender({
+      onDelete: sinon.stub(),
+      onDismiss: sinon.stub(),
+      reverseButtonOrder: true,
+    });
+
+    const allButtons = root.find('.DismissibleTextForm-buttons');
+    expect(allButtons.childAt(0)).toHaveClassName(
+      'DismissibleTextForm-delete-submit-buttons',
+    );
+    expect(allButtons.childAt(1)).toHaveClassName(
+      'DismissibleTextForm-dismiss',
+    );
+
+    const submitButtons = root.find(
+      '.DismissibleTextForm-delete-submit-buttons',
+    );
+    expect(submitButtons.childAt(0)).toHaveClassName(
+      'DismissibleTextForm-submit',
+    );
+    expect(submitButtons.childAt(1)).toHaveClassName(
+      'DismissibleTextForm-delete',
+    );
+  });
 });

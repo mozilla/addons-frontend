@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-11-06 17:31+0000\n"
 "PO-Revision-Date: 2016-05-20 11:26+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -12,43 +12,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:228
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Remove"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:235
 #, fuzzy
 msgid "Downloading"
 msgstr "Downloading %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:237
 #, fuzzy
 msgid "Installing"
 msgstr "Installing %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:239
 #, fuzzy
 msgid "Uninstalling"
 msgstr "Uninstalling %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:220
-#: src/core/components/InstallButton/index.js:235
-#: src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:247
 #, fuzzy
 msgid "Install Theme"
 msgstr "Installing %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:266
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Add to Firefox"
 msgstr ""
 
@@ -87,34 +83,6 @@ msgstr ""
 #, fuzzy
 msgid "OK"
 msgstr "OK!"
-
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "Downloading %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "Installing %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s is installed and enabled. Click to uninstall."
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s is disabled. Click to enable."
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "Uninstalling %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s is uninstalled. Click to install."
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "Install state for %(name)s is unknown."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -156,7 +124,7 @@ msgstr "An unexpected error occurred during uninstallation."
 msgid "An unexpected error occurred."
 msgstr "An unexpected error occurred"
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "Close"
 
@@ -223,6 +191,27 @@ msgstr ""
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr ""
+
+#~ msgid "Downloading %(name)s."
+#~ msgstr "Downloading %(name)s."
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "Installing %(name)s."
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr "%(name)s is installed and enabled. Click to uninstall."
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "%(name)s is disabled. Click to enable."
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "Uninstalling %(name)s."
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "%(name)s is uninstalled. Click to install."
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "Install state for %(name)s is unknown."
 
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "This add-on will be uninstalled after you restart Firefox."

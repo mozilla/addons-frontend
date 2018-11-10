@@ -21,6 +21,7 @@ import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  ADMIN_TOOLS,
   USERS_EDIT,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
@@ -530,11 +531,21 @@ describe(__filename, () => {
     );
   });
 
-  it('does not render AddonsByAuthorsCards without a user', () => {
+  it('renders AddonsByAuthorsCards without a user', () => {
     const username = 'not-loaded';
     const root = renderUserProfile({ params: { username } });
 
-    expect(root.find(AddonsByAuthorsCard)).toHaveLength(0);
+    expect(root.find(AddonsByAuthorsCard)).toHaveLength(2);
+    expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp('authorIds', null);
+    expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp(
+      'authorDisplayName',
+      null,
+    );
+    expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp('authorIds', null);
+    expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
+      'authorDisplayName',
+      null,
+    );
   });
 
   it('renders AddonsByAuthorsCard for extensions', () => {
@@ -682,6 +693,67 @@ describe(__filename, () => {
     const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-edit-link')).toHaveLength(0);
+  });
+
+  it('does not render an admin link if the user is not logged in', () => {
+    const root = renderUserProfile({ store: dispatchClientMetadata().store });
+
+    expect(root.find('.UserProfile-admin-link')).toHaveLength(0);
+  });
+
+  it('does not render an admin link if no user is found', () => {
+    const username = 'current-logged-in-user';
+    const { store } = dispatchSignInActions({
+      userProps: {
+        username,
+        permissions: [USERS_EDIT, ADMIN_TOOLS],
+      },
+    });
+
+    const root = renderUserProfile({
+      params: { username: 'not-loaded' },
+      store,
+    });
+
+    expect(root.find('.UserProfile-admin-link')).toHaveLength(0);
+  });
+
+  it('renders an admin link if user has sufficient permission', () => {
+    const username = 'current-logged-in-user';
+    const { store } = dispatchSignInActions({
+      userProps: {
+        username,
+        permissions: [USERS_EDIT, ADMIN_TOOLS],
+      },
+    });
+
+    const user = createUserAccountResponse({ username });
+    store.dispatch(loadUserAccount({ user }));
+
+    const root = renderUserProfile({ params: { username }, store });
+
+    expect(root.find('.UserProfile-admin-link')).toHaveLength(1);
+    expect(root.find('.UserProfile-admin-link')).toHaveProp(
+      'href',
+      `/admin/models/users/userprofile/${user.id}/`,
+    );
+  });
+
+  it('does not render an admin link if user is not allowed to admin users', () => {
+    const username = 'current-logged-in-user';
+    const { store } = dispatchSignInActions({
+      userProps: {
+        username,
+        permissions: [],
+      },
+    });
+
+    const user = createUserAccountResponse({ username });
+    store.dispatch(loadUserAccount({ user }));
+
+    const root = renderUserProfile({ params: { username }, store });
+
+    expect(root.find('.UserProfile-admin-link')).toHaveLength(0);
   });
 
   it('does not dispatch any action when there is an error', () => {
@@ -963,6 +1035,88 @@ describe(__filename, () => {
 
     const paginator = shallow(root.find('.UserProfile-reviews').prop('footer'));
     expect(paginator).toHaveProp('pathname', `/user/${user.username}/`);
+  });
+
+  it('renders a "description" meta tag when user is a developer', () => {
+    const displayName = 'John Doe';
+    const { store } = dispatchSignInActions({
+      userProps: defaultUserProps({
+        display_name: displayName,
+        is_addon_developer: true,
+        is_artist: false,
+      }),
+    });
+    const root = renderUserProfile({ store });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(1);
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(`The profile of ${displayName}, Firefox extension author.`),
+    );
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(`by ${displayName}`),
+    );
+  });
+
+  it('renders a "description" meta tag when user is an artist', () => {
+    const displayName = 'John Doe';
+    const { store } = dispatchSignInActions({
+      userProps: defaultUserProps({
+        display_name: displayName,
+        is_addon_developer: false,
+        is_artist: true,
+      }),
+    });
+    const root = renderUserProfile({ store });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(1);
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(`The profile of ${displayName}, Firefox theme author.`),
+    );
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(`by ${displayName}`),
+    );
+  });
+
+  it('renders a "description" meta tag when user is a developer and an artist', () => {
+    const displayName = 'John Doe';
+    const { store } = dispatchSignInActions({
+      userProps: defaultUserProps({
+        display_name: displayName,
+        is_addon_developer: true,
+        is_artist: true,
+      }),
+    });
+    const root = renderUserProfile({ store });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(1);
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(
+        `The profile of ${displayName}, a Firefox extension and theme author`,
+      ),
+    );
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(`by ${displayName}`),
+    );
+  });
+
+  it('does not render a "description" meta tag when user is neither a developer nor an artist', () => {
+    const displayName = 'John Doe';
+    const { store } = dispatchSignInActions({
+      userProps: defaultUserProps({
+        display_name: displayName,
+        is_addon_developer: false,
+        is_artist: false,
+      }),
+    });
+    const root = renderUserProfile({ store });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(0);
+  });
+
+  it('does not render a "description" meta tag when there is no user loaded', () => {
+    const root = renderUserProfile({ params: { username: 'not-ready' } });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(0);
   });
 
   describe('errorHandler - extractId', () => {

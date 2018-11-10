@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-11-06 17:31+0000\n"
 "PO-Revision-Date: 2018-10-27 09:19+0000\n"
 "Last-Translator: Francesco Lodolo <francesco.lodolo@mozillaitalia.org>\n"
 "Language-Team: none\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:228
 msgid "Enable"
 msgstr "Attiva"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Remove"
 msgstr "Rimuovi"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Enabling"
 msgstr "Attivazione in corso…"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Downloading"
 msgstr "Download in corso…"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Installing"
 msgstr "Installazione in corso…"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Uninstalling"
 msgstr "Disinstallazione in corso…"
 
-#: src/core/components/AMInstallButton/index.js:220 src/core/components/InstallButton/index.js:235 src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:247
 msgid "Install Theme"
 msgstr "Installa tema"
 
-#: src/core/components/AMInstallButton/index.js:221 src/core/components/InstallButton/index.js:266 src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Add to Firefox"
 msgstr "Aggiungi a Firefox"
 
@@ -51,10 +51,15 @@ msgid "Server Error"
 msgstr "Errore del server"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Attenzione: la richiesta non è stata elaborata a causa di un errore. L’errore è stato registrato per essere analizzato."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Attenzione: la richiesta non è stata elaborata a causa di un errore. "
+"L’errore è stato registrato per essere analizzato."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Codice di errore: %(status)s."
 
@@ -72,39 +77,13 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s è stato aggiunto"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr "Gestisci i componenti aggiuntivi cliccando il pulsante Componenti aggiuntivi nel menu."
+msgstr ""
+"Gestisci i componenti aggiuntivi cliccando il pulsante Componenti aggiuntivi "
+"nel menu."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "OK"
-
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "Download di %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "Installazione di %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s è installato e attivato. Fare clic per disinstallarlo."
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s è disattivato. Fare clic per attivarlo."
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "Disinstallazione di %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s è stato disinstallato. Fare clic per reinstallarlo nuovamente."
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "Impossibile determinare lo stato di installazione di %(name)s."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -132,7 +111,9 @@ msgstr "Installazione del componente aggiuntivo non riuscita. Riprova."
 
 #: src/core/utils/addons.js:30
 msgid "Download failed. Please check your connection."
-msgstr "Non è riuscito il download del componente aggiuntivo. Controlla la connessione alla rete."
+msgstr ""
+"Non è riuscito il download del componente aggiuntivo. Controlla la "
+"connessione alla rete."
 
 #: src/core/utils/addons.js:32
 msgid "An unexpected error occurred during installation."
@@ -146,7 +127,7 @@ msgstr "Si è verificato un errore inatteso durante la disinstallazione."
 msgid "An unexpected error occurred."
 msgstr "Si è verificato un errore inatteso."
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "Chiudi"
 
@@ -156,7 +137,8 @@ msgstr "Attualmente Firefox per iOS non supporta i componenti aggiuntivi."
 
 #: src/disco/components/AddonCompatibilityError/index.js:36
 msgid "This add-on does not support your version of Firefox."
-msgstr "Questo componente aggiuntivo non supporta la versione di Firefox in uso."
+msgstr ""
+"Questo componente aggiuntivo non supporta la versione di Firefox in uso."
 
 #: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "This add-on does not support your browser."
@@ -180,12 +162,20 @@ msgstr "Personalizza Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:149
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Hai la possibilità di personalizzare Firefox secondo le tue esigenze scegliendo tra migliaia di componenti aggiuntivi gratuiti, creati da sviluppatori provenienti da ogni parte del mondo. Dagli "
-"sgargianti temi per dare un tocco di originalità all'interfaccia utente fino a strumenti e caratteristiche avanzate che rendono la navigazione più veloce e sicura, i componenti aggiuntivi rendono il"
-" tuo browser più \"tuo\". Se non sai da dove iniziare, ecco una lista di componenti aggiuntivi che ci sentiamo di consigliarti, distintisi per gli alti standard di prestazioni e funzionalità."
+"Hai la possibilità di personalizzare Firefox secondo le tue esigenze "
+"scegliendo tra migliaia di componenti aggiuntivi gratuiti, creati da "
+"sviluppatori provenienti da ogni parte del mondo. Dagli sgargianti temi per "
+"dare un tocco di originalità all'interfaccia utente fino a strumenti e "
+"caratteristiche avanzate che rendono la navigazione più veloce e sicura, i "
+"componenti aggiuntivi rendono il tuo browser più \"tuo\". Se non sai da dove "
+"iniziare, ecco una lista di componenti aggiuntivi che ci sentiamo di "
+"consigliarti, distintisi per gli alti standard di prestazioni e funzionalità."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -207,8 +197,32 @@ msgstr "Chiudi questo avviso"
 msgid "Preview of %(title)s"
 msgstr "Anteprima di %(title)s"
 
+#~ msgid "Downloading %(name)s."
+#~ msgstr "Download di %(name)s."
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "Installazione di %(name)s."
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr "%(name)s è installato e attivato. Fare clic per disinstallarlo."
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "%(name)s è disattivato. Fare clic per attivarlo."
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "Disinstallazione di %(name)s."
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr ""
+#~ "%(name)s è stato disinstallato. Fare clic per reinstallarlo nuovamente."
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "Impossibile determinare lo stato di installazione di %(name)s."
+
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
-#~ msgstr "Questo componente aggiuntivo verrà disinstallato al prossimo riavvio di Firefox."
+#~ msgstr ""
+#~ "Questo componente aggiuntivo verrà disinstallato al prossimo riavvio di "
+#~ "Firefox."
 
 #~ msgid "Please restart Firefox to use this add-on."
 #~ msgstr "riavvia Firefox per utilizzare questo componente aggiuntivo."
@@ -220,10 +234,14 @@ msgstr "Anteprima di %(title)s"
 #~ msgstr "Adesso è possibile accedere a %(name)s dalla barra degli strumenti."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "Passa sopra col puntatore del mouse per visualizzare un’anteprima di %(name)s o fai clic per installarlo"
+#~ msgstr ""
+#~ "Passa sopra col puntatore del mouse per visualizzare un’anteprima di "
+#~ "%(name)s o fai clic per installarlo"
 
 #~ msgid "Hover over the image to preview"
-#~ msgstr "Passa sopra l’immagine col puntatore del mouse per visualizzare l’anteprima"
+#~ msgstr ""
+#~ "Passa sopra l’immagine col puntatore del mouse per visualizzare "
+#~ "l’anteprima"
 
 #~ msgid "Click to play"
 #~ msgstr "Fai clic per riprodurre"

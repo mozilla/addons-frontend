@@ -12,7 +12,6 @@ import recommendations from 'amo/reducers/recommendations';
 import reviews from 'amo/reducers/reviews';
 import userAbuseReports from 'amo/reducers/userAbuseReports';
 import users from 'amo/reducers/users';
-import versions from 'amo/reducers/versions';
 import viewContext from 'amo/reducers/viewContext';
 import abuse from 'core/reducers/abuse';
 import addons from 'core/reducers/addons';
@@ -22,6 +21,7 @@ import categories from 'core/reducers/categories';
 import errors from 'core/reducers/errors';
 import errorPage from 'core/reducers/errorPage';
 import formOverlay from 'core/reducers/formOverlay';
+import guides from 'amo/reducers/guides';
 import heroBanners from 'core/reducers/heroBanners';
 import languageTools from 'core/reducers/languageTools';
 import infoDialog from 'core/reducers/infoDialog';
@@ -30,15 +30,16 @@ import redirectTo from 'core/reducers/redirectTo';
 import search from 'core/reducers/search';
 import survey from 'core/reducers/survey';
 import uiState from 'core/reducers/uiState';
+import versions from 'core/reducers/versions';
 import { middleware } from 'core/store';
 import type { AddonsByAuthorsState } from 'amo/reducers/addonsByAuthors';
 import type { CollectionsState } from 'amo/reducers/collections';
+import type { GuidesState } from 'amo/reducers/guides';
 import type { HomeState } from 'amo/reducers/home';
 import type { RecommendationsState } from 'amo/reducers/recommendations';
 import type { ReviewsState } from 'amo/reducers/reviews';
 import type { UserAbuseReportsState } from 'amo/reducers/userAbuseReports';
 import type { UsersState } from 'amo/reducers/users';
-import type { VersionsState } from 'amo/reducers/versions';
 import type { ViewContextState } from 'amo/reducers/viewContext';
 import type { AbuseState } from 'core/reducers/abuse';
 import type { AddonsState } from 'core/reducers/addons';
@@ -52,6 +53,7 @@ import type { RedirectToState } from 'core/reducers/redirectTo';
 import type { SearchState } from 'core/reducers/search';
 import type { SurveyState } from 'core/reducers/survey';
 import type { UIStateState } from 'core/reducers/uiState';
+import type { VersionsState } from 'core/reducers/versions';
 import type { ReactRouterHistoryType, LocationType } from 'core/types/router';
 import type { CreateStoreParams, CreateReducerType } from 'core/types/store';
 
@@ -66,6 +68,7 @@ type InternalAppState = {|
   errorPage: ErrorPageState,
   errors: Object,
   formOverlay: FormOverlayState,
+  guides: GuidesState,
   heroBanners: Object,
   home: HomeState,
   infoDialog: InfoDialogState,
@@ -105,7 +108,10 @@ export const createRootReducer = ({
   history,
   reducers,
 }: CreateRootReducerParams): AppState => {
-  return connectRouter(history)(combineReducers(reducers));
+  return combineReducers({
+    ...reducers,
+    router: connectRouter(history),
+  });
 };
 
 export const reducers: AppReducersType = {
@@ -121,6 +127,7 @@ export const reducers: AppReducersType = {
   formOverlay,
   heroBanners,
   home,
+  guides,
   infoDialog,
   installations,
   landing,

@@ -2,7 +2,7 @@
 import config from 'config';
 import * as React from 'react';
 import invariant from 'invariant';
-import cookie from 'react-cookie';
+import { withCookies, Cookies } from 'react-cookie';
 
 import log from 'core/logger';
 import { getDisplayName } from 'core/utils';
@@ -27,7 +27,7 @@ type withExperimentInternalProps = {|
   ...withExperimentProps,
   WrappedComponent: React.ComponentType<any>,
   _config: typeof config,
-  _cookie: typeof cookie,
+  cookies: typeof Cookies,
   randomizer: () => number,
 |};
 
@@ -48,7 +48,6 @@ export const withExperiment = ({
 
     static defaultProps = {
       _config: config,
-      _cookie: cookie,
       id: defaultId,
       randomizer: Math.random,
       variantA: defaultVariantA,
@@ -60,50 +59,23 @@ export const withExperiment = ({
     constructor(props: withExperimentInternalProps) {
       super(props);
 
-      log.info('[WithExperiment.constructor] props:', {
-        _cookie: props._cookie,
-        variantA: props.variantA,
-        variantB: props.variantB,
-      });
-
-      log.info('[WithExperiment.constructor] this.props:', {
-        _cookie: this.props._cookie,
-        variantA: this.props.variantA,
-        variantB: this.props.variantB,
-      });
-
       if (!this.isExperimentEnabled()) {
-        log.debug(`Experiment "${defaultId}" is not enabled by config.`);
+        log.debug(`Experiment "${props.id}" is not enabled by config.`);
         return;
       }
 
-      const { _cookie, randomizer, variantA, variantB } = this.props;
+      const { cookies, randomizer, variantA, variantB } = this.props;
 
-      this.experimentCookie = _cookie.load(this.getCookieName());
-
-      log.info(
-        '[WithExperiment.constructor] cookie name:',
-        this.getCookieName(),
-      );
-
-      log.info(
-        '[WithExperiment.constructor] experiment cookie loaded:',
-        this.experimentCookie,
-      );
+      this.experimentCookie = cookies.get(this.getCookieName());
 
       if (this.experimentCookie === undefined) {
         this.experimentCookie = randomizer() >= 0.5 ? variantA : variantB;
-        _cookie.save(this.getCookieName(), this.experimentCookie, cookieConfig);
-
-        log.info(
-          '[WithExperiment.constructor] experiment cookie saved:',
-          this.experimentCookie,
-        );
+        cookies.set(this.getCookieName(), this.experimentCookie, cookieConfig);
       }
     }
 
     getCookieName() {
-      return `experiment_${this.props.id}`;
+      return `${this.props.id}Experiment`;
     }
 
     isExperimentEnabled() {
@@ -114,11 +86,11 @@ export const withExperiment = ({
 
     render() {
       const {
-        _cookie,
-        variantA,
-        variantB,
+        cookies,
         id,
         randomizer,
+        variantA,
+        variantB,
         ...props
       } = this.props;
 
@@ -126,16 +98,12 @@ export const withExperiment = ({
 
       const exposedProps: WithExperimentInjectedProps = {
         experimentEnabled: isExperimentEnabled,
-        variant: isExperimentEnabled
-          ? _cookie.load(this.getCookieName())
-          : null,
+        variant: isExperimentEnabled ? cookies.get(this.getCookieName()) : null,
       };
-
-      log.info('[WithExperiment.render] exposed props:', exposedProps);
 
       return <WrappedComponent {...exposedProps} {...props} />;
     }
   }
 
-  return WithExperiment;
+  return withCookies(WithExperiment);
 };

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-11-06 17:31+0000\n"
 "PO-Revision-Date: 2018-08-24 16:38+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,39 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:228
 msgid "Enable"
 msgstr "เปิดใช้งาน"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Remove"
 msgstr "เอาออก"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Enabling"
 msgstr "กำลังเปิดใช้งาน"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Downloading"
 msgstr "กำลังดาวน์โหลด"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Installing"
 msgstr "กำลังติดตั้ง"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Uninstalling"
 msgstr "กำลังถอนการติดตั้ง"
 
-#: src/core/components/AMInstallButton/index.js:220
-#: src/core/components/InstallButton/index.js:235
-#: src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:247
 msgid "Install Theme"
 msgstr "ติดตั้งชุดตกแต่ง"
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:266
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Add to Firefox"
 msgstr "เพิ่มไปยัง Firefox"
 
@@ -84,34 +80,6 @@ msgstr ""
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "ตกลง"
-
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "กำลังดาวน์โหลด %(name)s"
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "กำลังติดตั้ง %(name)s"
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s ถูกติดตั้งและถูกเปิดใช้งาน คลิกเพื่อถอนการติดตั้ง"
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s ถูกปิดใช้งาน คลิกเพื่อเปิดใช้งาน"
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "กำลังถอนการติดตั้ง %(name)s"
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s ถูกถอนการติดตั้ง คลิกเพื่อติดตั้ง"
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "ไม่ทราบสถานะการติดตั้ง %(name)s"
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -153,7 +121,7 @@ msgstr "เกิดข้อผิดพลาดที่ไม่คาดค
 msgid "An unexpected error occurred."
 msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิด"
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "ปิด"
 
@@ -217,6 +185,27 @@ msgstr ""
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "ตัวอย่างของ %(title)s"
+
+#~ msgid "Downloading %(name)s."
+#~ msgstr "กำลังดาวน์โหลด %(name)s"
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "กำลังติดตั้ง %(name)s"
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr "%(name)s ถูกติดตั้งและถูกเปิดใช้งาน คลิกเพื่อถอนการติดตั้ง"
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "%(name)s ถูกปิดใช้งาน คลิกเพื่อเปิดใช้งาน"
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "กำลังถอนการติดตั้ง %(name)s"
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "%(name)s ถูกถอนการติดตั้ง คลิกเพื่อติดตั้ง"
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "ไม่ทราบสถานะการติดตั้ง %(name)s"
 
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "ส่วนเสริมนี้จะถูกถอนการติดตั้งหลังจากคุณเริ่มการทำงาน Firefox ใหม่"

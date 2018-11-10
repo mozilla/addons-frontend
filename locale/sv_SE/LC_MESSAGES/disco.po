@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-11-06 17:31+0000\n"
 "PO-Revision-Date: 2018-10-24 03:25+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:228
 msgid "Enable"
 msgstr "Aktivera"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Remove"
 msgstr "Ta bort"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Enabling"
 msgstr "Aktiverar"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Downloading"
 msgstr "Laddar ner"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Installing"
 msgstr "Installerar"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Uninstalling"
 msgstr "Avinstallerar"
 
-#: src/core/components/AMInstallButton/index.js:220 src/core/components/InstallButton/index.js:235 src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:247
 msgid "Install Theme"
 msgstr "Installera tema"
 
-#: src/core/components/AMInstallButton/index.js:221 src/core/components/InstallButton/index.js:266 src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Add to Firefox"
 msgstr "Lägg till i Firefox"
 
@@ -51,10 +51,15 @@ msgid "Server Error"
 msgstr "Serverfel"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Tyvärr, men ett fel uppstod och vi kunde inte slutföra din begäran. Vi har loggat detta fel och kommer att undersöka det."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Tyvärr, men ett fel uppstod och vi kunde inte slutföra din begäran. Vi har "
+"loggat detta fel och kommer att undersöka det."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Felkod: %(status)s."
 
@@ -77,34 +82,6 @@ msgstr "Hantera dina tillägg genom att klicka på Tillägg i menyn."
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "OK"
-
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "Hämtar %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "Installerar %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s är installerad och aktiveras. Klicka för att avinstallera."
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s är inaktiverad. Klicka för att aktivera."
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "Avinstallerar %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s är avinstallerad. Klicka för att installera."
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "Installationstillstånd för %(name)s är okänt."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -146,7 +123,7 @@ msgstr "Ett oväntat fel uppstod under avinstallationen."
 msgid "An unexpected error occurred."
 msgstr "Ett oväntat fel inträffade."
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "Stäng"
 
@@ -180,11 +157,17 @@ msgstr "Anpassa Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:149
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Det finns tusentals tillägg som är gratis, skapade av utvecklare över hela världen, som du kan installera för att anpassa Firefox. Från roliga visuella teman till kraftfulla verktyg som gör surfning"
-" snabbare och säkrare, tillägg gör din webbläsare till din egen. För att hjälpa dig att komma igång, här är några vi rekommenderar för deras enastående prestanda och funktionalitet."
+"Det finns tusentals tillägg som är gratis, skapade av utvecklare över hela "
+"världen, som du kan installera för att anpassa Firefox. Från roliga visuella "
+"teman till kraftfulla verktyg som gör surfning snabbare och säkrare, tillägg "
+"gör din webbläsare till din egen. För att hjälpa dig att komma igång, här är "
+"några vi rekommenderar för deras enastående prestanda och funktionalitet."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -206,6 +189,27 @@ msgstr "Avvisa detta meddelande"
 msgid "Preview of %(title)s"
 msgstr "Förhandsgranskning av %(title)s"
 
+#~ msgid "Downloading %(name)s."
+#~ msgstr "Hämtar %(name)s."
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "Installerar %(name)s."
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr "%(name)s är installerad och aktiveras. Klicka för att avinstallera."
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "%(name)s är inaktiverad. Klicka för att aktivera."
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "Avinstallerar %(name)s."
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "%(name)s är avinstallerad. Klicka för att installera."
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "Installationstillstånd för %(name)s är okänt."
+
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "Detta tillägg kommer att avinstalleras efter omstart av Firefox."
 
@@ -219,7 +223,9 @@ msgstr "Förhandsgranskning av %(title)s"
 #~ msgstr "Nu kan du komma åt %(name)s från verktygsfältet."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "Håll muspekaren över för att förhandsgranska eller klicka för att installera %(name)s"
+#~ msgstr ""
+#~ "Håll muspekaren över för att förhandsgranska eller klicka för att "
+#~ "installera %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Håll muspekaren över bilden för att förhandsgranska"

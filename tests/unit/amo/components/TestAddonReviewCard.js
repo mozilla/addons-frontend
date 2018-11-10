@@ -13,7 +13,6 @@ import {
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
-import AddonReview from 'amo/components/AddonReview';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
 import AddonReviewCard, {
   AddonReviewCardBase,
@@ -32,7 +31,6 @@ import {
   fakeAddon,
   fakeI18n,
   fakeReview,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -55,9 +53,9 @@ describe(__filename, () => {
 
   const render = (customProps = {}) => {
     const props = {
-      _config: getFakeConfig({ enableFeatureInlineAddonReview: true }),
       addon: createInternalAddon(fakeAddon),
       i18n: fakeI18n(),
+      siteUserCanReply: false,
       store,
       ...customProps,
     };
@@ -66,13 +64,6 @@ describe(__filename, () => {
       AddonReviewCardBase,
     );
   };
-
-  function renderWithoutInline(otherProps = {}) {
-    const _config = getFakeConfig({
-      enableFeatureInlineAddonReview: false,
-    });
-    return render({ _config, ...otherProps });
-  }
 
   const renderControls = (root) => {
     return shallow(root.find(UserReview).prop('controls'));
@@ -232,11 +223,11 @@ describe(__filename, () => {
     expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(0);
   });
 
-  it('does not render edit link even when siteUserCanManageReplies() is true', () => {
+  it('does not render edit link even when siteUserCanReply is true', () => {
     const review = createReviewAndSignInAsUnrelatedUser();
     const root = render({
       review,
-      _siteUserCanManageReplies: sinon.stub().returns(true),
+      siteUserCanReply: true,
     });
 
     expect(renderControls(root).find('.AddonReviewCard-edit')).toHaveLength(0);
@@ -324,11 +315,11 @@ describe(__filename, () => {
     );
   });
 
-  it('does not render a delete link even when siteUserCanManageReplies() is true', () => {
+  it('does not render a delete link even when siteUserCanReply is true', () => {
     const review = createReviewAndSignInAsUnrelatedUser();
     const root = render({
       review,
-      _siteUserCanManageReplies: sinon.stub().returns(true),
+      siteUserCanReply: true,
     });
 
     expect(renderControls(root).find('.AddonReviewCard-delete')).toHaveLength(
@@ -535,17 +526,6 @@ describe(__filename, () => {
     expect(root).not.toHaveClassName('.AddonReviewCard-ratingOnly');
   });
 
-  it('configures the edit-review form', () => {
-    const review = signInAndDispatchSavedReview();
-    store.dispatch(showEditReviewForm({ reviewId: review.id }));
-
-    const root = renderWithoutInline({ review });
-
-    const reviewComponent = renderControls(root).find(AddonReview);
-    expect(reviewComponent).toHaveLength(1);
-    expect(reviewComponent).toHaveProp('review', review);
-  });
-
   it('shows FlagReviewMenu when signed out', () => {
     const review = _setReview(fakeReview);
     const root = render({ review });
@@ -587,7 +567,7 @@ describe(__filename, () => {
     expect(renderControls(root).find(FlagReviewMenu)).toHaveLength(0);
   });
 
-  it('allows review replies when siteUserCanManageReplies() is true', () => {
+  it('allows review replies when siteUserCanReply is true', () => {
     dispatchSignInActions({ store });
     const { addon, review } = createAddonAndReview();
 
@@ -595,7 +575,7 @@ describe(__filename, () => {
     const root = render({
       addon,
       review,
-      _siteUserCanManageReplies: sinon.stub().returns(true),
+      siteUserCanReply: true,
     });
 
     const editButton = renderControls(root).find(
@@ -615,7 +595,7 @@ describe(__filename, () => {
     );
   });
 
-  it('disallows review replies when siteUserCanManageReplies() is false', () => {
+  it('disallows review replies when siteUserCanReply is false', () => {
     dispatchSignInActions({ store });
     const { addon, review } = createAddonAndReview();
 
@@ -623,7 +603,7 @@ describe(__filename, () => {
     const root = render({
       addon,
       review,
-      _siteUserCanManageReplies: sinon.stub().returns(false),
+      siteUserCanReply: false,
     });
 
     expect(
@@ -878,75 +858,6 @@ describe(__filename, () => {
     ).toHaveLength(0);
   });
 
-  it('hides AddonReview when the overlay is escaped', () => {
-    const review = signInAndDispatchSavedReview();
-    store.dispatch(showEditReviewForm({ reviewId: review.id }));
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = renderWithoutInline({ review });
-
-    const reviewComponent = renderControls(root).find(AddonReview);
-    expect(reviewComponent).toHaveProp('onEscapeOverlay');
-
-    const onEscapeOverlay = reviewComponent.prop('onEscapeOverlay');
-    // Simulate escaping the review.
-    onEscapeOverlay();
-
-    sinon.assert.calledWith(
-      dispatchSpy,
-      hideEditReviewForm({
-        reviewId: review.id,
-      }),
-    );
-  });
-
-  it('cannot escape a review edit form without a review', () => {
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ review: null });
-
-    root.instance().onEscapeReviewOverlay();
-
-    sinon.assert.notCalled(fakeDispatch);
-  });
-
-  it('hides AddonReview when edit review form is submitted', () => {
-    const review = signInAndDispatchSavedReview();
-    store.dispatch(showEditReviewForm({ reviewId: review.id }));
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = renderWithoutInline({ review });
-
-    const reviewComponent = renderControls(root).find(AddonReview);
-    expect(reviewComponent).toHaveProp('onReviewSubmitted');
-
-    const onReviewSubmitted = reviewComponent.prop('onReviewSubmitted');
-    // Simulate submitting the review.
-    onReviewSubmitted();
-
-    sinon.assert.calledWith(
-      dispatchSpy,
-      hideEditReviewForm({
-        reviewId: review.id,
-      }),
-    );
-  });
-
-  it('cannot handle submitting a review form without a review', () => {
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ review: null });
-
-    root.instance().onReviewSubmitted();
-
-    sinon.assert.notCalled(fakeDispatch);
-  });
-
-  it('hides AddonReview after the hide action is dispatched', () => {
-    const review = signInAndDispatchSavedReview();
-    store.dispatch(showEditReviewForm({ reviewId: review.id }));
-    store.dispatch(hideEditReviewForm({ reviewId: review.id }));
-    const root = render({ review });
-
-    expect(renderControls(root).find(AddonReview)).toHaveLength(0);
-  });
-
   it('renders errors', () => {
     const errorHandler = new ErrorHandler({
       id: 'some-id',
@@ -958,7 +869,7 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
-  describe('enableFeatureInlineAddonReview', () => {
+  describe('AddonReviewManager integration', () => {
     it('shows UserReview by default', () => {
       const review = signInAndDispatchSavedReview();
       const root = render({ review });
@@ -1268,11 +1179,11 @@ describe(__filename, () => {
       );
     });
 
-    it('lets you edit a reply if siteUserCanManageReplies() is true', () => {
+    it('lets you edit a reply if siteUserCanReply is true', () => {
       const review = createReviewAndSignInAsUnrelatedUser();
       const root = renderReply({
         reply: review,
-        _siteUserCanManageReplies: sinon.stub().returns(true),
+        siteUserCanReply: true,
       });
 
       const editButton = renderControls(root).find('.AddonReviewCard-edit');
@@ -1293,11 +1204,11 @@ describe(__filename, () => {
       expect(deleteLink.children()).toHaveText('Delete reply');
     });
 
-    it('renders a delete link when siteUserCanManageReplies() is true', () => {
+    it('renders a delete link when siteUserCanReply is true', () => {
       const review = createReviewAndSignInAsUnrelatedUser();
       const root = renderReply({
         reply: review,
-        _siteUserCanManageReplies: sinon.stub().returns(true),
+        siteUserCanReply: true,
       });
 
       const deleteLink = renderControls(root).find('.AddonReviewCard-delete');
@@ -1384,42 +1295,30 @@ describe(__filename, () => {
   });
 
   describe('siteUserCanManageReplies', () => {
-    it('requires a signed in user', () => {
-      dispatchClientMetadata({ store });
-
-      const addon = createInternalAddon(fakeAddon);
-      const root = renderReply({ addon });
-
-      expect(root.instance().siteUserCanManageReplies()).toEqual(false);
-    });
-
-    it('does not let the wrong user manage replies', () => {
+    it('does not let you reply when siteUserCanReply is false', () => {
       dispatchSignInActions({ store });
+      const root = render({ siteUserCanReply: false });
 
-      const addon = createInternalAddon(fakeAddon);
-      const root = renderReply({ addon });
-
-      expect(root.instance().siteUserCanManageReplies()).toEqual(false);
+      expect(root.instance().props.siteUserCanManageReplies).toEqual(false);
     });
 
-    it('lets any admin manage replies', () => {
+    it('lets any admin reply', () => {
       dispatchSignInActions({
         store,
         userProps: { permissions: [ALL_SUPER_POWERS] },
       });
 
-      const addon = createInternalAddon(fakeAddon);
-      const root = renderReply({ addon });
+      // Admin super powers should override siteUserCanReply.
+      const root = render({ siteUserCanReply: false });
 
-      expect(root.instance().siteUserCanManageReplies()).toEqual(true);
+      expect(root.instance().props.siteUserCanManageReplies).toEqual(true);
     });
 
-    it('lets any listed author manage replies', () => {
-      const { addon } = signInAsAddonDeveloper();
+    it('lets you reply when siteUserCanReply is true', () => {
+      dispatchSignInActions({ store });
+      const root = render({ siteUserCanReply: true });
 
-      const root = renderReply({ addon });
-
-      expect(root.instance().siteUserCanManageReplies()).toEqual(true);
+      expect(root.instance().props.siteUserCanManageReplies).toEqual(true);
     });
   });
 });

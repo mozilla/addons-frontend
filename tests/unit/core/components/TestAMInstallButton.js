@@ -4,9 +4,11 @@ import { TransitionGroup } from 'react-transition-group';
 import createStore from 'amo/store';
 import AMInstallButton, {
   AMInstallButtonBase,
+  EXPERIMENT_CATEGORY,
+  VARIANT_BLUE,
+  VARIANT_GREEN,
 } from 'core/components/AMInstallButton';
 import {
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   DISABLED,
@@ -24,23 +26,32 @@ import {
   UNKNOWN,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
+import { createInternalVersion } from 'core/reducers/versions';
 import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
 import Icon from 'ui/components/Icon';
 import {
-  createFakeAddon,
   createContextWithFakeRouter,
   createFakeEvent,
   createFakeMozWindow,
   createFakeTracking,
   fakeAddon,
+  fakeCookies,
   fakeI18n,
   fakeTheme,
+  fakeVersion,
   createFakeLocation,
   getFakeConfig,
+  getFakeLogger,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import Button from 'ui/components/Button';
+
+// Skip `withCookies` HOC since Enzyme does not support the React Context API.
+// See: https://github.com/mozilla/addons-frontend/issues/6839
+jest.mock('react-cookie', () => ({
+  withCookies: (component) => component,
+}));
 
 describe(__filename, () => {
   const createFakeEventWithURL = ({ url }) => {
@@ -51,29 +62,25 @@ describe(__filename, () => {
     });
   };
 
-  const createInternalAddonWithInstallURL = ({
-    addon = fakeAddon,
+  const createInternalVersionWithInstallURL = ({
     installURL = 'https://a.m.o/files/addon.xpi',
   }) => {
-    // This can't use createFakeAddon({ files: [...] }) because it needs to
-    // specify a custom object for addon.current_version.
-    return createInternalAddon({
-      ...addon,
-      current_version: {
-        ...addon.current_version,
-        files: [
-          {
-            ...addon.current_version.files[0],
-            platform: OS_ALL,
-            url: installURL,
-          },
-        ],
-      },
+    return createInternalVersion({
+      ...fakeVersion,
+      files: [
+        {
+          ...fakeVersion.files[0],
+          platform: OS_ALL,
+          url: installURL,
+        },
+      ],
     });
   };
 
   const renderProps = (customProps = {}) => ({
     addon: createInternalAddon(fakeAddon),
+    cookies: fakeCookies(),
+    currentVersion: createInternalVersion(fakeVersion),
     defaultInstallSource: '',
     disabled: false,
     enable: sinon.stub(),
@@ -81,6 +88,7 @@ describe(__filename, () => {
     i18n: fakeI18n(),
     install: sinon.stub(),
     installTheme: sinon.stub(),
+    isAddonEnabled: sinon.stub(),
     location: createFakeLocation(),
     status: UNINSTALLED,
     store: createStore().store,
@@ -117,9 +125,10 @@ describe(__filename, () => {
 
   it('renders a Button for extensions', () => {
     const installURL = 'https://a.m.o/files/addon.xpi';
-    const addon = createInternalAddonWithInstallURL({ installURL });
 
-    const root = render({ addon });
+    const root = render({
+      currentVersion: createInternalVersionWithInstallURL({ installURL }),
+    });
 
     expect(root.type()).toEqual(TransitionGroup);
     expect(root.find(TransitionGroup).prop('component')).toEqual('div');
@@ -145,12 +154,13 @@ describe(__filename, () => {
 
   it('renders a button for themes', () => {
     const installURL = 'https://a.m.o/files/addon.xpi';
-    const addon = createInternalAddonWithInstallURL({
-      addon: fakeTheme,
-      installURL,
+    const addon = createInternalAddon(fakeTheme);
+    const root = render({
+      addon,
+      currentVersion: createInternalVersionWithInstallURL({
+        installURL,
+      }),
     });
-
-    const root = render({ addon });
 
     expect(root.type()).toEqual(TransitionGroup);
     expect(root.find(TransitionGroup).prop('component')).toEqual('div');
@@ -228,11 +238,7 @@ describe(__filename, () => {
     const externalSource = 'my-blog';
     const installURL = 'https://addons.mozilla.org/download';
     const root = render({
-      addon: createInternalAddon(
-        createFakeAddon({
-          files: [{ platform: OS_ALL, url: installURL }],
-        }),
-      ),
+      currentVersion: createInternalVersionWithInstallURL({ installURL }),
       defaultInstallSource: 'this-should-be-overidden',
       location: createFakeLocation({ query: { src: externalSource } }),
     });
@@ -244,12 +250,7 @@ describe(__filename, () => {
   it('disables the button when disabled prop is true', () => {
     const installURL = 'https://addons.mozilla.org/download';
     const root = render({
-      addon: createInternalAddon(
-        createFakeAddon({
-          type: ADDON_TYPE_EXTENSION,
-          files: [{ platform: OS_ALL, url: installURL }],
-        }),
-      ),
+      currentVersion: createInternalVersionWithInstallURL({ installURL }),
       disabled: true,
     });
 
@@ -282,12 +283,7 @@ describe(__filename, () => {
     const installURL = 'https://addons.mozilla.org/download';
     const defaultInstallSource = 'homepage';
     const root = render({
-      addon: createInternalAddon(
-        createFakeAddon({
-          type: ADDON_TYPE_EXTENSION,
-          files: [{ platform: OS_ALL, url: installURL }],
-        }),
-      ),
+      currentVersion: createInternalVersionWithInstallURL({ installURL }),
       defaultInstallSource,
     });
 
@@ -301,12 +297,7 @@ describe(__filename, () => {
     const installURL = 'https://addons.mozilla.org/download';
     const defaultInstallSource = 'homepage';
     const root = renderOpenSearch({
-      addon: createInternalAddon(
-        createFakeAddon({
-          type: ADDON_TYPE_OPENSEARCH,
-          files: [{ platform: OS_ALL, url: installURL }],
-        }),
-      ),
+      currentVersion: createInternalVersionWithInstallURL({ installURL }),
       defaultInstallSource,
     });
 
@@ -317,17 +308,12 @@ describe(__filename, () => {
   });
 
   it('calls `window.external.AddSearchProvider` to install a search provider', () => {
-    const fakeLog = { info: sinon.stub() };
+    const fakeLog = getFakeLogger();
     const fakeWindow = createFakeMozWindow();
     const installURL = 'https://a.m.o/files/addon.xpi';
 
     const root = renderOpenSearch({
-      addon: createInternalAddon(
-        createFakeAddon({
-          files: [{ platform: OS_ALL, url: installURL }],
-          type: ADDON_TYPE_OPENSEARCH,
-        }),
-      ),
+      currentVersion: createInternalVersionWithInstallURL({ installURL }),
       _log: fakeLog,
       _window: fakeWindow,
     });
@@ -356,13 +342,11 @@ describe(__filename, () => {
   it('tracks install analytics when installing a search provider', () => {
     const _tracking = createFakeTracking();
     const _window = createFakeMozWindow();
-    const addon = createInternalAddon(
-      createFakeAddon({
-        name: 'some-search-provider',
-        files: [{ platform: OS_ALL, url: 'https://a.m.o/files/addon.xpi' }],
-        type: ADDON_TYPE_OPENSEARCH,
-      }),
-    );
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      name: 'some-search-provider',
+      type: ADDON_TYPE_OPENSEARCH,
+    });
 
     const root = renderOpenSearch({
       addon,
@@ -589,10 +573,14 @@ describe(__filename, () => {
 
   it('calls the `uninstall` helper when uninstalling an add-on', () => {
     const installURL = 'http://example.org/install/url';
-    const addon = createInternalAddonWithInstallURL({ installURL });
+    const addon = createInternalAddon(fakeAddon);
     const uninstall = sinon.spy();
 
-    const root = render({ addon, uninstall, status: INSTALLED });
+    const root = render({
+      addon,
+      uninstall,
+      status: INSTALLED,
+    });
     sinon.assert.notCalled(uninstall);
 
     const clickEvent = createFakeEventWithURL({ url: installURL });
@@ -639,5 +627,51 @@ describe(__filename, () => {
     const root = renderOpenSearch({ status: UNKNOWN });
 
     expect(root.find(Button)).toHaveProp('disabled', false);
+  });
+
+  describe('installButtonColor experiment', () => {
+    const renderWithExperiment = (props = {}) => {
+      return render({
+        _config: getFakeConfig({ experiments: { installButtonColor: true } }),
+        ...props,
+      });
+    };
+
+    it('adds a CSS class name when variant is VARIANT_GREEN', () => {
+      const root = renderWithExperiment({ variant: VARIANT_GREEN });
+
+      expect(root).toHaveClassName('AMInstallButton--green');
+    });
+
+    it('does not add a CSS class name when variant is not VARIANT_GREEN', () => {
+      const root = renderWithExperiment({ variant: VARIANT_BLUE });
+
+      expect(root).not.toHaveClassName('AMInstallButton--green');
+    });
+
+    it('sends a tracking event when mounted on the client', () => {
+      const _tracking = createFakeTracking();
+      const variant = VARIANT_BLUE;
+
+      renderWithExperiment({ _tracking, variant });
+
+      sinon.assert.calledWith(_tracking.sendEvent, {
+        action: variant,
+        category: EXPERIMENT_CATEGORY,
+      });
+    });
+
+    it('does not send any tracking event when experiment is disabled', () => {
+      const _tracking = createFakeTracking();
+
+      render({
+        _config: getFakeConfig({
+          experiments: { installButtonColor: false },
+        }),
+        _tracking,
+      });
+
+      sinon.assert.notCalled(_tracking.sendEvent);
+    });
   });
 });

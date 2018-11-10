@@ -10,9 +10,14 @@ import { compose } from 'redux';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
-import { fetchReviews } from 'amo/actions/reviews';
+import { fetchReviewPermissions, fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
-import { expandReviewObjects, reviewsAreLoading } from 'amo/reducers/reviews';
+import {
+  expandReviewObjects,
+  reviewsAreLoading,
+  selectReviewPermissions,
+} from 'amo/reducers/reviews';
+import { getCurrentUser } from 'amo/reducers/users';
 import {
   fetchAddon,
   getAddonBySlug,
@@ -26,6 +31,7 @@ import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import CardList from 'ui/components/CardList';
 import LoadingText from 'ui/components/LoadingText';
+import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -42,18 +48,6 @@ import './styles.scss';
 
 type Props = {|
   location: ReactRouterLocationType,
-|};
-
-type InternalProps = {|
-  ...Props,
-  addon: AddonType | null,
-  addonIsLoading: boolean,
-  clientApp: string,
-  dispatch: DispatchFunc,
-  errorHandler: ErrorHandlerType,
-  history: ReactRouterHistoryType,
-  i18n: I18nType,
-  lang: string,
   match: {|
     ...ReactRouterMatchType,
     params: {
@@ -61,10 +55,25 @@ type InternalProps = {|
       reviewId?: number,
     },
   |},
-  pageSize: number | null,
-  reviewCount?: number,
-  reviews?: Array<UserReviewType>,
+|};
+
+type InternalProps = {|
+  ...Props,
+  addon: AddonType | null,
+  addonIsLoading: boolean,
   areReviewsLoading: boolean,
+  checkingIfSiteUserCanReply: boolean,
+  clientApp: ?string,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  history: ReactRouterHistoryType,
+  i18n: I18nType,
+  lang: ?string,
+  pageSize: number | null,
+  reviewCount: ?number,
+  reviews: ?Array<UserReviewType>,
+  siteUser: UserType | null,
+  siteUserCanReplyToReviews: boolean | null,
 |};
 
 export class AddonReviewListBase extends React.Component<InternalProps> {
@@ -74,27 +83,24 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     this.loadDataIfNeeded();
   }
 
-  componentWillReceiveProps(nextProps: InternalProps) {
-    this.loadDataIfNeeded(nextProps);
+  componentDidUpdate(prevProps: InternalProps) {
+    this.loadDataIfNeeded(prevProps);
   }
 
-  loadDataIfNeeded(nextProps?: InternalProps) {
-    const lastAddon = this.props.addon;
-    const nextAddon = nextProps && nextProps.addon;
+  loadDataIfNeeded(prevProps?: InternalProps) {
+    const lastAddon = prevProps && prevProps.addon;
     const {
       addon,
       addonIsLoading,
+      areReviewsLoading,
       dispatch,
       errorHandler,
+      location,
       match: {
         params: { addonSlug },
       },
       reviews,
-      areReviewsLoading,
-    } = {
-      ...this.props,
-      ...nextProps,
-    };
+    } = this.props;
 
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error');
@@ -107,20 +113,18 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       }
     } else if (
       // This is the first time rendering the component.
-      !nextProps ||
+      !prevProps ||
       // The component is getting updated with a new addon type.
-      (nextAddon && lastAddon && nextAddon.type !== lastAddon.type)
+      (addon && lastAddon && addon.type !== lastAddon.type)
     ) {
       dispatch(setViewContext(addon.type));
     }
 
-    let { location } = this.props;
     let locationChanged = false;
-    if (nextProps && nextProps.location) {
-      if (nextProps.location !== location) {
+    if (prevProps && prevProps.location) {
+      if (prevProps.location !== location) {
         locationChanged = true;
       }
-      location = nextProps.location;
     }
 
     if (!areReviewsLoading && (!reviews || locationChanged)) {
@@ -128,12 +132,36 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         fetchReviews({
           addonSlug,
           errorHandlerId: errorHandler.id,
-          // TODO: so, there is a test case (`it dispatches fetchReviews with
-          // an invalid page variable`) that conflicts with `fetchReviews()`
-          // requiring a page of type `number`. We should decide whether `page`
-          // can be anything OR restrict to integer values.
-          // $FLOW_FIXME: https://github.com/mozilla/addons-frontend/issues/5737
           page: this.getCurrentPage(location),
+        }),
+      );
+    }
+  }
+
+  componentDidMount() {
+    const {
+      addon,
+      checkingIfSiteUserCanReply,
+      dispatch,
+      errorHandler,
+      siteUser,
+      siteUserCanReplyToReviews,
+    } = this.props;
+
+    if (
+      addon &&
+      siteUser &&
+      siteUserCanReplyToReviews === null &&
+      !checkingIfSiteUserCanReply
+    ) {
+      // Permissions are fetched in componentDidMount because siteUser
+      // is not reliable while server rendering.
+      // https://github.com/mozilla/addons-frontend/issues/6717
+      dispatch(
+        fetchReviewPermissions({
+          addonId: addon.id,
+          errorHandlerId: errorHandler.id,
+          userId: siteUser.id,
         }),
       );
     }
@@ -179,6 +207,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       pageSize,
       reviewCount,
       reviews,
+      siteUserCanReplyToReviews,
     } = this.props;
 
     if (errorHandler.hasError()) {
@@ -266,7 +295,11 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
 
         <div className="AddonReviewList-reviews">
           {reviewId && (
-            <FeaturedAddonReview addon={addon} reviewId={reviewId} />
+            <FeaturedAddonReview
+              addon={addon}
+              reviewId={reviewId}
+              siteUserCanReply={siteUserCanReplyToReviews}
+            />
           )}
           {allReviews.length ? (
             <CardList
@@ -278,7 +311,11 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
                 {allReviews.map((review, index) => {
                   return (
                     <li key={String(index)}>
-                      <AddonReviewCard addon={addon} review={review} />
+                      <AddonReviewCard
+                        addon={addon}
+                        review={review}
+                        siteUserCanReply={siteUserCanReplyToReviews}
+                      />
                     </li>
                   );
                 })}
@@ -291,13 +328,34 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: InternalProps) {
+export function mapStateToProps(
+  state: AppState,
+  ownProps: Props,
+): $Shape<InternalProps> {
   const { addonSlug } = ownProps.match.params;
+  const addon = getAddonBySlug(state, addonSlug);
   const reviewData = state.reviews.byAddon[addonSlug];
 
+  const siteUser = getCurrentUser(state.users);
+  let checkingIfSiteUserCanReply = false;
+  let siteUserCanReplyToReviews = null;
+  if (addon && siteUser) {
+    const permissions = selectReviewPermissions({
+      reviewsState: state.reviews,
+      addonId: addon.id,
+      userId: siteUser.id,
+    });
+    if (permissions) {
+      checkingIfSiteUserCanReply = permissions.loading;
+      siteUserCanReplyToReviews = permissions.canReplyToReviews;
+    }
+  }
+
   return {
-    addon: getAddonBySlug(state, addonSlug),
+    addon,
     addonIsLoading: isAddonLoading(state, addonSlug),
+    areReviewsLoading: reviewsAreLoading(state, addonSlug),
+    checkingIfSiteUserCanReply,
     clientApp: state.api.clientApp,
     lang: state.api.lang,
     pageSize: reviewData ? reviewData.pageSize : null,
@@ -308,7 +366,8 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
         state: state.reviews,
         reviews: reviewData.reviews,
       }),
-    areReviewsLoading: reviewsAreLoading(state, addonSlug),
+    siteUserCanReplyToReviews,
+    siteUser,
   };
 }
 

@@ -18,6 +18,7 @@ import Notice from 'ui/components/Notice';
 import {
   dispatchClientMetadata,
   fakeI18n,
+  getFakeLogger,
   shallowUntilTarget,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
@@ -221,7 +222,7 @@ describe(__filename, () => {
 
   it('renders a notice and logs warning when reason code not known', () => {
     _dispatchClientMetadata();
-    const fakeLog = { warn: sinon.stub() };
+    const fakeLog = getFakeLogger();
     const root = render({
       log: fakeLog,
       reason: 'fake reason',

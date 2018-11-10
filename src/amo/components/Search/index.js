@@ -79,11 +79,10 @@ export class SearchBase extends React.Component<InternalProps> {
     });
   }
 
-  componentWillReceiveProps({ filters }: InternalProps) {
-    this.dispatchSearch({
-      newFilters: filters,
-      oldFilters: this.props.filters,
-    });
+  componentDidUpdate({ filters: oldFilters }: InternalProps) {
+    const { filters: newFilters } = this.props;
+
+    this.dispatchSearch({ newFilters, oldFilters });
   }
 
   dispatchSearch({

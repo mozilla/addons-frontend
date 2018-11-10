@@ -11,7 +11,7 @@ import type { I18nType } from 'core/types/i18n';
 import './style.scss';
 
 type Props = {|
-  reason: string,
+  reason: string | null,
 |};
 
 type InternalProps = {|
@@ -21,9 +21,7 @@ type InternalProps = {|
 
 // Messages in the disco pane are a bit less specific as we don't care about
 // non-Firefox clients and the copy space is limited.
-export class AddonCompatibilityErrorBase extends React.Component<
-  InternalProps,
-> {
+export class AddonCompatibilityErrorBase extends React.Component<InternalProps> {
   render() {
     const { i18n, reason } = this.props;
 

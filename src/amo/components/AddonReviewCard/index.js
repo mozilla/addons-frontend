@@ -1,13 +1,11 @@
 /* @flow */
 import makeClassName from 'classnames';
-import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
-import AddonReview from 'amo/components/AddonReview';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
 import { ADDONS_EDIT } from 'core/constants';
@@ -15,7 +13,6 @@ import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
-import { isAddonAuthor } from 'core/utils';
 import {
   beginDeleteAddonReview,
   cancelDeleteAddonReview,
@@ -52,6 +49,7 @@ type Props = {|
   shortByLine?: boolean,
   showControls?: boolean,
   showRating?: boolean,
+  siteUserCanReply: ?boolean,
   // When true, this renders things *bigger* because the container is
   // more slim than usual, like the Rate Your Experience card.
   //
@@ -62,8 +60,6 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
-  _siteUserCanManageReplies?: () => boolean,
   beginningToDeleteReview: boolean,
   deletingReview: boolean,
   dispatch: DispatchFunc,
@@ -72,13 +68,13 @@ type InternalProps = {|
   i18n: I18nType,
   replyingToReview: boolean,
   siteUser: UserType | null,
+  siteUserCanManageReplies: boolean,
   siteUserHasReplyPerm: boolean,
   submittingReply: boolean,
 |};
 
 export class AddonReviewCardBase extends React.Component<InternalProps> {
   static defaultProps = {
-    _config: config,
     flaggable: true,
     shortByLine: false,
     showControls: true,
@@ -132,31 +128,10 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     }
   };
 
-  onEscapeReviewOverlay = () => {
-    const { dispatch, review } = this.props;
-    if (!review) {
-      log.debug('Cannot hide review form because no review has been loaded.');
-      return;
-    }
-    // Even though an escaped overlay will be hidden, we still have to
-    // synchronize our show/hide state otherwise we won't be able to
-    // show the overlay after it has been escaped.
-    dispatch(hideEditReviewForm({ reviewId: review.id }));
-  };
-
   onCancelEditReview = () => {
     const { dispatch, review } = this.props;
     invariant(review, 'review is required');
 
-    dispatch(hideEditReviewForm({ reviewId: review.id }));
-  };
-
-  onReviewSubmitted = () => {
-    const { dispatch, review } = this.props;
-    if (!review) {
-      log.debug('Cannot hide review form because no review has been loaded.');
-      return;
-    }
     dispatch(hideEditReviewForm({ reviewId: review.id }));
   };
 
@@ -284,25 +259,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     return i18n.gettext('Keep review');
   }
 
-  siteUserCanManageReplies() {
-    const {
-      addon,
-      siteUser,
-      siteUserHasReplyPerm,
-      _siteUserCanManageReplies,
-    } = this.props;
-    if (_siteUserCanManageReplies) {
-      // Return a stub implementation for testing.
-      return _siteUserCanManageReplies();
-    }
-    if (!siteUser) {
-      return false;
-    }
-    return (
-      isAddonAuthor({ addon, userId: siteUser.id }) || siteUserHasReplyPerm
-    );
-  }
-
   renderReply() {
     const {
       addon,
@@ -311,6 +267,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       replyingToReview,
       review,
       slim,
+      siteUserCanReply,
       submittingReply,
     } = this.props;
 
@@ -345,6 +302,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             isReplyToReviewId={review.id}
             review={review.reply}
             slim={slim}
+            siteUserCanReply={siteUserCanReply}
           />
         )}
       </div>
@@ -353,7 +311,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
   render() {
     const {
-      _config,
       beginningToDeleteReview,
       className,
       deletingReview,
@@ -367,6 +324,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       showControls,
       showRating,
       siteUser,
+      siteUserCanManageReplies,
       slim,
     } = this.props;
 
@@ -421,21 +379,12 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       review &&
       siteUser &&
       (review.userId === siteUser.id ||
-        (this.isReply() && this.siteUserCanManageReplies()));
+        (this.isReply() && siteUserCanManageReplies));
 
     const controls = controlsAreVisible ? (
       <div className="AddonReviewCard-allControls">
         {review && showEditControls ? (
           <React.Fragment>
-            {editingReview &&
-              !_config.get('enableFeatureInlineAddonReview') && (
-                // This will render an overlay to edit the review
-                <AddonReview
-                  onEscapeOverlay={this.onEscapeReviewOverlay}
-                  onReviewSubmitted={this.onReviewSubmitted}
-                  review={review}
-                />
-              )}
             {!this.isRatingOnly() && (
               <a
                 href="#edit"
@@ -468,7 +417,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         !replyingToReview &&
         !review.reply &&
         !this.isReply() &&
-        this.siteUserCanManageReplies() &&
+        siteUserCanManageReplies &&
         siteUser &&
         review.userId !== siteUser.id ? (
           <a
@@ -503,9 +452,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       >
         <div className="AddonReviewCard-container">
           {errorHandler.renderErrorIfPresent()}
-          {review &&
-          editingReview &&
-          _config.get('enableFeatureInlineAddonReview') ? (
+          {review && editingReview ? (
             <AddonReviewManager
               onCancel={this.onCancelEditReview}
               puffyButtons={slim}
@@ -543,7 +490,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             <Button
               className="AddonReviewCard-writeReviewButton"
               onClick={this.onClickToEditReview}
-              href="#writeReview"
               buttonType="action"
               puffy={slim}
             >
@@ -571,13 +517,17 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
       submittingReply = view.submittingReply;
     }
   }
+
+  const siteUserHasReplyPerm = hasPermission(state, ADDONS_EDIT);
+
   return {
     beginningToDeleteReview,
     deletingReview,
     editingReview,
     replyingToReview,
     siteUser: getCurrentUser(state.users),
-    siteUserHasReplyPerm: hasPermission(state, ADDONS_EDIT),
+    siteUserCanManageReplies: ownProps.siteUserCanReply || siteUserHasReplyPerm,
+    siteUserHasReplyPerm,
     submittingReply,
   };
 }

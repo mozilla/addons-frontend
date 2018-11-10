@@ -6,7 +6,7 @@ import {
   ON_OPERATION_CANCELLED_EVENT,
   SET_ENABLE_NOT_AVAILABLE,
 } from 'core/constants';
-import { unexpectedSuccess } from 'tests/unit/helpers';
+import { getFakeLogger, unexpectedSuccess } from 'tests/unit/helpers';
 
 const fakeClientAddon = (overrides = {}) => ({
   canUninstall: false,
@@ -319,10 +319,7 @@ describe(__filename, () => {
     });
 
     it('calls the callback when onOperationCancelled is received', async () => {
-      const _log = {
-        info: sinon.stub(),
-        error: sinon.spy(),
-      };
+      const _log = getFakeLogger();
       const fakeAddon = fakeClientAddon();
       fakeMozAddonManager.getAddonByID.resolves(fakeAddon);
 
@@ -350,10 +347,7 @@ describe(__filename, () => {
     });
 
     it('logs an error when onOperationCancelled has failed', async () => {
-      const _log = {
-        info: sinon.stub(),
-        error: sinon.spy(),
-      };
+      const _log = getFakeLogger();
       fakeMozAddonManager.getAddonByID.resolves(null);
 
       const handleChangeEvent = addonManager.addChangeListeners(

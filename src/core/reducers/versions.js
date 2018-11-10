@@ -27,9 +27,10 @@ export type VersionIdType = number;
 
 export type AddonVersionType = {
   compatibility?: AddonCompatibilityType,
-  platformFiles: PlatformFilesType,
   id: VersionIdType,
+  isStrictCompatibilityEnabled: boolean,
   license: { name: string, url: string } | null,
+  platformFiles: PlatformFilesType,
   releaseNotes?: string,
   version: string,
 };
@@ -39,11 +40,14 @@ export const createInternalVersion = (
 ): AddonVersionType => {
   return {
     compatibility: version.compatibility,
-    platformFiles: createPlatformFiles(version),
     id: version.id,
+    isStrictCompatibilityEnabled: Boolean(
+      version.is_strict_compatibility_enabled,
+    ),
     license: version.license
       ? { name: version.license.name, url: version.license.url }
       : null,
+    platformFiles: createPlatformFiles(version),
     releaseNotes: version.release_notes,
     version: version.version,
   };
@@ -261,7 +265,29 @@ const reducer = (
         // For collection related actions, the addon is available in addon.addon.
         const addonToUse = addon.addon || addon;
         if (addonToUse.current_version) {
-          const version = createInternalVersion(addonToUse.current_version);
+          const apiVersion = addonToUse.current_version;
+
+          // Do not overwrite licence and release_notes data with nulls, which
+          // are omitted from some API responses.
+          // Discopane does not need this done, and does not get a version
+          // property, so we can check for that too.
+          if (
+            apiVersion.version &&
+            (!apiVersion.license || !apiVersion.release_notes)
+          ) {
+            const existingVersion = getVersionById({
+              id: apiVersion.id,
+              state,
+            });
+            if (existingVersion) {
+              apiVersion.license =
+                apiVersion.license || existingVersion.license;
+              apiVersion.release_notes =
+                apiVersion.release_notes || existingVersion.releaseNotes;
+            }
+          }
+
+          const version = createInternalVersion(apiVersion);
           newVersions[version.id] = version;
         }
       }
@@ -280,10 +306,12 @@ const reducer = (
 
       const newVersions = {};
       for (const shelf of Object.keys(shelves)) {
-        for (const addon of shelves[shelf].results) {
-          if (addon.current_version) {
-            const version = createInternalVersion(addon.current_version);
-            newVersions[version.id] = version;
+        if (shelves[shelf]) {
+          for (const addon of shelves[shelf].results) {
+            if (addon.current_version) {
+              const version = createInternalVersion(addon.current_version);
+              newVersions[version.id] = version;
+            }
           }
         }
       }

@@ -65,18 +65,19 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     }
   }
 
-  componentWillReceiveProps({
-    addon: newAddon,
-    recommendations: newRecommendations,
-  }: Props) {
+  componentDidUpdate(prevProps: Props) {
+    const { addon: oldAddon, recommendations: oldRecommendations } = prevProps;
     const {
-      addon: oldAddon,
-      recommendations: oldRecommendations,
+      addon: newAddon,
+      recommendations: newRecommendations,
       tracking,
     } = this.props;
 
     // Fetch recommendations when the add-on changes.
-    if (newAddon && oldAddon !== newAddon) {
+    if (
+      newAddon &&
+      (!oldAddon || (oldAddon && oldAddon.guid !== newAddon.guid))
+    ) {
       this.dispatchFetchRecommendations(newAddon.guid);
     }
 

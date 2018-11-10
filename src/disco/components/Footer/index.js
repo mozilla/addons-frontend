@@ -4,6 +4,7 @@ import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
 import { makeQueryStringWithUTM } from 'disco/utils';
+import Button from 'ui/components/Button';
 
 import './styles.scss';
 
@@ -17,18 +18,17 @@ export class FooterBase extends React.Component {
 
     return (
       <footer className="Footer">
-        <a
+        <Button
           className="Footer-privacy-link"
-          href={`https://www.mozilla.org/privacy/websites/${makeQueryStringWithUTM(
+          href={`https://www.mozilla.org/privacy/firefox/${makeQueryStringWithUTM(
             {
               utm_content: 'privacy-policy-link',
             },
-          )}`}
-          rel="noopener noreferrer"
+          )}#addons`}
           target="_blank"
         >
           {i18n.gettext('Privacy Policy')}
-        </a>
+        </Button>
       </footer>
     );
   }

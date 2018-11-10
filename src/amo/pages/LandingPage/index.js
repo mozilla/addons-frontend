@@ -10,9 +10,11 @@ import { connect } from 'react-redux';
 import { getLanding } from 'amo/actions/landing';
 import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
-import NotFound from 'amo/components/ErrorPage/NotFound';
 import Categories from 'amo/components/Categories';
-import { getCanonicalURL } from 'amo/utils';
+import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
+import NotFound from 'amo/components/ErrorPage/NotFound';
+import { shouldShowThemes } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -39,19 +41,16 @@ import './styles.scss';
 export class LandingPageBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
-    // This is a bug; addonTypeOfResults is used in
-    // `componentWillReceiveProps()`.
-    // eslint-disable-next-line react/no-unused-prop-types
     addonTypeOfResults: PropTypes.string,
     // This is a bug; context is used in `setViewContextType()`.
     // eslint-disable-next-line react/no-unused-prop-types
     context: PropTypes.string.isRequired,
+    clientApp: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     featuredAddons: PropTypes.array.isRequired,
     highlyRatedAddons: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
-    locationPathname: PropTypes.string.isRequired,
     trendingAddons: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
     match: PropTypes.shape({
@@ -59,8 +58,6 @@ export class LandingPageBase extends React.Component {
         visibleAddonType: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
-    // This is a bug; resultsLoaded is used in `componentWillReceiveProps()`.
-    // eslint-disable-next-line react/no-unused-prop-types
     resultsLoaded: PropTypes.bool.isRequired,
   };
 
@@ -71,10 +68,15 @@ export class LandingPageBase extends React.Component {
   constructor(props) {
     super(props);
 
-    const { params } = props.match;
+    this.getLandingDataIfNeeded();
+    this.setViewContextType();
+  }
+
+  componentDidUpdate() {
+    const { params } = this.props.match;
 
     if (!apiAddonTypeIsValid(params.visibleAddonType)) {
-      log.warn(oneLine`Skipping constructor() because visibleAddonType
+      log.warn(oneLine`Skipping componentDidUpdate() because visibleAddonType
         is invalid: ${params.visibleAddonType}`);
       return;
     }
@@ -83,20 +85,7 @@ export class LandingPageBase extends React.Component {
     this.setViewContextType();
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { params } = nextProps.match;
-
-    if (!apiAddonTypeIsValid(params.visibleAddonType)) {
-      log.warn(oneLine`Skipping componentWillReceiveProps() because
-        visibleAddonType is invalid: ${params.visibleAddonType}`);
-      return;
-    }
-
-    this.getLandingDataIfNeeded(nextProps);
-    this.setViewContextType(nextProps);
-  }
-
-  getLandingDataIfNeeded(nextProps = {}) {
+  getLandingDataIfNeeded() {
     const {
       addonTypeOfResults,
       dispatch,
@@ -104,10 +93,7 @@ export class LandingPageBase extends React.Component {
       loading,
       match: { params },
       resultsLoaded,
-    } = {
-      ...this.props,
-      ...nextProps,
-    };
+    } = this.props;
 
     const requestedAddonType = apiAddonType(params.visibleAddonType);
 
@@ -125,11 +111,11 @@ export class LandingPageBase extends React.Component {
     }
   }
 
-  setViewContextType(nextProps = {}) {
+  setViewContextType() {
     const {
       context,
       match: { params },
-    } = { ...this.props, ...nextProps };
+    } = this.props;
     const addonType = apiAddonType(params.visibleAddonType);
 
     if (context !== addonType) {
@@ -219,36 +205,29 @@ export class LandingPageBase extends React.Component {
     const addonType = apiAddonType(params.visibleAddonType);
 
     if (isTheme(addonType)) {
-      return i18n.gettext(`Change how Firefox looks with themes. Tailor your
-        experience to your tastes. Cute critters, evil robots, beautiful
-        landscapes...choose from thousands of options.`);
+      return i18n.gettext(`Download themes to change how Firefox looks. Tailor
+        your experience to your tastes. Cute critters, evil robots, beautiful
+        landscapes—thousands of options.`);
     }
 
-    return i18n.gettext(`Extensions add features to Firefox so you can
-      customize your browsing experience. Protect passwords, download videos,
-      find deals, block annoying ads, and more with these apps for your
-      browser.`);
+    return i18n.gettext(`Download Firefox Extensions to add features that
+      customize browsing. Protect passwords, find deals, enhance video, and
+      block annoying ads with browser apps.`);
   }
 
   render() {
     const {
       _config,
+      clientApp,
       errorHandler,
       featuredAddons,
       highlyRatedAddons,
-      loading,
-      locationPathname,
-      trendingAddons,
       i18n,
+      loading,
+      trendingAddons,
     } = this.props;
+
     const { visibleAddonType } = this.props.match.params;
-
-    if (!apiAddonTypeIsValid(visibleAddonType)) {
-      log.warn(oneLine`Rendering 404 because visibleAddonType
-        is invalid: ${visibleAddonType}`);
-      return <NotFound />;
-    }
-
     const { addonType, html } = this.contentForType(visibleAddonType);
     const headingText = {
       [ADDON_TYPE_THEME]: i18n.gettext('Themes'),
@@ -262,6 +241,11 @@ export class LandingPageBase extends React.Component {
     };
 
     const isAddonTheme = isTheme(addonType);
+    const title = headingText[addonType];
+
+    if (isAddonTheme && !shouldShowThemes({ _config, clientApp })) {
+      return <NotFound />;
+    }
 
     return (
       <div
@@ -270,13 +254,12 @@ export class LandingPageBase extends React.Component {
         })}
       >
         <Helmet>
-          <title>{headingText[addonType]}</title>
-          <link
-            rel="canonical"
-            href={getCanonicalURL({ locationPathname, _config })}
-          />
-          <meta name="description" content={this.getPageDescription()} />
+          <title>{title}</title>
         </Helmet>
+
+        <HeadMetaTags description={this.getPageDescription()} title={title} />
+
+        <HeadLinks />
 
         {errorHandler.renderErrorIfPresent()}
 
@@ -348,11 +331,11 @@ export function mapStateToProps(state) {
 
   return {
     addonTypeOfResults: landing.addonType,
+    clientApp: state.api.clientApp,
     context: viewContext.context,
     featuredAddons: landing.featured.results,
     highlyRatedAddons: landing.highlyRated.results,
     loading: landing.loading,
-    locationPathname: state.router.location.pathname,
     trendingAddons: landing.trending.results,
     resultsLoaded: landing.resultsLoaded && landing.category === null,
   };

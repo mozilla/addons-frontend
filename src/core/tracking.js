@@ -239,15 +239,15 @@ export class Tracking {
   }
 
   /*
-  * Param          Type    Required  Description
-  * obj.category   String  Yes       Typically the object that
-  *                                  was interacted with (e.g. button)
-  * obj.action     String  Yes       The type of interaction (e.g. click)
-  * obj.label      String  No        Useful for categorizing events
-  *                                  (e.g. nav buttons)
-  * obj.value      Number  No        Values must be non-negative.
-  *                                  Useful to pass counts (e.g. 4 times)
-  */
+   * Param          Type    Required  Description
+   * obj.category   String  Yes       Typically the object that
+   *                                  was interacted with (e.g. button)
+   * obj.action     String  Yes       The type of interaction (e.g. click)
+   * obj.label      String  No        Useful for categorizing events
+   *                                  (e.g. nav buttons)
+   * obj.value      Number  No        Values must be non-negative.
+   *                                  Useful to pass counts (e.g. 4 times)
+   */
   sendEvent({ category, action, label, value } = {}) {
     if (!category) {
       throw new Error('sendEvent: category is required');
@@ -273,8 +273,8 @@ export class Tracking {
   }
 
   /*
-  * Should be called when a view changes or a routing update.
-  */
+   * Should be called when a view changes or a routing update.
+   */
   setPage(page) {
     if (!page) {
       throw new Error('setPage: page is required');
@@ -289,9 +289,9 @@ export class Tracking {
   }
 
   /*
-  * Can be called to set a dimension which will be sent with all
-  * subsequent calls to GA.
-  */
+   * Can be called to set a dimension which will be sent with all
+   * subsequent calls to GA.
+   */
   setDimension({ dimension, value }) {
     invariant(dimension, 'A dimension is required');
     invariant(value, 'A value is required');

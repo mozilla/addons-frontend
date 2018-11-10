@@ -1,7 +1,7 @@
 import EventEmitter from 'events';
 
 import { datadogTiming } from 'core/middleware/datadogTiming';
-import { getFakeConfig } from 'tests/unit/helpers';
+import { getFakeConfig, getFakeLogger } from 'tests/unit/helpers';
 import { ServerTestHelper } from 'tests/unit/core/server/test_server';
 
 describe(__filename, () => {
@@ -152,7 +152,7 @@ describe(__filename, () => {
     });
 
     it('sets up error handling', () => {
-      const _log = { error: sinon.stub() };
+      const _log = getFakeLogger();
       datadogTiming({ _log, _HotShots: StubHotShots });
 
       const error = new Error('some socket error');

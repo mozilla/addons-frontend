@@ -109,7 +109,8 @@ module.exports = {
     'dismissedExperienceSurveyCookieName',
     'enableDevTools',
     'enableFeatureExperienceSurvey',
-    'enableFeatureInlineAddonReview',
+    'enableFeatureHomeHeroGuides',
+    'enableFeatureStaticThemesForAndroid',
     'enableRequestID',
     'experiments',
     'fxaConfig',
@@ -347,11 +348,17 @@ module.exports = {
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
-  enableFeatureInlineAddonReview: true,
+  enableFeatureHomeHeroGuides: false,
+
+  // This flag is enabled by default because the feature already exists and we
+  // want to disable it.
+  // See: https://github.com/mozilla/addons-frontend/issues/6689
+  enableFeatureStaticThemesForAndroid: true,
 
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments.
   experiments: {
-    home_hero: true,
+    homeHero: true,
+    installButtonColor: false,
   },
 };

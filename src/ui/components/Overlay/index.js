@@ -42,9 +42,8 @@ export class OverlayBase extends React.Component<InternalProps> {
     this.props.setUIState({ visible: visibleOnLoad });
   }
 
-  componentWillReceiveProps(nextProps: InternalProps) {
-    const { uiState } = this.props;
-    const { visibleOnLoad: visibleOnLoadNew, keydown: escKeydown } = nextProps;
+  componentDidUpdate({ uiState }: InternalProps) {
+    const { visibleOnLoad: visibleOnLoadNew, keydown: escKeydown } = this.props;
 
     // Pressing the "Esc" key is the only key that will trigger an update here.
     // escKeydown is only set if the "Esc" key is pressed.

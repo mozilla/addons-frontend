@@ -3,21 +3,14 @@ import * as React from 'react';
 import ReviewGuide, {
   ReviewGuideBase,
 } from 'amo/pages/StaticPages/ReviewGuide';
-import {
-  dispatchClientMetadata,
-  fakeI18n,
-  getFakeConfig,
-  shallowUntilTarget,
-} from 'tests/unit/helpers';
+import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  function render({
-    store = dispatchClientMetadata().store,
-    i18n = fakeI18n(),
-    ...props
-  } = {}) {
+  function render({ i18n = fakeI18n(), ...props } = {}) {
     return shallowUntilTarget(
-      <ReviewGuide store={store} i18n={i18n} {...props} />,
+      <ReviewGuide i18n={i18n} {...props} />,
       ReviewGuideBase,
     );
   }
@@ -28,19 +21,19 @@ describe(__filename, () => {
     expect(root.find('#review-guide')).toExist();
   });
 
-  it('renders a canonical link tag', () => {
-    const baseURL = 'https://example.org';
-    const _config = getFakeConfig({ baseURL });
+  it('renders a HeadMetaTags component', () => {
+    const root = render();
 
-    const pathname = '/some-review-guide-pathname';
-    const { store } = dispatchClientMetadata({ pathname });
-
-    const root = render({ _config, store });
-
-    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
-    expect(root.find('link[rel="canonical"]')).toHaveProp(
-      'href',
-      `${baseURL}${pathname}`,
+    expect(root.find(HeadMetaTags)).toHaveLength(1);
+    expect(root.find(HeadMetaTags).prop('title')).toEqual('Review Guidelines');
+    expect(root.find(HeadMetaTags).prop('description')).toMatch(
+      /Guidelines, tips, and/,
     );
+  });
+
+  it('renders a HeadLinks component', () => {
+    const root = render();
+
+    expect(root.find(HeadLinks)).toHaveLength(1);
   });
 });

@@ -19,7 +19,7 @@ import {
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import { visibleAddonType } from 'core/utils';
+import { visibleAddonType as getVisibleAddonType } from 'core/utils';
 import ErrorList from 'ui/components/ErrorList';
 import {
   createAddonsApiResult,
@@ -28,6 +28,7 @@ import {
   fakeAddon,
   fakeCategory,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -94,7 +95,7 @@ describe(__filename, () => {
       match: {
         params: {
           slug: fakeCategory.slug,
-          visibleAddonType: visibleAddonType(fakeCategory.type),
+          visibleAddonType: getVisibleAddonType(fakeCategory.type),
           ...paramOverrides,
         },
       },
@@ -109,6 +110,51 @@ describe(__filename, () => {
       CategoryBase,
     );
   }
+
+  const renderWithCategory = ({ category = fakeCategory, props = {} }) => {
+    _categoriesLoad({ results: [category] });
+
+    return render(props, {
+      autoDispatchCategories: false,
+      paramOverrides: {
+        slug: category.slug,
+        visibleAddonType: getVisibleAddonType(category.type),
+      },
+    });
+  };
+
+  const renderFirefoxTheme = (props = {}) => {
+    const category = {
+      ...fakeCategory,
+      application: CLIENT_APP_FIREFOX,
+      type: ADDON_TYPE_THEME,
+    };
+
+    return renderWithCategory({ category, props });
+  };
+
+  const renderAndroidTheme = (props = {}) => {
+    const category = {
+      ...fakeCategory,
+      // This should really be set to CLIENT_APP_ANDROID *but* the reducer
+      // replaces android "theme" categories with firefox categories here:
+      // https://github.com/mozilla/addons-frontend/blob/0ebf7b7fc559dee2cf704bad04905c8c8e430905/src/core/reducers/categories.js#L72-L82
+      application: CLIENT_APP_FIREFOX,
+      type: ADDON_TYPE_THEME,
+    };
+
+    return renderWithCategory({ category, props });
+  };
+
+  const renderAndroidExension = (props = {}) => {
+    const category = {
+      ...fakeCategory,
+      application: CLIENT_APP_ANDROID,
+      type: ADDON_TYPE_EXTENSION,
+    };
+
+    return renderWithCategory({ category, props });
+  };
 
   function _categoriesFetch(overrides = {}) {
     store.dispatch(
@@ -209,7 +255,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({}, { autoDispatchCategories: false });
 
-    // This will trigger the componentWillReceiveProps() method.
+    // This will trigger the componentDidUpdate() method.
     root.setProps();
 
     sinon.assert.notCalled(fakeDispatch);
@@ -224,21 +270,6 @@ describe(__filename, () => {
 
     fakeDispatch.resetHistory();
     root.setProps({ errorHandler: customErrorHandler });
-
-    sinon.assert.notCalled(fakeDispatch);
-  });
-
-  it('does not dispatch any action when visible addon type is invalid', () => {
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-    render(
-      {},
-      {
-        autoDispatchCategories: false,
-        paramOverrides: {
-          visibleAddonType: 'invalid',
-        },
-      },
-    );
 
     sinon.assert.notCalled(fakeDispatch);
   });
@@ -328,7 +359,7 @@ describe(__filename, () => {
       {
         autoDispatchCategories: false,
         paramOverrides: {
-          visibleAddonType: visibleAddonType(addonType),
+          visibleAddonType: getVisibleAddonType(addonType),
         },
       },
     );
@@ -381,7 +412,7 @@ describe(__filename, () => {
       {
         autoDispatchCategories: false,
         paramOverrides: {
-          visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
         },
       },
     );
@@ -472,7 +503,7 @@ describe(__filename, () => {
       {
         autoDispatchCategories: false,
         paramOverrides: {
-          visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
         },
       },
     );
@@ -491,7 +522,7 @@ describe(__filename, () => {
       {
         autoDispatchCategories: false,
         paramOverrides: {
-          visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
         },
       },
     );
@@ -505,7 +536,7 @@ describe(__filename, () => {
       {
         autoDispatchCategories: false,
         paramOverrides: {
-          visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
         },
       },
     );
@@ -626,11 +657,9 @@ describe(__filename, () => {
       slug: 'target-slug',
     };
 
-    const _dispatchClientApp = (clientApp) =>
-      dispatchClientMetadata({
-        store,
-        clientApp,
-      });
+    const _dispatchClientApp = (clientApp) => {
+      return dispatchClientMetadata({ store, clientApp });
+    };
 
     function _render(
       props = {},
@@ -654,7 +683,7 @@ describe(__filename, () => {
         {
           paramOverrides: {
             slug: targetCategory.slug,
-            visibleAddonType: visibleAddonType(targetCategory.type),
+            visibleAddonType: getVisibleAddonType(targetCategory.type),
           },
         },
       );
@@ -679,7 +708,7 @@ describe(__filename, () => {
       const root = _render({
         params: {
           slug: targetCategory.slug,
-          visibleAddonType: visibleAddonType(targetCategory.type),
+          visibleAddonType: getVisibleAddonType(targetCategory.type),
         },
       });
 
@@ -692,7 +721,7 @@ describe(__filename, () => {
       const root = _render({
         params: {
           slug: targetCategory.slug,
-          visibleAddonType: visibleAddonType(decoyCategory.type),
+          visibleAddonType: getVisibleAddonType(decoyCategory.type),
         },
       });
 
@@ -718,7 +747,7 @@ describe(__filename, () => {
       const root = _render({
         params: {
           slug: targetCategory.slug,
-          visibleAddonType: visibleAddonType(targetCategory.type),
+          visibleAddonType: getVisibleAddonType(targetCategory.type),
         },
       });
 
@@ -765,5 +794,53 @@ describe(__filename, () => {
 
       expect(root.find(NotFound)).toHaveLength(0);
     });
+  });
+
+  it('renders a 404 when clientApp is Android and enableFeatureStaticThemesForAndroid is false', () => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID }).store;
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+
+    const root = renderAndroidTheme({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(1);
+    expect(root).not.toHaveClassName('Category');
+  });
+
+  it('does not render a 404 when clientApp is Android and enableFeatureStaticThemesForAndroid is true', () => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID }).store;
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: true,
+    });
+
+    const root = renderAndroidTheme({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root).toHaveClassName('Category');
+  });
+
+  it('does not render a 404 when clientApp is not Android', () => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store;
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+
+    const root = renderFirefoxTheme({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root).toHaveClassName('Category');
+  });
+
+  it('does not render a 404 when addonType is not a theme', () => {
+    store = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID }).store;
+    const _config = getFakeConfig({
+      enableFeatureStaticThemesForAndroid: false,
+    });
+
+    const root = renderAndroidExension({ _config, store });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root).toHaveClassName('Category');
   });
 });

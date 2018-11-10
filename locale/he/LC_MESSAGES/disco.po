@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-11-06 17:31+0000\n"
 "PO-Revision-Date: 2018-08-24 11:10+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -14,39 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:228
 msgid "Enable"
 msgstr "הפעלה"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Remove"
 msgstr "הסרה"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Downloading"
 msgstr "בהורדה"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Installing"
 msgstr "בהתקנה"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Uninstalling"
 msgstr "בהסרת התקנה"
 
-#: src/core/components/AMInstallButton/index.js:220
-#: src/core/components/InstallButton/index.js:235
-#: src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:247
 msgid "Install Theme"
 msgstr "התקנת ערכת נושא"
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:266
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Add to Firefox"
 msgstr "הוספה ל־Firefox"
 
@@ -86,34 +82,6 @@ msgstr "ניתן לנהל את התוספות שלך על־ידי לחיצה ע�
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "אישור"
-
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "%(name)s בהורדה."
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "%(name)s בהתקנה."
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s הותקן והופעל. יש ללחוץ להסרה."
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s מנוטרל. יש ללחוץ להפעלה."
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "%(name)s בהסרת התקנה."
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s הוסר. יש ללחוץ להתקנה."
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "מצב ההתקנה של %(name)s אינו ידוע."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -155,7 +123,7 @@ msgstr "אירעה שגיאה לא צפויה במהלך הסרת ההתקנה."
 msgid "An unexpected error occurred."
 msgstr "אירעה שגיאה לא צפויה."
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "סגירה"
 
@@ -220,6 +188,27 @@ msgstr "סגירת הודעה זו"
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "תצוגה מקדימה של %(title)s"
+
+#~ msgid "Downloading %(name)s."
+#~ msgstr "%(name)s בהורדה."
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "%(name)s בהתקנה."
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr "%(name)s הותקן והופעל. יש ללחוץ להסרה."
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "%(name)s מנוטרל. יש ללחוץ להפעלה."
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "%(name)s בהסרת התקנה."
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "%(name)s הוסר. יש ללחוץ להתקנה."
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "מצב ההתקנה של %(name)s אינו ידוע."
 
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "תוספת זו תוסר לאחר ש־Firefox יופעל מחדש."

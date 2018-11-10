@@ -1,41 +1,21 @@
 /* @flow */
 import * as React from 'react';
-import { compose } from 'redux';
-import makeClassName from 'classnames';
 
-import log from 'core/logger';
+import { INSTALL_SOURCE_HERO_PROMO } from 'core/constants';
 import translate from 'core/i18n/translate';
+import { addQueryParams } from 'core/utils';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
 import type { I18nType } from 'core/types/i18n';
-import { withExperiment } from 'core/withExperiment';
-import type { WithExperimentInjectedProps } from 'core/withExperiment';
+import type { HeroSectionsType } from 'ui/components/Hero';
 
 import './styles.scss';
 
 type InternalProps = {|
-  ...WithExperimentInjectedProps,
   i18n: I18nType,
 |};
 
-export const AB_HOME_HERO_EXPERIMENT = 'home_hero';
-export const AB_HOME_HERO_VARIANT_A = 'small';
-export const AB_HOME_HERO_VARIANT_B = 'large';
-export const AB_HOME_HERO_EXPERIMENT_CATEGORY = 'AMO Home Hero Experiment';
-
 export class HomeHeroBannerBase extends React.Component<InternalProps> {
-  componentDidMount() {
-    const { experimentEnabled, variant } = this.props;
-
-    if (!experimentEnabled) {
-      log.info('[HomeHeroBanner.componentDidMount] experiment not enabled');
-
-      return;
-    }
-
-    log.info('[HomeHeroBanner.componentDidMount] variant is:', variant);
-  }
-
   getHeroes() {
     const { i18n } = this.props;
 
@@ -285,15 +265,24 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
         description: i18n.gettext('Never lose a page again'),
         url: '/addon/undo-close-tab-button/',
       },
+      {
+        title: i18n.gettext('Ad Analysis for Facebook'),
+        description: i18n.gettext('See how Facebook ads target you'),
+        url: '/addon/ad-analysis-for-facebook/',
+      },
     ];
   }
 
-  sections() {
+  sections(): HeroSectionsType {
     return this.getHeroes().map((hero) => {
       const { description, title, url } = hero;
 
       return (
-        <HeroSection key={url} linkTo={url}>
+        <HeroSection
+          key={url}
+          linkTo={addQueryParams(url, { src: INSTALL_SOURCE_HERO_PROMO })}
+          styleName="random-color"
+        >
           <h3>{title}</h3>
           <p>{description}</p>
         </HeroSection>
@@ -302,27 +291,15 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
   }
 
   render() {
-    log.info('[HomeHeroBanner.render] variant is:', this.props.variant);
-
-    const homeBannerClass = makeClassName('HomeHeroBanner', {
-      'HomeHeroBanner--small': this.props.variant === AB_HOME_HERO_VARIANT_A,
-    });
-
     return (
-      <div className={homeBannerClass}>
+      <div className="HomeHeroBanner">
         <Hero name="Home" random sections={this.sections()} />
       </div>
     );
   }
 }
 
-const HomeHeroBanner: React.ComponentType<InternalProps> = compose(
-  translate(),
-  withExperiment({
-    id: AB_HOME_HERO_EXPERIMENT,
-    variantA: AB_HOME_HERO_VARIANT_A,
-    variantB: AB_HOME_HERO_VARIANT_B,
-  }),
-)(HomeHeroBannerBase);
-
+const HomeHeroBanner: React.ComponentType<InternalProps> = translate()(
+  HomeHeroBannerBase,
+);
 export default HomeHeroBanner;

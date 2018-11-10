@@ -102,6 +102,7 @@ export const fakeAddon = Object.freeze({
   authors: [fakeAuthor],
   average_daily_users: 100,
   categories: { firefox: ['other'] },
+  contributions_url: '',
   created: '2014-11-22T10:09:01Z',
   current_version: fakeVersion,
   description: 'This is a longer description of the chill out add-on',
@@ -261,13 +262,14 @@ export function dispatchClientMetadata({
   lang = 'en-US',
   userAgent = sampleUserAgent,
   pathname = `/${lang}/${clientApp}/`,
+  search = '',
 } = {}) {
   store.dispatch(setClientApp(clientApp));
   store.dispatch(setLang(lang));
   store.dispatch(setUserAgent(userAgent));
 
   // Simulate the behavior of `connected-react-router`.
-  store.dispatch(onLocationChanged({ pathname }));
+  store.dispatch(onLocationChanged({ pathname, search }));
 
   return {
     store,
@@ -1073,8 +1075,15 @@ export function setUIState({ root, change, store }) {
   applyUIStateChanges({ root, store });
 }
 
-export function fakeCookie(overrides = {}) {
-  return { load: sinon.stub(), save: sinon.stub(), ...overrides };
+export function fakeCookies(overrides = {}) {
+  return {
+    addChangeListener: sinon.stub(),
+    get: sinon.stub(),
+    getAll: sinon.stub(),
+    removeChangeListener: sinon.stub(),
+    set: sinon.stub(),
+    ...overrides,
+  };
 }
 
 export const createFakeTracking = (overrides = {}) => {
@@ -1125,7 +1134,7 @@ export async function matchingSagaAction(
 
       ${isMatch}
 
-      The saga called these action types: ${calledActions
+      The saga dispatched these action types: ${calledActions
         .map((action) => action.type)
         .join(', ') || '(none at all)'}`,
     );

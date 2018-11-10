@@ -10,11 +10,11 @@ import httpContext from 'express-http-context';
 import helmet from 'helmet';
 import { createMemoryHistory } from 'history';
 import Raven from 'raven';
-import cookie from 'react-cookie';
 import * as React from 'react';
 import ReactDOM from 'react-dom/server';
 import NestedStatus from 'react-nested-status';
 import { END } from 'redux-saga';
+import cookiesMiddleware from 'universal-cookie-express';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
 import log from 'core/logger';
@@ -48,7 +48,7 @@ export const createHistory = ({ req }) => {
   });
 };
 
-export function getPageProps({ noScriptStyles = '', store, req, res, config }) {
+export function getPageProps({ store, req, res, config }) {
   const appName = config.get('appName');
   const isDeployed = config.get('isDeployed');
 
@@ -85,7 +85,6 @@ export function getPageProps({ noScriptStyles = '', store, req, res, config }) {
     htmlLang: lang,
     htmlDir: dir,
     includeSri: isDeployed,
-    noScriptStyles,
     sriData,
     // A DNT header set to "1" means Do Not Track
     trackingEnabled:
@@ -202,13 +201,15 @@ function baseServer(
   app.use(helmet.xssFilter());
 
   // CSP configuration.
-  const noScriptStyles = middleware.getNoScriptStyles(appName);
-  app.use(middleware.csp({ noScriptStyles }));
+  app.use(middleware.csp());
 
   // Serve assets locally from node ap (no-op by default).
   if (config.get('enableNodeStatics')) {
     app.use(middleware.serveAssetsLocally());
   }
+
+  // This middleware adds `universalCookies` to the Express request.
+  app.use(cookiesMiddleware());
 
   // Following the ops monitoring Dockerflow convention, return version info at
   // this URL. See: https://github.com/mozilla-services/Dockerflow
@@ -299,8 +300,6 @@ function baseServer(
       let runningSagas;
 
       try {
-        cookie.plugToRequest(req, res);
-
         let sagas = appSagas;
         if (!sagas) {
           // eslint-disable-next-line global-require, import/no-dynamic-require
@@ -310,18 +309,19 @@ function baseServer(
 
         // TODO: synchronize cookies with Redux store more automatically.
         // See https://github.com/mozilla/addons-frontend/issues/5617
-        const token = cookie.load(config.get('cookieName'));
+        const token = req.universalCookies.get(config.get('cookieName'));
         if (token) {
           store.dispatch(setAuthToken(token));
         }
         if (
-          cookie.load(config.get('dismissedExperienceSurveyCookieName')) !==
-          undefined
+          req.universalCookies.get(
+            config.get('dismissedExperienceSurveyCookieName'),
+          ) !== undefined
         ) {
           store.dispatch(dismissSurvey());
         }
 
-        pageProps = getPageProps({ noScriptStyles, store, req, res, config });
+        pageProps = getPageProps({ store, req, res, config });
 
         if (config.get('disableSSR') === true) {
           // This stops all running sagas.
@@ -357,7 +357,12 @@ function baseServer(
 
       const props = {
         component: (
-          <Root history={history} i18n={i18n} store={store}>
+          <Root
+            cookies={req.universalCookies}
+            history={history}
+            i18n={i18n}
+            store={store}
+          >
             <App />
           </Root>
         ),

@@ -21,7 +21,6 @@ export default class ServerHtml extends Component {
     htmlDir: PropTypes.string,
     htmlLang: PropTypes.string,
     includeSri: PropTypes.bool.isRequired,
-    noScriptStyles: PropTypes.string,
     sriData: PropTypes.object.isRequired,
     trackingEnabled: PropTypes.bool,
     _config: PropTypes.object,
@@ -101,13 +100,7 @@ export default class ServerHtml extends Component {
   }
 
   render() {
-    const {
-      appState,
-      component,
-      htmlLang,
-      htmlDir,
-      noScriptStyles,
-    } = this.props;
+    const { appState, component, htmlLang, htmlDir } = this.props;
 
     // This must happen before Helmet.rewind() see
     // https://github.com/nfl/react-helmet#server-usage for more info.
@@ -125,11 +118,6 @@ export default class ServerHtml extends Component {
           {head.meta.toComponent()}
           {head.script.toComponent()}
           {this.getStyle()}
-          {noScriptStyles ? (
-            <noscript>
-              <style dangerouslySetInnerHTML={{ __html: noScriptStyles }} />
-            </noscript>
-          ) : null}
         </head>
         <body>
           <div id="react-view" dangerouslySetInnerHTML={{ __html: content }} />

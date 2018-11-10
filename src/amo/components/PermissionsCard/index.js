@@ -7,7 +7,7 @@ import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import type { AppState } from 'amo/store';
-import type { AddonType } from 'core/types/addons';
+import type { AddonVersionType } from 'core/reducers/versions';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
 
@@ -16,25 +16,25 @@ import { PermissionUtils } from './permissions';
 import './styles.scss';
 
 type Props = {|
-  addon: AddonType | null,
+  version: AddonVersionType | null,
   i18n: I18nType,
   userAgentInfo: UserAgentInfoType,
 |};
 
 export class PermissionsCardBase extends React.Component<Props> {
   render() {
-    const { addon, i18n, userAgentInfo } = this.props;
+    const { version, i18n, userAgentInfo } = this.props;
 
-    if (!addon) {
+    if (!version) {
       return null;
     }
 
     const permissionUtils = new PermissionUtils(i18n);
 
-    const addonPermissions = permissionUtils.getCurrentPermissions(
-      addon,
+    const addonPermissions = permissionUtils.getCurrentPermissions({
+      platformFiles: version.platformFiles,
       userAgentInfo,
-    );
+    });
     if (!addonPermissions.length) {
       return null;
     }

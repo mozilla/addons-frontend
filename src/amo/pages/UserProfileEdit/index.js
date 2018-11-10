@@ -540,16 +540,14 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                     )}
                   />
                 )}
-                {isEditingCurrentUser &&
-                  user &&
-                  user.fxa_edit_email_url && (
-                    <a
-                      href={user.fxa_edit_email_url}
-                      className="UserProfileEdit-manage-account-link"
-                    >
-                      {i18n.gettext('Manage Firefox Accounts…')}
-                    </a>
-                  )}
+                {isEditingCurrentUser && user && user.fxa_edit_email_url && (
+                  <a
+                    href={user.fxa_edit_email_url}
+                    className="UserProfileEdit-manage-account-link"
+                  >
+                    {i18n.gettext('Manage Firefox Accounts…')}
+                  </a>
+                )}
               </div>
             </Card>
 
@@ -713,14 +711,13 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 user={user}
               />
 
-              {isEditingCurrentUser &&
-                isDeveloper(user) && (
-                  <p className="UserProfileEdit-notifications--help">
-                    {i18n.gettext(`Mozilla reserves the right to contact you
+              {isEditingCurrentUser && isDeveloper(user) && (
+                <p className="UserProfileEdit-notifications--help">
+                  {i18n.gettext(`Mozilla reserves the right to contact you
                     individually about specific concerns with your hosted
                     add-ons.`)}
-                  </p>
-                )}
+                </p>
+              )}
             </Card>
 
             <div className="UserProfileEdit-buttons-wrapper">
@@ -737,8 +734,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                     ? i18n.gettext('Updating your profile…')
                     : i18n.gettext('Update My Profile')
                   : isUpdating
-                    ? i18n.gettext('Updating profile…')
-                    : i18n.gettext('Update Profile')}
+                  ? i18n.gettext('Updating profile…')
+                  : i18n.gettext('Update Profile')}
               </Button>
               <Button
                 buttonType="neutral"

@@ -2,9 +2,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import Helmet from 'react-helmet';
 
 import Search from 'amo/components/Search';
+import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_RELEVANCE } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
@@ -26,14 +27,14 @@ export class SearchToolsBase extends React.Component<InternalProps> {
 
     return (
       <React.Fragment>
-        <Helmet>
-          <meta
-            name="description"
-            content={i18n.gettext(`Firefox extensions that customize the way
-              you search—everything from privacy-enhanced searching to
-              website-specific searches, image searching, and more.`)}
-          />
-        </Helmet>
+        <HeadMetaTags
+          description={i18n.gettext(`Download Firefox extensions to customize
+            the way you search—everything from privacy-enhanced searching to
+            website-specific searches, image searching, and more.`)}
+          title={i18n.gettext('Search Tools')}
+        />
+
+        <HeadLinks />
 
         <Search
           enableSearchFilters

@@ -11,6 +11,7 @@ import {
 } from 'core/constants';
 import log from 'core/logger';
 import { getPreviewImage } from 'core/imageUtils';
+import type { AddonVersionType } from 'core/reducers/versions';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
@@ -43,18 +44,19 @@ export const getErrorMessage = ({
 export const getFileHash = ({
   addon,
   installURL,
+  version,
 }: {|
   addon: AddonType,
   installURL: string,
+  version: AddonVersionType,
 |}): string | void => {
   const urlKey = installURL.split('?')[0];
 
-  if (addon.current_version) {
-    for (const file of addon.current_version.files) {
-      // The API sometimes appends ?src= to URLs so we just check the basename.
-      if (file.url.startsWith(urlKey)) {
-        return file.hash;
-      }
+  for (const platform of Object.keys(version.platformFiles)) {
+    // The API sometimes appends ?src= to URLs so we just check the basename.
+    const file = version.platformFiles[platform];
+    if (file && file.url.startsWith(urlKey)) {
+      return file.hash;
     }
   }
 
@@ -76,12 +78,14 @@ export function removeUndefinedProps(object: Object): Object {
 
 export const getAddonJsonLinkedData = ({
   addon,
+  currentVersion,
   ratingThreshold = 3.3,
 }: {|
   addon: AddonType,
+  currentVersion: AddonVersionType | null,
   ratingThreshold?: number,
 |}): Object => {
-  const { current_version: currentVersion, ratings } = addon;
+  const { ratings } = addon;
 
   let aggregateRating;
   if (ratings && ratings.count > 0 && ratings.average >= ratingThreshold) {

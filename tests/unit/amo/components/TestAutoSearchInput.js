@@ -17,13 +17,14 @@ import {
   createInternalSuggestion,
 } from 'core/reducers/autocomplete';
 import {
+  createContextWithFakeRouter,
   createFakeAutocompleteResult,
   createFakeEvent,
+  createFakeLocation,
   createStubErrorHandler,
   dispatchAutocompleteResults,
   dispatchClientMetadata,
   fakeI18n,
-  createFakeLocation,
   shallowUntilTarget,
   simulateComponentCallback,
 } from 'tests/unit/helpers';
@@ -49,16 +50,21 @@ describe(__filename, () => {
   };
 
   const render = (customProps) => {
-    const props = getProps(customProps);
+    const { location, ...props } = getProps(customProps);
+
     return shallowUntilTarget(
       <AutoSearchInput {...props} />,
       AutoSearchInputBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ location }),
+      },
     );
   };
 
   const renderAndMount = (customProps) => {
     const props = getProps(customProps);
-    return mount(<AutoSearchInput {...props} />);
+
+    return mount(<AutoSearchInput {...props} />, createContextWithFakeRouter());
   };
 
   const simulateAutosuggestCallback = (props = {}) => {
@@ -108,30 +114,33 @@ describe(__filename, () => {
 
     it('renders an initial query', () => {
       const query = 'ad blocker';
-      const root = render({ query });
+      const location = createFakeLocation({ query: { query } });
+
+      const root = render({ location });
 
       expect(getInputProps(root)).toMatchObject({ value: query });
     });
 
-    it('renders an updated query', () => {
-      const root = render();
+    it('sets the search value to an empty string when there is no `location.query`', () => {
+      const location = createFakeLocation({ query: null });
 
-      const query = 'ad blocker';
-      root.setProps({ query });
+      const root = render({ location });
 
-      expect(getInputProps(root)).toMatchObject({ value: query });
+      expect(root).toHaveState('searchValue', '');
     });
 
-    it('only sets an updated query if it is unique', () => {
+    it('does not update the query on location changes', () => {
       const query = 'ad blocker';
-      const root = render({ query });
+      const location = createFakeLocation({ query: { query } });
+
+      const root = render({ location });
 
       const typedQuery = 'panda themes';
       inputSearchQuery(root, typedQuery);
 
-      // Update the component with the same initial query. This should
-      // be ignored.
-      root.setProps({ query });
+      // Update the component with the same initial query. This should be
+      // ignored.
+      root.setProps({ location });
 
       expect(getInputProps(root)).toMatchObject({ value: typedQuery });
     });

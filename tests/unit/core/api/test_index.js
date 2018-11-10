@@ -20,6 +20,7 @@ import {
   dispatchSignInActions,
   generateHeaders,
   getFakeConfig,
+  getFakeLogger,
   unexpectedSuccess,
   urlWithTheseParams,
 } from 'tests/unit/helpers';
@@ -446,10 +447,7 @@ describe(__filename, () => {
         }),
       );
 
-      const _log = {
-        debug: sinon.stub(),
-        warn: sinon.stub(),
-      };
+      const _log = getFakeLogger();
 
       await api.callApi({ endpoint: 'resource', _log });
       mockWindow.verify();

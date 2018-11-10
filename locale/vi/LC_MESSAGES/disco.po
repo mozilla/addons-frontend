@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-11-06 17:31+0000\n"
 "PO-Revision-Date: 2018-10-10 08:47+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,39 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:228
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Remove"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Downloading"
 msgstr "Đang tải về"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Installing"
 msgstr "Đang cài đặt"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Uninstalling"
 msgstr "Đang gỡ cài đặt"
 
-#: src/core/components/AMInstallButton/index.js:220
-#: src/core/components/InstallButton/index.js:235
-#: src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:247
 msgid "Install Theme"
 msgstr "Cài đặt giao diện"
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:266
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Add to Firefox"
 msgstr "Thêm vào Firefox"
 
@@ -85,34 +81,6 @@ msgstr ""
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
 msgstr "OK"
-
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "Đang tải về %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "Đang cài đặt %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s đã được cài đặt và kích hoạt. Nhấn chuột để gỡ cài đặt."
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s đang vô hiệu. Nhấn chuột để kích hoạt."
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "Đang gỡ cài đặt %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s đã được gỡ cài đặt. Nhấn chuột để cài đặt."
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "Không biết rõ trạng thái cài đặt của %(name)s."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -154,7 +122,7 @@ msgstr "Đã xuất hiện lỗi bất ngờ khi gỡ cài đặt."
 msgid "An unexpected error occurred."
 msgstr "Đã xuất hiện lỗi bất ngờ."
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "Đóng"
 
@@ -214,6 +182,27 @@ msgstr ""
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr ""
+
+#~ msgid "Downloading %(name)s."
+#~ msgstr "Đang tải về %(name)s."
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "Đang cài đặt %(name)s."
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr "%(name)s đã được cài đặt và kích hoạt. Nhấn chuột để gỡ cài đặt."
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "%(name)s đang vô hiệu. Nhấn chuột để kích hoạt."
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "Đang gỡ cài đặt %(name)s."
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "%(name)s đã được gỡ cài đặt. Nhấn chuột để cài đặt."
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "Không biết rõ trạng thái cài đặt của %(name)s."
 
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "Tiện ích này sẽ được gỡ cài đặt sau khi bạn khởi động lại Firefox."

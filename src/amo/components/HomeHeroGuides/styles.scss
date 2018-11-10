@@ -1,0 +1,105 @@
+@import '~amo/css/styles';
+
+$icon-size: 40px;
+
+.HomeHeroGuides-header {
+  color: $black;
+  padding: 0 0 12px;
+  text-align: center;
+
+  @include respond-to(large) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+.HomeHeroGuides-header-title {
+  font-size: $font-size-l;
+  line-height: 1;
+  margin: 24px 0 20px;
+
+  @include respond-to(medium) {
+    font-size: $font-size-xl;
+  }
+}
+
+.HomeHeroGuides-header-subtitle {
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 1;
+  margin: 12px 0 24px;
+
+  @include respond-to(medium) {
+    font-size: $font-size-l;
+  }
+}
+
+.HomeHeroGuides-sections {
+  .Card-contents {
+    background: none;
+    padding: 0;
+  }
+
+  .Hero-contents {
+    @include respond-to(large) {
+      display: grid;
+      grid-gap: 0 30px;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-bottom: 30px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    .HeroSection-link-wrapper {
+      color: $black;
+      display: block;
+      min-height: 0;
+      padding: 0;
+      text-decoration: none;
+    }
+
+    .HeroSection {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include respond-to(large) {
+        margin-bottom: 0;
+      }
+    }
+
+    .HeroSection-content {
+      height: 100%;
+    }
+  }
+
+  .HomeHeroGuides-section-title {
+    font-size: $font-size-m;
+    font-weight: normal;
+    margin: 12px 0;
+    text-align: center;
+  }
+}
+
+.HomeHeroGuides-section {
+  height: 100%;
+
+  .Card-contents {
+    align-items: center;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding: 24px 0 12px;
+  }
+}
+
+.HomeHeroGuides-section-icon {
+  &.Icon {
+    height: $icon-size;
+    width: $icon-size;
+  }
+}

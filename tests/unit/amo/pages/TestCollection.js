@@ -305,7 +305,7 @@ describe(__filename, () => {
     const wrapper = renderComponent({ store });
     fakeDispatch.resetHistory();
 
-    // This will trigger the componentWillReceiveProps() method.
+    // This will trigger the componentDidUpdate() method.
     wrapper.setProps();
 
     sinon.assert.notCalled(fakeDispatch);
@@ -322,7 +322,7 @@ describe(__filename, () => {
     const wrapper = renderComponent({ location, store });
     fakeDispatch.resetHistory();
 
-    // This will trigger the componentWillReceiveProps() method.
+    // This will trigger the componentDidUpdate() method.
     wrapper.setProps({ location });
 
     sinon.assert.notCalled(fakeDispatch);
@@ -417,7 +417,7 @@ describe(__filename, () => {
     });
     fakeDispatch.resetHistory();
 
-    // This will trigger the componentWillReceiveProps() method.
+    // This will trigger the componentDidUpdate() method.
     wrapper.setProps({
       location: newLocation,
       match: { params: { slug: newSlug, username } },
@@ -454,7 +454,7 @@ describe(__filename, () => {
 
     const newFilters = { collectionSort: sort, page: 999 };
 
-    // This will trigger the componentWillReceiveProps() method.
+    // This will trigger the componentDidUpdate() method.
     wrapper.setProps({ filters: newFilters });
 
     sinon.assert.callCount(fakeDispatch, 1);
@@ -491,7 +491,7 @@ describe(__filename, () => {
       collectionSort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
     };
 
-    // This will trigger the componentWillReceiveProps() method.
+    // This will trigger the componentDidUpdate() method.
     wrapper.setProps({ filters: newFilters });
 
     sinon.assert.callCount(fakeDispatch, 1);
@@ -1447,6 +1447,38 @@ describe(__filename, () => {
       }),
     );
     sinon.assert.calledOnce(fakeDispatch);
+  });
+
+  it('renders a "description" meta tag', () => {
+    const name = 'my super collection';
+    const description = 'this is the description of my super collection';
+
+    const { store } = dispatchClientMetadata();
+    const detail = createFakeCollectionDetail({ description, name });
+    _loadCurrentCollection({ detail, store });
+
+    const root = renderComponent({ store });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(1);
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(`Explore the ${name}—${description}.`),
+    );
+  });
+
+  it('renders a "description" meta tag without a collection description', () => {
+    const name = 'my super collection';
+    const description = '';
+
+    const { store } = dispatchClientMetadata();
+    const detail = createFakeCollectionDetail({ description, name });
+    _loadCurrentCollection({ detail, store });
+
+    const root = renderComponent({ store });
+
+    expect(root.find('meta[name="description"]')).toHaveLength(1);
+    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+      new RegExp(`Explore the ${name}.`),
+    );
   });
 
   describe('errorHandler - extractId', () => {

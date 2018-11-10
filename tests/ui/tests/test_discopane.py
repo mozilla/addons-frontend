@@ -44,10 +44,9 @@ def test_addon_installs(discovery_pane, firefox, notifications):
 
 @pytest.mark.nondestructive
 def test_theme_installs(discovery_pane, firefox, notifications):
-    """Test theme install from discovery pane."""
+    """Test static theme install from discovery pane."""
     theme = discovery_pane.themes[0]
     theme.install()
-    firefox.browser.wait_for_notification(
-        notifications.AddOnInstallConfirmation).install()
+    # Static themes are installed without any extra confirmation step.
     WebDriverWait(firefox.selenium, timeout=5).until(
         lambda _: theme.is_installed)

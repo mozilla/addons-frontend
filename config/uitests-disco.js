@@ -1,6 +1,9 @@
-import { amoProdCDN } from './lib/shared';
+import { amoDevCDN, apiDevHost } from './lib/shared';
 
 module.exports = {
+  apiHost: apiDevHost,
+  amoCDN: amoDevCDN,
+
   staticHost: '',
 
   CSP: {
@@ -13,7 +16,7 @@ module.exports = {
       imgSrc: [
         "'self'",
         'data:',
-        amoProdCDN,
+        amoDevCDN,
         'https://www.google-analytics.com',
       ],
       mediaSrc: ["'self'"],

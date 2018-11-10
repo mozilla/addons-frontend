@@ -390,6 +390,7 @@ describe(__filename, () => {
       const secondAuthorId = fakeAuthorTwo.id;
       const thirdAuthorId = fakeAuthorThree.id;
       const addons = fakeExternalAddons();
+
       const params = getParams({
         addons: Object.values(addons),
         authorIds: [fakeAuthorOne.id, fakeAuthorTwo.id, fakeAuthorThree.id],
@@ -877,6 +878,19 @@ describe(__filename, () => {
       const state = reducer(undefined, fetchAddonsByAuthors(params));
 
       expect(getLoadingForAuthorIds(state, [])).toEqual(null);
+    });
+
+    it('returns false when loading is defined', () => {
+      const state = reducer(
+        undefined,
+        loadAddonsByAuthors({
+          ...params,
+          addons: [],
+          count: 0,
+        }),
+      );
+
+      expect(getLoadingForAuthorIds(state, [randomAuthorId1])).toEqual(false);
     });
   });
 

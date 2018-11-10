@@ -1,5 +1,5 @@
 /* @flow */
-import type { VersionIdType } from 'amo/reducers/versions';
+import type { VersionIdType } from 'core/reducers/versions';
 import type { AddonTypeType } from 'core/constants';
 
 type AddonStatus =
@@ -36,12 +36,13 @@ export type AddonCompatibilityType = {|
   |},
 |};
 
-type PartialExternalAddonVersionType = {|
+export type PartialExternalAddonVersionType = {|
   channel: string,
   compatibility?: AddonCompatibilityType,
   edit_url: string,
   files: Array<AddonFileType>,
   id: number,
+  is_strict_compatibility_enabled: boolean,
   reviewed: Date,
   // This is the developer-defined version number.
   // It could, for example, be set to "0".
@@ -113,11 +114,11 @@ export type ExternalAddonType = {|
   authors?: Array<AddonAuthorType>,
   average_daily_users?: number,
   categories?: Object,
-  contributions_url?: string,
+  contributions_url: string,
   created: Date,
   // If you make an API request as an admin for an incomplete
   // add-on (status=0) then the current_version could be null.
-  current_version?: ExternalAddonVersionType,
+  current_version?: ExternalAddonVersionType | PartialExternalAddonVersionType,
   default_locale: string,
   description?: string,
   edit_url?: string,
@@ -158,6 +159,11 @@ export type ExternalAddonType = {|
   weekly_downloads: number,
 |};
 
+export type PartialExternalAddonType = {|
+  ...ExternalAddonType,
+  current_version?: PartialExternalAddonVersionType,
+|};
+
 export type PlatformFilesType = {|
   all: ?AddonFileType,
   android: ?AddonFileType,
@@ -187,10 +193,4 @@ export type AddonType = {|
 export type CollectionAddonType = {|
   ...AddonType,
   notes: string | null,
-|};
-
-export type SearchResultAddonType = {|
-  ...AddonType,
-  authors?: Array<PartialAddonAuthorType>,
-  current_version?: PartialExternalAddonVersionType,
 |};

@@ -5,12 +5,17 @@ import { Route, Switch } from 'react-router-dom';
 
 import About from 'amo/pages/StaticPages/About';
 import Addon from 'amo/pages/Addon';
+import AddonInfo, {
+  ADDON_INFO_TYPE_EULA,
+  ADDON_INFO_TYPE_PRIVACY_POLICY,
+} from 'amo/pages/AddonInfo';
 import AddonReviewList from 'amo/pages/AddonReviewList';
 import CategoriesPage from 'amo/pages/CategoriesPage';
 import Category from 'amo/pages/Category';
 import Collection from 'amo/pages/Collection';
 import CollectionEdit from 'amo/pages/CollectionEdit';
 import CollectionList from 'amo/pages/CollectionList';
+import Guides from 'amo/pages/Guides';
 import Home from 'amo/pages/Home';
 import LandingPage from 'amo/pages/LandingPage';
 import LanguageTools from 'amo/pages/LanguageTools';
@@ -41,6 +46,15 @@ const Routes = ({ _config = config }: Props = {}) => (
     <Route exact path="/:lang/:application/" component={Home} />
 
     <Route exact path="/:lang/:application/addon/:slug/" component={Addon} />
+
+    {_config.get('enableFeatureHomeHeroGuides') && (
+      <Route
+        exact
+        path="/:lang/:application/guides/:slug/"
+        component={Guides}
+      />
+    )}
+
     <Route
       exact
       path="/:lang/:application/addon/:addonSlug/reviews/:reviewId"
@@ -50,6 +64,22 @@ const Routes = ({ _config = config }: Props = {}) => (
       exact
       path="/:lang/:application/addon/:addonSlug/reviews/"
       component={AddonReviewList}
+    />
+
+    <Route
+      exact
+      path="/:lang/:application/addon/:slug/privacy/"
+      component={(props) => (
+        <AddonInfo {...props} infoType={ADDON_INFO_TYPE_PRIVACY_POLICY} />
+      )}
+    />
+
+    <Route
+      exact
+      path="/:lang/:application/addon/:slug/eula/"
+      component={(props) => (
+        <AddonInfo {...props} infoType={ADDON_INFO_TYPE_EULA} />
+      )}
     />
 
     <Route
@@ -91,12 +121,12 @@ const Routes = ({ _config = config }: Props = {}) => (
 
     <Route
       exact
-      path="/:lang/:application/:visibleAddonType/categories/"
+      path="/:lang/:application/:visibleAddonType(extensions|themes)/categories/"
       component={CategoriesPage}
     />
     <Route
       exact
-      path="/:lang/:application/:visibleAddonType/:slug/"
+      path="/:lang/:application/:visibleAddonType(extensions|themes)/:slug/"
       component={Category}
     />
 
@@ -143,7 +173,7 @@ const Routes = ({ _config = config }: Props = {}) => (
     />
     <Route
       exact
-      path="/:lang/:application/:visibleAddonType/"
+      path="/:lang/:application/:visibleAddonType(extensions|themes)/"
       component={LandingPage}
     />
 

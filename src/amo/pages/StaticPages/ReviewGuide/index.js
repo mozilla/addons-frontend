@@ -1,42 +1,40 @@
 /* @flow */
-import config from 'config';
 import Helmet from 'react-helmet';
 import * as React from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
 
-import { getCanonicalURL } from 'amo/utils';
+import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import Card from 'ui/components/Card';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
-import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
 
 import '../styles.scss';
 
 type Props = {|
-  _config: typeof config,
   i18n: I18nType,
-  locationPathname: string,
 |};
 
 export class ReviewGuideBase extends React.Component<Props> {
-  static defaultProps = {
-    _config: config,
-  };
-
   render() {
-    const { _config, i18n, locationPathname } = this.props;
+    const { i18n } = this.props;
+
+    const title = i18n.gettext('Review Guidelines');
 
     return (
-      <Card className="StaticPage" header={i18n.gettext('Review Guidelines')}>
+      <Card className="StaticPage" header={title}>
         <Helmet>
-          <title>{i18n.gettext('Review Guidelines')}</title>
-          <link
-            rel="canonical"
-            href={getCanonicalURL({ locationPathname, _config })}
-          />
+          <title>{title}</title>
         </Helmet>
+
+        <HeadMetaTags
+          description={i18n.gettext(`Guidelines, tips, and Frequently Asked
+              Questions to leave a review for the extensions and themes you’ve
+              downloaded and used on Firefox.`)}
+          title={title}
+        />
+
+        <HeadLinks />
 
         <div className="StaticPageWrapper">
           <section id="review-guide">
@@ -181,13 +179,4 @@ export class ReviewGuideBase extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: AppState) => {
-  return {
-    locationPathname: state.router.location.pathname,
-  };
-};
-
-export default compose(
-  connect(mapStateToProps),
-  translate(),
-)(ReviewGuideBase);
+export default translate()(ReviewGuideBase);

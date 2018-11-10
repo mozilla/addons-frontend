@@ -28,6 +28,7 @@ import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  ADMIN_TOOLS,
   USERS_EDIT,
 } from 'core/constants';
 import { withFixedErrorHandler } from 'core/errorHandler';
@@ -65,6 +66,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  canAdminUser: boolean,
   canEditProfile: boolean,
   currentUser: UserType | null,
   dispatch: DispatchFunc,
@@ -114,18 +116,19 @@ export class UserProfileBase extends React.Component<InternalProps> {
     }
   }
 
-  componentWillReceiveProps({
-    isOwner,
-    location: newLocation,
-    match: { params: newParams },
-    reviews,
-    user,
-  }: InternalProps) {
+  componentDidUpdate(prevProps: InternalProps) {
+    const {
+      location: oldLocation,
+      match: { params: oldParams },
+    } = prevProps;
     const {
       dispatch,
       errorHandler,
-      location: oldLocation,
-      match: { params: oldParams },
+      isOwner,
+      location: newLocation,
+      match: { params: newParams },
+      reviews,
+      user,
     } = this.props;
 
     if (oldParams.username !== newParams.username) {
@@ -216,7 +219,11 @@ export class UserProfileBase extends React.Component<InternalProps> {
           {reviews.map((review) => {
             return (
               <li key={String(review.id)}>
-                <AddonReviewCard review={review} shortByLine />
+                <AddonReviewCard
+                  review={review}
+                  shortByLine
+                  siteUserCanReply={false}
+                />
               </li>
             );
           })}
@@ -225,8 +232,41 @@ export class UserProfileBase extends React.Component<InternalProps> {
     );
   }
 
+  renderMetaDescription() {
+    const { i18n, user } = this.props;
+
+    if (!user) {
+      return null;
+    }
+
+    let description;
+    if (user.is_addon_developer && user.is_artist) {
+      description = i18n.gettext(`The profile of %(user)s, a Firefox extension
+        and theme author. Find other apps by %(user)s, including average
+        ratings, tenure, and the option to report issues.`);
+    } else if (user.is_addon_developer) {
+      description = i18n.gettext(`The profile of %(user)s, Firefox extension
+        author. Find other extensions by %(user)s, including average ratings,
+        tenure, and the option to report issues.`);
+    } else if (user.is_artist) {
+      description = i18n.gettext(`The profile of %(user)s, Firefox theme
+        author. Find other themes by %(user)s, including average ratings,
+        tenure, and the option to report issues.`);
+    } else {
+      return null;
+    }
+
+    return (
+      <meta
+        name="description"
+        content={i18n.sprintf(description, { user: user.display_name })}
+      />
+    );
+  }
+
   render() {
     const {
+      canAdminUser,
       canEditProfile,
       errorHandler,
       i18n,
@@ -250,23 +290,22 @@ export class UserProfileBase extends React.Component<InternalProps> {
       <div className="UserProfile-header">
         <UserAvatar className="UserProfile-avatar" user={user} />
 
-        {user &&
-          isDeveloper(user) && (
-            <div className="UserProfile-tags">
-              {user.is_addon_developer && (
-                <p className="UserProfile-developer">
-                  {i18n.gettext('Add-ons developer')}
-                  <Icon name="developer" />
-                </p>
-              )}
-              {user.is_artist && (
-                <p className="UserProfile-artist">
-                  {i18n.gettext('Theme artist')}
-                  <Icon name="artist" />
-                </p>
-              )}
-            </div>
-          )}
+        {user && isDeveloper(user) && (
+          <div className="UserProfile-tags">
+            {user.is_addon_developer && (
+              <p className="UserProfile-developer">
+                {i18n.gettext('Add-ons developer')}
+                <Icon name="developer" />
+              </p>
+            )}
+            {user.is_artist && (
+              <p className="UserProfile-artist">
+                {i18n.gettext('Theme artist')}
+                <Icon name="artist" />
+              </p>
+            )}
+          </div>
+        )}
 
         <h1 className="UserProfile-name">
           {user ? user.name : <LoadingText />}
@@ -285,6 +324,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
       <div className="UserProfile">
         <Helmet>
           <title>{userProfileTitle}</title>
+          {this.renderMetaDescription()}
         </Helmet>
 
         {errorMessage}
@@ -378,41 +418,49 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 {i18n.gettext('Edit profile')}
               </Button>
             ) : null}
+
+            {canAdminUser && user ? (
+              <Button
+                className="UserProfile-admin-link"
+                buttonType="neutral"
+                href={`/admin/models/users/userprofile/${user.id}/`}
+                puffy
+              >
+                {// translators: This action allows an admin to maintain a user.
+                i18n.gettext('Admin user')}
+              </Button>
+            ) : null}
           </Card>
 
-          {user && (
-            // TODO: use `params.userId` when we switch to user IDs in URLs,
-            // see: https://github.com/mozilla/addons-frontend/issues/6526
-            <div className="UserProfile-addons-and-reviews">
-              <AddonsByAuthorsCard
-                addonType={ADDON_TYPE_EXTENSION}
-                authorDisplayName={user.name}
-                authorIds={[user.id]}
-                errorHandler={errorHandler}
-                numberOfAddons={EXTENSIONS_BY_AUTHORS_PAGE_SIZE}
-                pageParam="page_e"
-                paginate
-                pathname={this.getURL()}
-                showMore={false}
-                showSummary
-                type="vertical"
-              />
+          <div className="UserProfile-addons-and-reviews">
+            <AddonsByAuthorsCard
+              addonType={ADDON_TYPE_EXTENSION}
+              authorDisplayName={user ? user.name : null}
+              authorIds={user ? [user.id] : null}
+              errorHandler={errorHandler}
+              numberOfAddons={EXTENSIONS_BY_AUTHORS_PAGE_SIZE}
+              pageParam="page_e"
+              paginate
+              pathname={this.getURL()}
+              showMore={false}
+              showSummary
+              type="vertical"
+            />
 
-              <AddonsByAuthorsCard
-                addonType={ADDON_TYPE_THEME}
-                authorDisplayName={user.name}
-                authorIds={[user.id]}
-                errorHandler={errorHandler}
-                numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
-                pageParam="page_t"
-                paginate
-                pathname={this.getURL()}
-                showMore={false}
-              />
+            <AddonsByAuthorsCard
+              addonType={ADDON_TYPE_THEME}
+              authorDisplayName={user ? user.name : null}
+              authorIds={user ? [user.id] : null}
+              errorHandler={errorHandler}
+              numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
+              pageParam="page_t"
+              paginate
+              pathname={this.getURL()}
+              showMore={false}
+            />
 
-              {this.renderReviews()}
-            </div>
-          )}
+            {this.renderReviews()}
+          </div>
         </div>
       </div>
     );
@@ -439,9 +487,16 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     user &&
     (currentUser.id === user.id || hasPermission(state, USERS_EDIT));
 
+  const canAdminUser =
+    currentUser &&
+    user &&
+    hasPermission(state, ADMIN_TOOLS) &&
+    hasPermission(state, USERS_EDIT);
+
   const reviews = user ? getReviewsByUserId(state.reviews, user.id) : null;
 
   return {
+    canAdminUser,
     canEditProfile,
     currentUser,
     isOwner,

@@ -89,6 +89,28 @@ describe(__filename, () => {
       ]);
     });
 
+    it('sets null when a shelf has no response', () => {
+      const { store } = dispatchClientMetadata();
+      const shelfName1 = 'someShelfName1';
+      const shelfName2 = 'someShelfName2';
+      const addon1 = { ...fakeAddon, slug: 'addon1' };
+
+      _loadHomeAddons({
+        store,
+        shelves: {
+          [shelfName1]: createAddonsApiResult([addon1]),
+          [shelfName2]: null,
+        },
+      });
+
+      const homeState = store.getState().home;
+
+      expect(homeState.shelves[shelfName1]).toEqual([
+        createInternalAddon(addon1),
+      ]);
+      expect(homeState.shelves[shelfName2]).toEqual(null);
+    });
+
     it('loads the the correct amount of theme add-ons in a collection to display on homepage', () => {
       const { store } = dispatchClientMetadata();
 

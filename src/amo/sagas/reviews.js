@@ -12,6 +12,7 @@ import { delay } from 'redux-saga/lib/internal/utils';
 import {
   deleteReview,
   flagReview,
+  getLatestUserReview,
   getReview,
   getReviews,
   replyToReview,
@@ -22,6 +23,7 @@ import {
   CREATE_ADDON_REVIEW,
   DELETE_ADDON_REVIEW,
   FETCH_GROUPED_RATINGS,
+  FETCH_LATEST_USER_REVIEW,
   FETCH_REVIEW,
   FETCH_REVIEW_PERMISSIONS,
   FETCH_REVIEWS,
@@ -54,6 +56,8 @@ import type { AppState } from 'amo/store';
 import type {
   ExternalReviewReplyType,
   ExternalReviewType,
+  GetLatestUserReviewParams,
+  GetLatestUserReviewResponse,
   GetReviewsApiResponse,
   GetReviewParams,
   GetReviewsParams,
@@ -64,6 +68,7 @@ import type {
   CreateAddonReviewAction,
   DeleteAddonReviewAction,
   FetchGroupedRatingsAction,
+  FetchLatestUserReviewAction,
   FetchReviewAction,
   FetchReviewPermissionsAction,
   FetchReviewsAction,
@@ -72,6 +77,7 @@ import type {
   SendReplyToReviewAction,
   UpdateAddonReviewAction,
 } from 'amo/actions/reviews';
+import type { Saga } from 'core/types/sagas';
 
 // Number of millesconds that a message should be flashed on screen.
 export const FLASH_SAVED_MESSAGE_DURATION = 2000;
@@ -82,7 +88,7 @@ type Options = {|
 
 function* fetchReviews({
   payload: { errorHandlerId, addonSlug, page },
-}: FetchReviewsAction): Generator<any, any, any> {
+}: FetchReviewsAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   try {
@@ -115,7 +121,7 @@ function* fetchReviews({
 
 function* fetchReviewPermissions({
   payload: { errorHandlerId, addonId, userId },
-}: FetchReviewPermissionsAction): Generator<any, any, any> {
+}: FetchReviewPermissionsAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   try {
@@ -151,7 +157,7 @@ function* fetchReviewPermissions({
 
 function* fetchGroupedRatings({
   payload: { errorHandlerId, addonId },
-}: FetchGroupedRatingsAction): Generator<any, any, any> {
+}: FetchGroupedRatingsAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
     const state = yield select(getState);
@@ -186,7 +192,7 @@ function* fetchGroupedRatings({
 
 function* fetchUserReviews({
   payload: { errorHandlerId, page, userId },
-}: FetchUserReviewsAction): Generator<any, any, any> {
+}: FetchUserReviewsAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   try {
@@ -216,7 +222,7 @@ function* fetchUserReviews({
 
 function* handleReplyToReview({
   payload: { errorHandlerId, originalReviewId, body, title },
-}: SendReplyToReviewAction): Generator<any, any, any> {
+}: SendReplyToReviewAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -241,7 +247,7 @@ function* handleReplyToReview({
 
 function* handleFlagReview({
   payload: { errorHandlerId, note, reason, reviewId },
-}: FlagReviewAction): Generator<any, any, any> {
+}: FlagReviewAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -323,14 +329,11 @@ function* manageAddonReview(
     }
 
     if (!reviewFromResponse.is_developer_reply) {
-      invariant(reviewFromResponse.version, 'version is required');
       yield put(
         setLatestReview({
           addonId: reviewFromResponse.addon.id,
-          addonSlug: reviewFromResponse.addon.slug,
           review: reviewFromResponse,
           userId: reviewFromResponse.user.id,
-          versionId: reviewFromResponse.version.id,
         }),
       );
 
@@ -354,7 +357,7 @@ function* manageAddonReview(
 
 function* deleteAddonReview({
   payload: { addonId, errorHandlerId, isReplyToReviewId, reviewId },
-}: DeleteAddonReviewAction): Generator<any, any, any> {
+}: DeleteAddonReviewAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -376,9 +379,55 @@ function* deleteAddonReview({
   }
 }
 
+function* fetchLatestUserReview({
+  payload: { addonId, errorHandlerId, userId },
+}: FetchLatestUserReviewAction): Saga {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state: AppState = yield select(getState);
+
+    const params: GetLatestUserReviewParams = {
+      addon: addonId,
+      apiState: state.api,
+      user: userId,
+    };
+
+    const review: GetLatestUserReviewResponse = yield call(
+      getLatestUserReview,
+      params,
+    );
+
+    const _setLatestReview = (value) => {
+      return setLatestReview({
+        userId,
+        addonId,
+        review: value,
+      });
+    };
+
+    if (review) {
+      yield put(setReview(review));
+      yield put(_setLatestReview(review));
+    } else {
+      log.debug(
+        `No saved review found for userId ${userId}, addonId ${addonId}`,
+      );
+      yield put(_setLatestReview(null));
+    }
+  } catch (error) {
+    log.warn(
+      `Failed to fetchLatestUserReview for addonId "${addonId}", userId "${userId}": ${error}`,
+    );
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
 function* fetchReview({
   payload: { errorHandlerId, reviewId },
-}: FetchReviewAction): Generator<any, any, any> {
+}: FetchReviewAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -400,10 +449,9 @@ function* fetchReview({
   }
 }
 
-export default function* reviewsSaga(
-  options?: Options,
-): Generator<any, any, any> {
+export default function* reviewsSaga(options?: Options): Saga {
   yield takeLatest(FETCH_GROUPED_RATINGS, fetchGroupedRatings);
+  yield takeLatest(FETCH_LATEST_USER_REVIEW, fetchLatestUserReview);
   yield takeLatest(FETCH_REVIEW, fetchReview);
   yield takeLatest(FETCH_REVIEW_PERMISSIONS, fetchReviewPermissions);
   yield takeLatest(FETCH_REVIEWS, fetchReviews);

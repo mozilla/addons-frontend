@@ -53,13 +53,6 @@ describe(__filename, () => {
     expect(root.find('.SearchForm')).toHaveProp('role', 'search');
   });
 
-  it('configures an initial query value', () => {
-    const query = 'rainbow pandas';
-    const root = render({ query });
-
-    expect(root.find(AutoSearchInput)).toHaveProp('query', query);
-  });
-
   it('can render a custom className', () => {
     const className = 'MyClass';
     const root = render({ className });

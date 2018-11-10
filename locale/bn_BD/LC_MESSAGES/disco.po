@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-11-06 17:31+0000\n"
 "PO-Revision-Date: 2017-12-09 19:58+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,42 +14,38 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:228
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Remove"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:235
 #, fuzzy
 msgid "Downloading"
 msgstr "%(name)s ডাউনলোডিং।"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:237
 #, fuzzy
 msgid "Installing"
 msgstr "%(name)s ইন্সটলিং।"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:239
 #, fuzzy
 msgid "Uninstalling"
 msgstr "%(name)s আনইন্সটলিং।"
 
-#: src/core/components/AMInstallButton/index.js:220
-#: src/core/components/InstallButton/index.js:235
-#: src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:247
 msgid "Install Theme"
 msgstr "থিম ইন্সটল করুন"
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:266
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Add to Firefox"
 msgstr "Firefox এ যুক্ত করুন"
 
@@ -91,34 +87,6 @@ msgstr ""
 msgid "OK"
 msgstr "ওকে!"
 
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "%(name)s ডাউনলোডিং।"
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "%(name)s ইন্সটলিং।"
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s ইন্সটল এবং চালুকৃত। অনইন্সটল করতে ক্লিক করুন।"
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s disabled। enable করতে ক্লিক করুন।"
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "%(name)s আনইন্সটলিং।"
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s আনইন্সটলড। ইন্সটল করতে ক্লিক করুন।"
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "%(name)s এর ইন্সটল অবস্থা অজানা।"
-
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr ""
@@ -159,7 +127,7 @@ msgstr "অপ্রত্যাশিত ভূল হয়েছে আনইন
 msgid "An unexpected error occurred."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে।"
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "বন্ধ"
 
@@ -225,6 +193,27 @@ msgstr ""
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr ""
+
+#~ msgid "Downloading %(name)s."
+#~ msgstr "%(name)s ডাউনলোডিং।"
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "%(name)s ইন্সটলিং।"
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr "%(name)s ইন্সটল এবং চালুকৃত। অনইন্সটল করতে ক্লিক করুন।"
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "%(name)s disabled। enable করতে ক্লিক করুন।"
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "%(name)s আনইন্সটলিং।"
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "%(name)s আনইন্সটলড। ইন্সটল করতে ক্লিক করুন।"
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "%(name)s এর ইন্সটল অবস্থা অজানা।"
 
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "আপনার ফায়ারফক্সটি রিস্টার্ট এর পর এড-অনটি আনইন্সটল হবে।"

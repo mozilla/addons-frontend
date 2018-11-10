@@ -3,16 +3,18 @@ import config from 'config';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import Helmet from 'react-helmet';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import CategoryIcon from 'amo/components/CategoryIcon';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
+import HomeHeroGuides from 'amo/components/HomeHeroGuides';
+import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeAddons } from 'amo/reducers/home';
-import { getCanonicalURL } from 'amo/utils';
+import { shouldShowThemes } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -31,6 +33,7 @@ import './styles.scss';
 
 export const FEATURED_COLLECTIONS = [
   { slug: 'privacy-matters', username: 'mozilla' },
+  { slug: 'social-media-customization', username: 'mozilla' },
 ];
 
 export const isFeaturedCollection = (
@@ -54,8 +57,8 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
       ...FEATURED_COLLECTIONS[0],
     },
     {
-      footerText: i18n.gettext('See more parental controls'),
-      header: i18n.gettext('Parental controls'),
+      footerText: i18n.gettext('See more social media customization'),
+      header: i18n.gettext('Social media customization'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[1],
     },
@@ -65,19 +68,23 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
 export class HomeBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
+    _getFeaturedCollectionsMetadata: PropTypes.func,
+    clientApp: PropTypes.string.isRequired,
     collections: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    shelves: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     includeFeaturedThemes: PropTypes.bool,
-    locationPathname: PropTypes.string.isRequired,
+    includeTrendingExtensions: PropTypes.bool,
     resultsLoaded: PropTypes.bool.isRequired,
+    shelves: PropTypes.object.isRequired,
   };
 
   static defaultProps = {
     _config: config,
+    _getFeaturedCollectionsMetadata: getFeaturedCollectionsMetadata,
     includeFeaturedThemes: true,
+    includeTrendingExtensions: false,
   };
 
   constructor(props) {
@@ -87,6 +94,7 @@ export class HomeBase extends React.Component {
       dispatch,
       errorHandler,
       includeFeaturedThemes,
+      includeTrendingExtensions,
       resultsLoaded,
     } = props;
 
@@ -98,6 +106,7 @@ export class HomeBase extends React.Component {
           collectionsToFetch: FEATURED_COLLECTIONS,
           errorHandlerId: errorHandler.id,
           includeFeaturedThemes,
+          includeTrendingExtensions,
         }),
       );
     }
@@ -201,13 +210,15 @@ export class HomeBase extends React.Component {
   render() {
     const {
       _config,
+      _getFeaturedCollectionsMetadata,
+      clientApp,
       collections,
       errorHandler,
-      shelves,
       i18n,
       includeFeaturedThemes,
-      locationPathname,
+      includeTrendingExtensions,
       resultsLoaded,
+      shelves,
     } = this.props;
 
     // translators: The ending ellipsis alludes to a row of icons for each type
@@ -217,25 +228,43 @@ export class HomeBase extends React.Component {
     const themesHeader = i18n.gettext(`Change the way Firefox looks with
       themes.`);
 
-    const featuredCollectionsMetadata = getFeaturedCollectionsMetadata(i18n);
+    const featuredCollectionsMetadata = _getFeaturedCollectionsMetadata(i18n);
 
     const loading = resultsLoaded === false;
+    const showThemes = shouldShowThemes({ _config, clientApp });
+
+    // This is a helper function (closure) configured to render a featured
+    // collection by index.
+    const renderFeaturedCollection = (index) => {
+      const metadata = featuredCollectionsMetadata[index];
+      if (metadata && metadata.isTheme && !showThemes) {
+        return null;
+      }
+
+      const collection = collections[index];
+      if (loading || collection) {
+        return (
+          <FeaturedCollectionCard
+            addons={collection}
+            className="Home-FeaturedCollection"
+            loading={loading}
+            {...metadata}
+          />
+        );
+      }
+
+      return null;
+    };
 
     return (
       <div className="Home">
-        <Helmet>
-          <link
-            rel="canonical"
-            href={getCanonicalURL({ locationPathname, _config })}
-          />
-          <meta
-            name="description"
-            content={i18n.gettext(`Customize Firefox with extensions and
-              themes. They’re like apps for your browser, and they can block
-              annoying ads, protect passwords, change browser appearance, and
-              more.`)}
-          />
-        </Helmet>
+        <HeadMetaTags
+          description={i18n.gettext(`Download Firefox extensions and themes.
+            They’re like apps for your browser. They can block annoying ads,
+            protect passwords, change browser appearance, and more.`)}
+        />
+
+        <HeadLinks />
 
         <span
           className="visually-hidden do-not-remove"
@@ -245,7 +274,11 @@ export class HomeBase extends React.Component {
 
         {errorHandler.renderErrorIfPresent()}
 
-        <HomeHeroBanner />
+        {_config.get('enableFeatureHomeHeroGuides') ? (
+          <HomeHeroGuides />
+        ) : (
+          <HomeHeroBanner />
+        )}
 
         <Card
           className="Home-SubjectShelf Home-CuratedCollections"
@@ -258,39 +291,11 @@ export class HomeBase extends React.Component {
           {this.renderCuratedCollections()}
         </Card>
 
-        <LandingAddonsCard
-          addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={shelves.featuredExtensions}
-          className="Home-FeaturedExtensions"
-          header={i18n.gettext('Featured extensions')}
-          footerText={i18n.gettext('See more featured extensions')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_EXTENSION,
-              featured: true,
-            },
-          }}
-          loading={loading}
-        />
+        {renderFeaturedCollection(0)}
 
-        <LandingAddonsCard
-          addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={shelves.trendingExtensions}
-          className="Home-TrendingExtensions"
-          header={i18n.gettext('Trending extensions')}
-          footerText={i18n.gettext('See more trending extensions')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_EXTENSION,
-              sort: SEARCH_SORT_TRENDING,
-            },
-          }}
-          loading={loading}
-        />
+        {renderFeaturedCollection(1)}
 
-        {includeFeaturedThemes && (
+        {includeFeaturedThemes && showThemes && (
           <LandingAddonsCard
             addonInstallSource={INSTALL_SOURCE_FEATURED}
             addons={shelves.featuredThemes}
@@ -313,6 +318,22 @@ export class HomeBase extends React.Component {
 
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={shelves.featuredExtensions}
+          className="Home-FeaturedExtensions"
+          header={i18n.gettext('Featured extensions')}
+          footerText={i18n.gettext('See more featured extensions')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_EXTENSION,
+              featured: true,
+            },
+          }}
+          loading={loading}
+        />
+
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={shelves.popularExtensions}
           className="Home-PopularExtensions"
           header={i18n.gettext('Popular extensions')}
@@ -327,25 +348,36 @@ export class HomeBase extends React.Component {
           loading={loading}
         />
 
-        {(loading || collections[0]) && (
-          <FeaturedCollectionCard
-            addons={collections[0]}
-            className="Home-FeaturedCollection"
+        {includeTrendingExtensions && (
+          <LandingAddonsCard
+            addonInstallSource={INSTALL_SOURCE_FEATURED}
+            addons={shelves.trendingExtensions}
+            className="Home-TrendingExtensions"
+            header={i18n.gettext('Trending extensions')}
+            footerText={i18n.gettext('See more trending extensions')}
+            footerLink={{
+              pathname: '/search/',
+              query: {
+                addonType: ADDON_TYPE_EXTENSION,
+                sort: SEARCH_SORT_TRENDING,
+              },
+            }}
             loading={loading}
-            {...featuredCollectionsMetadata[0]}
           />
         )}
 
-        <Card
-          className="Home-SubjectShelf Home-CuratedThemes"
-          header={themesHeader}
-        >
-          <div className="Home-SubjectShelf-text-wrapper">
-            <h2 className="Home-SubjectShelf-subheading">{themesHeader}</h2>
-          </div>
+        {showThemes && (
+          <Card
+            className="Home-SubjectShelf Home-CuratedThemes"
+            header={themesHeader}
+          >
+            <div className="Home-SubjectShelf-text-wrapper">
+              <h2 className="Home-SubjectShelf-subheading">{themesHeader}</h2>
+            </div>
 
-          {this.renderCuratedThemes()}
-        </Card>
+            {this.renderCuratedThemes()}
+          </Card>
+        )}
       </div>
     );
   }
@@ -353,10 +385,10 @@ export class HomeBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
+    clientApp: state.api.clientApp,
     collections: state.home.collections,
-    shelves: state.home.shelves,
-    locationPathname: state.router.location.pathname,
     resultsLoaded: state.home.resultsLoaded,
+    shelves: state.home.shelves,
   };
 }
 

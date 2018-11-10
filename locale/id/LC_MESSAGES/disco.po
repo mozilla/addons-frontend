@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 17:55+0000\n"
+"POT-Creation-Date: 2018-11-06 17:31+0000\n"
 "PO-Revision-Date: 2018-09-07 12:24+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,39 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:228
 msgid "Enable"
 msgstr "Izinkan"
 
-#: src/core/components/AMInstallButton/index.js:208
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Remove"
 msgstr "Hilangkan"
 
-#: src/core/components/AMInstallButton/index.js:210
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Enabling"
 msgstr "Mengizinkan"
 
-#: src/core/components/AMInstallButton/index.js:212
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Downloading"
 msgstr "Mengunduh"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Installing"
 msgstr "Memasang"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Uninstalling"
 msgstr "Mencopot"
 
-#: src/core/components/AMInstallButton/index.js:220
-#: src/core/components/InstallButton/index.js:235
-#: src/core/components/InstallButton/index.js:281
+#: src/core/components/AMInstallButton/index.js:247
 msgid "Install Theme"
 msgstr "Pasang Tema"
 
-#: src/core/components/AMInstallButton/index.js:221
-#: src/core/components/InstallButton/index.js:266
-#: src/core/components/InstallButton/index.js:282
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Add to Firefox"
 msgstr "Tambahkan ke Firefox"
 
@@ -88,34 +84,6 @@ msgstr "Kelola pengaya Anda dengan mengklik Pengaya pada menu."
 msgid "OK"
 msgstr "Oke"
 
-#: src/core/components/InstallSwitch/index.js:68
-msgid "Downloading %(name)s."
-msgstr "Mengunduh %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:71
-msgid "Installing %(name)s."
-msgstr "Memasang %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:75
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s telah terpasang dan dihidupkan. Klik untuk mencopotnya."
-
-#: src/core/components/InstallSwitch/index.js:80
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s dinonaktifkan. Klik untuk mengaktifkan."
-
-#: src/core/components/InstallSwitch/index.js:83
-msgid "Uninstalling %(name)s."
-msgstr "Mencopot %(name)s."
-
-#: src/core/components/InstallSwitch/index.js:86
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s telah dicopot. Klik untuk memasang."
-
-#: src/core/components/InstallSwitch/index.js:89
-msgid "Install state for %(name)s is unknown."
-msgstr "Status pemasangan untuk %(name)s tidak dapat dikenali."
-
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr ""
@@ -156,7 +124,7 @@ msgstr "Terjadi kesalahan yang tidak diharapkan saat pencopotan."
 msgid "An unexpected error occurred."
 msgstr "Terjadi kesalahan yang tidak diharapkan."
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:83
 msgid "Close"
 msgstr "Tutup"
 
@@ -224,6 +192,27 @@ msgstr "Tutup pemberitahuan ini"
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "Pratinjau %(title)s"
+
+#~ msgid "Downloading %(name)s."
+#~ msgstr "Mengunduh %(name)s."
+
+#~ msgid "Installing %(name)s."
+#~ msgstr "Memasang %(name)s."
+
+#~ msgid "%(name)s is installed and enabled. Click to uninstall."
+#~ msgstr "%(name)s telah terpasang dan dihidupkan. Klik untuk mencopotnya."
+
+#~ msgid "%(name)s is disabled. Click to enable."
+#~ msgstr "%(name)s dinonaktifkan. Klik untuk mengaktifkan."
+
+#~ msgid "Uninstalling %(name)s."
+#~ msgstr "Mencopot %(name)s."
+
+#~ msgid "%(name)s is uninstalled. Click to install."
+#~ msgstr "%(name)s telah dicopot. Klik untuk memasang."
+
+#~ msgid "Install state for %(name)s is unknown."
+#~ msgstr "Status pemasangan untuk %(name)s tidak dapat dikenali."
 
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
 #~ msgstr "Pengaya ini akan dihapus setelah Anda memulai ulang Firefox."

@@ -1,15 +1,12 @@
 /* @flow */
-import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
 import Helmet from 'react-helmet';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
 
-import { getCanonicalURL } from 'amo/utils';
+import HeadLinks from 'amo/components/HeadLinks';
+import HeadMetaTags from 'amo/components/HeadMetaTags';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
-import type { AppState } from 'amo/store';
 import type { CategoryType } from 'amo/types/categories';
 import type { I18nType } from 'core/types/i18n';
 
@@ -19,9 +16,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   i18n: I18nType,
-  locationPathname: string,
 |};
 
 export class CategoryHeadBase extends React.PureComponent<InternalProps> {
@@ -47,49 +42,29 @@ export class CategoryHeadBase extends React.PureComponent<InternalProps> {
     return i18n.sprintf(title, { categoryName: category.name });
   }
 
-  renderMetaDescription() {
-    const { category } = this.props;
-
-    invariant(category, 'category is required');
-
-    if (!category.description) {
-      return null;
-    }
-
-    return <meta name="description" content={category.description} />;
-  }
-
   render() {
-    const { _config, category, locationPathname } = this.props;
+    const { category } = this.props;
 
     if (!category) {
       return null;
     }
 
+    const title = this.getPageTitle();
+
     return (
-      <Helmet>
-        <title>{this.getPageTitle()}</title>
-        <link
-          rel="canonical"
-          href={getCanonicalURL({ locationPathname, _config })}
-        />
-        {this.renderMetaDescription()}
-      </Helmet>
+      <React.Fragment>
+        <Helmet>
+          <title>{title}</title>
+        </Helmet>
+
+        <HeadMetaTags description={category.description} title={title} />
+
+        <HeadLinks />
+      </React.Fragment>
     );
   }
 }
 
-const mapStateToProps = (state: AppState) => {
-  const locationPathname = state.router.location.pathname;
-
-  return {
-    locationPathname,
-  };
-};
-
-const CategoryHead: React.ComponentType<Props> = compose(
-  translate(),
-  connect(mapStateToProps),
-)(CategoryHeadBase);
+const CategoryHead: React.ComponentType<Props> = translate()(CategoryHeadBase);
 
 export default CategoryHead;

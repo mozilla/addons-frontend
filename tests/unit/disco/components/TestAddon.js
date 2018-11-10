@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { oneLine } from 'common-tags';
+import * as React from 'react';
 
 import Addon, { AddonBase } from 'disco/components/Addon';
 import { setInstallError, setInstallState } from 'core/actions/installations';
@@ -9,6 +9,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLICK_CATEGORY,
+  CLIENT_APP_FIREFOX,
   DOWNLOAD_FAILED,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
@@ -18,15 +19,20 @@ import {
   INSTALLED,
   UNINSTALLED,
 } from 'core/constants';
+import { createInternalAddon, getGuid } from 'core/reducers/addons';
+import { createInternalVersion } from 'core/reducers/versions';
 import { getErrorMessage } from 'core/utils/addons';
-import { getGuid } from 'core/reducers/addons';
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import createStore from 'disco/store';
 import {
   createContextWithFakeRouter,
   createFakeEvent,
   createFakeTracking,
+  dispatchClientMetadata,
+  fakeAddon,
   fakeI18n,
+  fakeVersion,
+  sampleUserAgent,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -41,12 +47,14 @@ describe(__filename, () => {
   let store;
 
   function getProps({
+    addon,
     addonProps,
     description = 'test-editorial-description',
     heading = 'test-heading',
     ...customProps
   } = {}) {
-    const addon = {
+    const addonToLoad = addon || {
+      ...fakeAddon,
       id: 'test-id',
       type: ADDON_TYPE_EXTENSION,
       slug: 'test-slug',
@@ -54,13 +62,13 @@ describe(__filename, () => {
     };
 
     loadDiscoResultsIntoState(
-      [createDiscoResult({ addon, description, heading })],
+      [createDiscoResult({ addon: addonToLoad, description, heading })],
       { store },
     );
 
     const props = {
       _getClientCompatibility: () => ({ compatible: true, reason: null }),
-      addonId: addon.id,
+      addonId: addonToLoad.id,
       description,
       heading,
       i18n: fakeI18n(),
@@ -408,6 +416,28 @@ describe(__filename, () => {
         action: TRACKING_TYPE_EXTENSION,
         category: CLICK_CATEGORY,
         label: addonProps.name,
+      });
+    });
+
+    it('calls getClientCompatibility to determine the compatibility', () => {
+      const _getClientCompatibility = sinon.mock().returns({
+        compatible: true,
+        reason: null,
+      });
+      const addon = fakeAddon;
+      const clientApp = CLIENT_APP_FIREFOX;
+      const userAgent = sampleUserAgent;
+      dispatchClientMetadata({ clientApp, store, userAgent });
+      const root = render({
+        _getClientCompatibility,
+        addon,
+      });
+
+      sinon.assert.calledWith(_getClientCompatibility, {
+        addon: createInternalAddon(addon),
+        clientApp,
+        currentVersion: createInternalVersion(fakeVersion),
+        userAgentInfo: root.instance().props.userAgentInfo,
       });
     });
 
