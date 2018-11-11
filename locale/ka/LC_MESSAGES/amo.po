@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-06 17:27+0000\n"
-"PO-Revision-Date: 2018-11-11 21:11+0000\n"
+"PO-Revision-Date: 2018-11-11 21:27+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -2118,9 +2118,8 @@ msgid "Privacy & security"
 msgstr "პირადულობა და უსაფრთხოება"
 
 #: src/amo/pages/Home/index.js:59
-#, fuzzy
 msgid "See more social media customization"
-msgstr "იხილეთ მრავალფეროვანი გაფართოებები სოციალური ქსელებისთვის"
+msgstr "იხილეთ სხვა გაფართოებები სოციალური ქსელების მოსარგებად"
 
 #: src/amo/pages/Home/index.js:60
 msgid "Social media customization"
@@ -2128,11 +2127,13 @@ msgstr "სოციალური ქსელის მორგება"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "ჩამოტვირთეთ თემები და შეცვალეთ Firefox-ის იერსახე. მოარგეთ ყველაფერი თქვენს გემოვნებას. საყვარელი ცხოველები, ბოროტი რობოტები, ულამაზესი ხედები — ათასობით არჩევანია."
 
 #: src/amo/pages/LandingPage/index.js:210
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
+"ჩამოტვირთეთ Firefox-ის გაფართოებები ახალი შესაძლებლობების დასამატებლად და უკეთ მოსარგებად. დაიცავით პაროლები, მონახეთ საყიდლები, გააუმჯობესეთ ვიდეოების ჩვენება და მოაცილეთ მომაბეზრებელი რეკლამები "
+"ბრაუზერის პროგრამების საშუალებით."
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2156,7 +2157,7 @@ msgstr "ლექსიკონები და ენის პაკეტე
 
 #: src/amo/pages/LanguageTools/index.js:172
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "ჩამოტვირთეთ Firefox-ის ლექსიკონები და ენის პაკეტის გაფართოებები. დაამატეთ ახალი არჩევანი თქვენს ბრაუზერს მართლწერის შესამოწმებლად ან შეცვალეთ ბრაუზერის სამომხმარებლო გარემოს ენა."
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2185,6 +2186,8 @@ msgstr "ლექსიკონები"
 #: src/amo/pages/SearchTools/index.js:32
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
 msgstr ""
+"ჩამოტვირთეთ Firefox-ის გაფართოებები ძიების შესაძლებლობების მოსარგებად — დაწყებული პირადი მონაცემების დაცვით, გაგრძელებული საიტების შიდა ძიების, სურათებით მსგავსი გამოსახულების მოძიების საშუალებებით "
+"და ა.შ."
 
 #: src/amo/pages/StaticPages/About/index.js:103
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -2248,7 +2251,7 @@ msgstr "Firefox დამატებების შესახებ"
 
 #: src/amo/pages/StaticPages/About/index.js:44
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Mozilla-ს ოფიციალური საიტი Firefox-ის გაფართოებებისა და თემების ჩამოსატვირთად. დაამატეთ ახალი შესაძლებლობები და შეცვალეთ ბრაუზერის იერსახე თქვენს მოთხოვნებზე უკეთ მოსარგებად."
 
 #: src/amo/pages/StaticPages/About/index.js:53
 msgid ""
@@ -2360,7 +2363,7 @@ msgstr "მითითებები მიმოხილვის გას�
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:41
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "იხილეთ მითითებები, რჩევები, ხშირად დასმული კითხვები მიმოხილვების დასატოვებლად იმ გაფართოებებსა და თემებზე, რომლებიც ჩამოტვირთული გაქვთ და რომელთაც იყენებთ Firefox-ზე."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid ""
