@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-06 17:27+0000\n"
-"PO-Revision-Date: 2018-11-11 21:27+0000\n"
+"PO-Revision-Date: 2018-11-11 21:33+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -2440,14 +2440,17 @@ msgstr "მიმოხილვები"
 #: src/amo/pages/UserProfile/index.js:242
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
+"პროფილი %(user)s მომხმარებლის, Firefox-ის გაფართოებისა და თემის შემქმნელის. იხილეთ %(user)s შემმუშავებლის სხვა პროგრამები, ასევე საშუალო შეფასებები, შემოერთების თარიღი და მოხსენების გაკეთების "
+"შესაძლებლობები."
 
 #: src/amo/pages/UserProfile/index.js:246
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
+"პროფილი %(user)s მომხმარებლის, Firefox-ის გაფართოებისა შემქმნელის. იხილეთ %(user)s შემმუშავებლის სხვა პროგრამები, ასევე საშუალო შეფასებები, შემოერთების თარიღი და მოხსენების გაკეთების შესაძლებლობები."
 
 #: src/amo/pages/UserProfile/index.js:250
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "პროფილი %(user)s მომხმარებლის, Firefox-ის თემის შემქმნელის. იხილეთ %(user)s შემმუშავებლის სხვა პროგრამები, ასევე საშუალო შეფასებები, შემოერთების თარიღი და მოხსენების გაკეთების შესაძლებლობები."
 
 #: src/amo/pages/UserProfile/index.js:295
 msgid "Add-ons developer"
