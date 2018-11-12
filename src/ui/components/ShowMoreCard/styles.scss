@@ -1,5 +1,13 @@
 @import '~ui/css/styles';
 
+.ShowMoreCard {
+  @include respond-to(large) {
+    .Card-contents {
+      border-radius: 0 0 $border-radius-default $border-radius-default;
+    }
+  }
+}
+
 .ShowMoreCard-contents {
   &::after {
     // rgba(255, 255, 255, 0) instead of transparent prevents

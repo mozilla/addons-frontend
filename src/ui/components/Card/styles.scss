@@ -38,7 +38,6 @@ $footer-padding: 10px;
   &,
   .Card--photon & {
     @include respond-to(large) {
-      border-radius: 0 0 $border-radius-default $border-radius-default;
       padding: $padding-page-l 36px;
     }
   }
