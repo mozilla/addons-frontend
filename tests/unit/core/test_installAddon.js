@@ -5,7 +5,6 @@ import { compose } from 'redux';
 import UAParser from 'ua-parser-js';
 
 import { createInternalVersion, loadVersions } from 'core/reducers/versions';
-import createStore from 'amo/store';
 import { setInstallError, setInstallState } from 'core/actions/installations';
 import {
   ADDON_TYPE_EXTENSION,
@@ -45,15 +44,15 @@ import { createInternalAddon } from 'core/reducers/addons';
 import { showInfoDialog } from 'core/reducers/infoDialog';
 import {
   createFakeAddon,
-  createFakeTracking,
   createFakeLocation,
+  createFakeTracking,
+  dispatchClientMetadata,
   fakeAddon,
   fakePlatformFile,
   fakeTheme,
   fakeVersion,
   getFakeAddonManagerWrapper,
   getFakeConfig,
-  sampleUserAgentParsed,
   shallowUntilTarget,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
@@ -70,7 +69,7 @@ import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
 const INVALID_TYPE = 'not-a-real-type';
 
 // See: https://github.com/airbnb/enzyme/issues/1232.
-class BaseComponent extends React.Component {
+class ComponentBase extends React.Component {
   render() {
     return <div />;
   }
@@ -81,34 +80,35 @@ function componentWithInstallHelpers({
 } = {}) {
   // This simulates how a component would typically apply
   // the withInstallHelpers() HOC wrapper.
-  return compose(withInstallHelpers({ defaultInstallSource }))(BaseComponent);
+  return compose(withInstallHelpers({ defaultInstallSource }))(ComponentBase);
 }
 
-const defaultProps = ({ store = createStore().store, ...overrides } = {}) => {
+const defaultProps = ({
+  _addonManager = getFakeAddonManagerWrapper(),
+  addon = createInternalAddon(fakeAddon),
+  location = createFakeLocation(),
+  store = dispatchClientMetadata().store,
+  ...overrides
+} = {}) => {
   sinon.stub(store, 'dispatch');
 
-  const addon = createInternalAddon(fakeAddon);
+  // This will be removed in:
+  // https://github.com/mozilla/addons-frontend/issues/6878
+  const { userAgentInfo } = store.getState().api;
 
   return {
-    _addonManager: getFakeAddonManagerWrapper(),
+    _addonManager,
     addon,
     dispatch: store.dispatch,
-    location: createFakeLocation(),
+    location,
     store,
-    userAgentInfo: sampleUserAgentParsed,
+    userAgentInfo,
     ...overrides,
   };
 };
 
 function render(Component, props) {
-  return shallowUntilTarget(
-    <Component {...props} />,
-    BaseComponent,
-    // If we do not disable these methods, `componentDidMount()` will be called
-    // but in most cases we do not have a complete fakeAddonManager.
-    // See: http://airbnb.io/enzyme/docs/guides/migration-from-2-to-3.html#lifecycle-methods.
-    { shallowOptions: { disableLifecycleMethods: true } },
-  );
+  return shallowUntilTarget(<Component {...props} />, ComponentBase);
 }
 
 function renderWithInstallHelpers({
@@ -149,20 +149,13 @@ describe(__filename, () => {
   });
 
   it('wraps the component in WithInstallHelpers', () => {
-    const _makeMapDispatchToProps = sinon.spy();
+    const Component = componentWithInstallHelpers();
 
-    const Component = withInstallHelpers({
-      defaultInstallSource: 'Howdy',
-      _makeMapDispatchToProps,
-    })(() => {});
-
-    const { store } = createStore();
-    const root = shallow(<Component store={store} />);
+    const root = shallow(<Component {...defaultProps()} />);
     expect(root.type()).toEqual(WithInstallHelpers);
   });
 
-  it('sets status when the component is mounted', () => {
-    const Component = componentWithInstallHelpers();
+  it('sets status when the component is created', () => {
     const _addonManager = getFakeAddonManagerWrapper({
       getAddon: Promise.resolve({
         isActive: true,
@@ -170,16 +163,9 @@ describe(__filename, () => {
         type: ADDON_TYPE_EXTENSION,
       }),
     });
-
     const addon = createInternalAddon(fakeAddon);
-    const props = defaultProps({
-      _addonManager,
-      addon,
-      // Use a spread to simulate how Addon and other components
-      // do it in mapStateToProps().
-      ...addon,
-    });
-    mount(<Component {...props} />);
+
+    renderWithInstallHelpers({ _addonManager, addon });
 
     sinon.assert.calledWith(_addonManager.getAddon, addon.guid);
   });
@@ -193,18 +179,23 @@ describe(__filename, () => {
       }),
     });
 
-    const props = defaultProps({ _addonManager });
-    const root = mount(<Component {...props} />);
+    // We use `mount` because we want to trigger all the lifecycle methods in
+    // `withInstallHelpers()` AND be able to inject props on the `Component`
+    // component, not on `ComponentBase` so that the HOC receives those props.
+    const root = mount(
+      <Component
+        {...defaultProps({
+          _addonManager,
+          addon: createInternalAddon(fakeAddon),
+        })}
+      />,
+    );
+    _addonManager.getAddon.resetHistory();
 
-    const newAddon = createInternalAddon({
-      ...fakeAddon,
-      guid: '@new-guid',
-    });
-    // Use a spread to simulate how Addon and other components
-    // do it in mapStateToProps().
-    root.setProps({ addon: newAddon, ...newAddon });
+    const newAddon = createInternalAddon({ ...fakeAddon, guid: '@new-guid' });
+    root.setProps({ addon: newAddon });
 
-    sinon.assert.calledWith(_addonManager.getAddon, '@new-guid');
+    sinon.assert.calledWith(_addonManager.getAddon, newAddon.guid);
   });
 
   it('sets status when add-on is loaded on update', () => {
@@ -216,8 +207,13 @@ describe(__filename, () => {
       }),
     });
 
-    const props = defaultProps({ _addonManager, addon: null });
-    const root = mount(<Component {...props} />);
+    // We use `mount` because we want to trigger all the lifecycle methods in
+    // `withInstallHelpers()` AND be able to inject props on the `Component`
+    // component, not on `ComponentBase` so that the HOC receives those props.
+    const root = mount(
+      <Component {...defaultProps({ _addonManager, addon: null })} />,
+    );
+    _addonManager.getAddon.resetHistory();
 
     const newAddon = createInternalAddon({
       ...fakeAddon,
@@ -225,7 +221,7 @@ describe(__filename, () => {
     });
     root.setProps({ addon: newAddon });
 
-    sinon.assert.calledWith(_addonManager.getAddon, '@new-guid');
+    sinon.assert.calledWith(_addonManager.getAddon, newAddon.guid);
   });
 
   it('does not set status when an update is not necessary', () => {
@@ -236,21 +232,19 @@ describe(__filename, () => {
         isEnabled: true,
       }),
     });
+    const addon = createInternalAddon(fakeAddon);
 
-    const props = {
-      addon: fakeAddon,
-      // Use a spread to simulate how Addon and other components
-      // do it in mapStateToProps().
-      ...fakeAddon,
-      _addonManager,
-      store: createStore().store,
-    };
+    // We use `mount` because we want to trigger all the lifecycle methods in
+    // `withInstallHelpers()` AND be able to inject props on the `Component`
+    // component, not on `ComponentBase` so that the HOC receives those props.
+    const root = mount(
+      <Component {...defaultProps({ _addonManager, addon })} />,
+    );
+    _addonManager.getAddon.resetHistory();
 
-    const root = render(Component, props);
-
-    // Update the component with the same props (i.e. same add-on guid)
-    // and make sure the status is not set.
-    root.setProps(props);
+    // Update the component with the same props (i.e. same add-on guid) and
+    // make sure the status is not set.
+    root.setProps({ addon });
     sinon.assert.notCalled(_addonManager.getAddon);
   });
 
@@ -268,8 +262,8 @@ describe(__filename, () => {
       }),
     });
 
-    const props = defaultProps({ _addonManager });
-    mount(<WithInstallHelpers {...props} WrappedComponent={() => <div />} />);
+    renderWithInstallHelpers({ _addonManager });
+
     sinon.assert.called(_addonManager.getAddon);
   });
 
@@ -278,16 +272,15 @@ describe(__filename, () => {
       hasAddonManager: false,
     });
 
-    const props = defaultProps({ _addonManager });
-    mount(<WithInstallHelpers {...props} WrappedComponent={() => <div />} />);
+    renderWithInstallHelpers({ _addonManager });
+
     sinon.assert.notCalled(_addonManager.getAddon);
   });
 
   it('does not set the current status in componentDidMount without an addon', () => {
     const _addonManager = getFakeAddonManagerWrapper();
-    const props = defaultProps({ _addonManager, addon: null });
 
-    mount(<WithInstallHelpers {...props} WrappedComponent={() => <div />} />);
+    renderWithInstallHelpers({ _addonManager, addon: null });
 
     sinon.assert.notCalled(_addonManager.getAddon);
   });
@@ -939,13 +932,8 @@ describe(__filename, () => {
         const fakeAddonManager = getFakeAddonManagerWrapper({
           permissionPromptsEnabled: true,
         });
-        const name = 'the-name';
-        const iconUrl = 'https://a.m.o/some-icon.png';
-        const addon = createInternalAddon({
-          ...fakeAddon,
-          name,
-          icon_url: iconUrl,
-        });
+        const addon = createInternalAddon(fakeAddon);
+
         const { root, dispatch } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
           addon,
@@ -954,7 +942,13 @@ describe(__filename, () => {
 
         return enable().then(() => {
           sinon.assert.calledWith(fakeAddonManager.enable, addon.guid);
-          sinon.assert.notCalled(dispatch);
+          sinon.assert.neverCalledWith(
+            dispatch,
+            showInfoDialog({
+              addonName: addon.name,
+              imageURL: addon.icon_url,
+            }),
+          );
         });
       });
 
@@ -987,13 +981,23 @@ describe(__filename, () => {
             .stub()
             .returns(Promise.reject(new Error(SET_ENABLE_NOT_AVAILABLE))),
         });
+        const addon = createInternalAddon(fakeAddon);
+
         const { root, dispatch } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
+          addon,
         });
         const { enable } = root.instance().props;
 
         return enable().then(() => {
-          sinon.assert.notCalled(dispatch);
+          sinon.assert.neverCalledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: ERROR,
+              error: FATAL_ERROR,
+            }),
+          );
         });
       });
     });
@@ -1003,7 +1007,7 @@ describe(__filename, () => {
       let store;
 
       beforeEach(() => {
-        store = createStore().store;
+        store = dispatchClientMetadata().store;
       });
 
       it('calls addonManager.install()', () => {
