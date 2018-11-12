@@ -44,14 +44,14 @@ export class LocalState {
         return data;
       })
       .catch((error) => {
-        log.info(`Error with localForage.getItem("${this.id}"): ${error}`);
+        log.debug(`Error with localForage.getItem("${this.id}"): ${error}`);
         throw error;
       });
   }
 
   clear(): Promise<void> {
     return this.localForage.removeItem(this.id).catch((error) => {
-      log.info(`Error with localForage.removeItem("${this.id}"): ${error}`);
+      log.debug(`Error with localForage.removeItem("${this.id}"): ${error}`);
       throw error;
     });
   }
@@ -63,7 +63,7 @@ export class LocalState {
       );
     }
     return this.localForage.setItem(this.id, data).catch((error) => {
-      log.info(`Error with localForage.setItem("${this.id}"): ${error}`);
+      log.debug(`Error with localForage.setItem("${this.id}"): ${error}`);
       throw error;
     });
   }
