@@ -12,6 +12,7 @@ import {
   INSTALL_SOURCE_GUIDES_PAGE,
   UNKNOWN,
 } from 'core/constants';
+import { getAddonIconUrl } from 'core/imageUtils';
 import { withInstallHelpers } from 'core/installAddon';
 import translate from 'core/i18n/translate';
 import { getAddonByGUID } from 'core/reducers/addons';
@@ -27,7 +28,7 @@ import type { AddonVersionType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
-import type { ReactRouterLocationType } from 'core/types/router';
+import type { LocationType } from 'core/types/router';
 import type { WithInstallHelpersInjectedProps } from 'core/installAddon';
 
 import './styles.scss';
@@ -42,14 +43,14 @@ type InternalProps = {
   ...Props,
   ...WithInstallHelpersInjectedProps,
   _getClientCompatibility: typeof getClientCompatibility,
-  addon: AddonType,
-  clientApp: string,
-  currentVersion: AddonVersionType,
+  addon: AddonType | null,
+  clientApp: string | null,
+  currentVersion: AddonVersionType | null,
   defaultInstallSource: string,
-  installError: string,
+  installError: string | null,
   installStatus: string,
   i18n: I18nType,
-  location: ReactRouterLocationType,
+  location: LocationType,
   userAgentInfo: UserAgentInfoType,
 };
 
@@ -87,7 +88,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
     let compatible = false;
     let compatibility;
 
-    if (addon) {
+    if (addon && clientApp) {
       compatibility = _getClientCompatibility({
         addon,
         clientApp,
@@ -102,12 +103,12 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
       compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
     const showInstallButton = addon && isFireFox;
 
-    // TODO: waiting to hear back on how to handle "+Addon" buttons on non
+    // TODO: waiting to hear back on how to handle "+Add" buttons on non
     // firefox browsers. See:
     // https://github.com/mozilla/addons-frontend/issues/6432#issuecomment-433083079.
     const showGetFirefoxButton = addon && !isFireFox;
 
-    return addon ? (
+    return addon && currentVersion ? (
       <Card>
         {this.renderInstallError()}
         <div className="GuidesAddonCard">
@@ -122,7 +123,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
           <div className="GuidesAddonCard-content">
             <img
               className="GuidesAddonCard-content-icon"
-              src={addon.icon_url}
+              src={getAddonIconUrl(addon)}
               alt={addon.name}
             />
             <div className="GuidesAddonCard-content-text">
@@ -147,7 +148,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
               <AMInstallButton
                 addon={addon}
                 currentVersion={currentVersion}
-                defaultButtonText={i18n.gettext('Addon')}
+                defaultButtonText={i18n.gettext('Add')}
                 defaultInstallSource={this.props.defaultInstallSource}
                 disabled={!compatible}
                 enable={this.props.enable}
@@ -182,7 +183,10 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
+export const mapStateToProps = (
+  state: AppState,
+  ownProps: Props,
+): $Shape<InternalProps> => {
   const addon = getAddonByGUID(state, ownProps.addonGuid);
   let currentVersion = null;
   let installedAddon = {};

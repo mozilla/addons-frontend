@@ -16,13 +16,11 @@
   }
 
   .Icon-trophy {
-    height: 12px;
-    margin-right: 4px;
-    width: 12px;
+    margin: margin-end(4px);
   }
 
   .AddonTitle {
-    font-size: 16px;
+    font-size: $font-size-m;
     font-weight: 500;
     margin-bottom: 0;
   }
@@ -30,7 +28,7 @@
   .GuidesAddonCard-content-header-title {
     .AddonTitle-author {
       color: $grey-50;
-      font-size: 14px;
+      font-size: $font-size-default;
       padding-top: 0;
 
       a {
@@ -78,7 +76,7 @@
 
 .GuidesAddonCard-content-header-staff-pick {
   color: $grey-50;
-  font-size: 10px;
+  font-size: $font-size-micro;
   font-weight: 500;
   margin-top: 8px;
   text-transform: uppercase;
@@ -92,7 +90,7 @@
 .GuidesAddonCard-content-description {
   color: $grey-60;
   display: flex;
-  font-size: 14px;
+  font-size: $font-size-default;
   line-height: 1.4;
 
   @include respond-to(medium) {

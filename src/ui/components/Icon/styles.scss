@@ -323,4 +323,7 @@
 
 .Icon-trophy {
   @include icon($name: 'trophy');
+
+  height: 12px;
+  width: 12px;
 }
