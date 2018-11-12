@@ -4,9 +4,9 @@ import hct from 'mozilla-hybrid-content-telemetry/HybridContentTelemetry-lib';
 import {
   Tracking,
   isDoNotTrackEnabled,
-  filterIdentifier,
   getAddonEventCategory,
   getAddonTypeForTracking,
+  telemetryObjects,
 } from 'core/tracking';
 import {
   ADDON_TYPE_DICT,
@@ -15,11 +15,13 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  CLICK_CATEGORY,
+  DISCO_NAVIGATION_CATEGORY,
   ENABLE_ACTION,
   ENABLE_EXTENSION_CATEGORY,
   ENABLE_THEME_CATEGORY,
-  CLICK_CATEGORY,
   HCT_DISCO_CATEGORY,
+  HCT_METHOD_MAPPING,
   INSTALL_ACTION,
   INSTALL_CANCELLED_ACTION,
   INSTALL_CANCELLED_EXTENSION_CATEGORY,
@@ -432,20 +434,22 @@ describe(__filename, () => {
     });
   });
 
-  describe('Hybrid Content Telemetry filterIdentifier()', () => {
-    it('should return content up to the default max length', () => {
-      expect(filterIdentifier('a'.repeat(26))).toHaveLength(20);
+  describe('HCT identifiers', () => {
+    const telemetryRegex = /^[a-z0-9]{1}[a-z0-9_]+[a-z0-9]{1}$/i;
+
+    Object.values(HCT_METHOD_MAPPING).forEach((idString) => {
+      it(`should ensure hct method "${idString}" meets HCT identifier requirements`, () => {
+        expect(idString).toMatch(telemetryRegex);
+        expect(idString.length).toBeLessThanOrEqual(20);
+      });
     });
 
-    it('should return content up to the supplied max length', () => {
-      expect(filterIdentifier('a'.repeat(26), { maxLen: 10 })).toHaveLength(10);
-    });
-
-    it('should return content filtered for telemetry', () => {
-      expect(filterIdentifier('a/bcde/-#/._fgh', { maxLen: 10 })).toEqual(
-        'abcde_fgh',
-      );
-    });
+    for (const action of telemetryObjects) {
+      it(`should ensure hct object (${action}) meets HCT identifier requirements`, () => {
+        expect(action).toMatch(telemetryRegex);
+        expect(action.length).toBeLessThanOrEqual(20);
+      });
+    }
   });
 
   describe('Tracking constants should not be changed or it risks breaking tracking stats', () => {
@@ -495,6 +499,10 @@ describe(__filename, () => {
 
     it('should not change the tracking category constants for clicks', () => {
       expect(CLICK_CATEGORY).toEqual('AMO Addon / Theme Clicks');
+    });
+
+    it('should not change the tracking category constants for disco pane navigation', () => {
+      expect(DISCO_NAVIGATION_CATEGORY).toEqual('Discovery Navigation');
     });
   });
 
@@ -587,8 +595,8 @@ describe(__filename, () => {
       sinon.assert.calledWith(
         recordEventSpy,
         HCT_DISCO_CATEGORY,
-        filterIdentifier(INSTALL_EXTENSION_CATEGORY),
-        filterIdentifier(TRACKING_TYPE_EXTENSION),
+        HCT_METHOD_MAPPING[INSTALL_EXTENSION_CATEGORY],
+        TRACKING_TYPE_EXTENSION,
         'value',
       );
     });

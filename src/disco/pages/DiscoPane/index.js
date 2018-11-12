@@ -9,11 +9,10 @@ import config from 'config';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import tracking from 'core/tracking';
-import { INSTALL_STATE } from 'core/constants';
+import { INSTALL_STATE, DISCO_NAVIGATION_CATEGORY } from 'core/constants';
 import InfoDialog from 'core/components/InfoDialog';
 import { addChangeListeners } from 'core/addonManager';
 import { getDiscoResults } from 'disco/reducers/discoResults';
-import { NAVIGATION_CATEGORY } from 'disco/constants';
 import { makeQueryStringWithUTM } from 'disco/utils';
 import Addon from 'disco/components/Addon';
 import Button from 'ui/components/Button';
@@ -104,7 +103,7 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
 
     _tracking.sendEvent({
       action: 'click',
-      category: NAVIGATION_CATEGORY,
+      category: DISCO_NAVIGATION_CATEGORY,
       label: 'Find More Add-ons',
     });
   };

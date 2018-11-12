@@ -3,10 +3,13 @@ import config from 'config';
 import * as React from 'react';
 import { Provider } from 'react-redux';
 
-import { GLOBAL_EVENTS, INSTALL_STATE } from 'core/constants';
+import {
+  DISCO_NAVIGATION_CATEGORY,
+  GLOBAL_EVENTS,
+  INSTALL_STATE,
+} from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
-import { NAVIGATION_CATEGORY } from 'disco/constants';
 import DiscoPane, {
   DiscoPaneBase,
   mapDispatchToProps,
@@ -270,7 +273,7 @@ describe(__filename, () => {
           .simulate('click');
 
         sinon.assert.calledWith(fakeTracking.sendEvent, {
-          category: NAVIGATION_CATEGORY,
+          category: DISCO_NAVIGATION_CATEGORY,
           action: 'click',
           label: 'Find More Add-ons',
         });

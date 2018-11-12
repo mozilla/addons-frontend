@@ -223,6 +223,9 @@ export const INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY =
 export const INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY =
   'AMO Theme Installs Download Failed';
 
+export const DISCO_NAVIGATION_CATEGORY = 'Discovery Navigation';
+export const DISCO_NAVIGATION_ACTION = 'click';
+
 export const INSTALL_STARTED_EXTENSION_CATEGORY = 'AMO Addon Installs Started';
 export const INSTALL_STARTED_THEME_CATEGORY = 'AMO Theme Installs Started';
 
@@ -235,6 +238,28 @@ export const SURVEY_CATEGORY = 'AMO Addon / Experience Survey Notice';
 export const SURVEY_ACTION_DISMISSED = 'Dismissed survey notice';
 export const SURVEY_ACTION_SHOWN = 'Shown survey notice';
 export const SURVEY_ACTION_VISITED = 'Visited survey';
+
+// Mapping of GA Categories to HCT compatible methods.
+// All the HCT methods must be under 20 chars
+// and should match /^[a-z0-9]{1}[a-z0-9_]+[a-z0-9]{1}$/i
+// See https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/telemetry/collection/events.html#limits
+// for more details.
+export const HCT_METHOD_MAPPING = {
+  [CLICK_CATEGORY]: 'addon_click',
+  [DISCO_NAVIGATION_CATEGORY]: 'navigation_click',
+  [INSTALL_EXTENSION_CATEGORY]: 'ext_installed',
+  [INSTALL_THEME_CATEGORY]: 'theme_installed',
+  [UNINSTALL_EXTENSION_CATEGORY]: 'ext_uninstall',
+  [UNINSTALL_THEME_CATEGORY]: 'theme_uninstall',
+  [ENABLE_EXTENSION_CATEGORY]: 'ext_enable',
+  [ENABLE_THEME_CATEGORY]: 'theme_enable',
+  [INSTALL_CANCELLED_EXTENSION_CATEGORY]: 'ext_install_cancel',
+  [INSTALL_CANCELLED_THEME_CATEGORY]: 'theme_install_cancel',
+  [INSTALL_STARTED_EXTENSION_CATEGORY]: 'ext_install_start',
+  [INSTALL_STARTED_THEME_CATEGORY]: 'theme_install_start',
+  [INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY]: 'ext_download_fail',
+  [INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY]: 'theme_download_fail',
+};
 
 // Error used to know that the setEnable method on addon is
 // not available.
