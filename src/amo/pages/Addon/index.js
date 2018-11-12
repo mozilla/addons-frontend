@@ -644,8 +644,7 @@ export function mapStateToProps(state, ownProps) {
     installStatus: installedAddon.status || UNKNOWN,
     lang: state.api.lang,
     userAgentInfo: state.api.userAgentInfo,
-    // In addition to this component, this also is required by the
-    // `withInstallHelpers()` HOC.
+    // The `withInstallHelpers()` HOC requires an `addon` prop too:
     addon,
   };
 }

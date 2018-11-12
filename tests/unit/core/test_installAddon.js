@@ -133,6 +133,12 @@ const _loadVersions = ({ store, versionProps = {} }) => {
 };
 
 describe(__filename, () => {
+  let store;
+
+  beforeEach(() => {
+    store = dispatchClientMetadata().store;
+  });
+
   it('wraps the component in WithInstallHelpers', () => {
     const Component = componentWithInstallHelpers();
 
