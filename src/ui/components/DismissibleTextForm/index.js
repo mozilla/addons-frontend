@@ -1,7 +1,7 @@
 /* @flow */
 import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
-import defaultDebounce from 'lodash.debounce';
+import debounce from 'lodash.debounce';
 import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
@@ -9,7 +9,7 @@ import Textarea from 'react-textarea-autosize';
 
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import defaultLocalStateCreator, { LocalState } from 'core/localState';
+import createLocalState, { LocalState } from 'core/localState';
 import Button from 'ui/components/Button';
 import type { ElementEvent } from 'core/types/dom';
 import type { I18nType } from 'core/types/i18n';
@@ -47,8 +47,8 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  createLocalState: typeof defaultLocalStateCreator,
-  debounce: typeof defaultDebounce,
+  _createLocalState: typeof createLocalState,
+  _debounce: typeof debounce,
   i18n: I18nType,
 |};
 
@@ -71,8 +71,8 @@ export class DismissibleTextFormBase extends React.Component<
   textarea: React.ElementRef<typeof Textarea>;
 
   static defaultProps = {
-    createLocalState: defaultLocalStateCreator,
-    debounce: defaultDebounce,
+    _createLocalState: createLocalState,
+    _debounce: debounce,
     isSubmitting: false,
     microButtons: false,
     puffyButtons: false,
@@ -101,8 +101,8 @@ export class DismissibleTextFormBase extends React.Component<
   }
 
   createLocalState() {
-    const { createLocalState, id } = this.props;
-    return createLocalState(id);
+    const { _createLocalState, id } = this.props;
+    return _createLocalState(id);
   }
 
   async checkForStoredState() {
@@ -141,7 +141,7 @@ export class DismissibleTextFormBase extends React.Component<
     this.localState.clear();
   };
 
-  persistState = this.props.debounce(
+  persistState = this.props._debounce(
     (state) => {
       // After a few keystrokes, save the text to a local store
       // so we can recover from crashes.

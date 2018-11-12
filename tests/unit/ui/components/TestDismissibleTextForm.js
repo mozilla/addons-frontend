@@ -20,8 +20,8 @@ describe(__filename, () => {
 
   const renderProps = (customProps = {}) => {
     return {
-      createLocalState: createFakeLocalState,
-      debounce: createFakeDebounce(),
+      _createLocalState: createFakeLocalState,
+      _debounce: createFakeDebounce(),
       i18n: fakeI18n(),
       id: 'any-form-id',
       onDelete: null,
@@ -448,18 +448,18 @@ describe(__filename, () => {
 
   describe('LocalState', () => {
     it('configures LocalState', () => {
-      const createLocalState = sinon.spy(createFakeLocalState);
+      const _createLocalState = sinon.spy(createFakeLocalState);
       const id = 'some-form-id';
 
-      shallowRender({ id, createLocalState });
+      shallowRender({ id, _createLocalState });
 
-      sinon.assert.calledWith(createLocalState, id);
+      sinon.assert.calledWith(_createLocalState, id);
     });
 
     it('loads LocalState on mount', () => {
       const loadSpy = sinon.spy(() => Promise.resolve(null));
       shallowRender({
-        createLocalState: () => createFakeLocalState({ load: loadSpy }),
+        _createLocalState: () => createFakeLocalState({ load: loadSpy }),
       });
 
       sinon.assert.called(loadSpy);
@@ -468,7 +468,7 @@ describe(__filename, () => {
     it('populates the form with text from LocalState', async () => {
       const text = 'Some text that was saved to LocalState';
       const root = shallowRender({
-        createLocalState: () =>
+        _createLocalState: () =>
           createFakeLocalState({ load: () => Promise.resolve({ text }) }),
       });
 
@@ -482,46 +482,46 @@ describe(__filename, () => {
 
     it('recreates LocalState on update when the ID changes', () => {
       const loadSpy = sinon.spy(() => Promise.resolve(null));
-      const createLocalState = sinon.spy(() =>
+      const _createLocalState = sinon.spy(() =>
         createFakeLocalState({ load: loadSpy }),
       );
 
       const root = shallowRender({
+        _createLocalState,
         id: 'first-ID',
-        createLocalState,
       });
 
-      createLocalState.resetHistory();
+      _createLocalState.resetHistory();
       loadSpy.resetHistory();
 
       const secondId = 'second-ID';
       root.setProps({ id: secondId });
 
-      sinon.assert.calledWith(createLocalState, secondId);
+      sinon.assert.calledWith(_createLocalState, secondId);
       sinon.assert.called(loadSpy);
     });
 
     it('does not recreate LocalState on update when ID does not change', () => {
       const loadSpy = sinon.spy(() => Promise.resolve(null));
-      const createLocalState = sinon.spy(() =>
+      const _createLocalState = sinon.spy(() =>
         createFakeLocalState({ load: loadSpy }),
       );
 
       const id = 'example-ID';
-      const root = shallowRender({ id, createLocalState });
+      const root = shallowRender({ id, _createLocalState });
 
-      createLocalState.resetHistory();
+      _createLocalState.resetHistory();
       loadSpy.resetHistory();
 
       root.setProps({ id });
 
-      sinon.assert.notCalled(createLocalState);
+      sinon.assert.notCalled(_createLocalState);
       sinon.assert.notCalled(loadSpy);
     });
 
     it('does not populate the form with null data', async () => {
       const root = shallowRender({
-        createLocalState: () =>
+        _createLocalState: () =>
           // Set up LocalState to load null data.
           createFakeLocalState({ load: () => Promise.resolve(null) }),
       });
@@ -547,7 +547,7 @@ describe(__filename, () => {
     it('saves to LocalState when typing', () => {
       const saveSpy = sinon.spy(() => Promise.resolve());
       const root = shallowRender({
-        createLocalState: () => createFakeLocalState({ save: saveSpy }),
+        _createLocalState: () => createFakeLocalState({ save: saveSpy }),
       });
 
       const text = 'Example text';
@@ -559,7 +559,7 @@ describe(__filename, () => {
     it('clears LocalState onDismiss', () => {
       const clearSpy = sinon.spy(() => Promise.resolve());
       const root = shallowRender({
-        createLocalState: () => createFakeLocalState({ clear: clearSpy }),
+        _createLocalState: () => createFakeLocalState({ clear: clearSpy }),
         onDismiss: sinon.stub(),
       });
 
@@ -573,7 +573,7 @@ describe(__filename, () => {
     it('clears LocalState onDelete', () => {
       const clearSpy = sinon.spy(() => Promise.resolve());
       const root = shallowRender({
-        createLocalState: () => createFakeLocalState({ clear: clearSpy }),
+        _createLocalState: () => createFakeLocalState({ clear: clearSpy }),
         onDelete: sinon.stub(),
       });
 
@@ -587,7 +587,7 @@ describe(__filename, () => {
     it('clears LocalState onSubmit', () => {
       const clearSpy = sinon.spy(() => Promise.resolve());
       const root = shallowRender({
-        createLocalState: () => createFakeLocalState({ clear: clearSpy }),
+        _createLocalState: () => createFakeLocalState({ clear: clearSpy }),
         onSubmit: sinon.stub(),
       });
 
