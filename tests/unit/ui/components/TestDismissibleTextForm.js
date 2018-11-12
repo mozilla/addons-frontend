@@ -128,15 +128,25 @@ describe(__filename, () => {
 
   it('calls back when dismissing the textarea', () => {
     const onDismiss = sinon.stub();
-    const root = shallowRender({
-      onDismiss,
-    });
+    const root = shallowRender({ onDismiss });
 
     root
       .find('.DismissibleTextForm-dismiss')
       .simulate('click', createFakeEvent());
 
     sinon.assert.called(onDismiss);
+  });
+
+  it('clears the form onDismiss', () => {
+    const root = shallowRender({ onDismiss: sinon.stub() });
+
+    typeSomeText({ root, text: 'Example text' });
+
+    root
+      .find('.DismissibleTextForm-dismiss')
+      .simulate('click', createFakeEvent());
+
+    expect(root.find('.DismissibleTextForm-textarea')).toHaveProp('value', '');
   });
 
   it('calls back when submitting the form', () => {

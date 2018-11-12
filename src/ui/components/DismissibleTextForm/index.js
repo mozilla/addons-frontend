@@ -131,6 +131,7 @@ export class DismissibleTextFormBase extends React.Component<
     invariant(onDismiss, 'onDismiss() is required');
 
     onDismiss();
+    this.setState({ text: '' });
     this.localState.clear();
   };
 
