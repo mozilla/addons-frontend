@@ -5,6 +5,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import GuidesAddonCard from 'amo/components/GuidesAddonCard';
+import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import HeadLinks from 'amo/components/HeadLinks';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
@@ -18,10 +19,7 @@ import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
-import type {
-  ReactRouterHistoryType,
-  ReactRouterMatchType,
-} from 'core/types/router';
+import type { ReactRouterMatchType } from 'core/types/router';
 
 import './styles.scss';
 
@@ -39,14 +37,11 @@ type AddonsMap = {|
 type InternalProps = {|
   ...Props,
   addons: AddonsMap | {},
-  clientApp: string | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  history: ReactRouterHistoryType,
   slug: string,
   guids: Array<string>,
   i18n: I18nType,
-  lang: string | null,
 |};
 
 type SectionsType = {|
@@ -313,29 +308,20 @@ export class GuidesBase extends React.Component<InternalProps> {
     );
   }
 
-  handleClick = (event: SyntheticEvent<HTMLElement>, url: string) => {
-    event.preventDefault();
-
-    // $FLOW_FIXME: the "`nodeName`is missing in EventTarget" fix.
-    const { nodeName } = event.target;
-
-    if (url && nodeName && nodeName.toLowerCase() === 'a') {
-      const { history } = this.props;
-      history.push(url);
-    }
-  };
-
   getGuidesSections = (
     sections: Array<SectionsType>,
   ): React.ChildrenArray<React.Node> => {
-    const { addons, clientApp, i18n, lang } = this.props;
+    const { addons, i18n } = this.props;
 
     return sections.map((section) => {
-      const url = `/${lang}/${clientApp}${section.exploreUrl}`;
-      const exploreMoreLink = i18n.sprintf(section.exploreMore, {
-        linkStart: `<a href="${url}">`,
-        linkEnd: '</a>',
+      const localizedExploreMoreLink = i18n.sprintf(section.exploreMore, {
+        linkStart: '__LINK__',
+        linkEnd: '__LINK__',
       });
+
+      const exploreMoreLinkParts = localizedExploreMoreLink
+        .split('__LINK__')
+        .map((part) => sanitizeHTML(part).__html);
 
       return (
         <div className="Guides-section" key={section.exploreUrl}>
@@ -347,12 +333,11 @@ export class GuidesBase extends React.Component<InternalProps> {
             addonCustomText={section.addonCustomText}
           />
 
-          <div
-            className="Guides-section-explore-more"
-            onClick={(e) => this.handleClick(e, url)}
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={sanitizeHTML(exploreMoreLink, ['a'])}
-          />
+          <div className="Guides-section-explore-more">
+            {exploreMoreLinkParts[0]}
+            <Link to={section.exploreUrl}>{exploreMoreLinkParts[1]}</Link>
+            {exploreMoreLinkParts[2]}
+          </div>
         </div>
       );
     });
@@ -392,7 +377,6 @@ export const mapStateToProps = (
   state: AppState,
   ownProps: InternalProps,
 ): $Shape<InternalProps> => {
-  const { clientApp, lang } = state.api;
   const { i18n, match } = ownProps;
   const { slug } = match.params;
 
@@ -410,8 +394,6 @@ export const mapStateToProps = (
   return {
     addons,
     guids,
-    clientApp,
-    lang,
   };
 };
 

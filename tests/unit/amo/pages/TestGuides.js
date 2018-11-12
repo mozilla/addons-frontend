@@ -1,7 +1,7 @@
-import { oneLine } from 'common-tags';
 import * as React from 'react';
 
 import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
+import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import HeadLinks from 'amo/components/HeadLinks';
@@ -25,6 +25,9 @@ describe(__filename, () => {
     i18n = fakeI18n(),
     dispatch = store.dispatch,
     slug = 'stay-safe-online',
+    content = getContent(slug, i18n),
+    history = createFakeHistory(),
+    location = createFakeLocation(),
     match = {
       params: {
         slug,
@@ -105,7 +108,8 @@ describe(__filename, () => {
       content.sections[0].header,
     );
 
-    const sectionExploreLink = root.find('.Guides-section-explore-more').at(0);
+    const sectionExploreMore = root.find('.Guides-section-explore-more').at(0);
+    const sectionExploreLink = sectionExploreMore.find(Link);
 
     expect(sectionExploreLink).toHaveHTML(
       oneLine`<div class="Guides-section-explore-more">Explore more
