@@ -123,6 +123,14 @@ function renderWithInstallHelpers({
   return { root, dispatch: props.store.dispatch };
 }
 
+const mountWithInstallHelpers = (props = {}) => {
+  const Component = componentWithInstallHelpers();
+  // We use `mount` because we want to trigger all the lifecycle methods in
+  // `withInstallHelpers()` AND be able to inject props on the `Component`
+  // component, not on `ComponentBase` so that the HOC receives those props.
+  return mount(<Component {...defaultProps(props)} />);
+};
+
 const _loadVersions = ({ store, versionProps = {} }) => {
   store.dispatch(
     loadVersions({
@@ -171,7 +179,6 @@ describe(__filename, () => {
   });
 
   it('sets status when getting updated', () => {
-    const Component = componentWithInstallHelpers();
     const _addonManager = getFakeAddonManagerWrapper({
       getAddon: Promise.resolve({
         isActive: true,
@@ -179,17 +186,10 @@ describe(__filename, () => {
       }),
     });
 
-    // We use `mount` because we want to trigger all the lifecycle methods in
-    // `withInstallHelpers()` AND be able to inject props on the `Component`
-    // component, not on `ComponentBase` so that the HOC receives those props.
-    const root = mount(
-      <Component
-        {...defaultProps({
-          _addonManager,
-          addon: createInternalAddon(fakeAddon),
-        })}
-      />,
-    );
+    const root = mountWithInstallHelpers({
+      _addonManager,
+      addon: createInternalAddon(fakeAddon),
+    });
     _addonManager.getAddon.resetHistory();
 
     const newAddon = createInternalAddon({ ...fakeAddon, guid: '@new-guid' });
@@ -199,7 +199,6 @@ describe(__filename, () => {
   });
 
   it('sets status when add-on is loaded on update', () => {
-    const Component = componentWithInstallHelpers();
     const _addonManager = getFakeAddonManagerWrapper({
       getAddon: Promise.resolve({
         isActive: true,
@@ -207,12 +206,10 @@ describe(__filename, () => {
       }),
     });
 
-    // We use `mount` because we want to trigger all the lifecycle methods in
-    // `withInstallHelpers()` AND be able to inject props on the `Component`
-    // component, not on `ComponentBase` so that the HOC receives those props.
-    const root = mount(
-      <Component {...defaultProps({ _addonManager, addon: null })} />,
-    );
+    const root = mountWithInstallHelpers({
+      _addonManager,
+      addon: null,
+    });
     _addonManager.getAddon.resetHistory();
 
     const newAddon = createInternalAddon({
@@ -225,7 +222,6 @@ describe(__filename, () => {
   });
 
   it('does not set status when an update is not necessary', () => {
-    const Component = componentWithInstallHelpers();
     const _addonManager = getFakeAddonManagerWrapper({
       getAddon: Promise.resolve({
         isActive: true,
@@ -234,12 +230,10 @@ describe(__filename, () => {
     });
     const addon = createInternalAddon(fakeAddon);
 
-    // We use `mount` because we want to trigger all the lifecycle methods in
-    // `withInstallHelpers()` AND be able to inject props on the `Component`
-    // component, not on `ComponentBase` so that the HOC receives those props.
-    const root = mount(
-      <Component {...defaultProps({ _addonManager, addon })} />,
-    );
+    const root = mountWithInstallHelpers({
+      _addonManager,
+      addon,
+    });
     _addonManager.getAddon.resetHistory();
 
     // Update the component with the same props (i.e. same add-on guid) and
