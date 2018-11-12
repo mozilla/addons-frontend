@@ -1,11 +1,15 @@
 /* @flow */
 import makeClassName from 'classnames';
+import { oneLine } from 'common-tags';
+import debounce from 'lodash.debounce';
 import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 import Textarea from 'react-textarea-autosize';
 
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
+import createLocalState, { LocalState } from 'core/localState';
 import Button from 'ui/components/Button';
 import type { ElementEvent } from 'core/types/dom';
 import type { I18nType } from 'core/types/i18n';
@@ -26,6 +30,7 @@ type Props = {|
   className?: string,
   dismissButtonText?: string,
   formFooter?: React.Element<any>,
+  id: string,
   onDelete?: null | (() => void),
   onDismiss?: () => void,
   onSubmit: (params: OnSubmitParams) => void,
@@ -42,6 +47,8 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _createLocalState: typeof createLocalState,
+  _debounce: typeof debounce,
   i18n: I18nType,
 |};
 
@@ -59,9 +66,13 @@ export class DismissibleTextFormBase extends React.Component<
   InternalProps,
   State,
 > {
+  localState: LocalState;
+
   textarea: React.ElementRef<typeof Textarea>;
 
   static defaultProps = {
+    _createLocalState: createLocalState,
+    _debounce: debounce,
     isSubmitting: false,
     microButtons: false,
     puffyButtons: false,
@@ -72,11 +83,37 @@ export class DismissibleTextFormBase extends React.Component<
     super(props);
     const initialText = props.text || '';
     this.state = { initialText, text: initialText };
+    this.localState = this.createLocalState();
   }
 
   componentDidMount() {
     if (this.textarea) {
       this.textarea.focus();
+    }
+    this.checkForStoredState();
+  }
+
+  componentDidUpdate(prevProps: InternalProps) {
+    if (this.props.id !== prevProps.id) {
+      this.localState = this.createLocalState();
+      this.checkForStoredState();
+    }
+  }
+
+  createLocalState() {
+    const { _createLocalState, id } = this.props;
+    return _createLocalState(id);
+  }
+
+  async checkForStoredState() {
+    const storedState: State | null = await this.localState.load();
+    if (storedState) {
+      log.debug(
+        oneLine`Initializing DismissibleTextForm state from LocalState
+          ${this.localState.id}`,
+        storedState,
+      );
+      this.setState(storedState);
     }
   }
 
@@ -85,6 +122,7 @@ export class DismissibleTextFormBase extends React.Component<
 
     invariant(this.props.onDelete, 'onDelete() is not defined');
     this.props.onDelete();
+    this.localState.clear();
   };
 
   onDismiss = (event: SyntheticEvent<any>) => {
@@ -93,16 +131,32 @@ export class DismissibleTextFormBase extends React.Component<
     invariant(onDismiss, 'onDismiss() is required');
 
     onDismiss();
+    this.setState({ text: '' });
+    this.localState.clear();
   };
 
   onSubmit = (event: SyntheticEvent<any>) => {
     event.preventDefault();
     this.props.onSubmit({ event, text: this.state.text });
+    this.localState.clear();
   };
+
+  persistState = this.props._debounce(
+    (state) => {
+      // After a few keystrokes, save the text to a local store
+      // so we can recover from crashes.
+      this.localState.save(state);
+    },
+    800,
+    { trailing: true },
+  );
 
   onTextChange = (event: ElementEvent<HTMLInputElement>) => {
     event.preventDefault();
-    this.setState({ text: event.target.value });
+
+    const newState = { text: event.target.value };
+    this.setState(newState);
+    this.persistState(newState);
   };
 
   render() {
@@ -211,7 +265,6 @@ export class DismissibleTextFormBase extends React.Component<
     return (
       <form className={makeClassName('DismissibleTextForm-form', className)}>
         <Textarea
-          defaultValue={this.state.text}
           disabled={isSubmitting}
           className="DismissibleTextForm-textarea"
           inputRef={(ref) => {
@@ -219,6 +272,7 @@ export class DismissibleTextFormBase extends React.Component<
           }}
           onChange={this.onTextChange}
           placeholder={text.placeholder}
+          value={this.state.text}
         />
         {formFooter && (
           <div className="DismissibleTextForm-formFooter">{formFooter}</div>

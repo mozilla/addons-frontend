@@ -18,6 +18,7 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import Button from 'ui/components/Button';
+import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import Icon from 'ui/components/Icon';
 
 describe(__filename, () => {
@@ -276,7 +277,7 @@ describe(__filename, () => {
       expect(notesForm).toHaveLength(0);
     });
 
-    it('calls deleteNote when the delete button is clicked on the DismissibleTextForm', () => {
+    it('calls deleteNote when clicking delete on DismissibleTextForm', () => {
       const notes = 'Some notes.';
       const addon = {
         ...fakeAddon,
@@ -297,7 +298,7 @@ describe(__filename, () => {
       sinon.assert.calledWith(deleteNote, addon.id, errorHandler);
     });
 
-    it('calls saveNote when the save button is clicked on the DismissibleTextForm', () => {
+    it('calls saveNote when saving DismissibleTextForm', () => {
       const notes = 'Some notes.';
       const addon = {
         ...fakeAddon,
@@ -315,6 +316,16 @@ describe(__filename, () => {
       onSaveNote({ text: notes });
       sinon.assert.callCount(saveNote, 1);
       sinon.assert.calledWith(saveNote, addon.id, errorHandler, notes);
+    });
+
+    it('configures DismissibleTextForm with an id', () => {
+      const { store } = dispatchClientMetadata();
+
+      const root = renderAndEditNote({ notes: 'This add-on is buggy', store });
+
+      const formId = root.find(DismissibleTextForm).prop('id');
+      expect(formId).toContain('EditableCollectionAddon');
+      expect(formId).toContain(extractId(root.instance().props));
     });
   });
 

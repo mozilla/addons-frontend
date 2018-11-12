@@ -28,6 +28,17 @@ describe(__filename, () => {
     return localState.localForage.clear();
   });
 
+  it('configures storage', () => {
+    const localForage = fakeLocalForage();
+    configureLocalForage({ localForage });
+
+    sinon.assert.calledWith(localForage.config, {
+      name: sinon.match.string,
+      version: sinon.match.string,
+      storeName: 'src/core/localState.js',
+    });
+  });
+
   it('lets you save and load data', () => {
     const state = { name: 'Aristotle' };
 

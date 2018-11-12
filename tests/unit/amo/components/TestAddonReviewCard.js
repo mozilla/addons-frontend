@@ -33,6 +33,7 @@ import {
   fakeReview,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
+import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import UserReview from 'ui/components/UserReview';
@@ -458,7 +459,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(
       dispatchSpy,
       deleteAddonReview({
-        addonId: fakeAddon.id,
+        addonId: review.reviewAddon.id,
         errorHandlerId: errorHandler.id,
         reviewId: review.id,
       }),
@@ -1273,7 +1274,7 @@ describe(__filename, () => {
       sinon.assert.calledWith(
         dispatchSpy,
         deleteAddonReview({
-          addonId: fakeAddon.id,
+          addonId: review.reviewAddon.id,
           errorHandlerId: errorHandler.id,
           reviewId: review.id,
           isReplyToReviewId: originalReviewId,
@@ -1291,6 +1292,22 @@ describe(__filename, () => {
 
       const reviewComponent = root.find(UserReview);
       expect(reviewComponent).toHaveProp('showRating', false);
+    });
+
+    it('configures DismissibleTextForm with an ID', () => {
+      const { review } = _setReviewReply();
+      store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+
+      const root = render({ review });
+
+      const form = root.find(DismissibleTextForm);
+
+      expect(form).toHaveProp('id');
+      const formId = form.prop('id');
+
+      expect(formId).toContain('AddonReviewCard');
+      expect(formId).toContain(`addon-${review.reviewAddon.id}`);
+      expect(formId).toContain(`review-${review.id}`);
     });
   });
 

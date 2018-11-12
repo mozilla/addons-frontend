@@ -11,7 +11,7 @@ import {
 } from 'amo/reducers/userAbuseReports';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
+import { normalizeFileNameId, sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { AppState } from 'amo/store';
@@ -134,6 +134,7 @@ export class ReportUserAbuseBase extends React.Component<InternalProps> {
             </p>
 
             <DismissibleTextForm
+              id={normalizeFileNameId(__filename)}
               isSubmitting={isSubmitting}
               onDismiss={this.hideReportUI}
               onSubmit={this.sendReport}

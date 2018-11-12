@@ -12,6 +12,7 @@ import { ADDONS_EDIT } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
+import { normalizeFileNameId } from 'core/utils';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import {
   beginDeleteAddonReview,
@@ -275,11 +276,20 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       return null;
     }
 
+    const formId = [
+      normalizeFileNameId(__filename),
+      'addon',
+      addon ? addon.id.toString() : 'no-addon',
+      'review',
+      review ? review.id.toString() : 'unsaved-review',
+    ].join('-');
+
     return (
       <div className="AddonReviewCard-reply">
         {replyingToReview ? (
           <DismissibleTextForm
             className="AddonReviewCard-reply-form"
+            id={formId}
             isSubmitting={submittingReply && !errorHandler.hasError()}
             onDismiss={this.onDismissReviewReply}
             onSubmit={this.onSubmitReviewReply}

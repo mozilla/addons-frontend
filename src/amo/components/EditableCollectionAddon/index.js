@@ -8,7 +8,7 @@ import { withFixedErrorHandler } from 'core/errorHandler';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import withUIState from 'core/withUIState';
-import { nl2br, sanitizeHTML } from 'core/utils';
+import { nl2br, normalizeFileNameId, sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import Icon from 'ui/components/Icon';
@@ -45,6 +45,11 @@ type InternalProps = {|
   setUIState: ($Shape<UIStateType>) => void,
   uiState: UIStateType,
 |};
+
+export const extractId = (ownProps: Props | InternalProps) => {
+  const { addon } = ownProps;
+  return `editable-collection-addon-${addon.id}`;
+};
 
 export class EditableCollectionAddonBase extends React.Component<InternalProps> {
   onEditNote = (event: SyntheticEvent<HTMLElement>) => {
@@ -95,8 +100,8 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
   render() {
     const { addon, className, errorHandler, i18n } = this.props;
     const showNotes = addon.notes || this.props.uiState.editingNote;
-
     const iconURL = getAddonIconUrl(addon);
+
     return (
       <li
         className={makeClassName(
@@ -150,6 +155,9 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
                 {errorHandler.renderErrorIfPresent()}
                 <DismissibleTextForm
                   className="EditableCollectionAddon-notes-form"
+                  id={`${normalizeFileNameId(__filename)}-${extractId(
+                    this.props,
+                  )}`}
                   microButtons
                   onDelete={addon.notes ? this.onDeleteNote : null}
                   onDismiss={this.onDismissNoteForm}
@@ -187,11 +195,6 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
     );
   }
 }
-
-export const extractId = (ownProps: Props) => {
-  const { addon } = ownProps;
-  return `editable-collection-addon-${addon.id}`;
-};
 
 const EditableCollectionAddon: React.ComponentType<Props> = compose(
   translate(),
