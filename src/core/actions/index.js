@@ -3,6 +3,7 @@ import {
   SET_AUTH_TOKEN,
   SET_CLIENT_APP,
   SET_LANG,
+  SET_REQUEST_ID,
   SET_USER_AGENT,
 } from 'core/constants';
 
@@ -57,5 +58,17 @@ export function setUserAgent(userAgent: string): SetUserAgentAction {
   return {
     type: SET_USER_AGENT,
     payload: { userAgent },
+  };
+}
+
+export type SetRequestId = {|
+  payload: {| requestId: string |},
+  type: typeof SET_REQUEST_ID,
+|};
+
+export function setRequestId(requestId: string): SetRequestId {
+  return {
+    type: SET_REQUEST_ID,
+    payload: { requestId },
   };
 }

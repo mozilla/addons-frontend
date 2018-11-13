@@ -102,4 +102,11 @@ describe(__filename, () => {
       expect(setAndReduceToken(token)).toHaveProperty('token', token);
     });
   });
+
+  describe('setRequestId', () => {
+    const requestId = 'uuid4-set-by-middleware';
+    const state = api(undefined, actions.setRequestId(requestId));
+
+    expect(state.requestId).toEqual(requestId);
+  });
 });

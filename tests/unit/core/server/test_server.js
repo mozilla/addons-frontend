@@ -10,6 +10,8 @@ import supertest from 'supertest';
 import defaultConfig, { util as configUtil } from 'config';
 import cheerio from 'cheerio';
 
+import { setRequestId } from 'core/actions';
+import { AMO_REQUEST_ID_HEADER } from 'core/constants';
 import baseServer, { createHistory } from 'core/server/base';
 import { middleware } from 'core/store';
 import apiReducer from 'core/reducers/api';
@@ -25,6 +27,7 @@ import surveyReducer, {
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
 import {
   createUserAccountResponse,
+  getFakeConfig,
   getFakeLogger,
   userAuthToken,
 } from 'tests/unit/helpers';
@@ -229,6 +232,25 @@ describe(__filename, () => {
 
       expect(response.statusCode).toEqual(200);
       expect(survey).toEqual(initialSurveyState);
+    });
+
+    it('dispatches setRequestId()', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const requestId = 'example-request-id';
+
+      await testClient({
+        store,
+        sagaMiddleware,
+        config: getFakeConfig({ enableRequestID: true }),
+      })
+        .get('/en-US/firefox/')
+        // The middleware will honor a request ID header rather than
+        // generate a new one.
+        .set(AMO_REQUEST_ID_HEADER, requestId)
+        .end();
+
+      sinon.assert.calledWith(dispatchSpy, setRequestId(requestId));
     });
 
     it('fetches the user profile when given a token', async () => {
