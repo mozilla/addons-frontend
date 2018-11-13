@@ -639,14 +639,13 @@ export function mapStateToProps(state, ownProps) {
     addonIsLoading: isAddonLoading(state, slug),
     addonsByAuthors,
     clientApp: state.api.clientApp,
+    currentVersion,
     installError: installedAddon.error,
     installStatus: installedAddon.status || UNKNOWN,
     lang: state.api.lang,
-    // In addition to this component, this also is required by the
-    // `withInstallHelpers()` HOC.
-    addon,
     userAgentInfo: state.api.userAgentInfo,
-    currentVersion,
+    // The `withInstallHelpers()` HOC requires an `addon` prop too:
+    addon,
   };
 }
 

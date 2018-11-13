@@ -2,7 +2,6 @@
 import url from 'url';
 
 import { oneLine } from 'common-tags';
-import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -215,20 +214,21 @@ export const findInstallURL = ({
 };
 
 type WithInstallHelpersProps = {|
-  WrappedComponent: React.ComponentType<any>,
-  _addonManager: typeof addonManager,
-  _installTheme: typeof installTheme,
-  _tracking: typeof tracking,
-  addon: AddonType,
-  defaultInstallSource: string,
-  userAgentInfo: UserAgentInfoType,
+  addon: AddonType | null,
+  location: ReactRouterLocationType,
 |};
 
 type WithInstallHelpersInternalProps = {|
   ...WithInstallHelpersProps,
+  WrappedComponent: React.ComponentType<any>,
+  _addonManager: typeof addonManager,
+  _installTheme: typeof installTheme,
+  _log: typeof log,
+  _tracking: typeof tracking,
   currentVersion: AddonVersionType | null,
+  defaultInstallSource: string,
   dispatch: DispatchFunc,
-  location: ReactRouterLocationType,
+  userAgentInfo: UserAgentInfoType,
 |};
 
 type EnableParams = {|
@@ -256,6 +256,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   static defaultProps = {
     _addonManager: addonManager,
     _installTheme: installTheme,
+    _log: log,
     _tracking: tracking,
   };
 
@@ -268,22 +269,25 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     const newGuid = this.props.addon ? this.props.addon.guid : null;
 
     if (newGuid && newGuid !== oldGuid) {
-      log.info('Updating add-on status');
+      this.props._log.info('Updating add-on status');
       this.setCurrentStatus();
     }
   }
 
   async isAddonEnabled() {
-    const {
-      _addonManager,
-      addon: { guid },
-    } = this.props;
+    const { _addonManager, _log, addon } = this.props;
+
+    if (!addon) {
+      _log.debug('no addon, assuming addon is not enabled');
+      return false;
+    }
 
     try {
-      const addon = await _addonManager.getAddon(guid);
-      return addon.isEnabled;
+      const clientAddon = await _addonManager.getAddon(addon.guid);
+
+      return clientAddon.isEnabled;
     } catch (error) {
-      log.error('could not determine whether the add-on was enabled', error);
+      _log.error('could not determine whether the add-on was enabled', error);
     }
 
     return false;
@@ -292,6 +296,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   setCurrentStatus() {
     const {
       _addonManager,
+      _log,
       addon,
       currentVersion,
       defaultInstallSource,
@@ -301,11 +306,17 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     } = this.props;
 
     if (!_addonManager.hasAddonManager()) {
-      log.info('No addon manager, cannot set add-on status');
+      _log.info('No addon manager, cannot set add-on status');
       return Promise.resolve();
     }
 
-    if (!addon || !currentVersion) {
+    if (!addon) {
+      _log.debug('no addon, aborting setCurrentStatus()');
+      return Promise.resolve();
+    }
+
+    if (!currentVersion) {
+      _log.debug('no currentVersion, aborting setCurrentStatus()');
       return Promise.resolve();
     }
 
@@ -321,7 +332,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
 
     const payload = { guid, url: installURL };
 
-    log.info('Setting add-on status');
+    _log.info('Setting add-on status');
     return _addonManager
       .getAddon(guid)
       .then(
@@ -334,13 +345,13 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
           dispatch(setInstallState({ ...payload, status }));
         },
         (error) => {
-          log.info(oneLine`Add-on "${guid}" not found so setting status to
+          _log.info(oneLine`Add-on "${guid}" not found so setting status to
             UNINSTALLED; exact error: ${error}`);
           dispatch(setInstallState({ ...payload, status: UNINSTALLED }));
         },
       )
       .catch((error) => {
-        log.error(`Caught error from addonManager: ${error}`);
+        _log.error(`Caught error from addonManager: ${error}`);
         // Dispatch a generic error should the success/error functions throw.
         dispatch(
           setInstallState({
@@ -353,12 +364,14 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   }
 
   enable({ sendTrackingEvent }: EnableParams = { sendTrackingEvent: true }) {
-    const {
-      _addonManager,
-      _tracking,
-      addon: { guid, type, name },
-      dispatch,
-    } = this.props;
+    const { _addonManager, _log, _tracking, dispatch, addon } = this.props;
+
+    if (!addon) {
+      _log.debug('no addon found, aborting enable().');
+      return Promise.resolve();
+    }
+
+    const { guid, type, name } = addon;
 
     return _addonManager
       .enable(guid)
@@ -377,9 +390,9 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       })
       .catch((err) => {
         if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
-          log.info(`addon.setEnabled not available. Unable to enable ${guid}`);
+          _log.info(`addon.setEnabled not available. Unable to enable ${guid}`);
         } else {
-          log.error(`Error while trying to enable ${guid}:`, err);
+          _log.error(`Error while trying to enable ${guid}:`, err);
 
           dispatch(
             setInstallState({
@@ -395,6 +408,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   install() {
     const {
       _addonManager,
+      _log,
       _tracking,
       addon,
       currentVersion,
@@ -404,7 +418,15 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       userAgentInfo,
     } = this.props;
 
-    invariant(currentVersion, 'currentVersion is required');
+    if (!addon) {
+      _log.debug('no addon found, aborting install().');
+      return Promise.resolve();
+    }
+
+    if (!currentVersion) {
+      _log.debug('no currentVersion found, aborting install().');
+      return Promise.resolve();
+    }
 
     const { guid, name, type } = addon;
     const { platformFiles } = currentVersion;
@@ -454,7 +476,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
         }
       })
       .catch((error) => {
-        log.error(`Install error: ${error}`);
+        _log.error(`Install error: ${error}`);
 
         dispatch(setInstallError({ guid, error: FATAL_INSTALL_ERROR }));
       });
@@ -462,6 +484,8 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
 
   showInfo() {
     const { addon, dispatch } = this.props;
+
+    invariant(addon, 'addon is required');
 
     dispatch(
       showInfoDialog({
@@ -472,7 +496,8 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   }
 
   uninstall({ guid, name, type }: UninstallParams) {
-    const { _addonManager, _tracking, dispatch } = this.props;
+    const { _addonManager, _log, _tracking, dispatch } = this.props;
+
     dispatch(setInstallState({ guid, status: UNINSTALLING }));
 
     const action = getAddonTypeForTracking(type);
@@ -486,7 +511,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
         });
       })
       .catch((error) => {
-        log.error(`Uninstall error: ${error}`);
+        _log.error(`Uninstall error: ${error}`);
 
         dispatch(setInstallError({ guid, error: FATAL_UNINSTALL_ERROR }));
       });
@@ -516,61 +541,18 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   }
 }
 
-export function makeMapDispatchToProps({
-  WrappedComponent,
-  defaultInstallSource,
-  _config = config,
-}: {|
-  WrappedComponent: React.ComponentType<any>,
-  defaultInstallSource: string,
-  _config?: typeof config,
-|}) {
-  return function mapDispatchToProps(
-    dispatch: DispatchFunc,
-    ownProps: WithInstallHelpersInternalProps,
-  ) {
-    const mappedProps = {
-      WrappedComponent,
-      defaultInstallSource,
-      dispatch,
-    };
-
-    if (_config.get('server')) {
-      // Return early without validating properties.
-      // I think this returns early because a user agent prop isn't
-      // guaranteed on the server.
-      return mappedProps;
-    }
-
-    if (ownProps.addon === undefined) {
-      throw new Error(oneLine`The addon prop is required;
-        ensure the wrapped component defines this property`);
-    }
-
-    if (ownProps.location === undefined) {
-      throw new Error(oneLine`The location prop is required;
-        ensure the wrapped component defines this property`);
-    }
-
-    if (ownProps.userAgentInfo === undefined) {
-      throw new Error(oneLine`The userAgentInfo prop is required;
-        ensure the wrapped component defines this property`);
-    }
-
-    return mappedProps;
-  };
-}
+type withInstallHelpersParams = {|
+  defaultInstallSource: string | null,
+|};
 
 export function withInstallHelpers({
-  _makeMapDispatchToProps = makeMapDispatchToProps,
   defaultInstallSource,
-}: {|
-  _makeMapDispatchToProps?: typeof makeMapDispatchToProps,
-  defaultInstallSource: string,
-|}) {
-  if (typeof defaultInstallSource === 'undefined') {
-    throw new Error('defaultInstallSource is required for withInstallHelpers');
-  }
+}: withInstallHelpersParams) {
+  invariant(
+    typeof defaultInstallSource !== 'undefined',
+    'defaultInstallSource is required',
+  );
+
   return (WrappedComponent: React.ComponentType<any>) => {
     WithInstallHelpers.displayName = `WithInstallHelpers(${getDisplayName(
       WrappedComponent,
@@ -580,7 +562,13 @@ export function withInstallHelpers({
       state: AmoAppState | DiscoAppState,
       ownProps: WithInstallHelpersProps,
     ) => {
-      const { addon } = ownProps;
+      const { addon, location } = ownProps;
+
+      // Please make sure the `addon` and `location` props are available when
+      // you use this HOC on a component.
+      invariant(typeof addon !== 'undefined', 'addon is required');
+      invariant(location, 'location is required');
+
       const currentVersion =
         addon && addon.currentVersionId
           ? getVersionById({
@@ -590,13 +578,13 @@ export function withInstallHelpers({
           : null;
 
       return {
+        WrappedComponent,
         currentVersion,
+        defaultInstallSource,
+        userAgentInfo: state.api.userAgentInfo,
       };
     };
 
-    return connect(
-      mapStateToProps,
-      _makeMapDispatchToProps({ WrappedComponent, defaultInstallSource }),
-    )(WithInstallHelpers);
+    return connect(mapStateToProps)(WithInstallHelpers);
   };
 }

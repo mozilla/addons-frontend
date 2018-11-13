@@ -326,14 +326,13 @@ function mapStateToProps(state: AppState, ownProps: Props) {
   }
 
   return {
-    addon,
-    error: installation.error,
-    status: installation.status || UNKNOWN,
     clientApp: state.api.clientApp,
     currentVersion,
-    // In addition to this component, this also is required by the
-    // `withInstallHelpers()` HOC.
+    error: installation.error,
+    status: installation.status || UNKNOWN,
     userAgentInfo: state.api.userAgentInfo,
+    // The `withInstallHelpers()` HOC requires an `addon` prop too:
+    addon,
   };
 }
 
