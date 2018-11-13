@@ -763,6 +763,18 @@ describe(__filename, () => {
           'no addon, aborting setCurrentStatus()',
         );
       });
+
+      it('does nothing when currentVersion is `null`', () => {
+        const _log = getFakeLogger();
+
+        const { dispatch } = renderWithInstallHelpers({ _log });
+
+        sinon.assert.notCalled(dispatch);
+        sinon.assert.calledWith(
+          _log.debug,
+          'no currentVersion, aborting setCurrentStatus()',
+        );
+      });
     });
 
     describe('makeProgressHandler', () => {
