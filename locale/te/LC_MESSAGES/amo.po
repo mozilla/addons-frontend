@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-06 17:27+0000\n"
-"PO-Revision-Date: 2018-11-09 10:58+0000\n"
+"PO-Revision-Date: 2018-11-13 11:46+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -374,9 +374,8 @@ msgid "Keep rating"
 msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:259
-#, fuzzy
 msgid "Keep review"
-msgstr "నా సమీక్షను తొలగించు"
+msgstr "సమీక్షను ఉంచు"
 
 #: src/amo/components/AddonReviewCard/index.js:286
 msgid "Write a reply to this review."
@@ -428,9 +427,8 @@ msgid "Submitting review"
 msgstr "సమీక్షను సమర్పించండి"
 
 #: src/amo/components/AddonReviewManager/index.js:108
-#, fuzzy
 msgid "Update review"
-msgstr "ప్రొఫైలును తాజాకరించు"
+msgstr "సమీక్షను తాజాకరించు"
 
 #: src/amo/components/AddonReviewManager/index.js:111
 #, fuzzy
