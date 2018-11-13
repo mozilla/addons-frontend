@@ -13,6 +13,8 @@ const requestId = (
   { _httpContext = httpContext }: {| _httpContext: typeof httpContext |} = {},
 ): Middleware => {
   const amoRequestId = req.headers[AMO_REQUEST_ID_HEADER] || uuidv4();
+  // Make sure a request header is always set. This is mainly for Sentry errors.
+  req.headers[AMO_REQUEST_ID_HEADER] = amoRequestId;
 
   _httpContext.set(AMO_REQUEST_ID_HEADER, amoRequestId);
   res.setHeader(AMO_REQUEST_ID_HEADER, amoRequestId);
