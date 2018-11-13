@@ -21,16 +21,19 @@ import versionsReducer, {
   getVersionsBySlug,
   initialState,
   loadVersions,
+  createPlatformFiles,
+  defaultPlatformFiles,
 } from 'core/reducers/versions';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
-import { ADDON_TYPE_EXTENSION } from 'core/constants';
-import { createPlatformFiles, loadAddonResults } from 'core/reducers/addons';
+import { ADDON_TYPE_EXTENSION, OS_MAC, OS_WINDOWS } from 'core/constants';
+import { loadAddonResults } from 'core/reducers/addons';
 import { searchLoad } from 'core/reducers/search';
 import {
   createAddonsApiResult,
   createFakeCollectionAddon,
   createFakeCollectionDetail,
   fakeAddon,
+  fakePlatformFile,
   fakeVersion,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
@@ -86,6 +89,56 @@ describe(__filename, () => {
       createInternalVersion(versions[0]),
       createInternalVersion(versions[1]),
     ]);
+  });
+
+  describe('createPlatformFiles', () => {
+    it('creates a default object if there is no version', () => {
+      expect(createPlatformFiles(undefined)).toEqual(defaultPlatformFiles);
+    });
+
+    it('creates a default object if there are no files', () => {
+      expect(createPlatformFiles({ ...fakeVersion, files: [] })).toEqual(
+        defaultPlatformFiles,
+      );
+    });
+
+    it('creates a PlatformFilesType object from a version with files', () => {
+      const windowsFile = {
+        ...fakePlatformFile,
+        platform: OS_WINDOWS,
+      };
+      const macFile = {
+        ...fakePlatformFile,
+        platform: OS_MAC,
+      };
+      expect(
+        createPlatformFiles({
+          ...fakeVersion,
+          files: [windowsFile, macFile],
+        }),
+      ).toEqual({
+        ...defaultPlatformFiles,
+        [OS_WINDOWS]: windowsFile,
+        [OS_MAC]: macFile,
+      });
+    });
+
+    it('handles files for unknown platforms', () => {
+      const unknownPlatform = 'unknownPlatform';
+      const unknownFile = {
+        ...fakePlatformFile,
+        platform: unknownPlatform,
+      };
+      expect(
+        createPlatformFiles({
+          ...fakeVersion,
+          files: [unknownFile],
+        }),
+      ).toEqual({
+        ...defaultPlatformFiles,
+        [unknownPlatform]: unknownFile,
+      });
+    });
   });
 
   describe('createInternalVersion', () => {

@@ -1,18 +1,9 @@
 /* @flow */
 import invariant from 'invariant';
-import { oneLine } from 'common-tags';
 
 import { UNLOAD_ADDON_REVIEWS } from 'amo/actions/reviews';
 import { removeUndefinedProps } from 'core/utils/addons';
-import {
-  ADDON_TYPE_THEME,
-  OS_ALL,
-  OS_ANDROID,
-  OS_LINUX,
-  OS_MAC,
-  OS_WINDOWS,
-} from 'core/constants';
-import log from 'core/logger';
+import { ADDON_TYPE_THEME } from 'core/constants';
 import type { UnloadAddonReviewsAction } from 'amo/actions/reviews';
 import type { ExternalAddonInfoType } from 'amo/api/addonInfo';
 import type { AppState } from 'amo/store';
@@ -20,10 +11,7 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type {
   AddonType,
   ExternalAddonType,
-  ExternalAddonVersionType,
-  PlatformFilesType,
   PartialExternalAddonType,
-  PartialExternalAddonVersionType,
   ThemeData,
 } from 'core/types/addons';
 import type { AppState as DiscoAppState } from 'disco/store';
@@ -195,34 +183,6 @@ export function createInternalThemeData(
     version: apiAddon.theme_data.version,
   };
 }
-
-export const defaultPlatformFiles: PlatformFilesType = Object.freeze({
-  [OS_ALL]: undefined,
-  [OS_ANDROID]: undefined,
-  [OS_LINUX]: undefined,
-  [OS_MAC]: undefined,
-  [OS_WINDOWS]: undefined,
-});
-
-export const createPlatformFiles = (
-  version?: ExternalAddonVersionType | PartialExternalAddonVersionType,
-): PlatformFilesType => {
-  const platformFiles = { ...defaultPlatformFiles };
-
-  if (version && version.files.length > 0) {
-    version.files.forEach((file) => {
-      // eslint-disable-next-line no-prototype-builtins
-      if (!platformFiles.hasOwnProperty(file.platform)) {
-        // You wouldn't think this is needed, but Flow.
-        invariant(version, 'version is required');
-        log.warn(oneLine`A version with id ${version.id}
-          has a file with an unknown platform: ${file.platform}`);
-      }
-      platformFiles[file.platform] = file;
-    });
-  }
-  return platformFiles;
-};
 
 export function createInternalAddon(
   apiAddon: ExternalAddonType | PartialExternalAddonType,

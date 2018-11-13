@@ -43,8 +43,6 @@ import {
 import { createInternalAddon } from 'core/reducers/addons';
 import { showInfoDialog } from 'core/reducers/infoDialog';
 import {
-  createFakeAddon,
-  createFakeTracking,
   createFakeLocation,
   createFakeTracking,
   dispatchClientMetadata,
@@ -172,6 +170,7 @@ describe(__filename, () => {
 
   it('sets status when the component is created', () => {
     _loadVersions({ store });
+
     const _addonManager = getFakeAddonManagerWrapper({
       getAddon: Promise.resolve({
         isActive: true,
@@ -181,7 +180,7 @@ describe(__filename, () => {
     });
     const addon = createInternalAddon(fakeAddon);
 
-    renderWithInstallHelpers({ _addonManager, addon });
+    renderWithInstallHelpers({ _addonManager, addon, store });
 
     sinon.assert.calledWith(_addonManager.getAddon, addon.guid);
   });
@@ -199,6 +198,7 @@ describe(__filename, () => {
     const root = mountWithInstallHelpers({
       _addonManager,
       addon: createInternalAddon(fakeAddon),
+      store,
     });
     _addonManager.getAddon.resetHistory();
 
@@ -209,6 +209,8 @@ describe(__filename, () => {
   });
 
   it('sets status when add-on is loaded on update', () => {
+    _loadVersions({ store });
+
     const _addonManager = getFakeAddonManagerWrapper({
       getAddon: Promise.resolve({
         isActive: true,
@@ -216,10 +218,10 @@ describe(__filename, () => {
       }),
     });
 
-    _loadVersions({ store });
     const root = mountWithInstallHelpers({
       _addonManager,
       addon: null,
+      store,
     });
     _addonManager.getAddon.resetHistory();
 
@@ -269,7 +271,7 @@ describe(__filename, () => {
       }),
     });
 
-    renderWithInstallHelpers({ _addonManager });
+    renderWithInstallHelpers({ _addonManager, store });
 
     sinon.assert.called(_addonManager.getAddon);
   });
@@ -509,7 +511,7 @@ describe(__filename, () => {
 
       it('sets the status to DISABLED when the extension is inactive and disabled', () => {
         const installURL = 'http://the.url/';
-        const addon = getAddon({ type: ADDON_TYPE_EXTENSION });
+        const addon = getAddon();
         loadVersionWithInstallUrl(installURL);
 
         const { root, dispatch } = renderWithInstallHelpers({
@@ -539,7 +541,7 @@ describe(__filename, () => {
 
       it('sets the status to INACTIVE when an inactive extension is found', () => {
         const installURL = 'http://the.url/';
-        const addon = getAddon({ type: ADDON_TYPE_EXTENSION });
+        const addon = getAddon();
         loadVersionWithInstallUrl(installURL);
 
         const { root, dispatch } = renderWithInstallHelpers({

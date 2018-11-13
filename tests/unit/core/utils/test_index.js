@@ -48,7 +48,8 @@ import {
   trimAndAddProtocolToUrl,
   visibleAddonType,
 } from 'core/utils';
-import { createInternalAddon, createPlatformFiles } from 'core/reducers/addons';
+import { createInternalAddon } from 'core/reducers/addons';
+import { createPlatformFiles } from 'core/reducers/versions';
 import {
   createFakeHistory,
   createFakeLocation,
