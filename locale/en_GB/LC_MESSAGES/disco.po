@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-06 17:31+0000\n"
+"POT-Creation-Date: 2018-11-13 19:33+0000\n"
 "PO-Revision-Date: 2017-12-17 01:04+0000\n"
 "Last-Translator: Dylan <chano79thstreet+ffx@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,38 +14,38 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:228
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:231
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Remove"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:233
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:237
 #, fuzzy
 msgid "Downloading"
 msgstr "Downloading %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:239
 #, fuzzy
 msgid "Installing"
 msgstr "Installing %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:241
 #, fuzzy
 msgid "Uninstalling"
 msgstr "Uninstalling %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:249
 msgid "Install Theme"
 msgstr "Install Theme"
 
-#: src/core/components/AMInstallButton/index.js:248
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Add to Firefox"
 msgstr "Add to Firefox"
 
@@ -107,39 +107,39 @@ msgstr ""
 msgid "%(localizedSize)s TB"
 msgstr ""
 
-#: src/core/utils/addons.js:28
+#: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
 msgstr "Installation failed. Please try again."
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:31
 msgid "Download failed. Please check your connection."
 msgstr "Download failed. Please check your connection."
 
-#: src/core/utils/addons.js:32
+#: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during installation."
 msgstr "An unexpected error occurred during installation."
 
-#: src/core/utils/addons.js:34
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred during uninstallation."
 msgstr "An unexpected error occurred during uninstallation."
 
-#: src/core/utils/addons.js:39
+#: src/core/utils/addons.js:40
 msgid "An unexpected error occurred."
 msgstr "An unexpected error occurred."
 
-#: src/disco/components/Addon/index.js:83
+#: src/disco/components/Addon/index.js:87
 msgid "Close"
 msgstr "Close"
 
-#: src/disco/components/AddonCompatibilityError/index.js:32
+#: src/disco/components/AddonCompatibilityError/index.js:30
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox for iOS does not currently support add-ons."
 
-#: src/disco/components/AddonCompatibilityError/index.js:36
+#: src/disco/components/AddonCompatibilityError/index.js:34
 msgid "This add-on does not support your version of Firefox."
 msgstr "This add-on does not support your version of Firefox."
 
-#: src/disco/components/AddonCompatibilityError/index.js:42
+#: src/disco/components/AddonCompatibilityError/index.js:40
 msgid "This add-on does not support your browser."
 msgstr "This add-on does not support your browser."
 
@@ -151,16 +151,16 @@ msgstr "Discover Add-ons"
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-#: src/disco/pages/DiscoPane/index.js:131
+#: src/disco/pages/DiscoPane/index.js:130
 #, fuzzy
 msgid "Find more add-ons"
 msgstr "See more add-ons!"
 
-#: src/disco/pages/DiscoPane/index.js:147
+#: src/disco/pages/DiscoPane/index.js:146
 msgid "Personalize Your Firefox"
 msgstr "Personalize Your Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:149
+#: src/disco/pages/DiscoPane/index.js:148
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "

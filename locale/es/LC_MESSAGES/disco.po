@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-06 17:31+0000\n"
+"POT-Creation-Date: 2018-11-13 19:33+0000\n"
 "PO-Revision-Date: 2018-09-11 17:33+0000\n"
 "Last-Translator: RickieES <rpmdisguise-nave@yahoo.es>\n"
 "Language-Team: none\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:228
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Enable"
 msgstr "Activar"
 
-#: src/core/components/AMInstallButton/index.js:231
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Remove"
 msgstr "Eliminar"
 
-#: src/core/components/AMInstallButton/index.js:233
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Enabling"
 msgstr "Activando"
 
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Downloading"
 msgstr "Descargando"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Installing"
 msgstr "Instalando"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:241
 msgid "Uninstalling"
 msgstr "Desinstalando"
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:249
 msgid "Install Theme"
 msgstr "Instalar tema"
 
-#: src/core/components/AMInstallButton/index.js:248
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Add to Firefox"
 msgstr "Agregar a Firefox"
 
@@ -105,39 +105,39 @@ msgstr ""
 msgid "%(localizedSize)s TB"
 msgstr ""
 
-#: src/core/utils/addons.js:28
+#: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
 msgstr "Falló la instalación. Vuelve a intentarlo, por favor."
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:31
 msgid "Download failed. Please check your connection."
 msgstr "Falló la descarga. Comprueba tu conexión, por favor."
 
-#: src/core/utils/addons.js:32
+#: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during installation."
 msgstr "Se ha producido un error inesperado durante la instalación."
 
-#: src/core/utils/addons.js:34
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Se ha producido un error inesperado durante la desinstalación."
 
-#: src/core/utils/addons.js:39
+#: src/core/utils/addons.js:40
 msgid "An unexpected error occurred."
 msgstr "Se ha producido un error inesperado."
 
-#: src/disco/components/Addon/index.js:83
+#: src/disco/components/Addon/index.js:87
 msgid "Close"
 msgstr "Cerrar"
 
-#: src/disco/components/AddonCompatibilityError/index.js:32
+#: src/disco/components/AddonCompatibilityError/index.js:30
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox para iOS no es compatible actualmente con complementos."
 
-#: src/disco/components/AddonCompatibilityError/index.js:36
+#: src/disco/components/AddonCompatibilityError/index.js:34
 msgid "This add-on does not support your version of Firefox."
 msgstr "Este complemento no es compatible con tu versión de Firefox."
 
-#: src/disco/components/AddonCompatibilityError/index.js:42
+#: src/disco/components/AddonCompatibilityError/index.js:40
 msgid "This add-on does not support your browser."
 msgstr "Este complemento no es compatible con tu navegador."
 
@@ -149,15 +149,15 @@ msgstr "Descubrir complementos"
 msgid "Privacy Policy"
 msgstr "Aviso de privacidad"
 
-#: src/disco/pages/DiscoPane/index.js:131
+#: src/disco/pages/DiscoPane/index.js:130
 msgid "Find more add-ons"
 msgstr "Encontrar más complementos"
 
-#: src/disco/pages/DiscoPane/index.js:147
+#: src/disco/pages/DiscoPane/index.js:146
 msgid "Personalize Your Firefox"
 msgstr "Personaliza tu Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:149
+#: src/disco/pages/DiscoPane/index.js:148
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "

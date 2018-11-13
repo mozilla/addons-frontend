@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-06 17:31+0000\n"
+"POT-Creation-Date: 2018-11-13 19:33+0000\n"
 "PO-Revision-Date: 2018-08-24 14:27+0000\n"
 "Last-Translator: Jim Spentzos <jim.spentzos@outlook.com>\n"
 "Language-Team: none\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:228
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Enable"
 msgstr "Ενεργοποίηση"
 
-#: src/core/components/AMInstallButton/index.js:231
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: src/core/components/AMInstallButton/index.js:233
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Enabling"
 msgstr "Ενεργοποίηση"
 
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Downloading"
 msgstr "Λήψη"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Installing"
 msgstr "Εγκατάσταση"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:241
 msgid "Uninstalling"
 msgstr "Απεγκατάσταση"
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:249
 msgid "Install Theme"
 msgstr "Εγκατάσταση θέματος"
 
-#: src/core/components/AMInstallButton/index.js:248
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Add to Firefox"
 msgstr "Προσθήκη στο Firefox"
 
@@ -104,39 +104,39 @@ msgstr ""
 msgid "%(localizedSize)s TB"
 msgstr ""
 
-#: src/core/utils/addons.js:28
+#: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
 msgstr "Αποτυχία εγκατάστασης. Παρακαλώ προσπαθήστε ξανά."
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:31
 msgid "Download failed. Please check your connection."
 msgstr "Αποτυχία λήψης. Παρακαλώ ελέγξτε τη σύνδεσή σας."
 
-#: src/core/utils/addons.js:32
+#: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during installation."
 msgstr "Προέκυψε ένα απροσδόκητο σφάλμα κατά την εγκατάσταση."
 
-#: src/core/utils/addons.js:34
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Προέκυψε ένα απροσδόκητο σφάλμα κατά την απεγκατάσταση."
 
-#: src/core/utils/addons.js:39
+#: src/core/utils/addons.js:40
 msgid "An unexpected error occurred."
 msgstr "Προέκυψε ένα απροσδόκητο σφάλμα."
 
-#: src/disco/components/Addon/index.js:83
+#: src/disco/components/Addon/index.js:87
 msgid "Close"
 msgstr "Κλείσιμο"
 
-#: src/disco/components/AddonCompatibilityError/index.js:32
+#: src/disco/components/AddonCompatibilityError/index.js:30
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Το Firefox για iOS δεν υποστηρίζει προς το παρόν τα πρόσθετα."
 
-#: src/disco/components/AddonCompatibilityError/index.js:36
+#: src/disco/components/AddonCompatibilityError/index.js:34
 msgid "This add-on does not support your version of Firefox."
 msgstr "Αυτό το πρόσθετο δεν υποστηρίζει την έκδοση του Firefox σας."
 
-#: src/disco/components/AddonCompatibilityError/index.js:42
+#: src/disco/components/AddonCompatibilityError/index.js:40
 msgid "This add-on does not support your browser."
 msgstr "Αυτό το πρόσθετο δεν υποστηρίζει το πρόγραμμα περιήγησής σας."
 
@@ -148,15 +148,15 @@ msgstr "Ανακάλυψη πρόσθετων"
 msgid "Privacy Policy"
 msgstr "Πολιτική απορρήτου"
 
-#: src/disco/pages/DiscoPane/index.js:131
+#: src/disco/pages/DiscoPane/index.js:130
 msgid "Find more add-ons"
 msgstr "Εύρεση περισσότερων προσθέτων"
 
-#: src/disco/pages/DiscoPane/index.js:147
+#: src/disco/pages/DiscoPane/index.js:146
 msgid "Personalize Your Firefox"
 msgstr "Εξατομίκευση Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:149
+#: src/disco/pages/DiscoPane/index.js:148
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "

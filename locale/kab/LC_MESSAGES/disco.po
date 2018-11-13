@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-06 17:31+0000\n"
+"POT-Creation-Date: 2018-11-13 19:33+0000\n"
 "PO-Revision-Date: 2018-08-11 12:01+0000\n"
 "Last-Translator: Slimane AMIRI <slimane.amiri@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,38 +14,38 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:228
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:231
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Remove"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:233
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:237
 #, fuzzy
 msgid "Downloading"
 msgstr "Asider n %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:239
 #, fuzzy
 msgid "Installing"
 msgstr "Asebded n %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:241
 #, fuzzy
 msgid "Uninstalling"
 msgstr "Tukksa n %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:249
 msgid "Install Theme"
 msgstr "Sebded asentel"
 
-#: src/core/components/AMInstallButton/index.js:248
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Add to Firefox"
 msgstr "Rnu ɣer Firefox"
 
@@ -107,39 +107,39 @@ msgstr ""
 msgid "%(localizedSize)s TB"
 msgstr ""
 
-#: src/core/utils/addons.js:28
+#: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
 msgstr "Asebded ur yeddi ara. Ma ulac aqilif, ɛreḍ tikelt nniḍen."
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:31
 msgid "Download failed. Please check your connection."
 msgstr "Asider ur yeddi ara. Ma ulac aɣilif senqed tuqqna yinek."
 
-#: src/core/utils/addons.js:32
+#: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during installation."
 msgstr "Teḍra-d tuccḍa tarussint deg usebded."
 
-#: src/core/utils/addons.js:34
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Teḍra-d tuccḍa tarussint deg tukksa n usebded."
 
-#: src/core/utils/addons.js:39
+#: src/core/utils/addons.js:40
 msgid "An unexpected error occurred."
 msgstr "Teḍra-d tuccḍa tarussint."
 
-#: src/disco/components/Addon/index.js:83
+#: src/disco/components/Addon/index.js:87
 msgid "Close"
 msgstr "Mdel"
 
-#: src/disco/components/AddonCompatibilityError/index.js:32
+#: src/disco/components/AddonCompatibilityError/index.js:30
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox i iOS ur isefrak-ara yakan azegrir-agi."
 
-#: src/disco/components/AddonCompatibilityError/index.js:36
+#: src/disco/components/AddonCompatibilityError/index.js:34
 msgid "This add-on does not support your version of Firefox."
 msgstr "Azegrir-agi ur ittusefrak-ara di lqem-ik n Firefox."
 
-#: src/disco/components/AddonCompatibilityError/index.js:42
+#: src/disco/components/AddonCompatibilityError/index.js:40
 msgid "This add-on does not support your browser."
 msgstr "Azegrir-agi ur ittusefrak ara deg iminig-ik."
 
@@ -151,15 +151,15 @@ msgstr "Issin izegrar"
 msgid "Privacy Policy"
 msgstr "Tasertit n tbaḍnit"
 
-#: src/disco/pages/DiscoPane/index.js:131
+#: src/disco/pages/DiscoPane/index.js:130
 msgid "Find more add-ons"
 msgstr "Aff-d ugar n izegrar"
 
-#: src/disco/pages/DiscoPane/index.js:147
+#: src/disco/pages/DiscoPane/index.js:146
 msgid "Personalize Your Firefox"
 msgstr "Sagen Firefox inek"
 
-#: src/disco/pages/DiscoPane/index.js:149
+#: src/disco/pages/DiscoPane/index.js:148
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "

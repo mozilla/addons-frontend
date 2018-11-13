@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-06 17:31+0000\n"
+"POT-Creation-Date: 2018-11-13 19:33+0000\n"
 "PO-Revision-Date: 2018-08-23 11:38+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:228
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Enable"
 msgstr "Включване"
 
-#: src/core/components/AMInstallButton/index.js:231
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Remove"
 msgstr "Премахване"
 
-#: src/core/components/AMInstallButton/index.js:233
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Enabling"
 msgstr "Включване"
 
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Downloading"
 msgstr "Изтегляне"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Installing"
 msgstr "Инсталиране"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:241
 msgid "Uninstalling"
 msgstr "Премахване"
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:249
 msgid "Install Theme"
 msgstr "Инсталиране на темата"
 
-#: src/core/components/AMInstallButton/index.js:248
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Add to Firefox"
 msgstr "Добавяне към Firefox"
 
@@ -103,39 +103,39 @@ msgstr ""
 msgid "%(localizedSize)s TB"
 msgstr ""
 
-#: src/core/utils/addons.js:28
+#: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
 msgstr "Грешка при инсталацията. Моля, опитайте отново."
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:31
 msgid "Download failed. Please check your connection."
 msgstr "Грешка при изтеглянето. Моля, проверете свързаността си."
 
-#: src/core/utils/addons.js:32
+#: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during installation."
 msgstr "Възникна неочаквана грешка при инсталацията."
 
-#: src/core/utils/addons.js:34
+#: src/core/utils/addons.js:35
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Възникна неочаквана грешка при премахването."
 
-#: src/core/utils/addons.js:39
+#: src/core/utils/addons.js:40
 msgid "An unexpected error occurred."
 msgstr "Възникна неочаквана грешка."
 
-#: src/disco/components/Addon/index.js:83
+#: src/disco/components/Addon/index.js:87
 msgid "Close"
 msgstr "Затваряне"
 
-#: src/disco/components/AddonCompatibilityError/index.js:32
+#: src/disco/components/AddonCompatibilityError/index.js:30
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox за iOS за момента не поддържа добавки."
 
-#: src/disco/components/AddonCompatibilityError/index.js:36
+#: src/disco/components/AddonCompatibilityError/index.js:34
 msgid "This add-on does not support your version of Firefox."
 msgstr "Добавката не поддържа изданието на вашия четец."
 
-#: src/disco/components/AddonCompatibilityError/index.js:42
+#: src/disco/components/AddonCompatibilityError/index.js:40
 msgid "This add-on does not support your browser."
 msgstr "Добавката не поддържа вашия четец."
 
@@ -147,15 +147,15 @@ msgstr "Още добавки"
 msgid "Privacy Policy"
 msgstr "Политика на поверителност"
 
-#: src/disco/pages/DiscoPane/index.js:131
+#: src/disco/pages/DiscoPane/index.js:130
 msgid "Find more add-ons"
 msgstr "Намерете още добавки"
 
-#: src/disco/pages/DiscoPane/index.js:147
+#: src/disco/pages/DiscoPane/index.js:146
 msgid "Personalize Your Firefox"
 msgstr "Настройте вашия Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:149
+#: src/disco/pages/DiscoPane/index.js:148
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
