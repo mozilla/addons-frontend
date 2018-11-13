@@ -6,6 +6,7 @@ import {
   SET_AUTH_TOKEN,
   SET_LANG,
   SET_CLIENT_APP,
+  SET_REQUEST_ID,
   SET_USER_AGENT,
 } from 'core/constants';
 import type { LogOutUserAction } from 'amo/reducers/users';
@@ -13,6 +14,7 @@ import type {
   SetAuthTokenAction,
   SetClientAppAction,
   SetLangAction,
+  SetRequestIdAction,
   SetUserAgentAction,
 } from 'core/actions/index';
 import type { Exact } from 'core/types/util';
@@ -66,6 +68,7 @@ export type ApiState = {
   clientApp: ?string,
   // See config.get('langs') for all possible values.
   lang: ?string,
+  requestId: string | null,
   token: ?string,
   userAgent: ?string,
   userAgentInfo: UserAgentInfoType,
@@ -74,6 +77,7 @@ export type ApiState = {
 export const initialApiState: ApiState = {
   clientApp: null,
   lang: null,
+  requestId: null,
   token: null,
   userAgent: null,
   userAgentInfo: { browser: {}, os: {} },
@@ -83,6 +87,7 @@ type Action =
   | SetAuthTokenAction
   | SetLangAction
   | SetClientAppAction
+  | SetRequestIdAction
   | SetUserAgentAction
   | LogOutUserAction;
 
@@ -100,6 +105,8 @@ export default function api(
       return { ...state, lang: action.payload.lang };
     case SET_CLIENT_APP:
       return { ...state, clientApp: action.payload.clientApp };
+    case SET_REQUEST_ID:
+      return { ...state, requestId: action.payload.requestId };
     case SET_USER_AGENT: {
       const { browser, os } = UAParser(action.payload.userAgent);
 

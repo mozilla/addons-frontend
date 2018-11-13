@@ -1,9 +1,23 @@
+import createAmoStore from 'amo/store';
+import { setRequestId } from 'core/actions';
 import createClient from 'core/client/base';
+import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('createClient()', () => {
     let fakeCreateStore;
     let fakeFastClick;
+
+    function createFakeRavenJs({
+      ravenInstall = sinon.stub(),
+      ...methods
+    } = {}) {
+      return {
+        config: sinon.stub().returns({ install: ravenInstall }),
+        setTagsContext: sinon.stub(),
+        ...methods,
+      };
+    }
 
     beforeEach(() => {
       fakeCreateStore = () => {
@@ -51,6 +65,49 @@ describe(__filename, () => {
 
       const props = await _createClient({ createStore });
       expect(props).toHaveProperty('store', store);
+    });
+
+    it('configures RavenJs for Sentry', async () => {
+      const publicSentryDsn = 'example-dsn';
+      const _config = getFakeConfig({ publicSentryDsn });
+      const ravenInstall = sinon.stub();
+      const _RavenJs = createFakeRavenJs({ ravenInstall });
+
+      await _createClient({ createStore: createAmoStore, _config, _RavenJs });
+
+      sinon.assert.calledWith(_RavenJs.config, publicSentryDsn, {
+        logger: 'client-js',
+      });
+      sinon.assert.called(ravenInstall);
+    });
+
+    it('adds amo_request_id to RavenJs', async () => {
+      const _config = getFakeConfig({ publicSentryDsn: 'example-dsn' });
+      const _RavenJs = createFakeRavenJs();
+
+      const storeResult = createAmoStore();
+      const requestId = 'example-request-id';
+      storeResult.store.dispatch(setRequestId(requestId));
+
+      await _createClient({
+        createStore: () => storeResult,
+        _config,
+        _RavenJs,
+      });
+
+      sinon.assert.calledWith(_RavenJs.setTagsContext, {
+        amo_request_id: requestId,
+      });
+    });
+
+    it('does not configure RavenJs without publicSentryDsn', async () => {
+      const _config = getFakeConfig({ publicSentryDsn: null });
+      const _RavenJs = createFakeRavenJs();
+
+      await _createClient({ _config, _RavenJs });
+
+      sinon.assert.notCalled(_RavenJs.config);
+      sinon.assert.notCalled(_RavenJs.setTagsContext);
     });
   });
 });

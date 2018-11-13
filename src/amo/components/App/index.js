@@ -254,11 +254,10 @@ export class AppBase extends React.Component<Props> {
 
             <div className="App-content">
               <div className="App-content-wrapper">
+                <div className="App-banner">
+                  <SurveyNotice location={location} />
+                </div>
                 <ErrorPage getErrorComponent={getErrorComponent}>
-                  <div className="App-banner">
-                    <SurveyNotice location={location} />
-                  </div>
-
                   <Routes />
                 </ErrorPage>
               </div>

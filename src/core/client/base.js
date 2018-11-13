@@ -15,9 +15,14 @@ import { addQueryParamsToHistory } from 'core/utils';
 
 export default async function createClient(
   createStore,
-  { _FastClick = FastClick, sagas = null } = {},
+  {
+    _FastClick = FastClick,
+    _RavenJs = RavenJs,
+    _config = config,
+    sagas = null,
+  } = {},
 ) {
-  if (config.get('isDevelopment')) {
+  if (_config.get('isDevelopment')) {
     // eslint-disable-next-line global-require, import/no-extraneous-dependencies
     const { fetchBufferedLogs } = require('pino-devtools/src/client');
     await fetchBufferedLogs();
@@ -25,10 +30,11 @@ export default async function createClient(
 
   // This code needs to come before anything else so we get logs/errors if
   // anything else in this function goes wrong.
-  const publicSentryDsn = config.get('publicSentryDsn');
-  if (publicSentryDsn) {
+  const publicSentryDsn = _config.get('publicSentryDsn');
+  const sentryIsEnabled = Boolean(publicSentryDsn);
+  if (sentryIsEnabled) {
     log.info(`Configured client-side Sentry with DSN ${publicSentryDsn}`);
-    RavenJs.config(publicSentryDsn, { logger: 'client-js' }).install();
+    _RavenJs.config(publicSentryDsn, { logger: 'client-js' }).install();
   } else {
     log.warn('Client-side Sentry reporting was disabled by the config');
   }
@@ -41,7 +47,7 @@ export default async function createClient(
   const html = document.querySelector('html');
   const lang = sanitizeLanguage(html.getAttribute('lang'));
   const locale = langToLocale(lang);
-  const appName = config.get('appName');
+  const appName = _config.get('appName');
 
   if (initialStateContainer) {
     try {
@@ -56,6 +62,10 @@ export default async function createClient(
   });
   const { sagaMiddleware, store } = createStore({ history, initialState });
 
+  if (sentryIsEnabled) {
+    _RavenJs.setTagsContext({ amo_request_id: store.getState().api.requestId });
+  }
+
   if (sagas && sagaMiddleware) {
     sagaMiddleware.run(sagas);
   } else {
@@ -64,7 +74,7 @@ export default async function createClient(
 
   let i18nData = {};
   try {
-    if (locale !== langToLocale(config.get('defaultLang'))) {
+    if (locale !== langToLocale(_config.get('defaultLang'))) {
       i18nData = await new Promise((resolve) => {
         // eslint-disable-next-line max-len, global-require, import/no-dynamic-require
         require(`bundle-loader?name=[name]-i18n-[folder]!../../locale/${locale}/${appName}.js`)(
@@ -74,7 +84,7 @@ export default async function createClient(
     }
   } catch (e) {
     log.info(oneLine`Locale not found or required for locale: "${locale}".
-      Falling back to default lang: "${config.get('defaultLang')}"`);
+      Falling back to default lang: "${_config.get('defaultLang')}"`);
   }
   const i18n = makeI18n(i18nData, lang);
 

@@ -20,6 +20,7 @@ import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 import log from 'core/logger';
 import { createApiError } from 'core/api';
 import Root from 'core/components/Root';
+import { AMO_REQUEST_ID_HEADER } from 'core/constants';
 import ServerHtml from 'core/components/ServerHtml';
 import * as middleware from 'core/middleware';
 import requestId from 'core/middleware/requestId';
@@ -31,6 +32,7 @@ import {
   setAuthToken,
   setClientApp,
   setLang,
+  setRequestId,
   setUserAgent,
 } from 'core/actions';
 import {
@@ -298,6 +300,11 @@ function baseServer(
 
       let pageProps;
       let runningSagas;
+
+      const thisRequestId = res.get(AMO_REQUEST_ID_HEADER);
+      if (thisRequestId) {
+        store.dispatch(setRequestId(thisRequestId));
+      }
 
       try {
         let sagas = appSagas;
