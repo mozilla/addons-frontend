@@ -23,7 +23,7 @@ The following events are logged to telemetry if:
 Here are the steps to test collection locally:
 
 - `hctEnabled` is set to `true` by default in `config/development-disco.js`
-- run yarn disco:https because we need HTTPS
+- Run `yarn disco:https` to start the disco app because HCT requires HTTPS
 - Go to `about:config` and enable `devtools.chrome.enabled` so that the browser console has the CLI enabled.
 - open the Browser Console (and not the classic devtools) and type:
   ```javascript
