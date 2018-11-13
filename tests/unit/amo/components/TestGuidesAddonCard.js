@@ -96,7 +96,8 @@ describe(__filename, () => {
     expect(root.find(AMInstallButton)).toHaveLength(1);
   });
 
-  // TODO: update this for https://github.com/mozilla/addons-frontend/issues/6900.
+  // TODO: This will be updated when we address the following issue:
+  // https://github.com/mozilla/addons-frontend/issues/6900.
   it('returns null when there is no addon', () => {
     const root = render({
       addon: null,
@@ -105,7 +106,9 @@ describe(__filename, () => {
     expect(root.html()).toEqual(null);
   });
 
-  // TODO: We need to cover all config settings.
+  // TODO: We need to cover all config settings (here and on the following
+  // test case). This will be addressed in the following issue:
+  // https://github.com/mozilla/addons-frontend/issues/6903
   it('renders AddonCompatibilityError when there is incompatibility', () => {
     const root = render({
       _getClientCompatibility: sinon.stub().returns({
@@ -117,7 +120,6 @@ describe(__filename, () => {
     expect(root.find(AddonCompatibilityError)).toHaveLength(1);
   });
 
-  // TODO: we need to cover all config settings.
   it('does not render an AddonCompatibilityError when there is compatibility', () => {
     const root = render({
       _getClientCompatibility: sinon.stub().returns({
@@ -178,6 +180,7 @@ describe(__filename, () => {
   });
 
   // TODO: This will probably change; I'm waiting for feedback on this.
+  // See https://github.com/mozilla/addons-frontend/issues/6916.
   it('renders "Get Firefox Now" button when the client is not Firefox', () => {
     const root = render({
       _getClientCompatibility: sinon.stub().returns({

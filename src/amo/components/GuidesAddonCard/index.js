@@ -105,7 +105,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
 
     // TODO: waiting to hear back on how to handle "+Add" buttons on non
     // firefox browsers. See:
-    // https://github.com/mozilla/addons-frontend/issues/6432#issuecomment-433083079.
+    // https://github.com/mozilla/addons-frontend/issues/6916.
     const showGetFirefoxButton = addon && !isFireFox;
 
     return addon && currentVersion ? (
