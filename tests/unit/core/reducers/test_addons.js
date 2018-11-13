@@ -1,15 +1,8 @@
 import { unloadAddonReviews } from 'amo/actions/reviews';
-import {
-  ADDON_TYPE_EXTENSION,
-  OS_ALL,
-  OS_MAC,
-  OS_WINDOWS,
-} from 'core/constants';
+import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import addons, {
   createInternalAddon,
   createInternalAddonInfo,
-  createPlatformFiles,
-  defaultPlatformFiles,
   fetchAddon,
   fetchAddonInfo,
   getAddonByGUID,
@@ -17,7 +10,6 @@ import addons, {
   getAddonBySlug,
   getAddonInfoBySlug,
   getAllAddons,
-  getGuid,
   isAddonInfoLoading,
   initialState,
   isAddonLoading,
@@ -30,9 +22,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeAddonInfo,
-  fakePlatformFile,
   fakeTheme,
-  fakeVersion,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -126,42 +116,14 @@ describe(__filename, () => {
     const extension = { ...fakeAddon, type: ADDON_TYPE_EXTENSION };
     const state = addons(undefined, loadAddonResults({ addons: [extension] }));
 
-    expect(state.byID[extension.id]).toEqual({
-      ...extension,
-      currentVersionId: fakeAddon.current_version.id,
-      platformFiles: {
-        ...defaultPlatformFiles,
-        [OS_ALL]: fakeAddon.current_version.files[0],
-      },
-      isRestartRequired: false,
-      isWebExtension: true,
-      isMozillaSignedExtension: false,
-      themeData: null,
-    });
+    expect(state.byID[extension.id]).toEqual(createInternalAddon(extension));
   });
 
   it('stores an internal representation of a theme', () => {
     const theme = { ...fakeTheme };
     const state = addons(undefined, loadAddonResults({ addons: [theme] }));
 
-    // We manually recreate the theme addon to test that the mapper is doing
-    // what we expect it to below.
-    const expectedTheme = {
-      ...theme,
-      themeData: theme.theme_data,
-      guid: getGuid(theme),
-      currentVersionId: fakeTheme.current_version.id,
-      platformFiles: {
-        ...defaultPlatformFiles,
-        [OS_ALL]: fakeTheme.current_version.files[0],
-      },
-      isRestartRequired: false,
-      isWebExtension: true,
-      isMozillaSignedExtension: false,
-    };
-    delete expectedTheme.theme_data;
-
-    expect(state.byID[theme.id]).toEqual(expectedTheme);
+    expect(state.byID[theme.id]).toEqual(createInternalAddon(theme));
   });
 
   it('does not let theme_data set properties to undefined', () => {
@@ -191,46 +153,6 @@ describe(__filename, () => {
     const state = addons(undefined, loadAddonResults({ addons: [fakeTheme] }));
 
     expect(state.byID[fakeTheme.id].guid).toEqual('54321@personas.mozilla.org');
-  });
-
-  it('maps platforms to file objects', () => {
-    const addon = createFakeAddon({
-      files: [
-        {
-          ...fakeAddon.current_version.files[0],
-          platform: OS_MAC,
-          url: 'https://a.m.o/mac.xpi',
-        },
-        {
-          ...fakeAddon.current_version.files[0],
-          platform: OS_WINDOWS,
-          url: 'https://a.m.o/windows.xpi',
-        },
-        {
-          ...fakeAddon.current_version.files[0],
-          platform: OS_ALL,
-          url: 'https://a.m.o/all.xpi',
-        },
-      ],
-    });
-    const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].platformFiles[OS_ALL].url).toEqual(
-      'https://a.m.o/all.xpi',
-    );
-    expect(state.byID[addon.id].platformFiles[OS_MAC].url).toEqual(
-      'https://a.m.o/mac.xpi',
-    );
-    expect(state.byID[addon.id].platformFiles[OS_WINDOWS].url).toEqual(
-      'https://a.m.o/windows.xpi',
-    );
-  });
-
-  it('handles an empty array of files', () => {
-    const addon = createFakeAddon({ files: [] });
-    const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].platformFiles).toMatchObject(
-      defaultPlatformFiles,
-    );
   });
 
   it('exposes `isRestartRequired` attribute from current version files', () => {
@@ -628,56 +550,6 @@ describe(__filename, () => {
       expect(state.byID[addon1.id]).toEqual(undefined);
       expect(state.bySlug).toEqual({ [slug2]: id2 });
       expect(state.loadingBySlug).toEqual({ [slug2]: false });
-    });
-  });
-
-  describe('createPlatformFiles', () => {
-    it('creates a default object if there is no version', () => {
-      expect(createPlatformFiles(undefined)).toEqual(defaultPlatformFiles);
-    });
-
-    it('creates a default object if there are no files', () => {
-      expect(createPlatformFiles({ ...fakeVersion, files: [] })).toEqual(
-        defaultPlatformFiles,
-      );
-    });
-
-    it('creates a PlatformFilesType object from a version with files', () => {
-      const windowsFile = {
-        ...fakePlatformFile,
-        platform: OS_WINDOWS,
-      };
-      const macFile = {
-        ...fakePlatformFile,
-        platform: OS_MAC,
-      };
-      expect(
-        createPlatformFiles({
-          ...fakeVersion,
-          files: [windowsFile, macFile],
-        }),
-      ).toEqual({
-        ...defaultPlatformFiles,
-        [OS_WINDOWS]: windowsFile,
-        [OS_MAC]: macFile,
-      });
-    });
-
-    it('handles files for unknown platforms', () => {
-      const unknownPlatform = 'unknownPlatform';
-      const unknownFile = {
-        ...fakePlatformFile,
-        platform: unknownPlatform,
-      };
-      expect(
-        createPlatformFiles({
-          ...fakeVersion,
-          files: [unknownFile],
-        }),
-      ).toEqual({
-        ...defaultPlatformFiles,
-        [unknownPlatform]: unknownFile,
-      });
     });
   });
 

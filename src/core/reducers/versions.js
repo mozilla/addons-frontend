@@ -1,5 +1,6 @@
 /* @flow */
 import invariant from 'invariant';
+import { oneLine } from 'common-tags';
 
 import { LOAD_ADDONS_BY_AUTHORS } from 'amo/reducers/addonsByAuthors';
 import {
@@ -9,8 +10,16 @@ import {
 } from 'amo/reducers/collections';
 import { LOAD_HOME_ADDONS } from 'amo/reducers/home';
 import { LOAD_RECOMMENDATIONS } from 'amo/reducers/recommendations';
-import { LANDING_LOADED } from 'core/constants';
-import { LOAD_ADDON_RESULTS, createPlatformFiles } from 'core/reducers/addons';
+import {
+  LANDING_LOADED,
+  OS_ALL,
+  OS_ANDROID,
+  OS_LINUX,
+  OS_MAC,
+  OS_WINDOWS,
+} from 'core/constants';
+import log from 'core/logger';
+import { LOAD_ADDON_RESULTS } from 'core/reducers/addons';
 import { SEARCH_LOADED } from 'core/reducers/search';
 import { findFileForPlatform } from 'core/utils';
 import type { UserAgentInfoType } from 'core/reducers/api';
@@ -18,6 +27,7 @@ import type {
   AddonCompatibilityType,
   ExternalAddonVersionType,
   PlatformFilesType,
+  PartialExternalAddonVersionType,
 } from 'core/types/addons';
 
 export const FETCH_VERSIONS: 'FETCH_VERSIONS' = 'FETCH_VERSIONS';
@@ -33,6 +43,51 @@ export type AddonVersionType = {
   platformFiles: PlatformFilesType,
   releaseNotes?: string,
   version: string,
+};
+
+export type VersionsState = {
+  byId: {
+    [id: number]: AddonVersionType,
+  },
+  bySlug: {
+    [slug: string]: {
+      versionIds: Array<VersionIdType> | null,
+      loading: boolean,
+    },
+  },
+};
+
+export const initialState: VersionsState = {
+  byId: {},
+  bySlug: {},
+};
+
+export const defaultPlatformFiles: PlatformFilesType = Object.freeze({
+  [OS_ALL]: undefined,
+  [OS_ANDROID]: undefined,
+  [OS_LINUX]: undefined,
+  [OS_MAC]: undefined,
+  [OS_WINDOWS]: undefined,
+});
+
+export const createPlatformFiles = (
+  version?: ExternalAddonVersionType | PartialExternalAddonVersionType,
+): PlatformFilesType => {
+  const platformFiles = { ...defaultPlatformFiles };
+
+  if (version && version.files.length > 0) {
+    version.files.forEach((file) => {
+      // eslint-disable-next-line no-prototype-builtins
+      if (!platformFiles.hasOwnProperty(file.platform)) {
+        // You wouldn't think this is needed, but Flow.
+        invariant(version, 'version is required');
+        log.warn(oneLine`A version with id ${version.id}
+          has a file with an unknown platform: ${file.platform}`);
+      }
+      platformFiles[file.platform] = file;
+    });
+  }
+  return platformFiles;
 };
 
 export const createInternalVersion = (
@@ -51,23 +106,6 @@ export const createInternalVersion = (
     releaseNotes: version.release_notes,
     version: version.version,
   };
-};
-
-export type VersionsState = {
-  byId: {
-    [id: number]: AddonVersionType,
-  },
-  bySlug: {
-    [slug: string]: {
-      versionIds: Array<VersionIdType> | null,
-      loading: boolean,
-    },
-  },
-};
-
-export const initialState: VersionsState = {
-  byId: {},
-  bySlug: {},
 };
 
 type FetchVersionsParams = {|

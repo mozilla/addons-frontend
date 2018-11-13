@@ -226,7 +226,7 @@ type WithInstallHelpersProps = {|
 
 type WithInstallHelpersInternalProps = {|
   ...WithInstallHelpersProps,
-  currentVersion: AddonVersionType,
+  currentVersion: AddonVersionType | null,
   dispatch: DispatchFunc,
   location: ReactRouterLocationType,
 |};
@@ -293,6 +293,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     const {
       _addonManager,
       addon,
+      currentVersion,
       defaultInstallSource,
       dispatch,
       location,
@@ -304,11 +305,12 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       return Promise.resolve();
     }
 
-    if (!addon) {
+    if (!addon || !currentVersion) {
       return Promise.resolve();
     }
 
-    const { guid, platformFiles, type } = addon;
+    const { guid, type } = addon;
+    const { platformFiles } = currentVersion;
 
     const installURL = findInstallURL({
       defaultInstallSource,
@@ -401,6 +403,8 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       location,
       userAgentInfo,
     } = this.props;
+
+    invariant(currentVersion, 'currentVersion is required');
 
     const { guid, name, type } = addon;
     const { platformFiles } = currentVersion;

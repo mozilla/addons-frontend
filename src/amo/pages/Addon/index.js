@@ -89,7 +89,6 @@ export class AddonBase extends React.Component {
     installError: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
     lang: PropTypes.string.isRequired,
-    platformFiles: PropTypes.object,
     uninstall: PropTypes.func.isRequired,
     // See ReactRouterLocationType in 'core/types/router'
     location: PropTypes.object.isRequired,
@@ -104,7 +103,6 @@ export class AddonBase extends React.Component {
   static defaultProps = {
     config: defaultConfig,
     RatingManager: DefaultRatingManager,
-    platformFiles: {},
     getClientCompatibility: _getClientCompatibility,
   };
 

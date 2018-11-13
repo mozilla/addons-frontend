@@ -43,7 +43,6 @@ import {
 import { createInternalAddon } from 'core/reducers/addons';
 import { showInfoDialog } from 'core/reducers/infoDialog';
 import {
-  createFakeAddon,
   createFakeLocation,
   createFakeTracking,
   dispatchClientMetadata,
@@ -141,6 +140,12 @@ const _loadVersions = ({ store, versionProps = {} }) => {
 };
 
 describe(__filename, () => {
+  let store;
+
+  beforeEach(() => {
+    store = dispatchClientMetadata().store;
+  });
+
   it('connects mapDispatchToProps for the component', () => {
     const _makeMapDispatchToProps = sinon.spy();
     const WrappedComponent = sinon.stub();
@@ -164,6 +169,8 @@ describe(__filename, () => {
   });
 
   it('sets status when the component is created', () => {
+    _loadVersions({ store });
+
     const _addonManager = getFakeAddonManagerWrapper({
       getAddon: Promise.resolve({
         isActive: true,
@@ -173,12 +180,14 @@ describe(__filename, () => {
     });
     const addon = createInternalAddon(fakeAddon);
 
-    renderWithInstallHelpers({ _addonManager, addon });
+    renderWithInstallHelpers({ _addonManager, addon, store });
 
     sinon.assert.calledWith(_addonManager.getAddon, addon.guid);
   });
 
   it('sets status when getting updated', () => {
+    _loadVersions({ store });
+
     const _addonManager = getFakeAddonManagerWrapper({
       getAddon: Promise.resolve({
         isActive: true,
@@ -189,6 +198,7 @@ describe(__filename, () => {
     const root = mountWithInstallHelpers({
       _addonManager,
       addon: createInternalAddon(fakeAddon),
+      store,
     });
     _addonManager.getAddon.resetHistory();
 
@@ -199,6 +209,8 @@ describe(__filename, () => {
   });
 
   it('sets status when add-on is loaded on update', () => {
+    _loadVersions({ store });
+
     const _addonManager = getFakeAddonManagerWrapper({
       getAddon: Promise.resolve({
         isActive: true,
@@ -209,6 +221,7 @@ describe(__filename, () => {
     const root = mountWithInstallHelpers({
       _addonManager,
       addon: null,
+      store,
     });
     _addonManager.getAddon.resetHistory();
 
@@ -249,6 +262,8 @@ describe(__filename, () => {
   });
 
   it('sets the current status in componentDidMount with an addonManager', () => {
+    _loadVersions({ store });
+
     const _addonManager = getFakeAddonManagerWrapper({
       getAddon: Promise.resolve({
         isActive: true,
@@ -256,7 +271,7 @@ describe(__filename, () => {
       }),
     });
 
-    renderWithInstallHelpers({ _addonManager });
+    renderWithInstallHelpers({ _addonManager, store });
 
     sinon.assert.called(_addonManager.getAddon);
   });
@@ -401,17 +416,28 @@ describe(__filename, () => {
     });
 
     describe('setCurrentStatus', () => {
+      const getAddon = ({ type = ADDON_TYPE_EXTENSION } = {}) => {
+        return createInternalAddon({ ...fakeAddon, type });
+      };
+
+      const loadVersionWithInstallUrl = (installURL) => {
+        _loadVersions({
+          store,
+          versionProps: {
+            files: [{ platform: OS_ALL, url: installURL }],
+          },
+        });
+      };
+
       it('sets the status to ENABLED when an enabled add-on found', () => {
         const installURL = 'http://the.url/';
-        const addon = createInternalAddon(
-          createFakeAddon({
-            files: [{ platform: OS_ALL, url: installURL }],
-          }),
-        );
+        const addon = getAddon();
+        loadVersionWithInstallUrl(installURL);
 
         const { root, dispatch } = renderWithInstallHelpers({
           addon,
           defaultInstallSource: null,
+          store,
         });
         const { setCurrentStatus } = root.instance().props;
 
@@ -429,15 +455,13 @@ describe(__filename, () => {
 
       it('lets you pass custom props to setCurrentStatus', () => {
         const installURL = 'http://the.url/';
-        const addon = createInternalAddon(
-          createFakeAddon({
-            files: [{ platform: OS_ALL, url: installURL }],
-          }),
-        );
+        const addon = getAddon();
+        loadVersionWithInstallUrl(installURL);
 
         const { root, dispatch } = renderWithInstallHelpers({
           addon,
           defaultInstallSource: null,
+          store,
         });
 
         const { setCurrentStatus } = root.instance().props;
@@ -457,11 +481,8 @@ describe(__filename, () => {
 
       it('sets the status to DISABLED when a disabled add-on found', () => {
         const installURL = 'http://the.url/';
-        const addon = createInternalAddon(
-          createFakeAddon({
-            files: [{ platform: OS_ALL, url: installURL }],
-          }),
-        );
+        const addon = getAddon();
+        loadVersionWithInstallUrl(installURL);
 
         const { root, dispatch } = renderWithInstallHelpers({
           _addonManager: getFakeAddonManagerWrapper({
@@ -472,6 +493,7 @@ describe(__filename, () => {
           }),
           addon,
           defaultInstallSource: null,
+          store,
         });
         const { setCurrentStatus } = root.instance().props;
 
@@ -489,12 +511,8 @@ describe(__filename, () => {
 
       it('sets the status to DISABLED when the extension is inactive and disabled', () => {
         const installURL = 'http://the.url/';
-        const addon = createInternalAddon(
-          createFakeAddon({
-            files: [{ platform: OS_ALL, url: installURL }],
-            type: ADDON_TYPE_EXTENSION,
-          }),
-        );
+        const addon = getAddon();
+        loadVersionWithInstallUrl(installURL);
 
         const { root, dispatch } = renderWithInstallHelpers({
           _addonManager: getFakeAddonManagerWrapper({
@@ -505,6 +523,7 @@ describe(__filename, () => {
           }),
           addon,
           defaultInstallSource: null,
+          store,
         });
         const { setCurrentStatus } = root.instance().props;
 
@@ -522,12 +541,8 @@ describe(__filename, () => {
 
       it('sets the status to INACTIVE when an inactive extension is found', () => {
         const installURL = 'http://the.url/';
-        const addon = createInternalAddon(
-          createFakeAddon({
-            files: [{ platform: OS_ALL, url: installURL }],
-            type: ADDON_TYPE_EXTENSION,
-          }),
-        );
+        const addon = getAddon();
+        loadVersionWithInstallUrl(installURL);
 
         const { root, dispatch } = renderWithInstallHelpers({
           _addonManager: getFakeAddonManagerWrapper({
@@ -538,6 +553,7 @@ describe(__filename, () => {
           }),
           addon,
           defaultInstallSource: null,
+          store,
         });
         const { setCurrentStatus } = root.instance().props;
 
@@ -561,17 +577,14 @@ describe(__filename, () => {
           }),
         });
         const installURL = 'http://the.url/';
-        const addon = createInternalAddon(
-          createFakeAddon({
-            files: [{ platform: OS_ALL, url: installURL }],
-            type: ADDON_TYPE_THEME,
-          }),
-        );
+        const addon = getAddon({ type: ADDON_TYPE_THEME });
+        loadVersionWithInstallUrl(installURL);
 
         const { root, dispatch } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
           addon,
           defaultInstallSource: null,
+          store,
         });
         const { setCurrentStatus } = root.instance().props;
 
@@ -595,17 +608,14 @@ describe(__filename, () => {
           }),
         });
         const installURL = 'http://the.url/';
-        const addon = createInternalAddon(
-          createFakeAddon({
-            files: [{ platform: OS_ALL, url: installURL }],
-            type: ADDON_TYPE_THEME,
-          }),
-        );
+        const addon = getAddon({ type: ADDON_TYPE_THEME });
+        loadVersionWithInstallUrl(installURL);
 
         const { root, dispatch } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
           addon,
           defaultInstallSource: null,
+          store,
         });
         const { setCurrentStatus } = root.instance().props;
 
@@ -629,17 +639,14 @@ describe(__filename, () => {
           }),
         });
         const installURL = 'http://the.url/';
-        const addon = createInternalAddon(
-          createFakeAddon({
-            files: [{ platform: OS_ALL, url: installURL }],
-            type: ADDON_TYPE_THEME,
-          }),
-        );
+        const addon = getAddon({ type: ADDON_TYPE_THEME });
+        loadVersionWithInstallUrl(installURL);
 
         const { root, dispatch } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
           addon,
           defaultInstallSource: null,
+          store,
         });
         const { setCurrentStatus } = root.instance().props;
 
@@ -660,16 +667,14 @@ describe(__filename, () => {
           getAddon: Promise.reject(),
         });
         const installURL = 'http://the.url/';
-        const addon = createInternalAddon(
-          createFakeAddon({
-            files: [{ platform: OS_ALL, url: installURL }],
-          }),
-        );
+        const addon = getAddon();
+        loadVersionWithInstallUrl(installURL);
 
         const { root, dispatch } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
           addon,
           defaultInstallSource: null,
+          store,
         });
         const { setCurrentStatus } = root.instance().props;
 
@@ -690,11 +695,13 @@ describe(__filename, () => {
           // Resolve a null addon which will trigger an exception.
           getAddon: Promise.resolve(null),
         });
-        const addon = createInternalAddon(fakeAddon);
+        const addon = getAddon();
+        _loadVersions({ store });
 
         const { root, dispatch } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
           addon,
+          store,
         });
         const { setCurrentStatus } = root.instance().props;
 
@@ -712,15 +719,13 @@ describe(__filename, () => {
 
       it('adds defaultInstallSource to the URL', () => {
         const installURL = 'http://the.url/';
-        const addon = createInternalAddon(
-          createFakeAddon({
-            files: [{ platform: OS_ALL, url: installURL }],
-          }),
-        );
+        const addon = getAddon();
+        loadVersionWithInstallUrl(installURL);
 
         const { root, dispatch } = renderWithInstallHelpers({
           addon,
           defaultInstallSource,
+          store,
         });
         const { setCurrentStatus } = root.instance().props;
 
@@ -998,11 +1003,6 @@ describe(__filename, () => {
 
     describe('install', () => {
       const installURL = 'https://mysite.com/download.xpi';
-      let store;
-
-      beforeEach(() => {
-        store = dispatchClientMetadata().store;
-      });
 
       it('calls addonManager.install()', () => {
         const hash = 'some-sha-hash';

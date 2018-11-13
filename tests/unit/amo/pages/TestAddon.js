@@ -289,10 +289,6 @@ describe(__filename, () => {
     expect(root.find(AddonMoreInfo)).toHaveLength(1);
     expect(root.find(AddonTitle)).toHaveProp('addon', null);
     expect(root.find(AddonHead)).toHaveProp('addon', null);
-
-    // Since withInstallHelpers relies on this, make sure it's initialized.
-    expect(root.instance().props.platformFiles).toEqual({});
-
     expect(root.find('.Addon-icon img').prop('alt')).toEqual(null);
   });
 
@@ -505,7 +501,7 @@ describe(__filename, () => {
   it('dispatches a server redirect when slug is a numeric ID', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
-    const addon = createInternalAddon(fakeAddon);
+    const addon = fakeAddon;
     store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -530,7 +526,7 @@ describe(__filename, () => {
 
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
-    const addon = createInternalAddon({ ...fakeAddon, slug });
+    const addon = { ...fakeAddon, slug };
     store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -553,7 +549,7 @@ describe(__filename, () => {
   it('dispatches a server redirect when slug is a stringified integer greater than 0', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
-    const addon = createInternalAddon(fakeAddon);
+    const addon = fakeAddon;
     store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -577,10 +573,10 @@ describe(__filename, () => {
   it('does not dispatch a server redirect when slug is a stringified integer less than 0', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
-    const addon = createInternalAddon({
+    const addon = {
       ...fakeAddon,
       slug: '-1234',
-    });
+    };
 
     store.dispatch(_loadAddonResults({ addon }));
 
@@ -600,7 +596,7 @@ describe(__filename, () => {
 
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
-    const addon = createInternalAddon({ ...fakeAddon, slug });
+    const addon = { ...fakeAddon, slug };
     store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -653,10 +649,10 @@ describe(__filename, () => {
 
   it('sanitizes bad description HTML', () => {
     const scriptHTML = '<script>alert(document.cookie);</script>';
-    const addon = createInternalAddon({
+    const addon = {
       ...fakeAddon,
       description: scriptHTML,
-    });
+    };
 
     const { store } = dispatchClientMetadata();
     store.dispatch(_loadAddonResults({ addon }));
@@ -1060,7 +1056,7 @@ describe(__filename, () => {
   });
 
   it('calls getClientCompatibility to determine the compatibility', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = fakeAddon;
     const clientApp = CLIENT_APP_FIREFOX;
     const currentVersion = createInternalVersion(fakeAddon.current_version);
     const getClientCompatibility = sinon.mock().returns({
@@ -1077,7 +1073,7 @@ describe(__filename, () => {
     });
 
     sinon.assert.calledWith(getClientCompatibility, {
-      addon,
+      addon: createInternalAddon(addon),
       clientApp,
       currentVersion,
       userAgentInfo: root.instance().props.userAgentInfo,
@@ -1219,13 +1215,13 @@ describe(__filename, () => {
     });
 
     it('links to all reviews', () => {
-      const addon = createInternalAddon({
+      const addon = {
         ...fakeAddon,
         ratings: {
           ...fakeAddon.ratings,
           text_count: 2,
         },
-      });
+      };
 
       const { store } = dispatchClientMetadata();
       store.dispatch(_loadAddonResults({ addon }));
@@ -1373,7 +1369,7 @@ describe(__filename, () => {
     });
 
     it('displays more add-ons by authors', () => {
-      const addon = createInternalAddon({ ...fakeAddon });
+      const addon = fakeAddon;
       const addonsByAuthors = [
         { ...fakeAddon, slug: 'addon-1', id: 1 },
         { ...fakeAddon, slug: 'addon-2', id: 2 },
@@ -1396,7 +1392,7 @@ describe(__filename, () => {
     });
 
     it('displays more add-ons by authors when add-on is a theme', () => {
-      const addon = createInternalAddon({ ...fakeTheme });
+      const addon = fakeTheme;
       const addonsByAuthors = [
         { ...fakeTheme, slug: 'theme-1', id: 1 },
         { ...fakeTheme, slug: 'theme-2', id: 2 },
@@ -1679,7 +1675,7 @@ describe(__filename, () => {
   });
 
   it('does not render an install error if there is no error', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = fakeAddon;
     const { store } = dispatchClientMetadata();
 
     store.dispatch(_loadAddonResults({ addon }));
@@ -1690,7 +1686,7 @@ describe(__filename, () => {
   });
 
   it('renders an install error if there is one', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = fakeAddon;
     const { store } = dispatchClientMetadata();
 
     store.dispatch(_loadAddonResults({ addon }));
