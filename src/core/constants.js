@@ -111,9 +111,6 @@ export const TRACKING_TYPE_STATIC_THEME = ADDON_TYPE_STATIC_THEME;
 export const TRACKING_TYPE_THEME = 'theme';
 export const TRACKING_TYPE_INVALID = 'invalid';
 
-// HCT disco tracking category
-export const HCT_DISCO_CATEGORY = 'disco.interaction';
-
 // Add-on install tracking sources.
 // These key values may be linked to historic analytic data.
 export const INSTALL_SOURCE_COLLECTION = 'collection';
@@ -223,6 +220,9 @@ export const INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY =
 export const INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY =
   'AMO Theme Installs Download Failed';
 
+export const DISCO_NAVIGATION_CATEGORY = 'Discovery Navigation';
+export const DISCO_NAVIGATION_ACTION = 'click';
+
 export const INSTALL_STARTED_EXTENSION_CATEGORY = 'AMO Addon Installs Started';
 export const INSTALL_STARTED_THEME_CATEGORY = 'AMO Theme Installs Started';
 
@@ -235,6 +235,38 @@ export const SURVEY_CATEGORY = 'AMO Addon / Experience Survey Notice';
 export const SURVEY_ACTION_DISMISSED = 'Dismissed survey notice';
 export const SURVEY_ACTION_SHOWN = 'Shown survey notice';
 export const SURVEY_ACTION_VISITED = 'Visited survey';
+
+// Mapping of GA Categories to HCT compatible methods.
+// All the HCT methods must be under 20 chars
+// and should match /^[a-z0-9]{1}[a-z0-9_]+[a-z0-9]{1}$/i
+// See https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/telemetry/collection/events.html#limits
+// for more details.
+export const HCT_DISCO_CATEGORY = 'disco.interaction';
+export const HCT_ADDON_CLICK = 'addon_click';
+export const HCT_ADDON_ENABLED = 'enabled';
+export const HCT_ADDON_INSTALLED = 'installed';
+export const HCT_ADDON_INSTALL_CANCELLED = 'cancelled';
+export const HCT_ADDON_DOWNLOAD_FAILED = 'download_failed';
+export const HCT_ADDON_INSTALL_STARTED = 'install_started';
+export const HCT_ADDON_NAVIGATION_CLICK = 'navigation_click';
+export const HCT_ADDON_UNINSTALLED = 'uninstalled';
+
+export const HCT_METHOD_MAPPING = {
+  [CLICK_CATEGORY]: HCT_ADDON_CLICK,
+  [DISCO_NAVIGATION_CATEGORY]: HCT_ADDON_NAVIGATION_CLICK,
+  [INSTALL_EXTENSION_CATEGORY]: HCT_ADDON_INSTALLED,
+  [INSTALL_THEME_CATEGORY]: HCT_ADDON_INSTALLED,
+  [UNINSTALL_EXTENSION_CATEGORY]: HCT_ADDON_UNINSTALLED,
+  [UNINSTALL_THEME_CATEGORY]: HCT_ADDON_UNINSTALLED,
+  [ENABLE_EXTENSION_CATEGORY]: HCT_ADDON_ENABLED,
+  [ENABLE_THEME_CATEGORY]: HCT_ADDON_ENABLED,
+  [INSTALL_CANCELLED_EXTENSION_CATEGORY]: HCT_ADDON_INSTALL_CANCELLED,
+  [INSTALL_CANCELLED_THEME_CATEGORY]: HCT_ADDON_INSTALL_CANCELLED,
+  [INSTALL_STARTED_EXTENSION_CATEGORY]: HCT_ADDON_INSTALL_STARTED,
+  [INSTALL_STARTED_THEME_CATEGORY]: HCT_ADDON_INSTALL_STARTED,
+  [INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY]: HCT_ADDON_DOWNLOAD_FAILED,
+  [INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY]: HCT_ADDON_DOWNLOAD_FAILED,
+};
 
 // Error used to know that the setEnable method on addon is
 // not available.

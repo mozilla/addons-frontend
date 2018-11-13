@@ -1,6 +1,3 @@
-// Tracking categories.
-export const NAVIGATION_CATEGORY = 'Discovery Navigation';
-
 // Keys for extensions and theme data in the discovery pane JSON blob.
 export const DISCO_DATA_THEME = 'theme';
 export const DISCO_DATA_EXTENSION = 'extension';

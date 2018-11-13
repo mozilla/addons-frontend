@@ -11,11 +11,12 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  CLICK_CATEGORY,
+  DISCO_NAVIGATION_ACTION,
   ENABLE_ACTION,
   ENABLE_EXTENSION_CATEGORY,
   ENABLE_THEME_CATEGORY,
   HCT_DISCO_CATEGORY,
+  HCT_METHOD_MAPPING,
   INSTALL_CANCELLED_ACTION,
   INSTALL_CANCELLED_EXTENSION_CATEGORY,
   INSTALL_CANCELLED_THEME_CATEGORY,
@@ -38,41 +39,14 @@ import {
 import log from 'core/logger';
 import { convertBoolean, isTheme } from 'core/utils';
 
-export function filterIdentifier(input, { maxLen = 20 } = {}) {
-  const output = input
-    .toLowerCase()
-    // Remove superfluous references
-    .replace(/amo/, '')
-    // remove leading and trailing whitespace
-    .trim()
-    // Remove chars that don't match the telemetry identifier requirements.
-    .replace(/[^a-z0-9_]+/g, '')
-    // Replace remaining spaces with underscores.
-    .replace(/\s+/g, '_')
-    // Truncate to fit maxLen (defaults to 20 chars).
-    .substring(0, maxLen);
-  return output;
-}
-
-const telemetryMethods = [
-  CLICK_CATEGORY,
-  ENABLE_EXTENSION_CATEGORY,
-  ENABLE_THEME_CATEGORY,
-  INSTALL_CANCELLED_EXTENSION_CATEGORY,
-  INSTALL_CANCELLED_THEME_CATEGORY,
-  INSTALL_EXTENSION_CATEGORY,
-  INSTALL_STARTED_EXTENSION_CATEGORY,
-  INSTALL_STARTED_THEME_CATEGORY,
-  INSTALL_THEME_CATEGORY,
-  UNINSTALL_EXTENSION_CATEGORY,
-  UNINSTALL_THEME_CATEGORY,
-].map(filterIdentifier);
-
-const telemetryObjects = [
+const telemetryMethodKeys = Object.keys(HCT_METHOD_MAPPING);
+const telemetryMethodValues = Object.values(HCT_METHOD_MAPPING);
+export const telemetryObjects = [
+  DISCO_NAVIGATION_ACTION,
   TRACKING_TYPE_EXTENSION,
   TRACKING_TYPE_THEME,
   TRACKING_TYPE_STATIC_THEME,
-].map(filterIdentifier);
+];
 
 export function isDoNotTrackEnabled({
   _log = log,
@@ -173,7 +147,7 @@ export class Tracking {
           this.hctEnabled = true;
           hybridContentTelemetry.registerEvents(HCT_DISCO_CATEGORY, {
             click: {
-              methods: telemetryMethods,
+              methods: telemetryMethodValues,
               objects: telemetryObjects,
             },
           });
@@ -208,14 +182,14 @@ export class Tracking {
     if (hybridContentTelemetry) {
       const canUpload = hybridContentTelemetry.canUpload();
       if (canUpload === true) {
-        const method = filterIdentifier(data.method);
-        const object = filterIdentifier(data.object);
         invariant(
-          telemetryMethods.includes(method),
-          `Method "${method}" must be one of the registered values: ${telemetryMethods.join(
-            ',',
-          )}`,
+          telemetryMethodKeys.includes(data.method),
+          `Method mapping for "${
+            data.method
+          }" is missing from HCT_METHOD_MAPPING`,
         );
+        const method = HCT_METHOD_MAPPING[data.method];
+        const { object } = data;
         invariant(
           telemetryObjects.includes(object),
           `Object "${object}" must be one of the registered values: ${telemetryObjects.join(
