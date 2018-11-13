@@ -7,19 +7,54 @@ The following events are logged to telemetry if:
 - HCT is enabled for the host
 - Telemetry collection is allowed by the end-user.
 
-| Category          | Method               | Action                  | Value               | This is logged when...                  |
-| ----------------- | -------------------- | ----------------------- | ------------------- | --------------------------------------- |
-| disco.interaction | addon_click          | addon/theme/statictheme | [Add-on name]       | An add-on link is clicked               |
-| disco.interaction | ext_download_fail    | addon                   | [Add-on name]       | The download of an extension has failed |
-| disco.interaction | ext_enable           | addon                   | [Add-on name]       | Extension is enabled                    |
-| disco.interaction | ext_installed        | addon                   | [Add-on name]       | Extension is installed                  |
-| disco.interaction | ext_install_cancel   | addon                   | [Add-on name]       | Extension install is cancelled          |
-| disco.interaction | ext_install_start    | addon                   | [Add-on name]       | Extension install has started           |
-| disco.interaction | ext_uninstall        | addon                   | [Add-on name]       | Extension uninstalled                   |
-| disco.interaction | navigation_click     | click                   | [Click description] | When user clicks "Find more Add-ons"    |
-| disco.interaction | theme_download_fail  | [theme/statictheme]     | [Add-on name]       | Theme download fails                    |
-| disco.interaction | theme_enable         | [theme/statictheme]     | [theme name]        | Theme is enabled                        |
-| disco.interaction | theme_installed      | [theme/statictheme]     | [theme name]        | Theme is installed                      |
-| disco.interaction | theme_install_cancel | [theme/statictheme]     | [theme name]        | Theme install is cancelled              |
-| disco.interaction | theme_install_start  | [theme/statictheme]     | [theme name]        | Theme install started                   |
-| disco.interaction | theme_uninstall      | [theme/statictheme]     | [theme name]        | Theme uninstalled                       |
+| Category          | Method            | Action                    | Value               | This is logged when...                  |
+| ----------------- | ----------------- | ------------------------- | ------------------- | --------------------------------------- |
+| disco.interaction | addon_click       | [addon/theme/statictheme] | [Add-on name]       | An add-on link is clicked               |
+| disco.interaction | download_failed   | [addon/theme/statictheme] | [Add-on name]       | The download of an extension has failed |
+| disco.interaction | enabled           | [addon/theme/statictheme] | [Add-on name]       | Add-on is enabled                       |
+| disco.interaction | installed         | [addon/theme/statictheme] | [Add-on name]       | Add-on is installed                     |
+| disco.interaction | install_cancelled | [addon/theme/statictheme] | [Add-on name]       | Add-on install is cancelled             |
+| disco.interaction | install_started   | [addon/theme/statictheme] | [Add-on name]       | Add-on install has started              |
+| disco.interaction | uninstalled       | [addon/theme/statictheme] | [Add-on name]       | Add-on uninstalled                      |
+| disco.interaction | navigation_click  | click                     | [Click description] | When user clicks "Find more Add-ons"    |
+
+## Testing in your local development environment
+
+Here are the steps to test collection locally:
+
+- hctEnabled is set to `true` by default in config/development-disco.js
+- run yarn disco:https because we need HTTPS
+- Go to `about:config` and enable `devtools.chrome.enabled` so that the browser console has the CLI enabled.
+- open the Browser Console (and not the classic devtools) and type:
+  ```javascript
+  const hostURI = Services.io.newURI('https://example.com:3000');
+  Services.perms.add(hostURI, 'hc_telemetry', Services.perms.ALLOW_ACTION);
+  ```
+
+## Testing on dev
+
+You'll need to enable installs from -dev before enabling collection. You can skip this step if it's already been done.
+
+**NOTE: It's recommended you do these settings changes in a new profile as changing to the -dev cert will mark all existing add-ons as invalid.**
+
+- Right click in `about:config`, select `new` and then add `xpinstall.signatures.dev-root` as `Boolean`. It should be `true`.
+- Right click in `about:config`, select `new` and add `extensions.webapi.testing` as `Boolean`. It should be `true`.
+- Restart the browser
+
+Now enable collection on -dev.
+
+- open the Browser Console (and not the classic devtools) and type:
+  ```javascript
+  const hostURI = Services.io.newURI(
+    'https://discovery.addons-dev.allizom.org',
+  );
+  Services.perms.add(hostURI, 'hc_telemetry', Services.perms.ALLOW_ACTION);
+  ```
+
+## Viewing data collected
+
+- Navigate to `about:telemetry#events-tab` and select the `dynamic` filter (top-right dropdown)
+
+If there's no data shown, interact with the disco pane and refresh the page (you will need to reselect dynamic) in the filter.
+
+Here's the [link to the -dev disco pane](https://discovery.addons-dev.allizom.org/en-US/firefox/discovery/pane/57.0/Darwin/normal)

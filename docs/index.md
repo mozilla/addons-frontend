@@ -6,3 +6,4 @@
 - [Internationalization (i18n)](./i18n.md)
 - [Our Approach to Writing CSS](./css.md)
 - [Testing](./testing.md)
+- [Hybrid Content Telemetry (disco pane)](./telemetry.md)
