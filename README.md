@@ -98,6 +98,16 @@ If you want to run all tests and exit, type:
 yarn test-once
 ```
 
+### Eslint
+
+As you run tests you will see a report of Eslint errors at the end of the test output:
+
+    yarn test
+
+If you would like to run tests without Eslint checks, set an environment variable:
+
+    NO_ESLINT=1 yarn test
+
 ### Flow
 
 There is limited support for using [Flow](https://flowtype.org/) to validate the intention of our program.

@@ -176,7 +176,8 @@
         "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src",
         "NODE_ENV": "test",
-        "NO_FLOW": "1"
+        "NO_FLOW": "1",
+        "NO_ESLINT": "1"
       }
     },
     "webpack-dev-server": {
