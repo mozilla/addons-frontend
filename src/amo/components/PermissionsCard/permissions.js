@@ -77,6 +77,7 @@ export class PermissionUtils {
     });
 
     if (!file) {
+      // eslint-disable-next-line amo/only-log-strings
       log.debug(
         `No file exists for os "${userAgentInfo.os.toString()}"; platform files:`,
         platformFiles,

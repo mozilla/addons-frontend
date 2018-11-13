@@ -137,6 +137,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
 
     const installURL = event.currentTarget.href;
 
+    // eslint-disable-next-line amo/only-log-strings
     _log.info('Adding OpenSearch Provider', { addon });
     _window.external.AddSearchProvider(installURL);
 

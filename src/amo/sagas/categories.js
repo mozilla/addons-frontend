@@ -19,7 +19,7 @@ export function* fetchCategories({ payload: { errorHandlerId } }) {
 
     yield put(categoriesLoad({ results }));
   } catch (error) {
-    log.warn('Categories failed to load:', error);
+    log.warn(`Categories failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
   }
 }

@@ -40,8 +40,7 @@ export function trailingSlashesMiddleware(
 
   if (isValidTrailingSlashUrlException(urlToCheck, { _config })) {
     log.info(
-      'Not adding a trailing slash; validTrailingSlashUrlException found',
-      urlToCheck,
+      `Not adding a trailing slash; validTrailingSlashUrlException found: ${urlToCheck}`,
     );
   }
 

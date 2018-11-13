@@ -92,7 +92,9 @@ export function getAddon(
       if (!addon) {
         throw new Error('Addon not found');
       }
-      log.info('Add-on found', addon);
+      // eslint-disable-next-line amo/only-log-strings
+      log.debug('Add-on found', addon);
+
       return addon;
     });
   }
@@ -170,6 +172,7 @@ export function addChangeListeners(
   function handleChangeEvent(e: AddonChangeEvent) {
     const { id: guid, type, needsRestart } = e;
 
+    // eslint-disable-next-line amo/only-log-strings
     _log.info('Event received', { type, id: guid, needsRestart });
 
     if (type === ON_OPERATION_CANCELLED_EVENT) {
@@ -185,6 +188,7 @@ export function addChangeListeners(
           });
         })
         .catch((error) => {
+          // eslint-disable-next-line amo/only-log-strings
           _log.error(
             'Unexpected error after having received onOperationCancelled event',
             error,

@@ -516,7 +516,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     const { collection, errorHandler } = this.props;
 
     if (errorHandler.hasError()) {
-      log.warn('Captured API Error:', errorHandler.capturedError);
+      log.warn(`Captured API Error: ${errorHandler.capturedError}`);
 
       if (errorHandler.capturedError.responseStatusCode === 404) {
         return <NotFound errorCode={errorHandler.capturedError.code} />;

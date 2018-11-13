@@ -108,6 +108,7 @@ export class DismissibleTextFormBase extends React.Component<
   async checkForStoredState() {
     const storedState: State | null = await this.localState.load();
     if (storedState) {
+      // eslint-disable-next-line amo/only-log-strings
       log.debug(
         oneLine`Initializing DismissibleTextForm state from LocalState
           ${this.localState.id}`,

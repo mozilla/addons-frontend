@@ -29,7 +29,7 @@ export function* fetchGuidesAddons({
     const { results } = yield call(searchApi, params);
     yield put(loadAddonResults({ addons: results }));
   } catch (error) {
-    log.warn('Search for guide addons failed:', error);
+    log.warn(`Search for guide addons failed: ${error}`);
     yield put(errorHandler.createErrorAction(error));
   }
 }

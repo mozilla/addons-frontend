@@ -158,6 +158,7 @@ export class Tracking {
         this.log(logHctReason);
         return hybridContentTelemetry;
       } catch (err) {
+        // eslint-disable-next-line amo/only-log-strings
         log.error('Initialization failed', err);
       }
     }
@@ -167,6 +168,7 @@ export class Tracking {
 
   log(...args) {
     if (this._log) {
+      // eslint-disable-next-line amo/only-log-strings
       this._log.info(this.logPrefix, ...args);
     }
   }

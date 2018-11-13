@@ -6,7 +6,7 @@ import { createLogger } from 'redux-logger';
 import log from 'core/logger';
 
 export const minimalReduxLogger = () => (next) => (action) => {
-  log.info('Dispatching', action.type);
+  log.info(`Dispatching ${action.type}`);
   return next(action);
 };
 

@@ -87,11 +87,10 @@ export class AddonCompatibilityErrorBase extends React.Component {
         },
       );
     } else {
-      // This is an unknown reason code and a custom error message should
-      // be added.
+      // This is an unknown reason code and a custom error message should be
+      // added.
       log.warn(
-        'Unknown reason code supplied to AddonCompatibilityError',
-        reason,
+        `Unknown reason code supplied to AddonCompatibilityError: ${reason}`,
       );
 
       message = i18n.sprintf(

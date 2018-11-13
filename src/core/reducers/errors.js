@@ -22,6 +22,7 @@ function getMessagesFromError(error) {
     code: ERROR_UNKNOWN,
     messages: [],
   };
+  // eslint-disable-next-line amo/only-log-strings
   log.info('Extracting messages from error object:', error);
 
   const logCodeChange = ({ oldCode, newCode }) => {
@@ -69,7 +70,7 @@ function getMessagesFromError(error) {
   }
 
   if (!errorData.messages.length) {
-    log.warn('Error object did not contain any messages', error);
+    log.warn(`Error object did not contain any messages: ${error}`);
   }
 
   return errorData;

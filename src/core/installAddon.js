@@ -191,6 +191,7 @@ export const findInstallURL = ({
 
   if (!installURL) {
     // This could happen for themes which do not have version files.
+    // eslint-disable-next-line amo/only-log-strings
     log.debug(
       oneLine`No file exists for os "${userAgentInfo.os.toString()}"; platform files:`,
       platformFiles,
@@ -287,6 +288,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
 
       return clientAddon.isEnabled;
     } catch (error) {
+      // eslint-disable-next-line amo/only-log-strings
       _log.error('could not determine whether the add-on was enabled', error);
     }
 
@@ -392,6 +394,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
         if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
           _log.info(`addon.setEnabled not available. Unable to enable ${guid}`);
         } else {
+          // eslint-disable-next-line amo/only-log-strings
           _log.error(`Error while trying to enable ${guid}:`, err);
 
           dispatch(
