@@ -43,7 +43,7 @@ You'll need to enable installs from -dev before enabling collection. You can ski
 
 Now enable collection on -dev:
 
-- open the Browser Console (and not the classic devtools) and type:
+- Open the Browser Console (and not the classic devtools) and type:
   ```javascript
   const hostURI = Services.io.newURI(
     'https://discovery.addons-dev.allizom.org',
