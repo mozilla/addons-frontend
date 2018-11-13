@@ -31,7 +31,7 @@ Here are the steps to test collection locally:
   Services.perms.add(hostURI, 'hc_telemetry', Services.perms.ALLOW_ACTION);
   ```
 
-## Testing on dev
+## Testing on -dev (hosted environment)
 
 You'll need to enable installs from -dev before enabling collection. You can skip this step if it's already been done.
 
