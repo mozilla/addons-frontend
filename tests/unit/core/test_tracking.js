@@ -437,19 +437,23 @@ describe(__filename, () => {
   describe('HCT identifiers', () => {
     const telemetryRegex = /^[a-z0-9]{1}[a-z0-9_]+[a-z0-9]{1}$/i;
 
-    Object.values(HCT_METHOD_MAPPING).forEach((idString) => {
-      it(`should ensure hct method "${idString}" meets HCT identifier requirements`, () => {
+    // Set is to de-dupe the values since we map multiple keys to the same
+    // value in Hybrid Content Telemetry.
+    it.each(Array.from(new Set(Object.values(HCT_METHOD_MAPPING))))(
+      'should ensure hct method "%s" meets HCT identifier requirements',
+      (idString) => {
         expect(idString).toMatch(telemetryRegex);
         expect(idString.length).toBeLessThanOrEqual(20);
-      });
-    });
+      }
+    );
 
-    for (const action of telemetryObjects) {
-      it(`should ensure hct object (${action}) meets HCT identifier requirements`, () => {
+    it.each(telemetryObjects)(
+      'should ensure hct object (%s) meets HCT identifier requirements',
+      (action) => {
         expect(action).toMatch(telemetryRegex);
         expect(action.length).toBeLessThanOrEqual(20);
-      });
-    }
+      }
+    );
   });
 
   describe('Tracking constants should not be changed or it risks breaking tracking stats', () => {

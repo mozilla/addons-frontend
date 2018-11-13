@@ -22,8 +22,8 @@ The following events are logged to telemetry if:
 
 Here are the steps to test collection locally:
 
-- `hctEnabled` is set to `true` by default in `config/development-disco.js`
-- Run `yarn disco:https` to start the disco app because HCT requires HTTPS
+- `hctEnabled` is set to `true` by default in `config/development-disco.js`.
+- Run `yarn disco:https` to start the disco app because HCT requires HTTPS.
 - Go to `about:config` and enable `devtools.chrome.enabled` so that the browser console has the CLI enabled.
 - Open the Browser Console (and not the classic devtools) and type:
   ```javascript
@@ -39,7 +39,7 @@ You'll need to enable installs from -dev before enabling collection. You can ski
 
 - Right click in `about:config`, select `new` and then add `xpinstall.signatures.dev-root` as `Boolean`. It should be `true`.
 - Right click in `about:config`, select `new` and add `extensions.webapi.testing` as `Boolean`. It should be `true`.
-- Restart the browser
+- Restart the browser.
 
 Now enable collection on -dev:
 
