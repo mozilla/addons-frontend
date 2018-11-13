@@ -14,7 +14,7 @@ import type {
   SetAuthTokenAction,
   SetClientAppAction,
   SetLangAction,
-  SetRequestId,
+  SetRequestIdAction,
   SetUserAgentAction,
 } from 'core/actions/index';
 import type { Exact } from 'core/types/util';
@@ -87,7 +87,7 @@ type Action =
   | SetAuthTokenAction
   | SetLangAction
   | SetClientAppAction
-  | SetRequestId
+  | SetRequestIdAction
   | SetUserAgentAction
   | LogOutUserAction;
 

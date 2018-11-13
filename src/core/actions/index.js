@@ -61,12 +61,12 @@ export function setUserAgent(userAgent: string): SetUserAgentAction {
   };
 }
 
-export type SetRequestId = {|
+export type SetRequestIdAction = {|
   payload: {| requestId: string |},
   type: typeof SET_REQUEST_ID,
 |};
 
-export function setRequestId(requestId: string): SetRequestId {
+export function setRequestId(requestId: string): SetRequestIdAction {
   return {
     type: SET_REQUEST_ID,
     payload: { requestId },
