@@ -722,6 +722,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               </p>
 
               <UserProfileEditNotifications
+                key={user && user.id}
                 onChange={this.onNotificationChange}
                 user={user}
               />

@@ -376,6 +376,16 @@ describe(__filename, () => {
 
       expect(getUserById(state.users, 441)).toBeUndefined();
     });
+
+    it('does not throw when userId is 0', () => {
+      const { state } = dispatchSignInActions({
+        userProps: { id: 500, username: 'Tupac' },
+      });
+
+      expect(() => {
+        getUserById(state.users, 0);
+      }).not.toThrow();
+    });
   });
 
   describe('getUserByUsername selector', () => {

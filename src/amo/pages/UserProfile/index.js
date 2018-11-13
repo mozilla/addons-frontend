@@ -20,6 +20,7 @@ import {
   fetchUserAccount,
   getCurrentUser,
   getUserById,
+  getUserByUsername,
   hasPermission,
   isDeveloper,
 } from 'amo/reducers/users';
@@ -33,6 +34,7 @@ import {
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { removeProtocolFromURL, sanitizeUserHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
@@ -67,14 +69,17 @@ type InternalProps = {|
   ...Props,
   canAdminUser: boolean,
   canEditProfile: boolean,
+  clientApp: string,
   currentUser: UserType | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   isOwner: boolean,
+  lang: string,
   pageSize: number | null,
   reviewCount: number | null,
   reviews: Array<UserReviewType> | null,
+  shouldRedirect: boolean,
   user: UserType | null,
 |};
 
@@ -83,14 +88,27 @@ export class UserProfileBase extends React.Component<InternalProps> {
     super(props);
 
     const {
+      clientApp,
       dispatch,
       errorHandler,
       isOwner,
+      lang,
       location,
       match: { params },
       reviews,
+      shouldRedirect,
       user,
     } = props;
+
+    if (shouldRedirect && user) {
+      dispatch(
+        sendServerRedirect({
+          status: 301,
+          url: `/${lang}/${clientApp}/user/${user.id}/`,
+        }),
+      );
+      return;
+    }
 
     if (errorHandler.hasError()) {
       log.warn('Not loading data because of an error.');
@@ -101,7 +119,12 @@ export class UserProfileBase extends React.Component<InternalProps> {
       dispatch(
         fetchUserAccount({
           errorHandlerId: errorHandler.id,
-          userId: Number(params.userId),
+          // We should use `Number()` here but we need to fetch users by
+          // username in order to send a server redirect (to support previous
+          // URLs with usernames). That is why we have to ignore the Flow error
+          // here.
+          // $FLOW_IGNORE
+          userId: params.userId,
         }),
       );
     } else if (isOwner && !reviews) {
@@ -173,7 +196,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
 
     invariant(currentUser, 'currentUser is required');
 
-    if (currentUser.id === params.userId) {
+    if (`${currentUser.id}` === params.userId) {
       return `/users/edit`;
     }
 
@@ -469,32 +492,52 @@ export class UserProfileBase extends React.Component<InternalProps> {
 export function mapStateToProps(state: AppState, ownProps: Props) {
   const { params } = ownProps.match;
 
-  const userId = Number(params.userId);
-  const user = getUserById(state.users, userId) || null;
+  const { clientApp, lang } = state.api;
 
-  const currentUser = getCurrentUser(state.users);
-  const isOwner = currentUser && currentUser.id === userId;
+  let canAdminUser = false;
+  let canEditProfile = false;
+  let currentUser = null;
+  let isOwner = false;
+  let reviews = null;
+  let shouldRedirect = false;
+  let user = null;
+  let userId;
 
-  const canEditProfile =
-    currentUser &&
-    (currentUser.id === userId || hasPermission(state, USERS_EDIT));
+  if (/^\d+$/.test(params.userId)) {
+    userId = Number(params.userId);
+    user = getUserById(state.users, userId) || null;
 
-  const canAdminUser =
-    currentUser &&
-    user &&
-    hasPermission(state, ADMIN_TOOLS) &&
-    hasPermission(state, USERS_EDIT);
+    currentUser = getCurrentUser(state.users);
+    isOwner = currentUser && currentUser.id === userId;
 
-  const reviews = getReviewsByUserId(state.reviews, userId);
+    canEditProfile =
+      currentUser &&
+      (currentUser.id === userId || hasPermission(state, USERS_EDIT));
+
+    canAdminUser =
+      currentUser &&
+      user &&
+      hasPermission(state, ADMIN_TOOLS) &&
+      hasPermission(state, USERS_EDIT);
+
+    reviews = getReviewsByUserId(state.reviews, userId);
+  } else {
+    userId = params.userId;
+    user = getUserByUsername(state.users, userId);
+    shouldRedirect = true;
+  }
 
   return {
     canAdminUser,
     canEditProfile,
+    clientApp,
     currentUser,
     isOwner,
+    lang,
     pageSize: reviews ? reviews.pageSize : null,
     reviewCount: reviews ? reviews.reviewCount : null,
     reviews: reviews ? reviews.reviews : null,
+    shouldRedirect,
     user,
   };
 }
