@@ -25,7 +25,7 @@ Here are the steps to test collection locally:
 - `hctEnabled` is set to `true` by default in `config/development-disco.js`
 - Run `yarn disco:https` to start the disco app because HCT requires HTTPS
 - Go to `about:config` and enable `devtools.chrome.enabled` so that the browser console has the CLI enabled.
-- open the Browser Console (and not the classic devtools) and type:
+- Open the Browser Console (and not the classic devtools) and type:
   ```javascript
   const hostURI = Services.io.newURI('https://example.com:3000');
   Services.perms.add(hostURI, 'hc_telemetry', Services.perms.ALLOW_ACTION);
