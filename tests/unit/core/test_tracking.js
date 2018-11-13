@@ -20,6 +20,12 @@ import {
   ENABLE_ACTION,
   ENABLE_EXTENSION_CATEGORY,
   ENABLE_THEME_CATEGORY,
+  HCT_ADDON_DOWNLOAD_FAILED,
+  HCT_ADDON_ENABLED,
+  HCT_ADDON_INSTALLED,
+  HCT_ADDON_INSTALL_CANCELLED,
+  HCT_ADDON_INSTALL_STARTED,
+  HCT_ADDON_UNINSTALLED,
   HCT_DISCO_CATEGORY,
   HCT_METHOD_MAPPING,
   INSTALL_ACTION,
@@ -444,7 +450,7 @@ describe(__filename, () => {
       (idString) => {
         expect(idString).toMatch(telemetryRegex);
         expect(idString.length).toBeLessThanOrEqual(20);
-      }
+      },
     );
 
     it.each(telemetryObjects)(
@@ -452,8 +458,64 @@ describe(__filename, () => {
       (action) => {
         expect(action).toMatch(telemetryRegex);
         expect(action.length).toBeLessThanOrEqual(20);
-      }
+      },
     );
+
+    // HCT_ADDON_ENABLED,
+    // HCT_ADDON_INSTALL_CANCELLED,
+    // HCT_ADDON_INSTALL_STARTED,
+
+    it('should map to HCT_ADDON_INSTALLED correctly', () => {
+      expect(HCT_METHOD_MAPPING[INSTALL_EXTENSION_CATEGORY]).toBe(
+        HCT_ADDON_INSTALLED,
+      );
+      expect(HCT_METHOD_MAPPING[INSTALL_THEME_CATEGORY]).toBe(
+        HCT_ADDON_INSTALLED,
+      );
+    });
+
+    it('should map to HCT_ADDON_UNINSTALLED correctly', () => {
+      expect(HCT_METHOD_MAPPING[UNINSTALL_EXTENSION_CATEGORY]).toBe(
+        HCT_ADDON_UNINSTALLED,
+      );
+      expect(HCT_METHOD_MAPPING[UNINSTALL_THEME_CATEGORY]).toBe(
+        HCT_ADDON_UNINSTALLED,
+      );
+    });
+
+    it('should map to HCT_ADDON_DOWNLOAD_FAILED correctly', () => {
+      expect(
+        HCT_METHOD_MAPPING[INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY],
+      ).toBe(HCT_ADDON_DOWNLOAD_FAILED);
+      expect(HCT_METHOD_MAPPING[INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY]).toBe(
+        HCT_ADDON_DOWNLOAD_FAILED,
+      );
+    });
+
+    it('should map to HCT_ADDON_ENABLED correctly', () => {
+      expect(HCT_METHOD_MAPPING[ENABLE_EXTENSION_CATEGORY]).toBe(
+        HCT_ADDON_ENABLED,
+      );
+      expect(HCT_METHOD_MAPPING[ENABLE_THEME_CATEGORY]).toBe(HCT_ADDON_ENABLED);
+    });
+
+    it('should map to HCT_ADDON_INSTALL_CANCELLED correctly', () => {
+      expect(HCT_METHOD_MAPPING[INSTALL_CANCELLED_EXTENSION_CATEGORY]).toBe(
+        HCT_ADDON_INSTALL_CANCELLED,
+      );
+      expect(HCT_METHOD_MAPPING[INSTALL_CANCELLED_THEME_CATEGORY]).toBe(
+        HCT_ADDON_INSTALL_CANCELLED,
+      );
+    });
+
+    it('should map to HCT_ADDON_INSTALL_STARTED correctly', () => {
+      expect(HCT_METHOD_MAPPING[INSTALL_STARTED_EXTENSION_CATEGORY]).toBe(
+        HCT_ADDON_INSTALL_STARTED,
+      );
+      expect(HCT_METHOD_MAPPING[INSTALL_STARTED_THEME_CATEGORY]).toBe(
+        HCT_ADDON_INSTALL_STARTED,
+      );
+    });
   });
 
   describe('Tracking constants should not be changed or it risks breaking tracking stats', () => {

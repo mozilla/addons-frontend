@@ -242,14 +242,14 @@ export const SURVEY_ACTION_VISITED = 'Visited survey';
 // See https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/telemetry/collection/events.html#limits
 // for more details.
 export const HCT_DISCO_CATEGORY = 'disco.interaction';
-const HCT_ADDON_CLICK = 'addon_click';
-const HCT_ADDON_ENABLED = 'enabled';
-const HCT_ADDON_INSTALLED = 'installed';
-const HCT_ADDON_INSTALL_CANCELLED = 'cancelled';
-const HCT_ADDON_DOWNLOAD_FAILED = 'download_failed';
-const HCT_ADDON_INSTALL_STARTED = 'install_started';
-const HCT_ADDON_NAVIGATION_CLICK = 'navigation_click';
-const HCT_ADDON_UNINSTALLED = 'uninstalled';
+export const HCT_ADDON_CLICK = 'addon_click';
+export const HCT_ADDON_ENABLED = 'enabled';
+export const HCT_ADDON_INSTALLED = 'installed';
+export const HCT_ADDON_INSTALL_CANCELLED = 'cancelled';
+export const HCT_ADDON_DOWNLOAD_FAILED = 'download_failed';
+export const HCT_ADDON_INSTALL_STARTED = 'install_started';
+export const HCT_ADDON_NAVIGATION_CLICK = 'navigation_click';
+export const HCT_ADDON_UNINSTALLED = 'uninstalled';
 
 export const HCT_METHOD_MAPPING = {
   [CLICK_CATEGORY]: HCT_ADDON_CLICK,
