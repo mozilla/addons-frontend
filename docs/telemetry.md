@@ -41,7 +41,7 @@ You'll need to enable installs from -dev before enabling collection. You can ski
 - Right click in `about:config`, select `new` and add `extensions.webapi.testing` as `Boolean`. It should be `true`.
 - Restart the browser
 
-Now enable collection on -dev.
+Now enable collection on -dev:
 
 - open the Browser Console (and not the classic devtools) and type:
   ```javascript
