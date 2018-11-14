@@ -114,13 +114,18 @@
 }
 
 .Addon .AMInstallButton {
-  width: 100%;
-
   @include respond-to(medium) {
     @include margin-start(auto);
 
     align-content: center;
     align-self: center;
+  }
+}
+
+.Addon .AMInstallButton-button {
+  width: 100%;
+
+  @include respond-to(medium) {
     width: auto;
   }
 }

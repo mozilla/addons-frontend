@@ -142,14 +142,16 @@ function shallowRender(...args) {
 }
 
 describe(__filename, () => {
-  const incompatibleClientResult = {
-    compatible: false,
-    maxVersion: null,
-    minVersion: null,
-    reason: INCOMPATIBLE_NOT_FIREFOX,
+  const getFakeClientCompatibility = (isCompatible: boolean) => {
+    return () => {
+      return {
+        compatible: isCompatible,
+        maxVersion: null,
+        minVersion: null,
+        reason: isCompatible ? null : INCOMPATIBLE_NOT_FIREFOX,
+      };
+    };
   };
-
-  const getClientCompatibilityFalse = () => incompatibleClientResult;
 
   const _loadAddonResults = ({ addon = fakeAddon }) => {
     return loadAddonResults({ addons: [addon] });
@@ -1096,10 +1098,17 @@ describe(__filename, () => {
 
   it('hides banner on non firefox clients and displays firefox download button', () => {
     const root = shallowRender({
-      getClientCompatibility: getClientCompatibilityFalse,
+      getClientCompatibility: getFakeClientCompatibility(false),
     });
     expect(root.find(AddonCompatibilityError)).toHaveLength(0);
     expect(root.find(GetFirefoxButton)).toHaveLength(1);
+  });
+
+  it('hides GetFirefoxButton for Firefox', () => {
+    const root = shallowRender({
+      getClientCompatibility: getFakeClientCompatibility(true),
+    });
+    expect(root.find(GetFirefoxButton)).toHaveLength(0);
   });
 
   it('renders a ThemeImage in the header', () => {
@@ -1656,7 +1665,7 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(0);
   });
 
-  it('passes the add-on to the GetFirefoxButton', () => {
+  it('passes the add-on to GetFirefoxButton', () => {
     const guid = 'some-guid';
     const addon = createInternalAddon({
       ...fakeAddon,
@@ -1665,7 +1674,7 @@ describe(__filename, () => {
 
     const root = shallowRender({
       addon,
-      getClientCompatibility: getClientCompatibilityFalse,
+      getClientCompatibility: getFakeClientCompatibility(false),
     });
 
     expect(root.find(GetFirefoxButton)).toHaveLength(1);

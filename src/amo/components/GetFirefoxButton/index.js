@@ -1,6 +1,5 @@
 /* @flow */
 import * as React from 'react';
-import { compose } from 'redux';
 
 import { makeQueryStringWithUTM } from 'amo/utils';
 import translate from 'core/i18n/translate';
@@ -36,7 +35,7 @@ export const GetFirefoxButtonBase = (props: InternalProps) => {
   );
 };
 
-const GetFirefoxButton: React.ComponentType<Props> = compose(translate())(
+const GetFirefoxButton: React.ComponentType<Props> = translate()(
   GetFirefoxButtonBase,
 );
 
