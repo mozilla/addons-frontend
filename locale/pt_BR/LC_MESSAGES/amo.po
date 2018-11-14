@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-14 17:21+0000\n"
+"PO-Revision-Date: 2018-11-14 17:52+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1228,9 +1228,8 @@ msgid "Play videos in a pop-out window, take video screenshots & more"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:38
-#, fuzzy
 msgid "Private Bookmarks"
-msgstr "Favoritos"
+msgstr "Favoritos privativos"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Password-protect your personal bookmarks"
@@ -1310,14 +1309,12 @@ msgid "Stay Safe Online"
 msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:35
-#, fuzzy
 msgid "Organize Your Tabs"
-msgstr "Controle suas abas"
+msgstr "Organize suas abas"
 
 #: src/amo/components/HomeHeroGuides/index.js:40
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "Avalie a sua experiência"
+msgstr "Realce sua experiência com mídia"
 
 #: src/amo/components/HomeHeroGuides/index.js:53
 msgid "Extensions are like apps for your browsers."
@@ -1456,19 +1453,16 @@ msgid "Log in to rate this add-on"
 msgstr "Identifique-se para avaliar esta extensão"
 
 #: src/amo/components/RatingManager/index.js:173
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Você deseja realmente excluir esta imagem?"
+msgstr "Tem certeza que quer excluir sua análise de %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:178
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "Você deseja realmente excluir esta imagem?"
+msgstr "Tem certeza que quer excluir sua avaliação de %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:183
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
-msgstr "Como está desfrutando da sua experiência com %(addonName)s?"
+msgstr "O que está achando de %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
