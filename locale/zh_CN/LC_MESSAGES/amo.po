@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-11 14:42+0000\n"
+"PO-Revision-Date: 2018-11-14 11:40+0000\n"
 "Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1920,11 +1920,11 @@ msgstr "屏幕截图"
 
 #: src/amo/pages/AddonInfo/index.js:116
 msgid "End-User License Agreement for %(addonName)s"
-msgstr ""
+msgstr "%(addonName)s 的最终用户许可协议"
 
 #: src/amo/pages/AddonInfo/index.js:117
 msgid "Privacy policy for %(addonName)s"
-msgstr ""
+msgstr "%(addonName)s 的隐私政策"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -1941,11 +1941,11 @@ msgstr[0] "此附加组件有 %(total)s 则评价"
 
 #: src/amo/pages/CategoriesPage/index.js:46
 msgid "All extension categories"
-msgstr ""
+msgstr "所有扩展分类"
 
 #: src/amo/pages/CategoriesPage/index.js:48
 msgid "All theme categories"
-msgstr ""
+msgstr "所有主题分类"
 
 #: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:324 src/amo/pages/LandingPage/index.js:143
 msgid "See more featured extensions"
@@ -2031,23 +2031,23 @@ msgstr "我的收藏集"
 msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
-msgstr ""
+msgstr "网络是一个美妙但也有野蛮的地方。他人可能在未获您同意的情况下就使用您的个人数据、偷偷记录您的行为，或是盗取您的密码。幸运的是，可使用扩展来增强线上隐私与安全。"
 
 #: src/amo/pages/Guides/index.js:72
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "创建并管理高强度的密码"
 
 #: src/amo/pages/Guides/index.js:73
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
-msgstr ""
+msgstr "密码管理器可帮助您创建安全的密码，并安全地存储您的密码，让您无论身在何处都可轻松访问登录信息。"
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
-msgstr ""
+msgstr "完全加密的密码保护，安全地存储数据，并可跨设备访问登录信息。"
 
 #: src/amo/pages/Guides/index.js:82
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "浏览更多编辑精选%(linkStart)s密码管理器%(linkEnd)s。"
 
 #: src/amo/pages/Home/index.js:119
 msgid "Bookmarks"
@@ -2465,7 +2465,7 @@ msgstr "编辑个人资料"
 
 #: src/amo/pages/UserProfile/index.js:430
 msgid "Admin user"
-msgstr ""
+msgstr "管理员用户"
 
 #: src/amo/pages/UserProfileEdit/index.js:186
 msgid "Picture successfully deleted"
