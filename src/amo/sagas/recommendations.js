@@ -1,7 +1,7 @@
 /* @flow */
 import invariant from 'invariant';
-
 import { call, put, select, takeLatest } from 'redux-saga/effects';
+
 import {
   FETCH_RECOMMENDATIONS,
   abortFetchRecommendations,
@@ -12,10 +12,11 @@ import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { GetRecommendationsParams } from 'amo/api/recommendations';
 import type { FetchRecommendationsAction } from 'amo/reducers/recommendations';
+import type { Saga } from 'core/types/sagas';
 
 export function* fetchRecommendations({
   payload: { errorHandlerId, guid, recommended },
-}: FetchRecommendationsAction): Generator<any, any, any> {
+}: FetchRecommendationsAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
 
@@ -50,6 +51,6 @@ export function* fetchRecommendations({
   }
 }
 
-export default function* recommendationsSaga(): Generator<any, any, any> {
+export default function* recommendationsSaga(): Saga {
   yield takeLatest(FETCH_RECOMMENDATIONS, fetchRecommendations);
 }
