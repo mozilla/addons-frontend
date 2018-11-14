@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-14 16:52+0000\n"
+"PO-Revision-Date: 2018-11-14 17:04+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -195,7 +195,6 @@ msgstr[0] "%(total)s estrela"
 msgstr[1] "%(total)s estrelas"
 
 #: src/amo/components/AddonMeta/index.js:123
-#, fuzzy
 msgid "Not rated yet"
 msgstr "Ainda sem avaliação"
 
@@ -214,9 +213,8 @@ msgid "No Users"
 msgstr "Nenhum usuário"
 
 #: src/amo/components/AddonMeta/index.js:58
-#, fuzzy
 msgid "Reviews"
-msgstr "Análise"
+msgstr "Análises"
 
 #: src/amo/components/AddonMeta/index.js:61
 msgid "Review"
@@ -309,44 +307,36 @@ msgid "Other popular extensions"
 msgstr "Outras extensões populares"
 
 #: src/amo/components/AddonReviewCard/index.js:193
-#, fuzzy
 msgid "Edit reply"
-msgstr "Editar minha resposta"
+msgstr "Editar resposta"
 
 #: src/amo/components/AddonReviewCard/index.js:196
-#, fuzzy
 msgid "Edit review"
-msgstr "Editar minha análise"
+msgstr "Editar análise"
 
 #: src/amo/components/AddonReviewCard/index.js:203 src/amo/components/AddonReviewCard/index.js:235
-#, fuzzy
 msgid "Delete reply"
-msgstr "Editar minha resposta"
+msgstr "Excluir resposta"
 
 #: src/amo/components/AddonReviewCard/index.js:207 src/amo/components/AddonReviewCard/index.js:239
-#, fuzzy
 msgid "Delete rating"
-msgstr "Editar minha análise"
+msgstr "Excluir análise"
 
 #: src/amo/components/AddonReviewCard/index.js:210 src/amo/components/AddonReviewCard/index.js:242
-#, fuzzy
 msgid "Delete review"
-msgstr "Editar minha análise"
+msgstr "Excluir análise"
 
 #: src/amo/components/AddonReviewCard/index.js:217
-#, fuzzy
 msgid "Do you really want to delete this reply?"
-msgstr "Você deseja realmente excluir esta imagem?"
+msgstr "Você quer mesmo excluir esta resposta?"
 
 #: src/amo/components/AddonReviewCard/index.js:221
-#, fuzzy
 msgid "Do you really want to delete this rating?"
-msgstr "Você deseja realmente excluir esta imagem?"
+msgstr "Você quer mesmo excluir esta avaliação?"
 
 #: src/amo/components/AddonReviewCard/index.js:224
-#, fuzzy
 msgid "Do you really want to delete this review?"
-msgstr "Você deseja realmente excluir esta imagem?"
+msgstr "Você quer mesmo excluir esta análise?"
 
 #: src/amo/components/AddonReviewCard/index.js:231 src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
@@ -358,19 +348,16 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: src/amo/components/AddonReviewCard/index.js:253
-#, fuzzy
 msgid "Keep reply"
-msgstr "Editar minha resposta"
+msgstr "Manter resposta"
 
 #: src/amo/components/AddonReviewCard/index.js:257
-#, fuzzy
 msgid "Keep rating"
-msgstr "Editar minha análise"
+msgstr "Manter avaliação"
 
 #: src/amo/components/AddonReviewCard/index.js:260
-#, fuzzy
 msgid "Keep review"
-msgstr "Editar minha análise"
+msgstr "Manter análise"
 
 #: src/amo/components/AddonReviewCard/index.js:296
 msgid "Write a reply to this review."
@@ -401,9 +388,8 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr "de %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewCard/index.js:409
-#, fuzzy
 msgid "Deleting…"
-msgstr "Edição finalizada"
+msgstr "Excluindo…"
 
 #: src/amo/components/AddonReviewCard/index.js:439
 msgid "Reply to this review"
@@ -414,42 +400,36 @@ msgid "Write a review"
 msgstr "Escreva uma análise"
 
 #: src/amo/components/AddonReviewManager/index.js:103
-#, fuzzy
 msgid "Write about your experience with this add-on."
-msgstr "Escreva como se estivesse contando a um amigo sobre sua experiência com a extensão."
+msgstr "Escreva sobre a sua experiência com esta extensão."
 
 #: src/amo/components/AddonReviewManager/index.js:107
 msgid "Submit review"
 msgstr "Enviar análise"
 
 #: src/amo/components/AddonReviewManager/index.js:108
-#, fuzzy
 msgid "Submitting review"
-msgstr "Enviar análise"
+msgstr "Enviando análise"
 
 #: src/amo/components/AddonReviewManager/index.js:112
-#, fuzzy
 msgid "Update review"
-msgstr "Atualizar perfil"
+msgstr "Atualizar análise"
 
 #: src/amo/components/AddonReviewManager/index.js:115
-#, fuzzy
 msgid "Updating review"
-msgstr "Atualizando resposta"
+msgstr "Atualizando análise"
 
 #: src/amo/components/AddonReviewManager/index.js:136
 msgid "Saving"
 msgstr "Salvando"
 
 #: src/amo/components/AddonReviewManager/index.js:137
-#, fuzzy
 msgid "Saved"
-msgstr "Salvar"
+msgstr "Salvo"
 
 #: src/amo/components/AddonReviewManager/index.js:86
-#, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Diga ao todo mundo sobre esta extensão. Siga nossas %(linkStart)sregras gerais para análises%(linkEnd)s."
+msgstr "Siga as nossas %(linkStart)sdiretrizes de análises%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
@@ -554,24 +534,20 @@ msgid "by"
 msgstr ""
 
 #: src/amo/components/App/index.js:216 src/amo/components/HeadMetaTags/index.js:63
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Extensões para o Firefox"
+msgstr "Extensões para o Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:220 src/amo/components/HeadMetaTags/index.js:57
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – Extensões para o Firefox"
+msgstr "%(title)s – Extensões para o Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:228 src/amo/components/HeadMetaTags/index.js:62
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Extensões para o Firefox"
+msgstr "Extensões para o Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:232 src/amo/components/HeadMetaTags/index.js:56
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%s – Extensões para o Firefox"
+msgstr "%(title)s – Extensões para o Firefox Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:204
 msgid "Loading"
@@ -606,18 +582,16 @@ msgid "%(categoryName)s – Themes"
 msgstr ""
 
 #: src/amo/components/CategoryHead/index.js:38
-#, fuzzy
 msgid "%(categoryName)s"
-msgstr "Categorias"
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
 msgid "Added to collection"
 msgstr "Adicionado à coleção"
 
 #: src/amo/components/CollectionAddAddon/index.js:160
-#, fuzzy
 msgid "Removed from collection"
-msgstr "Adicionado à coleção"
+msgstr "Removido da coleção"
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Find an add-on to include in this collection"
@@ -628,14 +602,12 @@ msgid "Edit this collection"
 msgstr "Editar esta coleção"
 
 #: src/amo/components/CollectionDetails/index.js:114
-#, fuzzy
 msgid "Edit collection details"
-msgstr "Editar coleção"
+msgstr "Editar detalhes da coleção"
 
 #: src/amo/components/CollectionDetails/index.js:126
-#, fuzzy
 msgid "Back to collection"
-msgstr "Adicionar à coleção"
+msgstr "Retornar à coleção"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -814,14 +786,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Desculpe, mas ocorreu um erro com o nosso servidor e não conseguimos completar o seu pedido. Registrámos este erro e vamos investigá-lo."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "Análises de %(addonName)s"
+msgstr "Resposta de %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "Análises de %(addonName)s"
+msgstr "Análise de %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
@@ -940,9 +910,8 @@ msgid "Developer Hub"
 msgstr "Central do desenvolvedor"
 
 #: src/amo/components/Footer/index.js:63
-#, fuzzy
 msgid "Developer Policies"
-msgstr "Resposta do desenvolvedor"
+msgstr "Políticas para desenvolvedor"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Forum"
@@ -1068,9 +1037,8 @@ msgid "Auto Fullscreen"
 msgstr "Tela inteira em automático"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
-#, fuzzy
 msgid "Automatically start Firefox in full screen mode"
-msgstr "Pesquisar automaticamente por códigos de cupões"
+msgstr "Comece o Firefox automaticamente em modo de tela inteira"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Video Speed Controller"
@@ -1170,9 +1138,8 @@ msgid "Send any Web page to your Kindle device"
 msgstr "Envia qualquer página da Web para o seu dispositivo Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:221
-#, fuzzy
 msgid "New Tab Homepage"
-msgstr "Página Inicial"
+msgstr "Página de nova aba"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "Designate a custom home page for your new tabs"
@@ -1208,9 +1175,8 @@ msgid "Facebook Container"
 msgstr "Contêiner Facebook"
 
 #: src/amo/components/HomeHeroBanner/index.js:245
-#, fuzzy
 msgid "CookieBro"
-msgstr "Cookies"
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:246
 msgid "Automatically delete unwanted cookies"
