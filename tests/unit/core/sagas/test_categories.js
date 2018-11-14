@@ -2,12 +2,14 @@ import SagaTester from 'redux-saga-tester';
 
 import createStore from 'amo/store';
 import { setClientApp, setLang } from 'core/actions';
-import * as actions from 'core/actions/categories';
 import categoriesSaga from 'core/sagas/categories';
 import * as api from 'core/api';
-import { CATEGORIES_LOAD } from 'core/constants';
 import apiReducer from 'core/reducers/api';
-import categoriesReducer from 'core/reducers/categories';
+import categoriesReducer, {
+  CATEGORIES_LOAD,
+  categoriesFetch,
+  categoriesLoad,
+} from 'core/reducers/categories';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -36,7 +38,7 @@ describe(__filename, () => {
   });
 
   function _categoriesFetch(overrides = {}) {
-    return actions.categoriesFetch({
+    return categoriesFetch({
       errorHandlerId: errorHandler.id,
       ...overrides,
     });
@@ -71,7 +73,7 @@ describe(__filename, () => {
     expect(calledActions[0]).toEqual(_categoriesFetch());
 
     // Next action is loading the categories returned by the API.
-    expect(calledActions[1]).toEqual(actions.categoriesLoad({ results }));
+    expect(calledActions[1]).toEqual(categoriesLoad({ results }));
 
     mockApi.verify();
   });

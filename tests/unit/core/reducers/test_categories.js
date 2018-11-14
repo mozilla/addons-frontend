@@ -9,8 +9,12 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
-import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
-import categories, { initialState } from 'core/reducers/categories';
+import categories, {
+  CATEGORIES_FETCH,
+  categoriesFetch,
+  categoriesLoad,
+  initialState,
+} from 'core/reducers/categories';
 import { fakeCategory } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -24,21 +28,19 @@ describe(__filename, () => {
     expect(loading).toEqual(false);
   });
 
-  describe('CATEGORIES_FETCH', () => {
-    it('sets loading', () => {
-      const state = categories(
-        initialState,
-        categoriesFetch({ errorHandlerId: 'some-handler' }),
-      );
-      expect(state.categories).toEqual(null);
-      expect(state.loading).toEqual(true);
-    });
+  it('sets loading', () => {
+    const state = categories(
+      initialState,
+      categoriesFetch({ errorHandlerId: 'some-handler' }),
+    );
+    expect(state.categories).toEqual(null);
+    expect(state.loading).toEqual(true);
   });
 
   describe('CATEGORIES_LOAD', () => {
     let state;
 
-    beforeAll(() => {
+    beforeEach(() => {
       const results = [
         {
           ...fakeCategory,
@@ -111,6 +113,7 @@ describe(__filename, () => {
           type: 'FAKE_TYPE',
         },
       ];
+
       state = categories(initialState, categoriesLoad({ results }));
     });
 
@@ -287,7 +290,24 @@ describe(__filename, () => {
 
     it('sets loading', () => {
       const { loading } = state;
-      expect(loading).toBe(false);
+      expect(loading).toEqual(false);
+    });
+  });
+
+  describe('CATEGORIES_FETCH', () => {
+    function _categoriesFetch({ errorHandlerId = 'some-handler-id' } = {}) {
+      return categoriesFetch({ errorHandlerId });
+    }
+
+    it('sets the type', () => {
+      expect(_categoriesFetch().type).toEqual(CATEGORIES_FETCH);
+    });
+
+    it('puts the error handler ID in the payload', () => {
+      const errorHandlerId = 'some-custom-id';
+      expect(
+        _categoriesFetch({ errorHandlerId }).payload.errorHandlerId,
+      ).toEqual(errorHandlerId);
     });
   });
 });

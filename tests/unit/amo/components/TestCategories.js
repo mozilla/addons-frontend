@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import { CategoriesBase, mapStateToProps } from 'amo/components/Categories';
-import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
+import { categoriesFetch, categoriesLoad } from 'core/reducers/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,

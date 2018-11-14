@@ -7,12 +7,15 @@ import CategoryHead from 'amo/components/CategoryHead';
 import CategoryHeader from 'amo/components/CategoryHeader';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
+import {
+  CATEGORIES_FETCH,
+  categoriesFetch,
+  categoriesLoad,
+} from 'core/reducers/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES_FILTER,
-  CATEGORIES_FETCH,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   SEARCH_SORT_TRENDING,

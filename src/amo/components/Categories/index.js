@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import { categoriesFetch } from 'core/actions/categories';
+import { categoriesFetch } from 'core/reducers/categories';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { getCategoryColor, visibleAddonType } from 'core/utils';

@@ -14,7 +14,7 @@ import CategoryHeader from 'amo/components/CategoryHeader';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { shouldShowThemes } from 'amo/utils';
-import { categoriesFetch } from 'core/actions/categories';
+import { categoriesFetch } from 'core/reducers/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
