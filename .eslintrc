@@ -52,9 +52,6 @@
     "react/jsx-one-expression-per-line": "off"
   },
   "settings": {
-    "import/core-modules": [
-      "redux-saga/effects",
-    ],
     "import/ignore": [
       // Because of CommonJS incompatibility, we can't
       // check for bad imports in node_modules.
