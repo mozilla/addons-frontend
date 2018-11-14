@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-14 17:04+0000\n"
+"PO-Revision-Date: 2018-11-14 17:21+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1471,9 +1471,8 @@ msgid "How are you enjoying %(addonName)s?"
 msgstr "Como está desfrutando da sua experiência com %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:226
-#, fuzzy
 msgid "Saving star rating"
-msgstr "%(rating)s média de estrelas"
+msgstr "Salvando avaliação com estrelas"
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
@@ -1968,14 +1967,12 @@ msgstr[0] "%(total)s análise para esta extensão"
 msgstr[1] "%(total)s análises para esta extensão"
 
 #: src/amo/pages/CategoriesPage/index.js:46
-#, fuzzy
 msgid "All extension categories"
-msgstr "Navegue todas as extensões nesta categoria."
+msgstr "Todas as categorias de extensões"
 
 #: src/amo/pages/CategoriesPage/index.js:48
-#, fuzzy
 msgid "All theme categories"
-msgstr "Explore todas as categorias"
+msgstr "Todas as categorias de temas"
 
 #: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:324 src/amo/pages/LandingPage/index.js:143
 msgid "See more featured extensions"
@@ -2144,19 +2141,16 @@ msgid "See more popular extensions"
 msgstr "Mais extensões populares"
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more privacy & security extensions"
-msgstr "Ver mais extensões de privacidade"
+msgstr "Ver mais extensões de privacidade e segurança"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "Privacy & security"
-msgstr "Política de privacidade"
+msgstr "Privacidade e segurança"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more social media customization"
-msgstr "Mais extensões de personalização de redes sociais"
+msgstr "Ver mais personalizações de redes sociais"
 
 #: src/amo/pages/Home/index.js:61
 msgid "Social media customization"
