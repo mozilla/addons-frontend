@@ -42,7 +42,6 @@ type InternalProps = {
   ...Props,
   ...WithInstallHelpersInjectedProps,
   _getClientCompatibility: typeof getClientCompatibility,
-  addon: AddonType | null,
   clientApp: string | null,
   currentVersion: AddonVersionType | null,
   defaultInstallSource: string,

@@ -143,15 +143,19 @@ export class GuidesBase extends React.Component<InternalProps> {
         });
       }
 
+      const addon = addons[section.addonGuid];
+
       return (
         <div className="Guides-section" key={section.exploreUrl}>
           <h2 className="Guides-section-title">{section.header}</h2>
           <p className="Guides-section-description">{section.description}</p>
 
-          <GuidesAddonCard
-            addon={addons[section.addonGuid]}
-            addonCustomText={section.addonCustomText}
-          />
+          {addon && (
+            <GuidesAddonCard
+              addon={addon}
+              addonCustomText={section.addonCustomText}
+            />
+          )}
 
           <div
             className="Guides-section-explore-more"

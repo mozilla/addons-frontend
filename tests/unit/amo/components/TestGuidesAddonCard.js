@@ -22,13 +22,15 @@ import {
 } from 'core/constants';
 import { setInstallError, setInstallState } from 'core/actions/installations';
 import { getErrorMessage } from 'core/utils/addons';
-import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
+import { createInternalAddon } from 'core/reducers/addons';
+import { loadVersions } from 'core/reducers/versions';
 
 describe(__filename, () => {
-  const _loadAddonResults = (store, addon = fakeAddon) => {
+  const _loadVersions = (store, addon = fakeAddon, version = fakeVersion) => {
     store.dispatch(
-      loadAddonResults({
-        addons: [addon],
+      loadVersions({
+        slug: addon.slug,
+        versions: [version],
       }),
     );
   };
@@ -74,7 +76,7 @@ describe(__filename, () => {
       name: addonName,
     });
 
-    _loadAddonResults(store, addon);
+    _loadVersions(store, addon);
 
     const root = render({
       addon,
@@ -150,28 +152,32 @@ describe(__filename, () => {
   });
 
   it('passes the addon to AMInstallButton', () => {
+    const { store } = dispatchClientMetadata();
     const addon = createInternalAddon(fakeAddon);
-    const root = render({ addon });
 
-    root.setProps({ currentVersion: fakeVersion });
+    _loadVersions(store, addon);
+
+    const root = render({ addon, store });
 
     expect(root.find(AMInstallButton)).toHaveProp('addon', addon);
   });
 
   it('passes install helper functions to the install button', () => {
+    const { store } = dispatchClientMetadata();
     const enable = sinon.stub();
     const install = sinon.stub();
     const installTheme = sinon.stub();
     const uninstall = sinon.stub();
+
+    _loadVersions(store);
 
     const root = render({
       enable,
       install,
       installTheme,
       uninstall,
+      store,
     });
-
-    root.setProps({ currentVersion: fakeVersion });
 
     const installButton = root.find(AMInstallButton);
     expect(installButton).toHaveProp('enable', enable);
