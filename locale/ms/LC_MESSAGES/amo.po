@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-14 01:51+0000\n"
+"PO-Revision-Date: 2018-11-14 01:55+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -1934,14 +1934,12 @@ msgid "Screenshots"
 msgstr "Skrinsyot"
 
 #: src/amo/pages/AddonInfo/index.js:116
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Perjanjian Lesen Pengguna Akhir"
+msgstr "Perjanjian Lesen Pengguna-Akhir %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:117
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "Ulasan untuk %(addonName)s"
+msgstr "Polisi privasi %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -1957,14 +1955,12 @@ msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s ulasan untuk add-on ini"
 
 #: src/amo/pages/CategoriesPage/index.js:46
-#, fuzzy
 msgid "All extension categories"
-msgstr "Cari semua ekstensi dalam kategori ini."
+msgstr "Semua kategori ekstensi"
 
 #: src/amo/pages/CategoriesPage/index.js:48
-#, fuzzy
 msgid "All theme categories"
-msgstr "Teroka semua kategori"
+msgstr "Semua kategori tema"
 
 #: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:324 src/amo/pages/LandingPage/index.js:143
 msgid "See more featured extensions"
@@ -2070,7 +2066,7 @@ msgstr "Perlindungan kata laluan dienkripsi sepenuhnya. Simpan data anda dengan 
 
 #: src/amo/pages/Guides/index.js:82
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Terokai %(linkStart)spengurus kata laluan%(linkEnd)s lain yang dipilih."
 
 #: src/amo/pages/Home/index.js:119
 msgid "Bookmarks"
@@ -2511,9 +2507,8 @@ msgid "Edit profile"
 msgstr "Edit profil"
 
 #: src/amo/pages/UserProfile/index.js:430
-#, fuzzy
 msgid "Admin user"
-msgstr "Pautan Pentadbir"
+msgstr "Pengguna pentadbir"
 
 #: src/amo/pages/UserProfileEdit/index.js:186
 msgid "Picture successfully deleted"
