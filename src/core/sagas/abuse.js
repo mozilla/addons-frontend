@@ -1,8 +1,4 @@
-// Disabled because of
-// https://github.com/benmosher/eslint-plugin-import/issues/793
-/* eslint-disable import/order */
 import { call, put, select, takeLatest } from 'redux-saga/effects';
-/* eslint-enable import/order */
 
 import { reportAddon as reportAddonApi } from 'core/api/abuse';
 import log from 'core/logger';
