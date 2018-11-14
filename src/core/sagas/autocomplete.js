@@ -1,8 +1,4 @@
-// Disabled because of
-// https://github.com/benmosher/eslint-plugin-import/issues/793
-/* eslint-disable import/order */
 import { call, put, race, select, take, takeLatest } from 'redux-saga/effects';
-/* eslint-enable import/order */
 
 import {
   AUTOCOMPLETE_CANCELLED,
