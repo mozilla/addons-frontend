@@ -1,15 +1,17 @@
 /* @flow */
 import { call, put, select, takeLatest } from 'redux-saga/effects';
+
 import { getVersions } from 'core/api/versions';
 import { FETCH_VERSIONS, loadVersions } from 'core/reducers/versions';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { GetVersionsParams } from 'core/api/versions';
 import type { FetchVersionsAction } from 'core/reducers/versions';
+import type { Saga } from 'core/types/sagas';
 
 export function* fetchVersions({
   payload: { errorHandlerId, page, slug },
-}: FetchVersionsAction): Generator<any, any, any> {
+}: FetchVersionsAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -31,6 +33,6 @@ export function* fetchVersions({
   }
 }
 
-export default function* collectionsSaga(): Generator<any, any, any> {
+export default function* collectionsSaga(): Saga {
   yield takeLatest(FETCH_VERSIONS, fetchVersions);
 }
