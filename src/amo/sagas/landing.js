@@ -1,7 +1,7 @@
 /* @flow */
 import { oneLine } from 'common-tags';
-import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
+import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { LANDING_GET, loadLanding } from 'amo/reducers/landing';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
