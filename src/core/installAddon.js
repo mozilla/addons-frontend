@@ -191,7 +191,6 @@ export const findInstallURL = ({
 
   if (!installURL) {
     // This could happen for themes which do not have version files.
-    // eslint-disable-next-line amo/only-log-strings
     log.debug(
       oneLine`No file exists for os "${userAgentInfo.os.toString()}"; platform files:`,
       platformFiles,

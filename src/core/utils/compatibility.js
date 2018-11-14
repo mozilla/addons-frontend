@@ -61,9 +61,8 @@ export function getCompatibleVersions({
     }
 
     if (!supportsClientApp) {
-      _log.warn(
-        `addon "${addon.guid}" is incompatible with clientApp: "${clientApp}"`,
-      );
+      _log.warn(oneLine`addon guid: "${addon.guid}" is incompatible with
+        clientApp: "${clientApp}"`);
     }
   }
 

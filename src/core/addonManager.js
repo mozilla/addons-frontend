@@ -92,7 +92,6 @@ export function getAddon(
       if (!addon) {
         throw new Error('Addon not found');
       }
-      // eslint-disable-next-line amo/only-log-strings
       log.debug('Add-on found', addon);
 
       return addon;

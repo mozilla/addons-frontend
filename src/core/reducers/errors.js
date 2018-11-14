@@ -22,8 +22,7 @@ function getMessagesFromError(error) {
     code: ERROR_UNKNOWN,
     messages: [],
   };
-  // eslint-disable-next-line amo/only-log-strings
-  log.info('Extracting messages from error object:', error);
+  log.debug('Extracting messages from error object:', error);
 
   const logCodeChange = ({ oldCode, newCode }) => {
     log.warn(`Replacing error code ${oldCode} with ${newCode}`);
