@@ -8,26 +8,26 @@ import {
 import type { ApiState } from 'core/reducers/api';
 
 // See: https://addons-server.readthedocs.io/en/latest/topics/api/addons.html#search
+export type SearchFilters = {|
+  addonType?: string,
+  author?: string,
+  category?: string,
+  clientApp?: string,
+  compatibleWithVersion?: number | string,
+  exclude_addons?: string,
+  featured?: boolean,
+  guid?: string,
+  operatingSystem?: string,
+  page?: string,
+  page_size?: number,
+  query?: string,
+  sort?: string,
+|};
+
 export type SearchParams = {|
   api: ApiState,
   auth?: boolean,
-  // TODO: Make a "searchFilters" type because these are the same args
-  // for convertFiltersToQueryParams.
-  filters: {|
-    addonType?: string,
-    author?: string,
-    category?: string,
-    clientApp?: string,
-    compatibleWithVersion?: number | string,
-    exclude_addons?: string,
-    featured?: boolean,
-    guid?: string,
-    operatingSystem?: string,
-    page?: string,
-    page_size?: number,
-    query?: string,
-    sort?: string,
-  |},
+  filters: SearchFilters,
 |};
 
 export function search({ api, auth = false, filters = {} }: SearchParams) {

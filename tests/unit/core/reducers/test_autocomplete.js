@@ -8,7 +8,7 @@ import { createFakeAutocompleteResult } from 'tests/unit/helpers';
 describe(__filename, () => {
   describe('reducer', () => {
     it('initializes properly', () => {
-      const { loading, suggestions } = reducer(undefined);
+      const { loading, suggestions } = reducer(undefined, {});
       expect(loading).toEqual(false);
       expect(suggestions).toEqual([]);
     });
@@ -94,25 +94,6 @@ describe(__filename, () => {
       );
       expect(loading).toEqual(false);
       expect(suggestions).toHaveLength(2);
-    });
-  });
-
-  describe('autocompleteStart()', () => {
-    it('throws an error if arguments are missing', () => {
-      expect(() => {
-        autocompleteStart({});
-      }).toThrow(/errorHandlerId is required/);
-      expect(() => {
-        autocompleteStart({ errorHandlerId: 'id' });
-      }).toThrow(/filters are required/);
-    });
-  });
-
-  describe('autocompleteLoad()', () => {
-    it('throws an error if arguments are missing', () => {
-      expect(() => {
-        autocompleteLoad({});
-      }).toThrow(/results are required/);
     });
   });
 });
