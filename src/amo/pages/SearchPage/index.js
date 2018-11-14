@@ -19,7 +19,7 @@ import {
   convertQueryParamsToFilters,
 } from 'core/searchUtils';
 import type { AppState } from 'amo/store';
-import type { FiltersType } from 'core/reducers/search';
+import type { SearchFilters } from 'core/api/search';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocationType } from 'core/types/router';
 
@@ -31,7 +31,7 @@ type InternalProps = {|
   ...Props,
   clientApp: string,
   dispatch: DispatchFunc,
-  filters: FiltersType,
+  filters: SearchFilters,
   lang: string,
 |};
 
