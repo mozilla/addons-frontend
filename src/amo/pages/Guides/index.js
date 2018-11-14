@@ -35,14 +35,14 @@ type AddonsMap = {|
 
 type InternalProps = {|
   ...Props,
-  addons: AddonsMap,
-  clientApp: string,
+  addons: AddonsMap | {},
+  clientApp: string | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   slug: string,
   guids: Array<string>,
   i18n: I18nType,
-  lang: string,
+  lang: string | null,
 |};
 
 type SectionsType = {|
@@ -133,12 +133,15 @@ export class GuidesBase extends React.Component<InternalProps> {
     return sections.map((section) => {
       // TODO: look into having these links use the Router (vs 'a' tag).
       // See https://github.com/mozilla/addons-frontend/issues/6787.
-      const exploreMoreLink = i18n.sprintf(section.exploreMore, {
-        linkStart: `<a class="Guides-section-explore-more-link" href="/${lang}/${clientApp}${
-          section.exploreUrl
-        }">`,
-        linkEnd: '</a>',
-      });
+      let exploreMoreLink;
+      if (lang && clientApp) {
+        exploreMoreLink = i18n.sprintf(section.exploreMore, {
+          linkStart: `<a class="Guides-section-explore-more-link" href="/${lang}/${clientApp}${
+            section.exploreUrl
+          }">`,
+          linkEnd: '</a>',
+        });
+      }
 
       return (
         <div className="Guides-section" key={section.exploreUrl}>
@@ -190,7 +193,10 @@ export class GuidesBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: Props) => {
+export const mapStateToProps = (
+  state: AppState,
+  ownProps: Props,
+): $Shape<InternalProps> => {
   const { clientApp, lang } = state.api;
   const { match } = ownProps;
   const { slug } = match.params;

@@ -22,9 +22,17 @@ import {
 } from 'core/constants';
 import { setInstallError, setInstallState } from 'core/actions/installations';
 import { getErrorMessage } from 'core/utils/addons';
-import { createInternalAddon } from 'core/reducers/addons';
+import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
 
 describe(__filename, () => {
+  const _loadAddonResults = (store, addon = fakeAddon) => {
+    store.dispatch(
+      loadAddonResults({
+        addons: [addon],
+      }),
+    );
+  };
+
   const getProps = ({
     addon = createInternalAddon(fakeAddon),
     addonCustomText = 'Some text',
@@ -56,6 +64,7 @@ describe(__filename, () => {
   };
 
   it('renders a GuidesAddonCard', () => {
+    const { store } = dispatchClientMetadata();
     const iconURL = 'https://addons.cdn.mozilla.net/foo.jpg';
     const addonName = 'special-addon';
     const addonCustomText = 'Everyone needs this cool addon.';
@@ -65,9 +74,12 @@ describe(__filename, () => {
       name: addonName,
     });
 
+    _loadAddonResults(store, addon);
+
     const root = render({
       addon,
       addonCustomText,
+      store,
     });
 
     const image = root.find('.GuidesAddonCard-content-icon');
@@ -79,8 +91,6 @@ describe(__filename, () => {
       addonCustomText,
     );
     expect(root.find(AddonTitle)).toHaveLength(1);
-
-    root.setProps({ currentVersion: fakeVersion });
     expect(root.find(AMInstallButton)).toHaveLength(1);
   });
 
@@ -93,9 +103,9 @@ describe(__filename, () => {
     expect(root.html()).toEqual(null);
   });
 
-  // // TODO: We need to cover all config settings (here and on the following
-  // // test case). This will be addressed in the following issue:
-  // // https://github.com/mozilla/addons-frontend/issues/6903
+  // TODO: We need to cover all config settings (here and on the following
+  // test case). This will be addressed in the following issue:
+  // https://github.com/mozilla/addons-frontend/issues/6903
   it('renders AddonCompatibilityError when there is incompatibility', () => {
     const root = render({
       _getClientCompatibility: sinon.stub().returns({

@@ -205,7 +205,6 @@ export const mapStateToProps = (
     }
   }
   return {
-    addon,
     clientApp: state.api.clientApp,
     currentVersion,
     installError:

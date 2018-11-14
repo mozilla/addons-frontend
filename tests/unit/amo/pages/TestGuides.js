@@ -1,11 +1,17 @@
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 
+import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import HeadLinks from 'amo/components/HeadLinks';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
-import Guides, { extractId, GuidesBase, getContent } from 'amo/pages/Guides';
+import Guides, {
+  extractId,
+  GuidesBase,
+  getContent,
+  getGuids,
+} from 'amo/pages/Guides';
 import {
   dispatchClientMetadata,
   fakeAddon,
@@ -16,7 +22,6 @@ import {
 describe(__filename, () => {
   const getProps = ({
     addon = fakeAddon,
-    addons = { '{446900e4-71c2-419f-a6a7-df9c091e268b}': addon },
     store = dispatchClientMetadata().store,
     i18n = fakeI18n(),
     dispatch = store.dispatch,
@@ -30,7 +35,6 @@ describe(__filename, () => {
     ...customProps
   } = {}) => {
     return {
-      addons,
       addon,
       content,
       dispatch,
@@ -46,6 +50,14 @@ describe(__filename, () => {
     const allProps = getProps(customProps);
 
     return shallowUntilTarget(<Guides {...allProps} />, GuidesBase);
+  };
+
+  const _loadAddonResults = (store, addon = fakeAddon) => {
+    store.dispatch(
+      loadAddonResults({
+        addons: [addon],
+      }),
+    );
   };
 
   it('fetches guides addons', () => {
@@ -66,15 +78,8 @@ describe(__filename, () => {
   });
 
   it('renders a Guides Page', () => {
-    const addon = fakeAddon;
     const slug = 'privacy';
     const content = getContent(slug, fakeI18n());
-    const guids = content.sections.map((section) => section.addonGuid);
-
-    const addons = {
-      [guids[0]]: addon,
-    };
-
     const root = render({ content, slug });
 
     expect(root.find('.Guides')).toHaveLength(1);
@@ -110,11 +115,26 @@ describe(__filename, () => {
       <a href="/en-US/android/collections/mozilla/password-managers/"
       class="Guides-section-explore-more-link">password manager</a> staff picks.</div>`,
     );
+  });
 
-    root.setProps({ addons });
+  it('passes an addon to GuidesAddonCard', () => {
+    const { store } = dispatchClientMetadata();
+    const slug = 'privacy';
+    const guids = getGuids(slug);
+    const addon = {
+      ...fakeAddon,
+      guid: guids[0],
+    };
+
+    _loadAddonResults(store, addon);
+
+    const root = render({ store });
 
     expect(root.find(GuidesAddonCard)).toHaveLength(guids.length);
-    expect(root.find(GuidesAddonCard)).toHaveProp('addon', addon);
+    expect(root.find(GuidesAddonCard)).toHaveProp(
+      'addon',
+      createInternalAddon(addon),
+    );
   });
 
   it('renders an HTML title', () => {
