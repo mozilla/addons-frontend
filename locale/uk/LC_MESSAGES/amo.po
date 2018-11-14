@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-14 11:30+0000\n"
+"PO-Revision-Date: 2018-11-14 11:35+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -2066,22 +2066,24 @@ msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
 msgstr ""
+"Інтернет є чудовим, але підступним місцем. Ваші особисті дані можуть бути використані без згоди, ваша діяльність може бути відстежена, а ваші паролі можуть бути викрадені. На щастя, розширення "
+"можуть допомогти вам зміцнити вашу приватність та безпеку онлайн."
 
 #: src/amo/pages/Guides/index.js:72
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "Створюйте надійні паролі та керуйте ними"
 
 #: src/amo/pages/Guides/index.js:73
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
-msgstr ""
+msgstr "Менеджери паролів можуть допомогти вам створити надійні паролі, зберігати їх у захищеному сховищі, а також автоматично заповнювати форми входу на веб-сайтах."
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
-msgstr ""
+msgstr "Повністю зашифрований захист паролів. Зберігайте дані в безпеці й отримуйте до них доступ на різних пристроях."
 
 #: src/amo/pages/Guides/index.js:82
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Дізнайтеся більше про відібрані %(linkStart)менеджери паролів%(linkEnd)s."
 
 #: src/amo/pages/Home/index.js:119
 msgid "Bookmarks"
