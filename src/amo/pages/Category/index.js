@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { oneLine } from 'common-tags';
 
-import { getLanding } from 'amo/actions/landing';
+import { getLanding } from 'amo/reducers/landing';
 import { setViewContext } from 'amo/actions/viewContext';
 import CategoryHead from 'amo/components/CategoryHead';
 import CategoryHeader from 'amo/components/CategoryHeader';

@@ -7,7 +7,7 @@ import { compose } from 'redux';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 
-import { getLanding } from 'amo/actions/landing';
+import { getLanding } from 'amo/reducers/landing';
 import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Categories from 'amo/components/Categories';

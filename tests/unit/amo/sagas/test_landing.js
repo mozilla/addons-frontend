@@ -1,17 +1,19 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as searchApi from 'core/api/search';
-import { getLanding, loadLanding } from 'amo/actions/landing';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
-import landingReducer from 'amo/reducers/landing';
+import landingReducer, {
+  LANDING_LOADED,
+  getLanding,
+  loadLanding,
+} from 'amo/reducers/landing';
 import landingSaga from 'amo/sagas/landing';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  LANDING_LOADED,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_RANDOM,
@@ -92,8 +94,8 @@ describe(__filename, () => {
               ...baseFilters,
               featured: true,
               sort: SEARCH_SORT_RANDOM,
+              page: '1',
             },
-            page: '1',
           })
           .returns(Promise.resolve(featured));
 
@@ -110,8 +112,8 @@ describe(__filename, () => {
             filters: {
               ...baseFilters,
               sort: SEARCH_SORT_TOP_RATED,
+              page: '1',
             },
-            page: '1',
           })
           .returns(Promise.resolve(highlyRated));
 
@@ -128,8 +130,8 @@ describe(__filename, () => {
             filters: {
               ...baseFilters,
               sort: SEARCH_SORT_TRENDING,
+              page: '1',
             },
-            page: '1',
           })
           .returns(Promise.resolve(trending));
 
@@ -187,8 +189,8 @@ describe(__filename, () => {
             ...baseFilters,
             featured: true,
             sort: SEARCH_SORT_RANDOM,
+            page: '1',
           },
-          page: '1',
         })
         .returns(Promise.resolve(featured));
 
@@ -202,8 +204,8 @@ describe(__filename, () => {
           filters: {
             ...baseFilters,
             sort: SEARCH_SORT_TOP_RATED,
+            page: '1',
           },
-          page: '1',
         })
         .returns(Promise.resolve(highlyRated));
 
@@ -217,8 +219,8 @@ describe(__filename, () => {
           filters: {
             ...baseFilters,
             sort: SEARCH_SORT_TRENDING,
+            page: '1',
           },
-          page: '1',
         })
         .returns(Promise.resolve(trending));
 
@@ -257,8 +259,8 @@ describe(__filename, () => {
             ...baseFilters,
             featured: true,
             sort: SEARCH_SORT_RANDOM,
+            page: '1',
           },
-          page: '1',
         })
         .returns(Promise.resolve(featured));
 
@@ -272,8 +274,8 @@ describe(__filename, () => {
           filters: {
             ...baseFilters,
             sort: SEARCH_SORT_TOP_RATED,
+            page: '1',
           },
-          page: '1',
         })
         .returns(Promise.resolve(highlyRated));
 
@@ -287,8 +289,8 @@ describe(__filename, () => {
           filters: {
             ...baseFilters,
             sort: SEARCH_SORT_TRENDING,
+            page: '1',
           },
-          page: '1',
         })
         .returns(Promise.resolve(trending));
 

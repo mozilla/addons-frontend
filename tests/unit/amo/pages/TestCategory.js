@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { getLanding, loadLanding } from 'amo/actions/landing';
+import { getLanding, loadLanding } from 'amo/reducers/landing';
 import { setViewContext } from 'amo/actions/viewContext';
 import Category, { CategoryBase } from 'amo/pages/Category';
 import CategoryHead from 'amo/components/CategoryHead';
