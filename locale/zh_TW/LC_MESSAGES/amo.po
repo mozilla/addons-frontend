@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-14 04:54+0000\n"
+"PO-Revision-Date: 2018-11-14 05:45+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -1919,14 +1919,12 @@ msgid "Screenshots"
 msgstr "畫面擷圖"
 
 #: src/amo/pages/AddonInfo/index.js:116
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "終端使用者授權協議"
+msgstr "%(addonName)s 的終端使用者授權協議"
 
 #: src/amo/pages/AddonInfo/index.js:117
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "%(addonName)s 的評論"
+msgstr "%(addonName)s 的隱私權保護政策"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -1942,14 +1940,12 @@ msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "此附加元件有 %(total)s 筆評論"
 
 #: src/amo/pages/CategoriesPage/index.js:46
-#, fuzzy
 msgid "All extension categories"
-msgstr "瀏覽此分類中的所有擴充套件。"
+msgstr "所有擴充套件分類"
 
 #: src/amo/pages/CategoriesPage/index.js:48
-#, fuzzy
 msgid "All theme categories"
-msgstr "瀏覽所有分類。"
+msgstr "所有佈景主題分類"
 
 #: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:324 src/amo/pages/LandingPage/index.js:143
 msgid "See more featured extensions"
@@ -2468,9 +2464,8 @@ msgid "Edit profile"
 msgstr "編輯個人資料"
 
 #: src/amo/pages/UserProfile/index.js:430
-#, fuzzy
 msgid "Admin user"
-msgstr "附加元件鏈結"
+msgstr "管理員使用者"
 
 #: src/amo/pages/UserProfileEdit/index.js:186
 msgid "Picture successfully deleted"
