@@ -10,6 +10,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
+  fakeVersion,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -21,20 +22,11 @@ import {
 } from 'core/constants';
 import { setInstallError, setInstallState } from 'core/actions/installations';
 import { getErrorMessage } from 'core/utils/addons';
-import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
+import { createInternalAddon } from 'core/reducers/addons';
 
 describe(__filename, () => {
-  const _loadAddonResults = (addon = createInternalAddon(fakeAddon), store) => {
-    store.dispatch(
-      loadAddonResults({
-        addons: [addon],
-      }),
-    );
-  };
-
   const getProps = ({
     addon = createInternalAddon(fakeAddon),
-    addonGuid = addon.guid,
     addonCustomText = 'Some text',
     hasAddonManager = true,
     i18n = fakeI18n(),
@@ -44,7 +36,6 @@ describe(__filename, () => {
   } = {}) => {
     return {
       addon,
-      addonGuid,
       addonCustomText,
       hasAddonManager,
       i18n,
@@ -57,11 +48,6 @@ describe(__filename, () => {
 
   const render = (customProps = {}) => {
     const allProps = getProps(customProps);
-    const { addon, store } = allProps;
-
-    if (addon) {
-      _loadAddonResults(addon, store);
-    }
 
     return shallowUntilTarget(
       <GuidesAddonCard {...allProps} />,
@@ -93,6 +79,8 @@ describe(__filename, () => {
       addonCustomText,
     );
     expect(root.find(AddonTitle)).toHaveLength(1);
+
+    root.setProps({ currentVersion: fakeVersion });
     expect(root.find(AMInstallButton)).toHaveLength(1);
   });
 
@@ -101,14 +89,13 @@ describe(__filename, () => {
   it('returns null when there is no addon', () => {
     const root = render({
       addon: null,
-      addonGuid: null,
     });
     expect(root.html()).toEqual(null);
   });
 
-  // TODO: We need to cover all config settings (here and on the following
-  // test case). This will be addressed in the following issue:
-  // https://github.com/mozilla/addons-frontend/issues/6903
+  // // TODO: We need to cover all config settings (here and on the following
+  // // test case). This will be addressed in the following issue:
+  // // https://github.com/mozilla/addons-frontend/issues/6903
   it('renders AddonCompatibilityError when there is incompatibility', () => {
     const root = render({
       _getClientCompatibility: sinon.stub().returns({
@@ -156,6 +143,8 @@ describe(__filename, () => {
     const addon = createInternalAddon(fakeAddon);
     const root = render({ addon });
 
+    root.setProps({ currentVersion: fakeVersion });
+
     expect(root.find(AMInstallButton)).toHaveProp('addon', addon);
   });
 
@@ -171,6 +160,8 @@ describe(__filename, () => {
       installTheme,
       uninstall,
     });
+
+    root.setProps({ currentVersion: fakeVersion });
 
     const installButton = root.find(AMInstallButton);
     expect(installButton).toHaveProp('enable', enable);

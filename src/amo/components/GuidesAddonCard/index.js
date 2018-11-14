@@ -15,7 +15,6 @@ import {
 import { getAddonIconUrl } from 'core/imageUtils';
 import { withInstallHelpers } from 'core/installAddon';
 import translate from 'core/i18n/translate';
-import { getAddonByGUID } from 'core/reducers/addons';
 import { getVersionById } from 'core/reducers/versions';
 import { getErrorMessage } from 'core/utils/addons';
 import { getClientCompatibility } from 'core/utils/compatibility';
@@ -34,7 +33,7 @@ import type { WithInstallHelpersInjectedProps } from 'core/installAddon';
 import './styles.scss';
 
 type Props = {
-  addonGuid: string,
+  addon: AddonType,
   addonCustomText: string,
   staffPick?: boolean,
 };
@@ -60,6 +59,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
     staffPick: true,
   };
 
+  // TODO: See https://github.com/mozilla/addons-frontend/issues/6902.
   renderInstallError() {
     const { i18n, installError: error } = this.props;
 
@@ -108,10 +108,11 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
     // https://github.com/mozilla/addons-frontend/issues/6916.
     const showGetFirefoxButton = addon && !isFireFox;
 
-    return addon && currentVersion ? (
+    return addon ? (
       <Card>
         {this.renderInstallError()}
         <div className="GuidesAddonCard">
+          {/* TODO: See https://github.com/mozilla/addons-frontend/issues/6903. */}
           {isFireFox && !compatible && compatibility ? (
             <AddonCompatibilityError
               downloadUrl={compatibility.downloadUrl}
@@ -144,7 +145,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                 {this.props.addonCustomText}
               </p>
             </div>
-            {showInstallButton && (
+            {showInstallButton && currentVersion && (
               <AMInstallButton
                 addon={addon}
                 currentVersion={currentVersion}
@@ -162,6 +163,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                 puffy={false}
               />
             )}
+            {/* TODO: See https://github.com/mozilla/addons-frontend/issues/6901. */}
             {showGetFirefoxButton && (
               <Button
                 buttonType="confirm"
@@ -187,7 +189,8 @@ export const mapStateToProps = (
   state: AppState,
   ownProps: Props,
 ): $Shape<InternalProps> => {
-  const addon = getAddonByGUID(state, ownProps.addonGuid);
+  const { addon } = ownProps;
+
   let currentVersion = null;
   let installedAddon = {};
 

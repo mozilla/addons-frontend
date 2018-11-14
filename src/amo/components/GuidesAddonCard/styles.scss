@@ -4,19 +4,17 @@
   display: flex;
   flex-direction: column;
 
-  // stylelint-disable max-line-length
-  // TODO: check on get-firefox button style.
-  // See https://github.com/mozilla/addons-frontend/issues/6432#issuecomment-433083079.
   .Button--get-firefox,
   .AMInstallButton {
     @include respond-to(medium) {
+      @include margin-start(auto);
+
       align-self: center;
-      margin-left: auto;
     }
   }
 
   .Icon-trophy {
-    margin: margin-end(4px);
+    @include margin-end(4px);
   }
 
   .AddonTitle {

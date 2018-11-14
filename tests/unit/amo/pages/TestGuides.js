@@ -8,12 +8,15 @@ import { fetchGuidesAddons } from 'amo/reducers/guides';
 import Guides, { extractId, GuidesBase, getContent } from 'amo/pages/Guides';
 import {
   dispatchClientMetadata,
+  fakeAddon,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const getProps = ({
+    addon = fakeAddon,
+    addons = { '{446900e4-71c2-419f-a6a7-df9c091e268b}': addon },
     store = dispatchClientMetadata().store,
     i18n = fakeI18n(),
     dispatch = store.dispatch,
@@ -27,6 +30,8 @@ describe(__filename, () => {
     ...customProps
   } = {}) => {
     return {
+      addons,
+      addon,
       content,
       dispatch,
       i18n,
@@ -61,9 +66,15 @@ describe(__filename, () => {
   });
 
   it('renders a Guides Page', () => {
+    const addon = fakeAddon;
     const slug = 'privacy';
     const content = getContent(slug, fakeI18n());
     const guids = content.sections.map((section) => section.addonGuid);
+
+    const addons = {
+      [guids[0]]: addon,
+    };
+
     const root = render({ content, slug });
 
     expect(root.find('.Guides')).toHaveLength(1);
@@ -100,7 +111,10 @@ describe(__filename, () => {
       class="Guides-section-explore-more-link">password manager</a> staff picks.</div>`,
     );
 
+    root.setProps({ addons });
+
     expect(root.find(GuidesAddonCard)).toHaveLength(guids.length);
+    expect(root.find(GuidesAddonCard)).toHaveProp('addon', addon);
   });
 
   it('renders an HTML title', () => {

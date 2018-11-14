@@ -8,10 +8,12 @@ import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import HeadLinks from 'amo/components/HeadLinks';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
+import { getAddonByGUID } from 'core/reducers/addons';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Icon from 'ui/components/Icon';
+import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
@@ -27,8 +29,13 @@ type Props = {|
   },
 |};
 
+type AddonsMap = {|
+  [guid: string]: AddonType,
+|};
+
 type InternalProps = {|
   ...Props,
+  addons: AddonsMap,
   clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
@@ -54,9 +61,20 @@ type GuideType = {|
   sections: Array<SectionsType>,
 |};
 
-export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
+export const getGuids = (slug: string): Array<string> => {
   switch (slug) {
     case 'privacy':
+      return ['{446900e4-71c2-419f-a6a7-df9c091e268b}'];
+    default:
+      return [];
+  }
+};
+
+export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
+  switch (slug) {
+    case 'privacy': {
+      const guids = getGuids(slug);
+
       return {
         title: i18n.gettext('Stay Safe Online'),
         introText: i18n.gettext(
@@ -69,7 +87,7 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
         sections: [
           // Bitwarden free password manager
           {
-            addonGuid: '{446900e4-71c2-419f-a6a7-df9c091e268b}',
+            addonGuid: guids[0],
             header: i18n.gettext('Create and manage strong passwords'),
             description: i18n.gettext(
               `Password managers can help you create secure passwords, store your
@@ -87,6 +105,7 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
           },
         ],
       };
+    }
     default:
       return null;
   }
@@ -96,15 +115,7 @@ export class GuidesBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
     super(props);
 
-    const { errorHandler, i18n, match } = this.props;
-    const { slug } = match.params;
-    const content = getContent(slug, i18n);
-
-    if (!content) {
-      return;
-    }
-
-    const guids = content.sections.map((section) => section.addonGuid);
+    const { errorHandler, guids } = this.props;
 
     this.props.dispatch(
       fetchGuidesAddons({
@@ -117,7 +128,7 @@ export class GuidesBase extends React.Component<InternalProps> {
   getGuidesSections = (
     sections: Array<SectionsType>,
   ): React.ChildrenArray<React.Node> => {
-    const { clientApp, i18n, lang } = this.props;
+    const { addons, clientApp, i18n, lang } = this.props;
 
     return sections.map((section) => {
       // TODO: look into having these links use the Router (vs 'a' tag).
@@ -135,7 +146,7 @@ export class GuidesBase extends React.Component<InternalProps> {
           <p className="Guides-section-description">{section.description}</p>
 
           <GuidesAddonCard
-            addonGuid={section.addonGuid}
+            addon={addons[section.addonGuid]}
             addonCustomText={section.addonCustomText}
           />
 
@@ -179,10 +190,24 @@ export class GuidesBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const { clientApp, lang } = state.api;
+  const { match } = ownProps;
+  const { slug } = match.params;
+  const guids = getGuids(slug);
+
+  const addons = {};
+
+  guids.forEach((guid) => {
+    const addon = getAddonByGUID(state, guid);
+    if (addon) {
+      addons[guid] = addon;
+    }
+  });
 
   return {
+    addons,
+    guids,
     clientApp,
     lang,
   };
