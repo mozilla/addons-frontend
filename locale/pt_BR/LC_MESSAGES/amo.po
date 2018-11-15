@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-14 17:52+0000\n"
+"PO-Revision-Date: 2018-11-15 04:28+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1264,9 +1264,8 @@ msgid "Universal Bypass"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:65
-#, fuzzy
 msgid "Automatically skip annoying link shorteners"
-msgstr "Pesquisar automaticamente por códigos de cupões"
+msgstr "Ignore automaticamente encurtadores inconvenientes de links"
 
 #: src/amo/components/HomeHeroBanner/index.js:71
 msgid "Tree Style Tab"
@@ -1937,14 +1936,12 @@ msgid "Screenshots"
 msgstr "Capturas de tela"
 
 #: src/amo/pages/AddonInfo/index.js:116
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Contrato de licença de usuário final"
+msgstr "Contrato de licença de usuário final de %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:117
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "Análises de %(addonName)s"
+msgstr "Política de privacidade de %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -2056,7 +2053,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:72
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "Crie e gerencie senhas fortes"
 
 #: src/amo/pages/Guides/index.js:73
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
@@ -2271,9 +2268,9 @@ msgstr ""
 "adicionando novas funcionalidades ao Firefox, aprimorando suas interações com o conteúdo da Web e alterando a aparência do seu navegador."
 
 #: src/amo/pages/StaticPages/About/index.js:52
-#, fuzzy
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "Você também pode usar o AMO para encontrar extensões para o Mozilla %(startTBLink)s Thunderbird%(endTBLink)s e %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgstr ""
+"Se você está procurando por extensões para o Thunderbird ou SeaMonkey, visite %(startTBLink)saddons.thunderbird.net%(endTBLink)s ou %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:69
 msgid "A community of creators"
@@ -2745,46 +2742,43 @@ msgstr "Obrigado por visitar este site! Por favor, use um ou dois minutos para c
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "A instalação falhou. Tente novamente."
 
 #: src/core/utils/addons.js:31
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "A transferência falhou. Verifique sua conexão."
 
 #: src/core/utils/addons.js:33
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Ocorreu um erro inesperado"
+msgstr "Ocorreu um erro inesperado durante a instalação."
 
 #: src/core/utils/addons.js:35
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Ocorreu um erro inesperado"
+msgstr "Ocorreu um erro inesperado durante a desinstalação."
 
 #: src/core/utils/addons.js:40
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Ocorreu um erro inesperado"
+msgstr "Ocorreu um erro inesperado."
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
