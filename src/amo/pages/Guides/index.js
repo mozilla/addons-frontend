@@ -69,9 +69,8 @@ export const getSections = ({
   i18n: I18nType,
 |}): Array<SectionsType> => {
   switch (slug) {
-    case 'privacy':
+    case 'stay-safe-online':
       return [
-        // Bitwarden free password manager
           {
             addonGuid: '{446900e4-71c2-419f-a6a7-df9c091e268b}',
             header: i18n.gettext('Create and manage strong passwords'),
@@ -127,11 +126,10 @@ export const getSections = ({
             exploreUrl: '/collections/mozilla/privacy-matters/',
           },
       ];
-      case 'organize-your-tabs':
-        return [
-           // Tree Style Tab
+    case 'organize-your-tabs':
+      return [
           {
-            addonGuid: '{446900e4-71c2-419f-a6a7-df9c091e268b}', // need to get correct guid?
+            addonGuid: 'treestyletab@piro.sakura.ne.jp',
             header: i18n.gettext('Re-imagine tab management'),
             description: i18n.gettext(
               `If you typically work with a lot of open tabs, you’re probably
@@ -150,7 +148,7 @@ export const getSections = ({
           },
           // OneNote Web Clipper
           {
-            addonGuid: 'Clipper@OneNote.com', // TODO: need to get correct guid
+            addonGuid: 'Clipper@OneNote.com',
             header: i18n.gettext('Better browsing with improved bookmarks'),
             description: i18n.gettext(
               `Extensions can help you organize your online interests. Bookmark
@@ -188,7 +186,6 @@ export const getSections = ({
         ];
       case 'enhance-your-media-experience':
         return [
-          ctions: [
           // Enhancer for YouTube
           {
             addonGuid: 'enhancerforyoutube@maximerf.addons.mozilla.org',
@@ -210,7 +207,7 @@ export const getSections = ({
           },
           // Search by Image - Reverse Image Search
           {
-            addonGuid: 'Clipper@OneNote.com', // TODO: need to get correct guid
+            addonGuid: '{2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c}',
             header: i18n.gettext('Get more out of media'),
             description: i18n.gettext(
               `Extensions can address a wide variety of niche media needs and

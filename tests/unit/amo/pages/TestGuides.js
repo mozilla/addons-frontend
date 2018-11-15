@@ -24,7 +24,7 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store,
     i18n = fakeI18n(),
     dispatch = store.dispatch,
-    slug = 'privacy',
+    slug = 'stay-safe-online',
     match = {
       params: {
         slug,
@@ -61,7 +61,7 @@ describe(__filename, () => {
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ dispatch: dispatchSpy, store });
 
-    const content = getContent('privacy', fakeI18n());
+    const content = getContent('stay-safe-online', fakeI18n());
     const guids = content.sections.map((section) => section.addonGuid);
 
     sinon.assert.calledWith(
@@ -74,7 +74,7 @@ describe(__filename, () => {
   });
 
   it('renders a Guides Page', () => {
-    const slug = 'privacy';
+    const slug = 'stay-safe-online';
     const content = getContent(slug, fakeI18n());
     const root = render({ content, slug });
 
@@ -90,7 +90,7 @@ describe(__filename, () => {
     expect(pageIntro).toHaveLength(1);
     expect(pageIntro.text()).toEqual(content.introText);
 
-    expect(root.find('.Guides-section')).toHaveLength(1);
+    expect(root.find('.Guides-section')).toHaveLength(3);
 
     const sectionDescription = root.find('.Guides-section-description').at(0);
 
@@ -136,7 +136,7 @@ describe(__filename, () => {
   });
 
   it('renders an HTML title', () => {
-    const content = getContent('privacy', fakeI18n());
+    const content = getContent('stay-safe-online', fakeI18n());
     const root = render({ content });
 
     expect(root.find('title')).toHaveText(content.title);
