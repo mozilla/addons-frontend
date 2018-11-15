@@ -110,15 +110,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
       <Card>
         {this.renderInstallError()}
         <div className="GuidesAddonCard">
-          {/* TODO: See https://github.com/mozilla/addons-frontend/issues/6903. */}
-          {isFireFox && !compatible && compatibility ? (
-            <AddonCompatibilityError
-              downloadUrl={compatibility.downloadUrl}
-              maxVersion={compatibility.maxVersion}
-              minVersion={compatibility.minVersion}
-              reason={compatibility.reason}
-            />
-          ) : null}
+          <AddonCompatibilityError addon={addon} />
           <div className="GuidesAddonCard-content">
             <img
               className="GuidesAddonCard-content-icon"

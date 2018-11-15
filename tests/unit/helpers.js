@@ -11,6 +11,7 @@ import Jed from 'jed';
 import UAParser from 'ua-parser-js';
 import { oneLine } from 'common-tags';
 
+import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import createStore from 'amo/store';
 import { getDjangoBase62 } from 'amo/utils';
 import {
@@ -917,6 +918,20 @@ export const createFakeHistory = ({ location = createFakeLocation() } = {}) => {
     goBack: sinon.spy(),
     listen: sinon.spy(),
     push: sinon.spy(),
+  };
+};
+
+/*
+ * Returns a fake ClientCompatibilityType object.
+ */
+export const createFakeClientCompatibility = (props = {}) => {
+  return {
+    compatible: true,
+    downloadUrl: DOWNLOAD_FIREFOX_BASE_URL,
+    maxVersion: '2',
+    minVersion: '1',
+    reason: 'A fake reason',
+    ...props,
   };
 };
 
