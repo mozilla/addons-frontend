@@ -29,7 +29,7 @@ export class HomeHeroGuidesBase extends React.PureComponent<InternalProps> {
       {
         title: i18n.gettext('Stay Safe Online'),
         icon: 'stop-hand',
-        url: '/guides/privacy/',
+        url: '/guides/stay-safe-online/',
       },
       {
         title: i18n.gettext('Organize Your Tabs'),
