@@ -175,4 +175,32 @@ describe(__filename, () => {
 
     expect(root.find('link[rel="alternate"]')).toHaveLength(0);
   });
+
+  it('accepts a queryString prop that is added to the URLs', () => {
+    const baseURL = 'https://example.org';
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'de';
+    const to = '/some-canonical-url';
+    const queryString = '?foo=bar';
+
+    const _config = getFakeConfig({ baseURL });
+    const { store } = dispatchClientMetadata({
+      clientApp,
+      lang,
+      pathname: `/${lang}/${clientApp}${to}`,
+      search: queryString,
+    });
+
+    const root = render({ _config, store, queryString });
+
+    expect(root.find('link[rel="canonical"]')).toHaveLength(1);
+    expect(root.find('link[rel="canonical"]')).toHaveProp(
+      'href',
+      `${baseURL}/${lang}/${clientApp}${to}${queryString}`,
+    );
+    expect(root.find(`link[hrefLang="${lang}"]`)).toHaveProp(
+      'href',
+      `${baseURL}/${lang}/${clientApp}${to}${queryString}`,
+    );
+  });
 });

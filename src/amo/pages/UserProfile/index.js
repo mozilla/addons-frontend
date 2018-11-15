@@ -1,7 +1,6 @@
 /* @flow */
 import invariant from 'invariant';
 import * as React from 'react';
-import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -10,6 +9,7 @@ import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import UserProfileHead from 'amo/components/UserProfileHead';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
@@ -256,7 +256,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
     );
   }
 
-  renderMetaDescription() {
+  getMetaDescription() {
     const { i18n, user } = this.props;
 
     if (!user) {
@@ -280,12 +280,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
       return null;
     }
 
-    return (
-      <meta
-        name="description"
-        content={i18n.sprintf(description, { user: user.display_name })}
-      />
-    );
+    return i18n.sprintf(description, { user: user.display_name });
   }
 
   render() {
@@ -344,10 +339,10 @@ export class UserProfileBase extends React.Component<InternalProps> {
 
     return (
       <div className="UserProfile">
-        <Helmet>
-          <title>{userProfileTitle}</title>
-          {this.renderMetaDescription()}
-        </Helmet>
+        <UserProfileHead
+          title={userProfileTitle}
+          description={this.getMetaDescription()}
+        />
 
         {errorMessage}
 

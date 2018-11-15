@@ -10,6 +10,7 @@ import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import UserProfile, { extractId, UserProfileBase } from 'amo/pages/UserProfile';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import UserProfileHead from 'amo/components/UserProfileHead';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
 import {
   fetchUserAccount,
@@ -953,7 +954,7 @@ describe(__filename, () => {
     expect(paginator).toHaveProp('pathname', `/user/${userId}/`);
   });
 
-  it('renders a "description" meta tag when user is a developer', () => {
+  it('renders a UserProfileHead component when user is a developer', () => {
     const displayName = 'John Doe';
     const { params, store } = signInUserWithProps({
       display_name: displayName,
@@ -963,16 +964,16 @@ describe(__filename, () => {
 
     const root = renderUserProfile({ params, store });
 
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+    expect(root.find(UserProfileHead)).toHaveLength(1);
+    expect(root.find(UserProfileHead).prop('description')).toMatch(
       new RegExp(`The profile of ${displayName}, Firefox extension author.`),
     );
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+    expect(root.find(UserProfileHead).prop('description')).toMatch(
       new RegExp(`by ${displayName}`),
     );
   });
 
-  it('renders a "description" meta tag when user is an artist', () => {
+  it('renders a UserProfileHead component when user is an artist', () => {
     const displayName = 'John Doe';
     const { params, store } = signInUserWithProps({
       display_name: displayName,
@@ -982,16 +983,16 @@ describe(__filename, () => {
 
     const root = renderUserProfile({ params, store });
 
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+    expect(root.find(UserProfileHead)).toHaveLength(1);
+    expect(root.find(UserProfileHead).prop('description')).toMatch(
       new RegExp(`The profile of ${displayName}, Firefox theme author.`),
     );
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+    expect(root.find(UserProfileHead).prop('description')).toMatch(
       new RegExp(`by ${displayName}`),
     );
   });
 
-  it('renders a "description" meta tag when user is a developer and an artist', () => {
+  it('renders a UserProfileHead component when user is a developer and an artist', () => {
     const displayName = 'John Doe';
     const { params, store } = signInUserWithProps({
       display_name: displayName,
@@ -1001,18 +1002,18 @@ describe(__filename, () => {
 
     const root = renderUserProfile({ params, store });
 
-    expect(root.find('meta[name="description"]')).toHaveLength(1);
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+    expect(root.find(UserProfileHead)).toHaveLength(1);
+    expect(root.find(UserProfileHead).prop('description')).toMatch(
       new RegExp(
         `The profile of ${displayName}, a Firefox extension and theme author`,
       ),
     );
-    expect(root.find('meta[name="description"]').prop('content')).toMatch(
+    expect(root.find(UserProfileHead).prop('description')).toMatch(
       new RegExp(`by ${displayName}`),
     );
   });
 
-  it('does not render a "description" meta tag when user is neither a developer nor an artist', () => {
+  it('sets the description to `null` to UserProfileHead when user is neither a developer nor an artist', () => {
     const displayName = 'John Doe';
     const { params, store } = signInUserWithProps({
       display_name: displayName,
@@ -1022,13 +1023,13 @@ describe(__filename, () => {
 
     const root = renderUserProfile({ params, store });
 
-    expect(root.find('meta[name="description"]')).toHaveLength(0);
+    expect(root.find(UserProfileHead)).toHaveProp('description', null);
   });
 
-  it('does not render a "description" meta tag when there is no user loaded', () => {
+  it('sets description to `null` to UserProfileHead when there is no user loaded', () => {
     const root = renderUserProfile({ params: { userId: 1234 } });
 
-    expect(root.find('meta[name="description"]')).toHaveLength(0);
+    expect(root.find(UserProfileHead)).toHaveProp('description', null);
   });
 
   it('sends a server redirect when the current user loads their profile with their "username" in the URL', () => {
