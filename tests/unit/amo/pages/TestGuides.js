@@ -76,6 +76,7 @@ describe(__filename, () => {
   it('renders a Guides Page', () => {
     const slug = 'stay-safe-online';
     const content = getContent(slug, fakeI18n());
+    const guids = content.sections.map((section) => section.addonGuid);
     const root = render({ content, slug });
 
     expect(root.find('.Guides')).toHaveLength(1);
@@ -90,7 +91,7 @@ describe(__filename, () => {
     expect(pageIntro).toHaveLength(1);
     expect(pageIntro.text()).toEqual(content.introText);
 
-    expect(root.find('.Guides-section')).toHaveLength(3);
+    expect(root.find('.Guides-section')).toHaveLength(guids.length);
 
     const sectionDescription = root.find('.Guides-section-description').at(0);
 
@@ -115,7 +116,7 @@ describe(__filename, () => {
 
   it('passes an addon to GuidesAddonCard', () => {
     const { store } = dispatchClientMetadata();
-    const slug = 'privacy';
+    const slug = 'stay-safe-online';
     const guids = getSections({ slug, i18n: fakeI18n() }).map(
       (section) => section.addonGuid,
     );
@@ -129,7 +130,7 @@ describe(__filename, () => {
     const root = render({ store, slug });
 
     expect(root.find(GuidesAddonCard)).toHaveLength(guids.length);
-    expect(root.find(GuidesAddonCard)).toHaveProp(
+    expect(root.find(GuidesAddonCard).at(0)).toHaveProp(
       'addon',
       createInternalAddon(addon),
     );

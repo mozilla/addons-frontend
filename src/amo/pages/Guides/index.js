@@ -77,12 +77,12 @@ export const getSections = ({
           header: i18n.gettext('Create and manage strong passwords'),
           description: i18n.gettext(
             `Password managers can help you create secure passwords, store your
-                passwords (safely) in one place, and give you easy access to your
-                login credentials wherever you are.`,
+            passwords (safely) in one place, and give you easy access to your
+            login credentials wherever you are.`,
           ),
           addonCustomText: i18n.gettext(
             `Fully encrypted password protection. Store your data securely and
-                access logins across devices.`,
+            access logins across devices.`,
           ),
           exploreMore: i18n.gettext(
             'Explore more %(linkStart)spassword manager%(linkEnd)s staff picks.',
@@ -95,13 +95,13 @@ export const getSections = ({
           header: i18n.gettext('Block annoying ads'),
           description: i18n.gettext(
             `Today’s web is tangled up with unwanted advertisements that get
-              in your way and slow you down. Ad-blocking extensions can block
-              or filter those ads so you can get back to distraction-free
-              browsing.`,
+            in your way and slow you down. Ad-blocking extensions can block
+            or filter those ads so you can get back to distraction-free
+            browsing.`,
           ),
           addonCustomText: i18n.gettext(
             `Lightweight, highly effective ad blocker. uBlock Origin enforces
-              thousands of content filters without chewing up a bunch of memory.`,
+            thousands of content filters without chewing up a bunch of memory.`,
           ),
           exploreMore: i18n.gettext(
             'Explore more %(linkStart)sad blocker%(linkEnd)s staff picks.',
@@ -114,12 +114,12 @@ export const getSections = ({
           header: i18n.gettext('Stop online trackers from stalking you'),
           description: i18n.gettext(
             `Online advertisers can track your activity from one website to
-              the next, gathering information about you and your interests.
-              Extensions can help cover your digital trail.`,
+            the next, gathering information about you and your interests.
+            Extensions can help cover your digital trail.`,
           ),
           addonCustomText: i18n.gettext(
             `Isolate your Facebook identity into a separate “container” to stop
-               Facebook from tracking your activity outside of its social platform.`,
+            Facebook from tracking your activity outside of its social platform.`,
           ),
           exploreMore: i18n.gettext(
             'Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks.',
@@ -257,9 +257,9 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
         title: i18n.gettext('Stay Safe Online'),
         introText: i18n.gettext(
           `The web is a wonderful but wild place. Your personal data can be used
-           without your consent, your activities spied upon, and your passwords
-           stolen. Fortunately, extensions can help fortify your online privacy
-           and security.`,
+          without your consent, your activities spied upon, and your passwords
+          stolen. Fortunately, extensions can help fortify your online privacy
+          and security.`,
         ),
         icon: 'stop-hand',
         sections: getSections({ slug, i18n }),
@@ -270,9 +270,9 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
         title: i18n.gettext('Organize Tabs & Bookmarks'),
         introText: i18n.gettext(
           `Do you deal with too many open tabs or a dizzying number of bookmarks?
-           Extensions can help! From organization assistance to providing fun
-           new features, extensions can dramatically change the way you deal
-           with tabs and bookmarks.`,
+          Extensions can help! From organization assistance to providing fun
+          new features, extensions can dramatically change the way you deal
+          with tabs and bookmarks.`,
         ),
         icon: 'browser',
         sections: getSections({ slug, i18n }),
