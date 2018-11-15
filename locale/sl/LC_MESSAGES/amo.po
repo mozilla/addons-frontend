@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-14 10:51+0000\n"
+"PO-Revision-Date: 2018-11-14 10:49+0000\n"
 "Last-Translator: Rok Žerdin <rok.zerdin1990@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1961,9 +1961,8 @@ msgid "Screenshots"
 msgstr "Posnetki zaslona"
 
 #: src/amo/pages/AddonInfo/index.js:116
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Licenčna pogodba za končnega uporabnika"
+msgstr "Licenčni sporazum za %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:117
 msgid "Privacy policy for %(addonName)s"
@@ -2081,7 +2080,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:72
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "Ustvarite in upravljate močna gesla"
 
 #: src/amo/pages/Guides/index.js:73
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
