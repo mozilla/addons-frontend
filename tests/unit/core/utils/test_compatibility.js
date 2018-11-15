@@ -1,7 +1,6 @@
 import UAParser from 'ua-parser-js';
 
 import {
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
@@ -387,7 +386,7 @@ describe(__filename, () => {
         compatibility: {},
       });
 
-      const { maxVersion, minVersion } = getCompatibleVersions({
+      const { maxVersion, minVersion } = _getCompatibleVersions({
         clientApp: CLIENT_APP_FIREFOX,
         currentVersion,
       });
@@ -401,7 +400,7 @@ describe(__filename, () => {
         maxVersion,
         minVersion,
         supportsClientApp,
-      } = getCompatibleVersions({
+      } = _getCompatibleVersions({
         clientApp: CLIENT_APP_FIREFOX,
         currentVersion: null,
       });
@@ -412,18 +411,13 @@ describe(__filename, () => {
     });
 
     it('marks clientApp as unsupported without compatibility', () => {
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_EXTENSION,
-      });
       const currentVersion = createInternalVersion({
         ...fakeVersion,
         // This add-on is not compatible with any client apps.
         compatibility: {},
       });
 
-      const { supportsClientApp } = getCompatibleVersions({
-        addon,
+      const { supportsClientApp } = _getCompatibleVersions({
         currentVersion,
         clientApp: CLIENT_APP_FIREFOX,
       });
@@ -433,10 +427,6 @@ describe(__filename, () => {
 
     it('marks clientApp as supported with compatibility', () => {
       const clientApp = CLIENT_APP_ANDROID;
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_EXTENSION,
-      });
       const currentVersion = createInternalVersion({
         ...fakeVersion,
         compatibility: {
@@ -447,8 +437,7 @@ describe(__filename, () => {
         },
       });
 
-      const { supportsClientApp } = getCompatibleVersions({
-        addon,
+      const { supportsClientApp } = _getCompatibleVersions({
         clientApp,
         currentVersion,
       });

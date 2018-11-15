@@ -211,7 +211,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     } = this.props;
 
     if (errorHandler.hasError()) {
-      log.warn('Captured API Error:', errorHandler.capturedError);
+      log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
       // The following code attempts to recover from a 401 returned
       // by fetchAddon() but may accidentally catch a 401 from
       // fetchReviews(). Oh well.

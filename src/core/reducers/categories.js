@@ -36,7 +36,7 @@ export default function categories(state = initialState, action) {
       Object.values(payload.results).forEach((category) => {
         // This category has no data, so skip it.
         if (!category || !category.application) {
-          log.warn('category or category.application was false-y.', category);
+          log.warn(`category or category.application was false-y: ${category}`);
           return;
         }
 

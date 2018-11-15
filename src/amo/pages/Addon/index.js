@@ -421,7 +421,7 @@ export class AddonBase extends React.Component {
     const isThemeType = addon && isTheme(addon.type);
     let errorBanner = null;
     if (errorHandler.hasError()) {
-      log.warn('Captured API Error:', errorHandler.capturedError);
+      log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
 
       // 401 and 403 are made to look like a 404 on purpose.
       // See: https://github.com/mozilla/addons-frontend/issues/3061.

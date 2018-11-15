@@ -430,7 +430,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     let errorMessage;
     if (errorHandler.hasError()) {
-      log.warn('Captured API Error:', errorHandler.capturedError);
+      log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
 
       if (errorHandler.capturedError.responseStatusCode === 404) {
         return <NotFound errorCode={errorHandler.capturedError.code} />;

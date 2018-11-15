@@ -4861,10 +4861,10 @@ eslint-module-utils@^2.2.0:
     debug "^2.6.8"
     pkg-dir "^1.0.0"
 
-eslint-plugin-amo@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-amo/-/eslint-plugin-amo-1.7.0.tgz#5de5d2e1dae8648c733116039c949624bddb40ed"
-  integrity sha512-w/Tz6lLE65RqGrMTGvWw2k4wNy8Sw/T3Z/IddVJpu+MkHm8aNF54ZP2hgQ5vEuP+w8OGi2oGbynioXDJ0MMx9Q==
+eslint-plugin-amo@^1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-amo/-/eslint-plugin-amo-1.9.1.tgz#f2dfe24a0ab5b6a9e8934bbe05729a859bfd245f"
+  integrity sha512-2yvFS/jI+AV8rafT+TY0ntsAItvWF3BnpPMc2QSGNuYh8sfs7R1+1RNR1cf4KkyLuHVM9qZjVToTuwTcobzhcA==
   dependencies:
     requireindex "~1.1.0"
     string-natural-compare "^2.0.2"

@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, amo/only-log-strings */
 const { spawn } = require('child_process');
 
 const pathToFlowBin = require('flow-bin');

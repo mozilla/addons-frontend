@@ -56,7 +56,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
     event.stopPropagation();
     const button = event.currentTarget;
     const rating = parseInt(button.value, 10);
-    log.debug('Selected rating from form button:', rating);
+    log.debug(`Selected rating from form button: ${rating}`);
 
     if (!this.props.onSelectRating) {
       throw new Error(

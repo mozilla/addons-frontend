@@ -13,7 +13,6 @@ import log from 'core/logger';
 export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   // Split on slashes after removing the leading slash.
   const URLParts = req.originalUrl.replace(/^\//, '').split('/');
-  log.debug(URLParts);
 
   // Get lang and app parts from the URL. At this stage they may be incorrect
   // or missing.

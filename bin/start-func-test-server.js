@@ -1,5 +1,5 @@
 /* @flow */
-/* eslint-disable no-console */
+/* eslint-disable no-console, amo/only-log-strings */
 // This starts a docker server for functional tests to access.
 // The script waits for the server to start and prints some logs
 // to help with debugging.

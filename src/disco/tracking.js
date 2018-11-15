@@ -21,6 +21,7 @@ export default function getInstallData({ _window = window } = {}) {
         .replace(/^#/, '');
       jsonData = JSON.parse(hash);
     } catch (e) {
+      // eslint-disable-next-line amo/only-log-strings
       log.error(e);
     }
   }

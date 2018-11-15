@@ -428,6 +428,7 @@ function baseServer(
       }
 
       _log.error(`Showing 500 page for error: ${error}`);
+      // eslint-disable-next-line amo/only-log-strings
       _log.error(error); // log the stack trace too.
 
       return showErrorPage({
@@ -442,6 +443,7 @@ function baseServer(
     } catch (recoveryError) {
       _log.error(oneLine`Additionally, the error handler caught an error:
         ${recoveryError}`);
+      // eslint-disable-next-line amo/only-log-strings
       _log.error(recoveryError); // log the stack trace too.
 
       // Pass the original error to the next error handler.
@@ -516,6 +518,7 @@ export function runServer({
             }
             const proxyEnabled = convertBoolean(config.get('proxyEnabled'));
             // Not using oneLine here since it seems to change '  ' to ' '.
+            // eslint-disable-next-line amo/only-log-strings
             log.info(
               [
                 `🔥  Addons-frontend server is running`,
@@ -551,7 +554,9 @@ export function runServer({
       });
     })
     .catch((err) => {
+      // eslint-disable-next-line amo/only-log-strings
       log.error({ err });
+
       if (exitProcess) {
         process.exit(1);
       } else {

@@ -223,15 +223,13 @@ describe(__filename, () => {
   it('renders a notice and logs warning when reason code not known', () => {
     _dispatchClientMetadata();
     const fakeLog = getFakeLogger();
-    const root = render({
-      log: fakeLog,
-      reason: 'fake reason',
-    });
+    const reason = 'fake reason';
+
+    const root = render({ log: fakeLog, reason });
 
     sinon.assert.calledWith(
       fakeLog.warn,
-      'Unknown reason code supplied to AddonCompatibilityError',
-      'fake reason',
+      `Unknown reason code supplied to AddonCompatibilityError: ${reason}`,
     );
     expect(
       root

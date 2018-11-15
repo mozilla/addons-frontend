@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/* eslint-disable strict, no-console */
+/* eslint-disable strict, no-console, amo/only-log-strings */
 
 require('babel-register');
 const https = require('https');

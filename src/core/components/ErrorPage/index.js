@@ -32,6 +32,7 @@ export class ErrorPageBase extends React.Component<InternalProps> {
     const { dispatch } = this.props;
 
     dispatch(loadErrorPage({ error }));
+    // eslint-disable-next-line amo/only-log-strings
     log.error('Caught application error:', error, info);
   }
 

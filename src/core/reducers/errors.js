@@ -22,7 +22,7 @@ function getMessagesFromError(error) {
     code: ERROR_UNKNOWN,
     messages: [],
   };
-  log.info('Extracting messages from error object:', error);
+  log.debug('Extracting messages from error object:', error);
 
   const logCodeChange = ({ oldCode, newCode }) => {
     log.warn(`Replacing error code ${oldCode} with ${newCode}`);
@@ -69,7 +69,7 @@ function getMessagesFromError(error) {
   }
 
   if (!errorData.messages.length) {
-    log.warn('Error object did not contain any messages', error);
+    log.warn(`Error object did not contain any messages: ${error}`);
   }
 
   return errorData;
