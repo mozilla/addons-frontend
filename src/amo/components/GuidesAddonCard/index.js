@@ -187,7 +187,7 @@ export const mapStateToProps = (
   state: AppState,
   ownProps: Props,
 ): $Shape<InternalProps> => {
-  const { addon = null } = ownProps;
+  const { addon } = ownProps;
 
   let currentVersion = null;
   let installedAddon = {};
@@ -209,8 +209,6 @@ export const mapStateToProps = (
       installedAddon && installedAddon.error ? installedAddon.error : null,
     installStatus: installedAddon ? installedAddon.status : UNKNOWN,
     userAgentInfo: state.api.userAgentInfo,
-    // The `withInstallHelpers()` HOC requires an `addon` prop too:
-    addon,
   };
 };
 

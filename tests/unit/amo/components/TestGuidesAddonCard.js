@@ -67,7 +67,7 @@ describe(__filename, () => {
       <GuidesAddonCard {...allProps} />,
       GuidesAddonCardBase,
       {
-        shallowOptions: createContextWithFakeRouter({ location }),
+        shallowOptions: createContextWithFakeRouter(),
       },
     );
   };

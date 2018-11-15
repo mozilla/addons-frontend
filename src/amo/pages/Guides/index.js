@@ -143,7 +143,7 @@ export class GuidesBase extends React.Component<InternalProps> {
         });
       }
 
-      const addon = addons[section.addonGuid];
+      const addon = addons[section.addonGuid] || null;
 
       return (
         <div className="Guides-section" key={section.exploreUrl}>
