@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import AddonTitle from 'amo/components/AddonTitle';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
@@ -27,7 +28,6 @@ import type { AddonVersionType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
-import type { LocationType } from 'core/types/router';
 import type { WithInstallHelpersInjectedProps } from 'core/installAddon';
 
 import './styles.scss';
@@ -48,7 +48,6 @@ type InternalProps = {
   installError: string | null,
   installStatus: string,
   i18n: I18nType,
-  location: LocationType,
   userAgentInfo: UserAgentInfoType,
 };
 
@@ -209,7 +208,6 @@ export const mapStateToProps = (
     installError:
       installedAddon && installedAddon.error ? installedAddon.error : null,
     installStatus: installedAddon ? installedAddon.status : UNKNOWN,
-    location: state.router.location,
     userAgentInfo: state.api.userAgentInfo,
     // The `withInstallHelpers()` HOC requires an `addon` prop too:
     addon,
@@ -217,6 +215,7 @@ export const mapStateToProps = (
 };
 
 const GuidesAddonCard: React.ComponentType<Props> = compose(
+  withRouter,
   connect(mapStateToProps),
   withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_GUIDES_PAGE }),
   translate(),

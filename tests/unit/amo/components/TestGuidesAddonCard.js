@@ -7,6 +7,8 @@ import AddonTitle from 'amo/components/AddonTitle';
 import AMInstallButton from 'core/components/AMInstallButton';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import {
+  createContextWithFakeRouter,
+  createFakeLocation,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -40,6 +42,7 @@ describe(__filename, () => {
     addonCustomText = 'Some text',
     hasAddonManager = true,
     i18n = fakeI18n(),
+    location = createFakeLocation(),
     setCurrentStatus = sinon.spy(),
     store = dispatchClientMetadata().store,
     ...customProps
@@ -49,6 +52,7 @@ describe(__filename, () => {
       addonCustomText,
       hasAddonManager,
       i18n,
+      location,
       setCurrentStatus,
       status: UNKNOWN,
       store,
@@ -62,6 +66,9 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <GuidesAddonCard {...allProps} />,
       GuidesAddonCardBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ location }),
+      },
     );
   };
 
