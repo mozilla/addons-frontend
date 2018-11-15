@@ -294,6 +294,15 @@ describe(__filename, () => {
     expect(root.find('.Addon-icon img').prop('alt')).toEqual(null);
   });
 
+  it('renders without a version', () => {
+    const root = shallowRender({
+      currentVersion: null,
+    });
+
+    // Make sure an element we expect to be rendered exists.
+    expect(root.find('.Addon-header')).toHaveLength(1);
+  });
+
   it('dispatches fetchAddon when rendering without an add-on', () => {
     const slug = 'some-addon';
     const { store } = dispatchClientMetadata();
