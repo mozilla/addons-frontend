@@ -18,7 +18,9 @@ import AddonTitle from 'amo/components/AddonTitle';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import GetFirefoxButton from 'amo/components/GetFirefoxButton';
+import GetFirefoxButton, {
+  GET_FIREFOX_BUTTON_TYPE_ADDON,
+} from 'amo/components/GetFirefoxButton';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
@@ -543,7 +545,12 @@ export class AddonBase extends React.Component {
                     isAddonEnabled={isAddonEnabled}
                   />
                 )}
-                {showGetFirefoxButton && <GetFirefoxButton addon={addon} />}
+                {showGetFirefoxButton && (
+                  <GetFirefoxButton
+                    addon={addon}
+                    buttonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+                  />
+                )}
               </div>
 
               <h2 className="visually-hidden">

@@ -3,7 +3,9 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import DownloadFirefoxButton from 'amo/components/DownloadFirefoxButton';
+import GetFirefoxButton, {
+  GET_FIREFOX_BUTTON_TYPE_HEADER,
+} from 'amo/components/GetFirefoxButton';
 import Link from 'amo/components/Link';
 import SearchForm from 'amo/components/SearchForm';
 import SectionLinks from 'amo/components/SectionLinks';
@@ -76,7 +78,10 @@ export class HeaderBase extends React.Component {
           >
             {i18n.gettext('Developer Hub')}
           </Link>
-          <DownloadFirefoxButton className="Header-download-button Header-button" />
+          <GetFirefoxButton
+            buttonType={GET_FIREFOX_BUTTON_TYPE_HEADER}
+            className="Header-download-button Header-button"
+          />
 
           {siteUser ? (
             <DropdownMenu
