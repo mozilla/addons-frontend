@@ -1104,13 +1104,6 @@ describe(__filename, () => {
     expect(root.find(GetFirefoxButton)).toHaveLength(1);
   });
 
-  it('hides GetFirefoxButton for Firefox', () => {
-    const root = shallowRender({
-      getClientCompatibility: getFakeClientCompatibility(true),
-    });
-    expect(root.find(GetFirefoxButton)).toHaveLength(0);
-  });
-
   it('renders a ThemeImage in the header', () => {
     const root = shallowRender({ addon: createInternalAddon(fakeTheme) });
     expect(root.find(ThemeImage)).toHaveLength(1);

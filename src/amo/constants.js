@@ -22,4 +22,4 @@ export const FEATURED_ADDONS_TO_LOAD = 25;
 export const LANDING_PAGE_EXTENSION_COUNT = 4;
 export const LANDING_PAGE_THEME_COUNT = 3;
 
-export const DOWNLOAD_FIREFOX_URL = 'https://www.mozilla.org/firefox/new/';
+export const DOWNLOAD_FIREFOX_BASE_URL = 'https://www.mozilla.org/firefox/new/';

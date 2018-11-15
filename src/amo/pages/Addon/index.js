@@ -480,7 +480,6 @@ export class AddonBase extends React.Component {
     const isFireFox =
       compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
     const showInstallButton = addon && isFireFox;
-    const showGetFirefoxButton = addon && !isFireFox;
 
     return (
       <div
@@ -545,7 +544,7 @@ export class AddonBase extends React.Component {
                     isAddonEnabled={isAddonEnabled}
                   />
                 )}
-                {showGetFirefoxButton && (
+                {addon && (
                   <GetFirefoxButton
                     addon={addon}
                     buttonType={GET_FIREFOX_BUTTON_TYPE_ADDON}

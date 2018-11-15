@@ -5,7 +5,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { DOWNLOAD_FIREFOX_URL } from 'amo/constants';
+import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
@@ -76,7 +76,7 @@ export const GetFirefoxButtonBase = (props: InternalProps) => {
     <Button
       buttonType="confirm"
       className={makeClassName('GetFirefoxButton', className)}
-      href={`${DOWNLOAD_FIREFOX_URL}${makeQueryStringWithUTM({
+      href={`${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
         utm_content: utmContent,
       })}`}
       micro={micro}

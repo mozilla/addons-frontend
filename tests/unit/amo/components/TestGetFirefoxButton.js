@@ -5,7 +5,7 @@ import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_TYPE_HEADER,
   GetFirefoxButtonBase,
 } from 'amo/components/GetFirefoxButton';
-import { DOWNLOAD_FIREFOX_URL } from 'amo/constants';
+import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -91,9 +91,11 @@ describe(__filename, () => {
           store,
         });
 
-        const expectedHref = `${DOWNLOAD_FIREFOX_URL}${makeQueryStringWithUTM({
-          utm_content: addon.guid,
-        })}`;
+        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
+          {
+            utm_content: addon.guid,
+          },
+        )}`;
         expect(root.find('.GetFirefoxButton')).toHaveProp('href', expectedHref);
       });
 
@@ -131,9 +133,11 @@ describe(__filename, () => {
           store,
         });
 
-        const expectedHref = `${DOWNLOAD_FIREFOX_URL}${makeQueryStringWithUTM({
-          utm_content: 'header-download-button',
-        })}`;
+        const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
+          {
+            utm_content: 'header-download-button',
+          },
+        )}`;
         expect(root.find(Button)).toHaveProp('href', expectedHref);
       });
 
