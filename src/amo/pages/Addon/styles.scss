@@ -4,8 +4,7 @@
   @include page-padding();
 
   .Addon-summary-and-install-button-wrapper {
-    .AMInstallButton,
-    .Button--get-firefox {
+    .AMInstallButton {
       @include respond-to(medium) {
         align-self: flex-end;
         margin-bottom: 12px;
@@ -123,8 +122,7 @@
   }
 }
 
-.Addon .AMInstallButton-button,
-.Button--get-firefox {
+.Addon .AMInstallButton-button {
   width: 100%;
 
   @include respond-to(medium) {

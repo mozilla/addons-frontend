@@ -16,6 +16,7 @@ import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import GetFirefoxButton from 'amo/components/GetFirefoxButton';
 import RatingManager, {
   RatingManagerWithI18n,
 } from 'amo/components/RatingManager';
@@ -70,7 +71,6 @@ import {
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
-import Button from 'ui/components/Button';
 import ThemeImage from 'ui/components/ThemeImage';
 import Notice from 'ui/components/Notice';
 
@@ -142,14 +142,16 @@ function shallowRender(...args) {
 }
 
 describe(__filename, () => {
-  const incompatibleClientResult = {
-    compatible: false,
-    maxVersion: null,
-    minVersion: null,
-    reason: INCOMPATIBLE_NOT_FIREFOX,
+  const getFakeClientCompatibility = (isCompatible: boolean) => {
+    return () => {
+      return {
+        compatible: isCompatible,
+        maxVersion: null,
+        minVersion: null,
+        reason: isCompatible ? null : INCOMPATIBLE_NOT_FIREFOX,
+      };
+    };
   };
-
-  const getClientCompatibilityFalse = () => incompatibleClientResult;
 
   const _loadAddonResults = ({ addon = fakeAddon }) => {
     return loadAddonResults({ addons: [addon] });
@@ -1096,10 +1098,10 @@ describe(__filename, () => {
 
   it('hides banner on non firefox clients and displays firefox download button', () => {
     const root = shallowRender({
-      getClientCompatibility: getClientCompatibilityFalse,
+      getClientCompatibility: getFakeClientCompatibility(false),
     });
     expect(root.find(AddonCompatibilityError)).toHaveLength(0);
-    expect(root.find(Button)).toHaveLength(1);
+    expect(root.find(GetFirefoxButton)).toHaveLength(1);
   });
 
   it('renders a ThemeImage in the header', () => {
@@ -1656,7 +1658,7 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(0);
   });
 
-  it('passes the add-on GUID to Firefox install button', () => {
+  it('passes the add-on to GetFirefoxButton', () => {
     const guid = 'some-guid';
     const addon = createInternalAddon({
       ...fakeAddon,
@@ -1665,13 +1667,11 @@ describe(__filename, () => {
 
     const root = shallowRender({
       addon,
-      getClientCompatibility: getClientCompatibilityFalse,
+      getClientCompatibility: getFakeClientCompatibility(false),
     });
 
-    expect(root.find('.Button--get-firefox')).toHaveLength(1);
-    expect(root.find('.Button--get-firefox').prop('href')).toMatch(
-      `&utm_content=${guid}`,
-    );
+    expect(root.find(GetFirefoxButton)).toHaveLength(1);
+    expect(root.find(GetFirefoxButton)).toHaveProp('addon', addon);
   });
 
   it('does not render an install error if there is no error', () => {
