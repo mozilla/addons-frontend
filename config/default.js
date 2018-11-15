@@ -358,7 +358,6 @@ module.exports = {
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments.
   experiments: {
-    homeHero: true,
     installButtonColor: false,
   },
 };
