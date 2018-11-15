@@ -1,15 +1,23 @@
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 
+import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import HeadLinks from 'amo/components/HeadLinks';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
+import Guides, {
+  extractId,
+  GuidesBase,
+  getContent,
+  getSections,
+} from 'amo/pages/Guides';
 import {
   dispatchClientMetadata,
+  fakeAddon,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import Guides, { extractId, GuidesBase, getContent } from 'amo/pages/Guides';
 
 describe(__filename, () => {
   const getProps = ({
@@ -17,7 +25,6 @@ describe(__filename, () => {
     i18n = fakeI18n(),
     dispatch = store.dispatch,
     slug = 'privacy',
-    content = getContent(slug, i18n),
     match = {
       params: {
         slug,
@@ -26,7 +33,6 @@ describe(__filename, () => {
     ...customProps
   } = {}) => {
     return {
-      content,
       dispatch,
       i18n,
       match,
@@ -40,6 +46,14 @@ describe(__filename, () => {
     const allProps = getProps(customProps);
 
     return shallowUntilTarget(<Guides {...allProps} />, GuidesBase);
+  };
+
+  const _loadAddonResults = (store, addon = fakeAddon) => {
+    store.dispatch(
+      loadAddonResults({
+        addons: [addon],
+      }),
+    );
   };
 
   it('fetches guides addons', () => {
@@ -96,6 +110,28 @@ describe(__filename, () => {
       oneLine`<div class="Guides-section-explore-more">Explore more
       <a href="/en-US/android/collections/mozilla/password-managers/"
       class="Guides-section-explore-more-link">password manager</a> staff picks.</div>`,
+    );
+  });
+
+  it('passes an addon to GuidesAddonCard', () => {
+    const { store } = dispatchClientMetadata();
+    const slug = 'privacy';
+    const guids = getSections({ slug, i18n: fakeI18n() }).map(
+      (section) => section.addonGuid,
+    );
+    const addon = {
+      ...fakeAddon,
+      guid: guids[0],
+    };
+
+    _loadAddonResults(store, addon);
+
+    const root = render({ store, slug });
+
+    expect(root.find(GuidesAddonCard)).toHaveLength(guids.length);
+    expect(root.find(GuidesAddonCard)).toHaveProp(
+      'addon',
+      createInternalAddon(addon),
     );
   });
 

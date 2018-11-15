@@ -4,13 +4,16 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import HeadLinks from 'amo/components/HeadLinks';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
+import { getAddonByGUID } from 'core/reducers/addons';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Icon from 'ui/components/Icon';
+import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
@@ -26,15 +29,20 @@ type Props = {|
   },
 |};
 
+type AddonsMap = {|
+  [guid: string]: AddonType,
+|};
+
 type InternalProps = {|
   ...Props,
-  clientApp: string,
+  addons: AddonsMap | {},
+  clientApp: string | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   slug: string,
   guids: Array<string>,
   i18n: I18nType,
-  lang: string,
+  lang: string | null,
 |};
 
 type SectionsType = {|
@@ -53,9 +61,43 @@ type GuideType = {|
   sections: Array<SectionsType>,
 |};
 
-export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
+export const getSections = ({
+  slug,
+  i18n,
+}: {|
+  slug: string,
+  i18n: I18nType,
+|}): Array<SectionsType> => {
   switch (slug) {
     case 'privacy':
+      return [
+        // Bitwarden free password manager
+        {
+          addonGuid: '{446900e4-71c2-419f-a6a7-df9c091e268b}',
+          header: i18n.gettext('Create and manage strong passwords'),
+          description: i18n.gettext(
+            `Password managers can help you create secure passwords, store your
+               passwords (safely) in one place, and give you easy access to your
+               login credentials wherever you are.`,
+          ),
+          addonCustomText: i18n.gettext(
+            `Fully encrypted password protection. Store your data securely and
+               access logins across devices.`,
+          ),
+          exploreMore: i18n.gettext(
+            'Explore more %(linkStart)spassword manager%(linkEnd)s staff picks.',
+          ),
+          exploreUrl: '/collections/mozilla/password-managers/',
+        },
+      ];
+    default:
+      return [];
+  }
+};
+
+export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
+  switch (slug) {
+    case 'privacy': {
       return {
         title: i18n.gettext('Stay Safe Online'),
         introText: i18n.gettext(
@@ -65,27 +107,9 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
            and security.`,
         ),
         icon: 'stop-hand',
-        sections: [
-          // Bitwarden free password manager
-          {
-            addonGuid: '{446900e4-71c2-419f-a6a7-df9c091e268b}',
-            header: i18n.gettext('Create and manage strong passwords'),
-            description: i18n.gettext(
-              `Password managers can help you create secure passwords, store your
-               passwords (safely) in one place, and give you easy access to your
-               login credentials wherever you are.`,
-            ),
-            addonCustomText: i18n.gettext(
-              `Fully encrypted password protection. Store your data securely and
-               access logins across devices.`,
-            ),
-            exploreMore: i18n.gettext(
-              'Explore more %(linkStart)spassword manager%(linkEnd)s staff picks.',
-            ),
-            exploreUrl: '/collections/mozilla/password-managers/',
-          },
-        ],
+        sections: getSections({ slug, i18n }),
       };
+    }
     default:
       return null;
   }
@@ -95,15 +119,7 @@ export class GuidesBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
     super(props);
 
-    const { errorHandler, i18n, match } = this.props;
-    const { slug } = match.params;
-    const content = getContent(slug, i18n);
-
-    if (!content) {
-      return;
-    }
-
-    const guids = content.sections.map((section) => section.addonGuid);
+    const { errorHandler, guids } = this.props;
 
     this.props.dispatch(
       fetchGuidesAddons({
@@ -116,22 +132,32 @@ export class GuidesBase extends React.Component<InternalProps> {
   getGuidesSections = (
     sections: Array<SectionsType>,
   ): React.ChildrenArray<React.Node> => {
-    const { clientApp, i18n, lang } = this.props;
+    const { addons, clientApp, i18n, lang } = this.props;
 
     return sections.map((section) => {
       // TODO: look into having these links use the Router (vs 'a' tag).
       // See https://github.com/mozilla/addons-frontend/issues/6787.
-      const exploreMoreLink = i18n.sprintf(section.exploreMore, {
-        linkStart: `<a class="Guides-section-explore-more-link" href="/${lang}/${clientApp}${
-          section.exploreUrl
-        }">`,
-        linkEnd: '</a>',
-      });
+      let exploreMoreLink;
+      if (lang && clientApp) {
+        exploreMoreLink = i18n.sprintf(section.exploreMore, {
+          linkStart: `<a class="Guides-section-explore-more-link" href="/${lang}/${clientApp}${
+            section.exploreUrl
+          }">`,
+          linkEnd: '</a>',
+        });
+      }
+
+      const addon = addons[section.addonGuid] || null;
 
       return (
         <div className="Guides-section" key={section.exploreUrl}>
           <h2 className="Guides-section-title">{section.header}</h2>
           <p className="Guides-section-description">{section.description}</p>
+
+          <GuidesAddonCard
+            addon={addon}
+            addonCustomText={section.addonCustomText}
+          />
 
           <div
             className="Guides-section-explore-more"
@@ -173,10 +199,28 @@ export class GuidesBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState) => {
+export const mapStateToProps = (
+  state: AppState,
+  ownProps: InternalProps,
+): $Shape<InternalProps> => {
   const { clientApp, lang } = state.api;
+  const { i18n, match } = ownProps;
+  const { slug } = match.params;
+
+  const guids = getSections({ slug, i18n }).map((section) => section.addonGuid);
+
+  const addons = {};
+
+  guids.forEach((guid) => {
+    const addon = getAddonByGUID(state, guid);
+    if (addon) {
+      addons[guid] = addon;
+    }
+  });
 
   return {
+    addons,
+    guids,
     clientApp,
     lang,
   };
@@ -187,8 +231,8 @@ export const extractId = (ownProps: InternalProps) => {
 };
 
 const Guides: React.ComponentType<Props> = compose(
-  connect(mapStateToProps),
   translate(),
+  connect(mapStateToProps),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(GuidesBase);
 
