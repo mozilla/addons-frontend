@@ -150,12 +150,10 @@ export class GuidesBase extends React.Component<InternalProps> {
           <h2 className="Guides-section-title">{section.header}</h2>
           <p className="Guides-section-description">{section.description}</p>
 
-          {addon && (
-            <GuidesAddonCard
-              addon={addon}
-              addonCustomText={section.addonCustomText}
-            />
-          )}
+          <GuidesAddonCard
+            addon={addon}
+            addonCustomText={section.addonCustomText}
+          />
 
           <div
             className="Guides-section-explore-more"

@@ -33,7 +33,7 @@ import type { WithInstallHelpersInjectedProps } from 'core/installAddon';
 import './styles.scss';
 
 type Props = {
-  addon: AddonType,
+  addon: AddonType | null,
   addonCustomText: string,
   staffPick?: boolean,
 };
@@ -188,7 +188,7 @@ export const mapStateToProps = (
   state: AppState,
   ownProps: Props,
 ): $Shape<InternalProps> => {
-  const { addon } = ownProps;
+  const { addon = null } = ownProps;
 
   let currentVersion = null;
   let installedAddon = {};
@@ -211,6 +211,8 @@ export const mapStateToProps = (
     installStatus: installedAddon ? installedAddon.status : UNKNOWN,
     location: state.router.location,
     userAgentInfo: state.api.userAgentInfo,
+    // The `withInstallHelpers()` HOC requires an `addon` prop too:
+    addon,
   };
 };
 
