@@ -98,8 +98,6 @@ export const getSections = ({
 export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
   switch (slug) {
     case 'privacy': {
-      const sections = getSections({ slug, i18n });
-
       return {
         title: i18n.gettext('Stay Safe Online'),
         introText: i18n.gettext(
@@ -109,7 +107,7 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
            and security.`,
         ),
         icon: 'stop-hand',
-        sections,
+        sections: getSections({ slug, i18n }),
       };
     }
     default:
