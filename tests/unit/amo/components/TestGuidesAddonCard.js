@@ -28,7 +28,11 @@ import { createInternalAddon } from 'core/reducers/addons';
 import { loadVersions } from 'core/reducers/versions';
 
 describe(__filename, () => {
-  const _loadVersions = (store, addon = fakeAddon, version = fakeVersion) => {
+  const _loadVersions = ({
+    store,
+    addon = fakeAddon,
+    version = fakeVersion,
+  }) => {
     store.dispatch(
       loadVersions({
         slug: addon.slug,
@@ -83,7 +87,7 @@ describe(__filename, () => {
       name: addonName,
     });
 
-    _loadVersions(store, addon);
+    _loadVersions({ store, addon });
 
     const root = render({
       addon,
@@ -162,7 +166,7 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const addon = createInternalAddon(fakeAddon);
 
-    _loadVersions(store, addon);
+    _loadVersions({ store, addon });
 
     const root = render({ addon, store });
 
@@ -176,7 +180,7 @@ describe(__filename, () => {
     const installTheme = sinon.stub();
     const uninstall = sinon.stub();
 
-    _loadVersions(store);
+    _loadVersions({ store });
 
     const root = render({
       enable,

@@ -10,7 +10,7 @@ import Guides, {
   extractId,
   GuidesBase,
   getContent,
-  getGuids,
+  getSections,
 } from 'amo/pages/Guides';
 import {
   dispatchClientMetadata,
@@ -21,12 +21,10 @@ import {
 
 describe(__filename, () => {
   const getProps = ({
-    addon = fakeAddon,
     store = dispatchClientMetadata().store,
     i18n = fakeI18n(),
     dispatch = store.dispatch,
     slug = 'privacy',
-    content = getContent(slug, i18n),
     match = {
       params: {
         slug,
@@ -35,8 +33,6 @@ describe(__filename, () => {
     ...customProps
   } = {}) => {
     return {
-      addon,
-      content,
       dispatch,
       i18n,
       match,
@@ -120,7 +116,9 @@ describe(__filename, () => {
   it('passes an addon to GuidesAddonCard', () => {
     const { store } = dispatchClientMetadata();
     const slug = 'privacy';
-    const guids = getGuids(slug);
+    const guids = getSections({ slug, i18n: fakeI18n() }).map(
+      (section) => section.addonGuid,
+    );
     const addon = {
       ...fakeAddon,
       guid: guids[0],
@@ -128,7 +126,7 @@ describe(__filename, () => {
 
     _loadAddonResults(store, addon);
 
-    const root = render({ store });
+    const root = render({ store, slug });
 
     expect(root.find(GuidesAddonCard)).toHaveLength(guids.length);
     expect(root.find(GuidesAddonCard)).toHaveProp(

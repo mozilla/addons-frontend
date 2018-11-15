@@ -61,10 +61,35 @@ type GuideType = {|
   sections: Array<SectionsType>,
 |};
 
-export const getGuids = (slug: string): Array<string> => {
+export const getSections = ({
+  slug,
+  i18n,
+}: {|
+  slug: string,
+  i18n: I18nType,
+|}): Array<SectionsType> => {
   switch (slug) {
     case 'privacy':
-      return ['{446900e4-71c2-419f-a6a7-df9c091e268b}'];
+      return [
+        // Bitwarden free password manager
+        {
+          addonGuid: '{446900e4-71c2-419f-a6a7-df9c091e268b}',
+          header: i18n.gettext('Create and manage strong passwords'),
+          description: i18n.gettext(
+            `Password managers can help you create secure passwords, store your
+               passwords (safely) in one place, and give you easy access to your
+               login credentials wherever you are.`,
+          ),
+          addonCustomText: i18n.gettext(
+            `Fully encrypted password protection. Store your data securely and
+               access logins across devices.`,
+          ),
+          exploreMore: i18n.gettext(
+            'Explore more %(linkStart)spassword manager%(linkEnd)s staff picks.',
+          ),
+          exploreUrl: '/collections/mozilla/password-managers/',
+        },
+      ];
     default:
       return [];
   }
@@ -73,7 +98,7 @@ export const getGuids = (slug: string): Array<string> => {
 export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
   switch (slug) {
     case 'privacy': {
-      const guids = getGuids(slug);
+      const sections = getSections({ slug, i18n });
 
       return {
         title: i18n.gettext('Stay Safe Online'),
@@ -84,26 +109,7 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
            and security.`,
         ),
         icon: 'stop-hand',
-        sections: [
-          // Bitwarden free password manager
-          {
-            addonGuid: guids[0],
-            header: i18n.gettext('Create and manage strong passwords'),
-            description: i18n.gettext(
-              `Password managers can help you create secure passwords, store your
-               passwords (safely) in one place, and give you easy access to your
-               login credentials wherever you are.`,
-            ),
-            addonCustomText: i18n.gettext(
-              `Fully encrypted password protection. Store your data securely and
-               access logins across devices.`,
-            ),
-            exploreMore: i18n.gettext(
-              'Explore more %(linkStart)spassword manager%(linkEnd)s staff picks.',
-            ),
-            exploreUrl: '/collections/mozilla/password-managers/',
-          },
-        ],
+        sections,
       };
     }
     default:
@@ -197,12 +203,13 @@ export class GuidesBase extends React.Component<InternalProps> {
 
 export const mapStateToProps = (
   state: AppState,
-  ownProps: Props,
+  ownProps: InternalProps,
 ): $Shape<InternalProps> => {
   const { clientApp, lang } = state.api;
-  const { match } = ownProps;
+  const { i18n, match } = ownProps;
   const { slug } = match.params;
-  const guids = getGuids(slug);
+
+  const guids = getSections({ slug, i18n }).map((section) => section.addonGuid);
 
   const addons = {};
 
@@ -226,8 +233,8 @@ export const extractId = (ownProps: InternalProps) => {
 };
 
 const Guides: React.ComponentType<Props> = compose(
-  connect(mapStateToProps),
   translate(),
+  connect(mapStateToProps),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(GuidesBase);
 
