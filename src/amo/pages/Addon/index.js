@@ -621,10 +621,12 @@ export function mapStateToProps(state, ownProps) {
   if (addon) {
     addonsByAuthors = getAddonsForSlug(state.addonsByAuthors, addon.slug);
     installedAddon = state.installations[addon.guid] || {};
-    currentVersion = getVersionById({
-      id: addon.currentVersionId,
-      state: state.versions,
-    });
+    currentVersion = addon.currentVersionId
+      ? getVersionById({
+          id: addon.currentVersionId,
+          state: state.versions,
+        })
+      : null;
   }
 
   return {
