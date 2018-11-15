@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-15 17:33+0000\n"
+"PO-Revision-Date: 2018-11-15 18:23+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2081,6 +2081,8 @@ msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
 msgstr ""
+"Web je wulkotne, ale dźiwje městno. Waše wosobinske daty dadźa so bjez wašeh přizwolenja wužiwać, waše aktiwity so wuskušuja a waše hesła so kradnu. Na zbožo móža rozšěrjenja pomhać, wašu priwatnosć"
+" a wěstotu online skrućić."
 
 #: src/amo/pages/Guides/index.js:72
 msgid "Create and manage strong passwords"
@@ -2088,7 +2090,7 @@ msgstr "Mócne hesła wutworić a rjadować"
 
 #: src/amo/pages/Guides/index.js:73
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
-msgstr ""
+msgstr "Zrjadowaki hesłow móže wam pomhać, wěste hesła wutworić, waše hesła (wěsće) na jednym městnje składować a dadźa wam lochki přistup na swoje přizjewjenske daty, hdźežkuli sće."
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
