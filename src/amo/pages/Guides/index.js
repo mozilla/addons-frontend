@@ -110,7 +110,7 @@ export const getSections = ({
         },
         // Facebook Container
         {
-          addonGuid: 'allizom@contain-facebook',
+          addonGuid: '@contain-facebook',
           header: i18n.gettext('Stop online trackers from stalking you'),
           description: i18n.gettext(
             `Online advertisers can track your activity from one website to
