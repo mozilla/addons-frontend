@@ -1,18 +1,22 @@
 {
   "presets": [
-    "es2015",
-    "stage-2",
-    "react"
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry"
+      }
+    ],
+    "@babel/preset-flow",
+    "@babel/preset-react"
   ],
   "plugins": [
-    "transform-class-properties",
-    "transform-es2015-modules-commonjs",
-    "transform-flow-strip-types"
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-syntax-dynamic-import"
   ],
   "env": {
     "test": {
       "plugins": [
-        "babel-plugin-dynamic-import-node"
+        "dynamic-import-node"
       ]
     }
   }

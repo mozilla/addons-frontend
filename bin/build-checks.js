@@ -2,7 +2,7 @@
 /* eslint-disable global-require, no-console */
 
 const chalk = require('chalk');
-require('babel-register');
+require('@babel/register');
 const config = require('config');
 
 const appName = config.get('appName');

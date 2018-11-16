@@ -19,7 +19,6 @@ const postCssPlugins = [];
 if (config.get('enablePostCssLoader')) {
   postCssPlugins.push(
     autoprefixer({
-      browsers: ['last 2 versions'],
       grid: false,
     }),
   );
