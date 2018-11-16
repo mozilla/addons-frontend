@@ -1,18 +1,14 @@
-// Disabled because of
-// https://github.com/benmosher/eslint-plugin-import/issues/793
-/* eslint-disable import/order */
+/* @flow */
 import { oneLine } from 'common-tags';
-import { all, call, put, select, takeLatest } from 'redux-saga/effects';
-/* eslint-enable import/order */
 
-import { loadLanding } from 'amo/actions/landing';
+import { all, call, put, select, takeLatest } from 'redux-saga/effects';
+import { LANDING_GET, loadLanding } from 'amo/reducers/landing';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
 import { search as searchApi } from 'core/api/search';
 import {
-  LANDING_GET,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
@@ -20,15 +16,18 @@ import {
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import { getAddonTypeFilter, isTheme } from 'core/utils';
+import type { GetLandingAction } from 'amo/reducers/landing';
+import type { SearchParams } from 'core/api/search';
+import type { Saga } from 'core/types/sagas';
 
 export function* fetchLandingAddons({
   payload: { addonType, category, errorHandlerId },
-}) {
+}: GetLandingAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
-    const state = yield select(getState);
-    const { api } = state;
-    const filters = {
+    const { api } = yield select(getState);
+
+    let filters = {
       addonType: getAddonTypeFilter(addonType),
       page_size: isTheme(addonType)
         ? LANDING_PAGE_THEME_COUNT
@@ -36,29 +35,39 @@ export function* fetchLandingAddons({
     };
 
     if (category) {
-      filters.category = category;
+      filters = { ...filters, category };
     }
 
+    const featuredParams: SearchParams = {
+      api,
+      filters: {
+        ...filters,
+        featured: true,
+        sort: SEARCH_SORT_RANDOM,
+        page: '1',
+      },
+    };
+    const highlyRatedParams: SearchParams = {
+      api,
+      filters: {
+        ...filters,
+        sort: SEARCH_SORT_TOP_RATED,
+        page: '1',
+      },
+    };
+    const trendingParams: SearchParams = {
+      api,
+      filters: {
+        ...filters,
+        sort: SEARCH_SORT_TRENDING,
+        page: '1',
+      },
+    };
+
     const [featured, highlyRated, trending] = yield all([
-      call(searchApi, {
-        api,
-        filters: {
-          ...filters,
-          featured: true,
-          sort: SEARCH_SORT_RANDOM,
-        },
-        page: '1',
-      }),
-      call(searchApi, {
-        api,
-        filters: { ...filters, sort: SEARCH_SORT_TOP_RATED },
-        page: '1',
-      }),
-      call(searchApi, {
-        api,
-        filters: { ...filters, sort: SEARCH_SORT_TRENDING },
-        page: '1',
-      }),
+      call(searchApi, featuredParams),
+      call(searchApi, highlyRatedParams),
+      call(searchApi, trendingParams),
     ]);
 
     yield put(
@@ -77,6 +86,6 @@ export function* fetchLandingAddons({
   }
 }
 
-export default function* landingSaga() {
+export default function* landingSaga(): Saga {
   yield takeLatest(LANDING_GET, fetchLandingAddons);
 }

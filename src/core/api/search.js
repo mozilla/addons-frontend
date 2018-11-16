@@ -7,6 +7,7 @@ import {
 } from 'core/searchUtils';
 import type { ApiState } from 'core/reducers/api';
 
+// See: https://addons-server.readthedocs.io/en/latest/topics/api/addons.html#search
 export type SearchParams = {|
   api: ApiState,
   auth?: boolean,
@@ -15,9 +16,10 @@ export type SearchParams = {|
   filters: {|
     addonType?: string,
     author?: string,
-    clientApp?: string,
     category?: string,
+    clientApp?: string,
     compatibleWithVersion?: number | string,
+    exclude_addons?: string,
     featured?: boolean,
     guid?: string,
     operatingSystem?: string,

@@ -9,9 +9,9 @@ import {
   LOAD_CURRENT_COLLECTION_PAGE,
 } from 'amo/reducers/collections';
 import { LOAD_HOME_ADDONS } from 'amo/reducers/home';
+import { LANDING_LOADED } from 'amo/reducers/landing';
 import { LOAD_RECOMMENDATIONS } from 'amo/reducers/recommendations';
 import {
-  LANDING_LOADED,
   OS_ALL,
   OS_ANDROID,
   OS_LINUX,

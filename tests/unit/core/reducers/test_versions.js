@@ -7,7 +7,7 @@ import {
   loadCurrentCollection,
 } from 'amo/reducers/collections';
 import { loadHomeAddons } from 'amo/reducers/home';
-import { loadLanding } from 'amo/actions/landing';
+import { loadLanding } from 'amo/reducers/landing';
 import {
   OUTCOME_RECOMMENDED,
   loadRecommendations,

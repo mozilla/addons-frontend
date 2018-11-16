@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import * as landingActions from 'amo/actions/landing';
+import { getLanding, loadLanding } from 'amo/reducers/landing';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import LandingPage, { LandingPageBase } from 'amo/pages/LandingPage';
 import HeadLinks from 'amo/components/HeadLinks';
@@ -68,13 +68,13 @@ describe(__filename, () => {
     ...otherParams
   } = {}) => {
     store.dispatch(
-      landingActions.getLanding({
+      getLanding({
         addonType,
         errorHandlerId: errorHandler.id,
       }),
     );
     store.dispatch(
-      landingActions.loadLanding({
+      loadLanding({
         addonType,
         featured: createAddonsApiResult([
           { ...fakeAddon, name: 'Featured', slug: 'featured' },
@@ -118,7 +118,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       fakeDispatch,
-      landingActions.getLanding({
+      getLanding({
         addonType: ADDON_TYPE_EXTENSION,
         errorHandlerId: errorHandler.id,
       }),
@@ -153,7 +153,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       fakeDispatch,
-      landingActions.getLanding({
+      getLanding({
         addonType,
         errorHandlerId: errorHandler.id,
       }),
@@ -188,7 +188,7 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
 
     store.dispatch(
-      landingActions.getLanding({
+      getLanding({
         addonType: ADDON_TYPE_EXTENSION,
         errorHandlerId: errorHandler.id,
       }),
@@ -266,7 +266,7 @@ describe(__filename, () => {
 
   it('sets the links in each footer for extensions', () => {
     store.dispatch(
-      landingActions.loadLanding({
+      loadLanding({
         addonType: ADDON_TYPE_EXTENSION,
         featured: createAddonsApiResult([
           { ...fakeAddon, name: 'Featured', slug: 'featured' },
@@ -374,7 +374,7 @@ describe(__filename, () => {
 
   it('renders each add-on when set', () => {
     store.dispatch(
-      landingActions.loadLanding({
+      loadLanding({
         addonType: ADDON_TYPE_THEME,
         featured: createAddonsApiResult([
           { ...fakeAddon, name: 'Howdy', slug: 'howdy' },
@@ -436,14 +436,14 @@ describe(__filename, () => {
 
     // This loads a set of add-ons for a category.
     store.dispatch(
-      landingActions.getLanding({
+      getLanding({
         addonType,
         category: 'some-category',
         errorHandlerId: errorHandler.id,
       }),
     );
     store.dispatch(
-      landingActions.loadLanding({
+      loadLanding({
         addonType,
         featured: createAddonsApiResult([]),
         highlyRated: createAddonsApiResult([]),
@@ -457,7 +457,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
     sinon.assert.calledWith(
       fakeDispatch,
-      landingActions.getLanding({
+      getLanding({
         addonType,
         errorHandlerId: errorHandler.id,
       }),
@@ -472,7 +472,7 @@ describe(__filename, () => {
     const match = { params };
 
     store.dispatch(
-      landingActions.getLanding({
+      getLanding({
         addonType,
         errorHandlerId: errorHandler.id,
       }),
@@ -495,7 +495,7 @@ describe(__filename, () => {
     const match = { params };
 
     store.dispatch(
-      landingActions.getLanding({
+      getLanding({
         addonType,
         errorHandlerId: errorHandler.id,
       }),
@@ -535,7 +535,7 @@ describe(__filename, () => {
 
   it('hides the trending shelf when there are no add-ons for it', () => {
     store.dispatch(
-      landingActions.loadLanding({
+      loadLanding({
         addonType: ADDON_TYPE_THEME,
         featured: createAddonsApiResult([
           { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
@@ -560,7 +560,7 @@ describe(__filename, () => {
 
   it('hides the featured shelf when there are no add-ons for it', () => {
     store.dispatch(
-      landingActions.loadLanding({
+      loadLanding({
         addonType: ADDON_TYPE_THEME,
         featured: createAddonsApiResult([]),
         highlyRated: createAddonsApiResult([
@@ -584,7 +584,7 @@ describe(__filename, () => {
 
   it('hides the highly rated shelf when there are no add-ons for it', () => {
     store.dispatch(
-      landingActions.loadLanding({
+      loadLanding({
         addonType: ADDON_TYPE_THEME,
         featured: createAddonsApiResult([
           { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
