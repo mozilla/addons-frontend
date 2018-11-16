@@ -294,6 +294,18 @@ describe(__filename, () => {
     expect(root.find('.Addon-icon img').prop('alt')).toEqual(null);
   });
 
+  it('renders without a version', () => {
+    const { store } = dispatchSignInActions();
+    const addon = { ...fakeAddon, current_version: null };
+
+    store.dispatch(_loadAddonResults({ addon }));
+
+    const root = renderComponent({ store });
+
+    expect(root.find('.Addon')).toHaveLength(1);
+    expect(root.find('.Addon')).toHaveProp('data-site-identifier', addon.id);
+  });
+
   it('dispatches fetchAddon when rendering without an add-on', () => {
     const slug = 'some-addon';
     const { store } = dispatchClientMetadata();
@@ -1516,19 +1528,6 @@ describe(__filename, () => {
 
       const { currentVersion } = _mapStateToProps();
       expect(currentVersion).toEqual(createInternalVersion(apiVersion));
-    });
-
-    it('sets the version to null for an add-on without a version', () => {
-      signIn();
-      fetchAddon({
-        addon: {
-          ...fakeAddon,
-          current_version: null,
-        },
-      });
-
-      const { currentVersion } = _mapStateToProps();
-      expect(currentVersion).toEqual(null);
     });
 
     it('sets installStatus to INSTALLED when add-on is installed', () => {
