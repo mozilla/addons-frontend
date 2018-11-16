@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-15 11:08+0000\n"
+"PO-Revision-Date: 2018-10-12 22:13+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1917,9 +1917,8 @@ msgid "Delete This Picture"
 msgstr "Editează această colecție"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "Rezultatele căutării pentru „%(query)s”"
+msgstr "Imagine de profil pentru %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:68
 msgid "Profile photo"
@@ -2568,9 +2567,8 @@ msgid "Log in to edit the profile"
 msgstr "Autentifică-te pentru a edita profilul"
 
 #: src/amo/pages/UserProfileEdit/index.js:471
-#, fuzzy
 msgid "View user's profile"
-msgstr "Vezi profilul"
+msgstr "Vezi profilul utilizatorului"
 
 #: src/amo/pages/UserProfileEdit/index.js:477
 msgid "Edit user's profile"
@@ -2605,9 +2603,8 @@ msgid "Manage Firefox Accounts…"
 msgstr "Gestionează Conturi Firefox…"
 
 #: src/amo/pages/UserProfileEdit/index.js:556
-#, fuzzy
 msgid "Profile"
-msgstr "Vezi profilul"
+msgstr "Profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:560
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
@@ -2664,23 +2661,20 @@ msgid "Update My Profile"
 msgstr "Actualizează-mi profilul"
 
 #: src/amo/pages/UserProfileEdit/index.js:737
-#, fuzzy
 msgid "Updating profile…"
-msgstr "Actualizează răspunsul"
+msgstr "Se actualizează profilul…"
 
 #: src/amo/pages/UserProfileEdit/index.js:738
-#, fuzzy
 msgid "Update Profile"
-msgstr "Actualizează răspunsul"
+msgstr "Actualizează profilul"
 
 #: src/amo/pages/UserProfileEdit/index.js:749 src/amo/pages/UserProfileEdit/index.js:838
 msgid "Delete My Profile"
 msgstr "Șterge-mi profilul"
 
 #: src/amo/pages/UserProfileEdit/index.js:750 src/amo/pages/UserProfileEdit/index.js:839
-#, fuzzy
 msgid "Delete Profile"
-msgstr "Actualizează răspunsul"
+msgstr "Șterge profilul"
 
 #: src/amo/pages/UserProfileEdit/index.js:762
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
