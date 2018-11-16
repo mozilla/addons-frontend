@@ -53,6 +53,8 @@ export const CANCEL_DELETE_ADDON_REVIEW: 'CANCEL_DELETE_ADDON_REVIEW' =
   'CANCEL_DELETE_ADDON_REVIEW';
 export const UNLOAD_ADDON_REVIEWS: 'UNLOAD_ADDON_REVIEWS' =
   'UNLOAD_ADDON_REVIEWS';
+export const UPDATE_RATING_COUNTS: 'UPDATE_RATING_COUNTS' =
+  'UPDATE_RATING_COUNTS';
 
 export type ReviewAddonType = {|
   iconUrl: string,
@@ -291,6 +293,30 @@ export function setGroupedRatings({
   return {
     type: SET_GROUPED_RATINGS,
     payload: { addonId, grouping },
+  };
+}
+
+type UpdateRatingCountsParams = {|
+  addonId: number,
+  oldReview: UserReviewType | null,
+  newReview: UserReviewType,
+|};
+
+export type UpdateRatingCountsAction = {|
+  type: typeof UPDATE_RATING_COUNTS,
+  payload: UpdateRatingCountsParams,
+|};
+
+export function updateRatingCounts({
+  addonId,
+  oldReview,
+  newReview,
+}: UpdateRatingCountsParams): UpdateRatingCountsAction {
+  invariant(addonId, 'addonId is required');
+  invariant(newReview, 'newReview is required');
+  return {
+    type: UPDATE_RATING_COUNTS,
+    payload: { addonId, oldReview, newReview },
   };
 }
 

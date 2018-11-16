@@ -174,10 +174,6 @@ export type PlatformFilesType = {|
 
 /*
  * This is our internal representation of an add-on, found in Redux state.
- *
- * TODO: for better protection, turn this into an Exact Type. This is
- * not currently possible because of:
- * https://github.com/facebook/flow/issues/4818
  */
 export type AddonType = {|
   ...ExternalAddonType,

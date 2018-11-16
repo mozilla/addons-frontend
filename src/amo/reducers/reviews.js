@@ -1,5 +1,6 @@
 /* @flow */
 import { oneLine } from 'common-tags';
+import deepcopy from 'deepcopy';
 import { LOCATION_CHANGE } from 'connected-react-router';
 
 import {
@@ -10,8 +11,9 @@ import {
   FETCH_REVIEW_PERMISSIONS,
   FETCH_REVIEWS,
   FLASH_REVIEW_MESSAGE,
+  HIDE_EDIT_REVIEW_FORM,
   HIDE_FLASHED_REVIEW_MESSAGE,
-  UNLOAD_ADDON_REVIEWS,
+  HIDE_REPLY_TO_REVIEW_FORM,
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
@@ -25,8 +27,8 @@ import {
   SET_USER_REVIEWS,
   SHOW_EDIT_REVIEW_FORM,
   SHOW_REPLY_TO_REVIEW_FORM,
-  HIDE_EDIT_REVIEW_FORM,
-  HIDE_REPLY_TO_REVIEW_FORM,
+  UNLOAD_ADDON_REVIEWS,
+  UPDATE_RATING_COUNTS,
   createInternalReview,
 } from 'amo/actions/reviews';
 import type {
@@ -55,6 +57,7 @@ import type {
   ShowEditReviewFormAction,
   ShowReplyToReviewFormAction,
   UnloadAddonReviewsAction,
+  UpdateRatingCountsAction,
   UserReviewType,
 } from 'amo/actions/reviews';
 import type { GroupedRatingsType } from 'amo/api/reviews';
@@ -140,6 +143,21 @@ export const initialState: ReviewsState = {
   flashMessage: undefined,
   loadingForSlug: {},
 };
+
+export function createGroupedRatings(
+  grouping: $Shape<GroupedRatingsType> = {},
+): GroupedRatingsType {
+  return {
+    /* eslint-disable quote-props */
+    '1': 0,
+    '2': 0,
+    '3': 0,
+    '4': 0,
+    '5': 0,
+    /* eslint-enable quote-props */
+    ...grouping,
+  };
+}
 
 export const selectReview = (
   reviewsState: ReviewsState,
@@ -337,12 +355,6 @@ export const addReviewToState = ({
     byId: storeReviewObjects({ state, reviews: [review] }),
     byUserId,
     byAddon,
-    groupedRatings: {
-      ...state.groupedRatings,
-      // When adding or updating a rating, reset the cache of
-      // groupedRatings. This will trigger a refresh from the server.
-      [review.reviewAddon.id]: undefined,
-    },
   };
 };
 
@@ -377,7 +389,8 @@ type ReviewActionType =
   | SetReviewReplyAction
   | SetUserReviewsAction
   | ShowEditReviewFormAction
-  | ShowReplyToReviewFormAction;
+  | ShowReplyToReviewFormAction
+  | UpdateRatingCountsAction;
 
 export default function reviewsReducer(
   state: ReviewsState = initialState,
@@ -588,7 +601,29 @@ export default function reviewsReducer(
         ...state,
         groupedRatings: {
           ...state.groupedRatings,
-          [payload.addonId]: payload.grouping,
+          [payload.addonId]: createGroupedRatings(payload.grouping),
+        },
+      };
+    }
+    case UPDATE_RATING_COUNTS: {
+      const { addonId, oldReview, newReview } = action.payload;
+
+      const addonRatings =
+        state.groupedRatings[addonId] || createGroupedRatings();
+
+      const newAddonRatings = deepcopy(addonRatings);
+      if (oldReview && newAddonRatings[oldReview.score] > 0) {
+        newAddonRatings[oldReview.score] -= 1;
+      }
+      if (newReview && newReview.score) {
+        newAddonRatings[newReview.score] += 1;
+      }
+
+      return {
+        ...state,
+        groupedRatings: {
+          ...state.groupedRatings,
+          [addonId]: newAddonRatings,
         },
       };
     }

@@ -35,6 +35,7 @@ import {
   STARTED_SAVE_RATING,
   STARTED_SAVE_REVIEW,
   UPDATE_ADDON_REVIEW,
+  createInternalReview,
   unloadAddonReviews,
   flashReviewMessage,
   hideEditReviewForm,
@@ -48,6 +49,7 @@ import {
   setReviewReply,
   setReviewWasFlagged,
   setUserReviews,
+  updateRatingCounts,
 } from 'amo/actions/reviews';
 import log from 'core/logger';
 import { fetchAddon } from 'core/reducers/addons';
@@ -77,6 +79,7 @@ import type {
   SendReplyToReviewAction,
   UpdateAddonReviewAction,
 } from 'amo/actions/reviews';
+import { selectReview } from 'amo/reducers/reviews';
 import type { Saga } from 'core/types/sagas';
 
 // Number of millesconds that a message should be flashed on screen.
@@ -295,6 +298,7 @@ function* manageAddonReview(
     };
     let params;
 
+    let oldReview = null;
     if (action.type === CREATE_ADDON_REVIEW) {
       params = {
         ...baseParams,
@@ -306,6 +310,11 @@ function* manageAddonReview(
         ...baseParams,
         reviewId: action.payload.reviewId,
       };
+      oldReview = selectReview(state.reviews, action.payload.reviewId);
+      invariant(
+        oldReview,
+        `review with ID=${action.payload.reviewId} does not exist in state`,
+      );
     }
     invariant(
       params,
@@ -338,8 +347,16 @@ function* manageAddonReview(
       );
 
       // Reload the add-on to update its rating and review counts.
+      //yield put(
+      //  fetchAddon({ errorHandler, slug: reviewFromResponse.addon.slug }),
+      //);
+
       yield put(
-        fetchAddon({ errorHandler, slug: reviewFromResponse.addon.slug }),
+        updateRatingCounts({
+          addonId: reviewFromResponse.addon.id,
+          oldReview,
+          newReview: createInternalReview(reviewFromResponse),
+        }),
       );
     }
 
