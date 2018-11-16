@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-15 20:56+0000\n"
+"PO-Revision-Date: 2018-11-16 10:31+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -1965,14 +1965,12 @@ msgid "Screenshots"
 msgstr "Fota wobrazowki"
 
 #: src/amo/pages/AddonInfo/index.js:116
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Licencne dojadnanje za kóńčne wužywarje"
+msgstr "Licencne dojadnanje za kóńčne wužywarje za %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:117
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "Pógódnośenja za %(addonName)s"
+msgstr "Pšawidła priwatnosći za %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -1991,14 +1989,12 @@ msgstr[2] "%(total)s pógódnośenja za toś ten dodank"
 msgstr[3] "%(total)s pógódnośenja za toś ten dodank"
 
 #: src/amo/pages/CategoriesPage/index.js:46
-#, fuzzy
 msgid "All extension categories"
-msgstr "Wšykne rozšyrjenja w toś tej kategoriji pśepytowaś."
+msgstr "Wšykne kategorije rozšyrjenjow"
 
 #: src/amo/pages/CategoriesPage/index.js:48
-#, fuzzy
 msgid "All theme categories"
-msgstr "Wšykne kategorije wuslěźiś"
+msgstr "Wšykne kategorije drastwow"
 
 #: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:324 src/amo/pages/LandingPage/index.js:143
 msgid "See more featured extensions"
@@ -2537,9 +2533,8 @@ msgid "Edit profile"
 msgstr "Profil wobźěłaś"
 
 #: src/amo/pages/UserProfile/index.js:430
-#, fuzzy
 msgid "Admin user"
-msgstr "Wótkaze administrěrowaś"
+msgstr "Administraciski wužywaŕ"
 
 #: src/amo/pages/UserProfileEdit/index.js:186
 msgid "Picture successfully deleted"
