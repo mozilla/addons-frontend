@@ -1,9 +1,8 @@
-import defaultConfig, { util as configUtil } from 'config';
-
 import redirectToReducer, {
   initialState,
   sendServerRedirect,
 } from 'core/reducers/redirectTo';
+import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('reducer', () => {
@@ -56,9 +55,9 @@ describe(__filename, () => {
     });
 
     it('does not throw an error when not in server context', () => {
-      // We log a warning in the action creator when we are not in server context.
-      const config = configUtil.cloneDeep(defaultConfig);
-      config.server = false;
+      // We log a warning in the action creator when we are not in server
+      // context.
+      const config = getFakeConfig({ server: false });
 
       expect(() => {
         sendServerRedirect({ ...getParams(), _config: config });

@@ -7,7 +7,7 @@ import { createStore, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import NestedStatus from 'react-nested-status';
 import supertest from 'supertest';
-import defaultConfig, { util as configUtil } from 'config';
+import defaultConfig from 'config';
 import cheerio from 'cheerio';
 
 import { setRequestId } from 'core/actions';
@@ -312,11 +312,7 @@ describe(__filename, () => {
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
-      // We use `cloneDeep()` to allow modifications on the `config` object,
-      // since a call to `get()` makes it immutable. This is the case in the
-      // previous test cases (on `defaultConfig`).
-      const config = configUtil.cloneDeep(defaultConfig);
-      config.disableSSR = true;
+      const config = getFakeConfig({ disableSSR: true });
 
       const client = testClient({
         store,
