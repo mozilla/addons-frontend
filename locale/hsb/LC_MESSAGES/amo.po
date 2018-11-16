@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-15 20:56+0000\n"
+"PO-Revision-Date: 2018-11-16 16:51+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2081,8 +2081,8 @@ msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
 msgstr ""
-"Web je wulkotne, ale dźiwje městno. Waše wosobinske daty dadźa so bjez wašeh přizwolenja wužiwać, waše aktiwity so wuskušuja a waše hesła so kradnu. Na zbožo móža rozšěrjenja pomhać, wašu priwatnosć"
-" a wěstotu online skrućić."
+"Web je wulkotne, ale dźiwje městno. Waše wosobinske daty dadźa so bjez wašeho přizwolenja wužiwać, waše aktiwity so wuskušuja a waše hesła so kradnu. Na zbožo móža rozšěrjenja pomhać, wašu "
+"priwatnosć a wěstotu online skrućić."
 
 #: src/amo/pages/Guides/index.js:72
 msgid "Create and manage strong passwords"
@@ -2094,7 +2094,7 @@ msgstr "Zrjadowaki hesłow móže wam pomhać, wěste hesła wutworić, waše he
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
-msgstr "Dospołnje zaklučowany heskowy škit. Składujće swoje daty wěsće a mějće přistup na přizjewjenja přez graty."
+msgstr "Dospołnje zaklučowany hesłowy škit. Składujće swoje daty wěsće a mějće přistup na přizjewjenja přez graty."
 
 #: src/amo/pages/Guides/index.js:82
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
