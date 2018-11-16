@@ -347,9 +347,9 @@ function* manageAddonReview(
       );
 
       // Reload the add-on to update its rating and review counts.
-      //yield put(
-      //  fetchAddon({ errorHandler, slug: reviewFromResponse.addon.slug }),
-      //);
+      yield put(
+        fetchAddon({ errorHandler, slug: reviewFromResponse.addon.slug }),
+      );
 
       yield put(
         updateRatingCounts({
