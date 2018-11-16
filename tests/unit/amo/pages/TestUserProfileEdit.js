@@ -314,7 +314,7 @@ describe(__filename, () => {
     );
   });
 
-  it('does not dispatch fetchUserAccount if username does not change', () => {
+  it('does not dispatch fetchUserAccount if userId does not change', () => {
     const { params, store } = signInUserWithUserId(123);
     const dispatchSpy = sinon.spy(store, 'dispatch');
 

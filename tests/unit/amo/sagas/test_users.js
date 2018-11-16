@@ -223,7 +223,7 @@ describe(__filename, () => {
       const state = sagaTester.getState();
 
       const userId = 5001;
-      const user = createUserAccountResponse({ id: userId, username: 'babar' });
+      const user = createUserAccountResponse({ id: userId });
 
       const notifications = {
         reply: false,
@@ -315,7 +315,7 @@ describe(__filename, () => {
       const state = sagaTester.getState();
 
       const userId = 5001;
-      const user = createUserAccountResponse({ id: userId, username: 'babar' });
+      const user = createUserAccountResponse({ id: userId });
 
       // Set the "announcements" notification to false by default.
       const currentNotifications = createUserNotificationsResponse().map(
@@ -438,7 +438,7 @@ describe(__filename, () => {
 
   describe('fetchUserNotifications', () => {
     it('calls the API to fetch the notifications of a user', async () => {
-      const userId = 'tofumatt';
+      const userId = 123;
 
       const user = createUserAccountResponse({ id: userId });
       sagaTester.dispatch(loadCurrentUserAccount({ user }));

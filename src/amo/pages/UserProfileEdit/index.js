@@ -860,10 +860,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
   const userId = Number(params.userId);
 
   const currentUser = getCurrentUser(state.users);
-  const user =
-    params.userId && !Number.isNaN(userId)
-      ? getUserById(state.users, userId)
-      : currentUser;
+  const user = params.userId ? getUserById(state.users, userId) : currentUser;
 
   let hasEditPermission = currentUser && user && currentUser.id === user.id;
   if (currentUser && hasPermission(state, USERS_EDIT)) {
