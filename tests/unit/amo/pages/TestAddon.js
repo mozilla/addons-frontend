@@ -294,15 +294,6 @@ describe(__filename, () => {
     expect(root.find('.Addon-icon img').prop('alt')).toEqual(null);
   });
 
-  it('renders without a version', () => {
-    const root = shallowRender({
-      currentVersion: null,
-    });
-
-    // Make sure an element we expect to be rendered exists.
-    expect(root.find('.Addon-header')).toHaveLength(1);
-  });
-
   it('dispatches fetchAddon when rendering without an add-on', () => {
     const slug = 'some-addon';
     const { store } = dispatchClientMetadata();
@@ -1525,6 +1516,19 @@ describe(__filename, () => {
 
       const { currentVersion } = _mapStateToProps();
       expect(currentVersion).toEqual(createInternalVersion(apiVersion));
+    });
+
+    it('sets the version to null for an add-on without a version', () => {
+      signIn();
+      fetchAddon({
+        addon: {
+          ...fakeAddon,
+          current_version: null,
+        },
+      });
+
+      const { currentVersion } = _mapStateToProps();
+      expect(currentVersion).toEqual(null);
     });
 
     it('sets installStatus to INSTALLED when add-on is installed', () => {
