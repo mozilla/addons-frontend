@@ -1,3 +1,4 @@
+import invariant from 'invariant';
 import SagaTester from 'redux-saga-tester';
 
 import * as reviewsApi from 'amo/api/reviews';
@@ -10,6 +11,7 @@ import {
   STARTED_SAVE_REVIEW,
   unloadAddonReviews,
   createAddonReview,
+  createInternalReview,
   deleteAddonReview,
   fetchGroupedRatings,
   fetchLatestUserReview,
@@ -32,6 +34,7 @@ import {
   setReviewWasFlagged,
   setUserReviews,
   updateAddonReview,
+  updateRatingCounts,
 } from 'amo/actions/reviews';
 import {
   REVIEW_FLAG_REASON_OTHER,
@@ -44,6 +47,7 @@ import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import apiReducer from 'core/reducers/api';
 import {
   apiResponsePage,
+  createExternalReview,
   createStubErrorHandler,
   dispatchSignInActions,
   fakeAddon,
@@ -553,48 +557,24 @@ describe(__filename, () => {
       );
     }
 
-    function _updateAddonReview(params = {}) {
+    function _updateAddonReview({
+      oldReview = createExternalReview({ id: 88664 }),
+      ...params
+    } = {}) {
+      invariant(
+        !params.reviewId,
+        'Cannot set reviewId directly; set oldReview instead',
+      );
+      sagaTester.dispatch(setReview(oldReview));
       sagaTester.dispatch(
         updateAddonReview({
           body: 'I do not like this add-on',
           errorHandlerId: errorHandler.id,
           score: 1,
-          reviewId: 88664,
+          reviewId: oldReview.id,
           ...params,
         }),
       );
-    }
-
-    function createExternalReview({
-      addonId = fakeReview.addon.id,
-      addonSlug = fakeReview.addon.slug,
-      body,
-      id = 76654,
-      isDeveloperReply = false,
-      score = 4,
-      userId = fakeReview.user.id,
-      versionId = fakeReview.version.id,
-    } = {}) {
-      return {
-        ...fakeReview,
-        addon: {
-          ...fakeAddon,
-          id: addonId,
-          slug: addonSlug,
-        },
-        body,
-        id,
-        is_developer_reply: isDeveloperReply,
-        score,
-        user: {
-          ...fakeReview.user,
-          id: userId,
-        },
-        version: {
-          ...fakeReview.version,
-          id: versionId,
-        },
-      };
     }
 
     function matchMessage(expectedAction) {
@@ -649,15 +629,34 @@ describe(__filename, () => {
       mockApi.verify();
     });
 
-    it('updates an add-on review', async () => {
-      const reviewId = 87654;
-      const body = 'This add-on is OK';
-      const score = 3;
+    it('dispatches updateRatingCounts after creating a review', async () => {
+      const addonId = 98767;
+      const submittedReview = createExternalReview({ addonId, id: 987 });
+      mockApi.expects('submitReview').resolves(submittedReview);
 
-      const externalReview = createExternalReview({
-        id: reviewId,
-        body,
-        score,
+      _createAddonReview({ addonId });
+
+      const expectedAction = updateRatingCounts({
+        addonId,
+        oldReview: null,
+        newReview: createInternalReview(submittedReview),
+      });
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('updates an add-on review', async () => {
+      const oldReview = createExternalReview({
+        body: 'This add-on is amazing',
+        id: 87654,
+      });
+      const newBody = 'This add-on is OK';
+      const newScore = 3;
+
+      const updatedReview = createExternalReview({
+        id: oldReview.id,
+        body: newBody,
+        score: newScore,
       });
 
       mockApi
@@ -665,30 +664,63 @@ describe(__filename, () => {
         .once()
         .withArgs({
           apiState,
-          body,
-          score,
-          reviewId,
+          body: newBody,
+          score: newScore,
+          reviewId: oldReview.id,
         })
-        .resolves(externalReview);
+        .resolves(updatedReview);
 
-      _updateAddonReview({ body, score, reviewId });
+      _updateAddonReview({ body: newBody, oldReview, score: newScore });
 
-      const expectedAction = setReview(externalReview);
-      const action = await sagaTester.waitFor(expectedAction.type);
+      const expectedAction = setReview(updatedReview);
+      const action = await matchingSagaAction(sagaTester, (a) => {
+        // Wait for the updated review.
+        return a.type === expectedAction.type && a.payload.body === newBody;
+      });
       expect(action).toEqual(expectedAction);
 
       mockApi.verify();
     });
 
+    it('dispatches updateRatingCounts after updating', async () => {
+      const addonId = 96334;
+      const oldReviewParams = {
+        addonId,
+        body: 'This add-on is just OK',
+        id: 87654,
+      };
+      const oldReview = createExternalReview({ ...oldReviewParams });
+
+      const newBody = 'This add-on is fantastic';
+      const newReview = createExternalReview({
+        ...oldReviewParams,
+        body: newBody,
+      });
+
+      mockApi.expects('submitReview').resolves(newReview);
+
+      _updateAddonReview({ body: newBody, oldReview });
+
+      const expectedAction = updateRatingCounts({
+        addonId,
+        oldReview: createInternalReview(oldReview),
+        newReview: createInternalReview(newReview),
+      });
+      const action = await sagaTester.waitFor(expectedAction.type);
+
+      expect(action).toEqual(expectedAction);
+    });
+
     it('hides the review form after successful update', async () => {
-      const reviewId = 321;
+      const oldReview = createExternalReview({ id: 321 });
+      const newBody = 'This is an essential add-on';
       mockApi
         .expects('submitReview')
-        .resolves(createExternalReview({ id: reviewId }));
+        .resolves(createExternalReview({ body: newBody, id: oldReview.id }));
 
-      _updateAddonReview({ reviewId, body: 'This is an essential add-on' });
+      _updateAddonReview({ oldReview, body: newBody });
 
-      const expectedAction = hideEditReviewForm({ reviewId });
+      const expectedAction = hideEditReviewForm({ reviewId: oldReview.id });
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
     });
@@ -707,17 +739,17 @@ describe(__filename, () => {
     });
 
     it('does not hide the review form when only saving a rating', async () => {
-      const reviewId = 321;
+      const oldReview = createExternalReview({ id: 321 });
       mockApi
         .expects('submitReview')
-        .resolves(createExternalReview({ id: reviewId }));
+        .resolves(createExternalReview({ body: undefined, id: oldReview.id }));
 
-      _updateAddonReview({ reviewId, body: undefined, score: 4 });
+      _updateAddonReview({ oldReview, body: undefined, score: 4 });
 
       const expectedAction = hideFlashedReviewMessage();
       await sagaTester.waitFor(expectedAction.type);
 
-      const exampleHideAction = hideEditReviewForm({ reviewId });
+      const exampleHideAction = hideEditReviewForm({ reviewId: oldReview.id });
 
       expect(sagaTester.numCalled(exampleHideAction.type)).toEqual(0);
     });
@@ -726,12 +758,13 @@ describe(__filename, () => {
       const error = new Error('some API error maybe');
       mockApi.expects('submitReview').rejects(error);
 
-      _updateAddonReview({ body: 'This is an essential add-on' });
+      const oldReview = createExternalReview({ id: 321 });
+      _updateAddonReview({ oldReview, body: 'This is an essential add-on' });
 
       const expectedAction = flashReviewMessage(ABORTED);
       await sagaTester.waitFor(expectedAction.type);
 
-      const exampleHideAction = hideEditReviewForm({ reviewId: 321 });
+      const exampleHideAction = hideEditReviewForm({ reviewId: oldReview.id });
 
       expect(sagaTester.numCalled(exampleHideAction.type)).toEqual(0);
     });
