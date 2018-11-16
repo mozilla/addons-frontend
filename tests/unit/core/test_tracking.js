@@ -461,10 +461,6 @@ describe(__filename, () => {
       },
     );
 
-    // HCT_ADDON_ENABLED,
-    // HCT_ADDON_INSTALL_CANCELLED,
-    // HCT_ADDON_INSTALL_STARTED,
-
     it('should map to HCT_ADDON_INSTALLED correctly', () => {
       expect(HCT_METHOD_MAPPING[INSTALL_EXTENSION_CATEGORY]).toBe(
         HCT_ADDON_INSTALLED,
@@ -664,6 +660,29 @@ describe(__filename, () => {
         HCT_METHOD_MAPPING[INSTALL_EXTENSION_CATEGORY],
         TRACKING_TYPE_EXTENSION,
         'value',
+        { origin: 'http://localhost' },
+      );
+    });
+
+    it('should record null origin if origin is not available', async () => {
+      canUploadStub.callsFake(() => true);
+      const tracking = createTracking({
+        configOverrides: { hctEnabled: true },
+      });
+
+      await tracking._hct(trackingData, {
+        _window: {
+          location: {},
+        },
+      });
+      sinon.assert.calledOnce(recordEventSpy);
+      sinon.assert.calledWith(
+        recordEventSpy,
+        HCT_DISCO_CATEGORY,
+        HCT_METHOD_MAPPING[INSTALL_EXTENSION_CATEGORY],
+        TRACKING_TYPE_EXTENSION,
+        'value',
+        { origin: null },
       );
     });
   });

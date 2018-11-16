@@ -7,16 +7,16 @@ The following events are logged to telemetry if:
 - HCT is enabled for the host
 - Telemetry collection is allowed by the end-user.
 
-| Category          | Method            | Action                    | Value               | This is logged when...                  |
-| ----------------- | ----------------- | ------------------------- | ------------------- | --------------------------------------- |
-| disco.interaction | addon_click       | [addon/theme/statictheme] | [Add-on name]       | An add-on link is clicked               |
-| disco.interaction | download_failed   | [addon/theme/statictheme] | [Add-on name]       | The download of an extension has failed |
-| disco.interaction | enabled           | [addon/theme/statictheme] | [Add-on name]       | Add-on is enabled                       |
-| disco.interaction | installed         | [addon/theme/statictheme] | [Add-on name]       | Add-on is installed                     |
-| disco.interaction | install_cancelled | [addon/theme/statictheme] | [Add-on name]       | Add-on install is cancelled             |
-| disco.interaction | install_started   | [addon/theme/statictheme] | [Add-on name]       | Add-on install has started              |
-| disco.interaction | uninstalled       | [addon/theme/statictheme] | [Add-on name]       | Add-on uninstalled                      |
-| disco.interaction | navigation_click  | click                     | [Click description] | When user clicks "Find more Add-ons"    |
+| Category          | Method            | Action                    | Value               | Extra                | This is logged when...                  |
+| ----------------- | ----------------- | ------------------------- | ------------------- | -------------------- | --------------------------------------- |
+| disco.interaction | addon_click       | [addon/theme/statictheme] | [Add-on name]       | { origin: [origin] } | An add-on link is clicked               |
+| disco.interaction | download_failed   | [addon/theme/statictheme] | [Add-on name]       | { origin: [origin] } | The download of an extension has failed |
+| disco.interaction | enabled           | [addon/theme/statictheme] | [Add-on name]       | { origin: [origin] } | Add-on is enabled                       |
+| disco.interaction | installed         | [addon/theme/statictheme] | [Add-on name]       | { origin: [origin] } | Add-on is installed                     |
+| disco.interaction | install_cancelled | [addon/theme/statictheme] | [Add-on name]       | { origin: [origin] } | Add-on install is cancelled             |
+| disco.interaction | install_started   | [addon/theme/statictheme] | [Add-on name]       | { origin: [origin] } | Add-on install has started              |
+| disco.interaction | uninstalled       | [addon/theme/statictheme] | [Add-on name]       | { origin: [origin] } | Add-on uninstalled                      |
+| disco.interaction | navigation_click  | click                     | [Click description] | { origin: [origin] } | When user clicks "Find more Add-ons"    |
 
 ## Testing in your local development environment
 
