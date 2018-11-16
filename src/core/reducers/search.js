@@ -2,6 +2,7 @@
 import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
+import type { SearchFilters } from 'core/api/search';
 import type {
   AddonType,
   CollectionAddonType,
@@ -14,19 +15,9 @@ export const SEARCH_LOADED: 'SEARCH_LOADED' = 'SEARCH_LOADED';
 const SEARCH_ABORTED: 'SEARCH_ABORTED' = 'SEARCH_ABORTED';
 const SEARCH_RESET: 'SEARCH_RESET' = 'SEARCH_RESET';
 
-export type FiltersType = {|
-  addonType?: string,
-  featured?: boolean,
-  operatingSystem?: string,
-  page?: string,
-  query?: Object,
-  sort?: string,
-  guid?: string,
-|};
-
 export type SearchState = {|
   count: number,
-  filters: FiltersType | {},
+  filters: SearchFilters | {},
   loading: boolean,
   pageSize: number | null,
   results: Array<AddonType | CollectionAddonType>,
@@ -58,10 +49,10 @@ export const resetSearch = (): ResetSearchAction => {
 
 type SearchStartParams = {|
   errorHandlerId: string,
-  filters: FiltersType,
+  filters: SearchFilters,
 |};
 
-type SearchStartAction = {|
+export type SearchStartAction = {|
   type: typeof SEARCH_STARTED,
   payload: SearchStartParams,
 |};

@@ -1,5 +1,6 @@
 /* @flow */
 import { call, put, select, takeLatest } from 'redux-saga/effects';
+
 import {
   DELETE_USER_ACCOUNT,
   DELETE_USER_PICTURE,

@@ -1,11 +1,7 @@
-// Disabled because of
-// https://github.com/benmosher/eslint-plugin-import/issues/793
-/* eslint-disable import/order */
+/* @flow */
 import { all, fork } from 'redux-saga/effects';
-/* eslint-enable import/order */
 
 import addonsByAuthors from 'amo/sagas/addonsByAuthors';
-import categories from 'amo/sagas/categories';
 import collections from 'amo/sagas/collections';
 import guides from 'amo/sagas/guides';
 import home from 'amo/sagas/home';
@@ -14,15 +10,17 @@ import recommendations from 'amo/sagas/recommendations';
 import reviews from 'amo/sagas/reviews';
 import abuse from 'core/sagas/abuse';
 import addons from 'core/sagas/addons';
+import categories from 'core/sagas/categories';
 import search from 'core/sagas/search';
 import autocomplete from 'core/sagas/autocomplete';
 import languageTools from 'core/sagas/languageTools';
 import userAbuseReports from 'amo/sagas/userAbuseReports';
 import users from 'amo/sagas/users';
 import versions from 'core/sagas/versions';
+import type { Saga } from 'core/types/sagas';
 
 // Export all sagas for this app so runSaga can consume them.
-export default function* rootSaga() {
+export default function* rootSaga(): Saga {
   yield all([
     fork(abuse),
     fork(addons),

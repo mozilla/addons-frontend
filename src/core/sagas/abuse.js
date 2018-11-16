@@ -1,8 +1,5 @@
-// Disabled because of
-// https://github.com/benmosher/eslint-plugin-import/issues/793
-/* eslint-disable import/order */
+/* @flow */
 import { call, put, select, takeLatest } from 'redux-saga/effects';
-/* eslint-enable import/order */
 
 import { reportAddon as reportAddonApi } from 'core/api/abuse';
 import log from 'core/logger';
@@ -11,10 +8,13 @@ import {
   loadAddonAbuseReport,
 } from 'core/reducers/abuse';
 import { createErrorHandler, getState } from 'core/sagas/utils';
+import type { ReportAddonParams } from 'core/api/abuse';
+import type { SendAddonAbuseReportAction } from 'core/reducers/abuse';
+import type { Saga } from 'core/types/sagas';
 
 export function* reportAddon({
   payload: { addonSlug, errorHandlerId, message },
-}) {
+}: SendAddonAbuseReportAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -22,11 +22,12 @@ export function* reportAddon({
   try {
     const state = yield select(getState);
 
-    const response = yield call(reportAddonApi, {
+    const params: ReportAddonParams = {
       addonSlug,
       api: state.api,
       message,
-    });
+    };
+    const response = yield call(reportAddonApi, params);
 
     yield put(
       loadAddonAbuseReport({
@@ -41,6 +42,6 @@ export function* reportAddon({
   }
 }
 
-export default function* abuseSaga() {
+export default function* abuseSaga(): Saga {
   yield takeLatest(SEND_ADDON_ABUSE_REPORT, reportAddon);
 }

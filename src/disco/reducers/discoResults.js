@@ -27,7 +27,7 @@ export type DiscoResultType = {|
 
 export type DiscoResultsType = Array<DiscoResultType>;
 
-type DiscoResultsState = {|
+export type DiscoResultsState = {|
   results: DiscoResultsType,
 |};
 

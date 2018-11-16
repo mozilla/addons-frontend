@@ -1,22 +1,60 @@
+/* @flow */
+import invariant from 'invariant';
+
 import { getAddonIconUrl } from 'core/imageUtils';
 
-export const AUTOCOMPLETE_LOADED = 'AUTOCOMPLETE_LOADED';
-export const AUTOCOMPLETE_STARTED = 'AUTOCOMPLETE_STARTED';
-export const AUTOCOMPLETE_CANCELLED = 'AUTOCOMPLETE_CANCELLED';
+export const AUTOCOMPLETE_LOADED: 'AUTOCOMPLETE_LOADED' = 'AUTOCOMPLETE_LOADED';
+export const AUTOCOMPLETE_STARTED: 'AUTOCOMPLETE_STARTED' =
+  'AUTOCOMPLETE_STARTED';
+export const AUTOCOMPLETE_CANCELLED: 'AUTOCOMPLETE_CANCELLED' =
+  'AUTOCOMPLETE_CANCELLED';
 
-const initialState = {
+// See: https://addons-server.readthedocs.io/en/latest/topics/api/addons.html#autocomplete
+type ExternalSuggestion = {|
+  icon_url: string,
+  id: number,
+  name: string,
+  type: string,
+  url: string,
+|};
+
+type Suggestion = {|
+  addonId: number,
+  iconUrl: string,
+  name: string,
+  type: string,
+  url: string,
+|};
+
+export type AutocompleteState = {|
+  loading: boolean,
+  suggestions: Array<Suggestion>,
+|};
+
+const initialState: AutocompleteState = {
   loading: false,
   suggestions: [],
 };
 
-export function autocompleteStart({ errorHandlerId, filters }) {
-  if (!errorHandlerId) {
-    throw new Error('errorHandlerId is required');
-  }
+type AutocompleteStartParams = {|
+  errorHandlerId: string,
+  filters: {|
+    query: string,
+    addonType?: string,
+  |},
+|};
 
-  if (!filters) {
-    throw new Error('filters are required');
-  }
+export type AutocompleteStartAction = {|
+  type: typeof AUTOCOMPLETE_STARTED,
+  payload: AutocompleteStartParams,
+|};
+
+export function autocompleteStart({
+  errorHandlerId,
+  filters,
+}: AutocompleteStartParams): AutocompleteStartAction {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(filters, 'filters are required');
 
   return {
     type: AUTOCOMPLETE_STARTED,
@@ -24,14 +62,27 @@ export function autocompleteStart({ errorHandlerId, filters }) {
   };
 }
 
-export function autocompleteCancel() {
+type AutocompleteCancelAction = {|
+  type: typeof AUTOCOMPLETE_CANCELLED,
+|};
+
+export function autocompleteCancel(): AutocompleteCancelAction {
   return { type: AUTOCOMPLETE_CANCELLED };
 }
 
-export function autocompleteLoad({ results }) {
-  if (!results) {
-    throw new Error('results are required');
-  }
+type AutocompleteLoadParams = {|
+  results: Array<ExternalSuggestion>,
+|};
+
+type AutocompleteLoadAction = {|
+  type: typeof AUTOCOMPLETE_LOADED,
+  payload: AutocompleteLoadParams,
+|};
+
+export function autocompleteLoad({
+  results,
+}: AutocompleteLoadParams): AutocompleteLoadAction {
+  invariant(results, 'results are required');
 
   return {
     type: AUTOCOMPLETE_LOADED,
@@ -39,7 +90,9 @@ export function autocompleteLoad({ results }) {
   };
 }
 
-export const createInternalSuggestion = (externalSuggestion) => {
+export const createInternalSuggestion = (
+  externalSuggestion: ExternalSuggestion,
+): Suggestion => {
   return {
     addonId: externalSuggestion.id,
     iconUrl: getAddonIconUrl(externalSuggestion),
@@ -49,9 +102,15 @@ export const createInternalSuggestion = (externalSuggestion) => {
   };
 };
 
-export default function reducer(state = initialState, action = {}) {
-  const { payload } = action;
+type Action =
+  | AutocompleteCancelAction
+  | AutocompleteLoadAction
+  | AutocompleteStartAction;
 
+export default function reducer(
+  state: AutocompleteState = initialState,
+  action: Action,
+): AutocompleteState {
   switch (action.type) {
     case AUTOCOMPLETE_CANCELLED:
       return {
@@ -65,6 +124,8 @@ export default function reducer(state = initialState, action = {}) {
         loading: true,
       };
     case AUTOCOMPLETE_LOADED: {
+      const { payload } = action;
+
       const suggestions = payload.results
         // TODO: Remove this when `null` names are not returned. See:
         // https://github.com/mozilla/addons-server/issues/6189

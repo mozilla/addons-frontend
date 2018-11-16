@@ -7,12 +7,7 @@ import { compose } from 'redux';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
 import SagaTester from 'redux-saga-tester';
-
-// Disabled because of
-// https://github.com/benmosher/eslint-plugin-import/issues/793
-/* eslint-disable import/order */
 import { put, takeLatest } from 'redux-saga/effects';
-/* eslint-enable import/order */
 
 import createStore from 'amo/store';
 import {

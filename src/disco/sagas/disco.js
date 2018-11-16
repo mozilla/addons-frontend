@@ -1,5 +1,6 @@
 /* @flow */
 import { call, put, select, takeLatest } from 'redux-saga/effects';
+
 import log from 'core/logger';
 import { loadAddonResults } from 'core/reducers/addons';
 import { createErrorHandler, getState } from 'core/sagas/utils';
@@ -13,10 +14,11 @@ import type {
   ExternalDiscoResultsType,
   GetDiscoResultsAction,
 } from 'disco/reducers/discoResults';
+import type { Saga } from 'core/types/sagas';
 
 export function* fetchDiscoveryAddons({
   payload: { errorHandlerId, taarParams },
-}: GetDiscoResultsAction): Generator<any, any, any> {
+}: GetDiscoResultsAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   try {
@@ -41,6 +43,6 @@ export function* fetchDiscoveryAddons({
   }
 }
 
-export default function* discoSaga(): Generator<any, any, any> {
+export default function* discoSaga(): Saga {
   yield takeLatest(GET_DISCO_RESULTS, fetchDiscoveryAddons);
 }

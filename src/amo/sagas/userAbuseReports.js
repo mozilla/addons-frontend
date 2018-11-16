@@ -1,9 +1,5 @@
 /* @flow */
-// Disabled because of
-// https://github.com/benmosher/eslint-plugin-import/issues/793
-/* eslint-disable import/order */
 import { call, put, select, takeLatest } from 'redux-saga/effects';
-/* eslint-enable import/order */
 
 import {
   SEND_USER_ABUSE_REPORT,
@@ -15,10 +11,11 @@ import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { SendUserAbuseReportAction } from 'amo/reducers/userAbuseReports';
 import type { ReportUserParams } from 'core/api/abuse';
+import type { Saga } from 'core/types/sagas';
 
 export function* reportUser({
   payload: { errorHandlerId, message, userId },
-}: SendUserAbuseReportAction): Generator<any, any, any> {
+}: SendUserAbuseReportAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -44,6 +41,6 @@ export function* reportUser({
   }
 }
 
-export default function* userAbuseReportsSaga(): Generator<any, any, any> {
+export default function* userAbuseReportsSaga(): Saga {
   yield takeLatest(SEND_USER_ABUSE_REPORT, reportUser);
 }

@@ -27,11 +27,12 @@ import type { UIStateState } from 'core/reducers/uiState';
 import type { VersionsState } from 'core/reducers/versions';
 import type { ReactRouterHistoryType } from 'core/types/router';
 import type { CreateStoreParams, CreateReducerType } from 'core/types/store';
+import type { DiscoResultsState } from 'disco/reducers/discoResults';
 
 export type AppState = {|
   addons: AddonsState,
   api: ApiState,
-  discoResults: Object,
+  discoResults: DiscoResultsState,
   errorPage: ErrorPageState,
   errors: Object,
   infoDialog: InfoDialogState,

@@ -1,8 +1,5 @@
-// Disabled because of
-// https://github.com/benmosher/eslint-plugin-import/issues/793
-/* eslint-disable import/order */
+/* @flow */
 import { call, put, race, select, take, takeLatest } from 'redux-saga/effects';
-/* eslint-enable import/order */
 
 import {
   AUTOCOMPLETE_CANCELLED,
@@ -12,8 +9,13 @@ import {
 import { autocomplete as autocompleteApi } from 'core/api';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
+import type { AutocompleteParams } from 'core/api';
+import type { Saga } from 'core/types/sagas';
+import type { AutocompleteStartAction } from 'core/reducers/autocomplete';
 
-export function* fetchAutocompleteResults({ payload }) {
+export function* fetchAutocompleteResults({
+  payload,
+}: AutocompleteStartAction): Saga {
   const { errorHandlerId } = payload;
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -24,11 +26,11 @@ export function* fetchAutocompleteResults({ payload }) {
 
     const state = yield select(getState);
 
-    const response = yield call(autocompleteApi, {
+    const params: AutocompleteParams = {
       api: state.api,
       filters,
-    });
-    const { results } = response;
+    };
+    const { results } = yield call(autocompleteApi, params);
 
     yield put(autocompleteLoad({ results }));
   } catch (error) {
@@ -37,7 +39,7 @@ export function* fetchAutocompleteResults({ payload }) {
   }
 }
 
-export default function* autocompleteSaga() {
+export default function* autocompleteSaga(): Saga {
   yield takeLatest(AUTOCOMPLETE_STARTED, function* fetchOrCancel(...args) {
     yield race({
       fetch: call(fetchAutocompleteResults, ...args),

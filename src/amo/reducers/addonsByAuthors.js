@@ -49,7 +49,7 @@ export type FetchAddonsByAuthorsParams = {|
   sort?: string,
 |};
 
-type FetchAddonsByAuthorsAction = {|
+export type FetchAddonsByAuthorsAction = {|
   type: typeof FETCH_ADDONS_BY_AUTHORS,
   payload: FetchAddonsByAuthorsParams,
 |};

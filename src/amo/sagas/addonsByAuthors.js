@@ -1,4 +1,6 @@
+/* @flow */
 import { call, put, select, takeEvery } from 'redux-saga/effects';
+
 import { SEARCH_SORT_TRENDING } from 'core/constants';
 import {
   FETCH_ADDONS_BY_AUTHORS,
@@ -8,8 +10,13 @@ import { search as searchApi } from 'core/api/search';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import { getAddonTypeFilter } from 'core/utils';
+import type { FetchAddonsByAuthorsAction } from 'amo/reducers/addonsByAuthors';
+import type { SearchParams } from 'core/api/search';
+import type { Saga } from 'core/types/sagas';
 
-export function* fetchAddonsByAuthors({ payload }) {
+export function* fetchAddonsByAuthors({
+  payload,
+}: FetchAddonsByAuthorsAction): Saga {
   const {
     addonType,
     authorIds,
@@ -27,7 +34,7 @@ export function* fetchAddonsByAuthors({ payload }) {
   try {
     const state = yield select(getState);
 
-    const response = yield call(searchApi, {
+    const params: SearchParams = {
       api: state.api,
       filters: {
         addonType: getAddonTypeFilter(addonType),
@@ -37,7 +44,8 @@ export function* fetchAddonsByAuthors({ payload }) {
         page_size: pageSize,
         sort: sort || SEARCH_SORT_TRENDING,
       },
-    });
+    };
+    const response = yield call(searchApi, params);
 
     const { count, results } = response;
 
@@ -57,6 +65,6 @@ export function* fetchAddonsByAuthors({ payload }) {
   }
 }
 
-export default function* addonsByAuthorsSaga() {
+export default function* addonsByAuthorsSaga(): Saga {
   yield takeEvery(FETCH_ADDONS_BY_AUTHORS, fetchAddonsByAuthors);
 }

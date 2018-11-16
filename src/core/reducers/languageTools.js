@@ -18,7 +18,7 @@ type FetchLanguageToolsParams = {|
   errorHandlerId: string,
 |};
 
-type FetchLanguageToolsAction = {|
+export type FetchLanguageToolsAction = {|
   type: typeof FETCH_LANGUAGE_TOOLS,
   payload: FetchLanguageToolsParams,
 |};
