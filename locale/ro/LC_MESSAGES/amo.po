@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-16 17:48+0000\n"
+"PO-Revision-Date: 2018-11-16 17:56+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -895,19 +895,19 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:121
 msgid "iOS Browser"
-msgstr ""
+msgstr "Browser pentru iOS"
 
 #: src/amo/components/Footer/index.js:126
 msgid "Focus Browser"
-msgstr ""
+msgstr "Browser Focus"
 
 #: src/amo/components/Footer/index.js:131
 msgid "Desktop Browser"
-msgstr ""
+msgstr "Browser pentru desktop"
 
 #: src/amo/components/Footer/index.js:136
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:165
 msgid "Privacy"
@@ -960,7 +960,7 @@ msgstr "Raportează o defecțiune"
 
 #: src/amo/components/Footer/index.js:81
 msgid "Review Guide"
-msgstr ""
+msgstr "Ghid pentru recenzenți"
 
 #: src/amo/components/Footer/index.js:86
 msgid "Site Status"
@@ -2414,7 +2414,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:22
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Ghid pentru recenzii"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:31
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
