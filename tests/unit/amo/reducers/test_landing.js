@@ -28,14 +28,15 @@ describe(__filename, () => {
     });
 
     it('optionally takes a category', () => {
+      const category = 'some-category';
       const actionWithCategorySet = getLanding({
         ...getActionParams(),
-        category: 'some-category',
+        category,
       });
 
       expect(actionWithCategorySet.payload).toEqual({
         addonType: ADDON_TYPE_THEME,
-        category: 'some-category',
+        category,
         errorHandlerId: 'some-error-handler',
       });
     });
@@ -169,6 +170,11 @@ describe(__filename, () => {
       });
 
       it('does not set null keys', () => {
+        const previousState = {
+          ...initialState,
+          highlyRated: 'hello',
+        };
+
         const action = loadLanding({
           addonType: ADDON_TYPE_THEME,
           featured: {
@@ -185,14 +191,8 @@ describe(__filename, () => {
         // creator, but we want to test the reducer's internals.
         delete action.payload.highlyRated;
 
-        const { highlyRated } = landing(
-          {
-            ...initialState,
-            highlyRated: 'hello',
-          },
-          action,
-        );
-        expect(highlyRated).toEqual('hello');
+        const { highlyRated } = landing(previousState, action);
+        expect(highlyRated).toEqual(previousState.highlyRated);
       });
     });
   });
