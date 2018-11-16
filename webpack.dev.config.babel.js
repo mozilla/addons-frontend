@@ -5,6 +5,7 @@ import path from 'path';
 import config from 'config';
 import webpack from 'webpack';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
+import WriteFilePlugin from 'write-file-webpack-plugin';
 
 import { getPlugins, getRules } from './webpack-common';
 import webpackConfig from './webpack.prod.config.babel';
@@ -54,13 +55,23 @@ export default Object.assign({}, webpackConfig, {
     path: assetsPath,
     filename: '[name]-[hash].js',
     chunkFilename: '[name]-[hash].js',
-    publicPath: `//${webpackHost}:${webpackPort}/`,
+    // TODO: remove the protocol that was added because of an issue with
+    // loadable-server, see:
+    // https://github.com/smooth-code/loadable-components/issues/153
+    // We need to remove the protocol because of `yarn amo:dev-https`.
+    publicPath: `http://${webpackHost}:${webpackPort}/`,
   }),
   module: {
     rules: getRules({ babelOptions, bundleStylesWithJs: true }),
   },
   plugins: [
     ...getPlugins(),
+    // We need this file to be written on disk so that our server code can read
+    // it. In development mode, webpack usually serves the file from memory but
+    // that's not what we want for this file.
+    new WriteFilePlugin({
+      test: /loadable-stats/,
+    }),
     // Load unminified React and Redux in development to get better error
     // messages, because they use
     // [Invariant](https://github.com/zertosh/invariant) which hides error

@@ -4,6 +4,7 @@ import CircularDependencyPlugin from 'circular-dependency-plugin';
 import config from 'config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
+import LoadablePlugin from '@loadable/webpack-plugin';
 
 import 'core/polyfill';
 import { getClientConfig } from 'core/utils';
@@ -117,6 +118,7 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
   const clientConfig = getClientConfig(config);
 
   const plugins = [
+    new LoadablePlugin(),
     new webpack.DefinePlugin({
       CLIENT_CONFIG: JSON.stringify(clientConfig),
       'process.env.NODE_ENV': JSON.stringify('production'),

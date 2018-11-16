@@ -2,8 +2,8 @@
 import config from 'config';
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import loadable from '@loadable/component';
 
-import About from 'amo/pages/StaticPages/About';
 import Addon from 'amo/pages/Addon';
 import AddonInfo, {
   ADDON_INFO_TYPE_CUSTOM_LICENSE,
@@ -32,6 +32,8 @@ import SimulateAsyncError from 'core/pages/error-simulation/SimulateAsyncError';
 import SimulateClientError from 'core/pages/error-simulation/SimulateClientError';
 import SimulateSyncError from 'core/pages/error-simulation/SimulateSyncError';
 import type { ConfigType } from 'core/types/config';
+
+const About = loadable(() => import('../../pages/StaticPages/About'));
 
 type Props = {|
   _config?: ConfigType,

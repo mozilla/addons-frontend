@@ -18,7 +18,11 @@ export default class SriDataPlugin {
       try {
         Object.keys(stats.compilation.assets).forEach((baseName) => {
           const asset = stats.compilation.assets[baseName];
-          if (!asset.integrity) {
+          // `loadable-stats.json` is created by the `LoadablePlugin`
+          // (webpack). No need to create SRI for it, it is only used by the
+          // server.
+          // TODO: test it
+          if (baseName !== 'loadable-stats.json' && !asset.integrity) {
             throw new Error(
               oneLine`The integrity property is falsey for
               asset ${baseName}; Is the webpack-subresource-integrity

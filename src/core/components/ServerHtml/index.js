@@ -17,6 +17,7 @@ export default class ServerHtml extends Component {
     appName: PropTypes.string.isRequired,
     appState: PropTypes.object.isRequired,
     assets: PropTypes.object.isRequired,
+    chunkExtractor: PropTypes.object.isRequired,
     component: PropTypes.element.isRequired,
     htmlDir: PropTypes.string,
     htmlLang: PropTypes.string,
@@ -87,6 +88,7 @@ export default class ServerHtml extends Component {
 
   getScript() {
     const { assets } = this.props;
+
     return Object.keys(assets.javascript).map((js, index) =>
       this.getStatic({ filePath: assets.javascript[js], type: 'js', index }),
     );
@@ -100,7 +102,15 @@ export default class ServerHtml extends Component {
   }
 
   render() {
-    const { appState, component, htmlLang, htmlDir } = this.props;
+    const {
+      _config,
+      appState,
+      chunkExtractor,
+      component,
+      htmlDir,
+      htmlLang,
+      sriData,
+    } = this.props;
 
     // This must happen before Helmet.rewind() see
     // https://github.com/nfl/react-helmet#server-usage for more info.
@@ -126,6 +136,23 @@ export default class ServerHtml extends Component {
             type="application/json"
             id="redux-store-state"
           />
+          {chunkExtractor.getRequiredChunksScriptElement()}
+          {chunkExtractor
+            .getMainAssets('script')
+            .filter(
+              (asset) => !_config.get('validAppNames').includes(asset.chunk),
+            )
+            .map((asset) => (
+              // TODO: should only include SRI if `includeSri` is `true`
+              <script
+                async
+                crossOrigin="anonymous"
+                data-chunk={asset.chunk}
+                integrity={sriData[asset.chunk]}
+                key={asset.url}
+                src={asset.url}
+              />
+            ))}
           {this.getAnalytics()}
           {this.getScript()}
         </body>
