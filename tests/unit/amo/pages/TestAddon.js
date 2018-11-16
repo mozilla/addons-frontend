@@ -295,12 +295,15 @@ describe(__filename, () => {
   });
 
   it('renders without a version', () => {
-    const root = shallowRender({
-      currentVersion: null,
-    });
+    const { store } = dispatchSignInActions();
+    const addon = { ...fakeAddon, current_version: null };
 
-    // Make sure an element we expect to be rendered exists.
-    expect(root.find('.Addon-header')).toHaveLength(1);
+    store.dispatch(_loadAddonResults({ addon }));
+
+    const root = renderComponent({ store });
+
+    expect(root.find('.Addon')).toHaveLength(1);
+    expect(root.find('.Addon')).toHaveProp('data-site-identifier', addon.id);
   });
 
   it('dispatches fetchAddon when rendering without an add-on', () => {
