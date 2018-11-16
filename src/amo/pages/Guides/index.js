@@ -12,7 +12,7 @@ import { fetchGuidesAddons } from 'amo/reducers/guides';
 import { getAddonByGUID } from 'core/reducers/addons';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
+import { getLocalizedTextWithLinkParts } from 'core/utils';
 import Icon from 'ui/components/Icon';
 import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
@@ -70,7 +70,7 @@ export const getSections = ({
   switch (slug) {
     case 'stay-safe-online':
       return [
-        // Bitwarden free password manager
+        // // Bitwarden free password manager
         {
           addonGuid: '{446900e4-71c2-419f-a6a7-df9c091e268b}',
           header: i18n.gettext('Create and manage strong passwords'),
@@ -313,15 +313,19 @@ export class GuidesBase extends React.Component<InternalProps> {
   ): React.ChildrenArray<React.Node> => {
     const { addons, i18n } = this.props;
 
+    const splitOn = '__LINK__';
+
     return sections.map((section) => {
       const localizedExploreMoreLink = i18n.sprintf(section.exploreMore, {
-        linkStart: '__LINK__',
-        linkEnd: '__LINK__',
+        linkStart: splitOn,
+        linkEnd: splitOn,
       });
 
-      const exploreMoreLinkParts = localizedExploreMoreLink
-        .split('__LINK__')
-        .map((part) => sanitizeHTML(part).__html);
+      const exploreMoreLinkParts = getLocalizedTextWithLinkParts(
+        localizedExploreMoreLink,
+      );
+
+      const addon = addons[section.addonGuid] || null;
 
       return (
         <div className="Guides-section" key={section.exploreUrl}>

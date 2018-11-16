@@ -39,6 +39,7 @@ import {
   isAllowedOrigin,
   isTheme,
   isValidClientApp,
+  getLocalizedTextWithLinkParts,
   nl2br,
   normalizeFileNameId,
   removeProtocolFromURL,
@@ -884,6 +885,24 @@ describe(__filename, () => {
           files: [],
         }),
       ).toEqual(undefined);
+    });
+  });
+
+  describe('getLocalizedTextWithLinkParts', () => {
+    it('returns an array with a length of 3', () => {
+      const parts = getLocalizedTextWithLinkParts(
+        'text with __LINK__ I am __LINK__',
+      );
+
+      expect(Array.isArray(parts)).toBe(true);
+      expect(parts.length).toEqual(3);
+    });
+
+    it('returns only 1 item an array if there is no splitOn value within the text', () => {
+      const parts = getLocalizedTextWithLinkParts('just text');
+
+      expect(Array.isArray(parts)).toBe(true);
+      expect(parts.length).toEqual(1);
     });
   });
 });

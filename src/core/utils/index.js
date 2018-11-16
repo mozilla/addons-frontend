@@ -376,3 +376,13 @@ export const findFileForPlatform = ({ userAgentInfo, platformFiles }) => {
   const platform = agentOsName && userAgentOSToPlatform[agentOsName];
   return (platform && platformFiles[platform]) || platformFiles[OS_ALL];
 };
+
+export const getLocalizedTextWithLinkParts = (
+  localizedTextWithLink,
+  splitOn = '__LINK__',
+) => {
+  invariant(localizedTextWithLink, 'localizedTextWithLink is required');
+  return localizedTextWithLink
+    .split(splitOn)
+    .map((part) => sanitizeHTML(part).__html);
+};
