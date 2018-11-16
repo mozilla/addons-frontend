@@ -42,6 +42,7 @@ type InternalProps = {|
   slug: string,
   guids: Array<string>,
   i18n: I18nType,
+  loading: boolean,
 |};
 
 type SectionsType = {|
@@ -298,14 +299,16 @@ export class GuidesBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
     super(props);
 
-    const { errorHandler, guids } = this.props;
+    const { addons, errorHandler, guids, loading } = this.props;
 
-    this.props.dispatch(
-      fetchGuidesAddons({
-        guids,
-        errorHandlerId: errorHandler.id,
-      }),
-    );
+    if (!loading && Object.keys(addons).length === 0) {
+      this.props.dispatch(
+        fetchGuidesAddons({
+          guids,
+          errorHandlerId: errorHandler.id,
+        }),
+      );
+    }
   }
 
   getGuidesSections = (
@@ -392,6 +395,7 @@ export const mapStateToProps = (
   return {
     addons,
     guids,
+    loading: state.guides.loading,
   };
 };
 

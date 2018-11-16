@@ -14,6 +14,7 @@ import Guides, {
 } from 'amo/pages/Guides';
 import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import {
+  createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -34,7 +35,6 @@ describe(__filename, () => {
     ...customProps
   } = {}) => {
     return {
-      dispatch,
       i18n,
       match,
       slug,
@@ -60,18 +60,43 @@ describe(__filename, () => {
   it('fetches guides addons', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ dispatch: dispatchSpy, store });
+    const errorHandler = createStubErrorHandler();
+
+    render({ errorHandler, store });
 
     const content = getContent('stay-safe-online', fakeI18n());
     const guids = content.sections.map((section) => section.addonGuid);
+
+    sinon.assert.calledOnce(dispatchSpy);
 
     sinon.assert.calledWith(
       dispatchSpy,
       fetchGuidesAddons({
         guids,
-        errorHandlerId: root.instance().props.errorHandler.id,
+        errorHandlerId: errorHandler.id,
       }),
     );
+  });
+
+  it('does not fetch guides addons while loading', () => {
+    const { store } = dispatchClientMetadata();
+    const slug = 'privacy';
+    const errorHandler = createStubErrorHandler();
+    const sections = getSections(slug, fakeI18n());
+    const guids = sections.map((section) => section.addonGuid);
+
+    store.dispatch(
+      fetchGuidesAddons({
+        guids,
+        errorHandlerId: errorHandler.id,
+      }),
+    );
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    render({ store });
+
+    sinon.assert.notCalled(dispatchSpy);
   });
 
   it('renders a Guides Page', () => {
