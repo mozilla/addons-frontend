@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 19:33+0000\n"
-"PO-Revision-Date: 2018-08-21 12:15+0000\n"
+"PO-Revision-Date: 2018-11-16 12:46+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -16,11 +16,11 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:230
 msgid "Enable"
-msgstr ""
+msgstr "చేతనించు"
 
 #: src/core/components/AMInstallButton/index.js:233
 msgid "Remove"
-msgstr ""
+msgstr "తొలగించు"
 
 #: src/core/components/AMInstallButton/index.js:235
 msgid "Enabling"
@@ -51,13 +51,10 @@ msgid "Server Error"
 msgstr "సర్వర్ దోషం"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr ""
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "కోడ్ లోపం: %(status)s."
 
@@ -155,11 +152,8 @@ msgstr "మీ Firefox ని వ్యక్తిగతీకరించం�
 
 #: src/disco/pages/DiscoPane/index.js:148
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
@@ -176,7 +170,7 @@ msgstr "కొనసాగటానికి రీలోడ్ చేయండ�
 
 #: src/ui/components/Notice/index.js:133
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "ఈ గమనికను తీసేయి"
 
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
