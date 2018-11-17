@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-17 10:52+0000\n"
+"PO-Revision-Date: 2018-11-17 17:15+0000\n"
 "Last-Translator: Anh Vỹ <anhvy@madeezi.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -766,6 +766,8 @@ msgstr "Chỉnh sửa"
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
+"Nếu bạn đã đăng nhập và nhìn thấy thông báo lỗi, vui lòng truy cập <a href=\"%(url)s\">thông báo sự cố</a>. Cho chúng tôi biết bạn đến từ đâu và bạn đang cố truy cập vào cái gì, chúng tôi sẽ khắc "
+"phục lỗi đó."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:37
 msgid "Not Authorized"
@@ -803,7 +805,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr ""
+msgstr "Lỗi máy chủ"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:35
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -1571,7 +1573,7 @@ msgstr "Kết quả tìm kiếm"
 
 #: src/amo/components/Search/index.js:125 src/amo/pages/Category/index.js:139 src/amo/pages/Home/index.js:323 src/amo/pages/LandingPage/index.js:135
 msgid "Featured extensions"
-msgstr ""
+msgstr "Phần mở rộng nổi bật"
 
 #: src/amo/components/Search/index.js:128 src/amo/pages/Category/index.js:171 src/amo/pages/Home/index.js:313 src/amo/pages/LandingPage/index.js:164
 msgid "Featured themes"
@@ -1588,7 +1590,7 @@ msgstr "Phần mở rộng xu hướng"
 
 #: src/amo/components/Search/index.js:141 src/amo/pages/Category/index.js:181 src/amo/pages/LandingPage/index.js:173
 msgid "Trending themes"
-msgstr ""
+msgstr "Chủ đề đang thịnh hành"
 
 #: src/amo/components/Search/index.js:144
 #, fuzzy
@@ -1597,11 +1599,11 @@ msgstr "Phần mở rộng"
 
 #: src/amo/components/Search/index.js:150 src/amo/pages/Category/index.js:159 src/amo/pages/LandingPage/index.js:153
 msgid "Top rated extensions"
-msgstr ""
+msgstr "Phần mở rộng được đánh giá cao"
 
 #: src/amo/components/Search/index.js:153 src/amo/pages/Category/index.js:191 src/amo/pages/LandingPage/index.js:179
 msgid "Top rated themes"
-msgstr ""
+msgstr "Giao diện được đánh giá cao"
 
 #: src/amo/components/Search/index.js:156
 #, fuzzy
@@ -1797,11 +1799,11 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:153
 msgid "Add-ons for Android"
-msgstr ""
+msgstr "Tiện ích cho Android"
 
 #: src/amo/components/SectionLinks/index.js:166
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Tiện ích cho Firefox"
 
 #: src/amo/components/SectionLinks/index.js:67
 msgid "for Firefox"
@@ -1902,7 +1904,7 @@ msgstr ""
 
 #: src/amo/pages/Addon/index.js:216
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
+msgstr "Tiện ích này không thể được đánh giá vì chưa có phiên bản nào được xuất bản."
 
 #: src/amo/pages/Addon/index.js:225
 msgid "Read %(count)s review"
