@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-17 10:49+0000\n"
+"PO-Revision-Date: 2018-11-17 10:52+0000\n"
 "Last-Translator: Anh Vỹ <anhvy@madeezi.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -641,7 +641,7 @@ msgstr "Add-on"
 
 #: src/amo/components/CollectionDetails/index.js:83
 msgid "Creator"
-msgstr "Tác giả"
+msgstr "Người sáng tạo"
 
 #: src/amo/components/CollectionManager/index.js:234
 msgid "Create collection"
