@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-17 17:15+0000\n"
+"PO-Revision-Date: 2018-11-17 17:23+0000\n"
 "Last-Translator: Anh Vỹ <anhvy@madeezi.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -1949,15 +1949,15 @@ msgstr "Ghi chú phát hành cho %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:513
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Đây không phải là danh sách công khai. Bạn chỉ nhìn thấy nó bởi các quyền cao hơn."
 
 #: src/amo/pages/Addon/index.js:558
 msgid "Only with Firefox—Get Firefox Now"
-msgstr ""
+msgstr "Chỉ hoạt động với Firefox—Tải Firefox ngay"
 
 #: src/amo/pages/Addon/index.js:564
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Siêu dữ liệu mở rộng"
 
 #: src/amo/pages/Addon/index.js:581
 msgid "Screenshots"
@@ -2000,9 +2000,8 @@ msgid "See more featured extensions"
 msgstr "Xem các tiện ích mở rộng nổi bật khác"
 
 #: src/amo/pages/Category/index.js:158 src/amo/pages/Home/index.js:357 src/amo/pages/LandingPage/index.js:152
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "Phần mở rộng"
+msgstr "Xem thêm các phần mở rộng đang thịnh hành"
 
 #: src/amo/pages/Category/index.js:168 src/amo/pages/LandingPage/index.js:161
 msgid "See more top rated extensions"
@@ -2010,7 +2009,7 @@ msgstr "Xem các tiện ích được đánh giá cao nhất"
 
 #: src/amo/pages/Category/index.js:180 src/amo/pages/Home/index.js:303 src/amo/pages/LandingPage/index.js:172
 msgid "See more featured themes"
-msgstr ""
+msgstr "Xem thêm các giao diện nổi bật khác"
 
 #: src/amo/pages/Category/index.js:190 src/amo/pages/LandingPage/index.js:178
 msgid "See more trending themes"
@@ -2018,12 +2017,11 @@ msgstr "Xem chủ đề phổ biến khác"
 
 #: src/amo/pages/Category/index.js:200 src/amo/pages/LandingPage/index.js:184
 msgid "See more top rated themes"
-msgstr ""
+msgstr "Xem thêm những giao diện được đánh giá cao"
 
 #: src/amo/pages/Collection/index.js:382
-#, fuzzy
 msgid "Do you really want to delete this collection?"
-msgstr "Sửa bộ sưu tập"
+msgstr "Bạn có thực sự muốn xóa bộ sưu tập này không?"
 
 #: src/amo/pages/Collection/index.js:385
 msgid "Delete this collection"
@@ -2039,11 +2037,11 @@ msgstr "Đăng nhập để chỉnh sửa bộ sưu tập"
 
 #: src/amo/pages/Collection/index.js:438
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
+msgstr "Đầu tiên, tạo bộ sưu tập của bạn. Sau đó, bạn có thể thêm phần mở rộng và giao diện."
 
 #: src/amo/pages/Collection/index.js:441
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "Tìm kiếm các phần mở rộng và giao diện để thêm vào bộ sưu tập của bạn."
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2063,7 +2061,7 @@ msgstr "Đăng nhập để xem các bộ sưu tập của bạn"
 
 #: src/amo/pages/CollectionList/index.js:121
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "Bộ sưu tập giúp bạn dễ dàng theo dõi các tiện ích ưa thích và chia sẻ trình duyệt đã được tùy chỉnh hoàn hảo của bạn với những người khác."
 
 #: src/amo/pages/CollectionList/index.js:130
 msgid "Create a collection"
