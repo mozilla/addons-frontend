@@ -1,11 +1,7 @@
 /* @flow */
-// Disabled because of
-// https://github.com/benmosher/eslint-plugin-import/issues/793
-/* eslint-disable import/order */
 import invariant from 'invariant';
-import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { push as pushLocation } from 'connected-react-router';
-/* eslint-enable import/order */
+import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
 import {
   ADD_ADDON_TO_COLLECTION,
@@ -59,10 +55,11 @@ import type {
   UpdateCollectionAction,
   UpdateCollectionAddonAction,
 } from 'amo/reducers/collections';
+import type { Saga } from 'core/types/sagas';
 
 export function* fetchCurrentCollection({
   payload: { errorHandlerId, filters, slug, username },
-}: FetchCurrentCollectionAction): Generator<any, any, any> {
+}: FetchCurrentCollectionAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -107,7 +104,7 @@ export function* fetchCurrentCollection({
 
 export function* fetchCurrentCollectionPage({
   payload: { errorHandlerId, filters, slug, username },
-}: FetchCurrentCollectionPageAction): Generator<any, any, any> {
+}: FetchCurrentCollectionPageAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -139,7 +136,7 @@ export function* fetchCurrentCollectionPage({
 
 export function* fetchUserCollections({
   payload: { errorHandlerId, username },
-}: FetchUserCollectionsAction): Generator<any, any, any> {
+}: FetchUserCollectionsAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
 
@@ -171,7 +168,7 @@ export function* addAddonToCollection({
     slug,
     username,
   },
-}: AddAddonToCollectionAction): Generator<any, any, any> {
+}: AddAddonToCollectionAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
 
@@ -215,7 +212,7 @@ export function* addAddonToCollection({
 
 export function* modifyCollection(
   action: CreateCollectionAction | UpdateCollectionAction,
-): Generator<any, any, any> {
+): Saga {
   const { type, payload } = action;
   const creating = type === CREATE_COLLECTION;
 
@@ -344,7 +341,7 @@ export function* modifyCollection(
 
 export function* removeAddonFromCollection({
   payload: { addonId, errorHandlerId, filters, slug, username },
-}: RemoveAddonFromCollectionAction): Generator<any, any, any> {
+}: RemoveAddonFromCollectionAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
 
@@ -377,7 +374,7 @@ export function* removeAddonFromCollection({
 
 export function* deleteCollection({
   payload: { errorHandlerId, slug, username },
-}: DeleteCollectionAction): Generator<any, any, any> {
+}: DeleteCollectionAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
 
@@ -405,7 +402,7 @@ export function* deleteCollection({
 
 export function* updateCollectionAddon({
   payload: { addonId, errorHandlerId, filters, notes, slug, username },
-}: UpdateCollectionAddonAction): Generator<any, any, any> {
+}: UpdateCollectionAddonAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
 
@@ -435,7 +432,7 @@ export function* updateCollectionAddon({
   }
 }
 
-export default function* collectionsSaga(): Generator<any, any, any> {
+export default function* collectionsSaga(): Saga {
   yield takeLatest(ADD_ADDON_TO_COLLECTION, addAddonToCollection);
   yield takeLatest([CREATE_COLLECTION, UPDATE_COLLECTION], modifyCollection);
   yield takeLatest(DELETE_COLLECTION, deleteCollection);

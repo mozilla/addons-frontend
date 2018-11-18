@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -2856,25 +2856,25 @@ msgid "Access your data for all websites"
 msgstr "Să îți acceseze datele pentru toate site-urile web"
 
 #: src/ui/components/HostPermissions/index.js:58
-msgid "Access your data in %(param)s other domain"
-msgid_plural "Access your data in %(param)s other domains"
+msgid "Access your data in %(count)s other domain"
+msgid_plural "Access your data in %(count)s other domains"
 msgstr[0] "Să îți acceseze datele într-un alt domeniu"
 msgstr[1] "Să îți acceseze datele în alte %(count)s domenii"
 msgstr[2] "Să îți acceseze datele în alte %(count)s de domenii"
 
 #: src/ui/components/HostPermissions/index.js:67
-msgid "Access your data for sites in the %(param)s domain"
+msgid "Access your data for sites in the %(domain)s domain"
 msgstr "Să îți acceseze datele pentru site-uri din domeniul %(domain)s"
 
 #: src/ui/components/HostPermissions/index.js:73
-msgid "Access your data on %(param)s other site"
-msgid_plural "Access your data on %(param)s other sites"
+msgid "Access your data on %(count)s other site"
+msgid_plural "Access your data on %(count)s other sites"
 msgstr[0] "Să îți acceseze datele pe %(count)s alt site"
 msgstr[1] "Să îți acceseze datele pe alte %(count)s site-uri"
 msgstr[2] "Să îți acceseze datele pe alte %(count)s de site-uri"
 
 #: src/ui/components/HostPermissions/index.js:81
-msgid "Access your data for %(param)s"
+msgid "Access your data for %(site)s"
 msgstr "Să îți acceseze datele pentru %(site)s"
 
 #: src/ui/components/Notice/index.js:133
@@ -2894,7 +2894,7 @@ msgid "There are no ratings yet"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:98
-msgid "Update your rating to %(starRating)s out of 5"
+msgid "Update your rating to %(rating)s out of 5"
 msgstr "Actualizează evaluarea la %(rating)s din 5 stele"
 
 #: src/ui/components/ShowMoreCard/index.js:130

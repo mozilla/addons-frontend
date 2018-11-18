@@ -1,5 +1,6 @@
 /* @flow */
 import { call, put, select, takeEvery } from 'redux-saga/effects';
+
 import { search as searchApi } from 'core/api/search';
 import { FETCH_GUIDES_ADDONS } from 'amo/reducers/guides';
 import log from 'core/logger';

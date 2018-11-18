@@ -1,10 +1,5 @@
 /* @flow */
-/* global Generator */
-// Disabled because of
-// https://github.com/benmosher/eslint-plugin-import/issues/793
-/* eslint-disable import/order */
 import { call, put, select, takeEvery, takeLatest } from 'redux-saga/effects';
-/* eslint-enable import/order */
 
 import { getAddonInfo } from 'amo/api/addonInfo';
 import { fetchAddon as fetchAddonFromApi } from 'core/api';
@@ -26,10 +21,11 @@ import type {
   FetchAddonAction,
   FetchAddonInfoAction,
 } from 'core/reducers/addons';
+import type { Saga } from 'core/types/sagas';
 
 export function* fetchAddon({
   payload: { errorHandlerId, slug },
-}: FetchAddonAction): Generator<any, any, any> {
+}: FetchAddonAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
   try {
@@ -47,7 +43,7 @@ export function* fetchAddon({
 
 export function* fetchAddonInfo({
   payload: { errorHandlerId, slug },
-}: FetchAddonInfoAction): Generator<any, any, any> {
+}: FetchAddonInfoAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -68,7 +64,7 @@ export function* fetchAddonInfo({
   }
 }
 
-export default function* addonsSaga(): Generator<any, any, any> {
+export default function* addonsSaga(): Saga {
   yield takeEvery(FETCH_ADDON, fetchAddon);
   yield takeLatest(FETCH_ADDON_INFO, fetchAddonInfo);
 }

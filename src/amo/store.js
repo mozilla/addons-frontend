@@ -36,6 +36,7 @@ import type { AddonsByAuthorsState } from 'amo/reducers/addonsByAuthors';
 import type { CollectionsState } from 'amo/reducers/collections';
 import type { GuidesState } from 'amo/reducers/guides';
 import type { HomeState } from 'amo/reducers/home';
+import type { LandingState } from 'amo/reducers/landing';
 import type { RecommendationsState } from 'amo/reducers/recommendations';
 import type { ReviewsState } from 'amo/reducers/reviews';
 import type { UserAbuseReportsState } from 'amo/reducers/userAbuseReports';
@@ -44,6 +45,7 @@ import type { ViewContextState } from 'amo/reducers/viewContext';
 import type { AbuseState } from 'core/reducers/abuse';
 import type { AddonsState } from 'core/reducers/addons';
 import type { ApiState } from 'core/reducers/api';
+import type { AutocompleteState } from 'core/reducers/autocomplete';
 import type { ErrorPageState } from 'core/reducers/errorPage';
 import type { FormOverlayState } from 'core/reducers/formOverlay';
 import type { LanguageToolsState } from 'core/reducers/languageTools';
@@ -62,7 +64,7 @@ type InternalAppState = {|
   addons: AddonsState,
   addonsByAuthors: AddonsByAuthorsState,
   api: ApiState,
-  autocomplete: Object,
+  autocomplete: AutocompleteState,
   categories: Object,
   collections: CollectionsState,
   errorPage: ErrorPageState,
@@ -73,7 +75,7 @@ type InternalAppState = {|
   home: HomeState,
   infoDialog: InfoDialogState,
   installations: InstallationsState,
-  landing: Object,
+  landing: LandingState,
   languageTools: LanguageToolsState,
   recommendations: RecommendationsState,
   redirectTo: RedirectToState,

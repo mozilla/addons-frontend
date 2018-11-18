@@ -1,13 +1,8 @@
 /* @flow */
 import { oneLine } from 'common-tags';
 import invariant from 'invariant';
-
-// Disabled because of
-// https://github.com/benmosher/eslint-plugin-import/issues/793
-/* eslint-disable import/order */
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { delay } from 'redux-saga/lib/internal/utils';
-/* eslint-enable import/order */
 
 import {
   deleteReview,

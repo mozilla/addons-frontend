@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-14 19:20+0000\n"
-"Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
+"PO-Revision-Date: 2018-11-16 23:11+0000\n"
+"Last-Translator: paul.trevor <paul.trevor@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "Eine Sammlung auswählen…"
 
 #: src/amo/components/AddAddonToCollection/index.js:201
 msgid "Create new collection"
-msgstr "Neue Sammlung anlegen"
+msgstr "Neue Sammlung erstellen"
 
 #: src/amo/components/AddAddonToCollection/index.js:244
 msgid "Added to %(collectionName)s"
@@ -626,7 +626,7 @@ msgstr "Entwickler"
 
 #: src/amo/components/CollectionManager/index.js:234
 msgid "Create collection"
-msgstr "Neue Sammlung anlegen"
+msgstr "Neue Sammlung erstellen"
 
 #: src/amo/components/CollectionManager/index.js:235
 msgid "Save changes"
@@ -2041,7 +2041,7 @@ msgstr "Sammlungen machen es einfach, Ihre Lieblings-Add-ons zu verwalten und Ih
 
 #: src/amo/pages/CollectionList/index.js:130
 msgid "Create a collection"
-msgstr "Eine Sammlung anlegen"
+msgstr "Eine Sammlung erstellen"
 
 #: src/amo/pages/CollectionList/index.js:61
 msgid "You do not have any collections."

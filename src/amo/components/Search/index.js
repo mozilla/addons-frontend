@@ -29,8 +29,8 @@ import {
   hasSearchFilters,
 } from 'core/searchUtils';
 import type { AppState } from 'amo/store';
+import type { SearchFilters as SearchFiltersType } from 'core/api/search';
 import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
-import type { FiltersType } from 'core/reducers/search';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
@@ -39,7 +39,7 @@ import './styles.scss';
 
 type Props = {|
   enableSearchFilters?: boolean,
-  filters: FiltersType,
+  filters: SearchFiltersType,
   paginationQueryParams?: Object,
   pathname?: string,
 |};
@@ -51,7 +51,7 @@ type InternalProps = {|
   count: number,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  filtersUsedForResults: Object,
+  filtersUsedForResults: SearchFiltersType,
   i18n: I18nType,
   loading: boolean,
   pageSize: number,
@@ -88,7 +88,7 @@ export class SearchBase extends React.Component<InternalProps> {
   dispatchSearch({
     newFilters = {},
     oldFilters = {},
-  }: {| newFilters: FiltersType, oldFilters: FiltersType |} = {}) {
+  }: {| newFilters: SearchFiltersType, oldFilters: SearchFiltersType |} = {}) {
     const { context, dispatch, errorHandler } = this.props;
     const { addonType } = newFilters;
 

@@ -1,11 +1,9 @@
-// Disabled because of
-// https://github.com/benmosher/eslint-plugin-import/issues/793
-/* eslint-disable import/order */
+/* @flow */
 import { all, fork } from 'redux-saga/effects';
-/* eslint-enable import/order */
 
 import disco from 'disco/sagas/disco';
+import type { Saga } from 'core/types/sagas';
 
-export default function* rootSaga() {
+export default function* rootSaga(): Saga {
   yield all([fork(disco)]);
 }
