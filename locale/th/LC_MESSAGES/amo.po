@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-18 03:34+0000\n"
+"PO-Revision-Date: 2018-11-18 06:42+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -141,66 +141,59 @@ msgstr "เบราว์เซอร์ของคุณไม่รองร
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – รับส่วนขยายนี้สำหรับ 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:105
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – รับชุดภาษานี้สำหรับ 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:111
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – รับชุดตกแต่งนี้สำหรับ 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:116
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr "%s – ส่วนเสริมสำหรับ Firefox"
+msgstr "%(addonName)s – รับเครื่องมือค้นหานี้สำหรับ 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:121
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – รับส่วนเสริมนี้สำหรับ 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:135
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "ดาวน์โหลด %(addonName)s สำหรับ Firefox %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:61
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – ส่วนเสริมสำหรับ Firefox"
+msgstr "%(addonName)s – รับพจนานุกรมนี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:66
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – ส่วนเสริมสำหรับ Firefox"
+msgstr "%(addonName)s – รับส่วนขยายนี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:71
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – ส่วนเสริมสำหรับ Firefox"
+msgstr "%(addonName)s – รับชุดภาษานี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:77
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – ส่วนเสริมสำหรับ Firefox"
+msgstr "%(addonName)s – รับชุดตกแต่งนี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:83
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – ส่วนเสริมสำหรับ Firefox"
+msgstr "%(addonName)s – รับเครื่องมือค้นหานี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:88
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – ส่วนเสริมสำหรับ Firefox"
+msgstr "%(addonName)s – รับส่วนเสริมนี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:95
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – รับพจนานุกรมนี้สำหรับ 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:114
 msgid "%(total)s Star"
@@ -432,19 +425,16 @@ msgid "Submit review"
 msgstr "ส่งบทวิจารณ์"
 
 #: src/amo/components/AddonReviewManager/index.js:108
-#, fuzzy
 msgid "Submitting review"
-msgstr "ส่งบทวิจารณ์"
+msgstr "กำลังส่งบทวิจารณ์"
 
 #: src/amo/components/AddonReviewManager/index.js:112
-#, fuzzy
 msgid "Update review"
-msgstr "อัปเดตโปรไฟล์"
+msgstr "อัปเดตบทวิจารณ์"
 
 #: src/amo/components/AddonReviewManager/index.js:115
-#, fuzzy
 msgid "Updating review"
-msgstr "กำลังอัปเดตการตอบกลับ"
+msgstr "กำลังอัปเดตบทวิจารณ์"
 
 #: src/amo/components/AddonReviewManager/index.js:136
 msgid "Saving"
