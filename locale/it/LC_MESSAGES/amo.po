@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-10 17:43+0000\n"
-"Last-Translator: Winfox <openlib@email.it>\n"
+"PO-Revision-Date: 2018-11-18 12:48+0000\n"
+"Last-Translator: Sav22999 <saverio.morelli@outlook.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1944,11 +1944,11 @@ msgstr "Screenshot"
 
 #: src/amo/pages/AddonInfo/index.js:116
 msgid "End-User License Agreement for %(addonName)s"
-msgstr ""
+msgstr "Contratto di licenza con l’utente finale per %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:117
 msgid "Privacy policy for %(addonName)s"
-msgstr ""
+msgstr "Informativa sulla privacy per %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -1966,11 +1966,11 @@ msgstr[1] "%(total)s recensioni per questo componente aggiuntivo"
 
 #: src/amo/pages/CategoriesPage/index.js:46
 msgid "All extension categories"
-msgstr ""
+msgstr "Tutte le categorie di estensioni"
 
 #: src/amo/pages/CategoriesPage/index.js:48
 msgid "All theme categories"
-msgstr ""
+msgstr "Tutte le categorie di temi"
 
 #: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:324 src/amo/pages/LandingPage/index.js:143
 msgid "See more featured extensions"
@@ -2057,10 +2057,12 @@ msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
 msgstr ""
+"Il Web è un posto meraviglioso ma selvaggio. I tuoi dati personali possono essere utilizzati senza il tuo consenso, le tue attività spiate e le tue password rubate. Fortunatamente le estensioni "
+"possono aiutarti a garantire maggiore privacy e sicurezza online."
 
 #: src/amo/pages/Guides/index.js:72
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "Crea e gestisci password complesse"
 
 #: src/amo/pages/Guides/index.js:73
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
@@ -2068,11 +2070,11 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
-msgstr ""
+msgstr "Protezione garantita dalla cifratura completa con password. Archivia i tuoi dati in modo sicuro e accedi alle tue credenziali di accesso da tutti i dispositivi."
 
 #: src/amo/pages/Guides/index.js:82
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Scopri altri %(linkStart)sgestori di password%(linkEnd)s consigliati dallo staff."
 
 #: src/amo/pages/Home/index.js:119
 msgid "Bookmarks"
