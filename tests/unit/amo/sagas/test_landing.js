@@ -6,7 +6,7 @@ import {
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
 import landingReducer, {
-  LANDING_LOADED,
+  LOAD_LANDING,
   getLanding,
   loadLanding,
 } from 'amo/reducers/landing';
@@ -137,7 +137,7 @@ describe(__filename, () => {
 
         _getLanding({ addonType });
 
-        await sagaTester.waitFor(LANDING_LOADED);
+        await sagaTester.waitFor(LOAD_LANDING);
         mockSearchApi.verify();
 
         const calledActions = sagaTester.getCalledActions();
@@ -226,7 +226,7 @@ describe(__filename, () => {
 
       _getLanding({ addonType, category });
 
-      await sagaTester.waitFor(LANDING_LOADED);
+      await sagaTester.waitFor(LOAD_LANDING);
       mockSearchApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
@@ -296,7 +296,7 @@ describe(__filename, () => {
 
       _getLanding({ addonType, category: undefined });
 
-      await sagaTester.waitFor(LANDING_LOADED);
+      await sagaTester.waitFor(LOAD_LANDING);
       mockSearchApi.verify();
 
       const calledActions = sagaTester.getCalledActions();

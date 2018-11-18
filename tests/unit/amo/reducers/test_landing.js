@@ -16,7 +16,7 @@ describe(__filename, () => {
     const action = getLanding(getActionParams());
 
     it('sets the type', () => {
-      expect(action.type).toEqual('LANDING_GET');
+      expect(action.type).toEqual('FETCH_LANDING');
     });
 
     it('sets the filters', () => {
@@ -53,7 +53,7 @@ describe(__filename, () => {
     }
 
     it('sets the type', () => {
-      expect(loadLanding(defaultParams()).type).toEqual('LANDING_LOADED');
+      expect(loadLanding(defaultParams()).type).toEqual('LOAD_LANDING');
     });
 
     it('sets the payload', () => {
@@ -89,7 +89,7 @@ describe(__filename, () => {
       expect(trending.results).toEqual([]);
     });
 
-    describe('LANDING_GET', () => {
+    describe('FETCH_LANDING', () => {
       it('sets the initialState', () => {
         const { addonType, featured, highlyRated, loading, trending } = landing(
           initialState,
@@ -142,7 +142,7 @@ describe(__filename, () => {
       });
     });
 
-    describe('LANDING_LOADED', () => {
+    describe('LOAD_LANDING', () => {
       it('sets the results', () => {
         const state = landing(
           initialState,

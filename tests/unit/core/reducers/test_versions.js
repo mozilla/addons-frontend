@@ -448,7 +448,7 @@ describe(__filename, () => {
       });
     });
 
-    describe('LANDING_LOADED', () => {
+    describe('LOAD_LANDING', () => {
       it('loads versions for featured add-ons', () => {
         const state = versionsReducer(
           undefined,
