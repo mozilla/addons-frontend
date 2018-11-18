@@ -16,7 +16,7 @@ describe(__filename, () => {
     const action = getLanding(getActionParams());
 
     it('sets the type', () => {
-      expect(action.type).toEqual('FETCH_LANDING');
+      expect(action.type).toEqual('GET_LANDING');
     });
 
     it('sets the filters', () => {
@@ -89,7 +89,7 @@ describe(__filename, () => {
       expect(trending.results).toEqual([]);
     });
 
-    describe('FETCH_LANDING', () => {
+    describe('GET_LANDING', () => {
       it('sets the initialState', () => {
         const { addonType, featured, highlyRated, loading, trending } = landing(
           initialState,

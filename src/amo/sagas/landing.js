@@ -2,7 +2,7 @@
 import { oneLine } from 'common-tags';
 
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
-import { FETCH_LANDING, loadLanding } from 'amo/reducers/landing';
+import { GET_LANDING, loadLanding } from 'amo/reducers/landing';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
@@ -87,5 +87,5 @@ export function* fetchLandingAddons({
 }
 
 export default function* landingSaga(): Saga {
-  yield takeLatest(FETCH_LANDING, fetchLandingAddons);
+  yield takeLatest(GET_LANDING, fetchLandingAddons);
 }
