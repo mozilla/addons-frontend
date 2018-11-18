@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-18 16:26+0000\n"
+"PO-Revision-Date: 2018-11-18 16:37+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -1953,14 +1953,12 @@ msgid "Screenshots"
 msgstr "Скриншоты"
 
 #: src/amo/pages/AddonInfo/index.js:116
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Лицензионное соглашение с конечным пользователем"
+msgstr "Лицензионное соглашение с конечным пользователем для %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:117
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "Отзывы на %(addonName)s"
+msgstr "Политика конфиденциальности для %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:192
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -1978,14 +1976,12 @@ msgstr[1] "%(total)s отзыва на это дополнение"
 msgstr[2] "%(total)s отзывов на это дополнение"
 
 #: src/amo/pages/CategoriesPage/index.js:46
-#, fuzzy
 msgid "All extension categories"
-msgstr "Просмотреть все расширения в этой категории."
+msgstr "Все категории расширений"
 
 #: src/amo/pages/CategoriesPage/index.js:48
-#, fuzzy
 msgid "All theme categories"
-msgstr "Посмотреть все категории"
+msgstr "Все категории тем"
 
 #: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:324 src/amo/pages/LandingPage/index.js:143
 msgid "See more featured extensions"
@@ -2072,22 +2068,25 @@ msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
 msgstr ""
+"Интернет — замечательное, но дикое место. Ваши личные данные могут быть использованы без вашего согласия, за вашими действиями могут следить, а ваши пароли могут быть украдены. К счастью, расширения"
+" могут помочь укрепить вашу конфиденциальность и безопасность в Интернете."
 
 #: src/amo/pages/Guides/index.js:72
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "Создание и управление надежными паролями"
 
 #: src/amo/pages/Guides/index.js:73
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
 msgstr ""
+"Менеджеры паролей могут помочь вам создать безопасные пароли, сохранить ваши пароли (безопасно) в одном месте и обеспечить легкий доступ к вашим учетным данным для входа, где бы вы ни находились."
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
-msgstr ""
+msgstr "Полностью зашифрованная защита паролей. Безопасное хранение данных и доступ к логинам и паролям со всех устройств."
 
 #: src/amo/pages/Guides/index.js:82
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Откройте для себя ещё больше %(linkStart)sменеджеров паролей%(linkEnd)s ."
 
 #: src/amo/pages/Home/index.js:119
 msgid "Bookmarks"
@@ -2530,9 +2529,8 @@ msgid "Edit profile"
 msgstr "Изменить профиль"
 
 #: src/amo/pages/UserProfile/index.js:430
-#, fuzzy
 msgid "Admin user"
-msgstr "Ссылки для администратора"
+msgstr "Администратор"
 
 #: src/amo/pages/UserProfileEdit/index.js:186
 msgid "Picture successfully deleted"
