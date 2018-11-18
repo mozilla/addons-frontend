@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-17 05:02+0000\n"
+"PO-Revision-Date: 2018-11-18 03:34+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -232,11 +232,11 @@ msgstr "บทวิจารณ์"
 #: src/amo/components/AddonMeta/index.js:61
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] "ไม่มีบทวิจารณ์"
+msgstr[0] "บทวิจารณ์"
 
 #: src/amo/components/AddonMeta/index.js:63
 msgid "No Reviews"
-msgstr "จำนวนบทวิจารณ์"
+msgstr "ไม่มีบทวิจารณ์"
 
 #: src/amo/components/AddonMeta/index.js:87
 msgid "Used by"
