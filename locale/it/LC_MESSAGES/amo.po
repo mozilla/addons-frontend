@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-18 12:48+0000\n"
-"Last-Translator: Sav22999 <saverio.morelli@outlook.it>\n"
+"PO-Revision-Date: 2018-11-18 13:23+0000\n"
+"Last-Translator: Francesco Lodolo <francesco.lodolo@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -2067,6 +2067,7 @@ msgstr "Crea e gestisci password complesse"
 #: src/amo/pages/Guides/index.js:73
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
 msgstr ""
+"I gestori di password possono aiutarti a creare password sicure, archiviarle (in sicurezza) in un unico posto, e permettono di accedere facilmente alle tue credenziali di accesso ovunque ti trovi."
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
@@ -2522,7 +2523,7 @@ msgstr "Modifica profilo"
 
 #: src/amo/pages/UserProfile/index.js:430
 msgid "Admin user"
-msgstr ""
+msgstr "Amministra utente"
 
 #: src/amo/pages/UserProfileEdit/index.js:186
 msgid "Picture successfully deleted"
