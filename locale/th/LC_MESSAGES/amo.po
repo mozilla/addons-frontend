@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-18 06:42+0000\n"
+"PO-Revision-Date: 2018-11-18 07:45+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -103,7 +103,7 @@ msgstr "เข้ากันไม่ได้กับ Firefox Quantum"
 
 #: src/amo/components/AddonBadges/index.js:69
 msgid "Some features may require payment"
-msgstr ""
+msgstr "คุณลักษณะบางอย่างอาจต้องมีการชำระเงิน"
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -312,29 +312,24 @@ msgid "Other popular extensions"
 msgstr "ส่วนขยายยอดนิยมอื่น ๆ"
 
 #: src/amo/components/AddonReviewCard/index.js:193
-#, fuzzy
 msgid "Edit reply"
-msgstr "แก้ไขการตอบกลับของฉัน"
+msgstr "แก้ไขการตอบกลับ"
 
 #: src/amo/components/AddonReviewCard/index.js:196
-#, fuzzy
 msgid "Edit review"
-msgstr "แก้ไขบทวิจารณ์ของฉัน"
+msgstr "แก้ไขบทวิจารณ์"
 
 #: src/amo/components/AddonReviewCard/index.js:203 src/amo/components/AddonReviewCard/index.js:235
-#, fuzzy
 msgid "Delete reply"
-msgstr "ลบการตอบกลับของฉัน"
+msgstr "ลบการตอบกลับ"
 
 #: src/amo/components/AddonReviewCard/index.js:207 src/amo/components/AddonReviewCard/index.js:239
-#, fuzzy
 msgid "Delete rating"
-msgstr "ลบบทวิจารณ์ของฉัน"
+msgstr "ลบการจัดอันดับ"
 
 #: src/amo/components/AddonReviewCard/index.js:210 src/amo/components/AddonReviewCard/index.js:242
-#, fuzzy
 msgid "Delete review"
-msgstr "ลบบทวิจารณ์ของฉัน"
+msgstr "ลบบทวิจารณ์"
 
 #: src/amo/components/AddonReviewCard/index.js:217
 #, fuzzy
@@ -550,7 +545,7 @@ msgstr ""
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:76 src/amo/components/AddonTitle/index.js:80
 msgid "by"
-msgstr ""
+msgstr "โดย"
 
 #: src/amo/components/App/index.js:216 src/amo/components/HeadMetaTags/index.js:63
 #, fuzzy
@@ -598,11 +593,11 @@ msgstr "กำลังโหลดหมวดหมู่"
 
 #: src/amo/components/CategoryHead/index.js:31
 msgid "%(categoryName)s – Extensions"
-msgstr ""
+msgstr "%(categoryName)s – ส่วนขยาย"
 
 #: src/amo/components/CategoryHead/index.js:34
 msgid "%(categoryName)s – Themes"
-msgstr ""
+msgstr "%(categoryName)s – ชุดตกแต่ง"
 
 #: src/amo/components/CategoryHead/index.js:38
 msgid "%(categoryName)s"
@@ -625,14 +620,12 @@ msgid "Edit this collection"
 msgstr "แก้ไขชุดสะสมนี้"
 
 #: src/amo/components/CollectionDetails/index.js:114
-#, fuzzy
 msgid "Edit collection details"
-msgstr "แก้ไขชุดสะสม"
+msgstr "แก้ไขรายละเอียดชุดสะสม"
 
 #: src/amo/components/CollectionDetails/index.js:126
-#, fuzzy
 msgid "Back to collection"
-msgstr "เพิ่มไปยังชุดสะสม"
+msgstr "กลับไปที่ชุดสะสม"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
