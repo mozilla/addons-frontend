@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-13 22:02+0000\n"
-"PO-Revision-Date: 2018-11-14 10:49+0000\n"
-"Last-Translator: Rok Žerdin <rok.zerdin1990@gmail.com>\n"
+"PO-Revision-Date: 2018-11-18 13:44+0000\n"
+"Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -2527,9 +2527,8 @@ msgid "Edit profile"
 msgstr "Uredi profil"
 
 #: src/amo/pages/UserProfile/index.js:430
-#, fuzzy
 msgid "Admin user"
-msgstr "Upravljanje povezav"
+msgstr "Skrbniški uporabnik"
 
 #: src/amo/pages/UserProfileEdit/index.js:186
 msgid "Picture successfully deleted"
