@@ -110,6 +110,11 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       return;
     }
 
+    if (!variant) {
+      _log.debug(`No variant for experiment ${EXPERIMENT_ID}.`);
+      return;
+    }
+
     _tracking.sendEvent({
       action: variant,
       category: EXPERIMENT_CATEGORY,
