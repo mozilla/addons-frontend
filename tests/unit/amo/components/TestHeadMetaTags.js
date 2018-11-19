@@ -125,16 +125,22 @@ describe(__filename, () => {
     );
   });
 
-  it('does not render a "og:image" meta tag when image is null', () => {
+  it('renders a default image in "og:image" meta tag when image is null', () => {
     const root = render({ image: null });
 
-    expect(root.find(`meta[property="og:image"]`)).toHaveLength(0);
+    expect(root.find(`meta[property="og:image"]`)).toHaveProp(
+      'content',
+      'default-og-image.png',
+    );
   });
 
-  it('does not render a "og:image" meta tag when image is not defined', () => {
+  it('renders a default image in "og:image" meta tag when image is not defined', () => {
     const root = render({ image: undefined });
 
-    expect(root.find(`meta[property="og:image"]`)).toHaveLength(0);
+    expect(root.find(`meta[property="og:image"]`)).toHaveProp(
+      'content',
+      'default-og-image.png',
+    );
   });
 
   it('does not render a "og:description" meta tag when description is null', () => {
