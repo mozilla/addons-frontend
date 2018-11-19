@@ -11,6 +11,8 @@ import translate from 'core/i18n/translate';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
 
+import defaultImage from './img/default-og-image.png';
+
 type Props = {|
   appendDefaultTitle?: boolean,
   date?: Date | null,
@@ -31,8 +33,19 @@ type InternalProps = {|
 
 export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
   static defaultProps = {
+    _config: config,
     appendDefaultTitle: true,
   };
+
+  getImage() {
+    const { image } = this.props;
+
+    if (image) {
+      return image;
+    }
+
+    return defaultImage;
+  }
 
   getTitle() {
     const {
@@ -67,7 +80,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
   }
 
   renderOpenGraph() {
-    const { _config, description, image, lang, locationPathname } = this.props;
+    const { _config, description, lang, locationPathname } = this.props;
 
     const tags = [
       <meta key="og:type" property="og:type" content="website" />,
@@ -78,6 +91,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
       />,
       <meta key="og:title" property="og:title" content={this.getTitle()} />,
       <meta key="og:locale" property="og:locale" content={lang} />,
+      <meta key="og:image" property="og:image" content={this.getImage()} />,
     ];
 
     if (description) {
@@ -88,10 +102,6 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
           content={description}
         />,
       );
-    }
-
-    if (image) {
-      tags.push(<meta key="og:image" property="og:image" content={image} />);
     }
 
     return tags;
