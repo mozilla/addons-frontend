@@ -301,16 +301,16 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       : undefined;
 
     const buttonIsDisabled =
-      disabled === false
-        ? hasAddonManager &&
+      disabled === true || !installURL
+        ? true
+        : hasAddonManager &&
           status === UNKNOWN &&
-          addon.type !== ADDON_TYPE_OPENSEARCH
-        : disabled;
+          addon.type !== ADDON_TYPE_OPENSEARCH;
 
     const buttonProps: ButtonProps = {
       buttonType: 'action',
       className: 'AMInstallButton-button',
-      disabled: buttonIsDisabled || !installURL,
+      disabled: buttonIsDisabled,
       href: installURL,
       onClick: hasAddonManager
         ? (event) => {
