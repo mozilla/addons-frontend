@@ -659,27 +659,6 @@ describe(__filename, () => {
     });
   });
 
-  describe('categories api', () => {
-    function mockResponse(responseProps = {}) {
-      return createApiResponse({
-        jsonData: {
-          results: [{ slug: 'foo' }, { slug: 'food' }, { slug: 'football' }],
-        },
-        ...responseProps,
-      });
-    }
-
-    it('calls the right API endpoint', async () => {
-      mockWindow
-        .expects('fetch')
-        .withArgs(sinon.match(`/api/${apiVersion}/addons/categories/`))
-        .returns(mockResponse());
-
-      await api.categories({ api: dispatchClientMetadata().state.api });
-      mockWindow.verify();
-    });
-  });
-
   describe('logOutFromServer', async () => {
     it('makes a delete request to the session endpoint', async () => {
       const { state } = dispatchSignInActions();

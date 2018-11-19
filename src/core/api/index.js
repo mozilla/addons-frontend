@@ -270,15 +270,6 @@ export function startLoginUrl({
   return `${API_BASE}${apiVersion}/accounts/login/start/${query}`;
 }
 
-export type CategoriesParams = {| api: ApiState |};
-
-export function categories({ api }: CategoriesParams) {
-  return callApi({
-    endpoint: 'addons/categories',
-    apiState: api,
-  });
-}
-
 export function logOutFromServer({ api }: {| api: ApiState |}) {
   return callApi({
     auth: true,
