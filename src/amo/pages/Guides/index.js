@@ -36,7 +36,7 @@ type AddonsMap = {|
 
 type InternalProps = {|
   ...Props,
-  addons: AddonsMap | {},
+  addons: AddonsMap | {} | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   slug: string,
@@ -301,7 +301,7 @@ export class GuidesBase extends React.Component<InternalProps> {
 
     const { addons, errorHandler, guids, loading } = this.props;
 
-    if (!loading && Object.keys(addons).length === 0) {
+    if (!loading && !addons) {
       this.props.dispatch(
         fetchGuidesAddons({
           guids,
@@ -322,7 +322,7 @@ export class GuidesBase extends React.Component<InternalProps> {
         text: section.exploreMore,
       });
 
-      const addon = addons[section.addonGuid] || null;
+      const addon = addons ? addons[section.addonGuid] : null;
 
       return (
         <div className="Guides-section" key={section.exploreUrl}>

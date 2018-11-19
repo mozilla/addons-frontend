@@ -67,8 +67,6 @@ describe(__filename, () => {
     const content = getContent('stay-safe-online', fakeI18n());
     const guids = content.sections.map((section) => section.addonGuid);
 
-    sinon.assert.calledOnce(dispatchSpy);
-
     sinon.assert.calledWith(
       dispatchSpy,
       fetchGuidesAddons({
@@ -76,6 +74,8 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
       }),
     );
+
+    sinon.assert.calledOnce(dispatchSpy);
   });
 
   it('does not fetch guides addons while loading', () => {
