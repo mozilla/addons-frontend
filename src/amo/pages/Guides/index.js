@@ -316,14 +316,10 @@ export class GuidesBase extends React.Component<InternalProps> {
     const splitOn = '__LINK__';
 
     return sections.map((section) => {
-      const localizedExploreMoreLink = i18n.sprintf(section.exploreMore, {
-        linkStart: splitOn,
-        linkEnd: splitOn,
+      const linkParts = getLocalizedTextWithLinkParts({
+        i18n,
+        text: section.exploreMore,
       });
-
-      const exploreMoreLinkParts = getLocalizedTextWithLinkParts(
-        localizedExploreMoreLink,
-      );
 
       const addon = addons[section.addonGuid] || null;
 
@@ -338,9 +334,9 @@ export class GuidesBase extends React.Component<InternalProps> {
           />
 
           <div className="Guides-section-explore-more">
-            {exploreMoreLinkParts[0]}
-            <Link to={section.exploreUrl}>{exploreMoreLinkParts[1]}</Link>
-            {exploreMoreLinkParts[2]}
+            {linkParts.beforeLinkText}
+            <Link to={section.exploreUrl}>{linkParts.innerLinkText}</Link>
+            {linkParts.afterLinkText}
           </div>
         </div>
       );

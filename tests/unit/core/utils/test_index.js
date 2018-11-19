@@ -55,6 +55,7 @@ import {
   createFakeHistory,
   createFakeLocation,
   fakeAddon,
+  fakeI18n,
   fakePlatformFile,
   fakeVersion,
   unexpectedSuccess,
@@ -889,20 +890,36 @@ describe(__filename, () => {
   });
 
   describe('getLocalizedTextWithLinkParts', () => {
-    it('returns an array with a length of 3', () => {
-      const parts = getLocalizedTextWithLinkParts(
-        'text with __LINK__ link text __LINK__',
-      );
+    it('returns a descriptive object', () => {
+      const parts = getLocalizedTextWithLinkParts({
+        i18n: fakeI18n(),
+        text: 'Explore more %(linkStart)s stuff %(linkEnd)s here.',
+      });
 
-      expect(Array.isArray(parts)).toBe(true);
-      expect(parts.length).toEqual(3);
+      expect(parts).toHaveProperty('beforeLinkText');
+      expect(parts.beforeLinkText).toEqual('Explore more ');
+
+      expect(parts).toHaveProperty('innerLinkText');
+      expect(parts.innerLinkText).toEqual(' stuff ');
+
+      expect(parts).toHaveProperty('afterLinkText');
+      expect(parts.afterLinkText).toEqual(' here.');
     });
 
-    it('returns only a 1 item array if there is no splitOn value within the text', () => {
-      const parts = getLocalizedTextWithLinkParts('just text');
+    it('only returns the beforeLinkText when the linkStart or linkEnd are not found', () => {
+      const parts = getLocalizedTextWithLinkParts({
+        i18n: fakeI18n(),
+        text: 'Explore more stuff here.',
+      });
 
-      expect(Array.isArray(parts)).toBe(true);
-      expect(parts.length).toEqual(1);
+      expect(parts).toHaveProperty('beforeLinkText');
+      expect(parts.beforeLinkText).toEqual('Explore more stuff here.');
+
+      expect(parts).toHaveProperty('innerLinkText');
+      expect(parts.innerLinkText).toEqual(undefined);
+
+      expect(parts).toHaveProperty('afterLinkText');
+      expect(parts.afterLinkText).toEqual(undefined);
     });
   });
 });
