@@ -891,14 +891,14 @@ describe(__filename, () => {
   describe('getLocalizedTextWithLinkParts', () => {
     it('returns an array with a length of 3', () => {
       const parts = getLocalizedTextWithLinkParts(
-        'text with __LINK__ I am __LINK__',
+        'text with __LINK__ link text __LINK__',
       );
 
       expect(Array.isArray(parts)).toBe(true);
       expect(parts.length).toEqual(3);
     });
 
-    it('returns only 1 item an array if there is no splitOn value within the text', () => {
+    it('returns only a 1 item array if there is no splitOn value within the text', () => {
       const parts = getLocalizedTextWithLinkParts('just text');
 
       expect(Array.isArray(parts)).toBe(true);

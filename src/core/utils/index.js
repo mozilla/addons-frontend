@@ -377,12 +377,9 @@ export const findFileForPlatform = ({ userAgentInfo, platformFiles }) => {
   return (platform && platformFiles[platform]) || platformFiles[OS_ALL];
 };
 
-export const getLocalizedTextWithLinkParts = (
-  localizedTextWithLink,
-  splitOn = '__LINK__',
-) => {
+export const getLocalizedTextWithLinkParts = (localizedTextWithLink) => {
   invariant(localizedTextWithLink, 'localizedTextWithLink is required');
   return localizedTextWithLink
-    .split(splitOn)
+    .split('__LINK__')
     .map((part) => sanitizeHTML(part).__html);
 };

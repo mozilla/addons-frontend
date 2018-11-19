@@ -12,6 +12,7 @@ import Guides, {
   getContent,
   getSections,
 } from 'amo/pages/Guides';
+import { getLocalizedTextWithLinkParts } from 'core/utils';
 import {
   dispatchClientMetadata,
   fakeAddon,
@@ -77,6 +78,10 @@ describe(__filename, () => {
     const slug = 'stay-safe-online';
     const content = getContent(slug, fakeI18n());
     const guids = content.sections.map((section) => section.addonGuid);
+
+    const linkText = getLocalizedTextWithLinkParts(
+      content.sections[0].exploreMore,
+    );
     const root = render({ content, slug });
 
     expect(root.find('.Guides')).toHaveLength(1);
@@ -107,6 +112,8 @@ describe(__filename, () => {
 
     const sectionExploreMore = root.find('.Guides-section-explore-more').at(0);
     const sectionExploreLink = sectionExploreMore.find(Link);
+
+    expect(sectionExploreLink.children()).toHaveText(linkText[1]);
   });
 
   it('passes an addon to GuidesAddonCard', () => {
