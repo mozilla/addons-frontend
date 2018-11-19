@@ -79,10 +79,12 @@ describe(__filename, () => {
     const content = getContent(slug, fakeI18n());
     const guids = content.sections.map((section) => section.addonGuid);
 
-    const linkText = getLocalizedTextWithLinkParts({
+    const linkParts = getLocalizedTextWithLinkParts({
       i18n: fakeI18n(),
       text: content.sections[0].exploreMore,
     });
+
+    console.log('REBB link parts', linkParts);
     const root = render({ content, slug });
 
     expect(root.find('.Guides')).toHaveLength(1);
@@ -108,13 +110,15 @@ describe(__filename, () => {
     const sectionHeaderTitle = root.find('.Guides-section-title').at(0);
 
     expect(sectionHeaderTitle.children().text()).toEqual(
-      linkText.innerLinkText,
+      content.sections[0].header,
     );
 
     const sectionExploreMore = root.find('.Guides-section-explore-more').at(0);
     const sectionExploreLink = sectionExploreMore.find(Link);
 
-    expect(sectionExploreLink.children()).toHaveText(linkText[1]);
+    expect(sectionExploreLink.children().text()).toEqual(
+      linkParts.innerLinkText,
+    );
   });
 
   it('passes an addon to GuidesAddonCard', () => {
