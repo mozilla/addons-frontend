@@ -685,5 +685,25 @@ describe(__filename, () => {
         { origin: null },
       );
     });
+
+    it('should record null origin if window is empty object', async () => {
+      canUploadStub.callsFake(() => true);
+      const tracking = createTracking({
+        configOverrides: { hctEnabled: true },
+      });
+
+      await tracking._hct(trackingData, {
+        _window: {},
+      });
+      sinon.assert.calledOnce(recordEventSpy);
+      sinon.assert.calledWith(
+        recordEventSpy,
+        HCT_DISCO_CATEGORY,
+        HCT_METHOD_MAPPING[INSTALL_EXTENSION_CATEGORY],
+        TRACKING_TYPE_EXTENSION,
+        'value',
+        { origin: null },
+      );
+    });
   });
 });

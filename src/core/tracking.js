@@ -149,6 +149,7 @@ export class Tracking {
             click: {
               methods: telemetryMethodValues,
               objects: telemetryObjects,
+              extra_keys: ['origin'],
             },
           });
         }
@@ -205,7 +206,9 @@ export class Tracking {
           data.value,
           {
             origin:
-              _window && _window.location && _window.location.origin
+              typeof _window !== 'undefined' &&
+              _window.location &&
+              _window.location.origin
                 ? _window.location.origin
                 : null,
           },
