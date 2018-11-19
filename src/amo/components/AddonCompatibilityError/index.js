@@ -1,9 +1,11 @@
+/* @flow */
 /* eslint-disable react/no-danger */
+import invariant from 'invariant';
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
@@ -14,42 +16,74 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
 } from 'core/constants';
-import _log from 'core/logger';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
+import { getVersionById } from 'core/reducers/versions';
 import { sanitizeHTML } from 'core/utils';
+import { getClientCompatibility } from 'core/utils/compatibility';
 import Notice from 'ui/components/Notice';
+import type { AppState } from 'amo/store';
+import type { UserAgentInfoType } from 'core/reducers/api';
+import type { AddonVersionType } from 'core/reducers/versions';
+import type { AddonType } from 'core/types/addons';
+import type { I18nType } from 'core/types/i18n';
 
 import './style.scss';
 
-export class AddonCompatibilityErrorBase extends React.Component {
-  static propTypes = {
-    downloadUrl: PropTypes.string,
-    i18n: PropTypes.object.isRequired,
-    log: PropTypes.object,
-    minVersion: PropTypes.string.isRequired,
-    reason: PropTypes.string.isRequired,
-    userAgentInfo: PropTypes.object,
-  };
+type Props = {|
+  addon: AddonType | null,
+|};
 
+type InternalProps = {|
+  ...Props,
+  _getClientCompatibility: typeof getClientCompatibility,
+  _log: typeof log,
+  clientApp: string,
+  currentVersion: AddonVersionType | null,
+  i18n: I18nType,
+  userAgentInfo: UserAgentInfoType,
+|};
+
+export class AddonCompatibilityErrorBase extends React.Component<InternalProps> {
   static defaultProps = {
-    downloadUrl: 'https://www.mozilla.org/firefox/new/',
-    log: _log,
-    userAgentInfo: {},
+    _log: log,
+    _getClientCompatibility: getClientCompatibility,
   };
 
   render() {
-    const { i18n, log, minVersion, reason, userAgentInfo } = this.props;
+    const {
+      _getClientCompatibility,
+      _log,
+      addon,
+      clientApp,
+      currentVersion,
+      i18n,
+      userAgentInfo,
+    } = this.props;
 
-    const downloadUrl = `${this.props.downloadUrl}${makeQueryStringWithUTM({
+    if (!addon) {
+      return null;
+    }
+
+    const compatibility = _getClientCompatibility({
+      addon,
+      clientApp,
+      currentVersion,
+      userAgentInfo,
+    });
+
+    if (compatibility.compatible) {
+      return null;
+    }
+
+    const { reason, minVersion } = compatibility;
+    let downloadUrl = compatibility.downloadUrl || DOWNLOAD_FIREFOX_BASE_URL;
+
+    downloadUrl = `${downloadUrl}${makeQueryStringWithUTM({
       utm_content: 'install-addon-button',
     })}`;
 
-    if (typeof reason === 'undefined') {
-      throw new Error('AddonCompatibilityError requires a "reason" prop');
-    }
-    if (typeof minVersion === 'undefined') {
-      throw new Error('minVersion is required; it cannot be undefined');
-    }
+    invariant(reason, 'reason is required');
 
     let message;
     if (reason === INCOMPATIBLE_NOT_FIREFOX) {
@@ -76,6 +110,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
     } else if (reason === INCOMPATIBLE_UNSUPPORTED_PLATFORM) {
       message = i18n.gettext('This add-on is not available on your platform.');
     } else if (reason === INCOMPATIBLE_UNDER_MIN_VERSION) {
+      invariant(minVersion, 'minVersion is required');
       message = i18n.sprintf(
         i18n.gettext(`This add-on requires a
         <a href="%(downloadUrl)s">newer version of Firefox</a> (at least
@@ -89,7 +124,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
     } else {
       // This is an unknown reason code and a custom error message should be
       // added.
-      log.warn(
+      _log.warn(
         `Unknown reason code supplied to AddonCompatibilityError: ${reason}`,
       );
 
@@ -108,17 +143,37 @@ export class AddonCompatibilityErrorBase extends React.Component {
 
     return (
       <Notice type={noticeType} className="AddonCompatibilityError">
-        <span dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])} />
+        <span
+          className="AddonCompatibilityError-message"
+          dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])}
+        />
       </Notice>
     );
   }
 }
 
-export function mapStateToProps(state) {
-  return { userAgentInfo: state.api.userAgentInfo };
+export function mapStateToProps(state: AppState, ownProps: Props) {
+  const { addon } = ownProps;
+
+  let currentVersion = null;
+
+  if (addon && addon.currentVersionId) {
+    currentVersion = getVersionById({
+      id: addon.currentVersionId,
+      state: state.versions,
+    });
+  }
+
+  return {
+    clientApp: state.api.clientApp,
+    currentVersion,
+    userAgentInfo: state.api.userAgentInfo,
+  };
 }
 
-export default compose(
+const AddonCompatibilityError: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
   translate(),
 )(AddonCompatibilityErrorBase);
+
+export default AddonCompatibilityError;

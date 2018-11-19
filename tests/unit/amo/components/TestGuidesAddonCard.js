@@ -18,7 +18,6 @@ import {
 import {
   FATAL_ERROR,
   INCOMPATIBLE_NOT_FIREFOX,
-  INCOMPATIBLE_UNDER_MIN_VERSION,
   INSTALLING,
   UNKNOWN,
 } from 'core/constants';
@@ -116,29 +115,11 @@ describe(__filename, () => {
     expect(root.html()).toEqual(null);
   });
 
-  // TODO: We need to cover all config settings (here and on the following
-  // test case). This will be addressed in the following issue:
-  // https://github.com/mozilla/addons-frontend/issues/6903
-  it('renders AddonCompatibilityError when there is incompatibility', () => {
-    const root = render({
-      _getClientCompatibility: sinon.stub().returns({
-        compatible: false,
-        reason: INCOMPATIBLE_UNDER_MIN_VERSION,
-      }),
-    });
+  it('passes the addon to AddonCompatibilityError', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = render({ addon });
 
-    expect(root.find(AddonCompatibilityError)).toHaveLength(1);
-  });
-
-  it('does not render an AddonCompatibilityError when there is compatibility', () => {
-    const root = render({
-      _getClientCompatibility: sinon.stub().returns({
-        compatible: true,
-        reason: null,
-      }),
-    });
-
-    expect(root.find(AddonCompatibilityError)).toHaveLength(0);
+    expect(root.find(AddonCompatibilityError)).toHaveProp('addon', addon);
   });
 
   it('renders Staff Pick content by default', () => {

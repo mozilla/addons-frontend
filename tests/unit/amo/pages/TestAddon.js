@@ -44,8 +44,6 @@ import {
   ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
   FATAL_ERROR,
-  INCOMPATIBLE_NOT_FIREFOX,
-  INCOMPATIBLE_UNDER_MIN_VERSION,
   INSTALLED,
   INSTALLING,
   UNKNOWN,
@@ -57,6 +55,7 @@ import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { addQueryParamsToHistory } from 'core/utils';
 import { getErrorMessage } from 'core/utils/addons';
 import {
+  createFakeClientCompatibility,
   createFakeLocation,
   createStubErrorHandler,
   dispatchClientMetadata,
@@ -88,7 +87,12 @@ function renderProps({
     ...addonProps,
     dispatch: sinon.stub(),
     errorHandler: createStubErrorHandler(),
-    getClientCompatibility: () => ({ compatible: true, reason: null }),
+    getClientCompatibility: () => {
+      return createFakeClientCompatibility({
+        compatible: true,
+        reason: null,
+      });
+    },
     i18n,
     location: createFakeLocation(),
     match: {
@@ -142,17 +146,6 @@ function shallowRender(...args) {
 }
 
 describe(__filename, () => {
-  const getFakeClientCompatibility = (isCompatible: boolean) => {
-    return () => {
-      return {
-        compatible: isCompatible,
-        maxVersion: null,
-        minVersion: null,
-        reason: isCompatible ? null : INCOMPATIBLE_NOT_FIREFOX,
-      };
-    };
-  };
-
   const _loadAddonResults = ({ addon = fakeAddon }) => {
     return loadAddonResults({ addons: [addon] });
   };
@@ -266,7 +259,7 @@ describe(__filename, () => {
 
     // These should be empty:
     expect(root.find(AMInstallButton)).toHaveLength(0);
-    expect(root.find(AddonCompatibilityError)).toHaveLength(0);
+    expect(root.find(AddonCompatibilityError)).toHaveProp('addon', null);
     expect(root.find(RatingManager)).toHaveLength(0);
 
     // These should show LoadingText
@@ -1094,26 +1087,13 @@ describe(__filename, () => {
     });
   });
 
-  it('passes the downloadUrl from getClientCompatibility', () => {
+  it('passes the addon to AddonCompatibilityError', () => {
+    const addon = createInternalAddon(fakeAddon);
     const root = shallowRender({
-      getClientCompatibility: () => ({
-        compatible: false,
-        downloadUrl: 'https://www.seamonkey-project.org',
-        reason: INCOMPATIBLE_UNDER_MIN_VERSION,
-      }),
+      addon,
     });
 
-    expect(root.find(AddonCompatibilityError).prop('downloadUrl')).toEqual(
-      'https://www.seamonkey-project.org',
-    );
-  });
-
-  it('hides banner on non firefox clients and displays firefox download button', () => {
-    const root = shallowRender({
-      getClientCompatibility: getFakeClientCompatibility(false),
-    });
-    expect(root.find(AddonCompatibilityError)).toHaveLength(0);
-    expect(root.find(GetFirefoxButton)).toHaveLength(1);
+    expect(root.find(AddonCompatibilityError)).toHaveProp('addon', addon);
   });
 
   it('renders a ThemeImage in the header', () => {
@@ -1175,79 +1155,71 @@ describe(__filename, () => {
   });
 
   describe('read reviews footer', () => {
-    function reviewFooterDOM({ ratingsCount = 1, ...customProps }) {
-      return renderAsDOMNode({
-        addon: createInternalAddon({
-          ...fakeAddon,
-          ratings: {
-            ...fakeAddon.ratings,
-            text_count: ratingsCount,
-          },
-        }),
-        ...customProps,
-      });
-    }
-
-    it('only links to reviews when they exist', () => {
-      const root = reviewFooterDOM({
-        ratingsCount: 0,
-      });
-
-      const footer = root.find('.Addon-read-reviews-footer');
-      expect(footer).toHaveText('No reviews yet');
-      expect(root.find('footer')).toHaveClassName(
-        'Card-footer Card-footer-text',
-      );
-    });
-
-    it('prompts you to read one review', () => {
-      const root = reviewFooterDOM({
-        ratingsCount: 1,
-      });
-
-      const footer = root.find('.Addon-read-reviews-footer');
-      expect(footer).toHaveText('Read 1 review');
-      expect(root.find('footer')).toHaveClassName(
-        'Card-footer Card-footer-link',
-      );
-    });
-
-    it('prompts you to read many reviews', () => {
-      const root = reviewFooterDOM({
-        ratingsCount: 5,
-      });
-      const footer = root.find('.Addon-read-reviews-footer');
-      expect(footer).toHaveText('Read all 5 reviews');
-    });
-
-    it('localizes the review count', () => {
-      const root = reviewFooterDOM({
-        ratingsCount: 10000,
-      });
-      const footer = root.find('.Addon-read-reviews-footer');
-      expect(footer).toIncludeText('10,000');
-    });
-
-    it('links to all reviews', () => {
+    function readReviewsCard({ ratingsCount = 1, ...customProps }) {
+      const { store } = dispatchSignInActions();
       const addon = {
         ...fakeAddon,
         ratings: {
           ...fakeAddon.ratings,
-          text_count: 2,
+          text_count: ratingsCount,
         },
       };
 
-      const { store } = dispatchClientMetadata();
       store.dispatch(_loadAddonResults({ addon }));
 
-      const root = renderComponent({ params: { slug: addon.slug }, store });
+      const root = renderComponent({ store, ...customProps });
+      return root.find('.Addon-overall-rating');
+    }
 
-      const allReviewsLink = shallow(
-        root.find('.Addon-overall-rating').prop('footerLink'),
-      ).find('.Addon-all-reviews-link');
+    const allReviewsLink = (card) => {
+      return shallow(card.prop('footerLink')).find('.Addon-all-reviews-link');
+    };
 
-      expect(allReviewsLink).toHaveLength(1);
-      expect(allReviewsLink).toHaveProp('to', '/addon/chill-out/reviews/');
+    it('only links to reviews when they exist', () => {
+      const card = readReviewsCard({
+        ratingsCount: 0,
+      });
+
+      expect(card).not.toHaveProp('footerLink');
+      const footerText = shallow(card.prop('footerText'));
+      expect(footerText).toHaveText('No reviews yet');
+      expect(footerText).toHaveClassName('Addon-read-reviews-footer');
+    });
+
+    it('prompts you to read one review', () => {
+      const card = readReviewsCard({
+        ratingsCount: 1,
+      });
+
+      expect(allReviewsLink(card).children()).toHaveText('Read 1 review');
+    });
+
+    it('prompts you to read many reviews', () => {
+      const card = readReviewsCard({
+        ratingsCount: 5,
+      });
+
+      expect(allReviewsLink(card).children()).toHaveText('Read all 5 reviews');
+    });
+
+    it('localizes the review count', () => {
+      const card = readReviewsCard({
+        ratingsCount: 10000,
+      });
+
+      expect(allReviewsLink(card).children()).toIncludeText('10,000');
+    });
+
+    it('links to all reviews', () => {
+      const card = readReviewsCard({
+        ratingsCount: 2,
+      });
+
+      expect(allReviewsLink(card)).toHaveLength(1);
+      expect(allReviewsLink(card)).toHaveProp(
+        'to',
+        '/addon/chill-out/reviews/',
+      );
     });
   });
 
@@ -1677,10 +1649,7 @@ describe(__filename, () => {
       guid,
     });
 
-    const root = shallowRender({
-      addon,
-      getClientCompatibility: getFakeClientCompatibility(false),
-    });
+    const root = shallowRender({ addon });
 
     expect(root.find(GetFirefoxButton)).toHaveLength(1);
     expect(root.find(GetFirefoxButton)).toHaveProp('addon', addon);

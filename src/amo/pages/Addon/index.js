@@ -498,15 +498,7 @@ export class AddonBase extends React.Component {
           <Card className="Addon-header-info-card" photonStyle>
             {this.renderInstallError()}
 
-            {isFireFox && !isCompatible ? (
-              <AddonCompatibilityError
-                className="Addon-header-compatibility-error"
-                downloadUrl={compatibility.downloadUrl}
-                maxVersion={compatibility.maxVersion}
-                minVersion={compatibility.minVersion}
-                reason={compatibility.reason}
-              />
-            ) : null}
+            <AddonCompatibilityError addon={addon} />
 
             {addon && (addon.status !== STATUS_PUBLIC || addon.is_disabled) ? (
               <Notice type="error" className="Addon-non-public-notice">
