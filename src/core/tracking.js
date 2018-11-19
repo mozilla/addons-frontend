@@ -1,5 +1,5 @@
+/* @flow */
 /* global navigator, window */
-/* eslint-disable no-underscore-dangle */
 import { oneLine } from 'common-tags';
 import config from 'config';
 import invariant from 'invariant';
@@ -48,11 +48,19 @@ export const telemetryObjects = [
   TRACKING_TYPE_STATIC_THEME,
 ];
 
+type IsDoNoTrackEnabledParams = {|
+  _log: typeof log,
+  _navigator: ?typeof navigator,
+  _window: ?typeof window,
+|};
+
 export function isDoNotTrackEnabled({
   _log = log,
+  // The type above is correct but Flow complains about `Navigator` being
+  // incompatible with `null`, so $FLOW_IGNORE.
   _navigator = typeof navigator !== 'undefined' ? navigator : null,
   _window = typeof window !== 'undefined' ? window : null,
-} = {}) {
+}: IsDoNoTrackEnabledParams = {}): boolean {
   if (!_navigator || !_window) {
     return false;
   }
@@ -71,11 +79,30 @@ export function isDoNotTrackEnabled({
   return false;
 }
 
+type TrackingParams = {|
+  _config: typeof config,
+  _isDoNotTrackEnabled: typeof isDoNotTrackEnabled,
+|};
+
 export class Tracking {
+  _log: typeof log;
+
+  logPrefix: string;
+
+  trackingEnabled: boolean;
+
+  // Tracking ID
+  id: string;
+
+  // Hybrid Content Telemetry
+  hctEnabled: boolean;
+
+  hctInitPromise: Promise<null | Object>;
+
   constructor({
     _config = config,
     _isDoNotTrackEnabled = isDoNotTrackEnabled,
-  } = {}) {
+  }: TrackingParams = {}) {
     if (typeof window === 'undefined') {
       return;
     }
@@ -103,6 +130,13 @@ export class Tracking {
     this.logPrefix = `[GA: ${this.trackingEnabled ? 'ON' : 'OFF'}]`;
 
     if (this.trackingEnabled) {
+      // Create a Flow typed variable for `ga`.
+      declare var ga: {|
+        (string, string, ?string): void,
+        q: Array<string>,
+        l: number,
+      |};
+
       /* eslint-disable */
       // Snippet from Google UA docs: http://bit.ly/1O6Dsdh
       window.ga =
@@ -125,7 +159,7 @@ export class Tracking {
     this.hctInitPromise = this.initHCT({ _config });
   }
 
-  async initHCT({ _config = config } = {}) {
+  async initHCT({ _config = config }: {| _config: typeof config |} = {}) {
     const hctEnabled = _config.get('hctEnabled');
     if (typeof window !== 'undefined' && hctEnabled === true) {
       log.info('Setting up the Hybrid Content Telemetry lib');
@@ -163,24 +197,30 @@ export class Tracking {
         log.error('Initialization failed', err);
       }
     }
-    log.info(`Not importing the HCT lib: hctEnabled: ${hctEnabled}`);
+
+    // eslint-disable-next-line amo/only-log-strings
+    log.info('Not importing the HCT lib, hctEnabled:', hctEnabled);
+
     return Promise.resolve(null);
   }
 
-  log(...args) {
+  log(...args: Array<mixed>) {
     if (this._log) {
       // eslint-disable-next-line amo/only-log-strings
       this._log.info(this.logPrefix, ...args);
     }
   }
 
-  _ga(...args) {
+  _ga(...args: Array<mixed>) {
     if (this.trackingEnabled) {
       window.ga(...args);
     }
   }
 
-  async _hct(data, { _window = window } = {}) {
+  async _hct(
+    data: {| method: string, object: string, value?: string |},
+    { _window = window }: {| _window: typeof window |} = {},
+  ) {
     const hybridContentTelemetry = await this.hctInitPromise;
     if (hybridContentTelemetry) {
       const canUpload = hybridContentTelemetry.canUpload();
@@ -219,7 +259,8 @@ export class Tracking {
         );
       }
     } else {
-      this.log(`Not logging to telemetry since hctEnabled: ${this.hctEnabled}`);
+      this.log(oneLine`Not logging to telemetry since hctEnabled is
+        ${this.hctEnabled ? 'enabled' : 'disabled'}`);
     }
   }
 
@@ -233,7 +274,17 @@ export class Tracking {
    * obj.value      Number  No        Values must be non-negative.
    *                                  Useful to pass counts (e.g. 4 times)
    */
-  sendEvent({ category, action, label, value } = {}) {
+  sendEvent({
+    category,
+    action,
+    label,
+    value,
+  }: {|
+    category: string,
+    action: string,
+    label?: string,
+    value?: number,
+  |} = {}) {
     if (!category) {
       throw new Error('sendEvent: category is required');
     }
@@ -260,7 +311,7 @@ export class Tracking {
   /*
    * Should be called when a view changes or a routing update.
    */
-  setPage(page) {
+  setPage(page: string) {
     if (!page) {
       throw new Error('setPage: page is required');
     }
@@ -268,24 +319,25 @@ export class Tracking {
     this.log('setPage', page);
   }
 
-  pageView(data = {}) {
+  pageView(data: Object = {}) {
     this._ga('send', 'pageview', data);
     this.log('pageView', JSON.stringify(data));
   }
 
   /*
-   * Can be called to set a dimension which will be sent with all
-   * subsequent calls to GA.
+   * Can be called to set a dimension which will be sent with all subsequent
+   * calls to GA.
    */
-  setDimension({ dimension, value }) {
+  setDimension({ dimension, value }: {| dimension: string, value: string |}) {
     invariant(dimension, 'A dimension is required');
     invariant(value, 'A value is required');
+
     this._ga('set', dimension, value);
     this.log('set', { dimension, value });
   }
 }
 
-export function getAddonTypeForTracking(type) {
+export function getAddonTypeForTracking(type: string): string {
   return (
     {
       [ADDON_TYPE_DICT]: TRACKING_TYPE_EXTENSION,
@@ -298,7 +350,10 @@ export function getAddonTypeForTracking(type) {
   );
 }
 
-export const getAddonEventCategory = (type, installAction) => {
+export const getAddonEventCategory = (
+  type: string,
+  installAction: string,
+): string => {
   const isThemeType = isTheme(type);
 
   switch (installAction) {
