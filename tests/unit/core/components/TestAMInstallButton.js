@@ -279,6 +279,13 @@ describe(__filename, () => {
     expect(root.find(Button)).toHaveProp('disabled', true);
   });
 
+  it('disables the button when currentVersion is null', () => {
+    const root = render({ currentVersion: null });
+
+    expect(root.find(Button)).toHaveProp('disabled', true);
+    expect(root.find(Button)).toHaveProp('href', undefined);
+  });
+
   it('adds defaultInstallSource to extension buttons', () => {
     const installURL = 'https://addons.mozilla.org/download';
     const defaultInstallSource = 'homepage';
