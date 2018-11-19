@@ -6,8 +6,8 @@ import invariant from 'invariant';
 import { ADDON_TYPE_THEME, validAddonTypes } from 'core/constants';
 import log from 'core/logger';
 
-export const CATEGORIES_FETCH: 'CATEGORIES_FETCH' = 'CATEGORIES_FETCH';
-export const CATEGORIES_LOAD: 'CATEGORIES_LOAD' = 'CATEGORIES_LOAD';
+export const FETCH_CATEGORIES: 'FETCH_CATEGORIES' = 'FETCH_CATEGORIES';
+export const LOAD_CATEGORIES: 'LOAD_CATEGORIES' = 'LOAD_CATEGORIES';
 
 // See: https://addons-server.readthedocs.io/en/latest/topics/api/categories.html#category-list
 type ExternalCategory = {|
@@ -22,8 +22,8 @@ type ExternalCategory = {|
 |};
 
 // The absence of strict types is wanted because the logic in the reducer is a
-// mess...
-type CategoryListType = {
+
+type CategoryMapType = {
   [appName: string]: {
     [addonType: string]: {
       [addonSlug: string]: ExternalCategory,
@@ -32,7 +32,7 @@ type CategoryListType = {
 };
 
 export type CategoriesState = {|
-  categories: null | CategoryListType,
+  categories: null | CategoryMapType,
   loading: boolean,
 |};
 
@@ -41,22 +41,22 @@ export const initialState: CategoriesState = {
   loading: false,
 };
 
-type CategoriesFetchParams = {|
+type FetchCategoriesParams = {|
   errorHandlerId: string,
 |};
 
-export type CategoriesFetchAction = {|
-  type: typeof CATEGORIES_FETCH,
-  payload: CategoriesFetchParams,
+export type FetchCategoriesAction = {|
+  type: typeof FETCH_CATEGORIES,
+  payload: FetchCategoriesParams,
 |};
 
-export function categoriesFetch({
+export function fetchCategories({
   errorHandlerId,
-}: CategoriesFetchParams): CategoriesFetchAction {
+}: FetchCategoriesParams): FetchCategoriesAction {
   invariant(errorHandlerId, 'errorHandlerId is required');
 
   return {
-    type: CATEGORIES_FETCH,
+    type: FETCH_CATEGORIES,
     payload: { errorHandlerId },
   };
 }
@@ -66,15 +66,15 @@ type CategoriesLoadParams = {|
 |};
 
 type CategoriesLoadAction = {|
-  type: typeof CATEGORIES_LOAD,
+  type: typeof LOAD_CATEGORIES,
   payload: CategoriesLoadParams,
 |};
 
-export function categoriesLoad({
+export function loadCategories({
   results,
 }: CategoriesLoadParams): CategoriesLoadAction {
   return {
-    type: CATEGORIES_LOAD,
+    type: LOAD_CATEGORIES,
     payload: { results },
   };
 }
@@ -91,7 +91,7 @@ export function createEmptyCategoryList(): EmptyCategoryListType {
       ...object,
       [appName]: validAddonTypes.reduce((appObject, addonType) => {
         // This is where we define an `EmptyCategoryListType` and not a
-        // `CategoryListType`, because `[addonType]` is initialized with an
+        // `CategoryMapType`, because `[addonType]` is initialized with an
         // empty array.
         return { ...appObject, [addonType]: [] };
       }, {}),
@@ -99,16 +99,16 @@ export function createEmptyCategoryList(): EmptyCategoryListType {
   }, {});
 }
 
-type Action = CategoriesFetchAction | CategoriesLoadAction;
+type Action = FetchCategoriesAction | CategoriesLoadAction;
 
 export default function reducer(
   state: CategoriesState = initialState,
   action: Action,
 ): CategoriesState {
   switch (action.type) {
-    case CATEGORIES_FETCH:
+    case FETCH_CATEGORIES:
       return { ...initialState, loading: true };
-    case CATEGORIES_LOAD: {
+    case LOAD_CATEGORIES: {
       const { payload } = action;
 
       const categoryList = createEmptyCategoryList();
@@ -139,7 +139,7 @@ export default function reducer(
         categoryList[category.application][category.type].push(category);
       });
 
-      const categories: CategoryListType = {};
+      const categories: CategoryMapType = {};
       Object.keys(categoryList).forEach((appName) => {
         categories[appName] = {};
 

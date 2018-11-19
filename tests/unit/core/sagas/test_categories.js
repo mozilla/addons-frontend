@@ -6,9 +6,9 @@ import categoriesSaga from 'core/sagas/categories';
 import * as api from 'core/api';
 import apiReducer from 'core/reducers/api';
 import categoriesReducer, {
-  CATEGORIES_LOAD,
-  categoriesFetch,
-  categoriesLoad,
+  LOAD_CATEGORIES,
+  fetchCategories,
+  loadCategories,
 } from 'core/reducers/categories';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 
@@ -37,8 +37,8 @@ describe(__filename, () => {
     sagaTester.start(categoriesSaga);
   });
 
-  function _categoriesFetch(overrides = {}) {
-    return categoriesFetch({
+  function _fetchCategories(overrides = {}) {
+    return fetchCategories({
       errorHandlerId: errorHandler.id,
       ...overrides,
     });
@@ -58,22 +58,22 @@ describe(__filename, () => {
 
     expect(sagaTester.getState()).toEqual(initialState);
 
-    sagaTester.dispatch(_categoriesFetch());
+    sagaTester.dispatch(_fetchCategories());
 
     expect(sagaTester.getState()).toEqual({
       ...initialState,
       categories: { ...initialState.categories, loading: true },
     });
 
-    await sagaTester.waitFor(CATEGORIES_LOAD);
+    await sagaTester.waitFor(LOAD_CATEGORIES);
 
     const calledActions = sagaTester.getCalledActions();
 
-    // First action is CATEGORIES_FETCH.
-    expect(calledActions[0]).toEqual(_categoriesFetch());
+    // First action is FETCH_CATEGORIES.
+    expect(calledActions[0]).toEqual(_fetchCategories());
 
     // Next action is loading the categories returned by the API.
-    expect(calledActions[1]).toEqual(categoriesLoad({ results }));
+    expect(calledActions[1]).toEqual(loadCategories({ results }));
 
     mockApi.verify();
   });
@@ -85,7 +85,7 @@ describe(__filename, () => {
 
     expect(sagaTester.getState()).toEqual(initialState);
 
-    sagaTester.dispatch(_categoriesFetch());
+    sagaTester.dispatch(_fetchCategories());
 
     const errorAction = errorHandler.createErrorAction(error);
     await sagaTester.waitFor(errorAction.type);
@@ -94,7 +94,7 @@ describe(__filename, () => {
     expect(calledActions[1]).toEqual(errorAction);
   });
 
-  it('should respond to all CATEGORIES_FETCH actions', async () => {
+  it('should respond to all FETCH_CATEGORIES actions', async () => {
     const mockApi = sinon.mock(api);
 
     mockApi
@@ -105,17 +105,17 @@ describe(__filename, () => {
       })
       .returns(Promise.resolve({ results: [] }));
 
-    sagaTester.dispatch(_categoriesFetch());
+    sagaTester.dispatch(_fetchCategories());
     // Dispatch the fetch action again to ensure takeEvery() is respected
     // and both actions are responded to.
-    sagaTester.dispatch(_categoriesFetch());
+    sagaTester.dispatch(_fetchCategories());
 
-    await sagaTester.waitFor(CATEGORIES_LOAD);
+    await sagaTester.waitFor(LOAD_CATEGORIES);
 
-    expect(sagaTester.numCalled(CATEGORIES_LOAD)).toBe(2);
+    expect(sagaTester.numCalled(LOAD_CATEGORIES)).toBe(2);
 
     // Ensure the categories API was called twice because we respond to every
-    // CATEGORIES_FETCH dispatch.
+    // FETCH_CATEGORIES dispatch.
     mockApi.verify();
   });
 });

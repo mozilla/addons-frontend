@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import { categoriesFetch } from 'core/reducers/categories';
+import { fetchCategories } from 'core/reducers/categories';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { getCategoryColor, visibleAddonType } from 'core/utils';
@@ -70,7 +70,7 @@ export class CategoriesBase extends React.Component<InternalProps> {
     invariant(addonType, 'addonType is undefined');
 
     if (!loading && !categoriesState) {
-      dispatch(categoriesFetch({ errorHandlerId: errorHandler.id }));
+      dispatch(fetchCategories({ errorHandlerId: errorHandler.id }));
     }
 
     dispatch(setViewContext(addonType));

@@ -10,9 +10,9 @@ import {
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import categories, {
-  CATEGORIES_FETCH,
-  categoriesFetch,
-  categoriesLoad,
+  FETCH_CATEGORIES,
+  fetchCategories,
+  loadCategories,
   initialState,
 } from 'core/reducers/categories';
 import { fakeCategory } from 'tests/unit/helpers';
@@ -28,16 +28,7 @@ describe(__filename, () => {
     expect(loading).toEqual(false);
   });
 
-  it('sets loading', () => {
-    const state = categories(
-      initialState,
-      categoriesFetch({ errorHandlerId: 'some-handler' }),
-    );
-    expect(state.categories).toEqual(null);
-    expect(state.loading).toEqual(true);
-  });
-
-  describe('CATEGORIES_LOAD', () => {
+  describe('LOAD_CATEGORIES', () => {
     let state;
 
     beforeEach(() => {
@@ -114,7 +105,7 @@ describe(__filename, () => {
         },
       ];
 
-      state = categories(initialState, categoriesLoad({ results }));
+      state = categories(initialState, loadCategories({ results }));
     });
 
     it('sets the categories in a sorted order', () => {
@@ -176,7 +167,7 @@ describe(__filename, () => {
           type: ADDON_TYPE_THEME,
         },
       ];
-      state = categories(initialState, categoriesLoad({ results }));
+      state = categories(initialState, loadCategories({ results }));
 
       // Notice all Firefox theme categories are also set as Android theme
       // categories and no Android categories are returned. This reflects the
@@ -294,20 +285,29 @@ describe(__filename, () => {
     });
   });
 
-  describe('CATEGORIES_FETCH', () => {
-    function _categoriesFetch({ errorHandlerId = 'some-handler-id' } = {}) {
-      return categoriesFetch({ errorHandlerId });
+  describe('FETCH_CATEGORIES', () => {
+    function _fetchCategories({ errorHandlerId = 'some-handler-id' } = {}) {
+      return fetchCategories({ errorHandlerId });
     }
 
     it('sets the type', () => {
-      expect(_categoriesFetch().type).toEqual(CATEGORIES_FETCH);
+      expect(_fetchCategories().type).toEqual(FETCH_CATEGORIES);
     });
 
     it('puts the error handler ID in the payload', () => {
       const errorHandlerId = 'some-custom-id';
       expect(
-        _categoriesFetch({ errorHandlerId }).payload.errorHandlerId,
+        _fetchCategories({ errorHandlerId }).payload.errorHandlerId,
       ).toEqual(errorHandlerId);
+    });
+
+    it('sets loading', () => {
+      const state = categories(
+        initialState,
+        fetchCategories({ errorHandlerId: 'some-handler' }),
+      );
+      expect(state.categories).toEqual(null);
+      expect(state.loading).toEqual(true);
     });
   });
 });

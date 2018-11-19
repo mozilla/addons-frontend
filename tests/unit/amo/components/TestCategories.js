@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import { CategoriesBase, mapStateToProps } from 'amo/components/Categories';
-import { categoriesFetch, categoriesLoad } from 'core/reducers/categories';
+import { fetchCategories, loadCategories } from 'core/reducers/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -52,7 +52,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       dispatch,
-      categoriesFetch({
+      fetchCategories({
         errorHandlerId: errorHandler.id,
       }),
     );
@@ -60,7 +60,7 @@ describe(__filename, () => {
 
   it('does not fetch categories if already loading them', () => {
     store.dispatch(
-      categoriesFetch({
+      fetchCategories({
         errorHandlerId: createStubErrorHandler().id,
       }),
     );
@@ -73,7 +73,7 @@ describe(__filename, () => {
   });
 
   it('does not fetch categories if already loaded', () => {
-    store.dispatch(categoriesLoad({ results: [fakeCategory] }));
+    store.dispatch(loadCategories({ results: [fakeCategory] }));
     const dispatch = sinon.stub();
     render({ addonType: ADDON_TYPE_EXTENSION, dispatch });
 
@@ -83,7 +83,7 @@ describe(__filename, () => {
   });
 
   it('does not fetch categories if an empty set was loaded', () => {
-    store.dispatch(categoriesLoad({ results: [] }));
+    store.dispatch(loadCategories({ results: [] }));
     const dispatch = sinon.stub();
     render({ addonType: ADDON_TYPE_EXTENSION, dispatch });
 
@@ -169,7 +169,7 @@ describe(__filename, () => {
       ],
     };
 
-    store.dispatch(categoriesLoad(categoriesResponse));
+    store.dispatch(loadCategories(categoriesResponse));
 
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
@@ -223,7 +223,7 @@ describe(__filename, () => {
       ],
     };
 
-    store.dispatch(categoriesLoad(categoriesResponse));
+    store.dispatch(loadCategories(categoriesResponse));
 
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
@@ -257,7 +257,7 @@ describe(__filename, () => {
 
   it('renders a no categories found message', () => {
     const categoriesResponse = { results: [] };
-    store.dispatch(categoriesLoad(categoriesResponse));
+    store.dispatch(loadCategories(categoriesResponse));
     const root = render();
 
     expect(root.find('.Categories-none-loaded-message')).toIncludeText(

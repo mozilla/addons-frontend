@@ -14,7 +14,7 @@ import CategoryHeader from 'amo/components/CategoryHeader';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { shouldShowThemes } from 'amo/utils';
-import { categoriesFetch } from 'core/reducers/categories';
+import { fetchCategories } from 'core/reducers/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -93,7 +93,7 @@ export class CategoryBase extends React.Component {
     const addonType = apiAddonType(params.visibleAddonType);
 
     if (!categories) {
-      dispatch(categoriesFetch({ errorHandlerId: errorHandler.id }));
+      dispatch(fetchCategories({ errorHandlerId: errorHandler.id }));
     } else {
       let category;
       if (categories[clientApp] && categories[clientApp][addonType]) {
