@@ -52,7 +52,7 @@ describe(__filename, () => {
     });
   };
 
-  const getClientCompatibilityIncompatible = (compatibilityProps = {}) => {
+  const makeGetClientCompatibilityIncompatible = (compatibilityProps = {}) => {
     return () => {
       return createFakeClientCompatibility({
         compatible: false,
@@ -114,9 +114,9 @@ describe(__filename, () => {
   });
 
   it('renders nothing if the add-on is compatible', () => {
-    const _getClientCompatibility = getClientCompatibilityCompatible;
-
-    const root = renderWithVersion({ _getClientCompatibility });
+    const root = renderWithVersion({
+      _getClientCompatibility: getClientCompatibilityCompatible,
+    });
 
     expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
   });
@@ -155,7 +155,7 @@ describe(__filename, () => {
   });
 
   it('renders an error notice for other reasons than non-Firefox', () => {
-    const _getClientCompatibility = getClientCompatibilityIncompatible({
+    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       reason: INCOMPATIBLE_OVER_MAX_VERSION,
     });
 
@@ -168,7 +168,7 @@ describe(__filename, () => {
   });
 
   it('renders a notice if add-on is over maxVersion/compat is strict', () => {
-    const _getClientCompatibility = getClientCompatibilityIncompatible({
+    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       reason: INCOMPATIBLE_OVER_MAX_VERSION,
     });
 
@@ -186,7 +186,7 @@ describe(__filename, () => {
     _dispatchClientMetadata({
       userAgent: userAgentsByPlatform.mac.firefox33,
     });
-    const _getClientCompatibility = getClientCompatibilityIncompatible({
+    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       minVersion: '34.0',
       reason: INCOMPATIBLE_UNDER_MIN_VERSION,
     });
@@ -212,7 +212,7 @@ describe(__filename, () => {
   });
 
   it('renders a notice for iOS users', () => {
-    const _getClientCompatibility = getClientCompatibilityIncompatible({
+    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       reason: INCOMPATIBLE_FIREFOX_FOR_IOS,
     });
 
@@ -227,7 +227,7 @@ describe(__filename, () => {
   });
 
   it('renders a notice for browsers that do not support OpenSearch', () => {
-    const _getClientCompatibility = getClientCompatibilityIncompatible({
+    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       reason: INCOMPATIBLE_NO_OPENSEARCH,
     });
 
@@ -242,7 +242,7 @@ describe(__filename, () => {
   });
 
   it('renders a notice if add-on is incompatible with the platform', () => {
-    const _getClientCompatibility = getClientCompatibilityIncompatible({
+    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
     });
 
@@ -257,7 +257,7 @@ describe(__filename, () => {
   });
 
   it('renders a notice if add-on is non-restartless', () => {
-    const _getClientCompatibility = getClientCompatibilityIncompatible({
+    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       reason: INCOMPATIBLE_NON_RESTARTLESS_ADDON,
     });
 
@@ -275,7 +275,7 @@ describe(__filename, () => {
   it('renders a notice and logs warning when reason code not known', () => {
     const fakeLog = getFakeLogger();
     const reason = 'fake reason';
-    const _getClientCompatibility = getClientCompatibilityIncompatible({
+    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       reason,
     });
 
