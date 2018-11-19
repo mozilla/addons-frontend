@@ -10,7 +10,7 @@ import type { FetchVersionsAction } from 'core/reducers/versions';
 import type { Saga } from 'core/types/sagas';
 
 export function* fetchVersions({
-  payload: { errorHandlerId, page, slug },
+  payload: { errorHandlerId, page, slug, versionId },
 }: FetchVersionsAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -23,6 +23,7 @@ export function* fetchVersions({
       api: state.api,
       page,
       slug,
+      versionId,
     };
     const versions = yield call(getVersions, params);
 

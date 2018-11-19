@@ -4,7 +4,7 @@ import { createApiResponse, dispatchSignInActions } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('getVersions', () => {
-    it('calls the version list API', async () => {
+    it('calls the version list API to get all versions for an add-on', async () => {
       const apiState = dispatchSignInActions().state.api;
       const mockApi = sinon.mock(api);
       const slug = 'some-slug';
@@ -24,6 +24,30 @@ describe(__filename, () => {
         .resolves(createApiResponse());
 
       await getVersions({ api: apiState, slug, ...params });
+      mockApi.verify();
+    });
+
+    it('can retrieve a single version', async () => {
+      const apiState = dispatchSignInActions().state.api;
+      const mockApi = sinon.mock(api);
+      const slug = 'some-slug';
+      const params = {
+        page: '123',
+      };
+      const versionId = 123;
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          apiState,
+          auth: true,
+          endpoint: `addons/addon/${slug}/versions/${versionId}`,
+          params,
+        })
+        .once()
+        .resolves(createApiResponse());
+
+      await getVersions({ api: apiState, slug, versionId, ...params });
       mockApi.verify();
     });
   });

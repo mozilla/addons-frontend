@@ -46,7 +46,7 @@ describe(__filename, () => {
       );
     }
 
-    it('calls the API to fetch versions', async () => {
+    it('calls the API to fetch all versions', async () => {
       const state = sagaTester.getState();
 
       const versions = { results: [fakeVersion] };
@@ -57,11 +57,38 @@ describe(__filename, () => {
           api: state.api,
           page,
           slug,
+          versionId: undefined,
         })
         .once()
         .resolves(versions);
 
       _fetchVersions({ page, slug });
+
+      const expectedAction = loadVersions({ slug, versions });
+
+      const loadAction = await sagaTester.waitFor(expectedAction.type);
+      expect(loadAction).toEqual(expectedAction);
+      mockApi.verify();
+    });
+
+    it('calls the API to fetch a single version', async () => {
+      const state = sagaTester.getState();
+
+      const versions = { results: [fakeVersion] };
+      const versionId = fakeVersion.id;
+
+      mockApi
+        .expects('getVersions')
+        .withArgs({
+          api: state.api,
+          page,
+          slug,
+          versionId,
+        })
+        .once()
+        .resolves(versions);
+
+      _fetchVersions({ page, slug, versionId });
 
       const expectedAction = loadVersions({ slug, versions });
 

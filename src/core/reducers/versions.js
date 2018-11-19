@@ -34,12 +34,13 @@ export const FETCH_VERSIONS: 'FETCH_VERSIONS' = 'FETCH_VERSIONS';
 export const LOAD_VERSIONS: 'LOAD_VERSIONS' = 'LOAD_VERSIONS';
 
 export type VersionIdType = number;
+export type VersionLicenseType = {| name: string, text?: string, url: string |};
 
 export type AddonVersionType = {
   compatibility?: AddonCompatibilityType,
   id: VersionIdType,
   isStrictCompatibilityEnabled: boolean,
-  license: { name: string, url: string } | null,
+  license: VersionLicenseType | null,
   platformFiles: PlatformFilesType,
   releaseNotes?: string,
   version: string,
@@ -100,7 +101,11 @@ export const createInternalVersion = (
       version.is_strict_compatibility_enabled,
     ),
     license: version.license
-      ? { name: version.license.name, url: version.license.url }
+      ? {
+          name: version.license.name,
+          text: version.license.text,
+          url: version.license.url,
+        }
       : null,
     platformFiles: createPlatformFiles(version),
     releaseNotes: version.release_notes,
@@ -112,6 +117,7 @@ type FetchVersionsParams = {|
   errorHandlerId: string,
   page?: string,
   slug: string,
+  versionId?: VersionIdType,
 |};
 
 export type FetchVersionsAction = {|
@@ -123,13 +129,14 @@ export const fetchVersions = ({
   errorHandlerId,
   page = '1',
   slug,
+  versionId,
 }: FetchVersionsParams): FetchVersionsAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(slug, 'slug is required');
 
   return {
     type: FETCH_VERSIONS,
-    payload: { errorHandlerId, page, slug },
+    payload: { errorHandlerId, page, slug, versionId },
   };
 };
 

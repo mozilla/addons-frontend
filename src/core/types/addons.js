@@ -1,5 +1,5 @@
 /* @flow */
-import type { VersionIdType } from 'core/reducers/versions';
+import type { VersionIdType, VersionLicenseType } from 'core/reducers/versions';
 import type { AddonTypeType } from 'core/constants';
 
 type AddonStatus =
@@ -53,8 +53,7 @@ export type PartialExternalAddonVersionType = {|
 
 export type ExternalAddonVersionType = {|
   ...PartialExternalAddonVersionType,
-  // The `text` property is omitted from addon.current_version.license.
-  license: { name: string, url: string },
+  license: VersionLicenseType,
   release_notes?: string,
 |};
 

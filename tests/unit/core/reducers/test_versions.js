@@ -91,6 +91,26 @@ describe(__filename, () => {
     ]);
   });
 
+  it('loads a version with license text', () => {
+    const slug = 'some-slug';
+    const licenseText = 'license text';
+    const version = {
+      ...fakeVersion,
+      license: {
+        ...fakeVersion.license,
+        text: licenseText,
+      },
+    };
+    const state = versionsReducer(
+      undefined,
+      loadVersions({ slug, versions: [version] }),
+    );
+
+    const storedVersion = getVersionsBySlug({ slug, state })[0];
+    expect(storedVersion).toEqual(createInternalVersion(version));
+    expect(storedVersion.license.text).toEqual(licenseText);
+  });
+
   describe('createPlatformFiles', () => {
     it('creates a default object if there is no version', () => {
       expect(createPlatformFiles(undefined)).toEqual(defaultPlatformFiles);
