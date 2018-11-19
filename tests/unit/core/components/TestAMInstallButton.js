@@ -676,13 +676,15 @@ describe(__filename, () => {
 
     it('handles a `null` variant prop', () => {
       const _log = getFakeLogger();
+      const _tracking = createFakeTracking();
 
-      renderWithExperiment({ _log, variant: null });
+      renderWithExperiment({ _log, _tracking, variant: null });
 
       sinon.assert.calledWith(
         _log.debug,
         sinon.match(/No variant for experiment/),
       );
+      sinon.assert.notCalled(_tracking.sendEvent);
     });
   });
 });
