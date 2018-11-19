@@ -4,8 +4,8 @@ import invariant from 'invariant';
 import { createInternalAddon } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
-export const LANDING_GET: 'LANDING_GET' = 'LANDING_GET';
-export const LANDING_LOADED: 'LANDING_LOADED' = 'LANDING_LOADED';
+export const GET_LANDING: 'GET_LANDING' = 'GET_LANDING';
+export const LOAD_LANDING: 'LOAD_LANDING' = 'LOAD_LANDING';
 
 type ResultSet = {|
   count: number,
@@ -45,7 +45,7 @@ type GetLandingParams = {|
 |};
 
 export type GetLandingAction = {|
-  type: typeof LANDING_GET,
+  type: typeof GET_LANDING,
   payload: GetLandingParams,
 |};
 
@@ -58,7 +58,7 @@ export function getLanding({
   invariant(errorHandlerId, 'errorHandlerId is required');
 
   return {
-    type: LANDING_GET,
+    type: GET_LANDING,
     payload: { addonType, errorHandlerId, category: category || null },
   };
 }
@@ -71,7 +71,7 @@ type LoadLandingParams = {|
 |};
 
 type LoadLandingAction = {|
-  type: typeof LANDING_LOADED,
+  type: typeof LOAD_LANDING,
   payload: LoadLandingParams,
 |};
 
@@ -87,7 +87,7 @@ export function loadLanding({
   invariant(trending, 'trending is required');
 
   return {
-    type: LANDING_LOADED,
+    type: LOAD_LANDING,
     payload: { addonType, featured, highlyRated, trending },
   };
 }
@@ -99,7 +99,7 @@ export default function reducer(
   action: Action,
 ): LandingState {
   switch (action.type) {
-    case LANDING_GET: {
+    case GET_LANDING: {
       const { payload } = action;
 
       return {
@@ -110,7 +110,7 @@ export default function reducer(
         resultsLoaded: false,
       };
     }
-    case LANDING_LOADED: {
+    case LOAD_LANDING: {
       const { payload } = action;
 
       const newState = { ...state, loading: false, resultsLoaded: true };

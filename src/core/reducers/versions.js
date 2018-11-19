@@ -9,7 +9,7 @@ import {
   LOAD_CURRENT_COLLECTION_PAGE,
 } from 'amo/reducers/collections';
 import { LOAD_HOME_ADDONS } from 'amo/reducers/home';
-import { LANDING_LOADED } from 'amo/reducers/landing';
+import { LOAD_LANDING } from 'amo/reducers/landing';
 import { LOAD_RECOMMENDATIONS } from 'amo/reducers/recommendations';
 import {
   OS_ALL,
@@ -372,7 +372,7 @@ const reducer = (
       };
     }
 
-    case LANDING_LOADED: {
+    case LOAD_LANDING: {
       const { featured, highlyRated, trending } = action.payload;
 
       const newVersions = {};
