@@ -84,7 +84,6 @@ describe(__filename, () => {
       text: content.sections[0].exploreMore,
     });
 
-    console.log('REBB link parts', linkParts);
     const root = render({ content, slug });
 
     expect(root.find('.Guides')).toHaveLength(1);
