@@ -149,6 +149,7 @@ export class Tracking {
             click: {
               methods: telemetryMethodValues,
               objects: telemetryObjects,
+              extra_keys: ['origin'],
             },
           });
         }
@@ -179,7 +180,7 @@ export class Tracking {
     }
   }
 
-  async _hct(data) {
+  async _hct(data, { _window = window } = {}) {
     const hybridContentTelemetry = await this.hctInitPromise;
     if (hybridContentTelemetry) {
       const canUpload = hybridContentTelemetry.canUpload();
@@ -203,6 +204,14 @@ export class Tracking {
           method,
           object,
           data.value,
+          {
+            origin:
+              typeof _window !== 'undefined' &&
+              _window.location &&
+              _window.location.origin
+                ? _window.location.origin
+                : null,
+          },
         );
       } else {
         this.log(
