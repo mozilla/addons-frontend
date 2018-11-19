@@ -51,7 +51,7 @@ type Props = {|
   ...WithInstallHelpersInjectedProps,
   addon: AddonType,
   className?: string,
-  currentVersion: AddonVersionType,
+  currentVersion: AddonVersionType | null,
   defaultButtonText?: string,
   defaultInstallSource: string,
   disabled: boolean,
@@ -291,19 +291,21 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       return null;
     }
 
-    const installURL = findInstallURL({
-      defaultInstallSource,
-      location,
-      platformFiles: currentVersion.platformFiles,
-      userAgentInfo,
-    });
+    const installURL = currentVersion
+      ? findInstallURL({
+          defaultInstallSource,
+          location,
+          platformFiles: currentVersion.platformFiles,
+          userAgentInfo,
+        })
+      : undefined;
 
     const buttonIsDisabled =
-      disabled === false
-        ? hasAddonManager &&
+      disabled === true || !installURL
+        ? true
+        : hasAddonManager &&
           status === UNKNOWN &&
-          addon.type !== ADDON_TYPE_OPENSEARCH
-        : disabled;
+          addon.type !== ADDON_TYPE_OPENSEARCH;
 
     const buttonProps: ButtonProps = {
       buttonType: 'action',
