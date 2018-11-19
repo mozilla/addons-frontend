@@ -25,9 +25,6 @@ describe(__filename, () => {
     i18n = fakeI18n(),
     dispatch = store.dispatch,
     slug = 'stay-safe-online',
-    content = getContent(slug, i18n),
-    history = createFakeHistory(),
-    location = createFakeLocation(),
     match = {
       params: {
         slug,
