@@ -61,18 +61,18 @@ export function fetchCategories({
   };
 }
 
-type CategoriesLoadParams = {|
+type LoadCategoriesParams = {|
   results: Array<ExternalCategory>,
 |};
 
-type CategoriesLoadAction = {|
+type LoadCategoriesAction = {|
   type: typeof LOAD_CATEGORIES,
-  payload: CategoriesLoadParams,
+  payload: LoadCategoriesParams,
 |};
 
 export function loadCategories({
   results,
-}: CategoriesLoadParams): CategoriesLoadAction {
+}: LoadCategoriesParams): LoadCategoriesAction {
   return {
     type: LOAD_CATEGORIES,
     payload: { results },
@@ -90,16 +90,13 @@ export function createEmptyCategoryList(): EmptyCategoryListType {
     return {
       ...object,
       [appName]: validAddonTypes.reduce((appObject, addonType) => {
-        // This is where we define an `EmptyCategoryListType` and not a
-        // `CategoryMapType`, because `[addonType]` is initialized with an
-        // empty array.
         return { ...appObject, [addonType]: [] };
       }, {}),
     };
   }, {});
 }
 
-type Action = FetchCategoriesAction | CategoriesLoadAction;
+type Action = FetchCategoriesAction | LoadCategoriesAction;
 
 export default function reducer(
   state: CategoriesState = initialState,
