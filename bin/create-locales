@@ -6,7 +6,7 @@
  * the relevant po files from the .pot
  */
 
-require('babel-register');
+require('@babel/register');
 
 
 const chalk = require('chalk');

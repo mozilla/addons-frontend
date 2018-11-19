@@ -4,7 +4,7 @@ import url from 'url';
 import { LOCATION_CHANGE } from 'connected-react-router';
 import PropTypes from 'prop-types';
 import base64url from 'base64url';
-import config, { util as configUtil } from 'config';
+import config from 'config';
 import invariant from 'invariant';
 import { shallow } from 'enzyme';
 import Jed from 'jed';
@@ -862,7 +862,7 @@ export const getFakeConfig = (
       );
     }
   }
-  return Object.assign(configUtil.cloneDeep(config), params);
+  return Object.assign(config.util.cloneDeep(config), params);
 };
 
 /*

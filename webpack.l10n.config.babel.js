@@ -32,7 +32,7 @@ const potCreationDate = new Date()
 
 const babelL10nPlugins = [
   [
-    'babel-gettext-extractor',
+    'module:babel-gettext-extractor',
     {
       headers: {
         'Project-Id-Version': appName,

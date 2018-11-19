@@ -4,7 +4,7 @@ const path = require('path');
 
 const chalk = require('chalk');
 const chokidar = require('chokidar');
-require('babel-register')({
+require('@babel/register')({
   plugins: ['dynamic-import-node'],
 });
 const config = require('config');

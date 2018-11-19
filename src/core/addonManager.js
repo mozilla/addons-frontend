@@ -75,7 +75,7 @@ export function hasAddonManager({
 export function hasPermissionPromptsEnabled({
   navigator,
 }: { navigator: PrivilegedNavigatorType } = {}) {
-  if (module.exports.hasAddonManager({ navigator })) {
+  if (hasAddonManager({ navigator })) {
     const _navigator = navigator || window.navigator;
     return _navigator.mozAddonManager.permissionPromptsEnabled;
   }

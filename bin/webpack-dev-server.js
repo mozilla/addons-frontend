@@ -2,7 +2,7 @@
 
 /* eslint-disable strict, no-console, amo/only-log-strings */
 
-require('babel-register');
+require('@babel/register');
 const https = require('https');
 
 const Express = require('express');

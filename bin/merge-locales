@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /* eslint-disable no-console */
-require('babel-register');
+require('@babel/register');
 const config = require('config');
 const glob = require('glob');
 const path = require('path');

@@ -3,7 +3,7 @@
 // We can't use strict mode because po2json causes
 // referenceErrors.
 
-require('babel-register');
+require('@babel/register');
 
 const fs = require('fs');
 const path = require('path');
