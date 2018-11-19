@@ -70,7 +70,7 @@ export const getSections = ({
   switch (slug) {
     case 'stay-safe-online':
       return [
-        // // Bitwarden free password manager
+        // Bitwarden free password manager
         {
           addonGuid: '{446900e4-71c2-419f-a6a7-df9c091e268b}',
           header: i18n.gettext('Create and manage strong passwords'),

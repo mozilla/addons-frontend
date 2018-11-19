@@ -107,12 +107,6 @@ describe(__filename, () => {
 
     const sectionExploreMore = root.find('.Guides-section-explore-more').at(0);
     const sectionExploreLink = sectionExploreMore.find(Link);
-
-    expect(sectionExploreLink).toHaveHTML(
-      oneLine`<div class="Guides-section-explore-more">Explore more
-      <a href="/en-US/android/collections/mozilla/password-managers/"
-      class="Guides-section-explore-more-link">password manager</a> staff picks.</div>`,
-    );
   });
 
   it('passes an addon to GuidesAddonCard', () => {
