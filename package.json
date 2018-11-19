@@ -371,7 +371,7 @@
     },
     {
       "path": "./dist/@(amo|disco)-i18n-*.js",
-      "maxSize": "25 kB"
+      "maxSize": "30 kB"
     }
   ],
   "snyk": true
