@@ -27,5 +27,7 @@ module.exports = {
     },
   },
 
+  enableFeatureHomeHeroGuides: true,
+
   enableFeatureStaticThemesForAndroid: false,
 };
