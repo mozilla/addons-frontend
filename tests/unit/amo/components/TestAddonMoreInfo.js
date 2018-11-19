@@ -184,16 +184,41 @@ describe(__filename, () => {
     expect(root.find('.AddonMoreInfo-version').children()).toHaveText('2.0.1');
   });
 
-  it('renders the license and link', () => {
+  it('renders a non-custom license and link', () => {
+    const licenseName = 'some license';
+    const licenseUrl = 'http://license.com/';
     _loadVersions({
-      license: { name: 'tofulicense', url: 'http://license.com/' },
+      license: {
+        is_custom: false,
+        name: licenseName,
+        url: licenseUrl,
+      },
     });
     const root = render({});
     const link = root.find('.AddonMoreInfo-license-link');
 
     expect(root.find('.AddonMoreInfo-license')).toHaveProp('term', 'License');
-    expect(link.children()).toIncludeText('tofulicense');
-    expect(link).toHaveProp('href', 'http://license.com/');
+    expect(link.children()).toIncludeText(licenseName);
+    expect(link).toHaveProp('href', licenseUrl);
+  });
+
+  it('renders a custom license link', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const licenseName = 'some license';
+    _loadVersions({
+      license: {
+        is_custom: true,
+        name: licenseName,
+        url: 'http://license.com/',
+      },
+    });
+
+    const root = render({ addon });
+    const link = root.find('.AddonMoreInfo-license-link');
+
+    expect(root.find('.AddonMoreInfo-license')).toHaveProp('term', 'License');
+    expect(link.children()).toIncludeText(licenseName);
+    expect(link).toHaveProp('to', `/addon/${addon.slug}/license/`);
   });
 
   it('renders the license info without a link if the url is null', () => {
@@ -211,7 +236,7 @@ describe(__filename, () => {
     expect(root.find('.AddonMoreInfo-license')).toHaveLength(0);
   });
 
-  it('does not prefix a license link with the add-ons URL', () => {
+  it('does not prefix a non-custom license link with the add-ons URL', () => {
     // See: https://github.com/mozilla/addons-frontend/issues/3339
     _loadVersions({
       license: { name: 'tofulicense', url: 'www.license.com/' },
@@ -248,7 +273,7 @@ describe(__filename, () => {
     expect(link.children()).toHaveText(
       'Read the privacy policy for this add-on',
     );
-    expect(link).toHaveProp('href', '/addon/chill-out/privacy/');
+    expect(link).toHaveProp('to', '/addon/chill-out/privacy/');
   });
 
   it('does not render a EULA if none exists', () => {
@@ -273,7 +298,7 @@ describe(__filename, () => {
         .children(),
     ).toHaveText('Read the license agreement for this add-on');
     expect(root.find('.AddonMoreInfo-eula').find(Link)).toHaveProp(
-      'href',
+      'to',
       '/addon/chill-out/eula/',
     );
   });

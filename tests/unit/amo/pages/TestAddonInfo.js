@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import AddonInfo, {
+  ADDON_INFO_TYPE_CUSTOM_LICENSE,
   ADDON_INFO_TYPE_EULA,
   ADDON_INFO_TYPE_PRIVACY_POLICY,
   AddonInfoBase,
@@ -15,12 +16,18 @@ import {
   loadAddonResults,
 } from 'core/reducers/addons';
 import {
+  FETCH_VERSION,
+  fetchVersion,
+  loadVersions,
+} from 'core/reducers/versions';
+import {
   createFakeLocation,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
   fakeAddonInfo,
   fakeI18n,
+  fakeVersion,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -70,31 +77,343 @@ describe(__filename, () => {
     store.dispatch(loadAddonInfo({ info: addonInfo, slug }));
   };
 
-  it('fetches an addon and addonInfo when requested by slug', () => {
-    const slug = 'some-addon-slug';
-    const dispatch = sinon.stub(store, 'dispatch');
-    const errorHandler = createStubErrorHandler();
+  const _loadVersions = ({
+    slug = fakeAddon.slug,
+    versions = [fakeVersion],
+  }) => {
+    store.dispatch(loadVersions({ slug, versions }));
+  };
 
-    render({
-      errorHandler,
-      params: { slug },
+  it.each([ADDON_INFO_TYPE_EULA, ADDON_INFO_TYPE_PRIVACY_POLICY])(
+    `fetches an addon and addonInfo for %s when requested by slug`,
+    (infoType) => {
+      const slug = 'some-addon-slug';
+      const dispatch = sinon.stub(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+
+      render({
+        errorHandler,
+        infoType,
+        params: { slug },
+      });
+
+      sinon.assert.calledWith(
+        dispatch,
+        fetchAddon({
+          errorHandler,
+          slug,
+        }),
+      );
+
+      sinon.assert.calledWith(
+        dispatch,
+        fetchAddonInfo({
+          errorHandlerId: errorHandler.id,
+          slug,
+        }),
+      );
+    },
+  );
+
+  it.each([ADDON_INFO_TYPE_EULA, ADDON_INFO_TYPE_PRIVACY_POLICY])(
+    `fetches an addon and addonInfo for %s when the slug changes`,
+    (infoType) => {
+      const slug = 'some-slug';
+      const newSlug = 'some-other-slug';
+      const addon = { ...fakeAddon, slug };
+      _loadAddonResults([addon]);
+      const dispatch = sinon.stub(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+      render({
+        errorHandler,
+        params: { slug },
+      });
+
+      dispatch.resetHistory();
+      render({
+        errorHandler,
+        infoType,
+        params: { slug: newSlug },
+      });
+
+      sinon.assert.calledWith(
+        dispatch,
+        fetchAddon({
+          errorHandler,
+          slug: newSlug,
+        }),
+      );
+
+      sinon.assert.calledWith(
+        dispatch,
+        fetchAddonInfo({
+          errorHandlerId: errorHandler.id,
+          slug: newSlug,
+        }),
+      );
+    },
+  );
+
+  it.each([ADDON_INFO_TYPE_EULA, ADDON_INFO_TYPE_PRIVACY_POLICY])(
+    `does not fetch addonInfo for %s if it is already loaded`,
+    (infoType) => {
+      const slug = 'some-addon-slug';
+      _loadAddonInfo({ slug });
+      const errorHandler = createStubErrorHandler();
+
+      const fakeDispatch = sinon.stub(store, 'dispatch');
+
+      render({
+        errorHandler,
+        infoType,
+        params: { slug },
+      });
+
+      sinon.assert.neverCalledWith(
+        fakeDispatch,
+        fetchAddonInfo({
+          errorHandlerId: errorHandler.id,
+          slug,
+        }),
+      );
+    },
+  );
+
+  it.each([ADDON_INFO_TYPE_EULA, ADDON_INFO_TYPE_PRIVACY_POLICY])(
+    `does not fetch addonInfo for %s if it is already loading`,
+    (infoType) => {
+      const slug = 'some-addon-slug';
+      const errorHandler = createStubErrorHandler();
+
+      store.dispatch(fetchAddonInfo({ errorHandlerId: errorHandler.id, slug }));
+
+      const fakeDispatch = sinon.stub(store, 'dispatch');
+
+      render({
+        errorHandler,
+        infoType,
+        params: { slug },
+      });
+
+      sinon.assert.neverCalledWith(
+        fakeDispatch,
+        fetchAddonInfo({
+          errorHandlerId: errorHandler.id,
+          slug,
+        }),
+      );
+    },
+  );
+
+  describe('ADDON_INFO_TYPE_CUSTOM_LICENSE', () => {
+    it('fetches an addon when requested by slug', () => {
+      const slug = 'some-addon-slug';
+      const dispatch = sinon.stub(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+
+      render({
+        errorHandler,
+        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
+        params: { slug },
+      });
+
+      sinon.assert.calledWith(
+        dispatch,
+        fetchAddon({
+          errorHandler,
+          slug,
+        }),
+      );
     });
 
-    sinon.assert.calledWith(
-      dispatch,
-      fetchAddon({
-        errorHandler,
-        slug,
-      }),
-    );
+    it('fetches an addonVersion when no version is loaded', () => {
+      const slug = 'some-addon-slug';
+      const addon = { ...fakeAddon, slug };
+      _loadAddonResults([addon]);
+      const errorHandler = createStubErrorHandler();
 
-    sinon.assert.calledWith(
-      dispatch,
-      fetchAddonInfo({
-        errorHandlerId: errorHandler.id,
+      const dispatch = sinon.stub(store, 'dispatch');
+
+      render({
+        errorHandler,
+        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
+        params: { slug },
+      });
+
+      sinon.assert.calledWith(
+        dispatch,
+        fetchVersion({
+          errorHandlerId: errorHandler.id,
+          slug,
+          versionId: addon.current_version.id,
+        }),
+      );
+    });
+
+    it('does not fetch an addonVersion when there is no addon', () => {
+      const errorHandler = createStubErrorHandler();
+
+      const dispatch = sinon.stub(store, 'dispatch');
+
+      render({
+        errorHandler,
+        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
+      });
+
+      sinon.assert.neverCalledWithMatch(
+        dispatch,
+        sinon.match({ type: FETCH_VERSION }),
+      );
+    });
+
+    it('does not fetch an addonVersion when the addon has no current version', () => {
+      const slug = 'some-addon-slug';
+      const addon = { ...fakeAddon, slug, current_version: null };
+      _loadAddonResults([addon]);
+      const errorHandler = createStubErrorHandler();
+
+      const dispatch = sinon.stub(store, 'dispatch');
+
+      render({
+        errorHandler,
+        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
+        params: { slug },
+      });
+
+      sinon.assert.neverCalledWithMatch(
+        dispatch,
+        sinon.match({ type: FETCH_VERSION }),
+      );
+    });
+
+    it('fetches an addonVersion when the loaded version has no license text', () => {
+      const slug = 'some-addon-slug';
+      const addon = { ...fakeAddon, slug };
+      _loadAddonResults([addon]);
+      _loadVersions({
         slug,
-      }),
-    );
+        versions: [
+          {
+            ...fakeVersion,
+            license: { ...fakeVersion.license, text: undefined },
+          },
+        ],
+      });
+      const errorHandler = createStubErrorHandler();
+
+      const dispatch = sinon.stub(store, 'dispatch');
+
+      render({
+        errorHandler,
+        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
+        params: { slug },
+      });
+
+      sinon.assert.calledWith(
+        dispatch,
+        fetchVersion({
+          errorHandlerId: errorHandler.id,
+          slug,
+          versionId: addon.current_version.id,
+        }),
+      );
+    });
+
+    it('does not fetch an addonVersion when the loaded version has license text', () => {
+      const slug = 'some-addon-slug';
+      const addon = { ...fakeAddon, slug };
+      _loadAddonResults([addon]);
+      _loadVersions({
+        slug,
+        versions: [
+          {
+            ...fakeVersion,
+            license: { ...fakeVersion.license, text: 'some text' },
+          },
+        ],
+      });
+      const errorHandler = createStubErrorHandler();
+
+      const dispatch = sinon.stub(store, 'dispatch');
+
+      render({
+        errorHandler,
+        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
+        params: { slug },
+      });
+
+      sinon.assert.neverCalledWith(
+        dispatch,
+        fetchVersion({
+          errorHandlerId: errorHandler.id,
+          slug,
+          versionId: addon.current_version.id,
+        }),
+      );
+    });
+
+    it('does not fetch an addonVersion if one is already loading', () => {
+      const slug = 'some-addon-slug';
+      const addon = { ...fakeAddon, slug };
+      _loadAddonResults([addon]);
+      const errorHandler = createStubErrorHandler();
+
+      store.dispatch(
+        fetchVersion({
+          errorHandlerId: errorHandler.id,
+          slug,
+          versionId: addon.current_version.id,
+        }),
+      );
+
+      const dispatch = sinon.stub(store, 'dispatch');
+
+      render({
+        errorHandler,
+        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
+        params: { slug },
+      });
+
+      sinon.assert.neverCalledWith(
+        dispatch,
+        fetchVersion({
+          errorHandlerId: errorHandler.id,
+          slug,
+          versionId: addon.current_version.id,
+        }),
+      );
+    });
+
+    it('fetches an addonVersion when the slug changes', () => {
+      const slug = 'some-slug';
+      const newSlug = 'some-other-slug';
+      const addon = { ...fakeAddon, slug };
+      const newAddon = { ...fakeAddon, slug: newSlug };
+      _loadAddonResults([addon, newAddon]);
+      const dispatch = sinon.stub(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+      render({
+        errorHandler,
+        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
+        params: { slug },
+      });
+
+      dispatch.resetHistory();
+      render({
+        errorHandler,
+        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
+        params: { slug: newSlug },
+      });
+
+      sinon.assert.calledWith(
+        dispatch,
+        fetchVersion({
+          errorHandlerId: errorHandler.id,
+          slug: newSlug,
+          versionId: addon.current_version.id,
+        }),
+      );
+    });
   });
 
   it('does not fetch an addon if one is already loaded', () => {
@@ -114,27 +433,6 @@ describe(__filename, () => {
       fakeDispatch,
       fetchAddon({
         errorHandler,
-        slug,
-      }),
-    );
-  });
-
-  it('does not fetch addonInfo if it is already loaded', () => {
-    const slug = 'some-addon-slug';
-    _loadAddonInfo({ slug });
-    const errorHandler = createStubErrorHandler();
-
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-
-    render({
-      errorHandler,
-      params: { slug },
-    });
-
-    sinon.assert.neverCalledWith(
-      fakeDispatch,
-      fetchAddonInfo({
-        errorHandlerId: errorHandler.id,
         slug,
       }),
     );
@@ -162,63 +460,6 @@ describe(__filename, () => {
     );
   });
 
-  it('does not fetch addonInfo if it is already loading', () => {
-    const slug = 'some-addon-slug';
-    const errorHandler = createStubErrorHandler();
-
-    store.dispatch(fetchAddonInfo({ errorHandlerId: errorHandler.id, slug }));
-
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-
-    render({
-      errorHandler,
-      params: { slug },
-    });
-
-    sinon.assert.neverCalledWith(
-      fakeDispatch,
-      fetchAddonInfo({
-        errorHandlerId: errorHandler.id,
-        slug,
-      }),
-    );
-  });
-
-  it('fetches an addon and addonInfo when the slug changes', () => {
-    const slug = 'some-slug';
-    const newSlug = 'some-other-slug';
-    const addon = { ...fakeAddon, slug };
-    _loadAddonResults([addon]);
-    const dispatch = sinon.stub(store, 'dispatch');
-    const errorHandler = createStubErrorHandler();
-    render({
-      errorHandler,
-      params: { slug },
-    });
-
-    dispatch.resetHistory();
-    render({
-      errorHandler,
-      params: { slug: newSlug },
-    });
-
-    sinon.assert.calledWith(
-      dispatch,
-      fetchAddon({
-        errorHandler,
-        slug: newSlug,
-      }),
-    );
-
-    sinon.assert.calledWith(
-      dispatch,
-      fetchAddonInfo({
-        errorHandlerId: errorHandler.id,
-        slug: newSlug,
-      }),
-    );
-  });
-
   it('does not fetch anything if there is an error', () => {
     const slug = 'some-slug';
     const dispatch = sinon.stub(store, 'dispatch');
@@ -232,7 +473,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatch);
   });
 
-  it('renders LoadingText without addonInfo', () => {
+  it('renders LoadingText without content', () => {
     const root = render();
 
     expect(root.find(LoadingText)).toHaveLength(1);
@@ -336,6 +577,30 @@ describe(__filename, () => {
       `End-User License Agreement for ${addon.name}`,
     );
     expect(root.find('.AddonInfo-info-html').html()).toContain(eula);
+  });
+
+  it('renders a License page', () => {
+    const slug = 'some-slug';
+    const licenseText = 'This is the license text';
+    const addon = { ...fakeAddon, slug };
+    const addonVersion = {
+      ...fakeVersion,
+      license: { ...fakeVersion.license, text: licenseText },
+    };
+
+    _loadAddonResults([addon]);
+    _loadVersions({ slug, versions: [addonVersion] });
+
+    const root = render({
+      infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
+      params: { slug },
+    });
+
+    expect(root.find('.AddonInfo-info')).toHaveProp(
+      'header',
+      `Custom License for ${addon.name}`,
+    );
+    expect(root.find('.AddonInfo-info-html').html()).toContain(licenseText);
   });
 
   it('sanitizes the html content', () => {

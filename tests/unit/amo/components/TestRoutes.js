@@ -17,14 +17,14 @@ describe(__filename, () => {
     const _config = getFakeConfig({ enableFeatureHomeHeroGuides: false });
     const root = render({ _config });
 
-    expect(root.find(Route)).toHaveLength(29);
+    expect(root.find(Route)).toHaveLength(30);
   });
 
   it('renders routes including the guide route when enableFeatureHomeHeroGuides is true', () => {
     const _config = getFakeConfig({ enableFeatureHomeHeroGuides: true });
     const root = render({ _config });
 
-    expect(root.find(Route)).toHaveLength(30);
+    expect(root.find(Route)).toHaveLength(31);
   });
 
   describe('path = /:lang/:application/401/', () => {

@@ -17,12 +17,18 @@ import {
   isAddonInfoLoading,
   isAddonLoading,
 } from 'core/reducers/addons';
+import {
+  fetchVersion,
+  getLoadingBySlug,
+  getVersionById,
+} from 'core/reducers/versions';
 import { nl2br, sanitizeHTML } from 'core/utils';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonInfoType } from 'core/reducers/addons';
+import type { AddonVersionType } from 'core/reducers/versions';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type {
@@ -33,10 +39,12 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
+export const ADDON_INFO_TYPE_CUSTOM_LICENSE: 'license' = 'license';
 export const ADDON_INFO_TYPE_EULA: 'eula' = 'eula';
 export const ADDON_INFO_TYPE_PRIVACY_POLICY: 'privacy' = 'privacy';
 
 export type AddonInfoTypeType =
+  | typeof ADDON_INFO_TYPE_CUSTOM_LICENSE
   | typeof ADDON_INFO_TYPE_EULA
   | typeof ADDON_INFO_TYPE_PRIVACY_POLICY;
 
@@ -50,6 +58,8 @@ type InternalProps = {|
   addonInfo: AddonInfoType | null,
   addonInfoIsLoading: boolean,
   addonIsLoading: boolean,
+  addonVersion: AddonVersionType | null,
+  addonVersionIsLoading: boolean,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
@@ -79,8 +89,11 @@ export class AddonInfoBase extends React.Component<InternalProps> {
       addonInfo,
       addonInfoIsLoading,
       addonIsLoading,
+      addonVersion,
+      addonVersionIsLoading,
       dispatch,
       errorHandler,
+      infoType,
       match: {
         params: { slug },
       },
@@ -100,29 +113,68 @@ export class AddonInfoBase extends React.Component<InternalProps> {
       dispatch(fetchAddon({ slug, errorHandler }));
     }
 
-    if ((!addonInfo || addonHasChanged) && !addonInfoIsLoading) {
+    if (infoType === ADDON_INFO_TYPE_CUSTOM_LICENSE) {
+      if (
+        addon &&
+        addon.currentVersionId &&
+        !addonVersionIsLoading &&
+        (!addonVersion ||
+          (addonVersion.license && addonVersion.license.text === undefined) ||
+          addonHasChanged)
+      ) {
+        dispatch(
+          fetchVersion({
+            errorHandlerId: errorHandler.id,
+            slug,
+            versionId: addon.currentVersionId,
+          }),
+        );
+      }
+    } else if ((!addonInfo || addonHasChanged) && !addonInfoIsLoading) {
       dispatch(fetchAddonInfo({ slug, errorHandlerId: errorHandler.id }));
     }
   }
 
   render() {
-    const { addon, addonInfo, errorHandler, i18n, infoType } = this.props;
+    const {
+      addon,
+      addonInfo,
+      addonVersion,
+      errorHandler,
+      i18n,
+      infoType,
+    } = this.props;
 
-    let infoHtml;
     let header = '';
+    let infoContent;
+    let infoHtml;
+    let title;
+
+    switch (infoType) {
+      case ADDON_INFO_TYPE_CUSTOM_LICENSE:
+        title = i18n.gettext('Custom License for %(addonName)s');
+        infoContent =
+          addonVersion && addonVersion.license
+            ? addonVersion.license.text
+            : null;
+        break;
+      case ADDON_INFO_TYPE_EULA:
+        title = i18n.gettext('End-User License Agreement for %(addonName)s');
+        infoContent = addonInfo ? addonInfo.eula : null;
+        break;
+      case ADDON_INFO_TYPE_PRIVACY_POLICY:
+        title = i18n.gettext('Privacy policy for %(addonName)s');
+        infoContent = addonInfo ? addonInfo.privacyPolicy : null;
+        break;
+      default:
+        title = '';
+    }
+
     if (addon) {
-      const title =
-        infoType === ADDON_INFO_TYPE_EULA
-          ? i18n.gettext('End-User License Agreement for %(addonName)s')
-          : i18n.gettext('Privacy policy for %(addonName)s');
       header = i18n.sprintf(title, { addonName: addon.name });
     }
 
-    if (addonInfo) {
-      const infoContent =
-        infoType === ADDON_INFO_TYPE_EULA
-          ? addonInfo.eula
-          : addonInfo.privacyPolicy;
+    if (infoContent) {
       infoHtml = sanitizeHTML(nl2br(infoContent), ['br']);
     }
 
@@ -157,12 +209,24 @@ export class AddonInfoBase extends React.Component<InternalProps> {
 
 export function mapStateToProps(state: AppState, ownProps: InternalProps) {
   const { slug } = ownProps.match.params;
+  const addon = getAddonBySlug(state, slug);
+
+  let addonVersion = null;
+
+  if (addon && addon.currentVersionId) {
+    addonVersion = getVersionById({
+      id: addon.currentVersionId,
+      state: state.versions,
+    });
+  }
 
   return {
-    addon: getAddonBySlug(state, slug),
+    addon,
     addonIsLoading: isAddonLoading(state, slug),
     addonInfo: getAddonInfoBySlug({ slug, state: state.addons }),
     addonInfoIsLoading: isAddonInfoLoading({ slug, state: state.addons }),
+    addonVersion,
+    addonVersionIsLoading: getLoadingBySlug({ slug, state: state.versions }),
   };
 }
 
