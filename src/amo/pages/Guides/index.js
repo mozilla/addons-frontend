@@ -129,6 +129,7 @@ export const getSections = ({
       ];
     case 'organize-your-tabs':
       return [
+        // Tree Style Tab
         {
           addonGuid: 'treestyletab@piro.sakura.ne.jp',
           header: i18n.gettext('Re-imagine tab management'),
