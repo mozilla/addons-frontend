@@ -313,8 +313,6 @@ export class GuidesBase extends React.Component<InternalProps> {
   ): React.ChildrenArray<React.Node> => {
     const { addons, i18n } = this.props;
 
-    const splitOn = '__LINK__';
-
     return sections.map((section) => {
       const linkParts = getLocalizedTextWithLinkParts({
         i18n,
