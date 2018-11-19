@@ -673,5 +673,16 @@ describe(__filename, () => {
 
       sinon.assert.notCalled(_tracking.sendEvent);
     });
+
+    it('handles a `null` variant prop', () => {
+      const _log = getFakeLogger();
+
+      renderWithExperiment({ _log, variant: null });
+
+      sinon.assert.calledWith(
+        _log.debug,
+        sinon.match(/No variant for experiment/),
+      );
+    });
   });
 });
