@@ -1,5 +1,8 @@
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import { createMemoryHistory } from 'history';
 import * as React from 'react';
+import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Addon, { AddonBase, extractId, mapStateToProps } from 'amo/pages/Addon';
@@ -47,9 +50,12 @@ import {
 } from 'core/constants';
 import AMInstallButton from 'core/components/AMInstallButton';
 import { ErrorHandler } from 'core/errorHandler';
+import I18nProvider from 'core/i18n/Provider';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
+import { addQueryParamsToHistory } from 'core/utils';
 import { getErrorMessage } from 'core/utils/addons';
 import {
+  createFakeClientCompatibility,
   createFakeLocation,
   createStubErrorHandler,
   dispatchClientMetadata,
@@ -81,7 +87,12 @@ function renderProps({
     ...addonProps,
     dispatch: sinon.stub(),
     errorHandler: createStubErrorHandler(),
-    getClientCompatibility: () => ({ compatible: true, reason: null }),
+    getClientCompatibility: () => {
+      return createFakeClientCompatibility({
+        compatible: true,
+        reason: null,
+      });
+    },
     i18n,
     location: createFakeLocation(),
     match: {
@@ -103,6 +114,25 @@ function renderProps({
     id: 'some id',
     ...customProps,
   };
+}
+
+function renderAsDOMNode(...args) {
+  const { store, i18n, ...props } = renderProps(...args);
+  props.i18n = i18n;
+
+  const history = addQueryParamsToHistory({
+    history: createMemoryHistory(),
+  });
+
+  return mount(
+    <Provider store={store}>
+      <I18nProvider i18n={i18n}>
+        <Router history={history}>
+          <AddonBase store={store} {...props} />
+        </Router>
+      </I18nProvider>
+    </Provider>,
+  );
 }
 
 function renderComponent(otherProps = {}) {
@@ -716,7 +746,7 @@ describe(__filename, () => {
       description: null,
       summary: null,
     });
-    const root = shallowRender({ addon });
+    const root = renderAsDOMNode({ addon });
     expect(root.find('.AddonDescription')).toHaveLength(0);
   });
 
@@ -726,7 +756,7 @@ describe(__filename, () => {
       description: '',
       summary: '',
     });
-    const root = shallowRender({ addon });
+    const root = renderAsDOMNode({ addon });
     expect(root.find('.AddonDescription')).toHaveLength(0);
   });
 
@@ -876,7 +906,7 @@ describe(__filename, () => {
   });
 
   it('converts new lines in the description to breaks', () => {
-    const root = shallowRender({
+    const root = renderAsDOMNode({
       addon: createInternalAddon({
         ...fakeAddon,
         description: '\n\n\n',
@@ -901,7 +931,7 @@ describe(__filename, () => {
   });
 
   it('strips dangerous HTML tag attributes from description', () => {
-    const root = shallowRender({
+    const root = renderAsDOMNode({
       addon: createInternalAddon({
         ...fakeAddon,
         description:
@@ -909,8 +939,12 @@ describe(__filename, () => {
       }),
     });
 
-    const contents = root.find('.AddonDescription-contents');
-    expect(contents.html()).toContain('<a>placeholder</a>');
+    expect(
+      root
+        .find('.AddonDescription')
+        .at(0)
+        .html(),
+    ).toContain('<a>placeholder</a>');
   });
 
   it('configures the overall ratings section', () => {
@@ -942,7 +976,7 @@ describe(__filename, () => {
 
   it('renders a summary with links', () => {
     const summary = '<a href="http://foo.com/">my website</a>';
-    const root = shallowRender({
+    const root = renderAsDOMNode({
       addon: createInternalAddon({
         ...fakeAddon,
         summary,

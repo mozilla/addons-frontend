@@ -498,10 +498,7 @@ export class AddonBase extends React.Component {
           <Card className="Addon-header-info-card" photonStyle>
             {this.renderInstallError()}
 
-            <AddonCompatibilityError
-              className="Addon-header-compatibility-error"
-              addon={addon}
-            />
+            <AddonCompatibilityError addon={addon} />
 
             {addon && (addon.status !== STATUS_PUBLIC || addon.is_disabled) ? (
               <Notice type="error" className="Addon-non-public-notice">

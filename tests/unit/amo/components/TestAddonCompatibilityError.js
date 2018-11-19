@@ -44,28 +44,28 @@ describe(__filename, () => {
     });
   };
 
-  const getClientCompatibilityNonFirefox = sinon.stub().returns(
-    createFakeClientCompatibility({
+  const getClientCompatibilityNonFirefox = () => {
+    return createFakeClientCompatibility({
       compatible: false,
       downloadUrl: DOWNLOAD_FIREFOX_BASE_URL,
       reason: INCOMPATIBLE_NOT_FIREFOX,
-    }),
-  );
-
-  const getClientCompatibilityIncompatible = (compatibilityProps = {}) => {
-    return sinon.stub().returns(
-      createFakeClientCompatibility({
-        compatible: false,
-        ...compatibilityProps,
-      }),
-    );
+    });
   };
 
-  const getClientCompatibilityCompatible = sinon.stub().returns(
-    createFakeClientCompatibility({
+  const getClientCompatibilityIncompatible = (compatibilityProps = {}) => {
+    return () => {
+      return createFakeClientCompatibility({
+        compatible: false,
+        ...compatibilityProps,
+      });
+    };
+  };
+
+  const getClientCompatibilityCompatible = () => {
+    return createFakeClientCompatibility({
       compatible: true,
-    }),
-  );
+    });
+  };
 
   const _loadVersions = (versionProps = {}) => {
     store.dispatch(
@@ -81,7 +81,7 @@ describe(__filename, () => {
     );
   };
 
-  const render = ({ ...props }) => {
+  const render = (props = {}) => {
     const defaultProps = {
       addon: createInternalAddon(fakeAddon),
       i18n: fakeI18n(),

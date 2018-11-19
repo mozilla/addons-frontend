@@ -31,13 +31,13 @@ import type { I18nType } from 'core/types/i18n';
 import './style.scss';
 
 type Props = {|
-  _getClientCompatibility?: typeof getClientCompatibility,
-  _log?: typeof log,
   addon: AddonType | null,
 |};
 
 type InternalProps = {|
   ...Props,
+  _getClientCompatibility: typeof getClientCompatibility,
+  _log: typeof log,
   clientApp: string,
   currentVersion: AddonVersionType | null,
   i18n: I18nType,
@@ -60,8 +60,6 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
       i18n,
       userAgentInfo,
     } = this.props;
-
-    invariant(_getClientCompatibility, '_getClientCompatibility is required');
 
     if (!addon) {
       return null;
@@ -86,7 +84,6 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
     })}`;
 
     invariant(reason, 'reason is required');
-    invariant(minVersion, 'minVersion is required');
 
     let message;
     if (reason === INCOMPATIBLE_NOT_FIREFOX) {
@@ -113,6 +110,7 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
     } else if (reason === INCOMPATIBLE_UNSUPPORTED_PLATFORM) {
       message = i18n.gettext('This add-on is not available on your platform.');
     } else if (reason === INCOMPATIBLE_UNDER_MIN_VERSION) {
+      invariant(minVersion, 'minVersion is required');
       message = i18n.sprintf(
         i18n.gettext(`This add-on requires a
         <a href="%(downloadUrl)s">newer version of Firefox</a> (at least
@@ -126,7 +124,6 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
     } else {
       // This is an unknown reason code and a custom error message should be
       // added.
-      invariant(_log, '_log is required');
       _log.warn(
         `Unknown reason code supplied to AddonCompatibilityError: ${reason}`,
       );
