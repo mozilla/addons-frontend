@@ -25,7 +25,6 @@ describe(__filename, () => {
   const getProps = ({
     store = dispatchClientMetadata().store,
     i18n = fakeI18n(),
-    dispatch = store.dispatch,
     slug = 'stay-safe-online',
     match = {
       params: {
