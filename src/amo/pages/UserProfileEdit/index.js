@@ -31,6 +31,7 @@ import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
+import LoadingText from 'ui/components/LoadingText';
 import Notice from 'ui/components/Notice';
 import OverlayCard from 'ui/components/OverlayCard';
 import type {
@@ -59,6 +60,7 @@ type Props = {|
   hasEditPermission: boolean,
   history: ReactRouterHistoryType,
   i18n: I18nType,
+  isEditingCurrentUser: boolean,
   isUpdating: boolean,
   lang: string,
   // `match` is used in `mapStateToProps()`
@@ -404,12 +406,49 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     );
   }
 
+  renderProfileAside() {
+    const { user, i18n, isEditingCurrentUser } = this.props;
+
+    if (!user) {
+      return [
+        <LoadingText key="profile-aside-1" width={100} />,
+        <LoadingText key="profile-aside-2" width={80} />,
+      ];
+    }
+
+    return isEditingCurrentUser
+      ? i18n.gettext(`Tell users a bit more information about yourself. These
+        fields are optional, but they'll help other users get to know you
+        better.`)
+      : i18n.sprintf(
+          i18n.gettext(`Tell users a bit more information about this user.
+            These fields are optional, but they'll help other users get to know
+            %(username)s better.`),
+          { username: user.username },
+        );
+  }
+
+  renderBiographyLabel() {
+    const { user, i18n, isEditingCurrentUser } = this.props;
+
+    if (!user) {
+      return <LoadingText />;
+    }
+
+    return isEditingCurrentUser
+      ? i18n.gettext(`Introduce yourself to the community if you like`)
+      : i18n.sprintf(i18n.gettext(`Introduce %(username)s to the community`), {
+          username: user.username,
+        });
+  }
+
   render() {
     const {
       currentUser,
       errorHandler,
       hasEditPermission,
       i18n,
+      isEditingCurrentUser,
       isUpdating,
       user,
       userId,
@@ -443,11 +482,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       return <NotFound />;
     }
 
-    const isEditingCurrentUser =
-      currentUser && user ? currentUser.id === user.id : false;
-
     const userProfileURL = `/user/${userId}/`;
-
     const overlayClassName = 'UserProfileEdit-deletion-modal';
 
     return (
@@ -491,10 +526,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
             <Card
               className="UserProfileEdit--Card"
               header={
-                isEditingCurrentUser
+                isEditingCurrentUser || !user
                   ? i18n.gettext('Account')
                   : i18n.sprintf(i18n.gettext('Account for %(username)s'), {
-                      username: user ? user.username : userId,
+                      username: user.username,
                     })
               }
             >
@@ -516,7 +551,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 </label>
                 <input
                   className="UserProfileEdit-email"
-                  defaultValue={user && user.email}
+                  value={user && user.email}
                   disabled
                   onChange={this.onFieldChange}
                   title={i18n.gettext('Email address cannot be changed here')}
@@ -556,20 +591,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               header={i18n.gettext('Profile')}
             >
               <p className="UserProfileEdit-profile-aside">
-                {isEditingCurrentUser
-                  ? i18n.gettext(
-                      `Tell users a bit more information about yourself. These
-                  fields are optional, but they'll help other users get to know
-                  you better.`,
-                    )
-                  : i18n.sprintf(
-                      i18n.gettext(
-                        `Tell users a bit more information about this user. These
-                    fields are optional, but they'll help other users get to
-                    know %(username)s better.`,
-                      ),
-                      { username: user ? user.username : userId },
-                    )}
+                {this.renderProfileAside()}
               </p>
 
               <label className="UserProfileEdit--label" htmlFor="displayName">
@@ -647,14 +669,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               header={i18n.gettext('Biography')}
             >
               <label className="UserProfileEdit--label" htmlFor="biography">
-                {isEditingCurrentUser
-                  ? i18n.gettext(
-                      `Introduce yourself to the community if you like`,
-                    )
-                  : i18n.sprintf(
-                      i18n.gettext(`Introduce %(username)s to the community`),
-                      { username: user ? user.username : userId },
-                    )}
+                {this.renderBiographyLabel()}
               </label>
               <Textarea
                 className="UserProfileEdit-biography"
@@ -867,10 +882,14 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     hasEditPermission = true;
   }
 
+  const isEditingCurrentUser =
+    currentUser && user ? currentUser.id === user.id : false;
+
   return {
     clientApp,
     currentUser,
     hasEditPermission,
+    isEditingCurrentUser,
     isUpdating: state.users.isUpdating,
     lang,
     user,

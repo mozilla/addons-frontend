@@ -27,6 +27,7 @@ import AuthenticateButton from 'core/components/AuthenticateButton';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import Notice from 'ui/components/Notice';
+import LoadingText from 'ui/components/LoadingText';
 import {
   createFakeEvent,
   createFakeHistory,
@@ -1556,6 +1557,32 @@ describe(__filename, () => {
     expect(root.find('.UserProfileEdit-manage-account-link')).toHaveProp(
       'href',
       link,
+    );
+  });
+
+  it('renders without a user loaded when current logged-in user is an admin', () => {
+    const userId = 123;
+    const { store } = signInUserWithProps({
+      userId,
+      permissions: [USERS_EDIT],
+    });
+
+    // Create a user with another ID, but do not load it.
+    const user = createUserAccountResponse({ id: userId + 999 });
+
+    // Try to edit this user with another ID.
+    const params = { userId: user.id };
+    const root = renderUserProfileEdit({ params, store });
+
+    expect(root.find('.UserProfileEdit--Card').at(0)).toHaveProp(
+      'header',
+      'Account',
+    );
+    expect(
+      root.find('.UserProfileEdit-profile-aside').find(LoadingText),
+    ).toHaveLength(2);
+    expect(root.find('.UserProfileEdit--label').find(LoadingText)).toHaveLength(
+      1,
     );
   });
 });
