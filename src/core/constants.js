@@ -155,8 +155,6 @@ export const OS_LINUX = 'linux';
 export const OS_ANDROID = 'android';
 
 // Action types.
-export const CATEGORIES_FETCH = 'CATEGORIES_FETCH';
-export const CATEGORIES_LOAD = 'CATEGORIES_LOAD';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
 export const FEATURED_GET = 'FEATURED_GET';
 export const FEATURED_LOADED = 'FEATURED_LOADED';

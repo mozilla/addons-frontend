@@ -270,7 +270,9 @@ export function startLoginUrl({
   return `${API_BASE}${apiVersion}/accounts/login/start/${query}`;
 }
 
-export function categories({ api }: {| api: ApiState |}) {
+export type CategoriesParams = {| api: ApiState |};
+
+export function categories({ api }: CategoriesParams) {
   return callApi({
     endpoint: 'addons/categories',
     apiState: api,

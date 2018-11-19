@@ -1,15 +1,91 @@
+/* @flow */
 import { oneLine } from 'common-tags';
 import config from 'config';
+import invariant from 'invariant';
 
-import {
-  ADDON_TYPE_THEME,
-  CATEGORIES_FETCH,
-  CATEGORIES_LOAD,
-  validAddonTypes,
-} from 'core/constants';
+import { ADDON_TYPE_THEME, validAddonTypes } from 'core/constants';
 import log from 'core/logger';
 
-export function emptyCategoryList() {
+export const FETCH_CATEGORIES: 'FETCH_CATEGORIES' = 'FETCH_CATEGORIES';
+export const LOAD_CATEGORIES: 'LOAD_CATEGORIES' = 'LOAD_CATEGORIES';
+
+// See: https://addons-server.readthedocs.io/en/latest/topics/api/categories.html#category-list
+type ExternalCategory = {|
+  id: string,
+  name: string,
+  slug: string,
+  application: string,
+  misc: boolean,
+  type: string,
+  weight: number,
+  description: string | null,
+|};
+
+// The absence of strict types is wanted because the logic in the reducer is a
+
+type CategoryMapType = {
+  [appName: string]: {
+    [addonType: string]: {
+      [addonSlug: string]: ExternalCategory,
+    },
+  },
+};
+
+export type CategoriesState = {|
+  categories: null | CategoryMapType,
+  loading: boolean,
+|};
+
+export const initialState: CategoriesState = {
+  categories: null,
+  loading: false,
+};
+
+type FetchCategoriesParams = {|
+  errorHandlerId: string,
+|};
+
+export type FetchCategoriesAction = {|
+  type: typeof FETCH_CATEGORIES,
+  payload: FetchCategoriesParams,
+|};
+
+export function fetchCategories({
+  errorHandlerId,
+}: FetchCategoriesParams): FetchCategoriesAction {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+
+  return {
+    type: FETCH_CATEGORIES,
+    payload: { errorHandlerId },
+  };
+}
+
+type LoadCategoriesParams = {|
+  results: Array<ExternalCategory>,
+|};
+
+type LoadCategoriesAction = {|
+  type: typeof LOAD_CATEGORIES,
+  payload: LoadCategoriesParams,
+|};
+
+export function loadCategories({
+  results,
+}: LoadCategoriesParams): LoadCategoriesAction {
+  return {
+    type: LOAD_CATEGORIES,
+    payload: { results },
+  };
+}
+
+type EmptyCategoryListType = {|
+  [appName: string]: {|
+    [addonType: string]: Array<ExternalCategory>,
+  |},
+|};
+
+export function createEmptyCategoryList(): EmptyCategoryListType {
   return config.get('validClientApplications').reduce((object, appName) => {
     return {
       ...object,
@@ -20,23 +96,25 @@ export function emptyCategoryList() {
   }, {});
 }
 
-export const initialState = {
-  categories: null,
-  loading: false,
-};
+type Action = FetchCategoriesAction | LoadCategoriesAction;
 
-export default function categories(state = initialState, action) {
-  const { payload } = action;
-
+export default function reducer(
+  state: CategoriesState = initialState,
+  action: Action,
+): CategoriesState {
   switch (action.type) {
-    case CATEGORIES_FETCH:
+    case FETCH_CATEGORIES:
       return { ...initialState, loading: true };
-    case CATEGORIES_LOAD: {
-      const categoryList = emptyCategoryList();
-      Object.values(payload.results).forEach((category) => {
+    case LOAD_CATEGORIES: {
+      const { payload } = action;
+
+      const categoryList = createEmptyCategoryList();
+
+      payload.results.forEach((category) => {
         // This category has no data, so skip it.
         if (!category || !category.application) {
-          log.warn(`category or category.application was false-y: ${category}`);
+          // eslint-disable-next-line amo/only-log-strings
+          log.warn('category or category.application was false-y', category);
           return;
         }
 
@@ -58,9 +136,12 @@ export default function categories(state = initialState, action) {
         categoryList[category.application][category.type].push(category);
       });
 
+      const categories: CategoryMapType = {};
       Object.keys(categoryList).forEach((appName) => {
+        categories[appName] = {};
+
         Object.keys(categoryList[appName]).forEach((addonType) => {
-          categoryList[appName][addonType] = categoryList[appName][addonType]
+          categories[appName][addonType] = categoryList[appName][addonType]
             .sort((a, b) => a.name.localeCompare(b.name))
             .reduce(
               (object, value) => ({ ...object, [value.slug]: value }),
@@ -70,22 +151,20 @@ export default function categories(state = initialState, action) {
       });
 
       // Android doesn't have any theme categories but because all lightweight
-      // themes (personas) are installable on Firefox Desktop and Android
-      // we share categories and themes across clientApps.
+      // themes (personas) are installable on Firefox Desktop and Android we
+      // share categories and themes across clientApps.
       // See: https://github.com/mozilla/addons-frontend/issues/2170
       //
       // TODO: Remove this code once
       // https://github.com/mozilla/addons-server/issues/4766 is fixed.
       log.info(oneLine`Replacing Android persona data with Firefox data until
           https://github.com/mozilla/addons-server/issues/4766 is fixed.`);
-      categoryList.android[ADDON_TYPE_THEME] =
-        categoryList.firefox[ADDON_TYPE_THEME];
+      categories.android[ADDON_TYPE_THEME] =
+        categories.firefox[ADDON_TYPE_THEME];
 
       return {
-        ...state,
-        ...payload,
+        categories,
         loading: false,
-        categories: categoryList,
       };
     }
     default:

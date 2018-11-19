@@ -46,6 +46,7 @@ import type { AbuseState } from 'core/reducers/abuse';
 import type { AddonsState } from 'core/reducers/addons';
 import type { ApiState } from 'core/reducers/api';
 import type { AutocompleteState } from 'core/reducers/autocomplete';
+import type { CategoriesState } from 'core/reducers/categories';
 import type { ErrorPageState } from 'core/reducers/errorPage';
 import type { FormOverlayState } from 'core/reducers/formOverlay';
 import type { LanguageToolsState } from 'core/reducers/languageTools';
@@ -65,7 +66,7 @@ type InternalAppState = {|
   addonsByAuthors: AddonsByAuthorsState,
   api: ApiState,
   autocomplete: AutocompleteState,
-  categories: Object,
+  categories: CategoriesState,
   collections: CollectionsState,
   errorPage: ErrorPageState,
   errors: Object,

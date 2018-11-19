@@ -7,12 +7,15 @@ import CategoryHead from 'amo/components/CategoryHead';
 import CategoryHeader from 'amo/components/CategoryHeader';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
+import {
+  FETCH_CATEGORIES,
+  fetchCategories,
+  loadCategories,
+} from 'core/reducers/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES_FILTER,
-  CATEGORIES_FETCH,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   SEARCH_SORT_TRENDING,
@@ -43,9 +46,9 @@ describe(__filename, () => {
     errorHandler = createStubErrorHandler();
   });
 
-  function _categoriesLoad(actionParams = {}) {
+  function _loadCategories(actionParams = {}) {
     store.dispatch(
-      categoriesLoad({ results: [fakeCategory], ...actionParams }),
+      loadCategories({ results: [fakeCategory], ...actionParams }),
     );
   }
 
@@ -86,7 +89,7 @@ describe(__filename, () => {
     { autoDispatchCategories = true, paramOverrides = {} } = {},
   ) {
     if (autoDispatchCategories) {
-      _categoriesLoad();
+      _loadCategories();
     }
 
     return {
@@ -112,7 +115,7 @@ describe(__filename, () => {
   }
 
   const renderWithCategory = ({ category = fakeCategory, props = {} }) => {
-    _categoriesLoad({ results: [category] });
+    _loadCategories({ results: [category] });
 
     return render(props, {
       autoDispatchCategories: false,
@@ -156,9 +159,9 @@ describe(__filename, () => {
     return renderWithCategory({ category, props });
   };
 
-  function _categoriesFetch(overrides = {}) {
+  function _fetchCategories(overrides = {}) {
     store.dispatch(
-      categoriesFetch({
+      fetchCategories({
         errorHandlerId: errorHandler.id,
         ...overrides,
       }),
@@ -198,7 +201,7 @@ describe(__filename, () => {
       sinon.assert.callCount(fakeDispatch, 3);
       sinon.assert.calledWithMatch(
         fakeDispatch,
-        categoriesFetch({
+        fetchCategories({
           errorHandlerId: errorHandler.id,
         }),
       );
@@ -215,8 +218,8 @@ describe(__filename, () => {
   );
 
   it('does not fetch categories when already loaded', () => {
-    _categoriesFetch();
-    _categoriesLoad();
+    _fetchCategories();
+    _loadCategories();
     _getLanding();
     _loadLanding();
 
@@ -225,12 +228,12 @@ describe(__filename, () => {
 
     sinon.assert.neverCalledWith(
       fakeDispatch,
-      sinon.match({ type: CATEGORIES_FETCH }),
+      sinon.match({ type: FETCH_CATEGORIES }),
     );
   });
 
   it('does not fetch categories when an empty set was loaded', () => {
-    _categoriesLoad({ results: [] });
+    _loadCategories({ results: [] });
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({}, { autoDispatchCategories: false });
@@ -239,7 +242,7 @@ describe(__filename, () => {
   });
 
   it('does not fetch anything while already loading data', () => {
-    _categoriesFetch();
+    _fetchCategories();
     _getLanding();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
@@ -249,7 +252,7 @@ describe(__filename, () => {
   });
 
   it('does not dispatch any action when nothing has changed', () => {
-    _categoriesLoad();
+    _loadCategories();
     _getLanding();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
@@ -275,8 +278,8 @@ describe(__filename, () => {
   });
 
   it('does not dispatch any action when category slug is invalid', () => {
-    _categoriesFetch();
-    _categoriesLoad();
+    _fetchCategories();
+    _loadCategories();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render(
@@ -293,8 +296,8 @@ describe(__filename, () => {
   });
 
   it('dispatches getLanding when results are not loaded', () => {
-    _categoriesFetch();
-    _categoriesLoad();
+    _fetchCategories();
+    _loadCategories();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({}, { autoDispatchCategories: false });
@@ -312,8 +315,8 @@ describe(__filename, () => {
   it('dispatches getLanding when category changes', () => {
     const category = 'some-category-slug';
 
-    _categoriesFetch();
-    _categoriesLoad({
+    _fetchCategories();
+    _loadCategories({
       results: [{ ...fakeCategory }, { ...fakeCategory, slug: category }],
     });
     _getLanding();
@@ -345,8 +348,8 @@ describe(__filename, () => {
     const addonType = ADDON_TYPE_EXTENSION;
     const category = fakeCategory.slug;
 
-    _categoriesFetch();
-    _categoriesLoad({
+    _fetchCategories();
+    _loadCategories({
       results: [{ ...fakeCategory }, { ...fakeCategory, type: addonType }],
     });
     _getLanding();
@@ -381,7 +384,7 @@ describe(__filename, () => {
   });
 
   it('sets loading to true if categories are loading', () => {
-    _categoriesFetch();
+    _fetchCategories();
 
     const root = render({}, { autoDispatchCategories: false });
     expect(root.instance().props.loading).toEqual(true);
@@ -400,8 +403,8 @@ describe(__filename, () => {
   });
 
   it('sets the correct header/footer texts and links for extensions', () => {
-    _categoriesFetch();
-    _categoriesLoad({
+    _fetchCategories();
+    _loadCategories({
       results: [{ ...fakeCategory, type: ADDON_TYPE_EXTENSION }],
     });
     _getLanding();
@@ -467,8 +470,8 @@ describe(__filename, () => {
   });
 
   it('sets the correct footer links for themes', () => {
-    _categoriesFetch();
-    _categoriesLoad();
+    _fetchCategories();
+    _loadCategories();
     _getLanding();
     _loadLanding();
 
@@ -493,8 +496,8 @@ describe(__filename, () => {
   });
 
   it('passes an isTheme prop as true to LandingAddonsCard if type is a theme', () => {
-    _categoriesFetch();
-    _categoriesLoad();
+    _fetchCategories();
+    _loadCategories();
     _getLanding();
     _loadLanding();
 
@@ -545,8 +548,8 @@ describe(__filename, () => {
   });
 
   it('sets the correct header/footer texts and links for themes', () => {
-    _categoriesFetch();
-    _categoriesLoad();
+    _fetchCategories();
+    _loadCategories();
     _getLanding();
     _loadLanding();
 
@@ -602,8 +605,8 @@ describe(__filename, () => {
   });
 
   it('hides the trending shelf when there are no add-ons for it', () => {
-    _categoriesFetch();
-    _categoriesLoad();
+    _fetchCategories();
+    _loadCategories();
     _getLanding();
     _loadLanding({ trending: createAddonsApiResult([]) });
 
@@ -616,8 +619,8 @@ describe(__filename, () => {
   });
 
   it('hides the featured shelf when there are no add-ons for it', () => {
-    _categoriesFetch();
-    _categoriesLoad();
+    _fetchCategories();
+    _loadCategories();
     _getLanding();
     _loadLanding({ featured: createAddonsApiResult([]) });
 
@@ -630,8 +633,8 @@ describe(__filename, () => {
   });
 
   it('hides the highly rated shelf when there are no add-ons for it', () => {
-    _categoriesFetch();
-    _categoriesLoad();
+    _fetchCategories();
+    _loadCategories();
     _getLanding();
     _loadLanding({ highlyRated: createAddonsApiResult([]) });
 
@@ -666,7 +669,7 @@ describe(__filename, () => {
       { autoDispatchCategories = true, ...options } = {},
     ) {
       if (autoDispatchCategories) {
-        _categoriesLoad({ results: [decoyCategory, targetCategory] });
+        _loadCategories({ results: [decoyCategory, targetCategory] });
       }
       return render(props, {
         // Since we loaded our own, tell the parent helper not to.
@@ -769,7 +772,7 @@ describe(__filename, () => {
     });
 
     it('does not render missing category 404 while loading', () => {
-      _categoriesFetch();
+      _fetchCategories();
       const root = _render(
         {},
         {
