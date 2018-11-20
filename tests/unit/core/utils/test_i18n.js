@@ -36,5 +36,14 @@ describe(__filename, () => {
       expect(parts).toHaveProperty('afterLinkText');
       expect(parts.afterLinkText).toEqual(' here.');
     });
+
+    it('throws an error if linkStart and/or linkEnd values are missing from text', () => {
+      expect(() => {
+        getLocalizedTextWithLinkParts({
+          i18n: fakeI18n(),
+          text: 'Just some text.',
+        });
+      }).toThrow(/linkStart and linkEnd values cannot be missing from text/);
+    });
   });
 });

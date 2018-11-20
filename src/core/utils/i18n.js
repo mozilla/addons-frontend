@@ -1,4 +1,6 @@
 /* @flow */
+import invariant from 'invariant';
+
 import type { I18nType } from 'core/types/i18n';
 
 type GetLocalizedTextWithLinkPartsParams = {|
@@ -23,9 +25,10 @@ export const getLocalizedTextWithLinkParts = ({
 
   const parts = localizedExploreMoreLink.split(linkDelimiter);
 
-  if (parts.length === 1) {
-    throw new Error('linkStart and linkEnd values cannot be missing from text');
-  }
+  invariant(
+    parts.length === 3,
+    'linkStart and linkEnd values cannot be missing from text',
+  );
 
   return {
     beforeLinkText: parts[0],
