@@ -61,6 +61,7 @@ export type UserAgentInfoType = {|
       | typeof USER_AGENT_OS_LINUX
       | typeof USER_AGENT_OS_MAC
       | typeof USER_AGENT_OS_WINDOWS,
+    version?: string,
   },
 |};
 
