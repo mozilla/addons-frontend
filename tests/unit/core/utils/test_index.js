@@ -54,7 +54,6 @@ import {
   createFakeHistory,
   createFakeLocation,
   fakeAddon,
-  fakeI18n,
   fakePlatformFile,
   fakeVersion,
   unexpectedSuccess,
