@@ -54,6 +54,10 @@
     font-size: $font-size-default;
     text-align: center;
     white-space: normal;
+
+    @include respond-to(medium) {
+      flex: 0 0 180px;
+    }
   }
 }
 

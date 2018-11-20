@@ -149,13 +149,11 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                 puffy={false}
               />
             )}
-            {addon && (
-              <GetFirefoxButton
-                addon={addon}
-                buttonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
-                className="GetFirefoxButton--guides"
-              />
-            )}
+            <GetFirefoxButton
+              addon={addon}
+              buttonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+              className="GetFirefoxButton--guides"
+            />
           </div>
         </div>
       </Card>
