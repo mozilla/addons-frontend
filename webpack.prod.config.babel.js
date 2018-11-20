@@ -82,7 +82,6 @@ export default {
   ],
   resolve: {
     alias: {
-      normalize: 'normalize.css/normalize.css',
       tests: path.resolve('./tests'),
     },
     modules: [path.resolve('./src'), 'node_modules'],

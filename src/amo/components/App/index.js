@@ -14,6 +14,7 @@ import { compose } from 'redux';
 // CSS file. See: https://github.com/mozilla/addons-frontend/issues/3565
 import 'core/fonts/fira.scss';
 import 'core/fonts/opensans.scss';
+import 'normalize.css/normalize.css';
 import './styles.scss';
 
 /* eslint-disable import/first */

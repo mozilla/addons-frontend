@@ -7,8 +7,9 @@ import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
 import makeClassName from 'classnames';
 
-// We have to import this style first to have it listed first in the final CSS
-// file. See: https://github.com/mozilla/addons-frontend/issues/3565
+// We have to import these styles first to have them listed first in the final
+// CSS file. See: https://github.com/mozilla/addons-frontend/issues/3565
+import 'normalize.css/normalize.css';
 import './styles.scss';
 
 /* eslint-disable import/first */
