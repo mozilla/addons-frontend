@@ -23,6 +23,7 @@ import { getErrorMessage } from 'core/utils/addons';
 import { getClientCompatibility } from 'core/utils/compatibility';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
+import LoadingText from 'ui/components/LoadingText';
 import Notice from 'ui/components/Notice';
 import type { AddonType } from 'core/types/addons';
 import type { AddonVersionType } from 'core/reducers/versions';
@@ -77,6 +78,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
     const {
       _getClientCompatibility,
       addon,
+      addonCustomText,
       clientApp,
       currentVersion,
       i18n,
@@ -102,22 +104,26 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
       compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
     const showInstallButton = addon && isFireFox;
 
-    return addon ? (
+    return (
       <Card>
         {this.renderInstallError()}
         <div className="GuidesAddonCard">
-          <AddonCompatibilityError addon={addon} />
+          {addon && <AddonCompatibilityError addon={addon} />}
           <div className="GuidesAddonCard-content">
-            <img
-              className="GuidesAddonCard-content-icon"
-              src={getAddonIconUrl(addon)}
-              alt={addon.name}
-            />
+            {addon && (
+              <img
+                className="GuidesAddonCard-content-icon"
+                src={getAddonIconUrl(addon)}
+                alt={addon.name}
+              />
+            )}
             <div className="GuidesAddonCard-content-text">
               <div className="GuidesAddonCard-content-header">
                 <div className="GuidesAddonCard-content-header-title">
                   <span className="GuidesAddonCard-content-header-authors">
-                    <AddonTitle addon={addon} as="span" linkToAddon />
+                    {addon && (
+                      <AddonTitle addon={addon} as="span" linkToAddon />
+                    )}
                   </span>
                 </div>
                 {staffPick && (
@@ -128,10 +134,10 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                 )}
               </div>
               <p className="GuidesAddonCard-content-description">
-                {this.props.addonCustomText}
+                {addonCustomText || <LoadingText width={100} />}
               </p>
             </div>
-            {showInstallButton && currentVersion && (
+            {showInstallButton && currentVersion && addon && (
               <AMInstallButton
                 addon={addon}
                 currentVersion={currentVersion}
@@ -149,15 +155,16 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                 puffy={false}
               />
             )}
-            <GetFirefoxButton
-              addon={addon}
-              buttonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
-              className="GetFirefoxButton--guides"
-            />
+            {addon && (
+              <GetFirefoxButton
+                addon={addon}
+                buttonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+              />
+            )}
           </div>
         </div>
       </Card>
-    ) : null;
+    );
   }
 }
 

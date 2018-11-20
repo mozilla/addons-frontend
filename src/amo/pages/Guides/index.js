@@ -13,6 +13,7 @@ import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Icon from 'ui/components/Icon';
+import LoadingText from 'ui/components/LoadingText';
 import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -331,8 +332,12 @@ export class GuidesBase extends React.Component<InternalProps> {
 
       return (
         <div className="Guides-section" key={section.exploreUrl}>
-          <h2 className="Guides-section-title">{section.header}</h2>
-          <p className="Guides-section-description">{section.description}</p>
+          <h2 className="Guides-section-title">
+            {section.header || <LoadingText width={100} />}
+          </h2>
+          <p className="Guides-section-description">
+            {section.description || <LoadingText width={100} />}
+          </p>
 
           <GuidesAddonCard
             addon={addon}
@@ -369,8 +374,12 @@ export class GuidesBase extends React.Component<InternalProps> {
         <div className="Guides">
           <div className="Guides-header">
             <Icon className="Guides-header-icon" name={icon} />
-            <h1 className="Guides-header-page-title">{title}</h1>
-            <p className="Guides-header-intro">{introText}</p>
+            <h1 className="Guides-header-page-title">
+              {title || <LoadingText width={100} />}
+            </h1>
+            <p className="Guides-header-intro">
+              {introText || <LoadingText width={100} />}
+            </p>
             {this.getGuidesSections(sections)}
           </div>
         </div>
