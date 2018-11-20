@@ -5,7 +5,8 @@ import config from 'config';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import SriPlugin from 'webpack-subresource-integrity';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 
 import SriDataPlugin from './src/core/server/sriDataPlugin';
 import { getPlugins, getRules } from './webpack-common';
@@ -20,6 +21,7 @@ for (const app of appsBuildList) {
 }
 
 export default {
+  mode: 'production',
   devtool: 'source-map',
   context: path.resolve(__dirname),
   entry: entryPoints,
@@ -38,45 +40,45 @@ export default {
     // have unique names in the error handlers.
     __filename: true,
   },
+  optimization: {
+    minimizer: [
+      // We do not use UglifyJsPlugin because it does not work as intended with
+      // our config, but TerserPlugin is very similar.
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+        // Even though devtool is set to source-map, this must be true to
+        // output source maps:
+        sourceMap: true,
+        // Do not change these options without busting the cache.
+        // See: https://github.com/mozilla/addons-frontend/issues/5796
+        terserOptions: {
+          output: {
+            comments: false,
+          },
+          compress: {
+            drop_console: true,
+          },
+        },
+      }),
+      new OptimizeCssAssetsPlugin(),
+    ],
+  },
   plugins: [
     ...getPlugins(),
+    // This plugin is not recommended anymore but it still works for us and
+    // WebpackIsomorphicToolsPlugin has a dependency on it... Removing this
+    // plugin means moving to a new isomorphic tool, which seems super
+    // complicated.
     new ExtractTextPlugin({
-      filename: '[name]-[contenthash].css',
+      filename: '[name]-[hash].css',
       allChunks: true,
-    }),
-    // optimizations
-    new UglifyJsPlugin({
-      // Even though devtool is set to source-map, this must be true to output source maps:
-      sourceMap: true,
-      // Do not change these options without busting the cache.
-      // See: https://github.com/mozilla/addons-frontend/issues/5796
-      uglifyOptions: {
-        output: {
-          comments: false,
-        },
-        compress: {
-          drop_console: true,
-        },
-      },
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
     new SriPlugin({ hashFuncNames: ['sha512'] }),
     new SriDataPlugin({
       saveAs: path.join(__dirname, 'dist', 'sri.json'),
     }),
-    // This function helps ensure we do bail if a compilation error
-    // is encountered since --bail doesn't cause the build to fail with
-    // uglify errors.
-    // Remove when https://github.com/webpack/webpack/issues/2390 is fixed.
-    function bailOnStatsError() {
-      this.plugin('done', (stats) => {
-        if (stats.compilation.errors && stats.compilation.errors.length) {
-          // eslint-disable-next-line no-console
-          console.log(stats.compilation.errors);
-          process.exit(1);
-        }
-      });
-    },
   ],
   resolve: {
     alias: {

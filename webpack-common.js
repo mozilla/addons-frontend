@@ -10,8 +10,8 @@ import { getClientConfig } from 'core/utils';
 
 // Common options for URL loaders (i.e. derivatives of file-loader).
 const urlLoaderOptions = {
-  // If a media file is less than this size in bytes, it will be linked as a data: URL.
-  // Otherwise it will be linked as a separate file URL.
+  // If a media file is less than this size in bytes, it will be linked as a
+  // data: URL. Otherwise it will be linked as a separate file URL.
   limit: 10000,
 };
 
@@ -31,20 +31,7 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
     // In development, we bundle styles with the JS.
     styleRules = [
       {
-        test: /\.css$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader', options: { importLoaders: 2 } },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: postCssPlugins,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.scss$/,
+        test: /\.(sc|c)ss$/,
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader', options: { importLoaders: 2 } },
@@ -61,46 +48,25 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
   } else {
     // In production, we create a separate CSS bundle rather than include
     // styles with the JS bundle. This lets the style bundle load in parallel.
-
-    const cssLoaderOptions = {
-      importLoaders: 2,
-      sourceMap: true,
-      minimize: true,
-    };
-
     styleRules = [
       {
-        test: /\.css$/,
+        test: /\.(sc|c)ss$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             {
               loader: 'css-loader',
-              options: cssLoaderOptions,
+              options: {
+                importLoaders: 2,
+                sourceMap: true,
+                minimize: true,
+              },
             },
             {
               loader: 'postcss-loader',
               options: {
                 plugins: postCssPlugins,
                 sourceMap: true,
-              },
-            },
-          ],
-        }),
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: cssLoaderOptions,
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                plugins: postCssPlugins,
               },
             },
             {
