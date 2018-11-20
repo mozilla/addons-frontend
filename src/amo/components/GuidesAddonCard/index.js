@@ -6,7 +6,9 @@ import { withRouter } from 'react-router-dom';
 
 import AddonTitle from 'amo/components/AddonTitle';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
-import { makeQueryStringWithUTM } from 'amo/utils';
+import GetFirefoxButton, {
+  GET_FIREFOX_BUTTON_TYPE_ADDON,
+} from 'amo/components/GetFirefoxButton';
 import AMInstallButton from 'core/components/AMInstallButton';
 import {
   INCOMPATIBLE_NOT_FIREFOX,
@@ -21,7 +23,6 @@ import { getErrorMessage } from 'core/utils/addons';
 import { getClientCompatibility } from 'core/utils/compatibility';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
-import Button from 'ui/components/Button';
 import Notice from 'ui/components/Notice';
 import type { AddonType } from 'core/types/addons';
 import type { AddonVersionType } from 'core/reducers/versions';
@@ -101,11 +102,6 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
       compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
     const showInstallButton = addon && isFireFox;
 
-    // TODO: waiting to hear back on how to handle "+Add" buttons on non
-    // firefox browsers. See:
-    // https://github.com/mozilla/addons-frontend/issues/6916.
-    const showGetFirefoxButton = addon && !isFireFox;
-
     return addon ? (
       <Card>
         {this.renderInstallError()}
@@ -153,21 +149,11 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                 puffy={false}
               />
             )}
-            {/* TODO: See https://github.com/mozilla/addons-frontend/issues/6901. */}
-            {showGetFirefoxButton && (
-              <Button
-                buttonType="confirm"
-                href={`https://www.mozilla.org/firefox/new/${makeQueryStringWithUTM(
-                  {
-                    utm_content: addon.guid,
-                  },
-                )}`}
-                puffy
-                className="Button--get-firefox"
-              >
-                {i18n.gettext('Only with Firefox—Get Firefox Now')}
-              </Button>
-            )}
+            <GetFirefoxButton
+              addon={addon}
+              buttonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+              className="GetFirefoxButton--guides"
+            />
           </div>
         </div>
       </Card>
