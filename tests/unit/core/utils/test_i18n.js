@@ -54,5 +54,23 @@ describe(__filename, () => {
       expect(parts).toHaveProperty('afterLinkText');
       expect(parts.afterLinkText).toEqual(' here.');
     });
+
+    it('lets you pass in different start and end values', () => {
+      const parts = getLocalizedTextWithLinkParts({
+        i18n: fakeI18n(),
+        text: 'Explore more %(wrapperStart)s cool stuff %(wrapperEnd)s here.',
+        linkStart: 'wrapperStart',
+        linkEnd: 'wrapperEnd',
+      });
+
+      expect(parts).toHaveProperty('beforeLinkText');
+      expect(parts.beforeLinkText).toEqual('Explore more ');
+
+      expect(parts).toHaveProperty('innerLinkText');
+      expect(parts.innerLinkText).toEqual(' cool stuff ');
+
+      expect(parts).toHaveProperty('afterLinkText');
+      expect(parts.afterLinkText).toEqual(' here.');
+    });
   });
 });
