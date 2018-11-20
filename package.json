@@ -215,7 +215,6 @@
     "es6-error": "4.1.0",
     "express": "4.16.2",
     "express-http-context": "1.2.0",
-    "extract-text-webpack-plugin": "3.0.2",
     "fastclick": "1.0.6",
     "filesize": "3.6.1",
     "focus-visible": "4.1.5",
@@ -316,6 +315,7 @@
     "file-loader": "^2.0.0",
     "flow-bin": "^0.86.0",
     "glob": "^7.1.1",
+    "html-webpack-plugin": "^3.2.0",
     "http-proxy": "^1.16.2",
     "intl": "^1.2.5",
     "intl-locales-supported": "^1.0.0",
@@ -323,6 +323,7 @@
     "jest-enzyme": "^7.0.0",
     "jest-watch-typeahead": "^0.2.0",
     "json-loader": "^0.5.4",
+    "mini-css-extract-plugin": "^0.4.4",
     "mock-express-request": "^0.2.0",
     "mock-express-response": "^0.2.0",
     "node-sass": "^4.9.1",
@@ -355,10 +356,12 @@
     "tmp": "^0.0.33",
     "tosource": "^1.0.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
-    "webpack": "^3.12.0",
-    "webpack-dev-middleware": "^2.0.6",
-    "webpack-hot-middleware": "^2.18.0",
-    "webpack-subresource-integrity": "^1.0.0-rc.1"
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-dev-server": "^3.1.10",
+    "webpack-hot-middleware": "^2.24.3",
+    "webpack-subresource-integrity": "^1.3.0"
   },
   "storybook-deployer": {
     "commitMessage": "[skip ci] Deploy Storybook to Github Pages"
