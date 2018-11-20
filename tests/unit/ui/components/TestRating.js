@@ -192,6 +192,26 @@ describe(__filename, () => {
     });
   });
 
+  it('renders an accessible button for each rating', () => {
+    const root = renderWithEmptyRating();
+    [1, 2, 3, 4, 5].forEach((rating) => {
+      const button = getStar({ root, rating });
+      const id = `Rating-rating-${rating}-title`;
+
+      expect(button).toHaveProp('aria-describedby', id);
+
+      // Each rating should have a `span` along with a button.
+      expect(root.find(`span[id="${id}"]`)).toHaveLength(1);
+      expect(root.find(`span[id="${id}"]`)).toHaveProp(
+        'className',
+        'visually-hidden',
+      );
+      expect(root.find(`span[id="${id}"]`)).toHaveText(
+        `Rate this add-on ${rating} out of 5`,
+      );
+    });
+  });
+
   it('renders an accessible description for null stars', () => {
     const root = renderWithEmptyRating();
 
