@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-20 19:11+0000\n"
+"PO-Revision-Date: 2018-11-20 19:17+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -952,7 +952,7 @@ msgstr "Jenož z Firefox – Wobstarajće sej nětko Firefox"
 
 #: src/amo/components/GuidesAddonCard/index.js:126
 msgid "Staff Pick"
-msgstr ""
+msgstr "Wot sobudźěłaćerjow wubrane"
 
 #: src/amo/components/GuidesAddonCard/index.js:138
 msgid "Add"
@@ -2082,7 +2082,7 @@ msgstr "Moje zběrki"
 
 #: src/amo/pages/Guides/index.js:102
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "Lochki, jara efektiwny blokowak wabjenja. uBlock Origin wunuzuje tysacy wobsahowych filtrow, bjez toho zo by so wjele składa přetrjebało."
 
 #: src/amo/pages/Guides/index.js:106
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
@@ -2153,13 +2153,12 @@ msgid "Enjoy a beautiful new page with customizable backgrounds, local weather i
 msgstr "Wužiwajće rjanu nowu stronu z přiměrujomnymi pozadkami, informacijemi wo lokalnym wjedrje a wjace."
 
 #: src/amo/pages/Guides/index.js:183
-#, fuzzy
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
-msgstr "Wuslědźće dalše %(linkStart)szrjadowaki hesłow%(linkEnd)s z wuběra sobudźěłaćerjow."
+msgstr "Wuslědźće dalše %(linkStart)smóžnosće, zo byšće swoje rajtarki změnił%(linkEnd)s z wuběra sobudźěłaćerjow."
 
 #: src/amo/pages/Guides/index.js:194
 msgid "Improve videos"
-msgstr ""
+msgstr "Wideja polěpšić"
 
 #: src/amo/pages/Guides/index.js:195
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, from customizing YouTube to taste, to playing videos in theater mode, and much more."
@@ -2170,9 +2169,8 @@ msgid "Add a control bar to all YouTube video pages so you can easily adjust vol
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:205
-#, fuzzy
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "Wuslědźće dalše %(linkStart)szrjadowaki hesłow%(linkEnd)s z wuběra sobudźěłaćerjow."
+msgstr "Wuslědźće dalše %(linkStart)swidejorozšěrjenja%(linkEnd)s z wuběra sobudźěłaćerjow."
 
 #: src/amo/pages/Guides/index.js:213
 msgid "Get more out of media"
@@ -2189,9 +2187,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:225
-#, fuzzy
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "Wuslědźće dalše %(linkStart)szrjadowaki hesłow%(linkEnd)s z wuběra sobudźěłaćerjow."
+msgstr "Wuslědźće dalše %(linkStart)szmedijowe rozšěrjenja%(linkEnd)s z wuběra sobudźěłaćerjow."
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
@@ -2218,9 +2215,8 @@ msgstr ""
 "priwatnosć a wěstotu online skrućić."
 
 #: src/amo/pages/Guides/index.js:271
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "Priwatne zapołožki"
+msgstr "Waše rajtarki a zapołožki organizować"
 
 #: src/amo/pages/Guides/index.js:272
 msgid ""
@@ -2249,9 +2245,8 @@ msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr "Wuslědźće dalše %(linkStart)szrjadowaki hesłow%(linkEnd)s z wuběra sobudźěłaćerjow."
 
 #: src/amo/pages/Guides/index.js:95
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "Wabjenje blokować"
+msgstr "Blokěrujće wobćežne wabjenje"
 
 #: src/amo/pages/Guides/index.js:96
 msgid ""
@@ -2666,9 +2661,8 @@ msgid "User Profile for %(user)s"
 msgstr "Wužiwarski profil za %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:320
-#, fuzzy
 msgid "User Profile"
-msgstr "Profil aktualizować"
+msgstr "Wužiwarski profil"
 
 #: src/amo/pages/UserProfile/index.js:347 src/amo/pages/UserProfileEdit/index.js:635
 msgid "Location"
