@@ -1,6 +1,4 @@
 /* @flow */
-import invariant from 'invariant';
-
 import type { I18nType } from 'core/types/i18n';
 
 type GetLocalizedTextWithLinkPartsParams = {|
@@ -12,9 +10,6 @@ export const getLocalizedTextWithLinkParts = ({
   i18n,
   text,
 }: GetLocalizedTextWithLinkPartsParams): Object => {
-  invariant(i18n, 'i18n is required');
-  invariant(text, 'text is required');
-
   const linkEnds = '__LINK__';
 
   const localizedExploreMoreLink = i18n.sprintf(text, {
