@@ -5,7 +5,6 @@ import AddonCompatibilityError, {
   AddonCompatibilityErrorBase,
 } from 'amo/components/AddonCompatibilityError';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
-import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
@@ -17,7 +16,6 @@ import {
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import { loadVersions } from 'core/reducers/versions';
-import Notice from 'ui/components/Notice';
 import {
   createFakeClientCompatibility,
   dispatchClientMetadata,
@@ -105,9 +103,19 @@ describe(__filename, () => {
     expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
   });
 
-  it('can render without a version', () => {
+  it('renders nothing if the browser is not Firefox', () => {
     const root = render({
       _getClientCompatibility: getClientCompatibilityNonFirefox,
+    });
+
+    expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
+  });
+
+  it('can render without a version', () => {
+    const root = render({
+      _getClientCompatibility: makeGetClientCompatibilityIncompatible({
+        reason: INCOMPATIBLE_OVER_MAX_VERSION,
+      }),
     });
 
     expect(root.find('.AddonCompatibilityError')).toHaveLength(1);
@@ -119,52 +127,6 @@ describe(__filename, () => {
     });
 
     expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
-  });
-
-  it('renders a notice for non-Firefox browsers', () => {
-    const root = renderWithVersion({
-      _getClientCompatibility: getClientCompatibilityNonFirefox,
-    });
-
-    expect(
-      root
-        .find('.AddonCompatibilityError')
-        .childAt(0)
-        .render()
-        .find('a')
-        .attr('href'),
-    ).toEqual(
-      `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM({
-        utm_content: 'install-addon-button',
-      })}`,
-    );
-    expect(root.find('.AddonCompatibilityError-message').html()).toMatch(
-      /You need to .*download Firefox.* to install this add-on/,
-    );
-  });
-
-  it('renders a generic notice for non-Firefox browsers', () => {
-    const root = renderWithVersion({
-      _getClientCompatibility: getClientCompatibilityNonFirefox,
-    });
-
-    expect(root.find('.AddonCompatibilityError').find(Notice)).toHaveProp(
-      'type',
-      'firefox',
-    );
-  });
-
-  it('renders an error notice for other reasons than non-Firefox', () => {
-    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
-      reason: INCOMPATIBLE_OVER_MAX_VERSION,
-    });
-
-    const root = renderWithVersion({ _getClientCompatibility });
-
-    expect(root.find('.AddonCompatibilityError').find(Notice)).toHaveProp(
-      'type',
-      'error',
-    );
   });
 
   it('renders a notice if add-on is over maxVersion/compat is strict', () => {
