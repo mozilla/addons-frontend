@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-20 21:46+0000\n"
+"PO-Revision-Date: 2018-11-20 22:12+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -945,7 +945,7 @@ msgstr "Hanya dengan Firefox—Dapatkan Firefox Sekarang"
 
 #: src/amo/components/GuidesAddonCard/index.js:126
 msgid "Staff Pick"
-msgstr ""
+msgstr "Pilih Kami"
 
 #: src/amo/components/GuidesAddonCard/index.js:138
 msgid "Add"
@@ -2048,7 +2048,7 @@ msgstr "Koleksi saya"
 
 #: src/amo/pages/Guides/index.js:102
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "Penyekat iklan yang ringkas dan efektif. uBlock Origin melaksanakan ribuan tapisan kandungan tanpa menggunakan banyak memori."
 
 #: src/amo/pages/Guides/index.js:106
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
@@ -2056,11 +2056,11 @@ msgstr "Teroka %(linkStart)spenyekat iklan%(linkEnd)s lain yang dipilih."
 
 #: src/amo/pages/Guides/index.js:114
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "Sekat penjejak atas talian daripada mengintip anda"
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr ""
+msgstr "Pengiklan atas talian boleh menjejak aktiviti anda dari satu laman ke web seterusnya, mengumpulkan maklumat dan minat anda. Ekstensi boleh membantu melindungi jejak digital anda."
 
 #: src/amo/pages/Guides/index.js:120
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
