@@ -1,41 +1,5 @@
-// import url from 'url';
-
-// import config from 'config';
-// import UAParser from 'ua-parser-js';
-
-// import {
-//   ADDON_TYPE_COMPLETE_THEME,
-//   ADDON_TYPE_DICT,
-//   ADDON_TYPE_EXTENSION,
-//   ADDON_TYPE_LANG,
-//   ADDON_TYPE_OPENSEARCH,
-//   ADDON_TYPE_STATIC_THEME,
-//   ADDON_TYPE_THEME,
-//   ADDON_TYPE_THEMES_FILTER,
-//   CATEGORY_COLORS,
-//   CLIENT_APP_ANDROID,
-//   CLIENT_APP_FIREFOX,
-//   OS_ALL,
-//   OS_ANDROID,
-//   OS_LINUX,
-//   OS_MAC,
-//   OS_WINDOWS,
-//   validAddonTypes,
-// } from 'core/constants';
 import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
-// import { createInternalAddon } from 'core/reducers/addons';
-// import { createPlatformFiles } from 'core/reducers/versions';
-import {
-  // createFakeHistory,
-  // createFakeLocation,
-  // fakeAddon,
-  fakeI18n,
-  // fakePlatformFile,
-  // fakeVersion,
-  // unexpectedSuccess,
-  // userAgents,
-  // userAgentsByPlatform,
-} from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('getLocalizedTextWithLinkParts', () => {
