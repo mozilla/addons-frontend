@@ -77,23 +77,21 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
     }
 
     const { reason, minVersion } = compatibility;
+    invariant(reason, 'reason is required');
+
+    if (reason === INCOMPATIBLE_NOT_FIREFOX) {
+      // Do not display a message for non-Firefox browsers.
+      return null;
+    }
+
     let downloadUrl = compatibility.downloadUrl || DOWNLOAD_FIREFOX_BASE_URL;
 
     downloadUrl = `${downloadUrl}${makeQueryStringWithUTM({
       utm_content: 'install-addon-button',
     })}`;
 
-    invariant(reason, 'reason is required');
-
     let message;
-    if (reason === INCOMPATIBLE_NOT_FIREFOX) {
-      message = i18n.sprintf(
-        i18n.gettext(`You need to
-        <a href="%(downloadUrl)s">download Firefox</a> to install this
-        add-on.`),
-        { downloadUrl },
-      );
-    } else if (reason === INCOMPATIBLE_OVER_MAX_VERSION) {
+    if (reason === INCOMPATIBLE_OVER_MAX_VERSION) {
       message = i18n.gettext(`This add-on is not compatible with your
         version of Firefox.`);
     } else if (reason === INCOMPATIBLE_NO_OPENSEARCH) {
@@ -136,13 +134,8 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
       );
     }
 
-    // Make the "you should download firefox" error message less scary than
-    // the rest of them: https://github.com/mozilla/addons-frontend/issues/4547
-    const noticeType =
-      reason === INCOMPATIBLE_NOT_FIREFOX ? 'firefox' : 'error';
-
     return (
-      <Notice type={noticeType} className="AddonCompatibilityError">
+      <Notice type="error" className="AddonCompatibilityError">
         <span
           className="AddonCompatibilityError-message"
           dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])}
