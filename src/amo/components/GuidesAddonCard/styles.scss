@@ -13,8 +13,9 @@
     }
   }
 
-  .Button--confirm.Button--puffy.GetFirefoxButton {
+  .GetFirefoxButton--guides.GetFirefoxButton {
     font-size: $font-size-default;
+    max-width: 170px;
     min-width: 160px;
     text-align: center;
     white-space: normal;

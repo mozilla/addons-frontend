@@ -153,6 +153,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
               <GetFirefoxButton
                 addon={addon}
                 buttonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+                className="GetFirefoxButton--guides"
               />
             )}
           </div>
