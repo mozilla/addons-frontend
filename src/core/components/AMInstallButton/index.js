@@ -301,7 +301,9 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       : undefined;
 
     const buttonIsDisabled =
-      disabled === true || !installURL
+      // An `installURL` is only available for add-ons that are not lightweight
+      // themes.
+      disabled === true || (addon.type !== ADDON_TYPE_THEME && !installURL)
         ? true
         : hasAddonManager &&
           status === UNKNOWN &&

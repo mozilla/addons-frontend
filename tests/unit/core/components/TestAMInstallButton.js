@@ -11,6 +11,7 @@ import AMInstallButton, {
 import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
+  ADDON_TYPE_THEME,
   DISABLED,
   DOWNLOADING,
   ENABLED,
@@ -283,6 +284,19 @@ describe(__filename, () => {
     const root = render({ currentVersion: null });
 
     expect(root.find(Button)).toHaveProp('disabled', true);
+    expect(root.find(Button)).toHaveProp('href', undefined);
+  });
+
+  it('does not disable the button when currentVersion is null and add-on is a lightweight theme', () => {
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_THEME,
+      }),
+      currentVersion: null,
+    });
+
+    expect(root.find(Button)).toHaveProp('disabled', false);
     expect(root.find(Button)).toHaveProp('href', undefined);
   });
 
