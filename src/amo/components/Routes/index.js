@@ -89,12 +89,12 @@ const Routes = ({ _config = config }: Props = {}) => (
     />
     <Route
       exact
-      path="/:lang/:application/user/:username/edit/"
+      path="/:lang/:application/user/:userId/edit/"
       component={UserProfileEdit}
     />
     <Route
       exact
-      path="/:lang/:application/user/:username/"
+      path="/:lang/:application/user/:userId/"
       component={UserProfile}
     />
 

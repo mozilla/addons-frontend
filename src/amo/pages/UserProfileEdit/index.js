@@ -18,7 +18,7 @@ import {
   fetchUserAccount,
   fetchUserNotifications,
   getCurrentUser,
-  getUserByUsername,
+  getUserById,
   hasPermission,
   isDeveloper,
   logOutUser,
@@ -31,9 +31,14 @@ import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
+import LoadingText from 'ui/components/LoadingText';
 import Notice from 'ui/components/Notice';
 import OverlayCard from 'ui/components/OverlayCard';
-import type { NotificationsUpdateType, UserType } from 'amo/reducers/users';
+import type {
+  NotificationsUpdateType,
+  UserId,
+  UserType,
+} from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -55,14 +60,17 @@ type Props = {|
   hasEditPermission: boolean,
   history: ReactRouterHistoryType,
   i18n: I18nType,
+  isEditingCurrentUser: boolean,
   isUpdating: boolean,
   lang: string,
+  // `match` is used in `mapStateToProps()`
+  // eslint-disable-next-line react/no-unused-prop-types
   match: {|
     ...ReactRouterMatchType,
-    params: {| username: string |},
+    params: {| userId: string |},
   |},
   user: UserType | null,
-  username: string,
+  userId: UserId,
 |};
 
 type FormValues = {|
@@ -97,7 +105,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
-    const { dispatch, errorHandler, username, user } = props;
+    const { dispatch, errorHandler, userId, user } = props;
 
     this.state = {
       showProfileDeletionModal: false,
@@ -111,20 +119,20 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       return;
     }
 
-    if (!user && username) {
+    if (!user && userId) {
       dispatch(
         fetchUserAccount({
           errorHandlerId: errorHandler.id,
-          username,
+          userId,
         }),
       );
     }
 
-    if ((!user && username) || (user && !user.notifications)) {
+    if ((!user && userId) || (user && !user.notifications)) {
       dispatch(
         fetchUserNotifications({
           errorHandlerId: errorHandler.id,
-          username,
+          userId,
         }),
       );
     }
@@ -134,7 +142,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     const {
       isUpdating: wasUpdating,
       user: oldUser,
-      username: oldUsername,
+      userId: oldUserId,
     } = this.props;
 
     const {
@@ -145,26 +153,25 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       i18n,
       isUpdating,
       lang,
-      match: { params },
       user: newUser,
-      username: newUsername,
+      userId: newUserId,
     } = props;
 
-    if (oldUsername !== newUsername) {
-      if (!newUser && newUsername) {
+    if (oldUserId !== newUserId) {
+      if (!newUser && newUserId) {
         dispatch(
           fetchUserAccount({
             errorHandlerId: errorHandler.id,
-            username: newUsername,
+            userId: newUserId,
           }),
         );
       }
 
-      if ((!newUser && newUsername) || (newUser && !newUser.notifications)) {
+      if ((!newUser && newUserId) || (newUser && !newUser.notifications)) {
         dispatch(
           fetchUserNotifications({
             errorHandlerId: errorHandler.id,
-            username: newUser ? newUser.username : newUsername,
+            userId: newUser ? newUser.id : newUserId,
           }),
         );
       }
@@ -188,12 +195,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }
 
     if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
-      history.push(`/${lang}/${clientApp}/user/${newUsername}/`);
-      return;
-    }
-
-    if (params.username && oldUsername !== newUsername) {
-      history.push(`/${lang}/${clientApp}/user/${newUsername}/edit/`);
+      history.push(`/${lang}/${clientApp}/user/${newUserId}/`);
     }
   }
 
@@ -362,7 +364,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       notifications: {},
       occupation: '',
       picture: null,
-      username: this.props.username,
+      username: '',
     };
 
     if (!user) {
@@ -404,15 +406,52 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     );
   }
 
+  renderProfileAside() {
+    const { user, i18n, isEditingCurrentUser } = this.props;
+
+    if (!user) {
+      return [
+        <LoadingText key="profile-aside-1" width={100} />,
+        <LoadingText key="profile-aside-2" width={80} />,
+      ];
+    }
+
+    return isEditingCurrentUser
+      ? i18n.gettext(`Tell users a bit more information about yourself. These
+        fields are optional, but they'll help other users get to know you
+        better.`)
+      : i18n.sprintf(
+          i18n.gettext(`Tell users a bit more information about this user.
+            These fields are optional, but they'll help other users get to know
+            %(username)s better.`),
+          { username: user.username },
+        );
+  }
+
+  renderBiographyLabel() {
+    const { user, i18n, isEditingCurrentUser } = this.props;
+
+    if (!user) {
+      return <LoadingText />;
+    }
+
+    return isEditingCurrentUser
+      ? i18n.gettext(`Introduce yourself to the community if you like`)
+      : i18n.sprintf(i18n.gettext(`Introduce %(username)s to the community`), {
+          username: user.username,
+        });
+  }
+
   render() {
     const {
       currentUser,
       errorHandler,
       hasEditPermission,
       i18n,
+      isEditingCurrentUser,
       isUpdating,
       user,
-      username,
+      userId,
     } = this.props;
 
     if (!currentUser) {
@@ -443,11 +482,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       return <NotFound />;
     }
 
-    const isEditingCurrentUser =
-      currentUser && user ? currentUser.id === user.id : false;
-
-    const userProfileURL = `/user/${username}/`;
-
+    const userProfileURL = `/user/${userId}/`;
     const overlayClassName = 'UserProfileEdit-deletion-modal';
 
     return (
@@ -491,10 +526,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
             <Card
               className="UserProfileEdit--Card"
               header={
-                isEditingCurrentUser
+                isEditingCurrentUser || !user
                   ? i18n.gettext('Account')
                   : i18n.sprintf(i18n.gettext('Account for %(username)s'), {
-                      username,
+                      username: user.username,
                     })
               }
             >
@@ -516,7 +551,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 </label>
                 <input
                   className="UserProfileEdit-email"
-                  defaultValue={user && user.email}
+                  value={user && user.email}
                   disabled
                   onChange={this.onFieldChange}
                   title={i18n.gettext('Email address cannot be changed here')}
@@ -556,20 +591,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               header={i18n.gettext('Profile')}
             >
               <p className="UserProfileEdit-profile-aside">
-                {isEditingCurrentUser
-                  ? i18n.gettext(
-                      `Tell users a bit more information about yourself. These
-                  fields are optional, but they'll help other users get to know
-                  you better.`,
-                    )
-                  : i18n.sprintf(
-                      i18n.gettext(
-                        `Tell users a bit more information about this user. These
-                    fields are optional, but they'll help other users get to
-                    know %(username)s better.`,
-                      ),
-                      { username },
-                    )}
+                {this.renderProfileAside()}
               </p>
 
               <label className="UserProfileEdit--label" htmlFor="displayName">
@@ -647,14 +669,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               header={i18n.gettext('Biography')}
             >
               <label className="UserProfileEdit--label" htmlFor="biography">
-                {isEditingCurrentUser
-                  ? i18n.gettext(
-                      `Introduce yourself to the community if you like`,
-                    )
-                  : i18n.sprintf(
-                      i18n.gettext(`Introduce %(username)s to the community`),
-                      { username },
-                    )}
+                {this.renderBiographyLabel()}
               </label>
               <Textarea
                 className="UserProfileEdit-biography"
@@ -855,31 +870,35 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
 export function mapStateToProps(state: AppState, ownProps: Props) {
   const { clientApp, lang } = state.api;
+
   const { params } = ownProps.match;
+  const userId = Number(params.userId);
 
   const currentUser = getCurrentUser(state.users);
-  const user = params.username
-    ? getUserByUsername(state.users, params.username)
-    : currentUser;
+  const user = params.userId ? getUserById(state.users, userId) : currentUser;
 
   let hasEditPermission = currentUser && user && currentUser.id === user.id;
   if (currentUser && hasPermission(state, USERS_EDIT)) {
     hasEditPermission = true;
   }
 
+  const isEditingCurrentUser =
+    currentUser && user ? currentUser.id === user.id : false;
+
   return {
     clientApp,
     currentUser,
     hasEditPermission,
+    isEditingCurrentUser,
     isUpdating: state.users.isUpdating,
     lang,
     user,
-    username: user ? user.username : params.username,
+    userId: user ? user.id : userId,
   };
 }
 
 export const extractId = (ownProps: Props) => {
-  return ownProps.match.params.username;
+  return ownProps.match.params.userId;
 };
 
 const UserProfileEdit: React.ComponentType<Props> = compose(

@@ -51,13 +51,13 @@ describe(__filename, () => {
 
   describe('updateUserAccount', () => {
     const getParams = (params = {}) => {
-      const state = dispatchSignInActions().store.getState();
+      const { state } = dispatchSignInActions();
       const userId = getCurrentUser(state.users).id;
 
       return { api: state.api, userId, ...params };
     };
 
-    it('updates a userProfile and returns the new profile', async () => {
+    it('updates a user profile and returns the new profile', async () => {
       const editableFields = {
         biography: 'I am a cool tester.',
         display_name: 'Super Krupa',
@@ -141,16 +141,15 @@ describe(__filename, () => {
   });
 
   describe('userAccount', () => {
-    it('fetches a user profile based on username', async () => {
-      const state = dispatchSignInActions().store.getState();
-      const username = 'tofumatt';
-      const params = { api: state.api, username };
+    it('fetches a user profile based on user ID', async () => {
+      const { state } = dispatchSignInActions();
+      const params = { api: state.api, userId: 123 };
 
       mockApi
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: `accounts/account/${params.username}`,
+          endpoint: `accounts/account/${params.userId}`,
           apiState: params.api,
         })
         .returns(mockResponse());
@@ -161,9 +160,9 @@ describe(__filename, () => {
   });
 
   describe('userNotifications', () => {
-    it('fetches user notifications based on username', async () => {
-      const state = dispatchClientMetadata().store.getState();
-      const params = { api: state.api, username: 'tofumatt' };
+    it('fetches user notifications based on user ID', async () => {
+      const { state } = dispatchSignInActions();
+      const params = { api: state.api, userId: 123 };
 
       const notificationsResponse = createApiResponse({
         jsonData: createUserNotificationsResponse(),
@@ -173,7 +172,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: `accounts/account/${params.username}/notifications`,
+          endpoint: `accounts/account/${params.userId}/notifications`,
           apiState: params.api,
         })
         .returns(notificationsResponse);
@@ -185,7 +184,7 @@ describe(__filename, () => {
 
   describe('deleteUserPicture', () => {
     it('deletes a user profile picture for a given user', async () => {
-      const state = dispatchSignInActions().store.getState();
+      const { state } = dispatchSignInActions();
       const userId = getCurrentUser(state.users).id;
       const params = { api: state.api, userId };
 
@@ -206,7 +205,7 @@ describe(__filename, () => {
 
   describe('deleteUserAccount', () => {
     it('deletes a user profile', async () => {
-      const state = dispatchSignInActions().store.getState();
+      const { state } = dispatchSignInActions();
       const userId = getCurrentUser(state.users).id;
       const params = { api: state.api, userId };
 
@@ -228,7 +227,7 @@ describe(__filename, () => {
 
   describe('updateUserNotifications', () => {
     it('updates the user notifications of a given user', async () => {
-      const state = dispatchSignInActions().store.getState();
+      const { state } = dispatchSignInActions();
       const userId = getCurrentUser(state.users).id;
 
       const notifications = { reply: true };

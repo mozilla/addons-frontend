@@ -27,6 +27,7 @@ import AuthenticateButton from 'core/components/AuthenticateButton';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import Notice from 'ui/components/Notice';
+import LoadingText from 'ui/components/LoadingText';
 import {
   createFakeEvent,
   createFakeHistory,
@@ -40,16 +41,18 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const defaultUserProps = {
-    _window: {},
-    biography: 'Saved the world, too many times.',
-    display_name: 'Matt MacTofu',
-    homepage: 'https://example.org',
-    location: 'Earth',
-    num_addons_listed: 0,
-    occupation: 'Superman',
-    userId: 500,
-    username: 'tofumatt',
+  const defaultUserProps = (props = {}) => {
+    return {
+      biography: 'Saved the world, too many times.',
+      display_name: 'Matt MacTofu',
+      homepage: 'https://example.org',
+      location: 'Earth',
+      num_addons_listed: 0,
+      occupation: 'Superman',
+      userId: 500,
+      username: 'tofumatt',
+      ...props,
+    };
   };
 
   function createFakeEventChange({ name, value }) {
@@ -61,27 +64,39 @@ describe(__filename, () => {
     });
   }
 
-  function signInUserWithUsername(username) {
-    return dispatchSignInActions({
-      userProps: { ...defaultUserProps, username },
-    });
+  function signInUserWithProps({ userId = 123, ...props }) {
+    return {
+      params: { userId },
+      store: dispatchSignInActions({
+        userId,
+        userProps: defaultUserProps({ userId, ...props }),
+      }).store,
+    };
+  }
+
+  function signInUserWithUserId(userId) {
+    return signInUserWithProps({ userId });
   }
 
   function renderUserProfileEdit({
     history = createFakeHistory(),
     i18n = fakeI18n(),
-    params = { username: 'tofumatt' },
+    params = { userId: 100 },
     store = null,
-    userProps = { ...defaultUserProps },
+    userProps,
     ...props
   } = {}) {
     if (!store) {
       // eslint-disable-next-line no-param-reassign
-      store = dispatchSignInActions({ userProps }).store;
+      store = dispatchSignInActions({
+        userId: params.userId,
+        userProps: defaultUserProps(userProps),
+      }).store;
     }
 
     return shallowUntilTarget(
       <UserProfileEdit
+        _window={{}}
         history={history}
         i18n={i18n}
         match={{ params }}
@@ -140,26 +155,26 @@ describe(__filename, () => {
     expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
   });
 
-  it('dispatches fetchUserAccount and fetchUserNotifications actions if username is not found', () => {
-    const { store } = signInUserWithUsername('tofumatt');
+  it('dispatches fetchUserAccount and fetchUserNotifications actions if userId is not found', () => {
+    const { store } = signInUserWithUserId(123);
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    const username = 'i-am-not-tofumatt';
-    const root = renderUserProfileEdit({ params: { username }, store });
+    const userId = 456;
+    const root = renderUserProfileEdit({ params: { userId }, store });
 
     sinon.assert.callCount(dispatchSpy, 2);
     sinon.assert.calledWith(
       dispatchSpy,
       fetchUserAccount({
         errorHandlerId: root.instance().props.errorHandler.id,
-        username,
+        userId,
       }),
     );
     sinon.assert.calledWith(
       dispatchSpy,
       fetchUserNotifications({
         errorHandlerId: root.instance().props.errorHandler.id,
-        username,
+        userId,
       }),
     );
   });
@@ -169,9 +184,9 @@ describe(__filename, () => {
     // logged-in user because this user is loaded in Redux when authenticated,
     // and we do not automatically load the notifications.
 
-    const username = 'tofumatt';
+    const userId = 1234;
 
-    const { store } = signInUserWithUsername(username);
+    const { store } = signInUserWithUserId(userId);
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
@@ -184,20 +199,20 @@ describe(__filename, () => {
       dispatchSpy,
       fetchUserNotifications({
         errorHandlerId: errorHandler.id,
-        username,
+        userId,
       }),
     );
   });
 
   it('does not dispatch any actions if the current logged-in user is being edited and the notifications are loaded', () => {
-    const username = 'tofumatt';
+    const userId = 2;
 
-    const { store } = signInUserWithUsername(username);
+    const { store } = signInUserWithUserId(userId);
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
     store.dispatch(
       loadUserNotifications({
-        username,
+        userId,
         notifications: createUserNotificationsResponse(),
       }),
     );
@@ -212,10 +227,8 @@ describe(__filename, () => {
   });
 
   it('dispatches fetchUserAccount and fetchUserNotifications actions if username changes', () => {
-    const username = 'black-panther';
-    const params = { username };
-
-    const { store } = signInUserWithUsername(username);
+    const userId = 45;
+    const { params, store } = signInUserWithUserId(userId);
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
@@ -225,21 +238,22 @@ describe(__filename, () => {
 
     // We set `user` to `null` because that's what `mapStateToProps()` would do
     // because the user is not loaded yet.
-    root.setProps({ username: 'killmonger', user: null });
+    const newUserId = userId + 9999;
+    root.setProps({ userId: newUserId, user: null });
 
     sinon.assert.callCount(dispatchSpy, 2);
     sinon.assert.calledWith(
       dispatchSpy,
       fetchUserAccount({
         errorHandlerId: errorHandler.id,
-        username: 'killmonger',
+        userId: newUserId,
       }),
     );
     sinon.assert.calledWith(
       dispatchSpy,
       fetchUserNotifications({
         errorHandlerId: errorHandler.id,
-        username: 'killmonger',
+        userId: newUserId,
       }),
     );
 
@@ -247,9 +261,8 @@ describe(__filename, () => {
   });
 
   it('does not fetchUserAccount action if user data are available', () => {
-    const username = 'tofumatt';
-
-    const { store } = signInUserWithUsername(username);
+    const userId = 123;
+    const { params, store } = signInUserWithUserId(userId);
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
@@ -258,55 +271,52 @@ describe(__filename, () => {
     // called.
     store.dispatch(
       loadUserNotifications({
-        username,
+        userId,
         notifications: createUserNotificationsResponse(),
       }),
     );
 
-    const root = renderUserProfileEdit({ errorHandler, store });
+    const root = renderUserProfileEdit({ errorHandler, params, store });
     const user = getCurrentUser(store.getState().users);
 
     dispatchSpy.resetHistory();
 
     // We pass the `user` to simulate the case where the user data are already
     // present in the store.
-    root.setProps({ username: 'killmonger', user });
+    root.setProps({ userId: userId + 999, user });
 
     sinon.assert.notCalled(dispatchSpy);
   });
 
   it('fetches user notifications when not loaded yet', () => {
-    const username = 'tofumatt';
+    const userId = 34;
 
     // When loading the current user, their notifications are not loaded yet
     // and we should dispatch `fetchUserNotifications`.
-    const { store } = signInUserWithUsername(username);
+    const { params, store } = signInUserWithUserId(userId);
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
-    const root = renderUserProfileEdit({ errorHandler, store });
+    const root = renderUserProfileEdit({ errorHandler, params, store });
     const user = getCurrentUser(store.getState().users);
 
     dispatchSpy.resetHistory();
 
     // We pass the `user` to simulate the case where the user data are already
     // present in the store.
-    root.setProps({ username: 'killmonger', user });
+    root.setProps({ userId: userId + 999, user });
 
     sinon.assert.calledWith(
       dispatchSpy,
       fetchUserNotifications({
         errorHandlerId: errorHandler.id,
-        username,
+        userId,
       }),
     );
   });
 
-  it('does not dispatch fetchUserAccount if username does not change', () => {
-    const username = 'black-panther';
-    const params = { username };
-
-    const { store } = signInUserWithUsername(username);
+  it('does not dispatch fetchUserAccount if userId does not change', () => {
+    const { params, store } = signInUserWithUserId(123);
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
     const root = renderUserProfileEdit({ params, store });
@@ -320,12 +330,9 @@ describe(__filename, () => {
 
   it('renders a username input field', () => {
     const username = 'some username';
+
     const root = renderUserProfileEdit({
-      params: { username },
-      userProps: {
-        ...defaultUserProps,
-        username,
-      },
+      userProps: defaultUserProps({ username }),
     });
 
     expect(root.find('.UserProfileEdit-username')).toHaveLength(1);
@@ -336,10 +343,10 @@ describe(__filename, () => {
   });
 
   it('renders disabled input fields when user to edit is not loaded', () => {
-    const { store } = signInUserWithUsername('current-logged-in-user');
-    const username = 'user-not-in-users-state';
+    const { store } = signInUserWithUserId(123);
+    const userId = 456;
 
-    const root = renderUserProfileEdit({ store, params: { username } });
+    const root = renderUserProfileEdit({ store, params: { userId } });
 
     expect(root.find('.UserProfileEdit-username')).toHaveProp('disabled', true);
     expect(root.find('.UserProfileEdit-displayName')).toHaveProp(
@@ -396,10 +403,7 @@ describe(__filename, () => {
 
   it('renders a help text about add-on notifications for users who are developers', () => {
     const root = renderUserProfileEdit({
-      userProps: {
-        ...defaultUserProps,
-        is_addon_developer: true,
-      },
+      userProps: defaultUserProps({ is_addon_developer: true }),
     });
 
     expect(root.find('.UserProfileEdit-notifications--help')).toHaveText(
@@ -410,10 +414,7 @@ describe(__filename, () => {
 
   it('renders a help text about add-on notifications for users who are artists', () => {
     const root = renderUserProfileEdit({
-      userProps: {
-        ...defaultUserProps,
-        is_artist: true,
-      },
+      userProps: defaultUserProps({ is_artist: true }),
     });
 
     expect(root.find('.UserProfileEdit-notifications--help')).toHaveText(
@@ -425,10 +426,9 @@ describe(__filename, () => {
   it('renders a displayName input field', () => {
     const displayName = 'the display name';
     const root = renderUserProfileEdit({
-      userProps: {
-        ...defaultUserProps,
+      userProps: defaultUserProps({
         display_name: displayName,
-      },
+      }),
     });
 
     expect(root.find('.UserProfileEdit-displayName')).toHaveLength(1);
@@ -441,10 +441,9 @@ describe(__filename, () => {
   it('renders a homepage input field', () => {
     const homepage = 'https://example.org';
     const root = renderUserProfileEdit({
-      userProps: {
-        ...defaultUserProps,
+      userProps: defaultUserProps({
         homepage,
-      },
+      }),
     });
 
     expect(root.find('.UserProfileEdit-homepage')).toHaveLength(1);
@@ -457,10 +456,9 @@ describe(__filename, () => {
   it('renders a location input field', () => {
     const location = 'Freiburg, Germany';
     const root = renderUserProfileEdit({
-      userProps: {
-        ...defaultUserProps,
+      userProps: defaultUserProps({
         location,
-      },
+      }),
     });
 
     expect(root.find('.UserProfileEdit-location')).toHaveLength(1);
@@ -473,10 +471,9 @@ describe(__filename, () => {
   it('renders a occupation input field', () => {
     const occupation = 'Bilboquet.';
     const root = renderUserProfileEdit({
-      userProps: {
-        ...defaultUserProps,
+      userProps: defaultUserProps({
         occupation,
-      },
+      }),
     });
 
     expect(root.find('.UserProfileEdit-occupation')).toHaveLength(1);
@@ -489,10 +486,9 @@ describe(__filename, () => {
   it('renders a biography input field', () => {
     const biography = 'This is a biography.';
     const root = renderUserProfileEdit({
-      userProps: {
-        ...defaultUserProps,
+      userProps: defaultUserProps({
         biography,
-      },
+      }),
     });
 
     expect(root.find('.UserProfileEdit-biography')).toHaveLength(1);
@@ -506,10 +502,9 @@ describe(__filename, () => {
   it('sets the biography value to empty string if user has no biography', () => {
     const biography = null;
     const root = renderUserProfileEdit({
-      userProps: {
-        ...defaultUserProps,
+      userProps: defaultUserProps({
         biography,
-      },
+      }),
     });
 
     expect(root.find('.UserProfileEdit-biography')).toHaveLength(1);
@@ -547,11 +542,11 @@ describe(__filename, () => {
   });
 
   it('dispatches updateUserAccount action with all fields on submit', () => {
-    const { store } = signInUserWithUsername('tofumatt');
+    const { params, store } = signInUserWithUserId(123);
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
-    const root = renderUserProfileEdit({ errorHandler, store });
+    const root = renderUserProfileEdit({ errorHandler, params, store });
     const user = getCurrentUser(store.getState().users);
 
     root.find('.UserProfileEdit-form').simulate('submit', createFakeEvent());
@@ -595,8 +590,8 @@ describe(__filename, () => {
   });
 
   it('renders a submit button with a different text when user is not the logged-in user', () => {
-    const { store } = signInUserWithUsername('tofumatt');
-    const params = { username: 'another-user' };
+    const { store } = signInUserWithUserId(123);
+    const params = { userId: 456 };
 
     const root = renderUserProfileEdit({ params, store });
 
@@ -606,8 +601,8 @@ describe(__filename, () => {
   });
 
   it('renders a delete button with a different text when user is not the logged-in user', () => {
-    const { store } = signInUserWithUsername('tofumatt');
-    const params = { username: 'another-user' };
+    const { store } = signInUserWithUserId(123);
+    const params = { userId: 456 };
 
     const root = renderUserProfileEdit({ params, store });
 
@@ -617,11 +612,11 @@ describe(__filename, () => {
   });
 
   it('renders a submit button with a different text when editing', () => {
-    const { store } = signInUserWithUsername('tofumatt');
+    const { params, store } = signInUserWithUserId(123);
 
     _updateUserAccount({ store });
 
-    const root = renderUserProfileEdit({ store });
+    const root = renderUserProfileEdit({ params, store });
 
     expect(root.find('.UserProfileEdit-submit-button').dive()).toHaveText(
       'Updating your profile…',
@@ -629,8 +624,8 @@ describe(__filename, () => {
   });
 
   it('renders a submit button with a different text when user is not the logged-in user and editing', () => {
-    const { store } = signInUserWithUsername('tofumatt');
-    const params = { username: 'another-user' };
+    const { store } = signInUserWithUserId(123);
+    const params = { userId: 456 };
 
     _updateUserAccount({ store });
 
@@ -659,11 +654,11 @@ describe(__filename, () => {
   });
 
   it('dispatches updateUserAccount action with new field values on submit', () => {
-    const { store } = signInUserWithUsername('tofumatt');
+    const { params, store } = signInUserWithUserId(123);
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
-    const root = renderUserProfileEdit({ errorHandler, store });
+    const root = renderUserProfileEdit({ errorHandler, params, store });
     const user = getCurrentUser(store.getState().users);
 
     // We want to make sure dispatched action uses the values updated by the
@@ -699,11 +694,11 @@ describe(__filename, () => {
   });
 
   it('dispatches updateUserAccount action with updated notifications on submit', () => {
-    const { store } = signInUserWithUsername('tofumatt');
+    const { params, store } = signInUserWithUserId(123);
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
-    const root = renderUserProfileEdit({ errorHandler, store });
+    const root = renderUserProfileEdit({ errorHandler, params, store });
     const user = getCurrentUser(store.getState().users);
 
     // The user clicks the `reply` notification to uncheck it.
@@ -746,19 +741,13 @@ describe(__filename, () => {
   });
 
   it('redirects to user profile page when user profile has been updated', () => {
-    const username = 'tofumatt';
+    const userId = 123;
     const clientApp = CLIENT_APP_FIREFOX;
     const lang = 'en-US';
-    const { store } = dispatchSignInActions({
-      clientApp,
-      lang,
-      userProps: {
-        ...defaultUserProps,
-        username,
-      },
-    });
+    const { store } = dispatchSignInActions({ clientApp, lang, userId });
     const user = getCurrentUser(store.getState().users);
     const history = createFakeHistory();
+    const params = { userId };
 
     const occupation = 'new occupation';
 
@@ -770,7 +759,7 @@ describe(__filename, () => {
       userId: user.id,
     });
 
-    const root = renderUserProfileEdit({ history, store });
+    const root = renderUserProfileEdit({ history, params, store });
 
     expect(root.find(Notice)).toHaveLength(0);
     expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
@@ -791,84 +780,12 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       history.push,
-      `/${lang}/${clientApp}/user/${username}/`,
+      `/${lang}/${clientApp}/user/${userId}/`,
     );
-  });
-
-  it('does not change the URL when username has not changed', () => {
-    const oldUsername = 'tofumatt';
-    const newUsername = oldUsername;
-
-    const { store } = signInUserWithUsername(oldUsername);
-    const history = createFakeHistory();
-
-    const root = renderUserProfileEdit({
-      history,
-      params: { username: oldUsername },
-      store,
-    });
-
-    root.setProps({
-      params: { username: newUsername },
-      username: newUsername,
-    });
-
-    sinon.assert.notCalled(history.push);
-  });
-
-  it('changes the URL when username has changed', () => {
-    const clientApp = CLIENT_APP_FIREFOX;
-    const lang = 'fr-FR';
-
-    const oldUsername = 'tofumatt';
-    const newUsername = 'tofumatt-123';
-
-    const { store } = dispatchSignInActions({
-      clientApp,
-      lang,
-      userProps: {
-        ...defaultUserProps,
-        username: oldUsername,
-      },
-    });
-    const history = createFakeHistory();
-
-    const root = renderUserProfileEdit({
-      history,
-      params: { username: oldUsername },
-      store,
-    });
-
-    root.setProps({
-      params: { username: newUsername },
-      username: newUsername,
-    });
-
-    sinon.assert.calledWith(
-      history.push,
-      `/${lang}/${clientApp}/user/${newUsername}/edit/`,
-    );
-  });
-
-  it('does not change the URL when username has changed but no username param found in URL', () => {
-    // This is the case when the current logged-in user changes their username
-    // on `/en-US/firefox/users/edit` (the URL of the edit page for a logged-in
-    // user).
-    const oldUsername = 'tofumatt';
-    const newUsername = 'tofumatt-123';
-
-    const { store } = signInUserWithUsername(oldUsername);
-    const history = createFakeHistory();
-
-    const root = renderUserProfileEdit({ history, store, params: {} });
-
-    root.setProps({ username: newUsername, params: {} });
-
-    sinon.assert.notCalled(history.push);
   });
 
   it('does not render a success message when an error occured', () => {
-    const { store } = signInUserWithUsername('tofumatt');
+    const { params, store } = signInUserWithUserId(123);
     const user = getCurrentUser(store.getState().users);
 
     const errorHandler = new ErrorHandler({
@@ -887,7 +804,7 @@ describe(__filename, () => {
       userId: user.id,
     });
 
-    const root = renderUserProfileEdit({ errorHandler, store });
+    const root = renderUserProfileEdit({ errorHandler, params, store });
 
     expect(root.find(Notice)).toHaveLength(0);
     expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
@@ -911,42 +828,33 @@ describe(__filename, () => {
   });
 
   it('renders a Not Found page when logged-in user cannot edit another user', () => {
-    const username = 'current-logged-in-user';
-    const { store } = dispatchSignInActions({
-      userProps: {
-        ...defaultUserProps,
-        username,
-        permissions: [],
-      },
-    });
+    const userId = 123;
+    const { store } = signInUserWithProps({ userId, permissions: [] });
 
-    // Create a user with another username.
-    const user = createUserAccountResponse({ username: 'willdurand' });
+    // Create a user with another ID.
+    const user = createUserAccountResponse({ id: userId + 999 });
     store.dispatch(loadUserAccount({ user }));
 
     // Try to edit this user with another username.
-    const params = { username: user.username };
+    const params = { userId: user.id };
     const root = renderUserProfileEdit({ params, store });
 
     expect(root.find(NotFound)).toHaveLength(1);
   });
 
   it('allows to edit another user if logged-in user has USERS_EDIT permission', () => {
-    const username = 'current-logged-in-user';
-    const { store } = dispatchSignInActions({
-      userProps: {
-        ...defaultUserProps,
-        username,
-        permissions: [USERS_EDIT],
-      },
+    const userId = 123;
+    const { store } = signInUserWithProps({
+      userId,
+      permissions: [USERS_EDIT],
     });
 
-    // Create a user with another username.
-    const user = createUserAccountResponse({ username: 'willdurand' });
+    // Create a user with another ID.
+    const user = createUserAccountResponse({ id: userId + 999 });
     store.dispatch(loadUserAccount({ user }));
 
-    // Try to edit this user with another username.
-    const params = { username: user.username };
+    // Try to edit this user with another ID.
+    const params = { userId: user.id };
     const root = renderUserProfileEdit({ params, store });
 
     expect(root.find(NotFound)).toHaveLength(0);
@@ -964,7 +872,7 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit--Card').first()).toHaveProp(
       'header',
-      'Account for willdurand',
+      `Account for ${user.username}`,
     );
 
     // We do not display these help messages when current logged-in user edits
@@ -974,13 +882,13 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-profile-aside')).toHaveText(oneLine`Tell
       users a bit more information about this user. These fields are optional,
-      but they'll help other users get to know willdurand better.`);
+      but they'll help other users get to know ${user.username} better.`);
 
     // We do not render this link when user is not the current logged-in user.
     expect(root.find('.UserProfileEdit-manage-account-link')).toHaveLength(0);
 
     expect(root.find({ htmlFor: 'biography' })).toHaveText(
-      'Introduce willdurand to the community',
+      `Introduce ${user.username} to the community`,
     );
 
     expect(root.find('.UserProfileEdit-notifications-aside'))
@@ -1063,23 +971,20 @@ describe(__filename, () => {
   });
 
   it('does not dispatch fetchUserAccount() when user logs out on a user edit page', () => {
-    const username = 'logged-in-user';
-    const { store } = dispatchSignInActions({
-      userProps: {
-        ...defaultUserProps,
-        username,
-        permissions: [USERS_EDIT],
-      },
+    const userId = 123;
+    const { store } = signInUserWithProps({
+      userId,
+      permissions: [USERS_EDIT],
     });
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    // Create a user with another username.
-    const user = createUserAccountResponse({ username: 'willdurand' });
+    // Create a user with another ID.
+    const user = createUserAccountResponse({ id: userId + 999 });
     store.dispatch(loadUserAccount({ user }));
 
     // The current logged-in user edits the profile of the other `user`.
-    const params = { username: user.username };
+    const params = { userId: user.id };
     const root = renderUserProfileEdit({ params, store });
 
     dispatchSpy.resetHistory();
@@ -1129,13 +1034,13 @@ describe(__filename, () => {
   });
 
   it('dispatches a deleteUserPicture action when user deletes their profile picture', () => {
-    const { store } = signInUserWithUsername('tofumatt');
+    const { params, store } = signInUserWithUserId(123);
     const user = getCurrentUser(store.getState().users);
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
-    const root = renderUserProfileEdit({ errorHandler, store });
+    const root = renderUserProfileEdit({ errorHandler, params, store });
 
     dispatchSpy.resetHistory();
 
@@ -1157,8 +1062,8 @@ describe(__filename, () => {
   it('stores the picture file selected by the user', () => {
     const selectedFile = new File([], 'image.png');
 
-    const { store } = signInUserWithUsername('tofumatt');
-    const root = renderUserProfileEdit({ store });
+    const { params, store } = signInUserWithUserId(123);
+    const root = renderUserProfileEdit({ params, store });
 
     expect(root).toHaveState('picture', null);
 
@@ -1182,8 +1087,8 @@ describe(__filename, () => {
   });
 
   it('loads a picture file', () => {
-    const { store } = signInUserWithUsername('tofumatt');
-    const root = renderUserProfileEdit({ store });
+    const { params, store } = signInUserWithUserId(123);
+    const root = renderUserProfileEdit({ params, store });
 
     const result = 'some-data-uri-content';
 
@@ -1199,16 +1104,14 @@ describe(__filename, () => {
   });
 
   it('displays a message when user has deleted their profile picture', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        ...defaultUserProps,
-        picture_url: 'https://example.org/pp.png',
-      },
+    const { params, store } = signInUserWithProps({
+      picture_url: 'https://example.org/pp.png',
     });
     const _window = {
       scroll: sinon.spy(),
     };
-    const root = renderUserProfileEdit({ store, _window });
+
+    const root = renderUserProfileEdit({ params, store, _window });
     const user = getCurrentUser(store.getState().users);
 
     expect(root.find(Notice)).toHaveLength(0);
@@ -1234,10 +1137,11 @@ describe(__filename, () => {
   });
 
   it('displays a modal when user clicks the delete profile button', () => {
-    const { store } = signInUserWithUsername('tofumatt');
+    const userId = 123;
+    const { params, store } = signInUserWithUserId(userId);
     const preventDefaultSpy = sinon.spy();
 
-    const root = renderUserProfileEdit({ store });
+    const root = renderUserProfileEdit({ params, store });
 
     expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
 
@@ -1275,7 +1179,7 @@ describe(__filename, () => {
 
     expect(modal.find('p').at(2)).toHaveHTML(
       oneLine`<p><strong>NOTE:</strong> You cannot delete your profile if you
-      are the <a href="/user/tofumatt/">author of any add-ons</a>. You must
+      are the <a href="/user/${userId}/">author of any add-ons</a>. You must
       <a href="https://developer.mozilla.org/Add-ons/Distribution#More_information_about_AMO">transfer ownership</a>
       or delete the add-ons before you can delete your profile.</p>`,
     );
@@ -1292,14 +1196,11 @@ describe(__filename, () => {
   });
 
   it('disables the confirm button if user has listed add-ons', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        ...defaultUserProps,
-        num_addons_listed: 1,
-      },
+    const { params, store } = signInUserWithProps({
+      num_addons_listed: 1,
     });
 
-    const root = renderUserProfileEdit({ store });
+    const root = renderUserProfileEdit({ params, store });
 
     // Open the modal.
     root
@@ -1313,8 +1214,8 @@ describe(__filename, () => {
   });
 
   it('renders different information in the modal when user to be deleted is not the current logged-in user', () => {
-    const { store } = signInUserWithUsername('tofumatt');
-    const params = { username: 'another-user' };
+    const { store } = signInUserWithUserId(13);
+    const params = { userId: 9999 };
 
     const root = renderUserProfileEdit({ params, store });
 
@@ -1333,7 +1234,7 @@ describe(__filename, () => {
         .find('p')
         .at(1),
     ).toHaveHTML(oneLine`<p><strong>NOTE:</strong> You cannot delete a user’s
-    profile if the user is the <a href="/user/another-user/">author of any
+    profile if the user is the <a href="/user/${params.userId}/">author of any
     add-ons</a>.</p>`);
 
     expect(root.find('.UserProfileEdit-confirm-button').children()).toHaveText(
@@ -1344,8 +1245,8 @@ describe(__filename, () => {
   it('closes the modal when user clicks the cancel button', () => {
     const preventDefaultSpy = sinon.spy();
 
-    const { store } = signInUserWithUsername('tofumatt');
-    const root = renderUserProfileEdit({ store });
+    const { params, store } = signInUserWithUserId(123);
+    const root = renderUserProfileEdit({ params, store });
 
     expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
 
@@ -1374,17 +1275,12 @@ describe(__filename, () => {
     const lang = 'fr-FR';
 
     const userId = 456;
-    const username = 'tofumatt';
-    const params = { username };
+    const params = { userId };
 
     const { store } = dispatchSignInActions({
       clientApp,
       lang,
-      userProps: {
-        ...defaultUserProps,
-        id: userId,
-        username,
-      },
+      userProps: defaultUserProps({ id: userId }),
     });
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -1433,24 +1329,21 @@ describe(__filename, () => {
   });
 
   it('does not dispatch logOutUser when current logged-in user confirms deletion of another user account', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        ...defaultUserProps,
-        username: 'an-admin-user',
-        permissions: [USERS_EDIT],
-      },
+    const { store } = signInUserWithProps({
+      userId: 123,
+      permissions: [USERS_EDIT],
     });
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
-    // Create a user with another username.
-    const user = createUserAccountResponse({ username: 'willdurand' });
+    // Create a user with another ID.
+    const user = createUserAccountResponse({ id: 999 });
     store.dispatch(loadUserAccount({ user }));
 
     const root = renderUserProfileEdit({
       errorHandler,
-      params: { username: user.username },
+      params: { userId: user.id },
       store,
     });
 
@@ -1480,16 +1373,16 @@ describe(__filename, () => {
 
   describe('errorHandler - extractId', () => {
     it('returns a unique ID based on params', () => {
-      const username = 'foo';
-      const params = { username };
+      const userId = 2;
+      const params = { userId };
       const match = { params };
 
-      expect(extractId({ match })).toEqual(username);
+      expect(extractId({ match })).toEqual(userId);
     });
   });
 
   it('stores updated notifications in state', () => {
-    const { store } = signInUserWithUsername('tofumatt');
+    const { store } = signInUserWithUserId(123);
     const root = renderUserProfileEdit({ store });
 
     expect(root).toHaveState('notifications', {});
@@ -1582,18 +1475,15 @@ describe(__filename, () => {
   });
 
   it('does not scroll if we already scrolled because of a success message', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        ...defaultUserProps,
-        picture_url: 'https://example.org/pp.png',
-      },
+    const { params, store } = signInUserWithProps({
+      picture_url: 'https://example.org/pp.png',
     });
 
     const _window = {
       scroll: sinon.spy(),
     };
 
-    const root = renderUserProfileEdit({ store, _window });
+    const root = renderUserProfileEdit({ params, store, _window });
     const user = getCurrentUser(store.getState().users);
 
     sinon.assert.notCalled(_window.scroll);
@@ -1622,37 +1512,32 @@ describe(__filename, () => {
   });
 
   it('does not show any message when navigating to a new user profile', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        ...defaultUserProps,
-        picture_url: 'https://example.org/some-picture.png',
-      },
+    const { params, store } = signInUserWithProps({
+      userId: 123,
+      picture_url: 'https://example.org/some-picture.png',
     });
 
-    // Create a user with another username.
-    const username = 'willdurand';
+    // Create a user with another ID.
+    const userId = 456;
     const user = createUserAccountResponse({
-      username,
+      userId,
       picture_url: null,
     });
     store.dispatch(loadUserAccount({ user }));
 
-    const root = renderUserProfileEdit({ store });
+    const root = renderUserProfileEdit({ params, store });
 
-    root.setProps({
-      user,
-      username,
-    });
+    root.setProps({ user, userId });
 
     expect(root.find(Notice)).toHaveLength(0);
   });
 
   it('clears the error handler when unmounting', () => {
-    const { store } = signInUserWithUsername('babar');
+    const { params, store } = signInUserWithUserId(123);
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
-    const root = renderUserProfileEdit({ errorHandler, store });
+    const root = renderUserProfileEdit({ errorHandler, params, store });
 
     dispatchSpy.resetHistory();
 
@@ -1663,16 +1548,41 @@ describe(__filename, () => {
 
   it('renders a FxA management link to the current logged-in user', () => {
     const link = 'http://example.org/settings?uid=fxa-id-123';
-    const root = renderUserProfileEdit({
-      userProps: {
-        ...defaultUserProps,
-        fxa_edit_email_url: link,
-      },
+    const { params, store } = signInUserWithProps({
+      fxa_edit_email_url: link,
     });
+
+    const root = renderUserProfileEdit({ params, store });
 
     expect(root.find('.UserProfileEdit-manage-account-link')).toHaveProp(
       'href',
       link,
+    );
+  });
+
+  it('renders without a user loaded when current logged-in user is an admin', () => {
+    const userId = 123;
+    const { store } = signInUserWithProps({
+      userId,
+      permissions: [USERS_EDIT],
+    });
+
+    // Create a user with another ID, but do not load it.
+    const user = createUserAccountResponse({ id: userId + 999 });
+
+    // Try to edit this user with another ID.
+    const params = { userId: user.id };
+    const root = renderUserProfileEdit({ params, store });
+
+    expect(root.find('.UserProfileEdit--Card').at(0)).toHaveProp(
+      'header',
+      'Account',
+    );
+    expect(
+      root.find('.UserProfileEdit-profile-aside').find(LoadingText),
+    ).toHaveLength(2);
+    expect(root.find('.UserProfileEdit--label').find(LoadingText)).toHaveLength(
+      1,
     );
   });
 });

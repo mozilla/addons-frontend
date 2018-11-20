@@ -46,27 +46,29 @@ describe(__filename, () => {
     return {
       display_name: 'Matt MacTofu',
       userId: 500,
-      username: 'tofumatt',
       ...props,
     };
   }
 
-  function signInUserWithUsername(username) {
+  function signInUserWithProps({ userId = 123, ...props }) {
     return {
-      params: { username },
+      params: { userId },
       store: dispatchSignInActions({
-        userProps: defaultUserProps({ username }),
+        userId,
+        userProps: defaultUserProps({ userId, ...props }),
       }).store,
     };
+  }
+
+  function signInUserWithUserId(userId) {
+    return signInUserWithProps({ userId });
   }
 
   function renderUserProfile({
     i18n = fakeI18n(),
     location = createFakeLocation(),
-    params = { username: 'tofumatt' },
-    store = dispatchSignInActions({
-      userProps: defaultUserProps(),
-    }).store,
+    params = { userId: 100 },
+    store = dispatchSignInActions({ userId: 100 }).store,
     ...props
   } = {}) {
     return shallowUntilTarget(
@@ -108,47 +110,44 @@ describe(__filename, () => {
     expect(root.find('.UserProfile')).toHaveLength(1);
   });
 
-  it('dispatches fetchUserAccount action if username is not found', () => {
-    const { store } = signInUserWithUsername('tofumatt');
+  it('dispatches fetchUserAccount action if userId is not found', () => {
+    const { store } = signInUserWithUserId(100);
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const username = 'i-am-not-tofumatt';
+    const userId = 200;
 
-    const root = renderUserProfile({ params: { username }, store });
+    const root = renderUserProfile({ params: { userId }, store });
 
     sinon.assert.calledWith(
       dispatchSpy,
       fetchUserAccount({
         errorHandlerId: root.instance().props.errorHandler.id,
-        username,
+        userId,
       }),
     );
   });
 
-  it('dispatches fetchUserAccount action if username param changes', () => {
-    const { params, store } = signInUserWithUsername('black-panther');
+  it('dispatches fetchUserAccount action if userId param changes', () => {
+    const { params, store } = signInUserWithUserId(100);
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
     const root = renderUserProfile({ params, store });
 
     dispatchSpy.resetHistory();
 
-    root.setProps({
-      match: {
-        params: { username: 'killmonger' },
-      },
-    });
+    const userId = 200;
+    root.setProps({ match: { params: { userId } } });
 
     sinon.assert.calledWith(
       dispatchSpy,
       fetchUserAccount({
         errorHandlerId: root.instance().props.errorHandler.id,
-        username: 'killmonger',
+        userId,
       }),
     );
   });
 
-  it('does not dispatch fetchUserAccount if username does not change', () => {
-    const { params, store } = signInUserWithUsername('black-panther');
+  it('does not dispatch fetchUserAccount if userId does not change', () => {
+    const { params, store } = signInUserWithUserId(100);
     const user = getCurrentUser(store.getState().users);
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
@@ -164,7 +163,7 @@ describe(__filename, () => {
   });
 
   it('renders the user avatar', () => {
-    const { params, store } = signInUserWithUsername('black-panther');
+    const { params, store } = signInUserWithUserId(100);
     const root = renderUserProfile({ params, store });
     const header = getHeaderPropComponent(root);
 
@@ -175,54 +174,40 @@ describe(__filename, () => {
   });
 
   it('still passes user prop to avatar while loading', () => {
-    const root = renderUserProfile({ params: { username: 'not-ready' } });
+    const root = renderUserProfile({ params: { userId: 1234 } });
     const header = getHeaderPropComponent(root);
 
-    expect(header.find(UserAvatar)).toHaveProp('user', undefined);
+    expect(header.find(UserAvatar)).toHaveProp('user', null);
   });
 
   it("renders the user's name", () => {
-    const root = renderUserProfile();
+    const displayName = 'some-user-name';
+    const { params, store } = signInUserWithProps({
+      display_name: displayName,
+    });
+
+    const root = renderUserProfile({ params, store });
     const header = getHeaderPropComponent(root);
 
-    expect(header.find('.UserProfile-name')).toHaveText('Matt MacTofu');
-  });
-
-  // See https://github.com/mozilla/addons-frontend/issues/6007
-  it('handles loading zero-prefixed usernames', () => {
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-
-    const username = '0foxgiven';
-    const root = renderUserProfile({ params: { username }, store });
-
-    sinon.assert.calledWith(
-      dispatchSpy,
-      fetchUserAccount({
-        errorHandlerId: root.instance().props.errorHandler.id,
-        username,
-      }),
-    );
+    expect(header.find('.UserProfile-name')).toHaveText(displayName);
   });
 
   it('does not render any tag if user is not a developer or artist', () => {
-    const { store } = dispatchSignInActions({
-      userProps: defaultUserProps({
-        is_addon_developer: false,
-        is_artist: false,
-      }),
+    const { params, store } = signInUserWithProps({
+      is_addon_developer: false,
+      is_artist: false,
     });
-    const root = renderUserProfile({ store });
+
+    const root = renderUserProfile({ params, store });
     const header = getHeaderPropComponent(root);
 
     expect(header.find('.UserProfile-tags')).toHaveLength(0);
   });
 
   it('renders the add-ons developer tag if user is a developer', () => {
-    const { store } = dispatchSignInActions({
-      userProps: defaultUserProps({ is_addon_developer: true }),
-    });
-    const root = renderUserProfile({ store });
+    const { params, store } = signInUserWithProps({ is_addon_developer: true });
+
+    const root = renderUserProfile({ params, store });
     const header = getHeaderPropComponent(root);
 
     expect(header.find('.UserProfile-tags')).toHaveLength(1);
@@ -236,10 +221,9 @@ describe(__filename, () => {
   });
 
   it('renders the theme artist tag if user is an artist', () => {
-    const { store } = dispatchSignInActions({
-      userProps: defaultUserProps({ is_artist: true }),
-    });
-    const root = renderUserProfile({ store });
+    const { params, store } = signInUserWithProps({ is_artist: true });
+
+    const root = renderUserProfile({ params, store });
     const header = getHeaderPropComponent(root);
 
     expect(header.find('.UserProfile-tags')).toHaveLength(1);
@@ -250,34 +234,32 @@ describe(__filename, () => {
     expect(header.find(Icon)).toHaveProp('name', 'artist');
   });
 
-  it('renders LoadingText when user name is not ready', () => {
-    const root = renderUserProfile({ params: { username: 'not-ready' } });
+  it('renders LoadingText when user has not been loaded yet', () => {
+    const root = renderUserProfile({ params: { userId: 666 } });
     const header = getHeaderPropComponent(root);
 
     expect(header.find('.UserProfile-name').find(LoadingText)).toHaveLength(1);
   });
 
   it("renders the user's username if no display name exists", () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        display_name: null,
-        username: 'tofumatt',
-      },
+    const username = 'some name';
+    const { params, store } = signInUserWithProps({
+      display_name: null,
+      username,
     });
-    const root = renderUserProfile({ store });
+
+    const root = renderUserProfile({ params, store });
     const header = getHeaderPropComponent(root);
 
-    expect(header.find('.UserProfile-name')).toHaveText('tofumatt');
+    expect(header.find('.UserProfile-name')).toHaveText(username);
   });
 
   it("renders the user's homepage", () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        homepage: 'http://hamsterdance.com/',
-        username: 'tofumatt',
-      },
+    const { params, store } = signInUserWithProps({
+      homepage: 'http://hamsterdance.com/',
     });
-    const root = renderUserProfile({ store });
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-homepage')).toHaveLength(1);
     expect(root.find('.UserProfile-homepage').children()).toHaveText(
@@ -286,27 +268,18 @@ describe(__filename, () => {
   });
 
   it("omits homepage if the user doesn't have one set", () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        homepage: null,
-        username: 'tofumatt',
-      },
-    });
-    const root = renderUserProfile({ store });
+    const { params, store } = signInUserWithProps({ homepage: null });
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-homepage')).toHaveLength(0);
   });
 
   it("renders the user's occupation", () => {
     const occupation = 'some occupation';
+    const { params, store } = signInUserWithProps({ occupation });
 
-    const { store } = dispatchSignInActions({
-      userProps: {
-        occupation,
-        username: 'tofumatt',
-      },
-    });
-    const root = renderUserProfile({ store });
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-occupation')).toHaveLength(1);
     expect(root.find('.UserProfile-occupation').children()).toHaveText(
@@ -315,52 +288,41 @@ describe(__filename, () => {
   });
 
   it("omits occupation if the user doesn't have one set", () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        occupation: null,
-        username: 'tofumatt',
-      },
+    const { params, store } = signInUserWithProps({
+      occupation: null,
     });
-    const root = renderUserProfile({ store });
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-occupation')).toHaveLength(0);
   });
 
   it("renders the user's location", () => {
     const location = 'some location';
-
-    const { store } = dispatchSignInActions({
-      userProps: {
-        location,
-        username: 'tofumatt',
-      },
+    const { params, store } = signInUserWithProps({
+      location,
     });
-    const root = renderUserProfile({ store });
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-location')).toHaveLength(1);
     expect(root.find('.UserProfile-location').children()).toHaveText(location);
   });
 
   it("omits location if the user doesn't have one set", () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        location: null,
-        username: 'tofumatt',
-      },
-    });
-    const root = renderUserProfile({ store });
+    const { params, store } = signInUserWithProps({ location: null });
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-location')).toHaveLength(0);
   });
 
   it("renders the user's account creation date", () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        created: '2000-08-15T12:01:13Z',
-        username: 'tofumatt',
-      },
+    const { params, store } = signInUserWithProps({
+      created: '2000-08-15T12:01:13Z',
     });
-    const root = renderUserProfile({ store });
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-user-since')).toHaveLength(1);
     expect(root.find('.UserProfile-user-since').children()).toHaveText(
@@ -369,7 +331,7 @@ describe(__filename, () => {
   });
 
   it('renders LoadingText for account creation date while loading', () => {
-    const root = renderUserProfile({ params: { username: 'not-tofu' } });
+    const root = renderUserProfile({ params: { userId: 1234 } });
 
     expect(root.find('.UserProfile-user-since')).toHaveLength(1);
     expect(root.find('.UserProfile-user-since').find(LoadingText)).toHaveLength(
@@ -378,13 +340,9 @@ describe(__filename, () => {
   });
 
   it("renders the user's number of add-ons", () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        num_addons_listed: 70,
-        username: 'tofumatt',
-      },
-    });
-    const root = renderUserProfile({ store });
+    const { params, store } = signInUserWithProps({ num_addons_listed: 70 });
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-number-of-addons')).toHaveLength(1);
     expect(root.find('.UserProfile-number-of-addons').children()).toHaveText(
@@ -393,7 +351,7 @@ describe(__filename, () => {
   });
 
   it('renders LoadingText for number of add-ons while loading', () => {
-    const root = renderUserProfile({ params: { username: 'not-tofu' } });
+    const root = renderUserProfile({ params: { userId: 1234 } });
 
     expect(root.find('.UserProfile-number-of-addons')).toHaveLength(1);
     expect(
@@ -402,13 +360,11 @@ describe(__filename, () => {
   });
 
   it("renders the user's average add-on rating", () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        average_addon_rating: 4.1,
-        username: 'tofumatt',
-      },
+    const { params, store } = signInUserWithProps({
+      average_addon_rating: 4.1,
     });
-    const root = renderUserProfile({ store });
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-rating-average')).toHaveLength(1);
     expect(root.find('.UserProfile-rating-average').find(Rating)).toHaveProp(
@@ -418,7 +374,7 @@ describe(__filename, () => {
   });
 
   it('renders LoadingText for average add-on rating while loading', () => {
-    const root = renderUserProfile({ params: { username: 'not-tofu' } });
+    const root = renderUserProfile({ params: { userId: 1234 } });
 
     expect(root.find('.UserProfile-rating-average')).toHaveLength(1);
     expect(
@@ -428,14 +384,9 @@ describe(__filename, () => {
 
   it("renders the user's biography", () => {
     const biography = '<blockquote><b>Not even vegan!</b></blockquote>';
+    const { params, store } = signInUserWithProps({ biography });
 
-    const { store } = dispatchSignInActions({
-      userProps: {
-        biography,
-        username: 'tofumatt',
-      },
-    });
-    const root = renderUserProfile({ store });
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-biography')).toHaveLength(1);
     expect(root.find('.UserProfile-biography')).toHaveProp('term', 'Biography');
@@ -448,25 +399,17 @@ describe(__filename, () => {
   });
 
   it('omits a null biography', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        biography: null,
-        username: 'tofumatt',
-      },
-    });
-    const root = renderUserProfile({ store });
+    const { params, store } = signInUserWithProps({ biography: null });
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-biography')).toHaveLength(0);
   });
 
   it('omits an empty biography', () => {
-    const { store } = dispatchSignInActions({
-      userProps: {
-        biography: '',
-        username: 'tofumatt',
-      },
-    });
-    const root = renderUserProfile({ store });
+    const { params, store } = signInUserWithProps({ biography: '' });
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-biography')).toHaveLength(0);
   });
@@ -485,19 +428,15 @@ describe(__filename, () => {
   });
 
   it('renders a report abuse button if user is not the current logged-in user', () => {
-    const username = 'current-logged-in-user';
-    const { store } = dispatchSignInActions({
-      userProps: {
-        username,
-      },
-    });
+    const userId = 1;
+    const { store } = dispatchSignInActions({ userId });
 
-    // Create a user with another username.
-    const user = createUserAccountResponse({ username: 'willdurand' });
+    // Create a user with another userId.
+    const user = createUserAccountResponse({ id: 222 });
     store.dispatch(loadUserAccount({ user }));
 
     // See this other user profile page.
-    const params = { username: user.username };
+    const params = { userId: user.id };
     const root = renderUserProfile({ params, store });
 
     expect(root.find(ReportUserAbuse)).toHaveLength(1);
@@ -506,7 +445,7 @@ describe(__filename, () => {
   it('still renders a report abuse component if user is not loaded', () => {
     // The ReportUserAbuse handles an empty `user` object so we should
     // always pass the `user` prop to it.
-    const root = renderUserProfile({ params: { username: 'not-loaded' } });
+    const root = renderUserProfile({ params: { userId: 123 } });
 
     expect(root.find(ReportUserAbuse)).toHaveLength(1);
   });
@@ -532,8 +471,8 @@ describe(__filename, () => {
   });
 
   it('renders AddonsByAuthorsCards without a user', () => {
-    const username = 'not-loaded';
-    const root = renderUserProfile({ params: { username } });
+    const userId = 1234;
+    const root = renderUserProfile({ params: { userId } });
 
     expect(root.find(AddonsByAuthorsCard)).toHaveLength(2);
     expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp('authorIds', null);
@@ -549,8 +488,10 @@ describe(__filename, () => {
   });
 
   it('renders AddonsByAuthorsCard for extensions', () => {
-    const username = 'tofumatt';
-    const root = renderUserProfile({ params: { username } });
+    const userId = 123;
+    const { params, store } = signInUserWithUserId(userId);
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp(
       'addonType',
@@ -563,13 +504,15 @@ describe(__filename, () => {
     expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp('paginate', true);
     expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp(
       'pathname',
-      `/user/${username}/`,
+      `/user/${userId}/`,
     );
   });
 
   it('renders AddonsByAuthorsCard for themes', () => {
-    const username = 'tofumatt';
-    const root = renderUserProfile({ params: { username } });
+    const userId = 123;
+    const { params, store } = signInUserWithUserId(userId);
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
       'addonType',
@@ -582,7 +525,7 @@ describe(__filename, () => {
     expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp('paginate', true);
     expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
       'pathname',
-      `/user/${username}/`,
+      `/user/${userId}/`,
     );
   });
 
@@ -629,67 +572,44 @@ describe(__filename, () => {
   });
 
   it('does not render an edit link if no user found', () => {
-    const root = renderUserProfile({ params: { username: 'not-loaded' } });
+    const root = renderUserProfile({ params: { userId: 1234 } });
 
     expect(root.find('.UserProfile-edit-link')).toHaveLength(0);
   });
 
   it('renders an edit link if user has sufficient permission', () => {
-    const username = 'current-logged-in-user';
-    const { store } = dispatchSignInActions({
-      userProps: {
-        username,
-        permissions: [USERS_EDIT],
-      },
+    const { store } = signInUserWithProps({
+      userId: 1,
+      permissions: [USERS_EDIT],
     });
 
-    // Create a user with another username.
-    const user = createUserAccountResponse({ username: 'willdurand' });
+    // Create a user with another userId.
+    const user = createUserAccountResponse({ id: 2 });
     store.dispatch(loadUserAccount({ user }));
 
     // See this other user profile page.
-    const params = { username: user.username };
+    const params = { userId: user.id };
     const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-edit-link')).toHaveLength(1);
     expect(root.find('.UserProfile-edit-link')).toHaveProp(
       'to',
-      `/user/${user.username}/edit/`,
+      `/user/${user.id}/edit/`,
     );
   });
 
   it('does not render an edit link if user is not allowed to edit other users', () => {
-    const username = 'current-logged-in-user';
-    const { store } = dispatchSignInActions({
-      userProps: {
-        username,
-        permissions: [],
-      },
+    const { store } = signInUserWithProps({
+      userId: 1,
+      permissions: [],
     });
 
-    // Create a user with another username.
-    const user = createUserAccountResponse({ username: 'willdurand' });
+    // Create a user with another userId.
+    const user = createUserAccountResponse({ id: 2 });
     store.dispatch(loadUserAccount({ user }));
 
     // See this other user profile page.
-    const params = { username: user.username };
-    const root = renderUserProfile({ params, store });
-
-    expect(root.find('.UserProfile-edit-link')).toHaveLength(0);
-  });
-
-  it('does not render an edit link if user is not found', () => {
-    const username = 'current-logged-in-user';
-    const { store } = dispatchSignInActions({
-      userProps: {
-        username,
-        permissions: [USERS_EDIT],
-      },
-    });
-
-    // We browse another user profile page for a user that is not loaded in the
-    // state.
-    const params = { username: 'another-user' };
+    const params = { userId: user.id };
     const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-edit-link')).toHaveLength(0);
@@ -702,16 +622,13 @@ describe(__filename, () => {
   });
 
   it('does not render an admin link if no user is found', () => {
-    const username = 'current-logged-in-user';
-    const { store } = dispatchSignInActions({
-      userProps: {
-        username,
-        permissions: [USERS_EDIT, ADMIN_TOOLS],
-      },
+    const { store } = signInUserWithProps({
+      userId: 1,
+      permissions: [USERS_EDIT, ADMIN_TOOLS],
     });
 
     const root = renderUserProfile({
-      params: { username: 'not-loaded' },
+      params: { userId: 3456 },
       store,
     });
 
@@ -719,39 +636,35 @@ describe(__filename, () => {
   });
 
   it('renders an admin link if user has sufficient permission', () => {
-    const username = 'current-logged-in-user';
-    const { store } = dispatchSignInActions({
-      userProps: {
-        username,
-        permissions: [USERS_EDIT, ADMIN_TOOLS],
-      },
+    const userId = 1;
+    const { store } = signInUserWithProps({
+      userId,
+      permissions: [USERS_EDIT, ADMIN_TOOLS],
     });
 
-    const user = createUserAccountResponse({ username });
+    const user = createUserAccountResponse({ userId });
     store.dispatch(loadUserAccount({ user }));
 
-    const root = renderUserProfile({ params: { username }, store });
+    const root = renderUserProfile({ params: { userId }, store });
 
     expect(root.find('.UserProfile-admin-link')).toHaveLength(1);
     expect(root.find('.UserProfile-admin-link')).toHaveProp(
       'href',
-      `/admin/models/users/userprofile/${user.id}/`,
+      `/admin/models/users/userprofile/${userId}/`,
     );
   });
 
   it('does not render an admin link if user is not allowed to admin users', () => {
-    const username = 'current-logged-in-user';
-    const { store } = dispatchSignInActions({
-      userProps: {
-        username,
-        permissions: [],
-      },
+    const userId = 1;
+    const { store } = signInUserWithProps({
+      userId,
+      permissions: [],
     });
 
-    const user = createUserAccountResponse({ username });
+    const user = createUserAccountResponse({ userId });
     store.dispatch(loadUserAccount({ user }));
 
-    const root = renderUserProfile({ params: { username }, store });
+    const root = renderUserProfile({ params: { userId }, store });
 
     expect(root.find('.UserProfile-admin-link')).toHaveLength(0);
   });
@@ -773,10 +686,9 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeDispatch);
   });
 
-  it('fetches reviews if not loaded and username does not change', () => {
-    const { params, store } = signInUserWithUsername('black-panther');
+  it('fetches reviews if not loaded and userId does not change', () => {
+    const { params, store } = signInUserWithUserId(100);
     const user = getCurrentUser(store.getState().users);
-
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
@@ -798,7 +710,7 @@ describe(__filename, () => {
   });
 
   it('fetches reviews if page has changed and username does not change', () => {
-    const { params, store } = signInUserWithUsername('black-panther');
+    const { params, store } = signInUserWithUserId(100);
     const user = getCurrentUser(store.getState().users);
 
     _setUserReviews({ store, userId: user.id });
@@ -835,7 +747,7 @@ describe(__filename, () => {
   });
 
   it('fetches reviews if user is loaded', () => {
-    const { params, store } = signInUserWithUsername('black-panther');
+    const { params, store } = signInUserWithUserId(100);
     const user = getCurrentUser(store.getState().users);
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -858,7 +770,7 @@ describe(__filename, () => {
   });
 
   it('does not fetch reviews if already loaded', () => {
-    const { params, store } = signInUserWithUsername('black-panther');
+    const { params, store } = signInUserWithUserId(100);
     const user = getCurrentUser(store.getState().users);
 
     _setUserReviews({ store, userId: user.id });
@@ -871,13 +783,12 @@ describe(__filename, () => {
   });
 
   it(`displays the user's reviews`, () => {
-    const { params, store } = signInUserWithUsername('black-panther');
-    const user = getCurrentUser(store.getState().users);
+    const userId = 100;
+    const { params, store } = signInUserWithUserId(userId);
+
     const review = fakeReview;
-
     const reviews = [review];
-    _setUserReviews({ store, userId: user.id, reviews });
-
+    _setUserReviews({ store, userId, reviews });
     const location = createFakeLocation({ query: { foo: 'bar' } });
 
     const root = renderUserProfile({ location, params, store });
@@ -896,17 +807,16 @@ describe(__filename, () => {
   });
 
   it(`displays the user's reviews with pagination when there are more reviews than the default API page size`, () => {
-    const { params, store } = signInUserWithUsername('black-panther');
-    const user = getCurrentUser(store.getState().users);
+    const userId = 100;
+    const { params, store } = signInUserWithUserId(userId);
 
     const reviews = Array(DEFAULT_API_PAGE_SIZE).fill(fakeReview);
     _setUserReviews({
       store,
-      userId: user.id,
+      userId,
       reviews,
       count: DEFAULT_API_PAGE_SIZE + 2,
     });
-
     const location = createFakeLocation({ query: { foo: 'bar' } });
 
     const root = renderUserProfile({ location, params, store });
@@ -915,57 +825,57 @@ describe(__filename, () => {
     expect(paginator.instance()).toBeInstanceOf(Paginate);
     expect(paginator).toHaveProp('count', DEFAULT_API_PAGE_SIZE + 2);
     expect(paginator).toHaveProp('currentPage', '1');
-    expect(paginator).toHaveProp('pathname', '/user/black-panther/');
+    expect(paginator).toHaveProp('pathname', `/user/${userId}/`);
     expect(paginator).toHaveProp('queryParams', location.query);
 
     expect(root.find(AddonReviewCard)).toHaveLength(DEFAULT_API_PAGE_SIZE);
   });
 
   it(`does not display the user's reviews when current user is not the owner`, () => {
-    const username = 'current-logged-in-user';
-    const { store } = signInUserWithUsername(username);
+    const userId = 100;
+    const { store } = signInUserWithUserId(userId);
 
-    // Create a user with another username.
-    const user = createUserAccountResponse({ username: 'willdurand' });
+    // Create a user with another userId.
+    const user = createUserAccountResponse({ id: 2 });
     store.dispatch(loadUserAccount({ user }));
 
-    _setUserReviews({ store, userId: user.id });
+    _setUserReviews({ store, userId });
 
     // See this other user profile page.
-    const params = { username: user.username };
+    const params = { userId: user.id };
     const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-reviews')).toHaveLength(0);
   });
 
   it('does not fetch the reviews when user is loaded but current user is not the owner', () => {
-    const { store } = signInUserWithUsername('black-panther');
+    const { store } = signInUserWithUserId(100);
 
-    // Create a user with another username.
-    const user = createUserAccountResponse({ username: 'willdurand' });
+    // Create a user with another userId.
+    const user = createUserAccountResponse({ id: 2 });
     store.dispatch(loadUserAccount({ user }));
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
     // See this other user profile page.
-    const params = { username: user.username };
+    const params = { userId: user.id };
     renderUserProfile({ params, store });
 
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it('does not fetch the reviews when page has changed and username does not change but user is not the owner', () => {
-    const { store } = signInUserWithUsername('black-panther');
+  it('does not fetch the reviews when page has changed and userId does not change but user is not the owner', () => {
+    const { store } = signInUserWithUserId(100);
 
-    // Create a user with another username.
-    const user = createUserAccountResponse({ username: 'willdurand' });
+    // Create a user with another userId.
+    const user = createUserAccountResponse({ id: 2 });
     store.dispatch(loadUserAccount({ user }));
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const location = createFakeLocation({ query: { page: '1' } });
 
     // See this other user profile page.
-    const params = { username: user.username };
+    const params = { userId: user.id };
     const root = renderUserProfile({ location, params, store });
 
     dispatchSpy.resetHistory();
@@ -1001,52 +911,55 @@ describe(__filename, () => {
   });
 
   it('renders a user profile when URL contains a user ID', () => {
-    const { store } = signInUserWithUsername('black-panther');
-    const user = getCurrentUser(store.getState().users);
+    const userId = 100;
+    const name = 'some user name';
+    const { params, store } = signInUserWithProps({
+      userId,
+      display_name: name,
+    });
 
     const reviews = Array(DEFAULT_API_PAGE_SIZE).fill(fakeReview);
     _setUserReviews({
       store,
-      userId: user.id,
+      userId,
       reviews,
       count: DEFAULT_API_PAGE_SIZE + 2,
     });
 
-    const root = renderUserProfile({ params: { username: user.id }, store });
+    const root = renderUserProfile({ params, store });
     const header = getHeaderPropComponent(root);
 
     expect(root.find('.UserProfile')).toHaveLength(1);
-    expect(header.find('.UserProfile-name')).toHaveText(user.name);
+    expect(header.find('.UserProfile-name')).toHaveText(name);
 
     expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp('authorIds', [
-      user.id,
+      userId,
     ]);
     expect(root.find(AddonsByAuthorsCard).at(0)).toHaveProp(
       'pathname',
-      `/user/${user.username}/`,
+      `/user/${userId}/`,
     );
     expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp('authorIds', [
-      user.id,
+      userId,
     ]);
     expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
       'pathname',
-      `/user/${user.username}/`,
+      `/user/${userId}/`,
     );
 
     const paginator = shallow(root.find('.UserProfile-reviews').prop('footer'));
-    expect(paginator).toHaveProp('pathname', `/user/${user.username}/`);
+    expect(paginator).toHaveProp('pathname', `/user/${userId}/`);
   });
 
   it('renders a "description" meta tag when user is a developer', () => {
     const displayName = 'John Doe';
-    const { store } = dispatchSignInActions({
-      userProps: defaultUserProps({
-        display_name: displayName,
-        is_addon_developer: true,
-        is_artist: false,
-      }),
+    const { params, store } = signInUserWithProps({
+      display_name: displayName,
+      is_addon_developer: true,
+      is_artist: false,
     });
-    const root = renderUserProfile({ store });
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('meta[name="description"]')).toHaveLength(1);
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
@@ -1059,14 +972,13 @@ describe(__filename, () => {
 
   it('renders a "description" meta tag when user is an artist', () => {
     const displayName = 'John Doe';
-    const { store } = dispatchSignInActions({
-      userProps: defaultUserProps({
-        display_name: displayName,
-        is_addon_developer: false,
-        is_artist: true,
-      }),
+    const { params, store } = signInUserWithProps({
+      display_name: displayName,
+      is_addon_developer: false,
+      is_artist: true,
     });
-    const root = renderUserProfile({ store });
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('meta[name="description"]')).toHaveLength(1);
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
@@ -1079,14 +991,13 @@ describe(__filename, () => {
 
   it('renders a "description" meta tag when user is a developer and an artist', () => {
     const displayName = 'John Doe';
-    const { store } = dispatchSignInActions({
-      userProps: defaultUserProps({
-        display_name: displayName,
-        is_addon_developer: true,
-        is_artist: true,
-      }),
+    const { params, store } = signInUserWithProps({
+      display_name: displayName,
+      is_addon_developer: true,
+      is_artist: true,
     });
-    const root = renderUserProfile({ store });
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('meta[name="description"]')).toHaveLength(1);
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
@@ -1101,31 +1012,30 @@ describe(__filename, () => {
 
   it('does not render a "description" meta tag when user is neither a developer nor an artist', () => {
     const displayName = 'John Doe';
-    const { store } = dispatchSignInActions({
-      userProps: defaultUserProps({
-        display_name: displayName,
-        is_addon_developer: false,
-        is_artist: false,
-      }),
+    const { params, store } = signInUserWithProps({
+      display_name: displayName,
+      is_addon_developer: false,
+      is_artist: false,
     });
-    const root = renderUserProfile({ store });
+
+    const root = renderUserProfile({ params, store });
 
     expect(root.find('meta[name="description"]')).toHaveLength(0);
   });
 
   it('does not render a "description" meta tag when there is no user loaded', () => {
-    const root = renderUserProfile({ params: { username: 'not-ready' } });
+    const root = renderUserProfile({ params: { userId: 1234 } });
 
     expect(root.find('meta[name="description"]')).toHaveLength(0);
   });
 
   describe('errorHandler - extractId', () => {
     it('returns a unique ID based on match.params', () => {
-      const username = 'foo';
-      const params = { username };
+      const userId = 123;
+      const params = { userId };
       const match = { params };
 
-      expect(extractId({ match })).toEqual(username);
+      expect(extractId({ match })).toEqual(userId);
     });
   });
 });

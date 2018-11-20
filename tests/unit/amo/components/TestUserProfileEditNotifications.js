@@ -47,8 +47,8 @@ describe(__filename, () => {
   });
 
   it(`renders loading notifications when user's notifications are not loaded`, () => {
-    const username = 'johnedoe';
-    const { store } = dispatchSignInActions({ userProps: { username } });
+    const userId = 123;
+    const { store } = dispatchSignInActions({ userId });
     const { users } = store.getState();
 
     const user = getCurrentUser(users);
@@ -59,11 +59,11 @@ describe(__filename, () => {
   });
 
   it(`renders notifications when the user's notifications are loaded`, () => {
-    const username = 'johnedoe';
+    const userId = 123;
     const notifications = createUserNotificationsResponse();
 
-    const { store } = dispatchSignInActions({ userProps: { username } });
-    store.dispatch(loadUserNotifications({ username, notifications }));
+    const { store } = dispatchSignInActions({ userId });
+    store.dispatch(loadUserNotifications({ userId, notifications }));
 
     const { users } = store.getState();
     const user = getCurrentUser(users);
@@ -99,13 +99,13 @@ describe(__filename, () => {
   });
 
   it('does not render a notification if there is no corresponding label', () => {
-    const username = 'johnedoe';
+    const userId = 123;
     const notifications = [
       { name: 'invalid-notification-name', enabled: true, mandatory: false },
     ];
 
-    const { store } = dispatchSignInActions({ userProps: { username } });
-    store.dispatch(loadUserNotifications({ username, notifications }));
+    const { store } = dispatchSignInActions({ userId });
+    store.dispatch(loadUserNotifications({ userId, notifications }));
 
     const { users } = store.getState();
     const user = getCurrentUser(users);
