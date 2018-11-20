@@ -6,6 +6,7 @@ import GuidesAddonCard, {
 import AddonTitle from 'amo/components/AddonTitle';
 import AMInstallButton from 'core/components/AMInstallButton';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
+import GetFirefoxButton from 'amo/components/GetFirefoxButton';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
@@ -178,8 +179,6 @@ describe(__filename, () => {
     expect(installButton).toHaveProp('uninstall', uninstall);
   });
 
-  // TODO: This will probably change; I'm waiting for feedback on this.
-  // See https://github.com/mozilla/addons-frontend/issues/6916.
   it('renders "Get Firefox Now" button when the client is not Firefox', () => {
     const root = render({
       _getClientCompatibility: sinon.stub().returns({
@@ -188,28 +187,7 @@ describe(__filename, () => {
       }),
     });
 
-    expect(root.find('.Button--get-firefox')).toHaveLength(1);
-  });
-
-  it('passes the addon GUID to the Firefox install button', () => {
-    const guid = 'some-guid';
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      guid,
-    });
-
-    const root = render({
-      _getClientCompatibility: sinon.stub().returns({
-        compatible: false,
-        reason: INCOMPATIBLE_NOT_FIREFOX,
-      }),
-      addon,
-    });
-
-    expect(root.find('.Button--get-firefox')).toHaveLength(1);
-    expect(root.find('.Button--get-firefox').prop('href')).toMatch(
-      `&utm_content=${guid}`,
-    );
+    expect(root.find(GetFirefoxButton)).toHaveLength(1);
   });
 
   // TODO: https://github.com/mozilla/addons-frontend/issues/6902

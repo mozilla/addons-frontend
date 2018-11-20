@@ -4,13 +4,20 @@
   display: flex;
   flex-direction: column;
 
-  .Button--get-firefox,
+  .GetFirefoxButton,
   .AMInstallButton {
     @include respond-to(medium) {
       @include margin-start(auto);
 
       align-self: center;
     }
+  }
+
+  .Button--confirm.Button--puffy.GetFirefoxButton {
+    font-size: $font-size-default;
+    min-width: 160px;
+    text-align: center;
+    white-space: normal;
   }
 
   .Icon-trophy {
