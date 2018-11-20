@@ -31,7 +31,7 @@ export type AbuseState = {|
   loading: boolean,
 |};
 
-export const initialState = {
+export const initialState: AbuseState = {
   bySlug: {},
   loading: false,
 };
