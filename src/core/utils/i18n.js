@@ -14,14 +14,14 @@ export const getLocalizedTextWithLinkParts = ({
   linkStart = 'linkStart',
   linkEnd = 'linkEnd',
 }: GetLocalizedTextWithLinkPartsParams): Object => {
-  const splitOn = '__LINK__';
+  const linkDelimiter = '__LINK__';
 
   const localizedExploreMoreLink = i18n.sprintf(text, {
-    [linkStart]: splitOn,
-    [linkEnd]: splitOn,
+    [linkStart]: linkDelimiter,
+    [linkEnd]: linkDelimiter,
   });
 
-  const parts = localizedExploreMoreLink.split(splitOn);
+  const parts = localizedExploreMoreLink.split(linkDelimiter);
 
   return {
     beforeLinkText: parts[0],

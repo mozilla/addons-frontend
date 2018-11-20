@@ -113,10 +113,19 @@ describe(__filename, () => {
     );
 
     const sectionExploreMore = root.find('.Guides-section-explore-more').at(0);
+
+    expect(sectionExploreMore.childAt(0).text()).toEqual(
+      linkParts.beforeLinkText,
+    );
+
     const sectionExploreLink = sectionExploreMore.find(Link);
 
     expect(sectionExploreLink.children().text()).toEqual(
       linkParts.innerLinkText,
+    );
+
+    expect(sectionExploreMore.childAt(2).text()).toEqual(
+      linkParts.afterLinkText,
     );
   });
 
