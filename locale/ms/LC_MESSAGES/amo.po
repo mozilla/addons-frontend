@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-20 22:20+0000\n"
+"PO-Revision-Date: 2018-11-20 23:07+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -2103,6 +2103,8 @@ msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"Mahu membantu mengatur semua resipi memasak atas talian kegemaran anda, artikel, video YouTube, atau apa sahaja yang anda dapat dalam web? OneNote Web Clipper membolehkan anda mengumpul dan "
+"menyimpan semua kandungan atas talian kegemaran anda dalam repositori yang menyelaraskannya ke semua peranti."
 
 #: src/amo/pages/Guides/index.js:166
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
@@ -2110,11 +2112,11 @@ msgstr "Teroka %(linkStart)spengurus tandabuku%(linkEnd)s lain yang dipilih."
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Nikmati pengalaman tab serba baru"
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "Mulakan setiap sesi pelayaran yang disesuaikan dengan pengalaman tab baru anda."
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
@@ -2126,7 +2128,7 @@ msgstr "Teroka %(linkStart)scara menyeronokan untuk menukar tab%(linkEnd)s lain 
 
 #: src/amo/pages/Guides/index.js:194
 msgid "Improve videos"
-msgstr ""
+msgstr "Tingkatkan video"
 
 #: src/amo/pages/Guides/index.js:195
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, from customizing YouTube to taste, to playing videos in theater mode, and much more."
