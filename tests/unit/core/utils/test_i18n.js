@@ -19,7 +19,7 @@ describe(__filename, () => {
       expect(parts.afterLinkText).toEqual(' here.');
     });
 
-    it('lets you pass in different start and end values', () => {
+    it('lets you pass in different linkStart and linkEnd values', () => {
       const parts = getLocalizedTextWithLinkParts({
         i18n: fakeI18n(),
         text: 'Explore more %(wrapperStart)s cool stuff %(wrapperEnd)s here.',

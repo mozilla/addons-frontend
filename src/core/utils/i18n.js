@@ -23,6 +23,10 @@ export const getLocalizedTextWithLinkParts = ({
 
   const parts = localizedExploreMoreLink.split(linkDelimiter);
 
+  if (parts.length === 1) {
+    throw new Error('linkStart and linkEnd values cannot be missing from text');
+  }
+
   return {
     beforeLinkText: parts[0],
     innerLinkText: parts[1],
