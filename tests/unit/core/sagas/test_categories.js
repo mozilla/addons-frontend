@@ -3,7 +3,7 @@ import SagaTester from 'redux-saga-tester';
 import createStore from 'amo/store';
 import { setClientApp, setLang } from 'core/actions';
 import categoriesSaga from 'core/sagas/categories';
-import * as api from 'core/api';
+import * as api from 'core/api/categories';
 import apiReducer from 'core/reducers/api';
 import categoriesReducer, {
   LOAD_CATEGORIES,
@@ -49,7 +49,7 @@ describe(__filename, () => {
     const results = [];
 
     mockApi
-      .expects('categories')
+      .expects('getCategories')
       .once()
       .withArgs({
         api: { ...initialState.api },
@@ -81,7 +81,7 @@ describe(__filename, () => {
   it('should handle API errors', async () => {
     const mockApi = sinon.mock(api);
     const error = new Error('I have failed!');
-    mockApi.expects('categories').throws(error);
+    mockApi.expects('getCategories').throws(error);
 
     expect(sagaTester.getState()).toEqual(initialState);
 
@@ -98,7 +98,7 @@ describe(__filename, () => {
     const mockApi = sinon.mock(api);
 
     mockApi
-      .expects('categories')
+      .expects('getCategories')
       .twice()
       .withArgs({
         api: { ...initialState.api },

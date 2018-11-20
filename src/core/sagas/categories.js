@@ -1,11 +1,11 @@
 /* @flow */
 import { call, put, select, takeEvery } from 'redux-saga/effects';
 
-import { categories as categoriesApi } from 'core/api';
+import { getCategories } from 'core/api/categories';
 import log from 'core/logger';
 import { FETCH_CATEGORIES, loadCategories } from 'core/reducers/categories';
 import { createErrorHandler, getState } from 'core/sagas/utils';
-import type { CategoriesParams } from 'core/api';
+import type { GetCategoriesParams } from 'core/api/categories';
 import type { FetchCategoriesAction } from 'core/reducers/categories';
 import type { Saga } from 'core/types/sagas';
 
@@ -16,8 +16,8 @@ export function* fetchCategories({
   try {
     const state = yield select(getState);
 
-    const params: CategoriesParams = { api: state.api };
-    const results = yield call(categoriesApi, params);
+    const params: GetCategoriesParams = { api: state.api };
+    const results = yield call(getCategories, params);
 
     yield put(loadCategories({ results }));
   } catch (error) {
