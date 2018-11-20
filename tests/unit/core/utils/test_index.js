@@ -39,7 +39,6 @@ import {
   isAllowedOrigin,
   isTheme,
   isValidClientApp,
-  getLocalizedTextWithLinkParts,
   nl2br,
   normalizeFileNameId,
   removeProtocolFromURL,
@@ -886,40 +885,6 @@ describe(__filename, () => {
           files: [],
         }),
       ).toEqual(undefined);
-    });
-  });
-
-  describe('getLocalizedTextWithLinkParts', () => {
-    it('returns a descriptive object', () => {
-      const parts = getLocalizedTextWithLinkParts({
-        i18n: fakeI18n(),
-        text: 'Explore more %(linkStart)s stuff %(linkEnd)s here.',
-      });
-
-      expect(parts).toHaveProperty('beforeLinkText');
-      expect(parts.beforeLinkText).toEqual('Explore more ');
-
-      expect(parts).toHaveProperty('innerLinkText');
-      expect(parts.innerLinkText).toEqual(' stuff ');
-
-      expect(parts).toHaveProperty('afterLinkText');
-      expect(parts.afterLinkText).toEqual(' here.');
-    });
-
-    it('only returns the beforeLinkText when the linkStart or linkEnd are not found', () => {
-      const parts = getLocalizedTextWithLinkParts({
-        i18n: fakeI18n(),
-        text: 'Explore more stuff here.',
-      });
-
-      expect(parts).toHaveProperty('beforeLinkText');
-      expect(parts.beforeLinkText).toEqual('Explore more stuff here.');
-
-      expect(parts).toHaveProperty('innerLinkText');
-      expect(parts.innerLinkText).toEqual(undefined);
-
-      expect(parts).toHaveProperty('afterLinkText');
-      expect(parts.afterLinkText).toEqual(undefined);
     });
   });
 });

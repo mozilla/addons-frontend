@@ -12,7 +12,7 @@ import Guides, {
   getContent,
   getSections,
 } from 'amo/pages/Guides';
-import { getLocalizedTextWithLinkParts } from 'core/utils';
+import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import {
   dispatchClientMetadata,
   fakeAddon,
