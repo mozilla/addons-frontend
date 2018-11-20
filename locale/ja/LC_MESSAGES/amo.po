@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-13 22:02+0000\n"
+"POT-Creation-Date: 2018-11-20 17:43+0000\n"
 "PO-Revision-Date: 2018-08-24 17:01+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
@@ -107,38 +107,22 @@ msgstr "Firefox Quantum と互換性がありません"
 msgid "Some features may require payment"
 msgstr "一部の機能は有料の場合があります"
 
-#: src/amo/components/AddonCompatibilityError/index.js:57
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"このアドオンをインストールするには <a href=\"%(downloadUrl)s\">Firefox をダウ"
-"ンロード</a> してください。"
-
-#: src/amo/components/AddonCompatibilityError/index.js:63
-msgid "This add-on is not compatible with your version of Firefox."
-msgstr "このアドオンはお使いのバージョンの Firefox と互換性がありません。"
-
-#: src/amo/components/AddonCompatibilityError/index.js:66
-msgid "Your version of Firefox does not support search plugins."
-msgstr "お使いのバージョンの Firefox は検索エンジンに対応していません。"
-
-#: src/amo/components/AddonCompatibilityError/index.js:70
+#: src/amo/components/AddonCompatibilityError/index.js:102
 #, fuzzy
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
 msgstr "お使いのバージョンの Firefox は検索エンジンに対応していません。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:73
+#: src/amo/components/AddonCompatibilityError/index.js:105
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "iOS 版 Firefox は今のところアドオンに対応していません。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:77
+#: src/amo/components/AddonCompatibilityError/index.js:109
 msgid "This add-on is not available on your platform."
 msgstr "このアドオンはお使いのプラットフォームに対応していません。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:80
+#: src/amo/components/AddonCompatibilityError/index.js:113
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -147,13 +131,21 @@ msgstr ""
 "a> (%(minVersion)s 以上) を必要とします。あなたは Firefox %(yourVersion)s を"
 "お使いです。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:98
+#: src/amo/components/AddonCompatibilityError/index.js:130
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
 msgstr ""
 "お使いのブラウザーはアドオンに対応していません。<a href=\"%(downloadUrl)s"
 "\">Firefox をダウンロード</a> すればこのアドオンをインストールできます。"
+
+#: src/amo/components/AddonCompatibilityError/index.js:95
+msgid "This add-on is not compatible with your version of Firefox."
+msgstr "このアドオンはお使いのバージョンの Firefox と互換性がありません。"
+
+#: src/amo/components/AddonCompatibilityError/index.js:98
+msgid "Your version of Firefox does not support search plugins."
+msgstr "お使いのバージョンの Firefox は検索エンジンに対応していません。"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
@@ -317,8 +309,8 @@ msgid "More information"
 msgstr "詳しい情報"
 
 #: src/amo/components/AddonMoreInfo/index.js:59
-#: src/amo/pages/UserProfile/index.js:338
-#: src/amo/pages/UserProfileEdit/index.js:596
+#: src/amo/pages/UserProfile/index.js:337
+#: src/amo/pages/UserProfileEdit/index.js:618
 msgid "Homepage"
 msgstr "ホームページ"
 
@@ -389,7 +381,7 @@ msgstr "削除"
 #: src/amo/components/AddonReviewCard/index.js:249
 #: src/amo/components/AddonReviewManager/index.js:142
 #: src/amo/components/CollectionManager/index.js:307
-#: src/amo/pages/UserProfileEdit/index.js:846
+#: src/amo/pages/UserProfileEdit/index.js:861
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
@@ -597,25 +589,25 @@ msgid "by"
 msgstr ""
 
 #: src/amo/components/App/index.js:216
-#: src/amo/components/HeadMetaTags/index.js:63
+#: src/amo/components/HeadMetaTags/index.js:76
 #, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Add-ons for Firefox"
 
 #: src/amo/components/App/index.js:220
-#: src/amo/components/HeadMetaTags/index.js:57
+#: src/amo/components/HeadMetaTags/index.js:70
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%s – Firefox 向けアドオン"
 
 #: src/amo/components/App/index.js:228
-#: src/amo/components/HeadMetaTags/index.js:62
+#: src/amo/components/HeadMetaTags/index.js:75
 #, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Add-ons for Firefox"
 
 #: src/amo/components/App/index.js:232
-#: src/amo/components/HeadMetaTags/index.js:56
+#: src/amo/components/HeadMetaTags/index.js:69
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%s – Firefox 向けアドオン"
@@ -809,17 +801,12 @@ msgstr ""
 msgid "Contribute now"
 msgstr "今すぐ寄付"
 
-#: src/amo/components/DownloadFirefoxButton/index.js:40
-#: src/amo/components/Footer/index.js:111
-msgid "Download Firefox"
-msgstr "Firefox をダウンロード"
-
 #: src/amo/components/EditableCollectionAddon/index.js:133
 msgid "Leave a note"
 msgstr "メモを残す"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:233
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Remove"
 msgstr "削除"
 
@@ -984,6 +971,11 @@ msgstr "これには不適切な言葉遣いが含まれています"
 msgid "Flagged for inappropriate language"
 msgstr "不適切な言葉遣いとしてフラグが立てられました"
 
+#: src/amo/components/Footer/index.js:111
+#: src/amo/components/GetFirefoxButton/index.js:64
+msgid "Download Firefox"
+msgstr "Firefox をダウンロード"
+
 #: src/amo/components/Footer/index.js:116
 msgid "Android Browser"
 msgstr "Android ブラウザー"
@@ -1038,7 +1030,7 @@ msgstr "このサイトについて"
 msgid "Blog"
 msgstr "ブログ"
 
-#: src/amo/components/Footer/index.js:58 src/amo/components/Header/index.js:77
+#: src/amo/components/Footer/index.js:58 src/amo/components/Header/index.js:79
 msgid "Developer Hub"
 msgstr "開発者センター"
 
@@ -1067,50 +1059,63 @@ msgstr "サイト状況"
 msgid "View classic desktop site"
 msgstr "通常のデスクトップ版サイトを表示"
 
-#: src/amo/components/Header/index.js:100
-#: src/amo/pages/UserProfileEdit/index.js:470
+#: src/amo/components/GetFirefoxButton/index.js:58
+msgid "Only with Firefox—Get Firefox Now"
+msgstr "Firefox 専用 — 今すぐ Firefox をダウンロード"
+
+#: src/amo/components/GuidesAddonCard/index.js:126
+msgid "Staff Pick"
+msgstr ""
+
+#: src/amo/components/GuidesAddonCard/index.js:138
+#, fuzzy
+msgid "Add"
+msgstr "アドオン"
+
+#: src/amo/components/Header/index.js:105
+#: src/amo/pages/UserProfileEdit/index.js:505
 msgid "View My Profile"
 msgstr "自分のプロファイルを表示"
 
-#: src/amo/components/Header/index.js:108
-#: src/amo/pages/UserProfileEdit/index.js:476
+#: src/amo/components/Header/index.js:113
+#: src/amo/pages/UserProfileEdit/index.js:511
 msgid "Edit My Profile"
 msgstr "自分のプロファイルを編集"
 
-#: src/amo/components/Header/index.js:112
+#: src/amo/components/Header/index.js:117
 msgid "Tools"
 msgstr "ツール"
 
-#: src/amo/components/Header/index.js:118
+#: src/amo/components/Header/index.js:123
 msgid "Submit a New Add-on"
 msgstr "新しいアドオンを登録"
 
-#: src/amo/components/Header/index.js:123
+#: src/amo/components/Header/index.js:128
 msgid "Submit a New Theme"
 msgstr "新しいテーマを登録"
 
-#: src/amo/components/Header/index.js:132
+#: src/amo/components/Header/index.js:137
 msgid "Manage My Submissions"
 msgstr "自分の登録アイテムを管理"
 
-#: src/amo/components/Header/index.js:142
+#: src/amo/components/Header/index.js:147
 msgid "Reviewer Tools"
 msgstr "審査担当者用ツール"
 
-#: src/amo/components/Header/index.js:152
+#: src/amo/components/Header/index.js:157
 #: src/core/components/AuthenticateButton/index.js:80
 msgid "Log out"
 msgstr "ログアウト"
 
-#: src/amo/components/Header/index.js:52
+#: src/amo/components/Header/index.js:54
 msgid "Firefox Add-ons"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/Header/index.js:86
+#: src/amo/components/Header/index.js:91
 msgid "My Account"
 msgstr "マイアカウント"
 
-#: src/amo/components/Header/index.js:92
+#: src/amo/components/Header/index.js:97
 msgid "View My Collections"
 msgstr "自分のコレクションを見る"
 
@@ -1449,7 +1454,7 @@ msgid "Textmarker"
 msgstr "Textmarker"
 
 #: src/amo/components/HomeHeroGuides/index.js:30
-#: src/amo/pages/Guides/index.js:60
+#: src/amo/pages/Guides/index.js:258
 msgid "Stay Safe Online"
 msgstr ""
 
@@ -1459,6 +1464,7 @@ msgid "Organize Your Tabs"
 msgstr "タブをパワフルに"
 
 #: src/amo/components/HomeHeroGuides/index.js:40
+#: src/amo/pages/Guides/index.js:284
 #, fuzzy
 msgid "Enhance Your Media Experience"
 msgstr "あなたの体験を評価"
@@ -1489,93 +1495,93 @@ msgstr "このアドオンの許可設定:"
 msgid "Learn more about permissions"
 msgstr "許可設定の詳細はこちら"
 
-#: src/amo/components/PermissionsCard/permissions.js:30
+#: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Read and modify bookmarks"
 msgstr "ブックマークの読み取りと変更"
 
-#: src/amo/components/PermissionsCard/permissions.js:31
+#: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read and modify browser settings"
 msgstr "ブラウザー設定の読み取りと変更"
 
-#: src/amo/components/PermissionsCard/permissions.js:32
+#: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Clear recent browsing history, cookies, and related data"
 msgstr "最近のブラウジング履歴、Cookie とその関連データの消去"
 
-#: src/amo/components/PermissionsCard/permissions.js:35
+#: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
 msgstr "クリップボードからのデータ取得"
 
-#: src/amo/components/PermissionsCard/permissions.js:36
+#: src/amo/components/PermissionsCard/permissions.js:37
 msgid "Input data to the clipboard"
 msgstr "クリップボードへのデータ入力"
 
-#: src/amo/components/PermissionsCard/permissions.js:37
+#: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
 msgstr "開いたタブのユーザーデータへアクセスするため開発ツールを展開"
 
-#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
 msgstr ""
 "ファイルのダウンロードおよびブラウザーのダウンロード履歴の読み取りと変更"
 
-#: src/amo/components/PermissionsCard/permissions.js:43
+#: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
 msgstr "コンピューターにダウンロードされたファイルを開く"
 
-#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Read the text of all open tabs"
 msgstr "開いているすべてのタブからのテキスト読み取り"
 
-#: src/amo/components/PermissionsCard/permissions.js:45
+#: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access your location"
 msgstr "位置情報へのアクセス"
 
-#: src/amo/components/PermissionsCard/permissions.js:46
-#: src/amo/components/PermissionsCard/permissions.js:60
+#: src/amo/components/PermissionsCard/permissions.js:47
+#: src/amo/components/PermissionsCard/permissions.js:61
 msgid "Access browsing history"
 msgstr "ブラウジング履歴へアクセス"
 
-#: src/amo/components/PermissionsCard/permissions.js:47
+#: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
 msgstr "拡張機能の使用状況の監視とテーマの管理"
 
-#: src/amo/components/PermissionsCard/permissions.js:50
+#: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Exchange messages with programs other than Firefox"
 msgstr "Firefox 以外のプログラムとのメッセージ交換"
 
-#: src/amo/components/PermissionsCard/permissions.js:53
+#: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Display notifications to you"
 msgstr "通知の表示"
 
-#: src/amo/components/PermissionsCard/permissions.js:54
+#: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Provide cryptographic authentication services"
 msgstr "暗号認証サービスの提供"
 
-#: src/amo/components/PermissionsCard/permissions.js:55
+#: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Control browser proxy settings"
 msgstr "ブラウザーのプロキシ設定の管理"
 
-#: src/amo/components/PermissionsCard/permissions.js:56
+#: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Read and modify privacy settings"
 msgstr "プライバシー設定の読み取りと変更"
 
-#: src/amo/components/PermissionsCard/permissions.js:57
+#: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access recently closed tabs"
 msgstr "最近閉じられたタブへのアクセス"
 
-#: src/amo/components/PermissionsCard/permissions.js:58
+#: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser tabs"
 msgstr "ブラウザーのタブへのアクセス"
 
-#: src/amo/components/PermissionsCard/permissions.js:59
+#: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Hide and show browser tabs"
 msgstr "ブラウザーのタブの表示状態の変更"
 
-#: src/amo/components/PermissionsCard/permissions.js:61
+#: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Store unlimited amount of client-side data"
 msgstr "クライアントサイドのデータをサイズ制限なしで保存"
 
-#: src/amo/components/PermissionsCard/permissions.js:64
+#: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access browser activity during navigation"
 msgstr "ページ遷移中のブラウザーアクティビティへのアクセス"
 
@@ -2060,70 +2066,66 @@ msgstr "プロファイル写真"
 msgid "Choose Photo…"
 msgstr "写真を選択..."
 
-#: src/amo/pages/Addon/index.js:181 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:182 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "%(title)s のプレビュー"
 
-#: src/amo/pages/Addon/index.js:216
+#: src/amo/pages/Addon/index.js:217
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "このアドオンは公開されているバージョンがないため評価できません。"
 
-#: src/amo/pages/Addon/index.js:225
+#: src/amo/pages/Addon/index.js:226
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] " すべてのレビュー (%(count)s) を読む"
 
-#: src/amo/pages/Addon/index.js:245
+#: src/amo/pages/Addon/index.js:246
 msgid "No reviews yet"
 msgstr "まだレビューはありません"
 
-#: src/amo/pages/Addon/index.js:255
+#: src/amo/pages/Addon/index.js:256
 msgid "Rate your experience"
 msgstr "あなたの体験を評価"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:275
 msgid "About this dictionary"
 msgstr "この辞書について"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:278
 msgid "About this extension"
 msgstr "この拡張機能について"
 
-#: src/amo/pages/Addon/index.js:280
+#: src/amo/pages/Addon/index.js:281
 msgid "About this language pack"
 msgstr "この言語パックについて"
 
-#: src/amo/pages/Addon/index.js:283
+#: src/amo/pages/Addon/index.js:284
 msgid "About this search plugin"
 msgstr "この検索エンジンについて"
 
-#: src/amo/pages/Addon/index.js:287
+#: src/amo/pages/Addon/index.js:288
 msgid "About this theme"
 msgstr "このテーマについて"
 
-#: src/amo/pages/Addon/index.js:290
+#: src/amo/pages/Addon/index.js:291
 msgid "About this add-on"
 msgstr "このアドオンについて"
 
-#: src/amo/pages/Addon/index.js:333
+#: src/amo/pages/Addon/index.js:334
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s のリリースノート"
 
-#: src/amo/pages/Addon/index.js:513
+#: src/amo/pages/Addon/index.js:505
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:558
-msgid "Only with Firefox—Get Firefox Now"
-msgstr "Firefox 専用 — 今すぐ Firefox をダウンロード"
-
-#: src/amo/pages/Addon/index.js:564
+#: src/amo/pages/Addon/index.js:548
 msgid "Extension Metadata"
 msgstr "拡張機能メタデータ"
 
-#: src/amo/pages/Addon/index.js:581
+#: src/amo/pages/Addon/index.js:565
 msgid "Screenshots"
 msgstr "スクリーンショット"
 
@@ -2255,32 +2257,235 @@ msgstr "まだ作成したコレクションはありません。"
 msgid "My collections"
 msgstr "自分のコレクション"
 
-#: src/amo/pages/Guides/index.js:61
+#: src/amo/pages/Guides/index.js:102
+msgid ""
+"Lightweight, highly effective ad blocker. uBlock Origin enforces thousands "
+"of content filters without chewing up a bunch of memory."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:106
+msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:114
+msgid "Stop online trackers from stalking you"
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:115
+msgid ""
+"Online advertisers can track your activity from one website to the next, "
+"gathering information about you and your interests. Extensions can help "
+"cover your digital trail."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:120
+msgid ""
+"Isolate your Facebook identity into a separate “container” to stop Facebook "
+"from tracking your activity outside of its social platform."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:124
+msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:135
+msgid "Re-imagine tab management"
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:136
+msgid ""
+"If you typically work with a lot of open tabs, you’re probably familiar with "
+"the frustration of searching through a row of unidentifiable tabs looking "
+"for just the one you need. Extensions can offer creative solutions for "
+"streamlining tab management."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:142
+msgid ""
+"Arrange and visualize your tabs in a cascading “tree” style format in "
+"Firefox’s sidebar."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:146
+msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:154
+msgid "Better browsing with improved bookmarks"
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:155
+msgid ""
+"Extensions can help you organize your online interests. Bookmark managers "
+"are ideal for folks with a lot of content to track."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:159
+msgid ""
+"Want help organizing all of your favorite online cooking recipes, how-to "
+"articles, YouTube videos, or just about anything you find on the web? "
+"OneNote Web Clipper lets you collect and store all your favorite online "
+"content in a powerful repository that syncs across devices."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:166
+msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:174
+msgid "Enjoy a fresh new tab experience"
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:175
+msgid ""
+"Start each browsing session tailored just for you by customizing your new "
+"tab experience."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:179
+#, fuzzy
+msgid ""
+"Enjoy a beautiful new page with customizable backgrounds, local weather "
+"info, and more."
+msgstr ""
+"カスタマイズ可能な背景、地元の天気予報などが含まれた素敵な新しいタブページを"
+"楽しめます"
+
+#: src/amo/pages/Guides/index.js:183
+msgid ""
+"Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with "
+"these staff picks."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:194
+msgid "Improve videos"
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:195
+msgid ""
+"If you enjoy video content, extensions offer a number of ways to optimize "
+"your experience, from customizing YouTube to taste, to playing videos in "
+"theater mode, and much more."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:200
+msgid ""
+"Add a control bar to all YouTube video pages so you can easily adjust "
+"volume, playback speed, video player size, advertising and annotation "
+"blocking, and other features."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:205
+#, fuzzy
+msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
+msgstr ""
+"この拡張機能について他の人にも伝えましょう。%(linkStart)sレビューガイドライ"
+"ン%(linkEnd)s に従うことをお忘れなく。"
+
+#: src/amo/pages/Guides/index.js:213
+msgid "Get more out of media"
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:214
+msgid ""
+"Extensions can address a wide variety of niche media needs and interests, "
+"like image searching, download management, and text readers, to name a few."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:219
+msgid ""
+"Have you ever stumbled upon an intriguing image on the web and want to learn "
+"more about it, like who’s the person in the pic? Are there related images? "
+"This extension lets you perform quick and easy reverse image searches "
+"through a variety of engines."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:225
+#, fuzzy
+msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
+msgstr ""
+"この拡張機能について他の人にも伝えましょう。%(linkStart)sレビューガイドライ"
+"ン%(linkEnd)s に従うことをお忘れなく。"
+
+#: src/amo/pages/Guides/index.js:233
+msgid "Bring media right into the browser"
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:234
+msgid ""
+"Extensions can turn Firefox into your very own entertainment hub that gives "
+"you instant access to music, image capturing, gaming, and more."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:239
+msgid ""
+"Access 30,000+ radio stations from all over the globe, always just a click "
+"away."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:243
+msgid ""
+"Explore among thousands of %(linkStart)sphoto, music & video extensions"
+"%(linkEnd)s."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:259
 msgid ""
 "The web is a wonderful but wild place. Your personal data can be used "
 "without your consent, your activities spied upon, and your passwords stolen. "
 "Fortunately, extensions can help fortify your online privacy and security."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:72
+#: src/amo/pages/Guides/index.js:271
+#, fuzzy
+msgid "Organize Tabs & Bookmarks"
+msgstr "ブックマーク"
+
+#: src/amo/pages/Guides/index.js:272
+msgid ""
+"Do you deal with too many open tabs or a dizzying number of bookmarks? "
+"Extensions can help! From organization assistance to providing fun new "
+"features, extensions can dramatically change the way you deal with tabs and "
+"bookmarks."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:285
+msgid ""
+"Extensions can augment online media in all sorts of interesting ways, from "
+"watching videos to handling images, music, and more."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:77
 msgid "Create and manage strong passwords"
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:73
+#: src/amo/pages/Guides/index.js:78
 msgid ""
 "Password managers can help you create secure passwords, store your passwords "
 "(safely) in one place, and give you easy access to your login credentials "
 "wherever you are."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:78
+#: src/amo/pages/Guides/index.js:83
 msgid ""
 "Fully encrypted password protection. Store your data securely and access "
 "logins across devices."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:82
+#: src/amo/pages/Guides/index.js:87
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
+msgstr ""
+
+#: src/amo/pages/Guides/index.js:95
+#, fuzzy
+msgid "Block annoying ads"
+msgstr "広告をブロック"
+
+#: src/amo/pages/Guides/index.js:96
+msgid ""
+"Today’s web is tangled up with unwanted advertisements that get in your way "
+"and slow you down. Ad-blocking extensions can block or filter those ads so "
+"you can get back to distraction-free browsing."
 msgstr ""
 
 #: src/amo/pages/Home/index.js:119
@@ -2800,24 +3005,24 @@ msgstr ""
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr "自分で使ったのではないアドオンのレビューを書いてはいけません。"
 
-#: src/amo/pages/UserProfile/index.js:216
+#: src/amo/pages/UserProfile/index.js:217
 msgid "My reviews"
 msgstr "自分のレビュー"
 
-#: src/amo/pages/UserProfile/index.js:244
+#: src/amo/pages/UserProfile/index.js:245
 msgid ""
 "The profile of %(user)s, a Firefox extension and theme author. Find other "
 "apps by %(user)s, including average ratings, tenure, and the option to "
 "report issues."
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:248
+#: src/amo/pages/UserProfile/index.js:249
 msgid ""
 "The profile of %(user)s, Firefox extension author. Find other extensions by "
 "%(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:252
+#: src/amo/pages/UserProfile/index.js:253
 msgid ""
 "The profile of %(user)s, Firefox theme author. Find other themes by "
 "%(user)s, including average ratings, tenure, and the option to report issues."
@@ -2832,99 +3037,56 @@ msgid "Theme artist"
 msgstr "テーマアーティスト"
 
 #: src/amo/pages/UserProfile/index.js:317
-#: src/amo/pages/UserProfileEdit/index.js:458
+#: src/amo/pages/UserProfileEdit/index.js:493
 msgid "User Profile for %(user)s"
 msgstr "%(user)s のユーザープロフィール"
 
-#: src/amo/pages/UserProfile/index.js:348
-#: src/amo/pages/UserProfileEdit/index.js:613
+#: src/amo/pages/UserProfile/index.js:320
+#, fuzzy
+msgid "User Profile"
+msgstr "プロファイルを更新"
+
+#: src/amo/pages/UserProfile/index.js:347
+#: src/amo/pages/UserProfileEdit/index.js:635
 msgid "Location"
 msgstr "所在地"
 
-#: src/amo/pages/UserProfile/index.js:356
-#: src/amo/pages/UserProfileEdit/index.js:625
+#: src/amo/pages/UserProfile/index.js:355
+#: src/amo/pages/UserProfileEdit/index.js:647
 msgid "Occupation"
 msgstr "職業"
 
-#: src/amo/pages/UserProfile/index.js:363
+#: src/amo/pages/UserProfile/index.js:362
 msgid "User since"
 msgstr "ユーザー登録日"
 
-#: src/amo/pages/UserProfile/index.js:373
+#: src/amo/pages/UserProfile/index.js:372
 msgid "Number of add-ons"
 msgstr "アドオンの数"
 
-#: src/amo/pages/UserProfile/index.js:379
+#: src/amo/pages/UserProfile/index.js:378
 msgid "Average rating of developer’s add-ons"
 msgstr "この開発者のアドオンの平均評価"
 
-#: src/amo/pages/UserProfile/index.js:394
-#: src/amo/pages/UserProfileEdit/index.js:647
+#: src/amo/pages/UserProfile/index.js:393
+#: src/amo/pages/UserProfileEdit/index.js:669
 msgid "Biography"
 msgstr "経歴"
 
-#: src/amo/pages/UserProfile/index.js:418
+#: src/amo/pages/UserProfile/index.js:417
 msgid "Edit profile"
 msgstr "プロファイルを編集"
 
-#: src/amo/pages/UserProfile/index.js:430
+#: src/amo/pages/UserProfile/index.js:429
 #, fuzzy
 msgid "Admin user"
 msgstr "アドオンリンク"
 
-#: src/amo/pages/UserProfileEdit/index.js:186
+#: src/amo/pages/UserProfileEdit/index.js:193
 msgid "Picture successfully deleted"
 msgstr "写真の削除が完了しました"
 
-#: src/amo/pages/UserProfileEdit/index.js:424
-msgid "Log in to edit the profile"
-msgstr "プロファイルを編集するにはログインしてください"
-
-#: src/amo/pages/UserProfileEdit/index.js:471
-msgid "View user's profile"
-msgstr "ユーザーのプロファイルを表示"
-
-#: src/amo/pages/UserProfileEdit/index.js:477
-msgid "Edit user's profile"
-msgstr "ユーザーのプロファイルを編集"
-
-#: src/amo/pages/UserProfileEdit/index.js:495
-msgid "Account"
-msgstr "アカウント"
-
-#: src/amo/pages/UserProfileEdit/index.js:496
-msgid "Account for %(username)s"
-msgstr "%(username)s のアカウント"
-
-#: src/amo/pages/UserProfileEdit/index.js:502
-msgid "Username"
-msgstr "ユーザー名"
-
-#: src/amo/pages/UserProfileEdit/index.js:515
-msgid "Email Address"
-msgstr "メールアドレス"
-
-#: src/amo/pages/UserProfileEdit/index.js:522
-msgid "Email address cannot be changed here"
-msgstr "メールアドレスはここでは変更できません"
-
-#: src/amo/pages/UserProfileEdit/index.js:531
-msgid ""
-"You can change your email address on Firefox Accounts. %(startLink)sNeed "
-"help?%(endLink)s"
-msgstr ""
-"メールアドレスは Firefox アカウント上で変更できます。%(startLink)sサポートが"
-"必要ですか？%(endLink)s"
-
-#: src/amo/pages/UserProfileEdit/index.js:548
-msgid "Manage Firefox Accounts…"
-msgstr "Firefox アカウントを管理..."
-
-#: src/amo/pages/UserProfileEdit/index.js:556
-msgid "Profile"
-msgstr "プロファイル"
-
-#: src/amo/pages/UserProfileEdit/index.js:560
+#: src/amo/pages/UserProfileEdit/index.js:420
 msgid ""
 "Tell users a bit more information about yourself. These fields are optional, "
 "but they'll help other users get to know you better."
@@ -2932,7 +3094,7 @@ msgstr ""
 "あなたについてもう少し詳しい情報をユーザーへ伝えましょう。これらの項目は任意"
 "ですが、他のユーザがあなたを知る手掛かりとなるでしょう。"
 
-#: src/amo/pages/UserProfileEdit/index.js:566
+#: src/amo/pages/UserProfileEdit/index.js:424
 msgid ""
 "Tell users a bit more information about this user. These fields are "
 "optional, but they'll help other users get to know %(username)s better."
@@ -2940,31 +3102,79 @@ msgstr ""
 "このユーザーについてもう少し詳しい情報をユーザーへ伝えましょう。これらの項目"
 "は任意ですが、他のユーザが %(username)s さんを知る手掛かりとなるでしょう。"
 
-#: src/amo/pages/UserProfileEdit/index.js:576
-msgid "Display Name"
-msgstr "表示名"
-
-#: src/amo/pages/UserProfileEdit/index.js:608
-msgid "This URL will only be visible for users who are developers."
-msgstr "この URL は開発者となっているユーザーにのみ表示されます。"
-
-#: src/amo/pages/UserProfileEdit/index.js:651
+#: src/amo/pages/UserProfileEdit/index.js:439
 msgid "Introduce yourself to the community if you like"
 msgstr "もしよければコミュニティに向けて自己紹介してください"
 
-#: src/amo/pages/UserProfileEdit/index.js:655
+#: src/amo/pages/UserProfileEdit/index.js:440
 msgid "Introduce %(username)s to the community"
 msgstr "コミュニティに向けて %(username)s を紹介"
 
-#: src/amo/pages/UserProfileEdit/index.js:669
+#: src/amo/pages/UserProfileEdit/index.js:463
+msgid "Log in to edit the profile"
+msgstr "プロファイルを編集するにはログインしてください"
+
+#: src/amo/pages/UserProfileEdit/index.js:506
+msgid "View user's profile"
+msgstr "ユーザーのプロファイルを表示"
+
+#: src/amo/pages/UserProfileEdit/index.js:512
+msgid "Edit user's profile"
+msgstr "ユーザーのプロファイルを編集"
+
+#: src/amo/pages/UserProfileEdit/index.js:530
+msgid "Account"
+msgstr "アカウント"
+
+#: src/amo/pages/UserProfileEdit/index.js:531
+msgid "Account for %(username)s"
+msgstr "%(username)s のアカウント"
+
+#: src/amo/pages/UserProfileEdit/index.js:537
+msgid "Username"
+msgstr "ユーザー名"
+
+#: src/amo/pages/UserProfileEdit/index.js:550
+msgid "Email Address"
+msgstr "メールアドレス"
+
+#: src/amo/pages/UserProfileEdit/index.js:557
+msgid "Email address cannot be changed here"
+msgstr "メールアドレスはここでは変更できません"
+
+#: src/amo/pages/UserProfileEdit/index.js:566
+msgid ""
+"You can change your email address on Firefox Accounts. %(startLink)sNeed "
+"help?%(endLink)s"
+msgstr ""
+"メールアドレスは Firefox アカウント上で変更できます。%(startLink)sサポートが"
+"必要ですか？%(endLink)s"
+
+#: src/amo/pages/UserProfileEdit/index.js:583
+msgid "Manage Firefox Accounts…"
+msgstr "Firefox アカウントを管理..."
+
+#: src/amo/pages/UserProfileEdit/index.js:591
+msgid "Profile"
+msgstr "プロファイル"
+
+#: src/amo/pages/UserProfileEdit/index.js:598
+msgid "Display Name"
+msgstr "表示名"
+
+#: src/amo/pages/UserProfileEdit/index.js:630
+msgid "This URL will only be visible for users who are developers."
+msgstr "この URL は開発者となっているユーザーにのみ表示されます。"
+
+#: src/amo/pages/UserProfileEdit/index.js:684
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "一部 HTML が使用可能です: %(htmlTags)s。リンクは使用できません。"
 
-#: src/amo/pages/UserProfileEdit/index.js:693
+#: src/amo/pages/UserProfileEdit/index.js:708
 msgid "Notifications"
 msgstr "通知"
 
-#: src/amo/pages/UserProfileEdit/index.js:697
+#: src/amo/pages/UserProfileEdit/index.js:712
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -2972,7 +3182,7 @@ msgstr ""
 "Mozilla では時々、今後のリリースやアドオン関連のイベントに関するメールをお送"
 "りしています。興味のあるトピックを選択してください。"
 
-#: src/amo/pages/UserProfileEdit/index.js:702
+#: src/amo/pages/UserProfileEdit/index.js:717
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -2981,7 +3191,7 @@ msgstr ""
 "ユーザーへお送りしています。このユーザーが興味があると思われるトピックを選択"
 "してください。"
 
-#: src/amo/pages/UserProfileEdit/index.js:716
+#: src/amo/pages/UserProfileEdit/index.js:731
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -2989,41 +3199,41 @@ msgstr ""
 "Mozilla は、このサイトで登録されたアドオンに関する具体的な事柄について、あな"
 "たに個別に連絡を取る権利を留保します。"
 
-#: src/amo/pages/UserProfileEdit/index.js:734
+#: src/amo/pages/UserProfileEdit/index.js:749
 msgid "Updating your profile…"
 msgstr "プロファイルを更新中..."
 
-#: src/amo/pages/UserProfileEdit/index.js:735
+#: src/amo/pages/UserProfileEdit/index.js:750
 msgid "Update My Profile"
 msgstr "自分のプロファイルを更新"
 
-#: src/amo/pages/UserProfileEdit/index.js:737
+#: src/amo/pages/UserProfileEdit/index.js:752
 msgid "Updating profile…"
 msgstr "プロファイルを更新中..."
 
-#: src/amo/pages/UserProfileEdit/index.js:738
+#: src/amo/pages/UserProfileEdit/index.js:753
 msgid "Update Profile"
 msgstr "プロファイルを更新"
 
-#: src/amo/pages/UserProfileEdit/index.js:749
-#: src/amo/pages/UserProfileEdit/index.js:838
+#: src/amo/pages/UserProfileEdit/index.js:764
+#: src/amo/pages/UserProfileEdit/index.js:853
 msgid "Delete My Profile"
 msgstr "自分のプロファイルを削除"
 
-#: src/amo/pages/UserProfileEdit/index.js:750
-#: src/amo/pages/UserProfileEdit/index.js:839
+#: src/amo/pages/UserProfileEdit/index.js:765
+#: src/amo/pages/UserProfileEdit/index.js:854
 msgid "Delete Profile"
 msgstr "プロファイルを削除"
 
-#: src/amo/pages/UserProfileEdit/index.js:762
+#: src/amo/pages/UserProfileEdit/index.js:777
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "重要: あなたの Firefox Add-ons プロファイルの削除は元に戻せません。"
 
-#: src/amo/pages/UserProfileEdit/index.js:765
+#: src/amo/pages/UserProfileEdit/index.js:780
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "重要: この Firefox Add-ons プロファイルの削除は元に戻せません。"
 
-#: src/amo/pages/UserProfileEdit/index.js:774
+#: src/amo/pages/UserProfileEdit/index.js:789
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation) and "
@@ -3034,7 +3244,7 @@ msgstr ""
 "業) や通知設定を含め、あなたのデータは永久に削除されます。レビューや評価は匿"
 "名化され、以後編集不可となります。"
 
-#: src/amo/pages/UserProfileEdit/index.js:781
+#: src/amo/pages/UserProfileEdit/index.js:796
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3045,7 +3255,7 @@ msgstr ""
 "業) や通知設定を含め、このユーザーのデータは永久に削除されます。レビューや評"
 "価は匿名化され、以後編集不可となります。"
 
-#: src/amo/pages/UserProfileEdit/index.js:791
+#: src/amo/pages/UserProfileEdit/index.js:806
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, you "
 "will create a new Firefox Add-ons profile that is in no way associated with "
@@ -3055,7 +3265,7 @@ msgstr ""
 "たプロファイルとまったく関係のない Firefox Add-ons プロファイルを新たに作成す"
 "ることになります。"
 
-#: src/amo/pages/UserProfileEdit/index.js:804
+#: src/amo/pages/UserProfileEdit/index.js:819
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
 "the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
@@ -3067,7 +3277,7 @@ msgstr ""
 "ルを削除するには、事前にそれらのアドオンの %(docLinkStart)s所有権を移"
 "譲%(docLinkEnd)s するかアドオン自体を削除する必要があります。"
 
-#: src/amo/pages/UserProfileEdit/index.js:811
+#: src/amo/pages/UserProfileEdit/index.js:826
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
 "user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
@@ -3075,31 +3285,31 @@ msgstr ""
 "%(strongStart)s注:%(strongEnd)s ユーザーが %(linkStart)sいずれかのアドオンの"
 "作者%(linkEnd)s である場合、そのプロファイルを削除することはできません。"
 
-#: src/core/components/AMInstallButton/index.js:230
+#: src/core/components/AMInstallButton/index.js:236
 msgid "Enable"
 msgstr "有効にする"
 
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:241
 msgid "Enabling"
 msgstr "有効にしています"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:243
 msgid "Downloading"
 msgstr "ダウンロード中"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:245
 msgid "Installing"
 msgstr "インストール中"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:247
 msgid "Uninstalling"
 msgstr "アンインストール中"
 
-#: src/core/components/AMInstallButton/index.js:249
+#: src/core/components/AMInstallButton/index.js:255
 msgid "Install Theme"
 msgstr "テーマをインストール"
 
-#: src/core/components/AMInstallButton/index.js:250
+#: src/core/components/AMInstallButton/index.js:256
 msgid "Add to Firefox"
 msgstr "Firefox へ追加"
 
@@ -3291,6 +3501,13 @@ msgid "Developer response"
 msgstr "開発者の返信"
 
 #~ msgid ""
+#~ "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install "
+#~ "this add-on."
+#~ msgstr ""
+#~ "このアドオンをインストールするには <a href=\"%(downloadUrl)s\">Firefox を"
+#~ "ダウンロード</a> してください。"
+
+#~ msgid ""
 #~ "Tell the world why you think this extension is fantastic! Please follow "
 #~ "our %(linkStart)sreview guidelines%(linkEnd)s."
 #~ msgstr ""
@@ -3446,13 +3663,6 @@ msgstr "開発者の返信"
 
 #~ msgid "Tabliss"
 #~ msgstr "Tabliss"
-
-#~ msgid ""
-#~ "Enjoy a gorgeous new tab page with customizable backgrounds, local "
-#~ "weather & more"
-#~ msgstr ""
-#~ "カスタマイズ可能な背景、地元の天気予報などが含まれた素敵な新しいタブページ"
-#~ "を楽しめます"
 
 #~ msgid "Save collection"
 #~ msgstr "コレクションを保存"
@@ -3935,9 +4145,6 @@ msgstr "開発者の返信"
 #~ msgid "See more"
 #~ msgstr "もっと見る"
 
-#~ msgid "Block ads"
-#~ msgstr "広告をブロック"
-
 #~ msgid ""
 #~ "From ad blockers to anti-trackers, here are some impressive privacy "
 #~ "extensions"
@@ -3973,9 +4180,6 @@ msgstr "開発者の返信"
 
 #~ msgid "All written reviews"
 #~ msgstr "すべてのレビュー"
-
-#~ msgid "Addons"
-#~ msgstr "アドオン"
 
 #~ msgid ""
 #~ "Sorry, but we can't find anything at the address you entered. If you "
