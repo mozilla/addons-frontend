@@ -15,10 +15,13 @@
 
   .GetFirefoxButton--guides.GetFirefoxButton {
     font-size: $font-size-default;
-    max-width: 170px;
-    min-width: 160px;
     text-align: center;
     white-space: normal;
+
+    @include respond-to(medium) {
+      max-width: 170px;
+      min-width: 160px;
+    }
   }
 
   .Icon-trophy {
