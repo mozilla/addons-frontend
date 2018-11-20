@@ -141,6 +141,7 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find(AddonTitle)).toHaveProp('addon', addon);
+    expect(root.find(AddonTitle)).toHaveProp('linkToAddon', true);
   });
 
   it('passes the addon to AMInstallButton', () => {

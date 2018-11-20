@@ -121,7 +121,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
               <div className="GuidesAddonCard-content-header">
                 <div className="GuidesAddonCard-content-header-title">
                   <span className="GuidesAddonCard-content-header-authors">
-                    <AddonTitle addon={addon} as="span" />
+                    <AddonTitle addon={addon} as="span" linkToAddon />
                   </span>
                 </div>
                 {staffPick && (
