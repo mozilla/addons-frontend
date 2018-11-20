@@ -21,6 +21,15 @@
     font-size: $font-size-m;
     font-weight: 500;
     margin-bottom: 0;
+
+    a {
+      color: $black;
+      text-decoration: none;
+
+      &:hover {
+        color: $link-color;
+      }
+    }
   }
 
   .GuidesAddonCard-content-header-title {
@@ -30,7 +39,7 @@
       padding-top: 0;
 
       a {
-        color: $blue-50;
+        color: $link-color;
         font-size: inherit;
         text-decoration: underline;
       }
