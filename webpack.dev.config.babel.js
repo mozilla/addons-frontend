@@ -1,5 +1,4 @@
 /* eslint-disable max-len, no-console, import/no-extraneous-dependencies */
-
 import fs from 'fs';
 import path from 'path';
 
@@ -43,7 +42,11 @@ for (const app of appsBuildList) {
   entryPoints[app] = [hmr, `${app}/client`];
 }
 
+// We do not want the production optimization settings in development.
+delete webpackConfig.optimization;
+
 export default Object.assign({}, webpackConfig, {
+  mode: 'development',
   devtool: 'cheap-module-source-map',
   context: path.resolve(__dirname),
   entry: entryPoints,
@@ -58,10 +61,10 @@ export default Object.assign({}, webpackConfig, {
   },
   plugins: [
     ...getPlugins(),
-    // Load unminified React and Redux in development to get better
-    // error messages, because they use
-    // [Invariant](https://github.com/zertosh/invariant) which
-    // hides error messages in the production build.
+    // Load unminified React and Redux in development to get better error
+    // messages, because they use
+    // [Invariant](https://github.com/zertosh/invariant) which hides error
+    // messages in the production build.
     new webpack.NormalModuleReplacementPlugin(
       /^react$/,
       'react/umd/react.development.js',
@@ -71,7 +74,6 @@ export default Object.assign({}, webpackConfig, {
       'react-dom/umd/react-dom.development.js',
     ),
     new webpack.NormalModuleReplacementPlugin(/^redux$/, 'redux/dist/redux.js'),
-    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(/webpack-stats\.json$/),
     webpackIsomorphicToolsPlugin.development(),
