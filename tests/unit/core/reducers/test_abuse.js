@@ -69,12 +69,6 @@ describe(__filename, () => {
           loading: false,
         });
       });
-
-      it('requires an addon param', () => {
-        expect(() => {
-          disableAbuseButtonUI();
-        }).toThrow('addon is required');
-      });
     });
 
     describe('enableAbuseButtonUI', () => {
@@ -90,12 +84,6 @@ describe(__filename, () => {
           },
           loading: false,
         });
-      });
-
-      it('requires an addon param', () => {
-        expect(() => {
-          enableAbuseButtonUI();
-        }).toThrow('addon is required');
       });
     });
 
@@ -113,12 +101,6 @@ describe(__filename, () => {
           loading: false,
         });
       });
-
-      it('requires an addon param', () => {
-        expect(() => {
-          hideAddonAbuseReportUI();
-        }).toThrow('addon is required');
-      });
     });
 
     describe('showAddonAbuseReportUI', () => {
@@ -134,12 +116,6 @@ describe(__filename, () => {
           },
           loading: false,
         });
-      });
-
-      it('requires an addon param', () => {
-        expect(() => {
-          showAddonAbuseReportUI();
-        }).toThrow('addon is required');
       });
     });
 
@@ -208,31 +184,13 @@ describe(__filename, () => {
         expect(state.bySlug.Ego.message).toEqual('I am Groot!');
       });
 
-      it('requires an addon', () => {
-        expect(() => {
-          const partialParams = { ...response };
-          delete partialParams.addon;
-
-          loadAddonAbuseReport(partialParams);
-        }).toThrow('addon is required');
-      });
-
-      it('requires a message', () => {
-        expect(() => {
-          const partialParams = { ...response };
-          delete partialParams.message;
-
-          loadAddonAbuseReport(partialParams);
-        }).toThrow('message is required');
-      });
-
       it('requires a defined reporter', () => {
         expect(() => {
           const partialParams = { ...response };
           delete partialParams.reporter;
 
           loadAddonAbuseReport(partialParams);
-        }).toThrow('reporter cannot be undefined');
+        }).toThrow('reporter must be defined');
       });
 
       it('reporter can be `null`', () => {
@@ -240,7 +198,7 @@ describe(__filename, () => {
           const paramsWithNull = { ...response, reporter: null };
 
           loadAddonAbuseReport(paramsWithNull);
-        }).not.toThrow('reporter cannot be undefined');
+        }).not.toThrow();
       });
     });
   });
