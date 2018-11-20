@@ -12,7 +12,7 @@ import { fetchGuidesAddons } from 'amo/reducers/guides';
 import { getAddonByGUID } from 'core/reducers/addons';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { getLocalizedTextWithLinkParts } from 'core/utils';
+import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import Icon from 'ui/components/Icon';
 import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
