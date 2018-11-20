@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-20 22:12+0000\n"
+"PO-Revision-Date: 2018-11-20 22:20+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -2064,7 +2064,7 @@ msgstr "Pengiklan atas talian boleh menjejak aktiviti anda dari satu laman ke we
 
 #: src/amo/pages/Guides/index.js:120
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Asingkan identiti Facebook anda ke dalam “bekas” berasingan untuk menghentikan Facebook daripada menjejaki aktiviti anda di luar platform sosialnya."
 
 #: src/amo/pages/Guides/index.js:124
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
@@ -2072,17 +2072,19 @@ msgstr "Teroka %(linkStart)sprivasi & keselamatan%(linkEnd)s lain yang dipilih."
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Re-imagine tab management"
-msgstr ""
+msgstr "Olahan semula pengurusan tab"
 
 #: src/amo/pages/Guides/index.js:136
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Jika biasa bekerja dengan banyak tab terbuka, anda mungkin kecewa mencari dalam barisan tab yang tidak dikenali hanya untuk mencari tab yang diperlukan. Ekstensi boleh menawarkan penyelesaian "
+"kreatif untuk memperkemas pengurusan tab."
 
 #: src/amo/pages/Guides/index.js:142
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Susun dan visual tab dalam format gaya “pepohon” dalam bar sisi Firefox."
 
 #: src/amo/pages/Guides/index.js:146
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
@@ -2090,11 +2092,11 @@ msgstr "Teroka %(linkStart)spengurusan tab%(linkEnd)s lain yang dipilih."
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Pelayaran lebih mudah dengan tandabuku yang lebih baik"
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "Ekstensi boleh membantu anda menyusun minat atas talian. Pengurus tandabuku sesuai untuk pengguna yang ada banyak kandungan untuk dijejaki."
 
 #: src/amo/pages/Guides/index.js:159
 msgid ""
