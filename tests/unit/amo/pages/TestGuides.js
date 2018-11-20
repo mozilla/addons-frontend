@@ -159,10 +159,19 @@ describe(__filename, () => {
     const guids = getSections({ slug, i18n: fakeI18n() }).map(
       (section) => section.addonGuid,
     );
+
+    const errorHandler = createStubErrorHandler();
     const addon = {
       ...fakeAddon,
       guid: guids[0],
     };
+
+    store.dispatch(
+      fetchGuidesAddons({
+        guids,
+        errorHandlerId: errorHandler.id,
+      }),
+    );
 
     _loadAddonResults(store, addon);
 

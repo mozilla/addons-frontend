@@ -30,19 +30,18 @@ type Props = {|
   },
 |};
 
-type AddonsMap = {|
-  [guid: string]: AddonType,
-|};
-
 type InternalProps = {|
   ...Props,
-  addons: AddonsMap | {} | null,
+  addons: {
+    [guid: string]: AddonType | null,
+  },
+  clientApp: string | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  slug: string,
   guids: Array<string>,
   i18n: I18nType,
   loading: boolean,
+  slug: string,
 |};
 
 type SectionsType = {|
@@ -299,9 +298,20 @@ export class GuidesBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
     super(props);
 
-    const { addons, errorHandler, guids, loading } = this.props;
+    const {
+      addons,
+      errorHandler,
+      i18n,
+      loading,
+      match: {
+        params: { slug },
+      },
+    } = this.props;
 
-    if (!loading && !addons) {
+    if (!loading && Object.keys(addons).length === 0) {
+      const guids = getSections({ slug, i18n }).map(
+        (section) => section.addonGuid,
+      );
       this.props.dispatch(
         fetchGuidesAddons({
           guids,
@@ -322,7 +332,7 @@ export class GuidesBase extends React.Component<InternalProps> {
         text: section.exploreMore,
       });
 
-      const addon = addons ? addons[section.addonGuid] : null;
+      const addon = addons[section.addonGuid] || null;
 
       return (
         <div className="Guides-section" key={section.exploreUrl}>
@@ -374,28 +384,19 @@ export class GuidesBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (
-  state: AppState,
-  ownProps: InternalProps,
-): $Shape<InternalProps> => {
-  const { i18n, match } = ownProps;
-  const { slug } = match.params;
-
-  const guids = getSections({ slug, i18n }).map((section) => section.addonGuid);
+export const mapStateToProps = (state: AppState): $Shape<InternalProps> => {
+  const { guids, loading } = state.guides;
 
   const addons = {};
 
   guids.forEach((guid) => {
-    const addon = getAddonByGUID(state, guid);
-    if (addon) {
-      addons[guid] = addon;
-    }
+    addons[guid] = getAddonByGUID(state, guid);
   });
 
   return {
     addons,
     guids,
-    loading: state.guides.loading,
+    loading,
   };
 };
 
