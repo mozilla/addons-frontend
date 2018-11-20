@@ -7,17 +7,36 @@ import type { VersionIdType } from 'core/reducers/versions';
 import type { PaginatedApiResponse } from 'core/types/api';
 import type { ExternalAddonVersionType } from 'core/types/addons';
 
+export type GetVersionParams = {|
+  api: ApiState,
+  slug: string,
+  versionId: VersionIdType,
+|};
+
+export const getVersion = ({
+  api,
+  slug,
+  versionId,
+}: GetVersionParams = {}): Promise<ExternalAddonVersionType> => {
+  invariant(slug, 'slug is required');
+  invariant(versionId, 'versionId is required');
+
+  return callApi({
+    apiState: api,
+    auth: true,
+    endpoint: `addons/addon/${slug}/versions/${versionId}/`,
+  });
+};
+
 export type GetVersionsParams = {|
   api: ApiState,
   page?: string,
   slug: string,
-  versionId?: VersionIdType,
 |};
 
 export const getVersions = ({
   api,
   slug,
-  versionId,
   ...params
 }: GetVersionsParams = {}): Promise<
   PaginatedApiResponse<ExternalAddonVersionType>,
@@ -27,7 +46,7 @@ export const getVersions = ({
   return callApi({
     apiState: api,
     auth: true,
-    endpoint: `addons/addon/${slug}/versions/${versionId || ''}`,
+    endpoint: `addons/addon/${slug}/versions/`,
     params,
   });
 };

@@ -30,6 +30,7 @@ import type {
   PartialExternalAddonVersionType,
 } from 'core/types/addons';
 
+export const FETCH_VERSION: 'FETCH_VERSION' = 'FETCH_VERSION';
 export const FETCH_VERSIONS: 'FETCH_VERSIONS' = 'FETCH_VERSIONS';
 export const LOAD_VERSIONS: 'LOAD_VERSIONS' = 'LOAD_VERSIONS';
 
@@ -113,11 +114,35 @@ export const createInternalVersion = (
   };
 };
 
+type FetchVersionParams = {|
+  errorHandlerId: string,
+  slug: string,
+  versionId: VersionIdType,
+|};
+
+export type FetchVersionAction = {|
+  type: typeof FETCH_VERSION,
+  payload: FetchVersionParams,
+|};
+
+export const fetchVersion = ({
+  errorHandlerId,
+  slug,
+  versionId,
+}: FetchVersionParams): FetchVersionAction => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(slug, 'slug is required');
+
+  return {
+    type: FETCH_VERSION,
+    payload: { errorHandlerId, slug, versionId },
+  };
+};
+
 type FetchVersionsParams = {|
   errorHandlerId: string,
   page?: string,
   slug: string,
-  versionId?: VersionIdType,
 |};
 
 export type FetchVersionsAction = {|
@@ -129,14 +154,13 @@ export const fetchVersions = ({
   errorHandlerId,
   page = '1',
   slug,
-  versionId,
 }: FetchVersionsParams): FetchVersionsAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(slug, 'slug is required');
 
   return {
     type: FETCH_VERSIONS,
-    payload: { errorHandlerId, page, slug, versionId },
+    payload: { errorHandlerId, page, slug },
   };
 };
 

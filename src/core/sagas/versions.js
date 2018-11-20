@@ -1,16 +1,47 @@
 /* @flow */
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 
-import { getVersions } from 'core/api/versions';
-import { FETCH_VERSIONS, loadVersions } from 'core/reducers/versions';
+import { getVersion, getVersions } from 'core/api/versions';
+import {
+  FETCH_VERSION,
+  FETCH_VERSIONS,
+  loadVersions,
+} from 'core/reducers/versions';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
-import type { GetVersionsParams } from 'core/api/versions';
-import type { FetchVersionsAction } from 'core/reducers/versions';
+import type { GetVersionParams, GetVersionsParams } from 'core/api/versions';
+import type {
+  FetchVersionAction,
+  FetchVersionsAction,
+} from 'core/reducers/versions';
 import type { Saga } from 'core/types/sagas';
 
+export function* fetchVersion({
+  payload: { errorHandlerId, slug, versionId },
+}: FetchVersionAction): Saga {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+
+    const params: GetVersionParams = {
+      api: state.api,
+      slug,
+      versionId,
+    };
+    const version = yield call(getVersion, params);
+
+    yield put(loadVersions({ slug, versions: [version] }));
+  } catch (error) {
+    log.warn(`Failed to fetch version: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
 export function* fetchVersions({
-  payload: { errorHandlerId, page, slug, versionId },
+  payload: { errorHandlerId, page, slug },
 }: FetchVersionsAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -23,7 +54,6 @@ export function* fetchVersions({
       api: state.api,
       page,
       slug,
-      versionId,
     };
     const versions = yield call(getVersions, params);
 
@@ -35,5 +65,6 @@ export function* fetchVersions({
 }
 
 export default function* collectionsSaga(): Saga {
+  yield takeLatest(FETCH_VERSION, fetchVersion);
   yield takeLatest(FETCH_VERSIONS, fetchVersions);
 }

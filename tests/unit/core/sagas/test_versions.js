@@ -2,6 +2,7 @@ import SagaTester from 'redux-saga-tester';
 
 import * as versionsApi from 'core/api/versions';
 import versionsReducer, {
+  fetchVersion,
   fetchVersions,
   loadVersions,
 } from 'core/reducers/versions';
@@ -57,38 +58,11 @@ describe(__filename, () => {
           api: state.api,
           page,
           slug,
-          versionId: undefined,
         })
         .once()
         .resolves(versions);
 
       _fetchVersions({ page, slug });
-
-      const expectedAction = loadVersions({ slug, versions });
-
-      const loadAction = await sagaTester.waitFor(expectedAction.type);
-      expect(loadAction).toEqual(expectedAction);
-      mockApi.verify();
-    });
-
-    it('calls the API to fetch a single version', async () => {
-      const state = sagaTester.getState();
-
-      const versions = { results: [fakeVersion] };
-      const versionId = fakeVersion.id;
-
-      mockApi
-        .expects('getVersions')
-        .withArgs({
-          api: state.api,
-          page,
-          slug,
-          versionId,
-        })
-        .once()
-        .resolves(versions);
-
-      _fetchVersions({ page, slug, versionId });
 
       const expectedAction = loadVersions({ slug, versions });
 
@@ -115,6 +89,65 @@ describe(__filename, () => {
         .rejects(error);
 
       _fetchVersions({ page, slug });
+
+      const expectedAction = errorHandler.createErrorAction(error);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+  });
+
+  describe('fetchVersion', () => {
+    const version = fakeVersion;
+    const versionId = version.id;
+
+    function _fetchVersion(params) {
+      sagaTester.dispatch(
+        fetchVersion({
+          errorHandlerId: errorHandler.id,
+          ...params,
+        }),
+      );
+    }
+    it('calls the API to fetch a single version', async () => {
+      const state = sagaTester.getState();
+
+      mockApi
+        .expects('getVersion')
+        .withArgs({
+          api: state.api,
+          slug,
+          versionId,
+        })
+        .once()
+        .resolves(version);
+
+      _fetchVersion({ slug, versionId });
+
+      const expectedAction = loadVersions({ slug, versions: [version] });
+
+      const loadAction = await sagaTester.waitFor(expectedAction.type);
+      expect(loadAction).toEqual(expectedAction);
+      mockApi.verify();
+    });
+
+    it('clears the error handler', async () => {
+      _fetchVersion({ slug, versionId });
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('some API error maybe');
+
+      mockApi
+        .expects('getVersion')
+        .once()
+        .rejects(error);
+
+      _fetchVersion({ slug, versionId });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
