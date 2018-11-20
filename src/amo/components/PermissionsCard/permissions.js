@@ -1,5 +1,6 @@
 /* @flow */
 import * as React from 'react';
+import { oneLine } from 'common-tags';
 
 import log from 'core/logger';
 import { findFileForPlatform } from 'core/utils';
@@ -78,9 +79,11 @@ export class PermissionUtils {
 
     if (!file) {
       log.debug(
-        `No file exists for os "${userAgentInfo.os.toString()}"; platform files:`,
+        oneLine`No file exists for os
+        ${JSON.stringify(userAgentInfo.os)}; platform files:`,
         platformFiles,
       );
+
       return [];
     }
     return file.permissions || [];
