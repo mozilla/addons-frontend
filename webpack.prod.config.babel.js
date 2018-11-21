@@ -66,10 +66,6 @@ export default {
   },
   plugins: [
     ...getPlugins(),
-    // This plugin is not recommended anymore but it still works for us and
-    // WebpackIsomorphicToolsPlugin has a dependency on it... Removing this
-    // plugin means moving to a new isomorphic tool, which seems super
-    // complicated.
     new MiniCssExtractPlugin({
       filename: '[name]-[hash].css',
       chunkFilename: '[id]-[hash].css',
