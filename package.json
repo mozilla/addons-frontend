@@ -167,7 +167,9 @@
     "storybook-build": {
       "command": "build-storybook -c stories/setup",
       "env": {
-        "NODE_PATH": "./:./src"
+        "NODE_PATH": "./:./src",
+        "NODE_ENV": "production",
+        "NODE_CONFIG_ENV": "prod"
       }
     },
     "test-ci": {
@@ -295,7 +297,6 @@
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "babel-plugin-dynamic-import-node": "^2.2.0",
-    "babel-plugin-react-docgen": "2.0.0",
     "bundle-loader": "^0.5.5",
     "bundlesize": "^0.17.0",
     "chalk": "^2.0.1",
