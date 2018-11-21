@@ -362,7 +362,7 @@ export const loadUserNotifications = ({
 };
 
 export const getUserById = (users: UsersState, userId: UserId) => {
-  invariant(userId, 'userId is required');
+  invariant(typeof userId === 'number', 'userId is required');
   return users.byID[userId];
 };
 

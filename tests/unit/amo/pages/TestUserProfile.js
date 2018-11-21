@@ -22,9 +22,11 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   ADMIN_TOOLS,
+  CLIENT_APP_FIREFOX,
   USERS_EDIT,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
 import ErrorList from 'ui/components/ErrorList';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
@@ -67,7 +69,7 @@ describe(__filename, () => {
   function renderUserProfile({
     i18n = fakeI18n(),
     location = createFakeLocation(),
-    params = { userId: 100 },
+    params = { userId: '100' },
     store = dispatchSignInActions({ userId: 100 }).store,
     ...props
   } = {}) {
@@ -1027,6 +1029,69 @@ describe(__filename, () => {
     const root = renderUserProfile({ params: { userId: 1234 } });
 
     expect(root.find('meta[name="description"]')).toHaveLength(0);
+  });
+
+  it('sends a server redirect when the current user loads their profile with their "username" in the URL', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'fr';
+    const { store } = dispatchSignInActions({ clientApp, lang });
+    const user = getCurrentUser(store.getState().users);
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    dispatchSpy.resetHistory();
+
+    renderUserProfile({ params: { userId: user.name }, store });
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      sendServerRedirect({
+        status: 301,
+        url: `/${lang}/${clientApp}/user/${user.id}/`,
+      }),
+    );
+    sinon.assert.calledOnce(dispatchSpy);
+  });
+
+  it('sends a server redirect when another user profile is loaded with a "username" in the URL', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'fr';
+    const userId = 1;
+    const { store } = dispatchSignInActions({ clientApp, lang, userId });
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    // Create a user with another userId.
+    const anotherUserId = 222;
+    const user = createUserAccountResponse({ id: anotherUserId });
+    store.dispatch(loadUserAccount({ user }));
+
+    dispatchSpy.resetHistory();
+
+    renderUserProfile({ params: { userId: user.name }, store });
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      sendServerRedirect({
+        status: 301,
+        url: `/${lang}/${clientApp}/user/${anotherUserId}/`,
+      }),
+    );
+    sinon.assert.calledOnce(dispatchSpy);
+  });
+
+  it('dispatches an action to fetch a user profile by username', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const userId = 'this-is-a-username';
+
+    const root = renderUserProfile({ params: { userId }, store });
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchUserAccount({
+        errorHandlerId: root.instance().props.errorHandler.id,
+        userId,
+      }),
+    );
   });
 
   describe('errorHandler - extractId', () => {
