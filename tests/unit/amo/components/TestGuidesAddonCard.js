@@ -185,7 +185,7 @@ describe(__filename, () => {
     expect(root.find(GetFirefoxButton)).toHaveLength(1);
   });
 
-  it('renders AddonInstallError', () => {
+  it('renders an AddonInstallError component', () => {
     const root = render();
 
     expect(root.find(AddonInstallError)).toHaveLength(1);

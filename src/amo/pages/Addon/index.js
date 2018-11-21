@@ -11,6 +11,7 @@ import AddAddonToCollection from 'amo/components/AddAddonToCollection';
 import AddonBadges from 'amo/components/AddonBadges';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonHead from 'amo/components/AddonHead';
+import AddonInstallError from 'amo/components/AddonInstallError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import AddonRecommendations from 'amo/components/AddonRecommendations';
@@ -48,7 +49,6 @@ import {
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import { isTheme, nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
-import { getErrorMessage } from 'core/utils/addons';
 import {
   getClientCompatibility as _getClientCompatibility,
   isFirefox,
@@ -386,20 +386,6 @@ export class AddonBase extends React.Component {
     );
   }
 
-  renderInstallError() {
-    const { i18n, installError: error } = this.props;
-
-    if (!error) {
-      return null;
-    }
-
-    return (
-      <Notice className="Addon-header-install-error" type="error">
-        {getErrorMessage({ i18n, error })}
-      </Notice>
-    );
-  }
-
   render() {
     const {
       addon,
@@ -494,7 +480,7 @@ export class AddonBase extends React.Component {
 
         <div className="Addon-header-wrapper">
           <Card className="Addon-header-info-card" photonStyle>
-            {this.renderInstallError()}
+            <AddonInstallError error={this.props.installError} />
 
             <AddonCompatibilityError addon={addon} />
 

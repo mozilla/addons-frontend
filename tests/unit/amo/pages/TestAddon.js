@@ -7,6 +7,7 @@ import { Router } from 'react-router-dom';
 import { setViewContext } from 'amo/actions/viewContext';
 import Addon, { AddonBase, extractId, mapStateToProps } from 'amo/pages/Addon';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
+import AddonInstallError from 'amo/components/AddonInstallError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import AddonRecommendations from 'amo/components/AddonRecommendations';
@@ -32,7 +33,7 @@ import {
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import { setError } from 'core/actions/errors';
-import { setInstallError, setInstallState } from 'core/actions/installations';
+import { setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_COMPLETE_THEME,
@@ -43,9 +44,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
-  FATAL_ERROR,
   INSTALLED,
-  INSTALLING,
   UNKNOWN,
 } from 'core/constants';
 import AMInstallButton from 'core/components/AMInstallButton';
@@ -53,7 +52,6 @@ import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { addQueryParamsToHistory } from 'core/utils';
-import { getErrorMessage } from 'core/utils/addons';
 import {
   createFakeClientCompatibility,
   createFakeLocation,
@@ -1658,40 +1656,9 @@ describe(__filename, () => {
     expect(root.find(GetFirefoxButton)).toHaveProp('addon', addon);
   });
 
-  it('does not render an install error if there is no error', () => {
-    const addon = fakeAddon;
-    const { store } = dispatchClientMetadata();
+  it('renders an AddonInstallError component', () => {
+    const root = shallowRender();
 
-    store.dispatch(_loadAddonResults({ addon }));
-
-    const root = renderComponent({ params: { slug: addon.slug }, store });
-
-    expect(root.find('.Addon-header-install-error')).toHaveLength(0);
-  });
-
-  it('renders an install error if there is one', () => {
-    const addon = fakeAddon;
-    const { store } = dispatchClientMetadata();
-
-    store.dispatch(_loadAddonResults({ addon }));
-
-    // User clicks the install button.
-    store.dispatch(
-      setInstallState({
-        guid: addon.guid,
-        status: INSTALLING,
-      }),
-    );
-    // An error has occured in FF.
-    const error = FATAL_ERROR;
-    store.dispatch(setInstallError({ error, guid: addon.guid }));
-
-    const root = renderComponent({ params: { slug: addon.slug }, store });
-
-    expect(root.find('.Addon-header-install-error')).toHaveLength(1);
-    expect(root.find('.Addon-header-install-error')).toHaveProp(
-      'children',
-      getErrorMessage({ i18n: fakeI18n(), error }),
-    );
+    expect(root.find(AddonInstallError)).toHaveLength(1);
   });
 });

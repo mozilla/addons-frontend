@@ -88,7 +88,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
 
     return addon ? (
       <Card>
-        <AddonInstallError i18n={i18n} error={this.props.installError} />
+        <AddonInstallError error={this.props.installError} />
         <div className="GuidesAddonCard">
           <AddonCompatibilityError addon={addon} />
           <div className="GuidesAddonCard-content">

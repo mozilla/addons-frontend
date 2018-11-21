@@ -6,6 +6,8 @@ import Notice from 'ui/components/Notice';
 import { getErrorMessage } from 'core/utils/addons';
 import type { I18nType } from 'core/types/i18n';
 
+import './style.scss';
+
 type Props = {|
   error: string | null,
 |};
@@ -15,19 +17,20 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
-export const AddonInstallErrorBase = ({ error, i18n }: InternalProps) => {
+export const AddonInstallErrorBase = (props: InternalProps) => {
+  const { error, i18n } = props;
   if (!error) {
     return null;
   }
 
   return (
-    <Notice className="Addon-header-install-error" type="error">
+    <Notice className="AddonInstallError" type="error">
       {getErrorMessage({ i18n, error })}
     </Notice>
   );
 };
 
-const AddonInstallError: React.ComponentType<InternalProps> = translate()(
+const AddonInstallError: React.ComponentType<Props> = translate()(
   AddonInstallErrorBase,
 );
 
