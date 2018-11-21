@@ -26,10 +26,11 @@ Here are the steps to test collection locally:
 - Run `yarn disco:https` to start the disco app because HCT requires HTTPS.
 - Go to `about:config` and enable `devtools.chrome.enabled` so that the browser console has the CLI enabled.
 - Open the Browser Console (and not the classic devtools) and type:
-  ```javascript
-  const hostURI = Services.io.newURI('https://example.com:3000');
-  Services.perms.add(hostURI, 'hc_telemetry', Services.perms.ALLOW_ACTION);
-  ```
+
+```javascript
+let hostURI = Services.io.newURI('https://example.com:3000');
+Services.perms.add(hostURI, 'hc_telemetry', Services.perms.ALLOW_ACTION);
+```
 
 ## Testing on -dev (hosted environment)
 
@@ -44,12 +45,11 @@ You'll need to enable installs from -dev before enabling collection. You can ski
 Now enable collection on -dev:
 
 - Open the Browser Console (and not the classic devtools) and type:
-  ```javascript
-  const hostURI = Services.io.newURI(
-    'https://discovery.addons-dev.allizom.org',
-  );
-  Services.perms.add(hostURI, 'hc_telemetry', Services.perms.ALLOW_ACTION);
-  ```
+
+```javascript
+let hostURI = Services.io.newURI('https://discovery.addons-dev.allizom.org');
+Services.perms.add(hostURI, 'hc_telemetry', Services.perms.ALLOW_ACTION);
+```
 
 ## Viewing data collected
 
