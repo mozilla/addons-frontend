@@ -11318,9 +11318,10 @@ react-split-pane@^0.1.77, react-split-pane@^0.1.84:
     react-lifecycles-compat "^3.0.4"
     react-style-proptype "^3.0.0"
 
-react-storybook-addon-chapters@^2.1.7:
+react-storybook-addon-chapters@2.1.9:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/react-storybook-addon-chapters/-/react-storybook-addon-chapters-2.1.9.tgz#70ac844e3c31a66fc9ba62e0d88b2c212dc41d84"
+  integrity sha512-owQiUY1Q5aV2VAARU+MeLdgZBo5LiqRYkz0Z9GRPSNGaKFMZB/rLwaYHIk3thkorPlcu4tEmo7Al9+DX2btiyw==
   dependencies:
     "@storybook/addon-info" "^3.4.11"
     "@storybook/components" "^3.4.11"
