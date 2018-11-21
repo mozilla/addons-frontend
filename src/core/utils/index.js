@@ -103,7 +103,11 @@ export function sanitizeHTML(text, allowTags = [], _purify = purify) {
 
 // Convert new lines to HTML breaks.
 export function nl2br(text) {
-  return (text || '').replace(/(\r\n|\r|\n)(?!<.+?>)/g, '<br />');
+  // return (text || '').replace(/(\r|\n)+(?!<.+?>)?/g, '<br />');
+  return (text || '').replace(
+    /(\r|\n)+(?!<.+?>)?(<.+?><.+?>)/g,
+    '<br /><br />',
+  );
 }
 
 /*

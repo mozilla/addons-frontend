@@ -123,7 +123,21 @@ export class AddonInfoBase extends React.Component<InternalProps> {
         infoType === ADDON_INFO_TYPE_EULA
           ? addonInfo.eula
           : addonInfo.privacyPolicy;
-      infoHtml = infoContent;
+      infoHtml = sanitizeHTML(nl2br(infoContent), [
+        'a',
+        'abbr',
+        'acronym',
+        'b',
+        'blockquote',
+        'br',
+        'code',
+        'em',
+        'i',
+        'li',
+        'ol',
+        'strong',
+        'ul',
+      ]);
     }
 
     return (
@@ -144,7 +158,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
             <p
               className="AddonInfo-info-html"
               // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{__html: infoHtml}}
+              dangerouslySetInnerHTML={infoHtml}
             />
           ) : (
             <LoadingText />
