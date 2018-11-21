@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-21 05:56+0000\n"
+"PO-Revision-Date: 2018-11-21 10:19+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -2148,13 +2148,15 @@ msgstr "Dapatkan lebih banyak daripada media"
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
-msgstr ""
+msgstr "Ekstensi boleh memenuhi pelbagai keperluan dan kepentingan media khusus, seperti carian imej, urusan muat turun dan pembaca teks."
 
 #: src/amo/pages/Guides/index.js:219
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Pernahkah anda terjumpa imej yang menarik dalam web dan mahu mengetahui lebih lanjut tentangnya, seperti siapa dalam gambar itu? Ada imej yang berkaitan? Ekstensi ini membolehkan anda melakukan "
+"carian imej terbalik dengan cepat dan mudah melalui pelbagai enjin carian."
 
 #: src/amo/pages/Guides/index.js:225
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
@@ -2162,19 +2164,19 @@ msgstr "Teroka %(linkStart)sekstensi media%(linkEnd)s lain yang dipilih."
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "Bawa media ke dalam pelayar"
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "Ekstensi boleh mengubah Firefox menjadi hab hiburan anda sendiri dengan memberikan anda akses segera ke muzik, tangkapan imej, permainan dan banyak lagi."
 
 #: src/amo/pages/Guides/index.js:239
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
-msgstr ""
+msgstr "Akses 30,000+ stesen radio dari seluruh dunia, hanya satu klik sahaja."
 
 #: src/amo/pages/Guides/index.js:243
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
-msgstr ""
+msgstr "Teroka beribu-ribu %(linkStart)sfoto, ekstensi muzik & video%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:259
 msgid ""
@@ -2193,6 +2195,8 @@ msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Adakah anda berurusan dengan terlalu banyak tab terbuka atau tandabuku? Ekstensi boleh membantu! Daripada bantuan organisasi untuk menyediakan ciri-ciri baru yang menyeronokkan, ekstensi secara "
+"dramatik boleh mengubah cara anda mengurus tab dan tandabuku."
 
 #: src/amo/pages/Guides/index.js:285
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
