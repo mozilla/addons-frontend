@@ -5,13 +5,14 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import GuidesAddonCard from 'amo/components/GuidesAddonCard';
+import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import HeadLinks from 'amo/components/HeadLinks';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
 import { getAddonByGUID } from 'core/reducers/addons';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
+import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import Icon from 'ui/components/Icon';
 import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
@@ -36,13 +37,11 @@ type AddonsMap = {|
 type InternalProps = {|
   ...Props,
   addons: AddonsMap | {},
-  clientApp: string | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   slug: string,
   guids: Array<string>,
   i18n: I18nType,
-  lang: string | null,
 |};
 
 type SectionsType = {|
@@ -312,20 +311,13 @@ export class GuidesBase extends React.Component<InternalProps> {
   getGuidesSections = (
     sections: Array<SectionsType>,
   ): React.ChildrenArray<React.Node> => {
-    const { addons, clientApp, i18n, lang } = this.props;
+    const { addons, i18n } = this.props;
 
     return sections.map((section) => {
-      // TODO: look into having these links use the Router (vs 'a' tag).
-      // See https://github.com/mozilla/addons-frontend/issues/6787.
-      let exploreMoreLink;
-      if (lang && clientApp) {
-        exploreMoreLink = i18n.sprintf(section.exploreMore, {
-          linkStart: `<a class="Guides-section-explore-more-link" href="/${lang}/${clientApp}${
-            section.exploreUrl
-          }">`,
-          linkEnd: '</a>',
-        });
-      }
+      const linkParts = getLocalizedTextWithLinkParts({
+        i18n,
+        text: section.exploreMore,
+      });
 
       const addon = addons[section.addonGuid] || null;
 
@@ -339,11 +331,11 @@ export class GuidesBase extends React.Component<InternalProps> {
             addonCustomText={section.addonCustomText}
           />
 
-          <div
-            className="Guides-section-explore-more"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={sanitizeHTML(exploreMoreLink, ['a'])}
-          />
+          <div className="Guides-section-explore-more">
+            {linkParts.beforeLinkText}
+            <Link to={section.exploreUrl}>{linkParts.innerLinkText}</Link>
+            {linkParts.afterLinkText}
+          </div>
         </div>
       );
     });
@@ -383,7 +375,6 @@ export const mapStateToProps = (
   state: AppState,
   ownProps: InternalProps,
 ): $Shape<InternalProps> => {
-  const { clientApp, lang } = state.api;
   const { i18n, match } = ownProps;
   const { slug } = match.params;
 
@@ -401,8 +392,6 @@ export const mapStateToProps = (
   return {
     addons,
     guids,
-    clientApp,
-    lang,
   };
 };
 

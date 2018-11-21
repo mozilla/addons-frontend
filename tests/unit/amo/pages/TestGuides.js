@@ -1,7 +1,7 @@
-import { oneLine } from 'common-tags';
 import * as React from 'react';
 
 import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
+import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import HeadLinks from 'amo/components/HeadLinks';
@@ -12,6 +12,7 @@ import Guides, {
   getContent,
   getSections,
 } from 'amo/pages/Guides';
+import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import {
   dispatchClientMetadata,
   fakeAddon,
@@ -77,6 +78,12 @@ describe(__filename, () => {
     const slug = 'stay-safe-online';
     const content = getContent(slug, fakeI18n());
     const guids = content.sections.map((section) => section.addonGuid);
+
+    const linkParts = getLocalizedTextWithLinkParts({
+      i18n: fakeI18n(),
+      text: content.sections[0].exploreMore,
+    });
+
     const root = render({ content, slug });
 
     expect(root.find('.Guides')).toHaveLength(1);
@@ -105,12 +112,20 @@ describe(__filename, () => {
       content.sections[0].header,
     );
 
-    const sectionExploreLink = root.find('.Guides-section-explore-more').at(0);
+    const sectionExploreMore = root.find('.Guides-section-explore-more').at(0);
 
-    expect(sectionExploreLink).toHaveHTML(
-      oneLine`<div class="Guides-section-explore-more">Explore more
-      <a href="/en-US/android/collections/mozilla/password-managers/"
-      class="Guides-section-explore-more-link">password manager</a> staff picks.</div>`,
+    expect(sectionExploreMore.childAt(0).text()).toEqual(
+      linkParts.beforeLinkText,
+    );
+
+    const sectionExploreLink = sectionExploreMore.find(Link);
+
+    expect(sectionExploreLink.children().text()).toEqual(
+      linkParts.innerLinkText,
+    );
+
+    expect(sectionExploreMore.childAt(2).text()).toEqual(
+      linkParts.afterLinkText,
     );
   });
 
