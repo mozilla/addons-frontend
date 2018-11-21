@@ -1031,7 +1031,28 @@ describe(__filename, () => {
     expect(root.find('meta[name="description"]')).toHaveLength(0);
   });
 
-  it('sends a server redirect when user profile is loaded with a "username" in the URL', () => {
+  it('sends a server redirect when the current user loads their profile with their "username" in the URL', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'fr';
+    const { store } = dispatchSignInActions({ clientApp, lang });
+    const user = getCurrentUser(store.getState().users);
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    dispatchSpy.resetHistory();
+
+    renderUserProfile({ params: { userId: user.name }, store });
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      sendServerRedirect({
+        status: 301,
+        url: `/${lang}/${clientApp}/user/${user.id}/`,
+      }),
+    );
+    sinon.assert.calledOnce(dispatchSpy);
+  });
+
+  it('sends a server redirect when another user profile is loaded with a "username" in the URL', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const lang = 'fr';
     const userId = 1;
@@ -1055,6 +1076,22 @@ describe(__filename, () => {
       }),
     );
     sinon.assert.calledOnce(dispatchSpy);
+  });
+
+  it('dispatches an action to fetch a user profile by username', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const userId = 'this-is-a-username';
+
+    const root = renderUserProfile({ params: { userId }, store });
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchUserAccount({
+        errorHandlerId: root.instance().props.errorHandler.id,
+        userId,
+      }),
+    );
   });
 
   describe('errorHandler - extractId', () => {

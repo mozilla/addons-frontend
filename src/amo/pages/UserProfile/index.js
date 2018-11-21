@@ -196,7 +196,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
 
     invariant(currentUser, 'currentUser is required');
 
-    if (`${currentUser.id}` === params.userId) {
+    if (String(currentUser.id) === params.userId) {
       return `/users/edit`;
     }
 
