@@ -6,10 +6,12 @@ import { LOAD_ADDON_RESULTS } from 'core/reducers/addons';
 export const FETCH_GUIDES_ADDONS: 'FETCH_GUIDES_ADDONS' = 'FETCH_GUIDES_ADDONS';
 
 export type GuidesState = {|
+  guids: Array<string>,
   loading: boolean,
 |};
 
 export const initialState: GuidesState = {
+  guids: [],
   loading: false,
 };
 
@@ -44,6 +46,7 @@ const reducer = (
     case FETCH_GUIDES_ADDONS:
       return {
         ...state,
+        guids: action.payload.guids,
         loading: true,
       };
     case LOAD_ADDON_RESULTS:

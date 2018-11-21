@@ -14,6 +14,7 @@ import Guides, {
 } from 'amo/pages/Guides';
 import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import {
+  createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -24,7 +25,6 @@ describe(__filename, () => {
   const getProps = ({
     store = dispatchClientMetadata().store,
     i18n = fakeI18n(),
-    dispatch = store.dispatch,
     slug = 'stay-safe-online',
     match = {
       params: {
@@ -34,7 +34,6 @@ describe(__filename, () => {
     ...customProps
   } = {}) => {
     return {
-      dispatch,
       i18n,
       match,
       slug,
@@ -60,7 +59,9 @@ describe(__filename, () => {
   it('fetches guides addons', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render({ dispatch: dispatchSpy, store });
+    const errorHandler = createStubErrorHandler();
+
+    render({ errorHandler, store });
 
     const content = getContent('stay-safe-online', fakeI18n());
     const guids = content.sections.map((section) => section.addonGuid);
@@ -69,9 +70,59 @@ describe(__filename, () => {
       dispatchSpy,
       fetchGuidesAddons({
         guids,
-        errorHandlerId: root.instance().props.errorHandler.id,
+        errorHandlerId: errorHandler.id,
       }),
     );
+
+    sinon.assert.calledOnce(dispatchSpy);
+  });
+
+  it('does not fetch guides addons while loading', () => {
+    const { store } = dispatchClientMetadata();
+    const slug = 'privacy';
+    const errorHandler = createStubErrorHandler();
+    const sections = getSections(slug, fakeI18n());
+    const guids = sections.map((section) => section.addonGuid);
+
+    // This simulates the initial fetch for addons.
+    store.dispatch(
+      fetchGuidesAddons({
+        guids,
+        errorHandlerId: errorHandler.id,
+      }),
+    );
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    render({ store });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('does not fetch guides addons if addons has already been set', () => {
+    const { store } = dispatchClientMetadata();
+    const errorHandler = createStubErrorHandler();
+    const guid = 'test';
+    const addons = {
+      [guid]: {},
+    };
+
+    // This simulates the initial fetch for addons.
+    store.dispatch(
+      fetchGuidesAddons({
+        guids: [guid],
+        errorHandlerId: errorHandler.id,
+      }),
+    );
+
+    // This simulates loading addons which updates the loading state.
+    _loadAddonResults(store);
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    render({ store, addons });
+
+    sinon.assert.notCalled(dispatchSpy);
   });
 
   it('renders a Guides Page', () => {
@@ -135,10 +186,20 @@ describe(__filename, () => {
     const guids = getSections({ slug, i18n: fakeI18n() }).map(
       (section) => section.addonGuid,
     );
+
+    const errorHandler = createStubErrorHandler();
     const addon = {
       ...fakeAddon,
       guid: guids[0],
     };
+
+    // This simulates the initial fetch for addons.
+    store.dispatch(
+      fetchGuidesAddons({
+        guids,
+        errorHandlerId: errorHandler.id,
+      }),
+    );
 
     _loadAddonResults(store, addon);
 
