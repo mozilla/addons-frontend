@@ -2,7 +2,7 @@
 import autoprefixer from 'autoprefixer';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
 import config from 'config';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 
 import 'core/polyfill';
@@ -51,34 +51,32 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
     styleRules = [
       {
         test: /\.(sc|c)ss$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                importLoaders: 2,
-                sourceMap: true,
-                minimize: true,
-              },
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              sourceMap: true,
+              minimize: true,
             },
-            {
-              loader: 'postcss-loader',
-              options: {
-                plugins: postCssPlugins,
-                sourceMap: true,
-              },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: postCssPlugins,
+              sourceMap: true,
             },
-            {
-              loader: 'sass-loader',
-              options: {
-                outputStyle: 'expanded',
-                sourceMap: true,
-                sourceMapContents: true,
-              },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              outputStyle: 'expanded',
+              sourceMap: true,
+              sourceMapContents: true,
             },
-          ],
-        }),
+          },
+        ],
       },
     ];
   }

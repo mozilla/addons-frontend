@@ -2,7 +2,7 @@
 import path from 'path';
 
 import config from 'config';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import SriPlugin from 'webpack-subresource-integrity';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 import TerserPlugin from 'terser-webpack-plugin';
@@ -70,9 +70,9 @@ export default {
     // WebpackIsomorphicToolsPlugin has a dependency on it... Removing this
     // plugin means moving to a new isomorphic tool, which seems super
     // complicated.
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: '[name]-[hash].css',
-      allChunks: true,
+      chunkFilename: '[id]-[hash].css',
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
     new SriPlugin({ hashFuncNames: ['sha512'] }),
