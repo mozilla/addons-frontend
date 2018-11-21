@@ -30,16 +30,18 @@ import type {
   PartialExternalAddonVersionType,
 } from 'core/types/addons';
 
+export const FETCH_VERSION: 'FETCH_VERSION' = 'FETCH_VERSION';
 export const FETCH_VERSIONS: 'FETCH_VERSIONS' = 'FETCH_VERSIONS';
 export const LOAD_VERSIONS: 'LOAD_VERSIONS' = 'LOAD_VERSIONS';
 
 export type VersionIdType = number;
+export type VersionLicenseType = {| name: string, text?: string, url: string |};
 
 export type AddonVersionType = {
   compatibility?: AddonCompatibilityType,
   id: VersionIdType,
   isStrictCompatibilityEnabled: boolean,
-  license: { name: string, url: string } | null,
+  license: VersionLicenseType | null,
   platformFiles: PlatformFilesType,
   releaseNotes?: string,
   version: string,
@@ -100,11 +102,41 @@ export const createInternalVersion = (
       version.is_strict_compatibility_enabled,
     ),
     license: version.license
-      ? { name: version.license.name, url: version.license.url }
+      ? {
+          name: version.license.name,
+          text: version.license.text,
+          url: version.license.url,
+        }
       : null,
     platformFiles: createPlatformFiles(version),
     releaseNotes: version.release_notes,
     version: version.version,
+  };
+};
+
+type FetchVersionParams = {|
+  errorHandlerId: string,
+  slug: string,
+  versionId: VersionIdType,
+|};
+
+export type FetchVersionAction = {|
+  type: typeof FETCH_VERSION,
+  payload: FetchVersionParams,
+|};
+
+export const fetchVersion = ({
+  errorHandlerId,
+  slug,
+  versionId,
+}: FetchVersionParams): FetchVersionAction => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(slug, 'slug is required');
+  invariant(versionId, 'versionId is required');
+
+  return {
+    type: FETCH_VERSION,
+    payload: { errorHandlerId, slug, versionId },
   };
 };
 
@@ -243,13 +275,14 @@ export const getVersionInfo = ({
   return null;
 };
 
-type Action = FetchVersionsAction | LoadVersionsAction;
+type Action = FetchVersionAction | FetchVersionsAction | LoadVersionsAction;
 
 const reducer = (
   state: VersionsState = initialState,
   action: Action,
 ): VersionsState => {
   switch (action.type) {
+    case FETCH_VERSION:
     case FETCH_VERSIONS: {
       const { slug } = action.payload;
       return {

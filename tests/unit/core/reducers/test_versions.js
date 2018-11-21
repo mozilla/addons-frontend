@@ -14,6 +14,7 @@ import {
 } from 'amo/reducers/recommendations';
 import versionsReducer, {
   createInternalVersion,
+  fetchVersion,
   fetchVersions,
   getLoadingBySlug,
   getVersionById,
@@ -65,6 +66,26 @@ describe(__filename, () => {
     expect(getVersionsBySlug({ slug, state })).toEqual(null);
   });
 
+  it('sets a loading flag when fetching a version', () => {
+    const slug = 'some-slug';
+    const state = versionsReducer(
+      undefined,
+      fetchVersion({ errorHandlerId: 1, slug, versionId: 1 }),
+    );
+
+    expect(getLoadingBySlug({ state, slug })).toBe(true);
+  });
+
+  it('clears versions when fetching a version', () => {
+    const slug = 'some-slug';
+    const state = versionsReducer(
+      undefined,
+      fetchVersion({ errorHandlerId: 1, slug, versionId: 1 }),
+    );
+
+    expect(getVersionsBySlug({ slug, state })).toEqual(null);
+  });
+
   it('clears the loading flag when loading versions', () => {
     let state;
     const slug = 'some-slug';
@@ -89,6 +110,26 @@ describe(__filename, () => {
       createInternalVersion(versions[0]),
       createInternalVersion(versions[1]),
     ]);
+  });
+
+  it('loads a version with license text', () => {
+    const slug = 'some-slug';
+    const licenseText = 'license text';
+    const version = {
+      ...fakeVersion,
+      license: {
+        ...fakeVersion.license,
+        text: licenseText,
+      },
+    };
+    const state = versionsReducer(
+      undefined,
+      loadVersions({ slug, versions: [version] }),
+    );
+
+    const firstStoredVersion = getVersionsBySlug({ slug, state })[0];
+    expect(firstStoredVersion).toEqual(createInternalVersion(version));
+    expect(firstStoredVersion.license.text).toEqual(licenseText);
   });
 
   describe('createPlatformFiles', () => {
