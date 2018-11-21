@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-14 11:40+0000\n"
+"PO-Revision-Date: 2018-11-21 08:51+0000\n"
 "Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -935,11 +935,11 @@ msgstr "只能用于 Firefox — 获取 Firefox"
 
 #: src/amo/components/GuidesAddonCard/index.js:126
 msgid "Staff Pick"
-msgstr ""
+msgstr "编辑精选"
 
 #: src/amo/components/GuidesAddonCard/index.js:138
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:505
 msgid "View My Profile"
@@ -2033,31 +2033,31 @@ msgstr "我的收藏集"
 
 #: src/amo/pages/Guides/index.js:102
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "一款轻量级又高效的广告拦截工具。uBlock Origin 能在不消耗大量内存的情况下执行上千条过滤规则。"
 
 #: src/amo/pages/Guides/index.js:106
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
-msgstr ""
+msgstr "浏览更多编辑精选%(linkStart)s广告拦截工具%(linkEnd)s。"
 
 #: src/amo/pages/Guides/index.js:114
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "阻止在线跟踪器跟踪您"
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr ""
+msgstr "在线广告商可以跨网站跟踪您的活动，并收集有关您与您的兴趣的信息。使用扩展可帮助您清除数字足跡。"
 
 #: src/amo/pages/Guides/index.js:120
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "将您的 Facebook 身份隔离于独立的“容器”中，阻止 Facebook 跟踪您在社交平台上的一举一动。"
 
 #: src/amo/pages/Guides/index.js:124
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
-msgstr ""
+msgstr "浏览更多编辑精选%(linkStart)s隐私与安全工具%(linkEnd)s。"
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Re-imagine tab management"
-msgstr ""
+msgstr "重塑标签页管理"
 
 #: src/amo/pages/Guides/index.js:136
 msgid ""
@@ -2071,11 +2071,11 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:146
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-msgstr ""
+msgstr "浏览更多编辑精选%(linkStart)s标签页管理工具%(linkEnd)s。"
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "使用改进的书签更好地上网"
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
@@ -2089,11 +2089,11 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:166
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "浏览更多编辑精选%(linkStart)s书签管理器%(linkEnd)s。"
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "享受全新的标签页使用体验"
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
@@ -2101,7 +2101,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-msgstr ""
+msgstr "享用漂亮的新标签页，您还可以自定义背景、本地天气信息等等。"
 
 #: src/amo/pages/Guides/index.js:183
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
@@ -2109,7 +2109,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:194
 msgid "Improve videos"
-msgstr ""
+msgstr "改善视频体验"
 
 #: src/amo/pages/Guides/index.js:195
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, from customizing YouTube to taste, to playing videos in theater mode, and much more."
@@ -2121,11 +2121,11 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:205
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr ""
+msgstr "浏览更多编辑精选%(linkStart)s视频播放扩展%(linkEnd)s。"
 
 #: src/amo/pages/Guides/index.js:213
 msgid "Get more out of media"
-msgstr ""
+msgstr "获取更多媒体相关功能"
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
@@ -2139,11 +2139,11 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:225
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr ""
+msgstr "浏览更多编辑精选%(linkStart)s媒体内容扩展%(linkEnd)s。"
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "将媒体内容直接带入浏览器"
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
@@ -2165,7 +2165,7 @@ msgstr "网络是一个美妙但也有野蛮的地方。他人可能在未获您
 
 #: src/amo/pages/Guides/index.js:271
 msgid "Organize Tabs & Bookmarks"
-msgstr ""
+msgstr "管理标签页与书签"
 
 #: src/amo/pages/Guides/index.js:272
 msgid ""
@@ -2195,7 +2195,7 @@ msgstr "浏览更多编辑精选%(linkStart)s密码管理器%(linkEnd)s。"
 
 #: src/amo/pages/Guides/index.js:95
 msgid "Block annoying ads"
-msgstr ""
+msgstr "拦截恼人的广告"
 
 #: src/amo/pages/Guides/index.js:96
 msgid ""
@@ -2590,7 +2590,7 @@ msgstr "%(user)s 的用户资料"
 
 #: src/amo/pages/UserProfile/index.js:320
 msgid "User Profile"
-msgstr ""
+msgstr "用户资料"
 
 #: src/amo/pages/UserProfile/index.js:347 src/amo/pages/UserProfileEdit/index.js:635
 msgid "Location"
