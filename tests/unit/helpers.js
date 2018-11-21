@@ -93,7 +93,11 @@ export const fakeVersion = Object.freeze({
   files: [fakePlatformFile],
   id: 123,
   is_strict_compatibility_enabled: false,
-  license: { name: 'tofulicense', url: 'http://license.com/' },
+  license: {
+    is_custom: false,
+    name: 'tofulicense',
+    url: 'http://license.com/',
+  },
   release_notes: 'Some release notes',
   reviewed: '2014-11-22T10:09:01Z',
   version: '2.0.0',

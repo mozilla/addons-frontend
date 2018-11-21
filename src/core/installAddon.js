@@ -48,8 +48,11 @@ import { findFileForPlatform, getDisplayName } from 'core/utils';
 import { getFileHash } from 'core/utils/addons';
 import type { AppState as AmoAppState } from 'amo/store';
 import type { UserAgentInfoType } from 'core/reducers/api';
-import type { AddonVersionType } from 'core/reducers/versions';
-import type { AddonType, PlatformFilesType } from 'core/types/addons';
+import type {
+  AddonVersionType,
+  PlatformFilesType,
+} from 'core/reducers/versions';
+import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocationType } from 'core/types/router';
 import type { AppState as DiscoAppState } from 'disco/store';

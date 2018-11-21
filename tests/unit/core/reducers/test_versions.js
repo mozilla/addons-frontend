@@ -191,6 +191,7 @@ describe(__filename, () => {
           fakeVersion.is_strict_compatibility_enabled,
         ),
         license: {
+          isCustom: fakeVersion.license.is_custom,
           name: fakeVersion.license.name,
           url: fakeVersion.license.url,
         },

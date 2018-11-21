@@ -1,8 +1,12 @@
 /* @flow */
-import type { VersionIdType, VersionLicenseType } from 'core/reducers/versions';
+import type {
+  VersionIdType,
+  ExternalAddonVersionType,
+  PartialExternalAddonVersionType,
+} from 'core/reducers/versions';
 import type { AddonTypeType } from 'core/constants';
 
-type AddonStatus =
+export type AddonStatusType =
   | 'lite'
   | 'public'
   | 'deleted'
@@ -14,48 +18,6 @@ type AddonStatus =
   | 'unreviewed'
   | 'lite-nominated'
   | 'review-pending';
-
-export type AddonFileType = {|
-  created: string,
-  hash: string,
-  id: number,
-  is_mozilla_signed_extension: boolean,
-  is_restart_required: boolean,
-  is_webextension: boolean,
-  permissions?: Array<string>,
-  platform: 'all' | 'android' | 'mac' | 'linux' | 'windows',
-  size: number,
-  status: AddonStatus,
-  url: string,
-|};
-
-export type AddonCompatibilityType = {|
-  [appName: string]: {|
-    min: string,
-    max: string,
-  |},
-|};
-
-export type PartialExternalAddonVersionType = {|
-  channel: string,
-  compatibility?: AddonCompatibilityType,
-  edit_url: string,
-  files: Array<AddonFileType>,
-  id: number,
-  is_strict_compatibility_enabled: boolean,
-  reviewed: Date,
-  // This is the developer-defined version number.
-  // It could, for example, be set to "0".
-  // See:
-  // https://github.com/mozilla/addons-frontend/pull/3271#discussion_r142159199
-  version: string,
-|};
-
-export type ExternalAddonVersionType = {|
-  ...PartialExternalAddonVersionType,
-  license: VersionLicenseType,
-  release_notes?: string,
-|};
 
 type PartialAddonAuthorType = {|
   id: number,
@@ -146,7 +108,7 @@ export type ExternalAddonType = {|
   requires_payment?: boolean,
   review_url?: string,
   slug: string,
-  status?: AddonStatus,
+  status?: AddonStatusType,
   summary?: string,
   support_email?: string,
   support_url?: string,
@@ -161,14 +123,6 @@ export type ExternalAddonType = {|
 export type PartialExternalAddonType = {|
   ...ExternalAddonType,
   current_version?: PartialExternalAddonVersionType,
-|};
-
-export type PlatformFilesType = {|
-  all: ?AddonFileType,
-  android: ?AddonFileType,
-  mac: ?AddonFileType,
-  linux: ?AddonFileType,
-  windows: ?AddonFileType,
 |};
 
 /*
