@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-20 18:57+0000\n"
+"PO-Revision-Date: 2018-11-21 06:09+0000\n"
 "Last-Translator: Rok Žerdin <rok.zerdin1990@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -2214,9 +2214,8 @@ msgstr ""
 "pomagajo okrepiti vašo spletno zasebnost in varnost."
 
 #: src/amo/pages/Guides/index.js:271
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "Zasebni zaznamki"
+msgstr "Organizirajte zavihke in zaznamke"
 
 #: src/amo/pages/Guides/index.js:272
 msgid ""
