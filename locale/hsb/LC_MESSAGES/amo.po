@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-21 16:51+0000\n"
+"PO-Revision-Date: 2018-11-21 17:09+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2098,7 +2098,7 @@ msgstr "Wabjenje online móže wašej aktiwiće wot jednoho websydła do druheho
 
 #: src/amo/pages/Guides/index.js:120
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Izolujće swoju identitu Facebook do separatneho “kontejnera”, zo byšće Facebook při slědowanju swojeje aktiwity zwonka jeho socialneje platformy haćił."
 
 #: src/amo/pages/Guides/index.js:124
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
@@ -2106,17 +2106,19 @@ msgstr "Wuslědźće dalšu %(linkStart)spriwatnosć a wěstotu%(linkEnd)s z wub
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Re-imagine tab management"
-msgstr ""
+msgstr "Rozmyslujće rjadowanje rajtarkow"
 
 #: src/amo/pages/Guides/index.js:136
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Jeli zwjetša z wjele wočinjenymi rajtarkami dźěłaće, znajeće najskerje derje problem, hdyž retomas njeidentifikujomnych rajtarkow jenož za tym rajtarkom přepytujeće, kotryž trjebaće. Rozšěrjenja "
+"móža wam kreatiwne rozrisanja za zjednorjenje rjadowanja rajtarkow poskićić."
 
 #: src/amo/pages/Guides/index.js:142
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Rjadujće a wizualizujće swoje rajtarki w kaskadowacym “štomowym” formaće w bóčnicy Firefox."
 
 #: src/amo/pages/Guides/index.js:146
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
@@ -2124,7 +2126,7 @@ msgstr "Wuslědźće dalše %(linkStart)szrjadowanje rajtarkow%(linkEnd)s z wub�
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Lěpše přehladowanje z polěpšenymi zapołožkami"
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
