@@ -17,7 +17,7 @@ export const getVersion = ({
   api,
   slug,
   versionId,
-}: GetVersionParams = {}): Promise<ExternalAddonVersionType> => {
+}: GetVersionParams): Promise<ExternalAddonVersionType> => {
   invariant(slug, 'slug is required');
   invariant(versionId, 'versionId is required');
 
@@ -38,7 +38,7 @@ export const getVersions = ({
   api,
   slug,
   ...params
-}: GetVersionsParams = {}): Promise<
+}: GetVersionsParams): Promise<
   PaginatedApiResponse<ExternalAddonVersionType>,
 > => {
   invariant(slug, 'slug is required');

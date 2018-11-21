@@ -132,6 +132,7 @@ export const fetchVersion = ({
 }: FetchVersionParams): FetchVersionAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(slug, 'slug is required');
+  invariant(versionId, 'versionId is required');
 
   return {
     type: FETCH_VERSION,
@@ -274,13 +275,14 @@ export const getVersionInfo = ({
   return null;
 };
 
-type Action = FetchVersionsAction | LoadVersionsAction;
+type Action = FetchVersionAction | FetchVersionsAction | LoadVersionsAction;
 
 const reducer = (
   state: VersionsState = initialState,
   action: Action,
 ): VersionsState => {
   switch (action.type) {
+    case FETCH_VERSION:
     case FETCH_VERSIONS: {
       const { slug } = action.payload;
       return {
