@@ -2270,6 +2270,14 @@ babel-plugin-minify-type-constructors@^0.4.3:
   dependencies:
     babel-helper-is-void-0 "^0.4.3"
 
+babel-plugin-react-docgen@2.0.0, babel-plugin-react-docgen@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-react-docgen/-/babel-plugin-react-docgen-2.0.0.tgz#039d90f5a1a37131c8cc3015017eecafa8d78882"
+  integrity sha512-AaA6IPxCF1EkzpFG41GkVh/VGdoBejPF6oIub2K8E6AD3kwnTZ0DIKG7f20a7zmqBEeO8GkFWdM7tYd9Owkc+Q==
+  dependencies:
+    lodash "^4.17.10"
+    react-docgen "^3.0.0-rc.1"
+
 babel-plugin-react-docgen@^1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-react-docgen/-/babel-plugin-react-docgen-1.9.0.tgz#2e79aeed2f93b53a172398f93324fdcf9f02e01f"
@@ -2277,13 +2285,6 @@ babel-plugin-react-docgen@^1.9.0:
     babel-types "^6.24.1"
     lodash "^4.17.0"
     react-docgen "^3.0.0-beta11"
-
-babel-plugin-react-docgen@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-react-docgen/-/babel-plugin-react-docgen-2.0.0.tgz#039d90f5a1a37131c8cc3015017eecafa8d78882"
-  dependencies:
-    lodash "^4.17.10"
-    react-docgen "^3.0.0-rc.1"
 
 babel-plugin-syntax-async-functions@^6.8.0:
   version "6.13.0"
@@ -11318,7 +11319,7 @@ react-split-pane@^0.1.77, react-split-pane@^0.1.84:
     react-lifecycles-compat "^3.0.4"
     react-style-proptype "^3.0.0"
 
-react-storybook-addon-chapters@2.1.9:
+react-storybook-addon-chapters@^2.1.9:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/react-storybook-addon-chapters/-/react-storybook-addon-chapters-2.1.9.tgz#70ac844e3c31a66fc9ba62e0d88b2c212dc41d84"
   integrity sha512-owQiUY1Q5aV2VAARU+MeLdgZBo5LiqRYkz0Z9GRPSNGaKFMZB/rLwaYHIk3thkorPlcu4tEmo7Al9+DX2btiyw==
