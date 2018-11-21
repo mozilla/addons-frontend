@@ -313,7 +313,9 @@ The following are scripts that are used in deployment - you generally won't need
 
 The env vars are:
 
-`NODE_APP_INSTANCE` this is the name of the app e.g. 'disco' `NODE_ENV` this is the node environment. e.g. production, dev, stage, development.
+- `NODE_APP_INSTANCE`: the name of the app, e.g., `amo` or `disco`
+- `NODE_ENV`: the node environment, e.g. `production` or `development`
+- `NODE_CONFIG_ENV`: the name of the configuration to load, e.g., `dev`, `stage`, `prod`
 
 | Script     | Description                                    |
 | ---------- | ---------------------------------------------- |
@@ -323,53 +325,40 @@ The env vars are:
 **Example:** Building and running a production instance of the AMO app:
 
 ```
-NODE_APP_INSTANCE=amo NODE_ENV=production yarn build
-NODE_APP_INSTANCE=amo NODE_ENV=production yarn start
+NODE_APP_INSTANCE=amo NODE_ENV=production NODE_CONFIG_ENV=prod yarn build
+NODE_APP_INSTANCE=amo NODE_ENV=production NODE_CONFIG_ENV=prod yarn start
 ```
 
-**Note: To run the app locally in production mode you'll need to create a config file for local production builds.** It must be saved as `config/local-production-amo.js` and should look like:
+**Note: To run the app locally in production mode you'll need to create a config file for local production builds.** It must be saved as `config/local-prod-amo.js` and should look like:
 
 ```js
-import { apiStageHost, amoStageCDN } from './lib/shared';
+const amoCDN = 'http://127.0.0.1:4000';
 
 module.exports = {
-  // Statics will be served by node.
-  staticHost: '',
-  // FIXME: sign-in isn't working.
-  // fxaConfig: 'local',
+  // CDN URL points to the Node server.
+  amoCDN,
 
-  // The node server host and port.
-  serverHost: '127.0.0.1',
-  serverPort: 3000,
-
-  apiHost: apiStageHost,
-  amoCDN: amoStageCDN,
-
+  // Configure CSP with 'self' since we serve the compiled files from `dist/`.
   CSP: {
     directives: {
-      connectSrc: [apiStageHost],
-      scriptSrc: ["'self'", 'https://www.google-analytics.com'],
+      fontSrc: ["'self'"],
+      imgSrc: ["'self'", 'data:', 'https://addons.cdn.mozilla.net'],
+      scriptSrc: ["'self'"],
       styleSrc: ["'self'"],
-      imgSrc: [
-        "'self'",
-        'data:',
-        amoStageCDN,
-        'https://www.google-analytics.com',
-      ],
-      mediaSrc: ["'self'"],
-      fontSrc: ["'self'", 'data:', amoStageCDN],
     },
+    reportOnly: true,
   },
 
-  // This is needed to serve assets locally.
+  // Serve static via Node.
+  staticHost: undefined,
   enableNodeStatics: true,
-  trackingEnabled: false,
-  // Do not send client side errors to Sentry.
+
+  // No need for Sentry.
   publicSentryDsn: null,
 };
 ```
 
-After this, re-build and restart using `yarn build` and `yarn start` as documented above. If you have used `localhost` before with a different configuration, be sure to clear your cookies.
+After this, re-build and restart using `yarn build` and `yarn start` as documented above. If you have used `127.0.0.1` before with a different configuration, be sure to clear your cookies. The application should be available at: http://127.0.0.1:4000/.
 
 **NOTE**: At this time, it's not possible to sign in using this approach.
 
