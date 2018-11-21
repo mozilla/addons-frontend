@@ -35,7 +35,6 @@ type InternalProps = {|
   addons: {
     [guid: string]: AddonType | null,
   },
-  clientApp: string | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   guids: Array<string>,
@@ -395,7 +394,6 @@ export const mapStateToProps = (state: AppState): $Shape<InternalProps> => {
 
   return {
     addons,
-    guids,
     loading,
   };
 };

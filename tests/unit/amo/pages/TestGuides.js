@@ -84,6 +84,7 @@ describe(__filename, () => {
     const sections = getSections(slug, fakeI18n());
     const guids = sections.map((section) => section.addonGuid);
 
+    // This simulates the initial fetch for addons.
     store.dispatch(
       fetchGuidesAddons({
         guids,
@@ -94,6 +95,32 @@ describe(__filename, () => {
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
     render({ store });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('does not fetch guides addons if addons has already been set', () => {
+    const { store } = dispatchClientMetadata();
+    const errorHandler = createStubErrorHandler();
+    const guid = 'test';
+    const addons = {
+      [guid]: {},
+    };
+
+    // This simulates the initial fetch for addons.
+    store.dispatch(
+      fetchGuidesAddons({
+        guids: [guid],
+        errorHandlerId: errorHandler.id,
+      }),
+    );
+
+    // This simulates loading addons which updates the loading state.
+    _loadAddonResults(store);
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    render({ store, addons });
 
     sinon.assert.notCalled(dispatchSpy);
   });
@@ -166,6 +193,7 @@ describe(__filename, () => {
       guid: guids[0],
     };
 
+    // This simulates the initial fetch for addons.
     store.dispatch(
       fetchGuidesAddons({
         guids,

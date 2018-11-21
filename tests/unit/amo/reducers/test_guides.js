@@ -28,7 +28,7 @@ describe(__filename, () => {
       expect(newState.loading).toEqual(false);
     });
 
-    it('adds the guids', () => {
+    it('stores the add-on GUIDs', () => {
       const guids = ['test', 'test2'];
       const state = guidesReducer(
         undefined,
