@@ -82,9 +82,4 @@ module.exports = {
 
   // https://sentry.prod.mozaws.net/operations/addons-frontend-disco-prod/
   publicSentryDsn: 'https://b9e70d0dca144344a7a5674c29b08355@sentry.prod.mozaws.net/186',
-
-  // Hybrid Content Telemetry: On by default for the Disco Pane.
-  // Note: Further configuration is required to enable collection locally or on -dev or stage.
-  // See the docs `docs/telemetry.md` for details.
-  hctEnabled: true,
 };
