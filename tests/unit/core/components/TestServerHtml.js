@@ -21,15 +21,24 @@ describe(__filename, () => {
     Helmet.canUseDOM = _helmetCanUseDOM;
   });
 
+  const createFakeChunkExtractor = () => {
+    return {
+      getLinkElements: sinon.stub(),
+      getMainAssets: sinon.stub().returns([]),
+      getRequiredChunksScriptElement: sinon.stub(),
+    };
+  };
+
   function render(opts = {}) {
     const pageProps = {
       appName: 'disco',
       appState: { appStateExample: { things: 'lots-of-things' } },
-      component: <FakeApp />,
       assets: fakeAssets,
+      chunkExtractor: createFakeChunkExtractor(),
+      component: <FakeApp />,
       includeSri: true,
-      trackingEnabled: false,
       sriData: fakeSRIData,
+      trackingEnabled: false,
       ...opts,
     };
     return shallow(<ServerHtml {...pageProps} />);
