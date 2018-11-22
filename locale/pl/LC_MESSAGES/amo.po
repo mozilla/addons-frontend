@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-21 15:51+0000\n"
+"PO-Revision-Date: 2018-11-22 17:01+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -943,12 +943,11 @@ msgstr "Tylko w Firefoksie — pobierz go teraz"
 
 #: src/amo/components/GuidesAddonCard/index.js:126
 msgid "Staff Pick"
-msgstr ""
+msgstr "Nasz wybór"
 
 #: src/amo/components/GuidesAddonCard/index.js:138
-#, fuzzy
 msgid "Add"
-msgstr "Dodatki"
+msgstr "Dodaj"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:505
 msgid "View My Profile"
@@ -2063,20 +2062,19 @@ msgstr "Moje kolekcje"
 
 #: src/amo/pages/Guides/index.js:102
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "Lekkie i wysoce skuteczne narzędzie do blokowania reklam. uBlock Origin stosuje tysiące filtrów treści bez nadmiernego zużywania pamięci."
 
 #: src/amo/pages/Guides/index.js:106
-#, fuzzy
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
-msgstr "Poznaj więcej %(linkStart)smenedżerów haseł%(linkEnd)s wybranych przez nas."
+msgstr "Poznaj więcej %(linkStart)snarzędzi do blokowania reklam%(linkEnd)s wybranych przez nas."
 
 #: src/amo/pages/Guides/index.js:114
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "Uniemożliw śledzenie Cię w Internecie"
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr ""
+msgstr "Reklamodawcy w Internecie mogą śledzić Twoją aktywność na wielu stronach, zbierając informacje o Tobie i Twoich zainteresowaniach. Rozszerzenia mogą pomóc ukryć swój ślad w sieci."
 
 #: src/amo/pages/Guides/index.js:120
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
