@@ -6,18 +6,21 @@ import { LOAD_ADDON_RESULTS } from 'core/reducers/addons';
 export const FETCH_GUIDES_ADDONS: 'FETCH_GUIDES_ADDONS' = 'FETCH_GUIDES_ADDONS';
 
 export type GuidesState = {|
-  guids: Array<string>,
+  guidsBySlug: {
+    [slug: string]: Array<string>,
+  },
   loading: boolean,
 |};
 
 export const initialState: GuidesState = {
-  guids: [],
+  guidsBySlug: {},
   loading: false,
 };
 
 export type FetchGuidesParams = {|
   errorHandlerId: string,
   guids: Array<string>,
+  slug: string,
 |};
 
 export type FetchGuidesAction = {|
@@ -28,14 +31,26 @@ export type FetchGuidesAction = {|
 export const fetchGuidesAddons = ({
   errorHandlerId,
   guids,
+  slug,
 }: FetchGuidesParams): FetchGuidesAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(guids, 'guids is required');
+  invariant(slug, 'slug is required');
 
   return {
     type: FETCH_GUIDES_ADDONS,
-    payload: { guids, errorHandlerId },
+    payload: { guids, errorHandlerId, slug },
   };
+};
+
+export const getGUIDsBySlug = ({
+  guidesState,
+  slug,
+}: {|
+  guidesState: GuidesState,
+  slug: string,
+|}): Array<string> => {
+  return guidesState.guidsBySlug[slug] || [];
 };
 
 const reducer = (
@@ -43,12 +58,18 @@ const reducer = (
   action: FetchGuidesAction,
 ): GuidesState => {
   switch (action.type) {
-    case FETCH_GUIDES_ADDONS:
+    case FETCH_GUIDES_ADDONS: {
+      const { guids, slug } = action.payload;
+
       return {
         ...state,
-        guids: action.payload.guids,
+        guidsBySlug: {
+          ...state.guidsBySlug,
+          [slug]: guids,
+        },
         loading: true,
       };
+    }
     case LOAD_ADDON_RESULTS:
       return {
         ...state,
