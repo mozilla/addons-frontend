@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-22 10:19+0000\n"
+"PO-Revision-Date: 2018-11-22 13:52+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -2065,7 +2065,7 @@ msgstr "Vermijd dat onlinetrackers u stalken"
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr ""
+msgstr "Online-adverteerders kunnen uw activiteit van de ene naar de andere website volgen, waarbij ze informatie over u en uw interesses verzamelen. Met extensies kunt u uw digitale sporen wissen."
 
 #: src/amo/pages/Guides/index.js:120
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
