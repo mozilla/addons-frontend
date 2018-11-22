@@ -22,28 +22,17 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const getProps = ({
-    store = dispatchClientMetadata().store,
-    i18n = fakeI18n(),
-    slug = 'stay-safe-online',
-    match = {
-      params: {
-        slug,
+  const render = ({ slug = 'organize-your-tabs', ...props } = {}) => {
+    const allProps = {
+      store: dispatchClientMetadata().store,
+      i18n: fakeI18n(),
+      match: {
+        params: {
+          slug,
+        },
       },
-    },
-    ...customProps
-  } = {}) => {
-    return {
-      i18n,
-      match,
-      slug,
-      store,
-      ...customProps,
+      ...props,
     };
-  };
-
-  const render = (customProps = {}) => {
-    const allProps = getProps(customProps);
 
     return shallowUntilTarget(<Guides {...allProps} />, GuidesBase);
   };
@@ -56,19 +45,21 @@ describe(__filename, () => {
     );
   };
 
-  it('fetches guides addons', () => {
+  it('fetches the add-ons for a guide page', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
-    render({ errorHandler, store });
-
-    const content = getContent('stay-safe-online', fakeI18n());
+    const slug = 'stay-safe-online';
+    const content = getContent(slug, fakeI18n());
     const guids = content.sections.map((section) => section.addonGuid);
+
+    render({ errorHandler, store, slug });
 
     sinon.assert.calledWith(
       dispatchSpy,
       fetchGuidesAddons({
+        slug,
         guids,
         errorHandlerId: errorHandler.id,
       }),
@@ -77,16 +68,18 @@ describe(__filename, () => {
     sinon.assert.calledOnce(dispatchSpy);
   });
 
-  it('does not fetch guides addons while loading', () => {
+  it('does not fetch the addons while loading', () => {
     const { store } = dispatchClientMetadata();
-    const slug = 'privacy';
     const errorHandler = createStubErrorHandler();
-    const sections = getSections(slug, fakeI18n());
-    const guids = sections.map((section) => section.addonGuid);
+
+    const slug = 'stay-safe-online';
+    const content = getContent(slug, fakeI18n());
+    const guids = content.sections.map((section) => section.addonGuid);
 
     // This simulates the initial fetch for addons.
     store.dispatch(
       fetchGuidesAddons({
+        slug,
         guids,
         errorHandlerId: errorHandler.id,
       }),
@@ -99,28 +92,28 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it('does not fetch guides addons if addons has already been set', () => {
+  it('does not fetch the add-ons if add-ons have already been loaded', () => {
     const { store } = dispatchClientMetadata();
     const errorHandler = createStubErrorHandler();
-    const guid = 'test';
-    const addons = {
-      [guid]: {},
-    };
 
-    // This simulates the initial fetch for addons.
+    const slug = 'stay-safe-online';
+    const content = getContent(slug, fakeI18n());
+    const guids = content.sections.map((section) => section.addonGuid);
+    const addons = [];
+
+    // Fetch/load an empty list of add-ons.
     store.dispatch(
       fetchGuidesAddons({
-        guids: [guid],
+        slug,
+        guids,
         errorHandlerId: errorHandler.id,
       }),
     );
-
-    // This simulates loading addons which updates the loading state.
-    _loadAddonResults(store);
+    store.dispatch(loadAddonResults({ addons }));
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    render({ store, addons });
+    render({ store, slug });
 
     sinon.assert.notCalled(dispatchSpy);
   });
@@ -196,6 +189,7 @@ describe(__filename, () => {
     // This simulates the initial fetch for addons.
     store.dispatch(
       fetchGuidesAddons({
+        slug,
         guids,
         errorHandlerId: errorHandler.id,
       }),
@@ -213,9 +207,10 @@ describe(__filename, () => {
   });
 
   it('renders an HTML title', () => {
-    const content = getContent('stay-safe-online', fakeI18n());
-    const root = render({ content });
+    const slug = 'stay-safe-online';
+    const root = render({ slug });
 
+    const content = getContent(slug, fakeI18n());
     expect(root.find('title')).toHaveText(content.title);
   });
 
@@ -225,15 +220,8 @@ describe(__filename, () => {
     expect(root.find(HeadLinks)).toHaveLength(1);
   });
 
-  it('renders a 404 component when there are no matching guides params', () => {
-    const root = render({ match: { params: { slug: 'bad-slug' } } });
-
-    expect(root.find('.Guides')).toHaveLength(0);
-    expect(root.find(NotFound)).toHaveLength(1);
-  });
-
-  it(`renders a 404 component when content is null`, () => {
-    const root = render({ content: null, slug: null });
+  it('renders a 404 component when the slug is invalid', () => {
+    const root = render({ slug: 'bad-slug' });
 
     expect(root.find('.Guides')).toHaveLength(0);
     expect(root.find(NotFound)).toHaveLength(1);
@@ -241,13 +229,13 @@ describe(__filename, () => {
 
   describe('extractId', () => {
     it('returns a unique ID based on the guides slug', () => {
-      const ownProps = getProps({
+      const ownProps = {
         match: {
           params: { slug: 'foobar' },
         },
-      });
+      };
 
-      expect(extractId(ownProps)).toEqual(`foobar`);
+      expect(extractId(ownProps)).toEqual('foobar');
     });
   });
 });

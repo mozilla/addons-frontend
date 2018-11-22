@@ -1,5 +1,6 @@
 import guidesReducer, {
   fetchGuidesAddons,
+  getGUIDsBySlug,
   initialState,
 } from 'amo/reducers/guides';
 import { loadAddonResults } from 'core/reducers/addons';
@@ -15,7 +16,11 @@ describe(__filename, () => {
     it('updates the loading flag status', () => {
       const state = guidesReducer(
         undefined,
-        fetchGuidesAddons({ guids: 'test,test2', errorHandlerId: 'test' }),
+        fetchGuidesAddons({
+          slug: 'some-slug',
+          guids: 'test,test2',
+          errorHandlerId: 'test',
+        }),
       );
 
       expect(state.loading).toEqual(true);
@@ -28,14 +33,37 @@ describe(__filename, () => {
       expect(newState.loading).toEqual(false);
     });
 
-    it('stores the add-on GUIDs', () => {
+    it('stores the add-on GUIDs by slug', () => {
+      const slug = 'some-slug';
       const guids = ['test', 'test2'];
       const state = guidesReducer(
         undefined,
-        fetchGuidesAddons({ guids, errorHandlerId: 'test' }),
+        fetchGuidesAddons({ slug, guids, errorHandlerId: 'test' }),
       );
 
-      expect(state.guids).toEqual(guids);
+      expect(state.bySlug).toEqual({
+        [slug]: guids,
+      });
+    });
+  });
+
+  describe('getGUIDsBySlug', () => {
+    it('returns an empty array when there is no corresponding slug', () => {
+      const slug = 'some-slug';
+      const guids = getGUIDsBySlug({ guidesState: initialState, slug });
+
+      expect(guids).toEqual([]);
+    });
+
+    it('returns the GUIDs for a given slug', () => {
+      const slug = 'some-slug';
+      const guids = ['test', 'test2'];
+      const guidesState = guidesReducer(
+        undefined,
+        fetchGuidesAddons({ slug, guids, errorHandlerId: 'test' }),
+      );
+
+      expect(getGUIDsBySlug({ guidesState, slug })).toEqual(guids);
     });
   });
 });

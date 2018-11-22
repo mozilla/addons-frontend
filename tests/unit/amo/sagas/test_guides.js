@@ -38,6 +38,7 @@ describe(__filename, () => {
     function _fetchGuidesAddons(params) {
       sagaTester.dispatch(
         fetchGuidesAddons({
+          slug: 'some-slug',
           errorHandlerId: errorHandler.id,
           ...params,
         }),

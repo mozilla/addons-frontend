@@ -8,7 +8,7 @@ import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import HeadLinks from 'amo/components/HeadLinks';
-import { fetchGuidesAddons } from 'amo/reducers/guides';
+import { fetchGuidesAddons, getGUIDsBySlug } from 'amo/reducers/guides';
 import { getAddonByGUID } from 'core/reducers/addons';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -313,6 +313,7 @@ export class GuidesBase extends React.Component<InternalProps> {
       );
       this.props.dispatch(
         fetchGuidesAddons({
+          slug,
           guids,
           errorHandlerId: errorHandler.id,
         }),
@@ -383,12 +384,16 @@ export class GuidesBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState): $Shape<InternalProps> => {
-  const { guids, loading } = state.guides;
+export const mapStateToProps = (
+  state: AppState,
+  ownProps: InternalProps,
+): $Shape<InternalProps> => {
+  const { guides: guidesState } = state;
+  const { loading } = guidesState;
+  const { slug } = ownProps.match.params;
 
   const addons = {};
-
-  guids.forEach((guid) => {
+  getGUIDsBySlug({ guidesState, slug }).forEach((guid) => {
     addons[guid] = getAddonByGUID(state, guid);
   });
 
