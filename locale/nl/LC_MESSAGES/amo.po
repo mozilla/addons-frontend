@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-22 07:52+0000\n"
+"PO-Revision-Date: 2018-11-22 08:48+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -2120,14 +2120,12 @@ msgid "Start each browsing session tailored just for you by customizing your new
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:179
-#, fuzzy
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-msgstr "Geniet van een prachtige nieuw-tabbladpagina met aanpasbare achtergronden, lokaal weer en meer"
+msgstr "Geniet van een prachtige nieuwe pagina met aanpasbare achtergronden, lokaal weer en meer."
 
 #: src/amo/pages/Guides/index.js:183
-#, fuzzy
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
-msgstr "Meer door de staf uitgekozen %(linkStart)swachtwoordbeheerders%(linkEnd)s verkennen."
+msgstr "Meer %(linkStart)sleuke manieren om uw tabbladen aan te passen%(linkEnd)s verkennen met deze stafkeuzes."
 
 #: src/amo/pages/Guides/index.js:194
 msgid "Improve videos"
@@ -2142,9 +2140,8 @@ msgid "Add a control bar to all YouTube video pages so you can easily adjust vol
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:205
-#, fuzzy
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "Meer door de staf uitgekozen %(linkStart)swachtwoordbeheerders%(linkEnd)s verkennen."
+msgstr "Meer door de staf uitgekozen %(linkStart)svideo-extensies%(linkEnd)s verkennen."
 
 #: src/amo/pages/Guides/index.js:213
 msgid "Get more out of media"
@@ -2161,9 +2158,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:225
-#, fuzzy
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "Meer door de staf uitgekozen %(linkStart)swachtwoordbeheerders%(linkEnd)s verkennen."
+msgstr "Meer door de staf uitgekozen %(linkStart)smedia-extensies%(linkEnd)s verkennen."
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
@@ -2190,9 +2186,8 @@ msgstr ""
 " extensies helpen uw online privacy en veiligheid te beschermen."
 
 #: src/amo/pages/Guides/index.js:271
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "Private Bookmarks"
+msgstr "Tabbladen en bladwijzers organiseren"
 
 #: src/amo/pages/Guides/index.js:272
 msgid ""
