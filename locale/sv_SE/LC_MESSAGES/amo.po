@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-20 18:59+0000\n"
+"PO-Revision-Date: 2018-11-22 16:30+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -2196,9 +2196,8 @@ msgstr ""
 "säkerhet på Internet."
 
 #: src/amo/pages/Guides/index.js:271
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "Private Bookmarks"
+msgstr "Organisera flikar och bokmärken"
 
 #: src/amo/pages/Guides/index.js:272
 msgid ""
@@ -2227,14 +2226,15 @@ msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr "Utforska fler %(linkStart)slösenordshanterare%(linkEnd)s utvalda av personalen."
 
 #: src/amo/pages/Guides/index.js:95
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "Blockera annonser"
+msgstr "Blockera irriterande annonser"
 
 #: src/amo/pages/Guides/index.js:96
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
+"Dagens Internet är fullt av oönskad annonsering som kommer i vägen och saktar ner dig. Tillägg för annonsblockering kan blockera eller filtrera dessa annonser så att du kan surfa igen utan att vara "
+"störd."
 
 #: src/amo/pages/Home/index.js:119
 msgid "Bookmarks"
