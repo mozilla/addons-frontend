@@ -6,14 +6,14 @@ import { LOAD_ADDON_RESULTS } from 'core/reducers/addons';
 export const FETCH_GUIDES_ADDONS: 'FETCH_GUIDES_ADDONS' = 'FETCH_GUIDES_ADDONS';
 
 export type GuidesState = {|
-  bySlug: {
+  guidsBySlug: {
     [slug: string]: Array<string>,
   },
   loading: boolean,
 |};
 
 export const initialState: GuidesState = {
-  bySlug: {},
+  guidsBySlug: {},
   loading: false,
 };
 
@@ -50,7 +50,7 @@ export const getGUIDsBySlug = ({
   guidesState: GuidesState,
   slug: string,
 |}): Array<string> => {
-  return guidesState.bySlug[slug] || [];
+  return guidesState.guidsBySlug[slug] || [];
 };
 
 const reducer = (
@@ -63,8 +63,8 @@ const reducer = (
 
       return {
         ...state,
-        bySlug: {
-          ...state.bySlug,
+        guidsBySlug: {
+          ...state.guidsBySlug,
           [slug]: guids,
         },
         loading: true,
