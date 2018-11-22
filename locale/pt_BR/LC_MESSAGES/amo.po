@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-22 17:09+0000\n"
+"PO-Revision-Date: 2018-11-22 17:32+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -935,7 +935,7 @@ msgstr "Apenas com o Firefox—Obtenha o Firefox agora"
 
 #: src/amo/components/GuidesAddonCard/index.js:126
 msgid "Staff Pick"
-msgstr ""
+msgstr "Escolha da equipe"
 
 #: src/amo/components/GuidesAddonCard/index.js:138
 #, fuzzy
@@ -1039,7 +1039,7 @@ msgstr "Atualizar resposta"
 
 #: src/amo/components/HomeHeroBanner/index.js:132
 msgid "Get notified when your selected websites update with new content"
-msgstr ""
+msgstr "Receba notificações quando sites selecionados por você são atualizados com novo conteúdo"
 
 #: src/amo/components/HomeHeroBanner/index.js:138
 msgid "Auto Fullscreen"
@@ -1063,7 +1063,7 @@ msgstr "Visualizar imagem"
 
 #: src/amo/components/HomeHeroBanner/index.js:153
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
-msgstr ""
+msgstr "Faça ressurgir os botões ‘Ver imagem’ e ‘Pesquisar por imagem’ no Google Imagens"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Neat URL"
@@ -1071,15 +1071,15 @@ msgstr "URL simples"
 
 #: src/amo/components/HomeHeroBanner/index.js:160
 msgid "Clean up links for easy sharing"
-msgstr ""
+msgstr "Limpe links para facilitar o compartilhamento"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Glitter Drag"
-msgstr ""
+msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr ""
+msgstr "Arraste textos, imagens ou links para realizar ações como copiar, abrir, pesquisar e mais"
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Behind The Overlay Revival"
@@ -1108,7 +1108,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "Copy PlainText"
-msgstr ""
+msgstr "Copiar texto limpo"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Remove formatting when saving text to your clipboard"
