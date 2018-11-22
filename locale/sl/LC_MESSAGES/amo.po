@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-22 09:24+0000\n"
+"PO-Revision-Date: 2018-11-22 10:27+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -2090,11 +2090,11 @@ msgstr "Preprečite, da bi vas spletni sledilci zalezovali"
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr ""
+msgstr "Spletni oglaševalci so zmožni slediti vaši dejavnosti z enega spletnega mesta na drugo, zbirati podatke o vas in vaših zanimanjih. Razširitve vam lahko pomagajo zakriti digitalno sled."
 
 #: src/amo/pages/Guides/index.js:120
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Spravite svojo identiteto na Facebooku v ločen “vsebnik” in preprečite Facebooku, da bi sledil vaši dejavnosti zunaj svoje družbene platforme."
 
 #: src/amo/pages/Guides/index.js:124
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
@@ -2102,7 +2102,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Re-imagine tab management"
-msgstr ""
+msgstr "Ponovno zamišljeno upravljanje zavihkov"
 
 #: src/amo/pages/Guides/index.js:136
 msgid ""
@@ -2165,9 +2165,8 @@ msgid "Add a control bar to all YouTube video pages so you can easily adjust vol
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:205
-#, fuzzy
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "Upoštevajte naše %(linkStart)ssmernice za ocene%(linkEnd)s."
+msgstr ""
 
 #: src/amo/pages/Guides/index.js:213
 msgid "Get more out of media"
@@ -2184,9 +2183,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:225
-#, fuzzy
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "Upoštevajte naše %(linkStart)ssmernice za ocene%(linkEnd)s."
+msgstr ""
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
@@ -2198,7 +2196,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:239
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
-msgstr ""
+msgstr "Dostop do preko 30&thinsp;000 radijskih postaj z vsega sveta, vedno samo klik stran."
 
 #: src/amo/pages/Guides/index.js:243
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
@@ -2250,6 +2248,8 @@ msgstr "Zavračajte nadležne oglase"
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
+"Današnji splet je preplavljen z neželenimi oglasi, ki vas ovirajo in upočasnjujejo. Razširitve za zavračanje oglasov lahko te oglase blokirajo ali filtrirajo, vam pa je spet omogočeno brskanje brez "
+"motenj."
 
 #: src/amo/pages/Home/index.js:119
 msgid "Bookmarks"
