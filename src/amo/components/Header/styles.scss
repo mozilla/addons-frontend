@@ -126,6 +126,8 @@
 
 .Header-download-button {
   @include margin-start(12px);
+
+  width: auto;
 }
 
 .Header-authenticate-button {
