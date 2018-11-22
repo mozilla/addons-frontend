@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-22 17:01+0000\n"
+"PO-Revision-Date: 2018-11-22 18:12+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -2078,50 +2078,51 @@ msgstr "Reklamodawcy w Internecie mogą śledzić Twoją aktywność na wielu s
 
 #: src/amo/pages/Guides/index.js:120
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Wydziel Facebooka do oddzielnego „kontenera”, aby uniemożliwić mu śledzenie Twojej aktywności poza swoją stroną."
 
 #: src/amo/pages/Guides/index.js:124
-#, fuzzy
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
-msgstr "Poznaj więcej %(linkStart)smenedżerów haseł%(linkEnd)s wybranych przez nas."
+msgstr "Poznaj więcej %(linkStart)snarzędzi prywatności i bezpieczeństwa%(linkEnd)s wybranych przez nas."
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Re-imagine tab management"
-msgstr ""
+msgstr "Na nowo odkryj zarządzanie kartami"
 
 #: src/amo/pages/Guides/index.js:136
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Jeśli zwykle używasz wielu otwartych kart, to pewnie wiesz, jak frustrujące może być przeszukiwanie szeregu niemalże identycznych kart, aby znaleźć akurat potrzebną. Rozszerzenia oferują kreatywne "
+"rozwiązania usprawniające zarządzanie kartami."
 
 #: src/amo/pages/Guides/index.js:142
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Układaj i wyświetlaj karty w kaskadowym formacie „drzewa” w panelu bocznym Firefoksa."
 
 #: src/amo/pages/Guides/index.js:146
-#, fuzzy
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-msgstr "Poznaj więcej %(linkStart)smenedżerów haseł%(linkEnd)s wybranych przez nas."
+msgstr "Poznaj więcej %(linkStart)snarzędzi do zarządzania kartami%(linkEnd)s wybranych przez nas."
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Lepsza przeglądarka dzięki ulepszonym zakładkom"
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "Rozszerzenia mogą pomóc w organizowaniu swoich zainteresowań w Internecie. Menedżery zakładek są idealne dla osób z wieloma rzeczami na oku."
 
 #: src/amo/pages/Guides/index.js:159
 msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"Potrzebujesz pomocy w organizowaniu wszystkich swoich ulubionych przepisów, samouczków, filmów na YouTube lub wszystkiego, co znajdziesz w Internecie? OneNote Web Clipper umożliwia zbieranie i "
+"przechowywanie wszystkich swoich ulubionych rzeczy z sieci w jednym miejscu, które można synchronizować między urządzeniami."
 
 #: src/amo/pages/Guides/index.js:166
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
-msgstr "Poznaj więcej %(linkStart)smenedżerów haseł%(linkEnd)s wybranych przez nas."
+msgstr "Poznaj więcej %(linkStart)smenedżerów zakładek%(linkEnd)s wybranych przez nas."
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
