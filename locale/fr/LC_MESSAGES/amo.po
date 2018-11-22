@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-20 21:57+0000\n"
-"Last-Translator: goofy <goofy@babelzilla.org>\n"
+"PO-Revision-Date: 2018-11-22 00:22+0000\n"
+"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -950,7 +950,7 @@ msgstr "Le choix de l’équipe"
 
 #: src/amo/components/GuidesAddonCard/index.js:138
 msgid "Add"
-msgstr ""
+msgstr "Ajouter"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:505
 msgid "View My Profile"
@@ -2060,9 +2060,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr "Un bloqueur de publicités poids plume, mais très efficace. uBlock Origin applique des milliers de filtres de contenu tout en occupant très peu de mémoire."
 
 #: src/amo/pages/Guides/index.js:106
-#, fuzzy
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
-msgstr "Découvrez davantage de %(linkStart)sgestionnaires de mots de passe%(linkEnd)s sélectionnés par notre équipe."
+msgstr ""
 
 #: src/amo/pages/Guides/index.js:114
 msgid "Stop online trackers from stalking you"
@@ -2083,17 +2082,19 @@ msgstr "Découvrez davantage de %(linkStart)sgestionnaires de mots de passe%(lin
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Re-imagine tab management"
-msgstr ""
+msgstr "Ré-inventez votre gestion des onglets"
 
 #: src/amo/pages/Guides/index.js:136
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Si vous travaillez en général avec de nombreux onglets ouverts, vous savez combien il est pénible de chercher parmi un bataillon d’onglets non identifiables pour trouver le seul dont vous ayez "
+"besoin. Les extensions peuvent offrir des solutions astucieuses pour rationaliser la gestion des onglets."
 
 #: src/amo/pages/Guides/index.js:142
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Organisez et visualisez vos onglets sous l’aspect d’un « arbre » ​​en cascade, dans le panneau latéral de Firefox."
 
 #: src/amo/pages/Guides/index.js:146
 #, fuzzy
@@ -2102,17 +2103,19 @@ msgstr "Découvrez davantage de %(linkStart)sgestionnaires de mots de passe%(lin
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Naviguez mieux avec des marque-pages améliorés"
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "Les extensions peuvent vous aider à organiser vos centres d’intérêts en ligne. Les gestionnaires de marque-pages sont idéaux pour les personnes qui suivent beaucoup de contenus."
 
 #: src/amo/pages/Guides/index.js:159
 msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"Vous souhaitez obtenir de l’aide pour classer toutes vos recettes de cuisine en ligne préférées, vos guides pratiques, vos vidéos YouTube ou tout ce que vous trouvez sur le Web ? OneNote Web Clipper"
+" vous permet de collecter et de stocker tout vos contenus en ligne préférés dans un dépôt robuste qui se synchronisera sur plusieurs appareils."
 
 #: src/amo/pages/Guides/index.js:166
 #, fuzzy
@@ -2121,11 +2124,11 @@ msgstr "Découvrez davantage de %(linkStart)sgestionnaires de mots de passe%(lin
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Faites l’expérience d’une nouvelle façon de gérer vos onglets"
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "Commencez chaque session de navigation taillée sur mesure pour vous, en personnalisant votre page de nouvel onglet."
 
 #: src/amo/pages/Guides/index.js:179
 #, fuzzy
@@ -2199,7 +2202,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:271
 msgid "Organize Tabs & Bookmarks"
-msgstr ""
+msgstr "Organisez vos onglets et marque-pages"
 
 #: src/amo/pages/Guides/index.js:272
 msgid ""
@@ -2231,7 +2234,7 @@ msgstr "Découvrez davantage de %(linkStart)sgestionnaires de mots de passe%(lin
 
 #: src/amo/pages/Guides/index.js:95
 msgid "Block annoying ads"
-msgstr ""
+msgstr "Bloquez les publicités envahissantes"
 
 #: src/amo/pages/Guides/index.js:96
 msgid ""
@@ -2663,7 +2666,7 @@ msgstr "Profil utilisateur de %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:320
 msgid "User Profile"
-msgstr ""
+msgstr "Profil utilisateur"
 
 #: src/amo/pages/UserProfile/index.js:347 src/amo/pages/UserProfileEdit/index.js:635
 msgid "Location"
