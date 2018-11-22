@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-22 16:30+0000\n"
+"PO-Revision-Date: 2018-11-22 16:41+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1398,7 +1398,7 @@ msgstr "Åtkomst till webbhistoriken"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
-msgstr "Övervaka tilläggsanvändning och hantera teman"
+msgstr "Övervaka utökningsanvändning och hantera teman"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Exchange messages with programs other than Firefox"
@@ -1458,7 +1458,7 @@ msgstr "Logga in för att betygsätta detta tema"
 
 #: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this extension"
-msgstr "Logga in för att betygsätta detta tillägg"
+msgstr "Logga in för att betygsätta denna utökning"
 
 #: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this add-on"
@@ -1556,7 +1556,7 @@ msgstr "Sökresultat"
 
 #: src/amo/components/Search/index.js:125 src/amo/pages/Category/index.js:139 src/amo/pages/Home/index.js:323 src/amo/pages/LandingPage/index.js:135
 msgid "Featured extensions"
-msgstr "Utvalda tillägg"
+msgstr "Utvalda utökningar"
 
 #: src/amo/components/Search/index.js:128 src/amo/pages/Category/index.js:171 src/amo/pages/Home/index.js:313 src/amo/pages/LandingPage/index.js:164
 msgid "Featured themes"
@@ -1568,7 +1568,7 @@ msgstr "Utvalda tillägg"
 
 #: src/amo/components/Search/index.js:138 src/amo/pages/Category/index.js:149 src/amo/pages/Home/index.js:356 src/amo/pages/LandingPage/index.js:144
 msgid "Trending extensions"
-msgstr "Trendiga tillägg"
+msgstr "Trendiga utökningar"
 
 #: src/amo/components/Search/index.js:141 src/amo/pages/Category/index.js:181 src/amo/pages/LandingPage/index.js:173
 msgid "Trending themes"
@@ -1580,7 +1580,7 @@ msgstr "Trendiga tillägg"
 
 #: src/amo/components/Search/index.js:150 src/amo/pages/Category/index.js:159 src/amo/pages/LandingPage/index.js:153
 msgid "Top rated extensions"
-msgstr "Högst rankade tillägg"
+msgstr "Högst rankade utökning"
 
 #: src/amo/components/Search/index.js:153 src/amo/pages/Category/index.js:191 src/amo/pages/LandingPage/index.js:179
 msgid "Top rated themes"
@@ -1804,7 +1804,7 @@ msgstr "Utforska"
 
 #: src/amo/components/SectionLinks/index.js:95 src/amo/pages/LandingPage/index.js:234
 msgid "Extensions"
-msgstr "Tillägg"
+msgstr "Utökningar"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Suggested Pages"
@@ -1812,7 +1812,7 @@ msgstr "Föreslagna sidor"
 
 #: src/amo/components/SuggestedPages/index.js:39
 msgid "Browse all extensions"
-msgstr "Bläddra bland alla tillägg"
+msgstr "Bläddra bland alla utökningar"
 
 #: src/amo/components/SuggestedPages/index.js:45
 msgid "Browse all themes"
@@ -1938,7 +1938,7 @@ msgstr "Detta är inte en publik listning. Du ser endast det på grund av förh�
 
 #: src/amo/pages/Addon/index.js:548
 msgid "Extension Metadata"
-msgstr "Metadata för tillägg"
+msgstr "Metadata för utökning"
 
 #: src/amo/pages/Addon/index.js:565
 msgid "Screenshots"
@@ -2072,12 +2072,11 @@ msgstr "Annonsörer på nätet kan spåra din aktivitet från en webbplats till 
 
 #: src/amo/pages/Guides/index.js:120
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Isolera din Facebook-identitet i en separat ”behållare” för att stoppa Facebook från att spåra din aktivitet utanför dess sociala plattform."
 
 #: src/amo/pages/Guides/index.js:124
-#, fuzzy
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
-msgstr "Utforska fler %(linkStart)slösenordshanterare%(linkEnd)s utvalda av personalen."
+msgstr "Utforska fler %(linkStart)ssekretess & säkerhet%(linkEnd)s utvalda av medarbetare."
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Re-imagine tab management"
@@ -2185,7 +2184,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:243
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
-msgstr ""
+msgstr "Utforska tusentals %(linkStart)sbild, musik & videoutökningar%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:259
 msgid ""
@@ -2197,17 +2196,19 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:271
 msgid "Organize Tabs & Bookmarks"
-msgstr "Organisera flikar och bokmärken"
+msgstr "Organisera flikar & bokmärken"
 
 #: src/amo/pages/Guides/index.js:272
 msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Hanterar du för många öppna flikar eller ett svindlande antal bokmärken? Utökningar kan hjälpa till! Från organisationshjälp till nya roliga funktioner kan utökningar dramatiskt förändra hur du "
+"hanterar flikar och bokmärken."
 
 #: src/amo/pages/Guides/index.js:285
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "Utökningar kan förstärka online-media på olika sätt, från att titta på videor till att hantera bilder, musik och mycket mer."
 
 #: src/amo/pages/Guides/index.js:77
 msgid "Create and manage strong passwords"
@@ -2223,7 +2224,7 @@ msgstr "Fullständigt krypterat lösenordsskydd. Spara dina data säkert och få
 
 #: src/amo/pages/Guides/index.js:87
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
-msgstr "Utforska fler %(linkStart)slösenordshanterare%(linkEnd)s utvalda av personalen."
+msgstr "Utforska fler %(linkStart)slösenordshanterare%(linkEnd)s utvalda av medarbetare."
 
 #: src/amo/pages/Guides/index.js:95
 msgid "Block annoying ads"
@@ -2233,8 +2234,8 @@ msgstr "Blockera irriterande annonser"
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
-"Dagens Internet är fullt av oönskad annonsering som kommer i vägen och saktar ner dig. Tillägg för annonsblockering kan blockera eller filtrera dessa annonser så att du kan surfa igen utan att vara "
-"störd."
+"Dagens Internet är fullt av oönskad annonsering som kommer i vägen och saktar ner dig. Utökningar för annonsblockering kan blockera eller filtrera dessa annonser så att du kan surfa igen utan att "
+"vara störd."
 
 #: src/amo/pages/Home/index.js:119
 msgid "Bookmarks"
@@ -2302,7 +2303,7 @@ msgstr "Se fler populära utökningar"
 
 #: src/amo/pages/Home/index.js:54
 msgid "See more privacy & security extensions"
-msgstr "Se fler sekretess- och säkerhetsutökningar"
+msgstr "Se fler sekretess- & säkerhetsutökningar"
 
 #: src/amo/pages/Home/index.js:55
 msgid "Privacy & security"
