@@ -8,6 +8,7 @@ import { compose } from 'redux';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import translate from 'core/i18n/translate';
+import { isFirefox } from 'core/utils/compatibility';
 import Button from 'ui/components/Button';
 import type { AppState } from 'amo/store';
 import type { UserAgentInfoType } from 'core/reducers/api';
@@ -40,7 +41,7 @@ type InternalProps = {|
 export const GetFirefoxButtonBase = (props: InternalProps) => {
   const { addon, buttonType, className, i18n, userAgentInfo } = props;
 
-  if (userAgentInfo.browser.name === 'Firefox') {
+  if (isFirefox({ userAgentInfo })) {
     return null;
   }
 

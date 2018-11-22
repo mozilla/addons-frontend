@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { TransitionGroup } from 'react-transition-group';
 
-import createStore from 'amo/store';
 import AMInstallButton, {
   AMInstallButtonBase,
   EXPERIMENT_CATEGORY,
@@ -35,6 +34,7 @@ import {
   createFakeEvent,
   createFakeMozWindow,
   createFakeTracking,
+  dispatchClientMetadata,
   fakeAddon,
   fakeCookies,
   fakeI18n,
@@ -43,8 +43,8 @@ import {
   createFakeLocation,
   getFakeConfig,
   getFakeLogger,
-  sampleUserAgentParsed,
   shallowUntilTarget,
+  userAgentsByPlatform,
 } from 'tests/unit/helpers';
 import Button from 'ui/components/Button';
 
@@ -92,9 +92,8 @@ describe(__filename, () => {
     isAddonEnabled: sinon.stub(),
     location: createFakeLocation(),
     status: UNINSTALLED,
-    store: createStore().store,
+    store: dispatchClientMetadata().store,
     uninstall: sinon.stub(),
-    userAgentInfo: sampleUserAgentParsed,
     ...customProps,
   });
 
@@ -123,6 +122,16 @@ describe(__filename, () => {
 
     return render(props);
   };
+
+  it('does not render anything when the browser is not Firefox', () => {
+    const root = render({
+      store: dispatchClientMetadata({
+        userAgent: userAgentsByPlatform.mac.chrome41,
+      }).store,
+    });
+
+    expect(root.find('.AMInstallButton-button')).toHaveLength(0);
+  });
 
   it('renders a Button for extensions', () => {
     const installURL = 'https://a.m.o/files/addon.xpi';

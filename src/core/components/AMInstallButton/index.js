@@ -32,6 +32,7 @@ import tracking, {
   getAddonEventCategory,
 } from 'core/tracking';
 import { isTheme } from 'core/utils';
+import { isFirefox } from 'core/utils/compatibility';
 import { withExperiment } from 'core/withExperiment';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
@@ -285,6 +286,10 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       status,
       userAgentInfo,
     } = this.props;
+
+    if (!isFirefox({ userAgentInfo })) {
+      return null;
+    }
 
     if (addon.type === ADDON_TYPE_OPENSEARCH && _config.get('server')) {
       _log.info('Not rendering opensearch install button on the server');

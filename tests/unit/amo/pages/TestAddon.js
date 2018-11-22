@@ -112,6 +112,9 @@ function renderProps({
     uninstall: sinon.stub(),
     // Other props
     id: 'some id',
+    // TODO: We can likely remove this when we get rid of shallow rendering.
+    // See https://github.com/mozilla/addons-frontend/issues/6858
+    userAgentInfo: sampleUserAgentParsed,
     ...customProps,
   };
 }

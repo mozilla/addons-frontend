@@ -69,6 +69,16 @@ export function getCompatibleVersions({
   return { supportsClientApp, maxVersion, minVersion };
 }
 
+export const isFirefox = ({
+  userAgentInfo,
+}: {|
+  userAgentInfo: UserAgentInfoType,
+|}) => {
+  invariant(userAgentInfo, 'userAgentInfo is required');
+
+  return userAgentInfo.browser.name === 'Firefox';
+};
+
 export type IsCompatibleWithUserAgentParams = {|
   _findInstallURL?: typeof findInstallURL,
   _log?: typeof log,
@@ -113,7 +123,7 @@ export function isCompatibleWithUserAgent({
     return { compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH };
   }
 
-  if (browser.name !== 'Firefox') {
+  if (!isFirefox({ userAgentInfo })) {
     return { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX };
   }
 
