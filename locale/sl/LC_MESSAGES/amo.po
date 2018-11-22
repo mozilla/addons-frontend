@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-21 06:08+0000\n"
-"Last-Translator: Rok Žerdin <rok.zerdin1990@gmail.com>\n"
+"PO-Revision-Date: 2018-11-22 09:24+0000\n"
+"Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -2086,7 +2086,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:114
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "Preprečite, da bi vas spletni sledilci zalezovali"
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
@@ -2145,7 +2145,6 @@ msgid "Start each browsing session tailored just for you by customizing your new
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:179
-#, fuzzy
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
 msgstr "Čudovita stran novega zavihka s prilagodljivimi ozadji, lokalnimi podatki o vremenu …"
 
@@ -2244,9 +2243,8 @@ msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:95
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "Zavračanje oglasov"
+msgstr "Zavračajte nadležne oglase"
 
 #: src/amo/pages/Guides/index.js:96
 msgid ""
