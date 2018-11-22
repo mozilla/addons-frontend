@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-22 07:50+0000\n"
+"PO-Revision-Date: 2018-11-22 07:52+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -2056,9 +2056,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:106
-#, fuzzy
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
-msgstr "Meer door de staf uitgekozen %(linkStart)swachtwoordbeheerders%(linkEnd)s verkennen."
+msgstr "Meer door de staf uitgekozen %(linkStart)sadvertentieblokkeerders%(linkEnd)s verkennen."
 
 #: src/amo/pages/Guides/index.js:114
 msgid "Stop online trackers from stalking you"
@@ -2073,9 +2072,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:124
-#, fuzzy
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
-msgstr "Meer door de staf uitgekozen %(linkStart)swachtwoordbeheerders%(linkEnd)s verkennen."
+msgstr "Meer door de staf uitgekozen %(linkStart)sprivacy en security%(linkEnd)s-add-ons verkennen."
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Re-imagine tab management"
@@ -2092,9 +2090,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:146
-#, fuzzy
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-msgstr "Meer door de staf uitgekozen %(linkStart)swachtwoordbeheerders%(linkEnd)s verkennen."
+msgstr "Meer door de staf uitgekozen %(linkStart)stabbladbeheerders%(linkEnd)s verkennen."
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
@@ -2111,9 +2108,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:166
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
-msgstr "Meer door de staf uitgekozen %(linkStart)swachtwoordbeheerders%(linkEnd)s verkennen."
+msgstr "Meer door de staf uitgekozen %(linkStart)sbladwijzerbeheerders%(linkEnd)s verkennen."
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
