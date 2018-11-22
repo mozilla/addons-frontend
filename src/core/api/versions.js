@@ -3,9 +3,11 @@ import invariant from 'invariant';
 
 import { callApi } from 'core/api';
 import type { ApiState } from 'core/reducers/api';
-import type { VersionIdType } from 'core/reducers/versions';
+import type {
+  ExternalAddonVersionType,
+  VersionIdType,
+} from 'core/reducers/versions';
 import type { PaginatedApiResponse } from 'core/types/api';
-import type { ExternalAddonVersionType } from 'core/types/addons';
 
 export type GetVersionParams = {|
   api: ApiState,

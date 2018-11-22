@@ -23,19 +23,79 @@ import { LOAD_ADDON_RESULTS } from 'core/reducers/addons';
 import { SEARCH_LOADED } from 'core/reducers/search';
 import { findFileForPlatform } from 'core/utils';
 import type { UserAgentInfoType } from 'core/reducers/api';
-import type {
-  AddonCompatibilityType,
-  ExternalAddonVersionType,
-  PlatformFilesType,
-  PartialExternalAddonVersionType,
-} from 'core/types/addons';
+import type { AddonStatusType } from 'core/types/addons';
 
 export const FETCH_VERSION: 'FETCH_VERSION' = 'FETCH_VERSION';
 export const FETCH_VERSIONS: 'FETCH_VERSIONS' = 'FETCH_VERSIONS';
 export const LOAD_VERSIONS: 'LOAD_VERSIONS' = 'LOAD_VERSIONS';
 
 export type VersionIdType = number;
-export type VersionLicenseType = {| name: string, text?: string, url: string |};
+
+export type AddonFileType = {|
+  created: string,
+  hash: string,
+  id: number,
+  is_mozilla_signed_extension: boolean,
+  is_restart_required: boolean,
+  is_webextension: boolean,
+  permissions?: Array<string>,
+  platform: 'all' | 'android' | 'mac' | 'linux' | 'windows',
+  size: number,
+  status: AddonStatusType,
+  url: string,
+|};
+
+export type PlatformFilesType = {|
+  all: ?AddonFileType,
+  android: ?AddonFileType,
+  mac: ?AddonFileType,
+  linux: ?AddonFileType,
+  windows: ?AddonFileType,
+|};
+
+export type AddonCompatibilityType = {|
+  [appName: string]: {|
+    min: string,
+    max: string,
+  |},
+|};
+
+export type PartialExternalAddonVersionType = {|
+  channel: string,
+  compatibility?: AddonCompatibilityType,
+  edit_url: string,
+  files: Array<AddonFileType>,
+  id: number,
+  is_strict_compatibility_enabled: boolean,
+  reviewed: Date,
+  // This is the developer-defined version number.
+  // It could, for example, be set to "0".
+  // See:
+  // https://github.com/mozilla/addons-frontend/pull/3271#discussion_r142159199
+  version: string,
+|};
+
+type PartialVersionLicenseType = {|
+  name: string,
+  text?: string,
+  url: string,
+|};
+
+export type ExternalVersionLicenseType = {|
+  ...PartialVersionLicenseType,
+  is_custom: boolean,
+|};
+
+export type VersionLicenseType = {|
+  ...PartialVersionLicenseType,
+  isCustom: boolean,
+|};
+
+export type ExternalAddonVersionType = {|
+  ...PartialExternalAddonVersionType,
+  license: ExternalVersionLicenseType,
+  release_notes?: string,
+|};
 
 export type AddonVersionType = {
   compatibility?: AddonCompatibilityType,
@@ -103,6 +163,7 @@ export const createInternalVersion = (
     ),
     license: version.license
       ? {
+          isCustom: version.license.is_custom,
           name: version.license.name,
           text: version.license.text,
           url: version.license.url,

@@ -6,8 +6,8 @@ import log from 'core/logger';
 import { findFileForPlatform } from 'core/utils';
 import HostPermissions from 'ui/components/HostPermissions';
 import Permission from 'ui/components/Permission';
-import type { PlatformFilesType } from 'core/types/addons';
 import type { UserAgentInfoType } from 'core/reducers/api';
+import type { PlatformFilesType } from 'core/reducers/versions';
 import type { I18nType } from 'core/types/i18n';
 
 export type GetCurrentPermissionsParams = {|
