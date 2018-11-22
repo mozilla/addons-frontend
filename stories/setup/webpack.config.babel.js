@@ -1,6 +1,3 @@
-import fs from 'fs';
-import path from 'path';
-
 import { getAssetRules, getStyleRules, getPlugins } from '../../webpack-common';
 import webpackProdConfig from '../../webpack.prod.config.babel';
 

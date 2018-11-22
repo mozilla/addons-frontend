@@ -1,6 +1,6 @@
 import { configure, setAddon, addDecorator } from '@storybook/react';
 import { setDefaults } from '@storybook/addon-info';
-import { setOptions, withOptions } from '@storybook/addon-options';
+import { withOptions } from '@storybook/addon-options';
 import chaptersAddon, {
   setDefaults as setAddonChaptersDefaults,
 } from 'react-storybook-addon-chapters';
@@ -12,22 +12,24 @@ setDefaults({
   header: false,
   inline: true,
   source: false,
-  styles: {
+  styles: (stylesheet) => ({
+    ...stylesheet,
     infoBody: {
       fontSize: '12px',
     },
-  },
+  }),
 });
 
 // Override some global-y setup options.
-// See https://www.npmjs.com/package/@storybook/addon-options.
-setOptions({
-  name: 'Mozilla Addons frontend',
-  url: 'https://github.com/mozilla/addons-frontend',
-  // Hide empty panel for now.
-  showAddonPanel: false,
-});
-addDecorator(withOptions);
+// See: https://www.npmjs.com/package/@storybook/addon-options
+addDecorator(
+  withOptions({
+    name: 'Mozilla Addons frontend',
+    url: 'https://github.com/mozilla/addons-frontend',
+    // Hide empty panel for now.
+    showAddonPanel: false,
+  }),
+);
 
 setAddonChaptersDefaults({
   sectionOptions: {
