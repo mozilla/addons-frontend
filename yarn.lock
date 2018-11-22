@@ -5976,7 +5976,7 @@ fast-memoize@^2.2.7:
   resolved "https://registry.yarnpkg.com/fast-memoize/-/fast-memoize-2.5.1.tgz#c3519241e80552ce395e1a32dcdde8d1fd680f5d"
   integrity sha512-xdmw296PCL01tMOXx9mdJSmWY29jQgxyuZdq0rEHMu+Tpe1eOEtCycoG6chzlcrWsNgpZP7oL8RiQr7+G6Bl6g==
 
-fast-redact@^1.2.0:
+fast-redact@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/fast-redact/-/fast-redact-1.4.0.tgz#6123d2a23e6bdf76e82b3176d6f11698f2001797"
   integrity sha512-WsYhPdWJY+6d/pFJbBNWGUd5ENrBAJ6e7yDWcYNoFZoIQUUbKxnIRGS4d0kZkQlMPB4cLK3r4A0BZXpFxdoGhg==
@@ -10841,19 +10841,19 @@ pino-syslog@^1.2.0:
     split2 "^2.1.1"
     through2 "^2.0.3"
 
-pino@5.8.1:
-  version "5.8.1"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-5.8.1.tgz#1385335f8c356b6d80cd357bcc767d42aac7f263"
-  integrity sha512-7bVFzUw3ffIfOM3t7MuQ9KsH+wX5bdGdQhGfccKgleoY7qG4FO3CmVSjywlFmmYGyMOISi1LDGC6JMEH7XkZJg==
+pino@5.9.0:
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-5.9.0.tgz#4a436289ea90cefd0fad1e3ca5726b6d58922c71"
+  integrity sha512-6sHy38gWsZbrmYq6vk343VCThy93ZdVfmLsHDVzbl/j621SjSaxCcS/ySmxK/hRmq8jpQb3n44dNRIeqbbQw6A==
   dependencies:
     fast-json-parse "^1.0.3"
-    fast-redact "^1.2.0"
+    fast-redact "^1.4.0"
     fast-safe-stringify "^2.0.6"
     flatstr "^1.0.5"
     pino-std-serializers "^2.3.0"
     pump "^3.0.0"
     quick-format-unescaped "^3.0.0"
-    sonic-boom "^0.6.1"
+    sonic-boom "^0.6.3"
 
 piping@^1.0.0-rc.4:
   version "1.0.0-rc.4"
@@ -13814,10 +13814,10 @@ socks@^1.1.10:
     ip "^1.1.4"
     smart-buffer "^1.0.13"
 
-sonic-boom@^0.6.1:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/sonic-boom/-/sonic-boom-0.6.2.tgz#e6b634db44b533f0d73796e7a906923a803b2b50"
-  integrity sha512-JVftM6ZJanmU/akt+bfiHUKQq0MtRe0ayXyEXjB1yiZYRH6ettF4gu7Dbei4HbzTmBVNshHpPJLZ9R9lY2FjWA==
+sonic-boom@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/sonic-boom/-/sonic-boom-0.6.3.tgz#a02f9fc8d5ec42166e28c39760cc833552056595"
+  integrity sha512-TMhj6kDJk9LLzCTTL8+HPCfFn4MwkE4P6k2Up89Rz949+DSRw90V62upRKC99rJEOmu4E9ljH5Otu2JSRmx+bg==
   dependencies:
     flatstr "^1.0.8"
 
