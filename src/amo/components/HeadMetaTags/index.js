@@ -13,12 +13,13 @@ import type { I18nType } from 'core/types/i18n';
 
 import defaultImage from './img/default-og-image.png';
 
-type Props = {|
+export type Props = {|
   appendDefaultTitle?: boolean,
   date?: Date | null,
   description?: string | null,
   image?: string | null,
   lastModified?: Date | null,
+  queryString?: string,
   title?: string | null,
 |};
 
@@ -80,15 +81,22 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
   }
 
   renderOpenGraph() {
-    const { _config, description, lang, locationPathname } = this.props;
+    const {
+      _config,
+      description,
+      lang,
+      locationPathname,
+      queryString,
+    } = this.props;
+
+    const url = `${getCanonicalURL({
+      _config,
+      locationPathname,
+    })}${queryString || ''}`;
 
     const tags = [
       <meta key="og:type" property="og:type" content="website" />,
-      <meta
-        key="og:url"
-        property="og:url"
-        content={getCanonicalURL({ _config, locationPathname })}
-      />,
+      <meta key="og:url" property="og:url" content={url} />,
       <meta key="og:title" property="og:title" content={this.getTitle()} />,
       <meta key="og:locale" property="og:locale" content={lang} />,
       <meta key="og:image" property="og:image" content={this.getImage()} />,

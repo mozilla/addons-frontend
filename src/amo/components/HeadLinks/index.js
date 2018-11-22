@@ -9,7 +9,9 @@ import { getCanonicalURL } from 'amo/utils';
 import { hrefLangs } from 'core/languages';
 import type { AppState } from 'amo/store';
 
-type Props = {||};
+type Props = {|
+  queryString?: string,
+|};
 
 type InternalProps = {|
   ...Props,
@@ -33,13 +35,14 @@ export class HeadLinksBase extends React.PureComponent<InternalProps> {
       currentURL,
       lang,
       locationPathname,
+      queryString,
     } = this.props;
 
     const pathWithoutLocale = locationPathname
       .split('/')
       .slice(2)
       .join('/');
-    const canonicalURL = `/${lang}/${pathWithoutLocale}`;
+    const canonicalURL = `/${lang}/${pathWithoutLocale}${queryString || ''}`;
 
     const hrefLangsMap = _config.get('hrefLangsMap');
     const includeAlternateLinks =
@@ -62,7 +65,7 @@ export class HeadLinksBase extends React.PureComponent<InternalProps> {
               <link
                 href={getCanonicalURL({
                   _config,
-                  locationPathname: alternateURL,
+                  locationPathname: `${alternateURL}${queryString || ''}`,
                 })}
                 hrefLang={hrefLang}
                 key={hrefLang}
