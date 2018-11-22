@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-21 09:00+0000\n"
+"PO-Revision-Date: 2018-11-22 14:12+0000\n"
 "Last-Translator: 新垣结衣松冈茉优长泽雅美门胁麦上野树里石原里美 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -2117,7 +2117,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:200
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
-msgstr ""
+msgstr "为所有 YouTube 视频页面添加一个控制栏，以便您轻松调整音量、播放速度、播放器大小、广告和注释屏蔽及其他功能。"
 
 #: src/amo/pages/Guides/index.js:205
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
@@ -2129,13 +2129,13 @@ msgstr "获取更多媒体相关功能"
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
-msgstr ""
+msgstr "扩展可以满足各种各样的小众媒体需求和兴趣，例如图像搜索、下载管理和文本阅读器等等。"
 
 #: src/amo/pages/Guides/index.js:219
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
-msgstr ""
+msgstr "您有没有过偶然在网上发现一张有趣的图片，想要了解更多关于它的信息，比如图片中的人是谁？有相关图片吗？此扩展允许您通过各种搜索引擎进行快速便捷的以图搜图。"
 
 #: src/amo/pages/Guides/index.js:225
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
@@ -2147,11 +2147,11 @@ msgstr "将媒体内容直接带入浏览器"
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "扩展可以将 Firefox 变成您的娱乐中心，让您可以随时听音乐、截取图像、玩游戏及更多。"
 
 #: src/amo/pages/Guides/index.js:239
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
-msgstr ""
+msgstr "只需点击一下，即可收听全球各地超过 30000 个广播电台。"
 
 #: src/amo/pages/Guides/index.js:243
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
@@ -2200,7 +2200,7 @@ msgstr "拦截恼人的广告"
 #: src/amo/pages/Guides/index.js:96
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
-msgstr ""
+msgstr "如今的网络与讨厌的广告交织在一起，这些广告妨碍了你，并拖慢了你的速度。广告拦截扩展可以屏蔽或过滤这些广告，让您可以集中精力地浏览。"
 
 #: src/amo/pages/Home/index.js:119
 msgid "Bookmarks"
