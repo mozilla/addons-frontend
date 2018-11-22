@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-22 13:52+0000\n"
+"PO-Revision-Date: 2018-11-22 13:56+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -2069,7 +2069,7 @@ msgstr "Online-adverteerders kunnen uw activiteit van de ene naar de andere webs
 
 #: src/amo/pages/Guides/index.js:120
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Isoleer uw Facebook-identiteit in een aparte ‘container’ om Facebook te verhinderen uw activiteit buiten het sociale platform te volgen."
 
 #: src/amo/pages/Guides/index.js:124
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
@@ -2077,17 +2077,19 @@ msgstr "Meer door de staf uitgekozen %(linkStart)sprivacy en security%(linkEnd)s
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Re-imagine tab management"
-msgstr ""
+msgstr "Tabbladbeheer opnieuw uitgevonden"
 
 #: src/amo/pages/Guides/index.js:136
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Als u werkt met veel openstaande tabbladen, dan bent u waarschijnlijk bekend met de frustratie van het zoeken door een rij onherkenbare tabbladen op zoek naar dat tabblad dat u nodig hebt. Extensies"
+" kunnen creatieve oplossingen bieden om tabbladbeheer te stroomlijnen."
 
 #: src/amo/pages/Guides/index.js:142
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Orden en visualiseer uw tabbladen in een uitklapbare ‘boom’-structuur in de zijbalk van Firefox."
 
 #: src/amo/pages/Guides/index.js:146
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
@@ -2095,11 +2097,11 @@ msgstr "Meer door de staf uitgekozen %(linkStart)stabbladbeheerders%(linkEnd)s v
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Beter surfen met verbeterde bladwijzers"
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "Met extensies kunt u uw online interesses organiseren. Bladwijzerbeheerders zijn ideaal voor mensen die veel inhoud willen volgen."
 
 #: src/amo/pages/Guides/index.js:159
 msgid ""
