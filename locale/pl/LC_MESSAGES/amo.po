@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-22 18:12+0000\n"
+"PO-Revision-Date: 2018-11-22 18:33+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -2126,73 +2126,74 @@ msgstr "Poznaj więcej %(linkStart)smenedżerów zakładek%(linkEnd)s wybranych 
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Ciesz się nowym interfejsem nowej karty"
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "Zaczynaj każdy dzień za pomocą nowej karty dostosowanej specjalnie do Ciebie."
 
 #: src/amo/pages/Guides/index.js:179
-#, fuzzy
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-msgstr "Ciesz się piękną stroną nowej karty z konfigurowalnymi tłami, lokalną pogodą i nie tylko"
+msgstr "Ciesz się piękną stroną nowej karty z konfigurowalnymi tłami, lokalną pogodą i nie tylko."
 
 #: src/amo/pages/Guides/index.js:183
-#, fuzzy
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
-msgstr "Poznaj więcej %(linkStart)smenedżerów haseł%(linkEnd)s wybranych przez nas."
+msgstr "Poznaj więcej %(linkStart)sfajnych sposobów na inne karty%(linkEnd)s wybranych przez nas."
 
 #: src/amo/pages/Guides/index.js:194
 msgid "Improve videos"
-msgstr ""
+msgstr "Ulepsz odtwarzanie filmów"
 
 #: src/amo/pages/Guides/index.js:195
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, from customizing YouTube to taste, to playing videos in theater mode, and much more."
 msgstr ""
+"Jeśli lubisz filmy w sieci, to rozszerzenia oferują liczne sposoby na ulepszenie ich oglądania, od dostosowywania YouTube do własnych upodobań po odtwarzanie filmów w trybie kinowym i nie tylko."
 
 #: src/amo/pages/Guides/index.js:200
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
-msgstr ""
+msgstr "Dodaj pasek sterowania do wszystkich filmów na YouTube, aby łatwo dostosowywać głośność, prędkość odtwarzania, rozmiar odtwarzacza, blokowanie reklam i adnotacji oraz wiele innych funkcji."
 
 #: src/amo/pages/Guides/index.js:205
-#, fuzzy
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "Poznaj więcej %(linkStart)smenedżerów haseł%(linkEnd)s wybranych przez nas."
+msgstr "Poznaj więcej %(linkStart)snarzędzi do filmów%(linkEnd)s wybranych przez nas."
 
 #: src/amo/pages/Guides/index.js:213
 msgid "Get more out of media"
-msgstr ""
+msgstr "Multimedia na wyższym poziomie"
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
 msgstr ""
+"Rozszerzenia mogą zaspokoić szeroką gamę niszowych potrzeb i zainteresowań związanych z multimediami, takich jak między innymi wyszukiwanie obrazów, zarządzanie pobieranymi plikami i czytniki "
+"tekstu."
 
 #: src/amo/pages/Guides/index.js:219
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Czy zdarzyło Ci się natknąć na intrygujący obraz w Internecie i chcesz dowiedzieć się więcej na jego temat, na przykład kto jest na zdjęciu? Czy są podobne obrazy? To rozszerzenie umożliwia szybkie "
+"i łatwe wyszukiwanie obrazem za pomocą wielu wyszukiwarek."
 
 #: src/amo/pages/Guides/index.js:225
-#, fuzzy
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "Poznaj więcej %(linkStart)smenedżerów haseł%(linkEnd)s wybranych przez nas."
+msgstr "Poznaj więcej %(linkStart)snarzędzi do multimediów%(linkEnd)s wybranych przez nas."
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "Multimedia bezpośrednio w przeglądarce"
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "Rozszerzenia mogą przekształcić Firefoksa we własne centrum rozrywki zapewniające natychmiastowy dostęp do muzyki, zgrywania zdjęć, gier i nie tylko."
 
 #: src/amo/pages/Guides/index.js:239
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
-msgstr ""
+msgstr "Słuchaj ponad 30 000 stacji radiowych z całego świata, zawsze za jednym kliknięciem."
 
 #: src/amo/pages/Guides/index.js:243
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
-msgstr ""
+msgstr "Wybieraj z tysięcy %(linkStart)srozszerzeń do zdjęć, muzyki i filmów%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:259
 msgid ""
@@ -2203,19 +2204,20 @@ msgstr ""
 "wzmocnić Twoje bezpieczeństwo i prywatność w sieci."
 
 #: src/amo/pages/Guides/index.js:271
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "Prywatne zakładki"
+msgstr "Organizuj karty i zakładki"
 
 #: src/amo/pages/Guides/index.js:272
 msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Pracujesz ze zbyt wieloma otwartymi kartami lub zawrotną liczbą zakładek? Rozszerzenia mogą pomóc! Od pomocy przy organizacji po fajne nowe funkcje, rozszerzenia mogą drastycznie zmienić sposób, w "
+"jaki korzystasz z kart i zakładek."
 
 #: src/amo/pages/Guides/index.js:285
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "Rozszerzenia mogą wzbogacać multimedia w Internecie na wiele interesujących sposobów, od oglądania filmów po obsługę obrazów, muzyki i nie tylko."
 
 #: src/amo/pages/Guides/index.js:77
 msgid "Create and manage strong passwords"
@@ -2234,14 +2236,13 @@ msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr "Poznaj więcej %(linkStart)smenedżerów haseł%(linkEnd)s wybranych przez nas."
 
 #: src/amo/pages/Guides/index.js:95
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "Blokowanie reklam"
+msgstr "Blokuj irytujące reklamy"
 
 #: src/amo/pages/Guides/index.js:96
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
-msgstr ""
+msgstr "Dzisiejszy Internet jest pełny niechcianych reklam, które tylko przeszkadzają i Cię spowalniają. Te rozszerzenia mogą je blokować lub filtrować, aby można było przeglądać bez zakłóceń."
 
 #: src/amo/pages/Home/index.js:119
 msgid "Bookmarks"
