@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-22 13:56+0000\n"
+"PO-Revision-Date: 2018-11-22 14:29+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -2108,6 +2108,8 @@ msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"Wilt u hulp bij het organiseren van al uw favoriete onlinerecepten, handleidingen, YouTube-video’s, of zo’n beetje alles wat u op het web kunt vinden? Met OneNote Web Clipper kunt u al uw favoriete "
+"online inhoud verzamelen en opslaan in een krachtig archief dat op uw verschillende apparaten synchroniseert."
 
 #: src/amo/pages/Guides/index.js:166
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
@@ -2115,7 +2117,7 @@ msgstr "Meer door de staf uitgekozen %(linkStart)sbladwijzerbeheerders%(linkEnd)
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Geniet van een frisse nieuwe tabbladbeleving"
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
