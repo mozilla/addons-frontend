@@ -24,6 +24,9 @@ module.exports = {
         staticHost,
         'https://www.google-analytics.com',
       ],
+      prefetchSrc: [
+        amoDevCDN,
+      ],
     },
   },
 

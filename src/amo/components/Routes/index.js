@@ -33,7 +33,9 @@ import SimulateClientError from 'core/pages/error-simulation/SimulateClientError
 import SimulateSyncError from 'core/pages/error-simulation/SimulateSyncError';
 import type { ConfigType } from 'core/types/config';
 
-const About = loadable(() => import('../../pages/StaticPages/About'));
+const About = loadable(() =>
+  import(/* webpackPrefetch: true, webpackPreload: true, webpackChunkName: "about" */ '../../pages/StaticPages/About'),
+);
 
 type Props = {|
   _config?: ConfigType,

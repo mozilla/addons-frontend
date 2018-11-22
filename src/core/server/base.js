@@ -68,8 +68,7 @@ export function getPageProps({ store, req, res, config }) {
   );
   const chunkExtractor = new ChunkExtractor({
     statsFile,
-    // TODO: This should be configured dynamically.
-    entrypoints: ['amo'],
+    entrypoints: [appName],
   });
 
   // Check the lang supplied by res.locals.lang for validity

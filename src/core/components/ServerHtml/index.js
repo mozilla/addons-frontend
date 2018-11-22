@@ -88,7 +88,6 @@ export default class ServerHtml extends Component {
 
   getScript() {
     const { assets } = this.props;
-
     return Object.keys(assets.javascript).map((js, index) =>
       this.getStatic({ filePath: assets.javascript[js], type: 'js', index }),
     );
@@ -101,15 +100,43 @@ export default class ServerHtml extends Component {
     )}`;
   }
 
+  renderAsyncScripts() {
+    const { _config, chunkExtractor, includeSri, sriData } = this.props;
+
+    return chunkExtractor
+      .getMainAssets('script')
+      .filter(
+        // We render the main bundle with `getScript()`, so we skip it here.
+        (asset) => !_config.get('validAppNames').includes(asset.chunk),
+      )
+      .map((asset) => {
+        let props = {};
+        if (includeSri) {
+          props = {
+            crossOrigin: 'anonymous',
+            integrity: sriData[asset.filename],
+          };
+        }
+
+        return (
+          <script
+            async
+            data-chunk={asset.chunk}
+            key={asset.url}
+            src={asset.url}
+            {...props}
+          />
+        );
+      });
+  }
+
   render() {
     const {
-      _config,
       appState,
       chunkExtractor,
       component,
       htmlDir,
       htmlLang,
-      sriData,
     } = this.props;
 
     // This must happen before Helmet.rewind() see
@@ -120,41 +147,33 @@ export default class ServerHtml extends Component {
     return (
       <html lang={htmlLang} dir={htmlDir}>
         <head>
+          {head.title.toComponent()}
+
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          {head.meta.toComponent()}
+
           <link rel="shortcut icon" href={this.getFaviconLink()} />
           {head.link.toComponent()}
-          {head.title.toComponent()}
-          {head.meta.toComponent()}
-          {head.script.toComponent()}
+          {chunkExtractor.getLinkElements()}
+
           {this.getStyle()}
+
+          {head.script.toComponent()}
         </head>
         <body>
           <div id="react-view" dangerouslySetInnerHTML={{ __html: content }} />
+
           <script
             dangerouslySetInnerHTML={{ __html: serialize(appState) }}
             type="application/json"
             id="redux-store-state"
           />
           {chunkExtractor.getRequiredChunksScriptElement()}
-          {chunkExtractor
-            .getMainAssets('script')
-            .filter(
-              (asset) => !_config.get('validAppNames').includes(asset.chunk),
-            )
-            .map((asset) => (
-              // TODO: should only include SRI if `includeSri` is `true`
-              <script
-                async
-                crossOrigin="anonymous"
-                data-chunk={asset.chunk}
-                integrity={sriData[asset.chunk]}
-                key={asset.url}
-                src={asset.url}
-              />
-            ))}
+
           {this.getAnalytics()}
           {this.getScript()}
+          {this.renderAsyncScripts()}
         </body>
       </html>
     );
