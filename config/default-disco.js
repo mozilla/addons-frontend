@@ -23,6 +23,7 @@ module.exports = {
     'discoParamsToUse',
     'enableDevTools',
     'enableRequestID',
+    'enableStrictMode',
     'experiments',
     'hctEnabled',
     'hrefLangsMap',

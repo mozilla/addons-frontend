@@ -114,6 +114,7 @@ module.exports = {
     'enableFeatureHomeHeroGuides',
     'enableFeatureStaticThemesForAndroid',
     'enableRequestID',
+    'enableStrictMode',
     'experiments',
     'fxaConfig',
     'hctEnabled',
