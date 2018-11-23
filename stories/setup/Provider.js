@@ -1,6 +1,5 @@
 /* @flow */
 import { createBrowserHistory } from 'history';
-import config from 'config';
 import React from 'react';
 import { dispatchClientMetadata, fakeI18n } from 'tests/unit/helpers';
 
@@ -15,7 +14,7 @@ const history = addQueryParamsToHistory({
 
 export default function Provider({ story }: Object) {
   return (
-    <Root store={store} history={history} i18n={fakeI18n} _config={config}>
+    <Root store={store} history={history} i18n={fakeI18n}>
       {story}
     </Root>
   );
