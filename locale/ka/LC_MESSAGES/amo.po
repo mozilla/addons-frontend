@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-23 06:05+0000\n"
+"PO-Revision-Date: 2018-11-23 06:20+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -2078,19 +2078,20 @@ msgstr "არ მისცეთ ინტერნეტმეთვალყ�
 #: src/amo/pages/Guides/index.js:115
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
 msgstr ""
+"ინტერნეტრეკლამების განმთავსებლებს შეუძლიათ თვალი ადევნონ თქვენს მოქმედებებს ერთი ვებგვერდიდან მეორეზე გადასვლისას, რაც მათ აძლევს თქვენსა და თქვენი მისწრაფებების შესახებ მონაცემების აღრიცხვის "
+"საშუალებას. გაფართოებებს კი შეუძლია დაგეხმაროთ თქვენი ციფრული კვალის შენიღბვაში."
 
 #: src/amo/pages/Guides/index.js:120
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "გამიჯნეთ თქვენი Facebook-ვინაობა ცალკე „სათავსის“ მეშვეობით, Facebook-ის მიერ, სხვა საიტებზე თქვენი მოქმედებებისთვის თვალის მიდევნების შესაჩერებლად."
 
 #: src/amo/pages/Guides/index.js:124
-#, fuzzy
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
-msgstr "იხილეთ %(linkStart)sპაროლის მართვის%(linkEnd)s სხვა საშუალებები."
+msgstr "იხილეთ თანამშრომლების მიერ შერჩეული %(linkStart)sპირადულობისა და უსაფთხოების%(linkEnd)s სხვა საშუალებები."
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Re-imagine tab management"
-msgstr ""
+msgstr "ჩანართების მართვის ხელახლა წარმოდგენა"
 
 #: src/amo/pages/Guides/index.js:136
 msgid ""
