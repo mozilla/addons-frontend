@@ -9,8 +9,6 @@ module.exports = {
 
   enableDevTools: true,
 
-    enableStrictMode: true,
-
   // Content security policy.
   CSP: {
     directives: {
