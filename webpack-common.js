@@ -118,7 +118,7 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
   const clientConfig = getClientConfig(config);
 
   const plugins = [
-    new LoadablePlugin(),
+    new LoadablePlugin({ writeToDisk: true }),
     new webpack.DefinePlugin({
       CLIENT_CONFIG: JSON.stringify(clientConfig),
       'process.env.NODE_ENV': JSON.stringify('production'),
