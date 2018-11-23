@@ -5,20 +5,18 @@ import UserProfileHead, {
   UserProfileHeadBase,
 } from 'amo/components/UserProfileHead';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
-import {
-  createContextWithFakeRouter,
-  createFakeLocation,
-  shallowUntilTarget,
-} from 'tests/unit/helpers';
+import { dispatchClientMetadata, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const render = ({ location = createFakeLocation(), ...props } = {}) => {
+  const render = (props = {}) => {
+    const allProps = {
+      store: dispatchClientMetadata().store,
+      ...props,
+    };
+
     return shallowUntilTarget(
-      <UserProfileHead {...props} />,
+      <UserProfileHead {...allProps} />,
       UserProfileHeadBase,
-      {
-        shallowOptions: createContextWithFakeRouter({ location }),
-      },
     );
   };
 
@@ -73,13 +71,12 @@ describe(__filename, () => {
   ])(
     'passes a `queryString` prop to HeadMetaTags and HeadLinks with %s',
     (feature, query, expectedQueryString) => {
-      const location = createFakeLocation({
-        query,
-        search: Object.keys(query)
-          .map((k) => `${k}=${query[k]}`)
-          .join('&'),
-      });
-      const root = render({ location });
+      const search = `?${Object.keys(query)
+        .map((k) => `${k}=${query[k]}`)
+        .join('&')}`;
+      const { store } = dispatchClientMetadata({ search });
+
+      const root = render({ store });
 
       expect(root.find(HeadMetaTags)).toHaveProp(
         'queryString',

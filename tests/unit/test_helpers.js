@@ -10,6 +10,7 @@ import SagaTester from 'redux-saga-tester';
 import { put, takeLatest } from 'redux-saga/effects';
 
 import createStore from 'amo/store';
+import { addQueryParamsToHistory } from 'core/utils';
 import {
   getFakeConfig,
   matchingSagaAction,
@@ -300,7 +301,10 @@ describe(__filename, () => {
     // its `onLocationChanged` redux action.
     // See: https://github.com/mozilla/addons-frontend/issues/6560
     it('returns the same payload as the connected-react-router action', () => {
-      const history = createMemoryHistory();
+      const history = addQueryParamsToHistory({
+        history: createMemoryHistory(),
+      });
+
       const { store } = createStore({ history });
       const dispatchSpy = sinon.spy(store, 'dispatch');
 

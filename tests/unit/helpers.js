@@ -10,6 +10,7 @@ import { shallow } from 'enzyme';
 import Jed from 'jed';
 import UAParser from 'ua-parser-js';
 import { oneLine } from 'common-tags';
+import { createMemoryHistory } from 'history';
 
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import createStore from 'amo/store';
@@ -41,6 +42,7 @@ import { searchLoad, searchStart } from 'core/reducers/search';
 import { selectUIState } from 'core/reducers/uiState';
 import { loadCurrentUserAccount } from 'amo/reducers/users';
 import { createUIStateMapper, mergeUIStateProps } from 'core/withUIState';
+import { addQueryParamsToHistory } from 'core/utils';
 
 export const sampleUserAgent =
   'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
@@ -239,21 +241,18 @@ export const fakeAddonInfo = {
   privacy_policy: ' some privacy policy text',
 };
 
-export const onLocationChanged = ({
-  pathname,
-  search = '',
-  hash = '',
-  state,
-  ...others
-}) => {
+export const onLocationChanged = ({ pathname, search = '', ...others }) => {
+  const history = addQueryParamsToHistory({
+    history: createMemoryHistory({
+      initialEntries: [`${pathname}${search}`],
+    }),
+  });
+
   return {
     type: LOCATION_CHANGE,
     payload: {
       location: {
-        hash,
-        pathname,
-        search,
-        state,
+        ...history.location,
         ...others,
       },
       action: 'PUSH',
