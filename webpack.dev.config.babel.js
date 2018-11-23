@@ -1,12 +1,11 @@
 /* eslint-disable max-len, no-console, import/no-extraneous-dependencies */
-import fs from 'fs';
 import path from 'path';
 
 import config from 'config';
 import webpack from 'webpack';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 
-import { getPlugins, getRules } from './webpack-common';
+import { babelrcObject, getPlugins, getRules } from './webpack-common';
 import webpackConfig from './webpack.prod.config.babel';
 import webpackIsomorphicToolsConfig from './src/core/server/webpack-isomorphic-tools-config';
 
@@ -15,9 +14,6 @@ const localDevelopment = config.util.getEnv('NODE_ENV') === 'development';
 const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(
   webpackIsomorphicToolsConfig,
 );
-
-const babelrc = fs.readFileSync('./.babelrc');
-const babelrcObject = JSON.parse(babelrc);
 
 const babelPlugins = babelrcObject.plugins || [];
 const babelDevPlugins = ['react-hot-loader/babel'];

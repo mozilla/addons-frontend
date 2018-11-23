@@ -378,5 +378,6 @@
       "maxSize": "30 kB"
     }
   ],
-  "snyk": true
+  "snyk": true,
+  "sideEffects": ["src/core/polyfill.js", "*.scss"]
 }
