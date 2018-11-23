@@ -88,6 +88,25 @@ global.fetch = (input) => {
   );
 };
 
+// This is required because this file is not generated in the "test" env.
+jest.mock(
+  '../dist/loadable-stats',
+  () => {
+    // This is a minimial `loadable-stats.json` representation.
+    return {
+      namedChunkGroups: {
+        'test-app-set-from-config': {
+          assets: [],
+          childAssets: {
+            preload: [],
+          },
+        },
+      },
+    };
+  },
+  { virtual: true },
+);
+
 afterEach(() => {
   global.sinon.restore();
 });
