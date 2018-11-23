@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-23 22:11+0000\n"
-"Last-Translator: robbp <robbpaun@gmail.com>\n"
+"PO-Revision-Date: 2018-10-14 08:03+0000\n"
+"Last-Translator: Henrietta Maior <hmaior@mozilla.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -1157,7 +1157,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Arrange tabs in a vertical fashion"
-msgstr ""
+msgstr "Aranjează filele vertical"
 
 #: src/amo/components/HomeHeroBanner/index.js:209
 #, fuzzy
@@ -1214,9 +1214,8 @@ msgid "Facebook Container"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:245
-#, fuzzy
 msgid "CookieBro"
-msgstr "Cookie-uri"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:246
 msgid "Automatically delete unwanted cookies"
@@ -1232,7 +1231,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:251
 msgid "Save snippets of text to paste & organize later"
-msgstr ""
+msgstr "Salvează fragmente de text pentru a fi copiate și organizate mai târziu"
 
 #: src/amo/components/HomeHeroBanner/index.js:257
 msgid "Group Speed Dial"
@@ -1313,7 +1312,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:72
 msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr ""
+msgstr "Ai o mulțime de file deschise? Organizează-le într-o bară laterală ordonată"
 
 #: src/amo/components/HomeHeroBanner/index.js:78
 msgid "Imagus"
@@ -1544,7 +1543,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:213
 msgid "Dismiss"
-msgstr ""
+msgstr "Respinge"
 
 #: src/amo/components/ReportAbuseButton/index.js:223 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
@@ -1847,7 +1846,7 @@ msgstr "Extensii"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Pagini sugerate"
 
 #: src/amo/components/SuggestedPages/index.js:39
 msgid "Browse all extensions"
@@ -1906,9 +1905,8 @@ msgid "Do you really want to delete this picture?"
 msgstr "Chiar vrei să ștergi această imagine?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:109
-#, fuzzy
 msgid "Delete This Picture"
-msgstr "Editează această colecție"
+msgstr "Șterge această imagine"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
 msgid "Profile picture for %(name)s"
@@ -2047,14 +2045,12 @@ msgid "Do you really want to delete this collection?"
 msgstr "Chiar vrei să ștergi această colecție?"
 
 #: src/amo/pages/Collection/index.js:385
-#, fuzzy
 msgid "Delete this collection"
-msgstr "Editează această colecție"
+msgstr "Șterge această colecție"
 
 #: src/amo/pages/Collection/index.js:404
-#, fuzzy
 msgid "Log in to create a collection"
-msgstr "Autentifică-te pentru a edita această colecție"
+msgstr "Autentifică-te pentru a crea o colecție"
 
 #: src/amo/pages/Collection/index.js:405
 #, fuzzy
@@ -2078,9 +2074,8 @@ msgid "Download and create Firefox collections to keep track of favorite extensi
 msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:111
-#, fuzzy
 msgid "Collections"
-msgstr "Numele colecției"
+msgstr "Colecții"
 
 #: src/amo/pages/CollectionList/index.js:116
 #, fuzzy
@@ -2102,9 +2097,8 @@ msgid "You do not have any collections."
 msgstr "Autentifică-te pentru a edita această colecție"
 
 #: src/amo/pages/CollectionList/index.js:94
-#, fuzzy
 msgid "My collections"
-msgstr "Vezi colecțiile mele"
+msgstr "Colecțiile mele"
 
 #: src/amo/pages/Guides/index.js:102
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
@@ -2713,7 +2707,7 @@ msgstr "Linkurile suplimentului"
 
 #: src/amo/pages/UserProfileEdit/index.js:193
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "Imagine ștearsă cu succes"
 
 #: src/amo/pages/UserProfileEdit/index.js:420
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
@@ -2865,11 +2859,11 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:236
 msgid "Enable"
-msgstr ""
+msgstr "Activează"
 
 #: src/core/components/AMInstallButton/index.js:241
 msgid "Enabling"
-msgstr ""
+msgstr "Se activează"
 
 #: src/core/components/AMInstallButton/index.js:243
 msgid "Downloading"
@@ -2978,11 +2972,11 @@ msgstr ""
 
 #: src/core/utils/addons.js:40
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "S-a produs o eroare neașteptată."
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmă"
 
 #: src/ui/components/DismissibleTextForm/index.js:187
 msgid "Enter text."
@@ -2998,15 +2992,15 @@ msgstr "Se trimite"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "Sesiunea a expirat"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "S-a produs o eroare neașteptată"
 
 #: src/ui/components/ErrorList/index.js:59
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Reîncarcă pentru a continua"
 
 #: src/ui/components/ExpandableCard/index.js:57
 msgid "Toggle contents"

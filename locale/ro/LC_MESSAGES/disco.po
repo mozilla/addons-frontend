@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:47+0000\n"
-"PO-Revision-Date: 2018-11-23 20:57+0000\n"
+"PO-Revision-Date: 2018-11-23 22:18+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:236
 msgid "Enable"
-msgstr ""
+msgstr "Activează"
 
 #: src/core/components/AMInstallButton/index.js:239
 msgid "Remove"
@@ -24,7 +24,7 @@ msgstr "Elimină"
 
 #: src/core/components/AMInstallButton/index.js:241
 msgid "Enabling"
-msgstr ""
+msgstr "Se activează"
 
 #: src/core/components/AMInstallButton/index.js:243
 #, fuzzy
@@ -51,7 +51,7 @@ msgstr "Adaugă în Firefox"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr ""
+msgstr "Eroare de server"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
@@ -59,7 +59,7 @@ msgstr "Ne pare rău, dar a apărut o eroare și nu am putut finaliza cererea ta
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Cod de eroare: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -67,15 +67,15 @@ msgstr "Pagină negăsită"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Ne pare rău, dar nu am găsit nimic la adresa URL specificată."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s a fost adăugat"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Gestionează-ți suplimentele prin clic pe Suplimente în meniu."
 
 #: src/core/components/InfoDialog/index.js:88
 #, fuzzy
@@ -104,11 +104,11 @@ msgstr ""
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Instalare eșuată. Te rugăm să încerci din nou."
 
 #: src/core/utils/addons.js:31
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Descărcare eșuată. Te rugăm să îți verifici conexiunea."
 
 #: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during installation."
@@ -132,11 +132,11 @@ msgstr "Firefox pentru iOS nu suportă în prezent suplimente."
 
 #: src/disco/components/AddonCompatibilityError/index.js:34
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
+msgstr "Acest supliment nu suportă versiunea ta de Firefox."
 
 #: src/disco/components/AddonCompatibilityError/index.js:40
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "Acest supliment nu suportă browserul tău."
 
 #: src/disco/components/App/index.js:42
 msgid "Discover Add-ons"
@@ -165,7 +165,7 @@ msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "Sesiunea a expirat"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
@@ -177,11 +177,11 @@ msgstr "Reîncarcă pentru a continua"
 
 #: src/ui/components/Notice/index.js:133
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Înlătură această notificare"
 
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Previzualizare %(title)s"
 
 #~ msgid "Downloading %(name)s."
 #~ msgstr "Se descarcă %(name)s."
