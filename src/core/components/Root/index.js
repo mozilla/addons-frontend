@@ -3,13 +3,13 @@ import * as React from 'react';
 import { ConnectedRouter } from 'connected-react-router';
 import { CookiesProvider, Cookies } from 'react-cookie';
 import { Provider } from 'react-redux';
+import config from 'config';
 
 import I18nProvider from 'core/i18n/Provider';
 import type { I18nType } from 'core/types/i18n';
 import type { ReduxStore } from 'core/types/redux';
 import type { ReactRouterHistoryType } from 'core/types/router';
 
-const config = require('config');
 
 type Props = {|
   children: React.Node,
@@ -17,15 +17,16 @@ type Props = {|
   history: ReactRouterHistoryType,
   i18n: I18nType,
   store: ReduxStore,
+  _config: typeof config
 |};
 
-const Root = ({ children, history, i18n, store, cookies = null }: Props) => (
+const Root = ({ children, history, i18n, store, cookies = null, _config = config }: Props) => (
   <I18nProvider i18n={i18n}>
     <Provider store={store} key="provider">
       <ConnectedRouter history={history}>
         <CookiesProvider cookies={cookies}>
           {/* $FLOW_FIXME: https://github.com/facebook/react/issues/12553 */}
-          {config.get('enableStrictMode') ? (
+          {_config.get('enableStrictMode') ? (
             <React.StrictMode>{children}</React.StrictMode>
           ) : (
             { children }
