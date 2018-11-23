@@ -24,9 +24,10 @@ module.exports = {
         staticHost,
         'https://www.google-analytics.com',
       ],
-      prefetchSrc: [
-        amoStageCDN,
-      ],
+      // This is needed because `prefetchSrc` isn't supported by FF yet.
+      // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1457204
+      defaultSrc: [amoStageCDN],
+      prefetchSrc: [amoStageCDN],
     },
   },
 };

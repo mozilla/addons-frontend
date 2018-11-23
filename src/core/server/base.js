@@ -44,6 +44,8 @@ import {
 } from 'core/i18n/utils';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
+// eslint-disable-next-line import/no-unresolved
+import loadableStats from '../../../dist/loadable-stats';
 
 export const createHistory = ({ req }) => {
   return addQueryParamsToHistory({
@@ -63,11 +65,8 @@ export function getPageProps({ store, req, res, config }) {
     : {};
 
   // Code-splitting.
-  const statsFile = path.resolve(
-    path.join(config.get('basePath'), 'dist/loadable-stats.json'),
-  );
   const chunkExtractor = new ChunkExtractor({
-    statsFile,
+    stats: loadableStats,
     entrypoints: [appName],
   });
 
