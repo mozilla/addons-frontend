@@ -11,7 +11,7 @@ import type { ReduxStore } from 'core/types/redux';
 import type { ReactRouterHistoryType } from 'core/types/router';
 
 type Props = {|
-  _config: typeof config,
+  _config?: typeof config,
   children: React.Node,
   cookies?: typeof Cookies,
   history: ReactRouterHistoryType,
