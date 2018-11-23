@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-23 20:52+0000\n"
+"PO-Revision-Date: 2018-11-23 20:59+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -2056,45 +2056,47 @@ msgstr "Könnyűsúlyú, nagyon hatékony reklámblokkoló. A uBlock Origin tart
 
 #: src/amo/pages/Guides/index.js:106
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Fedezzen fel több %(linkStart)sreklámblokkolót%(linkEnd)s a stáb kedvenceiből."
 
 #: src/amo/pages/Guides/index.js:114
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "Állítsa meg az ólálkodó online követőket"
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr ""
+msgstr "Az online hirdetők követik a tevékenységit az egyik weboldalról a másikra, információkat gyűjtve Önről és az érdeklődéséről. A kiegészítők segítenek elfedni a digitális nyomait."
 
 #: src/amo/pages/Guides/index.js:120
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Zárja be a Facebook személyazonosságát egy külön „konténerbe”, hogy megakadályozza a Facebook követését a közösségi platformján kívül."
 
 #: src/amo/pages/Guides/index.js:124
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Fedezzen fel több %(linkStart)smagánszféra védelmi és biztonsági kiegészítőt%(linkEnd)s a stáb kedvenceiből."
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Re-imagine tab management"
-msgstr ""
+msgstr "Gondolja újra a lapok kezelését"
 
 #: src/amo/pages/Guides/index.js:136
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Ha rendszerint sok nyitott lappal dolgozik, akkor valószínűleg ismeri azt a frusztrációt, hogy egy sornyi nem beazonosítható lap között keres egyetlen lapot. A kiegészítők kreatív megoldásokat "
+"tudnak nyújtani a lapkezelés gördülékenyebbé tételéhez."
 
 #: src/amo/pages/Guides/index.js:142
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Rendezze és jelenítse meg lapjait egy lépcsőzetes „fa” formátumban a Firefox oldalsávjában."
 
 #: src/amo/pages/Guides/index.js:146
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Fedezzen fel több %(linkStart)slapkezelési kiegészítőt%(linkEnd)s a stáb kedvenceiből."
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Jobb böngészés javított könyvjelzőkkel"
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
