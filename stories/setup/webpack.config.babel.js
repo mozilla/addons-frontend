@@ -1,17 +1,14 @@
-import { getRules } from '../../webpack-common';
-import webpackConfig, {
-  babelOptions as defaultBabelOptions,
-} from '../../webpack.dev.config.babel';
-
-// We need to add the docgen plugin to get Flow to work.
-const babelOptions = {
-  ...defaultBabelOptions,
-  plugins: [...defaultBabelOptions.plugins, 'react-docgen'],
-};
+import { getAssetRules, getStyleRules, getPlugins } from '../../webpack-common';
+import webpackProdConfig from '../../webpack.prod.config.babel';
 
 module.exports = {
-  ...webpackConfig,
-  module: {
-    rules: [...getRules({ babelOptions, bundleStylesWithJs: true })],
+  node: webpackProdConfig.node,
+  optimization: {
+    minimizer: [],
   },
+  module: {
+    rules: [...getStyleRules({ bundleStylesWithJs: true }), ...getAssetRules()],
+  },
+  plugins: [...getPlugins()],
+  resolve: webpackProdConfig.resolve,
 };

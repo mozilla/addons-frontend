@@ -1,14 +1,37 @@
-import { configure, setAddon } from '@storybook/react';
-import { setOptions } from '@storybook/addon-options';
-import chaptersAddon, { setDefaults } from 'react-storybook-addon-chapters';
-import infoAddon, {
-  setDefaults as setAddonInfoDefaults,
-} from '@storybook/addon-info';
+import { configure, setAddon, addDecorator } from '@storybook/react';
+import { setDefaults } from '@storybook/addon-info';
+import { withOptions } from '@storybook/addon-options';
+import chaptersAddon, {
+  setDefaults as setAddonChaptersDefaults,
+} from 'react-storybook-addon-chapters';
 
 import 'core/polyfill';
 
-// TBD: overrides chapters defaults. Do we want this?
+// addon-info default settings.
 setDefaults({
+  header: false,
+  inline: true,
+  source: false,
+  styles: (stylesheet) => ({
+    ...stylesheet,
+    infoBody: {
+      fontSize: '12px',
+    },
+  }),
+});
+
+// Override some global-y setup options.
+// See: https://www.npmjs.com/package/@storybook/addon-options
+addDecorator(
+  withOptions({
+    name: 'Mozilla Addons frontend',
+    url: 'https://github.com/mozilla/addons-frontend',
+    // Hide empty panel for now.
+    showAddonPanel: false,
+  }),
+);
+
+setAddonChaptersDefaults({
   sectionOptions: {
     allowPropTablesToggling: false,
     allowSourceToggling: false,
@@ -16,30 +39,7 @@ setDefaults({
     useTheme: false,
   },
 });
-
 setAddon(chaptersAddon);
-
-setAddonInfoDefaults({
-  header: false,
-  inline: true,
-  source: false,
-  styles: {
-    infoBody: {
-      fontSize: '12px',
-    },
-  },
-});
-
-setAddon(infoAddon);
-
-// Override some global-y setup options.
-// See https://www.npmjs.com/package/@storybook/addon-options.
-setOptions({
-  name: 'Mozilla Addons frontend',
-  url: 'https://github.com/mozilla/addons-frontend',
-  // Hide empty panel for now.
-  showAddonPanel: false,
-});
 
 function loadStories() {
   /* eslint-disable global-require */

@@ -52,3 +52,7 @@ tests/ui/.pytest_cache/
 
 .DS_Store
 src/locale/*
+
+# storybook
+.cache/
+storybook-static/

@@ -167,7 +167,9 @@
     "storybook-build": {
       "command": "build-storybook -c stories/setup",
       "env": {
-        "NODE_PATH": "./:./src"
+        "NODE_PATH": "./:./src",
+        "NODE_ENV": "production",
+        "NODE_CONFIG_ENV": "prod"
       }
     },
     "test-ci": {
@@ -283,10 +285,10 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "@storybook/addon-info": "^3.4.11",
-    "@storybook/addon-options": "^3.4.10",
-    "@storybook/addons": "^3.4.10",
-    "@storybook/react": "^3.4.10",
+    "@storybook/addon-info": "^4.0.8",
+    "@storybook/addon-options": "^4.0.8",
+    "@storybook/addons": "^4.0.8",
+    "@storybook/react": "^4.0.8",
     "@storybook/storybook-deployer": "^2.3.0",
     "autoprefixer": "^9.0.0",
     "babel-core": "^7.0.0-bridge.0",
@@ -338,7 +340,7 @@
     "prettier": "1.15.2",
     "pretty-quick": "1.8.0",
     "react-hot-loader": "^4.3.3",
-    "react-storybook-addon-chapters": "^2.1.7",
+    "react-storybook-addon-chapters": "^2.1.9",
     "react-test-renderer": "^16.6.3",
     "redux-saga-tester": "^1.0.372",
     "require-uncached": "^2.0.0",

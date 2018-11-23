@@ -8,24 +8,20 @@ import webpack from 'webpack';
 import 'core/polyfill';
 import { getClientConfig } from 'core/utils';
 
-// Common options for URL loaders (i.e. derivatives of file-loader).
-const urlLoaderOptions = {
-  // If a media file is less than this size in bytes, it will be linked as a
-  // data: URL. Otherwise it will be linked as a separate file URL.
-  limit: 10000,
-};
-
-const postCssPlugins = [];
-if (config.get('enablePostCssLoader')) {
-  postCssPlugins.push(
-    autoprefixer({
-      grid: false,
-    }),
-  );
-}
-
-export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
+export function getStyleRules({
+  bundleStylesWithJs = false,
+  _config = config,
+} = {}) {
   let styleRules;
+
+  const postCssPlugins = [];
+  if (_config.get('enablePostCssLoader')) {
+    postCssPlugins.push(
+      autoprefixer({
+        grid: false,
+      }),
+    );
+  }
 
   if (bundleStylesWithJs) {
     // In development, we bundle styles with the JS.
@@ -81,14 +77,18 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
     ];
   }
 
+  return styleRules;
+}
+
+export function getAssetRules() {
+  // Common options for URL loaders (i.e. derivatives of file-loader).
+  const urlLoaderOptions = {
+    // If a media file is less than this size in bytes, it will be linked as a
+    // data: URL. Otherwise it will be linked as a separate file URL.
+    limit: 10000,
+  };
+
   return [
-    {
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      options: babelOptions,
-    },
-    ...styleRules,
     {
       test: /\.svg$/,
       use: [{ loader: 'svg-url-loader', options: urlLoaderOptions }],
@@ -97,6 +97,19 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
       test: /\.(jpg|png|gif|webm|mp4|otf|woff|woff2)$/,
       use: [{ loader: 'url-loader', options: urlLoaderOptions }],
     },
+  ];
+}
+
+export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
+  return [
+    {
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader',
+      options: babelOptions,
+    },
+    ...getStyleRules({ bundleStylesWithJs }),
+    ...getAssetRules(),
   ];
 }
 
