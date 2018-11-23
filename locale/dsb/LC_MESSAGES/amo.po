@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-23 22:12+0000\n"
+"PO-Revision-Date: 2018-11-23 22:18+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -952,7 +952,7 @@ msgstr "Jano z Firefox – Wobstarajśo se něnto Firefox"
 
 #: src/amo/components/GuidesAddonCard/index.js:126
 msgid "Staff Pick"
-msgstr ""
+msgstr "Wót sobuźěłaśerjow wubrane"
 
 #: src/amo/components/GuidesAddonCard/index.js:138
 msgid "Add"
@@ -2119,9 +2119,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:146
-#, fuzzy
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-msgstr "Wuslěźćo dalšne %(linkStart)szastojniki gronidłow%(linkEnd)s z wuběrka sobuźěłaśerjow."
+msgstr "Wuslěźćo dalšne %(linkStart)szastojanje rejtarkow%(linkEnd)s z wuběrka sobuźěłaśerjow."
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
@@ -2138,9 +2137,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:166
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
-msgstr "Wuslěźćo dalšne %(linkStart)szastojniki gronidłow%(linkEnd)s z wuběrka sobuźěłaśerjow."
+msgstr "Wuslěźćo dalšne %(linkStart)szastojniki cytańskich znamjenjow%(linkEnd)s z wuběrka sobuźěłaśerjow."
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
@@ -2151,18 +2149,16 @@ msgid "Start each browsing session tailored just for you by customizing your new
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:179
-#, fuzzy
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-msgstr "Wužywajśo wjelicny nowy bok z pśiměrujobnymi slězynami, informacijami wó lokalnem wjedrje a wěcej"
+msgstr "Wužywajśo rědny nowy bok z pśiměrujobnymi slězynami, informacijami wó lokalnem wjedrje a wěcej."
 
 #: src/amo/pages/Guides/index.js:183
-#, fuzzy
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
-msgstr "Wuslěźćo dalšne %(linkStart)szastojniki gronidłow%(linkEnd)s z wuběrka sobuźěłaśerjow."
+msgstr "Wuslěźćo dalšne %(linkStart)smóžnosći, aby swóje rejtarki změnił%(linkEnd)s z wuběrka sobuźěłaśerjow."
 
 #: src/amo/pages/Guides/index.js:194
 msgid "Improve videos"
-msgstr ""
+msgstr "Wideo pólěpšyś"
 
 #: src/amo/pages/Guides/index.js:195
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, from customizing YouTube to taste, to playing videos in theater mode, and much more."
@@ -2173,9 +2169,8 @@ msgid "Add a control bar to all YouTube video pages so you can easily adjust vol
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:205
-#, fuzzy
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "Wuslěźćo dalšne %(linkStart)szastojniki gronidłow%(linkEnd)s z wuběrka sobuźěłaśerjow."
+msgstr "Wuslěźćo dalšne %(linkStart)swideowe rozšyrjenja%(linkEnd)s z wuběrka sobuźěłaśerjow."
 
 #: src/amo/pages/Guides/index.js:213
 msgid "Get more out of media"
@@ -2192,9 +2187,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:225
-#, fuzzy
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "Wuslěźćo dalšne %(linkStart)szastojniki gronidłow%(linkEnd)s z wuběrka sobuźěłaśerjow."
+msgstr "Wuslěźćo dalšne %(linkStart)smedijowe rozšyrjenja%(linkEnd)s z wuběrka sobuźěłaśerjow."
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
@@ -2221,9 +2215,8 @@ msgstr ""
 "priwatnosć a wěstotu online skšuśiś."
 
 #: src/amo/pages/Guides/index.js:271
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "Priwatne cytańske znamjenja"
+msgstr "Rejtarki a cytańske znamjenja organizěrowaś"
 
 #: src/amo/pages/Guides/index.js:272
 msgid ""
@@ -2252,9 +2245,8 @@ msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr "Wuslěźćo dalšne %(linkStart)szastojniki gronidłow%(linkEnd)s z wuběrka sobuźěłaśerjow."
 
 #: src/amo/pages/Guides/index.js:95
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "Wabjenje blokěrowaś"
+msgstr "Gramne wabjenje blokěrowaś"
 
 #: src/amo/pages/Guides/index.js:96
 msgid ""
@@ -2668,9 +2660,8 @@ msgid "User Profile for %(user)s"
 msgstr "Wužywarski profil za %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:320
-#, fuzzy
 msgid "User Profile"
-msgstr "Profil aktualizěrowaś"
+msgstr "Wužywarski profil"
 
 #: src/amo/pages/UserProfile/index.js:347 src/amo/pages/UserProfileEdit/index.js:635
 msgid "Location"
