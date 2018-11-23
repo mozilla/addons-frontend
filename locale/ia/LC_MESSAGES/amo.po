@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-23 08:24+0000\n"
+"PO-Revision-Date: 2018-11-23 13:07+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2058,9 +2058,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:106
-#, fuzzy
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
-msgstr "Explora le avantages del %(linkStart)sgestor de contrasignos%(linkEnd)s seligite per nostre equipa."
+msgstr "Discoperi le avantages del %(linkStart)sbloco del avisos publicitari%(linkEnd)s seligite per nostre equipa."
 
 #: src/amo/pages/Guides/index.js:114
 msgid "Stop online trackers from stalking you"
@@ -2075,9 +2074,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:124
-#, fuzzy
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
-msgstr "Explora le avantages del %(linkStart)sgestor de contrasignos%(linkEnd)s seligite per nostre equipa."
+msgstr "Explora le avantages del %(linkStart)sconfidentialitate e securitate%(linkEnd)s seligite per nostre equipa."
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Re-imagine tab management"
@@ -2094,9 +2092,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:146
-#, fuzzy
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-msgstr "Explora le avantages del %(linkStart)sgestor de contrasignos%(linkEnd)s seligite per nostre equipa."
+msgstr "Discoperi le avantages del %(linkStart)sgestion del scheda%(linkEnd)s seligite per nostre equipa."
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
@@ -2113,9 +2110,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:166
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
-msgstr "Explora le avantages del %(linkStart)sgestor de contrasignos%(linkEnd)s seligite per nostre equipa."
+msgstr "Discoperi le avantages del %(linkStart)sgestion del marcapaginas%(linkEnd)s seligite per nostre equipa."
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
@@ -2126,14 +2122,12 @@ msgid "Start each browsing session tailored just for you by customizing your new
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:179
-#, fuzzy
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-msgstr "Gaude un splendide apparentia de nove schedas con fundos personalisabile, conditiones meteorologic local & altero ancora"
+msgstr "Gaude un belle nove pagina con fundos personalisabile, info del conditiones meteorologic local e altero ancora."
 
 #: src/amo/pages/Guides/index.js:183
-#, fuzzy
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
-msgstr "Explora le avantages del %(linkStart)sgestor de contrasignos%(linkEnd)s seligite per nostre equipa."
+msgstr "Discoperi le avantages del %(linkStart)smanieras amusante pro cambiar tu schedas%(linkEnd)s con iste selectiones de nostre equipa."
 
 #: src/amo/pages/Guides/index.js:194
 msgid "Improve videos"
@@ -2148,9 +2142,8 @@ msgid "Add a control bar to all YouTube video pages so you can easily adjust vol
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:205
-#, fuzzy
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "Explora le avantages del %(linkStart)sgestor de contrasignos%(linkEnd)s seligite per nostre equipa."
+msgstr "Discoperi le avantages del %(linkStart)sextensiones video%(linkEnd)s seligite per nostre equipa."
 
 #: src/amo/pages/Guides/index.js:213
 msgid "Get more out of media"
@@ -2167,9 +2160,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:225
-#, fuzzy
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "Explora le avantages del %(linkStart)sgestor de contrasignos%(linkEnd)s seligite per nostre equipa."
+msgstr "Discoperi le avantages del %(linkStart)sextensiones de medios%(linkEnd)s seligite per nostre equipa."
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
