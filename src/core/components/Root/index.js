@@ -10,17 +10,23 @@ import type { I18nType } from 'core/types/i18n';
 import type { ReduxStore } from 'core/types/redux';
 import type { ReactRouterHistoryType } from 'core/types/router';
 
-
 type Props = {|
+  _config: typeof config,
   children: React.Node,
   cookies?: typeof Cookies,
   history: ReactRouterHistoryType,
   i18n: I18nType,
   store: ReduxStore,
-  _config: typeof config
 |};
 
-const Root = ({ children, history, i18n, store, cookies = null, _config = config }: Props) => (
+const Root = ({
+  _config = config,
+  children,
+  history,
+  i18n,
+  store,
+  cookies = null,
+}: Props) => (
   <I18nProvider i18n={i18n}>
     <Provider store={store} key="provider">
       <ConnectedRouter history={history}>
@@ -29,7 +35,7 @@ const Root = ({ children, history, i18n, store, cookies = null, _config = config
           {_config.get('enableStrictMode') ? (
             <React.StrictMode>{children}</React.StrictMode>
           ) : (
-            { children }
+            children
           )}
         </CookiesProvider>
       </ConnectedRouter>
