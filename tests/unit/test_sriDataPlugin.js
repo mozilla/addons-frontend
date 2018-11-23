@@ -1,3 +1,7 @@
+/**
+ * See: https://github.com/mozilla/addons-frontend/issues/7031
+ * @jest-environment node
+ */
 import fs from 'fs';
 import path from 'path';
 
