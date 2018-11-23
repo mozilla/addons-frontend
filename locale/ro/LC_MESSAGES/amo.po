@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-23 15:12+0000\n"
+"PO-Revision-Date: 2018-11-23 15:29+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -48,19 +48,16 @@ msgid "Admin add-on"
 msgstr "Administrează suplimentul"
 
 #: src/amo/components/AddonAdminLinks/index.js:114
-#, fuzzy
 msgid "Content review add-on"
-msgstr "%(total)s recenzie pentru acest supliment"
+msgstr ""
 
 #: src/amo/components/AddonAdminLinks/index.js:121
-#, fuzzy
 msgid "Review theme"
-msgstr "Recenzie"
+msgstr ""
 
 #: src/amo/components/AddonAdminLinks/index.js:123
-#, fuzzy
 msgid "Review add-on code"
-msgstr "Recenzii pentru %(addonName)s"
+msgstr ""
 
 #: src/amo/components/AddonAdminLinks/index.js:147
 #, fuzzy
@@ -377,7 +374,7 @@ msgstr "Păstrează recenzia"
 
 #: src/amo/components/AddonReviewCard/index.js:296
 msgid "Write a reply to this review."
-msgstr ""
+msgstr "Scrie un răspuns la această recenzie."
 
 #: src/amo/components/AddonReviewCard/index.js:299 src/amo/components/AddonReviewManager/index.js:111
 msgid "Update reply"
@@ -951,7 +948,7 @@ msgstr "Raportează o defecțiune"
 
 #: src/amo/components/Footer/index.js:81
 msgid "Review Guide"
-msgstr "Ghid pentru recenzenți"
+msgstr "Ghid pentru recenzii"
 
 #: src/amo/components/Footer/index.js:86
 msgid "Site Status"
@@ -2490,6 +2487,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"Suplimentele enumerate aici sunt create de mii de dezvoltatori și designeri de teme din întreaga lume, de la pasionați individuali până la mari corporații. Unele suplimente listate pe AMO au fost "
+"publicate automat și pot fi supuse revizuirii de către o echipă de editori, după publicare."
 
 #: src/amo/pages/StaticPages/About/index.js:80
 msgid "Get involved"
@@ -2511,7 +2510,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:105
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Să incluzi cod HTML, linkuri, cod sursă sau fragmente de cod. Recenziile trebuie să fie doar text."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:110
 msgid "Make false statements, disparage add-on authors or personally insult them."
@@ -2523,27 +2522,31 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Să postezi recenzii pentru un supliment creat sau reprezentat de tine sau de organizația ta."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:125
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Să critici un supliment pentru ceva ce este destinat să facă. De exemplu, să lași o recenzie negativă unui supliment pentru că afișează anunțuri sau pentru că presupune colectare de date când "
+"aceasta este destinația utilizării suplimentului sau dacă suplimentul necesită colectare de date pentru a funcționa."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:134
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Întrebări frecvente despre recenzii"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:136
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Cum pot raporta o recenzie problematică?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:138
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Te rugăm să raportezi sau să semnalizezi orice recenzii discutabile dând clic pe „Raportează această recenzie\" și va fi trimisă pe site pentru moderare. Echipa noastră de moderare va utiliza Ghidul"
+" pentru recenzii și va evalua dacă să șteargă sau nu recenzia sau să o reintroducă pe site."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:145
 msgid "I'm an add-on author, can I respond to reviews?"
@@ -2562,6 +2565,8 @@ msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"În general, nu. Dar dacă recenzia nu a întrunit cerințele din ghidul pentru recenzii prezentate mai sus, poți da clic pe „Raportează această recenzie” și supune-o procedurii de moderare. Dacă "
+"recenzia include o reclamație care nu mai este de actualitate datorită lansării unei versiuni noi a suplimentului tău, este posibil să luăm în calcul ștergerea recenziei."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:22
 msgid "Review Guidelines"
