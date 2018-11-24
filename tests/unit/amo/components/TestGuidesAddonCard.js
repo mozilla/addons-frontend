@@ -17,8 +17,14 @@ import {
   fakeVersion,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { INCOMPATIBLE_NOT_FIREFOX, UNKNOWN } from 'core/constants';
-import { createInternalAddon } from 'core/reducers/addons';
+import { setInstallError, setInstallState } from 'core/actions/installations';
+import {
+  FATAL_ERROR,
+  INCOMPATIBLE_NOT_FIREFOX,
+  INSTALLING,
+  UNKNOWN,
+} from 'core/constants';
+import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
 import { loadVersions } from 'core/reducers/versions';
 
 describe(__filename, () => {
@@ -33,6 +39,10 @@ describe(__filename, () => {
         versions: [version],
       }),
     );
+  };
+
+  const _loadAddonResults = ({ addon = fakeAddon }) => {
+    return loadAddonResults({ addons: [addon] });
   };
 
   const getProps = ({
@@ -189,5 +199,25 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find(AddonInstallError)).toHaveLength(1);
+  });
+
+  it('passes an error to the AddonInstallError component', () => {
+    const addon = fakeAddon;
+    const { store } = dispatchClientMetadata();
+    store.dispatch(_loadAddonResults({ addon }));
+    // User clicks the install button.
+    store.dispatch(
+      setInstallState({
+        guid: addon.guid,
+        status: INSTALLING,
+      }),
+    );
+    // An error has occurred in FF.
+    const error = FATAL_ERROR;
+    store.dispatch(setInstallError({ error, guid: addon.guid }));
+
+    const root = render({ store });
+
+    expect(root.find(AddonInstallError)).toHaveProp('error', error);
   });
 });

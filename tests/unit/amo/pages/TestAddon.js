@@ -33,7 +33,7 @@ import {
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import { setError } from 'core/actions/errors';
-import { setInstallState } from 'core/actions/installations';
+import { setInstallError, setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_COMPLETE_THEME,
@@ -44,7 +44,9 @@ import {
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
+  FATAL_ERROR,
   INSTALLED,
+  INSTALLING,
   UNKNOWN,
 } from 'core/constants';
 import AMInstallButton from 'core/components/AMInstallButton';
@@ -1660,5 +1662,25 @@ describe(__filename, () => {
     const root = shallowRender();
 
     expect(root.find(AddonInstallError)).toHaveLength(1);
+  });
+
+  it('passes an error to the AddonInstallError component', () => {
+    const addon = fakeAddon;
+    const { store } = dispatchClientMetadata();
+    store.dispatch(_loadAddonResults({ addon }));
+    // User clicks the install button.
+    store.dispatch(
+      setInstallState({
+        guid: addon.guid,
+        status: INSTALLING,
+      }),
+    );
+    // An error has occurred in FF.
+    const error = FATAL_ERROR;
+    store.dispatch(setInstallError({ error, guid: addon.guid }));
+
+    const root = renderComponent({ store });
+
+    expect(root.find(AddonInstallError)).toHaveProp('error', error);
   });
 });
