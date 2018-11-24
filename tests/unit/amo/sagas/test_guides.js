@@ -2,6 +2,7 @@ import SagaTester from 'redux-saga-tester';
 
 import { fetchGuidesAddons } from 'amo/reducers/guides';
 import * as searchApi from 'core/api/search';
+import { CLIENT_APP_FIREFOX } from 'core/constants';
 import addonsReducer, { loadAddonResults } from 'core/reducers/addons';
 import guidesSaga from 'amo/sagas/guides';
 import apiReducer from 'core/reducers/api';
@@ -55,6 +56,7 @@ describe(__filename, () => {
         .withArgs({
           api: state.api,
           filters: {
+            clientApp: CLIENT_APP_FIREFOX,
             guid: guids.join(','),
           },
         })

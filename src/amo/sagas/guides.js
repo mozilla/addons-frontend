@@ -2,6 +2,7 @@
 import { call, put, select, takeEvery } from 'redux-saga/effects';
 
 import { search as searchApi } from 'core/api/search';
+import { CLIENT_APP_FIREFOX } from 'core/constants';
 import { FETCH_GUIDES_ADDONS } from 'amo/reducers/guides';
 import log from 'core/logger';
 import { loadAddonResults } from 'core/reducers/addons';
@@ -23,6 +24,10 @@ export function* fetchGuidesAddons({
     const params: SearchParams = {
       api: state.api,
       filters: {
+        // Search on android excludes addons if they aren't
+        // available but we want to display all addons
+        // on the guide pages.
+        clientApp: CLIENT_APP_FIREFOX,
         guid: guids.join(','),
       },
     };
