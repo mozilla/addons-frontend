@@ -50,6 +50,8 @@ module.exports = {
   // If true node will serve the static files.
   enableNodeStatics: false,
 
+  enableStrictMode: true,
+
   isDeployed: true,
   isDevelopment: false,
 
@@ -112,6 +114,7 @@ module.exports = {
     'enableFeatureHomeHeroGuides',
     'enableFeatureStaticThemesForAndroid',
     'enableRequestID',
+    'enableStrictMode',
     'experiments',
     'fxaConfig',
     'hctEnabled',
