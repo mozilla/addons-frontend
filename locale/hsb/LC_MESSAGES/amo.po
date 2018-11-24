@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-21 21:45+0000\n"
+"PO-Revision-Date: 2018-11-24 11:48+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2137,6 +2137,8 @@ msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"Chceće pomhać, wšě swoje najlubše warjenske recepty, nawody, wideja Youtube abo prosće wšo, štož we webje namakać, organizować? OneNote Web Clipper wam zmóžnja, wšón waš najlěpši wobsah online w "
+"mócnym repozitoriju hromadźić a składować, kotryž so přez graty synchronizuje."
 
 #: src/amo/pages/Guides/index.js:166
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
@@ -2165,10 +2167,13 @@ msgstr "Wideja polěpšić"
 #: src/amo/pages/Guides/index.js:195
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, from customizing YouTube to taste, to playing videos in theater mode, and much more."
 msgstr ""
+"Jeli widejowy wobsah wužiwaće, skića rozšěrjenja rjad móžnosćow, zo byš=ce swoje dožiwjenje optimował, wot přiměrjenja YouTube wašemu słodej do wothrawanje widejow w kinowym modusu a wjele wjace."
 
 #: src/amo/pages/Guides/index.js:200
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
 msgstr ""
+"Přidajće wšěm widejowym stronam Youtube wodźensku lajstu, zo byšće móhł sylnosć zwuka, wothrawansku spěšnosć, wulkosć widejowohtrawaka, blokowanje wabjenja a přispomnjenkow a dalše funkcije "
+"přiměrić."
 
 #: src/amo/pages/Guides/index.js:205
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
