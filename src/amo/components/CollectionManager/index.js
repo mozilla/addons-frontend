@@ -97,11 +97,20 @@ export class CollectionManagerBase extends React.Component<
   }
 
   onCancel = (event: SyntheticEvent<HTMLButtonElement>) => {
-    const { clientApp, creating, collection, dispatch, history, siteLang } = this.props;
+    const {
+      clientApp,
+      creating,
+      collection,
+      dispatch,
+      history,
+      siteLang,
+    } = this.props;
 
     if (creating) {
       if (siteLang) {
-        history.push(`/${siteLang}/${clientApp}${collectionUrl({ collection })}`);
+        history.push(
+          `/${siteLang}/${clientApp}${collectionUrl({ collection })}`,
+        );
       } else {
         history.goBack();
       }
