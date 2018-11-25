@@ -195,6 +195,10 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     );
   }
 
+  generateRandomLoadingReviews(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
   render() {
     const {
       addon,
@@ -229,16 +233,6 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       }
     }
 
-    // When reviews have not loaded yet, make a list of 4 empty reviews
-    // as a placeholder.
-    const allReviews = reviews
-      ? // Remove the Featured Review from the array.
-        // TODO: Remove this code and use the API to filter out the featured
-        // review once https://github.com/mozilla/addons-server/issues/9424
-        // is fixed.
-        reviews.filter((review) => review.id.toString() !== reviewId)
-      : Array(4).fill(null);
-
     const header = addon
       ? i18n.sprintf(i18n.gettext('Reviews for %(addonName)s'), {
           addonName: addon.name,
@@ -262,6 +256,20 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       ) : (
         <LoadingText />
       );
+
+    let addonReviewDisplayCount =
+      addonReviewCount || this.generateRandomLoadingReviews(1, 25);
+    if (addonReviewDisplayCount > 25) {
+      addonReviewDisplayCount = 25;
+    }
+
+    const allReviews = reviews
+      ? // Remove the Featured Review from the array.
+        // TODO: Remove this code and use the API to filter out the featured
+        // review once https://github.com/mozilla/addons-server/issues/9424
+        // is fixed.
+        reviews.filter((review) => review.id.toString() !== reviewId)
+      : Array(addonReviewDisplayCount).fill(null);
 
     const paginator =
       addon && reviewCount && pageSize && reviewCount > pageSize ? (
