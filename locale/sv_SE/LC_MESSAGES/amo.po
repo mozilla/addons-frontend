@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-22 16:41+0000\n"
+"PO-Revision-Date: 2018-11-25 00:32+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -946,7 +946,7 @@ msgstr "Endast med Firefox—Hämta Firefox nu"
 
 #: src/amo/components/GuidesAddonCard/index.js:126
 msgid "Staff Pick"
-msgstr "Medarbetare väljer"
+msgstr "Personalen väljer"
 
 #: src/amo/components/GuidesAddonCard/index.js:138
 msgid "Add"
@@ -2060,7 +2060,7 @@ msgstr "En lätt och effektiv annonsblockerare. uBlock Origin använder tusental
 
 #: src/amo/pages/Guides/index.js:106
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
-msgstr "Utforska fler %(linkStart)sannonsblockerare%(linkEnd)s utvalda av medarbetare."
+msgstr "Utforska fler %(linkStart)sannonsblockerare%(linkEnd)s utvalda av personalen."
 
 #: src/amo/pages/Guides/index.js:114
 msgid "Stop online trackers from stalking you"
@@ -2076,11 +2076,11 @@ msgstr "Isolera din Facebook-identitet i en separat ”behållare” för att st
 
 #: src/amo/pages/Guides/index.js:124
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
-msgstr "Utforska fler %(linkStart)ssekretess & säkerhet%(linkEnd)s utvalda av medarbetare."
+msgstr "Utforska fler %(linkStart)ssekretess & säkerhet%(linkEnd)s utvalda av personalen."
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Re-imagine tab management"
-msgstr ""
+msgstr "Återupptäck flikhantering"
 
 #: src/amo/pages/Guides/index.js:136
 msgid ""
@@ -2093,9 +2093,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:146
-#, fuzzy
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-msgstr "Utforska fler %(linkStart)slösenordshanterare%(linkEnd)s utvalda av personalen."
+msgstr "Utforska fler %(linkStart)sflikhanterare%(linkEnd)s utvalda av personalen."
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
@@ -2112,9 +2111,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:166
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
-msgstr "Utforska fler %(linkStart)slösenordshanterare%(linkEnd)s utvalda av personalen."
+msgstr "Utforska fler %(linkStart)sbokmärkeshanterare%(linkEnd)s utvalda av personalen."
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
@@ -2125,14 +2123,12 @@ msgid "Start each browsing session tailored just for you by customizing your new
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:179
-#, fuzzy
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-msgstr "Njut av en underbar ny fliksida med anpassningsbara bakgrunder, lokalt väder och mer"
+msgstr "Njut av en vacker ny sida med anpassningsbar bakgrund, lokal väderinfo och mer."
 
 #: src/amo/pages/Guides/index.js:183
-#, fuzzy
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
-msgstr "Utforska fler %(linkStart)slösenordshanterare%(linkEnd)s utvalda av personalen."
+msgstr "Utforska fler %(linkStart)ssätt att ändra dina flikar%(linkEnd)s med dessa utvalda av personalen."
 
 #: src/amo/pages/Guides/index.js:194
 msgid "Improve videos"
@@ -2147,9 +2143,8 @@ msgid "Add a control bar to all YouTube video pages so you can easily adjust vol
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:205
-#, fuzzy
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "Utforska fler %(linkStart)slösenordshanterare%(linkEnd)s utvalda av personalen."
+msgstr "Utforska fler %(linkStart)svideoutökningar%(linkEnd)s utvalda av personalen."
 
 #: src/amo/pages/Guides/index.js:213
 msgid "Get more out of media"
@@ -2166,9 +2161,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:225
-#, fuzzy
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "Utforska fler %(linkStart)slösenordshanterare%(linkEnd)s utvalda av personalen."
+msgstr "Utforska fler %(linkStart)smediautökningar%(linkEnd)s utvalda av personalen."
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
@@ -2224,7 +2218,7 @@ msgstr "Fullständigt krypterat lösenordsskydd. Spara dina data säkert och få
 
 #: src/amo/pages/Guides/index.js:87
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
-msgstr "Utforska fler %(linkStart)slösenordshanterare%(linkEnd)s utvalda av medarbetare."
+msgstr "Utforska fler %(linkStart)slösenordshanterare%(linkEnd)s utvalda av personalen."
 
 #: src/amo/pages/Guides/index.js:95
 msgid "Block annoying ads"
