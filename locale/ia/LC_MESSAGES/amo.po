@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-25 18:27+0000\n"
+"PO-Revision-Date: 2018-11-25 18:52+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2104,13 +2104,15 @@ msgstr "Melior exploration con marcapaginas meliorate"
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "Le extensiones pote adjutar te a organisar tu interesses online. Le gestores de marcapaginas es ideal pro le personas con multe contento a traciar."
 
 #: src/amo/pages/Guides/index.js:159
 msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"Vole tu adjuta pro organisar tote tu receptas de cocina favorite online, le articulos illustrative, le videos de YouTube, o justo alco que tu trova sur le Web? OneNote Web Clipper te pone in grado "
+"de colliger e immagazinar tote tu favorite contento online in un potente repositorio que se synchronisa trans tu apparatos."
 
 #: src/amo/pages/Guides/index.js:166
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
@@ -2118,11 +2120,11 @@ msgstr "Discoperi le avantages del %(linkStart)sgestion del marcapaginas%(linkEn
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Gaude un fresc experientia de nove scheda"
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "Comencia cata session de exploration, secundo tu proprie gusto, per le personalisation de tu experientias del nove schedas."
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
@@ -2134,7 +2136,7 @@ msgstr "Discoperi le avantages del %(linkStart)smanieras amusante pro cambiar tu
 
 #: src/amo/pages/Guides/index.js:194
 msgid "Improve videos"
-msgstr ""
+msgstr "Meliora le videos"
 
 #: src/amo/pages/Guides/index.js:195
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, from customizing YouTube to taste, to playing videos in theater mode, and much more."
