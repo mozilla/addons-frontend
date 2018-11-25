@@ -11,6 +11,7 @@ import {
   createCollection,
   finishEditingCollectionDetails,
   updateCollection,
+  collectionUrl,
 } from 'amo/reducers/collections';
 import { getCurrentUser } from 'amo/reducers/users';
 import { withFixedErrorHandler } from 'core/errorHandler';
@@ -96,11 +97,11 @@ export class CollectionManagerBase extends React.Component<
   }
 
   onCancel = (event: SyntheticEvent<HTMLButtonElement>) => {
-    const { clientApp, creating, dispatch, history, siteLang } = this.props;
+    const { clientApp, creating, collection, dispatch, history, siteLang } = this.props;
 
     if (creating) {
       if (siteLang) {
-        history.push(`/${siteLang}/${clientApp}/collections/`);
+        history.push(`/${siteLang}/${clientApp}${collectionUrl({ collection })}`);
       } else {
         history.goBack();
       }
@@ -108,6 +109,15 @@ export class CollectionManagerBase extends React.Component<
 
     event.preventDefault();
     event.stopPropagation();
+
+    // eslint-disable-next-line no-undef
+    if (windows.location.pathname.indexOf('edit') >= 1) {
+      if (siteLang) {
+        history.push(`/${siteLang}/${clientApp}/collections/`);
+      } else {
+        history.goBack();
+      }
+    }
 
     dispatch(finishEditingCollectionDetails());
   };

@@ -47,6 +47,14 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
     dispatch(beginEditingCollectionDetails());
   };
 
+  componentDidMount() {
+    // eslint-disable-next-line no-undef
+    if (windows.location.pathname.indexOf('edit') >= 1) {
+      const { dispatch } = this.props;
+      dispatch(beginEditingCollectionDetails());
+    }
+  }
+
   render() {
     const {
       collection,
