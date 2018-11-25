@@ -37,6 +37,20 @@ describe(__filename, () => {
       expect(parts.afterLinkText).toEqual(' here.');
     });
 
+    it('lets you pass in additional variables', () => {
+      const anotherVar = 'another value';
+      const parts = getLocalizedTextWithLinkParts({
+        i18n: fakeI18n(),
+        text: 'Explore more %(linkStart)s stuff %(linkEnd)s %(anotherVar)s.',
+        otherVars: {
+          anotherVar,
+        },
+      });
+
+      expect(parts).toHaveProperty('afterLinkText');
+      expect(parts.afterLinkText).toEqual(` ${anotherVar}.`);
+    });
+
     it('throws an error if linkStart and/or linkEnd values are missing from text', () => {
       expect(() => {
         getLocalizedTextWithLinkParts({

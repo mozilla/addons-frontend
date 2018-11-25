@@ -24,6 +24,7 @@ import {
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
+import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import Button from 'ui/components/Button';
 import ConfirmationDialog from 'ui/components/ConfirmationDialog';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
@@ -342,30 +343,24 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     const noAuthor = shortByLine || this.isReply();
 
     if (review) {
-      const url = `/addon/${review.reviewAddon.slug}/reviews/${review.id}/`;
-      const timestamp = (
-        <Link key={review.id} to={url}>
-          {i18n.moment(review.created).fromNow()}
-        </Link>
-      );
-
       const byLineString = noAuthor
         ? // translators: Example in English: "posted last week"
-          i18n.gettext('posted %(timestamp)s')
+          i18n.gettext('posted %(linkStart)s%(timestamp)s%(linkEnd)s')
         : // translators: Example in English: "by UserName123, last week"
-          i18n.gettext('by %(authorName)s, %(timestamp)s');
+          i18n.gettext(
+            'by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
+          );
 
-      // This somewhat odd code is needed because we want to wrap the timestamp
-      // inside a Link component, and the whole thing is inside a string that
-      // needs to be localized, so we localize the string first and then
-      // inject the timestamp, wrapped in a Link, inside the string.
-      const localized = i18n.sprintf(byLineString, {
-        authorName: review.userName,
-        timestamp: '__timestamp__',
+      const linkParts = getLocalizedTextWithLinkParts({
+        i18n,
+        text: byLineString,
+        otherVars: {
+          authorName: review.userName,
+          timestamp: i18n.moment(review.created).fromNow(),
+        },
       });
 
-      const parts = localized.split('__timestamp__');
-      const allParts = [parts.shift(), timestamp, ...parts];
+      const url = `/addon/${review.reviewAddon.slug}/reviews/${review.id}/`;
 
       byLine = (
         <span
@@ -373,7 +368,11 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             'AddonReviewCard-authorByLine': !noAuthor,
           })}
         >
-          {allParts}
+          {linkParts.beforeLinkText}
+          <Link key={review.id} to={url}>
+            {linkParts.innerLinkText}
+          </Link>
+          {linkParts.afterLinkText}
         </span>
       );
     } else {

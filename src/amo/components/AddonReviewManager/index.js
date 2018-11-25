@@ -11,9 +11,11 @@ import {
   updateAddonReview,
 } from 'amo/actions/reviews';
 import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
+import Link from 'amo/components/Link';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { normalizeFileNameId, sanitizeHTML } from 'core/utils';
+import { normalizeFileNameId } from 'core/utils';
+import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
@@ -82,23 +84,23 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
     } = this.props;
 
     const isReply = review.isDeveloperReply;
-    const reviewGuideLink = i18n.sprintf(
-      i18n.gettext(
-        'Please follow our %(linkStart)sreview guidelines%(linkEnd)s.',
-      ),
-      {
-        linkStart: '<a href="/review_guide">',
-        linkEnd: '</a>',
-      },
-    );
 
-    /* eslint-disable react/no-danger */
+    const linkParts = getLocalizedTextWithLinkParts({
+      i18n,
+      text: 'Please follow our %(linkStart)sreview guidelines%(linkEnd)s.',
+    });
+
     const formFooter = !isReply ? (
-      <span dangerouslySetInnerHTML={sanitizeHTML(reviewGuideLink, ['a'])} />
+      <div>
+        {linkParts.beforeLinkText}
+        <Link to="/review_guide" prependClientApp={false}>
+          {linkParts.innerLinkText}
+        </Link>
+        {linkParts.afterLinkText}
+      </div>
     ) : (
       undefined
     );
-    /* eslint-enable react/no-danger */
 
     const placeholder = i18n.gettext(
       'Write about your experience with this add-on.',
