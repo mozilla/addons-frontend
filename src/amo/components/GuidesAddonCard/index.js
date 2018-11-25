@@ -9,6 +9,7 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_TYPE_ADDON,
 } from 'amo/components/GetFirefoxButton';
+import AddonInstallError from 'amo/components/AddonInstallError';
 import AMInstallButton from 'core/components/AMInstallButton';
 import {
   INCOMPATIBLE_NOT_FIREFOX,
@@ -19,11 +20,9 @@ import { getAddonIconUrl } from 'core/imageUtils';
 import { withInstallHelpers } from 'core/installAddon';
 import translate from 'core/i18n/translate';
 import { getVersionById } from 'core/reducers/versions';
-import { getErrorMessage } from 'core/utils/addons';
 import { getClientCompatibility } from 'core/utils/compatibility';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
-import Notice from 'ui/components/Notice';
 import type { AddonType } from 'core/types/addons';
 import type { AddonVersionType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
@@ -58,21 +57,6 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
     staffPick: true,
   };
 
-  // TODO: See https://github.com/mozilla/addons-frontend/issues/6902.
-  renderInstallError() {
-    const { i18n, installError: error } = this.props;
-
-    if (!error) {
-      return null;
-    }
-
-    return (
-      <Notice className="Addon-header-install-error" type="error">
-        {getErrorMessage({ i18n, error })}
-      </Notice>
-    );
-  }
-
   render() {
     const {
       _getClientCompatibility,
@@ -104,7 +88,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
 
     return addon ? (
       <Card>
-        {this.renderInstallError()}
+        <AddonInstallError error={this.props.installError} />
         <div className="GuidesAddonCard">
           <AddonCompatibilityError addon={addon} />
           <div className="GuidesAddonCard-content">

@@ -3,6 +3,7 @@ import * as React from 'react';
 import GuidesAddonCard, {
   GuidesAddonCardBase,
 } from 'amo/components/GuidesAddonCard';
+import AddonInstallError from 'amo/components/AddonInstallError';
 import AddonTitle from 'amo/components/AddonTitle';
 import AMInstallButton from 'core/components/AMInstallButton';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
@@ -16,15 +17,14 @@ import {
   fakeVersion,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
+import { setInstallError, setInstallState } from 'core/actions/installations';
 import {
   FATAL_ERROR,
   INCOMPATIBLE_NOT_FIREFOX,
   INSTALLING,
   UNKNOWN,
 } from 'core/constants';
-import { setInstallError, setInstallState } from 'core/actions/installations';
-import { getErrorMessage } from 'core/utils/addons';
-import { createInternalAddon } from 'core/reducers/addons';
+import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
 import { loadVersions } from 'core/reducers/versions';
 
 describe(__filename, () => {
@@ -39,6 +39,10 @@ describe(__filename, () => {
         versions: [version],
       }),
     );
+  };
+
+  const _loadAddonResults = ({ addon = fakeAddon }) => {
+    return loadAddonResults({ addons: [addon] });
   };
 
   const getProps = ({
@@ -191,13 +195,16 @@ describe(__filename, () => {
     expect(root.find(GetFirefoxButton)).toHaveLength(1);
   });
 
-  // TODO: https://github.com/mozilla/addons-frontend/issues/6902
-  // if we extract renderInstallError to its own component, I believe we can
-  // remove the following test cases.
-  it('renders an install error if there is one', () => {
-    const { store } = dispatchClientMetadata();
-    const addon = fakeAddon;
+  it('renders an AddonInstallError component', () => {
+    const root = render();
 
+    expect(root.find(AddonInstallError)).toHaveLength(1);
+  });
+
+  it('passes an error to the AddonInstallError component', () => {
+    const addon = fakeAddon;
+    const { store } = dispatchClientMetadata();
+    store.dispatch(_loadAddonResults({ addon }));
     // User clicks the install button.
     store.dispatch(
       setInstallState({
@@ -205,22 +212,12 @@ describe(__filename, () => {
         status: INSTALLING,
       }),
     );
-    // An error has occured in FF.
+    // An error has occurred in FF.
     const error = FATAL_ERROR;
     store.dispatch(setInstallError({ error, guid: addon.guid }));
 
     const root = render({ store });
 
-    expect(root.find('.Addon-header-install-error')).toHaveLength(1);
-    expect(root.find('.Addon-header-install-error')).toHaveProp(
-      'children',
-      getErrorMessage({ i18n: fakeI18n(), error }),
-    );
-  });
-
-  it('does not render an install error if there is no error', () => {
-    const root = render();
-
-    expect(root.find('.Addon-header-install-error')).toHaveLength(0);
+    expect(root.find(AddonInstallError)).toHaveProp('error', error);
   });
 });
