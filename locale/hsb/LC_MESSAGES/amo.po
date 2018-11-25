@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-24 18:14+0000\n"
+"PO-Revision-Date: 2018-11-25 11:19+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2192,6 +2192,8 @@ msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Sće so hdy we webje wo fascinowacym wobrazu zakopnył a chceće wjace wo tym zhonić, na přikład kotra wosoba je na wobrazu? Su přiwuzne wobrazy? Tute rozšěrjenje wam zmóžnja, spěšne a lochke nawopačne"
+" wobrazowe pytanje z wjele pytawami přewjesć."
 
 #: src/amo/pages/Guides/index.js:225
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
@@ -2203,7 +2205,7 @@ msgstr "Přinjesće medije direktnje do wobhladowaka"
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "Rozšěrjenja móža Firefox do swójskeho zabawneho suka, kotryž wam hnydomny přistup na hudźbu, zapřijimanje wobrazow a wjace dawa."
 
 #: src/amo/pages/Guides/index.js:239
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
