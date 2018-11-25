@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-23 06:20+0000\n"
+"PO-Revision-Date: 2018-11-25 01:32+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1091,7 +1091,7 @@ msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr "უბრალოდ გადააადგილეთ ტექსტი, სურათები ან ბმულები ისეთი მოქმედებების შესასრულებლად, როგორიცაა დაკოპირება, ახალ გვერდზე გახსნა, მოძიება და ა.შ."
+msgstr "უბრალოდ გადააადგილეთ ტექსტი, სურათები ან ბმულები ისეთი მოქმედებების შესასრულებლად, როგორიცაა ასლის აღება, ახალ გვერდზე გახსნა, მოძიება და ა.შ."
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Behind The Overlay Revival"
@@ -1123,7 +1123,7 @@ msgstr "Copy PlainText"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Remove formatting when saving text to your clipboard"
-msgstr "ტექსტის გაფორმების მოცილება დაკოპირებისას"
+msgstr "ტექსტის გაფორმების მოცილება ასლის აღებისას"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Official Media Bias Fact Check Icon"
@@ -1371,11 +1371,11 @@ msgstr "ბოლოს შენახული ისტორიის, ფ�
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
-msgstr "წვდომა დაკოპირებულ მონაცემებზე"
+msgstr "წვდომა მონაცემების ასლზე"
 
 #: src/amo/components/PermissionsCard/permissions.js:37
 msgid "Input data to the clipboard"
-msgstr "დაკოპირებულ მონაცემებში ინფორმაციის ჩამატება"
+msgstr "აღებული მონაცემების ასლში ინფორმაციის ჩამატება"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
