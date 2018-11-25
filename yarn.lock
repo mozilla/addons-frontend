@@ -2281,7 +2281,6 @@ babel-plugin-react-docgen@^1.9.0:
 babel-plugin-react-docgen@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-react-docgen/-/babel-plugin-react-docgen-2.0.0.tgz#039d90f5a1a37131c8cc3015017eecafa8d78882"
-  integrity sha512-AaA6IPxCF1EkzpFG41GkVh/VGdoBejPF6oIub2K8E6AD3kwnTZ0DIKG7f20a7zmqBEeO8GkFWdM7tYd9Owkc+Q==
   dependencies:
     lodash "^4.17.10"
     react-docgen "^3.0.0-rc.1"
@@ -9957,7 +9956,6 @@ pino-syslog@^1.2.0:
 pino@5.9.0:
   version "5.9.0"
   resolved "https://registry.yarnpkg.com/pino/-/pino-5.9.0.tgz#4a436289ea90cefd0fad1e3ca5726b6d58922c71"
-  integrity sha512-6sHy38gWsZbrmYq6vk343VCThy93ZdVfmLsHDVzbl/j621SjSaxCcS/ySmxK/hRmq8jpQb3n44dNRIeqbbQw6A==
   dependencies:
     fast-json-parse "^1.0.3"
     fast-redact "^1.4.0"
@@ -10878,6 +10876,10 @@ qs@6.5.2, qs@^6.1.0, qs@^6.5.1, qs@^6.5.2, qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
 
+qs@6.6.0:
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.6.0.tgz#a99c0f69a8d26bf7ef012f871cdabb0aee4424c2"
+
 query-string@^4.1.0:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-4.3.4.tgz#bbb693b9ca915c232515b228b1a02b609043dbeb"
@@ -11322,7 +11324,6 @@ react-split-pane@^0.1.77, react-split-pane@^0.1.84:
 react-storybook-addon-chapters@^2.1.9:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/react-storybook-addon-chapters/-/react-storybook-addon-chapters-2.1.9.tgz#70ac844e3c31a66fc9ba62e0d88b2c212dc41d84"
-  integrity sha512-owQiUY1Q5aV2VAARU+MeLdgZBo5LiqRYkz0Z9GRPSNGaKFMZB/rLwaYHIk3thkorPlcu4tEmo7Al9+DX2btiyw==
   dependencies:
     "@storybook/addon-info" "^3.4.11"
     "@storybook/components" "^3.4.11"
@@ -12642,7 +12643,6 @@ socks@^1.1.10:
 sonic-boom@^0.6.3:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/sonic-boom/-/sonic-boom-0.6.3.tgz#a02f9fc8d5ec42166e28c39760cc833552056595"
-  integrity sha512-TMhj6kDJk9LLzCTTL8+HPCfFn4MwkE4P6k2Up89Rz949+DSRw90V62upRKC99rJEOmu4E9ljH5Otu2JSRmx+bg==
   dependencies:
     flatstr "^1.0.8"
 
