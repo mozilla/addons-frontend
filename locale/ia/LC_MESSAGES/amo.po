@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-25 16:40+0000\n"
+"PO-Revision-Date: 2018-11-25 18:27+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2087,10 +2087,12 @@ msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Si tu typicamente labora con multe schedas aperte, tu es probabilemente familiar con le frustration de recercar illo sol que tu require tra un rango de schedas inidentificabile. Le extensiones pote "
+"offerer solutiones creative pro le rationalisation del gestion de schedas."
 
 #: src/amo/pages/Guides/index.js:142
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Arrangia e visualisa tu schedas in un formato de cascada a “arbore” in le barra lateral de Firefox."
 
 #: src/amo/pages/Guides/index.js:146
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
@@ -2098,7 +2100,7 @@ msgstr "Discoperi le avantages del %(linkStart)sgestion del scheda%(linkEnd)s se
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Melior exploration con marcapaginas meliorate"
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
