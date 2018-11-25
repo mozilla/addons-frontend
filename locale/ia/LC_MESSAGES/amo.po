@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-25 16:27+0000\n"
+"PO-Revision-Date: 2018-11-25 16:40+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2068,10 +2068,11 @@ msgstr "Stoppa le traciatores online de sequer te furtivemente"
 #: src/amo/pages/Guides/index.js:115
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
 msgstr ""
+"Le annunciatores publicitari online pote traciar tu activitate ab un sito web al altero, colligente informationes re te e tu interesses. Le extensiones pote adjutar a coperir tu pista digital."
 
 #: src/amo/pages/Guides/index.js:120
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Isola tu identitate de Facebook in un separate “receptaculo”, pro stoppar Facebook ab le traciamento de tu activitate foras de su platteforma social."
 
 #: src/amo/pages/Guides/index.js:124
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
@@ -2079,7 +2080,7 @@ msgstr "Explora le avantages del %(linkStart)sconfidentialitate e securitate%(li
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Re-imagine tab management"
-msgstr ""
+msgstr "Reinventa le gestion de schedas"
 
 #: src/amo/pages/Guides/index.js:136
 msgid ""
