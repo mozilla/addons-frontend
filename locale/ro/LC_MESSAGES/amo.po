@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-25 08:49+0000\n"
+"PO-Revision-Date: 2018-11-25 08:37+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -997,7 +997,7 @@ msgstr "Gestionează propunerile mele"
 
 #: src/amo/components/Header/index.js:147
 msgid "Reviewer Tools"
-msgstr "Unelte de revizuire"
+msgstr "Unelte pentru recenzenți"
 
 #: src/amo/components/Header/index.js:157 src/core/components/AuthenticateButton/index.js:80
 msgid "Log out"
