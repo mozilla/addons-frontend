@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-25 00:32+0000\n"
+"PO-Revision-Date: 2018-11-25 00:40+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -2087,10 +2087,12 @@ msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Om du oftast arbetar med många öppna flikar är du förmodligen bekant med frustrationen att söka igenom en rad oidentifierbara flikar som stör när letar efter just den du behöver. Utökningar kan "
+"erbjuda kreativa lösningar för effektivisering av flikhantering."
 
 #: src/amo/pages/Guides/index.js:142
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Ordna och visualisera dina flikar i ett kaskadartigt trädformat i Firefox sidofält."
 
 #: src/amo/pages/Guides/index.js:146
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
@@ -2098,17 +2100,19 @@ msgstr "Utforska fler %(linkStart)sflikhanterare%(linkEnd)s utvalda av personale
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Bättre surfning med förbättrade bokmärken"
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "Utökningar kan hjälpa dig att organisera dina intressen på nätet. Bokmärkeshanterare är idealiska för personer med mycket innehåll att följa."
 
 #: src/amo/pages/Guides/index.js:159
 msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"Vill du ha hjälp med att organisera alla dina favoritmatlagningsrecept, artiklar, YouTube-videor eller nästan vad som helst på webben? OneNote Web Clipper låter dig samla och lagra alla dina "
+"favoritmaterial på nätet i ett kraftfullt förråd som synkroniseras mellan enheter."
 
 #: src/amo/pages/Guides/index.js:166
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
@@ -2116,11 +2120,11 @@ msgstr "Utforska fler %(linkStart)sbokmärkeshanterare%(linkEnd)s utvalda av per
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Njut av en frisk ny flikupplevelse"
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "Börja varje webbsession som är skräddarsydd bara för dig genom att anpassa din nya flikupplevelse."
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
@@ -2132,15 +2136,17 @@ msgstr "Utforska fler %(linkStart)ssätt att ändra dina flikar%(linkEnd)s med d
 
 #: src/amo/pages/Guides/index.js:194
 msgid "Improve videos"
-msgstr ""
+msgstr "Förbättra videor"
 
 #: src/amo/pages/Guides/index.js:195
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, from customizing YouTube to taste, to playing videos in theater mode, and much more."
-msgstr ""
+msgstr "Om du gillar videoinnehåll erbjuder utökningar ett antal sätt att optimera din upplevelse, från att anpassa YouTube efter smak, spela upp videoklipp i teaterläge och mycket mer."
 
 #: src/amo/pages/Guides/index.js:200
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
 msgstr ""
+"Lägg till en kontrollfält på alla YouTube-videosidor, så att du enkelt kan justera volymen, uppspelningshastigheten, storleken på videospelare, annonsering och kommentarblockering och andra "
+"funktioner."
 
 #: src/amo/pages/Guides/index.js:205
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
@@ -2148,17 +2154,19 @@ msgstr "Utforska fler %(linkStart)svideoutökningar%(linkEnd)s utvalda av person
 
 #: src/amo/pages/Guides/index.js:213
 msgid "Get more out of media"
-msgstr ""
+msgstr "Få mer ut av media"
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
-msgstr ""
+msgstr "Utökningar kan hantera ett brett utbud av nischade mediabehov och intressen, som bildsökning, nedladdningshantering och textläsare, för att nämna några."
 
 #: src/amo/pages/Guides/index.js:219
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Har du någonsin snubblat på en spännande bild på webben och vill lära dig mer om den, som vem är personen i bilden? Finns det relaterade bilder? Denna utökning låter dig göra snabba och enkla "
+"omvända bildsökningar via en mängd olika motorer."
 
 #: src/amo/pages/Guides/index.js:225
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
@@ -2166,15 +2174,15 @@ msgstr "Utforska fler %(linkStart)smediautökningar%(linkEnd)s utvalda av person
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "Ta med media direkt in i webbläsaren"
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "Utökningar kan göra Firefox till ditt egna underhållningscentrum som ger dig snabb tillgång till musik, bildinspelning, spel och mycket mer."
 
 #: src/amo/pages/Guides/index.js:239
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
-msgstr ""
+msgstr "Få tillgång till över 30 000 radiostationer från hela världen, alltid bara ett klick bort."
 
 #: src/amo/pages/Guides/index.js:243
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
