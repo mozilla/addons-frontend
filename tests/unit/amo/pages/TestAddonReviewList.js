@@ -117,10 +117,8 @@ describe(__filename, () => {
     it('shows placeholders for reviews without an addon', () => {
       const root = render({ addon: null });
 
-      // Generate a random amount of placeholders between 1 and 25 inclusive
-      // when the amount of reviews is unknown.
-      expect(root.find(AddonReviewCard).length).toBeGreaterThanOrEqual(1);
-      expect(root.find(AddonReviewCard).length).toBeLessThanOrEqual(25);
+      // Make sure four review placeholders were rendered.
+      expect(root.find(AddonReviewCard)).toHaveLength(4);
       // Do a sanity check on the first placeholder;
       expect(root.find(AddonReviewCard).at(0)).toHaveProp('addon', null);
       expect(root.find(AddonReviewCard).at(0)).toHaveProp('review', null);

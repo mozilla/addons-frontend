@@ -7,6 +7,7 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
@@ -195,10 +196,6 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     );
   }
 
-  generateRandomLoadingReviews(min: number, max: number) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
-
   render() {
     const {
       addon,
@@ -257,10 +254,9 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         <LoadingText />
       );
 
-    let placeholderCount =
-      addonReviewCount || this.generateRandomLoadingReviews(1, 25);
-    if (placeholderCount > 25) {
-      placeholderCount = 25;
+    let placeholderCount = addonReviewCount || 4;
+    if (placeholderCount > DEFAULT_API_PAGE_SIZE) {
+      placeholderCount = DEFAULT_API_PAGE_SIZE;
     }
 
     const allReviews = reviews
