@@ -21,6 +21,7 @@ import type {
 } from 'amo/reducers/collections';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
+import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
@@ -36,6 +37,7 @@ type InternalProps = {|
   ...Props,
   dispatch: DispatchFunc,
   i18n: I18nType,
+  location: ReactRouterLocationType,
 |};
 
 export class CollectionDetailsBase extends React.Component<InternalProps> {
