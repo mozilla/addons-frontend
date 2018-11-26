@@ -117,7 +117,6 @@ export class CollectionManagerBase extends React.Component<
 
     event.preventDefault();
     event.stopPropagation();
-    
     if (location.pathname.indexOf('edit') >= 1) {
       if (siteLang) {
         history.push(
