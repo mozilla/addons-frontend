@@ -257,10 +257,10 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         <LoadingText />
       );
 
-    let addonReviewDisplayCount =
+    let placeholderCount =
       addonReviewCount || this.generateRandomLoadingReviews(1, 25);
-    if (addonReviewDisplayCount > 25) {
-      addonReviewDisplayCount = 25;
+    if (placeholderCount > 25) {
+      placeholderCount = 25;
     }
 
     const allReviews = reviews
@@ -269,7 +269,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         // review once https://github.com/mozilla/addons-server/issues/9424
         // is fixed.
         reviews.filter((review) => review.id.toString() !== reviewId)
-      : Array(addonReviewDisplayCount).fill(null);
+      : Array(placeholderCount).fill(null);
 
     const paginator =
       addon && reviewCount && pageSize && reviewCount > pageSize ? (
