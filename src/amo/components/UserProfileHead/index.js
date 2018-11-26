@@ -1,13 +1,14 @@
 /* @flow */
 /* eslint camelcase: 0 */
 import * as React from 'react';
-import { withRouter } from 'react-router-dom';
 import Helmet from 'react-helmet';
+import { connect } from 'react-redux';
 
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import type { Props as HeadMetaTagsProps } from 'amo/components/HeadMetaTags';
-import type { ReactRouterLocationType } from 'core/types/router';
+import type { AppState } from 'amo/store';
+import type { LocationType } from 'core/types/router';
 
 type Props = {|
   ...HeadMetaTagsProps,
@@ -15,7 +16,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  location: ReactRouterLocationType,
+  location: LocationType,
 |};
 
 export class UserProfileHeadBase extends React.Component<InternalProps> {
@@ -77,7 +78,15 @@ export class UserProfileHeadBase extends React.Component<InternalProps> {
   }
 }
 
-const UserProfileHead: React.ComponentType<Props> = withRouter(
+const mapStateToProps = (state: AppState) => {
+  const { location } = state.router;
+
+  return {
+    location,
+  };
+};
+
+const UserProfileHead: React.ComponentType<Props> = connect(mapStateToProps)(
   UserProfileHeadBase,
 );
 

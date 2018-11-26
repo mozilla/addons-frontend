@@ -13,14 +13,14 @@ export type LocationType = {|
   pathname: string, // e.g. /en-US/firefox/addon/tab-mix-plus/reviews/
   search: string, // e.g. ?q=search-strin
   state?: Object, // sometimes available, this should probably not be used.
+  // This is a parsed representation of the query string in object form, it is
+  // added by the `addQueryParamsToHistory()` helper in `core/utils`.
+  query: QueryParams,
 |};
 
 export type ReactRouterLocationType = {|
   ...LocationType,
   action: 'POP' | 'PUSH',
-  // This is a parsed representation of the query string in object form, it is
-  // added by the `addQueryParamsToHistory()` helper in `core/utils`.
-  query: QueryParams,
 |};
 
 export type ReactRouterHistoryType = {|
