@@ -117,8 +117,9 @@ export class CollectionManagerBase extends React.Component<
     event.preventDefault();
     event.stopPropagation();
 
+    // eslint-disable-next-line no-restricted-globals
     // eslint-disable-next-line no-undef
-    if (windows.location.pathname.indexOf('edit') >= 1) {
+    if (location.pathname.indexOf('edit') >= 1) {
       if (siteLang) {
         history.push(
           `/${siteLang}/${clientApp}${collectionUrl({ collection })}`,
