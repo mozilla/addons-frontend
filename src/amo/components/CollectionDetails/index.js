@@ -148,8 +148,8 @@ const mapStateToProps = (state: AppState) => {
 };
 
 const CollectionDetails: React.ComponentType<Props> = compose(
-  connect(mapStateToProps),
   translate(),
+  connect(mapStateToProps),
 )(CollectionDetailsBase);
 
 export default CollectionDetails;

@@ -117,7 +117,7 @@ export class CollectionManagerBase extends React.Component<
 
     event.preventDefault();
     event.stopPropagation();
-
+    
     if (location.pathname.indexOf('edit') >= 1) {
       if (siteLang) {
         history.push(
@@ -353,7 +353,6 @@ export const mapStateToProps = (state: AppState) => {
     currentUsername: currentUser && currentUser.username,
     isCollectionBeingModified: state.collections.isCollectionBeingModified,
     siteLang: state.api.lang,
-    location: state.router.location,
   };
 };
 
