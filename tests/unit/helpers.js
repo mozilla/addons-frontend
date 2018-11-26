@@ -218,6 +218,38 @@ export const fakeReview = Object.freeze({
   body: 'It is Okay',
 });
 
+export function createExternalReview({
+  addonId = fakeReview.addon.id,
+  addonSlug = fakeReview.addon.slug,
+  body,
+  id = 76654,
+  isDeveloperReply = false,
+  score = 4,
+  userId = fakeReview.user.id,
+  versionId = fakeReview.version.id,
+} = {}) {
+  return {
+    ...fakeReview,
+    addon: {
+      ...fakeAddon,
+      id: addonId,
+      slug: addonSlug,
+    },
+    body,
+    id,
+    is_developer_reply: isDeveloperReply,
+    score,
+    user: {
+      ...fakeReview.user,
+      id: userId,
+    },
+    version: {
+      ...fakeReview.version,
+      id: versionId,
+    },
+  };
+}
+
 export const fakeCategory = Object.freeze({
   application: CLIENT_APP_FIREFOX,
   description: 'I am a cool category for doing things',
