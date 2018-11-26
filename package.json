@@ -41,7 +41,7 @@
     "storybook": "better-npm-run storybook",
     "storybook-build": "better-npm-run storybook-build",
     "storybook-deploy": "storybook-to-ghpages --script storybook-build",
-    "test-ci": "bin/config-check.js && NODE_APP_INSTANCE=amo npm run build-locales && better-npm-run test-ci && codecov",
+    "test-ci": "bin/config-check.js && NODE_APP_INSTANCE=amo npm run build-locales && NODE_APP_INSTANCE=disco npm run build-locales && better-npm-run test-ci && codecov",
     "test": "bin/config-check.js && better-npm-run jest --watch",
     "test-coverage": "bin/config-check.js && better-npm-run jest --coverage --watch",
     "test-coverage-once": "bin/config-check.js && better-npm-run jest --coverage",
