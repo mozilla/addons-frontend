@@ -452,23 +452,25 @@ export default function addonsReducer(
       let ratingCount = ratings ? ratings.count : 0;
       let reviewCount = ratings ? ratings.text_count : 0;
 
-      // Recalculate the overall average rating.
       let countForAverage = ratingCount;
       if (average && countForAverage && oldReview && oldReview.score) {
+        // Begin by subtracting the old rating to reset the baseline.
         const countAfterRemoval = countForAverage - 1;
 
         if (countAfterRemoval === 0) {
           // There are no ratings left.
           average = 0;
         } else {
-          // Take away the old score and recalculate the average.
+          // Expand all existing rating scores, take away the old score,
+          // and recalculate the average.
           average =
             (average * countForAverage - oldReview.score) / countAfterRemoval;
         }
         countForAverage = countAfterRemoval;
       }
 
-      // Add in the new score and recalculate the average.
+      // Expand all existing rating scores, add in the new score,
+      // and recalculate the average.
       average =
         (average * countForAverage + newReview.score) / (countForAverage + 1);
 
