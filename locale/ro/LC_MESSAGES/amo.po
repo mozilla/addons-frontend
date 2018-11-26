@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-25 08:37+0000\n"
+"PO-Revision-Date: 2018-11-26 13:16+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -298,7 +298,7 @@ msgstr "Mai multe informații"
 
 #: src/amo/components/AddonMoreInfo/index.js:59 src/amo/pages/UserProfile/index.js:337 src/amo/pages/UserProfileEdit/index.js:618
 msgid "Homepage"
-msgstr "Pagina principală"
+msgstr "Pagină de start"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
 msgid "Support Site"
@@ -1177,9 +1177,8 @@ msgid "Send any Web page to your Kindle device"
 msgstr "Trimite orice pagină web pe dispozitivul tău Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:221
-#, fuzzy
 msgid "New Tab Homepage"
-msgstr "Pagina principală"
+msgstr "Pagină de start în filă nouă"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "Designate a custom home page for your new tabs"
