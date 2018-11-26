@@ -108,9 +108,7 @@ export class CollectionManagerBase extends React.Component<
 
     if (creating) {
       if (siteLang) {
-        history.push(
-          `/${siteLang}/${clientApp}${collectionUrl({ collection })}`,
-        );
+        history.push(`/${siteLang}/${clientApp}/collections/`);
       } else {
         history.goBack();
       }
@@ -122,7 +120,9 @@ export class CollectionManagerBase extends React.Component<
     // eslint-disable-next-line no-undef
     if (windows.location.pathname.indexOf('edit') >= 1) {
       if (siteLang) {
-        history.push(`/${siteLang}/${clientApp}/collections/`);
+        history.push(
+          `/${siteLang}/${clientApp}${collectionUrl({ collection })}`,
+        );
       } else {
         history.goBack();
       }
