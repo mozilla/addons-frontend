@@ -3,6 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import type { AppState } from 'amo/store';
 import {
   beginEditingCollectionDetails,
   collectionEditUrl,
@@ -48,10 +49,8 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
   };
 
   componentDidMount() {
-    // eslint-disable-next-line no-restricted-globals
-    // eslint-disable-next-line no-undef
+    const { dispatch, location } = this.props;
     if (location.pathname.indexOf('edit') >= 1) {
-      const { dispatch } = this.props;
       dispatch(beginEditingCollectionDetails());
     }
   }
@@ -140,9 +139,15 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
   }
 }
 
+const mapStateToProps = (state: AppState) => {
+  return {
+    location: state.router.location,
+  };
+};
+
 const CollectionDetails: React.ComponentType<Props> = compose(
+  connect(mapStateToProps),
   translate(),
-  connect(),
 )(CollectionDetailsBase);
 
 export default CollectionDetails;

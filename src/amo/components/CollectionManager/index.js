@@ -101,6 +101,7 @@ export class CollectionManagerBase extends React.Component<
       clientApp,
       creating,
       collection,
+      location,
       dispatch,
       history,
       siteLang,
@@ -117,8 +118,6 @@ export class CollectionManagerBase extends React.Component<
     event.preventDefault();
     event.stopPropagation();
 
-    // eslint-disable-next-line no-restricted-globals
-    // eslint-disable-next-line no-undef
     if (location.pathname.indexOf('edit') >= 1) {
       if (siteLang) {
         history.push(
@@ -354,6 +353,7 @@ export const mapStateToProps = (state: AppState) => {
     currentUsername: currentUser && currentUser.username,
     isCollectionBeingModified: state.collections.isCollectionBeingModified,
     siteLang: state.api.lang,
+    location: state.router.location,
   };
 };
 
