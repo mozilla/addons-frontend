@@ -124,6 +124,41 @@ describe(__filename, () => {
       expect(root.find(AddonReviewCard).at(0)).toHaveProp('review', null);
     });
 
+    it('shows 1:1 placeholders for reviews belonging to an addon', () => {
+      const numberOfPlaceholders = 10;
+      const reviews = Array(numberOfPlaceholders).fill({
+        ...fakeReview,
+        id: 1,
+        score: 1,
+      });
+      _setAddonReviews({ reviews });
+
+      const root = render();
+
+      // Make sure a 1:1 ratio of reviews to placeholders is rendered.
+      expect(root.find(AddonReviewCard)).toHaveLength(numberOfPlaceholders);
+      // Do a sanity check on the first placeholder;
+      expect(root.find(AddonReviewCard).at(0)).toHaveProp('addon', null);
+      expect(root.find(AddonReviewCard).at(0)).toHaveProp('review', null);
+    });
+
+    it('shows 25 placeholders for more than 25 reviews belonging to an addon', () => {
+      const reviews = Array(DEFAULT_API_PAGE_SIZE + 1).fill({
+        ...fakeReview,
+        id: 1,
+        score: 1,
+      });
+      _setAddonReviews({ reviews });
+
+      const root = render({ addon: null });
+
+      // Make sure twenty-five review placeholders were rendered.
+      expect(root.find(AddonReviewCard)).toHaveLength(DEFAULT_API_PAGE_SIZE);
+      // Do a sanity check on the first placeholder;
+      expect(root.find(AddonReviewCard).at(0)).toHaveProp('addon', null);
+      expect(root.find(AddonReviewCard).at(0)).toHaveProp('review', null);
+    });
+
     it('renders an AddonSummaryCard with an addon', () => {
       const addon = fakeAddon;
       loadAddon(addon);
