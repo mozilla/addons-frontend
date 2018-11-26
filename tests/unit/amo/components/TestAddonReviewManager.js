@@ -88,6 +88,8 @@ describe(__filename, () => {
     const formFooterLink = formFooter.find(Link);
 
     expect(formFooterLink.children().text()).toEqual(linkParts.innerLinkText);
+
+    expect(formFooter.childAt(2).text()).toEqual(linkParts.afterLinkText);
   });
 
   it('configures DismissibleTextForm with an ID', () => {

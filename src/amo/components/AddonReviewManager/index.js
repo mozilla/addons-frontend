@@ -87,7 +87,9 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
 
     const linkParts = getLocalizedTextWithLinkParts({
       i18n,
-      text: 'Please follow our %(linkStart)sreview guidelines%(linkEnd)s.',
+      text: i18n.gettext(
+        'Please follow our %(linkStart)sreview guidelines%(linkEnd)s.',
+      ),
     });
 
     const formFooter = !isReply ? (
