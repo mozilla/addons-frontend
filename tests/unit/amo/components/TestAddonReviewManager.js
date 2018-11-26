@@ -71,12 +71,21 @@ describe(__filename, () => {
   });
 
   it('renders a DismissibleTextForm formFooter', () => {
+    const firstPart = 'this is the first part';
+    const lastPart = 'this is the last part';
+    const text = `${firstPart} %(linkStart)s guides link %(linkEnd)s ${lastPart}`;
+
+    const i18n = {
+      ...fakeI18n(),
+      gettext: sinon.stub().returns(text),
+    };
+
     const linkParts = getLocalizedTextWithLinkParts({
-      i18n: fakeI18n(),
-      text: 'Please follow our %(linkStart)sreview guidelines%(linkEnd)s.',
+      i18n,
+      text,
     });
 
-    const root = render();
+    const root = render({ i18n });
 
     const form = root.find(DismissibleTextForm);
     expect(form).toHaveProp('formFooter');
