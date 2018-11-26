@@ -595,6 +595,10 @@ export const unfilteredLanguages = {
     English: 'Venda',
     native: 'Tshiven\u1e13a',
   },
+  vec: {
+    English: 'Venetan',
+    native: 'V\u00e8neto',
+  },
   vi: {
     English: 'Vietnamese',
     native: 'Ti\u1ebfng Vi\u1ec7t',
