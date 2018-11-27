@@ -114,14 +114,25 @@ describe(__filename, () => {
   };
 
   describe('<AddonReviewList/>', () => {
-    it('shows placeholders for reviews without an addon', () => {
-      const root = render({ addon: null });
+    it('displays 4 placeholders when there are no reviews yet', () => {
+      const externalAddon = {
+        ...fakeAddon,
+        ratings: {
+          ...fakeAddon.ratings,
+          text_count: 0,
+        },
+      };
+      const addon = createInternalAddon(externalAddon);
 
-      // Make sure four review placeholders were rendered.
+      loadAddon(externalAddon);
+
+      const root = render();
+
       expect(root.find(AddonReviewCard)).toHaveLength(4);
-      // Do a sanity check on the first placeholder;
-      expect(root.find(AddonReviewCard).at(0)).toHaveProp('addon', null);
-      expect(root.find(AddonReviewCard).at(0)).toHaveProp('review', null);
+      root.find(AddonReviewCard).forEach((card) => {
+        expect(card).toHaveProp('review', null);
+        expect(card).toHaveProp('addon', addon);
+      });
     });
 
     it('shows 1:1 placeholders for reviews belonging to an addon', () => {
