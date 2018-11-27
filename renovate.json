@@ -5,7 +5,7 @@
     ":prNotPending",
     "monorepo:babel",
     "monorepo:react",
-    "monorepo:reactrouter",
+    "monorepo:reactrouter"
   ],
   "packageRules": [
     {
