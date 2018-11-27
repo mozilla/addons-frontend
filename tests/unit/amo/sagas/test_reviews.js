@@ -42,7 +42,6 @@ import {
 } from 'amo/constants';
 import reviewsReducer from 'amo/reducers/reviews';
 import reviewsSaga, { FLASH_SAVED_MESSAGE_DURATION } from 'amo/sagas/reviews';
-import { fetchAddon } from 'core/reducers/addons';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import apiReducer from 'core/reducers/api';
 import {
@@ -767,37 +766,6 @@ describe(__filename, () => {
       const exampleHideAction = hideEditReviewForm({ reviewId: oldReview.id });
 
       expect(sagaTester.numCalled(exampleHideAction.type)).toEqual(0);
-    });
-
-    it('re-fetches the add-on after submitting a review', async () => {
-      const slug = 'the-addon-slug';
-      mockApi
-        .expects('submitReview')
-        .resolves(createExternalReview({ addonSlug: slug }));
-
-      _createAddonReview();
-
-      const expectedAction = fetchAddon({ errorHandler, slug });
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
-    });
-
-    it('does not re-fetch the add-on after updating a reply', async () => {
-      const slug = 'the-addon-slug';
-      mockApi
-        .expects('submitReview')
-        .resolves(
-          createExternalReview({ addonSlug: slug, isDeveloperReply: true }),
-        );
-
-      _updateAddonReview();
-
-      const expectedAction = hideFlashedReviewMessage();
-      await sagaTester.waitFor(expectedAction.type);
-
-      const unexpectedAction = fetchAddon({ errorHandler, slug });
-
-      expect(sagaTester.numCalled(unexpectedAction.type)).toEqual(0);
     });
 
     it('dispatches an error', async () => {

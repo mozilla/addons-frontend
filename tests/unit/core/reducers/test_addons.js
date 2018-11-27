@@ -1,4 +1,8 @@
-import { unloadAddonReviews } from 'amo/actions/reviews';
+import {
+  createInternalReview,
+  unloadAddonReviews,
+  updateRatingCounts,
+} from 'amo/actions/reviews';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import addons, {
   createInternalAddon,
@@ -22,6 +26,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeAddonInfo,
+  fakeReview,
   fakeTheme,
 } from 'tests/unit/helpers';
 
@@ -550,6 +555,291 @@ describe(__filename, () => {
       expect(state.byID[addon1.id]).toEqual(undefined);
       expect(state.bySlug).toEqual({ [slug2]: id2 });
       expect(state.loadingBySlug).toEqual({ [slug2]: false });
+    });
+  });
+
+  describe('updateRatingCounts', () => {
+    function _updateRatingCounts({
+      addonId = 321,
+      oldReview = null,
+      newReview = createInternalReview({ ...fakeReview }),
+    } = {}) {
+      return updateRatingCounts({ addonId, oldReview, newReview });
+    }
+
+    function addonWithRatings(ratings = {}) {
+      return {
+        ...fakeAddon,
+        ratings: {
+          ...fakeAddon.ratings,
+          ...ratings,
+        },
+      };
+    }
+
+    function initStateWithAddon(addon = { ...fakeAddon }) {
+      return addons(undefined, loadAddonResults({ addons: [addon] }));
+    }
+
+    function average(numbers) {
+      return numbers.reduce((total, num) => total + num, 0) / numbers.length;
+    }
+
+    it('does nothing if the add-on has not been loaded', () => {
+      const state = addons(initialState, _updateRatingCounts());
+
+      expect(state).toEqual(initialState);
+    });
+
+    it('increments only the rating count for a newly added score', () => {
+      const ratingCount = 300;
+      const reviewCount = 200;
+      const addon = addonWithRatings({
+        count: ratingCount,
+        text_count: reviewCount,
+      });
+
+      let state = initStateWithAddon(addon);
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: null,
+          newReview: createInternalReview({
+            ...fakeReview,
+            body: null,
+            score: 5,
+          }),
+        }),
+      );
+
+      const storedAddon = state.byID[addon.id];
+      expect(storedAddon.ratings.count).toEqual(ratingCount + 1);
+      // Since a review without a body was added, no change.
+      expect(storedAddon.ratings.text_count).toEqual(reviewCount);
+    });
+
+    it('increments the review count for newly added bodies', () => {
+      const reviewCount = 200;
+      const addon = addonWithRatings({
+        text_count: reviewCount,
+      });
+
+      let state = initStateWithAddon(addon);
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: null,
+          newReview: createInternalReview({
+            ...fakeReview,
+            body: 'Fantastic add-on',
+            score: 5,
+          }),
+        }),
+      );
+
+      expect(state.byID[addon.id].ratings.text_count).toEqual(reviewCount + 1);
+    });
+
+    it('increments the review count for reviews updated to include a body', () => {
+      const reviewCount = 200;
+      const addon = addonWithRatings({
+        text_count: reviewCount,
+      });
+
+      let state = initStateWithAddon(addon);
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: createInternalReview({
+            ...fakeReview,
+            body: null,
+            score: 5,
+          }),
+          newReview: createInternalReview({
+            ...fakeReview,
+            body: 'Fantastic add-on',
+            score: 5,
+          }),
+        }),
+      );
+
+      expect(state.byID[addon.id].ratings.text_count).toEqual(reviewCount + 1);
+    });
+
+    it('does not increment rating or review counts for existing reviews', () => {
+      const ratingCount = 100;
+      const reviewCount = 200;
+      const addon = addonWithRatings({
+        count: ratingCount,
+        text_count: reviewCount,
+      });
+
+      let state = initStateWithAddon(addon);
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: createInternalReview({ ...fakeReview }),
+          newReview: createInternalReview({ ...fakeReview }),
+        }),
+      );
+
+      const newAddon = state.byID[addon.id];
+      expect(newAddon.ratings.count).toEqual(ratingCount);
+      expect(newAddon.ratings.text_count).toEqual(reviewCount);
+    });
+
+    it('increments counts even when no counts existed before', () => {
+      const addon = { ...fakeAddon, ratings: null };
+
+      let state = initStateWithAddon(addon);
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: null,
+          newReview: createInternalReview({
+            ...fakeReview,
+            body: 'This add-on is nice',
+            score: 5,
+          }),
+        }),
+      );
+
+      const storedAddon = state.byID[addon.id];
+      expect(storedAddon.ratings.count).toEqual(1);
+      expect(storedAddon.ratings.text_count).toEqual(1);
+    });
+
+    it('recalculates average rating when the score changes', () => {
+      const ratings = [4, 4, 3, 5];
+      const addon = addonWithRatings({
+        average: average(ratings),
+        count: ratings.length,
+      });
+
+      const oldScore = ratings.pop();
+      const newScore = 1;
+      ratings.push(newScore);
+
+      let state = initStateWithAddon(addon);
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: createInternalReview({ ...fakeReview, score: oldScore }),
+          newReview: createInternalReview({ ...fakeReview, score: newScore }),
+        }),
+      );
+
+      expect(state.byID[addon.id].ratings.average.toFixed(3)).toEqual(
+        average(ratings).toFixed(3),
+      );
+    });
+
+    it('recalculates average rating for new scores', () => {
+      const ratings = [4, 4, 5];
+      const addon = addonWithRatings({
+        average: average(ratings),
+        count: ratings.length,
+      });
+
+      const newScore = 1;
+      ratings.push(newScore);
+
+      let state = initStateWithAddon(addon);
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: null,
+          newReview: createInternalReview({ ...fakeReview, score: newScore }),
+        }),
+      );
+
+      expect(state.byID[addon.id].ratings.average.toFixed(3)).toEqual(
+        average(ratings).toFixed(3),
+      );
+    });
+
+    it('calculates an average if one did not exist before', () => {
+      const addon = { ...fakeAddon, ratings: null };
+
+      const newScore = 1;
+      const ratings = [newScore];
+
+      let state = initStateWithAddon(addon);
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: null,
+          newReview: createInternalReview({ ...fakeReview, score: newScore }),
+        }),
+      );
+
+      expect(state.byID[addon.id].ratings.average.toFixed(3)).toEqual(
+        average(ratings).toFixed(3),
+      );
+    });
+
+    it('can handle rating counts of 1', () => {
+      const oldAverage = 5;
+      const count = 1;
+      const addon = addonWithRatings({
+        average: oldAverage,
+        count,
+      });
+
+      let state = initStateWithAddon(addon);
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: createInternalReview({
+            ...fakeReview,
+            body: null,
+            score: 5,
+          }),
+          newReview: createInternalReview({
+            ...fakeReview,
+            body: 'Fantastic add-on',
+            score: 5,
+          }),
+        }),
+      );
+
+      // Make sure average is not NaN
+      expect(state.byID[addon.id].ratings.average).toEqual(oldAverage);
+    });
+
+    it('sets bayesian_average to average', () => {
+      const ratings = [5, 5, 5];
+      const addon = addonWithRatings({
+        average: average(ratings),
+        bayesian_average: average(ratings),
+        count: ratings.length,
+      });
+
+      const newScore = 1;
+      ratings.push(newScore);
+
+      let state = initStateWithAddon(addon);
+      state = addons(
+        state,
+        _updateRatingCounts({
+          addonId: addon.id,
+          oldReview: null,
+          newReview: createInternalReview({ ...fakeReview, score: newScore }),
+        }),
+      );
+
+      expect(state.byID[addon.id].ratings.bayesian_average.toFixed(3)).toEqual(
+        average(ratings).toFixed(3),
+      );
     });
   });
 

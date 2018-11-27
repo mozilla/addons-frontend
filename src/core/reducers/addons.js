@@ -1,10 +1,16 @@
 /* @flow */
 import invariant from 'invariant';
 
-import { UNLOAD_ADDON_REVIEWS } from 'amo/actions/reviews';
+import {
+  UNLOAD_ADDON_REVIEWS,
+  UPDATE_RATING_COUNTS,
+} from 'amo/actions/reviews';
 import { removeUndefinedProps } from 'core/utils/addons';
 import { ADDON_TYPE_THEME } from 'core/constants';
-import type { UnloadAddonReviewsAction } from 'amo/actions/reviews';
+import type {
+  UnloadAddonReviewsAction,
+  UpdateRatingCountsAction,
+} from 'amo/actions/reviews';
 import type { ExternalAddonInfoType } from 'amo/api/addonInfo';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -352,7 +358,8 @@ type Action =
   | FetchAddonInfoAction
   | LoadAddonInfoAction
   | LoadAddonResultsAction
-  | UnloadAddonReviewsAction;
+  | UnloadAddonReviewsAction
+  | UpdateRatingCountsAction;
 
 export default function addonsReducer(
   state: AddonsState = initialState,
@@ -430,6 +437,75 @@ export default function addonsReducer(
         };
       }
       return state;
+    }
+
+    case UPDATE_RATING_COUNTS: {
+      const { addonId, oldReview, newReview } = action.payload;
+
+      const addon = state.byID[`${addonId}`];
+      if (!addon) {
+        return state;
+      }
+
+      const { ratings } = addon;
+      let average = ratings ? ratings.average : 0;
+      let ratingCount = ratings ? ratings.count : 0;
+      let reviewCount = ratings ? ratings.text_count : 0;
+
+      let countForAverage = ratingCount;
+      if (average && countForAverage && oldReview && oldReview.score) {
+        // If average and countForAverage are defined and greater than 0,
+        // begin by subtracting the old rating to reset the baseline.
+        const countAfterRemoval = countForAverage - 1;
+
+        if (countAfterRemoval === 0) {
+          // There are no ratings left.
+          average = 0;
+        } else {
+          // Expand all existing rating scores, take away the old score,
+          // and recalculate the average.
+          average =
+            (average * countForAverage - oldReview.score) / countAfterRemoval;
+        }
+        countForAverage = countAfterRemoval;
+      }
+
+      // Expand all existing rating scores, add in the new score,
+      // and recalculate the average.
+      average =
+        (average * countForAverage + newReview.score) / (countForAverage + 1);
+
+      // Adjust rating / review counts.
+      if (!oldReview) {
+        // A new rating / review was added.
+        ratingCount += 1;
+        if (newReview.body) {
+          reviewCount += 1;
+        }
+      } else if (!oldReview.body && newReview.body) {
+        // A rating was converted into a review.
+        reviewCount += 1;
+      }
+
+      return {
+        ...state,
+        byID: {
+          ...state.byID,
+          [addonId]: {
+            ...addon,
+            ratings: {
+              ...ratings,
+              average,
+              // It's impossible to recalculate the bayesian_average
+              // (i.e. median) so we set it to the average as an
+              // approximation.
+              bayesian_average: average,
+              count: ratingCount,
+              text_count: reviewCount,
+            },
+          },
+        },
+      };
     }
 
     case FETCH_ADDON_INFO: {
