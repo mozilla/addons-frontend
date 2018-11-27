@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-20 17:47+0000\n"
+"POT-Creation-Date: 2018-11-27 22:23+0000\n"
 "PO-Revision-Date: 2018-10-30 11:16+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
@@ -15,35 +15,35 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:236
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Enable"
 msgstr "Увімкнути"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:240
 msgid "Remove"
 msgstr "Вилучити"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:242
 msgid "Enabling"
 msgstr "Увімкнення"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:244
 msgid "Downloading"
 msgstr "Завантаження"
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:246
 msgid "Installing"
 msgstr "Встановлення"
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Uninstalling"
 msgstr "Видалення"
 
-#: src/core/components/AMInstallButton/index.js:255
+#: src/core/components/AMInstallButton/index.js:256
 msgid "Install Theme"
 msgstr "Встановити тему"
 
-#: src/core/components/AMInstallButton/index.js:256
+#: src/core/components/AMInstallButton/index.js:257
 msgid "Add to Firefox"
 msgstr "Додати до Firefox"
 
@@ -140,7 +140,7 @@ msgstr "Цей додаток несумісний з вашою версією 
 msgid "This add-on does not support your browser."
 msgstr "Цей додаток не підтримується вашим браузером."
 
-#: src/disco/components/App/index.js:42
+#: src/disco/components/App/index.js:43
 msgid "Discover Add-ons"
 msgstr "Відкрийте для себе додатки"
 

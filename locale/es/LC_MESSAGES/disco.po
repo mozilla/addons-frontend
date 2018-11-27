@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-20 17:47+0000\n"
+"POT-Creation-Date: 2018-11-27 22:23+0000\n"
 "PO-Revision-Date: 2018-09-11 17:33+0000\n"
 "Last-Translator: RickieES <rpmdisguise-nave@yahoo.es>\n"
 "Language-Team: none\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:236
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Enable"
 msgstr "Activar"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:240
 msgid "Remove"
 msgstr "Eliminar"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:242
 msgid "Enabling"
 msgstr "Activando"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:244
 msgid "Downloading"
 msgstr "Descargando"
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:246
 msgid "Installing"
 msgstr "Instalando"
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Uninstalling"
 msgstr "Desinstalando"
 
-#: src/core/components/AMInstallButton/index.js:255
+#: src/core/components/AMInstallButton/index.js:256
 msgid "Install Theme"
 msgstr "Instalar tema"
 
-#: src/core/components/AMInstallButton/index.js:256
+#: src/core/components/AMInstallButton/index.js:257
 msgid "Add to Firefox"
 msgstr "Agregar a Firefox"
 
@@ -141,7 +141,7 @@ msgstr "Este complemento no es compatible con tu versión de Firefox."
 msgid "This add-on does not support your browser."
 msgstr "Este complemento no es compatible con tu navegador."
 
-#: src/disco/components/App/index.js:42
+#: src/disco/components/App/index.js:43
 msgid "Discover Add-ons"
 msgstr "Descubrir complementos"
 
