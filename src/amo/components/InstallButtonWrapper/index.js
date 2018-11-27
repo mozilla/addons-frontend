@@ -1,4 +1,5 @@
 /* @flow */
+import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -76,10 +77,16 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
 
   return (
     addon && (
-      <div className="InstallButtonWrapper">
+      <div
+        className={makeClassName('InstallButtonWrapper', {
+          'InstallButtonWrapper--notFirefox': !isFirefox({ userAgentInfo }),
+        })}
+      >
         <AMInstallButton
           addon={addon}
-          className={className ? `AMInstallButton--${className}` : ''}
+          className={makeClassName({
+            [`AMInstallButton--${className}`]: className,
+          })}
           currentVersion={currentVersion}
           defaultButtonText={defaultButtonText}
           defaultInstallSource={defaultInstallSource}
@@ -97,7 +104,9 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
         <GetFirefoxButton
           addon={addon}
           buttonType={getFirefoxButtonType}
-          className={className ? `GetFirefoxButton--${className}` : ''}
+          className={makeClassName({
+            [`GetFirefoxButton--${className}`]: className,
+          })}
         />
       </div>
     )
