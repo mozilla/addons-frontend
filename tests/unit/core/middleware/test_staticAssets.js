@@ -1,5 +1,4 @@
 import Express from 'express';
-import config from 'config';
 
 import { serveAssetsLocally } from 'core/middleware';
 import { getFakeConfig } from 'tests/unit/helpers';
