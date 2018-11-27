@@ -45,7 +45,7 @@ describe(__filename, () => {
     );
   };
 
-  it('fetches the addons for a guide page', () => {
+  it('fetches the add-ons for a guide page', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
@@ -68,7 +68,7 @@ describe(__filename, () => {
     sinon.assert.calledOnce(dispatchSpy);
   });
 
-  it('does not fetch the addons while loading', () => {
+  it('does not fetch the add-ons while loading', () => {
     const { store } = dispatchClientMetadata();
     const errorHandler = createStubErrorHandler();
 
@@ -76,7 +76,7 @@ describe(__filename, () => {
     const content = getContent(slug, fakeI18n());
     const guids = content.sections.map((section) => section.addonGuid);
 
-    // This simulates the initial fetch for addons.
+    // This simulates the initial fetch for add-ons.
     store.dispatch(
       fetchGuidesAddons({
         slug,
@@ -92,7 +92,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it('does not fetch the addons if addons have already been loaded', () => {
+  it('does not fetch the add-ons if add-ons have already been loaded', () => {
     const { store } = dispatchClientMetadata();
     const errorHandler = createStubErrorHandler();
 
@@ -101,7 +101,7 @@ describe(__filename, () => {
     const guids = content.sections.map((section) => section.addonGuid);
     const addons = [];
 
-    // Fetch/load an empty list of addons.
+    // Fetch/load an empty list of add-ons.
     store.dispatch(
       fetchGuidesAddons({
         slug,
@@ -173,7 +173,7 @@ describe(__filename, () => {
     );
   });
 
-  it('passes an addon to GuidesAddonCard', () => {
+  it('passes an add-on to GuidesAddonCard', () => {
     const { store } = dispatchClientMetadata();
     const slug = 'stay-safe-online';
     const guids = getSections({ slug, i18n: fakeI18n() }).map(
