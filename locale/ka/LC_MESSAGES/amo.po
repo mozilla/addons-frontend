@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-25 01:32+0000\n"
+"PO-Revision-Date: 2018-11-27 05:33+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -2098,10 +2098,12 @@ msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"თუ ჩვეულებრივ ხშირად გიწევთ მუშაობა მრავალ გახსნილ ჩანართთან, ალბათ თქვენთვის ნაცნობია იმედგაცრუება ერთმანეთის მსგავს, დაუდგენელი შინაარსის ჩანართების რიგში, საჭირო ჩანართის მონახვისას. გაფართოებები"
+" გთავაზობთ მახვილგონივრულ ხერხებს, ჩანართების მართვის გასამარტივებლად."
 
 #: src/amo/pages/Guides/index.js:142
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "დაალაგეთ და წარმოადგინეთ თქვენი ჩანართები თანმიმდევრული „ხისებრი“ ფორმით Firefox-ის გვერდით ზოლზე."
 
 #: src/amo/pages/Guides/index.js:146
 #, fuzzy
