@@ -75,8 +75,8 @@ class ComponentBase extends React.Component {
 
 function componentWithInstallHelpers() {
   // This simulates how a component would typically apply
-  // the withInstallHelpers() HOC wrapper.
-  return compose(withInstallHelpers())(ComponentBase);
+  // the withInstallHelpers HOC wrapper.
+  return compose(withInstallHelpers)(ComponentBase);
 }
 
 const defaultProps = ({
@@ -115,7 +115,7 @@ function renderWithInstallHelpers({ ...customProps } = {}) {
 const mountWithInstallHelpers = (props = {}) => {
   const Component = componentWithInstallHelpers();
   // We use `mount` because we want to trigger all the lifecycle methods in
-  // `withInstallHelpers()` AND be able to inject props on the `Component`
+  // `withInstallHelpers` AND be able to inject props on the `Component`
   // component, not on `ComponentBase` so that the HOC receives those props.
   return mount(<Component {...defaultProps(props)} />);
 };

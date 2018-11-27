@@ -330,7 +330,7 @@ function mapStateToProps(state: AppState, ownProps: Props) {
     error: installation.error,
     status: installation.status || UNKNOWN,
     userAgentInfo: state.api.userAgentInfo,
-    // The `withInstallHelpers()` HOC requires an `addon` prop too:
+    // The `withInstallHelpers` HOC requires an `addon` prop too:
     addon,
   };
 }
@@ -339,7 +339,7 @@ const Addon: React.ComponentType<Props> = compose(
   withRouter,
   translate(),
   connect(mapStateToProps),
-  withInstallHelpers(),
+  withInstallHelpers,
 )(AddonBase);
 
 export default Addon;

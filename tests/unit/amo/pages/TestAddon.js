@@ -73,7 +73,6 @@ import Notice from 'ui/components/Notice';
 function renderProps({
   addon = createInternalAddon(fakeAddon),
   params,
-  setCurrentStatus = sinon.spy(),
   currentVersion = createInternalVersion(fakeVersion),
   ...customProps
 } = {}) {
@@ -99,13 +98,7 @@ function renderProps({
     RatingManager: RatingManagerWithI18n,
     store: dispatchClientMetadata().store,
     currentVersion,
-    // withInstallHelpers HOC injected props
-    enable: sinon.stub(),
-    install: sinon.stub(),
-    installTheme: sinon.stub(),
-    setCurrentStatus,
     status: UNKNOWN,
-    uninstall: sinon.stub(),
     // Other props
     id: 'some id',
     // TODO: We can likely remove this when we get rid of shallow rendering.

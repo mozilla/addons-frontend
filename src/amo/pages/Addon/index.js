@@ -554,7 +554,7 @@ export function mapStateToProps(state, ownProps) {
     currentVersion,
     installError: installedAddon.error,
     lang: state.api.lang,
-    // The `withInstallHelpers()` HOC requires an `addon` prop too:
+    // The `withInstallHelpers` HOC requires an `addon` prop too:
     addon,
   };
 }

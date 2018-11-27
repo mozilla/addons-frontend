@@ -548,42 +548,42 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   }
 }
 
-export function withInstallHelpers() {
-  return (WrappedComponent: React.ComponentType<any>) => {
-    WithInstallHelpers.displayName = `WithInstallHelpers(${getDisplayName(
+export const withInstallHelpers = (
+  WrappedComponent: React.ComponentType<any>,
+) => {
+  WithInstallHelpers.displayName = `WithInstallHelpers(${getDisplayName(
+    WrappedComponent,
+  )})`;
+
+  const mapStateToProps = (
+    state: AmoAppState | DiscoAppState,
+    ownProps: WithInstallHelpersProps,
+  ) => {
+    const { addon, defaultInstallSource, location } = ownProps;
+
+    // Please make sure the `addon` and `location` props are available when
+    // you use this HOC on a component.
+    invariant(typeof addon !== 'undefined', 'addon is required');
+    invariant(
+      typeof defaultInstallSource !== 'undefined',
+      'defaultInstallSource is required',
+    );
+    invariant(location, 'location is required');
+
+    const currentVersion =
+      addon && addon.currentVersionId
+        ? getVersionById({
+            id: addon.currentVersionId,
+            state: state.versions,
+          })
+        : null;
+
+    return {
       WrappedComponent,
-    )})`;
-
-    const mapStateToProps = (
-      state: AmoAppState | DiscoAppState,
-      ownProps: WithInstallHelpersProps,
-    ) => {
-      const { addon, defaultInstallSource, location } = ownProps;
-
-      // Please make sure the `addon` and `location` props are available when
-      // you use this HOC on a component.
-      invariant(typeof addon !== 'undefined', 'addon is required');
-      invariant(
-        typeof defaultInstallSource !== 'undefined',
-        'defaultInstallSource is required',
-      );
-      invariant(location, 'location is required');
-
-      const currentVersion =
-        addon && addon.currentVersionId
-          ? getVersionById({
-              id: addon.currentVersionId,
-              state: state.versions,
-            })
-          : null;
-
-      return {
-        WrappedComponent,
-        currentVersion,
-        userAgentInfo: state.api.userAgentInfo,
-      };
+      currentVersion,
+      userAgentInfo: state.api.userAgentInfo,
     };
-
-    return connect(mapStateToProps)(WithInstallHelpers);
   };
-}
+
+  return connect(mapStateToProps)(WithInstallHelpers);
+};
