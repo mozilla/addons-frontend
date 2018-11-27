@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-27 06:01+0000\n"
+"PO-Revision-Date: 2018-11-27 06:31+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -2151,11 +2151,11 @@ msgstr "გააუმჯობესეთ ვიდეოები"
 
 #: src/amo/pages/Guides/index.js:195
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, from customizing YouTube to taste, to playing videos in theater mode, and much more."
-msgstr ""
+msgstr "თუ გიყვართ ვიდეოების ყურება, გაფართოებებს შეუძლია უამრავი საშუალების შემოთავაზება YouTube-ის თქვენს გემოვნებაზე მოსარგებად, ვიდეოების თეატრის რეჟიმში გასაშვებად და ა.შ."
 
 #: src/amo/pages/Guides/index.js:200
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
-msgstr ""
+msgstr "დაამატეთ მართვის ზოლი ყველა YouTube-ვიდეოს გვერდზე, რის შედეგადაც მარტივად შეგეძლებათ ხმის სიმაღლის, გაშვების სიჩქარის, ვიდეოს ზომების მართვა, რეკლამების, ცნობების შეზღუდვა და ა.შ."
 
 #: src/amo/pages/Guides/index.js:205
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
@@ -2163,7 +2163,7 @@ msgstr "იხილეთ თანამშრომლების მიე�
 
 #: src/amo/pages/Guides/index.js:213
 msgid "Get more out of media"
-msgstr ""
+msgstr "უკეთ გამოიყენეთ ფაილებით"
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
