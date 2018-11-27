@@ -5841,11 +5841,6 @@ es5-shim@^4.5.10:
   resolved "https://registry.yarnpkg.com/es5-shim/-/es5-shim-4.5.12.tgz#508c13dda1c87dd3df1b50e69e7b96b82149b649"
   integrity sha512-MjoCAHE6P2Dirme70Cxd9i2Ng8rhXiaVSsxDWdSwimfLERJL/ypR2ed2rTYkeeYrMk8gq281dzKLiGcdrmc8qg==
 
-es6-error@4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/es6-error/-/es6-error-4.1.0.tgz#728deea5160f5e209b73fe4d51a0653afa0aa17d"
-  integrity sha512-llYs3hljgsJvWfHxAfkdygcZckdRkzt7J9lwX5WOKY9uekyw8aHIG/VZzSZjyD8Uy7ezS3feanhHOLZ9SsPVBQ==
-
 es6-iterator@^2.0.1, es6-iterator@~2.0.1, es6-iterator@~2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/es6-iterator/-/es6-iterator-2.0.3.tgz#a7de889141a05a94b0854403b2d0a0fbfa98f3b7"

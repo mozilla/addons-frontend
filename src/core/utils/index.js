@@ -22,7 +22,6 @@ import {
   OS_WINDOWS,
   VISIBLE_ADDON_TYPES_MAPPING,
 } from 'core/constants';
-import { AddonTypeNotFound } from 'core/errors';
 import log from 'core/logger';
 import purify from 'core/purify';
 import {
@@ -183,9 +182,7 @@ export function apiAddonTypeIsValid(addonType) {
 
 export function apiAddonType(addonType) {
   if (!apiAddonTypeIsValid(addonType)) {
-    throw new AddonTypeNotFound(
-      `"${addonType}" not found in API_ADDON_TYPES_MAPPING`,
-    );
+    throw new Error(`"${addonType}" not found in API_ADDON_TYPES_MAPPING`);
   }
   return API_ADDON_TYPES_MAPPING[addonType];
 }
@@ -197,9 +194,7 @@ export function visibleAddonType(addonType) {
       addonType,
     )
   ) {
-    throw new AddonTypeNotFound(
-      `"${addonType}" not found in VISIBLE_ADDON_TYPES_MAPPING`,
-    );
+    throw new Error(`"${addonType}" not found in VISIBLE_ADDON_TYPES_MAPPING`);
   }
   return VISIBLE_ADDON_TYPES_MAPPING[addonType];
 }
