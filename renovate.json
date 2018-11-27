@@ -1,0 +1,25 @@
+{
+  "extends": [
+    "config:js-app",
+    ":maintainLockFilesWeekly",
+    ":prNotPending",
+    "monorepo:babel",
+    "monorepo:react",
+    "monorepo:reactrouter"
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": [
+        "*"
+      ],
+      "rangeStrategy": "pin"
+    },
+    {
+      "depTypeList": [
+        "engines",
+        "devDependencies"
+      ],
+      "rangeStrategy": "replace"
+    }
+  ]
+}
