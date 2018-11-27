@@ -4165,10 +4165,10 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-circular-dependency-plugin@^4.2.1:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/circular-dependency-plugin/-/circular-dependency-plugin-4.4.0.tgz#f8a1a746a3f6c8e57f4dae9b54d991cd2a582f5d"
-  integrity sha512-yEFtUNUYT4jBykEX5ZOHw+5goA3glGZr9wAXIQqoyakjz5H5TeUmScnWRc52douAhb9eYzK3s7V6bXfNnjFdzg==
+circular-dependency-plugin@^5.0.0:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/circular-dependency-plugin/-/circular-dependency-plugin-5.0.2.tgz#da168c0b37e7b43563fb9f912c1c007c213389ef"
+  integrity sha512-oC7/DVAyfcY3UWKm0sN/oVoDedQDQiw/vIiAnuTWTpE5s0zWf7l3WY417Xw/Fbi/QbAjctAkxgMiS9P0s3zkmA==
 
 circular-json-es6@^2.0.1:
   version "2.0.2"
