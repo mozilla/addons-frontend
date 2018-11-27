@@ -81,6 +81,6 @@ export default {
       tests: path.resolve('./tests'),
     },
     modules: [path.resolve('./src'), 'node_modules'],
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.mjs'],
   },
 };
