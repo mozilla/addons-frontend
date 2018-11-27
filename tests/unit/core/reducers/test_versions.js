@@ -440,7 +440,7 @@ describe(__filename, () => {
         ).toEqual(createInternalVersion(version));
       });
 
-      it('maintains licence and releaseNotes from pre-existing versions', () => {
+      it('maintains license and release notes from pre-existing versions', () => {
         let state = versionsReducer(
           undefined,
           loadVersions({ slug: fakeAddon.slug, versions: [version] }),
