@@ -124,6 +124,65 @@ describe(__filename, () => {
       expect(root.find(AddonReviewCard).at(0)).toHaveProp('review', null);
     });
 
+    it('displays 4 placeholders for an addon with no reviews', () => {
+      const externalAddon = {
+        ...fakeAddon,
+        ratings: {
+          ...fakeAddon.ratings,
+          text_count: 0,
+        },
+      };
+      const addon = createInternalAddon(externalAddon);
+
+      loadAddon(externalAddon);
+
+      const root = render();
+
+      expect(root.find(AddonReviewCard)).toHaveLength(4);
+      root.find(AddonReviewCard).forEach((card) => {
+        expect(card).toHaveProp('review', null);
+        expect(card).toHaveProp('addon', addon);
+      });
+    });
+
+    it('displays the same number of placeholders as there are reviews for an addon', () => {
+      const reviewCount = 10;
+      const externalAddon = {
+        ...fakeAddon,
+        ratings: {
+          ...fakeAddon.ratings,
+          text_count: reviewCount,
+        },
+      };
+      const addon = createInternalAddon(externalAddon);
+
+      loadAddon(externalAddon);
+
+      const root = render();
+
+      expect(root.find(AddonReviewCard)).toHaveLength(reviewCount);
+      root.find(AddonReviewCard).forEach((card) => {
+        expect(card).toHaveProp('review', null);
+        expect(card).toHaveProp('addon', addon);
+      });
+    });
+
+    it('displays 25 placeholders for more than 25 reviews for an addon', () => {
+      const externalAddon = {
+        ...fakeAddon,
+        ratings: {
+          ...fakeAddon.ratings,
+          text_count: DEFAULT_API_PAGE_SIZE + 1,
+        },
+      };
+
+      loadAddon(externalAddon);
+
+      const root = render();
+
+      expect(root.find(AddonReviewCard)).toHaveLength(DEFAULT_API_PAGE_SIZE);
+    });
+
     it('renders an AddonSummaryCard with an addon', () => {
       const addon = fakeAddon;
       loadAddon(addon);

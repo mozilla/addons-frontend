@@ -7,6 +7,7 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
@@ -229,16 +230,6 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       }
     }
 
-    // When reviews have not loaded yet, make a list of 4 empty reviews
-    // as a placeholder.
-    const allReviews = reviews
-      ? // Remove the Featured Review from the array.
-        // TODO: Remove this code and use the API to filter out the featured
-        // review once https://github.com/mozilla/addons-server/issues/9424
-        // is fixed.
-        reviews.filter((review) => review.id.toString() !== reviewId)
-      : Array(4).fill(null);
-
     const header = addon
       ? i18n.sprintf(i18n.gettext('Reviews for %(addonName)s'), {
           addonName: addon.name,
@@ -262,6 +253,19 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       ) : (
         <LoadingText />
       );
+
+    let placeholderCount = addonReviewCount || 4;
+    if (placeholderCount > DEFAULT_API_PAGE_SIZE) {
+      placeholderCount = DEFAULT_API_PAGE_SIZE;
+    }
+
+    const allReviews = reviews
+      ? // Remove the Featured Review from the array.
+        // TODO: Remove this code and use the API to filter out the featured
+        // review once https://github.com/mozilla/addons-server/issues/9424
+        // is fixed.
+        reviews.filter((review) => review.id.toString() !== reviewId)
+      : Array(placeholderCount).fill(null);
 
     const paginator =
       addon && reviewCount && pageSize && reviewCount > pageSize ? (
