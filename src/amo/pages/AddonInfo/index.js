@@ -114,13 +114,15 @@ export class AddonInfoBase extends React.Component<InternalProps> {
     }
 
     if (infoType === ADDON_INFO_TYPE_CUSTOM_LICENSE) {
+      const needsLicenceText =
+        addonVersion &&
+        addonVersion.license &&
+        addonVersion.license.text === undefined;
       if (
         addon &&
         addon.currentVersionId &&
         !addonVersionIsLoading &&
-        (!addonVersion ||
-          (addonVersion.license && addonVersion.license.text === undefined) ||
-          addonHasChanged)
+        (!addonVersion || needsLicenceText || addonHasChanged)
       ) {
         dispatch(
           fetchVersion({

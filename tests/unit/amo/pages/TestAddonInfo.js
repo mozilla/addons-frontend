@@ -206,16 +206,23 @@ describe(__filename, () => {
   );
 
   describe('ADDON_INFO_TYPE_CUSTOM_LICENSE', () => {
+    const renderLicenseType = ({
+      errorHandler = createStubErrorHandler(),
+      slug = fakeAddon.slug,
+    } = {}) => {
+      return render({
+        errorHandler,
+        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
+        params: { slug },
+      });
+    };
+
     it('fetches an addon when requested by slug', () => {
       const slug = 'some-addon-slug';
       const dispatch = sinon.stub(store, 'dispatch');
       const errorHandler = createStubErrorHandler();
 
-      render({
-        errorHandler,
-        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
-        params: { slug },
-      });
+      renderLicenseType({ errorHandler, slug });
 
       sinon.assert.calledWith(
         dispatch,
@@ -234,11 +241,7 @@ describe(__filename, () => {
 
       const dispatch = sinon.stub(store, 'dispatch');
 
-      render({
-        errorHandler,
-        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
-        params: { slug },
-      });
+      renderLicenseType({ errorHandler, slug });
 
       sinon.assert.calledWith(
         dispatch,
@@ -251,14 +254,9 @@ describe(__filename, () => {
     });
 
     it('does not fetch an addonVersion when there is no addon', () => {
-      const errorHandler = createStubErrorHandler();
-
       const dispatch = sinon.stub(store, 'dispatch');
 
-      render({
-        errorHandler,
-        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
-      });
+      renderLicenseType();
 
       sinon.assert.neverCalledWithMatch(
         dispatch,
@@ -270,15 +268,10 @@ describe(__filename, () => {
       const slug = 'some-addon-slug';
       const addon = { ...fakeAddon, slug, current_version: null };
       _loadAddonResults([addon]);
-      const errorHandler = createStubErrorHandler();
 
       const dispatch = sinon.stub(store, 'dispatch');
 
-      render({
-        errorHandler,
-        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
-        params: { slug },
-      });
+      renderLicenseType({ slug });
 
       sinon.assert.neverCalledWithMatch(
         dispatch,
@@ -303,11 +296,7 @@ describe(__filename, () => {
 
       const dispatch = sinon.stub(store, 'dispatch');
 
-      render({
-        errorHandler,
-        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
-        params: { slug },
-      });
+      renderLicenseType({ errorHandler, slug });
 
       sinon.assert.calledWith(
         dispatch,
@@ -336,11 +325,7 @@ describe(__filename, () => {
 
       const dispatch = sinon.stub(store, 'dispatch');
 
-      render({
-        errorHandler,
-        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
-        params: { slug },
-      });
+      renderLicenseType({ errorHandler, slug });
 
       sinon.assert.neverCalledWith(
         dispatch,
@@ -368,11 +353,7 @@ describe(__filename, () => {
 
       const dispatch = sinon.stub(store, 'dispatch');
 
-      render({
-        errorHandler,
-        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
-        params: { slug },
-      });
+      renderLicenseType({ errorHandler, slug });
 
       sinon.assert.neverCalledWith(
         dispatch,
@@ -392,18 +373,11 @@ describe(__filename, () => {
       _loadAddonResults([addon, newAddon]);
       const dispatch = sinon.stub(store, 'dispatch');
       const errorHandler = createStubErrorHandler();
-      render({
-        errorHandler,
-        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
-        params: { slug },
-      });
+
+      renderLicenseType({ errorHandler, slug });
 
       dispatch.resetHistory();
-      render({
-        errorHandler,
-        infoType: ADDON_INFO_TYPE_CUSTOM_LICENSE,
-        params: { slug: newSlug },
-      });
+      renderLicenseType({ errorHandler, slug: newSlug });
 
       sinon.assert.calledWith(
         dispatch,

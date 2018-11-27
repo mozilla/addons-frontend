@@ -441,8 +441,20 @@ const reducer = (
         if (shelves[shelf]) {
           for (const addon of shelves[shelf].results) {
             if (addon.current_version) {
-              const version = createInternalVersion(addon.current_version);
-              newVersions[version.id] = version;
+              const currentVersion = addon.current_version;
+              let version = createInternalVersion(currentVersion);
+              // license and release_notes are omitted from the search endpoint results,
+              // use them from an existing version if available.
+              const { id } = currentVersion;
+              const existingVersion = getVersionById({ id, state });
+              if (existingVersion) {
+                version = {
+                  ...version,
+                  license: existingVersion.license,
+                  releaseNotes: existingVersion.releaseNotes,
+                };
+              }
+              newVersions[id] = version;
             }
           }
         }

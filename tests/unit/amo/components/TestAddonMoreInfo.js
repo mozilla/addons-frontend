@@ -236,7 +236,7 @@ describe(__filename, () => {
     expect(root.find('.AddonMoreInfo-license')).toHaveLength(0);
   });
 
-  it('does not prefix a non-custom license link with the add-ons URL', () => {
+  it('does not prefix a non-custom license link to point to AMO', () => {
     // See: https://github.com/mozilla/addons-frontend/issues/3339
     _loadVersions({
       license: { name: 'tofulicense', url: 'www.license.com/' },
