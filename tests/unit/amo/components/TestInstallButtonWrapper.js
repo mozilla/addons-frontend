@@ -12,6 +12,8 @@ import { CLIENT_APP_FIREFOX, INSTALLED, UNKNOWN } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import { createInternalVersion, loadVersions } from 'core/reducers/versions';
 import {
+  createContextWithFakeRouter,
+  createFakeLocation,
   dispatchClientMetadata,
   fakeAddon,
   fakeInstalledAddon,
@@ -26,16 +28,20 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store;
   });
 
-  function render(props = {}) {
+  const render = (props = {}) => {
     return shallowUntilTarget(
       <InstallButtonWrapper
         addon={createInternalAddon(fakeAddon)}
+        location={createFakeLocation()}
         store={store}
         {...props}
       />,
       InstallButtonWrapperBase,
+      {
+        shallowOptions: createContextWithFakeRouter(),
+      },
     );
-  }
+  };
 
   const _loadVersions = ({ addon = fakeAddon } = {}) => {
     store.dispatch(
@@ -86,7 +92,7 @@ describe(__filename, () => {
     });
   });
 
-  it('passes an addon to AMInstallButton', () => {
+  it('passes an add-on to AMInstallButton', () => {
     const addon = createInternalAddon(fakeAddon);
 
     const root = render({
@@ -160,7 +166,7 @@ describe(__filename, () => {
     expect(root.find(AMInstallButton)).toHaveProp('status', UNKNOWN);
   });
 
-  it('passes an addon to GetFirefoxButton', () => {
+  it('passes an add-on to GetFirefoxButton', () => {
     const addon = createInternalAddon(fakeAddon);
 
     const root = render({
@@ -177,5 +183,19 @@ describe(__filename, () => {
     });
 
     expect(root.find(GetFirefoxButton)).toHaveProp('buttonType', buttonType);
+  });
+
+  it('passes a custom className to AMInstallButton and GetFirefoxButton', () => {
+    const className = 'some-class';
+    const root = render({
+      className,
+    });
+
+    expect(root.find(AMInstallButton)).toHaveClassName(
+      `AMInstallButton--${className}`,
+    );
+    expect(root.find(GetFirefoxButton)).toHaveClassName(
+      `GetFirefoxButton--${className}`,
+    );
   });
 });

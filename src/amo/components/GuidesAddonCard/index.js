@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 import AddonTitle from 'amo/components/AddonTitle';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
@@ -11,14 +10,12 @@ import AddonInstallError from 'amo/components/AddonInstallError';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import { INSTALL_SOURCE_GUIDES_PAGE } from 'core/constants';
 import { getAddonIconUrl } from 'core/imageUtils';
-import { withInstallHelpers } from 'core/installAddon';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
 import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
-import type { WithInstallHelpersInjectedProps } from 'core/installAddon';
 
 import './styles.scss';
 
@@ -30,8 +27,6 @@ type Props = {
 
 type InternalProps = {
   ...Props,
-  ...WithInstallHelpersInjectedProps,
-  clientApp: string | null,
   defaultInstallSource: string,
   installError: string | null,
   i18n: I18nType,
@@ -43,19 +38,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const {
-      addon,
-      defaultInstallSource,
-      enable,
-      hasAddonManager,
-      i18n,
-      install,
-      installTheme,
-      isAddonEnabled,
-      setCurrentStatus,
-      staffPick,
-      uninstall,
-    } = this.props;
+    const { addon, i18n, staffPick } = this.props;
 
     return addon ? (
       <Card>
@@ -91,16 +74,9 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                 addon={addon}
                 className="guides"
                 defaultButtonText={i18n.gettext('Add')}
-                defaultInstallSource={defaultInstallSource}
-                enable={enable}
+                defaultInstallSource={INSTALL_SOURCE_GUIDES_PAGE}
                 getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
-                hasAddonManager={hasAddonManager}
-                install={install}
-                installTheme={installTheme}
-                isAddonEnabled={isAddonEnabled}
                 puffy={false}
-                setCurrentStatus={setCurrentStatus}
-                uninstall={uninstall}
               />
             )}
           </div>
@@ -123,16 +99,13 @@ export const mapStateToProps = (
   }
 
   return {
-    clientApp: state.api.clientApp,
     installError:
       installedAddon && installedAddon.error ? installedAddon.error : null,
   };
 };
 
 const GuidesAddonCard: React.ComponentType<Props> = compose(
-  withRouter,
   connect(mapStateToProps),
-  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_GUIDES_PAGE }),
   translate(),
 )(GuidesAddonCardBase);
 

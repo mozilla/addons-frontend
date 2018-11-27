@@ -1510,27 +1510,6 @@ describe(__filename, () => {
         internalAddon,
       );
     });
-
-    it('passes install helper functions to the install button', () => {
-      const enable = sinon.stub();
-      const install = sinon.stub();
-      const installTheme = sinon.stub();
-      const uninstall = sinon.stub();
-
-      const root = renderComponent({
-        enable,
-        install,
-        installTheme,
-        store,
-        uninstall,
-      });
-
-      const installButton = root.find(InstallButtonWrapper);
-      expect(installButton).toHaveProp('enable', enable);
-      expect(installButton).toHaveProp('install', install);
-      expect(installButton).toHaveProp('installTheme', installTheme);
-      expect(installButton).toHaveProp('uninstall', uninstall);
-    });
   });
 
   // Non-public add-ons require an account listed as a developer of the add-on

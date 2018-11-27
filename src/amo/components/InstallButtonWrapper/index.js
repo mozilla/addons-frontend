@@ -1,10 +1,13 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { compose } from 'redux';
 
 import GetFirefoxButton from 'amo/components/GetFirefoxButton';
 import AMInstallButton from 'core/components/AMInstallButton';
 import { UNKNOWN } from 'core/constants';
+import { withInstallHelpers } from 'core/installAddon';
 import { getVersionById } from 'core/reducers/versions';
 import { getClientCompatibility, isFirefox } from 'core/utils/compatibility';
 import type { GetFirefoxButtonTypeType } from 'amo/components/GetFirefoxButton';
@@ -15,22 +18,23 @@ import type { AddonVersionType } from 'core/reducers/versions';
 import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'disco/store';
 
+import './styles.scss';
+
 export type Props = {|
   _getClientCompatibility?: typeof getClientCompatibility,
   addon: AddonType,
-  className: string,
-  defaultButtonText: string,
+  className?: string,
+  defaultButtonText?: string,
   defaultInstallSource: string,
   getFirefoxButtonType: GetFirefoxButtonTypeType,
   puffy?: boolean,
-  ...WithInstallHelpersInjectedProps,
 |};
 
 type InternalProps = {|
   ...Props,
+  ...WithInstallHelpersInjectedProps,
   clientApp: string,
   currentVersion: AddonVersionType | null,
-  error: string | void,
   installStatus: $PropertyType<InstalledAddon, 'status'>,
   userAgentInfo: UserAgentInfoType,
 |};
@@ -71,36 +75,38 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
   }
 
   return (
-    <div className="InstallButtonWrapper">
-      <AMInstallButton
-        addon={addon}
-        className={`AMInstallButton--${className}`}
-        currentVersion={currentVersion}
-        defaultButtonText={defaultButtonText}
-        defaultInstallSource={defaultInstallSource}
-        disabled={!isCompatible}
-        enable={enable}
-        hasAddonManager={hasAddonManager}
-        install={install}
-        installTheme={installTheme}
-        isAddonEnabled={isAddonEnabled}
-        puffy={puffy}
-        setCurrentStatus={setCurrentStatus}
-        status={installStatus}
-        uninstall={uninstall}
-      />
-      <GetFirefoxButton
-        addon={addon}
-        buttonType={getFirefoxButtonType}
-        className={`GetFirefoxButton--${className}`}
-      />
-    </div>
+    addon && (
+      <div className="InstallButtonWrapper">
+        <AMInstallButton
+          addon={addon}
+          className={className ? `AMInstallButton--${className}` : ''}
+          currentVersion={currentVersion}
+          defaultButtonText={defaultButtonText}
+          defaultInstallSource={defaultInstallSource}
+          disabled={!isCompatible}
+          enable={enable}
+          hasAddonManager={hasAddonManager}
+          install={install}
+          installTheme={installTheme}
+          isAddonEnabled={isAddonEnabled}
+          puffy={puffy}
+          setCurrentStatus={setCurrentStatus}
+          status={installStatus}
+          uninstall={uninstall}
+        />
+        <GetFirefoxButton
+          addon={addon}
+          buttonType={getFirefoxButtonType}
+          className={className ? `GetFirefoxButton--${className}` : ''}
+        />
+      </div>
+    )
   );
 };
 
 export function mapStateToProps(state: AppState, ownProps: InternalProps) {
   const { addon } = ownProps;
-  const installedAddon = state.installations[addon.guid] || {};
+  const installedAddon = (addon && state.installations[addon.guid]) || {};
 
   let currentVersion = null;
 
@@ -121,8 +127,10 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
   };
 }
 
-const InstallButtonWrapper: React.ComponentType<Props> = connect(
-  mapStateToProps,
+const InstallButtonWrapper: React.ComponentType<Props> = compose(
+  withRouter,
+  withInstallHelpers({ defaultInstallSource: null }),
+  connect(mapStateToProps),
 )(InstallButtonWrapperBase);
 
 export default InstallButtonWrapper;

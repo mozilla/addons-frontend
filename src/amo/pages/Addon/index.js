@@ -44,7 +44,6 @@ import {
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_DETAIL_PAGE,
 } from 'core/constants';
-import { withInstallHelpers } from 'core/installAddon';
 import { isTheme, nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
@@ -73,18 +72,11 @@ export class AddonBase extends React.Component {
     clientApp: PropTypes.string.isRequired,
     config: PropTypes.object,
     currentVersion: PropTypes.object,
-    defaultInstallSource: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
-    enable: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    isAddonEnabled: PropTypes.func.isRequired,
-    hasAddonManager: PropTypes.bool.isRequired,
     i18n: PropTypes.object.isRequired,
-    install: PropTypes.func.isRequired,
     installError: PropTypes.string,
-    installTheme: PropTypes.func.isRequired,
     lang: PropTypes.string.isRequired,
-    uninstall: PropTypes.func.isRequired,
     // See ReactRouterLocationType in 'core/types/router'
     location: PropTypes.object.isRequired,
     match: PropTypes.shape({
@@ -380,16 +372,8 @@ export class AddonBase extends React.Component {
       addon,
       addonsByAuthors,
       currentVersion,
-      defaultInstallSource,
-      enable,
       errorHandler,
-      hasAddonManager,
-      isAddonEnabled,
       i18n,
-      install,
-      installTheme,
-      setCurrentStatus,
-      uninstall,
     } = this.props;
 
     const isThemeType = addon && isTheme(addon.type);
@@ -480,14 +464,7 @@ export class AddonBase extends React.Component {
                 {addon && (
                   <InstallButtonWrapper
                     addon={addon}
-                    defaultInstallSource={defaultInstallSource}
-                    enable={enable}
-                    hasAddonManager={hasAddonManager}
-                    install={install}
-                    installTheme={installTheme}
-                    setCurrentStatus={setCurrentStatus}
-                    uninstall={uninstall}
-                    isAddonEnabled={isAddonEnabled}
+                    defaultInstallSource={INSTALL_SOURCE_DETAIL_PAGE}
                     getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
                   />
                 )}
@@ -589,6 +566,5 @@ export const extractId = (ownProps) => {
 export default compose(
   translate(),
   connect(mapStateToProps),
-  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DETAIL_PAGE }),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonBase);

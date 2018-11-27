@@ -11,8 +11,6 @@ import { setInstallError, setInstallState } from 'core/actions/installations';
 import { FATAL_ERROR, INSTALLING, UNKNOWN } from 'core/constants';
 import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
 import {
-  createContextWithFakeRouter,
-  createFakeLocation,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -29,7 +27,6 @@ describe(__filename, () => {
     addonCustomText = 'Some text',
     hasAddonManager = true,
     i18n = fakeI18n(),
-    location = createFakeLocation(),
     setCurrentStatus = sinon.spy(),
     store = dispatchClientMetadata().store,
     ...customProps
@@ -39,7 +36,6 @@ describe(__filename, () => {
       addonCustomText,
       hasAddonManager,
       i18n,
-      location,
       setCurrentStatus,
       status: UNKNOWN,
       store,
@@ -53,9 +49,6 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <GuidesAddonCard {...allProps} />,
       GuidesAddonCardBase,
-      {
-        shallowOptions: createContextWithFakeRouter(),
-      },
     );
   };
 
@@ -133,28 +126,6 @@ describe(__filename, () => {
     const root = render({ addon, store });
 
     expect(root.find(InstallButtonWrapper)).toHaveProp('addon', addon);
-  });
-
-  it('passes install helper functions to InstallButtonWrapper', () => {
-    const { store } = dispatchClientMetadata();
-    const enable = sinon.stub();
-    const install = sinon.stub();
-    const installTheme = sinon.stub();
-    const uninstall = sinon.stub();
-
-    const root = render({
-      enable,
-      install,
-      installTheme,
-      uninstall,
-      store,
-    });
-
-    const installButton = root.find(InstallButtonWrapper);
-    expect(installButton).toHaveProp('enable', enable);
-    expect(installButton).toHaveProp('install', install);
-    expect(installButton).toHaveProp('installTheme', installTheme);
-    expect(installButton).toHaveProp('uninstall', uninstall);
   });
 
   it('renders an AddonInstallError component', () => {
