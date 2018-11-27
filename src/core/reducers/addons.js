@@ -454,7 +454,8 @@ export default function addonsReducer(
 
       let countForAverage = ratingCount;
       if (average && countForAverage && oldReview && oldReview.score) {
-        // Begin by subtracting the old rating to reset the baseline.
+        // If average and countForAverage are defined and greater than 0,
+        // begin by subtracting the old rating to reset the baseline.
         const countAfterRemoval = countForAverage - 1;
 
         if (countAfterRemoval === 0) {
