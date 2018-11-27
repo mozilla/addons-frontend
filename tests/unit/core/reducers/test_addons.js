@@ -687,7 +687,9 @@ describe(__filename, () => {
         }),
       );
 
-      expect(state.byID[addon.id].ratings.text_count).toEqual(reviewCount);
+      const newAddon = state.byID[addon.id];
+      expect(newAddon.ratings.count).toEqual(ratingCount);
+      expect(newAddon.ratings.text_count).toEqual(reviewCount);
     });
 
     it('increments counts even when no counts existed before', () => {
