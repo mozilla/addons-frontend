@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-27 06:51+0000\n"
+"PO-Revision-Date: 2018-11-27 07:12+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -2214,10 +2214,12 @@ msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"უამრავი ჩანართი და დიდი ოდენობით სანიშნები გაქვთ მოსაწესრიგებელი? გაფართოებებს შეუძლია თქვენი დახმარება! დაწყებული მოწყობის საშუალებებიდან, გაგრძელებული ახალი სახალისო შესაძლებლობებით, ძირეულად "
+"შეცვლის ჩანართებსა და სანიშნებთან მუშაობის ხერხებს."
 
 #: src/amo/pages/Guides/index.js:285
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "გაფართოებებს შეუძლია მეტად გაზარდოს ვებფაილების გამოყენების შესაძლებლობები, დაწყებული ვიდეოების ყურებიდან, გაგრძელებული სურათების, მუსიკის დამუშავებითა და ა.შ."
 
 #: src/amo/pages/Guides/index.js:77
 msgid "Create and manage strong passwords"
