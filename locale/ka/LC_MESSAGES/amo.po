@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-20 17:43+0000\n"
-"PO-Revision-Date: 2018-11-27 05:46+0000\n"
+"PO-Revision-Date: 2018-11-27 06:01+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -2122,6 +2122,8 @@ msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"გსურთ ერთიანად მოაწესრიგოთ ყველა თქვენი რჩეული კერძის მომზადების წესი, სახელმძღვანელო სტატია, YouTube-ის ვიდეო ან უბრალოდ ყველაფერი ის, რასაც ინტერნეტში მოიძიებთ? OneNote Web Clipper საშუალებას "
+"მოგცემთ შეაგროვოთ და შეინახოთ ყველა თქვენი სასურველი ვებშიგთავსი მძლავრ საცავში, ყველა მოწყობილობაზე დასინქრონებისთვის."
 
 #: src/amo/pages/Guides/index.js:166
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
@@ -2129,14 +2131,13 @@ msgstr "იხილეთ თანამშრომლების მიე�
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "ისიამოვნეთ ჩანართების ახალთახალი შესაძლებლობებით"
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "მიიღეთ თქვენს მოთხოვნილებებზე ზედგამოჭრილი გარემო, ბრაუზერის ყოველი გახსნისას, ახალი ჩანართის მორგების შედეგად."
 
 #: src/amo/pages/Guides/index.js:179
-#, fuzzy
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
 msgstr "ისიამოვნეთ მშვენიერი ახალი გვერდით, მორგებული ფონებით, ადგილობრივი ამინდის მონაცემებით და ა.შ."
 
@@ -2146,7 +2147,7 @@ msgstr "იხილეთ თანამშრომლების მიე�
 
 #: src/amo/pages/Guides/index.js:194
 msgid "Improve videos"
-msgstr ""
+msgstr "გააუმჯობესეთ ვიდეოები"
 
 #: src/amo/pages/Guides/index.js:195
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, from customizing YouTube to taste, to playing videos in theater mode, and much more."
