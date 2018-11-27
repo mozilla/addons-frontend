@@ -12790,10 +12790,10 @@ react-autowhatever@^10.1.2:
     react-themeable "^1.1.0"
     section-iterator "^2.0.0"
 
-react-cookie@3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-3.0.4.tgz#ae57db00cb5160675ce2fe06ab0962c728a6630b"
-  integrity sha512-WNf1LifcjRQfg/QEDYQkey78XNJ46/k+lhoKrTK1Iv1jiqInl5jmjRBnEqDJ32HhgeL0iJAsJrEC+o+LkJ/O9Q==
+react-cookie@3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-3.0.5.tgz#23072d3fc73a67bb96c327aecd0a4dd82fcae012"
+  integrity sha512-ozGNs+EunXd1efjM/eGogQ7vkyeee+SxRqeTpdCtSZ+wgmrpFqhMwCJNLE6JYupsAk7szPwVVtcwlO0QBZMVjw==
   dependencies:
     "@types/hoist-non-react-statics" "^3.0.1"
     hoist-non-react-statics "^3.0.0"
