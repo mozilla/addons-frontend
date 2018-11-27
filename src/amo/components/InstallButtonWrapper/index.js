@@ -129,7 +129,7 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
 
 const InstallButtonWrapper: React.ComponentType<Props> = compose(
   withRouter,
-  withInstallHelpers({ defaultInstallSource: null }),
+  withInstallHelpers(),
   connect(mapStateToProps),
 )(InstallButtonWrapperBase);
 

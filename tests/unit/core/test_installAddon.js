@@ -73,17 +73,16 @@ class ComponentBase extends React.Component {
   }
 }
 
-function componentWithInstallHelpers({
-  defaultInstallSource = 'some-src',
-} = {}) {
+function componentWithInstallHelpers() {
   // This simulates how a component would typically apply
   // the withInstallHelpers() HOC wrapper.
-  return compose(withInstallHelpers({ defaultInstallSource }))(ComponentBase);
+  return compose(withInstallHelpers())(ComponentBase);
 }
 
 const defaultProps = ({
   _addonManager = getFakeAddonManagerWrapper(),
   addon = createInternalAddon(fakeAddon),
+  defaultInstallSource = 'some-install-source',
   location = createFakeLocation(),
   store = dispatchClientMetadata().store,
   ...overrides
@@ -93,6 +92,7 @@ const defaultProps = ({
   return {
     _addonManager,
     addon,
+    defaultInstallSource,
     location,
     store,
     ...overrides,
@@ -103,11 +103,8 @@ function render(Component, props) {
   return shallowUntilTarget(<Component {...props} />, ComponentBase);
 }
 
-function renderWithInstallHelpers({
-  defaultInstallSource,
-  ...customProps
-} = {}) {
-  const Component = componentWithInstallHelpers({ defaultInstallSource });
+function renderWithInstallHelpers({ ...customProps } = {}) {
+  const Component = componentWithInstallHelpers();
 
   const props = defaultProps(customProps);
   const root = render(Component, props);
@@ -231,12 +228,6 @@ describe(__filename, () => {
     // make sure the status is not set.
     root.setProps({ addon });
     sinon.assert.notCalled(_addonManager.getAddon);
-  });
-
-  it('throws without a defaultInstallSource', () => {
-    expect(() => {
-      withInstallHelpers({});
-    }).toThrow(/defaultInstallSource is required/);
   });
 
   it('sets the current status in componentDidMount with an addonManager', () => {

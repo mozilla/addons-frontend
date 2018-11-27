@@ -220,6 +220,7 @@ export const findInstallURL = ({
 
 type WithInstallHelpersProps = {|
   addon: AddonType | null,
+  defaultInstallSource: string,
   location: ReactRouterLocationType,
 |};
 
@@ -231,7 +232,6 @@ type WithInstallHelpersInternalProps = {|
   _log: typeof log,
   _tracking: typeof tracking,
   currentVersion: AddonVersionType | null,
-  defaultInstallSource: string,
   dispatch: DispatchFunc,
   userAgentInfo: UserAgentInfoType,
 |};
@@ -548,18 +548,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   }
 }
 
-type withInstallHelpersParams = {|
-  defaultInstallSource: string | null,
-|};
-
-export function withInstallHelpers({
-  defaultInstallSource,
-}: withInstallHelpersParams) {
-  invariant(
-    typeof defaultInstallSource !== 'undefined',
-    'defaultInstallSource is required',
-  );
-
+export function withInstallHelpers() {
   return (WrappedComponent: React.ComponentType<any>) => {
     WithInstallHelpers.displayName = `WithInstallHelpers(${getDisplayName(
       WrappedComponent,
@@ -569,11 +558,15 @@ export function withInstallHelpers({
       state: AmoAppState | DiscoAppState,
       ownProps: WithInstallHelpersProps,
     ) => {
-      const { addon, location } = ownProps;
+      const { addon, defaultInstallSource, location } = ownProps;
 
       // Please make sure the `addon` and `location` props are available when
       // you use this HOC on a component.
       invariant(typeof addon !== 'undefined', 'addon is required');
+      invariant(
+        typeof defaultInstallSource !== 'undefined',
+        'defaultInstallSource is required',
+      );
       invariant(location, 'location is required');
 
       const currentVersion =
@@ -587,7 +580,6 @@ export function withInstallHelpers({
       return {
         WrappedComponent,
         currentVersion,
-        defaultInstallSource,
         userAgentInfo: state.api.userAgentInfo,
       };
     };

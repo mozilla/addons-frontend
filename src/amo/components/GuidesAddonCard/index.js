@@ -27,7 +27,6 @@ type Props = {
 
 type InternalProps = {
   ...Props,
-  defaultInstallSource: string,
   installError: string | null,
   i18n: I18nType,
 };

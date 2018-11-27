@@ -49,6 +49,7 @@ describe(__filename, () => {
   function getProps({
     addon,
     addonProps,
+    defaultInstallSource = 'some-install-source',
     description = 'test-editorial-description',
     heading = 'test-heading',
     ...customProps
@@ -69,6 +70,7 @@ describe(__filename, () => {
     const props = {
       _getClientCompatibility: () => ({ compatible: true, reason: null }),
       addonId: addonToLoad.id,
+      defaultInstallSource,
       description,
       heading,
       i18n: fakeI18n(),

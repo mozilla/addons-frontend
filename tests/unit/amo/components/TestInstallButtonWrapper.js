@@ -32,6 +32,7 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <InstallButtonWrapper
         addon={createInternalAddon(fakeAddon)}
+        defaultInstallSource="some-install-source"
         location={createFakeLocation()}
         store={store}
         {...props}

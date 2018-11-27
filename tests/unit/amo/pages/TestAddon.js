@@ -100,7 +100,6 @@ function renderProps({
     store: dispatchClientMetadata().store,
     currentVersion,
     // withInstallHelpers HOC injected props
-    defaultInstallSource: 'default install source',
     enable: sinon.stub(),
     install: sinon.stub(),
     installTheme: sinon.stub(),
