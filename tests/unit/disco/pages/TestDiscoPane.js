@@ -1,5 +1,4 @@
 import { mount } from 'enzyme';
-import config from 'config';
 import * as React from 'react';
 import { Provider } from 'react-redux';
 
@@ -75,13 +74,11 @@ describe(__filename, () => {
   describe('mapDispatchToProps', () => {
     it('calls dispatch when handleGlobalEvent is called with data', () => {
       const dispatch = sinon.spy();
-      sinon
-        .stub(config, 'get')
-        .withArgs('server')
-        .returns(false);
       const { handleGlobalEvent } = mapDispatchToProps(dispatch);
       const payload = { id: 'whatever' };
+
       handleGlobalEvent(payload);
+
       sinon.assert.calledWith(dispatch, { type: INSTALL_STATE, payload });
     });
   });

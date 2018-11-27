@@ -1,16 +1,14 @@
 import Express from 'express';
-import config from 'config';
 
 import { serveAssetsLocally } from 'core/middleware';
+import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   it('calls Express.static', () => {
     const expressStub = sinon.stub(Express, 'static');
-    sinon
-      .stub(config, 'get')
-      .withArgs('basePath')
-      .returns('foo');
-    serveAssetsLocally({ _config: config });
+    const _config = getFakeConfig({ basePath: 'foo' });
+
+    serveAssetsLocally({ _config });
     sinon.assert.calledWith(expressStub, 'foo/dist');
   });
 
