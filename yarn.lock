@@ -15687,22 +15687,12 @@ unist-util-visit@^1.1.0:
   dependencies:
     unist-util-visit-parents "^2.0.0"
 
-universal-cookie-express@3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-3.0.4.tgz#efb347740e29b9c4cb73e49f6adad815761c4986"
-  integrity sha512-03/45CoqV35aFlvpCBhQ0jwooW74WJluRgp8KFk4b4R7b66sRvky1ortn0WJpVd7h6DOO4HlId8njNvYqusSVQ==
+universal-cookie-express@3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-3.0.6.tgz#590bb740ebda3e9426b00e5a884c2029c0406f9a"
+  integrity sha512-ZIdXr7YLvKBMp3OfXbjPDzyVCwfHALNftqY/X8m/LCEnxwG4eu7a0YMO1GvlABWnuI3P8VbhPNix/qSQYORz3Q==
   dependencies:
-    universal-cookie "^3.0.4"
-
-universal-cookie@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/universal-cookie/-/universal-cookie-3.0.4.tgz#22c1a0dca6bb9e72da20d9e331d9d8f93d95e9dc"
-  integrity sha512-3rhx6RAIuRmCWJttnbgzMrp2TbHhUmgQ2GrpY/US03Siv5T28iXr2qYw1m3YqmluBxEyrvZaloVemkLSId+Oyg==
-  dependencies:
-    "@types/cookie" "^0.3.1"
-    "@types/object-assign" "^4.0.30"
-    cookie "^0.3.1"
-    object-assign "^4.1.0"
+    universal-cookie "^3.0.6"
 
 universal-cookie@^3.0.6:
   version "3.0.6"
