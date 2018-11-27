@@ -45,7 +45,7 @@ describe(__filename, () => {
     );
   };
 
-  it('fetches the add-ons for a guide page', () => {
+  it('fetches the addons for a guide page', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
@@ -87,12 +87,12 @@ describe(__filename, () => {
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    render({ store });
+    render({ store, slug });
 
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it('does not fetch the add-ons if add-ons have already been loaded', () => {
+  it('does not fetch the addons if addons have already been loaded', () => {
     const { store } = dispatchClientMetadata();
     const errorHandler = createStubErrorHandler();
 
@@ -101,7 +101,7 @@ describe(__filename, () => {
     const guids = content.sections.map((section) => section.addonGuid);
     const addons = [];
 
-    // Fetch/load an empty list of add-ons.
+    // Fetch/load an empty list of addons.
     store.dispatch(
       fetchGuidesAddons({
         slug,
