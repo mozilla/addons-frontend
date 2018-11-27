@@ -135,39 +135,47 @@ describe(__filename, () => {
       });
     });
 
-    it('shows 1:1 placeholders for reviews belonging to an addon', () => {
-      const numberOfPlaceholders = 10;
-      const reviews = Array(numberOfPlaceholders).fill({
-        ...fakeReview,
-        id: 1,
-        score: 1,
-      });
-      _setAddonReviews({ reviews });
+    it('displays a 1:1 ratio of placeholders to reviews', () => {
+      const reviewCount = 10;
+      const externalAddon = {
+        ...fakeAddon,
+        ratings: {
+          ...fakeAddon.ratings,
+          text_count: reviewCount,
+        },
+      };
+      const addon = createInternalAddon(externalAddon);
+
+      loadAddon(externalAddon);
 
       const root = render();
 
-      // Make sure a 1:1 ratio of reviews to placeholders is rendered.
-      expect(root.find(AddonReviewCard)).toHaveLength(numberOfPlaceholders);
-      // Do a sanity check on the first placeholder;
-      expect(root.find(AddonReviewCard).at(0)).toHaveProp('addon', null);
-      expect(root.find(AddonReviewCard).at(0)).toHaveProp('review', null);
+      expect(root.find(AddonReviewCard)).toHaveLength(reviewCount);
+      root.find(AddonReviewCard).forEach((card) => {
+        expect(card).toHaveProp('review', null);
+        expect(card).toHaveProp('addon', addon);
+      });
     });
 
-    it('shows 25 placeholders for more than 25 reviews belonging to an addon', () => {
-      const reviews = Array(DEFAULT_API_PAGE_SIZE + 1).fill({
-        ...fakeReview,
-        id: 1,
-        score: 1,
-      });
-      _setAddonReviews({ reviews });
+    it('displays 25 placeholders for more than 25 reviews belonging to an addon', () => {
+      const externalAddon = {
+        ...fakeAddon,
+        ratings: {
+          ...fakeAddon.ratings,
+          text_count: DEFAULT_API_PAGE_SIZE + 1,
+        },
+      };
+      const addon = createInternalAddon(externalAddon);
 
-      const root = render({ addon: null });
+      loadAddon(externalAddon);
 
-      // Make sure twenty-five review placeholders were rendered.
+      const root = render();
+
       expect(root.find(AddonReviewCard)).toHaveLength(DEFAULT_API_PAGE_SIZE);
-      // Do a sanity check on the first placeholder;
-      expect(root.find(AddonReviewCard).at(0)).toHaveProp('addon', null);
-      expect(root.find(AddonReviewCard).at(0)).toHaveProp('review', null);
+      root.find(AddonReviewCard).forEach((card) => {
+        expect(card).toHaveProp('review', null);
+        expect(card).toHaveProp('addon', addon);
+      });
     });
 
     it('renders an AddonSummaryCard with an addon', () => {
