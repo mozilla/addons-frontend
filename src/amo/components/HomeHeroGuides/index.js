@@ -1,12 +1,15 @@
 /* @flow */
 import * as React from 'react';
 import { compose } from 'redux';
+import { connect } from 'react-redux';
 
+import { CLIENT_APP_FIREFOX } from 'core/constants';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
+import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
 import type { HeroSectionsType } from 'ui/components/Hero';
 
@@ -16,6 +19,7 @@ type Props = {||};
 
 type InternalProps = {|
   ...Props,
+  clientApp: string,
   i18n: I18nType,
 |};
 
@@ -81,16 +85,25 @@ export class HomeHeroGuidesBase extends React.PureComponent<InternalProps> {
       <div className="HomeHeroGuides">
         {this.getHeroHeader()}
 
-        <div className="HomeHeroGuides-sections">
-          <Hero name="HomeHeroGuides" sections={this.getHeroSections()} />
-        </div>
+        {this.props.clientApp === CLIENT_APP_FIREFOX && (
+          <div className="HomeHeroGuides-sections">
+            <Hero name="HomeHeroGuides" sections={this.getHeroSections()} />
+          </div>
+        )}
       </div>
     );
   }
 }
 
-const HomeHeroGuides: React.ComponentType<Props> = compose(translate())(
-  HomeHeroGuidesBase,
-);
+const mapStateToProps = (state: AppState) => {
+  return {
+    clientApp: state.api.clientApp,
+  };
+};
+
+const HomeHeroGuides: React.ComponentType<Props> = compose(
+  translate(),
+  connect(mapStateToProps),
+)(HomeHeroGuidesBase);
 
 export default HomeHeroGuides;

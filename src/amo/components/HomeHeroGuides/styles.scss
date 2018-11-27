@@ -4,12 +4,11 @@ $icon-size: 40px;
 
 .HomeHeroGuides-header {
   color: $black;
-  padding: 0 0 12px;
+  padding: 12px 0 24px;
   text-align: center;
 
   @include respond-to(large) {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 0 32px 12px;
   }
 }
 
