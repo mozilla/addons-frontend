@@ -12790,14 +12790,14 @@ react-autowhatever@^10.1.2:
     react-themeable "^1.1.0"
     section-iterator "^2.0.0"
 
-react-cookie@3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-3.0.4.tgz#ae57db00cb5160675ce2fe06ab0962c728a6630b"
-  integrity sha512-WNf1LifcjRQfg/QEDYQkey78XNJ46/k+lhoKrTK1Iv1jiqInl5jmjRBnEqDJ32HhgeL0iJAsJrEC+o+LkJ/O9Q==
+react-cookie@3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-3.0.6.tgz#5c97903170158cb1fab290897b89997c86524080"
+  integrity sha512-vMOHxPrD53BN3CWZfcX2rAdeqD0zIKiuMJVT4Tean8JK0otryXB9cloni4OUa5Hq3S9s5fsbcK642SbsAxp7mw==
   dependencies:
     "@types/hoist-non-react-statics" "^3.0.1"
     hoist-non-react-statics "^3.0.0"
-    universal-cookie "^3.0.4"
+    universal-cookie "^3.0.6"
 
 react-dev-utils@^5.0.0:
   version "5.0.3"
@@ -15837,6 +15837,16 @@ universal-cookie@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/universal-cookie/-/universal-cookie-3.0.4.tgz#22c1a0dca6bb9e72da20d9e331d9d8f93d95e9dc"
   integrity sha512-3rhx6RAIuRmCWJttnbgzMrp2TbHhUmgQ2GrpY/US03Siv5T28iXr2qYw1m3YqmluBxEyrvZaloVemkLSId+Oyg==
+  dependencies:
+    "@types/cookie" "^0.3.1"
+    "@types/object-assign" "^4.0.30"
+    cookie "^0.3.1"
+    object-assign "^4.1.0"
+
+universal-cookie@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/universal-cookie/-/universal-cookie-3.0.6.tgz#5ebf69349b06aa3387317b6d04acb896237ab7cb"
+  integrity sha512-VxVnwj1bWVLuYKAbaeQ6PL4NlIEWB6r4PUjwKp76nFnrLyqQtnOKAHe9dOjESpcJ4gPoc/Zkxb/6ZK+FMuEioA==
   dependencies:
     "@types/cookie" "^0.3.1"
     "@types/object-assign" "^4.0.30"
