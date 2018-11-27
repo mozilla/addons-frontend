@@ -84,9 +84,7 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
       >
         <AMInstallButton
           addon={addon}
-          className={makeClassName({
-            [`AMInstallButton--${className}`]: className,
-          })}
+          className={className ? `AMInstallButton--${className}` : ''}
           currentVersion={currentVersion}
           defaultButtonText={defaultButtonText}
           defaultInstallSource={defaultInstallSource}
@@ -104,9 +102,7 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
         <GetFirefoxButton
           addon={addon}
           buttonType={getFirefoxButtonType}
-          className={makeClassName({
-            [`GetFirefoxButton--${className}`]: className,
-          })}
+          className={className ? `GetFirefoxButton--${className}` : ''}
         />
       </div>
     )
