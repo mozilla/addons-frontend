@@ -440,6 +440,42 @@ describe(__filename, () => {
         ).toEqual(createInternalVersion(version));
       });
 
+      it('maintains license and release notes from pre-existing versions', () => {
+        let state = versionsReducer(
+          undefined,
+          loadVersions({ slug: fakeAddon.slug, versions: [version] }),
+        );
+
+        // Create a search result with missing license and release_notes.
+        const searchResult = createAddonsApiResult([
+          {
+            ...fakeAddon,
+            current_version: {
+              ...version,
+              license: undefined,
+              release_notes: undefined,
+            },
+          },
+        ]);
+
+        state = versionsReducer(
+          state,
+          loadHomeAddons({
+            collections: [],
+            shelves: {
+              featuredExtensions: searchResult,
+            },
+          }),
+        );
+
+        expect(
+          getVersionById({
+            state,
+            id: versionId,
+          }),
+        ).toEqual(createInternalVersion(version));
+      });
+
       it('handles invalid shelves', () => {
         const state = versionsReducer(
           undefined,

@@ -110,13 +110,12 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     let versionLicenseLink = null;
 
     if (license) {
+      const linkProps = license.isCustom
+        ? { to: `/addon/${addon.slug}/license/` }
+        : { href: license.url, prependClientApp: false, prependLang: false };
+
       versionLicenseLink = license.url ? (
-        <Link
-          className="AddonMoreInfo-license-link"
-          href={license.url}
-          prependClientApp={false}
-          prependLang={false}
-        >
+        <Link className="AddonMoreInfo-license-link" {...linkProps}>
           {license.name}
         </Link>
       ) : (
@@ -148,7 +147,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       privacyPolicyLink: addon.has_privacy_policy ? (
         <Link
           className="AddonMoreInfo-privacy-policy-link"
-          href={`/addon/${addon.slug}/privacy/`}
+          to={`/addon/${addon.slug}/privacy/`}
         >
           {i18n.gettext('Read the privacy policy for this add-on')}
         </Link>
@@ -156,7 +155,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       eulaLink: addon.has_eula ? (
         <Link
           className="AddonMoreInfo-eula-link"
-          href={`/addon/${addon.slug}/eula/`}
+          to={`/addon/${addon.slug}/eula/`}
         >
           {i18n.gettext('Read the license agreement for this add-on')}
         </Link>

@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import About from 'amo/pages/StaticPages/About';
 import Addon from 'amo/pages/Addon';
 import AddonInfo, {
+  ADDON_INFO_TYPE_CUSTOM_LICENSE,
   ADDON_INFO_TYPE_EULA,
   ADDON_INFO_TYPE_PRIVACY_POLICY,
 } from 'amo/pages/AddonInfo';
@@ -79,6 +80,14 @@ const Routes = ({ _config = config }: Props = {}) => (
       path="/:lang/:application/addon/:slug/eula/"
       component={(props) => (
         <AddonInfo {...props} infoType={ADDON_INFO_TYPE_EULA} />
+      )}
+    />
+
+    <Route
+      exact
+      path="/:lang/:application/addon/:slug/license/"
+      component={(props) => (
+        <AddonInfo {...props} infoType={ADDON_INFO_TYPE_CUSTOM_LICENSE} />
       )}
     />
 
