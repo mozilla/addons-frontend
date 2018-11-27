@@ -114,7 +114,17 @@ describe(__filename, () => {
   };
 
   describe('<AddonReviewList/>', () => {
-    it('displays 4 placeholders when there are no reviews yet', () => {
+    it('shows placeholders for reviews without an addon', () => {
+      const root = render({ addon: null });
+
+      // Make sure four review placeholders were rendered.
+      expect(root.find(AddonReviewCard)).toHaveLength(4);
+      // Do a sanity check on the first placeholder;
+      expect(root.find(AddonReviewCard).at(0)).toHaveProp('addon', null);
+      expect(root.find(AddonReviewCard).at(0)).toHaveProp('review', null);
+    });
+
+    it('displays 4 placeholders for an addon with no reviews', () => {
       const externalAddon = {
         ...fakeAddon,
         ratings: {
@@ -135,7 +145,7 @@ describe(__filename, () => {
       });
     });
 
-    it('displays a 1:1 ratio of placeholders to reviews', () => {
+    it('displays the same number of placeholders as there are reviews for an addon', () => {
       const reviewCount = 10;
       const externalAddon = {
         ...fakeAddon,
@@ -157,7 +167,7 @@ describe(__filename, () => {
       });
     });
 
-    it('displays 25 placeholders for more than 25 reviews belonging to an addon', () => {
+    it('displays 25 placeholders for more than 25 reviews for an addon', () => {
       const externalAddon = {
         ...fakeAddon,
         ratings: {
@@ -165,17 +175,12 @@ describe(__filename, () => {
           text_count: DEFAULT_API_PAGE_SIZE + 1,
         },
       };
-      const addon = createInternalAddon(externalAddon);
 
       loadAddon(externalAddon);
 
       const root = render();
 
       expect(root.find(AddonReviewCard)).toHaveLength(DEFAULT_API_PAGE_SIZE);
-      root.find(AddonReviewCard).forEach((card) => {
-        expect(card).toHaveProp('review', null);
-        expect(card).toHaveProp('addon', addon);
-      });
     });
 
     it('renders an AddonSummaryCard with an addon', () => {
