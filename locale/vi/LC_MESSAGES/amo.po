@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-11-28 08:01+0000\n"
+"PO-Revision-Date: 2018-11-28 08:32+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -2386,30 +2386,34 @@ msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Giúp cải thiện trang web này. Đó là mã nguồn mở và bạn có thể gửi các lỗi và gửi các bản vá lỗi. Bạn có thể bắt đầu với %(startGoodFirstBugLink)slỗi đầu tiên%(endGoodFirstBugLink)s hoặc xem tất cả "
+"các sự cố mở cho %(startAddonsServerRepoLink)smáy chủ%(endAddonsServerRepoLink)s và %(startAddonsFrontendRepoLink)sgiao diện người dùng%(endAddonsFrontendRepoLink)s của AMO trên Github."
 
 #: src/amo/pages/StaticPages/About/index.js:132
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Nếu bạn muốn đóng góp nhưng không hoàn toàn là kỹ thuật, vẫn có những cách để trợ giúp:"
 
 #: src/amo/pages/StaticPages/About/index.js:141
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "Tham gia vào %(startLink)sdiễn đàn%(endLink)s của chúng tôi."
 
 #: src/amo/pages/StaticPages/About/index.js:154
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
 msgstr ""
+"Để lại phản hồi cho các tiện ích ưa thích của bạn. Các tác giả của tiện ích có nhiều khả năng cải tiến các tiện ích của họ và tạo các tiện ích mới khi họ biết mọi người đánh giá cao công việc của "
+"họ."
 
 #: src/amo/pages/StaticPages/About/index.js:159
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "Trò chuyện với bạn bè và gia đình rằng Firefox là một trình duyệt nhanh, bảo vệ an toàn quyền riêng tư của họ và họ có thể sử dụng các tiện ích bổ sung để biến nó thành của riêng họ!"
 
 #: src/amo/pages/StaticPages/About/index.js:167
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr ""
+msgstr "Để xem thêm các cách bạn có thể đóng góp cho cộng đồng tiện ích, vui lòng truy cập vào %(startLink)swiki%(endLink)s của chúng tôi"
 
 #: src/amo/pages/StaticPages/About/index.js:181
 msgid "Get support"
-msgstr ""
+msgstr "Nhận hỗ trợ"
 
 #: src/amo/pages/StaticPages/About/index.js:186
 msgid ""
@@ -2454,20 +2458,24 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"Các tiện ích được liệt kê ở đây được tạo bởi hàng ngàn nhà phát triển và nhà thiết kế chủ đề từ khắp nơi trên thế giới, từ những người có sở thích cá nhân đến các tập đoàn lớn. Một số tiện ích bổ "
+"sung được liệt kê trên AMO đã được xuất bản tự động và có thể được xem xét bởi một nhóm biên tập viên khi được công khai."
 
 #: src/amo/pages/StaticPages/About/index.js:80
 msgid "Get involved"
-msgstr ""
+msgstr "Tham gia đóng góp"
 
 #: src/amo/pages/StaticPages/About/index.js:82
 msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla là một tập đoàn phi lợi nhuận của Internet, chúng tôi xây dựng Firefox để giúp giữ cho nó lành mạnh, cởi mở và dễ tiếp cận. Tiện ích bổ sung hỗ trợ lựa chọn và tùy chỉnh của người dùng trong"
+" Firefox và bạn có thể đóng góp theo các cách sau:"
 
 #: src/amo/pages/StaticPages/About/index.js:92
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sTạo tiện ích của riêng bạn%(endLink)s. Chúng tôi cung cấp dịch vụ lưu trữ và cập nhật miễn phí và có thể giúp bạn tiếp cận lượng lớn người dùng."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:100
 msgid "Use profanity, sexual language or language that can be construed as hateful."
