@@ -134,29 +134,31 @@ export default class ServerHtml extends Component {
   renderPreLinks() {
     const { chunkExtractor } = this.props;
 
-    return chunkExtractor
-      .getPreAssets()
-      // We want to retrieve the bundles with "webpackPreload: true" only, and
-      // not the main bundle (amo or disco).
-      .filter((asset) => asset.type === 'childAsset')
-      // We return both "preload" and "prefetch" links to maximize browser
-      // support, even both links don't have the same goal.
-      .map((asset) => [
-        <link
-          as={asset.scriptType}
-          data-parent-chunk={asset.chunk}
-          href={asset.url}
-          key={`preload-${asset.url}`}
-          rel="preload"
-        />,
-        <link
-          as={asset.scriptType}
-          data-parent-chunk={asset.chunk}
-          href={asset.url}
-          key={`prefetch-${asset.url}`}
-          rel="prefetch"
-        />,
-      ]);
+    return (
+      chunkExtractor
+        .getPreAssets()
+        // We want to retrieve the bundles with "webpackPreload: true" only, and
+        // not the main bundle (amo or disco).
+        .filter((asset) => asset.type === 'childAsset')
+        // We return both "preload" and "prefetch" links to maximize browser
+        // support, even both links don't have the same goal.
+        .map((asset) => [
+          <link
+            as={asset.scriptType}
+            data-parent-chunk={asset.chunk}
+            href={asset.url}
+            key={`preload-${asset.url}`}
+            rel="preload"
+          />,
+          <link
+            as={asset.scriptType}
+            data-parent-chunk={asset.chunk}
+            href={asset.url}
+            key={`prefetch-${asset.url}`}
+            rel="prefetch"
+          />,
+        ])
+    );
   }
 
   renderAsyncScripts() {
