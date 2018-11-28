@@ -150,8 +150,8 @@ export class AppBase extends React.Component<Props> {
       );
       return;
     }
-    // If the encoded timestamp was malformed it will be 0 or negative.
-    if (createdAt <= 0) {
+    // If the encoded timestamp was malformed it will be NaN, 0 or negative.
+    if (Number.isNaN(createdAt) || createdAt <= 0) {
       log.error(oneLine`Got an invalid timestamp from auth token;
         encoded value: ${encodedTimestamp}; decoded value: ${createdAt}`);
       return;
