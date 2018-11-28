@@ -86,6 +86,15 @@ describe(__filename, () => {
       const content = getContent(slug, fakeI18n());
       const guids = content.sections.map((section) => section.addonGuid);
 
+      // This simulates the initial fetch for addons.
+      store.dispatch(
+        fetchGuidesAddons({
+          slug,
+          guids,
+          errorHandlerId: errorHandler.id,
+        }),
+      );
+
       const dispatchSpy = sinon.spy(store, 'dispatch');
 
       render({ store });
@@ -131,7 +140,7 @@ describe(__filename, () => {
         text: content.sections[0].exploreMore,
       });
 
-      const root = render({ content, slug, store });
+      const root = render({ slug, store });
 
       expect(root.find('.Guides')).toHaveLength(1);
 
