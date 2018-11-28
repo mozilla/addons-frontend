@@ -108,6 +108,11 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
       loader: 'babel-loader',
       options: babelOptions,
     },
+    {
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: 'javascript/auto',
+    },
     ...getStyleRules({ bundleStylesWithJs }),
     ...getAssetRules(),
   ];
