@@ -25,6 +25,7 @@ module.exports = {
   appName,
   basePath,
 
+  // This is needed for code-splitting.
   loadableStatsFile: path.join(distPath, 'loadable-stats.json'),
 
   // The base URL of the site (for SEO purpose).

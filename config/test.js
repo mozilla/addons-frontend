@@ -14,5 +14,6 @@ module.exports = {
   // memory we have (and more...).
   enableRequestID: false,
 
+  // We use a fake/incomplete file for the test suite.
   loadableStatsFile: path.join(fixturesPath, 'loadable-stats.json'),
 };

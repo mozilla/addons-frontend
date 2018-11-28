@@ -32,6 +32,16 @@ import SimulateClientError from 'core/pages/error-simulation/SimulateClientError
 import SimulateSyncError from 'core/pages/error-simulation/SimulateSyncError';
 import type { ConfigType } from 'core/types/config';
 
+// About `loadable()` and code-splitting:
+//
+// 1. Set `webpackChunkName` to the name of the page component.
+// 2. Set `webpackPreload: true` as already done below.
+// 3. We do not use `webpackPrefetch: true` to prevent webpack to inject
+// anything in the HTML returned by the server. Webpack does not inject
+// anything when `webpackPreload` is set to `true` but '@loadable/server'
+// gathers these chunks and we render the appropriate tags in the HTML in
+// `ServerHtml`.
+
 const About = loadable(() =>
   import(/* webpackPreload: true, webpackChunkName: "About" */ '../../pages/StaticPages/About'),
 );
