@@ -68,7 +68,7 @@ describe(__filename, () => {
     sinon.assert.calledOnce(dispatchSpy);
   });
 
-  it('does not fetch the addons while loading', () => {
+  it('does not fetch the add-ons while loading', () => {
     const { store } = dispatchClientMetadata();
     const errorHandler = createStubErrorHandler();
 
@@ -76,7 +76,7 @@ describe(__filename, () => {
     const content = getContent(slug, fakeI18n());
     const guids = content.sections.map((section) => section.addonGuid);
 
-    // This simulates the initial fetch for addons.
+    // This simulates the initial fetch for add-ons.
     store.dispatch(
       fetchGuidesAddons({
         slug,
@@ -87,7 +87,7 @@ describe(__filename, () => {
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    render({ store });
+    render({ store, slug });
 
     sinon.assert.notCalled(dispatchSpy);
   });
@@ -128,7 +128,7 @@ describe(__filename, () => {
       text: content.sections[0].exploreMore,
     });
 
-    const root = render({ content, slug });
+    const root = render({ slug });
 
     expect(root.find('.Guides')).toHaveLength(1);
 
@@ -173,7 +173,7 @@ describe(__filename, () => {
     );
   });
 
-  it('passes an addon to GuidesAddonCard', () => {
+  it('passes an add-on to GuidesAddonCard', () => {
     const { store } = dispatchClientMetadata();
     const slug = 'stay-safe-online';
     const guids = getSections({ slug, i18n: fakeI18n() }).map(
