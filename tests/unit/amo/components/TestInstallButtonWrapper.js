@@ -65,7 +65,7 @@ describe(__filename, () => {
     });
   };
 
-  it('calls getClientCompatibility to determine the compatibility', () => {
+  it('for Firefox, calls getClientCompatibility to determine the compatibility', () => {
     const addon = fakeAddon;
 
     _loadVersions({ addon });
@@ -91,6 +91,43 @@ describe(__filename, () => {
       currentVersion: createInternalVersion(addon.current_version),
       userAgentInfo: store.getState().api.userAgentInfo,
     });
+  });
+
+  it('when not Firefox, does not call getClientCompatibility', () => {
+    const addon = fakeAddon;
+
+    const clientApp = CLIENT_APP_FIREFOX;
+    const _getClientCompatibility = sinon.spy();
+
+    _dispatchClientMetadata({
+      clientApp,
+      userAgent: userAgentsByPlatform.mac.chrome41,
+    });
+
+    const root = render({
+      _getClientCompatibility,
+      addon: createInternalAddon(addon),
+      store,
+    });
+
+    sinon.assert.neverCalledWith(_getClientCompatibility, {
+      addon: createInternalAddon(addon),
+      clientApp,
+      currentVersion: createInternalVersion(addon.current_version),
+      userAgentInfo: store.getState().api.userAgentInfo,
+    });
+  });
+
+  it('when not Firefox, disables the AMInstallButton', () => {
+    _dispatchClientMetadata({
+      userAgent: userAgentsByPlatform.mac.chrome41,
+    });
+
+    const root = render({
+      store,
+    });
+
+    expect(root.find(AMInstallButton)).toHaveProp('disabled', true);
   });
 
   it('passes an add-on to AMInstallButton', () => {

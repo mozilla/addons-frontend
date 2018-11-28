@@ -63,10 +63,9 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
   } = props;
 
   let isCompatible = false;
-  let compatibility;
 
   if (addon && isFirefox({ userAgentInfo })) {
-    compatibility = _getClientCompatibility({
+    const compatibility = _getClientCompatibility({
       addon,
       currentVersion,
       clientApp,
@@ -115,13 +114,11 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
 
   let currentVersion = null;
 
-  if (addon) {
-    currentVersion = addon.currentVersionId
-      ? getVersionById({
-          id: addon.currentVersionId,
-          state: state.versions,
-        })
-      : null;
+  if (addon && addon.currentVersionId) {
+    currentVersion = getVersionById({
+      id: addon.currentVersionId,
+      state: state.versions,
+    });
   }
 
   return {

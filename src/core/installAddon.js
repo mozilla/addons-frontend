@@ -561,8 +561,6 @@ export const withInstallHelpers = (
   ) => {
     const { addon, defaultInstallSource, location } = ownProps;
 
-    // Please make sure the `addon` and `location` props are available when
-    // you use this HOC on a component.
     invariant(typeof addon !== 'undefined', 'addon is required');
     invariant(
       typeof defaultInstallSource !== 'undefined',
