@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-11-28 07:16+0000\n"
+"PO-Revision-Date: 2018-11-28 07:30+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -1781,7 +1781,7 @@ msgstr "Xem thêm…"
 
 #: src/amo/components/SectionLinks/index.js:131
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "Gói Ngôn ngữ & Từ điển"
 
 #: src/amo/components/SectionLinks/index.js:137 src/amo/pages/SearchTools/index.js:34
 msgid "Search Tools"
@@ -2476,7 +2476,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:105
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Bao gồm HTML, liên kết, mã nguồn hoặc đoạn mã. Bài đánh giá chỉ cần văn bản là đủ."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:110
 msgid "Make false statements, disparage add-on authors or personally insult them."
@@ -2498,35 +2498,41 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:134
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Câu hỏi thường gặp về đánh giá"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:136
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Làm thế nào tôi có thể báo cáo một bài đánh giá có vấn đề?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:138
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Vui lòng báo cáo hoặc gắn cờ bất kỳ bài đánh giá có vấn đề nào bằng cách nhấp vào \"Báo cáo đánh giá này\" và bài đánh giá sẽ được gửi đến trang web để kiểm duyệt. Nhóm kiểm duyệt của chúng tôi sẽ "
+"sử dụng Nguyên tắc đánh giá để đánh giá xem phải xóa bài đánh giá hay khôi phục lại nó."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:145
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "Tôi là tác giả của tiện ích, tôi có thể trả lời đánh giá không?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
 msgstr ""
+"Có, tác giả của tiện ích có thể cung cấp một phản hồi duy nhất cho bài đánh giá. Bạn có thể thiết lập một chủ đề thảo luận trong %(startLink)sdiễn đàn%(endLink)s của chúng tôi để tham gia thảo luận "
+"bổ sung hoặc theo dõi."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:165
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Tôi là tác giả của tiện ích, tôi có thể xóa đánh giá hoặc xếp hạng không thuận lợi không?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:170
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"Nói chung là không. Nhưng nếu bài đánh giá không đáp ứng các nguyên tắc đánh giá được nêu ở trên, bạn có thể nhấp vào \"Báo cáo đánh giá này\" và để bài đánh giá được kiểm duyệt. Nếu đánh giá bao "
+"gồm khiếu nại không còn hợp lệ do bản phát hành mới của tiện ích của bạn, chúng tôi có thể xem xét xóa bài đánh giá."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:22
 msgid "Review Guidelines"
@@ -2550,61 +2556,63 @@ msgstr "Mẹo viết bài đánh giá tốt nhất"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:48
 msgid "Do:"
-msgstr ""
+msgstr "Thực hiện:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:51
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "Viết như bạn đang kể cho bạn bè về trải nghiệm của bạn với tiện ích."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Giữ đánh giá ngắn gọn và dễ hiểu."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:59
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Đưa ra những chi tiết cụ thể và hữu ích. Ví dụ:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:64
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Tiện ích có hoạt động như bạn mong đợi không?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:67
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Bạn thích hoặc không thích những tính năng nào?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:69
 msgid "Was it useful?"
-msgstr ""
+msgstr "Nó có hữu ích không?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:70
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Có dễ sử dụng không?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:72
 msgid "Will you continue to use this add-on?"
-msgstr ""
+msgstr "Bạn có tiếp tục sử dụng tiện ích bổ sung này không?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:77
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Dành ít phút để đọc bài đánh giá của bạn trước khi gửi để giảm thiểu lỗi chính tả."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:82
 msgid "Don't:"
-msgstr ""
+msgstr "Không:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:85
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Gửi đánh giá ngắn như \"tuyệt vời\", \"tệ\" hoặc \"không tốt\"."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:90
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Đăng các sự cố kỹ thuật, yêu cầu hỗ trợ hoặc đề xuất tính năng. Sử dụng các tùy chọn hỗ trợ có sẵn cho từng tiện ích bổ sung, nếu có. Bạn có thể tìm thấy chúng trong phần \"Thêm thông tin\" trong "
+"thanh bên trên trang chi tiết của tiện ích."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:95
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Viết đánh giá cho các tiện ích mà bạn chưa sử dụng."
 
 #: src/amo/pages/UserProfile/index.js:240
 #, fuzzy
