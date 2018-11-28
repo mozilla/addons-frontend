@@ -128,7 +128,7 @@ describe(__filename, () => {
       text: content.sections[0].exploreMore,
     });
 
-    const root = render({ content, slug });
+    const root = render({ slug });
 
     expect(root.find('.Guides')).toHaveLength(1);
 
