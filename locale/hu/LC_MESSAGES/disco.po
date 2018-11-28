@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-20 17:47+0000\n"
+"POT-Creation-Date: 2018-11-27 22:23+0000\n"
 "PO-Revision-Date: 2018-10-24 07:02+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:236
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Enable"
 msgstr "Engedélyezés"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:240
 msgid "Remove"
 msgstr "Eltávolítás"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:242
 msgid "Enabling"
 msgstr "Engedélyezés"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:244
 msgid "Downloading"
 msgstr "Letöltés"
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:246
 msgid "Installing"
 msgstr "Telepítés"
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Uninstalling"
 msgstr "Eltávolítás"
 
-#: src/core/components/AMInstallButton/index.js:255
+#: src/core/components/AMInstallButton/index.js:256
 msgid "Install Theme"
 msgstr "Téma telepítése"
 
-#: src/core/components/AMInstallButton/index.js:256
+#: src/core/components/AMInstallButton/index.js:257
 msgid "Add to Firefox"
 msgstr "Hozzáadás a Firefoxhoz"
 
@@ -139,7 +139,7 @@ msgstr "Ez a kiegészítő nem támogatja az Ön Firefox verzióját."
 msgid "This add-on does not support your browser."
 msgstr "Ez a kiegészítő nem támogatja a böngészőjét."
 
-#: src/disco/components/App/index.js:42
+#: src/disco/components/App/index.js:43
 msgid "Discover Add-ons"
 msgstr "Kiegészítők felfedezése"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-20 17:47+0000\n"
+"POT-Creation-Date: 2018-11-27 22:23+0000\n"
 "PO-Revision-Date: 2018-09-13 06:38+0000\n"
 "Last-Translator: Ruba <ruba.awayes@gmail.com>\n"
 "Language-Team: none\n"
@@ -15,38 +15,38 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:236
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Enable"
 msgstr "فعّل"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:240
 msgid "Remove"
 msgstr "أزِل"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:242
 msgid "Enabling"
 msgstr "يُفعّل"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:244
 #, fuzzy
 msgid "Downloading"
 msgstr "يُنزّل %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:246
 #, fuzzy
 msgid "Installing"
 msgstr "يُثبّت %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:248
 #, fuzzy
 msgid "Uninstalling"
 msgstr "يُلغي تثبيت %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:255
+#: src/core/components/AMInstallButton/index.js:256
 msgid "Install Theme"
 msgstr "ثبّت السمة"
 
-#: src/core/components/AMInstallButton/index.js:256
+#: src/core/components/AMInstallButton/index.js:257
 msgid "Add to Firefox"
 msgstr "أضِف إلى فَيَرفُكس"
 
@@ -142,7 +142,7 @@ msgstr "لا تدعم هذه الإضافة إصدارة فَيَرفُكس لد
 msgid "This add-on does not support your browser."
 msgstr "لا تدعم هذه الإضافة المتصفح لديك."
 
-#: src/disco/components/App/index.js:42
+#: src/disco/components/App/index.js:43
 msgid "Discover Add-ons"
 msgstr "استكشف الإضافات"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-20 17:47+0000\n"
+"POT-Creation-Date: 2018-11-27 22:23+0000\n"
 "PO-Revision-Date: 2018-08-11 12:01+0000\n"
 "Last-Translator: Slimane AMIRI <slimane.amiri@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,38 +14,38 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:236
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:240
 msgid "Remove"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:242
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:244
 #, fuzzy
 msgid "Downloading"
 msgstr "Asider n %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:246
 #, fuzzy
 msgid "Installing"
 msgstr "Asebded n %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:248
 #, fuzzy
 msgid "Uninstalling"
 msgstr "Tukksa n %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:255
+#: src/core/components/AMInstallButton/index.js:256
 msgid "Install Theme"
 msgstr "Sebded asentel"
 
-#: src/core/components/AMInstallButton/index.js:256
+#: src/core/components/AMInstallButton/index.js:257
 msgid "Add to Firefox"
 msgstr "Rnu ɣer Firefox"
 
@@ -143,7 +143,7 @@ msgstr "Azegrir-agi ur ittusefrak-ara di lqem-ik n Firefox."
 msgid "This add-on does not support your browser."
 msgstr "Azegrir-agi ur ittusefrak ara deg iminig-ik."
 
-#: src/disco/components/App/index.js:42
+#: src/disco/components/App/index.js:43
 msgid "Discover Add-ons"
 msgstr "Issin izegrar"
 
