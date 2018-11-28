@@ -21,11 +21,13 @@ describe(__filename, () => {
     Helmet.canUseDOM = _helmetCanUseDOM;
   });
 
-  const createFakeChunkExtractor = () => {
+  const createFakeChunkExtractor = (props = {}) => {
     return {
       getLinkElements: sinon.stub(),
       getMainAssets: sinon.stub().returns([]),
+      getPreAssets: sinon.stub().returns([]),
       getRequiredChunksScriptElement: sinon.stub(),
+      ...props,
     };
   };
 
@@ -190,5 +192,149 @@ describe(__filename, () => {
     const root = render();
     // This is defined in the `FakeApp` component.
     expect(root.find('link[rel="canonical"]')).toHaveLength(1);
+  });
+
+  describe('renderStyles()', () => {
+    it('renders a "link" tag for the main "style" asset', () => {
+      const asset = { chunk: 'foo', url: '/foo.css' };
+      const chunkExtractor = createFakeChunkExtractor({
+        getMainAssets: () => [asset],
+      });
+
+      const root = render({ chunkExtractor });
+
+      expect(root.find('link[data-chunk]')).toHaveLength(1);
+
+      const link = root.find(`link[data-chunk="${asset.chunk}"]`);
+      expect(link).toHaveProp('href', asset.url);
+      expect(link).toHaveProp('rel', 'stylesheet');
+    });
+
+    it('excludes the main bundle', () => {
+      const _config = getFakeConfig({ validAppNames: ['main'] });
+
+      const fooAsset = { chunk: 'foo', url: '/foo.css' };
+      const mainAsset = { chunk: 'main', url: '/main.css' };
+      const chunkExtractor = createFakeChunkExtractor({
+        getMainAssets: () => [fooAsset, mainAsset],
+      });
+
+      const root = render({ _config, chunkExtractor });
+
+      expect(root.find('link[data-chunk]')).toHaveLength(1);
+      expect(root.find(`link[data-chunk="${mainAsset.chunk}"]`)).toHaveLength(
+        0,
+      );
+    });
+
+    it('adds SRI props when `includeSri` prop is set to `true`', () => {
+      const asset = { chunk: 'foo', url: '/foo.css', filename: 'foo.css' };
+      const chunkExtractor = createFakeChunkExtractor({
+        getMainAssets: () => [asset],
+      });
+      const sriData = {
+        ...fakeSRIData,
+        [asset.filename]: 'sha512-something-something',
+      };
+
+      const root = render({ chunkExtractor, includeSri: true, sriData });
+
+      const link = root.find(`link[data-chunk="${asset.chunk}"]`);
+      expect(link).toHaveProp('crossOrigin', 'anonymous');
+      expect(link).toHaveProp('integrity', sriData[asset.filename]);
+    });
+  });
+
+  describe('renderPreLinks', () => {
+    it('returns both "prefetch" and "preload" links for a given asset', () => {
+      const asset = {
+        chunk: 'foo',
+        url: '/foo.js',
+        type: 'childAsset',
+        scriptType: 'script',
+      };
+      const chunkExtractor = createFakeChunkExtractor({
+        getPreAssets: () => [asset],
+      });
+
+      const root = render({ chunkExtractor });
+
+      expect(root.find('link[data-parent-chunk]')).toHaveLength(2);
+
+      const preloadLink = root.find('link[data-parent-chunk]').at(0);
+      expect(preloadLink).toHaveProp('as', asset.scriptType);
+      expect(preloadLink).toHaveProp('data-parent-chunk', asset.chunk);
+      expect(preloadLink).toHaveProp('href', asset.url);
+      expect(preloadLink).toHaveProp('rel', 'preload');
+
+      const prefetchLink = root.find('link[data-parent-chunk]').at(1);
+      expect(prefetchLink).toHaveProp('as', asset.scriptType);
+      expect(prefetchLink).toHaveProp('data-parent-chunk', asset.chunk);
+      expect(prefetchLink).toHaveProp('href', asset.url);
+      expect(prefetchLink).toHaveProp('rel', 'prefetch');
+    });
+  });
+
+  describe('renderAsyncScripts()', () => {
+    it('renders a "script" tag for the main "script" asset', () => {
+      const asset = { chunk: 'foo', url: '/foo.js' };
+      const chunkExtractor = createFakeChunkExtractor({
+        getMainAssets: () => [asset],
+      });
+
+      const root = render({ chunkExtractor });
+
+      expect(root.find('link[data-chunk]')).toHaveLength(1);
+
+      const link = root.find(`script[data-chunk="${asset.chunk}"]`);
+      expect(link).toHaveProp('async', true);
+      expect(link).toHaveProp('src', asset.url);
+    });
+
+    it('excludes the main bundle', () => {
+      const _config = getFakeConfig({ validAppNames: ['main'] });
+
+      const fooAsset = { chunk: 'foo', url: '/foo.js' };
+      const mainAsset = { chunk: 'main', url: '/main.js' };
+      const chunkExtractor = createFakeChunkExtractor({
+        getMainAssets: () => [fooAsset, mainAsset],
+      });
+
+      const root = render({ _config, chunkExtractor });
+
+      expect(root.find('script[data-chunk]')).toHaveLength(1);
+      expect(root.find(`script[data-chunk="${mainAsset.chunk}"]`)).toHaveLength(
+        0,
+      );
+    });
+
+    it('adds SRI props when `includeSri` prop is set to `true`', () => {
+      const asset = { chunk: 'foo', url: '/foo.js', filename: 'foo.js' };
+      const chunkExtractor = createFakeChunkExtractor({
+        getMainAssets: () => [asset],
+      });
+      const sriData = {
+        ...fakeSRIData,
+        [asset.filename]: 'sha512-something-something',
+      };
+
+      const root = render({ chunkExtractor, includeSri: true, sriData });
+
+      const link = root.find(`script[data-chunk="${asset.chunk}"]`);
+      expect(link).toHaveProp('crossOrigin', 'anonymous');
+      expect(link).toHaveProp('integrity', sriData[asset.filename]);
+    });
+  });
+
+  describe('code-splitting', () => {
+    it('renders the required chunks script element', () => {
+      const chunkExtractor = createFakeChunkExtractor();
+
+      sinon.assert.notCalled(chunkExtractor.getRequiredChunksScriptElement);
+
+      render({ chunkExtractor });
+
+      sinon.assert.calledOnce(chunkExtractor.getRequiredChunksScriptElement);
+    });
   });
 });
