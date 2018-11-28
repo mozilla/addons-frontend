@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-11-28 21:10+0000\n"
+"PO-Revision-Date: 2018-11-28 21:18+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1939,9 +1939,8 @@ msgid "Screenshots"
 msgstr "Capturas de tela"
 
 #: src/amo/pages/AddonInfo/index.js:157
-#, fuzzy
 msgid "Custom License for %(addonName)s"
-msgstr "Análises de %(addonName)s"
+msgstr "Licença personalizada do %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:164
 msgid "End-User License Agreement for %(addonName)s"
@@ -2161,9 +2160,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:222
-#, fuzzy
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "Siga as nossas %(linkStart)sdiretrizes de análises%(linkEnd)s."
+msgstr "Explore mais %(linkStart)sextensões de mídia%(linkEnd)s escolhidas pela equipe."
 
 #: src/amo/pages/Guides/index.js:230
 msgid "Improve videos"
@@ -2178,9 +2176,8 @@ msgid "Add a control bar to all YouTube video pages so you can easily adjust vol
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:241
-#, fuzzy
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "Siga as nossas %(linkStart)sdiretrizes de análises%(linkEnd)s."
+msgstr "Explore mais %(linkStart)sextensões de vídeo%(linkEnd)s escolhidas pela equipe."
 
 #: src/amo/pages/Guides/index.js:257
 msgid ""
@@ -2219,9 +2216,8 @@ msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:93
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "Bloqueie anúncios"
+msgstr "Bloqueie anúncios chatos"
 
 #: src/amo/pages/Guides/index.js:94
 msgid ""
