@@ -9,6 +9,7 @@ import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import HeadLinks from 'amo/components/HeadLinks';
 import { fetchGuidesAddons, getGUIDsBySlug } from 'amo/reducers/guides';
+import { CLIENT_APP_ANDROID } from 'core/constants';
 import { getAddonByGUID } from 'core/reducers/addons';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -35,6 +36,7 @@ type InternalProps = {|
   addons: {
     [guid: string]: AddonType | null,
   },
+  clientApp: ?string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   guids: Array<string>,
@@ -299,6 +301,7 @@ export class GuidesBase extends React.Component<InternalProps> {
 
     const {
       addons,
+      clientApp,
       errorHandler,
       i18n,
       loading,
@@ -306,6 +309,10 @@ export class GuidesBase extends React.Component<InternalProps> {
         params: { slug },
       },
     } = this.props;
+
+    if (clientApp === CLIENT_APP_ANDROID) {
+      return;
+    }
 
     if (!loading && Object.keys(addons).length === 0) {
       const guids = getSections({ slug, i18n }).map(
@@ -355,11 +362,11 @@ export class GuidesBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { i18n, match } = this.props;
+    const { clientApp, i18n, match } = this.props;
     const { slug } = match.params;
     const content = getContent(slug, i18n);
 
-    if (!content) {
+    if (!content || clientApp === CLIENT_APP_ANDROID) {
       return <NotFound />;
     }
 
@@ -399,6 +406,7 @@ export const mapStateToProps = (
 
   return {
     addons,
+    clientApp: state.api.clientApp,
     loading,
   };
 };
