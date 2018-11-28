@@ -65,7 +65,7 @@ describe(__filename, () => {
     });
   };
 
-  it('for Firefox, calls getClientCompatibility to determine the compatibility', () => {
+  it('calls getClientCompatibility to determine the compatibility for Firefox', () => {
     const addon = fakeAddon;
 
     _loadVersions({ addon });
@@ -93,7 +93,7 @@ describe(__filename, () => {
     });
   });
 
-  it('when not Firefox, does not call getClientCompatibility', () => {
+  it('does not call getClientCompatibility when the browser is not Firefox', () => {
     const addon = fakeAddon;
 
     const clientApp = CLIENT_APP_FIREFOX;
@@ -104,7 +104,7 @@ describe(__filename, () => {
       userAgent: userAgentsByPlatform.mac.chrome41,
     });
 
-    const root = render({
+    render({
       _getClientCompatibility,
       addon: createInternalAddon(addon),
       store,
@@ -118,7 +118,7 @@ describe(__filename, () => {
     });
   });
 
-  it('when not Firefox, disables the AMInstallButton', () => {
+  it('disables the AMInstallButton when the browser is not Firefox', () => {
     _dispatchClientMetadata({
       userAgent: userAgentsByPlatform.mac.chrome41,
     });
@@ -128,6 +128,18 @@ describe(__filename, () => {
     });
 
     expect(root.find(AMInstallButton)).toHaveProp('disabled', true);
+  });
+
+  it('adds the InstallButtonWrapper--notFirefox class when the browser is not Firefox', () => {
+    _dispatchClientMetadata({
+      userAgent: userAgentsByPlatform.mac.chrome41,
+    });
+
+    const root = render({
+      store,
+    });
+
+    expect(root).toHaveClassName('InstallButtonWrapper--notFirefox');
   });
 
   it('passes an add-on to AMInstallButton', () => {
