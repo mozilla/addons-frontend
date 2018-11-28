@@ -1,0 +1,9 @@
+@import '~amo/css/styles';
+
+.InstallButtonWrapper {
+  @include respond-to(medium) {
+    @include margin-start(auto);
+
+    align-self: center;
+  }
+}

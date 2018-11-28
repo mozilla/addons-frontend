@@ -220,6 +220,7 @@ export const findInstallURL = ({
 
 type WithInstallHelpersProps = {|
   addon: AddonType | null,
+  defaultInstallSource: string,
   location: ReactRouterLocationType,
 |};
 
@@ -231,7 +232,6 @@ type WithInstallHelpersInternalProps = {|
   _log: typeof log,
   _tracking: typeof tracking,
   currentVersion: AddonVersionType | null,
-  defaultInstallSource: string,
   dispatch: DispatchFunc,
   userAgentInfo: UserAgentInfoType,
 |};
@@ -548,50 +548,40 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   }
 }
 
-type withInstallHelpersParams = {|
-  defaultInstallSource: string | null,
-|};
+export const withInstallHelpers = (
+  WrappedComponent: React.ComponentType<any>,
+) => {
+  WithInstallHelpers.displayName = `WithInstallHelpers(${getDisplayName(
+    WrappedComponent,
+  )})`;
 
-export function withInstallHelpers({
-  defaultInstallSource,
-}: withInstallHelpersParams) {
-  invariant(
-    typeof defaultInstallSource !== 'undefined',
-    'defaultInstallSource is required',
-  );
+  const mapStateToProps = (
+    state: AmoAppState | DiscoAppState,
+    ownProps: WithInstallHelpersProps,
+  ) => {
+    const { addon, defaultInstallSource, location } = ownProps;
 
-  return (WrappedComponent: React.ComponentType<any>) => {
-    WithInstallHelpers.displayName = `WithInstallHelpers(${getDisplayName(
+    invariant(typeof addon !== 'undefined', 'addon is required');
+    invariant(
+      typeof defaultInstallSource !== 'undefined',
+      'defaultInstallSource is required',
+    );
+    invariant(location, 'location is required');
+
+    const currentVersion =
+      addon && addon.currentVersionId
+        ? getVersionById({
+            id: addon.currentVersionId,
+            state: state.versions,
+          })
+        : null;
+
+    return {
       WrappedComponent,
-    )})`;
-
-    const mapStateToProps = (
-      state: AmoAppState | DiscoAppState,
-      ownProps: WithInstallHelpersProps,
-    ) => {
-      const { addon, location } = ownProps;
-
-      // Please make sure the `addon` and `location` props are available when
-      // you use this HOC on a component.
-      invariant(typeof addon !== 'undefined', 'addon is required');
-      invariant(location, 'location is required');
-
-      const currentVersion =
-        addon && addon.currentVersionId
-          ? getVersionById({
-              id: addon.currentVersionId,
-              state: state.versions,
-            })
-          : null;
-
-      return {
-        WrappedComponent,
-        currentVersion,
-        defaultInstallSource,
-        userAgentInfo: state.api.userAgentInfo,
-      };
+      currentVersion,
+      userAgentInfo: state.api.userAgentInfo,
     };
-
-    return connect(mapStateToProps)(WithInstallHelpers);
   };
-}
+
+  return connect(mapStateToProps)(WithInstallHelpers);
+};

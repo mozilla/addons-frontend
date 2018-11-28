@@ -15,7 +15,6 @@ import {
   ADDON_TYPE_THEME,
   CLICK_CATEGORY,
   ERROR,
-  INSTALL_SOURCE_DISCOVERY,
   UNINSTALLED,
   UNKNOWN,
   validAddonTypes,
@@ -45,6 +44,7 @@ const CSS_TRANSITION_TIMEOUT = { enter: 700, exit: 300 };
 
 type Props = {|
   addonId: $PropertyType<DiscoResultType, 'addonId'>,
+  defaultInstallSource: string,
   description: $PropertyType<DiscoResultType, 'description'>,
   heading: $PropertyType<DiscoResultType, 'heading'>,
 |};
@@ -57,7 +57,6 @@ type InternalProps = {|
   addon: AddonType,
   clientApp: string,
   currentVersion: AddonVersionType,
-  defaultInstallSource: string,
   error: string | void,
   i18n: I18nType,
   status: $PropertyType<InstalledAddon, 'status'>,
@@ -331,7 +330,7 @@ function mapStateToProps(state: AppState, ownProps: Props) {
     error: installation.error,
     status: installation.status || UNKNOWN,
     userAgentInfo: state.api.userAgentInfo,
-    // The `withInstallHelpers()` HOC requires an `addon` prop too:
+    // The `withInstallHelpers` HOC requires an `addon` prop too:
     addon,
   };
 }
@@ -340,7 +339,7 @@ const Addon: React.ComponentType<Props> = compose(
   withRouter,
   translate(),
   connect(mapStateToProps),
-  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DISCOVERY }),
+  withInstallHelpers,
 )(AddonBase);
 
 export default Addon;

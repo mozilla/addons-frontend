@@ -21,10 +21,13 @@ export const GET_FIREFOX_BUTTON_TYPE_ADDON: 'GET_FIREFOX_BUTTON_TYPE_ADDON' =
   'GET_FIREFOX_BUTTON_TYPE_ADDON';
 export const GET_FIREFOX_BUTTON_TYPE_HEADER: 'GET_FIREFOX_BUTTON_TYPE_HEADER' =
   'GET_FIREFOX_BUTTON_TYPE_HEADER';
+export const GET_FIREFOX_BUTTON_TYPE_NONE: 'GET_FIREFOX_BUTTON_TYPE_NONE' =
+  'GET_FIREFOX_BUTTON_TYPE_NONE';
 
 export type GetFirefoxButtonTypeType =
   | typeof GET_FIREFOX_BUTTON_TYPE_ADDON
-  | typeof GET_FIREFOX_BUTTON_TYPE_HEADER;
+  | typeof GET_FIREFOX_BUTTON_TYPE_HEADER
+  | typeof GET_FIREFOX_BUTTON_TYPE_NONE;
 
 export type Props = {|
   addon?: AddonType,
@@ -41,7 +44,10 @@ type InternalProps = {|
 export const GetFirefoxButtonBase = (props: InternalProps) => {
   const { addon, buttonType, className, i18n, userAgentInfo } = props;
 
-  if (isFirefox({ userAgentInfo })) {
+  if (
+    buttonType === GET_FIREFOX_BUTTON_TYPE_NONE ||
+    isFirefox({ userAgentInfo })
+  ) {
     return null;
   }
 

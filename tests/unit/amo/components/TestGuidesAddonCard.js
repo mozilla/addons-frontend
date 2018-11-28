@@ -1,46 +1,23 @@
 import * as React from 'react';
 
+import AddonInstallError from 'amo/components/AddonInstallError';
+import AddonTitle from 'amo/components/AddonTitle';
+import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import GuidesAddonCard, {
   GuidesAddonCardBase,
 } from 'amo/components/GuidesAddonCard';
-import AddonInstallError from 'amo/components/AddonInstallError';
-import AddonTitle from 'amo/components/AddonTitle';
-import AMInstallButton from 'core/components/AMInstallButton';
-import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
-import GetFirefoxButton from 'amo/components/GetFirefoxButton';
+import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
+import { setInstallError, setInstallState } from 'core/actions/installations';
+import { FATAL_ERROR, INSTALLING, UNKNOWN } from 'core/constants';
+import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
 import {
-  createContextWithFakeRouter,
-  createFakeLocation,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  fakeVersion,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { setInstallError, setInstallState } from 'core/actions/installations';
-import {
-  FATAL_ERROR,
-  INCOMPATIBLE_NOT_FIREFOX,
-  INSTALLING,
-  UNKNOWN,
-} from 'core/constants';
-import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
-import { loadVersions } from 'core/reducers/versions';
 
 describe(__filename, () => {
-  const _loadVersions = ({
-    store,
-    addon = fakeAddon,
-    version = fakeVersion,
-  }) => {
-    store.dispatch(
-      loadVersions({
-        slug: addon.slug,
-        versions: [version],
-      }),
-    );
-  };
-
   const _loadAddonResults = ({ addon = fakeAddon }) => {
     return loadAddonResults({ addons: [addon] });
   };
@@ -50,7 +27,6 @@ describe(__filename, () => {
     addonCustomText = 'Some text',
     hasAddonManager = true,
     i18n = fakeI18n(),
-    location = createFakeLocation(),
     setCurrentStatus = sinon.spy(),
     store = dispatchClientMetadata().store,
     ...customProps
@@ -60,7 +36,6 @@ describe(__filename, () => {
       addonCustomText,
       hasAddonManager,
       i18n,
-      location,
       setCurrentStatus,
       status: UNKNOWN,
       store,
@@ -74,9 +49,6 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <GuidesAddonCard {...allProps} />,
       GuidesAddonCardBase,
-      {
-        shallowOptions: createContextWithFakeRouter(),
-      },
     );
   };
 
@@ -90,8 +62,6 @@ describe(__filename, () => {
       icon_url: iconURL,
       name: addonName,
     });
-
-    _loadVersions({ store, addon });
 
     const root = render({
       addon,
@@ -108,7 +78,7 @@ describe(__filename, () => {
       addonCustomText,
     );
     expect(root.find(AddonTitle)).toHaveLength(1);
-    expect(root.find(AMInstallButton)).toHaveLength(1);
+    expect(root.find(InstallButtonWrapper)).toHaveLength(1);
   });
 
   // TODO: This will be updated when we address the following issue:
@@ -149,50 +119,13 @@ describe(__filename, () => {
     expect(root.find(AddonTitle)).toHaveProp('linkToAddon', true);
   });
 
-  it('passes the addon to AMInstallButton', () => {
+  it('passes the addon to InstallButtonWrapper', () => {
     const { store } = dispatchClientMetadata();
     const addon = createInternalAddon(fakeAddon);
 
-    _loadVersions({ store, addon });
-
     const root = render({ addon, store });
 
-    expect(root.find(AMInstallButton)).toHaveProp('addon', addon);
-  });
-
-  it('passes install helper functions to the install button', () => {
-    const { store } = dispatchClientMetadata();
-    const enable = sinon.stub();
-    const install = sinon.stub();
-    const installTheme = sinon.stub();
-    const uninstall = sinon.stub();
-
-    _loadVersions({ store });
-
-    const root = render({
-      enable,
-      install,
-      installTheme,
-      uninstall,
-      store,
-    });
-
-    const installButton = root.find(AMInstallButton);
-    expect(installButton).toHaveProp('enable', enable);
-    expect(installButton).toHaveProp('install', install);
-    expect(installButton).toHaveProp('installTheme', installTheme);
-    expect(installButton).toHaveProp('uninstall', uninstall);
-  });
-
-  it('renders "Get Firefox Now" button when the client is not Firefox', () => {
-    const root = render({
-      _getClientCompatibility: sinon.stub().returns({
-        compatible: false,
-        reason: INCOMPATIBLE_NOT_FIREFOX,
-      }),
-    });
-
-    expect(root.find(GetFirefoxButton)).toHaveLength(1);
+    expect(root.find(InstallButtonWrapper)).toHaveProp('addon', addon);
   });
 
   it('renders an AddonInstallError component', () => {

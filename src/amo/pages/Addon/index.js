@@ -16,12 +16,11 @@ import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import AddonRecommendations from 'amo/components/AddonRecommendations';
 import AddonTitle from 'amo/components/AddonTitle';
-import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
+import ContributeCard from 'amo/components/ContributeCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import GetFirefoxButton, {
-  GET_FIREFOX_BUTTON_TYPE_ADDON,
-} from 'amo/components/GetFirefoxButton';
+import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
+import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
@@ -36,7 +35,6 @@ import {
 } from 'core/reducers/addons';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { withFixedErrorHandler } from 'core/errorHandler';
-import AMInstallButton from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -45,14 +43,8 @@ import {
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_DETAIL_PAGE,
-  UNKNOWN,
 } from 'core/constants';
-import { withInstallHelpers } from 'core/installAddon';
 import { isTheme, nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
-import {
-  getClientCompatibility as _getClientCompatibility,
-  isFirefox,
-} from 'core/utils/compatibility';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -80,33 +72,22 @@ export class AddonBase extends React.Component {
     clientApp: PropTypes.string.isRequired,
     config: PropTypes.object,
     currentVersion: PropTypes.object,
-    defaultInstallSource: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
-    enable: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    getClientCompatibility: PropTypes.func,
-    isAddonEnabled: PropTypes.func.isRequired,
-    hasAddonManager: PropTypes.bool.isRequired,
     i18n: PropTypes.object.isRequired,
-    install: PropTypes.func.isRequired,
     installError: PropTypes.string,
-    installTheme: PropTypes.func.isRequired,
     lang: PropTypes.string.isRequired,
-    uninstall: PropTypes.func.isRequired,
     // See ReactRouterLocationType in 'core/types/router'
     location: PropTypes.object.isRequired,
     match: PropTypes.shape({
       params: PropTypes.object.isRequired,
     }).isRequired,
-    installStatus: PropTypes.string.isRequired,
     addonsByAuthors: PropTypes.array,
-    userAgentInfo: PropTypes.object.isRequired,
   };
 
   static defaultProps = {
     config: defaultConfig,
     RatingManager: DefaultRatingManager,
-    getClientCompatibility: _getClientCompatibility,
   };
 
   constructor(props) {
@@ -390,21 +371,9 @@ export class AddonBase extends React.Component {
     const {
       addon,
       addonsByAuthors,
-      clientApp,
       currentVersion,
-      defaultInstallSource,
-      enable,
       errorHandler,
-      getClientCompatibility,
-      hasAddonManager,
-      isAddonEnabled,
       i18n,
-      install,
-      installStatus,
-      installTheme,
-      setCurrentStatus,
-      uninstall,
-      userAgentInfo,
     } = this.props;
 
     const isThemeType = addon && isTheme(addon.type);
@@ -448,18 +417,6 @@ export class AddonBase extends React.Component {
     }
 
     const addonPreviews = addon ? addon.previews : [];
-
-    let isCompatible = false;
-    let compatibility;
-    if (addon && isFirefox({ userAgentInfo })) {
-      compatibility = getClientCompatibility({
-        addon,
-        clientApp,
-        currentVersion,
-        userAgentInfo,
-      });
-      isCompatible = compatibility.compatible;
-    }
 
     const numberOfAddonsByAuthors = addonsByAuthors
       ? addonsByAuthors.length
@@ -505,25 +462,10 @@ export class AddonBase extends React.Component {
                 ) : null}
 
                 {addon && (
-                  <AMInstallButton
+                  <InstallButtonWrapper
                     addon={addon}
-                    currentVersion={currentVersion}
-                    defaultInstallSource={defaultInstallSource}
-                    disabled={!isCompatible}
-                    enable={enable}
-                    hasAddonManager={hasAddonManager}
-                    install={install}
-                    installTheme={installTheme}
-                    setCurrentStatus={setCurrentStatus}
-                    status={installStatus}
-                    uninstall={uninstall}
-                    isAddonEnabled={isAddonEnabled}
-                  />
-                )}
-                {addon && (
-                  <GetFirefoxButton
-                    addon={addon}
-                    buttonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+                    defaultInstallSource={INSTALL_SOURCE_DETAIL_PAGE}
+                    getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
                   />
                 )}
               </div>
@@ -611,10 +553,8 @@ export function mapStateToProps(state, ownProps) {
     clientApp: state.api.clientApp,
     currentVersion,
     installError: installedAddon.error,
-    installStatus: installedAddon.status || UNKNOWN,
     lang: state.api.lang,
-    userAgentInfo: state.api.userAgentInfo,
-    // The `withInstallHelpers()` HOC requires an `addon` prop too:
+    // The `withInstallHelpers` HOC requires an `addon` prop too:
     addon,
   };
 }
@@ -626,6 +566,5 @@ export const extractId = (ownProps) => {
 export default compose(
   translate(),
   connect(mapStateToProps),
-  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DETAIL_PAGE }),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonBase);

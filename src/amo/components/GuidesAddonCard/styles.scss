@@ -59,14 +59,18 @@
     flex-wrap: nowrap;
   }
 
-  .GetFirefoxButton {
-    font-size: $font-size-default;
-    text-align: center;
-    white-space: normal;
+  .InstallButtonWrapper--notFirefox {
+    width: 100%;
 
     @include respond-to(medium) {
       flex: 0 0 180px;
     }
+  }
+
+  .GetFirefoxButton {
+    font-size: $font-size-default;
+    text-align: center;
+    white-space: normal;
   }
 }
 

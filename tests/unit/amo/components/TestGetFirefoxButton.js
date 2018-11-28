@@ -3,6 +3,7 @@ import * as React from 'react';
 import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_TYPE_ADDON,
   GET_FIREFOX_BUTTON_TYPE_HEADER,
+  GET_FIREFOX_BUTTON_TYPE_NONE,
   GetFirefoxButtonBase,
 } from 'amo/components/GetFirefoxButton';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
@@ -160,6 +161,20 @@ describe(__filename, () => {
         });
 
         expect(root.children()).toHaveText('Download Firefox');
+      });
+    });
+
+    describe('none type', () => {
+      const buttonType = GET_FIREFOX_BUTTON_TYPE_NONE;
+
+      it('renders nothing when the none type is specified', () => {
+        const root = render({
+          addon: createInternalAddon(fakeAddon),
+          buttonType,
+          store,
+        });
+
+        expect(root.find('.GetFirefoxButton')).toHaveLength(0);
       });
     });
   });
