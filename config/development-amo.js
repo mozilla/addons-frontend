@@ -1,3 +1,7 @@
+const webpackServerHost = process.env.WEBPACK_SERVER_HOST || '127.0.0.1';
+const webpackServerPort = 3001;
+const webpackHost = `${webpackServerHost}:${webpackServerPort}`;
+
 module.exports = {
   apiHost: 'http://localhost:3000',
 
@@ -20,4 +24,13 @@ module.exports = {
   enableFeatureHomeHeroGuides: true,
 
   enableFeatureStaticThemesForAndroid: false,
+
+  CSP: {
+    directives: {
+      // This is needed because `prefetchSrc` isn't supported by FF yet.
+      // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1457204
+      defaultSrc: [webpackHost],
+      prefetchSrc: [webpackHost],
+    },
+  },
 };

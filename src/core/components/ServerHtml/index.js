@@ -100,6 +100,65 @@ export default class ServerHtml extends Component {
     )}`;
   }
 
+  renderStyles() {
+    const { _config, chunkExtractor, includeSri, sriData } = this.props;
+
+    return chunkExtractor
+      .getMainAssets('style')
+      .filter(
+        // We render the main bundle with `getScript()`, so we skip it here.
+        (asset) => !_config.get('validAppNames').includes(asset.chunk),
+      )
+      .map((asset) => {
+        let props = {};
+        if (includeSri) {
+          props = {
+            crossOrigin: 'anonymous',
+            integrity: sriData[asset.filename],
+          };
+        }
+
+        return (
+          <link
+            data-chunk={asset.chunk}
+            href={asset.url}
+            key={asset.url}
+            rel="stylesheet"
+            type="text/css"
+            {...props}
+          />
+        );
+      });
+  }
+
+  renderPreLinks() {
+    const { chunkExtractor } = this.props;
+
+    return chunkExtractor
+      .getPreAssets()
+      // We want to retrieve the bundles with "webpackPreload: true" only, and
+      // not the main bundle (amo or disco).
+      .filter((asset) => asset.type === 'childAsset')
+      // We return both "preload" and "prefetch" links to maximize browser
+      // support, even both links don't have the same goal.
+      .map((asset) => [
+        <link
+          as={asset.scriptType}
+          data-parent-chunk={asset.chunk}
+          href={asset.url}
+          key={`preload-${asset.url}`}
+          rel="preload"
+        />,
+        <link
+          as={asset.scriptType}
+          data-parent-chunk={asset.chunk}
+          href={asset.url}
+          key={`prefetch-${asset.url}`}
+          rel="prefetch"
+        />,
+      ]);
+  }
+
   renderAsyncScripts() {
     const { _config, chunkExtractor, includeSri, sriData } = this.props;
 
@@ -155,9 +214,10 @@ export default class ServerHtml extends Component {
 
           <link rel="shortcut icon" href={this.getFaviconLink()} />
           {head.link.toComponent()}
-          {chunkExtractor.getLinkElements()}
+          {this.renderPreLinks()}
 
           {this.getStyle()}
+          {this.renderStyles()}
 
           {head.script.toComponent()}
         </head>

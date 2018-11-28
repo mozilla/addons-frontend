@@ -23,7 +23,6 @@ import LanguageTools from 'amo/pages/LanguageTools';
 import SearchTools from 'amo/pages/SearchTools';
 import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import ReviewGuide from 'amo/pages/StaticPages/ReviewGuide';
 import SearchPage from 'amo/pages/SearchPage';
 import ServerError from 'amo/components/ErrorPage/ServerError';
 import UserProfile from 'amo/pages/UserProfile';
@@ -34,7 +33,11 @@ import SimulateSyncError from 'core/pages/error-simulation/SimulateSyncError';
 import type { ConfigType } from 'core/types/config';
 
 const About = loadable(() =>
-  import(/* webpackPrefetch: true, webpackPreload: true, webpackChunkName: "about" */ '../../pages/StaticPages/About'),
+  import(/* webpackPreload: true, webpackChunkName: "About" */ '../../pages/StaticPages/About'),
+);
+
+const ReviewGuide = loadable(() =>
+  import(/* webpackPreload: true, webpackChunkName: "ReviewGuide" */ '../../pages/StaticPages/ReviewGuide'),
 );
 
 type Props = {|
