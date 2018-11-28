@@ -21,7 +21,6 @@ export default class SriDataPlugin {
           // `loadable-stats.json` is created by the `LoadablePlugin`
           // (webpack). No need to create SRI for it, it is only used by the
           // server.
-          // TODO: test it
           if (baseName !== 'loadable-stats.json' && !asset.integrity) {
             throw new Error(
               oneLine`The integrity property is falsey for

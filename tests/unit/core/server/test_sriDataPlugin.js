@@ -110,6 +110,35 @@ describe(__filename, () => {
     );
   });
 
+  it('skips the integrity check for "loadable-stats.json"', async () => {
+    const sriFile = path.join(distDir, 'sri.json');
+    const plugin = new SriDataPlugin({ saveAs: sriFile });
+
+    // This is a quick-hack to retrieve the hook in the plugin.
+    const compiler = {
+      hook: null,
+      plugin(event, hook) {
+        this.hook = hook;
+      },
+    };
+    plugin.apply(compiler);
+
+    const stats = {
+      compilation: {
+        assets: {
+          // No `integrity` property in this asset.
+          'loadable-stats.json': {},
+        },
+        errors: [],
+      },
+    };
+
+    // Execute the hook.
+    compiler.hook(stats);
+
+    expect(stats.compilation.errors).toHaveLength(0);
+  });
+
   it('requires a saveAs parameter', () => {
     expect(() => new SriDataPlugin()).toThrowError(
       /saveAs parameter cannot be empty/,
