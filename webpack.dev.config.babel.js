@@ -5,7 +5,6 @@ import path from 'path';
 import config from 'config';
 import webpack from 'webpack';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
-import WriteFilePlugin from 'write-file-webpack-plugin';
 
 import { getPlugins, getRules } from './webpack-common';
 import webpackConfig from './webpack.prod.config.babel';
@@ -63,12 +62,6 @@ export default Object.assign({}, webpackConfig, {
   },
   plugins: [
     ...getPlugins(),
-    // We need this file to be written on disk so that our server code can read
-    // it. In development mode, webpack usually serves the file from memory but
-    // that's not what we want for this file.
-    new WriteFilePlugin({
-      test: /loadable-stats/,
-    }),
     // Load unminified React and Redux in development to get better error
     // messages, because they use
     // [Invariant](https://github.com/zertosh/invariant) which hides error

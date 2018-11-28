@@ -118,7 +118,10 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
   const clientConfig = getClientConfig(config);
 
   const plugins = [
-    new LoadablePlugin(),
+    // We need this file to be written on disk so that our server code can read
+    // it. In development mode, webpack usually serves the file from memory but
+    // that's not what we want for this file.
+    new LoadablePlugin({ writeToDisk: true }),
     new webpack.DefinePlugin({
       CLIENT_CONFIG: JSON.stringify(clientConfig),
       'process.env.NODE_ENV': JSON.stringify('production'),
