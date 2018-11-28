@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-11-28 07:52+0000\n"
+"PO-Revision-Date: 2018-11-28 08:01+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -118,7 +118,7 @@ msgstr "Tiện ích này yêu cầu <a href=\"%(downloadUrl)s\">phiên bản m�
 
 #: src/amo/components/AddonCompatibilityError/index.js:130
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Trình duyệt của bạn không hỗ trợ add-on. Bạn có thể <a href=\"%(downloadUrl)s\">tải về Firefox</a> để cài đặt add-on này."
+msgstr "Trình duyệt của bạn không hỗ trợ tiện ích. Bạn có thể <a href=\"%(downloadUrl)s\">tải về Firefox</a> để cài đặt tiện ích này."
 
 #: src/amo/components/AddonCompatibilityError/index.js:95
 msgid "This add-on is not compatible with your version of Firefox."
@@ -1676,9 +1676,8 @@ msgid "Extension"
 msgstr "Tiện ích mở rộng"
 
 #: src/amo/components/SearchFilters/index.js:113
-#, fuzzy
 msgid "Search Tool"
-msgstr "Các công cụ tìm kiếm"
+msgstr "Công cụ tìm kiếm"
 
 #: src/amo/components/SearchFilters/index.js:118
 msgid "Theme"
@@ -1698,11 +1697,11 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:143
 msgid "Relevance"
-msgstr ""
+msgstr "Mức độ liên quan"
 
 #: src/amo/components/SearchFilters/index.js:145
 msgid "Recently Updated"
-msgstr ""
+msgstr "Được cập nhật Gần đây"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "Most Users"
@@ -1710,11 +1709,11 @@ msgstr "Hầu hết người dùng"
 
 #: src/amo/components/SearchFilters/index.js:149
 msgid "Top Rated"
-msgstr ""
+msgstr "Được xếp hạng cao nhất"
 
 #: src/amo/components/SearchFilters/index.js:150
 msgid "Trending"
-msgstr ""
+msgstr "Xu hướng"
 
 #: src/amo/components/SearchFilters/index.js:162
 msgid "Filter results"
@@ -2002,7 +2001,7 @@ msgstr "Xem các tiện ích được đánh giá cao nhất"
 
 #: src/amo/pages/Category/index.js:180 src/amo/pages/Home/index.js:303 src/amo/pages/LandingPage/index.js:172
 msgid "See more featured themes"
-msgstr "Xem thêm các giao diện nổi bật"
+msgstr "Xem thêm các chủ đề nổi bật"
 
 #: src/amo/pages/Category/index.js:190 src/amo/pages/LandingPage/index.js:178
 msgid "See more trending themes"
@@ -2030,11 +2029,11 @@ msgstr "Đăng nhập để chỉnh sửa bộ sưu tập"
 
 #: src/amo/pages/Collection/index.js:438
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr "Đầu tiên, tạo bộ sưu tập của bạn. Sau đó, bạn có thể thêm tiện ích mở rộng và giao diện."
+msgstr "Đầu tiên, tạo bộ sưu tập của bạn. Sau đó, bạn có thể thêm tiện ích mở rộng và chủ đề."
 
 #: src/amo/pages/Collection/index.js:441
 msgid "Search for extensions and themes to add to your collection."
-msgstr "Tìm kiếm các tiện ích mở rộng và giao diện để thêm vào bộ sưu tập của bạn."
+msgstr "Tìm kiếm các tiện ích mở rộng và chủ đề để thêm vào bộ sưu tập của bạn."
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2426,7 +2425,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:22
 msgid "About Firefox Add-ons"
-msgstr ""
+msgstr "Giới thiệu về Tiện ích Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:31
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
@@ -2443,10 +2442,12 @@ msgstr ""
 #: src/amo/pages/StaticPages/About/index.js:52
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 msgstr ""
+"Nếu bạn đang tìm kiếm các tiện ích cho Thunderbird hoặc SeaMonkey, vui lòng truy cập %(startTBLink)saddons.thunderbird.net%(endTBLink)s hoặc "
+"%(startSMLink)ssaddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:69
 msgid "A community of creators"
-msgstr ""
+msgstr "Cộng đồng người sáng tạo"
 
 #: src/amo/pages/StaticPages/About/index.js:71
 msgid ""
