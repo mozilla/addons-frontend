@@ -12,6 +12,11 @@ import {
   OUTCOME_RECOMMENDED,
   loadRecommendations,
 } from 'amo/reducers/recommendations';
+import { formatFilesize } from 'core/i18n/utils';
+import { DEFAULT_API_PAGE_SIZE } from 'core/api';
+import { ADDON_TYPE_EXTENSION, OS_MAC, OS_WINDOWS } from 'core/constants';
+import { loadAddonResults } from 'core/reducers/addons';
+import { searchLoad } from 'core/reducers/search';
 import versionsReducer, {
   createInternalVersion,
   fetchVersion,
@@ -25,15 +30,12 @@ import versionsReducer, {
   createPlatformFiles,
   defaultPlatformFiles,
 } from 'core/reducers/versions';
-import { DEFAULT_API_PAGE_SIZE } from 'core/api';
-import { ADDON_TYPE_EXTENSION, OS_MAC, OS_WINDOWS } from 'core/constants';
-import { loadAddonResults } from 'core/reducers/addons';
-import { searchLoad } from 'core/reducers/search';
 import {
   createAddonsApiResult,
   createFakeCollectionAddon,
   createFakeCollectionDetail,
   fakeAddon,
+  fakeI18n,
   fakePlatformFile,
   fakeVersion,
   userAgentsByPlatform,
@@ -217,6 +219,20 @@ describe(__filename, () => {
   });
 
   describe('getVersionInfo', () => {
+    const _getVersionInfo = ({
+      _findFileForPlatform = sinon.spy(),
+      state = initialState,
+      versionId,
+      userAgentInfo = UAParser(userAgentsByPlatform.windows.firefox40),
+    }) => {
+      return getVersionInfo({
+        _findFileForPlatform,
+        i18n: fakeI18n(),
+        state,
+        versionId,
+        userAgentInfo,
+      });
+    };
     it('returns created and filesize from a version file', () => {
       const created = Date().toString();
       const size = 1234;
@@ -228,29 +244,26 @@ describe(__filename, () => {
       );
 
       expect(
-        getVersionInfo({
+        _getVersionInfo({
           _findFileForPlatform,
           state,
           versionId: fakeVersion.id,
-          userAgentInfo: UAParser(userAgentsByPlatform.windows.firefox40),
         }),
-      ).toEqual({ created, filesize: size });
+      ).toMatchObject({
+        created,
+        filesize: formatFilesize({ i18n: fakeI18n(), size }),
+      });
     });
 
     it('returns null when no version has been loaded', () => {
-      const _findFileForPlatform = sinon.stub().returns(undefined);
-
       expect(
-        getVersionInfo({
-          _findFileForPlatform,
-          state: initialState,
+        _getVersionInfo({
           versionId: 1,
-          userAgentInfo: UAParser(userAgentsByPlatform.windows.firefox40),
         }),
       ).toEqual(null);
     });
 
-    it('returns null when no file is found', () => {
+    it('returns null for created and filesize when no file is found', () => {
       const _findFileForPlatform = sinon.stub().returns(undefined);
 
       const state = versionsReducer(
@@ -259,13 +272,104 @@ describe(__filename, () => {
       );
 
       expect(
-        getVersionInfo({
+        _getVersionInfo({
           _findFileForPlatform,
           state,
           versionId: fakeVersion.id,
-          userAgentInfo: UAParser(userAgentsByPlatform.windows.firefox40),
         }),
-      ).toEqual(null);
+      ).toMatchObject({ created: null, filesize: null });
+    });
+
+    it('returns the expected compatibility string for a max=*', () => {
+      const app = 'testApp';
+      const min = '1.0';
+      const version = {
+        ...fakeVersion,
+        compatibility: {
+          [app]: {
+            min,
+            max: '*',
+          },
+        },
+      };
+      const state = versionsReducer(
+        undefined,
+        loadVersions({
+          slug: 'some-slug',
+          versions: [version],
+        }),
+      );
+
+      expect(
+        _getVersionInfo({
+          state,
+          versionId: version.id,
+        }).compatibilityString,
+      ).toEqual(`Works with ${app} ${min} and later`);
+    });
+
+    it('returns the expected compatibility string for max and min', () => {
+      const app = 'testApp';
+      const max = '2.0';
+      const min = '1.0';
+      const version = {
+        ...fakeVersion,
+        compatibility: {
+          [app]: {
+            min,
+            max,
+          },
+        },
+      };
+      const state = versionsReducer(
+        undefined,
+        loadVersions({
+          slug: 'some-slug',
+          versions: [version],
+        }),
+      );
+
+      expect(
+        _getVersionInfo({
+          state,
+          versionId: version.id,
+        }).compatibilityString,
+      ).toEqual(`Works with ${app} ${min} to ${max}`);
+    });
+
+    it('returns a compatibility string for multiple apps', () => {
+      const app1 = 'testApp1';
+      const app2 = 'testApp2';
+      const min = '1.0';
+      const version = {
+        ...fakeVersion,
+        compatibility: {
+          [app1]: {
+            min,
+            max: '*',
+          },
+          [app2]: {
+            min,
+            max: '*',
+          },
+        },
+      };
+      const state = versionsReducer(
+        undefined,
+        loadVersions({
+          slug: 'some-slug',
+          versions: [version],
+        }),
+      );
+
+      expect(
+        _getVersionInfo({
+          state,
+          versionId: version.id,
+        }).compatibilityString,
+      ).toEqual(
+        `Works with ${app1} ${min} and later, ${app2} ${min} and later`,
+      );
     });
   });
 

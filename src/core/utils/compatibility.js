@@ -52,7 +52,7 @@ export function getCompatibleVersions({
   // Assume the add-on is incompatible until we see explicit support.
   let supportsClientApp = false;
 
-  if (currentVersion && currentVersion.compatibility) {
+  if (currentVersion) {
     const compatInfo = currentVersion.compatibility[clientApp];
     if (compatInfo) {
       supportsClientApp = true;
