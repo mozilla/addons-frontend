@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-11-29 02:40+0000\n"
+"PO-Revision-Date: 2018-11-29 11:44+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -165,9 +165,8 @@ msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)
 msgstr "%s – Suplimente pentru Firefox"
 
 #: src/amo/components/AddonHead/index.js:66
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Suplimente pentru Firefox"
+msgstr "%(addonName)s – Obține această extensie pentru 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:71
 #, fuzzy
