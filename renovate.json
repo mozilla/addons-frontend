@@ -2,10 +2,7 @@
   "extends": [
     "config:js-app",
     ":maintainLockFilesWeekly",
-    ":prNotPending",
-    "monorepo:babel",
-    "monorepo:react",
-    "monorepo:reactrouter"
+    ":prNotPending"
   ],
   "packageRules": [
     {
@@ -20,6 +17,14 @@
         "devDependencies"
       ],
       "rangeStrategy": "replace"
+    },
+    {
+      "packagePatterns": [
+        "react-cookie",
+        "universal-cookie",
+        "universal-cookie-express"
+      ],
+      "groupName": "reactivestack/cookies"
     }
   ]
 }
