@@ -130,7 +130,7 @@ export const getSections = ({
         // Tree Style Tab
         {
           addonGuid: 'treestyletab@piro.sakura.ne.jp',
-          header: i18n.gettext('Re-imagine tab management'),
+          header: i18n.gettext('Reimagine tab management'),
           description: i18n.gettext(
             `If you typically work with a lot of open tabs, you’re probably
               familiar with the frustration of searching through a row of
@@ -186,23 +186,24 @@ export const getSections = ({
       ];
     case 'enhance-your-media-experience':
       return [
-        // Worldwide Radio
+        // Enhancer for YouTube
         {
-          addonGuid: 'worldwide@radio',
-          header: i18n.gettext('Bring media right into the browser'),
+          addonGuid: 'enhancerforyoutube@maximerf.addons.mozilla.org',
+          header: i18n.gettext('Improve videos'),
           description: i18n.gettext(
-            `Extensions can turn Firefox into your very own entertainment
-            hub that gives you instant access to music, image capturing,
-            gaming, and more.`,
+            `If you enjoy video content, extensions offer a number of ways to
+            optimize your experience, including customizing YouTube to your taste
+            and playing videos in theater mode.`,
           ),
           addonCustomText: i18n.gettext(
-            `Access 30,000+ radio stations from all over the globe, always
-            just a click away.`,
+            `Add a control bar to all YouTube video pages so you can easily
+            adjust volume, playback speed, video player size, advertising and
+            annotation blocking, and other features. `,
           ),
           exploreMore: i18n.gettext(
-            'Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s.',
+            'Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks.',
           ),
-          exploreUrl: '/extensions/photos-music-videos/',
+          exploreUrl: '/collections/mozilla/watching-videos/',
         },
         // Search by Image - Reverse Image Search
         {
@@ -224,24 +225,23 @@ export const getSections = ({
           ),
           exploreUrl: '/collections/mozilla/must-have-media/',
         },
-        // Enhancer for YouTube
+        // Worldwide Radio
         {
-          addonGuid: 'enhancerforyoutube@maximerf.addons.mozilla.org',
-          header: i18n.gettext('Improve videos'),
+          addonGuid: 'worldwide@radio',
+          header: i18n.gettext('Bring media right into the browser'),
           description: i18n.gettext(
-            `If you enjoy video content, extensions offer a number of ways to
-            optimize your experience, from customizing YouTube to taste, to
-            playing videos in theater mode, and much more.`,
+            `Extensions can turn Firefox into your very own entertainment
+            hub that gives you instant access to music, image capturing,
+            gaming, and more.`,
           ),
           addonCustomText: i18n.gettext(
-            `Add a control bar to all YouTube video pages so you can easily
-            adjust volume, playback speed, video player size, advertising and
-            annotation blocking, and other features. `,
+            `Access 30,000+ radio stations from all over the globe, always
+            just a click away.`,
           ),
           exploreMore: i18n.gettext(
-            'Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks.',
+            'Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s.',
           ),
-          exploreUrl: '/collections/mozilla/watching-videos/',
+          exploreUrl: '/extensions/photos-music-videos/',
         },
       ];
     default:
@@ -376,8 +376,8 @@ export class GuidesBase extends React.Component<InternalProps> {
             <Icon className="Guides-header-icon" name={icon} />
             <h1 className="Guides-header-page-title">{title}</h1>
             <p className="Guides-header-intro">{introText}</p>
-            {this.getGuidesSections(sections)}
           </div>
+          {this.getGuidesSections(sections)}
         </div>
       </div>
     );
