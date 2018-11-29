@@ -32,9 +32,9 @@ export class HomeHeroGuidesBase extends React.PureComponent<InternalProps> {
         url: '/guides/stay-safe-online/',
       },
       {
-        title: i18n.gettext('Organize Your Tabs'),
+        title: i18n.gettext('Organize Tabs & Bookmarks'),
         icon: 'browser',
-        url: '/guides/organize-your-tabs/',
+        url: '/guides/organize-tabs-and-bookmarks/',
       },
       {
         title: i18n.gettext('Enhance Your Media Experience'),
@@ -50,7 +50,7 @@ export class HomeHeroGuidesBase extends React.PureComponent<InternalProps> {
     return (
       <div className="HomeHeroGuides-header">
         <h2 className="HomeHeroGuides-header-title">
-          {i18n.gettext('Extensions are like apps for your browsers.')}
+          {i18n.gettext('Extensions are like apps for your browser.')}
         </h2>
         <h3 className="HomeHeroGuides-header-subtitle">
           {i18n.gettext(

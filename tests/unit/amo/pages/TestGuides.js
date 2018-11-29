@@ -22,7 +22,7 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const render = ({ slug = 'organize-your-tabs', ...props } = {}) => {
+  const render = ({ slug = 'organize-tabs-and-bookmarks', ...props } = {}) => {
     const allProps = {
       store: dispatchClientMetadata().store,
       i18n: fakeI18n(),

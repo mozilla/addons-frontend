@@ -125,7 +125,7 @@ export const getSections = ({
           exploreUrl: '/collections/mozilla/privacy-matters/',
         },
       ];
-    case 'organize-your-tabs':
+    case 'organize-tabs-and-bookmarks':
       return [
         // Tree Style Tab
         {
@@ -264,7 +264,7 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
         sections: getSections({ slug, i18n }),
       };
     }
-    case 'organize-your-tabs': {
+    case 'organize-tabs-and-bookmarks': {
       return {
         title: i18n.gettext('Organize Tabs & Bookmarks'),
         introText: i18n.gettext(
