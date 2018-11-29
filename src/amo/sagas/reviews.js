@@ -347,14 +347,6 @@ function* manageAddonReview(
           newReview: createInternalReview(reviewFromResponse),
         }),
       );
-
-      yield put(
-        updateRatingCounts({
-          addonId: reviewFromResponse.addon.id,
-          oldReview,
-          newReview: createInternalReview(reviewFromResponse),
-        }),
-      );
     }
 
     // Make the message disappear after some time.

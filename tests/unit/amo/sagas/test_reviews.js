@@ -642,6 +642,12 @@ describe(__filename, () => {
       });
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
+
+      // It's important that the update only runs once because otherwise
+      // it will double all the review counts.
+      expect(
+        sagaTester.getCalledActions().filter((a) => a.type === action.type),
+      ).toHaveLength(1);
     });
 
     it('updates an add-on review', async () => {
