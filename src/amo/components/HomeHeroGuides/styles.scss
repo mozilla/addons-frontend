@@ -36,7 +36,11 @@ $icon-size: 40px;
 
 .HomeHeroGuides-sections {
   .Hero-name-HomeHeroGuides {
-    border-bottom: 1px solid $grey-30;
+    @include respond-to(large) {
+      border-bottom: 1px solid $grey-30;
+      margin-left: 30px;
+      margin-right: 30px;
+    }
   }
 
   .Card-contents {
@@ -50,8 +54,6 @@ $icon-size: 40px;
       grid-gap: 0 30px;
       grid-template-columns: 1fr 1fr 1fr;
       margin-bottom: 24px;
-      padding-left: 30px;
-      padding-right: 30px;
     }
 
     .HeroSection-link-wrapper {
