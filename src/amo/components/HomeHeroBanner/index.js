@@ -270,6 +270,20 @@ export class HomeHeroBannerBase extends React.Component<InternalProps> {
         description: i18n.gettext('See how Facebook ads target you'),
         url: '/addon/ad-analysis-for-facebook/',
       },
+      {
+        title: i18n.gettext('SoundFixer'),
+        description: i18n.gettext(
+          'Adjust audio levels for sounds you encounter around web',
+        ),
+        url: '/addon/soundfixer/',
+      },
+      {
+        title: i18n.gettext('Lilo'),
+        description: i18n.gettext(
+          'Fund social causes by simply using Lilo search',
+        ),
+        url: '/addon/lilo/',
+      },
     ];
   }
 
