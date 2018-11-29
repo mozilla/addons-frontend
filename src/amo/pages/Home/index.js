@@ -32,8 +32,8 @@ import Icon from 'ui/components/Icon';
 import './styles.scss';
 
 export const FEATURED_COLLECTIONS = [
-  { slug: 'privacy-matters', username: 'mozilla' },
-  { slug: 'social-media-customization', username: 'mozilla' },
+  { slug: 'news-boosters', username: 'mozilla' },
+  { slug: 'weather-reports', username: 'mozilla' },
 ];
 
 export const isFeaturedCollection = (
@@ -51,14 +51,14 @@ export const isFeaturedCollection = (
 export const getFeaturedCollectionsMetadata = (i18n) => {
   return [
     {
-      footerText: i18n.gettext('See more privacy & security extensions'),
-      header: i18n.gettext('Privacy & security'),
+      footerText: i18n.gettext('See more news boosters'),
+      header: i18n.gettext('News boosters'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[0],
     },
     {
-      footerText: i18n.gettext('See more social media customization'),
-      header: i18n.gettext('Social media customization'),
+      footerText: i18n.gettext('See more weather reports'),
+      header: i18n.gettext('Weather reports'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[1],
     },
@@ -291,9 +291,23 @@ export class HomeBase extends React.Component {
           {this.renderCuratedCollections()}
         </Card>
 
-        {renderFeaturedCollection(0)}
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={shelves.featuredExtensions}
+          className="Home-FeaturedExtensions"
+          header={i18n.gettext('Featured extensions')}
+          footerText={i18n.gettext('See more featured extensions')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_EXTENSION,
+              featured: true,
+            },
+          }}
+          loading={loading}
+        />
 
-        {renderFeaturedCollection(1)}
+        {renderFeaturedCollection(0)}
 
         {includeFeaturedThemes && showThemes && (
           <LandingAddonsCard
@@ -316,21 +330,7 @@ export class HomeBase extends React.Component {
           />
         )}
 
-        <LandingAddonsCard
-          addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={shelves.featuredExtensions}
-          className="Home-FeaturedExtensions"
-          header={i18n.gettext('Featured extensions')}
-          footerText={i18n.gettext('See more featured extensions')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_EXTENSION,
-              featured: true,
-            },
-          }}
-          loading={loading}
-        />
+        {renderFeaturedCollection(1)}
 
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
