@@ -23,6 +23,7 @@ import { logOutUser } from 'amo/reducers/users';
 import { ALL_SUPER_POWERS } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
+import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import {
   createFakeEvent,
   createStubErrorHandler,
@@ -1011,9 +1012,9 @@ describe(__filename, () => {
   });
 
   describe('byLine', () => {
-    function renderByLine(root) {
+    const renderByLine = (root) => {
       return shallow(root.find(UserReview).prop('byLine'));
-    }
+    };
 
     it('renders a byLine with a permalink to the review', () => {
       const slug = 'some-slug';
@@ -1074,25 +1075,41 @@ describe(__filename, () => {
     it('builds a byLine string by extracting the timestamp and inserting a link', () => {
       const firstPart = 'this is the first part';
       const lastPart = 'this is the last part';
-      const byLineString = `${firstPart} %(timestamp)s ${lastPart}`;
+      const byLineString = `${firstPart} %(linkStart)s %(timestamp)s %(linkEnd)s ${lastPart}`;
+
       const i18n = {
         ...fakeI18n(),
         gettext: sinon.stub().returns(byLineString),
       };
-      const review = _setReview(fakeReview);
-      const root = render({ i18n, shortByLine: true, review });
 
-      expect(
-        renderByLine(root)
-          .text()
-          .startsWith(firstPart),
-      ).toBe(true);
-      expect(
-        renderByLine(root)
-          .text()
-          .endsWith(lastPart),
-      ).toBe(true);
-      expect(renderByLine(root).find(Link)).toHaveLength(1);
+      const review = _setReview(fakeReview);
+
+      const linkParts = getLocalizedTextWithLinkParts({
+        i18n: fakeI18n(),
+        text: byLineString,
+        otherVars: {
+          authorName: review.userName,
+          timestamp: i18n.moment(review.created).fromNow(),
+        },
+      });
+
+      const root = render({
+        i18n,
+        shortByLine: true,
+        review,
+      });
+
+      const authorByLine = renderByLine(root);
+
+      expect(authorByLine.childAt(0).text()).toEqual(linkParts.beforeLinkText);
+
+      const authorTimestampLink = authorByLine.find(Link);
+
+      expect(authorTimestampLink.children().text()).toEqual(
+        linkParts.innerLinkText,
+      );
+
+      expect(authorByLine.childAt(2).text()).toEqual(linkParts.afterLinkText);
     });
   });
 

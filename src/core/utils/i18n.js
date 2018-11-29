@@ -8,6 +8,7 @@ type GetLocalizedTextWithLinkPartsParams = {|
   text: string,
   linkStart?: string,
   linkEnd?: string,
+  otherVars?: Object,
 |};
 
 export const getLocalizedTextWithLinkParts = ({
@@ -15,15 +16,17 @@ export const getLocalizedTextWithLinkParts = ({
   text,
   linkStart = 'linkStart',
   linkEnd = 'linkEnd',
-}: GetLocalizedTextWithLinkPartsParams): Object => {
+  otherVars,
+}: GetLocalizedTextWithLinkPartsParams = {}): Object => {
   const linkDelimiter = '__LINK__';
 
-  const localizedExploreMoreLink = i18n.sprintf(text, {
+  const localizedLink = i18n.sprintf(text, {
     [linkStart]: linkDelimiter,
     [linkEnd]: linkDelimiter,
+    ...otherVars,
   });
 
-  const parts = localizedExploreMoreLink.split(linkDelimiter);
+  const parts = localizedLink.split(linkDelimiter);
 
   invariant(
     parts.length === 3,

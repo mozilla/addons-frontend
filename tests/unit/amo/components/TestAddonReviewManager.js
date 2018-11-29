@@ -1,4 +1,4 @@
-import { render as staticRender } from 'enzyme';
+import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import {
@@ -15,7 +15,9 @@ import AddonReviewManager, {
   extractId,
 } from 'amo/components/AddonReviewManager';
 import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
+import Link from 'amo/components/Link';
 import { ErrorHandler } from 'core/errorHandler';
+import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import ErrorList from 'ui/components/ErrorList';
 import {
   dispatchClientMetadata,
@@ -69,15 +71,34 @@ describe(__filename, () => {
   });
 
   it('renders a DismissibleTextForm formFooter', () => {
-    const root = render();
+    const firstPart = 'this is the first part';
+    const lastPart = 'this is the last part';
+    const text = `${firstPart} %(linkStart)s guides link %(linkEnd)s ${lastPart}`;
+
+    const i18n = {
+      ...fakeI18n(),
+      gettext: sinon.stub().returns(text),
+    };
+
+    const linkParts = getLocalizedTextWithLinkParts({
+      i18n,
+      text,
+    });
+
+    const root = render({ i18n });
 
     const form = root.find(DismissibleTextForm);
     expect(form).toHaveProp('formFooter');
 
-    const formFooter = staticRender(form.prop('formFooter'));
-    expect(formFooter.text()).toContain('Please follow our review guidelines');
+    const formFooter = shallow(form.prop('formFooter'));
 
-    expect(formFooter.find('a').text()).toEqual('review guidelines');
+    expect(formFooter.childAt(0).text()).toEqual(linkParts.beforeLinkText);
+
+    const formFooterLink = formFooter.find(Link);
+
+    expect(formFooterLink.children().text()).toEqual(linkParts.innerLinkText);
+
+    expect(formFooter.childAt(2).text()).toEqual(linkParts.afterLinkText);
   });
 
   it('configures DismissibleTextForm with an ID', () => {
