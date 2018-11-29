@@ -12690,14 +12690,14 @@ react-autowhatever@^10.1.2:
     react-themeable "^1.1.0"
     section-iterator "^2.0.0"
 
-react-cookie@3.0.6:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-3.0.6.tgz#5c97903170158cb1fab290897b89997c86524080"
-  integrity sha512-vMOHxPrD53BN3CWZfcX2rAdeqD0zIKiuMJVT4Tean8JK0otryXB9cloni4OUa5Hq3S9s5fsbcK642SbsAxp7mw==
+react-cookie@3.0.7:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-3.0.7.tgz#3e7835e5bd1077bf253f18bf8c61260908c27b4a"
+  integrity sha512-c4lGOqIPC54kUocE7kbuqZNeIdXtZGzXQMA7BSWhaJ/5tWeoW5fJ7mF/pR+rU5fYDF9kktTHCIbovwSsNYblOg==
   dependencies:
     "@types/hoist-non-react-statics" "^3.0.1"
     hoist-non-react-statics "^3.0.0"
-    universal-cookie "^3.0.6"
+    universal-cookie "^3.0.7"
 
 react-dev-utils@^5.0.0:
   version "5.0.3"
@@ -15687,17 +15687,17 @@ unist-util-visit@^1.1.0:
   dependencies:
     unist-util-visit-parents "^2.0.0"
 
-universal-cookie-express@3.0.6:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-3.0.6.tgz#590bb740ebda3e9426b00e5a884c2029c0406f9a"
-  integrity sha512-ZIdXr7YLvKBMp3OfXbjPDzyVCwfHALNftqY/X8m/LCEnxwG4eu7a0YMO1GvlABWnuI3P8VbhPNix/qSQYORz3Q==
+universal-cookie-express@3.0.7:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-3.0.7.tgz#7654f95cd593c342cb742cf50bc3a0148b910b99"
+  integrity sha512-Nq4TxRR8gOQEGeVyqIHXvVRVVGi90n3nO1rL6MJOtUQlof0gx0lkKtM/Y0URbms8w3jizmV1omMuRG2dGLe2iw==
   dependencies:
-    universal-cookie "^3.0.6"
+    universal-cookie "^3.0.7"
 
-universal-cookie@^3.0.6:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/universal-cookie/-/universal-cookie-3.0.6.tgz#5ebf69349b06aa3387317b6d04acb896237ab7cb"
-  integrity sha512-VxVnwj1bWVLuYKAbaeQ6PL4NlIEWB6r4PUjwKp76nFnrLyqQtnOKAHe9dOjESpcJ4gPoc/Zkxb/6ZK+FMuEioA==
+universal-cookie@^3.0.7:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/universal-cookie/-/universal-cookie-3.0.7.tgz#722e8bc455bb33ed3c74988344fad9d9bb88278e"
+  integrity sha512-wfZRbaEzFTDbP64fzTfGDfokB3pWkDNjtsuRAZQWaiuj/Up+3/0AEvN4IhFHPK24iGNtGJ6PNIxv1GQzMSiyMw==
   dependencies:
     "@types/cookie" "^0.3.1"
     "@types/object-assign" "^4.0.30"
