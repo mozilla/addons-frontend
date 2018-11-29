@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-11-29 16:29+0000\n"
+"PO-Revision-Date: 2018-11-29 16:51+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1240,7 +1240,7 @@ msgstr "Favoritos privativos"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Password-protect your personal bookmarks"
-msgstr ""
+msgstr "Proteja com senha seus favoritos pessoais"
 
 #: src/amo/components/HomeHeroBanner/index.js:43
 msgid "New Tab Override"
@@ -1324,11 +1324,11 @@ msgstr "Realce sua experiência com mídia"
 
 #: src/amo/components/HomeHeroGuides/index.js:53
 msgid "Extensions are like apps for your browsers."
-msgstr ""
+msgstr "Extensões são como aplicativos para seus navegadores."
 
 #: src/amo/components/HomeHeroGuides/index.js:56
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "Elas adicionam funcionalidades ao Firefox para tornar a navegação mais rápida, mais inteligente ou simplesmente divertida."
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
@@ -1928,7 +1928,7 @@ msgstr "Notas de lançamento para %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:489
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Esta não é uma lista pública. Você só a está vendo por suas permissões elevadas."
 
 #: src/amo/pages/Addon/index.js:532
 msgid "Extension Metadata"
@@ -2022,11 +2022,11 @@ msgstr "Busque por extensões e temas para adicioná-los em sua coleção."
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Baixe e crie coleções do Firefox para acompanhar extensões e temas preferidos. Explore o %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:506
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Baixe e crie coleções do Firefox para acompanhar suas extensões e temas preferidos. Explore a %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:111
 msgid "Collections"
@@ -2058,7 +2058,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:104
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Explore mais %(linkStart)sbloqueadores de anúncios%(linkEnd)s de escolha da equipe."
 
 #: src/amo/pages/Guides/index.js:112
 msgid "Stop online trackers from stalking you"
@@ -2074,7 +2074,7 @@ msgstr "Isole sua identidade no Facebook em um “contêiner” separado, para i
 
 #: src/amo/pages/Guides/index.js:122
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Explore mais %(linkStart)sprivacidade e segurança%(linkEnd)s de escolha da equipe."
 
 #: src/amo/pages/Guides/index.js:133
 msgid "Re-imagine tab management"
@@ -2092,7 +2092,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:144
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Explore mais %(linkStart)sgerenciamento de abas%(linkEnd)s de escolha da equipe."
 
 #: src/amo/pages/Guides/index.js:152
 msgid "Better browsing with improved bookmarks"
@@ -2110,7 +2110,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:164
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Explore mais %(linkStart)sgerenciadores de favoritos%(linkEnd)s de escolha da equipe."
 
 #: src/amo/pages/Guides/index.js:172
 msgid "Enjoy a fresh new tab experience"
@@ -2118,7 +2118,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:173
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "Inicie cada sessão de navegação sob medida para você, personalizando sua nova experiência de abas."
 
 #: src/amo/pages/Guides/index.js:177
 #, fuzzy
@@ -2131,7 +2131,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:192
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "Traga mídias diretamente para o navegador"
 
 #: src/amo/pages/Guides/index.js:193
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
