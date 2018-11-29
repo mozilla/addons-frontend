@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-11-28 21:18+0000\n"
+"PO-Revision-Date: 2018-11-29 16:29+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1476,7 +1476,7 @@ msgstr "Salvando avaliação com estrelas"
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
-msgstr ""
+msgstr "Avaliação salva"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -2139,7 +2139,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:198
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
-msgstr ""
+msgstr "Acesse mais de 30.000 estações de rádio de todo o mundo, à distância de um clique."
 
 #: src/amo/pages/Guides/index.js:202
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
@@ -2147,7 +2147,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:210
 msgid "Get more out of media"
-msgstr ""
+msgstr "Tire mais proveito de mídias"
 
 #: src/amo/pages/Guides/index.js:211
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
@@ -2165,7 +2165,7 @@ msgstr "Explore mais %(linkStart)sextensões de mídia%(linkEnd)s escolhidas pel
 
 #: src/amo/pages/Guides/index.js:230
 msgid "Improve videos"
-msgstr ""
+msgstr "Aprimore vídeos"
 
 #: src/amo/pages/Guides/index.js:231
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, from customizing YouTube to taste, to playing videos in theater mode, and much more."
@@ -2213,7 +2213,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:85
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Explore mais %(linkStart)sgerenciadores de senhas%(linkEnd)s de escolha da equipe."
 
 #: src/amo/pages/Guides/index.js:93
 msgid "Block annoying ads"
