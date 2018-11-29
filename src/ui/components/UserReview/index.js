@@ -8,6 +8,7 @@ import translate from 'core/i18n/translate';
 import { nl2br, sanitizeHTML } from 'core/utils';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
+import ShowMoreCard from 'ui/components/ShowMoreCard';
 import UserRating from 'ui/components/UserRating';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { I18nType } from 'core/types/i18n';
@@ -49,14 +50,20 @@ function reviewBody({
     bodyAttr.dangerouslySetInnerHTML = html;
   }
 
+  const showMoreCardName = ' ' + Math.random();
   return (
-    <div
-      className={makeClassName('UserReview-body', {
-        // Add an extra class if the content is an empty string.
-        'UserReview-emptyBody': !content && !html,
-      })}
-      {...bodyAttr}
-    />
+    <ShowMoreCard
+      className={makeClassName(
+        { showMoreCardName },
+        {
+          // Add an extra class if the content is an empty string.
+          'UserReview-emptyBody': !content && !html,
+        },
+      )}
+      id={showMoreCardName}
+    >
+      <div {...bodyAttr} />
+    </ShowMoreCard>
   );
 }
 
