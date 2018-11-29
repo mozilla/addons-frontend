@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-11-29 03:09+0000\n"
+"PO-Revision-Date: 2018-11-29 19:40+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1954,9 +1954,8 @@ msgid "Screenshots"
 msgstr "ეკრანის სურათები"
 
 #: src/amo/pages/AddonInfo/index.js:157
-#, fuzzy
 msgid "Custom License for %(addonName)s"
-msgstr "%(addonName)s-ის მიმოხილვები"
+msgstr "საკუთარი ლიცენზია %(addonName)s-ისთვის"
 
 #: src/amo/pages/AddonInfo/index.js:164
 msgid "End-User License Agreement for %(addonName)s"
