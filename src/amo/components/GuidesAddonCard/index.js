@@ -71,7 +71,6 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
             {addon && (
               <InstallButtonWrapper
                 addon={addon}
-                defaultButtonText={i18n.gettext('Add')}
                 defaultInstallSource={INSTALL_SOURCE_GUIDES_PAGE}
                 getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
                 puffy={false}
