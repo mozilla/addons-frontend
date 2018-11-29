@@ -46,9 +46,7 @@ describe(__filename, () => {
     // 1. Render everything
     const root = shallow(<SomeComponent {...allProps} />);
     // 2. Get and render the withExperiment HOC (inside withCookies() HOC)
-    const WithExperiment = root.dive().prop('children');
-
-    return shallow(<WithExperiment {...context} />);
+    return shallow(root.props().children(context));
   };
 
   const render = (props = {}) => {
