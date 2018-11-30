@@ -34,21 +34,34 @@ export default class ServerHtml extends Component {
     _config: config,
   };
 
-  getStatic({ filePath, type, index }) {
-    const { includeSri, sriData, appName } = this.props;
-    const leafName = filePath.split('/').pop();
+  getSriProps(assetName) {
+    const { includeSri, sriData } = this.props;
+
     let sriProps = {};
+    if (!includeSri) {
+      return sriProps;
+    }
+
+    sriProps = {
+      integrity: sriData[assetName],
+      crossOrigin: 'anonymous',
+    };
+
+    if (!sriProps.integrity) {
+      throw new Error(`SRI Data is missing for "${assetName}"`);
+    }
+
+    return sriProps;
+  }
+
+  getStatic({ filePath, type, index }) {
+    const { appName } = this.props;
+    const leafName = filePath.split('/').pop();
+
     // Only output files for the current app.
     if (leafName.startsWith(appName) && !JS_CHUNK_EXCLUDES.test(leafName)) {
-      if (includeSri) {
-        sriProps = {
-          integrity: sriData[leafName],
-          crossOrigin: 'anonymous',
-        };
-        if (!sriProps.integrity) {
-          throw new Error(`SRI Data is missing for ${leafName}`);
-        }
-      }
+      const sriProps = this.getSriProps(leafName);
+
       switch (type) {
         case 'css':
           return (
@@ -101,7 +114,7 @@ export default class ServerHtml extends Component {
   }
 
   renderStyles() {
-    const { _config, chunkExtractor, includeSri, sriData } = this.props;
+    const { _config, chunkExtractor } = this.props;
 
     return chunkExtractor
       .getMainAssets('style')
@@ -110,13 +123,7 @@ export default class ServerHtml extends Component {
         (asset) => !_config.get('validAppNames').includes(asset.chunk),
       )
       .map((asset) => {
-        let props = {};
-        if (includeSri) {
-          props = {
-            crossOrigin: 'anonymous',
-            integrity: sriData[asset.filename],
-          };
-        }
+        const sriProps = this.getSriProps(asset.filename);
 
         return (
           <link
@@ -125,7 +132,7 @@ export default class ServerHtml extends Component {
             key={asset.url}
             rel="stylesheet"
             type="text/css"
-            {...props}
+            {...sriProps}
           />
         );
       });
@@ -141,7 +148,7 @@ export default class ServerHtml extends Component {
         // not the main bundle (amo or disco).
         .filter((asset) => asset.type === 'childAsset')
         // We return both "preload" and "prefetch" links to maximize browser
-        // support, even both links don't have the same goal.
+        // support, even though both links don't have the same goal.
         .map((asset) => [
           <link
             as={asset.scriptType}
@@ -162,7 +169,7 @@ export default class ServerHtml extends Component {
   }
 
   renderAsyncScripts() {
-    const { _config, chunkExtractor, includeSri, sriData } = this.props;
+    const { _config, chunkExtractor } = this.props;
 
     return chunkExtractor
       .getMainAssets('script')
@@ -171,13 +178,7 @@ export default class ServerHtml extends Component {
         (asset) => !_config.get('validAppNames').includes(asset.chunk),
       )
       .map((asset) => {
-        let props = {};
-        if (includeSri) {
-          props = {
-            crossOrigin: 'anonymous',
-            integrity: sriData[asset.filename],
-          };
-        }
+        const sriProps = this.getSriProps(asset.filename);
 
         return (
           <script
@@ -185,7 +186,7 @@ export default class ServerHtml extends Component {
             data-chunk={asset.chunk}
             key={asset.url}
             src={asset.url}
-            {...props}
+            {...sriProps}
           />
         );
       });

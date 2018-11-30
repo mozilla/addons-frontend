@@ -201,7 +201,7 @@ describe(__filename, () => {
         getMainAssets: () => [asset],
       });
 
-      const root = render({ chunkExtractor });
+      const root = render({ chunkExtractor, includeSri: false });
 
       expect(root.find('link[data-chunk]')).toHaveLength(1);
 
@@ -219,12 +219,27 @@ describe(__filename, () => {
         getMainAssets: () => [fooAsset, mainAsset],
       });
 
-      const root = render({ _config, chunkExtractor });
+      const root = render({ _config, chunkExtractor, includeSri: false });
 
       expect(root.find('link[data-chunk]')).toHaveLength(1);
       expect(root.find(`link[data-chunk="${mainAsset.chunk}"]`)).toHaveLength(
         0,
       );
+    });
+
+    it('throws an error when SRI data are not found', () => {
+      const asset = { chunk: 'foo', url: '/foo.css', filename: 'foo.css' };
+      const chunkExtractor = createFakeChunkExtractor({
+        getMainAssets: () => [asset],
+      });
+      const sriData = {
+        ...fakeSRIData,
+        [asset.filename]: undefined,
+      };
+
+      expect(() => {
+        render({ chunkExtractor, includeSri: true, sriData });
+      }).toThrow(`SRI Data is missing for "${asset.filename}"`);
     });
 
     it('adds SRI props when `includeSri` prop is set to `true`', () => {
@@ -282,7 +297,7 @@ describe(__filename, () => {
         getMainAssets: () => [asset],
       });
 
-      const root = render({ chunkExtractor });
+      const root = render({ chunkExtractor, includeSri: false });
 
       expect(root.find('link[data-chunk]')).toHaveLength(1);
 
@@ -300,12 +315,27 @@ describe(__filename, () => {
         getMainAssets: () => [fooAsset, mainAsset],
       });
 
-      const root = render({ _config, chunkExtractor });
+      const root = render({ _config, chunkExtractor, includeSri: false });
 
       expect(root.find('script[data-chunk]')).toHaveLength(1);
       expect(root.find(`script[data-chunk="${mainAsset.chunk}"]`)).toHaveLength(
         0,
       );
+    });
+
+    it('throws an error when SRI data are not found', () => {
+      const asset = { chunk: 'foo', url: '/foo.js', filename: 'foo.js' };
+      const chunkExtractor = createFakeChunkExtractor({
+        getMainAssets: () => [asset],
+      });
+      const sriData = {
+        ...fakeSRIData,
+        [asset.filename]: undefined,
+      };
+
+      expect(() => {
+        render({ chunkExtractor, includeSri: true, sriData });
+      }).toThrow(`SRI Data is missing for "${asset.filename}"`);
     });
 
     it('adds SRI props when `includeSri` prop is set to `true`', () => {
