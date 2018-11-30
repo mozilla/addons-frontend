@@ -39,7 +39,7 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const username = 'some-user';
+  const userId = 'some-user';
   const slug = 'collection-slug';
   const filters = { page: '1' };
 
@@ -83,7 +83,7 @@ describe(__filename, () => {
         .withArgs({
           api: state.api,
           slug,
-          username,
+          userId,
         })
         .once()
         .returns(Promise.resolve(collectionDetail));
@@ -94,12 +94,12 @@ describe(__filename, () => {
           api: state.api,
           filters,
           slug,
-          username,
+          userId,
         })
         .once()
         .returns(Promise.resolve(collectionAddons));
 
-      _fetchCurrentCollection({ filters, slug, username });
+      _fetchCurrentCollection({ filters, slug, userId });
 
       const expectedLoadAction = loadCurrentCollection({
         addons: collectionAddons.results,
@@ -113,7 +113,7 @@ describe(__filename, () => {
     });
 
     it('clears the error handler', async () => {
-      _fetchCurrentCollection({ slug, username });
+      _fetchCurrentCollection({ slug, userId });
 
       const expectedAction = errorHandler.createClearingAction();
 
@@ -134,7 +134,7 @@ describe(__filename, () => {
         .once()
         .returns(Promise.reject(error));
 
-      _fetchCurrentCollection({ slug, username });
+      _fetchCurrentCollection({ slug, userId });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
@@ -165,12 +165,12 @@ describe(__filename, () => {
           api: state.api,
           filters,
           slug,
-          username,
+          userId,
         })
         .once()
         .returns(Promise.resolve(collectionAddons));
 
-      _fetchCurrentCollectionPage({ filters, slug, username });
+      _fetchCurrentCollectionPage({ filters, slug, userId });
 
       const expectedLoadAction = loadCurrentCollectionPage({
         addons: collectionAddons.results,
@@ -184,7 +184,7 @@ describe(__filename, () => {
     });
 
     it('clears the error handler', async () => {
-      _fetchCurrentCollectionPage({ filters, slug, username });
+      _fetchCurrentCollectionPage({ filters, slug, userId });
 
       const expectedAction = errorHandler.createClearingAction();
 
@@ -200,7 +200,7 @@ describe(__filename, () => {
         .once()
         .returns(Promise.reject(error));
 
-      _fetchCurrentCollectionPage({ filters, slug, username });
+      _fetchCurrentCollectionPage({ filters, slug, userId });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
@@ -216,7 +216,7 @@ describe(__filename, () => {
       sagaTester.dispatch(
         fetchUserCollections({
           errorHandlerId: errorHandler.id,
-          username: 'some-user',
+          userId: 'some-user',
           ...params,
         }),
       );
@@ -233,15 +233,15 @@ describe(__filename, () => {
         .expects('getAllUserCollections')
         .withArgs({
           api: state.api,
-          username,
+          userId,
         })
         .once()
         .returns(Promise.resolve(externalCollections));
 
-      _fetchUserCollections({ username });
+      _fetchUserCollections({ userId });
 
       const expectedLoadAction = loadUserCollections({
-        username,
+        userId,
         collections: externalCollections,
       });
 
@@ -267,13 +267,13 @@ describe(__filename, () => {
         .once()
         .returns(Promise.reject(error));
 
-      _fetchUserCollections({ username });
+      _fetchUserCollections({ userId });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
       expect(sagaTester.getCalledActions()[3]).toEqual(
-        abortFetchUserCollections({ username }),
+        abortFetchUserCollections({ userId }),
       );
     });
   });
@@ -286,7 +286,7 @@ describe(__filename, () => {
           collectionId: 321,
           slug: 'some-collection',
           errorHandlerId: errorHandler.id,
-          username: 'some-user',
+          userId: 'some-user',
           ...params,
         }),
       );
@@ -297,7 +297,7 @@ describe(__filename, () => {
         addonId: 123,
         collectionId: 5432,
         slug: 'a-collection',
-        username: 'some-user',
+        userId: 'some-user',
       };
       const state = sagaTester.getState();
 
@@ -308,7 +308,7 @@ describe(__filename, () => {
           api: state.api,
           slug: params.slug,
           notes: undefined,
-          username: params.username,
+          userId: params.userId,
         })
         .once()
         .returns(Promise.resolve());
@@ -318,7 +318,7 @@ describe(__filename, () => {
       const expectedAddedAction = addonAddedToCollection({
         addonId: params.addonId,
         collectionId: params.collectionId,
-        username: params.username,
+        userId: params.userId,
       });
 
       const addedAction = await sagaTester.waitFor(expectedAddedAction.type);
@@ -328,7 +328,7 @@ describe(__filename, () => {
         filters,
         errorHandlerId: errorHandler.id,
         slug: params.slug,
-        username: params.username,
+        userId: params.userId,
       });
 
       expect(sagaTester.wasCalled(unexpectedFetchAction.type)).toEqual(false);
@@ -342,7 +342,7 @@ describe(__filename, () => {
         slug: 'a-collection',
         editing: true,
         filters: { page: '1' },
-        username: 'some-user',
+        userId: 'some-user',
       };
       const state = sagaTester.getState();
 
@@ -353,7 +353,7 @@ describe(__filename, () => {
           api: state.api,
           slug: params.slug,
           notes: undefined,
-          username: params.username,
+          userId: params.userId,
         })
         .once()
         .returns(Promise.resolve());
@@ -364,7 +364,7 @@ describe(__filename, () => {
         filters: params.filters,
         errorHandlerId: errorHandler.id,
         slug: params.slug,
-        username: params.username,
+        userId: params.userId,
       });
 
       const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);
@@ -373,7 +373,7 @@ describe(__filename, () => {
       const expectedAddedAction = addonAddedToCollection({
         addonId: params.addonId,
         collectionId: params.collectionId,
-        username: params.username,
+        userId: params.userId,
       });
 
       const addedAction = await sagaTester.waitFor(expectedAddedAction.type);
@@ -397,13 +397,13 @@ describe(__filename, () => {
 
       mockApi.expects('createCollectionAddon').returns(Promise.reject(error));
 
-      _addAddonToCollection({ addonId, username });
+      _addAddonToCollection({ addonId, userId });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
       expect(sagaTester.getCalledActions()[3]).toEqual(
-        abortAddAddonToCollection({ addonId, username }),
+        abortAddAddonToCollection({ addonId, userId }),
       );
     });
   });
@@ -415,7 +415,7 @@ describe(__filename, () => {
           errorHandlerId: errorHandler.id,
           name: 'some-collection-name',
           slug,
-          username,
+          userId,
           ...params,
         }),
       );
@@ -428,7 +428,7 @@ describe(__filename, () => {
           errorHandlerId: errorHandler.id,
           filters: { page: '1' },
           slug,
-          username,
+          userId,
           ...params,
         }),
       );
@@ -536,7 +536,7 @@ describe(__filename, () => {
           description: { 'en-US': 'New collection description' },
           name: { 'en-US': 'New collection name' },
           slug: 'new-slug',
-          username,
+          userId,
         };
         const state = sagaTester.getState();
 
@@ -549,7 +549,7 @@ describe(__filename, () => {
             description: params.description,
             name: params.name,
             slug: params.slug,
-            username,
+            userId,
           })
           .once()
           .returns(Promise.resolve());
@@ -614,12 +614,12 @@ describe(__filename, () => {
           collectionSlug,
           filters: updateFilters,
           slug: submittedSlug,
-          username,
+          userId,
         });
 
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation({
-          pathname: `/${lang}/${clientApp}/collections/${username}/${returnedSlug}/edit/`,
+          pathname: `/${lang}/${clientApp}/collections/${userId}/${returnedSlug}/edit/`,
           query: convertFiltersToQueryParams(updateFilters),
         });
 
@@ -636,7 +636,7 @@ describe(__filename, () => {
           description: { [lang]: 'Collection description' },
           name: { [lang]: 'Collection name' },
           slug,
-          username,
+          userId,
         };
       };
 
@@ -654,7 +654,7 @@ describe(__filename, () => {
             description: params.description,
             name: params.name,
             slug,
-            username,
+            userId: params.userId,
           })
           .once()
           .returns(Promise.resolve(collectionDetailResponse));
@@ -675,7 +675,7 @@ describe(__filename, () => {
 
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${username}/${slug}/edit/`,
+          `/${lang}/${clientApp}/collections/${userId}/${slug}/edit/`,
         );
 
         await sagaTester.waitFor(expectedAction.type);
@@ -703,7 +703,7 @@ describe(__filename, () => {
             addonId: id,
             api: state.api,
             slug: params.slug,
-            username: params.username,
+            userId: params.userId,
           })
           .once()
           .returns(Promise.resolve());
@@ -712,7 +712,7 @@ describe(__filename, () => {
 
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${username}/${slug}/edit/`,
+          `/${lang}/${clientApp}/collections/${userId}/${slug}/edit/`,
         );
 
         await sagaTester.waitFor(expectedAction.type);
@@ -739,7 +739,7 @@ describe(__filename, () => {
 
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${username}/${returnedSlug}/edit/`,
+          `/${lang}/${clientApp}/collections/${userId}/${returnedSlug}/edit/`,
         );
 
         const action = await sagaTester.waitFor(expectedAction.type);
@@ -758,7 +758,7 @@ describe(__filename, () => {
           errorHandlerId: errorHandler.id,
           filters: { page: '1' },
           slug: 'some-collection',
-          username: 'some-user',
+          userId: 'some-user',
           ...params,
         }),
       );
@@ -787,7 +787,7 @@ describe(__filename, () => {
         addonId: 123,
         filters: { page: 2 },
         slug: 'some-other-slug',
-        username: 'some-other-user',
+        userId: 'some-other-user',
       };
       const state = sagaTester.getState();
 
@@ -797,7 +797,7 @@ describe(__filename, () => {
           addonId: params.addonId,
           api: state.api,
           slug: params.slug,
-          username: params.username,
+          userId: params.userId,
         })
         .once()
         .returns(Promise.resolve());
@@ -808,7 +808,7 @@ describe(__filename, () => {
         filters: params.filters,
         errorHandlerId: errorHandler.id,
         slug: params.slug,
-        username: params.username,
+        userId: params.userId,
       });
 
       const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);
@@ -846,7 +846,7 @@ describe(__filename, () => {
         deleteCollection({
           errorHandlerId: errorHandler.id,
           slug: 'some-collection',
-          username: 'some-user',
+          userId: 'some-user',
           ...params,
         }),
       );
@@ -855,7 +855,7 @@ describe(__filename, () => {
     it('deletes a collection', async () => {
       const params = {
         slug: 'some-other-slug',
-        username: 'some-other-user',
+        userId: 'some-other-user',
       };
       const state = sagaTester.getState();
       const { lang, clientApp } = state.api;
@@ -865,7 +865,7 @@ describe(__filename, () => {
         .withArgs({
           api: state.api,
           slug: params.slug,
-          username: params.username,
+          userId: params.userId,
         })
         .once()
         .returns(Promise.resolve());
@@ -918,7 +918,7 @@ describe(__filename, () => {
           notes: '',
           filters: { page: '1' },
           slug: 'some-collection',
-          username: 'some-user',
+          userId: 'some-user',
           ...params,
         }),
       );
@@ -930,7 +930,7 @@ describe(__filename, () => {
         notes: 'Here are some notes',
         filters: { page: '2' },
         slug: 'some-other-slug',
-        username: 'some-other-user',
+        userId: 'some-other-user',
       };
       const state = sagaTester.getState();
 
@@ -941,7 +941,7 @@ describe(__filename, () => {
           api: state.api,
           notes: params.notes,
           slug: params.slug,
-          username: params.username,
+          userId: params.userId,
         })
         .once()
         .returns(Promise.resolve());
@@ -952,7 +952,7 @@ describe(__filename, () => {
         filters: params.filters,
         errorHandlerId: errorHandler.id,
         slug: params.slug,
-        username: params.username,
+        userId: params.userId,
       });
 
       const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);
@@ -988,7 +988,7 @@ describe(__filename, () => {
         addonId: 123,
         filters: { page: '2' },
         slug: 'some-other-slug',
-        username: 'some-other-user',
+        userId: 'some-other-user',
       };
       const state = sagaTester.getState();
 
@@ -999,7 +999,7 @@ describe(__filename, () => {
           api: state.api,
           notes: '',
           slug: params.slug,
-          username: params.username,
+          userId: params.userId,
         })
         .once()
         .returns(Promise.resolve());
@@ -1015,7 +1015,7 @@ describe(__filename, () => {
         filters: params.filters,
         errorHandlerId: errorHandler.id,
         slug: params.slug,
-        username: params.username,
+        userId: params.userId,
       });
 
       const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);

@@ -150,7 +150,7 @@ export class CollectionManagerBase extends React.Component<
           // query parameter values are string, not number.
           // $FLOW_FIXME: https://github.com/mozilla/addons-frontend/issues/5737
           includeAddonId: location.query.include_addon_id,
-          username: currentUsername,
+          userId: currentUsername,
         }),
       );
     } else {
@@ -164,7 +164,7 @@ export class CollectionManagerBase extends React.Component<
           collectionSlug: collection.slug,
           defaultLocale: collection.defaultLocale,
           filters,
-          username: collection.authorUsername,
+          userId: collection.authorUsername,
         }),
       );
     }

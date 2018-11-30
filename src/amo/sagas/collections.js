@@ -58,7 +58,7 @@ import type {
 import type { Saga } from 'core/types/sagas';
 
 export function* fetchCurrentCollection({
-  payload: { errorHandlerId, filters, slug, username },
+  payload: { errorHandlerId, filters, slug, userId },
 }: FetchCurrentCollectionAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -70,7 +70,7 @@ export function* fetchCurrentCollection({
     const baseParams = {
       api: state.api,
       slug,
-      username,
+      userId,
     };
 
     const detailParams: $Shape<GetCollectionParams> = {
@@ -103,7 +103,7 @@ export function* fetchCurrentCollection({
 }
 
 export function* fetchCurrentCollectionPage({
-  payload: { errorHandlerId, filters, slug, username },
+  payload: { errorHandlerId, filters, slug, userId },
 }: FetchCurrentCollectionPageAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -116,7 +116,7 @@ export function* fetchCurrentCollectionPage({
       api: state.api,
       filters,
       slug,
-      username,
+      userId,
     };
     const addons = yield call(api.getCollectionAddons, params);
 
@@ -135,7 +135,7 @@ export function* fetchCurrentCollectionPage({
 }
 
 export function* fetchUserCollections({
-  payload: { errorHandlerId, username },
+  payload: { errorHandlerId, userId },
 }: FetchUserCollectionsAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
@@ -145,15 +145,15 @@ export function* fetchUserCollections({
 
     const params: GetAllUserCollectionsParams = {
       api: state.api,
-      username,
+      userId,
     };
     const collections = yield call(api.getAllUserCollections, params);
 
-    yield put(loadUserCollections({ username, collections }));
+    yield put(loadUserCollections({ userId, collections }));
   } catch (error) {
     log.warn(`Failed to fetch user collections: ${error}`);
     yield put(errorHandler.createErrorAction(error));
-    yield put(abortFetchUserCollections({ username }));
+    yield put(abortFetchUserCollections({ userId }));
   }
 }
 
@@ -166,7 +166,7 @@ export function* addAddonToCollection({
     filters,
     notes,
     slug,
-    username,
+    userId,
   },
 }: AddAddonToCollectionAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -180,7 +180,7 @@ export function* addAddonToCollection({
       api: state.api,
       slug,
       notes,
-      username,
+      userId,
     };
     yield call(api.createCollectionAddon, params);
 
@@ -192,21 +192,21 @@ export function* addAddonToCollection({
           errorHandlerId: errorHandler.id,
           filters,
           slug,
-          username,
+          userId,
         }),
       );
     }
     yield put(
       addonAddedToCollection({
         addonId,
-        username,
+        userId,
         collectionId,
       }),
     );
   } catch (error) {
     log.warn(`Failed to add add-on to collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));
-    yield put(abortAddAddonToCollection({ addonId, username }));
+    yield put(abortAddAddonToCollection({ addonId, userId }));
   }
 }
 
@@ -222,7 +222,7 @@ export function* modifyCollection(
     errorHandlerId,
     name,
     slug,
-    username,
+    userId,
   } = payload;
 
   yield put(beginCollectionModification());
@@ -249,7 +249,7 @@ export function* modifyCollection(
       api: state.api,
       defaultLocale,
       description,
-      username,
+      userId,
     };
 
     if (creating) {
@@ -267,7 +267,7 @@ export function* modifyCollection(
           addonId: includeAddonId,
           api: state.api,
           slug,
-          username,
+          userId,
         };
         yield call(api.createCollectionAddon, params);
       }
@@ -285,7 +285,7 @@ export function* modifyCollection(
     const { lang, clientApp } = state.api;
     const effectiveSlug = (response && response.slug) || slug || collectionSlug;
     invariant(effectiveSlug, 'Both slug and collectionSlug cannot be empty');
-    const newLocation = `/${lang}/${clientApp}/collections/${username}/${effectiveSlug}/edit/`;
+    const newLocation = `/${lang}/${clientApp}/collections/${userId}/${effectiveSlug}/edit/`;
 
     if (creating) {
       invariant(response, 'response is required when creating');
@@ -340,7 +340,7 @@ export function* modifyCollection(
 }
 
 export function* removeAddonFromCollection({
-  payload: { addonId, errorHandlerId, filters, slug, username },
+  payload: { addonId, errorHandlerId, filters, slug, userId },
 }: RemoveAddonFromCollectionAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
@@ -352,7 +352,7 @@ export function* removeAddonFromCollection({
       addonId,
       api: state.api,
       slug,
-      username,
+      userId,
     };
     yield call(api.removeAddonFromCollection, params);
 
@@ -363,7 +363,7 @@ export function* removeAddonFromCollection({
         errorHandlerId: errorHandler.id,
         filters,
         slug,
-        username,
+        userId,
       }),
     );
   } catch (error) {
@@ -373,7 +373,7 @@ export function* removeAddonFromCollection({
 }
 
 export function* deleteCollection({
-  payload: { errorHandlerId, slug, username },
+  payload: { errorHandlerId, slug, userId },
 }: DeleteCollectionAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
@@ -385,7 +385,7 @@ export function* deleteCollection({
     const params: DeleteCollectionParams = {
       api: state.api,
       slug,
-      username,
+      userId,
     };
 
     yield call(api.deleteCollection, params);
@@ -401,7 +401,7 @@ export function* deleteCollection({
 }
 
 export function* updateCollectionAddon({
-  payload: { addonId, errorHandlerId, filters, notes, slug, username },
+  payload: { addonId, errorHandlerId, filters, notes, slug, userId },
 }: UpdateCollectionAddonAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
@@ -414,7 +414,7 @@ export function* updateCollectionAddon({
       api: state.api,
       notes,
       slug,
-      username,
+      userId,
     };
     yield call(api.updateCollectionAddon, params);
 
@@ -423,7 +423,7 @@ export function* updateCollectionAddon({
         errorHandlerId: errorHandler.id,
         filters,
         slug,
-        username,
+        userId,
       }),
     );
   } catch (error) {
