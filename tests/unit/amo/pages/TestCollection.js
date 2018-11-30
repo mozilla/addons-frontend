@@ -65,7 +65,7 @@ describe(__filename, () => {
     location: createFakeLocation(),
     match: {
       params: {
-        username: defaultUser,
+        userId: defaultUser,
         slug: defaultSlug,
       },
     },
@@ -221,8 +221,8 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const username = 'some-user';
-    const params = { slug, username };
+    const userId = 456;
+    const params = { slug, userId };
 
     renderComponent({ errorHandler, match: { params }, store });
 
@@ -239,7 +239,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters,
         slug,
-        userId: username,
+        userId,
       }),
     );
   });
@@ -273,14 +273,14 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const username = 'some-user';
+    const userId = 567;
     const page = 123;
     const sort = COLLECTION_SORT_NAME;
 
     renderComponent({
       errorHandler,
       location: createFakeLocation({ query: { page, collection_sort: sort } }),
-      match: { params: { slug, username } },
+      match: { params: { slug, userId } },
       store,
     });
 
@@ -291,7 +291,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
         slug,
-        userId: username,
+        userId,
       }),
     );
   });
@@ -334,13 +334,13 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const username = 'some-user';
+    const userId = 456;
 
     store.dispatch(
       fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
         slug,
-        userId: username,
+        userId,
       }),
     );
 
@@ -356,13 +356,13 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const username = 'some-user';
+    const userId = 456;
 
     store.dispatch(
       fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
         slug,
-        userId: username,
+        userId,
       }),
     );
 
@@ -394,25 +394,25 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const username = 'some-user';
+    const userId = 456;
     const page = 123;
     const sort = COLLECTION_SORT_NAME;
 
     const location = createFakeLocation({
-      pathname: `/collections/${username}/${slug}/`,
+      pathname: `/collections/${userId}/${slug}/`,
       query: { page, collection_sort: sort },
     });
 
     const newSlug = 'other-collection';
     const newLocation = {
       ...location,
-      pathname: `/collections/${username}/${newSlug}/`,
+      pathname: `/collections/${userId}/${newSlug}/`,
     };
 
     const wrapper = renderComponent({
       errorHandler,
       location,
-      match: { params: { slug, username } },
+      match: { params: { slug, userId } },
       store,
     });
     fakeDispatch.resetHistory();
@@ -420,7 +420,7 @@ describe(__filename, () => {
     // This will trigger the componentDidUpdate() method.
     wrapper.setProps({
       location: newLocation,
-      match: { params: { slug: newSlug, username } },
+      match: { params: { slug: newSlug, userId } },
     });
 
     sinon.assert.callCount(fakeDispatch, 1);
@@ -430,7 +430,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
         slug: newSlug,
-        userId: username,
+        userId,
       }),
     );
   });
@@ -524,7 +524,7 @@ describe(__filename, () => {
 
     const newParams = {
       slug: defaultSlug,
-      username: 'another-user',
+      userId: 'another-user',
     };
     wrapper.setProps({ match: { params: newParams } });
 
@@ -534,8 +534,7 @@ describe(__filename, () => {
       fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
-        slug: newParams.slug,
-        userId: newParams.username,
+        ...newParams,
       }),
     );
   });
@@ -558,7 +557,7 @@ describe(__filename, () => {
 
     const newParams = {
       slug: 'some-other-collection-slug',
-      username: defaultUser,
+      userId: defaultUser,
     };
     wrapper.setProps({ match: { params: newParams } });
 
@@ -568,15 +567,14 @@ describe(__filename, () => {
       fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
-        slug: newParams.slug,
-        userId: newParams.username,
+        ...newParams,
       }),
     );
   });
 
   it('renders a collection', () => {
     const slug = 'some-slug';
-    const username = 'some-username';
+    const userId = 'some-username';
     const page = 2;
     const sort = COLLECTION_SORT_NAME;
     const queryParams = { page, collection_sort: sort };
@@ -584,7 +582,7 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
 
     const detail = createFakeCollectionDetail({
-      authorUsername: username,
+      authorUsername: userId,
       count: 10,
       slug,
     });
@@ -593,7 +591,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       location: createFakeLocation({ query: queryParams }),
-      match: { params: { username, slug } },
+      match: { params: { userId, slug } },
       store,
     });
 
@@ -620,7 +618,7 @@ describe(__filename, () => {
     });
 
     const wrapper = renderComponent({
-      params: { username: detail.author.username, slug: detail.slug },
+      params: { userId: detail.author.username, slug: detail.slug },
       store,
     });
 
@@ -635,7 +633,7 @@ describe(__filename, () => {
     const { detail, addons } = createCollectionWithTwoAddons();
 
     const wrapper = renderComponent({
-      params: { username: detail.author.username, slug: detail.slug },
+      params: { userId: detail.author.username, slug: detail.slug },
       store,
     });
 
@@ -658,14 +656,14 @@ describe(__filename, () => {
 
   it('renders a collection with pagination', () => {
     const slug = 'some-slug';
-    const username = 'some-username';
+    const userId = 'some-username';
     const page = 2;
     const filters = { page, collection_sort: COLLECTION_SORT_NAME };
 
     const { store } = dispatchClientMetadata();
 
     const detail = createFakeCollectionDetail({
-      authorUsername: username,
+      authorUsername: userId,
       count: 10,
       slug,
     });
@@ -675,7 +673,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       location: createFakeLocation({ query: filters }),
-      match: { params: { username, slug } },
+      match: { params: { userId, slug } },
       store,
     });
 
@@ -685,10 +683,7 @@ describe(__filename, () => {
     expect(paginator.instance()).toBeInstanceOf(Paginate);
     expect(paginator).toHaveProp('count', detail.addon_count);
     expect(paginator).toHaveProp('currentPage', page);
-    expect(paginator).toHaveProp(
-      'pathname',
-      `/collections/${username}/${slug}/`,
-    );
+    expect(paginator).toHaveProp('pathname', `/collections/${userId}/${slug}/`);
     expect(paginator).toHaveProp('queryParams', filters);
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
   });
@@ -735,12 +730,12 @@ describe(__filename, () => {
     const pageSize = 10;
     const slug = 'some-slug';
     const sort = COLLECTION_SORT_NAME;
-    const username = 'some-username';
+    const userId = 'some-username';
 
     const { store } = dispatchClientMetadata();
     const addons = createFakeCollectionAddons();
     const detail = createFakeCollectionDetail({
-      authorUsername: username,
+      authorUsername: userId,
       slug,
     });
     const collection = createInternalCollection({
@@ -759,7 +754,7 @@ describe(__filename, () => {
     const wrapper = renderComponent({
       editing,
       location: createFakeLocation({ query: { collection_sort: sort, page } }),
-      params: { username, slug },
+      params: { userId, slug },
       store,
     });
 
@@ -778,14 +773,14 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
     const slug = 'some-slug';
-    const username = 'some-username';
+    const userId = 'some-username';
     const page = 2;
     const sort = COLLECTION_SORT_NAME;
 
     const addons = createFakeCollectionAddons();
     const detail = createFakeCollectionDetail({
       authorId: authorUserId,
-      authorUsername: username,
+      authorUsername: userId,
       count: 10,
       slug,
     });
@@ -803,7 +798,7 @@ describe(__filename, () => {
     const wrapper = renderComponent({
       editing: true,
       location: createFakeLocation({ query: { page, collection_sort: sort } }),
-      match: { params: { username, slug } },
+      match: { params: { userId, slug } },
       store,
     });
 
@@ -814,7 +809,7 @@ describe(__filename, () => {
     const paginator = shallow(footer);
     expect(paginator).toHaveProp(
       'pathname',
-      `/collections/${username}/${slug}/edit/`,
+      `/collections/${userId}/${slug}/edit/`,
     );
 
     expect(wrapper.find(AddonsCard)).toHaveProp(
@@ -863,14 +858,14 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const { slug } = defaultCollectionDetail;
-    const username = defaultUser;
+    const userId = defaultUser;
 
     // User loads the collection page.
     _loadCurrentCollection({ store });
 
     const wrapper = renderComponent({
       errorHandler,
-      match: { params: { slug, username } },
+      match: { params: { slug, userId } },
       store,
     });
 
@@ -882,7 +877,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters: { page: 2 },
         slug,
-        userId: username,
+        userId,
       }),
     );
 
@@ -1239,7 +1234,7 @@ describe(__filename, () => {
   it('dispatches deleteCollection when onDelete is called', () => {
     const authorUserId = 11;
     const slug = 'some-slug';
-    const username = 'some-username';
+    const userId = 'some-username';
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
     store.dispatch(
@@ -1247,7 +1242,7 @@ describe(__filename, () => {
         addons: createFakeCollectionAddons(),
         detail: createFakeCollectionDetail({
           authorId: authorUserId,
-          authorUsername: username,
+          authorUsername: userId,
           slug,
         }),
         pageSize: DEFAULT_API_PAGE_SIZE,
@@ -1273,7 +1268,7 @@ describe(__filename, () => {
       deleteCollection({
         errorHandlerId: errorHandler.id,
         slug,
-        userId: username,
+        userId,
       }),
     );
   });
@@ -1396,7 +1391,7 @@ describe(__filename, () => {
 
     const params = {
       slug: collection.slug,
-      username: authorUsername.toUpperCase(),
+      userId: authorUsername.toUpperCase(),
     };
     renderComponent({ match: { params }, store });
 
@@ -1435,7 +1430,7 @@ describe(__filename, () => {
 
     const params = {
       slug: slug.toUpperCase(),
-      username: collection.authorUsername,
+      userId: collection.authorUsername,
     };
     renderComponent({ match: { params }, store });
 
@@ -1488,7 +1483,7 @@ describe(__filename, () => {
       const props = getProps({
         match: {
           params: {
-            username: 'foo',
+            userId: 'foo',
             slug: 'collection-bar',
           },
         },
@@ -1502,7 +1497,7 @@ describe(__filename, () => {
       const props = getProps({
         match: {
           params: {
-            username: 'foo',
+            userId: 'foo',
             slug: 'collection-bar',
           },
         },
