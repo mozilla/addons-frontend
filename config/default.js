@@ -164,10 +164,12 @@ module.exports = {
         amoProdCDN,
         'data:',
       ],
+      manifestSrc: ["'none'"],
       mediaSrc: ["'none'"],
       objectSrc: ["'none'"],
       scriptSrc: [amoProdCDN],
       styleSrc: [amoProdCDN],
+      workerSrc: ["'none'"],
       reportUri: '/__cspreport__',
     },
 
