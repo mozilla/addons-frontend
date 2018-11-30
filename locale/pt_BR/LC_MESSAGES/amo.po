@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-11-29 16:54+0000\n"
+"PO-Revision-Date: 2018-11-30 12:53+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -2114,16 +2114,15 @@ msgstr "Explore mais %(linkStart)sgerenciadores de favoritos%(linkEnd)s de escol
 
 #: src/amo/pages/Guides/index.js:172
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Aproveite uma experiência renovada de Nova Aba"
 
 #: src/amo/pages/Guides/index.js:173
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
 msgstr "Inicie cada sessão de navegação sob medida para você, personalizando sua nova experiência de abas."
 
 #: src/amo/pages/Guides/index.js:177
-#, fuzzy
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-msgstr "Aproveite a maravilhosa nova página com planos de fundo personalizáveis, informação de clima local e muito mais"
+msgstr "Aproveite uma linda nova página com planos de fundo personalizáveis, informação de clima local e muito mais."
 
 #: src/amo/pages/Guides/index.js:181
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
