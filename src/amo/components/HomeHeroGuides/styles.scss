@@ -45,7 +45,8 @@ $icon-size: 40px;
 
   .Card-contents {
     background: none;
-    padding: 0;
+    overflow: visible;
+    padding: 0 0 4px;
   }
 
   .Hero-contents {
@@ -62,6 +63,17 @@ $icon-size: 40px;
       min-height: 0;
       padding: 0;
       text-decoration: none;
+
+      .HeroSection-content {
+        outline: none;
+      }
+
+      &.focus-visible .HeroSection-content {
+        // Fix outline for Firefox
+        outline: 1px dotted $link-color;
+        // Restore default outline for webkit.
+        outline: auto 5px -webkit-focus-ring-color;
+      }
     }
 
     .HeroSection {
