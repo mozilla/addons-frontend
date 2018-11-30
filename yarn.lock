@@ -839,12 +839,12 @@
   dependencies:
     "@babel/plugin-syntax-dynamic-import" "^7.0.0"
 
-"@loadable/component@5.1.2":
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/@loadable/component/-/component-5.1.2.tgz#77d8bf883202bef949f526c496e5d305e058cbd4"
-  integrity sha512-OZr9pP8Ghv8LoEHIVGCLYPvQFmq6i2eg3oQym1+RhfYmqrnXlT16BY1NjucLmqYD2LmCWlgEX+edrBXJMdQCgA==
+"@loadable/component@5.2.1":
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/@loadable/component/-/component-5.2.1.tgz#6472d189951941e08db2d68ccfb1bdb027cc88f4"
+  integrity sha512-3Y5VpQ/hSbd+Ty30CcvC2UBl+Bs5GOth4zPK/fRg6Ug3im6XoKl4tdES6qNzKSujnhx4y0rxNwaIWCusR0oGCg==
   dependencies:
-    hoist-non-react-statics "^3.1.0"
+    hoist-non-react-statics "^3.2.0"
 
 "@loadable/server@5.2.0":
   version "5.2.0"
@@ -7419,6 +7419,13 @@ hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.1.0.tgz#42414ccdfff019cd2168168be998c7b3bd5245c0"
   integrity sha512-MYcYuROh7SBM69xHGqXEwQqDux34s9tz+sCnxJmN18kgWh6JFdTw/5YdZtqsOdZJXddE/wUpCzfEdDrJj8p0Iw==
+  dependencies:
+    react-is "^16.3.2"
+
+hoist-non-react-statics@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.2.0.tgz#d21b9fc72b50fdc38c5d88f6e2c52f2c2dbe5ee2"
+  integrity sha512-3IascCRfaEkbmHjJnUxWSspIUE1okLPjGTMVXW8zraUo1t3yg1BadKAxAGILHwgoBzmMnzrgeeaDGBvpuPz6dA==
   dependencies:
     react-is "^16.3.2"
 
@@ -16085,6 +16092,7 @@ y18n@^3.2.0, y18n@^3.2.1:
 "y18n@^3.2.1 || ^4.0.0", y18n@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.0.tgz#95ef94f85ecc81d007c264e190a120f0a3c8566b"
+  integrity sha512-r9S/ZyXu/Xu9q1tYlpsLIsa3EeLXXk0VwlxqTcFRfg9EhMW+17kbt9G0NrgCmhGb5vT2hyhJZLfDGx+7+5Uj/w==
 
 yallist@^3.0.0, yallist@^3.0.2:
   version "3.0.3"
