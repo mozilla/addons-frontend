@@ -2226,9 +2226,8 @@ msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr "Scopri altri %(linkStart)sgestori di password%(linkEnd)s consigliati dallo staff."
 
 #: src/amo/pages/Guides/index.js:93
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "Blocco di annunci pubblicitari"
+msgstr ""
 
 #: src/amo/pages/Guides/index.js:94
 msgid ""
@@ -2652,9 +2651,8 @@ msgid "User Profile for %(user)s"
 msgstr "Profilo utente di %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:338
-#, fuzzy
 msgid "User Profile"
-msgstr "Aggiorna profilo"
+msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:635
 msgid "Location"
