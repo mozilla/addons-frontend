@@ -22,8 +22,10 @@ import log from 'core/logger';
 import { LOAD_ADDON_RESULTS } from 'core/reducers/addons';
 import { SEARCH_LOADED } from 'core/reducers/search';
 import { findFileForPlatform } from 'core/utils';
+import { formatFilesize } from 'core/i18n/utils';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { AddonStatusType } from 'core/types/addons';
+import type { I18nType } from 'core/types/i18n';
 
 export const FETCH_VERSION: 'FETCH_VERSION' = 'FETCH_VERSION';
 export const FETCH_VERSIONS: 'FETCH_VERSIONS' = 'FETCH_VERSIONS';
@@ -62,7 +64,7 @@ export type AddonCompatibilityType = {|
 
 export type PartialExternalAddonVersionType = {|
   channel: string,
-  compatibility?: AddonCompatibilityType,
+  compatibility: AddonCompatibilityType,
   edit_url: string,
   files: Array<AddonFileType>,
   id: number,
@@ -98,7 +100,7 @@ export type ExternalAddonVersionType = {|
 |};
 
 export type AddonVersionType = {
-  compatibility?: AddonCompatibilityType,
+  compatibility: AddonCompatibilityType,
   id: VersionIdType,
   isStrictCompatibilityEnabled: boolean,
   license: VersionLicenseType | null,
@@ -299,13 +301,15 @@ export const getLoadingBySlug = ({ slug, state }: GetBySlugParams): boolean => {
   return Boolean(infoForSlug && infoForSlug.loading);
 };
 
-type VersionInfoType = {|
-  created?: string,
-  filesize?: number,
+export type VersionInfoType = {|
+  compatibilityString: string,
+  created: string | null,
+  filesize: string | null,
 |};
 
 type GetVersionInfoParams = {|
   _findFileForPlatform?: typeof findFileForPlatform,
+  i18n: I18nType,
   state: VersionsState,
   userAgentInfo: UserAgentInfoType,
   versionId: VersionIdType,
@@ -313,6 +317,7 @@ type GetVersionInfoParams = {|
 
 export const getVersionInfo = ({
   _findFileForPlatform = findFileForPlatform,
+  i18n,
   state,
   userAgentInfo,
   versionId,
@@ -325,12 +330,40 @@ export const getVersionInfo = ({
       userAgentInfo,
     });
 
-    if (file) {
-      return {
-        created: file.created,
-        filesize: file.size,
-      };
-    }
+    // translators: This is application compatibility information, such as "firefox 41 and later"
+    const noMaxString = i18n.gettext(
+      '%(application)s %(minVersion)s and later',
+    );
+    // translators: This is application compatibility information, such as "firefox 41 to 45"
+    const maxAndMinString = i18n.gettext(
+      '%(application)s %(minVersion)s to %(maxVersion)s',
+    );
+    const appInfo = Object.keys(version.compatibility)
+      .map((application) => {
+        const { max, min } = version.compatibility[application];
+        if (max === '*') {
+          return i18n.sprintf(noMaxString, { application, minVersion: min });
+        }
+        return i18n.sprintf(maxAndMinString, {
+          application,
+          maxVersion: max,
+          minVersion: min,
+        });
+      })
+      .join(', ');
+
+    const compatibilityString = i18n.sprintf(
+      // eslint-disable-next-line max-len
+      // translators: This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
+      i18n.gettext('Works with %(listOfApplicatonsAndVersions)s'),
+      { listOfApplicatonsAndVersions: appInfo },
+    );
+
+    return {
+      compatibilityString,
+      created: file ? file.created : null,
+      filesize: file ? formatFilesize({ i18n, size: file.size }) : null,
+    };
   }
 
   return null;

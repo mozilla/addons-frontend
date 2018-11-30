@@ -233,8 +233,8 @@ function oneLineTranslationString(translationKey) {
 }
 
 type FormatFilesizeParams = {|
-  _filesize: typeof filesize,
-  _log: typeof log,
+  _filesize?: typeof filesize,
+  _log?: typeof log,
   i18n: I18nType,
   size: number,
 |};
