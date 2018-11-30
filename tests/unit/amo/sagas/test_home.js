@@ -80,7 +80,7 @@ describe(__filename, () => {
         .withArgs({
           ...baseArgs,
           slug: firstCollectionSlug,
-          username: firstCollectionUser,
+          userId: firstCollectionUser,
         })
         .returns(Promise.resolve(firstCollection));
       mockCollectionsApi
@@ -88,7 +88,7 @@ describe(__filename, () => {
         .withArgs({
           ...baseArgs,
           slug: secondCollectionSlug,
-          username: secondCollectionUser,
+          userId: secondCollectionUser,
         })
         .returns(Promise.resolve(secondCollection));
       const collections = [firstCollection, secondCollection];
@@ -334,7 +334,7 @@ describe(__filename, () => {
         .withArgs({
           ...baseArgs,
           slug,
-          username,
+          userId: username,
         })
         .returns(Promise.resolve(firstCollection));
 
