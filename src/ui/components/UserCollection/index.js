@@ -11,7 +11,7 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {|
-  authorUsername?: string,
+  authorId?: number,
   id: number,
   loading?: boolean,
   name?: string,
@@ -25,15 +25,7 @@ type InternalProps = {|
 |};
 
 export const UserCollectionBase = (props: InternalProps) => {
-  const {
-    authorUsername,
-    id,
-    loading,
-    name,
-    numberOfAddons,
-    slug,
-    i18n,
-  } = props;
+  const { authorId, id, loading, name, numberOfAddons, slug, i18n } = props;
 
   const linkProps = {};
   let numberText;
@@ -41,7 +33,7 @@ export const UserCollectionBase = (props: InternalProps) => {
   if (loading) {
     linkProps.href = '';
   } else {
-    invariant(authorUsername, 'authorUsername is required');
+    invariant(authorId, 'authorId is required');
     invariant(name, 'name is required');
     invariant(slug, 'slug is required');
     invariant(
@@ -49,7 +41,7 @@ export const UserCollectionBase = (props: InternalProps) => {
       'numberOfAddons must be a number',
     );
 
-    linkProps.to = `/collections/${authorUsername}/${slug}/`;
+    linkProps.to = `/collections/${authorId}/${slug}/`;
     numberText = i18n.sprintf(
       i18n.ngettext('%(total)s add-on', '%(total)s add-ons', numberOfAddons),
       { total: i18n.formatNumber(numberOfAddons) },

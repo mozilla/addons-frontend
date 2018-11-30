@@ -28,7 +28,7 @@ export type Props = {||};
 export type InternalProps = {|
   ...Props,
   collections: Array<CollectionType> | null,
-  currentUsername: string | null,
+  currentUserId: number | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
@@ -40,17 +40,17 @@ export class CollectionListBase extends React.Component<InternalProps> {
   componentDidMount() {
     const {
       collections,
-      currentUsername,
+      currentUserId,
       dispatch,
       errorHandler,
       loadingUserCollections,
     } = this.props;
 
-    if (currentUsername && !loadingUserCollections && !collections) {
+    if (currentUserId && !loadingUserCollections && !collections) {
       dispatch(
         fetchUserCollections({
           errorHandlerId: errorHandler.id,
-          userId: currentUsername,
+          userId: String(currentUserId),
         }),
       );
     }
@@ -64,10 +64,11 @@ export class CollectionListBase extends React.Component<InternalProps> {
 
     if (collections) {
       collections.forEach((collection) => {
-        const { authorUsername, id, name, numberOfAddons, slug } = collection;
+        const { authorId, id, name, numberOfAddons, slug } = collection;
+
         collectionElements.push(
           <UserCollection
-            authorUsername={authorUsername}
+            authorId={authorId}
             id={id}
             key={id}
             name={name}
@@ -118,8 +119,9 @@ export class CollectionListBase extends React.Component<InternalProps> {
             ) : (
               <React.Fragment>
                 <p className="CollectionList-info-text">
-                  {i18n.gettext(`Collections make it easy to keep track of favorite
-                    add-ons and share your perfectly customized browser with others.`)}
+                  {i18n.gettext(`Collections make it easy to keep track of
+                    favorite add-ons and share your perfectly customized browser
+                    with others.`)}
                 </p>
                 <Button
                   buttonType="action"
@@ -143,16 +145,16 @@ export const mapStateToProps = (state: AppState) => {
   const { collections, users } = state;
 
   const currentUser = getCurrentUser(users);
-  const currentUsername = currentUser && currentUser.username;
+  const currentUserId = currentUser && currentUser.id;
 
   let userCollections;
 
-  if (currentUsername) {
-    userCollections = collections.userCollections[currentUsername];
+  if (currentUserId) {
+    userCollections = collections.userCollections[String(currentUserId)];
   }
 
   return {
-    currentUsername,
+    currentUserId,
     isLoggedIn: !!currentUser,
     loadingUserCollections: userCollections ? userCollections.loading : false,
     collections: expandCollections(collections, userCollections),
@@ -160,8 +162,8 @@ export const mapStateToProps = (state: AppState) => {
 };
 
 export const extractId = (ownProps: InternalProps) => {
-  const { currentUsername } = ownProps;
-  return currentUsername || '';
+  const { currentUserId } = ownProps;
+  return currentUserId || '';
 };
 
 const CollectionList: React.ComponentType<Props> = compose(

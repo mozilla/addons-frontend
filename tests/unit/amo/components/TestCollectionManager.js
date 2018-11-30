@@ -36,7 +36,6 @@ describe(__filename, () => {
   let store;
   const apiHost = config.get('apiHost');
   const signedInUserId = 123;
-  const signedInUsername = 'user123';
   const lang = 'en-US';
 
   beforeEach(() => {
@@ -46,7 +45,6 @@ describe(__filename, () => {
       lang,
       store,
       userId: signedInUserId,
-      userProps: { username: signedInUsername },
     });
   });
 
@@ -131,13 +129,15 @@ describe(__filename, () => {
   it('can render an empty form for create', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const newLang = 'de';
-    const username = 'testUser';
-    const localStore = dispatchClientMetadata({ clientApp, lang: newLang })
-      .store;
+    const userId = 1001;
+    const { store: localStore } = dispatchClientMetadata({
+      clientApp,
+      lang: newLang,
+    });
     dispatchSignInActions({
       lang: newLang,
       store: localStore,
-      userProps: { username },
+      userId,
     });
 
     const root = render({
@@ -146,7 +146,7 @@ describe(__filename, () => {
       store: localStore,
     });
 
-    const expectedUrlPrefix = `${apiHost}/${newLang}/${clientApp}/collections/${username}/`;
+    const expectedUrlPrefix = `${apiHost}/${newLang}/${clientApp}/collections/${userId}/`;
     expect(root.find('#collectionName')).toHaveProp('value', '');
     expect(root.find('#collectionDescription')).toHaveProp('value', '');
     expect(root.find('#collectionSlug')).toHaveProp('value', '');
@@ -160,25 +160,26 @@ describe(__filename, () => {
   it('populates the edit form with collection data', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const newLang = 'de';
-    const username = 'testUser';
+    const userId = 1001;
     const localStore = dispatchClientMetadata({ clientApp, lang: newLang })
       .store;
     dispatchSignInActions({
       lang: newLang,
       store: localStore,
-      userProps: { username },
+      userId,
     });
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({
         name: 'OG name',
         description: 'OG description',
         slug: 'the-slug',
-        authorUsername: username,
+        authorId: userId,
       }),
     });
     const root = render({ collection, store: localStore });
 
-    const expectedUrlPrefix = `${apiHost}/${newLang}/${clientApp}/collections/${username}/`;
+    const expectedUrlPrefix = `${apiHost}/${newLang}/${clientApp}/collections/${userId}/`;
+
     expect(root.find('#collectionName')).toHaveProp('value', collection.name);
     expect(root.find('#collectionDescription')).toHaveProp(
       'value',
@@ -310,7 +311,7 @@ describe(__filename, () => {
         errorHandlerId: root.instance().props.errorHandler.id,
         name: { [lang]: name },
         slug,
-        userId: signedInUsername,
+        userId: String(signedInUserId),
       }),
     );
   });
@@ -347,7 +348,7 @@ describe(__filename, () => {
         includeAddonId: id,
         name: { [lang]: name },
         slug,
-        userId: signedInUsername,
+        userId: String(signedInUserId),
       }),
     );
   });
@@ -356,7 +357,7 @@ describe(__filename, () => {
     const filters = { page: '1' };
 
     const collection = createInternalCollection({
-      detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
+      detail: createFakeCollectionDetail({ authorId: signedInUserId }),
     });
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ collection, filters });
@@ -382,7 +383,7 @@ describe(__filename, () => {
         filters,
         name: { [lang]: name },
         slug,
-        userId: signedInUsername,
+        userId: String(signedInUserId),
       }),
     );
   });
@@ -534,7 +535,7 @@ describe(__filename, () => {
 
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({
-        authorUsername: signedInUsername,
+        authorId: signedInUserId,
         name,
         slug,
       }),
@@ -560,7 +561,7 @@ describe(__filename, () => {
         filters,
         name: { [lang]: name },
         slug,
-        userId: signedInUsername,
+        userId: String(signedInUserId),
       }),
     );
   });
@@ -627,7 +628,7 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     const filters = { page: '1' };
     const collection = createInternalCollection({
-      detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
+      detail: createFakeCollectionDetail({ authorId: signedInUserId }),
     });
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -649,7 +650,7 @@ describe(__filename, () => {
         filters,
         name: { [lang]: collection.name },
         slug: collection.slug,
-        userId: signedInUsername,
+        userId: String(signedInUserId),
       }),
     );
   });

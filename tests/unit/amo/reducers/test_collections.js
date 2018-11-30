@@ -1088,44 +1088,44 @@ describe(__filename, () => {
 
   describe('collectionUrl', () => {
     it('returns a URL for a collection', () => {
-      const authorUsername = 'some-username';
+      const authorId = 123;
       const slug = 'some-slug';
       const collection = createInternalCollection({
-        detail: createFakeCollectionDetail({ authorUsername, slug }),
+        detail: createFakeCollectionDetail({ authorId, slug }),
       });
 
       expect(collectionUrl({ collection })).toEqual(
-        `/collections/${authorUsername}/${slug}/`,
+        `/collections/${authorId}/${slug}/`,
       );
     });
 
-    it('returns a URL for an authorUsername / collectionSlug', () => {
-      const authorUsername = 'some-username';
+    it('returns a URL for an authorId / collectionSlug', () => {
+      const authorId = 345;
       const slug = 'some-slug';
 
       expect(
         collectionUrl({
-          authorUsername,
+          authorId,
           collection: null,
           collectionSlug: slug,
         }),
-      ).toEqual(`/collections/${authorUsername}/${slug}/`);
+      ).toEqual(`/collections/${authorId}/${slug}/`);
     });
 
     it('returns a URL for the collection when all 3 params are passed', () => {
-      const authorUsername = 'some-username';
+      const authorId = 1;
       const slug = 'some-slug';
       const collection = createInternalCollection({
-        detail: createFakeCollectionDetail({ authorUsername, slug }),
+        detail: createFakeCollectionDetail({ authorId, slug }),
       });
 
       expect(
         collectionUrl({
-          authorUsername: 'a different username',
+          authorId: authorId + 1000,
           collection,
           collectionSlug: 'a-different-slug',
         }),
-      ).toEqual(`/collections/${authorUsername}/${slug}/`);
+      ).toEqual(`/collections/${authorId}/${slug}/`);
     });
   });
 
@@ -1133,7 +1133,7 @@ describe(__filename, () => {
     it('calls collectionUrl and appends `edit/` to it', () => {
       const _collectionUrl = sinon.spy(() => '/base/url/');
       const params = {
-        authorUsername: 'some-username',
+        authorId: 123,
         collection: null,
         collectionSlug: 'some-slug',
       };
