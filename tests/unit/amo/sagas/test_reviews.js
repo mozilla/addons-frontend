@@ -97,14 +97,13 @@ describe(__filename, () => {
           apiState,
           filter: 'without_empty_body',
           page: '1',
+          score: undefined,
         })
-        .returns(
-          Promise.resolve(
-            apiResponsePage({
-              page_size: DEFAULT_API_PAGE_SIZE,
-              results: reviews,
-            }),
-          ),
+        .resolves(
+          apiResponsePage({
+            page_size: DEFAULT_API_PAGE_SIZE,
+            results: reviews,
+          }),
         );
 
       _fetchReviews();
@@ -120,6 +119,19 @@ describe(__filename, () => {
           reviews,
         }),
       );
+    });
+
+    it('can filter by rating score', async () => {
+      const score = 5;
+      mockApi
+        .expects('getReviews')
+        .withArgs(sinon.match({ score }))
+        .resolves(apiResponsePage({ results: [fakeReview] }));
+
+      _fetchReviews({ score });
+
+      await sagaTester.waitFor(SET_ADDON_REVIEWS);
+      mockApi.verify();
     });
 
     it('clears the error handler', async () => {

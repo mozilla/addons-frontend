@@ -39,6 +39,12 @@ describe(__filename, () => {
     expect(root).toHaveClassName('Notice-error');
   });
 
+  it('renders a class for againstGrey20=true', () => {
+    const root = render({ againstGrey20: true });
+
+    expect(root).toHaveClassName('Notice-againstGrey20');
+  });
+
   it('renders children', () => {
     const root = render({ children: <em>Some text</em> });
 

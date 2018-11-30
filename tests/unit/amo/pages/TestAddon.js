@@ -21,6 +21,7 @@ import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import RatingManager, {
   RatingManagerWithI18n,
 } from 'amo/components/RatingManager';
+import { reviewListURL } from 'amo/reducers/reviews';
 import { createInternalVersion } from 'core/reducers/versions';
 import createStore from 'amo/store';
 import {
@@ -1122,10 +1123,15 @@ describe(__filename, () => {
   });
 
   describe('read reviews footer', () => {
-    function readReviewsCard({ ratingsCount = 1, ...customProps }) {
+    function readReviewsCard({
+      addonSlug = fakeAddon.slug,
+      ratingsCount = 1,
+      ...customProps
+    }) {
       const { store } = dispatchSignInActions();
       const addon = {
         ...fakeAddon,
+        slug: addonSlug,
         ratings: {
           ...fakeAddon.ratings,
           text_count: ratingsCount,
@@ -1134,7 +1140,11 @@ describe(__filename, () => {
 
       store.dispatch(_loadAddonResults({ addon }));
 
-      const root = renderComponent({ store, ...customProps });
+      const root = renderComponent({
+        addon: createInternalAddon(addon),
+        store,
+        ...customProps,
+      });
       return root.find('.Addon-overall-rating');
     }
 
@@ -1178,15 +1188,15 @@ describe(__filename, () => {
     });
 
     it('links to all reviews', () => {
+      const addonSlug = 'adblock-plus';
       const card = readReviewsCard({
+        addonSlug,
         ratingsCount: 2,
       });
 
-      expect(allReviewsLink(card)).toHaveLength(1);
-      expect(allReviewsLink(card)).toHaveProp(
-        'to',
-        '/addon/chill-out/reviews/',
-      );
+      const link = allReviewsLink(card);
+      expect(link).toHaveLength(1);
+      expect(link).toHaveProp('to', reviewListURL({ addonSlug }));
     });
   });
 

@@ -8,6 +8,7 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
+import { reviewListURL } from 'amo/reducers/reviews';
 import { ADDONS_EDIT } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -360,8 +361,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         },
       });
 
-      const url = `/addon/${review.reviewAddon.slug}/reviews/${review.id}/`;
-
       byLine = (
         <span
           className={makeClassName('', {
@@ -369,7 +368,13 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           })}
         >
           {linkParts.beforeLinkText}
-          <Link key={review.id} to={url}>
+          <Link
+            key={review.id}
+            to={reviewListURL({
+              addonSlug: review.reviewAddon.slug,
+              id: review.id,
+            })}
+          >
             {linkParts.innerLinkText}
           </Link>
           {linkParts.afterLinkText}

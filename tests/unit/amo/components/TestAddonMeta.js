@@ -7,6 +7,7 @@ import AddonMeta, {
 } from 'amo/components/AddonMeta';
 import Link from 'amo/components/Link';
 import RatingsByStar from 'amo/components/RatingsByStar';
+import { reviewListURL } from 'amo/reducers/reviews';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   dispatchClientMetadata,
@@ -133,9 +134,12 @@ describe(__filename, () => {
       const reviewTitleLink = getReviewTitle(root).find(Link);
       const reviewCountLink = getReviewCount(root).find(Link);
 
-      expect(reviewTitleLink).toHaveProp('to', `/addon/${slug}/reviews/`);
+      const listURL = reviewListURL({ addonSlug: slug });
+
+      expect(reviewTitleLink).toHaveProp('to', listURL);
       expect(reviewTitleLink.children()).toHaveText('Reviews');
-      expect(reviewCountLink).toHaveProp('to', `/addon/${slug}/reviews/`);
+
+      expect(reviewCountLink).toHaveProp('to', listURL);
       expect(reviewCountLink.children()).toHaveText('5');
     });
 

@@ -52,3 +52,13 @@
   justify-content: end;
   min-width: 12px;
 }
+
+.RatingsByStar-star,
+.RatingsByStar-count {
+  a:active,
+  a:link,
+  a:visited {
+    color: $grey-50;
+    font-weight: normal;
+  }
+}

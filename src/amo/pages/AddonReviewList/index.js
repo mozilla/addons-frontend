@@ -15,6 +15,7 @@ import { fetchReviewPermissions, fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import {
   expandReviewObjects,
+  reviewListURL,
   reviewsAreLoading,
   selectReviewPermissions,
 } from 'amo/reducers/reviews';
@@ -30,6 +31,7 @@ import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import Card from 'ui/components/Card';
 import CardList from 'ui/components/CardList';
 import LoadingText from 'ui/components/LoadingText';
 import type { UserType } from 'amo/reducers/users';
@@ -44,6 +46,7 @@ import type {
   ReactRouterMatchType,
 } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
+import Notice from 'ui/components/Notice';
 
 import './styles.scss';
 
@@ -71,7 +74,7 @@ type InternalProps = {|
   i18n: I18nType,
   lang: ?string,
   pageSize: number | null,
-  reviewCount: ?number,
+  reviewCount: number | null,
   reviews: ?Array<UserReviewType>,
   siteUser: UserType | null,
   siteUserCanReplyToReviews: boolean | null,
@@ -134,6 +137,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
           addonSlug,
           errorHandlerId: errorHandler.id,
           page: this.getCurrentPage(location),
+          score: location.query.score,
         }),
       );
     }
@@ -176,10 +180,6 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     return `/addon/${addon.slug}/`;
   }
 
-  url() {
-    return `${this.addonURL()}reviews/`;
-  }
-
   getCurrentPage(location: ReactRouterLocationType) {
     return location.query.page || '1';
   }
@@ -196,15 +196,46 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     );
   }
 
+  filteringByScoreNotice() {
+    const { addon, i18n, location } = this.props;
+    const { score } = location.query;
+
+    const allScoreNotices = {
+      /* eslint-disable quote-props */
+      '1': i18n.gettext('Only showing one-star reviews'),
+      '2': i18n.gettext('Only showing two-star reviews'),
+      '3': i18n.gettext('Only showing three-star reviews'),
+      '4': i18n.gettext('Only showing four-star reviews'),
+      '5': i18n.gettext('Only showing five-star reviews'),
+      /* eslint-enable quote-props */
+    };
+    const scoreNotice = allScoreNotices[score];
+
+    if (!score || !addon || !scoreNotice) {
+      return null;
+    }
+
+    return (
+      <Notice
+        actionTo={reviewListURL({ addonSlug: addon.slug })}
+        actionText={i18n.gettext('Show all reviews')}
+        againstGrey20
+        type="generic"
+      >
+        {scoreNotice}
+      </Notice>
+    );
+  }
+
   render() {
     const {
       addon,
       errorHandler,
+      i18n,
       location,
       match: {
         params: { reviewId },
       },
-      i18n,
       pageSize,
       reviewCount,
       reviews,
@@ -219,7 +250,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       // TODO: support multiple error handlers, see
       // https://github.com/mozilla/addons-frontend/issues/3101
       //
-      // 401 and 403 are for an add-on lookup is made to look like a 404 on purpose.
+      // 401 and 403 for an add-on lookup is made to look like a 404 on purpose.
       // See https://github.com/mozilla/addons-frontend/issues/3061
       if (
         errorHandler.capturedError.responseStatusCode === 401 ||
@@ -236,24 +267,24 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         })
       : '';
 
-    const addonReviewCount =
-      addon && addon.ratings ? addon.ratings.text_count : null;
     const reviewCountHTML =
-      addon && addonReviewCount !== null ? (
+      reviewCount !== null ? (
         i18n.sprintf(
           i18n.ngettext(
             '%(total)s review for this add-on',
             '%(total)s reviews for this add-on',
-            addonReviewCount,
+            reviewCount,
           ),
           {
-            total: i18n.formatNumber(addonReviewCount),
+            total: i18n.formatNumber(reviewCount),
           },
         )
       ) : (
         <LoadingText />
       );
 
+    const addonReviewCount =
+      addon && addon.ratings ? addon.ratings.text_count : null;
     let placeholderCount = addonReviewCount || 4;
     if (placeholderCount > DEFAULT_API_PAGE_SIZE) {
       placeholderCount = DEFAULT_API_PAGE_SIZE;
@@ -273,7 +304,10 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
           LinkComponent={Link}
           count={reviewCount}
           currentPage={this.getCurrentPage(location)}
-          pathname={this.url()}
+          pathname={reviewListURL({
+            addonSlug: addon.slug,
+            score: location.query.score,
+          })}
           perPage={pageSize}
         />
       ) : null;
@@ -305,6 +339,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
               siteUserCanReply={siteUserCanReplyToReviews}
             />
           )}
+          {this.filteringByScoreNotice()}
           {allReviews.length ? (
             <CardList
               className="AddonReviewList-reviews-listing"
@@ -325,7 +360,13 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
                 })}
               </ul>
             </CardList>
-          ) : null}
+          ) : (
+            <Card>
+              <p className="AddonReviewList-noReviews">
+                {i18n.gettext('No reviews')}
+              </p>
+            </Card>
+          )}
         </div>
       </div>
     );
@@ -363,7 +404,7 @@ export function mapStateToProps(
     clientApp: state.api.clientApp,
     lang: state.api.lang,
     pageSize: reviewData ? reviewData.pageSize : null,
-    reviewCount: reviewData && reviewData.reviewCount,
+    reviewCount: reviewData ? reviewData.reviewCount : null,
     reviews:
       reviewData &&
       expandReviewObjects({

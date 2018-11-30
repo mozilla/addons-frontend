@@ -68,6 +68,35 @@ describe(__filename, () => {
     });
   });
 
+  it('preserves `queryParams` when adding the page param', () => {
+    const queryParams = { color: 'red' };
+    const page = 3;
+
+    const root = render({ queryParams, page });
+
+    expect(root.find(Button).prop('to')).toHaveProperty('query', {
+      ...queryParams,
+      page,
+    });
+  });
+
+  it('handles `pathname` with a search string at the end', () => {
+    const pathnameBase = '/somewhere/';
+    const color = 'purple';
+    const pathname = `${pathnameBase}?color=${color}`;
+    const page = 3;
+
+    const root = render({ pathname, page });
+
+    expect(root.find(Button).prop('to')).toMatchObject({
+      pathname: pathnameBase,
+      query: {
+        color,
+        page,
+      },
+    });
+  });
+
   describe('when the link is to the current page', () => {
     it('does not contain a link and is disabled', () => {
       const item = render({ currentPage: 3, page: 3 });

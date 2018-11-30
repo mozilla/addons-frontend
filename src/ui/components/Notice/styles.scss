@@ -77,13 +77,20 @@
 
 @mixin notice_button() {
   &,
-  &.Button--micro {
+  &.Button--micro,
+  &.Button--micro:link {
     border: none;
     font-size: $font-size-s;
     line-height: 1.1;
     padding: 6px;
     text-shadow: none;
     width: max-content;
+
+    &:active:not(.Button--disabled) {
+      // The default styles add padding-top: 1px so this keeps it in
+      // sync with the custom padding added above.
+      padding-top: 7px;
+    }
   }
 }
 
@@ -119,10 +126,10 @@
 .Notice-generic {
   .Notice-button {
     @include button(
-      $background: $blue-60,
-      $background-active: $blue-80,
-      $background-hover: $blue-70,
-      $color: $white
+      $background: $grey-90-a10,
+      $background-active: $grey-90-a30,
+      $background-hover: $grey-90-a20,
+      $color: $grey-90
     );
     @include notice_button();
   }
@@ -137,6 +144,12 @@
 
   background-color: $grey-20;
 
+  &.Notice-againstGrey20 {
+    // When this Notice is rendered against a $grey-20 background, pick a
+    // new background color to avoid a collision.
+    background-color: $grey-30;
+  }
+
   &,
   :link,
   :hover,
@@ -145,7 +158,7 @@
   }
 
   .Button:hover {
-    color: $white;
+    color: $grey-90;
   }
 }
 

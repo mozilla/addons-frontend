@@ -84,7 +84,7 @@ type Options = {|
 |};
 
 function* fetchReviews({
-  payload: { errorHandlerId, addonSlug, page },
+  payload: { errorHandlerId, addonSlug, page, score },
 }: FetchReviewsAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -98,6 +98,7 @@ function* fetchReviews({
       // Hide star-only ratings (reviews that do not have a body).
       filter: 'without_empty_body',
       page,
+      score,
     };
 
     const response: GetReviewsApiResponse = yield call(getReviews, params);

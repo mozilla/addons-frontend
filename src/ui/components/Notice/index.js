@@ -35,6 +35,9 @@ type Props = {|
   actionTarget?: string,
   actionText?: string,
   actionTo?: string | Object,
+  // This declares that the Notice component will be rendered against
+  // a $grey-20 background.
+  againstGrey20?: boolean,
   children?: React.Node,
   className?: string,
   dismissible?: boolean,
@@ -71,6 +74,7 @@ export class NoticeBase extends React.Component<InternalProps> {
       actionTarget,
       actionText,
       actionTo,
+      againstGrey20,
       children,
       className,
       dismissible,
@@ -110,6 +114,7 @@ export class NoticeBase extends React.Component<InternalProps> {
     }
 
     const finalClass = makeClassName('Notice', `Notice-${type}`, className, {
+      'Notice-againstGrey20': againstGrey20,
       'Notice-dismissible': dismissible,
       'Notice-light': light,
     });

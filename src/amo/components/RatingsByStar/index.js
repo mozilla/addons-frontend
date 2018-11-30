@@ -5,7 +5,9 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import Link from 'amo/components/Link';
 import { fetchGroupedRatings } from 'amo/actions/reviews';
+import { reviewListURL } from 'amo/reducers/reviews';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import LoadingText from 'ui/components/LoadingText';
@@ -83,7 +85,17 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
 
   render() {
     const { addon, errorHandler, i18n, groupedRatings } = this.props;
-    const loading = !addon || !groupedRatings;
+    const loading = (!addon || !groupedRatings) && !errorHandler.hasError();
+
+    const linkTitles = {
+      /* eslint-disable quote-props */
+      '5': i18n.gettext('Read all five-star reviews'),
+      '4': i18n.gettext('Read all four-star reviews'),
+      '3': i18n.gettext('Read all three-star reviews'),
+      '2': i18n.gettext('Read all two-star reviews'),
+      '1': i18n.gettext('Read all one-star reviews'),
+      /* eslint-enable quote-props */
+    };
 
     return (
       <div className="RatingsByStar">
@@ -93,6 +105,22 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
             let starCount;
             let starCountNode;
 
+            function createLink(text) {
+              invariant(addon, 'addon was unexpectedly empty');
+
+              return (
+                <Link
+                  title={linkTitles[star] || ''}
+                  to={reviewListURL({
+                    addonSlug: addon.slug,
+                    score: star,
+                  })}
+                >
+                  {text}
+                </Link>
+              );
+            }
+
             if (!errorHandler.hasError()) {
               if (groupedRatings) {
                 starCount = groupedRatings[star];
@@ -101,14 +129,18 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
               starCountNode = loading ? (
                 <LoadingText minWidth={95} />
               ) : (
-                i18n.formatNumber(starCount || 0)
+                createLink(i18n.formatNumber(starCount || 0))
               );
             }
 
             return (
               <React.Fragment key={star}>
                 <div className="RatingsByStar-star">
-                  <span>{i18n.formatNumber(star)}</span>
+                  {loading ? (
+                    <LoadingText minWidth={95} />
+                  ) : (
+                    createLink(i18n.formatNumber(star))
+                  )}
                   <Icon name="star-yellow" />
                 </div>
                 <div className="RatingsByStar-barContainer">
