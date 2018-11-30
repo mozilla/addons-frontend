@@ -68,7 +68,7 @@ export default {
     ...getPlugins(),
     new MiniCssExtractPlugin({
       filename: '[name]-[hash].css',
-      chunkFilename: '[id]-[hash].css',
+      chunkFilename: '[name]-[hash].css',
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
     new SriPlugin({ hashFuncNames: ['sha512'] }),

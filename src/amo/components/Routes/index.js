@@ -2,8 +2,8 @@
 import config from 'config';
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import loadable from '@loadable/component';
 
-import About from 'amo/pages/StaticPages/About';
 import Addon from 'amo/pages/Addon';
 import AddonInfo, {
   ADDON_INFO_TYPE_CUSTOM_LICENSE,
@@ -23,7 +23,6 @@ import LanguageTools from 'amo/pages/LanguageTools';
 import SearchTools from 'amo/pages/SearchTools';
 import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import ReviewGuide from 'amo/pages/StaticPages/ReviewGuide';
 import SearchPage from 'amo/pages/SearchPage';
 import ServerError from 'amo/components/ErrorPage/ServerError';
 import UserProfile from 'amo/pages/UserProfile';
@@ -32,6 +31,25 @@ import SimulateAsyncError from 'core/pages/error-simulation/SimulateAsyncError';
 import SimulateClientError from 'core/pages/error-simulation/SimulateClientError';
 import SimulateSyncError from 'core/pages/error-simulation/SimulateSyncError';
 import type { ConfigType } from 'core/types/config';
+
+// About `loadable()` and code-splitting:
+//
+// 1. Set `webpackChunkName` to the name of the page component
+// 2. Set `webpackPreload: true` as already done below
+//
+// Important: We do not use `webpackPrefetch: true` to prevent webpack to
+// inject anything in the HTML returned by the server. Webpack does not inject
+// anything when `webpackPreload` is set to `true` but '@loadable/server'
+// gathers these chunks and we render the appropriate tags in the HTML in
+// `ServerHtml`.
+
+const About = loadable(() =>
+  import(/* webpackPreload: true, webpackChunkName: "About" */ '../../pages/StaticPages/About'),
+);
+
+const ReviewGuide = loadable(() =>
+  import(/* webpackPreload: true, webpackChunkName: "ReviewGuide" */ '../../pages/StaticPages/ReviewGuide'),
+);
 
 type Props = {|
   _config?: ConfigType,

@@ -17,6 +17,7 @@ export default class ServerHtml extends Component {
     appName: PropTypes.string.isRequired,
     appState: PropTypes.object.isRequired,
     assets: PropTypes.object.isRequired,
+    chunkExtractor: PropTypes.object.isRequired,
     component: PropTypes.element.isRequired,
     htmlDir: PropTypes.string,
     htmlLang: PropTypes.string,
@@ -33,21 +34,34 @@ export default class ServerHtml extends Component {
     _config: config,
   };
 
-  getStatic({ filePath, type, index }) {
-    const { includeSri, sriData, appName } = this.props;
-    const leafName = filePath.split('/').pop();
+  getSriProps(assetName) {
+    const { includeSri, sriData } = this.props;
+
     let sriProps = {};
+    if (!includeSri) {
+      return sriProps;
+    }
+
+    sriProps = {
+      integrity: sriData[assetName],
+      crossOrigin: 'anonymous',
+    };
+
+    if (!sriProps.integrity) {
+      throw new Error(`SRI Data is missing for "${assetName}"`);
+    }
+
+    return sriProps;
+  }
+
+  getStatic({ filePath, type, index }) {
+    const { appName } = this.props;
+    const leafName = filePath.split('/').pop();
+
     // Only output files for the current app.
     if (leafName.startsWith(appName) && !JS_CHUNK_EXCLUDES.test(leafName)) {
-      if (includeSri) {
-        sriProps = {
-          integrity: sriData[leafName],
-          crossOrigin: 'anonymous',
-        };
-        if (!sriProps.integrity) {
-          throw new Error(`SRI Data is missing for ${leafName}`);
-        }
-      }
+      const sriProps = this.getSriProps(leafName);
+
       switch (type) {
         case 'css':
           return (
@@ -99,8 +113,93 @@ export default class ServerHtml extends Component {
     )}`;
   }
 
+  renderStyles() {
+    const { _config, chunkExtractor } = this.props;
+
+    return chunkExtractor
+      .getMainAssets('style')
+      .filter(
+        // We render the main bundle with `getScript()`, so we skip it here.
+        (asset) => !_config.get('validAppNames').includes(asset.chunk),
+      )
+      .map((asset) => {
+        const sriProps = this.getSriProps(asset.filename);
+
+        return (
+          <link
+            data-chunk={asset.chunk}
+            href={asset.url}
+            key={asset.url}
+            rel="stylesheet"
+            type="text/css"
+            {...sriProps}
+          />
+        );
+      });
+  }
+
+  renderPreLinks() {
+    const { chunkExtractor } = this.props;
+
+    return (
+      chunkExtractor
+        .getPreAssets()
+        // We want to retrieve the bundles with "webpackPreload: true" only, and
+        // not the main bundle (amo or disco).
+        .filter((asset) => asset.type === 'childAsset')
+        // We return both "preload" and "prefetch" links to maximize browser
+        // support, even though both links don't have the same goal.
+        .map((asset) => [
+          <link
+            as={asset.scriptType}
+            data-parent-chunk={asset.chunk}
+            href={asset.url}
+            key={`preload-${asset.url}`}
+            rel="preload"
+          />,
+          <link
+            as={asset.scriptType}
+            data-parent-chunk={asset.chunk}
+            href={asset.url}
+            key={`prefetch-${asset.url}`}
+            rel="prefetch"
+          />,
+        ])
+    );
+  }
+
+  renderAsyncScripts() {
+    const { _config, chunkExtractor } = this.props;
+
+    return chunkExtractor
+      .getMainAssets('script')
+      .filter(
+        // We render the main bundle with `getScript()`, so we skip it here.
+        (asset) => !_config.get('validAppNames').includes(asset.chunk),
+      )
+      .map((asset) => {
+        const sriProps = this.getSriProps(asset.filename);
+
+        return (
+          <script
+            async
+            data-chunk={asset.chunk}
+            key={asset.url}
+            src={asset.url}
+            {...sriProps}
+          />
+        );
+      });
+  }
+
   render() {
-    const { appState, component, htmlLang, htmlDir } = this.props;
+    const {
+      appState,
+      chunkExtractor,
+      component,
+      htmlDir,
+      htmlLang,
+    } = this.props;
 
     // This must happen before Helmet.rewind() see
     // https://github.com/nfl/react-helmet#server-usage for more info.
@@ -110,24 +209,34 @@ export default class ServerHtml extends Component {
     return (
       <html lang={htmlLang} dir={htmlDir}>
         <head>
+          {head.title.toComponent()}
+
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          {head.meta.toComponent()}
+
           <link rel="shortcut icon" href={this.getFaviconLink()} />
           {head.link.toComponent()}
-          {head.title.toComponent()}
-          {head.meta.toComponent()}
-          {head.script.toComponent()}
+          {this.renderPreLinks()}
+
           {this.getStyle()}
+          {this.renderStyles()}
+
+          {head.script.toComponent()}
         </head>
         <body>
           <div id="react-view" dangerouslySetInnerHTML={{ __html: content }} />
+
           <script
             dangerouslySetInnerHTML={{ __html: serialize(appState) }}
             type="application/json"
             id="redux-store-state"
           />
+          {chunkExtractor.getRequiredChunksScriptElement()}
+
           {this.getAnalytics()}
           {this.getScript()}
+          {this.renderAsyncScripts()}
         </body>
       </html>
     );

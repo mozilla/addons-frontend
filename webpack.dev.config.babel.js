@@ -54,6 +54,7 @@ export default Object.assign({}, webpackConfig, {
     path: assetsPath,
     filename: '[name]-[hash].js',
     chunkFilename: '[name]-[hash].js',
+    // We need to remove the protocol because of `yarn amo:dev-https`.
     publicPath: `//${webpackHost}:${webpackPort}/`,
   }),
   module: {

@@ -16,6 +16,7 @@ import NestedStatus from 'react-nested-status';
 import { END } from 'redux-saga';
 import cookiesMiddleware from 'universal-cookie-express';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
+import { ChunkExtractor, ChunkExtractorManager } from '@loadable/server';
 
 import log from 'core/logger';
 import { createApiError } from 'core/api';
@@ -61,6 +62,12 @@ export function getPageProps({ store, req, res, config }) {
       )
     : {};
 
+  // Code-splitting.
+  const chunkExtractor = new ChunkExtractor({
+    stats: JSON.parse(fs.readFileSync(config.get('loadableStatsFile'))),
+    entrypoints: [appName],
+  });
+
   // Check the lang supplied by res.locals.lang for validity
   // or fall-back to the default.
   const lang = isValidLang(res.locals.lang)
@@ -84,6 +91,7 @@ export function getPageProps({ store, req, res, config }) {
   return {
     appName,
     assets: webpackIsomorphicTools.assets(),
+    chunkExtractor,
     htmlLang: lang,
     htmlDir: dir,
     includeSri: isDeployed,
@@ -364,14 +372,16 @@ function baseServer(
 
       const props = {
         component: (
-          <Root
-            cookies={req.universalCookies}
-            history={history}
-            i18n={i18n}
-            store={store}
-          >
-            <App />
-          </Root>
+          <ChunkExtractorManager extractor={pageProps.chunkExtractor}>
+            <Root
+              cookies={req.universalCookies}
+              history={history}
+              i18n={i18n}
+              store={store}
+            >
+              <App />
+            </Root>
+          </ChunkExtractorManager>
         ),
       };
 

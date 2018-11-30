@@ -31,6 +31,8 @@ module.exports = {
         amoDevCDN,
         sentryHost,
         webpackHost,
+        // This is needed for pino-devtools.
+        `${webpackServerHost}:3010`,
       ],
       fontSrc: [
         webpackHost,

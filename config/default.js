@@ -18,10 +18,17 @@ if (appName && !validAppNames.includes(appName)) {
     `App "${appName}" is not enabled; valid app names: ${validAppNames}`);
 }
 
+const basePath = path.resolve(__dirname, '../');
+const distPath = path.join(basePath, 'dist');
+const loadableStatsFilename = 'loadable-stats.json';
 
 module.exports = {
   appName,
-  basePath: path.resolve(__dirname, '../'),
+  basePath,
+
+  // This is needed for code-splitting.
+  loadableStatsFilename,
+  loadableStatsFile: path.join(distPath, loadableStatsFilename),
 
   // The base URL of the site (for SEO purpose).
   baseURL: baseUrlProd,
