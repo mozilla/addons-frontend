@@ -20,13 +20,15 @@ if (appName && !validAppNames.includes(appName)) {
 
 const basePath = path.resolve(__dirname, '../');
 const distPath = path.join(basePath, 'dist');
+const loadableStatsFilename = 'loadable-stats.json';
 
 module.exports = {
   appName,
   basePath,
 
   // This is needed for code-splitting.
-  loadableStatsFile: path.join(distPath, 'loadable-stats.json'),
+  loadableStatsFilename,
+  loadableStatsFile: path.join(distPath, loadableStatsFilename),
 
   // The base URL of the site (for SEO purpose).
   baseURL: baseUrlProd,

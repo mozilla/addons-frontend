@@ -10,6 +10,7 @@ import SriPlugin from 'webpack-subresource-integrity';
 import tmp from 'tmp';
 
 import SriDataPlugin from 'core/server/sriDataPlugin';
+import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let distDir;
@@ -111,8 +112,11 @@ describe(__filename, () => {
   });
 
   it('skips the integrity check for "loadable-stats.json"', async () => {
+    const loadableStatsFilename = 'some-loadable-stats-file.json';
+
+    const _config = getFakeConfig({ loadableStatsFilename });
     const sriFile = path.join(distDir, 'sri.json');
-    const plugin = new SriDataPlugin({ saveAs: sriFile });
+    const plugin = new SriDataPlugin({ _config, saveAs: sriFile });
 
     // This is a quick-hack to retrieve the hook in the plugin.
     const compiler = {
@@ -127,7 +131,7 @@ describe(__filename, () => {
       compilation: {
         assets: {
           // No `integrity` property in this asset.
-          'loadable-stats.json': {},
+          [loadableStatsFilename]: {},
         },
         errors: [],
       },
