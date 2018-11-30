@@ -64,6 +64,12 @@ $icon-size: 40px;
       padding: 0;
       text-decoration: none;
 
+      &:hover {
+        .HomeHeroGuides-section-title {
+          color: $link-color;
+        }
+      }
+
       .HeroSection-content {
         outline: none;
       }
