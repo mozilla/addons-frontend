@@ -49,37 +49,37 @@ $icon-size: 40px;
     padding: 0 0 4px;
   }
 
+  .HeroSection-link-wrapper {
+    color: $black;
+    display: block;
+    min-height: 0;
+    padding: 0;
+    text-decoration: none;
+
+    &:hover {
+      .HomeHeroGuides-section-title {
+        color: $link-color;
+      }
+    }
+
+    .HeroSection-content {
+      outline: none;
+    }
+
+    &.focus-visible .HeroSection-content {
+      // Fix outline for Firefox
+      outline: 1px dotted $link-color;
+      // Restore default outline for webkit.
+      outline: auto 5px -webkit-focus-ring-color;
+    }
+  }
+
   .Hero-contents {
     @include respond-to(large) {
       display: grid;
       grid-gap: 0 30px;
       grid-template-columns: 1fr 1fr 1fr;
       margin-bottom: 24px;
-    }
-
-    .HeroSection-link-wrapper {
-      color: $black;
-      display: block;
-      min-height: 0;
-      padding: 0;
-      text-decoration: none;
-
-      &:hover {
-        .HomeHeroGuides-section-title {
-          color: $link-color;
-        }
-      }
-
-      .HeroSection-content {
-        outline: none;
-      }
-
-      &.focus-visible .HeroSection-content {
-        // Fix outline for Firefox
-        outline: 1px dotted $link-color;
-        // Restore default outline for webkit.
-        outline: auto 5px -webkit-focus-ring-color;
-      }
     }
 
     .HeroSection {
