@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-11-28 18:37+0000\n"
+"PO-Revision-Date: 2018-11-29 17:18+0000\n"
 "Last-Translator: Winfox <openlib@email.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -2227,7 +2227,7 @@ msgstr "Scopri altri %(linkStart)sgestori di password%(linkEnd)s consigliati dal
 
 #: src/amo/pages/Guides/index.js:93
 msgid "Block annoying ads"
-msgstr ""
+msgstr "Blocca i fastidiosi annunci pubblicitari"
 
 #: src/amo/pages/Guides/index.js:94
 msgid ""
@@ -2652,7 +2652,7 @@ msgstr "Profilo utente di %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
-msgstr ""
+msgstr "Profilo utente"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:635
 msgid "Location"
