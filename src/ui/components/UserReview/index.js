@@ -33,9 +33,11 @@ type InternalProps = {|
 function reviewBody({
   content,
   html,
+  id,
 }: {|
   content?: React.Node | string,
   html?: React.Node,
+  id?:number,
 |}) {
   invariant(
     content !== undefined || html !== undefined,
@@ -50,7 +52,6 @@ function reviewBody({
     bodyAttr.dangerouslySetInnerHTML = html;
   }
 
-  const showMoreCardName = ' ' + Math.random();
   return (
     <ShowMoreCard
       className={makeClassName(
@@ -60,7 +61,7 @@ function reviewBody({
           'UserReview-emptyBody': !content && !html,
         },
       )}
-      id={showMoreCardName}
+      id={id}
     >
       <div {...bodyAttr} />
     </ShowMoreCard>
@@ -85,9 +86,10 @@ export const UserReviewBase = (props: InternalProps) => {
     if (review.body) {
       body = reviewBody({
         html: sanitizeHTML(nl2br(review.body), ['br']),
+        id: review.id,
       });
     } else {
-      body = reviewBody({ content: '' });
+      body = reviewBody({ content: '', id: review.id});
     }
   }
 
