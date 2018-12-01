@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-12-01 11:12+0000\n"
+"PO-Revision-Date: 2018-12-01 12:10+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -146,9 +146,8 @@ msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Obține această temă pentru 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:116
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr "%s – Suplimente pentru Firefox"
+msgstr "%(addonName)s – Obține această unealtă de căutare pentru 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:121
@@ -160,23 +159,20 @@ msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr "Descarcă %(addonName)s pentru Firefox. %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:61
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Suplimente pentru Firefox"
+msgstr "%(addonName)s – Obține acest dicționar pentru 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:66
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Obține această extensie pentru 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:71
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Suplimente pentru Firefox"
+msgstr "%(addonName)s – Obține acest pachet lingvistic pentru 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:77
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Suplimente pentru Firefox"
+msgstr "%(addonName)s – Obține această temă pentru 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:83
 #, fuzzy
