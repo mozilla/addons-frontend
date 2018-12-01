@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-12-01 13:54+0000\n"
+"PO-Revision-Date: 2018-12-01 15:05+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -291,11 +291,11 @@ msgstr "Pagină de start"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
 msgid "Support Site"
-msgstr "Site pentru suport"
+msgstr "Site de asistență"
 
 #: src/amo/components/AddonMoreInfo/index.js:84
 msgid "Support Email"
-msgstr "E-mail pentru suport"
+msgstr "E-mail de asistență"
 
 #: src/amo/components/AddonRecommendations/index.js:133
 msgid "Other users with this extension also installed"
@@ -797,7 +797,7 @@ msgstr "Aceasta este un raport al unei probleme sau o cerere de asistență"
 
 #: src/amo/components/FlagReviewMenu/index.js:106
 msgid "Flagged as a bug report or support request"
-msgstr "Semnalat(ă) ca raport de eroare sau cerere de suport"
+msgstr "Semnalat(ă) ca raport de eroare sau cerere de asistență"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
