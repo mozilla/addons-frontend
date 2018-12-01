@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-10-10 09:24+0000\n"
+"PO-Revision-Date: 2018-12-01 14:12+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -218,9 +218,8 @@ msgid_plural "Reviews"
 msgstr[0] "Nhận xét"
 
 #: src/amo/components/AddonMeta/index.js:63
-#, fuzzy
 msgid "No Reviews"
-msgstr "Chưa có đánh giá"
+msgstr "Không có bài đánh giá nào"
 
 #: src/amo/components/AddonMeta/index.js:87
 msgid "Used by"
@@ -307,24 +306,20 @@ msgid "Edit reply"
 msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:196
-#, fuzzy
 msgid "Edit review"
-msgstr "Viết đánh giá"
+msgstr "Chỉnh sửa đánh giá"
 
 #: src/amo/components/AddonReviewCard/index.js:203 src/amo/components/AddonReviewCard/index.js:235
-#, fuzzy
 msgid "Delete reply"
-msgstr "Tài khoản của tôi"
+msgstr "Xóa trả lời"
 
 #: src/amo/components/AddonReviewCard/index.js:207 src/amo/components/AddonReviewCard/index.js:239
-#, fuzzy
 msgid "Delete rating"
-msgstr "Tài khoản của tôi"
+msgstr "Xóa xếp hạng"
 
 #: src/amo/components/AddonReviewCard/index.js:210 src/amo/components/AddonReviewCard/index.js:242
-#, fuzzy
 msgid "Delete review"
-msgstr "Tài khoản của tôi"
+msgstr "Xóa đánh giá"
 
 #: src/amo/components/AddonReviewCard/index.js:217
 msgid "Do you really want to delete this reply?"
@@ -353,9 +348,8 @@ msgid "Keep reply"
 msgstr "Tài khoản của tôi"
 
 #: src/amo/components/AddonReviewCard/index.js:257
-#, fuzzy
 msgid "Keep rating"
-msgstr "Tài khoản của tôi"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:260
 #, fuzzy
@@ -411,19 +405,16 @@ msgid "Submit review"
 msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:108
-#, fuzzy
 msgid "Submitting review"
-msgstr "Đang gửi"
+msgstr "Đang gửi đánh giá"
 
 #: src/amo/components/AddonReviewManager/index.js:112
-#, fuzzy
 msgid "Update review"
-msgstr "Viết đánh giá"
+msgstr "Cập nhật đánh giá"
 
 #: src/amo/components/AddonReviewManager/index.js:115
-#, fuzzy
 msgid "Updating review"
-msgstr "Đang gửi"
+msgstr "Đang cập nhật đánh giá"
 
 #: src/amo/components/AddonReviewManager/index.js:136
 msgid "Saving"
@@ -466,9 +457,8 @@ msgid "More extensions by these developers"
 msgstr "Thêm các tiện ích mở rộng khác từ các nhà phát triển này"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:265
-#, fuzzy
 msgid "Extensions by %(author)s"
-msgstr "Các từ điển khác của %(author)s"
+msgstr "Tiện ích mở rộng bởi %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:268
 msgid "Extensions by these developers"
@@ -590,9 +580,8 @@ msgid "%(categoryName)s – Themes"
 msgstr ""
 
 #: src/amo/components/CategoryHead/index.js:38
-#, fuzzy
 msgid "%(categoryName)s"
-msgstr "Phân loại"
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
 msgid "Added to collection"
@@ -791,14 +780,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr ""
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "Đánh giá cho %(addonName)s"
+msgstr "Phản hồi bởi %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "Đánh giá cho %(addonName)s"
+msgstr "Đánh giá bởi %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
@@ -1479,14 +1466,12 @@ msgid "Log in to rate this add-on"
 msgstr "Đăng nhập để đánh giá tiện ích này"
 
 #: src/amo/components/RatingManager/index.js:173
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Sửa bộ sưu tập"
+msgstr "Bạn có chắc muốn xóa đánh giá của bạn về %(addonName)s không?"
 
 #: src/amo/components/RatingManager/index.js:178
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "Sửa bộ sưu tập"
+msgstr "Bạn có chắc muốn xóa xếp hạng %(addonName)s của mình không?"
 
 #: src/amo/components/RatingManager/index.js:183
 msgid "How are you enjoying %(addonName)s?"
@@ -1877,9 +1862,8 @@ msgid "Delete This Picture"
 msgstr "Xóa hình ảnh này"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "Kiếm quả tìm kiếm cho \"%(query)s\""
+msgstr "Ảnh hồ sơ cho %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:68
 msgid "Profile photo"
@@ -1951,19 +1935,16 @@ msgid "Screenshots"
 msgstr "Ảnh chụp màn hình"
 
 #: src/amo/pages/AddonInfo/index.js:157
-#, fuzzy
 msgid "Custom License for %(addonName)s"
-msgstr "Đánh giá cho %(addonName)s"
+msgstr "Giấy phép tùy chỉnh cho %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:164
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Giấy phép người dùng cuối"
+msgstr "Thỏa thuận cấp phép người dùng cuối cho %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:168
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "Đánh giá cho %(addonName)s"
+msgstr "Chính sách bảo mật cho %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:193
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -2622,9 +2603,8 @@ msgid "Write reviews for add-ons which you have not personally used."
 msgstr "Viết đánh giá cho các tiện ích mà bạn chưa sử dụng."
 
 #: src/amo/pages/UserProfile/index.js:240
-#, fuzzy
 msgid "My reviews"
-msgstr "Đánh giá"
+msgstr "Bài đánh giá của tôi"
 
 #: src/amo/pages/UserProfile/index.js:268
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
@@ -2648,14 +2628,12 @@ msgid "Theme artist"
 msgstr "Chủ đề"
 
 #: src/amo/pages/UserProfile/index.js:335 src/amo/pages/UserProfileEdit/index.js:493
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "Kiếm quả tìm kiếm cho \"%(query)s\""
+msgstr "Hồ sơ người dùng cho %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:338
-#, fuzzy
 msgid "User Profile"
-msgstr "Xóa hồ sơ"
+msgstr "Thông tin hồ sơ"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:635
 msgid "Location"
