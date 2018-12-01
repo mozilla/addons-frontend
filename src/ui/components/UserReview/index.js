@@ -51,7 +51,8 @@ function reviewBody({
   } else {
     bodyAttr.dangerouslySetInnerHTML = html;
   }
-
+  const showMoreCardName = 'UserReview-body';
+  id += '';
   return (
     <ShowMoreCard
       className={makeClassName(
