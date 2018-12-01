@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-12-01 12:33+0000\n"
+"PO-Revision-Date: 2018-12-01 12:35+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -2965,8 +2965,8 @@ msgstr "Să îți acceseze datele pentru toate site-urile web"
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] "Să îți acceseze datele într-un alt domeniu"
-msgstr[1] "Să îți acceseze datele în alte %(count)s domenii"
+msgstr[0] "Să îți acceseze datele în %(param)s alt domeniu"
+msgstr[1] "Să îți acceseze datele în alte %(param)s domenii"
 msgstr[2] "Să îți acceseze datele în alte %(param)s de domenii"
 
 #: src/ui/components/HostPermissions/index.js:67
@@ -2974,12 +2974,11 @@ msgid "Access your data for sites in the %(param)s domain"
 msgstr "Să îți acceseze datele pentru site-uri din domeniul %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:73
-#, fuzzy
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] "Să îți acceseze datele pe %(count)s alt site"
-msgstr[1] "Să îți acceseze datele pe alte %(count)s site-uri"
-msgstr[2] "Să îți acceseze datele pe alte %(count)s de site-uri"
+msgstr[0] "Să îți acceseze datele pe %(param)s alt site"
+msgstr[1] "Să îți acceseze datele pe alte %(param)s site-uri"
+msgstr[2] "Să îți acceseze datele pe alte %(param)s de site-uri"
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
@@ -3002,9 +3001,8 @@ msgid "There are no ratings yet"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:98
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Actualizează evaluarea la %(rating)s din 5 stele"
+msgstr "Actualizează-ți evaluarea la %(starRating)s din 5"
 
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
