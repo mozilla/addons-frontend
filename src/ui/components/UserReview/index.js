@@ -37,7 +37,7 @@ function reviewBody({
 }: {|
   content?: React.Node | string,
   html?: React.Node,
-  id?:number,
+  id?: number,
 |}) {
   invariant(
     content !== undefined || html !== undefined,
@@ -51,18 +51,14 @@ function reviewBody({
   } else {
     bodyAttr.dangerouslySetInnerHTML = html;
   }
-  const showMoreCardName = 'UserReview-body';
-  id += '';
+
   return (
     <ShowMoreCard
-      className={makeClassName(
-        { showMoreCardName },
-        {
-          // Add an extra class if the content is an empty string.
-          'UserReview-emptyBody': !content && !html,
-        },
-      )}
-      id={id}
+      className={makeClassName('UserReview-body', {
+        // Add an extra class if the content is an empty string.
+        'UserReview-emptyBody': !content && !html,
+      })}
+      id={`${id}`}
     >
       <div {...bodyAttr} />
     </ShowMoreCard>
@@ -90,7 +86,7 @@ export const UserReviewBase = (props: InternalProps) => {
         id: review.id,
       });
     } else {
-      body = reviewBody({ content: '', id: review.id});
+      body = reviewBody({ content: '', id: review.id });
     }
   }
 
