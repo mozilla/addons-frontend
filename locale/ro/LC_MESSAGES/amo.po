@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-12-01 12:35+0000\n"
+"PO-Revision-Date: 2018-12-01 13:54+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1316,9 +1316,8 @@ msgid "Organize Your Tabs"
 msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:40 src/amo/pages/Guides/index.js:282
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "Evaluează experiența"
+msgstr "Îmbunătățește-ți experiența multimedia"
 
 #: src/amo/components/HomeHeroGuides/index.js:53
 msgid "Extensions are like apps for your browsers."
@@ -2181,9 +2180,8 @@ msgid "Add a control bar to all YouTube video pages so you can easily adjust vol
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:241
-#, fuzzy
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "Te rugăm să respecți %(linkStart)sghidul nostru pentru recenzii%(linkEnd)s."
+msgstr "Explorează mai multe %(linkStart)sextensii video%(linkEnd)s selectate de echipă."
 
 #: src/amo/pages/Guides/index.js:257
 msgid ""
