@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-12-01 14:32+0000\n"
+"PO-Revision-Date: 2018-12-01 14:43+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -343,18 +343,16 @@ msgid "Cancel"
 msgstr "Hủy bỏ"
 
 #: src/amo/components/AddonReviewCard/index.js:253
-#, fuzzy
 msgid "Keep reply"
-msgstr "Tài khoản của tôi"
+msgstr "Giữ lại trả lời"
 
 #: src/amo/components/AddonReviewCard/index.js:257
 msgid "Keep rating"
-msgstr ""
+msgstr "Giữ lại xếp hạng"
 
 #: src/amo/components/AddonReviewCard/index.js:260
-#, fuzzy
 msgid "Keep review"
-msgstr "Tài khoản của tôi"
+msgstr "Giữ lại đánh giá"
 
 #: src/amo/components/AddonReviewCard/index.js:296
 msgid "Write a reply to this review."
@@ -378,11 +376,11 @@ msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:354
 msgid "posted %(timestamp)s"
-msgstr ""
+msgstr "đã đăng %(timestamp)s"
 
 #: src/amo/components/AddonReviewCard/index.js:356
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "bởi %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewCard/index.js:409
 msgid "Deleting…"
@@ -402,7 +400,7 @@ msgstr "Viết về trải nghiệm của bạn với tiện ích này."
 
 #: src/amo/components/AddonReviewManager/index.js:107
 msgid "Submit review"
-msgstr ""
+msgstr "Gửi đánh giá"
 
 #: src/amo/components/AddonReviewManager/index.js:108
 msgid "Submitting review"
@@ -426,11 +424,11 @@ msgstr "Đã lưu"
 
 #: src/amo/components/AddonReviewManager/index.js:86
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "Hãy đọc %(linkStart)snguyên tắc đánh giá%(linkEnd)s của chúng tôi."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "Xếp hạng sao của bạn:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:241
 msgid "More dictionaries by %(author)s"
@@ -519,7 +517,7 @@ msgstr "Biểu tượng tiện ích"
 # averageRating is a localized number, such as 4.5
 #: src/amo/components/AddonSummaryCard/index.js:61
 msgid "%(averageRating)s star average"
-msgstr ""
+msgstr "%(averageRating)s sao (trung bình)"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
@@ -529,7 +527,7 @@ msgstr ""
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:76 src/amo/components/AddonTitle/index.js:80
 msgid "by"
-msgstr ""
+msgstr "bởi"
 
 #: src/amo/components/App/index.js:217 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -801,7 +799,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
-msgstr "Cờ"
+msgstr "Gắn cờ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
@@ -1048,7 +1046,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Automatically start Firefox in full screen mode"
-msgstr ""
+msgstr "Tự động khởi động Firefox ở chế độ toàn màn hình"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Video Speed Controller"
@@ -1269,7 +1267,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:58
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr ""
+msgstr "Giữ các phần khác nhau trong cuộc sống trực tuyến của bạn—công việc, cá nhân, ...—được phân cách bằng các tab được mã hóa bằng màu"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Universal Bypass"
@@ -1479,11 +1477,11 @@ msgstr "Cảm nhận của bạn về %(addonName)s như thế nào?"
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
-msgstr ""
+msgstr "Đang lưu xếp hạng sao"
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
-msgstr ""
+msgstr "Đã lưu xếp hạng sao"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -1708,7 +1706,7 @@ msgstr "Lọc kết quả"
 
 #: src/amo/components/SearchFilters/index.js:167
 msgid "Sort by"
-msgstr ""
+msgstr "Sắp xếp theo"
 
 #: src/amo/components/SearchFilters/index.js:189
 msgid "Add-on Type"
@@ -1837,7 +1835,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:30
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "tiện ích của tôi được xem xét bởi người đánh giá"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:32
 msgid "my sdk-based add-on cannot be upgraded"
@@ -2020,11 +2018,11 @@ msgstr "Tìm kiếm các tiện ích mở rộng và chủ đề để thêm và
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Tải xuống và tạo bộ sưu tập Firefox để theo dõi các chủ đề và tiện ích yêu thích. Khám phá %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:506
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Tải xuống và tạo bộ sưu tập Firefox để theo dõi các chủ đề và tiện ích yêu thích. Khám phá %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:111
 msgid "Collections"
@@ -2871,7 +2869,7 @@ msgstr ""
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Quản lý tiện ích của bạn bằng cách nhấp vào Tiện ích trên bảng chọn."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -3009,7 +3007,7 @@ msgstr ""
 
 #: src/ui/components/Rating/index.js:98
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr ""
+msgstr "Cập nhật xếp hạng của bạn lên %(starRating)s sao"
 
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
