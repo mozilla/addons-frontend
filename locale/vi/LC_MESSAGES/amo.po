@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-12-01 14:12+0000\n"
+"PO-Revision-Date: 2018-12-01 14:32+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -1355,15 +1355,15 @@ msgstr "Tìm hiểu thêm về quyền hạn"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "Xem và chỉnh sửa trang đánh dấu"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Đọc và chỉnh sửa cài đặt trình duyệt"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Xóa lịch sử duyệt web, cookie và dữ liệu liên quan gần đây"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
@@ -1375,19 +1375,19 @@ msgstr "Nhập dữ liệu vào bảng tạm"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Mở rộng công cụ dành cho nhà phát triển để truy cập dữ liệu của bạn trong các thẻ đang mở"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Tải về các tập tin và chỉnh sửa lịch sử tải về của trình duyệt"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "Mở tập tin đã tải xuống trên máy tính của bạn"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "Đọc văn bản của tất cả các thẻ đang mở"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access your location"
@@ -1399,11 +1399,11 @@ msgstr "Truy cập lịch sử duyệt web"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "Theo dõi việc sử dụng tiện ích và quản lý các chủ đề"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Trao đổi tin nhắn với các chương trình khác ngoài Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Display notifications to you"
@@ -1411,11 +1411,11 @@ msgstr "Hiển thị thông báo cho bạn"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Cung cấp dịch vụ xác thực mật mã"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Control browser proxy settings"
-msgstr "Kiểm soát cài đặt proxy của trình duyệt"
+msgstr "Điều khiển cài đặt proxy của trình duyệt"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Read and modify privacy settings"
@@ -1439,19 +1439,19 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "Truy cập hoạt động của trình duyệt trong khi điều hướng"
 
 #: src/amo/components/RatingManager/index.js:115
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Đăng nhập để đánh giá từ điển này"
 
 #: src/amo/components/RatingManager/index.js:117
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Đăng nhập để đánh giá gói ngôn ngữ này"
 
 #: src/amo/components/RatingManager/index.js:119
 msgid "Log in to rate this search plugin"
-msgstr ""
+msgstr "Đăng nhập để đánh giá plugin tìm kiếm này"
 
 #: src/amo/components/RatingManager/index.js:122
 msgid "Log in to rate this theme"
@@ -1459,7 +1459,7 @@ msgstr "Đăng nhập để đánh giá chủ đề này"
 
 #: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this extension"
-msgstr ""
+msgstr "Đăng nhập để đánh giá tiện ích này"
 
 #: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this add-on"
@@ -1475,7 +1475,7 @@ msgstr "Bạn có chắc muốn xóa xếp hạng %(addonName)s của mình khô
 
 #: src/amo/components/RatingManager/index.js:183
 msgid "How are you enjoying %(addonName)s?"
-msgstr ""
+msgstr "Cảm nhận của bạn về %(addonName)s như thế nào?"
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
@@ -1487,7 +1487,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "Bạn đã báo cáo tiện ích này lạm dụng"
 
 #: src/amo/components/ReportAbuseButton/index.js:120
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -1500,18 +1500,20 @@ msgstr ""
 #: src/amo/components/ReportAbuseButton/index.js:139
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Nếu bạn cho rằng tiện ích này vi phạm %(linkTagStart)scác chính sách của Tiện ích Mozilla%(linkTagEnd)s hoặc có vấn đề bảo mật hoặc riêng tư, vui lòng báo cáo các vấn đề này cho Mozilla bằng biểu "
+"mẫu này."
 
 #: src/amo/components/ReportAbuseButton/index.js:155
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "Báo cáo tiện ích này lạm dụng"
 
 #: src/amo/components/ReportAbuseButton/index.js:184
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Vui lòng không sử dụng biểu mẫu này để báo cáo lỗi hoặc yêu cầu các tính năng bổ sung; báo cáo này sẽ được gửi tới Mozilla mà không phải cho nhà phát triển tiện ích."
 
 #: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Giải thích tại sao tiện ích này vi phạm chính sách của chúng tôi."
 
 #: src/amo/components/ReportAbuseButton/index.js:213
 msgid "Dismiss"
@@ -1519,11 +1521,11 @@ msgstr "Bỏ qua"
 
 #: src/amo/components/ReportAbuseButton/index.js:223 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Đang gửi báo cáo lạm dụng"
 
 #: src/amo/components/ReportAbuseButton/index.js:224 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
-msgstr ""
+msgstr "Gửi báo cáo"
 
 #: src/amo/components/ReportUserAbuse/index.js:106 src/amo/components/ReportUserAbuse/index.js:99
 msgid "Report this user for abuse"
@@ -1920,7 +1922,7 @@ msgstr "Giới thiệu add-on này"
 
 #: src/amo/pages/Addon/index.js:336
 msgid "Release notes for %(addonVersion)s"
-msgstr "Ghi chú phát hành cho %(addonVersion)s"
+msgstr "Ghi chú phát hành cho phiên bản %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:489
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
@@ -2969,16 +2971,16 @@ msgstr ""
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Truy cập dữ liệu của bạn trên mọi website"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] ""
+msgstr[0] "Truy cập dữ liệu của bạn trong %(param)s tên miền khác"
 
 #: src/ui/components/HostPermissions/index.js:67
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "Truy cập dữ liệu của bạn cho các trang web trong tên miền %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
@@ -2995,7 +2997,7 @@ msgstr ""
 
 #: src/ui/components/Rating/index.js:104
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr ""
+msgstr "Xếp hạng tiện ích này %(starRating)s sao"
 
 #: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
