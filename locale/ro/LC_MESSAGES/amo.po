@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-12-01 09:46+0000\n"
+"PO-Revision-Date: 2018-12-01 11:12+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -947,7 +947,7 @@ msgstr "Raportează o defecțiune"
 
 #: src/amo/components/Footer/index.js:81
 msgid "Review Guide"
-msgstr "Ghid pentru recenzii"
+msgstr "Ghid de revizuire"
 
 #: src/amo/components/Footer/index.js:86
 msgid "Site Status"
@@ -996,7 +996,7 @@ msgstr "Gestionează propunerile mele"
 
 #: src/amo/components/Header/index.js:147
 msgid "Reviewer Tools"
-msgstr "Unelte pentru recenzenți"
+msgstr "Unelte pentru revizori"
 
 #: src/amo/components/Header/index.js:157 src/core/components/AuthenticateButton/index.js:80
 msgid "Log out"
@@ -1880,7 +1880,7 @@ msgstr "un dezvoltator de suplimente răspunde la recenzia mea"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:30
 msgid "my add-on is reviewed by a reviewer"
-msgstr "suplimentul meu este recenzat de un recenzor"
+msgstr "suplimentul meu este verificat de un revizor"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:32
 msgid "my sdk-based add-on cannot be upgraded"
@@ -2485,7 +2485,7 @@ msgid ""
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
 "Suplimentele enumerate aici sunt create de mii de dezvoltatori și designeri de teme din întreaga lume, de la pasionați individuali până la mari corporații. Unele suplimente listate pe AMO au fost "
-"publicate automat și pot fi supuse revizuirii de către o echipă de editori, după publicare."
+"publicate automat și pot fi supuse revizuirii de către o echipă de editori, după listarea publică."
 
 #: src/amo/pages/StaticPages/About/index.js:80
 msgid "Get involved"
@@ -2567,7 +2567,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:22
 msgid "Review Guidelines"
-msgstr "Ghid pentru recenzii"
+msgstr "Ghid de revizuire"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:31
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
