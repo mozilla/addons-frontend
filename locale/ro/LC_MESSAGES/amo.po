@@ -595,7 +595,7 @@ msgstr "Eliminat din colecție"
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Găsește un supliment pentru a-l include în această colecție"
 
 #: src/amo/components/CollectionDetails/index.js:103
 msgid "Edit this collection"
@@ -607,7 +607,7 @@ msgstr "Editează detaliile colecției"
 
 #: src/amo/components/CollectionDetails/index.js:126
 msgid "Back to collection"
-msgstr "Întoarcere la colecție"
+msgstr "Înapoi la colecție"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -2015,7 +2015,7 @@ msgstr "Autentifică-te pentru a crea o colecție"
 
 #: src/amo/pages/Collection/index.js:405
 msgid "Log in to edit this collection"
-msgstr "Autentifică-te pentru editarea acestei colecții"
+msgstr "Autentifică-te pentru a edita această colecție"
 
 #: src/amo/pages/Collection/index.js:438
 msgid "First, create your collection. Then you can add extensions and themes."
@@ -2023,7 +2023,7 @@ msgstr ""
 
 #: src/amo/pages/Collection/index.js:441
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "Caută extensii și teme pe care să le adăugi în colecția ta."
 
 #: src/amo/pages/Collection/index.js:503
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
