@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-11-28 17:44+0000\n"
+"PO-Revision-Date: 2018-12-03 20:38+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -2104,25 +2104,27 @@ msgstr "Jobb böngészés javított könyvjelzőkkel"
 
 #: src/amo/pages/Guides/index.js:153
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "A kiegészítők segítenek az online érdeklődései rendszerezésében. A könyvjelzőkezelők ideálisak az olyan emberek számára, akik sok tartalmat követnek."
 
 #: src/amo/pages/Guides/index.js:157
 msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"Segítséget szeretne kapni a kedvenc online süteményreceptjei, leírásai, YouTube videói, vagy bármilyen más webes tartalom rendszerezésében? A OneNote Web Clipper segítségével összegyűjtheti és "
+"rendezheti a kedvenc online tartalmait, egy hatékony tárolóban, amely szinkronizál az eszközei között."
 
 #: src/amo/pages/Guides/index.js:164
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Fedezzen fel több %(linkStart)skönyvjelzőkezelőt%(linkEnd)s a stáb kedvenceiből."
 
 #: src/amo/pages/Guides/index.js:172
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Élvezzen egy friss új lap élményt"
 
 #: src/amo/pages/Guides/index.js:173
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "Indítson minden böngészést az Ön számára testreszabott új lap élménnyel."
 
 #: src/amo/pages/Guides/index.js:177
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
@@ -2130,37 +2132,39 @@ msgstr "Élvezze a gyönyörű új lap oldalt testreszabható háttérrel, helyi
 
 #: src/amo/pages/Guides/index.js:181
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
-msgstr ""
+msgstr "Fedezzen fel több %(linkStart)sszórakoztató módot a lapjai módosításához%(linkEnd)s a stáb kedvenceiből."
 
 #: src/amo/pages/Guides/index.js:192
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "Hozza a médiát közvetlenül a böngészőbe"
 
 #: src/amo/pages/Guides/index.js:193
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "A kiegészítők a saját szórakoztató központjává tehetik a Firefoxot, amely azonnali hozzáférést ad a zenéhez, a képkészítéshez, a játékokhoz és még sok máshoz."
 
 #: src/amo/pages/Guides/index.js:198
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
-msgstr ""
+msgstr "Férjen hozzá több mint 30 000 rádióállomáshoz a világ minden tájáról, mindig csak egy kattintásnyira."
 
 #: src/amo/pages/Guides/index.js:202
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
-msgstr ""
+msgstr "Fedezze fel a több ezer %(linkStart)sfénykép, zene és videó kiegészítőt%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:210
 msgid "Get more out of media"
-msgstr ""
+msgstr "Hozzon ki többet a médiából"
 
 #: src/amo/pages/Guides/index.js:211
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
-msgstr ""
+msgstr "A kiegészítők sokféle ritkán használt médiás igényt tudnak kezelni, például a képkeresést, a letöltéskezelést és a szövegfelolvasást, hogy csak párat említsünk."
 
 #: src/amo/pages/Guides/index.js:216
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Volt már valaha, hogy talált egy érdekes képet a weben, és többet akart róla megtudni, például hogy ki a képen szereplő személy? Vannak-e kapcsolódó képek? Ezzel a kiegészítővel gyorsan és könnyen "
+"indíthat fordított képkeresést, számos keresőszolgáltatással."
 
 #: src/amo/pages/Guides/index.js:222
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
@@ -2168,15 +2172,16 @@ msgstr "Fedezzen fel több %(linkStart)smédia kiegészítőt%(linkEnd)s a stáb
 
 #: src/amo/pages/Guides/index.js:230
 msgid "Improve videos"
-msgstr ""
+msgstr "Javítson a videókon"
 
 #: src/amo/pages/Guides/index.js:231
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, from customizing YouTube to taste, to playing videos in theater mode, and much more."
 msgstr ""
+"Ha élvezi a videotartalmakat, akkor a kiegészítők számos lehetőséget kínálnak az Ön élményének optimalizálásához, a YouTube testreszabásához kezdve, a videók mozi módban lejátszásáig, és így tovább."
 
 #: src/amo/pages/Guides/index.js:236
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
-msgstr ""
+msgstr "Adjon egy vezérlősávot az összes YouTube videóoldalhoz, hogy könnyen állíthasson hangerőt, lejátszási sebességet, videolejátszó méretet, reklám és feliratblokkolást, és ez még nem minden."
 
 #: src/amo/pages/Guides/index.js:241
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
@@ -2187,6 +2192,8 @@ msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
 msgstr ""
+"A web egy csodálatos, de vad hely. Személyes adatait a beleegyezése nélkül használhatják, kémkedhetnek a tevékenysége után, és a jelszavait is ellophatják. Szerencsére a kiegészítők segíthetnek az "
+"online adatvédelem és biztonság megerősítésében."
 
 #: src/amo/pages/Guides/index.js:269
 msgid "Organize Tabs & Bookmarks"
@@ -2197,26 +2204,28 @@ msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Túl sok nyitott lapot vagy szédítő számú könyvjelzőt kezel? A kiegészítők segíthetnek! A szervezési segítségtől a szórakoztató új funkciókig, a kiegészítők drasztikusan megváltoztathatják a fülek és"
+" könyvjelzők kezelését."
 
 #: src/amo/pages/Guides/index.js:283
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "A kiegészítők sok érdekes módon tehetik jobbá az online médiát, a videónézéstől kedve a képek, zenék kezeléséig, és így tovább."
 
 #: src/amo/pages/Guides/index.js:75
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "Hozzon létre és kezeljen erős jelszavakat"
 
 #: src/amo/pages/Guides/index.js:76
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
-msgstr ""
+msgstr "A jelszókezelők segítenek biztonságos jelszavakat létrehozni, azokat egy (biztonságos) helyen tárolni, és egyszerű hozzáférést biztosítanak a bejelentkezési adataihoz, bárhol is legyen."
 
 #: src/amo/pages/Guides/index.js:81
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
-msgstr ""
+msgstr "Teljesen titkosított jelszóvédelem. Tárolja az adatait biztonságosan, és érje el a bejelentkezéseit az összes eszközén."
 
 #: src/amo/pages/Guides/index.js:85
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Fedezzen fel több %(linkStart)sjelszókezelőt%(linkEnd)s a stáb kedvenceiből."
 
 #: src/amo/pages/Guides/index.js:93
 msgid "Block annoying ads"
@@ -2226,6 +2235,8 @@ msgstr "Blokkolja a bosszantó hirdetéseket"
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
+"A mai web tele van nem kívánatos hirdetésekkel, amelyek útban vannak és csak lelassítják. A hirdetésblokkoló bővítmények blokkolhatják vagy szűrhetik ezeket a hirdetéseket, így visszatérhet a "
+"figyelemelterelés nélküli böngészéshez."
 
 #: src/amo/pages/Home/index.js:119
 msgid "Bookmarks"
@@ -2286,6 +2297,8 @@ msgstr "Szabja testre a Firefox kinézetet témákkal."
 #: src/amo/pages/Home/index.js:262
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
 msgstr ""
+"Töltsön le Firefox kiegészítőket és témákat. Olyanok, mint az appok a böngészője számára. Blokkolhatják a bosszantó hirdetéseket, megvédhetik a jelszavait, módosíthatják a böngésző megjelenését, és "
+"így tovább."
 
 #: src/amo/pages/Home/index.js:340
 msgid "See more popular extensions"
@@ -2309,11 +2322,13 @@ msgstr "Közösségi média testreszabása"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Töltsön le témákat a Firefox megjelenésének megváltoztatásához. Szabja testre az élményét az Ön ízlésének megfelelően. Aranyos kisállatok, gonosz robotok, gyönyörű tájak – ezernyi lehetőség."
 
 #: src/amo/pages/LandingPage/index.js:213
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
+"Töltsön le Firefox kiegészítőket, hogy olyan funkciókat adjon hozzá, amelyek testreszabják a böngészést. Védje meg a jelszavait, találjon akciókat, tegye jobbá a videókat és blokkolja a bosszantó "
+"hirdetéseket a böngészőalkalmazásokkal."
 
 #: src/amo/pages/LandingPage/index.js:237
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2337,7 +2352,7 @@ msgstr "Szótárak és nyelvi csomagok"
 
 #: src/amo/pages/LanguageTools/index.js:157
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Töltsön le Firefox szótárakat és nyelvi csomagokat. Adjon hozzá új nyelvet a böngésző helyesírás-ellenőrzőjéhez, vagy módosítsa a böngésző felületének nyelvét."
 
 #: src/amo/pages/LanguageTools/index.js:168
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2365,7 +2380,7 @@ msgstr "Szótárak"
 
 #: src/amo/pages/SearchTools/index.js:31
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "Töltsön le Firefox bővítményeket, hogy testre szabhassa a keresés módját – kezdve az adatvédelmi szempontból jobb kereséssel, a webhelyfüggő keresésekkel, képkereséssel és még sok mással."
 
 #: src/amo/pages/StaticPages/About/index.js:108
 msgid ""
@@ -2418,7 +2433,7 @@ msgstr "A Firefox kiegészítők névjegye"
 
 #: src/amo/pages/StaticPages/About/index.js:31
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "A hivatalos Mozilla webhely a Firefox kiegészítők és témák letöltéséhez. Adjon hozzá új funkciókat, és módosítsa a böngésző megjelenését a webes élménye testreszabásához."
 
 #: src/amo/pages/StaticPages/About/index.js:42
 msgid ""
@@ -2531,7 +2546,7 @@ msgstr "Értékelési útmutató"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:31
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Iránymutatások, tippek és Gyakran Ismételt Kérdések, hogy értékeléseket adjon a letöltött és a Firefoxban használt kiegészítőkről és témákról."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid ""
@@ -2611,15 +2626,15 @@ msgstr "Saját értékelések"
 
 #: src/amo/pages/UserProfile/index.js:268
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "%(user)s profilja, aki Firefox kiegészítő- és témaszerző. Találjon más alkalmazásokat, amelyet %(user)s készített, és nézze meg az átlagos értékelést és a hibajelentési lehetőséget."
 
 #: src/amo/pages/UserProfile/index.js:272
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "%(user)s profilja, aki Firefox kiegészítőszerző. Találjon más kiegészítőket, amelyet %(user)s készített, és nézze meg az átlagos értékelést és a hibajelentési lehetőséget."
 
 #: src/amo/pages/UserProfile/index.js:276
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "%(user)s profilja, aki Firefox témaszerző. Találjon más témákat, amelyet %(user)s készített, és nézze meg az átlagos értékelést és a hibajelentési lehetőséget."
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
