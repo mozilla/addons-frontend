@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-12-03 20:21+0000\n"
+"PO-Revision-Date: 2018-12-03 20:40+0000\n"
 "Last-Translator: Francesco Lodolo <francesco.lodolo@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -2119,6 +2119,8 @@ msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"Hai bisogno di aiuto per organizzare le tue ricette preferite di cucina online, gli articoli guida, i video di YouTube o qualsiasi altra cosa trovi sul Web? OneNote Web Clipper ti permette di "
+"raccogliere e memorizzare tutti i tuoi contenuti online preferiti in un potente archivio che si sincronizza con tutti i tuoi dispositivi."
 
 #: src/amo/pages/Guides/index.js:164
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
@@ -2126,11 +2128,11 @@ msgstr "Scopri altri %(linkStart)sgestori di segnalibri%(linkEnd)s consigliati d
 
 #: src/amo/pages/Guides/index.js:172
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Idee innovative per le nuove schede"
 
 #: src/amo/pages/Guides/index.js:173
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "Personalizza ogni sessione di navigazione definendo il comportamento delle nuove schede in base alle tue esigenze."
 
 #: src/amo/pages/Guides/index.js:177
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
@@ -2142,7 +2144,7 @@ msgstr "Scopri altri %(linkStart)smodi divertenti per cambiare le tue schede%(li
 
 #: src/amo/pages/Guides/index.js:192
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "Integra i contenuti multimediali nel browser"
 
 #: src/amo/pages/Guides/index.js:193
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
@@ -2163,6 +2165,8 @@ msgstr "Ottieni di più dai contenuti multimediali"
 #: src/amo/pages/Guides/index.js:211
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
 msgstr ""
+"Alcune estensioni possono soddisfare un’ampia gamma di esigenze e interessi relativi a contenuti multimediali di nicchia, come la ricerca di immagini, la gestione dei download e i lettori di testo, "
+"solo per citarne alcuni."
 
 #: src/amo/pages/Guides/index.js:216
 msgid ""
@@ -2178,15 +2182,19 @@ msgstr "Scopri altre %(linkStart)sestensioni dedicate a contenuti multimediali%(
 
 #: src/amo/pages/Guides/index.js:230
 msgid "Improve videos"
-msgstr ""
+msgstr "Migliora l’esperienza con i video"
 
 #: src/amo/pages/Guides/index.js:231
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, from customizing YouTube to taste, to playing videos in theater mode, and much more."
 msgstr ""
+"Se ti piacciono i contenuti video, alcune estensioni offrono una serie di modalità per ottimizzare la tua esperienza, dalla personalizzazione di YouTube secondo i tuoi gusti, alla riproduzione di "
+"video in modalità cinema e molto altro ancora."
 
 #: src/amo/pages/Guides/index.js:236
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
 msgstr ""
+"Aggiungi una barra di controllo in tutte le pagine video di YouTube in modo tale da poter regolare facilmente il volume, la velocità di riproduzione, la dimensione del riproduttore video, il blocco "
+"degli annunci pubblicitari e delle annotazioni e molte altre funzionalità."
 
 #: src/amo/pages/Guides/index.js:241
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
@@ -2209,10 +2217,12 @@ msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Hai a che fare con troppe schede aperte o con un numero vertiginoso di segnalibri? Alcune estensioni possono aiutarti, cambiando radicalmente il modo di gestire le schede e i segnalibri, dal "
+"migliorarne l’organizzazione fino a fornire nuove e divertenti funzionalità,"
 
 #: src/amo/pages/Guides/index.js:283
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "Alcune estensioni possono estendere i contenuti multimediali online in diversi modi interessanti, dalla visione di un video alla gestione di immagini, musica e altro ancora."
 
 #: src/amo/pages/Guides/index.js:75
 msgid "Create and manage strong passwords"
@@ -2239,6 +2249,8 @@ msgstr "Blocca i fastidiosi annunci pubblicitari"
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
+"Il Web odierno è pieno di annunci pubblicitari indesiderati che ostacolano e rallentano la navigazione. Le estensioni per il blocco della pubblicità possono filtrare e mettere un freno a questi "
+"annunci in modo da garantire una navigazione senza distrazioni."
 
 #: src/amo/pages/Home/index.js:119
 msgid "Bookmarks"
