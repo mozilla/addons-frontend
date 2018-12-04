@@ -12766,10 +12766,10 @@ react-style-proptype@^3.0.0:
   dependencies:
     prop-types "^15.5.4"
 
-react-super-responsive-table@4.3.4:
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/react-super-responsive-table/-/react-super-responsive-table-4.3.4.tgz#d75c24695d3bb92eaf7e3936227e73bebe099235"
-  integrity sha512-0WlT4e5yHqG1S8sNAbBK7cTiSiCq1DiLS1t1PfCXc4nvsH7SWaDZTO6T/kwdBHkWnq7JOUVEJQ5SmyME2ftglw==
+react-super-responsive-table@4.3.5:
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/react-super-responsive-table/-/react-super-responsive-table-4.3.5.tgz#c3fa253cadc3dffa23450734cfeaa68d9b6cf772"
+  integrity sha512-pi74KMQ340b/My2lQ+UQsNnyBun8+qkgZZ6quzs0bFzgzRt4LCviRVXrrhbSoIR8abCDvGiO33okmr7n5cGXOw==
   dependencies:
     create-react-context "^0.2.3"
 
