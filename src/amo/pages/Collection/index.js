@@ -84,7 +84,7 @@ type InternalProps = {|
     ...ReactRouterMatchType,
     params: {|
       slug: string,
-      username: string,
+      userId: string,
     |},
   |},
 |};
@@ -165,16 +165,16 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     invariant(collection, 'collection is required');
 
-    const { slug, authorUsername: username } = collection;
+    const { slug, authorUsername: userId } = collection;
 
     invariant(slug, 'slug is required');
-    invariant(username, 'username is required');
+    invariant(userId, 'userId is required');
 
     dispatch(
       deleteCollection({
         errorHandlerId: errorHandler.id,
         slug,
-        userId: username,
+        userId,
       }),
     );
   };
@@ -215,8 +215,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     if (
       collection &&
       (collection.slug.toLowerCase() !== params.slug.toLowerCase() ||
-        collection.authorUsername.toLowerCase() !==
-          params.username.toLowerCase())
+        collection.authorUsername.toLowerCase() !== params.userId.toLowerCase())
     ) {
       collectionChanged = true;
     }
@@ -225,7 +224,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     if (
       !collectionChanged &&
       collection &&
-      (params.username !== collection.authorUsername ||
+      (params.userId !== collection.authorUsername ||
         params.slug !== collection.slug)
     ) {
       const { lang, clientApp } = this.props;
@@ -247,7 +246,7 @@ export class CollectionBase extends React.Component<InternalProps> {
           errorHandlerId: errorHandler.id,
           filters,
           slug: params.slug,
-          userId: params.username,
+          userId: params.userId,
         }),
       );
 
@@ -260,7 +259,7 @@ export class CollectionBase extends React.Component<InternalProps> {
           errorHandlerId: errorHandler.id,
           filters,
           slug: params.slug,
-          userId: params.username,
+          userId: params.userId,
         }),
       );
     }
@@ -271,10 +270,10 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     invariant(collection, 'collection is required');
 
-    const { slug, authorUsername: username } = collection;
+    const { slug, authorUsername: userId } = collection;
 
     invariant(slug, 'slug is required');
-    invariant(username, 'username is required');
+    invariant(userId, 'userId is required');
 
     let { page } = filters;
     let shouldPushNewRoute = false;
@@ -298,7 +297,7 @@ export class CollectionBase extends React.Component<InternalProps> {
           page,
         },
         slug,
-        userId: username,
+        userId,
       }),
     );
 
@@ -323,10 +322,10 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     invariant(collection, 'collection is required');
 
-    const { slug, authorUsername: username } = collection;
+    const { slug, authorUsername: userId } = collection;
 
     invariant(slug, 'slug is required');
-    invariant(username, 'username is required');
+    invariant(userId, 'userId is required');
 
     dispatch(
       deleteCollectionAddonNotes({
@@ -334,7 +333,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         errorHandlerId: errorHandler.id,
         filters,
         slug,
-        userId: username,
+        userId,
       }),
     );
   };
@@ -348,10 +347,10 @@ export class CollectionBase extends React.Component<InternalProps> {
 
     invariant(collection, 'collection is required');
 
-    const { slug, authorUsername: username } = collection;
+    const { slug, authorUsername: userId } = collection;
 
     invariant(slug, 'slug is required');
-    invariant(username, 'username is required');
+    invariant(userId, 'userId is required');
 
     dispatch(
       updateCollectionAddon({
@@ -360,7 +359,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         notes,
         filters,
         slug,
-        userId: username,
+        userId,
       }),
     );
   };
@@ -571,7 +570,7 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
 
 export const extractId = (ownProps: InternalProps) => {
   return [
-    ownProps.match.params.username,
+    ownProps.match.params.userId,
     ownProps.match.params.slug,
     ownProps.location.query.page,
   ].join('/');

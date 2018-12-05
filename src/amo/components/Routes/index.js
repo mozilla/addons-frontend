@@ -127,7 +127,7 @@ const Routes = ({ _config = config }: Props = {}) => (
 
     <Route
       exact
-      path="/:lang/:application/collections/:username/:slug/"
+      path="/:lang/:application/collections/:userId/:slug/"
       component={Collection}
     />
     <Route
@@ -142,7 +142,7 @@ const Routes = ({ _config = config }: Props = {}) => (
     />
     <Route
       exact
-      path="/:lang/:application/collections/:username/:slug/edit/"
+      path="/:lang/:application/collections/:userId/:slug/edit/"
       component={CollectionEdit}
     />
 
