@@ -1,4 +1,3 @@
-@import '~photon-colors/photon-colors';
 @import '~core/css/inc/vars';
 
 // Desktop variables (from specs)
@@ -33,7 +32,6 @@ $block-hover-white-color: #f8f9fa;
 $background-grey: #e9ecef;
 $background-gray: $background-grey;
 $type-black: $black;
-$link-color: #0d96ff;
 $header-accent-color: $link-color;
 $header-text-not-active-color: transparentize($white, 0.5);
 
