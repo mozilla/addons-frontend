@@ -310,7 +310,7 @@ describe(__filename, () => {
         errorHandlerId: root.instance().props.errorHandler.id,
         name: { [lang]: name },
         slug,
-        username: signedInUsername,
+        userId: signedInUsername,
       }),
     );
   });
@@ -347,7 +347,7 @@ describe(__filename, () => {
         includeAddonId: id,
         name: { [lang]: name },
         slug,
-        username: signedInUsername,
+        userId: signedInUsername,
       }),
     );
   });
@@ -382,7 +382,7 @@ describe(__filename, () => {
         filters,
         name: { [lang]: name },
         slug,
-        username: signedInUsername,
+        userId: signedInUsername,
       }),
     );
   });
@@ -560,7 +560,7 @@ describe(__filename, () => {
         filters,
         name: { [lang]: name },
         slug,
-        username: signedInUsername,
+        userId: signedInUsername,
       }),
     );
   });
@@ -649,7 +649,7 @@ describe(__filename, () => {
         filters,
         name: { [lang]: collection.name },
         slug: collection.slug,
-        username: signedInUsername,
+        userId: signedInUsername,
       }),
     );
   });

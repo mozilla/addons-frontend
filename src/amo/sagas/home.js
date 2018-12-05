@@ -44,7 +44,7 @@ export function* fetchHomeAddons({
       const params: GetCollectionAddonsParams = {
         api: state.api,
         slug: collection.slug,
-        username: collection.username,
+        userId: collection.username,
       };
       const result = yield call(getCollectionAddons, params);
       collections.push(result);

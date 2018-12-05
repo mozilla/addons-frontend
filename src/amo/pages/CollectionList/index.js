@@ -50,7 +50,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
       dispatch(
         fetchUserCollections({
           errorHandlerId: errorHandler.id,
-          username: currentUsername,
+          userId: currentUsername,
         }),
       );
     }

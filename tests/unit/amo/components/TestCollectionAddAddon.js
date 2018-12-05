@@ -39,12 +39,12 @@ const simulateAutoSearchCallback = (props = {}) => {
   });
 };
 
-const _addonAddedToCollection = ({ username, root, store }) => {
+const _addonAddedToCollection = ({ userId, root, store }) => {
   store.dispatch(
     addonAddedToCollection({
       addonId: 123,
       collectionId: 321,
-      username,
+      userId,
     }),
   );
 
@@ -65,7 +65,6 @@ const _addonRemovedFromCollection = ({ root, store }) => {
 
 describe(__filename, () => {
   const signedInUserId = 123;
-  const signedInUsername = 'user123';
 
   let clock;
 
@@ -77,14 +76,8 @@ describe(__filename, () => {
     clock.restore();
   });
 
-  const dispatchSignedInUser = ({
-    userId = signedInUserId,
-    username = signedInUsername,
-  }) => {
-    return dispatchSignInActions({
-      userId,
-      userProps: { username },
-    });
+  const dispatchSignedInUser = ({ userId = signedInUserId }) => {
+    return dispatchSignInActions({ userId });
   };
 
   const getProps = ({
@@ -128,10 +121,10 @@ describe(__filename, () => {
 
   it('dispatches addAddonToCollection when selecting an add-on', () => {
     const authorUsername = 'non-signed-in-user';
-    const currentUsername = 'signed-in-user';
+    const currentUserId = 569;
 
     const { store } = dispatchSignedInUser({
-      username: currentUsername,
+      userId: currentUserId,
     });
     const filters = { page: 2 };
     const errorHandler = createStubErrorHandler();
@@ -160,20 +153,20 @@ describe(__filename, () => {
         editing: true,
         errorHandlerId: errorHandler.id,
         filters,
-        username: authorUsername,
+        userId: authorUsername,
       }),
     );
   });
 
   it('displays a notification for 5 seconds after an add-on has been added', () => {
     const { store } = dispatchSignedInUser({
-      username: signedInUsername,
+      userId: signedInUserId,
     });
     const root = render({ setTimeout: window.setTimeout, store });
 
     expect(root.find(Notice)).toHaveLength(0);
 
-    _addonAddedToCollection({ username: signedInUsername, root, store });
+    _addonAddedToCollection({ userId: signedInUserId, root, store });
 
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice).children()).toHaveText('Added to collection');
@@ -191,7 +184,7 @@ describe(__filename, () => {
 
   it('displays a notification for 5 seconds after an add-on has been removed', () => {
     const { store } = dispatchSignedInUser({
-      username: signedInUsername,
+      userId: signedInUserId,
     });
     const root = render({ setTimeout: window.setTimeout, store });
 
@@ -221,12 +214,12 @@ describe(__filename, () => {
     );
     const clearStub = sinon.stub(errorHandler, 'clear');
     const { store } = dispatchSignedInUser({
-      username: signedInUsername,
+      userId: signedInUserId,
     });
 
     const root = render({ errorHandler, store });
 
-    _addonAddedToCollection({ username: signedInUsername, root, store });
+    _addonAddedToCollection({ userId: signedInUserId, root, store });
 
     sinon.assert.called(clearStub);
   });
@@ -247,7 +240,7 @@ describe(__filename, () => {
 
   it('calls clearTimeout when unmounting and timeout is set', () => {
     const { store } = dispatchSignedInUser({
-      username: signedInUsername,
+      userId: signedInUserId,
     });
     const timeoutID = 123;
     const setTimeoutSpy = sinon.spy(() => timeoutID);
@@ -258,7 +251,7 @@ describe(__filename, () => {
       store,
     });
 
-    _addonAddedToCollection({ username: signedInUsername, root, store });
+    _addonAddedToCollection({ userId: signedInUserId, root, store });
     sinon.assert.called(setTimeoutSpy);
 
     root.unmount();
@@ -277,13 +270,13 @@ describe(__filename, () => {
 
   it('removes the notification after a new add-on has been selected', () => {
     const { store } = dispatchSignedInUser({
-      username: signedInUsername,
+      userId: signedInUserId,
     });
     const root = render({ store });
 
     expect(root.find(Notice)).toHaveLength(0);
 
-    _addonAddedToCollection({ username: signedInUsername, root, store });
+    _addonAddedToCollection({ userId: signedInUserId, root, store });
 
     expect(root.find(Notice)).toHaveLength(1);
 

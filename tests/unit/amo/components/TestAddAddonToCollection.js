@@ -72,7 +72,7 @@ describe(__filename, () => {
       userId,
       userProps: { username },
     });
-    store.dispatch(loadUserCollections({ username, collections }));
+    store.dispatch(loadUserCollections({ userId: username, collections }));
   };
 
   const createSomeCollections = ({ username = 'some-user' } = {}) => {
@@ -99,7 +99,7 @@ describe(__filename, () => {
         dispatchSpy,
         fetchUserCollections({
           errorHandlerId: root.instance().props.errorHandler.id,
-          username,
+          userId: username,
         }),
       );
     });
@@ -118,7 +118,7 @@ describe(__filename, () => {
         dispatchSpy,
         fetchUserCollections({
           errorHandlerId: root.instance().props.errorHandler.id,
-          username,
+          userId: username,
         }),
       );
     });
@@ -159,7 +159,7 @@ describe(__filename, () => {
       store.dispatch(
         fetchUserCollections({
           errorHandlerId: 'some-id',
-          username,
+          userId: username,
         }),
       );
 
@@ -185,7 +185,7 @@ describe(__filename, () => {
       store.dispatch(
         fetchUserCollections({
           errorHandlerId: 'some-id',
-          username,
+          userId: username,
         }),
       );
 
@@ -203,7 +203,7 @@ describe(__filename, () => {
       store.dispatch(
         addAddonToCollection({
           addonId: addon.id,
-          username,
+          userId: username,
           collectionId: 321,
           slug: 'some-collection',
           errorHandlerId: 'error-handler',
@@ -260,7 +260,7 @@ describe(__filename, () => {
           addonId: addon.id,
           collectionId: secondCollection.id,
           slug: secondCollection.slug,
-          username,
+          userId: username,
         }),
       );
     });
@@ -298,7 +298,7 @@ describe(__filename, () => {
       store.dispatch(
         addonAddedToCollection({
           addonId: addon.id,
-          username,
+          userId: username,
           collectionId: firstCollection.id,
         }),
       );
@@ -325,7 +325,7 @@ describe(__filename, () => {
         collections: [firstCollection, secondCollection],
       });
 
-      const addParams = { addonId: addon.id, username };
+      const addParams = { addonId: addon.id, userId: username };
 
       // Add the add-on to both collections.
       store.dispatch(

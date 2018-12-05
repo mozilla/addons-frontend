@@ -95,7 +95,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
       dispatch(
         fetchUserCollections({
           errorHandlerId: errorHandler.id,
-          username: currentUsername,
+          userId: currentUsername,
         }),
       );
     }
@@ -129,7 +129,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
         collectionId: collection.id,
         slug: collection.slug,
         errorHandlerId: errorHandler.id,
-        username: currentUsername,
+        userId: currentUsername,
       }),
     );
   }

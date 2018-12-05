@@ -239,7 +239,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters,
         slug,
-        username,
+        userId: username,
       }),
     );
   });
@@ -291,7 +291,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
         slug,
-        username,
+        userId: username,
       }),
     );
   });
@@ -340,7 +340,7 @@ describe(__filename, () => {
       fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
         slug,
-        username,
+        userId: username,
       }),
     );
 
@@ -362,7 +362,7 @@ describe(__filename, () => {
       fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
         slug,
-        username,
+        userId: username,
       }),
     );
 
@@ -430,7 +430,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
         slug: newSlug,
-        username,
+        userId: username,
       }),
     );
   });
@@ -463,7 +463,7 @@ describe(__filename, () => {
       fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
         filters: newFilters,
-        username: defaultUser,
+        userId: defaultUser,
         slug: defaultSlug,
       }),
     );
@@ -500,7 +500,7 @@ describe(__filename, () => {
       fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
         filters: newFilters,
-        username: defaultUser,
+        userId: defaultUser,
         slug: defaultSlug,
       }),
     );
@@ -534,7 +534,8 @@ describe(__filename, () => {
       fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
-        ...newParams,
+        slug: newParams.slug,
+        userId: newParams.username,
       }),
     );
   });
@@ -567,7 +568,8 @@ describe(__filename, () => {
       fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
-        ...newParams,
+        slug: newParams.slug,
+        userId: newParams.username,
       }),
     );
   });
@@ -880,7 +882,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters: { page: 2 },
         slug,
-        username,
+        userId: username,
       }),
     );
 
@@ -1107,7 +1109,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
         slug: detail.slug,
-        username: detail.author.username,
+        userId: detail.author.username,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -1163,7 +1165,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
         slug: detail.slug,
-        username: detail.author.username,
+        userId: detail.author.username,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -1220,7 +1222,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters: { page: newPage, collectionSort: sort },
         slug: detail.slug,
-        username: detail.author.username,
+        userId: detail.author.username,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -1271,7 +1273,7 @@ describe(__filename, () => {
       deleteCollection({
         errorHandlerId: errorHandler.id,
         slug,
-        username,
+        userId: username,
       }),
     );
   });
@@ -1318,7 +1320,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
         slug: detail.slug,
-        username: detail.author.username,
+        userId: detail.author.username,
       }),
     );
   });
@@ -1366,7 +1368,7 @@ describe(__filename, () => {
         notes,
         filters: { page, collectionSort: sort },
         slug: detail.slug,
-        username: detail.author.username,
+        userId: detail.author.username,
       }),
     );
   });
