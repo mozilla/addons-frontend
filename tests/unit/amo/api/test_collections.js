@@ -44,24 +44,6 @@ describe(__filename, () => {
   });
 
   describe('getCollectionDetail', () => {
-    it('throws an error when slug is missing', () => {
-      const params = getParams();
-      delete params.slug;
-
-      expect(() => {
-        getCollectionDetail(params);
-      }).toThrow('slug is required');
-    });
-
-    it('throws an error when userId is missing', () => {
-      const params = getParams();
-      delete params.userId;
-
-      expect(() => {
-        getCollectionDetail(params);
-      }).toThrow('userId is required');
-    });
-
     it('calls the collection detail API', async () => {
       const params = getParams();
 
@@ -83,24 +65,6 @@ describe(__filename, () => {
   });
 
   describe('getCollectionAddons', () => {
-    it('throws an error when slug is missing', () => {
-      const params = getParams();
-      delete params.slug;
-
-      expect(() => {
-        getCollectionAddons(params);
-      }).toThrow('slug is required');
-    });
-
-    it('throws an error when userId is missing', () => {
-      const params = getParams();
-      delete params.userId;
-
-      expect(() => {
-        getCollectionAddons(params);
-      }).toThrow('userId is required');
-    });
-
     it('calls the collection add-ons list API', async () => {
       const filters = {
         page: '1',
@@ -167,13 +131,6 @@ describe(__filename, () => {
         ...params,
       };
     };
-
-    it('throws an error when the userId parameter is missing', () => {
-      const params = getListParams();
-      delete params.userId;
-
-      expect(() => listCollections(params)).toThrow(/userId is required/);
-    });
 
     it('calls the list collections API', async () => {
       const userId = 345;
