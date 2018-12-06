@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 git clone --depth 1 https://github.com/mozilla/addons-server.git
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml pull --no-parallel
-docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml up -d
+docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml up -d --build
 until docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml images | grep "addons-server_addons-frontend_1" ;
     do printf "."; sleep 1
 done
