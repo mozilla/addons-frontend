@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-12-06 00:58+0000\n"
+"PO-Revision-Date: 2018-12-06 05:25+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -548,14 +548,12 @@ msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Tillegg for Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:229 src/amo/components/HeadMetaTags/index.js:76
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Tillegg for Firefox  (%(locale)s)"
+msgstr "Tillegg for Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:233 src/amo/components/HeadMetaTags/index.js:70
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%(title)s – Tillegg for Firefox (%(locale)s)"
+msgstr "%(title)s – Tillegg for Firefox Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:204
 msgid "Loading"
@@ -792,14 +790,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Beklagar, men det oppstod ein feil med tenaren vår, og vi klarte ikkje å fullføre førespurnaden din. Vi har logga denne feilen og kjem til å undersøke det."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "Vurdering for %(addonName)s"
+msgstr "Svar frå %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "Vurdering for %(addonName)s"
+msgstr "Vurdering av %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
@@ -922,9 +918,8 @@ msgid "Developer Hub"
 msgstr "Utviklarsenter"
 
 #: src/amo/components/Footer/index.js:63
-#, fuzzy
 msgid "Developer Policies"
-msgstr "Svar frå utviklaren"
+msgstr "Utviklarpraksis"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Forum"
@@ -955,9 +950,8 @@ msgid "Staff Pick"
 msgstr ""
 
 #: src/amo/components/GuidesAddonCard/index.js:122
-#, fuzzy
 msgid "Add"
-msgstr "Utvidingar"
+msgstr "Legg til"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:505
 msgid "View My Profile"
@@ -1016,9 +1010,8 @@ msgid "Watch videos simultaneously with others"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:109
-#, fuzzy
 msgid "Context Search"
-msgstr "Søk"
+msgstr "Context Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
 #, fuzzy
@@ -1034,9 +1027,8 @@ msgid "Give your favorite websites a new look"
 msgstr "Gje favorittnettsidene dine ein ny utsjånad"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
-#, fuzzy
 msgid "Search Encrypt"
-msgstr "Søkjeresultat"
+msgstr "Search Encrypt"
 
 #: src/amo/components/HomeHeroBanner/index.js:122
 #, fuzzy
@@ -1052,9 +1044,8 @@ msgid "Save memory by disabling inactive tabs"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:131
-#, fuzzy
 msgid "Update Scanner"
-msgstr "Oppdater svar"
+msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:132
 msgid "Get notified when your selected websites update with new content"
@@ -1110,18 +1101,16 @@ msgid "Click a button to close annoying pop-ups"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:176
-#, fuzzy
 msgid "Auto-Sort Bookmarks"
-msgstr "Bokmerke"
+msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:177
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:183
-#, fuzzy
 msgid "Search Preview"
-msgstr "SearchPreview"
+msgstr "Search Preview"
 
 #: src/amo/components/HomeHeroBanner/index.js:184
 msgid "Enjoy thumbnail images alongside your search returns"
@@ -1168,18 +1157,16 @@ msgid "Send any Web page to your Kindle device"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:221
-#, fuzzy
 msgid "New Tab Homepage"
-msgstr "Heimeside"
+msgstr "New Tab Homepage"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "Designate a custom home page for your new tabs"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:228
-#, fuzzy
 msgid "OneNote Web Clipper"
-msgstr "Notebook Web Clipper"
+msgstr "OneNote Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:229
 msgid "Save, annotate & organize web content"
@@ -1206,9 +1193,8 @@ msgid "Facebook Container"
 msgstr "Facebook Container"
 
 #: src/amo/components/HomeHeroBanner/index.js:245
-#, fuzzy
 msgid "CookieBro"
-msgstr "Infokapslar"
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:246
 msgid "Automatically delete unwanted cookies"
@@ -1259,9 +1245,8 @@ msgid "Play videos in a pop-out window, take video screenshots & more"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:38
-#, fuzzy
 msgid "Private Bookmarks"
-msgstr "Bokmerke"
+msgstr "Private Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Password-protect your personal bookmarks"
@@ -1296,9 +1281,8 @@ msgid "Universal Bypass"
 msgstr "Universal Bypass"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
-#, fuzzy
 msgid "Automatically skip annoying link shorteners"
-msgstr "Leitar automatisk etter kupongkodar"
+msgstr "Hopp automatisk over irriterande lenkeforkortarar"
 
 #: src/amo/components/HomeHeroBanner/index.js:71
 msgid "Tree Style Tab"
@@ -1341,14 +1325,12 @@ msgid "Stay Safe Online"
 msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:35
-#, fuzzy
 msgid "Organize Your Tabs"
-msgstr "Tem fanene dine"
+msgstr "Organiser fanene dine"
 
 #: src/amo/components/HomeHeroGuides/index.js:40 src/amo/pages/Guides/index.js:282
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "Vurder opplevinga di"
+msgstr "Gjer medieopplevinga di betre"
 
 #: src/amo/components/HomeHeroGuides/index.js:53
 msgid "Extensions are like apps for your browsers."
@@ -1497,7 +1479,6 @@ msgid "Are you sure you want to delete your rating of %(addonName)s?"
 msgstr "Vil du slette dette bildet?"
 
 #: src/amo/components/RatingManager/index.js:183
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
 msgstr "Kva synest du om %(addonName)s?"
 
@@ -1970,9 +1951,8 @@ msgid "Screenshots"
 msgstr "Skjermbilde"
 
 #: src/amo/pages/AddonInfo/index.js:157
-#, fuzzy
 msgid "Custom License for %(addonName)s"
-msgstr "Vurdering for %(addonName)s"
+msgstr "Tilpassa lisens for %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:164
 #, fuzzy
@@ -1980,9 +1960,8 @@ msgid "End-User License Agreement for %(addonName)s"
 msgstr "Lisensavtale for sluttbrukarar"
 
 #: src/amo/pages/AddonInfo/index.js:168
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "Vurdering for %(addonName)s"
+msgstr "Personvernpraksis for %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:193
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -2004,9 +1983,8 @@ msgid "All extension categories"
 msgstr "Bla gjennom alle utvidingar i denne kategorien."
 
 #: src/amo/pages/CategoriesPage/index.js:48
-#, fuzzy
 msgid "All theme categories"
-msgstr "Utforsk alle kategoriar"
+msgstr "Alla temakategoriar"
 
 #: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:324 src/amo/pages/LandingPage/index.js:143
 msgid "See more featured extensions"
@@ -2223,9 +2201,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:269
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "Bokmerke"
+msgstr "Organiser faner og bokmerke"
 
 #: src/amo/pages/Guides/index.js:270
 msgid ""
@@ -2254,9 +2231,8 @@ msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:93
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "Blokker reklame"
+msgstr "Blokker irriterande reklame"
 
 #: src/amo/pages/Guides/index.js:94
 msgid ""
@@ -2333,9 +2309,8 @@ msgid "See more privacy & security extensions"
 msgstr "Vis fleire personvernutvidingar"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "Privacy & security"
-msgstr "Personvernpraksis"
+msgstr "Personvern og sikkerheit"
 
 #: src/amo/pages/Home/index.js:60
 #, fuzzy
@@ -2653,9 +2628,8 @@ msgid "User Profile for %(user)s"
 msgstr "Brukarprofil for %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:338
-#, fuzzy
 msgid "User Profile"
-msgstr "Oppdater profil"
+msgstr "Brukarprofil"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:635
 msgid "Location"
@@ -2686,9 +2660,8 @@ msgid "Edit profile"
 msgstr "Rediger profil"
 
 #: src/amo/pages/UserProfile/index.js:447
-#, fuzzy
 msgid "Admin user"
-msgstr "Lenker for utvidinga"
+msgstr "Adminbrukar"
 
 #: src/amo/pages/UserProfileEdit/index.js:193
 msgid "Picture successfully deleted"
@@ -2945,19 +2918,16 @@ msgid "Download failed. Please check your connection."
 msgstr ""
 
 #: src/core/utils/addons.js:33
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Det oppstod ein uventa feil"
+msgstr "Det oppstod ein uventa feil under installasjonen."
 
 #: src/core/utils/addons.js:35
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Det oppstod ein uventa feil"
+msgstr "Det oppstod ein uventa feil under avinstallasjonen."
 
 #: src/core/utils/addons.js:40
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Det oppstod ein uventa feil"
+msgstr "Det oppstod ein uventa feil."
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
