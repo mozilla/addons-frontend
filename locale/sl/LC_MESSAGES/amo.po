@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-11-29 17:00+0000\n"
-"Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
+"PO-Revision-Date: 2018-12-07 16:02+0000\n"
+"Last-Translator: Matjaž Horvat <matjaz.horvat@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -2086,7 +2086,7 @@ msgstr "Lahko in zelo učinkovito zavračanje oglasov. uBlock Origin uporablja t
 
 #: src/amo/pages/Guides/index.js:104
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Raziščite več dodatkov za %(linkStart)szavračanje oglasov%(linkEnd)s po izboru uredništva."
 
 #: src/amo/pages/Guides/index.js:112
 msgid "Stop online trackers from stalking you"
