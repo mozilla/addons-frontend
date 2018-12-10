@@ -12,6 +12,7 @@ import Guides, {
   getContent,
   getSections,
 } from 'amo/pages/Guides';
+import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
 import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import {
   createStubErrorHandler,
@@ -45,186 +46,231 @@ describe(__filename, () => {
     );
   };
 
-  it('fetches the add-ons for a guide page', () => {
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const errorHandler = createStubErrorHandler();
+  const _dispatchFirefoxClient = (params = {}) => {
+    return dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+      ...params,
+    });
+  };
 
-    const slug = 'stay-safe-online';
-    const content = getContent(slug, fakeI18n());
-    const guids = content.sections.map((section) => section.addonGuid);
+  describe('CLIENT_APP_FIREFOX', () => {
+    it('fetches the add-ons for a guide page', () => {
+      const { store } = _dispatchFirefoxClient();
 
-    render({ errorHandler, store, slug });
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
 
-    sinon.assert.calledWith(
-      dispatchSpy,
-      fetchGuidesAddons({
-        slug,
-        guids,
-        errorHandlerId: errorHandler.id,
-      }),
-    );
+      const slug = 'stay-safe-online';
+      const content = getContent(slug, fakeI18n());
+      const guids = content.sections.map((section) => section.addonGuid);
 
-    sinon.assert.calledOnce(dispatchSpy);
-  });
+      render({ errorHandler, store, slug });
 
-  it('does not fetch the add-ons while loading', () => {
-    const { store } = dispatchClientMetadata();
-    const errorHandler = createStubErrorHandler();
+      sinon.assert.calledWith(
+        dispatchSpy,
+        fetchGuidesAddons({
+          slug,
+          guids,
+          errorHandlerId: errorHandler.id,
+        }),
+      );
 
-    const slug = 'stay-safe-online';
-    const content = getContent(slug, fakeI18n());
-    const guids = content.sections.map((section) => section.addonGuid);
-
-    // This simulates the initial fetch for add-ons.
-    store.dispatch(
-      fetchGuidesAddons({
-        slug,
-        guids,
-        errorHandlerId: errorHandler.id,
-      }),
-    );
-
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-
-    render({ store, slug });
-
-    sinon.assert.notCalled(dispatchSpy);
-  });
-
-  it('does not fetch the add-ons if add-ons have already been loaded', () => {
-    const { store } = dispatchClientMetadata();
-    const errorHandler = createStubErrorHandler();
-
-    const slug = 'stay-safe-online';
-    const content = getContent(slug, fakeI18n());
-    const guids = content.sections.map((section) => section.addonGuid);
-    const addons = [];
-
-    // Fetch/load an empty list of add-ons.
-    store.dispatch(
-      fetchGuidesAddons({
-        slug,
-        guids,
-        errorHandlerId: errorHandler.id,
-      }),
-    );
-    store.dispatch(loadAddonResults({ addons }));
-
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-
-    render({ store, slug });
-
-    sinon.assert.notCalled(dispatchSpy);
-  });
-
-  it('renders a Guides Page', () => {
-    const slug = 'stay-safe-online';
-    const content = getContent(slug, fakeI18n());
-    const guids = content.sections.map((section) => section.addonGuid);
-
-    const linkParts = getLocalizedTextWithLinkParts({
-      i18n: fakeI18n(),
-      text: content.sections[0].exploreMore,
+      sinon.assert.calledOnce(dispatchSpy);
     });
 
-    const root = render({ slug });
+    it('does not fetch the addons while loading', () => {
+      const { store } = _dispatchFirefoxClient();
 
-    expect(root.find('.Guides')).toHaveLength(1);
+      const errorHandler = createStubErrorHandler();
+      const slug = 'stay-safe-online';
+      const content = getContent(slug, fakeI18n());
+      const guids = content.sections.map((section) => section.addonGuid);
 
-    expect(root.find('.Guides-header-icon')).toHaveLength(1);
+      // This simulates the initial fetch for addons.
+      store.dispatch(
+        fetchGuidesAddons({
+          slug,
+          guids,
+          errorHandlerId: errorHandler.id,
+        }),
+      );
 
-    const pageTitle = root.find('.Guides-header-page-title');
-    expect(pageTitle).toHaveLength(1);
-    expect(pageTitle.text()).toEqual(content.title);
+      const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    const pageIntro = root.find('.Guides-header-intro');
-    expect(pageIntro).toHaveLength(1);
-    expect(pageIntro.text()).toEqual(content.introText);
+      render({ store });
 
-    expect(root.find('.Guides-section')).toHaveLength(guids.length);
+      sinon.assert.notCalled(dispatchSpy);
+    });
 
-    const sectionDescription = root.find('.Guides-section-description').at(0);
+    it('does not fetch the add-ons if add-ons have already been loaded', () => {
+      const { store } = _dispatchFirefoxClient();
 
-    expect(sectionDescription.children().text()).toEqual(
-      content.sections[0].description,
-    );
+      const errorHandler = createStubErrorHandler();
+      const slug = 'stay-safe-online';
+      const content = getContent(slug, fakeI18n());
+      const guids = content.sections.map((section) => section.addonGuid);
+      const addons = [];
 
-    const sectionHeaderTitle = root.find('.Guides-section-title').at(0);
+      // Fetch/load an empty list of add-ons.
+      store.dispatch(
+        fetchGuidesAddons({
+          slug,
+          guids,
+          errorHandlerId: errorHandler.id,
+        }),
+      );
+      store.dispatch(loadAddonResults({ addons }));
 
-    expect(sectionHeaderTitle.children().text()).toEqual(
-      content.sections[0].header,
-    );
+      const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    const sectionExploreMore = root.find('.Guides-section-explore-more').at(0);
+      render({ store, slug });
 
-    expect(sectionExploreMore.childAt(0).text()).toEqual(
-      linkParts.beforeLinkText,
-    );
+      sinon.assert.notCalled(dispatchSpy);
+    });
 
-    const sectionExploreLink = sectionExploreMore.find(Link);
+    it('renders a Guides Page', () => {
+      const { store } = _dispatchFirefoxClient();
 
-    expect(sectionExploreLink.children().text()).toEqual(
-      linkParts.innerLinkText,
-    );
+      const slug = 'stay-safe-online';
+      const content = getContent(slug, fakeI18n());
+      const guids = content.sections.map((section) => section.addonGuid);
 
-    expect(sectionExploreMore.childAt(2).text()).toEqual(
-      linkParts.afterLinkText,
-    );
+      const linkParts = getLocalizedTextWithLinkParts({
+        i18n: fakeI18n(),
+        text: content.sections[0].exploreMore,
+      });
+
+      const root = render({ slug, store });
+
+      expect(root.find('.Guides')).toHaveLength(1);
+
+      expect(root.find('.Guides-header-icon')).toHaveLength(1);
+
+      const pageTitle = root.find('.Guides-header-page-title');
+      expect(pageTitle).toHaveLength(1);
+      expect(pageTitle.text()).toEqual(content.title);
+
+      const pageIntro = root.find('.Guides-header-intro');
+      expect(pageIntro).toHaveLength(1);
+      expect(pageIntro.text()).toEqual(content.introText);
+
+      expect(root.find('.Guides-section')).toHaveLength(guids.length);
+
+      const sectionDescription = root.find('.Guides-section-description').at(0);
+
+      expect(sectionDescription.children().text()).toEqual(
+        content.sections[0].description,
+      );
+
+      const sectionHeaderTitle = root.find('.Guides-section-title').at(0);
+
+      expect(sectionHeaderTitle.children().text()).toEqual(
+        content.sections[0].header,
+      );
+
+      const sectionExploreMore = root
+        .find('.Guides-section-explore-more')
+        .at(0);
+
+      expect(sectionExploreMore.childAt(0).text()).toEqual(
+        linkParts.beforeLinkText,
+      );
+
+      const sectionExploreLink = sectionExploreMore.find(Link);
+
+      expect(sectionExploreLink.children().text()).toEqual(
+        linkParts.innerLinkText,
+      );
+
+      expect(sectionExploreMore.childAt(2).text()).toEqual(
+        linkParts.afterLinkText,
+      );
+    });
+
+    it('passes an addon to GuidesAddonCard', () => {
+      const { store } = _dispatchFirefoxClient();
+
+      const slug = 'stay-safe-online';
+      const guids = getSections({ slug, i18n: fakeI18n() }).map(
+        (section) => section.addonGuid,
+      );
+
+      const errorHandler = createStubErrorHandler();
+      const addon = {
+        ...fakeAddon,
+        guid: guids[0],
+      };
+
+      // This simulates the initial fetch for addons.
+      store.dispatch(
+        fetchGuidesAddons({
+          slug,
+          guids,
+          errorHandlerId: errorHandler.id,
+        }),
+      );
+
+      _loadAddonResults(store, addon);
+
+      const root = render({ store, slug });
+
+      expect(root.find(GuidesAddonCard)).toHaveLength(guids.length);
+      expect(root.find(GuidesAddonCard).at(0)).toHaveProp(
+        'addon',
+        createInternalAddon(addon),
+      );
+    });
+
+    it('renders an HTML title', () => {
+      const { store } = _dispatchFirefoxClient();
+
+      const slug = 'stay-safe-online';
+      const root = render({ slug, store });
+
+      const content = getContent(slug, fakeI18n());
+      expect(root.find('title')).toHaveText(content.title);
+    });
+
+    it('renders a HeadLinks component', () => {
+      const { store } = _dispatchFirefoxClient();
+
+      const root = render({ store });
+
+      expect(root.find(HeadLinks)).toHaveLength(1);
+    });
+
+    it('renders a 404 component when the slug is invalid', () => {
+      const { store } = _dispatchFirefoxClient();
+
+      const root = render({ slug: 'bad-slug', store });
+
+      expect(root.find('.Guides')).toHaveLength(0);
+      expect(root.find(NotFound)).toHaveLength(1);
+    });
   });
 
-  it('passes an add-on to GuidesAddonCard', () => {
-    const { store } = dispatchClientMetadata();
-    const slug = 'stay-safe-online';
-    const guids = getSections({ slug, i18n: fakeI18n() }).map(
-      (section) => section.addonGuid,
-    );
+  describe('CLIENT_APP_ANDROID', () => {
+    it('does not fetch the add-ons for a guide page', () => {
+      const { store } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_ANDROID,
+      });
+      const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    const errorHandler = createStubErrorHandler();
-    const addon = {
-      ...fakeAddon,
-      guid: guids[0],
-    };
+      render({ store });
 
-    // This simulates the initial fetch for addons.
-    store.dispatch(
-      fetchGuidesAddons({
-        slug,
-        guids,
-        errorHandlerId: errorHandler.id,
-      }),
-    );
+      sinon.assert.notCalled(dispatchSpy);
+    });
 
-    _loadAddonResults(store, addon);
+    it('renders a 404 component ', () => {
+      const { store } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_ANDROID,
+      });
 
-    const root = render({ store, slug });
+      const root = render({ store });
 
-    expect(root.find(GuidesAddonCard)).toHaveLength(guids.length);
-    expect(root.find(GuidesAddonCard).at(0)).toHaveProp(
-      'addon',
-      createInternalAddon(addon),
-    );
-  });
-
-  it('renders an HTML title', () => {
-    const slug = 'stay-safe-online';
-    const root = render({ slug });
-
-    const content = getContent(slug, fakeI18n());
-    expect(root.find('title')).toHaveText(content.title);
-  });
-
-  it('renders a HeadLinks component', () => {
-    const root = render();
-
-    expect(root.find(HeadLinks)).toHaveLength(1);
-  });
-
-  it('renders a 404 component when the slug is invalid', () => {
-    const root = render({ slug: 'bad-slug' });
-
-    expect(root.find('.Guides')).toHaveLength(0);
-    expect(root.find(NotFound)).toHaveLength(1);
+      expect(root.find('.Guides')).toHaveLength(0);
+      expect(root.find(NotFound)).toHaveLength(1);
+    });
   });
 
   describe('extractId', () => {
