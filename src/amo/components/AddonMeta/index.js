@@ -3,6 +3,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
+import { reviewListURL } from 'amo/reducers/reviews';
 import translate from 'core/i18n/translate';
 import type { AddonType } from 'core/types/addons';
 import MetadataCard from 'ui/components/MetadataCard';
@@ -64,7 +65,7 @@ export class AddonMetaBase extends React.Component<InternalProps> {
     }
 
     const reviewsLink =
-      addon && reviewCount ? `/addon/${addon.slug}/reviews/` : null;
+      addon && reviewCount ? reviewListURL({ addonSlug: addon.slug }) : null;
 
     const reviewsContent = reviewsLink ? (
       <Link className="AddonMeta-reviews-content-link" to={reviewsLink}>

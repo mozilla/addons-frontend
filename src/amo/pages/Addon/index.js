@@ -26,6 +26,7 @@ import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
+import { reviewListURL } from 'amo/reducers/reviews';
 import { getVersionById } from 'core/reducers/versions';
 import {
   fetchAddon,
@@ -218,7 +219,7 @@ export class AddonBase extends React.Component {
       content = (
         <Link
           className="Addon-all-reviews-link"
-          to={`/addon/${addon.slug}/reviews/`}
+          to={reviewListURL({ addonSlug: addon.slug })}
         >
           {linkText}
         </Link>

@@ -1,10 +1,12 @@
 import * as React from 'react';
 
+import Link from 'amo/components/Link';
 import { fetchGroupedRatings, setGroupedRatings } from 'amo/actions/reviews';
 import RatingsByStar, {
   extractId,
   RatingsByStarBase,
 } from 'amo/components/RatingsByStar';
+import { reviewListURL } from 'amo/reducers/reviews';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -126,7 +128,7 @@ describe(__filename, () => {
     expect(root.find('.RatingsByStar-count').find(LoadingText)).toHaveLength(5);
   });
 
-  it('renders star labels', () => {
+  it('renders star labels and links', () => {
     const grouping = {
       5: 964,
       4: 821,
@@ -137,13 +139,22 @@ describe(__filename, () => {
     const addon = addonForGrouping(grouping);
     store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
     const root = render({ addon });
+    const counts = root.find('.RatingsByStar-star').find(Link);
 
-    const counts = root.find('.RatingsByStar-star span');
-    expect(counts.at(0)).toHaveText('5');
-    expect(counts.at(1)).toHaveText('4');
-    expect(counts.at(2)).toHaveText('3');
-    expect(counts.at(3)).toHaveText('2');
-    expect(counts.at(4)).toHaveText('1');
+    function validateLink(link, score, expectedTitle) {
+      expect(link.children()).toHaveText(score);
+      expect(link).toHaveProp(
+        'to',
+        reviewListURL({ addonSlug: addon.slug, score }),
+      );
+      expect(link).toHaveProp('title', expectedTitle);
+    }
+
+    validateLink(counts.at(0), '5', 'Read all five-star reviews');
+    validateLink(counts.at(1), '4', 'Read all four-star reviews');
+    validateLink(counts.at(2), '3', 'Read all three-star reviews');
+    validateLink(counts.at(3), '2', 'Read all two-star reviews');
+    validateLink(counts.at(4), '1', 'Read all one-star reviews');
   });
 
   it('renders star counts', () => {
@@ -157,13 +168,22 @@ describe(__filename, () => {
     const addon = addonForGrouping(grouping);
     store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
     const root = render({ addon });
+    const counts = root.find('.RatingsByStar-count').find(Link);
 
-    const counts = root.find('.RatingsByStar-count');
-    expect(counts.at(0)).toHaveText(grouping[5].toString());
-    expect(counts.at(1)).toHaveText(grouping[4].toString());
-    expect(counts.at(2)).toHaveText(grouping[3].toString());
-    expect(counts.at(3)).toHaveText(grouping[2].toString());
-    expect(counts.at(4)).toHaveText(grouping[1].toString());
+    function validateLink(link, score, expectedTitle) {
+      expect(link.children()).toHaveText(grouping[score].toString());
+      expect(link).toHaveProp(
+        'to',
+        reviewListURL({ addonSlug: addon.slug, score }),
+      );
+      expect(link).toHaveProp('title', expectedTitle);
+    }
+
+    validateLink(counts.at(0), '5', 'Read all five-star reviews');
+    validateLink(counts.at(1), '4', 'Read all four-star reviews');
+    validateLink(counts.at(2), '3', 'Read all three-star reviews');
+    validateLink(counts.at(3), '2', 'Read all two-star reviews');
+    validateLink(counts.at(4), '1', 'Read all one-star reviews');
   });
 
   it('renders bar value widths based on total ratings', () => {
@@ -248,7 +268,13 @@ describe(__filename, () => {
     store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
     const root = render({ addon, i18n: fakeI18n({ lang: 'de' }) });
 
-    expect(root.find('.RatingsByStar-count').at(0)).toHaveText('1.000');
+    expect(
+      root
+        .find('.RatingsByStar-count')
+        .at(0)
+        .find(Link)
+        .children(),
+    ).toHaveText('1.000');
   });
 
   it('renders errors', () => {
@@ -270,8 +296,8 @@ describe(__filename, () => {
   it('does not render a loading state when there is an error', () => {
     const errorHandler = createErrorHandlerWithError();
 
-    // Render without an add-on to trigger a loading state.
-    const root = render({ addon: null, errorHandler });
+    // Render without setGroupedRatings to trigger a loading state.
+    const root = render({ errorHandler });
 
     expect(root.find(LoadingText)).toHaveLength(0);
   });

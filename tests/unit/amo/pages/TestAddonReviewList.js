@@ -17,6 +17,7 @@ import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
+import { reviewListURL } from 'amo/reducers/reviews';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
 import Paginate from 'core/components/Paginate';
 import {
@@ -43,6 +44,7 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import { setError } from 'core/actions/errors';
+import Notice from 'ui/components/Notice';
 
 describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
@@ -124,7 +126,7 @@ describe(__filename, () => {
       expect(root.find(AddonReviewCard).at(0)).toHaveProp('review', null);
     });
 
-    it('displays 4 placeholders for an addon with no reviews', () => {
+    it('displays 4 placeholders while loading for an addon with no reviews', () => {
       const externalAddon = {
         ...fakeAddon,
         ratings: {
@@ -358,6 +360,29 @@ describe(__filename, () => {
       );
     });
 
+    it('fetches reviews by score', () => {
+      const addon = { ...fakeAddon, slug: 'some-other-slug' };
+      loadAddon(addon);
+      const dispatch = sinon.stub(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+
+      const score = 5;
+      render({
+        location: createFakeLocation({ query: { score } }),
+        errorHandler,
+        params: { addonSlug: addon.slug },
+      });
+
+      sinon.assert.calledWith(
+        dispatch,
+        fetchReviews({
+          addonSlug: addon.slug,
+          errorHandlerId: errorHandler.id,
+          score,
+        }),
+      );
+    });
+
     it('dispatches fetchReviews with an invalid page variable', () => {
       // We intentionally pass invalid pages to the API to get a 404 response.
       const dispatch = sinon.stub(store, 'dispatch');
@@ -547,14 +572,14 @@ describe(__filename, () => {
     });
 
     it('renders a list of reviews with ratings', () => {
-      const addon = fakeAddon;
+      const addon = { ...fakeAddon };
       const internalAddon = createInternalAddon(addon);
       const reviews = [
         { ...fakeReview, id: 1, score: 1 },
         { ...fakeReview, id: 2, score: 2 },
       ];
       loadAddon(addon);
-      _setAddonReviews({ reviews });
+      _setAddonReviews({ addon, reviews });
 
       const tree = render();
 
@@ -578,6 +603,17 @@ describe(__filename, () => {
       expect(items.at(1).prop('review')).toMatchObject({
         score: reviews[1].score,
       });
+    });
+
+    it('renders content when no reviews exist', () => {
+      const addon = { ...fakeAddon };
+      loadAddon(addon);
+      _setAddonReviews({ addon, reviews: [] });
+
+      const root = render();
+
+      expect(root.find(AddonReviewCard)).toHaveLength(0);
+      expect(root.find('.AddonReviewList-noReviews')).toHaveLength(1);
     });
 
     it('does not include a review in the listing if the review is also featured', () => {
@@ -635,16 +671,6 @@ describe(__filename, () => {
       ).toEqual(`/addon/${addon.slug}/`);
     });
 
-    it('produces a URL to itself', () => {
-      const addon = fakeAddon;
-      loadAddon(addon);
-      expect(
-        render()
-          .instance()
-          .url(),
-      ).toEqual(`/addon/${addon.slug}/reviews/`);
-    });
-
     it('requires an addon prop to produce a URL', () => {
       expect(() =>
         render({ addon: null })
@@ -653,32 +679,37 @@ describe(__filename, () => {
       ).toThrowError(/cannot access addonURL/);
     });
 
-    it('configures CardList with a count of text reviews', () => {
-      loadAddon({
+    it('configures CardList with a count of review results', () => {
+      const addon = {
         ...fakeAddon,
         ratings: {
           ...fakeAddon.ratings,
-          // It has 2 star ratings.
-          count: 2,
-          // ...but only 1 text review.
-          text_count: 1,
+          // This is the total of all reviews.
+          text_count: 200,
         },
-      });
-      _setAddonReviews();
+      };
+      loadAddon(addon);
+      // These are the actual review results returned by the API.
+      const reviewCount = 5;
+      _setAddonReviews({ addon, reviews: Array(reviewCount).fill(fakeReview) });
+
       const root = render();
 
       const cardList = root.find('.AddonReviewList-reviews-listing');
       expect(cardList).toHaveProp('header');
-      expect(cardList.prop('header')).toContain('1 review for this add-on');
+      expect(cardList.prop('header')).toContain(
+        `${reviewCount} reviews for this add-on`,
+      );
     });
 
     describe('with pagination', () => {
       const renderWithPagination = ({
+        addon = fakeAddon,
         reviews = Array(DEFAULT_API_PAGE_SIZE + 2).fill(fakeReview),
         ...otherProps
       } = {}) => {
-        loadAddon();
-        _setAddonReviews({ reviews });
+        loadAddon(addon);
+        _setAddonReviews({ addon, reviews });
 
         return render(otherProps);
       };
@@ -690,12 +721,15 @@ describe(__filename, () => {
       };
 
       it('configures a paginator with the right URL', () => {
-        const root = renderWithPagination();
+        const addonSlug = 'adblock-plus';
+        const addon = { ...fakeAddon, id: 8765, slug: addonSlug };
+        loadAddon(addon);
+        const root = renderWithPagination({ addon, params: { addonSlug } });
 
         const paginator = renderFooter(root);
 
         expect(paginator.instance()).toBeInstanceOf(Paginate);
-        expect(paginator).toHaveProp('pathname', root.instance().url());
+        expect(paginator).toHaveProp('pathname', reviewListURL({ addonSlug }));
       });
 
       it('configures a paginator with the right Link', () => {
@@ -884,7 +918,7 @@ describe(__filename, () => {
       const reviewId = 8765;
       const addon = { ...fakeAddon };
       loadAddon(addon);
-      _setAddonReviews({ reviews: [{ ...fakeReview }] });
+      _setAddonReviews({ addon, reviews: [{ ...fakeReview }] });
       signInAndSetReviewPermissions({
         addonId: addon.id,
         userId: 6745,
@@ -912,6 +946,81 @@ describe(__filename, () => {
         }. Find out what other users think about ${addon.name}`,
       ),
     );
+  });
+
+  describe('score notice', () => {
+    function renderScoreNotice({
+      addon = { ...fakeAddon, slug: 'some-slug' },
+      score = 5,
+    } = {}) {
+      if (addon) {
+        loadAddon(addon);
+        _setAddonReviews(addon);
+      }
+
+      const addonSlug = addon ? addon.slug : 'example-slug';
+      const root = render({
+        location: score
+          ? createFakeLocation({ query: { score } })
+          : createFakeLocation(),
+        params: { addonSlug },
+      });
+
+      return root.find(Notice);
+    }
+
+    it('renders a notice when filtering by score', () => {
+      const addon = { ...fakeAddon, slug: 'some-other-slug' };
+      const notice = renderScoreNotice({ addon });
+
+      expect(notice).toHaveLength(1);
+      expect(notice).toHaveProp(
+        'actionTo',
+        reviewListURL({ addonSlug: addon.slug }),
+      );
+    });
+
+    it('renders a message about one-star reviews', () => {
+      expect(renderScoreNotice({ score: 1 }).children()).toHaveText(
+        'Only showing one-star reviews',
+      );
+    });
+
+    it('renders a message about two-star reviews', () => {
+      expect(renderScoreNotice({ score: 2 }).children()).toHaveText(
+        'Only showing two-star reviews',
+      );
+    });
+
+    it('renders a message about three-star reviews', () => {
+      expect(renderScoreNotice({ score: 3 }).children()).toHaveText(
+        'Only showing three-star reviews',
+      );
+    });
+
+    it('renders a message about four-star reviews', () => {
+      expect(renderScoreNotice({ score: 4 }).children()).toHaveText(
+        'Only showing four-star reviews',
+      );
+    });
+
+    it('renders a message about five-star reviews', () => {
+      expect(renderScoreNotice({ score: 5 }).children()).toHaveText(
+        'Only showing five-star reviews',
+      );
+    });
+
+    it('does not render a notice when the score is out of range', () => {
+      expect(renderScoreNotice({ score: 99 })).toHaveLength(0);
+    });
+
+    it('does not render a notice without an add-on', () => {
+      expect(renderScoreNotice({ addon: false })).toHaveLength(0);
+    });
+
+    it('does not render a notice without a score', () => {
+      expect(renderScoreNotice({ score: false })).toHaveLength(0);
+    });
   });
 
   describe('extractId', () => {

@@ -19,6 +19,7 @@ import AddonReviewCard, {
 } from 'amo/components/AddonReviewCard';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
 import Link from 'amo/components/Link';
+import { reviewListURL } from 'amo/reducers/reviews';
 import { logOutUser } from 'amo/reducers/users';
 import { ALL_SUPER_POWERS } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
@@ -1025,7 +1026,7 @@ describe(__filename, () => {
 
       expect(renderByLine(root).find(Link)).toHaveProp(
         'to',
-        `/addon/${slug}/reviews/${review.id}/`,
+        reviewListURL({ addonSlug: slug, id: review.id }),
       );
     });
 

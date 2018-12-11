@@ -156,6 +156,7 @@ describe(__filename, () => {
         user: 123,
         addon: 321,
         show_grouped_ratings: 1,
+        score: 5,
       };
       const fakeResponse = getReviewsResponse({ reviews: [fakeReview] });
       mockApi

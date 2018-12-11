@@ -1,3 +1,5 @@
+import url from 'url';
+
 import makeClassName from 'classnames';
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -64,12 +66,17 @@ export default class PaginatorLink extends React.Component {
       );
     }
 
+    const parsedPath = url.parse(pathname, true);
+
     return (
       <Button
         buttonType="cancel"
         className={makeClassName('Paginate-item', className)}
         rel={rel}
-        to={{ pathname, query: { ...queryParams, [pageParam]: page } }}
+        to={{
+          pathname: parsedPath.pathname,
+          query: { ...parsedPath.query, ...queryParams, [pageParam]: page },
+        }}
       >
         {text || page}
       </Button>

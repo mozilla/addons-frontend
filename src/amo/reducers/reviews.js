@@ -1,6 +1,7 @@
 /* @flow */
 import { oneLine } from 'common-tags';
 import deepcopy from 'deepcopy';
+import invariant from 'invariant';
 import { LOCATION_CHANGE } from 'connected-react-router';
 
 import {
@@ -63,6 +64,23 @@ import type {
 import type { GroupedRatingsType } from 'amo/api/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
 import type { AppState } from 'amo/store';
+
+export function reviewListURL({
+  addonSlug,
+  id,
+  score,
+}: {|
+  addonSlug: string,
+  id?: number,
+  score?: number | string,
+|}) {
+  invariant(addonSlug, 'addonSlug is required');
+  let path = `/addon/${addonSlug}/reviews/${id ? `${id}/` : ''}`;
+  if (score) {
+    path = `${path}?score=${score}`;
+  }
+  return path;
+}
 
 type ReviewsById = {
   [id: number]: UserReviewType,

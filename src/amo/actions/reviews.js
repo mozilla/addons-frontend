@@ -169,6 +169,7 @@ type FetchReviewsParams = {|
   addonSlug: string,
   errorHandlerId: string,
   page?: string,
+  score?: string,
 |};
 
 export type FetchReviewsAction = {|
@@ -177,6 +178,7 @@ export type FetchReviewsAction = {|
     addonSlug: string,
     errorHandlerId: string,
     page: string,
+    score: string | void,
   |},
 |};
 
@@ -184,6 +186,7 @@ export function fetchReviews({
   addonSlug,
   errorHandlerId,
   page = '1',
+  score,
 }: FetchReviewsParams): FetchReviewsAction {
   if (!errorHandlerId) {
     throw new Error('errorHandlerId cannot be empty');
@@ -193,7 +196,7 @@ export function fetchReviews({
   }
   return {
     type: FETCH_REVIEWS,
-    payload: { addonSlug, errorHandlerId, page },
+    payload: { addonSlug, errorHandlerId, page, score },
   };
 }
 

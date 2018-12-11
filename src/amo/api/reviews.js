@@ -141,6 +141,7 @@ export type GetReviewsParams = {|
   filter?: string,
   page?: string,
   page_size?: number,
+  score?: string,
   show_grouped_ratings?: boolean,
   show_permissions_for?: number,
   user?: number,

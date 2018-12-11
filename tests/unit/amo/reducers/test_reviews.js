@@ -38,6 +38,7 @@ import reviewsReducer, {
   getReviewsByUserId,
   initialState,
   makeLatestUserReviewKey,
+  reviewListURL,
   reviewsAreLoading,
   selectReviewPermissions,
   storeReviewObjects,
@@ -1723,6 +1724,40 @@ describe(__filename, () => {
       );
 
       expect(state.groupedRatings[addonId][5]).toEqual(fiveStarCount);
+    });
+  });
+
+  describe('reviewListURL', () => {
+    it('returns a URL using the addon slug', () => {
+      const addonSlug = 'adblock-plus';
+      expect(reviewListURL({ addonSlug })).toEqual(
+        `/addon/${addonSlug}/reviews/`,
+      );
+    });
+
+    it('returns a URL using the ID', () => {
+      const addonSlug = 'adblock-plus';
+      const id = 3215;
+      expect(reviewListURL({ addonSlug, id })).toEqual(
+        `/addon/${addonSlug}/reviews/${id}/`,
+      );
+    });
+
+    it('returns a URL using the score', () => {
+      const addonSlug = 'adblock-plus';
+      const score = 5;
+      expect(reviewListURL({ addonSlug, score })).toEqual(
+        `/addon/${addonSlug}/reviews/?score=${score}`,
+      );
+    });
+
+    it('returns a URL using the ID and score', () => {
+      const addonSlug = 'adblock-plus';
+      const id = 4321;
+      const score = 5;
+      expect(reviewListURL({ addonSlug, id, score })).toEqual(
+        `/addon/${addonSlug}/reviews/${id}/?score=${score}`,
+      );
     });
   });
 });

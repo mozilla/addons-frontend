@@ -129,6 +129,7 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
         actionOnClick={this.onClickSurveyLink}
         actionTarget="_blank"
         actionText={i18n.gettext('Take short survey')}
+        againstGrey20
         className="SurveyNotice"
         dismissible
         id="amo-experience-survey"
