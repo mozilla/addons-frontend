@@ -141,20 +141,20 @@ describe(__filename, () => {
     const root = render({ addon });
     const counts = root.find('.RatingsByStar-star').find(Link);
 
-    function validateLink(link, score) {
+    function validateLink(link, score, expectedTitle) {
       expect(link.children()).toHaveText(score);
       expect(link).toHaveProp(
         'to',
         reviewListURL({ addonSlug: addon.slug, score }),
       );
-      expect(link).toHaveProp('title');
+      expect(link).toHaveProp('title', expectedTitle);
     }
 
-    validateLink(counts.at(0), '5');
-    validateLink(counts.at(1), '4');
-    validateLink(counts.at(2), '3');
-    validateLink(counts.at(3), '2');
-    validateLink(counts.at(4), '1');
+    validateLink(counts.at(0), '5', 'Read all five-star reviews');
+    validateLink(counts.at(1), '4', 'Read all four-star reviews');
+    validateLink(counts.at(2), '3', 'Read all three-star reviews');
+    validateLink(counts.at(3), '2', 'Read all two-star reviews');
+    validateLink(counts.at(4), '1', 'Read all one-star reviews');
   });
 
   it('renders star counts', () => {
@@ -170,20 +170,20 @@ describe(__filename, () => {
     const root = render({ addon });
     const counts = root.find('.RatingsByStar-count').find(Link);
 
-    function validateLink(link, score) {
+    function validateLink(link, score, expectedTitle) {
       expect(link.children()).toHaveText(grouping[score].toString());
       expect(link).toHaveProp(
         'to',
         reviewListURL({ addonSlug: addon.slug, score }),
       );
-      expect(link).toHaveProp('title');
+      expect(link).toHaveProp('title', expectedTitle);
     }
 
-    validateLink(counts.at(0), '5');
-    validateLink(counts.at(1), '4');
-    validateLink(counts.at(2), '3');
-    validateLink(counts.at(3), '2');
-    validateLink(counts.at(4), '1');
+    validateLink(counts.at(0), '5', 'Read all five-star reviews');
+    validateLink(counts.at(1), '4', 'Read all four-star reviews');
+    validateLink(counts.at(2), '3', 'Read all three-star reviews');
+    validateLink(counts.at(3), '2', 'Read all two-star reviews');
+    validateLink(counts.at(4), '1', 'Read all one-star reviews');
   });
 
   it('renders bar value widths based on total ratings', () => {
