@@ -629,8 +629,8 @@ describe(__filename, () => {
       infoType: ADDON_INFO_TYPE_PRIVACY_POLICY,
       params: { slug },
     });
-    expect(root.find('.AddonInfo-info-html').html()).toMatch(
-      new RegExp('<b>lots</b> <i>of</i> <a href="#">bug fixes</a>'),
+    expect(root.find('.AddonInfo-info-html').html()).toContain(
+      '<b>lots</b> <i>of</i> <a href="#">bug fixes</a>',
     );
   });
 
