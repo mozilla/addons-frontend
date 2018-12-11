@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-27 22:23+0000\n"
+"POT-Creation-Date: 2018-12-11 19:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,35 +12,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "Content-Type: text/plain; charset=utf-8\n"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:238
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:240
+#: src/core/components/AMInstallButton/index.js:241
 msgid "Remove"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:242
+#: src/core/components/AMInstallButton/index.js:243
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:244
+#: src/core/components/AMInstallButton/index.js:245
 msgid "Downloading"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:246
+#: src/core/components/AMInstallButton/index.js:247
 msgid "Installing"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:248
+#: src/core/components/AMInstallButton/index.js:249
 msgid "Uninstalling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:256
+#: src/core/components/AMInstallButton/index.js:257
 msgid "Install Theme"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:257
+#: src/core/components/AMInstallButton/index.js:258
 msgid "Add to Firefox"
 msgstr ""
 
@@ -99,6 +99,21 @@ msgstr ""
 msgid "%(localizedSize)s TB"
 msgstr ""
 
+# This is application compatibility information, such as "firefox 41 and later"
+#: src/core/reducers/versions.js:334
+msgid "%(application)s %(minVersion)s and later"
+msgstr ""
+
+# This is application compatibility information, such as "firefox 41 to 45"
+#: src/core/reducers/versions.js:338
+msgid "%(application)s %(minVersion)s to %(maxVersion)s"
+msgstr ""
+
+# This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
+#: src/core/reducers/versions.js:358
+msgid "Works with %(listOfApplicatonsAndVersions)s"
+msgstr ""
+
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
 msgstr ""
@@ -119,7 +134,7 @@ msgstr ""
 msgid "An unexpected error occurred."
 msgstr ""
 
-#: src/disco/components/Addon/index.js:87
+#: src/disco/components/Addon/index.js:86
 msgid "Close"
 msgstr ""
 
@@ -143,15 +158,15 @@ msgstr ""
 msgid "Privacy Policy"
 msgstr ""
 
-#: src/disco/pages/DiscoPane/index.js:130
+#: src/disco/pages/DiscoPane/index.js:134
 msgid "Find more add-ons"
 msgstr ""
 
-#: src/disco/pages/DiscoPane/index.js:146
+#: src/disco/pages/DiscoPane/index.js:150
 msgid "Personalize Your Firefox"
 msgstr ""
 
-#: src/disco/pages/DiscoPane/index.js:148
+#: src/disco/pages/DiscoPane/index.js:152
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -172,7 +187,7 @@ msgstr ""
 msgid "Reload To Continue"
 msgstr ""
 
-#: src/ui/components/Notice/index.js:133
+#: src/ui/components/Notice/index.js:138
 msgid "Dismiss this notice"
 msgstr ""
 
