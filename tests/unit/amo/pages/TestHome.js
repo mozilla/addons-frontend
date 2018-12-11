@@ -70,12 +70,6 @@ describe(__filename, () => {
     return shallowUntilTarget(<Home {...allProps} />, HomeBase);
   }
 
-  it('renders a carousel', () => {
-    const root = render();
-
-    expect(root.find(HomeHeroBanner)).toHaveLength(1);
-  });
-
   // Note: We often have more than one collection to display, which is why the
   // it.each logic is used below.
   it.each([0])(
