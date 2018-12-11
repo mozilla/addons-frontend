@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-11-27 22:19+0000\n"
-"PO-Revision-Date: 2018-12-01 09:26+0000\n"
+"PO-Revision-Date: 2017-10-04 00:40+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -89,7 +89,7 @@ msgstr "Wymaga ponownego uruchomienia"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
-msgstr ""
+msgstr "Eksperymentalne"
 
 #: src/amo/components/AddonBadges/index.js:63
 msgid "Not compatible with Firefox Quantum"
