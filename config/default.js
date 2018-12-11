@@ -360,7 +360,7 @@ module.exports = {
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
-  enableFeatureHomeHeroGuides: false,
+  enableFeatureHomeHeroGuides: true,
 
   // This flag is enabled by default because the feature already exists and we
   // want to disable it.
