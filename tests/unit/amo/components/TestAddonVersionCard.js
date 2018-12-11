@@ -78,30 +78,44 @@ describe(__filename, () => {
     );
   });
 
-  it('renders a released date and file size', () => {
-    const i18n = fakeI18n();
-    const created = '1967-02-19T10:09:01Z';
-    const size = 12345;
-    const version = {
-      ...fakeVersion,
-      files: [{ ...fakePlatformFile, created, size }],
-    };
-    const addon = { ...fakeAddon, current_version: version };
-    _loadVersions({ addon });
+  describe('file info', () => {
+    it('renders a released date and file size', () => {
+      const i18n = fakeI18n();
+      const created = '1967-02-19T10:09:01Z';
+      const size = 12345;
+      const version = {
+        ...fakeVersion,
+        files: [{ ...fakePlatformFile, created, size }],
+      };
+      const addon = { ...fakeAddon, current_version: version };
+      _loadVersions({ addon });
 
-    const root = render({
-      version: createInternalVersion(version),
+      const root = render({
+        version: createInternalVersion(version),
+      });
+
+      expect(root.find('.AddonVersionCard-fileInfo')).toHaveText(
+        `Released ${i18n.moment(created).format('ll')} - ${formatFilesize({
+          i18n,
+          size,
+        })}`,
+      );
     });
 
-    expect(root.find('.AddonVersionCard-fileInfo')).toHaveText(
-      `Released ${i18n.moment(created).format('ll')} - ${formatFilesize({
-        i18n,
-        size,
-      })}`,
-    );
+    it('renders nothing for released date and file size when no file exists for the version', () => {
+      const version = { ...fakeVersion, files: [] };
+      const addon = { ...fakeAddon, current_version: version };
+      _loadVersions({ addon });
+
+      const root = render({
+        version: createInternalVersion(version),
+      });
+
+      expect(root.find('.AddonVersionCard-fileInfo')).toHaveLength(0);
+    });
   });
 
-  it('renders a release notes', () => {
+  it('renders release notes', () => {
     const releaseNotes = 'Some release notes';
     const root = render({
       version: createInternalVersion({

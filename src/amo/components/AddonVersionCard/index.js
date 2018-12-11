@@ -69,7 +69,6 @@ export const AddonVersionCardBase = (props: InternalProps) => {
 
   let licenseLinkParams = {};
   let licenseLinkParts;
-  let licenseText;
   const { license } = version;
   if (addon && license) {
     const otherVars = {
@@ -78,7 +77,7 @@ export const AddonVersionCardBase = (props: InternalProps) => {
     licenseLinkParams = license.isCustom
       ? { to: `/addon/${addon.slug}/license/` }
       : { href: license.url, prependClientApp: false, prependLang: false };
-    licenseText = i18n.gettext(
+    const licenseText = i18n.gettext(
       'Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s',
     );
     licenseLinkParts = getLocalizedTextWithLinkParts({
