@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-11 21:43+0000\n"
+"PO-Revision-Date: 2018-12-11 22:08+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -389,14 +389,12 @@ msgid "Publishing reply"
 msgstr "Wotmołwa so wozjewja"
 
 #: src/amo/components/AddonReviewCard/index.js:349
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "je so napisał %(timestamp)s"
+msgstr "je so %(linkStart)s%(timestamp)s%(linkEnd)s napisał"
 
 #: src/amo/components/AddonReviewCard/index.js:351
-#, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "wot %(authorName)s, %(timestamp)s"
+msgstr "wot %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:413
 msgid "Deleting…"
@@ -1349,9 +1347,8 @@ msgid "Enhance Your Media Experience"
 msgstr "Polěpšće swoje medijowe dožiwjenje"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
-#, fuzzy
 msgid "Extensions are like apps for your browser."
-msgstr "Rozšěrjenja su za waše wobhladowaki kaž nałoženja."
+msgstr "Rozšěrjenja su za waš wobhladowak kaž nałoženja."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
@@ -1510,23 +1507,20 @@ msgid "Read all five-star reviews"
 msgstr "Wšě pohódnoćenja z pjeć hwěžkami čitać"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read all four-star reviews"
-msgstr "%(count)s pohódnoćenje čitać"
+msgstr "Wšě pohódnoćenja ze štyrjomi hwěžkami čitać"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
 msgstr "Wšě pohódnoćenja z třomi hwěžkami čitać"
 
 #: src/amo/components/RatingsByStar/index.js:95
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "Na tute pohódnoćenje wotmołwić"
+msgstr "Wšě pohódnoćenja z dwěmaj hwěžce čitać"
 
 #: src/amo/components/RatingsByStar/index.js:96
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "%(count)s pohódnoćenje čitać"
+msgstr "Wšě pohódnoćenja z jednej hwěžku čitać"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -2043,9 +2037,8 @@ msgid "Only showing five-star reviews"
 msgstr "Jenož pohódnoćenja z pjeć hwěžkami pokazać"
 
 #: src/amo/pages/AddonReviewList/index.js:225
-#, fuzzy
 msgid "Show all reviews"
-msgstr "Moje pohódnoćenja"
+msgstr "Wšě pohódnoćenja pokazać"
 
 #: src/amo/pages/AddonReviewList/index.js:269
 msgid "Reviews for %(addonName)s"
@@ -2060,7 +2053,6 @@ msgstr[2] "%(total)s pohódnoćenja za tutón přidatk"
 msgstr[3] "%(total)s pohódnoćenjow za tutón přidatk"
 
 #: src/amo/pages/AddonReviewList/index.js:370
-#, fuzzy
 msgid "No reviews"
 msgstr "Žane pohódnoćenja"
 
@@ -2177,7 +2169,6 @@ msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
 msgstr "Wuslědźće dalšu %(linkStart)spriwatnosć a wěstotu%(linkEnd)s z wuběra sobudźěłaćerjow."
 
 #: src/amo/pages/Guides/index.js:135
-#, fuzzy
 msgid "Reimagine tab management"
 msgstr "Rozmyslujće rjadowanje rajtarkow"
 
@@ -2238,10 +2229,8 @@ msgid "Improve videos"
 msgstr "Wideja polěpšić"
 
 #: src/amo/pages/Guides/index.js:195
-#, fuzzy
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
-msgstr ""
-"Jeli widejowy wobsah wužiwaće, skića rozšěrjenja rjad móžnosćow, zo byš=ce swoje dožiwjenje optimował, wot přiměrjenja YouTube wašemu słodej do wothrawanje widejow w kinowym modusu a wjele wjace."
+msgstr "Jeli widejowy wobsah wužiwaće, skića rozšěrjenja rjad móžnosćow, zo byšće swoje dožiwjenje optimował, wot přiměrjenja YouTube wašemu słodej do wothrawanje widejow w kinowym modusu."
 
 #: src/amo/pages/Guides/index.js:200
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
@@ -2401,24 +2390,20 @@ msgid "See more popular extensions"
 msgstr "Dalše woblubowane rozšěrjenja sej wobhladać"
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more news boosters"
-msgstr "Dalše polěpšenja Wikipedije sej wobhladać"
+msgstr "Dalše powěsćowe polěpšenja pokazać"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "News boosters"
-msgstr "Polěpšenja YouTube"
+msgstr "Powěsćowe polěpšenja"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more weather reports"
-msgstr "Dalše nazymske drasty pokazać"
+msgstr "Dalše předpowědźe wjedra pokazać"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "Weather reports"
-msgstr "Rozprawa wo znjewužiwanju pósłać"
+msgstr "Předpowědźe wjedra"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
