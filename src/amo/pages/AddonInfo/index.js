@@ -22,7 +22,7 @@ import {
   getLoadingBySlug,
   getVersionById,
 } from 'core/reducers/versions';
-import { nl2br, sanitizeHTML } from 'core/utils';
+import { sanitizeUserHTML } from 'core/utils';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
@@ -177,7 +177,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
     }
 
     if (infoContent) {
-      infoHtml = sanitizeHTML(nl2br(infoContent), ['br']);
+      infoHtml = sanitizeUserHTML(infoContent);
     }
 
     return (

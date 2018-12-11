@@ -616,6 +616,24 @@ describe(__filename, () => {
     ).toHaveLength(1);
   });
 
+  it('allows some HTML tags', () => {
+    const slug = 'some-slug';
+    const privacyPolicy = '<b>lots</b> <i>of</i> <a href="#">bug fixes</a>';
+    const addon = { ...fakeAddon, slug };
+    const addonInfo = { ...fakeAddonInfo, privacy_policy: privacyPolicy };
+
+    _loadAddonResults([addon]);
+    _loadAddonInfo({ addonInfo, slug });
+
+    const root = render({
+      infoType: ADDON_INFO_TYPE_PRIVACY_POLICY,
+      params: { slug },
+    });
+    expect(root.find('.AddonInfo-info-html').html()).toContain(
+      '<b>lots</b> <i>of</i> <a href="#">bug fixes</a>',
+    );
+  });
+
   describe('extractId', () => {
     it('returns a unique id based on the addon slug and infoType', () => {
       const slug = 'some-slug';
