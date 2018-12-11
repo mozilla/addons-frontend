@@ -101,7 +101,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
       <div className="RatingsByStar">
         {errorHandler.renderErrorIfPresent()}
         <div className="RatingsByStar-graph">
-          {[5, 4, 3, 2, 1].map((star) => {
+          {['5', '4', '3', '2', '1'].map((star) => {
             let starCount;
             let starCountNode;
 
