@@ -200,6 +200,10 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     const { addon, i18n, location } = this.props;
     const { score } = location.query;
 
+    if (!score || !addon) {
+      return null;
+    }
+
     const allScoreNotices = {
       /* eslint-disable quote-props */
       '1': i18n.gettext('Only showing one-star reviews'),
@@ -211,7 +215,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     };
     const scoreNotice = allScoreNotices[score];
 
-    if (!score || !addon || !scoreNotice) {
+    if (!scoreNotice) {
       return null;
     }
 
