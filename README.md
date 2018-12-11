@@ -35,7 +35,7 @@ Here are some commands you can run:
 
 | Command                     | Description                                                                                                                                                                                     |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| yarn amo                    | Start the dev server/proxy (for amo) using data from Docker                                                                                                                                     |
+| yarn amo                    | Start the dev server/proxy (for amo) using data from Docker. *This is not currently working. See [issue-7196][]*.                                                                                                                                     |
 | yarn amo:dev                | Start the dev server/proxy (for amo) using data from the dev server (https://addons-dev.allizom.org/)                                                                                           |
 | yarn amo:dev-https          | Same as `amo:dev` but with HTTPS, available at: https://example.com:3000/. [Read about setting up this environment](docs/moz-addon-manager.md#developing-with-a-local-https-server-recommended) |
 | yarn amo:no-proxy           | Start the dev server without a proxy (for amo) using data from Docker                                                                                                                           |
@@ -222,11 +222,19 @@ open coverage/lcov-report/index.html
 
 ### Running AMO for local development
 
-A proxy server is provided for running the AMO app with the API on the same host as the frontend. This provides a setup that is closer to production than running the frontend on its own. The default configuration for this is to use a local addons-server for the API which can be setup according to the [addons-server docs](https://addons-server.readthedocs.io/en/latest/topics/install/index.html). Docker is the preferred method of running addons-server.
+A proxy server is provided for running the AMO app with the API on the same host as the frontend. This mimics our production setup.
+
+Start developing against a hosted API like this:
+
+```
+yarn amo:dev
+```
+
+This configures the proxy to use `https://addons-dev.allizom.org` for API data. This command is the most common way to develop new frontend features. See the table of commands up above for similar ways to run the server.
+
+To use a [local API server running in Docker](https://addons-server.readthedocs.io/en/latest/topics/install/index.html), you can use the `yarn amo` command. However, this is currently not working. See [issue-7196][].
 
 Authentication will work when initiated from addons-frontend and will persist to addons-server but it will not work when logging in from an addons-server page. See [mozilla/addons-server#4684](https://github.com/mozilla/addons-server/issues/4684) for more information on fixing this.
-
-If you would like to use `https://addons-dev.allizom.org` for data you should use the `yarn amo:dev` command. See the table of commands up above for similar hosted options.
 
 ### Local configuration
 
@@ -426,7 +434,7 @@ At a later date if we need to move things out into their own project we still ca
 - Unit tests with high coverage (aiming for 100%)
 
 [bundlesize]: https://github.com/siddharthkp/bundlesize
+[issue-7196]: https://github.com/mozilla/addons-frontend/issues/7196
 [jest]: https://facebook.github.io/jest/docs/en/getting-started.html
 [prettier]: https://prettier.io/
-[pretty-quick]: https://www.npmjs.com/package/pretty-quick
 [snyk]: https://snyk.io/
