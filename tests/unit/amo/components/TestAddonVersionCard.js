@@ -78,6 +78,40 @@ describe(__filename, () => {
     );
   });
 
+  it('renders a compatibility string', () => {
+    const app = 'testApp';
+    const max = '2.0';
+    const min = '1.0';
+    const version = {
+      ...fakeVersion,
+      compatibility: {
+        [app]: {
+          min,
+          max,
+        },
+      },
+    };
+
+    const addon = { ...fakeAddon, current_version: version };
+    _loadVersions({ addon });
+
+    const root = render({
+      version: createInternalVersion(version),
+    });
+
+    expect(root.find('.AddonVersionCard-compatibility')).toHaveText(
+      `Works with ${app} ${min} to ${max}`,
+    );
+  });
+
+  it('renders nothing for compatibility when no version is loaded', () => {
+    const root = render({
+      version: null,
+    });
+
+    expect(root.find('.AddonVersionCard-compatibility')).toHaveLength(0);
+  });
+
   describe('file info', () => {
     it('renders a released date and file size', () => {
       const i18n = fakeI18n();
@@ -188,6 +222,20 @@ describe(__filename, () => {
       'to',
       `/addon/${slug}/license/`,
     );
+  });
+
+  it('does not render license info if there is no license', () => {
+    const slug = 'some-slug';
+    const addon = createInternalAddon({ ...fakeAddon, slug });
+    const root = render({
+      addon,
+      version: createInternalVersion({
+        ...fakeVersion,
+        license: null,
+      }),
+    });
+
+    expect(root.find('.AddonVersionCard-license')).toHaveLength(0);
   });
 
   it('passes an install error to AddonInstallError', () => {
