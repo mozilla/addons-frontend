@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-11 20:30+0000\n"
+"PO-Revision-Date: 2018-12-11 20:52+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -2117,7 +2117,7 @@ msgstr "האוספים שלי"
 
 #: src/amo/pages/Guides/index.js:102
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "חוסם פרסומות קל ויעיל. uBlock Origin אוכף אלפי מסנני תוכן מבלי לזלול זיכרון."
 
 #: src/amo/pages/Guides/index.js:106
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
@@ -2159,7 +2159,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "גלישה טובה יותר עם סימניות משופרות"
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
@@ -2350,11 +2350,11 @@ msgstr "הצגת הרחבות פופולריות נוספות"
 
 #: src/amo/pages/Home/index.js:54
 msgid "See more news boosters"
-msgstr "הצגת מאיצים חדשים נוספים"
+msgstr "הצגת מאיצי חדשות נוספים"
 
 #: src/amo/pages/Home/index.js:55
 msgid "News boosters"
-msgstr "מאיצים חדשים"
+msgstr "מאיצי חדשות"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more weather reports"
@@ -2965,7 +2965,7 @@ msgstr "%(localizedSize)s ט״ב"
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "‏%(application)s %(minVersion)s ומעלה"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
