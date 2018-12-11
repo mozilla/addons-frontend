@@ -21,8 +21,6 @@ module.exports = {
   trackingEnabled: false,
   loggingLevel: 'debug',
 
-  enableFeatureHomeHeroGuides: true,
-
   enableFeatureStaticThemesForAndroid: false,
 
   CSP: {
