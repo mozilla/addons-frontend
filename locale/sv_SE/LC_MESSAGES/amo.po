@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-11 20:43+0000\n"
-"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
+"PO-Revision-Date: 2018-12-12 16:40+0000\n"
+"Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -384,11 +384,11 @@ msgstr "Publicerar svar"
 
 #: src/amo/components/AddonReviewCard/index.js:349
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "postad %(linkStart)s %(timestamp)s %(linkEnd)s"
+msgstr "postad %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:351
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "av %(authorName)s %(linkStart)s %(timestamp)s %(linkEnd)s"
+msgstr "av %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:413
 msgid "Deleting…"
@@ -1230,19 +1230,19 @@ msgstr "Se hur Facebook-annonser riktar sig mot dig"
 
 #: src/amo/components/HomeHeroBanner/index.js:274
 msgid "SoundFixer"
-msgstr ""
+msgstr "SoundFixer"
 
 #: src/amo/components/HomeHeroBanner/index.js:275
 msgid "Adjust audio levels for sounds you encounter around web"
-msgstr ""
+msgstr "Justera ljudnivåer för ljud som du möter på webben"
 
 #: src/amo/components/HomeHeroBanner/index.js:281
 msgid "Lilo"
-msgstr ""
+msgstr "Lilo"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
 msgid "Fund social causes by simply using Lilo search"
-msgstr ""
+msgstr "Stöd sociala ändamål genom att använda Lilo-sökning"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Iridium for YouTube"
@@ -1341,7 +1341,6 @@ msgid "Enhance Your Media Experience"
 msgstr "Förbättra din medieupplevelse"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
-#, fuzzy
 msgid "Extensions are like apps for your browser."
 msgstr "Utökningar är som appar för dina webbläsare."
 
@@ -1499,26 +1498,23 @@ msgstr "Stjärnklassificering sparad"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Läs alla 5-stjärniga recensioner"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read all four-star reviews"
-msgstr "Läst %(count)s recension"
+msgstr "Läs alla 4-stjärniga recensioner"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "Läs alla trestjärniga recensioner"
 
 #: src/amo/components/RatingsByStar/index.js:95
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "Svara på den här recensionen"
+msgstr "Läs alla tvåstjärniga recensioner"
 
 #: src/amo/components/RatingsByStar/index.js:96
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "Läst %(count)s recension"
+msgstr "Läs alla enstjärniga recensioner"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -1998,23 +1994,23 @@ msgstr "Recensioner och betyg för %(addonName)s. Ta reda på vad andra använda
 
 #: src/amo/pages/AddonReviewList/index.js:209
 msgid "Only showing one-star reviews"
-msgstr ""
+msgstr "Visar endast enstjärniga recensioner"
 
 #: src/amo/pages/AddonReviewList/index.js:210
 msgid "Only showing two-star reviews"
-msgstr ""
+msgstr "Visar endast tvåstjärniga recensioner"
 
 #: src/amo/pages/AddonReviewList/index.js:211
 msgid "Only showing three-star reviews"
-msgstr ""
+msgstr "Visar endast trestjärniga recensioner"
 
 #: src/amo/pages/AddonReviewList/index.js:212
 msgid "Only showing four-star reviews"
-msgstr ""
+msgstr "Visar endast 4-stjärniga recensioner"
 
 #: src/amo/pages/AddonReviewList/index.js:213
 msgid "Only showing five-star reviews"
-msgstr ""
+msgstr "Visar endast 5-stjärniga recensioner"
 
 #: src/amo/pages/AddonReviewList/index.js:225
 msgid "Show all reviews"
@@ -2147,7 +2143,6 @@ msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
 msgstr "Utforska fler %(linkStart)ssekretess & säkerhet%(linkEnd)s utvalda av personalen."
 
 #: src/amo/pages/Guides/index.js:135
-#, fuzzy
 msgid "Reimagine tab management"
 msgstr "Återupptäck flikhantering"
 
@@ -2208,9 +2203,8 @@ msgid "Improve videos"
 msgstr "Förbättra videor"
 
 #: src/amo/pages/Guides/index.js:195
-#, fuzzy
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
-msgstr "Om du gillar videoinnehåll erbjuder utökningar ett antal sätt att optimera din upplevelse, från att anpassa YouTube efter smak, spela upp videoklipp i teaterläge och mycket mer."
+msgstr "Om du gillar videoinnehåll erbjuder utökningar ett antal sätt att optimera din upplevelse, inklusive att anpassa YouTube till din smak och spela upp video i teaterläge."
 
 #: src/amo/pages/Guides/index.js:200
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
@@ -2371,11 +2365,11 @@ msgstr "Se fler populära utökningar"
 
 #: src/amo/pages/Home/index.js:54
 msgid "See more news boosters"
-msgstr "Se fler nyhets boosters"
+msgstr "Se fler nyhetsboosters"
 
 #: src/amo/pages/Home/index.js:55
 msgid "News boosters"
-msgstr "Nyhets boosters"
+msgstr "Nyhetsboosters"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more weather reports"
