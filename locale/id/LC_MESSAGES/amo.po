@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-12 14:24+0000\n"
+"PO-Revision-Date: 2018-12-12 16:25+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1498,23 +1498,20 @@ msgid "Read all five-star reviews"
 msgstr "Baca semua ulasan bintang lima"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read all four-star reviews"
-msgstr "Baca semua %(count)s ulasan"
+msgstr "Baca semua ulasan bintang empat"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
 msgstr "Baca semua ulasan bintang tiga"
 
 #: src/amo/components/RatingsByStar/index.js:95
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "Balas ulasan ini"
+msgstr "Baca semua ulasan bintang dua"
 
 #: src/amo/components/RatingsByStar/index.js:96
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "Baca semua %(count)s ulasan"
+msgstr "Baca semua ulasan bintang satu"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -2354,14 +2351,12 @@ msgid "News boosters"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more weather reports"
-msgstr "Lihat tema musim gugur lainnya"
+msgstr "Lihat lebih banyak laporan cuaca"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "Weather reports"
-msgstr "Kirimkan laporan penyalahgunaan"
+msgstr "Laporan cuaca"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
