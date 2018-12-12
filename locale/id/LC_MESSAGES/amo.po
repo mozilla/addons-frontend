@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-12 07:55+0000\n"
+"PO-Revision-Date: 2018-12-12 14:24+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -2005,9 +2005,8 @@ msgid "Only showing five-star reviews"
 msgstr "Hanya menampilkan ulasan bintang lima"
 
 #: src/amo/pages/AddonReviewList/index.js:225
-#, fuzzy
 msgid "Show all reviews"
-msgstr "Ulasan saya"
+msgstr "Tampilkan semua ulasan"
 
 #: src/amo/pages/AddonReviewList/index.js:269
 msgid "Reviews for %(addonName)s"
@@ -2019,7 +2018,6 @@ msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s ulasan untuk pengaya ini"
 
 #: src/amo/pages/AddonReviewList/index.js:370
-#, fuzzy
 msgid "No reviews"
 msgstr "Tidak ada ulasan"
 
