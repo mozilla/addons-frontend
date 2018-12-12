@@ -13,6 +13,7 @@ import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
+import LoadingText from 'ui/components/LoadingText';
 import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
@@ -79,7 +80,9 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
           </div>
         </div>
       </Card>
-    ) : null;
+    ) : (
+      <LoadingText width={100} />
+    );
   }
 }
 

@@ -16,6 +16,7 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
+import LoadingText from 'ui/components/LoadingText';
 
 describe(__filename, () => {
   const _loadAddonResults = ({ addon = fakeAddon }) => {
@@ -81,13 +82,9 @@ describe(__filename, () => {
     expect(root.find(InstallButtonWrapper)).toHaveLength(1);
   });
 
-  // TODO: This will be updated when we address the following issue:
-  // https://github.com/mozilla/addons-frontend/issues/6900.
-  it('returns null when there is no addon', () => {
-    const root = render({
-      addon: null,
-    });
-    expect(root.html()).toEqual(null);
+  it('renders LoadingText when there is no addon', () => {
+    const root = render({ addon: null });
+    expect(root.find(LoadingText)).toHaveLength(1);
   });
 
   it('passes the addon to AddonCompatibilityError', () => {
