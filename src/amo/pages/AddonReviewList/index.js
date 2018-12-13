@@ -274,11 +274,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     const reviewCountHTML =
       reviewCount !== null ? (
         i18n.sprintf(
-          i18n.ngettext(
-            '%(total)s review for this add-on',
-            '%(total)s reviews for this add-on',
-            reviewCount,
-          ),
+          i18n.ngettext('%(total)s review', '%(total)s reviews', reviewCount),
           {
             total: i18n.formatNumber(reviewCount),
           },
@@ -288,7 +284,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       );
 
     const addonReviewCount =
-      addon && addon.ratings ? addon.ratings.text_count : null;
+      addon && addon.ratings ? addon.ratings.count : null;
     let placeholderCount = addonReviewCount || 4;
     if (placeholderCount > DEFAULT_API_PAGE_SIZE) {
       placeholderCount = DEFAULT_API_PAGE_SIZE;
@@ -367,7 +363,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
           ) : (
             <Card>
               <p className="AddonReviewList-noReviews">
-                {i18n.gettext('No reviews')}
+                {i18n.gettext('There are no reviews')}
               </p>
             </Card>
           )}

@@ -95,7 +95,6 @@ describe(__filename, () => {
         .withArgs({
           addon: fakeAddon.slug,
           apiState,
-          filter: 'without_empty_body',
           page: '1',
           score: undefined,
         })

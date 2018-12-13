@@ -131,7 +131,7 @@ describe(__filename, () => {
         ...fakeAddon,
         ratings: {
           ...fakeAddon.ratings,
-          text_count: 0,
+          count: 0,
         },
       };
       const addon = createInternalAddon(externalAddon);
@@ -148,12 +148,12 @@ describe(__filename, () => {
     });
 
     it('displays the same number of placeholders as there are reviews for an addon', () => {
-      const reviewCount = 10;
+      const reviewCount = 6;
       const externalAddon = {
         ...fakeAddon,
         ratings: {
           ...fakeAddon.ratings,
-          text_count: reviewCount,
+          count: reviewCount,
         },
       };
       const addon = createInternalAddon(externalAddon);
@@ -174,7 +174,7 @@ describe(__filename, () => {
         ...fakeAddon,
         ratings: {
           ...fakeAddon.ratings,
-          text_count: DEFAULT_API_PAGE_SIZE + 1,
+          count: DEFAULT_API_PAGE_SIZE + 1,
         },
       };
 
@@ -684,8 +684,8 @@ describe(__filename, () => {
         ...fakeAddon,
         ratings: {
           ...fakeAddon.ratings,
-          // This is the total of all reviews.
-          text_count: 200,
+          // This is the total of all ratings and reviews.
+          count: 200,
         },
       };
       loadAddon(addon);
@@ -697,9 +697,7 @@ describe(__filename, () => {
 
       const cardList = root.find('.AddonReviewList-reviews-listing');
       expect(cardList).toHaveProp('header');
-      expect(cardList.prop('header')).toContain(
-        `${reviewCount} reviews for this add-on`,
-      );
+      expect(cardList.prop('header')).toContain(`${reviewCount} reviews`);
     });
 
     describe('with pagination', () => {

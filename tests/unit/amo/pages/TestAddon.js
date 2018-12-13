@@ -1134,7 +1134,7 @@ describe(__filename, () => {
         slug: addonSlug,
         ratings: {
           ...fakeAddon.ratings,
-          text_count: ratingsCount,
+          count: ratingsCount,
         },
       };
 

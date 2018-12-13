@@ -204,8 +204,8 @@ export class AddonBase extends React.Component {
       );
     }
 
-    if (addon && addon.ratings.text_count) {
-      const count = addon.ratings.text_count;
+    if (addon && addon.ratings.count) {
+      const { count } = addon.ratings;
       const linkText = i18n.sprintf(
         i18n.ngettext(
           'Read %(count)s review',

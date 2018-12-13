@@ -137,10 +137,10 @@ describe(__filename, () => {
     });
   };
 
-  function createAddonAndReview() {
+  function createAddonAndReview({ externalReview = fakeReview } = {}) {
     const addon = createInternalAddon(fakeAddon);
     const review = _setReview({
-      ...fakeReview,
+      ...externalReview,
       addon: {
         id: addon.id,
         slug: addon.slug,
@@ -544,6 +544,16 @@ describe(__filename, () => {
     expect(renderControls(root).find(FlagReviewMenu)).toHaveLength(0);
   });
 
+  it('does not let you flag rating-only reviews', () => {
+    const root = render({
+      review: _setReview(fakeRatingOnly),
+      // This will be ignored since it's a rating-only review.
+      flaggable: true,
+    });
+
+    expect(renderControls(root).find(FlagReviewMenu)).toHaveLength(0);
+  });
+
   it('lets you flag a developer reply', () => {
     const { reply } = _setReviewReply();
     const root = renderReply({ reply });
@@ -602,17 +612,29 @@ describe(__filename, () => {
     dispatchSignInActions({ store });
     const { addon, review } = createAddonAndReview();
 
-    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ addon, review, siteUserCanReply: false });
+
+    expect(
+      renderControls(root).find('.AddonReviewCard-begin-reply'),
+    ).toHaveLength(0);
+  });
+
+  it('disallows replies for rating-only reviews', () => {
+    dispatchSignInActions({ store });
+    const { addon, review } = createAddonAndReview({
+      externalReview: fakeRatingOnly,
+    });
+
     const root = render({
       addon,
       review,
-      siteUserCanReply: false,
+      // This will be ignored since the review is rating-only.
+      siteUserCanReply: true,
     });
 
     expect(
       renderControls(root).find('.AddonReviewCard-begin-reply'),
     ).toHaveLength(0);
-    sinon.assert.notCalled(fakeDispatch);
   });
 
   it('cannot begin a review reply without a review', () => {

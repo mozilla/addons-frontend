@@ -123,10 +123,11 @@ describe(__filename, () => {
 
     it('renders a count of multiple reviews', () => {
       const slug = 'some-slug';
+      const ratingsCount = 5;
       const root = render({
         addon: createInternalAddon({
           ...fakeAddon,
-          ratings: { count: 10, text_count: 5 },
+          ratings: { text_count: 3, count: ratingsCount },
           slug,
         }),
       });
@@ -140,11 +141,11 @@ describe(__filename, () => {
       expect(reviewTitleLink.children()).toHaveText('Reviews');
 
       expect(reviewCountLink).toHaveProp('to', listURL);
-      expect(reviewCountLink.children()).toHaveText('5');
+      expect(reviewCountLink.children()).toHaveText(ratingsCount.toString());
     });
 
     it('renders a count of one review', () => {
-      const root = renderRatings({ text_count: 1 });
+      const root = renderRatings({ count: 1 });
 
       expect(
         getReviewCount(root)
@@ -160,7 +161,7 @@ describe(__filename, () => {
 
     it('localizes review count', () => {
       const i18n = fakeI18n({ lang: 'de' });
-      const root = renderRatings({ text_count: 1000 }, { i18n });
+      const root = renderRatings({ count: 1000 }, { i18n });
 
       expect(
         getReviewCount(root)
