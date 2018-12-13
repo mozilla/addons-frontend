@@ -91,7 +91,7 @@ export const getSections = ({
         },
         // uBlock Origin
         {
-          addonGuid: '{9aa5dd7e-dcf1-483c-9d38-9196f3ccf723}',
+          addonGuid: 'uBlock0@raymondhill.net',
           header: i18n.gettext('Block annoying ads'),
           description: i18n.gettext(
             `Today’s web is tangled up with unwanted advertisements that get
