@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-11 21:20+0000\n"
+"PO-Revision-Date: 2018-12-13 18:04+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -950,7 +950,7 @@ msgstr "Samo s Firefoxom – namestite ga zdaj"
 
 #: src/amo/components/GuidesAddonCard/index.js:63
 msgid "Staff Pick"
-msgstr "Izbor osebja"
+msgstr "Izbor uredništva"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:505
 msgid "View My Profile"
@@ -1234,7 +1234,7 @@ msgstr "Oglejte si, kako Facebook cilja na vas z oglasi"
 
 #: src/amo/components/HomeHeroBanner/index.js:274
 msgid "SoundFixer"
-msgstr ""
+msgstr "SoundFixer"
 
 #: src/amo/components/HomeHeroBanner/index.js:275
 msgid "Adjust audio levels for sounds you encounter around web"
@@ -1242,7 +1242,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:281
 msgid "Lilo"
-msgstr ""
+msgstr "Lilo"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
 msgid "Fund social causes by simply using Lilo search"
@@ -1503,7 +1503,7 @@ msgstr "Ocena shranjena"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Preberi vse ocene s petimi zvezdicami"
 
 #: src/amo/components/RatingsByStar/index.js:93
 msgid "Read all four-star reviews"
@@ -1511,7 +1511,7 @@ msgstr "Preberi vse ocene s štirimi zvezdicami"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "Preberi vse ocene s tremi zvezdicami"
 
 #: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all two-star reviews"
@@ -2015,23 +2015,23 @@ msgstr "Ocene za %(addonName)s. Oglejte si, kaj drugi uporabniki menijo o %(addo
 
 #: src/amo/pages/AddonReviewList/index.js:209
 msgid "Only showing one-star reviews"
-msgstr ""
+msgstr "Prikazane so ocene z eno zvezdico"
 
 #: src/amo/pages/AddonReviewList/index.js:210
 msgid "Only showing two-star reviews"
-msgstr ""
+msgstr "Prikazane so ocene z dvema zvezdicama"
 
 #: src/amo/pages/AddonReviewList/index.js:211
 msgid "Only showing three-star reviews"
-msgstr ""
+msgstr "Prikazane so ocene s tremi zvezdicami"
 
 #: src/amo/pages/AddonReviewList/index.js:212
 msgid "Only showing four-star reviews"
-msgstr ""
+msgstr "Prikazane so ocene s štirimi zvezdicami"
 
 #: src/amo/pages/AddonReviewList/index.js:213
 msgid "Only showing five-star reviews"
-msgstr ""
+msgstr "Prikazane so ocene s petimi zvezdicami"
 
 #: src/amo/pages/AddonReviewList/index.js:225
 msgid "Show all reviews"
@@ -2163,7 +2163,7 @@ msgstr "Spravite svojo identiteto na Facebooku v ločen “vsebnik” in prepre�
 
 #: src/amo/pages/Guides/index.js:124
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Raziščite več dodatkov za %(linkStart)szasebnost in varnost%(linkEnd)s po izboru uredništva."
 
 #: src/amo/pages/Guides/index.js:135
 #, fuzzy
@@ -2182,7 +2182,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:146
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Raziščite več dodatkov za %(linkStart)supravljanje z zavihki%(linkEnd)s po izboru uredništva."
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
@@ -2200,7 +2200,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:166
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Raziščite več %(linkStart)supraviteljev zaznamkov%(linkEnd)s po izboru uredništva."
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
@@ -2232,7 +2232,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:205
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Raziščite več %(linkStart)srazširitev za videoposnetke%(linkEnd)s po izboru uredništva."
 
 #: src/amo/pages/Guides/index.js:213
 msgid "Get more out of media"
@@ -2250,7 +2250,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:225
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Raziščite več %(linkStart)srazširitev za predstavnost%(linkEnd)s po izboru uredništva."
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
@@ -2300,7 +2300,7 @@ msgstr "V celoti šifrirana zaščita. Varno hranite svoje podatke in dostopajte
 
 #: src/amo/pages/Guides/index.js:87
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Raziščite več %(linkStart)supraviteljev gesel%(linkEnd)s po izboru uredništva."
 
 #: src/amo/pages/Guides/index.js:95
 msgid "Block annoying ads"
@@ -3012,12 +3012,12 @@ msgstr "%(localizedSize)s TB"
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s in novejši"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s do %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
