@@ -65,6 +65,10 @@
     @include respond-to(medium) {
       flex: 0 0 180px;
     }
+
+    .GetFirefoxButton {
+      padding: 0 12px;
+    }
   }
 
   .GetFirefoxButton {
