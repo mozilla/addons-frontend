@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-13 22:07+0000\n"
+"PO-Revision-Date: 2018-12-13 22:15+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -1230,15 +1230,15 @@ msgstr "SoundFixer"
 
 #: src/amo/components/HomeHeroBanner/index.js:275
 msgid "Adjust audio levels for sounds you encounter around web"
-msgstr ""
+msgstr "A weben található hangok hangszintjének módosítása"
 
 #: src/amo/components/HomeHeroBanner/index.js:281
 msgid "Lilo"
-msgstr ""
+msgstr "Lilo"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
 msgid "Fund social causes by simply using Lilo search"
-msgstr ""
+msgstr "Támogasson társadalmi célokat pusztán a Lilo keresés használatával"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Iridium for YouTube"
@@ -1494,7 +1494,7 @@ msgstr "Csillagos értékelés mentve"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Összes öt csillagos értékelés elolvasása"
 
 #: src/amo/components/RatingsByStar/index.js:93
 msgid "Read all four-star reviews"
@@ -1502,7 +1502,7 @@ msgstr "Összes négy csillagos értékelés elolvasása"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "Összes három csillagos értékelés elolvasása"
 
 #: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all two-star reviews"
@@ -1990,23 +1990,23 @@ msgstr "Értékelések a(z) %(addonName)s kiegészítőről. Tudja meg, hogy a t
 
 #: src/amo/pages/AddonReviewList/index.js:209
 msgid "Only showing one-star reviews"
-msgstr ""
+msgstr "Csak az egy csillagos értékelése megjelenítése"
 
 #: src/amo/pages/AddonReviewList/index.js:210
 msgid "Only showing two-star reviews"
-msgstr ""
+msgstr "Csak a két csillagos értékelése megjelenítése"
 
 #: src/amo/pages/AddonReviewList/index.js:211
 msgid "Only showing three-star reviews"
-msgstr ""
+msgstr "Csak a három csillagos értékelése megjelenítése"
 
 #: src/amo/pages/AddonReviewList/index.js:212
 msgid "Only showing four-star reviews"
-msgstr ""
+msgstr "Csak a négy csillagos értékelése megjelenítése"
 
 #: src/amo/pages/AddonReviewList/index.js:213
 msgid "Only showing five-star reviews"
-msgstr ""
+msgstr "Csak az öt csillagos értékelése megjelenítése"
 
 #: src/amo/pages/AddonReviewList/index.js:225
 msgid "Show all reviews"
@@ -2998,17 +2998,17 @@ msgstr "%(localizedSize)s TB"
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s vagy újabb"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s – %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Ezekkel működik: %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
