@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-13 16:51+0000\n"
+"PO-Revision-Date: 2018-12-13 16:57+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -1338,9 +1338,8 @@ msgid "Enhance Your Media Experience"
 msgstr "Wygodniej słuchaj i oglądaj"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
-#, fuzzy
 msgid "Extensions are like apps for your browser."
-msgstr "Rozszerzenia są jak aplikacje dla przeglądarek."
+msgstr "Rozszerzenia są jak aplikacje dla przeglądarki."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
@@ -1496,26 +1495,23 @@ msgstr "Zapisano ocenę w gwiazdkach"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Wszystkie pięciogwiazdkowe recenzje"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read all four-star reviews"
-msgstr "%(count)s recenzja"
+msgstr "Wszystkie czterogwiazdkowe recenzje"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "Wszystkie trzygwiazdkowe recenzje"
 
 #: src/amo/components/RatingsByStar/index.js:95
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "Odpowiedz na tę recenzję"
+msgstr "Wszystkie dwugwiazdkowe recenzje"
 
 #: src/amo/components/RatingsByStar/index.js:96
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "%(count)s recenzja"
+msgstr "Wszystkie jednogwiazdkowe recenzje"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -2003,28 +1999,27 @@ msgstr "Recenzje i oceny dodatku „%(addonName)s”. Dowiedz się, co inni uż
 
 #: src/amo/pages/AddonReviewList/index.js:209
 msgid "Only showing one-star reviews"
-msgstr ""
+msgstr "Wyświetlane są tylko jednogwiazdkowe recenzje"
 
 #: src/amo/pages/AddonReviewList/index.js:210
 msgid "Only showing two-star reviews"
-msgstr ""
+msgstr "Wyświetlane są tylko dwugwiazdkowe recenzje"
 
 #: src/amo/pages/AddonReviewList/index.js:211
 msgid "Only showing three-star reviews"
-msgstr ""
+msgstr "Wyświetlane są tylko trzygwiazdkowe recenzje"
 
 #: src/amo/pages/AddonReviewList/index.js:212
 msgid "Only showing four-star reviews"
-msgstr ""
+msgstr "Wyświetlane są tylko czterogwiazdkowe recenzje"
 
 #: src/amo/pages/AddonReviewList/index.js:213
 msgid "Only showing five-star reviews"
-msgstr ""
+msgstr "Wyświetlane są tylko pięciogwiazdkowe recenzje"
 
 #: src/amo/pages/AddonReviewList/index.js:225
-#, fuzzy
 msgid "Show all reviews"
-msgstr "Moje recenzje"
+msgstr "Wszystkie recenzje"
 
 #: src/amo/pages/AddonReviewList/index.js:269
 msgid "Reviews for %(addonName)s"
@@ -2038,7 +2033,6 @@ msgstr[1] "%(total)s recenzje tego dodatku"
 msgstr[2] "%(total)s recenzji tego dodatku"
 
 #: src/amo/pages/AddonReviewList/index.js:370
-#, fuzzy
 msgid "No reviews"
 msgstr "Brak recenzji"
 
@@ -2155,7 +2149,6 @@ msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
 msgstr "Poznaj więcej %(linkStart)snarzędzi prywatności i bezpieczeństwa%(linkEnd)s wybranych przez nas."
 
 #: src/amo/pages/Guides/index.js:135
-#, fuzzy
 msgid "Reimagine tab management"
 msgstr "Na nowo odkryj zarządzanie kartami"
 
@@ -2216,10 +2209,8 @@ msgid "Improve videos"
 msgstr "Ulepsz odtwarzanie filmów"
 
 #: src/amo/pages/Guides/index.js:195
-#, fuzzy
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
-msgstr ""
-"Jeśli lubisz filmy w sieci, to rozszerzenia oferują liczne sposoby na ulepszenie ich oglądania, od dostosowywania YouTube do własnych upodobań po odtwarzanie filmów w trybie kinowym i nie tylko."
+msgstr "Jeśli lubisz filmy w sieci, to rozszerzenia oferują liczne sposoby na ulepszenie ich oglądania, w tym dostosowywanie YouTube do własnych upodobań czy odtwarzanie filmów w trybie kinowym."
 
 #: src/amo/pages/Guides/index.js:200
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
@@ -2377,24 +2368,20 @@ msgid "See more popular extensions"
 msgstr "Więcej popularnych rozszerzeń"
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more news boosters"
-msgstr "Więcej narzędzi do wspomagania Wikipedii"
+msgstr "Więcej narzędzi do wspomagania aktualności"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "News boosters"
-msgstr "Wspomaganie YouTube"
+msgstr "Wspomaganie aktualności"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more weather reports"
-msgstr "Więcej jesiennych motywów"
+msgstr "Więcej prognoz pogody"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "Weather reports"
-msgstr "Wyślij zgłoszenie o nadużyciu"
+msgstr "Prognozy pogody"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -3019,17 +3006,17 @@ msgstr "%(localizedSize)s TB"
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s i nowszy"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s do %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Działa z: %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
