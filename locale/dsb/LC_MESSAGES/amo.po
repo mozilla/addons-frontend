@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-14 17:33+0000\n"
+"PO-Revision-Date: 2018-12-14 17:51+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -2253,6 +2253,8 @@ msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Sćo se gdy pódštapił we webje do fasciněrujucego wobraza a cośo wěcej wó tomm zgóniś, na pśikład kótara wósoba jo na wobrazu? Su pódobne wobraze? Toś to rozšyrjenje wam zmóžnja, malsne a lažke "
+"nawopacne wobrazowe pytanje z wjele pytnicami pśewjasć."
 
 #: src/amo/pages/Guides/index.js:225
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
@@ -2287,10 +2289,12 @@ msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Źěłaśo z pśewjele wócynjonymi rejtarkami abo njewidanu licbu cytańskich znamjenjow? Rozšyrjenja mógu pomagaś! Wót organizěrowańskeje pódpěry do ppóbitowanja rozdrosćeńskich nowych funkcijow, mógu "
+"rozšyrjenja wašnju, kak z rejtarkami a cytańskimi znamjenjami źěłaśo, radnje změniś."
 
 #: src/amo/pages/Guides/index.js:285
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "Rozšyrjenja mógu medije online na wšykne móžne wašnje pólěpšyś, wót woglědowanja wideo do wobchadanja z wobrazami, muziku a wěcej."
 
 #: src/amo/pages/Guides/index.js:77
 msgid "Create and manage strong passwords"
@@ -2316,6 +2320,8 @@ msgstr "Gramne wabjenje blokěrowaś"
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
+"Źinsajšny web jo połny njewitanego wabjenja, kótarež wam naprěki pśiźo a was późaržujo. Rozšyrjenja za blokěrowanje wabjenja mógu toś to wabjenje blokěrowaś abo filtrowaś, aby mógał zasej bźez "
+"mólenja pśeglědowaś."
 
 #: src/amo/pages/Home/index.js:119
 msgid "Bookmarks"
