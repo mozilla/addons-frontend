@@ -25,7 +25,10 @@ describe(__filename, () => {
 
   afterEach(() => {
     process.env.NODE_ENV = existingNodeEnv;
-    process.env.NODE_APP_INSTANCE = existingNodeAppInstance;
+    delete process.env.NODE_APP_INSTANCE;
+    if (existingNodeAppInstance) {
+      process.env.NODE_APP_INSTANCE = existingNodeAppInstance;
+    }
   });
 
   describe('CSP Config', () => {
