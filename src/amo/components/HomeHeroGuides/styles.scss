@@ -48,29 +48,6 @@ $icon-size: 40px;
     padding: 0 0 4px;
   }
 
-  .HeroSection-link-wrapper {
-    color: $black;
-    display: block;
-    min-height: 0;
-    padding: 0;
-    text-decoration: none;
-
-    &:hover .HomeHeroGuides-section-title {
-      color: $link-color;
-    }
-
-    .HeroSection-content {
-      outline: none;
-    }
-
-    &.focus-visible .HeroSection-content {
-      // Fix outline for Firefox
-      outline: 1px dotted $link-color;
-      // Restore default outline for webkit.
-      outline: auto 5px -webkit-focus-ring-color;
-    }
-  }
-
   .Hero-contents {
     @include respond-to(large) {
       display: grid;
@@ -96,11 +73,34 @@ $icon-size: 40px;
     }
   }
 
-  .HomeHeroGuides-section-title {
-    font-size: $font-size-m;
-    font-weight: normal;
-    margin: $padding-page 0;
-    text-align: center;
+  .HeroSection-link-wrapper {
+    color: $black;
+    display: block;
+    min-height: 0;
+    padding: 0;
+    text-decoration: none;
+
+    .HomeHeroGuides-section-title {
+      font-size: $font-size-m;
+      font-weight: normal;
+      margin: $padding-page 0;
+      text-align: center;
+    }
+
+    &:hover .HomeHeroGuides-section-title {
+      color: $link-color;
+    }
+
+    .HeroSection-content {
+      outline: none;
+    }
+
+    &.focus-visible .HeroSection-content {
+      // Fix outline for Firefox
+      outline: 1px dotted $link-color;
+      // Restore default outline for webkit.
+      outline: auto 5px -webkit-focus-ring-color;
+    }
   }
 }
 
