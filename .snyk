@@ -111,16 +111,22 @@ ignore:
         expires: '2018-08-30T15:35:04.333Z'
   'npm:chownr:20180731':
     - chokidar > node-pre-gyp > tar > chownr:
-        reason: Our production app does not use chokidar
+        reason: We only use chokidar in bin/server.js for development (file watching)
         expires: '2018-08-30T21:19:40.011Z'
       chokidar > fsevents > node-pre-gyp > tar > chownr:
-        reason: Our production app does not use chokidar
-        expires: '2018-12-12T10:03:18.609Z'
+        reason: We only use chokidar in bin/server.js for development (file watching)
+        expires: '2019-01-13T03:36:20.641Z'
     - chokidar > fsevents > node-pre-gyp > tar > chownr:
-        reason: Our production app does not use chokidar
+        reason: We only use chokidar in bin/server.js for development (file watching)
         expires: '2018-08-30T21:19:40.012Z'
+      node-pre-gyp > tar > chownr:
+        reason: chownr is only used by chokidar
+        expires: '2019-01-13T03:36:20.642Z'
     - chokidar > fsevents > node-pre-gyp > tar > chownr:
-        reason: Our production app does not use chokidar
+        reason: We only use chokidar in bin/server.js for development (file watching)
         expires: '2018-11-10T12:45:45.390Z'
+    - chokidar > fsevents > node-pre-gyp > tar > chownr:
+        reason: We only use chokidar in bin/server.js for development (file watching)
+        expires: '2018-12-12T10:03:18.609Z'
 patch: {}
-version: v1.12.0
+version: v1.13.1
