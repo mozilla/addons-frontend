@@ -204,8 +204,10 @@ export class AddonBase extends React.Component {
       );
     }
 
-    if (addon && addon.ratings.text_count) {
-      const count = addon.ratings.text_count;
+    if (!addon) {
+      content = <LoadingText width={100} />;
+    } else if (addon.ratings && addon.ratings.count) {
+      const { count } = addon.ratings;
       const linkText = i18n.sprintf(
         i18n.ngettext(
           'Read %(count)s review',
@@ -224,8 +226,6 @@ export class AddonBase extends React.Component {
           {linkText}
         </Link>
       );
-    } else if (!addon) {
-      content = <LoadingText width={100} />;
     } else {
       content = i18n.gettext('No reviews yet');
     }

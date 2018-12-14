@@ -95,8 +95,6 @@ function* fetchReviews({
     const params: GetReviewsParams = {
       addon: addonSlug,
       apiState: state.api,
-      // Hide star-only ratings (reviews that do not have a body).
-      filter: 'without_empty_body',
       page,
       score,
     };
