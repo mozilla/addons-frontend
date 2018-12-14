@@ -1,3 +1,4 @@
+import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
 import config from 'config';
 import * as React from 'react';
@@ -88,6 +89,23 @@ export class SearchFiltersBase extends React.Component {
 
     this.doSearch({ newFilters });
   };
+
+  onColorClick = (event) => {
+    event.preventDefault();
+
+    const { filters } = this.props;
+    const newFilters = { ...filters };
+
+    const colorValue = event.currentTarget.getAttribute('data-color');
+
+    if (filters.color == colorValue) {
+      delete newFilters.color;
+    } else {
+      newFilters.color = colorValue;
+    }
+
+    this.doSearch({ newFilters });
+  }
 
   doSearch({ newFilters }) {
     const { clientApp, lang, history, pathname } = this.props;
@@ -199,6 +217,90 @@ export class SearchFiltersBase extends React.Component {
                   return <option key={option.value} {...option} />;
                 })}
               </Select>
+            </div>
+          )}
+
+          {filters.addonType == getAddonTypeFilter(ADDON_TYPE_THEME) && (
+            <div>
+              <label
+                className="SearchFilters-label SearchFilters-Color-label"
+              >
+                {i18n.gettext('Theme Color')}
+              </label>
+              <ul className="SearchFilters-ThemeColors">
+                <li
+                  onClick={this.onColorClick}
+                  className={makeClassName(
+                    'SearchFilter-ThemeColors-ColorItem',
+                    {'SearchFilter-ThemeColors-ColorItem--active': filters.color == '000000'})}
+                  id="SearchFilters-ColorBlack"
+                  data-color="000000"
+                ></li>
+                <li
+                  onClick={this.onColorClick}
+                  className={makeClassName(
+                    'SearchFilter-ThemeColors-ColorItem',
+                    {'SearchFilter-ThemeColors-ColorItem--active': filters.color == '808080'})}
+                  id="SearchFilters-ColorGray"
+                  data-color="808080"
+                ></li>
+                <li
+                  onClick={this.onColorClick}
+                  className={makeClassName(
+                    'SearchFilter-ThemeColors-ColorItem',
+                    {'SearchFilter-ThemeColors-ColorItem--active': filters.color == 'ffffff'})}
+                  id="SearchFilters-ColorWhite"
+                  data-color="ffffff"
+                ></li>
+                <li
+                  onClick={this.onColorClick}
+                  className={makeClassName(
+                    'SearchFilter-ThemeColors-ColorItem',
+                    {'SearchFilter-ThemeColors-ColorItem--active': filters.color == 'ff0000'})}
+                  id="SearchFilters-ColorRed"
+                  data-color="ff0000"
+                ></li>
+                <li
+                  onClick={this.onColorClick}
+                  className={makeClassName(
+                    'SearchFilter-ThemeColors-ColorItem',
+                    {'SearchFilter-ThemeColors-ColorItem--active': filters.color == 'ffff00'})}
+                  id="SearchFilters-ColorYellow"
+                  data-color="ffff00"
+                ></li>
+                <li
+                  onClick={this.onColorClick}
+                  className={makeClassName(
+                    'SearchFilter-ThemeColors-ColorItem',
+                    {'SearchFilter-ThemeColors-ColorItem--active': filters.color == '00ff00'})}
+                  id="SearchFilters-ColorGreen"
+                  data-color="00ff00"
+                ></li>
+                <li
+                  onClick={this.onColorClick}
+                  className={makeClassName(
+                    'SearchFilter-ThemeColors-ColorItem',
+                    {'SearchFilter-ThemeColors-ColorItem--active': filters.color == '00ffff'})}
+                  id="SearchFilters-ColorCyan"
+                  data-color="00ffff"
+                ></li>
+                <li
+                  onClick={this.onColorClick}
+                  className={makeClassName(
+                    'SearchFilter-ThemeColors-ColorItem',
+                    {'SearchFilter-ThemeColors-ColorItem--active': filters.color == '0000ff'})}
+                  id="SearchFilters-ColorBlue"
+                  data-color="0000ff"
+                ></li>
+                <li
+                  onClick={this.onColorClick}
+                  className={makeClassName(
+                    'SearchFilter-ThemeColors-ColorItem',
+                    {'SearchFilter-ThemeColors-ColorItem--active': filters.color == 'ff00ff'})}
+                    id="SearchFilters-ColorMagenta"
+                    data-color="ff00ff"
+                ></li>
+              </ul>
             </div>
           )}
 

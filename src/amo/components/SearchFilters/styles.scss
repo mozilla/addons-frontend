@@ -18,3 +18,60 @@
 #SearchFilters-Featured {
   @include margin-end(10px);
 }
+
+.SearchFilters-ThemeColors {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+
+    .SearchFilter-ThemeColors-ColorItem {
+        cursor: pointer;
+        outline: 2px solid transparent; /* originally had a 1px border instead, but it was too subtle */
+        border: 1px solid $grey-40;
+        margin-right: 4px;
+        width: 36px;
+        height: 36px;
+        display: inline-block;
+        border-radius: 50%;
+
+        &.SearchFilter-ThemeColors-ColorItem--active {
+            outline-color: $action-active-color;
+        }
+    }
+}
+
+#SearchFilters-ColorBlack {
+    background-color: $black;
+}
+
+#SearchFilters-ColorGray {
+    background-color: $grey-50;
+}
+
+#SearchFilters-ColorWhite {
+    background-color: $white-100;
+}
+
+#SearchFilters-ColorRed {
+    background-color: $red-50;
+}
+
+#SearchFilters-ColorYellow {
+    background-color: $yellow-50;
+}
+
+#SearchFilters-ColorGreen {
+    background-color: $green-50;
+}
+
+#SearchFilters-ColorCyan {
+    background-color: $teal-50;
+}
+
+#SearchFilters-ColorBlue {
+    background-color: $blue-50;
+}
+
+#SearchFilters-ColorMagenta {
+    background-color: $magenta-50;
+}
