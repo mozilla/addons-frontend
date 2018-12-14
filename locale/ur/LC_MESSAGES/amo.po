@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-14 05:52+0000\n"
-"Last-Translator: عمر <um.qshi@gmail.com>\n"
+"PO-Revision-Date: 2018-12-14 06:01+0000\n"
+"Last-Translator: Nabeela Qadir <nabeelaqadir8@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
 "MIME-Version: 1.0\n"
@@ -40,9 +40,8 @@ msgid "Add to…"
 msgstr "ا ضافہ کریں…"
 
 #: src/amo/components/AddAddonToCollection/index.js:265 src/amo/components/CollectionAddAddon/index.js:173
-#, fuzzy
 msgid "Add to collection"
-msgstr "تمام توسیعات براؤز کریں"
+msgstr "مجموعہ میں شامل کریں"
 
 #: src/amo/components/AddonAdminLinks/index.js:102
 #, fuzzy
@@ -227,9 +226,8 @@ msgid "No Users"
 msgstr "کوئی صارفین نہیں"
 
 #: src/amo/components/AddonMeta/index.js:59
-#, fuzzy
 msgid "Reviews"
-msgstr "متن کا جائزہ لیں"
+msgstr "جائزے"
 
 #: src/amo/components/AddonMeta/index.js:62
 msgid "Review"
@@ -238,9 +236,8 @@ msgstr[0] "متن کا جائزہ لیں"
 msgstr[1] "متن کا جائزہ لیں"
 
 #: src/amo/components/AddonMeta/index.js:64
-#, fuzzy
 msgid "No Reviews"
-msgstr "اب تک کوئی جائزہ نہیں ہے"
+msgstr "کوئی جائزہ نہیں ہے"
 
 #: src/amo/components/AddonMeta/index.js:88
 msgid "Used by"
@@ -1004,9 +1001,8 @@ msgid "View My Profile"
 msgstr "میری پروفائل دیکھیں"
 
 #: src/amo/components/Header/index.js:113 src/amo/pages/UserProfileEdit/index.js:511
-#, fuzzy
 msgid "Edit My Profile"
-msgstr "ایک جائزہ لکھیں"
+msgstr "میری پروفائل کی تدوین کریں"
 
 #: src/amo/components/Header/index.js:117
 msgid "Tools"
@@ -1207,9 +1203,8 @@ msgid "Send any Web page to your Kindle device"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:221
-#, fuzzy
 msgid "New Tab Homepage"
-msgstr "ابتدائی صفحہ"
+msgstr "نئے ٹیب کا ابتدائی صفحہ"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "Designate a custom home page for your new tabs"
@@ -1245,9 +1240,8 @@ msgid "Facebook Container"
 msgstr "جاری رکھنے کے لیئے پھر لوڈ کریں"
 
 #: src/amo/components/HomeHeroBanner/index.js:245
-#, fuzzy
 msgid "CookieBro"
-msgstr "کوکیاں"
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:246
 msgid "Automatically delete unwanted cookies"
@@ -2202,9 +2196,8 @@ msgid "Download and create Firefox collections to keep track of favorite extensi
 msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:111
-#, fuzzy
 msgid "Collections"
-msgstr "تمام توسیعات براؤز کریں"
+msgstr "مجموعہ"
 
 #: src/amo/pages/CollectionList/index.js:116
 #, fuzzy
