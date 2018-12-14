@@ -2031,9 +2031,8 @@ msgstr[0] "%(total)s critique pour ce module"
 msgstr[1] "%(total)s critiques pour ce module"
 
 #: src/amo/pages/AddonReviewList/index.js:370
-#, fuzzy
 msgid "No reviews"
-msgstr "Aucune critique"
+msgstr "Aucun avis"
 
 #: src/amo/pages/CategoriesPage/index.js:46
 msgid "All extension categories"
