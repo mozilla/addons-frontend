@@ -38,10 +38,10 @@ describe(__filename, () => {
     return shallowUntilTarget(<Guides {...allProps} />, GuidesBase);
   };
 
-  const _loadAddonResults = ({ store, addon = fakeAddon } = {}) => {
+  const _loadAddonResults = ({ store, addons = [fakeAddon] } = {}) => {
     store.dispatch(
       loadAddonResults({
-        addons: [addon],
+        addons,
       }),
     );
   };
@@ -210,7 +210,7 @@ describe(__filename, () => {
         }),
       );
 
-      _loadAddonResults({ store, addon });
+      _loadAddonResults({ store, addons: [addon] });
 
       const root = render({ store, slug });
 
@@ -219,6 +219,30 @@ describe(__filename, () => {
         'addon',
         createInternalAddon(addon),
       );
+    });
+
+    it('passes addon value as null  to GuidesAddonCard if the guid is not valid', () => {
+      const { store } = _dispatchFirefoxClient();
+
+      const slug = 'stay-safe-online';
+      const guids = ['{446900e4-71c2-419f-a6a7-df9c091e268b}'];
+
+      const errorHandler = createStubErrorHandler();
+
+      // This simulates the initial fetch for addons.
+      store.dispatch(
+        fetchGuidesAddons({
+          slug,
+          guids,
+          errorHandlerId: errorHandler.id,
+        }),
+      );
+
+      _loadAddonResults({ store, addons: [fakeAddon] });
+
+      const root = render({ store, slug });
+
+      expect(root.find(GuidesAddonCard).at(0)).toHaveProp('addon', null);
     });
 
     it('renders an HTML title', () => {
