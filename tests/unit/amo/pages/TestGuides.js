@@ -38,7 +38,7 @@ describe(__filename, () => {
     return shallowUntilTarget(<Guides {...allProps} />, GuidesBase);
   };
 
-  const _loadAddonResults = (store, addon = fakeAddon) => {
+  const _loadAddonResults = ({ store, addon = fakeAddon } = {}) => {
     store.dispatch(
       loadAddonResults({
         addons: [addon],
@@ -210,7 +210,7 @@ describe(__filename, () => {
         }),
       );
 
-      _loadAddonResults(store, addon);
+      _loadAddonResults({ store, addon });
 
       const root = render({ store, slug });
 

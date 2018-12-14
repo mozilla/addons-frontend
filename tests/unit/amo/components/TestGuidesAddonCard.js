@@ -24,7 +24,6 @@ describe(__filename, () => {
   };
 
   const getProps = ({
-    addon = createInternalAddon(fakeAddon),
     addonCustomText = 'Some text',
     hasAddonManager = true,
     i18n = fakeI18n(),
@@ -33,7 +32,6 @@ describe(__filename, () => {
     ...customProps
   } = {}) => {
     return {
-      addon,
       addonCustomText,
       hasAddonManager,
       i18n,
@@ -82,9 +80,15 @@ describe(__filename, () => {
     expect(root.find(InstallButtonWrapper)).toHaveLength(1);
   });
 
-  it('renders LoadingText when there is no addon', () => {
-    const root = render({ addon: null });
+  it("renders LoadingText when there the addon hasn't been loaded", () => {
+    const root = render({ addon: undefined });
+
     expect(root.find(LoadingText)).toHaveLength(1);
+  });
+
+  it("renders nothing when the addon doesn't exist", () => {
+    const root = render({ addon: null });
+    expect(root.html()).toEqual(null);
   });
 
   it('passes the addon to AddonCompatibilityError', () => {
@@ -95,14 +99,17 @@ describe(__filename, () => {
   });
 
   it('renders Staff Pick content by default', () => {
-    const root = render();
+    const root = render({ addon: createInternalAddon(fakeAddon) });
     expect(
       root.find('.GuidesAddonCard-content-header-staff-pick'),
     ).toHaveLength(1);
   });
 
   it('does not render Staff Pick content when staffPick prop is false', () => {
-    const root = render({ staffPick: false });
+    const root = render({
+      addon: createInternalAddon(fakeAddon),
+      staffPick: false,
+    });
     expect(
       root.find('.GuidesAddonCard-content-header-staff-pick'),
     ).toHaveLength(0);
@@ -126,7 +133,7 @@ describe(__filename, () => {
   });
 
   it('renders an AddonInstallError component', () => {
-    const root = render();
+    const root = render({ addon: createInternalAddon(fakeAddon) });
 
     expect(root.find(AddonInstallError)).toHaveLength(1);
   });
@@ -146,7 +153,7 @@ describe(__filename, () => {
     const error = FATAL_ERROR;
     store.dispatch(setInstallError({ error, guid: addon.guid }));
 
-    const root = render({ store });
+    const root = render({ addon, store });
 
     expect(root.find(AddonInstallError)).toHaveProp('error', error);
   });

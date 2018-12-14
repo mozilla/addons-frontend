@@ -13,6 +13,7 @@ import { CLIENT_APP_ANDROID } from 'core/constants';
 import { getAddonByGUID } from 'core/reducers/addons';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
 import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import Icon from 'ui/components/Icon';
 import type { AddonType } from 'core/types/addons';
@@ -333,13 +334,25 @@ export class GuidesBase extends React.Component<InternalProps> {
   ): React.ChildrenArray<React.Node> => {
     const { addons, i18n } = this.props;
 
+    const hasAddonsLoaded =
+      Object.keys(addons).length !== 0 && !this.props.loading;
+
     return sections.map((section) => {
       const linkParts = getLocalizedTextWithLinkParts({
         i18n,
         text: section.exploreMore,
       });
 
-      const addon = addons[section.addonGuid] || null;
+      let addon;
+
+      if (hasAddonsLoaded && addons[section.addonGuid] === null) {
+        addon = null;
+        log.error(
+          `There is an error with the addon's guid: ${section.addonGuid}`,
+        );
+      } else {
+        addon = addons[section.addonGuid] || undefined;
+      }
 
       return (
         <div className="Guides-section" key={section.exploreUrl}>

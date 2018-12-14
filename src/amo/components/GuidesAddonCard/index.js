@@ -21,7 +21,7 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {
-  addon: AddonType | null,
+  addon: AddonType | null | void,
   addonCustomText: string,
   staffPick?: boolean,
 };
@@ -39,6 +39,8 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
 
   render() {
     const { addon, i18n, staffPick } = this.props;
+
+    const fallback = addon !== null ? <LoadingText width={100} /> : null;
 
     return addon ? (
       <Card>
@@ -81,7 +83,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
         </div>
       </Card>
     ) : (
-      <LoadingText width={100} />
+      fallback
     );
   }
 }
