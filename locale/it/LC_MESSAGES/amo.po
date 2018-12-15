@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-14 16:44+0000\n"
+"PO-Revision-Date: 2018-12-14 17:55+0000\n"
 "Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1236,7 +1236,7 @@ msgstr "SoundFixer"
 
 #: src/amo/components/HomeHeroBanner/index.js:275
 msgid "Adjust audio levels for sounds you encounter around web"
-msgstr ""
+msgstr "Regola il livello del volume sui siti web che visiti"
 
 #: src/amo/components/HomeHeroBanner/index.js:281
 msgid "Lilo"
@@ -1244,7 +1244,7 @@ msgstr "Lilo"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
 msgid "Fund social causes by simply using Lilo search"
-msgstr ""
+msgstr "Finanzia le cause sociali usando lo strumento di ricerca Lilo"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Iridium for YouTube"
@@ -1996,23 +1996,23 @@ msgstr "Recensioni e valutazioni per %(addonName)s. Scopri cosa pensano gli altr
 
 #: src/amo/pages/AddonReviewList/index.js:209
 msgid "Only showing one-star reviews"
-msgstr ""
+msgstr "Stai vedendo solo le recensioni a una stella"
 
 #: src/amo/pages/AddonReviewList/index.js:210
 msgid "Only showing two-star reviews"
-msgstr ""
+msgstr "Stai vedendo solo le recensioni a due stelle"
 
 #: src/amo/pages/AddonReviewList/index.js:211
 msgid "Only showing three-star reviews"
-msgstr ""
+msgstr "Stai vedendo solo le recensioni a tre stelle"
 
 #: src/amo/pages/AddonReviewList/index.js:212
 msgid "Only showing four-star reviews"
-msgstr ""
+msgstr "Stai vedendo solo le recensioni a quattro stelle"
 
 #: src/amo/pages/AddonReviewList/index.js:213
 msgid "Only showing five-star reviews"
-msgstr ""
+msgstr "Stai vedendo solo le recensioni a cinque stelle"
 
 #: src/amo/pages/AddonReviewList/index.js:225
 msgid "Show all reviews"
@@ -2209,6 +2209,8 @@ msgstr "Migliora l’esperienza con i video"
 #: src/amo/pages/Guides/index.js:195
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
 msgstr ""
+"Se ti piacciono i contenuti video, le estensioni offrono diverse funzionalità per ottimizzare la tua esperienza, dalla personalizzazione di YouTube secondo i tuoi gusti, alla riproduzione di video "
+"in modalità cinema e molto altro ancora."
 
 #: src/amo/pages/Guides/index.js:200
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
@@ -2374,19 +2376,19 @@ msgstr "Visualizza altre estensioni popolari"
 
 #: src/amo/pages/Home/index.js:54
 msgid "See more news boosters"
-msgstr ""
+msgstr "Visualizza altre estensioni per le notizie"
 
 #: src/amo/pages/Home/index.js:55
 msgid "News boosters"
-msgstr ""
+msgstr "Contenuti aggiuntivi per le novità"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more weather reports"
-msgstr ""
+msgstr "Visualizza altre estensioni per le previsioni meteo"
 
 #: src/amo/pages/Home/index.js:61
 msgid "Weather reports"
-msgstr ""
+msgstr "Previsioni meteo"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -3022,12 +3024,12 @@ msgstr "%(application)s%(minVersion)s e successive"
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s da %(minVersion)s a %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Compatibile con %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
