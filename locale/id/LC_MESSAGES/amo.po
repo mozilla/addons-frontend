@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-14 04:17+0000\n"
-"Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
+"PO-Revision-Date: 2018-12-15 04:29+0000\n"
+"Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -1133,7 +1133,7 @@ msgstr "Cari"
 
 #: src/amo/components/HomeHeroBanner/index.js:210
 msgid "Search within just the domain you’re visiting"
-msgstr ""
+msgstr "Cari hanya dalam domain yang Anda kunjungi"
 
 #: src/amo/components/HomeHeroBanner/index.js:216
 msgid "Push to Kindle"
@@ -1145,7 +1145,7 @@ msgstr "Kirim laman Web apapun ke perangkat Kindle anda"
 
 #: src/amo/components/HomeHeroBanner/index.js:221
 msgid "New Tab Homepage"
-msgstr "Beranda Tab Baru"
+msgstr "Tab Beranda Baru"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "Designate a custom home page for your new tabs"
