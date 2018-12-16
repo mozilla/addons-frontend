@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-15 04:29+0000\n"
+"PO-Revision-Date: 2018-12-16 19:45+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1085,7 +1085,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:172
 msgid "Click a button to close annoying pop-ups"
-msgstr "Klik tombol untuk menutup sembulan yang menjengkelkan"
+msgstr "Klik tombol untuk menutup pop-up yang menjengkelkan"
 
 #: src/amo/components/HomeHeroBanner/index.js:176
 msgid "Auto-Sort Bookmarks"
@@ -1149,7 +1149,7 @@ msgstr "Tab Beranda Baru"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "Designate a custom home page for your new tabs"
-msgstr ""
+msgstr "Tentukan laman beranda khusus untuk tab baru Anda"
 
 #: src/amo/components/HomeHeroBanner/index.js:228
 msgid "OneNote Web Clipper"
@@ -1173,7 +1173,7 @@ msgstr "Dark Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:239
 msgid "Go dark for a better web viewing experience"
-msgstr ""
+msgstr "Gelapkan untuk pengalaman melihat web yang lebih baik"
 
 #: src/amo/components/HomeHeroBanner/index.js:24
 msgid "Facebook Container"
@@ -1221,7 +1221,7 @@ msgstr "Analisis iklan untuk Facebook"
 
 #: src/amo/components/HomeHeroBanner/index.js:270
 msgid "See how Facebook ads target you"
-msgstr ""
+msgstr "Lihat bagaimana iklan Facebook menargetkan Anda"
 
 #: src/amo/components/HomeHeroBanner/index.js:274
 msgid "SoundFixer"
@@ -1245,7 +1245,7 @@ msgstr "Iridium untuk YouTube"
 
 #: src/amo/components/HomeHeroBanner/index.js:32
 msgid "Play videos in a pop-out window, take video screenshots & more"
-msgstr ""
+msgstr "Memutar video di jendela pop-up, mengambil tangkapan layar video & lainnya"
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Private Bookmarks"
@@ -1325,7 +1325,7 @@ msgstr "Textmarker"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:258
 msgid "Stay Safe Online"
-msgstr ""
+msgstr "Tetap Aman saat Daring"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:271
 msgid "Organize Tabs & Bookmarks"
@@ -1486,11 +1486,11 @@ msgstr "Bagaimana Anda menikmati %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
-msgstr ""
+msgstr "Menyimpan peringkat bintang"
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
-msgstr ""
+msgstr "Peringkat bintang tersimpan"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
@@ -2253,7 +2253,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:77
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "Buat dan kelola kata sandi yang kuat"
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
