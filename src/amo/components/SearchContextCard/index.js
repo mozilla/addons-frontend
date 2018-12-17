@@ -154,7 +154,8 @@ export class SearchContextCardBase extends React.Component {
 }
 
 export function mapStateToProps(state) {
-  const { category: currentCategory } = state.search.filters;
+  const { search } = state;
+  const { category: currentCategory } = search.filters;
   let categoryName;
 
   if (currentCategory && !categoryName) {
@@ -196,9 +197,9 @@ export function mapStateToProps(state) {
 
   return {
     categoryName,
-    count: state.search.count,
-    filters: state.search.filters,
-    loading: state.search.loading || (currentCategory && !categoryName),
+    count: search.count,
+    filters: search.filters,
+    loading: search.loading || (currentCategory && !categoryName),
   };
 }
 
