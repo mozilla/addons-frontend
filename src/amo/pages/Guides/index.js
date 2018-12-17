@@ -32,6 +32,15 @@ type Props = {|
   },
 |};
 
+type SectionsType = {|
+  addonGuid: string,
+  header: string,
+  description: string,
+  addonCustomText: string,
+  exploreMore: string,
+  exploreUrl: string,
+|};
+
 type InternalProps = {|
   ...Props,
   addons: {
@@ -42,17 +51,10 @@ type InternalProps = {|
   errorHandler: ErrorHandlerType,
   guids: Array<string>,
   i18n: I18nType,
+  _log: typeof log,
   loading: boolean,
+  sections?: Array<SectionsType>,
   slug: string,
-|};
-
-type SectionsType = {|
-  addonGuid: string,
-  header: string,
-  description: string,
-  addonCustomText: string,
-  exploreMore: string,
-  exploreUrl: string,
 |};
 
 type GuideType = {|
@@ -252,7 +254,16 @@ export const getSections = ({
   }
 };
 
-export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
+export const getContent = ({
+  slug,
+  i18n,
+  sections,
+}: {|
+  slug: string,
+  i18n: I18nType,
+  sections?: Array<SectionsType>,
+|} = {}): GuideType | null => {
+  const _sections = sections;
   switch (slug) {
     case 'stay-safe-online': {
       return {
@@ -264,7 +275,7 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
           and security.`,
         ),
         icon: 'stop-hand',
-        sections: getSections({ slug, i18n }),
+        sections: _sections || getSections({ slug, i18n }),
       };
     }
     case 'organize-tabs-and-bookmarks': {
@@ -277,7 +288,7 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
           with tabs and bookmarks.`,
         ),
         icon: 'browser',
-        sections: getSections({ slug, i18n }),
+        sections: _sections || getSections({ slug, i18n }),
       };
     }
     case 'enhance-your-media-experience': {
@@ -288,7 +299,7 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
           from watching videos to handling images, music, and more.`,
         ),
         icon: 'video',
-        sections: getSections({ slug, i18n }),
+        sections: _sections || getSections({ slug, i18n }),
       };
     }
     default:
@@ -297,6 +308,10 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
 };
 
 export class GuidesBase extends React.Component<InternalProps> {
+  static defaultProps = {
+    _log: log,
+  };
+
   constructor(props: InternalProps) {
     super(props);
 
@@ -332,7 +347,7 @@ export class GuidesBase extends React.Component<InternalProps> {
   getGuidesSections = (
     sections: Array<SectionsType>,
   ): React.ChildrenArray<React.Node> => {
-    const { addons, i18n } = this.props;
+    const { _log, addons, i18n } = this.props;
 
     const hasAddonsLoaded =
       Object.keys(addons).length !== 0 && !this.props.loading;
@@ -347,7 +362,7 @@ export class GuidesBase extends React.Component<InternalProps> {
 
       if (hasAddonsLoaded && addons[section.addonGuid] === null) {
         addon = null;
-        log.error(
+        _log.error(
           `There is an error with the addon's guid: ${section.addonGuid}`,
         );
       } else {
@@ -377,7 +392,7 @@ export class GuidesBase extends React.Component<InternalProps> {
   render() {
     const { clientApp, i18n, match } = this.props;
     const { slug } = match.params;
-    const content = getContent(slug, i18n);
+    const content = getContent({ slug, i18n, sections: this.props.sections });
 
     if (!content || clientApp === CLIENT_APP_ANDROID) {
       return <NotFound />;

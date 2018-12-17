@@ -80,7 +80,7 @@ describe(__filename, () => {
     expect(root.find(InstallButtonWrapper)).toHaveLength(1);
   });
 
-  it("renders LoadingText when there the addon hasn't been loaded", () => {
+  it("renders LoadingText when the addon hasn't been loaded", () => {
     const root = render({ addon: undefined });
 
     expect(root.find(LoadingText)).toHaveLength(1);
