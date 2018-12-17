@@ -6,6 +6,7 @@ import AddonCompatibilityError, {
 } from 'amo/components/AddonCompatibilityError';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import {
+  CLIENT_APP_FIREFOX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -15,7 +16,7 @@ import {
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { loadVersions } from 'core/reducers/versions';
+import { createInternalVersion, loadVersions } from 'core/reducers/versions';
 import {
   createFakeClientCompatibility,
   dispatchClientMetadata,
@@ -65,16 +66,11 @@ describe(__filename, () => {
     });
   };
 
-  const _loadVersions = (versionProps = {}) => {
+  const _loadVersions = ({ slug, versions } = {}) => {
     store.dispatch(
       loadVersions({
-        slug: fakeAddon.slug,
-        versions: [
-          {
-            ...fakeVersion,
-            ...versionProps,
-          },
-        ],
+        slug,
+        versions,
       }),
     );
   };
@@ -92,15 +88,69 @@ describe(__filename, () => {
     );
   };
 
-  const renderWithVersion = (props = {}) => {
-    _loadVersions();
-    return render(props);
-  };
-
   it('renders nothing if there is no addon', () => {
     const root = render({ addon: null });
 
     expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
+  });
+
+  it(`calls getClientCompatibility with the add-on's current version if no version is supplied`, () => {
+    const addon = fakeAddon;
+
+    _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
+
+    const clientApp = CLIENT_APP_FIREFOX;
+    const _getClientCompatibility = sinon.mock().returns({
+      compatible: true,
+    });
+
+    _dispatchClientMetadata({
+      clientApp,
+    });
+
+    render({
+      _getClientCompatibility,
+      addon: createInternalAddon(addon),
+      store,
+    });
+
+    sinon.assert.calledWith(_getClientCompatibility, {
+      addon: createInternalAddon(addon),
+      clientApp,
+      currentVersion: createInternalVersion(addon.current_version),
+      userAgentInfo: store.getState().api.userAgentInfo,
+    });
+  });
+
+  it(`calls getClientCompatibility with a specific version if supplied`, () => {
+    const slug = 'some-slug';
+    const addon = { ...fakeAddon, slug };
+    const version = { ...fakeVersion, id: fakeVersion.id + 1 };
+
+    _loadVersions({ slug, versions: [version] });
+
+    const clientApp = CLIENT_APP_FIREFOX;
+    const _getClientCompatibility = sinon.mock().returns({
+      compatible: true,
+    });
+
+    _dispatchClientMetadata({
+      clientApp,
+    });
+
+    render({
+      _getClientCompatibility,
+      addon: createInternalAddon(addon),
+      store,
+      version: createInternalVersion(version),
+    });
+
+    sinon.assert.calledWith(_getClientCompatibility, {
+      addon: createInternalAddon(addon),
+      clientApp,
+      currentVersion: createInternalVersion(version),
+      userAgentInfo: store.getState().api.userAgentInfo,
+    });
   });
 
   it('renders nothing if the browser is not Firefox', () => {
@@ -122,7 +172,7 @@ describe(__filename, () => {
   });
 
   it('renders nothing if the add-on is compatible', () => {
-    const root = renderWithVersion({
+    const root = render({
       _getClientCompatibility: getClientCompatibilityCompatible,
     });
 
@@ -134,7 +184,7 @@ describe(__filename, () => {
       reason: INCOMPATIBLE_OVER_MAX_VERSION,
     });
 
-    const root = renderWithVersion({ _getClientCompatibility });
+    const root = render({ _getClientCompatibility });
 
     expect(
       root
@@ -153,7 +203,7 @@ describe(__filename, () => {
       reason: INCOMPATIBLE_UNDER_MIN_VERSION,
     });
 
-    const root = renderWithVersion({ _getClientCompatibility });
+    const root = render({ _getClientCompatibility });
 
     const text = root
       .find('.AddonCompatibilityError')
@@ -178,7 +228,7 @@ describe(__filename, () => {
       reason: INCOMPATIBLE_FIREFOX_FOR_IOS,
     });
 
-    const root = renderWithVersion({ _getClientCompatibility });
+    const root = render({ _getClientCompatibility });
 
     expect(
       root
@@ -193,7 +243,7 @@ describe(__filename, () => {
       reason: INCOMPATIBLE_NO_OPENSEARCH,
     });
 
-    const root = renderWithVersion({ _getClientCompatibility });
+    const root = render({ _getClientCompatibility });
 
     expect(
       root
@@ -208,7 +258,7 @@ describe(__filename, () => {
       reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
     });
 
-    const root = renderWithVersion({ _getClientCompatibility });
+    const root = render({ _getClientCompatibility });
 
     expect(
       root
@@ -223,7 +273,7 @@ describe(__filename, () => {
       reason: INCOMPATIBLE_NON_RESTARTLESS_ADDON,
     });
 
-    const root = renderWithVersion({ _getClientCompatibility });
+    const root = render({ _getClientCompatibility });
 
     expect(
       root
@@ -241,7 +291,7 @@ describe(__filename, () => {
       reason,
     });
 
-    const root = renderWithVersion({ _getClientCompatibility, _log: fakeLog });
+    const root = render({ _getClientCompatibility, _log: fakeLog });
 
     sinon.assert.calledWith(
       fakeLog.warn,

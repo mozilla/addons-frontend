@@ -32,6 +32,7 @@ import './style.scss';
 
 type Props = {|
   addon: AddonType | null,
+  version?: AddonVersionType | null,
 |};
 
 type InternalProps = {|
@@ -146,11 +147,11 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
 }
 
 export function mapStateToProps(state: AppState, ownProps: Props) {
-  const { addon } = ownProps;
+  const { addon, version } = ownProps;
 
-  let currentVersion = null;
+  let currentVersion = version;
 
-  if (addon && addon.currentVersionId) {
+  if (addon && addon.currentVersionId && !currentVersion) {
     currentVersion = getVersionById({
       id: addon.currentVersionId,
       state: state.versions,

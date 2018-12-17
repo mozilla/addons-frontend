@@ -11,6 +11,7 @@ import AddonInfo, {
   ADDON_INFO_TYPE_PRIVACY_POLICY,
 } from 'amo/pages/AddonInfo';
 import AddonReviewList from 'amo/pages/AddonReviewList';
+import AddonVersions from 'amo/pages/AddonVersions';
 import CategoriesPage from 'amo/pages/CategoriesPage';
 import Category from 'amo/pages/Category';
 import Collection from 'amo/pages/Collection';
@@ -107,6 +108,12 @@ const Routes = ({ _config = config }: Props = {}) => (
       component={(props) => (
         <AddonInfo {...props} infoType={ADDON_INFO_TYPE_CUSTOM_LICENSE} />
       )}
+    />
+
+    <Route
+      exact
+      path="/:lang/:application/addon/:slug/versions/"
+      component={AddonVersions}
     />
 
     <Route

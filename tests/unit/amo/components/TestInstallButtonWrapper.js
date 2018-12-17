@@ -17,6 +17,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeInstalledAddon,
+  fakeVersion,
   shallowUntilTarget,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
@@ -44,15 +45,11 @@ describe(__filename, () => {
     );
   };
 
-  const _loadVersions = ({ addon = fakeAddon } = {}) => {
+  const _loadVersions = ({ slug, versions } = {}) => {
     store.dispatch(
       loadVersions({
-        slug: addon.slug,
-        versions: [
-          {
-            ...addon.current_version,
-          },
-        ],
+        slug,
+        versions,
       }),
     );
   };
@@ -65,10 +62,10 @@ describe(__filename, () => {
     });
   };
 
-  it('calls getClientCompatibility to determine the compatibility for Firefox', () => {
+  it(`calls getClientCompatibility with the add-on's current version if no version is supplied`, () => {
     const addon = fakeAddon;
 
-    _loadVersions({ addon });
+    _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
     const clientApp = CLIENT_APP_FIREFOX;
     const _getClientCompatibility = sinon.mock().returns({
@@ -89,6 +86,37 @@ describe(__filename, () => {
       addon: createInternalAddon(addon),
       clientApp,
       currentVersion: createInternalVersion(addon.current_version),
+      userAgentInfo: store.getState().api.userAgentInfo,
+    });
+  });
+
+  it(`calls getClientCompatibility with a specific version if supplied`, () => {
+    const slug = 'some-slug';
+    const addon = { ...fakeAddon, slug };
+    const version = { ...fakeVersion, id: fakeVersion.id + 1 };
+
+    _loadVersions({ slug, versions: [version] });
+
+    const clientApp = CLIENT_APP_FIREFOX;
+    const _getClientCompatibility = sinon.mock().returns({
+      compatible: true,
+    });
+
+    _dispatchClientMetadata({
+      clientApp,
+    });
+
+    render({
+      _getClientCompatibility,
+      addon: createInternalAddon(addon),
+      store,
+      version: createInternalVersion(version),
+    });
+
+    sinon.assert.calledWith(_getClientCompatibility, {
+      addon: createInternalAddon(addon),
+      clientApp,
+      currentVersion: createInternalVersion(version),
       userAgentInfo: store.getState().api.userAgentInfo,
     });
   });
@@ -165,7 +193,7 @@ describe(__filename, () => {
   it('passes a currentVersion to AMInstallButton when one is loaded', () => {
     const addon = fakeAddon;
 
-    _loadVersions({ addon });
+    _loadVersions({ slug: addon.slug, versions: [addon.current_version] });
 
     const root = render({
       addon: createInternalAddon(addon),
@@ -175,6 +203,19 @@ describe(__filename, () => {
       'currentVersion',
       createInternalVersion(addon.current_version),
     );
+  });
+
+  it('passes a currentVersion to AMInstallButton when one is specified', () => {
+    const version = createInternalVersion({
+      ...fakeVersion,
+      id: fakeAddon.current_version.id + 1,
+    });
+    const root = render({
+      addon: createInternalAddon(fakeAddon),
+      version,
+    });
+
+    expect(root.find(AMInstallButton)).toHaveProp('currentVersion', version);
   });
 
   it('passes disabled to AMInstallButton based on what is returned from _getClientCompatibility', () => {

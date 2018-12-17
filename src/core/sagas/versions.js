@@ -9,7 +9,11 @@ import {
 } from 'core/reducers/versions';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
-import type { GetVersionParams, GetVersionsParams } from 'core/api/versions';
+import type {
+  GetVersionParams,
+  GetVersionsParams,
+  GetVersionsResponse,
+} from 'core/api/versions';
 import type {
   FetchVersionAction,
   FetchVersionsAction,
@@ -55,9 +59,9 @@ export function* fetchVersions({
       page,
       slug,
     };
-    const versions = yield call(getVersions, params);
+    const versions: GetVersionsResponse = yield call(getVersions, params);
 
-    yield put(loadVersions({ slug, versions }));
+    yield put(loadVersions({ slug, versions: versions.results }));
   } catch (error) {
     log.warn(`Failed to fetch versions: ${error}`);
     yield put(errorHandler.createErrorAction(error));

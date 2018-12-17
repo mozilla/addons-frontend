@@ -8,6 +8,13 @@
   }
 }
 
+.AddonVersionCard-header {
+  @include font-bold();
+  @include text-align-start();
+
+  font-size: $font-size-default;
+}
+
 .AddonVersionCard-releaseNotes {
   margin-top: $padding-page;
 
