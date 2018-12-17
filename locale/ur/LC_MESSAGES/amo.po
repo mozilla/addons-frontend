@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-14 06:10+0000\n"
-"Last-Translator: Nabeela Qadir <nabeelaqadir8@gmail.com>\n"
+"PO-Revision-Date: 2018-12-17 03:22+0000\n"
+"Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
 "MIME-Version: 1.0\n"
@@ -424,9 +424,8 @@ msgid "Write a review"
 msgstr "ایک جائزہ لکھیں"
 
 #: src/amo/components/AddonReviewManager/index.js:107
-#, fuzzy
 msgid "Write about your experience with this add-on."
-msgstr "ایسے لکھیں جیسے آپ اپنے دوست کو اظافہ جات کے ساتھ ترجبہ کے بارے میں بتا رہے ہوں۔"
+msgstr "اس ایڈ اون کے ساتھ اپنے تجربے کے بارے میں لکھیں۔"
 
 #: src/amo/components/AddonReviewManager/index.js:111
 msgid "Submit review"
@@ -654,9 +653,8 @@ msgid "Back to collection"
 msgstr "تمام توسیعات براؤز کریں"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:43
-#, fuzzy
 msgid "Add-ons"
-msgstr "ایڈ-اون ربظ"
+msgstr "ایڈ-اون"
 
 #: src/amo/components/CollectionDetails/index.js:83
 msgid "Creator"
@@ -2099,9 +2097,8 @@ msgid "Only showing five-star reviews"
 msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:225
-#, fuzzy
 msgid "Show all reviews"
-msgstr "میرے جائزے"
+msgstr "میرے تمام جائزے دکھائیں"
 
 #: src/amo/pages/AddonReviewList/index.js:269
 msgid "Reviews for %(addonName)s"
@@ -2786,9 +2783,8 @@ msgid "User Profile for %(user)s"
 msgstr "خیالہ تلاش کریں"
 
 #: src/amo/pages/UserProfile/index.js:338
-#, fuzzy
 msgid "User Profile"
-msgstr "ایک جائزہ لکھیں"
+msgstr "صارف کی پروفائل"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:635
 msgid "Location"
