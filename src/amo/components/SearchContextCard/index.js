@@ -3,7 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { categoriesFetch } from 'core/actions/categories';
+import { fetchCategories } from 'core/reducers/categories';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEMES_FILTER } from 'core/constants';
@@ -204,7 +204,7 @@ export function mapStateToProps(state) {
 }
 
 export function mapDispatchToProps(dispatch) {
-  dispatch(categoriesFetch({ errorHandlerId: 'SearchContextCard' }));
+  dispatch(fetchCategories({ errorHandlerId: 'SearchContextCard' }));
 }
 
 export default compose(
