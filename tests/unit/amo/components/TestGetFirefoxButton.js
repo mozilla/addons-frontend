@@ -1,3 +1,4 @@
+import base64url from 'base64url';
 import * as React from 'react';
 
 import GetFirefoxButton, {
@@ -92,12 +93,26 @@ describe(__filename, () => {
           store,
         });
 
+        const utmContent = `rta:${base64url.encode(addon.guid)}`;
+
         const expectedHref = `${DOWNLOAD_FIREFOX_BASE_URL}${makeQueryStringWithUTM(
-          {
-            utm_content: addon.guid,
-          },
+          { utm_content: utmContent },
         )}`;
         expect(root.find('.GetFirefoxButton')).toHaveProp('href', expectedHref);
+      });
+
+      it('calls base64url.encode to encode the guid of the add-on', () => {
+        const _base64url = { encode: sinon.spy() };
+        const guid = 'some-guid';
+        const addon = createInternalAddon({ ...fakeAddon, guid });
+        render({
+          _base64url,
+          addon,
+          buttonType,
+          store,
+        });
+
+        sinon.assert.calledWith(_base64url.encode, addon.guid);
       });
 
       it('sets the button as puffy and not micro', () => {
