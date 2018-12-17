@@ -22,7 +22,6 @@ import {
   createContextWithFakeRouter,
   dispatchClientMetadata,
   dispatchSignInActions,
-  fakeCookies,
   fakeI18n,
   shallowUntilTarget,
   userAuthToken,
@@ -54,25 +53,6 @@ describe(__filename, () => {
       shallowOptions: createContextWithFakeRouter(),
     });
   };
-
-  it('sets the mamo cookie to "off"', () => {
-    const fakeEvent = {
-      preventDefault: sinon.stub(),
-    };
-    const fakeWindow = {
-      location: {
-        reload: sinon.stub(),
-      },
-    };
-    const cookies = fakeCookies();
-
-    const root = render({ cookies });
-    root.instance().onViewDesktop(fakeEvent, { _window: fakeWindow });
-
-    sinon.assert.called(fakeEvent.preventDefault);
-    sinon.assert.calledWith(cookies.set, 'mamo', 'off', { path: '/' });
-    sinon.assert.called(fakeWindow.location.reload);
-  });
 
   it('sets up a callback for setting add-on status', () => {
     const dispatch = sinon.spy();

@@ -1,9 +1,8 @@
 /* @flow */
-/* global Event, Navigator, Node, navigator, window */
+/* global Navigator, Node, navigator */
 import config from 'config';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
-import { withCookies, Cookies } from 'react-cookie';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -59,7 +58,6 @@ type Props = {|
   authToken?: string,
   authTokenValidFor?: number,
   clientApp: string,
-  cookies: typeof Cookies,
   handleGlobalEvent: () => void,
   i18n: I18nType,
   isHomePage: boolean,
@@ -184,18 +182,6 @@ export class AppBase extends React.Component<Props> {
     }, setTimeoutDelay);
   }
 
-  onViewDesktop = (
-    event: Event,
-    { _window = window }: {| _window: typeof window |} = {},
-  ) => {
-    event.preventDefault();
-
-    if (_window && _window.location) {
-      this.props.cookies.set('mamo', 'off', { path: '/' });
-      _window.location.reload();
-    }
-  };
-
   render() {
     const {
       ErrorPage,
@@ -264,10 +250,7 @@ export class AppBase extends React.Component<Props> {
               </div>
             </div>
 
-            <FooterComponent
-              handleViewDesktop={this.onViewDesktop}
-              location={location}
-            />
+            <FooterComponent location={location} />
           </div>
         </ScrollToTop>
       </NestedStatus>
@@ -304,7 +287,6 @@ const App: React.ComponentType<Props> = compose(
     mapDispatchToProps,
   ),
   translate(),
-  withCookies,
 )(AppBase);
 
 export default App;

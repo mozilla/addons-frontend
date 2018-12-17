@@ -12,13 +12,12 @@ import './styles.scss';
 
 export class FooterBase extends React.Component {
   static propTypes = {
-    handleViewDesktop: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
   };
 
   render() {
-    const { handleViewDesktop, i18n, location } = this.props;
+    const { i18n, location } = this.props;
     const homepageText = i18n.gettext("Go to Mozilla's homepage");
 
     return (
@@ -84,18 +83,6 @@ export class FooterBase extends React.Component {
               <li>
                 <a href="https://status.mozilla.org/">
                   {i18n.gettext('Site Status')}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#desktop"
-                  className="Footer-link Footer-desktop"
-                  onClick={handleViewDesktop}
-                  ref={(ref) => {
-                    this.desktopLink = ref;
-                  }}
-                >
-                  {i18n.gettext('View classic desktop site')}
                 </a>
               </li>
             </ul>
