@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-12 13:07+0000\n"
+"PO-Revision-Date: 2018-12-17 08:05+0000\n"
 "Last-Translator: 우믿트 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -2127,7 +2127,7 @@ msgstr "重塑标签页管理"
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
-msgstr ""
+msgstr "如果您经常同时打开大量标签页，那么您可能已经熟悉了搜索一排无法辨别的标签页以寻找您需要的标签页的挫折感。扩展可为简化标签页管理提供创造性的解决方案。"
 
 #: src/amo/pages/Guides/index.js:142
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
@@ -2149,7 +2149,7 @@ msgstr ""
 msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
-msgstr ""
+msgstr "想要帮助管理所有您喜欢的在线烹饪食谱，教程文章，YouTube 视频，或者您在网上找到的任何东西？OneNote Web Clipper 允许您在跨设备同步的强大存储库中收集和存储所有您喜欢的在线内容。"
 
 #: src/amo/pages/Guides/index.js:166
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
@@ -2161,7 +2161,7 @@ msgstr "享受全新的标签页使用体验"
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "通过自定义您的新标签页，启动为你量身定制的每个浏览会话。"
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
@@ -2177,7 +2177,7 @@ msgstr "改善视频体验"
 
 #: src/amo/pages/Guides/index.js:195
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
-msgstr ""
+msgstr "如果您喜欢视频内容，则扩展可提供多种优化体验的方式，包括根据您的喜好定制 YouTube 和在影院模式下播放视频。"
 
 #: src/amo/pages/Guides/index.js:200
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
@@ -2231,7 +2231,7 @@ msgstr "网络是一个美妙但也有野蛮的地方。他人可能在未获您
 msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
-msgstr ""
+msgstr "您会同时处理太多打开的标签页或数量惊人的书签吗？扩展可以帮助您！从协助管理到提供有趣的新特性，扩展可以显著地改变处理标签页和书签的方式。"
 
 #: src/amo/pages/Guides/index.js:285
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
