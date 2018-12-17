@@ -12,6 +12,7 @@ import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
+import { roundToOneDigit } from 'amo/components/AddonMeta';
 
 import './styles.scss';
 
@@ -54,12 +55,16 @@ export const AddonSummaryCardBase = ({
 
   let addonAverage;
   if (addon && addon.ratings) {
-    const averageRating = i18n.formatNumber(addon.ratings.average.toFixed(1));
+    const roundedAverage = roundToOneDigit(addon.ratings.average);
     addonAverage = i18n.sprintf(
       // eslint-disable-next-line max-len
-      // translators: averageRating is a localized number, such as 4.5 in English or ٤٫٧ in Arabic.
-      i18n.gettext('%(averageRating)s star average'),
-      { averageRating },
+      // translators: roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
+      i18n.ngettext(
+        '%(rating)s Star out of 5',
+        '%(rating)s Stars out of 5',
+        roundedAverage,
+      ),
+      { rating: i18n.formatNumber(roundedAverage) },
     );
   }
 
