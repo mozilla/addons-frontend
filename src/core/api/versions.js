@@ -36,13 +36,13 @@ export type GetVersionsParams = {|
   slug: string,
 |};
 
+export type GetVersionsResponse = PaginatedApiResponse<ExternalAddonVersionType>;
+
 export const getVersions = ({
   api,
   slug,
   ...params
-}: GetVersionsParams): Promise<
-  PaginatedApiResponse<ExternalAddonVersionType>,
-> => {
+}: GetVersionsParams): Promise<GetVersionsResponse> => {
   invariant(slug, 'slug is required');
 
   return callApi({

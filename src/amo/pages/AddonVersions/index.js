@@ -52,11 +52,11 @@ type InternalProps = {|
   lang: string,
   match: {|
     ...ReactRouterMatchType,
-    params: {
+    params: {|
       slug: string,
-    },
+    |},
   |},
-  versions?: Array<AddonVersionType>,
+  versions: Array<AddonVersionType> | void,
 |};
 
 export class AddonVersionsBase extends React.Component<InternalProps> {
@@ -97,7 +97,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
       dispatch(fetchAddon({ slug, errorHandler }));
     }
 
-    if (addon && !areVersionsLoading && (!versions || addonHasChanged)) {
+    if (!areVersionsLoading && (!versions || addonHasChanged)) {
       dispatch(
         fetchVersions({
           errorHandlerId: errorHandler.id,
@@ -112,9 +112,13 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
 
     let latestVersion;
     let olderVersions = [];
-    if (Array.isArray(versions)) {
-      latestVersion = versions.length ? versions[0] : null;
-      olderVersions = versions.slice(1);
+    if (addon && versions) {
+      latestVersion =
+        versions.find((version) => version.id === addon.currentVersionId) ||
+        null;
+      olderVersions = versions.filter(
+        (version) => version.id !== addon.currentVersionId,
+      );
     }
 
     let header = '';

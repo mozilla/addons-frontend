@@ -26,7 +26,7 @@ type Props = {|
   headerText: string | null,
   // An undefined version means the versions are still loading, whereas a null
   // version means that no version exists.
-  version?: AddonVersionType | null,
+  version: AddonVersionType | null | void,
 |};
 
 type InternalProps = {|

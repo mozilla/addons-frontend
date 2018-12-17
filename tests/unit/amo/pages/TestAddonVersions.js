@@ -43,7 +43,6 @@ describe(__filename, () => {
   } = {}) => {
     return {
       dispatch: sinon.stub(),
-      errorHandler: createStubErrorHandler(),
       history: createFakeHistory(),
       i18n: fakeI18n(),
       location,
@@ -179,10 +178,7 @@ describe(__filename, () => {
 
   it('fetches versions when versions are not loaded', () => {
     const slug = 'some-addon-slug';
-    const addon = { ...fakeAddon, slug };
     const errorHandler = createStubErrorHandler();
-
-    _loadAddonResults([addon]);
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
 
@@ -192,26 +188,6 @@ describe(__filename, () => {
     });
 
     sinon.assert.calledWith(
-      fakeDispatch,
-      fetchVersions({
-        errorHandlerId: errorHandler.id,
-        slug,
-      }),
-    );
-  });
-
-  it('does not fetch versions when no addon is loaded', () => {
-    const slug = 'some-addon-slug';
-    const errorHandler = createStubErrorHandler();
-
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-
-    render({
-      errorHandler,
-      params: { slug },
-    });
-
-    sinon.assert.neverCalledWith(
       fakeDispatch,
       fetchVersions({
         errorHandlerId: errorHandler.id,
@@ -381,8 +357,8 @@ describe(__filename, () => {
   describe('latest version', () => {
     it('passes the first found version into the AddonVersionCard', () => {
       const slug = 'some-addon-slug';
-      const addon = { ...fakeAddon, slug };
       const version1 = { ...fakeVersion, id: 1 };
+      const addon = { ...fakeAddon, slug, current_version: version1 };
       const version2 = { ...fakeVersion, id: 2 };
 
       _loadAddonResults([addon]);
@@ -424,8 +400,8 @@ describe(__filename, () => {
   describe('older versions', () => {
     it('renders multiple AddonVersionCards for multiple versions', () => {
       const slug = 'some-addon-slug';
-      const addon = { ...fakeAddon, slug };
       const version1 = { ...fakeVersion, id: 1 };
+      const addon = { ...fakeAddon, slug, current_version: version1 };
       const version2 = { ...fakeVersion, id: 2 };
       const version3 = { ...fakeVersion, id: 3 };
 
@@ -442,8 +418,8 @@ describe(__filename, () => {
 
     it('passes the correct versions into multiple AddonVersionCards', () => {
       const slug = 'some-addon-slug';
-      const addon = { ...fakeAddon, slug };
       const version1 = { ...fakeVersion, id: 1 };
+      const addon = { ...fakeAddon, slug, current_version: version1 };
       const version2 = { ...fakeVersion, id: 2 };
       const version3 = { ...fakeVersion, id: 3 };
 
