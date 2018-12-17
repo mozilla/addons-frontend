@@ -195,7 +195,6 @@ export function mapStateToProps(state) {
   }
 
   return {
-    hasCategory: !!currentCategory,
     categoryName,
     count: state.search.count,
     filters: state.search.filters,
