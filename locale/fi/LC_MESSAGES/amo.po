@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-16 21:08+0000\n"
+"PO-Revision-Date: 2018-12-17 19:03+0000\n"
 "Last-Translator: Jarmo <jarmo@juslin.me>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -2218,7 +2218,7 @@ msgstr "Paranna videoita"
 
 #: src/amo/pages/Guides/index.js:195
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
-msgstr ""
+msgstr "Jos nautit videosisällöstä, laajennukset tarjoavat monia tapoja parantaa käyttökokemusta, muun muassa YouTuben mukauttaminen haluamaksesi ja videoiden toistaminen teatteritilassa."
 
 #: src/amo/pages/Guides/index.js:200
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
@@ -2254,21 +2254,23 @@ msgstr "Tuo media suoraan selaimeen"
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "Laajennukset voivat muuntaa Firefoxin henkilökohtaiseksi viihdekeskukseksi, jonka avulla pääset käyttämään musiikkia, kuvia, pelejä ja paljon muuta."
 
 #: src/amo/pages/Guides/index.js:239
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
-msgstr ""
+msgstr "Kuuntele yli 30 000 radioasemaa ympäri maailman, kaikki vain napsautuksen päässä."
 
 #: src/amo/pages/Guides/index.js:243
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
-msgstr ""
+msgstr "Selaa lisää tuhansia eri %(linkStart)skuva-, musiikki- ja videolaajennuksia%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:259
 msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
 msgstr ""
+"Verkko on mahtava mutta villi paikka. Henkilökohtaisia tietojasi saatetaan käyttää ilman hyväksyntääsi, tekemisiäsi voidaan vakoilla ja salasanoja varastaa. Onneksi laajennukset voivat parantaa "
+"yksityisyyttäsi ja turvaa verkossa."
 
 #: src/amo/pages/Guides/index.js:272
 msgid ""
@@ -2304,6 +2306,8 @@ msgstr "Estä ärsyttävät mainokset"
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
+"Nykypäivän internet on tungettu täyteen häiritsevää ja tietokonetta hidastavaa mainontaa. Mainosestolaajennukset voivat estää tai suodattaa mainoksia, ja sen seurauksena kohtaat selatessasi aiempaa "
+"vähemmän häiriötekijöitä."
 
 #: src/amo/pages/Home/index.js:119
 msgid "Bookmarks"
@@ -2370,24 +2374,20 @@ msgid "See more popular extensions"
 msgstr "Katso lisää suosittuja laajennuksia"
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more news boosters"
-msgstr "Katso lisää dynaamisia latausavustimia"
+msgstr "Katso lisää uutistehostimia"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "News boosters"
-msgstr "YouTube-avittimet"
+msgstr "Uutistehostimet"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more weather reports"
-msgstr "Katso lisää syysteemoja"
+msgstr "Katso lisää säätiedotteita"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "Weather reports"
-msgstr "Lähetä väärinkäyttöilmoitus"
+msgstr "Säätiedotteet"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
