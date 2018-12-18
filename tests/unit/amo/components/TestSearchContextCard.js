@@ -39,16 +39,14 @@ describe(__filename, () => {
     _store = dispatchClientMetadata().store;
   });
 
-  // function _searchStart(store = _store, props = {}) {
-  //   _store.dispatch(searchStart({ errorHandlerId: 'Search', ...props }));
-  // }
-
   const _searchStart = ({ store = _store, filters = {} }) => {
     store.dispatch(searchStart({ errorHandlerId: 'Search', filters }));
   };
 
   const _fetchCategories = ({ store }) => {
-    store.dispatch(fetchCategories({ errorHandlerId: 'SearchContextCard' }));
+    store.dispatch(
+      fetchCategories({ errorHandlerId: 'SearchContextCard-Categories' }),
+    );
   };
 
   const _loadCategories = ({
@@ -178,12 +176,12 @@ describe(__filename, () => {
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    render({ store });
+    const root = render({ store });
 
     sinon.assert.calledWith(
       dispatchSpy,
       fetchCategories({
-        errorHandlerId: 'SearchContextCard',
+        errorHandlerId: root.instance().props.errorHandler.id,
       }),
     );
   });

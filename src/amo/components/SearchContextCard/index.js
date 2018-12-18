@@ -1,32 +1,43 @@
-import PropTypes from 'prop-types';
+/* @flow */
+// import PropTypes from 'prop-types';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { fetchCategories } from 'core/reducers/categories';
 import translate from 'core/i18n/translate';
-import Card from 'ui/components/Card';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEMES_FILTER } from 'core/constants';
+import { withErrorHandler } from 'core/errorHandler';
+import Card from 'ui/components/Card';
+import type { AppState } from 'amo/store';
+import type { SearchFilters } from 'core/api/search';
+import type { ErrorHandlerType } from 'core/errorHandler';
+import type { I18nType } from 'core/types/i18n';
+import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
 
-export class SearchContextCardBase extends React.Component {
-  static propTypes = {
-    categoryName: PropTypes.string,
-    count: PropTypes.number,
-    dispatch: PropTypes.func,
-    filters: PropTypes.object,
-    hasCategory: PropTypes.bool,
-    i18n: PropTypes.object.isRequired,
-    loading: PropTypes.bool.isRequired,
-  };
+type Props = {||};
 
+type InternalProps = {|
+  ...Props,
+  categoryName?: string,
+  count: number,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  filters: SearchFilters,
+  hasCategory: boolean,
+  i18n: I18nType,
+  loading: boolean,
+|};
+
+export class SearchContextCardBase extends React.Component<InternalProps> {
   static defaultProps = {
     count: 0,
     filters: {},
   };
 
-  constructor(props) {
+  constructor(props: InternalProps) {
     super(props);
 
     if (
@@ -35,7 +46,7 @@ export class SearchContextCardBase extends React.Component {
       !this.props.loading
     ) {
       this.props.dispatch(
-        fetchCategories({ errorHandlerId: 'SearchContextCard' }),
+        fetchCategories({ errorHandlerId: this.props.errorHandler.id }),
       );
     }
   }
@@ -169,9 +180,21 @@ export class SearchContextCardBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state) {
+export function mapStateToProps(state: AppState) {
   const { search } = state;
-  const { category: currentCategory } = search.filters;
+  const { filters } = search;
+
+  let currentCategory;
+
+  if (
+    search &&
+    filters &&
+    filters.category &&
+    typeof filters.category === 'string'
+  ) {
+    currentCategory = filters.category;
+  }
+
   let categoryName;
 
   if (currentCategory && !categoryName) {
@@ -214,12 +237,15 @@ export function mapStateToProps(state) {
     hasCategory: !!currentCategory,
     categoryName,
     count: search.count,
-    filters: search.filters,
+    filters,
     loading: search.loading,
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
+const SearchContextCard: React.ComponentType<Props> = compose(
   translate(),
+  connect(mapStateToProps),
+  withErrorHandler({ name: 'SearchContextCard' }),
 )(SearchContextCardBase);
+
+export default SearchContextCard;
