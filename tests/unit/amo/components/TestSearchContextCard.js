@@ -39,7 +39,7 @@ describe(__filename, () => {
     _store = dispatchClientMetadata().store;
   });
 
-  const _searchStart = ({ store = _store, filters = {} }) => {
+  const _searchStart = ({ store, filters = {} }) => {
     store.dispatch(searchStart({ errorHandlerId: 'Search', filters }));
   };
 
@@ -69,8 +69,9 @@ describe(__filename, () => {
   });
 
   it('should render "Loading" while loading without query', () => {
-    _searchStart({ filters: {} });
-    const root = render();
+    const { store } = dispatchClientMetadata();
+    _searchStart({ store, filters: {} });
+    const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       'Loading add-ons',
@@ -78,8 +79,9 @@ describe(__filename, () => {
   });
 
   it('should render during a search that is loading', () => {
-    _searchStart({ filters: { query: 'test' } });
-    const root = render();
+    const { store } = dispatchClientMetadata();
+    _searchStart({ store, filters: { query: 'test' } });
+    const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       'Searching for "test"',
@@ -219,9 +221,6 @@ describe(__filename, () => {
     const categoryName = 'Causes';
 
     const { store } = dispatchSearchResults({
-      addons: {
-        [fakeAddon.slug]: fakeAddon,
-      },
       filters: {
         addonType: ADDON_TYPE_THEMES_FILTER,
         category: 'causes',
@@ -235,7 +234,7 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      `1 theme found for "test" in ${categoryName}`,
+      `2 themes found for "test" in ${categoryName}`,
     );
   });
 
@@ -243,7 +242,6 @@ describe(__filename, () => {
     const categoryName = 'Causes';
 
     const { store } = dispatchSearchResults({
-      addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_THEMES_FILTER,
         category: 'causes',
@@ -256,13 +254,12 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      `1 theme found in ${categoryName}`,
+      `2 themes found in ${categoryName}`,
     );
   });
 
   it('should render results without categoryName or query when neither are present for addonType ADDON_TYPE_THEMES_FILTER', () => {
     const { store } = dispatchSearchResults({
-      addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_THEMES_FILTER,
       },
@@ -271,7 +268,7 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 theme found',
+      '2 themes found',
     );
   });
 
@@ -310,7 +307,6 @@ describe(__filename, () => {
 
   it("should render results without query when it's not present for addonType ADDON_TYPE_DICT", () => {
     const { store } = dispatchSearchResults({
-      addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_DICT,
       },
@@ -319,7 +315,7 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 result found',
+      '2 results found',
     );
   });
 
@@ -360,7 +356,6 @@ describe(__filename, () => {
     const query = 'test';
     const categoryName = 'Causes';
     const { store } = dispatchSearchResults({
-      addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
         category: 'causes',
@@ -374,14 +369,13 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      `1 extension found for "${query}" in ${categoryName}`,
+      `2 extensions found for "${query}" in ${categoryName}`,
     );
   });
 
   it('should render results with categoryName and no query for addonType ADDON_TYPE_EXTENSION when there is no query and when loading is false', () => {
     const categoryName = 'Causes';
     const { store } = dispatchSearchResults({
-      addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
         category: 'causes',
@@ -394,13 +388,12 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      `1 extension found in ${categoryName}`,
+      `2 extensions found in ${categoryName}`,
     );
   });
 
   it('should render results without categoryName or query when neither are present for addonType ADDON_TYPE_EXTENSION', () => {
     const { store } = dispatchSearchResults({
-      addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
       },
@@ -409,7 +402,7 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 extension found',
+      '2 extensions found',
     );
   });
 
@@ -448,7 +441,6 @@ describe(__filename, () => {
 
   it('should render results without query when not present for addonType ADDON_TYPE_LANG', () => {
     const { store } = dispatchSearchResults({
-      addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_LANG,
       },
@@ -457,33 +449,35 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      '1 result found',
+      '2 results found',
     );
   });
 
-  it('should render Searching text when query is present when loading is true', () => {
+  it('should render "Searching" text when query is present and loading is true', () => {
+    const { store } = dispatchClientMetadata();
     const query = 'test';
 
-    _searchStart({ store: _store, filters: { query } });
+    _searchStart({ store, filters: { query } });
 
-    const root = render({ store: _store });
+    const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       `Searching for "${query}"`,
     );
   });
 
-  it('should render Loading text when no query is present when loading is true', () => {
-    _searchStart({ store: _store, filters: {} });
+  it('should render "Loading" text when no query is present and loading is true', () => {
+    const { store } = dispatchClientMetadata();
+    _searchStart({ store, filters: {} });
 
-    const root = render({ store: _store });
+    const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       `Loading add-ons`,
     );
   });
 
-  it('should render singular form when only one result is found with addonType does not exist', () => {
+  it('should render singular form when only one result is found for an addonType that does not exist', () => {
     const query = 'test';
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
@@ -516,7 +510,7 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results without query when not present for addonType that does not exist', () => {
+  it("should render results without a query when it's present for an addonType that does not exist", () => {
     const { store } = dispatchSearchResults({
       filters: {
         addonType: 'random',
