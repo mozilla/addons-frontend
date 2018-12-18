@@ -3,11 +3,13 @@ import * as React from 'react';
 import SearchContextCard, {
   SearchContextCardBase,
 } from 'amo/components/SearchContextCard';
+import { fetchCategories, loadCategories } from 'core/reducers/categories';
 import { searchStart } from 'core/reducers/search';
 import {
   dispatchClientMetadata,
   dispatchSearchResults,
   fakeAddon,
+  fakeCategory,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -33,13 +35,30 @@ describe(__filename, () => {
     );
   }
 
+  beforeEach(() => {
+    _store = dispatchClientMetadata().store;
+  });
+
   function _searchStart(props = {}) {
     _store.dispatch(searchStart({ errorHandlerId: 'Search', ...props }));
   }
 
-  beforeEach(() => {
-    _store = dispatchClientMetadata().store;
-  });
+  const _fetchCategories = ({ store }) => {
+    store.dispatch(fetchCategories({ errorHandlerId: 'SearchContextCard' }));
+  };
+
+  const _loadCategories = ({
+    store,
+    results = [
+      {
+        ...fakeCategory,
+        name: 'Causes',
+        slug: 'causes',
+      },
+    ],
+  }) => {
+    store.dispatch(loadCategories({ results }));
+  };
 
   it('should render a card', () => {
     const root = render();
@@ -149,21 +168,23 @@ describe(__filename, () => {
   });
 
   it('should render results with categoryName and query for addonType ADDON_TYPE_THEMES_FILTER when loading is false', () => {
-    const categoryName = 'Bookmarks & Stuff';
+    const categoryName = 'Causes';
+
     const { store } = dispatchSearchResults({
-      addons: { [fakeAddon.slug]: fakeAddon },
+      addons: {
+        [fakeAddon.slug]: fakeAddon,
+      },
       filters: {
         addonType: ADDON_TYPE_THEMES_FILTER,
-        category: 'bookmarks',
+        category: 'causes',
         query: 'test',
       },
     });
 
-    const root = render({ store });
+    _fetchCategories({ store });
+    _loadCategories({ store });
 
-    // This simulates time for categories fetching and getting
-    // translated category name.
-    root.setProps({ categoryName, loading: false });
+    const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       `1 theme found for "test" in ${categoryName}`,
@@ -171,20 +192,20 @@ describe(__filename, () => {
   });
 
   it('should render results with categoryName and no query if not present for addonType ADDON_TYPE_THEMES_FILTER when loading is false', () => {
-    const categoryName = 'Bookmarks & Stuff';
+    const categoryName = 'Causes';
+
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_THEMES_FILTER,
-        category: 'fun-bookmarks',
+        category: 'causes',
       },
     });
 
-    const root = render({ store });
+    _fetchCategories({ store });
+    _loadCategories({ store });
 
-    // This simulates time for categories fetching and getting
-    // translated category name.
-    root.setProps({ categoryName, loading: false });
+    const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       `1 theme found in ${categoryName}`,
@@ -289,21 +310,20 @@ describe(__filename, () => {
 
   it('should render results with categoryName and query for addonType ADDON_TYPE_EXTENSION when loading is false', () => {
     const query = 'test';
-    const categoryName = 'Bookmarks & Stuff';
+    const categoryName = 'Causes';
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
-        category: 'bookmarks',
+        category: 'causes',
         query,
       },
     });
 
-    const root = render({ store });
+    _fetchCategories({ store });
+    _loadCategories({ store });
 
-    // This simulates time for categories fetching and getting
-    // translated category name.
-    root.setProps({ categoryName, loading: false });
+    const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       `1 extension found for "${query}" in ${categoryName}`,
@@ -311,20 +331,19 @@ describe(__filename, () => {
   });
 
   it('should render results with categoryName and no query if not present for addonType ADDON_TYPE_EXTENSION when loading is false', () => {
-    const categoryName = 'Bookmarks & Stuff';
+    const categoryName = 'Causes';
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
-        category: 'bookmarks',
+        category: 'causes',
       },
     });
 
-    const root = render({ store });
+    _fetchCategories({ store });
+    _loadCategories({ store });
 
-    // This simulates time for categories fetching and getting
-    // translated category name.
-    root.setProps({ categoryName, loading: false });
+    const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       `1 extension found in ${categoryName}`,
@@ -396,19 +415,10 @@ describe(__filename, () => {
 
   it('should render Searching text when query is present when loading is true', () => {
     const query = 'test';
-    const { store } = dispatchSearchResults({
-      addons: { [fakeAddon.slug]: fakeAddon },
-      filters: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
-        query,
-      },
-    });
 
-    const root = render({ store });
+    _searchStart({ store: _store, filters: { query } });
 
-    // This simulates time for categories fetching and getting
-    // translated category name.
-    root.setProps({ loading: true });
+    const root = render({ store: _store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       `Searching for "${query}"`,
@@ -416,16 +426,9 @@ describe(__filename, () => {
   });
 
   it('should render Loading text when no query is present when loading is true', () => {
-    const { store } = dispatchSearchResults({
-      addons: { [fakeAddon.slug]: fakeAddon },
-      filters: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
-      },
-    });
+    _searchStart({ store: _store, filters: {} });
 
-    const root = render({ store });
-
-    root.setProps({ loading: true });
+    const root = render({ store: _store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       `Loading add-ons`,

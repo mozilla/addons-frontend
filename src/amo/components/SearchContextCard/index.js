@@ -14,7 +14,9 @@ export class SearchContextCardBase extends React.Component {
   static propTypes = {
     categoryName: PropTypes.string,
     count: PropTypes.number,
+    dispatch: PropTypes.func,
     filters: PropTypes.object,
+    hasCategory: PropTypes.bool,
     i18n: PropTypes.object.isRequired,
     loading: PropTypes.bool.isRequired,
   };
@@ -23,6 +25,20 @@ export class SearchContextCardBase extends React.Component {
     count: 0,
     filters: {},
   };
+
+  constructor(props) {
+    super(props);
+
+    if (
+      this.props.hasCategory &&
+      !this.props.categoryName &&
+      !this.props.loading
+    ) {
+      this.props.dispatch(
+        fetchCategories({ errorHandlerId: 'SearchContextCard' }),
+      );
+    }
+  }
 
   render() {
     const { categoryName, count, filters, i18n, loading } = this.props;
@@ -181,7 +197,6 @@ export function mapStateToProps(state) {
     }
 
     const translatedCategory =
-      currentCategory &&
       allCategories.length &&
       allCategories.find(
         (category) =>
@@ -196,21 +211,15 @@ export function mapStateToProps(state) {
   }
 
   return {
+    hasCategory: !!currentCategory,
     categoryName,
     count: search.count,
     filters: search.filters,
-    loading: search.loading || (currentCategory && !categoryName),
+    loading: search.loading,
   };
 }
 
-export function mapDispatchToProps(dispatch) {
-  dispatch(fetchCategories({ errorHandlerId: 'SearchContextCard' }));
-}
-
 export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connect(mapStateToProps),
   translate(),
 )(SearchContextCardBase);
