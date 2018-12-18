@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-09-28 18:26+0000\n"
+"PO-Revision-Date: 2018-12-18 15:45+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -2221,11 +2221,11 @@ msgstr "Harap ikuti %(linkStart)spanduan ulasan%(linkEnd)s kami."
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "Bawa media langsung ke peramban"
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "Ekstensi dapat mengubah Firefox menjadi pusat hiburan Anda sendiri yang memberi Anda akses cepat ke musik, pengambilan gambar, permainan, dan banyak lagi."
 
 #: src/amo/pages/Guides/index.js:239
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
@@ -2387,7 +2387,7 @@ msgstr "Kamus dan Paket Bahasa"
 
 #: src/amo/pages/LanguageTools/index.js:157
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Unduh ekstensi paket bahasa dan kamus Firefox. Tambahkan opsi bahasa baru ke pemeriksa ejaan peramban Anda, atau ubah bahasa antarmuka perambannya."
 
 #: src/amo/pages/LanguageTools/index.js:168
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2977,7 +2977,7 @@ msgstr "%(localizedSize)s TB"
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s dan setelahnya"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
