@@ -68,7 +68,7 @@ describe(__filename, () => {
     expect(root).toHaveClassName('SearchContextCard');
   });
 
-  it('should render "searching" while loading without query', () => {
+  it('should render "Loading" while loading without query', () => {
     _searchStart({ filters: {} });
     const root = render();
 
@@ -198,7 +198,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it("should not fetch categories if there is a category filter but it's loading", () => {
+  it("should not fetch categories if there is a category filter but it's already loading", () => {
     const { store } = dispatchClientMetadata();
 
     _searchStart({
@@ -239,7 +239,7 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results with categoryName and no query if not present for addonType ADDON_TYPE_THEMES_FILTER when loading is false', () => {
+  it('should render results with categoryName and no query is present for addonType ADDON_TYPE_THEMES_FILTER when loading is false', () => {
     const categoryName = 'Causes';
 
     const { store } = dispatchSearchResults({
@@ -260,7 +260,7 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results without categoryName or query when not present for addonType ADDON_TYPE_THEMES_FILTER', () => {
+  it('should render results without categoryName or query when neither are present for addonType ADDON_TYPE_THEMES_FILTER', () => {
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
@@ -308,7 +308,7 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results without query when not present for addonType ADDON_TYPE_DICT', () => {
+  it("should render results without query when it's not present for addonType ADDON_TYPE_DICT", () => {
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
@@ -378,7 +378,7 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results with categoryName and no query if not present for addonType ADDON_TYPE_EXTENSION when loading is false', () => {
+  it('should render results with categoryName and no query is present for addonType ADDON_TYPE_EXTENSION when loading is false', () => {
     const categoryName = 'Causes';
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
@@ -398,7 +398,7 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results without categoryName or query when not present for addonType ADDON_TYPE_EXTENSION', () => {
+  it('should render results without categoryName or query when neither are present for addonType ADDON_TYPE_EXTENSION', () => {
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
