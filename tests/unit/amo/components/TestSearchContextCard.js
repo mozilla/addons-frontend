@@ -39,9 +39,13 @@ describe(__filename, () => {
     _store = dispatchClientMetadata().store;
   });
 
-  function _searchStart(props = {}) {
-    _store.dispatch(searchStart({ errorHandlerId: 'Search', ...props }));
-  }
+  // function _searchStart(store = _store, props = {}) {
+  //   _store.dispatch(searchStart({ errorHandlerId: 'Search', ...props }));
+  // }
+
+  const _searchStart = ({ store = _store, filters = {} }) => {
+    store.dispatch(searchStart({ errorHandlerId: 'Search', filters }));
+  };
 
   const _fetchCategories = ({ store }) => {
     store.dispatch(fetchCategories({ errorHandlerId: 'SearchContextCard' }));
@@ -165,6 +169,52 @@ describe(__filename, () => {
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       `2 themes found for "${query}"`,
     );
+  });
+
+  it('should fetch categories if there is a category filter', () => {
+    const { store } = dispatchSearchResults({
+      filters: { category: 'causes' },
+    });
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    render({ store });
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchCategories({
+        errorHandlerId: 'SearchContextCard',
+      }),
+    );
+  });
+
+  it('should not fetch categories if there is no category filter', () => {
+    const { store } = dispatchSearchResults({
+      filters: { query: 'test' },
+    });
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    render({ store });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it("should not fetch categories if there is a category filter but it's loading", () => {
+    const { store } = dispatchClientMetadata();
+
+    _searchStart({
+      store,
+      filters: {
+        category: 'causes',
+      },
+    });
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    render({ store });
+
+    sinon.assert.notCalled(dispatchSpy);
   });
 
   it('should render results with categoryName and query for addonType ADDON_TYPE_THEMES_FILTER when loading is false', () => {
