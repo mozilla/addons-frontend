@@ -239,7 +239,7 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results with categoryName and no query is present for addonType ADDON_TYPE_THEMES_FILTER when loading is false', () => {
+  it('should render results with categoryName and no query for addonType ADDON_TYPE_THEMES_FILTER when there is no query and loading is false', () => {
     const categoryName = 'Causes';
 
     const { store } = dispatchSearchResults({
@@ -378,7 +378,7 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results with categoryName and no query is present for addonType ADDON_TYPE_EXTENSION when loading is false', () => {
+  it('should render results with categoryName and no query for addonType ADDON_TYPE_EXTENSION when there is no query and when loading is false', () => {
     const categoryName = 'Causes';
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
