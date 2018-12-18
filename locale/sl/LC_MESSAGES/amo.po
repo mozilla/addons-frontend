@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-13 18:04+0000\n"
+"PO-Revision-Date: 2018-12-18 11:02+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1345,9 +1345,8 @@ msgid "Enhance Your Media Experience"
 msgstr "Izboljšajte izkušnjo s predstavnostjo"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
-#, fuzzy
 msgid "Extensions are like apps for your browser."
-msgstr "Razširitve so kot aplikacije za brskalnike."
+msgstr "Razširitve so kot aplikacije za vaš brskalnik."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
@@ -2166,7 +2165,6 @@ msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
 msgstr "Raziščite več dodatkov za %(linkStart)szasebnost in varnost%(linkEnd)s po izboru uredništva."
 
 #: src/amo/pages/Guides/index.js:135
-#, fuzzy
 msgid "Reimagine tab management"
 msgstr "Ponovno zamišljeno upravljanje zavihkov"
 
@@ -2388,14 +2386,12 @@ msgid "News boosters"
 msgstr "Izboljšave za YouTube"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more weather reports"
-msgstr "Več jesenskih tem"
+msgstr "Več podatkov o vremenu"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "Weather reports"
-msgstr "Pošlji poročilo o zlorabi"
+msgstr "Podatki o vremenu"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
