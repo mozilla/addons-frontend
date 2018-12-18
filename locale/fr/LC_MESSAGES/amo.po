@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-16 11:41+0000\n"
+"PO-Revision-Date: 2018-12-18 16:17+0000\n"
 "Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -383,9 +383,8 @@ msgid "Publishing reply"
 msgstr "Publication de la réponse"
 
 #: src/amo/components/AddonReviewCard/index.js:349
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "posté %(timestamp)s"
+msgstr "mis en ligne : %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:351
 #, fuzzy
