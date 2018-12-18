@@ -387,9 +387,8 @@ msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "mis en ligne : %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:351
-#, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "par %(authorName)s, %(timestamp)s"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:413
 msgid "Deleting…"
