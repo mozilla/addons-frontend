@@ -25,11 +25,12 @@ $icon-size: 40px;
 .HomeHeroGuides-header-subtitle {
   font-size: 20px;
   font-weight: normal;
-  line-height: 1;
+  line-height: 1.15;
   margin: $padding-page 0 $padding-page-l;
 
   @include respond-to(medium) {
     font-size: $font-size-l;
+    line-height: 1;
   }
 }
 
