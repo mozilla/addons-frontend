@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-18 20:10+0000\n"
-"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
+"PO-Revision-Date: 2018-12-18 20:23+0000\n"
+"Last-Translator: YD <ygda+fx@free.fr>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -388,7 +388,7 @@ msgstr "mis en ligne : %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:351
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "par %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:413
 msgid "Deleting…"
@@ -1342,7 +1342,7 @@ msgstr "Améliorez votre expérience multimédia"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
-msgstr ""
+msgstr "Les extensions sont comme des applications pour votre navigateur."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
@@ -2147,7 +2147,7 @@ msgstr "Découvrez davantage %(linkStart)sd’outils pour la vie privée et la s
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Reimagine tab management"
-msgstr ""
+msgstr "Réinventez votre gestion des onglets"
 
 #: src/amo/pages/Guides/index.js:136
 msgid ""
