@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-18 20:56+0000\n"
+"PO-Revision-Date: 2018-12-19 10:34+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -100,9 +100,8 @@ msgid "Some features may require payment"
 msgstr "Použití některých funkcí může být zpoplatněno"
 
 #: src/amo/components/AddonCompatibilityError/index.js:102
-#, fuzzy
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr "Vaše verze Firefoxu nepodporuje vyhledávací moduly."
+msgstr "Vaše verze Firefoxu nepodporuje tento doplněk, protože pro instalaci požaduje restart."
 
 #: src/amo/components/AddonCompatibilityError/index.js:105
 msgid "Firefox for iOS does not currently support add-ons."
@@ -311,7 +310,6 @@ msgid "Edit reply"
 msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:198
-#, fuzzy
 msgid "Edit review"
 msgstr "Upravit recenzi"
 
@@ -535,24 +533,20 @@ msgid "by"
 msgstr ""
 
 #: src/amo/components/App/index.js:217 src/amo/components/HeadMetaTags/index.js:77
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Doplňky pro Firefox"
+msgstr "Doplňky pro Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:221 src/amo/components/HeadMetaTags/index.js:71
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – Doplňky pro Firefox"
+msgstr "%(title)s – Doplňky pro Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:229 src/amo/components/HeadMetaTags/index.js:76
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Doplňky pro Firefox"
+msgstr "Doplňky pro Firefox pro Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:233 src/amo/components/HeadMetaTags/index.js:70
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%s – Doplňky pro Firefox"
+msgstr "%(title)s – Doplňky pro Firefox pro Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:204
 msgid "Loading"
@@ -1477,17 +1471,14 @@ msgid "Log in to rate this add-on"
 msgstr "Pro hodnocení tohoto doplňku se přihlaste"
 
 #: src/amo/components/RatingManager/index.js:173
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Opravdu chcete odstranit tuto recenzi?"
+msgstr "Opravdu chcete odstranit recenzi doplňku %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:178
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "Opravdu chcete odstranit tuto recenzi?"
+msgstr "Opravdu chcete odstranit své hodnocení doplňku %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:183
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
 msgstr "Jak si užíváte používání doplňku %(addonName)s?"
 
@@ -1993,9 +1984,8 @@ msgid "Custom License for %(addonName)s"
 msgstr ""
 
 #: src/amo/pages/AddonInfo/index.js:164
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Licenční smlouva s koncovým uživatelem"
+msgstr "Licenční smlouva s koncovým uživatelem doplňku %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:168
 msgid "Privacy policy for %(addonName)s"
@@ -2041,7 +2031,6 @@ msgstr[1] "%(total)s recence tohoto doplňku"
 msgstr[2] "%(total)s recenzí tohoto doplňku"
 
 #: src/amo/pages/AddonReviewList/index.js:370
-#, fuzzy
 msgid "No reviews"
 msgstr "Žádné recenze"
 
@@ -2202,7 +2191,6 @@ msgid "Start each browsing session tailored just for you by customizing your new
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:179
-#, fuzzy
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
 msgstr "Dopřejte si nádhernou stránku nového panelu s nastavitelným pozadím a informacemi o počasí"
 
@@ -2293,9 +2281,8 @@ msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:95
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "Blokovat reklamy"
+msgstr "Blokovat otravné reklamy"
 
 #: src/amo/pages/Guides/index.js:96
 msgid ""
@@ -2363,7 +2350,6 @@ msgid "Download Firefox extensions and themes. They’re like apps for your brow
 msgstr ""
 
 #: src/amo/pages/Home/index.js:340
-#, fuzzy
 msgid "See more popular extensions"
 msgstr "Další populární rozšíření"
 
@@ -3014,19 +3000,16 @@ msgid "Download failed. Please check your connection."
 msgstr ""
 
 #: src/core/utils/addons.js:33
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Došlo k neočekávané chybě"
+msgstr "Při instalaci došlo k neočekávané chybě."
 
 #: src/core/utils/addons.js:35
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Došlo k neočekávané chybě"
+msgstr "Při odinstalaci došlo k neočekávané chybě."
 
 #: src/core/utils/addons.js:40
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Došlo k neočekávané chybě"
+msgstr "Došlo k neočekávané chybě."
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
