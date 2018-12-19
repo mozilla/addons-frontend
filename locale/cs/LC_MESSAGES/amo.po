@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-19 10:34+0000\n"
+"PO-Revision-Date: 2018-12-19 11:00+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -65,7 +65,7 @@ msgstr ""
 
 #: src/amo/components/AddonAdminLinks/index.js:77
 msgid "Edit add-on"
-msgstr ""
+msgstr "Upravit doplněk"
 
 #: src/amo/components/AddonAdminLinks/index.js:89
 msgid "Admin add-on status"
@@ -130,59 +130,59 @@ msgstr "Vaše verze Firefoxu nepodporuje vyhledávací moduly."
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – rozšíření do 🦊 Firefoxu (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:105
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – jazykový balíček pro 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:111
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – vzhled pro 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:116
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – vyhledávací modul pro 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:121
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – doplněk do 🦊 Firefoxu (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:135
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "Stáhnout %(addonName)s do Firefoxu. %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:61
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – slovník do 🦊 Firefoxu pro Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:66
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – rozšíření do 🦊 Firefoxu pro Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:71
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – jazykový balíček pro 🦊 Firefox pro Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:77
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – vzhled pro 🦊 Firefox pro Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:83
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – vyhledávač pro 🦊 Firefox pro Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:88
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – doplněk do 🦊 Firefoxu pro Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:95
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – slovník do 🦊 Firefoxu (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:115
 msgid "%(total)s Star"
@@ -307,7 +307,7 @@ msgstr "Další populární rozšíření"
 
 #: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit reply"
-msgstr ""
+msgstr "Upravit odpověď"
 
 #: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
@@ -315,15 +315,15 @@ msgstr "Upravit recenzi"
 
 #: src/amo/components/AddonReviewCard/index.js:205 src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
-msgstr ""
+msgstr "Smazat odpověď"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
-msgstr ""
+msgstr "Smazat hodnocení"
 
 #: src/amo/components/AddonReviewCard/index.js:212 src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
-msgstr ""
+msgstr "Smazat recenzi"
 
 #: src/amo/components/AddonReviewCard/index.js:219
 msgid "Do you really want to delete this reply?"
@@ -348,15 +348,15 @@ msgstr "Zrušit"
 
 #: src/amo/components/AddonReviewCard/index.js:255
 msgid "Keep reply"
-msgstr ""
+msgstr "Nemazat"
 
 #: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep rating"
-msgstr ""
+msgstr "Nemazat"
 
 #: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep review"
-msgstr ""
+msgstr "Nemazat"
 
 #: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
@@ -380,11 +380,11 @@ msgstr "Zveřejňování odpovědi"
 
 #: src/amo/components/AddonReviewCard/index.js:349
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "zveřejněno %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:351
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "od autora %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:413
 msgid "Deleting…"
@@ -412,11 +412,11 @@ msgstr "Odesílání recenze"
 
 #: src/amo/components/AddonReviewManager/index.js:116
 msgid "Update review"
-msgstr ""
+msgstr "Aktualizovat recenzi"
 
 #: src/amo/components/AddonReviewManager/index.js:119
 msgid "Updating review"
-msgstr ""
+msgstr "Aktualizace recenze"
 
 #: src/amo/components/AddonReviewManager/index.js:140
 msgid "Saving"
@@ -432,7 +432,7 @@ msgstr "Dodržujte prosím naše %(linkStart)s pravidla pro recenze %(linkEnd)s.
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "Vaše hodnocení:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:241
 msgid "More dictionaries by %(author)s"
@@ -520,17 +520,17 @@ msgstr "Ikona doplňku"
 
 #: src/amo/components/AddonSummaryCard/index.js:61
 msgid "%(averageRating)s star average"
-msgstr ""
+msgstr "průměrné hodnocení %(averageRating)s hvězdiček"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:76 src/amo/components/AddonTitle/index.js:80
 msgid "by"
-msgstr ""
+msgstr "od"
 
 #: src/amo/components/App/index.js:217 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -574,15 +574,15 @@ msgstr "Načítání kategorií."
 
 #: src/amo/components/CategoryHead/index.js:31
 msgid "%(categoryName)s – Extensions"
-msgstr ""
+msgstr "%(categoryName)s – rozšíření"
 
 #: src/amo/components/CategoryHead/index.js:34
 msgid "%(categoryName)s – Themes"
-msgstr ""
+msgstr "%(categoryName)s – vzhledy"
 
 #: src/amo/components/CategoryHead/index.js:38
 msgid "%(categoryName)s"
-msgstr ""
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
 msgid "Added to collection"
@@ -784,15 +784,15 @@ msgstr "Omlouváme se, ale na našem serveru došlo k chybě, kvůli které jsme
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
-msgstr ""
+msgstr "Odpověď od uživatele %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
 msgid "Review by %(userName)s"
-msgstr ""
+msgstr "Recenze od uživatele %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
-msgstr ""
+msgstr "Recenze nenalezena."
 
 #: src/amo/components/FlagReviewMenu/index.js:103
 msgid "This is a bug report or support request"
@@ -940,7 +940,7 @@ msgstr "Pouze ve Firefoxu — stáhněte si Firefox nyní"
 
 #: src/amo/components/GuidesAddonCard/index.js:63
 msgid "Staff Pick"
-msgstr ""
+msgstr "Náš výběr"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:505
 msgid "View My Profile"
@@ -988,35 +988,35 @@ msgstr "Zobrazit mé sbírky"
 
 #: src/amo/components/HomeHeroBanner/index.js:100
 msgid "Highly customizable text highlighter"
-msgstr ""
+msgstr "Přizpůsobitelný zvýrazňovač textu"
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Watch2Gether"
-msgstr ""
+msgstr "Watch2Gether"
 
 #: src/amo/components/HomeHeroBanner/index.js:105
 msgid "Watch videos simultaneously with others"
-msgstr ""
+msgstr "Sledujte videa společně s přáteli"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Context Search"
-msgstr ""
+msgstr "Context Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
 msgid "Highlight text on any webpage to easily search the term"
-msgstr ""
+msgstr "Snadné zvýrazňování a vyhledávání textu na webových stránkách"
 
 #: src/amo/components/HomeHeroBanner/index.js:116
 msgid "Stylus"
-msgstr ""
+msgstr "Stylus"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Give your favorite websites a new look"
-msgstr ""
+msgstr "Dejte svým oblíbeným webovým stránkám nový vzhled"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "Search Encrypt"
-msgstr ""
+msgstr "Search Encrypt"
 
 #: src/amo/components/HomeHeroBanner/index.js:122
 msgid "Privacy protection for your search data"
@@ -1024,35 +1024,35 @@ msgstr "Ochrana soukromí vyhledávaných dat"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Auto Tab Discard"
-msgstr ""
+msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:127
 msgid "Save memory by disabling inactive tabs"
-msgstr ""
+msgstr "Šetřete paměť počítače vypínáním nepoužívaných panelů"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Update Scanner"
-msgstr ""
+msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:132
 msgid "Get notified when your selected websites update with new content"
-msgstr ""
+msgstr "Nechte se informovat o změnách obsahu na vybraných stránkách"
 
 #: src/amo/components/HomeHeroBanner/index.js:138
 msgid "Auto Fullscreen"
-msgstr ""
+msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Automatically start Firefox in full screen mode"
-msgstr ""
+msgstr "Automaticky spustí Firefox v režimu celé obrazovky"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Video Speed Controller"
-msgstr ""
+msgstr "Video Speed Controller"
 
 #: src/amo/components/HomeHeroBanner/index.js:146
 msgid "Adjust video playback speeds with shortcuts"
-msgstr ""
+msgstr "Upravte si rychlost přehrávání videa"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "View Image"
@@ -1064,15 +1064,15 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Neat URL"
-msgstr ""
+msgstr "Neat URL"
 
 #: src/amo/components/HomeHeroBanner/index.js:160
 msgid "Clean up links for easy sharing"
-msgstr ""
+msgstr "Vyčistěte odkazy pro snadné sdílení"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Glitter Drag"
-msgstr ""
+msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
@@ -1080,51 +1080,51 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Behind The Overlay Revival"
-msgstr ""
+msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:172
 msgid "Click a button to close annoying pop-ups"
-msgstr ""
+msgstr "Kliknutím tlačítka zavřete všechna otravná vyskakovací okna"
 
 #: src/amo/components/HomeHeroBanner/index.js:176
 msgid "Auto-Sort Bookmarks"
-msgstr ""
+msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:177
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "Automatické řazení záložek na vybrané místo"
 
 #: src/amo/components/HomeHeroBanner/index.js:183
 msgid "Search Preview"
-msgstr ""
+msgstr "Search Preview"
 
 #: src/amo/components/HomeHeroBanner/index.js:184
 msgid "Enjoy thumbnail images alongside your search returns"
-msgstr ""
+msgstr "Zobrazí náhledy stránek vedle výsledků vyhledávání"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "Copy PlainText"
-msgstr ""
+msgstr "Copy PlainText"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Remove formatting when saving text to your clipboard"
-msgstr ""
+msgstr "Odstraní formátování textu při jeho kopírování do schránky"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Official Media Bias Fact Check Icon"
-msgstr ""
+msgstr "Official Media Bias Fact Check Icon"
 
 #: src/amo/components/HomeHeroBanner/index.js:198
 msgid "Indicates the political bias of news sites with a tidy icon"
-msgstr ""
+msgstr "Malou ikonou indikuje politické zaměření zpravodajských serverů"
 
 #: src/amo/components/HomeHeroBanner/index.js:204
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Arrange tabs in a vertical fashion"
-msgstr ""
+msgstr "Vertikální zobrazení oušek panelů"
 
 #: src/amo/components/HomeHeroBanner/index.js:209
 msgid "Search Site"
@@ -1136,23 +1136,23 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:216
 msgid "Push to Kindle"
-msgstr ""
+msgstr "Push to Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Send any Web page to your Kindle device"
-msgstr ""
+msgstr "Posílání webových stránek do vašeho Kindlu"
 
 #: src/amo/components/HomeHeroBanner/index.js:221
 msgid "New Tab Homepage"
-msgstr ""
+msgstr "New Tab Homepage"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "Designate a custom home page for your new tabs"
-msgstr ""
+msgstr "Nastavte si vlastní stránku v novém panelu"
 
 #: src/amo/components/HomeHeroBanner/index.js:228
 msgid "OneNote Web Clipper"
-msgstr ""
+msgstr "OneNote Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:229
 msgid "Save, annotate & organize web content"
@@ -1168,7 +1168,7 @@ msgstr "Nastavitelná gesta myší"
 
 #: src/amo/components/HomeHeroBanner/index.js:238
 msgid "Dark Reader"
-msgstr ""
+msgstr "Dark Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:239
 msgid "Go dark for a better web viewing experience"
@@ -1180,7 +1180,7 @@ msgstr "Facebook Container"
 
 #: src/amo/components/HomeHeroBanner/index.js:245
 msgid "CookieBro"
-msgstr ""
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:246
 msgid "Automatically delete unwanted cookies"
@@ -1192,7 +1192,7 @@ msgstr "Nenechte se Facebookem sledovat, kamkoliv na webu jdete"
 
 #: src/amo/components/HomeHeroBanner/index.js:250
 msgid "Text MultiCopy"
-msgstr ""
+msgstr "Text MultiCopy"
 
 #: src/amo/components/HomeHeroBanner/index.js:251
 msgid "Save snippets of text to paste & organize later"
@@ -1204,7 +1204,7 @@ msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:258
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr ""
+msgstr "Vizuální záložky pro vaše oblíbené weby"
 
 #: src/amo/components/HomeHeroBanner/index.js:264
 msgid "Undo Close Tab Button"
@@ -1212,11 +1212,11 @@ msgstr "Tlačítko pro otevření naposledy zavřeného panelu"
 
 #: src/amo/components/HomeHeroBanner/index.js:265
 msgid "Never lose a page again"
-msgstr ""
+msgstr "Už žádné ztracené panely"
 
 #: src/amo/components/HomeHeroBanner/index.js:269
 msgid "Ad Analysis for Facebook"
-msgstr ""
+msgstr "Ad Analysis for Facebook"
 
 #: src/amo/components/HomeHeroBanner/index.js:270
 msgid "See how Facebook ads target you"
@@ -1224,7 +1224,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:274
 msgid "SoundFixer"
-msgstr ""
+msgstr "SoundFixer"
 
 #: src/amo/components/HomeHeroBanner/index.js:275
 msgid "Adjust audio levels for sounds you encounter around web"
@@ -1232,7 +1232,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:281
 msgid "Lilo"
-msgstr ""
+msgstr "Lilo"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
 msgid "Fund social causes by simply using Lilo search"
@@ -1240,7 +1240,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Iridium for YouTube"
-msgstr ""
+msgstr "Iridium for YouTube"
 
 #: src/amo/components/HomeHeroBanner/index.js:32
 msgid "Play videos in a pop-out window, take video screenshots & more"
@@ -1248,7 +1248,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Private Bookmarks"
-msgstr ""
+msgstr "Private Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Password-protect your personal bookmarks"
@@ -1280,7 +1280,7 @@ msgstr "Oddělte různé části svého online já (pracovní, osobní a další
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Universal Bypass"
-msgstr ""
+msgstr "Universal Bypass"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Automatically skip annoying link shorteners"
@@ -1296,7 +1296,7 @@ msgstr "Máte spousty otevřených panelů? Mějte o nich přehled v úhledné p
 
 #: src/amo/components/HomeHeroBanner/index.js:78
 msgid "Imagus"
-msgstr ""
+msgstr "Imagus"
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Enlarge images by hovering your mouse over it"
@@ -1312,7 +1312,7 @@ msgstr "Ochraňte se před nepříjemnými sledovacími prvky"
 
 #: src/amo/components/HomeHeroBanner/index.js:92
 msgid "Default Bookmark Folder"
-msgstr ""
+msgstr "Default Bookmark Folder"
 
 #: src/amo/components/HomeHeroBanner/index.js:93
 msgid "Change the default destination for your bookmarks"
@@ -1320,15 +1320,15 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:99
 msgid "Textmarker"
-msgstr ""
+msgstr "Textmarker"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:258
 msgid "Stay Safe Online"
-msgstr ""
+msgstr "Zůstaňte v bezpečí"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:271
 msgid "Organize Tabs & Bookmarks"
-msgstr ""
+msgstr "Správa panelů a záložek"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:284
 msgid "Enhance Your Media Experience"
@@ -1989,7 +1989,7 @@ msgstr "Licenční smlouva s koncovým uživatelem doplňku %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:168
 msgid "Privacy policy for %(addonName)s"
-msgstr ""
+msgstr "Zásady ochrany osobních údajů pro doplněk %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:193
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -2017,7 +2017,7 @@ msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:225
 msgid "Show all reviews"
-msgstr ""
+msgstr "Zobrazit všechny recenze"
 
 #: src/amo/pages/AddonReviewList/index.js:269
 msgid "Reviews for %(addonName)s"
@@ -2036,11 +2036,11 @@ msgstr "Žádné recenze"
 
 #: src/amo/pages/CategoriesPage/index.js:46
 msgid "All extension categories"
-msgstr ""
+msgstr "Všechny kategorie rozšíření"
 
 #: src/amo/pages/CategoriesPage/index.js:48
 msgid "All theme categories"
-msgstr ""
+msgstr "Všechny kategorie vzhledu"
 
 #: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:299 src/amo/pages/LandingPage/index.js:143
 msgid "See more featured extensions"
@@ -2124,7 +2124,7 @@ msgstr "Mé sbírky"
 
 #: src/amo/pages/Guides/index.js:102
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "Jednoduché a účinné blokování reklam. uBlock Origin dokáže efektivně pracovat s tisíci pravidly pro rozpoznání reklamy bez velkých dopadů na rychlost vašeho počítače."
 
 #: src/amo/pages/Guides/index.js:106
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
@@ -2200,7 +2200,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:194
 msgid "Improve videos"
-msgstr ""
+msgstr "Vylepšení videí"
 
 #: src/amo/pages/Guides/index.js:195
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
@@ -2367,7 +2367,7 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:61
 msgid "Weather reports"
-msgstr ""
+msgstr "Informace o počasí"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2696,7 +2696,7 @@ msgstr "Profil uživatele %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
-msgstr ""
+msgstr "Uživatelský profil"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:635
 msgid "Location"
@@ -2882,11 +2882,11 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:238
 msgid "Enable"
-msgstr ""
+msgstr "Povolit"
 
 #: src/core/components/AMInstallButton/index.js:243
 msgid "Enabling"
-msgstr ""
+msgstr "Zapínání"
 
 #: src/core/components/AMInstallButton/index.js:245
 msgid "Downloading"
@@ -2926,11 +2926,11 @@ msgstr "Omlouváme se, ale na zadané adrese nemůžeme nic najít."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "Doplněk %(strongStart)s%(name)s%(strongEnd)s byl přidán"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Spravujte své doplňky klepnutím na Doplňky v nabídce Firefoxu."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -2958,46 +2958,46 @@ msgstr ""
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s a novější"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s ve verzích %(minVersion)s až %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Funguje s: %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Instalace selhala. Zkuste to prosím znovu."
 
 #: src/core/utils/addons.js:31
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Stahování selhalo. Zkontrolujte prosím své připojení."
 
 #: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during installation."
