@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-18 20:23+0000\n"
-"Last-Translator: YD <ygda+fx@free.fr>\n"
+"PO-Revision-Date: 2018-12-20 14:57+0000\n"
+"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -1230,11 +1230,11 @@ msgstr "Découvrez comment les publicités de Facebook vous ciblent"
 
 #: src/amo/components/HomeHeroBanner/index.js:274
 msgid "SoundFixer"
-msgstr ""
+msgstr "SoundFixer"
 
 #: src/amo/components/HomeHeroBanner/index.js:275
 msgid "Adjust audio levels for sounds you encounter around web"
-msgstr ""
+msgstr "Ajustez les niveaux audio pour les sons que vous rencontrez sur le Web"
 
 #: src/amo/components/HomeHeroBanner/index.js:281
 msgid "Lilo"
@@ -1498,7 +1498,7 @@ msgstr "Le nombre d’étoiles est enregistré"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Lire tous les avis cinq étoiles"
 
 #: src/amo/components/RatingsByStar/index.js:93
 msgid "Read all four-star reviews"
@@ -2212,6 +2212,8 @@ msgstr "Si vous aimez les contenus vidéo, des extensions vous permettent d’op
 #: src/amo/pages/Guides/index.js:200
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
 msgstr ""
+"Ajoutez une barre de contrôle à toutes les pages de YouTube afin de pouvoir facilement régler le volume, la vitesse de lecture, la taille du lecteur vidéo, le blocage des publicités et des "
+"annotations, etc."
 
 #: src/amo/pages/Guides/index.js:205
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
@@ -2224,12 +2226,16 @@ msgstr "Tirez le meilleur parti des médias"
 #: src/amo/pages/Guides/index.js:214
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
 msgstr ""
+"Les extensions peuvent répondre à une grande diversité de besoins et d’intérêts en matière de médias de niche, comme la recherche d’images, la gestion des téléchargements et les lecteurs de texte, "
+"pour ne citer que quelques-uns."
 
 #: src/amo/pages/Guides/index.js:219
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Avez-vous déjà découvert une image fascinante sur le Web et souhaitez-vous en savoir plus, comme savoir qui est la personne sur la photo ? Y a-t-il des images associées ? Cette extension vous permet"
+" d’effectuer rapidement et facilement des recherches d’images inversées avec divers moteurs."
 
 #: src/amo/pages/Guides/index.js:225
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
@@ -2241,7 +2247,7 @@ msgstr "Accédez aux médias directement dans le navigateur"
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "Les extensions peuvent transformer Firefox en votre propre centre de divertissement qui vous donnera un accès instantané à la musique, à la capture d’images, aux jeux, etc."
 
 #: src/amo/pages/Guides/index.js:239
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
@@ -2249,7 +2255,7 @@ msgstr "Accédez à plus de 30 000 stations de radio du monde entier, toujours 
 
 #: src/amo/pages/Guides/index.js:243
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
-msgstr ""
+msgstr "Choisissez parmi des centaines d’extensions pour les %(linkStart)sphotos, musiques et vidéos%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:259
 msgid ""
@@ -2264,6 +2270,8 @@ msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Est-ce que vous vous battez avec une meute d’onglets ouverts ou un nombre vertigineux de marque-pages ? Les extensions peuvent vous aider ! De l’assistance à l’organisation jusqu’aux nouvelles "
+"fonctionnalités amusantes, les extensions peuvent changer radicalement la façon dont vous gérez vos onglets et marque-pages."
 
 #: src/amo/pages/Guides/index.js:285
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
