@@ -189,7 +189,7 @@ describe(__filename, () => {
 
       const slug = 'stay-safe-online';
 
-      // TODO: figure out why only this one guid is working.
+      // TODO: figure out why only this one guid is working in the test.
       const guids = ['{446900e4-71c2-419f-a6a7-df9c091e268b}'];
 
       const errorHandler = createStubErrorHandler();
@@ -258,7 +258,7 @@ describe(__filename, () => {
       expect(root.find(GuidesAddonCard).at(0)).toHaveProp('addon', null);
       sinon.assert.calledWith(
         _log.error,
-        `There is an error with the addon's guid: ${guids[0]}`,
+        `There is an error with add-on guid: ${guids[0]}`,
       );
     });
 

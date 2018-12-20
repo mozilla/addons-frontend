@@ -360,13 +360,15 @@ export class GuidesBase extends React.Component<InternalProps> {
 
       let addon;
 
-      if (hasAddonsLoaded && addons[section.addonGuid] === null) {
-        addon = null;
-        _log.error(
-          `There is an error with the addon's guid: ${section.addonGuid}`,
-        );
-      } else {
-        addon = addons[section.addonGuid] || undefined;
+      if (hasAddonsLoaded) {
+        if (addons[section.addonGuid] === null) {
+          addon = null;
+          _log.error(
+            `There is an error with add-on guid: ${section.addonGuid}`,
+          );
+        } else {
+          addon = addons[section.addonGuid];
+        }
       }
 
       return (
