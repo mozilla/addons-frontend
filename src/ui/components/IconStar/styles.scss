@@ -1,0 +1,16 @@
+$icon-large: 64px;
+
+.Rating--large {
+  .IconStar {
+    width: 100%;
+    max-width: $icon-large;
+    max-height: $icon-large;
+  }
+}
+
+.Rating--small {
+  .IconStar {
+    width: 13px;
+    height: 19px;
+  }
+}
