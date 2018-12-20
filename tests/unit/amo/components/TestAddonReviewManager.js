@@ -15,6 +15,7 @@ import AddonReviewManager, {
   extractId,
 } from 'amo/components/AddonReviewManager';
 import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
+import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import Link from 'amo/components/Link';
 import { ErrorHandler } from 'core/errorHandler';
 import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
@@ -216,11 +217,10 @@ describe(__filename, () => {
 
     const root = render({ store });
 
-    const message = root.find('.AddonReviewManager-savedRating');
-    expect(message).toHaveText('Saving');
-    expect(message).not.toHaveClassName(
-      '.AddonReviewManager-savedRating-hidden',
-    );
+    const message = root.find(RatingManagerNotice);
+    expect(message).toHaveProp('message', 'Saving');
+    expect(message).toHaveProp('hideMessage', false);
+    expect(message).not.toHaveProp('type');
   });
 
   it('flashes a saved rating message', () => {
@@ -229,11 +229,10 @@ describe(__filename, () => {
 
     const root = render({ store });
 
-    const message = root.find('.AddonReviewManager-savedRating');
-    expect(message).toHaveText('Saved');
-    expect(message).not.toHaveClassName(
-      '.AddonReviewManager-savedRating-hidden',
-    );
+    const message = root.find(RatingManagerNotice);
+    expect(message).toHaveProp('message', 'Saved');
+    expect(message).toHaveProp('hideMessage', false);
+    expect(message).not.toHaveProp('type');
   });
 
   it('hides a flashed rating message', () => {
@@ -244,8 +243,8 @@ describe(__filename, () => {
 
     const root = render({ store });
 
-    const message = root.find('.AddonReviewManager-savedRating');
-    expect(message).toHaveClassName('.AddonReviewManager-savedRating-hidden');
+    const message = root.find(RatingManagerNotice);
+    expect(message).toHaveProp('hideMessage', true);
   });
 
   it('enters a submitting review state', () => {

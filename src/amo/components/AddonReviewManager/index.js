@@ -1,5 +1,4 @@
 /* @flow */
-import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -12,6 +11,7 @@ import {
 } from 'amo/actions/reviews';
 import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
 import Link from 'amo/components/Link';
+import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { normalizeFileNameId } from 'core/utils';
@@ -129,17 +129,18 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
               flashMessage === STARTED_SAVE_RATING ? undefined : review.score
             }
           >
-            <span
-              className={makeClassName('AddonReviewManager-savedRating', {
-                'AddonReviewManager-savedRating-hidden':
-                  flashMessage !== STARTED_SAVE_RATING &&
-                  flashMessage !== SAVED_RATING,
-              })}
-            >
-              {flashMessage === STARTED_SAVE_RATING
-                ? i18n.gettext('Saving')
-                : i18n.gettext('Saved')}
-            </span>
+            <RatingManagerNotice
+              className="AddonReviewManager-savedRating"
+              hideMessage={
+                flashMessage !== STARTED_SAVE_RATING &&
+                flashMessage !== SAVED_RATING
+              }
+              message={
+                flashMessage === STARTED_SAVE_RATING
+                  ? i18n.gettext('Saving')
+                  : i18n.gettext('Saved')
+              }
+            />
           </AddonReviewManagerRating>
         )}
         <DismissibleTextForm
