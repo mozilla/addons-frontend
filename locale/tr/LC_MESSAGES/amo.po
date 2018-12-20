@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-15 12:38+0000\n"
+"PO-Revision-Date: 2018-12-20 14:06+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -52,19 +52,16 @@ msgid "Content review add-on"
 msgstr "İçerik inceleme eklentisi"
 
 #: src/amo/components/AddonAdminLinks/index.js:121
-#, fuzzy
 msgid "Review theme"
-msgstr "İnceleme metni"
+msgstr "Temayı incele"
 
 #: src/amo/components/AddonAdminLinks/index.js:123
-#, fuzzy
 msgid "Review add-on code"
-msgstr "%(addonName)s incelemeleri"
+msgstr "Eklenti kodunu incele"
 
 #: src/amo/components/AddonAdminLinks/index.js:147
-#, fuzzy
 msgid "Admin Links"
-msgstr "Eklenti bağlantıları"
+msgstr "Yönetici bağlantıları"
 
 #: src/amo/components/AddonAdminLinks/index.js:77
 msgid "Edit add-on"
@@ -325,9 +322,8 @@ msgid "Delete reply"
 msgstr "Yanıtı sil"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
-#, fuzzy
 msgid "Delete rating"
-msgstr "İncelememi düzenle"
+msgstr "Puanı sil"
 
 #: src/amo/components/AddonReviewCard/index.js:212 src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
@@ -359,9 +355,8 @@ msgid "Keep reply"
 msgstr "Yanıtı sakla"
 
 #: src/amo/components/AddonReviewCard/index.js:259
-#, fuzzy
 msgid "Keep rating"
-msgstr "İncelememi düzenle"
+msgstr "Puanı koru"
 
 #: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep review"
@@ -410,9 +405,8 @@ msgid "Write a review"
 msgstr "İnceleme yazın"
 
 #: src/amo/components/AddonReviewManager/index.js:107
-#, fuzzy
 msgid "Write about your experience with this add-on."
-msgstr "Eklentiyle ilgili deneyiminizi bir arkadaşınıza anlatıyormuş gibi yazın."
+msgstr "Bu eklentiyle ilgili deneyimlerinizi yazın."
 
 #: src/amo/components/AddonReviewManager/index.js:111
 msgid "Submit review"
@@ -546,24 +540,20 @@ msgid "by"
 msgstr "geliştiren:"
 
 #: src/amo/components/App/index.js:217 src/amo/components/HeadMetaTags/index.js:77
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Firefox Eklentileri"
+msgstr "Firefox Eklentileri (%(locale)s)"
 
 #: src/amo/components/App/index.js:221 src/amo/components/HeadMetaTags/index.js:71
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – Firefox Eklentileri"
+msgstr "%(title)s – Firefox Eklentileri (%(locale)s)"
 
 #: src/amo/components/App/index.js:229 src/amo/components/HeadMetaTags/index.js:76
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Firefox Eklentileri"
+msgstr "Firefox Android Eklentileri (%(locale)s)"
 
 #: src/amo/components/App/index.js:233 src/amo/components/HeadMetaTags/index.js:70
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%s – Firefox Eklentileri"
+msgstr "%(title)s – Firefox Android Eklentileri (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:204
 msgid "Loading"
@@ -598,9 +588,8 @@ msgid "%(categoryName)s – Themes"
 msgstr "%(categoryName)s – Temalar"
 
 #: src/amo/components/CategoryHead/index.js:38
-#, fuzzy
 msgid "%(categoryName)s"
-msgstr "Kategoriler"
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
 msgid "Added to collection"
@@ -1343,26 +1332,23 @@ msgstr "Textmarker"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:258
 msgid "Stay Safe Online"
-msgstr ""
+msgstr "İnternette güvende kalın"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:271
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "Private Bookmarks"
+msgstr "Sekmeleri ve yer imlerini yönetin"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:284
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "Deneyiminize puan verin"
+msgstr "Medya deneyiminizi geliştirin"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
-#, fuzzy
 msgid "Extensions are like apps for your browser."
-msgstr "Eklentiler, tarayıcınızın içinde çalışan uygulamalar gibidir."
+msgstr "Eklentiler, tarayıcınızın içinde çalışan uygulamalardır."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "Daha hızlı, daha akıllı ve daha eğlenceli gezintiler için Firefox’a yeni özellikler kazandırırlar."
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
@@ -1516,7 +1502,7 @@ msgstr "Puan kaydedildi"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Tüm beş yıldızlı incelemeleri oku"
 
 #: src/amo/components/RatingsByStar/index.js:93
 #, fuzzy
@@ -1525,7 +1511,7 @@ msgstr "%(count)s incelemenin hepsini oku"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "Tüm üç yıldızlı incelemeleri oku"
 
 #: src/amo/components/RatingsByStar/index.js:95
 #, fuzzy
@@ -1987,7 +1973,7 @@ msgstr "%(addonVersion)s sürüm notları"
 
 #: src/amo/pages/Addon/index.js:447
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Bu listeleme herkese açık değildir. Ek izinleriniz nedeniyle bunu görebiliyorsunuz."
 
 #: src/amo/pages/Addon/index.js:475
 msgid "Extension Metadata"
@@ -1998,19 +1984,16 @@ msgid "Screenshots"
 msgstr "Ekran görüntüleri"
 
 #: src/amo/pages/AddonInfo/index.js:157
-#, fuzzy
 msgid "Custom License for %(addonName)s"
-msgstr "%(addonName)s incelemeleri"
+msgstr "%(addonName)s için özel lisans"
 
 #: src/amo/pages/AddonInfo/index.js:164
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Son Kullanıcı Lisans Anlaşması"
+msgstr "%(addonName)s Son Kullanıcı Lisans Anlaşması"
 
 #: src/amo/pages/AddonInfo/index.js:168
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "%(addonName)s incelemeleri"
+msgstr "%(addonName)s gizlilik ilkeleri"
 
 #: src/amo/pages/AddonReviewList/index.js:193
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -2037,9 +2020,8 @@ msgid "Only showing five-star reviews"
 msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:225
-#, fuzzy
 msgid "Show all reviews"
-msgstr "İncelemelerim"
+msgstr "Tüm incelemeleri göster"
 
 #: src/amo/pages/AddonReviewList/index.js:269
 msgid "Reviews for %(addonName)s"
@@ -2052,19 +2034,16 @@ msgstr[0] "Bu eklentinin %(total)s incelemesi var"
 msgstr[1] "Bu eklentinin %(total)s incelemesi var"
 
 #: src/amo/pages/AddonReviewList/index.js:370
-#, fuzzy
 msgid "No reviews"
 msgstr "İnceleme yok"
 
 #: src/amo/pages/CategoriesPage/index.js:46
-#, fuzzy
 msgid "All extension categories"
-msgstr "Bu kategorideki tüm eklentilere bak."
+msgstr "Tüm eklenti kategorileri"
 
 #: src/amo/pages/CategoriesPage/index.js:48
-#, fuzzy
 msgid "All theme categories"
-msgstr "Tüm kategorileri keşfet"
+msgstr "Tüm tema kategorileri"
 
 #: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:299 src/amo/pages/LandingPage/index.js:143
 msgid "See more featured extensions"
@@ -2148,7 +2127,7 @@ msgstr "Koleksiyonlarım"
 
 #: src/amo/pages/Guides/index.js:102
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "Hafif ve çok etkili bir reklam engelleyici. uBlock Origin, binlerce içerik filtresini çok fazla bellek tüketmeden işler."
 
 #: src/amo/pages/Guides/index.js:106
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
@@ -2172,7 +2151,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Reimagine tab management"
-msgstr ""
+msgstr "Sekme yönetimini baştan yaratın"
 
 #: src/amo/pages/Guides/index.js:136
 msgid ""
@@ -2215,9 +2194,8 @@ msgid "Start each browsing session tailored just for you by customizing your new
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:179
-#, fuzzy
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-msgstr "Özelleştirilebilir arka planlar, hava durumu ve daha fazlasıyla muhteşem bir yeni sekme sayfası"
+msgstr "Özelleştirilebilir arka planlar, hava durumu ve daha fazlasıyla muhteşem bir yeni sayfanın tadını çıkarın."
 
 #: src/amo/pages/Guides/index.js:183
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
@@ -2293,7 +2271,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:77
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "Güçlü parolalar oluşturup parolalarınızı yönetin"
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
@@ -2308,9 +2286,8 @@ msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:95
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "Reklamları engelleyin"
+msgstr "Can sıkıcı reklamları engelleyin"
 
 #: src/amo/pages/Guides/index.js:96
 msgid ""
@@ -2382,24 +2359,20 @@ msgid "See more popular extensions"
 msgstr "Diğer popüler eklentilere bakın"
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more news boosters"
-msgstr "Diğer Wikipedia güçlendiricilerine bakın"
+msgstr "Diğer haber geliştiricilere bakın"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "News boosters"
-msgstr "YouTube iyileştiricileri"
+msgstr "Haber iyileştiricileri"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more weather reports"
-msgstr "Öne çıkan diğer temalara bakın"
+msgstr "Diğer hava durumu eklentilerine bakın"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "Weather reports"
-msgstr "Suistimal raporu gönder"
+msgstr "Hava durumu"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2728,9 +2701,8 @@ msgid "User Profile for %(user)s"
 msgstr "%(user)s kullanıcı profili"
 
 #: src/amo/pages/UserProfile/index.js:338
-#, fuzzy
 msgid "User Profile"
-msgstr "Profili güncelle"
+msgstr "Kullanıcı profili"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:635
 msgid "Location"
@@ -2761,9 +2733,8 @@ msgid "Edit profile"
 msgstr "Profilimi düzenle"
 
 #: src/amo/pages/UserProfile/index.js:447
-#, fuzzy
 msgid "Admin user"
-msgstr "Eklenti bağlantıları"
+msgstr "Yönetici"
 
 #: src/amo/pages/UserProfileEdit/index.js:193
 msgid "Picture successfully deleted"
@@ -2910,12 +2881,11 @@ msgid "When you use this email address to log in again to addons.mozilla.org, yo
 msgstr "Bu e-posta adresini tekrar addons.mozilla.org adresine giriş yapmak için kullanırsanız, sildiğiniz profille hiçbir ilişkisi olmayan yeni bir Firefox Eklentileri profili oluşturulacaktır."
 
 #: src/amo/pages/UserProfileEdit/index.js:820
-#, fuzzy
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
-"%(strongStart)sNOT:%(strongEnd)s %(linkStart)sEklenti geliştiricisiyseniz%(linkEnd)s hesabınızı silemezsiniz. Hesabınızı silmeden önce %(docLinkStart)seklenti sahipliğini aktarmalı%(docLinkEnd)s "
+"%(strongStart)sNOT:%(strongEnd)s %(linkStart)sEklenti geliştiricisiyseniz%(linkEnd)s profilinizi silemezsiniz. Profilinizi silmeden önce %(docLinkStart)seklenti sahipliğini aktarmalı%(docLinkEnd)s "
 "veya eklentileri silmelisiniz."
 
 #: src/amo/pages/UserProfileEdit/index.js:827
@@ -3042,19 +3012,16 @@ msgid "Download failed. Please check your connection."
 msgstr "İndirme başarısız oldu. Lütfen bağlantınızı kontrol edin."
 
 #: src/core/utils/addons.js:33
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Beklenmeyen bir hata oluştu"
+msgstr "Yükleme sırasında beklenmeyen bir hata oluştu."
 
 #: src/core/utils/addons.js:35
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Beklenmeyen bir hata oluştu"
+msgstr "Kaldırma sırasında beklenmeyen bir hata oluştu."
 
 #: src/core/utils/addons.js:40
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Beklenmeyen bir hata oluştu"
+msgstr "Beklenmeyen bir hata oluştu."
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
