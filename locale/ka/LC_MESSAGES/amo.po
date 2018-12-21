@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-12 09:26+0000\n"
+"PO-Revision-Date: 2018-12-21 21:52+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1348,9 +1348,8 @@ msgid "Enhance Your Media Experience"
 msgstr "უკეთ გამოიყენეთ მედიაფაილები"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
-#, fuzzy
 msgid "Extensions are like apps for your browser."
-msgstr "გაფართოებები წარმოადგენს ერთგვარ პროგრამებს, თქვენი ბრაუზერისთვის."
+msgstr "გაფართოებები, ერთგვარი პროგრამებია ბრაუზერისთვის."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
@@ -1506,26 +1505,23 @@ msgstr "ვარსკვლავით შეფასება შენა�
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "ყველა ხუთვარსკვლავიანი მიმოხილვის წაკითხვა"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read all four-star reviews"
-msgstr "ყველა (%(count)s) მიმოხილვის ნახვა"
+msgstr "ყველა ოთხვარსკვლავიანი მიმოხილვის წაკითხვა"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "ყველა სამვარსკვლავიანი მიმოხილვის წაკითხვა"
 
 #: src/amo/components/RatingsByStar/index.js:95
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "პასუხი მიმოხილვაზე"
+msgstr "ყველა ორვარსკვლავიანი მიმოხილვის წაკითხვა"
 
 #: src/amo/components/RatingsByStar/index.js:96
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "ყველა (%(count)s) მიმოხილვის ნახვა"
+msgstr "ყველა ერთვარსკვლავიანი მიმოხილვის წაკითხვა"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -2009,7 +2005,7 @@ msgstr "მიმოხილვები და შეფასებები 
 
 #: src/amo/pages/AddonReviewList/index.js:209
 msgid "Only showing one-star reviews"
-msgstr ""
+msgstr "მხოლოდ ერთვარსკვლავიანი მიმოხილვების გამოჩენა"
 
 #: src/amo/pages/AddonReviewList/index.js:210
 msgid "Only showing two-star reviews"
