@@ -53,11 +53,6 @@ describe(__filename, () => {
     expect(star.find('path').html()).toContain(getSvgPath(OPEN_STYLE));
   });
 
-  it('passes an alt string to the Icon component', () => {
-    const star = shallow(<IconStar alt="icon info" />);
-
-    expect(star.find(Icon)).toHaveProp('alt', 'icon info');
-  });
   it('passes a className to the Icon component', () => {
     const star = shallow(<IconStar className="fabulous" />);
 

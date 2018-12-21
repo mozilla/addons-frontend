@@ -177,7 +177,10 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
             value={thisRating}
             {...props}
           >
-            <IconStar alt={title} isSelected={isSelected} />
+            <span id={id} className="visually-hidden">
+              {title}
+            </span>
+            <IconStar isSelected={isSelected} />
           </button>
         </React.Fragment>
       );
