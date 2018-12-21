@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-13 08:09+0000\n"
+"PO-Revision-Date: 2018-12-21 18:03+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1500,23 +1500,20 @@ msgid "Read all five-star reviews"
 msgstr ""
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read all four-star reviews"
-msgstr "Leger %(count)s revision"
+msgstr "Lege tote le revisiones a quatro stellas"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
 msgstr ""
 
 #: src/amo/components/RatingsByStar/index.js:95
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "Responder a iste revision"
+msgstr "Lege tote le revisiones a duo stellas"
 
 #: src/amo/components/RatingsByStar/index.js:96
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "Leger %(count)s revision"
+msgstr "Lege tote le revisiones a un stella"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -2015,9 +2012,8 @@ msgid "Only showing five-star reviews"
 msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:225
-#, fuzzy
 msgid "Show all reviews"
-msgstr "Mi revisiones"
+msgstr "Monstrar tote le revisiones"
 
 #: src/amo/pages/AddonReviewList/index.js:269
 msgid "Reviews for %(addonName)s"
@@ -2365,24 +2361,20 @@ msgid "See more popular extensions"
 msgstr "Vide altere extensiones popular"
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more news boosters"
-msgstr "Vide altere controlos parental"
+msgstr "Vider plus promotores de novas"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "News boosters"
-msgstr "Potentiar YouTube"
+msgstr "Promotores de novas"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more weather reports"
-msgstr "Vide plus de themas de autumno"
+msgstr "Vider plus de bulletines meteorologic"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "Weather reports"
-msgstr "Inviar reporto de abuso"
+msgstr "Bulletines meteorologic"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
