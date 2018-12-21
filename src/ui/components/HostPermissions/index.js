@@ -46,7 +46,7 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
 
     const paramNumber = parseInt(param, 10);
 
-    // These should be kept in sync with Firefox's strings for webextention
+    // These should be kept in sync with Firefox's strings for webextension
     // host permissions which can be found in
     // https://hg.mozilla.org/mozilla-central/raw-file/tip/browser/locales/en-US/chrome/browser/browser.properties
     switch (messageType) {
