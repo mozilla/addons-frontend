@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-21 22:04+0000\n"
+"PO-Revision-Date: 2018-12-21 22:44+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -950,7 +950,7 @@ msgstr "მხოლოდ Firefox-თან ერთად – გადმო
 
 #: src/amo/components/GuidesAddonCard/index.js:63
 msgid "Staff Pick"
-msgstr "თანამშრომლების მიერ შერჩეული"
+msgstr "ჩვენი თანამშრომლების მიერ შერჩეული"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:505
 msgid "View My Profile"
@@ -1343,7 +1343,7 @@ msgstr "დაალაგეთ ჩანართები და სანი
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:284
 msgid "Enhance Your Media Experience"
-msgstr "უკეთ გამოიყენეთ მედიაფაილები"
+msgstr "უკეთ იმუშავეთ ფაილებთან"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
@@ -1351,7 +1351,7 @@ msgstr "გაფართოებები, ერთგვარი პრო
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr "ისინი ამატებს Firefox-ს ახალ შესაძლებლობებს გვერდების უფრო სწრაფად და მოსახერხებლად მონახულებისთვის, ან უბრალოდ გასართობად."
+msgstr "რომლებიც ჰმატებს Firefox-ს ახალ შესაძლებლობებს გვერდების უფრო სწრაფად და მოხერხებულად მოსანახულებლად, ან უბრალოდ გასართობად."
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
@@ -2133,7 +2133,7 @@ msgstr "მსუბუქი და მძლავრი რეკლამე
 
 #: src/amo/pages/Guides/index.js:106
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
-msgstr "იხილეთ თანამშრომლების მიერ შერჩეული %(linkStart)sრეკლამების შეზღუდვის%(linkEnd)s სხვა საშუალებები."
+msgstr "იხილეთ ჩვენი თანამშრომლების მიერ შერჩეული %(linkStart)sრეკლამების შეზღუდვის%(linkEnd)s სხვა საშუალებები."
 
 #: src/amo/pages/Guides/index.js:114
 msgid "Stop online trackers from stalking you"
@@ -2151,7 +2151,7 @@ msgstr "გამიჯნეთ თქვენი Facebook-ვინაობ�
 
 #: src/amo/pages/Guides/index.js:124
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
-msgstr "იხილეთ თანამშრომლების მიერ შერჩეული %(linkStart)sპირადულობისა და უსაფთხოების%(linkEnd)s სხვა საშუალებები."
+msgstr "იხილეთ ჩვენი თანამშრომლების მიერ შერჩეული %(linkStart)sპირადულობისა და უსაფთხოების%(linkEnd)s სხვა საშუალებები."
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Reimagine tab management"
@@ -2171,7 +2171,7 @@ msgstr "დაალაგეთ და წარმოადგინეთ თ
 
 #: src/amo/pages/Guides/index.js:146
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-msgstr "იხილეთ თანამშრომლების მიერ შერჩეული %(linkStart)sჩანართების მართვის%(linkEnd)s სხვა საშუალებები."
+msgstr "იხილეთ ჩვენი თანამშრომლების მიერ შერჩეული %(linkStart)sჩანართების მართვის%(linkEnd)s სხვა საშუალებები."
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
@@ -2191,7 +2191,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:166
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
-msgstr "იხილეთ თანამშრომლების მიერ შერჩეული %(linkStart)sსანიშნების მართვის%(linkEnd)s სხვა საშუალებები."
+msgstr "იხილეთ ჩვენი თანამშრომლების მიერ შერჩეული %(linkStart)sსანიშნების მართვის%(linkEnd)s სხვა საშუალებები."
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
@@ -2207,7 +2207,7 @@ msgstr "ისიამოვნეთ მშვენიერი ახალ�
 
 #: src/amo/pages/Guides/index.js:183
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
-msgstr "იხილეთ თანამშრომლების მიერ შერჩეული %(linkStart)sჩანართების გაუმჯობესების სხვა სახალისო%(linkEnd)s საშუალებები."
+msgstr "იხილეთ ჩვენი თანამშრომლების მიერ შერჩეული %(linkStart)sჩანართების გაუმჯობესების სხვა სახალისო%(linkEnd)s საშუალებები."
 
 #: src/amo/pages/Guides/index.js:194
 msgid "Improve videos"
@@ -2223,11 +2223,11 @@ msgstr "დაამატეთ მართვის ზოლი ყველ
 
 #: src/amo/pages/Guides/index.js:205
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "იხილეთ თანამშრომლების მიერ შერჩეული სხვა %(linkStart)sსხვა გაფართოებები ვიდეოებისთვის%(linkEnd)s."
+msgstr "იხილეთ ჩვენი თანამშრომლების მიერ შერჩეული სხვა %(linkStart)sსხვა გაფართოებები ვიდეოებისთვის%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:213
 msgid "Get more out of media"
-msgstr "უკეთ გამოიყენეთ ფაილებით"
+msgstr "სრულყოფილად გამოიყენეთ ფაილები"
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
@@ -2243,7 +2243,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:225
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "იხილეთ თანამშრომლების მიერ შერჩეული სხვა %(linkStart)sგაფართოებები ფაილებისთვის%(linkEnd)s."
+msgstr "იხილეთ ჩვენი თანამშრომლების მიერ შერჩეული სხვა %(linkStart)sგაფართოებები ფაილებისთვის%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
@@ -2266,8 +2266,8 @@ msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
 msgstr ""
-"ინტერნეტი მშვენიერი, მაგრამ ამავდროულად საშიში ადგილია. თქვენი პირადი მონაცემები შეიძლება უნებართვოდ გამოიყენონ, დაუკითხავად აღრიცხონ ყველა თქვენი მოქმედება და მოიპარონ თქვენი პაროლები. საბედნიეროდ,"
-" გაფართოებებს შეუძლია დაიფაროს თქვენი პირადი და მნიშვნელოვანი ინფორმაცია ამ საფრთხეებისგან."
+"ინტერნეტი მშვენიერი, მაგრამ ამავდროულად სახიფათო ადგილია. თქვენი პირადი მონაცემები შეიძლება უნებართვოდ გამოიყენონ, დაუკითხავად აღრიცხონ ყველა თქვენი მოქმედება და მოიპარონ თქვენი პაროლები. "
+"საბედნიეროდ, გაფართოებებს შეუძლია დაიფაროს თქვენი პირადი და მნიშვნელოვანი ინფორმაცია ამ საფრთხეებისგან."
 
 #: src/amo/pages/Guides/index.js:272
 msgid ""
