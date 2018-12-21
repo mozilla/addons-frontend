@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-21 21:52+0000\n"
+"PO-Revision-Date: 2018-12-21 22:04+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -386,14 +386,12 @@ msgid "Publishing reply"
 msgstr "პასუხის ქვეყნდება"
 
 #: src/amo/components/AddonReviewCard/index.js:349
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "თარიღი: %(timestamp)s"
+msgstr "თარიღი %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:351
-#, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "ავტორი: %(authorName)s, %(timestamp)s"
+msgstr "ავტორი %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:413
 msgid "Deleting…"
@@ -1237,19 +1235,19 @@ msgstr "გაარკვიეთ, როგორ გაჩვენებთ
 
 #: src/amo/components/HomeHeroBanner/index.js:274
 msgid "SoundFixer"
-msgstr ""
+msgstr "SoundFixer"
 
 #: src/amo/components/HomeHeroBanner/index.js:275
 msgid "Adjust audio levels for sounds you encounter around web"
-msgstr ""
+msgstr "გამართეთ ხმის დონეები ინტერნეტით სარგებლობისას"
 
 #: src/amo/components/HomeHeroBanner/index.js:281
 msgid "Lilo"
-msgstr ""
+msgstr "Lilo"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
 msgid "Fund social causes by simply using Lilo search"
-msgstr ""
+msgstr "შეიტანეთ წვლილი სოციალურ მიზნებისთვის, უბრალოდ Lilo-ს საძიებოს გამოყენებით"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Iridium for YouTube"
@@ -2009,24 +2007,23 @@ msgstr "მხოლოდ ერთვარსკვლავიანი მ�
 
 #: src/amo/pages/AddonReviewList/index.js:210
 msgid "Only showing two-star reviews"
-msgstr ""
+msgstr "მხოლოდ ორვარსკვლავიანი მიმოხილვების გამოჩენა"
 
 #: src/amo/pages/AddonReviewList/index.js:211
 msgid "Only showing three-star reviews"
-msgstr ""
+msgstr "მხოლოდ სამვარსკვლავიანი მიმოხილვების გამოჩენა"
 
 #: src/amo/pages/AddonReviewList/index.js:212
 msgid "Only showing four-star reviews"
-msgstr ""
+msgstr "მხოლოდ ოთხვარსკვლავიანი მიმოხილვების გამოჩენა"
 
 #: src/amo/pages/AddonReviewList/index.js:213
 msgid "Only showing five-star reviews"
-msgstr ""
+msgstr "მხოლოდ ხუთვარსკვლავიანი მიმოხილვების გამოჩენა"
 
 #: src/amo/pages/AddonReviewList/index.js:225
-#, fuzzy
 msgid "Show all reviews"
-msgstr "მიმოხილვები"
+msgstr "ყველა მიმოხილვის ჩვენება"
 
 #: src/amo/pages/AddonReviewList/index.js:269
 msgid "Reviews for %(addonName)s"
@@ -2039,7 +2036,6 @@ msgstr[0] "%(total)s მიმოხილვა"
 msgstr[1] "%(total)s მიმოხილვა"
 
 #: src/amo/pages/AddonReviewList/index.js:370
-#, fuzzy
 msgid "No reviews"
 msgstr "მიმოხილვები არაა"
 
@@ -2158,7 +2154,6 @@ msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
 msgstr "იხილეთ თანამშრომლების მიერ შერჩეული %(linkStart)sპირადულობისა და უსაფთხოების%(linkEnd)s სხვა საშუალებები."
 
 #: src/amo/pages/Guides/index.js:135
-#, fuzzy
 msgid "Reimagine tab management"
 msgstr "ჩანართების მართვის ხელახლა წარმოდგენა"
 
@@ -2219,7 +2214,6 @@ msgid "Improve videos"
 msgstr "გააუმჯობესეთ ვიდეოები"
 
 #: src/amo/pages/Guides/index.js:195
-#, fuzzy
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
 msgstr "თუ გიყვართ ვიდეოების ყურება, გაფართოებებს შეუძლია უამრავი საშუალების შემოთავაზება YouTube-ის თქვენს გემოვნებაზე მოსარგებად, ვიდეოების თეატრის რეჟიმში გასაშვებად და ა.შ."
 
@@ -2381,24 +2375,20 @@ msgid "See more popular extensions"
 msgstr "სხვა სასურველი გაფართოებები"
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more news boosters"
-msgstr "იხილეთ ვიკიპედიასთან სამუშაო საშულებები"
+msgstr "იხილეთ ახალი ამბების გაცნობის სხვა საშუალებები"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "News boosters"
-msgstr "YouTube-ის ხელსაწყოები"
+msgstr "ახალი ამბების გაცნობის ხელსაწყოები"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more weather reports"
-msgstr "სხვა თემები შემოდგომისთვის"
+msgstr "მოსალოდნელი ამინდის მონაცემების გაცნობის სხვა ხელსაწყოები"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "Weather reports"
-msgstr "დარღვევის შესახებ მოხსენების გაგზავნა"
+msgstr "მოსალოდნელი ამინდი"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -3031,17 +3021,17 @@ msgstr "%(localizedSize)s ტბაიტი"
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s და უფრო ახალი"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s – %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "იმუშავებს ვერსიასთან %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
