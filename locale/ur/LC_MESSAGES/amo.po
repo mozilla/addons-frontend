@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-17 03:22+0000\n"
-"Last-Translator: عمر <um.qshi@gmail.com>\n"
+"PO-Revision-Date: 2018-12-22 07:12+0000\n"
+"Last-Translator: Tanzeel Khan <tanzeelkhan94@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
 "MIME-Version: 1.0\n"
@@ -44,39 +44,32 @@ msgid "Add to collection"
 msgstr "مجموعہ میں شامل کریں"
 
 #: src/amo/components/AddonAdminLinks/index.js:102
-#, fuzzy
 msgid "Admin add-on"
-msgstr "اضافہ جات تلاش کری٘ں"
+msgstr "ایڈمن ایڈ-اون"
 
 #: src/amo/components/AddonAdminLinks/index.js:114
-#, fuzzy
 msgid "Content review add-on"
-msgstr "اس ایڈ -اون کے لیئے لائسنس معاہدہ پڑھیں"
+msgstr "اس ایڈ -اون کے مواد کا جائزہ لیں"
 
 #: src/amo/components/AddonAdminLinks/index.js:121
-#, fuzzy
 msgid "Review theme"
-msgstr "متن کا جائزہ لیں"
+msgstr "تھیم کا جائزہ لیں"
 
 #: src/amo/components/AddonAdminLinks/index.js:123
-#, fuzzy
 msgid "Review add-on code"
-msgstr "%(addonName)s کے لئے جائزے"
+msgstr "ایڈ -اون کوڈ کا جائزہ لیں"
 
 #: src/amo/components/AddonAdminLinks/index.js:147
-#, fuzzy
 msgid "Admin Links"
-msgstr "ایڈ-اون ربظ"
+msgstr "ایڈمن روابت"
 
 #: src/amo/components/AddonAdminLinks/index.js:77
-#, fuzzy
 msgid "Edit add-on"
-msgstr "اضافہ جات تلاش کری٘ں"
+msgstr "ایڈ-اون ترمیم کریں"
 
 #: src/amo/components/AddonAdminLinks/index.js:89
-#, fuzzy
 msgid "Admin add-on status"
-msgstr "ایڈ-اونز لوڈ کر رہا ہے"
+msgstr "ایڈمن ایڈ-اون حالت"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
