@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-22 07:12+0000\n"
+"PO-Revision-Date: 2018-12-22 07:14+0000\n"
 "Last-Translator: Tanzeel Khan <tanzeelkhan94@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -100,9 +100,8 @@ msgid "Some features may require payment"
 msgstr "کچھ خصوصیات کےلیے ادائیگی کی ضرورت ہوسکتی ہے"
 
 #: src/amo/components/AddonCompatibilityError/index.js:102
-#, fuzzy
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr "یہ Firefox ورژن پلگ ان تلاش کرنے کی حمایت نہیں کرتا۔"
+msgstr "Firefox کا یہ ورژن اس ایڈ-اون کی حمایت نہیں کرتا کیونکہ اس کو دوبارہ شروع کرنے کی ضرورت ہے۔"
 
 #: src/amo/components/AddonCompatibilityError/index.js:105
 msgid "Firefox for iOS does not currently support add-ons."
