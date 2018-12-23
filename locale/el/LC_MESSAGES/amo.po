@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-23 14:29+0000\n"
+"PO-Revision-Date: 2018-12-23 14:53+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -921,7 +921,7 @@ msgstr "Κέντρο προγραμματιστών"
 
 #: src/amo/components/Footer/index.js:63
 msgid "Developer Policies"
-msgstr "Πολιτικές προγραμματιστή"
+msgstr "Πολιτικές προγραμματιστών"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Forum"
@@ -2519,6 +2519,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"Τα πρόσθετα που βρίσκονται εδώ δημιουργούνται από χιλιάδες προγραμματιστές και σχεδιαστές θεμάτων από όλο τον κόσμο, από άτομα που εξασκούν το χόμπι τους μέχρι μεγάλες εταιρείες. Μερικά πρόσθετα στο"
+" AMO έχουν δημοσιευθεί αυτόματα και ενδέχεται να αξιολογηθούν από μια ομάδα συντακτών αφού γίνουν δημόσια."
 
 #: src/amo/pages/StaticPages/About/index.js:80
 msgid "Get involved"
@@ -2529,6 +2531,8 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Η Mozilla είναι ένας μη κερδοσκοπικός οργανισμός-πρωταθλητής του διαδικτύου. Αναπτύσσουμε το Firefox για να βοηθήσουμε να παραμείνει υγιές, ανοικτό και προσιτό το διαδίκτυο. Τα πρόσθετα υποστηρίζουν"
+" τις επιλογές του χρήστη και την εξατομίκευση στο Firefox, ενώ μπορείτε κι εσείς να συνεισφέρετε με τους εξής τρόπους:"
 
 #: src/amo/pages/StaticPages/About/index.js:92
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -2560,6 +2564,8 @@ msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Κριτικάρετε ένα πρόσθετο για κάτι που προορίζεται να κάνει. Για παράδειγμα, μην αφήνετε αρνητική κριτική για ένα πρόσθετο που εμφανίζει διαφημίσεις ή απαιτεί συλλογή δεδομένων, όταν αυτός είναι ο "
+"σκοπός του προσθέτου, ή όταν το πρόσθετο απαιτεί συλλογή δεδομένων για να λειτουργήσει."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:134
 msgid "Frequently Asked Questions about Reviews"
@@ -2574,6 +2580,8 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Παρακαλούμε αναφέρετε ή επισημάνετε οποιαδήποτε αμφισβητήσιμη κριτική, κάνοντας κλικ στο \"Αναφορά αυτής της κριτικής\" και θα υποβληθεί στην ιστοσελίδα για έλεγχο. Η ομάδα μας θα χρησιμοποιήσει "
+"τους Κανόνες Κριτικής για να αποφανθούν αν θα διαγραφεί ή θα ανακτηθεί η κριτική."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:145
 msgid "I'm an add-on author, can I respond to reviews?"
