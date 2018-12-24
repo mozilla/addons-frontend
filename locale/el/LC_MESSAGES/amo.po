@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-24 20:19+0000\n"
+"PO-Revision-Date: 2018-12-24 21:30+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1139,7 +1139,7 @@ msgstr "Push to Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Send any Web page to your Kindle device"
-msgstr ""
+msgstr "Στείλτε οποιαδήποτε ιστοσελίδα στην Kindle συσκευή σας"
 
 #: src/amo/components/HomeHeroBanner/index.js:221
 msgid "New Tab Homepage"
@@ -1219,7 +1219,7 @@ msgstr "Ad Analysis for Facebook"
 
 #: src/amo/components/HomeHeroBanner/index.js:270
 msgid "See how Facebook ads target you"
-msgstr ""
+msgstr "Δείτε πώς σάς στοχεύουν οι διαφημίσεις του Facebook"
 
 #: src/amo/components/HomeHeroBanner/index.js:274
 msgid "SoundFixer"
@@ -2339,6 +2339,8 @@ msgstr "Αλλάξτε τον τρόπο εμφάνισης του Firefox με 
 #: src/amo/pages/Home/index.js:262
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
 msgstr ""
+"Κάντε λήψη επεκτάσεων και θεμάτων του Firefox. Είναι σαν εφαρμογές για το πρόγραμμα περιήγησής σας. Μπορούν να αποκλείουν ενοχλητικές διαφημίσεις, να προστατεύουν κωδικούς πρόσβασης, να αλλάξουν την"
+" εμφάνιση του προγράμματος περιήγησης και πολλά άλλα."
 
 #: src/amo/pages/Home/index.js:340
 msgid "See more popular extensions"
@@ -2362,7 +2364,7 @@ msgstr "Αναφορές καιρού"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Κάντε λήψη θεμάτων για να αλλάξετε την εμφάνιση του Firefox. Παραμετροποιήστε την εμπειρία σας στα γούστα σας. Χαριτωμένα ζώα, κακά ρομπότ, όμορφα τοπία—χιλιάδες επιλογές."
 
 #: src/amo/pages/LandingPage/index.js:213
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
