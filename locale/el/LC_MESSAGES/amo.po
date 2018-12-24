@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-24 20:13+0000\n"
+"PO-Revision-Date: 2018-12-24 20:19+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1115,7 +1115,7 @@ msgstr "Official Media Bias Fact Check Icon"
 
 #: src/amo/components/HomeHeroBanner/index.js:198
 msgid "Indicates the political bias of news sites with a tidy icon"
-msgstr ""
+msgstr "Υποδεικνύει την πολιτική μεροληψία των ειδησεογραφικών ιστοσελίδων με ένα μικρό εικονίδιο"
 
 #: src/amo/components/HomeHeroBanner/index.js:204
 msgid "Vertical Tabs Reloaded"
@@ -1183,7 +1183,7 @@ msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:246
 msgid "Automatically delete unwanted cookies"
-msgstr ""
+msgstr "Αυτόματη διαγραφή ανεπιθύμητων cookies"
 
 #: src/amo/components/HomeHeroBanner/index.js:25
 msgid "Prevent Facebook from tracking you around the web"
@@ -1211,7 +1211,7 @@ msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:265
 msgid "Never lose a page again"
-msgstr ""
+msgstr "Για να μην χάσετε ποτέ ξανά καμία σελίδα"
 
 #: src/amo/components/HomeHeroBanner/index.js:269
 msgid "Ad Analysis for Facebook"
@@ -2155,7 +2155,7 @@ msgstr "Εξερευνήστε περισσότερες προτάσεις μα�
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Καλύτερη περιήγηση με βελτιωμένους σελιδοδείκτες"
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
@@ -2173,7 +2173,7 @@ msgstr "Εξερευνήστε περισσότερες προτάσεις μα�
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Απολαύστε μια \"φρέσκια\" εμπειρία νέας καρτέλας"
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
