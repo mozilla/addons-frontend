@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-23 17:17+0000\n"
+"PO-Revision-Date: 2018-12-24 20:13+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -48,9 +48,8 @@ msgid "Admin add-on"
 msgstr "Πρόσθετο διαχειριστή"
 
 #: src/amo/components/AddonAdminLinks/index.js:114
-#, fuzzy
 msgid "Content review add-on"
-msgstr "κάποιος γράφει μια κριτική για το πρόσθετό μου"
+msgstr "Πρόσθετο κριτικής περιεχομένου"
 
 #: src/amo/components/AddonAdminLinks/index.js:121
 msgid "Review theme"
@@ -69,9 +68,8 @@ msgid "Edit add-on"
 msgstr "Επεξεργασία προσθέτου"
 
 #: src/amo/components/AddonAdminLinks/index.js:89
-#, fuzzy
 msgid "Admin add-on status"
-msgstr "Φόρτωση προσθέτων"
+msgstr "Κατάσταση προσθέτου διαχειριστή"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
@@ -132,17 +130,17 @@ msgstr "Η έκδοση του Firefox σας δεν υποστηρίζει αρ
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Λάβετε αυτή την επέκταση για το 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:105
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Λάβετε αυτό το πακέτο γλώσσας για το 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:111
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Λάβετε αυτό το θέμα για το 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:116
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
@@ -151,7 +149,7 @@ msgstr "%(addonName)s – Λάβετε αυτό το εργαλείο αναζή
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:121
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Λάβετε αυτό το πρόσθετο για το 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:135
 msgid "Download %(addonName)s for Firefox. %(summary)s"
@@ -170,14 +168,12 @@ msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(loca
 msgstr "%(addonName)s – Λάβετε αυτό το πακέτο γλώσσας για το 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:77
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Λάβετε αυτό το εργαλείο αναζήτησης για το 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Λάβετε αυτό το θέμα για το 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:83
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Λάβετε αυτό το εργαλείο αναζήτησης για το 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Λάβετε αυτό το εργαλείο αναζήτησης για το 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:88
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
@@ -186,7 +182,7 @@ msgstr "%(addonName)s – Λάβετε αυτό το πρόσθετο για τ�
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:95
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Λάβετε αυτό το λεξικό για το 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:115
 msgid "%(total)s Star"
@@ -380,14 +376,12 @@ msgid "Publishing reply"
 msgstr "Γίνεται δημοσίευση της απάντησης"
 
 #: src/amo/components/AddonReviewCard/index.js:349
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "δημοσιεύτηκε στις %(timestamp)s"
+msgstr "δημοσιεύτηκε στις %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:351
-#, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "από %(authorName)s, %(timestamp)s"
+msgstr "από %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:413
 msgid "Deleting…"
@@ -544,14 +538,12 @@ msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Πρόσθετα για το Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:229 src/amo/components/HeadMetaTags/index.js:76
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Πρόσθετα για το Firefox (%(locale)s)"
+msgstr "Πρόσθετα για το Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:233 src/amo/components/HeadMetaTags/index.js:70
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%(title)s – Πρόσθετα για το Firefox (%(locale)s)"
+msgstr "%(title)s – Πρόσθετα για το Firefox Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:204
 msgid "Loading"
@@ -1119,7 +1111,7 @@ msgstr "Αφαίρεση μορφοποίησης κατά την αποθήκε
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Official Media Bias Fact Check Icon"
-msgstr ""
+msgstr "Official Media Bias Fact Check Icon"
 
 #: src/amo/components/HomeHeroBanner/index.js:198
 msgid "Indicates the political bias of news sites with a tidy icon"
@@ -1131,7 +1123,7 @@ msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Arrange tabs in a vertical fashion"
-msgstr ""
+msgstr "Κάθετη διάταξη των καρτελών σας"
 
 #: src/amo/components/HomeHeroBanner/index.js:209
 msgid "Search Site"
@@ -1139,7 +1131,7 @@ msgstr "Αναζήτηση"
 
 #: src/amo/components/HomeHeroBanner/index.js:210
 msgid "Search within just the domain you’re visiting"
-msgstr ""
+msgstr "Αναζήτηση μόνο μέσα στον τομέα που επισκέπτεστε"
 
 #: src/amo/components/HomeHeroBanner/index.js:216
 msgid "Push to Kindle"
@@ -1155,7 +1147,7 @@ msgstr "Αρχική σελίδα νέας καρτέλας"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "Designate a custom home page for your new tabs"
-msgstr ""
+msgstr "Ορίστε μια προσαρμοσμένη αρχική σελίδα για τις νέες σας καρτέλες"
 
 #: src/amo/components/HomeHeroBanner/index.js:228
 msgid "OneNote Web Clipper"
@@ -1163,7 +1155,7 @@ msgstr "OneNote Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:229
 msgid "Save, annotate & organize web content"
-msgstr ""
+msgstr "Αποθηκεύστε, σχολιάστε & οργανώστε περιεχόμενο ιστού"
 
 #: src/amo/components/HomeHeroBanner/index.js:233
 msgid "FoxyGestures"
@@ -1171,7 +1163,7 @@ msgstr "FoxyGestures"
 
 #: src/amo/components/HomeHeroBanner/index.js:234
 msgid "Customized mouse gestures"
-msgstr ""
+msgstr "Προσαρμοσμένες χειρονομίες ποντικιού"
 
 #: src/amo/components/HomeHeroBanner/index.js:238
 msgid "Dark Reader"
@@ -1478,14 +1470,12 @@ msgid "Log in to rate this add-on"
 msgstr "Συνδεθείτε για βαθμολόγηση αυτού του προσθέτου"
 
 #: src/amo/components/RatingManager/index.js:173
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Θέλετε σίγουρα να διαγράψετε αυτή την κριτική;"
+msgstr "Θέλετε σίγουρα να διαγράψετε την κριτική σας για το %(addonName)s;"
 
 #: src/amo/components/RatingManager/index.js:178
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "Θέλετε σίγουρα να διαγράψετε αυτή τη βαθμολογία;"
+msgstr "Θέλετε σίγουρα να διαγράψετε τη βαθμολογία σας για το %(addonName)s;"
 
 #: src/amo/components/RatingManager/index.js:183
 msgid "How are you enjoying %(addonName)s?"
@@ -1501,26 +1491,23 @@ msgstr "Η βαθμολογία αστεριών αποθηκεύτηκε"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Ανάγνωση όλων των κριτικών πέντε αστέρων"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read all four-star reviews"
-msgstr "Ανάγνωση %(count)s κριτικής"
+msgstr "Ανάγνωση όλων των κριτικών τεσσάρων αστέρων"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "Ανάγνωση όλων των κριτικών τριών αστέρων"
 
 #: src/amo/components/RatingsByStar/index.js:95
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "Απάντηση στην κριτική"
+msgstr "Ανάγνωση όλων των κριτικών δύο αστέρων"
 
 #: src/amo/components/RatingsByStar/index.js:96
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "Ανάγνωση %(count)s κριτικής"
+msgstr "Ανάγνωση όλων των κριτικών ενός αστεριού"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -1983,19 +1970,16 @@ msgid "Screenshots"
 msgstr "Στιγμιότυπα"
 
 #: src/amo/pages/AddonInfo/index.js:157
-#, fuzzy
 msgid "Custom License for %(addonName)s"
-msgstr "Κριτικές για το %(addonName)s"
+msgstr "Προσαρμοσμένη άδεια για το %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:164
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Συμφωνία άδειας τελικού χρήστη"
+msgstr "Συμφωνία άδειας τελικού χρήστη για το %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:168
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "Κριτικές για το %(addonName)s"
+msgstr "Πολιτική απορρήτου για το %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:193
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -2003,28 +1987,27 @@ msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:209
 msgid "Only showing one-star reviews"
-msgstr ""
+msgstr "Εμφανίζονται μόνο οι κριτικές ενός αστεριού"
 
 #: src/amo/pages/AddonReviewList/index.js:210
 msgid "Only showing two-star reviews"
-msgstr ""
+msgstr "Εμφανίζονται μόνο οι κριτικές δύο αστέρων"
 
 #: src/amo/pages/AddonReviewList/index.js:211
 msgid "Only showing three-star reviews"
-msgstr ""
+msgstr "Εμφανίζονται μόνο οι κριτικές τριών αστέρων"
 
 #: src/amo/pages/AddonReviewList/index.js:212
 msgid "Only showing four-star reviews"
-msgstr ""
+msgstr "Εμφανίζονται μόνο οι κριτικές τεσσάρων αστέρων"
 
 #: src/amo/pages/AddonReviewList/index.js:213
 msgid "Only showing five-star reviews"
-msgstr ""
+msgstr "Εμφανίζονται μόνο οι κριτικές πέντε αστέρων"
 
 #: src/amo/pages/AddonReviewList/index.js:225
-#, fuzzy
 msgid "Show all reviews"
-msgstr "Οι αξιολογήσεις μου"
+msgstr "Εμφάνιση όλων των κριτικών"
 
 #: src/amo/pages/AddonReviewList/index.js:269
 msgid "Reviews for %(addonName)s"
@@ -2197,9 +2180,8 @@ msgid "Start each browsing session tailored just for you by customizing your new
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:179
-#, fuzzy
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-msgstr "Απολαύστε μια υπέροχη σελίδα νέας καρτέλας με προσαρμόσιμο φόντο, τοπικό καιρό & πολλά άλλα"
+msgstr "Απολαύστε μια όμορφη, νέα σελίδα με προσαρμόσιμα φόντα, πληροφορίες τοπικού καιρού και πολλά άλλα."
 
 #: src/amo/pages/Guides/index.js:183
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
@@ -2290,9 +2272,8 @@ msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr "Εξερευνήστε περισσότερες προτάσεις μας για %(linkStart)sδιαχείριση κωδικών πρόσβασης%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:95
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "Αποκλεισμός διαφημίσεων"
+msgstr "Φραγή ενοχλητικών διαφημίσεων"
 
 #: src/amo/pages/Guides/index.js:96
 msgid ""
@@ -2744,9 +2725,8 @@ msgid "Edit profile"
 msgstr "Επεξεργασία προφίλ"
 
 #: src/amo/pages/UserProfile/index.js:447
-#, fuzzy
 msgid "Admin user"
-msgstr "Σύνδεσμοι διαχειριστή"
+msgstr "Χρήστης-διαχειριστής"
 
 #: src/amo/pages/UserProfileEdit/index.js:193
 msgid "Picture successfully deleted"
