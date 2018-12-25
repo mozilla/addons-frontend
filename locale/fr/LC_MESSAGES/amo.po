@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-20 14:57+0000\n"
+"PO-Revision-Date: 2018-12-25 17:04+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -2275,7 +2275,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:285
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "Les extensions peuvent améliorer votre usage des médias en ligne de toutes sortes de façons intéressantes, que ce soit pour regarder des vidéos, gérer des images et de la musique, etc."
 
 #: src/amo/pages/Guides/index.js:77
 msgid "Create and manage strong passwords"
@@ -2303,6 +2303,8 @@ msgstr "Bloquez les publicités envahissantes"
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
+"Aujourd’hui, le Web est parasité par des publicités indésirables qui vous gênent et vous ralentissent. Certaines extensions peuvent bloquer ou filtrer ces publicités pour vous permettre de revenir à"
+" une navigation sans distraction."
 
 #: src/amo/pages/Home/index.js:119
 msgid "Bookmarks"
@@ -3022,12 +3024,12 @@ msgstr "%(localizedSize)s To"
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s et versions supérieures"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s à %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
