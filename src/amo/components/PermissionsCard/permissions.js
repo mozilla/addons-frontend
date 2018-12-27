@@ -24,7 +24,7 @@ export class PermissionUtils {
 
   constructor(i18n: I18nType) {
     this.i18n = i18n;
-    // These should be kept in sync with Firefox's strings for webextention permissions
+    // These should be kept in sync with Firefox's strings for webextension permissions
     // which can be found in
     // https://hg.mozilla.org/mozilla-central/raw-file/tip/browser/locales/en-US/chrome/browser/browser.properties
     this.permissionStrings = {
