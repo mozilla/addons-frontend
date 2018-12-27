@@ -1177,7 +1177,7 @@ describe(__filename, () => {
     const detail = createFakeCollectionDetail({
       authorId: authorUserId,
       // This will simulate only 1 item on the 2nd page.
-      count: DEFAULT_API_PAGE_SIZE + 1,
+      count: Number(DEFAULT_API_PAGE_SIZE) + 1,
     });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');

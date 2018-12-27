@@ -45,7 +45,7 @@ export type FetchAddonsByAuthorsParams = {|
   errorHandlerId: string,
   forAddonSlug?: string,
   page?: string,
-  pageSize: number,
+  pageSize: string,
   sort?: string,
 |};
 
@@ -91,7 +91,7 @@ type LoadAddonsByAuthorsParams = {|
   authorIds: Array<number>,
   count: number,
   forAddonSlug?: string,
-  pageSize: number,
+  pageSize: string,
 |};
 
 type LoadAddonsByAuthorsAction = {|
@@ -276,7 +276,9 @@ const reducer = (
       if (forAddonSlug) {
         newState.byAddonSlug = {
           ...newState.byAddonSlug,
-          [forAddonSlug]: addons.slice(0, pageSize).map((addon) => addon.id),
+          [forAddonSlug]: addons
+            .slice(0, Number(pageSize))
+            .map((addon) => addon.id),
         };
       }
 

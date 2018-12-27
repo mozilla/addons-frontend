@@ -95,7 +95,7 @@ describe(__filename, () => {
   it('renders placeholders when loading addons', () => {
     const root = render({ addons: null, loading: true });
     const results = root.find(SearchResult);
-    expect(results).toHaveLength(DEFAULT_API_PAGE_SIZE);
+    expect(results).toHaveLength(Number(DEFAULT_API_PAGE_SIZE));
     // Do a quick check to make sure these are rendered as placeholders.
     expect(results.at(0)).not.toHaveProp('addon');
   });

@@ -64,11 +64,11 @@ describe(__filename, () => {
     it.each([
       {
         addonType: ADDON_TYPE_EXTENSION,
-        pageSize: LANDING_PAGE_EXTENSION_COUNT,
+        pageSize: LANDING_PAGE_EXTENSION_COUNT.toString(),
       },
       {
         addonType: ADDON_TYPE_THEME,
-        pageSize: LANDING_PAGE_THEME_COUNT,
+        pageSize: LANDING_PAGE_THEME_COUNT.toString(),
       },
     ])(
       `fetches landing page addons from the API for %o`,
@@ -175,7 +175,7 @@ describe(__filename, () => {
       const baseFilters = {
         addonType,
         category,
-        page_size: LANDING_PAGE_EXTENSION_COUNT,
+        page_size: LANDING_PAGE_EXTENSION_COUNT.toString(),
       };
 
       const featured = createAddonsApiResult([
@@ -245,7 +245,7 @@ describe(__filename, () => {
       const baseArgs = { api: apiState };
       const baseFilters = {
         addonType,
-        page_size: LANDING_PAGE_EXTENSION_COUNT,
+        page_size: LANDING_PAGE_EXTENSION_COUNT.toString(),
       };
 
       const featured = createAddonsApiResult([

@@ -65,7 +65,7 @@ export function* fetchHomeAddons({
 
   const featuredSearchFilters = {
     featured: true,
-    page_size: LANDING_PAGE_EXTENSION_COUNT,
+    page_size: LANDING_PAGE_EXTENSION_COUNT.toString(),
     sort: SEARCH_SORT_RANDOM,
   };
   const featuredExtensionsParams: SearchParams = {
@@ -80,14 +80,14 @@ export function* fetchHomeAddons({
     filters: {
       addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
       ...featuredSearchFilters,
-      page_size: LANDING_PAGE_THEME_COUNT,
+      page_size: LANDING_PAGE_THEME_COUNT.toString(),
     },
   };
   const popularExtensionsParams: SearchParams = {
     api: state.api,
     filters: {
       addonType: ADDON_TYPE_EXTENSION,
-      page_size: LANDING_PAGE_EXTENSION_COUNT,
+      page_size: LANDING_PAGE_EXTENSION_COUNT.toString(),
       sort: SEARCH_SORT_POPULAR,
     },
   };
@@ -95,7 +95,7 @@ export function* fetchHomeAddons({
     api: state.api,
     filters: {
       addonType: ADDON_TYPE_EXTENSION,
-      page_size: LANDING_PAGE_EXTENSION_COUNT,
+      page_size: LANDING_PAGE_EXTENSION_COUNT.toString(),
       sort: SEARCH_SORT_TRENDING,
     },
   };

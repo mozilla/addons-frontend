@@ -30,8 +30,8 @@ export function* fetchLandingAddons({
     let filters = {
       addonType: getAddonTypeFilter(addonType),
       page_size: isTheme(addonType)
-        ? LANDING_PAGE_THEME_COUNT
-        : LANDING_PAGE_EXTENSION_COUNT,
+        ? LANDING_PAGE_THEME_COUNT.toString()
+        : LANDING_PAGE_EXTENSION_COUNT.toString(),
     };
 
     if (category) {

@@ -47,7 +47,7 @@ export default class AddonsCard extends React.Component<Props> {
   static defaultProps = {
     editing: false,
     loading: false,
-    placeholderCount: DEFAULT_API_PAGE_SIZE,
+    placeholderCount: Number(DEFAULT_API_PAGE_SIZE),
   };
 
   render() {

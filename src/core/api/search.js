@@ -19,7 +19,7 @@ export type SearchFilters = {|
   guid?: string,
   operatingSystem?: string,
   page?: string,
-  page_size?: number,
+  page_size?: string,
   query?: string,
   sort?: string,
 |};

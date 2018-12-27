@@ -140,7 +140,7 @@ export type GetReviewsParams = {|
   apiState: ApiState,
   filter?: string,
   page?: string,
-  page_size?: number,
+  page_size?: string,
   score?: string,
   show_grouped_ratings?: boolean,
   show_permissions_for?: number,

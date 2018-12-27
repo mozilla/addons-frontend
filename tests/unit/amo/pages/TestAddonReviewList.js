@@ -93,7 +93,7 @@ describe(__filename, () => {
   } = {}) => {
     const action = setAddonReviews({
       addonSlug: addon.slug,
-      pageSize: DEFAULT_API_PAGE_SIZE,
+      pageSize: Number(DEFAULT_API_PAGE_SIZE),
       reviewCount: reviews.length,
       reviews,
     });
@@ -174,7 +174,7 @@ describe(__filename, () => {
         ...fakeAddon,
         ratings: {
           ...fakeAddon.ratings,
-          count: DEFAULT_API_PAGE_SIZE + 1,
+          count: Number(DEFAULT_API_PAGE_SIZE) + 1,
         },
       };
 
@@ -182,7 +182,9 @@ describe(__filename, () => {
 
       const root = render();
 
-      expect(root.find(AddonReviewCard)).toHaveLength(DEFAULT_API_PAGE_SIZE);
+      expect(root.find(AddonReviewCard)).toHaveLength(
+        Number(DEFAULT_API_PAGE_SIZE),
+      );
     });
 
     it('renders an AddonSummaryCard with an addon', () => {
@@ -703,7 +705,7 @@ describe(__filename, () => {
     describe('with pagination', () => {
       const renderWithPagination = ({
         addon = fakeAddon,
-        reviews = Array(DEFAULT_API_PAGE_SIZE + 2).fill(fakeReview),
+        reviews = Array(Number(DEFAULT_API_PAGE_SIZE) + 2).fill(fakeReview),
         ...otherProps
       } = {}) => {
         loadAddon(addon);
@@ -737,7 +739,9 @@ describe(__filename, () => {
       });
 
       it('configures a paginator with the right review count', () => {
-        const reviews = Array(DEFAULT_API_PAGE_SIZE + 2).fill(fakeReview);
+        const reviews = Array(Number(DEFAULT_API_PAGE_SIZE) + 2).fill(
+          fakeReview,
+        );
 
         const root = renderWithPagination({ reviews });
 

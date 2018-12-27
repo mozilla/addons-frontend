@@ -19,7 +19,7 @@ export type SearchState = {|
   count: number,
   filters: SearchFilters | {},
   loading: boolean,
-  pageSize: number | null,
+  pageSize: string | null,
   results: Array<AddonType | CollectionAddonType>,
 |};
 
@@ -72,7 +72,7 @@ export function searchStart({
 
 type SearchLoadParams = {|
   count: number,
-  pageSize: number,
+  pageSize: string,
   results: Array<ExternalAddonType>,
 |};
 
