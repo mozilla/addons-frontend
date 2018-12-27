@@ -433,9 +433,8 @@ msgid "Update review"
 msgstr "సమీక్షను తాజాకరించు"
 
 #: src/amo/components/AddonReviewManager/index.js:119
-#, fuzzy
 msgid "Updating review"
-msgstr "ప్రత్యుత్తరం నవీకరిస్తోంది"
+msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:140
 msgid "Saving"
@@ -806,14 +805,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr ""
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "%(addonName)s కోసం సమీక్షలు"
+msgstr ""
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "%(addonName)s కోసం సమీక్షలు"
+msgstr ""
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
