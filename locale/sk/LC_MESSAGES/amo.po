@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-28 21:12+0000\n"
+"PO-Revision-Date: 2018-12-28 21:33+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1327,11 +1327,11 @@ msgstr "Buďte v bezpečí na internete"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:271
 msgid "Organize Tabs & Bookmarks"
-msgstr ""
+msgstr "Usporiadajte si svoje karty a záložky"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:284
 msgid "Enhance Your Media Experience"
-msgstr ""
+msgstr "Vylepšite svoj zážitok z médií"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
@@ -1339,7 +1339,7 @@ msgstr "Rozšírenia sú ako aplikácie pre váš prehliadač."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "Pridávajú do Firefoxu funkcie, vďaka čomu je prehliadanie rýchlejšie, inteligentnejšie či zábavnejšie."
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
@@ -1857,23 +1857,23 @@ msgstr "Domovská stránka Doplnkov pre Firefox"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:18
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "majte prehľad o novinkách a akciách pre vývojárov doplnkov (obsahuje newsletter about:addons)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:21
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla ma potrebuje kontaktovať ohľadom niektorého z mojich doplnkov"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:24
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "sú dostupné nové doplnky alebo nové funkcie Firefoxu"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:26
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "niekto napíše recenziu na môj doplnok"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:28
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "vývojár doplnku odpovie na moju recenziu"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:30
 msgid "my add-on is reviewed by a reviewer"
@@ -1881,19 +1881,19 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:32
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "môj doplnok založený na SDK nie je možné aktualizovať"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:34
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "môj doplnok založený na SDK je úspešne aktualizovaný"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:36
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "kompatibilitu môjho doplnku nie je možné aktualizovať"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:38
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "kompatibilita môjho doplnku je úspešne aktualizovaná"
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
@@ -2035,11 +2035,11 @@ msgstr "Žiadne recenzie"
 
 #: src/amo/pages/CategoriesPage/index.js:46
 msgid "All extension categories"
-msgstr ""
+msgstr "Všetky kategórie rozšírení"
 
 #: src/amo/pages/CategoriesPage/index.js:48
 msgid "All theme categories"
-msgstr ""
+msgstr "Všetky kategórie tém vzhľadu"
 
 #: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:299 src/amo/pages/LandingPage/index.js:143
 msgid "See more featured extensions"
@@ -2123,7 +2123,7 @@ msgstr "Moje kolekcie"
 
 #: src/amo/pages/Guides/index.js:102
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "Jednoduchý a vysoko účinný blokovač reklám. uBlock Origin dokáže efektívne pracovať s tisíckami pravidiel pre rozpoznanie reklamy bez veľkého dopadu na rýchlosť vášho počítača."
 
 #: src/amo/pages/Guides/index.js:106
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
@@ -2281,7 +2281,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:95
 msgid "Block annoying ads"
-msgstr ""
+msgstr "Zablokujte otravné reklamy"
 
 #: src/amo/pages/Guides/index.js:96
 msgid ""
@@ -2354,19 +2354,19 @@ msgstr "Ďalšie populárne rozšírenia"
 
 #: src/amo/pages/Home/index.js:54
 msgid "See more news boosters"
-msgstr ""
+msgstr "Ďalšie doplnky súvisiace so správami"
 
 #: src/amo/pages/Home/index.js:55
 msgid "News boosters"
-msgstr ""
+msgstr "Správy"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more weather reports"
-msgstr ""
+msgstr "Ďalšie doplnky súvisiace s počasím"
 
 #: src/amo/pages/Home/index.js:61
 msgid "Weather reports"
-msgstr ""
+msgstr "Informácie o počasí"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2479,7 +2479,7 @@ msgstr "O Doplnkoch pre Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:31
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Oficiálna stránka Mozilly na preberanie rozšírení a tém vzhľadu pre Firefox. Pridajte si do prehliadača nové funkcie alebo upravte jeho vzhľad."
 
 #: src/amo/pages/StaticPages/About/index.js:42
 msgid ""
@@ -2692,7 +2692,7 @@ msgstr "Profil používateľa %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
-msgstr ""
+msgstr "Profil používateľa"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:635
 msgid "Location"
@@ -2955,38 +2955,38 @@ msgstr "Ďakujeme za návštevu našej stránky. Prosím, povedzte nám o svojej
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s kB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s verzia %(minVersion)s a novšia"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s vo verziách %(minVersion)s až %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Funguje s: %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
