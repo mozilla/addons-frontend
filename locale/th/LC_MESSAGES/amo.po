@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-27 15:54+0000\n"
+"PO-Revision-Date: 2018-12-28 16:14+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -1355,25 +1355,23 @@ msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:258
 msgid "Stay Safe Online"
-msgstr ""
+msgstr "ออนไลน์อย่างปลอดภัย"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:271
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "ที่คั่นหน้า"
+msgstr "จัดระเบียบแท็บและที่คั่นหน้า"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:284
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "ให้คะแนนประสบการณ์ของคุณ"
+msgstr "ยกระดับประสบการณ์สื่อของคุณ"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
-msgstr ""
+msgstr "ส่วนขยายเป็นเหมือนแอปสำหรับเบราว์เซอร์ของคุณ"
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "ส่วนขยายเพิ่มคุณลักษณะไปยัง Firefox เพื่อทำให้การท่องเว็บเร็วขึ้น ฉลาดขึ้น หรือเพียงแค่ความสนุกธรรมดา"
 
 #: src/amo/components/LanguagePicker/index.js:51
 msgid "Change language"
@@ -2388,24 +2386,20 @@ msgid "See more popular extensions"
 msgstr "ดูส่วนขยายยอดนิยมเพิ่มเติม"
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more news boosters"
-msgstr "ดูตัวเพิ่มประสิทธิภาพ Wikipedia เพิ่มเติม"
+msgstr "ดูตัวเพิ่มประสิทธิภาพข่าวเพิ่มเติม"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "News boosters"
-msgstr "ตัวเพิ่มประสิทธิภาพ YouTube"
+msgstr "ตัวเพิ่มประสิทธิภาพข่าว"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more weather reports"
-msgstr "ดูชุดตกแต่งฤดูใบไม้ร่วงเพิ่มเติม"
+msgstr "ดูรายงานสภาพอากาศเพิ่มเติม"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "Weather reports"
-msgstr "ส่งรายงานการละเมิด"
+msgstr "รายงานสภาพอากาศ"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
