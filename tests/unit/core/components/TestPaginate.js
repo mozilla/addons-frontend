@@ -12,7 +12,7 @@ describe(__filename, () => {
     count: 20,
     currentPage: 1,
     pathname: '/some/path',
-    perPage: Number(DEFAULT_API_PAGE_SIZE),
+    perPage: DEFAULT_API_PAGE_SIZE,
   });
 
   function renderPaginate(extra = {}) {
@@ -128,7 +128,7 @@ describe(__filename, () => {
         it('will not offset near the end', () => {
           const pages = getVisiblePages({
             count: 128,
-            perPage: Number(DEFAULT_API_PAGE_SIZE),
+            perPage: DEFAULT_API_PAGE_SIZE,
             showPages: 9,
             currentPage: 6,
           });

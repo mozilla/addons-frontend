@@ -21,7 +21,7 @@ import type { ReactRouterLocationType } from 'core/types/router';
 
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 
-export const DEFAULT_API_PAGE_SIZE = '25';
+export const DEFAULT_API_PAGE_SIZE = 25;
 
 export function makeQueryString(query: { [key: string]: any }) {
   const resolvedQuery = { ...query };

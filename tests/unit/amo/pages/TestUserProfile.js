@@ -813,12 +813,12 @@ describe(__filename, () => {
     const userId = 100;
     const { params, store } = signInUserWithUserId(userId);
 
-    const reviews = Array(Number(DEFAULT_API_PAGE_SIZE)).fill(fakeReview);
+    const reviews = Array(DEFAULT_API_PAGE_SIZE).fill(fakeReview);
     _setUserReviews({
       store,
       userId,
       reviews,
-      count: Number(DEFAULT_API_PAGE_SIZE) + 2,
+      count: DEFAULT_API_PAGE_SIZE + 2,
     });
     const location = createFakeLocation({ query: { foo: 'bar' } });
 
@@ -826,14 +826,12 @@ describe(__filename, () => {
 
     const paginator = shallow(root.find('.UserProfile-reviews').prop('footer'));
     expect(paginator.instance()).toBeInstanceOf(Paginate);
-    expect(paginator).toHaveProp('count', Number(DEFAULT_API_PAGE_SIZE) + 2);
+    expect(paginator).toHaveProp('count', DEFAULT_API_PAGE_SIZE + 2);
     expect(paginator).toHaveProp('currentPage', '1');
     expect(paginator).toHaveProp('pathname', `/user/${userId}/`);
     expect(paginator).toHaveProp('queryParams', location.query);
 
-    expect(root.find(AddonReviewCard)).toHaveLength(
-      Number(DEFAULT_API_PAGE_SIZE),
-    );
+    expect(root.find(AddonReviewCard)).toHaveLength(DEFAULT_API_PAGE_SIZE);
   });
 
   it(`does not display the user's reviews when current user is not the owner`, () => {
@@ -923,12 +921,12 @@ describe(__filename, () => {
       display_name: name,
     });
 
-    const reviews = Array(Number(DEFAULT_API_PAGE_SIZE)).fill(fakeReview);
+    const reviews = Array(DEFAULT_API_PAGE_SIZE).fill(fakeReview);
     _setUserReviews({
       store,
       userId,
       reviews,
-      count: Number(DEFAULT_API_PAGE_SIZE) + 2,
+      count: DEFAULT_API_PAGE_SIZE + 2,
     });
 
     const root = renderUserProfile({ params, store });

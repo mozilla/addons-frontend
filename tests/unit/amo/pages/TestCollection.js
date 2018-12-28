@@ -107,7 +107,7 @@ describe(__filename, () => {
     store,
     addons = createFakeCollectionAddons(),
     detail = defaultCollectionDetail,
-    pageSize = DEFAULT_API_PAGE_SIZE,
+    pageSize = DEFAULT_API_PAGE_SIZE.toString(),
   }) => {
     store.dispatch(
       loadCurrentCollection({
@@ -1177,7 +1177,7 @@ describe(__filename, () => {
     const detail = createFakeCollectionDetail({
       authorId: authorUserId,
       // This will simulate only 1 item on the 2nd page.
-      count: Number(DEFAULT_API_PAGE_SIZE) + 1,
+      count: DEFAULT_API_PAGE_SIZE + 1,
     });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');

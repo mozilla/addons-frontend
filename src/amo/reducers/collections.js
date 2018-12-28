@@ -321,7 +321,7 @@ export const loadCurrentCollectionPage = ({
     typeof numberOfAddons === 'number',
     'The numberOfAddons parameter must be a number',
   );
-  invariant(typeof pageSize === 'string', 'pageSize is required');
+  invariant(typeof pageSize === 'number', 'pageSize is required');
 
   return {
     type: LOAD_CURRENT_COLLECTION_PAGE,

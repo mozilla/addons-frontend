@@ -286,9 +286,8 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     const addonReviewCount =
       addon && addon.ratings ? addon.ratings.count : null;
     let placeholderCount = addonReviewCount || 4;
-    const fallbackPageSize = Number(DEFAULT_API_PAGE_SIZE);
-    if (placeholderCount > fallbackPageSize) {
-      placeholderCount = fallbackPageSize;
+    if (placeholderCount > DEFAULT_API_PAGE_SIZE) {
+      placeholderCount = DEFAULT_API_PAGE_SIZE;
     }
 
     const allReviews = reviews
