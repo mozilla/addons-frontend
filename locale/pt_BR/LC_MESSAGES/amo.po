@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-28 12:40+0000\n"
+"PO-Revision-Date: 2018-12-28 13:06+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -2677,15 +2677,15 @@ msgstr "Minhas revisões"
 
 #: src/amo/pages/UserProfile/index.js:268
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "O perfil de %(user)s, um autor de extensões e temas do Firefox. Encontre outros aplicativos de %(user)s, incluindo média de avaliações, continuidade e a opção de relatar problemas."
 
 #: src/amo/pages/UserProfile/index.js:272
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "O perfil de %(user)s, autor de extensões do Firefox. Encontre outras extensões de %(user)s, incluindo média de avaliações, continuidade e a opção de relatar problemas."
 
 #: src/amo/pages/UserProfile/index.js:276
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "O perfil de %(user)s, autor de temas do Firefox. Encontre outros temas de %(user)s, incluindo média de avaliações, continuidade e a opção de relatar problemas."
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
