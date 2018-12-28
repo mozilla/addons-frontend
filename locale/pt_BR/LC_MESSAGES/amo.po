@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-17 20:10+0000\n"
+"PO-Revision-Date: 2018-12-28 12:40+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -316,7 +316,7 @@ msgstr "Excluir resposta"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
-msgstr "Excluir análise"
+msgstr "Excluir avaliação"
 
 #: src/amo/components/AddonReviewCard/index.js:212 src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
@@ -431,7 +431,7 @@ msgstr "Siga as nossas %(linkStart)sdiretrizes de análises%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr "A sua avaliação:"
+msgstr "Sua avaliação:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:241
 msgid "More dictionaries by %(author)s"
@@ -1989,7 +1989,7 @@ msgstr "Política de privacidade de %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:193
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Análises e avaliações do %(addonName)s. Descubra o que os outros usuários pensam sobre o %(addonName)s e adicione esta extensão ao seu navegador Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:209
 msgid "Only showing one-star reviews"
