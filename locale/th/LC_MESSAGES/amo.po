@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-28 16:14+0000\n"
+"PO-Revision-Date: 2018-12-29 07:33+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -927,9 +927,8 @@ msgid "Developer Hub"
 msgstr "ศูนย์กลางนักพัฒนา"
 
 #: src/amo/components/Footer/index.js:63
-#, fuzzy
 msgid "Developer Policies"
-msgstr "การตอบกลับของนักพัฒนา"
+msgstr "นโยบายนักพัฒนา"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Forum"
@@ -2012,9 +2011,8 @@ msgid "End-User License Agreement for %(addonName)s"
 msgstr "ข้อตกลงสัญญาอนุญาตผู้ใช้"
 
 #: src/amo/pages/AddonInfo/index.js:168
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "บทวิจารณ์สำหรับ %(addonName)s"
+msgstr "นโยบายความเป็นส่วนตัวสำหรับ %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:193
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
