@@ -37,10 +37,10 @@ function reviewBody({
 }: {|
   content?: React.Node | string,
   html?: React.Node,
-  id?: number,
+  id: string,
 |}) {
   invariant(
-    content !== undefined || html !== undefined,
+    content !== undefined || html !== undefined || id !== undefined,
     'content or html is required',
   );
 
@@ -58,7 +58,7 @@ function reviewBody({
         // Add an extra class if the content is an empty string.
         'UserReview-emptyBody': !content && !html,
       })}
-      id={`${id}`}
+      id={id}
     >
       <div {...bodyAttr} />
     </ShowMoreCard>
@@ -77,16 +77,17 @@ export const UserReviewBase = (props: InternalProps) => {
     showRating = false,
   } = props;
 
-  let body = reviewBody({ content: <LoadingText /> });
-
+  const showMoreId = review && review.id ? `${review.id}` : '0';
+  let body = reviewBody({ content: <LoadingText />, id: showMoreId });
+  
   if (review) {
     if (review.body) {
       body = reviewBody({
         html: sanitizeHTML(nl2br(review.body), ['br']),
-        id: review.id,
+        id: showMoreId,
       });
     } else {
-      body = reviewBody({ content: '', id: review.id });
+      body = reviewBody({ content: '', id: showMoreId });
     }
   }
 
