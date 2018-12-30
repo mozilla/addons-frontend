@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-30 13:44+0000\n"
+"PO-Revision-Date: 2018-12-30 15:09+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1233,7 +1233,7 @@ msgstr "SoundFixer"
 
 #: src/amo/components/HomeHeroBanner/index.js:275
 msgid "Adjust audio levels for sounds you encounter around web"
-msgstr ""
+msgstr "Adjusta le nivellos sonor pro le sonos que tu incontra circum le Web"
 
 #: src/amo/components/HomeHeroBanner/index.js:281
 msgid "Lilo"
@@ -1241,7 +1241,7 @@ msgstr "Lilo"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
 msgid "Fund social causes by simply using Lilo search"
-msgstr ""
+msgstr "Financia le causas social per simplemente usar le recerca de Lilo"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Iridium for YouTube"
@@ -2209,6 +2209,8 @@ msgstr "Si tu gaude de contento videos, le extensiones offere un numero de manie
 #: src/amo/pages/Guides/index.js:200
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
 msgstr ""
+"Adde un barra de controlo a tote le paginas video de YouTube assi que tu pote facilemente adjustar volumine, velocitate de reproduction, dimension de reproductor video, bloco de publicitate e "
+"annotation, e altere functionalitates."
 
 #: src/amo/pages/Guides/index.js:205
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
