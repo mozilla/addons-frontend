@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-19 11:00+0000\n"
+"PO-Revision-Date: 2018-12-30 13:05+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1380,7 +1380,7 @@ msgstr "Vkládat data do schránky"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
-msgstr "Rozšířit vývojářské nástroje a získat přístup k vašim datům v otevřených panelech"
+msgstr "Rozšířit nástroje pro vývojáře a získat přístup k vašim datům v otevřených panelech"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
