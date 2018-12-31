@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-18 15:45+0000\n"
-"Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
+"PO-Revision-Date: 2018-12-31 05:09+0000\n"
+"Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -378,9 +378,8 @@ msgid "Publishing reply"
 msgstr "Menayangkan balasan"
 
 #: src/amo/components/AddonReviewCard/index.js:349
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "dikirim pada %(timestamp)s"
+msgstr "dikirim %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:351
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -1336,9 +1335,8 @@ msgid "Enhance Your Media Experience"
 msgstr "Tingkatkan Pengalaman Media Anda"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
-#, fuzzy
 msgid "Extensions are like apps for your browser."
-msgstr "Ekstensi adalah layaknya aplikasi untuk peramban Anda."
+msgstr "Ekstensi layaknya aplikasi untuk peramban Anda."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
@@ -1964,9 +1962,8 @@ msgid "Screenshots"
 msgstr "Tangkapan Layar"
 
 #: src/amo/pages/AddonInfo/index.js:157
-#, fuzzy
 msgid "Custom License for %(addonName)s"
-msgstr "Ulasan untuk %(addonName)s"
+msgstr "Lisensi Khusus untuk %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:164
 msgid "End-User License Agreement for %(addonName)s"
@@ -2196,9 +2193,8 @@ msgstr ""
 "lainnya."
 
 #: src/amo/pages/Guides/index.js:205
-#, fuzzy
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "Harap ikuti %(linkStart)spanduan ulasan%(linkEnd)s kami."
+msgstr "Telusuri lebih banyak %(linkStart)sekstensi video%(linkEnd)s pilihan staff."
 
 #: src/amo/pages/Guides/index.js:213
 msgid "Get more out of media"
@@ -2215,9 +2211,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:225
-#, fuzzy
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "Harap ikuti %(linkStart)spanduan ulasan%(linkEnd)s kami."
+msgstr "Telusuri lebih banyak %(linkStart)sekstensi media%(linkEnd)s pilihan staf."
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
@@ -2341,9 +2336,8 @@ msgid "See more popular extensions"
 msgstr "Extensi populer lainnya"
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more news boosters"
-msgstr "Tema pilihan lainnya"
+msgstr "Lihat pendorong berita lainnya"
 
 #: src/amo/pages/Home/index.js:55
 msgid "News boosters"
@@ -2718,9 +2712,8 @@ msgid "Edit profile"
 msgstr "Edit profil"
 
 #: src/amo/pages/UserProfile/index.js:447
-#, fuzzy
 msgid "Admin user"
-msgstr "Tautan Admin"
+msgstr "Pengguna admin"
 
 #: src/amo/pages/UserProfileEdit/index.js:193
 msgid "Picture successfully deleted"
