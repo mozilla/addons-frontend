@@ -1436,12 +1436,12 @@
   dependencies:
     "@babel/plugin-syntax-dynamic-import" "^7.0.0"
 
-"@loadable/component@5.2.1":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@loadable/component/-/component-5.2.1.tgz#6472d189951941e08db2d68ccfb1bdb027cc88f4"
-  integrity sha512-3Y5VpQ/hSbd+Ty30CcvC2UBl+Bs5GOth4zPK/fRg6Ug3im6XoKl4tdES6qNzKSujnhx4y0rxNwaIWCusR0oGCg==
+"@loadable/component@5.2.2":
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/@loadable/component/-/component-5.2.2.tgz#64db5fb1e93d6bc93596947336283979f055d5d2"
+  integrity sha512-trM/wBZbD1kL5CdBOD8pxbVZeKoycrb+qJs3FqKezUnzm6RTmYNYFYYDDzzapH9rc60/rPJYVXa9IP0TJF6Q6A==
   dependencies:
-    hoist-non-react-statics "^3.2.0"
+    hoist-non-react-statics "^3.2.1"
 
 "@loadable/server@5.2.2":
   version "5.2.2"
@@ -7123,10 +7123,10 @@ hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.1.0:
   dependencies:
     react-is "^16.3.2"
 
-hoist-non-react-statics@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.2.0.tgz#d21b9fc72b50fdc38c5d88f6e2c52f2c2dbe5ee2"
-  integrity sha512-3IascCRfaEkbmHjJnUxWSspIUE1okLPjGTMVXW8zraUo1t3yg1BadKAxAGILHwgoBzmMnzrgeeaDGBvpuPz6dA==
+hoist-non-react-statics@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.2.1.tgz#c09c0555c84b38a7ede6912b61efddafd6e75e1e"
+  integrity sha512-TFsu3TV3YLY+zFTZDrN8L2DTFanObwmBLpWvJs1qfUuEQ5bTAdFcwfx2T/bsCXfM9QHSLvjfP+nihEl0yvozxw==
   dependencies:
     react-is "^16.3.2"
 
