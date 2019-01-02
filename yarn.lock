@@ -6446,10 +6446,10 @@ fast-memoize@^2.2.7:
   resolved "https://registry.yarnpkg.com/fast-memoize/-/fast-memoize-2.5.1.tgz#c3519241e80552ce395e1a32dcdde8d1fd680f5d"
   integrity sha512-xdmw296PCL01tMOXx9mdJSmWY29jQgxyuZdq0rEHMu+Tpe1eOEtCycoG6chzlcrWsNgpZP7oL8RiQr7+G6Bl6g==
 
-fast-redact@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/fast-redact/-/fast-redact-1.4.0.tgz#6123d2a23e6bdf76e82b3176d6f11698f2001797"
-  integrity sha512-WsYhPdWJY+6d/pFJbBNWGUd5ENrBAJ6e7yDWcYNoFZoIQUUbKxnIRGS4d0kZkQlMPB4cLK3r4A0BZXpFxdoGhg==
+fast-redact@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/fast-redact/-/fast-redact-1.4.2.tgz#14989f452ee07f0723fbb483ee778d363135b7ad"
+  integrity sha512-ttC8IgelNvYqb9RBC+rirgUCVPtPVonfdeRdsHBcBx3kzQat1DafbUKAEhLo5GnvuBqda+Xe1BvblecPpQkZ2Q==
 
 fast-safe-stringify@^2.0.2, fast-safe-stringify@^2.0.6:
   version "2.0.6"
@@ -6655,10 +6655,10 @@ flat-cache@^1.2.1:
     rimraf "~2.6.2"
     write "^0.2.1"
 
-flatstr@^1.0.5, flatstr@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/flatstr/-/flatstr-1.0.8.tgz#0e849229751f2b9f6a0919f8e81e1229e84ba901"
-  integrity sha512-YXblbv/vc1zuVVUtnKl1hPqqk7TalZCppnKE7Pr8FI/Rp48vzckS/4SJ4Y9O9RNiI82Vcw/FydmtqdQOg1Dpqw==
+flatstr@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/flatstr/-/flatstr-1.0.9.tgz#0950d56fec02de1030c1311847ecd58c25690eb9"
+  integrity sha512-qFlJnOBWDfIaunF54/lBqNKmXOI0HqNhu+mHkLmbaBXlS71PUd9OjFOdyevHt/aHoHB1+eW7eKHgRKOG5aHSpw==
 
 flatten@^1.0.2:
   version "1.0.2"
@@ -11243,19 +11243,17 @@ pino-syslog@^1.2.0:
     split2 "^2.1.1"
     through2 "^2.0.3"
 
-pino@5.9.0:
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-5.9.0.tgz#4a436289ea90cefd0fad1e3ca5726b6d58922c71"
-  integrity sha512-6sHy38gWsZbrmYq6vk343VCThy93ZdVfmLsHDVzbl/j621SjSaxCcS/ySmxK/hRmq8jpQb3n44dNRIeqbbQw6A==
+pino@5.10.5:
+  version "5.10.5"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-5.10.5.tgz#ffecb4f745d633f0d67028cdf8d9bfa69ed24c4b"
+  integrity sha512-WtrALBJSaFgAAwEOCIime51KesWuPgXHTCFWtJRjhEcOg72OEsNlmYLaE4MJONgPvwV8xWuJx1JtXkqb9VD4ig==
   dependencies:
-    fast-json-parse "^1.0.3"
-    fast-redact "^1.4.0"
+    fast-redact "^1.4.2"
     fast-safe-stringify "^2.0.6"
-    flatstr "^1.0.5"
+    flatstr "^1.0.9"
     pino-std-serializers "^2.3.0"
-    pump "^3.0.0"
     quick-format-unescaped "^3.0.0"
-    sonic-boom "^0.6.3"
+    sonic-boom "^0.7.1"
 
 piping@^1.0.0-rc.4:
   version "1.0.0-rc.4"
@@ -14259,12 +14257,12 @@ socks@^1.1.10:
     ip "^1.1.4"
     smart-buffer "^1.0.13"
 
-sonic-boom@^0.6.3:
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/sonic-boom/-/sonic-boom-0.6.3.tgz#a02f9fc8d5ec42166e28c39760cc833552056595"
-  integrity sha512-TMhj6kDJk9LLzCTTL8+HPCfFn4MwkE4P6k2Up89Rz949+DSRw90V62upRKC99rJEOmu4E9ljH5Otu2JSRmx+bg==
+sonic-boom@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/sonic-boom/-/sonic-boom-0.7.1.tgz#d6aae30428802dbd43b1167643efe1ef708bb534"
+  integrity sha512-zveqTNcDTI35ae0LgK/SwHkFeMfe6FJKyeACgPzuOe3f+9CyaoXJHTnDgekXt8PKIoMCGF/m57/9RNjjkqmt2A==
   dependencies:
-    flatstr "^1.0.8"
+    flatstr "^1.0.9"
 
 sort-keys@^1.0.0:
   version "1.1.2"
