@@ -76,6 +76,7 @@ export type UserReviewType = {|
   userName: string,
   userUrl: string,
   versionId: number | null,
+  edited: boolean
 |};
 
 export function createInternalReview(
@@ -99,6 +100,7 @@ export function createInternalReview(
     userName: review.user.name,
     userUrl: review.user.url,
     versionId: review.version ? review.version.id : null,
+    edited: review.edited ? review.edited : null
   };
 }
 
@@ -698,6 +700,7 @@ type UpdateAddonReviewParams = {|
   errorHandlerId: string,
   score?: number,
   reviewId: number,
+  edited?: boolean
 |};
 
 export type UpdateAddonReviewAction = {|
@@ -710,13 +713,14 @@ export const updateAddonReview = ({
   errorHandlerId,
   score,
   reviewId,
+  edited
 }: UpdateAddonReviewParams) => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(reviewId, 'reviewId is required');
-
+console.log("Incoming edited: " + edited);
   return {
     type: UPDATE_ADDON_REVIEW,
-    payload: { body, errorHandlerId, score, reviewId },
+    payload: { body, errorHandlerId, score, reviewId, edited },
   };
 };
 

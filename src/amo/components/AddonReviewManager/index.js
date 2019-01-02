@@ -57,6 +57,7 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
         score,
         errorHandlerId: errorHandler.id,
         reviewId: review.id,
+        edited: false
       }),
     );
   };
@@ -69,8 +70,10 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
         body: text,
         errorHandlerId: errorHandler.id,
         reviewId: review.id,
+        edited: review.body ? true : false
       }),
     );
+    console.log(review);
   };
 
   render() {
