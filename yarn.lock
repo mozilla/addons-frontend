@@ -4535,10 +4535,10 @@ configstore@^3.1.2:
     write-file-atomic "^2.0.0"
     xdg-basedir "^3.0.0"
 
-connected-react-router@5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/connected-react-router/-/connected-react-router-5.0.1.tgz#8379854fad7e027b1e27652c00ad534f8ad244b3"
-  integrity sha512-0QwWYPRGZQ7f284lmqc5kwC4T3iW3zrAH3zzi6uUMzTOxbA+mn38tAgMOoVo9m3pbskvONFtXiajgVkCElE9EQ==
+connected-react-router@6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/connected-react-router/-/connected-react-router-6.1.0.tgz#a6f361313cf0a37c8c33578494bb813d09252abf"
+  integrity sha512-sdu+rf6TvjH3/I/S6+VFV9efThSyyRVwOhTZhC7XdqqZ700PdqgzfPr3sSK635JPbBFYhFYP97/KWTFdjldL0A==
   dependencies:
     immutable "^3.8.1"
     seamless-immutable "^7.1.3"
