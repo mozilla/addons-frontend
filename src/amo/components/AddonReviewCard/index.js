@@ -350,14 +350,20 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           i18n.gettext(
             'by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
           );
+      
+      const editLineString = review.edited
+          ?
+           i18n.gettext(' &#183; (edited)')
+        : " ";
+           
 
       const linkParts = getLocalizedTextWithLinkParts({
         i18n,
-        text: byLineString,
+        text: byLineString + editLineString,
         otherVars: {
           authorName: review.userName,
           timestamp: i18n.moment(review.created).fromNow(),
-        },
+          },
       });
 
       // See https://github.com/mozilla/addons-frontend/issues/7322 for why we
