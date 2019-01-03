@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2019-01-03 21:32+0000\n"
+"PO-Revision-Date: 2019-01-03 21:34+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -2133,7 +2133,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:120
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Isole a sua identidade do Facebook num “contentor” separado para parar o Facebook de monitorizar a sua atividade fora da sua plataforma social."
 
 #: src/amo/pages/Guides/index.js:124
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
@@ -2159,7 +2159,7 @@ msgstr "Explore mais escolhas da equipa de %(linkStart)sgestão de separadores%(
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Melhor navegação com marcadores melhorados"
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
@@ -2177,7 +2177,7 @@ msgstr "Explore mais escolhas da equipa de %(linkStart)sgestores de marcadores%(
 
 #: src/amo/pages/Guides/index.js:174
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Desfrute de uma nova experiência de novo separador"
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
