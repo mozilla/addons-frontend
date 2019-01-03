@@ -155,7 +155,7 @@ describe(__filename, () => {
       });
 
       expect(root.find('.AddonSummaryCard-addonAverage').text()).toEqual(
-        '4.7 star average',
+        '4.7 Stars out of 5',
       );
     });
 
@@ -171,7 +171,23 @@ describe(__filename, () => {
       });
 
       expect(root.find('.AddonSummaryCard-addonAverage').text()).toEqual(
-        '4 star average',
+        '4 Stars out of 5',
+      );
+    });
+
+    it('renders a single star average with singular text', () => {
+      const root = render({
+        addon: {
+          ...fakeAddon,
+          ratings: {
+            ...fakeAddon.ratings,
+            average: 1.0,
+          },
+        },
+      });
+
+      expect(root.find('.AddonSummaryCard-addonAverage').text()).toEqual(
+        '1 Star out of 5',
       );
     });
   });
