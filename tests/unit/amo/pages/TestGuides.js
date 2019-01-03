@@ -6,7 +6,12 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import HeadLinks from 'amo/components/HeadLinks';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
-import Guides, { extractId, GuidesBase, getContent } from 'amo/pages/Guides';
+import Guides, {
+  extractId,
+  GuidesBase,
+  getContent,
+  getSections,
+} from 'amo/pages/Guides';
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
 import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import {
@@ -189,14 +194,21 @@ describe(__filename, () => {
 
       const slug = 'stay-safe-online';
 
-      // TODO: figure out why only this one guid is working in the test.
-      const guids = ['{446900e4-71c2-419f-a6a7-df9c091e268b}'];
+      const guids = getSections({ slug, i18n: fakeI18n() }).map(
+        (section) => section.addonGuid,
+      );
+
+      const addons = [];
+
+      guids.forEach((guid, index) => {
+        addons.push({
+          ...fakeAddon,
+          id: index,
+          guid,
+        });
+      });
 
       const errorHandler = createStubErrorHandler();
-      const addon = {
-        ...fakeAddon,
-        guid: guids[0],
-      };
 
       // This simulates the initial fetch for addons.
       store.dispatch(
@@ -207,14 +219,16 @@ describe(__filename, () => {
         }),
       );
 
-      _loadAddonResults({ store, addons: [addon] });
+      _loadAddonResults({ store, addons });
 
       const root = render({ _log, store, slug });
 
-      expect(root.find(GuidesAddonCard).at(0)).toHaveProp(
-        'addon',
-        createInternalAddon(addon),
-      );
+      addons.forEach((addon, index) => {
+        expect(root.find(GuidesAddonCard).at(index)).toHaveProp(
+          'addon',
+          createInternalAddon(addon),
+        );
+      });
 
       sinon.assert.notCalled(_log.error);
     });
