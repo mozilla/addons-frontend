@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2019-01-03 20:39+0000\n"
+"PO-Revision-Date: 2019-01-03 21:05+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -2128,11 +2128,11 @@ msgstr "Mij dat onlinetrackers jo stalke"
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr ""
+msgstr "Online-advertearders kinne jo aktiviteit fan de ien nei de oare website folgje, wêrby se ynformaasje oer jo en jo ynteressen sammelje. Mei útwreidingen kinne jo jo digitale spoaren wiskje."
 
 #: src/amo/pages/Guides/index.js:120
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Isolearje jo Facebook-identiteit yn in aparte ‘kontener’ om Facebook te ferhinderen jo aktiviteit bûten it sosjale platfoarm te folgjen."
 
 #: src/amo/pages/Guides/index.js:124
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
@@ -2140,7 +2140,7 @@ msgstr "Mear troch de stêf útkeazen %(linkStart)sprivacy en feilichheid%(linkE
 
 #: src/amo/pages/Guides/index.js:135
 msgid "Reimagine tab management"
-msgstr ""
+msgstr "Ljepblêdbehear opnij útfine"
 
 #: src/amo/pages/Guides/index.js:136
 msgid ""
@@ -2981,17 +2981,17 @@ msgstr "%(localizedSize)s TB"
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s en letter"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s oant %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Wurket mei %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
