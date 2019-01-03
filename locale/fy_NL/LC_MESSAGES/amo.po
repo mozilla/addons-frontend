@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2019-01-03 20:32+0000\n"
+"PO-Revision-Date: 2019-01-03 20:39+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -942,7 +942,7 @@ msgstr "Allinnich mei Firefox – Download Firefox no"
 
 #: src/amo/components/GuidesAddonCard/index.js:63
 msgid "Staff Pick"
-msgstr ""
+msgstr "Kar fan de stêf"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:505
 msgid "View My Profile"
@@ -1226,19 +1226,19 @@ msgstr "Sjen hoe't Facebook-advertinsjes op jo ôfstimd binne"
 
 #: src/amo/components/HomeHeroBanner/index.js:274
 msgid "SoundFixer"
-msgstr ""
+msgstr "SoundFixer"
 
 #: src/amo/components/HomeHeroBanner/index.js:275
 msgid "Adjust audio levels for sounds you encounter around web"
-msgstr ""
+msgstr "Pas lûdsnivo's oan foar lûden dy't jo op it web tsjinkomme"
 
 #: src/amo/components/HomeHeroBanner/index.js:281
 msgid "Lilo"
-msgstr ""
+msgstr "Lilo"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
 msgid "Fund social causes by simply using Lilo search"
-msgstr ""
+msgstr "Stypje sosjale doelen troch ienfâldichwei Lilo te brûken foar jo sykopdrachten"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Iridium for YouTube"
@@ -1494,7 +1494,7 @@ msgstr "Stjer-wurdearring wurdt bewarre"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Alle fiifstjerrenbeoardielingen lêze"
 
 #: src/amo/components/RatingsByStar/index.js:93
 msgid "Read all four-star reviews"
@@ -1502,7 +1502,7 @@ msgstr "Alle fjouwerstjerrenbeoardielingen lêze"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "Alle trijestjerrenbeoardielingen lêze"
 
 #: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all two-star reviews"
@@ -1990,23 +1990,23 @@ msgstr "Beoardielingen en wurdearringen foar %(addonName)s. Untdek wat oare brû
 
 #: src/amo/pages/AddonReviewList/index.js:209
 msgid "Only showing one-star reviews"
-msgstr ""
+msgstr "Allinnich ienstjerbeoardielingen"
 
 #: src/amo/pages/AddonReviewList/index.js:210
 msgid "Only showing two-star reviews"
-msgstr ""
+msgstr "Allinnich twastjerrenbeoardielingen"
 
 #: src/amo/pages/AddonReviewList/index.js:211
 msgid "Only showing three-star reviews"
-msgstr ""
+msgstr "Allinnich trijestjerrenbeoardielingen"
 
 #: src/amo/pages/AddonReviewList/index.js:212
 msgid "Only showing four-star reviews"
-msgstr ""
+msgstr "Allinnich fjouwerstjerrenbeoardielingen"
 
 #: src/amo/pages/AddonReviewList/index.js:213
 msgid "Only showing five-star reviews"
-msgstr ""
+msgstr "Allinnich fiifstjerrenbeoardielingen"
 
 #: src/amo/pages/AddonReviewList/index.js:225
 msgid "Show all reviews"
@@ -2116,7 +2116,7 @@ msgstr "Myn kolleksjes"
 
 #: src/amo/pages/Guides/index.js:102
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "Ljochtgewicht, sear effektive adblocker. uBlock Origin twingt tûzenen ynhâldsfilters ôf sûnder dat it in enoarm protte ûnthâld kostet."
 
 #: src/amo/pages/Guides/index.js:106
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
@@ -2124,7 +2124,7 @@ msgstr "Mear troch de stêf útkeazen %(linkStart)sadvertinsjeblokkearders%(link
 
 #: src/amo/pages/Guides/index.js:114
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "Mij dat onlinetrackers jo stalke"
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
@@ -2221,9 +2221,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:225
-#, fuzzy
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "Mear troch de stêf útkeazen %(linkStart)swachtwurdbehearders%(linkEnd)s ferkenne."
+msgstr "Mear troch de stêf útkeazen %(linkStart)smedia-útwreidingen%(linkEnd)s ferkenne."
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
@@ -2276,9 +2275,8 @@ msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr "Mear troch de stêf útkeazen %(linkStart)swachtwurdbehearders%(linkEnd)s ferkenne."
 
 #: src/amo/pages/Guides/index.js:95
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "Advertinsjes blokkearje"
+msgstr "Ferfelende advertinsjes blokkearje"
 
 #: src/amo/pages/Guides/index.js:96
 msgid ""
@@ -2350,24 +2348,20 @@ msgid "See more popular extensions"
 msgstr "Mear populêre útwreidingen"
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more news boosters"
-msgstr "Mear Wikipedia-boosters besjen"
+msgstr "Mear nijsboosters besjen"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "News boosters"
-msgstr "YouTube-fersnellers"
+msgstr "Nijsboosters"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more weather reports"
-msgstr "Mear neijierstema’s besjen"
+msgstr "Mear waarrapporten besjen"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "Weather reports"
-msgstr "Misbrûkmelding ferstjoere"
+msgstr "Waarrapporten"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2697,9 +2691,8 @@ msgid "User Profile for %(user)s"
 msgstr "Brûkersprofyl foar %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:338
-#, fuzzy
 msgid "User Profile"
-msgstr "Profyl bywurkje"
+msgstr "Brûkersprofyl"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:635
 msgid "Location"
