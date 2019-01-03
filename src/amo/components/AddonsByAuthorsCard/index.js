@@ -197,7 +197,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
         errorHandlerId: errorHandler.id,
         forAddonSlug,
         page,
-        pageSize: numberOfAddons.toString(),
+        pageSize: String(numberOfAddons),
         ...filtersForPagination,
       }),
     );

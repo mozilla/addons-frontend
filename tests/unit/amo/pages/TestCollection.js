@@ -107,7 +107,7 @@ describe(__filename, () => {
     store,
     addons = createFakeCollectionAddons(),
     detail = defaultCollectionDetail,
-    pageSize = DEFAULT_API_PAGE_SIZE.toString(),
+    pageSize = String(DEFAULT_API_PAGE_SIZE),
   }) => {
     store.dispatch(
       loadCurrentCollection({
