@@ -115,6 +115,21 @@ describe(__filename, () => {
         sinon.assert.calledWith(_base64url.encode, addon.guid);
       });
 
+      // See: https://github.com/mozilla/addons-frontend/issues/7255
+      it('does not call base64url.encode when add-on has a `null` GUID', () => {
+        const _base64url = { encode: sinon.spy() };
+        const addon = createInternalAddon({ ...fakeAddon, guid: null });
+
+        render({
+          _base64url,
+          addon,
+          buttonType,
+          store,
+        });
+
+        sinon.assert.notCalled(_base64url.encode);
+      });
+
       it('sets the button as puffy and not micro', () => {
         const root = render({
           addon: createInternalAddon(fakeAddon),

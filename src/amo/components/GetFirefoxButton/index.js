@@ -67,7 +67,7 @@ export const GetFirefoxButtonBase = (props: InternalProps) => {
       );
       buttonText = i18n.gettext('Only with Firefox—Get Firefox Now');
       puffy = true;
-      utmContent = `rta:${_base64url.encode(addon.guid)}`;
+      utmContent = addon.guid ? `rta:${_base64url.encode(addon.guid)}` : '';
       break;
     }
     case GET_FIREFOX_BUTTON_TYPE_HEADER: {
