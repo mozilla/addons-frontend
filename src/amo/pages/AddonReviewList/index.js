@@ -73,7 +73,7 @@ type InternalProps = {|
   history: ReactRouterHistoryType,
   i18n: I18nType,
   lang: ?string,
-  pageSize: number | null,
+  pageSize: string | null,
   reviewCount: number | null,
   reviews: ?Array<UserReviewType>,
   siteUser: UserType | null,
@@ -299,7 +299,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       : Array(placeholderCount).fill(null);
 
     const paginator =
-      addon && reviewCount && pageSize && reviewCount > pageSize ? (
+      addon && reviewCount && pageSize && reviewCount > Number(pageSize) ? (
         <Paginate
           LinkComponent={Link}
           count={reviewCount}
@@ -308,7 +308,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
             addonSlug: addon.slug,
             score: location.query.score,
           })}
-          perPage={pageSize}
+          perPage={Number(pageSize)}
         />
       ) : null;
 

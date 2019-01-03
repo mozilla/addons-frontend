@@ -76,7 +76,7 @@ type InternalProps = {|
   i18n: I18nType,
   isOwner: boolean,
   lang: string,
-  pageSize: number | null,
+  pageSize: string | null,
   reviewCount: number | null,
   reviews: Array<UserReviewType> | null,
   shouldRedirect: boolean,
@@ -222,13 +222,13 @@ export class UserProfileBase extends React.Component<InternalProps> {
     }
 
     const paginator =
-      reviewCount && pageSize && reviewCount > pageSize ? (
+      reviewCount && pageSize && reviewCount > Number(pageSize) ? (
         <Paginate
           LinkComponent={Link}
           count={reviewCount}
           currentPage={this.getReviewsPage(location)}
           pathname={this.getURL()}
-          perPage={pageSize}
+          perPage={Number(pageSize)}
           queryParams={location.query}
         />
       ) : null;

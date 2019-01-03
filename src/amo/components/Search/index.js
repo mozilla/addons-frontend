@@ -54,7 +54,7 @@ type InternalProps = {|
   filtersUsedForResults: SearchFiltersType,
   i18n: I18nType,
   loading: boolean,
-  pageSize: number,
+  pageSize: string,
   results: Array<AddonType | CollectionAddonType>,
 |};
 
@@ -218,13 +218,13 @@ export class SearchBase extends React.Component<InternalProps> {
       paginationQueryParams || convertFiltersToQueryParams(filters);
 
     const paginator =
-      count > pageSize ? (
+      count > Number(pageSize) ? (
         <Paginate
           LinkComponent={LinkComponent}
           count={count}
           currentPage={filters.page}
           pathname={pathname}
-          perPage={pageSize}
+          perPage={Number(pageSize)}
           queryParams={queryParams}
         />
       ) : null;

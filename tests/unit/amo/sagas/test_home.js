@@ -99,7 +99,7 @@ describe(__filename, () => {
         .withArgs({
           ...baseArgs,
           filters: {
-            page_size: LANDING_PAGE_EXTENSION_COUNT,
+            page_size: String(LANDING_PAGE_EXTENSION_COUNT),
             addonType: ADDON_TYPE_EXTENSION,
             featured: true,
             sort: SEARCH_SORT_RANDOM,
@@ -113,7 +113,7 @@ describe(__filename, () => {
         .withArgs({
           ...baseArgs,
           filters: {
-            page_size: LANDING_PAGE_THEME_COUNT,
+            page_size: String(LANDING_PAGE_THEME_COUNT),
             addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
             featured: true,
             sort: SEARCH_SORT_RANDOM,
@@ -127,7 +127,7 @@ describe(__filename, () => {
         .withArgs({
           ...baseArgs,
           filters: {
-            page_size: LANDING_PAGE_EXTENSION_COUNT,
+            page_size: String(LANDING_PAGE_EXTENSION_COUNT),
             addonType: ADDON_TYPE_EXTENSION,
             sort: SEARCH_SORT_POPULAR,
           },
@@ -140,7 +140,7 @@ describe(__filename, () => {
         .withArgs({
           ...baseArgs,
           filters: {
-            page_size: LANDING_PAGE_EXTENSION_COUNT,
+            page_size: String(LANDING_PAGE_EXTENSION_COUNT),
             addonType: ADDON_TYPE_EXTENSION,
             sort: SEARCH_SORT_TRENDING,
           },

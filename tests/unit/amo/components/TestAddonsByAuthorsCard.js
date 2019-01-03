@@ -311,7 +311,7 @@ describe(__filename, () => {
         addonType: ADDON_TYPE_EXTENSION,
         authorIds: [randomAuthorId2],
         errorHandlerId: errorHandler.id,
-        pageSize: numberOfAddons,
+        pageSize: String(numberOfAddons),
       }),
     );
   });
@@ -343,7 +343,7 @@ describe(__filename, () => {
         addonType: ADDON_TYPE_THEME,
         authorIds: [randomAuthorId1],
         errorHandlerId: errorHandler.id,
-        pageSize: numberOfAddons,
+        pageSize: String(numberOfAddons),
       }),
     );
 
@@ -362,7 +362,7 @@ describe(__filename, () => {
         addonType: ADDON_TYPE_THEME,
         authorIds: [randomAuthorId2],
         errorHandlerId: errorHandler.id,
-        pageSize: numberOfAddons,
+        pageSize: String(numberOfAddons),
       }),
     );
   });
@@ -394,7 +394,7 @@ describe(__filename, () => {
         addonType: ADDON_TYPE_OPENSEARCH,
         authorIds: [randomAuthorId2],
         errorHandlerId: errorHandler.id,
-        pageSize: numberOfAddons,
+        pageSize: String(numberOfAddons),
       }),
     );
   });
@@ -426,7 +426,7 @@ describe(__filename, () => {
         authorIds: [randomAuthorId2],
         errorHandlerId: errorHandler.id,
         forAddonSlug: 'testing',
-        pageSize: numberOfAddons,
+        pageSize: String(numberOfAddons),
       }),
     );
   });
@@ -929,7 +929,7 @@ describe(__filename, () => {
           authorIds,
           errorHandlerId: errorHandler.id,
           page: '1',
-          pageSize: numberOfAddons,
+          pageSize: String(numberOfAddons),
           sort: SEARCH_SORT_POPULAR,
         }),
       );
@@ -967,7 +967,7 @@ describe(__filename, () => {
           authorIds,
           errorHandlerId: errorHandler.id,
           page: newPage,
-          pageSize: numberOfAddons,
+          pageSize: String(numberOfAddons),
           sort: SEARCH_SORT_POPULAR,
         }),
       );

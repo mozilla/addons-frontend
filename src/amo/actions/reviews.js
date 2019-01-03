@@ -385,7 +385,7 @@ export function fetchUserReviews({
 }
 
 type SetUserReviewsParams = {|
-  pageSize: number,
+  pageSize: string,
   reviewCount: number,
   reviews: Array<ExternalReviewType>,
   userId: number,
@@ -437,7 +437,7 @@ export const setInternalReview = (
 
 type SetAddonReviewsParams = {|
   addonSlug: string,
-  pageSize: number,
+  pageSize: string,
   reviewCount: number,
   reviews: Array<ExternalReviewType>,
 |};

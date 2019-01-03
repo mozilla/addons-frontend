@@ -113,7 +113,7 @@ export const computeNewCollectionPage = ({
 
   let page = '1';
   if (pageSize) {
-    const lastPage = Math.ceil((numberOfAddons - 1) / pageSize);
+    const lastPage = Math.ceil((numberOfAddons - 1) / Number(pageSize));
 
     // If we are not on the last page, we can just return the current page.
     if (parseInt(currentPage, 10) < lastPage) {
@@ -416,7 +416,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     const paginator =
       collection &&
       collection.pageSize &&
-      collection.numberOfAddons > collection.pageSize ? (
+      collection.numberOfAddons > Number(collection.pageSize) ? (
         <Paginate
           LinkComponent={Link}
           count={collection.numberOfAddons}
@@ -426,7 +426,7 @@ export class CollectionBase extends React.Component<InternalProps> {
               ? collectionEditUrl({ collection })
               : collectionUrl({ collection })
           }
-          perPage={collection.pageSize}
+          perPage={Number(collection.pageSize)}
           queryParams={convertFiltersToQueryParams(filters)}
         />
       ) : null;

@@ -8,7 +8,7 @@
 export type PaginatedApiResponse<ResultType> = {|
   count: number,
   next?: string, // URL of the next page
-  page_size: number,
+  page_size: string,
   previous?: string, // URL of the previous page
   results: Array<ResultType>,
 |};

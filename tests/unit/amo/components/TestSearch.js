@@ -50,7 +50,7 @@ describe(__filename, () => {
       handleSearch: sinon.spy(),
       i18n: fakeI18n(),
       loading: false,
-      pageSize: DEFAULT_API_PAGE_SIZE,
+      pageSize: String(DEFAULT_API_PAGE_SIZE),
       results: [{ name: 'Foo', slug: 'foo' }, { name: 'Bar', slug: 'bar' }],
     };
   });

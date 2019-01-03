@@ -14,7 +14,7 @@ type ResultSet = {|
 
 type ExternalResultSet = {|
   count: number,
-  pageSize: number,
+  pageSize: string,
   results: Array<ExternalAddonType>,
 |};
 

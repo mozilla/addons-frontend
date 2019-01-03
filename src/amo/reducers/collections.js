@@ -68,7 +68,7 @@ export type CollectionType = {
   lastUpdatedDate: string,
   name: string,
   numberOfAddons: number,
-  pageSize: number | null,
+  pageSize: string | null,
   slug: string,
 };
 
@@ -278,7 +278,7 @@ export type CollectionAddonsListResponse = {|
 type LoadCurrentCollectionParams = {|
   addons: ExternalCollectionAddons,
   detail: ExternalCollectionDetail,
-  pageSize: number | null,
+  pageSize: string | null,
 |};
 
 type LoadCurrentCollectionAction = {|
@@ -303,7 +303,7 @@ export const loadCurrentCollection = ({
 type LoadCurrentCollectionPageParams = {|
   addons: ExternalCollectionAddons,
   numberOfAddons: number,
-  pageSize: number,
+  pageSize: string,
 |};
 
 type LoadCurrentCollectionPageAction = {|
@@ -835,7 +835,7 @@ export const getCurrentCollection = (
 type CreateInternalCollectionParams = {|
   detail: ExternalCollectionDetail,
   items?: ExternalCollectionAddons,
-  pageSize: number | null,
+  pageSize: string | null,
 |};
 
 export const createInternalCollection = ({
@@ -861,7 +861,7 @@ type LoadCollectionIntoStateParams = {|
   state: CollectionsState,
   collection: ExternalCollectionDetail,
   addons?: ExternalCollectionAddons,
-  pageSize: number | null,
+  pageSize: string | null,
 |};
 
 export const loadCollectionIntoState = ({

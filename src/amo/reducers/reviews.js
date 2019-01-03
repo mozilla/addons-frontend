@@ -87,7 +87,7 @@ type ReviewsById = {
 };
 
 type StoredReviewsData = {|
-  pageSize: number,
+  pageSize: string,
   reviewCount: number,
   reviews: Array<number>,
 |};
