@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-29 04:17+0000\n"
-"Last-Translator: xcffl <xcffl@outlook.com>\n"
+"PO-Revision-Date: 2019-01-03 07:25+0000\n"
+"Last-Translator: 우믿트 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -1475,7 +1475,7 @@ msgstr "您确实要删除您对于 %(addonName)s 的评分吗？"
 
 #: src/amo/components/RatingManager/index.js:183
 msgid "How are you enjoying %(addonName)s?"
-msgstr "您有多喜欢 %(addonName)s 的使用体验？"
+msgstr "您使用 %(addonName)s 的体验如何？"
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
