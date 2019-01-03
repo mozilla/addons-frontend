@@ -217,10 +217,9 @@ describe(__filename, () => {
 
     const root = render({ store });
 
-    const message = root.find(RatingManagerNotice);
-    expect(message).toHaveProp('message', 'Saving');
-    expect(message).toHaveProp('hideMessage', false);
-    expect(message).not.toHaveProp('type');
+    const notice = root.find(RatingManagerNotice);
+    expect(notice).toHaveProp('message', 'Saving');
+    expect(notice).toHaveProp('hideMessage', false);
   });
 
   it('flashes a saved rating message', () => {
@@ -229,10 +228,9 @@ describe(__filename, () => {
 
     const root = render({ store });
 
-    const message = root.find(RatingManagerNotice);
-    expect(message).toHaveProp('message', 'Saved');
-    expect(message).toHaveProp('hideMessage', false);
-    expect(message).not.toHaveProp('type');
+    const notice = root.find(RatingManagerNotice);
+    expect(notice).toHaveProp('message', 'Saved');
+    expect(notice).toHaveProp('hideMessage', false);
   });
 
   it('hides a flashed rating message', () => {
@@ -243,8 +241,8 @@ describe(__filename, () => {
 
     const root = render({ store });
 
-    const message = root.find(RatingManagerNotice);
-    expect(message).toHaveProp('hideMessage', true);
+    const notice = root.find(RatingManagerNotice);
+    expect(notice).toHaveProp('hideMessage', true);
   });
 
   it('enters a submitting review state', () => {
