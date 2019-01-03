@@ -81,7 +81,6 @@ type FormValues = {|
   notifications: NotificationsUpdateType,
   occupation: string | null,
   picture: File | null,
-  username: string,
 |};
 
 type State = {|
@@ -331,7 +330,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       occupation,
       picture,
       pictureData,
-      username,
     } = this.state;
 
     invariant(user, 'user is required');
@@ -348,7 +346,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
           homepage,
           location,
           occupation,
-          username,
         },
         userId: user.id,
       }),
@@ -364,7 +361,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       notifications: {},
       occupation: '',
       picture: null,
-      username: '',
     };
 
     if (!user) {
@@ -377,7 +373,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       homepage,
       location,
       occupation,
-      username,
     } = user;
 
     return {
@@ -387,7 +382,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       homepage,
       location,
       occupation,
-      username,
     };
   }
 
@@ -399,10 +393,13 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
   preventSubmit() {
     const { user, isUpdating } = this.props;
-    const { username } = this.state;
+    const { displayName } = this.state;
 
     return (
-      !user || isUpdating || !username || (username && username.trim() === '')
+      !user ||
+      isUpdating ||
+      !displayName ||
+      (displayName && displayName.trim() === '')
     );
   }
 
@@ -424,7 +421,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
           i18n.gettext(`Tell users a bit more information about this user.
             These fields are optional, but they'll help other users get to know
             %(username)s better.`),
-          { username: user.username },
+          { username: user.name },
         );
   }
 
@@ -438,7 +435,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     return isEditingCurrentUser
       ? i18n.gettext(`Introduce yourself to the community if you like`)
       : i18n.sprintf(i18n.gettext(`Introduce %(username)s to the community`), {
-          username: user.username,
+          username: user.name,
         });
   }
 
@@ -529,22 +526,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 isEditingCurrentUser || !user
                   ? i18n.gettext('Account')
                   : i18n.sprintf(i18n.gettext('Account for %(username)s'), {
-                      username: user.username,
+                      username: user.name,
                     })
               }
             >
-              <label className="UserProfileEdit--label" htmlFor="username">
-                {i18n.gettext('Username')}
-              </label>
-              <input
-                className="UserProfileEdit-username"
-                disabled={!user}
-                id="username"
-                name="username"
-                onChange={this.onFieldChange}
-                value={this.state.username}
-              />
-
               <div>
                 <label className="UserProfileEdit--label" htmlFor="email">
                   {i18n.gettext('Email Address')}
