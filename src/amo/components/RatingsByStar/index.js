@@ -141,7 +141,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
                   ) : (
                     createLink(i18n.formatNumber(star))
                   )}
-                  <IconStar isSelected />
+                  <IconStar selected />
                 </div>
                 <div className="RatingsByStar-barContainer">
                   <div className="RatingsByStar-bar RatingsByStar-barFrame">

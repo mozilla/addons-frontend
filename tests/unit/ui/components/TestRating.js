@@ -413,14 +413,14 @@ describe(__filename, () => {
       });
     });
 
-    it("only passes the isSelected prop to the IconStar component when it's not readOnly", () => {
+    it("only passes the selected prop to the IconStar component when it's not readOnly", () => {
       const root = render({ readOnly: false });
 
       const star = root.find(IconStar).at(0);
 
-      expect(star).toHaveProp('isSelected');
-      expect(star).not.toHaveProp('halfStar');
-      expect(star).not.toHaveProp('yellowStars');
+      expect(star).toHaveProp('selected');
+      expect(star).not.toHaveProp('half');
+      expect(star).not.toHaveProp('yellow');
     });
 
     it("passes several props to the IconStar component when it's readOnly", () => {
@@ -428,9 +428,9 @@ describe(__filename, () => {
 
       const star = root.find(IconStar).at(0);
 
-      expect(star).toHaveProp('isSelected');
-      expect(star).toHaveProp('halfStar');
-      expect(star).toHaveProp('yellowStars');
+      expect(star).toHaveProp('selected');
+      expect(star).toHaveProp('half');
+      expect(star).toHaveProp('yellow');
       expect(star).toHaveProp('readOnly', true);
     });
   });

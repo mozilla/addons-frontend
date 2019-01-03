@@ -153,10 +153,10 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
         return (
           <div {...props}>
             <IconStar
-              halfStar={halfStar}
-              isSelected={isSelected}
+              half={halfStar}
+              selected={isSelected}
               readOnly
-              yellowStars={yellowStars}
+              yellow={yellowStars}
             />
           </div>
         );
@@ -180,7 +180,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
             <span id={id} className="visually-hidden">
               {title}
             </span>
-            <IconStar isSelected={isSelected} />
+            <IconStar selected={isSelected} />
           </button>
         </React.Fragment>
       );

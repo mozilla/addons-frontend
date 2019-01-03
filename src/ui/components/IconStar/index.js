@@ -30,32 +30,32 @@ export const getSvgPath = (starStyle: string) => {
 type Props = {|
   alt?: $PropertyType<IconProps, 'alt'>,
   className?: string,
-  halfStar?: boolean,
-  isSelected?: boolean,
+  half?: boolean,
+  selected?: boolean,
   readOnly?: boolean,
-  yellowStars?: boolean,
+  yellow?: boolean,
 |};
 
 const IconStar = ({
   className,
-  halfStar = false,
-  isSelected = false,
+  half = false,
+  selected = false,
   readOnly = false,
-  yellowStars = true,
+  yellow = true,
   ...iconProps
 }: Props) => {
   let color = YELLOW;
 
-  if (!yellowStars) {
+  if (!yellow) {
     color = GRAY;
   }
 
-  let starStyle = isSelected ? CLOSED_STYLE : OPEN_STYLE;
+  let starStyle = selected ? CLOSED_STYLE : OPEN_STYLE;
 
   if (readOnly) {
-    if (halfStar) {
+    if (half) {
       starStyle = HALF_STYLE;
-    } else if (!isSelected) {
+    } else if (!selected) {
       starStyle = DIM_CLOSED_STYLE;
     }
   }
