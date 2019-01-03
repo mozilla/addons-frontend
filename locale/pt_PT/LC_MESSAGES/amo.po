@@ -2024,9 +2024,8 @@ msgstr[0] "%(total)s análise para este extra"
 msgstr[1] "%(total)s análises para este extra"
 
 #: src/amo/pages/AddonReviewList/index.js:370
-#, fuzzy
 msgid "No reviews"
-msgstr "Sem análises"
+msgstr "Sem comentários"
 
 #: src/amo/pages/CategoriesPage/index.js:46
 msgid "All extension categories"
