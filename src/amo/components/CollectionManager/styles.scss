@@ -47,13 +47,17 @@
   border-radius: $border-radius-xs 0 0 $border-radius-xs;
   // Disregarding text direction is intentional.
   border-right: none;
+  direction: ltr;
+  padding: 4px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.CollectionManager-slug-url-prefix {
   // Switch the direction so that the ellipsis truncates from the left.
   direction: rtl;
   overflow: hidden;
-  padding: 4px;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  width: auto;
 }
 
 .CollectionManager-footer {

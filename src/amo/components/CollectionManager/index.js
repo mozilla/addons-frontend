@@ -274,14 +274,16 @@ export class CollectionManagerBase extends React.Component<
             title={collectionUrlPrefix}
             className="CollectionManager-slug-url-hint"
           >
-            {/*
-              &lrm; (left-to-right mark) is an invisible control
-              character. It's added to prevent the bi-directional
-              trailing slash character (in the URL) from getting
-              reversed when using direction: rtl.
-            */}
-            {collectionUrlPrefix}
-            &lrm;
+            <div className="CollectionManager-slug-url-prefix">
+              {/*
+                &lrm; (left-to-right mark) is an invisible control
+                character. It's added to prevent the bi-directional
+                trailing slash character (in the URL) from getting
+                reversed when using direction: rtl.
+              */}
+              {collectionUrlPrefix}
+              &lrm;
+            </div>
           </div>
           <input
             onChange={this.onTextInput}
