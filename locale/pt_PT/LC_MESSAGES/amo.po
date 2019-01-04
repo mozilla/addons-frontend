@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2019-01-03 21:34+0000\n"
+"PO-Revision-Date: 2019-01-04 11:24+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -1337,9 +1337,8 @@ msgid "Enhance Your Media Experience"
 msgstr "Melhore a sua experiência multimédia"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
-#, fuzzy
 msgid "Extensions are like apps for your browser."
-msgstr "As extensões são como aplicações para os seus navegadores."
+msgstr "As extensões são como aplicações para o seu navegador."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
