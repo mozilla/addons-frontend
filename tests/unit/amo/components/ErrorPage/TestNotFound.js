@@ -1,12 +1,8 @@
 import * as React from 'react';
 
 import NotFound, { NotFoundBase } from 'amo/components/ErrorPage/NotFound';
-import SuggestedPages from 'amo/components/SuggestedPages';
+import Link from 'amo/components/Link';
 import { createApiError } from 'core/api';
-import {
-  ERROR_ADDON_DISABLED_BY_ADMIN,
-  ERROR_ADDON_DISABLED_BY_DEV,
-} from 'core/constants';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import {
   dispatchSignInActions,
@@ -35,26 +31,26 @@ describe(__filename, () => {
   it('renders a not found error', () => {
     const root = render();
 
-    expect(root.find('.ErrorPage')).toHaveProp('header', 'Page not found');
-    expect(root.find(SuggestedPages)).toHaveLength(1);
-    expect(root.find('.NotFound-fileAnIssueText').html()).toContain(
-      'file an issue',
+    expect(root.find('.ErrorPage')).toHaveProp(
+      'header',
+      'Oops! We can’t find that page',
     );
-  });
 
-  it('renders a disabled by developer error', () => {
-    const root = render({ errorCode: ERROR_ADDON_DISABLED_BY_DEV });
+    // There is a link to GitHub in the first paragraph.
+    expect(
+      root
+        .find('.ErrorPage-paragraph-with-links')
+        .at(0)
+        .html(),
+    ).toContain('/new/">filing an issue</a>');
 
-    expect(root.find('.NotFound-explanation').html()).toContain(
-      'This add-on has been removed by its author.',
-    );
-  });
-
-  it('renders a disabled by admin error', () => {
-    const root = render({ errorCode: ERROR_ADDON_DISABLED_BY_ADMIN });
-
-    expect(root.find('.NotFound-explanation').html()).toContain(
-      'This add-on has been disabled by an administrator.',
-    );
+    // The last paragraph has two internal links.
+    const landingLinks = root
+      .find('.ErrorPage-paragraph-with-links')
+      .at(1)
+      .find(Link);
+    expect(landingLinks).toHaveLength(2);
+    expect(landingLinks.at(0)).toHaveProp('to', '/extensions/');
+    expect(landingLinks.at(1)).toHaveProp('to', '/themes/');
   });
 });

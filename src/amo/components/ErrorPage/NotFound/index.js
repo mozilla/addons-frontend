@@ -3,13 +3,11 @@ import * as React from 'react';
 import { compose } from 'redux';
 import NestedStatus from 'react-nested-status';
 
-import SuggestedPages from 'amo/components/SuggestedPages';
-import {
-  ERROR_ADDON_DISABLED_BY_ADMIN,
-  ERROR_ADDON_DISABLED_BY_DEV,
-} from 'core/constants';
+import Link from 'amo/components/Link';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
+import { sanitizeHTML, visibleAddonType } from 'core/utils';
+import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import Card from 'ui/components/Card';
 import type { I18nType } from 'core/types/i18n';
 
@@ -26,48 +24,91 @@ type InternalProps = {|
 
 export class NotFoundBase extends React.Component<InternalProps> {
   render() {
-    const { errorCode, i18n } = this.props;
+    const { i18n } = this.props;
 
-    const fileAnIssueText = i18n.sprintf(
-      i18n.gettext(`
-      If you followed a link from somewhere, please
-      <a href="%(url)s">file an issue</a>. Tell us where you came from and
-      what you were looking for, and we'll do our best to fix it.`),
-      { url: 'https://github.com/mozilla/addons-frontend/issues/new/' },
-    );
+    // We use `getLocalizedTextWithLinkParts()` two times to create all the
+    // variables needed to display both the `Link` components and texts
+    // before/after.
+    let linkParts = getLocalizedTextWithLinkParts({
+      i18n,
+      text: i18n.gettext(
+        `Try visiting the page later, as the theme or extension may become
+        available again. Alternatively, you may be able to find what you’re
+        looking for in one of the available %(linkStart)sextensions%(linkEnd)s
+        or %(secondLinkStart)sthemes%(secondLinkEnd)s.`,
+      ),
+      // By setting `linkStart`/`linkEnd` here, we can reuse
+      // `getLocalizedTextWithLinkParts()` directly after.
+      otherVars: {
+        secondLinkStart: '%(linkStart)s',
+        secondLinkEnd: '%(linkEnd)s',
+      },
+    });
 
-    let explanation;
-    if (errorCode === ERROR_ADDON_DISABLED_BY_DEV) {
-      explanation = i18n.gettext('This add-on has been removed by its author.');
-    } else if (errorCode === ERROR_ADDON_DISABLED_BY_ADMIN) {
-      explanation = i18n.gettext(
-        'This add-on has been disabled by an administrator.',
-      );
-    } else {
-      explanation = i18n.gettext(
-        `Sorry, but we can't find anything at the address you entered.`,
-      );
-    }
+    linkParts = {
+      first: linkParts,
+      second: getLocalizedTextWithLinkParts({
+        i18n,
+        text: linkParts.afterLinkText,
+      }),
+    };
 
-    /* eslint-disable react/no-danger */
     return (
       <NestedStatus code={404}>
         <Card
           className="ErrorPage NotFound"
-          header={i18n.gettext('Page not found')}
+          header={i18n.gettext('Oops! We can’t find that page')}
         >
-          <p className="NotFound-explanation">{explanation}</p>
-
-          <SuggestedPages />
-
           <p
-            className="NotFound-fileAnIssueText"
-            dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])}
+            className="ErrorPage-paragraph-with-links"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={sanitizeHTML(
+              i18n.sprintf(
+                i18n.gettext(`If you’ve followed a link on this site, you’ve
+                  have found a mistake. Help us fix the link by <a
+                  href="%(url)s">filing an issue</a>. Tell us where you came
+                  from and what you were looking for, and we'll get it
+                  sorted.`),
+                {
+                  url: 'https://github.com/mozilla/addons-frontend/issues/new/',
+                },
+              ),
+              ['a'],
+            )}
           />
+          <p>
+            {i18n.gettext(`If you’ve followed a link from another site for an
+              extension or theme, that item is no longer available. This could
+              be because:`)}
+          </p>
+          <ul>
+            <li>
+              {i18n.gettext(`The developer removed it. Developers commonly do
+                this because they no longer support the extension or theme, or
+                have replaced it.`)}
+            </li>
+            <li>
+              {i18n.gettext(`Mozilla removed it. This can happen when issues
+                are found during the review of the extension or theme, or the
+                extension or theme has been abusing the terms and conditions
+                for addons.mozilla.org. The developer has the opportunity to
+                resolve the issues and make the add-on available again.`)}
+            </li>
+          </ul>
+          <p className="ErrorPage-paragraph-with-links">
+            {linkParts.first.beforeLinkText}
+            <Link to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}>
+              {linkParts.first.innerLinkText}
+            </Link>
+            {linkParts.second.beforeLinkText}
+            <Link to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}>
+              {linkParts.second.innerLinkText}
+            </Link>
+            {linkParts.second.afterLinkText}
+          </p>
         </Card>
       </NestedStatus>
     );
-    /* eslint-enable react/no-danger */
   }
 }
 
