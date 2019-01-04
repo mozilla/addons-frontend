@@ -40,7 +40,12 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
   render() {
     const { addon, i18n, staffPick } = this.props;
 
-    const fallback = addon !== null ? <LoadingText width={100} /> : null;
+    const fallback =
+      addon !== null ? (
+        <Card>
+          <LoadingText width={100} />
+        </Card>
+      ) : null;
 
     return addon ? (
       <Card>
@@ -71,14 +76,12 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                 {this.props.addonCustomText}
               </p>
             </div>
-            {addon && (
-              <InstallButtonWrapper
-                addon={addon}
-                defaultInstallSource={INSTALL_SOURCE_GUIDES_PAGE}
-                getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
-                puffy={false}
-              />
-            )}
+            <InstallButtonWrapper
+              addon={addon}
+              defaultInstallSource={INSTALL_SOURCE_GUIDES_PAGE}
+              getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+              puffy={false}
+            />
           </div>
         </div>
       </Card>

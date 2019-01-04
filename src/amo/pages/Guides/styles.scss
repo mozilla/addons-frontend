@@ -24,6 +24,7 @@ $icon-extraLarge: 92px;
 
   .Card-contents {
     border-radius: 6px;
+    min-height: 50px;
     padding: 16px;
 
     @include respond-to(medium) {
