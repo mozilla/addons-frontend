@@ -50,7 +50,6 @@ describe(__filename, () => {
       num_addons_listed: 0,
       occupation: 'Superman',
       userId: 500,
-      username: 'tofumatt',
       ...props,
     };
   };
@@ -226,7 +225,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it('dispatches fetchUserAccount and fetchUserNotifications actions if username changes', () => {
+  it('dispatches fetchUserAccount and fetchUserNotifications actions if userId changes', () => {
     const userId = 45;
     const { params, store } = signInUserWithUserId(userId);
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -328,27 +327,12 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it('renders a username input field', () => {
-    const username = 'some username';
-
-    const root = renderUserProfileEdit({
-      userProps: defaultUserProps({ username }),
-    });
-
-    expect(root.find('.UserProfileEdit-username')).toHaveLength(1);
-    expect(root.find('.UserProfileEdit-username')).toHaveProp(
-      'value',
-      username,
-    );
-  });
-
   it('renders disabled input fields when user to edit is not loaded', () => {
     const { store } = signInUserWithUserId(123);
     const userId = 456;
 
     const root = renderUserProfileEdit({ store, params: { userId } });
 
-    expect(root.find('.UserProfileEdit-username')).toHaveProp('disabled', true);
     expect(root.find('.UserProfileEdit-displayName')).toHaveProp(
       'disabled',
       true,
@@ -518,7 +502,6 @@ describe(__filename, () => {
       'homepage',
       'location',
       'occupation',
-      'username',
     ];
 
     const root = renderUserProfileEdit();
@@ -564,7 +547,6 @@ describe(__filename, () => {
           homepage: user.homepage,
           location: user.location,
           occupation: user.occupation,
-          username: user.username,
         },
         userId: user.id,
       }),
@@ -636,13 +618,13 @@ describe(__filename, () => {
     );
   });
 
-  it('disables the submit button when username is empty', () => {
+  it('disables the submit button when displayName is empty', () => {
     const root = renderUserProfileEdit();
 
-    root.find(`.UserProfileEdit-username`).simulate(
+    root.find('.UserProfileEdit-displayName').simulate(
       'change',
       createFakeEventChange({
-        name: 'username',
+        name: 'displayName',
         value: '',
       }),
     );
@@ -686,7 +668,6 @@ describe(__filename, () => {
           homepage: user.homepage,
           location,
           occupation: user.occupation,
-          username: user.username,
         },
         userId: user.id,
       }),
@@ -733,7 +714,6 @@ describe(__filename, () => {
           homepage: user.homepage,
           location: user.location,
           occupation: user.occupation,
-          username: user.username,
         },
         userId: user.id,
       }),
@@ -744,7 +724,12 @@ describe(__filename, () => {
     const userId = 123;
     const clientApp = CLIENT_APP_FIREFOX;
     const lang = 'en-US';
-    const { store } = dispatchSignInActions({ clientApp, lang, userId });
+    const { store } = dispatchSignInActions({
+      clientApp,
+      lang,
+      userId,
+      userProps: defaultUserProps({ userId }),
+    });
     const user = getCurrentUser(store.getState().users);
     const history = createFakeHistory();
     const params = { userId };
@@ -793,13 +778,13 @@ describe(__filename, () => {
       dispatch: store.dispatch,
     });
 
-    const username = '';
+    const homepage = '';
 
     _updateUserAccount({
       errorHandlerId: errorHandler.id,
       store,
       userFields: {
-        username,
+        homepage,
       },
       userId: user.id,
     });
@@ -835,7 +820,7 @@ describe(__filename, () => {
     const user = createUserAccountResponse({ id: userId + 999 });
     store.dispatch(loadUserAccount({ user }));
 
-    // Try to edit this user with another username.
+    // Try to edit this user with another userId.
     const params = { userId: user.id };
     const root = renderUserProfileEdit({ params, store });
 
@@ -858,10 +843,7 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ params, store });
 
     expect(root.find(NotFound)).toHaveLength(0);
-    expect(root.find('.UserProfileEdit-username')).toHaveProp(
-      'value',
-      user.username,
-    );
+    expect(root.find('.UserProfileEdit-email')).toHaveProp('value', user.email);
 
     const linkItems = root.find('.UserProfileEdit-user-links li');
     expect(linkItems.at(0).find(Link)).toHaveProp(
@@ -872,7 +854,7 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit--Card').first()).toHaveProp(
       'header',
-      `Account for ${user.username}`,
+      `Account for ${user.name}`,
     );
 
     // We do not display these help messages when current logged-in user edits
@@ -882,13 +864,13 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-profile-aside')).toHaveText(oneLine`Tell
       users a bit more information about this user. These fields are optional,
-      but they'll help other users get to know ${user.username} better.`);
+      but they'll help other users get to know ${user.name} better.`);
 
     // We do not render this link when user is not the current logged-in user.
     expect(root.find('.UserProfileEdit-manage-account-link')).toHaveLength(0);
 
     expect(root.find({ htmlFor: 'biography' })).toHaveText(
-      `Introduce ${user.username} to the community`,
+      `Introduce ${user.name} to the community`,
     );
 
     expect(root.find('.UserProfileEdit-notifications-aside'))
@@ -940,7 +922,7 @@ describe(__filename, () => {
 
     const root = renderUserProfileEdit({
       store,
-      params: { username: 'someone-else' },
+      params: { userId: 123 },
     });
 
     expect(root.find(AuthenticateButton)).toHaveLength(1);
@@ -960,9 +942,9 @@ describe(__filename, () => {
     root.setProps({
       currentUser: null,
       // When the user browses their profile, `user` is the `currentUser` and
-      // there is no `username` that is why we reset these values here.
+      // there is no `userId` that is why we reset these values here.
       user: null,
-      username: null,
+      userId: null,
     });
 
     sinon.assert.notCalled(dispatchSpy);
