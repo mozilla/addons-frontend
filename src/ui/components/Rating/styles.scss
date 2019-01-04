@@ -53,7 +53,6 @@
 }
 
 .Rating-star {
-  background: url('./img/closed-star-dim-gray.svg') center/contain no-repeat;
   padding: 0;
 
   &:not(.focus-visible) {
@@ -71,7 +70,6 @@
 
 .Rating--editable {
   .Rating-star {
-    background-image: url('./img/open-star-dim-yellow.svg');
     cursor: pointer;
   }
 
@@ -79,44 +77,12 @@
     animation-name: pulseOpaqueRatingStars;
     // Ensure editable rating stars always render as open stars while
     // loading, even if some are selected (e.g. while hovering).
-    background-image: url('./img/open-star-dim-yellow.svg');
     cursor: initial;
   }
 }
 
-.Rating-selected-star {
-  background-image: url('./img/closed-star-gray.svg');
-}
-
-.Rating--editable .Rating-selected-star {
-  background-image: url('./img/closed-star-yellow.svg');
-}
-
 .Rating-half-star {
-  background-image: url('./img/half-star-gray.svg');
-
   [dir='rtl'] & {
     transform: scaleX(-1);
-  }
-}
-
-.Rating--yellowStars {
-  // When stars are read-only, they are closed. Otherwise, they are open.
-  .Rating-star {
-    background-image: url('./img/closed-star-dim-yellow.svg');
-  }
-
-  &.Rating--editable .Rating-star {
-    background-image: url('./img/open-star-dim-yellow.svg');
-  }
-
-  .Rating-selected-star,
-  &.Rating--editable .Rating-selected-star {
-    background-image: url('./img/closed-star-yellow.svg');
-  }
-
-  // This doesn't define an editable half-star because that's not possible.
-  .Rating-half-star {
-    background-image: url('./img/half-star-yellow.svg');
   }
 }
