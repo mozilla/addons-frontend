@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-20 14:06+0000\n"
+"PO-Revision-Date: 2019-01-04 17:39+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -2135,7 +2135,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:114
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "İnternetteki takipçilerin sizi takip etmesini engelleyin"
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
@@ -2169,7 +2169,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:154
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Gelişmiş yer imleriyle daha iyi gezinti"
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
@@ -2239,7 +2239,7 @@ msgstr "Bu eklentiyi başkalarına anlatın. Lütfen %(linkStart)sinceleme yöne
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "Medyayı doğrudan tarayıcıya getirin"
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
@@ -2279,7 +2279,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:83
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
-msgstr ""
+msgstr "Tamamen şifrelenmiş parola koruması. Verilerinizi güvenle saklayın ve hesaplarınıza tüm cihazlarınızdan erişin."
 
 #: src/amo/pages/Guides/index.js:87
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
