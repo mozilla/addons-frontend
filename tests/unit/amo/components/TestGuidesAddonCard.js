@@ -16,7 +16,6 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import LoadingText from 'ui/components/LoadingText';
 
 describe(__filename, () => {
   const _loadAddonResults = ({ addon = fakeAddon }) => {
@@ -80,10 +79,12 @@ describe(__filename, () => {
     expect(root.find(InstallButtonWrapper)).toHaveLength(1);
   });
 
-  it("renders LoadingText when the addon hasn't been loaded", () => {
+  it("renders a loading class when the addon hasn't been loaded", () => {
     const root = render({ addon: undefined });
 
-    expect(root.find(LoadingText)).toHaveLength(1);
+    expect(
+      root.find('.GuidesAddonCard-content-header-title--loading'),
+    ).toHaveLength(1);
   });
 
   it("renders nothing when the addon doesn't exist", () => {
