@@ -5,6 +5,7 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
+import IconStar from 'ui/components/IconStar';
 import Rating, { RatingBase } from 'ui/components/Rating';
 
 describe(__filename, () => {
@@ -411,13 +412,35 @@ describe(__filename, () => {
         );
       });
     });
+
+    it("only passes the selected prop to the IconStar component when it's not readOnly", () => {
+      const root = render({ readOnly: false });
+
+      const star = root.find(IconStar).at(0);
+
+      expect(star).toHaveProp('selected');
+      expect(star).not.toHaveProp('half');
+      expect(star).not.toHaveProp('yellow');
+    });
+
+    it("passes several props to the IconStar component when it's readOnly", () => {
+      const root = render({ readOnly: true });
+
+      const star = root.find(IconStar).at(0);
+
+      expect(star).toHaveProp('selected');
+      expect(star).toHaveProp('half');
+      expect(star).toHaveProp('yellow');
+      expect(star).toHaveProp('readOnly', true);
+    });
   });
 
   describe('rating counts', () => {
     it('renders the average rating', () => {
-      expect(render({ rating: 3.5, readOnly: true })).toHaveText(
-        'Rated 3.5 out of 5',
-      );
+      const rating = 3.5;
+      const root = render({ rating, readOnly: true });
+
+      expect(root).toHaveProp('title', `Rated ${rating} out of 5`);
     });
 
     it('localizes average rating', () => {
@@ -428,9 +451,9 @@ describe(__filename, () => {
     });
 
     it('renders empty ratings', () => {
-      expect(renderWithEmptyRating({ readOnly: true })).toHaveText(
-        'There are no ratings yet',
-      );
+      const root = renderWithEmptyRating({ readOnly: true });
+
+      expect(root).toHaveProp('title', 'There are no ratings yet');
     });
   });
 
