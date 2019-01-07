@@ -59,23 +59,6 @@ export class NotFoundBase extends React.Component<InternalProps> {
           className="ErrorPage NotFound"
           header={i18n.gettext('Oops! We can’t find that page')}
         >
-          <p
-            className="ErrorPage-paragraph-with-links"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={sanitizeHTML(
-              i18n.sprintf(
-                i18n.gettext(`If you’ve followed a link on this site, you’ve
-                  have found a mistake. Help us fix the link by <a
-                  href="%(url)s">filing an issue</a>. Tell us where you came
-                  from and what you were looking for, and we'll get it
-                  sorted.`),
-                {
-                  url: 'https://github.com/mozilla/addons-frontend/issues/new/',
-                },
-              ),
-              ['a'],
-            )}
-          />
           <p>
             {i18n.gettext(`If you’ve followed a link from another site for an
               extension or theme, that item is no longer available. This could
@@ -95,6 +78,23 @@ export class NotFoundBase extends React.Component<InternalProps> {
                 resolve the issues and make the add-on available again.`)}
             </li>
           </ul>
+          <p
+            className="ErrorPage-paragraph-with-links"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={sanitizeHTML(
+              i18n.sprintf(
+                i18n.gettext(`If you’ve followed a link on this site, you’ve
+                  have found a mistake. Help us fix the link by <a
+                  href="%(url)s">filing an issue</a>. Tell us where you came
+                  from and what you were looking for, and we'll get it
+                  sorted.`),
+                {
+                  url: 'https://github.com/mozilla/addons-frontend/issues/new/',
+                },
+              ),
+              ['a'],
+            )}
+          />
           <p className="ErrorPage-paragraph-with-links">
             {linkParts.first.beforeLinkText}
             <Link to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}>
