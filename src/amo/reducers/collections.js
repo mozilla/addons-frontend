@@ -1000,39 +1000,40 @@ export const convertFiltersToQueryParams = (filters: CollectionFilters) => {
 };
 
 type CollectionUrlParams = {|
-  authorUsername?: string,
+  authorId?: string,
   collection: CollectionType | null,
   collectionSlug?: string,
   _collectionUrl?: Function,
 |};
 
 export const collectionUrl = ({
-  authorUsername,
+  authorId,
   collection,
   collectionSlug,
 }: CollectionUrlParams): string => {
   let slug = collectionSlug;
-  let username = authorUsername;
+  let userId = authorId;
+
   if (collection) {
     slug = collection.slug;
-    username = collection.authorUsername;
+    userId = collection.authorId;
   }
   invariant(
-    slug && username,
-    'Either a collection or an authorUsername and collectionSlug are required.',
+    slug && userId,
+    'Either a collection or an authorId and collectionSlug are required.',
   );
 
-  return `/collections/${username}/${slug}/`;
+  return `/collections/${userId}/${slug}/`;
 };
 
 export const collectionEditUrl = ({
-  authorUsername,
+  authorId,
   collection,
   collectionSlug,
   _collectionUrl = collectionUrl,
 }: CollectionUrlParams): string => {
   return `${_collectionUrl({
-    authorUsername,
+    authorId,
     collection,
     collectionSlug,
   })}edit/`;

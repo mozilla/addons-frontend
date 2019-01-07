@@ -69,7 +69,7 @@ describe(__filename, () => {
       `calls history.push with expected pathname and query when a sort is selected and editing is %s`,
       (editing) => {
         const slug = 'some-slug';
-        const username = 'some-username';
+        const userId = 123;
         const page = 2;
         const sort = COLLECTION_SORT_NAME;
         const clientApp = CLIENT_APP_FIREFOX;
@@ -77,7 +77,7 @@ describe(__filename, () => {
         const queryParams = { page, collection_sort: sort };
         const collection = createInternalCollection({
           detail: createFakeCollectionDetail({
-            authorUsername: username,
+            authorId: userId,
             slug,
           }),
           items: createFakeCollectionAddons(),
@@ -100,7 +100,7 @@ describe(__filename, () => {
         const select = root.find('.CollectionSort-select');
         select.simulate('change', fakeEvent);
 
-        const pathname = `/${lang}/${clientApp}/collections/${username}/${slug}/${
+        const pathname = `/${lang}/${clientApp}/collections/${userId}/${slug}/${
           editing ? 'edit/' : ''
         }`;
 

@@ -43,7 +43,7 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   clientApp: string,
-  currentUsername: string,
+  currentUserId: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   history: ReactRouterHistoryType,
@@ -116,7 +116,7 @@ export class CollectionManagerBase extends React.Component<
     const {
       collection,
       creating,
-      currentUsername,
+      currentUserId,
       dispatch,
       errorHandler,
       filters,
@@ -150,7 +150,7 @@ export class CollectionManagerBase extends React.Component<
           // query parameter values are string, not number.
           // $FLOW_FIXME: https://github.com/mozilla/addons-frontend/issues/5737
           includeAddonId: location.query.include_addon_id,
-          userId: currentUsername,
+          userId: currentUserId,
         }),
       );
     } else {
@@ -164,7 +164,7 @@ export class CollectionManagerBase extends React.Component<
           collectionSlug: collection.slug,
           defaultLocale: collection.defaultLocale,
           filters,
-          userId: collection.authorUsername,
+          userId: String(collection.authorId),
         }),
       );
     }
@@ -205,7 +205,7 @@ export class CollectionManagerBase extends React.Component<
     const {
       collection,
       creating,
-      currentUsername,
+      currentUserId,
       errorHandler,
       i18n,
       isCollectionBeingModified,
@@ -216,7 +216,7 @@ export class CollectionManagerBase extends React.Component<
     const collectionUrlPrefix = oneLineTrim`${config.get(
       'apiHost',
     )}/${siteLang}/firefox/collections/
-       ${(collection && collection.authorUsername) || currentUsername}/`;
+       ${(collection && collection.authorId) || currentUserId}/`;
 
     const formIsUnchanged =
       collection &&
@@ -333,7 +333,7 @@ export const mapStateToProps = (state: AppState) => {
 
   return {
     clientApp: state.api.clientApp,
-    currentUsername: currentUser && currentUser.username,
+    currentUserId: currentUser && String(currentUser.id),
     isCollectionBeingModified: state.collections.isCollectionBeingModified,
     siteLang: state.api.lang,
   };

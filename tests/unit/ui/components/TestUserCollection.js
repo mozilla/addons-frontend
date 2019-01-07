@@ -20,7 +20,7 @@ describe(__filename, () => {
 
   it('renders a collection', () => {
     const props = {
-      authorUsername: 'some-username',
+      authorId: 1234,
       id: 1,
       name: 'collection name',
       numberOfAddons: 5,
@@ -32,7 +32,7 @@ describe(__filename, () => {
     expect(root.find('.UserCollection')).toHaveLength(1);
     expect(root.find('.UserCollection-link')).toHaveProp(
       'to',
-      `/collections/${props.authorUsername}/${props.slug}/`,
+      `/collections/${props.authorId}/${props.slug}/`,
     );
     expect(root.find('.UserCollection-name').children()).toHaveText(props.name);
     expect(root.find('.UserCollection-number').children()).toHaveText(
@@ -42,7 +42,7 @@ describe(__filename, () => {
 
   it('renders singular text for a collection with 1 add-on', () => {
     const props = {
-      authorUsername: 'some-username',
+      authorId: 1234,
       id: 1,
       name: 'collection name',
       numberOfAddons: 1,

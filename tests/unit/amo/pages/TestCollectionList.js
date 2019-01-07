@@ -40,8 +40,8 @@ describe(__filename, () => {
   };
 
   it('dispatches fetchUserCollections for a logged in user with no collections loaded yet', () => {
-    const username = 'some-username';
-    const { store } = dispatchSignInActions({ userProps: { username } });
+    const userId = 1234;
+    const { store } = dispatchSignInActions({ userId });
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     const errorHandler = createStubErrorHandler();
@@ -53,7 +53,7 @@ describe(__filename, () => {
       fakeDispatch,
       fetchUserCollections({
         errorHandlerId: errorHandler.id,
-        userId: username,
+        userId: String(userId),
       }),
     );
   });
@@ -68,8 +68,8 @@ describe(__filename, () => {
   });
 
   it('does not dispatch fetchUserCollections if collections are loading', () => {
-    const username = 'some-username';
-    const { store } = dispatchSignInActions({ userProps: { username } });
+    const userId = 1234;
+    const { store } = dispatchSignInActions({ userId });
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     const errorHandler = createStubErrorHandler();
@@ -77,7 +77,7 @@ describe(__filename, () => {
     store.dispatch(
       fetchUserCollections({
         errorHandlerId: errorHandler.id,
-        userId: username,
+        userId: String(userId),
       }),
     );
 
@@ -89,14 +89,14 @@ describe(__filename, () => {
   });
 
   it('does not dispatch fetchUserCollections if collections are loaded', () => {
-    const username = 'some-username';
-    const { store } = dispatchSignInActions({ userProps: { username } });
+    const userId = 1234;
+    const { store } = dispatchSignInActions({ userId });
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     store.dispatch(
       loadUserCollections({
         collections: [createFakeCollectionDetail()],
-        userId: username,
+        userId: String(userId),
       }),
     );
 
@@ -143,13 +143,13 @@ describe(__filename, () => {
   });
 
   it('renders placeholder text if the user has no collections', () => {
-    const username = 'some-username';
-    const { store } = dispatchSignInActions({ userProps: { username } });
+    const userId = 1234;
+    const { store } = dispatchSignInActions({ userId });
 
     store.dispatch(
       loadUserCollections({
         collections: [],
-        userId: username,
+        userId: String(userId),
       }),
     );
 
@@ -168,13 +168,13 @@ describe(__filename, () => {
   });
 
   it('renders loading UserCollection objects if collections are loading', () => {
-    const username = 'some-username';
-    const { store } = dispatchSignInActions({ userProps: { username } });
+    const userId = 1234;
+    const { store } = dispatchSignInActions({ userId });
 
     store.dispatch(
       fetchUserCollections({
         errorHandlerId: createStubErrorHandler().id,
-        userId: username,
+        userId: String(userId),
       }),
     );
 
@@ -193,29 +193,29 @@ describe(__filename, () => {
   });
 
   it('renders a list of collections', () => {
-    const username = 'some-username';
+    const userId = 1234;
     const collections = [
       createFakeCollectionDetail({
         addon_count: 1,
-        authorUsername: username,
+        authorId: userId,
         id: 1,
         name: 'collection1',
         slug: 'collection-1',
       }),
       createFakeCollectionDetail({
         addon_count: 2,
-        authorUsername: username,
+        authorId: userId,
         id: 2,
         name: 'collection2',
         slug: 'collection-2',
       }),
     ];
-    const { store } = dispatchSignInActions({ userProps: { username } });
+    const { store } = dispatchSignInActions({ userId });
 
     store.dispatch(
       loadUserCollections({
         collections,
-        userId: username,
+        userId: String(userId),
       }),
     );
 
@@ -225,9 +225,11 @@ describe(__filename, () => {
 
     const userCollections = root.find(UserCollection);
     expect(userCollections).toHaveLength(2);
+
     userCollections.forEach((collection, index) => {
       const expected = createInternalCollection({ detail: collections[index] });
-      expect(collection).toHaveProp('authorUsername', expected.authorUsername);
+
+      expect(collection).toHaveProp('authorId', expected.authorId);
       expect(collection).toHaveProp('id', expected.id);
       expect(collection).toHaveProp('name', expected.name);
       expect(collection).toHaveProp('numberOfAddons', expected.numberOfAddons);
@@ -236,13 +238,13 @@ describe(__filename, () => {
   });
 
   describe('errorHandler - extractId', () => {
-    it('returns a unique ID based on currentUsername', () => {
-      const currentUsername = 'some-username';
+    it('returns a unique ID based on currentUserId', () => {
+      const currentUserId = 456;
 
-      expect(extractId({ currentUsername })).toEqual(currentUsername);
+      expect(extractId({ currentUserId })).toEqual(currentUserId);
     });
 
-    it('returns a blank ID with no currentUsername', () => {
+    it('returns a blank ID with no currentUserId', () => {
       expect(extractId({})).toEqual('');
     });
   });
