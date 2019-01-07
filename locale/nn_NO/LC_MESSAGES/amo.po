@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2019-01-07 16:21+0000\n"
+"PO-Revision-Date: 2019-01-07 17:48+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -130,7 +130,7 @@ msgstr "Firefox-versjonen din støttar ikkje programtillegg for søk."
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Last ned denne utvidinga for 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:105
@@ -153,7 +153,7 @@ msgstr ""
 
 #: src/amo/components/AddonHead/index.js:135
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "Last ned %(addonName)s for Firefox. %(summary)s"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:61
@@ -525,12 +525,12 @@ msgstr "%(averageRating)s stjerner i gjennomsnitt"
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:76 src/amo/components/AddonTitle/index.js:80
 msgid "by"
-msgstr ""
+msgstr "av"
 
 #: src/amo/components/App/index.js:217 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -574,11 +574,11 @@ msgstr "Lastar kategoriar."
 
 #: src/amo/components/CategoryHead/index.js:31
 msgid "%(categoryName)s – Extensions"
-msgstr ""
+msgstr "%(categoryName)s – Utvidingar"
 
 #: src/amo/components/CategoryHead/index.js:34
 msgid "%(categoryName)s – Themes"
-msgstr ""
+msgstr "%(categoryName)s – Tema"
 
 #: src/amo/components/CategoryHead/index.js:38
 msgid "%(categoryName)s"
@@ -992,11 +992,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Watch2Gether"
-msgstr ""
+msgstr "Watch2Gether"
 
 #: src/amo/components/HomeHeroBanner/index.js:105
 msgid "Watch videos simultaneously with others"
-msgstr ""
+msgstr "Sjå på videoar samstundes med andre"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Context Search"
@@ -1056,7 +1056,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "View Image"
-msgstr ""
+msgstr "Vis bilde"
 
 #: src/amo/components/HomeHeroBanner/index.js:153
 msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
@@ -1064,7 +1064,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Neat URL"
-msgstr ""
+msgstr "Neat URL"
 
 #: src/amo/components/HomeHeroBanner/index.js:160
 msgid "Clean up links for easy sharing"
@@ -1072,7 +1072,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Glitter Drag"
-msgstr ""
+msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
@@ -1192,7 +1192,7 @@ msgstr "Hindre at Facebook sporar deg på nettet"
 
 #: src/amo/components/HomeHeroBanner/index.js:250
 msgid "Text MultiCopy"
-msgstr ""
+msgstr "Text MultiCopy"
 
 #: src/amo/components/HomeHeroBanner/index.js:251
 msgid "Save snippets of text to paste & organize later"
@@ -1224,7 +1224,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:274
 msgid "SoundFixer"
-msgstr ""
+msgstr "SoundFixer"
 
 #: src/amo/components/HomeHeroBanner/index.js:275
 msgid "Adjust audio levels for sounds you encounter around web"
@@ -1232,7 +1232,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:281
 msgid "Lilo"
-msgstr ""
+msgstr "Lilo"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
 msgid "Fund social causes by simply using Lilo search"
@@ -2344,9 +2344,8 @@ msgid "See more popular extensions"
 msgstr "Vis fleire populære utvidingar"
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more news boosters"
-msgstr "Vis fleire dynamiske nedlastingsverktøy"
+msgstr "Vis fleire verktøy som støttar nyheiter"
 
 #: src/amo/pages/Home/index.js:55
 msgid "News boosters"
