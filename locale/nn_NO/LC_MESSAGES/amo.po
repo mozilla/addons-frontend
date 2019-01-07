@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2019-01-07 17:48+0000\n"
+"PO-Revision-Date: 2019-01-07 18:11+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -135,12 +135,12 @@ msgstr "%(addonName)s – Last ned denne utvidinga for 🦊 Firefox (%(locale)s)
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:105
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Last ned denne språkpakken for 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:111
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Last ned dette temaet for 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:116
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
@@ -149,7 +149,7 @@ msgstr "%(addonName)s – Last ned dette søkjeverktøyet for 🦊 Firefox (%(lo
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:121
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Last ned dette tillegget for 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:135
 msgid "Download %(addonName)s for Firefox. %(summary)s"
@@ -988,7 +988,7 @@ msgstr "Vis samlingane mine"
 
 #: src/amo/components/HomeHeroBanner/index.js:100
 msgid "Highly customizable text highlighter"
-msgstr ""
+msgstr "Svært tilpassingsdyktig tekstmarkerar"
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Watch2Gether"
@@ -1104,7 +1104,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "Copy PlainText"
-msgstr ""
+msgstr "Kopier PlainText"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Remove formatting when saving text to your clipboard"
@@ -1136,7 +1136,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:216
 msgid "Push to Kindle"
-msgstr ""
+msgstr "Push to Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Send any Web page to your Kindle device"
@@ -1168,7 +1168,7 @@ msgstr "Tilpassa muserørsler"
 
 #: src/amo/components/HomeHeroBanner/index.js:238
 msgid "Dark Reader"
-msgstr ""
+msgstr "Dark Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:239
 msgid "Go dark for a better web viewing experience"
@@ -1240,7 +1240,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Iridium for YouTube"
-msgstr ""
+msgstr "Iridium for YouTube"
 
 #: src/amo/components/HomeHeroBanner/index.js:32
 msgid "Play videos in a pop-out window, take video screenshots & more"
@@ -1256,7 +1256,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:43
 msgid "New Tab Override"
-msgstr ""
+msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Choose the page you see every time you open a new tab"
@@ -1484,15 +1484,15 @@ msgstr "Kva synest du om %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
-msgstr ""
+msgstr "Lagrar stjernevurdering"
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
-msgstr ""
+msgstr "Stjernevurdering lagra"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Les alle vurderingar med fem stjerner"
 
 #: src/amo/components/RatingsByStar/index.js:93
 msgid "Read all four-star reviews"
@@ -1500,7 +1500,7 @@ msgstr "Les alle vurderingar med fire stjerner"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "Les alle vurderingar med tre stjerner"
 
 #: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all two-star reviews"
@@ -1988,23 +1988,23 @@ msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:209
 msgid "Only showing one-star reviews"
-msgstr ""
+msgstr "Viser berre vurderingar med ei stjerne"
 
 #: src/amo/pages/AddonReviewList/index.js:210
 msgid "Only showing two-star reviews"
-msgstr ""
+msgstr "Viser berre vurderingar med to stjerner"
 
 #: src/amo/pages/AddonReviewList/index.js:211
 msgid "Only showing three-star reviews"
-msgstr ""
+msgstr "Viser berre vurderingar med tre stjerner"
 
 #: src/amo/pages/AddonReviewList/index.js:212
 msgid "Only showing four-star reviews"
-msgstr ""
+msgstr "Viser berre vurderingar med fire stjerner"
 
 #: src/amo/pages/AddonReviewList/index.js:213
 msgid "Only showing five-star reviews"
-msgstr ""
+msgstr "Viser berre vurderingar med fem stjerner"
 
 #: src/amo/pages/AddonReviewList/index.js:225
 msgid "Show all reviews"
@@ -2929,46 +2929,46 @@ msgstr ""
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s og nyare"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s til %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Fungerar med %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Mislykka installasjon. Prøv igjen."
 
 #: src/core/utils/addons.js:31
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Mislykka nedlasting. Konttroller tilkoplinga di."
 
 #: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during installation."
@@ -3040,7 +3040,7 @@ msgstr "Tilgang til dataa dine for %(param)s"
 
 #: src/ui/components/Notice/index.js:138
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Avvis denne meldinga"
 
 #: src/ui/components/Rating/index.js:104
 msgid "Rate this add-on %(starRating)s out of 5"
