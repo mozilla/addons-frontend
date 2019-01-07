@@ -250,7 +250,7 @@ export class AppBase extends React.Component<Props> {
               </div>
             </div>
 
-            <FooterComponent location={location} />
+            <FooterComponent />
           </div>
         </ScrollToTop>
       </NestedStatus>

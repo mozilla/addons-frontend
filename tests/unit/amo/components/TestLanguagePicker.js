@@ -10,6 +10,7 @@ import {
   createFakeLocation,
   createFakeEvent,
   shallowUntilTarget,
+  createContextWithFakeRouter,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -28,6 +29,9 @@ describe(__filename, () => {
       return shallowUntilTarget(
         <LanguagePicker {...props} />,
         LanguagePickerBase,
+        {
+          shallowOptions: createContextWithFakeRouter(),
+        },
       );
     }
 
@@ -49,8 +53,11 @@ describe(__filename, () => {
 
       const root = renderLanguagePicker({
         currentLocale: 'fr',
-        location: createFakeLocation({ pathname: _window.location }),
         _window,
+      });
+
+      root.setProps({
+        location: createFakeLocation({ pathname: _window.location }),
       });
 
       const fakeEvent = createFakeEvent({ target: { value: 'es' } });

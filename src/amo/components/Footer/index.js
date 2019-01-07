@@ -13,11 +13,10 @@ import './styles.scss';
 export class FooterBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
   };
 
   render() {
-    const { i18n, location } = this.props;
+    const { i18n } = this.props;
     const homepageText = i18n.gettext("Go to Mozilla's homepage");
 
     return (
@@ -193,7 +192,6 @@ export class FooterBase extends React.Component {
 
           <div className="Footer-language-picker">
             <LanguagePicker
-              location={location}
               ref={(ref) => {
                 this.languagePicker = ref;
               }}
