@@ -367,15 +367,21 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           })}
         >
           {linkParts.beforeLinkText}
-          <Link
-            key={review.id}
-            to={reviewListURL({
-              addonSlug: review.reviewAddon.slug,
-              id: review.id,
-            })}
-          >
-            {linkParts.innerLinkText}
-          </Link>
+
+          {review.reviewAddon.slug ? (
+            <Link
+              key={review.id}
+              to={reviewListURL({
+                addonSlug: review.reviewAddon.slug,
+                id: review.id,
+              })}
+            >
+              {linkParts.innerLinkText}
+            </Link>
+          ) : (
+            linkParts.innerLinkText
+          )}
+
           {linkParts.afterLinkText}
         </span>
       );

@@ -1052,6 +1052,18 @@ describe(__filename, () => {
       );
     });
 
+    it('renders a byLine without a link when the review addon has an empty slug', () => {
+      const review = signInAndDispatchSavedReview({
+        externalReview: {
+          ...fakeReview,
+          addon: { ...fakeReview.addon, slug: '' },
+        },
+      });
+      const root = render({ review, store });
+
+      expect(renderByLine(root).find(Link)).toHaveLength(0);
+    });
+
     it('renders a byLine with a relative date', () => {
       const i18n = fakeI18n();
       const review = signInAndDispatchSavedReview();
