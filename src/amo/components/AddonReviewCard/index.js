@@ -72,7 +72,6 @@ type InternalProps = {|
   replyingToReview: boolean,
   siteUser: UserType | null,
   siteUserCanManageReplies: boolean,
-  siteUserHasReplyPerm: boolean,
   submittingReply: boolean,
 |};
 
@@ -544,7 +543,6 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     replyingToReview,
     siteUser: getCurrentUser(state.users),
     siteUserCanManageReplies: ownProps.siteUserCanReply || siteUserHasReplyPerm,
-    siteUserHasReplyPerm,
     submittingReply,
   };
 }

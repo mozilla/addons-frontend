@@ -53,7 +53,8 @@
     // We omit `debug` because we don't turn that on by default.
     "amo/only-log-strings": ["error", {
       "methods": ["fatal", "info", "error", "warn"]
-    }]
+    }],
+    "react/default-props-match-prop-types": "off"
   },
   "settings": {
     "import/core-modules": [

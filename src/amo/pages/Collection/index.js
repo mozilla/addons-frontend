@@ -1,5 +1,4 @@
 /* @flow */
-import config from 'config';
 import deepEqual from 'deep-eql';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -68,7 +67,6 @@ export type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   _isFeaturedCollection: typeof isFeaturedCollection,
   clientApp: string,
   dispatch: DispatchFunc,
@@ -130,7 +128,6 @@ export class CollectionBase extends React.Component<InternalProps> {
   addonPlaceholderCount: number;
 
   static defaultProps = {
-    _config: config,
     _isFeaturedCollection: isFeaturedCollection,
     creating: false,
     editing: false,
