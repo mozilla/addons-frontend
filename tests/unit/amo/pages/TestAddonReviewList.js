@@ -839,7 +839,35 @@ describe(__filename, () => {
       );
     });
 
-    it('does not fetchReviewPermissions if they are already loading', () => {
+    it('does not dispatch fetchReviewPermissions() when an error has occured', () => {
+      const addon = { ...fakeAddon };
+      const userId = 66432;
+
+      loadAddon(addon);
+      dispatchSignInActions({ store, userId });
+
+      const id = 'error-handler-id';
+      const error = createApiError({
+        response: { status: 401 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'Authentication Failed.' },
+      });
+
+      store.dispatch(setError({ id, error }));
+
+      const capturedError = store.getState().errors[id];
+      // This makes sure the error was dispatched to state correctly.
+      expect(capturedError).toBeTruthy();
+
+      const errorHandler = createStubErrorHandler(capturedError);
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      render({ errorHandler });
+
+      sinon.assert.notCalled(dispatchSpy);
+    });
+
+    it('does not dispatch fetchReviewPermissions() if they are already loading', () => {
       const addon = { ...fakeAddon };
       const userId = 66432;
 
@@ -862,7 +890,7 @@ describe(__filename, () => {
       });
     });
 
-    it('does not fetchReviewPermissions if they are already loaded', () => {
+    it('does not dispatch fetchReviewPermissions() if they are already loaded', () => {
       const addon = { ...fakeAddon };
       const userId = 66432;
 
