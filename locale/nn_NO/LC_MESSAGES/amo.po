@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2019-01-07 16:11+0000\n"
+"PO-Revision-Date: 2019-01-07 16:21+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -166,25 +166,21 @@ msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s
 msgstr "%(addonName)s – Last ned denne utvidinga for 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:71
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Utvidingar for Firefox"
+msgstr "%(addonName)s – Last ned denne språkpakken for 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:77
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Utvidingar for Firefox"
+msgstr "%(addonName)s – Last ned dette temaet for 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:83
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Utvidingar for Firefox"
+msgstr "%(addonName)s – Last ned dette søkjeverktøyet for 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:88
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Hent denne ordboka for 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Last ned dette tillegget for 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:95
@@ -1007,9 +1003,8 @@ msgid "Context Search"
 msgstr "Context Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
-#, fuzzy
 msgid "Highlight text on any webpage to easily search the term"
-msgstr "Marker tekst på ei nettside og få opna ein smart søkemeny"
+msgstr "Marker teksten på ei nettside for enkelt å søkje etter termen"
 
 #: src/amo/components/HomeHeroBanner/index.js:116
 msgid "Stylus"
@@ -1048,9 +1043,8 @@ msgid "Auto Fullscreen"
 msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
-#, fuzzy
 msgid "Automatically start Firefox in full screen mode"
-msgstr "Leitar automatisk etter kupongkodar"
+msgstr "Start Firefox automatisk i fullskjerm"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Video Speed Controller"
@@ -1981,9 +1975,8 @@ msgid "Custom License for %(addonName)s"
 msgstr "Tilpassa lisens for %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:164
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Lisensavtale for sluttbrukarar"
+msgstr "Sluttbrukararlisensavtale for %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:168
 msgid "Privacy policy for %(addonName)s"
@@ -2208,9 +2201,8 @@ msgid "Add a control bar to all YouTube video pages so you can easily adjust vol
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:205
-#, fuzzy
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "Gjer vel og følg %(linkStart)sretningslinjene våre for vurderingar%(linkEnd)s."
+msgstr "Utforsk fleire %(linkStart)svideoutvidingar%(linkEnd)s utvalde av personalet."
 
 #: src/amo/pages/Guides/index.js:213
 msgid "Get more out of media"
@@ -2227,9 +2219,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:225
-#, fuzzy
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "Gjer vel og følg %(linkStart)sretningslinjene våre for vurderingar%(linkEnd)s."
+msgstr "Utforsk fleire %(linkStart)smediautvidingar%(linkEnd)s utvalde av personalet."
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
