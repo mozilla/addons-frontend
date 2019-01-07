@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2019-01-07 18:15+0000\n"
+"PO-Revision-Date: 2019-01-07 21:22+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1080,7 +1080,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Behind The Overlay Revival"
-msgstr ""
+msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:172
 msgid "Click a button to close annoying pop-ups"
@@ -1216,11 +1216,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:269
 msgid "Ad Analysis for Facebook"
-msgstr ""
+msgstr "Annonseanalyse for Facebook"
 
 #: src/amo/components/HomeHeroBanner/index.js:270
 msgid "See how Facebook ads target you"
-msgstr ""
+msgstr "Sjå korleis Facebook-annonsar rettar seg mot deg"
 
 #: src/amo/components/HomeHeroBanner/index.js:274
 msgid "SoundFixer"
@@ -2921,7 +2921,7 @@ msgstr "Side %(currentPage)s av %(totalPages)s"
 
 #: src/core/components/SurveyNotice/index.js:131
 msgid "Take short survey"
-msgstr ""
+msgstr "Ver med på ei kort spørjeundersøking"
 
 #: src/core/components/SurveyNotice/index.js:139
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
