@@ -2362,7 +2362,6 @@ babel-generator@^6.18.0, babel-generator@^6.26.0:
 
 "babel-gettext-extractor@github:mozilla/babel-gettext-extractor#babel-7":
   version "4.0.0"
-  uid "78ff104e669edb731e979e36fbf4fe261a569924"
   resolved "https://codeload.github.com/mozilla/babel-gettext-extractor/tar.gz/78ff104e669edb731e979e36fbf4fe261a569924"
   dependencies:
     "@babel/core" "^7.0.0"
@@ -5115,14 +5114,14 @@ eslint-config-airbnb@17.1.0:
     object.assign "^4.1.0"
     object.entries "^1.0.4"
 
-eslint-config-amo@^1.8.3:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-amo/-/eslint-config-amo-1.9.0.tgz#7dafd9b0450ebb01ddd51e1c33cdf217fa48671d"
-  integrity sha512-GKjEiC5bDT/HaR9I+jw65MMZz/j0Y5Sk3oetUD+4ac6+P0WOllE+vFFQdMn7jo7u2lS4ikyTbsuYQz9Sq98rpw==
+eslint-config-amo@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-amo/-/eslint-config-amo-1.10.0.tgz#937ab354d862492ea181c6df832ae068c3286c03"
+  integrity sha512-rBElFnvhxhjVqw+I4aLEmuDG3RXk6hmqBKYLP6Rvct1Mm+uiYIqWG9RufIkl2h4T2iTFQU9EOSLYK6QBbyBOSg==
   dependencies:
     eslint-config-airbnb "17.1.0"
     eslint-plugin-import "^2.14.0"
-    eslint-plugin-jest "21.26.2"
+    eslint-plugin-jest "22.1.2"
     eslint-plugin-jsx-a11y "^6.1.1"
     eslint-plugin-react "^7.11.0"
 
@@ -5166,10 +5165,10 @@ eslint-plugin-import@^2.14.0:
     read-pkg-up "^2.0.0"
     resolve "^1.6.0"
 
-eslint-plugin-jest@21.26.2:
-  version "21.26.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-21.26.2.tgz#5b24413970e83e2c5b87c5c047a08a4881783605"
-  integrity sha512-SCTBC6q182D4qQlQAN81D351jdte/YwTMo4f+l19Gvh1VemaNZP7ak3MLLvw6xkL9dO2FxVjCLk5DCdl1KfdLw==
+eslint-plugin-jest@22.1.2:
+  version "22.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-22.1.2.tgz#1ea36cc3faedbdb788e702ca633d635ca14e91e8"
+  integrity sha512-jSPT4rVmNetkeCIyrvvOM0wJtgoUSbKHIUDoOGzIISsg51eWN/nISPNKVM+jXMMDI9oowbyapOnpKSXlsLiDpQ==
 
 eslint-plugin-jsx-a11y@^6.1.1:
   version "6.1.2"
