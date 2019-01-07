@@ -3,6 +3,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import languages from 'core/languages';
 import translate from 'core/i18n/translate';
@@ -72,6 +73,7 @@ export function mapStateToProps(state) {
 }
 
 export default compose(
+  withRouter,
   connect(mapStateToProps),
   translate(),
 )(LanguagePickerBase);
