@@ -267,12 +267,12 @@ describe(__filename, () => {
       // This updates the loading state.
       _loadAddonResults({ store, addons: [fakeAddon] });
 
-      const root = render({ _log, store, slug, sections: fakeSections });
+      const root = render({ _log, _sections: fakeSections, store, slug });
 
       expect(root.find(GuidesAddonCard).at(0)).toHaveProp('addon', null);
       sinon.assert.calledWith(
         _log.error,
-        `There is an error with add-on guid: ${guids[0]}`,
+        `Could not load add-on with GUID: ${guids[0]}`,
       );
     });
 

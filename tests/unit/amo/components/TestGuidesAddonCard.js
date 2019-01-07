@@ -79,7 +79,7 @@ describe(__filename, () => {
     expect(root.find(InstallButtonWrapper)).toHaveLength(1);
   });
 
-  it("renders a loading class when the addon hasn't been loaded", () => {
+  it("renders a loading class when the addon hasn't been loaded yet", () => {
     const root = render({ addon: undefined });
 
     expect(

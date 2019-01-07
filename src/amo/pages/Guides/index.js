@@ -43,6 +43,8 @@ type SectionsType = {|
 
 type InternalProps = {|
   ...Props,
+  _log: typeof log,
+  _sections?: Array<SectionsType>,
   addons: {
     [guid: string]: AddonType | null,
   },
@@ -51,9 +53,7 @@ type InternalProps = {|
   errorHandler: ErrorHandlerType,
   guids: Array<string>,
   i18n: I18nType,
-  _log: typeof log,
   loading: boolean,
-  sections?: Array<SectionsType>,
   slug: string,
 |};
 
@@ -263,7 +263,6 @@ export const getContent = ({
   i18n: I18nType,
   sections?: Array<SectionsType>,
 |} = {}): GuideType | null => {
-  const _sections = sections;
   switch (slug) {
     case 'stay-safe-online': {
       return {
@@ -275,7 +274,7 @@ export const getContent = ({
           and security.`,
         ),
         icon: 'stop-hand',
-        sections: _sections || getSections({ slug, i18n }),
+        sections: sections || getSections({ slug, i18n }),
       };
     }
     case 'organize-tabs-and-bookmarks': {
@@ -288,7 +287,7 @@ export const getContent = ({
           with tabs and bookmarks.`,
         ),
         icon: 'browser',
-        sections: _sections || getSections({ slug, i18n }),
+        sections: sections || getSections({ slug, i18n }),
       };
     }
     case 'enhance-your-media-experience': {
@@ -299,7 +298,7 @@ export const getContent = ({
           from watching videos to handling images, music, and more.`,
         ),
         icon: 'video',
-        sections: _sections || getSections({ slug, i18n }),
+        sections: sections || getSections({ slug, i18n }),
       };
     }
     default:
@@ -363,9 +362,7 @@ export class GuidesBase extends React.Component<InternalProps> {
       if (hasAddonsLoaded) {
         if (addons[section.addonGuid] === null) {
           addon = null;
-          _log.error(
-            `There is an error with add-on guid: ${section.addonGuid}`,
-          );
+          _log.error(`Could not load add-on with GUID: ${section.addonGuid}`);
         } else {
           addon = addons[section.addonGuid];
         }
@@ -392,9 +389,9 @@ export class GuidesBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { clientApp, i18n, match } = this.props;
+    const { _sections, clientApp, i18n, match } = this.props;
     const { slug } = match.params;
-    const content = getContent({ slug, i18n, sections: this.props.sections });
+    const content = getContent({ slug, i18n, sections: _sections });
 
     if (!content || clientApp === CLIENT_APP_ANDROID) {
       return <NotFound />;

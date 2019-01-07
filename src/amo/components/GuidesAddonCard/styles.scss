@@ -37,15 +37,6 @@
 
     @include respond-to(medium) {
       display: flex;
-
-      &--loading {
-        display: inline-block;
-
-        // stylelint-disable max-nesting-depth
-        .GuidesAddonCard-content-header-authors {
-          width: 70%;
-        }
-      }
     }
 
     .GuidesAddonCard-content-header-authors {
@@ -61,6 +52,17 @@
         color: $link-color;
         font-size: inherit;
         text-decoration: underline;
+      }
+    }
+  }
+
+  .GuidesAddonCard-content-header-title--loading {
+    @include respond-to(medium) {
+      display: inline-block;
+
+      // stylelint-disable max-nesting-depth
+      .GuidesAddonCard-content-header-authors {
+        width: 70%;
       }
     }
   }
