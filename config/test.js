@@ -16,4 +16,6 @@ module.exports = {
 
   // We use a fake/incomplete file for the test suite.
   loadableStatsFile: path.join(fixturesPath, 'loadable-stats.json'),
+
+  mozillaUserId: 1337,
 };

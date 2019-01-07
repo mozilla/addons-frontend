@@ -1,4 +1,5 @@
 import * as React from 'react';
+import config from 'config';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Home, {
@@ -47,7 +48,7 @@ describe(__filename, () => {
     header: 'some header',
     isTheme: false,
     slug: 'some-slug',
-    username: 'some-username',
+    userId: 345,
   };
 
   const getProps = () => {
@@ -86,7 +87,7 @@ describe(__filename, () => {
       expect(shelf).toHaveProp('footerText', collectionMetadata.footerText);
       expect(shelf).toHaveProp('header', collectionMetadata.header);
       expect(shelf).toHaveProp('slug', collectionMetadata.slug);
-      expect(shelf).toHaveProp('username', collectionMetadata.username);
+      expect(shelf).toHaveProp('userId', config.get('mozillaUserId'));
       expect(shelf).toHaveProp('loading', true);
       expect(shelf).toHaveProp('isTheme', collectionMetadata.isTheme);
     },
@@ -128,7 +129,9 @@ describe(__filename, () => {
     );
     expectedCollections.forEach((collectionSlug) => {
       expect(
-        shelf.find({ to: `/collections/mozilla/${collectionSlug}/` }),
+        shelf.find({
+          to: `/collections/${config.get('mozillaUserId')}/${collectionSlug}/`,
+        }),
       ).toHaveLength(1);
     });
   });
@@ -367,11 +370,11 @@ describe(__filename, () => {
 
     it('returns true for a featured collection', () => {
       const slug = 'privacy-matters';
-      const username = 'mozilla';
+      const userId = 4757633;
 
-      const featuredCollections = [{ slug, username }];
+      const featuredCollections = [{ slug, userId }];
 
-      const collection = createCollection({ slug, authorUsername: username });
+      const collection = createCollection({ slug, authorId: userId });
 
       expect(isFeaturedCollection(collection, { featuredCollections })).toEqual(
         true,
@@ -380,7 +383,7 @@ describe(__filename, () => {
 
     it('returns false for a non-featured collection', () => {
       const featuredCollections = [
-        { slug: 'privacy-matters', username: 'mozilla' },
+        { slug: 'privacy-matters', userId: 4757633 },
       ];
 
       const collection = createCollection({ slug: 'another-collection' });
@@ -392,15 +395,15 @@ describe(__filename, () => {
 
     it('returns true for one of many featured collections', () => {
       const slug = 'privacy-matters';
-      const username = 'mozilla';
+      const userId = 4757633;
 
       const featuredCollections = [
-        { slug: 'first', username: 'first-author' },
-        { slug: 'second', username: 'second-author' },
-        { slug, username },
+        { slug: 'first', userId: 123 },
+        { slug: 'second', userId: 456 },
+        { slug, userId },
       ];
 
-      const collection = createCollection({ slug, authorUsername: username });
+      const collection = createCollection({ slug, authorId: userId });
 
       expect(isFeaturedCollection(collection, { featuredCollections })).toEqual(
         true,
@@ -410,11 +413,11 @@ describe(__filename, () => {
     it('returns false for a matching slug, wrong author', () => {
       const slug = 'privacy-matters';
 
-      const featuredCollections = [{ slug, username: 'mozilla' }];
+      const featuredCollections = [{ slug, userId: 4757633 }];
 
       const collection = createCollection({
         slug,
-        authorUsername: 'another-author',
+        authorId: 'another-author',
       });
 
       expect(isFeaturedCollection(collection, { featuredCollections })).toEqual(
@@ -423,13 +426,13 @@ describe(__filename, () => {
     });
 
     it('returns false for a matching author, wrong slug', () => {
-      const username = 'mozilla';
+      const userId = 4757633;
 
-      const featuredCollections = [{ slug: 'privacy-matters', username }];
+      const featuredCollections = [{ slug: 'privacy-matters', userId }];
 
       const collection = createCollection({
         slug: 'another-collection',
-        authorUsername: username,
+        authorId: userId,
       });
 
       expect(isFeaturedCollection(collection, { featuredCollections })).toEqual(

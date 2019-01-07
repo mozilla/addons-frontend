@@ -67,9 +67,9 @@ describe(__filename, () => {
       const state = sagaTester.getState();
 
       const firstCollectionSlug = 'collection-slug';
-      const firstCollectionUser = 'user-id-or-name';
+      const firstCollectionUser = 123;
       const secondCollectionSlug = 'collection-slug-2';
-      const secondCollectionUser = 'user-id-or-name-2';
+      const secondCollectionUser = 456;
 
       const baseArgs = { api: state.api };
 
@@ -149,8 +149,8 @@ describe(__filename, () => {
 
       _fetchHomeAddons({
         collectionsToFetch: [
-          { slug: firstCollectionSlug, username: firstCollectionUser },
-          { slug: secondCollectionSlug, username: secondCollectionUser },
+          { slug: firstCollectionSlug, userId: firstCollectionUser },
+          { slug: secondCollectionSlug, userId: secondCollectionUser },
         ],
         includeFeaturedThemes: true,
       });
@@ -277,7 +277,7 @@ describe(__filename, () => {
 
         _fetchHomeAddons({
           collectionsToFetch: [
-            { slug: firstCollectionSlug, username: firstCollectionUser },
+            { slug: firstCollectionSlug, userId: firstCollectionUser },
           ],
           includeFeaturedThemes: false,
         });
@@ -324,7 +324,7 @@ describe(__filename, () => {
       const state = sagaTester.getState();
 
       const slug = 'collection-slug';
-      const username = 'user-id-or-name';
+      const userId = 'user-id-or-name';
 
       const baseArgs = { api: state.api };
 
@@ -334,7 +334,7 @@ describe(__filename, () => {
         .withArgs({
           ...baseArgs,
           slug,
-          userId: username,
+          userId,
         })
         .returns(Promise.resolve(firstCollection));
 
@@ -345,7 +345,7 @@ describe(__filename, () => {
         .exactly(4)
         .returns(Promise.reject(error));
 
-      _fetchHomeAddons({ collectionsToFetch: [{ slug, username }] });
+      _fetchHomeAddons({ collectionsToFetch: [{ slug, userId }] });
 
       const errorAction = errorHandler.createErrorAction(error);
       const expectedAction = await sagaTester.waitFor(errorAction.type);
