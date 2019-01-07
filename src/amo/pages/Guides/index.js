@@ -39,10 +39,8 @@ type InternalProps = {|
   clientApp: ?string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  guids: Array<string>,
   i18n: I18nType,
   loading: boolean,
-  slug: string,
 |};
 
 type SectionsType = {|

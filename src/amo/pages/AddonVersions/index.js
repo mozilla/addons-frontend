@@ -27,7 +27,6 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type {
-  ReactRouterHistoryType,
   ReactRouterLocationType,
   ReactRouterMatchType,
 } from 'core/types/router';
@@ -44,12 +43,9 @@ type InternalProps = {|
   addon: AddonType | null,
   addonIsLoading: boolean,
   areVersionsLoading: boolean,
-  clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  history: ReactRouterHistoryType,
   i18n: I18nType,
-  lang: string,
   match: {|
     ...ReactRouterMatchType,
     params: {|
@@ -187,8 +183,6 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
     addon,
     addonIsLoading: isAddonLoading(state, slug),
     areVersionsLoading,
-    clientApp: state.api.clientApp,
-    lang: state.api.lang,
     versions:
       !addon || areVersionsLoading
         ? undefined
