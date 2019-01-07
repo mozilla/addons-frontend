@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2019-01-07 18:11+0000\n"
+"PO-Revision-Date: 2019-01-07 18:15+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -2074,7 +2074,7 @@ msgstr "Logg inn for å redigere denne samlinga"
 
 #: src/amo/pages/Collection/index.js:437
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
+msgstr "Lag først samlinga di. Deretter kan du leggje til utvidingar og tema."
 
 #: src/amo/pages/Collection/index.js:440
 msgid "Search for extensions and themes to add to your collection."
@@ -2118,11 +2118,11 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:106
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Utforsk fleire %(linkStart)sannonseblokkerarar%(linkEnd)s utvalde av personalet."
 
 #: src/amo/pages/Guides/index.js:114
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "Stopp online-sporfølgjarar frå å følgje etter deg"
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
@@ -2190,7 +2190,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:194
 msgid "Improve videos"
-msgstr ""
+msgstr "Forbetre videoar"
 
 #: src/amo/pages/Guides/index.js:195
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
@@ -2206,7 +2206,7 @@ msgstr "Utforsk fleire %(linkStart)svideoutvidingar%(linkEnd)s utvalde av person
 
 #: src/amo/pages/Guides/index.js:213
 msgid "Get more out of media"
-msgstr ""
+msgstr "Få meir ut av media"
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
