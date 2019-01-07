@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2018-12-15 04:39+0000\n"
+"PO-Revision-Date: 2019-01-07 16:11+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -143,9 +143,8 @@ msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:116
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr "%s – Utvidingar for Firefox"
+msgstr "%(addonName)s – Last ned dette søkjeverktøyet for 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:121
@@ -158,15 +157,13 @@ msgstr ""
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:61
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Hent denne ordboka for 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Last ned denne ordboka for 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:66
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Hent denne ordboka for 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Last ned denne utvidinga for 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:71
 #, fuzzy
@@ -386,14 +383,12 @@ msgid "Publishing reply"
 msgstr "Publiserer svar"
 
 #: src/amo/components/AddonReviewCard/index.js:349
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "posta %(timestamp)s"
+msgstr "posta %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:351
-#, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "av %(authorName)s, %(timestamp)s"
+msgstr "av %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:413
 msgid "Deleting…"
@@ -1482,14 +1477,12 @@ msgid "Log in to rate this add-on"
 msgstr "Logg inn for å vurdere denne utvidinga"
 
 #: src/amo/components/RatingManager/index.js:173
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Vil du slette dette bildet?"
+msgstr "Er du sikker på at du vil slette vurderinga di av %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:178
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "Vil du slette dette bildet?"
+msgstr "Er du sikker på at du vil slette vurderinga di av %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:183
 msgid "How are you enjoying %(addonName)s?"
@@ -1508,23 +1501,20 @@ msgid "Read all five-star reviews"
 msgstr ""
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read all four-star reviews"
-msgstr "Les %(count)s vurdering"
+msgstr "Les alle vurderingar med fire stjerner"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
 msgstr ""
 
 #: src/amo/components/RatingsByStar/index.js:95
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "Svar på denne vurderinga"
+msgstr "Les alle vurderingar med fire stjerner"
 
 #: src/amo/components/RatingsByStar/index.js:96
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "Les %(count)s vurdering"
+msgstr "Les alle vurderingar med ei stjerne"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -2024,9 +2014,8 @@ msgid "Only showing five-star reviews"
 msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:225
-#, fuzzy
 msgid "Show all reviews"
-msgstr "Mine vurderingar"
+msgstr "Vis alle vurderingar"
 
 #: src/amo/pages/AddonReviewList/index.js:269
 msgid "Reviews for %(addonName)s"
@@ -2039,14 +2028,12 @@ msgstr[0] "%(total)s vurdering for denne utvidinga"
 msgstr[1] "%(total)s vurderingar for denne utvidinga"
 
 #: src/amo/pages/AddonReviewList/index.js:370
-#, fuzzy
 msgid "No reviews"
 msgstr "Ingen vurderingar"
 
 #: src/amo/pages/CategoriesPage/index.js:46
-#, fuzzy
 msgid "All extension categories"
-msgstr "Bla gjennom alle utvidingar i denne kategorien."
+msgstr "Alle utvidingskategoriar"
 
 #: src/amo/pages/CategoriesPage/index.js:48
 msgid "All theme categories"
@@ -2375,14 +2362,12 @@ msgid "News boosters"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more weather reports"
-msgstr "Vis fleire hausttema"
+msgstr "Vis fleire vêrrapportar"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "Weather reports"
-msgstr "Send rapport om misbruk"
+msgstr "Vêrrapportar"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
