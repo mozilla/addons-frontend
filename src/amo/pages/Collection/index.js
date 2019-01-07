@@ -253,7 +253,7 @@ export class CollectionBase extends React.Component<InternalProps> {
           errorHandlerId: errorHandler.id,
           filters,
           slug: params.slug,
-          userId: String(params.userId),
+          userId: params.userId,
         }),
       );
 
@@ -266,7 +266,7 @@ export class CollectionBase extends React.Component<InternalProps> {
           errorHandlerId: errorHandler.id,
           filters,
           slug: params.slug,
-          userId: String(params.userId),
+          userId: params.userId,
         }),
       );
     }

@@ -28,7 +28,7 @@ export type Props = {||};
 export type InternalProps = {|
   ...Props,
   collections: Array<CollectionType> | null,
-  currentUserId: number | null,
+  currentUserId: string | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
@@ -50,7 +50,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
       dispatch(
         fetchUserCollections({
           errorHandlerId: errorHandler.id,
-          userId: String(currentUserId),
+          userId: currentUserId,
         }),
       );
     }
@@ -145,12 +145,12 @@ export const mapStateToProps = (state: AppState) => {
   const { collections, users } = state;
 
   const currentUser = getCurrentUser(users);
-  const currentUserId = currentUser && currentUser.id;
+  const currentUserId = currentUser && String(currentUser.id);
 
   let userCollections;
 
   if (currentUserId) {
-    userCollections = collections.userCollections[String(currentUserId)];
+    userCollections = collections.userCollections[currentUserId];
   }
 
   return {
