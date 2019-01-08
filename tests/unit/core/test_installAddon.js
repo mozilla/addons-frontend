@@ -1082,6 +1082,54 @@ describe(__filename, () => {
         });
       });
 
+      it('uses a version instead of the currentVersion when one exists in props', () => {
+        const currentHash = 'current-hash';
+        const currentInstallURL = 'https://mysite.com/download-current.xpi';
+        const versionHash = 'version-hash';
+        const versionInstallURL = 'https://mysite.com/download-version.xpi';
+
+        // This will load data for the currentVersion of the add-on.
+        _loadVersions({
+          store,
+          versionProps: {
+            files: [
+              {
+                platform: OS_ALL,
+                url: currentInstallURL,
+                hash: currentHash,
+              },
+            ],
+          },
+        });
+
+        const fakeAddonManager = getFakeAddonManagerWrapper();
+        const { root } = renderWithInstallHelpers({
+          _addonManager: fakeAddonManager,
+          defaultInstallSource,
+          store,
+          version: createInternalVersion({
+            ...fakeVersion,
+            files: [
+              {
+                ...fakePlatformFile,
+                hash: versionHash,
+                url: versionInstallURL,
+              },
+            ],
+          }),
+        });
+        const { install } = root.instance().props;
+
+        return install().then(() => {
+          sinon.assert.calledWith(
+            fakeAddonManager.install,
+            `${versionInstallURL}?src=${defaultInstallSource}`,
+            sinon.match.func,
+            { src: defaultInstallSource, hash: versionHash },
+          );
+        });
+      });
+
       it('passes an undefined hash when installURL is not found', () => {
         _loadVersions({
           store,
@@ -1350,7 +1398,7 @@ describe(__filename, () => {
         return install().then(() => {
           sinon.assert.calledWith(
             _log.debug,
-            'no currentVersion found, aborting install().',
+            'no version found, aborting install().',
           );
         });
       });

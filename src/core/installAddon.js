@@ -234,6 +234,7 @@ type WithInstallHelpersInternalProps = {|
   currentVersion: AddonVersionType | null,
   dispatch: DispatchFunc,
   userAgentInfo: UserAgentInfoType,
+  version: AddonVersionType | null,
 |};
 
 type EnableParams = {|
@@ -423,6 +424,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       dispatch,
       location,
       userAgentInfo,
+      version,
     } = this.props;
 
     if (!addon) {
@@ -430,13 +432,14 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       return Promise.resolve();
     }
 
-    if (!currentVersion) {
-      _log.debug('no currentVersion found, aborting install().');
+    const installVersion = version || currentVersion;
+    if (!installVersion) {
+      _log.debug('no version found, aborting install().');
       return Promise.resolve();
     }
 
     const { guid, name, type } = addon;
-    const { platformFiles } = currentVersion;
+    const { platformFiles } = installVersion;
 
     return new Promise((resolve) => {
       dispatch({ type: START_DOWNLOAD, payload: { guid } });
@@ -458,7 +461,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       .then((installURL) => {
         const hash =
           installURL &&
-          getFileHash({ addon, installURL, version: currentVersion });
+          getFileHash({ addon, installURL, version: installVersion });
 
         return _addonManager.install(
           installURL,
