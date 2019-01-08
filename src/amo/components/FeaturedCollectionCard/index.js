@@ -16,7 +16,7 @@ type Props = {|
   isTheme: boolean,
   loading: boolean,
   slug: string,
-  username: string,
+  userId: number,
 |};
 
 export default class FeaturedCollectionCard extends React.Component<Props> {
@@ -29,7 +29,7 @@ export default class FeaturedCollectionCard extends React.Component<Props> {
       isTheme,
       loading,
       slug,
-      username,
+      userId,
     } = this.props;
 
     return (
@@ -41,7 +41,7 @@ export default class FeaturedCollectionCard extends React.Component<Props> {
         })}
         header={header}
         footerText={footerText}
-        footerLink={`/collections/${username}/${slug}/`}
+        footerLink={`/collections/${userId}/${slug}/`}
         loading={loading}
         isTheme={isTheme}
       />

@@ -16,7 +16,7 @@ describe(__filename, () => {
       header: 'Header text',
       loading: false,
       slug: 'some-slug',
-      username: 'some-username',
+      userId: 2222222,
       ...customProps,
     };
 
@@ -79,14 +79,14 @@ describe(__filename, () => {
       footerText: 'Custom footer',
       header: 'Custom header',
       slug: 'custom-slug',
-      username: 'custom-username',
+      userId: 123,
     };
 
     const root = render({ ...collectionProperties });
     const landingAddonsCard = root.find(LandingAddonsCard);
     expect(landingAddonsCard).toHaveProp(
       'footerLink',
-      `/collections/${collectionProperties.username}/${
+      `/collections/${collectionProperties.userId}/${
         collectionProperties.slug
       }/`,
     );

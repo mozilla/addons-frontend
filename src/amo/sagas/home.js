@@ -44,13 +44,13 @@ export function* fetchHomeAddons({
       const params: GetCollectionAddonsParams = {
         api: state.api,
         slug: collection.slug,
-        userId: collection.username,
+        userId: collection.userId,
       };
       const result = yield call(getCollectionAddons, params);
       collections.push(result);
     } catch (error) {
       log.warn(
-        oneLine`Home collection: ${collection.username}/${collection.slug}
+        oneLine`Home collection: ${collection.userId}/${collection.slug}
           failed to load: ${error}`,
       );
       if (error.response && [401, 404].includes(error.response.status)) {

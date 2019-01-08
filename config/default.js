@@ -131,6 +131,7 @@ module.exports = {
     'langMap',
     'langs',
     'loggingLevel',
+    'mozillaUserId',
     'publicSentryDsn',
     'restrictSearchResultsToAppVersion',
     'rtlLangs',
