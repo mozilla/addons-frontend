@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-08 18:43+0000\n"
+"PO-Revision-Date: 2019-01-08 19:11+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -773,24 +773,28 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
+"Prova a visitar le pagina plus tarde, quando le thema o le extension pote devenir disponibile de novo. In alternativa, tu pote forsan trovar lo que tu cerca in un del "
+"%(linkStart)sextensions%(linkEnd)s disponibile o %(secondLinkStart)sthemas%(secondLinkEnd)s."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Ups! Nos non pote trovar ille pagina"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Si tu ha sequite un ligamine ab un altere sito pro un extension o thema, ille elemento non es plus disponibile. Iste poterea ser perque:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:69
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "Le disveloppator lo ha removite. Le disveloppatores communmente facer isto perque illes non plus supporta le extension o thema, o ha supplantate illo."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:74
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla lo ha removite. Isto pote evenir quando problemas es trovate durante le revision del extension o thema, o le extension o thema ha abusate le terminos e conditiones pro addons.mozilla.org. Le"
+" disveloppator ha le opportunitate de resolver le problemas e render le additivo disponibile de novo."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
 #, fuzzy
@@ -2057,8 +2061,8 @@ msgstr "Il ha nulle revisiones"
 #: src/amo/pages/AddonVersions/index.js:123
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(addonName)s Chronologia del versiones - %(total)s version"
+msgstr[1] "%(addonName)s Chronologia del versiones - %(total)s versiones"
 
 #: src/amo/pages/AddonVersions/index.js:154
 msgid "Latest version"
