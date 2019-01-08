@@ -31,9 +31,11 @@ import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
+export const MOZILLA_USER_ID = config.get('mozillaUserId');
+
 export const FEATURED_COLLECTIONS = [
-  { slug: 'news-boosters', userId: config.get('mozillaUserId') },
-  { slug: 'weather-reports', userId: config.get('mozillaUserId') },
+  { slug: 'news-boosters', userId: MOZILLA_USER_ID },
+  { slug: 'weather-reports', userId: MOZILLA_USER_ID },
 ];
 
 export const isFeaturedCollection = (
@@ -113,7 +115,7 @@ export class HomeBase extends React.Component {
   }
 
   renderCuratedCollections() {
-    const { _config, i18n } = this.props;
+    const { i18n } = this.props;
 
     const curatedMozillaCollections = [
       {
@@ -147,9 +149,7 @@ export class HomeBase extends React.Component {
         {curatedMozillaCollections.map(({ collectionSlug, title }) => (
           <li className="Home-SubjectShelf-list-item" key={collectionSlug}>
             <Link
-              to={`/collections/${_config.get(
-                'mozillaUserId',
-              )}/${collectionSlug}/`}
+              to={`/collections/${MOZILLA_USER_ID}/${collectionSlug}/`}
               className="Home-SubjectShelf-link"
             >
               <Icon name={`Home-SubjectShelf-${collectionSlug}`} />

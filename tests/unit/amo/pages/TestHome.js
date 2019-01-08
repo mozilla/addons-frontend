@@ -1,9 +1,9 @@
 import * as React from 'react';
-import config from 'config';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Home, {
   FEATURED_COLLECTIONS,
+  MOZILLA_USER_ID,
   HomeBase,
   getFeaturedCollectionsMetadata,
   isFeaturedCollection,
@@ -87,7 +87,7 @@ describe(__filename, () => {
       expect(shelf).toHaveProp('footerText', collectionMetadata.footerText);
       expect(shelf).toHaveProp('header', collectionMetadata.header);
       expect(shelf).toHaveProp('slug', collectionMetadata.slug);
-      expect(shelf).toHaveProp('userId', config.get('mozillaUserId'));
+      expect(shelf).toHaveProp('userId', MOZILLA_USER_ID);
       expect(shelf).toHaveProp('loading', true);
       expect(shelf).toHaveProp('isTheme', collectionMetadata.isTheme);
     },
@@ -130,7 +130,7 @@ describe(__filename, () => {
     expectedCollections.forEach((collectionSlug) => {
       expect(
         shelf.find({
-          to: `/collections/${config.get('mozillaUserId')}/${collectionSlug}/`,
+          to: `/collections/${MOZILLA_USER_ID}/${collectionSlug}/`,
         }),
       ).toHaveLength(1);
     });
@@ -417,7 +417,7 @@ describe(__filename, () => {
 
       const collection = createCollection({
         slug,
-        authorId: 'another-author',
+        authorId: 12,
       });
 
       expect(isFeaturedCollection(collection, { featuredCollections })).toEqual(

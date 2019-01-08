@@ -79,7 +79,7 @@ describe(__filename, () => {
       footerText: 'Custom footer',
       header: 'Custom header',
       slug: 'custom-slug',
-      userId: 'custom-userId',
+      userId: 123,
     };
 
     const root = render({ ...collectionProperties });
