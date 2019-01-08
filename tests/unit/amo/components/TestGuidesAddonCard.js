@@ -99,6 +99,12 @@ describe(__filename, () => {
     expect(root.find(AddonCompatibilityError)).toHaveProp('addon', addon);
   });
 
+  it('does not render AddonCompatibilityError when addon is undefined', () => {
+    const root = render({ addon: undefined });
+
+    expect(root.find(AddonCompatibilityError)).toHaveLength(0);
+  });
+
   it('renders Staff Pick content by default', () => {
     const root = render({ addon: createInternalAddon(fakeAddon) });
     expect(

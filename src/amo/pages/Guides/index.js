@@ -257,11 +257,11 @@ export const getSections = ({
 export const getContent = ({
   slug,
   i18n,
-  sections,
+  _sections,
 }: {|
   slug: string,
   i18n: I18nType,
-  sections?: Array<SectionsType>,
+  _sections?: Array<SectionsType>,
 |} = {}): GuideType | null => {
   switch (slug) {
     case 'stay-safe-online': {
@@ -274,7 +274,7 @@ export const getContent = ({
           and security.`,
         ),
         icon: 'stop-hand',
-        sections: sections || getSections({ slug, i18n }),
+        sections: _sections || getSections({ slug, i18n }),
       };
     }
     case 'organize-tabs-and-bookmarks': {
@@ -287,7 +287,7 @@ export const getContent = ({
           with tabs and bookmarks.`,
         ),
         icon: 'browser',
-        sections: sections || getSections({ slug, i18n }),
+        sections: _sections || getSections({ slug, i18n }),
       };
     }
     case 'enhance-your-media-experience': {
@@ -298,7 +298,7 @@ export const getContent = ({
           from watching videos to handling images, music, and more.`,
         ),
         icon: 'video',
-        sections: sections || getSections({ slug, i18n }),
+        sections: _sections || getSections({ slug, i18n }),
       };
     }
     default:
@@ -391,7 +391,7 @@ export class GuidesBase extends React.Component<InternalProps> {
   render() {
     const { _sections, clientApp, i18n, match } = this.props;
     const { slug } = match.params;
-    const content = getContent({ slug, i18n, sections: _sections });
+    const content = getContent({ slug, i18n, _sections });
 
     if (!content || clientApp === CLIENT_APP_ANDROID) {
       return <NotFound />;

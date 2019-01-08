@@ -233,7 +233,7 @@ describe(__filename, () => {
       sinon.assert.notCalled(_log.error);
     });
 
-    it('passes addon value as null to GuidesAddonCard with a log message if the guid is not valid', () => {
+    it('passes addon value as `null` to GuidesAddonCard and logs an error when the GUID is not valid', () => {
       const { store } = _dispatchFirefoxClient();
       const i18n = fakeI18n();
 
