@@ -19,6 +19,7 @@
   margin: 0 12px;
   padding: 0 0 2px;
   text-decoration: none;
+  outline: none;
 
   &::after {
     background: transparent;
@@ -86,6 +87,7 @@
   .DropdownMenu-button {
     margin-top: 2px;
     padding: 0 0 2px;
+    outline: none;
   }
 
   .DropdownMenu-button-text {
