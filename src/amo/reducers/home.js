@@ -5,9 +5,11 @@ import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
+import { SET_CLIENT_APP } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import type { AddonType, ExternalAddonType } from 'core/types/addons';
 import { isTheme } from 'core/utils';
+import type { AddonType, ExternalAddonType } from 'core/types/addons';
+import type { SetClientAppAction } from 'core/actions';
 
 export const FETCH_HOME_ADDONS: 'FETCH_HOME_ADDONS' = 'FETCH_HOME_ADDONS';
 export const LOAD_HOME_ADDONS: 'LOAD_HOME_ADDONS' = 'LOAD_HOME_ADDONS';
@@ -87,7 +89,7 @@ export const loadHomeAddons = ({
   };
 };
 
-type Action = FetchHomeAddonsAction | LoadHomeAddonsAction;
+type Action = FetchHomeAddonsAction | LoadHomeAddonsAction | SetClientAppAction;
 
 const createInternalAddons = (
   response: ApiAddonsResponse,
@@ -100,6 +102,9 @@ const reducer = (
   action: Action,
 ): HomeState => {
   switch (action.type) {
+    case SET_CLIENT_APP:
+      return initialState;
+
     case FETCH_HOME_ADDONS:
       return {
         ...state,
