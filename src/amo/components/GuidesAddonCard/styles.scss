@@ -33,6 +33,16 @@
   }
 
   .GuidesAddonCard-content-header-title {
+    width: 100%;
+
+    @include respond-to(medium) {
+      display: flex;
+    }
+
+    .GuidesAddonCard-content-header-authors {
+      width: auto;
+    }
+
     .AddonTitle-author {
       color: $grey-50;
       font-size: $font-size-default;
@@ -42,6 +52,17 @@
         color: $link-color;
         font-size: inherit;
         text-decoration: underline;
+      }
+    }
+  }
+
+  .GuidesAddonCard-content-header-title--loading {
+    @include respond-to(medium) {
+      display: inline-block;
+
+      // stylelint-disable max-nesting-depth
+      .GuidesAddonCard-content-header-authors {
+        width: 70%;
       }
     }
   }
@@ -91,9 +112,6 @@
 }
 
 .GuidesAddonCard-content-header-title {
-  display: flex;
-  flex-direction: column;
-
   @include respond-to(medium) {
     margin: 0 16px;
   }
@@ -101,6 +119,7 @@
 
 .GuidesAddonCard-content-header-staff-pick {
   color: $grey-50;
+  display: block;
   font-size: $font-size-micro;
   font-weight: 500;
   margin-top: 8px;
@@ -108,6 +127,9 @@
   white-space: nowrap;
 
   @include respond-to(medium) {
+    @include margin-start(8px);
+
+    display: inline-block;
     margin-top: 2px;
   }
 }

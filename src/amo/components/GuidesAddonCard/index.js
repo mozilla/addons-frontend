@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import makeClassName from 'classnames';
 
 import AddonTitle from 'amo/components/AddonTitle';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
@@ -20,7 +21,7 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {
-  addon: AddonType | null,
+  addon: AddonType | null | void,
   addonCustomText: string,
   staffPick?: boolean,
 };
@@ -39,30 +40,44 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
   render() {
     const { addon, i18n, staffPick } = this.props;
 
-    return addon ? (
+    return addon !== null ? (
       <Card>
         <AddonInstallError error={this.props.installError} />
         <div className="GuidesAddonCard">
-          <AddonCompatibilityError addon={addon} />
+          {addon && <AddonCompatibilityError addon={addon} />}
           <div className="GuidesAddonCard-content">
-            <img
-              className="GuidesAddonCard-content-icon"
-              src={getAddonIconUrl(addon)}
-              alt={addon.name}
-            />
+            {addon && (
+              <img
+                className="GuidesAddonCard-content-icon"
+                src={getAddonIconUrl(addon)}
+                alt={addon.name}
+              />
+            )}
             <div className="GuidesAddonCard-content-text">
               <div className="GuidesAddonCard-content-header">
-                <div className="GuidesAddonCard-content-header-title">
+                <div
+                  className={makeClassName(
+                    'GuidesAddonCard-content-header-title',
+                    {
+                      'GuidesAddonCard-content-header-title--loading':
+                        addon === undefined,
+                    },
+                  )}
+                >
                   <span className="GuidesAddonCard-content-header-authors">
-                    <AddonTitle addon={addon} as="span" linkToAddon />
+                    <AddonTitle
+                      addon={addon === undefined ? null : addon}
+                      as="span"
+                      linkToAddon
+                    />
                   </span>
+                  {staffPick && (
+                    <span className="GuidesAddonCard-content-header-staff-pick">
+                      <Icon name="trophy" />
+                      <span>{i18n.gettext('Staff Pick')}</span>
+                    </span>
+                  )}
                 </div>
-                {staffPick && (
-                  <div className="GuidesAddonCard-content-header-staff-pick">
-                    <Icon name="trophy" />
-                    <span>{i18n.gettext('Staff Pick')}</span>
-                  </div>
-                )}
               </div>
               <p className="GuidesAddonCard-content-description">
                 {this.props.addonCustomText}

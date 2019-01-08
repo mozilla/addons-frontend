@@ -18,6 +18,7 @@ import {
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
+  getFakeLogger,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -38,10 +39,10 @@ describe(__filename, () => {
     return shallowUntilTarget(<Guides {...allProps} />, GuidesBase);
   };
 
-  const _loadAddonResults = (store, addon = fakeAddon) => {
+  const _loadAddonResults = ({ store, addons = [fakeAddon] } = {}) => {
     store.dispatch(
       loadAddonResults({
-        addons: [addon],
+        addons,
       }),
     );
   };
@@ -61,7 +62,7 @@ describe(__filename, () => {
       const errorHandler = createStubErrorHandler();
 
       const slug = 'stay-safe-online';
-      const content = getContent(slug, fakeI18n());
+      const content = getContent({ slug, i18n: fakeI18n() });
       const guids = content.sections.map((section) => section.addonGuid);
 
       render({ errorHandler, store, slug });
@@ -83,7 +84,7 @@ describe(__filename, () => {
 
       const errorHandler = createStubErrorHandler();
       const slug = 'stay-safe-online';
-      const content = getContent(slug, fakeI18n());
+      const content = getContent({ slug, i18n: fakeI18n() });
       const guids = content.sections.map((section) => section.addonGuid);
 
       // This simulates the initial fetch for addons.
@@ -107,7 +108,7 @@ describe(__filename, () => {
 
       const errorHandler = createStubErrorHandler();
       const slug = 'stay-safe-online';
-      const content = getContent(slug, fakeI18n());
+      const content = getContent({ slug, i18n: fakeI18n() });
       const guids = content.sections.map((section) => section.addonGuid);
       const addons = [];
 
@@ -132,7 +133,7 @@ describe(__filename, () => {
       const { store } = _dispatchFirefoxClient();
 
       const slug = 'stay-safe-online';
-      const content = getContent(slug, fakeI18n());
+      const content = getContent({ slug, i18n: fakeI18n() });
       const guids = content.sections.map((section) => section.addonGuid);
 
       const linkParts = getLocalizedTextWithLinkParts({
@@ -187,19 +188,27 @@ describe(__filename, () => {
       );
     });
 
-    it('passes an addon to GuidesAddonCard', () => {
+    it('passes a valid addon to GuidesAddonCard', () => {
       const { store } = _dispatchFirefoxClient();
+      const _log = getFakeLogger();
 
       const slug = 'stay-safe-online';
+
       const guids = getSections({ slug, i18n: fakeI18n() }).map(
         (section) => section.addonGuid,
       );
 
+      const addons = [];
+
+      guids.forEach((guid, index) => {
+        addons.push({
+          ...fakeAddon,
+          id: index,
+          guid,
+        });
+      });
+
       const errorHandler = createStubErrorHandler();
-      const addon = {
-        ...fakeAddon,
-        guid: guids[0],
-      };
 
       // This simulates the initial fetch for addons.
       store.dispatch(
@@ -210,14 +219,60 @@ describe(__filename, () => {
         }),
       );
 
-      _loadAddonResults(store, addon);
+      _loadAddonResults({ store, addons });
 
-      const root = render({ store, slug });
+      const root = render({ _log, store, slug });
 
-      expect(root.find(GuidesAddonCard)).toHaveLength(guids.length);
-      expect(root.find(GuidesAddonCard).at(0)).toHaveProp(
-        'addon',
-        createInternalAddon(addon),
+      addons.forEach((addon, index) => {
+        expect(root.find(GuidesAddonCard).at(index)).toHaveProp(
+          'addon',
+          createInternalAddon(addon),
+        );
+      });
+
+      sinon.assert.notCalled(_log.error);
+    });
+
+    it('passes addon value as `null` to GuidesAddonCard and logs an error when the GUID is not valid', () => {
+      const { store } = _dispatchFirefoxClient();
+      const i18n = fakeI18n();
+
+      const slug = 'stay-safe-online';
+      const guids = ['bad@guid.com'];
+
+      const _log = getFakeLogger();
+
+      const fakeSections = [
+        {
+          addonGuid: guids[0],
+          header: i18n.gettext('Addon header text'),
+          description: i18n.gettext('Addon description text'),
+          addonCustomText: i18n.gettext('Custom Addon Text'),
+          exploreMore: i18n.gettext('Explore %(linkStart)smore%(linkEnd)s.'),
+          exploreUrl: '/some/url',
+        },
+      ];
+
+      const errorHandler = createStubErrorHandler();
+
+      // This simulates the initial fetch for addons.
+      store.dispatch(
+        fetchGuidesAddons({
+          slug,
+          guids,
+          errorHandlerId: errorHandler.id,
+        }),
+      );
+
+      // This updates the loading state.
+      _loadAddonResults({ store, addons: [fakeAddon] });
+
+      const root = render({ _log, _sections: fakeSections, store, slug });
+
+      expect(root.find(GuidesAddonCard).at(0)).toHaveProp('addon', null);
+      sinon.assert.calledWith(
+        _log.error,
+        `Could not load add-on with GUID: ${guids[0]}`,
       );
     });
 
@@ -227,7 +282,7 @@ describe(__filename, () => {
       const slug = 'stay-safe-online';
       const root = render({ slug, store });
 
-      const content = getContent(slug, fakeI18n());
+      const content = getContent({ slug, i18n: fakeI18n() });
       expect(root.find('title')).toHaveText(content.title);
     });
 

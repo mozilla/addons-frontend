@@ -13,6 +13,7 @@ import { CLIENT_APP_ANDROID } from 'core/constants';
 import { getAddonByGUID } from 'core/reducers/addons';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
 import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import Icon from 'ui/components/Icon';
 import type { AddonType } from 'core/types/addons';
@@ -31,8 +32,19 @@ type Props = {|
   },
 |};
 
+type SectionsType = {|
+  addonGuid: string,
+  header: string,
+  description: string,
+  addonCustomText: string,
+  exploreMore: string,
+  exploreUrl: string,
+|};
+
 type InternalProps = {|
   ...Props,
+  _log: typeof log,
+  _sections?: Array<SectionsType>,
   addons: {
     [guid: string]: AddonType | null,
   },
@@ -41,15 +53,6 @@ type InternalProps = {|
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   loading: boolean,
-|};
-
-type SectionsType = {|
-  addonGuid: string,
-  header: string,
-  description: string,
-  addonCustomText: string,
-  exploreMore: string,
-  exploreUrl: string,
 |};
 
 type GuideType = {|
@@ -249,7 +252,15 @@ export const getSections = ({
   }
 };
 
-export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
+export const getContent = ({
+  slug,
+  i18n,
+  _sections,
+}: {|
+  slug: string,
+  i18n: I18nType,
+  _sections?: Array<SectionsType>,
+|} = {}): GuideType | null => {
   switch (slug) {
     case 'stay-safe-online': {
       return {
@@ -261,7 +272,7 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
           and security.`,
         ),
         icon: 'stop-hand',
-        sections: getSections({ slug, i18n }),
+        sections: _sections || getSections({ slug, i18n }),
       };
     }
     case 'organize-tabs-and-bookmarks': {
@@ -274,7 +285,7 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
           with tabs and bookmarks.`,
         ),
         icon: 'browser',
-        sections: getSections({ slug, i18n }),
+        sections: _sections || getSections({ slug, i18n }),
       };
     }
     case 'enhance-your-media-experience': {
@@ -285,7 +296,7 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
           from watching videos to handling images, music, and more.`,
         ),
         icon: 'video',
-        sections: getSections({ slug, i18n }),
+        sections: _sections || getSections({ slug, i18n }),
       };
     }
     default:
@@ -294,6 +305,10 @@ export const getContent = (slug: string, i18n: I18nType): GuideType | null => {
 };
 
 export class GuidesBase extends React.Component<InternalProps> {
+  static defaultProps = {
+    _log: log,
+  };
+
   constructor(props: InternalProps) {
     super(props);
 
@@ -329,7 +344,10 @@ export class GuidesBase extends React.Component<InternalProps> {
   getGuidesSections = (
     sections: Array<SectionsType>,
   ): React.ChildrenArray<React.Node> => {
-    const { addons, i18n } = this.props;
+    const { _log, addons, i18n } = this.props;
+
+    const hasAddonsLoaded =
+      Object.keys(addons).length !== 0 && !this.props.loading;
 
     return sections.map((section) => {
       const linkParts = getLocalizedTextWithLinkParts({
@@ -337,7 +355,16 @@ export class GuidesBase extends React.Component<InternalProps> {
         text: section.exploreMore,
       });
 
-      const addon = addons[section.addonGuid] || null;
+      let addon;
+
+      if (hasAddonsLoaded) {
+        if (addons[section.addonGuid] === null) {
+          addon = null;
+          _log.error(`Could not load add-on with GUID: ${section.addonGuid}`);
+        } else {
+          addon = addons[section.addonGuid];
+        }
+      }
 
       return (
         <div className="Guides-section" key={section.exploreUrl}>
@@ -360,9 +387,9 @@ export class GuidesBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { clientApp, i18n, match } = this.props;
+    const { _sections, clientApp, i18n, match } = this.props;
     const { slug } = match.params;
-    const content = getContent(slug, i18n);
+    const content = getContent({ slug, i18n, _sections });
 
     if (!content || clientApp === CLIENT_APP_ANDROID) {
       return <NotFound />;
