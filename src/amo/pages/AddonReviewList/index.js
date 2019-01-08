@@ -157,7 +157,8 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       addon &&
       siteUser &&
       siteUserCanReplyToReviews === null &&
-      !checkingIfSiteUserCanReply
+      !checkingIfSiteUserCanReply &&
+      !errorHandler.hasError()
     ) {
       // Permissions are fetched in componentDidMount because siteUser
       // is not reliable while server rendering.

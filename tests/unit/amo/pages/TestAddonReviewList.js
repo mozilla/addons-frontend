@@ -16,6 +16,7 @@ import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import { ErrorHandler } from 'core/errorHandler';
 import Link from 'amo/components/Link';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
@@ -43,7 +44,6 @@ import {
   fakeReview,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { setError } from 'core/actions/errors';
 import Notice from 'ui/components/Notice';
 
 describe(__filename, () => {
@@ -515,57 +515,51 @@ describe(__filename, () => {
     });
 
     it('renders NotFound page if API returns 401 error', () => {
-      const id = 'error-handler-id';
-
       const error = createApiError({
         response: { status: 401 },
         apiURL: 'https://some/api/endpoint',
         jsonResponse: { message: 'Authentication Failed.' },
       });
-      store.dispatch(setError({ id, error }));
-      const capturedError = store.getState().errors[id];
-      // This makes sure the error was dispatched to state correctly.
-      expect(capturedError).toBeTruthy();
 
-      const errorHandler = createStubErrorHandler(capturedError);
+      const errorHandler = new ErrorHandler({
+        id: 'error-handler-id',
+        dispatch: store.dispatch,
+      });
+      errorHandler.handle(error);
 
       const root = render({ errorHandler });
       expect(root.find(NotFound)).toHaveLength(1);
     });
 
     it('renders NotFound page if API returns 403 error', () => {
-      const id = 'error-handler-id';
-
       const error = createApiError({
         response: { status: 403 },
         apiURL: 'https://some/api/endpoint',
         jsonResponse: { message: 'Not Permitted.' },
       });
-      store.dispatch(setError({ id, error }));
-      const capturedError = store.getState().errors[id];
-      // This makes sure the error was dispatched to state correctly.
-      expect(capturedError).toBeTruthy();
 
-      const errorHandler = createStubErrorHandler(capturedError);
+      const errorHandler = new ErrorHandler({
+        id: 'error-handler-id',
+        dispatch: store.dispatch,
+      });
+      errorHandler.handle(error);
 
       const root = render({ errorHandler });
       expect(root.find(NotFound)).toHaveLength(1);
     });
 
     it('renders NotFound page if API returns 404 error', () => {
-      const id = 'error-handler-id';
-
       const error = createApiError({
         response: { status: 404 },
         apiURL: 'https://some/api/endpoint',
         jsonResponse: { message: 'Not Found.' },
       });
-      store.dispatch(setError({ id, error }));
-      const capturedError = store.getState().errors[id];
-      // This makes sure the error was dispatched to state correctly.
-      expect(capturedError).toBeTruthy();
 
-      const errorHandler = createStubErrorHandler(capturedError);
+      const errorHandler = new ErrorHandler({
+        id: 'error-handler-id',
+        dispatch: store.dispatch,
+      });
+      errorHandler.handle(error);
 
       const root = render({ errorHandler });
       expect(root.find(NotFound)).toHaveLength(1);
@@ -839,7 +833,33 @@ describe(__filename, () => {
       );
     });
 
-    it('does not fetchReviewPermissions if they are already loading', () => {
+    it('does not dispatch fetchReviewPermissions() when an error has occured', () => {
+      const addon = { ...fakeAddon };
+      const userId = 66432;
+
+      loadAddon(addon);
+      dispatchSignInActions({ store, userId });
+
+      const error = createApiError({
+        response: { status: 401 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'Authentication Failed.' },
+      });
+
+      const errorHandler = new ErrorHandler({
+        id: 'error-handler-id',
+        dispatch: store.dispatch,
+      });
+      errorHandler.handle(error);
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      render({ errorHandler });
+
+      sinon.assert.notCalled(dispatchSpy);
+    });
+
+    it('does not dispatch fetchReviewPermissions() if they are already loading', () => {
       const addon = { ...fakeAddon };
       const userId = 66432;
 
@@ -862,7 +882,7 @@ describe(__filename, () => {
       });
     });
 
-    it('does not fetchReviewPermissions if they are already loaded', () => {
+    it('does not dispatch fetchReviewPermissions() if they are already loaded', () => {
       const addon = { ...fakeAddon };
       const userId = 66432;
 
