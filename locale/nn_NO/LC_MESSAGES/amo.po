@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-11 19:17+0000\n"
-"PO-Revision-Date: 2019-01-07 21:22+0000\n"
+"PO-Revision-Date: 2019-01-08 04:32+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -940,7 +940,7 @@ msgstr "Berre med Firefox — Få Firefox no"
 
 #: src/amo/components/GuidesAddonCard/index.js:63
 msgid "Staff Pick"
-msgstr ""
+msgstr "Personalet vel"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:505
 msgid "View My Profile"
@@ -1036,7 +1036,7 @@ msgstr "Update Scanner"
 
 #: src/amo/components/HomeHeroBanner/index.js:132
 msgid "Get notified when your selected websites update with new content"
-msgstr ""
+msgstr "Bli varsla når dei utvalde nettstadane dine vert oppdaterte med nytt innhald"
 
 #: src/amo/components/HomeHeroBanner/index.js:138
 msgid "Auto Fullscreen"
