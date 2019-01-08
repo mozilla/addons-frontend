@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-08 22:58+0000\n"
+"PO-Revision-Date: 2019-01-08 23:31+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -778,6 +778,8 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
+"მოგვიანებით სცადეთ გვერდის მონახულება, შესაძლოა მოცემული თემა ან გაფართოება კვლავ გახდეს ხელმისაწვდომი. ამასთან, შეგიძლიათ მონახოთ რასაც ეძებთ არსებულ %(linkStart)sგაფართოებებში%(linkEnd)s ან "
+"%(secondLinkStart)sთემებში%(secondLinkEnd)s."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
@@ -785,24 +787,27 @@ msgstr "უკაცრავად! მოთხოვნილი გვერ
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "თუ გაფართოების ან თემის ბმულს გამოჰყევით სხვა საიტიდან, შეიძლება იგი აღარ იყოს ხელმისაწვდომი. შესაძლოა მიზეზებია:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:69
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "წაშლილია შემმუშავებლის მიერ. ჩვეულებრივ ამას მაშინ აკეთებენ, როცა მოცემული გაფართოების ან თემის მხარდაჭერას წყვეტენ ან ცვლიან სხვა ნამუშევრით."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:74
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"წაშლილია Mozilla-ს მიერ. ეს შეიძლება მოხდეს გაფართოების ან თემის განხილვისას ან იმ შემთხვევაში, თუ აღმოჩნდება რომ თემა არღვევს addons.mozilla.org საიტის წესებსა და პირობებს. შემმუშავებელს ეძლევა "
+"საშუალება აღმოფხვრას მითითებული ხარვეზები და კვლავ გახადოს დამატება ხელმისაწვდომი."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
-#, fuzzy
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll get it sorted."
-msgstr "თუ ბმულს გამოჰყევით, გთხოვთ <a href=\"%(url)s\">მოგვახსენოთ ხარვეზის შესახებ</a>. გვაცნობეთ, რომელი გვერდიდან გადმოხვედით, რას ეძებდით და აუცილებლად გავასწორებთ."
+msgstr ""
+"თუ ბმულს გამოჰყევით ამავე საიტიდან, ეს ნიშნავს რომ რაღაც შეცდომას წააწყდით. დაგვეხმარეთ ბმულის გასწორებაში <a href=\"%(url)s\">ხარვეზის მოხსენებით</a>. გვაცნობეთ, რომელი გვერდიდან გადმოხვედით, რას "
+"ეძებდით და აუცილებლად გავასწორებთ."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
