@@ -322,13 +322,11 @@ describe(__filename, () => {
   it('dispatches an action to fetch the add-ons to display on update', () => {
     const includeFeaturedThemes = false;
     const includeTrendingExtensions = false;
-    const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
 
     const root = render({
-      errorHandler,
       includeFeaturedThemes,
       includeTrendingExtensions,
       store,
@@ -343,7 +341,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(
       fakeDispatch,
       fetchHomeAddons({
-        errorHandlerId: errorHandler.id,
+        errorHandlerId: root.instance().props.errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
         includeFeaturedThemes,
         includeTrendingExtensions,
