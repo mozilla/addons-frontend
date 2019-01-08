@@ -8,7 +8,8 @@ import homeReducer, {
   loadHomeAddons,
 } from 'amo/reducers/home';
 import { createInternalAddon } from 'core/reducers/addons';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
+import { setClientApp } from 'core/actions';
 import {
   createAddonsApiResult,
   createFakeCollectionAddon,
@@ -188,6 +189,25 @@ describe(__filename, () => {
       );
 
       expect(state.resultsLoaded).toEqual(false);
+    });
+
+    it('resets the state when clientApp changes', () => {
+      const { store } = dispatchClientMetadata();
+
+      _loadHomeAddons({
+        store,
+        collections: [
+          createFakeCollectionAddonsListResponse({
+            addons: Array(10).fill(createFakeCollectionAddon()),
+          }),
+        ],
+      });
+
+      const prevState = store.getState().home;
+      expect(prevState.collections).toHaveLength(1);
+
+      const state = homeReducer(prevState, setClientApp(CLIENT_APP_FIREFOX));
+      expect(state).toEqual(initialState);
     });
   });
 });

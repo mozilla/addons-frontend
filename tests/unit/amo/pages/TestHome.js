@@ -319,6 +319,36 @@ describe(__filename, () => {
     );
   });
 
+  it('dispatches an action to fetch the add-ons to display on update', () => {
+    const includeFeaturedThemes = false;
+    const includeTrendingExtensions = false;
+    const { store } = dispatchClientMetadata();
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+
+    const root = render({
+      includeFeaturedThemes,
+      includeTrendingExtensions,
+      store,
+    });
+    fakeDispatch.resetHistory();
+
+    // We simulate an update to trigger `componentDidUpdate()`.
+    root.setProps();
+
+    sinon.assert.callCount(fakeDispatch, 2);
+    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      fetchHomeAddons({
+        errorHandlerId: root.instance().props.errorHandler.id,
+        collectionsToFetch: FEATURED_COLLECTIONS,
+        includeFeaturedThemes,
+        includeTrendingExtensions,
+      }),
+    );
+  });
+
   it('does not display a collection shelf if there is no collection in state', () => {
     const { store } = dispatchClientMetadata();
 

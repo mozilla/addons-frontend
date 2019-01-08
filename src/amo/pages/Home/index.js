@@ -92,13 +92,21 @@ export class HomeBase extends React.Component {
   constructor(props) {
     super(props);
 
+    this.loadDataIfNeeded();
+  }
+
+  componentDidUpdate() {
+    this.loadDataIfNeeded();
+  }
+
+  loadDataIfNeeded() {
     const {
       dispatch,
       errorHandler,
       includeFeaturedThemes,
       includeTrendingExtensions,
       resultsLoaded,
-    } = props;
+    } = this.props;
 
     dispatch(setViewContext(VIEW_CONTEXT_HOME));
 
