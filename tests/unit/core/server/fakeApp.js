@@ -10,7 +10,6 @@ export const fakeAssets = {
   javascript: {
     disco: '/foo/disco-blah.js',
     search: '/search-blah.js',
-    hct: '/blah/disco-hct.js',
     i18n: '/blah/disco-i18n.js',
   },
 };
@@ -20,7 +19,6 @@ export const fakeSRIData = {
   'search-blah.css': 'sha512-search-css',
   'disco-blah.js': 'sha512-disco-js',
   'search-blah.js': 'sha512-search-js',
-  'disco-hct.js': 'sha512-disco-hct-js',
   'disco-i18n.js': 'sha512-disco-i18n-js',
 };
 

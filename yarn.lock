@@ -9308,11 +9308,6 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
-mozilla-hybrid-content-telemetry@1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/mozilla-hybrid-content-telemetry/-/mozilla-hybrid-content-telemetry-1.2.1.tgz#8d4d7c842a19d123139c157bfc72b9b01bb5b8b9"
-  integrity sha512-0CkeJVKVb0rfqfBvSvKokPNlIOf4Z2Dpik5n+aL9v/NOkiDTxUJJ0lDCwJj4QL1a+oTdyYnJOt71Av3A2VuQpw==
-
 mozilla-version-comparator@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mozilla-version-comparator/-/mozilla-version-comparator-1.0.2.tgz#f86731e70c15d1ff5eb288d13b4db8d1e605f7fc"

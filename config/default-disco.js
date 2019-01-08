@@ -25,7 +25,6 @@ module.exports = {
     'enableRequestID',
     'enableStrictMode',
     'experiments',
-    'hctEnabled',
     'hrefLangsMap',
     'isDeployed',
     'isDevelopment',

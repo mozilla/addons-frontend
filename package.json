@@ -203,9 +203,9 @@
   "homepage": "https://github.com/mozilla/addons-frontend#readme",
   "dependencies": {
     "@babel/polyfill": "7.2.5",
-    "base62": "2.0.0",
     "@loadable/component": "5.2.2",
     "@loadable/server": "5.2.2",
+    "base62": "2.0.0",
     "base64url": "3.0.1",
     "better-npm-run": "0.1.1",
     "chokidar": "2.0.4",
@@ -236,7 +236,6 @@
     "localforage": "1.7.3",
     "lodash.debounce": "4.0.8",
     "moment": "2.23.0",
-    "mozilla-hybrid-content-telemetry": "1.2.1",
     "mozilla-version-comparator": "1.0.2",
     "nano-time": "1.0.0",
     "normalize.css": "8.0.1",

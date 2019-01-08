@@ -124,7 +124,6 @@ module.exports = {
     'enableStrictMode',
     'experiments',
     'fxaConfig',
-    'hctEnabled',
     'hrefLangsMap',
     'isDeployed',
     'isDevelopment',
@@ -301,9 +300,6 @@ module.exports = {
   // send a page view on initialization.
   trackingSendInitPageView: true,
 
-  // Hybrid Content Telemetry, off by default.
-  hctEnabled: false,
-
   enablePostCssLoader: true,
 
   // The list of valid client application names.
@@ -321,11 +317,10 @@ module.exports = {
   // The default app used in the URL.
   defaultClientApp: 'firefox',
 
-  // Dynamic JS chunk patterns to exclude. If these strings match any part of the JS file
-  // leaf name they will be excluded from being output in the HTML.
+  // Dynamic JS chunk patterns to exclude. If these strings match any part of
+  // the JS file leaf name they will be excluded from being output in the HTML.
   jsChunkExclusions: [
     'i18n',
-    'disco-hct',
   ],
 
   fxaConfig: null,
