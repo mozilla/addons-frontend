@@ -17,10 +17,10 @@
   display: inline-block;
   font-weight: 400;
   margin: 0 12px;
+  outline: none;
   padding: 0 0 2px;
   text-decoration: none;
-  outline: none;
-
+  
   &::after {
     background: transparent;
     content: '';
@@ -86,8 +86,8 @@
 
   .DropdownMenu-button {
     margin-top: 2px;
-    padding: 0 0 2px;
     outline: none;
+    padding: 0 0 2px;
   }
 
   .DropdownMenu-button-text {
