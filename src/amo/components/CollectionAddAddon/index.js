@@ -131,7 +131,7 @@ export class CollectionAddAddonBase extends React.Component<InternalProps> {
         errorHandlerId: errorHandler.id,
         filters,
         slug: collection.slug,
-        userId: collection.authorUsername,
+        userId: String(collection.authorId),
       }),
     );
     this.resetMessages();
