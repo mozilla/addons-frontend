@@ -1052,6 +1052,38 @@ describe(__filename, () => {
       );
     });
 
+    it('uses the addonId for the byLine link when the reviewAddon has an empty slug', () => {
+      // See https://github.com/mozilla/addons-frontend/issues/7322 for
+      // the reason this test was added.
+      const addonId = 999;
+      const review = signInAndDispatchSavedReview({
+        externalReview: {
+          ...fakeReview,
+          addon: { ...fakeReview.addon, id: addonId, slug: '' },
+        },
+      });
+      const root = render({ review, store });
+
+      expect(renderByLine(root).find(Link)).toHaveProp(
+        'to',
+        reviewListURL({ addonSlug: addonId, id: review.id }),
+      );
+    });
+
+    it('renders a byLine without a link when the reviewAddon has an empty slug and a falsey id', () => {
+      // See https://github.com/mozilla/addons-frontend/issues/7322 for
+      // the reason this test was added.
+      const review = signInAndDispatchSavedReview({
+        externalReview: {
+          ...fakeReview,
+          addon: { ...fakeReview.addon, id: 0, slug: '' },
+        },
+      });
+      const root = render({ review, store });
+
+      expect(renderByLine(root).find(Link)).toHaveLength(0);
+    });
+
     it('renders a byLine with a relative date', () => {
       const i18n = fakeI18n();
       const review = signInAndDispatchSavedReview();

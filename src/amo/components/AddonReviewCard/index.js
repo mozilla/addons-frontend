@@ -360,6 +360,25 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         },
       });
 
+      // See https://github.com/mozilla/addons-frontend/issues/7322 for why we
+      // need this code.
+      const slugForReviewLink =
+        review.reviewAddon.slug || review.reviewAddon.id;
+      if (!review.reviewAddon.slug) {
+        log.error(
+          `The add-on for reviewId: ${review.id} has an falsey slug: ${
+            review.reviewAddon.slug
+          }`,
+        );
+      }
+      if (!review.reviewAddon.id) {
+        log.error(
+          `The add-on for reviewId: ${review.id} has an falsey id: ${
+            review.reviewAddon.id
+          }`,
+        );
+      }
+
       byLine = (
         <span
           className={makeClassName('', {
@@ -367,15 +386,21 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           })}
         >
           {linkParts.beforeLinkText}
-          <Link
-            key={review.id}
-            to={reviewListURL({
-              addonSlug: review.reviewAddon.slug,
-              id: review.id,
-            })}
-          >
-            {linkParts.innerLinkText}
-          </Link>
+
+          {slugForReviewLink ? (
+            <Link
+              key={review.id}
+              to={reviewListURL({
+                addonSlug: String(slugForReviewLink),
+                id: review.id,
+              })}
+            >
+              {linkParts.innerLinkText}
+            </Link>
+          ) : (
+            linkParts.innerLinkText
+          )}
+
           {linkParts.afterLinkText}
         </span>
       );
