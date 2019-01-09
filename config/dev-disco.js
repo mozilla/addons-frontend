@@ -3,6 +3,7 @@ import { amoDevCDN } from './lib/shared';
 const staticHost = 'https://addons-discovery-dev-cdn.allizom.org';
 
 module.exports = {
+  enableFeatureDiscoTaar: true,
   staticHost,
 
   CSP: {
