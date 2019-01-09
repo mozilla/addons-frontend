@@ -42,6 +42,7 @@ import {
   langToLocale,
   makeI18n,
 } from 'core/i18n/utils';
+import { setTaarId } from 'disco/reducers/discoResults';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
 
@@ -334,6 +335,18 @@ function baseServer(
           ) !== undefined
         ) {
           store.dispatch(dismissSurvey());
+        }
+
+        if (
+          config.get('enableFeatureDiscoTaar') &&
+          req.universalCookies.get(config.get('discoTaarIdCookie')) !==
+            undefined
+        ) {
+          store.dispatch(
+            setTaarId(
+              req.universalCookies.get(config.get('discoTaarIdCookie')),
+            ),
+          );
         }
 
         pageProps = getPageProps({ store, req, res, config });

@@ -5,6 +5,7 @@ import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 export const GET_DISCO_RESULTS: 'GET_DISCO_RESULTS' = 'GET_DISCO_RESULTS';
 export const LOAD_DISCO_RESULTS: 'LOAD_DISCO_RESULTS' = 'LOAD_DISCO_RESULTS';
+export const SET_DISCO_TAARID: 'SET_DISCO_TAARID' = 'SET_DISCO_TAARID';
 
 type ExternalDiscoResultType = {|
   addon: ExternalAddonType,
@@ -29,10 +30,12 @@ export type DiscoResultsType = Array<DiscoResultType>;
 
 export type DiscoResultsState = {|
   results: DiscoResultsType,
+  taarId?: string,
 |};
 
 export const initialState: DiscoResultsState = {
   results: [],
+  taarId: undefined,
 };
 
 type GetDiscoResultsParams = {|
@@ -102,13 +105,34 @@ export const createExternalAddonMap = ({
   return results.map((result) => result.addon);
 };
 
-type Action = LoadDiscoResultsAction | GetDiscoResultsAction;
+type SetTaarIdAction = {|
+  type: typeof SET_DISCO_TAARID,
+  payload: { taarId: string },
+|};
+
+export const setTaarId = (taarId: string): SetTaarIdAction => {
+  if (!taarId) {
+    invariant(taarId, 'taarId is required');
+  }
+  return {
+    type: SET_DISCO_TAARID,
+    payload: { taarId },
+  };
+};
+
+type Action = LoadDiscoResultsAction | GetDiscoResultsAction | SetTaarIdAction;
 
 export default function discoResults(
   state: DiscoResultsState = initialState,
   action: Action,
 ): DiscoResultsState {
   switch (action.type) {
+    case SET_DISCO_TAARID: {
+      return {
+        ...state,
+        taarId: action.payload.taarId,
+      };
+    }
     case LOAD_DISCO_RESULTS: {
       const { results } = action.payload;
 

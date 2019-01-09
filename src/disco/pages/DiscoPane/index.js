@@ -51,6 +51,7 @@ type InternalProps = {|
   i18n: I18nType,
   mozAddonManager: MozAddonManagerType,
   results: DiscoResultsType,
+  taarId?: string,
 |};
 
 export class DiscoPaneBase extends React.Component<InternalProps> {
@@ -70,6 +71,7 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
       location,
       match: { params },
       results,
+      taarId,
     } = props;
 
     // TODO: fix this; it's not the right way to detect whether a
@@ -80,7 +82,17 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
       // We accept all query params here and filter them out based on the
       // `discoParamsToUse` config value. See:
       // https://github.com/mozilla/addons-frontend/issues/4155
-      const taarParams = { ...location.query, platform: params.platform };
+      let taarParams = {
+        ...location.query,
+        platform: params.platform,
+      };
+
+      if (taarId) {
+        taarParams = {
+          ...taarParams,
+          clientId: taarId,
+        };
+      }
 
       dispatch(
         getDiscoResults({
@@ -187,6 +199,7 @@ function mapStateToProps(state: AppState) {
 
   return {
     results,
+    taarId: state.discoResults.taarId,
   };
 }
 
