@@ -171,7 +171,7 @@ export class CollectionBase extends React.Component<InternalProps> {
       deleteCollection({
         errorHandlerId: errorHandler.id,
         slug,
-        userId: String(userId),
+        userId,
       }),
     );
   };
@@ -253,7 +253,7 @@ export class CollectionBase extends React.Component<InternalProps> {
           errorHandlerId: errorHandler.id,
           filters,
           slug: params.slug,
-          userId: params.userId,
+          userId: Number(params.userId),
         }),
       );
 
@@ -266,7 +266,7 @@ export class CollectionBase extends React.Component<InternalProps> {
           errorHandlerId: errorHandler.id,
           filters,
           slug: params.slug,
-          userId: params.userId,
+          userId: Number(params.userId),
         }),
       );
     }
@@ -304,7 +304,7 @@ export class CollectionBase extends React.Component<InternalProps> {
           page,
         },
         slug,
-        userId: String(userId),
+        userId,
       }),
     );
 
@@ -340,7 +340,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         errorHandlerId: errorHandler.id,
         filters,
         slug,
-        userId: String(userId),
+        userId,
       }),
     );
   };
@@ -366,7 +366,7 @@ export class CollectionBase extends React.Component<InternalProps> {
         notes,
         filters,
         slug,
-        userId: String(userId),
+        userId,
       }),
     );
   };

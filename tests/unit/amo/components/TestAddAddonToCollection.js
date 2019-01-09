@@ -98,7 +98,7 @@ describe(__filename, () => {
         dispatchSpy,
         fetchUserCollections({
           errorHandlerId: root.instance().props.errorHandler.id,
-          userId: String(userId),
+          userId,
         }),
       );
     });
@@ -117,7 +117,7 @@ describe(__filename, () => {
         dispatchSpy,
         fetchUserCollections({
           errorHandlerId: root.instance().props.errorHandler.id,
-          userId: String(userId),
+          userId,
         }),
       );
     });
@@ -158,7 +158,7 @@ describe(__filename, () => {
       store.dispatch(
         fetchUserCollections({
           errorHandlerId: 'some-id',
-          userId: String(userId),
+          userId,
         }),
       );
 
@@ -184,7 +184,7 @@ describe(__filename, () => {
       store.dispatch(
         fetchUserCollections({
           errorHandlerId: 'some-id',
-          userId: String(userId),
+          userId,
         }),
       );
 
@@ -202,7 +202,7 @@ describe(__filename, () => {
       store.dispatch(
         addAddonToCollection({
           addonId: addon.id,
-          userId: String(userId),
+          userId,
           collectionId: 321,
           slug: 'some-collection',
           errorHandlerId: 'error-handler',
@@ -259,7 +259,7 @@ describe(__filename, () => {
           addonId: addon.id,
           collectionId: secondCollection.id,
           slug: secondCollection.slug,
-          userId: String(userId),
+          userId,
         }),
       );
     });
@@ -297,7 +297,7 @@ describe(__filename, () => {
       store.dispatch(
         addonAddedToCollection({
           addonId: addon.id,
-          userId: String(userId),
+          userId,
           collectionId: firstCollection.id,
         }),
       );

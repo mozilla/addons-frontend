@@ -153,7 +153,7 @@ describe(__filename, () => {
         editing: true,
         errorHandlerId: errorHandler.id,
         filters,
-        userId: String(authorId),
+        userId: authorId,
       }),
     );
   });

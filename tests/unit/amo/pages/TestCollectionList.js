@@ -53,7 +53,7 @@ describe(__filename, () => {
       fakeDispatch,
       fetchUserCollections({
         errorHandlerId: errorHandler.id,
-        userId: String(userId),
+        userId,
       }),
     );
   });
@@ -77,7 +77,7 @@ describe(__filename, () => {
     store.dispatch(
       fetchUserCollections({
         errorHandlerId: errorHandler.id,
-        userId: String(userId),
+        userId,
       }),
     );
 
@@ -96,7 +96,7 @@ describe(__filename, () => {
     store.dispatch(
       loadUserCollections({
         collections: [createFakeCollectionDetail()],
-        userId: String(userId),
+        userId,
       }),
     );
 
@@ -149,7 +149,7 @@ describe(__filename, () => {
     store.dispatch(
       loadUserCollections({
         collections: [],
-        userId: String(userId),
+        userId,
       }),
     );
 
@@ -174,7 +174,7 @@ describe(__filename, () => {
     store.dispatch(
       fetchUserCollections({
         errorHandlerId: createStubErrorHandler().id,
-        userId: String(userId),
+        userId,
       }),
     );
 
@@ -215,7 +215,7 @@ describe(__filename, () => {
     store.dispatch(
       loadUserCollections({
         collections,
-        userId: String(userId),
+        userId,
       }),
     );
 

@@ -37,7 +37,7 @@ type InternalProps = {|
   // These are all user collections that the current add-on is a part of.
   addonInCollections: Array<CollectionType> | null,
   clientApp: string,
-  currentUserId: string | null,
+  currentUserId: number | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
@@ -284,7 +284,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
 export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const { collections, users } = state;
   const currentUser = getCurrentUser(users);
-  const currentUserId = currentUser && String(currentUser.id);
+  const currentUserId = currentUser && currentUser.id;
 
   let userCollections;
   let addonInCollections;

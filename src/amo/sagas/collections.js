@@ -70,7 +70,7 @@ export function* fetchCurrentCollection({
     const baseParams = {
       api: state.api,
       slug,
-      userId,
+      userId: String(userId),
     };
 
     const detailParams: $Shape<GetCollectionParams> = {
@@ -116,7 +116,7 @@ export function* fetchCurrentCollectionPage({
       api: state.api,
       filters,
       slug,
-      userId,
+      userId: String(userId),
     };
     const addons = yield call(api.getCollectionAddons, params);
 
@@ -145,7 +145,7 @@ export function* fetchUserCollections({
 
     const params: GetAllUserCollectionsParams = {
       api: state.api,
-      userId,
+      userId: String(userId),
     };
     const collections = yield call(api.getAllUserCollections, params);
 
@@ -180,7 +180,7 @@ export function* addAddonToCollection({
       api: state.api,
       slug,
       notes,
-      userId,
+      userId: String(userId),
     };
     yield call(api.createCollectionAddon, params);
 
@@ -249,7 +249,7 @@ export function* modifyCollection(
       api: state.api,
       defaultLocale,
       description,
-      userId,
+      userId: String(userId),
     };
 
     if (creating) {
@@ -267,7 +267,7 @@ export function* modifyCollection(
           addonId: includeAddonId,
           api: state.api,
           slug,
-          userId,
+          userId: String(userId),
         };
         yield call(api.createCollectionAddon, params);
       }
@@ -352,7 +352,7 @@ export function* removeAddonFromCollection({
       addonId,
       api: state.api,
       slug,
-      userId,
+      userId: String(userId),
     };
     yield call(api.removeAddonFromCollection, params);
 
@@ -385,7 +385,7 @@ export function* deleteCollection({
     const params: DeleteCollectionParams = {
       api: state.api,
       slug,
-      userId,
+      userId: String(userId),
     };
 
     yield call(api.deleteCollection, params);
@@ -414,7 +414,7 @@ export function* updateCollectionAddon({
       api: state.api,
       notes,
       slug,
-      userId,
+      userId: String(userId),
     };
     yield call(api.updateCollectionAddon, params);
 

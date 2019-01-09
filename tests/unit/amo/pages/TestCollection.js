@@ -221,8 +221,8 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const userId = '456';
-    const params = { slug, userId };
+    const userId = 456;
+    const params = { slug, userId: String(userId) };
 
     renderComponent({ errorHandler, match: { params }, store });
 
@@ -273,14 +273,14 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const userId = '567';
+    const userId = 567;
     const page = 123;
     const sort = COLLECTION_SORT_NAME;
 
     renderComponent({
       errorHandler,
       location: createFakeLocation({ query: { page, collection_sort: sort } }),
-      match: { params: { slug, userId } },
+      match: { params: { slug, userId: String(userId) } },
       store,
     });
 
@@ -334,7 +334,7 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const userId = '456';
+    const userId = 456;
 
     store.dispatch(
       fetchCurrentCollection({
@@ -356,7 +356,7 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const userId = '456';
+    const userId = 456;
 
     store.dispatch(
       fetchCurrentCollectionPage({
@@ -394,7 +394,7 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const userId = '456';
+    const userId = 456;
     const page = 123;
     const sort = COLLECTION_SORT_NAME;
 
@@ -412,7 +412,7 @@ describe(__filename, () => {
     const wrapper = renderComponent({
       errorHandler,
       location,
-      match: { params: { slug, userId } },
+      match: { params: { slug, userId: String(userId) } },
       store,
     });
     fakeDispatch.resetHistory();
@@ -420,7 +420,7 @@ describe(__filename, () => {
     // This will trigger the componentDidUpdate() method.
     wrapper.setProps({
       location: newLocation,
-      match: { params: { slug: newSlug, userId } },
+      match: { params: { slug: newSlug, userId: String(userId) } },
     });
 
     sinon.assert.callCount(fakeDispatch, 1);
@@ -463,7 +463,7 @@ describe(__filename, () => {
       fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
         filters: newFilters,
-        userId: String(defaultUserId),
+        userId: defaultUserId,
         slug: defaultSlug,
       }),
     );
@@ -500,7 +500,7 @@ describe(__filename, () => {
       fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
         filters: newFilters,
-        userId: String(defaultUserId),
+        userId: defaultUserId,
         slug: defaultSlug,
       }),
     );
@@ -534,7 +534,8 @@ describe(__filename, () => {
       fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
-        ...newParams,
+        slug: newParams.slug,
+        userId: Number(newParams.userId),
       }),
     );
   });
@@ -567,14 +568,15 @@ describe(__filename, () => {
       fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
-        ...newParams,
+        slug: newParams.slug,
+        userId: Number(newParams.userId),
       }),
     );
   });
 
   it('renders a collection', () => {
     const slug = 'some-slug';
-    const userId = '1234';
+    const userId = 1234;
     const page = 2;
     const sort = COLLECTION_SORT_NAME;
     const queryParams = { page, collection_sort: sort };
@@ -591,7 +593,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       location: createFakeLocation({ query: queryParams }),
-      match: { params: { userId, slug } },
+      match: { params: { userId: String(userId), slug } },
       store,
     });
 
@@ -656,7 +658,7 @@ describe(__filename, () => {
 
   it('renders a collection with pagination', () => {
     const slug = 'some-slug';
-    const userId = '123';
+    const userId = 123;
     const page = 2;
     const filters = { page, collection_sort: COLLECTION_SORT_NAME };
 
@@ -673,7 +675,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       location: createFakeLocation({ query: filters }),
-      match: { params: { userId, slug } },
+      match: { params: { userId: String(userId), slug } },
       store,
     });
 
@@ -730,7 +732,7 @@ describe(__filename, () => {
     const pageSize = 10;
     const slug = 'some-slug';
     const sort = COLLECTION_SORT_NAME;
-    const userId = '1234567';
+    const userId = 1234567;
 
     const { store } = dispatchClientMetadata();
     const addons = createFakeCollectionAddons();
@@ -754,7 +756,7 @@ describe(__filename, () => {
     const wrapper = renderComponent({
       editing,
       location: createFakeLocation({ query: { collection_sort: sort, page } }),
-      params: { userId, slug },
+      params: { userId: String(userId), slug },
       store,
     });
 
@@ -773,7 +775,7 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions({ userId: signedUserId });
 
     const slug = 'some-slug';
-    const userId = `${signedUserId + 123}`;
+    const userId = signedUserId + 123;
     const page = 2;
     const sort = COLLECTION_SORT_NAME;
 
@@ -797,7 +799,7 @@ describe(__filename, () => {
     const wrapper = renderComponent({
       editing: true,
       location: createFakeLocation({ query: { page, collection_sort: sort } }),
-      match: { params: { userId, slug } },
+      match: { params: { userId: String(userId), slug } },
       store,
     });
 
@@ -857,14 +859,14 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const { slug } = defaultCollectionDetail;
-    const userId = String(defaultUserId);
+    const userId = defaultUserId;
 
     // User loads the collection page.
     _loadCurrentCollection({ store });
 
     const wrapper = renderComponent({
       errorHandler,
-      match: { params: { slug, userId } },
+      match: { params: { slug, userId: String(userId) } },
       store,
     });
 
@@ -1103,7 +1105,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
         slug: detail.slug,
-        userId: String(detail.author.id),
+        userId: detail.author.id,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -1159,7 +1161,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
         slug: detail.slug,
-        userId: String(detail.author.id),
+        userId: detail.author.id,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -1216,7 +1218,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters: { page: newPage, collectionSort: sort },
         slug: detail.slug,
-        userId: String(detail.author.id),
+        userId: detail.author.id,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -1264,7 +1266,7 @@ describe(__filename, () => {
       deleteCollection({
         errorHandlerId: errorHandler.id,
         slug,
-        userId: String(detail.author.id),
+        userId: detail.author.id,
       }),
     );
   });
@@ -1311,7 +1313,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters: { page, collectionSort: sort },
         slug: detail.slug,
-        userId: String(detail.author.id),
+        userId: detail.author.id,
       }),
     );
   });
@@ -1357,7 +1359,7 @@ describe(__filename, () => {
         notes,
         filters: { page, collectionSort: sort },
         slug: detail.slug,
-        userId: String(detail.author.id),
+        userId: detail.author.id,
       }),
     );
   });
