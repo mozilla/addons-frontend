@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-09 20:12+0000\n"
+"PO-Revision-Date: 2019-01-09 20:16+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -801,13 +801,12 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
-#, fuzzy
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll get it sorted."
 msgstr ""
-"Jeli sće so z pomocu wotkaza sem dóstał, <a href=\"%(url)s\">pisajće prošu zmylkowu rozprawu</a>. Zdźělće nam, zwotkelž sće přišoł a za čimž pytaće a my budźemy naše najlěpše činić, zo bychmy "
-"problem rozrisali."
+"Jeli sće wotkazej na tutym sydle slědował, sće zmylk namakał. <a href=\"%(url)s\">Pisajće prošu zmylkowu rozprawu</a>, zo byšće nam pomhał. Zdźělće nam, zwotkelž sće přišoł a za čimž pytaće a my "
+"budźemy naše najlěpše činić, zo bychmy problem rozrisali."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
@@ -2072,18 +2071,16 @@ msgid "Reviews for %(addonName)s"
 msgstr "Pohódnoćenja za %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:278
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s hwěžka"
-msgstr[1] "%(total)s hwěžce"
-msgstr[2] "%(total)s hwěžki"
-msgstr[3] "%(total)s hwěžkow"
+msgstr[0] "%(total)s pohódnoćenje"
+msgstr[1] "%(total)s pohódnoćeni"
+msgstr[2] "%(total)s pohódnoćenja"
+msgstr[3] "%(total)s pohódnoćenjow"
 
 #: src/amo/pages/AddonReviewList/index.js:367
-#, fuzzy
 msgid "There are no reviews"
-msgstr "Hišće pohódnoćenja njejsu"
+msgstr "Pohódnoćenja njejsu"
 
 #: src/amo/pages/AddonVersions/index.js:123
 msgid "%(addonName)s Version history - %(total)s version"
@@ -2094,14 +2091,12 @@ msgstr[2] ""
 msgstr[3] ""
 
 #: src/amo/pages/AddonVersions/index.js:154
-#, fuzzy
 msgid "Latest version"
-msgstr "Beta-wersije"
+msgstr "Najnowša wersija"
 
 #: src/amo/pages/AddonVersions/index.js:163
-#, fuzzy
 msgid "Older versions"
-msgstr "Wšě wersije pokazać"
+msgstr "Starše wersije"
 
 #: src/amo/pages/CategoriesPage/index.js:46
 msgid "All extension categories"
