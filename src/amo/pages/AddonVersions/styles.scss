@@ -2,7 +2,9 @@
 
 .AddonVersions {
   @include page-padding();
+}
 
+.AddonVersions-wrapper {
   @include respond-to(large) {
     display: flex;
   }
