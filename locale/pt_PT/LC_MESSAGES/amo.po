@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-08 23:12+0000\n"
+"PO-Revision-Date: 2019-01-09 00:10+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -523,11 +523,10 @@ msgid "Add-on icon"
 msgstr "Ícone do extra"
 
 #: src/amo/components/AddonSummaryCard/index.js:62
-#, fuzzy
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] "Avaliado em %(rating)s de 5"
-msgstr[1] "Avaliado em %(rating)s de 5"
+msgstr[0] "%(rating)s estrela de 5"
+msgstr[1] "%(rating)s estrelas de 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
@@ -540,14 +539,12 @@ msgid "by"
 msgstr "por"
 
 #: src/amo/components/AddonVersionCard/index.js:100
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "publicado a %(linkStart)s %(timestamp)s %(linkEnd)s"
+msgstr "Código fonte lançado sob %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
-#, fuzzy
 msgid "No version found"
-msgstr "Não foram encontrados extras"
+msgstr "Nenhuma versão encontrada"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
@@ -2045,16 +2042,14 @@ msgid "Reviews for %(addonName)s"
 msgstr "Análises para %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:278
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s estrela"
-msgstr[1] "%(total)s estrelas"
+msgstr[0] "%(total)s análise"
+msgstr[1] "%(total)s análises"
 
 #: src/amo/pages/AddonReviewList/index.js:367
-#, fuzzy
 msgid "There are no reviews"
-msgstr "Não existem avaliações ainda"
+msgstr "Não existem análises"
 
 #: src/amo/pages/AddonVersions/index.js:123
 msgid "%(addonName)s Version history - %(total)s version"
@@ -2063,14 +2058,12 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/amo/pages/AddonVersions/index.js:154
-#, fuzzy
 msgid "Latest version"
-msgstr "Versões beta"
+msgstr "Versão mais recente"
 
 #: src/amo/pages/AddonVersions/index.js:163
-#, fuzzy
 msgid "Older versions"
-msgstr "Ver todas as versões"
+msgstr "Versões antigas"
 
 #: src/amo/pages/CategoriesPage/index.js:46
 msgid "All extension categories"
