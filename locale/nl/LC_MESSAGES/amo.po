@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-09 11:38+0000\n"
+"PO-Revision-Date: 2019-01-09 17:32+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -2055,7 +2055,7 @@ msgstr[1] "%(total)s beoordelingen"
 
 #: src/amo/pages/AddonReviewList/index.js:367
 msgid "There are no reviews"
-msgstr "Er zijn geen waarderingen"
+msgstr "Er zijn geen beoordelingen"
 
 #: src/amo/pages/AddonVersions/index.js:123
 msgid "%(addonName)s Version history - %(total)s version"
