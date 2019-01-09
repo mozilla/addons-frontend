@@ -11,12 +11,9 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  DISCO_NAVIGATION_ACTION,
   ENABLE_ACTION,
   ENABLE_EXTENSION_CATEGORY,
   ENABLE_THEME_CATEGORY,
-  HCT_DISCO_CATEGORY,
-  HCT_METHOD_MAPPING,
   INSTALL_CANCELLED_ACTION,
   INSTALL_CANCELLED_EXTENSION_CATEGORY,
   INSTALL_CANCELLED_THEME_CATEGORY,
@@ -38,15 +35,6 @@ import {
 } from 'core/constants';
 import log from 'core/logger';
 import { convertBoolean, isTheme } from 'core/utils';
-
-const telemetryMethodKeys = Object.keys(HCT_METHOD_MAPPING);
-const telemetryMethodValues = Object.values(HCT_METHOD_MAPPING);
-export const telemetryObjects = [
-  DISCO_NAVIGATION_ACTION,
-  TRACKING_TYPE_EXTENSION,
-  TRACKING_TYPE_THEME,
-  TRACKING_TYPE_STATIC_THEME,
-];
 
 type IsDoNoTrackEnabledParams = {|
   _log: typeof log,
@@ -94,11 +82,6 @@ export class Tracking {
   // Tracking ID
   id: string;
 
-  // Hybrid Content Telemetry
-  hctEnabled: boolean;
-
-  hctInitPromise: Promise<null | Object>;
-
   constructor({
     _config = config,
     _isDoNotTrackEnabled = isDoNotTrackEnabled,
@@ -110,7 +93,6 @@ export class Tracking {
     this._log = log;
     this.logPrefix = '[GA]'; // this gets updated below
     this.id = _config.get('trackingId');
-    this.hctEnabled = false;
 
     if (!convertBoolean(_config.get('trackingEnabled'))) {
       this.log('GA disabled because trackingEnabled was false');
@@ -154,54 +136,6 @@ export class Tracking {
       // (addons-frontend vs addons-server) is being used in analytics.
       ga('set', 'dimension3', 'addons-frontend');
     }
-
-    // Attempt to enable Hybrid content telemetry.
-    this.hctInitPromise = this.initHCT({ _config });
-  }
-
-  async initHCT({ _config = config }: {| _config: typeof config |} = {}) {
-    const hctEnabled = _config.get('hctEnabled');
-    if (typeof window !== 'undefined' && hctEnabled === true) {
-      log.info('Setting up the Hybrid Content Telemetry lib');
-      // Note: special webpack comments must be after the module name or
-      // babel-plugin-dynamic-import-node will blow-up.
-      try {
-        // prettier-ignore
-        const hybridContentTelemetry = await import(
-          'mozilla-hybrid-content-telemetry/HybridContentTelemetry-lib'
-          /* webpackChunkName: "disco-hct" */
-        );
-        await hybridContentTelemetry.initPromise();
-        let logHctReason;
-        if (!hybridContentTelemetry) {
-          logHctReason =
-            'HCT disabled because hctEnabled or hct object is not available';
-        } else {
-          logHctReason = 'HCT enabled';
-          this.hctEnabled = true;
-          hybridContentTelemetry.registerEvents(HCT_DISCO_CATEGORY, {
-            click: {
-              methods: telemetryMethodValues,
-              objects: telemetryObjects,
-              extra_keys: ['origin'],
-            },
-          });
-        }
-        // Update the logging prefix to include HCT status.
-        this.logPrefix = oneLine`[GA: ${this.trackingEnabled ? 'ON' : 'OFF'}
-        | HCT: ${this.hctEnabled ? 'ON' : 'OFF'}]`;
-        this.log(logHctReason);
-        return hybridContentTelemetry;
-      } catch (err) {
-        // eslint-disable-next-line amo/only-log-strings
-        log.error('Initialization failed', err);
-      }
-    }
-
-    // eslint-disable-next-line amo/only-log-strings
-    log.info('Not importing the HCT lib, hctEnabled:', hctEnabled);
-
-    return Promise.resolve(null);
   }
 
   log(...args: Array<mixed>) {
@@ -214,53 +148,6 @@ export class Tracking {
   _ga(...args: Array<mixed>) {
     if (this.trackingEnabled) {
       window.ga(...args);
-    }
-  }
-
-  async _hct(
-    data: {| method: string, object: string, value?: string |},
-    { _window = window }: {| _window: typeof window |} = {},
-  ) {
-    const hybridContentTelemetry = await this.hctInitPromise;
-    if (hybridContentTelemetry) {
-      const canUpload = hybridContentTelemetry.canUpload();
-      if (canUpload === true) {
-        invariant(
-          telemetryMethodKeys.includes(data.method),
-          `Method mapping for "${
-            data.method
-          }" is missing from HCT_METHOD_MAPPING`,
-        );
-        const method = HCT_METHOD_MAPPING[data.method];
-        const { object } = data;
-        invariant(
-          telemetryObjects.includes(object),
-          `Object "${object}" must be one of the registered values: ${telemetryObjects.join(
-            ',',
-          )}`,
-        );
-        hybridContentTelemetry.recordEvent(
-          HCT_DISCO_CATEGORY,
-          method,
-          object,
-          data.value,
-          {
-            origin:
-              typeof _window !== 'undefined' &&
-              _window.location &&
-              _window.location.origin
-                ? _window.location.origin
-                : null,
-          },
-        );
-      } else {
-        this.log(
-          `Not logging to telemetry because canUpload() returned: ${canUpload}`,
-        );
-      }
-    } else {
-      this.log(oneLine`Not logging to telemetry since hctEnabled is
-        ${this.hctEnabled ? 'enabled' : 'disabled'}`);
     }
   }
 
@@ -299,12 +186,6 @@ export class Tracking {
       eventValue: value,
     };
     this._ga('send', data);
-    // Hybrid content telemetry maps to the data used for GA.
-    this._hct({
-      method: category,
-      object: action,
-      value: label,
-    });
     this.log('sendEvent', JSON.stringify(data));
   }
 

@@ -1,12 +1,9 @@
 /* global window */
-import hct from 'mozilla-hybrid-content-telemetry/HybridContentTelemetry-lib';
-
 import {
   Tracking,
   isDoNotTrackEnabled,
   getAddonEventCategory,
   getAddonTypeForTracking,
-  telemetryObjects,
 } from 'core/tracking';
 import {
   ADDON_TYPE_DICT,
@@ -20,14 +17,6 @@ import {
   ENABLE_ACTION,
   ENABLE_EXTENSION_CATEGORY,
   ENABLE_THEME_CATEGORY,
-  HCT_ADDON_DOWNLOAD_FAILED,
-  HCT_ADDON_ENABLED,
-  HCT_ADDON_INSTALLED,
-  HCT_ADDON_INSTALL_CANCELLED,
-  HCT_ADDON_INSTALL_STARTED,
-  HCT_ADDON_UNINSTALLED,
-  HCT_DISCO_CATEGORY,
-  HCT_METHOD_MAPPING,
   INSTALL_ACTION,
   INSTALL_CANCELLED_ACTION,
   INSTALL_CANCELLED_EXTENSION_CATEGORY,
@@ -440,80 +429,6 @@ describe(__filename, () => {
     });
   });
 
-  describe('HCT identifiers', () => {
-    const telemetryRegex = /^[a-z0-9]{1}[a-z0-9_]+[a-z0-9]{1}$/i;
-
-    // Set is to de-dupe the values since we map multiple keys to the same
-    // value in Hybrid Content Telemetry.
-    it.each(Array.from(new Set(Object.values(HCT_METHOD_MAPPING))))(
-      'should ensure hct method "%s" meets HCT identifier requirements',
-      (idString) => {
-        expect(idString).toMatch(telemetryRegex);
-        expect(idString.length).toBeLessThanOrEqual(20);
-      },
-    );
-
-    it.each(telemetryObjects)(
-      'should ensure hct object (%s) meets HCT identifier requirements',
-      (action) => {
-        expect(action).toMatch(telemetryRegex);
-        expect(action.length).toBeLessThanOrEqual(20);
-      },
-    );
-
-    it('should map to HCT_ADDON_INSTALLED correctly', () => {
-      expect(HCT_METHOD_MAPPING[INSTALL_EXTENSION_CATEGORY]).toBe(
-        HCT_ADDON_INSTALLED,
-      );
-      expect(HCT_METHOD_MAPPING[INSTALL_THEME_CATEGORY]).toBe(
-        HCT_ADDON_INSTALLED,
-      );
-    });
-
-    it('should map to HCT_ADDON_UNINSTALLED correctly', () => {
-      expect(HCT_METHOD_MAPPING[UNINSTALL_EXTENSION_CATEGORY]).toBe(
-        HCT_ADDON_UNINSTALLED,
-      );
-      expect(HCT_METHOD_MAPPING[UNINSTALL_THEME_CATEGORY]).toBe(
-        HCT_ADDON_UNINSTALLED,
-      );
-    });
-
-    it('should map to HCT_ADDON_DOWNLOAD_FAILED correctly', () => {
-      expect(
-        HCT_METHOD_MAPPING[INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY],
-      ).toBe(HCT_ADDON_DOWNLOAD_FAILED);
-      expect(HCT_METHOD_MAPPING[INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY]).toBe(
-        HCT_ADDON_DOWNLOAD_FAILED,
-      );
-    });
-
-    it('should map to HCT_ADDON_ENABLED correctly', () => {
-      expect(HCT_METHOD_MAPPING[ENABLE_EXTENSION_CATEGORY]).toBe(
-        HCT_ADDON_ENABLED,
-      );
-      expect(HCT_METHOD_MAPPING[ENABLE_THEME_CATEGORY]).toBe(HCT_ADDON_ENABLED);
-    });
-
-    it('should map to HCT_ADDON_INSTALL_CANCELLED correctly', () => {
-      expect(HCT_METHOD_MAPPING[INSTALL_CANCELLED_EXTENSION_CATEGORY]).toBe(
-        HCT_ADDON_INSTALL_CANCELLED,
-      );
-      expect(HCT_METHOD_MAPPING[INSTALL_CANCELLED_THEME_CATEGORY]).toBe(
-        HCT_ADDON_INSTALL_CANCELLED,
-      );
-    });
-
-    it('should map to HCT_ADDON_INSTALL_STARTED correctly', () => {
-      expect(HCT_METHOD_MAPPING[INSTALL_STARTED_EXTENSION_CATEGORY]).toBe(
-        HCT_ADDON_INSTALL_STARTED,
-      );
-      expect(HCT_METHOD_MAPPING[INSTALL_STARTED_THEME_CATEGORY]).toBe(
-        HCT_ADDON_INSTALL_STARTED,
-      );
-    });
-  });
-
   describe('Tracking constants should not be changed or it risks breaking tracking stats', () => {
     it('should not change the tracking constant for invalid', () => {
       expect(TRACKING_TYPE_INVALID).toEqual('invalid');
@@ -565,145 +480,6 @@ describe(__filename, () => {
 
     it('should not change the tracking category constants for disco pane navigation', () => {
       expect(DISCO_NAVIGATION_CATEGORY).toEqual('Discovery Navigation');
-    });
-  });
-
-  describe('Hybrid Content Telemetry', () => {
-    let importStub;
-    let registerEventsSpy;
-
-    beforeEach(() => {
-      importStub = sinon.stub(hct, 'initPromise').callsFake(() => {
-        return Promise.resolve(hct);
-      });
-      registerEventsSpy = sinon.spy(hct, 'registerEvents');
-    });
-
-    afterEach(() => {
-      importStub.restore();
-      registerEventsSpy.restore();
-    });
-
-    it('should return null from the init promise if hctEnabled is false', async () => {
-      const tracking = createTracking({
-        configOverrides: { hctEnabled: false },
-      });
-      const hctLib = await tracking.hctInitPromise;
-      expect(hctLib).toEqual(null);
-    });
-
-    it('should return hct object from the init promise if hctEnabled is true', async () => {
-      const tracking = createTracking({
-        configOverrides: { hctEnabled: true },
-      });
-      const hctLib = await tracking.hctInitPromise;
-      expect(hctLib).toHaveProperty('canUpload');
-      expect(hctLib).toHaveProperty('initPromise');
-      expect(hctLib).toHaveProperty('recordEvent');
-      expect(hctLib).toHaveProperty('registerEvents');
-    });
-
-    it('should call registerEvents if hctEnabled is true', async () => {
-      const tracking = createTracking({
-        configOverrides: { hctEnabled: true },
-      });
-      await tracking.hctInitPromise;
-      sinon.assert.calledOnce(registerEventsSpy);
-    });
-  });
-
-  describe('Hybrid Content Telemetry Events', () => {
-    let importStub;
-    let canUploadStub;
-    let recordEventSpy;
-    const trackingData = {
-      method: INSTALL_EXTENSION_CATEGORY,
-      object: TRACKING_TYPE_EXTENSION,
-      value: 'value',
-    };
-
-    beforeEach(() => {
-      importStub = sinon.stub(hct, 'initPromise').callsFake(() => {
-        return Promise.resolve(hct);
-      });
-      canUploadStub = sinon.stub(hct, 'canUpload');
-      recordEventSpy = sinon.spy(hct, 'recordEvent');
-    });
-
-    afterEach(() => {
-      importStub.restore();
-      canUploadStub.restore();
-      recordEventSpy.restore();
-    });
-
-    it('should not call recordEvent if canUpload returns false', async () => {
-      canUploadStub.callsFake(() => false);
-      const tracking = createTracking({
-        configOverrides: { hctEnabled: true },
-      });
-
-      await tracking._hct(trackingData);
-      sinon.assert.notCalled(recordEventSpy);
-    });
-
-    it('should call recordEvent if canUpload is true', async () => {
-      canUploadStub.callsFake(() => true);
-      const tracking = createTracking({
-        configOverrides: { hctEnabled: true },
-      });
-
-      await tracking._hct(trackingData);
-      sinon.assert.calledOnce(recordEventSpy);
-      sinon.assert.calledWith(
-        recordEventSpy,
-        HCT_DISCO_CATEGORY,
-        HCT_METHOD_MAPPING[INSTALL_EXTENSION_CATEGORY],
-        TRACKING_TYPE_EXTENSION,
-        'value',
-        { origin: 'http://localhost' },
-      );
-    });
-
-    it('should record null origin if origin is not available', async () => {
-      canUploadStub.callsFake(() => true);
-      const tracking = createTracking({
-        configOverrides: { hctEnabled: true },
-      });
-
-      await tracking._hct(trackingData, {
-        _window: {
-          location: {},
-        },
-      });
-      sinon.assert.calledOnce(recordEventSpy);
-      sinon.assert.calledWith(
-        recordEventSpy,
-        HCT_DISCO_CATEGORY,
-        HCT_METHOD_MAPPING[INSTALL_EXTENSION_CATEGORY],
-        TRACKING_TYPE_EXTENSION,
-        'value',
-        { origin: null },
-      );
-    });
-
-    it('should record null origin if window is empty object', async () => {
-      canUploadStub.callsFake(() => true);
-      const tracking = createTracking({
-        configOverrides: { hctEnabled: true },
-      });
-
-      await tracking._hct(trackingData, {
-        _window: {},
-      });
-      sinon.assert.calledOnce(recordEventSpy);
-      sinon.assert.calledWith(
-        recordEventSpy,
-        HCT_DISCO_CATEGORY,
-        HCT_METHOD_MAPPING[INSTALL_EXTENSION_CATEGORY],
-        TRACKING_TYPE_EXTENSION,
-        'value',
-        { origin: null },
-      );
     });
   });
 });
