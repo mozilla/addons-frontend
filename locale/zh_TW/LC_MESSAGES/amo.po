@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-09 03:06+0000\n"
+"PO-Revision-Date: 2019-01-09 04:59+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -766,25 +766,25 @@ msgstr "抱歉，您無權存取此頁面。若您並未登入，請先使用頁
 msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
-msgstr ""
+msgstr "請稍候再開啟這個頁面，可能佈景主題或擴充套件可能會再次上架。另外您可能可以在下列%(linkStart)s擴充套件%(linkEnd)s或%(secondLinkStart)s佈景主題%(secondLinkEnd)s當中找到想找的內容。"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "哎呀！找不到這一頁"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "若您從其他網站上過來，想尋找某套擴充套件或佈景主題，該項目已經無法使用。這可能是因為:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:69
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "開發者主動下架。他們通常會因為不再支援該套件或佈景主題，或推出取代的版本而這麼做。"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:74
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
-msgstr ""
+msgstr "Mozilla 已將其下架。這可能是因為在審核擴充套件或佈景主題的過程中發現問題，或是該套件或主題違反了 addons.mozilla.org 的使用條款。開發者會有機會解決問題，並重新上架。"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
 msgid ""
