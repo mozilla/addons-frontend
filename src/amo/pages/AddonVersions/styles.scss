@@ -8,6 +8,26 @@
   @include respond-to(large) {
     display: flex;
   }
+
+  .CardList ul {
+    li {
+      margin-bottom: 0;
+    }
+
+    li.AddonVersions-warning {
+      padding: $padding-page;
+      padding-bottom: 0;
+
+      @include respond-to(large) {
+        padding: $padding-page-l;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+div.AddonVersions-warning-text {
+  line-height: $default-line-height;
 }
 
 .AddonVersions-versions {

@@ -199,6 +199,43 @@
   }
 }
 
+.Notice-warning {
+  .Notice-button {
+    @include button(
+      $background: $yellow-60,
+      $background-active: $yellow-80,
+      $background-hover: $yellow-70,
+      $color: $yellow-90
+    );
+
+    &:active,
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+
+    @include notice_button();
+  }
+
+  .Notice-icon {
+    background-image: url('./img/warning.svg');
+    background-size: cover;
+  }
+
+  .IconXMark-path {
+    fill: $yellow-90;
+  }
+
+  background-color: $yellow-50;
+
+  &,
+  :link,
+  :hover,
+  :active {
+    color: $yellow-90;
+  }
+}
+
 .Notice-firefox .Notice-icon {
   background-image: url('./img/firefox.svg');
 }
