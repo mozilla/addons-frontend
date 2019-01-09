@@ -24,6 +24,7 @@ import * as usersApi from 'amo/api/users';
 import surveyReducer, {
   initialState as initialSurveyState,
 } from 'core/reducers/survey';
+import discoReducer, { setTaarId } from 'disco/reducers/discoResults';
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
 import {
   createUserAccountResponse,
@@ -38,6 +39,7 @@ function createStoreAndSagas({
     api: apiReducer,
     survey: surveyReducer,
     users: usersReducer,
+    discoResults: discoReducer,
   },
 } = {}) {
   const sagaMiddleware = createSagaMiddleware();
@@ -220,6 +222,51 @@ describe(__filename, () => {
 
       expect(response.statusCode).toEqual(200);
       expect(survey.wasDismissed).toEqual(true);
+    });
+
+    it('dispatches setTaarId() if cookie is present and enableFeatureDiscoTaar is true', async () => {
+      const taarId = '1112';
+      const fakeConfig = {
+        ...getFakeConfig(),
+        enableFeatureDiscoTaar: true,
+      };
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const response = await testClient({
+        config: fakeConfig,
+        store,
+        sagaMiddleware,
+      })
+        .get('/en-US/firefox/')
+        // Set a cookie with an empty string value.
+        .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="${taarId}"`)
+        .end();
+
+      const { discoResults } = store.getState();
+
+      sinon.assert.calledWith(dispatchSpy, setTaarId(taarId));
+
+      expect(response.statusCode).toEqual(200);
+      expect(discoResults.taarId).toEqual(taarId);
+    });
+
+    it('does not dispatch setTaarId() if enableFeatureDiscoTaar is false', async () => {
+      const fakeConfig = {
+        ...getFakeConfig(),
+        enableFeatureDiscoTaar: false,
+      };
+
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      await testClient({ config: fakeConfig, store, sagaMiddleware });
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      sinon.assert.neverCalledWith(dispatchSpy, setTaarId);
+
+      expect(store.getState().taarId).toEqual(undefined);
     });
 
     it('does not dispatch dismissSurvey() if no cookie is present', async () => {

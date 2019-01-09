@@ -3,6 +3,7 @@ import discoResults, {
   createInternalResult,
   initialState,
   loadDiscoResults,
+  setTaarId,
 } from 'disco/reducers/discoResults';
 import {
   createDiscoResult,
@@ -15,6 +16,15 @@ describe(__filename, () => {
     expect(discoResults(undefined, { type: 'UNRELATED' })).toEqual(
       initialState,
     );
+  });
+
+  it('sets the taarId', () => {
+    const taarId = '1112';
+    const state = discoResults(undefined, setTaarId(taarId));
+    expect(state).toEqual({
+      results: [],
+      taarId,
+    });
   });
 
   it('loads disco results', () => {

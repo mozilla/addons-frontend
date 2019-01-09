@@ -32,8 +32,9 @@ describe(__filename, () => {
       });
     });
 
-    it('calls the API with a telemetry client ID', () => {
-      const telemetryClientId = 'client-id';
+    it("passes through client ID as telemetry-client-id to the API when it's available", () => {
+      const telemetryClientId = '11111111111';
+
       getDiscoveryAddons({
         api: apiState,
         taarParams: {

@@ -13,7 +13,7 @@ import DiscoPane, {
   DiscoPaneBase,
   mapDispatchToProps,
 } from 'disco/pages/DiscoPane';
-import { getDiscoResults } from 'disco/reducers/discoResults';
+import { getDiscoResults, setTaarId } from 'disco/reducers/discoResults';
 import createStore from 'disco/store';
 import { makeQueryStringWithUTM } from 'disco/utils';
 import {
@@ -106,12 +106,35 @@ describe(__filename, () => {
     });
 
     it('sends a telemetry client ID if there is one', () => {
+      store.dispatch(setTaarId('1112'));
+      const dispatch = sinon.spy(store, 'dispatch');
+
+      const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
+
+      render({ errorHandler, store });
+
+      sinon.assert.calledWith(
+        dispatch,
+        getDiscoResults({
+          errorHandlerId: errorHandler.id,
+          taarParams: {
+            clientId: '1112',
+            platform: 'Darwin',
+          },
+        }),
+      );
+    });
+
+    it('does not use client ID param from url', () => {
+      const taarId = '1112';
       const location = createFakeLocation({
         query: {
-          clientId: 'telemetry-client-id',
+          clientId: '555',
         },
       });
+      store.dispatch(setTaarId(taarId));
       const dispatch = sinon.spy(store, 'dispatch');
+
       const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
 
       render({ errorHandler, location, store });
@@ -121,7 +144,7 @@ describe(__filename, () => {
         getDiscoResults({
           errorHandlerId: errorHandler.id,
           taarParams: {
-            clientId: location.query.clientId,
+            clientId: taarId,
             platform: 'Darwin',
           },
         }),
@@ -132,7 +155,6 @@ describe(__filename, () => {
       const location = createFakeLocation({
         query: {
           branch: 'foo',
-          clientId: 'telemetry-client-id',
           study: 'bar',
         },
       });
@@ -147,7 +169,6 @@ describe(__filename, () => {
           errorHandlerId: errorHandler.id,
           taarParams: {
             branch: 'foo',
-            clientId: location.query.clientId,
             platform: 'Darwin',
             study: 'bar',
           },
