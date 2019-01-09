@@ -86,25 +86,48 @@ export const AddonVersionCardBase = (props: InternalProps) => {
     );
   };
 
-  let licenseLinkParams = {};
-  let licenseLinkParts;
+  let licenseSection = null;
+
   if (version) {
     const { license } = version;
+
     if (addon && license) {
       const otherVars = {
         licenseName: license.name,
       };
-      licenseLinkParams = license.isCustom
-        ? { to: `/addon/${addon.slug}/license/` }
-        : { href: license.url, prependClientApp: false, prependLang: false };
-      const licenseText = i18n.gettext(
-        'Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s',
-      );
-      licenseLinkParts = getLocalizedTextWithLinkParts({
-        i18n,
-        text: licenseText,
-        otherVars,
-      });
+
+      if (license.url) {
+        const licenseLinkParams = license.isCustom
+          ? { to: `/addon/${addon.slug}/license/` }
+          : { href: license.url, prependClientApp: false, prependLang: false };
+
+        const licenseText = i18n.gettext(
+          'Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s',
+        );
+
+        const licenseLinkParts = getLocalizedTextWithLinkParts({
+          i18n,
+          text: licenseText,
+          otherVars,
+        });
+
+        licenseSection = (
+          <div className="AddonVersionCard-license">
+            {licenseLinkParts.beforeLinkText}
+            <Link {...licenseLinkParams}>{licenseLinkParts.innerLinkText}</Link>
+            {licenseLinkParts.afterLinkText}
+          </div>
+        );
+      } else {
+        licenseSection = (
+          <div className="AddonVersionCard-license">
+            {i18n.sprintf(
+              i18n.gettext('Source code released under %(licenseName)s'),
+              otherVars,
+            )}
+          </div>
+        );
+      }
     }
   }
 
@@ -114,15 +137,19 @@ export const AddonVersionCardBase = (props: InternalProps) => {
         {headerText && (
           <h1 className="AddonVersionCard-header">{headerText}</h1>
         )}
+
         {version && <AddonInstallError error={installError} />}
         {version && <AddonCompatibilityError addon={addon} version={version} />}
+
         <h2 className="AddonVersionCard-version">{versionNumber}</h2>
         {getFileInfoText()}
+
         {versionInfo && (
           <div className="AddonVersionCard-compatibility">
             {versionInfo.compatibilityString}
           </div>
         )}
+
         {version ? (
           <div
             className="AddonVersionCard-releaseNotes"
@@ -132,13 +159,8 @@ export const AddonVersionCardBase = (props: InternalProps) => {
         ) : (
           <LoadingText />
         )}
-        {licenseLinkParts && (
-          <div className="AddonVersionCard-license">
-            {licenseLinkParts.beforeLinkText}
-            <Link {...licenseLinkParams}>{licenseLinkParts.innerLinkText}</Link>
-            {licenseLinkParts.afterLinkText}
-          </div>
-        )}
+
+        {licenseSection}
       </div>
       {addon && version && (
         <InstallButtonWrapper
