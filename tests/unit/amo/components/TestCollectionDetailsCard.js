@@ -1,4 +1,5 @@
 import * as React from 'react';
+import config from 'config';
 
 import CollectionDetailsCard, {
   CollectionDetailsCardBase,
@@ -14,7 +15,6 @@ import {
   FEATURED_THEMES_COLLECTION_EDIT,
   FEATURED_THEMES_COLLECTION_SLUG,
   MOZILLA_COLLECTIONS_EDIT,
-  MOZILLA_COLLECTIONS_USERNAME,
 } from 'core/constants';
 import {
   createFakeCollectionAddons,
@@ -24,6 +24,8 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  const mozillaUserId = config.get('mozillaUserId');
+
   const render = ({ ...otherProps } = {}) => {
     const allProps = {
       collection: null,
@@ -100,7 +102,7 @@ describe(__filename, () => {
     });
 
     const collection = createFakeCollection({
-      authorUsername: MOZILLA_COLLECTIONS_USERNAME,
+      authorId: mozillaUserId,
     });
     const editing = true;
 
@@ -119,7 +121,7 @@ describe(__filename, () => {
     });
 
     const collection = createFakeCollection({
-      authorUsername: MOZILLA_COLLECTIONS_USERNAME,
+      authorId: mozillaUserId,
       slug: FEATURED_THEMES_COLLECTION_SLUG,
     });
     const editing = true;
@@ -139,7 +141,7 @@ describe(__filename, () => {
     });
 
     const collection = createFakeCollection({
-      authorUsername: MOZILLA_COLLECTIONS_USERNAME,
+      authorId: mozillaUserId,
     });
 
     const root = render({ collection, store });
@@ -151,7 +153,7 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions();
 
     const collection = createFakeCollection({
-      authorUsername: MOZILLA_COLLECTIONS_USERNAME,
+      authorId: mozillaUserId,
     });
 
     const root = render({ collection, store });
@@ -167,7 +169,7 @@ describe(__filename, () => {
     });
 
     const collection = createFakeCollection({
-      authorUsername: MOZILLA_COLLECTIONS_USERNAME,
+      authorId: mozillaUserId,
       slug: FEATURED_THEMES_COLLECTION_SLUG,
     });
 
@@ -180,7 +182,7 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions();
 
     const collection = createFakeCollection({
-      authorUsername: MOZILLA_COLLECTIONS_USERNAME,
+      authorId: mozillaUserId,
       slug: FEATURED_THEMES_COLLECTION_SLUG,
     });
 
