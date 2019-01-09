@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-09 10:04+0000\n"
-"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
+"PO-Revision-Date: 2019-01-09 11:38+0000\n"
+"Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -772,7 +772,7 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
-"Probeer de pagina later te bezoeken, want het thema of de extensie komt mogelijk weer beschikbaar. U kunt mogelijk datgene wat u zoekt in één van de beschikbare %(linkStart)sextensies%(linkEnd)s of "
+"Probeer de pagina later te bezoeken, want het thema of de extensie komt mogelijk weer beschikbaar. Mogelijk kunt u datgene wat u zoekt in een van de beschikbare %(linkStart)sextensies%(linkEnd)s of "
 "%(secondLinkStart)sthema’s%(secondLinkEnd)s vinden."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
@@ -781,19 +781,19 @@ msgstr "Oeps! We kunnen die pagina niet vinden"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr "Als u een koppeling naar een extensie of thema vanaf een andere website hebt gevolgd, is dat item niet langer beschikbaar. Dit kan het geval zijn omdat:"
+msgstr "Als u een koppeling naar een extensie of thema vanaf een andere website hebt gevolgd, is dat item niet meer beschikbaar. Dit kan het geval zijn om de volgende reden:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:69
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr "De ontwikkelaar het heeft verwijderd. Ontwikkelaars doen dit meestal omdat ze de extensie of het thema niet meer ondersteunen, of hebben vervangen."
+msgstr "De ontwikkelaar heeft de add-on verwijderd. Ontwikkelaars doen dit meestal omdat ze de extensie of het thema niet meer ondersteunen, of hebben vervangen."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:74
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
-"Mozilla het heeft verwijderd. Dit kan gebeuren als problemen worden gevonden bij de beoordeling van de extensie of het thema, of als de extensie of het thema de voorwaarden van addons.mozilla.org "
-"heeft geschonden. De ontwikkelaar heeft de mogelijkheid de problemen op te lossen en de add-on weer beschikbaar te maken."
+"Mozilla heeft de add-on verwijderd. Dit kan gebeuren als er problemen worden gevonden bij de beoordeling van de extensie of het thema, of als de extensie of het thema de voorwaarden van "
+"addons.mozilla.org heeft geschonden. De ontwikkelaar heeft de mogelijkheid de problemen op te lossen en de add-on weer beschikbaar te maken."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
 msgid ""
@@ -2060,12 +2060,12 @@ msgstr "Er zijn geen waarderingen"
 #: src/amo/pages/AddonVersions/index.js:123
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
-msgstr[0] "Versiegeschiedenis %(addonName)s - %(total)s versie"
-msgstr[1] "Versiegeschiedenis %(addonName)s - %(total)s versies"
+msgstr[0] "Versiegeschiedenis van %(addonName)s - %(total)s versie"
+msgstr[1] "Versiegeschiedenis van %(addonName)s - %(total)s versies"
 
 #: src/amo/pages/AddonVersions/index.js:154
 msgid "Latest version"
-msgstr "Laatste versie"
+msgstr "Nieuwste versie"
 
 #: src/amo/pages/AddonVersions/index.js:163
 msgid "Older versions"
