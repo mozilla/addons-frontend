@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-09 09:32+0000\n"
+"PO-Revision-Date: 2019-01-09 10:04+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -781,17 +781,19 @@ msgstr "Oeps! We kunnen die pagina niet vinden"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Als u een koppeling naar een extensie of thema vanaf een andere website hebt gevolgd, is dat item niet langer beschikbaar. Dit kan het geval zijn omdat:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:69
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "De ontwikkelaar het heeft verwijderd. Ontwikkelaars doen dit meestal omdat ze de extensie of het thema niet meer ondersteunen, of hebben vervangen."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:74
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla het heeft verwijderd. Dit kan gebeuren als problemen worden gevonden bij de beoordeling van de extensie of het thema, of als de extensie of het thema de voorwaarden van addons.mozilla.org "
+"heeft geschonden. De ontwikkelaar heeft de mogelijkheid de problemen op te lossen en de add-on weer beschikbaar te maken."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
 msgid ""
@@ -2058,8 +2060,8 @@ msgstr "Er zijn geen waarderingen"
 #: src/amo/pages/AddonVersions/index.js:123
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Versiegeschiedenis %(addonName)s - %(total)s versie"
+msgstr[1] "Versiegeschiedenis %(addonName)s - %(total)s versies"
 
 #: src/amo/pages/AddonVersions/index.js:154
 msgid "Latest version"
