@@ -523,11 +523,10 @@ msgid "Add-on icon"
 msgstr "Ikon för tillägg"
 
 #: src/amo/components/AddonSummaryCard/index.js:62
-#, fuzzy
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] "Betygsatt %(rating)s av 5"
-msgstr[1] "Betygsatt %(rating)s av 5"
+msgstr[0] ""
+msgstr[1] ""
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
@@ -540,9 +539,8 @@ msgid "by"
 msgstr "av"
 
 #: src/amo/components/AddonVersionCard/index.js:100
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "postad %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
@@ -795,13 +793,10 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
-#, fuzzy
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll get it sorted."
 msgstr ""
-"Om du följde en länk från någonstans, vänligen <a href=\"%(url)s\">skicka in en felrapport</a>. Berätta vart du kom ifrån och vad du letade efter, och vi kommer att göra vårt bästa för att åtgärda "
-"det."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
@@ -2050,7 +2045,7 @@ msgstr "Recensioner för %(addonName)s"
 #: src/amo/pages/AddonReviewList/index.js:278
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s recensioner"
+msgstr[0] ""
 msgstr[1] "%(total)s recensioner"
 
 #: src/amo/pages/AddonReviewList/index.js:367
