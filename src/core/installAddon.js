@@ -222,6 +222,7 @@ type WithInstallHelpersProps = {|
   addon: AddonType | null,
   defaultInstallSource: string,
   location: ReactRouterLocationType,
+  version?: AddonVersionType | null,
 |};
 
 type WithInstallHelpersInternalProps = {|
@@ -568,13 +569,16 @@ export const withInstallHelpers = (
     );
     invariant(location, 'location is required');
 
-    const currentVersion =
-      addon && addon.currentVersionId
-        ? getVersionById({
-            id: addon.currentVersionId,
-            state: state.versions,
-          })
-        : null;
+    let currentVersion = ownProps.version;
+    if (!currentVersion) {
+      currentVersion =
+        addon && addon.currentVersionId
+          ? getVersionById({
+              id: addon.currentVersionId,
+              state: state.versions,
+            })
+          : null;
+    }
 
     return {
       WrappedComponent,
