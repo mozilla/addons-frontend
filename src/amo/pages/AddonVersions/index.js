@@ -6,6 +6,7 @@ import { compose } from 'redux';
 
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import AddonVersionCard from 'amo/components/AddonVersionCard';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import {
   fetchVersions,
   getLoadingBySlug,
@@ -132,6 +133,20 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
       );
     }
 
+    if (errorHandler.hasError()) {
+      log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
+
+      // 401 and 403 are made to look like a 404 on purpose.
+      // See: https://github.com/mozilla/addons-frontend/issues/3061.
+      if (
+        errorHandler.capturedError.responseStatusCode === 401 ||
+        errorHandler.capturedError.responseStatusCode === 403 ||
+        errorHandler.capturedError.responseStatusCode === 404
+      ) {
+        return <NotFound errorCode={errorHandler.capturedError.code} />;
+      }
+    }
+
     return (
       <div className="AddonVersions">
         {addon && (
@@ -142,33 +157,35 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
 
         {errorHandler.renderErrorIfPresent()}
 
-        <AddonSummaryCard addon={addon} headerText={header} />
+        <div className="AddonVersions-wrapper">
+          <AddonSummaryCard addon={addon} headerText={header} />
 
-        <CardList
-          className="AddonVersions-versions"
-          header={header || <LoadingText />}
-        >
-          <ul>
-            <AddonVersionCard
-              addon={addon}
-              headerText={i18n.gettext('Latest version')}
-              key="latestVersion"
-              version={latestVersion}
-            />
-            {olderVersions.map((version, index) => {
-              return (
-                <AddonVersionCard
-                  addon={addon}
-                  headerText={
-                    index === 0 ? i18n.gettext('Older versions') : null
-                  }
-                  key={version.id}
-                  version={version}
-                />
-              );
-            })}
-          </ul>
-        </CardList>
+          <CardList
+            className="AddonVersions-versions"
+            header={header || <LoadingText />}
+          >
+            <ul>
+              <AddonVersionCard
+                addon={addon}
+                headerText={i18n.gettext('Latest version')}
+                key="latestVersion"
+                version={latestVersion}
+              />
+              {olderVersions.map((version, index) => {
+                return (
+                  <AddonVersionCard
+                    addon={addon}
+                    headerText={
+                      index === 0 ? i18n.gettext('Older versions') : null
+                    }
+                    key={version.id}
+                    version={version}
+                  />
+                );
+              })}
+            </ul>
+          </CardList>
+        </div>
       </div>
     );
   }
