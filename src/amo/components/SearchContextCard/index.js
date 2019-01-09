@@ -20,7 +20,7 @@ type Props = {||};
 
 type InternalProps = {|
   ...Props,
-  categoryName?: string,
+  categoryName: string | null,
   count: number,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
@@ -31,11 +31,6 @@ type InternalProps = {|
 |};
 
 export class SearchContextCardBase extends React.Component<InternalProps> {
-  static defaultProps = {
-    count: 0,
-    filters: {},
-  };
-
   constructor(props: InternalProps) {
     super(props);
 
@@ -181,9 +176,10 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
 
 export function mapStateToProps(state: AppState) {
   const { search } = state;
-  const { filters } = search;
+  const { filters = {} } = search;
 
   let currentCategory;
+  let categoryName = null;
 
   if (
     search &&
@@ -194,37 +190,28 @@ export function mapStateToProps(state: AppState) {
     currentCategory = filters.category;
   }
 
-  let categoryName;
-
-  if (currentCategory && !categoryName) {
+  if (currentCategory) {
     const categoriesState = state.categories.categories;
     const { clientApp } = state.api;
-    const allCategories = [];
+    let translatedCategory = {};
 
     if (categoriesState && clientApp) {
       Object.keys(categoriesState[clientApp]).forEach((type) => {
         const searchType = categoriesState[clientApp][type];
         Object.keys(searchType).forEach((category) => {
           const searchCategory = searchType[category];
-          const { slug } = searchCategory;
-          const { name } = searchCategory;
-          allCategories.push({
-            [slug]: {
-              name,
-              slug,
-            },
-          });
+          const { name, slug } = searchCategory;
+
+          if (slug === currentCategory) {
+            translatedCategory = {
+              [slug]: {
+                name,
+              },
+            };
+          }
         });
       });
     }
-
-    const translatedCategory =
-      allCategories.length &&
-      allCategories.find(
-        (category) =>
-          category[currentCategory] &&
-          category[currentCategory].slug === currentCategory,
-      );
 
     categoryName =
       translatedCategory && translatedCategory[currentCategory]
@@ -235,7 +222,7 @@ export function mapStateToProps(state: AppState) {
   return {
     hasCategory: !!currentCategory,
     categoryName,
-    count: search.count,
+    count: search.count || 0,
     filters,
     loading: search.loading,
   };
