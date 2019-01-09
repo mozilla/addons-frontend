@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-08 23:43+0000\n"
+"PO-Revision-Date: 2019-01-09 04:26+0000\n"
 "Last-Translator: 우믿트 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -522,7 +522,7 @@ msgstr "附加组件图标"
 #: src/amo/components/AddonSummaryCard/index.js:62
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] ""
+msgstr[0] "%(rating)s / 5 星"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
@@ -2024,7 +2024,7 @@ msgstr "%(addonName)s 的评价"
 #: src/amo/pages/AddonReviewList/index.js:278
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] ""
+msgstr[0] "%(total)s 条评价"
 
 #: src/amo/pages/AddonReviewList/index.js:367
 msgid "There are no reviews"
@@ -2033,7 +2033,7 @@ msgstr "目前尚无评价"
 #: src/amo/pages/AddonVersions/index.js:123
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
-msgstr[0] ""
+msgstr[0] "%(addonName)s 版本历史 - %(total)s 个版本"
 
 #: src/amo/pages/AddonVersions/index.js:154
 msgid "Latest version"
