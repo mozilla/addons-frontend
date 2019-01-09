@@ -222,7 +222,7 @@ type WithInstallHelpersProps = {|
   addon: AddonType | null,
   defaultInstallSource: string,
   location: ReactRouterLocationType,
-  version: AddonVersionType | null,
+  version?: AddonVersionType | null,
 |};
 
 type WithInstallHelpersInternalProps = {|
