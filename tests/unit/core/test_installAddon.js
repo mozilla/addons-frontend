@@ -1398,7 +1398,7 @@ describe(__filename, () => {
         return install().then(() => {
           sinon.assert.calledWith(
             _log.debug,
-            'no version found, aborting install().',
+            'no currentVersion found, aborting install().',
           );
         });
       });

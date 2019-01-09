@@ -222,6 +222,7 @@ type WithInstallHelpersProps = {|
   addon: AddonType | null,
   defaultInstallSource: string,
   location: ReactRouterLocationType,
+  version: AddonVersionType | null,
 |};
 
 type WithInstallHelpersInternalProps = {|
@@ -234,7 +235,6 @@ type WithInstallHelpersInternalProps = {|
   currentVersion: AddonVersionType | null,
   dispatch: DispatchFunc,
   userAgentInfo: UserAgentInfoType,
-  version: AddonVersionType | null,
 |};
 
 type EnableParams = {|
@@ -424,7 +424,6 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       dispatch,
       location,
       userAgentInfo,
-      version,
     } = this.props;
 
     if (!addon) {
@@ -432,14 +431,13 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       return Promise.resolve();
     }
 
-    const installVersion = version || currentVersion;
-    if (!installVersion) {
-      _log.debug('no version found, aborting install().');
+    if (!currentVersion) {
+      _log.debug('no currentVersion found, aborting install().');
       return Promise.resolve();
     }
 
     const { guid, name, type } = addon;
-    const { platformFiles } = installVersion;
+    const { platformFiles } = currentVersion;
 
     return new Promise((resolve) => {
       dispatch({ type: START_DOWNLOAD, payload: { guid } });
@@ -461,7 +459,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       .then((installURL) => {
         const hash =
           installURL &&
-          getFileHash({ addon, installURL, version: installVersion });
+          getFileHash({ addon, installURL, version: currentVersion });
 
         return _addonManager.install(
           installURL,
@@ -571,13 +569,16 @@ export const withInstallHelpers = (
     );
     invariant(location, 'location is required');
 
-    const currentVersion =
-      addon && addon.currentVersionId
-        ? getVersionById({
-            id: addon.currentVersionId,
-            state: state.versions,
-          })
-        : null;
+    let currentVersion = ownProps.version;
+    if (!currentVersion) {
+      currentVersion =
+        addon && addon.currentVersionId
+          ? getVersionById({
+              id: addon.currentVersionId,
+              state: state.versions,
+            })
+          : null;
+    }
 
     return {
       WrappedComponent,
