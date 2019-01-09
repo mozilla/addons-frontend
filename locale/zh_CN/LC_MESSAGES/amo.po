@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-03 07:25+0000\n"
+"PO-Revision-Date: 2019-01-08 23:43+0000\n"
 "Last-Translator: 우믿트 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -536,7 +536,7 @@ msgstr "作者："
 
 #: src/amo/components/AddonVersionCard/index.js:100
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr ""
+msgstr "源代码遵循 %(linkStart)s%(licenseName)s%(linkEnd)s 许可协议发布"
 
 #: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
@@ -2028,7 +2028,7 @@ msgstr[0] ""
 
 #: src/amo/pages/AddonReviewList/index.js:367
 msgid "There are no reviews"
-msgstr ""
+msgstr "目前尚无评价"
 
 #: src/amo/pages/AddonVersions/index.js:123
 msgid "%(addonName)s Version history - %(total)s version"
@@ -2037,11 +2037,11 @@ msgstr[0] ""
 
 #: src/amo/pages/AddonVersions/index.js:154
 msgid "Latest version"
-msgstr ""
+msgstr "最新版本"
 
 #: src/amo/pages/AddonVersions/index.js:163
 msgid "Older versions"
-msgstr ""
+msgstr "较早版本"
 
 #: src/amo/pages/CategoriesPage/index.js:46
 msgid "All extension categories"
