@@ -398,7 +398,7 @@ describe(__filename, () => {
 
     expect(history).toHaveProp('term', 'Version History');
     expect(history.find(Link)).toHaveProp(
-      'href',
+      'to',
       `/addon/${addon.slug}/versions/`,
     );
   });
@@ -414,7 +414,7 @@ describe(__filename, () => {
 
     expect(history).toHaveProp('term', 'Version History');
     expect(history.find(Link)).toHaveProp(
-      'href',
+      'to',
       `/addon/${addon.slug}/versions/`,
     );
   });
@@ -430,7 +430,7 @@ describe(__filename, () => {
 
     expect(history).toHaveProp('term', 'Version History');
     expect(history.find(Link)).toHaveProp(
-      'href',
+      'to',
       `/addon/${addon.slug}/versions/`,
     );
   });

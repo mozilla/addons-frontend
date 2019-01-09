@@ -164,7 +164,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
         <li>
           <Link
             className="AddonMoreInfo-version-history-link"
-            href={`/addon/${addon.slug}/versions/`}
+            to={`/addon/${addon.slug}/versions/`}
           >
             {i18n.gettext('See all versions')}
           </Link>
