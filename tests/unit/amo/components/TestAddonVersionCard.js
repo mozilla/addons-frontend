@@ -263,6 +263,23 @@ describe(__filename, () => {
     expect(root.find('.AddonVersionCard-license')).toHaveLength(0);
   });
 
+  it('renders plain text when license has no URL', () => {
+    const slug = 'some-slug';
+    const licenseName = 'some license without URL';
+    const addon = createInternalAddon({ ...fakeAddon, slug });
+
+    const root = render({
+      addon,
+      version: createInternalVersion({
+        ...fakeVersion,
+        license: { ...fakeVersion.license, name: licenseName, url: null },
+      }),
+    });
+
+    expect(root.find('.AddonVersionCard-license').find(Link)).toHaveLength(0);
+    expect(root.find('.AddonVersionCard-license')).toIncludeText(licenseName);
+  });
+
   it('passes an install error to AddonInstallError', () => {
     const guid = 'some-guid';
     const addon = createInternalAddon({ ...fakeAddon, guid });
