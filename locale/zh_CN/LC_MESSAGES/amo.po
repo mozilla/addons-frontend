@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-09 04:26+0000\n"
+"PO-Revision-Date: 2019-01-09 04:34+0000\n"
 "Last-Translator: 우믿트 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -540,15 +540,15 @@ msgstr "源代码遵循 %(linkStart)s%(licenseName)s%(linkEnd)s 许可协议发�
 
 #: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
-msgstr ""
+msgstr "没有找到版本"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "版本 %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "发布于 %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -770,7 +770,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "哎呀！我们找不到那个页面"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -790,7 +790,7 @@ msgstr ""
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll get it sorted."
-msgstr ""
+msgstr "如果您点击某个链接而来，请<a href=\"%(url)s\">填报问题</a>。填报时请提及您是从哪个网址过来的、想访问什么内容，我们将修正此问题。"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
