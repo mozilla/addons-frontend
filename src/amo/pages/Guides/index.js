@@ -88,7 +88,7 @@ export const getSections = ({
           exploreMore: i18n.gettext(
             'Explore more %(linkStart)spassword manager%(linkEnd)s staff picks.',
           ),
-          exploreUrl: '/collections/mozilla/password-managers/',
+          exploreUrl: '/collections/4757633/password-managers/',
         },
         // uBlock Origin
         {
@@ -107,7 +107,7 @@ export const getSections = ({
           exploreMore: i18n.gettext(
             'Explore more %(linkStart)sad blocker%(linkEnd)s staff picks.',
           ),
-          exploreUrl: '/collections/mozilla/ad-blockers/',
+          exploreUrl: '/collections/4757633/ad-blockers/',
         },
         // Facebook Container
         {
@@ -125,7 +125,7 @@ export const getSections = ({
           exploreMore: i18n.gettext(
             'Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks.',
           ),
-          exploreUrl: '/collections/mozilla/privacy-matters/',
+          exploreUrl: '/collections/4757633/privacy-matters/',
         },
       ];
     case 'organize-tabs-and-bookmarks':
@@ -147,7 +147,7 @@ export const getSections = ({
           exploreMore: i18n.gettext(
             'Explore more %(linkStart)stab management%(linkEnd)s staff picks.',
           ),
-          exploreUrl: '/collections/mozilla/change-up-your-tabs/',
+          exploreUrl: '/collections/4757633/change-up-your-tabs/',
         },
         // OneNote Web Clipper
         {
@@ -167,7 +167,7 @@ export const getSections = ({
           exploreMore: i18n.gettext(
             'Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks.',
           ),
-          exploreUrl: '/collections/mozilla/bookmark-managers/',
+          exploreUrl: '/collections/4757633/bookmark-managers/',
         },
         // Tabliss
         {
@@ -184,7 +184,7 @@ export const getSections = ({
           exploreMore: i18n.gettext(
             'Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks.',
           ),
-          exploreUrl: '/collections/mozilla/good-time-tabs/',
+          exploreUrl: '/collections/4757633/good-time-tabs/',
         },
       ];
     case 'enhance-your-media-experience':
@@ -206,7 +206,7 @@ export const getSections = ({
           exploreMore: i18n.gettext(
             'Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks.',
           ),
-          exploreUrl: '/collections/mozilla/watching-videos/',
+          exploreUrl: '/collections/4757633/watching-videos/',
         },
         // Search by Image - Reverse Image Search
         {
@@ -226,7 +226,7 @@ export const getSections = ({
           exploreMore: i18n.gettext(
             'Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks.',
           ),
-          exploreUrl: '/collections/mozilla/must-have-media/',
+          exploreUrl: '/collections/4757633/must-have-media/',
         },
         // Worldwide Radio
         {
