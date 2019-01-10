@@ -3,7 +3,6 @@ import { amoDevCDN } from './lib/shared';
 const staticHost = 'https://addons-discovery-dev-cdn.allizom.org';
 
 module.exports = {
-  enableFeatureDiscoTaar: true,
   staticHost,
 
   CSP: {
@@ -26,4 +25,13 @@ module.exports = {
 
   // https://sentry.prod.mozaws.net/operations/addons-frontend-disco-dev/
   publicSentryDsn: 'https://560fc81d9fd14266b99bda032de23c52@sentry.prod.mozaws.net/184',
+
+  enableFeatureDiscoTaar: true,
+  discoParamsToUse: [
+    'branch',
+    'edition',
+    'platform',
+    'study',
+    'taarId',
+  ],
 };

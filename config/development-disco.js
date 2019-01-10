@@ -1,5 +1,13 @@
 module.exports = {
-  enableFeatureDiscoTaar: true,
   trackingEnabled: false,
   loggingLevel: 'debug',
+
+  enableFeatureDiscoTaar: true,
+  discoParamsToUse: [
+    'branch',
+    'edition',
+    'platform',
+    'study',
+    'taarId',
+  ],
 };

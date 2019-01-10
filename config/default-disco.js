@@ -63,10 +63,10 @@ module.exports = {
   // These are the allowed list of query params we will forward to AMO for statistics.
   discoParamsToUse: [
     'branch',
+    'clientId',
     'edition',
     'platform',
     'study',
-    'taarId',
   ],
   trackingEnabled: true,
   trackingId: 'UA-36116321-7',
