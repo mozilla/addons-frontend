@@ -76,9 +76,11 @@ const IconStar = ({
       };
       break;
     case HALF_STYLE:
+      // Key is needed in case there are multiple IconStars on 1 page.
+      const key = Math.random();
       defs = (
         <defs>
-          <linearGradient id="half" x1="0" x2="100%" y1="0" y2="0">
+          <linearGradient id={`half${key}`} x1="0" x2="100%" y1="0" y2="0">
             <stop offset="50%" stopColor={color} />
             <stop offset="50%" stopColor={color} stopOpacity="0.25" />
           </linearGradient>
@@ -86,7 +88,7 @@ const IconStar = ({
       );
       gProps = {
         ...gProps,
-        fill: 'url(#half)',
+        fill: `url(#half${key})`,
         transform: 'scale(3.75) translate(-1200.000000, -191.000000)',
       };
       break;
@@ -107,6 +109,9 @@ const IconStar = ({
       {...iconProps}
     >
       <svg
+        style={{
+          maxWidth: '64px',
+        }}
         viewBox="0 0 64 64"
         className="IconStar-svg"
         version="1.1"
