@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-09 20:16+0000\n"
+"PO-Revision-Date: 2019-01-10 06:52+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -556,11 +556,11 @@ msgstr "Žana wersija namakana"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Wersija %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "%(dateReleased)s wozjewjene - %(fileSize)s"
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -784,7 +784,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Hopla! Njemóžemy tu stronu namakać"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -2085,10 +2085,10 @@ msgstr "Pohódnoćenja njejsu"
 #: src/amo/pages/AddonVersions/index.js:123
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Wersija historija %(addonName)s - %(total)s wersija"
+msgstr[1] "Wersija historija %(addonName)s - %(total)s wersiji"
+msgstr[2] "Wersija historija %(addonName)s - %(total)s wersije"
+msgstr[3] "Wersija historija %(addonName)s - %(total)s wersijow"
 
 #: src/amo/pages/AddonVersions/index.js:154
 msgid "Latest version"
