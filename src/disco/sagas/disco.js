@@ -28,10 +28,7 @@ export function* fetchDiscoveryAddons({
       getDiscoveryAddons,
       {
         api: state.api,
-        taarParams: {
-          ...taarParams,
-          clientId: taarParams.clientId,
-        },
+        taarParams,
       },
     );
 
