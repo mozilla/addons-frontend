@@ -364,17 +364,19 @@ describe(__filename, () => {
       expect(nl2br(null)).toEqual('');
     });
 
-    it('returns mixed content with <br/>', () => {
-      expect(nl2br('foo\nbar\n\n<b>bold</b>')).toEqual(
-        'foo<br />bar<br />\n<b>bold</b>',
-      );
-    });
-
-    it('preserves line breaks between tags', () => {
+    it('preserves line breaks between ul/li tags', () => {
       const htmlValue = '<ul>\n<li><strong></strong>\n</li>\n</ul>';
 
       expect(nl2br(htmlValue)).toEqual(
         '<ul>\n<li><strong></strong>\n</li>\n</ul>',
+      );
+    });
+
+    it('preserves line breaks between ol/li tags', () => {
+      const htmlValue = '<ol>\n<li><strong></strong>\n</li>\n</ol>';
+
+      expect(nl2br(htmlValue)).toEqual(
+        '<ol>\n<li><strong></strong>\n</li>\n</ol>',
       );
     });
 
@@ -389,6 +391,15 @@ describe(__filename, () => {
 
       expect(nl2br(htmlValue)).toEqual(
         'ul<br />li<strong>foo<br />bar</strong>',
+      );
+    });
+
+    it('converts line breaks between tags', () => {
+      const htmlValue =
+        '<strong>A title:</strong>\n<a href="something">A link</a>\nSome text';
+
+      expect(nl2br(htmlValue)).toEqual(
+        '<strong>A title:</strong><br /><a href="something">A link</a><br />Some text',
       );
     });
   });
