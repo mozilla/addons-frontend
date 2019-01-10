@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-09 04:59+0000\n"
+"PO-Revision-Date: 2019-01-10 05:51+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -2185,7 +2185,7 @@ msgstr "「擴充套件」能幫助您管理網路上有興趣的東西。「書
 msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
-msgstr ""
+msgstr "想整理您最愛的線上料理食譜、動手做懶人包、YouTube 影片，或其他在網路上找到的任何東西嗎？OneNote Web Clipper 可讓您收集儲存所有最愛的線上內容到同一個地方，並於不同裝置間同步。"
 
 #: src/amo/pages/Guides/index.js:167
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
@@ -2271,7 +2271,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:294
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "可使用擴充套件來以各種新奇的方式擴增線上媒體內容，不論是看影片、處理圖片、音樂等等。"
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Create and manage strong passwords"
@@ -2296,7 +2296,7 @@ msgstr "封鎖煩人的廣告"
 #: src/amo/pages/Guides/index.js:97
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
-msgstr ""
+msgstr "現在的網路上有各種不被人喜愛的廣告，拖慢您的上網速度。封鎖廣告用的擴充套件可封鎖或過濾這些廣告，這樣就讓上網不再分心。"
 
 #: src/amo/pages/Home/index.js:130
 msgid "Bookmarks"
