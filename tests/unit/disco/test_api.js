@@ -11,7 +11,7 @@ describe(__filename, () => {
   beforeEach(() => {
     callApiMock = sinon.stub(coreApi, 'callApi');
     fakeConfig = getFakeConfig({
-      discoParamsToUse: ['clientId', 'platform'],
+      discoParamsToUse: ['taarId', 'platform'],
     });
     const { store } = createStore();
     apiState = dispatchClientMetadata({ store }).state.api;
@@ -32,13 +32,13 @@ describe(__filename, () => {
       });
     });
 
-    it("passes through client ID as telemetry-client-id to the API when it's available", () => {
-      const telemetryClientId = '11111111111';
+    it("passes through taarId as telemetry-client-id to the API when it's available", () => {
+      const taarId = '11111111111';
 
       getDiscoveryAddons({
         api: apiState,
         taarParams: {
-          clientId: telemetryClientId,
+          taarId,
           platform: 'Darwin',
         },
         _config: fakeConfig,
@@ -48,7 +48,7 @@ describe(__filename, () => {
         endpoint: 'discovery',
         params: {
           platform: 'Darwin',
-          'telemetry-client-id': telemetryClientId,
+          'telemetry-client-id': taarId,
         },
         apiState,
       });

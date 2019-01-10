@@ -105,7 +105,7 @@ describe(__filename, () => {
       );
     });
 
-    it('sends a telemetry client ID if there is one', () => {
+    it('sends a telemetry taarId if there is one', () => {
       store.dispatch(setTaarId('1112'));
       const dispatch = sinon.spy(store, 'dispatch');
 
@@ -118,33 +118,7 @@ describe(__filename, () => {
         getDiscoResults({
           errorHandlerId: errorHandler.id,
           taarParams: {
-            clientId: '1112',
-            platform: 'Darwin',
-          },
-        }),
-      );
-    });
-
-    it('does not use client ID param from url', () => {
-      const taarId = '1112';
-      const location = createFakeLocation({
-        query: {
-          clientId: '555',
-        },
-      });
-      store.dispatch(setTaarId(taarId));
-      const dispatch = sinon.spy(store, 'dispatch');
-
-      const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
-
-      render({ errorHandler, location, store });
-
-      sinon.assert.calledWith(
-        dispatch,
-        getDiscoResults({
-          errorHandlerId: errorHandler.id,
-          taarParams: {
-            clientId: taarId,
+            taarId: '1112',
             platform: 'Darwin',
           },
         }),
