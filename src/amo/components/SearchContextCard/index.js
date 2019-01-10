@@ -34,11 +34,7 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
     super(props);
 
-    if (
-      this.props.hasCategory &&
-      !this.props.categoryName &&
-      !this.props.loading
-    ) {
+    if (this.props.hasCategory && !this.props.categoryName) {
       this.props.dispatch(
         fetchCategories({ errorHandlerId: this.props.errorHandler.id }),
       );
@@ -161,9 +157,7 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
         query,
       });
     } else if (loading) {
-      searchText = i18n.gettext('Loading add-ons');
-    } else if (!loading && count === 0) {
-      searchText = i18n.gettext('No add-ons found');
+      searchText = i18n.gettext('Searching for add-ons');
     }
 
     return (

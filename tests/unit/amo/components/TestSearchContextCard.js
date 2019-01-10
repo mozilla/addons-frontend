@@ -67,16 +67,16 @@ describe(__filename, () => {
     expect(root).toHaveClassName('SearchContextCard');
   });
 
-  it('should render "Loading" while loading without query', () => {
+  it('should render "Searching" text while search loading without query', () => {
     _searchStart();
     const root = render();
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      'Loading add-ons',
+      'Searching for add-ons',
     );
   });
 
-  it('should render during a search that is loading', () => {
+  it('should render during a search that is search loading', () => {
     _searchStart({ filters: { query: 'test' } });
     const root = render();
 
@@ -202,12 +202,8 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it("should not fetch categories if there is a category filter but it's already loading", () => {
-    _searchStart({
-      filters: {
-        category: 'causes',
-      },
-    });
+  it('should not fetch categories if there is a category filter and there is a categoryName', () => {
+    _fetchCategories();
 
     const dispatchSpy = sinon.spy(_store, 'dispatch');
 
@@ -216,8 +212,11 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it('should render results with categoryName and query for addonType ADDON_TYPE_THEMES_FILTER when loading is false', () => {
+  it('should render results with categoryName and query for addonType ADDON_TYPE_THEMES_FILTER when search is loaded', () => {
     const categoryName = 'Causes';
+
+    _fetchCategories();
+    _loadCategories();
 
     dispatchSearchResults({
       store: _store,
@@ -228,9 +227,6 @@ describe(__filename, () => {
       },
     });
 
-    _fetchCategories();
-    _loadCategories();
-
     const root = render();
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
@@ -238,8 +234,11 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results with categoryName and no query for addonType ADDON_TYPE_THEMES_FILTER when there is no query and loading is false', () => {
+  it('should render results with categoryName and no query for addonType ADDON_TYPE_THEMES_FILTER when search is loaded', () => {
     const categoryName = 'Causes';
+
+    _fetchCategories();
+    _loadCategories();
 
     dispatchSearchResults({
       store: _store,
@@ -248,9 +247,6 @@ describe(__filename, () => {
         category: 'causes',
       },
     });
-
-    _fetchCategories();
-    _loadCategories();
 
     const root = render();
 
@@ -309,7 +305,7 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results with categoryName and query for addonType ADDON_TYPE_EXTENSION when loading is false', () => {
+  it('should render results with categoryName and query for addonType ADDON_TYPE_EXTENSION when search is loaded', () => {
     const query = 'test';
     const categoryName = 'Causes';
     dispatchSearchResults({
@@ -331,7 +327,7 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results with categoryName and no query for addonType ADDON_TYPE_EXTENSION when there is no query and when loading is false', () => {
+  it('should render results with categoryName and no query for addonType ADDON_TYPE_EXTENSION when there is no query and when search is loaded', () => {
     const categoryName = 'Causes';
     dispatchSearchResults({
       filters: {
@@ -366,7 +362,7 @@ describe(__filename, () => {
     );
   });
 
-  it('should render "Searching" text when query is present and loading is true', () => {
+  it('should render "Searching" text when query is present and search loading is true', () => {
     const query = 'test';
 
     _searchStart({ filters: { query } });
@@ -378,13 +374,13 @@ describe(__filename, () => {
     );
   });
 
-  it('should render "Loading" text when no query is present and loading is true', () => {
+  it('should render "Searching" text when no query is present and search loading is true', () => {
     _searchStart({ filters: {} });
 
     const root = render();
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
-      `Loading add-ons`,
+      `Searching for add-ons`,
     );
   });
 
