@@ -8,7 +8,6 @@ import { compose } from 'redux';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { type I18nType } from 'core/types/i18n';
-import IconStar from 'ui/components/IconStar';
 
 import './styles.scss';
 
@@ -122,7 +121,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
   };
 
   renderRatings(): Array<React.Node> {
-    const { readOnly, yellowStars } = this.props;
+    const { readOnly } = this.props;
     const { hoveringOverStar } = this.state;
     // Accept falsey values as if they are zeroes.
     const rating = this.props.rating || 0;
@@ -135,13 +134,11 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
 
       const title = this.renderTitle(rating, readOnly, thisRating);
 
-      const halfStar =
-        thisRating - rating > 0.25 && thisRating - rating <= 0.75;
-
       const props = {
         className: makeClassName('Rating-star', `Rating-rating-${thisRating}`, {
           'Rating-selected-star': isSelected,
-          'Rating-half-star': halfStar,
+          'Rating-half-star':
+            thisRating - rating > 0.25 && thisRating - rating <= 0.75,
         }),
         key: `rating-${thisRating}`,
         onClick: undefined,
@@ -150,16 +147,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
       };
 
       if (readOnly) {
-        return (
-          <div {...props}>
-            <IconStar
-              half={halfStar}
-              selected={isSelected}
-              readOnly
-              yellow={yellowStars}
-            />
-          </div>
-        );
+        return <div {...props} />;
       }
 
       if (!this.isLoading()) {
@@ -176,12 +164,10 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
             type="button"
             value={thisRating}
             {...props}
-          >
-            <span id={id} className="visually-hidden">
-              {title}
-            </span>
-            <IconStar selected={isSelected} />
-          </button>
+          />
+          <span id={id} className="visually-hidden">
+            {title}
+          </span>
         </React.Fragment>
       );
     });
