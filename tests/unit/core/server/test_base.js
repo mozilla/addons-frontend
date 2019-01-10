@@ -240,7 +240,6 @@ describe(__filename, () => {
         sagaMiddleware,
       })
         .get('/en-US/firefox/')
-        // Set a cookie with an empty string value.
         .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="${taarId}"`)
         .end();
 
@@ -253,6 +252,7 @@ describe(__filename, () => {
     });
 
     it('does not dispatch setTaarId() if enableFeatureDiscoTaar is false', async () => {
+      const taarId = '1112';
       const fakeConfig = {
         ...getFakeConfig(),
         enableFeatureDiscoTaar: false,
@@ -260,12 +260,44 @@ describe(__filename, () => {
 
       const { store, sagaMiddleware } = createStoreAndSagas();
 
-      await testClient({ config: fakeConfig, store, sagaMiddleware });
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const response = await testClient({
+        config: fakeConfig,
+        store,
+        sagaMiddleware,
+      })
+        .get('/en-US/firefox/')
+        .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="${taarId}"`)
+        .end();
+
+      sinon.assert.neverCalledWith(dispatchSpy, setTaarId(taarId));
+
+      expect(response.statusCode).toEqual(200);
+      expect(store.getState().taarId).toEqual(undefined);
+    });
+
+    it('does not dispatch setTaarId() if there is no discoTaarIdCookie', async () => {
+      const fakeConfig = {
+        ...getFakeConfig(),
+        enableFeatureDiscoTaar: true,
+      };
+      const { store, sagaMiddleware } = createStoreAndSagas();
 
       const dispatchSpy = sinon.spy(store, 'dispatch');
 
-      sinon.assert.neverCalledWith(dispatchSpy, setTaarId);
+      const response = await testClient({
+        config: fakeConfig,
+        store,
+        sagaMiddleware,
+      })
+        .get('/en-US/firefox/')
+        .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="undefined"`)
+        .end();
 
+      sinon.assert.neverCalledWith(dispatchSpy, setTaarId('1112'));
+
+      expect(response.statusCode).toEqual(200);
       expect(store.getState().taarId).toEqual(undefined);
     });
 

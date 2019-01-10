@@ -49,7 +49,7 @@ describe(__filename, () => {
       sagaTester.dispatch(
         getDiscoResults({
           errorHandlerId: errorHandler.id,
-          taarParams: { platform: 'Darwin', clientId: '1112' },
+          taarParams: { platform: 'Darwin', taarId: '1112' },
           ...overrides,
         }),
       );
@@ -89,7 +89,7 @@ describe(__filename, () => {
         .expects('getDiscoveryAddons')
         .withArgs({
           api: apiState,
-          taarParams: { platform: 'Darwin', clientId: taarId },
+          taarParams: { platform: 'Darwin', taarId },
         })
         .returns(Promise.resolve(addonResponse));
 
@@ -110,7 +110,7 @@ describe(__filename, () => {
       expect(calledActions[2]).toEqual(loadAddonResults({ addons }));
     });
 
-    it('includes a telemetry client ID in the API request', async () => {
+    it('includes a telemetry-client-id in the API request', async () => {
       const result = createDiscoResult({
         heading: 'Discovery Addon',
         description: 'informative text',
@@ -127,7 +127,7 @@ describe(__filename, () => {
           api: apiState,
           taarParams: {
             platform: 'Darwin',
-            clientId: taarId,
+            taarId,
           },
         })
         .returns(Promise.resolve(addonResponse));
@@ -138,7 +138,7 @@ describe(__filename, () => {
       _getDiscoResults({
         taarParams: {
           platform: 'Darwin',
-          clientId: taarId,
+          taarId,
         },
       });
 
