@@ -11,7 +11,7 @@ import { reviewListURL } from 'amo/reducers/reviews';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import LoadingText from 'ui/components/LoadingText';
-import IconStar from 'ui/components/IconStar';
+import Icon from 'ui/components/Icon';
 import type { GroupedRatingsType } from 'amo/api/reviews';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'core/types/addons';
@@ -141,7 +141,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
                   ) : (
                     createLink(i18n.formatNumber(star))
                   )}
-                  <IconStar selected />
+                  <Icon name="star-yellow" />
                 </div>
                 <div className="RatingsByStar-barContainer">
                   <div className="RatingsByStar-bar RatingsByStar-barFrame">
