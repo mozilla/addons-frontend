@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-10 05:51+0000\n"
+"PO-Revision-Date: 2019-01-10 06:07+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -2163,11 +2163,11 @@ msgstr "重新發想分頁管理功能"
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
-msgstr ""
+msgstr "若您習慣開啟多個分頁，可能會覺得在一整排分頁清單中找出需要的分頁相當困難。擴充套件可提供有創意的解決方案，流線化您的分頁管理操作。"
 
 #: src/amo/pages/Guides/index.js:143
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "以視覺化方式，使用可擴展的「樹狀」樣式來在 Firefox 側邊欄管理分頁。"
 
 #: src/amo/pages/Guides/index.js:147
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
@@ -2197,7 +2197,7 @@ msgstr "享受全新的分頁使用體驗"
 
 #: src/amo/pages/Guides/index.js:176
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "自訂新分頁體驗，每次開啟瀏覽器時都有專屬於您的客製化內容。"
 
 #: src/amo/pages/Guides/index.js:180
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
@@ -2213,7 +2213,7 @@ msgstr "改善影片播放"
 
 #: src/amo/pages/Guides/index.js:196
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
-msgstr ""
+msgstr "若您喜歡影片內容，擴充套件可提供能最佳化體驗的一系列方式，包含讓 YouTube 符合您的品味，並以劇院模式來播放影片。"
 
 #: src/amo/pages/Guides/index.js:201
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
@@ -2229,13 +2229,13 @@ msgstr "取得更多媒體相關功能"
 
 #: src/amo/pages/Guides/index.js:215
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
-msgstr ""
+msgstr "擴充套件可解決一系列對媒體功能的需求，諸如圖片搜尋、下載管理、文字閱讀器等等。"
 
 #: src/amo/pages/Guides/index.js:220
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
-msgstr ""
+msgstr "有在網路上發現很炫的照片，而想要更加了解誰在照片中、跟另一張圖片有沒有相關的經驗嗎？此擴充套件可讓您快速而簡單地使用多套搜尋引擎進行圖片搜尋。"
 
 #: src/amo/pages/Guides/index.js:226
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
@@ -2267,7 +2267,7 @@ msgstr "網路是一個美妙但也有野性的地方。別人可能在未獲同
 msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
-msgstr ""
+msgstr "您有太多開啟的分頁，或是有爆量的書籤嗎？可以使用擴充套件幫忙管理！不論是協助您管理，或提供酷炫新功能，使用擴充套件可大幅度簡化您操作分頁與書籤的困難。"
 
 #: src/amo/pages/Guides/index.js:294
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
