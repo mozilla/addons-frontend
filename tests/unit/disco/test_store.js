@@ -14,6 +14,7 @@ describe(__filename, () => {
       'redirectTo',
       'router',
       'survey',
+      'telemetry',
       'uiState',
       'versions',
     ]);

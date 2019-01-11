@@ -13,6 +13,7 @@ import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import redirectTo from 'core/reducers/redirectTo';
 import survey from 'core/reducers/survey';
+import telemetry from 'disco/reducers/telemetry';
 import uiState from 'core/reducers/uiState';
 import versions from 'core/reducers/versions';
 import discoResults from 'disco/reducers/discoResults';
@@ -23,6 +24,7 @@ import type { InfoDialogState } from 'core/reducers/infoDialog';
 import type { InstallationsState } from 'core/reducers/installations';
 import type { RedirectToState } from 'core/reducers/redirectTo';
 import type { SurveyState } from 'core/reducers/survey';
+import type { TelemetryState } from 'disco/reducers/telemetry';
 import type { UIStateState } from 'core/reducers/uiState';
 import type { VersionsState } from 'core/reducers/versions';
 import type { ReactRouterHistoryType } from 'core/types/router';
@@ -39,6 +41,7 @@ export type AppState = {|
   installations: InstallationsState,
   redirectTo: RedirectToState,
   survey: SurveyState,
+  telemetry: TelemetryState,
   uiState: UIStateState,
   versions: VersionsState,
 |};
@@ -72,6 +75,7 @@ export const reducers: AppReducersType = {
   installations,
   redirectTo,
   survey,
+  telemetry,
   uiState,
   versions,
 };
