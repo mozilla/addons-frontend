@@ -29,12 +29,10 @@ export type DiscoResultsType = Array<DiscoResultType>;
 
 export type DiscoResultsState = {|
   results: DiscoResultsType,
-  taarId?: string,
 |};
 
 export const initialState: DiscoResultsState = {
   results: [],
-  taarId: undefined,
 };
 
 type GetDiscoResultsParams = {|
