@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2018-10-13 07:21+0000\n"
+"PO-Revision-Date: 2019-01-11 12:06+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1052,7 +1052,7 @@ msgstr "Protecția confidențialității pentru datele tale de căutare"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Auto Tab Discard"
-msgstr ""
+msgstr "Auto Tab Discard"
 
 #: src/amo/components/HomeHeroBanner/index.js:127
 msgid "Save memory by disabling inactive tabs"
@@ -1068,7 +1068,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:138
 msgid "Auto Fullscreen"
-msgstr ""
+msgstr "Auto Fullscreen"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Automatically start Firefox in full screen mode"
@@ -1092,7 +1092,7 @@ msgstr "Reintrodu butoanele „Afișează imaginea” și „Căutare după imag
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Neat URL"
-msgstr ""
+msgstr "Neat URL"
 
 #: src/amo/components/HomeHeroBanner/index.js:160
 msgid "Clean up links for easy sharing"
@@ -1100,7 +1100,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Glitter Drag"
-msgstr ""
+msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
@@ -1108,7 +1108,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Behind The Overlay Revival"
-msgstr ""
+msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:172
 msgid "Click a button to close annoying pop-ups"
@@ -1132,7 +1132,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "Copy PlainText"
-msgstr ""
+msgstr "Copy PlainText"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Remove formatting when saving text to your clipboard"
@@ -1140,7 +1140,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Official Media Bias Fact Check Icon"
-msgstr ""
+msgstr "Official Media Bias Fact Check Icon"
 
 #: src/amo/components/HomeHeroBanner/index.js:198
 msgid "Indicates the political bias of news sites with a tidy icon"
@@ -1148,7 +1148,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:204
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Arrange tabs in a vertical fashion"
@@ -1164,7 +1164,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:216
 msgid "Push to Kindle"
-msgstr ""
+msgstr "Push to Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Send any Web page to your Kindle device"
@@ -1180,7 +1180,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:228
 msgid "OneNote Web Clipper"
-msgstr ""
+msgstr "OneNote Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:229
 msgid "Save, annotate & organize web content"
@@ -1196,7 +1196,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:238
 msgid "Dark Reader"
-msgstr ""
+msgstr "Dark Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:239
 msgid "Go dark for a better web viewing experience"
@@ -1204,11 +1204,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:24
 msgid "Facebook Container"
-msgstr ""
+msgstr "Container Facebook"
 
 #: src/amo/components/HomeHeroBanner/index.js:245
 msgid "CookieBro"
-msgstr ""
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:246
 msgid "Automatically delete unwanted cookies"
@@ -1220,7 +1220,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:250
 msgid "Text MultiCopy"
-msgstr ""
+msgstr "Text MultiCopy"
 
 #: src/amo/components/HomeHeroBanner/index.js:251
 msgid "Save snippets of text to paste & organize later"
@@ -1228,7 +1228,7 @@ msgstr "Salvează fragmente de text pentru a fi copiate și organizate mai târz
 
 #: src/amo/components/HomeHeroBanner/index.js:257
 msgid "Group Speed Dial"
-msgstr ""
+msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:258
 msgid "Visual bookmarks for your favorite places on the web"
@@ -1236,7 +1236,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:264
 msgid "Undo Close Tab Button"
-msgstr ""
+msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:265
 msgid "Never lose a page again"
@@ -1284,7 +1284,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:43
 msgid "New Tab Override"
-msgstr ""
+msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Choose the page you see every time you open a new tab"
@@ -1300,7 +1300,7 @@ msgstr "Primește instant informații despre vremea globală direct în Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:57
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:58
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
