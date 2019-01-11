@@ -394,7 +394,7 @@ describe(__filename, () => {
       );
     });
 
-    it('fetches with null scores when empty', () => {
+    it('fetches with a null score when score is not in URL', () => {
       const addon = { ...fakeAddon };
       loadAddon(addon);
       const dispatch = sinon.stub(store, 'dispatch');
