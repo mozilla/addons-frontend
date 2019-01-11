@@ -87,6 +87,14 @@ describe(__filename, () => {
     store.dispatch(loadAddonResults({ addons: [addon] }));
   };
 
+  const _fetchReviews = (params = {}) => {
+    return fetchReviews({
+      page: '1',
+      score: null,
+      ...params,
+    });
+  };
+
   const _setAddonReviews = ({
     addon = fakeAddon,
     reviews = [{ ...fakeReview, id: 1 }],
@@ -278,7 +286,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(
         dispatch,
-        fetchReviews({
+        _fetchReviews({
           addonSlug: addon.slug,
           errorHandlerId: errorHandler.id,
         }),
@@ -290,7 +298,7 @@ describe(__filename, () => {
       const errorHandler = createStubErrorHandler();
       loadAddon(addon);
       store.dispatch(
-        fetchReviews({
+        _fetchReviews({
           addonSlug: addon.slug,
           errorHandlerId: errorHandler.id,
         }),
@@ -305,7 +313,7 @@ describe(__filename, () => {
 
       sinon.assert.neverCalledWith(
         dispatch,
-        fetchReviews({
+        _fetchReviews({
           addonSlug: addon.slug,
           errorHandlerId: errorHandler.id,
         }),
@@ -333,7 +341,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(
         dispatch,
-        fetchReviews({
+        _fetchReviews({
           addonSlug: addon.slug,
           errorHandlerId: errorHandler.id,
         }),
@@ -355,7 +363,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(
         dispatch,
-        fetchReviews({
+        _fetchReviews({
           addonSlug,
           errorHandlerId: errorHandler.id,
           page,
@@ -386,6 +394,27 @@ describe(__filename, () => {
       );
     });
 
+    it('fetches with null scores when empty', () => {
+      const addon = { ...fakeAddon };
+      loadAddon(addon);
+      const dispatch = sinon.stub(store, 'dispatch');
+
+      const root = render({
+        // Set up a location where ?score= is not present in the URL.
+        location: createFakeLocation({ query: {} }),
+        params: { addonSlug: addon.slug },
+      });
+
+      sinon.assert.calledWith(
+        dispatch,
+        _fetchReviews({
+          addonSlug: addon.slug,
+          errorHandlerId: root.instance().props.errorHandler.id,
+          score: null,
+        }),
+      );
+    });
+
     it('dispatches fetchReviews with an invalid page variable', () => {
       // We intentionally pass invalid pages to the API to get a 404 response.
       const dispatch = sinon.stub(store, 'dispatch');
@@ -401,7 +430,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(
         dispatch,
-        fetchReviews({
+        _fetchReviews({
           addonSlug,
           errorHandlerId: errorHandler.id,
           page,
@@ -416,20 +445,20 @@ describe(__filename, () => {
 
       const root = render({
         errorHandler,
-        location: createFakeLocation({ query: { page: 2 } }),
+        location: createFakeLocation({ query: { page: '2' } }),
         params: { addonSlug },
       });
       dispatch.resetHistory();
       root.setProps({
-        location: createFakeLocation({ query: { page: 3 } }),
+        location: createFakeLocation({ query: { page: '3' } }),
       });
 
       sinon.assert.calledWith(
         dispatch,
-        fetchReviews({
+        _fetchReviews({
           addonSlug,
           errorHandlerId: errorHandler.id,
-          page: 3,
+          page: '3',
         }),
       );
     });
@@ -451,10 +480,9 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(
         dispatch,
-        fetchReviews({
+        _fetchReviews({
           addonSlug,
           errorHandlerId: root.instance().props.errorHandler.id,
-          page: '1',
           score: '5',
         }),
       );

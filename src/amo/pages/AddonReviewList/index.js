@@ -138,7 +138,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
           addonSlug,
           errorHandlerId: errorHandler.id,
           page: this.getCurrentPage(location),
-          score: location.query.score,
+          score: location.query.score || null,
         }),
       );
     }
