@@ -102,6 +102,7 @@ describe(__filename, () => {
   } = {}) => {
     const action = setAddonReviews({
       addonSlug: addon.slug,
+      page: '1',
       pageSize: DEFAULT_API_PAGE_SIZE,
       reviewCount: reviews.length,
       reviews,
@@ -438,7 +439,8 @@ describe(__filename, () => {
       );
     });
 
-    it('fetches reviews when the page changes', () => {
+    // TODO: delete these tests
+    it('fetches reviews when the page location changes', () => {
       const dispatch = sinon.stub(store, 'dispatch');
       const errorHandler = createStubErrorHandler();
       const addonSlug = fakeAddon.slug;
@@ -509,6 +511,32 @@ describe(__filename, () => {
           addonSlug,
           errorHandlerId: root.instance().props.errorHandler.id,
           score: '5',
+        }),
+      );
+    });
+
+    it('fetches reviews when the page changes', () => {
+      const addonSlug = fakeAddon.slug;
+      loadAddon(fakeAddon);
+      _setAddonReviews({
+        addonSlug,
+        page: '3',
+        reviews: [fakeReview],
+      });
+      const dispatch = sinon.spy(store, 'dispatch');
+
+      const page = '2';
+      const root = render({
+        location: createFakeLocation({ query: { page } }),
+        params: { addonSlug },
+      });
+
+      sinon.assert.calledWith(
+        dispatch,
+        _fetchReviews({
+          addonSlug,
+          page,
+          errorHandlerId: root.instance().props.errorHandler.id,
         }),
       );
     });
@@ -779,13 +807,17 @@ describe(__filename, () => {
     describe('with pagination', () => {
       const renderWithPagination = ({
         addon = fakeAddon,
+        page = '1',
         reviews = Array(DEFAULT_API_PAGE_SIZE + 2).fill(fakeReview),
         ...otherProps
       } = {}) => {
         loadAddon(addon);
-        _setAddonReviews({ addon, reviews });
+        _setAddonReviews({ addon, page, reviews });
 
-        return render(otherProps);
+        return render({
+          location: createFakeLocation({ query: { page } }),
+          ...otherProps,
+        });
       };
 
       const renderFooter = (root) => {
@@ -830,9 +862,7 @@ describe(__filename, () => {
       it('sets the paginator to the query string page', () => {
         const page = '3';
 
-        const root = renderWithPagination({
-          location: createFakeLocation({ query: { page } }),
-        });
+        const root = renderWithPagination({ page });
 
         expect(renderFooter(root)).toHaveProp('currentPage', page);
       });

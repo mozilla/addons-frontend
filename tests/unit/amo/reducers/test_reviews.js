@@ -85,6 +85,7 @@ describe(__filename, () => {
   } = {}) {
     return setAddonReviews({
       addonSlug: fakeAddon.slug,
+      page: '1',
       pageSize: DEFAULT_API_PAGE_SIZE,
       reviews,
       reviewCount: reviews.length,
@@ -105,6 +106,7 @@ describe(__filename, () => {
 
   function _selectReviews(params = {}) {
     return selectReviews({
+      page: '1',
       score: null,
       ...params,
     });
@@ -388,6 +390,18 @@ describe(__filename, () => {
 
       expect(state.byAddon[fakeAddon.slug].score).toEqual(null);
     });
+
+    it('stores the page', () => {
+      const page = '4';
+      const action = _setAddonReviews({
+        addonSlug: fakeAddon.slug,
+        page,
+        reviews: [{ ...fakeReview, id: 1 }],
+      });
+      const state = reviewsReducer(undefined, action);
+
+      expect(state.byAddon[fakeAddon.slug].page).toEqual(page);
+    });
   });
 
   describe('unloadAddonReviews', () => {
@@ -629,20 +643,22 @@ describe(__filename, () => {
     it('selects reviews by slug', () => {
       const review1 = { ...fakeReview, id: 1 };
       const review2 = { ...fakeReview, id: 2 };
+      const page = '1';
       const pageSize = 13;
       const reviewCount = 2;
       const action = _setAddonReviews({
         addonSlug: fakeAddon.slug,
+        page,
         pageSize,
         reviews: [review1, review2],
         reviewCount,
       });
       const reviewsState = reviewsReducer(undefined, action);
 
-      const data = selectReviews({
+      const data = _selectReviews({
         reviewsState,
         addonSlug: fakeAddon.slug,
-        score: null,
+        page,
       });
       expect(data.reviews).toEqual([review1.id, review2.id]);
       expect(data.pageSize).toEqual(pageSize);
@@ -656,10 +672,9 @@ describe(__filename, () => {
       });
       const reviewsState = reviewsReducer(undefined, action);
 
-      const data = selectReviews({
+      const data = _selectReviews({
         reviewsState,
         addonSlug: 'slug2',
-        score: null,
       });
       expect(data).toEqual(null);
     });
@@ -673,10 +688,26 @@ describe(__filename, () => {
       });
       const reviewsState = reviewsReducer(undefined, action);
 
-      const data = selectReviews({
+      const data = _selectReviews({
         reviewsState,
         addonSlug: fakeAddon.slug,
         score: '3',
+      });
+      expect(data).toEqual(null);
+    });
+
+    it('only selects reviews with a matching page', () => {
+      const action = _setAddonReviews({
+        addonSlug: fakeAddon.slug,
+        page: '2',
+        reviews: [{ ...fakeReview, id: 1 }],
+      });
+      const reviewsState = reviewsReducer(undefined, action);
+
+      const data = _selectReviews({
+        addonSlug: fakeAddon.slug,
+        page: '6',
+        reviewsState,
       });
       expect(data).toEqual(null);
     });
