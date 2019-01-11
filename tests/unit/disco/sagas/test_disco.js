@@ -7,8 +7,8 @@ import discoResultsReducer, {
   createExternalAddonMap,
   getDiscoResults,
   loadDiscoResults,
-  setTaarId,
 } from 'disco/reducers/discoResults';
+import { setHashedClientId } from 'disco/reducers/telemetry';
 import discoSaga from 'disco/sagas/disco';
 import {
   createStubErrorHandler,
@@ -49,14 +49,14 @@ describe(__filename, () => {
       sagaTester.dispatch(
         getDiscoResults({
           errorHandlerId: errorHandler.id,
-          taarParams: { platform: 'Darwin', taarId: '1112' },
+          taarParams: { platform: 'Darwin', clientId: '1112' },
           ...overrides,
         }),
       );
     }
 
-    function _setTaarId(id = '1111') {
-      sagaTester.dispatch(setTaarId(id));
+    function _setHashedClientId(id = '1111') {
+      sagaTester.dispatch(setHashedClientId(id));
     }
 
     it('fetches discovery addons from the API', async () => {
@@ -81,7 +81,7 @@ describe(__filename, () => {
 
       const taarId = '1112';
 
-      _setTaarId(taarId);
+      _setHashedClientId(taarId);
 
       const addonResponse = createFetchDiscoveryResult([result1, result2]);
 
@@ -89,7 +89,7 @@ describe(__filename, () => {
         .expects('getDiscoveryAddons')
         .withArgs({
           api: apiState,
-          taarParams: { platform: 'Darwin', taarId },
+          taarParams: { platform: 'Darwin', clientId: taarId },
         })
         .returns(Promise.resolve(addonResponse));
 
@@ -117,7 +117,7 @@ describe(__filename, () => {
       });
       const taarId = '1112';
 
-      _setTaarId(taarId);
+      _setHashedClientId(taarId);
 
       const addonResponse = createFetchDiscoveryResult([result]);
 
@@ -127,7 +127,7 @@ describe(__filename, () => {
           api: apiState,
           taarParams: {
             platform: 'Darwin',
-            taarId,
+            clientId: taarId,
           },
         })
         .returns(Promise.resolve(addonResponse));
@@ -138,7 +138,7 @@ describe(__filename, () => {
       _getDiscoResults({
         taarParams: {
           platform: 'Darwin',
-          taarId,
+          clientId: taarId,
         },
       });
 

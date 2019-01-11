@@ -24,7 +24,8 @@ import * as usersApi from 'amo/api/users';
 import surveyReducer, {
   initialState as initialSurveyState,
 } from 'core/reducers/survey';
-import discoReducer, { setTaarId } from 'disco/reducers/discoResults';
+import telemetry, { setHashedClientId } from 'disco/reducers/telemetry';
+import discoReducer from 'disco/reducers/discoResults';
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
 import {
   createUserAccountResponse,
@@ -39,6 +40,7 @@ function createStoreAndSagas({
     api: apiReducer,
     survey: surveyReducer,
     users: usersReducer,
+    telemetry,
     discoResults: discoReducer,
   },
 } = {}) {
@@ -224,7 +226,7 @@ describe(__filename, () => {
       expect(survey.wasDismissed).toEqual(true);
     });
 
-    it('dispatches setTaarId() if cookie is present and enableFeatureDiscoTaar is true', async () => {
+    it('dispatches setHashedClientId() if cookie is present and enableFeatureDiscoTaar is true', async () => {
       const taarId = '1112';
       const fakeConfig = {
         ...getFakeConfig(),
@@ -243,15 +245,13 @@ describe(__filename, () => {
         .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="${taarId}"`)
         .end();
 
-      const { discoResults } = store.getState();
-
-      sinon.assert.calledWith(dispatchSpy, setTaarId(taarId));
+      sinon.assert.calledWith(dispatchSpy, setHashedClientId(taarId));
 
       expect(response.statusCode).toEqual(200);
-      expect(discoResults.taarId).toEqual(taarId);
+      expect(store.getState().telemetry.hashedClientId).toEqual(taarId);
     });
 
-    it('does not dispatch setTaarId() if enableFeatureDiscoTaar is false', async () => {
+    it('does not dispatch setHashedClientId() if enableFeatureDiscoTaar is false', async () => {
       const taarId = '1112';
       const fakeConfig = {
         ...getFakeConfig(),
@@ -271,13 +271,13 @@ describe(__filename, () => {
         .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="${taarId}"`)
         .end();
 
-      sinon.assert.neverCalledWith(dispatchSpy, setTaarId(taarId));
+      sinon.assert.neverCalledWith(dispatchSpy, setHashedClientId(taarId));
 
       expect(response.statusCode).toEqual(200);
-      expect(store.getState().taarId).toEqual(undefined);
+      expect(store.getState().telemetry.hashedClientId).toEqual(null);
     });
 
-    it('does not dispatch setTaarId() if there is no discoTaarIdCookie', async () => {
+    it('does not dispatch setHashedClientId() if there is no discoTaarIdCookie', async () => {
       const fakeConfig = {
         ...getFakeConfig(),
         enableFeatureDiscoTaar: true,
@@ -292,13 +292,12 @@ describe(__filename, () => {
         sagaMiddleware,
       })
         .get('/en-US/firefox/')
-        .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="undefined"`)
         .end();
 
-      sinon.assert.neverCalledWith(dispatchSpy, setTaarId('1112'));
+      sinon.assert.neverCalledWith(dispatchSpy, setHashedClientId('1112'));
 
       expect(response.statusCode).toEqual(200);
-      expect(store.getState().taarId).toEqual(undefined);
+      expect(store.getState().telemetry.hashedClientId).toEqual(null);
     });
 
     it('does not dispatch dismissSurvey() if no cookie is present', async () => {

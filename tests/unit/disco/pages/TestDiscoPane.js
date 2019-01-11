@@ -13,7 +13,8 @@ import DiscoPane, {
   DiscoPaneBase,
   mapDispatchToProps,
 } from 'disco/pages/DiscoPane';
-import { getDiscoResults, setTaarId } from 'disco/reducers/discoResults';
+import { getDiscoResults } from 'disco/reducers/discoResults';
+import { setHashedClientId } from 'disco/reducers/telemetry';
 import createStore from 'disco/store';
 import { makeQueryStringWithUTM } from 'disco/utils';
 import {
@@ -107,7 +108,7 @@ describe(__filename, () => {
 
     it('sends a telemetry-client-id if there is one', () => {
       const taarId = '1112';
-      store.dispatch(setTaarId(taarId));
+      store.dispatch(setHashedClientId(taarId));
       const dispatch = sinon.spy(store, 'dispatch');
 
       const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });

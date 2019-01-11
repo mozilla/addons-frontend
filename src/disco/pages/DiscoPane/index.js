@@ -48,10 +48,10 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   handleGlobalEvent: Function,
+  hashedClientId: string | null,
   i18n: I18nType,
   mozAddonManager: MozAddonManagerType,
   results: DiscoResultsType,
-  taarId?: string,
 |};
 
 export class DiscoPaneBase extends React.Component<InternalProps> {
@@ -68,10 +68,10 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
     const {
       dispatch,
       errorHandler,
+      hashedClientId,
       location,
       match: { params },
       results,
-      taarId,
     } = props;
 
     // TODO: fix this; it's not the right way to detect whether a
@@ -87,10 +87,10 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
         platform: params.platform,
       };
 
-      if (taarId) {
+      if (hashedClientId) {
         taarParams = {
           ...taarParams,
-          clientId: taarId,
+          clientId: hashedClientId,
         };
       }
 
@@ -199,7 +199,7 @@ function mapStateToProps(state: AppState) {
 
   return {
     results,
-    taarId: state.discoResults.taarId,
+    hashedClientId: state.telemetry.hashedClientId,
   };
 }
 

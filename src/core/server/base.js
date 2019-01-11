@@ -42,7 +42,7 @@ import {
   langToLocale,
   makeI18n,
 } from 'core/i18n/utils';
-import { setTaarId } from 'disco/reducers/discoResults';
+import { setHashedClientId } from 'disco/reducers/telemetry';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
 
@@ -343,7 +343,7 @@ function baseServer(
             undefined
         ) {
           store.dispatch(
-            setTaarId(
+            setHashedClientId(
               req.universalCookies.get(config.get('discoTaarIdCookie')),
             ),
           );
