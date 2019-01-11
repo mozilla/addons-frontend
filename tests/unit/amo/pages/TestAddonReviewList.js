@@ -356,7 +356,6 @@ describe(__filename, () => {
       const page = '2';
 
       render({
-        reviews: null,
         errorHandler,
         location: createFakeLocation({ query: { page } }),
         params: { addonSlug },
@@ -368,6 +367,33 @@ describe(__filename, () => {
           addonSlug,
           errorHandlerId: errorHandler.id,
           page,
+        }),
+      );
+    });
+
+    it('fetches reviews when the page changes', () => {
+      const addonSlug = fakeAddon.slug;
+      loadAddon(fakeAddon);
+      // Set up loaded data for a different page.
+      _setAddonReviews({
+        addonSlug,
+        page: '3',
+        reviews: [fakeReview],
+      });
+      const dispatch = sinon.spy(store, 'dispatch');
+
+      const page = '2';
+      const root = render({
+        location: createFakeLocation({ query: { page } }),
+        params: { addonSlug },
+      });
+
+      sinon.assert.calledWith(
+        dispatch,
+        _fetchReviews({
+          addonSlug,
+          page,
+          errorHandlerId: root.instance().props.errorHandler.id,
         }),
       );
     });
@@ -439,32 +465,6 @@ describe(__filename, () => {
       );
     });
 
-    // TODO: delete these tests
-    it('fetches reviews when the page location changes', () => {
-      const dispatch = sinon.stub(store, 'dispatch');
-      const errorHandler = createStubErrorHandler();
-      const addonSlug = fakeAddon.slug;
-
-      const root = render({
-        errorHandler,
-        location: createFakeLocation({ query: { page: '2' } }),
-        params: { addonSlug },
-      });
-      dispatch.resetHistory();
-      root.setProps({
-        location: createFakeLocation({ query: { page: '3' } }),
-      });
-
-      sinon.assert.calledWith(
-        dispatch,
-        _fetchReviews({
-          addonSlug,
-          errorHandlerId: errorHandler.id,
-          page: '3',
-        }),
-      );
-    });
-
     it('fetches reviews when the score changes', () => {
       const addonSlug = fakeAddon.slug;
       loadAddon(fakeAddon);
@@ -511,32 +511,6 @@ describe(__filename, () => {
           addonSlug,
           errorHandlerId: root.instance().props.errorHandler.id,
           score: '5',
-        }),
-      );
-    });
-
-    it('fetches reviews when the page changes', () => {
-      const addonSlug = fakeAddon.slug;
-      loadAddon(fakeAddon);
-      _setAddonReviews({
-        addonSlug,
-        page: '3',
-        reviews: [fakeReview],
-      });
-      const dispatch = sinon.spy(store, 'dispatch');
-
-      const page = '2';
-      const root = render({
-        location: createFakeLocation({ query: { page } }),
-        params: { addonSlug },
-      });
-
-      sinon.assert.calledWith(
-        dispatch,
-        _fetchReviews({
-          addonSlug,
-          page,
-          errorHandlerId: root.instance().props.errorHandler.id,
         }),
       );
     });

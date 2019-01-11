@@ -129,14 +129,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       dispatch(setViewContext(addon.type));
     }
 
-    let locationChanged = false;
-    if (prevProps && prevProps.location) {
-      if (prevProps.location !== location) {
-        locationChanged = true;
-      }
-    }
-
-    if (!areReviewsLoading && (!reviews || locationChanged)) {
+    if (!areReviewsLoading && !reviews) {
       dispatch(
         fetchReviews({
           addonSlug,
