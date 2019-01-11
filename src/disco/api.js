@@ -12,10 +12,10 @@ export function getDiscoveryAddons({ api, taarParams = {}, _config = config }) {
     return object;
   }, {});
 
-  // We translate `taarId` to `'telemetry-client-id'`.
-  if (allowedTaarParams.taarId) {
-    allowedTaarParams['telemetry-client-id'] = allowedTaarParams.taarId;
-    delete allowedTaarParams.taarId;
+  // We translate `clientId` to `'telemetry-client-id'`.
+  if (allowedTaarParams.clientId) {
+    allowedTaarParams['telemetry-client-id'] = allowedTaarParams.clientId;
+    delete allowedTaarParams.clientId;
   }
 
   return callApi({

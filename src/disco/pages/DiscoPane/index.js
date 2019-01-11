@@ -90,7 +90,7 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
       if (taarId) {
         taarParams = {
           ...taarParams,
-          taarId,
+          clientId: taarId,
         };
       }
 

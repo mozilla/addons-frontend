@@ -119,7 +119,7 @@ describe(__filename, () => {
         getDiscoResults({
           errorHandlerId: errorHandler.id,
           taarParams: {
-            taarId,
+            clientId: taarId,
             platform: 'Darwin',
           },
         }),

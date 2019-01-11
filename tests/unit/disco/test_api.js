@@ -11,7 +11,7 @@ describe(__filename, () => {
   beforeEach(() => {
     callApiMock = sinon.stub(coreApi, 'callApi');
     fakeConfig = getFakeConfig({
-      discoParamsToUse: ['taarId', 'platform'],
+      discoParamsToUse: ['clientId', 'platform'],
     });
     const { store } = createStore();
     apiState = dispatchClientMetadata({ store }).state.api;
@@ -38,7 +38,7 @@ describe(__filename, () => {
       getDiscoveryAddons({
         api: apiState,
         taarParams: {
-          taarId,
+          clientId: taarId,
           platform: 'Darwin',
         },
         _config: fakeConfig,

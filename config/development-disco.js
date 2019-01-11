@@ -3,11 +3,4 @@ module.exports = {
   loggingLevel: 'debug',
 
   enableFeatureDiscoTaar: true,
-  discoParamsToUse: [
-    'branch',
-    'edition',
-    'platform',
-    'study',
-    'taarId',
-  ],
 };

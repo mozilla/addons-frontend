@@ -27,11 +27,4 @@ module.exports = {
   publicSentryDsn: 'https://560fc81d9fd14266b99bda032de23c52@sentry.prod.mozaws.net/184',
 
   enableFeatureDiscoTaar: true,
-  discoParamsToUse: [
-    'branch',
-    'edition',
-    'platform',
-    'study',
-    'taarId',
-  ],
 };
