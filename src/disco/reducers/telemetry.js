@@ -5,11 +5,11 @@ export const SET_HASHED_CLIENT_ID: 'SET_HASHED_CLIENT_ID' =
   'SET_HASHED_CLIENT_ID';
 
 export type TelemetryState = {|
-  hashedClientId?: string,
+  hashedClientId: string | null,
 |};
 
 export const initialState: TelemetryState = {
-  hashedClientId: undefined,
+  hashedClientId: null,
 };
 
 type SetHashedClientIdAction = {|
@@ -20,9 +20,8 @@ type SetHashedClientIdAction = {|
 export const setHashedClientId = (
   hashedClientId: string,
 ): SetHashedClientIdAction => {
-  if (!hashedClientId) {
-    invariant(hashedClientId, 'hashedClientId is required');
-  }
+  invariant(hashedClientId, 'hashedClientId is required');
+
   return {
     type: SET_HASHED_CLIENT_ID,
     payload: { hashedClientId },
