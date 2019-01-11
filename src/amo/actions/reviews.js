@@ -169,7 +169,7 @@ type FetchReviewsParams = {|
   addonSlug: string,
   errorHandlerId: string,
   page?: string,
-  score?: string,
+  score: string | null,
 |};
 
 export type FetchReviewsAction = {|
@@ -178,7 +178,7 @@ export type FetchReviewsAction = {|
     addonSlug: string,
     errorHandlerId: string,
     page: string,
-    score: string | void,
+    score: string | null,
   |},
 |};
 
@@ -440,6 +440,7 @@ type SetAddonReviewsParams = {|
   pageSize: string,
   reviewCount: number,
   reviews: Array<ExternalReviewType>,
+  score: string | null,
 |};
 
 export type SetAddonReviewsAction = {|
@@ -452,11 +453,13 @@ export const setAddonReviews = ({
   pageSize,
   reviewCount,
   reviews,
+  score,
 }: SetAddonReviewsParams): SetAddonReviewsAction => {
   invariant(addonSlug, 'addonSlug is required');
   invariant(pageSize, 'pageSize is required');
   invariant(typeof reviewCount === 'number', 'reviewCount is required');
   invariant(Array.isArray(reviews), 'reviews is required and must be an array');
+  invariant(typeof score !== 'undefined', 'score is required');
 
   return {
     type: SET_ADDON_REVIEWS,
@@ -465,6 +468,7 @@ export const setAddonReviews = ({
       pageSize,
       reviewCount,
       reviews,
+      score,
     },
   };
 };

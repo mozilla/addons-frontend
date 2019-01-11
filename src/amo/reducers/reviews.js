@@ -98,7 +98,10 @@ type ReviewsData = {|
 |};
 
 type ReviewsByAddon = {
-  [slug: string]: ?StoredReviewsData,
+  [slug: string]: {|
+    data: StoredReviewsData,
+    score: string | null,
+  |} | void,
 };
 
 type ReviewsByUserId = {
@@ -162,6 +165,29 @@ export const initialState: ReviewsState = {
   loadingForSlug: {},
 };
 
+export function selectReviews({
+  reviewsState,
+  addonSlug,
+  score,
+}: {|
+  addonSlug: string,
+  reviewsState: ReviewsState,
+  score: string | null,
+|}): StoredReviewsData | null {
+  invariant(reviewsState, 'reviewsState is required');
+  invariant(addonSlug, 'addonSlug is required');
+  invariant(score !== undefined, 'score is required');
+
+  const reviewData = reviewsState.byAddon[addonSlug];
+  if (!reviewData) {
+    return null;
+  }
+  if (reviewData.score !== score) {
+    return null;
+  }
+  return reviewData.data;
+}
+
 export function createGroupedRatings(
   grouping: $Shape<GroupedRatingsType> = {},
 ): GroupedRatingsType {
@@ -211,7 +237,7 @@ export const expandReviewObjects = ({
   reviews,
 }: {|
   state: ReviewsState,
-  reviews: Array<number>,
+  reviews: $PropertyType<StoredReviewsData, 'reviews'>,
 |}): Array<UserReviewType> => {
   return reviews.map((id) => {
     const review = selectReview(state, id);
@@ -363,7 +389,7 @@ export const addReviewToState = ({
     : {
         ...state.byAddon,
         // For any newly entered rating object *or* when upgrading a
-        // rating to a review, rest the review list to trigger a
+        // rating to a review, reset the review list to trigger a
         // re-fetch from the server.
         [review.reviewAddon.slug]: undefined,
       };
@@ -583,9 +609,12 @@ export default function reviewsReducer(
         byAddon: {
           ...state.byAddon,
           [payload.addonSlug]: {
-            pageSize: payload.pageSize,
-            reviewCount: payload.reviewCount,
-            reviews: reviews.map((review) => review.id),
+            data: {
+              pageSize: payload.pageSize,
+              reviewCount: payload.reviewCount,
+              reviews: reviews.map((review) => review.id),
+            },
+            score: payload.score,
           },
         },
         loadingForSlug: {
