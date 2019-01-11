@@ -172,13 +172,17 @@ export function selectReviews({
 }: {|
   addonSlug: string,
   reviewsState: ReviewsState,
-  score?: string | null,
+  score: string | null,
 |}): StoredReviewsData | null {
+  invariant(reviewsState, 'reviewsState is required');
+  invariant(addonSlug, 'addonSlug is required');
+  invariant(score !== undefined, 'score is required');
+
   const reviewData = reviewsState.byAddon[addonSlug];
   if (!reviewData) {
     return null;
   }
-  if (score && reviewData.score !== score) {
+  if (reviewData.score !== score) {
     return null;
   }
   return reviewData.data;

@@ -103,6 +103,13 @@ describe(__filename, () => {
     });
   }
 
+  function _selectReviews(params = {}) {
+    return selectReviews({
+      score: null,
+      ...params,
+    });
+  }
+
   it('defaults to an empty object', () => {
     expect(reviewsReducer(undefined, { type: 'SOME_OTHER_ACTION' })).toEqual(
       initialState,
@@ -278,7 +285,7 @@ describe(__filename, () => {
         reviews: [review1, review2],
       });
       const state = reviewsReducer(undefined, action);
-      const storedReviews = selectReviews({
+      const storedReviews = _selectReviews({
         reviewsState: state,
         addonSlug: fakeAddon.slug,
       }).reviews;
@@ -312,13 +319,13 @@ describe(__filename, () => {
 
       const reviewsState = state;
       expect(
-        selectReviews({ reviewsState, addonSlug: addon1.slug }).reviews[0],
+        _selectReviews({ reviewsState, addonSlug: addon1.slug }).reviews[0],
       ).toEqual(review1.id);
       expect(
-        selectReviews({ reviewsState, addonSlug: addon2.slug }).reviews[0],
+        _selectReviews({ reviewsState, addonSlug: addon2.slug }).reviews[0],
       ).toEqual(review2.id);
       expect(
-        selectReviews({ reviewsState, addonSlug: addon2.slug }).reviews[1],
+        _selectReviews({ reviewsState, addonSlug: addon2.slug }).reviews[1],
       ).toEqual(review3.id);
     });
 
@@ -352,10 +359,10 @@ describe(__filename, () => {
 
       const reviewsState = newState;
       expect(
-        selectReviews({ reviewsState, addonSlug: 'slug1' }).reviewCount,
+        _selectReviews({ reviewsState, addonSlug: 'slug1' }).reviewCount,
       ).toEqual(1);
       expect(
-        selectReviews({ reviewsState, addonSlug: 'slug2' }).reviewCount,
+        _selectReviews({ reviewsState, addonSlug: 'slug2' }).reviewCount,
       ).toEqual(2);
     });
 
@@ -470,9 +477,9 @@ describe(__filename, () => {
 
       // Verify that data has been loaded for the reviewId.
       expect(state.byId[reviewId].reviewAddon.id).toEqual(addonId);
-      expect(selectReviews({ reviewsState: state, addonSlug }).reviews).toEqual(
-        [reviewId],
-      );
+      expect(
+        _selectReviews({ reviewsState: state, addonSlug }).reviews,
+      ).toEqual([reviewId]);
       expect(state.byUserId[userId].reviews).toEqual([reviewId]);
       expect(state.groupedRatings[addonId]).toEqual(grouping);
       expect(state.view[reviewId].someFlag).toEqual(true);
@@ -565,7 +572,7 @@ describe(__filename, () => {
       // Verify that the unrelated data has been loaded for the reviewId.
       expect(state.byId[reviewId2].reviewAddon.id).toEqual(addonId2);
       expect(
-        selectReviews({ reviewsState: state, addonSlug: addonSlug2 }).reviews,
+        _selectReviews({ reviewsState: state, addonSlug: addonSlug2 }).reviews,
       ).toEqual([reviewId2]);
       expect(state.byUserId[userId2].reviews).toEqual([reviewId2]);
       expect(state.groupedRatings[addonId2]).toEqual(grouping);
@@ -576,7 +583,7 @@ describe(__filename, () => {
       // Verify that the unrelated data has not been unloaded.
       expect(state.byId[reviewId2].reviewAddon.id).toEqual(addonId2);
       expect(
-        selectReviews({ reviewsState: state, addonSlug: addonSlug2 }).reviews,
+        _selectReviews({ reviewsState: state, addonSlug: addonSlug2 }).reviews,
       ).toEqual([reviewId2]);
       expect(state.byUserId[userId2].reviews).toEqual([reviewId2]);
       expect(state.groupedRatings[addonId2]).toEqual(grouping);
@@ -594,7 +601,7 @@ describe(__filename, () => {
       });
       const state = reviewsReducer(undefined, action);
 
-      const reviewsData = selectReviews({
+      const reviewsData = _selectReviews({
         reviewsState: state,
         addonSlug: fakeAddon.slug,
       });
@@ -632,7 +639,11 @@ describe(__filename, () => {
       });
       const reviewsState = reviewsReducer(undefined, action);
 
-      const data = selectReviews({ reviewsState, addonSlug: fakeAddon.slug });
+      const data = selectReviews({
+        reviewsState,
+        addonSlug: fakeAddon.slug,
+        score: null,
+      });
       expect(data.reviews).toEqual([review1.id, review2.id]);
       expect(data.pageSize).toEqual(pageSize);
       expect(data.reviewCount).toEqual(reviewCount);
@@ -645,7 +656,11 @@ describe(__filename, () => {
       });
       const reviewsState = reviewsReducer(undefined, action);
 
-      const data = selectReviews({ reviewsState, addonSlug: 'slug2' });
+      const data = selectReviews({
+        reviewsState,
+        addonSlug: 'slug2',
+        score: null,
+      });
       expect(data).toEqual(null);
     });
 
