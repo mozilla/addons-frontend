@@ -17,6 +17,7 @@ export const genericType: 'generic' = 'generic';
 export const firefoxRequiredType: 'firefox' = 'firefox';
 export const successType: 'success' = 'success';
 export const warningType: 'warning' = 'warning';
+
 const validTypes = [
   errorType,
   genericType,

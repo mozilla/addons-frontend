@@ -14,7 +14,7 @@
       margin-bottom: 0;
     }
 
-    li.AddonVersions-warning {
+    .AddonVersions-warning {
       padding: $padding-page;
       padding-bottom: 0;
 
@@ -26,8 +26,9 @@
   }
 }
 
-div.AddonVersions-warning-text {
+.AddonVersions-warning-text {
   line-height: $default-line-height;
+  margin: 0;
 }
 
 .AddonVersions-versions {
