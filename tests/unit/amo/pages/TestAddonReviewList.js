@@ -505,10 +505,9 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(
         dispatch,
-        fetchReviews({
+        _fetchReviews({
           addonSlug,
           errorHandlerId: root.instance().props.errorHandler.id,
-          page: '1',
           score: '5',
         }),
       );
