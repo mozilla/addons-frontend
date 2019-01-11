@@ -14,9 +14,17 @@ import './styles.scss';
 
 export const errorType: 'error' = 'error';
 export const genericType: 'generic' = 'generic';
-export const successType: 'success' = 'success';
 export const firefoxRequiredType: 'firefox' = 'firefox';
-const validTypes = [errorType, genericType, successType, firefoxRequiredType];
+export const successType: 'success' = 'success';
+export const warningType: 'warning' = 'warning';
+
+const validTypes = [
+  errorType,
+  genericType,
+  firefoxRequiredType,
+  successType,
+  warningType,
+];
 
 type UIState = {|
   wasDismissed: boolean,
@@ -26,7 +34,8 @@ export type NoticeType =
   | typeof errorType
   | typeof firefoxRequiredType
   | typeof genericType
-  | typeof successType;
+  | typeof successType
+  | typeof warningType;
 
 type Props = {|
   actionHref?: string,

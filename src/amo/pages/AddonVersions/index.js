@@ -22,6 +22,7 @@ import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import CardList from 'ui/components/CardList';
 import LoadingText from 'ui/components/LoadingText';
+import Notice from 'ui/components/Notice';
 import type { AddonVersionType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -165,6 +166,21 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
             header={header || <LoadingText />}
           >
             <ul>
+              <li className="AddonVersions-warning">
+                <Notice type="warning">
+                  <p className="AddonVersions-warning-text">
+                    {i18n.gettext(
+                      'Be careful with old versions! These versions are displayed for testing and reference purposes.',
+                    )}
+                  </p>
+                  <p className="AddonVersions-warning-text">
+                    {i18n.gettext(
+                      'You should always use the latest version of an add-on.',
+                    )}
+                  </p>
+                </Notice>
+              </li>
+
               <AddonVersionCard
                 addon={addon}
                 headerText={i18n.gettext('Latest version')}
