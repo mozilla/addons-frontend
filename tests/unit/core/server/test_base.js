@@ -24,8 +24,7 @@ import * as usersApi from 'amo/api/users';
 import surveyReducer, {
   initialState as initialSurveyState,
 } from 'core/reducers/survey';
-import telemetry, { setHashedClientId } from 'disco/reducers/telemetry';
-import discoReducer from 'disco/reducers/discoResults';
+import telemetryReducer, { setHashedClientId } from 'disco/reducers/telemetry';
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
 import {
   createUserAccountResponse,
@@ -40,8 +39,7 @@ function createStoreAndSagas({
     api: apiReducer,
     survey: surveyReducer,
     users: usersReducer,
-    telemetry,
-    discoResults: discoReducer,
+    telemetry: telemetryReducer,
   },
 } = {}) {
   const sagaMiddleware = createSagaMiddleware();
