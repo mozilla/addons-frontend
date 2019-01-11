@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-08 18:12+0000\n"
-"Last-Translator: goofy <goofy@babelzilla.org>\n"
+"PO-Revision-Date: 2019-01-11 11:20+0000\n"
+"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -539,21 +539,20 @@ msgid "by"
 msgstr "par"
 
 #: src/amo/components/AddonVersionCard/index.js:100
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "mis en ligne : %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "Code source publié sous licence %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
-msgstr ""
+msgstr "Aucune version trouvée"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Version %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Publié le %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -774,10 +773,12 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
+"Revenez à cette page plus tard, le thème ou l’extension peut redevenir disponible. Vous pourriez également trouver ce que vous recherchez parmi les %(linkStart)sextensions%(linkEnd)s ou les "
+"%(secondLinkStart)sthèmes%(secondLinkEnd)s disponibles."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Oups, cette page est introuvable"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -2066,14 +2067,12 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/amo/pages/AddonVersions/index.js:154
-#, fuzzy
 msgid "Latest version"
-msgstr "Versions bêta"
+msgstr "Dernière version"
 
 #: src/amo/pages/AddonVersions/index.js:163
-#, fuzzy
 msgid "Older versions"
-msgstr "Voir toutes les versions"
+msgstr "Anciennes versions"
 
 #: src/amo/pages/CategoriesPage/index.js:46
 msgid "All extension categories"
