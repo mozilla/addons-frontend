@@ -94,67 +94,81 @@
   }
 }
 
-.Notice-error {
+@mixin notice_type(
+  $button-background-color,
+  $button-background-active-color,
+  $button-background-hover-color,
+  $button-color,
+  $icon-name,
+  $iconXMark-path-color,
+  $notice-background-color,
+  $notice-link-color,
+  $button-link-color: inherit
+) {
   .Notice-button {
     @include button(
-      $background: $red-60,
-      $background-active: $red-80,
-      $background-hover: $red-70,
-      $color: $white
+      $background: $button-background-color,
+      $background-active: $button-background-active-color,
+      $background-hover: $button-background-hover-color,
+      $color: $button-color
     );
+
+    &:active,
+    &:hover,
+    &:focus {
+      color: $button-link-color;
+    }
+
     @include notice_button();
   }
 
   .Notice-icon {
-    background-image: url('./img/exclamation.svg');
+    background-image: url('./img/#{$icon-name}.svg');
   }
 
   .IconXMark-path {
-    fill: $white;
+    fill: $iconXMark-path-color;
   }
 
-  background-color: $red-50;
+  background-color: $notice-background-color;
 
   &,
   :link,
   :hover,
   :active {
-    color: $white;
+    color: $notice-link-color;
   }
 }
 
+.Notice-error {
+  @include notice_type(
+    $button-background-color: $red-60,
+    $button-background-active-color: $red-80,
+    $button-background-hover-color: $red-70,
+    $button-color: $white,
+    $icon-name: 'exclamation',
+    $iconXMark-path-color: $white,
+    $notice-background-color: $red-50,
+    $notice-link-color: $white
+  );
+}
+
 .Notice-generic {
-  .Notice-button {
-    @include button(
-      $background: $grey-90-a10,
-      $background-active: $grey-90-a30,
-      $background-hover: $grey-90-a20,
-      $color: $grey-90
-    );
-    @include notice_button();
-  }
-
-  .Notice-icon {
-    background-image: url('./img/generic-info-mark.svg');
-  }
-
-  .IconXMark-path {
-    fill: $grey-90;
-  }
-
-  background-color: $grey-20;
+  @include notice_type(
+    $button-background-color: $grey-90-a10,
+    $button-background-active-color: $grey-90-a30,
+    $button-background-hover-color: $grey-90-a20,
+    $button-color: $grey-90,
+    $icon-name: 'generic-info-mark',
+    $iconXMark-path-color: $grey-90,
+    $notice-background-color: $grey-20,
+    $notice-link-color: $grey-90
+  );
 
   &.Notice-againstGrey20 {
     // When this Notice is rendered against a $grey-20 background, pick a
     // new background color to avoid a collision.
     background-color: $grey-30;
-  }
-
-  &,
-  :link,
-  :hover,
-  :active {
-    color: $grey-90;
   }
 
   .Button:hover {
@@ -164,75 +178,34 @@
 
 .Notice-success,
 .Notice-firefox {
-  .Notice-button {
-    @include button(
-      $background: $green-60,
-      $background-active: $green-80,
-      $background-hover: $green-70,
-      $color: $green-90
-    );
-
-    &:active,
-    &:hover,
-    &:focus {
-      color: $white;
-    }
-
-    @include notice_button();
-  }
-
-  .Notice-icon {
-    background-image: url('./img/check-mark.svg');
-  }
-
-  .IconXMark-path {
-    fill: $green-90;
-  }
-
-  background-color: $green-50;
-
-  &,
-  :link,
-  :hover,
-  :active {
-    color: $green-90;
-  }
+  @include notice_type(
+    $button-background-color: $green-60,
+    $button-background-active-color: $green-80,
+    $button-background-hover-color: $green-70,
+    $button-color: $green-90,
+    $button-link-color: $white,
+    $icon-name: 'check-mark',
+    $iconXMark-path-color: $green-90,
+    $notice-background-color: $green-50,
+    $notice-link-color: $grey-90
+  );
 }
 
 .Notice-warning {
-  .Notice-button {
-    @include button(
-      $background: $yellow-60,
-      $background-active: $yellow-80,
-      $background-hover: $yellow-70,
-      $color: $yellow-90
-    );
-
-    &:active,
-    &:hover,
-    &:focus {
-      color: $white;
-    }
-
-    @include notice_button();
-  }
+  @include notice_type(
+    $button-background-color: $yellow-60,
+    $button-background-active-color: $yellow-80,
+    $button-background-hover-color: $yellow-70,
+    $button-color: $yellow-90,
+    $button-link-color: $white,
+    $icon-name: 'warning',
+    $iconXMark-path-color: $yellow-90,
+    $notice-background-color: $yellow-50,
+    $notice-link-color: $grey-90
+  );
 
   .Notice-icon {
-    background-image: url('./img/warning.svg');
     background-size: cover;
-  }
-
-  .IconXMark-path {
-    fill: $yellow-90;
-  }
-
-  background-color: $yellow-50;
-
-  &,
-  :link,
-  :hover,
-  :active {
-    color: $yellow-90;
   }
 }
 
