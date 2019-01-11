@@ -183,10 +183,7 @@ export function selectReviews({
   invariant(score !== undefined, 'score is required');
 
   const reviewData = reviewsState.byAddon[addonSlug];
-  if (!reviewData) {
-    return null;
-  }
-  if (reviewData.score !== score || reviewData.page !== page) {
+  if (!reviewData || reviewData.score !== score || reviewData.page !== page) {
     return null;
   }
   return reviewData.data;
