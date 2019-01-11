@@ -18,6 +18,7 @@ import {
   reviewListURL,
   reviewsAreLoading,
   selectReviewPermissions,
+  selectReviews,
 } from 'amo/reducers/reviews';
 import { getCurrentUser } from 'amo/reducers/users';
 import {
@@ -380,7 +381,11 @@ export function mapStateToProps(
 ): $Shape<InternalProps> {
   const { addonSlug } = ownProps.match.params;
   const addon = getAddonBySlug(state, addonSlug);
-  const reviewData = state.reviews.byAddon[addonSlug];
+  const reviewData = selectReviews({
+    reviewsState: state.reviews,
+    addonSlug,
+    score: ownProps.location.query.score || null,
+  });
 
   const siteUser = getCurrentUser(state.users);
   let checkingIfSiteUserCanReply = false;

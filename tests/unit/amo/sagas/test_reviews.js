@@ -82,6 +82,7 @@ describe(__filename, () => {
         fetchReviews({
           errorHandlerId: errorHandler.id,
           addonSlug: fakeAddon.slug,
+          score: null,
           ...params,
         }),
       );
@@ -116,6 +117,7 @@ describe(__filename, () => {
           pageSize: DEFAULT_API_PAGE_SIZE,
           reviewCount: 1,
           reviews,
+          score: null,
         }),
       );
     });

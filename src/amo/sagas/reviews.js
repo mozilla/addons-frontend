@@ -96,7 +96,7 @@ function* fetchReviews({
       addon: addonSlug,
       apiState: state.api,
       page,
-      score,
+      score: score || undefined,
     };
 
     const response: GetReviewsApiResponse = yield call(getReviews, params);
@@ -107,6 +107,7 @@ function* fetchReviews({
         pageSize: response.page_size,
         reviewCount: response.count,
         reviews: response.results,
+        score,
       }),
     );
   } catch (error) {

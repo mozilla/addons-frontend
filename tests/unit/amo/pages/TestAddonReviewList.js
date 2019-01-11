@@ -90,12 +90,15 @@ describe(__filename, () => {
   const _setAddonReviews = ({
     addon = fakeAddon,
     reviews = [{ ...fakeReview, id: 1 }],
+    ...params
   } = {}) => {
     const action = setAddonReviews({
       addonSlug: addon.slug,
       pageSize: DEFAULT_API_PAGE_SIZE,
       reviewCount: reviews.length,
       reviews,
+      score: null,
+      ...params,
     });
     store.dispatch(action);
   };
@@ -427,6 +430,32 @@ describe(__filename, () => {
           addonSlug,
           errorHandlerId: errorHandler.id,
           page: 3,
+        }),
+      );
+    });
+
+    it('fetches reviews when the score changes', () => {
+      const addonSlug = fakeAddon.slug;
+      loadAddon(fakeAddon);
+      _setAddonReviews({
+        addonSlug,
+        reviews: [fakeReview],
+        score: '4',
+      });
+      const dispatch = sinon.spy(store, 'dispatch');
+
+      const root = render({
+        location: createFakeLocation({ query: { score: '5' } }),
+        params: { addonSlug },
+      });
+
+      sinon.assert.calledWith(
+        dispatch,
+        fetchReviews({
+          addonSlug,
+          errorHandlerId: root.instance().props.errorHandler.id,
+          page: '1',
+          score: '5',
         }),
       );
     });
