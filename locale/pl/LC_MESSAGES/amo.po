@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-12 09:11+0000\n"
+"PO-Revision-Date: 2019-01-12 09:21+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -775,31 +775,36 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
+"Spróbuj odwiedzić tę stronę później, jako że motyw lub rozszerzenie może stać się ponownie dostępne. Można też przeszukać obecnie dostępne %(linkStart)srozszerzenia%(linkEnd)s i "
+"%(secondLinkStart)smotywy%(secondLinkEnd)s."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Nie można odnaleźć tej strony"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Jeśli trafiono tu z innej strony rozszerzenia lub motywu, to ten dodatek nie jest już dostępny. Możliwe przyczyny:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:69
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "Autor go usunął. Najczęściej dzieje się tak, ponieważ autor nie wspiera już rozszerzenia lub motywu, albo zastąpił go nowym."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:74
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla go usunęła. Może się tak stać, jeśli podczas procesu sprawdzania rozszerzenia lub motywu wykryto problem, albo dodatek naruszył zasady strony addons.mozilla.org. Autor ma możliwość "
+"rozwiązania problemu i ponownego udostępnienia dodatku."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
-#, fuzzy
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll get it sorted."
-msgstr "Jeśli trafiono tu z odnośnika, to prosimy <a href=\"%(url)s\">zgłosić błąd</a>. Aby go naprawić, potrzebujemy wiedzieć, jak się tu znaleziono i co próbowano zrobić."
+msgstr ""
+"Jeśli trafiono tu z odnośnika na tej stronie, to znaleziono błąd. Pomóż nam go naprawić <a href=\"%(url)s\">wypełniając zgłoszenie</a>. Aby to zrobić, potrzebujemy wiedzieć, jak się tu znaleziono i "
+"co próbowano znaleźć."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
@@ -3022,7 +3027,7 @@ msgstr "Wypełnij krótką ankietę"
 
 #: src/core/components/SurveyNotice/index.js:139
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr "Dziękujemy za odwiedzenie tej witryny! Prosimy poświęcić minutę lub dwie i powiedzieć nam o swoich wrażeniach."
+msgstr "Dziękujemy za odwiedzenie tej strony! Prosimy poświęcić minutę lub dwie i powiedzieć nam o swoich wrażeniach."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
