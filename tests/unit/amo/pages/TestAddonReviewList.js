@@ -490,31 +490,6 @@ describe(__filename, () => {
       );
     });
 
-    it('fetches reviews when the score changes', () => {
-      const addonSlug = fakeAddon.slug;
-      loadAddon(fakeAddon);
-      _setAddonReviews({
-        addonSlug,
-        reviews: [fakeReview],
-        score: '4',
-      });
-      const dispatch = sinon.spy(store, 'dispatch');
-
-      const root = render({
-        location: createFakeLocation({ query: { score: '5' } }),
-        params: { addonSlug },
-      });
-
-      sinon.assert.calledWith(
-        dispatch,
-        _fetchReviews({
-          addonSlug,
-          errorHandlerId: root.instance().props.errorHandler.id,
-          score: '5',
-        }),
-      );
-    });
-
     it('does not fetch an addon if there is an error', () => {
       const addon = { ...fakeAddon, slug: 'some-other-slug' };
       const dispatch = sinon.stub(store, 'dispatch');
