@@ -1,7 +1,5 @@
 import abuseReducer, {
   SEND_ADDON_ABUSE_REPORT,
-  disableAbuseButtonUI,
-  enableAbuseButtonUI,
   hideAddonAbuseReportUI,
   initialState,
   loadAddonAbuseReport,
