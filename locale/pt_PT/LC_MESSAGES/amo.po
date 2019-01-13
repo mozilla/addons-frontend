@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-09 00:10+0000\n"
+"PO-Revision-Date: 2019-01-13 00:48+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -778,24 +778,27 @@ msgstr "Oops! Não conseguimos encontrar essa página"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Se seguiu uma ligação de outro site para uma extensão ou tema, esse item já não está disponível. Isto pode ser porque:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:69
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "O programador removeu-o(a). Os programadores fazem isto frequentemente porque já não suportam a extensão ou tema, ou substituíram-no(a)."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:74
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"A Mozilla removeu-o(a). Isto pode acontecer quando problemas são encontrados durante a revisão da extensão ou tema, ou a extensão ou tema estiveram a abusar os termos e condições para "
+"addons.mozilla.org. O programador tem a oportunidade de resolver os problemas e tornar o extra disponível novamente."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
-#, fuzzy
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll get it sorted."
-msgstr "Se seguiu uma ligação de algum lado, por favor <a href=\"%(url)s\">submeta um issue</a>. Diga-nos de onde veio e o que estava à procura, e faremos o melhor para corrigir."
+msgstr ""
+"Se seguiu uma ligação neste site, encontrou um erro. Ajude-nos a corrigir a ligação ao <a href=\"%(url)s\">submeter um problema</a>. Diga-nos de onde veio e o que estava à procura, e faremos o "
+"melhor para corrigir."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
@@ -2054,8 +2057,8 @@ msgstr "Não existem análises"
 #: src/amo/pages/AddonVersions/index.js:123
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Histórico de versões de %(addonName)s - %(total)s versão"
+msgstr[1] "Histórico de versões de %(addonName)s - %(total)s versões"
 
 #: src/amo/pages/AddonVersions/index.js:154
 msgid "Latest version"
@@ -2155,7 +2158,7 @@ msgstr "Minhas coleções"
 
 #: src/amo/pages/Guides/index.js:103
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "Bloqueador de anúncios leve e altamente eficaz. O uBlock Origin impõe milhares de filtros de conteúdo sem mastigar um monte de memória."
 
 #: src/amo/pages/Guides/index.js:107
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
@@ -2163,7 +2166,7 @@ msgstr "Explore mais escolhas da equipa de %(linkStart)sbloqueadores de anúncio
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "Pare os trackers online de-lhe perseguirem"
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
@@ -2240,6 +2243,8 @@ msgstr ""
 #: src/amo/pages/Guides/index.js:201
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
 msgstr ""
+"Adicione uma barra de controlo em todas as páginas de vídeo do YouTube para que possa ajustar facilmente o volume, a velocidade de reprodução, o tamanho do reprodutor de vídeo, bloqueio de "
+"publicidade e anotações, e outras funcionalidades."
 
 #: src/amo/pages/Guides/index.js:206
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
@@ -2472,8 +2477,8 @@ msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
-"Ajude-nos a melhorar este site. É de código aberto e você pode reportar erros e submeter correções. Pode começar com um %(startGoodFirstBugLink)sbom primeiro erro%(endGoodFirstBugLink)s ou ver todos"
-" os erros abertos para o %(startAddonsServerRepoLink)sservidor%(endAddonsServerRepoLink)s e %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s AMO no Github."
+"Ajude-nos a melhorar este website. É de código aberto e pode submeter bugs e correções. Pode começar com um %(startGoodFirstBugLink)sbom primeiro bug%(endGoodFirstBugLink)s ou ver todos os problemas"
+" abertos para o %(startAddonsServerRepoLink)sservidor%(endAddonsServerRepoLink)s e %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s do AMO no Github."
 
 #: src/amo/pages/StaticPages/About/index.js:132
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
