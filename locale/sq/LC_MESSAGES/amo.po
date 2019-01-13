@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-10 19:09+0000\n"
+"PO-Revision-Date: 2019-01-13 16:21+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -548,11 +548,11 @@ msgstr "S’u gjet version"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Version %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Hedhur në qarkullim më %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -773,24 +773,28 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
+"Provoni ta vizitoni faqen më vonë, ngaqë tema ose zgjerimi mund të funksionojë sërish. Ndryshe, mund të jeni në gjendje të gjeni ç’po kërkonit në një nga %(linkStart)sextensions%(linkEnd)s oser "
+"%(secondLinkStart)sthemes%(secondLinkEnd)s e gatshme."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Hëm! S’e gjejmë dot atë faqe"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Nëse ndoqët një lidhje prej një sajti tjetër drejt një teme apo zgjerimi, ai objekt s’gjendet më. Kjo mund të ndodhë ngaqë:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:69
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "E hoqi zhvilluesi. Zhvilluesit e bëjnë rëndom këtë, ngaqë nuk e mbulojnë më zgjerimin apo temën, ose e kanë zëvendësuar."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:74
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"E ka hequr Mozilla. Kjo mund të ndodhë kur gjatë shqyrtimit të zgjerimit apo temës gjenden probleme, ose zgjerimi apo tema ka shkelur termat dhe kushtet e addons.mozilla.org. Zhvilluesi ka mundësinë"
+" t’i zgjidhë problemet dhe ta bëjë shtesën të përdorshme sërish."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
 msgid ""
@@ -2057,8 +2061,8 @@ msgstr "S’ka shqyrtime"
 #: src/amo/pages/AddonVersions/index.js:123
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Historik Versionesh të %(addonName)s - %(total)s version"
+msgstr[1] "Historik Versionesh të %(addonName)s - %(total)s versione"
 
 #: src/amo/pages/AddonVersions/index.js:154
 msgid "Latest version"
