@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-10 07:48+0000\n"
+"PO-Revision-Date: 2019-01-13 19:36+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -781,7 +781,7 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
-"Wopytajće stronu pozdźišo, hdyž drata abo rozšěrjenje budźe zaso k dispoziciji. Alternatiwnje móžeće mjez k dispoziciji stejacymi %(linkStart)srozšěrjenjemi%(linkEnd)s abo "
+"Wopytajće stronu pozdźišo, hdyž drasta abo rozšěrjenje budźe zaso k dispoziciji. Alternatiwnje móžeće mjez k dispoziciji stejacymi %(linkStart)srozšěrjenjemi%(linkEnd)s abo "
 "%(secondLinkStart)sdrastami%(secondLinkEnd)s pytać."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
@@ -794,7 +794,7 @@ msgstr "Jeli sće wotkazej wot druheho sydła za rozšěrjenje abo drastu slědo
 
 #: src/amo/components/ErrorPage/NotFound/index.js:69
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr "Wuwiwar je ju wotstronił. Wuwiwarjo to zwjetša činja, dokež rozšěrjenje abo drastu hižo njepodpěruja abo su je wuměnili."
+msgstr "Wuwiwar je ju wotstronił. Wuwiwarjo to zwjetša činja, dokelž rozšěrjenje abo drastu hižo njepodpěruja abo su je wuměnili."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:74
 msgid ""
