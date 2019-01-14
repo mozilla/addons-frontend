@@ -2746,9 +2746,8 @@ msgid "User Profile for %(user)s"
 msgstr "Brugerprofil for %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:338
-#, fuzzy
 msgid "User Profile"
-msgstr "Opdater profil"
+msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:620
 msgid "Location"
