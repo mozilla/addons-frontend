@@ -2049,11 +2049,10 @@ msgid "Reviews for %(addonName)s"
 msgstr "Critiques pour %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:278
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s étoile"
-msgstr[1] "%(total)s étoiles"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/pages/AddonReviewList/index.js:367
 #, fuzzy
