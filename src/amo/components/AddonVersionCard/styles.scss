@@ -14,7 +14,7 @@
   @include font-regular();
   @include text-align-start();
 
-  font-size: 24px;
+  font-size: $font-size-form-header;
 }
 
 .AddonVersionCard-version {
