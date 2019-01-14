@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2018-12-12 14:32+0000\n"
+"PO-Revision-Date: 2019-01-14 14:31+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -529,10 +529,9 @@ msgid "Add-on icon"
 msgstr "Tilføjelses-ikon"
 
 #: src/amo/components/AddonSummaryCard/index.js:62
-#, fuzzy
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] "Bedømt til %(rating)s ud af 5"
+msgstr[0] ""
 msgstr[1] "Bedømt til %(rating)s ud af 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
@@ -551,17 +550,16 @@ msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "skrevet %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
-#, fuzzy
 msgid "No version found"
-msgstr "Ingen tilføjelser fundet"
+msgstr "Ingen version fundet"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Version %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Udgivet %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -844,7 +842,7 @@ msgstr "Anmeldt som fejlrapport eller support-spørgsmål"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
-msgstr "Rapportér"
+msgstr "Anmeld"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
@@ -1366,19 +1364,16 @@ msgid "Stay Safe Online"
 msgstr "Beskyt dig selv på nettet"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:280
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "Private Bookmarks"
+msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "Bedøm din oplevelse"
+msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:57
-#, fuzzy
 msgid "Extensions are like apps for your browser."
-msgstr "Udvidelser er som apps til dine browsere."
+msgstr "Udvidelser er som apps til din browser."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
