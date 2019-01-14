@@ -51,6 +51,10 @@ import Notice from 'ui/components/Notice';
 
 import './styles.scss';
 
+function getCurrentPage(location: ReactRouterLocationType) {
+  return location.query.page || '1';
+}
+
 type Props = {|
   location: ReactRouterLocationType,
   match: {|
@@ -125,19 +129,12 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       dispatch(setViewContext(addon.type));
     }
 
-    let locationChanged = false;
-    if (prevProps && prevProps.location) {
-      if (prevProps.location !== location) {
-        locationChanged = true;
-      }
-    }
-
-    if (!areReviewsLoading && (!reviews || locationChanged)) {
+    if (!areReviewsLoading && !reviews) {
       dispatch(
         fetchReviews({
           addonSlug,
           errorHandlerId: errorHandler.id,
-          page: this.getCurrentPage(location),
+          page: getCurrentPage(location),
           score: location.query.score || null,
         }),
       );
@@ -180,10 +177,6 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       throw new Error('cannot access addonURL() with a falsey addon property');
     }
     return `/addon/${addon.slug}/`;
-  }
-
-  getCurrentPage(location: ReactRouterLocationType) {
-    return location.query.page || '1';
   }
 
   getPageDescription() {
@@ -305,7 +298,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         <Paginate
           LinkComponent={Link}
           count={reviewCount}
-          currentPage={this.getCurrentPage(location)}
+          currentPage={getCurrentPage(location)}
           pathname={reviewListURL({
             addonSlug: addon.slug,
             score: location.query.score,
@@ -382,6 +375,7 @@ export function mapStateToProps(
   const { addonSlug } = ownProps.match.params;
   const addon = getAddonBySlug(state, addonSlug);
   const reviewData = selectReviews({
+    page: getCurrentPage(ownProps.location),
     reviewsState: state.reviews,
     addonSlug,
     score: ownProps.location.query.score || null,

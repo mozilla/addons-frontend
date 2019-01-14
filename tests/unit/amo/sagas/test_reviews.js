@@ -114,6 +114,7 @@ describe(__filename, () => {
       expect(action).toEqual(
         setAddonReviews({
           addonSlug: fakeAddon.slug,
+          page: '1',
           pageSize: DEFAULT_API_PAGE_SIZE,
           reviewCount: 1,
           reviews,

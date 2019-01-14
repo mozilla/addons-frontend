@@ -100,6 +100,7 @@ type ReviewsData = {|
 type ReviewsByAddon = {
   [slug: string]: {|
     data: StoredReviewsData,
+    page: string,
     score: string | null,
   |} | void,
 };
@@ -168,21 +169,21 @@ export const initialState: ReviewsState = {
 export function selectReviews({
   reviewsState,
   addonSlug,
+  page,
   score,
 }: {|
   addonSlug: string,
+  page: string,
   reviewsState: ReviewsState,
   score: string | null,
 |}): StoredReviewsData | null {
-  invariant(reviewsState, 'reviewsState is required');
   invariant(addonSlug, 'addonSlug is required');
+  invariant(page, 'page is required');
+  invariant(reviewsState, 'reviewsState is required');
   invariant(score !== undefined, 'score is required');
 
   const reviewData = reviewsState.byAddon[addonSlug];
-  if (!reviewData) {
-    return null;
-  }
-  if (reviewData.score !== score) {
+  if (!reviewData || reviewData.score !== score || reviewData.page !== page) {
     return null;
   }
   return reviewData.data;
@@ -614,6 +615,7 @@ export default function reviewsReducer(
               reviewCount: payload.reviewCount,
               reviews: reviews.map((review) => review.id),
             },
+            page: payload.page,
             score: payload.score,
           },
         },

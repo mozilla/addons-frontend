@@ -104,6 +104,7 @@ function* fetchReviews({
     yield put(
       setAddonReviews({
         addonSlug,
+        page: page || '1',
         pageSize: response.page_size,
         reviewCount: response.count,
         reviews: response.results,

@@ -437,6 +437,7 @@ export const setInternalReview = (
 
 type SetAddonReviewsParams = {|
   addonSlug: string,
+  page: string,
   pageSize: string,
   reviewCount: number,
   reviews: Array<ExternalReviewType>,
@@ -450,12 +451,14 @@ export type SetAddonReviewsAction = {|
 
 export const setAddonReviews = ({
   addonSlug,
+  page,
   pageSize,
   reviewCount,
   reviews,
   score,
 }: SetAddonReviewsParams): SetAddonReviewsAction => {
   invariant(addonSlug, 'addonSlug is required');
+  invariant(page, 'page is required');
   invariant(pageSize, 'pageSize is required');
   invariant(typeof reviewCount === 'number', 'reviewCount is required');
   invariant(Array.isArray(reviews), 'reviews is required and must be an array');
@@ -465,6 +468,7 @@ export const setAddonReviews = ({
     type: SET_ADDON_REVIEWS,
     payload: {
       addonSlug,
+      page,
       pageSize,
       reviewCount,
       reviews,
