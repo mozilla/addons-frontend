@@ -112,20 +112,20 @@ export const AddonVersionCardBase = (props: InternalProps) => {
         });
 
         licenseSection = (
-          <div className="AddonVersionCard-license">
+          <p className="AddonVersionCard-license">
             {licenseLinkParts.beforeLinkText}
             <Link {...licenseLinkParams}>{licenseLinkParts.innerLinkText}</Link>
             {licenseLinkParts.afterLinkText}
-          </div>
+          </p>
         );
       } else {
         licenseSection = (
-          <div className="AddonVersionCard-license">
+          <p className="AddonVersionCard-license">
             {i18n.sprintf(
               i18n.gettext('Source code released under %(licenseName)s'),
               otherVars,
             )}
-          </div>
+          </p>
         );
       }
     }

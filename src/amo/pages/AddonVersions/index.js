@@ -166,7 +166,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
             header={header || <LoadingText />}
           >
             <ul>
-              <li className="AddonVersions-warning">
+              <li>
                 <Notice type="warning">
                   <p className="AddonVersions-warning-text">
                     {i18n.gettext(

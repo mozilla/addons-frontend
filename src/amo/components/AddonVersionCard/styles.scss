@@ -1,7 +1,9 @@
 @import '~amo/css/styles';
 
 .AddonVersionCard {
-  display: flex;
+  @include respond-to(large) {
+    display: flex;
+  }
 
   .InstallButtonWrapper {
     align-self: center;
@@ -9,16 +11,33 @@
 }
 
 .AddonVersionCard-header {
-  @include font-bold();
+  @include font-regular();
   @include text-align-start();
 
-  font-size: $font-size-default;
+  font-size: $font-size-form-header;
+}
+
+.AddonVersionCard-version {
+  @include font-medium();
+
+  color: $link-color;
+  font-size: $font-size-m;
+}
+
+.AddonVersionCard-fileInfo,
+.AddonVersionCard-compatibility {
+  color: $grey-50;
 }
 
 .AddonVersionCard-releaseNotes {
+  font-size: $font-size-default;
   margin-top: $padding-page;
 
   @include respond-to(medium) {
     margin-top: $padding-page-l;
   }
+}
+
+.AddonVersionCard-license {
+  color: $grey-50;
 }
