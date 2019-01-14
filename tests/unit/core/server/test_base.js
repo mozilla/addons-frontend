@@ -39,7 +39,6 @@ function createStoreAndSagas({
     api: apiReducer,
     survey: surveyReducer,
     users: usersReducer,
-    telemetry: telemetryReducer,
   },
 } = {}) {
   const sagaMiddleware = createSagaMiddleware();
@@ -223,106 +222,6 @@ describe(__filename, () => {
 
       expect(response.statusCode).toEqual(200);
       expect(survey.wasDismissed).toEqual(true);
-    });
-
-    it('dispatches setHashedClientId() if cookie is present and enableFeatureDiscoTaar is true', async () => {
-      const clientId = '1112';
-      const fakeConfig = getFakeConfig({
-        enableFeatureDiscoTaar: true,
-      });
-
-      const { store, sagaMiddleware } = createStoreAndSagas();
-
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      const response = await testClient({
-        appInstanceName: 'disco',
-        config: fakeConfig,
-        store,
-        sagaMiddleware,
-      })
-        .get('/en-US/firefox/')
-        .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="${clientId}"`)
-        .end();
-
-      sinon.assert.calledWith(dispatchSpy, setHashedClientId(clientId));
-
-      expect(response.statusCode).toEqual(200);
-      expect(store.getState().telemetry.hashedClientId).toEqual(clientId);
-    });
-
-    it('does not dispatch setHashedClientId() if enableFeatureDiscoTaar is false', async () => {
-      const clientId = '1112';
-      const fakeConfig = getFakeConfig({
-        enableFeatureDiscoTaar: false,
-      });
-
-      const { store, sagaMiddleware } = createStoreAndSagas();
-
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      const response = await testClient({
-        appInstanceName: 'disco',
-        config: fakeConfig,
-        store,
-        sagaMiddleware,
-      })
-        .get('/en-US/firefox/')
-        .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="${clientId}"`)
-        .end();
-
-      sinon.assert.neverCalledWith(dispatchSpy, setHashedClientId(clientId));
-
-      expect(response.statusCode).toEqual(200);
-      expect(store.getState().telemetry.hashedClientId).toEqual(null);
-    });
-
-    it('does not dispatch setHashedClientId() if there is no discoTaarIdCookie', async () => {
-      const fakeConfig = getFakeConfig({
-        enableFeatureDiscoTaar: true,
-      });
-      const { store, sagaMiddleware } = createStoreAndSagas();
-
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      const response = await testClient({
-        appInstanceName: 'disco',
-        config: fakeConfig,
-        store,
-        sagaMiddleware,
-      })
-        .get('/en-US/firefox/')
-        .end();
-
-      sinon.assert.neverCalledWith(dispatchSpy, setHashedClientId('1112'));
-
-      expect(response.statusCode).toEqual(200);
-      expect(store.getState().telemetry.hashedClientId).toEqual(null);
-    });
-
-    it('does not dispatch setHashedClientId() if app is not disco', async () => {
-      const clientId = '1112';
-      const fakeConfig = getFakeConfig({
-        enableFeatureDiscoTaar: true,
-      });
-      const { store, sagaMiddleware } = createStoreAndSagas();
-
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-
-      const response = await testClient({
-        appInstanceName: 'not-disco',
-        config: fakeConfig,
-        store,
-        sagaMiddleware,
-      })
-        .get('/en-US/firefox/')
-        .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="${clientId}"`)
-        .end();
-
-      sinon.assert.neverCalledWith(dispatchSpy, setHashedClientId(clientId));
-
-      expect(response.statusCode).toEqual(200);
-      expect(store.getState().telemetry.hashedClientId).toEqual(null);
     });
 
     it('does not dispatch dismissSurvey() if no cookie is present', async () => {
@@ -551,6 +450,113 @@ describe(__filename, () => {
         _log.error,
         sinon.match(/Additionally, the error handler caught an error:/),
       );
+    });
+  });
+
+  describe('TAARDIS', () => {
+    it('dispatches setHashedClientId() if cookie is present and enableFeatureDiscoTaar is true and app is disco', async () => {
+      const clientId = '1112';
+      const fakeConfig = getFakeConfig({
+        enableFeatureDiscoTaar: true,
+      });
+
+      const { store, sagaMiddleware } = createStoreAndSagas({
+        reducers: {
+          telemetry: telemetryReducer,
+        },
+      });
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const response = await testClient({
+        appInstanceName: 'disco',
+        config: fakeConfig,
+        store,
+        sagaMiddleware,
+      })
+        .get('/en-US/firefox/')
+        .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="${clientId}"`)
+        .end();
+
+      sinon.assert.calledWith(dispatchSpy, setHashedClientId(clientId));
+
+      expect(response.statusCode).toEqual(200);
+      expect(store.getState().telemetry.hashedClientId).toEqual(clientId);
+    });
+
+    it('does not dispatch setHashedClientId() if enableFeatureDiscoTaar is false', async () => {
+      const clientId = '1112';
+      const fakeConfig = getFakeConfig({
+        enableFeatureDiscoTaar: false,
+      });
+
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const response = await testClient({
+        appInstanceName: 'disco',
+        config: fakeConfig,
+        store,
+        sagaMiddleware,
+      })
+        .get('/en-US/firefox/')
+        .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="${clientId}"`)
+        .end();
+
+      sinon.assert.neverCalledWith(dispatchSpy, setHashedClientId(clientId));
+
+      expect(response.statusCode).toEqual(200);
+      expect(store.getState().telemetry).toEqual(undefined);
+    });
+
+    it('does not dispatch setHashedClientId() if there is no discoTaarIdCookie', async () => {
+      const fakeConfig = getFakeConfig({
+        enableFeatureDiscoTaar: true,
+      });
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const response = await testClient({
+        appInstanceName: 'disco',
+        config: fakeConfig,
+        store,
+        sagaMiddleware,
+      })
+        .get('/en-US/firefox/')
+        .end();
+
+      sinon.assert.neverCalledWith(dispatchSpy, setHashedClientId('1112'));
+
+      expect(response.statusCode).toEqual(200);
+      expect(store.getState().telemetry).toEqual(undefined);
+    });
+
+    it('does not dispatch setHashedClientId() if app is not disco', async () => {
+      const clientId = '1112';
+      const fakeConfig = getFakeConfig({
+        enableFeatureDiscoTaar: true,
+      });
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const response = await testClient({
+        appInstanceName: 'not-disco',
+        config: fakeConfig,
+        store,
+        sagaMiddleware,
+      })
+        .get('/en-US/firefox/')
+        .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="${clientId}"`)
+        .end();
+
+      sinon.assert.neverCalledWith(dispatchSpy, setHashedClientId(clientId));
+
+      expect(response.statusCode).toEqual(200);
+
+      expect(store.getState().telemetry).toEqual(undefined);
     });
   });
 

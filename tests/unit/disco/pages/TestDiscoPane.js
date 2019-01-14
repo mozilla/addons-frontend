@@ -106,7 +106,7 @@ describe(__filename, () => {
       );
     });
 
-    it('sends a telemetry-client-id if there is one', () => {
+    it('sends a telemetry client ID if there is one', () => {
       const clientId = '1112';
       store.dispatch(setHashedClientId(clientId));
       const dispatch = sinon.spy(store, 'dispatch');
