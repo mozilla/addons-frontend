@@ -338,6 +338,7 @@ function baseServer(
         }
 
         if (
+          appName === 'disco' &&
           config.get('enableFeatureDiscoTaar') &&
           req.universalCookies.get(config.get('discoTaarIdCookie')) !==
             undefined

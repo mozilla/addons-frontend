@@ -32,13 +32,12 @@ describe(__filename, () => {
       });
     });
 
-    it("passes through taarId as telemetry-client-id to the API when it's available", () => {
-      const taarId = '11111111111';
-
+    it('calls the API with a telemetry client ID', () => {
+      const telemetryClientId = 'client-id';
       getDiscoveryAddons({
         api: apiState,
         taarParams: {
-          clientId: taarId,
+          clientId: telemetryClientId,
           platform: 'Darwin',
         },
         _config: fakeConfig,
@@ -48,7 +47,7 @@ describe(__filename, () => {
         endpoint: 'discovery',
         params: {
           platform: 'Darwin',
-          'telemetry-client-id': taarId,
+          'telemetry-client-id': telemetryClientId,
         },
         apiState,
       });

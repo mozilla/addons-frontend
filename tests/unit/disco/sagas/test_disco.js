@@ -8,7 +8,6 @@ import discoResultsReducer, {
   getDiscoResults,
   loadDiscoResults,
 } from 'disco/reducers/discoResults';
-import { setHashedClientId } from 'disco/reducers/telemetry';
 import discoSaga from 'disco/sagas/disco';
 import {
   createStubErrorHandler,
@@ -49,14 +48,10 @@ describe(__filename, () => {
       sagaTester.dispatch(
         getDiscoResults({
           errorHandlerId: errorHandler.id,
-          taarParams: { platform: 'Darwin', clientId: '1112' },
+          taarParams: { platform: 'Darwin' },
           ...overrides,
         }),
       );
-    }
-
-    function _setHashedClientId(id = '1111') {
-      sagaTester.dispatch(setHashedClientId(id));
     }
 
     it('fetches discovery addons from the API', async () => {
@@ -79,17 +74,13 @@ describe(__filename, () => {
         },
       });
 
-      const taarId = '1112';
-
-      _setHashedClientId(taarId);
-
       const addonResponse = createFetchDiscoveryResult([result1, result2]);
 
       mockApi
         .expects('getDiscoveryAddons')
         .withArgs({
           api: apiState,
-          taarParams: { platform: 'Darwin', clientId: taarId },
+          taarParams: { platform: 'Darwin' },
         })
         .returns(Promise.resolve(addonResponse));
 
@@ -106,18 +97,15 @@ describe(__filename, () => {
       const calledActions = sagaTester.getCalledActions();
 
       const addons = createExternalAddonMap({ results });
-
-      expect(calledActions[2]).toEqual(loadAddonResults({ addons }));
+      expect(calledActions[1]).toEqual(loadAddonResults({ addons }));
     });
 
-    it('includes a telemetry-client-id in the API request', async () => {
+    it('includes a telemetry client ID in the API request', async () => {
+      const telemetryClientId = 'client-id';
       const result = createDiscoResult({
         heading: 'Discovery Addon',
         description: 'informative text',
       });
-      const taarId = '1112';
-
-      _setHashedClientId(taarId);
 
       const addonResponse = createFetchDiscoveryResult([result]);
 
@@ -127,7 +115,7 @@ describe(__filename, () => {
           api: apiState,
           taarParams: {
             platform: 'Darwin',
-            clientId: taarId,
+            'telemetry-client-id': telemetryClientId,
           },
         })
         .returns(Promise.resolve(addonResponse));
@@ -138,7 +126,7 @@ describe(__filename, () => {
       _getDiscoResults({
         taarParams: {
           platform: 'Darwin',
-          clientId: taarId,
+          'telemetry-client-id': telemetryClientId,
         },
       });
 

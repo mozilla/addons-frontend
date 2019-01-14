@@ -107,8 +107,8 @@ describe(__filename, () => {
     });
 
     it('sends a telemetry-client-id if there is one', () => {
-      const taarId = '1112';
-      store.dispatch(setHashedClientId(taarId));
+      const clientId = '1112';
+      store.dispatch(setHashedClientId(clientId));
       const dispatch = sinon.spy(store, 'dispatch');
 
       const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
@@ -120,7 +120,7 @@ describe(__filename, () => {
         getDiscoResults({
           errorHandlerId: errorHandler.id,
           taarParams: {
-            clientId: taarId,
+            clientId,
             platform: 'Darwin',
           },
         }),
