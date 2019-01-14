@@ -3,6 +3,7 @@ import url from 'url';
 
 import makeClassName from 'classnames';
 import * as React from 'react';
+import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -49,24 +50,34 @@ export class SearchFormBase extends React.Component<Props> {
   }
 
   render() {
-    const { className, i18n } = this.props;
+    const { className, i18n, apiLang, clientApp } = this.props;
 
     return (
-      <form
-        action={this.baseSearchURL()}
-        className={makeClassName('SearchForm', className)}
-        method="GET"
-        data-no-csrf
-        role="search"
-      >
-        <AutoSearchInput
-          inputName="q"
-          onSearch={this.onSearch}
-          onSuggestionSelected={this.onSuggestionSelected}
-          selectSuggestionText={i18n.gettext('Go to the add-on page')}
-          showInputLabel={false}
-        />
-      </form>
+      <React.Fragment>
+        <Helmet>
+          <link
+            title={`Firefox Add-ons (${apiLang})`}
+            rel="search"
+            type="application/opensearchdescription+xml"
+            href={`/${apiLang}/${clientApp}/opensearch.xml`}
+          />
+        </Helmet>
+        <form
+          action={this.baseSearchURL()}
+          className={makeClassName('SearchForm', className)}
+          method="GET"
+          data-no-csrf
+          role="search"
+        >
+          <AutoSearchInput
+            inputName="q"
+            onSearch={this.onSearch}
+            onSuggestionSelected={this.onSuggestionSelected}
+            selectSuggestionText={i18n.gettext('Go to the add-on page')}
+            showInputLabel={false}
+          />
+        </form>
+      </React.Fragment>
     );
   }
 }
