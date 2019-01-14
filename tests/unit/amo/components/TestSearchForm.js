@@ -57,7 +57,7 @@ describe(__filename, () => {
     const className = 'MyClass';
     const root = render({ className });
 
-    expect(root).toHaveClassName(className);
+    expect(root.find('form')).toHaveClassName(className);
   });
 
   it('generates a base search URL', () => {
