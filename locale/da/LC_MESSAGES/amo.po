@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-08 17:24+0000\n"
-"PO-Revision-Date: 2019-01-14 14:31+0000\n"
+"PO-Revision-Date: 2019-01-14 14:49+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -2008,19 +2008,16 @@ msgid "Screenshots"
 msgstr "Skærmbilleder"
 
 #: src/amo/pages/AddonInfo/index.js:157
-#, fuzzy
 msgid "Custom License for %(addonName)s"
-msgstr "Anmeldelser af %(addonName)s"
+msgstr ""
 
 #: src/amo/pages/AddonInfo/index.js:164
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Licensaftale for slutbrugere"
+msgstr "Licensaftale for slutbrugere for %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:168
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "Anmeldelser af %(addonName)s"
+msgstr "Privatlivspolitik for %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:194
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -2055,16 +2052,14 @@ msgid "Reviews for %(addonName)s"
 msgstr "Anmeldelser af %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:278
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s stjerne"
-msgstr[1] "%(total)s stjerner"
+msgstr[0] "%(total)s anmeldelse"
+msgstr[1] "%(total)s anmeldelser"
 
 #: src/amo/pages/AddonReviewList/index.js:367
-#, fuzzy
 msgid "There are no reviews"
-msgstr "Der er ingen bedømmelser endnu"
+msgstr "Der er ingen anmeldelser"
 
 #: src/amo/pages/AddonVersions/index.js:123
 msgid "%(addonName)s Version history - %(total)s version"
