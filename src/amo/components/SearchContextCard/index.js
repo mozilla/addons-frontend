@@ -5,7 +5,11 @@ import { compose } from 'redux';
 
 import { fetchCategories } from 'core/reducers/categories';
 import translate from 'core/i18n/translate';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEMES_FILTER } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
+  ADDON_TYPE_THEMES_FILTER,
+} from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import Card from 'ui/components/Card';
 import type { AppState } from 'amo/store';
@@ -27,7 +31,7 @@ type InternalProps = {|
   filters: SearchFilters,
   hasCategory: boolean,
   i18n: I18nType,
-  loading: boolean,
+  loadingSearch: boolean,
 |};
 
 export class SearchContextCardBase extends React.Component<InternalProps> {
@@ -42,11 +46,11 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { categoryName, count, filters, i18n, loading } = this.props;
+    const { categoryName, count, filters, i18n, loadingSearch } = this.props;
     const { addonType, query } = filters;
     let searchText;
 
-    if (!loading) {
+    if (!loadingSearch) {
       switch (addonType) {
         case ADDON_TYPE_EXTENSION:
           if (categoryName) {
@@ -152,11 +156,11 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
           }
           break;
       }
-    } else if (loading && query) {
+    } else if (loadingSearch && query) {
       searchText = i18n.sprintf(i18n.gettext('Searching for "%(query)s"'), {
         query,
       });
-    } else if (loading) {
+    } else if (loadingSearch) {
       searchText = i18n.gettext('Searching for add-ons');
     }
 
@@ -187,30 +191,30 @@ export function mapStateToProps(state: AppState) {
   if (currentCategory) {
     const categoriesState = state.categories.categories;
     const { clientApp } = state.api;
-    let translatedCategory = {};
 
     if (categoriesState && clientApp) {
-      Object.keys(categoriesState[clientApp]).forEach((type) => {
-        const searchType = categoriesState[clientApp][type];
-        Object.keys(searchType).forEach((category) => {
-          const searchCategory = searchType[category];
-          const { name, slug } = searchCategory;
+      const appTypes = categoriesState[clientApp];
 
-          if (slug === currentCategory) {
-            translatedCategory = {
-              [slug]: {
-                name,
-              },
-            };
+      if (appTypes) {
+        if (
+          filters &&
+          filters.addonType &&
+          typeof filters.addonType === 'string'
+        ) {
+          // eslint-disable-next-line prefer-destructuring
+          let addonType = filters.addonType;
+          if (addonType === ADDON_TYPE_THEMES_FILTER) {
+            addonType = ADDON_TYPE_STATIC_THEME;
           }
-        });
-      });
-    }
 
-    categoryName =
-      translatedCategory && translatedCategory[currentCategory]
-        ? translatedCategory[currentCategory].name
-        : null;
+          const categories = appTypes[addonType];
+
+          if (categories) {
+            categoryName = categories[currentCategory].name;
+          }
+        }
+      }
+    }
   }
 
   return {
@@ -218,7 +222,7 @@ export function mapStateToProps(state: AppState) {
     categoryName,
     count: search.count || 0,
     filters,
-    loading: search.loading,
+    loadingSearch: search.loading,
   };
 }
 

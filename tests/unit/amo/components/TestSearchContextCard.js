@@ -16,7 +16,10 @@ import {
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEMES_FILTER,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
 } from 'core/constants';
 
 describe(__filename, () => {
@@ -35,7 +38,9 @@ describe(__filename, () => {
   }
 
   beforeEach(() => {
-    _store = dispatchClientMetadata().store;
+    _store = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+    }).store;
   });
 
   const _searchStart = ({ store = _store, filters = {} } = {}) => {
@@ -53,6 +58,7 @@ describe(__filename, () => {
     results = [
       {
         ...fakeCategory,
+        type: ADDON_TYPE_STATIC_THEME,
         name: 'Causes',
         slug: 'causes',
       },
@@ -219,12 +225,12 @@ describe(__filename, () => {
     _loadCategories();
 
     dispatchSearchResults({
-      store: _store,
       filters: {
         addonType: ADDON_TYPE_THEMES_FILTER,
         category: 'causes',
         query: 'test',
       },
+      store: _store,
     });
 
     const root = render();
@@ -241,11 +247,11 @@ describe(__filename, () => {
     _loadCategories();
 
     dispatchSearchResults({
-      store: _store,
       filters: {
         addonType: ADDON_TYPE_THEMES_FILTER,
         category: 'causes',
       },
+      store: _store,
     });
 
     const root = render();
@@ -257,10 +263,10 @@ describe(__filename, () => {
 
   it('should render results without categoryName or query when neither are present for addonType ADDON_TYPE_THEMES_FILTER', () => {
     dispatchSearchResults({
-      store: _store,
       filters: {
         addonType: ADDON_TYPE_THEMES_FILTER,
       },
+      store: _store,
     });
 
     const root = render();
@@ -307,18 +313,28 @@ describe(__filename, () => {
 
   it('should render results with categoryName and query for addonType ADDON_TYPE_EXTENSION when search is loaded', () => {
     const query = 'test';
-    const categoryName = 'Causes';
+    const categoryName = 'Bookmarks';
+
+    _fetchCategories();
+    _loadCategories({
+      results: [
+        {
+          ...fakeCategory,
+          type: ADDON_TYPE_EXTENSION,
+          name: categoryName,
+          slug: 'bookmarks',
+        },
+      ],
+    });
+
     dispatchSearchResults({
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
-        category: 'causes',
+        category: 'bookmarks',
         query,
       },
       store: _store,
     });
-
-    _fetchCategories();
-    _loadCategories();
 
     const root = render();
 
@@ -328,19 +344,65 @@ describe(__filename, () => {
   });
 
   it('should render results with categoryName and no query for addonType ADDON_TYPE_EXTENSION when there is no query and when search is loaded', () => {
-    const categoryName = 'Causes';
+    const categoryName = 'Bookmarks';
+
+    _fetchCategories();
+    _loadCategories({
+      results: [
+        {
+          ...fakeCategory,
+          type: ADDON_TYPE_EXTENSION,
+          name: categoryName,
+          slug: 'bookmarks',
+        },
+      ],
+    });
+
     dispatchSearchResults({
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
-        category: 'causes',
+        category: 'bookmarks',
       },
       store: _store,
     });
 
-    _fetchCategories();
-    _loadCategories();
-
     const root = render();
+
+    expect(root.find('.SearchContextCard-header')).toIncludeText(
+      `2 extensions found in ${categoryName}`,
+    );
+  });
+
+  it('should render results with categoryName for addonType ADDON_TYPE_EXTENSION for android', () => {
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+    });
+
+    const categoryName = 'Experimental';
+
+    _fetchCategories({ store });
+    _loadCategories({
+      store,
+      results: [
+        {
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
+          type: ADDON_TYPE_EXTENSION,
+          name: categoryName,
+          slug: 'experimental',
+        },
+      ],
+    });
+
+    dispatchSearchResults({
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        category: 'experimental',
+      },
+      store,
+    });
+
+    const root = render({ store });
 
     expect(root.find('.SearchContextCard-header')).toIncludeText(
       `2 extensions found in ${categoryName}`,
