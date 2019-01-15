@@ -61,7 +61,24 @@ export default {
           },
         },
       }),
-      new OptimizeCssAssetsPlugin(),
+      new OptimizeCssAssetsPlugin({
+        cssProcessorPluginOptions: {
+          preset: [
+            'default',
+            {
+              svgo: {
+                plugins: [
+                  {
+                    // There is a bug in this optimization.
+                    // See https://github.com/mozilla/addons-frontend/issues/7191
+                    convertPathData: false,
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      }),
     ],
   },
   plugins: [
