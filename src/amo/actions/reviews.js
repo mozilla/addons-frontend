@@ -725,7 +725,6 @@ export const updateAddonReview = ({
 }: UpdateAddonReviewParams) => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(reviewId, 'reviewId is required');
-console.log("Incoming edited: " + edited);
   return {
     type: UPDATE_ADDON_REVIEW,
     payload: { body, errorHandlerId, score, reviewId, edited },
