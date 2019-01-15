@@ -1,17 +1,16 @@
-import { mount } from 'enzyme';
 import * as React from 'react';
 
 import ReportAbuseButton, {
   ReportAbuseButtonBase,
 } from 'amo/components/ReportAbuseButton';
 import { setError } from 'core/actions/errors';
-import I18nProvider from 'core/i18n/Provider';
 import {
   loadAddonAbuseReport,
   sendAddonAbuseReport,
   showAddonAbuseReportUI,
   hideAddonAbuseReportUI,
 } from 'core/reducers/abuse';
+import Button from 'ui/components/Button';
 import ErrorList from 'ui/components/ErrorList';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import {
@@ -32,14 +31,6 @@ describe(__filename, () => {
     store: dispatchClientMetadata().store,
   };
 
-  function renderMount({ ...props } = {}) {
-    return mount(
-      <I18nProvider i18n={props.i18n || defaultRenderProps.i18n}>
-        <ReportAbuseButton {...defaultRenderProps} {...props} />
-      </I18nProvider>,
-    );
-  }
-
   function renderShallow({ ...props } = {}) {
     return shallowUntilTarget(
       <ReportAbuseButton {...defaultRenderProps} {...props} />,
@@ -53,7 +44,7 @@ describe(__filename, () => {
     expect(root.find('.ReportAbuseButton')).toHaveLength(0);
   });
 
-  it('render textarea and buttons when add-on exists', () => {
+  it('renders a DismissibleTextForm to report an add-on', () => {
     const root = renderShallow();
 
     expect(root.find('.ReportAbuseButton')).toHaveLength(1);
@@ -89,16 +80,14 @@ describe(__filename, () => {
     const fakeEvent = createFakeEvent();
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    // We need to use mount here because we're interacting with refs. (In
-    // this case, the textarea.)
-    const root = renderMount({ addon, store });
+    let root = renderShallow({ addon, store });
 
-    root
-      .find('button.ReportAbuseButton-show-more')
-      .simulate('click', fakeEvent);
+    root.find(Button).simulate('click', fakeEvent);
 
     sinon.assert.called(fakeEvent.preventDefault);
     sinon.assert.calledWith(dispatchSpy, showAddonAbuseReportUI({ addon }));
+
+    root = renderShallow({ addon, store });
     expect(root.find('.ReportAbuseButton--is-expanded')).toHaveLength(1);
   });
 
@@ -161,7 +150,22 @@ describe(__filename, () => {
     const message = '';
     const root = renderShallow({ addon, store });
 
-    dispatchSpy.resetHistory();
+    root.find(DismissibleTextForm).prop('onSubmit')({
+      event: fakeEvent,
+      text: message,
+    });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('does not allow dispatch if textarea is whitespace', () => {
+    const fakeEvent = createFakeEvent();
+    const addon = { ...fakeAddon, slug: 'this-should-not-happen' };
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const message = '      ';
+    const root = renderShallow({ addon, store });
+
     root.find(DismissibleTextForm).prop('onSubmit')({
       event: fakeEvent,
       text: message,

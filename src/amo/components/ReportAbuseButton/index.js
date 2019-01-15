@@ -178,7 +178,6 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
             placeholder={i18n.gettext(
               'Explain how this add-on is violating our policies.',
             )}
-            microButtons
           />
         </div>
       </div>
