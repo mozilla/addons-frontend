@@ -37,7 +37,7 @@ type InternalProps = {|
   // These are all user collections that the current add-on is a part of.
   addonInCollections: Array<CollectionType> | null,
   clientApp: string,
-  currentUsername: string | null,
+  currentUserId: number | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
@@ -79,7 +79,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
 
   loadDataIfNeeded() {
     const {
-      currentUsername,
+      currentUserId,
       dispatch,
       errorHandler,
       loadingUserCollections,
@@ -91,11 +91,11 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
       return;
     }
 
-    if (currentUsername && !loadingUserCollections && !userCollections) {
+    if (currentUserId && !loadingUserCollections && !userCollections) {
       dispatch(
         fetchUserCollections({
           errorHandlerId: errorHandler.id,
-          userId: currentUsername,
+          userId: currentUserId,
         }),
       );
     }
@@ -113,13 +113,13 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
   };
 
   addToCollection(collection: CollectionType) {
-    const { addon, currentUsername, dispatch, errorHandler } = this.props;
+    const { addon, currentUserId, dispatch, errorHandler } = this.props;
     if (!addon) {
       throw new Error(
         'Cannot add to collection because no add-on has been loaded',
       );
     }
-    if (!currentUsername) {
+    if (!currentUserId) {
       throw new Error('Cannot add to collection because you are not signed in');
     }
 
@@ -129,7 +129,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
         collectionId: collection.id,
         slug: collection.slug,
         errorHandlerId: errorHandler.id,
-        userId: currentUsername,
+        userId: currentUserId,
       }),
     );
   }
@@ -284,24 +284,24 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
 export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const { collections, users } = state;
   const currentUser = getCurrentUser(users);
-  const currentUsername = currentUser && currentUser.username;
+  const currentUserId = currentUser && currentUser.id;
 
   let userCollections;
   let addonInCollections;
 
-  if (currentUsername) {
-    userCollections = collections.userCollections[currentUsername];
+  if (currentUserId) {
+    userCollections = collections.userCollections[currentUserId];
     const { addon } = ownProps;
     if (addon) {
       addonInCollections =
-        collections.addonInCollections[currentUsername] &&
-        collections.addonInCollections[currentUsername][addon.id];
+        collections.addonInCollections[currentUserId] &&
+        collections.addonInCollections[currentUserId][addon.id];
     }
   }
   return {
     addonInCollections: expandCollections(collections, addonInCollections),
     clientApp: state.api.clientApp,
-    currentUsername,
+    currentUserId,
     lang: state.api.lang,
     loadingAddonsInCollections: addonInCollections
       ? addonInCollections.loading
@@ -312,9 +312,9 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
 };
 
 export const extractId = (ownProps: InternalProps) => {
-  const { addon, currentUsername } = ownProps;
+  const { addon, currentUserId } = ownProps;
 
-  return `${addon ? addon.id : ''}-${currentUsername || ''}`;
+  return `${addon ? addon.id : ''}-${currentUserId || ''}`;
 };
 
 const AddAddonToCollection: React.ComponentType<Props> = compose(

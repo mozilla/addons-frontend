@@ -120,8 +120,8 @@ describe(__filename, () => {
   });
 
   it('dispatches addAddonToCollection when selecting an add-on', () => {
-    const authorUsername = 'non-signed-in-user';
-    const currentUserId = 569;
+    const authorId = 123;
+    const currentUserId = authorId + 100;
 
     const { store } = dispatchSignedInUser({
       userId: currentUserId,
@@ -130,7 +130,7 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
 
     const collection = createInternalCollection({
-      detail: createFakeCollectionDetail({ authorUsername }),
+      detail: createFakeCollectionDetail({ authorId }),
     });
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ collection, errorHandler, filters, store });
@@ -153,7 +153,7 @@ describe(__filename, () => {
         editing: true,
         errorHandlerId: errorHandler.id,
         filters,
-        userId: authorUsername,
+        userId: authorId,
       }),
     );
   });

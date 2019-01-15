@@ -28,7 +28,7 @@ export type Props = {||};
 export type InternalProps = {|
   ...Props,
   collections: Array<CollectionType> | null,
-  currentUserId: string | null,
+  currentUserId: number | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
@@ -145,7 +145,7 @@ export const mapStateToProps = (state: AppState) => {
   const { collections, users } = state;
 
   const currentUser = getCurrentUser(users);
-  const currentUserId = currentUser && String(currentUser.id);
+  const currentUserId = currentUser && currentUser.id;
 
   let userCollections;
 

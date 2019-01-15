@@ -420,8 +420,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       : i18n.sprintf(
           i18n.gettext(`Tell users a bit more information about this user.
             These fields are optional, but they'll help other users get to know
-            %(username)s better.`),
-          { username: user.name },
+            %(userName)s better.`),
+          { userName: user.name },
         );
   }
 
@@ -434,8 +434,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     return isEditingCurrentUser
       ? i18n.gettext(`Introduce yourself to the community if you like`)
-      : i18n.sprintf(i18n.gettext(`Introduce %(username)s to the community`), {
-          username: user.name,
+      : i18n.sprintf(i18n.gettext(`Introduce %(userName)s to the community`), {
+          userName: user.name,
         });
   }
 
@@ -525,8 +525,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               header={
                 isEditingCurrentUser || !user
                   ? i18n.gettext('Account')
-                  : i18n.sprintf(i18n.gettext('Account for %(username)s'), {
-                      username: user.name,
+                  : i18n.sprintf(i18n.gettext('Account for %(userName)s'), {
+                      userName: user.name,
                     })
               }
             >

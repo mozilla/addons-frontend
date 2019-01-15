@@ -43,7 +43,7 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   clientApp: string,
-  currentUserId: string,
+  currentUserId: number,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   history: ReactRouterHistoryType,
@@ -164,7 +164,7 @@ export class CollectionManagerBase extends React.Component<
           collectionSlug: collection.slug,
           defaultLocale: collection.defaultLocale,
           filters,
-          userId: String(collection.authorId),
+          userId: collection.authorId,
         }),
       );
     }
@@ -333,7 +333,7 @@ export const mapStateToProps = (state: AppState) => {
 
   return {
     clientApp: state.api.clientApp,
-    currentUserId: currentUser && String(currentUser.id),
+    currentUserId: currentUser && currentUser.id,
     isCollectionBeingModified: state.collections.isCollectionBeingModified,
     siteLang: state.api.lang,
   };

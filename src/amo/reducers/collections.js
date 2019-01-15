@@ -87,14 +87,14 @@ export type CollectionsState = {
     loading: boolean,
   |},
   userCollections: {
-    [userId: string]: {|
+    [userId: number]: {|
       // This is a list of all collections belonging to the user.
       collections: Array<CollectionId> | null,
       loading: boolean,
     |},
   },
   addonInCollections: {
-    [userId: string]: {
+    [userId: number]: {
       [addonId: number]: {|
         // This is a list of all user collections that the add-on
         // is a part of.
@@ -125,7 +125,7 @@ type FetchCurrentCollectionParams = {|
   errorHandlerId: string,
   filters?: CollectionFilters,
   slug: string,
-  userId: string,
+  userId: number,
 |};
 
 export type FetchCurrentCollectionAction = {|
@@ -151,7 +151,7 @@ export const fetchCurrentCollection = ({
 
 type FetchUserCollectionsParams = {|
   errorHandlerId: string,
-  userId: string,
+  userId: number,
 |};
 
 export type FetchUserCollectionsAction = {|
@@ -173,7 +173,7 @@ export const fetchUserCollections = ({
 };
 
 type AbortFetchUserCollectionsParams = {|
-  userId: string,
+  userId: number,
 |};
 
 type AbortFetchUserCollectionsAction = {|
@@ -194,7 +194,7 @@ export const abortFetchUserCollections = ({
 
 type AbortAddAddonToCollectionParams = {|
   addonId: number,
-  userId: string,
+  userId: number,
 |};
 
 type AbortAddAddonToCollectionAction = {|
@@ -358,7 +358,7 @@ export const loadCollectionAddons = ({
 
 type LoadUserCollectionsParams = {|
   collections: Array<ExternalCollectionDetail>,
-  userId: string,
+  userId: number,
 |};
 
 type LoadUserCollectionsAction = {|
@@ -382,7 +382,7 @@ export const loadUserCollections = ({
 type AddonAddedToCollectionParams = {|
   addonId: number,
   collectionId: CollectionId,
-  userId: string,
+  userId: number,
 |};
 
 type AddonAddedToCollectionAction = {|
@@ -421,7 +421,7 @@ type AddAddonToCollectionParams = {|
   filters?: CollectionFilters,
   notes?: string,
   slug: string,
-  userId: string,
+  userId: number,
 |};
 
 export type AddAddonToCollectionAction = {|
@@ -466,7 +466,7 @@ export const addAddonToCollection = ({
 
 export type RequiredModifyCollectionParams = {|
   errorHandlerId: string,
-  userId: string,
+  userId: number,
 |};
 
 export type OptionalModifyCollectionParams = {|
@@ -606,7 +606,7 @@ type RemoveAddonFromCollectionParams = {|
   errorHandlerId: string,
   filters: CollectionFilters,
   slug: string,
-  userId: string,
+  userId: number,
 |};
 
 export type RemoveAddonFromCollectionAction = {|
@@ -652,7 +652,7 @@ export const addonRemovedFromCollection = (): AddonRemovedFromCollectionAction =
 type DeleteCollectionParams = {|
   errorHandlerId: string,
   slug: string,
-  userId: string,
+  userId: number,
 |};
 
 export type DeleteCollectionAction = {|
@@ -685,7 +685,7 @@ type UpdateCollectionAddonParams = {|
   filters: CollectionFilters,
   notes: string,
   slug: string,
-  userId: string,
+  userId: number,
 |};
 
 export type UpdateCollectionAddonAction = {|
@@ -729,7 +729,7 @@ type DeleteCollectionAddonNotesParams = {|
   errorHandlerId: string,
   filters: CollectionFilters,
   slug: string,
-  userId: string,
+  userId: number,
 |};
 
 export type DeleteCollectionAddonNotesAction = {|
@@ -900,7 +900,7 @@ type ChangeAddonCollectionsLoadingFlagParams = {|
   addonId: number,
   loading: boolean,
   state: CollectionsState,
-  userId: string,
+  userId: number,
 |};
 
 export const changeAddonCollectionsLoadingFlag = ({
@@ -929,7 +929,7 @@ export const changeAddonCollectionsLoadingFlag = ({
 
 type UnloadUserCollectionsParams = {|
   state: CollectionsState,
-  userId: string,
+  userId: number,
 |};
 
 const unloadUserCollections = ({
@@ -1000,7 +1000,7 @@ export const convertFiltersToQueryParams = (filters: CollectionFilters) => {
 };
 
 type CollectionUrlParams = {|
-  authorId?: string,
+  authorId?: number,
   collection: CollectionType | null,
   collectionSlug?: string,
   _collectionUrl?: Function,
