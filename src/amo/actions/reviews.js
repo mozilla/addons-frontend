@@ -100,7 +100,7 @@ export function createInternalReview(
     userName: review.user.name,
     userUrl: review.user.url,
     versionId: review.version ? review.version.id : null,
-    edited: review.edited ? review.edited : null
+    edited: review.edited ? review.edited : false
   };
 }
 
