@@ -7,12 +7,9 @@
 
   .InstallButtonWrapper {
     align-self: center;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .Button {
-  width: 100%;
+    .Button {
+      width: 100%;
+    }
   }
 }
 
