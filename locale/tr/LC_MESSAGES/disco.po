@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-08 17:27+0000\n"
+"POT-Creation-Date: 2019-01-15 18:58+0000\n"
 "PO-Revision-Date: 2018-12-15 12:38+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -198,7 +198,7 @@ msgstr "Beklenmeyen bir hata oluştu"
 msgid "Reload To Continue"
 msgstr "Devam etmek için sayfayı tazeleyin"
 
-#: src/ui/components/Notice/index.js:138
+#: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
 msgstr "Bu bildirimi kapat"
 

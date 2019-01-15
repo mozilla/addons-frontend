@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-08 17:27+0000\n"
+"POT-Creation-Date: 2019-01-15 18:58+0000\n"
 "PO-Revision-Date: 2018-12-19 10:38+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
@@ -197,7 +197,7 @@ msgstr "Došlo k neočekávané chybě"
 msgid "Reload To Continue"
 msgstr "Pro pokračování obnovte stránku"
 
-#: src/ui/components/Notice/index.js:138
+#: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
 msgstr "Skrýt"
 

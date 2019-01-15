@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-08 17:27+0000\n"
+"POT-Creation-Date: 2019-01-15 18:58+0000\n"
 "PO-Revision-Date: 2018-08-24 17:00+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
@@ -196,7 +196,7 @@ msgstr "予期せぬ問題が発生しました"
 msgid "Reload To Continue"
 msgstr "再読み込みして続ける"
 
-#: src/ui/components/Notice/index.js:138
+#: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
 msgstr "このお知らせを閉じる"
 
