@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-08 17:24+0000\n"
+"POT-Creation-Date: 2019-01-15 18:51+0000\n"
 "PO-Revision-Date: 2018-12-31 05:09+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
@@ -568,9 +568,14 @@ msgstr ","
 msgid "by"
 msgstr "oleh"
 
-#: src/amo/components/AddonVersionCard/index.js:100
+#: src/amo/components/AddonVersionCard/index.js:104
 #, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
+msgstr "dikirim %(linkStart)s%(timestamp)s%(linkEnd)s"
+
+#: src/amo/components/AddonVersionCard/index.js:125
+#, fuzzy
+msgid "Source code released under %(licenseName)s"
 msgstr "dikirim %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
@@ -2173,62 +2178,72 @@ msgstr "Perjanjian Lisensi Pengguna Akhir untuk %(addonName)s"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Kebijakan privasi untuk %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:194
+#: src/amo/pages/AddonReviewList/index.js:188
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:210
+#: src/amo/pages/AddonReviewList/index.js:204
 msgid "Only showing one-star reviews"
 msgstr "Hanya menampilkan ulasan bintang satu"
 
-#: src/amo/pages/AddonReviewList/index.js:211
+#: src/amo/pages/AddonReviewList/index.js:205
 msgid "Only showing two-star reviews"
 msgstr "Hanya menampilkan ulasan bintang dua"
 
-#: src/amo/pages/AddonReviewList/index.js:212
+#: src/amo/pages/AddonReviewList/index.js:206
 msgid "Only showing three-star reviews"
 msgstr "Hanya menampilkan ulasan bintang tiga"
 
-#: src/amo/pages/AddonReviewList/index.js:213
+#: src/amo/pages/AddonReviewList/index.js:207
 msgid "Only showing four-star reviews"
 msgstr "Hanya menampilkan ulasan bintang empat"
 
-#: src/amo/pages/AddonReviewList/index.js:214
+#: src/amo/pages/AddonReviewList/index.js:208
 msgid "Only showing five-star reviews"
 msgstr "Hanya menampilkan ulasan bintang lima"
 
-#: src/amo/pages/AddonReviewList/index.js:226
+#: src/amo/pages/AddonReviewList/index.js:220
 msgid "Show all reviews"
 msgstr "Tampilkan semua ulasan"
 
-#: src/amo/pages/AddonReviewList/index.js:270
+#: src/amo/pages/AddonReviewList/index.js:264
 msgid "Reviews for %(addonName)s"
 msgstr "Ulasan untuk %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:278
+#: src/amo/pages/AddonReviewList/index.js:272
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s Bintang"
 
-#: src/amo/pages/AddonReviewList/index.js:367
+#: src/amo/pages/AddonReviewList/index.js:361
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Belum ada peringkat"
 
-#: src/amo/pages/AddonVersions/index.js:123
+#: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
 msgstr[0] ""
 
-#: src/amo/pages/AddonVersions/index.js:154
+#: src/amo/pages/AddonVersions/index.js:172
+msgid ""
+"Be careful with old versions! These versions are displayed for testing and "
+"reference purposes."
+msgstr ""
+
+#: src/amo/pages/AddonVersions/index.js:177
+msgid "You should always use the latest version of an add-on."
+msgstr ""
+
+#: src/amo/pages/AddonVersions/index.js:186
 #, fuzzy
 msgid "Latest version"
 msgstr "Versi"
 
-#: src/amo/pages/AddonVersions/index.js:163
+#: src/amo/pages/AddonVersions/index.js:195
 #, fuzzy
 msgid "Older versions"
 msgstr "Lihat semua versi"
@@ -3179,9 +3194,10 @@ msgstr ""
 "tidak wajib, namun akan membantu pengguna lainnya mengenal Anda lebih baik."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
+#, fuzzy
 msgid ""
 "Tell users a bit more information about this user. These fields are "
-"optional, but they'll help other users get to know %(username)s better."
+"optional, but they'll help other users get to know %(userName)s better."
 msgstr ""
 "Berikan pengguna informasi lebih banyak mengenai Anda. Bidang-bidang ini "
 "tidak wajib, namun akan membantu pengguna lainnya mengenal %(username)s "
@@ -3192,7 +3208,8 @@ msgid "Introduce yourself to the community if you like"
 msgstr "Perkenalkan diri Anda pada komunitas, jika Anda berkenan"
 
 #: src/amo/pages/UserProfileEdit/index.js:437
-msgid "Introduce %(username)s to the community"
+#, fuzzy
+msgid "Introduce %(userName)s to the community"
 msgstr "Perkenalkan %(username)s pada komunitas"
 
 #: src/amo/pages/UserProfileEdit/index.js:460
@@ -3212,7 +3229,8 @@ msgid "Account"
 msgstr "Akun"
 
 #: src/amo/pages/UserProfileEdit/index.js:528
-msgid "Account for %(username)s"
+#, fuzzy
+msgid "Account for %(userName)s"
 msgstr "Akun untuk %(username)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:535
@@ -3569,23 +3587,23 @@ msgstr[0] "Akses data Anda di %(param)s situs lainnya"
 msgid "Access your data for %(param)s"
 msgstr "Mengakses data Anda untuk %(param)s"
 
-#: src/ui/components/Notice/index.js:138
+#: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
 msgstr "Abaikan pernyataan ini"
 
-#: src/ui/components/Rating/index.js:105
+#: src/ui/components/Rating/index.js:104
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "Memberi pengaya ini peringkat %(starRating)s dari 5"
 
-#: src/ui/components/Rating/index.js:82 src/ui/components/Rating/index.js:93
+#: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
 msgstr "Diberi peringkat %(rating)s dari 5"
 
-#: src/ui/components/Rating/index.js:86
+#: src/ui/components/Rating/index.js:85
 msgid "There are no ratings yet"
 msgstr "Belum ada peringkat"
 
-#: src/ui/components/Rating/index.js:99
+#: src/ui/components/Rating/index.js:98
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Menaikkan peringkat menjadi %(starRating)s dari 5"
 
