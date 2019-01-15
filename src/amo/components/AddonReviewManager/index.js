@@ -73,7 +73,6 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
         edited: review.body ? true : false
       }),
     );
-    console.log(review);
   };
 
   render() {
