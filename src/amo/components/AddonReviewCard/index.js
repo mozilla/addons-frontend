@@ -351,12 +351,8 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             'by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
           );
       
-      const editLineString = review.edited
-          ?
-           i18n.gettext(' &#183; (edited)')
-        : " ";
+      const editLineString = review.edited ? i18n.gettext(' &#183; (edited)'): " ";
            
-
       const linkParts = getLocalizedTextWithLinkParts({
         i18n,
         text: byLineString + editLineString,
