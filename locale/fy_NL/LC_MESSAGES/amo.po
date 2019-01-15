@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-08 17:24+0000\n"
+"POT-Creation-Date: 2019-01-15 18:51+0000\n"
 "PO-Revision-Date: 2019-01-03 21:05+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
@@ -576,9 +576,14 @@ msgstr ","
 msgid "by"
 msgstr "troch"
 
-#: src/amo/components/AddonVersionCard/index.js:100
+#: src/amo/components/AddonVersionCard/index.js:104
 #, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
+msgstr "%(linkStart)s%(timestamp)s%(linkEnd)s pleatst"
+
+#: src/amo/components/AddonVersionCard/index.js:125
+#, fuzzy
+msgid "Source code released under %(licenseName)s"
 msgstr "%(linkStart)s%(timestamp)s%(linkEnd)s pleatst"
 
 #: src/amo/components/AddonVersionCard/index.js:50
@@ -2200,7 +2205,7 @@ msgstr "Einbrûikerslisinsjeoerienkomst foar %(addonName)s"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Privacybelied foar %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:194
+#: src/amo/pages/AddonReviewList/index.js:188
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2208,58 +2213,68 @@ msgstr ""
 "Beoardielingen en wurdearringen foar %(addonName)s. Untdek wat oare brûkers "
 "fine fan %(addonName)s en foegje it oan jo Firefox-browser ta."
 
-#: src/amo/pages/AddonReviewList/index.js:210
+#: src/amo/pages/AddonReviewList/index.js:204
 msgid "Only showing one-star reviews"
 msgstr "Allinnich ienstjerbeoardielingen"
 
-#: src/amo/pages/AddonReviewList/index.js:211
+#: src/amo/pages/AddonReviewList/index.js:205
 msgid "Only showing two-star reviews"
 msgstr "Allinnich twastjerrenbeoardielingen"
 
-#: src/amo/pages/AddonReviewList/index.js:212
+#: src/amo/pages/AddonReviewList/index.js:206
 msgid "Only showing three-star reviews"
 msgstr "Allinnich trijestjerrenbeoardielingen"
 
-#: src/amo/pages/AddonReviewList/index.js:213
+#: src/amo/pages/AddonReviewList/index.js:207
 msgid "Only showing four-star reviews"
 msgstr "Allinnich fjouwerstjerrenbeoardielingen"
 
-#: src/amo/pages/AddonReviewList/index.js:214
+#: src/amo/pages/AddonReviewList/index.js:208
 msgid "Only showing five-star reviews"
 msgstr "Allinnich fiifstjerrenbeoardielingen"
 
-#: src/amo/pages/AddonReviewList/index.js:226
+#: src/amo/pages/AddonReviewList/index.js:220
 msgid "Show all reviews"
 msgstr "Alle beoardielingen werjaan"
 
-#: src/amo/pages/AddonReviewList/index.js:270
+#: src/amo/pages/AddonReviewList/index.js:264
 msgid "Reviews for %(addonName)s"
 msgstr "Beoardielingen foar %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:278
+#: src/amo/pages/AddonReviewList/index.js:272
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s stjer"
 msgstr[1] "%(total)s stjerren"
 
-#: src/amo/pages/AddonReviewList/index.js:367
+#: src/amo/pages/AddonReviewList/index.js:361
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Der binne noch gjin wurdearringen"
 
-#: src/amo/pages/AddonVersions/index.js:123
+#: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/pages/AddonVersions/index.js:154
+#: src/amo/pages/AddonVersions/index.js:172
+msgid ""
+"Be careful with old versions! These versions are displayed for testing and "
+"reference purposes."
+msgstr ""
+
+#: src/amo/pages/AddonVersions/index.js:177
+msgid "You should always use the latest version of an add-on."
+msgstr ""
+
+#: src/amo/pages/AddonVersions/index.js:186
 #, fuzzy
 msgid "Latest version"
 msgstr "Bètaferzjes"
 
-#: src/amo/pages/AddonVersions/index.js:163
+#: src/amo/pages/AddonVersions/index.js:195
 #, fuzzy
 msgid "Older versions"
 msgstr "Alle ferzjes besjen"
@@ -3258,9 +3273,10 @@ msgstr ""
 "helpe oare brûkers om jo better kenne te learen."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
+#, fuzzy
 msgid ""
 "Tell users a bit more information about this user. These fields are "
-"optional, but they'll help other users get to know %(username)s better."
+"optional, but they'll help other users get to know %(userName)s better."
 msgstr ""
 "Fertel brûkers wat mear oer dizze brûker. Dizze fjilden binne opsjoneel, mar "
 "se helpe oare brûkers om %(username)s wat better kenne te learen."
@@ -3270,7 +3286,8 @@ msgid "Introduce yourself to the community if you like"
 msgstr "Yntrodusearje josels eventueel by de mienskip"
 
 #: src/amo/pages/UserProfileEdit/index.js:437
-msgid "Introduce %(username)s to the community"
+#, fuzzy
+msgid "Introduce %(userName)s to the community"
 msgstr "Yntrodusearje %(username)s by de mienskip"
 
 #: src/amo/pages/UserProfileEdit/index.js:460
@@ -3290,7 +3307,8 @@ msgid "Account"
 msgstr "Account"
 
 #: src/amo/pages/UserProfileEdit/index.js:528
-msgid "Account for %(username)s"
+#, fuzzy
+msgid "Account for %(userName)s"
 msgstr "Account foar %(username)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:535
@@ -3650,23 +3668,23 @@ msgstr[1] "Jo gegevens op %(param)s oare websites benaderje"
 msgid "Access your data for %(param)s"
 msgstr "Jo gegevens foar %(param)s benaderje"
 
-#: src/ui/components/Notice/index.js:138
+#: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
 msgstr "Dit berjocht ferstopje"
 
-#: src/ui/components/Rating/index.js:105
+#: src/ui/components/Rating/index.js:104
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "Dizze add-on mei %(starRating)s fan 5 wurdearje"
 
-#: src/ui/components/Rating/index.js:82 src/ui/components/Rating/index.js:93
+#: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
 msgstr "Wurdearring: %(rating)s fan 5"
 
-#: src/ui/components/Rating/index.js:86
+#: src/ui/components/Rating/index.js:85
 msgid "There are no ratings yet"
 msgstr "Der binne noch gjin wurdearringen"
 
-#: src/ui/components/Rating/index.js:99
+#: src/ui/components/Rating/index.js:98
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Jo wurdearring bywurkje nei %(starRating)s fan 5"
 

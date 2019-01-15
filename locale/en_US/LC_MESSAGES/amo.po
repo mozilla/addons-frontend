@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-08 17:24+0000\n"
+"POT-Creation-Date: 2019-01-15 18:51+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -606,9 +606,14 @@ msgstr ""
 msgid "by"
 msgstr ""
 
-#: src/amo/components/AddonVersionCard/index.js:100
+#: src/amo/components/AddonVersionCard/index.js:104
 #, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
+msgstr "Tell the world why you think this extension is fantastic!"
+
+#: src/amo/components/AddonVersionCard/index.js:125
+#, fuzzy
+msgid "Source code released under %(licenseName)s"
 msgstr "Tell the world why you think this extension is fantastic!"
 
 #: src/amo/components/AddonVersionCard/index.js:50
@@ -2240,65 +2245,75 @@ msgstr ""
 msgid "Privacy policy for %(addonName)s"
 msgstr "No results were found for \"%(query)s\"."
 
-#: src/amo/pages/AddonReviewList/index.js:194
+#: src/amo/pages/AddonReviewList/index.js:188
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:210
+#: src/amo/pages/AddonReviewList/index.js:204
 msgid "Only showing one-star reviews"
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:211
+#: src/amo/pages/AddonReviewList/index.js:205
 msgid "Only showing two-star reviews"
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:212
+#: src/amo/pages/AddonReviewList/index.js:206
 msgid "Only showing three-star reviews"
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:213
+#: src/amo/pages/AddonReviewList/index.js:207
 msgid "Only showing four-star reviews"
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:214
+#: src/amo/pages/AddonReviewList/index.js:208
 msgid "Only showing five-star reviews"
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:226
+#: src/amo/pages/AddonReviewList/index.js:220
 #, fuzzy
 msgid "Show all reviews"
 msgstr "Write a review"
 
-#: src/amo/pages/AddonReviewList/index.js:270
+#: src/amo/pages/AddonReviewList/index.js:264
 msgid "Reviews for %(addonName)s"
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:278
+#: src/amo/pages/AddonReviewList/index.js:272
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(users)s user"
 msgstr[1] "%(users)s users"
 
-#: src/amo/pages/AddonReviewList/index.js:367
+#: src/amo/pages/AddonReviewList/index.js:361
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Write a review"
 
-#: src/amo/pages/AddonVersions/index.js:123
+#: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/pages/AddonVersions/index.js:154
+#: src/amo/pages/AddonVersions/index.js:172
+msgid ""
+"Be careful with old versions! These versions are displayed for testing and "
+"reference purposes."
+msgstr ""
+
+#: src/amo/pages/AddonVersions/index.js:177
+msgid "You should always use the latest version of an add-on."
+msgstr ""
+
+#: src/amo/pages/AddonVersions/index.js:186
 #, fuzzy
 msgid "Latest version"
 msgstr "Extension Metadata"
 
-#: src/amo/pages/AddonVersions/index.js:163
+#: src/amo/pages/AddonVersions/index.js:195
 #, fuzzy
 msgid "Older versions"
 msgstr "Browse all extensions"
@@ -3169,7 +3184,7 @@ msgstr ""
 #: src/amo/pages/UserProfileEdit/index.js:421
 msgid ""
 "Tell users a bit more information about this user. These fields are "
-"optional, but they'll help other users get to know %(username)s better."
+"optional, but they'll help other users get to know %(userName)s better."
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:436
@@ -3177,7 +3192,7 @@ msgid "Introduce yourself to the community if you like"
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:437
-msgid "Introduce %(username)s to the community"
+msgid "Introduce %(userName)s to the community"
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:460
@@ -3199,7 +3214,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:528
 #, fuzzy
-msgid "Account for %(username)s"
+msgid "Account for %(userName)s"
 msgstr "No results were found for \"%(query)s\"."
 
 #: src/amo/pages/UserProfileEdit/index.js:535
@@ -3537,25 +3552,25 @@ msgstr[1] ""
 msgid "Access your data for %(param)s"
 msgstr ""
 
-#: src/ui/components/Notice/index.js:138
+#: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:105
+#: src/ui/components/Rating/index.js:104
 #, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "Average rating: %(rating)s out of 5"
 
-#: src/ui/components/Rating/index.js:82 src/ui/components/Rating/index.js:93
+#: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "Average rating: %(rating)s out of 5"
 
-#: src/ui/components/Rating/index.js:86
+#: src/ui/components/Rating/index.js:85
 msgid "There are no ratings yet"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:99
+#: src/ui/components/Rating/index.js:98
 #, fuzzy
 msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Average rating: %(rating)s out of 5"
