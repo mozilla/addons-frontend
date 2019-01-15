@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-15 18:51+0000\n"
-"PO-Revision-Date: 2019-01-15 19:51+0000\n"
+"PO-Revision-Date: 2019-01-15 19:59+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -551,9 +551,8 @@ msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "Žrědłowy kod jo pód licencu %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:125
-#, fuzzy
 msgid "Source code released under %(licenseName)s"
-msgstr "Žrědłowy kod jo pód licencu %(linkStart)s%(licenseName)s%(linkEnd)s"
+msgstr "Žrědłowy kod jo pód licencu %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
@@ -2101,7 +2100,7 @@ msgstr[3] "Wersija historija %(addonName)s - %(total)s wersijow"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr "Buźćo wobglědniwy ze staršymi wersijami! Toś te wersije se za testowanje a reference zaměry pokazuju."
+msgstr "Buźćo wobglědniwy ze staršymi wersijami! Toś te wersije se za testowanje a referencne zaměry pokazuju."
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
@@ -2833,18 +2832,16 @@ msgid "Tell users a bit more information about yourself. These fields are option
 msgstr "Dajśo wužywarjam někotare informacije wó sebje. Toś te póla su opcionalne, ale budu drugim wužywarjam pomagaś, was lěpjej póznaś."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Dajśo wužywarjam někotare informacije wó toś tom wužywarju. Toś te póla su opcionalne, ale budu drugim wužywarjam pomagaś, %(username)s lěpjej póznaś."
+msgstr "Dajśo wužywarjam někotare informacije wó toś tom wužywarju. Toś te póla su opcionalne, ale budu drugim wužywarjam pomagaś, %(userName)s lěpjej póznaś."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
 msgstr "Pśedstajśo se zgromaźeństwoju, jolic cośo"
 
 #: src/amo/pages/UserProfileEdit/index.js:437
-#, fuzzy
 msgid "Introduce %(userName)s to the community"
-msgstr "Pśedstajśo %(username)s zgromaźeństwoju"
+msgstr "Pśedstajśo %(userName)s zgromaźeństwoju"
 
 #: src/amo/pages/UserProfileEdit/index.js:460
 msgid "Log in to edit the profile"
@@ -2863,9 +2860,8 @@ msgid "Account"
 msgstr "Konto"
 
 #: src/amo/pages/UserProfileEdit/index.js:528
-#, fuzzy
 msgid "Account for %(userName)s"
-msgstr "Konto za %(username)s"
+msgstr "Konto za %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:535
 msgid "Email Address"
