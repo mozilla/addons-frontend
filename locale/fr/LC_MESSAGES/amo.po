@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-15 18:51+0000\n"
-"PO-Revision-Date: 2019-01-15 19:47+0000\n"
+"PO-Revision-Date: 2019-01-15 19:46+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -526,7 +526,7 @@ msgstr "Icône du module"
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
 msgstr[0] "Noté %(rating)s sur 5"
-msgstr[1] ""
+msgstr[1] "%(rating)s étoiles sur 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
@@ -799,13 +799,12 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
-#, fuzzy
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll get it sorted."
 msgstr ""
-"Si vous avez suivi un lien depuis un autre endroit, merci de <a href=\"%(url)s\">nous signaler le problème</a>. Dites-nous d’où vous veniez, ce que vous cherchiez et nous ferons de notre mieux pour "
-"le corriger."
+"Si vous avez suivi un lien sur ce site, il s’agit d’une erreur. Aidez-nous à réparer ce lien <a href=\"%(url)s\">en signalant le problème</a>. Dites-nous d’où vous venez et ce que vous cherchiez, "
+"nous traiterons le problème."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
@@ -2055,8 +2054,8 @@ msgstr "Critiques pour %(addonName)s"
 #: src/amo/pages/AddonReviewList/index.js:272
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s note"
+msgstr[1] "%(total)s notes"
 
 #: src/amo/pages/AddonReviewList/index.js:361
 #, fuzzy
@@ -2066,8 +2065,8 @@ msgstr "Il n’y a aucune note pour l’instant"
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Historique de versions de %(addonName)s - %(total)s version"
+msgstr[1] "Historique de versions de %(addonName)s - %(total)s versions"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
