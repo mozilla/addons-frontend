@@ -56,12 +56,15 @@ export class SearchFormBase extends React.Component<Props> {
       <React.Fragment>
         <Helmet>
           <link
-            title={`Firefox Add-ons (${apiLang || ''})`}
+            title={i18n.sprintf(i18n.gettext('Firefox Add-ons (%(locale)s)'), {
+              locale: apiLang,
+            })}
             rel="search"
             type="application/opensearchdescription+xml"
             href={`/${apiLang || ''}/${clientApp || ''}/opensearch.xml`}
           />
         </Helmet>
+
         <form
           action={this.baseSearchURL()}
           className={makeClassName('SearchForm', className)}

@@ -1,8 +1,9 @@
 import * as React from 'react';
+import Helmet from 'react-helmet';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import SearchForm, { SearchFormBase } from 'amo/components/SearchForm';
-import { CLIENT_APP_FIREFOX } from 'core/constants';
+import { CLIENT_APP_FIREFOX, CLIENT_APP_ANDROID } from 'core/constants';
 import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import {
@@ -148,5 +149,46 @@ describe(__filename, () => {
     onSuggestionSelected(suggestion);
 
     sinon.assert.notCalled(fakeHistory.push);
+  });
+
+  it('renders a Helmet', () => {
+    const root = render();
+
+    const helmet = root.find(Helmet);
+    expect(helmet).toHaveLength(1);
+
+    const link = helmet.find('link');
+    expect(link).toHaveLength(1);
+    expect(link).toHaveProp('rel', 'search');
+    expect(link).toHaveProp('type', 'application/opensearchdescription+xml');
+    expect(link).toHaveProp('href');
+    expect(link).toHaveProp('title');
+  });
+
+  it('renders opensearch link when client App is Android and lang is en-CA', () => {
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+      lang: 'en-CA',
+    });
+    const root = render({ store });
+    const link = root.find('link');
+
+    expect(link).toHaveProp(
+      'href',
+      `/en-CA/${CLIENT_APP_ANDROID}/opensearch.xml`,
+    );
+    expect(link).toHaveProp('title', 'Firefox Add-ons (en-CA)');
+  });
+
+  it('renders opensearch link when client App is Firefox and lang is fr', () => {
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+      lang: 'fr',
+    });
+    const root = render({ store });
+    const link = root.find('link');
+
+    expect(link).toHaveProp('href', `/fr/${CLIENT_APP_FIREFOX}/opensearch.xml`);
+    expect(link).toHaveProp('title', 'Firefox Add-ons (fr)');
   });
 });
