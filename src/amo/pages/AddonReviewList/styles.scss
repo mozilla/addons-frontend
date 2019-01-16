@@ -20,10 +20,6 @@
     // https://stackoverflow.com/questions/36150458
     min-width: 50%;
   }
-
-  .Notice-generic {
-    margin-bottom: 12px;
-  }
 }
 
 .AddonReviewList-reviews {
@@ -37,4 +33,16 @@
 .AddonReviewList-noReviews {
   padding: 48px 0;
   text-align: center;
+}
+
+.AddonReviewList-filterByScore {
+  margin-bottom: 12px;
+}
+
+.AddonReviewList-filterByScoreSelector {
+  width: 100%;
+
+  @include respond-to(medium) {
+    width: auto;
+  }
 }
