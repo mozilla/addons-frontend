@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-15 18:51+0000\n"
-"PO-Revision-Date: 2019-01-15 23:31+0000\n"
+"PO-Revision-Date: 2019-01-15 23:40+0000\n"
 "Last-Translator: 우믿트 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -2041,11 +2041,11 @@ msgstr[0] "%(addonName)s 版本历史 - %(total)s 个版本"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "小心旧版本！显示这些版本是为了测试和参考目的。"
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "您应该始终使用附加组件的最新版本。"
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Latest version"
