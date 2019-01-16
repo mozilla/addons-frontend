@@ -11,7 +11,10 @@ import defaultConfig from 'config';
 import cheerio from 'cheerio';
 
 import { setRequestId } from 'core/actions';
-import { AMO_REQUEST_ID_HEADER } from 'core/constants';
+import {
+  AMO_REQUEST_ID_HEADER,
+  DISCO_TAAR_CLIENT_ID_HEADER,
+} from 'core/constants';
 import baseServer, { createHistory } from 'core/server/base';
 import { middleware } from 'core/store';
 import apiReducer from 'core/reducers/api';
@@ -454,7 +457,7 @@ describe(__filename, () => {
   });
 
   describe('TAARDIS', () => {
-    it('dispatches setHashedClientId() if cookie is present and enableFeatureDiscoTaar is true and app is disco', async () => {
+    it('dispatches setHashedClientId() if clientId header is present and enableFeatureDiscoTaar is true and app is disco', async () => {
       const clientId = '1112';
       const fakeConfig = getFakeConfig({
         enableFeatureDiscoTaar: true,
@@ -475,7 +478,7 @@ describe(__filename, () => {
         sagaMiddleware,
       })
         .get('/en-US/firefox/')
-        .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="${clientId}"`)
+        .set(DISCO_TAAR_CLIENT_ID_HEADER, clientId)
         .end();
 
       sinon.assert.calledWith(dispatchSpy, setHashedClientId(clientId));
@@ -501,7 +504,7 @@ describe(__filename, () => {
         sagaMiddleware,
       })
         .get('/en-US/firefox/')
-        .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="${clientId}"`)
+        .set(DISCO_TAAR_CLIENT_ID_HEADER, clientId)
         .end();
 
       sinon.assert.neverCalledWith(dispatchSpy, setHashedClientId(clientId));
@@ -510,7 +513,7 @@ describe(__filename, () => {
       expect(store.getState().telemetry).toEqual(undefined);
     });
 
-    it('does not dispatch setHashedClientId() if there is no discoTaarIdCookie', async () => {
+    it('does not dispatch setHashedClientId() if there is no moz-client-id header', async () => {
       const fakeConfig = getFakeConfig({
         enableFeatureDiscoTaar: true,
       });
@@ -549,7 +552,7 @@ describe(__filename, () => {
         sagaMiddleware,
       })
         .get('/en-US/firefox/')
-        .set('cookie', `${fakeConfig.get('discoTaarIdCookie')}="${clientId}"`)
+        .set(DISCO_TAAR_CLIENT_ID_HEADER, clientId)
         .end();
 
       sinon.assert.neverCalledWith(dispatchSpy, setHashedClientId(clientId));

@@ -21,7 +21,10 @@ import { ChunkExtractor, ChunkExtractorManager } from '@loadable/server';
 import log from 'core/logger';
 import { createApiError } from 'core/api';
 import Root from 'core/components/Root';
-import { AMO_REQUEST_ID_HEADER } from 'core/constants';
+import {
+  AMO_REQUEST_ID_HEADER,
+  DISCO_TAAR_CLIENT_ID_HEADER,
+} from 'core/constants';
 import ServerHtml from 'core/components/ServerHtml';
 import * as middleware from 'core/middleware';
 import requestId from 'core/middleware/requestId';
@@ -337,17 +340,14 @@ function baseServer(
           store.dispatch(dismissSurvey());
         }
 
+        const mozClientIdHeader = DISCO_TAAR_CLIENT_ID_HEADER;
+
         if (
           appName === 'disco' &&
           config.get('enableFeatureDiscoTaar') &&
-          req.universalCookies.get(config.get('discoTaarIdCookie')) !==
-            undefined
+          req.headers[mozClientIdHeader]
         ) {
-          store.dispatch(
-            setHashedClientId(
-              req.universalCookies.get(config.get('discoTaarIdCookie')),
-            ),
-          );
+          store.dispatch(setHashedClientId(req.headers[mozClientIdHeader]));
         }
 
         pageProps = getPageProps({ store, req, res, config });
