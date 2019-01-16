@@ -116,7 +116,6 @@ module.exports = {
     'cookieSecure',
     'defaultLang',
     'dismissedExperienceSurveyCookieName',
-    'discoTaarIdCookie',
     'enableDevTools',
     'enableFeatureDiscoTaar',
     'enableFeatureExperienceSurvey',
@@ -354,7 +353,6 @@ module.exports = {
   //
 
   enableFeatureDiscoTaar: false,
-  discoTaarIdCookie: 'taarId',
 
   // Please use the `enableFeature` prefix, see:
   // https://github.com/mozilla/addons-frontend/issues/6362.
