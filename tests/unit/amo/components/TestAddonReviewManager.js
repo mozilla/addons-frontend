@@ -165,6 +165,7 @@ describe(__filename, () => {
       dispatchSpy,
       updateAddonReview({
         score: newScore,
+        edited: false,
         errorHandlerId: root.instance().props.errorHandler.id,
         reviewId: review.id,
       }),
@@ -192,6 +193,7 @@ describe(__filename, () => {
       dispatchSpy,
       updateAddonReview({
         body: newBody,
+        edited: true,
         errorHandlerId: root.instance().props.errorHandler.id,
         reviewId: review.id,
       }),
