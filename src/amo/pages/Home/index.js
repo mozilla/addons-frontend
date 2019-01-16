@@ -34,8 +34,9 @@ import './styles.scss';
 export const MOZILLA_USER_ID = config.get('mozillaUserId');
 
 export const FEATURED_COLLECTIONS = [
-  { slug: 'news-boosters', userId: MOZILLA_USER_ID },
-  { slug: 'weather-reports', userId: MOZILLA_USER_ID },
+  { slug: 'youtube-boosters', userId: MOZILLA_USER_ID },
+  { slug: 'health-wellness', userId: MOZILLA_USER_ID },
+  { slug: 'be-more-productive', userId: MOZILLA_USER_ID },
 ];
 
 export const isFeaturedCollection = (
@@ -53,16 +54,22 @@ export const isFeaturedCollection = (
 export const getFeaturedCollectionsMetadata = (i18n) => {
   return [
     {
-      footerText: i18n.gettext('See more news boosters'),
-      header: i18n.gettext('News boosters'),
+      footerText: i18n.gettext('See more YouTube boosters'),
+      header: i18n.gettext('YouTube boosters'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[0],
     },
     {
-      footerText: i18n.gettext('See more weather reports'),
-      header: i18n.gettext('Weather reports'),
+      footerText: i18n.gettext('See more health & wellness add-ons'),
+      header: i18n.gettext('Health & Wellness'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[1],
+    },
+    {
+      footerText: i18n.gettext('See more productivity add-ons'),
+      header: i18n.gettext('Be more productive'),
+      isTheme: false,
+      ...FEATURED_COLLECTIONS[2],
     },
   ];
 };
@@ -85,7 +92,7 @@ export class HomeBase extends React.Component {
   static defaultProps = {
     _config: config,
     _getFeaturedCollectionsMetadata: getFeaturedCollectionsMetadata,
-    includeFeaturedThemes: true,
+    includeFeaturedThemes: false,
     includeTrendingExtensions: false,
   };
 
@@ -302,6 +309,8 @@ export class HomeBase extends React.Component {
           {this.renderCuratedCollections()}
         </Card>
 
+        {renderFeaturedCollection(0)}
+
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={shelves.featuredExtensions}
@@ -317,8 +326,6 @@ export class HomeBase extends React.Component {
           }}
           loading={loading}
         />
-
-        {renderFeaturedCollection(0)}
 
         {includeFeaturedThemes && showThemes && (
           <LandingAddonsCard
@@ -341,23 +348,28 @@ export class HomeBase extends React.Component {
           />
         )}
 
-        {renderFeaturedCollection(1)}
-
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={shelves.popularExtensions}
-          className="Home-PopularExtensions"
-          header={i18n.gettext('Popular extensions')}
-          footerText={i18n.gettext('See more popular extensions')}
+          addons={shelves.popularAddons}
+          className="Home-PopularAddons"
+          header={i18n.gettext('Popular themes')}
+          footerText={i18n.gettext('See more popular themes')}
           footerLink={{
             pathname: '/search/',
             query: {
-              addonType: ADDON_TYPE_EXTENSION,
+              q: 'themes',
+              addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
+                _config: this.props._config,
+              }),
               sort: SEARCH_SORT_POPULAR,
             },
           }}
           loading={loading}
         />
+
+        {renderFeaturedCollection(1)}
+
+        {renderFeaturedCollection(2)}
 
         {includeTrendingExtensions && (
           <LandingAddonsCard

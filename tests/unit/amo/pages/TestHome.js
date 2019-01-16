@@ -165,13 +165,14 @@ describe(__filename, () => {
     const root = render();
 
     const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-PopularExtensions');
-    expect(shelf).toHaveProp('header', 'Popular extensions');
-    expect(shelf).toHaveProp('footerText', 'See more popular extensions');
+    const shelf = shelves.find('.Home-PopularAddons');
+    expect(shelf).toHaveProp('header', 'Popular themes');
+    expect(shelf).toHaveProp('footerText', 'See more popular themes');
     expect(shelf).toHaveProp('footerLink', {
       pathname: '/search/',
       query: {
-        addonType: ADDON_TYPE_EXTENSION,
+        q: 'themes',
+        addonType: ADDON_TYPE_THEMES_FILTER,
         sort: SEARCH_SORT_POPULAR,
       },
     });
@@ -274,7 +275,7 @@ describe(__filename, () => {
       fetchHomeAddons({
         errorHandlerId: errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
-        includeFeaturedThemes: true,
+        includeFeaturedThemes: false,
         includeTrendingExtensions: false,
       }),
     );
