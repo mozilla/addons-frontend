@@ -100,7 +100,7 @@ export function createInternalReview(
     userName: review.user.name,
     userUrl: review.user.url,
     versionId: review.version ? review.version.id : null,
-    edited: review.edited ? review.edited : false
+    edited: review.edited ? review.edited : false,
   };
 }
 
@@ -721,7 +721,7 @@ export const updateAddonReview = ({
   errorHandlerId,
   score,
   reviewId,
-  edited
+  edited,
 }: UpdateAddonReviewParams) => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(reviewId, 'reviewId is required');

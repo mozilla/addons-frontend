@@ -26,6 +26,7 @@ type ExternalReviewTypeBase = {|
     name: string,
     url: string,
   |},
+  edited: boolean,
 |};
 
 export type ExternalReviewReplyType = {|
