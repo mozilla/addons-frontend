@@ -132,6 +132,7 @@ describe(__filename, () => {
       },
       body: fakeReview.body,
       created: fakeReview.created,
+      edited: false,
       id: fakeReview.id,
       isDeveloperReply: fakeReview.is_developer_reply,
       isLatest: fakeReview.is_latest,
