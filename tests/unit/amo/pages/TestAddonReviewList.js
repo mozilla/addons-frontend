@@ -1044,10 +1044,11 @@ describe(__filename, () => {
   });
 
   it('renders a "description" meta tag', () => {
-    const addon = { ...fakeAddon };
+    const addonSlug = 'example-slug';
+    const addon = { ...fakeAddon, slug: addonSlug };
     loadAddon(addon);
 
-    const root = renderWithAddonAndReviews();
+    const root = render({ params: { addonSlug } });
 
     expect(root.find('meta[name="description"]')).toHaveLength(1);
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
