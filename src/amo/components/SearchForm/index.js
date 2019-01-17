@@ -9,6 +9,7 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
+import { CLIENT_APP_ANDROID } from 'core/constants';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import translate from 'core/i18n/translate';
 import type {
@@ -52,13 +53,27 @@ export class SearchFormBase extends React.Component<Props> {
   render() {
     const { className, i18n, apiLang, clientApp } = this.props;
 
+    const i18nValues = {
+      locale: apiLang,
+    };
+
+    let openSearchTitle = i18n.sprintf(
+      i18n.gettext('Firefox Add-ons (%(locale)s)'),
+      i18nValues,
+    );
+
+    if (clientApp === CLIENT_APP_ANDROID) {
+      openSearchTitle = i18n.sprintf(
+        i18n.gettext('Firefox Add-ons for Android (%(locale)s)'),
+        i18nValues,
+      );
+    }
+
     return (
       <React.Fragment>
         <Helmet>
           <link
-            title={i18n.sprintf(i18n.gettext('Firefox Add-ons (%(locale)s)'), {
-              locale: apiLang,
-            })}
+            title={openSearchTitle}
             rel="search"
             type="application/opensearchdescription+xml"
             href={`/${apiLang || ''}/${clientApp || ''}/opensearch.xml`}

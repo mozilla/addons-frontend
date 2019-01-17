@@ -151,7 +151,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeHistory.push);
   });
 
-  it('renders a Helmet', () => {
+  it('renders a Helmet component with an opensearch link', () => {
     const root = render();
 
     const helmet = root.find(Helmet);
@@ -161,34 +161,31 @@ describe(__filename, () => {
     expect(link).toHaveLength(1);
     expect(link).toHaveProp('rel', 'search');
     expect(link).toHaveProp('type', 'application/opensearchdescription+xml');
-    expect(link).toHaveProp('href');
-    expect(link).toHaveProp('title');
   });
 
-  it('renders opensearch link when client App is Android and lang is en-CA', () => {
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_ANDROID,
-      lang: 'en-CA',
-    });
-    const root = render({ store });
-    const link = root.find('link');
+  it('renders an opensearch link for Android', () => {
+    const clientApp = CLIENT_APP_ANDROID;
+    const lang = 'en-CA';
 
-    expect(link).toHaveProp(
-      'href',
-      `/en-CA/${CLIENT_APP_ANDROID}/opensearch.xml`,
-    );
-    expect(link).toHaveProp('title', 'Firefox Add-ons (en-CA)');
+    const { store } = dispatchClientMetadata({ clientApp, lang });
+
+    const root = render({ store });
+
+    const link = root.find('link');
+    expect(link).toHaveProp('href', `/${lang}/${clientApp}/opensearch.xml`);
+    expect(link).toHaveProp('title', `Firefox Add-ons for Android (${lang})`);
   });
 
-  it('renders opensearch link when client App is Firefox and lang is fr', () => {
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_FIREFOX,
-      lang: 'fr',
-    });
-    const root = render({ store });
-    const link = root.find('link');
+  it('renders an opensearch link for Firefox', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'fr';
 
-    expect(link).toHaveProp('href', `/fr/${CLIENT_APP_FIREFOX}/opensearch.xml`);
-    expect(link).toHaveProp('title', 'Firefox Add-ons (fr)');
+    const { store } = dispatchClientMetadata({ clientApp, lang });
+
+    const root = render({ store });
+
+    const link = root.find('link');
+    expect(link).toHaveProp('href', `/${lang}/${clientApp}/opensearch.xml`);
+    expect(link).toHaveProp('title', `Firefox Add-ons (${lang})`);
   });
 });
