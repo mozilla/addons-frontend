@@ -244,6 +244,36 @@ describe(__filename, () => {
     );
   });
 
+  // See: https://github.com/mozilla/addons-frontend/issues/7424
+  it('dispatches fetchCurrentCollection on mount with a username in the URL', () => {
+    const { store } = dispatchClientMetadata();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    const errorHandler = createStubErrorHandler();
+    const slug = 'collection-slug';
+    const userId = 'this-is-not-a-user-id';
+    const params = { slug, userId };
+
+    renderComponent({ errorHandler, match: { params }, store });
+
+    // These are the expected default values for filters.
+    const filters = {
+      page: '1',
+      collectionSort: COLLECTION_SORT_DATE_ADDED_DESCENDING,
+    };
+
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(
+      fakeDispatch,
+      fetchCurrentCollection({
+        errorHandlerId: errorHandler.id,
+        filters,
+        slug,
+        userId,
+      }),
+    );
+  });
+
   it('does not dispatch any fetches when switching to edit mode', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
