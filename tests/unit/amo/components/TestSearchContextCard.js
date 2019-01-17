@@ -104,7 +104,7 @@ describe(__filename, () => {
     dispatchSearchResults({ store: _store, filters: {} });
     const root = render();
 
-    expect(root.find('.SearchContextCard-header')).toIncludeText(
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
       '2 results found',
     );
   });
@@ -129,7 +129,7 @@ describe(__filename, () => {
     });
     const root = render();
 
-    expect(root.find('.SearchContextCard-header')).toIncludeText(
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
       '1 result found',
     );
   });
@@ -138,7 +138,7 @@ describe(__filename, () => {
     dispatchSearchResults({ store: _store, addons: [], filters: {} });
     const root = render();
 
-    expect(root.find('.SearchContextCard-header')).toIncludeText(
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
       '0 results found',
     );
   });
@@ -271,7 +271,7 @@ describe(__filename, () => {
 
     const root = render();
 
-    expect(root.find('.SearchContextCard-header')).toIncludeText(
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
       '2 themes found',
     );
   });
@@ -419,7 +419,7 @@ describe(__filename, () => {
 
     const root = render();
 
-    expect(root.find('.SearchContextCard-header')).toIncludeText(
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
       '2 extensions found',
     );
   });
@@ -491,8 +491,29 @@ describe(__filename, () => {
 
     const root = render();
 
-    expect(root.find('.SearchContextCard-header')).toIncludeText(
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
       '2 results found',
+    );
+  });
+
+  it('should not render results with categoryName text if there is no category for that addonType', () => {
+    _fetchCategories();
+    _loadCategories({
+      results: [],
+    });
+
+    dispatchSearchResults({
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        category: 'test',
+      },
+      store: _store,
+    });
+
+    const root = render();
+
+    expect(root.find('.SearchContextCard-header').text()).toEqual(
+      '2 extensions found',
     );
   });
 });

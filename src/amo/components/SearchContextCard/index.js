@@ -196,11 +196,7 @@ export function mapStateToProps(state: AppState) {
       const appTypes = categoriesState[clientApp];
 
       if (appTypes) {
-        if (
-          filters &&
-          filters.addonType &&
-          typeof filters.addonType === 'string'
-        ) {
+        if (filters.addonType && typeof filters.addonType === 'string') {
           // eslint-disable-next-line prefer-destructuring
           let addonType = filters.addonType;
           if (addonType === ADDON_TYPE_THEMES_FILTER) {
@@ -209,7 +205,7 @@ export function mapStateToProps(state: AppState) {
 
           const categories = appTypes[addonType];
 
-          if (categories) {
+          if (categories && categories[currentCategory]) {
             categoryName = categories[currentCategory].name;
           }
         }
