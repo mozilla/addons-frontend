@@ -83,10 +83,10 @@ export function* fetchHomeAddons({
       page_size: String(LANDING_PAGE_THEME_COUNT),
     },
   };
-  const popularExtensionsParams: SearchParams = {
+  const popularAddonsParams: SearchParams = {
     api: state.api,
     filters: {
-      addonType: ADDON_TYPE_EXTENSION,
+      addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
       page_size: String(LANDING_PAGE_EXTENSION_COUNT),
       sort: SEARCH_SORT_POPULAR,
     },
@@ -107,7 +107,7 @@ export function* fetchHomeAddons({
       featuredThemes: includeFeaturedThemes
         ? call(searchApi, featuredThemesParams)
         : null,
-      popularExtensions: call(searchApi, popularExtensionsParams),
+      popularAddons: call(searchApi, popularAddonsParams),
       trendingExtensions: includeTrendingExtensions
         ? call(searchApi, trendingExtensionsParams)
         : null,
