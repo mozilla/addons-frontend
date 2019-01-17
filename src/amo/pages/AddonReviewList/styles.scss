@@ -35,14 +35,25 @@
   text-align: center;
 }
 
-.AddonReviewList-filterByScore {
-  margin-bottom: 12px;
+.AddonReviewList-filterByScoreSelector {
+  font-size: $font-size-s;
+  width: auto;
 }
 
-.AddonReviewList-filterByScoreSelector {
+.AddonReviewList-cardListHeader {
+  display: flex;
+}
+
+.AddonReviewList-reviewCount {
+  margin: auto;
+  // This is necessary for LoadingText to be visible.
   width: 100%;
 
-  @include respond-to(medium) {
-    width: auto;
-  }
+  @include margin-start(0);
+}
+
+.AddonReviewList-filterByScore {
+  margin: auto;
+
+  @include margin-end(0);
 }

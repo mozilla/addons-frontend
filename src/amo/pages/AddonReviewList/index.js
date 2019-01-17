@@ -213,33 +213,23 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     const { addon, i18n, location } = this.props;
 
     return (
-      <div className="AddonReviewList-filterByScore">
-        <Select
-          className="AddonReviewList-filterByScoreSelector"
-          disabled={!addon}
-          onChange={this.onSelectOption}
-          value={location.query.score || SHOW_ALL_REVIEWS}
-        >
-          <option value={SHOW_ALL_REVIEWS}>
-            {i18n.gettext('Show all reviews')}
-          </option>
-          <option value={5}>
-            {i18n.gettext('Show only five-star reviews')}
-          </option>
-          <option value={4}>
-            {i18n.gettext('Show only four-star reviews')}
-          </option>
-          <option value={3}>
-            {i18n.gettext('Show only three-star reviews')}
-          </option>
-          <option value={2}>
-            {i18n.gettext('Show only two-star reviews')}
-          </option>
-          <option value={1}>
-            {i18n.gettext('Show only one-star reviews')}
-          </option>
-        </Select>
-      </div>
+      <Select
+        className="AddonReviewList-filterByScoreSelector"
+        disabled={!addon}
+        onChange={this.onSelectOption}
+        value={location.query.score || SHOW_ALL_REVIEWS}
+      >
+        <option value={SHOW_ALL_REVIEWS}>
+          {i18n.gettext('Show all reviews')}
+        </option>
+        <option value={5}>{i18n.gettext('Show only five-star reviews')}</option>
+        <option value={4}>{i18n.gettext('Show only four-star reviews')}</option>
+        <option value={3}>
+          {i18n.gettext('Show only three-star reviews')}
+        </option>
+        <option value={2}>{i18n.gettext('Show only two-star reviews')}</option>
+        <option value={1}>{i18n.gettext('Show only one-star reviews')}</option>
+      </Select>
     );
   }
 
@@ -283,7 +273,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         })
       : '';
 
-    const reviewCountHTML =
+    const reviewCountText =
       reviewCount !== null ? (
         i18n.sprintf(
           i18n.ngettext('%(total)s review', '%(total)s reviews', reviewCount),
@@ -294,6 +284,15 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       ) : (
         <LoadingText />
       );
+
+    const reviewCountHTML = (
+      <div className="AddonReviewList-cardListHeader">
+        <div className="AddonReviewList-reviewCount">{reviewCountText}</div>
+        <div className="AddonReviewList-filterByScore">
+          {this.filterByScoreSelector()}
+        </div>
+      </div>
+    );
 
     const addonReviewCount =
       addon && addon.ratings ? addon.ratings.count : null;
@@ -351,7 +350,6 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
               siteUserCanReply={siteUserCanReplyToReviews}
             />
           )}
-          {this.filterByScoreSelector()}
           {allReviews.length ? (
             <CardList
               className="AddonReviewList-reviews-listing"

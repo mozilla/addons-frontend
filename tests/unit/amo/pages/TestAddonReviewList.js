@@ -35,6 +35,7 @@ import {
   loadAddonResults,
 } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
+import LoadingText from 'ui/components/LoadingText';
 import {
   createFakeEvent,
   createFakeHistory,
@@ -112,6 +113,23 @@ describe(__filename, () => {
       ...params,
     });
     store.dispatch(action);
+  };
+
+  const renderWithAddonAndReviews = ({
+    params = {},
+    reviews = [
+      { ...fakeReview, id: 1, score: 1 },
+      { ...fakeReview, id: 2, score: 2 },
+    ],
+    ...props
+  } = {}) => {
+    const addonSlug = 'example-slug';
+    const addon = { ...fakeAddon, slug: addonSlug };
+    loadAddon(addon);
+
+    _setAddonReviews({ reviews });
+
+    return render({ params: { addonSlug, ...params }, ...props });
   };
 
   const signInAndSetReviewPermissions = ({
@@ -751,8 +769,28 @@ describe(__filename, () => {
       const root = render();
 
       const cardList = root.find('.AddonReviewList-reviews-listing');
+
       expect(cardList).toHaveProp('header');
-      expect(cardList.prop('header')).toContain(`${reviewCount} reviews`);
+
+      const header = shallow(cardList.prop('header'));
+      expect(header.find('.AddonReviewList-reviewCount')).toHaveText(
+        `${reviewCount} reviews`,
+      );
+    });
+
+    it('configures CardList header with LoadingText', () => {
+      const addonSlug = 'example-slug';
+      const addon = { ...fakeAddon, slug: addonSlug };
+      loadAddon(addon);
+      // Set up a state where reviews have not yet been loaded.
+      const root = render({ params: { addonSlug } });
+
+      const cardList = root.find('.AddonReviewList-reviews-listing');
+
+      expect(cardList).toHaveProp('header');
+
+      const header = shallow(cardList.prop('header'));
+      expect(header.find(LoadingText)).toHaveLength(1);
     });
 
     describe('with pagination', () => {
@@ -832,14 +870,7 @@ describe(__filename, () => {
     });
 
     it('does not render a robots meta tag', () => {
-      const reviews = [
-        { ...fakeReview, id: 1, score: 1 },
-        { ...fakeReview, id: 2, score: 2 },
-      ];
-      loadAddon(createInternalAddon(fakeAddon));
-      _setAddonReviews({ reviews });
-
-      const root = render();
+      const root = renderWithAddonAndReviews();
 
       expect(root.find('meta[name="robots"]')).toHaveLength(0);
     });
@@ -849,10 +880,9 @@ describe(__filename, () => {
         { ...fakeReview, id: 1, score: 1 },
         { ...fakeReview, id: 2, score: 2 },
       ];
-      loadAddon(createInternalAddon(fakeAddon));
-      _setAddonReviews({ reviews });
 
-      const root = render({
+      const root = renderWithAddonAndReviews({
+        reviews,
         params: { reviewId: reviews[0].id.toString() },
       });
 
@@ -1014,10 +1044,10 @@ describe(__filename, () => {
   });
 
   it('renders a "description" meta tag', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addon = { ...fakeAddon };
     loadAddon(addon);
 
-    const root = render();
+    const root = renderWithAddonAndReviews();
 
     expect(root.find('meta[name="description"]')).toHaveLength(1);
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
@@ -1034,14 +1064,18 @@ describe(__filename, () => {
       let addon;
       const addonSlug = 'example-slug';
       if (preloadAddon) {
-        addon = createInternalAddon({ ...fakeAddon, slug: addonSlug });
+        addon = { ...fakeAddon, slug: addonSlug };
         loadAddon(addon);
       }
 
       const root = render({ params: { addonSlug }, ...props });
+      const header = shallow(
+        root.find('.AddonReviewList-reviews-listing').prop('header'),
+      );
+
       return {
         addon,
-        selector: root.find('.AddonReviewList-filterByScoreSelector'),
+        selector: header.find('.AddonReviewList-filterByScoreSelector'),
       };
     }
 
