@@ -340,14 +340,14 @@ function baseServer(
           store.dispatch(dismissSurvey());
         }
 
-        const mozClientIdHeader = DISCO_TAAR_CLIENT_ID_HEADER;
-
         if (
           appName === 'disco' &&
           config.get('enableFeatureDiscoTaar') &&
-          req.headers[mozClientIdHeader]
+          req.headers[DISCO_TAAR_CLIENT_ID_HEADER]
         ) {
-          store.dispatch(setHashedClientId(req.headers[mozClientIdHeader]));
+          store.dispatch(
+            setHashedClientId(req.headers[DISCO_TAAR_CLIENT_ID_HEADER]),
+          );
         }
 
         pageProps = getPageProps({ store, req, res, config });

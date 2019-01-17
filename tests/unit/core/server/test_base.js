@@ -536,6 +536,30 @@ describe(__filename, () => {
       expect(store.getState().telemetry).toEqual(undefined);
     });
 
+    it('does not dispatch setHashedClientId() if moz-client-id is null', async () => {
+      const fakeConfig = getFakeConfig({
+        enableFeatureDiscoTaar: true,
+      });
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const response = await testClient({
+        appInstanceName: 'disco',
+        config: fakeConfig,
+        store,
+        sagaMiddleware,
+      })
+        .get('/en-US/firefox/')
+        .set(DISCO_TAAR_CLIENT_ID_HEADER, null)
+        .end();
+
+      sinon.assert.neverCalledWith(dispatchSpy, setHashedClientId('1112'));
+
+      expect(response.statusCode).toEqual(200);
+      expect(store.getState().telemetry).toEqual(undefined);
+    });
+
     it('does not dispatch setHashedClientId() if app is not disco', async () => {
       const clientId = '1112';
       const fakeConfig = getFakeConfig({
