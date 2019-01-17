@@ -1,8 +1,9 @@
 import * as React from 'react';
+import Helmet from 'react-helmet';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import SearchForm, { SearchFormBase } from 'amo/components/SearchForm';
-import { CLIENT_APP_FIREFOX } from 'core/constants';
+import { CLIENT_APP_FIREFOX, CLIENT_APP_ANDROID } from 'core/constants';
 import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import {
@@ -57,7 +58,7 @@ describe(__filename, () => {
     const className = 'MyClass';
     const root = render({ className });
 
-    expect(root).toHaveClassName(className);
+    expect(root.find('form')).toHaveClassName(className);
   });
 
   it('generates a base search URL', () => {
@@ -148,5 +149,43 @@ describe(__filename, () => {
     onSuggestionSelected(suggestion);
 
     sinon.assert.notCalled(fakeHistory.push);
+  });
+
+  it('renders a Helmet component with an opensearch link', () => {
+    const root = render();
+
+    const helmet = root.find(Helmet);
+    expect(helmet).toHaveLength(1);
+
+    const link = helmet.find('link');
+    expect(link).toHaveLength(1);
+    expect(link).toHaveProp('rel', 'search');
+    expect(link).toHaveProp('type', 'application/opensearchdescription+xml');
+  });
+
+  it('renders an opensearch link for Android', () => {
+    const clientApp = CLIENT_APP_ANDROID;
+    const lang = 'en-CA';
+
+    const { store } = dispatchClientMetadata({ clientApp, lang });
+
+    const root = render({ store });
+
+    const link = root.find('link');
+    expect(link).toHaveProp('href', `/${lang}/${clientApp}/opensearch.xml`);
+    expect(link).toHaveProp('title', `Firefox Add-ons for Android (${lang})`);
+  });
+
+  it('renders an opensearch link for Firefox', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'fr';
+
+    const { store } = dispatchClientMetadata({ clientApp, lang });
+
+    const root = render({ store });
+
+    const link = root.find('link');
+    expect(link).toHaveProp('href', `/${lang}/${clientApp}/opensearch.xml`);
+    expect(link).toHaveProp('title', `Firefox Add-ons (${lang})`);
   });
 });
