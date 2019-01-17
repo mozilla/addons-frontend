@@ -171,7 +171,6 @@ describe(__filename, () => {
     expect(shelf).toHaveProp('footerLink', {
       pathname: '/search/',
       query: {
-        q: 'themes',
         addonType: ADDON_TYPE_THEMES_FILTER,
         sort: SEARCH_SORT_POPULAR,
       },

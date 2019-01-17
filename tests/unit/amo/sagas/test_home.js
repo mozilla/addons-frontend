@@ -128,7 +128,7 @@ describe(__filename, () => {
           ...baseArgs,
           filters: {
             page_size: String(LANDING_PAGE_EXTENSION_COUNT),
-            addonType: ADDON_TYPE_EXTENSION,
+            addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
             sort: SEARCH_SORT_POPULAR,
           },
         })

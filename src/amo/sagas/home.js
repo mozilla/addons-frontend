@@ -86,7 +86,7 @@ export function* fetchHomeAddons({
   const popularAddonsParams: SearchParams = {
     api: state.api,
     filters: {
-      addonType: ADDON_TYPE_EXTENSION,
+      addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
       page_size: String(LANDING_PAGE_EXTENSION_COUNT),
       sort: SEARCH_SORT_POPULAR,
     },

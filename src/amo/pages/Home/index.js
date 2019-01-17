@@ -60,13 +60,13 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
       ...FEATURED_COLLECTIONS[0],
     },
     {
-      footerText: i18n.gettext('See more health & wellness add-ons'),
+      footerText: i18n.gettext('See more health & wellness extensions'),
       header: i18n.gettext('Health & Wellness'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[1],
     },
     {
-      footerText: i18n.gettext('See more productivity add-ons'),
+      footerText: i18n.gettext('See more productivity extensions'),
       header: i18n.gettext('Be more productive'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[2],
@@ -357,7 +357,6 @@ export class HomeBase extends React.Component {
           footerLink={{
             pathname: '/search/',
             query: {
-              q: 'themes',
               addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
                 _config: this.props._config,
               }),
