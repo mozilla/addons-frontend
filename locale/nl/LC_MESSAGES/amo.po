@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-15 18:51+0000\n"
-"PO-Revision-Date: 2019-01-16 06:36+0000\n"
-"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
+"PO-Revision-Date: 2019-01-16 13:06+0000\n"
+"Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -2069,11 +2069,11 @@ msgstr[1] "Versiegeschiedenis van %(addonName)s - %(total)s versies"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr "Wees voorzichtig met oude versies! Deze versies worden getoond voor test- en referentiedoeleinden."
+msgstr "Wees voorzichtig met oude versies! Deze versies worden voor test- en referentiedoeleinden weergegeven."
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr "U zou altijd de nieuwste versie van een add-on moeten gebruiken."
+msgstr "U dient altijd de meest recente versie van een add-on te gebruiken."
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Latest version"
