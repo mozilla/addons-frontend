@@ -1,4 +1,4 @@
-FROM node:8-slim
+FROM node:10-slim
 
 # Install node_modules into a different directory to avoid npm/npm#9863.
 RUN mkdir -p /srv/node
@@ -12,6 +12,8 @@ COPY docker/etc/pki/yarnpkg.gpg.key /etc/pki/yarnpkg.gpg.key
 RUN buildDeps=' \
     git \
     yarn \
+    python \
+    build-essential \
     ' && \
     # `apt-transport-https` is required to use https deb repositories
     apt-get update -y && \
