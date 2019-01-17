@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-15 18:51+0000\n"
-"PO-Revision-Date: 2019-01-15 19:46+0000\n"
-"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
+"PO-Revision-Date: 2019-01-16 14:12+0000\n"
+"Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -525,7 +525,7 @@ msgstr "Icône du module"
 #: src/amo/components/AddonSummaryCard/index.js:62
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] "Noté %(rating)s sur 5"
+msgstr[0] "%(rating)s étoile sur 5"
 msgstr[1] "%(rating)s étoiles sur 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
@@ -786,17 +786,19 @@ msgstr "Oups, cette page est introuvable"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Si vous avez suivi un lien depuis un autre site pour une extension ou un thème, cet élément n’est plus disponible. En voici les causes possibles :"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:69
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "Le développeur l’a supprimé. Les développeurs le font généralement parce qu’ils ne maintiennent plus l’extension ou le thème, ou ont remplacé ce module."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:74
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla l’a supprimé. Cela peut se produire lorsque des problèmes sont détectés lors de la révision de l’extension ou du thème, ou que l’extension ou le thème enfreint les termes et conditions de "
+"addons.mozilla.org. Le développeur a la possibilité de résoudre les problèmes et de rendre le module complémentaire disponible à nouveau."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
 msgid ""
@@ -2070,11 +2072,11 @@ msgstr[1] "Historique de versions de %(addonName)s - %(total)s versions"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "Attention aux anciennes versions ! Elles sont affichées seulement à des fins de test et de référence."
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "Vous devriez toujours utiliser la dernière version d’un module complémentaire."
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Latest version"
