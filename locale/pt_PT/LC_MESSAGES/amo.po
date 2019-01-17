@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-15 18:51+0000\n"
-"PO-Revision-Date: 2019-01-15 19:41+0000\n"
+"PO-Revision-Date: 2019-01-17 14:09+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -775,6 +775,8 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
+"Tente visitar a página mais tarde, pois o tema ou a extensão pode ficar disponível novamente. Como alternativa, pode encontrar o que procura numa das %(linkStart)sextensões%(linkEnd)s ou "
+"%(secondLinkStart)stemas%(secondLinkEnd)s disponíveis."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
@@ -2066,11 +2068,11 @@ msgstr[1] "Histórico de versões de %(addonName)s - %(total)s versões"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "Tenha cuidado com versões antigas! Estas versões são mostradas para fins de teste e referência."
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "Deve sempre utilizar a versão mais recente de um extra."
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Latest version"
@@ -2183,6 +2185,7 @@ msgstr "Pare os trackers online de-lhe perseguirem"
 #: src/amo/pages/Guides/index.js:116
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
 msgstr ""
+"Os anunciantes online podem acompanhar a sua atividade de um website para o seguinte, reunindo informação acerca de si e os seus interesses. As extensões podem ajudar a cobrir o seu rasto digital."
 
 #: src/amo/pages/Guides/index.js:121
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
@@ -2201,10 +2204,12 @@ msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Se costuma trabalhar com muitas separadores abertos, provavelmente já está familiarizado(a) com a frustração de pesquisar por uma linha de separadores não identificáveis, ​​procurando apenas aquele "
+"que precisa. As extensões podem oferecer soluções criativas para simplificar a gestão de separadores."
 
 #: src/amo/pages/Guides/index.js:143
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Organize e visualize os seus separadores num formato de estilo em cascata de “árvore” na barra lateral do Firefox."
 
 #: src/amo/pages/Guides/index.js:147
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
@@ -2216,7 +2221,7 @@ msgstr "Melhor navegação com marcadores melhorados"
 
 #: src/amo/pages/Guides/index.js:156
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "As extensões podem ajudar-lhe a organizar os seus interesses online. Os gestores de marcadores são ideais para pessoas com muito conteúdo para acompanhar."
 
 #: src/amo/pages/Guides/index.js:160
 msgid ""
