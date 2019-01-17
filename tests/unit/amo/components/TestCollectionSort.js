@@ -6,7 +6,6 @@ import CollectionSort, {
 import { createInternalCollection } from 'amo/reducers/collections';
 import { CLIENT_APP_FIREFOX, COLLECTION_SORT_NAME } from 'core/constants';
 import {
-  createFakeCollectionAddons,
   createFakeCollectionDetail,
   createContextWithFakeRouter,
   createFakeEvent,
@@ -21,7 +20,6 @@ describe(__filename, () => {
     const { history, ...props } = {
       collection: createInternalCollection({
         detail: createFakeCollectionDetail(),
-        items: createFakeCollectionAddons(),
       }),
       editing: false,
       filters: {},
@@ -80,7 +78,6 @@ describe(__filename, () => {
             authorId: userId,
             slug,
           }),
-          items: createFakeCollectionAddons(),
         });
 
         const { store } = dispatchClientMetadata({ clientApp, lang });

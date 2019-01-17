@@ -101,7 +101,7 @@ describe(__filename, () => {
       _fetchCurrentCollection({ filters, slug, userId });
 
       const expectedLoadAction = loadCurrentCollection({
-        addons: collectionAddons,
+        addonsResponse: collectionAddons,
         detail: collectionDetail,
       });
 
@@ -171,7 +171,7 @@ describe(__filename, () => {
       _fetchCurrentCollectionPage({ filters, slug, userId });
 
       const expectedLoadAction = loadCurrentCollectionPage({
-        addons: collectionAddons,
+        addonsResponse: collectionAddons,
       });
 
       const loadAction = await sagaTester.waitFor(expectedLoadAction.type);

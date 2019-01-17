@@ -45,11 +45,11 @@ import {
 
 describe(__filename, () => {
   const _loadCurrentCollection = ({
-    addons = createFakeCollectionAddonsListResponse(),
+    addonsResponse = createFakeCollectionAddonsListResponse(),
     detail = createFakeCollectionDetail(),
   } = {}) => {
     return loadCurrentCollection({
-      addons,
+      addonsResponse,
       detail,
     });
   };
@@ -121,7 +121,7 @@ describe(__filename, () => {
       const state = reducer(
         undefined,
         _loadCurrentCollection({
-          addons: collectionAddons,
+          addonsResponse: collectionAddons,
           detail: collectionDetail,
         }),
       );
@@ -132,7 +132,7 @@ describe(__filename, () => {
       expect(loadedCollection).toEqual(
         createInternalCollection({
           detail: collectionDetail,
-          addons: collectionAddons,
+          addonsResponse: collectionAddons,
         }),
       );
       expect(state.current.loading).toEqual(false);
@@ -163,7 +163,7 @@ describe(__filename, () => {
       let state = reducer(
         undefined,
         _loadCurrentCollection({
-          addons: createFakeCollectionAddonsListResponse(),
+          addonsResponse: createFakeCollectionAddonsListResponse(),
           detail: collectionDetail,
         }),
       );
@@ -190,13 +190,13 @@ describe(__filename, () => {
     });
 
     it('cannot load collection page without a current collection', () => {
-      const addons = createFakeCollectionAddonsListResponse();
+      const addonsResponse = createFakeCollectionAddonsListResponse();
 
       expect(() =>
         reducer(
           undefined,
           loadCurrentCollectionPage({
-            addons,
+            addonsResponse,
           }),
         ),
       ).toThrow(/current collection does not exist/);
@@ -217,7 +217,7 @@ describe(__filename, () => {
       state = reducer(
         state,
         loadCurrentCollectionPage({
-          addons: newAddons,
+          addonsResponse: newAddons,
         }),
       );
 
@@ -331,14 +331,12 @@ describe(__filename, () => {
       expect(state.byId[userState.collections[0]]).toEqual(
         createInternalCollection({
           detail: firstCollection,
-          numberOfAddons: firstCollection.addon_count,
           pageSize: null,
         }),
       );
       expect(state.byId[userState.collections[1]]).toEqual(
         createInternalCollection({
           detail: secondCollection,
-          numberOfAddons: secondCollection.addon_count,
           pageSize: null,
         }),
       );
@@ -688,21 +686,19 @@ describe(__filename, () => {
 
   describe('loadCollectionIntoState', () => {
     it('preserves existing collection addons', () => {
-      const fakeCollectionAddon = createFakeCollectionAddon({
-        addon: { ...fakeAddon, id: 1 },
+      const addonsResponse = createFakeCollectionAddonsListResponse({
+        addons: [
+          createFakeCollectionAddon({
+            addon: { ...fakeAddon, id: 1 },
+          }),
+        ],
       });
-      const addons = createFakeCollectionAddonsListResponse({
-        addons: [fakeCollectionAddon],
-      });
-      const collection = createFakeCollectionDetail({
-        id: 1,
-        addons,
-      });
+      const collection = createFakeCollectionDetail({ id: 1 });
 
       let state = loadCollectionIntoState({
         state: initialState,
         collection,
-        addons,
+        addonsResponse,
       });
 
       // Simulate loading it a second time but without addons.
@@ -710,22 +706,24 @@ describe(__filename, () => {
 
       const collectionInState = state.byId[collection.id];
       expect(collectionInState.addons).toEqual(
-        createInternalAddons(addons.results),
+        createInternalAddons(addonsResponse.results),
       );
     });
 
     it('loads notes for collection add-ons', () => {
       const notes = 'These are some notes.';
       const fakeCollectionAddon = createFakeCollectionAddon({ notes });
-      const addons = createFakeCollectionAddonsListResponse({
+      const addonsResponse = createFakeCollectionAddonsListResponse({
         addons: [fakeCollectionAddon],
       });
-      const collection = createFakeCollectionDetail({ addons: addons.results });
+      const collection = createFakeCollectionDetail({
+        addons: addonsResponse.results,
+      });
 
       const state = loadCollectionIntoState({
         state: initialState,
         collection,
-        addons,
+        addonsResponse,
       });
 
       const collectionInState = state.byId[collection.id];
@@ -740,17 +738,17 @@ describe(__filename, () => {
 
     it('returns a collection', () => {
       const id = 45321;
-      const addons = createFakeCollectionAddonsListResponse();
+      const addonsResponse = createFakeCollectionAddonsListResponse();
       const collectionDetail = createFakeCollectionDetail({ id });
       const internalCollection = createInternalCollection({
-        addons,
+        addonsResponse,
         detail: collectionDetail,
       });
 
       const state = reducer(
         undefined,
         _loadCurrentCollection({
-          addons,
+          addonsResponse,
           detail: collectionDetail,
         }),
       );
@@ -773,17 +771,17 @@ describe(__filename, () => {
 
     it('returns the current collection', () => {
       const id = 45321;
-      const addons = createFakeCollectionAddonsListResponse();
+      const addonsResponse = createFakeCollectionAddonsListResponse();
       const collectionDetail = createFakeCollectionDetail({ id });
       const internalCollection = createInternalCollection({
-        addons,
+        addonsResponse,
         detail: collectionDetail,
       });
 
       const state = reducer(
         undefined,
         _loadCurrentCollection({
-          addons,
+          addonsResponse,
           detail: collectionDetail,
         }),
       );
@@ -806,7 +804,7 @@ describe(__filename, () => {
       const fakeCollectionAddon = createFakeCollectionAddon({
         addon: { ...fakeAddon, id: 1 },
       });
-      const addons = createFakeCollectionAddonsListResponse({
+      const addonsResponse = createFakeCollectionAddonsListResponse({
         addons: [fakeCollectionAddon],
       });
       const collectionDetail = createFakeCollectionDetail();
@@ -815,7 +813,7 @@ describe(__filename, () => {
       let state = reducer(
         undefined,
         _loadCurrentCollection({
-          addons,
+          addonsResponse,
           detail: collectionDetail,
         }),
       );
@@ -925,7 +923,7 @@ describe(__filename, () => {
       state = reducer(
         state,
         _loadCurrentCollection({
-          addons: collection1Addons,
+          addonsResponse: collection1Addons,
           detail: collection1Detail,
         }),
       );
@@ -935,7 +933,7 @@ describe(__filename, () => {
       state = reducer(
         state,
         _loadCurrentCollection({
-          addons: collection2Addons,
+          addonsResponse: collection2Addons,
           detail: collection2Detail,
         }),
       );
@@ -946,7 +944,7 @@ describe(__filename, () => {
       expect(state.byId[collection1Detail.id]).toEqual(
         createInternalCollection({
           detail: collection1Detail,
-          addons: collection1Addons,
+          addonsResponse: collection1Addons,
         }),
       );
     });
@@ -1007,14 +1005,12 @@ describe(__filename, () => {
       expect(collections[0]).toEqual(
         createInternalCollection({
           detail: firstCollection,
-          numberOfAddons: firstCollection.addon_count,
           pageSize: null,
         }),
       );
       expect(collections[1]).toEqual(
         createInternalCollection({
           detail: secondCollection,
-          numberOfAddons: secondCollection.addon_count,
           pageSize: null,
         }),
       );
@@ -1040,7 +1036,6 @@ describe(__filename, () => {
       expect(collections[0]).toEqual(
         createInternalCollection({
           detail: firstCollection,
-          numberOfAddons: firstCollection.addon_count,
           pageSize: null,
         }),
       );
@@ -1124,29 +1119,22 @@ describe(__filename, () => {
       expect(createInternalCollection({ detail })).toHaveProperty('name', '');
     });
 
-    it('defaults the numberOfAddons to 0', () => {
-      expect(
-        createInternalCollection({ detail: createFakeCollectionDetail() }),
-      ).toHaveProperty('numberOfAddons', 0);
-    });
-
-    it('uses a count from addons for numberOfAddons', () => {
+    it('uses a count from addonsResponse for numberOfAddons', () => {
       const count = 19;
 
       expect(
         createInternalCollection({
-          addons: createFakeCollectionAddonsListResponse({ count }),
+          addonsResponse: createFakeCollectionAddonsListResponse({ count }),
           detail: createFakeCollectionDetail(),
         }),
       ).toHaveProperty('numberOfAddons', count);
     });
 
-    it('uses a passed in numberOfAddons when there are no addons', () => {
+    it('uses a count from collection detail', () => {
       const numberOfAddons = 19;
       expect(
         createInternalCollection({
-          detail: createFakeCollectionDetail(),
-          numberOfAddons,
+          detail: createFakeCollectionDetail({ count: numberOfAddons }),
         }),
       ).toHaveProperty('numberOfAddons', numberOfAddons);
     });

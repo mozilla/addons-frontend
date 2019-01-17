@@ -422,9 +422,17 @@ const reducer = (
     case LOAD_CURRENT_COLLECTION_PAGE:
     case LOAD_RECOMMENDATIONS:
     case SEARCH_LOADED: {
-      const { addons, results } = action.payload;
+      const { addons, addonsResponse, results } = action.payload;
 
-      const items = addons ? addons.results || addons : results;
+      let items;
+      if (results) {
+        items = results;
+      } else if (addonsResponse) {
+        items = addonsResponse.results;
+      } else {
+        items = addons.results || addons;
+      }
+
       const newVersions = {};
       for (const addon of items) {
         // For collection related actions, the addon is available in addon.addon.

@@ -54,7 +54,6 @@ describe(__filename, () => {
         modified: new Date(modified),
         name,
       }),
-      numberOfAddons: count,
     });
 
     const root = render({ collection });

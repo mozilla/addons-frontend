@@ -99,18 +99,18 @@ describe(__filename, () => {
 
     return {
       detail: createFakeCollectionDetail(),
-      addons: createFakeCollectionAddonsListResponse({ addons }),
+      addonsResponse: createFakeCollectionAddonsListResponse({ addons }),
     };
   };
 
   const _loadCurrentCollection = ({
-    addons = createFakeCollectionAddonsListResponse(),
+    addonsResponse = createFakeCollectionAddonsListResponse(),
     detail = defaultCollectionDetail,
     store,
   }) => {
     store.dispatch(
       loadCurrentCollection({
-        addons,
+        addonsResponse,
         detail,
       }),
     );
@@ -126,18 +126,18 @@ describe(__filename, () => {
   it('renders a CollectionDetailsCard', () => {
     const creating = false;
     const editing = false;
-    const addons = createFakeCollectionAddonsListResponse();
+    const addonsResponse = createFakeCollectionAddonsListResponse();
     const detail = createFakeCollectionDetail();
     const collection = createInternalCollection({
       detail,
-      addons,
+      addonsResponse,
     });
     const page = 1;
     const sort = COLLECTION_SORT_NAME;
     const queryParams = { page, collection_sort: sort };
     const { store } = dispatchClientMetadata();
 
-    _loadCurrentCollection({ addons, detail, store });
+    _loadCurrentCollection({ addonsResponse, detail, store });
 
     const wrapper = renderComponent({
       creating,
@@ -158,7 +158,7 @@ describe(__filename, () => {
 
     _loadCurrentCollection({
       store,
-      addons: createFakeCollectionAddonsListResponse({ addons: [] }),
+      addonsResponse: createFakeCollectionAddonsListResponse({ addons: [] }),
     });
 
     const wrapper = renderComponent({ store });
@@ -195,7 +195,7 @@ describe(__filename, () => {
 
     _loadCurrentCollection({
       store,
-      addons: collectionAddons,
+      addonsResponse: collectionAddons,
       detail: collectionDetail,
     });
 
@@ -209,7 +209,7 @@ describe(__filename, () => {
 
     _loadCurrentCollection({
       store,
-      addons: createFakeCollectionAddonsListResponse({ addons: [] }),
+      addonsResponse: createFakeCollectionAddonsListResponse({ addons: [] }),
     });
 
     const wrapper = renderComponent({ store });
@@ -643,12 +643,12 @@ describe(__filename, () => {
 
   it('initializes add-on placeholder count with collection add-ons', () => {
     const { store } = dispatchClientMetadata();
-    const { detail, addons } = createCollectionWithTwoAddons();
+    const { detail, addonsResponse } = createCollectionWithTwoAddons();
 
     _loadCurrentCollection({
       store,
       detail,
-      addons,
+      addonsResponse,
     });
 
     const wrapper = renderComponent({
@@ -658,13 +658,13 @@ describe(__filename, () => {
 
     expect(wrapper.find(AddonsCard)).toHaveProp(
       'placeholderCount',
-      addons.results.length,
+      addonsResponse.results.length,
     );
   });
 
   it('updates add-on placeholder count with collection add-ons', () => {
     const { store } = dispatchClientMetadata();
-    const { detail, addons } = createCollectionWithTwoAddons();
+    const { detail, addonsResponse } = createCollectionWithTwoAddons();
 
     const wrapper = renderComponent({
       params: { userId: detail.author.id, slug: detail.slug },
@@ -674,7 +674,7 @@ describe(__filename, () => {
     _loadCurrentCollection({
       store,
       detail,
-      addons,
+      addonsResponse,
     });
     simulateReduxStateChange({ wrapper, store });
 
@@ -684,7 +684,7 @@ describe(__filename, () => {
 
     expect(wrapper.find(AddonsCard)).toHaveProp(
       'placeholderCount',
-      addons.results.length,
+      addonsResponse.results.length,
     );
   });
 
@@ -702,11 +702,11 @@ describe(__filename, () => {
     });
 
     // With a pageSize < count, the pagination will be displayed.
-    const addons = createFakeCollectionAddonsListResponse({
+    const addonsResponse = createFakeCollectionAddonsListResponse({
       count: 10,
       pageSize: 5,
     });
-    _loadCurrentCollection({ store, addons, detail });
+    _loadCurrentCollection({ store, addonsResponse, detail });
 
     const wrapper = renderComponent({
       location: createFakeLocation({ query: filters }),
@@ -718,7 +718,7 @@ describe(__filename, () => {
     const paginator = shallow(footer);
 
     expect(paginator.instance()).toBeInstanceOf(Paginate);
-    expect(paginator).toHaveProp('count', addons.count);
+    expect(paginator).toHaveProp('count', addonsResponse.count);
     expect(paginator).toHaveProp('currentPage', page);
     expect(paginator).toHaveProp('pathname', `/collections/${userId}/${slug}/`);
     expect(paginator).toHaveProp('queryParams', filters);
@@ -769,19 +769,19 @@ describe(__filename, () => {
     const userId = 1234567;
 
     const { store } = dispatchClientMetadata();
-    const addons = createFakeCollectionAddonsListResponse();
+    const addonsResponse = createFakeCollectionAddonsListResponse();
     const detail = createFakeCollectionDetail({
       authorId: userId,
       slug,
     });
     const collection = createInternalCollection({
       detail,
-      addons,
+      addonsResponse,
     });
 
     _loadCurrentCollection({
       store,
-      addons,
+      addonsResponse,
       detail,
     });
 
@@ -812,7 +812,7 @@ describe(__filename, () => {
     const sort = COLLECTION_SORT_NAME;
 
     // With a pageSize < count, the pagination will be displayed.
-    const addons = createFakeCollectionAddonsListResponse({
+    const addonsResponse = createFakeCollectionAddonsListResponse({
       count: 10,
       pageSize: 5,
     });
@@ -823,7 +823,7 @@ describe(__filename, () => {
 
     _loadCurrentCollection({
       store,
-      addons,
+      addonsResponse,
       detail,
     });
 
@@ -873,13 +873,13 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
 
     const collectionAddons = createFakeCollectionAddonsListResponse({
-      addons: [],
+      addonsResponse: [],
     });
     const collectionDetail = createFakeCollectionDetail();
 
     _loadCurrentCollection({
       store,
-      addons: collectionAddons,
+      addonsResponse: collectionAddons,
       detail: collectionDetail,
     });
 
@@ -1030,14 +1030,14 @@ describe(__filename, () => {
     const filters = { collectionSort: sort, page };
     const { store } = dispatchSignInActions({ userId: authorId });
 
-    const addons = createFakeCollectionAddonsListResponse();
+    const addonsResponse = createFakeCollectionAddonsListResponse();
     const detail = createFakeCollectionDetail({ authorId });
     const collection = createInternalCollection({
       detail,
-      addons,
+      addonsResponse,
     });
 
-    _loadCurrentCollection({ addons, detail, store });
+    _loadCurrentCollection({ addonsResponse, detail, store });
 
     const root = renderComponent({
       store,
@@ -1091,10 +1091,10 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions({ userId: authorId });
 
     // This will simulate a few items on the 2nd page.
-    const addons = createFakeCollectionAddonsListResponse({
+    const addonsResponse = createFakeCollectionAddonsListResponse({
       count: DEFAULT_API_PAGE_SIZE + 2,
     });
-    const addonId = addons.results[0].addon.id;
+    const addonId = addonsResponse.results[0].addon.id;
     const detail = createFakeCollectionDetail({ authorId });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -1107,7 +1107,7 @@ describe(__filename, () => {
 
     store.dispatch(
       loadCurrentCollection({
-        addons,
+        addonsResponse,
         detail,
       }),
     );
@@ -1145,10 +1145,10 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions({ userId: authorId });
 
     // This will simulate 1 item on the 3nd page.
-    const addons = createFakeCollectionAddonsListResponse({
+    const addonsResponse = createFakeCollectionAddonsListResponse({
       count: DEFAULT_API_PAGE_SIZE * 2 + 1,
     });
-    const addonId = addons.results[0].addon.id;
+    const addonId = addonsResponse.results[0].addon.id;
     const detail = createFakeCollectionDetail({ authorId });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -1161,7 +1161,7 @@ describe(__filename, () => {
 
     store.dispatch(
       loadCurrentCollection({
-        addons,
+        addonsResponse,
         detail,
       }),
     );
@@ -1198,10 +1198,10 @@ describe(__filename, () => {
     const authorId = 11;
     const { store } = dispatchSignInActions({ userId: authorId });
 
-    const addons = createFakeCollectionAddonsListResponse({
+    const addonsResponse = createFakeCollectionAddonsListResponse({
       count: DEFAULT_API_PAGE_SIZE + 1,
     });
-    const addonId = addons.results[0].addon.id;
+    const addonId = addonsResponse.results[0].addon.id;
     const detail = createFakeCollectionDetail({ authorId });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -1215,7 +1215,7 @@ describe(__filename, () => {
 
     store.dispatch(
       loadCurrentCollection({
-        addons,
+        addonsResponse,
         detail,
       }),
     );
@@ -1263,7 +1263,7 @@ describe(__filename, () => {
 
     store.dispatch(
       loadCurrentCollection({
-        addons: createFakeCollectionAddonsListResponse(),
+        addonsResponse: createFakeCollectionAddonsListResponse(),
         detail,
       }),
     );
@@ -1296,8 +1296,8 @@ describe(__filename, () => {
     const authorId = 11;
     const { store } = dispatchSignInActions({ userId: authorId });
 
-    const addons = createFakeCollectionAddonsListResponse();
-    const addonId = addons.results[0].addon.id;
+    const addonsResponse = createFakeCollectionAddonsListResponse();
+    const addonId = addonsResponse.results[0].addon.id;
     const detail = createFakeCollectionDetail({ authorId });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -1306,7 +1306,7 @@ describe(__filename, () => {
 
     store.dispatch(
       loadCurrentCollection({
-        addons,
+        addonsResponse,
         detail,
       }),
     );
@@ -1340,8 +1340,8 @@ describe(__filename, () => {
     const authorId = 11;
     const { store } = dispatchSignInActions({ userId: authorId });
 
-    const addons = createFakeCollectionAddonsListResponse();
-    const addonId = addons.results[0].addon.id;
+    const addonsResponse = createFakeCollectionAddonsListResponse();
+    const addonId = addonsResponse.results[0].addon.id;
     const detail = createFakeCollectionDetail({ authorId });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -1351,7 +1351,7 @@ describe(__filename, () => {
 
     store.dispatch(
       loadCurrentCollection({
-        addons,
+        addonsResponse,
         detail,
       }),
     );
@@ -1398,7 +1398,7 @@ describe(__filename, () => {
 
     _loadCurrentCollection({
       store,
-      addons: collectionAddons,
+      addonsResponse: collectionAddons,
       detail: collectionDetail,
     });
 
@@ -1438,7 +1438,7 @@ describe(__filename, () => {
 
     _loadCurrentCollection({
       store,
-      addons: collectionAddons,
+      addonsResponse: collectionAddons,
       detail: collectionDetail,
     });
 

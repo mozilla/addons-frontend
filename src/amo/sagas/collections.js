@@ -81,14 +81,14 @@ export function* fetchCurrentCollection({
       filters,
     };
 
-    const { detail, addons } = yield all({
+    const { detail, addonsResponse } = yield all({
       detail: call(api.getCollectionDetail, detailParams),
-      addons: call(api.getCollectionAddons, addonsParams),
+      addonsResponse: call(api.getCollectionAddons, addonsParams),
     });
 
     yield put(
       loadCurrentCollection({
-        addons,
+        addonsResponse,
         detail,
       }),
     );
@@ -115,11 +115,11 @@ export function* fetchCurrentCollectionPage({
       slug,
       userId: String(userId),
     };
-    const addons = yield call(api.getCollectionAddons, params);
+    const addonsResponse = yield call(api.getCollectionAddons, params);
 
     yield put(
       loadCurrentCollectionPage({
-        addons,
+        addonsResponse,
       }),
     );
   } catch (error) {

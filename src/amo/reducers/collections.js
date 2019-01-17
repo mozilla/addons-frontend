@@ -68,7 +68,7 @@ export type CollectionType = {
   lastUpdatedDate: string,
   name: string,
   numberOfAddons: number,
-  pageSize: number | null,
+  pageSize: string | null,
   slug: string,
 };
 
@@ -271,13 +271,13 @@ export type ExternalCollectionDetailWithLocalizedStrings = {|
 export type CollectionAddonsListResponse = {|
   count: number,
   next: string,
-  page_size: number,
+  page_size: string,
   previous: string,
   results: ExternalCollectionAddons,
 |};
 
 type LoadCurrentCollectionParams = {|
-  addons?: CollectionAddonsListResponse,
+  addonsResponse?: CollectionAddonsListResponse,
   detail: ExternalCollectionDetail,
 |};
 
@@ -287,19 +287,19 @@ type LoadCurrentCollectionAction = {|
 |};
 
 export const loadCurrentCollection = ({
-  addons,
+  addonsResponse,
   detail,
 }: LoadCurrentCollectionParams = {}): LoadCurrentCollectionAction => {
   invariant(detail, 'detail is required');
 
   return {
     type: LOAD_CURRENT_COLLECTION,
-    payload: { addons, detail },
+    payload: { addonsResponse, detail },
   };
 };
 
 type LoadCurrentCollectionPageParams = {|
-  addons: CollectionAddonsListResponse,
+  addonsResponse: CollectionAddonsListResponse,
 |};
 
 type LoadCurrentCollectionPageAction = {|
@@ -308,13 +308,13 @@ type LoadCurrentCollectionPageAction = {|
 |};
 
 export const loadCurrentCollectionPage = ({
-  addons,
+  addonsResponse,
 }: LoadCurrentCollectionPageParams = {}): LoadCurrentCollectionPageAction => {
-  invariant(addons, 'The addons parameter is required');
+  invariant(addonsResponse, 'The addonsResponse parameter is required');
 
   return {
     type: LOAD_CURRENT_COLLECTION_PAGE,
-    payload: { addons },
+    payload: { addonsResponse },
   };
 };
 
@@ -822,57 +822,43 @@ export const getCurrentCollection = (
 };
 
 type CreateInternalCollectionParams = {|
-  addons?: CollectionAddonsListResponse,
+  addonsResponse?: CollectionAddonsListResponse,
   detail: ExternalCollectionDetail,
-  numberOfAddons?: number,
 |};
 
 export const createInternalCollection = ({
+  addonsResponse,
   detail,
-  addons,
-  numberOfAddons,
-}: CreateInternalCollectionParams): CollectionType => {
-  let countOfAddons = 0;
-  if (addons) {
-    countOfAddons = addons.count;
-  } else if (numberOfAddons !== undefined) {
-    countOfAddons = numberOfAddons;
-  }
-
-  return {
-    addons: addons ? createInternalAddons(addons.results) : null,
-    authorId: detail.author.id,
-    authorName: detail.author.name,
-    authorUsername: detail.author.username,
-    defaultLocale: detail.default_locale,
-    description: detail.description,
-    id: detail.id,
-    lastUpdatedDate: detail.modified,
-    name: detail.name || '',
-    numberOfAddons: countOfAddons,
-    pageSize: addons ? addons.page_size : null,
-    slug: detail.slug,
-  };
-};
+}: CreateInternalCollectionParams): CollectionType => ({
+  addons: addonsResponse ? createInternalAddons(addonsResponse.results) : null,
+  authorId: detail.author.id,
+  authorName: detail.author.name,
+  authorUsername: detail.author.username,
+  defaultLocale: detail.default_locale,
+  description: detail.description,
+  id: detail.id,
+  lastUpdatedDate: detail.modified,
+  name: detail.name || '',
+  numberOfAddons: addonsResponse ? addonsResponse.count : detail.addon_count,
+  pageSize: addonsResponse ? addonsResponse.page_size : null,
+  slug: detail.slug,
+});
 
 type LoadCollectionIntoStateParams = {|
-  addons?: CollectionAddonsListResponse,
+  addonsResponse?: CollectionAddonsListResponse,
   collection: ExternalCollectionDetail,
-  numberOfAddons?: number,
   state: CollectionsState,
 |};
 
 export const loadCollectionIntoState = ({
-  addons,
+  addonsResponse,
   collection,
-  numberOfAddons,
   state,
 }: LoadCollectionIntoStateParams): CollectionsState => {
   const existingCollection = state.byId[collection.id];
   const internalCollection = createInternalCollection({
     detail: collection,
-    addons,
-    numberOfAddons,
+    addonsResponse,
   });
   // In case the new collection isn't loaded with add-ons,
   // make sure we don't overwrite any existing addons.
@@ -1098,10 +1084,10 @@ const reducer = (
     }
 
     case LOAD_CURRENT_COLLECTION: {
-      const { addons, detail } = action.payload;
+      const { addonsResponse, detail } = action.payload;
 
       const newState = loadCollectionIntoState({
-        addons,
+        addonsResponse,
         collection: detail,
         state,
       });
@@ -1116,7 +1102,7 @@ const reducer = (
     }
 
     case LOAD_CURRENT_COLLECTION_PAGE: {
-      const { addons } = action.payload;
+      const { addonsResponse } = action.payload;
 
       const currentCollection = getCurrentCollection(state);
       if (!currentCollection) {
@@ -1129,9 +1115,9 @@ const reducer = (
           ...state.byId,
           [currentCollection.id]: {
             ...currentCollection,
-            addons: createInternalAddons(addons.results),
-            numberOfAddons: addons.count,
-            pageSize: addons.page_size,
+            addons: createInternalAddons(addonsResponse.results),
+            numberOfAddons: addonsResponse.count,
+            pageSize: addonsResponse.page_size,
           },
         },
         current: {
@@ -1212,7 +1198,6 @@ const reducer = (
         newState = loadCollectionIntoState({
           state: newState,
           collection,
-          numberOfAddons: collection.addon_count,
         });
       });
 
