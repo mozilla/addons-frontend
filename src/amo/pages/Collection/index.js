@@ -253,7 +253,10 @@ export class CollectionBase extends React.Component<InternalProps> {
           errorHandlerId: errorHandler.id,
           filters,
           slug: params.slug,
-          userId: Number(params.userId),
+          // It is possible that `userId` is  a `username` (string value) for
+          // backward compatibility purpose.
+          // $FLOW_IGNORE
+          userId: Number(params.userId) || params.userId,
         }),
       );
 
