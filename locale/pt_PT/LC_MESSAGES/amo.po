@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-15 18:51+0000\n"
-"PO-Revision-Date: 2019-01-17 14:09+0000\n"
+"PO-Revision-Date: 2019-01-17 14:20+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -2228,6 +2228,8 @@ msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"Precisa de ajuda para organizar todas as suas receitas de culinária online favoritas, artigos de instruções, vídeos do YouTube, ou praticamente tudo que encontrar na web? OneNote Web Clipper "
+"permite-lhe recolher e armazenar todo o seu conteúdo online favorito num repositório poderoso que sincroniza entre dispositivos."
 
 #: src/amo/pages/Guides/index.js:167
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
@@ -2255,7 +2257,7 @@ msgstr "Melhore vídeos"
 
 #: src/amo/pages/Guides/index.js:196
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
-msgstr ""
+msgstr "Se desfruta de conteúdo de vídeo, as extensões oferecem várias maneiras para otimizar a sua experiência, incluindo personalizar o YouTube a seu gosto e reproduzir vídeos no modo cinema."
 
 #: src/amo/pages/Guides/index.js:201
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
@@ -2274,12 +2276,15 @@ msgstr "Obtenha mais da multimédia"
 #: src/amo/pages/Guides/index.js:215
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
 msgstr ""
+"As extensões podem responder a uma ampla variedade de necessidades e interesses de nicho de multimédia, como pesquisa de imagens, gestão de transferências, e leitores de texto, para citar alguns."
 
 #: src/amo/pages/Guides/index.js:220
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Já se deparou com uma imagem intrigante na web e quer saber mais acerca da mesma, tal como quem é a pessoa na fotografia? Existem imagens relacionadas? Esta extensão permite-lhe realizar pesquisas "
+"inversas de imagem rápidas e fáceis por meio de vários motores."
 
 #: src/amo/pages/Guides/index.js:226
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
@@ -2291,7 +2296,7 @@ msgstr "Traga a multimédia diretamente para o navegador"
 
 #: src/amo/pages/Guides/index.js:235
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "As extensões podem transformar o Firefox no seu próprio ponto central de entretenimento que oferece acesso instantâneo a música, captura de imagens, jogos, e mais."
 
 #: src/amo/pages/Guides/index.js:240
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
@@ -2299,7 +2304,7 @@ msgstr "Aceda a mais de 30.000 estações de rádio de todo o mundo, sempre à d
 
 #: src/amo/pages/Guides/index.js:244
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
-msgstr ""
+msgstr "Explore entre milhares de %(linkStart)sextensões de fotografia, música e vídeo%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:268
 msgid ""
@@ -2314,10 +2319,12 @@ msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Lida com demasiados separadores abertos ou com um número estonteante de marcadores? As extensões podem ajudar! Desde assistência na organização até ao fornecimento de novas funcionalidades "
+"divertidas, as extensões podem mudar drasticamente a maneira como lida com separadores e marcadores."
 
 #: src/amo/pages/Guides/index.js:294
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "As extensões podem aumentar a multimédia online de várias maneiras interessantes, desde o assistir a vídeos até manusear imagens, músicas, e mais."
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Create and manage strong passwords"
@@ -2345,6 +2352,8 @@ msgstr "Bloqueie anúncios irritantes"
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
+"A web de hoje está repleta de anúncios indesejados que lhe atrapalham e abrandam. As extensões de bloqueio de anúncios podem bloquear ou filtrar esses anúncios para que possa voltar à navegação sem "
+"distrações."
 
 #: src/amo/pages/Home/index.js:130
 msgid "Bookmarks"
