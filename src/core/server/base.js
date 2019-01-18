@@ -307,6 +307,11 @@ function baseServer(
       // Vary the cache on Do Not Track headers.
       res.vary('DNT');
 
+      // Vary the cache on TAAR clientId headers.
+      if (appName === 'disco') {
+        res.vary(DISCO_TAAR_CLIENT_ID_HEADER);
+      }
+
       const history = _createHistory({ req });
       const { sagaMiddleware, store } = createStore({ history });
 
