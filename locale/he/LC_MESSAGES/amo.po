@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-15 18:51+0000\n"
-"PO-Revision-Date: 2019-01-16 06:09+0000\n"
+"PO-Revision-Date: 2019-01-18 10:28+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -867,7 +867,7 @@ msgstr "יש להיכנס כדי לסמן בדגל סקירה זו"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr "אין לך אפשרות לסמן את התגובה של עצמך"
+msgstr "אין לך אפשרות לסמן בדגל את התגובה של עצמך"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
@@ -1647,7 +1647,7 @@ msgstr "ערכות הנושא המדורגות ביותר"
 
 #: src/amo/components/Search/index.js:156
 msgid "Top rated add-ons"
-msgstr "התוספות בדירוג הגבוה ביותר"
+msgstr "התוספות המדורגות ביותר"
 
 #: src/amo/components/Search/index.js:162 src/amo/pages/Home/index.js:350
 msgid "Popular extensions"
@@ -1713,7 +1713,7 @@ msgstr[1] "%(count)s תוצאות עבור ״%(query)s״"
 
 #: src/amo/components/SearchContextCard/index.js:94
 msgid "Searching for \"%(query)s\""
-msgstr "חיפוש עבור ״%(query)s״"
+msgstr "בחיפוש אחר ״%(query)s״"
 
 #: src/amo/components/SearchContextCard/index.js:98
 msgid "Loading add-ons"
