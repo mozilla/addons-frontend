@@ -35,11 +35,13 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import Card from 'ui/components/Card';
 import CardList from 'ui/components/CardList';
 import LoadingText from 'ui/components/LoadingText';
+import Select from 'ui/components/Select';
 import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonType } from 'core/types/addons';
+import type { ElementEvent } from 'core/types/dom';
 import type { DispatchFunc } from 'core/types/redux';
 import type {
   ReactRouterHistoryType,
@@ -47,9 +49,10 @@ import type {
   ReactRouterMatchType,
 } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
-import Notice from 'ui/components/Notice';
 
 import './styles.scss';
+
+export const SHOW_ALL_REVIEWS: 'SHOW_ALL_REVIEWS' = 'SHOW_ALL_REVIEWS';
 
 function getCurrentPage(location: ReactRouterLocationType) {
   return location.query.page || '1';
@@ -191,38 +194,42 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     );
   }
 
-  filteringByScoreNotice() {
+  onSelectOption = (event: ElementEvent<HTMLSelectElement>) => {
+    const { addon, clientApp, history, lang } = this.props;
+    invariant(addon, 'addon is required');
+
+    event.preventDefault();
+    const { value } = event.target;
+
+    const listURL = reviewListURL({
+      addonSlug: addon.slug,
+      score: value === SHOW_ALL_REVIEWS ? undefined : value,
+    });
+
+    history.push(`/${lang || ''}/${clientApp || ''}${listURL}`);
+  };
+
+  filterByScoreSelector() {
     const { addon, i18n, location } = this.props;
-    const { score } = location.query;
-
-    if (!score || !addon) {
-      return null;
-    }
-
-    const allScoreNotices = {
-      /* eslint-disable quote-props */
-      '1': i18n.gettext('Only showing one-star reviews'),
-      '2': i18n.gettext('Only showing two-star reviews'),
-      '3': i18n.gettext('Only showing three-star reviews'),
-      '4': i18n.gettext('Only showing four-star reviews'),
-      '5': i18n.gettext('Only showing five-star reviews'),
-      /* eslint-enable quote-props */
-    };
-    const scoreNotice = allScoreNotices[score];
-
-    if (!scoreNotice) {
-      return null;
-    }
 
     return (
-      <Notice
-        actionTo={reviewListURL({ addonSlug: addon.slug })}
-        actionText={i18n.gettext('Show all reviews')}
-        againstGrey20
-        type="generic"
+      <Select
+        className="AddonReviewList-filterByScoreSelector"
+        disabled={!addon}
+        onChange={this.onSelectOption}
+        value={location.query.score || SHOW_ALL_REVIEWS}
       >
-        {scoreNotice}
-      </Notice>
+        <option value={SHOW_ALL_REVIEWS}>
+          {i18n.gettext('Show all reviews')}
+        </option>
+        <option value={5}>{i18n.gettext('Show only five-star reviews')}</option>
+        <option value={4}>{i18n.gettext('Show only four-star reviews')}</option>
+        <option value={3}>
+          {i18n.gettext('Show only three-star reviews')}
+        </option>
+        <option value={2}>{i18n.gettext('Show only two-star reviews')}</option>
+        <option value={1}>{i18n.gettext('Show only one-star reviews')}</option>
+      </Select>
     );
   }
 
@@ -266,7 +273,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         })
       : '';
 
-    const reviewCountHTML =
+    const reviewCountText =
       reviewCount !== null ? (
         i18n.sprintf(
           i18n.ngettext('%(total)s review', '%(total)s reviews', reviewCount),
@@ -277,6 +284,15 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       ) : (
         <LoadingText />
       );
+
+    const reviewCountHTML = (
+      <div className="AddonReviewList-cardListHeader">
+        <div className="AddonReviewList-reviewCount">{reviewCountText}</div>
+        <div className="AddonReviewList-filterByScore">
+          {this.filterByScoreSelector()}
+        </div>
+      </div>
+    );
 
     const addonReviewCount =
       addon && addon.ratings ? addon.ratings.count : null;
@@ -334,7 +350,6 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
               siteUserCanReply={siteUserCanReplyToReviews}
             />
           )}
-          {this.filteringByScoreNotice()}
           {allReviews.length ? (
             <CardList
               className="AddonReviewList-reviews-listing"

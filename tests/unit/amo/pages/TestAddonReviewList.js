@@ -11,6 +11,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import AddonReviewList, {
   AddonReviewListBase,
   extractId,
+  SHOW_ALL_REVIEWS,
 } from 'amo/pages/AddonReviewList';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
@@ -34,7 +35,10 @@ import {
   loadAddonResults,
 } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
+import LoadingText from 'ui/components/LoadingText';
 import {
+  createFakeEvent,
+  createFakeHistory,
   createFakeLocation,
   createStubErrorHandler,
   dispatchClientMetadata,
@@ -44,7 +48,6 @@ import {
   fakeReview,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import Notice from 'ui/components/Notice';
 
 describe(__filename, () => {
   const clientApp = CLIENT_APP_FIREFOX;
@@ -110,6 +113,23 @@ describe(__filename, () => {
       ...params,
     });
     store.dispatch(action);
+  };
+
+  const renderWithAddonAndReviews = ({
+    params = {},
+    reviews = [
+      { ...fakeReview, id: 1, score: 1 },
+      { ...fakeReview, id: 2, score: 2 },
+    ],
+    ...props
+  } = {}) => {
+    const addonSlug = 'example-slug';
+    const addon = { ...fakeAddon, slug: addonSlug };
+    loadAddon(addon);
+
+    _setAddonReviews({ reviews });
+
+    return render({ params: { addonSlug, ...params }, ...props });
   };
 
   const signInAndSetReviewPermissions = ({
@@ -749,8 +769,28 @@ describe(__filename, () => {
       const root = render();
 
       const cardList = root.find('.AddonReviewList-reviews-listing');
+
       expect(cardList).toHaveProp('header');
-      expect(cardList.prop('header')).toContain(`${reviewCount} reviews`);
+
+      const header = shallow(cardList.prop('header'));
+      expect(header.find('.AddonReviewList-reviewCount')).toHaveText(
+        `${reviewCount} reviews`,
+      );
+    });
+
+    it('configures CardList header with LoadingText', () => {
+      const addonSlug = 'example-slug';
+      const addon = { ...fakeAddon, slug: addonSlug };
+      loadAddon(addon);
+      // Set up a state where reviews have not yet been loaded.
+      const root = render({ params: { addonSlug } });
+
+      const cardList = root.find('.AddonReviewList-reviews-listing');
+
+      expect(cardList).toHaveProp('header');
+
+      const header = shallow(cardList.prop('header'));
+      expect(header.find(LoadingText)).toHaveLength(1);
     });
 
     describe('with pagination', () => {
@@ -830,14 +870,7 @@ describe(__filename, () => {
     });
 
     it('does not render a robots meta tag', () => {
-      const reviews = [
-        { ...fakeReview, id: 1, score: 1 },
-        { ...fakeReview, id: 2, score: 2 },
-      ];
-      loadAddon(createInternalAddon(fakeAddon));
-      _setAddonReviews({ reviews });
-
-      const root = render();
+      const root = renderWithAddonAndReviews();
 
       expect(root.find('meta[name="robots"]')).toHaveLength(0);
     });
@@ -847,10 +880,9 @@ describe(__filename, () => {
         { ...fakeReview, id: 1, score: 1 },
         { ...fakeReview, id: 2, score: 2 },
       ];
-      loadAddon(createInternalAddon(fakeAddon));
-      _setAddonReviews({ reviews });
 
-      const root = render({
+      const root = renderWithAddonAndReviews({
+        reviews,
         params: { reviewId: reviews[0].id.toString() },
       });
 
@@ -1012,10 +1044,11 @@ describe(__filename, () => {
   });
 
   it('renders a "description" meta tag', () => {
-    const addon = createInternalAddon(fakeAddon);
+    const addonSlug = 'example-slug';
+    const addon = { ...fakeAddon, slug: addonSlug };
     loadAddon(addon);
 
-    const root = render();
+    const root = render({ params: { addonSlug } });
 
     expect(root.find('meta[name="description"]')).toHaveLength(1);
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
@@ -1027,78 +1060,91 @@ describe(__filename, () => {
     );
   });
 
-  describe('score notice', () => {
-    function renderScoreNotice({
-      addon = { ...fakeAddon, slug: 'some-slug' },
-      score = 5,
-    } = {}) {
-      if (addon) {
+  describe('filterByScoreSelector', () => {
+    function renderSelector({ preloadAddon = true, ...props } = {}) {
+      let addon;
+      const addonSlug = 'example-slug';
+      if (preloadAddon) {
+        addon = { ...fakeAddon, slug: addonSlug };
         loadAddon(addon);
-        _setAddonReviews(addon);
       }
 
-      const addonSlug = addon ? addon.slug : 'example-slug';
-      const root = render({
-        location: score
-          ? createFakeLocation({ query: { score } })
-          : createFakeLocation(),
-        params: { addonSlug },
-      });
+      const root = render({ params: { addonSlug }, ...props });
+      const header = shallow(
+        root.find('.AddonReviewList-reviews-listing').prop('header'),
+      );
 
-      return root.find(Notice);
+      return {
+        addon,
+        selector: header.find('.AddonReviewList-filterByScoreSelector'),
+      };
     }
 
-    it('renders a notice when filtering by score', () => {
-      const addon = { ...fakeAddon, slug: 'some-other-slug' };
-      const notice = renderScoreNotice({ addon });
+    it('disables the selector before the add-on loads', () => {
+      const { selector } = renderSelector({ preloadAddon: false });
 
-      expect(notice).toHaveLength(1);
-      expect(notice).toHaveProp(
-        'actionTo',
-        reviewListURL({ addonSlug: addon.slug }),
+      expect(selector).toHaveProp('disabled', true);
+    });
+
+    it('enables the selector once the add-on loads', () => {
+      const { selector } = renderSelector();
+
+      expect(selector).toHaveProp('disabled', false);
+    });
+
+    it('lets you select all reviews', () => {
+      const history = createFakeHistory();
+      const { addon, selector } = renderSelector({ history });
+
+      selector.simulate(
+        'change',
+        createFakeEvent({
+          target: { value: SHOW_ALL_REVIEWS },
+        }),
       );
+
+      const listURL = reviewListURL({ addonSlug: addon.slug });
+
+      sinon.assert.calledWith(history.push, `/${lang}/${clientApp}${listURL}`);
     });
 
-    it('renders a message about one-star reviews', () => {
-      expect(renderScoreNotice({ score: 1 }).children()).toHaveText(
-        'Only showing one-star reviews',
-      );
+    it.each([5, 4, 3, 2, 1])(
+      'lets you select only %s star reviews',
+      (score) => {
+        const history = createFakeHistory();
+        const { addon, selector } = renderSelector({ history });
+
+        selector.simulate(
+          'change',
+          createFakeEvent({
+            target: { value: score },
+          }),
+        );
+
+        const listURL = reviewListURL({ addonSlug: addon.slug, score });
+
+        sinon.assert.calledWith(
+          history.push,
+          `/${lang}/${clientApp}${listURL}`,
+        );
+      },
+    );
+
+    it('sets the selector to the current score', () => {
+      const score = 3;
+      const { selector } = renderSelector({
+        location: createFakeLocation({ query: { score } }),
+      });
+
+      expect(selector).toHaveValue(score);
     });
 
-    it('renders a message about two-star reviews', () => {
-      expect(renderScoreNotice({ score: 2 }).children()).toHaveText(
-        'Only showing two-star reviews',
-      );
-    });
+    it('defaults the selector to showing all reviews', () => {
+      const { selector } = renderSelector({
+        location: createFakeLocation({ query: {} }),
+      });
 
-    it('renders a message about three-star reviews', () => {
-      expect(renderScoreNotice({ score: 3 }).children()).toHaveText(
-        'Only showing three-star reviews',
-      );
-    });
-
-    it('renders a message about four-star reviews', () => {
-      expect(renderScoreNotice({ score: 4 }).children()).toHaveText(
-        'Only showing four-star reviews',
-      );
-    });
-
-    it('renders a message about five-star reviews', () => {
-      expect(renderScoreNotice({ score: 5 }).children()).toHaveText(
-        'Only showing five-star reviews',
-      );
-    });
-
-    it('does not render a notice when the score is out of range', () => {
-      expect(renderScoreNotice({ score: 99 })).toHaveLength(0);
-    });
-
-    it('does not render a notice without an add-on', () => {
-      expect(renderScoreNotice({ addon: false })).toHaveLength(0);
-    });
-
-    it('does not render a notice without a score', () => {
-      expect(renderScoreNotice({ score: false })).toHaveLength(0);
+      expect(selector).toHaveValue(SHOW_ALL_REVIEWS);
     });
   });
 

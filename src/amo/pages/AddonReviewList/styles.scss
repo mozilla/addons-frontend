@@ -20,10 +20,6 @@
     // https://stackoverflow.com/questions/36150458
     min-width: 50%;
   }
-
-  .Notice-generic {
-    margin-bottom: 12px;
-  }
 }
 
 .AddonReviewList-reviews {
@@ -37,4 +33,31 @@
 .AddonReviewList-noReviews {
   padding: 48px 0;
   text-align: center;
+}
+
+.AddonReviewList-filterByScoreSelector {
+  font-size: $font-size-s;
+  width: auto;
+}
+
+.AddonReviewList-cardListHeader {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.AddonReviewList-reviewCount {
+  // This is necessary to show LoadingText.
+  flex-grow: 1;
+  // This creates vertical space when items are wrapped on very
+  // small-width screens.
+  line-height: 36px;
+  margin: auto;
+
+  @include margin-start(0);
+}
+
+.AddonReviewList-filterByScore {
+  margin: auto;
+
+  @include margin-end(0);
 }
