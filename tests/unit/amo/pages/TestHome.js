@@ -394,7 +394,6 @@ describe(__filename, () => {
     const createCollection = (details = {}) => {
       return createInternalCollection({
         detail: createFakeCollectionDetail(details),
-        items: createFakeCollectionAddons(),
       });
     };
 

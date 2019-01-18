@@ -81,18 +81,15 @@ export function* fetchCurrentCollection({
       filters,
     };
 
-    const { detail, addons } = yield all({
+    const { detail, addonsResponse } = yield all({
       detail: call(api.getCollectionDetail, detailParams),
-      addons: call(api.getCollectionAddons, addonsParams),
+      addonsResponse: call(api.getCollectionAddons, addonsParams),
     });
-
-    const addonsToLoad = addons.results;
 
     yield put(
       loadCurrentCollection({
-        addons: addonsToLoad,
+        addonsResponse,
         detail,
-        pageSize: addons.page_size,
       }),
     );
   } catch (error) {
@@ -118,13 +115,11 @@ export function* fetchCurrentCollectionPage({
       slug,
       userId: String(userId),
     };
-    const addons = yield call(api.getCollectionAddons, params);
+    const addonsResponse = yield call(api.getCollectionAddons, params);
 
     yield put(
       loadCurrentCollectionPage({
-        addons: addons.results,
-        numberOfAddons: addons.count,
-        pageSize: addons.page_size,
+        addonsResponse,
       }),
     );
   } catch (error) {
@@ -299,9 +294,7 @@ export function* modifyCollection(
 
         yield put(
           loadCurrentCollection({
-            addons: [],
             detail: localizedDetail,
-            pageSize: null,
           }),
         );
       }

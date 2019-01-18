@@ -550,10 +550,12 @@ export const createFakeCollectionAddons = ({
 
 export const createFakeCollectionAddonsListResponse = ({
   addons = [createFakeCollectionAddon()],
+  count,
+  pageSize = coreApi.DEFAULT_API_PAGE_SIZE,
 } = {}) => {
   return {
-    count: addons.length,
-    page_size: coreApi.DEFAULT_API_PAGE_SIZE,
+    count: count || addons.length,
+    page_size: pageSize,
     results: createFakeCollectionAddons({ addons }),
   };
 };

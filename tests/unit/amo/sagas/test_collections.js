@@ -28,7 +28,6 @@ import collectionsReducer, {
   updateCollectionAddon,
 } from 'amo/reducers/collections';
 import collectionsSaga from 'amo/sagas/collections';
-import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import apiReducer from 'core/reducers/api';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import {
@@ -102,9 +101,8 @@ describe(__filename, () => {
       _fetchCurrentCollection({ filters, slug, userId });
 
       const expectedLoadAction = loadCurrentCollection({
-        addons: collectionAddons.results,
+        addonsResponse: collectionAddons,
         detail: collectionDetail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
       });
 
       const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
@@ -173,9 +171,7 @@ describe(__filename, () => {
       _fetchCurrentCollectionPage({ filters, slug, userId });
 
       const expectedLoadAction = loadCurrentCollectionPage({
-        addons: collectionAddons.results,
-        numberOfAddons: collectionAddons.count,
-        pageSize: DEFAULT_API_PAGE_SIZE,
+        addonsResponse: collectionAddons,
       });
 
       const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
@@ -662,12 +658,10 @@ describe(__filename, () => {
         _createCollection(params);
 
         const expectedLoadAction = loadCurrentCollection({
-          addons: [],
           detail: localizeCollectionDetail({
             detail: collectionDetailResponse,
             lang: state.api.lang,
           }),
-          pageSize: null,
         });
 
         const loadAction = await sagaTester.waitFor(expectedLoadAction.type);

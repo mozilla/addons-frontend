@@ -33,6 +33,7 @@ import versionsReducer, {
 import {
   createAddonsApiResult,
   createFakeCollectionAddon,
+  createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,
   fakeAddon,
   fakeI18n,
@@ -460,9 +461,10 @@ describe(__filename, () => {
         const state = versionsReducer(
           undefined,
           loadCurrentCollection({
-            addons: [fakeCollectionAddon],
+            addonsResponse: createFakeCollectionAddonsListResponse({
+              addons: [fakeCollectionAddon],
+            }),
             detail: createFakeCollectionDetail(),
-            pageSize: DEFAULT_API_PAGE_SIZE,
           }),
         );
 
@@ -484,9 +486,9 @@ describe(__filename, () => {
         const state = versionsReducer(
           undefined,
           loadCurrentCollectionPage({
-            addons: [fakeCollectionAddon],
-            numberOfAddons: 1,
-            pageSize: DEFAULT_API_PAGE_SIZE,
+            addonsResponse: createFakeCollectionAddonsListResponse({
+              addons: [fakeCollectionAddon],
+            }),
           }),
         );
 

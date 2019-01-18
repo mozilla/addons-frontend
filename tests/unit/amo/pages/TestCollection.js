@@ -40,7 +40,6 @@ import { ErrorHandler } from 'core/errorHandler';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import {
   createFakeCollectionAddon,
-  createFakeCollectionAddons,
   createFakeCollectionDetail,
   createFakeEvent,
   createFakeHistory,
@@ -51,6 +50,7 @@ import {
   fakeI18n,
   createFakeLocation,
   shallowUntilTarget,
+  createFakeCollectionAddonsListResponse,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -99,21 +99,19 @@ describe(__filename, () => {
 
     return {
       detail: createFakeCollectionDetail(),
-      addons: createFakeCollectionAddons({ addons }),
+      addonsResponse: createFakeCollectionAddonsListResponse({ addons }),
     };
   };
 
   const _loadCurrentCollection = ({
-    store,
-    addons = createFakeCollectionAddons(),
+    addonsResponse = createFakeCollectionAddonsListResponse(),
     detail = defaultCollectionDetail,
-    pageSize = String(DEFAULT_API_PAGE_SIZE),
+    store,
   }) => {
     store.dispatch(
       loadCurrentCollection({
-        addons,
+        addonsResponse,
         detail,
-        pageSize,
       }),
     );
   };
@@ -128,20 +126,18 @@ describe(__filename, () => {
   it('renders a CollectionDetailsCard', () => {
     const creating = false;
     const editing = false;
-    const addons = createFakeCollectionAddons();
+    const addonsResponse = createFakeCollectionAddonsListResponse();
     const detail = createFakeCollectionDetail();
-    const pageSize = DEFAULT_API_PAGE_SIZE;
     const collection = createInternalCollection({
       detail,
-      items: addons,
-      pageSize,
+      addonsResponse,
     });
     const page = 1;
     const sort = COLLECTION_SORT_NAME;
     const queryParams = { page, collection_sort: sort };
     const { store } = dispatchClientMetadata();
 
-    _loadCurrentCollection({ addons, detail, pageSize, store });
+    _loadCurrentCollection({ addonsResponse, detail, store });
 
     const wrapper = renderComponent({
       creating,
@@ -160,7 +156,10 @@ describe(__filename, () => {
   it('renders placeholder text if there are no add-ons', () => {
     const { store } = dispatchSignInActions();
 
-    _loadCurrentCollection({ store, addons: [] });
+    _loadCurrentCollection({
+      store,
+      addonsResponse: createFakeCollectionAddonsListResponse({ addons: [] }),
+    });
 
     const wrapper = renderComponent({ store });
 
@@ -191,12 +190,12 @@ describe(__filename, () => {
   it('hides placeholder text if there are add-ons', () => {
     const { store } = dispatchSignInActions();
 
-    const collectionAddons = createFakeCollectionAddons();
+    const addonsResponse = createFakeCollectionAddonsListResponse();
     const collectionDetail = createFakeCollectionDetail();
 
     _loadCurrentCollection({
       store,
-      addons: collectionAddons,
+      addonsResponse,
       detail: collectionDetail,
     });
 
@@ -208,7 +207,10 @@ describe(__filename, () => {
   it('hides placeholder text when viewing a collection if the user is not logged in', () => {
     const { store } = dispatchClientMetadata();
 
-    _loadCurrentCollection({ store, addons: [] });
+    _loadCurrentCollection({
+      store,
+      addonsResponse: createFakeCollectionAddonsListResponse({ addons: [] }),
+    });
 
     const wrapper = renderComponent({ store });
 
@@ -641,12 +643,12 @@ describe(__filename, () => {
 
   it('initializes add-on placeholder count with collection add-ons', () => {
     const { store } = dispatchClientMetadata();
-    const { detail, addons } = createCollectionWithTwoAddons();
+    const { detail, addonsResponse } = createCollectionWithTwoAddons();
 
     _loadCurrentCollection({
       store,
       detail,
-      addons,
+      addonsResponse,
     });
 
     const wrapper = renderComponent({
@@ -656,13 +658,13 @@ describe(__filename, () => {
 
     expect(wrapper.find(AddonsCard)).toHaveProp(
       'placeholderCount',
-      addons.length,
+      addonsResponse.results.length,
     );
   });
 
   it('updates add-on placeholder count with collection add-ons', () => {
     const { store } = dispatchClientMetadata();
-    const { detail, addons } = createCollectionWithTwoAddons();
+    const { detail, addonsResponse } = createCollectionWithTwoAddons();
 
     const wrapper = renderComponent({
       params: { userId: detail.author.id, slug: detail.slug },
@@ -672,7 +674,7 @@ describe(__filename, () => {
     _loadCurrentCollection({
       store,
       detail,
-      addons,
+      addonsResponse,
     });
     simulateReduxStateChange({ wrapper, store });
 
@@ -682,7 +684,7 @@ describe(__filename, () => {
 
     expect(wrapper.find(AddonsCard)).toHaveProp(
       'placeholderCount',
-      addons.length,
+      addonsResponse.results.length,
     );
   });
 
@@ -696,12 +698,15 @@ describe(__filename, () => {
 
     const detail = createFakeCollectionDetail({
       authorId: userId,
-      count: 10,
       slug,
     });
 
     // With a pageSize < count, the pagination will be displayed.
-    _loadCurrentCollection({ store, detail, pageSize: 5 });
+    const addonsResponse = createFakeCollectionAddonsListResponse({
+      count: 10,
+      pageSize: 5,
+    });
+    _loadCurrentCollection({ store, addonsResponse, detail });
 
     const wrapper = renderComponent({
       location: createFakeLocation({ query: filters }),
@@ -713,7 +718,7 @@ describe(__filename, () => {
     const paginator = shallow(footer);
 
     expect(paginator.instance()).toBeInstanceOf(Paginate);
-    expect(paginator).toHaveProp('count', detail.addon_count);
+    expect(paginator).toHaveProp('count', addonsResponse.count);
     expect(paginator).toHaveProp('currentPage', page);
     expect(paginator).toHaveProp('pathname', `/collections/${userId}/${slug}/`);
     expect(paginator).toHaveProp('queryParams', filters);
@@ -759,28 +764,25 @@ describe(__filename, () => {
   it('renders a CollectionControls component', () => {
     const editing = false;
     const page = 2;
-    const pageSize = 10;
     const slug = 'some-slug';
     const sort = COLLECTION_SORT_NAME;
     const userId = 1234567;
 
     const { store } = dispatchClientMetadata();
-    const addons = createFakeCollectionAddons();
+    const addonsResponse = createFakeCollectionAddonsListResponse();
     const detail = createFakeCollectionDetail({
       authorId: userId,
       slug,
     });
     const collection = createInternalCollection({
       detail,
-      items: addons,
-      pageSize,
+      addonsResponse,
     });
 
     _loadCurrentCollection({
       store,
-      addons,
+      addonsResponse,
       detail,
-      pageSize,
     });
 
     const wrapper = renderComponent({
@@ -809,21 +811,20 @@ describe(__filename, () => {
     const page = 2;
     const sort = COLLECTION_SORT_NAME;
 
-    const addons = createFakeCollectionAddons();
+    // With a pageSize < count, the pagination will be displayed.
+    const addonsResponse = createFakeCollectionAddonsListResponse({
+      count: 10,
+      pageSize: 5,
+    });
     const detail = createFakeCollectionDetail({
       authorId: userId,
-      count: 10,
       slug,
     });
 
-    // With a pageSize < count, the pagination will be displayed.
-    const pageSize = 5;
-
     _loadCurrentCollection({
       store,
-      addons,
+      addonsResponse,
       detail,
-      pageSize,
     });
 
     const wrapper = renderComponent({
@@ -871,12 +872,14 @@ describe(__filename, () => {
   it('does not render the pagination when no add-ons in the collection', () => {
     const { store } = dispatchClientMetadata();
 
-    const collectionAddons = createFakeCollectionAddons({ addons: [] });
-    const collectionDetail = createFakeCollectionDetail({ count: 0 });
+    const addonsResponse = createFakeCollectionAddonsListResponse({
+      addons: [],
+    });
+    const collectionDetail = createFakeCollectionDetail();
 
     _loadCurrentCollection({
       store,
-      addons: collectionAddons,
+      addonsResponse,
       detail: collectionDetail,
     });
 
@@ -1024,21 +1027,17 @@ describe(__filename, () => {
     const page = 2;
     const sort = COLLECTION_SORT_NAME;
     const queryParams = { page, collection_sort: sort };
-    const pageSize = DEFAULT_API_PAGE_SIZE;
     const filters = { collectionSort: sort, page };
     const { store } = dispatchSignInActions({ userId: authorId });
 
-    const addons = createFakeCollectionAddons();
-    const detail = createFakeCollectionDetail({
-      authorId,
-    });
+    const addonsResponse = createFakeCollectionAddonsListResponse();
+    const detail = createFakeCollectionDetail({ authorId });
     const collection = createInternalCollection({
       detail,
-      items: addons,
-      pageSize,
+      addonsResponse,
     });
 
-    _loadCurrentCollection({ addons, detail, pageSize, store });
+    _loadCurrentCollection({ addonsResponse, detail, store });
 
     const root = renderComponent({
       store,
@@ -1091,13 +1090,12 @@ describe(__filename, () => {
     const authorId = 11;
     const { store } = dispatchSignInActions({ userId: authorId });
 
-    const addons = createFakeCollectionAddons();
-    const addonId = addons[0].addon.id;
-    const detail = createFakeCollectionDetail({
-      authorId,
-      // This will simulate a few items on the 2nd page.
+    // This will simulate a few items on the 2nd page.
+    const addonsResponse = createFakeCollectionAddonsListResponse({
       count: DEFAULT_API_PAGE_SIZE + 2,
     });
+    const addonId = addonsResponse.results[0].addon.id;
+    const detail = createFakeCollectionDetail({ authorId });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = '2';
@@ -1109,9 +1107,8 @@ describe(__filename, () => {
 
     store.dispatch(
       loadCurrentCollection({
-        addons,
+        addonsResponse,
         detail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -1147,13 +1144,12 @@ describe(__filename, () => {
     const authorId = 11;
     const { store } = dispatchSignInActions({ userId: authorId });
 
-    const addons = createFakeCollectionAddons();
-    const addonId = addons[0].addon.id;
-    const detail = createFakeCollectionDetail({
-      authorId,
-      // This will simulate 1 item on the 3nd page.
+    // This will simulate 1 item on the 3nd page.
+    const addonsResponse = createFakeCollectionAddonsListResponse({
       count: DEFAULT_API_PAGE_SIZE * 2 + 1,
     });
+    const addonId = addonsResponse.results[0].addon.id;
+    const detail = createFakeCollectionDetail({ authorId });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = '1';
@@ -1165,9 +1161,8 @@ describe(__filename, () => {
 
     store.dispatch(
       loadCurrentCollection({
-        addons,
+        addonsResponse,
         detail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -1203,13 +1198,11 @@ describe(__filename, () => {
     const authorId = 11;
     const { store } = dispatchSignInActions({ userId: authorId });
 
-    const addons = createFakeCollectionAddons();
-    const addonId = addons[0].addon.id;
-    const detail = createFakeCollectionDetail({
-      authorId,
-      // This will simulate only 1 item on the 2nd page.
+    const addonsResponse = createFakeCollectionAddonsListResponse({
       count: DEFAULT_API_PAGE_SIZE + 1,
     });
+    const addonId = addonsResponse.results[0].addon.id;
+    const detail = createFakeCollectionDetail({ authorId });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = '2';
@@ -1222,9 +1215,8 @@ describe(__filename, () => {
 
     store.dispatch(
       loadCurrentCollection({
-        addons,
+        addonsResponse,
         detail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -1271,9 +1263,8 @@ describe(__filename, () => {
 
     store.dispatch(
       loadCurrentCollection({
-        addons: createFakeCollectionAddons(),
+        addonsResponse: createFakeCollectionAddonsListResponse(),
         detail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
 
@@ -1305,11 +1296,9 @@ describe(__filename, () => {
     const authorId = 11;
     const { store } = dispatchSignInActions({ userId: authorId });
 
-    const addons = createFakeCollectionAddons();
-    const addonId = addons[0].addon.id;
-    const detail = createFakeCollectionDetail({
-      authorId,
-    });
+    const addonsResponse = createFakeCollectionAddonsListResponse();
+    const addonId = addonsResponse.results[0].addon.id;
+    const detail = createFakeCollectionDetail({ authorId });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const page = 123;
@@ -1317,9 +1306,8 @@ describe(__filename, () => {
 
     store.dispatch(
       loadCurrentCollection({
-        addons,
+        addonsResponse,
         detail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
     const root = renderComponent({
@@ -1352,8 +1340,8 @@ describe(__filename, () => {
     const authorId = 11;
     const { store } = dispatchSignInActions({ userId: authorId });
 
-    const addons = createFakeCollectionAddons();
-    const addonId = addons[0].addon.id;
+    const addonsResponse = createFakeCollectionAddonsListResponse();
+    const addonId = addonsResponse.results[0].addon.id;
     const detail = createFakeCollectionDetail({ authorId });
     const errorHandler = createStubErrorHandler();
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -1363,9 +1351,8 @@ describe(__filename, () => {
 
     store.dispatch(
       loadCurrentCollection({
-        addons,
+        addonsResponse,
         detail,
-        pageSize: DEFAULT_API_PAGE_SIZE,
       }),
     );
     const root = renderComponent({
@@ -1403,7 +1390,7 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata({ clientApp, lang });
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    const collectionAddons = createFakeCollectionAddons();
+    const addonsResponse = createFakeCollectionAddonsListResponse();
     const collectionDetail = createFakeCollectionDetail({
       authorId,
       authorUsername,
@@ -1411,7 +1398,7 @@ describe(__filename, () => {
 
     _loadCurrentCollection({
       store,
-      addons: collectionAddons,
+      addonsResponse,
       detail: collectionDetail,
     });
 
@@ -1446,12 +1433,12 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata({ clientApp, lang });
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    const collectionAddons = createFakeCollectionAddons();
+    const addonsResponse = createFakeCollectionAddonsListResponse();
     const collectionDetail = createFakeCollectionDetail({ slug });
 
     _loadCurrentCollection({
       store,
-      addons: collectionAddons,
+      addonsResponse,
       detail: collectionDetail,
     });
 
