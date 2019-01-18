@@ -457,6 +457,32 @@ describe(__filename, () => {
   });
 
   describe('TAARDIS', () => {
+    it('varies the moz-client-id header in disco', async () => {
+      const response = await testClient({
+        appInstanceName: 'disco',
+      })
+        .get('/en-US/firefox/')
+        .end();
+
+      expect(response.headers).toMatchObject({
+        vary: `DNT, ${DISCO_TAAR_CLIENT_ID_HEADER}`,
+      });
+      expect(response.statusCode).toEqual(200);
+    });
+
+    it('does not send the moz-client-id header for other apps', async () => {
+      const response = await testClient({
+        appInstanceName: 'amo',
+      })
+        .get('/en-US/firefox/')
+        .end();
+
+      expect(response.headers).toMatchObject({
+        vary: 'DNT',
+      });
+      expect(response.statusCode).toEqual(200);
+    });
+
     it('dispatches setHashedClientId() if clientId header is present and enableFeatureDiscoTaar is true and app is disco', async () => {
       const clientId = '1112';
       const fakeConfig = getFakeConfig({
