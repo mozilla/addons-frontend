@@ -190,12 +190,12 @@ describe(__filename, () => {
   it('hides placeholder text if there are add-ons', () => {
     const { store } = dispatchSignInActions();
 
-    const collectionAddons = createFakeCollectionAddonsListResponse();
+    const addonsResponse = createFakeCollectionAddonsListResponse();
     const collectionDetail = createFakeCollectionDetail();
 
     _loadCurrentCollection({
       store,
-      addonsResponse: collectionAddons,
+      addonsResponse,
       detail: collectionDetail,
     });
 
@@ -872,14 +872,14 @@ describe(__filename, () => {
   it('does not render the pagination when no add-ons in the collection', () => {
     const { store } = dispatchClientMetadata();
 
-    const collectionAddons = createFakeCollectionAddonsListResponse({
-      addonsResponse: [],
+    const addonsResponse = createFakeCollectionAddonsListResponse({
+      addons: [],
     });
     const collectionDetail = createFakeCollectionDetail();
 
     _loadCurrentCollection({
       store,
-      addonsResponse: collectionAddons,
+      addonsResponse,
       detail: collectionDetail,
     });
 
@@ -1390,7 +1390,7 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata({ clientApp, lang });
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    const collectionAddons = createFakeCollectionAddonsListResponse();
+    const addonsResponse = createFakeCollectionAddonsListResponse();
     const collectionDetail = createFakeCollectionDetail({
       authorId,
       authorUsername,
@@ -1398,7 +1398,7 @@ describe(__filename, () => {
 
     _loadCurrentCollection({
       store,
-      addonsResponse: collectionAddons,
+      addonsResponse,
       detail: collectionDetail,
     });
 
@@ -1433,12 +1433,12 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata({ clientApp, lang });
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    const collectionAddons = createFakeCollectionAddonsListResponse();
+    const addonsResponse = createFakeCollectionAddonsListResponse();
     const collectionDetail = createFakeCollectionDetail({ slug });
 
     _loadCurrentCollection({
       store,
-      addonsResponse: collectionAddons,
+      addonsResponse,
       detail: collectionDetail,
     });
 
