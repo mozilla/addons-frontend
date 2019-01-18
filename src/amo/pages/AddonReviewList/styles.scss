@@ -42,12 +42,16 @@
 
 .AddonReviewList-cardListHeader {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .AddonReviewList-reviewCount {
+  // This is necessary to show LoadingText.
+  flex-grow: 1;
+  // This creates vertical space when items are wrapped on very
+  // small-width screens.
+  line-height: 36px;
   margin: auto;
-  // This is necessary for LoadingText to be visible.
-  width: 100%;
 
   @include margin-start(0);
 }
