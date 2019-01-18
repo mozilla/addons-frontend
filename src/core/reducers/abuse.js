@@ -4,10 +4,6 @@ import invariant from 'invariant';
 import type { AddonType } from 'core/types/addons';
 import type { AbuseReporter } from 'core/api/abuse';
 
-export const DISABLE_ADDON_ABUSE_BUTTON_UI: 'DISABLE_ADDON_ABUSE_BUTTON_UI' =
-  'DISABLE_ADDON_ABUSE_BUTTON_UI';
-export const ENABLE_ADDON_ABUSE_BUTTON_UI: 'ENABLE_ADDON_ABUSE_BUTTON_UI' =
-  'ENABLE_ADDON_ABUSE_BUTTON_UI';
 export const HIDE_ADDON_ABUSE_REPORT_UI: 'HIDE_ADDON_ABUSE_REPORT_UI' =
   'HIDE_ADDON_ABUSE_REPORT_UI';
 export const LOAD_ADDON_ABUSE_REPORT: 'LOAD_ADDON_ABUSE_REPORT' =
@@ -35,42 +31,6 @@ export const initialState: AbuseState = {
   bySlug: {},
   loading: false,
 };
-
-type DisableAbuseButtonUIParams = {| addon: AddonType |};
-
-type DisableAbuseButtonUIAction = {|
-  type: typeof DISABLE_ADDON_ABUSE_BUTTON_UI,
-  payload: DisableAbuseButtonUIParams,
-|};
-
-export function disableAbuseButtonUI({
-  addon,
-}: DisableAbuseButtonUIParams): DisableAbuseButtonUIAction {
-  invariant(addon, 'addon is required');
-
-  return {
-    type: DISABLE_ADDON_ABUSE_BUTTON_UI,
-    payload: { addon },
-  };
-}
-
-type EnableAbuseButtonUIParams = {| addon: AddonType |};
-
-type EnableAbuseButtonUIAction = {|
-  type: typeof ENABLE_ADDON_ABUSE_BUTTON_UI,
-  payload: EnableAbuseButtonUIParams,
-|};
-
-export function enableAbuseButtonUI({
-  addon,
-}: EnableAbuseButtonUIParams): EnableAbuseButtonUIAction {
-  invariant(addon, 'addon is required');
-
-  return {
-    type: ENABLE_ADDON_ABUSE_BUTTON_UI,
-    payload: { addon },
-  };
-}
 
 type HideAddonAbuseReportUIParams = {| addon: AddonType |};
 
@@ -165,8 +125,6 @@ export function showAddonAbuseReportUI({
 }
 
 type Action =
-  | DisableAbuseButtonUIAction
-  | EnableAbuseButtonUIAction
   | HideAddonAbuseReportUIAction
   | LoadAddonAbuseReportAction
   | SendAddonAbuseReportAction
@@ -177,28 +135,6 @@ export default function abuseReducer(
   action: Action,
 ) {
   switch (action.type) {
-    case DISABLE_ADDON_ABUSE_BUTTON_UI: {
-      const { addon } = action.payload;
-
-      return {
-        ...state,
-        bySlug: {
-          ...state.bySlug,
-          [addon.slug]: { ...state.bySlug[addon.slug], buttonEnabled: false },
-        },
-      };
-    }
-    case ENABLE_ADDON_ABUSE_BUTTON_UI: {
-      const { addon } = action.payload;
-
-      return {
-        ...state,
-        bySlug: {
-          ...state.bySlug,
-          [addon.slug]: { ...state.bySlug[addon.slug], buttonEnabled: true },
-        },
-      };
-    }
     case HIDE_ADDON_ABUSE_REPORT_UI: {
       const { addon } = action.payload;
 

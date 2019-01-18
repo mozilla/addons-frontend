@@ -3,7 +3,6 @@ import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import Textarea from 'react-textarea-autosize';
 import { compose } from 'redux';
 
 import { withErrorHandler } from 'core/errorHandler';
@@ -11,14 +10,14 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import {
-  disableAbuseButtonUI,
-  enableAbuseButtonUI,
   hideAddonAbuseReportUI,
   sendAddonAbuseReport,
   showAddonAbuseReportUI,
 } from 'core/reducers/abuse';
-import { sanitizeHTML } from 'core/utils';
+import { normalizeFileNameId, sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
+import DismissibleTextForm from 'ui/components/DismissibleTextForm';
+import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
 import type { AppState } from 'amo/store';
 import type { AddonAbuseState } from 'core/reducers/abuse';
 import type { DispatchFunc } from 'core/types/redux';
@@ -41,11 +40,7 @@ type InternalProps = {|
 |};
 
 export class ReportAbuseButtonBase extends React.Component<InternalProps> {
-  textarea: React.ElementRef<typeof Textarea>;
-
-  dismissReportUI = (event: SyntheticEvent<any>) => {
-    event.preventDefault();
-
+  dismissReportUI = () => {
     const { addon, dispatch, loading } = this.props;
 
     if (loading) {
@@ -58,12 +53,10 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
     dispatch(hideAddonAbuseReportUI({ addon }));
   };
 
-  sendReport = (event: SyntheticEvent<any>) => {
-    event.preventDefault();
-
+  sendReport = ({ text }: OnSubmitParams) => {
     // The button isn't clickable if there is no content, but just in case:
     // we verify there's a message to send.
-    if (!this.textarea.value.length) {
+    if (!text.trim().length) {
       log.debug(oneLine`User managed to click submit button while textarea
         was empty. Ignoring this onClick/sendReport event.`);
       return;
@@ -75,7 +68,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
       sendAddonAbuseReport({
         addonSlug: addon.slug,
         errorHandlerId: errorHandler.id,
-        message: this.textarea.value,
+        message: text,
       }),
     );
   };
@@ -86,20 +79,6 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
     const { addon, dispatch } = this.props;
 
     dispatch(showAddonAbuseReportUI({ addon }));
-    this.textarea.focus();
-  };
-
-  textareaChange = () => {
-    const { abuseReport, addon, dispatch } = this.props;
-
-    // Don't dispatch the UI update if the button is already visible.
-    // We also test for `value.trim()` so the user can't submit an
-    // empty report full of spaces.
-    if (this.textarea.value.trim().length && !abuseReport.buttonEnabled) {
-      dispatch(enableAbuseButtonUI({ addon }));
-    } else if (!this.textarea.value.trim().length) {
-      dispatch(disableAbuseButtonUI({ addon }));
-    }
   };
 
   render() {
@@ -132,8 +111,6 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
         </div>
       );
     }
-
-    const sendButtonIsDisabled = loading || !abuseReport.buttonEnabled;
 
     const prefaceText = i18n.sprintf(
       i18n.gettext(
@@ -190,40 +167,18 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
 
           {errorHandler.renderErrorIfPresent()}
 
-          <Textarea
-            className="ReportAbuseButton-textarea"
-            disabled={loading}
-            inputRef={(ref) => {
-              this.textarea = ref;
-            }}
-            onChange={this.textareaChange}
+          <DismissibleTextForm
+            id={normalizeFileNameId(__filename)}
+            isSubmitting={loading}
+            onSubmit={this.sendReport}
+            submitButtonText={i18n.gettext('Send abuse report')}
+            submitButtonInProgressText={i18n.gettext('Sending abuse report')}
+            onDismiss={this.dismissReportUI}
+            dismissButtonText={i18n.gettext('Dismiss')}
             placeholder={i18n.gettext(
               'Explain how this add-on is violating our policies.',
             )}
           />
-
-          <div className="ReportAbuseButton-buttons">
-            <a
-              className={makeClassName('ReportAbuseButton-dismiss-report', {
-                'ReportAbuseButton-dismiss-report--disabled': loading,
-              })}
-              href="#cancel"
-              onClick={this.dismissReportUI}
-            >
-              {i18n.gettext('Dismiss')}
-            </a>
-            <Button
-              buttonType="alert"
-              className="ReportAbuseButton-send-report"
-              disabled={sendButtonIsDisabled}
-              onClick={this.sendReport}
-              micro
-            >
-              {loading
-                ? i18n.gettext('Sending abuse report')
-                : i18n.gettext('Send abuse report')}
-            </Button>
-          </div>
         </div>
       </div>
     );

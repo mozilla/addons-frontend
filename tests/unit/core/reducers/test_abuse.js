@@ -1,7 +1,5 @@
 import abuseReducer, {
   SEND_ADDON_ABUSE_REPORT,
-  disableAbuseButtonUI,
-  enableAbuseButtonUI,
   hideAddonAbuseReportUI,
   initialState,
   loadAddonAbuseReport,
@@ -52,38 +50,6 @@ describe(__filename, () => {
             message: 'This add-on is malwaré.',
           },
         },
-      });
-    });
-
-    describe('disableAbuseButtonUI', () => {
-      it('sets the buttonEnabled state to false', () => {
-        const state = abuseReducer(
-          initialState,
-          disableAbuseButtonUI({ addon: fakeAddon }),
-        );
-
-        expect(state).toEqual({
-          bySlug: {
-            [fakeAddon.slug]: { buttonEnabled: false },
-          },
-          loading: false,
-        });
-      });
-    });
-
-    describe('enableAbuseButtonUI', () => {
-      it('sets the buttonEnabled state to true', () => {
-        const state = abuseReducer(
-          initialState,
-          enableAbuseButtonUI({ addon: fakeAddon }),
-        );
-
-        expect(state).toEqual({
-          bySlug: {
-            [fakeAddon.slug]: { buttonEnabled: true },
-          },
-          loading: false,
-        });
       });
     });
 
