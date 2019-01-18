@@ -3,18 +3,18 @@ _aliases:
   - &tox
     language: python
     python: 3.6
-    before_install: nvm install 8
+    before_install: nvm install 10
     install: pip install tox
     script: tox
   - &node-prod
     # This is the NodeJS version we run in production.
     language: node_js
-    node_js: '8'
+    node_js: '10'
     before_install: npm install -g yarn
   - &node-next
     # This is the next NodeJS version we will support.
     language: node_js
-    node_js: '10'
+    node_js: '11'
     before_install: npm install -g yarn
 services:
   - docker
@@ -29,6 +29,10 @@ script: FORCE_COLOR=0 yarn $COMMAND
 
 # See: https://github.com/mozilla/addons-frontend/issues/3034
 install: yarn install --pure-lockfile
+
+matrix:
+  allow_failures:
+    - node_js: '11'
 
 jobs:
   include:
@@ -82,8 +86,7 @@ jobs:
       <<: *tox
       env: TOXENV=dennis-lint
     - stage: Storybook deployment
+      <<: *node-prod
       if: branch = master AND type = push AND fork = false
-      language: node_js
-      node_js: '8'
       script: echo "Deploying to GitHub Pages..."
       after_success: yarn storybook-deploy --ci > /dev/null 2>&1
