@@ -22,6 +22,7 @@ module.exports = {
     'defaultLang',
     'discoParamsToUse',
     'enableDevTools',
+    'enableFeatureDiscoTaar',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
