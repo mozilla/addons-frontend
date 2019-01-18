@@ -21,7 +21,10 @@ import { ChunkExtractor, ChunkExtractorManager } from '@loadable/server';
 import log from 'core/logger';
 import { createApiError } from 'core/api';
 import Root from 'core/components/Root';
-import { AMO_REQUEST_ID_HEADER } from 'core/constants';
+import {
+  AMO_REQUEST_ID_HEADER,
+  DISCO_TAAR_CLIENT_ID_HEADER,
+} from 'core/constants';
 import ServerHtml from 'core/components/ServerHtml';
 import * as middleware from 'core/middleware';
 import requestId from 'core/middleware/requestId';
@@ -42,6 +45,7 @@ import {
   langToLocale,
   makeI18n,
 } from 'core/i18n/utils';
+import { setHashedClientId } from 'disco/reducers/telemetry';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
 
@@ -334,6 +338,16 @@ function baseServer(
           ) !== undefined
         ) {
           store.dispatch(dismissSurvey());
+        }
+
+        if (
+          appName === 'disco' &&
+          config.get('enableFeatureDiscoTaar') &&
+          req.headers[DISCO_TAAR_CLIENT_ID_HEADER]
+        ) {
+          store.dispatch(
+            setHashedClientId(req.headers[DISCO_TAAR_CLIENT_ID_HEADER]),
+          );
         }
 
         pageProps = getPageProps({ store, req, res, config });

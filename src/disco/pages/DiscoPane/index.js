@@ -48,6 +48,7 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   handleGlobalEvent: Function,
+  hashedClientId: string | null,
   i18n: I18nType,
   mozAddonManager: MozAddonManagerType,
   results: DiscoResultsType,
@@ -67,6 +68,7 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
     const {
       dispatch,
       errorHandler,
+      hashedClientId,
       location,
       match: { params },
       results,
@@ -80,7 +82,17 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
       // We accept all query params here and filter them out based on the
       // `discoParamsToUse` config value. See:
       // https://github.com/mozilla/addons-frontend/issues/4155
-      const taarParams = { ...location.query, platform: params.platform };
+      let taarParams = {
+        ...location.query,
+        platform: params.platform,
+      };
+
+      if (hashedClientId) {
+        taarParams = {
+          ...taarParams,
+          clientId: hashedClientId,
+        };
+      }
 
       dispatch(
         getDiscoResults({
@@ -187,6 +199,7 @@ function mapStateToProps(state: AppState) {
 
   return {
     results,
+    hashedClientId: state.telemetry.hashedClientId,
   };
 }
 

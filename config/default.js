@@ -117,6 +117,7 @@ module.exports = {
     'defaultLang',
     'dismissedExperienceSurveyCookieName',
     'enableDevTools',
+    'enableFeatureDiscoTaar',
     'enableFeatureExperienceSurvey',
     'enableFeatureHomeHeroGuides',
     'enableFeatureStaticThemesForAndroid',
@@ -350,6 +351,9 @@ module.exports = {
 
   // Feature flags.
   //
+
+  enableFeatureDiscoTaar: false,
+
   // Please use the `enableFeature` prefix, see:
   // https://github.com/mozilla/addons-frontend/issues/6362.
 

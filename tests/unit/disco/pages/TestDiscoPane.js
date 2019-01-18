@@ -14,6 +14,7 @@ import DiscoPane, {
   mapDispatchToProps,
 } from 'disco/pages/DiscoPane';
 import { getDiscoResults } from 'disco/reducers/discoResults';
+import { setHashedClientId } from 'disco/reducers/telemetry';
 import createStore from 'disco/store';
 import { makeQueryStringWithUTM } from 'disco/utils';
 import {
@@ -106,22 +107,20 @@ describe(__filename, () => {
     });
 
     it('sends a telemetry client ID if there is one', () => {
-      const location = createFakeLocation({
-        query: {
-          clientId: 'telemetry-client-id',
-        },
-      });
+      const clientId = '1112';
+      store.dispatch(setHashedClientId(clientId));
       const dispatch = sinon.spy(store, 'dispatch');
+
       const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
 
-      render({ errorHandler, location, store });
+      render({ errorHandler, store });
 
       sinon.assert.calledWith(
         dispatch,
         getDiscoResults({
           errorHandlerId: errorHandler.id,
           taarParams: {
-            clientId: location.query.clientId,
+            clientId,
             platform: 'Darwin',
           },
         }),
@@ -132,7 +131,6 @@ describe(__filename, () => {
       const location = createFakeLocation({
         query: {
           branch: 'foo',
-          clientId: 'telemetry-client-id',
           study: 'bar',
         },
       });
@@ -147,7 +145,6 @@ describe(__filename, () => {
           errorHandlerId: errorHandler.id,
           taarParams: {
             branch: 'foo',
-            clientId: location.query.clientId,
             platform: 'Darwin',
             study: 'bar',
           },
