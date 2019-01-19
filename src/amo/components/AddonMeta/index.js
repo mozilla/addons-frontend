@@ -35,20 +35,7 @@ export class AddonMetaBase extends React.Component<InternalProps> {
     }
     const addonRatingCount =
       addon && addon.ratings ? addon.ratings.count : null;
-    const averageDailyUsers = addon ? addon.average_daily_users : null;
     const roundedAverage = roundToOneDigit(averageRating || null);
-
-    let userCount = '';
-    let userTitle;
-    if (!addon) {
-      userCount = null;
-      userTitle = i18n.gettext('Users');
-    } else if (averageDailyUsers) {
-      userCount = i18n.formatNumber(averageDailyUsers);
-      userTitle = i18n.ngettext('User', 'Users', averageDailyUsers);
-    } else {
-      userTitle = i18n.gettext('No Users');
-    }
 
     let reviewCount = '';
     let reviewTitle;

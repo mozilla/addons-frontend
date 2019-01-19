@@ -36,51 +36,6 @@ describe(__filename, () => {
     expect(root.find(MetadataCard)).toHaveLength(1);
   });
 
-  describe('average daily users', () => {
-    function getUserCount(root) {
-      return root.find(MetadataCard).prop('metadata')[0];
-    }
-
-    it('renders the user count', () => {
-      const root = render({
-        addon: createInternalAddon({ ...fakeAddon, average_daily_users: 2 }),
-      });
-
-      expect(getUserCount(root).content).toEqual('2');
-      expect(getUserCount(root).title).toEqual('Users');
-    });
-
-    it('renders one user', () => {
-      const root = render({
-        addon: createInternalAddon({ ...fakeAddon, average_daily_users: 1 }),
-      });
-
-      expect(getUserCount(root).content).toEqual('1');
-      expect(getUserCount(root).title).toEqual('User');
-    });
-
-    it('renders no users', () => {
-      const root = render({
-        addon: createInternalAddon({ ...fakeAddon, average_daily_users: 0 }),
-      });
-
-      expect(getUserCount(root).content).toEqual('');
-      expect(getUserCount(root).title).toEqual('No Users');
-    });
-
-    it('localizes the user count', () => {
-      const i18n = fakeI18n({ lang: 'de' });
-      const root = render({
-        addon: createInternalAddon({
-          ...fakeAddon,
-          average_daily_users: 1000,
-        }),
-        i18n,
-      });
-      expect(getUserCount(root).content).toMatch(/^1\.000/);
-    });
-  });
-
   describe('ratings', () => {
     function renderRatings(ratings = {}, otherProps = {}) {
       return render({
