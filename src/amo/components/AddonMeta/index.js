@@ -88,10 +88,6 @@ export class AddonMetaBase extends React.Component<InternalProps> {
           className="AddonMeta-overallRating"
           metadata={[
             {
-              content: userCount,
-              title: userTitle,
-            },
-            {
               content: reviewsContent,
               title: reviewsTitle,
             },
