@@ -2823,18 +2823,16 @@ msgid "Tell users a bit more information about yourself. These fields are option
 msgstr "Scrivi qualche informazione in più su di te. Questi campi sono facoltativi, ma aiuteranno gli utenti a conoscerti meglio."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Scrivi qualche informazione in più su questo utente. Questi campi sono facoltativi, ma aiuteranno gli utenti a conoscere meglio %(username)s."
+msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
 msgstr "Se lo desideri puoi presentarti alla comunità"
 
 #: src/amo/pages/UserProfileEdit/index.js:437
-#, fuzzy
 msgid "Introduce %(userName)s to the community"
-msgstr "Presenta %(username)s alla comunità"
+msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:460
 msgid "Log in to edit the profile"
@@ -2853,9 +2851,8 @@ msgid "Account"
 msgstr "Account"
 
 #: src/amo/pages/UserProfileEdit/index.js:528
-#, fuzzy
 msgid "Account for %(userName)s"
-msgstr "Account di %(username)s"
+msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:535
 msgid "Email Address"
