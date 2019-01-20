@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-15 18:51+0000\n"
-"PO-Revision-Date: 2019-01-20 15:57+0000\n"
+"PO-Revision-Date: 2019-01-20 16:52+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -549,11 +549,11 @@ msgstr "Tidak ada versi yang ditemukan"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Versi %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Dirilis %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -777,7 +777,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Ups! Kami tidak dapat menemukan halamannya"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -1131,7 +1131,7 @@ msgstr "Cari Pratinjau"
 
 #: src/amo/components/HomeHeroBanner/index.js:184
 msgid "Enjoy thumbnail images alongside your search returns"
-msgstr ""
+msgstr "Nikmati gambar keluku seiring tampilan hasil pencarian Anda"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "Copy PlainText"
@@ -2056,7 +2056,7 @@ msgstr ""
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "Anda harus selalu menggunakan pengaya versi terbaru."
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Latest version"
@@ -2124,11 +2124,11 @@ msgstr "Cari ekstensi dan tema untuk ditambahkan ke dalam koleksi Anda."
 
 #: src/amo/pages/Collection/index.js:509
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Unduh dan buat koleksi Firefox untuk mengikuti ekstensi dan tema favorit. Jelajahi %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:512
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Unduh dan buat koleksi Firefox untuk mengikuti ekstensi dan tema favorit. Jelajahi %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:112
 msgid "Collections"
@@ -2198,7 +2198,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Penjelajahan yang lebih baik dengan markah yang ditingkatkan"
 
 #: src/amo/pages/Guides/index.js:156
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
