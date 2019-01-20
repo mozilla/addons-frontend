@@ -580,7 +580,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               </p>
 
               <label className="UserProfileEdit--label" htmlFor="displayName">
-                {i18n.gettext('Display Name')}
+                {i18n.gettext('Display Name')} *
               </label>
               <input
                 className="UserProfileEdit-displayName"
