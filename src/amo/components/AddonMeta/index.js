@@ -138,4 +138,3 @@ const AddonMeta: React.ComponentType<Props> = compose(translate())(
 );
 
 export default AddonMeta;
-
