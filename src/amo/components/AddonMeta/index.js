@@ -10,7 +10,8 @@ import MetadataCard from 'ui/components/MetadataCard';
 import Rating from 'ui/components/Rating';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import type { I18nType } from 'core/types/i18n';
-
+import { ADDON_TYPE_SEARCH } from 'core/constants';
+import { isSearch } from 'core/utils';
 import './styles.scss';
 
 type Props = {|
@@ -43,6 +44,8 @@ export class AddonMetaBase extends React.Component<InternalProps> {
     if (!addon) {
       userCount = null;
       userTitle = i18n.gettext('Users');
+    } else if(isSearch(addon.type)){
+      userTitle = null;
     } else if (averageDailyUsers) {
       userCount = i18n.formatNumber(averageDailyUsers);
       userTitle = i18n.ngettext('User', 'Users', averageDailyUsers);
