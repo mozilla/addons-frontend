@@ -21,8 +21,6 @@ module.exports = {
   trackingEnabled: false,
   loggingLevel: 'debug',
 
-  enableFeatureStaticThemesForAndroid: false,
-
   CSP: {
     directives: {
       // This is needed because `prefetchSrc` isn't supported by FF yet.
