@@ -1,6 +1,7 @@
 /* @flow */
 import { oneLine } from 'common-tags';
 import invariant from 'invariant';
+import { LOCATION_CHANGE } from 'connected-react-router';
 
 import { createInternalAddon } from 'core/reducers/addons';
 import type { CollectionAddonType, ExternalAddonType } from 'core/types/addons';
@@ -1335,6 +1336,13 @@ const reducer = (
         editingCollectionDetails: false,
       };
     }
+
+    // See: https://github.com/mozilla/addons-frontend/issues/7412
+    case LOCATION_CHANGE:
+      return {
+        ...state,
+        addonInCollections: {},
+      };
 
     default:
       return state;
