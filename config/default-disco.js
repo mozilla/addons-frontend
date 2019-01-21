@@ -22,6 +22,7 @@ module.exports = {
     'defaultLang',
     'discoParamsToUse',
     'enableDevTools',
+    'enableFeatureDiscoTaar',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -73,6 +74,8 @@ module.exports = {
   // We override the initial page view call in order to
   // add custom dimension data.
   trackingSendInitPageView: false,
+
+  enableFeatureDiscoTaar: true,
 
   // This is disabled for the disco pane because Firefox is the only target
   // so we don't need auto-prefixing, etc.
