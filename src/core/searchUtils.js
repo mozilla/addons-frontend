@@ -2,9 +2,7 @@ import { oneLine } from 'common-tags';
 import defaultConfig from 'config';
 
 import {
-  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  ADDON_TYPE_THEMES_FILTER,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
@@ -137,20 +135,6 @@ export const fixFiltersForAndroidThemes = ({ api, filters }) => {
 
   if (newFilters.clientApp !== CLIENT_APP_ANDROID) {
     return newFilters;
-  }
-
-  // TODO: This loads Firefox personas (lightweight themes) for Android until
-  // static themes are supported on Android.
-  // See: https://github.com/mozilla/addons-frontend/issues/5845
-  if (
-    [ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEMES_FILTER].includes(
-      newFilters.addonType,
-    )
-  ) {
-    log.info(oneLine`addonType: ${newFilters.addonType}/clientApp:
-      ${newFilters.clientApp} is not supported. Changing addonType to
-      "${ADDON_TYPE_THEME}"`);
-    newFilters.addonType = ADDON_TYPE_THEME;
   }
 
   // TODO: This loads Firefox personas (lightweight themes) for Android
