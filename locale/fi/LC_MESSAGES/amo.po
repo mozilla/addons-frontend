@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-15 18:51+0000\n"
-"PO-Revision-Date: 2018-02-15 16:29+0000\n"
+"PO-Revision-Date: 2018-10-10 19:54+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -1528,7 +1528,6 @@ msgid "Are you sure you want to delete your rating of %(addonName)s?"
 msgstr "Haluatko varmasti poistaa tämän arvion?"
 
 #: src/amo/components/RatingManager/index.js:183
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
 msgstr "Mitä pidät lisäosasta %(addonName)s?"
 
