@@ -93,7 +93,7 @@ export default class AddonsCard extends React.Component<Props> {
             <SearchResult
               addonInstallSource={addonInstallSource}
               addon={addon}
-              key={addon.slug}
+              key={`${addon.slug}-${addon.type}`}
               showMetadata={showMetadata}
               showSummary={!isTheme(addon.type) ? showSummary : false}
             />,
