@@ -293,9 +293,6 @@ export const decodeHtmlEntities = (string) => {
 export const isTheme = (addonType) => {
   return ADDON_TYPE_THEMES.includes(addonType);
 };
-export const isSearch = (addonType) => {
-  return ADDON_TYPE_OPENSEARCH.includes(addonType);
-};
 
 export const getAddonTypeFilter = (addonType) => {
   if (!isTheme(addonType)) {
