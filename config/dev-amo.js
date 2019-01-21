@@ -30,6 +30,4 @@ module.exports = {
       prefetchSrc: [amoDevCDN],
     },
   },
-
-  enableFeatureStaticThemesForAndroid: false,
 };
