@@ -34,6 +34,7 @@ import {
   createInternalAddon,
   loadAddonResults,
 } from 'core/reducers/addons';
+import Card from 'ui/components/Card';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import {
@@ -687,6 +688,14 @@ describe(__filename, () => {
 
       expect(root.find(AddonReviewCard)).toHaveLength(0);
       expect(root.find('.AddonReviewList-noReviews')).toHaveLength(1);
+
+      const header = shallow(root.find(Card).prop('header'));
+      expect(header).toHaveLength(1);
+      expect(
+        header.find('.AddonReviewList-filterByScoreSelector'),
+      ).toHaveLength(1);
+      // We do not want to display "0 review" in the header.
+      expect(header.find('.AddonReviewList-reviewCount')).toHaveText('');
     });
 
     it('does not include a review in the listing if the review is also featured', () => {

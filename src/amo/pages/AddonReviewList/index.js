@@ -273,17 +273,19 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         })
       : '';
 
-    const reviewCountText =
-      reviewCount !== null ? (
+    let reviewCountText = null;
+    if (reviewCount !== null) {
+      reviewCountText =
+        reviewCount > 0 &&
         i18n.sprintf(
           i18n.ngettext('%(total)s review', '%(total)s reviews', reviewCount),
           {
             total: i18n.formatNumber(reviewCount),
           },
-        )
-      ) : (
-        <LoadingText />
-      );
+        );
+    } else {
+      reviewCountText = <LoadingText />;
+    }
 
     const reviewCountHTML = (
       <div className="AddonReviewList-cardListHeader">
@@ -371,7 +373,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
               </ul>
             </CardList>
           ) : (
-            <Card>
+            <Card header={reviewCountHTML}>
               <p className="AddonReviewList-noReviews">
                 {i18n.gettext('There are no reviews')}
               </p>
