@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-15 18:51+0000\n"
-"PO-Revision-Date: 2019-01-13 08:38+0000\n"
+"PO-Revision-Date: 2019-01-22 07:37+0000\n"
 "Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -546,7 +546,7 @@ msgstr "Codice sorgente rilasciato sotto licenza %(linkStart)s%(licenseName)s%(l
 
 #: src/amo/components/AddonVersionCard/index.js:125
 msgid "Source code released under %(licenseName)s"
-msgstr ""
+msgstr "Codice sorgente rilasciato sotto %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
@@ -2072,11 +2072,11 @@ msgstr[1] "%(addonName)sCronologia versioni - %(total)s versioni"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "Attenzione alle versioni datate. Sono visualizzate solamente per scopi di test e di riferimento."
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "È raccomandato usare sempre l’ultima versione di un componente aggiuntivo."
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Latest version"
@@ -2824,7 +2824,7 @@ msgstr "Scrivi qualche informazione in più su di te. Questi campi sono facoltat
 
 #: src/amo/pages/UserProfileEdit/index.js:421
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr ""
+msgstr "Racconta agli altri qualcosa di più su questo utente. Questi campi sono facoltativi, ma aiuteranno altri utenti a conoscere meglio %(userName)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
@@ -2832,7 +2832,7 @@ msgstr "Se lo desideri puoi presentarti alla comunità"
 
 #: src/amo/pages/UserProfileEdit/index.js:437
 msgid "Introduce %(userName)s to the community"
-msgstr ""
+msgstr "Presenta %(userName)s alla comunità"
 
 #: src/amo/pages/UserProfileEdit/index.js:460
 msgid "Log in to edit the profile"
@@ -2852,7 +2852,7 @@ msgstr "Account"
 
 #: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Account for %(userName)s"
-msgstr ""
+msgstr "Account di %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:535
 msgid "Email Address"
