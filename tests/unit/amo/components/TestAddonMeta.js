@@ -54,7 +54,7 @@ describe(__filename, () => {
       expect(getUserCount(root).content).toEqual('');
       expect(getUserCount(root).title).toEqual(null);
     });
-    
+
     it('renders the user count', () => {
       const root = render({
         addon: createInternalAddon({ ...fakeAddon, average_daily_users: 2 }),
