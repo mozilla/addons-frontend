@@ -2,7 +2,6 @@
 import { search } from 'core/api/search';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
@@ -178,25 +177,5 @@ describe(__filename, () => {
       expect(err.response.status).toEqual(401);
       expect(err.response.apiURL).toMatch('/api/v4/addons/search/');
     });
-  });
-
-  it('changes theme requests for android to firefox results', async () => {
-    mockWindow
-      .expects('fetch')
-      .withArgs(
-        urlWithTheseParams({
-          app: CLIENT_APP_FIREFOX,
-          type: ADDON_TYPE_THEME,
-        }),
-      )
-      .returns(mockResponse());
-
-    await _search({
-      filters: {
-        addonType: ADDON_TYPE_THEME,
-        clientApp: CLIENT_APP_ANDROID,
-      },
-    });
-    mockWindow.verify();
   });
 });

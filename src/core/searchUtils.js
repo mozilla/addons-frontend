@@ -2,9 +2,9 @@ import { oneLine } from 'common-tags';
 import defaultConfig from 'config';
 
 import {
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
-  CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import log from 'core/logger';
 
@@ -137,20 +137,15 @@ export const fixFiltersForAndroidThemes = ({ api, filters }) => {
     return newFilters;
   }
 
-  // TODO: This loads Firefox personas (lightweight themes) for Android
-  // until
-  // https:// github.com/mozilla/addons-frontend/issues/1723#issuecomment-278793546
-  // and https://github.com/mozilla/addons-server/issues/4766 are addressed.
-  // Essentially: right now there are no categories for the combo
-  // of "Android" + "Themes" but Firefox lightweight themes will work fine
-  // on mobile so we request "Firefox" + "Themes" for Android instead.
-  // Obviously we need to fix this on the API end so our requests aren't
-  // overridden, but for now this will work.
-  if (newFilters.addonType === ADDON_TYPE_THEME) {
-    log.info(oneLine`addonType: ${newFilters.addonType}/clientApp:
-      ${newFilters.clientApp} is not supported. Changing clientApp to
-      "${CLIENT_APP_FIREFOX}"`);
-    newFilters.clientApp = CLIENT_APP_FIREFOX;
+  // There are no categories containing LWT for Android, so we request ST only
+  // for Android, but only when there is a category set.
+  // See: https://github.com/mozilla/addons-frontend/issues/7459
+  if (
+    newFilters.category &&
+    newFilters.addonType &&
+    newFilters.addonType.includes(ADDON_TYPE_THEME)
+  ) {
+    newFilters.addonType = ADDON_TYPE_STATIC_THEME;
   }
 
   return newFilters;

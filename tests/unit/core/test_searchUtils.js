@@ -2,6 +2,7 @@ import { oneLine } from 'common-tags';
 
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES_FILTER,
   CLIENT_APP_ANDROID,
@@ -210,18 +211,22 @@ describe(__filename, () => {
   });
 
   describe('fixFiltersForAndroidThemes', () => {
-    it('changes clientApp filter to `firefox` for Android themes', () => {
-      const filters = {
-        addonType: ADDON_TYPE_THEME,
-        clientApp: CLIENT_APP_ANDROID,
-      };
+    it.each([ADDON_TYPE_THEMES_FILTER, ADDON_TYPE_THEME])(
+      'changes the addonType filter to ADDON_TYPE_STATIC_THEME when addonType is "%s", clientApp is "Android" and there is a category defined',
+      (addonType) => {
+        const filters = {
+          addonType,
+          category: 'nature',
+          clientApp: CLIENT_APP_ANDROID,
+        };
 
-      const newFilters = fixFiltersForAndroidThemes({ filters });
-      expect(newFilters).toEqual({
-        ...filters,
-        clientApp: CLIENT_APP_FIREFOX,
-      });
-    });
+        const newFilters = fixFiltersForAndroidThemes({ filters });
+        expect(newFilters).toEqual({
+          ...filters,
+          addonType: ADDON_TYPE_STATIC_THEME,
+        });
+      },
+    );
 
     it('does not change clientApp filter for Android extensions', () => {
       const filters = {
