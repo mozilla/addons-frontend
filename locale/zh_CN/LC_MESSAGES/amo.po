@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-22 20:32+0000\n"
-"PO-Revision-Date: 2019-01-22 22:49+0000\n"
+"PO-Revision-Date: 2019-01-22 23:02+0000\n"
 "Last-Translator: 우믿트 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -2391,13 +2391,12 @@ msgid "YouTube boosters"
 msgstr "YouTube 增强工具"
 
 #: src/amo/pages/Home/index.js:63
-#, fuzzy
 msgid "See more health & wellness extensions"
-msgstr "看看更多精选扩展"
+msgstr "看看更多健康身与心扩展"
 
 #: src/amo/pages/Home/index.js:64
 msgid "Health & Wellness"
-msgstr ""
+msgstr "健康身与心"
 
 #: src/amo/pages/Home/index.js:69
 msgid "See more productivity extensions"
@@ -2405,7 +2404,7 @@ msgstr "看看更多生产力扩展"
 
 #: src/amo/pages/Home/index.js:70
 msgid "Be more productive"
-msgstr ""
+msgstr "提高生产力"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
