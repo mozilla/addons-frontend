@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-15 18:51+0000\n"
+"POT-Creation-Date: 2019-01-22 20:32+0000\n"
 "PO-Revision-Date: 2018-12-29 15:21+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
@@ -947,12 +947,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Позначено як повідомлення про помилку або запит підтримки"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Позначити"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Позначено"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Позначити"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1682,26 +1682,14 @@ msgstr "Читати всі відгуки з оцінкою 2 зірки"
 msgid "Read all one-star reviews"
 msgstr "Читати всі відгуки з оцінкою 1 зірка"
 
-#: src/amo/components/ReportAbuseButton/index.js:116
-msgid "You reported this add-on for abuse"
-msgstr "Ви повідомили про порушення цього додатка"
-
-#: src/amo/components/ReportAbuseButton/index.js:120
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this add-on."
-msgstr ""
-"Ми отримали ваше повідомлення. Дякуємо, що повідомили нам про вашу "
-"стурбованість цим додатком."
-
-#: src/amo/components/ReportAbuseButton/index.js:127
+#: src/amo/components/ReportAbuseButton/index.js:106
 #: src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 "Ми не можемо відповісти на кожне повідомлення про порушення правил, але ми "
 "розглянемо цю проблему."
 
-#: src/amo/components/ReportAbuseButton/index.js:139
+#: src/amo/components/ReportAbuseButton/index.js:116
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
@@ -1711,11 +1699,11 @@ msgstr ""
 "щодо додатків%(linkTagEnd)s, або має проблеми з безпекою чи приватністю, "
 "будь ласка, повідомте про це Mozilla за допомогою цієї форми."
 
-#: src/amo/components/ReportAbuseButton/index.js:155
+#: src/amo/components/ReportAbuseButton/index.js:132
 msgid "Report this add-on for abuse"
 msgstr "Повідомити про порушення цього додатка"
 
-#: src/amo/components/ReportAbuseButton/index.js:184
+#: src/amo/components/ReportAbuseButton/index.js:161
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1724,23 +1712,35 @@ msgstr ""
 "функції в додатку; це повідомлення буде надіслано в Mozilla, а не "
 "розробникові додатка."
 
-#: src/amo/components/ReportAbuseButton/index.js:200
-msgid "Explain how this add-on is violating our policies."
-msgstr "Поясніть, як цей додаток порушує наші політики."
+#: src/amo/components/ReportAbuseButton/index.js:174
+#: src/amo/components/ReportUserAbuse/index.js:144
+msgid "Send abuse report"
+msgstr "Повідомити про порушення правил"
 
-#: src/amo/components/ReportAbuseButton/index.js:213
-msgid "Dismiss"
-msgstr "Відхилити"
-
-#: src/amo/components/ReportAbuseButton/index.js:223
+#: src/amo/components/ReportAbuseButton/index.js:175
 #: src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "Надсилання повідомлення про порушення правил"
 
-#: src/amo/components/ReportAbuseButton/index.js:224
-#: src/amo/components/ReportUserAbuse/index.js:144
-msgid "Send abuse report"
-msgstr "Повідомити про порушення правил"
+#: src/amo/components/ReportAbuseButton/index.js:177
+msgid "Dismiss"
+msgstr "Відхилити"
+
+#: src/amo/components/ReportAbuseButton/index.js:178
+msgid "Explain how this add-on is violating our policies."
+msgstr "Поясніть, як цей додаток порушує наші політики."
+
+#: src/amo/components/ReportAbuseButton/index.js:95
+msgid "You reported this add-on for abuse"
+msgstr "Ви повідомили про порушення цього додатка"
+
+#: src/amo/components/ReportAbuseButton/index.js:99
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this add-on."
+msgstr ""
+"Ми отримали ваше повідомлення. Дякуємо, що повідомили нам про вашу "
+"стурбованість цим додатком."
 
 #: src/amo/components/ReportUserAbuse/index.js:106
 #: src/amo/components/ReportUserAbuse/index.js:99
@@ -1785,12 +1785,12 @@ msgid "Search results"
 msgstr "Результати пошуку"
 
 #: src/amo/components/Search/index.js:125 src/amo/pages/Category/index.js:139
-#: src/amo/pages/Home/index.js:309 src/amo/pages/LandingPage/index.js:135
+#: src/amo/pages/Home/index.js:318 src/amo/pages/LandingPage/index.js:135
 msgid "Featured extensions"
 msgstr "Відібрані розширення"
 
 #: src/amo/components/Search/index.js:128 src/amo/pages/Category/index.js:171
-#: src/amo/pages/Home/index.js:338 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:345 src/amo/pages/LandingPage/index.js:164
 msgid "Featured themes"
 msgstr "Відібрані теми"
 
@@ -1799,7 +1799,7 @@ msgid "Featured add-ons"
 msgstr "Відібрані додатки"
 
 #: src/amo/components/Search/index.js:138 src/amo/pages/Category/index.js:149
-#: src/amo/pages/Home/index.js:367 src/amo/pages/LandingPage/index.js:144
+#: src/amo/pages/Home/index.js:378 src/amo/pages/LandingPage/index.js:144
 msgid "Trending extensions"
 msgstr "Популярні розширення"
 
@@ -1826,11 +1826,11 @@ msgstr "Найвище оцінені теми"
 msgid "Top rated add-ons"
 msgstr "Найвище оцінені додатки"
 
-#: src/amo/components/Search/index.js:162 src/amo/pages/Home/index.js:350
+#: src/amo/components/Search/index.js:162
 msgid "Popular extensions"
 msgstr "Популярні розширення"
 
-#: src/amo/components/Search/index.js:165
+#: src/amo/components/Search/index.js:165 src/amo/pages/Home/index.js:355
 msgid "Popular themes"
 msgstr "Популярні теми"
 
@@ -1972,7 +1972,17 @@ msgstr "Операційна система"
 msgid "Featured add-ons only"
 msgstr "Лише відібрані додатки"
 
-#: src/amo/components/SearchForm/index.js:66
+#: src/amo/components/SearchForm/index.js:61
+#, fuzzy
+msgid "Firefox Add-ons (%(locale)s)"
+msgstr "Додатки для Firefox на Android (%(locale)s)"
+
+#: src/amo/components/SearchForm/index.js:67
+#, fuzzy
+msgid "Firefox Add-ons for Android (%(locale)s)"
+msgstr "Додатки для Android (%(locale)s)"
+
+#: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
 msgstr "Перейти на сторінку додатка"
 
@@ -2213,7 +2223,7 @@ msgstr "Ліцензійна угода з кінцевим користувач
 msgid "Privacy policy for %(addonName)s"
 msgstr "Політика приватності для %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:188
+#: src/amo/pages/AddonReviewList/index.js:191
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2221,35 +2231,40 @@ msgstr ""
 "Відгуки та оцінки для %(addonName)s. Дізнайтеся, які в інших користувачів "
 "враження від %(addonName)s і додайте його до свого Firefox."
 
-#: src/amo/pages/AddonReviewList/index.js:204
-msgid "Only showing one-star reviews"
-msgstr ""
-
-#: src/amo/pages/AddonReviewList/index.js:205
-msgid "Only showing two-star reviews"
-msgstr ""
-
-#: src/amo/pages/AddonReviewList/index.js:206
-msgid "Only showing three-star reviews"
-msgstr ""
-
-#: src/amo/pages/AddonReviewList/index.js:207
-msgid "Only showing four-star reviews"
-msgstr ""
-
-#: src/amo/pages/AddonReviewList/index.js:208
-msgid "Only showing five-star reviews"
-msgstr ""
-
-#: src/amo/pages/AddonReviewList/index.js:220
+#: src/amo/pages/AddonReviewList/index.js:223
 msgid "Show all reviews"
 msgstr "Показати всі відгуки"
 
-#: src/amo/pages/AddonReviewList/index.js:264
+#: src/amo/pages/AddonReviewList/index.js:225
+#, fuzzy
+msgid "Show only five-star reviews"
+msgstr "Читати всі відгуки з оцінкою 1 зірка"
+
+#: src/amo/pages/AddonReviewList/index.js:226
+#, fuzzy
+msgid "Show only four-star reviews"
+msgstr "Читати всі відгуки з оцінкою 4 зірки"
+
+#: src/amo/pages/AddonReviewList/index.js:228
+#, fuzzy
+msgid "Show only three-star reviews"
+msgstr "Читати всі відгуки з оцінкою 1 зірка"
+
+#: src/amo/pages/AddonReviewList/index.js:230
+#, fuzzy
+msgid "Show only two-star reviews"
+msgstr "Читати всі відгуки з оцінкою 2 зірки"
+
+#: src/amo/pages/AddonReviewList/index.js:231
+#, fuzzy
+msgid "Show only one-star reviews"
+msgstr "Читати всі відгуки з оцінкою 1 зірка"
+
+#: src/amo/pages/AddonReviewList/index.js:271
 msgid "Reviews for %(addonName)s"
 msgstr "Відгуки для %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:272
+#: src/amo/pages/AddonReviewList/index.js:281
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
@@ -2257,7 +2272,7 @@ msgstr[0] "%(total)s зірка"
 msgstr[1] "%(total)s зірки"
 msgstr[2] "%(total)s зірок"
 
-#: src/amo/pages/AddonReviewList/index.js:361
+#: src/amo/pages/AddonReviewList/index.js:378
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Ще немає оцінок"
@@ -2297,12 +2312,12 @@ msgstr "Всі категорії розширень"
 msgid "All theme categories"
 msgstr "Всі категорії тем"
 
-#: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:310
+#: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:319
 #: src/amo/pages/LandingPage/index.js:143
 msgid "See more featured extensions"
 msgstr "Більше відібраних розширень"
 
-#: src/amo/pages/Category/index.js:158 src/amo/pages/Home/index.js:368
+#: src/amo/pages/Category/index.js:158 src/amo/pages/Home/index.js:379
 #: src/amo/pages/LandingPage/index.js:152
 msgid "See more trending extensions"
 msgstr "Більше популярних розширень"
@@ -2311,7 +2326,7 @@ msgstr "Більше популярних розширень"
 msgid "See more top rated extensions"
 msgstr "Найвище оцінені розширення"
 
-#: src/amo/pages/Category/index.js:180 src/amo/pages/Home/index.js:328
+#: src/amo/pages/Category/index.js:180 src/amo/pages/Home/index.js:335
 #: src/amo/pages/LandingPage/index.js:172
 msgid "See more featured themes"
 msgstr "Більше відібраних тем"
@@ -2324,32 +2339,32 @@ msgstr "Більше популярних тем"
 msgid "See more top rated themes"
 msgstr "Найвище оцінені теми"
 
-#: src/amo/pages/Collection/index.js:388
+#: src/amo/pages/Collection/index.js:391
 msgid "Do you really want to delete this collection?"
 msgstr "Ви справді хочете видалити цю збірку?"
 
-#: src/amo/pages/Collection/index.js:391
+#: src/amo/pages/Collection/index.js:394
 msgid "Delete this collection"
 msgstr "Видалити цю збірку"
 
-#: src/amo/pages/Collection/index.js:410
+#: src/amo/pages/Collection/index.js:413
 msgid "Log in to create a collection"
 msgstr "Увійдіть, щоб створити збірку"
 
-#: src/amo/pages/Collection/index.js:411
+#: src/amo/pages/Collection/index.js:414
 msgid "Log in to edit this collection"
 msgstr "Увійдіть, щоб змінити цю збірку"
 
-#: src/amo/pages/Collection/index.js:444
+#: src/amo/pages/Collection/index.js:447
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Спочатку створіть свою збірку. Потім ви зможете додавати розширення і теми."
 
-#: src/amo/pages/Collection/index.js:447
+#: src/amo/pages/Collection/index.js:450
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Шукайте розширення і теми, щоб додати до своєї збірки."
 
-#: src/amo/pages/Collection/index.js:509
+#: src/amo/pages/Collection/index.js:512
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2358,7 +2373,7 @@ msgstr ""
 "розширеннями і темами. Ознайомтеся з %(collectionName)s—"
 "%(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:512
+#: src/amo/pages/Collection/index.js:515
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2632,63 +2647,63 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:130
+#: src/amo/pages/Home/index.js:137
 msgid "Bookmarks"
 msgstr "Закладки"
 
-#: src/amo/pages/Home/index.js:134
+#: src/amo/pages/Home/index.js:141
 msgid "Password managers"
 msgstr "Менеджери паролів"
 
-#: src/amo/pages/Home/index.js:138
+#: src/amo/pages/Home/index.js:145
 msgid "Ad blockers"
 msgstr "Блокування реклами"
 
-#: src/amo/pages/Home/index.js:142
+#: src/amo/pages/Home/index.js:149
 msgid "Smarter Shopping"
 msgstr "Розумний шопінг"
 
-#: src/amo/pages/Home/index.js:146
+#: src/amo/pages/Home/index.js:153
 msgid "Productivity"
 msgstr "Продуктивність"
 
-#: src/amo/pages/Home/index.js:150
+#: src/amo/pages/Home/index.js:157
 msgid "Watching Videos"
 msgstr "Перегляд відео"
 
-#: src/amo/pages/Home/index.js:178
+#: src/amo/pages/Home/index.js:185
 msgid "Abstract"
 msgstr "Абстрактні"
 
-#: src/amo/pages/Home/index.js:183
+#: src/amo/pages/Home/index.js:190
 msgid "Nature"
 msgstr "Природа"
 
-#: src/amo/pages/Home/index.js:188
+#: src/amo/pages/Home/index.js:195
 msgid "Film & TV"
 msgstr "Фільми і ТБ"
 
-#: src/amo/pages/Home/index.js:193
+#: src/amo/pages/Home/index.js:200
 msgid "Scenery"
 msgstr "Пейзажі"
 
-#: src/amo/pages/Home/index.js:198
+#: src/amo/pages/Home/index.js:205
 msgid "Music"
 msgstr "Музика"
 
-#: src/amo/pages/Home/index.js:203
+#: src/amo/pages/Home/index.js:210
 msgid "Seasonal"
 msgstr "Пори року"
 
-#: src/amo/pages/Home/index.js:237
+#: src/amo/pages/Home/index.js:244
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "Налаштуйте роботу Firefox за допомогою розширень…"
 
-#: src/amo/pages/Home/index.js:239
+#: src/amo/pages/Home/index.js:246
 msgid "Change the way Firefox looks with themes."
 msgstr "Змініть вигляд Firefox за допомогою тем."
 
-#: src/amo/pages/Home/index.js:273
+#: src/amo/pages/Home/index.js:280
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2698,25 +2713,38 @@ msgstr ""
 "Вони можуть блокувати надокучливу рекламу, зберігати паролі, змінювати "
 "зовнішній вигляд браузера та інше."
 
-#: src/amo/pages/Home/index.js:351
-msgid "See more popular extensions"
+#: src/amo/pages/Home/index.js:356
+#, fuzzy
+msgid "See more popular themes"
 msgstr "Більше популярних розширень"
 
-#: src/amo/pages/Home/index.js:56
-msgid "See more news boosters"
+#: src/amo/pages/Home/index.js:57
+#, fuzzy
+msgid "See more YouTube boosters"
 msgstr "Інші обробники перегляду новин"
 
-#: src/amo/pages/Home/index.js:57
-msgid "News boosters"
+#: src/amo/pages/Home/index.js:58
+#, fuzzy
+msgid "YouTube boosters"
 msgstr "Новини"
 
-#: src/amo/pages/Home/index.js:62
-msgid "See more weather reports"
-msgstr "Інші погодні засоби"
-
 #: src/amo/pages/Home/index.js:63
-msgid "Weather reports"
-msgstr "Погода"
+#, fuzzy
+msgid "See more health & wellness extensions"
+msgstr "Більше відібраних розширень"
+
+#: src/amo/pages/Home/index.js:64
+msgid "Health & Wellness"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:69
+#, fuzzy
+msgid "See more productivity extensions"
+msgstr "Розширення для продуктивності"
+
+#: src/amo/pages/Home/index.js:70
+msgid "Be more productive"
+msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid ""
@@ -3698,6 +3726,12 @@ msgstr[2] "%(total)s додатків"
 msgid "Developer response"
 msgstr "Відповідь розробника"
 
+#~ msgid "See more weather reports"
+#~ msgstr "Інші погодні засоби"
+
+#~ msgid "Weather reports"
+#~ msgstr "Погода"
+
 #~ msgid "%(averageRating)s star average"
 #~ msgstr "Середня оцінка %(averageRating)s зірок"
 
@@ -3801,9 +3835,6 @@ msgstr "Відповідь розробника"
 
 #~ msgid "%(addonName)s – Get this Add-on for 🦊 Android (%(locale)s)"
 #~ msgstr "%(addonName)s – Отримайте цей додаток для 🦊 Android (%(locale)s)"
-
-#~ msgid "Add-ons for Android (%(locale)s)"
-#~ msgstr "Додатки для Android (%(locale)s)"
 
 #~ msgid "%(title)s – Add-ons for Android (%(locale)s)"
 #~ msgstr "%(title)s – Додатки для Android (%(locale)s)"
@@ -4401,9 +4432,6 @@ msgstr "Відповідь розробника"
 #~ msgid "Play videos in HD, turn off annotations, change player size & more"
 #~ msgstr ""
 #~ "Дивіться відео в HD, вимикайте анотації, змінюйте розміри плеєра тощо"
-
-#~ msgid "Productivity extensions"
-#~ msgstr "Розширення для продуктивності"
 
 #~ msgid "Tools for making the Web work harder for you"
 #~ msgstr "Інструменти, які змусять Інтернет працювати краще для вас"

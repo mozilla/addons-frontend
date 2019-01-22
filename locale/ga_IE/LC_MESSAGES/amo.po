@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-15 18:51+0000\n"
+"POT-Creation-Date: 2019-01-22 20:32+0000\n"
 "PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -1022,11 +1022,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:123
@@ -1769,55 +1769,55 @@ msgstr "Tapáil le haghaidh réamhamhairc"
 msgid "Read all one-star reviews"
 msgstr "Léigh %(count)s léirmheas"
 
-#: src/amo/components/ReportAbuseButton/index.js:116
-#, fuzzy
-msgid "You reported this add-on for abuse"
-msgstr "Logáil isteach chun an breiseán seo a rátáil"
-
-#: src/amo/components/ReportAbuseButton/index.js:120
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this add-on."
-msgstr ""
-
-#: src/amo/components/ReportAbuseButton/index.js:127
+#: src/amo/components/ReportAbuseButton/index.js:106
 #: src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:139
+#: src/amo/components/ReportAbuseButton/index.js:116
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
 "to Mozilla using this form."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:155
+#: src/amo/components/ReportAbuseButton/index.js:132
 msgid "Report this add-on for abuse"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:184
+#: src/amo/components/ReportAbuseButton/index.js:161
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:200
-msgid "Explain how this add-on is violating our policies."
+#: src/amo/components/ReportAbuseButton/index.js:174
+#: src/amo/components/ReportUserAbuse/index.js:144
+msgid "Send abuse report"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:213
-msgid "Dismiss"
-msgstr ""
-
-#: src/amo/components/ReportAbuseButton/index.js:223
+#: src/amo/components/ReportAbuseButton/index.js:175
 #: src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:224
-#: src/amo/components/ReportUserAbuse/index.js:144
-msgid "Send abuse report"
+#: src/amo/components/ReportAbuseButton/index.js:177
+msgid "Dismiss"
+msgstr ""
+
+#: src/amo/components/ReportAbuseButton/index.js:178
+msgid "Explain how this add-on is violating our policies."
+msgstr ""
+
+#: src/amo/components/ReportAbuseButton/index.js:95
+#, fuzzy
+msgid "You reported this add-on for abuse"
+msgstr "Logáil isteach chun an breiseán seo a rátáil"
+
+#: src/amo/components/ReportAbuseButton/index.js:99
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this add-on."
 msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:106
@@ -1860,12 +1860,12 @@ msgid "Search results"
 msgstr "Cuardaigh na téamaí"
 
 #: src/amo/components/Search/index.js:125 src/amo/pages/Category/index.js:139
-#: src/amo/pages/Home/index.js:309 src/amo/pages/LandingPage/index.js:135
+#: src/amo/pages/Home/index.js:318 src/amo/pages/LandingPage/index.js:135
 msgid "Featured extensions"
 msgstr "Eisínteachtaí mór-le-rá"
 
 #: src/amo/components/Search/index.js:128 src/amo/pages/Category/index.js:171
-#: src/amo/pages/Home/index.js:338 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:345 src/amo/pages/LandingPage/index.js:164
 msgid "Featured themes"
 msgstr "Téamaí mór-le-rá"
 
@@ -1875,7 +1875,7 @@ msgid "Featured add-ons"
 msgstr "Breiseáin Firefox"
 
 #: src/amo/components/Search/index.js:138 src/amo/pages/Category/index.js:149
-#: src/amo/pages/Home/index.js:367 src/amo/pages/LandingPage/index.js:144
+#: src/amo/pages/Home/index.js:378 src/amo/pages/LandingPage/index.js:144
 #, fuzzy
 msgid "Trending extensions"
 msgstr "Eisínteachtaí leis na rátálacha is fearr"
@@ -1906,12 +1906,12 @@ msgstr "Téamaí leis na rátálacha is fearr"
 msgid "Top rated add-ons"
 msgstr "Eisínteachtaí leis na rátálacha is fearr"
 
-#: src/amo/components/Search/index.js:162 src/amo/pages/Home/index.js:350
+#: src/amo/components/Search/index.js:162
 #, fuzzy
 msgid "Popular extensions"
 msgstr "Na heisínteachtaí is mó a bhfuil tóir orthu"
 
-#: src/amo/components/Search/index.js:165
+#: src/amo/components/Search/index.js:165 src/amo/pages/Home/index.js:355
 #, fuzzy
 msgid "Popular themes"
 msgstr "Na téamaí is mó a bhfuil tóir orthu"
@@ -2087,7 +2087,17 @@ msgstr ""
 msgid "Featured add-ons only"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/SearchForm/index.js:66
+#: src/amo/components/SearchForm/index.js:61
+#, fuzzy
+msgid "Firefox Add-ons (%(locale)s)"
+msgstr "Breiseáin Firefox"
+
+#: src/amo/components/SearchForm/index.js:67
+#, fuzzy
+msgid "Firefox Add-ons for Android (%(locale)s)"
+msgstr "Breiseáin Firefox"
+
+#: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
 msgstr ""
 
@@ -2344,42 +2354,47 @@ msgstr "Comhaontú Ceadúnais an Úsáideora Deiridh"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Léirmheasanna ar %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:188
+#: src/amo/pages/AddonReviewList/index.js:191
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:204
-msgid "Only showing one-star reviews"
-msgstr ""
-
-#: src/amo/pages/AddonReviewList/index.js:205
-msgid "Only showing two-star reviews"
-msgstr ""
-
-#: src/amo/pages/AddonReviewList/index.js:206
-msgid "Only showing three-star reviews"
-msgstr ""
-
-#: src/amo/pages/AddonReviewList/index.js:207
-msgid "Only showing four-star reviews"
-msgstr ""
-
-#: src/amo/pages/AddonReviewList/index.js:208
-msgid "Only showing five-star reviews"
-msgstr ""
-
-#: src/amo/pages/AddonReviewList/index.js:220
+#: src/amo/pages/AddonReviewList/index.js:223
 #, fuzzy
 msgid "Show all reviews"
 msgstr "Níl aon léirmheas ann"
 
-#: src/amo/pages/AddonReviewList/index.js:264
+#: src/amo/pages/AddonReviewList/index.js:225
+#, fuzzy
+msgid "Show only five-star reviews"
+msgstr "Léigh %(count)s léirmheas"
+
+#: src/amo/pages/AddonReviewList/index.js:226
+#, fuzzy
+msgid "Show only four-star reviews"
+msgstr "Léigh %(count)s léirmheas"
+
+#: src/amo/pages/AddonReviewList/index.js:228
+#, fuzzy
+msgid "Show only three-star reviews"
+msgstr "Léigh %(count)s léirmheas"
+
+#: src/amo/pages/AddonReviewList/index.js:230
+#, fuzzy
+msgid "Show only two-star reviews"
+msgstr "Tapáil le haghaidh réamhamhairc"
+
+#: src/amo/pages/AddonReviewList/index.js:231
+#, fuzzy
+msgid "Show only one-star reviews"
+msgstr "Léigh %(count)s léirmheas"
+
+#: src/amo/pages/AddonReviewList/index.js:271
 msgid "Reviews for %(addonName)s"
 msgstr "Léirmheasanna ar %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:272
+#: src/amo/pages/AddonReviewList/index.js:281
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
@@ -2389,7 +2404,7 @@ msgstr[2] "%(total)s úsáideoir"
 msgstr[3] "%(total)s n-úsáideoir"
 msgstr[4] "%(total)s úsáideoir"
 
-#: src/amo/pages/AddonReviewList/index.js:361
+#: src/amo/pages/AddonReviewList/index.js:378
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Scríobh léirmheas"
@@ -2433,13 +2448,13 @@ msgstr "Brabhsáil na heisínteachtaí go léir"
 msgid "All theme categories"
 msgstr "Catagóirí á lódáil."
 
-#: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:310
+#: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:319
 #: src/amo/pages/LandingPage/index.js:143
 #, fuzzy
 msgid "See more featured extensions"
 msgstr "Tuilleadh eisínteachtaí mór-le-rá"
 
-#: src/amo/pages/Category/index.js:158 src/amo/pages/Home/index.js:368
+#: src/amo/pages/Category/index.js:158 src/amo/pages/Home/index.js:379
 #: src/amo/pages/LandingPage/index.js:152
 #, fuzzy
 msgid "See more trending extensions"
@@ -2450,7 +2465,7 @@ msgstr "Tuilleadh eisínteachtaí mór-le-rá"
 msgid "See more top rated extensions"
 msgstr "Eisínteachtaí leis na rátálacha is fearr"
 
-#: src/amo/pages/Category/index.js:180 src/amo/pages/Home/index.js:328
+#: src/amo/pages/Category/index.js:180 src/amo/pages/Home/index.js:335
 #: src/amo/pages/LandingPage/index.js:172
 #, fuzzy
 msgid "See more featured themes"
@@ -2466,41 +2481,41 @@ msgstr "Tuilleadh téamaí mór-le-rá"
 msgid "See more top rated themes"
 msgstr "Téamaí leis na rátálacha is fearr"
 
-#: src/amo/pages/Collection/index.js:388
+#: src/amo/pages/Collection/index.js:391
 #, fuzzy
 msgid "Do you really want to delete this collection?"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/pages/Collection/index.js:391
+#: src/amo/pages/Collection/index.js:394
 #, fuzzy
 msgid "Delete this collection"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/pages/Collection/index.js:410
+#: src/amo/pages/Collection/index.js:413
 #, fuzzy
 msgid "Log in to create a collection"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/pages/Collection/index.js:411
+#: src/amo/pages/Collection/index.js:414
 #, fuzzy
 msgid "Log in to edit this collection"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/pages/Collection/index.js:444
+#: src/amo/pages/Collection/index.js:447
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:447
+#: src/amo/pages/Collection/index.js:450
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:509
+#: src/amo/pages/Collection/index.js:512
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
 msgstr ""
 
-#: src/amo/pages/Collection/index.js:512
+#: src/amo/pages/Collection/index.js:515
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2758,91 +2773,100 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:130
+#: src/amo/pages/Home/index.js:137
 msgid "Bookmarks"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:134
+#: src/amo/pages/Home/index.js:141
 msgid "Password managers"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:138
+#: src/amo/pages/Home/index.js:145
 msgid "Ad blockers"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:142
+#: src/amo/pages/Home/index.js:149
 msgid "Smarter Shopping"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:146
+#: src/amo/pages/Home/index.js:153
 msgid "Productivity"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:150
+#: src/amo/pages/Home/index.js:157
 msgid "Watching Videos"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:178
+#: src/amo/pages/Home/index.js:185
 msgid "Abstract"
 msgstr "Teibí"
 
-#: src/amo/pages/Home/index.js:183
+#: src/amo/pages/Home/index.js:190
 msgid "Nature"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:188
+#: src/amo/pages/Home/index.js:195
 msgid "Film & TV"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:193
+#: src/amo/pages/Home/index.js:200
 #, fuzzy
 msgid "Scenery"
 msgstr "Sciamhach"
 
-#: src/amo/pages/Home/index.js:198
+#: src/amo/pages/Home/index.js:205
 msgid "Music"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:203
+#: src/amo/pages/Home/index.js:210
 msgid "Seasonal"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:237
+#: src/amo/pages/Home/index.js:244
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:239
+#: src/amo/pages/Home/index.js:246
 msgid "Change the way Firefox looks with themes."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:273
+#: src/amo/pages/Home/index.js:280
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:351
+#: src/amo/pages/Home/index.js:356
 #, fuzzy
-msgid "See more popular extensions"
+msgid "See more popular themes"
 msgstr "Tuilleadh eisínteachtaí a bhfuil tóir orthu"
 
-#: src/amo/pages/Home/index.js:56
+#: src/amo/pages/Home/index.js:57
 #, fuzzy
-msgid "See more news boosters"
+msgid "See more YouTube boosters"
 msgstr "Tuilleadh téamaí mór-le-rá"
 
-#: src/amo/pages/Home/index.js:57
-msgid "News boosters"
+#: src/amo/pages/Home/index.js:58
+msgid "YouTube boosters"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:62
-#, fuzzy
-msgid "See more weather reports"
-msgstr "Tuilleadh téamaí mór-le-rá"
-
 #: src/amo/pages/Home/index.js:63
-msgid "Weather reports"
+#, fuzzy
+msgid "See more health & wellness extensions"
+msgstr "Tuilleadh eisínteachtaí mór-le-rá"
+
+#: src/amo/pages/Home/index.js:64
+msgid "Health & Wellness"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:69
+#, fuzzy
+msgid "See more productivity extensions"
+msgstr "Tuilleadh eisínteachtaí a bhfuil tóir orthu"
+
+#: src/amo/pages/Home/index.js:70
+msgid "Be more productive"
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:208
@@ -3724,6 +3748,10 @@ msgid "Developer response"
 msgstr "Lárionad na bhForbróirí"
 
 #, fuzzy
+#~ msgid "See more weather reports"
+#~ msgstr "Tuilleadh téamaí mór-le-rá"
+
+#, fuzzy
 #~ msgid "%(averageRating)s star average"
 #~ msgstr "Meánrátáil: %(rating)s as 5"
 
@@ -3807,10 +3835,6 @@ msgstr "Lárionad na bhForbróirí"
 
 #, fuzzy
 #~ msgid "%(addonName)s – Get this Search Tool for 🦊 Android (%(locale)s)"
-#~ msgstr "Breiseáin Firefox"
-
-#, fuzzy
-#~ msgid "Add-ons for Android (%(locale)s)"
 #~ msgstr "Breiseáin Firefox"
 
 #, fuzzy

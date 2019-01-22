@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-15 18:51+0000\n"
+"POT-Creation-Date: 2019-01-22 20:32+0000\n"
 "PO-Revision-Date: 2018-12-21 14:15+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
@@ -906,12 +906,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Gắn cờ"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Đã gắn cờ"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Gắn cờ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1630,22 +1630,12 @@ msgstr "Đọc tất cả các đánh giá hai sao"
 msgid "Read all one-star reviews"
 msgstr "Đọc tất cả các đánh giá một sao"
 
-#: src/amo/components/ReportAbuseButton/index.js:116
-msgid "You reported this add-on for abuse"
-msgstr "Bạn đã báo cáo tiện ích này lạm dụng"
-
-#: src/amo/components/ReportAbuseButton/index.js:120
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this add-on."
-msgstr ""
-
-#: src/amo/components/ReportAbuseButton/index.js:127
+#: src/amo/components/ReportAbuseButton/index.js:106
 #: src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:139
+#: src/amo/components/ReportAbuseButton/index.js:116
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
@@ -1655,11 +1645,11 @@ msgstr ""
 "Tiện ích Mozilla%(linkTagEnd)s hoặc có vấn đề bảo mật hoặc riêng tư, vui "
 "lòng báo cáo các vấn đề này cho Mozilla bằng biểu mẫu này."
 
-#: src/amo/components/ReportAbuseButton/index.js:155
+#: src/amo/components/ReportAbuseButton/index.js:132
 msgid "Report this add-on for abuse"
 msgstr "Báo cáo tiện ích này lạm dụng"
 
-#: src/amo/components/ReportAbuseButton/index.js:184
+#: src/amo/components/ReportAbuseButton/index.js:161
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1668,23 +1658,33 @@ msgstr ""
 "năng bổ sung; báo cáo này sẽ được gửi tới Mozilla mà không phải cho nhà phát "
 "triển tiện ích."
 
-#: src/amo/components/ReportAbuseButton/index.js:200
-msgid "Explain how this add-on is violating our policies."
-msgstr "Giải thích tại sao tiện ích này vi phạm chính sách của chúng tôi."
+#: src/amo/components/ReportAbuseButton/index.js:174
+#: src/amo/components/ReportUserAbuse/index.js:144
+msgid "Send abuse report"
+msgstr "Gửi báo cáo"
 
-#: src/amo/components/ReportAbuseButton/index.js:213
-msgid "Dismiss"
-msgstr "Bỏ qua"
-
-#: src/amo/components/ReportAbuseButton/index.js:223
+#: src/amo/components/ReportAbuseButton/index.js:175
 #: src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "Đang gửi báo cáo lạm dụng"
 
-#: src/amo/components/ReportAbuseButton/index.js:224
-#: src/amo/components/ReportUserAbuse/index.js:144
-msgid "Send abuse report"
-msgstr "Gửi báo cáo"
+#: src/amo/components/ReportAbuseButton/index.js:177
+msgid "Dismiss"
+msgstr "Bỏ qua"
+
+#: src/amo/components/ReportAbuseButton/index.js:178
+msgid "Explain how this add-on is violating our policies."
+msgstr "Giải thích tại sao tiện ích này vi phạm chính sách của chúng tôi."
+
+#: src/amo/components/ReportAbuseButton/index.js:95
+msgid "You reported this add-on for abuse"
+msgstr "Bạn đã báo cáo tiện ích này lạm dụng"
+
+#: src/amo/components/ReportAbuseButton/index.js:99
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this add-on."
+msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:106
 #: src/amo/components/ReportUserAbuse/index.js:99
@@ -1723,12 +1723,12 @@ msgid "Search results"
 msgstr "Kết quả tìm kiếm"
 
 #: src/amo/components/Search/index.js:125 src/amo/pages/Category/index.js:139
-#: src/amo/pages/Home/index.js:309 src/amo/pages/LandingPage/index.js:135
+#: src/amo/pages/Home/index.js:318 src/amo/pages/LandingPage/index.js:135
 msgid "Featured extensions"
 msgstr "Tiện ích mở rộng nổi bật"
 
 #: src/amo/components/Search/index.js:128 src/amo/pages/Category/index.js:171
-#: src/amo/pages/Home/index.js:338 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:345 src/amo/pages/LandingPage/index.js:164
 msgid "Featured themes"
 msgstr "Chủ đề nổi bật"
 
@@ -1737,7 +1737,7 @@ msgid "Featured add-ons"
 msgstr "Tiện ích nổi bật"
 
 #: src/amo/components/Search/index.js:138 src/amo/pages/Category/index.js:149
-#: src/amo/pages/Home/index.js:367 src/amo/pages/LandingPage/index.js:144
+#: src/amo/pages/Home/index.js:378 src/amo/pages/LandingPage/index.js:144
 msgid "Trending extensions"
 msgstr "Xu hướng của các tiện ích mở rộng"
 
@@ -1764,11 +1764,11 @@ msgstr "Chủ đề được đánh giá cao"
 msgid "Top rated add-ons"
 msgstr "Tiện ích được xếp hạng cao nhất"
 
-#: src/amo/components/Search/index.js:162 src/amo/pages/Home/index.js:350
+#: src/amo/components/Search/index.js:162
 msgid "Popular extensions"
 msgstr "Các tiện ích mở rộng phổ biến"
 
-#: src/amo/components/Search/index.js:165
+#: src/amo/components/Search/index.js:165 src/amo/pages/Home/index.js:355
 msgid "Popular themes"
 msgstr ""
 
@@ -1896,7 +1896,17 @@ msgstr "Hệ điều hành"
 msgid "Featured add-ons only"
 msgstr "Chỉ những tiện ích nổi bật"
 
-#: src/amo/components/SearchForm/index.js:66
+#: src/amo/components/SearchForm/index.js:61
+#, fuzzy
+msgid "Firefox Add-ons (%(locale)s)"
+msgstr "Tiện ích cho Firefox Android (%(locale)s)"
+
+#: src/amo/components/SearchForm/index.js:67
+#, fuzzy
+msgid "Firefox Add-ons for Android (%(locale)s)"
+msgstr "Tiện ích cho Firefox dành cho Android (%(locale)s)"
+
+#: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
 msgstr "Chuyển đến trang tiện ích"
 
@@ -2132,47 +2142,52 @@ msgstr "Thỏa thuận cấp phép người dùng cuối cho %(addonName)s"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Chính sách bảo mật cho %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:188
+#: src/amo/pages/AddonReviewList/index.js:191
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:204
-msgid "Only showing one-star reviews"
-msgstr ""
-
-#: src/amo/pages/AddonReviewList/index.js:205
-msgid "Only showing two-star reviews"
-msgstr ""
-
-#: src/amo/pages/AddonReviewList/index.js:206
-msgid "Only showing three-star reviews"
-msgstr ""
-
-#: src/amo/pages/AddonReviewList/index.js:207
-msgid "Only showing four-star reviews"
-msgstr ""
-
-#: src/amo/pages/AddonReviewList/index.js:208
-msgid "Only showing five-star reviews"
-msgstr ""
-
-#: src/amo/pages/AddonReviewList/index.js:220
+#: src/amo/pages/AddonReviewList/index.js:223
 msgid "Show all reviews"
 msgstr "Hiển thị tất cả các đánh giá"
 
-#: src/amo/pages/AddonReviewList/index.js:264
+#: src/amo/pages/AddonReviewList/index.js:225
+#, fuzzy
+msgid "Show only five-star reviews"
+msgstr "Đọc tất cả các đánh giá một sao"
+
+#: src/amo/pages/AddonReviewList/index.js:226
+#, fuzzy
+msgid "Show only four-star reviews"
+msgstr "Đọc tất cả các đánh giá bốn sao"
+
+#: src/amo/pages/AddonReviewList/index.js:228
+#, fuzzy
+msgid "Show only three-star reviews"
+msgstr "Đọc tất cả các đánh giá một sao"
+
+#: src/amo/pages/AddonReviewList/index.js:230
+#, fuzzy
+msgid "Show only two-star reviews"
+msgstr "Đọc tất cả các đánh giá hai sao"
+
+#: src/amo/pages/AddonReviewList/index.js:231
+#, fuzzy
+msgid "Show only one-star reviews"
+msgstr "Đọc tất cả các đánh giá một sao"
+
+#: src/amo/pages/AddonReviewList/index.js:271
 msgid "Reviews for %(addonName)s"
 msgstr "Đánh giá cho %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:272
+#: src/amo/pages/AddonReviewList/index.js:281
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s sao"
 
-#: src/amo/pages/AddonReviewList/index.js:361
+#: src/amo/pages/AddonReviewList/index.js:378
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Viết đánh giá"
@@ -2210,12 +2225,12 @@ msgstr ""
 msgid "All theme categories"
 msgstr "Tất cả các loại chủ đề"
 
-#: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:310
+#: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:319
 #: src/amo/pages/LandingPage/index.js:143
 msgid "See more featured extensions"
 msgstr "Xem thêm các tiện ích nổi bật"
 
-#: src/amo/pages/Category/index.js:158 src/amo/pages/Home/index.js:368
+#: src/amo/pages/Category/index.js:158 src/amo/pages/Home/index.js:379
 #: src/amo/pages/LandingPage/index.js:152
 msgid "See more trending extensions"
 msgstr "Xem thêm các tiện ích mở rộng đang thịnh hành"
@@ -2224,7 +2239,7 @@ msgstr "Xem thêm các tiện ích mở rộng đang thịnh hành"
 msgid "See more top rated extensions"
 msgstr "Xem các tiện ích được đánh giá cao nhất"
 
-#: src/amo/pages/Category/index.js:180 src/amo/pages/Home/index.js:328
+#: src/amo/pages/Category/index.js:180 src/amo/pages/Home/index.js:335
 #: src/amo/pages/LandingPage/index.js:172
 msgid "See more featured themes"
 msgstr "Xem thêm các chủ đề nổi bật"
@@ -2237,34 +2252,34 @@ msgstr "Xem thên các chủ đề phổ biến"
 msgid "See more top rated themes"
 msgstr "Xem thêm những chủ đề được đánh giá cao"
 
-#: src/amo/pages/Collection/index.js:388
+#: src/amo/pages/Collection/index.js:391
 msgid "Do you really want to delete this collection?"
 msgstr "Bạn có thực sự muốn xóa bộ sưu tập này không?"
 
-#: src/amo/pages/Collection/index.js:391
+#: src/amo/pages/Collection/index.js:394
 msgid "Delete this collection"
 msgstr "Xóa bộ sưu tập này"
 
-#: src/amo/pages/Collection/index.js:410
+#: src/amo/pages/Collection/index.js:413
 msgid "Log in to create a collection"
 msgstr "Đăng nhập để tạo bộ sưu tập"
 
-#: src/amo/pages/Collection/index.js:411
+#: src/amo/pages/Collection/index.js:414
 msgid "Log in to edit this collection"
 msgstr "Đăng nhập để chỉnh sửa bộ sưu tập"
 
-#: src/amo/pages/Collection/index.js:444
+#: src/amo/pages/Collection/index.js:447
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "Đầu tiên, tạo bộ sưu tập của bạn. Sau đó, bạn có thể thêm tiện ích mở rộng "
 "và chủ đề."
 
-#: src/amo/pages/Collection/index.js:447
+#: src/amo/pages/Collection/index.js:450
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 "Tìm kiếm các tiện ích mở rộng và chủ đề để thêm vào bộ sưu tập của bạn."
 
-#: src/amo/pages/Collection/index.js:509
+#: src/amo/pages/Collection/index.js:512
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2272,7 +2287,7 @@ msgstr ""
 "Tải xuống và tạo bộ sưu tập Firefox để theo dõi các chủ đề và tiện ích yêu "
 "thích. Khám phá %(collectionName)s—%(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:512
+#: src/amo/pages/Collection/index.js:515
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2526,65 +2541,65 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:130
+#: src/amo/pages/Home/index.js:137
 msgid "Bookmarks"
 msgstr "Đánh dấu"
 
-#: src/amo/pages/Home/index.js:134
+#: src/amo/pages/Home/index.js:141
 msgid "Password managers"
 msgstr "Quản lý mật khẩu"
 
-#: src/amo/pages/Home/index.js:138
+#: src/amo/pages/Home/index.js:145
 msgid "Ad blockers"
 msgstr "Chặn quảng cáo"
 
-#: src/amo/pages/Home/index.js:142
+#: src/amo/pages/Home/index.js:149
 msgid "Smarter Shopping"
 msgstr "Mua sắm thông minh"
 
-#: src/amo/pages/Home/index.js:146
+#: src/amo/pages/Home/index.js:153
 msgid "Productivity"
 msgstr "Năng suất"
 
-#: src/amo/pages/Home/index.js:150
+#: src/amo/pages/Home/index.js:157
 msgid "Watching Videos"
 msgstr "Xem video"
 
-#: src/amo/pages/Home/index.js:178
+#: src/amo/pages/Home/index.js:185
 msgid "Abstract"
 msgstr "Trừu tượng"
 
-#: src/amo/pages/Home/index.js:183
+#: src/amo/pages/Home/index.js:190
 msgid "Nature"
 msgstr "Thiên nhiên"
 
-#: src/amo/pages/Home/index.js:188
+#: src/amo/pages/Home/index.js:195
 msgid "Film & TV"
 msgstr "Phim & TV"
 
-#: src/amo/pages/Home/index.js:193
+#: src/amo/pages/Home/index.js:200
 msgid "Scenery"
 msgstr "Phong cảnh"
 
-#: src/amo/pages/Home/index.js:198
+#: src/amo/pages/Home/index.js:205
 msgid "Music"
 msgstr "Âm nhạc"
 
-#: src/amo/pages/Home/index.js:203
+#: src/amo/pages/Home/index.js:210
 msgid "Seasonal"
 msgstr "Theo mùa"
 
-#: src/amo/pages/Home/index.js:237
+#: src/amo/pages/Home/index.js:244
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 "Tùy chỉnh cách Firefox hoạt động với các tiện ích mở rộng. Bạn có quan tâm "
 "đến…"
 
-#: src/amo/pages/Home/index.js:239
+#: src/amo/pages/Home/index.js:246
 msgid "Change the way Firefox looks with themes."
 msgstr "Thay đổi cách nhìn Firefox với chủ đề."
 
-#: src/amo/pages/Home/index.js:273
+#: src/amo/pages/Home/index.js:280
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2594,26 +2609,37 @@ msgstr ""
 "trình duyệt của bạn. Nó có thể chặn quảng cáo gây phiền nhiễu, bảo vệ mật "
 "khẩu, thay đổi giao diện trình duyệt và hơn thế nữa."
 
-#: src/amo/pages/Home/index.js:351
-msgid "See more popular extensions"
+#: src/amo/pages/Home/index.js:356
+#, fuzzy
+msgid "See more popular themes"
 msgstr "Xem thêm các tiện ích phổ biến"
 
-#: src/amo/pages/Home/index.js:56
+#: src/amo/pages/Home/index.js:57
 #, fuzzy
-msgid "See more news boosters"
+msgid "See more YouTube boosters"
 msgstr "Phần mở rộng"
 
-#: src/amo/pages/Home/index.js:57
-msgid "News boosters"
+#: src/amo/pages/Home/index.js:58
+msgid "YouTube boosters"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:62
-msgid "See more weather reports"
-msgstr "Xem thêm báo cáo thời tiết"
-
 #: src/amo/pages/Home/index.js:63
-msgid "Weather reports"
-msgstr "Dự báo thời tiết"
+#, fuzzy
+msgid "See more health & wellness extensions"
+msgstr "Xem thêm các tiện ích nổi bật"
+
+#: src/amo/pages/Home/index.js:64
+msgid "Health & Wellness"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:69
+#, fuzzy
+msgid "See more productivity extensions"
+msgstr "Xem thêm các tiện ích phổ biến"
+
+#: src/amo/pages/Home/index.js:70
+msgid "Be more productive"
+msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid ""
@@ -3525,6 +3551,12 @@ msgstr[0] "%(total)s tiện ích"
 msgid "Developer response"
 msgstr ""
 
+#~ msgid "See more weather reports"
+#~ msgstr "Xem thêm báo cáo thời tiết"
+
+#~ msgid "Weather reports"
+#~ msgstr "Dự báo thời tiết"
+
 # averageRating is a localized number, such as 4.5
 #~ msgid "%(averageRating)s star average"
 #~ msgstr "%(averageRating)s sao (trung bình)"
@@ -3568,9 +3600,6 @@ msgstr ""
 
 #~ msgid "See more parental controls"
 #~ msgstr "Xem nhiều hơn về các công cụ bảo mật"
-
-#~ msgid "Add-ons for Android (%(locale)s)"
-#~ msgstr "Tiện ích cho Firefox dành cho Android (%(locale)s)"
 
 #~ msgid "%(title)s – Add-ons for Android (%(locale)s)"
 #~ msgstr "%(title)s – Tiện ích cho Firefox dành cho Android (%(locale)s)"
