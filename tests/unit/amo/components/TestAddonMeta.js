@@ -17,6 +17,7 @@ import {
 } from 'tests/unit/helpers';
 import MetadataCard from 'ui/components/MetadataCard';
 import Rating from 'ui/components/Rating';
+import { ADDON_TYPE_OPENSEARCH } from 'core/constants';
 
 describe(__filename, () => {
   function render({
@@ -41,6 +42,19 @@ describe(__filename, () => {
       return root.find(MetadataCard).prop('metadata')[0];
     }
 
+    it("doesn't render users", () => {
+      const root = render({
+        addon: createInternalAddon({
+          ...fakeAddon,
+          type: ADDON_TYPE_OPENSEARCH,
+          average_daily_users: 0,
+        }),
+      });
+
+      expect(getUserCount(root).content).toEqual('');
+      expect(getUserCount(root).title).toEqual(null);
+    });
+    
     it('renders the user count', () => {
       const root = render({
         addon: createInternalAddon({ ...fakeAddon, average_daily_users: 2 }),
