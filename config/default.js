@@ -119,7 +119,6 @@ module.exports = {
     'enableDevTools',
     'enableFeatureDiscoTaar',
     'enableFeatureExperienceSurvey',
-    'enableFeatureHomeHeroGuides',
     'enableFeatureStaticThemesForAndroid',
     'enableRequestID',
     'enableStrictMode',
@@ -359,8 +358,6 @@ module.exports = {
 
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
-
-  enableFeatureHomeHeroGuides: true,
 
   // This flag is enabled by default because the feature already exists and we
   // want to disable it.

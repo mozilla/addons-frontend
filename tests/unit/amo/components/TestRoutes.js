@@ -13,16 +13,8 @@ describe(__filename, () => {
     return shallow(<Routes {...props} />);
   };
 
-  it('renders routes without the guide route when enableFeatureHomeHeroGuides is false', () => {
-    const _config = getFakeConfig({ enableFeatureHomeHeroGuides: false });
-    const root = render({ _config });
-
-    expect(root.find(Route)).toHaveLength(31);
-  });
-
-  it('renders routes including the guide route when enableFeatureHomeHeroGuides is true', () => {
-    const _config = getFakeConfig({ enableFeatureHomeHeroGuides: true });
-    const root = render({ _config });
+  it('renders the routes for the amo app', () => {
+    const root = render();
 
     expect(root.find(Route)).toHaveLength(32);
   });
