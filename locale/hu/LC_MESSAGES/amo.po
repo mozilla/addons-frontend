@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-22 20:32+0000\n"
-"PO-Revision-Date: 2019-01-23 13:10+0000\n"
+"PO-Revision-Date: 2019-01-23 13:13+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -303,7 +303,7 @@ msgstr "Támogatási e-mail"
 
 #: src/amo/components/AddonRecommendations/index.js:133
 msgid "Other users with this extension also installed"
-msgstr "Más felhasználók ezeket a bővítményeket is telepítették"
+msgstr "Más felhasználók ezeket a kiegészítőket is telepítették"
 
 #: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other popular extensions"
@@ -335,7 +335,7 @@ msgstr "Tényleg törli ezt a választ?"
 
 #: src/amo/components/AddonReviewCard/index.js:222
 msgid "Do you really want to delete this rating?"
-msgstr "Tényleg törli ezt az értékelést?"
+msgstr "Tényleg törli ezt a csillagos értékelést?"
 
 #: src/amo/components/AddonReviewCard/index.js:225
 msgid "Do you really want to delete this review?"
@@ -2508,7 +2508,7 @@ msgstr "Szótárak"
 
 #: src/amo/pages/SearchTools/index.js:31
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr "Töltsön le Firefox bővítményeket, hogy testre szabhassa a keresés módját – kezdve az adatvédelmi szempontból jobb kereséssel, a webhelyfüggő keresésekkel, képkereséssel és még sok mással."
+msgstr "Töltsön le Firefox kiegészítőket, hogy testre szabhassa a keresés módját – kezdve az adatvédelmi szempontból jobb kereséssel, a webhelyfüggő keresésekkel, képkereséssel és még sok mással."
 
 #: src/amo/pages/StaticPages/About/index.js:108
 msgid ""
