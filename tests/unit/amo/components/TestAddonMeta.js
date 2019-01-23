@@ -8,6 +8,7 @@ import AddonMeta, {
 import Link from 'amo/components/Link';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import { reviewListURL } from 'amo/reducers/reviews';
+import { ADDON_TYPE_OPENSEARCH } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   dispatchClientMetadata,
@@ -17,7 +18,6 @@ import {
 } from 'tests/unit/helpers';
 import MetadataCard from 'ui/components/MetadataCard';
 import Rating from 'ui/components/Rating';
-import { ADDON_TYPE_OPENSEARCH } from 'core/constants';
 
 describe(__filename, () => {
   function render({
@@ -41,8 +41,8 @@ describe(__filename, () => {
     function getUserCount(root) {
       return root.find(MetadataCard).prop('metadata')[0];
     }
-
-    it("doesn't render users", () => {
+    
+    it(`doesn't render users for search plugins`, () => {
       const root = render({
         addon: createInternalAddon({
           ...fakeAddon,
