@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-22 20:32+0000\n"
-"PO-Revision-Date: 2019-01-23 07:31+0000\n"
+"PO-Revision-Date: 2019-01-23 07:34+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2445,16 +2445,15 @@ msgstr "Vide plus extensiones de salute e benesser"
 
 #: src/amo/pages/Home/index.js:64
 msgid "Health & Wellness"
-msgstr ""
+msgstr "Salute e benesser"
 
 #: src/amo/pages/Home/index.js:69
-#, fuzzy
 msgid "See more productivity extensions"
-msgstr "Vide altere extensiones popular"
+msgstr "Vide altere extensiones de productivitate"
 
 #: src/amo/pages/Home/index.js:70
 msgid "Be more productive"
-msgstr ""
+msgstr "Esser plus productive"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2831,18 +2830,16 @@ msgid "Tell users a bit more information about yourself. These fields are option
 msgstr "Conta al usatores poc altere informationes circa te mesme. Iste campos es optional, ma illos adjutara altere usatores a te discoperir melio."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Conta al usatores poc altere informationes circa iste usator. Iste campos es optional, ma illos adjutara altere usatores a discoperir %(username)s melio."
+msgstr "Conta al usatores poc altere informationes circa iste usator. Iste campos es optional, ma illos adjutara altere usatores a discoperir %(userName)s melio."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
 msgstr "Presenta te mesme al communitate si il te place"
 
 #: src/amo/pages/UserProfileEdit/index.js:437
-#, fuzzy
 msgid "Introduce %(userName)s to the community"
-msgstr "Presenta %(username)s al communitate"
+msgstr "Presenta %(userName)s al communitate"
 
 #: src/amo/pages/UserProfileEdit/index.js:460
 msgid "Log in to edit the profile"
