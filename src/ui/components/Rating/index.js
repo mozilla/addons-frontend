@@ -18,7 +18,7 @@ type StateType = {|
   hoveringOverStar: number | null,
 |};
 
-type Props = {|
+export type Props = {|
   className?: string,
   onSelectRating?: (rating: number) => void,
   rating?: number | null,
