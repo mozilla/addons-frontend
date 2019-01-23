@@ -4,13 +4,14 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import { reviewListURL } from 'amo/reducers/reviews';
+import { ADDON_TYPE_OPENSEARCH } from 'core/constants';
 import translate from 'core/i18n/translate';
 import type { AddonType } from 'core/types/addons';
 import MetadataCard from 'ui/components/MetadataCard';
 import Rating from 'ui/components/Rating';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import type { I18nType } from 'core/types/i18n';
-import { ADDON_TYPE_OPENSEARCH } from 'core/constants';
+
 import './styles.scss';
 
 type Props = {|
