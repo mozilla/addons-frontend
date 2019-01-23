@@ -41,7 +41,7 @@ describe(__filename, () => {
     function getUserCount(root) {
       return root.find(MetadataCard).prop('metadata')[0];
     }
-    
+
     it(`doesn't render users for search plugins`, () => {
       const root = render({
         addon: createInternalAddon({
