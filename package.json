@@ -203,7 +203,7 @@
   "homepage": "https://github.com/mozilla/addons-frontend#readme",
   "dependencies": {
     "@babel/polyfill": "7.2.5",
-    "@loadable/component": "5.2.2",
+    "@loadable/component": "5.5.0",
     "@loadable/server": "5.4.0",
     "base62": "2.0.0",
     "base64url": "3.0.1",
