@@ -348,6 +348,10 @@ module.exports = {
   // See the Discopane config for how this is currently used.
   discoParamsToUse: [],
 
+  // This is the public Mozilla user ID (similar to TASK_USER_ID in
+  // addons-server).
+  mozillaUserId: 4757633,
+
 
   // Feature flags.
   //

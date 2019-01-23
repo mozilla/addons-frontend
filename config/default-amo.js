@@ -110,10 +110,6 @@ module.exports = {
     '/$lang/review_guide',
   ],
 
-  // This is the public Mozilla user ID (similar to TASK_USER_ID in
-  // addons-server).
-  mozillaUserId: 4757633,
-
   trackingEnabled: true,
   trackingId: 'UA-36116321-7',
 

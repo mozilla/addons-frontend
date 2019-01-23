@@ -9,6 +9,6 @@ module.exports = {
   module: {
     rules: [...getStyleRules({ bundleStylesWithJs: true }), ...getAssetRules()],
   },
-  plugins: [...getPlugins()],
+  plugins: [...getPlugins({ includeLoadablePlugin: false })],
   resolve: webpackProdConfig.resolve,
 };

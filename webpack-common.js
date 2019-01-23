@@ -113,15 +113,14 @@ export function getRules({ babelOptions, bundleStylesWithJs = false } = {}) {
   ];
 }
 
-export function getPlugins({ excludeOtherAppLocales = true } = {}) {
+export function getPlugins({
+  excludeOtherAppLocales = true,
+  includeLoadablePlugin = true,
+} = {}) {
   const appName = config.get('appName');
   const clientConfig = getClientConfig(config);
 
   const plugins = [
-    // We need this file to be written on disk so that our server code can read
-    // it. In development mode, webpack usually serves the file from memory but
-    // that's not what we want for this file.
-    new LoadablePlugin({ writeToDisk: true }),
     new webpack.DefinePlugin({
       CLIENT_CONFIG: JSON.stringify(clientConfig),
       'process.env.NODE_ENV': JSON.stringify('production'),
@@ -145,6 +144,13 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
       failOnError: true,
     }),
   ];
+
+  if (includeLoadablePlugin) {
+    // We need this file to be written on disk so that our server code can read
+    // it. In development mode, webpack usually serves the file from memory but
+    // that's not what we want for this file.
+    plugins.push(new LoadablePlugin({ writeToDisk: true }));
+  }
 
   if (excludeOtherAppLocales) {
     plugins.push(
