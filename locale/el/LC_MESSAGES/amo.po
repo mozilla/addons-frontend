@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-22 20:32+0000\n"
-"PO-Revision-Date: 2019-01-24 03:26+0000\n"
+"PO-Revision-Date: 2019-01-24 03:38+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -532,14 +532,12 @@ msgid "by"
 msgstr "από"
 
 #: src/amo/components/AddonVersionCard/index.js:104
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "δημοσιεύτηκε στις %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "Ο πηγαίος κώδικας εκδόθηκε υπό την άδεια %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:125
-#, fuzzy
 msgid "Source code released under %(licenseName)s"
-msgstr "δημοσιεύτηκε στις %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "Ο πηγαίος κώδικας εκδόθηκε υπό την άδεια %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
@@ -792,13 +790,12 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
-#, fuzzy
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll get it sorted."
 msgstr ""
-"Αν ακολουθήσατε έναν σύνδεσμο από κάπου αλλού, παρακαλώ <a href=\"%(url)s\">αναφέρετε το πρόβλημα</a>. Περιγράψτε μας από πού ήρθατε και τι προσπαθούσατε να προσπελάσετε και θα κάνουμε ό,τι μπορούμε"
-" για να επιλύσουμε το θέμα."
+"Αν ακολουθήσατε κάποιο σύνδεσμο σε αυτή την ιστοσελίδα, έχετε εντοπίσει ένα λάθος. Βοηθήστε μας να διορθώσουμε το σύνδεσμο <a href=\"%(url)s\">αναφέροντας το ζήτημα</a>. Πείτε μας από πού ήρθατε και"
+" τι ψάχνατε και εμείς θα επιλύσουμε το πρόβλημα."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
@@ -2029,29 +2026,24 @@ msgid "Show all reviews"
 msgstr "Εμφάνιση όλων των κριτικών"
 
 #: src/amo/pages/AddonReviewList/index.js:225
-#, fuzzy
 msgid "Show only five-star reviews"
-msgstr "Εμφανίζονται μόνο οι κριτικές πέντε αστέρων"
+msgstr "Εμφάνιση μόνο κριτικών πέντε αστεριών"
 
 #: src/amo/pages/AddonReviewList/index.js:226
-#, fuzzy
 msgid "Show only four-star reviews"
-msgstr "Εμφανίζονται μόνο οι κριτικές τεσσάρων αστέρων"
+msgstr "Εμφάνιση μόνο κριτικών τεσσάρων αστεριών"
 
 #: src/amo/pages/AddonReviewList/index.js:228
-#, fuzzy
 msgid "Show only three-star reviews"
-msgstr "Εμφανίζονται μόνο οι κριτικές τριών αστέρων"
+msgstr "Εμφάνιση μόνο κριτικών τριών αστεριών"
 
 #: src/amo/pages/AddonReviewList/index.js:230
-#, fuzzy
 msgid "Show only two-star reviews"
-msgstr "Εμφανίζονται μόνο οι κριτικές δύο αστέρων"
+msgstr "Εμφάνιση μόνο κριτικών δύο αστεριών"
 
 #: src/amo/pages/AddonReviewList/index.js:231
-#, fuzzy
 msgid "Show only one-star reviews"
-msgstr "Εμφανίζονται μόνο οι κριτικές ενός αστεριού"
+msgstr "Εμφάνιση μόνο κριτικών ενός αστεριού"
 
 #: src/amo/pages/AddonReviewList/index.js:271
 msgid "Reviews for %(addonName)s"
@@ -2409,33 +2401,28 @@ msgstr ""
 " εμφάνιση του προγράμματος περιήγησης και πολλά άλλα."
 
 #: src/amo/pages/Home/index.js:356
-#, fuzzy
 msgid "See more popular themes"
-msgstr "Δείτε περισσότερες δημοφιλείς επεκτάσεις"
+msgstr "Δείτε περισσότερα δημοφιλή θέματα"
 
 #: src/amo/pages/Home/index.js:57
-#, fuzzy
 msgid "See more YouTube boosters"
-msgstr "Δείτε περισσότερα πρόσθετα ειδήσεων"
+msgstr "Δείτε περισσότερες επεκτάσεις βελτίωσης του YouTube"
 
 #: src/amo/pages/Home/index.js:58
-#, fuzzy
 msgid "YouTube boosters"
-msgstr "Πρόσθετα ειδήσεων"
+msgstr "Βελτιώσεις YouTube"
 
 #: src/amo/pages/Home/index.js:63
-#, fuzzy
 msgid "See more health & wellness extensions"
-msgstr "Δείτε περισσότερες προτεινόμενες επεκτάσεις"
+msgstr "Δείτε περισσότερες επεκτάσεις υγείας & ευεξίας"
 
 #: src/amo/pages/Home/index.js:64
 msgid "Health & Wellness"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:69
-#, fuzzy
 msgid "See more productivity extensions"
-msgstr "Δείτε περισσότερες δημοφιλείς επεκτάσεις"
+msgstr "Δείτε περισσότερες επεκτάσεις παραγωγικότητας"
 
 #: src/amo/pages/Home/index.js:70
 msgid "Be more productive"
@@ -2825,18 +2812,16 @@ msgid "Tell users a bit more information about yourself. These fields are option
 msgstr "Πείτε στους χρήστες λίγες ακόμη πληροφορίες σχετικά με εσάς. Αυτά τα πεδία είναι προαιρετικά, αλλά θα βοηθήσουν τους άλλους χρήστες να σάς γνωρίσουν καλύτερα."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Πείτε στους χρήστες λίγες ακόμη πληροφορίες σχετικά με αυτό το χρήστη. Αυτά τα πεδία είναι προαιρετικά, αλλά θα βοηθήσουν τους άλλους χρήστες να γνωρίσουν καλύτερα τον/την %(username)s."
+msgstr "Πείτε στους χρήστες λίγες ακόμη πληροφορίες σχετικά με αυτό το χρήστη. Αυτά τα πεδία είναι προαιρετικά, αλλά θα βοηθήσουν τους άλλους χρήστες να γνωρίσουν καλύτερα τον/την %(userName)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
 msgstr "Συστηθείτε στην κοινότητα αν θέλετε"
 
 #: src/amo/pages/UserProfileEdit/index.js:437
-#, fuzzy
 msgid "Introduce %(userName)s to the community"
-msgstr "Συστήστε το χρήστη %(username)s στην κοινότητα"
+msgstr "Συστήστε τον/την %(userName)s στην κοινότητα"
 
 #: src/amo/pages/UserProfileEdit/index.js:460
 msgid "Log in to edit the profile"
