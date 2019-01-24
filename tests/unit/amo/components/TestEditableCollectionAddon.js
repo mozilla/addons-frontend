@@ -215,12 +215,34 @@ describe(__filename, () => {
         'Add a comment about this add-on.',
       );
       expect(notesForm).toHaveProp('submitButtonText', 'Save');
-      expect(notesForm).toHaveProp('text', null);
+      expect(notesForm).toHaveProp('text', '');
 
       // The read-only portion should not be shown.
       expect(
         root.find('.EditableCollectionAddon-notes-read-only'),
       ).toHaveLength(0);
+    });
+
+    it('renders clickable URL in notes', () => {
+      const notes = `<a href="url">http://www.w3schools.com</a>`;
+      const root = render({ notes });
+
+      expect(root.find('.EditableCollectionAddon-notes-content')).toHaveHTML(
+        `<span class="EditableCollectionAddon-notes-content"> ${notes}</span>`,
+      );
+    });
+
+    it('does not show <a> tag in DismissibleTextForm when editing notes', () => {
+      const { store } = dispatchClientMetadata();
+      const url = 'http://w3schools.com';
+      const notes = `<a href="to somewhere">${url}</a>`;
+      const root = render({ notes, store });
+      root
+        .find('.EditableCollectionAddon-notes-edit-button')
+        .simulate('click', createFakeEvent());
+      applyUIStateChanges({ root, store });
+
+      expect(root.find(DismissibleTextForm)).toHaveProp('text', url);
     });
 
     it('changes UI state when the leave a note button is clicked', () => {

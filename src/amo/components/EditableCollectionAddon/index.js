@@ -164,7 +164,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
                   onSubmit={this.onSaveNote}
                   placeholder={i18n.gettext('Add a comment about this add-on.')}
                   submitButtonText={i18n.gettext('Save')}
-                  text={addon.notes || null}
+                  text={sanitizeHTML(addon.notes || '').__html}
                 />
               </React.Fragment>
             ) : (
@@ -174,7 +174,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
                   // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={sanitizeHTML(
                     nl2br(addon.notes || ''),
-                    ['br'],
+                    ['br', 'a'],
                   )}
                 />
                 <div className="EditableCollectionAddon-notes-buttons">
