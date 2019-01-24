@@ -65,9 +65,9 @@ function createPropsMatrix(): Array<Props> {
     {
       props: {
         readOnly: false,
-        styleSize: 'small',
-        rating: 4,
-        yellowStars: false,
+        styleSize: 'large',
+        rating: null,
+        yellowStars: true,
       },
     },
     {
@@ -99,6 +99,14 @@ function createPropsMatrix(): Array<Props> {
         readOnly: true,
         styleSize: 'large',
         rating: 3.5,
+        yellowStars: false,
+      },
+    },
+    {
+      props: {
+        readOnly: true,
+        styleSize: 'large',
+        rating: null,
         yellowStars: false,
       },
     },
@@ -106,7 +114,11 @@ function createPropsMatrix(): Array<Props> {
 }
 
 storiesOf('Rating', module)
-  .addDecorator((story) => <Provider story={story()} />)
+  .addDecorator((story) => (
+    <div className="Rating--storybook">
+      <Provider story={story()} />
+    </div>
+  ))
   // TODO: props isn't working here because of translate HOC
   // I believe. We should look into this.
   // .add(

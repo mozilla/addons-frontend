@@ -35,3 +35,30 @@ body {
 .chapter-h3 {
   margin-top: 48px;
 }
+
+// Set up the same width of Rating's container in storybook.
+.Rating--storybook {
+  width: calc(100% + 12px + 12px);
+
+  .section-container {
+    padding: 24px 20px;
+    width: 100%;
+
+    @include respond-to(large) {
+      padding: 24px 36px;
+      width: 300px;
+    }
+
+    @include respond-to(extraLarge) {
+      width: 35%;
+    }
+  }
+
+  .section-component-container {
+    width: 100%;
+
+    @include respond-to(large) {
+      margin: 12px;
+    }
+  }
+}
