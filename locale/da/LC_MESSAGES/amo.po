@@ -545,14 +545,12 @@ msgid "by"
 msgstr "af"
 
 #: src/amo/components/AddonVersionCard/index.js:104
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "skrevet %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:125
-#, fuzzy
 msgid "Source code released under %(licenseName)s"
-msgstr "skrevet %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
