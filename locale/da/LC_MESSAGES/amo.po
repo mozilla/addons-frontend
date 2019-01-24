@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-22 20:32+0000\n"
-"PO-Revision-Date: 2019-01-24 10:42+0000\n"
-"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
+"PO-Revision-Date: 2019-01-24 11:24+0000\n"
+"Last-Translator: Jakob Kappel <jakobkpetersen@gmail.com>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -531,7 +531,7 @@ msgstr "Tilføjelses-ikon"
 #: src/amo/components/AddonSummaryCard/index.js:62
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] ""
+msgstr[0] "Bedømt til %(rating)s ud af 5"
 msgstr[1] "Bedømt til %(rating)s ud af 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
@@ -546,11 +546,11 @@ msgstr "af"
 
 #: src/amo/components/AddonVersionCard/index.js:104
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr ""
+msgstr "Kildekode udgivet under %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:125
 msgid "Source code released under %(licenseName)s"
-msgstr ""
+msgstr "Kildekode udgivet under %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
@@ -784,15 +784,15 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Hovsa! Vi kan ikke finde den side"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Hvis du har fulgt et link fra et andet websted til en udvidelse eller et tema, er det ikke længere tilgængeligt. Dette kan skyldes:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:69
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "Udvikleren fjernede udvidelsen eller temaet. Udviklere gør normalt dette, fordi de ikke længere understøtter udvidelsen eller temaet, eller fordi de har lavet en erstatning."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:74
 msgid ""
@@ -1796,11 +1796,11 @@ msgstr "Kun udvalgte tilføjelser"
 
 #: src/amo/components/SearchForm/index.js:61
 msgid "Firefox Add-ons (%(locale)s)"
-msgstr ""
+msgstr "Tilføjelser til Firefox (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr ""
+msgstr "Tilføjelser til Firefox til Android (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
@@ -2075,24 +2075,24 @@ msgstr "Der er ingen anmeldelser"
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(addonName)s versions-historik - %(total)s version"
+msgstr[1] "%(addonName)s versions-historik - %(total)s versioner"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "Vær forsigtig med ældre versioner! Disse versioner vises som reference og til testformål."
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "Du bør altid bruge den seneste version af en tilføjelse."
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Latest version"
-msgstr ""
+msgstr "Seneste version"
 
 #: src/amo/pages/AddonVersions/index.js:195
 msgid "Older versions"
-msgstr ""
+msgstr "Ældre versioner"
 
 #: src/amo/pages/CategoriesPage/index.js:46
 #, fuzzy
@@ -2330,7 +2330,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "Opret og håndtér stærke adgangskoder"
 
 #: src/amo/pages/Guides/index.js:79
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
@@ -2346,7 +2346,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:96
 msgid "Block annoying ads"
-msgstr ""
+msgstr "Bloker irriterende reklamer"
 
 #: src/amo/pages/Guides/index.js:97
 msgid ""
@@ -2415,7 +2415,7 @@ msgstr "Hent udvidelser og temaer til Firefox. De er som apps til din browser. D
 
 #: src/amo/pages/Home/index.js:356
 msgid "See more popular themes"
-msgstr ""
+msgstr "Se flere populære temaer"
 
 #: src/amo/pages/Home/index.js:57
 msgid "See more YouTube boosters"
@@ -2432,15 +2432,15 @@ msgstr "Se flere udvalgte udvidelser"
 
 #: src/amo/pages/Home/index.js:64
 msgid "Health & Wellness"
-msgstr ""
+msgstr "Sundhed & velvære"
 
 #: src/amo/pages/Home/index.js:69
 msgid "See more productivity extensions"
-msgstr ""
+msgstr "Se flere produktivitets-udvidelser"
 
 #: src/amo/pages/Home/index.js:70
 msgid "Be more productive"
-msgstr ""
+msgstr "Bliv mere produktiv"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2768,7 +2768,7 @@ msgstr "Brugerprofil for %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
-msgstr ""
+msgstr "Brugerprofil"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:620
 msgid "Location"
@@ -2813,7 +2813,7 @@ msgstr "Fortæl brugerne lidt mere om dig selv. Det er valgfrit, om du vil udfyl
 
 #: src/amo/pages/UserProfileEdit/index.js:421
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr ""
+msgstr "Fortæl brugerne lidt mere om denne bruger. Det er valgfrit, om du vil udfylde felterne, men det vil hjælpe andre brugere med at lære %(userName)s bedre at kende."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
@@ -2841,7 +2841,7 @@ msgstr "Konto"
 
 #: src/amo/pages/UserProfileEdit/index.js:528
 msgid "Account for %(userName)s"
-msgstr ""
+msgstr "Konto for %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:535
 msgid "Email Address"
