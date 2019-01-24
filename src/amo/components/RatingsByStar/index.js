@@ -21,7 +21,7 @@ import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
 
-export type Props = {|
+type Props = {|
   addon: AddonType | null,
 |};
 

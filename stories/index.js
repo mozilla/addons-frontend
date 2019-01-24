@@ -7,7 +7,4 @@ import './setup/styles.scss';
 // Components
 import './ui/Badge';
 import './ui/Button';
-import './ui/IconStar';
 import './ui/Rating';
-
-import './amo/RatingsByStar';
