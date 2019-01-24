@@ -10,7 +10,6 @@ import Home, {
 } from 'amo/pages/Home';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroGuides from 'amo/components/HomeHeroGuides';
-import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
@@ -479,16 +478,8 @@ describe(__filename, () => {
     );
   });
 
-  it('renders HomeHeroBanner if the enableFeatureHomeHeroGuides config flag is false', () => {
-    const _config = getFakeConfig({ enableFeatureHomeHeroGuides: false });
-    const root = render({ _config });
-
-    expect(root.find(HomeHeroBanner)).toHaveLength(1);
-  });
-
-  it('renders HomeHero if the enableFeatureHomeHeroGuides config flag is true', () => {
-    const _config = getFakeConfig({ enableFeatureHomeHeroGuides: true });
-    const root = render({ _config });
+  it('renders HomeHeroGuides', () => {
+    const root = render();
 
     expect(root.find(HomeHeroGuides)).toHaveLength(1);
   });

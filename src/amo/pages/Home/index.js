@@ -7,7 +7,6 @@ import { compose } from 'redux';
 import { setViewContext } from 'amo/actions/viewContext';
 import CategoryIcon from 'amo/components/CategoryIcon';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
-import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import HomeHeroGuides from 'amo/components/HomeHeroGuides';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
@@ -292,11 +291,7 @@ export class HomeBase extends React.Component {
 
         {errorHandler.renderErrorIfPresent()}
 
-        {_config.get('enableFeatureHomeHeroGuides') ? (
-          <HomeHeroGuides />
-        ) : (
-          <HomeHeroBanner />
-        )}
+        <HomeHeroGuides />
 
         <Card
           className="Home-SubjectShelf Home-CuratedCollections"

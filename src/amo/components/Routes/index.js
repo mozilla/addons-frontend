@@ -67,13 +67,7 @@ const Routes = ({ _config = config }: Props = {}) => (
 
     <Route exact path="/:lang/:application/addon/:slug/" component={Addon} />
 
-    {_config.get('enableFeatureHomeHeroGuides') && (
-      <Route
-        exact
-        path="/:lang/:application/guides/:slug/"
-        component={Guides}
-      />
-    )}
+    <Route exact path="/:lang/:application/guides/:slug/" component={Guides} />
 
     <Route
       exact
