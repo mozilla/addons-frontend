@@ -47,10 +47,11 @@ describe(__filename, () => {
     store.dispatch(searchStart({ errorHandlerId: 'Search', filters }));
   };
 
-  const _fetchCategories = ({ store = _store } = {}) => {
-    store.dispatch(
-      fetchCategories({ errorHandlerId: 'SearchContextCard-Categories' }),
-    );
+  const _fetchCategories = ({
+    store = _store,
+    errorHandlerId = 'SearchContextCard-Categories',
+  } = {}) => {
+    store.dispatch(fetchCategories({ errorHandlerId }));
   };
 
   const _loadCategories = ({
@@ -179,10 +180,7 @@ describe(__filename, () => {
   });
 
   it('should fetch categories if there is a category filter', () => {
-    dispatchSearchResults({
-      store: _store,
-      filters: { category: 'causes' },
-    });
+    _searchStart({ filters: { category: 'causes' } });
 
     const dispatchSpy = sinon.spy(_store, 'dispatch');
 
@@ -197,9 +195,7 @@ describe(__filename, () => {
   });
 
   it('should not fetch categories if there is no category filter', () => {
-    dispatchSearchResults({
-      filters: { query: 'test' },
-    });
+    _searchStart({ filters: {} });
 
     const dispatchSpy = sinon.spy(_store, 'dispatch');
 
@@ -496,16 +492,12 @@ describe(__filename, () => {
     );
   });
 
-  it('should not render results with categoryName text if there is no category for that addonType', () => {
-    _fetchCategories();
-    _loadCategories({
-      results: [],
-    });
-
+  it('does not render a categoryName when the category is invalid', () => {
     dispatchSearchResults({
+      // The API does not return addon results if the category is invalid.
+      addons: {},
       filters: {
-        addonType: ADDON_TYPE_EXTENSION,
-        category: 'test',
+        category: 'bad-category',
       },
       store: _store,
     });
@@ -513,7 +505,7 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find('.SearchContextCard-header').text()).toEqual(
-      '2 extensions found',
+      '0 results found',
     );
   });
 });
