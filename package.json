@@ -41,6 +41,7 @@
     "storybook": "better-npm-run storybook",
     "storybook-build": "better-npm-run storybook-build",
     "storybook-deploy": "storybook-to-ghpages --script storybook-build",
+    "storybook-smoke-test": "better-npm-run storybook-smoke-test",
     "test-ci": "bin/config-check.js && NODE_APP_INSTANCE=amo npm run build-locales && NODE_APP_INSTANCE=disco npm run build-locales && better-npm-run test-ci && codecov",
     "test": "bin/config-check.js && better-npm-run jest --watch",
     "test-coverage": "bin/config-check.js && better-npm-run jest --coverage --watch",
@@ -166,6 +167,14 @@
     },
     "storybook-build": {
       "command": "build-storybook -c stories/setup",
+      "env": {
+        "NODE_PATH": "./:./src",
+        "NODE_ENV": "production",
+        "NODE_CONFIG_ENV": "prod"
+      }
+    },
+    "storybook-smoke-test": {
+      "command": "storybook-server -c stories/setup --smoke-test",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "production",

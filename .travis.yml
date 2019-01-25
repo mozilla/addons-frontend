@@ -60,6 +60,9 @@ jobs:
     - stage:
       <<: *node-prod
       env: COMMAND=prettier-ci
+    - stage:
+      <<: *node-prod
+      env: COMMAND=storybook-smoke-test
     # Run the functional tests.
     - stage:
       <<: *tox
