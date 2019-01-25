@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-22 20:32+0000\n"
-"PO-Revision-Date: 2019-01-25 15:31+0000\n"
+"PO-Revision-Date: 2019-01-25 15:33+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -2337,6 +2337,8 @@ msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Çok fazla açık sekme veya baş döndürücü sayıda yer imiyle mi uğraşıyorsunuz? Eklentiler size yardımcı olabilir! Eklentiler, işlerinizi düzene sokmaktan eğlenceli yeni özellikler sağlamaya kadar, "
+"sekmeler ve yer imleriyle çalışma şeklinizi değiştirebilir."
 
 #: src/amo/pages/Guides/index.js:294
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
@@ -2349,6 +2351,8 @@ msgstr "Güçlü parolalar oluşturup parolalarınızı yönetin"
 #: src/amo/pages/Guides/index.js:79
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
 msgstr ""
+"Parola yöneticileri, güvenli parolalar oluşturmanıza, parolalarınızı (güvenli bir şekilde) tek bir yerde saklamanıza yardımcı olur ve nerede olursanız olun giriş bilgilerinize kolayca erişmenizi "
+"sağlar."
 
 #: src/amo/pages/Guides/index.js:84
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
@@ -2426,6 +2430,8 @@ msgstr "Temalarla Firefox'un görünüşünü değiştirin."
 #: src/amo/pages/Home/index.js:280
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
 msgstr ""
+"Firefox eklentilerini ve temalarını indirin. Eklentiler tarayıcınızın içinde çalışan uygulamalara benzer. Can sıkıcı reklamları engelleyebilir, parolalarınızı koruyabilir, tarayıcı görünümünü "
+"değiştirebilir ve daha fazlasını yapabilirler."
 
 #: src/amo/pages/Home/index.js:356
 #, fuzzy
