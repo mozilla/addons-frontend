@@ -40,12 +40,8 @@ body {
   margin-top: 48px;
 }
 
-// Set up the same width of Rating's container in storybook.
+// Mimic the width of Rating's container in storybook.
 .Rating--storybook {
-  // .story {
-  //   padding: 0;
-  // }
-
   @include respond-to(large) {
     display: grid;
     grid-auto-flow: column;
@@ -55,18 +51,6 @@ body {
 
   .section-container {
     width: auto;
-    border: 0;
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      background-color: $background-grey;
-      height: 1px;
-      left: 0;
-      bottom: 0;
-    }
 
     @include respond-to(large) {
       width: 276px;
@@ -80,8 +64,11 @@ body {
 
   .section-component-wrapper {
     display: flex;
-    // @include respond-to(large) {
-    //   display: flex;
-    // }
+  }
+
+  .section-notes {
+    font-size: 12px;
+    line-height: 1.14;
+    margin-top: 12px;
   }
 }

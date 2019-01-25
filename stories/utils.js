@@ -1,5 +1,6 @@
 /* @flow */
 import * as React from 'react';
+import makeClassName from 'classnames';
 
 type PropsMatrixType = {|
   props: Object,
@@ -34,11 +35,33 @@ export const createChapters = ({
       sections: createPropsMatrix(chapter).map((section: PropsMatrixType) => {
         const propsString = getPropString(section.props);
 
+        const wrapperClassNames = {};
+        if (section.wrapperClassNames) {
+          section.wrapperClassNames.forEach((className) => {
+            wrapperClassNames[className] = className;
+          });
+        }
+
+        const classnames = makeClassName(
+          'section-component-wrapper',
+          wrapperClassNames,
+        );
+
         return {
           subtitle: propsString !== '' ? propsString : 'default',
           sectionFn: () => (
-            <div className="section-component-wrapper">
+            <div className={classnames}>
               <Component {...section.props}>{children}</Component>
+              {section.wrapperClassNames && (
+                <div className="section-notes">
+                  <strong>Note:</strong> &nbsp;
+                  <em>{section.wrapperClassNames.join(', ')}</em>
+                  {` ${
+                    section.wrapperClassNames.length === 1 ? 'has' : 'have'
+                  } been
+                  added as a wrapper class to pick up it's related styles.`}
+                </div>
+              )}
             </div>
           ),
           ...otherSectionProps,
