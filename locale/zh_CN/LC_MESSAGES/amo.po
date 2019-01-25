@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-22 20:32+0000\n"
-"PO-Revision-Date: 2019-01-22 23:02+0000\n"
+"PO-Revision-Date: 2019-01-25 00:09+0000\n"
 "Last-Translator: 우믿트 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -794,7 +794,7 @@ msgstr "Mozilla 已将其下架。这可能是因为在审核扩展或主题的�
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll get it sorted."
-msgstr "如果您点击某个链接而来，请<a href=\"%(url)s\">填报问题</a>。填报时请提及您是从哪个网址过来的、想访问什么内容，我们将修正此问题。"
+msgstr "如果您是点击本网站其他页面的链接过来的，请<a href=\"%(url)s\">填报问题</a>。填报时请提及您是从哪个网址过来的、想访问什么内容，我们将修正此问题。"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
