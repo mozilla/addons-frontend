@@ -16,6 +16,7 @@ import 'amo/components/AddonReviewCard/styles.scss';
 
 export type Props = {|
   props: RatingProps,
+  wrapperClassNames?: Array<string>,
 |};
 
 function createPropsMatrix(): Array<Props> {

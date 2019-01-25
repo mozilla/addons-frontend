@@ -4,7 +4,17 @@ import makeClassName from 'classnames';
 
 type PropsMatrixType = {|
   props: Object,
+  wrapperClassNames?: Array<string>,
 |};
+
+// type Test = {
+//   wrapperClassNames?: Array<string> | void,
+// };
+
+// type Hi = {|
+//   ...PropsMatrixType,
+//   ...Test,
+// |};
 
 type ChapterType = string | number | void;
 
@@ -57,7 +67,10 @@ export const createChapters = ({
                   <strong>Note:</strong> &nbsp;
                   <em>{section.wrapperClassNames.join(', ')}</em>
                   {` ${
-                    section.wrapperClassNames.length === 1 ? 'has' : 'have'
+                    section.wrapperClassNames &&
+                    section.wrapperClassNames.length === 1
+                      ? 'has'
+                      : 'have'
                   } been
                   added as a wrapper class to pick up it's related styles.`}
                 </div>
