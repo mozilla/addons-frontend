@@ -5,6 +5,10 @@ body {
   // This overrides the App background style which makes it hard to see
   // in storybook.
   background: #fff;
+  margin: 0;
+}
+
+.story {
   // Giving extra cushion so nothing gets covered.
   padding: 24px 12px 12px;
 }
@@ -38,27 +42,46 @@ body {
 
 // Set up the same width of Rating's container in storybook.
 .Rating--storybook {
-  width: calc(100% + 12px + 12px);
+  // .story {
+  //   padding: 0;
+  // }
+
+  @include respond-to(large) {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: minmax(300px, 35%);
+    margin: 0;
+  }
 
   .section-container {
-    padding: 24px 20px;
-    width: 100%;
+    width: auto;
+    border: 0;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      background-color: $background-grey;
+      height: 1px;
+      left: 0;
+      bottom: 0;
+    }
 
     @include respond-to(large) {
-      padding: 24px 36px;
-      width: 300px;
+      width: 276px;
     }
 
     @include respond-to(extraLarge) {
-      width: 35%;
+      padding: 24px 36px;
+      width: auto;
     }
   }
 
-  .section-component-container {
-    width: 100%;
-
-    @include respond-to(large) {
-      margin: 12px;
-    }
+  .section-component-wrapper {
+    display: flex;
+    // @include respond-to(large) {
+    //   display: flex;
+    // }
   }
 }

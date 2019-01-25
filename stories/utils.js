@@ -36,7 +36,11 @@ export const createChapters = ({
 
         return {
           subtitle: propsString !== '' ? propsString : 'default',
-          sectionFn: () => <Component {...section.props}>{children}</Component>,
+          sectionFn: () => (
+            <div className="section-component-wrapper">
+              <Component {...section.props}>{children}</Component>
+            </div>
+          ),
           ...otherSectionProps,
         };
       }),

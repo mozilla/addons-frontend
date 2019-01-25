@@ -8,6 +8,10 @@ import type { Props as RatingProps } from 'ui/components/Rating';
 import { createChapters } from '../utils';
 import Provider from '../setup/Provider';
 
+// Some styles for the RatingManager-UserRating class are
+// in this file.
+import 'amo/components/RatingManager/styles.scss';
+
 export type Props = {|
   props: RatingProps,
 |};
@@ -26,7 +30,7 @@ function createPropsMatrix(): Array<Props> {
       props: {
         readOnly: true,
         styleSize: 'small',
-        rating: 4,
+        rating: 3.5,
         yellowStars: true,
       },
     },
@@ -34,31 +38,7 @@ function createPropsMatrix(): Array<Props> {
       props: {
         readOnly: true,
         styleSize: 'small',
-        rating: 3.5,
-        yellowStars: true,
-      },
-    },
-    {
-      props: {
-        readOnly: false,
-        styleSize: 'large',
         rating: 4,
-        yellowStars: true,
-      },
-    },
-    {
-      props: {
-        readOnly: true,
-        styleSize: 'large',
-        rating: 4,
-        yellowStars: true,
-      },
-    },
-    {
-      props: {
-        readOnly: true,
-        styleSize: 'large',
-        rating: 3.5,
         yellowStars: true,
       },
     },
@@ -68,13 +48,39 @@ function createPropsMatrix(): Array<Props> {
         styleSize: 'large',
         rating: null,
         yellowStars: true,
+        className: 'RatingManager-UserRating',
+      },
+    },
+    {
+      props: {
+        readOnly: false,
+        styleSize: 'large',
+        rating: 3,
+        yellowStars: true,
+        className: 'RatingManager-UserRating',
+      },
+    },
+    {
+      props: {
+        readOnly: true,
+        styleSize: 'large',
+        rating: 3.5,
+        yellowStars: true,
+      },
+    },
+    {
+      props: {
+        readOnly: true,
+        styleSize: 'large',
+        rating: 4,
+        yellowStars: true,
       },
     },
     {
       props: {
         readOnly: true,
         styleSize: 'small',
-        rating: 4,
+        rating: null,
         yellowStars: false,
       },
     },
@@ -89,16 +95,8 @@ function createPropsMatrix(): Array<Props> {
     {
       props: {
         readOnly: true,
-        styleSize: 'large',
+        styleSize: 'small',
         rating: 4,
-        yellowStars: false,
-      },
-    },
-    {
-      props: {
-        readOnly: true,
-        styleSize: 'large',
-        rating: 3.5,
         yellowStars: false,
       },
     },
@@ -108,6 +106,7 @@ function createPropsMatrix(): Array<Props> {
         styleSize: 'large',
         rating: null,
         yellowStars: false,
+        className: 'RatingManager-UserRating',
       },
     },
   ];
