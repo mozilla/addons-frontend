@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-22 20:32+0000\n"
-"PO-Revision-Date: 2019-01-26 08:44+0000\n"
+"PO-Revision-Date: 2019-01-26 10:28+0000\n"
 "Last-Translator: dskmori <ghoti.fish.dsk@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -143,17 +143,16 @@ msgstr "%(addonName)s – 🦊 Firefox (%(locale)s) 向け拡張機能を入手"
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:105
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 Firefox (%(locale)s) 向け言語パックを入手"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:111
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 Firefox (%(locale)s) 向けテーマを入手"
 
 #: src/amo/components/AddonHead/index.js:116
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr "%s – Firefox 向けアドオン"
+msgstr "%(addonName)s – 🦊 Firefox (%(locale)s) 向け検索ツールを入手"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:121
@@ -169,29 +168,24 @@ msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)
 msgstr "%(addonName)s – 🦊 Firefox Android (%(locale)s) 向け辞書を入手"
 
 #: src/amo/components/AddonHead/index.js:66
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Firefox 向けアドオン"
+msgstr "%(addonName)s – 🦊 Firefox Android (%(locale)s) 向け拡張機能を入手"
 
 #: src/amo/components/AddonHead/index.js:71
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Firefox 向けアドオン"
+msgstr "%(addonName)s – 🦊 Firefox Android (%(locale)s) 向け言語パックを入手"
 
 #: src/amo/components/AddonHead/index.js:77
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Firefox 向けアドオン"
+msgstr "%(addonName)s – 🦊 Firefox Android (%(locale)s) 向けテーマを入手"
 
 #: src/amo/components/AddonHead/index.js:83
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Firefox 向けアドオン"
+msgstr "%(addonName)s – 🦊 Firefox Android (%(locale)s) 向け検索ツールを入手"
 
 #: src/amo/components/AddonHead/index.js:88
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Firefox 向けアドオン"
+msgstr "%(addonName)s – 🦊 Firefox Android (%(locale)s) 向けアドオンを入手"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:95
@@ -398,9 +392,8 @@ msgid "Publishing reply"
 msgstr "返信を公開しています"
 
 #: src/amo/components/AddonReviewCard/index.js:348
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "投稿日時 %(timestamp)s"
+msgstr "投稿日時: %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:350
 #, fuzzy
@@ -408,9 +401,8 @@ msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "%(authorName)s / %(timestamp)s"
 
 #: src/amo/components/AddonReviewCard/index.js:437
-#, fuzzy
 msgid "Deleting…"
-msgstr "編集を完了"
+msgstr "削除中…"
 
 #: src/amo/components/AddonReviewCard/index.js:468
 msgid "Reply to this review"
@@ -587,19 +579,16 @@ msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Firefox (%(locale)s) 向けアドオン"
 
 #: src/amo/components/App/index.js:207 src/amo/components/HeadMetaTags/index.js:71
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – Firefox 向けアドオン"
+msgstr "%(title)s – Firefox (%(locale)s) 向けアドオン"
 
 #: src/amo/components/App/index.js:215 src/amo/components/HeadMetaTags/index.js:76
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Add-ons for Firefox"
+msgstr "Firefox Android (%(locale)s) 向けアドオン"
 
 #: src/amo/components/App/index.js:219 src/amo/components/HeadMetaTags/index.js:70
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%s – Firefox 向けアドオン"
+msgstr "%(title)s – Firefox Android (%(locale)s) 向けアドオン"
 
 #: src/amo/components/AutoSearchInput/index.js:204
 msgid "Loading"
@@ -627,16 +616,15 @@ msgstr "カテゴリーを読み込んでいます。"
 
 #: src/amo/components/CategoryHead/index.js:31
 msgid "%(categoryName)s – Extensions"
-msgstr ""
+msgstr "%(categoryName)s – 拡張機能"
 
 #: src/amo/components/CategoryHead/index.js:34
 msgid "%(categoryName)s – Themes"
-msgstr ""
+msgstr "%(categoryName)s – テーマ"
 
 #: src/amo/components/CategoryHead/index.js:38
-#, fuzzy
 msgid "%(categoryName)s"
-msgstr "カテゴリー"
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
 msgid "Added to collection"
@@ -2467,7 +2455,7 @@ msgstr "仕事効率化の拡張機能をもっと見る"
 
 #: src/amo/pages/Home/index.js:70
 msgid "Be more productive"
-msgstr ""
+msgstr "仕事効率化"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
