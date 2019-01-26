@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-22 20:32+0000\n"
-"PO-Revision-Date: 2019-01-26 08:28+0000\n"
+"PO-Revision-Date: 2019-01-26 08:44+0000\n"
 "Last-Translator: dskmori <ghoti.fish.dsk@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -2227,7 +2227,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:121
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Facebook を分離した「コンテナー」で独立させ、Facebook のソーシャルプラットフォーム外でトラッキングされるのを防ぎましょう。"
 
 #: src/amo/pages/Guides/index.js:125
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
