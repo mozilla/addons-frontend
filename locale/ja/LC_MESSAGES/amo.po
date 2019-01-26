@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-22 20:32+0000\n"
-"PO-Revision-Date: 2019-01-26 08:11+0000\n"
+"PO-Revision-Date: 2019-01-26 08:28+0000\n"
 "Last-Translator: dskmori <ghoti.fish.dsk@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -547,7 +547,6 @@ msgid "Add-on icon"
 msgstr "アドオンアイコン"
 
 #: src/amo/components/AddonSummaryCard/index.js:62
-#, fuzzy
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
 msgstr[0] "5 段階中 %(rating)s の評価"
@@ -555,22 +554,20 @@ msgstr[0] "5 段階中 %(rating)s の評価"
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
 msgid ","
-msgstr ""
+msgstr "、"
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:76 src/amo/components/AddonTitle/index.js:80
 msgid "by"
-msgstr ""
+msgstr "作成者:"
 
 #: src/amo/components/AddonVersionCard/index.js:104
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "投稿日時 %(timestamp)s"
+msgstr "ソースコードは %(linkStart)s%(licenseName)s%(linkEnd)s に従いリリースされています"
 
 #: src/amo/components/AddonVersionCard/index.js:125
-#, fuzzy
 msgid "Source code released under %(licenseName)s"
-msgstr "投稿日時 %(timestamp)s"
+msgstr "ソースコードは %(licenseName)s に従いリリースされています"
 
 #: src/amo/components/AddonVersionCard/index.js:50
 #, fuzzy
@@ -579,16 +576,15 @@ msgstr "該当するアドオンは見つかりませんでした"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "バージョン %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "リリース日 : %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Add-ons for Firefox"
+msgstr "Firefox (%(locale)s) 向けアドオン"
 
 #: src/amo/components/App/index.js:207 src/amo/components/HeadMetaTags/index.js:71
 #, fuzzy
@@ -1217,9 +1213,8 @@ msgid "Designate a custom home page for your new tabs"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:228
-#, fuzzy
 msgid "OneNote Web Clipper"
-msgstr "Notebook Web Clipper"
+msgstr "OneNote Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:229
 msgid "Save, annotate & organize web content"
@@ -2067,49 +2062,41 @@ msgid "Reviews and ratings for %(addonName)s. Find out what other users think ab
 msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:223
-#, fuzzy
 msgid "Show all reviews"
-msgstr "自分のレビュー"
+msgstr "すべてのレビューを表示"
 
 #: src/amo/pages/AddonReviewList/index.js:225
-#, fuzzy
 msgid "Show only five-star reviews"
-msgstr " すべてのレビュー (%(count)s) を読む"
+msgstr "5 つ星のレビューのみを表示"
 
 #: src/amo/pages/AddonReviewList/index.js:226
-#, fuzzy
 msgid "Show only four-star reviews"
-msgstr " すべてのレビュー (%(count)s) を読む"
+msgstr "4 つ星のレビューのみを表示"
 
 #: src/amo/pages/AddonReviewList/index.js:228
-#, fuzzy
 msgid "Show only three-star reviews"
-msgstr " すべてのレビュー (%(count)s) を読む"
+msgstr "3 つ星のレビューのみを表示"
 
 #: src/amo/pages/AddonReviewList/index.js:230
-#, fuzzy
 msgid "Show only two-star reviews"
-msgstr "このレビューに返信"
+msgstr "2 つ星のレビューのみを表示"
 
 #: src/amo/pages/AddonReviewList/index.js:231
-#, fuzzy
 msgid "Show only one-star reviews"
-msgstr " すべてのレビュー (%(count)s) を読む"
+msgstr "1 つ星のレビューのみを表示"
 
 #: src/amo/pages/AddonReviewList/index.js:271
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s のレビュー"
 
 #: src/amo/pages/AddonReviewList/index.js:281
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s つ星"
+msgstr[0] "合計レビュー数: %(total)s"
 
 #: src/amo/pages/AddonReviewList/index.js:378
-#, fuzzy
 msgid "There are no reviews"
-msgstr "まだ評価されていません"
+msgstr "まだレビューはありません"
 
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
@@ -2118,21 +2105,19 @@ msgstr[0] ""
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "古いバージョンに注意してください！これらのバージョンは、テストや参照を目的に表示されています。"
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "常に最新バージョンのアドオンを使用してください。"
 
 #: src/amo/pages/AddonVersions/index.js:186
-#, fuzzy
 msgid "Latest version"
-msgstr "ベータ版"
+msgstr "最新バージョン"
 
 #: src/amo/pages/AddonVersions/index.js:195
-#, fuzzy
 msgid "Older versions"
-msgstr "すべてのバージョンを見る"
+msgstr "以前のバージョン"
 
 #: src/amo/pages/CategoriesPage/index.js:46
 #, fuzzy
@@ -3090,7 +3075,7 @@ msgstr ""
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "%(listOfApplicatonsAndVersions)s で動作"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
