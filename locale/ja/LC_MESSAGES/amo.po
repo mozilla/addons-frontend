@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-22 20:32+0000\n"
-"PO-Revision-Date: 2019-01-26 07:48+0000\n"
+"PO-Revision-Date: 2019-01-26 08:11+0000\n"
 "Last-Translator: dskmori <ghoti.fish.dsk@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -138,7 +138,7 @@ msgstr "お使いのバージョンの Firefox は検索エンジンに対応し
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 Firefox (%(locale)s) 向け拡張機能を入手"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:105
@@ -158,16 +158,15 @@ msgstr "%s – Firefox 向けアドオン"
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:121
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 Firefox (%(locale)s) 向けアドオンを入手"
 
 #: src/amo/components/AddonHead/index.js:135
 msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:61
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Firefox 向けアドオン"
+msgstr "%(addonName)s – 🦊 Firefox Android (%(locale)s) 向け辞書を入手"
 
 #: src/amo/components/AddonHead/index.js:66
 #, fuzzy
@@ -197,7 +196,7 @@ msgstr "%s – Firefox 向けアドオン"
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:95
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 Firefox (%(locale)s) 向け辞書を入手"
 
 #: src/amo/components/AddonMeta/index.js:113
 msgid "%(total)s Star"
@@ -1399,14 +1398,12 @@ msgid "Stay Safe Online"
 msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:280
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "ブックマーク"
+msgstr "タブやブックマークを整理"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "あなたの体験を評価"
+msgstr "メディア視聴体験を拡張"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
@@ -2374,7 +2371,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "強力なパスワードを作成、管理する"
 
 #: src/amo/pages/Guides/index.js:79
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
@@ -2459,17 +2456,14 @@ msgid "Download Firefox extensions and themes. They’re like apps for your brow
 msgstr ""
 
 #: src/amo/pages/Home/index.js:356
-#, fuzzy
 msgid "See more popular themes"
-msgstr "人気の拡張機能をもっと見る"
+msgstr "人気のテーマをもっと見る"
 
 #: src/amo/pages/Home/index.js:57
-#, fuzzy
 msgid "See more YouTube boosters"
-msgstr "Wikipedia を使いやすくするツールをもっと見る"
+msgstr "YouTube 便利ツールをもっと見る"
 
 #: src/amo/pages/Home/index.js:58
-#, fuzzy
 msgid "YouTube boosters"
 msgstr "YouTube 便利ツール"
 
@@ -2483,9 +2477,8 @@ msgid "Health & Wellness"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:69
-#, fuzzy
 msgid "See more productivity extensions"
-msgstr "仕事効率化の拡張機能"
+msgstr "仕事効率化の拡張機能をもっと見る"
 
 #: src/amo/pages/Home/index.js:70
 msgid "Be more productive"
