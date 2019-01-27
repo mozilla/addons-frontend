@@ -121,7 +121,5 @@ module.exports = {
   // https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L990
   authTokenValidFor: 2592000, // 30 days
 
-  experiments: {
-    installButtonColor: true,
-  },
+  experiments: {},
 };

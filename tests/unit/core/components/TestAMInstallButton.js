@@ -1,12 +1,7 @@
 import * as React from 'react';
 import { TransitionGroup } from 'react-transition-group';
 
-import AMInstallButton, {
-  AMInstallButtonBase,
-  EXPERIMENT_CATEGORY,
-  VARIANT_BLUE,
-  VARIANT_GREEN,
-} from 'core/components/AMInstallButton';
+import AMInstallButton, { AMInstallButtonBase } from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
@@ -657,64 +652,5 @@ describe(__filename, () => {
     const root = renderOpenSearch({ status: UNKNOWN });
 
     expect(root.find(Button)).toHaveProp('disabled', false);
-  });
-
-  describe('installButtonColor experiment', () => {
-    const renderWithExperiment = (props = {}) => {
-      return render({
-        _config: getFakeConfig({ experiments: { installButtonColor: true } }),
-        ...props,
-      });
-    };
-
-    it('adds a CSS class name when variant is VARIANT_GREEN', () => {
-      const root = renderWithExperiment({ variant: VARIANT_GREEN });
-
-      expect(root).toHaveClassName('AMInstallButton--green');
-    });
-
-    it('does not add a CSS class name when variant is not VARIANT_GREEN', () => {
-      const root = renderWithExperiment({ variant: VARIANT_BLUE });
-
-      expect(root).not.toHaveClassName('AMInstallButton--green');
-    });
-
-    it('sends a tracking event when mounted on the client', () => {
-      const _tracking = createFakeTracking();
-      const variant = VARIANT_BLUE;
-
-      renderWithExperiment({ _tracking, variant });
-
-      sinon.assert.calledWith(_tracking.sendEvent, {
-        action: variant,
-        category: EXPERIMENT_CATEGORY,
-      });
-    });
-
-    it('does not send any tracking event when experiment is disabled', () => {
-      const _tracking = createFakeTracking();
-
-      render({
-        _config: getFakeConfig({
-          experiments: { installButtonColor: false },
-        }),
-        _tracking,
-      });
-
-      sinon.assert.notCalled(_tracking.sendEvent);
-    });
-
-    it('handles a `null` variant prop', () => {
-      const _log = getFakeLogger();
-      const _tracking = createFakeTracking();
-
-      renderWithExperiment({ _log, _tracking, variant: null });
-
-      sinon.assert.calledWith(
-        _log.debug,
-        sinon.match(/No variant for experiment/),
-      );
-      sinon.assert.notCalled(_tracking.sendEvent);
-    });
   });
 });
