@@ -422,6 +422,20 @@ describe(__filename, () => {
     );
   });
 
+  it('renders a displayName label with required filed notion', () => {
+    const displayName = 'the display name';
+    const root = renderUserProfileEdit({
+      userProps: defaultUserProps({
+        display_name: displayName,
+      }),
+    });
+
+    expect(root.find('[htmlFor="displayName"]')).toHaveLength(1);
+    expect(root.find('[htmlFor="displayName"]')).toHaveProp(
+      'title'
+    );
+  });
+
   it('renders a homepage input field', () => {
     const homepage = 'https://example.org';
     const root = renderUserProfileEdit({

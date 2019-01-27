@@ -579,8 +579,12 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 {this.renderProfileAside()}
               </p>
 
-              <label className="UserProfileEdit--label" htmlFor="displayName">
-                {i18n.gettext('Display Name')} *
+              <label
+                className="UserProfileEdit--label"
+                htmlFor="displayName"
+                title={i18n.gettext('Required Field')}
+              >
+                {i18n.gettext('Display Name *')}
               </label>
               <input
                 className="UserProfileEdit-displayName"
