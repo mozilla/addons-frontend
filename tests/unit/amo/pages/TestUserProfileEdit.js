@@ -420,19 +420,9 @@ describe(__filename, () => {
       'value',
       displayName,
     );
-  });
-
-  it('renders a displayName label with required filed notion', () => {
-    const displayName = 'the display name';
-    const root = renderUserProfileEdit({
-      userProps: defaultUserProps({
-        display_name: displayName,
-      }),
-    });
-
-    expect(root.find('[htmlFor="displayName"]')).toHaveLength(1);
     expect(root.find('[htmlFor="displayName"]')).toHaveProp(
-      'title'
+      'title',
+      'This field is required'
     );
   });
 
@@ -877,7 +867,7 @@ describe(__filename, () => {
     expect(root.find('.UserProfileEdit-notifications--help')).toHaveLength(0);
 
     expect(root.find('.UserProfileEdit-profile-aside')).toHaveText(oneLine`Tell
-      users a bit more information about this user. These fields are optional,
+      users a bit more information about this user. Most fields are optional,
       but they'll help other users get to know ${user.name} better.`);
 
     // We do not render this link when user is not the current logged-in user.

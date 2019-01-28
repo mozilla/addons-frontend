@@ -419,7 +419,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         better.`)
       : i18n.sprintf(
           i18n.gettext(`Tell users a bit more information about this user.
-            These fields are optional, but they'll help other users get to know
+            Most fields are optional, but they'll help other users get to know
             %(userName)s better.`),
           { userName: user.name },
         );
@@ -582,7 +582,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               <label
                 className="UserProfileEdit--label"
                 htmlFor="displayName"
-                title={i18n.gettext('Required Field')}
+                title={i18n.gettext('This field is required')}
               >
                 {i18n.gettext('Display Name *')}
               </label>
