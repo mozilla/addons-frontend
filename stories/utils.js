@@ -2,19 +2,10 @@
 import * as React from 'react';
 import makeClassName from 'classnames';
 
-type PropsMatrixType = {|
+type PropsMatrixType = {
   props: Object,
   wrapperClassNames?: Array<string>,
-|};
-
-// type Test = {
-//   wrapperClassNames?: Array<string> | void,
-// };
-
-// type Hi = {|
-//   ...PropsMatrixType,
-//   ...Test,
-// |};
+};
 
 type ChapterType = string | number | void;
 

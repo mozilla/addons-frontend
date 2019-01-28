@@ -14,10 +14,10 @@ import 'amo/components/RatingManager/styles.scss';
 import 'amo/components/AddonReviewManagerRating/styles.scss';
 import 'amo/components/AddonReviewCard/styles.scss';
 
-export type Props = {|
+export type Props = {
   props: RatingProps,
   wrapperClassNames?: Array<string>,
-|};
+};
 
 function createPropsMatrix(): Array<Props> {
   return [

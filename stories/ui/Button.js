@@ -9,9 +9,9 @@ import type { Props as ButtonProps } from 'ui/components/Button';
 import Provider from '../setup/Provider';
 import { createChapters } from '../utils';
 
-export type Props = {|
+export type Props = {
   props: ButtonProps,
-|};
+};
 
 const buttonTypes = [
   'none',
@@ -23,6 +23,7 @@ const buttonTypes = [
   'confirm',
 ];
 
+// $FLOW_FIXME: I made PropsMatrixType exact but it's still not working here :/
 function createPropsMatrix(chapter): Array<Props> {
   return [
     {
