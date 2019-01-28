@@ -42,8 +42,8 @@ describe(__filename, () => {
     });
   }
 
-  const renderDiscoPane = (props = {}) => {
-    return render(props).find('.disco-pane');
+  const renderApp = (props = {}) => {
+    return render(props).find('.App');
   };
 
   describe('App', () => {
@@ -51,7 +51,7 @@ describe(__filename, () => {
       const root = render();
       expect(root).toHaveLength(1);
       expect(root).toHaveProp('code', 200);
-      expect(root.find('.disco-pane')).toHaveLength(1);
+      expect(root.find('.App')).toHaveLength(1);
     });
 
     it('renders a ErrorPage', () => {
@@ -75,28 +75,28 @@ describe(__filename, () => {
     });
 
     it('renders padding compensation class for FF < 50', () => {
-      const root = renderDiscoPane({ browserVersion: '49.0' });
-      expect(root).toHaveClassName('padding-compensation');
+      const root = renderApp({ browserVersion: '49.0' });
+      expect(root).toHaveClassName('App--padding-compensation');
     });
 
     it('does not render padding compensation class for a bogus value', () => {
-      const root = renderDiscoPane({ browserVersion: 'whatever' });
-      expect(root).not.toHaveClassName('padding-compensation');
+      const root = renderApp({ browserVersion: 'whatever' });
+      expect(root).not.toHaveClassName('App--padding-compensation');
     });
 
     it('does not render padding compensation class for a undefined value', () => {
-      const root = renderDiscoPane({ browserVersion: undefined });
-      expect(root).not.toHaveClassName('padding-compensation');
+      const root = renderApp({ browserVersion: undefined });
+      expect(root).not.toHaveClassName('App--padding-compensation');
     });
 
     it('does not render padding compensation class for FF == 50', () => {
-      const root = renderDiscoPane({ browserVersion: '50.0' });
-      expect(root).not.toHaveClassName('padding-compensation');
+      const root = renderApp({ browserVersion: '50.0' });
+      expect(root).not.toHaveClassName('App--padding-compensation');
     });
 
     it('does not render padding compensation class for FF > 50', () => {
-      const root = renderDiscoPane({ browserVersion: '52.0a1' });
-      expect(root).not.toHaveClassName('padding-compensation');
+      const root = renderApp({ browserVersion: '52.0a1' });
+      expect(root).not.toHaveClassName('App--padding-compensation');
     });
 
     it('renders a response with a 200 status', () => {

@@ -7,13 +7,13 @@ from selenium.webdriver.common.by import By
 class DiscoveryPane(Page):
     """Contain the locators and actions relating to the discovery pane."""
 
-    _root_locator = (By.CLASS_NAME, 'disco-pane')
+    _root_locator = (By.CLASS_NAME, 'App')
     _extensions_locator = (By.CLASS_NAME, 'extension')
     _discopane_error_alert_locator = (
         By.CSS_SELECTOR, '#discover-error .alert')
-    _discopane_header_locator = (By.CLASS_NAME, 'disco-header')
+    _discopane_header_locator = (By.CLASS_NAME, 'DiscoPane-header')
     _discovery_list_item_locator = (By.ID, 'category-discover')
-    _see_more_btn_locator = (By.CLASS_NAME, 'amo-link')
+    _see_more_btn_locator = (By.CLASS_NAME, 'DiscoPane-amo-link')
     _themes_locator = (By.CLASS_NAME, 'theme')
 
     def _wait_for_page_to_load(self):

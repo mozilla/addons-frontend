@@ -20,6 +20,7 @@ import { getDiscoResults } from 'disco/reducers/discoResults';
 import { makeQueryStringWithUTM } from 'disco/utils';
 import Addon from 'disco/components/Addon';
 import Button from 'ui/components/Button';
+import Notice, { genericType } from 'ui/components/Notice';
 import type { MozAddonManagerType } from 'core/addonManager';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
@@ -37,7 +38,10 @@ type Props = {|
   location: ReactRouterLocationType,
   match: {|
     ...ReactRouterMatchType,
-    params: {| platform: string |},
+    params: {|
+      platform: string,
+      version: string,
+    |},
   |},
 |};
 
@@ -48,10 +52,12 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   handleGlobalEvent: Function,
+  hasRecommendations: boolean,
   hashedClientId: string | null,
   i18n: I18nType,
   mozAddonManager: MozAddonManagerType,
   results: DiscoResultsType,
+  siteLang: string,
 |};
 
 export class DiscoPaneBase extends React.Component<InternalProps> {
@@ -130,7 +136,7 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
     invariant(position, 'position is required');
 
     return (
-      <div className={`amo-link amo-link-${position}`}>
+      <div className={`DiscoPane-amo-link DiscoPane-amo-link-${position}`}>
         <Button
           buttonType="action"
           href={`https://addons.mozilla.org/${makeQueryStringWithUTM({
@@ -149,32 +155,50 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
     );
   }
 
+  getSupportURL() {
+    const { siteLang, match } = this.props;
+    const { platform, version } = match.params;
+
+    return `https://support.mozilla.org/1/firefox/${version}/${platform}/${siteLang}/personalized-addons`;
+  }
+
   render() {
-    const { errorHandler, results, i18n } = this.props;
+    const { errorHandler, hasRecommendations, results, i18n } = this.props;
 
     return (
-      <div id="app-view">
+      <div className="DiscoPane">
         {errorHandler.renderErrorIfPresent()}
 
-        <header>
-          <div className="disco-header">
-            <div className="disco-content">
-              <h1>{i18n.gettext('Personalize Your Firefox')}</h1>
-              <p>
-                {i18n.gettext(`There are thousands of free add-ons, created by
-                  developers all over the world, that you can install to
-                  personalize your Firefox. From fun visual themes to powerful
-                  tools that make browsing faster and safer, add-ons make your
-                  browser yours.
-
-                  To help you get started, here are some we recommend for their
-                  stand-out performance and functionality.`)}
-              </p>
-            </div>
+        <header className="DiscoPane-header">
+          <div className="DiscoPane-header-intro">
+            <h1>{i18n.gettext('Personalize Your Firefox')}</h1>
+            <p>
+              {i18n.gettext(`There are thousands of free add-ons, created by
+                developers all over the world, that you can install to
+                personalize your Firefox. From fun visual themes to powerful
+                tools that make browsing faster and safer, add-ons make your
+                browser yours.
+                To help you get started, here are some we recommend for their
+                stand-out performance and functionality.`)}
+            </p>
           </div>
         </header>
 
         {this.renderFindMoreButton({ position: 'top' })}
+
+        {hasRecommendations && (
+          <Notice
+            actionHref={this.getSupportURL()}
+            actionTarget="_blank"
+            actionText={i18n.gettext('Learn More')}
+            className="DiscoPane-notice-recommendations"
+            type={genericType}
+          >
+            {i18n.gettext(`Some of these recommendations are personalized.
+              They are based on other extensions you've installed, profile
+              preferences, and usage statistics.`)}
+          </Notice>
+        )}
 
         {results.map((item) => (
           <Addon
@@ -195,11 +219,14 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
 }
 
 function mapStateToProps(state: AppState) {
-  const { results } = state.discoResults;
+  const { lang: siteLang } = state.api;
+  const { results, hasRecommendations } = state.discoResults;
 
   return {
-    results,
+    hasRecommendations,
     hashedClientId: state.telemetry.hashedClientId,
+    results,
+    siteLang,
   };
 }
 

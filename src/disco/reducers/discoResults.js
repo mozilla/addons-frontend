@@ -29,10 +29,12 @@ export type DiscoResultsType = Array<DiscoResultType>;
 
 export type DiscoResultsState = {|
   results: DiscoResultsType,
+  hasRecommendations: boolean,
 |};
 
 export const initialState: DiscoResultsState = {
   results: [],
+  hasRecommendations: false,
 };
 
 type GetDiscoResultsParams = {|
@@ -110,11 +112,15 @@ export default function discoResults(
 ): DiscoResultsState {
   switch (action.type) {
     case LOAD_DISCO_RESULTS: {
-      const { results } = action.payload;
+      const results = action.payload.results.map(createInternalResult);
+      const hasRecommendations = results.some(
+        (result) => result.isRecommendation === true,
+      );
 
       return {
         ...state,
-        results: results.map(createInternalResult),
+        results,
+        hasRecommendations,
       };
     }
     default:
