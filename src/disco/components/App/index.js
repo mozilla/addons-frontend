@@ -33,8 +33,8 @@ export class AppBase extends React.Component {
   render() {
     const { ErrorPage, browserVersion, i18n } = this.props;
 
-    const classes = makeClassName('disco-pane', {
-      'padding-compensation': parseInt(browserVersion, 10) < 50,
+    const classes = makeClassName('App', {
+      'App--padding-compensation': parseInt(browserVersion, 10) < 50,
     });
 
     return (
