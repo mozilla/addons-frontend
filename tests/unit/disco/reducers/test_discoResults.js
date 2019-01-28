@@ -47,7 +47,7 @@ describe(__filename, () => {
     expect(state.hasRecommendations).toEqual(false);
   });
 
-  it('sets `hasRecommendations` to `true` when at least one results comes from the recommandation service', () => {
+  it('sets `hasRecommendations` to `true` when at least one results comes from the recommendation service', () => {
     const { results } = createFetchDiscoveryResult([
       createDiscoResult({
         addon: { ...fakeDiscoAddon, guid: '@guid1' },
