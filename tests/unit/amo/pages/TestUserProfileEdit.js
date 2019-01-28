@@ -136,7 +136,7 @@ describe(__filename, () => {
       'Account',
     );
     expect(root.find('.UserProfileEdit-profile-aside')).toHaveText(oneLine`Tell
-      users a bit more information about yourself. These fields are optional,
+      users a bit more information about yourself. Most fields are optional,
       but they'll help other users get to know you better.`);
     expect(root.find({ htmlFor: 'biography' })).toHaveText(
       'Introduce yourself to the community if you like',
@@ -419,6 +419,10 @@ describe(__filename, () => {
     expect(root.find('.UserProfileEdit-displayName')).toHaveProp(
       'value',
       displayName,
+    );
+    expect(root.find('[htmlFor="displayName"]')).toHaveProp(
+      'title',
+      'This field is required'
     );
   });
 
@@ -863,7 +867,7 @@ describe(__filename, () => {
     expect(root.find('.UserProfileEdit-notifications--help')).toHaveLength(0);
 
     expect(root.find('.UserProfileEdit-profile-aside')).toHaveText(oneLine`Tell
-      users a bit more information about this user. These fields are optional,
+      users a bit more information about this user. Most fields are optional,
       but they'll help other users get to know ${user.name} better.`);
 
     // We do not render this link when user is not the current logged-in user.
