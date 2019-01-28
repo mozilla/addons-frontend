@@ -25,6 +25,7 @@ describe(__filename, () => {
         ...fakeDiscoAddon,
         guid: '@guid1',
       },
+      is_recommendation: false,
     });
     const result2 = createDiscoResult({
       heading: 'Discovery Addon 2',
@@ -33,15 +34,51 @@ describe(__filename, () => {
         ...fakeDiscoAddon,
         guid: '@guid2',
       },
+      is_recommendation: false,
     });
 
     const { results } = createFetchDiscoveryResult([result1, result2]);
 
     const state = discoResults(undefined, loadDiscoResults({ results }));
 
-    expect(state).toEqual({
+    expect(state).toMatchObject({
       results: [createInternalResult(result1), createInternalResult(result2)],
     });
+    expect(state.hasRecommendations).toEqual(false);
+  });
+
+  it('sets `hasRecommendations` to `true` when at least one results comes from the recommandation service', () => {
+    const { results } = createFetchDiscoveryResult([
+      createDiscoResult({
+        addon: { ...fakeDiscoAddon, guid: '@guid1' },
+        is_recommendation: false,
+      }),
+      createDiscoResult({
+        addon: { ...fakeDiscoAddon, guid: '@guid2' },
+        is_recommendation: true,
+      }),
+      createDiscoResult({
+        addon: { ...fakeDiscoAddon, guid: '@guid3' },
+        is_recommendation: false,
+      }),
+    ]);
+
+    const state = discoResults(undefined, loadDiscoResults({ results }));
+
+    expect(state.hasRecommendations).toEqual(true);
+  });
+
+  it('sets `hasRecommendations` to `false` when there is no recommended results', () => {
+    const { results } = createFetchDiscoveryResult([
+      createDiscoResult({
+        addon: { ...fakeDiscoAddon, guid: '@guid1' },
+        is_recommendation: false,
+      }),
+    ]);
+
+    const state = discoResults(undefined, loadDiscoResults({ results }));
+
+    expect(state.hasRecommendations).toEqual(false);
   });
 
   describe('createInternalResult', () => {
