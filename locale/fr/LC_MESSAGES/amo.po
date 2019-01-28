@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-22 20:32+0000\n"
-"PO-Revision-Date: 2019-01-23 16:48+0000\n"
+"PO-Revision-Date: 2019-01-26 10:24+0000\n"
 "Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1793,14 +1793,12 @@ msgid "Featured add-ons only"
 msgstr "Modules mis en vedette uniquement"
 
 #: src/amo/components/SearchForm/index.js:61
-#, fuzzy
 msgid "Firefox Add-ons (%(locale)s)"
-msgstr "Modules pour Firefox sous Android (%(locale)s)"
+msgstr "Modules pour Firefox (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
-#, fuzzy
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr "Modules pour Android (%(locale)s)"
+msgstr "Modules pour Firefox sous Android (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
