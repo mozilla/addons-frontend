@@ -136,7 +136,7 @@ describe(__filename, () => {
       'Account',
     );
     expect(root.find('.UserProfileEdit-profile-aside')).toHaveText(oneLine`Tell
-      users a bit more information about yourself. These fields are optional,
+      users a bit more information about yourself. Most fields are optional,
       but they'll help other users get to know you better.`);
     expect(root.find({ htmlFor: 'biography' })).toHaveText(
       'Introduce yourself to the community if you like',

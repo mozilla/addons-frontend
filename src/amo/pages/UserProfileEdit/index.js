@@ -414,7 +414,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }
 
     return isEditingCurrentUser
-      ? i18n.gettext(`Tell users a bit more information about yourself. These
+      ? i18n.gettext(`Tell users a bit more information about yourself. Most
         fields are optional, but they'll help other users get to know you
         better.`)
       : i18n.sprintf(
