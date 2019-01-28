@@ -584,7 +584,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 htmlFor="displayName"
                 title={i18n.gettext('This field is required')}
               >
-                {i18n.gettext('Display Name *')}
+                {// translators: the star is used to indicate a required field
+                i18n.gettext('Display Name *')}
               </label>
               <input
                 className="UserProfileEdit-displayName"
