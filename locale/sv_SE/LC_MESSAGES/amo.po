@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-29 20:41+0000\n"
+"PO-Revision-Date: 2019-01-29 20:36+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1397,7 +1397,6 @@ msgstr[0] "%(count)s tillägg hittades för \"%(query)s\""
 msgstr[1] "%(count)s tillägg hittades för \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:87
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
 msgstr[0] "%(count)s tillägg hittades"
