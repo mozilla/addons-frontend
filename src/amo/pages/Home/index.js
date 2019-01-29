@@ -13,7 +13,6 @@ import HeadMetaTags from 'amo/components/HeadMetaTags';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeAddons } from 'amo/reducers/home';
-import { shouldShowThemes } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -77,7 +76,6 @@ export class HomeBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
     _getFeaturedCollectionsMetadata: PropTypes.func,
-    clientApp: PropTypes.string.isRequired,
     collections: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
@@ -226,9 +224,7 @@ export class HomeBase extends React.Component {
 
   render() {
     const {
-      _config,
       _getFeaturedCollectionsMetadata,
-      clientApp,
       collections,
       errorHandler,
       i18n,
@@ -248,13 +244,12 @@ export class HomeBase extends React.Component {
     const featuredCollectionsMetadata = _getFeaturedCollectionsMetadata(i18n);
 
     const loading = resultsLoaded === false;
-    const showThemes = shouldShowThemes({ _config, clientApp });
 
     // This is a helper function (closure) configured to render a featured
     // collection by index.
     const renderFeaturedCollection = (index) => {
       const metadata = featuredCollectionsMetadata[index];
-      if (metadata && metadata.isTheme && !showThemes) {
+      if (metadata && metadata.isTheme) {
         return null;
       }
 
@@ -322,7 +317,7 @@ export class HomeBase extends React.Component {
           loading={loading}
         />
 
-        {includeFeaturedThemes && showThemes && (
+        {includeFeaturedThemes && (
           <LandingAddonsCard
             addonInstallSource={INSTALL_SOURCE_FEATURED}
             addons={shelves.featuredThemes}
@@ -383,18 +378,16 @@ export class HomeBase extends React.Component {
           />
         )}
 
-        {showThemes && (
-          <Card
-            className="Home-SubjectShelf Home-CuratedThemes"
-            header={themesHeader}
-          >
-            <div className="Home-SubjectShelf-text-wrapper">
-              <h2 className="Home-SubjectShelf-subheading">{themesHeader}</h2>
-            </div>
+        <Card
+          className="Home-SubjectShelf Home-CuratedThemes"
+          header={themesHeader}
+        >
+          <div className="Home-SubjectShelf-text-wrapper">
+            <h2 className="Home-SubjectShelf-subheading">{themesHeader}</h2>
+          </div>
 
-            {this.renderCuratedThemes()}
-          </Card>
-        )}
+          {this.renderCuratedThemes()}
+        </Card>
       </div>
     );
   }
