@@ -8,15 +8,9 @@ import type { Props as RatingProps } from 'ui/components/Rating';
 import { createChapters } from '../utils';
 import Provider from '../setup/Provider';
 
-// Some extra styles for the Rating component
-// are included in the additional files.
-import 'amo/components/RatingManager/styles.scss';
-import 'amo/components/AddonReviewManagerRating/styles.scss';
-import 'amo/components/AddonReviewCard/styles.scss';
 
 export type Props = {
   props: RatingProps,
-  wrapperClassNames?: Array<string>,
 };
 
 function createPropsMatrix(): Array<Props> {
@@ -28,15 +22,6 @@ function createPropsMatrix(): Array<Props> {
         rating: 4,
         yellowStars: true,
       },
-    },
-    {
-      props: {
-        readOnly: false,
-        styleSize: 'small',
-        rating: 4,
-        yellowStars: true,
-      },
-      wrapperClassNames: ['AddonReviewManagerRating', 'AddonReviewCard'],
     },
     {
       props: {

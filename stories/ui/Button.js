@@ -23,7 +23,6 @@ const buttonTypes = [
   'confirm',
 ];
 
-// $FLOW_FIXME: I made PropsMatrixType exact but it's still not working here :/
 function createPropsMatrix(chapter): Array<Props> {
   return [
     {
