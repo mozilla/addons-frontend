@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
-import { shouldShowThemes } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
@@ -105,24 +104,18 @@ export class SearchFiltersBase extends React.Component {
   }
 
   addonTypeOptions() {
-    const { _config, clientApp, i18n } = this.props;
+    const { i18n } = this.props;
 
-    const options = [
+    return [
       { children: i18n.gettext('All'), value: NO_FILTER },
       { children: i18n.gettext('Extension'), value: ADDON_TYPE_EXTENSION },
       { children: i18n.gettext('Search Tool'), value: ADDON_TYPE_OPENSEARCH },
-    ];
-
-    if (shouldShowThemes({ _config, clientApp })) {
-      options.push({
-        children: i18n.gettext('Theme'),
+      { children: i18n.gettext('Theme'),
         value: getAddonTypeFilter(ADDON_TYPE_THEME, {
           _config: this.props._config,
         }),
-      });
-    }
-
-    return options;
+      },
+    ];
   }
 
   operatingSystemOptions() {

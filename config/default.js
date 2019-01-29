@@ -119,7 +119,6 @@ module.exports = {
     'enableDevTools',
     'enableFeatureDiscoTaar',
     'enableFeatureExperienceSurvey',
-    'enableFeatureStaticThemesForAndroid',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -362,11 +361,6 @@ module.exports = {
 
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
-
-  // This flag is enabled by default because the feature already exists and we
-  // want to disable it.
-  // See: https://github.com/mozilla/addons-frontend/issues/6689
-  enableFeatureStaticThemesForAndroid: true,
 
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments.

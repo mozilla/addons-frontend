@@ -1,5 +1,4 @@
-import { getCanonicalURL, shouldShowThemes } from 'amo/utils';
-import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
+import { getCanonicalURL } from 'amo/utils';
 import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -12,35 +11,6 @@ describe(__filename, () => {
       expect(getCanonicalURL({ _config, locationPathname })).toEqual(
         `${baseURL}${locationPathname}`,
       );
-    });
-  });
-
-  describe('shouldShowThemes', () => {
-    it('returns true when clientApp is Android and enableFeatureStaticThemesForAndroid is true', () => {
-      const _config = getFakeConfig({
-        enableFeatureStaticThemesForAndroid: true,
-      });
-      const clientApp = CLIENT_APP_ANDROID;
-
-      expect(shouldShowThemes({ _config, clientApp })).toEqual(true);
-    });
-
-    it('returns false when clientApp is Android and enableFeatureStaticThemesForAndroid is false', () => {
-      const _config = getFakeConfig({
-        enableFeatureStaticThemesForAndroid: false,
-      });
-      const clientApp = CLIENT_APP_ANDROID;
-
-      expect(shouldShowThemes({ _config, clientApp })).toEqual(false);
-    });
-
-    it('returns true when clientApp is not Android', () => {
-      const _config = getFakeConfig({
-        enableFeatureStaticThemesForAndroid: false,
-      });
-      const clientApp = CLIENT_APP_FIREFOX;
-
-      expect(shouldShowThemes({ _config, clientApp })).toEqual(true);
     });
   });
 });
