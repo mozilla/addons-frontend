@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-29 23:09+0000\n"
+"PO-Revision-Date: 2019-01-29 23:20+0000\n"
 "Last-Translator: 우믿트 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1332,10 +1332,9 @@ msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "找到 %(count)s 个有关“%(query)s”的主题"
 
 #: src/amo/components/SearchContextCard/index.js:128
-#, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "找到 %(count)s 个附加组件"
+msgstr[0] "找到 %(count)s 个主题"
 
 #: src/amo/components/SearchContextCard/index.js:140
 msgid "%(count)s result found for \"%(query)s\""
@@ -1343,10 +1342,9 @@ msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "找到 %(count)s 条有关“%(query)s”的结果"
 
 #: src/amo/components/SearchContextCard/index.js:149
-#, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "找到“%(query)s”的 %(count)s 个结果"
+msgstr[0] "找到 %(count)s 条结果"
 
 #: src/amo/components/SearchContextCard/index.js:160
 msgid "Searching for \"%(query)s\""
@@ -1372,10 +1370,9 @@ msgid_plural "%(count)s extensions found for \"%(query)s\""
 msgstr[0] "找到 %(count)s 个有关“%(query)s”的扩展"
 
 #: src/amo/components/SearchContextCard/index.js:87
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "找到 %(count)s 个附加组件"
+msgstr[0] "找到 %(count)s 个扩展"
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:125
 msgid "All"
@@ -2431,14 +2428,12 @@ msgid "Picture successfully deleted"
 msgstr "照片删除成功"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "请向其他用户更详细地介绍一下您。所有字段均为选填，但能帮助其他人更好地了解您。"
+msgstr "请向其他用户更详细地介绍一下您。大多数字段为选填，但能帮助其他人更好地了解您。"
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "请向其他用户更详细地介绍一下这位用户。所有字段均为选填，但能帮助其他人更好地了解 %(userName)s。"
+msgstr "请向其他用户更详细地介绍一下这位用户。大多数字段为选填，但能帮助其他人更好地了解 %(userName)s。"
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
@@ -2493,9 +2488,8 @@ msgid "This field is required"
 msgstr "此字段必填"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
-#, fuzzy
 msgid "Display Name *"
-msgstr "显示名称"
+msgstr "显示名称 *"
 
 #: src/amo/pages/UserProfileEdit/index.js:620
 msgid "This URL will only be visible for users who are developers."
