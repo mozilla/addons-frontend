@@ -4,7 +4,11 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { SearchResultBase } from 'amo/components/SearchResult';
-import { ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_STATIC_THEME,
+  ADDON_TYPE_THEME,
+  ADDON_TYPE_OPENSEARCH,
+} from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   fakeAddon,
@@ -360,4 +364,17 @@ describe(__filename, () => {
 
     expect(root.find('.SearchResult-note')).toHaveLength(0);
   });
+});
+
+it(`doesn't render users for search plugins`, () => {
+  const addon = createInternalAddon({
+    ...fakeTheme,
+    type: ADDON_TYPE_OPENSEARCH,
+    average_daily_users: null,
+  });
+  const root = render({ addon });
+
+  expect(
+    root.find('.SearchResult-users SearchResult--meta-section'),
+  ).toHaveLength(0);
 });
