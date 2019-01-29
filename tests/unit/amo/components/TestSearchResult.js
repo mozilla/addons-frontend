@@ -368,7 +368,7 @@ describe(__filename, () => {
 
 it(`doesn't render users for search plugins`, () => {
   const addon = createInternalAddon({
-    ...fakeTheme,
+    ...fakeAddon,
     type: ADDON_TYPE_OPENSEARCH,
     average_daily_users: null,
   });
