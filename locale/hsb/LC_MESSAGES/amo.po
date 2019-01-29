@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-29 21:13+0000\n"
+"PO-Revision-Date: 2019-01-29 21:29+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2532,11 +2532,11 @@ msgstr "Wobraz je so wuspěšnje zhašał"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "Dajće wužiwarjam někotre informacije wjace wo sebi. Tute pola su opcionalne, ale budu druhim wužiwarjam pomhać, so z wami lěpje zeznać."
+msgstr "Dajće wužiwarjam někotre informacije wjace wo sebi. Najwjace polow je opcionalne, ale budźe druhim wužiwarjam pomhać, so z wami lěpje zeznać."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Dajće wužiwarjam někotre informacije wjace wo tutym wužiwarju. Tute pola su opcionalne, ale budu druhim wužiwarjam pomhać, %(userName)s lěpje zeznać."
+msgstr "Dajće wužiwarjam někotre informacije wjace wo tutym wužiwarju. Najwjace polow je opcionalne, ale budźe druhim wužiwarjam pomhać, %(userName)s lěpje zeznać."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
