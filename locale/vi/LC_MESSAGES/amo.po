@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-22 20:32+0000\n"
-"PO-Revision-Date: 2019-01-29 14:52+0000\n"
+"PO-Revision-Date: 2019-01-29 15:12+0000\n"
 "Last-Translator: Cloney 173741 <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -875,11 +875,11 @@ msgstr "Gắn cờ là spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:89
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Điều này có chứa ngôn ngữ không phù hợp"
 
 #: src/amo/components/FlagReviewMenu/index.js:90
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Đã gắn cờ vì ngôn ngữ không phù hợp"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -1015,7 +1015,7 @@ msgstr "Xem bộ sưu tập của tôi"
 
 #: src/amo/components/HomeHeroBanner/index.js:100
 msgid "Highly customizable text highlighter"
-msgstr ""
+msgstr "Công cụ tô sáng văn bản tùy biến cao"
 
 #: src/amo/components/HomeHeroBanner/index.js:104
 msgid "Watch2Gether"
@@ -1035,7 +1035,7 @@ msgstr "Đánh dấu văn bản trên trang web bất kỳ để dễ dàng tìm
 
 #: src/amo/components/HomeHeroBanner/index.js:116
 msgid "Stylus"
-msgstr ""
+msgstr "Stylus"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Give your favorite websites a new look"
@@ -1095,199 +1095,199 @@ msgstr "Neat URL"
 
 #: src/amo/components/HomeHeroBanner/index.js:160
 msgid "Clean up links for easy sharing"
-msgstr ""
+msgstr "Dọn dẹp liên kết để chia sẻ dễ dàng"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Glitter Drag"
-msgstr ""
+msgstr "Glitter Drag"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr ""
+msgstr "Kéo văn bản, hình ảnh hoặc liên kết để thực hiện các hành động như sao chép, mở, tìm kiếm và hơn thế nữa"
 
 #: src/amo/components/HomeHeroBanner/index.js:171
 msgid "Behind The Overlay Revival"
-msgstr ""
+msgstr "Behind The Overlay Revival"
 
 #: src/amo/components/HomeHeroBanner/index.js:172
 msgid "Click a button to close annoying pop-ups"
-msgstr ""
+msgstr "Nhấp vào nút để đóng cửa sổ bật lên gây phiền nhiễu"
 
 #: src/amo/components/HomeHeroBanner/index.js:176
 msgid "Auto-Sort Bookmarks"
-msgstr "Tự động sắp xếp dấu trang"
+msgstr "Auto-Sort Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:177
 msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
+msgstr "Tự động sắp xếp dấu trang để chúng ở vị trí ưa thích của bạn"
 
 #: src/amo/components/HomeHeroBanner/index.js:183
 msgid "Search Preview"
-msgstr "Xem trước tìm kiếm"
+msgstr "Search Preview"
 
 #: src/amo/components/HomeHeroBanner/index.js:184
 msgid "Enjoy thumbnail images alongside your search returns"
-msgstr ""
+msgstr "Thưởng thức hình ảnh của bạn phù hợp với giao diện của kết quả tìm kiếm của bạn"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "Copy PlainText"
-msgstr ""
+msgstr "Copy PlainText"
 
 #: src/amo/components/HomeHeroBanner/index.js:191
 msgid "Remove formatting when saving text to your clipboard"
-msgstr ""
+msgstr "Xóa định dạng khi sao chép văn bản vào clipboard của bạn"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Official Media Bias Fact Check Icon"
-msgstr ""
+msgstr "Official Media Bias Fact Check Icon"
 
 #: src/amo/components/HomeHeroBanner/index.js:198
 msgid "Indicates the political bias of news sites with a tidy icon"
-msgstr ""
+msgstr "Biểu thị các trang tin tức chính trị với các biểu tượng nhỏ"
 
 #: src/amo/components/HomeHeroBanner/index.js:204
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Arrange tabs in a vertical fashion"
-msgstr ""
+msgstr "Sắp xếp các tab theo chiều dọc"
 
 #: src/amo/components/HomeHeroBanner/index.js:209
 msgid "Search Site"
-msgstr "Tìm kiếm trang"
+msgstr "Search Site"
 
 #: src/amo/components/HomeHeroBanner/index.js:210
 msgid "Search within just the domain you’re visiting"
-msgstr ""
+msgstr "Tìm kiếm trong phạm vi tên miền mà bạn truy cập"
 
 #: src/amo/components/HomeHeroBanner/index.js:216
 msgid "Push to Kindle"
-msgstr ""
+msgstr "Push to Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Send any Web page to your Kindle device"
-msgstr ""
+msgstr "Gửi bất kỳ trang web nào đến thiết bị Kindle của bạn"
 
 #: src/amo/components/HomeHeroBanner/index.js:221
 msgid "New Tab Homepage"
-msgstr "Trang chủ thẻ mới"
+msgstr "New Tab Homepage"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "Designate a custom home page for your new tabs"
-msgstr ""
+msgstr "Chỉ định một trang chủ tùy chỉnh cho các thẻ mới của bạn"
 
 #: src/amo/components/HomeHeroBanner/index.js:228
 msgid "OneNote Web Clipper"
-msgstr ""
+msgstr "OneNote Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:229
 msgid "Save, annotate & organize web content"
-msgstr ""
+msgstr "Lưu, chú thích và sắp xếp nội dung web"
 
 #: src/amo/components/HomeHeroBanner/index.js:233
 msgid "FoxyGestures"
-msgstr ""
+msgstr "FoxyGestures"
 
 #: src/amo/components/HomeHeroBanner/index.js:234
 msgid "Customized mouse gestures"
-msgstr ""
+msgstr "Tùy chỉnh cử chỉ chuột"
 
 #: src/amo/components/HomeHeroBanner/index.js:238
 msgid "Dark Reader"
-msgstr ""
+msgstr "Dark Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:239
 msgid "Go dark for a better web viewing experience"
-msgstr ""
+msgstr "Mang chế độ tối để có trải nghiệm xem web tốt hơn"
 
 #: src/amo/components/HomeHeroBanner/index.js:24
 msgid "Facebook Container"
-msgstr ""
+msgstr "Facebook Container"
 
 #: src/amo/components/HomeHeroBanner/index.js:245
 msgid "CookieBro"
-msgstr ""
+msgstr "CookieBro"
 
 #: src/amo/components/HomeHeroBanner/index.js:246
 msgid "Automatically delete unwanted cookies"
-msgstr ""
+msgstr "Tự động xóa cookie không mong muốn"
 
 #: src/amo/components/HomeHeroBanner/index.js:25
 msgid "Prevent Facebook from tracking you around the web"
-msgstr ""
+msgstr "Ngăn Facebook theo dõi bạn trên web"
 
 #: src/amo/components/HomeHeroBanner/index.js:250
 msgid "Text MultiCopy"
-msgstr ""
+msgstr "Text MultiCopy"
 
 #: src/amo/components/HomeHeroBanner/index.js:251
 msgid "Save snippets of text to paste & organize later"
-msgstr ""
+msgstr "Lưu đoạn văn bản để dán và sắp xếp sau"
 
 #: src/amo/components/HomeHeroBanner/index.js:257
 msgid "Group Speed Dial"
-msgstr ""
+msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:258
 msgid "Visual bookmarks for your favorite places on the web"
-msgstr ""
+msgstr "Dấu trang trực quan cho các địa điểm yêu thích của bạn trên web"
 
 #: src/amo/components/HomeHeroBanner/index.js:264
 msgid "Undo Close Tab Button"
-msgstr ""
+msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:265
 msgid "Never lose a page again"
-msgstr ""
+msgstr "Không bao giờ mất một trang lần nữa"
 
 #: src/amo/components/HomeHeroBanner/index.js:269
 msgid "Ad Analysis for Facebook"
-msgstr ""
+msgstr "Ad Analysis for Facebook"
 
 #: src/amo/components/HomeHeroBanner/index.js:270
 msgid "See how Facebook ads target you"
-msgstr ""
+msgstr "Xem cách quảng cáo Facebook nhắm đến mục tiêu bạn"
 
 #: src/amo/components/HomeHeroBanner/index.js:274
 msgid "SoundFixer"
-msgstr ""
+msgstr "SoundFixer"
 
 #: src/amo/components/HomeHeroBanner/index.js:275
 msgid "Adjust audio levels for sounds you encounter around web"
-msgstr ""
+msgstr "Điều chỉnh mức âm thanh cho âm thanh bạn gặp phải trên web"
 
 #: src/amo/components/HomeHeroBanner/index.js:281
 msgid "Lilo"
-msgstr ""
+msgstr "Lilo"
 
 #: src/amo/components/HomeHeroBanner/index.js:282
 msgid "Fund social causes by simply using Lilo search"
-msgstr ""
+msgstr "Tài trợ xã hội bằng cách đơn giản sử dụng tìm kiếm Lilo"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Iridium for YouTube"
-msgstr ""
+msgstr "Iridium for YouTube"
 
 #: src/amo/components/HomeHeroBanner/index.js:32
 msgid "Play videos in a pop-out window, take video screenshots & more"
-msgstr ""
+msgstr "Phát video trong cửa sổ bật ra, chụp ảnh màn hình video và hơn thế nữa"
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Private Bookmarks"
-msgstr "Dấu trang riêng tư"
+msgstr "Private Bookmarks"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Password-protect your personal bookmarks"
-msgstr ""
+msgstr "Bảo vệ dấu trang cá nhân của bạn bằng mật khẩu"
 
 #: src/amo/components/HomeHeroBanner/index.js:43
 msgid "New Tab Override"
-msgstr ""
+msgstr "New Tab Override"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Choose the page you see every time you open a new tab"
-msgstr ""
+msgstr "Chọn trang bạn nhìn thấy mỗi khi bạn mở một thẻ mới"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "Forecastfox"
@@ -2019,44 +2019,37 @@ msgid "Show all reviews"
 msgstr "Hiển thị tất cả các đánh giá"
 
 #: src/amo/pages/AddonReviewList/index.js:225
-#, fuzzy
 msgid "Show only five-star reviews"
-msgstr "Đọc tất cả các đánh giá một sao"
+msgstr "Chỉ hiển thị đánh giá năm sao"
 
 #: src/amo/pages/AddonReviewList/index.js:226
-#, fuzzy
 msgid "Show only four-star reviews"
-msgstr "Đọc tất cả các đánh giá bốn sao"
+msgstr "Chỉ hiển thị đánh giá bốn sao"
 
 #: src/amo/pages/AddonReviewList/index.js:228
-#, fuzzy
 msgid "Show only three-star reviews"
-msgstr "Đọc tất cả các đánh giá một sao"
+msgstr "Chỉ hiển thị đánh giá ba sao"
 
 #: src/amo/pages/AddonReviewList/index.js:230
-#, fuzzy
 msgid "Show only two-star reviews"
-msgstr "Đọc tất cả các đánh giá hai sao"
+msgstr "Chỉ hiển thị đánh giá hai sao"
 
 #: src/amo/pages/AddonReviewList/index.js:231
-#, fuzzy
 msgid "Show only one-star reviews"
-msgstr "Đọc tất cả các đánh giá một sao"
+msgstr "Chỉ hiển thị đánh giá một sao"
 
 #: src/amo/pages/AddonReviewList/index.js:271
 msgid "Reviews for %(addonName)s"
 msgstr "Đánh giá cho %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:281
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s sao"
+msgstr[0] "%(total)s đánh giá"
 
 #: src/amo/pages/AddonReviewList/index.js:378
-#, fuzzy
 msgid "There are no reviews"
-msgstr "Viết đánh giá"
+msgstr "Không có đánh giá nào"
 
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
@@ -2072,18 +2065,16 @@ msgid "You should always use the latest version of an add-on."
 msgstr ""
 
 #: src/amo/pages/AddonVersions/index.js:186
-#, fuzzy
 msgid "Latest version"
-msgstr "Phiên bản Beta"
+msgstr "Phiên bản mới nhất"
 
 #: src/amo/pages/AddonVersions/index.js:195
-#, fuzzy
 msgid "Older versions"
-msgstr "Xem tất cả phiên bản"
+msgstr "Phiên bản cũ hơn"
 
 #: src/amo/pages/CategoriesPage/index.js:46
 msgid "All extension categories"
-msgstr ""
+msgstr "Tất cả các loại tiện ích mở rộng"
 
 #: src/amo/pages/CategoriesPage/index.js:48
 msgid "All theme categories"
@@ -2399,44 +2390,40 @@ msgstr ""
 "nữa."
 
 #: src/amo/pages/Home/index.js:356
-#, fuzzy
 msgid "See more popular themes"
-msgstr "Xem thêm các tiện ích phổ biến"
+msgstr "Xem các chủ đề phổ biến"
 
 #: src/amo/pages/Home/index.js:57
-#, fuzzy
 msgid "See more YouTube boosters"
-msgstr "Phần mở rộng"
+msgstr "Xem thêm các công cụ tăng tốc YouTube"
 
 #: src/amo/pages/Home/index.js:58
 msgid "YouTube boosters"
-msgstr ""
+msgstr "Các công cụ tăng tốc YouTube"
 
 #: src/amo/pages/Home/index.js:63
-#, fuzzy
 msgid "See more health & wellness extensions"
-msgstr "Xem thêm các tiện ích nổi bật"
+msgstr "Xem thêm tiện ích mở rộng sức khỏe & chăm sóc sức khỏe"
 
 #: src/amo/pages/Home/index.js:64
 msgid "Health & Wellness"
-msgstr ""
+msgstr "Sức khỏe & chăm sóc sức khỏe"
 
 #: src/amo/pages/Home/index.js:69
-#, fuzzy
 msgid "See more productivity extensions"
-msgstr "Xem thêm các tiện ích phổ biến"
+msgstr "Xem thêm tiện ích mở rộng năng suất"
 
 #: src/amo/pages/Home/index.js:70
 msgid "Be more productive"
-msgstr ""
+msgstr "Năng suất hơn"
 
 #: src/amo/pages/LandingPage/index.js:208
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Tải về các chủ đề để thay đổi giao diện của Firefox. Điều chỉnh kinh nghiệm của bạn theo sở thích của bạn. Sinh vật dễ thương, robot xấu xa, phong cảnh đẹp—hàng ngàn lựa chọn."
 
 #: src/amo/pages/LandingPage/index.js:213
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
-msgstr "Tải xuống Tiện ích Firefox để thêm các tính năng tùy chỉnh duyệt web. Bảo vệ mật khẩu, tìm giao dịch, tăng cường video và chặn quảng cáo gây phiền nhiễu bằng ứng dụng trình duyệt."
+msgstr "Tải xuống tiện ích Firefox để thêm các tính năng tùy chỉnh duyệt web. Bảo vệ mật khẩu, tìm giao dịch, tăng cường video và chặn quảng cáo gây phiền nhiễu bằng ứng dụng trình duyệt."
 
 #: src/amo/pages/LandingPage/index.js:237
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2444,11 +2431,11 @@ msgstr "Thay đổi giao diện của trình duyệt của bạn. Chọn từ h�
 
 #: src/amo/pages/LandingPage/index.js:239
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Khám phá các công cụ và tính năng mạnh mẽ để tùy chỉnh Firefox và biến trình duyệt thành của riêng bạn."
 
 #: src/amo/pages/LandingPage/index.js:282
 msgid "Explore all categories"
-msgstr ""
+msgstr "Khám phá tất cả các loại"
 
 #: src/amo/pages/LanguageTools/index.js:108
 msgid "Available for your locale"
@@ -2476,7 +2463,7 @@ msgstr "Tất cả ngôn ngữ"
 
 #: src/amo/pages/LanguageTools/index.js:185
 msgid "Locale Name"
-msgstr ""
+msgstr "Tên ngôn ngữ"
 
 #: src/amo/pages/LanguageTools/index.js:188
 msgid "Language Packs"
@@ -2488,7 +2475,7 @@ msgstr "Từ điển"
 
 #: src/amo/pages/SearchTools/index.js:31
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "Tải xuống các tiện ích mở rộng của Firefox để tùy chỉnh cách bạn tìm kiếm—mọi thứ từ tìm kiếm nâng cao quyền riêng tư đến tìm kiếm cụ thể trên trang web, tìm kiếm hình ảnh và hơn thế nữa."
 
 #: src/amo/pages/StaticPages/About/index.js:108
 msgid ""
@@ -2764,7 +2751,7 @@ msgstr "Thông tin hồ sơ"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:620
 msgid "Location"
-msgstr ""
+msgstr "Địa chỉ"
 
 #: src/amo/pages/UserProfile/index.js:373 src/amo/pages/UserProfileEdit/index.js:632
 msgid "Occupation"
@@ -2784,11 +2771,11 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:411 src/amo/pages/UserProfileEdit/index.js:654
 msgid "Biography"
-msgstr ""
+msgstr "Tiểu sử"
 
 #: src/amo/pages/UserProfile/index.js:435
 msgid "Edit profile"
-msgstr ""
+msgstr "Chỉnh sửa hồ sơ"
 
 # This action allows an admin to maintain a user.
 #: src/amo/pages/UserProfile/index.js:447
@@ -2797,7 +2784,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:192
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "Hình ảnh đã được xóa thành công"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
@@ -2813,7 +2800,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:437
 msgid "Introduce %(userName)s to the community"
-msgstr ""
+msgstr "Giới thiệu %(userName)s cho cộng đồng"
 
 #: src/amo/pages/UserProfileEdit/index.js:460
 msgid "Log in to edit the profile"
@@ -2821,20 +2808,19 @@ msgstr "Đăng nhập để chỉnh sửa hồ sơ"
 
 #: src/amo/pages/UserProfileEdit/index.js:503
 msgid "View user's profile"
-msgstr ""
+msgstr "Xem hồ sơ người dùng"
 
 #: src/amo/pages/UserProfileEdit/index.js:509
 msgid "Edit user's profile"
-msgstr ""
+msgstr "Chỉnh sửa hồ sơ người dùng"
 
 #: src/amo/pages/UserProfileEdit/index.js:527
 msgid "Account"
 msgstr "Tài khoản"
 
 #: src/amo/pages/UserProfileEdit/index.js:528
-#, fuzzy
 msgid "Account for %(userName)s"
-msgstr "Phản hồi bởi %(userName)s"
+msgstr "Tài khoản cho %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:535
 msgid "Email Address"
@@ -2944,11 +2930,11 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:238
 msgid "Enable"
-msgstr ""
+msgstr "Bật"
 
 #: src/core/components/AMInstallButton/index.js:243
 msgid "Enabling"
-msgstr ""
+msgstr "Đang bật"
 
 #: src/core/components/AMInstallButton/index.js:245
 msgid "Downloading"
@@ -2956,31 +2942,31 @@ msgstr "Đang tải xuống"
 
 #: src/core/components/AMInstallButton/index.js:247
 msgid "Installing"
-msgstr ""
+msgstr "Đang cài đặt"
 
 #: src/core/components/AMInstallButton/index.js:249
 msgid "Uninstalling"
-msgstr ""
+msgstr "Đang gỡ bỏ"
 
 #: src/core/components/AMInstallButton/index.js:257
 msgid "Install Theme"
-msgstr ""
+msgstr "Cài đặt chủ đề"
 
 #: src/core/components/AMInstallButton/index.js:258
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Thêm vào Firefox"
 
 #: src/core/components/AuthenticateButton/index.js:81
 msgid "Register or Log in"
-msgstr ""
+msgstr "Đăng ký hoặc đăng nhập"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Xin lỗi, nhưng đã xảy ra lỗi và chúng tôi không thể hoàn thành yêu cầu của bạn. Chúng tôi đã ghi lại lỗi này và sẽ điều tra nó."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Mã lỗi: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -2988,11 +2974,11 @@ msgstr "Trang không tồn tại"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Xin lỗi, nhưng chúng tôi không thể tìm thấy bất cứ điều gì tại URL bạn đã nhập."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s đã được thêm vào"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
@@ -3000,23 +2986,23 @@ msgstr "Quản lý tiện ích của bạn bằng cách nhấp vào Tiện ích 
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: src/core/components/Paginate/index.js:137
 msgid "Previous"
-msgstr ""
+msgstr "Trước"
 
 #: src/core/components/Paginate/index.js:154
 msgid "Next"
-msgstr ""
+msgstr "Tiếp"
 
 #: src/core/components/Paginate/index.js:160
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Trang %(currentPage)s của %(totalPages)s"
 
 #: src/core/components/SurveyNotice/index.js:131
 msgid "Take short survey"
-msgstr ""
+msgstr "Tham gia khảo sát ngắn"
 
 #: src/core/components/SurveyNotice/index.js:139
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
@@ -3024,66 +3010,66 @@ msgstr "Cảm ơn bạn đã ghé thăm trang web này! Vui lòng dành một ho
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s và lớn hơn"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s đến %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Hoạt động với %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Cài đặt thất bại. Vui lòng thử lại."
 
 #: src/core/utils/addons.js:31
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Tải về thất bại. Vui lòng kiểm tra kết nối của bạn."
 
 #: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "Xảy ra lỗi trong quá trình cài đặt."
 
 #: src/core/utils/addons.js:35
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "Đã xảy ra lỗi trong quá trình gỡ bỏ."
 
 #: src/core/utils/addons.js:40
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "Đã xảy ra lỗi."
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
-msgstr ""
+msgstr "Xác nhận"
 
 #: src/ui/components/DismissibleTextForm/index.js:187
 msgid "Enter text."
-msgstr ""
+msgstr "Nhập văn bản."
 
 #: src/ui/components/DismissibleTextForm/index.js:188
 msgid "Submit"
@@ -3095,15 +3081,15 @@ msgstr "Đang gửi"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "Phiên làm việc của bạn đã hết hạn"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Đã xảy ra lỗi"
 
 #: src/ui/components/ErrorList/index.js:59
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Tải lại để tiếp tục"
 
 #: src/ui/components/ExpandableCard/index.js:57
 msgid "Toggle contents"
@@ -3125,15 +3111,15 @@ msgstr "Truy cập dữ liệu của bạn cho các trang web trong tên miền 
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] ""
+msgstr[0] "Truy cập dữ liệu của bạn trên %(param)s trang web khác"
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "Truy cập dữ liệu của bạn cho %(param)s"
 
 #: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Loại bỏ thông báo này"
 
 #: src/ui/components/Rating/index.js:104
 msgid "Rate this add-on %(starRating)s out of 5"
@@ -3141,11 +3127,11 @@ msgstr "Xếp hạng tiện ích này %(starRating)s sao"
 
 #: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "Xếp hạng %(rating)s trong số 5"
 
 #: src/ui/components/Rating/index.js:85
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "Chưa có xếp hạng nào"
 
 #: src/ui/components/Rating/index.js:98
 msgid "Update your rating to %(starRating)s out of 5"
@@ -3153,7 +3139,7 @@ msgstr "Cập nhật xếp hạng của bạn lên %(starRating)s sao"
 
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Mở rộng</span> để đọc thêm"
 
 #: src/ui/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
@@ -3162,7 +3148,7 @@ msgstr[0] "%(total)s tiện ích"
 
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
-msgstr ""
+msgstr "Phản hồi của nhà phát triển"
 
 #~ msgid "See more weather reports"
 #~ msgstr "Xem thêm báo cáo thời tiết"
