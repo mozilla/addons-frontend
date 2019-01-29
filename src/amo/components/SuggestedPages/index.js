@@ -1,17 +1,21 @@
+/* @flow */
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { visibleAddonType } from 'core/utils';
+import type { I18nType } from 'core/types/i18n';
 
-export class SuggestedPagesBase extends React.Component {
-  static propTypes = {
-    i18n: PropTypes.object.isRequired,
-  }
+type Props = {||};
 
+type InternalProps = {|
+  ...Props,
+  i18n: I18nType,
+|};
+
+export class SuggestedPagesBase extends React.Component<InternalProps> {
   render() {
     const { i18n } = this.props;
 
