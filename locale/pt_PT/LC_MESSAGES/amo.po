@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-29 20:55+0000\n"
+"PO-Revision-Date: 2019-01-29 20:35+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -2504,7 +2504,6 @@ msgid "Tell users a bit more information about yourself. Most fields are optiona
 msgstr "Diga aos utilizadores um pouco mais de informação acerca de si. Estes campos são opcionais, mas irão ajudar outros utilizadores a conhecer-lhe melhor."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
 msgstr "Diga aos utilizadores um pouco mais de informação acerca deste utilizador. Estes campos são opcionais, mas irão ajudar outros utilizadores a conhecer %(userName)s melhor."
 
