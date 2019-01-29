@@ -1,6 +1,10 @@
 import config from 'config';
 
-import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
+import {
+  getAddonIconUrl,
+  getPreviewImage,
+  getPreviewIndexBySize,
+} from 'core/imageUtils';
 import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon, fakePreview } from 'tests/unit/helpers';
 import fallbackIcon from 'amo/img/icons/default-64.png';
@@ -100,6 +104,61 @@ describe(__filename, () => {
 
       const image = getPreviewImage(addon);
       expect(image).toEqual(null);
+    });
+  });
+
+  describe('getPreviewIndexBySize', () => {
+    it('finds the correct preview index by size', () => {
+      const size = 450;
+      const addon = createInternalAddon({
+        previews: [
+          {
+            ...fakePreview,
+            image_size: [400, 300],
+          },
+          {
+            ...fakePreview,
+            image_size: [size, 300],
+          },
+        ],
+      });
+      const imageIndex = getPreviewIndexBySize(addon, size);
+      expect(imageIndex).toEqual(1);
+    });
+
+    it('returns undefined if the size is not found', () => {
+      const size = 600;
+      const addon = createInternalAddon({
+        previews: [
+          {
+            ...fakePreview,
+            image_size: [200, 100],
+          },
+        ],
+      });
+      const imageIndex = getPreviewIndexBySize(addon, size);
+      expect(imageIndex).toEqual(undefined);
+    });
+
+    it('uses 720 size as the default size if not size is not provided', () => {
+      const addon = createInternalAddon({
+        previews: [
+          {
+            ...fakePreview,
+            image_size: [300, 200],
+          },
+          {
+            ...fakePreview,
+            image_size: [500, 300],
+          },
+          {
+            ...fakePreview,
+            image_size: [720, 520],
+          },
+        ],
+      });
+      const imageIndex = getPreviewIndexBySize(addon);
+      expect(imageIndex).toEqual(2);
     });
   });
 });
