@@ -14,6 +14,7 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType | null,
+  index?: number,
   roundedCorners?: boolean,
 |};
 
@@ -26,13 +27,14 @@ export const ThemeImageBase = ({
   addon,
   i18n,
   roundedCorners = false,
+  index = 0,
 }: InternalProps) => {
   if (addon && isTheme(addon.type)) {
     const label = i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
       title: addon.name,
     });
 
-    let previewURL = getPreviewImage(addon);
+    let previewURL = getPreviewImage(addon, { index });
     if (!previewURL && addon.type === ADDON_TYPE_THEME) {
       invariant(addon.themeData, 'themeData is required');
 

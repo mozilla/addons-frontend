@@ -13,7 +13,11 @@ import {
   nl2br,
   sanitizeHTML,
 } from 'core/utils';
-import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
+import {
+  getAddonIconUrl,
+  getPreviewImage,
+  getPreviewIndexBySize,
+} from 'core/imageUtils';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
@@ -59,10 +63,9 @@ export class SearchResultBase extends React.Component<InternalProps> {
     let imageURL = iconURL;
 
     if (addon && isTheme(addon.type)) {
-      // Since only newly created static themes will have more than one preview
-      // we will set up a fallback for now.
-      let themeURL =
-        getPreviewImage(addon, { index: 1 }) || getPreviewImage(addon);
+      const previewIndex = getPreviewIndexBySize(addon);
+
+      let themeURL = getPreviewImage(addon, { index: previewIndex });
 
       if (!themeURL && addon && addon.type === ADDON_TYPE_THEME) {
         themeURL =

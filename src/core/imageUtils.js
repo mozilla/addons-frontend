@@ -17,3 +17,11 @@ export const getPreviewImage = (addon, { index = 0, full = true } = {}) => {
   }
   return null;
 };
+
+export const getPreviewIndexBySize = (addon, size = 720) => {
+  const imageIndex =
+    addon.previews &&
+    addon.previews.findIndex((preview) => preview.image_size[0] === size);
+
+  return imageIndex !== -1 ? imageIndex : undefined;
+};

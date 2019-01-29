@@ -46,7 +46,7 @@ import {
   INSTALL_SOURCE_DETAIL_PAGE,
 } from 'core/constants';
 import { isTheme, nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
-import { getAddonIconUrl } from 'core/imageUtils';
+import { getAddonIconUrl, getPreviewIndexBySize } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Card from 'ui/components/Card';
@@ -159,7 +159,13 @@ export class AddonBase extends React.Component {
     const { addon, i18n } = this.props;
 
     if (addon && isTheme(addon.type)) {
-      return <ThemeImage addon={addon} roundedCorners />;
+      return (
+        <ThemeImage
+          addon={addon}
+          index={getPreviewIndexBySize(addon)}
+          roundedCorners
+        />
+      );
     }
 
     const label = addon
