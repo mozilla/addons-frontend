@@ -7,6 +7,7 @@ import { fetchCategories } from 'core/reducers/categories';
 import translate from 'core/i18n/translate';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEMES_FILTER,
 } from 'core/constants';
@@ -87,6 +88,47 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
               i18n.ngettext(
                 '%(count)s extension found',
                 '%(count)s extensions found',
+                count,
+              ),
+              { count: i18n.formatNumber(count) },
+            );
+          }
+          break;
+        case ADDON_TYPE_OPENSEARCH:
+          if (categoryName) {
+            if (query) {
+              searchText = i18n.sprintf(
+                i18n.ngettext(
+                  '%(count)s Search Tool found for "%(query)s" in %(categoryName)s',
+                  '%(count)s Search Tools found for "%(query)s" in %(categoryName)s',
+                  count,
+                ),
+                { count: i18n.formatNumber(count), query, categoryName },
+              );
+            } else {
+              searchText = i18n.sprintf(
+                i18n.ngettext(
+                  '%(count)s Search Tool found in %(categoryName)s',
+                  '%(count)s Search Tools found in %(categoryName)s',
+                  count,
+                ),
+                { count: i18n.formatNumber(count), categoryName },
+              );
+            }
+          } else if (query) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s Search Tool found for "%(query)s"',
+                '%(count)s Search Tools found for "%(query)s"',
+                count,
+              ),
+              { count: i18n.formatNumber(count), query },
+            );
+          } else {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s Search Tool found',
+                '%(count)s Search Tools found',
                 count,
               ),
               { count: i18n.formatNumber(count) },
