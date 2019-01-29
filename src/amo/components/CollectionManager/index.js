@@ -247,6 +247,7 @@ export class CollectionManagerBase extends React.Component<
           <input
             onChange={this.onTextInput}
             id="collectionName"
+            maxLength="30"
             name="name"
             type="text"
             value={this.state.name}
