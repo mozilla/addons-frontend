@@ -1,13 +1,14 @@
 /* @flow */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
+import { fakeI18n } from 'tests/unit/helpers';
 
-import Rating from 'ui/components/Rating';
+import Rating, { RatingBase } from 'ui/components/Rating';
 import type { Props as RatingProps } from 'ui/components/Rating';
 
 import { createChapters } from '../utils';
 import Provider from '../setup/Provider';
-
 
 export type Props = {|
   props: RatingProps,
@@ -19,6 +20,22 @@ function createPropsMatrix(): Array<Props> {
       props: {
         readOnly: false,
         styleSize: 'small',
+        rating: undefined,
+        yellowStars: true,
+      },
+    },
+    {
+      props: {
+        readOnly: false,
+        styleSize: 'small',
+        rating: null,
+        yellowStars: true,
+      },
+    },
+    {
+      props: {
+        readOnly: false,
+        styleSize: 'small',
         rating: 4,
         yellowStars: true,
       },
@@ -43,9 +60,16 @@ function createPropsMatrix(): Array<Props> {
       props: {
         readOnly: false,
         styleSize: 'large',
+        rating: undefined,
+        yellowStars: true,
+      },
+    },
+    {
+      props: {
+        readOnly: false,
+        styleSize: 'large',
         rating: null,
         yellowStars: true,
-        className: 'RatingManager-UserRating',
       },
     },
     {
@@ -54,7 +78,6 @@ function createPropsMatrix(): Array<Props> {
         styleSize: 'large',
         rating: 3,
         yellowStars: true,
-        className: 'RatingManager-UserRating',
       },
     },
     {
@@ -71,6 +94,14 @@ function createPropsMatrix(): Array<Props> {
         styleSize: 'large',
         rating: 4,
         yellowStars: true,
+      },
+    },
+    {
+      props: {
+        readOnly: true,
+        styleSize: 'small',
+        rating: undefined,
+        yellowStars: false,
       },
     },
     {
@@ -101,9 +132,32 @@ function createPropsMatrix(): Array<Props> {
       props: {
         readOnly: true,
         styleSize: 'large',
+        rating: undefined,
+        yellowStars: false,
+      },
+    },
+    {
+      props: {
+        readOnly: true,
+        styleSize: 'large',
         rating: null,
         yellowStars: false,
-        className: 'RatingManager-UserRating',
+      },
+    },
+    {
+      props: {
+        readOnly: true,
+        styleSize: 'large',
+        rating: 3.4,
+        yellowStars: false,
+      },
+    },
+    {
+      props: {
+        readOnly: true,
+        styleSize: 'large',
+        rating: 4,
+        yellowStars: false,
       },
     },
   ];
@@ -115,14 +169,14 @@ storiesOf('Rating', module)
       <Provider story={story()} />
     </div>
   ))
-  // TODO: props isn't working here because of translate HOC
-  // I believe. We should look into this.
-  // .add(
-  //   'Rating props',
-  //   withInfo()(() => {
-  //     return <Rating />;
-  //   }),
-  // )
+  .add(
+    'Rating props',
+    withInfo()(() => {
+      return (
+        <RatingBase rating={4} i18n={fakeI18n({ includeJedSpy: false })} />
+      );
+    }),
+  )
   .addWithChapters('Rating variations', {
     chapters: createChapters({
       Component: Rating,
