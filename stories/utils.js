@@ -1,9 +1,9 @@
 /* @flow */
 import * as React from 'react';
 
-type PropsMatrixType = {
+type PropsMatrixType = {|
   props: Object,
-};
+|};
 
 type ChapterType = string | number | void;
 

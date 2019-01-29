@@ -6,10 +6,7 @@ body {
   // in storybook.
   background: #fff;
   margin: 0;
-}
-
-.story {
-  // Giving extra cushion so nothing gets covered.
+   // Giving extra cushion so nothing gets covered.
   padding: 24px 12px 12px;
 }
 
@@ -64,11 +61,5 @@ body {
 
   .section-component-wrapper {
     display: flex;
-  }
-
-  .section-notes {
-    font-size: 12px;
-    line-height: 1.14;
-    margin-top: 12px;
   }
 }

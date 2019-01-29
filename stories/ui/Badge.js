@@ -18,9 +18,9 @@ const types = [
   'requires-payment',
 ];
 
-export type Props = {
+export type Props = {|
   props: BadgeProps,
-};
+|};
 
 function createPropsMatrix(chapter): Array<Props> {
   return [

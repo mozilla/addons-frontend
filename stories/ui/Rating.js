@@ -9,9 +9,9 @@ import { createChapters } from '../utils';
 import Provider from '../setup/Provider';
 
 
-export type Props = {
+export type Props = {|
   props: RatingProps,
-};
+|};
 
 function createPropsMatrix(): Array<Props> {
   return [
