@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-22 20:36+0000\n"
+"POT-Creation-Date: 2019-01-29 20:07+0000\n"
 "PO-Revision-Date: 2017-08-25 08:27+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,38 +14,38 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:238
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Remove"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:216
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:218
 #, fuzzy
 msgid "Downloading"
 msgstr "Laster ned %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:220
 #, fuzzy
 msgid "Installing"
 msgstr "Installerer %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:249
+#: src/core/components/AMInstallButton/index.js:222
 #, fuzzy
 msgid "Uninstalling"
 msgstr "Avinstallerer %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:257
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Install Theme"
 msgstr "Installer tema"
 
-#: src/core/components/AMInstallButton/index.js:258
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Add to Firefox"
 msgstr "Legg til i Firefox"
 
@@ -166,16 +166,16 @@ msgstr "Oppdag utvidelser"
 msgid "Privacy Policy"
 msgstr "Personvernbestemmelser"
 
-#: src/disco/pages/DiscoPane/index.js:146
+#: src/disco/pages/DiscoPane/index.js:152
 #, fuzzy
 msgid "Find more add-ons"
 msgstr "Se flere utvidelser!"
 
-#: src/disco/pages/DiscoPane/index.js:162
+#: src/disco/pages/DiscoPane/index.js:174
 msgid "Personalize Your Firefox"
 msgstr "Tilpass Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:164
+#: src/disco/pages/DiscoPane/index.js:176
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -188,6 +188,16 @@ msgstr ""
 "visuelle temaer til kraftfulle verktøy som gjør surfing raskere og tryggere, "
 "utvidelser gjør nettleseren din til din egen. For å hjelpe deg med å starte "
 "så har vi noen vi anbefaler for deres enestående ytelse og funksjonalitet."
+
+#: src/disco/pages/DiscoPane/index.js:193
+msgid "Learn More"
+msgstr ""
+
+#: src/disco/pages/DiscoPane/index.js:197
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
