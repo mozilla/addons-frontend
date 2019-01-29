@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-22 20:36+0000\n"
+"POT-Creation-Date: 2019-01-29 20:07+0000\n"
 "PO-Revision-Date: 2018-12-19 10:38+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:238
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enable"
 msgstr "Povolit"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Remove"
 msgstr "Odebrat"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:216
 msgid "Enabling"
 msgstr "Zapínání"
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:218
 msgid "Downloading"
 msgstr "Stahování"
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:220
 msgid "Installing"
 msgstr "Instalace"
 
-#: src/core/components/AMInstallButton/index.js:249
+#: src/core/components/AMInstallButton/index.js:222
 msgid "Uninstalling"
 msgstr "Odinstalace"
 
-#: src/core/components/AMInstallButton/index.js:257
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Install Theme"
 msgstr "Nainstalovat vzhled"
 
-#: src/core/components/AMInstallButton/index.js:258
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Add to Firefox"
 msgstr "Přidat do Firefoxu"
 
@@ -162,15 +162,15 @@ msgstr "Objevte doplňky"
 msgid "Privacy Policy"
 msgstr "Zásady ochrany osobních údajů"
 
-#: src/disco/pages/DiscoPane/index.js:146
+#: src/disco/pages/DiscoPane/index.js:152
 msgid "Find more add-ons"
 msgstr "Najít další doplňky"
 
-#: src/disco/pages/DiscoPane/index.js:162
+#: src/disco/pages/DiscoPane/index.js:174
 msgid "Personalize Your Firefox"
 msgstr "Přizpůsobte si svůj Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:164
+#: src/disco/pages/DiscoPane/index.js:176
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -184,6 +184,16 @@ msgstr ""
 "bezpečnější, všechny z nich pomáhají, aby se prohlížeč stal vaším "
 "prohlížečem. Abychom vám do začátku pomohli, vybrali jsme některé, které pro "
 "jejich výkon a funkce doporučujeme."
+
+#: src/disco/pages/DiscoPane/index.js:193
+msgid "Learn More"
+msgstr ""
+
+#: src/disco/pages/DiscoPane/index.js:197
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"

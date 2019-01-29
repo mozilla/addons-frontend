@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-22 20:36+0000\n"
+"POT-Creation-Date: 2019-01-29 20:07+0000\n"
 "PO-Revision-Date: 2018-12-12 14:05+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:238
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enable"
 msgstr "Enable"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Remove"
 msgstr "Remove"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:216
 msgid "Enabling"
 msgstr "Enabling"
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:218
 msgid "Downloading"
 msgstr "Downloading"
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:220
 msgid "Installing"
 msgstr "Installing"
 
-#: src/core/components/AMInstallButton/index.js:249
+#: src/core/components/AMInstallButton/index.js:222
 msgid "Uninstalling"
 msgstr "Uninstalling"
 
-#: src/core/components/AMInstallButton/index.js:257
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Install Theme"
 msgstr "Install Theme"
 
-#: src/core/components/AMInstallButton/index.js:258
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Add to Firefox"
 msgstr "Add to Firefox"
 
@@ -162,15 +162,15 @@ msgstr "Discover Add-ons"
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-#: src/disco/pages/DiscoPane/index.js:146
+#: src/disco/pages/DiscoPane/index.js:152
 msgid "Find more add-ons"
 msgstr "Find more add-ons"
 
-#: src/disco/pages/DiscoPane/index.js:162
+#: src/disco/pages/DiscoPane/index.js:174
 msgid "Personalize Your Firefox"
 msgstr "Personalize Your Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:164
+#: src/disco/pages/DiscoPane/index.js:176
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -183,6 +183,16 @@ msgstr ""
 "themes to powerful tools that make browsing faster and safer, add-ons make "
 "your browser yours. To help you get started, here are some we recommend for "
 "their stand-out performance and functionality."
+
+#: src/disco/pages/DiscoPane/index.js:193
+msgid "Learn More"
+msgstr ""
+
+#: src/disco/pages/DiscoPane/index.js:197
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-22 20:36+0000\n"
+"POT-Creation-Date: 2019-01-29 20:07+0000\n"
 "PO-Revision-Date: 2018-12-12 11:18+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:238
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enable"
 msgstr "啟用"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Remove"
 msgstr "移除"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:216
 msgid "Enabling"
 msgstr "啟用中"
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:218
 msgid "Downloading"
 msgstr "下載中"
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:220
 msgid "Installing"
 msgstr "安裝中"
 
-#: src/core/components/AMInstallButton/index.js:249
+#: src/core/components/AMInstallButton/index.js:222
 msgid "Uninstalling"
 msgstr "移除中"
 
-#: src/core/components/AMInstallButton/index.js:257
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Install Theme"
 msgstr "安裝佈景主題"
 
-#: src/core/components/AMInstallButton/index.js:258
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Add to Firefox"
 msgstr "新增至 Firefox"
 
@@ -160,15 +160,15 @@ msgstr "探索附加元件"
 msgid "Privacy Policy"
 msgstr "隱私權保護政策"
 
-#: src/disco/pages/DiscoPane/index.js:146
+#: src/disco/pages/DiscoPane/index.js:152
 msgid "Find more add-ons"
 msgstr "看更多附加元件！"
 
-#: src/disco/pages/DiscoPane/index.js:162
+#: src/disco/pages/DiscoPane/index.js:174
 msgid "Personalize Your Firefox"
 msgstr "個人化您的 Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:164
+#: src/disco/pages/DiscoPane/index.js:176
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -179,6 +179,16 @@ msgstr ""
 "全球各地的開發者打造了數以千計的附加元件，這些附加元件可讓您把 Firefox 變得有"
 "您的樣子。不論是漂亮的佈景主題、讓您瀏覽時更快，還是加上更安全的工具與功能。"
 "為了幫助您開始使用，以下是一些我們推薦的，效能與功能都很傑出的附加元件。"
+
+#: src/disco/pages/DiscoPane/index.js:193
+msgid "Learn More"
+msgstr ""
+
+#: src/disco/pages/DiscoPane/index.js:197
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
