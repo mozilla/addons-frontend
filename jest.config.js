@@ -23,7 +23,7 @@ module.exports = {
     '<rootDir>/tests/jest-reporters/flow-check.js',
     '<rootDir>/tests/jest-reporters/eslint-check.js',
   ],
-  setupTestFrameworkScriptFile: '<rootDir>/tests/setup.js',
+  setupFilesAfterEnv: ['<rootDir>/tests/setup.js'],
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
     '<rootDir>/(assets|bin|config|coverage|dist|docs|flow|locale|src)/',
