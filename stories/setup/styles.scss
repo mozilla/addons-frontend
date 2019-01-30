@@ -6,7 +6,7 @@ body {
   // in storybook.
   background: #fff;
   margin: 0;
-   // Giving extra cushion so nothing gets covered.
+  // Giving extra cushion so nothing gets covered.
   padding: 24px 12px 12px;
 }
 
@@ -35,31 +35,4 @@ body {
 
 .chapter-h3 {
   margin-top: 48px;
-}
-
-// Mimic the width of Rating's container in storybook.
-.Rating--storybook {
-  @include respond-to(large) {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: minmax(300px, 35%);
-    margin: 0;
-  }
-
-  .section-container {
-    width: auto;
-
-    @include respond-to(large) {
-      width: 276px;
-    }
-
-    @include respond-to(extraLarge) {
-      padding: 24px 36px;
-      width: auto;
-    }
-  }
-
-  .section-component-wrapper {
-    display: flex;
-  }
 }
