@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-30 15:32+0000\n"
+"PO-Revision-Date: 2019-01-30 15:36+0000\n"
 "Last-Translator: Cloney 173741 <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -969,7 +969,7 @@ msgstr "Chỉ hoạt động với Firefox—Tải Firefox ngay"
 
 #: src/amo/components/GuidesAddonCard/index.js:77
 msgid "Staff Pick"
-msgstr ""
+msgstr "Được chọn bởi biên tập viên"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:502
 msgid "View My Profile"
@@ -1841,7 +1841,7 @@ msgstr "Trình chặn quảng cáo nhẹ, hiệu quả cao. uBlock Origin thực
 
 #: src/amo/pages/Guides/index.js:107
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
-msgstr "Khám phá thêm về %(linkStart)strình chặn quảng cáo%(linkEnd)s."
+msgstr "Khám phá thêm về %(linkStart)strình chặn quảng cáo%(linkEnd)s được chọn bởi biên tập viên."
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Stop online trackers from stalking you"
@@ -1857,7 +1857,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:125
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
-msgstr "Khám phá thêm về %(linkStart)sriêng tư & bảo mật%(linkEnd)s."
+msgstr "Khám phá thêm về %(linkStart)sriêng tư & bảo mật%(linkEnd)s được chọn bởi biên tập viên."
 
 #: src/amo/pages/Guides/index.js:136
 msgid "Reimagine tab management"
@@ -1875,7 +1875,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:147
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-msgstr "Khám phá thêm về %(linkStart)strình quản lí thẻ%(linkEnd)s."
+msgstr "Khám phá thêm về %(linkStart)strình quản lí thẻ%(linkEnd)s được chọn bởi biên tập viên."
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Better browsing with improved bookmarks"
@@ -1895,7 +1895,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:167
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
-msgstr "Khám phá thêm về %(linkStart)strình quản lí dấu trang%(linkEnd)s."
+msgstr "Khám phá thêm về %(linkStart)strình quản lí dấu trang%(linkEnd)s được chọn bởi biên tập viên."
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Enjoy a fresh new tab experience"
@@ -1911,7 +1911,7 @@ msgstr "Thưởng thức một trang mới tuyệt đẹp với hình nền tùy
 
 #: src/amo/pages/Guides/index.js:184
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
-msgstr ""
+msgstr "Khám phá thêm về %(linkStart)scác cách thú vị để thay đổi các thẻ của bạn%(linkEnd)s được chọn bởi biên tập viên."
 
 #: src/amo/pages/Guides/index.js:195
 msgid "Improve videos"
@@ -1928,7 +1928,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:206
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "Khám phá thêm về %(linkStart)stiện ích mở rộng video%(linkEnd)s."
+msgstr "Khám phá thêm về %(linkStart)stiện ích mở rộng video%(linkEnd)s được chọn bởi biên tập viên."
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Get more out of media"
@@ -1946,7 +1946,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:226
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Khám phá thêm về %(linkStart)stiện ích mở rộng phương tiện%(linkEnd)s được chọn bởi biên tập viên."
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Bring media right into the browser"
@@ -1995,7 +1995,7 @@ msgstr "Được bảo vệ hoàn toàn bằng mật khẩu. Lưu trữ dữ li�
 
 #: src/amo/pages/Guides/index.js:88
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
-msgstr "Khám phá thêm về %(linkStart)strình quản lý mật khẩu%(linkEnd)s."
+msgstr "Khám phá thêm về %(linkStart)strình quản lý mật khẩu%(linkEnd)s được chọn bởi biên tập viên."
 
 #: src/amo/pages/Guides/index.js:96
 msgid "Block annoying ads"
