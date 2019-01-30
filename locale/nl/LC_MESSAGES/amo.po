@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-30 09:30+0000\n"
+"PO-Revision-Date: 2019-01-30 09:34+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -2498,14 +2498,12 @@ msgid "Picture successfully deleted"
 msgstr "Afbeelding met succes verwijderd"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "Vertel gebruikers wat meer over uzelf. Deze velden zijn optioneel, maar ze helpen andere gebruikers om u beter te leren kennen."
+msgstr "Vertel gebruikers wat meer over uzelf. De meeste velden zijn optioneel, maar ze helpen andere gebruikers om u beter te leren kennen."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Vertel gebruikers wat meer over deze gebruiker. Deze velden zijn optioneel, maar ze helpen andere gebruikers om %(userName)s wat beter te leren kennen."
+msgstr "Vertel gebruikers wat meer over deze gebruiker. De meeste velden zijn optioneel, maar ze helpen andere gebruikers om %(userName)s wat beter te leren kennen."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
@@ -2557,12 +2555,11 @@ msgstr "Profiel"
 
 #: src/amo/pages/UserProfileEdit/index.js:585
 msgid "This field is required"
-msgstr ""
+msgstr "Dit veld is verplicht"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
-#, fuzzy
 msgid "Display Name *"
-msgstr "Weergavenaam"
+msgstr "Weergavenaam *"
 
 #: src/amo/pages/UserProfileEdit/index.js:620
 msgid "This URL will only be visible for users who are developers."
