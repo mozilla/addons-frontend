@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-30 18:51+0000\n"
+"PO-Revision-Date: 2019-01-30 19:10+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1335,18 +1335,16 @@ msgid "Search results for \"%(query)s\""
 msgstr "Resultatos del recerca pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:100
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s thema trovate pro \"%(query)s\""
-msgstr[1] "%(count)s themas trovate pro \"%(query)s\""
+msgstr[0] "%(count)s thema trovate pro \"%(query)s\" in %(categoryName)s"
+msgstr[1] "%(count)s themas trovate pro \"%(query)s\" in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:109
-#, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "%(count)s thema trovate pro \"%(query)s\""
-msgstr[1] "%(count)s themas trovate pro \"%(query)s\""
+msgstr[0] "%(count)s thema trovate in %(categoryName)s"
+msgstr[1] "%(count)s themas trovate in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:119
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1355,11 +1353,10 @@ msgstr[0] "%(count)s thema trovate pro \"%(query)s\""
 msgstr[1] "%(count)s themas trovate pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:128
-#, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "%(count)s additivo trovate"
-msgstr[1] "%(count)s additivos trovate"
+msgstr[0] "%(count)s thema trovate"
+msgstr[1] "%(count)s themas trovate"
 
 #: src/amo/components/SearchContextCard/index.js:140
 msgid "%(count)s result found for \"%(query)s\""
@@ -1368,34 +1365,30 @@ msgstr[0] "%(count)s resultato trovate pro \"%(query)s\""
 msgstr[1] "%(count)s resultatos trovate pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:149
-#, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "%(count)s resultato pro \"%(query)s\""
-msgstr[1] "%(count)s resultatos pro \"%(query)s\""
+msgstr[0] "%(count)s resultato trovate"
+msgstr[1] "%(count)s resultatos trovate"
 
 #: src/amo/components/SearchContextCard/index.js:160
 msgid "Searching for \"%(query)s\""
 msgstr "Recerca pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:164
-#, fuzzy
 msgid "Searching for add-ons"
-msgstr "Cargamento de additivos"
+msgstr "Recerca de additivos"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s extension trovate pro \"%(query)s\""
-msgstr[1] "%(count)s extensiones trovate pro \"%(query)s\""
+msgstr[0] "%(count)s extension trovate pro \"%(query)s\" in %(categoryName)s"
+msgstr[1] "%(count)s extensiones trovate pro \"%(query)s\" in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(count)s extension trovate pro \"%(query)s\""
-msgstr[1] "%(count)s extensiones trovate pro \"%(query)s\""
+msgstr[0] "%(count)s extension trovate in %(categoryName)s"
+msgstr[1] "%(count)s extensiones trovate in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1404,11 +1397,10 @@ msgstr[0] "%(count)s extension trovate pro \"%(query)s\""
 msgstr[1] "%(count)s extensiones trovate pro \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:87
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "%(count)s additivo trovate"
-msgstr[1] "%(count)s additivos trovate"
+msgstr[0] "%(count)s extension trovate"
+msgstr[1] "%(count)s extensiones trovate"
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:125
 msgid "All"
@@ -2512,14 +2504,12 @@ msgid "Picture successfully deleted"
 msgstr "Pictura delite con successo"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "Conta al usatores poc altere informationes circa te mesme. Iste campos es optional, ma illos adjutara altere usatores a te discoperir melio."
+msgstr "Conta al usatores poc altere informationes circa te mesme. Plure campos es optional, ma illos adjutara altere usatores a te cognoscer melio."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Conta al usatores poc altere informationes circa iste usator. Iste campos es optional, ma illos adjutara altere usatores a discoperir %(userName)s melio."
+msgstr "Conta al usatores poc altere informationes circa iste usator. Plure campos es optional, ma illos adjutara altere usatores a cognoscer melio %(userName)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
@@ -2574,9 +2564,8 @@ msgid "This field is required"
 msgstr "Campo obligatori"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
-#, fuzzy
 msgid "Display Name *"
-msgstr "Nomine monstrate"
+msgstr "Nomine monstrate *"
 
 #: src/amo/pages/UserProfileEdit/index.js:620
 msgid "This URL will only be visible for users who are developers."
