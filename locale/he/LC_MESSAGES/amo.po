@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-30 06:23+0000\n"
+"PO-Revision-Date: 2019-01-30 12:34+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -550,9 +550,8 @@ msgid "Source code released under %(licenseName)s"
 msgstr "קוד המקור משוחרר תחת %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
-#, fuzzy
 msgid "No version found"
-msgstr "לא נמצאו תוספות"
+msgstr "לא נמצאה גרסה"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
@@ -1937,7 +1936,7 @@ msgstr "שיפור סרטונים"
 
 #: src/amo/pages/Guides/index.js:196
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
-msgstr ""
+msgstr "אם תכני וידאו מהנים עבורך, הרחבות מציעות מספר דרכים כדי לשפר את החוויה שלך, לרבות התאמה אישית של YouTube לטעם שלך והפעלת סרטונים במצב קולנוע."
 
 #: src/amo/pages/Guides/index.js:201
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
@@ -2469,14 +2468,12 @@ msgid "Picture successfully deleted"
 msgstr "התמונה נמחקה בהצלחה"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "ניתן לספר למשתמשים קצת יותר על עצמך. שדות אלו הם בגדר רשות, אך הם יסייעו למשתמשים אחרים להכיר אותך טוב יותר."
+msgstr "ניתן לספר למשתמשים קצת יותר על עצמך. רוב השדות הם בגדר רשות, אך הם יסייעו למשתמשים אחרים להכיר אותך טוב יותר."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "ניתן לספר למשתמשים קצת יותר על משתמש זה. שדות אלו הם בגדר רשות, אך הם יסייעו לאחרים להכיר את %(userName)s טוב יותר."
+msgstr "ניתן לספר למשתמשים קצת יותר על משתמש זה. שדות אלו הם בגדר רשות, אך הם יסייעו למשתמשים אחרים להכיר את %(userName)s טוב יותר."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
