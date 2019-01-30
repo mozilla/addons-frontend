@@ -181,6 +181,7 @@ describe(__filename, () => {
     const expectedUrlPrefix = `${apiHost}/${newLang}/${clientApp}/collections/${userId}/`;
 
     expect(root.find('#collectionName')).toHaveProp('value', collection.name);
+    expect(root.find('#collectionName')).toHaveProp('maxLength', '30');
     expect(root.find('#collectionDescription')).toHaveProp(
       'value',
       collection.description,
