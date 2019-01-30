@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-30 08:08+0000\n"
+"PO-Revision-Date: 2019-01-30 08:55+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -1378,18 +1378,16 @@ msgid "Searching for add-ons"
 msgstr "Add-ons worden gezocht"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s extensie voor ‘%(query)s’ gevonden"
-msgstr[1] "%(count)s extensies voor ‘%(query)s’ gevonden"
+msgstr[0] "%(count)s extensie voor ‘%(query)s’ gevonden in %(categoryName)s"
+msgstr[1] "%(count)s extensies voor ‘%(query)s’ gevonden in %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(count)s extensie voor ‘%(query)s’ gevonden"
-msgstr[1] "%(count)s extensies voor ‘%(query)s’ gevonden"
+msgstr[0] "%(count)s extensie gevonden in %(categoryName)s"
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
