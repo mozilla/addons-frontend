@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-30 16:26+0000\n"
+"PO-Revision-Date: 2019-01-30 16:35+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1497,9 +1497,8 @@ msgid "Firefox Add-ons (%(locale)s)"
 msgstr "Dodatki za Firefox (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
-#, fuzzy
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr "Dodatki za Android (%(locale)s)"
+msgstr "Dodatki za Firefox za Android (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
@@ -2133,9 +2132,8 @@ msgid "YouTube boosters"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "See more health & wellness extensions"
-msgstr "Več izbranih razširitev"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:62
 msgid "Health & Wellness"
@@ -2147,7 +2145,7 @@ msgstr "Več razširitev za produktivnost"
 
 #: src/amo/pages/Home/index.js:68
 msgid "Be more productive"
-msgstr ""
+msgstr "Bodite produktivnejši"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
