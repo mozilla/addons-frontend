@@ -75,7 +75,7 @@ const IconStar = ({
         fillOpacity: starStyle === DIM_CLOSED_STYLE ? 0.25 : 1,
       };
       break;
-    case HALF_STYLE:
+    case HALF_STYLE: {
       // Key is needed in case there are multiple IconStars on 1 page.
       const key = Math.random();
       defs = (
@@ -92,6 +92,7 @@ const IconStar = ({
         transform: 'scale(3.75) translate(-1200.000000, -191.000000)',
       };
       break;
+    }
     case OPEN_STYLE:
     default:
       gProps = {
