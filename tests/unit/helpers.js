@@ -615,8 +615,11 @@ export function JedSpy(data = {}) {
 /*
  * Creates a stand-in for a jed instance,
  */
-export function fakeI18n({ lang = config.get('defaultLang') } = {}) {
-  return makeI18n({}, lang, JedSpy);
+export function fakeI18n({
+  lang = config.get('defaultLang'),
+  includeJedSpy = true,
+} = {}) {
+  return makeI18n({}, lang, includeJedSpy ? JedSpy : undefined);
 }
 
 export const userAgentsByPlatform = {

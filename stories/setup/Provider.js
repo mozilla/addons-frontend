@@ -14,7 +14,11 @@ const history = addQueryParamsToHistory({
 
 export default function Provider({ story }: Object) {
   return (
-    <Root store={store} history={history} i18n={fakeI18n}>
+    <Root
+      store={store}
+      history={history}
+      i18n={fakeI18n({ includeJedSpy: false })}
+    >
       {story}
     </Root>
   );
