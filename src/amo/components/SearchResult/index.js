@@ -5,7 +5,7 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_THEME, ADDON_TYPE_OPENSEARCH } from 'core/constants';
 import {
   addQueryParams,
   isAllowedOrigin,
@@ -159,23 +159,25 @@ export class SearchResultBase extends React.Component<InternalProps> {
           )}
         </div>
 
-        <h3 className="SearchResult-users SearchResult--meta-section">
-          <Icon className="SearchResult-users-icon" name="user-fill" />
-          <span className="SearchResult-users-text">
-            {averageDailyUsers !== null && averageDailyUsers !== undefined ? (
-              i18n.sprintf(
-                i18n.ngettext(
-                  '%(total)s user',
-                  '%(total)s users',
-                  averageDailyUsers,
-                ),
-                { total: i18n.formatNumber(averageDailyUsers) },
-              )
-            ) : (
-              <LoadingText width={90} />
-            )}
-          </span>
-        </h3>
+        {!addon || (addon && addon.type !== ADDON_TYPE_OPENSEARCH) ? (
+          <h3 className="SearchResult-users SearchResult--meta-section">
+            <Icon className="SearchResult-users-icon" name="user-fill" />
+            <span className="SearchResult-users-text">
+              {averageDailyUsers !== null && averageDailyUsers !== undefined ? (
+                i18n.sprintf(
+                  i18n.ngettext(
+                    '%(total)s user',
+                    '%(total)s users',
+                    averageDailyUsers,
+                  ),
+                  { total: i18n.formatNumber(averageDailyUsers) },
+                )
+              ) : (
+                <LoadingText width={90} />
+              )}
+            </span>
+          </h3>
+        ) : null}
       </div>
     );
   }
