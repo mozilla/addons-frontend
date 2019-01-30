@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-30 15:57+0000\n"
+"PO-Revision-Date: 2019-01-30 16:26+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1393,22 +1393,20 @@ msgid "Searching for add-ons"
 msgstr "Iskanje dodatkov"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s najdena razširitev za \"%(query)s\""
-msgstr[1] "%(count)s najdeni razširitvi za \"%(query)s\""
-msgstr[2] "%(count)s najdene razširitve za \"%(query)s\""
-msgstr[3] "%(count)s najdenih razširitev za \"%(query)s\""
+msgstr[0] "%(count)s najdena razširitev za \"%(query)s\" v %(categoryName)s"
+msgstr[1] "%(count)s najdeni razširitvi za \"%(query)s\" v %(categoryName)s"
+msgstr[2] "%(count)s najdene razširitve za \"%(query)s\" v %(categoryName)s"
+msgstr[3] "%(count)s najdenih razširitev za \"%(query)s\" v %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(count)s najdena razširitev za \"%(query)s\""
-msgstr[1] "%(count)s najdeni razširitvi za \"%(query)s\""
-msgstr[2] "%(count)s najdene razširitve za \"%(query)s\""
-msgstr[3] "%(count)s najdenih razširitev za \"%(query)s\""
+msgstr[0] "%(count)s najdena razširitev v %(categoryName)s"
+msgstr[1] "%(count)s najdeni razširitvi v %(categoryName)s"
+msgstr[2] "%(count)s najdene razširitve v %(categoryName)s"
+msgstr[3] "%(count)s najdenih razširitev v %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1419,13 +1417,12 @@ msgstr[2] "%(count)s najdene razširitve za \"%(query)s\""
 msgstr[3] "%(count)s najdenih razširitev za \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:87
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "%(count)s najden dodatek"
-msgstr[1] "%(count)s najdena dodatka"
-msgstr[2] "%(count)s najdeni dodatki"
-msgstr[3] "%(count)s najdenih dodatkov"
+msgstr[0] "%(count)s najdena razširitev"
+msgstr[1] "%(count)s najdeni razširitvi"
+msgstr[2] "%(count)s najdene razširitve"
+msgstr[3] "%(count)s najdenih razširitev"
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:125
 msgid "All"
@@ -2517,14 +2514,12 @@ msgid "Picture successfully deleted"
 msgstr "Slika uspešno izbrisana"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "Povejte uporabnikom kaj več o sebi. Ta polja sicer niso obvezna, vendar bodo pomagala drugim uporabnikom, da vas bolje spoznajo."
+msgstr "Povejte uporabnikom kaj več o sebi. Večina polj sicer ni obveznih, vendar bodo pomagala drugim uporabnikom, da vas bolje spoznajo."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Povejte uporabnikom kaj več o tem uporabniku. Ta polja sicer niso obvezna, vendar bodo pomagala drugim uporabnikom, da uporabnika %(userName)s bolje spoznajo."
+msgstr "Povejte uporabnikom kaj več o tem uporabniku. Večina polj sicer ni obveznih, vendar bodo pomagala drugim uporabnikom, da uporabnika %(userName)s bolje spoznajo."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
@@ -2579,9 +2574,8 @@ msgid "This field is required"
 msgstr "To polje je obvezno"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
-#, fuzzy
 msgid "Display Name *"
-msgstr "Ime za prikaz"
+msgstr "Ime za prikaz *"
 
 #: src/amo/pages/UserProfileEdit/index.js:620
 msgid "This URL will only be visible for users who are developers."
