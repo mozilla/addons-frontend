@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-29 23:20+0000\n"
+"PO-Revision-Date: 2019-01-30 08:12+0000\n"
 "Last-Translator: 우믿트 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1319,12 +1319,12 @@ msgstr "“%(query)s”的搜索结果"
 #: src/amo/components/SearchContextCard/index.js:100
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
+msgstr[0] "分类 %(categoryName)s 中找到 %(count)s 个有关“%(query)s”的主题"
 
 #: src/amo/components/SearchContextCard/index.js:109
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] ""
+msgstr[0] "分类 %(categoryName)s 中找到 %(count)s 个主题"
 
 #: src/amo/components/SearchContextCard/index.js:119
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1357,12 +1357,12 @@ msgstr "正在搜索附加组件"
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
+msgstr[0] "分类 %(categoryName)s 中找到 %(count)s 个有关“%(query)s”的扩展"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] ""
+msgstr[0] "分类 %(categoryName)s 中找到 %(count)s 个扩展"
 
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
