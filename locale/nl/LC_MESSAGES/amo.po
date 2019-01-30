@@ -1342,8 +1342,8 @@ msgstr[1] "%(count)s thema’s voor ‘%(query)s’ gevonden in %(categoryName)s
 #: src/amo/components/SearchContextCard/index.js:109
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "%(count)s thema in %(categoryName)s gevonden"
-msgstr[1] "%(count)s thema’s in %(categoryName)s gevonden"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:119
 msgid "%(count)s theme found for \"%(query)s\""
