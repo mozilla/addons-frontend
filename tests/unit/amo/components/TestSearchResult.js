@@ -364,17 +364,15 @@ describe(__filename, () => {
 
     expect(root.find('.SearchResult-note')).toHaveLength(0);
   });
-});
 
-it(`doesn't render users for search plugins`, () => {
-  const addon = createInternalAddon({
-    ...fakeAddon,
-    type: ADDON_TYPE_OPENSEARCH,
-    average_daily_users: null,
+  it(`doesn't render the number of users for search plugins`, () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_OPENSEARCH,
+    });
+
+    const root = render({ addon });
+
+    expect(root.find('.SearchResult-users')).toHaveLength(0);
   });
-  const root = render({ addon });
-
-  expect(
-    root.find('.SearchResult-users SearchResult--meta-section'),
-  ).toHaveLength(0);
 });

@@ -159,7 +159,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
           )}
         </div>
 
-        {addon && addon.type !== ADDON_TYPE_OPENSEARCH ? (
+        {!addon || (addon && addon.type !== ADDON_TYPE_OPENSEARCH) ? (
           <h3 className="SearchResult-users SearchResult--meta-section">
             <Icon className="SearchResult-users-icon" name="user-fill" />
             <span className="SearchResult-users-text">
