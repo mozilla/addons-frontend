@@ -23,6 +23,10 @@
     outline: auto 5px -webkit-focus-ring-color;
   }
 
+  &:not(.focus-visible) {
+    outline: none;
+  }
+
   .DropdownMenu-button-text {
     @include font-regular();
 
