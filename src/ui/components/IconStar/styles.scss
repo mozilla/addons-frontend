@@ -1,10 +1,16 @@
+@import '~amo/css/styles';
 $icon-large: 64px;
 
 .Rating--large {
   .IconStar {
     max-height: $icon-large;
     max-width: $icon-large;
+    padding: 0 6px;
     width: 100%;
+
+    @include respond-to(extraExtraLarge) {
+      padding: 0;
+    }
   }
 }
 
