@@ -27,12 +27,16 @@
 }
 
 .DiscoPane-notice-recommendations {
+  font-size: 13px;
+
   .Notice-content {
     display: flex;
 
     .Notice-button.Button {
+      @include margin-end(8px);
+
       margin: auto;
-      width: 180px;
+      width: 200px;
     }
   }
 }
