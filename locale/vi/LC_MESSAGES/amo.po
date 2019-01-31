@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-30 15:36+0000\n"
+"PO-Revision-Date: 2019-01-31 07:11+0000\n"
 "Last-Translator: Cloney 173741 <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -2402,15 +2402,15 @@ msgstr "Bài đánh giá của tôi"
 
 #: src/amo/pages/UserProfile/index.js:268
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Hồ sơ của %(user)s, tác giả của tiện ích mở rộng và chủ đề của Firefox. Tìm các ứng dụng khác bởi %(user)s, bao gồm xếp hạng trung bình, nhiệm kỳ và tùy chọn báo cáo sự cố."
 
 #: src/amo/pages/UserProfile/index.js:272
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Hồ sơ của %(user)s, tác giả của tiện ích mở rộng Firefox. Tìm các tiện ích mở rộng khác bởi %(user)s, bao gồm xếp hạng trung bình, nhiệm kỳ và tùy chọn báo cáo sự cố."
 
 #: src/amo/pages/UserProfile/index.js:276
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Hồ sơ của %(user)s, tác giả của chủ đề Firefox. Tìm các chủ đề khác bởi %(user)s, bao gồm xếp hạng trung bình, nhiệm kỳ và tùy chọn báo cáo vấn đề."
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
@@ -2475,7 +2475,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Giới thiệu bản thân với cộng đồng nếu bạn thích"
 
 #: src/amo/pages/UserProfileEdit/index.js:437
 msgid "Introduce %(userName)s to the community"
@@ -2611,10 +2611,12 @@ msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
+"%(strongStart)sLƯU Ý:%(strongEnd)s Bạn không thể xóa hồ sơ của mình nếu bạn là %(linkStart)stác giả của bất kỳ tiện ích bổ sung%(linkEnd)s. Bạn phải %(docLinkStart)schuyển nhượng quyền sở "
+"hữu%(docLinkEnd)s hoặc xóa các tiện ích bổ sung trước khi bạn có thể xóa hồ sơ của mình."
 
 #: src/amo/pages/UserProfileEdit/index.js:817
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sLƯU Ý:%(strongEnd)s Bạn không thể xóa hồ sơ người dùng nếu người dùng là %(linkStart)stác giả của bất kỳ tiện ích bổ sung%(linkEnd)s."
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Enable"
