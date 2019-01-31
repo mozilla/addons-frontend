@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-31 07:11+0000\n"
+"PO-Revision-Date: 2019-01-31 07:25+0000\n"
 "Last-Translator: Cloney 173741 <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -45,11 +45,11 @@ msgstr "Thêm vào bộ sưu tập"
 
 #: src/amo/components/AddonAdminLinks/index.js:102
 msgid "Admin add-on"
-msgstr ""
+msgstr "Tiện ích quản trị"
 
 #: src/amo/components/AddonAdminLinks/index.js:114
 msgid "Content review add-on"
-msgstr ""
+msgstr "Nội dung đánh giá tiện ích"
 
 #: src/amo/components/AddonAdminLinks/index.js:121
 msgid "Review theme"
@@ -57,11 +57,11 @@ msgstr "Đánh giá chủ đề"
 
 #: src/amo/components/AddonAdminLinks/index.js:123
 msgid "Review add-on code"
-msgstr ""
+msgstr "Xem lại đoạn mã tiện ích"
 
 #: src/amo/components/AddonAdminLinks/index.js:147
 msgid "Admin Links"
-msgstr ""
+msgstr "Liên kết quản trị"
 
 #: src/amo/components/AddonAdminLinks/index.js:77
 msgid "Edit add-on"
@@ -69,7 +69,7 @@ msgstr "Chỉnh sửa tiện ích"
 
 #: src/amo/components/AddonAdminLinks/index.js:89
 msgid "Admin add-on status"
-msgstr ""
+msgstr "Trạng thái tiện ích của quản trị viên"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
@@ -683,11 +683,11 @@ msgstr "Hỗ trợ các nhà phát triển này"
 
 #: src/amo/components/ContributeCard/index.js:37
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Nhà phát triển của tiện ích mở rộng này yêu cầu bạn giúp hỗ trợ sự phát triển liên tục của nó bằng cách đóng góp nhỏ."
 
 #: src/amo/components/ContributeCard/index.js:39
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Các nhà phát triển của tiện ích mở rộng này yêu cầu bạn giúp hỗ trợ phát triển liên tục bằng cách đóng góp nhỏ."
 
 #: src/amo/components/ContributeCard/index.js:46
 msgid "Support this artist"
@@ -699,11 +699,11 @@ msgstr "Tài trợ các nghệ sĩ này"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Nghệ sĩ của chủ đề này yêu cầu bạn giúp hỗ trợ sáng tạo liên tục của nó bằng cách đóng góp nhỏ."
 
 #: src/amo/components/ContributeCard/index.js:53
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Các nghệ sĩ của chủ đề này yêu cầu bạn giúp hỗ trợ sáng tạo liên tục của nó bằng cách đóng góp nhỏ."
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this author"
@@ -715,11 +715,11 @@ msgstr "Được các tác giả hỗ trợ"
 
 #: src/amo/components/ContributeCard/index.js:65
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Tác giả của tiện ích bổ sung này yêu cầu bạn giúp hỗ trợ công việc tiếp tục của nó bằng cách đóng góp nhỏ."
 
 #: src/amo/components/ContributeCard/index.js:67
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Các tác giả của tiện ích bổ sung này yêu cầu bạn giúp hỗ trợ công việc tiếp tục của nó bằng cách đóng góp nhỏ."
 
 #: src/amo/components/ContributeCard/index.js:86
 msgid "Contribute now"
@@ -1850,10 +1850,12 @@ msgstr "Ngăn chặn trình theo dõi trực tuyến theo quanh bạn"
 #: src/amo/pages/Guides/index.js:116
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
 msgstr ""
+"Các nhà quảng cáo trực tuyến có thể theo dõi hoạt động của bạn từ trang web này sang trang web tiếp theo, thu thập thông tin về bạn và sở thích của bạn. Tiện ích mở rộng có thể giúp che dấu vết kỹ "
+"thuật số của bạn."
 
 #: src/amo/pages/Guides/index.js:121
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Cô lập danh tính Facebook của bạn thành một “ngăn chứa” riêng biệt để ngăn Facebook theo dõi hoạt động của bạn bên ngoài nền tảng xã hội."
 
 #: src/amo/pages/Guides/index.js:125
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
@@ -1868,10 +1870,12 @@ msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Nếu bạn thường làm việc với nhiều thẻ đang mở, thì có lẽ bạn đã quen với sự thất vọng của việc tìm kiếm thông qua một hàng các thẻ không xác định được mà chỉ cần tìm kiếm thứ bạn cần. Tiện ích mở "
+"rộng có thể cung cấp các giải pháp sáng tạo để quản lý thẻ hợp lý."
 
 #: src/amo/pages/Guides/index.js:143
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Sắp xếp và trực quan hóa các thẻ của bạn theo định dạng kiểu “cây” xếp tầng trong thanh bên của Firefox."
 
 #: src/amo/pages/Guides/index.js:147
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
@@ -1943,6 +1947,8 @@ msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Bạn đã bao giờ vấp phải một hình ảnh hấp dẫn trên web và muốn tìm hiểu thêm về nó, giống như ai là người trong ảnh? Có những hình ảnh liên quan? Tiện ích mở rộng này cho phép bạn thực hiện tìm kiếm "
+"hình ảnh ngược nhanh chóng và dễ dàng thông qua nhiều công cụ khác nhau."
 
 #: src/amo/pages/Guides/index.js:226
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
@@ -1969,16 +1975,20 @@ msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
 msgstr ""
+"Web là một nơi tuyệt vời nhưng hoang dã. Dữ liệu cá nhân của bạn có thể được sử dụng mà không có sự đồng ý của bạn, các hoạt động của bạn bị theo dõi và mật khẩu của bạn bị đánh cắp. May mắn thay, "
+"tiện ích mở rộng có thể giúp củng cố quyền riêng tư và bảo mật trực tuyến của bạn."
 
 #: src/amo/pages/Guides/index.js:281
 msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Bạn có đối phó với quá nhiều thẻ đang mở hoặc số lượng dấu trang tăng chóng mặt không? Tiện ích mở rộng có thể giúp! Từ hỗ trợ tổ chức đến cung cấp các tính năng mới thú vị, tiện ích mở rộng có thể "
+"thay đổi đáng kể cách bạn xử lý các thẻ và dấu trang."
 
 #: src/amo/pages/Guides/index.js:294
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "Tiện ích mở rộng có thể gia tăng phương tiện truyền thông trực tuyến theo tất cả các cách thú vị, từ xem video đến xử lý hình ảnh, âm nhạc và hơn thế nữa."
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Create and manage strong passwords"
@@ -2005,6 +2015,8 @@ msgstr "Chặn quảng cáo gây phiền nhiễu"
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
+"Các trang web hôm nay bị rối với các quảng cáo không mong muốn cản trở bạn và làm bạn chậm lại. Tiện ích mở rộng chặn quảng cáo có thể chặn hoặc lọc các quảng cáo đó để bạn có thể quay lại trình "
+"duyệt không bị phân tâm."
 
 #: src/amo/pages/Home/index.js:134
 msgid "Bookmarks"
@@ -2254,7 +2266,7 @@ msgstr "%(startLink)sTạo tiện ích của riêng bạn%(endLink)s. Chúng tô
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:100
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Sử dụng thô tục, ngôn ngữ tình dục hoặc ngôn ngữ có thể được hiểu là đáng ghét."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:105
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
@@ -2262,21 +2274,23 @@ msgstr "Bao gồm HTML, liên kết, mã nguồn hoặc đoạn mã. Bài đánh
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:110
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Đưa ra tuyên bố sai, chê bai các tác giả của tiện ích hoặc xúc phạm họ."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:115
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Bao gồm email của riêng bạn hoặc bất cứ ai khác, email, số điện thoại hoặc các chi tiết cá nhân khác."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Đăng đánh giá cho một tiện ích bổ sung mà bạn hoặc tổ chức của bạn đã viết hoặc đại diện."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:125
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Chỉ trích một tiện ích bổ sung cho một cái gì đó mà nó dự định làm. Ví dụ: để lại đánh giá tiêu cực về tiện ích bổ sung để hiển thị quảng cáo hoặc yêu cầu thu thập dữ liệu, khi đó là mục đích dự "
+"định của tiện ích bổ sung hoặc tiện ích bổ sung yêu cầu thu thập dữ liệu để hoạt động."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:134
 msgid "Frequently Asked Questions about Reviews"
@@ -2322,7 +2336,7 @@ msgstr "Nguyên tắc đánh giá"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:31
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Nguyên tắc, mẹo và câu hỏi thường gặp để đánh giá cho các tiện ích mở rộng và chủ đề bạn đã tải xuống và sử dụng trên Firefox."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid ""
@@ -2434,7 +2448,7 @@ msgstr "Địa chỉ"
 
 #: src/amo/pages/UserProfile/index.js:373 src/amo/pages/UserProfileEdit/index.js:637
 msgid "Occupation"
-msgstr ""
+msgstr "Nghề nghiệp"
 
 #: src/amo/pages/UserProfile/index.js:380
 msgid "User since"
@@ -2459,7 +2473,7 @@ msgstr "Chỉnh sửa hồ sơ"
 # This action allows an admin to maintain a user.
 #: src/amo/pages/UserProfile/index.js:447
 msgid "Admin user"
-msgstr ""
+msgstr "Quản trị viên"
 
 #: src/amo/pages/UserProfileEdit/index.js:192
 msgid "Picture successfully deleted"
@@ -2467,11 +2481,11 @@ msgstr "Hình ảnh đã được xóa thành công"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Nói cho người dùng biết thêm một chút thông tin về bản thân bạn. Hầu hết các trường là tùy chọn, nhưng chúng sẽ giúp những người dùng khác hiểu bạn hơn."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr ""
+msgstr "Nói cho người dùng biết thêm một chút thông tin về người dùng này. Hầu hết các trường là tùy chọn, nhưng chúng sẽ giúp người dùng khác hiểu rõ hơn về %(userName)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
