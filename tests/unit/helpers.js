@@ -1049,22 +1049,12 @@ export const createUserNotificationsResponse = () => {
       mandatory: false,
     },
     {
-      name: 'sdk_upgrade_success',
-      enabled: true,
-      mandatory: false,
-    },
-    {
       name: 'new_review',
       enabled: true,
       mandatory: false,
     },
     {
       name: 'upgrade_fail',
-      enabled: true,
-      mandatory: true,
-    },
-    {
-      name: 'sdk_upgrade_fail',
       enabled: true,
       mandatory: true,
     },
