@@ -1179,7 +1179,7 @@
   resolved "https://registry.yarnpkg.com/@snyk/gemfile/-/gemfile-1.1.0.tgz#8c254dfc7739b2e8513c44c976fc41872d5f6af0"
   integrity sha512-mLwF+ccuvRZMS0SxUAxA3dAp8mB3m2FxIsBIUWFTYvzxl+E4XTZb8uFrUqXHbcxhZH1Z8taHohNTbzXZn3M8ag==
 
-"@storybook/addon-actions@4.1.11":
+"@storybook/addon-actions@^4.1.11":
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-4.1.11.tgz#8946ea78f050ae2d06a2f2231ec56d1831942e15"
   integrity sha512-iVsxEPmOCuPMAaJhHbpxQhzEPzKnZad4GELNfKrwmmvv3mY+3UN/z208HguW4NHjhMJZVYSS3H/qic8CQS+pHw==
@@ -1259,6 +1259,11 @@
   resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-4.1.11.tgz#d161497fa3cd848cc9d518aa1c37052857e22e3c"
   integrity sha512-zYusY8cno4keMozn2lDpBgyNSOueFh+hrPETioSB5Z8Kd3F5OjM7681vJC8QA67yOBEie2hHk0CVxRpuxziMwA==
 
+"@storybook/channels@4.1.7":
+  version "4.1.7"
+  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-4.1.7.tgz#bf3412859cca8cd3d221afcd68de348645dbb329"
+  integrity sha512-UVLrCcQ8f52PQYdWh97XcWBdqiXKBznePbd4L36//C6cIJkfwQ5nK9UDzzrCP/tlCnolVxnqRlorns4YeJcrSg==
+
 "@storybook/client-logger@4.1.11":
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-4.1.11.tgz#2b1e34e892045199592fdb01656e5dcdcd1999d7"
@@ -1280,7 +1285,7 @@
     react-textarea-autosize "^7.0.4"
     render-fragment "^0.1.1"
 
-"@storybook/components@^4.0.11":
+"@storybook/components@4.1.7", "@storybook/components@^4.0.11":
   version "4.1.7"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-4.1.7.tgz#5e7f8247aebe0b79246c19f580e520cc59a39a1d"
   integrity sha512-PgEREFw58tlyzzGbA7q1WlXgOLk6Dd+qkHZYJ+4JlTAl6kPdjirfRshg0uyvTVy5jGbtDa5mhN7Fo1TtuYiyDw==
@@ -13418,7 +13423,7 @@ stealthy-require@^1.1.0:
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
 
-storybook-addon-scissors@4.0.2:
+storybook-addon-scissors@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/storybook-addon-scissors/-/storybook-addon-scissors-4.0.2.tgz#e2c95286a7310180aadd1e429c14ead803087218"
   integrity sha512-XQGKX8qRlAg4NRuvA9+GMi/CiRWXvEFcXmMxC5xL4FpKObnAyjlbxZ/iHl7oqoWanxGEa8nZAOIga3uZ49q1jw==
