@@ -194,7 +194,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
   }
 
   render() {
-    const { className, rating, readOnly, styleSize, yellowStars } = this.props;
+    const { className, rating, readOnly, styleSize } = this.props;
     if (!styleSize || !RATING_STYLE_SIZES.includes(styleSize)) {
       throw new Error(
         oneLine`styleSize=${styleSize || '[empty string]'} is not a valid
@@ -215,7 +215,6 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
       {
         'Rating--editable': !readOnly,
         'Rating--loading': this.isLoading(),
-        'Rating--yellowStars': yellowStars,
       },
     );
 

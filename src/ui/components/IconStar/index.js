@@ -1,14 +1,15 @@
 /* @flow */
 import * as React from 'react';
 import makeClassName from 'classnames';
+import photon from 'photon-colors';
 
 import Icon from 'ui/components/Icon';
 import type { Props as IconProps } from 'ui/components/Icon';
 
 import './styles.scss';
 
-export const YELLOW = '#FFE900';
-export const GRAY = '#737373';
+export const YELLOW = photon.YELLOW_50;
+export const GRAY = photon.GREY_50;
 export const CLOSED_STYLE = 'closed';
 export const DIM_CLOSED_STYLE = 'dimClosed';
 export const HALF_STYLE = 'half';
@@ -77,10 +78,10 @@ const IconStar = ({
       break;
     case HALF_STYLE: {
       // Key is needed in case there are multiple IconStars on 1 page.
-      const key = Math.random();
+      const id = `half${Math.random()}`;
       defs = (
         <defs>
-          <linearGradient id={`half${key}`} x1="0" x2="100%" y1="0" y2="0">
+          <linearGradient id={id} x1="0" x2="100%" y1="0" y2="0">
             <stop offset="50%" stopColor={color} />
             <stop offset="50%" stopColor={color} stopOpacity="0.25" />
           </linearGradient>
@@ -88,7 +89,7 @@ const IconStar = ({
       );
       gProps = {
         ...gProps,
-        fill: `url(#half${key})`,
+        fill: `url(#${id})`,
         transform: 'scale(3.75) translate(-1200.000000, -191.000000)',
       };
       break;
@@ -110,9 +111,6 @@ const IconStar = ({
       {...iconProps}
     >
       <svg
-        style={{
-          maxWidth: '64px',
-        }}
         viewBox="0 0 64 64"
         className="IconStar-svg"
         version="1.1"
