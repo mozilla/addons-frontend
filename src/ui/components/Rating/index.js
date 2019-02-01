@@ -9,6 +9,7 @@ import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { type I18nType } from 'core/types/i18n';
 import IconStar from 'ui/components/IconStar';
+import type { Props as IconStarProps } from 'ui/components/IconStar';
 
 import './styles.scss';
 
@@ -152,12 +153,12 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
       if (readOnly) {
         return (
           <div {...props}>
-            <IconStar
-              half={halfStar}
-              selected={isSelected}
-              readOnly
-              yellow={yellowStars}
-            />
+            {this.renderStar({
+              half: halfStar,
+              selected: isSelected,
+              readOnly,
+              yellow: yellowStars,
+            })}
           </div>
         );
       }
@@ -180,11 +181,15 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
             <span id={id} className="visually-hidden">
               {title}
             </span>
-            <IconStar selected={isSelected} />
+            {this.renderStar({ selected: isSelected, yellow: true })}
           </button>
         </React.Fragment>
       );
     });
+  }
+
+  renderStar(props: IconStarProps) {
+    return <IconStar {...props} />;
   }
 
   isLoading() {

@@ -28,7 +28,7 @@ export const getSvgPath = (starStyle: string) => {
   }
 };
 
-type Props = {|
+export type Props = {|
   alt?: $PropertyType<IconProps, 'alt'>,
   className?: string,
   half?: boolean,

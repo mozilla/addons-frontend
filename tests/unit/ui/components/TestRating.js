@@ -52,9 +52,10 @@ describe(__filename, () => {
     expect(root).toHaveClassName('Rating--small');
   });
 
-  it('can be classified as yellowStars', () => {
+  it('can be classified as yellow stars', () => {
     const root = render({ yellowStars: true });
-    expect(root).toHaveClassName('Rating--yellowStars');
+    const star = root.find(IconStar).at(0);
+    expect(star).toHaveProp('yellow');
   });
 
   it('classifies as yellowStars=false by default', () => {
@@ -413,14 +414,13 @@ describe(__filename, () => {
       });
     });
 
-    it("only passes the selected prop to the IconStar component when it's not readOnly", () => {
+    it("only passes the selected and yellow prop to the IconStar component when it's not readOnly", () => {
       const root = render({ readOnly: false });
 
       const star = root.find(IconStar).at(0);
 
       expect(star).toHaveProp('selected');
       expect(star).not.toHaveProp('half');
-      expect(star).not.toHaveProp('yellow');
     });
 
     it("passes several props to the IconStar component when it's readOnly", () => {
