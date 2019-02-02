@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-02-02 08:53+0000\n"
+"PO-Revision-Date: 2019-02-02 09:13+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -535,14 +535,12 @@ msgid "by"
 msgstr "av"
 
 #: src/amo/components/AddonVersionCard/index.js:104
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "posta %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "Kjeldekode sleppt under %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:125
-#, fuzzy
 msgid "Source code released under %(licenseName)s"
-msgstr "posta %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "Kjeldekode sleppt under %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
@@ -554,7 +552,7 @@ msgstr "Versjon %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Sleppt %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -778,7 +776,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Ops! Vi kan ikkje finne den sida"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -795,11 +793,12 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
-#, fuzzy
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll get it sorted."
-msgstr "Om du følgde ei lenke frå nokon stad, ver snill og <a href=\"%(url)s\">send inn ein feilrapport</a>. Fortel kvar du kom ifrå og kva du leita etter, og vi vil gjere vårt beste for å rette feilen."
+msgstr ""
+"Om du følgde ei lenke på denne sida, har du funne ein feil. Hjelp oss med å fikse lenka ved å <a href=\"%(url)s\">sende inn ein feilrapport</a>. Fortel om kvar du kom ifrå, og kva du leita etter, "
+"slik at vi kan ordne det."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
@@ -1328,18 +1327,16 @@ msgid "Search results for \"%(query)s\""
 msgstr "Søkjeresultat for \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:100
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s tema funne for «%(query)s»"
-msgstr[1] "%(count)s tema funne for «%(query)s»"
+msgstr[0] "%(count)s tema funne for \"%(query)s\" i %(categoryName)s"
+msgstr[1] "%(count)s tema funne for \"%(query)s\" i %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:109
-#, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "%(count)s tema funne for «%(query)s»"
-msgstr[1] "%(count)s tema funne for «%(query)s»"
+msgstr[0] "%(count)s tema funne i «%(query)s»"
+msgstr[1] "%(count)s tema funne i «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:119
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1374,18 +1371,16 @@ msgid "Searching for add-ons"
 msgstr "Søkjer etter tillegg"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s utviding funne for \"%(query)s\""
-msgstr[1] "%(count)s utvidingar funne for \"%(query)s\""
+msgstr[0] "%(count)s tillegg funne for \"%(query)s\" i %(categoryName)s"
+msgstr[1] "%(count)s tillegg funne for \"%(query)s\" i %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(count)s utviding funne for \"%(query)s\""
-msgstr[1] "%(count)s utvidingar funne for \"%(query)s\""
+msgstr[0] "%(count)s tillegg funne i \"%(query)s\""
+msgstr[1] "%(count)s tillegg funne i \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1472,9 +1467,8 @@ msgid "Firefox Add-ons (%(locale)s)"
 msgstr "Firefox-tillegg (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
-#, fuzzy
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr "Tillegg for Android (%(locale)s)"
+msgstr "Firefox-tillegg for Android (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
@@ -1790,7 +1784,7 @@ msgstr "Vis fleire høgast vurderte uvidingar"
 
 #: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:325 src/amo/pages/LandingPage/index.js:169
 msgid "See more featured themes"
-msgstr "Fleire framheva tema"
+msgstr "Vis fleire framheva tema"
 
 #: src/amo/pages/Category/index.js:189 src/amo/pages/LandingPage/index.js:175
 msgid "See more trending themes"
@@ -1968,7 +1962,7 @@ msgstr "Utforsk fleire %(linkStart)smediautvidingar%(linkEnd)s utvalde av person
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "Ta med media direkte inn i nettlesaren"
 
 #: src/amo/pages/Guides/index.js:235
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
@@ -2089,11 +2083,11 @@ msgstr "Vis fleire populære tema"
 
 #: src/amo/pages/Home/index.js:55
 msgid "See more YouTube boosters"
-msgstr "Vis fleire YouTube-boosters"
+msgstr "Vis fleire forbetringar for YouTube"
 
 #: src/amo/pages/Home/index.js:56
 msgid "YouTube boosters"
-msgstr ""
+msgstr "YouTube-forbetringar"
 
 #: src/amo/pages/Home/index.js:61
 msgid "See more health & wellness extensions"
@@ -2101,7 +2095,7 @@ msgstr "Vis fleire utvidingar for helse og velvære"
 
 #: src/amo/pages/Home/index.js:62
 msgid "Health & Wellness"
-msgstr ""
+msgstr "Helse og velvære"
 
 #: src/amo/pages/Home/index.js:67
 msgid "See more productivity extensions"
@@ -2109,7 +2103,7 @@ msgstr "Vis fleire produktivitetsutvidingar"
 
 #: src/amo/pages/Home/index.js:68
 msgid "Be more productive"
-msgstr ""
+msgstr "Ver meir produktiv"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
