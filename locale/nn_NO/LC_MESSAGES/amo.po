@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-31 13:59+0000\n"
+"PO-Revision-Date: 2019-02-02 08:53+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -519,11 +519,10 @@ msgid "Add-on icon"
 msgstr "Ikon for utvidingar"
 
 #: src/amo/components/AddonSummaryCard/index.js:62
-#, fuzzy
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] "Vurdering: %(rating)s av 5"
-msgstr[1] "Vurdering: %(rating)s av 5"
+msgstr[0] "%(rating)s stjerne av 5"
+msgstr[1] "%(rating)s stjerner av 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
@@ -1349,11 +1348,10 @@ msgstr[0] "%(count)s tema funne for «%(query)s»"
 msgstr[1] "%(count)s tema funne for «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:128
-#, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "Fann %(count)s utviding"
-msgstr[1] "Fann %(count)s utvidingar"
+msgstr[0] "Fann %(count)s tema"
+msgstr[1] "Fann %(count)s tema"
 
 #: src/amo/components/SearchContextCard/index.js:140
 msgid "%(count)s result found for \"%(query)s\""
@@ -1362,20 +1360,18 @@ msgstr[0] "%(count)s resultat funne for «%(query)s»"
 msgstr[1] "%(count)s resultat funne for «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:149
-#, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "%(count)s treff for \"%(query)s\""
-msgstr[1] "%(count)s treff for \"%(query)s\""
+msgstr[0] "Fann %(count)s treff"
+msgstr[1] "Fann %(count)s treff"
 
 #: src/amo/components/SearchContextCard/index.js:160
 msgid "Searching for \"%(query)s\""
 msgstr "Søkjer etter «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:164
-#, fuzzy
 msgid "Searching for add-ons"
-msgstr "Laster utvidingar"
+msgstr "Søkjer etter tillegg"
 
 #: src/amo/components/SearchContextCard/index.js:59
 #, fuzzy
@@ -1398,11 +1394,10 @@ msgstr[0] "%(count)s utviding funne for \"%(query)s\""
 msgstr[1] "%(count)s utvidingar funne for \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:87
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "Fann %(count)s utviding"
-msgstr[1] "Fann %(count)s utvidingar"
+msgstr[0] "Fann %(count)s tillegg"
+msgstr[1] "Fann %(count)s tillegg"
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:125
 msgid "All"
@@ -1473,9 +1468,8 @@ msgid "Featured add-ons only"
 msgstr "Berre framheva utvidingar"
 
 #: src/amo/components/SearchForm/index.js:61
-#, fuzzy
 msgid "Firefox Add-ons (%(locale)s)"
-msgstr "Tillegg for Firefox Android (%(locale)s)"
+msgstr "Firefox-tillegg (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
 #, fuzzy
@@ -1719,29 +1713,24 @@ msgid "Show all reviews"
 msgstr "Vis alle vurderingar"
 
 #: src/amo/pages/AddonReviewList/index.js:225
-#, fuzzy
 msgid "Show only five-star reviews"
-msgstr "Viser berre vurderingar med fem stjerner"
+msgstr "Vis berre vurderingar med fem stjerner"
 
 #: src/amo/pages/AddonReviewList/index.js:226
-#, fuzzy
 msgid "Show only four-star reviews"
-msgstr "Viser berre vurderingar med fire stjerner"
+msgstr "Vis berre vurderingar med fire stjerner"
 
 #: src/amo/pages/AddonReviewList/index.js:228
-#, fuzzy
 msgid "Show only three-star reviews"
-msgstr "Viser berre vurderingar med tre stjerner"
+msgstr "Vis berre vurderingar med tre stjerner"
 
 #: src/amo/pages/AddonReviewList/index.js:230
-#, fuzzy
 msgid "Show only two-star reviews"
-msgstr "Viser berre vurderingar med to stjerner"
+msgstr "Vis berre vurderingar med to stjerner"
 
 #: src/amo/pages/AddonReviewList/index.js:231
-#, fuzzy
 msgid "Show only one-star reviews"
-msgstr "Viser berre vurderingar med ei stjerne"
+msgstr "Vis berre vurderingar med ei stjerne"
 
 #: src/amo/pages/AddonReviewList/index.js:271
 msgid "Reviews for %(addonName)s"
@@ -1754,9 +1743,8 @@ msgstr[0] "%(total)s vurdering"
 msgstr[1] "%(total)s vurderingar"
 
 #: src/amo/pages/AddonReviewList/index.js:378
-#, fuzzy
 msgid "There are no reviews"
-msgstr "Ingen vurderingar enno"
+msgstr "Det finst ingen vurderingar"
 
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
@@ -2100,27 +2088,24 @@ msgid "See more popular themes"
 msgstr "Vis fleire populære tema"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more YouTube boosters"
-msgstr "Vis fleire verktøy som støttar nyheiter"
+msgstr "Vis fleire YouTube-boosters"
 
 #: src/amo/pages/Home/index.js:56
 msgid "YouTube boosters"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "See more health & wellness extensions"
-msgstr "Fleire framheva utvidingar"
+msgstr "Vis fleire utvidingar for helse og velvære"
 
 #: src/amo/pages/Home/index.js:62
 msgid "Health & Wellness"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:67
-#, fuzzy
 msgid "See more productivity extensions"
-msgstr "Produktivitetsutvidingar"
+msgstr "Vis fleire produktivitetsutvidingar"
 
 #: src/amo/pages/Home/index.js:68
 msgid "Be more productive"
@@ -2485,9 +2470,8 @@ msgid "Introduce yourself to the community if you like"
 msgstr "Presenter deg sjølv for fellesskapet, om du vil"
 
 #: src/amo/pages/UserProfileEdit/index.js:437
-#, fuzzy
 msgid "Introduce %(userName)s to the community"
-msgstr "Presenter %(username)s for fellesskapet"
+msgstr "Presenter %(userName)s for fellesskapet"
 
 #: src/amo/pages/UserProfileEdit/index.js:460
 msgid "Log in to edit the profile"
@@ -2506,9 +2490,8 @@ msgid "Account"
 msgstr "Konto"
 
 #: src/amo/pages/UserProfileEdit/index.js:528
-#, fuzzy
 msgid "Account for %(userName)s"
-msgstr "Konto for %(username)s"
+msgstr "Konto for %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:535
 msgid "Email Address"
@@ -2535,9 +2518,8 @@ msgid "This field is required"
 msgstr "Dette feltet er påkravd"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
-#, fuzzy
 msgid "Display Name *"
-msgstr "Visingsnamn"
+msgstr "Visingsnamn *"
 
 #: src/amo/pages/UserProfileEdit/index.js:620
 msgid "This URL will only be visible for users who are developers."
