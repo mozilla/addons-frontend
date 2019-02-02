@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-31 07:25+0000\n"
+"PO-Revision-Date: 2019-02-02 06:23+0000\n"
 "Last-Translator: Cloney 173741 <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -937,7 +937,7 @@ msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:56 src/amo/components/Header/index.js:79
 msgid "Developer Hub"
-msgstr "Trung tâm Nhà phát triển"
+msgstr "Trung tâm nhà phát triển"
 
 #: src/amo/components/Footer/index.js:61
 msgid "Developer Policies"
@@ -993,7 +993,7 @@ msgstr "Gửi lên một chủ đề mới"
 
 #: src/amo/components/Header/index.js:137
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "Quản lý đệ trình của Tôi"
 
 #: src/amo/components/Header/index.js:147
 msgid "Reviewer Tools"
@@ -1578,19 +1578,19 @@ msgstr "tiện ích của tôi được xem xét bởi người đánh giá"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:32
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "tiện ích dựa trên sdk của tôi không thể được nâng cấp"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:34
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "tiện ích dựa trên sdk của tôi được nâng cấp thành công"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:36
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "khả năng tương thích của tiện ích của tôi không thể được nâng cấp"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:38
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "khả năng tương thích của tiện ích của tôi được nâng cấp thành công"
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
@@ -1863,7 +1863,7 @@ msgstr "Khám phá thêm về %(linkStart)sriêng tư & bảo mật%(linkEnd)s �
 
 #: src/amo/pages/Guides/index.js:136
 msgid "Reimagine tab management"
-msgstr ""
+msgstr "Xem lại quản lý thẻ"
 
 #: src/amo/pages/Guides/index.js:137
 msgid ""
@@ -2797,7 +2797,7 @@ msgstr "Tải lại để tiếp tục"
 
 #: src/ui/components/ExpandableCard/index.js:57
 msgid "Toggle contents"
-msgstr ""
+msgstr "Chuyển đến nội dung"
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
