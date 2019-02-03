@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-29 23:42+0000\n"
-"Last-Translator: Victor Bychek <a@bychek.ru>\n"
+"PO-Revision-Date: 2019-02-02 21:58+0000\n"
+"Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -2519,14 +2519,12 @@ msgid "Picture successfully deleted"
 msgstr "Изображение успешно удалено"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "Расскажите пользователям немного о себе. Эти поля являются необязательными, но они помогут другим пользователям лучше вас узнать."
+msgstr "Расскажите пользователям немного о себе. Большинство полей являются необязательными, но они помогут другим пользователям лучше вас узнать."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Расскажите пользователям немного об этом пользователе. Эти поля являются необязательными, но они помогут другим пользователям лучше узнать о %(userName)s."
+msgstr "Расскажите пользователям немного об этом пользователе. Большинство полей являются необязательными, но они помогут другим пользователям лучше узнать %(userName)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
@@ -2581,9 +2579,8 @@ msgid "This field is required"
 msgstr "Это обязательное поле"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
-#, fuzzy
 msgid "Display Name *"
-msgstr "Отображаемое имя"
+msgstr "Отображаемое имя *"
 
 #: src/amo/pages/UserProfileEdit/index.js:620
 msgid "This URL will only be visible for users who are developers."
