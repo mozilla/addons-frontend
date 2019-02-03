@@ -64,8 +64,14 @@
   display: flex;
   justify-content: space-between;
   margin-top: 36px;
+  flex-wrap: wrap;
 }
 
 .CollectionManager-cancel {
   align-self: start;
+  margin-bottom: 2px;
+}
+
+.CollectionManager-submit {
+  margin-top: 2px;
 }
