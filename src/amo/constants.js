@@ -23,3 +23,6 @@ export const LANDING_PAGE_EXTENSION_COUNT = 4;
 export const LANDING_PAGE_THEME_COUNT = 3;
 
 export const DOWNLOAD_FIREFOX_BASE_URL = 'https://www.mozilla.org/firefox/new/';
+
+// Length of the collection slug
+export const SLUG_MAX_LENGTH = 30;

@@ -18,6 +18,7 @@ import translate from 'core/i18n/translate';
 import { decodeHtmlEntities } from 'core/utils';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
+import { SLUG_MAX_LENGTH } from 'amo/constants';
 import type {
   CollectionFilters,
   CollectionType,
@@ -189,6 +190,7 @@ export class CollectionManagerBase extends React.Component<
           .split(/[^A-Za-z0-9]/)
           .filter((s) => s !== '')
           .join('-'),
+          .{SLUG_MAX_LENGTH}
         [name]: value,
       });
     } else if (creating && name === 'slug' && trimmedValue !== '') {
@@ -288,7 +290,7 @@ export class CollectionManagerBase extends React.Component<
           <input
             onChange={this.onTextInput}
             id="collectionSlug"
-            maxLength="30"
+            maxLength={SLUG_MAX_LENGTH}
             name="slug"
             type="text"
             value={this.state.slug}
