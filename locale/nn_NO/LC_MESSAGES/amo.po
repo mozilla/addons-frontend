@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -1335,8 +1335,8 @@ msgstr[1] "%(count)s tema funne for \"%(query)s\" i %(categoryName)s"
 #: src/amo/components/SearchContextCard/index.js:109
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "%(count)s tema funne i «%(query)s»"
-msgstr[1] "%(count)s tema funne i «%(query)s»"
+msgstr[0] "%(count)s tema funne i «%(categoryName)s»"
+msgstr[1] "%(count)s tema funne i «%(categoryName)s»"
 
 #: src/amo/components/SearchContextCard/index.js:119
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1379,8 +1379,8 @@ msgstr[1] "%(count)s tillegg funne for \"%(query)s\" i %(categoryName)s"
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(count)s tillegg funne i \"%(query)s\""
-msgstr[1] "%(count)s tillegg funne i \"%(query)s\""
+msgstr[0] "%(count)s tillegg funne i \"%(categoryName)s\""
+msgstr[1] "%(count)s tillegg funne i \"%(categoryName)s\""
 
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
