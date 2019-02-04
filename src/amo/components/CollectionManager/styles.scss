@@ -62,9 +62,9 @@
 
 .CollectionManager-footer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 36px;
-  flex-wrap: wrap;
 }
 
 .CollectionManager-cancel {
