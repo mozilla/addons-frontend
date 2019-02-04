@@ -13,11 +13,7 @@ import {
   nl2br,
   sanitizeHTML,
 } from 'core/utils';
-import {
-  getAddonIconUrl,
-  getPreviewImage,
-  getPreviewIndexBySize,
-} from 'core/imageUtils';
+import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
@@ -63,9 +59,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     let imageURL = iconURL;
 
     if (addon && isTheme(addon.type)) {
-      const previewIndex = getPreviewIndexBySize(addon);
-
-      let themeURL = getPreviewImage(addon, { index: previewIndex });
+      let themeURL = getPreviewImage(addon, { useStandardSize: true });
 
       if (!themeURL && addon && addon.type === ADDON_TYPE_THEME) {
         themeURL =
