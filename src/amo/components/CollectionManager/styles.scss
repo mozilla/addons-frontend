@@ -70,8 +70,16 @@
 .CollectionManager-cancel {
   align-self: start;
   margin-bottom: 2px;
+  width: 100%;
+  @include respond-to(medium) {
+    width: auto;
+  }
 }
 
 .CollectionManager-submit {
   margin-top: 2px;
+  width: 100%;
+  @include respond-to(medium) {
+    width: auto;
+  }
 }
