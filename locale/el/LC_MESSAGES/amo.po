@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-30 22:02+0000\n"
+"PO-Revision-Date: 2019-02-04 10:07+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -549,7 +549,7 @@ msgstr "Έκδοση %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Κυκλοφόρησε στις %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -1344,11 +1344,10 @@ msgstr[0] "Βρέθηκε %(count)s θέμα για \"%(query)s\""
 msgstr[1] "Βρέθηκαν %(count)s θέματα για \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:128
-#, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "Βρέθηκε %(count)s πρόσθετo"
-msgstr[1] "Βρέθηκαν %(count)s πρόσθετα"
+msgstr[0] "Βρέθηκε %(count)s θέμα"
+msgstr[1] "Βρέθηκαν %(count)s θέματα"
 
 #: src/amo/components/SearchContextCard/index.js:140
 msgid "%(count)s result found for \"%(query)s\""
@@ -1357,11 +1356,10 @@ msgstr[0] "Βρέθηκε %(count)s αποτέλεσμα για \"%(query)s\""
 msgstr[1] "Βρέθηκαν %(count)s αποτελέσματα για \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:149
-#, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "%(count)s αποτέλεσμα για \"%(query)s\""
-msgstr[1] "%(count)s αποτελέσματα για \"%(query)s\""
+msgstr[0] "Βρέθηκε %(count)s αποτέλεσμα"
+msgstr[1] "Βρέθηκαν %(count)s αποτελέσματα"
 
 #: src/amo/components/SearchContextCard/index.js:160
 msgid "Searching for \"%(query)s\""
@@ -1372,11 +1370,10 @@ msgid "Searching for add-ons"
 msgstr "Αναζήτηση για πρόσθετα"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "Βρέθηκε %(count)s επέκταση για \"%(query)s\""
-msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις για \"%(query)s\""
+msgstr[0] "Βρέθηκε %(count)s επέκταση για \"%(query)s\" στην κατηγορία %(categoryName)s"
+msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις για \"%(query)s\" στην κατηγορία %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
 #, fuzzy
@@ -1392,11 +1389,10 @@ msgstr[0] "Βρέθηκε %(count)s επέκταση για \"%(query)s\""
 msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις για \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:87
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "Βρέθηκε %(count)s πρόσθετo"
-msgstr[1] "Βρέθηκαν %(count)s πρόσθετα"
+msgstr[0] "Βρέθηκε %(count)s επέκταση"
+msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις"
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:125
 msgid "All"
@@ -1880,7 +1876,7 @@ msgstr "Εξερευνήστε περισσότερες προτάσεις μα�
 
 #: src/amo/pages/Guides/index.js:136
 msgid "Reimagine tab management"
-msgstr ""
+msgstr "Αλλάξτε τη διαχείριση των καρτελών"
 
 #: src/amo/pages/Guides/index.js:137
 msgid ""
@@ -2552,7 +2548,7 @@ msgstr "Προφίλ"
 
 #: src/amo/pages/UserProfileEdit/index.js:585
 msgid "This field is required"
-msgstr ""
+msgstr "Απαιτούμενο πεδίο"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Display Name *"
