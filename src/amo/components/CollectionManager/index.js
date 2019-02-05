@@ -61,6 +61,8 @@ type State = {|
   slug: string,
 |};
 
+const SLUG_MAX_LENGTH = 30;
+
 const propsToState = (props: InternalProps): State => {
   // Decode HTML entities so the user sees real symbols in the form.
   return {
@@ -182,8 +184,6 @@ export class CollectionManagerBase extends React.Component<
     }
 
     const trimmedValue = value.trim();
-
-    const SLUG_MAX_LENGTH = 30;
 
     if (creating && name === 'name' && !this.state.customSlug) {
       this.setState({
