@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-29 20:34+0000\n"
+"PO-Revision-Date: 2019-02-05 20:31+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -551,11 +551,11 @@ msgstr "Nenhuma extensão encontrada"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Versão %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Lançado em %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -777,7 +777,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Ops! Não conseguimos encontrar esta página"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -1764,16 +1764,16 @@ msgstr "Ainda não existem avaliações"
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Histórico de versões do %(addonName)s - %(total)s versão"
+msgstr[1] "Histórico de versões do %(addonName)s - %(total)s versões"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "Cuidado com versões antigas! Essas versões são exibidas com propósito de referência e testes."
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "Devemos sempre usar a versão mais recente de uma extensão."
 
 #: src/amo/pages/AddonVersions/index.js:186
 #, fuzzy
@@ -1875,7 +1875,7 @@ msgstr "Minhas coleções"
 
 #: src/amo/pages/Guides/index.js:103
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "Bloqueador de anúncios leve e altamente eficaz. O uBlock Origin impõe milhares de filtros de conteúdo sem ocupar muita memória."
 
 #: src/amo/pages/Guides/index.js:107
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
@@ -1899,17 +1899,19 @@ msgstr "Explore mais %(linkStart)sprivacidade e segurança%(linkEnd)s de escolha
 
 #: src/amo/pages/Guides/index.js:136
 msgid "Reimagine tab management"
-msgstr ""
+msgstr "Reimagine o gerenciamento de abas"
 
 #: src/amo/pages/Guides/index.js:137
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Se costuma trabalhar com muitas abas abertas, provavelmente está familiarizado com a frustração de percorrer uma linha de abas não identificáveis procurando apenas aquela que você precisa. Extensões"
+" podem oferecer soluções criativas para aperfeiçoar o gerenciamento de abas."
 
 #: src/amo/pages/Guides/index.js:143
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Organize e visualize suas abas num formato de estilo “árvore” em cascata na barra lateral do Firefox."
 
 #: src/amo/pages/Guides/index.js:147
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
@@ -1917,7 +1919,7 @@ msgstr "Explore mais %(linkStart)sgerenciamento de abas%(linkEnd)s de escolha da
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Melhor navegação com favoritos aprimorados"
 
 #: src/amo/pages/Guides/index.js:156
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
@@ -2124,7 +2126,7 @@ msgstr "Mais extensões em destaque"
 
 #: src/amo/pages/Home/index.js:62
 msgid "Health & Wellness"
-msgstr ""
+msgstr "Saúde e bem estar"
 
 #: src/amo/pages/Home/index.js:67
 #, fuzzy
@@ -2133,7 +2135,7 @@ msgstr "Extensões para produtividade"
 
 #: src/amo/pages/Home/index.js:68
 msgid "Be more productive"
-msgstr ""
+msgstr "Seja mais produtivo"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2564,7 +2566,7 @@ msgstr "Perfil"
 
 #: src/amo/pages/UserProfileEdit/index.js:585
 msgid "This field is required"
-msgstr ""
+msgstr "Este campo é obrigatório"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
 #, fuzzy
