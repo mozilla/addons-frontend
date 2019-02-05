@@ -191,7 +191,10 @@ describe(__filename, () => {
       'title',
       expectedUrlPrefix,
     );
-    expect(root.find('#collectionSlug')).toHaveProp('maxLength', SLUG_MAX_LENGTH);
+    expect(root.find('#collectionSlug')).toHaveProp(
+      'maxLength',
+      SLUG_MAX_LENGTH,
+    );
     expect(root.find('#collectionUrlPrefix')).toIncludeText(expectedUrlPrefix);
   });
 
