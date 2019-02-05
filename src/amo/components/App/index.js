@@ -1,5 +1,5 @@
 /* @flow */
-/* global Navigator, Node, navigator */
+/* global Navigator, navigator */
 import config from 'config';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
