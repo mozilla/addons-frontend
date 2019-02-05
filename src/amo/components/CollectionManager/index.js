@@ -18,7 +18,6 @@ import translate from 'core/i18n/translate';
 import { decodeHtmlEntities } from 'core/utils';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
-import { SLUG_MAX_LENGTH } from 'amo/constants';
 import type {
   CollectionFilters,
   CollectionType,
@@ -183,6 +182,8 @@ export class CollectionManagerBase extends React.Component<
     }
 
     const trimmedValue = value.trim();
+
+    const SLUG_MAX_LENGTH = 30;
 
     if (creating && name === 'name' && !this.state.customSlug) {
       this.setState({
