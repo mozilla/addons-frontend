@@ -1,4 +1,3 @@
-/* global document */
 import * as React from 'react';
 
 import InfoDialog, { InfoDialogBase } from 'core/components/InfoDialog';

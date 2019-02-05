@@ -1,5 +1,4 @@
 /* @flow */
-/* global Node */
 import {
   DOWNLOAD_PROGRESS,
   DOWNLOADING,
