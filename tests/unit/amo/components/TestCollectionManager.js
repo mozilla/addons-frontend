@@ -4,6 +4,7 @@ import * as React from 'react';
 import CollectionManager, {
   CollectionManagerBase,
   extractId,
+  SLUG_MAX_LENGTH,
 } from 'amo/components/CollectionManager';
 import {
   beginCollectionModification,
@@ -190,7 +191,7 @@ describe(__filename, () => {
       'title',
       expectedUrlPrefix,
     );
-    expect(root.find('#collectionSlug')).toHaveProp('maxLength', 30);
+    expect(root.find('#collectionSlug')).toHaveProp('maxLength', SLUG_MAX_LENGTH);
     expect(root.find('#collectionUrlPrefix')).toIncludeText(expectedUrlPrefix);
   });
 

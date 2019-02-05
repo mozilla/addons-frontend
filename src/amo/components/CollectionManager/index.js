@@ -61,7 +61,7 @@ type State = {|
   slug: string,
 |};
 
-const SLUG_MAX_LENGTH = 30;
+export const SLUG_MAX_LENGTH = 30;
 
 const propsToState = (props: InternalProps): State => {
   // Decode HTML entities so the user sees real symbols in the form.
