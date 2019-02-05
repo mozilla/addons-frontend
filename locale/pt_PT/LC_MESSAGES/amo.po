@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-02-01 19:36+0000\n"
+"PO-Revision-Date: 2019-02-05 14:14+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -1508,7 +1508,7 @@ msgstr "Não foram encontrados resultados."
 
 #: src/amo/components/SearchResults/index.js:57
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr "Por favor digite um termo de pesquisa para pesquisar extras do Firefox."
+msgstr "Por favor introduza um termo de pesquisa para pesquisar nos Extras do Firefox."
 
 #: src/amo/components/SectionLinks/index.js:102 src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
