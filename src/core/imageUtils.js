@@ -9,13 +9,13 @@ export function getAddonIconUrl(addon) {
 
 export const getPreviewImage = (
   addon,
-  { index = 0, full = true, useStandardSize = false } = {},
+  { full = true, useStandardSize = true } = {},
 ) => {
   if (!addon.previews.length) {
     return null;
   }
 
-  let imageIndex = index;
+  let imageIndex = 0;
 
   if (useStandardSize) {
     // 720 is now the standard width for previews.
@@ -23,11 +23,11 @@ export const getPreviewImage = (
     imageIndex =
       // The preview.image_size[0] is the image width.
       addon.previews.findIndex((preview) => preview.image_size[0] === width);
+  }
 
-    // This is a fallback for older themes that do not have this size generated.
-    if (imageIndex < 0) {
-      imageIndex = 0;
-    }
+  // This is a fallback for older themes that do not have this size generated.
+  if (imageIndex < 0) {
+    imageIndex = 0;
   }
 
   const preview = addon.previews[imageIndex];

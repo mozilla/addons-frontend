@@ -59,7 +59,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     let imageURL = iconURL;
 
     if (addon && isTheme(addon.type)) {
-      let themeURL = getPreviewImage(addon, { useStandardSize: true });
+      let themeURL = getPreviewImage(addon);
 
       if (!themeURL && addon && addon.type === ADDON_TYPE_THEME) {
         themeURL =

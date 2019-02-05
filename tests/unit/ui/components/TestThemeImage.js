@@ -103,7 +103,6 @@ describe(__filename, () => {
   });
 
   it('passes useStandardSize to display a preview with 720 width', () => {
-    const fullImage600 = `${config.get('amoCDN')}/full/600.png`;
     const fullImage720 = `${config.get('amoCDN')}/full/720.png`;
     const addon = createInternalAddon({
       ...fakeTheme,
@@ -112,7 +111,6 @@ describe(__filename, () => {
         {
           ...fakePreview,
           image_size: [600, 500],
-          image_url: fullImage600,
         },
         {
           ...fakePreview,
@@ -126,16 +124,12 @@ describe(__filename, () => {
     expect(root.find('.ThemeImage-image')).toHaveProp('src', fullImage720);
   });
 
-  it('passes index when it wants to specify a certain preview image', () => {
+  it('passes useStandardSize as false to display the first preview image', () => {
     const fullImage600 = `${config.get('amoCDN')}/full/600.png`;
     const addon = createInternalAddon({
       ...fakeTheme,
       type: ADDON_TYPE_STATIC_THEME,
       previews: [
-        {
-          ...fakePreview,
-          image_size: [500, 500],
-        },
         {
           ...fakePreview,
           image_size: [600, 500],
@@ -147,7 +141,7 @@ describe(__filename, () => {
         },
       ],
     });
-    const root = render({ addon, index: 1 });
+    const root = render({ addon, useStandardSize: false });
 
     expect(root.find('.ThemeImage-image')).toHaveProp('src', fullImage600);
   });

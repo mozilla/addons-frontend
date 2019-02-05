@@ -45,25 +45,6 @@ describe(__filename, () => {
       expect(image).toEqual(fullImage);
     });
 
-    it('returns the full image from index 1 in the previews array', () => {
-      const fullImage = `${config.get('amoCDN')}/full/12345.png`;
-      const addon = createInternalAddon({
-        previews: [
-          {
-            ...fakePreview,
-            image_url: `${config.get('amoCDN')}/image.not.used.here.png`,
-          },
-          {
-            ...fakePreview,
-            image_url: fullImage,
-          },
-        ],
-      });
-
-      const image = getPreviewImage(addon, { index: 1 });
-      expect(image).toEqual(fullImage);
-    });
-
     it('returns the thumb image from the previews array', () => {
       const thumbImage = `${config.get('amoCDN')}/full/12345.png`;
       const addon = createInternalAddon({
@@ -102,7 +83,7 @@ describe(__filename, () => {
       expect(image).toEqual(null);
     });
 
-    it('uses the standard preview size (720) if the useStandardSize prop is passed', () => {
+    it('uses the standard preview size (720) when useStandardSize is true', () => {
       const image720 = `${config.get('amoCDN')}/full/12345.png`;
       const addon = createInternalAddon({
         previews: [
@@ -126,7 +107,31 @@ describe(__filename, () => {
       expect(image).toEqual(image720);
     });
 
-    it('returns the first preview image if the useStandardSize prop is passed but the 720 size is not present', () => {
+    it('uses the first preview image when useStandardSize is false', () => {
+      const image300 = `${config.get('amoCDN')}/full/12345.png`;
+      const addon = createInternalAddon({
+        previews: [
+          {
+            ...fakePreview,
+            image_size: [300, 200],
+            image_url: image300,
+          },
+          {
+            ...fakePreview,
+            image_size: [500, 300],
+          },
+          {
+            ...fakePreview,
+            image_size: [720, 520],
+          },
+        ],
+      });
+
+      const image = getPreviewImage(addon, { useStandardSize: false });
+      expect(image).toEqual(image300);
+    });
+
+    it('uses the first preview image when useStandardSize is true but the 720 size is not present', () => {
       const image300 = `${config.get('amoCDN')}/full/12345.png`;
       const addon = createInternalAddon({
         previews: [

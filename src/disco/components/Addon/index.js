@@ -126,7 +126,7 @@ export class AddonBase extends React.Component<InternalProps> {
       };
     }
 
-    const themeImage = <ThemeImage addon={addon} useStandardSize />;
+    const themeImage = <ThemeImage addon={addon} />;
 
     return hasAddonManager ? (
       <a {...imageLinkProps}>{themeImage}</a>

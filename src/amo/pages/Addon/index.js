@@ -159,7 +159,7 @@ export class AddonBase extends React.Component {
     const { addon, i18n } = this.props;
 
     if (addon && isTheme(addon.type)) {
-      return <ThemeImage addon={addon} roundedCorners useStandardSize />;
+      return <ThemeImage addon={addon} roundedCorners />;
     }
 
     const label = addon
