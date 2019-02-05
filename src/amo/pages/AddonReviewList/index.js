@@ -97,6 +97,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
 
   componentDidUpdate(prevProps: InternalProps) {
     this.loadDataIfNeeded(prevProps);
+    this.dispatchFetchReviewPermissions();
   }
 
   loadDataIfNeeded(prevProps?: InternalProps) {
@@ -145,6 +146,13 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
   }
 
   componentDidMount() {
+    // Permissions are fetched in componentDidMount because siteUser
+    // is not reliable while server rendering.
+    // https://github.com/mozilla/addons-frontend/issues/6717
+    this.dispatchFetchReviewPermissions();
+  }
+
+  dispatchFetchReviewPermissions() {
     const {
       addon,
       checkingIfSiteUserCanReply,
@@ -161,9 +169,6 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       !checkingIfSiteUserCanReply &&
       !errorHandler.hasError()
     ) {
-      // Permissions are fetched in componentDidMount because siteUser
-      // is not reliable while server rendering.
-      // https://github.com/mozilla/addons-frontend/issues/6717
       dispatch(
         fetchReviewPermissions({
           addonId: addon.id,

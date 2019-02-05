@@ -935,6 +935,29 @@ describe(__filename, () => {
       );
     });
 
+    it('dispatches fetchReviewPermissions on update', () => {
+      const addon = { ...fakeAddon };
+      const userId = 66432;
+
+      loadAddon(addon);
+      dispatchSignInActions({ store, userId });
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const root = render();
+      dispatchSpy.resetHistory();
+
+      root.setProps({ addon });
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        fetchReviewPermissions({
+          addonId: addon.id,
+          errorHandlerId: root.instance().props.errorHandler.id,
+          userId,
+        }),
+      );
+    });
+
     it('does not dispatch fetchReviewPermissions() when an error has occured', () => {
       const addon = { ...fakeAddon };
       const userId = 66432;
