@@ -2,14 +2,11 @@
 import * as React from 'react';
 import makeClassName from 'classnames';
 import photon from 'photon-colors';
+import uuidv4 from 'uuid/v4';
 
 import Icon from 'ui/components/Icon';
 import type { Props as IconProps } from 'ui/components/Icon';
 
-import './styles.scss';
-
-export const YELLOW = photon.YELLOW_50;
-export const GRAY = photon.GREY_50;
 export const CLOSED_STYLE = 'closed';
 export const DIM_CLOSED_STYLE = 'dimClosed';
 export const HALF_STYLE = 'half';
@@ -45,10 +42,10 @@ const IconStar = ({
   yellow = true,
   ...iconProps
 }: Props) => {
-  let color = YELLOW;
+  let color = photon.YELLOW_50;
 
   if (!yellow) {
-    color = GRAY;
+    color = photon.GREY_50;
   }
 
   let starStyle = selected ? CLOSED_STYLE : OPEN_STYLE;
@@ -77,8 +74,8 @@ const IconStar = ({
       };
       break;
     case HALF_STYLE: {
-      // Key is needed in case there are multiple IconStars on 1 page.
-      const id = `half${Math.random()}`;
+      // This id is needed in case there are multiple IconStars on 1 page.
+      const id = `half${uuidv4()}`;
       defs = (
         <defs>
           <linearGradient id={id} x1="0" x2="100%" y1="0" y2="0">

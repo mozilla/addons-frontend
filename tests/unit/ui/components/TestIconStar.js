@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
+import photon from 'photon-colors';
 
 import Icon from 'ui/components/Icon';
 import IconStar, {
@@ -8,21 +9,19 @@ import IconStar, {
   DIM_CLOSED_STYLE,
   HALF_STYLE,
   OPEN_STYLE,
-  YELLOW,
-  GRAY,
 } from 'ui/components/IconStar';
 
 describe(__filename, () => {
   it('sets the default color to YELLOW', () => {
     const star = shallow(<IconStar />);
 
-    expect(star.find('g')).toHaveProp('fill', YELLOW);
+    expect(star.find('g')).toHaveProp('fill', photon.YELLOW_50);
   });
 
   it('changes the color to GRAY if yellow is false', () => {
     const star = shallow(<IconStar yellow={false} />);
 
-    expect(star.find('g')).toHaveProp('fill', GRAY);
+    expect(star.find('g')).toHaveProp('fill', photon.GREY_50);
   });
 
   it('sets the star style to HALF_STYLE if half and readOnly are true', () => {
