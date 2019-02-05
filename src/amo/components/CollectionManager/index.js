@@ -61,6 +61,8 @@ type State = {|
   slug: string,
 |};
 
+export const SLUG_MAX_LENGTH = 30;
+
 const propsToState = (props: InternalProps): State => {
   // Decode HTML entities so the user sees real symbols in the form.
   return {
@@ -188,7 +190,8 @@ export class CollectionManagerBase extends React.Component<
         slug: trimmedValue
           .split(/[^A-Za-z0-9]/)
           .filter((s) => s !== '')
-          .join('-'),
+          .join('-')
+          .substring(0, SLUG_MAX_LENGTH),
         [name]: value,
       });
     } else if (creating && name === 'slug' && trimmedValue !== '') {
@@ -288,6 +291,7 @@ export class CollectionManagerBase extends React.Component<
           <input
             onChange={this.onTextInput}
             id="collectionSlug"
+            maxLength={SLUG_MAX_LENGTH}
             name="slug"
             type="text"
             value={this.state.slug}
