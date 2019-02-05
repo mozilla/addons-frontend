@@ -189,8 +189,8 @@ export class CollectionManagerBase extends React.Component<
         slug: trimmedValue
           .split(/[^A-Za-z0-9]/)
           .filter((s) => s !== '')
-          .join('-'),
-          .{SLUG_MAX_LENGTH}
+          .join('-')
+          .substring(0, SLUG_MAX_LENGTH),
         [name]: value,
       });
     } else if (creating && name === 'slug' && trimmedValue !== '') {
