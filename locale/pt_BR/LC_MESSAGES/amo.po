@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-02-05 20:31+0000\n"
+"PO-Revision-Date: 2019-02-05 20:52+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -774,6 +774,8 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
+"Tente visitar a página mais tarde, já que o tema ou extensão pode estar disponível novamente. Como alternativa, você pode conseguir encontrar o que estava procurando em um dos "
+"%(secondLinkStart)stemas%(secondLinkEnd)s ou %(linkStart)sextensões%(linkEnd)s disponíveis."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
@@ -781,17 +783,19 @@ msgstr "Ops! Não conseguimos encontrar esta página"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Se você seguiu um link de outro site para uma extensão ou tema, tal item não está mais disponível. O motivo pode ser:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:69
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "O desenvolvedor removeu. Desenvolvedores costumam fazer isso porque não mantêm mais a extensão ou tema, ou substituíram."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:74
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"A Mozilla removeu. Isso pode acontecer quando são encontrados problemas durante a revisão da extensão ou tema, ou a extensão ou tema tem abusado dos termos e condições do addons.mozilla.org. O "
+"desenvolvedor tem a oportunidade de resolver os problemas e tornar a extensão ou tema novamente disponível."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
 #, fuzzy
@@ -1923,7 +1927,7 @@ msgstr "Melhor navegação com favoritos aprimorados"
 
 #: src/amo/pages/Guides/index.js:156
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "Extensões podem ajudar a organizar seus interesses online. Gerenciadores de favoritos são ideais para pessoas com muitos conteúdos para acompanhar."
 
 #: src/amo/pages/Guides/index.js:160
 msgid ""
@@ -1951,7 +1955,7 @@ msgstr "Aproveite uma linda nova página com planos de fundo personalizáveis, i
 
 #: src/amo/pages/Guides/index.js:184
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
-msgstr ""
+msgstr "Explore mais %(linkStart)smaneiras divertidas de alterar suas abas%(linkEnd)s com essas escolhas da equipe."
 
 #: src/amo/pages/Guides/index.js:195
 msgid "Improve videos"
@@ -2014,6 +2018,8 @@ msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Você lida com muitas abas abertas, ou com um número vertiginoso de favoritos? Extensões podem ajudar! Desde assistência de organização até o fornecimento de novos recursos divertidos, extensões "
+"podem mudar drasticamente a maneira como você lida com abas e favoritos."
 
 #: src/amo/pages/Guides/index.js:294
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
