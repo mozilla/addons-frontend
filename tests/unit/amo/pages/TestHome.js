@@ -19,7 +19,6 @@ import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEMES_FILTER,
-  SEARCH_SORT_POPULAR,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
@@ -149,23 +148,6 @@ describe(__filename, () => {
     expect(shelves.find('.Home-FeaturedThemes')).toHaveLength(0);
   });
 
-  it('renders a popular extensions shelf', () => {
-    const root = render();
-
-    const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-PopularAddons');
-    expect(shelf).toHaveProp('header', 'Popular themes');
-    expect(shelf).toHaveProp('footerText', 'See more popular themes');
-    expect(shelf).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
-        sort: SEARCH_SORT_POPULAR,
-      },
-    });
-    expect(shelf).toHaveProp('loading', true);
-  });
-
   it('does not render a trending extensions shelf if includeTrendingExtensions is false', () => {
     const root = render({ includeTrendingExtensions: false });
 
@@ -262,7 +244,7 @@ describe(__filename, () => {
       fetchHomeAddons({
         errorHandlerId: errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
-        includeFeaturedThemes: false,
+        includeFeaturedThemes: true,
         includeTrendingExtensions: false,
       }),
     );

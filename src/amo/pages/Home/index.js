@@ -17,7 +17,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_FEATURED,
-  SEARCH_SORT_POPULAR,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
@@ -32,9 +31,9 @@ import './styles.scss';
 export const MOZILLA_USER_ID = config.get('mozillaUserId');
 
 export const FEATURED_COLLECTIONS = [
-  { slug: 'youtube-boosters', userId: MOZILLA_USER_ID },
+  { slug: 'note-taking-time-management', userId: MOZILLA_USER_ID },
+  { slug: 'feed-readers', userId: MOZILLA_USER_ID },
   { slug: 'health-wellness', userId: MOZILLA_USER_ID },
-  { slug: 'be-more-productive', userId: MOZILLA_USER_ID },
 ];
 
 export const isFeaturedCollection = (
@@ -52,20 +51,20 @@ export const isFeaturedCollection = (
 export const getFeaturedCollectionsMetadata = (i18n) => {
   return [
     {
-      footerText: i18n.gettext('See more YouTube boosters'),
-      header: i18n.gettext('YouTube boosters'),
+      footerText: i18n.gettext('See more tools'),
+      header: i18n.gettext('Note-taking & time management tools'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[0],
     },
     {
-      footerText: i18n.gettext('See more health & wellness extensions'),
-      header: i18n.gettext('Health & Wellness'),
+      footerText: i18n.gettext('See more feed readers'),
+      header: i18n.gettext('Feed readers'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[1],
     },
     {
-      footerText: i18n.gettext('See more productivity extensions'),
-      header: i18n.gettext('Be more productive'),
+      footerText: i18n.gettext('See more health & wellness extensions'),
+      header: i18n.gettext('Health & Wellness'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[2],
     },
@@ -89,7 +88,7 @@ export class HomeBase extends React.Component {
   static defaultProps = {
     _config: config,
     _getFeaturedCollectionsMetadata: getFeaturedCollectionsMetadata,
-    includeFeaturedThemes: false,
+    includeFeaturedThemes: true,
     includeTrendingExtensions: false,
   };
 
@@ -337,24 +336,6 @@ export class HomeBase extends React.Component {
             loading={loading}
           />
         )}
-
-        <LandingAddonsCard
-          addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={shelves.popularAddons}
-          className="Home-PopularAddons"
-          header={i18n.gettext('Popular themes')}
-          footerText={i18n.gettext('See more popular themes')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
-                _config: this.props._config,
-              }),
-              sort: SEARCH_SORT_POPULAR,
-            },
-          }}
-          loading={loading}
-        />
 
         {renderFeaturedCollection(1)}
 
