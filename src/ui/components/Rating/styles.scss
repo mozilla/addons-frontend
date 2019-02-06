@@ -17,8 +17,13 @@ $icon-small: 13px;
     width: min-content;
 
     .IconStar {
+      display: flex;
       height: $icon-medium;
       width: $icon-small;
+
+      svg {
+        width: inherit;
+      }
     }
 
     &.Rating--editable {
@@ -45,14 +50,18 @@ $icon-small: 13px;
       width: 100%;
 
       @media (orientation: portrait) {
-        padding: 0 6px;
+        padding: 0 3px;
       }
 
       @include respond-to(medium) {
         padding: 0;
 
-        @media (orientation: landscape) {
+        @media (orientation: portrait) {
           padding: 0 6px;
+        }
+
+        @media (orientation: landscape) {
+          padding: 0 8px;
         }
       }
 
