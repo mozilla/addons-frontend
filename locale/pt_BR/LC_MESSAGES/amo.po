@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-02-05 21:13+0000\n"
+"PO-Revision-Date: 2019-02-06 13:12+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1190,26 +1190,23 @@ msgstr "Avaliação salva"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Ler todas as análises de cinco estrelas"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read all four-star reviews"
-msgstr "Ler %(count)s análise"
+msgstr "Ler todas as análises de quatro estrelas"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "Ler todas as análises de três estrelas"
 
 #: src/amo/components/RatingsByStar/index.js:95
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "Responder esta análise"
+msgstr "Ler todas as análises de duas estrelas"
 
 #: src/amo/components/RatingsByStar/index.js:96
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "Ler %(count)s análise"
+msgstr "Ler todas as análises de uma estrela"
 
 #: src/amo/components/ReportAbuseButton/index.js:106 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
@@ -1988,6 +1985,8 @@ msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Você já se deparou com uma imagem intrigante na web e quis saber mais sobre ela, como quem é a pessoa na foto? Existem imagens relacionadas? Esta extensão permite executar rápidas e fáceis pesquisas"
+" reversas de imagens por meio de vários mecanismos."
 
 #: src/amo/pages/Guides/index.js:226
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
@@ -1999,7 +1998,7 @@ msgstr "Traga mídias diretamente para o navegador"
 
 #: src/amo/pages/Guides/index.js:235
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "Extensões podem transformar o Firefox em sua própria central de entretenimento, oferecendo acesso instantâneo a músicas, captura de imagens, jogos e muito mais."
 
 #: src/amo/pages/Guides/index.js:240
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
@@ -2027,7 +2026,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:294
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "Extensões podem incrementar mídias online de várias maneiras interessantes, desde assistir vídeos a manipular imagens, músicas e muito mais."
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Create and manage strong passwords"
