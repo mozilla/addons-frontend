@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-02-06 13:12+0000\n"
+"PO-Revision-Date: 2019-02-06 13:46+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -376,14 +376,12 @@ msgid "Publishing reply"
 msgstr "Publicando resposta"
 
 #: src/amo/components/AddonReviewCard/index.js:348
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "postado %(timestamp)s"
+msgstr "publicado %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:350
-#, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "de %(authorName)s, %(timestamp)s"
+msgstr "por %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:437
 msgid "Deleting…"
@@ -1717,9 +1715,8 @@ msgid "Reviews and ratings for %(addonName)s. Find out what other users think ab
 msgstr "Análises e avaliações do %(addonName)s. Descubra o que os outros usuários pensam sobre o %(addonName)s e adicione esta extensão ao seu navegador Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:223
-#, fuzzy
 msgid "Show all reviews"
-msgstr "Minhas revisões"
+msgstr "Mostrar todas as análises"
 
 #: src/amo/pages/AddonReviewList/index.js:225
 #, fuzzy
@@ -2374,7 +2371,7 @@ msgstr "Regras gerais para análises"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:31
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Diretrizes, dicas e perguntas frequentes de como escrever uma análise sobre as extensões e temas que você baixou e usou no Firefox."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid ""
