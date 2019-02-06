@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-30 02:38+0000\n"
+"PO-Revision-Date: 2019-02-06 18:25+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -527,7 +527,7 @@ msgstr[0] "%(rating)s 顆星，滿分 5 顆星"
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
 msgid ","
-msgstr "，"
+msgstr "、"
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:76 src/amo/components/AddonTitle/index.js:80
@@ -1650,7 +1650,7 @@ msgstr "關於此附加元件"
 
 #: src/amo/pages/Addon/index.js:318
 msgid "Release notes for %(addonVersion)s"
-msgstr "%(addonVersion)s 的新鮮事"
+msgstr "%(addonVersion)s 版的新鮮事"
 
 #: src/amo/pages/Addon/index.js:447
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
