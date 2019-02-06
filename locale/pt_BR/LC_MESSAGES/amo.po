@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-02-06 13:46+0000\n"
+"PO-Revision-Date: 2019-02-06 15:50+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -516,11 +516,10 @@ msgid "Add-on icon"
 msgstr "Ícone da extensão"
 
 #: src/amo/components/AddonSummaryCard/index.js:62
-#, fuzzy
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] "Avaliado em %(rating)s de 5"
-msgstr[1] "Avaliado em %(rating)s de 5"
+msgstr[0] "%(rating)s de 5 estrelas"
+msgstr[1] "%(rating)s de 5 estrelas"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
@@ -533,19 +532,16 @@ msgid "by"
 msgstr "por"
 
 #: src/amo/components/AddonVersionCard/index.js:104
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "postado %(timestamp)s"
+msgstr "Código fonte publicado sob %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:125
-#, fuzzy
 msgid "Source code released under %(licenseName)s"
-msgstr "postado %(timestamp)s"
+msgstr "Código fonte publicado sob %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
-#, fuzzy
 msgid "No version found"
-msgstr "Nenhuma extensão encontrada"
+msgstr "Nenhuma versão encontrada"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
