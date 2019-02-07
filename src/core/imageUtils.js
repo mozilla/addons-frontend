@@ -18,6 +18,10 @@ export const getPreviewImage = (
   let imageIndex = 0;
 
   if (useStandardSize) {
+    if (!full) {
+      throw new Error("Currently there is no 'standard' thumbnail size");
+    }
+
     // 720 is now the standard width for previews.
     const width = 720;
     imageIndex =
