@@ -154,11 +154,11 @@ describe(__filename, () => {
       expect(image).toEqual(image300);
     });
 
-    it('returns an error if useStandardSize is true but full is false', () => {
+    it('throws an error if useStandardSize is true and full is false', () => {
       const addon = createInternalAddon(fakeAddon);
 
       expect(() => {
-        getPreviewImage(addon, { full: false });
+        getPreviewImage(addon, { full: false, useStandardSize: true });
       }).toThrowError(/Currently there is no 'standard' thumbnail size/);
     });
   });
