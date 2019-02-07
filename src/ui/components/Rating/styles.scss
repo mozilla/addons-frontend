@@ -48,26 +48,6 @@ $icon-small: 13px;
       max-height: $icon-large;
       max-width: $icon-large;
       width: 100%;
-
-      @media (orientation: portrait) {
-        padding: 0 3px;
-      }
-
-      @include respond-to(medium) {
-        padding: 0;
-
-        @media (orientation: portrait) {
-          padding: 0 6px;
-        }
-
-        @media (orientation: landscape) {
-          padding: 0 8px;
-        }
-      }
-
-      @include respond-to(large) {
-        padding: 0;
-      }
     }
   }
 
