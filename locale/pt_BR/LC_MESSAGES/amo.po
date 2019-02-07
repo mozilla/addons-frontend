@@ -2492,7 +2492,7 @@ msgstr "Nos fale um pouco mais sobre você. A maioria dos campos é opcional, m
 
 #: src/amo/pages/UserProfileEdit/index.js:421
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Nos fale um pouco mais sobre este usuário. A maioria dos campos é opcional, mas ajudarão outros usuários a conhecer %(username)s melhor."
+msgstr "Nos fale um pouco mais sobre este usuário. A maioria dos campos é opcional, mas ajudarão outros usuários a conhecer %(userName)s melhor."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
@@ -2500,7 +2500,7 @@ msgstr "Apresente-se para a comunidade seu quiser"
 
 #: src/amo/pages/UserProfileEdit/index.js:437
 msgid "Introduce %(userName)s to the community"
-msgstr "Apresente %(username)s para a comunidade"
+msgstr "Apresente %(userName)s para a comunidade"
 
 #: src/amo/pages/UserProfileEdit/index.js:460
 msgid "Log in to edit the profile"
