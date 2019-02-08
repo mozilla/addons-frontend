@@ -13,11 +13,10 @@ export const SEARCH_STARTED: 'SEARCH_STARTED' = 'SEARCH_STARTED';
 export const SEARCH_LOADED: 'SEARCH_LOADED' = 'SEARCH_LOADED';
 
 const SEARCH_ABORTED: 'SEARCH_ABORTED' = 'SEARCH_ABORTED';
-const SEARCH_RESET: 'SEARCH_RESET' = 'SEARCH_RESET';
 
 export type SearchState = {|
   count: number,
-  filters: SearchFilters | {},
+  filters: SearchFilters | {} | null,
   loading: boolean,
   pageSize: string | null,
   results: Array<AddonType | CollectionAddonType>,
@@ -25,7 +24,7 @@ export type SearchState = {|
 
 export const initialState: SearchState = {
   count: 0,
-  filters: {},
+  filters: null,
   loading: false,
   pageSize: null,
   results: [],
@@ -37,14 +36,6 @@ type AbortSearchAction = {|
 
 export const abortSearch = (): AbortSearchAction => {
   return { type: SEARCH_ABORTED };
-};
-
-type ResetSearchAction = {|
-  type: typeof SEARCH_RESET,
-|};
-
-export const resetSearch = (): ResetSearchAction => {
-  return { type: SEARCH_RESET };
 };
 
 type SearchStartParams = {|
@@ -94,11 +85,7 @@ export function searchLoad({
   };
 }
 
-type Action =
-  | AbortSearchAction
-  | ResetSearchAction
-  | SearchStartAction
-  | SearchLoadAction;
+type Action = AbortSearchAction | SearchStartAction | SearchLoadAction;
 
 export default function search(
   state: SearchState = initialState,
@@ -134,8 +121,6 @@ export default function search(
         loading: false,
         results: [],
       };
-    case SEARCH_RESET:
-      return initialState;
     default:
       return state;
   }
