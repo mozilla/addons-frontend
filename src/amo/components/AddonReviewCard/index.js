@@ -32,6 +32,7 @@ import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import UserReview from 'ui/components/UserReview';
+import Notice from 'ui/components/Notice';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { UserType } from 'amo/reducers/users';
 import type { AppState } from 'amo/store';
@@ -493,6 +494,13 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       >
         <div className="AddonReviewCard-container">
           {errorHandler.renderErrorIfPresent()}
+          {review && review.isDeleted && (
+            <Notice type="error" className="Addon-non-public-notice">
+              {i18n.gettext(
+                'This is not a public review. You are only seeing it because of elevated permissions.',
+              )}
+            </Notice>
+          )}
           {review && editingReview ? (
             <AddonReviewManager
               onCancel={this.onCancelEditReview}
