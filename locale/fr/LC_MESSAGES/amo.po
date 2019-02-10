@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-02-06 15:18+0000\n"
+"PO-Revision-Date: 2019-01-22 21:15+0000\n"
 "Last-Translator: YD <ygda+fx@free.fr>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1335,11 +1335,10 @@ msgid "Search results for \"%(query)s\""
 msgstr "Résultats de la recherche pour « %(query)s »"
 
 #: src/amo/components/SearchContextCard/index.js:100
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s thème trouvé pour « %(query)s »"
-msgstr[1] "%(count)s thèmes trouvés pour « %(query)s »"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:109
 #, fuzzy
@@ -1721,27 +1720,22 @@ msgid "Show all reviews"
 msgstr "Afficher tous les avis"
 
 #: src/amo/pages/AddonReviewList/index.js:225
-#, fuzzy
 msgid "Show only five-star reviews"
 msgstr "Afficher uniquement les avis cinq étoiles"
 
 #: src/amo/pages/AddonReviewList/index.js:226
-#, fuzzy
 msgid "Show only four-star reviews"
 msgstr "Afficher uniquement les avis quatre étoiles"
 
 #: src/amo/pages/AddonReviewList/index.js:228
-#, fuzzy
 msgid "Show only three-star reviews"
 msgstr "Afficher uniquement les avis trois étoiles"
 
 #: src/amo/pages/AddonReviewList/index.js:230
-#, fuzzy
 msgid "Show only two-star reviews"
 msgstr "Afficher uniquement les avis deux étoiles"
 
 #: src/amo/pages/AddonReviewList/index.js:231
-#, fuzzy
 msgid "Show only one-star reviews"
 msgstr "Afficher uniquement les avis une étoile"
 
