@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-02-10 05:09+0000\n"
+"PO-Revision-Date: 2019-02-10 11:07+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -1836,11 +1836,11 @@ msgstr "探索更多編輯精選%(linkStart)s廣告封鎖器%(linkEnd)s。"
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Stop online trackers from stalking you"
-msgstr "防止線上追蹤器追蹤您"
+msgstr "不被線上追蹤器追蹤"
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr "線上的廣告商可以在不同網站間追蹤您的活動，並收集關於您與您的興趣的資料。使用擴充套件可協助您清除數位足跡。"
+msgstr "線上的廣告商可能會在不同網站間追蹤您的活動，並收集關於您與您的興趣的資料。使用擴充套件可協助您清除數位足跡。"
 
 #: src/amo/pages/Guides/index.js:121
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
