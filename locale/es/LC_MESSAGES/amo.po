@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-02-10 18:31+0000\n"
+"PO-Revision-Date: 2019-02-10 18:50+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -782,13 +782,15 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:69
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "El desarrollador lo eliminó. Suelen hacerlo porque ya no siguen manteniendo la extensión o tema o porque los han reemplazado."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:74
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla lo eliminó. Suele pasar cuando se encuentran problemas durante la revisión del tema o extensión o porque va en contra de los términos y condiciones de addons.mozzila.org. El desarrollador "
+"tiene la oportunidad de resolver los problemas y que el complemento vuelva a estar disponible."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
 msgid ""
@@ -1014,7 +1016,7 @@ msgstr "Ver Mis colecciones"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
-msgstr ""
+msgstr "Mantente protegido en línea"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:280
 msgid "Organize Tabs & Bookmarks"
@@ -1026,11 +1028,11 @@ msgstr "Mejorar tu experiencia multimedia"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
-msgstr ""
+msgstr "Las extensiones son como aplicaciones para tu navegador."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "Agregan funciones a Firefox para que navegues más rápido, más fácil o simplemente de forma más divertida."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1174,15 +1176,15 @@ msgstr "¿Cuál es tu experiencia con %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
-msgstr ""
+msgstr "Guardando valoración"
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
-msgstr ""
+msgstr "Se guardó la valoración"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Leer todas las revisiones de 5 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:93
 msgid "Read all four-star reviews"
@@ -1190,7 +1192,7 @@ msgstr "Leer todas las revisiones con 4 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "Leer todas las revisiones de 3 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all two-star reviews"
@@ -1696,7 +1698,7 @@ msgstr "Aviso de privacidad para %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:191
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Revisiones y valoraciones de %(addonName)s. Descubre la opinión de otros usuarios sobre %(addonName)s y agrégalo a Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:223
 msgid "Show all reviews"
@@ -1739,16 +1741,16 @@ msgstr "Todavía no hay revisiones"
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Historial de versiones de %(addonName)s - %(total)s versión"
+msgstr[1] "Historial de versiones de %(addonName)s - %(total)s versiones"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "¡Ten cuidad con las versiones antiguas! Se suelen mostrar para pruebas y a modo de referencia."
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "Deberías usar siempre la última versión disponible de un complemento."
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Latest version"
@@ -1816,11 +1818,11 @@ msgstr "Busca extensiones y temas para añadirlos a tu colección."
 
 #: src/amo/pages/Collection/index.js:512
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Descarga y crea colecciones de Firefox para estar al tanto de tus extensiones y temas favoritos. Descubre %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:515
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Descarga y crea colecciones de Firefox para estar al tanto de tus extensiones y temas favoritos. Descubre %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:112
 msgid "Collections"
@@ -1848,49 +1850,51 @@ msgstr "Mis colecciones"
 
 #: src/amo/pages/Guides/index.js:103
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "Un bloqueador de publicidad ligero y muy efectivo. uBlock Origin utiliza miles de filtros de contenido sin consumir apenas memoria."
 
 #: src/amo/pages/Guides/index.js:107
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Descubre más %(linkStart)sbloqueadores de publicidad%(linkEnd)s seleccionados por el personal."
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "Impide que los rastreadores te persigan"
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr ""
+msgstr "Los anunciantes rastrean tu actividad en la web para recopilar información sobre ti y tus intereses. Las extensiones te pueden ayudar a ocultar tu rastro digital."
 
 #: src/amo/pages/Guides/index.js:121
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Aisla tu identidad en Facebook en un “contenedor” separado para impedir que Facebook rastree tu actividad fuera de la plataforma social."
 
 #: src/amo/pages/Guides/index.js:125
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Descubre más %(linkStart)sfunciones de privacidad y seguridad%(linkEnd)s seleccionadas por el personal."
 
 #: src/amo/pages/Guides/index.js:136
 msgid "Reimagine tab management"
-msgstr ""
+msgstr "Reinventa la gestión de pestañas"
 
 #: src/amo/pages/Guides/index.js:137
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Si sueles trabajar con muchas pestañas abiertas, tienes que saber lo frustrante que es intentar buscar algo en una lista interminable de pestañas hasta encontrar lo que necesitas. Las extensiones te"
+" ofrecen soluciones creativas para agilizar la gestión de pestañas."
 
 #: src/amo/pages/Guides/index.js:143
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Ordena y visualiza tus pestañas en un estilo “árbol” en cascada en la barra lateral de Firefox."
 
 #: src/amo/pages/Guides/index.js:147
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Descubre más %(linkStart)gestores de pestañas%(linkEnd)s seleccionados por el personal."
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Mejor navegación con marcadores mejorados"
 
 #: src/amo/pages/Guides/index.js:156
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
@@ -1901,14 +1905,16 @@ msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"¿Necesitas ayuda para organizar todas tus recetas de comida, artículos de ayuda, vídeos de YouTube o simplemente para encontrar algo en la web? OneNote Web Clipper te permite recopilar y almacenar "
+"tu contenido en línea favorito en un gran repositorio que puedes sincronizar con tus otros dispositivos."
 
 #: src/amo/pages/Guides/index.js:167
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Descubre más %(linkStart)sadministradores de marcadores%(linkEnd)s seleccionados por el personal."
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Disfruta de una nueva experiencia de pestañas"
 
 #: src/amo/pages/Guides/index.js:176
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
@@ -1920,11 +1926,11 @@ msgstr "Disfruta de una bonita nueva página con fondos personalizables, informa
 
 #: src/amo/pages/Guides/index.js:184
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
-msgstr ""
+msgstr "Descubre otras %(linkStart)sformas divertidas de cambiar tus pestañas%(linkEnd)s con estas selecciones del personal."
 
 #: src/amo/pages/Guides/index.js:195
 msgid "Improve videos"
-msgstr ""
+msgstr "Mejorar vídeos"
 
 #: src/amo/pages/Guides/index.js:196
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
@@ -1966,11 +1972,11 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:240
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
-msgstr ""
+msgstr "Accede a más de 30,000 estaciones de radio de todo el mundo, con solo un clic."
 
 #: src/amo/pages/Guides/index.js:244
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
-msgstr ""
+msgstr "Navega entre miles de %(linkStart)sextensiones de foto, música y vídeo%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:268
 msgid ""
@@ -1990,19 +1996,19 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "Crea y gestiona contraseñas seguras"
 
 #: src/amo/pages/Guides/index.js:79
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
-msgstr ""
+msgstr "Los administradores de contraseñas te ayudan a crear contraseñas seguras, guardarlas de forma segura y ofrecerte acceso fácil a tus credenciales de inicio de sesión, estés donde estés."
 
 #: src/amo/pages/Guides/index.js:84
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
-msgstr ""
+msgstr "Protección de contraseña totalmente encriptada. Guarda tu información de forma segura y accede a tus inicios de sesión en todos tus dispositivos."
 
 #: src/amo/pages/Guides/index.js:88
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Descubre más %(linkStart)sadministradores de contraseñas%(linkEnd)s elegidos por el personal."
 
 #: src/amo/pages/Guides/index.js:96
 msgid "Block annoying ads"
@@ -2071,7 +2077,7 @@ msgstr "Cambia la apariencia de Firefox con los temas."
 
 #: src/amo/pages/Home/index.js:274
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "Descarga extensiones y temas de Firefox. Son como aplicaciones para tu navegador. Pueden bloquear anuncios molestos, proteger contraseñas, cambiar la apariencia del navegador y mucho más."
 
 #: src/amo/pages/Home/index.js:346
 msgid "See more popular themes"
@@ -2409,11 +2415,11 @@ msgstr "El perfil de %(user)s, autor de una extensión y un tema de Firefox. Enc
 
 #: src/amo/pages/UserProfile/index.js:272
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr "El perfil de %(user)s, autor de una extensión de Firefox. "
+msgstr "El perfil de %(user)s, autor de una extensión de Firefox. Encuentra otras aplicaciones de %(user)s, incluida la valoración media y la opción de informar de problemas."
 
 #: src/amo/pages/UserProfile/index.js:276
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "El perfil de %(user)s, autor de un tema de Firefox. Encuentra otras aplicaciones de %(user)s, incluida la valoración media y la opción de informar de problemas."
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
