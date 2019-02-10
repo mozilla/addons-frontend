@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-02-10 17:56+0000\n"
+"PO-Revision-Date: 2019-02-10 18:31+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -153,7 +153,7 @@ msgstr "%(addonName)s – Consigue este complemento para 🦊 Firefox (%(locale)
 
 #: src/amo/components/AddonHead/index.js:135
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "Descargar %(addonName)s para Firefox. %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:61
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
@@ -524,12 +524,12 @@ msgstr[1] "%(rating)s estrellas de 5"
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:76 src/amo/components/AddonTitle/index.js:80
 msgid "by"
-msgstr ""
+msgstr "por"
 
 #: src/amo/components/AddonVersionCard/index.js:104
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
@@ -545,11 +545,11 @@ msgstr "No se encontró ninguna versión"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Versión %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Lanzada el %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -593,11 +593,11 @@ msgstr "Cargando las categorías."
 
 #: src/amo/components/CategoryHead/index.js:31
 msgid "%(categoryName)s – Extensions"
-msgstr ""
+msgstr "%(categoryName)s - Extensiones"
 
 #: src/amo/components/CategoryHead/index.js:34
 msgid "%(categoryName)s – Themes"
-msgstr ""
+msgstr "%(categoryName)s – Temas"
 
 #: src/amo/components/CategoryHead/index.js:38
 msgid "%(categoryName)s"
@@ -769,10 +769,12 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
+"Prueba a visitar la página luego, puede que el tema o extensión esté disponible más tarde. También puedes probar a buscar entre las %(linkStart)sextensiones%(linkEnd)s o "
+"%(secondLinkStart)stemas%(secondLinkEnd)s ya disponibles."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "¡Vaya! No pudimos encontrar la página"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -964,7 +966,7 @@ msgstr "Solo con Firefox: ¡Consíguelo ya!"
 
 #: src/amo/components/GuidesAddonCard/index.js:77
 msgid "Staff Pick"
-msgstr ""
+msgstr "Elecciones de nuestros trabajadores"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:502
 msgid "View My Profile"
@@ -2089,7 +2091,7 @@ msgstr "Ver más extensiones sobre salud y bienestar"
 
 #: src/amo/pages/Home/index.js:62
 msgid "Health & Wellness"
-msgstr ""
+msgstr "Salud y bienestar"
 
 #: src/amo/pages/Home/index.js:67
 msgid "See more productivity extensions"
@@ -2097,15 +2099,17 @@ msgstr "Ver más extensiones de productividad"
 
 #: src/amo/pages/Home/index.js:68
 msgid "Be more productive"
-msgstr ""
+msgstr "Sé más productivo"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Descarga temas para cambiar la apariencia de Firefox. Combina tu experiencia con tus gustos. Robots malvados, gatitos, paisajes alucinantes... tienes miles de opciones."
 
 #: src/amo/pages/LandingPage/index.js:210
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
+"Descarga extensiones de Firefox para agregar funciones y personalizar tu navegación. Protege tus contraseñas, busca ofertas, mejora la calidad de los vídeos, bloquea anuncios molestos y mucho más "
+"con aplicaciones para el navegador."
 
 #: src/amo/pages/LandingPage/index.js:232
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2129,7 +2133,7 @@ msgstr "Diccionarios y paquetes de idiomas"
 
 #: src/amo/pages/LanguageTools/index.js:157
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Descarga extensiones de Firefox sobre diccionarios y paquetes de idiomas. Agrega una nueva opción de idioma a tu corrector ortográfico o cambia el idioma de la interfaz del navegador."
 
 #: src/amo/pages/LanguageTools/index.js:168
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2157,7 +2161,7 @@ msgstr "Diccionarios"
 
 #: src/amo/pages/SearchTools/index.js:31
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "Descarga extensiones de Firefox para personalizar tus búsquedas: desde búsquedas mejoradas a búsquedas específicas en sitios web, búsqueda de imágenes y mucho más."
 
 #: src/amo/pages/StaticPages/About/index.js:108
 msgid ""
@@ -2209,7 +2213,7 @@ msgstr "Acerca de los complementos de Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:31
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "El sitio web oficial de Mozilla para descargar extensiones y temas de Firefox. Agrega nuevas funciones y cambia la apariencia del navegador para personalizar tu experiencia web."
 
 #: src/amo/pages/StaticPages/About/index.js:42
 msgid ""
@@ -2321,7 +2325,7 @@ msgstr "Directrices de revisión"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:31
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Guías, consejos y preguntas más frecuentes para dejar tu opinión sobre los temas y extensiones que has descargado y usado en Firefox."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid ""
@@ -2401,11 +2405,11 @@ msgstr "Mis revisiones"
 
 #: src/amo/pages/UserProfile/index.js:268
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "El perfil de %(user)s, autor de una extensión y un tema de Firefox. Encuentra otras aplicaciones de %(user)s, incluida la valoración media y la opción de informar de problemas."
 
 #: src/amo/pages/UserProfile/index.js:272
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "El perfil de %(user)s, autor de una extensión de Firefox. "
 
 #: src/amo/pages/UserProfile/index.js:276
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
@@ -2521,7 +2525,7 @@ msgstr "Perfil"
 
 #: src/amo/pages/UserProfileEdit/index.js:585
 msgid "This field is required"
-msgstr ""
+msgstr "Este campo es obligatorio"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Display Name *"
@@ -2667,7 +2671,7 @@ msgstr "Lo sentimos, pero no hemos encontrado nada en la URL que has introducido
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "Se ha agregado %(strongStart)s%(name)s%(strongEnd)s"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
@@ -2699,46 +2703,46 @@ msgstr "¡Gracias por visitar este sitio! Por favor, tómate un minuto o dos par
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)sB"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)sKB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)sMB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)sGB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)sTB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s y superiores"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s a la %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Compatible con %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Falló la instalación. Vuelve a intentarlo."
 
 #: src/core/utils/addons.js:31
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Falló la descarga. Comprueba tu conexión."
 
 #: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during installation."
