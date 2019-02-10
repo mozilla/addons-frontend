@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-02-10 17:52+0000\n"
+"PO-Revision-Date: 2019-02-10 17:56+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -44,9 +44,8 @@ msgid "Add to collection"
 msgstr "Añadir a la colección"
 
 #: src/amo/components/AddonAdminLinks/index.js:102
-#, fuzzy
 msgid "Admin add-on"
-msgstr "Buscar complementos"
+msgstr "Complemento de administrador"
 
 #: src/amo/components/AddonAdminLinks/index.js:114
 msgid "Content review add-on"
@@ -157,34 +156,28 @@ msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:61
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Complementos para Firefox"
+msgstr "%(addonName)s – Consigue este diccionario para 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:66
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Complementos para Firefox"
+msgstr "%(addonName)s – Consigue esta extensión para 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:71
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Complementos para Firefox"
+msgstr "%(addonName)s – Consigue este paquete de idioma para 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:77
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Complementos para Firefox"
+msgstr "%(addonName)s – Consigue este tema para 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:83
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Complementos para Firefox"
+msgstr "%(addonName)s – Consigue esta herramienta de búsqueda para 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:88
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Complementos para Firefox"
+msgstr "%(addonName)s – Consigue este complemento para 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:95
@@ -942,9 +935,8 @@ msgid "Developer Hub"
 msgstr "Central del desarrollador"
 
 #: src/amo/components/Footer/index.js:61
-#, fuzzy
 msgid "Developer Policies"
-msgstr "Respuesta del desarrollador"
+msgstr "Normativas para desarrolladores"
 
 #: src/amo/components/Footer/index.js:66
 msgid "Forum"
@@ -1921,9 +1913,8 @@ msgid "Start each browsing session tailored just for you by customizing your new
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:180
-#, fuzzy
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-msgstr "Disfruta de una bonita página Nueva pestaña con fondos personalizables, meteorología local y mucho más"
+msgstr "Disfruta de una bonita nueva página con fondos personalizables, información sobre el tiempo local y más."
 
 #: src/amo/pages/Guides/index.js:184
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
@@ -2477,18 +2468,16 @@ msgid "Tell users a bit more information about yourself. Most fields are optiona
 msgstr "Cuéntale a los usuarios algo más sobre ti. Estos campos no son obligatorios, pero ayudarán a los demás usuarios a conocerte mejor."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Cuéntale a los usuarios algo más sobre este usuario. Estos campos no son obligatorios, pero ayudarán a los demás usuarios a conocer mejor a %(username)s."
+msgstr "Cuéntale a los usuarios algo más sobre este usuario. Estos campos no son obligatorios, pero ayudarán a los demás usuarios a conocer mejor a %(userName)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
 msgstr "Si quieres, preséntate en la comunidad"
 
 #: src/amo/pages/UserProfileEdit/index.js:437
-#, fuzzy
 msgid "Introduce %(userName)s to the community"
-msgstr "Introduce a %(username)s en la comunidad"
+msgstr "Introduce a %(userName)s en la comunidad"
 
 #: src/amo/pages/UserProfileEdit/index.js:460
 msgid "Log in to edit the profile"
@@ -2507,9 +2496,8 @@ msgid "Account"
 msgstr "Cuenta"
 
 #: src/amo/pages/UserProfileEdit/index.js:528
-#, fuzzy
 msgid "Account for %(userName)s"
-msgstr "Cuenta de %(username)s"
+msgstr "Cuenta de %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:535
 msgid "Email Address"
@@ -2536,9 +2524,8 @@ msgid "This field is required"
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:588
-#, fuzzy
 msgid "Display Name *"
-msgstr "Mostrar nombre"
+msgstr "Mostrar nombre *"
 
 #: src/amo/pages/UserProfileEdit/index.js:620
 msgid "This URL will only be visible for users who are developers."
@@ -2754,19 +2741,16 @@ msgid "Download failed. Please check your connection."
 msgstr ""
 
 #: src/core/utils/addons.js:33
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Se ha producido un error inesperado"
+msgstr "Se ha producido un error inesperado durante la instalación."
 
 #: src/core/utils/addons.js:35
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Se ha producido un error inesperado"
+msgstr "Se ha producido un error inesperado durante la desinstalación."
 
 #: src/core/utils/addons.js:40
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Se ha producido un error inesperado"
+msgstr "Se ha producido un error inesperado."
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
