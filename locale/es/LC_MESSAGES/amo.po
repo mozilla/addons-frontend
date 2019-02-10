@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-02-03 19:44+0000\n"
+"PO-Revision-Date: 2019-02-10 17:52+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -49,32 +49,28 @@ msgid "Admin add-on"
 msgstr "Buscar complementos"
 
 #: src/amo/components/AddonAdminLinks/index.js:114
-#, fuzzy
 msgid "Content review add-on"
-msgstr "alguien ha escrito un comentario sobre mi complemento"
+msgstr "Complemento de revisión de contenido"
 
 #: src/amo/components/AddonAdminLinks/index.js:121
-#, fuzzy
 msgid "Review theme"
-msgstr "Texto del comentario"
+msgstr "Revisar tema"
 
 #: src/amo/components/AddonAdminLinks/index.js:123
 msgid "Review add-on code"
 msgstr "Revisar código del complemento"
 
 #: src/amo/components/AddonAdminLinks/index.js:147
-#, fuzzy
 msgid "Admin Links"
-msgstr "Enlaces del complemento"
+msgstr "Enlaces de administrador"
 
 #: src/amo/components/AddonAdminLinks/index.js:77
 msgid "Edit add-on"
 msgstr "Editar complemento"
 
 #: src/amo/components/AddonAdminLinks/index.js:89
-#, fuzzy
 msgid "Admin add-on status"
-msgstr "Cargando los complementos"
+msgstr "Estado del administrador del complemento"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
@@ -314,29 +310,24 @@ msgid "Other popular extensions"
 msgstr "Otras extensiones populares"
 
 #: src/amo/components/AddonReviewCard/index.js:194
-#, fuzzy
 msgid "Edit reply"
-msgstr "Editar mi respuesta"
+msgstr "Editar respuesta"
 
 #: src/amo/components/AddonReviewCard/index.js:197
-#, fuzzy
 msgid "Edit review"
-msgstr "Editar mi revisión"
+msgstr "Editar revisión"
 
 #: src/amo/components/AddonReviewCard/index.js:204 src/amo/components/AddonReviewCard/index.js:236
-#, fuzzy
 msgid "Delete reply"
-msgstr "Editar mi respuesta"
+msgstr "Eliminar respuesta"
 
 #: src/amo/components/AddonReviewCard/index.js:208 src/amo/components/AddonReviewCard/index.js:240
-#, fuzzy
 msgid "Delete rating"
-msgstr "Editar mi revisión"
+msgstr "Eliminar valoración"
 
 #: src/amo/components/AddonReviewCard/index.js:211 src/amo/components/AddonReviewCard/index.js:243
-#, fuzzy
 msgid "Delete review"
-msgstr "Editar mi revisión"
+msgstr "Eliminar revisión"
 
 #: src/amo/components/AddonReviewCard/index.js:218
 msgid "Do you really want to delete this reply?"
@@ -360,19 +351,16 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: src/amo/components/AddonReviewCard/index.js:254
-#, fuzzy
 msgid "Keep reply"
-msgstr "Editar mi respuesta"
+msgstr "Mantener respuesta"
 
 #: src/amo/components/AddonReviewCard/index.js:258
-#, fuzzy
 msgid "Keep rating"
-msgstr "Editar mi revisión"
+msgstr "Mantener valoración"
 
 #: src/amo/components/AddonReviewCard/index.js:261
-#, fuzzy
 msgid "Keep review"
-msgstr "Editar mi revisión"
+msgstr "Mantener revisión"
 
 #: src/amo/components/AddonReviewCard/index.js:297
 msgid "Write a reply to this review."
@@ -395,14 +383,12 @@ msgid "Publishing reply"
 msgstr "Publicando la respuesta"
 
 #: src/amo/components/AddonReviewCard/index.js:348
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "publicado el %(timestamp)s"
+msgstr "publicado el %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:350
-#, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "por %(authorName)s, %(timestamp)s"
+msgstr "por %(authorName)s, el %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:437
 msgid "Deleting…"
@@ -429,14 +415,12 @@ msgid "Submitting review"
 msgstr "Enviando revisión"
 
 #: src/amo/components/AddonReviewManager/index.js:116
-#, fuzzy
 msgid "Update review"
-msgstr "Actualizar perfil"
+msgstr "Actualizar revisión"
 
 #: src/amo/components/AddonReviewManager/index.js:119
-#, fuzzy
 msgid "Updating review"
-msgstr "Actualizando la respuesta"
+msgstr "Actualizando revisión"
 
 #: src/amo/components/AddonReviewManager/index.js:140
 msgid "Saving"
@@ -539,11 +523,10 @@ msgid "Add-on icon"
 msgstr "Icono del complemento"
 
 #: src/amo/components/AddonSummaryCard/index.js:62
-#, fuzzy
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] "Se valoró con %(rating)s de 5"
-msgstr[1] "Se valoró con %(rating)s de 5"
+msgstr[0] "%(rating)s estrella de 5"
+msgstr[1] "%(rating)s estrellas de 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
@@ -556,19 +539,16 @@ msgid "by"
 msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:104
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "publicado el %(timestamp)s"
+msgstr "Se publicó el código fuente bajo la licencia %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:125
-#, fuzzy
 msgid "Source code released under %(licenseName)s"
-msgstr "publicado el %(timestamp)s"
+msgstr "Se publicó el código fuente bajo la licencia %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
-#, fuzzy
 msgid "No version found"
-msgstr "No se ha encontrado ningún complemento"
+msgstr "No se encontró ninguna versión"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
@@ -579,24 +559,20 @@ msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Complementos para Firefox"
+msgstr "Complementos para Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:207 src/amo/components/HeadMetaTags/index.js:71
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – Complementos para Firefox"
+msgstr "%(title)s – Complementos para Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:215 src/amo/components/HeadMetaTags/index.js:76
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Complementos para Firefox"
+msgstr "Complementos para Firefox para Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:219 src/amo/components/HeadMetaTags/index.js:70
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%s – Complementos para Firefox"
+msgstr "%(title)s – Complementos para Firefox para Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:204
 msgid "Loading"
@@ -631,9 +607,8 @@ msgid "%(categoryName)s – Themes"
 msgstr ""
 
 #: src/amo/components/CategoryHead/index.js:38
-#, fuzzy
 msgid "%(categoryName)s"
-msgstr "Categorías"
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
 msgid "Added to collection"
@@ -821,7 +796,6 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
-#, fuzzy
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll get it sorted."
@@ -844,14 +818,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Lo sentimos, pero ha habido un error con nuestro servidor y no hemos podido completar tu petición. Hemos registrado el error y vamos a investigarlo."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "Revisiones de %(addonName)s"
+msgstr "Respuesta de %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "Revisiones de %(addonName)s"
+msgstr "Revisado por %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
@@ -1051,14 +1023,12 @@ msgid "Stay Safe Online"
 msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:280
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "Marcadores"
+msgstr "Organizar pestañas y marcadores"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "Califica tu experiencia"
+msgstr "Mejorar tu experiencia multimedia"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
@@ -1197,17 +1167,14 @@ msgid "Log in to rate this add-on"
 msgstr "Iniciar sesión para evaluar este complemento"
 
 #: src/amo/components/RatingManager/index.js:173
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "¿De verdad quieres eliminar esta foto?"
+msgstr "¿De verdad quieres eliminar tu revisión de %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:178
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "¿De verdad quieres eliminar esta foto?"
+msgstr "¿De verdad quieres eliminar tu valoración de %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:183
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
 msgstr "¿Cuál es tu experiencia con %(addonName)s?"
 
@@ -1224,23 +1191,20 @@ msgid "Read all five-star reviews"
 msgstr ""
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read all four-star reviews"
-msgstr "Leer %(count)s revisiones"
+msgstr "Leer todas las revisiones con 4 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
 msgstr ""
 
 #: src/amo/components/RatingsByStar/index.js:95
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "Responder a esta revisión"
+msgstr "Leer todas las revisiones con 2 estrellas"
 
 #: src/amo/components/RatingsByStar/index.js:96
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "Leer %(count)s revisiones"
+msgstr "Leer todas las revisiones con 1 estrella"
 
 #: src/amo/components/ReportAbuseButton/index.js:106 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
@@ -1365,18 +1329,16 @@ msgid "Search results for \"%(query)s\""
 msgstr "Buscar resultados para \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:100
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s tema encontrado para \"%(query)s\""
-msgstr[1] "%(count)s temas encontrados para \"%(query)s\""
+msgstr[0] "%(count)s tema encontrado para \"%(query)s\" en %(categoryName)s"
+msgstr[1] "%(count)s temas encontrados para \"%(query)s\" en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:109
-#, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "%(count)s tema encontrado para \"%(query)s\""
-msgstr[1] "%(count)s temas encontrados para \"%(query)s\""
+msgstr[0] "%(count)s tema encontrado en %(categoryName)s"
+msgstr[1] "%(count)s temas encontrados en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:119
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1385,11 +1347,10 @@ msgstr[0] "%(count)s tema encontrado para \"%(query)s\""
 msgstr[1] "%(count)s temas encontrados para \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:128
-#, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "%(count)s complemento encontrado"
-msgstr[1] "%(count)s complementos encontrados"
+msgstr[0] "%(count)s tema encontrado"
+msgstr[1] "%(count)s temas encontrados"
 
 #: src/amo/components/SearchContextCard/index.js:140
 msgid "%(count)s result found for \"%(query)s\""
@@ -1398,34 +1359,30 @@ msgstr[0] "%(count)s resultado encontrado para \"%(query)s\""
 msgstr[1] "%(count)s resultados encontrados para \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:149
-#, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "%(count)s resultado para \"%(query)s\""
-msgstr[1] "%(count)s resultados para \"%(query)s\""
+msgstr[0] "%(count)s resultado encontrado"
+msgstr[1] "%(count)s resultados encontrados"
 
 #: src/amo/components/SearchContextCard/index.js:160
 msgid "Searching for \"%(query)s\""
 msgstr "Buscando \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:164
-#, fuzzy
 msgid "Searching for add-ons"
-msgstr "Cargando los complementos"
+msgstr "Buscando complementos"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s extensión encontrada para \"%(query)s\""
-msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\""
+msgstr[0] "%(count)s extensión encontrada para \"%(query)s\" en %(categoryName)s"
+msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\" en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(count)s extensión encontrada para \"%(query)s\""
-msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\""
+msgstr[0] "%(count)s extensión encontrada en %(categoryName)s"
+msgstr[1] "%(count)s extensiones encontradas en %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1434,11 +1391,10 @@ msgstr[0] "%(count)s extensión encontrada para \"%(query)s\""
 msgstr[1] "%(count)s extensiones encontradas para \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:87
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "%(count)s complemento encontrado"
-msgstr[1] "%(count)s complementos encontrados"
+msgstr[0] "%(count)s extensión encontrada"
+msgstr[1] "%(count)s extensiones encontradas"
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:125
 msgid "All"
@@ -1509,14 +1465,12 @@ msgid "Featured add-ons only"
 msgstr "Solo complementos promocionados"
 
 #: src/amo/components/SearchForm/index.js:61
-#, fuzzy
 msgid "Firefox Add-ons (%(locale)s)"
-msgstr "Complementos para Firefox"
+msgstr "Complementos para Firefox (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
-#, fuzzy
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr "Complementos para Android"
+msgstr "Complementos para Firefox para Android (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
@@ -1735,69 +1689,58 @@ msgid "Screenshots"
 msgstr "Capturas de pantalla"
 
 #: src/amo/pages/AddonInfo/index.js:157
-#, fuzzy
 msgid "Custom License for %(addonName)s"
-msgstr "Revisiones de %(addonName)s"
+msgstr "Licencia personalizada para %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:164
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Acuerdo de licencia de usuario final"
+msgstr "Acuerdo de licencia de usuario final para %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:168
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "Revisiones de %(addonName)s"
+msgstr "Aviso de privacidad para %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:191
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:223
-#, fuzzy
 msgid "Show all reviews"
-msgstr "Mis revisiones"
+msgstr "Mostrar todas las revisiones"
 
 #: src/amo/pages/AddonReviewList/index.js:225
-#, fuzzy
 msgid "Show only five-star reviews"
-msgstr "Leer %(count)s revisiones"
+msgstr "Mostrar solo las revisiones con 5 estrellas"
 
 #: src/amo/pages/AddonReviewList/index.js:226
-#, fuzzy
 msgid "Show only four-star reviews"
-msgstr "Leer %(count)s revisiones"
+msgstr "Mostrar solo las revisiones con 4 estrellas"
 
 #: src/amo/pages/AddonReviewList/index.js:228
-#, fuzzy
 msgid "Show only three-star reviews"
-msgstr "Leer %(count)s revisiones"
+msgstr "Mostrar solo las revisiones con 3 estrellas"
 
 #: src/amo/pages/AddonReviewList/index.js:230
-#, fuzzy
 msgid "Show only two-star reviews"
-msgstr "Responder a esta revisión"
+msgstr "Mostrar solo las revisiones con 2 estrellas"
 
 #: src/amo/pages/AddonReviewList/index.js:231
-#, fuzzy
 msgid "Show only one-star reviews"
-msgstr "Leer %(count)s revisiones"
+msgstr "Mostrar solo las revisiones con 1 estrella"
 
 #: src/amo/pages/AddonReviewList/index.js:271
 msgid "Reviews for %(addonName)s"
 msgstr "Revisiones de %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:281
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s usuario"
-msgstr[1] "%(total)s usuarios"
+msgstr[0] "%(total)s revisión"
+msgstr[1] "%(total)s revisiones"
 
 #: src/amo/pages/AddonReviewList/index.js:378
-#, fuzzy
 msgid "There are no reviews"
-msgstr "Todavía no hay valoraciones"
+msgstr "Todavía no hay revisiones"
 
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
@@ -1814,24 +1757,20 @@ msgid "You should always use the latest version of an add-on."
 msgstr ""
 
 #: src/amo/pages/AddonVersions/index.js:186
-#, fuzzy
 msgid "Latest version"
-msgstr "Versiones beta"
+msgstr "Última versión"
 
 #: src/amo/pages/AddonVersions/index.js:195
-#, fuzzy
 msgid "Older versions"
-msgstr "Ver todas las versiones"
+msgstr "Versiones antiguas"
 
 #: src/amo/pages/CategoriesPage/index.js:34
-#, fuzzy
 msgid "All extension categories"
-msgstr "Ver todas las extensiones en esta categoría."
+msgstr "Todas las categorías de extensiones"
 
 #: src/amo/pages/CategoriesPage/index.js:36
-#, fuzzy
 msgid "All theme categories"
-msgstr "Explorar todas las categorías"
+msgstr "Todas las categorías de temas"
 
 #: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:309 src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
@@ -2003,9 +1942,8 @@ msgid "Add a control bar to all YouTube video pages so you can easily adjust vol
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:206
-#, fuzzy
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "Háblale a todo el mundo de esta extensión. Para ello, sigue nuestra %(linkStart)sguía para revisiones%(linkEnd)s."
+msgstr "Descubre más %(linkStart)sextensiones para vídeo%(linkEnd)s elegidas por nuestros trabajadores."
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Get more out of media"
@@ -2022,9 +1960,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:226
-#, fuzzy
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "Háblale a todo el mundo de esta extensión. Para ello, sigue nuestra %(linkStart)sguía para revisiones%(linkEnd)s."
+msgstr "Descubre más %(linkStart)sextensiones para multimedia%(linkEnd)s elegidas por nuestros trabajadores."
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Bring media right into the browser"
@@ -2075,9 +2012,8 @@ msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:96
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "Bloquear publicidad"
+msgstr "Bloquear anuncios molestos"
 
 #: src/amo/pages/Guides/index.js:97
 msgid ""
@@ -2145,33 +2081,28 @@ msgid "Download Firefox extensions and themes. They’re like apps for your brow
 msgstr ""
 
 #: src/amo/pages/Home/index.js:346
-#, fuzzy
 msgid "See more popular themes"
-msgstr "Ver más extensiones populares"
+msgstr "Ver más temas populares"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more YouTube boosters"
-msgstr "Ver más integraciones con Wikipedia"
+msgstr "Ver más potenciadores de YouTube"
 
 #: src/amo/pages/Home/index.js:56
-#, fuzzy
 msgid "YouTube boosters"
-msgstr "Integraciones con Wikipedia"
+msgstr "Potenciadores de YouTube"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "See more health & wellness extensions"
-msgstr "Ver más extensiones destacadas"
+msgstr "Ver más extensiones sobre salud y bienestar"
 
 #: src/amo/pages/Home/index.js:62
 msgid "Health & Wellness"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:67
-#, fuzzy
 msgid "See more productivity extensions"
-msgstr "Extensiones de productividad"
+msgstr "Ver más extensiones de productividad"
 
 #: src/amo/pages/Home/index.js:68
 msgid "Be more productive"
@@ -2502,9 +2433,8 @@ msgid "User Profile for %(user)s"
 msgstr "Perfil del usuario %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:338
-#, fuzzy
 msgid "User Profile"
-msgstr "Actualizar perfil"
+msgstr "Perfil del usuario"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:625
 msgid "Location"
@@ -2535,16 +2465,14 @@ msgid "Edit profile"
 msgstr "Editar perfil"
 
 #: src/amo/pages/UserProfile/index.js:447
-#, fuzzy
 msgid "Admin user"
-msgstr "Enlaces del complemento"
+msgstr "Usuario administrador"
 
 #: src/amo/pages/UserProfileEdit/index.js:192
 msgid "Picture successfully deleted"
 msgstr "Se eliminó correctamente la foto"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
 msgstr "Cuéntale a los usuarios algo más sobre ti. Estos campos no son obligatorios, pero ayudarán a los demás usuarios a conocerte mejor."
 
