@@ -83,8 +83,9 @@ $icon-small: 13px;
 }
 
 .Rating-star {
+  display: flex;
+  justify-content: center;
   padding: 0;
-  text-align: center;
 
   &:not(.focus-visible) {
     outline: none;
