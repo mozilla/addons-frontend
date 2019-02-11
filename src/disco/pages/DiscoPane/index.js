@@ -5,6 +5,8 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import config from 'config';
+import mozCompare from 'mozilla-version-comparator';
+import { oneLine } from 'common-tags';
 
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -16,6 +18,7 @@ import {
 } from 'core/constants';
 import InfoDialog from 'core/components/InfoDialog';
 import { addChangeListeners } from 'core/addonManager';
+import log from 'core/logger';
 import { getDiscoResults } from 'disco/reducers/discoResults';
 import { makeQueryStringWithUTM } from 'disco/utils';
 import Addon from 'disco/components/Addon';
@@ -48,6 +51,7 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   _addChangeListeners: typeof addChangeListeners,
+  _log: typeof log,
   _tracking: typeof tracking,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
@@ -63,6 +67,7 @@ type InternalProps = {|
 export class DiscoPaneBase extends React.Component<InternalProps> {
   static defaultProps = {
     _addChangeListeners: addChangeListeners,
+    _log: log,
     _tracking: tracking,
     // $FLOW_FIXME: `mozAddonManager` might be available.
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
@@ -72,6 +77,7 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
     super(props);
 
     const {
+      _log,
       dispatch,
       errorHandler,
       hashedClientId,
@@ -94,10 +100,18 @@ export class DiscoPaneBase extends React.Component<InternalProps> {
       };
 
       if (hashedClientId) {
-        taarParams = {
-          ...taarParams,
-          clientId: hashedClientId,
-        };
+        if (mozCompare(params.version, '65.0.1') >= 0) {
+          taarParams = {
+            ...taarParams,
+            clientId: hashedClientId,
+          };
+        } else {
+          _log.debug(
+            oneLine`Not passing the client ID to the API because the
+            browser version (%s) is < 65.0.1`,
+            params.version,
+          );
+        }
       }
 
       dispatch(
