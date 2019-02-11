@@ -8,6 +8,8 @@ import { compose } from 'redux';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { type I18nType } from 'core/types/i18n';
+import IconStar from 'ui/components/IconStar';
+import type { Props as IconStarProps } from 'ui/components/IconStar';
 
 import './styles.scss';
 
@@ -121,7 +123,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
   };
 
   renderRatings(): Array<React.Node> {
-    const { readOnly } = this.props;
+    const { readOnly, yellowStars } = this.props;
     const { hoveringOverStar } = this.state;
     // Accept falsey values as if they are zeroes.
     const rating = this.props.rating || 0;
@@ -134,11 +136,13 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
 
       const title = this.renderTitle(rating, readOnly, thisRating);
 
+      const halfStar =
+        thisRating - rating > 0.25 && thisRating - rating <= 0.75;
+
       const props = {
         className: makeClassName('Rating-star', `Rating-rating-${thisRating}`, {
           'Rating-selected-star': isSelected,
-          'Rating-half-star':
-            thisRating - rating > 0.25 && thisRating - rating <= 0.75,
+          'Rating-half-star': halfStar,
         }),
         key: `rating-${thisRating}`,
         onClick: undefined,
@@ -147,7 +151,16 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
       };
 
       if (readOnly) {
-        return <div {...props} />;
+        return (
+          <div {...props}>
+            {this.renderStar({
+              half: halfStar,
+              selected: isSelected,
+              readOnly,
+              yellow: yellowStars,
+            })}
+          </div>
+        );
       }
 
       if (!this.isLoading()) {
@@ -164,13 +177,19 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
             type="button"
             value={thisRating}
             {...props}
-          />
-          <span id={id} className="visually-hidden">
-            {title}
-          </span>
+          >
+            <span id={id} className="visually-hidden">
+              {title}
+            </span>
+            {this.renderStar({ selected: isSelected, yellow: true })}
+          </button>
         </React.Fragment>
       );
     });
+  }
+
+  renderStar(props: IconStarProps) {
+    return <IconStar {...props} />;
   }
 
   isLoading() {
@@ -180,7 +199,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
   }
 
   render() {
-    const { className, rating, readOnly, styleSize, yellowStars } = this.props;
+    const { className, rating, readOnly, styleSize } = this.props;
     if (!styleSize || !RATING_STYLE_SIZES.includes(styleSize)) {
       throw new Error(
         oneLine`styleSize=${styleSize || '[empty string]'} is not a valid
@@ -201,7 +220,6 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
       {
         'Rating--editable': !readOnly,
         'Rating--loading': this.isLoading(),
-        'Rating--yellowStars': yellowStars,
       },
     );
 

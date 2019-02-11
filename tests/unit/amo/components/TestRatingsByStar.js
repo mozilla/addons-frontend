@@ -16,6 +16,7 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
+import IconStar from 'ui/components/IconStar';
 import LoadingText from 'ui/components/LoadingText';
 
 describe(__filename, () => {
@@ -184,6 +185,13 @@ describe(__filename, () => {
     validateLink(counts.at(2), '3', 'Read all three-star reviews');
     validateLink(counts.at(3), '2', 'Read all two-star reviews');
     validateLink(counts.at(4), '1', 'Read all one-star reviews');
+  });
+
+  it('renders IconStar', () => {
+    const root = render();
+    const star = root.find(IconStar).at(0);
+    expect(star).toHaveLength(1);
+    expect(star).toHaveProp('selected');
   });
 
   it('renders bar value widths based on total ratings', () => {
