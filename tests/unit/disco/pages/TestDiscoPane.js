@@ -24,6 +24,7 @@ import {
   createFakeTracking,
   createStubErrorHandler,
   fakeI18n,
+  getFakeLogger,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -110,23 +111,55 @@ describe(__filename, () => {
     });
 
     it('sends a telemetry client ID if there is one', () => {
+      const version = '65.0.1';
+      const platform = 'Linux';
+      const match = { params: { platform, version } };
+
       const clientId = '1112';
       store.dispatch(setHashedClientId(clientId));
       const dispatch = sinon.spy(store, 'dispatch');
 
-      const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
-
-      render({ errorHandler, store });
+      const root = render({ store, match });
 
       sinon.assert.calledWith(
         dispatch,
         getDiscoResults({
-          errorHandlerId: errorHandler.id,
+          errorHandlerId: root.instance().props.errorHandler.id,
           taarParams: {
             clientId,
-            platform: 'Darwin',
+            platform,
           },
         }),
+      );
+    });
+
+    // See: https://github.com/mozilla/addons-frontend/issues/7573
+    it('does not send a telemetry client ID when version is < 65.0.1', () => {
+      const version = '65.0';
+      const platform = 'Linux';
+      const match = { params: { platform, version } };
+
+      const clientId = '1112';
+      store.dispatch(setHashedClientId(clientId));
+      const dispatch = sinon.spy(store, 'dispatch');
+
+      const _log = getFakeLogger();
+
+      const root = render({ _log, store, match });
+
+      sinon.assert.calledWith(
+        dispatch,
+        getDiscoResults({
+          errorHandlerId: root.instance().props.errorHandler.id,
+          taarParams: {
+            platform,
+          },
+        }),
+      );
+      sinon.assert.calledWith(
+        _log.debug,
+        `Not passing the client ID to the API because the browser version (%s) is < 65.0.1`,
+        version,
       );
     });
 
