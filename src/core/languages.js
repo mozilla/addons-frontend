@@ -235,6 +235,10 @@ export const unfilteredLanguages = {
     English: 'Galician',
     native: 'Galego',
   },
+  gn: {
+    English: 'Guarani (Paraguay)',
+    native: 'Guaran\u00cd',
+  },
   gu: {
     English: 'Gujarati',
     native: '\u0a97\u0ac1\u0a9c\u0ab0\u0abe\u0aa4\u0ac0',

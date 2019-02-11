@@ -59,10 +59,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     let imageURL = iconURL;
 
     if (addon && isTheme(addon.type)) {
-      // Since only newly created static themes will have more than one preview
-      // we will set up a fallback for now.
-      let themeURL =
-        getPreviewImage(addon, { index: 1 }) || getPreviewImage(addon);
+      let themeURL = getPreviewImage(addon);
 
       if (!themeURL && addon && addon.type === ADDON_TYPE_THEME) {
         themeURL =

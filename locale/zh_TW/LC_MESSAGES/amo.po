@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-02-06 18:25+0000\n"
+"PO-Revision-Date: 2019-02-10 11:07+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -1836,11 +1836,11 @@ msgstr "探索更多編輯精選%(linkStart)s廣告封鎖器%(linkEnd)s。"
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Stop online trackers from stalking you"
-msgstr "防止線上追蹤器追蹤您"
+msgstr "不被線上追蹤器追蹤"
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr "線上的廣告商可以在不同網站間追蹤您的活動，並收集關於您與您的興趣的資料。使用擴充套件可協助您清除數位足跡。"
+msgstr "線上的廣告商可能會在不同網站間追蹤您的活動，並收集關於您與您的興趣的資料。使用擴充套件可協助您清除數位足跡。"
 
 #: src/amo/pages/Guides/index.js:121
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
@@ -2055,7 +2055,7 @@ msgstr "下載 Firefox 擴充套件與佈景主題，它們就像是在瀏覽器
 
 #: src/amo/pages/Home/index.js:346
 msgid "See more popular themes"
-msgstr "看更多知名佈景主題"
+msgstr "看更多熱門佈景主題"
 
 #: src/amo/pages/Home/index.js:55
 msgid "See more YouTube boosters"
@@ -2091,11 +2091,11 @@ msgstr "下載 Firefox 擴充套件，讓您加入功能來客製化上網體驗
 
 #: src/amo/pages/LandingPage/index.js:232
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "調整您瀏覽器的外觀，從數以千計的佈景主題中挑選一套，讓 Firefox 有您想要的樣子。"
+msgstr "從數以千計的佈景主題中挑選一套，調整瀏覽器外觀，讓 Firefox 有您想要的樣子。"
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr "瀏覽可用來自訂的強大的工具與功能，讓瀏覽器有您的風格。"
+msgstr "瀏覽可用來自訂 Firefox 的強大工具與功能，讓瀏覽器有您的風格。"
 
 #: src/amo/pages/LandingPage/index.js:273
 msgid "Explore all categories"
