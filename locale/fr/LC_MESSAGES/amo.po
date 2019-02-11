@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-01-22 21:15+0000\n"
-"Last-Translator: YD <ygda+fx@free.fr>\n"
+"PO-Revision-Date: 2019-02-11 10:27+0000\n"
+"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -1337,15 +1337,14 @@ msgstr "Résultats de la recherche pour « %(query)s »"
 #: src/amo/components/SearchContextCard/index.js:100
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s thème trouvé pour « %(query)s » dans %(categoryName)s"
+msgstr[1] "%(count)s thèmes trouvés pour « %(query)s » dans %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:109
-#, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "%(count)s thème trouvé pour « %(query)s »"
-msgstr[1] "%(count)s thèmes trouvés pour « %(query)s »"
+msgstr[0] "%(count)s thème trouvé dans %(categoryName)s"
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:119
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1380,18 +1379,16 @@ msgid "Searching for add-ons"
 msgstr "Recherche de modules"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s extension trouvée pour « %(query)s »"
-msgstr[1] "%(count)s extension trouvées pour « %(query)s »"
+msgstr[0] "%(count)s extension trouvée pour « %(query)s » dans %(categoryName)s"
+msgstr[1] "%(count)s extensions trouvées pour « %(query)s » dans %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(count)s extension trouvée pour « %(query)s »"
-msgstr[1] "%(count)s extension trouvées pour « %(query)s »"
+msgstr[0] "%(count)s extension trouvée dans %(categoryName)s"
+msgstr[1] "%(count)s extension trouvées dans %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1400,11 +1397,10 @@ msgstr[0] "%(count)s extension trouvée pour « %(query)s »"
 msgstr[1] "%(count)s extension trouvées pour « %(query)s »"
 
 #: src/amo/components/SearchContextCard/index.js:87
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "%(count)s module trouvé"
-msgstr[1] "%(count)s modules trouvés"
+msgstr[0] "%(count)s extension trouvée"
+msgstr[1] "%(count)s extensions trouvées"
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:125
 msgid "All"
@@ -2114,33 +2110,28 @@ msgstr ""
 "modifier l’apparence du navigateur, etc."
 
 #: src/amo/pages/Home/index.js:346
-#, fuzzy
 msgid "See more popular themes"
-msgstr "Voir plus d’extensions populaires"
+msgstr "Voir plus de thèmes populaires"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more YouTube boosters"
-msgstr "Découvrir davantage d'extensions qui vous apportent des nouvelles"
+msgstr "Découvrir davantage d’extensions pour YouTube"
 
 #: src/amo/pages/Home/index.js:56
-#, fuzzy
 msgid "YouTube boosters"
-msgstr "Extensions qui vous apportent des nouvelles"
+msgstr "Pour profiter mieux de YouTube"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "See more health & wellness extensions"
-msgstr "Voir plus d’extensions mises en avant"
+msgstr "Découvrir davantage d’extensions autour de la santé et du bien-être"
 
 #: src/amo/pages/Home/index.js:62
 msgid "Health & Wellness"
 msgstr "Santé et bien-être"
 
 #: src/amo/pages/Home/index.js:67
-#, fuzzy
 msgid "See more productivity extensions"
-msgstr "Extensions pour la productivité"
+msgstr "Découvrir davantage d’extensions pour la productivité"
 
 #: src/amo/pages/Home/index.js:68
 msgid "Be more productive"
@@ -2528,14 +2519,12 @@ msgid "Picture successfully deleted"
 msgstr "Image correctement supprimée"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "Dites-en plus sur vous. Ces champs sont facultatifs, mais ils aideront les autres utilisateurs à mieux vous connaître."
+msgstr "Dites-en plus sur vous. Ces champs sont facultatifs pour la plupart, mais ils aideront les autres utilisateurs à mieux vous connaître."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Dites-en plus sur cet utilisateur. Ces champs sont facultatifs, mais ils aideront les autres utilisateurs à mieux connaître %(userName)s."
+msgstr "Dites-en plus sur cet utilisateur ou cette utilisatrice. Ces champs sont facultatifs pour la plupart, mais ils aideront les autres utilisateurs à mieux connaître %(userName)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
@@ -2590,9 +2579,8 @@ msgid "This field is required"
 msgstr "Cette information est nécessaire"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
-#, fuzzy
 msgid "Display Name *"
-msgstr "Nom à afficher"
+msgstr "Nom à afficher*"
 
 #: src/amo/pages/UserProfileEdit/index.js:620
 msgid "This URL will only be visible for users who are developers."
