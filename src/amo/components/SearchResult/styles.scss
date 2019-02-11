@@ -146,10 +146,6 @@ $icon-default-size: 32px;
   .Rating {
     justify-content: flex-start;
     margin: 0;
-
-    @include respond-to(large) {
-      margin-top: 2px;
-    }
   }
 
   .SearchResult--theme & {
