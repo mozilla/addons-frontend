@@ -41,8 +41,8 @@ $icon-small: 13px;
   // The width of large rating stars are controlled by the container.
   &.Rating--large {
     grid-column-gap: 6px;
-    min-height: 48px;
     max-width: 300px;
+    min-height: 48px;
     width: 100%;
 
     .IconStar {
