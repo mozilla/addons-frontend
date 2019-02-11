@@ -13,7 +13,7 @@ $icon-small: 13px;
   // The width of small rating stars are controlled by .Rating-star.
   &.Rating--small {
     grid-column-gap: 4px;
-    min-height: 13px;
+    min-height: $icon-small;
     width: min-content;
 
     .IconStar {
@@ -93,7 +93,7 @@ $icon-small: 13px;
   }
 
   .Rating--small & {
-    min-width: 13px;
+    min-width: $icon-small;
   }
 
   .Rating--loading & {
