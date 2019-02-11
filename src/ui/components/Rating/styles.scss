@@ -42,11 +42,11 @@ $icon-small: 13px;
   &.Rating--large {
     grid-column-gap: 6px;
     min-height: 48px;
+    max-width: 300px;
     width: 100%;
 
     .IconStar {
-      max-height: $icon-large;
-      max-width: $icon-large;
+      height: 100%;
       width: 100%;
     }
   }
@@ -54,7 +54,7 @@ $icon-small: 13px;
   @include respond-to(extraExtraLarge) {
     &.Rating--large {
       grid-column-gap: 12px;
-      min-height: 64px;
+      max-width: none;
     }
   }
 }
@@ -83,6 +83,7 @@ $icon-small: 13px;
 }
 
 .Rating-star {
+  align-items: center;
   display: flex;
   justify-content: center;
   padding: 0;
