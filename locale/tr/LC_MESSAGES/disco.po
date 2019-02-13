@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-29 20:07+0000\n"
+"POT-Creation-Date: 2019-02-13 22:17+0000\n"
 "PO-Revision-Date: 2018-12-15 12:38+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -163,15 +163,15 @@ msgstr "Eklentileri Keşfedin"
 msgid "Privacy Policy"
 msgstr "Gizlilik İlkeleri"
 
-#: src/disco/pages/DiscoPane/index.js:152
+#: src/disco/pages/DiscoPane/index.js:166
 msgid "Find more add-ons"
 msgstr "Daha fazla eklenti bul"
 
-#: src/disco/pages/DiscoPane/index.js:174
+#: src/disco/pages/DiscoPane/index.js:188
 msgid "Personalize Your Firefox"
 msgstr "Firefox’unuzu kişiselleştirin"
 
-#: src/disco/pages/DiscoPane/index.js:176
+#: src/disco/pages/DiscoPane/index.js:190
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -186,11 +186,11 @@ msgstr ""
 "için performansları ve işlevleriyle öne çıkan birkaç eklentiyi aşağıda "
 "sıraladık."
 
-#: src/disco/pages/DiscoPane/index.js:193
+#: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr ""
 
-#: src/disco/pages/DiscoPane/index.js:197
+#: src/disco/pages/DiscoPane/index.js:211
 msgid ""
 "Some of these recommendations are personalized. They are based on other "
 "extensions you've installed, profile preferences, and usage statistics."
@@ -212,7 +212,7 @@ msgstr "Devam etmek için sayfayı tazeleyin"
 msgid "Dismiss this notice"
 msgstr "Bu bildirimi kapat"
 
-#: src/ui/components/ThemeImage/index.js:31
+#: src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr "%(title)s ön izlemesi"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-29 20:07+0000\n"
+"POT-Creation-Date: 2019-02-13 22:17+0000\n"
 "PO-Revision-Date: 2018-08-11 12:01+0000\n"
 "Last-Translator: Slimane AMIRI <slimane.amiri@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -166,15 +166,15 @@ msgstr "Issin izegrar"
 msgid "Privacy Policy"
 msgstr "Tasertit n tbaḍnit"
 
-#: src/disco/pages/DiscoPane/index.js:152
+#: src/disco/pages/DiscoPane/index.js:166
 msgid "Find more add-ons"
 msgstr "Aff-d ugar n izegrar"
 
-#: src/disco/pages/DiscoPane/index.js:174
+#: src/disco/pages/DiscoPane/index.js:188
 msgid "Personalize Your Firefox"
 msgstr "Sagen Firefox inek"
 
-#: src/disco/pages/DiscoPane/index.js:176
+#: src/disco/pages/DiscoPane/index.js:190
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -188,11 +188,11 @@ msgstr ""
 "aggan n tunigin inek imeṛṛa. Akken ad tebduḍ, nefren-d kra akken tella "
 "tmellit nsen neɣ timahilin nsen."
 
-#: src/disco/pages/DiscoPane/index.js:193
+#: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr ""
 
-#: src/disco/pages/DiscoPane/index.js:197
+#: src/disco/pages/DiscoPane/index.js:211
 msgid ""
 "Some of these recommendations are personalized. They are based on other "
 "extensions you've installed, profile preferences, and usage statistics."
@@ -214,7 +214,7 @@ msgstr "Smiren akken ad tkemmleḍ"
 msgid "Dismiss this notice"
 msgstr "Sɛuzẓeg i walɣu-agi"
 
-#: src/ui/components/ThemeImage/index.js:31
+#: src/ui/components/ThemeImage/index.js:33
 #, fuzzy
 msgid "Preview of %(title)s"
 msgstr "Taskant n %(name)s"
