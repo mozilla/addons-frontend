@@ -2,16 +2,15 @@ import { createInternalAddon } from 'core/reducers/addons';
 import search, {
   abortSearch,
   initialState,
-  resetSearch,
   searchLoad,
   searchStart,
 } from 'core/reducers/search';
 import { fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  it('defaults to an set of filters', () => {
+  it('defaults to no filters', () => {
     const { filters } = search(undefined, { type: 'unrelated' });
-    expect(filters).toEqual({});
+    expect(filters).toEqual(null);
   });
 
   it('defaults to not loading', () => {
@@ -95,22 +94,6 @@ describe(__filename, () => {
       const { results } = getNextState();
 
       expect(results).toEqual(response.results.map(createInternalAddon));
-    });
-  });
-
-  describe('SEARCH_RESET', () => {
-    it('resets the state to its initial state', () => {
-      const state = search(
-        initialState,
-        searchStart({
-          errorHandlerId: 'foo',
-          filters: { query: 'foo' },
-        }),
-      );
-      expect(state).not.toEqual(initialState);
-
-      const newState = search(state, resetSearch());
-      expect(newState).toEqual(initialState);
     });
   });
 });

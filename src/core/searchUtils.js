@@ -114,15 +114,6 @@ export function convertOSToFilterValue(name) {
   return undefined;
 }
 
-export function hasSearchFilters(filters) {
-  const filtersSubset = { ...filters };
-  delete filtersSubset.clientApp;
-  delete filtersSubset.lang;
-  delete filtersSubset.page;
-  delete filtersSubset.page_size;
-  return filtersSubset && !!Object.keys(filtersSubset).length;
-}
-
 export const fixFiltersForAndroidThemes = ({ api, filters }) => {
   const newFilters = { ...filters };
 

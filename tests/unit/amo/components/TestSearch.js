@@ -22,7 +22,7 @@ import {
 } from 'core/constants';
 import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
 import { ErrorHandler } from 'core/errorHandler';
-import { resetSearch, searchStart } from 'core/reducers/search';
+import { searchStart } from 'core/reducers/search';
 import ErrorList from 'ui/components/ErrorList';
 import {
   createStubErrorHandler,
@@ -147,12 +147,18 @@ describe(__filename, () => {
     );
   });
 
-  it('dispatches a SEARCH_RESET when filters become empty', () => {
+  it('dispatches a search when filters become empty', () => {
     const root = render({ filters: { query: 'foo' } });
 
     root.setProps({ filters: {} });
 
-    sinon.assert.calledWith(props.dispatch, resetSearch());
+    sinon.assert.calledWith(
+      props.dispatch,
+      searchStart({
+        errorHandlerId: props.errorHandler.id,
+        filters: {},
+      }),
+    );
   });
 
   it('sets the viewContext to the addonType if addonType exists', () => {

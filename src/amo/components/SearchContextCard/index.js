@@ -196,7 +196,7 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
 
 export function mapStateToProps(state: AppState) {
   const { search } = state;
-  const { filters = {} } = search;
+  const { filters } = search;
 
   let currentCategory;
   let categoryName = null;
@@ -218,7 +218,11 @@ export function mapStateToProps(state: AppState) {
       const appTypes = categoriesState[clientApp];
 
       if (appTypes) {
-        if (filters.addonType && typeof filters.addonType === 'string') {
+        if (
+          filters &&
+          filters.addonType &&
+          typeof filters.addonType === 'string'
+        ) {
           // eslint-disable-next-line prefer-destructuring
           let addonType = filters.addonType;
           if (addonType === ADDON_TYPE_THEMES_FILTER) {
@@ -239,7 +243,7 @@ export function mapStateToProps(state: AppState) {
     hasCategory: !!currentCategory,
     categoryName,
     count: search.count || 0,
-    filters,
+    filters: filters || {},
     loadingSearch: search.loading,
   };
 }
