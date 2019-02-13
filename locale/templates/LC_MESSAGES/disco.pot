@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-29 20:07+0000\n"
+"POT-Creation-Date: 2019-02-13 22:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -158,15 +158,15 @@ msgstr ""
 msgid "Privacy Policy"
 msgstr ""
 
-#: src/disco/pages/DiscoPane/index.js:152
+#: src/disco/pages/DiscoPane/index.js:166
 msgid "Find more add-ons"
 msgstr ""
 
-#: src/disco/pages/DiscoPane/index.js:174
+#: src/disco/pages/DiscoPane/index.js:188
 msgid "Personalize Your Firefox"
 msgstr ""
 
-#: src/disco/pages/DiscoPane/index.js:176
+#: src/disco/pages/DiscoPane/index.js:190
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -175,11 +175,11 @@ msgid ""
 "their stand-out performance and functionality."
 msgstr ""
 
-#: src/disco/pages/DiscoPane/index.js:193
+#: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr ""
 
-#: src/disco/pages/DiscoPane/index.js:197
+#: src/disco/pages/DiscoPane/index.js:211
 msgid ""
 "Some of these recommendations are personalized. They are based on other "
 "extensions you've installed, profile preferences, and usage statistics."
@@ -201,6 +201,6 @@ msgstr ""
 msgid "Dismiss this notice"
 msgstr ""
 
-#: src/ui/components/ThemeImage/index.js:31
+#: src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr ""
