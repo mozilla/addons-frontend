@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-02-04 23:14+0000\n"
+"PO-Revision-Date: 2019-02-13 13:28+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1326,18 +1326,16 @@ msgid "Search results for \"%(query)s\""
 msgstr "Αποτελέσματα αναζήτησης για \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:100
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "Βρέθηκε %(count)s θέμα για \"%(query)s\""
-msgstr[1] "Βρέθηκαν %(count)s θέματα για \"%(query)s\""
+msgstr[0] "Βρέθηκε %(count)s θέμα για \"%(query)s\" στην κατηγορία %(categoryName)s"
+msgstr[1] "Βρέθηκαν %(count)s θέματα για \"%(query)s\" στην κατηγορία %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:109
-#, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "Βρέθηκε %(count)s θέμα για \"%(query)s\""
-msgstr[1] "Βρέθηκαν %(count)s θέματα για \"%(query)s\""
+msgstr[0] "Βρέθηκε %(count)s θέμα στην κατηγορία %(categoryName)s"
+msgstr[1] "Βρέθηκαν %(count)s θέματα στην κατηγορία %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:119
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1378,11 +1376,10 @@ msgstr[0] "Βρέθηκε %(count)s επέκταση για \"%(query)s\" στη
 msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις για \"%(query)s\" στην κατηγορία %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "Βρέθηκε %(count)s επέκταση για \"%(query)s\""
-msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις για \"%(query)s\""
+msgstr[0] "Βρέθηκε %(count)s επέκταση στην κατηγορία %(categoryName)s"
+msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις στην κατηγορία %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1935,6 +1932,8 @@ msgstr "Βελτίωση βίντεο"
 #: src/amo/pages/Guides/index.js:196
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
 msgstr ""
+"Αν απολαμβάνετε περιεχόμενο μορφής βίντεο, οι επεκτάσεις προσφέρουν πολλούς τρόπους για να βελτιστοποιήσετε την εμπειρία σας, όπως προσαρμογή του YouTube στα μέτρα σας και αναπαραγωγή βίντεο σε "
+"λειτουργία κινηματογράφου."
 
 #: src/amo/pages/Guides/index.js:201
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
@@ -2491,14 +2490,13 @@ msgid "Picture successfully deleted"
 msgstr "Επιτυχής διαγραφή εικόνας"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "Πείτε στους χρήστες λίγες ακόμη πληροφορίες σχετικά με εσάς. Αυτά τα πεδία είναι προαιρετικά, αλλά θα βοηθήσουν τους άλλους χρήστες να σάς γνωρίσουν καλύτερα."
+msgstr "Πείτε στους χρήστες λίγες ακόμη πληροφορίες σχετικά με εσάς. Τα περισσότερα πεδία είναι προαιρετικά, αλλά θα βοηθήσουν τους άλλους χρήστες να σάς γνωρίσουν καλύτερα."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Πείτε στους χρήστες λίγες ακόμη πληροφορίες σχετικά με αυτό το χρήστη. Αυτά τα πεδία είναι προαιρετικά, αλλά θα βοηθήσουν τους άλλους χρήστες να γνωρίσουν καλύτερα τον/την %(userName)s."
+msgstr ""
+"Πείτε στους χρήστες λίγες ακόμη πληροφορίες σχετικά με αυτό το χρήστη. Τα περισσότερα πεδία είναι προαιρετικά, αλλά θα βοηθήσουν τους άλλους χρήστες να γνωρίσουν καλύτερα τον/την %(userName)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
