@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-29 20:02+0000\n"
+"POT-Creation-Date: 2019-02-13 22:12+0000\n"
 "PO-Revision-Date: 2018-11-26 22:43+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -390,7 +390,7 @@ msgstr "Tiyuj"
 
 #: src/amo/components/AddonReviewCard/index.js:250
 #: src/amo/components/AddonReviewManager/index.js:147
-#: src/amo/components/CollectionManager/index.js:309
+#: src/amo/components/CollectionManager/index.js:313
 #: src/amo/pages/UserProfileEdit/index.js:852
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
@@ -736,24 +736,24 @@ msgstr "Taq tz'aqat"
 msgid "Creator"
 msgstr "Q'inonel"
 
-#: src/amo/components/CollectionManager/index.js:234
+#: src/amo/components/CollectionManager/index.js:237
 #, fuzzy
 msgid "Create collection"
 msgstr "Titz'uk k'ak'a' mol"
 
-#: src/amo/components/CollectionManager/index.js:235
+#: src/amo/components/CollectionManager/index.js:238
 msgid "Save changes"
 msgstr "Keyak taq jaloj"
 
-#: src/amo/components/CollectionManager/index.js:244
+#: src/amo/components/CollectionManager/index.js:247
 msgid "Collection name"
 msgstr "Rub'i' mol"
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:261
 msgid "Description"
 msgstr "Tzijoxkil"
 
-#: src/amo/components/CollectionManager/index.js:270
+#: src/amo/components/CollectionManager/index.js:273
 msgid "Custom URL"
 msgstr "Ichinan URL"
 
@@ -998,12 +998,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Ya'on retal achi'el jun rutzijol sachoj o ruk'utuxik to'ïk"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Xya' retal"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Tiya' retal"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Xya' retal"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1501,12 +1501,12 @@ msgid "Search results"
 msgstr "Kiq'i'oj kanoxïk"
 
 #: src/amo/components/Search/index.js:125 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:308 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:307 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Talun taq k'amal"
 
 #: src/amo/components/Search/index.js:128 src/amo/pages/Category/index.js:170
-#: src/amo/pages/Home/index.js:335 src/amo/pages/LandingPage/index.js:161
+#: src/amo/pages/Home/index.js:334 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
 msgstr "Talun wachinel"
 
@@ -1515,7 +1515,7 @@ msgid "Featured add-ons"
 msgstr "Talun taq tz'aqat"
 
 #: src/amo/components/Search/index.js:138 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:368 src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr "Taq k'amal k'ïy kiwinaq"
 
@@ -1546,7 +1546,7 @@ msgstr "Taq tz'aqat ya'on kiq'ij"
 msgid "Popular extensions"
 msgstr "K'ïy kiwinaq taq k'amal"
 
-#: src/amo/components/Search/index.js:165 src/amo/pages/Home/index.js:345
+#: src/amo/components/Search/index.js:165
 msgid "Popular themes"
 msgstr "Taq wachinïk k'ïy kiwinaq"
 
@@ -1560,74 +1560,88 @@ msgstr "Kekanöx taq ruq'i'oj \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:100
 #, fuzzy
+msgid "%(count)s Search Tool found for \"%(query)s\""
+msgid_plural "%(count)s Search Tools found for \"%(query)s\""
+msgstr[0] "%(count)s q'i'oj xilitäj richin \"%(query)s\""
+msgstr[1] "%(count)s taq q'i'oj xe'ilitäj richin \"%(query)s\""
+
+#: src/amo/components/SearchContextCard/index.js:109
+#, fuzzy
+msgid "%(count)s Search Tool found"
+msgid_plural "%(count)s Search Tools found"
+msgstr[0] "%(count)s q'i'oj richin \"%(query)s\""
+msgstr[1] "%(count)s taq q'i'oj richin \"%(query)s\""
+
+#: src/amo/components/SearchContextCard/index.js:122
+#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "%(count)s wachinïk xilitäj richin \"%(query)s\""
 msgstr[1] "%(count)s taq wachinïk xe'ilitäj richin \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:109
+#: src/amo/components/SearchContextCard/index.js:131
 #, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
 msgstr[0] "%(count)s wachinïk xilitäj richin \"%(query)s\""
 msgstr[1] "%(count)s taq wachinïk xe'ilitäj richin \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:119
+#: src/amo/components/SearchContextCard/index.js:141
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "%(count)s wachinïk xilitäj richin \"%(query)s\""
 msgstr[1] "%(count)s taq wachinïk xe'ilitäj richin \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:128
+#: src/amo/components/SearchContextCard/index.js:150
 #, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
 msgstr[0] "%(count)s tz'aqat xilitäj"
 msgstr[1] "%(count)s taq tz'aqat xe'ilitäj"
 
-#: src/amo/components/SearchContextCard/index.js:140
+#: src/amo/components/SearchContextCard/index.js:162
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "%(count)s q'i'oj xilitäj richin \"%(query)s\""
 msgstr[1] "%(count)s taq q'i'oj xe'ilitäj richin \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:149
+#: src/amo/components/SearchContextCard/index.js:171
 #, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
 msgstr[0] "%(count)s q'i'oj richin \"%(query)s\""
 msgstr[1] "%(count)s taq q'i'oj richin \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:160
+#: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
 msgstr "Nikanöx richin \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:164
+#: src/amo/components/SearchContextCard/index.js:186
 #, fuzzy
 msgid "Searching for add-ons"
 msgstr "Yesamajib'ëx ri taq tz'aqat"
 
-#: src/amo/components/SearchContextCard/index.js:59
+#: src/amo/components/SearchContextCard/index.js:60
 #, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "%(count)s k'amal xilitäj richin \"%(query)s\""
 msgstr[1] "%(count)s taq k'amal xe'ilitäj richin \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:68
+#: src/amo/components/SearchContextCard/index.js:69
 #, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
 msgstr[0] "%(count)s k'amal xilitäj richin \"%(query)s\""
 msgstr[1] "%(count)s taq k'amal xe'ilitäj richin \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:78
+#: src/amo/components/SearchContextCard/index.js:79
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
 msgstr[0] "%(count)s k'amal xilitäj richin \"%(query)s\""
 msgstr[1] "%(count)s taq k'amal xe'ilitäj richin \"%(query)s\""
 
-#: src/amo/components/SearchContextCard/index.js:87
+#: src/amo/components/SearchContextCard/index.js:88
 #, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
@@ -1717,16 +1731,16 @@ msgstr "Kitz'aqat Android"
 msgid "Go to the add-on page"
 msgstr "Tib'e pa ruxaq tz'aqat"
 
-#: src/amo/components/SearchResult/index.js:121
+#: src/amo/components/SearchResult/index.js:118
 msgid "No theme preview available"
 msgstr "Majun nab'ey rutzub'al wachinïk okel"
 
-#: src/amo/components/SearchResult/index.js:149
+#: src/amo/components/SearchResult/index.js:146
 #, fuzzy
 msgid "Add-on note"
 msgstr "Ruwachib'al tz'aqat"
 
-#: src/amo/components/SearchResult/index.js:167
+#: src/amo/components/SearchResult/index.js:165
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s okisanel"
@@ -1838,18 +1852,10 @@ msgid "my add-on is reviewed by a reviewer"
 msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:32
-msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
-
-#: src/amo/components/UserProfileEditNotifications/index.js:34
-msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
-
-#: src/amo/components/UserProfileEditNotifications/index.js:36
 msgid "my add-on's compatibility cannot be upgraded"
 msgstr ""
 
-#: src/amo/components/UserProfileEditNotifications/index.js:38
+#: src/amo/components/UserProfileEditNotifications/index.js:34
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 
@@ -1876,7 +1882,7 @@ msgstr "Titz'et Ruwäch B'i'aj"
 msgid "Choose Photo…"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr ""
 
@@ -1955,54 +1961,54 @@ msgstr "Taq Rutzij Ya'oj Q'ij kichin ri Ruk'isib'äl okisanel"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Kitzijoxikil %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:191
+#: src/amo/pages/AddonReviewList/index.js:196
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:223
+#: src/amo/pages/AddonReviewList/index.js:228
 #, fuzzy
 msgid "Show all reviews"
 msgstr "Taq tzijoxïk"
 
-#: src/amo/pages/AddonReviewList/index.js:225
+#: src/amo/pages/AddonReviewList/index.js:230
 #, fuzzy
 msgid "Show only five-star reviews"
 msgstr "Tisik'ïx %(count)s nik'oxïk"
 
-#: src/amo/pages/AddonReviewList/index.js:226
+#: src/amo/pages/AddonReviewList/index.js:231
 #, fuzzy
 msgid "Show only four-star reviews"
 msgstr "Tisik'ïx %(count)s nik'oxïk"
 
-#: src/amo/pages/AddonReviewList/index.js:228
+#: src/amo/pages/AddonReviewList/index.js:233
 #, fuzzy
 msgid "Show only three-star reviews"
 msgstr "Tisik'ïx %(count)s nik'oxïk"
 
-#: src/amo/pages/AddonReviewList/index.js:230
+#: src/amo/pages/AddonReviewList/index.js:235
 #, fuzzy
 msgid "Show only two-star reviews"
 msgstr "Titzolïx tzij chi re ri tzijoxïk"
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:236
 #, fuzzy
 msgid "Show only one-star reviews"
 msgstr "Tisik'ïx %(count)s nik'oxïk"
 
-#: src/amo/pages/AddonReviewList/index.js:271
+#: src/amo/pages/AddonReviewList/index.js:276
 msgid "Reviews for %(addonName)s"
 msgstr "Kitzijoxikil %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:281
+#: src/amo/pages/AddonReviewList/index.js:286
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s okisanel"
 msgstr[1] "%(total)s okisanela'"
 
-#: src/amo/pages/AddonReviewList/index.js:378
+#: src/amo/pages/AddonReviewList/index.js:383
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Tatz'ib'aj jun tzijoxïk"
@@ -2043,12 +2049,12 @@ msgstr "Ketz'et ronojel ri taq k'amal pa re ruwäch re'."
 msgid "All theme categories"
 msgstr "Kenik'öx ronojel ri taq ruwäch"
 
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:309
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:308
 #: src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
 msgstr "Ketz'et ch'aqa' chik talun taq k'amal"
 
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:369
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:350
 #: src/amo/pages/LandingPage/index.js:149
 msgid "See more trending extensions"
 msgstr "Ketz'et ch'aqa' chik k'ïy kiwinaq taq k'amal"
@@ -2057,7 +2063,7 @@ msgstr "Ketz'et ch'aqa' chik k'ïy kiwinaq taq k'amal"
 msgid "See more top rated extensions"
 msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
 
-#: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:325
+#: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:324
 #: src/amo/pages/LandingPage/index.js:169
 msgid "See more featured themes"
 msgstr "Ketz'et ch'aqa' chik talun taq wachinel"
@@ -2361,101 +2367,95 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:134
+#: src/amo/pages/Home/index.js:133
 msgid "Bookmarks"
 msgstr "Taq yaketal"
 
-#: src/amo/pages/Home/index.js:138
+#: src/amo/pages/Home/index.js:137
 msgid "Password managers"
 msgstr "Kinuk'samajel ewan tzij"
 
-#: src/amo/pages/Home/index.js:142
+#: src/amo/pages/Home/index.js:141
 msgid "Ad blockers"
 msgstr "Kiq'atonela' eletzijob'äl"
 
-#: src/amo/pages/Home/index.js:146
+#: src/amo/pages/Home/index.js:145
 msgid "Smarter Shopping"
 msgstr "Na'owinäq taq loq'oj"
 
-#: src/amo/pages/Home/index.js:150
+#: src/amo/pages/Home/index.js:149
 msgid "Productivity"
 msgstr "Ruwa k'ay"
 
-#: src/amo/pages/Home/index.js:154
+#: src/amo/pages/Home/index.js:153
 msgid "Watching Videos"
 msgstr "Ketz'et Silowäch"
 
-#: src/amo/pages/Home/index.js:182
+#: src/amo/pages/Home/index.js:181
 msgid "Abstract"
 msgstr "Ch'utinisan Na'oj"
 
-#: src/amo/pages/Home/index.js:187
+#: src/amo/pages/Home/index.js:186
 msgid "Nature"
 msgstr "Ruwach'ulew"
 
-#: src/amo/pages/Home/index.js:192
+#: src/amo/pages/Home/index.js:191
 msgid "Film & TV"
 msgstr "Silowachil & TV"
 
-#: src/amo/pages/Home/index.js:197
+#: src/amo/pages/Home/index.js:196
 msgid "Scenery"
 msgstr "Wachaj"
 
-#: src/amo/pages/Home/index.js:202
+#: src/amo/pages/Home/index.js:201
 msgid "Music"
 msgstr "Q'ojom"
 
-#: src/amo/pages/Home/index.js:207
+#: src/amo/pages/Home/index.js:206
 msgid "Seasonal"
 msgstr "Kajtz'ukalil"
 
 # The ending ellipsis alludes to a row of icons for each type
-#: src/amo/pages/Home/index.js:239
+#: src/amo/pages/Home/index.js:238
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "Tawichinaj rusamaj Firefox kik'in k'amal. La ütz natz'ët…"
 
-#: src/amo/pages/Home/index.js:241
+#: src/amo/pages/Home/index.js:240
 msgid "Change the way Firefox looks with themes."
 msgstr "Tijal ri ruwäch Firefox kik'in wachinel."
 
-#: src/amo/pages/Home/index.js:274
+#: src/amo/pages/Home/index.js:273
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:346
+#: src/amo/pages/Home/index.js:54
 #, fuzzy
-msgid "See more popular themes"
-msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
+msgid "See more tools"
+msgstr "Kisamajib'al ichinanem"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
-msgid "See more YouTube boosters"
-msgstr "Ketz'et ch'aqa' chik kajtijonela' Wikipedia"
+msgid "Note-taking & time management tools"
+msgstr ""
 
-#: src/amo/pages/Home/index.js:56
+#: src/amo/pages/Home/index.js:60
 #, fuzzy
-msgid "YouTube boosters"
-msgstr "Rajtijonela' Wikipedia"
+msgid "See more feed readers"
+msgstr "Ketz'et ch'aqa' chik talun taq wachinel"
 
 #: src/amo/pages/Home/index.js:61
+msgid "Feed readers"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:66
 #, fuzzy
 msgid "See more health & wellness extensions"
 msgstr "Ketz'et ch'aqa' chik talun taq k'amal"
 
-#: src/amo/pages/Home/index.js:62
-msgid "Health & Wellness"
-msgstr ""
-
 #: src/amo/pages/Home/index.js:67
-#, fuzzy
-msgid "See more productivity extensions"
-msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
-
-#: src/amo/pages/Home/index.js:68
-msgid "Be more productive"
+msgid "Health & Wellness"
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205
@@ -3381,24 +3381,24 @@ msgstr "Katok pa taq atzij richin %(param)s"
 msgid "Dismiss this notice"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:104
+#: src/ui/components/Rating/index.js:100
+#, fuzzy
+msgid "Update your rating to %(starRating)s out of 5"
+msgstr "Rejqalem %(rating)s richin 5"
+
+#: src/ui/components/Rating/index.js:106
 #, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "Rejqalem %(rating)s richin 5"
 
-#: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
+#: src/ui/components/Rating/index.js:83 src/ui/components/Rating/index.js:94
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "Rejqalem %(rating)s richin 5"
 
-#: src/ui/components/Rating/index.js:85
+#: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
 msgstr ""
-
-#: src/ui/components/Rating/index.js:98
-#, fuzzy
-msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Rejqalem %(rating)s richin 5"
 
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
@@ -3416,6 +3416,22 @@ msgstr[1] "%(count)s taq tz'aqat xe'ilitäj"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Tzolin rutzij b'anonel"
+
+#, fuzzy
+#~ msgid "See more popular themes"
+#~ msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
+
+#, fuzzy
+#~ msgid "See more YouTube boosters"
+#~ msgstr "Ketz'et ch'aqa' chik kajtijonela' Wikipedia"
+
+#, fuzzy
+#~ msgid "YouTube boosters"
+#~ msgstr "Rajtijonela' Wikipedia"
+
+#, fuzzy
+#~ msgid "See more productivity extensions"
+#~ msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
 
 #~ msgid "Highly customizable text highlighter"
 #~ msgstr "Ruya'ik retal tz'ib'anïk yalan nib'an runuk'ulem"
@@ -3640,9 +3656,6 @@ msgstr "Tzolin rutzij b'anonel"
 
 #~ msgid "Review text"
 #~ msgstr "Cholan rutzij tzijoxïk"
-
-#~ msgid "See more parental controls"
-#~ msgstr "Kisamajib'al ichinanem"
 
 #~ msgid "%(addonName)s – Get this Search Tool for 🦊 Android (%(locale)s)"
 #~ msgstr "%s – Kitz'aqat Firefox"

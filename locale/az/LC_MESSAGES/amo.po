@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-29 20:02+0000\n"
+"POT-Creation-Date: 2019-02-13 22:12+0000\n"
 "PO-Revision-Date: 2018-10-31 16:33+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -375,7 +375,7 @@ msgstr "Sil"
 
 #: src/amo/components/AddonReviewCard/index.js:250
 #: src/amo/components/AddonReviewManager/index.js:147
-#: src/amo/components/CollectionManager/index.js:309
+#: src/amo/components/CollectionManager/index.js:313
 #: src/amo/pages/UserProfileEdit/index.js:852
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
@@ -689,23 +689,23 @@ msgstr "Əlavələr"
 msgid "Creator"
 msgstr "Yaradan"
 
-#: src/amo/components/CollectionManager/index.js:234
+#: src/amo/components/CollectionManager/index.js:237
 msgid "Create collection"
 msgstr "Kolleksiya yarat"
 
-#: src/amo/components/CollectionManager/index.js:235
+#: src/amo/components/CollectionManager/index.js:238
 msgid "Save changes"
 msgstr "Dəyişiklikləri yadda saxla"
 
-#: src/amo/components/CollectionManager/index.js:244
+#: src/amo/components/CollectionManager/index.js:247
 msgid "Collection name"
 msgstr "Kolleksiya adı"
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:261
 msgid "Description"
 msgstr "Açıqlama"
 
-#: src/amo/components/CollectionManager/index.js:270
+#: src/amo/components/CollectionManager/index.js:273
 msgid "Custom URL"
 msgstr "Fərdi Ünvan"
 
@@ -916,12 +916,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Xəta hesabatı və ya dəstək istəyi olaraq işarələnib"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "İşarələndi"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "İşarələ"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "İşarələndi"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1390,12 +1390,12 @@ msgid "Search results"
 msgstr "Axtarış nəticələri"
 
 #: src/amo/components/Search/index.js:125 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:308 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:307 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Seçilmiş uzantılar"
 
 #: src/amo/components/Search/index.js:128 src/amo/pages/Category/index.js:170
-#: src/amo/pages/Home/index.js:335 src/amo/pages/LandingPage/index.js:161
+#: src/amo/pages/Home/index.js:334 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
 msgstr "Seçilmiş mövzular"
 
@@ -1404,7 +1404,7 @@ msgid "Featured add-ons"
 msgstr "Seçilmiş əlavələr"
 
 #: src/amo/components/Search/index.js:138 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:368 src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr "Trenddəki uzantılar"
 
@@ -1435,7 +1435,7 @@ msgstr "Ən çox qiymətləndirilən əlavələr"
 msgid "Popular extensions"
 msgstr "Məşhur uzantılar"
 
-#: src/amo/components/Search/index.js:165 src/amo/pages/Home/index.js:345
+#: src/amo/components/Search/index.js:165
 msgid "Popular themes"
 msgstr "Məşhur mövzular"
 
@@ -1449,74 +1449,88 @@ msgstr "\"%(query)s\" üçün axtarış nəticələri"
 
 #: src/amo/components/SearchContextCard/index.js:100
 #, fuzzy
+msgid "%(count)s Search Tool found for \"%(query)s\""
+msgid_plural "%(count)s Search Tools found for \"%(query)s\""
+msgstr[0] "\"%(query)s\" üçün %(count)s axtarış nəticəsi tapıldı"
+msgstr[1] "\"%(query)s\" üçün %(count)s axtarış nəticəsi tapıldı"
+
+#: src/amo/components/SearchContextCard/index.js:109
+#, fuzzy
+msgid "%(count)s Search Tool found"
+msgid_plural "%(count)s Search Tools found"
+msgstr[0] "\"%(query)s\" üçün %(count)s axtarış nəticəsi"
+msgstr[1] "\"%(query)s\" üçün %(count)s axtarış nəticəsi"
+
+#: src/amo/components/SearchContextCard/index.js:122
+#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "\"%(query)s\" üçün %(count)s mövzu tapıldı"
 msgstr[1] "\"%(query)s\" üçün %(count)s mövzu tapıldı"
 
-#: src/amo/components/SearchContextCard/index.js:109
+#: src/amo/components/SearchContextCard/index.js:131
 #, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
 msgstr[0] "\"%(query)s\" üçün %(count)s mövzu tapıldı"
 msgstr[1] "\"%(query)s\" üçün %(count)s mövzu tapıldı"
 
-#: src/amo/components/SearchContextCard/index.js:119
+#: src/amo/components/SearchContextCard/index.js:141
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "\"%(query)s\" üçün %(count)s mövzu tapıldı"
 msgstr[1] "\"%(query)s\" üçün %(count)s mövzu tapıldı"
 
-#: src/amo/components/SearchContextCard/index.js:128
+#: src/amo/components/SearchContextCard/index.js:150
 #, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
 msgstr[0] "%(count)s əlavə tapıldı"
 msgstr[1] "%(count)s əlavə tapıldı"
 
-#: src/amo/components/SearchContextCard/index.js:140
+#: src/amo/components/SearchContextCard/index.js:162
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "\"%(query)s\" üçün %(count)s axtarış nəticəsi tapıldı"
 msgstr[1] "\"%(query)s\" üçün %(count)s axtarış nəticəsi tapıldı"
 
-#: src/amo/components/SearchContextCard/index.js:149
+#: src/amo/components/SearchContextCard/index.js:171
 #, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
 msgstr[0] "\"%(query)s\" üçün %(count)s axtarış nəticəsi"
 msgstr[1] "\"%(query)s\" üçün %(count)s axtarış nəticəsi"
 
-#: src/amo/components/SearchContextCard/index.js:160
+#: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
 msgstr "\"%(query)s\" axtarılır"
 
-#: src/amo/components/SearchContextCard/index.js:164
+#: src/amo/components/SearchContextCard/index.js:186
 #, fuzzy
 msgid "Searching for add-ons"
 msgstr "Əlavələr yüklənir"
 
-#: src/amo/components/SearchContextCard/index.js:59
+#: src/amo/components/SearchContextCard/index.js:60
 #, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "\"%(query)s\" üçün %(count)s uzantı tapıldı"
 msgstr[1] "\"%(query)s\" üçün %(count)s uzantı tapıldı"
 
-#: src/amo/components/SearchContextCard/index.js:68
+#: src/amo/components/SearchContextCard/index.js:69
 #, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
 msgstr[0] "\"%(query)s\" üçün %(count)s uzantı tapıldı"
 msgstr[1] "\"%(query)s\" üçün %(count)s uzantı tapıldı"
 
-#: src/amo/components/SearchContextCard/index.js:78
+#: src/amo/components/SearchContextCard/index.js:79
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
 msgstr[0] "\"%(query)s\" üçün %(count)s uzantı tapıldı"
 msgstr[1] "\"%(query)s\" üçün %(count)s uzantı tapıldı"
 
-#: src/amo/components/SearchContextCard/index.js:87
+#: src/amo/components/SearchContextCard/index.js:88
 #, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
@@ -1606,15 +1620,15 @@ msgstr "Android üçün Əlavələr (%(locale)s)"
 msgid "Go to the add-on page"
 msgstr "Əlavə səhifəsinə get"
 
-#: src/amo/components/SearchResult/index.js:121
+#: src/amo/components/SearchResult/index.js:118
 msgid "No theme preview available"
 msgstr "Mövzu ön baxışı yoxdur"
 
-#: src/amo/components/SearchResult/index.js:149
+#: src/amo/components/SearchResult/index.js:146
 msgid "Add-on note"
 msgstr "Əlavə qeydi"
 
-#: src/amo/components/SearchResult/index.js:167
+#: src/amo/components/SearchResult/index.js:165
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s istifadəçi"
@@ -1726,18 +1740,10 @@ msgid "my add-on is reviewed by a reviewer"
 msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:32
-msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
-
-#: src/amo/components/UserProfileEditNotifications/index.js:34
-msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
-
-#: src/amo/components/UserProfileEditNotifications/index.js:36
 msgid "my add-on's compatibility cannot be upgraded"
 msgstr ""
 
-#: src/amo/components/UserProfileEditNotifications/index.js:38
+#: src/amo/components/UserProfileEditNotifications/index.js:34
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 
@@ -1761,7 +1767,7 @@ msgstr "Profil şəkli"
 msgid "Choose Photo…"
 msgstr "Şəkil seç…"
 
-#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr "%(title)s ön görünüşü"
 
@@ -1842,54 +1848,54 @@ msgstr "Son İstifadəçi Lisenziya Razılaşması"
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s üçün rəylər"
 
-#: src/amo/pages/AddonReviewList/index.js:191
+#: src/amo/pages/AddonReviewList/index.js:196
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:223
+#: src/amo/pages/AddonReviewList/index.js:228
 #, fuzzy
 msgid "Show all reviews"
 msgstr "Mənim rəylərim"
 
-#: src/amo/pages/AddonReviewList/index.js:225
+#: src/amo/pages/AddonReviewList/index.js:230
 #, fuzzy
 msgid "Show only five-star reviews"
 msgstr "%(count)s rəyi oxu"
 
-#: src/amo/pages/AddonReviewList/index.js:226
+#: src/amo/pages/AddonReviewList/index.js:231
 #, fuzzy
 msgid "Show only four-star reviews"
 msgstr "%(count)s rəyi oxu"
 
-#: src/amo/pages/AddonReviewList/index.js:228
+#: src/amo/pages/AddonReviewList/index.js:233
 #, fuzzy
 msgid "Show only three-star reviews"
 msgstr "%(count)s rəyi oxu"
 
-#: src/amo/pages/AddonReviewList/index.js:230
+#: src/amo/pages/AddonReviewList/index.js:235
 #, fuzzy
 msgid "Show only two-star reviews"
 msgstr "Bu rəyi cavabla"
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:236
 #, fuzzy
 msgid "Show only one-star reviews"
 msgstr "%(count)s rəyi oxu"
 
-#: src/amo/pages/AddonReviewList/index.js:271
+#: src/amo/pages/AddonReviewList/index.js:276
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s üçün rəylər"
 
-#: src/amo/pages/AddonReviewList/index.js:281
+#: src/amo/pages/AddonReviewList/index.js:286
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s Ulduz"
 msgstr[1] "%(total)s Ulduz"
 
-#: src/amo/pages/AddonReviewList/index.js:378
+#: src/amo/pages/AddonReviewList/index.js:383
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Hələlik bal yoxdur"
@@ -1930,12 +1936,12 @@ msgstr "Bu kateqoriyadakı bütün uzantılara bax."
 msgid "All theme categories"
 msgstr "Bütün kateqoriyaları kəşf et"
 
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:309
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:308
 #: src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
 msgstr "Daha çox seçilmiş uzantı gör"
 
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:369
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:350
 #: src/amo/pages/LandingPage/index.js:149
 msgid "See more trending extensions"
 msgstr "Daha çox trenddəki uzantı gör"
@@ -1944,7 +1950,7 @@ msgstr "Daha çox trenddəki uzantı gör"
 msgid "See more top rated extensions"
 msgstr "Daha çox yüksək qiymətləndirilmiş uzantı gör"
 
-#: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:325
+#: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:324
 #: src/amo/pages/LandingPage/index.js:169
 msgid "See more featured themes"
 msgstr "Daha çox seçilmiş mövzu gör"
@@ -2239,102 +2245,96 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:134
+#: src/amo/pages/Home/index.js:133
 msgid "Bookmarks"
 msgstr "Əlfəcinlər"
 
-#: src/amo/pages/Home/index.js:138
+#: src/amo/pages/Home/index.js:137
 msgid "Password managers"
 msgstr "Parol idarəçiləri"
 
-#: src/amo/pages/Home/index.js:142
+#: src/amo/pages/Home/index.js:141
 msgid "Ad blockers"
 msgstr "Reklam əngəlləyiciləri"
 
-#: src/amo/pages/Home/index.js:146
+#: src/amo/pages/Home/index.js:145
 msgid "Smarter Shopping"
 msgstr "Ağıllı alış-veriş"
 
-#: src/amo/pages/Home/index.js:150
+#: src/amo/pages/Home/index.js:149
 msgid "Productivity"
 msgstr "Məhsuldarlıq"
 
-#: src/amo/pages/Home/index.js:154
+#: src/amo/pages/Home/index.js:153
 msgid "Watching Videos"
 msgstr "Videolara baxma"
 
-#: src/amo/pages/Home/index.js:182
+#: src/amo/pages/Home/index.js:181
 msgid "Abstract"
 msgstr "Mücərrəd"
 
-#: src/amo/pages/Home/index.js:187
+#: src/amo/pages/Home/index.js:186
 msgid "Nature"
 msgstr "Təbiət"
 
-#: src/amo/pages/Home/index.js:192
+#: src/amo/pages/Home/index.js:191
 msgid "Film & TV"
 msgstr "Kino və TV"
 
-#: src/amo/pages/Home/index.js:197
+#: src/amo/pages/Home/index.js:196
 msgid "Scenery"
 msgstr "Mənzərə"
 
-#: src/amo/pages/Home/index.js:202
+#: src/amo/pages/Home/index.js:201
 msgid "Music"
 msgstr "Musiqi"
 
-#: src/amo/pages/Home/index.js:207
+#: src/amo/pages/Home/index.js:206
 msgid "Seasonal"
 msgstr "Fəsillik"
 
 # The ending ellipsis alludes to a row of icons for each type
-#: src/amo/pages/Home/index.js:239
+#: src/amo/pages/Home/index.js:238
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 "Firefox-un necə işlədiyini uzantılarla fərdiləşdirin. Hansı sizə maraqlıdır?"
 
-#: src/amo/pages/Home/index.js:241
+#: src/amo/pages/Home/index.js:240
 msgid "Change the way Firefox looks with themes."
 msgstr "Firefox-un necə göründüyünü mövzularla dəyişdirin."
 
-#: src/amo/pages/Home/index.js:274
+#: src/amo/pages/Home/index.js:273
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:346
+#: src/amo/pages/Home/index.js:54
 #, fuzzy
-msgid "See more popular themes"
-msgstr "Daha çox məşhur uzantıları gör"
+msgid "See more tools"
+msgstr "Daha çox valideyn idarəsi alətlərini gör"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
-msgid "See more YouTube boosters"
-msgstr "Daha çox dinamik endirənlər gör"
+msgid "Note-taking & time management tools"
+msgstr ""
 
-#: src/amo/pages/Home/index.js:56
+#: src/amo/pages/Home/index.js:60
 #, fuzzy
-msgid "YouTube boosters"
-msgstr "YouTube sürətləndiriciləri"
+msgid "See more feed readers"
+msgstr "Daha çox seçilmiş mövzu gör"
 
 #: src/amo/pages/Home/index.js:61
+msgid "Feed readers"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:66
 #, fuzzy
 msgid "See more health & wellness extensions"
 msgstr "Daha çox seçilmiş uzantı gör"
 
-#: src/amo/pages/Home/index.js:62
-msgid "Health & Wellness"
-msgstr ""
-
 #: src/amo/pages/Home/index.js:67
-#, fuzzy
-msgid "See more productivity extensions"
-msgstr "Daha çox məşhur uzantıları gör"
-
-#: src/amo/pages/Home/index.js:68
-msgid "Be more productive"
+msgid "Health & Wellness"
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205
@@ -3153,21 +3153,21 @@ msgstr ""
 msgid "Dismiss this notice"
 msgstr "Bu bildirişi qapat"
 
-#: src/ui/components/Rating/index.js:104
+#: src/ui/components/Rating/index.js:100
+msgid "Update your rating to %(starRating)s out of 5"
+msgstr "Qiymətinizi 5 üstündən %(starRating)s olaraq yenilə"
+
+#: src/ui/components/Rating/index.js:106
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "Bu əlavəyə 5 üstündən %(starRating)s qiymət ver"
 
-#: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
+#: src/ui/components/Rating/index.js:83 src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
 msgstr "5 üstündən %(rating)s bal"
 
-#: src/ui/components/Rating/index.js:85
+#: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
 msgstr "Hələlik bal yoxdur"
-
-#: src/ui/components/Rating/index.js:98
-msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Qiymətinizi 5 üstündən %(starRating)s olaraq yenilə"
 
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
@@ -3182,6 +3182,22 @@ msgstr[1] "%(total)s əlavə"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Tərtibatçı cavabı"
+
+#, fuzzy
+#~ msgid "See more popular themes"
+#~ msgstr "Daha çox məşhur uzantıları gör"
+
+#, fuzzy
+#~ msgid "See more YouTube boosters"
+#~ msgstr "Daha çox dinamik endirənlər gör"
+
+#, fuzzy
+#~ msgid "YouTube boosters"
+#~ msgstr "YouTube sürətləndiriciləri"
+
+#, fuzzy
+#~ msgid "See more productivity extensions"
+#~ msgstr "Daha çox məşhur uzantıları gör"
 
 #~ msgid "Context Search"
 #~ msgstr "Context Search"
@@ -3395,9 +3411,6 @@ msgstr "Tərtibatçı cavabı"
 
 #~ msgid "Review text"
 #~ msgstr "Rəy mətni"
-
-#~ msgid "See more parental controls"
-#~ msgstr "Daha çox valideyn idarəsi alətlərini gör"
 
 #~ msgid "%(addonName)s – Get this Extension for 🦊 Android (%(locale)s)"
 #~ msgstr "%(addonName)s – Bu Uzantını 🦊 Android üçün əldə edin (%(locale)s)"
