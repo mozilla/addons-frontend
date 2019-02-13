@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-01-29 20:02+0000\n"
-"PO-Revision-Date: 2019-02-13 13:28+0000\n"
+"PO-Revision-Date: 2019-02-13 13:34+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1938,6 +1938,8 @@ msgstr ""
 #: src/amo/pages/Guides/index.js:201
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
 msgstr ""
+"Προσθέστε μια γραμμή ελέγχου σε όλες τις σελίδες βίντεο του YouTube έτσι, ώστε να προσαρμόζετε εύκολα την ένταση, την ταχύτητα αναπαραγωγής, το μέγεθος του προγράμματος αναπαραγωγής βίντεο, τις "
+"διαφημίσεις και τη φραγή σχολιασμών, μεταξύ πολλών άλλων λειτουργιών."
 
 #: src/amo/pages/Guides/index.js:206
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
