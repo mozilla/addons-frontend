@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-29 20:07+0000\n"
+"POT-Creation-Date: 2019-02-13 22:17+0000\n"
 "PO-Revision-Date: 2018-12-14 06:11+0000\n"
 "Last-Translator: Nabeela Qadir <nabeelaqadir8@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -163,16 +163,16 @@ msgstr "اظافہ جات دریافت کریں"
 msgid "Privacy Policy"
 msgstr "رازداری پالیسی"
 
-#: src/disco/pages/DiscoPane/index.js:152
+#: src/disco/pages/DiscoPane/index.js:166
 #, fuzzy
 msgid "Find more add-ons"
 msgstr "ایڈ-اون کے متعلق مزید جاننے کے لیئے"
 
-#: src/disco/pages/DiscoPane/index.js:174
+#: src/disco/pages/DiscoPane/index.js:188
 msgid "Personalize Your Firefox"
 msgstr "اپنے Firefox کو ذاتی بنایں"
 
-#: src/disco/pages/DiscoPane/index.js:176
+#: src/disco/pages/DiscoPane/index.js:190
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -181,11 +181,11 @@ msgid ""
 "their stand-out performance and functionality."
 msgstr ""
 
-#: src/disco/pages/DiscoPane/index.js:193
+#: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr ""
 
-#: src/disco/pages/DiscoPane/index.js:197
+#: src/disco/pages/DiscoPane/index.js:211
 msgid ""
 "Some of these recommendations are personalized. They are based on other "
 "extensions you've installed, profile preferences, and usage statistics."
@@ -207,7 +207,7 @@ msgstr "جاری رکھنے کے لیئے پھر لوڈ کریں"
 msgid "Dismiss this notice"
 msgstr "اس نوٹس کو مسترد کریں"
 
-#: src/ui/components/ThemeImage/index.js:31
+#: src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr ""
 
