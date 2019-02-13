@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-29 20:02+0000\n"
+"POT-Creation-Date: 2019-02-13 22:12+0000\n"
 "PO-Revision-Date: 2018-12-14 06:04+0000\n"
 "Last-Translator: Nabeela Qadir <nabeelaqadir8@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -371,7 +371,7 @@ msgstr "حذف کریں"
 
 #: src/amo/components/AddonReviewCard/index.js:250
 #: src/amo/components/AddonReviewManager/index.js:147
-#: src/amo/components/CollectionManager/index.js:309
+#: src/amo/components/CollectionManager/index.js:313
 #: src/amo/pages/UserProfileEdit/index.js:852
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
@@ -709,24 +709,24 @@ msgstr "ایڈ-اون"
 msgid "Creator"
 msgstr "تخلیق کار"
 
-#: src/amo/components/CollectionManager/index.js:234
+#: src/amo/components/CollectionManager/index.js:237
 #, fuzzy
 msgid "Create collection"
 msgstr "تمام توسیعات براؤز کریں"
 
-#: src/amo/components/CollectionManager/index.js:235
+#: src/amo/components/CollectionManager/index.js:238
 msgid "Save changes"
 msgstr "تبدیلیاں محفوظ کریں"
 
-#: src/amo/components/CollectionManager/index.js:244
+#: src/amo/components/CollectionManager/index.js:247
 msgid "Collection name"
 msgstr "مجموعہ کا نام"
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:261
 msgid "Description"
 msgstr "وضاحت"
 
-#: src/amo/components/CollectionManager/index.js:270
+#: src/amo/components/CollectionManager/index.js:273
 msgid "Custom URL"
 msgstr "مخصوص URL"
 
@@ -961,12 +961,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "بگ رپورٹ یا سپورٹ کی درخواست کے طور پر نشان لگا دیا گیا"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "نشان لگا دیا گیا"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "پرچم"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "نشان لگا دیا گیا"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1445,12 +1445,12 @@ msgid "Search results"
 msgstr "خیالہ تلاش کریں"
 
 #: src/amo/components/Search/index.js:125 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:308 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:307 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "نمایاں توسیعات"
 
 #: src/amo/components/Search/index.js:128 src/amo/pages/Category/index.js:170
-#: src/amo/pages/Home/index.js:335 src/amo/pages/LandingPage/index.js:161
+#: src/amo/pages/Home/index.js:334 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
 msgstr "نمایاں خیالہ"
 
@@ -1460,7 +1460,7 @@ msgid "Featured add-ons"
 msgstr "نمایاں توسیعات"
 
 #: src/amo/components/Search/index.js:138 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:368 src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:141
 #, fuzzy
 msgid "Trending extensions"
 msgstr "توسیعات"
@@ -1495,7 +1495,7 @@ msgstr "ایڈ-اونز لوڈ کر رہا ہے"
 msgid "Popular extensions"
 msgstr "مقبول توسیعات"
 
-#: src/amo/components/Search/index.js:165 src/amo/pages/Home/index.js:345
+#: src/amo/components/Search/index.js:165
 msgid "Popular themes"
 msgstr "مقبول خیالیے"
 
@@ -1509,71 +1509,85 @@ msgid "Search results for \"%(query)s\""
 msgstr "خیالہ تلاش کریں"
 
 #: src/amo/components/SearchContextCard/index.js:100
+#, fuzzy
+msgid "%(count)s Search Tool found for \"%(query)s\""
+msgid_plural "%(count)s Search Tools found for \"%(query)s\""
+msgstr[0] "خیالہ تلاش کریں"
+msgstr[1] "خیالہ تلاش کریں"
+
+#: src/amo/components/SearchContextCard/index.js:109
+#, fuzzy
+msgid "%(count)s Search Tool found"
+msgid_plural "%(count)s Search Tools found"
+msgstr[0] "کوئی زمرہ جات نہیں ملے۔"
+msgstr[1] "کوئی زمرہ جات نہیں ملے۔"
+
+#: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/SearchContextCard/index.js:109
+#: src/amo/components/SearchContextCard/index.js:131
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/SearchContextCard/index.js:119
+#: src/amo/components/SearchContextCard/index.js:141
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/SearchContextCard/index.js:128
+#: src/amo/components/SearchContextCard/index.js:150
 #, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
 msgstr[0] "کوئی زمرہ جات نہیں ملے۔"
 msgstr[1] "کوئی زمرہ جات نہیں ملے۔"
 
-#: src/amo/components/SearchContextCard/index.js:140
+#: src/amo/components/SearchContextCard/index.js:162
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/SearchContextCard/index.js:149
+#: src/amo/components/SearchContextCard/index.js:171
 #, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
 msgstr[0] "کوئی زمرہ جات نہیں ملے۔"
 msgstr[1] "کوئی زمرہ جات نہیں ملے۔"
 
-#: src/amo/components/SearchContextCard/index.js:160
+#: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
 msgstr ""
 
-#: src/amo/components/SearchContextCard/index.js:164
+#: src/amo/components/SearchContextCard/index.js:186
 #, fuzzy
 msgid "Searching for add-ons"
 msgstr "ایڈ-اونز لوڈ کر رہا ہے"
 
-#: src/amo/components/SearchContextCard/index.js:59
+#: src/amo/components/SearchContextCard/index.js:60
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/SearchContextCard/index.js:68
+#: src/amo/components/SearchContextCard/index.js:69
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/SearchContextCard/index.js:78
+#: src/amo/components/SearchContextCard/index.js:79
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/SearchContextCard/index.js:87
+#: src/amo/components/SearchContextCard/index.js:88
 #, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
@@ -1667,16 +1681,16 @@ msgstr "کوئی زمرہ جات نہیں ملے۔"
 msgid "Go to the add-on page"
 msgstr "اضافہ جات کے صفحہ پر جائیں"
 
-#: src/amo/components/SearchResult/index.js:121
+#: src/amo/components/SearchResult/index.js:118
 msgid "No theme preview available"
 msgstr "خیالیہ کا کوئی بھی پیش منظر دستیاب نہیں"
 
-#: src/amo/components/SearchResult/index.js:149
+#: src/amo/components/SearchResult/index.js:146
 #, fuzzy
 msgid "Add-on note"
 msgstr "ایڈ ان آئکن"
 
-#: src/amo/components/SearchResult/index.js:167
+#: src/amo/components/SearchResult/index.js:165
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s صارف"
@@ -1791,18 +1805,10 @@ msgid "my add-on is reviewed by a reviewer"
 msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:32
-msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
-
-#: src/amo/components/UserProfileEditNotifications/index.js:34
-msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
-
-#: src/amo/components/UserProfileEditNotifications/index.js:36
 msgid "my add-on's compatibility cannot be upgraded"
 msgstr ""
 
-#: src/amo/components/UserProfileEditNotifications/index.js:38
+#: src/amo/components/UserProfileEditNotifications/index.js:34
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 
@@ -1827,7 +1833,7 @@ msgstr "پروفائل تصویر"
 msgid "Choose Photo…"
 msgstr "تصویر منتخب کریں…"
 
-#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr "%(title)s کا پیش نظارہ"
 
@@ -1909,53 +1915,53 @@ msgstr "اختتامی صارف لائسنس معاہدہ"
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s کے لئے جائزے"
 
-#: src/amo/pages/AddonReviewList/index.js:191
+#: src/amo/pages/AddonReviewList/index.js:196
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:223
+#: src/amo/pages/AddonReviewList/index.js:228
 msgid "Show all reviews"
 msgstr "میرے تمام جائزے دکھائیں"
 
-#: src/amo/pages/AddonReviewList/index.js:225
+#: src/amo/pages/AddonReviewList/index.js:230
 #, fuzzy
 msgid "Show only five-star reviews"
 msgstr "%(count)s جائزے پڑھیں"
 
-#: src/amo/pages/AddonReviewList/index.js:226
+#: src/amo/pages/AddonReviewList/index.js:231
 #, fuzzy
 msgid "Show only four-star reviews"
 msgstr "%(count)s جائزے پڑھیں"
 
-#: src/amo/pages/AddonReviewList/index.js:228
+#: src/amo/pages/AddonReviewList/index.js:233
 #, fuzzy
 msgid "Show only three-star reviews"
 msgstr "%(count)s جائزے پڑھیں"
 
-#: src/amo/pages/AddonReviewList/index.js:230
+#: src/amo/pages/AddonReviewList/index.js:235
 #, fuzzy
 msgid "Show only two-star reviews"
 msgstr "پیش منظر کے ؛لیئے تھپتپائیں"
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:236
 #, fuzzy
 msgid "Show only one-star reviews"
 msgstr "%(count)s جائزے پڑھیں"
 
-#: src/amo/pages/AddonReviewList/index.js:271
+#: src/amo/pages/AddonReviewList/index.js:276
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s کے لئے جائزے"
 
-#: src/amo/pages/AddonReviewList/index.js:281
+#: src/amo/pages/AddonReviewList/index.js:286
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s صارف"
 msgstr[1] "%(total)s صارفین"
 
-#: src/amo/pages/AddonReviewList/index.js:378
+#: src/amo/pages/AddonReviewList/index.js:383
 #, fuzzy
 msgid "There are no reviews"
 msgstr "ایک جائزہ لکھیں"
@@ -1996,13 +2002,13 @@ msgstr "تمام توسیعات براؤز کریں"
 msgid "All theme categories"
 msgstr "تمام زمرہ جات دریافت کرین"
 
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:309
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:308
 #: src/amo/pages/LandingPage/index.js:140
 #, fuzzy
 msgid "See more featured extensions"
 msgstr "زیادہ مقبول توسیعات"
 
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:369
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:350
 #: src/amo/pages/LandingPage/index.js:149
 #, fuzzy
 msgid "See more trending extensions"
@@ -2013,7 +2019,7 @@ msgstr "زیادہ مقبول توسیعات"
 msgid "See more top rated extensions"
 msgstr "زیادہ مقبول توسیعات"
 
-#: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:325
+#: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:324
 #: src/amo/pages/LandingPage/index.js:169
 #, fuzzy
 msgid "See more featured themes"
@@ -2322,99 +2328,94 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:134
+#: src/amo/pages/Home/index.js:133
 msgid "Bookmarks"
 msgstr "نشانیاں"
 
-#: src/amo/pages/Home/index.js:138
+#: src/amo/pages/Home/index.js:137
 msgid "Password managers"
 msgstr "پاس ورڈ مینیجرز"
 
-#: src/amo/pages/Home/index.js:142
+#: src/amo/pages/Home/index.js:141
 msgid "Ad blockers"
 msgstr "اشتھاراتی بلاکرز"
 
-#: src/amo/pages/Home/index.js:146
+#: src/amo/pages/Home/index.js:145
 msgid "Smarter Shopping"
 msgstr "مستعدی خریداری"
 
-#: src/amo/pages/Home/index.js:150
+#: src/amo/pages/Home/index.js:149
 msgid "Productivity"
 msgstr "پیداواریت"
 
-#: src/amo/pages/Home/index.js:154
+#: src/amo/pages/Home/index.js:153
 msgid "Watching Videos"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:182
+#: src/amo/pages/Home/index.js:181
 msgid "Abstract"
 msgstr "تلخیص"
 
-#: src/amo/pages/Home/index.js:187
+#: src/amo/pages/Home/index.js:186
 msgid "Nature"
 msgstr "‏‏قدرت"
 
-#: src/amo/pages/Home/index.js:192
+#: src/amo/pages/Home/index.js:191
 msgid "Film & TV"
 msgstr "فلم & ٹی وی"
 
-#: src/amo/pages/Home/index.js:197
+#: src/amo/pages/Home/index.js:196
 msgid "Scenery"
 msgstr "نظارہ"
 
-#: src/amo/pages/Home/index.js:202
+#: src/amo/pages/Home/index.js:201
 msgid "Music"
 msgstr "موسیقی"
 
-#: src/amo/pages/Home/index.js:207
+#: src/amo/pages/Home/index.js:206
 msgid "Seasonal"
 msgstr "‏‏موسمیاتی"
 
-#: src/amo/pages/Home/index.js:239
+#: src/amo/pages/Home/index.js:238
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:241
+#: src/amo/pages/Home/index.js:240
 msgid "Change the way Firefox looks with themes."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:274
+#: src/amo/pages/Home/index.js:273
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:346
+#: src/amo/pages/Home/index.js:54
 #, fuzzy
-msgid "See more popular themes"
+msgid "See more tools"
 msgstr "توسیعات تلاش کریں"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
-msgid "See more YouTube boosters"
-msgstr "مزید مقبول خیالیے"
-
-#: src/amo/pages/Home/index.js:56
-msgid "YouTube boosters"
+msgid "Note-taking & time management tools"
 msgstr ""
 
+#: src/amo/pages/Home/index.js:60
+#, fuzzy
+msgid "See more feed readers"
+msgstr "مزید مقبول خیالیے"
+
 #: src/amo/pages/Home/index.js:61
+msgid "Feed readers"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:66
 #, fuzzy
 msgid "See more health & wellness extensions"
 msgstr "زیادہ مقبول توسیعات"
 
-#: src/amo/pages/Home/index.js:62
-msgid "Health & Wellness"
-msgstr ""
-
 #: src/amo/pages/Home/index.js:67
-#, fuzzy
-msgid "See more productivity extensions"
-msgstr "توسیعات تلاش کریں"
-
-#: src/amo/pages/Home/index.js:68
-msgid "Be more productive"
+msgid "Health & Wellness"
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205
@@ -3245,20 +3246,20 @@ msgstr ""
 msgid "Dismiss this notice"
 msgstr "اس اعلان کو برخاست کریں"
 
-#: src/ui/components/Rating/index.js:104
+#: src/ui/components/Rating/index.js:100
+msgid "Update your rating to %(starRating)s out of 5"
+msgstr ""
+
+#: src/ui/components/Rating/index.js:106
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
+#: src/ui/components/Rating/index.js:83 src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:85
+#: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
-msgstr ""
-
-#: src/ui/components/Rating/index.js:98
-msgid "Update your rating to %(starRating)s out of 5"
 msgstr ""
 
 #: src/ui/components/ShowMoreCard/index.js:130
@@ -3275,6 +3276,18 @@ msgstr[1] "کوئی زمرہ جات نہیں ملے۔"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "ڈویلپر کا جواب"
+
+#, fuzzy
+#~ msgid "See more popular themes"
+#~ msgstr "توسیعات تلاش کریں"
+
+#, fuzzy
+#~ msgid "See more YouTube boosters"
+#~ msgstr "مزید مقبول خیالیے"
+
+#, fuzzy
+#~ msgid "See more productivity extensions"
+#~ msgstr "توسیعات تلاش کریں"
 
 #~ msgid "Highly customizable text highlighter"
 #~ msgstr "انتہائی مرضی کے قابل متن ہائی لائٹر"
@@ -3478,9 +3491,6 @@ msgstr "ڈویلپر کا جواب"
 
 #~ msgid "Review text"
 #~ msgstr "متن کا جائزہ لیں"
-
-#~ msgid "See more parental controls"
-#~ msgstr "توسیعات تلاش کریں"
 
 #~ msgid "%(addonName)s – Get this Search Tool for 🦊 Android (%(locale)s)"
 #~ msgstr "Firefox میں شامل کریں"
