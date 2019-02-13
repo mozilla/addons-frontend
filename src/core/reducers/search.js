@@ -16,7 +16,7 @@ const SEARCH_ABORTED: 'SEARCH_ABORTED' = 'SEARCH_ABORTED';
 
 export type SearchState = {|
   count: number,
-  filters: SearchFilters | {} | null,
+  filters: SearchFilters | null,
   loading: boolean,
   pageSize: string | null,
   results: Array<AddonType | CollectionAddonType>,
