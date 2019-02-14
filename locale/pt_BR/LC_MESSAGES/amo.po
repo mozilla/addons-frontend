@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-13 22:12+0000\n"
-"PO-Revision-Date: 2019-02-14 20:31+0000\n"
+"PO-Revision-Date: 2019-02-14 20:32+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1326,11 +1326,10 @@ msgid "Search results for \"%(query)s\""
 msgstr "Resultados para \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:100
-#, fuzzy
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] "%(count)s resultado encontrado para \"%(query)s\""
-msgstr[1] "%(count)s resultados encontrados para \"%(query)s\""
+msgstr[0] "%(count)s ferramenta de pesquisa encontrada para \"%(query)s\""
+msgstr[1] "%(count)s ferramentas de pesquisa encontradas para \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:109
 msgid "%(count)s Search Tool found"
