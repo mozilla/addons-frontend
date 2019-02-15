@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -769,7 +769,7 @@ msgid ""
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
 "Tente visitar a página mais tarde, já que o tema ou extensão pode estar disponível novamente. Como alternativa, você pode conseguir encontrar o que estava procurando em um dos "
-"%(secondLinkStart)stemas%(secondLinkEnd)s ou %(linkStart)sextensões%(linkEnd)s disponíveis."
+"%(linkStart)sextensões%(linkEnd)s ou %(secondLinkStart)stemas%(secondLinkEnd)s disponíveis."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
