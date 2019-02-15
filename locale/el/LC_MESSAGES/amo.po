@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-13 22:12+0000\n"
-"PO-Revision-Date: 2019-02-14 21:02+0000\n"
+"PO-Revision-Date: 2019-02-15 08:30+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1871,7 +1871,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:121
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Απομονώστε την ταυτότητά σας στο Facebook σε ξεχωριστό “container” για να σταματήσετε την καταγραφή της δραστηριότητάς σας εκτός της κοινωνικής πλατφόρμας."
 
 #: src/amo/pages/Guides/index.js:125
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
@@ -2094,7 +2094,7 @@ msgstr "Δείτε περισσότερα εργαλεία"
 
 #: src/amo/pages/Home/index.js:55
 msgid "Note-taking & time management tools"
-msgstr ""
+msgstr "Εργαλεία σημειώσεων & διαχείρισης χρόνου"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more feed readers"
@@ -2102,7 +2102,7 @@ msgstr "Δείτε περισσότερα πρόσθετα ανάγνωσης ρ
 
 #: src/amo/pages/Home/index.js:61
 msgid "Feed readers"
-msgstr ""
+msgstr "Πρόσθετα ανάγνωσης ροής"
 
 #: src/amo/pages/Home/index.js:66
 msgid "See more health & wellness extensions"
