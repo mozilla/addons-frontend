@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-13 22:12+0000\n"
-"PO-Revision-Date: 2019-02-15 16:30+0000\n"
-"Last-Translator: Winfox <openlib@email.it>\n"
+"PO-Revision-Date: 2019-02-15 17:58+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1339,14 +1339,14 @@ msgstr "Risultati di ricerca per “%(query)s”"
 #: src/amo/components/SearchContextCard/index.js:100
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s strumento di ricerca trovato per “%(query)s”"
+msgstr[1] "%(count)s strumenti di ricerca trovati per “%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:109
 msgid "%(count)s Search Tool found"
 msgid_plural "%(count)s Search Tools found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s strumento di ricerca trovato"
+msgstr[1] "%(count)s strumenti di ricerca trovati"
 
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
@@ -2120,7 +2120,7 @@ msgstr "Vedi altri strumenti"
 
 #: src/amo/pages/Home/index.js:55
 msgid "Note-taking & time management tools"
-msgstr ""
+msgstr "Strumenti per prendere appunti e gestionali"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more feed readers"
