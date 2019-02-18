@@ -79,7 +79,7 @@ $addon-padding: 20px;
     font-weight: medium;
     line-height: 1.2;
     margin: 0;
-    word-break: break-word;
+    overflow-wrap: break-word;
 
     a:link,
     a:visited,
