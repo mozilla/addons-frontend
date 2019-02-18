@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-13 22:12+0000\n"
-"PO-Revision-Date: 2019-02-18 18:52+0000\n"
+"PO-Revision-Date: 2019-02-18 19:02+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1362,11 +1362,10 @@ msgstr[0] "„%(query)s“ ფრაზისთვის მოიძებნ�
 msgstr[1] "„%(query)s“ ფრაზისთვის მოიძებნა %(count)s თემა კატეგორიაში %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:131
-#, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "„%(query)s“ ფრაზისთვის მოიძებნა %(count)s თემა"
-msgstr[1] "„%(query)s“ ფრაზისთვის მოიძებნა %(count)s თემა"
+msgstr[0] "%(count)s თემა მოიძებნა კატეგორიაში %(categoryName)s"
+msgstr[1] "%(count)s თემა მოიძებნა კატეგორიაში %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:141
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1375,11 +1374,10 @@ msgstr[0] "„%(query)s“ ფრაზისთვის მოიძებნ�
 msgstr[1] "„%(query)s“ ფრაზისთვის მოიძებნა %(count)s თემა"
 
 #: src/amo/components/SearchContextCard/index.js:150
-#, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "ნაპოვნია %(count)s დამატება"
-msgstr[1] "ნაპოვნია %(count)s დამატება"
+msgstr[0] "ნაპოვნია %(count)s თემა"
+msgstr[1] "ნაპოვნია %(count)s თემა"
 
 #: src/amo/components/SearchContextCard/index.js:162
 msgid "%(count)s result found for \"%(query)s\""
@@ -1388,34 +1386,30 @@ msgstr[0] "„%(query)s“ ფრაზისთვის მოიძებნ�
 msgstr[1] "„%(query)s“ ფრაზისთვის მოიძებნა %(count)s შედეგი"
 
 #: src/amo/components/SearchContextCard/index.js:171
-#, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "%(count)s შედეგი „%(query)s“ ფრაზისთვის"
-msgstr[1] "%(count)s შედეგი „%(query)s“ ფრაზისთვის"
+msgstr[0] "%(count)s შედეგია ნაპოვნი"
+msgstr[1] "%(count)s შედეგია ნაპოვნი"
 
 #: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
 msgstr "„%(query)s“ ფრაზის მოძიება"
 
 #: src/amo/components/SearchContextCard/index.js:186
-#, fuzzy
 msgid "Searching for add-ons"
-msgstr "დამატებების ჩატვირთვა"
+msgstr "დამატებების მოძიება"
 
 #: src/amo/components/SearchContextCard/index.js:60
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "„%(query)s“ ფრაზისთვის მოიძებნა %(count)s გაფართოება"
-msgstr[1] "„%(query)s“ ფრაზისთვის მოიძებნა %(count)s გაფართოება"
+msgstr[0] "„%(query)s“ ფრაზისთვის მოიძებნა %(count)s გაფართოება კატეგორიაში %(categoryName)s"
+msgstr[1] "„%(query)s“ ფრაზისთვის მოიძებნა %(count)s გაფართოება კატეგორიაში %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:69
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "„%(query)s“ ფრაზისთვის მოიძებნა %(count)s გაფართოება"
-msgstr[1] "„%(query)s“ ფრაზისთვის მოიძებნა %(count)s გაფართოება"
+msgstr[0] "%(count)s გაფართოება მოიძებნა კატეგორიაში %(categoryName)s"
+msgstr[1] "%(count)s გაფართოება მოიძებნა კატეგორიაში %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:79
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1424,11 +1418,10 @@ msgstr[0] "„%(query)s“ ფრაზისთვის მოიძებნ�
 msgstr[1] "„%(query)s“ ფრაზისთვის მოიძებნა %(count)s გაფართოება"
 
 #: src/amo/components/SearchContextCard/index.js:88
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "ნაპოვნია %(count)s დამატება"
-msgstr[1] "ნაპოვნია %(count)s დამატება"
+msgstr[0] "%(count)s გაფართოება მოიძებნა"
+msgstr[1] "%(count)s გაფართოება მოიძებნა"
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:125
 msgid "All"
@@ -1500,14 +1493,12 @@ msgid "Featured add-ons only"
 msgstr "მხოლოდ რჩეული დამატებები"
 
 #: src/amo/components/SearchForm/index.js:61
-#, fuzzy
 msgid "Firefox Add-ons (%(locale)s)"
-msgstr "Firefox Android-ის დამატებები (%(locale)s)"
+msgstr "Firefox-ის დამატებები (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
-#, fuzzy
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr "დამატებები Android-ისთვის (%(locale)s)"
+msgstr "Firefox Android-ის დამატებები (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
@@ -1738,27 +1729,22 @@ msgid "Show all reviews"
 msgstr "ყველა მიმოხილვის ჩვენება"
 
 #: src/amo/pages/AddonReviewList/index.js:230
-#, fuzzy
 msgid "Show only five-star reviews"
 msgstr "მხოლოდ ხუთვარსკვლავიანი მიმოხილვების გამოჩენა"
 
 #: src/amo/pages/AddonReviewList/index.js:231
-#, fuzzy
 msgid "Show only four-star reviews"
 msgstr "მხოლოდ ოთხვარსკვლავიანი მიმოხილვების გამოჩენა"
 
 #: src/amo/pages/AddonReviewList/index.js:233
-#, fuzzy
 msgid "Show only three-star reviews"
 msgstr "მხოლოდ სამვარსკვლავიანი მიმოხილვების გამოჩენა"
 
 #: src/amo/pages/AddonReviewList/index.js:235
-#, fuzzy
 msgid "Show only two-star reviews"
 msgstr "მხოლოდ ორვარსკვლავიანი მიმოხილვების გამოჩენა"
 
 #: src/amo/pages/AddonReviewList/index.js:236
-#, fuzzy
 msgid "Show only one-star reviews"
 msgstr "მხოლოდ ერთვარსკვლავიანი მიმოხილვების გამოჩენა"
 
@@ -1784,11 +1770,11 @@ msgstr[1] "%(addonName)s ვერსიის ისტორია – %(total
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "სიფრთხილე გამოიჩინეთ, ძველ ვერსიებთან! მოცემული ვერსიები, მხოლოდ განსახილველად და შესამოწმებლადაა განკუთვნილი."
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "ყოველდღიური მოხმარებისთვის, დამატებების მხოლოდ უახლესი ვერსია უნდა გამოიყენოთ."
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Latest version"
@@ -2130,31 +2116,28 @@ msgstr ""
 "იერსახის შეცვლა და ა.შ."
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more tools"
-msgstr "ვრცლად"
+msgstr "სხვა ხელსაწყოები"
 
 #: src/amo/pages/Home/index.js:55
 msgid "Note-taking & time management tools"
-msgstr ""
+msgstr "ჩანიშვნებისა და დროის მართვის ხელსაწყოები"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more feed readers"
-msgstr "სხვა გამორჩეული თემები"
+msgstr "სხვა წამკითხველები არხებისთვის"
 
 #: src/amo/pages/Home/index.js:61
 msgid "Feed readers"
-msgstr ""
+msgstr "არხის წამკითხველები"
 
 #: src/amo/pages/Home/index.js:66
-#, fuzzy
 msgid "See more health & wellness extensions"
-msgstr "სხვა რჩეული გაფართოებები"
+msgstr "სხვა გაფართოებები ჯანმრთელობისა და ჯანსაღი ცხოვრებისთვის"
 
 #: src/amo/pages/Home/index.js:67
 msgid "Health & Wellness"
-msgstr ""
+msgstr "ჯანმრთელობა და ჯანსაღი ცხოვრების წესი"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2536,23 +2519,20 @@ msgid "Picture successfully deleted"
 msgstr "სურათი წარმატებით წაიშალა"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
 msgstr "მიაწოდეთ მომხმარებლებს ცოტა უფრო მეტი ინფორმაცია თქვენზე. ყველა ამ ველის შევსება, არაა სავალდებულო, თუმცა დაეხმარება სხვებს, უკეთ გაგიცნონ."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "მიაწოდეთ ხალხს ცოტა უფრო მეტი ინფორმაცია ამ მომხმარებელზე. ყველა ამ ველის შევსება, არაა სავალდებულო, თუმცა დაეხმარება სხვა მომხმარებლებს, უკეთ გაიცნონ %(username)s."
+msgstr "მიაწოდეთ ხალხს ცოტა უფრო მეტი ინფორმაცია ამ მომხმარებელზე. ყველა ამ ველის შევსება, არაა სავალდებულო, თუმცა დაეხმარება სხვა მომხმარებლებს, უკეთ გაიცნონ %(userName)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
 msgstr "წარუდგინეთ თავი ჩვენს ერთობას, თუ სურვილი გაქვთ"
 
 #: src/amo/pages/UserProfileEdit/index.js:437
-#, fuzzy
 msgid "Introduce %(userName)s to the community"
-msgstr "წარუდგინეთ %(username)s ჩვენს ერთობას"
+msgstr "წარუდგინეთ %(userName)s ჩვენს ერთობას"
 
 #: src/amo/pages/UserProfileEdit/index.js:460
 msgid "Log in to edit the profile"
@@ -2571,9 +2551,8 @@ msgid "Account"
 msgstr "ანგარიში"
 
 #: src/amo/pages/UserProfileEdit/index.js:528
-#, fuzzy
 msgid "Account for %(userName)s"
-msgstr "%(username)s მომხმარებლის ანგარიში"
+msgstr "%(userName)s მომხმარებლის ანგარიში"
 
 #: src/amo/pages/UserProfileEdit/index.js:535
 msgid "Email Address"
@@ -2597,12 +2576,11 @@ msgstr "პროფილი"
 
 #: src/amo/pages/UserProfileEdit/index.js:585
 msgid "This field is required"
-msgstr ""
+msgstr "ველის შევსება აუცილებელია"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
-#, fuzzy
 msgid "Display Name *"
-msgstr "გამოსაჩენი სახელი"
+msgstr "გამოსაჩენი სახელი *"
 
 #: src/amo/pages/UserProfileEdit/index.js:620
 msgid "This URL will only be visible for users who are developers."
