@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-13 22:12+0000\n"
+"POT-Creation-Date: 2019-02-19 18:23+0000\n"
 "PO-Revision-Date: 2018-12-14 06:04+0000\n"
 "Last-Translator: Nabeela Qadir <nabeelaqadir8@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1438,72 +1438,72 @@ msgid ""
 "with this user."
 msgstr ""
 
-#: src/amo/components/Search/index.js:120
-#: src/amo/components/SearchResults/index.js:73
+#: src/amo/components/Search/index.js:116
+#: src/amo/components/SearchResults/index.js:68
 #, fuzzy
 msgid "Search results"
 msgstr "خیالہ تلاش کریں"
 
-#: src/amo/components/Search/index.js:125 src/amo/pages/Category/index.js:138
+#: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
 #: src/amo/pages/Home/index.js:307 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "نمایاں توسیعات"
 
-#: src/amo/components/Search/index.js:128 src/amo/pages/Category/index.js:170
+#: src/amo/components/Search/index.js:124 src/amo/pages/Category/index.js:170
 #: src/amo/pages/Home/index.js:334 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
 msgstr "نمایاں خیالہ"
 
-#: src/amo/components/Search/index.js:131
+#: src/amo/components/Search/index.js:127
 #, fuzzy
 msgid "Featured add-ons"
 msgstr "نمایاں توسیعات"
 
-#: src/amo/components/Search/index.js:138 src/amo/pages/Category/index.js:148
+#: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:141
 #, fuzzy
 msgid "Trending extensions"
 msgstr "توسیعات"
 
-#: src/amo/components/Search/index.js:141 src/amo/pages/Category/index.js:180
+#: src/amo/components/Search/index.js:137 src/amo/pages/Category/index.js:180
 #: src/amo/pages/LandingPage/index.js:170
 #, fuzzy
 msgid "Trending themes"
 msgstr "خبریں تلاش کریں"
 
-#: src/amo/components/Search/index.js:144
+#: src/amo/components/Search/index.js:140
 #, fuzzy
 msgid "Trending add-ons"
 msgstr "ایڈ-اونز لوڈ کر رہا ہے"
 
-#: src/amo/components/Search/index.js:150 src/amo/pages/Category/index.js:158
+#: src/amo/components/Search/index.js:146 src/amo/pages/Category/index.js:158
 #: src/amo/pages/LandingPage/index.js:150
 msgid "Top rated extensions"
 msgstr "بہتريں توسیعات"
 
-#: src/amo/components/Search/index.js:153 src/amo/pages/Category/index.js:190
+#: src/amo/components/Search/index.js:149 src/amo/pages/Category/index.js:190
 #: src/amo/pages/LandingPage/index.js:176
 msgid "Top rated themes"
 msgstr "سب سے اوپر ریٹیڈ خیالہ"
 
-#: src/amo/components/Search/index.js:156
+#: src/amo/components/Search/index.js:152
 #, fuzzy
 msgid "Top rated add-ons"
 msgstr "ایڈ-اونز لوڈ کر رہا ہے"
 
-#: src/amo/components/Search/index.js:162
+#: src/amo/components/Search/index.js:158
 msgid "Popular extensions"
 msgstr "مقبول توسیعات"
 
-#: src/amo/components/Search/index.js:165
+#: src/amo/components/Search/index.js:161
 msgid "Popular themes"
 msgstr "مقبول خیالیے"
 
-#: src/amo/components/Search/index.js:168
+#: src/amo/components/Search/index.js:164
 msgid "Popular add-ons"
 msgstr "ایڈ-اونز لوڈ کر رہا ہے"
 
-#: src/amo/components/Search/index.js:174
+#: src/amo/components/Search/index.js:170
 #, fuzzy
 msgid "Search results for \"%(query)s\""
 msgstr "خیالہ تلاش کریں"
@@ -1696,21 +1696,17 @@ msgid_plural "%(total)s users"
 msgstr[0] "%(total)s صارف"
 msgstr[1] "%(total)s صارفین"
 
-#: src/amo/components/SearchResults/index.js:43
+#: src/amo/components/SearchResults/index.js:42
 msgid "Searching…"
 msgstr "تلاش کر رہا ہے ..."
 
-#: src/amo/components/SearchResults/index.js:48
+#: src/amo/components/SearchResults/index.js:47
 msgid "No results were found for \"%(query)s\"."
 msgstr ""
 
-#: src/amo/components/SearchResults/index.js:54
+#: src/amo/components/SearchResults/index.js:53
 msgid "No results were found."
 msgstr "کوئى نتائج نہيں ملے تھے۔"
-
-#: src/amo/components/SearchResults/index.js:57
-msgid "Please enter a search term to search Firefox Add-ons."
-msgstr "فائر فاکس ایڈاونز کو تلاش کرنے کے لئے تلاش کے اصطلاح درج کریں۔"
 
 #: src/amo/components/SectionLinks/index.js:102
 #: src/amo/pages/LandingPage/index.js:228
@@ -3276,6 +3272,9 @@ msgstr[1] "کوئی زمرہ جات نہیں ملے۔"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "ڈویلپر کا جواب"
+
+#~ msgid "Please enter a search term to search Firefox Add-ons."
+#~ msgstr "فائر فاکس ایڈاونز کو تلاش کرنے کے لئے تلاش کے اصطلاح درج کریں۔"
 
 #, fuzzy
 #~ msgid "See more popular themes"
