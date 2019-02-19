@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-13 22:12+0000\n"
+"POT-Creation-Date: 2019-02-19 18:23+0000\n"
 "PO-Revision-Date: 2018-08-06 19:06+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1494,74 +1494,74 @@ msgstr ""
 "Vi har mottatt din rapport. Takk fordi du deler dine bekymringer vedrørende "
 "denne utvidelsen med oss."
 
-#: src/amo/components/Search/index.js:120
-#: src/amo/components/SearchResults/index.js:73
+#: src/amo/components/Search/index.js:116
+#: src/amo/components/SearchResults/index.js:68
 msgid "Search results"
 msgstr "Søkeresultat"
 
-#: src/amo/components/Search/index.js:125 src/amo/pages/Category/index.js:138
+#: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
 #: src/amo/pages/Home/index.js:307 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Utvalgte utvidelser"
 
-#: src/amo/components/Search/index.js:128 src/amo/pages/Category/index.js:170
+#: src/amo/components/Search/index.js:124 src/amo/pages/Category/index.js:170
 #: src/amo/pages/Home/index.js:334 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
 msgstr "Utvalgte tema"
 
-#: src/amo/components/Search/index.js:131
+#: src/amo/components/Search/index.js:127
 #, fuzzy
 msgid "Featured add-ons"
 msgstr "Utvalgt utvidelse"
 
-#: src/amo/components/Search/index.js:138 src/amo/pages/Category/index.js:148
+#: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:141
 #, fuzzy
 msgid "Trending extensions"
 msgstr "Høyest vurderte utvidelser"
 
-#: src/amo/components/Search/index.js:141 src/amo/pages/Category/index.js:180
+#: src/amo/components/Search/index.js:137 src/amo/pages/Category/index.js:180
 #: src/amo/pages/LandingPage/index.js:170
 #, fuzzy
 msgid "Trending themes"
 msgstr "Høyest vurderte tema"
 
-#: src/amo/components/Search/index.js:144
+#: src/amo/components/Search/index.js:140
 #, fuzzy
 msgid "Trending add-ons"
 msgstr "Laster utvidelser"
 
-#: src/amo/components/Search/index.js:150 src/amo/pages/Category/index.js:158
+#: src/amo/components/Search/index.js:146 src/amo/pages/Category/index.js:158
 #: src/amo/pages/LandingPage/index.js:150
 msgid "Top rated extensions"
 msgstr "Høyest vurderte utvidelser"
 
-#: src/amo/components/Search/index.js:153 src/amo/pages/Category/index.js:190
+#: src/amo/components/Search/index.js:149 src/amo/pages/Category/index.js:190
 #: src/amo/pages/LandingPage/index.js:176
 msgid "Top rated themes"
 msgstr "Høyest vurderte tema"
 
-#: src/amo/components/Search/index.js:156
+#: src/amo/components/Search/index.js:152
 #, fuzzy
 msgid "Top rated add-ons"
 msgstr "Høyest vurderte utvidelser"
 
-#: src/amo/components/Search/index.js:162
+#: src/amo/components/Search/index.js:158
 #, fuzzy
 msgid "Popular extensions"
 msgstr "Mest populære utvidelser"
 
-#: src/amo/components/Search/index.js:165
+#: src/amo/components/Search/index.js:161
 #, fuzzy
 msgid "Popular themes"
 msgstr "Mest populære tema"
 
-#: src/amo/components/Search/index.js:168
+#: src/amo/components/Search/index.js:164
 #, fuzzy
 msgid "Popular add-ons"
 msgstr "Laster utvidelser"
 
-#: src/amo/components/Search/index.js:174
+#: src/amo/components/Search/index.js:170
 #, fuzzy
 msgid "Search results for \"%(query)s\""
 msgstr "Søker etter «%(query)s»"
@@ -1756,21 +1756,17 @@ msgid_plural "%(total)s users"
 msgstr[0] "%(total)s bruker"
 msgstr[1] "%(total)s brukere"
 
-#: src/amo/components/SearchResults/index.js:43
+#: src/amo/components/SearchResults/index.js:42
 msgid "Searching…"
 msgstr "Søker …"
 
-#: src/amo/components/SearchResults/index.js:48
+#: src/amo/components/SearchResults/index.js:47
 msgid "No results were found for \"%(query)s\"."
 msgstr "Fant ingen resultat for «%(query)s»."
 
-#: src/amo/components/SearchResults/index.js:54
+#: src/amo/components/SearchResults/index.js:53
 msgid "No results were found."
 msgstr "Fant ingen resultat."
-
-#: src/amo/components/SearchResults/index.js:57
-msgid "Please enter a search term to search Firefox Add-ons."
-msgstr "Skriv inn et søkeord for å søke i Firefox-utvidelsene."
 
 #: src/amo/components/SectionLinks/index.js:102
 #: src/amo/pages/LandingPage/index.js:228
@@ -3346,6 +3342,9 @@ msgstr[1] "%(count)s utvidelser funnet"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Utviklerrespons"
+
+#~ msgid "Please enter a search term to search Firefox Add-ons."
+#~ msgstr "Skriv inn et søkeord for å søke i Firefox-utvidelsene."
 
 #, fuzzy
 #~ msgid "See more popular themes"
