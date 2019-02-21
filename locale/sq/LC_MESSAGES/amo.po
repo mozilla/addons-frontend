@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-19 18:23+0000\n"
-"PO-Revision-Date: 2019-02-21 19:01+0000\n"
+"PO-Revision-Date: 2019-02-21 19:45+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -1335,18 +1335,16 @@ msgid "Search results for \"%(query)s\""
 msgstr "Përfundime kërkimi për \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:100
-#, fuzzy
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] "U gjet %(count)s përfundim për \"%(query)s\""
-msgstr[1] "U gjetën %(count)s përfundime për \"%(query)s\""
+msgstr[0] "U gjet %(count)s Mjet Kërkimi për \"%(query)s\""
+msgstr[1] "U gjet %(count)s Mjete Kërkimi për \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:109
-#, fuzzy
 msgid "%(count)s Search Tool found"
 msgid_plural "%(count)s Search Tools found"
-msgstr[0] "U gjet %(count)s përfundim"
-msgstr[1] "U gjetën %(count)s përfundime"
+msgstr[0] "U gjet %(count)s Mjet Kërkimi"
+msgstr[1] "U gjet %(count)s Mjete Kërkimi"
 
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
@@ -2109,18 +2107,16 @@ msgstr ""
 "etj."
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more tools"
-msgstr "Shihni më tepër kontrolle prindërore"
+msgstr "Shihni më tepër mjete"
 
 #: src/amo/pages/Home/index.js:55
 msgid "Note-taking & time management tools"
 msgstr "Mjete për mbajtje shënimesh & administrimi kohe"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more feed readers"
-msgstr "Shihni më tepër tema të zgjedhura"
+msgstr "Shihni më tepër lexues temash"
 
 #: src/amo/pages/Home/index.js:61
 msgid "Feed readers"
