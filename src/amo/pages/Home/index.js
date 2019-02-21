@@ -31,9 +31,9 @@ import './styles.scss';
 export const MOZILLA_USER_ID = config.get('mozillaUserId');
 
 export const FEATURED_COLLECTIONS = [
+  { slug: 'weather-reports', userId: MOZILLA_USER_ID },
+  { slug: 'change-up-your-tabs', userId: MOZILLA_USER_ID },
   { slug: 'note-taking-time-management', userId: MOZILLA_USER_ID },
-  { slug: 'feed-readers', userId: MOZILLA_USER_ID },
-  { slug: 'health-wellness', userId: MOZILLA_USER_ID },
 ];
 
 export const isFeaturedCollection = (
@@ -51,20 +51,20 @@ export const isFeaturedCollection = (
 export const getFeaturedCollectionsMetadata = (i18n) => {
   return [
     {
-      footerText: i18n.gettext('See more tools'),
-      header: i18n.gettext('Note-taking & time management tools'),
+      footerText: i18n.gettext('See more weather extensions'),
+      header: i18n.gettext('Weather extensions'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[0],
     },
     {
-      footerText: i18n.gettext('See more feed readers'),
-      header: i18n.gettext('Feed readers'),
+      footerText: i18n.gettext('See more tab extensions'),
+      header: i18n.gettext('Change up your tabs'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[1],
     },
     {
-      footerText: i18n.gettext('See more health & wellness extensions'),
-      header: i18n.gettext('Health & Wellness'),
+      footerText: i18n.gettext('See more tools'),
+      header: i18n.gettext('Note-taking & time management tools'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[2],
     },
@@ -298,8 +298,6 @@ export class HomeBase extends React.Component {
           {this.renderCuratedCollections()}
         </Card>
 
-        {renderFeaturedCollection(0)}
-
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={shelves.featuredExtensions}
@@ -315,6 +313,8 @@ export class HomeBase extends React.Component {
           }}
           loading={loading}
         />
+
+        {renderFeaturedCollection(0)}
 
         {includeFeaturedThemes && (
           <LandingAddonsCard
