@@ -737,33 +737,6 @@ describe(__filename, () => {
       ]);
     });
 
-    it("returns lightweight themes when filtering for authors' themes", () => {
-      const addons = fakeExternalAddons({ type: ADDON_TYPE_THEME });
-
-      const authorIds = [
-        fakeAuthorOne.id,
-        fakeAuthorTwo.id,
-        fakeAuthorThree.id,
-      ];
-      const state = reducer(
-        undefined,
-        loadAddonsByAuthors({
-          addons: Object.values(addons),
-          addonType: ADDON_TYPE_THEME,
-          authorIds,
-          count: Object.values(addons).length,
-          pageSize: THEMES_BY_AUTHORS_PAGE_SIZE,
-        }),
-      );
-
-      expect(getAddonsForAuthorIds(state, authorIds, ADDON_TYPE_THEME)).toEqual(
-        [
-          createInternalAddon(addons.firstAddon),
-          createInternalAddon(addons.secondAddon),
-        ],
-      );
-    });
-
     it("returns static themes when filtering for authors' themes ", () => {
       const addons = fakeExternalAddons({ type: ADDON_TYPE_STATIC_THEME });
 
