@@ -495,9 +495,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         <div className="AddonReviewCard-container">
           {errorHandler.renderErrorIfPresent()}
           {review && review.isDeleted && (
-            <Notice type="error" className="Addon-non-public-notice">
+            <Notice type="error" className="AddonReviewCard-non-public-notice">
               {i18n.gettext(
-                'This is not a public review. You are only seeing it because of elevated permissions.',
+                'This rating or review has been deleted. You are only seeing it because of elevated permissions.',
               )}
             </Notice>
           )}
