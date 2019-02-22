@@ -1335,18 +1335,16 @@ msgid "Search results for \"%(query)s\""
 msgstr "Résultats de la recherche pour « %(query)s »"
 
 #: src/amo/components/SearchContextCard/index.js:100
-#, fuzzy
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] "%(count)s résultat pour « %(query)s »"
-msgstr[1] "%(count)s résultats pour « %(query)s »"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:109
-#, fuzzy
 msgid "%(count)s Search Tool found"
 msgid_plural "%(count)s Search Tools found"
-msgstr[0] "%(count)s résultat trouvé"
-msgstr[1] "%(count)s résultats trouvés"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
@@ -1748,9 +1746,8 @@ msgstr[0] "%(total)s note"
 msgstr[1] "%(total)s notes"
 
 #: src/amo/pages/AddonReviewList/index.js:383
-#, fuzzy
 msgid "There are no reviews"
-msgstr "Il n’y a aucune note pour l’instant"
+msgstr ""
 
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
