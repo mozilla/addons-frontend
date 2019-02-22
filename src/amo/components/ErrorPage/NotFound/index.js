@@ -26,23 +26,61 @@ export class NotFoundBase extends React.Component<InternalProps> {
   render() {
     const { i18n } = this.props;
 
+    // This localized string contains two links. We want each link to use
+    // client-side navigation, hence the need for
+    // `getLocalizedTextWithLinkParts()` (used below) to split the string and
+    // insert the `Link` React component. This works well in various places
+    // because we usually have one link. Yet, here we have two links and we
+    // need to be careful about the order of the two links because localizers
+    // may change the order of the links as described in:
+    // https://github.com/mozilla/addons-frontend/issues/7597
+    const text = i18n.gettext(
+      `Try visiting the page later, as the theme or extension may become
+      available again. Alternatively, you may be able to find what you’re
+      looking for in one of the available %(linkStart)sextensions%(linkEnd)s or
+      %(secondLinkStart)sthemes%(secondLinkEnd)s.`,
+    );
+
+    // Those variables are used by `getLocalizedTextWithLinkParts()`.
+    let linkStart = 'linkStart';
+    let linkEnd = 'linkEnd';
+    // By setting `linkStart`/`linkEnd` here, we can reuse
+    // `getLocalizedTextWithLinkParts()` directly after.
+    let otherVars = {
+      secondLinkStart: '%(linkStart)s',
+      secondLinkEnd: '%(linkEnd)s',
+    };
+    // The `to` parameters of the links. They should be inverted if links are
+    // inverted in the localized string.
+    let firstLinkTo = `/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`;
+    let secondLinkTo = `/${visibleAddonType(ADDON_TYPE_THEME)}/`;
+
+    // We need to know which link comes first in the localized string to avoid
+    // the issue mentioned above, so we look up the position of each link.
+    if (text.search('linkStart') > text.search('secondLinkStart')) {
+      linkStart = 'secondLinkStart';
+      linkEnd = 'secondLinkEnd';
+      // By setting `linkStart`/`linkEnd` here, we can reuse
+      // `getLocalizedTextWithLinkParts()` directly after.
+      otherVars = {
+        linkStart: '%(linkStart)s',
+        linkEnd: '%(linkEnd)s',
+      };
+
+      const linkTo = firstLinkTo;
+      firstLinkTo = secondLinkTo;
+      secondLinkTo = linkTo;
+    }
+
     // We use `getLocalizedTextWithLinkParts()` two times to create all the
     // variables needed to display both the `Link` components and texts
     // before/after.
     let linkParts = getLocalizedTextWithLinkParts({
       i18n,
-      text: i18n.gettext(
-        `Try visiting the page later, as the theme or extension may become
-        available again. Alternatively, you may be able to find what you’re
-        looking for in one of the available %(linkStart)sextensions%(linkEnd)s
-        or %(secondLinkStart)sthemes%(secondLinkEnd)s.`,
-      ),
-      // By setting `linkStart`/`linkEnd` here, we can reuse
-      // `getLocalizedTextWithLinkParts()` directly after.
-      otherVars: {
-        secondLinkStart: '%(linkStart)s',
-        secondLinkEnd: '%(linkEnd)s',
-      },
+      text,
+      linkStart,
+      linkEnd,
+      otherVars,
     });
 
     linkParts = {
@@ -97,13 +135,9 @@ export class NotFoundBase extends React.Component<InternalProps> {
           />
           <p className="ErrorPage-paragraph-with-links">
             {linkParts.first.beforeLinkText}
-            <Link to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}>
-              {linkParts.first.innerLinkText}
-            </Link>
+            <Link to={firstLinkTo}>{linkParts.first.innerLinkText}</Link>
             {linkParts.second.beforeLinkText}
-            <Link to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}>
-              {linkParts.second.innerLinkText}
-            </Link>
+            <Link to={secondLinkTo}>{linkParts.second.innerLinkText}</Link>
             {linkParts.second.afterLinkText}
           </p>
         </Card>
