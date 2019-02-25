@@ -51,7 +51,7 @@ module.exports = {
     'robots.txt',
     'services',
     'static',
-    'user-media'
+    'user-media',
   ],
 
   // This needs to be kept in sync with addons-server's SUPPORTED_NONAPPS
@@ -78,7 +78,7 @@ module.exports = {
     'services',
     'static',
     'statistics',
-    'user-media'
+    'user-media',
   ],
   // These routes are allowed through to the app rather than 404.
   // Anything in here should also be present in validClientAppUrlExceptions.
