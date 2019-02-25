@@ -39,6 +39,7 @@ import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import UserReview from 'ui/components/UserReview';
+import Notice from 'ui/components/Notice';
 
 describe(__filename, () => {
   let store;
@@ -259,6 +260,18 @@ describe(__filename, () => {
     const root = render({ review });
 
     expect(root.find(UserReview)).toHaveProp('controls', null);
+  });
+
+  it('renders a privileged notice for deleted review', () => {
+    const review = _setReview({
+      ...fakeReview,
+      id: 1,
+      is_deleted: true,
+    });
+    const root = render({ review });
+
+    const rating = root.find('.AddonReviewCard');
+    expect(rating.find(Notice)).toHaveLength(1);
   });
 
   it('does not let you edit without a review', () => {
