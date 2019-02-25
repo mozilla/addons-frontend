@@ -405,6 +405,10 @@ export const unfilteredLanguages = {
     English: 'Malay',
     native: 'Melayu',
   },
+  mt: {
+    English: 'Maltese',
+    native: 'Malti',
+  },
   my: {
     English: 'Burmese',
     native: '\u1019\u103c\u1014\u103a\u1019\u102c\u1018\u102c\u101e\u102c',
