@@ -467,20 +467,12 @@ describe(__filename, () => {
   it('should display at most numberOfAddons themes', () => {
     const numberOfAddons = 3;
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEME,
+      addonType: ADDON_TYPE_STATIC_THEME,
       multipleAuthors: false,
       numberOfAddons,
     });
 
     expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
-  });
-
-  it('should add a theme class if it is a lightweight theme', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEME,
-    });
-
-    expect(root).toHaveClassName('AddonsByAuthorsCard--theme');
   });
 
   it('should add a theme class if it is a static theme', () => {
@@ -641,18 +633,6 @@ describe(__filename, () => {
     );
   });
 
-  it('shows extensions in header for a lightweight theme', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEME,
-      multipleAuthors: false,
-    });
-
-    expect(root.find(AddonsCard)).toHaveProp(
-      'header',
-      `More themes by ${fakeAuthor.name}`,
-    );
-  });
-
   it('shows extensions in header for a static theme', () => {
     const root = renderAddonsWithType({
       addonType: ADDON_TYPE_STATIC_THEME,
@@ -662,19 +642,6 @@ describe(__filename, () => {
     expect(root.find(AddonsCard)).toHaveProp(
       'header',
       `More themes by ${fakeAuthor.name}`,
-    );
-  });
-
-  it('shows extensions in header for a lightweight theme without More text', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEME,
-      showMore: false,
-      multipleAuthors: false,
-    });
-
-    expect(root.find(AddonsCard)).toHaveProp(
-      'header',
-      `Themes by ${fakeAuthor.name}`,
     );
   });
 
@@ -691,18 +658,6 @@ describe(__filename, () => {
     );
   });
 
-  it('shows extensions in header for a lightweight theme with multiple authors', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEME,
-      multipleAuthors: true,
-    });
-
-    expect(root.find(AddonsCard)).toHaveProp(
-      'header',
-      'More themes by these artists',
-    );
-  });
-
   it('shows extensions in header for a static theme with multiple authors', () => {
     const root = renderAddonsWithType({
       addonType: ADDON_TYPE_STATIC_THEME,
@@ -712,19 +667,6 @@ describe(__filename, () => {
     expect(root.find(AddonsCard)).toHaveProp(
       'header',
       'More themes by these artists',
-    );
-  });
-
-  it('shows extensions in header for a lightweight theme with multiple authors and without More text ', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEME,
-      showMore: false,
-      multipleAuthors: true,
-    });
-
-    expect(root.find(AddonsCard)).toHaveProp(
-      'header',
-      'Themes by these artists',
     );
   });
 
