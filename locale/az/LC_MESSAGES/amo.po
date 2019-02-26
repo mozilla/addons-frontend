@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-19 18:23+0000\n"
+"POT-Creation-Date: 2019-02-26 17:56+0000\n"
 "PO-Revision-Date: 2018-10-31 16:33+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -333,47 +333,47 @@ msgstr "Bu uzantını quran digər istifadəçilər"
 msgid "Other popular extensions"
 msgstr "Digər məşhur uzantılar"
 
-#: src/amo/components/AddonReviewCard/index.js:194
+#: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit reply"
 msgstr "Cavabı redaktə et"
 
-#: src/amo/components/AddonReviewCard/index.js:197
+#: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
 msgstr "Rəyi redaktə et"
 
-#: src/amo/components/AddonReviewCard/index.js:204
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:205
+#: src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
 msgstr "Cavabı sil"
 
-#: src/amo/components/AddonReviewCard/index.js:208
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:209
+#: src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
 msgstr "Reytinqi sil"
 
-#: src/amo/components/AddonReviewCard/index.js:211
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
 msgstr "Rəyi sil"
 
-#: src/amo/components/AddonReviewCard/index.js:218
+#: src/amo/components/AddonReviewCard/index.js:219
 msgid "Do you really want to delete this reply?"
 msgstr "Bu cavabı silmək istədiyinizə əminsiniz?"
 
-#: src/amo/components/AddonReviewCard/index.js:222
+#: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this rating?"
 msgstr "Bu reytinqi silmək istədiyinizə əminsiniz?"
 
-#: src/amo/components/AddonReviewCard/index.js:225
+#: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
 msgstr "Bu rəyi silmək istədiyinizə əminsiniz?"
 
-#: src/amo/components/AddonReviewCard/index.js:232
+#: src/amo/components/AddonReviewCard/index.js:233
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "Sil"
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:147
 #: src/amo/components/CollectionManager/index.js:313
 #: src/amo/pages/UserProfileEdit/index.js:852
@@ -382,59 +382,65 @@ msgstr "Sil"
 msgid "Cancel"
 msgstr "Ləğv et"
 
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:255
 msgid "Keep reply"
 msgstr "Cavabı saxla"
 
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep rating"
 msgstr "Reytinqi saxla"
 
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep review"
 msgstr "Rəyi saxla"
 
-#: src/amo/components/AddonReviewCard/index.js:297
+#: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
 msgstr "Bu rəyə cavab yaz."
 
-#: src/amo/components/AddonReviewCard/index.js:300
+#: src/amo/components/AddonReviewCard/index.js:301
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Update reply"
 msgstr "Cavabı yenilə"
 
-#: src/amo/components/AddonReviewCard/index.js:301
+#: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
 msgstr "Cavabı nəşr et"
 
-#: src/amo/components/AddonReviewCard/index.js:305
+#: src/amo/components/AddonReviewCard/index.js:306
 #: src/amo/components/AddonReviewManager/index.js:118
 msgid "Updating reply"
 msgstr "Cavab yenilənir"
 
-#: src/amo/components/AddonReviewCard/index.js:306
+#: src/amo/components/AddonReviewCard/index.js:307
 msgid "Publishing reply"
 msgstr "Cavab nəşr edilir"
 
-#: src/amo/components/AddonReviewCard/index.js:348
+#: src/amo/components/AddonReviewCard/index.js:349
 #, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "göndərmə: %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:350
+#: src/amo/components/AddonReviewCard/index.js:351
 #, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "%(authorName)s tərəfindən, %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:437
+#: src/amo/components/AddonReviewCard/index.js:438
 msgid "Deleting…"
 msgstr "Silinir…"
 
-#: src/amo/components/AddonReviewCard/index.js:468
+#: src/amo/components/AddonReviewCard/index.js:469
 msgid "Reply to this review"
 msgstr "Bu rəyi cavabla"
 
-#: src/amo/components/AddonReviewCard/index.js:537
+#: src/amo/components/AddonReviewCard/index.js:499
+msgid ""
+"This rating or review has been deleted. You are only seeing it because of "
+"elevated permissions."
+msgstr ""
+
+#: src/amo/components/AddonReviewCard/index.js:545
 msgid "Write a review"
 msgstr "Rəy yazın"
 
@@ -916,12 +922,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Xəta hesabatı və ya dəstək istəyi olaraq işarələnib"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "İşarələ"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "İşarələndi"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "İşarələ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1390,7 +1396,7 @@ msgid "Search results"
 msgstr "Axtarış nəticələri"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:307 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Seçilmiş uzantılar"
 
@@ -1932,7 +1938,7 @@ msgstr "Bu kateqoriyadakı bütün uzantılara bax."
 msgid "All theme categories"
 msgstr "Bütün kateqoriyaları kəşf et"
 
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:308
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:306
 #: src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
 msgstr "Daha çox seçilmiş uzantı gör"
@@ -2308,29 +2314,30 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:54
 #, fuzzy
-msgid "See more tools"
-msgstr "Daha çox valideyn idarəsi alətlərini gör"
+msgid "See more weather extensions"
+msgstr "Daha çox seçilmiş uzantı gör"
 
 #: src/amo/pages/Home/index.js:55
-msgid "Note-taking & time management tools"
-msgstr ""
+#, fuzzy
+msgid "Weather extensions"
+msgstr "Seçilmiş uzantılar"
 
 #: src/amo/pages/Home/index.js:60
 #, fuzzy
-msgid "See more feed readers"
-msgstr "Daha çox seçilmiş mövzu gör"
+msgid "See more tab extensions"
+msgstr "Daha çox yüksək qiymətləndirilmiş uzantı gör"
 
 #: src/amo/pages/Home/index.js:61
-msgid "Feed readers"
+msgid "Change up your tabs"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:66
 #, fuzzy
-msgid "See more health & wellness extensions"
-msgstr "Daha çox seçilmiş uzantı gör"
+msgid "See more tools"
+msgstr "Daha çox valideyn idarəsi alətlərini gör"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Health & Wellness"
+msgid "Note-taking & time management tools"
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205
@@ -3178,6 +3185,14 @@ msgstr[1] "%(total)s əlavə"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Tərtibatçı cavabı"
+
+#, fuzzy
+#~ msgid "See more feed readers"
+#~ msgstr "Daha çox seçilmiş mövzu gör"
+
+#, fuzzy
+#~ msgid "See more health & wellness extensions"
+#~ msgstr "Daha çox seçilmiş uzantı gör"
 
 #~ msgid "Please enter a search term to search Firefox Add-ons."
 #~ msgstr ""

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-19 18:23+0000\n"
+"POT-Creation-Date: 2019-02-26 17:56+0000\n"
 "PO-Revision-Date: 2019-02-18 07:26+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
@@ -332,47 +332,47 @@ msgstr "Alți utilizatori cu această extensie au instalat și"
 msgid "Other popular extensions"
 msgstr "Alte extensii populare"
 
-#: src/amo/components/AddonReviewCard/index.js:194
+#: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit reply"
 msgstr "Editează răspunsul"
 
-#: src/amo/components/AddonReviewCard/index.js:197
+#: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
 msgstr "Editează recenzia"
 
-#: src/amo/components/AddonReviewCard/index.js:204
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:205
+#: src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
 msgstr "Șterge răspunsul"
 
-#: src/amo/components/AddonReviewCard/index.js:208
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:209
+#: src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
 msgstr "Șterge evaluarea"
 
-#: src/amo/components/AddonReviewCard/index.js:211
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
 msgstr "Șterge recenzia"
 
-#: src/amo/components/AddonReviewCard/index.js:218
+#: src/amo/components/AddonReviewCard/index.js:219
 msgid "Do you really want to delete this reply?"
 msgstr "Chiar vrei să ștergi acest răspuns?"
 
-#: src/amo/components/AddonReviewCard/index.js:222
+#: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this rating?"
 msgstr "Chiar vrei să ștergi această evaluare?"
 
-#: src/amo/components/AddonReviewCard/index.js:225
+#: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
 msgstr "Chiar vrei să ștergi această recenzie?"
 
-#: src/amo/components/AddonReviewCard/index.js:232
+#: src/amo/components/AddonReviewCard/index.js:233
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "Șterge"
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:147
 #: src/amo/components/CollectionManager/index.js:313
 #: src/amo/pages/UserProfileEdit/index.js:852
@@ -381,57 +381,63 @@ msgstr "Șterge"
 msgid "Cancel"
 msgstr "Renunță"
 
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:255
 msgid "Keep reply"
 msgstr "Păstrează răspunsul"
 
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep rating"
 msgstr "Păstrează evaluarea"
 
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep review"
 msgstr "Păstrează recenzia"
 
-#: src/amo/components/AddonReviewCard/index.js:297
+#: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
 msgstr "Scrie un răspuns la această recenzie."
 
-#: src/amo/components/AddonReviewCard/index.js:300
+#: src/amo/components/AddonReviewCard/index.js:301
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Update reply"
 msgstr "Actualizează răspunsul"
 
-#: src/amo/components/AddonReviewCard/index.js:301
+#: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
 msgstr "Publică răspunsul"
 
-#: src/amo/components/AddonReviewCard/index.js:305
+#: src/amo/components/AddonReviewCard/index.js:306
 #: src/amo/components/AddonReviewManager/index.js:118
 msgid "Updating reply"
 msgstr "Se actualizează răspunsul"
 
-#: src/amo/components/AddonReviewCard/index.js:306
+#: src/amo/components/AddonReviewCard/index.js:307
 msgid "Publishing reply"
 msgstr "Se publică răspunsul"
 
-#: src/amo/components/AddonReviewCard/index.js:348
+#: src/amo/components/AddonReviewCard/index.js:349
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "postat la %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:350
+#: src/amo/components/AddonReviewCard/index.js:351
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "de %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:437
+#: src/amo/components/AddonReviewCard/index.js:438
 msgid "Deleting…"
 msgstr "Se șterge…"
 
-#: src/amo/components/AddonReviewCard/index.js:468
+#: src/amo/components/AddonReviewCard/index.js:469
 msgid "Reply to this review"
 msgstr "Răspunde la această recenzie"
 
-#: src/amo/components/AddonReviewCard/index.js:537
+#: src/amo/components/AddonReviewCard/index.js:499
+msgid ""
+"This rating or review has been deleted. You are only seeing it because of "
+"elevated permissions."
+msgstr ""
+
+#: src/amo/components/AddonReviewCard/index.js:545
 msgid "Write a review"
 msgstr "Scrie o recenzie"
 
@@ -927,12 +933,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Semnalat(ă) ca raport de eroare sau cerere de asistență"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Semnalează"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Semnalat(ă)"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Semnalează"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1401,7 +1407,7 @@ msgid "Search results"
 msgstr "Rezultatele căutării"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:307 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Extensii deosebite"
 
@@ -1939,7 +1945,7 @@ msgstr "Toate categoriile de extensii"
 msgid "All theme categories"
 msgstr "Toate categoriile de teme"
 
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:308
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:306
 #: src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
 msgstr "Vezi mai multe extensii deosebite"
@@ -2320,28 +2326,30 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:54
 #, fuzzy
-msgid "See more tools"
-msgstr "Vezi mai multe"
+msgid "See more weather extensions"
+msgstr "Vezi mai multe extensii deosebite"
 
 #: src/amo/pages/Home/index.js:55
-msgid "Note-taking & time management tools"
-msgstr ""
+#, fuzzy
+msgid "Weather extensions"
+msgstr "Extensii deosebite"
 
 #: src/amo/pages/Home/index.js:60
 #, fuzzy
-msgid "See more feed readers"
-msgstr "Vezi mai multe teme deosebite"
+msgid "See more tab extensions"
+msgstr "Vezi mai multe extensii în topul evaluărilor"
 
 #: src/amo/pages/Home/index.js:61
-msgid "Feed readers"
+msgid "Change up your tabs"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:66
-msgid "See more health & wellness extensions"
-msgstr "Vezi mai multe extensii de sănătate și wellness"
+#, fuzzy
+msgid "See more tools"
+msgstr "Vezi mai multe"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Health & Wellness"
+msgid "Note-taking & time management tools"
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205
@@ -3241,6 +3249,13 @@ msgstr[2] "%(total)s de suplimente"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Răspunsul dezvoltatorului"
+
+#, fuzzy
+#~ msgid "See more feed readers"
+#~ msgstr "Vezi mai multe teme deosebite"
+
+#~ msgid "See more health & wellness extensions"
+#~ msgstr "Vezi mai multe extensii de sănătate și wellness"
 
 #~ msgid "my sdk-based add-on cannot be upgraded"
 #~ msgstr "suplimentul meu bazat pe SDK nu poate fi actualizat"

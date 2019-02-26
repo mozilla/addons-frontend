@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-19 18:23+0000\n"
+"POT-Creation-Date: 2019-02-26 17:56+0000\n"
 "PO-Revision-Date: 2018-02-01 18:44+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
@@ -337,55 +337,55 @@ msgstr ""
 msgid "Other popular extensions"
 msgstr "জনপ্রিয় এক্সটেনসমূহ"
 
-#: src/amo/components/AddonReviewCard/index.js:194
+#: src/amo/components/AddonReviewCard/index.js:195
 #, fuzzy
 msgid "Edit reply"
 msgstr "আমার উত্তর সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:197
+#: src/amo/components/AddonReviewCard/index.js:198
 #, fuzzy
 msgid "Edit review"
 msgstr "আমার পর্যালোচনা সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:204
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:205
+#: src/amo/components/AddonReviewCard/index.js:237
 #, fuzzy
 msgid "Delete reply"
 msgstr "আমার উত্তর সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:208
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:209
+#: src/amo/components/AddonReviewCard/index.js:241
 #, fuzzy
 msgid "Delete rating"
 msgstr "আমার পর্যালোচনা সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:211
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:244
 #, fuzzy
 msgid "Delete review"
 msgstr "আমার পর্যালোচনা সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:218
+#: src/amo/components/AddonReviewCard/index.js:219
 #, fuzzy
 msgid "Do you really want to delete this reply?"
 msgstr "সংগ্রহটি সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:222
+#: src/amo/components/AddonReviewCard/index.js:223
 #, fuzzy
 msgid "Do you really want to delete this rating?"
 msgstr "সংগ্রহটি সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:225
+#: src/amo/components/AddonReviewCard/index.js:226
 #, fuzzy
 msgid "Do you really want to delete this review?"
 msgstr "সংগ্রহটি সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:232
+#: src/amo/components/AddonReviewCard/index.js:233
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:147
 #: src/amo/components/CollectionManager/index.js:313
 #: src/amo/pages/UserProfileEdit/index.js:852
@@ -394,63 +394,69 @@ msgstr ""
 msgid "Cancel"
 msgstr "বাতিল করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:255
 #, fuzzy
 msgid "Keep reply"
 msgstr "আমার উত্তর সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:259
 #, fuzzy
 msgid "Keep rating"
 msgstr "আমার পর্যালোচনা সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:262
 #, fuzzy
 msgid "Keep review"
 msgstr "আমার পর্যালোচনা সম্পাদনা করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:297
+#: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
 msgstr "পর্যালোচনার উত্তর লিখুন।"
 
-#: src/amo/components/AddonReviewCard/index.js:300
+#: src/amo/components/AddonReviewCard/index.js:301
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Update reply"
 msgstr "উত্তর হালনাগাদ করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:301
+#: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
 msgstr "উত্তর প্রকাশ করুন"
 
-#: src/amo/components/AddonReviewCard/index.js:305
+#: src/amo/components/AddonReviewCard/index.js:306
 #: src/amo/components/AddonReviewManager/index.js:118
 msgid "Updating reply"
 msgstr "উত্তর হালনাগাদ করা হচ্ছে"
 
-#: src/amo/components/AddonReviewCard/index.js:306
+#: src/amo/components/AddonReviewCard/index.js:307
 msgid "Publishing reply"
 msgstr "উত্তর প্রকাশ করা হচ্ছে"
 
-#: src/amo/components/AddonReviewCard/index.js:348
+#: src/amo/components/AddonReviewCard/index.js:349
 #, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "%(timestamp)s এ পোস্ট করা হয়েছে"
 
-#: src/amo/components/AddonReviewCard/index.js:350
+#: src/amo/components/AddonReviewCard/index.js:351
 #, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "%(authorName)s দ্বারা, %(timestamp)s এ"
 
-#: src/amo/components/AddonReviewCard/index.js:437
+#: src/amo/components/AddonReviewCard/index.js:438
 #, fuzzy
 msgid "Deleting…"
 msgstr "অনুসন্ধান করা হচ্ছে..."
 
-#: src/amo/components/AddonReviewCard/index.js:468
+#: src/amo/components/AddonReviewCard/index.js:469
 msgid "Reply to this review"
 msgstr "এই রিভিউ এর উত্তর দিন"
 
-#: src/amo/components/AddonReviewCard/index.js:537
+#: src/amo/components/AddonReviewCard/index.js:499
+msgid ""
+"This rating or review has been deleted. You are only seeing it because of "
+"elevated permissions."
+msgstr ""
+
+#: src/amo/components/AddonReviewCard/index.js:545
 msgid "Write a review"
 msgstr "পর্যালোচনা লিখুন"
 
@@ -976,12 +982,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "ফ্লাগ"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "ফ্ল্যাগকৃত"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "ফ্লাগ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1455,7 +1461,7 @@ msgid "Search results"
 msgstr "অনুসন্ধান ফলাফল"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:307 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "বৈশিষ্ট্যপূর্ণ এক্সটেনশনসমূহ"
 
@@ -2000,7 +2006,7 @@ msgstr "এই বিষয়শ্রেণীর সব এক্সটেনশ
 msgid "All theme categories"
 msgstr "সকল বিষয়শ্রেণী দেখুন"
 
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:308
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:306
 #: src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
 msgstr "আরও বৈশিষ্ট্যপূর্ণ এক্সটেনশন দেখুন"
@@ -2380,29 +2386,30 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:54
 #, fuzzy
-msgid "See more tools"
-msgstr "আরো উৎপাদনশীল সরঞ্জাম দেখুন"
+msgid "See more weather extensions"
+msgstr "আরও বৈশিষ্ট্যপূর্ণ এক্সটেনশন দেখুন"
 
 #: src/amo/pages/Home/index.js:55
-msgid "Note-taking & time management tools"
-msgstr ""
+#, fuzzy
+msgid "Weather extensions"
+msgstr "বৈশিষ্ট্যপূর্ণ এক্সটেনশনসমূহ"
 
 #: src/amo/pages/Home/index.js:60
 #, fuzzy
-msgid "See more feed readers"
-msgstr "আরও বৈশিষ্ট্যপূর্ণ থিম দেখুন"
+msgid "See more tab extensions"
+msgstr "সর্বোচ্চ রেট পাওয়া এক্সটেনশন দেখুন"
 
 #: src/amo/pages/Home/index.js:61
-msgid "Feed readers"
+msgid "Change up your tabs"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:66
 #, fuzzy
-msgid "See more health & wellness extensions"
-msgstr "আরও বৈশিষ্ট্যপূর্ণ এক্সটেনশন দেখুন"
+msgid "See more tools"
+msgstr "আরো উৎপাদনশীল সরঞ্জাম দেখুন"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Health & Wellness"
+msgid "Note-taking & time management tools"
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205
@@ -3273,6 +3280,14 @@ msgstr[1] "%(count)s অ্যাড-অন পাওয়া গেছে"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "ডেভেলপারদের সাড়া"
+
+#, fuzzy
+#~ msgid "See more feed readers"
+#~ msgstr "আরও বৈশিষ্ট্যপূর্ণ থিম দেখুন"
+
+#, fuzzy
+#~ msgid "See more health & wellness extensions"
+#~ msgstr "আরও বৈশিষ্ট্যপূর্ণ এক্সটেনশন দেখুন"
 
 #~ msgid "Please enter a search term to search Firefox Add-ons."
 #~ msgstr "Firefox অ্যাড-অন খুঁজতে অনুগ্রহ করে একটি শব্দ লিখুন।"

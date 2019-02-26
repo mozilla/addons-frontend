@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-19 18:23+0000\n"
+"POT-Creation-Date: 2019-02-26 17:56+0000\n"
 "PO-Revision-Date: 2019-02-14 06:00+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -331,47 +331,47 @@ msgstr "משתמשים אחרים עם ההרחבה הזאת התקינו גם �
 msgid "Other popular extensions"
 msgstr "הרחבות פופולריות נוספות"
 
-#: src/amo/components/AddonReviewCard/index.js:194
+#: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit reply"
 msgstr "עריכת תגובה"
 
-#: src/amo/components/AddonReviewCard/index.js:197
+#: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
 msgstr "עריכת סקירה"
 
-#: src/amo/components/AddonReviewCard/index.js:204
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:205
+#: src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
 msgstr "מחיקת תגובה"
 
-#: src/amo/components/AddonReviewCard/index.js:208
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:209
+#: src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
 msgstr "מחיקת דירוג"
 
-#: src/amo/components/AddonReviewCard/index.js:211
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
 msgstr "מחיקת סקירה"
 
-#: src/amo/components/AddonReviewCard/index.js:218
+#: src/amo/components/AddonReviewCard/index.js:219
 msgid "Do you really want to delete this reply?"
 msgstr "האם ברצונך למחוק את התגובה הזאת?"
 
-#: src/amo/components/AddonReviewCard/index.js:222
+#: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this rating?"
 msgstr "האם ברצונך למחוק את הדירוג הזה?"
 
-#: src/amo/components/AddonReviewCard/index.js:225
+#: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
 msgstr "האם ברצונך למחוק את הסקירה הזאת?"
 
-#: src/amo/components/AddonReviewCard/index.js:232
+#: src/amo/components/AddonReviewCard/index.js:233
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "מחיקה"
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:147
 #: src/amo/components/CollectionManager/index.js:313
 #: src/amo/pages/UserProfileEdit/index.js:852
@@ -380,57 +380,65 @@ msgstr "מחיקה"
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:255
 msgid "Keep reply"
 msgstr "שמירת תגובה"
 
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep rating"
 msgstr "שמירת דירוג"
 
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep review"
 msgstr "שמירת סקירה"
 
-#: src/amo/components/AddonReviewCard/index.js:297
+#: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
 msgstr "כתיבת תגובה לסקירה זו."
 
-#: src/amo/components/AddonReviewCard/index.js:300
+#: src/amo/components/AddonReviewCard/index.js:301
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Update reply"
 msgstr "עדכון התגובה"
 
-#: src/amo/components/AddonReviewCard/index.js:301
+#: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
 msgstr "פרסום תגובה"
 
-#: src/amo/components/AddonReviewCard/index.js:305
+#: src/amo/components/AddonReviewCard/index.js:306
 #: src/amo/components/AddonReviewManager/index.js:118
 msgid "Updating reply"
 msgstr "התגובה מתעדכנת"
 
-#: src/amo/components/AddonReviewCard/index.js:306
+#: src/amo/components/AddonReviewCard/index.js:307
 msgid "Publishing reply"
 msgstr "התגובה מפורסמת"
 
-#: src/amo/components/AddonReviewCard/index.js:348
+#: src/amo/components/AddonReviewCard/index.js:349
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "מועד פרסום: %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:350
+#: src/amo/components/AddonReviewCard/index.js:351
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "מאת %(authorName)s, ‏%(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:437
+#: src/amo/components/AddonReviewCard/index.js:438
 msgid "Deleting…"
 msgstr "מתבצעת מחיקה…"
 
-#: src/amo/components/AddonReviewCard/index.js:468
+#: src/amo/components/AddonReviewCard/index.js:469
 msgid "Reply to this review"
 msgstr "תגובה לסקירה זו"
 
-#: src/amo/components/AddonReviewCard/index.js:537
+#: src/amo/components/AddonReviewCard/index.js:499
+#, fuzzy
+msgid ""
+"This rating or review has been deleted. You are only seeing it because of "
+"elevated permissions."
+msgstr ""
+"רשומה זו אינה ציבורית. הסיבה שהיא מופיעה בפניך היא שיש לך רמת הרשאות מספיקה."
+
+#: src/amo/components/AddonReviewCard/index.js:545
 msgid "Write a review"
 msgstr "כתיבת סקירה"
 
@@ -921,12 +929,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "סומן כדיווח על תקלה או בקשת תמיכה"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "סימון בדגל"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "מסומן בדגל"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "סימון בדגל"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1398,7 +1406,7 @@ msgid "Search results"
 msgstr "תוצאות חיפוש"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:307 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "הרחבות מומלצות"
 
@@ -1917,7 +1925,7 @@ msgstr "כל קטגוריות ההרחבות"
 msgid "All theme categories"
 msgstr "כל קטגוריות ערכות הנושא"
 
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:308
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:306
 #: src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
 msgstr "הצגת הרחבות מומלצות נוספות"
@@ -2311,29 +2319,31 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Home/index.js:54
-msgid "See more tools"
-msgstr "הצגת כלים נוספים"
+#, fuzzy
+msgid "See more weather extensions"
+msgstr "הצגת הרחבות מומלצות נוספות"
 
 #: src/amo/pages/Home/index.js:55
-msgid "Note-taking & time management tools"
-msgstr ""
+#, fuzzy
+msgid "Weather extensions"
+msgstr "הרחבות מומלצות"
 
 #: src/amo/pages/Home/index.js:60
 #, fuzzy
-msgid "See more feed readers"
-msgstr "הצגת ערכות נושא מומלצות נוספות"
+msgid "See more tab extensions"
+msgstr "הצגת הרחבות נוספות בדירוג גבוה"
 
 #: src/amo/pages/Home/index.js:61
-msgid "Feed readers"
+msgid "Change up your tabs"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:66
-msgid "See more health & wellness extensions"
-msgstr "הצגת הרחבות בריאות ואיכות חיים נוספות"
+msgid "See more tools"
+msgstr "הצגת כלים נוספים"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Health & Wellness"
-msgstr "בריאות ואיכות חיים"
+msgid "Note-taking & time management tools"
+msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3254,6 +3264,16 @@ msgstr[1] "%(total)s תוספות"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "תגובת המפתח"
+
+#, fuzzy
+#~ msgid "See more feed readers"
+#~ msgstr "הצגת ערכות נושא מומלצות נוספות"
+
+#~ msgid "See more health & wellness extensions"
+#~ msgstr "הצגת הרחבות בריאות ואיכות חיים נוספות"
+
+#~ msgid "Health & Wellness"
+#~ msgstr "בריאות ואיכות חיים"
 
 #~ msgid "Please enter a search term to search Firefox Add-ons."
 #~ msgstr "נא להזין מונח חיפוש כדי לחפש בתוספות של Firefox."

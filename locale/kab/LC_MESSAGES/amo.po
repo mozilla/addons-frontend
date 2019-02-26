@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-19 18:23+0000\n"
+"POT-Creation-Date: 2019-02-26 17:56+0000\n"
 "PO-Revision-Date: 2018-10-16 19:24+0000\n"
 "Last-Translator: Linda DIB <lynda.dib@gmail.com>\n"
 "Language-Team: none\n"
@@ -335,55 +335,55 @@ msgstr "ISeqdacen-nniden n usiɣzef sbedden daɣen"
 msgid "Other popular extensions"
 msgstr "Isiɣzaf-nniḍen iɣerfanen"
 
-#: src/amo/components/AddonReviewCard/index.js:194
+#: src/amo/components/AddonReviewCard/index.js:195
 #, fuzzy
 msgid "Edit reply"
 msgstr "Ẓreg tiririt-iw"
 
-#: src/amo/components/AddonReviewCard/index.js:197
+#: src/amo/components/AddonReviewCard/index.js:198
 #, fuzzy
 msgid "Edit review"
 msgstr "Aru acegger-iw"
 
-#: src/amo/components/AddonReviewCard/index.js:204
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:205
+#: src/amo/components/AddonReviewCard/index.js:237
 #, fuzzy
 msgid "Delete reply"
 msgstr "Ẓreg tiririt-iw"
 
-#: src/amo/components/AddonReviewCard/index.js:208
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:209
+#: src/amo/components/AddonReviewCard/index.js:241
 #, fuzzy
 msgid "Delete rating"
 msgstr "Aru acegger-iw"
 
-#: src/amo/components/AddonReviewCard/index.js:211
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:244
 #, fuzzy
 msgid "Delete review"
 msgstr "Aru acegger-iw"
 
-#: src/amo/components/AddonReviewCard/index.js:218
+#: src/amo/components/AddonReviewCard/index.js:219
 #, fuzzy
 msgid "Do you really want to delete this reply?"
 msgstr "Tebγiḍ s tidet ad tekseḍ tugna-agi?"
 
-#: src/amo/components/AddonReviewCard/index.js:222
+#: src/amo/components/AddonReviewCard/index.js:223
 #, fuzzy
 msgid "Do you really want to delete this rating?"
 msgstr "Tebγiḍ s tidet ad tekseḍ tugna-agi?"
 
-#: src/amo/components/AddonReviewCard/index.js:225
+#: src/amo/components/AddonReviewCard/index.js:226
 #, fuzzy
 msgid "Do you really want to delete this review?"
 msgstr "Tebγiḍ s tidet ad tekseḍ tugna-agi?"
 
-#: src/amo/components/AddonReviewCard/index.js:232
+#: src/amo/components/AddonReviewCard/index.js:233
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "Kkes"
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:147
 #: src/amo/components/CollectionManager/index.js:313
 #: src/amo/pages/UserProfileEdit/index.js:852
@@ -392,63 +392,69 @@ msgstr "Kkes"
 msgid "Cancel"
 msgstr "Sefsex"
 
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:255
 #, fuzzy
 msgid "Keep reply"
 msgstr "Ẓreg tiririt-iw"
 
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:259
 #, fuzzy
 msgid "Keep rating"
 msgstr "Aru acegger-iw"
 
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:262
 #, fuzzy
 msgid "Keep review"
 msgstr "Aru acegger-iw"
 
-#: src/amo/components/AddonReviewCard/index.js:297
+#: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
 msgstr "Aru tiririt γef ucegger-agi."
 
-#: src/amo/components/AddonReviewCard/index.js:300
+#: src/amo/components/AddonReviewCard/index.js:301
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Update reply"
 msgstr "Snifel tiririt"
 
-#: src/amo/components/AddonReviewCard/index.js:301
+#: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
 msgstr "Suffeɣ tiririt"
 
-#: src/amo/components/AddonReviewCard/index.js:305
+#: src/amo/components/AddonReviewCard/index.js:306
 #: src/amo/components/AddonReviewManager/index.js:118
 msgid "Updating reply"
 msgstr "Snifel tiririt"
 
-#: src/amo/components/AddonReviewCard/index.js:306
+#: src/amo/components/AddonReviewCard/index.js:307
 msgid "Publishing reply"
 msgstr "Asuffeɣ n tririt"
 
-#: src/amo/components/AddonReviewCard/index.js:348
+#: src/amo/components/AddonReviewCard/index.js:349
 #, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "sγur %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:350
+#: src/amo/components/AddonReviewCard/index.js:351
 #, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "sγur %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:437
+#: src/amo/components/AddonReviewCard/index.js:438
 #, fuzzy
 msgid "Deleting…"
 msgstr "Anadi..."
 
-#: src/amo/components/AddonReviewCard/index.js:468
+#: src/amo/components/AddonReviewCard/index.js:469
 msgid "Reply to this review"
 msgstr "Err i ucegger-agi"
 
-#: src/amo/components/AddonReviewCard/index.js:537
+#: src/amo/components/AddonReviewCard/index.js:499
+msgid ""
+"This rating or review has been deleted. You are only seeing it because of "
+"elevated permissions."
+msgstr ""
+
+#: src/amo/components/AddonReviewCard/index.js:545
 msgid "Write a review"
 msgstr "Aru acegger"
 
@@ -972,12 +978,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Yettwacreḍ d tuzna n ubug neɣ asuter n tallelt"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Creḍ"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Yettwammel"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Creḍ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1457,7 +1463,7 @@ msgid "Search results"
 msgstr "Igmaḍ n unadi"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:307 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Isiɣzaf yettwaszemlen"
 
@@ -1999,7 +2005,7 @@ msgstr "Inig γer akk isiɣzaf di taggayt-ag."
 msgid "All theme categories"
 msgstr "Wali akk taggayin"
 
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:308
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:306
 #: src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
 msgstr "Ugar n yisiɣzaf yettwasersen d imezwura"
@@ -2383,29 +2389,30 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:54
 #, fuzzy
-msgid "See more tools"
-msgstr "Wali ugar"
+msgid "See more weather extensions"
+msgstr "Ugar n yisiɣzaf yettwasersen d imezwura"
 
 #: src/amo/pages/Home/index.js:55
-msgid "Note-taking & time management tools"
-msgstr ""
+#, fuzzy
+msgid "Weather extensions"
+msgstr "Isiɣzaf yettwaszemlen"
 
 #: src/amo/pages/Home/index.js:60
 #, fuzzy
-msgid "See more feed readers"
-msgstr "Ugar n yisental yettwasersen d imezwura"
+msgid "See more tab extensions"
+msgstr "Wali isiɣzaft gar wid yettwaszemlen aṭas"
 
 #: src/amo/pages/Home/index.js:61
-msgid "Feed readers"
+msgid "Change up your tabs"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:66
 #, fuzzy
-msgid "See more health & wellness extensions"
-msgstr "Ugar n yisiɣzaf yettwasersen d imezwura"
+msgid "See more tools"
+msgstr "Wali ugar"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Health & Wellness"
+msgid "Note-taking & time management tools"
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205
@@ -3361,6 +3368,14 @@ msgstr[1] "%(total)s n yizegrar"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Tiririt n ineflayen"
+
+#, fuzzy
+#~ msgid "See more feed readers"
+#~ msgstr "Ugar n yisental yettwasersen d imezwura"
+
+#, fuzzy
+#~ msgid "See more health & wellness extensions"
+#~ msgstr "Ugar n yisiɣzaf yettwasersen d imezwura"
 
 #~ msgid "Please enter a search term to search Firefox Add-ons."
 #~ msgstr "Ma ulac aɣilif, sekcem awal i unadi n izegrar Firefox."

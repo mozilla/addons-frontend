@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-19 18:23+0000\n"
+"POT-Creation-Date: 2019-02-26 17:56+0000\n"
 "PO-Revision-Date: 2018-04-02 14:16+0000\n"
 "Last-Translator: aefgh39622 <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -322,50 +322,50 @@ msgstr ""
 msgid "Other popular extensions"
 msgstr "ส่วนขยายยอดนิยมอื่น ๆ"
 
-#: src/amo/components/AddonReviewCard/index.js:194
+#: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit reply"
 msgstr "แก้ไขการตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:197
+#: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
 msgstr "แก้ไขบทวิจารณ์"
 
-#: src/amo/components/AddonReviewCard/index.js:204
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:205
+#: src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
 msgstr "ลบการตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:208
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:209
+#: src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
 msgstr "ลบการจัดอันดับ"
 
-#: src/amo/components/AddonReviewCard/index.js:211
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
 msgstr "ลบบทวิจารณ์"
 
-#: src/amo/components/AddonReviewCard/index.js:218
+#: src/amo/components/AddonReviewCard/index.js:219
 #, fuzzy
 msgid "Do you really want to delete this reply?"
 msgstr "เข้าสู่ระบบเพื่อแก้ไขชุดสะสมนี้"
 
-#: src/amo/components/AddonReviewCard/index.js:222
+#: src/amo/components/AddonReviewCard/index.js:223
 #, fuzzy
 msgid "Do you really want to delete this rating?"
 msgstr "เข้าสู่ระบบเพื่อแก้ไขชุดสะสมนี้"
 
-#: src/amo/components/AddonReviewCard/index.js:225
+#: src/amo/components/AddonReviewCard/index.js:226
 #, fuzzy
 msgid "Do you really want to delete this review?"
 msgstr "เข้าสู่ระบบเพื่อแก้ไขชุดสะสมนี้"
 
-#: src/amo/components/AddonReviewCard/index.js:232
+#: src/amo/components/AddonReviewCard/index.js:233
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "ลบ"
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:147
 #: src/amo/components/CollectionManager/index.js:313
 #: src/amo/pages/UserProfileEdit/index.js:852
@@ -374,62 +374,68 @@ msgstr "ลบ"
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:255
 #, fuzzy
 msgid "Keep reply"
 msgstr "ลบการตอบกลับของฉัน"
 
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:259
 #, fuzzy
 msgid "Keep rating"
 msgstr "ลบบทวิจารณ์ของฉัน"
 
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:262
 #, fuzzy
 msgid "Keep review"
 msgstr "ลบบทวิจารณ์ของฉัน"
 
-#: src/amo/components/AddonReviewCard/index.js:297
+#: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
 msgstr "เขียนการตอบกลับบทวิจารณ์นี้"
 
-#: src/amo/components/AddonReviewCard/index.js:300
+#: src/amo/components/AddonReviewCard/index.js:301
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Update reply"
 msgstr "อัปเดตการตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:301
+#: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
 msgstr "เผยแพร่การตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:305
+#: src/amo/components/AddonReviewCard/index.js:306
 #: src/amo/components/AddonReviewManager/index.js:118
 msgid "Updating reply"
 msgstr "กำลังอัปเดตการตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:306
+#: src/amo/components/AddonReviewCard/index.js:307
 msgid "Publishing reply"
 msgstr "กำลังเผยแพร่การตอบกลับ"
 
-#: src/amo/components/AddonReviewCard/index.js:348
+#: src/amo/components/AddonReviewCard/index.js:349
 #, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "โพสต์เมื่อ %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:350
+#: src/amo/components/AddonReviewCard/index.js:351
 #, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "โดย %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:437
+#: src/amo/components/AddonReviewCard/index.js:438
 msgid "Deleting…"
 msgstr "กำลังลบ…"
 
-#: src/amo/components/AddonReviewCard/index.js:468
+#: src/amo/components/AddonReviewCard/index.js:469
 msgid "Reply to this review"
 msgstr "ตอบกลับบทวิจารณ์นี้"
 
-#: src/amo/components/AddonReviewCard/index.js:537
+#: src/amo/components/AddonReviewCard/index.js:499
+msgid ""
+"This rating or review has been deleted. You are only seeing it because of "
+"elevated permissions."
+msgstr ""
+
+#: src/amo/components/AddonReviewCard/index.js:545
 msgid "Write a review"
 msgstr "เขียนบทวิจารณ์"
 
@@ -929,12 +935,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "ตั้งค่าสถานะว่าเป็นการรายงานข้อบกพร่องหรือขอความช่วยเหลือ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "ตั้งค่าสถานะ"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "ตั้งค่าสถานะแล้ว"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "ตั้งค่าสถานะ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1406,7 +1412,7 @@ msgid "Search results"
 msgstr "ผลการค้นหา"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:307 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "ส่วนขยายที่แนะนำ"
 
@@ -1928,7 +1934,7 @@ msgstr "เรียกดูส่วนขยายทั้งหมดใน
 msgid "All theme categories"
 msgstr "สำรวจหมวดหมู่ทั้งหมด"
 
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:308
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:306
 #: src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
 msgstr "ดูส่วนขยายที่แนะนำเพิ่มเติม"
@@ -2307,29 +2313,30 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:54
 #, fuzzy
-msgid "See more tools"
-msgstr "ดูเครื่องมือการแปลเพิ่มเติม"
+msgid "See more weather extensions"
+msgstr "ดูส่วนขยายที่แนะนำเพิ่มเติม"
 
 #: src/amo/pages/Home/index.js:55
-msgid "Note-taking & time management tools"
-msgstr ""
+#, fuzzy
+msgid "Weather extensions"
+msgstr "ส่วนขยายที่แนะนำ"
 
 #: src/amo/pages/Home/index.js:60
 #, fuzzy
-msgid "See more feed readers"
-msgstr "ดูชุดตกแต่งที่แนะนำเพิ่มเติม"
+msgid "See more tab extensions"
+msgstr "ดูส่วนขยายที่ได้รับการจัดอันดับสูงสุดเพิ่มเติม"
 
 #: src/amo/pages/Home/index.js:61
-msgid "Feed readers"
+msgid "Change up your tabs"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:66
 #, fuzzy
-msgid "See more health & wellness extensions"
-msgstr "ดูส่วนขยายที่แนะนำเพิ่มเติม"
+msgid "See more tools"
+msgstr "ดูเครื่องมือการแปลเพิ่มเติม"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Health & Wellness"
+msgid "Note-taking & time management tools"
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205
@@ -3171,6 +3178,14 @@ msgstr[0] "%(total)s ส่วนเสริม"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "การตอบกลับของนักพัฒนา"
+
+#, fuzzy
+#~ msgid "See more feed readers"
+#~ msgstr "ดูชุดตกแต่งที่แนะนำเพิ่มเติม"
+
+#, fuzzy
+#~ msgid "See more health & wellness extensions"
+#~ msgstr "ดูส่วนขยายที่แนะนำเพิ่มเติม"
 
 #~ msgid "Please enter a search term to search Firefox Add-ons."
 #~ msgstr "โปรดป้อนคำค้นหาเพื่อค้นหาส่วนเสริม Firefox"
