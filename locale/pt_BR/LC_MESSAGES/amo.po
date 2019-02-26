@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-26 17:56+0000\n"
-"PO-Revision-Date: 2019-02-26 20:34+0000\n"
+"PO-Revision-Date: 2019-02-26 20:35+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -2096,18 +2096,16 @@ msgid "Download Firefox extensions and themes. They’re like apps for your brow
 msgstr "Baixe extensões e temas do Firefox. Eles são como aplicativos para o seu navegador. Eles podem bloquear anúncios irritantes, proteger senhas, alterar a aparência do navegador e muito mais."
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more weather extensions"
-msgstr "Mais extensões em destaque"
+msgstr "Mais extensões de clima"
 
 #: src/amo/pages/Home/index.js:55
 msgid "Weather extensions"
 msgstr "Extensões de clima"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Mais extensões melhor avaliadas"
+msgstr "Mais extensões de abas"
 
 #: src/amo/pages/Home/index.js:61
 msgid "Change up your tabs"
