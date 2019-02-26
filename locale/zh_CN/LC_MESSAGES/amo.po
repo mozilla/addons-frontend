@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-19 18:23+0000\n"
+"POT-Creation-Date: 2019-02-26 17:56+0000\n"
 "PO-Revision-Date: 2019-02-14 00:28+0000\n"
 "Last-Translator: 우믿트 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
@@ -321,47 +321,47 @@ msgstr "此扩展的其他用户也安装了"
 msgid "Other popular extensions"
 msgstr "其他流行扩展"
 
-#: src/amo/components/AddonReviewCard/index.js:194
+#: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit reply"
 msgstr "编辑回复"
 
-#: src/amo/components/AddonReviewCard/index.js:197
+#: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
 msgstr "编辑评价"
 
-#: src/amo/components/AddonReviewCard/index.js:204
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:205
+#: src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
 msgstr "删除回复"
 
-#: src/amo/components/AddonReviewCard/index.js:208
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:209
+#: src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
 msgstr "删除评分"
 
-#: src/amo/components/AddonReviewCard/index.js:211
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
 msgstr "删除评价"
 
-#: src/amo/components/AddonReviewCard/index.js:218
+#: src/amo/components/AddonReviewCard/index.js:219
 msgid "Do you really want to delete this reply?"
 msgstr "您确实要删除这则回复吗？"
 
-#: src/amo/components/AddonReviewCard/index.js:222
+#: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this rating?"
 msgstr "您确实要删除这条评价吗？"
 
-#: src/amo/components/AddonReviewCard/index.js:225
+#: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
 msgstr "您确实要删除这条评价吗？"
 
-#: src/amo/components/AddonReviewCard/index.js:232
+#: src/amo/components/AddonReviewCard/index.js:233
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "删除"
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:147
 #: src/amo/components/CollectionManager/index.js:313
 #: src/amo/pages/UserProfileEdit/index.js:852
@@ -370,57 +370,64 @@ msgstr "删除"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:255
 msgid "Keep reply"
 msgstr "保留回复"
 
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep rating"
 msgstr "保留评分"
 
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep review"
 msgstr "保留评价"
 
-#: src/amo/components/AddonReviewCard/index.js:297
+#: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
 msgstr "撰写对此评价的回应。"
 
-#: src/amo/components/AddonReviewCard/index.js:300
+#: src/amo/components/AddonReviewCard/index.js:301
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Update reply"
 msgstr "更新回复"
 
-#: src/amo/components/AddonReviewCard/index.js:301
+#: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
 msgstr "发布回复"
 
-#: src/amo/components/AddonReviewCard/index.js:305
+#: src/amo/components/AddonReviewCard/index.js:306
 #: src/amo/components/AddonReviewManager/index.js:118
 msgid "Updating reply"
 msgstr "更新回复"
 
-#: src/amo/components/AddonReviewCard/index.js:306
+#: src/amo/components/AddonReviewCard/index.js:307
 msgid "Publishing reply"
 msgstr "回复发布中"
 
-#: src/amo/components/AddonReviewCard/index.js:348
+#: src/amo/components/AddonReviewCard/index.js:349
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "发布于 %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:350
+#: src/amo/components/AddonReviewCard/index.js:351
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "来自 %(authorName)s，%(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:437
+#: src/amo/components/AddonReviewCard/index.js:438
 msgid "Deleting…"
 msgstr "正在删除…"
 
-#: src/amo/components/AddonReviewCard/index.js:468
+#: src/amo/components/AddonReviewCard/index.js:469
 msgid "Reply to this review"
 msgstr "回复此评价"
 
-#: src/amo/components/AddonReviewCard/index.js:537
+#: src/amo/components/AddonReviewCard/index.js:499
+#, fuzzy
+msgid ""
+"This rating or review has been deleted. You are only seeing it because of "
+"elevated permissions."
+msgstr "它没有被公开上架。您能看到它是因为提升的权限。"
+
+#: src/amo/components/AddonReviewCard/index.js:545
 msgid "Write a review"
 msgstr "撰写评价"
 
@@ -914,12 +921,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "已报告这是一份缺陷报告或支持请求"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "标记"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "已标记"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "标记"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1388,7 +1395,7 @@ msgid "Search results"
 msgstr "搜索结果"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:307 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "精选扩展"
 
@@ -1887,7 +1894,7 @@ msgstr "所有扩展分类"
 msgid "All theme categories"
 msgstr "所有主题分类"
 
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:308
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:306
 #: src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
 msgstr "看看更多精选扩展"
@@ -2296,28 +2303,31 @@ msgstr ""
 "告、保护密码、更改浏览器外观，还有更多功能。"
 
 #: src/amo/pages/Home/index.js:54
+#, fuzzy
+msgid "See more weather extensions"
+msgstr "看看更多精选扩展"
+
+#: src/amo/pages/Home/index.js:55
+#, fuzzy
+msgid "Weather extensions"
+msgstr "精选扩展"
+
+#: src/amo/pages/Home/index.js:60
+#, fuzzy
+msgid "See more tab extensions"
+msgstr "看看更多好评扩展"
+
+#: src/amo/pages/Home/index.js:61
+msgid "Change up your tabs"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:66
 msgid "See more tools"
 msgstr "看看更多工具"
 
-#: src/amo/pages/Home/index.js:55
+#: src/amo/pages/Home/index.js:67
 msgid "Note-taking & time management tools"
 msgstr "笔记和时间管理工具"
-
-#: src/amo/pages/Home/index.js:60
-msgid "See more feed readers"
-msgstr "看看更多收取点阅读器"
-
-#: src/amo/pages/Home/index.js:61
-msgid "Feed readers"
-msgstr "收取点阅读器"
-
-#: src/amo/pages/Home/index.js:66
-msgid "See more health & wellness extensions"
-msgstr "看看更多健康身与心扩展"
-
-#: src/amo/pages/Home/index.js:67
-msgid "Health & Wellness"
-msgstr "健康身与心"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3230,6 +3240,18 @@ msgstr[0] "共 %(total)s 个附加组件"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "开发者回应"
+
+#~ msgid "See more feed readers"
+#~ msgstr "看看更多收取点阅读器"
+
+#~ msgid "Feed readers"
+#~ msgstr "收取点阅读器"
+
+#~ msgid "See more health & wellness extensions"
+#~ msgstr "看看更多健康身与心扩展"
+
+#~ msgid "Health & Wellness"
+#~ msgstr "健康身与心"
 
 #~ msgid "Please enter a search term to search Firefox Add-ons."
 #~ msgstr "请输入搜索关键词以搜索 Firefox 附加组件。"

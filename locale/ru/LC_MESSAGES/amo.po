@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-19 18:23+0000\n"
+"POT-Creation-Date: 2019-02-26 17:56+0000\n"
 "PO-Revision-Date: 2019-02-16 21:55+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
@@ -343,47 +343,47 @@ msgstr "Другие пользователи этого расширения т
 msgid "Other popular extensions"
 msgstr "Другие популярные расширения"
 
-#: src/amo/components/AddonReviewCard/index.js:194
+#: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit reply"
 msgstr "Изменить ответ"
 
-#: src/amo/components/AddonReviewCard/index.js:197
+#: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
 msgstr "Редактировать отзыв"
 
-#: src/amo/components/AddonReviewCard/index.js:204
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:205
+#: src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
 msgstr "Удалить ответ"
 
-#: src/amo/components/AddonReviewCard/index.js:208
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:209
+#: src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
 msgstr "Удалить оценку"
 
-#: src/amo/components/AddonReviewCard/index.js:211
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
 msgstr "Удалить отзыв"
 
-#: src/amo/components/AddonReviewCard/index.js:218
+#: src/amo/components/AddonReviewCard/index.js:219
 msgid "Do you really want to delete this reply?"
 msgstr "Вы действительно хотите удалить этот ответ?"
 
-#: src/amo/components/AddonReviewCard/index.js:222
+#: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this rating?"
 msgstr "Вы действительно хотите удалить эту оценку?"
 
-#: src/amo/components/AddonReviewCard/index.js:225
+#: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
 msgstr "Вы действительно хотите удалить этот отзыв?"
 
-#: src/amo/components/AddonReviewCard/index.js:232
+#: src/amo/components/AddonReviewCard/index.js:233
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "Удалить"
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:147
 #: src/amo/components/CollectionManager/index.js:313
 #: src/amo/pages/UserProfileEdit/index.js:852
@@ -392,57 +392,65 @@ msgstr "Удалить"
 msgid "Cancel"
 msgstr "Отмена"
 
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:255
 msgid "Keep reply"
 msgstr "Сохранить ответ"
 
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep rating"
 msgstr "Сохранить оценку"
 
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep review"
 msgstr "Сохранить отзыв"
 
-#: src/amo/components/AddonReviewCard/index.js:297
+#: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
 msgstr "Напишите ответ на этот отзыв."
 
-#: src/amo/components/AddonReviewCard/index.js:300
+#: src/amo/components/AddonReviewCard/index.js:301
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Update reply"
 msgstr "Обновить ответ"
 
-#: src/amo/components/AddonReviewCard/index.js:301
+#: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
 msgstr "Опубликовать ответ"
 
-#: src/amo/components/AddonReviewCard/index.js:305
+#: src/amo/components/AddonReviewCard/index.js:306
 #: src/amo/components/AddonReviewManager/index.js:118
 msgid "Updating reply"
 msgstr "Обновление ответа"
 
-#: src/amo/components/AddonReviewCard/index.js:306
+#: src/amo/components/AddonReviewCard/index.js:307
 msgid "Publishing reply"
 msgstr "Публикация ответа"
 
-#: src/amo/components/AddonReviewCard/index.js:348
+#: src/amo/components/AddonReviewCard/index.js:349
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "опубликовано %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:350
+#: src/amo/components/AddonReviewCard/index.js:351
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "от %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:437
+#: src/amo/components/AddonReviewCard/index.js:438
 msgid "Deleting…"
 msgstr "Удаление…"
 
-#: src/amo/components/AddonReviewCard/index.js:468
+#: src/amo/components/AddonReviewCard/index.js:469
 msgid "Reply to this review"
 msgstr "Ответить на отзыв"
 
-#: src/amo/components/AddonReviewCard/index.js:537
+#: src/amo/components/AddonReviewCard/index.js:499
+#, fuzzy
+msgid ""
+"This rating or review has been deleted. You are only seeing it because of "
+"elevated permissions."
+msgstr ""
+"Это не публичное описание. Вы видите его только из-за повышенных привилегий."
+
+#: src/amo/components/AddonReviewCard/index.js:545
 msgid "Write a review"
 msgstr "Написать отзыв"
 
@@ -959,12 +967,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Отмечено как сообщение об ошибке или запрос поддержки"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Отметить"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Отмечено"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Отметить"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1449,7 +1457,7 @@ msgid "Search results"
 msgstr "Результаты поиска"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:307 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Избранные расширения"
 
@@ -1990,7 +1998,7 @@ msgstr "Все категории расширений"
 msgid "All theme categories"
 msgstr "Все категории тем"
 
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:308
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:306
 #: src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
 msgstr "Больше избранных расширений"
@@ -2440,28 +2448,31 @@ msgstr ""
 "изменять внешний вид браузера и многое другое."
 
 #: src/amo/pages/Home/index.js:54
+#, fuzzy
+msgid "See more weather extensions"
+msgstr "Больше избранных расширений"
+
+#: src/amo/pages/Home/index.js:55
+#, fuzzy
+msgid "Weather extensions"
+msgstr "Избранные расширения"
+
+#: src/amo/pages/Home/index.js:60
+#, fuzzy
+msgid "See more tab extensions"
+msgstr "Больше самых высоко оцененных расширений"
+
+#: src/amo/pages/Home/index.js:61
+msgid "Change up your tabs"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:66
 msgid "See more tools"
 msgstr "Посмотреть больше инструментов"
 
-#: src/amo/pages/Home/index.js:55
+#: src/amo/pages/Home/index.js:67
 msgid "Note-taking & time management tools"
 msgstr "Заметки и тайм-менеджмент"
-
-#: src/amo/pages/Home/index.js:60
-msgid "See more feed readers"
-msgstr "Посмотреть больше читателей новостей"
-
-#: src/amo/pages/Home/index.js:61
-msgid "Feed readers"
-msgstr "Читатели новостей"
-
-#: src/amo/pages/Home/index.js:66
-msgid "See more health & wellness extensions"
-msgstr "Больше расширений для здоровья и образа жизни"
-
-#: src/amo/pages/Home/index.js:67
-msgid "Health & Wellness"
-msgstr "Здоровье и образ жизни"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3454,6 +3465,18 @@ msgstr[2] "%(total)s дополнений"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Ответ разработчика"
+
+#~ msgid "See more feed readers"
+#~ msgstr "Посмотреть больше читателей новостей"
+
+#~ msgid "Feed readers"
+#~ msgstr "Читатели новостей"
+
+#~ msgid "See more health & wellness extensions"
+#~ msgstr "Больше расширений для здоровья и образа жизни"
+
+#~ msgid "Health & Wellness"
+#~ msgstr "Здоровье и образ жизни"
 
 #~ msgid "Please enter a search term to search Firefox Add-ons."
 #~ msgstr ""

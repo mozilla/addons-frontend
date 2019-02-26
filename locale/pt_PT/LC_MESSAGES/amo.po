@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-19 18:23+0000\n"
+"POT-Creation-Date: 2019-02-26 17:56+0000\n"
 "PO-Revision-Date: 2019-02-14 00:31+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
@@ -338,47 +338,47 @@ msgstr "Outros utilizadores com esta extensão também instalaram"
 msgid "Other popular extensions"
 msgstr "Outras extensões populares"
 
-#: src/amo/components/AddonReviewCard/index.js:194
+#: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit reply"
 msgstr "Editar resposta"
 
-#: src/amo/components/AddonReviewCard/index.js:197
+#: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
 msgstr "Editar análise"
 
-#: src/amo/components/AddonReviewCard/index.js:204
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:205
+#: src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
 msgstr "Apagar resposta"
 
-#: src/amo/components/AddonReviewCard/index.js:208
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:209
+#: src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
 msgstr "Apagar avaliação"
 
-#: src/amo/components/AddonReviewCard/index.js:211
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
 msgstr "Apagar análise"
 
-#: src/amo/components/AddonReviewCard/index.js:218
+#: src/amo/components/AddonReviewCard/index.js:219
 msgid "Do you really want to delete this reply?"
 msgstr "Pretende mesmo apagar esta resposta?"
 
-#: src/amo/components/AddonReviewCard/index.js:222
+#: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this rating?"
 msgstr "Pretende mesmo apagar esta avaliação?"
 
-#: src/amo/components/AddonReviewCard/index.js:225
+#: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
 msgstr "Pretende mesmo apagar esta análise?"
 
-#: src/amo/components/AddonReviewCard/index.js:232
+#: src/amo/components/AddonReviewCard/index.js:233
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "Apagar"
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:147
 #: src/amo/components/CollectionManager/index.js:313
 #: src/amo/pages/UserProfileEdit/index.js:852
@@ -387,57 +387,66 @@ msgstr "Apagar"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:255
 msgid "Keep reply"
 msgstr "Manter resposta"
 
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep rating"
 msgstr "Manter avaliação"
 
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep review"
 msgstr "Manter análise"
 
-#: src/amo/components/AddonReviewCard/index.js:297
+#: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
 msgstr "Escreva uma resposta a esta revisão."
 
-#: src/amo/components/AddonReviewCard/index.js:300
+#: src/amo/components/AddonReviewCard/index.js:301
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Update reply"
 msgstr "Atualizar resposta"
 
-#: src/amo/components/AddonReviewCard/index.js:301
+#: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
 msgstr "Publicar resposta"
 
-#: src/amo/components/AddonReviewCard/index.js:305
+#: src/amo/components/AddonReviewCard/index.js:306
 #: src/amo/components/AddonReviewManager/index.js:118
 msgid "Updating reply"
 msgstr "A atualizar resposta"
 
-#: src/amo/components/AddonReviewCard/index.js:306
+#: src/amo/components/AddonReviewCard/index.js:307
 msgid "Publishing reply"
 msgstr "A publicar resposta"
 
-#: src/amo/components/AddonReviewCard/index.js:348
+#: src/amo/components/AddonReviewCard/index.js:349
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "publicado a %(linkStart)s %(timestamp)s %(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:350
+#: src/amo/components/AddonReviewCard/index.js:351
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "por %(authorName)s, a %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:437
+#: src/amo/components/AddonReviewCard/index.js:438
 msgid "Deleting…"
 msgstr "A apagar…"
 
-#: src/amo/components/AddonReviewCard/index.js:468
+#: src/amo/components/AddonReviewCard/index.js:469
 msgid "Reply to this review"
 msgstr "Responder a esta análise"
 
-#: src/amo/components/AddonReviewCard/index.js:537
+#: src/amo/components/AddonReviewCard/index.js:499
+#, fuzzy
+msgid ""
+"This rating or review has been deleted. You are only seeing it because of "
+"elevated permissions."
+msgstr ""
+"Esta não é uma listagem pública. Apenas a está a ver por causa de permissões "
+"elevadas."
+
+#: src/amo/components/AddonReviewCard/index.js:545
 msgid "Write a review"
 msgstr "Escreva uma revisão"
 
@@ -952,12 +961,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Marcado como relatório de erro ou pedido de apoio"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Marcar"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Marcado"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Marcar"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1442,7 +1451,7 @@ msgid "Search results"
 msgstr "Resultados da pesquisa"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:307 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Extensões em destaque"
 
@@ -1966,7 +1975,7 @@ msgstr "Todas as categorias de extensões"
 msgid "All theme categories"
 msgstr "Todas as categorias de temas"
 
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:308
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:306
 #: src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
 msgstr "Ver mais extensões em destaque"
@@ -2428,28 +2437,31 @@ msgstr ""
 "passe, alterar a aparência do navegador, e mais."
 
 #: src/amo/pages/Home/index.js:54
+#, fuzzy
+msgid "See more weather extensions"
+msgstr "Ver mais extensões em destaque"
+
+#: src/amo/pages/Home/index.js:55
+#, fuzzy
+msgid "Weather extensions"
+msgstr "Extensões em destaque"
+
+#: src/amo/pages/Home/index.js:60
+#, fuzzy
+msgid "See more tab extensions"
+msgstr "Ver mais extensões no top de avaliações"
+
+#: src/amo/pages/Home/index.js:61
+msgid "Change up your tabs"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:66
 msgid "See more tools"
 msgstr "Ver mais ferramentas"
 
-#: src/amo/pages/Home/index.js:55
+#: src/amo/pages/Home/index.js:67
 msgid "Note-taking & time management tools"
 msgstr "Ferramentas de anotação e gestão de tempo"
-
-#: src/amo/pages/Home/index.js:60
-msgid "See more feed readers"
-msgstr "Ver mais leitores de fontes"
-
-#: src/amo/pages/Home/index.js:61
-msgid "Feed readers"
-msgstr "Leitores de fontes"
-
-#: src/amo/pages/Home/index.js:66
-msgid "See more health & wellness extensions"
-msgstr "Ver mais extensões de saúde e bem-estar"
-
-#: src/amo/pages/Home/index.js:67
-msgid "Health & Wellness"
-msgstr "Saúde e bem-estar"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3430,6 +3442,18 @@ msgstr[1] "%(total)s extras"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Resposta do programador"
+
+#~ msgid "See more feed readers"
+#~ msgstr "Ver mais leitores de fontes"
+
+#~ msgid "Feed readers"
+#~ msgstr "Leitores de fontes"
+
+#~ msgid "See more health & wellness extensions"
+#~ msgstr "Ver mais extensões de saúde e bem-estar"
+
+#~ msgid "Health & Wellness"
+#~ msgstr "Saúde e bem-estar"
 
 #~ msgid "Please enter a search term to search Firefox Add-ons."
 #~ msgstr ""
