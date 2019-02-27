@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-26 17:56+0000\n"
-"PO-Revision-Date: 2019-02-21 14:03+0000\n"
+"PO-Revision-Date: 2019-02-27 14:27+0000\n"
 "Last-Translator: YD <ygda+fx@free.fr>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -399,9 +399,8 @@ msgid "Reply to this review"
 msgstr "Répondre à cet avis"
 
 #: src/amo/components/AddonReviewCard/index.js:499
-#, fuzzy
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr "Ceci n'est pas une fiche publique. Vous la voyez uniquement parce que vous avez des privilèges élevés."
+msgstr "Cette évaluation ou critique a été supprimée. Vous la voyez uniquement parce que vous avez des privilèges élevés."
 
 #: src/amo/components/AddonReviewCard/index.js:545
 msgid "Write a review"
@@ -1342,14 +1341,14 @@ msgstr "Résultats de la recherche pour « %(query)s »"
 #: src/amo/components/SearchContextCard/index.js:100
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Un outil de recherche trouvé pour « %(query)s »"
+msgstr[1] "%(count)s outils de recherche trouvés pour « %(query)s »"
 
 #: src/amo/components/SearchContextCard/index.js:109
 msgid "%(count)s Search Tool found"
 msgid_plural "%(count)s Search Tools found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Un outil de recherche trouvé"
+msgstr[1] "%(count)s outils de recherche trouvés"
 
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
@@ -2114,21 +2113,20 @@ msgstr ""
 "modifier l’apparence du navigateur, etc."
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more weather extensions"
-msgstr "Voir plus d’extensions mises en avant"
+msgstr "Voir plus d’extensions météo"
 
 #: src/amo/pages/Home/index.js:55
 msgid "Weather extensions"
-msgstr ""
+msgstr "Extensions météo"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more tab extensions"
-msgstr ""
+msgstr "Voir plus d’extensions sur les onglets"
 
 #: src/amo/pages/Home/index.js:61
 msgid "Change up your tabs"
-msgstr ""
+msgstr "Personnaliser les onglets"
 
 #: src/amo/pages/Home/index.js:66
 msgid "See more tools"
