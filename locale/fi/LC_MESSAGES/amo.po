@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-26 17:56+0000\n"
-"PO-Revision-Date: 2019-03-03 14:17+0000\n"
+"PO-Revision-Date: 2019-03-03 14:16+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -2102,14 +2102,12 @@ msgid "Download Firefox extensions and themes. They’re like apps for your brow
 msgstr "Lataa Firefox-laajennuksia ja -teemoja. Ne ovat kuin sovelluksia selaimellesi. Niiden avulla voit estää ärsyttävät mainokset, suojata salasanoja, muuttaa selaimen ulkoasua ja paljon muuta."
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more weather extensions"
-msgstr "Katso lisää suositeltuja laajennuksia"
+msgstr "Katso lisää säälaajennuksia"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "Weather extensions"
-msgstr "Suositellut laajennukset"
+msgstr "Säälaajennukset"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more tab extensions"
@@ -2690,7 +2688,7 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s on lisätty"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Hallitse lisäosiasi napsauttamalla valikosta Lisäosat."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -2815,7 +2813,7 @@ msgstr[1] "Pääsy tietoihin %(param)s muussa verkkotunnuksessa"
 
 #: src/ui/components/HostPermissions/index.js:67
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "Pääsy tietoihin sivustoilla, jotka ovat verkkotunnuksessa %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
@@ -2825,7 +2823,7 @@ msgstr[1] ""
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "Pääsy tietoihin sivustolla %(param)s"
 
 #: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
