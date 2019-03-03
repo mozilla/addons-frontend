@@ -1385,20 +1385,18 @@ msgstr[0] "%(count)s forekomst af \"%(query)s\" fundet"
 msgstr[1] "%(count)s forekomster af \"%(query)s\" fundet"
 
 #: src/amo/components/SearchContextCard/index.js:171
-#, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "%(count)s forekomst af \"%(query)s\""
-msgstr[1] "%(count)s forekomster af \"%(query)s\""
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
 msgstr "Søger efter \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:186
-#, fuzzy
 msgid "Searching for add-ons"
-msgstr "Indlæser tilføjelser"
+msgstr ""
 
 #: src/amo/components/SearchContextCard/index.js:60
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -1781,14 +1779,12 @@ msgid "Older versions"
 msgstr "Ældre versioner"
 
 #: src/amo/pages/CategoriesPage/index.js:34
-#, fuzzy
 msgid "All extension categories"
-msgstr "Gennemse alle udvidelser i denne kategori."
+msgstr ""
 
 #: src/amo/pages/CategoriesPage/index.js:36
-#, fuzzy
 msgid "All theme categories"
-msgstr "Udforsk alle kategorier"
+msgstr ""
 
 #: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:306 src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
@@ -2100,19 +2096,16 @@ msgid "Download Firefox extensions and themes. They’re like apps for your brow
 msgstr "Hent udvidelser og temaer til Firefox. De er som apps til din browser. De kan blokere irriterende reklamer, beskytte adgangskoder, ændre din browsers udseende og meget mere."
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more weather extensions"
-msgstr "Se flere udvalgte udvidelser"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "Weather extensions"
-msgstr "Udvalgte udvidelser"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Se flere bedst bedømte udvidelser"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:61
 msgid "Change up your tabs"
@@ -2493,14 +2486,12 @@ msgid "Picture successfully deleted"
 msgstr "Billede slettet"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "Fortæl brugerne lidt mere om dig selv. Det er valgfrit, om du vil udfylde felterne, men det vil hjælpe andre brugere med at lære dig bedre at kende."
+msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Fortæl brugerne lidt mere om denne bruger. Det er valgfrit, om du vil udfylde felterne, men det vil hjælpe andre brugere med at lære %(userName)s bedre at kende."
+msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
@@ -2555,9 +2546,8 @@ msgid "This field is required"
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:588
-#, fuzzy
 msgid "Display Name *"
-msgstr "Vis navn"
+msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:620
 msgid "This URL will only be visible for users who are developers."
