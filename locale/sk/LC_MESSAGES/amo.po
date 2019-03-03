@@ -1329,36 +1329,32 @@ msgid "Search results for \"%(query)s\""
 msgstr "Výsledky vyhľadávania pre „%(query)s“"
 
 #: src/amo/components/SearchContextCard/index.js:100
-#, fuzzy
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] "Pre vyhľadávaný výraz „%(query)s“ bol nájdený %(count)s výsledok"
-msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli nájdené %(count)s výsledky"
-msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdených %(count)s výsledkov"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/amo/components/SearchContextCard/index.js:109
-#, fuzzy
 msgid "%(count)s Search Tool found"
 msgid_plural "%(count)s Search Tools found"
-msgstr[0] "Pre vyhľadávaný výraz „%(query)s“ nebol nájdený žiadny výsledok"
-msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli nájdené %(count)s výsledky"
-msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdených %(count)s výsledkov"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/amo/components/SearchContextCard/index.js:122
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "Pre vyhľadávaný výraz „%(query)s“ bola nájdená %(count)s téma vzhľadu"
-msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli nájdené %(count)s témy vzhľadu"
-msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdených %(count)s tém vzhľadu"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/amo/components/SearchContextCard/index.js:131
-#, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "Pre vyhľadávaný výraz „%(query)s“ bola nájdená %(count)s téma vzhľadu"
-msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli nájdené %(count)s témy vzhľadu"
-msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdených %(count)s tém vzhľadu"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/amo/components/SearchContextCard/index.js:141
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1368,12 +1364,11 @@ msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli nájdené %(count)s t�
 msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdených %(count)s tém vzhľadu"
 
 #: src/amo/components/SearchContextCard/index.js:150
-#, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "Bol nájdený %(count)s doplnok"
-msgstr[1] "Boli nájdené %(count)s doplnky"
-msgstr[2] "Bolo nájdených %(count)s doplnkov"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/amo/components/SearchContextCard/index.js:162
 msgid "%(count)s result found for \"%(query)s\""
@@ -1383,37 +1378,33 @@ msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli nájdené %(count)s v�
 msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdených %(count)s výsledkov"
 
 #: src/amo/components/SearchContextCard/index.js:171
-#, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "Pre vyhľadávaný výraz „%(query)s“ nebol nájdený žiadny výsledok"
-msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli nájdené %(count)s výsledky"
-msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdených %(count)s výsledkov"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
 msgstr "Vyhľadávanie „%(query)s“"
 
 #: src/amo/components/SearchContextCard/index.js:186
-#, fuzzy
 msgid "Searching for add-ons"
-msgstr "Načítavanie doplnkov"
+msgstr ""
 
 #: src/amo/components/SearchContextCard/index.js:60
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdené %(count)s rozšírenie"
-msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli nájdené %(count)s rozšírenia"
-msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdených %(count)s rozšírení"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/amo/components/SearchContextCard/index.js:69
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdené %(count)s rozšírenie"
-msgstr[1] "Pre vyhľadávaný výraz „%(query)s“ boli nájdené %(count)s rozšírenia"
-msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdených %(count)s rozšírení"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/amo/components/SearchContextCard/index.js:79
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1763,9 +1754,8 @@ msgstr[1] "%(total)s recenzie"
 msgstr[2] "%(total)s recenzií"
 
 #: src/amo/pages/AddonReviewList/index.js:383
-#, fuzzy
 msgid "There are no reviews"
-msgstr "Doplnok zatiaľ nie je ohodnotený"
+msgstr ""
 
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
