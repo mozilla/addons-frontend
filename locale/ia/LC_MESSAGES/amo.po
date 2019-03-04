@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-26 17:56+0000\n"
-"PO-Revision-Date: 2019-03-04 22:23+0000\n"
+"PO-Revision-Date: 2019-03-04 22:34+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -400,9 +400,8 @@ msgid "Reply to this review"
 msgstr "Responder a iste revision"
 
 #: src/amo/components/AddonReviewCard/index.js:499
-#, fuzzy
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr "Isto non es un lista de presentation public. Tu vide illo solo pois que de elevate permissos."
+msgstr "Iste valutation o recension era delete. Tu vide solo illo a causa de elevate permissos."
 
 #: src/amo/components/AddonReviewCard/index.js:545
 msgid "Write a review"
@@ -2111,9 +2110,8 @@ msgstr ""
 "altero ancora."
 
 #: src/amo/pages/Home/index.js:54
-#, fuzzy
 msgid "See more weather extensions"
-msgstr "Vide plus de extensiones consiliate"
+msgstr "Vider altere extensiones meteorologic"
 
 #: src/amo/pages/Home/index.js:55
 msgid "Weather extensions"
