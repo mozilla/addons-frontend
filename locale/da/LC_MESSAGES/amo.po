@@ -805,11 +805,10 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
-#, fuzzy
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll get it sorted."
-msgstr "Hvis du fulgte et link fra et sted, så <a href=\"%(url)s\">indberet fejlen</a>. Fortæl os, hvor du kom fra, og hvad du ledte efter, så vil vi gøre vores bedste for at rette den."
+msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
@@ -1357,11 +1356,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:131
-#, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "%(count)s tema med \"%(query)s\"fundet"
-msgstr[1] "%(count)s temaer med \"%(query)s\" fundet"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:141
 msgid "%(count)s theme found for \"%(query)s\""
