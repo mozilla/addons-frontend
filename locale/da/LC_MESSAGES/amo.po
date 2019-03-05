@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-26 17:56+0000\n"
-"PO-Revision-Date: 2019-03-04 21:02+0000\n"
-"Last-Translator: Jakob Kappel <jakobkpetersen@gmail.com>\n"
+"PO-Revision-Date: 2019-03-05 17:12+0000\n"
+"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -1342,26 +1342,26 @@ msgstr "Resultat af søgning efter \"%(query)s\""
 #: src/amo/components/SearchContextCard/index.js:100
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s søgeværktøj med \"%(query)s\" blev fundet"
+msgstr[1] "%(count)s søgeværktøjer med \"%(query)s\" blev fundet"
 
 #: src/amo/components/SearchContextCard/index.js:109
 msgid "%(count)s Search Tool found"
 msgid_plural "%(count)s Search Tools found"
-msgstr[0] "%(count)s søgeværktøj fundet"
-msgstr[1] "%(count)s søgeværktøjer fundet"
+msgstr[0] "%(count)s søgeværktøj blev fundet"
+msgstr[1] "%(count)s søgeværktøjer blev fundet"
 
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s tema med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
+msgstr[1] "%(count)s temaer med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:131
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "%(count)s tema i kategorien %(categoryName)s fundet"
-msgstr[1] "%(count)s temaer i kategorien %(categoryName)s fundet"
+msgstr[0] "%(count)s tema i kategorien %(categoryName)s blev fundet"
+msgstr[1] "%(count)s temaer i kategorien %(categoryName)s blev fundet"
 
 #: src/amo/components/SearchContextCard/index.js:141
 msgid "%(count)s theme found for \"%(query)s\""
