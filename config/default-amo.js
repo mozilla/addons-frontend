@@ -34,7 +34,7 @@ module.exports = {
   fxaConfig: 'amo',
 
   // This needs to be kept in sync with addons-server's SUPPORTED_NONLOCALES
-  // settings value: https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L274
+  // settings value: https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py
   // These are URLs that are ignored by our prefix middleware that will add
   // a locale (e.g. `en-US`) to any URL that doesn't have a valid locale.
   // These are all URLs that should not get a locale prepended to the URL,
@@ -48,6 +48,7 @@ module.exports = {
     'contribute.json',
     'downloads',
     'google1f3e37b7351799a5.html',
+    'google231a41e803e464e9.html',
     'robots.txt',
     'services',
     'static',
@@ -55,7 +56,7 @@ module.exports = {
   ],
 
   // This needs to be kept in sync with addons-server's SUPPORTED_NONAPPS
-  // settings value: https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L262
+  // settings value: https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py
   // These are URLs that are ignored by our prefix middleware that will add
   // a clientApp (e.g. `android`) to any URL that doesn't have a valid
   // clientApp. These are all URLs that don't require a clientApp in them
@@ -71,9 +72,11 @@ module.exports = {
     'developer_agreement',
     'developers',
     'editors',
+    'google1f3e37b7351799a5.html',
+    'google231a41e803e464e9.html',
     'jsi18n',
     'review_guide',
-    'reviewersgoogle1f3e37b7351799a5.html',
+    'reviewers',
     'robots.txt',
     'services',
     'static',
