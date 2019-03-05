@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-26 17:56+0000\n"
-"PO-Revision-Date: 2019-03-05 17:12+0000\n"
+"PO-Revision-Date: 2019-03-05 17:15+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -1366,26 +1366,26 @@ msgstr[1] "%(count)s temaer i kategorien %(categoryName)s blev fundet"
 #: src/amo/components/SearchContextCard/index.js:141
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "%(count)s tema med \"%(query)s\"fundet"
-msgstr[1] "%(count)s temaer med \"%(query)s\" fundet"
+msgstr[0] "%(count)s tema med \"%(query)s\" blev fundet"
+msgstr[1] "%(count)s temaer med \"%(query)s\" blev fundet"
 
 #: src/amo/components/SearchContextCard/index.js:150
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "%(count)s tema fundet"
-msgstr[1] "%(count)s temaer fundet"
+msgstr[0] "%(count)s tema blev fundet"
+msgstr[1] "%(count)s temaer blev fundet"
 
 #: src/amo/components/SearchContextCard/index.js:162
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "%(count)s forekomst af \"%(query)s\" fundet"
-msgstr[1] "%(count)s forekomster af \"%(query)s\" fundet"
+msgstr[0] "%(count)s forekomst af \"%(query)s\" blev fundet"
+msgstr[1] "%(count)s forekomster af \"%(query)s\" blev fundet"
 
 #: src/amo/components/SearchContextCard/index.js:171
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "%(count)s resultat fundet"
-msgstr[1] "%(count)s resultater fundet"
+msgstr[0] "%(count)s resultat blev fundet"
+msgstr[1] "%(count)s resultater blev fundet"
 
 #: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
@@ -1398,26 +1398,26 @@ msgstr "Søger efter tilføjelser"
 #: src/amo/components/SearchContextCard/index.js:60
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s udvidelse med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
+msgstr[1] "%(count)s udvidelser med \"%(query)s\" blev fundet i kategorien %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:69
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s udvidelse i kategorien %(categoryName)s blev fundet"
+msgstr[1] "%(count)s udvidelser i kategorien %(categoryName)s blev fundet"
 
 #: src/amo/components/SearchContextCard/index.js:79
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "%(count)s udvidelse med \"%(query)s\" fundet"
-msgstr[1] "%(count)s udvidelser med \"%(query)s\" fundet"
+msgstr[0] "%(count)s udvidelse med \"%(query)s\" blev fundet"
+msgstr[1] "%(count)s udvidelser med \"%(query)s\" blev fundet"
 
 #: src/amo/components/SearchContextCard/index.js:88
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "%(count)s udvidelse fundet"
-msgstr[1] "%(count)s udvidelser fundet"
+msgstr[0] "%(count)s udvidelse blev fundet"
+msgstr[1] "%(count)s udvidelser blev fundet"
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:125
 msgid "All"
