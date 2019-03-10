@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import type { AppState } from 'amo/store';
 
 import {
   beginEditingCollectionDetails,
@@ -20,6 +21,7 @@ import type {
 } from 'amo/reducers/collections';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
+import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
@@ -35,6 +37,7 @@ type InternalProps = {|
   ...Props,
   dispatch: DispatchFunc,
   i18n: I18nType,
+  location: ReactRouterLocationType,
 |};
 
 export class CollectionDetailsBase extends React.Component<InternalProps> {
@@ -46,6 +49,13 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
 
     dispatch(beginEditingCollectionDetails());
   };
+
+  componentDidMount() {
+    const { dispatch, location } = this.props;
+    if (location.pathname.indexOf('edit') >= 1) {
+      dispatch(beginEditingCollectionDetails());
+    }
+  }
 
   render() {
     const {
@@ -131,9 +141,15 @@ export class CollectionDetailsBase extends React.Component<InternalProps> {
   }
 }
 
+const mapStateToProps = (state: AppState) => {
+  return {
+    location: state.router.location,
+  };
+};
+
 const CollectionDetails: React.ComponentType<Props> = compose(
   translate(),
-  connect(),
+  connect(mapStateToProps),
 )(CollectionDetailsBase);
 
 export default CollectionDetails;
