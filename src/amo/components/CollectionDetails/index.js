@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+
 import type { AppState } from 'amo/store';
 
 import {
