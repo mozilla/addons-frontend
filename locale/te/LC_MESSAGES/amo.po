@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-26 17:56+0000\n"
-"PO-Revision-Date: 2019-03-01 17:30+0000\n"
+"PO-Revision-Date: 2019-03-12 17:50+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -318,14 +318,12 @@ msgid "Other popular extensions"
 msgstr "ఇతర ప్రాచుర్య పొడిగింతలు"
 
 #: src/amo/components/AddonReviewCard/index.js:195
-#, fuzzy
 msgid "Edit reply"
-msgstr "నా స్పందనను సవరించు"
+msgstr "స్పందనను సవరించు"
 
 #: src/amo/components/AddonReviewCard/index.js:198
-#, fuzzy
 msgid "Edit review"
-msgstr "నా సమీక్షను సవరించండి"
+msgstr "సమీక్షను సవరించు"
 
 #: src/amo/components/AddonReviewCard/index.js:205 src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
@@ -1519,9 +1517,8 @@ msgid "Featured add-ons only"
 msgstr "విశేష పొడిగింతలు మాత్రమే"
 
 #: src/amo/components/SearchForm/index.js:61
-#, fuzzy
 msgid "Firefox Add-ons (%(locale)s)"
-msgstr "Firefox యొక్క పొడిగింతలు"
+msgstr "Firefox పొడిగింతలు (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
 #, fuzzy
