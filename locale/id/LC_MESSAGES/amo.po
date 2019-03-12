@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-26 17:56+0000\n"
-"PO-Revision-Date: 2019-03-12 01:49+0000\n"
+"PO-Revision-Date: 2019-03-12 01:58+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -796,12 +796,12 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
-#, fuzzy
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll get it sorted."
 msgstr ""
-"Jika Anda mengikuti tautan dari suatu tempat, silakan <a href=\"%(url)s\">ajukan keluhan</a>. Beritahu kami asal Anda dan  yang Anda cari, dan kami akan melakukan yang terbaik untuk memperbaikinya."
+"Jika Anda mengikuti tautan dari situs ini, Anda telah menemukan kesalahan. Bantu kami memperbaikinya dengan <a href=\"%(url)s\">mengajukan keluhan</a>. Beri tahu kami dari mana asal Anda dan apa "
+"yang Anda cari, dan kami akan melakukan yang terbaik untuk membenahinya."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
@@ -2459,14 +2459,13 @@ msgid "Picture successfully deleted"
 msgstr "Gambar berhasil dihapus"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "Berikan pengguna informasi lebih banyak mengenai Anda. Bidang-bidang ini tidak wajib, namun akan membantu pengguna lainnya mengenal Anda lebih baik."
+msgstr "Beri tahu sedikit informasi lanjutan tentang Anda kepada para pengguna. Kebanyakan bidang memang tidak wajib diisi, tetapi akan membantu pengguna lain mengenal Anda lebih baik."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Beri tahu sedikit informasi lebih lanjut tentang pengguna ini kepada para pengguna lain. Bidang-bidang ini opsional, tetapi akan membantu pengguna lain untuk mengenal %(userName)s lebih baik."
+msgstr ""
+"Beri tahu sedikit informasi lanjutan tentang pengguna ini kepada para pengguna lain. Kebanyakan bidang memang tidak wajib diisi, tetapi akan membantu pengguna lain mengenal %(userName)s lebih baik."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
