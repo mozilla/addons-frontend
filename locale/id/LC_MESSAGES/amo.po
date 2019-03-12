@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-26 17:56+0000\n"
-"PO-Revision-Date: 2019-03-08 09:08+0000\n"
+"PO-Revision-Date: 2019-03-12 01:49+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -538,14 +538,12 @@ msgid "by"
 msgstr "oleh"
 
 #: src/amo/components/AddonVersionCard/index.js:104
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "dikirim %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "Kode sumber dirilis di bawah %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:125
-#, fuzzy
 msgid "Source code released under %(licenseName)s"
-msgstr "dikirim %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "Kode sumber dirilis di bawah %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
