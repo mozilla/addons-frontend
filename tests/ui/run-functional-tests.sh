@@ -7,19 +7,15 @@ until docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/
 done
 echo
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml ps
-# This script sets the ip of the addons-frontend image as localhost within the selenium-firefox image.
-# This MUST be run before any user integration tests.
-UI_IP="`docker inspect addons-server_addons-frontend_1 | grep "IPAddress" | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`"
-echo $UI_IP
-HOSTS_LINE="$UI_IP\tlocalhost"
-docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec --user root selenium-firefox sudo -- sh -c -e "echo '$HOSTS_LINE' >> /etc/hosts"
-docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec --user root selenium-firefox cat /etc/hosts
 # Make sure dependencies get updated in worker and web container
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec worker make -f Makefile-docker update_deps update_assets
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml restart worker
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec web make -f Makefile-docker update_deps update_assets
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml restart web
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec selenium-firefox sudo usermod -u 1001 seluser
+
 # This is done because cirlceci has permissions to not allow the user `circleci` to remove or add files created by the root, even if it is part of the root group.
-sudo chown -R  $USER .
-docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec selenium-firefox tox -e ui-tests
+sudo chown -R  $USER:$USER .
+docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec selenium-firefox up -d
+docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec selenium-firefox sudo chown -R seluser:seluser .
+docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec selenium-firefox tox -r -e ui-tests
