@@ -31,9 +31,10 @@ import './styles.scss';
 export const MOZILLA_USER_ID = config.get('mozillaUserId');
 
 export const FEATURED_COLLECTIONS = [
-  { slug: 'weather-reports', userId: MOZILLA_USER_ID },
+  { slug: 'watching-videos', userId: MOZILLA_USER_ID },
+  { slug: 'spring-themes', userId: MOZILLA_USER_ID },
+  { slug: 'wikipedia-boosters', userId: MOZILLA_USER_ID },
   { slug: 'change-up-your-tabs', userId: MOZILLA_USER_ID },
-  { slug: 'note-taking-time-management', userId: MOZILLA_USER_ID },
 ];
 
 export const isFeaturedCollection = (
@@ -51,22 +52,24 @@ export const isFeaturedCollection = (
 export const getFeaturedCollectionsMetadata = (i18n) => {
   return [
     {
-      footerText: i18n.gettext('See more weather extensions'),
-      header: i18n.gettext('Weather extensions'),
-      isTheme: false,
+      footerText: i18n.gettext('See more video extensions'),
+      header: i18n.gettext('Extensions for enhancing video'),
       ...FEATURED_COLLECTIONS[0],
+    },
+    {
+      footerText: i18n.gettext('See more spring themes'),
+      header: i18n.gettext('Spring themes'),
+      ...FEATURED_COLLECTIONS[1],
+    },
+    {
+      footerText: i18n.gettext('See more Wikipedia boosters'),
+      header: i18n.gettext('Wikipedia boosters'),
+      ...FEATURED_COLLECTIONS[2],
     },
     {
       footerText: i18n.gettext('See more tab extensions'),
       header: i18n.gettext('Change up your tabs'),
-      isTheme: false,
-      ...FEATURED_COLLECTIONS[1],
-    },
-    {
-      footerText: i18n.gettext('See more tools'),
-      header: i18n.gettext('Note-taking & time management tools'),
-      isTheme: false,
-      ...FEATURED_COLLECTIONS[2],
+      ...FEATURED_COLLECTIONS[3],
     },
   ];
 };
@@ -88,7 +91,7 @@ export class HomeBase extends React.Component {
   static defaultProps = {
     _config: config,
     _getFeaturedCollectionsMetadata: getFeaturedCollectionsMetadata,
-    includeFeaturedThemes: true,
+    includeFeaturedThemes: false,
     includeTrendingExtensions: false,
   };
 
@@ -248,9 +251,6 @@ export class HomeBase extends React.Component {
     // collection by index.
     const renderFeaturedCollection = (index) => {
       const metadata = featuredCollectionsMetadata[index];
-      if (metadata && metadata.isTheme) {
-        return null;
-      }
 
       const collection = collections[index];
       if (loading || collection) {
@@ -340,6 +340,8 @@ export class HomeBase extends React.Component {
         {renderFeaturedCollection(1)}
 
         {renderFeaturedCollection(2)}
+
+        {renderFeaturedCollection(3)}
 
         {includeTrendingExtensions && (
           <LandingAddonsCard

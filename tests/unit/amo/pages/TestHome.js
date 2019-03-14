@@ -76,7 +76,6 @@ describe(__filename, () => {
       expect(shelf).toHaveProp('slug', collectionMetadata.slug);
       expect(shelf).toHaveProp('userId', MOZILLA_USER_ID);
       expect(shelf).toHaveProp('loading', true);
-      expect(shelf).toHaveProp('isTheme', collectionMetadata.isTheme);
     },
   );
 
@@ -244,7 +243,7 @@ describe(__filename, () => {
       fetchHomeAddons({
         errorHandlerId: errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
-        includeFeaturedThemes: true,
+        includeFeaturedThemes: false,
         includeTrendingExtensions: false,
       }),
     );
