@@ -106,8 +106,9 @@ jobs:
             cat /etc/hosts
       - run:
           name: Run tests
-          MOZ_HEADLESS: 1
-          PYTEST_ADDOPTS: "--reruns 2"
+          environment:
+            MOZ_HEADLESS: 1
+            PYTEST_ADDOPTS: "--reruns 2"
           command: ./tests/ui/run-functional-tests.sh
       - store_artifacts:
           path: addons-server/ui-test.html
