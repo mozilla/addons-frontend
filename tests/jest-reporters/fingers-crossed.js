@@ -1,9 +1,9 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 const chalk = require('chalk');
 const { getConsoleOutput } = require('jest-util');
-const DefaultReporter = require('jest-cli/build/reporters/default_reporter')
+const DefaultReporter = require('@jest/reporters/build/default_reporter')
   .default;
-const getResultHeader = require('jest-cli/build/reporters/get_result_header')
+const getResultHeader = require('@jest/reporters/build/get_result_header')
   .default;
 
 const TITLE_BULLET = chalk.bold('\u25cf ');
