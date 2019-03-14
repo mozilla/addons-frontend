@@ -100,6 +100,11 @@ jobs:
             pip install docker-compose>=1.18
             docker-compose --version
       - run:
+          name: Set hosts
+          command: |
+            echo 127.0.0.1 olympia.test | sudo tee -a /etc/hosts
+            cat /etc/hosts
+      - run:
           name: Run tests
           MOZ_HEADLESS: 1
           PYTEST_ADDOPTS: "--reruns 2"
