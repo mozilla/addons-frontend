@@ -7,6 +7,8 @@ until docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/
 done
 echo
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml ps
+sudo apt-get update -qqy && sudo apt-get -qqy install uuid
+export UITEST_FXA_EMAIL=uitest-$(uuid)@restmail.net
 # Make sure dependencies get updated in worker and web container
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec worker make -f Makefile-docker update_deps update_assets
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml restart worker
@@ -16,6 +18,6 @@ docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/doc
 
 # This is done because cirlceci has permissions to not allow the user `circleci` to remove or add files created by the root, even if it is part of the root group.
 sudo chown -R  $USER:$USER .
-docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec selenium-firefox up -d
+docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml up -d
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec selenium-firefox sudo chown -R seluser:seluser .
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec selenium-firefox tox -r -e ui-tests
