@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-12 18:28+0000\n"
-"PO-Revision-Date: 2019-03-15 18:32+0000\n"
+"PO-Revision-Date: 2019-03-15 18:39+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -1952,17 +1952,20 @@ msgstr "Descubre más %(linkStart)sextensiones para vídeo%(linkEnd)s elegidas p
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Get more out of media"
-msgstr ""
+msgstr "Sácale provecho al contenido multimedia"
 
 #: src/amo/pages/Guides/index.js:215
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
 msgstr ""
+"Las extensiones pueden cubrir una amplia variedad de necesidades e intereses de nichos de medios, como la búsqueda de imágenes, la administración de descargas y los lectores de texto, entre otros."
 
 #: src/amo/pages/Guides/index.js:220
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"¿Alguna vez te has topado con una imagen intrigante en la web y quieres saber más sobre ella, como quién es la persona en la foto? ¿Hay imágenes relacionadas? Esta extensión te permite realizar "
+"búsquedas inversas de imágenes de forma rápida y sencilla a través de una variedad de motores."
 
 #: src/amo/pages/Guides/index.js:226
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
@@ -1970,11 +1973,11 @@ msgstr "Descubre más %(linkStart)sextensiones para multimedia%(linkEnd)s elegid
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "Atrae el contenido multimedia a tu navegador"
 
 #: src/amo/pages/Guides/index.js:235
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "Las extensiones pueden convertir Firefox en tu propio centro de entretenimiento, brindándote acceso instantáneo a música, captura de imágenes, juegos y más."
 
 #: src/amo/pages/Guides/index.js:240
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
@@ -1989,16 +1992,20 @@ msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
 msgstr ""
+"La web es un lugar maravilloso, pero salvaje. Pueden usar tus datos personales sin tu consentimiento, pueden espiar lo que haces y robar tus contraseñas. Por suerte, las extensiones te ayudan a "
+"fortalecer tu privacidad y seguridad en línea."
 
 #: src/amo/pages/Guides/index.js:281
 msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"¿Trabajas con demasiadas pestañas abiertas o un número increíble de marcadores? ¡Las extensiones son tus aliadas! Desde ayudarte a organizar hasta ofrecerte funciones nuevas y divertidas; las "
+"extensiones pueden cambiar drásticamente la forma en la que manejamos las pestañas y los marcadores."
 
 #: src/amo/pages/Guides/index.js:294
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "Las extensiones pueden aumentar los contenidos multimedia en línea de muchas formas interesantes, desde viendo videos hasta gestionando imágenes, música y más."
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Create and manage strong passwords"
@@ -2024,6 +2031,8 @@ msgstr "Bloquear anuncios molestos"
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
+"La web de hoy está llena de anuncios no deseados que se interponen en tu camino y te ralentizan. Las extensiones de bloqueo de anuncios pueden bloquear o filtrar esos anuncios para que puedas seguir"
+" navegando sin distracciones."
 
 #: src/amo/pages/Home/index.js:133
 msgid "Bookmarks"
@@ -2099,7 +2108,7 @@ msgstr "Ver más extensiones sobre pestañas"
 
 #: src/amo/pages/Home/index.js:61
 msgid "Change up your tabs"
-msgstr ""
+msgstr "Cambia tus pestañas"
 
 #: src/amo/pages/Home/index.js:66
 msgid "See more tools"
