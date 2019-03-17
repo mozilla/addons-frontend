@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-12 18:28+0000\n"
-"PO-Revision-Date: 2019-03-13 18:45+0000\n"
-"Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
+"PO-Revision-Date: 2019-03-17 10:35+0000\n"
+"Last-Translator: David Walczysko <wal.davca@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -553,7 +553,7 @@ msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Verze %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
