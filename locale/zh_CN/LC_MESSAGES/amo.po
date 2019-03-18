@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-12 18:28+0000\n"
-"PO-Revision-Date: 2019-03-18 15:30+0000\n"
+"PO-Revision-Date: 2019-03-18 15:37+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1838,7 +1838,7 @@ msgstr "探索更多编辑精选%(linkStart)s广告拦截工具%(linkEnd)s。"
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Stop online trackers from stalking you"
-msgstr "阻止在线跟踪器跟踪您"
+msgstr "摆脱网上的跟踪器"
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
@@ -1993,7 +1993,7 @@ msgstr "拦截恼人的广告"
 #: src/amo/pages/Guides/index.js:97
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
-msgstr "如今的网络与讨厌的广告交织在一起，这些广告妨碍了你，并拖慢了你的速度。广告拦截扩展可以屏蔽或过滤这些广告，让您可以集中精力地浏览。"
+msgstr "现在网络上有各种讨厌或挡视线的广告，还拖慢了网速。广告拦截扩展可以屏蔽或过滤这些广告，让您可以上网不必再分心。"
 
 #: src/amo/pages/Home/index.js:133
 msgid "Bookmarks"
