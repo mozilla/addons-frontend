@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-12 18:28+0000\n"
-"PO-Revision-Date: 2019-03-15 17:40+0000\n"
+"PO-Revision-Date: 2019-03-18 19:33+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1384,9 +1384,9 @@ msgstr[2] "Pre vyhľadávaný výraz „%(query)s“ bolo nájdených %(count)s 
 #: src/amo/components/SearchContextCard/index.js:171
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Našiel sa %(count)s výsledok vyhľadávania"
+msgstr[1] "Našli sa %(count)s výsledky vyhľadávania"
+msgstr[2] "Našlo sa %(count)s výsledkov vyhľadávania"
 
 #: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
@@ -1613,7 +1613,7 @@ msgstr "vývojár doplnku odpovie na moju recenziu"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:30
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "môj doplnok bol skontrolovaný"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:32
 msgid "my add-on's compatibility cannot be upgraded"
@@ -2097,7 +2097,7 @@ msgstr "Zmeňte vzhľad Firefoxu prostredníctvom tém."
 
 #: src/amo/pages/Home/index.js:273
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "Prevezmite si rozšírenia a témy vzhľadu pre Firefox. Sú to aplikácie pre váš prehliadač. Môžu blokovať otravné reklamy, chrániť vaše heslá, meniť vzhľad vášho prehliadača a ďalšie veci."
 
 #: src/amo/pages/Home/index.js:54
 msgid "See more weather extensions"
@@ -2556,7 +2556,7 @@ msgstr "Táto URL adresa bude viditeľná len pre používateľov, ktorí sú v�
 
 #: src/amo/pages/UserProfileEdit/index.js:674
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Niektoré HTML značky sú povolené: %(htmlTags)s. Pridávanie odkazov je zakázané."
 
 #: src/amo/pages/UserProfileEdit/index.js:698
 msgid "Notifications"
@@ -2634,11 +2634,11 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Enable"
-msgstr ""
+msgstr "Povoliť"
 
 #: src/core/components/AMInstallButton/index.js:216
 msgid "Enabling"
-msgstr ""
+msgstr "Povoľujem"
 
 #: src/core/components/AMInstallButton/index.js:218
 msgid "Downloading"
@@ -2686,7 +2686,7 @@ msgstr "Doplnok %(strongStart)s%(name)s%(strongEnd)s bol pridaný"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Spravujte svoje doplnky kliknutím na Doplnky v ponuke."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
