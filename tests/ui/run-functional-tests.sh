@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 set -x
 sudo sysctl -w vm.max_map_count=262144
+sudo apt-get update -qqy && sudo apt-get -qqy install uuid
+export UITEST_FXA_EMAIL=uitest-$(uuid)@restmail.net
 git clone --depth 1 https://github.com/mozilla/addons-server.git
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml pull --quiet
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml up -d --build
@@ -9,8 +11,6 @@ until docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/
 done
 echo
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml ps
-sudo apt-get update -qqy && sudo apt-get -qqy install uuid
-export UITEST_FXA_EMAIL=uitest-$(uuid)@restmail.net
 # Make sure dependencies get updated in worker and web container
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec worker make -f Makefile-docker update_deps update_assets
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml restart worker
