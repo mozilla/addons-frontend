@@ -234,6 +234,7 @@ module.exports = {
     'nb-NO',
     'nl',
     'nn-NO',
+    'pa-IN',
     'pl',
     'pt-BR',
     'pt-PT',
