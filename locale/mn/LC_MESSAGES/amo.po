@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-12 18:28+0000\n"
+"POT-Creation-Date: 2019-03-19 18:51+0000\n"
 "PO-Revision-Date: 2018-06-01 19:18+0000\n"
 "Last-Translator: Patrick CHEW <pchew@change.org>\n"
 "Language-Team: none\n"
@@ -912,11 +912,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:123
@@ -1389,7 +1389,7 @@ msgid "Featured add-ons"
 msgstr ""
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/Home/index.js:351 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr ""
 
@@ -1901,7 +1901,7 @@ msgstr ""
 msgid "See more featured extensions"
 msgstr ""
 
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:350
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:352
 #: src/amo/pages/LandingPage/index.js:149
 msgid "See more trending extensions"
 msgstr ""
@@ -2201,59 +2201,59 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:133
+#: src/amo/pages/Home/index.js:136
 msgid "Bookmarks"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:140
 msgid "Password managers"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:141
+#: src/amo/pages/Home/index.js:144
 msgid "Ad blockers"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:145
+#: src/amo/pages/Home/index.js:148
 msgid "Smarter Shopping"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:152
 msgid "Productivity"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:156
 msgid "Watching Videos"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:181
+#: src/amo/pages/Home/index.js:184
 msgid "Abstract"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:186
+#: src/amo/pages/Home/index.js:189
 msgid "Nature"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:191
+#: src/amo/pages/Home/index.js:194
 msgid "Film & TV"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:196
+#: src/amo/pages/Home/index.js:199
 msgid "Scenery"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:201
+#: src/amo/pages/Home/index.js:204
 msgid "Music"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:206
+#: src/amo/pages/Home/index.js:209
 msgid "Seasonal"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:238
+#: src/amo/pages/Home/index.js:241
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:240
+#: src/amo/pages/Home/index.js:243
 msgid "Change the way Firefox looks with themes."
 msgstr ""
 
@@ -2264,29 +2264,38 @@ msgid ""
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:54
-msgid "See more weather extensions"
-msgstr ""
-
 #: src/amo/pages/Home/index.js:55
-msgid "Weather extensions"
+#, fuzzy
+msgid "See more video extensions"
+msgstr "Зөвшөөрлүүдийн тухай нэмэлт мэдээлэл"
+
+#: src/amo/pages/Home/index.js:56
+msgid "Extensions for enhancing video"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:60
+msgid "See more spring themes"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:61
+msgid "Spring themes"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:65
+msgid "See more Wikipedia boosters"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:66
+msgid "Wikipedia boosters"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:70
 #, fuzzy
 msgid "See more tab extensions"
 msgstr "Зөвшөөрлүүдийн тухай нэмэлт мэдээлэл"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:71
 msgid "Change up your tabs"
-msgstr ""
-
-#: src/amo/pages/Home/index.js:66
-msgid "See more tools"
-msgstr ""
-
-#: src/amo/pages/Home/index.js:67
-msgid "Note-taking & time management tools"
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205

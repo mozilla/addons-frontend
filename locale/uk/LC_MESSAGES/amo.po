@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-12 18:28+0000\n"
+"POT-Creation-Date: 2019-03-19 18:51+0000\n"
 "PO-Revision-Date: 2019-03-08 13:52+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
@@ -955,12 +955,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Позначено як повідомлення про помилку або запит підтримки"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Позначити"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Позначено"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Позначити"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1456,7 +1456,7 @@ msgid "Featured add-ons"
 msgstr "Відібрані додатки"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/Home/index.js:351 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr "Популярні розширення"
 
@@ -1994,7 +1994,7 @@ msgstr "Всі категорії тем"
 msgid "See more featured extensions"
 msgstr "Більше відібраних розширень"
 
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:350
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:352
 #: src/amo/pages/LandingPage/index.js:149
 msgid "See more trending extensions"
 msgstr "Більше популярних розширень"
@@ -2324,59 +2324,59 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:133
+#: src/amo/pages/Home/index.js:136
 msgid "Bookmarks"
 msgstr "Закладки"
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:140
 msgid "Password managers"
 msgstr "Менеджери паролів"
 
-#: src/amo/pages/Home/index.js:141
+#: src/amo/pages/Home/index.js:144
 msgid "Ad blockers"
 msgstr "Блокування реклами"
 
-#: src/amo/pages/Home/index.js:145
+#: src/amo/pages/Home/index.js:148
 msgid "Smarter Shopping"
 msgstr "Розумний шопінг"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:152
 msgid "Productivity"
 msgstr "Продуктивність"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:156
 msgid "Watching Videos"
 msgstr "Перегляд відео"
 
-#: src/amo/pages/Home/index.js:181
+#: src/amo/pages/Home/index.js:184
 msgid "Abstract"
 msgstr "Абстрактні"
 
-#: src/amo/pages/Home/index.js:186
+#: src/amo/pages/Home/index.js:189
 msgid "Nature"
 msgstr "Природа"
 
-#: src/amo/pages/Home/index.js:191
+#: src/amo/pages/Home/index.js:194
 msgid "Film & TV"
 msgstr "Фільми і ТБ"
 
-#: src/amo/pages/Home/index.js:196
+#: src/amo/pages/Home/index.js:199
 msgid "Scenery"
 msgstr "Пейзажі"
 
-#: src/amo/pages/Home/index.js:201
+#: src/amo/pages/Home/index.js:204
 msgid "Music"
 msgstr "Музика"
 
-#: src/amo/pages/Home/index.js:206
+#: src/amo/pages/Home/index.js:209
 msgid "Seasonal"
 msgstr "Пори року"
 
-#: src/amo/pages/Home/index.js:238
+#: src/amo/pages/Home/index.js:241
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "Налаштуйте роботу Firefox за допомогою розширень…"
 
-#: src/amo/pages/Home/index.js:240
+#: src/amo/pages/Home/index.js:243
 msgid "Change the way Firefox looks with themes."
 msgstr "Змініть вигляд Firefox за допомогою тем."
 
@@ -2390,32 +2390,41 @@ msgstr ""
 "Вони можуть блокувати надокучливу рекламу, зберігати паролі, змінювати "
 "зовнішній вигляд браузера та інше."
 
-#: src/amo/pages/Home/index.js:54
-#, fuzzy
-msgid "See more weather extensions"
-msgstr "Більше відібраних розширень"
-
 #: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "Weather extensions"
-msgstr "Відібрані розширення"
+msgid "See more video extensions"
+msgstr "Найвище оцінені розширення"
+
+#: src/amo/pages/Home/index.js:56
+msgid "Extensions for enhancing video"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:60
+#, fuzzy
+msgid "See more spring themes"
+msgstr "Більше популярних тем"
+
+#: src/amo/pages/Home/index.js:61
+#, fuzzy
+msgid "Spring themes"
+msgstr "Популярні теми"
+
+#: src/amo/pages/Home/index.js:65
+#, fuzzy
+msgid "See more Wikipedia boosters"
+msgstr "Засоби для Wikipedia"
+
+#: src/amo/pages/Home/index.js:66
+msgid "Wikipedia boosters"
+msgstr "Засоби для Wikipedia"
+
+#: src/amo/pages/Home/index.js:70
 #, fuzzy
 msgid "See more tab extensions"
 msgstr "Найвище оцінені розширення"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:71
 msgid "Change up your tabs"
-msgstr ""
-
-#: src/amo/pages/Home/index.js:66
-#, fuzzy
-msgid "See more tools"
-msgstr "Дивіться більше"
-
-#: src/amo/pages/Home/index.js:67
-msgid "Note-taking & time management tools"
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205
@@ -3404,6 +3413,18 @@ msgstr[2] "%(total)s додатків"
 msgid "Developer response"
 msgstr "Відповідь розробника"
 
+#, fuzzy
+#~ msgid "See more weather extensions"
+#~ msgstr "Більше відібраних розширень"
+
+#, fuzzy
+#~ msgid "Weather extensions"
+#~ msgstr "Відібрані розширення"
+
+#, fuzzy
+#~ msgid "See more tools"
+#~ msgstr "Дивіться більше"
+
 #~ msgid "See more feed readers"
 #~ msgstr "Більше відібраних тем"
 
@@ -4191,9 +4212,6 @@ msgstr "Відповідь розробника"
 
 #~ msgid "See all beta versions"
 #~ msgstr "Переглянути всі бета версії"
-
-#~ msgid "Wikipedia boosters"
-#~ msgstr "Засоби для Wikipedia"
 
 #~ msgid "Good time tabs"
 #~ msgstr "Розширення для вкладок"
