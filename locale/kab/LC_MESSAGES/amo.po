@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-12 18:28+0000\n"
+"POT-Creation-Date: 2019-03-19 18:51+0000\n"
 "PO-Revision-Date: 2018-10-16 19:24+0000\n"
 "Last-Translator: Linda DIB <lynda.dib@gmail.com>\n"
 "Language-Team: none\n"
@@ -978,12 +978,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Yettwacreḍ d tuzna n ubug neɣ asuter n tallelt"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Creḍ"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Yettwammel"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Creḍ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1477,7 +1477,7 @@ msgid "Featured add-ons"
 msgstr "Izegrar yettwasnen"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/Home/index.js:351 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr "Isiɣzaf itran"
 
@@ -2010,7 +2010,7 @@ msgstr "Wali akk taggayin"
 msgid "See more featured extensions"
 msgstr "Ugar n yisiɣzaf yettwasersen d imezwura"
 
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:350
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:352
 #: src/amo/pages/LandingPage/index.js:149
 msgid "See more trending extensions"
 msgstr "Ugar n yisiɣzaf itran"
@@ -2324,59 +2324,59 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:133
+#: src/amo/pages/Home/index.js:136
 msgid "Bookmarks"
 msgstr "Ticraḍ n isebtar"
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:140
 msgid "Password managers"
 msgstr "Imsefrak n wawal uffir"
 
-#: src/amo/pages/Home/index.js:141
+#: src/amo/pages/Home/index.js:144
 msgid "Ad blockers"
 msgstr "Imsewḥal n udellel"
 
-#: src/amo/pages/Home/index.js:145
+#: src/amo/pages/Home/index.js:148
 msgid "Smarter Shopping"
 msgstr "Tiɣin srid"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:152
 msgid "Productivity"
 msgstr "Tiffurest"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:156
 msgid "Watching Videos"
 msgstr "Wali tividyutin"
 
-#: src/amo/pages/Home/index.js:181
+#: src/amo/pages/Home/index.js:184
 msgid "Abstract"
 msgstr "Amadwan"
 
-#: src/amo/pages/Home/index.js:186
+#: src/amo/pages/Home/index.js:189
 msgid "Nature"
 msgstr "Agama"
 
-#: src/amo/pages/Home/index.js:191
+#: src/amo/pages/Home/index.js:194
 msgid "Film & TV"
 msgstr "Asaru d TV"
 
-#: src/amo/pages/Home/index.js:196
+#: src/amo/pages/Home/index.js:199
 msgid "Scenery"
 msgstr "Imeẓri"
 
-#: src/amo/pages/Home/index.js:201
+#: src/amo/pages/Home/index.js:204
 msgid "Music"
 msgstr "Aẓawan"
 
-#: src/amo/pages/Home/index.js:206
+#: src/amo/pages/Home/index.js:209
 msgid "Seasonal"
 msgstr "Asemhuyan"
 
-#: src/amo/pages/Home/index.js:238
+#: src/amo/pages/Home/index.js:241
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "Mudd udem i tiddin n Firefox s useqdec n yizegrir. Ahat tḥemmleḍ…"
 
-#: src/amo/pages/Home/index.js:240
+#: src/amo/pages/Home/index.js:243
 msgid "Change the way Firefox looks with themes."
 msgstr "Snifel amek id-ittban Firefox s isental."
 
@@ -2387,32 +2387,41 @@ msgid ""
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:54
-#, fuzzy
-msgid "See more weather extensions"
-msgstr "Ugar n yisiɣzaf yettwasersen d imezwura"
-
 #: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "Weather extensions"
-msgstr "Isiɣzaf yettwaszemlen"
+msgid "See more video extensions"
+msgstr "Wali isiɣzaft gar wid yettwaszemlen aṭas"
+
+#: src/amo/pages/Home/index.js:56
+msgid "Extensions for enhancing video"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:60
+#, fuzzy
+msgid "See more spring themes"
+msgstr "Ugar n yisental itran"
+
+#: src/amo/pages/Home/index.js:61
+#, fuzzy
+msgid "Spring themes"
+msgstr "Isental itran"
+
+#: src/amo/pages/Home/index.js:65
+#, fuzzy
+msgid "See more Wikipedia boosters"
+msgstr "Wali ugar n yimsidar imussanen"
+
+#: src/amo/pages/Home/index.js:66
+msgid "Wikipedia boosters"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:70
 #, fuzzy
 msgid "See more tab extensions"
 msgstr "Wali isiɣzaft gar wid yettwaszemlen aṭas"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:71
 msgid "Change up your tabs"
-msgstr ""
-
-#: src/amo/pages/Home/index.js:66
-#, fuzzy
-msgid "See more tools"
-msgstr "Wali ugar"
-
-#: src/amo/pages/Home/index.js:67
-msgid "Note-taking & time management tools"
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205
@@ -3370,6 +3379,18 @@ msgid "Developer response"
 msgstr "Tiririt n ineflayen"
 
 #, fuzzy
+#~ msgid "See more weather extensions"
+#~ msgstr "Ugar n yisiɣzaf yettwasersen d imezwura"
+
+#, fuzzy
+#~ msgid "Weather extensions"
+#~ msgstr "Isiɣzaf yettwaszemlen"
+
+#, fuzzy
+#~ msgid "See more tools"
+#~ msgstr "Wali ugar"
+
+#, fuzzy
 #~ msgid "See more feed readers"
 #~ msgstr "Ugar n yisental yettwasersen d imezwura"
 
@@ -3389,10 +3410,6 @@ msgstr "Tiririt n ineflayen"
 #, fuzzy
 #~ msgid "See more popular themes"
 #~ msgstr "Isiɣzaf yettwasnen aṭas"
-
-#, fuzzy
-#~ msgid "See more YouTube boosters"
-#~ msgstr "Wali ugar n yimsidar imussanen"
 
 #, fuzzy
 #~ msgid "See more productivity extensions"

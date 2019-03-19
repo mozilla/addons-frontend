@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-12 18:28+0000\n"
+"POT-Creation-Date: 2019-03-19 18:51+0000\n"
 "PO-Revision-Date: 2019-02-28 23:08+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1004,12 +1004,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Ya'on retal achi'el jun rutzijol sachoj o ruk'utuxik to'ïk"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Tiya' retal"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Xya' retal"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Tiya' retal"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1521,7 +1521,7 @@ msgid "Featured add-ons"
 msgstr "Talun taq tz'aqat"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/Home/index.js:351 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr "Taq k'amal k'ïy kiwinaq"
 
@@ -2058,7 +2058,7 @@ msgstr "Kenik'öx ronojel ri taq ruwäch"
 msgid "See more featured extensions"
 msgstr "Ketz'et ch'aqa' chik talun taq k'amal"
 
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:350
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:352
 #: src/amo/pages/LandingPage/index.js:149
 msgid "See more trending extensions"
 msgstr "Ketz'et ch'aqa' chik k'ïy kiwinaq taq k'amal"
@@ -2373,60 +2373,60 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:133
+#: src/amo/pages/Home/index.js:136
 msgid "Bookmarks"
 msgstr "Taq yaketal"
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:140
 msgid "Password managers"
 msgstr "Kinuk'samajel ewan tzij"
 
-#: src/amo/pages/Home/index.js:141
+#: src/amo/pages/Home/index.js:144
 msgid "Ad blockers"
 msgstr "Kiq'atonela' eletzijob'äl"
 
-#: src/amo/pages/Home/index.js:145
+#: src/amo/pages/Home/index.js:148
 msgid "Smarter Shopping"
 msgstr "Na'owinäq taq loq'oj"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:152
 msgid "Productivity"
 msgstr "Ruwa k'ay"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:156
 msgid "Watching Videos"
 msgstr "Ketz'et Silowäch"
 
-#: src/amo/pages/Home/index.js:181
+#: src/amo/pages/Home/index.js:184
 msgid "Abstract"
 msgstr "Ch'utinisan Na'oj"
 
-#: src/amo/pages/Home/index.js:186
+#: src/amo/pages/Home/index.js:189
 msgid "Nature"
 msgstr "Ruwach'ulew"
 
-#: src/amo/pages/Home/index.js:191
+#: src/amo/pages/Home/index.js:194
 msgid "Film & TV"
 msgstr "Silowachil & TV"
 
-#: src/amo/pages/Home/index.js:196
+#: src/amo/pages/Home/index.js:199
 msgid "Scenery"
 msgstr "Wachaj"
 
-#: src/amo/pages/Home/index.js:201
+#: src/amo/pages/Home/index.js:204
 msgid "Music"
 msgstr "Q'ojom"
 
-#: src/amo/pages/Home/index.js:206
+#: src/amo/pages/Home/index.js:209
 msgid "Seasonal"
 msgstr "Kajtz'ukalil"
 
 # The ending ellipsis alludes to a row of icons for each type
-#: src/amo/pages/Home/index.js:238
+#: src/amo/pages/Home/index.js:241
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "Tawichinaj rusamaj Firefox kik'in k'amal. La ütz natz'ët…"
 
-#: src/amo/pages/Home/index.js:240
+#: src/amo/pages/Home/index.js:243
 msgid "Change the way Firefox looks with themes."
 msgstr "Tijal ri ruwäch Firefox kik'in wachinel."
 
@@ -2437,32 +2437,41 @@ msgid ""
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:54
-#, fuzzy
-msgid "See more weather extensions"
-msgstr "Ketz'et ch'aqa' chik talun taq k'amal"
-
 #: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "Weather extensions"
-msgstr "Talun taq k'amal"
+msgid "See more video extensions"
+msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
+
+#: src/amo/pages/Home/index.js:56
+msgid "Extensions for enhancing video"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:60
+#, fuzzy
+msgid "See more spring themes"
+msgstr "Ketz'et ch'aqa' chik taq wachinel k'ïy kiwinaq"
+
+#: src/amo/pages/Home/index.js:61
+#, fuzzy
+msgid "Spring themes"
+msgstr "K'ïy kiwinaq taq wachinel"
+
+#: src/amo/pages/Home/index.js:65
+#, fuzzy
+msgid "See more Wikipedia boosters"
+msgstr "Ketz'et ch'aqa' chik kajtijonela' Wikipedia"
+
+#: src/amo/pages/Home/index.js:66
+msgid "Wikipedia boosters"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:70
 #, fuzzy
 msgid "See more tab extensions"
 msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:71
 msgid "Change up your tabs"
-msgstr ""
-
-#: src/amo/pages/Home/index.js:66
-#, fuzzy
-msgid "See more tools"
-msgstr "Kisamajib'al ichinanem"
-
-#: src/amo/pages/Home/index.js:67
-msgid "Note-taking & time management tools"
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205
@@ -3429,6 +3438,18 @@ msgstr[1] "%(count)s taq tz'aqat xe'ilitäj"
 msgid "Developer response"
 msgstr "Tzolin rutzij b'anonel"
 
+#, fuzzy
+#~ msgid "See more weather extensions"
+#~ msgstr "Ketz'et ch'aqa' chik talun taq k'amal"
+
+#, fuzzy
+#~ msgid "Weather extensions"
+#~ msgstr "Talun taq k'amal"
+
+#, fuzzy
+#~ msgid "See more tools"
+#~ msgstr "Kisamajib'al ichinanem"
+
 #~ msgid "See more feed readers"
 #~ msgstr "Ketz'et ch'aqa' chik talun taq wachinel"
 
@@ -3440,9 +3461,6 @@ msgstr "Tzolin rutzij b'anonel"
 
 #~ msgid "See more popular themes"
 #~ msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
-
-#~ msgid "See more YouTube boosters"
-#~ msgstr "Ketz'et ch'aqa' chik kajtijonela' Wikipedia"
 
 #~ msgid "YouTube boosters"
 #~ msgstr "Rajtijonela' Wikipedia"

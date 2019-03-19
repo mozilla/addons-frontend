@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-12 18:28+0000\n"
+"POT-Creation-Date: 2019-03-19 18:51+0000\n"
 "PO-Revision-Date: 2019-02-27 04:20+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
@@ -946,12 +946,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Đã gắn cờ là báo cáo lỗi hoặc yêu cầu hỗ trợ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Gắn cờ"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Đã gắn cờ"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Gắn cờ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1449,7 +1449,7 @@ msgid "Featured add-ons"
 msgstr "Tiện ích nổi bật"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/Home/index.js:351 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr "Xu hướng của các tiện ích mở rộng"
 
@@ -1947,7 +1947,7 @@ msgstr "Tất cả các loại chủ đề"
 msgid "See more featured extensions"
 msgstr "Xem thêm các tiện ích nổi bật"
 
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:350
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:352
 #: src/amo/pages/LandingPage/index.js:149
 msgid "See more trending extensions"
 msgstr "Xem thêm các tiện ích mở rộng đang thịnh hành"
@@ -2336,61 +2336,61 @@ msgstr ""
 "và làm bạn chậm lại. Tiện ích mở rộng chặn quảng cáo có thể chặn hoặc lọc "
 "các quảng cáo đó để bạn có thể quay lại trình duyệt không bị phân tâm."
 
-#: src/amo/pages/Home/index.js:133
+#: src/amo/pages/Home/index.js:136
 msgid "Bookmarks"
 msgstr "Đánh dấu"
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:140
 msgid "Password managers"
 msgstr "Quản lý mật khẩu"
 
-#: src/amo/pages/Home/index.js:141
+#: src/amo/pages/Home/index.js:144
 msgid "Ad blockers"
 msgstr "Chặn quảng cáo"
 
-#: src/amo/pages/Home/index.js:145
+#: src/amo/pages/Home/index.js:148
 msgid "Smarter Shopping"
 msgstr "Mua sắm thông minh"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:152
 msgid "Productivity"
 msgstr "Năng suất"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:156
 msgid "Watching Videos"
 msgstr "Xem video"
 
-#: src/amo/pages/Home/index.js:181
+#: src/amo/pages/Home/index.js:184
 msgid "Abstract"
 msgstr "Trừu tượng"
 
-#: src/amo/pages/Home/index.js:186
+#: src/amo/pages/Home/index.js:189
 msgid "Nature"
 msgstr "Thiên nhiên"
 
-#: src/amo/pages/Home/index.js:191
+#: src/amo/pages/Home/index.js:194
 msgid "Film & TV"
 msgstr "Phim & TV"
 
-#: src/amo/pages/Home/index.js:196
+#: src/amo/pages/Home/index.js:199
 msgid "Scenery"
 msgstr "Phong cảnh"
 
-#: src/amo/pages/Home/index.js:201
+#: src/amo/pages/Home/index.js:204
 msgid "Music"
 msgstr "Âm nhạc"
 
-#: src/amo/pages/Home/index.js:206
+#: src/amo/pages/Home/index.js:209
 msgid "Seasonal"
 msgstr "Theo mùa"
 
-#: src/amo/pages/Home/index.js:238
+#: src/amo/pages/Home/index.js:241
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 "Tùy chỉnh cách Firefox hoạt động với các tiện ích mở rộng. Bạn có quan tâm "
 "đến…"
 
-#: src/amo/pages/Home/index.js:240
+#: src/amo/pages/Home/index.js:243
 msgid "Change the way Firefox looks with themes."
 msgstr "Thay đổi cách nhìn Firefox với chủ đề."
 
@@ -2404,29 +2404,41 @@ msgstr ""
 "trình duyệt của bạn. Nó có thể chặn quảng cáo gây phiền nhiễu, bảo vệ mật "
 "khẩu, thay đổi giao diện trình duyệt và hơn thế nữa."
 
-#: src/amo/pages/Home/index.js:54
-msgid "See more weather extensions"
-msgstr "Xem thêm tiện ích mở rộng thời tiết"
-
 #: src/amo/pages/Home/index.js:55
-msgid "Weather extensions"
-msgstr "Tiện ích mở rộng thời tiết"
+#, fuzzy
+msgid "See more video extensions"
+msgstr "Xem thêm tiện ích mở rộng thẻ"
+
+#: src/amo/pages/Home/index.js:56
+msgid "Extensions for enhancing video"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:60
+#, fuzzy
+msgid "See more spring themes"
+msgstr "Xem thên các chủ đề phổ biến"
+
+#: src/amo/pages/Home/index.js:61
+#, fuzzy
+msgid "Spring themes"
+msgstr "Chủ đề đang thịnh hành"
+
+#: src/amo/pages/Home/index.js:65
+#, fuzzy
+msgid "See more Wikipedia boosters"
+msgstr "Xem thêm các công cụ tăng tốc YouTube"
+
+#: src/amo/pages/Home/index.js:66
+msgid "Wikipedia boosters"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:70
 msgid "See more tab extensions"
 msgstr "Xem thêm tiện ích mở rộng thẻ"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:71
 msgid "Change up your tabs"
 msgstr "Thay đổi các thẻ của bạn"
-
-#: src/amo/pages/Home/index.js:66
-msgid "See more tools"
-msgstr "Xem nhiều hơn về các công cụ"
-
-#: src/amo/pages/Home/index.js:67
-msgid "Note-taking & time management tools"
-msgstr "Công cụ quản lý ghi chú và thời gian"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3407,6 +3419,18 @@ msgstr[0] "%(total)s tiện ích"
 msgid "Developer response"
 msgstr "Phản hồi của nhà phát triển"
 
+#~ msgid "See more weather extensions"
+#~ msgstr "Xem thêm tiện ích mở rộng thời tiết"
+
+#~ msgid "Weather extensions"
+#~ msgstr "Tiện ích mở rộng thời tiết"
+
+#~ msgid "See more tools"
+#~ msgstr "Xem nhiều hơn về các công cụ"
+
+#~ msgid "Note-taking & time management tools"
+#~ msgstr "Công cụ quản lý ghi chú và thời gian"
+
 #~ msgid "See more feed readers"
 #~ msgstr "Xem thêm trình đọc tin trực tuyến"
 
@@ -3430,9 +3454,6 @@ msgstr "Phản hồi của nhà phát triển"
 
 #~ msgid "See more popular themes"
 #~ msgstr "Xem các chủ đề phổ biến"
-
-#~ msgid "See more YouTube boosters"
-#~ msgstr "Xem thêm các công cụ tăng tốc YouTube"
 
 #~ msgid "YouTube boosters"
 #~ msgstr "Các công cụ tăng tốc YouTube"

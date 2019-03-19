@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-12 18:28+0000\n"
+"POT-Creation-Date: 2019-03-19 18:51+0000\n"
 "PO-Revision-Date: 2019-02-26 20:35+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
@@ -951,12 +951,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Sinalizado como um relatório de erro ou solicitação de suporte"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Sinalizar"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Sinalizada"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Sinalizar"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1455,7 +1455,7 @@ msgid "Featured add-ons"
 msgstr "Extensão em destaque"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/Home/index.js:351 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr "Extensões em tendência"
 
@@ -1972,7 +1972,7 @@ msgstr "Todas as categorias de temas"
 msgid "See more featured extensions"
 msgstr "Mais extensões em destaque"
 
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:350
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:352
 #: src/amo/pages/LandingPage/index.js:149
 msgid "See more trending extensions"
 msgstr "Mais extensões em tendência"
@@ -2358,61 +2358,61 @@ msgstr ""
 "você. Extensões de bloqueio de anúncios podem bloquear ou filtrar esses "
 "anúncios para que você possa voltar à navegação sem distrações."
 
-#: src/amo/pages/Home/index.js:133
+#: src/amo/pages/Home/index.js:136
 msgid "Bookmarks"
 msgstr "Favoritos"
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:140
 msgid "Password managers"
 msgstr "Gerenciadores de senhas"
 
-#: src/amo/pages/Home/index.js:141
+#: src/amo/pages/Home/index.js:144
 msgid "Ad blockers"
 msgstr "Bloqueadores de anúncios"
 
-#: src/amo/pages/Home/index.js:145
+#: src/amo/pages/Home/index.js:148
 msgid "Smarter Shopping"
 msgstr "Compras inteligentes"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:152
 msgid "Productivity"
 msgstr "Produtividade"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:156
 msgid "Watching Videos"
 msgstr "Ver vídeos"
 
-#: src/amo/pages/Home/index.js:181
+#: src/amo/pages/Home/index.js:184
 msgid "Abstract"
 msgstr "Abstrato"
 
-#: src/amo/pages/Home/index.js:186
+#: src/amo/pages/Home/index.js:189
 msgid "Nature"
 msgstr "Natureza"
 
-#: src/amo/pages/Home/index.js:191
+#: src/amo/pages/Home/index.js:194
 msgid "Film & TV"
 msgstr "Filmes e TV"
 
-#: src/amo/pages/Home/index.js:196
+#: src/amo/pages/Home/index.js:199
 msgid "Scenery"
 msgstr "Paisagem"
 
-#: src/amo/pages/Home/index.js:201
+#: src/amo/pages/Home/index.js:204
 msgid "Music"
 msgstr "Música"
 
-#: src/amo/pages/Home/index.js:206
+#: src/amo/pages/Home/index.js:209
 msgid "Seasonal"
 msgstr "Estações"
 
-#: src/amo/pages/Home/index.js:238
+#: src/amo/pages/Home/index.js:241
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 "Personalize o modo como o Firefox funciona com extensões. Você tem interesse "
 "em…"
 
-#: src/amo/pages/Home/index.js:240
+#: src/amo/pages/Home/index.js:243
 msgid "Change the way Firefox looks with themes."
 msgstr "Mude a aparência do Firefox com temas."
 
@@ -2426,29 +2426,41 @@ msgstr ""
 "navegador. Eles podem bloquear anúncios irritantes, proteger senhas, alterar "
 "a aparência do navegador e muito mais."
 
-#: src/amo/pages/Home/index.js:54
-msgid "See more weather extensions"
-msgstr "Mais extensões de clima"
-
 #: src/amo/pages/Home/index.js:55
-msgid "Weather extensions"
-msgstr "Extensões de clima"
+#, fuzzy
+msgid "See more video extensions"
+msgstr "Mais extensões de abas"
+
+#: src/amo/pages/Home/index.js:56
+msgid "Extensions for enhancing video"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:60
+#, fuzzy
+msgid "See more spring themes"
+msgstr "Mais temas em destaque"
+
+#: src/amo/pages/Home/index.js:61
+#, fuzzy
+msgid "Spring themes"
+msgstr "Temas em tendência"
+
+#: src/amo/pages/Home/index.js:65
+#, fuzzy
+msgid "See more Wikipedia boosters"
+msgstr "Ver mais intensificadores do YouTube"
+
+#: src/amo/pages/Home/index.js:66
+msgid "Wikipedia boosters"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:70
 msgid "See more tab extensions"
 msgstr "Mais extensões de abas"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:71
 msgid "Change up your tabs"
 msgstr "Mude suas abas"
-
-#: src/amo/pages/Home/index.js:66
-msgid "See more tools"
-msgstr "Mais ferramentas"
-
-#: src/amo/pages/Home/index.js:67
-msgid "Note-taking & time management tools"
-msgstr "Ferramentas de anotações e gerenciamento de tempo"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3433,6 +3445,18 @@ msgstr[1] "%(total)s extensões"
 msgid "Developer response"
 msgstr "Resposta do desenvolvedor"
 
+#~ msgid "See more weather extensions"
+#~ msgstr "Mais extensões de clima"
+
+#~ msgid "Weather extensions"
+#~ msgstr "Extensões de clima"
+
+#~ msgid "See more tools"
+#~ msgstr "Mais ferramentas"
+
+#~ msgid "Note-taking & time management tools"
+#~ msgstr "Ferramentas de anotações e gerenciamento de tempo"
+
 #~ msgid "See more feed readers"
 #~ msgstr "Mais leitores de fontes de notícias"
 
@@ -3456,9 +3480,6 @@ msgstr "Resposta do desenvolvedor"
 
 #~ msgid "See more popular themes"
 #~ msgstr "Ver mais temas populares"
-
-#~ msgid "See more YouTube boosters"
-#~ msgstr "Ver mais intensificadores do YouTube"
 
 #~ msgid "YouTube boosters"
 #~ msgstr "Intensificadores do YouTube"

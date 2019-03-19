@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-12 18:28+0000\n"
+"POT-Creation-Date: 2019-03-19 18:51+0000\n"
 "PO-Revision-Date: 2019-02-27 00:19+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -921,12 +921,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "已標示為臭蟲回報或技術支援請求"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "標示"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "已標示"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "標示"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1409,7 +1409,7 @@ msgid "Featured add-ons"
 msgstr "精選附加元件"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/Home/index.js:351 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr "熱門擴充套件"
 
@@ -1900,7 +1900,7 @@ msgstr "所有佈景主題分類"
 msgid "See more featured extensions"
 msgstr "看更多精選擴充套件"
 
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:350
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:352
 #: src/amo/pages/LandingPage/index.js:149
 msgid "See more trending extensions"
 msgstr "看更多熱門擴充套件"
@@ -2237,59 +2237,59 @@ msgstr ""
 "現在的網路上有各種不被人喜愛的廣告，拖慢您的上網速度。封鎖廣告用的擴充套件可"
 "封鎖或過濾這些廣告，這樣就讓上網不再分心。"
 
-#: src/amo/pages/Home/index.js:133
+#: src/amo/pages/Home/index.js:136
 msgid "Bookmarks"
 msgstr "書籤"
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:140
 msgid "Password managers"
 msgstr "密碼管理員"
 
-#: src/amo/pages/Home/index.js:141
+#: src/amo/pages/Home/index.js:144
 msgid "Ad blockers"
 msgstr "擋廣告"
 
-#: src/amo/pages/Home/index.js:145
+#: src/amo/pages/Home/index.js:148
 msgid "Smarter Shopping"
 msgstr "聰明消費"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:152
 msgid "Productivity"
 msgstr "生產力"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:156
 msgid "Watching Videos"
 msgstr "看影片"
 
-#: src/amo/pages/Home/index.js:181
+#: src/amo/pages/Home/index.js:184
 msgid "Abstract"
 msgstr "抽象派"
 
-#: src/amo/pages/Home/index.js:186
+#: src/amo/pages/Home/index.js:189
 msgid "Nature"
 msgstr "自然"
 
-#: src/amo/pages/Home/index.js:191
+#: src/amo/pages/Home/index.js:194
 msgid "Film & TV"
 msgstr "電影與電視"
 
-#: src/amo/pages/Home/index.js:196
+#: src/amo/pages/Home/index.js:199
 msgid "Scenery"
 msgstr "風景"
 
-#: src/amo/pages/Home/index.js:201
+#: src/amo/pages/Home/index.js:204
 msgid "Music"
 msgstr "音樂"
 
-#: src/amo/pages/Home/index.js:206
+#: src/amo/pages/Home/index.js:209
 msgid "Seasonal"
 msgstr "季節"
 
-#: src/amo/pages/Home/index.js:238
+#: src/amo/pages/Home/index.js:241
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "使用擴充套件，自訂 Firefox 的運作方式。您有沒有興趣…"
 
-#: src/amo/pages/Home/index.js:240
+#: src/amo/pages/Home/index.js:243
 msgid "Change the way Firefox looks with themes."
 msgstr "使用佈景主題修改 Firefox 外觀。"
 
@@ -2302,29 +2302,41 @@ msgstr ""
 "下載 Firefox 擴充套件與佈景主題，它們就像是在瀏覽器中安裝外掛，可以封鎖討人厭"
 "的廣告、保護密碼、更改瀏覽器外觀，還有更多功能。"
 
-#: src/amo/pages/Home/index.js:54
-msgid "See more weather extensions"
-msgstr "看更多氣象擴充套件"
-
 #: src/amo/pages/Home/index.js:55
-msgid "Weather extensions"
-msgstr "氣象擴充套件"
+#, fuzzy
+msgid "See more video extensions"
+msgstr "看更多分頁擴充套件"
+
+#: src/amo/pages/Home/index.js:56
+msgid "Extensions for enhancing video"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:60
+#, fuzzy
+msgid "See more spring themes"
+msgstr "看更多熱門佈景主題"
+
+#: src/amo/pages/Home/index.js:61
+#, fuzzy
+msgid "Spring themes"
+msgstr "熱門佈景主題"
+
+#: src/amo/pages/Home/index.js:65
+#, fuzzy
+msgid "See more Wikipedia boosters"
+msgstr "維基百科大補包"
+
+#: src/amo/pages/Home/index.js:66
+msgid "Wikipedia boosters"
+msgstr "維基百科大補包"
+
+#: src/amo/pages/Home/index.js:70
 msgid "See more tab extensions"
 msgstr "看更多分頁擴充套件"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:71
 msgid "Change up your tabs"
 msgstr "修改您的分頁"
-
-#: src/amo/pages/Home/index.js:66
-msgid "See more tools"
-msgstr "看更多工具"
-
-#: src/amo/pages/Home/index.js:67
-msgid "Note-taking & time management tools"
-msgstr "筆記與時間管理工具"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3236,6 +3248,18 @@ msgstr[0] "%(total)s 套附加元件"
 msgid "Developer response"
 msgstr "開發者回應"
 
+#~ msgid "See more weather extensions"
+#~ msgstr "看更多氣象擴充套件"
+
+#~ msgid "Weather extensions"
+#~ msgstr "氣象擴充套件"
+
+#~ msgid "See more tools"
+#~ msgstr "看更多工具"
+
+#~ msgid "Note-taking & time management tools"
+#~ msgstr "筆記與時間管理工具"
+
 #~ msgid "See more feed readers"
 #~ msgstr "看更多資訊來源閱讀器"
 
@@ -4003,9 +4027,6 @@ msgstr "開發者回應"
 
 #~ msgid "See all beta versions"
 #~ msgstr "瀏覽所有 Beta 測試版"
-
-#~ msgid "Wikipedia boosters"
-#~ msgstr "維基百科大補包"
 
 #~ msgid "Good time tabs"
 #~ msgstr "好時光分頁標籤"

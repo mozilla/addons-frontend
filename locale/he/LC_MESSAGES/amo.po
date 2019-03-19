@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-12 18:28+0000\n"
+"POT-Creation-Date: 2019-03-19 18:51+0000\n"
 "PO-Revision-Date: 2019-02-26 20:39+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -929,12 +929,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "סומן כדיווח על תקלה או בקשת תמיכה"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "סימון בדגל"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "מסומן בדגל"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "סימון בדגל"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1420,7 +1420,7 @@ msgid "Featured add-ons"
 msgstr "תוספות מומלצות"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/Home/index.js:351 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr "ההרחבות שמובילות לאחרונה"
 
@@ -1930,7 +1930,7 @@ msgstr "כל קטגוריות ערכות הנושא"
 msgid "See more featured extensions"
 msgstr "הצגת הרחבות מומלצות נוספות"
 
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:350
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:352
 #: src/amo/pages/LandingPage/index.js:149
 msgid "See more trending extensions"
 msgstr "הצגת הרחבות נוספות שמובילות לאחרונה"
@@ -2255,59 +2255,59 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:133
+#: src/amo/pages/Home/index.js:136
 msgid "Bookmarks"
 msgstr "סימניות"
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:140
 msgid "Password managers"
 msgstr "מנהלי ססמאות"
 
-#: src/amo/pages/Home/index.js:141
+#: src/amo/pages/Home/index.js:144
 msgid "Ad blockers"
 msgstr "חוסמי פרסומות"
 
-#: src/amo/pages/Home/index.js:145
+#: src/amo/pages/Home/index.js:148
 msgid "Smarter Shopping"
 msgstr "רכישה מקוונת חכמה יותר"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:152
 msgid "Productivity"
 msgstr "כלי עבודה"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:156
 msgid "Watching Videos"
 msgstr "צפייה בווידאו"
 
-#: src/amo/pages/Home/index.js:181
+#: src/amo/pages/Home/index.js:184
 msgid "Abstract"
 msgstr "מופשט"
 
-#: src/amo/pages/Home/index.js:186
+#: src/amo/pages/Home/index.js:189
 msgid "Nature"
 msgstr "טבע"
 
-#: src/amo/pages/Home/index.js:191
+#: src/amo/pages/Home/index.js:194
 msgid "Film & TV"
 msgstr "סרטים וטלוויזיה"
 
-#: src/amo/pages/Home/index.js:196
+#: src/amo/pages/Home/index.js:199
 msgid "Scenery"
 msgstr "נופי"
 
-#: src/amo/pages/Home/index.js:201
+#: src/amo/pages/Home/index.js:204
 msgid "Music"
 msgstr "מוזיקה"
 
-#: src/amo/pages/Home/index.js:206
+#: src/amo/pages/Home/index.js:209
 msgid "Seasonal"
 msgstr "עונתי"
 
-#: src/amo/pages/Home/index.js:238
+#: src/amo/pages/Home/index.js:241
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "התאמת אופן הפעולה של Firefox עם הרחבות. האם מעניין אותך…"
 
-#: src/amo/pages/Home/index.js:240
+#: src/amo/pages/Home/index.js:243
 msgid "Change the way Firefox looks with themes."
 msgstr "שינוי המראה של Firefox עם ערכות נושא."
 
@@ -2318,28 +2318,40 @@ msgid ""
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:54
-msgid "See more weather extensions"
-msgstr "הצגת הרחבות מזג אוויר נוספות"
-
 #: src/amo/pages/Home/index.js:55
-msgid "Weather extensions"
-msgstr "הרחבות מזג אוויר"
+#, fuzzy
+msgid "See more video extensions"
+msgstr "הצגת הרחבות לשוניות נוספות"
+
+#: src/amo/pages/Home/index.js:56
+msgid "Extensions for enhancing video"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:60
+#, fuzzy
+msgid "See more spring themes"
+msgstr "הצגת ערכות נושא נוספות שמובילות לאחרונה"
+
+#: src/amo/pages/Home/index.js:61
+#, fuzzy
+msgid "Spring themes"
+msgstr "ערכות הנושא שמובילות לאחרונה"
+
+#: src/amo/pages/Home/index.js:65
+#, fuzzy
+msgid "See more Wikipedia boosters"
+msgstr "מאיצי ויקיפדיה"
+
+#: src/amo/pages/Home/index.js:66
+msgid "Wikipedia boosters"
+msgstr "מאיצי ויקיפדיה"
+
+#: src/amo/pages/Home/index.js:70
 msgid "See more tab extensions"
 msgstr "הצגת הרחבות לשוניות נוספות"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:71
 msgid "Change up your tabs"
-msgstr ""
-
-#: src/amo/pages/Home/index.js:66
-msgid "See more tools"
-msgstr "הצגת כלים נוספים"
-
-#: src/amo/pages/Home/index.js:67
-msgid "Note-taking & time management tools"
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205
@@ -3262,6 +3274,15 @@ msgstr[1] "%(total)s תוספות"
 msgid "Developer response"
 msgstr "תגובת המפתח"
 
+#~ msgid "See more weather extensions"
+#~ msgstr "הצגת הרחבות מזג אוויר נוספות"
+
+#~ msgid "Weather extensions"
+#~ msgstr "הרחבות מזג אוויר"
+
+#~ msgid "See more tools"
+#~ msgstr "הצגת כלים נוספים"
+
 #~ msgid "See more feed readers"
 #~ msgstr "הצגת ערכות נושא מומלצות נוספות"
 
@@ -4013,9 +4034,6 @@ msgstr "תגובת המפתח"
 
 #~ msgid "See all beta versions"
 #~ msgstr "צפייה בכל גרסאות הבטא"
-
-#~ msgid "Wikipedia boosters"
-#~ msgstr "מאיצי ויקיפדיה"
 
 #~ msgid "AliTools"
 #~ msgstr "AliTools"

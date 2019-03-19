@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-12 18:28+0000\n"
+"POT-Creation-Date: 2019-03-19 18:51+0000\n"
 "PO-Revision-Date: 2019-03-12 17:50+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -926,12 +926,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "పతాకం"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr ""
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "పతాకం"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1411,7 +1411,7 @@ msgid "Featured add-ons"
 msgstr "విశేష పొడిగింతలు"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/Home/index.js:351 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr "ట్రెండవుతూన్న పొడగింతలు"
 
@@ -1936,7 +1936,7 @@ msgstr "అన్ని అలంకార వర్గాలు"
 msgid "See more featured extensions"
 msgstr "మరిన్ని విశేష పొడిగింతలను చూడండి"
 
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:350
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:352
 #: src/amo/pages/LandingPage/index.js:149
 msgid "See more trending extensions"
 msgstr "మరిన్ని ట్రెండవుతూన్న పొడగింతలను చూడండి"
@@ -2243,59 +2243,59 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:133
+#: src/amo/pages/Home/index.js:136
 msgid "Bookmarks"
 msgstr "ఇష్టాంశాలు"
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:140
 msgid "Password managers"
 msgstr "సంకేతపదాల నిర్వాహణ"
 
-#: src/amo/pages/Home/index.js:141
+#: src/amo/pages/Home/index.js:144
 msgid "Ad blockers"
 msgstr "ప్రకటన బ్లాకర్స్"
 
-#: src/amo/pages/Home/index.js:145
+#: src/amo/pages/Home/index.js:148
 msgid "Smarter Shopping"
 msgstr "తెలివైన షాపింగ్"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:152
 msgid "Productivity"
 msgstr "ఉత్పాదకత"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:156
 msgid "Watching Videos"
 msgstr "వీడియోలు చూడటం"
 
-#: src/amo/pages/Home/index.js:181
+#: src/amo/pages/Home/index.js:184
 msgid "Abstract"
 msgstr "సంక్షిప్తము"
 
-#: src/amo/pages/Home/index.js:186
+#: src/amo/pages/Home/index.js:189
 msgid "Nature"
 msgstr "ప్రకృతి"
 
-#: src/amo/pages/Home/index.js:191
+#: src/amo/pages/Home/index.js:194
 msgid "Film & TV"
 msgstr "సినిమా & టీవీ"
 
-#: src/amo/pages/Home/index.js:196
+#: src/amo/pages/Home/index.js:199
 msgid "Scenery"
 msgstr "దృశ్యం"
 
-#: src/amo/pages/Home/index.js:201
+#: src/amo/pages/Home/index.js:204
 msgid "Music"
 msgstr "సంగీతం"
 
-#: src/amo/pages/Home/index.js:206
+#: src/amo/pages/Home/index.js:209
 msgid "Seasonal"
 msgstr "కాలానుగుణం"
 
-#: src/amo/pages/Home/index.js:238
+#: src/amo/pages/Home/index.js:241
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:240
+#: src/amo/pages/Home/index.js:243
 msgid "Change the way Firefox looks with themes."
 msgstr ""
 
@@ -2306,31 +2306,41 @@ msgid ""
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:54
-#, fuzzy
-msgid "See more weather extensions"
-msgstr "మరిన్ని విశేష పొడిగింతలను చూడండి"
-
 #: src/amo/pages/Home/index.js:55
-msgid "Weather extensions"
-msgstr "వాతావరణ పొడగింతలు"
+#, fuzzy
+msgid "See more video extensions"
+msgstr "మరిన్ని YouTube పొడగింతలు చూడండి"
+
+#: src/amo/pages/Home/index.js:56
+msgid "Extensions for enhancing video"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:60
+#, fuzzy
+msgid "See more spring themes"
+msgstr "మరిన్ని ట్రెండవుతూన్న అలంకారాలను చూడండి"
+
+#: src/amo/pages/Home/index.js:61
+#, fuzzy
+msgid "Spring themes"
+msgstr "ట్రెండవుతూన్న అలంకారాలు"
+
+#: src/amo/pages/Home/index.js:65
+#, fuzzy
+msgid "See more Wikipedia boosters"
+msgstr "మరిన్ని డైనమిక్ డౌనులోడర్లను చూడండి"
+
+#: src/amo/pages/Home/index.js:66
+msgid "Wikipedia boosters"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:70
 #, fuzzy
 msgid "See more tab extensions"
 msgstr "మరిన్ని YouTube పొడగింతలు చూడండి"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:71
 msgid "Change up your tabs"
-msgstr ""
-
-#: src/amo/pages/Home/index.js:66
-#, fuzzy
-msgid "See more tools"
-msgstr "మరిన్ని అనువాద పనిముట్లను చూడండి"
-
-#: src/amo/pages/Home/index.js:67
-msgid "Note-taking & time management tools"
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205
@@ -3167,6 +3177,17 @@ msgstr[1] "%(total)s యాడాన్లు"
 msgid "Developer response"
 msgstr "డెవలపర్ స్పందన"
 
+#, fuzzy
+#~ msgid "See more weather extensions"
+#~ msgstr "మరిన్ని విశేష పొడిగింతలను చూడండి"
+
+#~ msgid "Weather extensions"
+#~ msgstr "వాతావరణ పొడగింతలు"
+
+#, fuzzy
+#~ msgid "See more tools"
+#~ msgstr "మరిన్ని అనువాద పనిముట్లను చూడండి"
+
 #~ msgid "See more feed readers"
 #~ msgstr "మరిన్ని విశేష అలంకారాలను చూడండి"
 
@@ -3175,9 +3196,6 @@ msgstr "డెవలపర్ స్పందన"
 
 #~ msgid "See more popular themes"
 #~ msgstr "పొడిగింతలను శోధించు"
-
-#~ msgid "See more YouTube boosters"
-#~ msgstr "మరిన్ని డైనమిక్ డౌనులోడర్లను చూడండి"
 
 #~ msgid "See more productivity extensions"
 #~ msgstr "పొడిగింతలను శోధించు"
