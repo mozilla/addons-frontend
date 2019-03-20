@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-19 18:51+0000\n"
-"PO-Revision-Date: 2019-03-20 09:59+0000\n"
+"PO-Revision-Date: 2019-03-20 11:08+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1403,20 +1403,18 @@ msgid "Searching for add-ons"
 msgstr "Пошук додатків"
 
 #: src/amo/components/SearchContextCard/index.js:60
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "на запит \"%(query)s\" знайдено %(count)s розширення"
-msgstr[1] "на запит \"%(query)s\" знайдено %(count)s розширення"
-msgstr[2] "на запит \"%(query)s\" знайдено %(count)s розширень"
+msgstr[0] "На запит \"%(query)s\" знайдено %(count)s розширення в категорії %(categoryName)s"
+msgstr[1] "На запит \"%(query)s\" знайдено %(count)s розширення в категорії %(categoryName)s"
+msgstr[2] "На запит \"%(query)s\" знайдено %(count)s розширень в категорії %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:69
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "на запит \"%(query)s\" знайдено %(count)s розширення"
-msgstr[1] "на запит \"%(query)s\" знайдено %(count)s розширення"
-msgstr[2] "на запит \"%(query)s\" знайдено %(count)s розширень"
+msgstr[0] "Знайдено %(count)s розширення в категорії %(categoryName)s"
+msgstr[1] "Знайдено %(count)s розширення в категорії %(categoryName)s"
+msgstr[2] "Знайдено %(count)s розширень в категорії %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:79
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1426,12 +1424,11 @@ msgstr[1] "на запит \"%(query)s\" знайдено %(count)s розшир
 msgstr[2] "на запит \"%(query)s\" знайдено %(count)s розширень"
 
 #: src/amo/components/SearchContextCard/index.js:88
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "Знайдено %(count)s додаток"
-msgstr[1] "Знайдено %(count)s додатка"
-msgstr[2] "Знайдено %(count)s додатків"
+msgstr[0] "Знайдено %(count)s розширення"
+msgstr[1] "Знайдено %(count)s розширення"
+msgstr[2] "Знайдено %(count)s розширень"
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:125
 msgid "All"
@@ -1502,14 +1499,12 @@ msgid "Featured add-ons only"
 msgstr "Лише відібрані додатки"
 
 #: src/amo/components/SearchForm/index.js:61
-#, fuzzy
 msgid "Firefox Add-ons (%(locale)s)"
-msgstr "Додатки для Firefox на Android (%(locale)s)"
+msgstr "Додатки для Firefox (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
-#, fuzzy
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr "Додатки для Android (%(locale)s)"
+msgstr "Додатки для Firefox для Android (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
@@ -1762,12 +1757,11 @@ msgid "Reviews for %(addonName)s"
 msgstr "Відгуки для %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:286
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s зірка"
-msgstr[1] "%(total)s зірки"
-msgstr[2] "%(total)s зірок"
+msgstr[0] "%(total)s відгук"
+msgstr[1] "%(total)s відгуки"
+msgstr[2] "%(total)s відгуків"
 
 #: src/amo/pages/AddonReviewList/index.js:383
 msgid "There are no reviews"
