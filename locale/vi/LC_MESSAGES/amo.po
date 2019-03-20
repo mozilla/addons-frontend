@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-19 18:51+0000\n"
-"PO-Revision-Date: 2019-03-20 05:12+0000\n"
+"PO-Revision-Date: 2019-03-20 13:09+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -2083,28 +2083,24 @@ msgstr ""
 "nữa."
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more video extensions"
-msgstr "Xem thêm tiện ích mở rộng thẻ"
+msgstr "Xem thêm tiện ích mở rộng video"
 
 #: src/amo/pages/Home/index.js:56
 msgid "Extensions for enhancing video"
 msgstr "Tiện ích mở rộng cải tiến video"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more spring themes"
-msgstr "Xem thên các chủ đề phổ biến"
+msgstr "Xem thêm chủ đề mùa xuân"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "Spring themes"
-msgstr "Chủ đề đang thịnh hành"
+msgstr "Chủ đề mùa xuân"
 
 #: src/amo/pages/Home/index.js:65
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Xem thêm các công cụ tăng tốc YouTube"
+msgstr "Xem thêm công cụ cải tiến Wikipedia"
 
 #: src/amo/pages/Home/index.js:66
 msgid "Wikipedia boosters"
