@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-19 18:51+0000\n"
-"PO-Revision-Date: 2019-03-20 11:08+0000\n"
+"PO-Revision-Date: 2019-03-20 13:22+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -2108,37 +2108,32 @@ msgid "Download Firefox extensions and themes. They’re like apps for your brow
 msgstr "Завантажуйте розширення і теми для Firefox. Це як програми для браузера. Вони можуть блокувати надокучливу рекламу, зберігати паролі, змінювати зовнішній вигляд браузера та інше."
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more video extensions"
-msgstr "Найвище оцінені розширення"
+msgstr "Інші розширення для відео"
 
 #: src/amo/pages/Home/index.js:56
 msgid "Extensions for enhancing video"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more spring themes"
-msgstr "Більше популярних тем"
+msgstr "Інші теми весняної тематики"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "Spring themes"
-msgstr "Популярні теми"
+msgstr "Теми весняної тематики"
 
 #: src/amo/pages/Home/index.js:65
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Засоби для Wikipedia"
+msgstr "Інші засоби для Wikipedia"
 
 #: src/amo/pages/Home/index.js:66
 msgid "Wikipedia boosters"
 msgstr "Засоби для Wikipedia"
 
 #: src/amo/pages/Home/index.js:70
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Найвище оцінені розширення"
+msgstr "Інші розширення для вкладок"
 
 #: src/amo/pages/Home/index.js:71
 msgid "Change up your tabs"
@@ -2510,23 +2505,20 @@ msgid "Picture successfully deleted"
 msgstr "Зображення успішно видалено"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "Розкажіть іншим трохи більше інформації про себе. Ці поля є необов’язковими, але вони допоможуть користувачам краще з вами познайомитися."
+msgstr "Розкажіть іншим трохи більше інформації про себе. Більшість полів є необов’язковими, але вони допоможуть користувачам краще з вами познайомитися."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Розкажіть іншим трохи більше інформації про цього користувача. Ці поля є необов’язковими, але вони допоможуть користувачам краще познайомитися з %(username)s."
+msgstr "Розкажіть іншим трохи більше інформації про цього користувача. Більшість полів є необов’язковими, але вони допоможуть користувачам краще познайомитися з %(userName)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
 msgstr "Розкажіть про себе спільноті, якщо бажаєте"
 
 #: src/amo/pages/UserProfileEdit/index.js:437
-#, fuzzy
 msgid "Introduce %(userName)s to the community"
-msgstr "Розкажіть спільноті про %(username)s"
+msgstr "Представте спільноті %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:460
 msgid "Log in to edit the profile"
@@ -2545,9 +2537,8 @@ msgid "Account"
 msgstr "Обліковий запис"
 
 #: src/amo/pages/UserProfileEdit/index.js:528
-#, fuzzy
 msgid "Account for %(userName)s"
-msgstr "Обліковий запис для %(username)s"
+msgstr "Обліковий запис %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:535
 msgid "Email Address"
@@ -2574,9 +2565,8 @@ msgid "This field is required"
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:588
-#, fuzzy
 msgid "Display Name *"
-msgstr "Ім'я для показу"
+msgstr "Відображуване ім'я *"
 
 #: src/amo/pages/UserProfileEdit/index.js:620
 msgid "This URL will only be visible for users who are developers."
