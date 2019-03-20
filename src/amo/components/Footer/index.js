@@ -52,6 +52,14 @@ export class FooterBase extends React.Component {
                 </a>
               </li>
               <li>
+                <a
+                  className="Footer-extension-workshop-link"
+                  href="https://extensionworkshop.com/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=footer-link"
+                >
+                  {i18n.gettext('Extension Workshop')}
+                </a>
+              </li>
+              <li>
                 <Link href="/developers/" prependClientApp={false}>
                   {i18n.gettext('Developer Hub')}
                 </Link>

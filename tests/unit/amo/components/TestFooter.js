@@ -41,5 +41,13 @@ describe(__filename, () => {
       'href',
       'https://developer.mozilla.org/Add-ons/AMO/Policy/Contact',
     );
+
+    expect(root.find('.Footer-extension-workshop-link')).toHaveText(
+      'Extension Workshop',
+    );
+    expect(root.find('.Footer-extension-workshop-link')).toHaveProp(
+      'href',
+      'https://extensionworkshop.com/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=footer-link',
+    );
   });
 });
