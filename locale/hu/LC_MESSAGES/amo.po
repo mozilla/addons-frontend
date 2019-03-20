@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-19 18:51+0000\n"
-"PO-Revision-Date: 2019-03-20 09:10+0000\n"
+"PO-Revision-Date: 2019-03-20 09:34+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -2111,19 +2111,16 @@ msgid "Extensions for enhancing video"
 msgstr "Kiegészítők a videók feljavításához"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more spring themes"
-msgstr "További népszerű témák megtekintése"
+msgstr "További tavaszi témák megtekintése"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "Spring themes"
-msgstr "Felkapott témák"
+msgstr "Tavaszi témák"
 
 #: src/amo/pages/Home/index.js:65
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Wikipédia gyorsítók"
+msgstr "További Wikipédia gyorsítók megtekintése"
 
 #: src/amo/pages/Home/index.js:66
 msgid "Wikipedia boosters"
