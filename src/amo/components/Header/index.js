@@ -73,7 +73,7 @@ export class HeaderBase extends React.Component {
             className="Header-extension-workshop-link Header-button"
             href="https://extensionworkshop.com/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=header-link"
             external
-            prependClientApp={true}
+            prependClientApp={false}
             target="_blank"
           >
             {i18n.gettext('Extension Workshop')}
