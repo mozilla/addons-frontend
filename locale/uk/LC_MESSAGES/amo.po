@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-19 18:51+0000\n"
-"PO-Revision-Date: 2019-03-20 08:18+0000\n"
+"PO-Revision-Date: 2019-03-20 09:59+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1341,32 +1341,30 @@ msgstr "Результати пошуку для \"%(query)s\""
 #: src/amo/components/SearchContextCard/index.js:100
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] "на запит \"%(query)s\" знайдено %(count)s інструмент пошуку"
-msgstr[1] "на запит \"%(query)s\" знайдено %(count)s інструменти пошуку"
-msgstr[2] "на запит \"%(query)s\" знайдено %(count)s інструментів пошуку"
+msgstr[0] "На запит \"%(query)s\" знайдено %(count)s інструмент пошуку"
+msgstr[1] "На запит \"%(query)s\" знайдено %(count)s інструменти пошуку"
+msgstr[2] "На запит \"%(query)s\" знайдено %(count)s інструментів пошуку"
 
 #: src/amo/components/SearchContextCard/index.js:109
 msgid "%(count)s Search Tool found"
 msgid_plural "%(count)s Search Tools found"
-msgstr[0] "знайдено %(count)s інструмент пошуку"
-msgstr[1] "знайдено %(count)s інструменти пошуку"
-msgstr[2] "знайдено %(count)s інструментів пошуку"
+msgstr[0] "Знайдено %(count)s інструмент пошуку"
+msgstr[1] "Знайдено %(count)s інструменти пошуку"
+msgstr[2] "Знайдено %(count)s інструментів пошуку"
 
 #: src/amo/components/SearchContextCard/index.js:122
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "на запит \"%(query)s\" знайдено %(count)s тема"
-msgstr[1] "на запит \"%(query)s\" знайдено %(count)s теми"
-msgstr[2] "на запит \"%(query)s\" знайдено %(count)s тем"
+msgstr[0] "На запит \"%(query)s\" знайдено %(count)s тему в категорії %(categoryName)s"
+msgstr[1] "На запит \"%(query)s\" знайдено %(count)s теми в категорії %(categoryName)s"
+msgstr[2] "На запит \"%(query)s\" знайдено %(count)s тем в категорії %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:131
-#, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "на запит \"%(query)s\" знайдено %(count)s тема"
-msgstr[1] "на запит \"%(query)s\" знайдено %(count)s теми"
-msgstr[2] "на запит \"%(query)s\" знайдено %(count)s тем"
+msgstr[0] "Знайдено %(count)s тему в категорії %(categoryName)s"
+msgstr[1] "Знайдено %(count)s теми в категорії %(categoryName)s"
+msgstr[2] "Знайдено %(count)s тем в категорії %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:141
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1376,12 +1374,11 @@ msgstr[1] "на запит \"%(query)s\" знайдено %(count)s теми"
 msgstr[2] "на запит \"%(query)s\" знайдено %(count)s тем"
 
 #: src/amo/components/SearchContextCard/index.js:150
-#, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "Знайдено %(count)s додаток"
-msgstr[1] "Знайдено %(count)s додатка"
-msgstr[2] "Знайдено %(count)s додатків"
+msgstr[0] "Знайдено %(count)s тему"
+msgstr[1] "Знайдено %(count)s теми"
+msgstr[2] "Знайдено %(count)s тем"
 
 #: src/amo/components/SearchContextCard/index.js:162
 msgid "%(count)s result found for \"%(query)s\""
@@ -1391,12 +1388,11 @@ msgstr[1] "на запит \"%(query)s\" знайдено %(count)s резуль
 msgstr[2] "на запит \"%(query)s\" знайдено %(count)s результатів"
 
 #: src/amo/components/SearchContextCard/index.js:171
-#, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "%(count)s результат для \"%(query)s\""
-msgstr[1] "%(count)s результати для \"%(query)s\""
-msgstr[2] "%(count)s результатів для \"%(query)s\""
+msgstr[0] "Знайдено %(count)s результат"
+msgstr[1] "Знайдено %(count)s результати"
+msgstr[2] "Знайдено %(count)s результатів"
 
 #: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
