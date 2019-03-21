@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-19 18:51+0000\n"
-"PO-Revision-Date: 2019-03-21 11:32+0000\n"
+"PO-Revision-Date: 2019-03-21 12:07+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -560,11 +560,11 @@ msgstr "Версій не знайдено"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Версія %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Випущено %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -982,7 +982,7 @@ msgstr "Лише з Firefox — Отримати Firefox зараз"
 
 #: src/amo/components/GuidesAddonCard/index.js:77
 msgid "Staff Pick"
-msgstr ""
+msgstr "Вибір редакції"
 
 #: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:502
 msgid "View My Profile"
@@ -1770,17 +1770,17 @@ msgstr "Відгуків немає"
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Історія версій %(addonName)s - %(total)s версія"
+msgstr[1] "Історія версій %(addonName)s - %(total)s версії"
+msgstr[2] "Історія версій %(addonName)s - %(total)s версій"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "Будьте обачні із застарілими версіями! Ці версії відображаються лише з метою тестування й довідки."
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "Вам слід завжди використовувати найновішу версію додатка."
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Latest version"
@@ -1880,7 +1880,7 @@ msgstr "Мої збірки"
 
 #: src/amo/pages/Guides/index.js:103
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "Легкий та ефективний додаток для блокування реклами. uBlock Origin забезпечує тисячами фільтрів вмісту без суттєвого впливу на споживання пам'яті."
 
 #: src/amo/pages/Guides/index.js:107
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
@@ -1888,15 +1888,15 @@ msgstr "Відкрийте для себе ще більше %(linkStart)sзас
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "Зупиніть стеження за вами в інтернеті"
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr ""
+msgstr "Рекламодавці можуть стежити за вашою активністю в інтернеті на різних веб-сайтах, збираючи інформацію про вас і ваші зацікавлення. Розширення можуть допомогти замести ваші цифрові сліди."
 
 #: src/amo/pages/Guides/index.js:121
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Ізолюйте свій ідентифікатор Facebook в окремому контейнері, щоб не дозволяти Facebook стежити за вашою діяльністю поза межами його веб-сайту."
 
 #: src/amo/pages/Guides/index.js:125
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
