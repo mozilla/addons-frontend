@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-19 18:51+0000\n"
-"PO-Revision-Date: 2019-03-21 22:12+0000\n"
+"PO-Revision-Date: 2019-03-21 22:15+0000\n"
 "Last-Translator: dskmori <ghoti.fish.dsk@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -1716,9 +1716,8 @@ msgid "Custom License for %(addonName)s"
 msgstr "%(addonName)s のレビュー"
 
 #: src/amo/pages/AddonInfo/index.js:164
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "エンドユーザー使用許諾契約"
+msgstr "%(addonName)s のエンドユーザー使用許諾契約"
 
 #: src/amo/pages/AddonInfo/index.js:168
 #, fuzzy
