@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-19 18:51+0000\n"
-"PO-Revision-Date: 2019-03-20 13:22+0000\n"
+"PO-Revision-Date: 2019-03-21 11:32+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -2113,7 +2113,7 @@ msgstr "Інші розширення для відео"
 
 #: src/amo/pages/Home/index.js:56
 msgid "Extensions for enhancing video"
-msgstr ""
+msgstr "Розширення для покращення відео"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more spring themes"
@@ -2137,7 +2137,7 @@ msgstr "Інші розширення для вкладок"
 
 #: src/amo/pages/Home/index.js:71
 msgid "Change up your tabs"
-msgstr ""
+msgstr "Змініть свої вкладки"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2562,7 +2562,7 @@ msgstr "Профіль"
 
 #: src/amo/pages/UserProfileEdit/index.js:585
 msgid "This field is required"
-msgstr ""
+msgstr "Це поле обов'язкове"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Display Name *"
@@ -2762,17 +2762,17 @@ msgstr "%(localizedSize)s ТБ"
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s і новіше"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s від %(minVersion)s до %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Працює з %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
