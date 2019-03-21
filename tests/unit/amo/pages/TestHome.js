@@ -459,4 +459,36 @@ describe(__filename, () => {
 
     expect(root.find(HeadLinks)).toHaveLength(1);
   });
+
+  describe('getFeaturedCollectionsMetadata', () => {
+    it('exposes a `footerText` prop', () => {
+      const metadata = getFeaturedCollectionsMetadata(fakeI18n());
+
+      expect(metadata[0]).toHaveProperty('footerText');
+    });
+
+    it('exposes a `header` prop', () => {
+      const metadata = getFeaturedCollectionsMetadata(fakeI18n());
+
+      expect(metadata[0]).toHaveProperty('header');
+    });
+
+    it('exposes a `slug` prop', () => {
+      const metadata = getFeaturedCollectionsMetadata(fakeI18n());
+
+      expect(metadata[0]).toHaveProperty('slug');
+    });
+
+    it('exposes a `userId` prop', () => {
+      const metadata = getFeaturedCollectionsMetadata(fakeI18n());
+
+      expect(metadata[0]).toHaveProperty('userId');
+    });
+
+    it('exposes a `isTheme` prop', () => {
+      const metadata = getFeaturedCollectionsMetadata(fakeI18n());
+
+      expect(metadata[0]).toHaveProperty('isTheme');
+    });
+  });
 });

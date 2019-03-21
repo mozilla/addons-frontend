@@ -54,21 +54,25 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
     {
       footerText: i18n.gettext('See more video extensions'),
       header: i18n.gettext('Extensions for enhancing video'),
+      isTheme: false,
       ...FEATURED_COLLECTIONS[0],
     },
     {
       footerText: i18n.gettext('See more spring themes'),
       header: i18n.gettext('Spring themes'),
+      isTheme: true,
       ...FEATURED_COLLECTIONS[1],
     },
     {
       footerText: i18n.gettext('See more Wikipedia boosters'),
       header: i18n.gettext('Wikipedia boosters'),
+      isTheme: false,
       ...FEATURED_COLLECTIONS[2],
     },
     {
       footerText: i18n.gettext('See more tab extensions'),
       header: i18n.gettext('Change up your tabs'),
+      isTheme: false,
       ...FEATURED_COLLECTIONS[3],
     },
   ];
