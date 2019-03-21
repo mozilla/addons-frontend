@@ -12494,14 +12494,14 @@ react-clientside-effect@^1.2.0:
     "@babel/runtime" "^7.0.0"
     shallowequal "^1.1.0"
 
-react-cookie@3.0.8:
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-3.0.8.tgz#fd413d9940d5f2397700548e3d1faed0330e8bfd"
-  integrity sha512-Gdop2Cf2pBFA0r4L9l5DRghKsPVMNKRM3x2aeyJ4JSaENpWWPP4v9LJvvtxXs3AboOGCuMj19oUw04Z9cVQQTg==
+react-cookie@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-3.1.1.tgz#abaf56959a778e5dc9669136bb7f774ccbc674de"
+  integrity sha512-46S6P38lEbxKDEgYvwH7Le36MDlN4tB2ASrhNm8IvoMXQckGFQpW2N6pFl+fqefrA3VAv0a0rrL59qiBn8HQEQ==
   dependencies:
     "@types/hoist-non-react-statics" "^3.0.1"
     hoist-non-react-statics "^3.0.0"
-    universal-cookie "^3.0.7"
+    universal-cookie "^3.1.0"
 
 react-dev-utils@^6.1.0:
   version "6.1.1"
@@ -15510,10 +15510,10 @@ unist-util-visit@^1.1.0:
   dependencies:
     unist-util-visit-parents "^2.0.0"
 
-universal-cookie-express@3.0.7:
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-3.0.7.tgz#7654f95cd593c342cb742cf50bc3a0148b910b99"
-  integrity sha512-Nq4TxRR8gOQEGeVyqIHXvVRVVGi90n3nO1rL6MJOtUQlof0gx0lkKtM/Y0URbms8w3jizmV1omMuRG2dGLe2iw==
+universal-cookie-express@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-3.1.0.tgz#f85d04dcd655444ee50f1c1980ac9b6521624681"
+  integrity sha512-F3hMX6V1fBwBd85VlKCScG0zz1SVg2ZpZhX9dHT9QjFxeRxUgbHdz0dTjDGJ14GG7p2isCQe7qgXnZ8Nn90r0A==
   dependencies:
     universal-cookie "^3.0.7"
 
@@ -15521,6 +15521,16 @@ universal-cookie@^3.0.7:
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/universal-cookie/-/universal-cookie-3.0.7.tgz#722e8bc455bb33ed3c74988344fad9d9bb88278e"
   integrity sha512-wfZRbaEzFTDbP64fzTfGDfokB3pWkDNjtsuRAZQWaiuj/Up+3/0AEvN4IhFHPK24iGNtGJ6PNIxv1GQzMSiyMw==
+  dependencies:
+    "@types/cookie" "^0.3.1"
+    "@types/object-assign" "^4.0.30"
+    cookie "^0.3.1"
+    object-assign "^4.1.0"
+
+universal-cookie@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/universal-cookie/-/universal-cookie-3.1.0.tgz#a16964ccb16cf8fa463bda1ebe86482945339ad8"
+  integrity sha512-sP6WuFgqIUro7ikgI2ndrsw9Ro+YvVBe5O9cQfWnjTicpLaSMUEUUDjQF8m8utzWF2ONl7tRkcZd7v4n6NnzjQ==
   dependencies:
     "@types/cookie" "^0.3.1"
     "@types/object-assign" "^4.0.30"
