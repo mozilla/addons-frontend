@@ -162,4 +162,17 @@ describe(__filename, () => {
     expect(link.children()).toHaveText('Manage My Submissions');
     expect(link).toHaveProp('href', '/developers/addons/');
   });
+
+  it('displays a extension workshop link in header', () => {
+    const { store } = dispatchSignInActions();
+    const wrapper = renderHeader({ store });
+    const link = wrapper.find('.Header-extension-workshop-link');
+
+    expect(link).toHaveLength(1);
+    expect(link.children()).toHaveText('Extension Workshop');
+    expect(link).toHaveProp(
+      'href',
+      'https://extensionworkshop.com/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=header-link',
+    );
+  });
 });
