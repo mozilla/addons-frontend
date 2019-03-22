@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-19 18:51+0000\n"
-"PO-Revision-Date: 2019-03-22 17:34+0000\n"
+"PO-Revision-Date: 2019-03-22 18:32+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -2117,13 +2117,12 @@ msgid "Download Firefox extensions and themes. They’re like apps for your brow
 msgstr "Pobieraj rozszerzenia i motywy Firefoksa. Są one jak aplikacje do przeglądarki. Mogą blokować irytujące reklamy, chronić hasła, zmieniać wygląd przeglądarki i nie tylko."
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more video extensions"
-msgstr "Więcej rozszerzeń do pracy z kartami"
+msgstr "Więcej rozszerzeń filmowych"
 
 #: src/amo/pages/Home/index.js:56
 msgid "Extensions for enhancing video"
-msgstr ""
+msgstr "Rozszerzenia ulepszające odtwarzanie filmów"
 
 #: src/amo/pages/Home/index.js:60
 #, fuzzy
