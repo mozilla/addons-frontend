@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-19 18:51+0000\n"
-"PO-Revision-Date: 2019-03-18 19:33+0000\n"
+"PO-Revision-Date: 2019-03-22 16:43+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1759,14 +1759,14 @@ msgstr[2] "%(total)s recenzií"
 
 #: src/amo/pages/AddonReviewList/index.js:383
 msgid "There are no reviews"
-msgstr ""
+msgstr "Bez recenzií"
 
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "História doplnku %(addonName)s - %(total)s verzia"
+msgstr[1] "História doplnku %(addonName)s - %(total)s verzie"
+msgstr[2] "História doplnku %(addonName)s - %(total)s verzií"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
@@ -2101,35 +2101,35 @@ msgstr "Prevezmite si rozšírenia a témy vzhľadu pre Firefox. Sú to aplikác
 
 #: src/amo/pages/Home/index.js:55
 msgid "See more video extensions"
-msgstr ""
+msgstr "Ďalšie rozšírenia vylepšujúce videá"
 
 #: src/amo/pages/Home/index.js:56
 msgid "Extensions for enhancing video"
-msgstr ""
+msgstr "Vylepšenia videí"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more spring themes"
-msgstr ""
+msgstr "Ďalšie jarné témy vzhľadu"
 
 #: src/amo/pages/Home/index.js:61
 msgid "Spring themes"
-msgstr ""
+msgstr "Jarné témy vzhľadu"
 
 #: src/amo/pages/Home/index.js:65
 msgid "See more Wikipedia boosters"
-msgstr ""
+msgstr "Ďalšie doplnky vylepšujúce Wikipédiu"
 
 #: src/amo/pages/Home/index.js:66
 msgid "Wikipedia boosters"
-msgstr ""
+msgstr "Vylepšenia Wikipédie"
 
 #: src/amo/pages/Home/index.js:70
 msgid "See more tab extensions"
-msgstr ""
+msgstr "Ďalšie rozšírenia vylepšujúce karty"
 
 #: src/amo/pages/Home/index.js:71
 msgid "Change up your tabs"
-msgstr ""
+msgstr "Vylepšenia kariet"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2420,6 +2420,7 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Nepíšte technické problémy, požiadavky na podporu alebo návrhy na nové funkcie. Pre ne môžete použiť kontakty, ktoré sú pre daný doplnok dostupné. Nájdete ich na stránke s podrobnosťami o doplnku."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:95
 msgid "Write reviews for add-ons which you have not personally used."
@@ -2431,15 +2432,15 @@ msgstr "Moje recenzie"
 
 #: src/amo/pages/UserProfile/index.js:268
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil používateľa %(user)s, autora rozšírení a tém vzhľadu pre Firefox. Nájdite ďalšie aplikácie od používateľa %(user)s, vrátane priemerných hodnotení a možnosti nahlásiť chyby."
 
 #: src/amo/pages/UserProfile/index.js:272
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil používateľa %(user)s, autora rozšírení pre Firefox. Nájdite ďalšie rozšírenia od používateľa %(user)s, vrátane priemerných hodnotení a možnosti nahlásiť chyby."
 
 #: src/amo/pages/UserProfile/index.js:276
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil používateľa %(user)s, autora tém vzhľadu pre Firefox. Nájdite ďalšie témy vzhľadu od používateľa %(user)s, vrátane priemerných hodnotení a možnosti nahlásiť chyby."
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
