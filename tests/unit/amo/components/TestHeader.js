@@ -3,6 +3,7 @@ import * as React from 'react';
 import { setViewContext } from 'amo/actions/viewContext';
 import Header, { HeaderBase } from 'amo/components/Header';
 import Link from 'amo/components/Link';
+import { makeQueryStringWithUTM } from 'amo/utils';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import DropdownMenu from 'ui/components/DropdownMenu';
 import { VIEW_CONTEXT_HOME } from 'core/constants';
@@ -172,7 +173,9 @@ describe(__filename, () => {
     expect(link.children()).toHaveText('Extension Workshop');
     expect(link).toHaveProp(
       'href',
-      'https://extensionworkshop.com/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=header-link',
+      `https://extensionworkshop.com/${makeQueryStringWithUTM({
+        utm_content: 'header-link',
+      })}`,
     );
   });
 });
