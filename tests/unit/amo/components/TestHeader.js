@@ -3,6 +3,7 @@ import * as React from 'react';
 import { setViewContext } from 'amo/actions/viewContext';
 import Header, { HeaderBase } from 'amo/components/Header';
 import Link from 'amo/components/Link';
+import { makeQueryStringWithUTM } from 'amo/utils';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import DropdownMenu from 'ui/components/DropdownMenu';
 import { VIEW_CONTEXT_HOME } from 'core/constants';
@@ -161,5 +162,21 @@ describe(__filename, () => {
     expect(link).toHaveLength(1);
     expect(link.children()).toHaveText('Manage My Submissions');
     expect(link).toHaveProp('href', '/developers/addons/');
+  });
+
+  it('displays a extension workshop link in header', () => {
+    const { store } = dispatchSignInActions();
+    const wrapper = renderHeader({ store });
+    const link = wrapper.find('.Header-extension-workshop-link');
+
+    expect(link).toHaveLength(1);
+    expect(link.children()).toHaveText('Extension Workshop');
+    expect(link).toHaveProp(
+      'href',
+      `https://extensionworkshop.com/${makeQueryStringWithUTM({
+        utm_content: 'header-link',
+        utm_campaign: null,
+      })}`,
+    );
   });
 });

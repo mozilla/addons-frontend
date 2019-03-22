@@ -4,6 +4,7 @@ import { compose } from 'redux';
 
 import LanguagePicker from 'amo/components/LanguagePicker';
 import Link from 'amo/components/Link';
+import { makeQueryStringWithUTM } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import Icon from 'ui/components/Icon';
 import { sanitizeHTML } from 'core/utils';
@@ -49,6 +50,19 @@ export class FooterBase extends React.Component {
               <li>
                 <a href="https://blog.mozilla.com/addons">
                   {i18n.gettext('Blog')}
+                </a>
+              </li>
+              <li>
+                <a
+                  className="Footer-extension-workshop-link"
+                  href={`https://extensionworkshop.com/${makeQueryStringWithUTM(
+                    {
+                      utm_content: 'footer-link',
+                      utm_campaign: null,
+                    },
+                  )}`}
+                >
+                  {i18n.gettext('Extension Workshop')}
                 </a>
               </li>
               <li>
