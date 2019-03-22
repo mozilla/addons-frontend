@@ -106,7 +106,8 @@
   white-space: nowrap;
 }
 
-.Header-developer-hub-link {
+.Header-developer-hub-link,
+.Header-extension-workshop-link {
   display: none;
 
   @include respond-to(large) {
@@ -198,19 +199,5 @@
     margin: 0;
     max-width: 284px;
     width: 100%;
-  }
-}
-
-.Header-extension-workshop-link {
-  &,
-  &:link {
-    @include margin-start(12px);
-
-    color: $white;
-    display: inline-block;
-    font-size: $font-size-s;
-    font-weight: normal;
-    padding-top: 4px;
-    text-decoration: none;
   }
 }
