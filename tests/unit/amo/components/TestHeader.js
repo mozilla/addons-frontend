@@ -175,7 +175,7 @@ describe(__filename, () => {
       'href',
       `https://extensionworkshop.com/${makeQueryStringWithUTM({
         utm_content: 'header-link',
-        utm_campaign: '',
+        utm_campaign: null,
       })}`,
     );
   });

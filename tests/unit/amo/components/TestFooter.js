@@ -50,7 +50,7 @@ describe(__filename, () => {
       'href',
       `https://extensionworkshop.com/${makeQueryStringWithUTM({
         utm_content: 'footer-link',
-        utm_campaign: '',
+        utm_campaign: null,
       })}`,
     );
   });
