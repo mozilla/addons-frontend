@@ -58,6 +58,7 @@ export class FooterBase extends React.Component {
                   href={`https://extensionworkshop.com/${makeQueryStringWithUTM(
                     {
                       utm_content: 'footer-link',
+                      utm_campaign: '',
                     },
                   )}`}
                 >
