@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-19 18:51+0000\n"
-"PO-Revision-Date: 2019-03-22 18:32+0000\n"
+"PO-Revision-Date: 2019-03-22 18:33+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -2125,19 +2125,16 @@ msgid "Extensions for enhancing video"
 msgstr "Rozszerzenia ulepszające odtwarzanie filmów"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more spring themes"
-msgstr "Więcej motywów na czasie"
+msgstr "Więcej wiosennych motywów"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "Spring themes"
-msgstr "Motywy na czasie"
+msgstr "Wiosenne motywy"
 
 #: src/amo/pages/Home/index.js:65
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Wspomaganie Wikipedii"
+msgstr "Więcej narzędzi do wspomagania Wikipedii"
 
 #: src/amo/pages/Home/index.js:66
 msgid "Wikipedia boosters"
