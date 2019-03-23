@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-19 18:51+0000\n"
-"PO-Revision-Date: 2019-03-21 12:07+0000\n"
+"PO-Revision-Date: 2019-03-23 14:28+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -785,24 +785,28 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
+"Спробуйте відвідати сторінку пізніше, у випадку якщо тема чи розширення можуть стати знову доступними. Крім того, можливо ви знайдете те, що шукаєте, серед доступних "
+"%(linkStart)sрозширень%(linkEnd)s чи %(secondLinkStart)sтем%(secondLinkEnd)s."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Отакої! Ми не можемо знайти сторінку"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Якщо ви перейшли за посиланням з іншого сайту в пошуках розширення чи теми, цей продукт більше недоступний. Це може бути тому, що:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:69
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "Розробник видалив його. Розробники зазвичай роблять це, тому що більше не підтримують розширення чи тему, або замінюють їх іншими."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:74
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla видалила його. Це може траплятися під час перевірки розширення чи теми у випадку виявлення проблем, або порушення умов чи положень для addons.mozilla.org. В такому разі розробник може "
+"виправити проблему і зробити додаток знову доступним."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
 msgid ""
@@ -1904,7 +1908,7 @@ msgstr "Відкрийте для себе ще більше %(linkStart)sзас
 
 #: src/amo/pages/Guides/index.js:136
 msgid "Reimagine tab management"
-msgstr ""
+msgstr "Переосмисліть керування вкладками"
 
 #: src/amo/pages/Guides/index.js:137
 msgid ""
