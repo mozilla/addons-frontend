@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-19 18:51+0000\n"
-"PO-Revision-Date: 2019-03-23 14:33+0000\n"
+"PO-Revision-Date: 2019-03-23 14:58+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1928,17 +1928,19 @@ msgstr "Відкрийте для себе ще більше %(linkStart)sзас
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Кращий перегляд з вдосконаленими закладками"
 
 #: src/amo/pages/Guides/index.js:156
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "Розширення можуть допомогти вам організувати ваші онлайн інтереси. Менеджери закладок є ідеальними для тих, хто має багато вмісту, за яким вони стежать."
 
 #: src/amo/pages/Guides/index.js:160
 msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"Потрібна допомога в організації всіх ваших улюблених рецептів, статей, відео YouTube, або будь-чого іншого, що ви знаходите в інтернеті? OneNote Web Clipper дозволяє вам збирати й зберігати весь "
+"улюблений вміст з інтернету в потужному сховищі, що синхронізується з різними пристроями."
 
 #: src/amo/pages/Guides/index.js:167
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
@@ -1946,11 +1948,11 @@ msgstr "Відкрийте для себе ще більше %(linkStart)sзас
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Зацініть оновлену роботу нової вкладки"
 
 #: src/amo/pages/Guides/index.js:176
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "Починайте кожен сеанс перегляду, адаптований саме для вас, налаштувавши сторінку нової вкладки."
 
 #: src/amo/pages/Guides/index.js:180
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
