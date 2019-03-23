@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-19 18:51+0000\n"
-"PO-Revision-Date: 2019-03-23 14:28+0000\n"
+"PO-Revision-Date: 2019-03-23 14:33+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1915,10 +1915,12 @@ msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Якщо ви зазвичай працюєте з багатьма відкритими вкладками, вам, ймовірно, знайоме відчуття невдоволення під час пошуку необхідної вкладки з поміж ряду інших. Розширення можуть запропонувати зручні "
+"рішення для простого керування вкладками."
 
 #: src/amo/pages/Guides/index.js:143
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Впорядкуйте та візуалізуйте свої вкладки в стилі каскадного \"дерева\" в бічній панелі Firefox."
 
 #: src/amo/pages/Guides/index.js:147
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
