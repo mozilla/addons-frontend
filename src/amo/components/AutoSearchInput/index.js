@@ -254,6 +254,11 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       return;
     }
 
+    if(event.keyCode == 13){
+      // Because of issue #7655
+      return;
+    }
+
     this.setState({ autocompleteIsOpen: false, searchValue: '' });
     this.props.onSuggestionSelected(suggestion);
   };
