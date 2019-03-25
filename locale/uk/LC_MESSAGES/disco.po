@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-26 17:58+0000\n"
-"PO-Revision-Date: 2019-03-21 11:32+0000\n"
+"PO-Revision-Date: 2019-03-25 14:25+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -179,7 +179,7 @@ msgstr "Докладніше"
 
 #: src/disco/pages/DiscoPane/index.js:211
 msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
+msgstr "Деякі з цих рекомендацій персоналізовані. Вони базуються на встановлених вами розширеннях, налаштуваннях профілю та статистиці користування."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
