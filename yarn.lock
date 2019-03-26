@@ -6270,10 +6270,10 @@ expect@^24.5.0:
     jest-message-util "^24.5.0"
     jest-regex-util "^24.3.0"
 
-express-http-context@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/express-http-context/-/express-http-context-1.2.0.tgz#8e886838f9915b57a42870b8a0a9532a82511657"
-  integrity sha512-Nw7FECgPHx0p4xE3jOP1tGYnMp+aUDQemHnuJ29TYuuAA7H3dp9zlce453CoHt7dwWNKNQG1R3vFCLnMyilnDg==
+express-http-context@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/express-http-context/-/express-http-context-1.2.1.tgz#2f3336c3625b22da184f5be286d62eb834d0aad5"
+  integrity sha512-cueAsbI5zs3wQykcyymFsxJZJU7Zf7z5jJvLs1+wfyCa2NDoKr5ooUF88MXc2af3keqbEC/Gk6uR/S/A3lJEsQ==
   dependencies:
     cls-hooked "^4.2.2"
 
