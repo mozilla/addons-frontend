@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-19 18:51+0000\n"
-"PO-Revision-Date: 2019-03-26 13:50+0000\n"
+"PO-Revision-Date: 2019-03-26 14:06+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -204,7 +204,7 @@ msgstr "ਉਪਯੋਗਕਰਤਾ"
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "ਯੂਜ਼ਰ"
-msgstr[1] ""
+msgstr[1] "ਯੂਜ਼ਰ"
 
 #: src/amo/components/AddonMeta/index.js:53
 msgid "No Users"
@@ -981,7 +981,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:117
 msgid "Tools"
-msgstr ""
+msgstr "ਸੰਦ"
 
 #: src/amo/components/Header/index.js:123
 msgid "Submit a New Add-on"
@@ -1495,8 +1495,8 @@ msgstr ""
 #: src/amo/components/SearchResult/index.js:165
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s ਉਪਭੋਗੀ"
+msgstr[1] "%(total)s ਉਪਭੋਗੀ"
 
 #: src/amo/components/SearchResults/index.js:42
 msgid "Searching…"
@@ -1682,7 +1682,7 @@ msgstr ""
 
 #: src/amo/pages/Addon/index.js:492
 msgid "Screenshots"
-msgstr ""
+msgstr "ਸਕਰੀਨਸ਼ਾਟ"
 
 #: src/amo/pages/AddonInfo/index.js:157
 msgid "Custom License for %(addonName)s"
@@ -2017,7 +2017,7 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:136
 msgid "Bookmarks"
-msgstr ""
+msgstr "ਬੁੱਕਮਾਰਕ"
 
 #: src/amo/pages/Home/index.js:140
 msgid "Password managers"
@@ -2057,7 +2057,7 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:204
 msgid "Music"
-msgstr ""
+msgstr "ਸੰਗੀਤ"
 
 #: src/amo/pages/Home/index.js:209
 msgid "Seasonal"
@@ -2507,7 +2507,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:576
 msgid "Profile"
-msgstr ""
+msgstr "ਪ੍ਰੋਫਾਈਲ"
 
 #: src/amo/pages/UserProfileEdit/index.js:585
 msgid "This field is required"
@@ -2602,7 +2602,7 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Enable"
-msgstr ""
+msgstr "ਸਮਰੱਥ"
 
 #: src/core/components/AMInstallButton/index.js:216
 msgid "Enabling"
@@ -2682,23 +2682,23 @@ msgstr ""
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
