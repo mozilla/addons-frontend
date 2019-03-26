@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-19 18:51+0000\n"
+"POT-Creation-Date: 2019-03-26 16:51+0000\n"
 "PO-Revision-Date: 2018-08-06 19:06+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -731,7 +731,7 @@ msgid "Back to collection"
 msgstr "Legg til i samling"
 
 #: src/amo/components/CollectionDetails/index.js:79
-#: src/amo/components/Footer/index.js:41
+#: src/amo/components/Footer/index.js:42
 msgid "Add-ons"
 msgstr "Utvidelser"
 
@@ -993,11 +993,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:123
@@ -1044,39 +1044,44 @@ msgstr ""
 msgid "Flagged for inappropriate language"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:102
+#: src/amo/components/Footer/index.js:111
+#: src/amo/components/GetFirefoxButton/index.js:74
+msgid "Download Firefox"
+msgstr "Last ned Firefox"
+
+#: src/amo/components/Footer/index.js:116
 msgid "Android Browser"
 msgstr "Nettleser til Android"
 
-#: src/amo/components/Footer/index.js:107
+#: src/amo/components/Footer/index.js:121
 msgid "iOS Browser"
 msgstr "Nettleser til iOS"
 
-#: src/amo/components/Footer/index.js:112
+#: src/amo/components/Footer/index.js:126
 msgid "Focus Browser"
 msgstr "Focus nettleser"
 
-#: src/amo/components/Footer/index.js:117
+#: src/amo/components/Footer/index.js:131
 msgid "Desktop Browser"
 msgstr "Nettleser til datamaskiner"
 
-#: src/amo/components/Footer/index.js:122
+#: src/amo/components/Footer/index.js:136
 msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Developer Edition"
 
-#: src/amo/components/Footer/index.js:151
+#: src/amo/components/Footer/index.js:165
 msgid "Privacy"
 msgstr "Personvern"
 
-#: src/amo/components/Footer/index.js:159
+#: src/amo/components/Footer/index.js:173
 msgid "Cookies"
 msgstr "Infokapsler"
 
-#: src/amo/components/Footer/index.js:167
+#: src/amo/components/Footer/index.js:181
 msgid "Legal"
 msgstr "Juridisk"
 
-#: src/amo/components/Footer/index.js:177
+#: src/amo/components/Footer/index.js:191
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1087,48 +1092,48 @@ msgstr ""
 "Commons Navngivelse-del-på-samme-vilkår-lisens v3.0%(endLicenseLink)s eller "
 "en senere versjon."
 
-#: src/amo/components/Footer/index.js:20
+#: src/amo/components/Footer/index.js:21
 msgid "Go to Mozilla's homepage"
 msgstr "Gå til Mozillas hjemmeside"
 
-#: src/amo/components/Footer/index.js:46
+#: src/amo/components/Footer/index.js:47
 msgid "About"
 msgstr "Om"
 
-#: src/amo/components/Footer/index.js:51
+#: src/amo/components/Footer/index.js:52
 msgid "Blog"
 msgstr "Blogg"
 
-#: src/amo/components/Footer/index.js:56 src/amo/components/Header/index.js:79
+#: src/amo/components/Footer/index.js:65 src/amo/components/Header/index.js:84
+#, fuzzy
+msgid "Extension Workshop"
+msgstr "Utvidelser"
+
+#: src/amo/components/Footer/index.js:70 src/amo/components/Header/index.js:93
 msgid "Developer Hub"
 msgstr "Utvikler-knutepunkt"
 
-#: src/amo/components/Footer/index.js:61
+#: src/amo/components/Footer/index.js:75
 #, fuzzy
 msgid "Developer Policies"
 msgstr "Utviklerrespons"
 
-#: src/amo/components/Footer/index.js:66
+#: src/amo/components/Footer/index.js:80
 msgid "Forum"
 msgstr "Forum"
 
-#: src/amo/components/Footer/index.js:74
+#: src/amo/components/Footer/index.js:88
 msgid "Report a bug"
 msgstr "Rapporter en feil"
 
-#: src/amo/components/Footer/index.js:79
+#: src/amo/components/Footer/index.js:93
 #, fuzzy
 msgid "Review Guide"
 msgstr "Vurderingstekst"
 
-#: src/amo/components/Footer/index.js:84
+#: src/amo/components/Footer/index.js:98
 msgid "Site Status"
 msgstr "Status for nettsted"
-
-#: src/amo/components/Footer/index.js:97
-#: src/amo/components/GetFirefoxButton/index.js:74
-msgid "Download Firefox"
-msgstr "Last ned Firefox"
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
@@ -1139,54 +1144,54 @@ msgid "Staff Pick"
 msgstr ""
 
 #: src/amo/components/Header/index.js:105
+msgid "My Account"
+msgstr "Min konto"
+
+#: src/amo/components/Header/index.js:111
+msgid "View My Collections"
+msgstr "Vis mine samlinger"
+
+#: src/amo/components/Header/index.js:119
 #: src/amo/pages/UserProfileEdit/index.js:502
 #, fuzzy
 msgid "View My Profile"
 msgstr "Vis profil"
 
-#: src/amo/components/Header/index.js:113
+#: src/amo/components/Header/index.js:127
 #: src/amo/pages/UserProfileEdit/index.js:508
 #, fuzzy
 msgid "Edit My Profile"
 msgstr "Rediger profil"
 
-#: src/amo/components/Header/index.js:117
+#: src/amo/components/Header/index.js:131
 msgid "Tools"
 msgstr "Verktøy"
 
-#: src/amo/components/Header/index.js:123
+#: src/amo/components/Header/index.js:137
 msgid "Submit a New Add-on"
 msgstr "Send inn en ny utvidelse"
 
-#: src/amo/components/Header/index.js:128
+#: src/amo/components/Header/index.js:142
 msgid "Submit a New Theme"
 msgstr "Send inn et nytt tema"
 
-#: src/amo/components/Header/index.js:137
+#: src/amo/components/Header/index.js:151
 msgid "Manage My Submissions"
 msgstr ""
 
-#: src/amo/components/Header/index.js:147
+#: src/amo/components/Header/index.js:161
 #, fuzzy
 msgid "Reviewer Tools"
 msgstr "Ingen vurderinger"
 
-#: src/amo/components/Header/index.js:157
+#: src/amo/components/Header/index.js:171
 #: src/core/components/AuthenticateButton/index.js:80
 msgid "Log out"
 msgstr "Logg ut"
 
-#: src/amo/components/Header/index.js:54
+#: src/amo/components/Header/index.js:55
 msgid "Firefox Add-ons"
 msgstr "Firefox-utvidelser"
-
-#: src/amo/components/Header/index.js:91
-msgid "My Account"
-msgstr "Min konto"
-
-#: src/amo/components/Header/index.js:97
-msgid "View My Collections"
-msgstr "Vis mine samlinger"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:267
@@ -1506,12 +1511,12 @@ msgid "Search results"
 msgstr "Søkeresultat"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:309 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Utvalgte utvidelser"
 
 #: src/amo/components/Search/index.js:124 src/amo/pages/Category/index.js:170
-#: src/amo/pages/Home/index.js:334 src/amo/pages/LandingPage/index.js:161
+#: src/amo/pages/Home/index.js:338 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
 msgstr "Utvalgte tema"
 
@@ -1521,7 +1526,7 @@ msgid "Featured add-ons"
 msgstr "Utvalgt utvidelse"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:351 src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/Home/index.js:355 src/amo/pages/LandingPage/index.js:141
 #, fuzzy
 msgid "Trending extensions"
 msgstr "Høyest vurderte utvidelser"
@@ -2062,13 +2067,13 @@ msgstr "Bla gjennom alle utvidelser i denne kategori."
 msgid "All theme categories"
 msgstr "Utforsk alle kategorier"
 
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:306
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:310
 #: src/amo/pages/LandingPage/index.js:140
 #, fuzzy
 msgid "See more featured extensions"
 msgstr "Flere utvalgte utvidelser"
 
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:352
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:356
 #: src/amo/pages/LandingPage/index.js:149
 #, fuzzy
 msgid "See more trending extensions"
@@ -2079,7 +2084,7 @@ msgstr "Flere utvalgte utvidelser"
 msgid "See more top rated extensions"
 msgstr "Høyest vurderte utvidelser"
 
-#: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:324
+#: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:328
 #: src/amo/pages/LandingPage/index.js:169
 #, fuzzy
 msgid "See more featured themes"
@@ -2385,63 +2390,63 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:136
+#: src/amo/pages/Home/index.js:140
 msgid "Bookmarks"
 msgstr "Bokmerker"
 
-#: src/amo/pages/Home/index.js:140
+#: src/amo/pages/Home/index.js:144
 msgid "Password managers"
 msgstr "Passordbehandlere"
 
-#: src/amo/pages/Home/index.js:144
+#: src/amo/pages/Home/index.js:148
 msgid "Ad blockers"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:148
+#: src/amo/pages/Home/index.js:152
 msgid "Smarter Shopping"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:152
+#: src/amo/pages/Home/index.js:156
 msgid "Productivity"
 msgstr "Produktivitet"
 
-#: src/amo/pages/Home/index.js:156
+#: src/amo/pages/Home/index.js:160
 msgid "Watching Videos"
 msgstr "Se på videoer"
 
-#: src/amo/pages/Home/index.js:184
+#: src/amo/pages/Home/index.js:188
 msgid "Abstract"
 msgstr "Abstrakt"
 
-#: src/amo/pages/Home/index.js:189
+#: src/amo/pages/Home/index.js:193
 msgid "Nature"
 msgstr "Natur"
 
-#: src/amo/pages/Home/index.js:194
+#: src/amo/pages/Home/index.js:198
 msgid "Film & TV"
 msgstr "Film og TV"
 
-#: src/amo/pages/Home/index.js:199
+#: src/amo/pages/Home/index.js:203
 msgid "Scenery"
 msgstr "Landskap"
 
-#: src/amo/pages/Home/index.js:204
+#: src/amo/pages/Home/index.js:208
 msgid "Music"
 msgstr "Musikk"
 
-#: src/amo/pages/Home/index.js:209
+#: src/amo/pages/Home/index.js:213
 msgid "Seasonal"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:241
+#: src/amo/pages/Home/index.js:245
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:243
+#: src/amo/pages/Home/index.js:247
 msgid "Change the way Firefox looks with themes."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:273
+#: src/amo/pages/Home/index.js:277
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2457,31 +2462,31 @@ msgstr "Høyest vurderte utvidelser"
 msgid "Extensions for enhancing video"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:60
+#: src/amo/pages/Home/index.js:61
 #, fuzzy
 msgid "See more spring themes"
 msgstr "Flere utvalgte tema"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:62
 #, fuzzy
 msgid "Spring themes"
 msgstr "Høyest vurderte tema"
 
-#: src/amo/pages/Home/index.js:65
+#: src/amo/pages/Home/index.js:67
 #, fuzzy
 msgid "See more Wikipedia boosters"
 msgstr "Flere utvalgte tema"
 
-#: src/amo/pages/Home/index.js:66
+#: src/amo/pages/Home/index.js:68
 msgid "Wikipedia boosters"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:70
+#: src/amo/pages/Home/index.js:73
 #, fuzzy
 msgid "See more tab extensions"
 msgstr "Høyest vurderte utvidelser"
 
-#: src/amo/pages/Home/index.js:71
+#: src/amo/pages/Home/index.js:74
 msgid "Change up your tabs"
 msgstr ""
 

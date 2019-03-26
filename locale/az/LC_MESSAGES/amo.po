@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-19 18:51+0000\n"
+"POT-Creation-Date: 2019-03-26 16:51+0000\n"
 "PO-Revision-Date: 2018-10-31 16:33+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -687,7 +687,7 @@ msgid "Back to collection"
 msgstr "Kolleksiyaya qayıt"
 
 #: src/amo/components/CollectionDetails/index.js:79
-#: src/amo/components/Footer/index.js:41
+#: src/amo/components/Footer/index.js:42
 msgid "Add-ons"
 msgstr "Əlavələr"
 
@@ -922,12 +922,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Xəta hesabatı və ya dəstək istəyi olaraq işarələnib"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "İşarələndi"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "İşarələ"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "İşarələndi"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -969,39 +969,44 @@ msgstr "Yaraşmayan dil işlədilib"
 msgid "Flagged for inappropriate language"
 msgstr "Yaraşmayan dil olaraq işarələnib"
 
-#: src/amo/components/Footer/index.js:102
+#: src/amo/components/Footer/index.js:111
+#: src/amo/components/GetFirefoxButton/index.js:74
+msgid "Download Firefox"
+msgstr "Firefox Endir"
+
+#: src/amo/components/Footer/index.js:116
 msgid "Android Browser"
 msgstr "Android Səyyahı"
 
-#: src/amo/components/Footer/index.js:107
+#: src/amo/components/Footer/index.js:121
 msgid "iOS Browser"
 msgstr "iOS Səyyahı"
 
-#: src/amo/components/Footer/index.js:112
+#: src/amo/components/Footer/index.js:126
 msgid "Focus Browser"
 msgstr "Focus Səyyahı"
 
-#: src/amo/components/Footer/index.js:117
+#: src/amo/components/Footer/index.js:131
 msgid "Desktop Browser"
 msgstr "Masaüstü Səyyahı"
 
-#: src/amo/components/Footer/index.js:122
+#: src/amo/components/Footer/index.js:136
 msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Developer Edition"
 
-#: src/amo/components/Footer/index.js:151
+#: src/amo/components/Footer/index.js:165
 msgid "Privacy"
 msgstr "Məxfilik"
 
-#: src/amo/components/Footer/index.js:159
+#: src/amo/components/Footer/index.js:173
 msgid "Cookies"
 msgstr "Çərəzlər"
 
-#: src/amo/components/Footer/index.js:167
+#: src/amo/components/Footer/index.js:181
 msgid "Legal"
 msgstr "Qanuni"
 
-#: src/amo/components/Footer/index.js:177
+#: src/amo/components/Footer/index.js:191
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1012,46 +1017,46 @@ msgstr ""
 "Alike License v3.0%(endLicenseLink)s və ya daha yeni versiyası altında "
 "lisenziyalaşdırılıb."
 
-#: src/amo/components/Footer/index.js:20
+#: src/amo/components/Footer/index.js:21
 msgid "Go to Mozilla's homepage"
 msgstr "Mozillanın ana səhifəsinə get"
 
-#: src/amo/components/Footer/index.js:46
+#: src/amo/components/Footer/index.js:47
 msgid "About"
 msgstr "Haqqında"
 
-#: src/amo/components/Footer/index.js:51
+#: src/amo/components/Footer/index.js:52
 msgid "Blog"
 msgstr "Bloq"
 
-#: src/amo/components/Footer/index.js:56 src/amo/components/Header/index.js:79
+#: src/amo/components/Footer/index.js:65 src/amo/components/Header/index.js:84
+#, fuzzy
+msgid "Extension Workshop"
+msgstr "Uzantılar"
+
+#: src/amo/components/Footer/index.js:70 src/amo/components/Header/index.js:93
 msgid "Developer Hub"
 msgstr "Tərtibatçı Mərkəzi"
 
-#: src/amo/components/Footer/index.js:61
+#: src/amo/components/Footer/index.js:75
 msgid "Developer Policies"
 msgstr "Tərtibatçı Siyasətləri"
 
-#: src/amo/components/Footer/index.js:66
+#: src/amo/components/Footer/index.js:80
 msgid "Forum"
 msgstr "Forum"
 
-#: src/amo/components/Footer/index.js:74
+#: src/amo/components/Footer/index.js:88
 msgid "Report a bug"
 msgstr "Qüsur xəbər et"
 
-#: src/amo/components/Footer/index.js:79
+#: src/amo/components/Footer/index.js:93
 msgid "Review Guide"
 msgstr "İcmal Bələdçiliyi"
 
-#: src/amo/components/Footer/index.js:84
+#: src/amo/components/Footer/index.js:98
 msgid "Site Status"
 msgstr "Sayt Statusu"
-
-#: src/amo/components/Footer/index.js:97
-#: src/amo/components/GetFirefoxButton/index.js:74
-msgid "Download Firefox"
-msgstr "Firefox Endir"
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
@@ -1062,52 +1067,52 @@ msgid "Staff Pick"
 msgstr ""
 
 #: src/amo/components/Header/index.js:105
+msgid "My Account"
+msgstr "Hesabım"
+
+#: src/amo/components/Header/index.js:111
+msgid "View My Collections"
+msgstr "Kolleksiyalarımı göstər"
+
+#: src/amo/components/Header/index.js:119
 #: src/amo/pages/UserProfileEdit/index.js:502
 msgid "View My Profile"
 msgstr "Profilimi göstər"
 
-#: src/amo/components/Header/index.js:113
+#: src/amo/components/Header/index.js:127
 #: src/amo/pages/UserProfileEdit/index.js:508
 msgid "Edit My Profile"
 msgstr "Profilimi redaktə et"
 
-#: src/amo/components/Header/index.js:117
+#: src/amo/components/Header/index.js:131
 msgid "Tools"
 msgstr "Alətlər"
 
-#: src/amo/components/Header/index.js:123
+#: src/amo/components/Header/index.js:137
 msgid "Submit a New Add-on"
 msgstr "Yeni əlavə göndər"
 
-#: src/amo/components/Header/index.js:128
+#: src/amo/components/Header/index.js:142
 msgid "Submit a New Theme"
 msgstr "Yeni mövzu göndər"
 
-#: src/amo/components/Header/index.js:137
+#: src/amo/components/Header/index.js:151
 msgid "Manage My Submissions"
 msgstr "Göndərdiklərimi idarə et"
 
-#: src/amo/components/Header/index.js:147
+#: src/amo/components/Header/index.js:161
 msgid "Reviewer Tools"
 msgstr "Rəyçi Alətləri"
 
-#: src/amo/components/Header/index.js:157
+#: src/amo/components/Header/index.js:171
 #: src/core/components/AuthenticateButton/index.js:80
 msgid "Log out"
 msgstr "Çıx"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Header/index.js:54
+#: src/amo/components/Header/index.js:55
 msgid "Firefox Add-ons"
 msgstr "Firefox Əlavələri"
-
-#: src/amo/components/Header/index.js:91
-msgid "My Account"
-msgstr "Hesabım"
-
-#: src/amo/components/Header/index.js:97
-msgid "View My Collections"
-msgstr "Kolleksiyalarımı göstər"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:267
@@ -1396,12 +1401,12 @@ msgid "Search results"
 msgstr "Axtarış nəticələri"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:305 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:309 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Seçilmiş uzantılar"
 
 #: src/amo/components/Search/index.js:124 src/amo/pages/Category/index.js:170
-#: src/amo/pages/Home/index.js:334 src/amo/pages/LandingPage/index.js:161
+#: src/amo/pages/Home/index.js:338 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
 msgstr "Seçilmiş mövzular"
 
@@ -1410,7 +1415,7 @@ msgid "Featured add-ons"
 msgstr "Seçilmiş əlavələr"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:351 src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/Home/index.js:355 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr "Trenddəki uzantılar"
 
@@ -1938,12 +1943,12 @@ msgstr "Bu kateqoriyadakı bütün uzantılara bax."
 msgid "All theme categories"
 msgstr "Bütün kateqoriyaları kəşf et"
 
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:306
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:310
 #: src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
 msgstr "Daha çox seçilmiş uzantı gör"
 
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:352
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:356
 #: src/amo/pages/LandingPage/index.js:149
 msgid "See more trending extensions"
 msgstr "Daha çox trenddəki uzantı gör"
@@ -1952,7 +1957,7 @@ msgstr "Daha çox trenddəki uzantı gör"
 msgid "See more top rated extensions"
 msgstr "Daha çox yüksək qiymətləndirilmiş uzantı gör"
 
-#: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:324
+#: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:328
 #: src/amo/pages/LandingPage/index.js:169
 msgid "See more featured themes"
 msgstr "Daha çox seçilmiş mövzu gör"
@@ -2247,65 +2252,65 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:136
+#: src/amo/pages/Home/index.js:140
 msgid "Bookmarks"
 msgstr "Əlfəcinlər"
 
-#: src/amo/pages/Home/index.js:140
+#: src/amo/pages/Home/index.js:144
 msgid "Password managers"
 msgstr "Parol idarəçiləri"
 
-#: src/amo/pages/Home/index.js:144
+#: src/amo/pages/Home/index.js:148
 msgid "Ad blockers"
 msgstr "Reklam əngəlləyiciləri"
 
-#: src/amo/pages/Home/index.js:148
+#: src/amo/pages/Home/index.js:152
 msgid "Smarter Shopping"
 msgstr "Ağıllı alış-veriş"
 
-#: src/amo/pages/Home/index.js:152
+#: src/amo/pages/Home/index.js:156
 msgid "Productivity"
 msgstr "Məhsuldarlıq"
 
-#: src/amo/pages/Home/index.js:156
+#: src/amo/pages/Home/index.js:160
 msgid "Watching Videos"
 msgstr "Videolara baxma"
 
-#: src/amo/pages/Home/index.js:184
+#: src/amo/pages/Home/index.js:188
 msgid "Abstract"
 msgstr "Mücərrəd"
 
-#: src/amo/pages/Home/index.js:189
+#: src/amo/pages/Home/index.js:193
 msgid "Nature"
 msgstr "Təbiət"
 
-#: src/amo/pages/Home/index.js:194
+#: src/amo/pages/Home/index.js:198
 msgid "Film & TV"
 msgstr "Kino və TV"
 
-#: src/amo/pages/Home/index.js:199
+#: src/amo/pages/Home/index.js:203
 msgid "Scenery"
 msgstr "Mənzərə"
 
-#: src/amo/pages/Home/index.js:204
+#: src/amo/pages/Home/index.js:208
 msgid "Music"
 msgstr "Musiqi"
 
-#: src/amo/pages/Home/index.js:209
+#: src/amo/pages/Home/index.js:213
 msgid "Seasonal"
 msgstr "Fəsillik"
 
 # The ending ellipsis alludes to a row of icons for each type
-#: src/amo/pages/Home/index.js:241
+#: src/amo/pages/Home/index.js:245
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 "Firefox-un necə işlədiyini uzantılarla fərdiləşdirin. Hansı sizə maraqlıdır?"
 
-#: src/amo/pages/Home/index.js:243
+#: src/amo/pages/Home/index.js:247
 msgid "Change the way Firefox looks with themes."
 msgstr "Firefox-un necə göründüyünü mövzularla dəyişdirin."
 
-#: src/amo/pages/Home/index.js:273
+#: src/amo/pages/Home/index.js:277
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2321,31 +2326,31 @@ msgstr "Daha çox yüksək qiymətləndirilmiş uzantı gör"
 msgid "Extensions for enhancing video"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:60
+#: src/amo/pages/Home/index.js:61
 #, fuzzy
 msgid "See more spring themes"
 msgstr "Daha çox trenddəki mövzu gör"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:62
 #, fuzzy
 msgid "Spring themes"
 msgstr "Trenddəki mövzular"
 
-#: src/amo/pages/Home/index.js:65
+#: src/amo/pages/Home/index.js:67
 #, fuzzy
 msgid "See more Wikipedia boosters"
 msgstr "Daha çox dinamik endirənlər gör"
 
-#: src/amo/pages/Home/index.js:66
+#: src/amo/pages/Home/index.js:68
 msgid "Wikipedia boosters"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:70
+#: src/amo/pages/Home/index.js:73
 #, fuzzy
 msgid "See more tab extensions"
 msgstr "Daha çox yüksək qiymətləndirilmiş uzantı gör"
 
-#: src/amo/pages/Home/index.js:71
+#: src/amo/pages/Home/index.js:74
 msgid "Change up your tabs"
 msgstr ""
 
