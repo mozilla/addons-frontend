@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-26 16:51+0000\n"
-"PO-Revision-Date: 2019-03-28 09:39+0000\n"
+"PO-Revision-Date: 2019-03-28 09:52+0000\n"
 "Last-Translator: Ian Neal <iann_bugzilla@blueyonder.co.uk>\n"
 "Language-Team: none\n"
 "Language: en_GB\n"
@@ -944,9 +944,8 @@ msgid "Blog"
 msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:65 src/amo/components/Header/index.js:84
-#, fuzzy
 msgid "Extension Workshop"
-msgstr "Extensions"
+msgstr "Extension Workshop"
 
 #: src/amo/components/Footer/index.js:70 src/amo/components/Header/index.js:93
 msgid "Developer Hub"
@@ -2095,28 +2094,24 @@ msgid "Download Firefox extensions and themes. They’re like apps for your brow
 msgstr "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more video extensions"
-msgstr "See more tab extensions"
+msgstr "See more video extensions"
 
 #: src/amo/pages/Home/index.js:56
 msgid "Extensions for enhancing video"
 msgstr "Extensions for enhancing video"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "See more spring themes"
-msgstr "See more trending themes"
+msgstr "See more spring themes"
 
 #: src/amo/pages/Home/index.js:62
-#, fuzzy
 msgid "Spring themes"
-msgstr "Trending themes"
+msgstr "Spring themes"
 
 #: src/amo/pages/Home/index.js:67
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "See more news boosters"
+msgstr "See more Wikipedia boosters"
 
 #: src/amo/pages/Home/index.js:68
 msgid "Wikipedia boosters"
