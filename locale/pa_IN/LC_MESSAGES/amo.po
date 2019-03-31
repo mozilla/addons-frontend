@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-26 16:51+0000\n"
-"PO-Revision-Date: 2019-03-31 17:24+0000\n"
+"PO-Revision-Date: 2019-03-31 18:18+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -80,15 +80,15 @@ msgstr ""
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
-msgstr ""
+msgstr "ਇਕਸਟੈਨਸ਼ਨਾਂ ਦੀ ਪੇਸਕਸ਼"
 
 #: src/amo/components/AddonBadges/index.js:36
 msgid "Featured Theme"
-msgstr ""
+msgstr "ਥੀਮ ਪੇਸਕਸ਼"
 
 #: src/amo/components/AddonBadges/index.js:38
 msgid "Featured Add-on"
-msgstr ""
+msgstr "ਪੇਸ਼ ਕੀਤੇ ਐਡ-ਆਨ"
 
 #: src/amo/components/AddonBadges/index.js:54
 msgid "Restart Required"
@@ -104,7 +104,7 @@ msgstr ""
 
 #: src/amo/components/AddonBadges/index.js:69
 msgid "Some features may require payment"
-msgstr ""
+msgstr "ਕੁਝ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਲਈ ਭੁਗਤਾਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ"
 
 #: src/amo/components/AddonCompatibilityError/index.js:103
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
