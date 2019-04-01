@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -1648,7 +1648,7 @@ msgstr "ลบรูปภาพนี้"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
 msgid "Profile picture for %(name)s"
-msgstr "รูปโปรไฟล์สำหรับ %(user)s"
+msgstr "รูปโปรไฟล์สำหรับ %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:68
 msgid "Profile photo"
