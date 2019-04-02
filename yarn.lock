@@ -12520,10 +12520,10 @@ react-clientside-effect@^1.2.0:
     "@babel/runtime" "^7.0.0"
     shallowequal "^1.1.0"
 
-react-cookie@3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-3.1.1.tgz#abaf56959a778e5dc9669136bb7f774ccbc674de"
-  integrity sha512-46S6P38lEbxKDEgYvwH7Le36MDlN4tB2ASrhNm8IvoMXQckGFQpW2N6pFl+fqefrA3VAv0a0rrL59qiBn8HQEQ==
+react-cookie@3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-3.1.2.tgz#3835d25d3aabfa1dab38799f6bde49f5050580ac"
+  integrity sha512-kHBDW7dLiXfvR+lw2ZeH9fMjEM0gf1IwxDXOyXQrf22X5+Ifluyz22HCVFzq1va6FSEHk6hrBbH6oeNLTD2vIQ==
   dependencies:
     "@types/hoist-non-react-statics" "^3.0.1"
     hoist-non-react-statics "^3.0.0"
