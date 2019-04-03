@@ -3347,7 +3347,7 @@ msgstr[1] "Kcem ar isefka-ik di %(param)s n usmel-nniḍen"
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
-msgstr "Kcem ɣer isefka-ik i %S"
+msgstr "Kcem ɣer isefka-ik i %(param)s"
 
 #: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
