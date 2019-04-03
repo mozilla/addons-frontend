@@ -31,9 +31,8 @@ import './styles.scss';
 export const MOZILLA_USER_ID = config.get('mozillaUserId');
 
 export const FEATURED_COLLECTIONS = [
-  { slug: 'watching-videos', userId: MOZILLA_USER_ID },
-  { slug: 'spring-themes', userId: MOZILLA_USER_ID },
-  { slug: 'wikipedia-boosters', userId: MOZILLA_USER_ID },
+  { slug: 'feed-readers', userId: MOZILLA_USER_ID },
+  { slug: 'vpn-solutions', userId: MOZILLA_USER_ID },
   { slug: 'change-up-your-tabs', userId: MOZILLA_USER_ID },
 ];
 
@@ -52,28 +51,22 @@ export const isFeaturedCollection = (
 export const getFeaturedCollectionsMetadata = (i18n) => {
   return [
     {
-      footerText: i18n.gettext('See more video extensions'),
-      header: i18n.gettext('Extensions for enhancing video'),
+      footerText: i18n.gettext('See more feed readers'),
+      header: i18n.gettext('Feed readers'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[0],
     },
     {
-      footerText: i18n.gettext('See more spring themes'),
-      header: i18n.gettext('Spring themes'),
-      isTheme: true,
-      ...FEATURED_COLLECTIONS[1],
-    },
-    {
-      footerText: i18n.gettext('See more Wikipedia boosters'),
-      header: i18n.gettext('Wikipedia boosters'),
+      footerText: i18n.gettext('See more VPN solutions'),
+      header: i18n.gettext('VPN solutions'),
       isTheme: false,
-      ...FEATURED_COLLECTIONS[2],
+      ...FEATURED_COLLECTIONS[1],
     },
     {
       footerText: i18n.gettext('See more tab extensions'),
       header: i18n.gettext('Change up your tabs'),
       isTheme: false,
-      ...FEATURED_COLLECTIONS[3],
+      ...FEATURED_COLLECTIONS[2],
     },
   ];
 };
@@ -95,7 +88,7 @@ export class HomeBase extends React.Component {
   static defaultProps = {
     _config: config,
     _getFeaturedCollectionsMetadata: getFeaturedCollectionsMetadata,
-    includeFeaturedThemes: false,
+    includeFeaturedThemes: true,
     includeTrendingExtensions: false,
   };
 
@@ -344,8 +337,6 @@ export class HomeBase extends React.Component {
         {renderFeaturedCollection(1)}
 
         {renderFeaturedCollection(2)}
-
-        {renderFeaturedCollection(3)}
 
         {includeTrendingExtensions && (
           <LandingAddonsCard

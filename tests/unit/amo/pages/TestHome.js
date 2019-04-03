@@ -243,7 +243,7 @@ describe(__filename, () => {
       fetchHomeAddons({
         errorHandlerId: errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
-        includeFeaturedThemes: false,
+        includeFeaturedThemes: true,
         includeTrendingExtensions: false,
       }),
     );
