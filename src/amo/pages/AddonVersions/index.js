@@ -123,8 +123,8 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
     if (addon && versions) {
       header = i18n.sprintf(
         i18n.ngettext(
-          '%(addonName)s Version history - %(total)s version',
-          '%(addonName)s Version history - %(total)s versions',
+          '%(addonName)s version history - %(total)s version',
+          '%(addonName)s version history - %(total)s versions',
           versions.length,
         ),
         {
