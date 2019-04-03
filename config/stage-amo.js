@@ -30,4 +30,6 @@ module.exports = {
       prefetchSrc: [amoStageCDN],
     },
   },
+
+  extensionWorkshopUrl: 'https://extensionworkshop.allizom.org',
 };

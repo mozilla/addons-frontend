@@ -122,6 +122,7 @@ module.exports = {
     'enableRequestID',
     'enableStrictMode',
     'experiments',
+    'extensionWorkshopUrl',
     'fxaConfig',
     'hrefLangsMap',
     'isDeployed',
@@ -371,4 +372,6 @@ module.exports = {
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments.
   experiments: {},
+
+  extensionWorkshopUrl: 'https://extensionworkshop.com',
 };
