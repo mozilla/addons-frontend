@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { TransitionGroup } from 'react-transition-group';
 
-import AMInstallButton, { AMInstallButtonBase } from 'core/components/AMInstallButton';
+import AMInstallButton, {
+  AMInstallButtonBase,
+} from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
