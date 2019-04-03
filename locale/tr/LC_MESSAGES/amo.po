@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-26 16:51+0000\n"
-"PO-Revision-Date: 2019-04-03 16:13+0000\n"
+"PO-Revision-Date: 2019-04-03 16:20+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -821,14 +821,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Ne yazık ki sunucumuzda bir hata oluştu ve isteğinizi tamamlayamadık. Bu hatayı kaydettik ve araştıracağız."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "%(addonName)s incelemeleri"
+msgstr "%(userName)s adlı kullanıcının yanıtı"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "%(addonName)s incelemeleri"
+msgstr "%(userName)s adlı kullanıcının incelemesi"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
@@ -1202,23 +1200,20 @@ msgid "Read all five-star reviews"
 msgstr "Tüm beş yıldızlı incelemeleri oku"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read all four-star reviews"
-msgstr "%(count)s incelemenin hepsini oku"
+msgstr "Tüm dört yıldızlı incelemeleri oku"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
 msgstr "Tüm üç yıldızlı incelemeleri oku"
 
 #: src/amo/components/RatingsByStar/index.js:95
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "Bu incelemeyi yanıtla"
+msgstr "Tüm iki yıldızlı incelemeleri oku"
 
 #: src/amo/components/RatingsByStar/index.js:96
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "%(count)s incelemenin hepsini oku"
+msgstr "Tüm bir yıldızlı incelemeleri oku"
 
 #: src/amo/components/ReportAbuseButton/index.js:106 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
@@ -1735,45 +1730,38 @@ msgid "Show all reviews"
 msgstr "Tüm incelemeleri göster"
 
 #: src/amo/pages/AddonReviewList/index.js:230
-#, fuzzy
 msgid "Show only five-star reviews"
-msgstr "Tüm beş yıldızlı incelemeleri oku"
+msgstr "Yalnızca beş yıldızlı incelemeleri göster"
 
 #: src/amo/pages/AddonReviewList/index.js:231
-#, fuzzy
 msgid "Show only four-star reviews"
-msgstr "%(count)s incelemenin hepsini oku"
+msgstr "Yalnızca dört yıldızlı incelemeleri göster"
 
 #: src/amo/pages/AddonReviewList/index.js:233
-#, fuzzy
 msgid "Show only three-star reviews"
-msgstr "Tüm üç yıldızlı incelemeleri oku"
+msgstr "Yalnızca üç yıldızlı incelemeleri göster"
 
 #: src/amo/pages/AddonReviewList/index.js:235
-#, fuzzy
 msgid "Show only two-star reviews"
-msgstr "Bu incelemeyi yanıtla"
+msgstr "Yalnızca iki yıldızlı incelemeleri göster"
 
 #: src/amo/pages/AddonReviewList/index.js:236
-#, fuzzy
 msgid "Show only one-star reviews"
-msgstr "%(count)s incelemenin hepsini oku"
+msgstr "Yalnızca bir yıldızlı incelemeleri göster"
 
 #: src/amo/pages/AddonReviewList/index.js:276
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s incelemeleri"
 
 #: src/amo/pages/AddonReviewList/index.js:286
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s yıldız"
-msgstr[1] "%(total)s yıldız"
+msgstr[0] "%(total)s inceleme"
+msgstr[1] "%(total)s inceleme"
 
 #: src/amo/pages/AddonReviewList/index.js:383
-#, fuzzy
 msgid "There are no reviews"
-msgstr "Henüz hiç puan yok"
+msgstr "Hiç inceleme yok"
 
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
@@ -1925,7 +1913,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:147
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Ekibimizin seçtiği diğer %(linkStart)ssekme yönetimi%(linkEnd)s eklentilerini keşfedin."
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Better browsing with improved bookmarks"
@@ -1933,7 +1921,7 @@ msgstr "Gelişmiş yer imleriyle daha iyi gezinti"
 
 #: src/amo/pages/Guides/index.js:156
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "Eklentiler, çevrimiçi ilgi alanlarınızı düzenlemenize yardımcı olabilir. Yer imi yöneticileri, çok fazla içeriği takip etmek isteyen kişiler için idealdir."
 
 #: src/amo/pages/Guides/index.js:160
 msgid ""
@@ -1943,7 +1931,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:167
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Ekibimizin seçtiği diğer %(linkStart)syer imi yöneticilerini%(linkEnd)s keşfedin."
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Enjoy a fresh new tab experience"
