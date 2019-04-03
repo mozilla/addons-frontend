@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-22 20:32+0000\n"
-"PO-Revision-Date: 2019-01-22 21:31+0000\n"
+"POT-Creation-Date: 2019-03-26 16:51+0000\n"
+"PO-Revision-Date: 2019-03-26 21:26+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -191,7 +191,7 @@ msgstr "%(addonName)s – Wobstarajće sej tutón přidatk za 🦊 Firefox Andro
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Wobstarajće sej słownik za 🦊 Firefox (%(locale)s)"
 
-#: src/amo/components/AddonMeta/index.js:113
+#: src/amo/components/AddonMeta/index.js:116
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s hwěžka"
@@ -199,15 +199,15 @@ msgstr[1] "%(total)s hwěžce"
 msgstr[2] "%(total)s hwěžki"
 msgstr[3] "%(total)s hwěžkow"
 
-#: src/amo/components/AddonMeta/index.js:122
+#: src/amo/components/AddonMeta/index.js:125
 msgid "Not rated yet"
 msgstr "Hišće njepohódnoćeny"
 
-#: src/amo/components/AddonMeta/index.js:45
+#: src/amo/components/AddonMeta/index.js:46
 msgid "Users"
 msgstr "Wužiwarjo"
 
-#: src/amo/components/AddonMeta/index.js:48
+#: src/amo/components/AddonMeta/index.js:51
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "wužiwar"
@@ -215,15 +215,15 @@ msgstr[1] "wužiwarjej"
 msgstr[2] "wužiwarjo"
 msgstr[3] "wužiwarjow"
 
-#: src/amo/components/AddonMeta/index.js:50
+#: src/amo/components/AddonMeta/index.js:53
 msgid "No Users"
 msgstr "Žani wužiwarjo"
 
-#: src/amo/components/AddonMeta/index.js:57
+#: src/amo/components/AddonMeta/index.js:60
 msgid "Reviews"
 msgstr "Pohódnoćenja"
 
-#: src/amo/components/AddonMeta/index.js:60
+#: src/amo/components/AddonMeta/index.js:63
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "pohódnoćenje"
@@ -231,11 +231,11 @@ msgstr[1] "pohódnoćeni"
 msgstr[2] "pohódnoćenja"
 msgstr[3] "pohódnoćenjow"
 
-#: src/amo/components/AddonMeta/index.js:62
+#: src/amo/components/AddonMeta/index.js:65
 msgid "No Reviews"
 msgstr "Žane pohódnoćenja"
 
-#: src/amo/components/AddonMeta/index.js:86
+#: src/amo/components/AddonMeta/index.js:89
 msgid "Used by"
 msgstr "Wužity wot"
 
@@ -295,7 +295,7 @@ msgstr "Wužiwanska statistika"
 msgid "More information"
 msgstr "Dalše informacije"
 
-#: src/amo/components/AddonMoreInfo/index.js:59 src/amo/pages/UserProfile/index.js:355 src/amo/pages/UserProfileEdit/index.js:603
+#: src/amo/components/AddonMoreInfo/index.js:59 src/amo/pages/UserProfile/index.js:355 src/amo/pages/UserProfileEdit/index.js:608
 msgid "Homepage"
 msgstr "Startowa strona"
 
@@ -315,96 +315,100 @@ msgstr "Druzy wužiwarjo z tutym rozšěrjenjom su tež instalowali"
 msgid "Other popular extensions"
 msgstr "Dalše woblubowane rozšěrjenja"
 
-#: src/amo/components/AddonReviewCard/index.js:194
+#: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit reply"
 msgstr "Wotmołwu wobdźěłać"
 
-#: src/amo/components/AddonReviewCard/index.js:197
+#: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
 msgstr "Pohódnoćenje wobdźěłać"
 
-#: src/amo/components/AddonReviewCard/index.js:204 src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:205 src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
 msgstr "Wotmołwu zhašeć"
 
-#: src/amo/components/AddonReviewCard/index.js:208 src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
 msgstr "Pohódnoćenje zhašeć"
 
-#: src/amo/components/AddonReviewCard/index.js:211 src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:212 src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
 msgstr "Pohódnoćenje zhašeć"
 
-#: src/amo/components/AddonReviewCard/index.js:218
+#: src/amo/components/AddonReviewCard/index.js:219
 msgid "Do you really want to delete this reply?"
 msgstr "Chceće woprawdźe tutu wotmołwu zhašeć?"
 
-#: src/amo/components/AddonReviewCard/index.js:222
+#: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this rating?"
 msgstr "Chceće woprawdźe tute pohódnoćenje zhašeć?"
 
-#: src/amo/components/AddonReviewCard/index.js:225
+#: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
 msgstr "Chceće woprawdźe tute pohódnoćenje zhašeć?"
 
-#: src/amo/components/AddonReviewCard/index.js:232 src/ui/components/DismissibleTextForm/index.js:224
+#: src/amo/components/AddonReviewCard/index.js:233 src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "Zhašeć"
 
-#: src/amo/components/AddonReviewCard/index.js:250 src/amo/components/AddonReviewManager/index.js:147 src/amo/components/CollectionManager/index.js:309 src/amo/pages/UserProfileEdit/index.js:847
+#: src/amo/components/AddonReviewCard/index.js:251 src/amo/components/AddonReviewManager/index.js:147 src/amo/components/CollectionManager/index.js:313 src/amo/pages/UserProfileEdit/index.js:852
 #: src/ui/components/ConfirmationDialog/index.js:60 src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
 msgstr "Přetorhnyć"
 
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:255
 msgid "Keep reply"
 msgstr "Wotmołwu wobchować"
 
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep rating"
 msgstr "Pohódnoćenje wobchować"
 
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep review"
 msgstr "Pohódnoćenje wobchować"
 
-#: src/amo/components/AddonReviewCard/index.js:297
+#: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
 msgstr "Pisajće wotmołwu na tute pohódnoćenje."
 
-#: src/amo/components/AddonReviewCard/index.js:300 src/amo/components/AddonReviewManager/index.js:115
+#: src/amo/components/AddonReviewCard/index.js:301 src/amo/components/AddonReviewManager/index.js:115
 msgid "Update reply"
 msgstr "Wotmołwu aktualizować"
 
-#: src/amo/components/AddonReviewCard/index.js:301
+#: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
 msgstr "Wotmołwu wozjewić"
 
-#: src/amo/components/AddonReviewCard/index.js:305 src/amo/components/AddonReviewManager/index.js:118
+#: src/amo/components/AddonReviewCard/index.js:306 src/amo/components/AddonReviewManager/index.js:118
 msgid "Updating reply"
 msgstr "Wotmołwa so aktualizuje"
 
-#: src/amo/components/AddonReviewCard/index.js:306
+#: src/amo/components/AddonReviewCard/index.js:307
 msgid "Publishing reply"
 msgstr "Wotmołwa so wozjewja"
 
-#: src/amo/components/AddonReviewCard/index.js:348
+#: src/amo/components/AddonReviewCard/index.js:349
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "je so %(linkStart)s%(timestamp)s%(linkEnd)s napisał"
 
-#: src/amo/components/AddonReviewCard/index.js:350
+#: src/amo/components/AddonReviewCard/index.js:351
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "wot %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:437
+#: src/amo/components/AddonReviewCard/index.js:438
 msgid "Deleting…"
 msgstr "Zhaša so…"
 
-#: src/amo/components/AddonReviewCard/index.js:468
+#: src/amo/components/AddonReviewCard/index.js:469
 msgid "Reply to this review"
 msgstr "Na tute pohódnoćenje wotmołwić"
 
-#: src/amo/components/AddonReviewCard/index.js:537
+#: src/amo/components/AddonReviewCard/index.js:499
+msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
+msgstr "Tute pohódnoćenje je so zhašało. Widźiće jón jenož, dokelž maće rozšěrjene prawa."
+
+#: src/amo/components/AddonReviewCard/index.js:545
 msgid "Write a review"
 msgstr "Pisajće pohódnoćenje"
 
@@ -642,7 +646,7 @@ msgstr "Podrobnosće zběrki wobdźěłać"
 msgid "Back to collection"
 msgstr "Wróćo k zběrce"
 
-#: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:41
+#: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:42
 msgid "Add-ons"
 msgstr "Přidatki"
 
@@ -650,23 +654,23 @@ msgstr "Přidatki"
 msgid "Creator"
 msgstr "Wuwiwar"
 
-#: src/amo/components/CollectionManager/index.js:234
+#: src/amo/components/CollectionManager/index.js:237
 msgid "Create collection"
 msgstr "Zběrku wutworić"
 
-#: src/amo/components/CollectionManager/index.js:235
+#: src/amo/components/CollectionManager/index.js:238
 msgid "Save changes"
 msgstr "Změny składować"
 
-#: src/amo/components/CollectionManager/index.js:244
+#: src/amo/components/CollectionManager/index.js:247
 msgid "Collection name"
 msgstr "Mjeno zběrki"
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:261
 msgid "Description"
 msgstr "Wopisanje"
 
-#: src/amo/components/CollectionManager/index.js:270
+#: src/amo/components/CollectionManager/index.js:273
 msgid "Custom URL"
 msgstr "Swójska adresa"
 
@@ -746,7 +750,7 @@ msgstr "Nětko přinošować"
 msgid "Leave a note"
 msgstr "Zawostajće přispomnjenku"
 
-#: src/amo/components/EditableCollectionAddon/index.js:143 src/core/components/AMInstallButton/index.js:241
+#: src/amo/components/EditableCollectionAddon/index.js:143 src/core/components/AMInstallButton/index.js:214
 msgid "Remove"
 msgstr "Wotstronić"
 
@@ -853,12 +857,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Jako zmylkowa rozprawa abo próstwa wo pomoc woznamjenjeny"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Markěrowany"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Woznamjenić"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Markěrowany"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -900,39 +904,43 @@ msgstr "To njepřihódnu rěč wobsahuje"
 msgid "Flagged for inappropriate language"
 msgstr "Jako njepřihódna rěč woznamjenjeny"
 
-#: src/amo/components/Footer/index.js:102
+#: src/amo/components/Footer/index.js:111 src/amo/components/GetFirefoxButton/index.js:74
+msgid "Download Firefox"
+msgstr "Firefox sćahnyć"
+
+#: src/amo/components/Footer/index.js:116
 msgid "Android Browser"
 msgstr "Wobhladowak za Android"
 
-#: src/amo/components/Footer/index.js:107
+#: src/amo/components/Footer/index.js:121
 msgid "iOS Browser"
 msgstr "Wobhladowak za iOS"
 
-#: src/amo/components/Footer/index.js:112
+#: src/amo/components/Footer/index.js:126
 msgid "Focus Browser"
 msgstr "Wobhladowak Klar"
 
-#: src/amo/components/Footer/index.js:117
+#: src/amo/components/Footer/index.js:131
 msgid "Desktop Browser"
 msgstr "Wobhladowak za desktop"
 
-#: src/amo/components/Footer/index.js:122
+#: src/amo/components/Footer/index.js:136
 msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Developer Edition"
 
-#: src/amo/components/Footer/index.js:151
+#: src/amo/components/Footer/index.js:165
 msgid "Privacy"
 msgstr "Priwatnosć"
 
-#: src/amo/components/Footer/index.js:159
+#: src/amo/components/Footer/index.js:173
 msgid "Cookies"
 msgstr "Placki"
 
-#: src/amo/components/Footer/index.js:167
+#: src/amo/components/Footer/index.js:181
 msgid "Legal"
 msgstr "Prawniske"
 
-#: src/amo/components/Footer/index.js:177
+#: src/amo/components/Footer/index.js:191
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
@@ -940,45 +948,45 @@ msgstr ""
 "Jeli nic hinak %(startNotedLink)szapisane%(endNotedLink)s, so wobsah na tutym sydle pod %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s abo poždźišej "
 "wersiju licencuje."
 
-#: src/amo/components/Footer/index.js:20
+#: src/amo/components/Footer/index.js:21
 msgid "Go to Mozilla's homepage"
 msgstr "K startowej stronje Mozilla"
 
-#: src/amo/components/Footer/index.js:46
+#: src/amo/components/Footer/index.js:47
 msgid "About"
 msgstr "Wo"
 
-#: src/amo/components/Footer/index.js:51
+#: src/amo/components/Footer/index.js:52
 msgid "Blog"
 msgstr "Blog"
 
-#: src/amo/components/Footer/index.js:56 src/amo/components/Header/index.js:79
+#: src/amo/components/Footer/index.js:65 src/amo/components/Header/index.js:84
+msgid "Extension Workshop"
+msgstr "Dźěłarnička Rozšěrjenja"
+
+#: src/amo/components/Footer/index.js:70 src/amo/components/Header/index.js:93
 msgid "Developer Hub"
 msgstr "Wuwiwarski róžk"
 
-#: src/amo/components/Footer/index.js:61
+#: src/amo/components/Footer/index.js:75
 msgid "Developer Policies"
 msgstr "Wuwiwarske prawidła"
 
-#: src/amo/components/Footer/index.js:66
+#: src/amo/components/Footer/index.js:80
 msgid "Forum"
 msgstr "Forum"
 
-#: src/amo/components/Footer/index.js:74
+#: src/amo/components/Footer/index.js:88
 msgid "Report a bug"
 msgstr "Programowy zmylk zdźělić"
 
-#: src/amo/components/Footer/index.js:79
+#: src/amo/components/Footer/index.js:93
 msgid "Review Guide"
 msgstr "Směrnica za pohódnoćenja"
 
-#: src/amo/components/Footer/index.js:84
+#: src/amo/components/Footer/index.js:98
 msgid "Site Status"
 msgstr "Sydłowy status"
-
-#: src/amo/components/Footer/index.js:97 src/amo/components/GetFirefoxButton/index.js:74
-msgid "Download Firefox"
-msgstr "Firefox sćahnyć"
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
@@ -988,385 +996,49 @@ msgstr "Jenož z Firefox – Wobstarajće sej nětko Firefox"
 msgid "Staff Pick"
 msgstr "Wot sobudźěłaćerjow wubrane"
 
-#: src/amo/components/Header/index.js:105 src/amo/pages/UserProfileEdit/index.js:502
-msgid "View My Profile"
-msgstr "Mój profil pokazać"
-
-#: src/amo/components/Header/index.js:113 src/amo/pages/UserProfileEdit/index.js:508
-msgid "Edit My Profile"
-msgstr "Mój profil wobdźěłać"
-
-#: src/amo/components/Header/index.js:117
-msgid "Tools"
-msgstr "Nastroje"
-
-#: src/amo/components/Header/index.js:123
-msgid "Submit a New Add-on"
-msgstr "Nowy přidatk zapodać"
-
-#: src/amo/components/Header/index.js:128
-msgid "Submit a New Theme"
-msgstr "Nowu drastu zapodać"
-
-#: src/amo/components/Header/index.js:137
-msgid "Manage My Submissions"
-msgstr "Moje zapodaća zrjadować"
-
-#: src/amo/components/Header/index.js:147
-msgid "Reviewer Tools"
-msgstr "Nastroje za přepruwowarjow"
-
-#: src/amo/components/Header/index.js:157 src/core/components/AuthenticateButton/index.js:80
-msgid "Log out"
-msgstr "Wotzjewić"
-
-#: src/amo/components/Header/index.js:54
-msgid "Firefox Add-ons"
-msgstr "Přidatki za Firefox"
-
-#: src/amo/components/Header/index.js:91
+#: src/amo/components/Header/index.js:105
 msgid "My Account"
 msgstr "Moje konto"
 
-#: src/amo/components/Header/index.js:97
+#: src/amo/components/Header/index.js:111
 msgid "View My Collections"
 msgstr "Moje zběrki pokazać"
 
-#: src/amo/components/HomeHeroBanner/index.js:100
-msgid "Highly customizable text highlighter"
-msgstr "Přiměrujomny nastroj za wuzběhnjenje teksta"
-
-#: src/amo/components/HomeHeroBanner/index.js:104
-msgid "Watch2Gether"
-msgstr "Watch2Gether"
-
-#: src/amo/components/HomeHeroBanner/index.js:105
-msgid "Watch videos simultaneously with others"
-msgstr "Wobhladujće sej wideja hromadźe z druhimi"
-
-#: src/amo/components/HomeHeroBanner/index.js:109
-msgid "Context Search"
-msgstr "Kontekstowe pytanje"
-
-#: src/amo/components/HomeHeroBanner/index.js:110
-msgid "Highlight text on any webpage to easily search the term"
-msgstr "Wuzběhńće tekst na webstronje, zo byšće jednorje za wurazom pytał"
-
-#: src/amo/components/HomeHeroBanner/index.js:116
-msgid "Stylus"
-msgstr "Stylus"
-
-#: src/amo/components/HomeHeroBanner/index.js:117
-msgid "Give your favorite websites a new look"
-msgstr "Dajće swojim najlubšim websydłam nowy napohlad"
-
-#: src/amo/components/HomeHeroBanner/index.js:121
-msgid "Search Encrypt"
-msgstr "Search Encrypt"
-
-#: src/amo/components/HomeHeroBanner/index.js:122
-msgid "Privacy protection for your search data"
-msgstr "Datowy škit za waše pytanske daty"
-
-#: src/amo/components/HomeHeroBanner/index.js:126
-msgid "Auto Tab Discard"
-msgstr "Auto Tab Discard"
-
-#: src/amo/components/HomeHeroBanner/index.js:127
-msgid "Save memory by disabling inactive tabs"
-msgstr "Znjemóžńće inaktiwne rajtarki, zo byšće skład zalutował"
-
-#: src/amo/components/HomeHeroBanner/index.js:131
-msgid "Update Scanner"
-msgstr "Update Scanner"
-
-#: src/amo/components/HomeHeroBanner/index.js:132
-msgid "Get notified when your selected websites update with new content"
-msgstr "Dóstańće zdźělenki, hdyž so waše websydła z nowym wobsahom aktualizuja"
-
-#: src/amo/components/HomeHeroBanner/index.js:138
-msgid "Auto Fullscreen"
-msgstr "Auto Fullscreen"
-
-#: src/amo/components/HomeHeroBanner/index.js:139
-msgid "Automatically start Firefox in full screen mode"
-msgstr "Firefox awtomatisce w modusu połneho wobrazowki startować"
-
-#: src/amo/components/HomeHeroBanner/index.js:145
-msgid "Video Speed Controller"
-msgstr "Video Speed Controller"
-
-#: src/amo/components/HomeHeroBanner/index.js:146
-msgid "Adjust video playback speeds with shortcuts"
-msgstr "Přiměrće widejowu wothrawansku spěšnosć z tastowymi skrótšenkami"
-
-#: src/amo/components/HomeHeroBanner/index.js:152
-msgid "View Image"
-msgstr "View Image"
-
-#: src/amo/components/HomeHeroBanner/index.js:153
-msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
-msgstr "Wobnowće tłóčatce ‚Wobraz pokazać‘ a ‚Po wobrazu pytać‘ na Wobrazy Google"
-
-#: src/amo/components/HomeHeroBanner/index.js:159
-msgid "Neat URL"
-msgstr "Neat URL"
-
-#: src/amo/components/HomeHeroBanner/index.js:160
-msgid "Clean up links for easy sharing"
-msgstr "Porjedźće wotkazy za lochke dźělenje"
-
-#: src/amo/components/HomeHeroBanner/index.js:164
-msgid "Glitter Drag"
-msgstr "Glitter Drag"
-
-#: src/amo/components/HomeHeroBanner/index.js:165
-msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
-msgstr "Čehńće tekst, wobrazy abo wotkazy, zo byšće akcije kaž kopěrować, wočinić, pytać a wjace wuwjedł"
-
-#: src/amo/components/HomeHeroBanner/index.js:171
-msgid "Behind The Overlay Revival"
-msgstr "Behind The Overlay Revival"
-
-#: src/amo/components/HomeHeroBanner/index.js:172
-msgid "Click a button to close annoying pop-ups"
-msgstr "Klikńće na tłóčatko, zo byšće mylace wuskakowace wokna začinił"
-
-#: src/amo/components/HomeHeroBanner/index.js:176
-msgid "Auto-Sort Bookmarks"
-msgstr "Auto-Sort Bookmarks"
-
-#: src/amo/components/HomeHeroBanner/index.js:177
-msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr "Sortěruje zapołožki awtomatisce, zo bychu na jich preferowanym městnje byli"
-
-#: src/amo/components/HomeHeroBanner/index.js:183
-msgid "Search Preview"
-msgstr "Search Preview"
-
-#: src/amo/components/HomeHeroBanner/index.js:184
-msgid "Enjoy thumbnail images alongside your search returns"
-msgstr "Wužiwajće miniaturki z pytanskimi wuslědkami"
-
-#: src/amo/components/HomeHeroBanner/index.js:190
-msgid "Copy PlainText"
-msgstr "Luty tekst kopěrować"
-
-#: src/amo/components/HomeHeroBanner/index.js:191
-msgid "Remove formatting when saving text to your clipboard"
-msgstr "Formatowanje wotstronić, hdyž so tekst do wašeho mjezyskłada składuje"
-
-#: src/amo/components/HomeHeroBanner/index.js:197
-msgid "Official Media Bias Fact Check Icon"
-msgstr "Official Media Bias Fact Check Icon"
-
-#: src/amo/components/HomeHeroBanner/index.js:198
-msgid "Indicates the political bias of news sites with a tidy icon"
-msgstr "Podawa politisku orientaciju powěsćowych sydłow z pěknym symbolom"
-
-#: src/amo/components/HomeHeroBanner/index.js:204
-msgid "Vertical Tabs Reloaded"
-msgstr "Vertical Tabs Reloaded"
-
-#: src/amo/components/HomeHeroBanner/index.js:205
-msgid "Arrange tabs in a vertical fashion"
-msgstr "Rjadujće rajtarki wertikalnje"
-
-#: src/amo/components/HomeHeroBanner/index.js:209
-msgid "Search Site"
-msgstr "Sydło přepytać"
-
-#: src/amo/components/HomeHeroBanner/index.js:210
-msgid "Search within just the domain you’re visiting"
-msgstr "Přepytajće domenu, kotruž runje wopytujeće"
-
-#: src/amo/components/HomeHeroBanner/index.js:216
-msgid "Push to Kindle"
-msgstr "Push to Kindle"
-
-#: src/amo/components/HomeHeroBanner/index.js:217
-msgid "Send any Web page to your Kindle device"
-msgstr "Pósćelće webstronu na swój grat Kindle"
-
-#: src/amo/components/HomeHeroBanner/index.js:221
-msgid "New Tab Homepage"
-msgstr "New Tab Homepage"
-
-#: src/amo/components/HomeHeroBanner/index.js:222
-msgid "Designate a custom home page for your new tabs"
-msgstr "Nastajće swójsku startowu stronu za swoje nowe rajtarki"
-
-#: src/amo/components/HomeHeroBanner/index.js:228
-msgid "OneNote Web Clipper"
-msgstr "OneNote Web Clipper"
-
-#: src/amo/components/HomeHeroBanner/index.js:229
-msgid "Save, annotate & organize web content"
-msgstr "Składowajće, komentujće a organizujće webwobsah"
-
-#: src/amo/components/HomeHeroBanner/index.js:233
-msgid "FoxyGestures"
-msgstr "FoxyGestures"
-
-#: src/amo/components/HomeHeroBanner/index.js:234
-msgid "Customized mouse gestures"
-msgstr "Přiměrjomne gesty myški"
-
-#: src/amo/components/HomeHeroBanner/index.js:238
-msgid "Dark Reader"
-msgstr "Dark Reader"
-
-#: src/amo/components/HomeHeroBanner/index.js:239
-msgid "Go dark for a better web viewing experience"
-msgstr "Lěpši napohlad weba přez ćmowe barby"
-
-#: src/amo/components/HomeHeroBanner/index.js:24
-msgid "Facebook Container"
-msgstr "Facebook Container"
-
-#: src/amo/components/HomeHeroBanner/index.js:245
-msgid "CookieBro"
-msgstr "CookieBro"
-
-#: src/amo/components/HomeHeroBanner/index.js:246
-msgid "Automatically delete unwanted cookies"
-msgstr "Njewitane placki awtomatisce zhašeć"
-
-#: src/amo/components/HomeHeroBanner/index.js:25
-msgid "Prevent Facebook from tracking you around the web"
-msgstr "Haćće Facebook při tym, was přez cyły web slědować"
-
-#: src/amo/components/HomeHeroBanner/index.js:250
-msgid "Text MultiCopy"
-msgstr "Text MultiCopy"
-
-#: src/amo/components/HomeHeroBanner/index.js:251
-msgid "Save snippets of text to paste & organize later"
-msgstr "Šlipki za pozdźiše zasadźenje a rjadowanje składować"
-
-#: src/amo/components/HomeHeroBanner/index.js:257
-msgid "Group Speed Dial"
-msgstr "Group Speed Dial"
-
-#: src/amo/components/HomeHeroBanner/index.js:258
-msgid "Visual bookmarks for your favorite places on the web"
-msgstr "Wizuelne zapołožki za waše najlubše městna w interneće"
-
-#: src/amo/components/HomeHeroBanner/index.js:264
-msgid "Undo Close Tab Button"
-msgstr "Undo Close Tab Button"
-
-#: src/amo/components/HomeHeroBanner/index.js:265
-msgid "Never lose a page again"
-msgstr "Njezhubjejće ženje wjace stronu"
-
-#: src/amo/components/HomeHeroBanner/index.js:269
-msgid "Ad Analysis for Facebook"
-msgstr "Analyza wabjenja za Facebook"
-
-#: src/amo/components/HomeHeroBanner/index.js:270
-msgid "See how Facebook ads target you"
-msgstr "Hladajće, kak so wabjenje Facebook na was měri"
-
-#: src/amo/components/HomeHeroBanner/index.js:274
-msgid "SoundFixer"
-msgstr "SoundFixer"
-
-#: src/amo/components/HomeHeroBanner/index.js:275
-msgid "Adjust audio levels for sounds you encounter around web"
-msgstr "Awdiopegele za zynki w cyłej interneće přiměrić"
-
-#: src/amo/components/HomeHeroBanner/index.js:281
-msgid "Lilo"
-msgstr "Lilo"
-
-#: src/amo/components/HomeHeroBanner/index.js:282
-msgid "Fund social causes by simply using Lilo search"
-msgstr "Podpěrajće socialne zaměry prosće přez wužiwanje pytanja Lilo"
-
-#: src/amo/components/HomeHeroBanner/index.js:31
-msgid "Iridium for YouTube"
-msgstr "Iridium for YouTube"
-
-#: src/amo/components/HomeHeroBanner/index.js:32
-msgid "Play videos in a pop-out window, take video screenshots & more"
-msgstr "Wideja we wuskakowacym woknje wothrać, fota wobrazowki widejow wutworić a wjace"
-
-#: src/amo/components/HomeHeroBanner/index.js:38
-msgid "Private Bookmarks"
-msgstr "Priwatne zapołožki"
-
-#: src/amo/components/HomeHeroBanner/index.js:39
-msgid "Password-protect your personal bookmarks"
-msgstr "Škit z hesłami za waše wosobinske zapołožki"
-
-#: src/amo/components/HomeHeroBanner/index.js:43
-msgid "New Tab Override"
-msgstr "New Tab Override"
-
-#: src/amo/components/HomeHeroBanner/index.js:44
-msgid "Choose the page you see every time you open a new tab"
-msgstr "Wubjerće stronu, kotruž kóždy raz widźiće, hdyž nowy rajtark wočinjeće"
-
-#: src/amo/components/HomeHeroBanner/index.js:50
-msgid "Forecastfox"
-msgstr "Forecastfox"
-
-#: src/amo/components/HomeHeroBanner/index.js:51
-msgid "Get instant global weather information right in Firefox"
-msgstr "Wobstarajće sej globalne wjedrowe daty direktnje w swojim Firefox"
-
-#: src/amo/components/HomeHeroBanner/index.js:57
-msgid "Multi-Account Containers"
-msgstr "Wjacekontowe kontejnery"
-
-#: src/amo/components/HomeHeroBanner/index.js:58
-msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr "Rozeznajće rozdźělne dźěle wašeho žiwjenja online - dźěło, wosobinske atd. - přez rajtarki kodowane z barbami"
-
-#: src/amo/components/HomeHeroBanner/index.js:64
-msgid "Universal Bypass"
-msgstr "Universal Bypass"
-
-#: src/amo/components/HomeHeroBanner/index.js:65
-msgid "Automatically skip annoying link shorteners"
-msgstr "Mylace krótke wotkazy awtomatisce přeskočić"
-
-#: src/amo/components/HomeHeroBanner/index.js:71
-msgid "Tree Style Tab"
-msgstr "Rajtark w štomowym stilu"
-
-#: src/amo/components/HomeHeroBanner/index.js:72
-msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr "Maće jara wjele wočinjenych rajtarkow? Organizujće je w praktiskej bóčnicy"
-
-#: src/amo/components/HomeHeroBanner/index.js:78
-msgid "Imagus"
-msgstr "Imagus"
-
-#: src/amo/components/HomeHeroBanner/index.js:79
-msgid "Enlarge images by hovering your mouse over it"
-msgstr "Ćehńće swoju myšku po wobrazach, zo byšće je powjetšił"
-
-#: src/amo/components/HomeHeroBanner/index.js:85
-msgid "Privacy Possum"
-msgstr "Privacy Possum"
-
-#: src/amo/components/HomeHeroBanner/index.js:86
-msgid "Protect yourself against the sneakiest trackers"
-msgstr "Škitajće so přećiwo lěstnym přesćěhowarjam"
-
-#: src/amo/components/HomeHeroBanner/index.js:92
-msgid "Default Bookmark Folder"
-msgstr "Default Bookmark Folder"
-
-#: src/amo/components/HomeHeroBanner/index.js:93
-msgid "Change the default destination for your bookmarks"
-msgstr "Změńće standardny cil za waše zapołožki"
-
-#: src/amo/components/HomeHeroBanner/index.js:99
-msgid "Textmarker"
-msgstr "Textmarker"
+#: src/amo/components/Header/index.js:119 src/amo/pages/UserProfileEdit/index.js:502
+msgid "View My Profile"
+msgstr "Mój profil pokazać"
+
+#: src/amo/components/Header/index.js:127 src/amo/pages/UserProfileEdit/index.js:508
+msgid "Edit My Profile"
+msgstr "Mój profil wobdźěłać"
+
+#: src/amo/components/Header/index.js:131
+msgid "Tools"
+msgstr "Nastroje"
+
+#: src/amo/components/Header/index.js:137
+msgid "Submit a New Add-on"
+msgstr "Nowy přidatk zapodać"
+
+#: src/amo/components/Header/index.js:142
+msgid "Submit a New Theme"
+msgstr "Nowu drastu zapodać"
+
+#: src/amo/components/Header/index.js:151
+msgid "Manage My Submissions"
+msgstr "Moje zapodaća zrjadować"
+
+#: src/amo/components/Header/index.js:161
+msgid "Reviewer Tools"
+msgstr "Nastroje za přepruwowarjow"
+
+#: src/amo/components/Header/index.js:171 src/core/components/AuthenticateButton/index.js:80
+msgid "Log out"
+msgstr "Wotzjewić"
+
+#: src/amo/components/Header/index.js:55
+msgid "Firefox Add-ons"
+msgstr "Přidatki za Firefox"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
@@ -1622,99 +1294,95 @@ msgstr "Sće tutoho wužiwarja znjewužiwanja dla zdźělił"
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
 msgstr "Smy wašu rozprawu dóstali. Dźakujemy so, zo sće nam swoje wobmyslenja nastupajo tutoho wužiwarja zdźělił."
 
-#: src/amo/components/Search/index.js:120 src/amo/components/SearchResults/index.js:73
+#: src/amo/components/Search/index.js:116 src/amo/components/SearchResults/index.js:68
 msgid "Search results"
 msgstr "Pytanske wuslědki"
 
-#: src/amo/components/Search/index.js:125 src/amo/pages/Category/index.js:139 src/amo/pages/Home/index.js:318 src/amo/pages/LandingPage/index.js:135
+#: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138 src/amo/pages/Home/index.js:309 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Předstajene rozšěrjenja"
 
-#: src/amo/components/Search/index.js:128 src/amo/pages/Category/index.js:171 src/amo/pages/Home/index.js:345 src/amo/pages/LandingPage/index.js:164
+#: src/amo/components/Search/index.js:124 src/amo/pages/Category/index.js:170 src/amo/pages/Home/index.js:338 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
 msgstr "Předstajene drasty"
 
-#: src/amo/components/Search/index.js:131
+#: src/amo/components/Search/index.js:127
 msgid "Featured add-ons"
 msgstr "Předstajene přidatki"
 
-#: src/amo/components/Search/index.js:138 src/amo/pages/Category/index.js:149 src/amo/pages/Home/index.js:378 src/amo/pages/LandingPage/index.js:144
+#: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:355 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr "Woblubowane rozšěrjenja"
 
-#: src/amo/components/Search/index.js:141 src/amo/pages/Category/index.js:181 src/amo/pages/LandingPage/index.js:173
+#: src/amo/components/Search/index.js:137 src/amo/pages/Category/index.js:180 src/amo/pages/LandingPage/index.js:170
 msgid "Trending themes"
 msgstr "Woblubowane drasty"
 
-#: src/amo/components/Search/index.js:144
+#: src/amo/components/Search/index.js:140
 msgid "Trending add-ons"
 msgstr "Woblubowane přidatki"
 
-#: src/amo/components/Search/index.js:150 src/amo/pages/Category/index.js:159 src/amo/pages/LandingPage/index.js:153
+#: src/amo/components/Search/index.js:146 src/amo/pages/Category/index.js:158 src/amo/pages/LandingPage/index.js:150
 msgid "Top rated extensions"
 msgstr "Najwyše pohódnoćene rozšěrjenja"
 
-#: src/amo/components/Search/index.js:153 src/amo/pages/Category/index.js:191 src/amo/pages/LandingPage/index.js:179
+#: src/amo/components/Search/index.js:149 src/amo/pages/Category/index.js:190 src/amo/pages/LandingPage/index.js:176
 msgid "Top rated themes"
 msgstr "Wysoko pohódnoćene drasty"
 
-#: src/amo/components/Search/index.js:156
+#: src/amo/components/Search/index.js:152
 msgid "Top rated add-ons"
 msgstr "Najwyše pohódnoćene přidatki"
 
-#: src/amo/components/Search/index.js:162
+#: src/amo/components/Search/index.js:158
 msgid "Popular extensions"
 msgstr "Woblubowane rozšěrjenja"
 
-#: src/amo/components/Search/index.js:165 src/amo/pages/Home/index.js:355
+#: src/amo/components/Search/index.js:161
 msgid "Popular themes"
 msgstr "Woblubowane drasty"
 
-#: src/amo/components/Search/index.js:168
+#: src/amo/components/Search/index.js:164
 msgid "Popular add-ons"
 msgstr "Woblubowane přidatki"
 
-#: src/amo/components/Search/index.js:174
+#: src/amo/components/Search/index.js:170
 msgid "Search results for \"%(query)s\""
 msgstr "Pytanske wuslědki za \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:100
-msgid "No add-ons found"
-msgstr "Žane přidatki namakane"
+msgid "%(count)s Search Tool found for \"%(query)s\""
+msgid_plural "%(count)s Search Tools found for \"%(query)s\""
+msgstr[0] "%(count)s pytanski nastroj za \"%(query)s\" namakany"
+msgstr[1] "%(count)s pytanskej nastrojej za \"%(query)s\" namakanej"
+msgstr[2] "%(count)s pytanske nastroje za \"%(query)s\" namakane"
+msgstr[3] "%(count)s pytanskich nastrojow za \"%(query)s\" namakane"
 
-#: src/amo/components/SearchContextCard/index.js:103
-msgid "%(count)s add-on found"
-msgid_plural "%(count)s add-ons found"
-msgstr[0] "%(count)s přidatk namakany"
-msgstr[1] "%(count)s přidatkaj namakanej"
-msgstr[2] "%(count)s přidatki namakane"
-msgstr[3] "%(count)s přidatkow namakane"
+#: src/amo/components/SearchContextCard/index.js:109
+msgid "%(count)s Search Tool found"
+msgid_plural "%(count)s Search Tools found"
+msgstr[0] "%(count)s pytanski nastroj je so namakał"
+msgstr[1] "%(count)s pytanskej nastrojej stej so namakałoj"
+msgstr[2] "%(count)s pytanske nastroje su so namakali"
+msgstr[3] "%(count)s pytanskich nastrojow je so namakało"
 
-#: src/amo/components/SearchContextCard/index.js:40
-msgid "%(count)s extension found for \"%(query)s\""
-msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "%(count)s rozšěrjenje za \"%(query)s\" namakany"
-msgstr[1] "%(count)s rozšěrjeni za \"%(query)s\" namakanej"
-msgstr[2] "%(count)s rozšěrjenja za \"%(query)s\" namakane"
-msgstr[3] "%(count)s rozšěrjenjow za \"%(query)s\" namakane"
+#: src/amo/components/SearchContextCard/index.js:122
+msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
+msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
+msgstr[0] "%(count)s drasta je so za \"%(query)s\" w %(categoryName)s namakała"
+msgstr[1] "%(count)s drasće stej so za \"%(query)s\" w %(categoryName)s namakałoj"
+msgstr[2] "%(count)s drasty su so za \"%(query)s\" w %(categoryName)s namakali"
+msgstr[3] "%(count)s drastow je so za \"%(query)s\" w %(categoryName)s namakało"
 
-#: src/amo/components/SearchContextCard/index.js:49
-msgid "%(count)s dictionary found for \"%(query)s\""
-msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] "%(count)s słownik za \"%(query)s\" namakany"
-msgstr[1] "%(count)s słownikaj za \"%(query)s\" namakanej"
-msgstr[2] "%(count)s słowniki za \"%(query)s\" namakane"
-msgstr[3] "%(count)s słownikow za \"%(query)s\" namakane"
+#: src/amo/components/SearchContextCard/index.js:131
+msgid "%(count)s theme found in %(categoryName)s"
+msgid_plural "%(count)s themes found in %(categoryName)s"
+msgstr[0] "%(count)s drasta je so w %(categoryName)s namakała"
+msgstr[1] "%(count)s drasće stej so w %(categoryName)s namakałoj"
+msgstr[2] "%(count)s drasty su so w %(categoryName)s namakali"
+msgstr[3] "%(count)s drastow je so w %(categoryName)s namakało"
 
-#: src/amo/components/SearchContextCard/index.js:58
-msgid "%(count)s language pack found for \"%(query)s\""
-msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] "%(count)s rěčny pakćik za \"%(query)s\" namakany"
-msgstr[1] "%(count)s rěčnej pakćikaj za \"%(query)s\" namakanej"
-msgstr[2] "%(count)s rěčne pakćiki za \"%(query)s\" namakane"
-msgstr[3] "%(count)s rěčnych pakćikow za \"%(query)s\" namakane"
-
-#: src/amo/components/SearchContextCard/index.js:67
+#: src/amo/components/SearchContextCard/index.js:141
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "%(count)s drasta za \"%(query)s\" namakana"
@@ -1722,7 +1390,15 @@ msgstr[1] "%(count)s drasće za \"%(query)s\" namakanej"
 msgstr[2] "%(count)s drasty za \"%(query)s\" namakane"
 msgstr[3] "%(count)s drastow za \"%(query)s\" namakane"
 
-#: src/amo/components/SearchContextCard/index.js:76
+#: src/amo/components/SearchContextCard/index.js:150
+msgid "%(count)s theme found"
+msgid_plural "%(count)s themes found"
+msgstr[0] "%(count)s drasta je so namakała"
+msgstr[1] "%(count)s drasta stej so namakałoj"
+msgstr[2] "%(count)s drasty su so namakali"
+msgstr[3] "%(count)s drastow je so namakało"
+
+#: src/amo/components/SearchContextCard/index.js:162
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "%(count)s wuslědk za \"%(query)s\" namakany"
@@ -1730,87 +1406,119 @@ msgstr[1] "%(count)s wuslědkaj za \"%(query)s\" namakanej"
 msgstr[2] "%(count)s wuslědki za \"%(query)s\" namakane"
 msgstr[3] "%(count)s wuslědkow za \"%(query)s\" namakane"
 
-#: src/amo/components/SearchContextCard/index.js:86
-msgid "%(count)s result for \"%(query)s\""
-msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] "%(count)s wuslědk za \"%(query)s\""
-msgstr[1] "%(count)s wuslědkaj za \"%(query)s\""
-msgstr[2] "%(count)s wuslědki za \"%(query)s\""
-msgstr[3] "%(count)s wuslědkow za \"%(query)s\""
+#: src/amo/components/SearchContextCard/index.js:171
+msgid "%(count)s result found"
+msgid_plural "%(count)s results found"
+msgstr[0] "%(count)s wuslědk je so namakał"
+msgstr[1] "%(count)s wuslědkaj stej so namakałoj"
+msgstr[2] "%(count)s wuslědki su so namakali"
+msgstr[3] "%(count)s wuslědkow je so namakało"
 
-#: src/amo/components/SearchContextCard/index.js:94
+#: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
 msgstr "\"%(query)s\" so pyta"
 
-#: src/amo/components/SearchContextCard/index.js:98
-msgid "Loading add-ons"
-msgstr "Přidatki so wužiwaja"
+#: src/amo/components/SearchContextCard/index.js:186
+msgid "Searching for add-ons"
+msgstr "Přidatki pytać"
 
-#: src/amo/components/SearchFilters/index.js:111 src/amo/components/SearchFilters/index.js:132
+#: src/amo/components/SearchContextCard/index.js:60
+msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
+msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
+msgstr[0] "%(count)s rozšěrjenje je so za \"%(query)s\" w %(categoryName)s namakało"
+msgstr[1] "%(count)s rozšěrjeni stej so za \"%(query)s\" w %(categoryName)s namakałoj"
+msgstr[2] "%(count)s rozšěrjenja su so za \"%(query)s\" w %(categoryName)s namakali"
+msgstr[3] "%(count)s rozšěrjenjow je so za \"%(query)s\" w %(categoryName)s namakało"
+
+#: src/amo/components/SearchContextCard/index.js:69
+msgid "%(count)s extension found in %(categoryName)s"
+msgid_plural "%(count)s extensions found in %(categoryName)s"
+msgstr[0] "%(count)s rozšěrjenje je so w %(categoryName)s namakało"
+msgstr[1] "%(count)s rozšěrjeni stej so w %(categoryName)s namakałoj"
+msgstr[2] "%(count)s rozšěrjenja su so w %(categoryName)s namakali"
+msgstr[3] "%(count)s rozšěrjenjow je so w %(categoryName)s namakało"
+
+#: src/amo/components/SearchContextCard/index.js:79
+msgid "%(count)s extension found for \"%(query)s\""
+msgid_plural "%(count)s extensions found for \"%(query)s\""
+msgstr[0] "%(count)s rozšěrjenje za \"%(query)s\" namakany"
+msgstr[1] "%(count)s rozšěrjeni za \"%(query)s\" namakanej"
+msgstr[2] "%(count)s rozšěrjenja za \"%(query)s\" namakane"
+msgstr[3] "%(count)s rozšěrjenjow za \"%(query)s\" namakane"
+
+#: src/amo/components/SearchContextCard/index.js:88
+msgid "%(count)s extension found"
+msgid_plural "%(count)s extensions found"
+msgstr[0] "%(count)s rozšěrjenje je so namakało"
+msgstr[1] "%(count)s rozšěrjeni stej so namakałoj"
+msgstr[2] "%(count)s rozšěrjenja su so namakali"
+msgstr[3] "%(count)s rozšěrjenjow je so namakało"
+
+#: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:125
 msgid "All"
 msgstr "Wšě"
 
-#: src/amo/components/SearchFilters/index.js:112
+#: src/amo/components/SearchFilters/index.js:111
 msgid "Extension"
 msgstr "Rozšěrjenje"
 
-#: src/amo/components/SearchFilters/index.js:113
+#: src/amo/components/SearchFilters/index.js:112
 msgid "Search Tool"
 msgstr "Pytanski nastroj"
 
-#: src/amo/components/SearchFilters/index.js:118
+#: src/amo/components/SearchFilters/index.js:113
 msgid "Theme"
 msgstr "Drasta"
 
-#: src/amo/components/SearchFilters/index.js:133
+#: src/amo/components/SearchFilters/index.js:126
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:134
+#: src/amo/components/SearchFilters/index.js:127
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:135
+#: src/amo/components/SearchFilters/index.js:128
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:136
 msgid "Relevance"
 msgstr "Relewanca"
 
-#: src/amo/components/SearchFilters/index.js:145
+#: src/amo/components/SearchFilters/index.js:138
 msgid "Recently Updated"
 msgstr "Njedawno zaktualizowane"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:141
 msgid "Most Users"
 msgstr "Najwjace wužiwarjow"
 
-#: src/amo/components/SearchFilters/index.js:149
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Top Rated"
 msgstr "Najlěpje pohódnoćeny"
 
-#: src/amo/components/SearchFilters/index.js:150
+#: src/amo/components/SearchFilters/index.js:143
 msgid "Trending"
 msgstr "Woblubowany"
 
-#: src/amo/components/SearchFilters/index.js:162
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Filter results"
 msgstr "Wuslědki filtrować"
 
-#: src/amo/components/SearchFilters/index.js:167
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Sort by"
 msgstr "Sortěrować po"
 
-#: src/amo/components/SearchFilters/index.js:189
+#: src/amo/components/SearchFilters/index.js:182
 msgid "Add-on Type"
 msgstr "Typ přidatkow"
 
-#: src/amo/components/SearchFilters/index.js:209
+#: src/amo/components/SearchFilters/index.js:202
 msgid "Operating System"
 msgstr "Dźěłowy system"
 
-#: src/amo/components/SearchFilters/index.js:235
+#: src/amo/components/SearchFilters/index.js:228
 msgid "Featured add-ons only"
 msgstr "Jenož předstajene přidatki"
 
@@ -1826,15 +1534,15 @@ msgstr "Přidatki za Firefox za Android (%(locale)s)"
 msgid "Go to the add-on page"
 msgstr "K stronje přidatka"
 
-#: src/amo/components/SearchResult/index.js:121
+#: src/amo/components/SearchResult/index.js:118
 msgid "No theme preview available"
 msgstr "Přehlad drasty k dispoziciji njeje"
 
-#: src/amo/components/SearchResult/index.js:149
+#: src/amo/components/SearchResult/index.js:146
 msgid "Add-on note"
 msgstr "Přidatkowa notica"
 
-#: src/amo/components/SearchResult/index.js:167
+#: src/amo/components/SearchResult/index.js:165
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s wužiwar"
@@ -1842,79 +1550,75 @@ msgstr[1] "%(total)s wužiwarjej"
 msgstr[2] "%(total)s wužiwarjo"
 msgstr[3] "%(total)s wužiwarjow"
 
-#: src/amo/components/SearchResults/index.js:43
+#: src/amo/components/SearchResults/index.js:42
 msgid "Searching…"
 msgstr "Pyta so…"
 
-#: src/amo/components/SearchResults/index.js:48
+#: src/amo/components/SearchResults/index.js:47
 msgid "No results were found for \"%(query)s\"."
 msgstr "Žane wuslědki za \"%(query)s\" namakane."
 
-#: src/amo/components/SearchResults/index.js:54
+#: src/amo/components/SearchResults/index.js:53
 msgid "No results were found."
 msgstr "Žane wusědki namakane."
 
-#: src/amo/components/SearchResults/index.js:57
-msgid "Please enter a search term to search Firefox Add-ons."
-msgstr "Prošu zapodajće pytanski wuraz, zo byšće přidatki Firefox pytał."
-
-#: src/amo/components/SectionLinks/index.js:110 src/amo/pages/LandingPage/index.js:233
+#: src/amo/components/SectionLinks/index.js:102 src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
 msgstr "Drasty"
 
-#: src/amo/components/SectionLinks/index.js:117
+#: src/amo/components/SectionLinks/index.js:108
 msgid "More…"
 msgstr "Wjace…"
 
-#: src/amo/components/SectionLinks/index.js:131
+#: src/amo/components/SectionLinks/index.js:122
 msgid "Dictionaries & Language Packs"
 msgstr "Słowniki a rěčne pakćiki"
 
-#: src/amo/components/SectionLinks/index.js:137 src/amo/pages/SearchTools/index.js:34
+#: src/amo/components/SectionLinks/index.js:128 src/amo/pages/SearchTools/index.js:34
 msgid "Search Tools"
 msgstr "Pytanske nastroje"
 
-#: src/amo/components/SectionLinks/index.js:142
+#: src/amo/components/SectionLinks/index.js:133
 msgid "Other Browser Sites"
 msgstr "Druhe sydła wobhladowaka"
 
-#: src/amo/components/SectionLinks/index.js:153
+#: src/amo/components/SectionLinks/index.js:144
 msgid "Add-ons for Android"
 msgstr "Přidatki za Android"
 
-#: src/amo/components/SectionLinks/index.js:166
+#: src/amo/components/SectionLinks/index.js:157
 msgid "Add-ons for Firefox"
 msgstr "Přidatki za Firefox"
 
-#: src/amo/components/SectionLinks/index.js:67
+#: src/amo/components/SectionLinks/index.js:60
 msgid "for Firefox"
 msgstr "za Firefox"
 
-#: src/amo/components/SectionLinks/index.js:69
+#: src/amo/components/SectionLinks/index.js:62
 msgid "for Android"
 msgstr "za Android"
 
-#: src/amo/components/SectionLinks/index.js:85
+#: src/amo/components/SectionLinks/index.js:78
 msgid "Explore"
 msgstr "Wuslědźić"
 
-#: src/amo/components/SectionLinks/index.js:95 src/amo/pages/LandingPage/index.js:234
+#: src/amo/components/SectionLinks/index.js:88 src/amo/pages/LandingPage/index.js:229
 msgid "Extensions"
 msgstr "Rozšěrjenja"
 
-#: src/amo/components/SuggestedPages/index.js:34
+#: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
 msgstr "Namjetowane strony"
 
-#: src/amo/components/SuggestedPages/index.js:39
+#: src/amo/components/SuggestedPages/index.js:29
 msgid "Browse all extensions"
 msgstr "Wšě rozšěrjenja přepytować"
 
-#: src/amo/components/SuggestedPages/index.js:45
+#: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
 msgstr "Wšě drasty přepytować"
 
-#: src/amo/components/SuggestedPages/index.js:50
+#: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "Startowa strona přidatkow"
 
@@ -1943,18 +1647,10 @@ msgid "my add-on is reviewed by a reviewer"
 msgstr "mój přidatk je so wot redaktora přepruwował"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:32
-msgid "my sdk-based add-on cannot be upgraded"
-msgstr "mój přidatk na zakładźe SDK njeda so aktualizować"
-
-#: src/amo/components/UserProfileEditNotifications/index.js:34
-msgid "my sdk-based add-on is upgraded successfully"
-msgstr "mój přidatk na zakładźe SDK je so wuspěšnje zaktualizował"
-
-#: src/amo/components/UserProfileEditNotifications/index.js:36
 msgid "my add-on's compatibility cannot be upgraded"
 msgstr "kompatibelnosć mojeho přidatka njeda so powyšić"
 
-#: src/amo/components/UserProfileEditNotifications/index.js:38
+#: src/amo/components/UserProfileEditNotifications/index.js:34
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "kompatibelnosć mojeho přidatka je so wuspěšnje powyšiła"
 
@@ -1978,7 +1674,7 @@ msgstr "Profilowe foto"
 msgid "Choose Photo…"
 msgstr "Foto wubrać…"
 
-#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr "Přehlad %(title)s"
 
@@ -2054,39 +1750,39 @@ msgstr "Licencne dojednanje za kónčnych wužiwarjow za %(addonName)s"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Prawidła priwatnosće za %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:191
+#: src/amo/pages/AddonReviewList/index.js:196
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
 msgstr "Přepruwowanja a pohódnoćenja za %(addonName)s. Wuslědźće, što wužiwarjo wo %(addonName)s mysla a přidajće jón swojemu wobhladowakej Firefox."
 
-#: src/amo/pages/AddonReviewList/index.js:223
+#: src/amo/pages/AddonReviewList/index.js:228
 msgid "Show all reviews"
 msgstr "Wšě pohódnoćenja pokazać"
 
-#: src/amo/pages/AddonReviewList/index.js:225
+#: src/amo/pages/AddonReviewList/index.js:230
 msgid "Show only five-star reviews"
 msgstr "Jenož pohódnoćenja z pjeć hwěžkami pokazać"
 
-#: src/amo/pages/AddonReviewList/index.js:226
+#: src/amo/pages/AddonReviewList/index.js:231
 msgid "Show only four-star reviews"
 msgstr "Jenož pohódnoćenja ze štyrjomi hwěžkami pokazać"
 
-#: src/amo/pages/AddonReviewList/index.js:228
+#: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show only three-star reviews"
 msgstr "Jenož pohódnoćenja z třomi hwěžkami pokazać"
 
-#: src/amo/pages/AddonReviewList/index.js:230
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only two-star reviews"
 msgstr "Jenož pohódnoćenja z dwěmaj hwěžce pokazać"
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only one-star reviews"
 msgstr "Jenož pohódnoćenja z jednej hwěžku pokazać"
 
-#: src/amo/pages/AddonReviewList/index.js:271
+#: src/amo/pages/AddonReviewList/index.js:276
 msgid "Reviews for %(addonName)s"
 msgstr "Pohódnoćenja za %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:281
+#: src/amo/pages/AddonReviewList/index.js:286
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s pohódnoćenje"
@@ -2094,7 +1790,7 @@ msgstr[1] "%(total)s pohódnoćeni"
 msgstr[2] "%(total)s pohódnoćenja"
 msgstr[3] "%(total)s pohódnoćenjow"
 
-#: src/amo/pages/AddonReviewList/index.js:378
+#: src/amo/pages/AddonReviewList/index.js:383
 msgid "There are no reviews"
 msgstr "Pohódnoćenja njejsu"
 
@@ -2122,35 +1818,35 @@ msgstr "Najnowša wersija"
 msgid "Older versions"
 msgstr "Starše wersije"
 
-#: src/amo/pages/CategoriesPage/index.js:46
+#: src/amo/pages/CategoriesPage/index.js:34
 msgid "All extension categories"
 msgstr "Wšě kategorije rozšěrjenjow"
 
-#: src/amo/pages/CategoriesPage/index.js:48
+#: src/amo/pages/CategoriesPage/index.js:36
 msgid "All theme categories"
 msgstr "Wšě kategorije drastow"
 
-#: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:319 src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:310 src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
 msgstr "Dalše předstajene rozšěrjenja sej wobhladać"
 
-#: src/amo/pages/Category/index.js:158 src/amo/pages/Home/index.js:379 src/amo/pages/LandingPage/index.js:152
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:356 src/amo/pages/LandingPage/index.js:149
 msgid "See more trending extensions"
 msgstr "Dalše tuchwilu woblubowane rozšěrjenja sej wobhladać"
 
-#: src/amo/pages/Category/index.js:168 src/amo/pages/LandingPage/index.js:161
+#: src/amo/pages/Category/index.js:167 src/amo/pages/LandingPage/index.js:158
 msgid "See more top rated extensions"
 msgstr "Dalše najwyše pohódnoćene rozšěrjenja sej wobhladać"
 
-#: src/amo/pages/Category/index.js:180 src/amo/pages/Home/index.js:335 src/amo/pages/LandingPage/index.js:172
+#: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:328 src/amo/pages/LandingPage/index.js:169
 msgid "See more featured themes"
 msgstr "Dalše předstajene drasty sej wobhladać"
 
-#: src/amo/pages/Category/index.js:190 src/amo/pages/LandingPage/index.js:178
+#: src/amo/pages/Category/index.js:189 src/amo/pages/LandingPage/index.js:175
 msgid "See more trending themes"
 msgstr "Dalše tuchwilu woblubowane drasty sej wobhladać"
 
-#: src/amo/pages/Category/index.js:200 src/amo/pages/LandingPage/index.js:184
+#: src/amo/pages/Category/index.js:199 src/amo/pages/LandingPage/index.js:181
 msgid "See more top rated themes"
 msgstr "Dalše najwyše pohódnoćene drasty sej wobhladać"
 
@@ -2391,112 +2087,116 @@ msgstr ""
 "Dźensniši web je połny njewitaneho wabjenja, kotrež wam naprěki přińdźe a was zaspina. Rozšěrjenja za blokowanje wabjenja móža tute wabjenje blokować abo filtrować, zo byšće móhł zaso bjez mylenja "
 "přehladować."
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:140
 msgid "Bookmarks"
 msgstr "Zapołožki"
 
-#: src/amo/pages/Home/index.js:141
+#: src/amo/pages/Home/index.js:144
 msgid "Password managers"
 msgstr "Zrjadowaki hesłow"
 
-#: src/amo/pages/Home/index.js:145
+#: src/amo/pages/Home/index.js:148
 msgid "Ad blockers"
 msgstr "Wabjenske blokowaki"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:152
 msgid "Smarter Shopping"
 msgstr "Inteligentne nakupowanje"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:156
 msgid "Productivity"
 msgstr "Produktiwita"
 
-#: src/amo/pages/Home/index.js:157
+#: src/amo/pages/Home/index.js:160
 msgid "Watching Videos"
 msgstr "Wideja sej wobhladać"
 
-#: src/amo/pages/Home/index.js:185
+#: src/amo/pages/Home/index.js:188
 msgid "Abstract"
 msgstr "Abstraktnje"
 
-#: src/amo/pages/Home/index.js:190
+#: src/amo/pages/Home/index.js:193
 msgid "Nature"
 msgstr "Přiroda"
 
-#: src/amo/pages/Home/index.js:195
+#: src/amo/pages/Home/index.js:198
 msgid "Film & TV"
 msgstr "Film a telewizija"
 
-#: src/amo/pages/Home/index.js:200
+#: src/amo/pages/Home/index.js:203
 msgid "Scenery"
 msgstr "Krajina"
 
-#: src/amo/pages/Home/index.js:205
+#: src/amo/pages/Home/index.js:208
 msgid "Music"
 msgstr "Hudźba"
 
-#: src/amo/pages/Home/index.js:210
+#: src/amo/pages/Home/index.js:213
 msgid "Seasonal"
 msgstr "Počasy"
 
-#: src/amo/pages/Home/index.js:244
+#: src/amo/pages/Home/index.js:245
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "Přiměrće funkcionalnosć Firefox přez rozšěrjenja. Zajimujeće za…"
 
-#: src/amo/pages/Home/index.js:246
+#: src/amo/pages/Home/index.js:247
 msgid "Change the way Firefox looks with themes."
 msgstr "Změńće wonkowny napohlad Firefox přez drasty."
 
-#: src/amo/pages/Home/index.js:280
+#: src/amo/pages/Home/index.js:277
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
 msgstr "Sćehńće rozšěrjenja a drasty Firefox. Su kaž nałoženja za waš wobhladowak. Móža mjerzace wabjenje blokować, hesła škitać, zwonkowne wobhladowaka změnić a wjace."
 
-#: src/amo/pages/Home/index.js:356
-msgid "See more popular themes"
-msgstr "Dalše woblubowane drasty pokazać"
+#: src/amo/pages/Home/index.js:55
+msgid "See more video extensions"
+msgstr "Dalše widejorozšěrjenja pokazać"
 
-#: src/amo/pages/Home/index.js:57
-msgid "See more YouTube boosters"
-msgstr "Dalše polěpšenja za Youtube pokazać"
+#: src/amo/pages/Home/index.js:56
+msgid "Extensions for enhancing video"
+msgstr "Rozšěrjenja za polěpšowanje wideja"
 
-#: src/amo/pages/Home/index.js:58
-msgid "YouTube boosters"
-msgstr "Polěpšenja za YouTube"
+#: src/amo/pages/Home/index.js:61
+msgid "See more spring themes"
+msgstr "Dalše nalětnje drasty pokazać"
 
-#: src/amo/pages/Home/index.js:63
-msgid "See more health & wellness extensions"
-msgstr "Dalše rozšěrjenja za strowosć a derjeměće pokazać"
+#: src/amo/pages/Home/index.js:62
+msgid "Spring themes"
+msgstr "Nalětnje drasty"
 
-#: src/amo/pages/Home/index.js:64
-msgid "Health & Wellness"
-msgstr "Strowosć a derjeměće"
+#: src/amo/pages/Home/index.js:67
+msgid "See more Wikipedia boosters"
+msgstr "Dalše polěpšenja Wikipedije pokazać"
 
-#: src/amo/pages/Home/index.js:69
-msgid "See more productivity extensions"
-msgstr "Dalše rozšěrjenja za produktiwitu pokazać"
+#: src/amo/pages/Home/index.js:68
+msgid "Wikipedia boosters"
+msgstr "Polěpšenja Wikipedije"
 
-#: src/amo/pages/Home/index.js:70
-msgid "Be more productive"
-msgstr "Budźće bóle produktiwny"
+#: src/amo/pages/Home/index.js:73
+msgid "See more tab extensions"
+msgstr "Dalše rajtarkowe rozšěrjenja pokazać"
 
-#: src/amo/pages/LandingPage/index.js:208
+#: src/amo/pages/Home/index.js:74
+msgid "Change up your tabs"
+msgstr "Změńće swoje rajtarki"
+
+#: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
 msgstr "Sćehńce drasty, zo byšće zwonkowne firefox změnił. Přiměrće swoje dožiwjenje swojemu słodej. Puzorne zwěrjatka, złe robotery, rjane krajiny - tysacy móžnosćow."
 
-#: src/amo/pages/LandingPage/index.js:213
+#: src/amo/pages/LandingPage/index.js:210
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
 "Sćehńće rozšěrjenja Firefox, zo byšće funkcije přidał, kotrež přehladowanje přiměrili. Škitajće hesła, namakajće poskitki, polěpšće wideja a blokujće mjerzace wabjenje z nałoženjemi wobhladowaka."
 
-#: src/amo/pages/LandingPage/index.js:237
+#: src/amo/pages/LandingPage/index.js:232
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
 msgstr "Změńće napohlad swojeho wobhladowaka. Wubjerće z tysacow drastow, zo byšće Firefox napohlad dał, kotryž chceće."
 
-#: src/amo/pages/LandingPage/index.js:239
+#: src/amo/pages/LandingPage/index.js:234
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
 msgstr "Wuslědźće mócne nastroje a funkcije, zo byšće Firefox na swoje potrěbnosće přiměrił."
 
-#: src/amo/pages/LandingPage/index.js:282
+#: src/amo/pages/LandingPage/index.js:273
 msgid "Explore all categories"
 msgstr "Wšě kategorije wuslědźić"
 
@@ -2810,11 +2510,11 @@ msgstr "Wužiwarski profil za %(user)s"
 msgid "User Profile"
 msgstr "Wužiwarski profil"
 
-#: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:620
+#: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:625
 msgid "Location"
 msgstr "Městno"
 
-#: src/amo/pages/UserProfile/index.js:373 src/amo/pages/UserProfileEdit/index.js:632
+#: src/amo/pages/UserProfile/index.js:373 src/amo/pages/UserProfileEdit/index.js:637
 msgid "Occupation"
 msgstr "Powołanje"
 
@@ -2830,7 +2530,7 @@ msgstr "Ličba přidatkow"
 msgid "Average rating of developer’s add-ons"
 msgstr "Přerězne pohódnoćenje přidatkow wuwiwarja"
 
-#: src/amo/pages/UserProfile/index.js:411 src/amo/pages/UserProfileEdit/index.js:654
+#: src/amo/pages/UserProfile/index.js:411 src/amo/pages/UserProfileEdit/index.js:659
 msgid "Biography"
 msgstr "Biografija"
 
@@ -2847,12 +2547,12 @@ msgid "Picture successfully deleted"
 msgstr "Wobraz je so wuspěšnje zhašał"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
-msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr "Dajće wužiwarjam někotre informacije wo sebi. Tute pola su opcionalne, ale budu druhim wužiwarjam pomhać, was lěpje zeznać."
+msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
+msgstr "Dajće wužiwarjam někotre informacije wjace wo sebi. Najwjace polow je opcionalne, ale budźe druhim wužiwarjam pomhać, so z wami lěpje zeznać."
 
 #: src/amo/pages/UserProfileEdit/index.js:421
-msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Dajće wužiwarjam někotre informacije wo tutym wužiwarju. Tute pola su opcionalne, ale budu druhim wužiwarjam pomhać, %(userName)s lěpje zeznać."
+msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
+msgstr "Dajće wužiwarjam někotre informacije wjace wo tutym wužiwarju. Najwjace polow je opcionalne, ale budźe druhim wužiwarjam pomhać, %(userName)s lěpje zeznać."
 
 #: src/amo/pages/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
@@ -2902,67 +2602,71 @@ msgstr "Konta Firefox rjadować…"
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:583
-msgid "Display Name"
-msgstr "Mjeno zwobraznić"
+#: src/amo/pages/UserProfileEdit/index.js:585
+msgid "This field is required"
+msgstr "Tute polo je trěbne"
 
-#: src/amo/pages/UserProfileEdit/index.js:615
+#: src/amo/pages/UserProfileEdit/index.js:588
+msgid "Display Name *"
+msgstr "Zwobraznjenske mjeno *"
+
+#: src/amo/pages/UserProfileEdit/index.js:620
 msgid "This URL will only be visible for users who are developers."
 msgstr "Tutón URL budźeće jenož widźomny za wužiwarjow, kotřiž su wuwiwarjo."
 
-#: src/amo/pages/UserProfileEdit/index.js:669
+#: src/amo/pages/UserProfileEdit/index.js:674
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Dźěl HTML so podpěruje: %(htmlTags)s. Wotkazy su zakazane."
 
-#: src/amo/pages/UserProfileEdit/index.js:693
+#: src/amo/pages/UserProfileEdit/index.js:698
 msgid "Notifications"
 msgstr "Zdźělenki"
 
-#: src/amo/pages/UserProfileEdit/index.js:697
+#: src/amo/pages/UserProfileEdit/index.js:702
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
 msgstr "Hdys a hdys Mozilla wam e-mejlku wo přichodnych wersijach a přidatkowych podawkach sćele. Prošu wubjerće temy, za kotrež zajimujeće."
 
-#: src/amo/pages/UserProfileEdit/index.js:702
+#: src/amo/pages/UserProfileEdit/index.js:707
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr "Hdys a hdys Mozilla tutu wužiwarsku e-mejlku wo přichodnych wersijach a přidatkowych podawkach sćele. Prošu wubjerće temy, za kotrež so tutón wužiwar snano zajimuje."
 
-#: src/amo/pages/UserProfileEdit/index.js:717
+#: src/amo/pages/UserProfileEdit/index.js:722
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
 msgstr "Mozilla sej prawo wuměnja, so z wami wo wěstych naležnosćach z wašimi hospodowanymi přidatkami do zwiska stajić."
 
-#: src/amo/pages/UserProfileEdit/index.js:735
+#: src/amo/pages/UserProfileEdit/index.js:740
 msgid "Updating your profile…"
 msgstr "Waš profil so aktualizuje…"
 
-#: src/amo/pages/UserProfileEdit/index.js:736
+#: src/amo/pages/UserProfileEdit/index.js:741
 msgid "Update My Profile"
 msgstr "Mój profil aktualizować"
 
-#: src/amo/pages/UserProfileEdit/index.js:738
+#: src/amo/pages/UserProfileEdit/index.js:743
 msgid "Updating profile…"
 msgstr "Profil so aktualizuje…"
 
-#: src/amo/pages/UserProfileEdit/index.js:739
+#: src/amo/pages/UserProfileEdit/index.js:744
 msgid "Update Profile"
 msgstr "Profil aktualizować"
 
-#: src/amo/pages/UserProfileEdit/index.js:750 src/amo/pages/UserProfileEdit/index.js:839
+#: src/amo/pages/UserProfileEdit/index.js:755 src/amo/pages/UserProfileEdit/index.js:844
 msgid "Delete My Profile"
 msgstr "Mój profil zhašeć"
 
-#: src/amo/pages/UserProfileEdit/index.js:751 src/amo/pages/UserProfileEdit/index.js:840
+#: src/amo/pages/UserProfileEdit/index.js:756 src/amo/pages/UserProfileEdit/index.js:845
 msgid "Delete Profile"
 msgstr "Profil zhašeć"
 
-#: src/amo/pages/UserProfileEdit/index.js:763
+#: src/amo/pages/UserProfileEdit/index.js:768
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "WAŽNY: Zhašenje wašeho profila za přidatki Firefox njeda so cofnyć."
 
-#: src/amo/pages/UserProfileEdit/index.js:766
+#: src/amo/pages/UserProfileEdit/index.js:771
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "WAŽNY: Zhašenje tutoho profila za přidatki Firefox njeda so cofnyć."
 
-#: src/amo/pages/UserProfileEdit/index.js:775
+#: src/amo/pages/UserProfileEdit/index.js:780
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
@@ -2970,7 +2674,7 @@ msgstr ""
 "Waše daty budu so na přeco wotstronjeć, inkluziwnje profilowe podrobnosće (wobraz, wužiwarske mjeno, zwobraznjenske mjeno, městno, startowa strona, žiwjenjoběh, powołanje) a zdźělenske nastajenja. "
 "Waše přepruwowanja a pohódnoćenja budu so anonymizować a njebudu hižo wobdźěłujomne."
 
-#: src/amo/pages/UserProfileEdit/index.js:782
+#: src/amo/pages/UserProfileEdit/index.js:787
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
@@ -2978,11 +2682,11 @@ msgstr ""
 "Daty wužiwarja budu so na přeco wotstronjeć, inkluziwnje profilowe podrobnosće (wobraz, wužiwarske mjeno, zwobraznjenske mjeno, městno, startowa strona, žiwjenjoběh, powołanje) a zdźělenske "
 "nastajenja. Waše přepruwowanja a pohódnoćenja budu so anonymizować a njebudu hižo wobdźěłujomne."
 
-#: src/amo/pages/UserProfileEdit/index.js:792
+#: src/amo/pages/UserProfileEdit/index.js:797
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
 msgstr "Hdyž tutu e-mejlowu adresu wužiwaće, zo byšće so zaso pola addons.mozilla.org přizjewił, wutworiće nowy profil za přidatki Firefox, kotryž njeje zwjazany z profilom, kotryž sće zhašał."
 
-#: src/amo/pages/UserProfileEdit/index.js:805
+#: src/amo/pages/UserProfileEdit/index.js:810
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
@@ -2990,35 +2694,35 @@ msgstr ""
 "%(strongStart)sKedźbu:%(strongEnd)s Njemóžeće swój profil zhašeć, jeli sće %(linkStart)sawtor přidatkow%(linkEnd)s. Dyrbiće %(docLinkStart)sswójstwo přenošować%(docLinkEnd)s abo přidatki zhašeć, "
 "prjedy hač móžeće swój profil zhašeć."
 
-#: src/amo/pages/UserProfileEdit/index.js:812
+#: src/amo/pages/UserProfileEdit/index.js:817
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
 msgstr "%(strongStart)sKedźbu:%(strongEnd)s Njemóžeće profil wužiwarja zhašeć, jeli wužiwar je %(linkStart)sawtor přidatkow%(linkEnd)s."
 
-#: src/core/components/AMInstallButton/index.js:238
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enable"
 msgstr "Zmóžnić"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:216
 msgid "Enabling"
 msgstr "Zmóžnja so"
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:218
 msgid "Downloading"
 msgstr "So sćahuje"
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:220
 msgid "Installing"
 msgstr "So instaluje"
 
-#: src/core/components/AMInstallButton/index.js:249
+#: src/core/components/AMInstallButton/index.js:222
 msgid "Uninstalling"
 msgstr "So wotinstaluje"
 
-#: src/core/components/AMInstallButton/index.js:257
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Install Theme"
 msgstr "Drastu instalować"
 
-#: src/core/components/AMInstallButton/index.js:258
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Add to Firefox"
 msgstr "Programej Firefox přidać"
 
@@ -3193,21 +2897,21 @@ msgstr "Mějće přistup na swoje daty za %(param)s"
 msgid "Dismiss this notice"
 msgstr "Pokiw zaćisnyć"
 
-#: src/ui/components/Rating/index.js:104
+#: src/ui/components/Rating/index.js:100
+msgid "Update your rating to %(starRating)s out of 5"
+msgstr "Aktualizujće swoje pohódnoćenje na %(starRating)s z 5 hwěžkow"
+
+#: src/ui/components/Rating/index.js:106
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "Pohódnoćće tutón přidatk z %(starRating)s z 5 hwěžkow"
 
-#: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
+#: src/ui/components/Rating/index.js:83 src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
 msgstr "Z %(rating)s z 5 pohódnoćeny"
 
-#: src/ui/components/Rating/index.js:85
+#: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
 msgstr "Hišće pohódnoćenja njejsu"
-
-#: src/ui/components/Rating/index.js:98
-msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Aktualizujće swoje pohódnoćenje na %(starRating)s z 5 hwěžkow"
 
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
@@ -3224,6 +2928,323 @@ msgstr[3] "%(total)s přidatkow"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Wotmołwa wuwiwarja"
+
+#~ msgid "See more weather extensions"
+#~ msgstr "Dalše wjedrowe rozšěrjenja pokazać"
+
+#~ msgid "Weather extensions"
+#~ msgstr "Wjedrowe rozšěrjenja"
+
+#~ msgid "See more tools"
+#~ msgstr "Dalše nastroje pokazać"
+
+#~ msgid "Note-taking & time management tools"
+#~ msgstr "Nastroje za noticy a časowe rjadowanje"
+
+#~ msgid "See more feed readers"
+#~ msgstr "Dalše kanalowe čitaki pokazać"
+
+#~ msgid "Feed readers"
+#~ msgstr "Kanalowe čitaki"
+
+#~ msgid "See more health & wellness extensions"
+#~ msgstr "Dalše rozšěrjenja za strowosć a derjeměće pokazać"
+
+#~ msgid "Health & Wellness"
+#~ msgstr "Strowosć a derjeměće"
+
+#~ msgid "Please enter a search term to search Firefox Add-ons."
+#~ msgstr "Prošu zapodajće pytanski wuraz, zo byšće přidatki Firefox pytał."
+
+#~ msgid "my sdk-based add-on cannot be upgraded"
+#~ msgstr "mój přidatk na zakładźe SDK njeda so aktualizować"
+
+#~ msgid "my sdk-based add-on is upgraded successfully"
+#~ msgstr "mój přidatk na zakładźe SDK je so wuspěšnje zaktualizował"
+
+#~ msgid "See more popular themes"
+#~ msgstr "Dalše woblubowane drasty pokazać"
+
+#~ msgid "See more YouTube boosters"
+#~ msgstr "Dalše polěpšenja za Youtube pokazać"
+
+#~ msgid "YouTube boosters"
+#~ msgstr "Polěpšenja za YouTube"
+
+#~ msgid "See more productivity extensions"
+#~ msgstr "Dalše rozšěrjenja za produktiwitu pokazać"
+
+#~ msgid "Be more productive"
+#~ msgstr "Budźće bóle produktiwny"
+
+#~ msgid "Highly customizable text highlighter"
+#~ msgstr "Přiměrujomny nastroj za wuzběhnjenje teksta"
+
+#~ msgid "Watch2Gether"
+#~ msgstr "Watch2Gether"
+
+#~ msgid "Watch videos simultaneously with others"
+#~ msgstr "Wobhladujće sej wideja hromadźe z druhimi"
+
+#~ msgid "Context Search"
+#~ msgstr "Kontekstowe pytanje"
+
+#~ msgid "Highlight text on any webpage to easily search the term"
+#~ msgstr "Wuzběhńće tekst na webstronje, zo byšće jednorje za wurazom pytał"
+
+#~ msgid "Stylus"
+#~ msgstr "Stylus"
+
+#~ msgid "Give your favorite websites a new look"
+#~ msgstr "Dajće swojim najlubšim websydłam nowy napohlad"
+
+#~ msgid "Search Encrypt"
+#~ msgstr "Search Encrypt"
+
+#~ msgid "Privacy protection for your search data"
+#~ msgstr "Datowy škit za waše pytanske daty"
+
+#~ msgid "Auto Tab Discard"
+#~ msgstr "Auto Tab Discard"
+
+#~ msgid "Save memory by disabling inactive tabs"
+#~ msgstr "Znjemóžńće inaktiwne rajtarki, zo byšće skład zalutował"
+
+#~ msgid "Update Scanner"
+#~ msgstr "Update Scanner"
+
+#~ msgid "Get notified when your selected websites update with new content"
+#~ msgstr "Dóstańće zdźělenki, hdyž so waše websydła z nowym wobsahom aktualizuja"
+
+#~ msgid "Auto Fullscreen"
+#~ msgstr "Auto Fullscreen"
+
+#~ msgid "Automatically start Firefox in full screen mode"
+#~ msgstr "Firefox awtomatisce w modusu połneho wobrazowki startować"
+
+#~ msgid "Video Speed Controller"
+#~ msgstr "Video Speed Controller"
+
+#~ msgid "Adjust video playback speeds with shortcuts"
+#~ msgstr "Přiměrće widejowu wothrawansku spěšnosć z tastowymi skrótšenkami"
+
+#~ msgid "View Image"
+#~ msgstr "View Image"
+
+#~ msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
+#~ msgstr "Wobnowće tłóčatce ‚Wobraz pokazać‘ a ‚Po wobrazu pytać‘ na Wobrazy Google"
+
+#~ msgid "Neat URL"
+#~ msgstr "Neat URL"
+
+#~ msgid "Clean up links for easy sharing"
+#~ msgstr "Porjedźće wotkazy za lochke dźělenje"
+
+#~ msgid "Glitter Drag"
+#~ msgstr "Glitter Drag"
+
+#~ msgid "Drag text, images, or links to perform actions like copy, open, search, and more"
+#~ msgstr "Čehńće tekst, wobrazy abo wotkazy, zo byšće akcije kaž kopěrować, wočinić, pytać a wjace wuwjedł"
+
+#~ msgid "Behind The Overlay Revival"
+#~ msgstr "Behind The Overlay Revival"
+
+#~ msgid "Click a button to close annoying pop-ups"
+#~ msgstr "Klikńće na tłóčatko, zo byšće mylace wuskakowace wokna začinił"
+
+#~ msgid "Auto-Sort Bookmarks"
+#~ msgstr "Auto-Sort Bookmarks"
+
+#~ msgid "Automatically sorts bookmarks so they’re in your preferred position"
+#~ msgstr "Sortěruje zapołožki awtomatisce, zo bychu na jich preferowanym městnje byli"
+
+#~ msgid "Search Preview"
+#~ msgstr "Search Preview"
+
+#~ msgid "Enjoy thumbnail images alongside your search returns"
+#~ msgstr "Wužiwajće miniaturki z pytanskimi wuslědkami"
+
+#~ msgid "Copy PlainText"
+#~ msgstr "Luty tekst kopěrować"
+
+#~ msgid "Remove formatting when saving text to your clipboard"
+#~ msgstr "Formatowanje wotstronić, hdyž so tekst do wašeho mjezyskłada składuje"
+
+#~ msgid "Official Media Bias Fact Check Icon"
+#~ msgstr "Official Media Bias Fact Check Icon"
+
+#~ msgid "Indicates the political bias of news sites with a tidy icon"
+#~ msgstr "Podawa politisku orientaciju powěsćowych sydłow z pěknym symbolom"
+
+#~ msgid "Vertical Tabs Reloaded"
+#~ msgstr "Vertical Tabs Reloaded"
+
+#~ msgid "Arrange tabs in a vertical fashion"
+#~ msgstr "Rjadujće rajtarki wertikalnje"
+
+#~ msgid "Search Site"
+#~ msgstr "Sydło přepytać"
+
+#~ msgid "Search within just the domain you’re visiting"
+#~ msgstr "Přepytajće domenu, kotruž runje wopytujeće"
+
+#~ msgid "Push to Kindle"
+#~ msgstr "Push to Kindle"
+
+#~ msgid "Send any Web page to your Kindle device"
+#~ msgstr "Pósćelće webstronu na swój grat Kindle"
+
+#~ msgid "New Tab Homepage"
+#~ msgstr "New Tab Homepage"
+
+#~ msgid "Designate a custom home page for your new tabs"
+#~ msgstr "Nastajće swójsku startowu stronu za swoje nowe rajtarki"
+
+#~ msgid "OneNote Web Clipper"
+#~ msgstr "OneNote Web Clipper"
+
+#~ msgid "Save, annotate & organize web content"
+#~ msgstr "Składowajće, komentujće a organizujće webwobsah"
+
+#~ msgid "FoxyGestures"
+#~ msgstr "FoxyGestures"
+
+#~ msgid "Customized mouse gestures"
+#~ msgstr "Přiměrjomne gesty myški"
+
+#~ msgid "Dark Reader"
+#~ msgstr "Dark Reader"
+
+#~ msgid "Go dark for a better web viewing experience"
+#~ msgstr "Lěpši napohlad weba přez ćmowe barby"
+
+#~ msgid "Facebook Container"
+#~ msgstr "Facebook Container"
+
+#~ msgid "CookieBro"
+#~ msgstr "CookieBro"
+
+#~ msgid "Automatically delete unwanted cookies"
+#~ msgstr "Njewitane placki awtomatisce zhašeć"
+
+#~ msgid "Prevent Facebook from tracking you around the web"
+#~ msgstr "Haćće Facebook při tym, was přez cyły web slědować"
+
+#~ msgid "Text MultiCopy"
+#~ msgstr "Text MultiCopy"
+
+#~ msgid "Save snippets of text to paste & organize later"
+#~ msgstr "Šlipki za pozdźiše zasadźenje a rjadowanje składować"
+
+#~ msgid "Group Speed Dial"
+#~ msgstr "Group Speed Dial"
+
+#~ msgid "Visual bookmarks for your favorite places on the web"
+#~ msgstr "Wizuelne zapołožki za waše najlubše městna w interneće"
+
+#~ msgid "Undo Close Tab Button"
+#~ msgstr "Undo Close Tab Button"
+
+#~ msgid "Never lose a page again"
+#~ msgstr "Njezhubjejće ženje wjace stronu"
+
+#~ msgid "Ad Analysis for Facebook"
+#~ msgstr "Analyza wabjenja za Facebook"
+
+#~ msgid "See how Facebook ads target you"
+#~ msgstr "Hladajće, kak so wabjenje Facebook na was měri"
+
+#~ msgid "SoundFixer"
+#~ msgstr "SoundFixer"
+
+#~ msgid "Adjust audio levels for sounds you encounter around web"
+#~ msgstr "Awdiopegele za zynki w cyłej interneće přiměrić"
+
+#~ msgid "Lilo"
+#~ msgstr "Lilo"
+
+#~ msgid "Fund social causes by simply using Lilo search"
+#~ msgstr "Podpěrajće socialne zaměry prosće přez wužiwanje pytanja Lilo"
+
+#~ msgid "Iridium for YouTube"
+#~ msgstr "Iridium for YouTube"
+
+#~ msgid "Play videos in a pop-out window, take video screenshots & more"
+#~ msgstr "Wideja we wuskakowacym woknje wothrać, fota wobrazowki widejow wutworić a wjace"
+
+#~ msgid "Private Bookmarks"
+#~ msgstr "Priwatne zapołožki"
+
+#~ msgid "Password-protect your personal bookmarks"
+#~ msgstr "Škit z hesłami za waše wosobinske zapołožki"
+
+#~ msgid "New Tab Override"
+#~ msgstr "New Tab Override"
+
+#~ msgid "Choose the page you see every time you open a new tab"
+#~ msgstr "Wubjerće stronu, kotruž kóždy raz widźiće, hdyž nowy rajtark wočinjeće"
+
+#~ msgid "Forecastfox"
+#~ msgstr "Forecastfox"
+
+#~ msgid "Get instant global weather information right in Firefox"
+#~ msgstr "Wobstarajće sej globalne wjedrowe daty direktnje w swojim Firefox"
+
+#~ msgid "Multi-Account Containers"
+#~ msgstr "Wjacekontowe kontejnery"
+
+#~ msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
+#~ msgstr "Rozeznajće rozdźělne dźěle wašeho žiwjenja online - dźěło, wosobinske atd. - přez rajtarki kodowane z barbami"
+
+#~ msgid "Universal Bypass"
+#~ msgstr "Universal Bypass"
+
+#~ msgid "Automatically skip annoying link shorteners"
+#~ msgstr "Mylace krótke wotkazy awtomatisce přeskočić"
+
+#~ msgid "Tree Style Tab"
+#~ msgstr "Rajtark w štomowym stilu"
+
+#~ msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
+#~ msgstr "Maće jara wjele wočinjenych rajtarkow? Organizujće je w praktiskej bóčnicy"
+
+#~ msgid "Imagus"
+#~ msgstr "Imagus"
+
+#~ msgid "Enlarge images by hovering your mouse over it"
+#~ msgstr "Ćehńće swoju myšku po wobrazach, zo byšće je powjetšił"
+
+#~ msgid "Privacy Possum"
+#~ msgstr "Privacy Possum"
+
+#~ msgid "Protect yourself against the sneakiest trackers"
+#~ msgstr "Škitajće so přećiwo lěstnym přesćěhowarjam"
+
+#~ msgid "Default Bookmark Folder"
+#~ msgstr "Default Bookmark Folder"
+
+#~ msgid "Change the default destination for your bookmarks"
+#~ msgstr "Změńće standardny cil za waše zapołožki"
+
+#~ msgid "Textmarker"
+#~ msgstr "Textmarker"
+
+#~ msgid "No add-ons found"
+#~ msgstr "Žane přidatki namakane"
+
+#~ msgid "%(count)s dictionary found for \"%(query)s\""
+#~ msgid_plural "%(count)s dictionaries found for \"%(query)s\""
+#~ msgstr[0] "%(count)s słownik za \"%(query)s\" namakany"
+#~ msgstr[1] "%(count)s słownikaj za \"%(query)s\" namakanej"
+#~ msgstr[2] "%(count)s słowniki za \"%(query)s\" namakane"
+#~ msgstr[3] "%(count)s słownikow za \"%(query)s\" namakane"
+
+#~ msgid "%(count)s language pack found for \"%(query)s\""
+#~ msgid_plural "%(count)s language packs found for \"%(query)s\""
+#~ msgstr[0] "%(count)s rěčny pakćik za \"%(query)s\" namakany"
+#~ msgstr[1] "%(count)s rěčnej pakćikaj za \"%(query)s\" namakanej"
+#~ msgstr[2] "%(count)s rěčne pakćiki za \"%(query)s\" namakane"
+#~ msgstr[3] "%(count)s rěčnych pakćikow za \"%(query)s\" namakane"
 
 #~ msgid "See more weather reports"
 #~ msgstr "Dalše předpowědźe wjedra pokazać"
@@ -3665,9 +3686,6 @@ msgstr "Wotmołwa wuwiwarja"
 #~ msgid "See all beta versions"
 #~ msgstr "Wšě beta-wersije pokazać"
 
-#~ msgid "Wikipedia boosters"
-#~ msgstr "Polěpšenja Wikipedije"
-
 #~ msgid "Good time tabs"
 #~ msgstr "Nowe rajtarki"
 
@@ -3862,9 +3880,6 @@ msgstr "Wotmołwa wuwiwarja"
 
 #~ msgid "Tools for making the Web work harder for you"
 #~ msgstr "Nastroje, kotrež za was dźěło we webje wosnadnjeja"
-
-#~ msgid "See more"
-#~ msgstr "Wjace pokazać"
 
 #~ msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
 #~ msgstr "Tu su někotre skutkowne rozšěrjenja priwatnosće, wot blokowakow hač do rozšěrjenjow přećiwo přesćěhowanju"

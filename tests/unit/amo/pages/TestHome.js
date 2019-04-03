@@ -19,9 +19,6 @@ import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEMES_FILTER,
-  CLIENT_APP_ANDROID,
-  CLIENT_APP_FIREFOX,
-  SEARCH_SORT_POPULAR,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
@@ -37,19 +34,10 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  const fakeFeaturedCollectionsMetadata = {
-    footerText: 'some footer text',
-    header: 'some header',
-    isTheme: false,
-    slug: 'some-slug',
-    userId: 345,
-  };
-
   const getProps = () => {
     const { store } = dispatchClientMetadata();
 
@@ -88,7 +76,6 @@ describe(__filename, () => {
       expect(shelf).toHaveProp('slug', collectionMetadata.slug);
       expect(shelf).toHaveProp('userId', MOZILLA_USER_ID);
       expect(shelf).toHaveProp('loading', true);
-      expect(shelf).toHaveProp('isTheme', collectionMetadata.isTheme);
     },
   );
 
@@ -158,23 +145,6 @@ describe(__filename, () => {
 
     const shelves = root.find(LandingAddonsCard);
     expect(shelves.find('.Home-FeaturedThemes')).toHaveLength(0);
-  });
-
-  it('renders a popular extensions shelf', () => {
-    const root = render();
-
-    const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-PopularAddons');
-    expect(shelf).toHaveProp('header', 'Popular themes');
-    expect(shelf).toHaveProp('footerText', 'See more popular themes');
-    expect(shelf).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
-        sort: SEARCH_SORT_POPULAR,
-      },
-    });
-    expect(shelf).toHaveProp('loading', true);
   });
 
   it('does not render a trending extensions shelf if includeTrendingExtensions is false', () => {
@@ -490,111 +460,35 @@ describe(__filename, () => {
     expect(root.find(HeadLinks)).toHaveLength(1);
   });
 
-  it('shows the theme shelves when clientApp is Android and enableFeatureStaticThemesForAndroid is true', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: true,
+  describe('getFeaturedCollectionsMetadata', () => {
+    it('exposes a `footerText` prop', () => {
+      const metadata = getFeaturedCollectionsMetadata(fakeI18n());
+
+      expect(metadata[0]).toHaveProperty('footerText');
     });
 
-    const root = render({ _config, includeFeaturedThemes: true, store });
+    it('exposes a `header` prop', () => {
+      const metadata = getFeaturedCollectionsMetadata(fakeI18n());
 
-    expect(root.find('.Home-CuratedThemes')).toHaveLength(1);
-    expect(root.find('.Home-FeaturedThemes')).toHaveLength(1);
-  });
-
-  it('hides the theme shelves when clientApp is Android and enableFeatureStaticThemesForAndroid is false', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: false,
+      expect(metadata[0]).toHaveProperty('header');
     });
 
-    const root = render({ _config, includeFeaturedThemes: true, store });
+    it('exposes a `slug` prop', () => {
+      const metadata = getFeaturedCollectionsMetadata(fakeI18n());
 
-    expect(root.find('.Home-CuratedThemes')).toHaveLength(0);
-    expect(root.find('.Home-FeaturedThemes')).toHaveLength(0);
-  });
-
-  it('shows the theme shelves when clientApp is not Android', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: false,
+      expect(metadata[0]).toHaveProperty('slug');
     });
 
-    const root = render({ _config, includeFeaturedThemes: true, store });
+    it('exposes a `userId` prop', () => {
+      const metadata = getFeaturedCollectionsMetadata(fakeI18n());
 
-    expect(root.find('.Home-CuratedThemes')).toHaveLength(1);
-    expect(root.find('.Home-FeaturedThemes')).toHaveLength(1);
-  });
-
-  it('does not render featured "theme" collections when clientApp is Android and enableFeatureStaticThemesForAndroid is false', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: false,
+      expect(metadata[0]).toHaveProperty('userId');
     });
 
-    const collections = [createFakeCollectionAddonsListResponse()];
-    store.dispatch(loadHomeAddons({ collections, shelves: {} }));
+    it('exposes a `isTheme` prop', () => {
+      const metadata = getFeaturedCollectionsMetadata(fakeI18n());
 
-    const _getFeaturedCollectionsMetadata = () => {
-      return [{ ...fakeFeaturedCollectionsMetadata, isTheme: true }];
-    };
-
-    const root = render({ _config, _getFeaturedCollectionsMetadata, store });
-
-    expect(root.find('.Home-FeaturedCollection')).toHaveLength(0);
-  });
-
-  it('renders featured non-"theme" collections when clientApp is Android and enableFeatureStaticThemesForAndroid is false', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: false,
+      expect(metadata[0]).toHaveProperty('isTheme');
     });
-
-    const collections = [createFakeCollectionAddonsListResponse()];
-    store.dispatch(loadHomeAddons({ collections, shelves: {} }));
-
-    const _getFeaturedCollectionsMetadata = () => {
-      return [{ ...fakeFeaturedCollectionsMetadata, isTheme: false }];
-    };
-
-    const root = render({ _config, _getFeaturedCollectionsMetadata, store });
-
-    expect(root.find('.Home-FeaturedCollection')).toHaveLength(1);
-  });
-
-  it('renders featured "theme" collections when clientApp is Android and enableFeatureStaticThemesForAndroid is true', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: true,
-    });
-
-    const collections = [createFakeCollectionAddonsListResponse()];
-    store.dispatch(loadHomeAddons({ collections, shelves: {} }));
-
-    const _getFeaturedCollectionsMetadata = () => {
-      return [{ ...fakeFeaturedCollectionsMetadata, isTheme: true }];
-    };
-
-    const root = render({ _config, _getFeaturedCollectionsMetadata, store });
-
-    expect(root.find('.Home-FeaturedCollection')).toHaveLength(1);
-  });
-
-  it('renders featured "theme" collections when clientApp is not Android', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: false,
-    });
-
-    const collections = [createFakeCollectionAddonsListResponse()];
-    store.dispatch(loadHomeAddons({ collections, shelves: {} }));
-
-    const _getFeaturedCollectionsMetadata = () => {
-      return [{ ...fakeFeaturedCollectionsMetadata, isTheme: true }];
-    };
-
-    const root = render({ _config, _getFeaturedCollectionsMetadata, store });
-
-    expect(root.find('.Home-FeaturedCollection')).toHaveLength(1);
   });
 });

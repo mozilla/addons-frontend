@@ -31,7 +31,6 @@ import {
   fakeAddon,
   fakeCategory,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -113,51 +112,6 @@ describe(__filename, () => {
       CategoryBase,
     );
   }
-
-  const renderWithCategory = ({ category = fakeCategory, props = {} }) => {
-    _loadCategories({ results: [category] });
-
-    return render(props, {
-      autoDispatchCategories: false,
-      paramOverrides: {
-        slug: category.slug,
-        visibleAddonType: getVisibleAddonType(category.type),
-      },
-    });
-  };
-
-  const renderFirefoxTheme = (props = {}) => {
-    const category = {
-      ...fakeCategory,
-      application: CLIENT_APP_FIREFOX,
-      type: ADDON_TYPE_THEME,
-    };
-
-    return renderWithCategory({ category, props });
-  };
-
-  const renderAndroidTheme = (props = {}) => {
-    const category = {
-      ...fakeCategory,
-      // This should really be set to CLIENT_APP_ANDROID *but* the reducer
-      // replaces android "theme" categories with firefox categories here:
-      // https://github.com/mozilla/addons-frontend/blob/0ebf7b7fc559dee2cf704bad04905c8c8e430905/src/core/reducers/categories.js#L72-L82
-      application: CLIENT_APP_FIREFOX,
-      type: ADDON_TYPE_THEME,
-    };
-
-    return renderWithCategory({ category, props });
-  };
-
-  const renderAndroidExension = (props = {}) => {
-    const category = {
-      ...fakeCategory,
-      application: CLIENT_APP_ANDROID,
-      type: ADDON_TYPE_EXTENSION,
-    };
-
-    return renderWithCategory({ category, props });
-  };
 
   function _fetchCategories(overrides = {}) {
     store.dispatch(
@@ -797,53 +751,5 @@ describe(__filename, () => {
 
       expect(root.find(NotFound)).toHaveLength(0);
     });
-  });
-
-  it('renders a 404 when clientApp is Android and enableFeatureStaticThemesForAndroid is false', () => {
-    store = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID }).store;
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: false,
-    });
-
-    const root = renderAndroidTheme({ _config, store });
-
-    expect(root.find(NotFound)).toHaveLength(1);
-    expect(root).not.toHaveClassName('Category');
-  });
-
-  it('does not render a 404 when clientApp is Android and enableFeatureStaticThemesForAndroid is true', () => {
-    store = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID }).store;
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: true,
-    });
-
-    const root = renderAndroidTheme({ _config, store });
-
-    expect(root.find(NotFound)).toHaveLength(0);
-    expect(root).toHaveClassName('Category');
-  });
-
-  it('does not render a 404 when clientApp is not Android', () => {
-    store = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store;
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: false,
-    });
-
-    const root = renderFirefoxTheme({ _config, store });
-
-    expect(root.find(NotFound)).toHaveLength(0);
-    expect(root).toHaveClassName('Category');
-  });
-
-  it('does not render a 404 when addonType is not a theme', () => {
-    store = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID }).store;
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: false,
-    });
-
-    const root = renderAndroidExension({ _config, store });
-
-    expect(root.find(NotFound)).toHaveLength(0);
-    expect(root).toHaveClassName('Category');
   });
 });

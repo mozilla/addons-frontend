@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import Footer, { FooterBase } from 'amo/components/Footer';
+import { makeQueryStringWithUTM } from 'amo/utils';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -40,6 +41,17 @@ describe(__filename, () => {
     expect(root.find('.Footer-bug-report-link')).toHaveProp(
       'href',
       'https://developer.mozilla.org/Add-ons/AMO/Policy/Contact',
+    );
+
+    expect(root.find('.Footer-extension-workshop-link')).toHaveText(
+      'Extension Workshop',
+    );
+    expect(root.find('.Footer-extension-workshop-link')).toHaveProp(
+      'href',
+      `https://extensionworkshop.com/${makeQueryStringWithUTM({
+        utm_content: 'footer-link',
+        utm_campaign: null,
+      })}`,
     );
   });
 });

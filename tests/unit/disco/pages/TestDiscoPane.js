@@ -2,6 +2,7 @@ import { mount } from 'enzyme';
 import * as React from 'react';
 import { Provider } from 'react-redux';
 
+import { setLang } from 'core/actions';
 import {
   DISCO_NAVIGATION_CATEGORY,
   GLOBAL_EVENTS,
@@ -17,14 +18,17 @@ import { getDiscoResults } from 'disco/reducers/discoResults';
 import { setHashedClientId } from 'disco/reducers/telemetry';
 import createStore from 'disco/store';
 import { makeQueryStringWithUTM } from 'disco/utils';
+import { genericType } from 'ui/components/Notice';
 import {
   createFakeLocation,
   createFakeTracking,
   createStubErrorHandler,
   fakeI18n,
+  getFakeLogger,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
+  createDiscoResult,
   fakeDiscoAddon,
   loadDiscoResultsIntoState,
 } from 'tests/unit/disco/helpers';
@@ -46,7 +50,7 @@ describe(__filename, () => {
       i18n: fakeI18n(),
       location: createFakeLocation(),
       match: {
-        params: { platform: 'Darwin' },
+        params: { platform: 'Darwin', version: '66.0' },
       },
       store: createStore().store,
       ...customProps,
@@ -107,23 +111,55 @@ describe(__filename, () => {
     });
 
     it('sends a telemetry client ID if there is one', () => {
+      const version = '65.0.1';
+      const platform = 'Linux';
+      const match = { params: { platform, version } };
+
       const clientId = '1112';
       store.dispatch(setHashedClientId(clientId));
       const dispatch = sinon.spy(store, 'dispatch');
 
-      const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
-
-      render({ errorHandler, store });
+      const root = render({ store, match });
 
       sinon.assert.calledWith(
         dispatch,
         getDiscoResults({
-          errorHandlerId: errorHandler.id,
+          errorHandlerId: root.instance().props.errorHandler.id,
           taarParams: {
             clientId,
-            platform: 'Darwin',
+            platform,
           },
         }),
+      );
+    });
+
+    // See: https://github.com/mozilla/addons-frontend/issues/7573
+    it('does not send a telemetry client ID when version is < 65.0.1', () => {
+      const version = '65.0';
+      const platform = 'Linux';
+      const match = { params: { platform, version } };
+
+      const clientId = '1112';
+      store.dispatch(setHashedClientId(clientId));
+      const dispatch = sinon.spy(store, 'dispatch');
+
+      const _log = getFakeLogger();
+
+      const root = render({ _log, store, match });
+
+      sinon.assert.calledWith(
+        dispatch,
+        getDiscoResults({
+          errorHandlerId: root.instance().props.errorHandler.id,
+          taarParams: {
+            platform,
+          },
+        }),
+      );
+      sinon.assert.calledWith(
+        _log.debug,
+        `Not passing the client ID to the API because the browser version (%s) is < 65.0.1`,
+        version,
       );
     });
 
@@ -243,7 +279,9 @@ describe(__filename, () => {
       'shows a "find more add-ons" link with UTM params on the %s of the page',
       (position) => {
         const root = render();
-        const button = root.find(`.amo-link-${position}`).find(Button);
+        const button = root
+          .find(`.DiscoPane-amo-link-${position}`)
+          .find(Button);
 
         expect(button).toHaveLength(1);
         expect(button).toHaveProp(
@@ -262,7 +300,7 @@ describe(__filename, () => {
         const root = render();
 
         root
-          .find(`.amo-link-${position}`)
+          .find(`.DiscoPane-amo-link-${position}`)
           .find(Button)
           .simulate('click');
 
@@ -273,5 +311,51 @@ describe(__filename, () => {
         });
       },
     );
+  });
+
+  describe('Notice about recommendations', () => {
+    let store;
+
+    beforeEach(() => {
+      store = createStore().store;
+    });
+
+    it('does not show a Notice when there are no recommended results', () => {
+      loadDiscoResultsIntoState(
+        [createDiscoResult({ is_recommendation: false })],
+        { store },
+      );
+
+      const root = render({ store });
+
+      expect(root.find('.DiscoPane-notice-recommendations')).toHaveLength(0);
+    });
+
+    it('shows a Notice when there are recommended results', () => {
+      const lang = 'fr';
+      const platform = 'Linux';
+      const version = '65.0';
+      const match = { params: { platform, version } };
+
+      store.dispatch(setLang(lang));
+
+      loadDiscoResultsIntoState(
+        [createDiscoResult({ is_recommendation: true })],
+        { store },
+      );
+
+      const root = render({ store, match });
+
+      const notice = root.find('.DiscoPane-notice-recommendations');
+      expect(notice).toHaveLength(1);
+      expect(notice).toHaveProp(
+        'actionHref',
+        `https://support.mozilla.org/1/firefox/${version}/${platform}/${lang}/personalized-addons`,
+      );
+      expect(notice).toHaveProp('actionTarget', '_blank');
+      expect(notice).toHaveProp('actionText', 'Learn More');
+      expect(notice).toHaveProp('type', genericType);
+      expect(notice.childAt(0)).toIncludeText('Some of these recommendations');
+    });
   });
 });

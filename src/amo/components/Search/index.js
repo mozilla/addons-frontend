@@ -11,7 +11,7 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import SearchContextCard from 'amo/components/SearchContextCard';
 import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
-import { resetSearch, searchStart } from 'core/reducers/search';
+import { searchStart } from 'core/reducers/search';
 import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
@@ -24,10 +24,7 @@ import {
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import {
-  convertFiltersToQueryParams,
-  hasSearchFilters,
-} from 'core/searchUtils';
+import { convertFiltersToQueryParams } from 'core/searchUtils';
 import type { AppState } from 'amo/store';
 import type { SearchFilters as SearchFiltersType } from 'core/api/search';
 import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
@@ -51,7 +48,7 @@ type InternalProps = {|
   count: number,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  filtersUsedForResults: SearchFiltersType,
+  filtersUsedForResults: SearchFiltersType | null,
   i18n: I18nType,
   loading: boolean,
   pageSize: string,
@@ -87,25 +84,24 @@ export class SearchBase extends React.Component<InternalProps> {
 
   dispatchSearch({
     newFilters = {},
-    oldFilters = {},
-  }: {| newFilters: SearchFiltersType, oldFilters: SearchFiltersType |} = {}) {
+    oldFilters,
+  }: {|
+    newFilters: SearchFiltersType,
+    oldFilters: ?SearchFiltersType,
+  |} = {}) {
     const { context, dispatch, errorHandler } = this.props;
     const { addonType } = newFilters;
 
     if (!deepEqual(oldFilters, newFilters)) {
-      if (hasSearchFilters(newFilters)) {
-        dispatch(
-          searchStart({
-            errorHandlerId: errorHandler.id,
-            filters: newFilters,
-          }),
-        );
+      dispatch(
+        searchStart({
+          errorHandlerId: errorHandler.id,
+          filters: newFilters,
+        }),
+      );
 
-        if (addonType) {
-          dispatch(setViewContext(addonType));
-        }
-      } else {
-        dispatch(resetSearch());
+      if (addonType) {
+        dispatch(setViewContext(addonType));
       }
     }
 

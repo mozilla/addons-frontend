@@ -28,10 +28,6 @@ export const getLabelText = (i18n: I18nType, name: string): string | null => {
       return i18n.gettext('an add-on developer replies to my review');
     case 'reviewer_reviewed':
       return i18n.gettext('my add-on is reviewed by a reviewer');
-    case 'sdk_upgrade_fail':
-      return i18n.gettext('my sdk-based add-on cannot be upgraded');
-    case 'sdk_upgrade_success':
-      return i18n.gettext('my sdk-based add-on is upgraded successfully');
     case 'upgrade_fail':
       return i18n.gettext(`my add-on's compatibility cannot be upgraded`);
     case 'upgrade_success':

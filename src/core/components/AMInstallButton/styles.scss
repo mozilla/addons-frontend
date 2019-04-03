@@ -127,19 +127,3 @@
     }
   }
 }
-
-.AMInstallButton--green {
-  .Button--action {
-    background-color: $green-70;
-
-    &:not(.Button--disabled) {
-      &:hover {
-        background-color: $green-80;
-      }
-
-      &:active {
-        background-color: $green-90;
-      }
-    }
-  }
-}

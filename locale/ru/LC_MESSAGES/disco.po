@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-22 20:36+0000\n"
-"PO-Revision-Date: 2018-12-13 15:24+0000\n"
+"POT-Creation-Date: 2019-02-26 17:58+0000\n"
+"PO-Revision-Date: 2019-01-29 23:08+0000\n"
 "Last-Translator: Victor Bychek <a@bychek.ru>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -15,35 +15,35 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:238
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enable"
 msgstr "Включить"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Remove"
 msgstr "Удалить"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:216
 msgid "Enabling"
 msgstr "Включаю"
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:218
 msgid "Downloading"
 msgstr "Загрузка"
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:220
 msgid "Installing"
 msgstr "Установка"
 
-#: src/core/components/AMInstallButton/index.js:249
+#: src/core/components/AMInstallButton/index.js:222
 msgid "Uninstalling"
 msgstr "Удаление"
 
-#: src/core/components/AMInstallButton/index.js:257
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Install Theme"
 msgstr "Установить тему"
 
-#: src/core/components/AMInstallButton/index.js:258
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Add to Firefox"
 msgstr "Добавить в Firefox"
 
@@ -163,15 +163,15 @@ msgstr "Откройте для себя дополнения"
 msgid "Privacy Policy"
 msgstr "Политика приватности"
 
-#: src/disco/pages/DiscoPane/index.js:146
+#: src/disco/pages/DiscoPane/index.js:166
 msgid "Find more add-ons"
 msgstr "Найти больше дополнений"
 
-#: src/disco/pages/DiscoPane/index.js:162
+#: src/disco/pages/DiscoPane/index.js:188
 msgid "Personalize Your Firefox"
 msgstr "Настройте под себя свой Firefox"
 
-#: src/disco/pages/DiscoPane/index.js:164
+#: src/disco/pages/DiscoPane/index.js:190
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -185,6 +185,19 @@ msgstr ""
 "быстрее и безопаснее, дополнения сделают ваш браузер вашим.\n"
 "Чтобы помочь начать, вот несколько дополнений, которые мы вам рекомендуем из-"
 "за их превосходной производительности и функциональности."
+
+#: src/disco/pages/DiscoPane/index.js:207
+msgid "Learn More"
+msgstr "Подробнее"
+
+#: src/disco/pages/DiscoPane/index.js:211
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"Некоторые из этих рекомендаций персонализированы. Они основаны на других "
+"установленных вами расширениях, настройках профиля и статистике "
+"использования."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -202,7 +215,7 @@ msgstr "Перезагрузите для продолжения"
 msgid "Dismiss this notice"
 msgstr "Скрыть это уведомление"
 
-#: src/ui/components/ThemeImage/index.js:31
+#: src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr "Предпросмотр %(title)s"
 

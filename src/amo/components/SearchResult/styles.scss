@@ -18,6 +18,7 @@ $icon-default-size: 32px;
   display: flex;
   flex-flow: row wrap;
   margin: 0;
+  max-width: $theme-width-default;
   padding: 0;
   width: 100%;
 }
@@ -145,10 +146,6 @@ $icon-default-size: 32px;
   .Rating {
     justify-content: flex-start;
     margin: 0;
-
-    @include respond-to(large) {
-      margin-top: 2px;
-    }
   }
 
   .SearchResult--theme & {

@@ -1,4 +1,3 @@
-/* global document */
 import * as React from 'react';
 
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';

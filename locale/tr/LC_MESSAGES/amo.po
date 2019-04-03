@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-22 20:32+0000\n"
-"PO-Revision-Date: 2019-01-11 19:24+0000\n"
+"POT-Creation-Date: 2019-03-26 16:51+0000\n"
+"PO-Revision-Date: 2019-03-21 17:29+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -157,9 +157,8 @@ msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s - Bu 🦊 Firefox (%(locale)s) temasını yükleyin"
 
 #: src/amo/components/AddonHead/index.js:116
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr "%s – Firefox Eklentileri"
+msgstr "%(addonName)s – Bu 🦊 Firefox (%(locale)s) arama aracını yükleyin"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:121
@@ -171,80 +170,76 @@ msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr "Firefox için %(addonName)s eklentisini indir. %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:61
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Firefox Eklentileri"
+msgstr "%(addonName)s - Bu 🦊 Firefox Android (%(locale)s) sözlüğünü yükleyin"
 
 #: src/amo/components/AddonHead/index.js:66
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Firefox Eklentileri"
+msgstr "%(addonName)s - Bu 🦊 Firefox Android (%(locale)s) eklentisini yükleyin"
 
 #: src/amo/components/AddonHead/index.js:71
-#, fuzzy
 msgid ""
 "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Firefox Eklentileri"
+msgstr ""
+"%(addonName)s - Bu 🦊 Firefox Android (%(locale)s) dil paketini yükleyin"
 
 #: src/amo/components/AddonHead/index.js:77
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Firefox Eklentileri"
+msgstr "%(addonName)s - Bu 🦊 Firefox Android (%(locale)s) temasını yükleyin"
 
 #: src/amo/components/AddonHead/index.js:83
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Firefox Eklentileri"
+msgstr ""
+"%(addonName)s - Bu 🦊 Firefox Android (%(locale)s) arama aracını yükleyin"
 
 #: src/amo/components/AddonHead/index.js:88
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Firefox Eklentileri"
+msgstr "%(addonName)s - Bu 🦊 Firefox Android (%(locale)s) eklentisini yükleyin"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:95
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s - Bu 🦊 Firefox (%(locale)s) sözlüğünü yükleyin"
 
-#: src/amo/components/AddonMeta/index.js:113
+#: src/amo/components/AddonMeta/index.js:116
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s yıldız"
 msgstr[1] "%(total)s yıldız"
 
-#: src/amo/components/AddonMeta/index.js:122
+#: src/amo/components/AddonMeta/index.js:125
 msgid "Not rated yet"
 msgstr "Henüz puanlanmamış"
 
-#: src/amo/components/AddonMeta/index.js:45
+#: src/amo/components/AddonMeta/index.js:46
 msgid "Users"
 msgstr "Kullanıcılar"
 
-#: src/amo/components/AddonMeta/index.js:48
+#: src/amo/components/AddonMeta/index.js:51
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Kullanıcı"
 msgstr[1] "Kullanıcı"
 
-#: src/amo/components/AddonMeta/index.js:50
+#: src/amo/components/AddonMeta/index.js:53
 msgid "No Users"
 msgstr "Kullanıcı yok"
 
-#: src/amo/components/AddonMeta/index.js:57
+#: src/amo/components/AddonMeta/index.js:60
 msgid "Reviews"
 msgstr "İncelemeler"
 
-#: src/amo/components/AddonMeta/index.js:60
+#: src/amo/components/AddonMeta/index.js:63
 msgid "Review"
 msgid_plural "Reviews"
 msgstr[0] "İnceleme"
 msgstr[1] "İncelemeler"
 
-#: src/amo/components/AddonMeta/index.js:62
+#: src/amo/components/AddonMeta/index.js:65
 msgid "No Reviews"
 msgstr "İnceleme yok"
 
-#: src/amo/components/AddonMeta/index.js:86
+#: src/amo/components/AddonMeta/index.js:89
 msgid "Used by"
 msgstr "Kullanan"
 
@@ -307,7 +302,7 @@ msgstr "Daha fazla bilgi"
 
 #: src/amo/components/AddonMoreInfo/index.js:59
 #: src/amo/pages/UserProfile/index.js:355
-#: src/amo/pages/UserProfileEdit/index.js:603
+#: src/amo/pages/UserProfileEdit/index.js:608
 msgid "Homepage"
 msgstr "Ana sayfa"
 
@@ -327,108 +322,115 @@ msgstr "Bu eklentiyi yükleyen diğer kullanıcılar"
 msgid "Other popular extensions"
 msgstr "Diğer popüler eklentiler"
 
-#: src/amo/components/AddonReviewCard/index.js:194
+#: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit reply"
 msgstr "Yanıtı düzenle"
 
-#: src/amo/components/AddonReviewCard/index.js:197
+#: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
 msgstr "İncelemeyi düzenle"
 
-#: src/amo/components/AddonReviewCard/index.js:204
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:205
+#: src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
 msgstr "Yanıtı sil"
 
-#: src/amo/components/AddonReviewCard/index.js:208
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:209
+#: src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
 msgstr "Puanı sil"
 
-#: src/amo/components/AddonReviewCard/index.js:211
-#: src/amo/components/AddonReviewCard/index.js:243
+#: src/amo/components/AddonReviewCard/index.js:212
+#: src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
 msgstr "İncelemeyi sil"
 
-#: src/amo/components/AddonReviewCard/index.js:218
+#: src/amo/components/AddonReviewCard/index.js:219
 msgid "Do you really want to delete this reply?"
 msgstr "Bu resmi silmek istediğinizden emin misiniz?"
 
-#: src/amo/components/AddonReviewCard/index.js:222
+#: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this rating?"
 msgstr "Bu resmi silmek istediğinizden emin misiniz?"
 
-#: src/amo/components/AddonReviewCard/index.js:225
+#: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
 msgstr "Bu resmi silmek istediğinizden emin misiniz?"
 
-#: src/amo/components/AddonReviewCard/index.js:232
+#: src/amo/components/AddonReviewCard/index.js:233
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "Sil"
 
-#: src/amo/components/AddonReviewCard/index.js:250
+#: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:147
-#: src/amo/components/CollectionManager/index.js:309
-#: src/amo/pages/UserProfileEdit/index.js:847
+#: src/amo/components/CollectionManager/index.js:313
+#: src/amo/pages/UserProfileEdit/index.js:852
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:255
 msgid "Keep reply"
 msgstr "Yanıtı sakla"
 
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep rating"
 msgstr "Puanı koru"
 
-#: src/amo/components/AddonReviewCard/index.js:261
+#: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep review"
 msgstr "İncelemeyi sakla"
 
-#: src/amo/components/AddonReviewCard/index.js:297
+#: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
 msgstr "Bu incelemeye yanıt yazın."
 
-#: src/amo/components/AddonReviewCard/index.js:300
+#: src/amo/components/AddonReviewCard/index.js:301
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Update reply"
 msgstr "Yanıtı güncelle"
 
-#: src/amo/components/AddonReviewCard/index.js:301
+#: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
 msgstr "Yanıtı yayımla"
 
-#: src/amo/components/AddonReviewCard/index.js:305
+#: src/amo/components/AddonReviewCard/index.js:306
 #: src/amo/components/AddonReviewManager/index.js:118
 msgid "Updating reply"
 msgstr "Yanıt güncelleniyor"
 
-#: src/amo/components/AddonReviewCard/index.js:306
+#: src/amo/components/AddonReviewCard/index.js:307
 msgid "Publishing reply"
 msgstr "Yanıt yayımlanıyor"
 
-#: src/amo/components/AddonReviewCard/index.js:348
-#, fuzzy
+#: src/amo/components/AddonReviewCard/index.js:349
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "gönderilme: %(timestamp)s"
+msgstr "gönderilme: %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:350
-#, fuzzy
+#: src/amo/components/AddonReviewCard/index.js:351
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "yazan: %(authorName)s, %(timestamp)s"
+msgstr "yazan: %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:437
+#: src/amo/components/AddonReviewCard/index.js:438
 msgid "Deleting…"
 msgstr "Siliniyor…"
 
-#: src/amo/components/AddonReviewCard/index.js:468
+#: src/amo/components/AddonReviewCard/index.js:469
 msgid "Reply to this review"
 msgstr "Bu incelemeyi yanıtla"
 
-#: src/amo/components/AddonReviewCard/index.js:537
+#: src/amo/components/AddonReviewCard/index.js:499
+#, fuzzy
+msgid ""
+"This rating or review has been deleted. You are only seeing it because of "
+"elevated permissions."
+msgstr ""
+"Bu listeleme herkese açık değildir. Ek izinleriniz nedeniyle bunu "
+"görebiliyorsunuz."
+
+#: src/amo/components/AddonReviewCard/index.js:545
 msgid "Write a review"
 msgstr "İnceleme yazın"
 
@@ -590,7 +592,7 @@ msgstr "Eklenti bulunamadı"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Sürüm %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
@@ -678,7 +680,7 @@ msgid "Back to collection"
 msgstr "Koleksiyona dön"
 
 #: src/amo/components/CollectionDetails/index.js:79
-#: src/amo/components/Footer/index.js:41
+#: src/amo/components/Footer/index.js:42
 msgid "Add-ons"
 msgstr "Eklentiler"
 
@@ -686,23 +688,23 @@ msgstr "Eklentiler"
 msgid "Creator"
 msgstr "Oluşturan"
 
-#: src/amo/components/CollectionManager/index.js:234
+#: src/amo/components/CollectionManager/index.js:237
 msgid "Create collection"
 msgstr "Yeni koleksiyon oluştur"
 
-#: src/amo/components/CollectionManager/index.js:235
+#: src/amo/components/CollectionManager/index.js:238
 msgid "Save changes"
 msgstr "Değişiklikleri kaydet"
 
-#: src/amo/components/CollectionManager/index.js:244
+#: src/amo/components/CollectionManager/index.js:247
 msgid "Collection name"
 msgstr "Koleksiyon adı"
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:261
 msgid "Description"
 msgstr "Açıklama"
 
-#: src/amo/components/CollectionManager/index.js:270
+#: src/amo/components/CollectionManager/index.js:273
 msgid "Custom URL"
 msgstr "Özel URL"
 
@@ -807,7 +809,7 @@ msgid "Leave a note"
 msgstr "Not bırak"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Remove"
 msgstr "Kaldır"
 
@@ -859,7 +861,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Hata! Bu sayfayı bulamadık"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid ""
@@ -939,12 +941,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Hata raporu veya destek isteği olarak işaretlendi"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "İşaretlendi"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "İşaretle"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "İşaretlendi"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -986,39 +988,44 @@ msgstr "Bu uygunsuz bir dil içeriyor"
 msgid "Flagged for inappropriate language"
 msgstr "Uygunsuz dil olarak işaretlendi"
 
-#: src/amo/components/Footer/index.js:102
+#: src/amo/components/Footer/index.js:111
+#: src/amo/components/GetFirefoxButton/index.js:74
+msgid "Download Firefox"
+msgstr "Firefox’u indir"
+
+#: src/amo/components/Footer/index.js:116
 msgid "Android Browser"
 msgstr "Android tarayıcısı"
 
-#: src/amo/components/Footer/index.js:107
+#: src/amo/components/Footer/index.js:121
 msgid "iOS Browser"
 msgstr "iOS tarayıcısı"
 
-#: src/amo/components/Footer/index.js:112
+#: src/amo/components/Footer/index.js:126
 msgid "Focus Browser"
 msgstr "Focus tarayıcı"
 
-#: src/amo/components/Footer/index.js:117
+#: src/amo/components/Footer/index.js:131
 msgid "Desktop Browser"
 msgstr "Masaüstü tarayıcısı"
 
-#: src/amo/components/Footer/index.js:122
+#: src/amo/components/Footer/index.js:136
 msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Developer Edition"
 
-#: src/amo/components/Footer/index.js:151
+#: src/amo/components/Footer/index.js:165
 msgid "Privacy"
 msgstr "Gizlilik"
 
-#: src/amo/components/Footer/index.js:159
+#: src/amo/components/Footer/index.js:173
 msgid "Cookies"
 msgstr "Çerezler"
 
-#: src/amo/components/Footer/index.js:167
+#: src/amo/components/Footer/index.js:181
 msgid "Legal"
 msgstr "Yasal"
 
-#: src/amo/components/Footer/index.js:177
+#: src/amo/components/Footer/index.js:191
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1028,46 +1035,46 @@ msgstr ""
 "%(startLicenseLink)sCreative Commons Attribution Share-Alike Lisansı "
 "v3.0%(endLicenseLink)s veya daha yeni sürümüyle lisanslanmıştır."
 
-#: src/amo/components/Footer/index.js:20
+#: src/amo/components/Footer/index.js:21
 msgid "Go to Mozilla's homepage"
 msgstr "Mozilla'nın ana sayfasına gidin"
 
-#: src/amo/components/Footer/index.js:46
+#: src/amo/components/Footer/index.js:47
 msgid "About"
 msgstr "Hakkında"
 
-#: src/amo/components/Footer/index.js:51
+#: src/amo/components/Footer/index.js:52
 msgid "Blog"
 msgstr "Blog"
 
-#: src/amo/components/Footer/index.js:56 src/amo/components/Header/index.js:79
+#: src/amo/components/Footer/index.js:65 src/amo/components/Header/index.js:84
+#, fuzzy
+msgid "Extension Workshop"
+msgstr "Eklentiler"
+
+#: src/amo/components/Footer/index.js:70 src/amo/components/Header/index.js:93
 msgid "Developer Hub"
 msgstr "Geliştirici Merkezi"
 
-#: src/amo/components/Footer/index.js:61
+#: src/amo/components/Footer/index.js:75
 msgid "Developer Policies"
 msgstr "Geliştirici Politikaları"
 
-#: src/amo/components/Footer/index.js:66
+#: src/amo/components/Footer/index.js:80
 msgid "Forum"
 msgstr "Forum"
 
-#: src/amo/components/Footer/index.js:74
+#: src/amo/components/Footer/index.js:88
 msgid "Report a bug"
 msgstr "Hata bildir"
 
-#: src/amo/components/Footer/index.js:79
+#: src/amo/components/Footer/index.js:93
 msgid "Review Guide"
 msgstr "İnceleme rehberi"
 
-#: src/amo/components/Footer/index.js:84
+#: src/amo/components/Footer/index.js:98
 msgid "Site Status"
 msgstr "Site durumu"
-
-#: src/amo/components/Footer/index.js:97
-#: src/amo/components/GetFirefoxButton/index.js:74
-msgid "Download Firefox"
-msgstr "Firefox’u indir"
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
@@ -1078,404 +1085,51 @@ msgid "Staff Pick"
 msgstr "Editörün Seçimi"
 
 #: src/amo/components/Header/index.js:105
+msgid "My Account"
+msgstr "Hesabım"
+
+#: src/amo/components/Header/index.js:111
+msgid "View My Collections"
+msgstr "Koleksiyonlarımı göster"
+
+#: src/amo/components/Header/index.js:119
 #: src/amo/pages/UserProfileEdit/index.js:502
 msgid "View My Profile"
 msgstr "Profilimi göster"
 
-#: src/amo/components/Header/index.js:113
+#: src/amo/components/Header/index.js:127
 #: src/amo/pages/UserProfileEdit/index.js:508
 msgid "Edit My Profile"
 msgstr "Profilimi düzenle"
 
-#: src/amo/components/Header/index.js:117
+#: src/amo/components/Header/index.js:131
 msgid "Tools"
 msgstr "Araçlar"
 
-#: src/amo/components/Header/index.js:123
+#: src/amo/components/Header/index.js:137
 msgid "Submit a New Add-on"
 msgstr "Yeni eklenti gönder"
 
-#: src/amo/components/Header/index.js:128
+#: src/amo/components/Header/index.js:142
 msgid "Submit a New Theme"
 msgstr "Yeni tema gönder"
 
-#: src/amo/components/Header/index.js:137
+#: src/amo/components/Header/index.js:151
 msgid "Manage My Submissions"
 msgstr "Gönderilerimi yönet"
 
-#: src/amo/components/Header/index.js:147
+#: src/amo/components/Header/index.js:161
 msgid "Reviewer Tools"
 msgstr "İnceleyici Araçları"
 
-#: src/amo/components/Header/index.js:157
+#: src/amo/components/Header/index.js:171
 #: src/core/components/AuthenticateButton/index.js:80
 msgid "Log out"
 msgstr "Çıkış"
 
-#: src/amo/components/Header/index.js:54
+#: src/amo/components/Header/index.js:55
 msgid "Firefox Add-ons"
 msgstr "Firefox Eklentileri"
-
-#: src/amo/components/Header/index.js:91
-msgid "My Account"
-msgstr "Hesabım"
-
-#: src/amo/components/Header/index.js:97
-msgid "View My Collections"
-msgstr "Koleksiyonlarımı göster"
-
-#: src/amo/components/HomeHeroBanner/index.js:100
-msgid "Highly customizable text highlighter"
-msgstr "Son derece özelleştirilebilir metin işaretleyici"
-
-#: src/amo/components/HomeHeroBanner/index.js:104
-msgid "Watch2Gether"
-msgstr "Watch2Gether"
-
-#: src/amo/components/HomeHeroBanner/index.js:105
-msgid "Watch videos simultaneously with others"
-msgstr "Başkalarıyla aynı anda video izleyin"
-
-#: src/amo/components/HomeHeroBanner/index.js:109
-msgid "Context Search"
-msgstr "Context Search"
-
-#: src/amo/components/HomeHeroBanner/index.js:110
-msgid "Highlight text on any webpage to easily search the term"
-msgstr ""
-"Web sayfalarındaki metinlerde kolayca terim araması yapmak için metni "
-"vurgulayın"
-
-#: src/amo/components/HomeHeroBanner/index.js:116
-msgid "Stylus"
-msgstr "Stylus"
-
-#: src/amo/components/HomeHeroBanner/index.js:117
-msgid "Give your favorite websites a new look"
-msgstr "Favori sitelerinize yeni bir görünüm verin"
-
-#: src/amo/components/HomeHeroBanner/index.js:121
-msgid "Search Encrypt"
-msgstr "Search Encrypt"
-
-#: src/amo/components/HomeHeroBanner/index.js:122
-msgid "Privacy protection for your search data"
-msgstr "Arama verileriniz için gizlilik koruması"
-
-#: src/amo/components/HomeHeroBanner/index.js:126
-msgid "Auto Tab Discard"
-msgstr "Auto Tab Discard"
-
-#: src/amo/components/HomeHeroBanner/index.js:127
-msgid "Save memory by disabling inactive tabs"
-msgstr "Etkin olmayan sekmeleri devre dışı bırakarak bellek tasarrufu yapın"
-
-#: src/amo/components/HomeHeroBanner/index.js:131
-msgid "Update Scanner"
-msgstr "Update Scanner"
-
-#: src/amo/components/HomeHeroBanner/index.js:132
-msgid "Get notified when your selected websites update with new content"
-msgstr "Seçtiğiniz web sitelerine yeni içerik eklendiğinde bildirim alın"
-
-#: src/amo/components/HomeHeroBanner/index.js:138
-msgid "Auto Fullscreen"
-msgstr "Auto Fullscreen"
-
-#: src/amo/components/HomeHeroBanner/index.js:139
-msgid "Automatically start Firefox in full screen mode"
-msgstr "Firefox’u otomatik olarak tam ekran modunda başlat"
-
-#: src/amo/components/HomeHeroBanner/index.js:145
-msgid "Video Speed Controller"
-msgstr "Video Speed Controller"
-
-#: src/amo/components/HomeHeroBanner/index.js:146
-msgid "Adjust video playback speeds with shortcuts"
-msgstr "Kısayollarla video oynatma hızlarını ayarlayın"
-
-#: src/amo/components/HomeHeroBanner/index.js:152
-msgid "View Image"
-msgstr "View Image"
-
-#: src/amo/components/HomeHeroBanner/index.js:153
-msgid "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
-msgstr ""
-"Google Görseller'deki \"Resmi Görüntüle\" ve \"Görsel ile Ara\" düğmelerini "
-"geri getirin"
-
-#: src/amo/components/HomeHeroBanner/index.js:159
-msgid "Neat URL"
-msgstr "Neat URL"
-
-#: src/amo/components/HomeHeroBanner/index.js:160
-msgid "Clean up links for easy sharing"
-msgstr "Kolay paylaşım için linkleri temizleyin"
-
-#: src/amo/components/HomeHeroBanner/index.js:164
-msgid "Glitter Drag"
-msgstr "Glitter Drag"
-
-#: src/amo/components/HomeHeroBanner/index.js:165
-msgid ""
-"Drag text, images, or links to perform actions like copy, open, search, and "
-"more"
-msgstr ""
-"Kopyalama, açma, arama gibi işlemleri gerçekleştirmek için metni, resmi veya "
-"bağlantıyı sürükleyin"
-
-#: src/amo/components/HomeHeroBanner/index.js:171
-msgid "Behind The Overlay Revival"
-msgstr "Behind The Overlay Revival"
-
-#: src/amo/components/HomeHeroBanner/index.js:172
-msgid "Click a button to close annoying pop-ups"
-msgstr "Rahatsız edici açılır pencereleri tek düğmeyle kapatın"
-
-#: src/amo/components/HomeHeroBanner/index.js:176
-msgid "Auto-Sort Bookmarks"
-msgstr "Auto-Sort Bookmarks"
-
-#: src/amo/components/HomeHeroBanner/index.js:177
-msgid "Automatically sorts bookmarks so they’re in your preferred position"
-msgstr ""
-"Yer imlerini istediğiniz konuma gelecek şekilde otomatik olarak sıralayın"
-
-#: src/amo/components/HomeHeroBanner/index.js:183
-msgid "Search Preview"
-msgstr "Search Preview"
-
-#: src/amo/components/HomeHeroBanner/index.js:184
-msgid "Enjoy thumbnail images alongside your search returns"
-msgstr "Arama sonuçlarınızın yanında küçük resimler görünsün"
-
-#: src/amo/components/HomeHeroBanner/index.js:190
-msgid "Copy PlainText"
-msgstr "Copy PlainText"
-
-#: src/amo/components/HomeHeroBanner/index.js:191
-msgid "Remove formatting when saving text to your clipboard"
-msgstr "Metni panoya kaydederken biçimlendirmeyi kaldır"
-
-#: src/amo/components/HomeHeroBanner/index.js:197
-msgid "Official Media Bias Fact Check Icon"
-msgstr "Official Media Bias Fact Check Icon"
-
-#: src/amo/components/HomeHeroBanner/index.js:198
-msgid "Indicates the political bias of news sites with a tidy icon"
-msgstr "Haber sitelerinin siyasi ön yargısını bir simgeyle gösterir"
-
-#: src/amo/components/HomeHeroBanner/index.js:204
-msgid "Vertical Tabs Reloaded"
-msgstr "Vertical Tabs Reloaded"
-
-#: src/amo/components/HomeHeroBanner/index.js:205
-msgid "Arrange tabs in a vertical fashion"
-msgstr "Sekmeleri dikey olarak sıralayın"
-
-#: src/amo/components/HomeHeroBanner/index.js:209
-msgid "Search Site"
-msgstr "Ara"
-
-#: src/amo/components/HomeHeroBanner/index.js:210
-msgid "Search within just the domain you’re visiting"
-msgstr "Yalnızca ziyaret ettiğiniz sitede arama yapın"
-
-#: src/amo/components/HomeHeroBanner/index.js:216
-msgid "Push to Kindle"
-msgstr "Push to Kindle"
-
-#: src/amo/components/HomeHeroBanner/index.js:217
-msgid "Send any Web page to your Kindle device"
-msgstr "İstediğiniz web sayfasını Kindle cihazınıza gönderin"
-
-#: src/amo/components/HomeHeroBanner/index.js:221
-msgid "New Tab Homepage"
-msgstr "New Tab Homepage"
-
-#: src/amo/components/HomeHeroBanner/index.js:222
-msgid "Designate a custom home page for your new tabs"
-msgstr "Yeni sekmeleriniz için özel bir giriş sayfası atayın"
-
-#: src/amo/components/HomeHeroBanner/index.js:228
-msgid "OneNote Web Clipper"
-msgstr "OneNote Web Clipper"
-
-#: src/amo/components/HomeHeroBanner/index.js:229
-msgid "Save, annotate & organize web content"
-msgstr "Web içeriğini kaydedin, notlar ekleyin ve düzenleyin"
-
-#: src/amo/components/HomeHeroBanner/index.js:233
-msgid "FoxyGestures"
-msgstr "FoxyGestures"
-
-#: src/amo/components/HomeHeroBanner/index.js:234
-msgid "Customized mouse gestures"
-msgstr "Özelleştirilebilir fare hareketi"
-
-#: src/amo/components/HomeHeroBanner/index.js:238
-msgid "Dark Reader"
-msgstr "Dark Reader"
-
-#: src/amo/components/HomeHeroBanner/index.js:239
-msgid "Go dark for a better web viewing experience"
-msgstr "Daha iyi bir web görüntüleme deneyimi için ekranı karartın"
-
-#: src/amo/components/HomeHeroBanner/index.js:24
-msgid "Facebook Container"
-msgstr "Facebook Container"
-
-#: src/amo/components/HomeHeroBanner/index.js:245
-msgid "CookieBro"
-msgstr "CookieBro"
-
-#: src/amo/components/HomeHeroBanner/index.js:246
-msgid "Automatically delete unwanted cookies"
-msgstr "İstenmeyen çerezleri otomatik olarak silin"
-
-#: src/amo/components/HomeHeroBanner/index.js:25
-msgid "Prevent Facebook from tracking you around the web"
-msgstr "Facebook’un sizi web’de izlemesini engelleyin"
-
-#: src/amo/components/HomeHeroBanner/index.js:250
-msgid "Text MultiCopy"
-msgstr "Text MultiCopy"
-
-#: src/amo/components/HomeHeroBanner/index.js:251
-msgid "Save snippets of text to paste & organize later"
-msgstr ""
-"Daha sonra yapıştırmak ve düzenlemek için metin parçacıklarını kaydedin"
-
-#: src/amo/components/HomeHeroBanner/index.js:257
-msgid "Group Speed Dial"
-msgstr "Group Speed Dial"
-
-#: src/amo/components/HomeHeroBanner/index.js:258
-msgid "Visual bookmarks for your favorite places on the web"
-msgstr "Web'deki en sevdiğiniz yerler için görsel yer imleri"
-
-#: src/amo/components/HomeHeroBanner/index.js:264
-msgid "Undo Close Tab Button"
-msgstr "Undo Close Tab Button"
-
-#: src/amo/components/HomeHeroBanner/index.js:265
-msgid "Never lose a page again"
-msgstr "Artık hiçbir sayfayı kaybetmeyin"
-
-#: src/amo/components/HomeHeroBanner/index.js:269
-msgid "Ad Analysis for Facebook"
-msgstr "Facebook için Reklam Analizi"
-
-#: src/amo/components/HomeHeroBanner/index.js:270
-msgid "See how Facebook ads target you"
-msgstr "Facebook reklamlarının sizi nasıl hedeflediğini görün"
-
-#: src/amo/components/HomeHeroBanner/index.js:274
-msgid "SoundFixer"
-msgstr "SoundFixer"
-
-#: src/amo/components/HomeHeroBanner/index.js:275
-msgid "Adjust audio levels for sounds you encounter around web"
-msgstr "Web'de karşılaştığınız seslerin ses düzeylerini ayarlayın"
-
-#: src/amo/components/HomeHeroBanner/index.js:281
-msgid "Lilo"
-msgstr "Lilo"
-
-#: src/amo/components/HomeHeroBanner/index.js:282
-msgid "Fund social causes by simply using Lilo search"
-msgstr "Lilo aramasını kullanarak sosyal gayeleri destekleyin"
-
-#: src/amo/components/HomeHeroBanner/index.js:31
-msgid "Iridium for YouTube"
-msgstr "Iridium for YouTube"
-
-#: src/amo/components/HomeHeroBanner/index.js:32
-msgid "Play videos in a pop-out window, take video screenshots & more"
-msgstr ""
-"Videoları açılır pencerede oynatın, videodan ekran görüntüleri alın ve daha "
-"fazlasını yapın"
-
-#: src/amo/components/HomeHeroBanner/index.js:38
-msgid "Private Bookmarks"
-msgstr "Private Bookmarks"
-
-#: src/amo/components/HomeHeroBanner/index.js:39
-msgid "Password-protect your personal bookmarks"
-msgstr "Kişisel yer imlerinizi parolayla koruyun"
-
-#: src/amo/components/HomeHeroBanner/index.js:43
-msgid "New Tab Override"
-msgstr "New Tab Override"
-
-#: src/amo/components/HomeHeroBanner/index.js:44
-msgid "Choose the page you see every time you open a new tab"
-msgstr "Yeni bir sekme açtığınızda gördüğünüz sayfayı seçin"
-
-#: src/amo/components/HomeHeroBanner/index.js:50
-msgid "Forecastfox"
-msgstr "Forecastfox"
-
-#: src/amo/components/HomeHeroBanner/index.js:51
-msgid "Get instant global weather information right in Firefox"
-msgstr "Firefox'ta anında hava durumu bilgilerini alın"
-
-#: src/amo/components/HomeHeroBanner/index.js:57
-msgid "Multi-Account Containers"
-msgstr "Multi-Account Containers"
-
-#: src/amo/components/HomeHeroBanner/index.js:58
-msgid ""
-"Keep different parts of your online life—work, personal, etc.—separated by "
-"color-coded tabs"
-msgstr ""
-"Çevrimiçi hayatınızın farklı bölümlerini (iş, kişisel vb.) renkli sekmelerle "
-"ayırın"
-
-#: src/amo/components/HomeHeroBanner/index.js:64
-msgid "Universal Bypass"
-msgstr "Universal Bypass"
-
-#: src/amo/components/HomeHeroBanner/index.js:65
-#, fuzzy
-msgid "Automatically skip annoying link shorteners"
-msgstr "Kupon kodlarını otomatik olarak arayın"
-
-#: src/amo/components/HomeHeroBanner/index.js:71
-msgid "Tree Style Tab"
-msgstr "Tree Style Tab"
-
-#: src/amo/components/HomeHeroBanner/index.js:72
-msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-msgstr "Bir sürü açık sekmeniz var mı? Bunları bir kenar çubuğunda düzenleyin"
-
-#: src/amo/components/HomeHeroBanner/index.js:78
-msgid "Imagus"
-msgstr "Imagus"
-
-#: src/amo/components/HomeHeroBanner/index.js:79
-msgid "Enlarge images by hovering your mouse over it"
-msgstr "Farenizi üzerine getirerek görüntüleri büyütün"
-
-#: src/amo/components/HomeHeroBanner/index.js:85
-msgid "Privacy Possum"
-msgstr "Privacy Possum"
-
-#: src/amo/components/HomeHeroBanner/index.js:86
-msgid "Protect yourself against the sneakiest trackers"
-msgstr "En sinsi takipçilere karşı kendinizi koruyun"
-
-#: src/amo/components/HomeHeroBanner/index.js:92
-msgid "Default Bookmark Folder"
-msgstr "Default Bookmark Folder"
-
-#: src/amo/components/HomeHeroBanner/index.js:93
-msgid "Change the default destination for your bookmarks"
-msgstr "Yer imlerinizin varsayılan konumunu değiştirin"
-
-#: src/amo/components/HomeHeroBanner/index.js:99
-msgid "Textmarker"
-msgstr "Textmarker"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:267
@@ -1776,189 +1430,225 @@ msgstr ""
 "Raporunuzu aldık. Bu kullanıcı ile ilgili endişelerinizi bize bildirdiğiniz "
 "için teşekkürler."
 
-#: src/amo/components/Search/index.js:120
-#: src/amo/components/SearchResults/index.js:73
+#: src/amo/components/Search/index.js:116
+#: src/amo/components/SearchResults/index.js:68
 msgid "Search results"
 msgstr "Arama sonuçları"
 
-#: src/amo/components/Search/index.js:125 src/amo/pages/Category/index.js:139
-#: src/amo/pages/Home/index.js:318 src/amo/pages/LandingPage/index.js:135
+#: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
+#: src/amo/pages/Home/index.js:309 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Öne çıkan eklentiler"
 
-#: src/amo/components/Search/index.js:128 src/amo/pages/Category/index.js:171
-#: src/amo/pages/Home/index.js:345 src/amo/pages/LandingPage/index.js:164
+#: src/amo/components/Search/index.js:124 src/amo/pages/Category/index.js:170
+#: src/amo/pages/Home/index.js:338 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
 msgstr "Öne çıkan temalar"
 
-#: src/amo/components/Search/index.js:131
+#: src/amo/components/Search/index.js:127
 msgid "Featured add-ons"
 msgstr "Öne çıkan eklentiler"
 
-#: src/amo/components/Search/index.js:138 src/amo/pages/Category/index.js:149
-#: src/amo/pages/Home/index.js:378 src/amo/pages/LandingPage/index.js:144
+#: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
+#: src/amo/pages/Home/index.js:355 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr "Gündemdeki eklentiler"
 
-#: src/amo/components/Search/index.js:141 src/amo/pages/Category/index.js:181
-#: src/amo/pages/LandingPage/index.js:173
+#: src/amo/components/Search/index.js:137 src/amo/pages/Category/index.js:180
+#: src/amo/pages/LandingPage/index.js:170
 msgid "Trending themes"
 msgstr "Gündemdeki temalar"
 
-#: src/amo/components/Search/index.js:144
+#: src/amo/components/Search/index.js:140
 msgid "Trending add-ons"
 msgstr "Gündemdeki eklentiler"
 
-#: src/amo/components/Search/index.js:150 src/amo/pages/Category/index.js:159
-#: src/amo/pages/LandingPage/index.js:153
+#: src/amo/components/Search/index.js:146 src/amo/pages/Category/index.js:158
+#: src/amo/pages/LandingPage/index.js:150
 msgid "Top rated extensions"
 msgstr "En yüksek puanlı eklentiler"
 
-#: src/amo/components/Search/index.js:153 src/amo/pages/Category/index.js:191
-#: src/amo/pages/LandingPage/index.js:179
+#: src/amo/components/Search/index.js:149 src/amo/pages/Category/index.js:190
+#: src/amo/pages/LandingPage/index.js:176
 msgid "Top rated themes"
 msgstr "En yüksek puanlı temalar"
 
-#: src/amo/components/Search/index.js:156
+#: src/amo/components/Search/index.js:152
 msgid "Top rated add-ons"
 msgstr "En yüksek puanlı eklentiler"
 
-#: src/amo/components/Search/index.js:162
+#: src/amo/components/Search/index.js:158
 msgid "Popular extensions"
 msgstr "Popüler eklentiler"
 
-#: src/amo/components/Search/index.js:165 src/amo/pages/Home/index.js:355
+#: src/amo/components/Search/index.js:161
 msgid "Popular themes"
 msgstr "Popüler temalar"
 
-#: src/amo/components/Search/index.js:168
+#: src/amo/components/Search/index.js:164
 msgid "Popular add-ons"
 msgstr "Popüler eklentiler"
 
-#: src/amo/components/Search/index.js:174
+#: src/amo/components/Search/index.js:170
 msgid "Search results for \"%(query)s\""
 msgstr "\"%(query)s\" arama sonuçları"
 
 #: src/amo/components/SearchContextCard/index.js:100
-msgid "No add-ons found"
-msgstr "Eklenti bulunamadı"
+#, fuzzy
+msgid "%(count)s Search Tool found for \"%(query)s\""
+msgid_plural "%(count)s Search Tools found for \"%(query)s\""
+msgstr[0] "\"%(query)s\" için %(count)s sonuç bulundu"
+msgstr[1] "\"%(query)s\" için %(count)s sonuç bulundu"
 
-#: src/amo/components/SearchContextCard/index.js:103
-msgid "%(count)s add-on found"
-msgid_plural "%(count)s add-ons found"
-msgstr[0] "%(count)s eklenti bulundu"
-msgstr[1] "%(count)s eklenti bulundu"
+#: src/amo/components/SearchContextCard/index.js:109
+#, fuzzy
+msgid "%(count)s Search Tool found"
+msgid_plural "%(count)s Search Tools found"
+msgstr[0] "\"%(query)s\" için %(count)s sonuç"
+msgstr[1] "\"%(query)s\" için %(count)s sonuç"
 
-#: src/amo/components/SearchContextCard/index.js:40
-msgid "%(count)s extension found for \"%(query)s\""
-msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "\"%(query)s\" için %(count)s eklenti bulundu"
-msgstr[1] "\"%(query)s\" için %(count)s eklenti bulundu"
+#: src/amo/components/SearchContextCard/index.js:122
+#, fuzzy
+msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
+msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
+msgstr[0] "\"%(query)s\" için %(count)s tema bulundu"
+msgstr[1] "\"%(query)s\" için %(count)s tema bulundu"
 
-#: src/amo/components/SearchContextCard/index.js:49
-msgid "%(count)s dictionary found for \"%(query)s\""
-msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] "\"%(query)s\" için %(count)s sözlük bulundu"
-msgstr[1] "\"%(query)s\" için %(count)s sözlük bulundu"
+#: src/amo/components/SearchContextCard/index.js:131
+#, fuzzy
+msgid "%(count)s theme found in %(categoryName)s"
+msgid_plural "%(count)s themes found in %(categoryName)s"
+msgstr[0] "\"%(query)s\" için %(count)s tema bulundu"
+msgstr[1] "\"%(query)s\" için %(count)s tema bulundu"
 
-#: src/amo/components/SearchContextCard/index.js:58
-msgid "%(count)s language pack found for \"%(query)s\""
-msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] "\"%(query)s\" için %(count)s dil paketi bulundu"
-msgstr[1] "\"%(query)s\" için %(count)s dil paketi bulundu"
-
-#: src/amo/components/SearchContextCard/index.js:67
+#: src/amo/components/SearchContextCard/index.js:141
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "\"%(query)s\" için %(count)s tema bulundu"
 msgstr[1] "\"%(query)s\" için %(count)s tema bulundu"
 
-#: src/amo/components/SearchContextCard/index.js:76
+#: src/amo/components/SearchContextCard/index.js:150
+#, fuzzy
+msgid "%(count)s theme found"
+msgid_plural "%(count)s themes found"
+msgstr[0] "%(count)s eklenti bulundu"
+msgstr[1] "%(count)s eklenti bulundu"
+
+#: src/amo/components/SearchContextCard/index.js:162
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "\"%(query)s\" için %(count)s sonuç bulundu"
 msgstr[1] "\"%(query)s\" için %(count)s sonuç bulundu"
 
-#: src/amo/components/SearchContextCard/index.js:86
-msgid "%(count)s result for \"%(query)s\""
-msgid_plural "%(count)s results for \"%(query)s\""
+#: src/amo/components/SearchContextCard/index.js:171
+#, fuzzy
+msgid "%(count)s result found"
+msgid_plural "%(count)s results found"
 msgstr[0] "\"%(query)s\" için %(count)s sonuç"
 msgstr[1] "\"%(query)s\" için %(count)s sonuç"
 
-#: src/amo/components/SearchContextCard/index.js:94
+#: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
 msgstr "\"%(query)s\" aranıyor"
 
-#: src/amo/components/SearchContextCard/index.js:98
-msgid "Loading add-ons"
+#: src/amo/components/SearchContextCard/index.js:186
+#, fuzzy
+msgid "Searching for add-ons"
 msgstr "Eklentiler yükleniyor"
 
-#: src/amo/components/SearchFilters/index.js:111
-#: src/amo/components/SearchFilters/index.js:132
+#: src/amo/components/SearchContextCard/index.js:60
+#, fuzzy
+msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
+msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
+msgstr[0] "\"%(query)s\" için %(count)s eklenti bulundu"
+msgstr[1] "\"%(query)s\" için %(count)s eklenti bulundu"
+
+#: src/amo/components/SearchContextCard/index.js:69
+#, fuzzy
+msgid "%(count)s extension found in %(categoryName)s"
+msgid_plural "%(count)s extensions found in %(categoryName)s"
+msgstr[0] "\"%(query)s\" için %(count)s eklenti bulundu"
+msgstr[1] "\"%(query)s\" için %(count)s eklenti bulundu"
+
+#: src/amo/components/SearchContextCard/index.js:79
+msgid "%(count)s extension found for \"%(query)s\""
+msgid_plural "%(count)s extensions found for \"%(query)s\""
+msgstr[0] "\"%(query)s\" için %(count)s eklenti bulundu"
+msgstr[1] "\"%(query)s\" için %(count)s eklenti bulundu"
+
+#: src/amo/components/SearchContextCard/index.js:88
+#, fuzzy
+msgid "%(count)s extension found"
+msgid_plural "%(count)s extensions found"
+msgstr[0] "%(count)s eklenti bulundu"
+msgstr[1] "%(count)s eklenti bulundu"
+
+#: src/amo/components/SearchFilters/index.js:110
+#: src/amo/components/SearchFilters/index.js:125
 msgid "All"
 msgstr "Tümü"
 
-#: src/amo/components/SearchFilters/index.js:112
+#: src/amo/components/SearchFilters/index.js:111
 msgid "Extension"
 msgstr "Eklenti"
 
-#: src/amo/components/SearchFilters/index.js:113
+#: src/amo/components/SearchFilters/index.js:112
 msgid "Search Tool"
 msgstr "Arama aracı"
 
-#: src/amo/components/SearchFilters/index.js:118
+#: src/amo/components/SearchFilters/index.js:113
 msgid "Theme"
 msgstr "Tema"
 
-#: src/amo/components/SearchFilters/index.js:133
+#: src/amo/components/SearchFilters/index.js:126
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:134
+#: src/amo/components/SearchFilters/index.js:127
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:135
+#: src/amo/components/SearchFilters/index.js:128
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:136
 msgid "Relevance"
 msgstr "İlgi"
 
-#: src/amo/components/SearchFilters/index.js:145
+#: src/amo/components/SearchFilters/index.js:138
 msgid "Recently Updated"
 msgstr "Son güncellenenler"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:141
 msgid "Most Users"
 msgstr "En çok kullanıcı"
 
-#: src/amo/components/SearchFilters/index.js:149
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Top Rated"
 msgstr "En yüksek puan"
 
-#: src/amo/components/SearchFilters/index.js:150
+#: src/amo/components/SearchFilters/index.js:143
 msgid "Trending"
 msgstr "Gündemde"
 
-#: src/amo/components/SearchFilters/index.js:162
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Filter results"
 msgstr "Sonuçları filtrele"
 
-#: src/amo/components/SearchFilters/index.js:167
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Sort by"
 msgstr "Sıralama"
 
-#: src/amo/components/SearchFilters/index.js:189
+#: src/amo/components/SearchFilters/index.js:182
 msgid "Add-on Type"
 msgstr "Eklenti türü"
 
-#: src/amo/components/SearchFilters/index.js:209
+#: src/amo/components/SearchFilters/index.js:202
 msgid "Operating System"
 msgstr "İşletim sistemi"
 
-#: src/amo/components/SearchFilters/index.js:235
+#: src/amo/components/SearchFilters/index.js:228
 msgid "Featured add-ons only"
 msgstr "Yalnızca öne çıkan eklentiler"
 
@@ -1976,96 +1666,92 @@ msgstr "Android eklentileri (%(locale)s)"
 msgid "Go to the add-on page"
 msgstr "Eklentinin sayfasına git"
 
-#: src/amo/components/SearchResult/index.js:121
+#: src/amo/components/SearchResult/index.js:118
 msgid "No theme preview available"
 msgstr "Tema ön izlemesi yok"
 
-#: src/amo/components/SearchResult/index.js:149
+#: src/amo/components/SearchResult/index.js:146
 msgid "Add-on note"
 msgstr "Eklenti notu"
 
-#: src/amo/components/SearchResult/index.js:167
+#: src/amo/components/SearchResult/index.js:165
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s kullanıcı"
 msgstr[1] "%(total)s kullanıcı"
 
-#: src/amo/components/SearchResults/index.js:43
+#: src/amo/components/SearchResults/index.js:42
 msgid "Searching…"
 msgstr "Aranıyor…"
 
-#: src/amo/components/SearchResults/index.js:48
+#: src/amo/components/SearchResults/index.js:47
 msgid "No results were found for \"%(query)s\"."
 msgstr "\"%(query)s\" için sonuç bulunamadı."
 
-#: src/amo/components/SearchResults/index.js:54
+#: src/amo/components/SearchResults/index.js:53
 msgid "No results were found."
 msgstr "Hiç sonuç bulunamadı."
 
-#: src/amo/components/SearchResults/index.js:57
-msgid "Please enter a search term to search Firefox Add-ons."
-msgstr "Firefox Eklentileri'nde aramak istediğiniz terimi yazın."
-
-#: src/amo/components/SectionLinks/index.js:110
-#: src/amo/pages/LandingPage/index.js:233
+#: src/amo/components/SectionLinks/index.js:102
+#: src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
 msgstr "Temalar"
 
-#: src/amo/components/SectionLinks/index.js:117
+#: src/amo/components/SectionLinks/index.js:108
 msgid "More…"
 msgstr "Daha fazla…"
 
-#: src/amo/components/SectionLinks/index.js:131
+#: src/amo/components/SectionLinks/index.js:122
 msgid "Dictionaries & Language Packs"
 msgstr "Sözlükler ve dil paketleri"
 
-#: src/amo/components/SectionLinks/index.js:137
+#: src/amo/components/SectionLinks/index.js:128
 #: src/amo/pages/SearchTools/index.js:34
 msgid "Search Tools"
 msgstr "Arama araçları"
 
-#: src/amo/components/SectionLinks/index.js:142
+#: src/amo/components/SectionLinks/index.js:133
 msgid "Other Browser Sites"
 msgstr "Diğer tarayıcı siteleri"
 
-#: src/amo/components/SectionLinks/index.js:153
+#: src/amo/components/SectionLinks/index.js:144
 msgid "Add-ons for Android"
 msgstr "Android eklentileri"
 
-#: src/amo/components/SectionLinks/index.js:166
+#: src/amo/components/SectionLinks/index.js:157
 msgid "Add-ons for Firefox"
 msgstr "Firefox Eklentileri"
 
-#: src/amo/components/SectionLinks/index.js:67
+#: src/amo/components/SectionLinks/index.js:60
 msgid "for Firefox"
 msgstr "Firefox için"
 
-#: src/amo/components/SectionLinks/index.js:69
+#: src/amo/components/SectionLinks/index.js:62
 msgid "for Android"
 msgstr "Android için"
 
-#: src/amo/components/SectionLinks/index.js:85
+#: src/amo/components/SectionLinks/index.js:78
 msgid "Explore"
 msgstr "Keşfet"
 
-#: src/amo/components/SectionLinks/index.js:95
-#: src/amo/pages/LandingPage/index.js:234
+#: src/amo/components/SectionLinks/index.js:88
+#: src/amo/pages/LandingPage/index.js:229
 msgid "Extensions"
 msgstr "Eklentiler"
 
-#: src/amo/components/SuggestedPages/index.js:34
+#: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
 msgstr "Önerilen sayfalar"
 
-#: src/amo/components/SuggestedPages/index.js:39
+#: src/amo/components/SuggestedPages/index.js:29
 msgid "Browse all extensions"
 msgstr "Tüm eklentilere göz atın"
 
-#: src/amo/components/SuggestedPages/index.js:45
+#: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
 msgstr "Tüm temalara göz atın"
 
-#: src/amo/components/SuggestedPages/index.js:50
+#: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "Eklentiler Ana Sayfası"
 
@@ -2098,18 +1784,10 @@ msgid "my add-on is reviewed by a reviewer"
 msgstr "eklentim bir inceleyici tarafından incelendiğinde"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:32
-msgid "my sdk-based add-on cannot be upgraded"
-msgstr "sdk tabanlı eklentim yükseltilemiyor"
-
-#: src/amo/components/UserProfileEditNotifications/index.js:34
-msgid "my sdk-based add-on is upgraded successfully"
-msgstr "sdk tabanlı eklentim başarıyla yükseltildi"
-
-#: src/amo/components/UserProfileEditNotifications/index.js:36
 msgid "my add-on's compatibility cannot be upgraded"
 msgstr "eklentimin uyumluluğu yükseltilemediğinde"
 
-#: src/amo/components/UserProfileEditNotifications/index.js:38
+#: src/amo/components/UserProfileEditNotifications/index.js:34
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "eklentimin uyumluluğu başarıyla yükseltildiğinde"
 
@@ -2133,7 +1811,7 @@ msgstr "Profil fotoğrafı"
 msgid "Choose Photo…"
 msgstr "Fotoğraf seçin…"
 
-#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr "%(title)s ön izlemesi"
 
@@ -2211,7 +1889,7 @@ msgstr "%(addonName)s Son Kullanıcı Lisans Anlaşması"
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s gizlilik ilkeleri"
 
-#: src/amo/pages/AddonReviewList/index.js:191
+#: src/amo/pages/AddonReviewList/index.js:196
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -2219,47 +1897,47 @@ msgstr ""
 "%(addonName)s incelemeleri ve puanları. Diğer kullanıcıların %(addonName)s "
 "hakkında ne düşündüklerini öğrenin ve eklentiyi Firefox tarayıcınıza ekleyin."
 
-#: src/amo/pages/AddonReviewList/index.js:223
+#: src/amo/pages/AddonReviewList/index.js:228
 msgid "Show all reviews"
 msgstr "Tüm incelemeleri göster"
 
-#: src/amo/pages/AddonReviewList/index.js:225
+#: src/amo/pages/AddonReviewList/index.js:230
 #, fuzzy
 msgid "Show only five-star reviews"
 msgstr "Tüm beş yıldızlı incelemeleri oku"
 
-#: src/amo/pages/AddonReviewList/index.js:226
+#: src/amo/pages/AddonReviewList/index.js:231
 #, fuzzy
 msgid "Show only four-star reviews"
 msgstr "%(count)s incelemenin hepsini oku"
 
-#: src/amo/pages/AddonReviewList/index.js:228
+#: src/amo/pages/AddonReviewList/index.js:233
 #, fuzzy
 msgid "Show only three-star reviews"
 msgstr "Tüm üç yıldızlı incelemeleri oku"
 
-#: src/amo/pages/AddonReviewList/index.js:230
+#: src/amo/pages/AddonReviewList/index.js:235
 #, fuzzy
 msgid "Show only two-star reviews"
 msgstr "Bu incelemeyi yanıtla"
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:236
 #, fuzzy
 msgid "Show only one-star reviews"
 msgstr "%(count)s incelemenin hepsini oku"
 
-#: src/amo/pages/AddonReviewList/index.js:271
+#: src/amo/pages/AddonReviewList/index.js:276
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s incelemeleri"
 
-#: src/amo/pages/AddonReviewList/index.js:281
+#: src/amo/pages/AddonReviewList/index.js:286
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s yıldız"
 msgstr[1] "%(total)s yıldız"
 
-#: src/amo/pages/AddonReviewList/index.js:378
+#: src/amo/pages/AddonReviewList/index.js:383
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Henüz hiç puan yok"
@@ -2281,47 +1959,45 @@ msgid "You should always use the latest version of an add-on."
 msgstr ""
 
 #: src/amo/pages/AddonVersions/index.js:186
-#, fuzzy
 msgid "Latest version"
-msgstr "Beta sürümleri"
+msgstr "Son sürüm"
 
 #: src/amo/pages/AddonVersions/index.js:195
-#, fuzzy
 msgid "Older versions"
-msgstr "Tüm sürümleri göster"
+msgstr "Eski sürümler"
 
-#: src/amo/pages/CategoriesPage/index.js:46
+#: src/amo/pages/CategoriesPage/index.js:34
 msgid "All extension categories"
 msgstr "Tüm eklenti kategorileri"
 
-#: src/amo/pages/CategoriesPage/index.js:48
+#: src/amo/pages/CategoriesPage/index.js:36
 msgid "All theme categories"
 msgstr "Tüm tema kategorileri"
 
-#: src/amo/pages/Category/index.js:148 src/amo/pages/Home/index.js:319
-#: src/amo/pages/LandingPage/index.js:143
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:310
+#: src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
 msgstr "Öne çıkan diğer eklentilere bakın"
 
-#: src/amo/pages/Category/index.js:158 src/amo/pages/Home/index.js:379
-#: src/amo/pages/LandingPage/index.js:152
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:356
+#: src/amo/pages/LandingPage/index.js:149
 msgid "See more trending extensions"
 msgstr "Diğer yükselen eklentilere bakın"
 
-#: src/amo/pages/Category/index.js:168 src/amo/pages/LandingPage/index.js:161
+#: src/amo/pages/Category/index.js:167 src/amo/pages/LandingPage/index.js:158
 msgid "See more top rated extensions"
 msgstr "En yüksek puanlı diğer eklentilere bakın"
 
-#: src/amo/pages/Category/index.js:180 src/amo/pages/Home/index.js:335
-#: src/amo/pages/LandingPage/index.js:172
+#: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:328
+#: src/amo/pages/LandingPage/index.js:169
 msgid "See more featured themes"
 msgstr "Öne çıkan diğer temalara bakın"
 
-#: src/amo/pages/Category/index.js:190 src/amo/pages/LandingPage/index.js:178
+#: src/amo/pages/Category/index.js:189 src/amo/pages/LandingPage/index.js:175
 msgid "See more trending themes"
 msgstr "Diğer yükselen temalara bakın"
 
-#: src/amo/pages/Category/index.js:200 src/amo/pages/LandingPage/index.js:184
+#: src/amo/pages/Category/index.js:199 src/amo/pages/LandingPage/index.js:181
 msgid "See more top rated themes"
 msgstr "En yüksek puanlı diğer temalara bakın"
 
@@ -2356,12 +2032,17 @@ msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
 msgstr ""
+"Sevdiğiniz eklentileri ve temaları takip etmek için Firefox koleksiyonlarını "
+"indirebilir ve oluşturabilirsiniz. %(collectionName)s—"
+"%(collectionDescription)s koleksiyonunu keşfedin."
 
 #: src/amo/pages/Collection/index.js:515
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
 msgstr ""
+"Sevdiğiniz eklentileri ve temaları takip etmek için Firefox koleksiyonlarını "
+"indirebilir ve oluşturabilirsiniz. %(collectionName)s koleksiyonunu keşfedin."
 
 #: src/amo/pages/CollectionList/index.js:112
 msgid "Collections"
@@ -2589,6 +2270,10 @@ msgid ""
 "features, extensions can dramatically change the way you deal with tabs and "
 "bookmarks."
 msgstr ""
+"Çok fazla açık sekme veya baş döndürücü sayıda yer imiyle mi uğraşıyorsunuz? "
+"Eklentiler size yardımcı olabilir! Eklentiler, işlerinizi düzene sokmaktan "
+"eğlenceli yeni özellikler sağlamaya kadar, sekmeler ve yer imleriyle çalışma "
+"şeklinizi değiştirebilir."
 
 #: src/amo/pages/Guides/index.js:294
 msgid ""
@@ -2606,6 +2291,9 @@ msgid ""
 "(safely) in one place, and give you easy access to your login credentials "
 "wherever you are."
 msgstr ""
+"Parola yöneticileri, güvenli parolalar oluşturmanıza, parolalarınızı "
+"(güvenli bir şekilde) tek bir yerde saklamanıza yardımcı olur ve nerede "
+"olursanız olun giriş bilgilerinize kolayca erişmenizi sağlar."
 
 #: src/amo/pages/Guides/index.js:84
 msgid ""
@@ -2632,119 +2320,130 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:140
 msgid "Bookmarks"
 msgstr "Yer imleri"
 
-#: src/amo/pages/Home/index.js:141
+#: src/amo/pages/Home/index.js:144
 msgid "Password managers"
 msgstr "Parola yöneticileri"
 
-#: src/amo/pages/Home/index.js:145
+#: src/amo/pages/Home/index.js:148
 msgid "Ad blockers"
 msgstr "Reklam engelleyiciler"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:152
 msgid "Smarter Shopping"
 msgstr "Daha akıllı alışveriş"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:156
 msgid "Productivity"
 msgstr "Verimlilik"
 
-#: src/amo/pages/Home/index.js:157
+#: src/amo/pages/Home/index.js:160
 msgid "Watching Videos"
 msgstr "Video izleme"
 
-#: src/amo/pages/Home/index.js:185
+#: src/amo/pages/Home/index.js:188
 msgid "Abstract"
 msgstr "Soyut"
 
-#: src/amo/pages/Home/index.js:190
+#: src/amo/pages/Home/index.js:193
 msgid "Nature"
 msgstr "Doğa"
 
-#: src/amo/pages/Home/index.js:195
+#: src/amo/pages/Home/index.js:198
 msgid "Film & TV"
 msgstr "Film ve TV"
 
-#: src/amo/pages/Home/index.js:200
+#: src/amo/pages/Home/index.js:203
 msgid "Scenery"
 msgstr "Manzara"
 
-#: src/amo/pages/Home/index.js:205
+#: src/amo/pages/Home/index.js:208
 msgid "Music"
 msgstr "Müzik"
 
-#: src/amo/pages/Home/index.js:210
+#: src/amo/pages/Home/index.js:213
 msgid "Seasonal"
 msgstr "Mevsimsel"
 
-#: src/amo/pages/Home/index.js:244
+#: src/amo/pages/Home/index.js:245
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 "Firefox’un çalışma biçimini eklentilerle özelleştirin. Hangisi ilginizi "
 "çeker?"
 
-#: src/amo/pages/Home/index.js:246
+#: src/amo/pages/Home/index.js:247
 msgid "Change the way Firefox looks with themes."
 msgstr "Temalarla Firefox'un görünüşünü değiştirin."
 
-#: src/amo/pages/Home/index.js:280
+#: src/amo/pages/Home/index.js:277
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
+"Firefox eklentilerini ve temalarını indirin. Eklentiler tarayıcınızın içinde "
+"çalışan uygulamalara benzer. Can sıkıcı reklamları engelleyebilir, "
+"parolalarınızı koruyabilir, tarayıcı görünümünü değiştirebilir ve daha "
+"fazlasını yapabilirler."
 
-#: src/amo/pages/Home/index.js:356
+#: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "See more popular themes"
-msgstr "Diğer popüler eklentilere bakın"
+msgid "See more video extensions"
+msgstr "En yüksek puanlı diğer eklentilere bakın"
 
-#: src/amo/pages/Home/index.js:57
-#, fuzzy
-msgid "See more YouTube boosters"
-msgstr "Diğer haber geliştiricilere bakın"
-
-#: src/amo/pages/Home/index.js:58
-#, fuzzy
-msgid "YouTube boosters"
-msgstr "Haber iyileştiricileri"
-
-#: src/amo/pages/Home/index.js:63
-#, fuzzy
-msgid "See more health & wellness extensions"
-msgstr "Öne çıkan diğer eklentilere bakın"
-
-#: src/amo/pages/Home/index.js:64
-msgid "Health & Wellness"
+#: src/amo/pages/Home/index.js:56
+msgid "Extensions for enhancing video"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:69
+#: src/amo/pages/Home/index.js:61
 #, fuzzy
-msgid "See more productivity extensions"
-msgstr "Verimlilik eklentileri"
+msgid "See more spring themes"
+msgstr "Diğer yükselen temalara bakın"
 
-#: src/amo/pages/Home/index.js:70
-msgid "Be more productive"
-msgstr ""
+#: src/amo/pages/Home/index.js:62
+#, fuzzy
+msgid "Spring themes"
+msgstr "Gündemdeki temalar"
 
-#: src/amo/pages/LandingPage/index.js:208
+#: src/amo/pages/Home/index.js:67
+#, fuzzy
+msgid "See more Wikipedia boosters"
+msgstr "Wikipedia güçlendiricileri"
+
+#: src/amo/pages/Home/index.js:68
+msgid "Wikipedia boosters"
+msgstr "Wikipedia güçlendiricileri"
+
+#: src/amo/pages/Home/index.js:73
+#, fuzzy
+msgid "See more tab extensions"
+msgstr "En yüksek puanlı diğer eklentilere bakın"
+
+#: src/amo/pages/Home/index.js:74
+msgid "Change up your tabs"
+msgstr "Sekmelerinizi değiştirin"
+
+#: src/amo/pages/LandingPage/index.js:205
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
 "options."
 msgstr ""
+"Firefox’un görünüşünü değiştirmek için temalar indirin. Deneyiminizi "
+"zevklerinize göre düzenleyin. Sevimli yaratıklar, kötü robotlar, güzel "
+"manzaralar… Binlerce seçenek var."
 
-#: src/amo/pages/LandingPage/index.js:213
+#: src/amo/pages/LandingPage/index.js:210
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
 "apps."
 msgstr ""
 
-#: src/amo/pages/LandingPage/index.js:237
+#: src/amo/pages/LandingPage/index.js:232
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -2752,7 +2451,7 @@ msgstr ""
 "Tarayıcınızın görünümünü değiştirin. Binlerce temadan istediğiniz seçerek "
 "Firefox’unuzu giydirin."
 
-#: src/amo/pages/LandingPage/index.js:239
+#: src/amo/pages/LandingPage/index.js:234
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -2760,7 +2459,7 @@ msgstr ""
 "Firefox’u özelleştirmek için güçlü araçları ve özellikleri keşfedin, "
 "tarayıcınızı baştan yaratın."
 
-#: src/amo/pages/LandingPage/index.js:282
+#: src/amo/pages/LandingPage/index.js:273
 msgid "Explore all categories"
 msgstr "Tüm kategorileri keşfet"
 
@@ -2820,6 +2519,9 @@ msgid ""
 "privacy-enhanced searching to website-specific searches, image searching, "
 "and more."
 msgstr ""
+"Aramalarınızı özelleştirmek için Firefox eklentilerini indirin. "
+"Gizliliğinizi koruyan aramadan web sitelerine özel aramalara ve görsel "
+"aramaya dek pek çok seçeneğiniz var."
 
 #: src/amo/pages/StaticPages/About/index.js:108
 msgid ""
@@ -3086,6 +2788,8 @@ msgid ""
 "Guidelines, tips, and Frequently Asked Questions to leave a review for the "
 "extensions and themes you’ve downloaded and used on Firefox."
 msgstr ""
+"Firefox'ta indirdiğiniz ve kullandığınız eklenti ve temalara inceleme "
+"yazmaya dair yönergeler, ipuçları ve sık sorulan sorular."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid ""
@@ -3214,12 +2918,12 @@ msgid "User Profile"
 msgstr "Kullanıcı profili"
 
 #: src/amo/pages/UserProfile/index.js:365
-#: src/amo/pages/UserProfileEdit/index.js:620
+#: src/amo/pages/UserProfileEdit/index.js:625
 msgid "Location"
 msgstr "Konum"
 
 #: src/amo/pages/UserProfile/index.js:373
-#: src/amo/pages/UserProfileEdit/index.js:632
+#: src/amo/pages/UserProfileEdit/index.js:637
 msgid "Occupation"
 msgstr "Meslek"
 
@@ -3236,7 +2940,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Geliştiricinin eklentilerinin ortalama puanı"
 
 #: src/amo/pages/UserProfile/index.js:411
-#: src/amo/pages/UserProfileEdit/index.js:654
+#: src/amo/pages/UserProfileEdit/index.js:659
 msgid "Biography"
 msgstr "Biyografi"
 
@@ -3253,8 +2957,9 @@ msgid "Picture successfully deleted"
 msgstr "Resim başarıyla silindi"
 
 #: src/amo/pages/UserProfileEdit/index.js:417
+#, fuzzy
 msgid ""
-"Tell users a bit more information about yourself. These fields are optional, "
+"Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
 msgstr ""
 "Kullanıcılara kendiniz hakkında biraz daha bilgi verin. Bu alanlar isteğe "
@@ -3264,8 +2969,8 @@ msgstr ""
 #: src/amo/pages/UserProfileEdit/index.js:421
 #, fuzzy
 msgid ""
-"Tell users a bit more information about this user. These fields are "
-"optional, but they'll help other users get to know %(userName)s better."
+"Tell users a bit more information about this user. Most fields are optional, "
+"but they'll help other users get to know %(userName)s better."
 msgstr ""
 "Kullanıcılara bu kullanıcı hakkında biraz daha bilgi verin. Bu alanlar "
 "isteğe bağlıdır ama başkalarının %(username)s adlı kullanıcıyı daha iyi "
@@ -3325,24 +3030,29 @@ msgstr "Firefox Hesaplarını yönet…"
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:583
-msgid "Display Name"
+#: src/amo/pages/UserProfileEdit/index.js:585
+msgid "This field is required"
+msgstr "Bu alan gereklidir"
+
+#: src/amo/pages/UserProfileEdit/index.js:588
+#, fuzzy
+msgid "Display Name *"
 msgstr "Görünen ad"
 
-#: src/amo/pages/UserProfileEdit/index.js:615
+#: src/amo/pages/UserProfileEdit/index.js:620
 msgid "This URL will only be visible for users who are developers."
 msgstr "Bu URL yalnızca geliştirici olan kullanıcılar tarafından görülebilir."
 
-#: src/amo/pages/UserProfileEdit/index.js:669
+#: src/amo/pages/UserProfileEdit/index.js:674
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 "Bazı HTML etiketlerini kullanabilirsiniz: %(htmlTags)s. Link veremezsiniz."
 
-#: src/amo/pages/UserProfileEdit/index.js:693
+#: src/amo/pages/UserProfileEdit/index.js:698
 msgid "Notifications"
 msgstr "Bildirimler"
 
-#: src/amo/pages/UserProfileEdit/index.js:697
+#: src/amo/pages/UserProfileEdit/index.js:702
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3350,7 +3060,7 @@ msgstr ""
 "Mozilla zaman zaman gelecek sürümler ve eklenti etkinlikleri hakkında size e-"
 "posta gönderebilir. Lütfen ilgilendiğiniz konuları seçin."
 
-#: src/amo/pages/UserProfileEdit/index.js:702
+#: src/amo/pages/UserProfileEdit/index.js:707
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3359,7 +3069,7 @@ msgstr ""
 "kullanıcıya e-posta gönderebilir. Lütfen kullanıcının ilgilendiği konuları "
 "seçin."
 
-#: src/amo/pages/UserProfileEdit/index.js:717
+#: src/amo/pages/UserProfileEdit/index.js:722
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3367,41 +3077,41 @@ msgstr ""
 "Mozilla, barındırılan eklentilerinizle ilgili özel endişeler konusunda "
 "sizinle bireysel olarak iletişim kurma hakkını saklı tutar."
 
-#: src/amo/pages/UserProfileEdit/index.js:735
+#: src/amo/pages/UserProfileEdit/index.js:740
 msgid "Updating your profile…"
 msgstr "Profiliniz güncelleniyor…"
 
-#: src/amo/pages/UserProfileEdit/index.js:736
+#: src/amo/pages/UserProfileEdit/index.js:741
 msgid "Update My Profile"
 msgstr "Profilimi güncelle"
 
-#: src/amo/pages/UserProfileEdit/index.js:738
+#: src/amo/pages/UserProfileEdit/index.js:743
 msgid "Updating profile…"
 msgstr "Profil güncelleniyor…"
 
-#: src/amo/pages/UserProfileEdit/index.js:739
+#: src/amo/pages/UserProfileEdit/index.js:744
 msgid "Update Profile"
 msgstr "Profili güncelle"
 
-#: src/amo/pages/UserProfileEdit/index.js:750
-#: src/amo/pages/UserProfileEdit/index.js:839
+#: src/amo/pages/UserProfileEdit/index.js:755
+#: src/amo/pages/UserProfileEdit/index.js:844
 msgid "Delete My Profile"
 msgstr "Profilimi sil"
 
-#: src/amo/pages/UserProfileEdit/index.js:751
-#: src/amo/pages/UserProfileEdit/index.js:840
+#: src/amo/pages/UserProfileEdit/index.js:756
+#: src/amo/pages/UserProfileEdit/index.js:845
 msgid "Delete Profile"
 msgstr "Profili sil"
 
-#: src/amo/pages/UserProfileEdit/index.js:763
+#: src/amo/pages/UserProfileEdit/index.js:768
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "ÖNEMLİ: Firefox Eklentileri profilinizi silmek geri alınamaz."
 
-#: src/amo/pages/UserProfileEdit/index.js:766
+#: src/amo/pages/UserProfileEdit/index.js:771
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "ÖNEMLİ: Bu Firefox Eklentileri profilinin silinmesi geri alınamaz."
 
-#: src/amo/pages/UserProfileEdit/index.js:775
+#: src/amo/pages/UserProfileEdit/index.js:780
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation) and "
@@ -3413,7 +3123,7 @@ msgstr ""
 "kalıcı olarak silinecektir. Yorumlarınız ve puanlarınız anonim hale "
 "getirilecek ve artık düzenlenemeyecektir."
 
-#: src/amo/pages/UserProfileEdit/index.js:782
+#: src/amo/pages/UserProfileEdit/index.js:787
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3425,7 +3135,7 @@ msgstr ""
 "kalıcı olarak silinecektir. Yorumları ve puanları anonim hale getirilecek ve "
 "artık düzenlenemeyecektir."
 
-#: src/amo/pages/UserProfileEdit/index.js:792
+#: src/amo/pages/UserProfileEdit/index.js:797
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, you "
 "will create a new Firefox Add-ons profile that is in no way associated with "
@@ -3435,7 +3145,7 @@ msgstr ""
 "kullanırsanız, sildiğiniz profille hiçbir ilişkisi olmayan yeni bir Firefox "
 "Eklentileri profili oluşturulacaktır."
 
-#: src/amo/pages/UserProfileEdit/index.js:805
+#: src/amo/pages/UserProfileEdit/index.js:810
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
 "the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
@@ -3447,37 +3157,37 @@ msgstr ""
 "%(docLinkStart)seklenti sahipliğini aktarmalı%(docLinkEnd)s veya eklentileri "
 "silmelisiniz."
 
-#: src/amo/pages/UserProfileEdit/index.js:812
+#: src/amo/pages/UserProfileEdit/index.js:817
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
 "user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:238
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enable"
 msgstr "Etkinleştir"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:216
 msgid "Enabling"
 msgstr "Etkinleştiriliyor"
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:218
 msgid "Downloading"
 msgstr "İndiriliyor"
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:220
 msgid "Installing"
 msgstr "Yükleniyor"
 
-#: src/core/components/AMInstallButton/index.js:249
+#: src/core/components/AMInstallButton/index.js:222
 msgid "Uninstalling"
 msgstr "Kaldırılıyor"
 
-#: src/core/components/AMInstallButton/index.js:257
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Install Theme"
 msgstr "Temayı yükle"
 
-#: src/core/components/AMInstallButton/index.js:258
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Add to Firefox"
 msgstr "Firefox’a ekle"
 
@@ -3658,21 +3368,21 @@ msgstr "%(param)s verilerinize erişme"
 msgid "Dismiss this notice"
 msgstr "Bu bildirimi kapat"
 
-#: src/ui/components/Rating/index.js:104
+#: src/ui/components/Rating/index.js:100
+msgid "Update your rating to %(starRating)s out of 5"
+msgstr "Puanınızı 5 üzerinden %(starRating)s olarak güncelleyin"
+
+#: src/ui/components/Rating/index.js:106
 msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "Bu eklentiyi 5 üzerinden %(starRating)s olarak puanlayın"
 
-#: src/ui/components/Rating/index.js:81 src/ui/components/Rating/index.js:92
+#: src/ui/components/Rating/index.js:83 src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
 msgstr "5 üzerinden %(rating)s puan"
 
-#: src/ui/components/Rating/index.js:85
+#: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
 msgstr "Henüz hiç puan yok"
-
-#: src/ui/components/Rating/index.js:98
-msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Puanınızı 5 üzerinden %(starRating)s olarak güncelleyin"
 
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
@@ -3687,6 +3397,325 @@ msgstr[1] "%(total)s eklenti"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Geliştiricinin yanıtı"
+
+#~ msgid "See more weather extensions"
+#~ msgstr "Öne çıkan diğer eklentilere bakın"
+
+#~ msgid "Weather extensions"
+#~ msgstr "Öne çıkan eklentiler"
+
+#~ msgid "See more tools"
+#~ msgstr "Daha fazlasını gör"
+
+#~ msgid "See more feed readers"
+#~ msgstr "Öne çıkan diğer temalara bakın"
+
+#~ msgid "See more health & wellness extensions"
+#~ msgstr "Öne çıkan diğer eklentilere bakın"
+
+#~ msgid "Please enter a search term to search Firefox Add-ons."
+#~ msgstr "Firefox Eklentileri'nde aramak istediğiniz terimi yazın."
+
+#~ msgid "my sdk-based add-on cannot be upgraded"
+#~ msgstr "sdk tabanlı eklentim yükseltilemiyor"
+
+#~ msgid "my sdk-based add-on is upgraded successfully"
+#~ msgstr "sdk tabanlı eklentim başarıyla yükseltildi"
+
+#~ msgid "See more popular themes"
+#~ msgstr "Diğer popüler eklentilere bakın"
+
+#~ msgid "See more YouTube boosters"
+#~ msgstr "Diğer haber geliştiricilere bakın"
+
+#~ msgid "YouTube boosters"
+#~ msgstr "Haber iyileştiricileri"
+
+#~ msgid "See more productivity extensions"
+#~ msgstr "Verimlilik eklentileri"
+
+#~ msgid "Highly customizable text highlighter"
+#~ msgstr "Son derece özelleştirilebilir metin işaretleyici"
+
+#~ msgid "Watch2Gether"
+#~ msgstr "Watch2Gether"
+
+#~ msgid "Watch videos simultaneously with others"
+#~ msgstr "Başkalarıyla aynı anda video izleyin"
+
+#~ msgid "Context Search"
+#~ msgstr "Context Search"
+
+#~ msgid "Highlight text on any webpage to easily search the term"
+#~ msgstr ""
+#~ "Web sayfalarındaki metinlerde kolayca terim araması yapmak için metni "
+#~ "vurgulayın"
+
+#~ msgid "Stylus"
+#~ msgstr "Stylus"
+
+#~ msgid "Give your favorite websites a new look"
+#~ msgstr "Favori sitelerinize yeni bir görünüm verin"
+
+#~ msgid "Search Encrypt"
+#~ msgstr "Search Encrypt"
+
+#~ msgid "Privacy protection for your search data"
+#~ msgstr "Arama verileriniz için gizlilik koruması"
+
+#~ msgid "Auto Tab Discard"
+#~ msgstr "Auto Tab Discard"
+
+#~ msgid "Save memory by disabling inactive tabs"
+#~ msgstr "Etkin olmayan sekmeleri devre dışı bırakarak bellek tasarrufu yapın"
+
+#~ msgid "Update Scanner"
+#~ msgstr "Update Scanner"
+
+#~ msgid "Get notified when your selected websites update with new content"
+#~ msgstr "Seçtiğiniz web sitelerine yeni içerik eklendiğinde bildirim alın"
+
+#~ msgid "Auto Fullscreen"
+#~ msgstr "Auto Fullscreen"
+
+#~ msgid "Automatically start Firefox in full screen mode"
+#~ msgstr "Firefox’u otomatik olarak tam ekran modunda başlat"
+
+#~ msgid "Video Speed Controller"
+#~ msgstr "Video Speed Controller"
+
+#~ msgid "Adjust video playback speeds with shortcuts"
+#~ msgstr "Kısayollarla video oynatma hızlarını ayarlayın"
+
+#~ msgid "View Image"
+#~ msgstr "View Image"
+
+#~ msgid ""
+#~ "Revive the ‘View Image’ and ‘Search by Image’ buttons on Google Images"
+#~ msgstr ""
+#~ "Google Görseller'deki \"Resmi Görüntüle\" ve \"Görsel ile Ara\" "
+#~ "düğmelerini geri getirin"
+
+#~ msgid "Neat URL"
+#~ msgstr "Neat URL"
+
+#~ msgid "Clean up links for easy sharing"
+#~ msgstr "Kolay paylaşım için linkleri temizleyin"
+
+#~ msgid "Glitter Drag"
+#~ msgstr "Glitter Drag"
+
+#~ msgid ""
+#~ "Drag text, images, or links to perform actions like copy, open, search, "
+#~ "and more"
+#~ msgstr ""
+#~ "Kopyalama, açma, arama gibi işlemleri gerçekleştirmek için metni, resmi "
+#~ "veya bağlantıyı sürükleyin"
+
+#~ msgid "Behind The Overlay Revival"
+#~ msgstr "Behind The Overlay Revival"
+
+#~ msgid "Click a button to close annoying pop-ups"
+#~ msgstr "Rahatsız edici açılır pencereleri tek düğmeyle kapatın"
+
+#~ msgid "Auto-Sort Bookmarks"
+#~ msgstr "Auto-Sort Bookmarks"
+
+#~ msgid "Automatically sorts bookmarks so they’re in your preferred position"
+#~ msgstr ""
+#~ "Yer imlerini istediğiniz konuma gelecek şekilde otomatik olarak sıralayın"
+
+#~ msgid "Search Preview"
+#~ msgstr "Search Preview"
+
+#~ msgid "Enjoy thumbnail images alongside your search returns"
+#~ msgstr "Arama sonuçlarınızın yanında küçük resimler görünsün"
+
+#~ msgid "Copy PlainText"
+#~ msgstr "Copy PlainText"
+
+#~ msgid "Remove formatting when saving text to your clipboard"
+#~ msgstr "Metni panoya kaydederken biçimlendirmeyi kaldır"
+
+#~ msgid "Official Media Bias Fact Check Icon"
+#~ msgstr "Official Media Bias Fact Check Icon"
+
+#~ msgid "Indicates the political bias of news sites with a tidy icon"
+#~ msgstr "Haber sitelerinin siyasi ön yargısını bir simgeyle gösterir"
+
+#~ msgid "Vertical Tabs Reloaded"
+#~ msgstr "Vertical Tabs Reloaded"
+
+#~ msgid "Arrange tabs in a vertical fashion"
+#~ msgstr "Sekmeleri dikey olarak sıralayın"
+
+#~ msgid "Search Site"
+#~ msgstr "Ara"
+
+#~ msgid "Search within just the domain you’re visiting"
+#~ msgstr "Yalnızca ziyaret ettiğiniz sitede arama yapın"
+
+#~ msgid "Push to Kindle"
+#~ msgstr "Push to Kindle"
+
+#~ msgid "Send any Web page to your Kindle device"
+#~ msgstr "İstediğiniz web sayfasını Kindle cihazınıza gönderin"
+
+#~ msgid "New Tab Homepage"
+#~ msgstr "New Tab Homepage"
+
+#~ msgid "Designate a custom home page for your new tabs"
+#~ msgstr "Yeni sekmeleriniz için özel bir giriş sayfası atayın"
+
+#~ msgid "OneNote Web Clipper"
+#~ msgstr "OneNote Web Clipper"
+
+#~ msgid "Save, annotate & organize web content"
+#~ msgstr "Web içeriğini kaydedin, notlar ekleyin ve düzenleyin"
+
+#~ msgid "FoxyGestures"
+#~ msgstr "FoxyGestures"
+
+#~ msgid "Customized mouse gestures"
+#~ msgstr "Özelleştirilebilir fare hareketi"
+
+#~ msgid "Dark Reader"
+#~ msgstr "Dark Reader"
+
+#~ msgid "Go dark for a better web viewing experience"
+#~ msgstr "Daha iyi bir web görüntüleme deneyimi için ekranı karartın"
+
+#~ msgid "Facebook Container"
+#~ msgstr "Facebook Container"
+
+#~ msgid "CookieBro"
+#~ msgstr "CookieBro"
+
+#~ msgid "Automatically delete unwanted cookies"
+#~ msgstr "İstenmeyen çerezleri otomatik olarak silin"
+
+#~ msgid "Prevent Facebook from tracking you around the web"
+#~ msgstr "Facebook’un sizi web’de izlemesini engelleyin"
+
+#~ msgid "Text MultiCopy"
+#~ msgstr "Text MultiCopy"
+
+#~ msgid "Save snippets of text to paste & organize later"
+#~ msgstr ""
+#~ "Daha sonra yapıştırmak ve düzenlemek için metin parçacıklarını kaydedin"
+
+#~ msgid "Group Speed Dial"
+#~ msgstr "Group Speed Dial"
+
+#~ msgid "Visual bookmarks for your favorite places on the web"
+#~ msgstr "Web'deki en sevdiğiniz yerler için görsel yer imleri"
+
+#~ msgid "Undo Close Tab Button"
+#~ msgstr "Undo Close Tab Button"
+
+#~ msgid "Never lose a page again"
+#~ msgstr "Artık hiçbir sayfayı kaybetmeyin"
+
+#~ msgid "Ad Analysis for Facebook"
+#~ msgstr "Facebook için Reklam Analizi"
+
+#~ msgid "See how Facebook ads target you"
+#~ msgstr "Facebook reklamlarının sizi nasıl hedeflediğini görün"
+
+#~ msgid "SoundFixer"
+#~ msgstr "SoundFixer"
+
+#~ msgid "Adjust audio levels for sounds you encounter around web"
+#~ msgstr "Web'de karşılaştığınız seslerin ses düzeylerini ayarlayın"
+
+#~ msgid "Lilo"
+#~ msgstr "Lilo"
+
+#~ msgid "Fund social causes by simply using Lilo search"
+#~ msgstr "Lilo aramasını kullanarak sosyal gayeleri destekleyin"
+
+#~ msgid "Iridium for YouTube"
+#~ msgstr "Iridium for YouTube"
+
+#~ msgid "Play videos in a pop-out window, take video screenshots & more"
+#~ msgstr ""
+#~ "Videoları açılır pencerede oynatın, videodan ekran görüntüleri alın ve "
+#~ "daha fazlasını yapın"
+
+#~ msgid "Private Bookmarks"
+#~ msgstr "Private Bookmarks"
+
+#~ msgid "Password-protect your personal bookmarks"
+#~ msgstr "Kişisel yer imlerinizi parolayla koruyun"
+
+#~ msgid "New Tab Override"
+#~ msgstr "New Tab Override"
+
+#~ msgid "Choose the page you see every time you open a new tab"
+#~ msgstr "Yeni bir sekme açtığınızda gördüğünüz sayfayı seçin"
+
+#~ msgid "Forecastfox"
+#~ msgstr "Forecastfox"
+
+#~ msgid "Get instant global weather information right in Firefox"
+#~ msgstr "Firefox'ta anında hava durumu bilgilerini alın"
+
+#~ msgid "Multi-Account Containers"
+#~ msgstr "Multi-Account Containers"
+
+#~ msgid ""
+#~ "Keep different parts of your online life—work, personal, etc.—separated "
+#~ "by color-coded tabs"
+#~ msgstr ""
+#~ "Çevrimiçi hayatınızın farklı bölümlerini (iş, kişisel vb.) renkli "
+#~ "sekmelerle ayırın"
+
+#~ msgid "Universal Bypass"
+#~ msgstr "Universal Bypass"
+
+#~ msgid "Automatically skip annoying link shorteners"
+#~ msgstr "Kupon kodlarını otomatik olarak arayın"
+
+#~ msgid "Tree Style Tab"
+#~ msgstr "Tree Style Tab"
+
+#~ msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
+#~ msgstr ""
+#~ "Bir sürü açık sekmeniz var mı? Bunları bir kenar çubuğunda düzenleyin"
+
+#~ msgid "Imagus"
+#~ msgstr "Imagus"
+
+#~ msgid "Enlarge images by hovering your mouse over it"
+#~ msgstr "Farenizi üzerine getirerek görüntüleri büyütün"
+
+#~ msgid "Privacy Possum"
+#~ msgstr "Privacy Possum"
+
+#~ msgid "Protect yourself against the sneakiest trackers"
+#~ msgstr "En sinsi takipçilere karşı kendinizi koruyun"
+
+#~ msgid "Default Bookmark Folder"
+#~ msgstr "Default Bookmark Folder"
+
+#~ msgid "Change the default destination for your bookmarks"
+#~ msgstr "Yer imlerinizin varsayılan konumunu değiştirin"
+
+#~ msgid "Textmarker"
+#~ msgstr "Textmarker"
+
+#~ msgid "No add-ons found"
+#~ msgstr "Eklenti bulunamadı"
+
+#~ msgid "%(count)s dictionary found for \"%(query)s\""
+#~ msgid_plural "%(count)s dictionaries found for \"%(query)s\""
+#~ msgstr[0] "\"%(query)s\" için %(count)s sözlük bulundu"
+#~ msgstr[1] "\"%(query)s\" için %(count)s sözlük bulundu"
+
+#~ msgid "%(count)s language pack found for \"%(query)s\""
+#~ msgid_plural "%(count)s language packs found for \"%(query)s\""
+#~ msgstr[0] "\"%(query)s\" için %(count)s dil paketi bulundu"
+#~ msgstr[1] "\"%(query)s\" için %(count)s dil paketi bulundu"
 
 #~ msgid "See more weather reports"
 #~ msgstr "Diğer hava durumu eklentilerine bakın"
@@ -4131,9 +4160,6 @@ msgstr "Geliştiricinin yanıtı"
 #~ msgid "See all beta versions"
 #~ msgstr "Tüm beta sürümleri göster"
 
-#~ msgid "Wikipedia boosters"
-#~ msgstr "Wikipedia güçlendiricileri"
-
 #~ msgid "Good time tabs"
 #~ msgstr "Sekme ustaları"
 
@@ -4357,9 +4383,6 @@ msgstr "Geliştiricinin yanıtı"
 
 #~ msgid "Tools for making the Web work harder for you"
 #~ msgstr "Web’i daha çok çalıştıracak araçlar"
-
-#~ msgid "See more"
-#~ msgstr "Daha fazlasını gör"
 
 #~ msgid ""
 #~ "From ad blockers to anti-trackers, here are some impressive privacy "

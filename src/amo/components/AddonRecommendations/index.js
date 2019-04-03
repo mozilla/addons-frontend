@@ -118,7 +118,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
 
     if (!recommendations) {
       log.debug(
-        'No recommandations, hiding the AddonRecommendations component.',
+        'No recommendations, hiding the AddonRecommendations component.',
       );
       return null;
     }

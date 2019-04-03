@@ -131,7 +131,7 @@ export class NoticeBase extends React.Component<InternalProps> {
       <div className={finalClass}>
         <div className="Notice-icon" />
         <div className="Notice-column">
-          <div>
+          <div className="Notice-content">
             <p className="Notice-text">{children}</p>
             {actionButton}
           </div>

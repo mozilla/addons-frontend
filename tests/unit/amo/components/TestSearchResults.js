@@ -26,14 +26,6 @@ describe(__filename, () => {
     );
   }
 
-  it('renders empty search results container', () => {
-    const root = render();
-
-    expect(root.find('.SearchResults-message')).toHaveText(
-      'Please enter a search term to search Firefox Add-ons.',
-    );
-  });
-
   it('renders no results when searched but nothing is found', () => {
     const root = render({
       count: 0,
@@ -45,15 +37,6 @@ describe(__filename, () => {
     expect(root.find('.SearchResults-message')).toHaveText(
       'No results were found.',
     );
-  });
-
-  it('renders error when no search params exist', () => {
-    const root = render({ filters: {} });
-
-    expect(root.find('.SearchResults-message')).toHaveText(
-      'Please enter a search term to search Firefox Add-ons.',
-    );
-    expect(root.find(AddonsCard)).toHaveProp('addons', null);
   });
 
   it('renders error when no results and valid query', () => {

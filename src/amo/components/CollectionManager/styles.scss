@@ -62,10 +62,17 @@
 
 .CollectionManager-footer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 36px;
 }
 
-.CollectionManager-cancel {
-  align-self: start;
+.CollectionManager-cancel,
+.CollectionManager-submit {
+  margin-top: 10px;
+  width: 100%;
+
+  @include respond-to(extraExtraLarge) {
+    width: auto;
+  }
 }

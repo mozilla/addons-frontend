@@ -119,7 +119,6 @@ module.exports = {
     'enableDevTools',
     'enableFeatureDiscoTaar',
     'enableFeatureExperienceSurvey',
-    'enableFeatureStaticThemesForAndroid',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -208,6 +207,7 @@ module.exports = {
     'en-GB',
     'en-US',
     'es',
+    'et',
     'eu',
     'fa',
     'fi',
@@ -215,6 +215,7 @@ module.exports = {
     'fy-NL',
     'ga-IE',
     'he',
+    'hr',
     'hsb',
     'hu',
     'ia',
@@ -224,12 +225,16 @@ module.exports = {
     'ka',
     'kab',
     'ko',
+    'lt',
+    'lv',
     'mk',
     'mn',
     'ms',
-    'nl',
+    'mt',
     'nb-NO',
+    'nl',
     'nn-NO',
+    'pa-IN',
     'pl',
     'pt-BR',
     'pt-PT',
@@ -363,14 +368,7 @@ module.exports = {
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
-  // This flag is enabled by default because the feature already exists and we
-  // want to disable it.
-  // See: https://github.com/mozilla/addons-frontend/issues/6689
-  enableFeatureStaticThemesForAndroid: true,
-
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments.
-  experiments: {
-    installButtonColor: false,
-  },
+  experiments: {},
 };

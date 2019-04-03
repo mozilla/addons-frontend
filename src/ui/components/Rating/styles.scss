@@ -1,4 +1,7 @@
 @import '~ui/css/styles';
+$icon-large: 64px;
+$icon-medium: 19px;
+$icon-small: 13px;
 
 .Rating {
   align-content: center;
@@ -10,21 +13,37 @@
   // The width of small rating stars are controlled by .Rating-star.
   &.Rating--small {
     grid-column-gap: 4px;
-    min-height: 13px;
+    min-height: $icon-small;
     width: min-content;
+
+    .IconStar {
+      display: flex;
+      height: $icon-medium;
+      width: $icon-small;
+
+      svg {
+        width: inherit;
+      }
+    }
   }
 
   // The width of large rating stars are controlled by the container.
   &.Rating--large {
     grid-column-gap: 6px;
+    max-width: 300px;
     min-height: 48px;
     width: 100%;
+
+    .IconStar {
+      height: 100%;
+      width: 100%;
+    }
   }
 
   @include respond-to(extraExtraLarge) {
     &.Rating--large {
       grid-column-gap: 12px;
-      min-height: 64px;
+      max-width: none;
     }
   }
 }
@@ -53,7 +72,9 @@
 }
 
 .Rating-star {
-  background: url('./img/closed-star-dim-gray.svg') center/contain no-repeat;
+  align-items: center;
+  display: flex;
+  justify-content: center;
   padding: 0;
 
   &:not(.focus-visible) {
@@ -61,7 +82,7 @@
   }
 
   .Rating--small & {
-    min-width: 13px;
+    min-width: $icon-small;
   }
 
   .Rating--loading & {
@@ -71,7 +92,6 @@
 
 .Rating--editable {
   .Rating-star {
-    background-image: url('./img/open-star-dim-yellow.svg');
     cursor: pointer;
   }
 
@@ -79,44 +99,12 @@
     animation-name: pulseOpaqueRatingStars;
     // Ensure editable rating stars always render as open stars while
     // loading, even if some are selected (e.g. while hovering).
-    background-image: url('./img/open-star-dim-yellow.svg');
     cursor: initial;
   }
 }
 
-.Rating-selected-star {
-  background-image: url('./img/closed-star-gray.svg');
-}
-
-.Rating--editable .Rating-selected-star {
-  background-image: url('./img/closed-star-yellow.svg');
-}
-
 .Rating-half-star {
-  background-image: url('./img/half-star-gray.svg');
-
   [dir='rtl'] & {
     transform: scaleX(-1);
-  }
-}
-
-.Rating--yellowStars {
-  // When stars are read-only, they are closed. Otherwise, they are open.
-  .Rating-star {
-    background-image: url('./img/closed-star-dim-yellow.svg');
-  }
-
-  &.Rating--editable .Rating-star {
-    background-image: url('./img/open-star-dim-yellow.svg');
-  }
-
-  .Rating-selected-star,
-  &.Rating--editable .Rating-selected-star {
-    background-image: url('./img/closed-star-yellow.svg');
-  }
-
-  // This doesn't define an editable half-star because that's not possible.
-  .Rating-half-star {
-    background-image: url('./img/half-star-yellow.svg');
   }
 }

@@ -13,12 +13,10 @@ import HeadMetaTags from 'amo/components/HeadMetaTags';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeAddons } from 'amo/reducers/home';
-import { shouldShowThemes } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_FEATURED,
-  SEARCH_SORT_POPULAR,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
@@ -33,9 +31,10 @@ import './styles.scss';
 export const MOZILLA_USER_ID = config.get('mozillaUserId');
 
 export const FEATURED_COLLECTIONS = [
-  { slug: 'youtube-boosters', userId: MOZILLA_USER_ID },
-  { slug: 'health-wellness', userId: MOZILLA_USER_ID },
-  { slug: 'be-more-productive', userId: MOZILLA_USER_ID },
+  { slug: 'watching-videos', userId: MOZILLA_USER_ID },
+  { slug: 'spring-themes', userId: MOZILLA_USER_ID },
+  { slug: 'wikipedia-boosters', userId: MOZILLA_USER_ID },
+  { slug: 'change-up-your-tabs', userId: MOZILLA_USER_ID },
 ];
 
 export const isFeaturedCollection = (
@@ -53,22 +52,28 @@ export const isFeaturedCollection = (
 export const getFeaturedCollectionsMetadata = (i18n) => {
   return [
     {
-      footerText: i18n.gettext('See more YouTube boosters'),
-      header: i18n.gettext('YouTube boosters'),
+      footerText: i18n.gettext('See more video extensions'),
+      header: i18n.gettext('Extensions for enhancing video'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[0],
     },
     {
-      footerText: i18n.gettext('See more health & wellness extensions'),
-      header: i18n.gettext('Health & Wellness'),
-      isTheme: false,
+      footerText: i18n.gettext('See more spring themes'),
+      header: i18n.gettext('Spring themes'),
+      isTheme: true,
       ...FEATURED_COLLECTIONS[1],
     },
     {
-      footerText: i18n.gettext('See more productivity extensions'),
-      header: i18n.gettext('Be more productive'),
+      footerText: i18n.gettext('See more Wikipedia boosters'),
+      header: i18n.gettext('Wikipedia boosters'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[2],
+    },
+    {
+      footerText: i18n.gettext('See more tab extensions'),
+      header: i18n.gettext('Change up your tabs'),
+      isTheme: false,
+      ...FEATURED_COLLECTIONS[3],
     },
   ];
 };
@@ -77,7 +82,6 @@ export class HomeBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
     _getFeaturedCollectionsMetadata: PropTypes.func,
-    clientApp: PropTypes.string.isRequired,
     collections: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
@@ -226,9 +230,7 @@ export class HomeBase extends React.Component {
 
   render() {
     const {
-      _config,
       _getFeaturedCollectionsMetadata,
-      clientApp,
       collections,
       errorHandler,
       i18n,
@@ -248,15 +250,11 @@ export class HomeBase extends React.Component {
     const featuredCollectionsMetadata = _getFeaturedCollectionsMetadata(i18n);
 
     const loading = resultsLoaded === false;
-    const showThemes = shouldShowThemes({ _config, clientApp });
 
     // This is a helper function (closure) configured to render a featured
     // collection by index.
     const renderFeaturedCollection = (index) => {
       const metadata = featuredCollectionsMetadata[index];
-      if (metadata && metadata.isTheme && !showThemes) {
-        return null;
-      }
 
       const collection = collections[index];
       if (loading || collection) {
@@ -304,8 +302,6 @@ export class HomeBase extends React.Component {
           {this.renderCuratedCollections()}
         </Card>
 
-        {renderFeaturedCollection(0)}
-
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={shelves.featuredExtensions}
@@ -322,7 +318,9 @@ export class HomeBase extends React.Component {
           loading={loading}
         />
 
-        {includeFeaturedThemes && showThemes && (
+        {renderFeaturedCollection(0)}
+
+        {includeFeaturedThemes && (
           <LandingAddonsCard
             addonInstallSource={INSTALL_SOURCE_FEATURED}
             addons={shelves.featuredThemes}
@@ -343,27 +341,11 @@ export class HomeBase extends React.Component {
           />
         )}
 
-        <LandingAddonsCard
-          addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={shelves.popularAddons}
-          className="Home-PopularAddons"
-          header={i18n.gettext('Popular themes')}
-          footerText={i18n.gettext('See more popular themes')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
-                _config: this.props._config,
-              }),
-              sort: SEARCH_SORT_POPULAR,
-            },
-          }}
-          loading={loading}
-        />
-
         {renderFeaturedCollection(1)}
 
         {renderFeaturedCollection(2)}
+
+        {renderFeaturedCollection(3)}
 
         {includeTrendingExtensions && (
           <LandingAddonsCard
@@ -383,18 +365,16 @@ export class HomeBase extends React.Component {
           />
         )}
 
-        {showThemes && (
-          <Card
-            className="Home-SubjectShelf Home-CuratedThemes"
-            header={themesHeader}
-          >
-            <div className="Home-SubjectShelf-text-wrapper">
-              <h2 className="Home-SubjectShelf-subheading">{themesHeader}</h2>
-            </div>
+        <Card
+          className="Home-SubjectShelf Home-CuratedThemes"
+          header={themesHeader}
+        >
+          <div className="Home-SubjectShelf-text-wrapper">
+            <h2 className="Home-SubjectShelf-subheading">{themesHeader}</h2>
+          </div>
 
-            {this.renderCuratedThemes()}
-          </Card>
-        )}
+          {this.renderCuratedThemes()}
+        </Card>
       </div>
     );
   }

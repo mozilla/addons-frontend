@@ -495,6 +495,7 @@ describe(__filename, () => {
       const root = renderStaticTheme();
 
       expect(root.find(ThemeImage)).toHaveLength(1);
+      expect(root.find(ThemeImage)).toHaveProp('useStandardSize', false);
     });
 
     it("calls install and enable helper functions when clicking on the static theme's header image", async () => {

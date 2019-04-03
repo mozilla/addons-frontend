@@ -34,52 +34,55 @@ module.exports = {
   fxaConfig: 'amo',
 
   // This needs to be kept in sync with addons-server's SUPPORTED_NONLOCALES
-  // settings value: https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L274
+  // settings value: https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py
   // These are URLs that are ignored by our prefix middleware that will add
   // a locale (e.g. `en-US`) to any URL that doesn't have a valid locale.
   // These are all URLs that should not get a locale prepended to the URL,
   // because they are locale-independant, like `/firefox/downloads/`.
   validLocaleUrlExceptions: [
-    'contribute.json',
-    'google1f3e37b7351799a5.html',
-    'robots.txt',
-    'services',
-    'downloads',
-    // This isn't in addons-server, but instead will cause a redirect to another
-    // host.
-    'blocklist',
-    'static',
-    'user-media',
     '__frontend_version__',
     '__version__',
+    // This isn't in addons-server, but instead will cause a redirect to
+    // another host.
+    'blocklist',
+    'contribute.json',
+    'downloads',
+    'google1f3e37b7351799a5.html',
+    'google231a41e803e464e9.html',
+    'robots.txt',
+    'services',
+    'static',
+    'user-media',
   ],
 
   // This needs to be kept in sync with addons-server's SUPPORTED_NONAPPS
-  // settings value: https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L262
+  // settings value: https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py
   // These are URLs that are ignored by our prefix middleware that will add
   // a clientApp (e.g. `android`) to any URL that doesn't have a valid
   // clientApp. These are all URLs that don't require a clientApp in them
   // because they are app-independant, like `/en-US/developers/`.
   validClientAppUrlExceptions: [
+    '__frontend_version__',
+    '__version__',
     'about',
+    'admin',
     'apps',
     'blocklist',
     'contribute.json',
     'developer_agreement',
     'developers',
     'editors',
+    'google1f3e37b7351799a5.html',
+    'google231a41e803e464e9.html',
     'jsi18n',
     'review_guide',
-    'google1f3e37b7351799a5.html',
+    'reviewers',
     'robots.txt',
-    'statistics',
     'services',
     'static',
+    'statistics',
     'user-media',
-    '__frontend_version__',
-    '__version__',
   ],
-
   // These routes are allowed through to the app rather than 404.
   // Anything in here should also be present in validClientAppUrlExceptions.
   clientAppRoutes: [
@@ -121,7 +124,5 @@ module.exports = {
   // https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L990
   authTokenValidFor: 2592000, // 30 days
 
-  experiments: {
-    installButtonColor: true,
-  },
+  experiments: {},
 };

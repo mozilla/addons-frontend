@@ -18,7 +18,6 @@ import {
   createFakeHistory,
   dispatchClientMetadata,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import DropdownMenu from 'ui/components/DropdownMenu';
@@ -197,38 +196,5 @@ describe(__filename, () => {
     sinon.assert.calledWith(getAttributeSpy, 'href');
     sinon.assert.calledWith(dispatchSpy, setClientApp(CLIENT_APP_ANDROID));
     sinon.assert.calledWith(fakeHistory.push, `/en-US/${CLIENT_APP_ANDROID}/`);
-  });
-
-  it('hides the themes section when clientApp is Android and enableFeatureStaticThemesForAndroid is false', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: false,
-    });
-
-    const root = render({ _config, store });
-
-    expect(root.find('.SectionLinks-link-theme')).toHaveLength(0);
-  });
-
-  it('shows the themes section when clientApp is Android and enableFeatureStaticThemesForAndroid is true', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: true,
-    });
-
-    const root = render({ _config, store });
-
-    expect(root.find('.SectionLinks-link-theme')).toHaveLength(1);
-  });
-
-  it('shows the themes section when clientApp is not Android', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: false,
-    });
-
-    const root = render({ _config, store });
-
-    expect(root.find('.SectionLinks-link-theme')).toHaveLength(1);
   });
 });

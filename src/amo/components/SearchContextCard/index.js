@@ -7,6 +7,7 @@ import { fetchCategories } from 'core/reducers/categories';
 import translate from 'core/i18n/translate';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEMES_FILTER,
 } from 'core/constants';
@@ -87,6 +88,27 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
               i18n.ngettext(
                 '%(count)s extension found',
                 '%(count)s extensions found',
+                count,
+              ),
+              { count: i18n.formatNumber(count) },
+            );
+          }
+          break;
+        case ADDON_TYPE_OPENSEARCH:
+          if (query) {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s Search Tool found for "%(query)s"',
+                '%(count)s Search Tools found for "%(query)s"',
+                count,
+              ),
+              { count: i18n.formatNumber(count), query },
+            );
+          } else {
+            searchText = i18n.sprintf(
+              i18n.ngettext(
+                '%(count)s Search Tool found',
+                '%(count)s Search Tools found',
                 count,
               ),
               { count: i18n.formatNumber(count) },
@@ -174,7 +196,7 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
 
 export function mapStateToProps(state: AppState) {
   const { search } = state;
-  const { filters = {} } = search;
+  const { filters } = search;
 
   let currentCategory;
   let categoryName = null;
@@ -196,7 +218,11 @@ export function mapStateToProps(state: AppState) {
       const appTypes = categoriesState[clientApp];
 
       if (appTypes) {
-        if (filters.addonType && typeof filters.addonType === 'string') {
+        if (
+          filters &&
+          filters.addonType &&
+          typeof filters.addonType === 'string'
+        ) {
           // eslint-disable-next-line prefer-destructuring
           let addonType = filters.addonType;
           if (addonType === ADDON_TYPE_THEMES_FILTER) {
@@ -217,7 +243,7 @@ export function mapStateToProps(state: AppState) {
     hasCategory: !!currentCategory,
     categoryName,
     count: search.count || 0,
-    filters,
+    filters: filters || {},
     loadingSearch: search.loading,
   };
 }

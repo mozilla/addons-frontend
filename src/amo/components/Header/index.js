@@ -16,6 +16,7 @@ import {
   getCurrentUser,
   hasAnyReviewerRelatedPermission,
 } from 'amo/reducers/users';
+import { makeQueryStringWithUTM } from 'amo/utils';
 import { VIEW_CONTEXT_HOME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import DropdownMenu from 'ui/components/DropdownMenu';
@@ -69,6 +70,19 @@ export class HeaderBase extends React.Component {
         <SectionLinks className="Header-SectionLinks" location={location} />
 
         <div className="Header-user-and-external-links">
+          <Link
+            className="Header-extension-workshop-link Header-button"
+            href={`https://extensionworkshop.com/${makeQueryStringWithUTM({
+              utm_content: 'header-link',
+              utm_campaign: null,
+            })}`}
+            external
+            prependClientApp={false}
+            prependLang={false}
+            target="_blank"
+          >
+            {i18n.gettext('Extension Workshop')}
+          </Link>
           <Link
             className="Header-developer-hub-link Header-button"
             href="/developers/"

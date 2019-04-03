@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-22 20:36+0000\n"
-"PO-Revision-Date: 2018-10-10 08:47+0000\n"
-"Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
+"POT-Creation-Date: 2019-02-26 17:58+0000\n"
+"PO-Revision-Date: 2019-01-30 15:12+0000\n"
+"Last-Translator: Cloney 173741 <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
@@ -14,47 +14,49 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:238
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Enable"
-msgstr ""
+msgstr "Bật"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Remove"
-msgstr ""
+msgstr "Xóa"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:216
 msgid "Enabling"
-msgstr ""
+msgstr "Đang bật"
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:218
 msgid "Downloading"
-msgstr "Đang tải về"
+msgstr "Đang tải xuống"
 
-#: src/core/components/AMInstallButton/index.js:247
+#: src/core/components/AMInstallButton/index.js:220
 msgid "Installing"
 msgstr "Đang cài đặt"
 
-#: src/core/components/AMInstallButton/index.js:249
+#: src/core/components/AMInstallButton/index.js:222
 msgid "Uninstalling"
 msgstr "Đang gỡ cài đặt"
 
-#: src/core/components/AMInstallButton/index.js:257
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Install Theme"
 msgstr "Cài đặt chủ đề"
 
-#: src/core/components/AMInstallButton/index.js:258
+#: src/core/components/AMInstallButton/index.js:231
 msgid "Add to Firefox"
 msgstr "Thêm vào Firefox"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr "Lỗi server"
+msgstr "Lỗi máy chủ"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid ""
 "Sorry, but there was an error and we couldn't complete your request. We have "
 "logged this error and will investigate it."
 msgstr ""
+"Xin lỗi, nhưng đã xảy ra lỗi và chúng tôi không thể hoàn thành yêu cầu của "
+"bạn. Chúng tôi đã ghi lại lỗi này và sẽ điều tra nó."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33
 #: src/core/components/ErrorPage/NotFound/index.js:35
@@ -72,7 +74,7 @@ msgstr ""
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s đã được thêm vào"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
@@ -84,58 +86,58 @@ msgstr "OK"
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s và lớn hơn"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s đến %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Hoạt động với %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
-msgstr "Thất bại khi cài đặt. Vui lòng thử lại."
+msgstr "Cài đặt thất bại. Vui lòng thử lại."
 
 #: src/core/utils/addons.js:31
 msgid "Download failed. Please check your connection."
-msgstr "Thất bại khi tải về. Vui lòng kiểm tra kết nối của bạn."
+msgstr "Tải về thất bại. Vui lòng kiểm tra kết nối của bạn."
 
 #: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during installation."
-msgstr "Đã xuất hiện lỗi bất ngờ khi cài đặt."
+msgstr "Đã xảy ra lỗi trong quá trình cài đặt."
 
 #: src/core/utils/addons.js:35
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Đã xuất hiện lỗi bất ngờ khi gỡ cài đặt."
+msgstr "Đã xảy ra lỗi trong quá trình gỡ bỏ."
 
 #: src/core/utils/addons.js:40
 msgid "An unexpected error occurred."
-msgstr "Đã xuất hiện lỗi bất ngờ."
+msgstr "Đã xảy ra lỗi."
 
 #: src/disco/components/Addon/index.js:86
 msgid "Close"
@@ -155,21 +157,21 @@ msgstr "Tiện ích này không hỗ trợ cho trình duyệt của bạn."
 
 #: src/disco/components/App/index.js:43
 msgid "Discover Add-ons"
-msgstr "Khám phá Tiện ích"
+msgstr "Khám phá tiện ích"
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Chính sách riêng tư"
 
-#: src/disco/pages/DiscoPane/index.js:146
+#: src/disco/pages/DiscoPane/index.js:166
 msgid "Find more add-ons"
 msgstr "Tìm thêm tiện ích"
 
-#: src/disco/pages/DiscoPane/index.js:162
+#: src/disco/pages/DiscoPane/index.js:188
 msgid "Personalize Your Firefox"
 msgstr "Cá nhân hóa Firefox của bạn"
 
-#: src/disco/pages/DiscoPane/index.js:164
+#: src/disco/pages/DiscoPane/index.js:190
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -184,25 +186,37 @@ msgstr ""
 "của bạn. Để giúp bạn bắt đầu, dưới đây là một số khuyến nghị cho hiệu suất "
 "và chức năng nổi bật của chúng."
 
+#: src/disco/pages/DiscoPane/index.js:207
+msgid "Learn More"
+msgstr "Tìm hiểu thêm"
+
+#: src/disco/pages/DiscoPane/index.js:211
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"Một số trong những khuyến nghị được cá nhân hóa. Chúng dựa trên các tiện ích "
+"mở rộng khác mà bạn đã cài đặt, tùy chọn hồ sơ và thống kê sử dụng."
+
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
 msgstr "Phiên làm việc của bạn đã hết hạn"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
-msgstr "Đã xảy ra lỗi bất ngờ"
+msgstr "Đã xảy ra lỗi"
 
 #: src/ui/components/ErrorList/index.js:59
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Tải lại để tiếp tục"
 
 #: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Loại bỏ thông báo này"
 
-#: src/ui/components/ThemeImage/index.js:31
+#: src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Xem trước %(title)s"
 
 #~ msgid "Downloading %(name)s."
 #~ msgstr "Đang tải về %(name)s."

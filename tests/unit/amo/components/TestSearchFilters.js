@@ -4,8 +4,6 @@ import SearchFilters, { SearchFiltersBase } from 'amo/components/SearchFilters';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEMES_FILTER,
-  CLIENT_APP_ANDROID,
-  CLIENT_APP_FIREFOX,
   OS_LINUX,
 } from 'core/constants';
 import { searchStart } from 'core/reducers/search';
@@ -19,7 +17,6 @@ import {
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -274,50 +271,5 @@ describe(__filename, () => {
       .children()
       .map((option) => option.props().value);
     expect(optionValues).toContain(ADDON_TYPE_THEMES_FILTER);
-  });
-
-  it('does not supply the "Theme" option when clientApp is Android and enableFeatureStaticThemesForAndroid is false', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: false,
-    });
-
-    const root = render({ _config, store });
-
-    const optionNames = root
-      .find('#SearchFilters-AddonType')
-      .children()
-      .map((option) => option.props().children);
-    expect(optionNames).not.toContain('Theme');
-  });
-
-  it('supplies the "Theme" option when clientApp is Android and enableFeatureStaticThemesForAndroid is true', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: true,
-    });
-
-    const root = render({ _config, store });
-
-    const optionNames = root
-      .find('#SearchFilters-AddonType')
-      .children()
-      .map((option) => option.props().children);
-    expect(optionNames).toContain('Theme');
-  });
-
-  it('supplies the "Theme" option when clientApp is not Android', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
-    const _config = getFakeConfig({
-      enableFeatureStaticThemesForAndroid: false,
-    });
-
-    const root = render({ _config, store });
-
-    const optionNames = root
-      .find('#SearchFilters-AddonType')
-      .children()
-      .map((option) => option.props().children);
-    expect(optionNames).toContain('Theme');
   });
 });

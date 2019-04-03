@@ -6,7 +6,6 @@ import AddonsCard from 'amo/components/AddonsCard';
 import Paginate from 'core/components/Paginate';
 import { INSTALL_SOURCE_FEATURED, INSTALL_SOURCE_SEARCH } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { hasSearchFilters } from 'core/searchUtils';
 import type { SearchFilters } from 'core/api/search';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
@@ -42,7 +41,7 @@ export class SearchResultsBase extends React.Component<InternalProps> {
       loadingMessage = (
         <div className="visually-hidden">{i18n.gettext('Searching…')}</div>
       );
-    } else if (count === 0 && hasSearchFilters(filters)) {
+    } else if (count === 0) {
       if (query) {
         messageText = i18n.sprintf(
           i18n.gettext('No results were found for "%(query)s".'),
@@ -53,10 +52,6 @@ export class SearchResultsBase extends React.Component<InternalProps> {
         // "no extensions" found that match your search or something.
         messageText = i18n.gettext('No results were found.');
       }
-    } else if (!hasSearchFilters(filters)) {
-      messageText = i18n.gettext(
-        'Please enter a search term to search Firefox Add-ons.',
-      );
     }
 
     const addonInstallSource = filters.featured
@@ -68,7 +63,7 @@ export class SearchResultsBase extends React.Component<InternalProps> {
         {loadingMessage}
         <AddonsCard
           addonInstallSource={addonInstallSource}
-          addons={hasSearchFilters(filters) ? results : null}
+          addons={results}
           footer={paginator}
           header={i18n.gettext('Search results')}
           loading={loading}

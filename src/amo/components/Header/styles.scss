@@ -106,7 +106,8 @@
   white-space: nowrap;
 }
 
-.Header-developer-hub-link {
+.Header-developer-hub-link,
+.Header-extension-workshop-link {
   display: none;
 
   @include respond-to(large) {
