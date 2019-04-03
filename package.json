@@ -31,7 +31,7 @@
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
     "prettier": "prettier --write '**'",
-    "prettier-ci": "npm run prettier -- --list-different || (echo '\n\nThis failure means you did not run `yarn prettier-dev` before committing\n\n' && exit 1)",
+    "prettier-ci": "prettier --list-different '**' || (echo '\n\nThis failure means you did not run `yarn prettier-dev` before committing\n\n' && exit 1)",
     "prettier-dev": "pretty-quick --branch master",
     "snyk": "snyk --org=add-ons-team",
     "snyk-ci": "npm run snyk test --severity-threshold=medium --file=package.json && npm run snyk monitor",
