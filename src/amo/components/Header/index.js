@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import config from 'config';
 
 import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_TYPE_HEADER,
@@ -26,6 +27,7 @@ import './styles.scss';
 
 export class HeaderBase extends React.Component {
   static propTypes = {
+    _config: PropTypes.object,
     api: PropTypes.object.isRequired,
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
@@ -36,6 +38,7 @@ export class HeaderBase extends React.Component {
   };
 
   static defaultProps = {
+    _config: config,
     isHomePage: false,
   };
 
@@ -46,7 +49,14 @@ export class HeaderBase extends React.Component {
   };
 
   render() {
-    const { i18n, isHomePage, location, siteUser, isReviewer } = this.props;
+    const {
+      _config,
+      i18n,
+      isHomePage,
+      isReviewer,
+      location,
+      siteUser,
+    } = this.props;
 
     const headerLink = (
       <Link className="Header-title" to="/">
@@ -72,7 +82,9 @@ export class HeaderBase extends React.Component {
         <div className="Header-user-and-external-links">
           <Link
             className="Header-extension-workshop-link Header-button"
-            href={`https://extensionworkshop.com/${makeQueryStringWithUTM({
+            href={`${_config.get(
+              'extensionWorkshopUrl',
+            )}/${makeQueryStringWithUTM({
               utm_content: 'header-link',
               utm_campaign: null,
             })}`}

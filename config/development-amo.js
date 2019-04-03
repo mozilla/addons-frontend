@@ -29,4 +29,6 @@ module.exports = {
       prefetchSrc: [webpackHost],
     },
   },
+
+  extensionWorkshopUrl: 'https://extensionworkshop.allizom.org',
 };
