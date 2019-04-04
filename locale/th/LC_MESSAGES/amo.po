@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-26 16:51+0000\n"
-"PO-Revision-Date: 2019-03-28 17:44+0000\n"
-"Last-Translator: aefgh39622 <aefgh39622@gmail.com>\n"
+"PO-Revision-Date: 2019-04-04 18:02+0000\n"
+"Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
@@ -197,9 +197,8 @@ msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s ดาว"
 
 #: src/amo/components/AddonMeta/index.js:125
-#, fuzzy
 msgid "Not rated yet"
-msgstr "ยังไม่มีบทวิจารณ์"
+msgstr "ยังไม่ได้จัดอันดับ"
 
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Users"
@@ -328,19 +327,16 @@ msgid "Delete review"
 msgstr "ลบบทวิจารณ์"
 
 #: src/amo/components/AddonReviewCard/index.js:219
-#, fuzzy
 msgid "Do you really want to delete this reply?"
-msgstr "เข้าสู่ระบบเพื่อแก้ไขชุดสะสมนี้"
+msgstr "คุณต้องการลบการตอบกลับนี้หรือไม่?"
 
 #: src/amo/components/AddonReviewCard/index.js:223
-#, fuzzy
 msgid "Do you really want to delete this rating?"
-msgstr "เข้าสู่ระบบเพื่อแก้ไขชุดสะสมนี้"
+msgstr "คุณต้องการลบการจัดอันดับนี้หรือไม่?"
 
 #: src/amo/components/AddonReviewCard/index.js:226
-#, fuzzy
 msgid "Do you really want to delete this review?"
-msgstr "เข้าสู่ระบบเพื่อแก้ไขชุดสะสมนี้"
+msgstr "คุณต้องการลบบทวิจารณ์นี้หรือไม่?"
 
 #: src/amo/components/AddonReviewCard/index.js:233 src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
@@ -535,10 +531,9 @@ msgid "Add-on icon"
 msgstr "ไอคอนส่วนเสริม"
 
 #: src/amo/components/AddonSummaryCard/index.js:62
-#, fuzzy
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] "ได้รับการจัดอันดับ %(rating)s จาก 5"
+msgstr[0] "%(rating)s ดาวจาก 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
@@ -561,37 +556,32 @@ msgid "Source code released under %(licenseName)s"
 msgstr "โพสต์เมื่อ %(timestamp)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
-#, fuzzy
 msgid "No version found"
-msgstr "ไม่พบส่วนเสริม"
+msgstr "ไม่พบรุ่น"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "รุ่น %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "ส่วนเสริมสำหรับ Firefox"
+msgstr "ส่วนเสริมสำหรับ Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:207 src/amo/components/HeadMetaTags/index.js:71
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – ส่วนเสริมสำหรับ Firefox"
+msgstr "%(title)s – ส่วนเสริมสำหรับ Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:215 src/amo/components/HeadMetaTags/index.js:76
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "ส่วนเสริมสำหรับ Firefox"
+msgstr "ส่วนเสริมสำหรับ Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:219 src/amo/components/HeadMetaTags/index.js:70
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%s – ส่วนเสริมสำหรับ Firefox"
+msgstr "%(title)s – ส่วนเสริมสำหรับ Firefox Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:204
 msgid "Loading"
@@ -837,18 +827,16 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "ขออภัย มีข้อผิดพลาดกับเซิร์ฟเวอร์ของเรา และเราไม่สามารถทำตามคำขอของคุณให้เสร็จสมบูรณ์ได้ เราได้บันทึกปูมข้อผิดพลาดดังกล่าวแล้ว และจะทำการตรวจสอบ"
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "บทวิจารณ์สำหรับ %(addonName)s"
+msgstr "การตอบสนองโดย %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "บทวิจารณ์สำหรับ %(addonName)s"
+msgstr "บทวิจารณ์โดย %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
-msgstr ""
+msgstr "ไม่พบบทวิจารณ์"
 
 #: src/amo/components/FlagReviewMenu/index.js:103
 msgid "This is a bug report or support request"
@@ -1029,7 +1017,7 @@ msgstr "ส่งชุดตกแต่งใหม่"
 
 #: src/amo/components/Header/index.js:151
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "จัดการการส่งของฉัน"
 
 #: src/amo/components/Header/index.js:161
 msgid "Reviewer Tools"
@@ -1208,34 +1196,31 @@ msgstr "คุณเพลิดเพลินกับประสบการ
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
-msgstr ""
+msgstr "กำลังบันทึกการจัดอันดับดาว"
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
-msgstr ""
+msgstr "บันทึกการจัดอันดับดาวแล้ว"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "อ่านบทวิจารณ์ห้าดาวทั้งหมด"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read all four-star reviews"
-msgstr "อ่าน %(count)s บทวิจารณ์ทั้งหมด"
+msgstr "อ่านบทวิจารณ์สี่ดาวทั้งหมด"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "อ่านบทวิจารณ์สามดาวทั้งหมด"
 
 #: src/amo/components/RatingsByStar/index.js:95
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "ตอบกลับบทวิจารณ์นี้"
+msgstr "อ่านบทวิจารณ์สองดาวทั้งหมด"
 
 #: src/amo/components/RatingsByStar/index.js:96
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "อ่าน %(count)s บทวิจารณ์ทั้งหมด"
+msgstr "อ่านบทวิจารณ์หนึ่งดาวทั้งหมด"
 
 #: src/amo/components/ReportAbuseButton/index.js:106 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
@@ -1390,10 +1375,9 @@ msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "พบ %(count)s ชุดตกแต่งสำหรับ \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:150
-#, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "พบ %(count)s ส่วนเสริม"
+msgstr[0] "พบ %(count)s ชุดตกแต่ง"
 
 #: src/amo/components/SearchContextCard/index.js:162
 msgid "%(count)s result found for \"%(query)s\""
@@ -1401,19 +1385,17 @@ msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "พบ %(count)s ผลลัพธ์สำหรับ \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:171
-#, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "%(count)s ผลลัพธ์สำหรับ \"%(query)s\""
+msgstr[0] "พบ %(count)s ผลลัพธ์"
 
 #: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
 msgstr "กำลังค้นหา \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:186
-#, fuzzy
 msgid "Searching for add-ons"
-msgstr "กำลังโหลดส่วนเสริม"
+msgstr "กำลังค้นหาส่วนเสริม"
 
 #: src/amo/components/SearchContextCard/index.js:60
 #, fuzzy
@@ -1433,10 +1415,9 @@ msgid_plural "%(count)s extensions found for \"%(query)s\""
 msgstr[0] "พบ %(count)s ส่วนขยายสำหรับ \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:88
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "พบ %(count)s ส่วนเสริม"
+msgstr[0] "พบ %(count)s ส่วนขยาย"
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:125
 msgid "All"
@@ -1507,14 +1488,12 @@ msgid "Featured add-ons only"
 msgstr "ส่วนเสริมที่แนะนำเท่านั้น"
 
 #: src/amo/components/SearchForm/index.js:61
-#, fuzzy
 msgid "Firefox Add-ons (%(locale)s)"
-msgstr "ส่วนเสริมสำหรับ Firefox"
+msgstr "ส่วนเสริม Firefox (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
-#, fuzzy
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr "ส่วนเสริมสำหรับ Android"
+msgstr "ส่วนเสริม Firefox สำหรับ Android (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
@@ -1783,7 +1762,7 @@ msgstr "ยังไม่มีการจัดอันดับ"
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
 msgid_plural "%(addonName)s Version history - %(total)s versions"
-msgstr[0] ""
+msgstr[0] "ประวัติรุ่นของ %(addonName)s - %(total)s รุ่น"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
@@ -1798,19 +1777,16 @@ msgid "Latest version"
 msgstr "รุ่นล่าสุด"
 
 #: src/amo/pages/AddonVersions/index.js:195
-#, fuzzy
 msgid "Older versions"
-msgstr "ดูรุ่นทั้งหมด"
+msgstr "รุ่นเก่ากว่า"
 
 #: src/amo/pages/CategoriesPage/index.js:34
-#, fuzzy
 msgid "All extension categories"
-msgstr "เรียกดูส่วนขยายทั้งหมดในหมวดหมู่นี้"
+msgstr "หมวดหมู่ส่วนขยายทั้งหมด"
 
 #: src/amo/pages/CategoriesPage/index.js:36
-#, fuzzy
 msgid "All theme categories"
-msgstr "สำรวจหมวดหมู่ทั้งหมด"
+msgstr "หมวดหมู่ชุดตกแต่งทั้งหมด"
 
 #: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:310 src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
@@ -1972,7 +1948,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:195
 msgid "Improve videos"
-msgstr ""
+msgstr "ปรับปรุงวิดีโอ"
 
 #: src/amo/pages/Guides/index.js:196
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
@@ -2055,9 +2031,8 @@ msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:96
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "ปิดกั้นโฆษณา"
+msgstr "ปิดกั้นโฆษณาที่น่ารำคาญ"
 
 #: src/amo/pages/Guides/index.js:97
 msgid ""
@@ -2125,41 +2100,36 @@ msgid "Download Firefox extensions and themes. They’re like apps for your brow
 msgstr ""
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more video extensions"
-msgstr "ดูส่วนขยายที่ได้รับการจัดอันดับสูงสุดเพิ่มเติม"
+msgstr "ดูส่วนขยายวิดีโอเพิ่มเติม"
 
 #: src/amo/pages/Home/index.js:56
 msgid "Extensions for enhancing video"
-msgstr ""
+msgstr "ส่วนขยายสำหรับยกระดับวิดีโอ"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "See more spring themes"
-msgstr "ดูชุดตกแต่งที่กำลังนิยมเพิ่มเติม"
+msgstr "ดูชุดตกแต่งฤดูใบไม้ผลิเพิ่มเติม"
 
 #: src/amo/pages/Home/index.js:62
-#, fuzzy
 msgid "Spring themes"
-msgstr "ชุดตกแต่งที่กำลังนิยม"
+msgstr "ชุดตกแต่งฤดูใบไม้ผลิ"
 
 #: src/amo/pages/Home/index.js:67
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "ตัวเพิ่มประสิทธิภาพ Wikipedia"
+msgstr "ดูตัวเพิ่มประสิทธิภาพ Wikipedia เพิ่มเติม"
 
 #: src/amo/pages/Home/index.js:68
 msgid "Wikipedia boosters"
 msgstr "ตัวเพิ่มประสิทธิภาพ Wikipedia"
 
 #: src/amo/pages/Home/index.js:73
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "ดูส่วนขยายที่ได้รับการจัดอันดับสูงสุดเพิ่มเติม"
+msgstr "ดูส่วนขยายแท็บเพิ่มเติม"
 
 #: src/amo/pages/Home/index.js:74
 msgid "Change up your tabs"
-msgstr ""
+msgstr "เปลี่ยนแท็บของคุณ"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2541,9 +2511,8 @@ msgid "Account"
 msgstr "บัญชี"
 
 #: src/amo/pages/UserProfileEdit/index.js:528
-#, fuzzy
 msgid "Account for %(userName)s"
-msgstr "บัญชีสำหรับ %(username)s"
+msgstr "บัญชีสำหรับ %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:535
 msgid "Email Address"
@@ -2551,7 +2520,7 @@ msgstr "ที่อยู่อีเมล"
 
 #: src/amo/pages/UserProfileEdit/index.js:542
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "ไม่สามารถเปลี่ยนที่อยู่อีเมลที่นี่"
 
 #: src/amo/pages/UserProfileEdit/index.js:551
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
@@ -2706,11 +2675,11 @@ msgstr ""
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "เพิ่ม %(strongStart)s%(name)s%(strongEnd)s แล้ว"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "จัดการส่วนเสริมของคุณโดยคลิก ส่วนเสริม ในเมนู"
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -2738,33 +2707,33 @@ msgstr ""
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s และใหม่กว่า"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s ถึง %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
@@ -2773,24 +2742,21 @@ msgstr ""
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "การติดตั้งล้มเหลว โปรดลองอีกครั้ง"
 
 #: src/core/utils/addons.js:31
 msgid "Download failed. Please check your connection."
 msgstr "การดาวน์โหลดล้มเหลว โปรดตรวจสอบการเชื่อมต่อของคุณ"
 
 #: src/core/utils/addons.js:33
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิด"
+msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิดระหว่างการติดตั้ง"
 
 #: src/core/utils/addons.js:35
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิด"
+msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิดระหว่างการถอนการติดตั้ง"
 
 #: src/core/utils/addons.js:40
-#, fuzzy
 msgid "An unexpected error occurred."
 msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิด"
 
