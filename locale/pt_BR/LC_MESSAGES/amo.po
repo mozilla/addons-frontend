@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-26 16:51+0000\n"
-"PO-Revision-Date: 2019-03-26 20:45+0000\n"
+"PO-Revision-Date: 2019-04-04 21:50+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1537,7 +1537,7 @@ msgstr "Ferramentas de pesquisa"
 
 #: src/amo/components/SectionLinks/index.js:133
 msgid "Other Browser Sites"
-msgstr "Outros sites de navegadores"
+msgstr "Outros sites do navegador"
 
 #: src/amo/components/SectionLinks/index.js:144
 msgid "Add-ons for Android"
@@ -1549,11 +1549,11 @@ msgstr "Extensões para o Firefox"
 
 #: src/amo/components/SectionLinks/index.js:60
 msgid "for Firefox"
-msgstr "para Firefox"
+msgstr "Firefox"
 
 #: src/amo/components/SectionLinks/index.js:62
 msgid "for Android"
-msgstr "para Android"
+msgstr "Android"
 
 #: src/amo/components/SectionLinks/index.js:78
 msgid "Explore"
@@ -2820,7 +2820,7 @@ msgstr "Alternar conteúdos"
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
-msgstr "Acessar seus dados em todos os sites visitados"
+msgstr "Acessar seus dados de todos os sites"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
@@ -2830,7 +2830,7 @@ msgstr[1] "Acessar seus dados em %(param)s outros domínios"
 
 #: src/ui/components/HostPermissions/index.js:67
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "Acessar seus dados em páginas do domínio %(param)s"
+msgstr "Acessar seus dados de sites no domínio %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
@@ -2840,7 +2840,7 @@ msgstr[1] "Acessar seus dados em %(param)s outros sites"
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
-msgstr "Acessar seus dados em %(param)s"
+msgstr "Acessar seus dados de %(param)s"
 
 #: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
