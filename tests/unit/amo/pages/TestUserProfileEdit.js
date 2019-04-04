@@ -422,7 +422,7 @@ describe(__filename, () => {
     );
     expect(root.find('[htmlFor="displayName"]')).toHaveProp(
       'title',
-      'This field is required'
+      'This field is required',
     );
   });
 

@@ -12,6 +12,7 @@ import {
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -165,15 +166,17 @@ describe(__filename, () => {
   });
 
   it('displays a extension workshop link in header', () => {
-    const { store } = dispatchSignInActions();
-    const wrapper = renderHeader({ store });
-    const link = wrapper.find('.Header-extension-workshop-link');
+    const extensionWorkshopUrl = 'http://extensionworkshop.fr';
+    const _config = getFakeConfig({ extensionWorkshopUrl });
 
+    const wrapper = renderHeader({ _config });
+
+    const link = wrapper.find('.Header-extension-workshop-link');
     expect(link).toHaveLength(1);
     expect(link.children()).toHaveText('Extension Workshop');
     expect(link).toHaveProp(
       'href',
-      `https://extensionworkshop.com/${makeQueryStringWithUTM({
+      `${extensionWorkshopUrl}/${makeQueryStringWithUTM({
         utm_content: 'header-link',
         utm_campaign: null,
       })}`,

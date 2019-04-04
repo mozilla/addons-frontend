@@ -6,7 +6,7 @@ import { compose } from 'redux';
 import Search from 'amo/components/Search';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
-import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_RELEVANCE } from 'core/constants';
+import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_TOP_RATED } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import type { SearchFilters } from 'amo/components/AutoSearchInput';
@@ -49,7 +49,7 @@ export class SearchToolsBase extends React.Component<InternalProps> {
 export function mapStateToProps() {
   const filters = {
     addonType: ADDON_TYPE_OPENSEARCH,
-    sort: SEARCH_SORT_RELEVANCE,
+    sort: SEARCH_SORT_TOP_RATED,
   };
 
   return { filters };

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
+import config from 'config';
 
 import LanguagePicker from 'amo/components/LanguagePicker';
 import Link from 'amo/components/Link';
@@ -13,11 +14,16 @@ import './styles.scss';
 
 export class FooterBase extends React.Component {
   static propTypes = {
+    _config: PropTypes.object,
     i18n: PropTypes.object.isRequired,
   };
 
+  static defaultProps = {
+    _config: config,
+  };
+
   render() {
-    const { i18n } = this.props;
+    const { _config, i18n } = this.props;
     const homepageText = i18n.gettext("Go to Mozilla's homepage");
 
     return (
@@ -55,12 +61,12 @@ export class FooterBase extends React.Component {
               <li>
                 <a
                   className="Footer-extension-workshop-link"
-                  href={`https://extensionworkshop.com/${makeQueryStringWithUTM(
-                    {
-                      utm_content: 'footer-link',
-                      utm_campaign: null,
-                    },
-                  )}`}
+                  href={`${_config.get(
+                    'extensionWorkshopUrl',
+                  )}/${makeQueryStringWithUTM({
+                    utm_content: 'footer-link',
+                    utm_campaign: null,
+                  })}`}
                 >
                   {i18n.gettext('Extension Workshop')}
                 </a>

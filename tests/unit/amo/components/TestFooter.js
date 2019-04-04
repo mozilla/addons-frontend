@@ -2,7 +2,11 @@ import * as React from 'react';
 
 import Footer, { FooterBase } from 'amo/components/Footer';
 import { makeQueryStringWithUTM } from 'amo/utils';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  fakeI18n,
+  getFakeConfig,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function renderFooter({ ...props }) {
@@ -13,7 +17,10 @@ describe(__filename, () => {
   }
 
   it('renders a footer', () => {
-    const root = renderFooter();
+    const extensionWorkshopUrl = 'http://extensionworkshop.fr';
+    const _config = getFakeConfig({ extensionWorkshopUrl });
+
+    const root = renderFooter({ _config });
 
     // None of these links are localised because an unsupported locale will
     // cause a 404 error.
@@ -48,7 +55,7 @@ describe(__filename, () => {
     );
     expect(root.find('.Footer-extension-workshop-link')).toHaveProp(
       'href',
-      `https://extensionworkshop.com/${makeQueryStringWithUTM({
+      `${extensionWorkshopUrl}/${makeQueryStringWithUTM({
         utm_content: 'footer-link',
         utm_campaign: null,
       })}`,

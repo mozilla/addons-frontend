@@ -2680,9 +2680,9 @@ msgid ""
 "%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
 "thunderbird.net/seamonkey%(endSMLink)s."
 msgstr ""
-"Si buscas complementos para Thunderbird o SeaMonkey, vista la página addons."
-"thunderbird.net%(endTBLink)s o %(startSMLink)saddons.thunderbird.net/"
-"seamonkey%(endSMLink)s."
+"Si buscas complementos para Thunderbird o SeaMonkey, vista la página "
+"%(startTBLink)saddons.thunderbird.net%(endTBLink)s o %(startSMLink)saddons."
+"thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:69
 msgid "A community of creators"

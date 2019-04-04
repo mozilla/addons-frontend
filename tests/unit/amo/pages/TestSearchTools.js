@@ -4,7 +4,7 @@ import SearchTools, { SearchToolsBase } from 'amo/pages/SearchTools';
 import Search from 'amo/components/Search';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
-import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_RELEVANCE } from 'core/constants';
+import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_TOP_RATED } from 'core/constants';
 import {
   dispatchClientMetadata,
   fakeI18n,
@@ -34,7 +34,7 @@ describe(__filename, () => {
     const root = render();
     expect(root.find(Search)).toHaveProp('filters', {
       addonType: ADDON_TYPE_OPENSEARCH,
-      sort: SEARCH_SORT_RELEVANCE,
+      sort: SEARCH_SORT_TOP_RATED,
     });
   });
 

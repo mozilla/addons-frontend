@@ -35,7 +35,7 @@ Here are some commands you can run:
 
 | Command                     | Description                                                                                                                                                                                     |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| yarn amo                    | Start the dev server/proxy (for amo) using data from Docker. *This is not currently working. See [issue-7196][]*.                                                                                                                                     |
+| yarn amo                    | Start the dev server/proxy (for amo) using data from Docker. _This is not currently working. See [issue-7196][]_.                                                                               |
 | yarn amo:dev                | Start the dev server/proxy (for amo) using data from the dev server (https://addons-dev.allizom.org/)                                                                                           |
 | yarn amo:dev-https          | Same as `amo:dev` but with HTTPS, available at: https://example.com:3000/. [Read about setting up this environment](docs/moz-addon-manager.md#developing-with-a-local-https-server-recommended) |
 | yarn amo:no-proxy           | Start the dev server without a proxy (for amo) using data from Docker                                                                                                                           |
