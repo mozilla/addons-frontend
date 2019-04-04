@@ -357,6 +357,9 @@ export function createUserAccountResponse({
   permissions = [],
   occupation = null,
   location = null,
+  // only for reviewers
+  // eslint-disable-next-line camelcase
+  reviewer_name,
 } = {}) {
   return {
     average_addon_rating,
@@ -379,6 +382,7 @@ export function createUserAccountResponse({
     url: null,
     username,
     permissions,
+    reviewer_name,
   };
 }
 
