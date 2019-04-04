@@ -299,7 +299,7 @@ describe(__filename, () => {
     const slug = 'some-addon-slug';
     const addon = { ...fakeAddon, slug };
     const versions = [fakeVersion];
-    const expectedHeader = `${addon.name} Version history - ${
+    const expectedHeader = `${addon.name} version history - ${
       versions.length
     } version`;
 
@@ -321,7 +321,7 @@ describe(__filename, () => {
     const slug = 'some-addon-slug';
     const addon = { ...fakeAddon, slug };
     const versions = [fakeVersion, fakeVersion];
-    const expectedHeader = `${addon.name} Version history - ${
+    const expectedHeader = `${addon.name} version history - ${
       versions.length
     } versions`;
 
