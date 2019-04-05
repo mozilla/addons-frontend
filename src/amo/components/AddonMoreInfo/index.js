@@ -67,7 +67,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       supportUrl = (
         <li>
           <a className="AddonMoreInfo-support-link" href={supportUrl}>
-            {i18n.gettext('Support Site')}
+            {i18n.gettext('Support site')}
           </a>
         </li>
       );
