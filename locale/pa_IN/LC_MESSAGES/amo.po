@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-26 16:51+0000\n"
-"PO-Revision-Date: 2019-03-31 18:18+0000\n"
+"PO-Revision-Date: 2019-04-05 21:12+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -56,12 +56,12 @@ msgstr ""
 # This action allows a reviewer to perform a review of a theme.
 #: src/amo/components/AddonAdminLinks/index.js:121
 msgid "Review theme"
-msgstr ""
+msgstr "ਥੀਮ ਦੀ ਸਮੀਖਿਆ ਕਰੋ"
 
 # This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/AddonAdminLinks/index.js:123
 msgid "Review add-on code"
-msgstr ""
+msgstr "ਐਡ-ਆਨ ਕੋਡ ਦੀ ਸਮੀਖਿਆ ਕਰੋ"
 
 # This is a list of links to administrative functions.
 #: src/amo/components/AddonAdminLinks/index.js:147
@@ -71,7 +71,7 @@ msgstr ""
 # This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:77
 msgid "Edit add-on"
-msgstr ""
+msgstr "ਐਡ-ਆਨ ਸੰਪਾਦਿਤ ਕਰੋ"
 
 # This action allows an admin to edit the status of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:89
@@ -100,7 +100,7 @@ msgstr "ਤਜਰਬੇ"
 
 #: src/amo/components/AddonBadges/index.js:63
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਕੁਅੰਟਮ ਦੇ ਅਨੁਕੂਲ ਨਹੀਂ ਹੈ"
 
 #: src/amo/components/AddonBadges/index.js:69
 msgid "Some features may require payment"
@@ -116,7 +116,7 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:110
 msgid "This add-on is not available on your platform."
-msgstr ""
+msgstr "ਇਹ ਐਡ-ਆਨ ਤੁਹਾਡੇ ਪਲੇਟਫਾਰਮ ਤੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।"
 
 #: src/amo/components/AddonCompatibilityError/index.js:114
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -124,7 +124,7 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:131
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "ਤੁਹਾਡਾ ਬ੍ਰਾਉਜ਼ਰ ਐਡ-ਆਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾ। ਤੁਸੀਂ ਇਸ ਐਡ-ਆਨ ਨੂੰ ਇੰਸਟਾਲ ਕਰਨ ਲਈ <a href=\"%(downloadUrl)s\">ਫਾਇਰਫਾਕਸ ਡਾਊਨਲੋਡ</a> ਕਰ ਸਕਦੇ ਹੋ।"
 
 #: src/amo/components/AddonCompatibilityError/index.js:96
 msgid "This add-on is not compatible with your version of Firefox."
@@ -208,7 +208,7 @@ msgstr[1] "ਯੂਜ਼ਰ"
 
 #: src/amo/components/AddonMeta/index.js:53
 msgid "No Users"
-msgstr ""
+msgstr "ਕੋਈ ਉਪਭੋਗਤਾ ਨਹੀਂ"
 
 #: src/amo/components/AddonMeta/index.js:60
 msgid "Reviews"
