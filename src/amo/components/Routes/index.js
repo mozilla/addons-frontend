@@ -28,6 +28,7 @@ import SearchPage from 'amo/pages/SearchPage';
 import ServerError from 'amo/components/ErrorPage/ServerError';
 import UserProfile from 'amo/pages/UserProfile';
 import UserProfileEdit from 'amo/pages/UserProfileEdit';
+import UsersUnsubscribe from 'amo/pages/UsersUnsubscribe';
 import SimulateAsyncError from 'core/pages/error-simulation/SimulateAsyncError';
 import SimulateClientError from 'core/pages/error-simulation/SimulateClientError';
 import SimulateSyncError from 'core/pages/error-simulation/SimulateSyncError';
@@ -203,6 +204,12 @@ const Routes = ({ _config = config }: Props = {}) => (
       exact
       path="/:lang/:application/:visibleAddonType(extensions|themes)/"
       component={LandingPage}
+    />
+
+    <Route
+      exact
+      path="/:lang/:application/users/unsubscribe/:token/:hash/:notificationName/"
+      component={UsersUnsubscribe}
     />
 
     <Route component={NotFound} />

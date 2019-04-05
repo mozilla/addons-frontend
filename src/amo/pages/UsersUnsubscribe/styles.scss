@@ -1,0 +1,19 @@
+@import '~amo/css/styles';
+
+.UsersUnsubscribe {
+  @include page-padding();
+
+  .UsersUnsubscribe-content-explanation,
+  .UsersUnsubscribe-content-edit-profile,
+  .UsersUnsubscribe-content-notification {
+    font-size: $font-size-default;
+  }
+
+  .UsersUnsubscribe-content-notification {
+    font-style: italic;
+  }
+
+  .UsersUnsubscribe-content-edit-profile {
+    margin-top: 36px;
+  }
+}
