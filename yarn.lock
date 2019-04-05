@@ -11510,10 +11510,10 @@ pino-syslog@^1.2.0:
     split2 "^2.1.1"
     through2 "^2.0.3"
 
-pino@5.12.1:
-  version "5.12.1"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-5.12.1.tgz#120d22fbd24f5b99b64f6698a649a22027686489"
-  integrity sha512-LZaBdSOr8WSIl8HGDY7yY8JWY7py6pS0vY4TA7RafGMn8J6oM3CVkAWFGXi5Bopktmwvg9S4fVZuqUSknQ7W0w==
+pino@5.12.2:
+  version "5.12.2"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-5.12.2.tgz#e9f43d918d455684280a6015254c5ad96a91f278"
+  integrity sha512-EunVRDkw/eQzgAudJiZuqzEQ20hDezixLRLrdxUMBzavvt5ot3vep7K8swRvXSgj2bKtbOmoHnrRMtYzRjfITQ==
   dependencies:
     fast-redact "^1.4.4"
     fast-safe-stringify "^2.0.6"
