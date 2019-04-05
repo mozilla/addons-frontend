@@ -147,7 +147,7 @@ describe(__filename, () => {
     const root = render({ addon });
     const link = root.find('.AddonMoreInfo-support-link');
 
-    expect(link).toIncludeText('Support Site');
+    expect(link).toIncludeText('Support site');
     expect(link).toHaveProp('href', 'http://support.hampsterdance.com/');
   });
 

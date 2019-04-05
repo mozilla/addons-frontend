@@ -142,7 +142,7 @@ export class HomeBase extends React.Component {
         collectionSlug: 'ad-blockers',
       },
       {
-        title: i18n.gettext('Smarter Shopping'),
+        title: i18n.gettext('Smarter shopping'),
         collectionSlug: 'smarter-shopping',
       },
       {
@@ -150,7 +150,7 @@ export class HomeBase extends React.Component {
         collectionSlug: 'be-more-productive',
       },
       {
-        title: i18n.gettext('Watching Videos'),
+        title: i18n.gettext('Watching videos'),
         collectionSlug: 'watching-videos',
       },
     ];
