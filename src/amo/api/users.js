@@ -1,5 +1,6 @@
 /* @flow */
 import invariant from 'invariant';
+import FormData from '@willdurand/isomorphic-formdata';
 
 import { callApi } from 'core/api';
 import type {

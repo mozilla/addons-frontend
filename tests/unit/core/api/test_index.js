@@ -1,6 +1,7 @@
 /* global window */
 import querystring from 'querystring';
 
+import FormData from '@willdurand/isomorphic-formdata';
 import config from 'config';
 import utf8 from 'utf8';
 
@@ -35,6 +36,10 @@ describe(__filename, () => {
   });
 
   describe('core.callApi', () => {
+    it('uses a browser implementation of FormData', () => {
+      expect(FormData).toEqual(window.FormData);
+    });
+
     it('does not use remote host for api calls', () => {
       expect(apiHost).toEqual('http://if-you-see-this-host-file-a-bug');
     });
