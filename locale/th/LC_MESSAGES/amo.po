@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-26 16:51+0000\n"
-"PO-Revision-Date: 2019-04-04 18:02+0000\n"
+"PO-Revision-Date: 2019-04-05 18:20+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -44,38 +44,32 @@ msgid "Add to collection"
 msgstr "เพิ่มไปยังชุดสะสม"
 
 #: src/amo/components/AddonAdminLinks/index.js:102
-#, fuzzy
 msgid "Admin add-on"
-msgstr "ค้นหาส่วนเสริม"
+msgstr "ส่วนเสริมผู้ดูแล"
 
 #: src/amo/components/AddonAdminLinks/index.js:114
-#, fuzzy
 msgid "Content review add-on"
-msgstr "%(total)s บทวิจารณ์สำหรับส่วนเสริมนี้"
+msgstr "ส่วนเสริมบทวิจารณ์เนื้อหา"
 
 #: src/amo/components/AddonAdminLinks/index.js:121
-#, fuzzy
 msgid "Review theme"
-msgstr "ข้อความบทวิจารณ์"
+msgstr "ตรวจทานชุดตกแต่ง"
 
 #: src/amo/components/AddonAdminLinks/index.js:123
-#, fuzzy
 msgid "Review add-on code"
-msgstr "บทวิจารณ์สำหรับ %(addonName)s"
+msgstr "ตรวจทานโค้ดส่วนเสริม"
 
 #: src/amo/components/AddonAdminLinks/index.js:147
-#, fuzzy
 msgid "Admin Links"
-msgstr "ลิงก์ส่วนเสริม"
+msgstr "ลิงก์ผู้ดูแล"
 
 #: src/amo/components/AddonAdminLinks/index.js:77
 msgid "Edit add-on"
 msgstr "แก้ไขส่วนเสริม"
 
 #: src/amo/components/AddonAdminLinks/index.js:89
-#, fuzzy
 msgid "Admin add-on status"
-msgstr "กำลังโหลดส่วนเสริม"
+msgstr "สถานะส่วนเสริมผู้ดูแล"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
@@ -383,9 +377,8 @@ msgid "Publishing reply"
 msgstr "กำลังเผยแพร่การตอบกลับ"
 
 #: src/amo/components/AddonReviewCard/index.js:349
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "โพสต์เมื่อ %(timestamp)s"
+msgstr "โพสต์เมื่อ %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:351
 #, fuzzy
@@ -1721,29 +1714,24 @@ msgid "Show all reviews"
 msgstr "แสดงบทวิจารณ์ทั้งหมด"
 
 #: src/amo/pages/AddonReviewList/index.js:230
-#, fuzzy
 msgid "Show only five-star reviews"
-msgstr "อ่าน %(count)s บทวิจารณ์ทั้งหมด"
+msgstr "แสดงบทวิจารณ์ห้าดาวเท่านั้น"
 
 #: src/amo/pages/AddonReviewList/index.js:231
-#, fuzzy
 msgid "Show only four-star reviews"
-msgstr "อ่าน %(count)s บทวิจารณ์ทั้งหมด"
+msgstr "แสดงบทวิจารณ์สี่ดาวเท่านั้น"
 
 #: src/amo/pages/AddonReviewList/index.js:233
-#, fuzzy
 msgid "Show only three-star reviews"
-msgstr "อ่าน %(count)s บทวิจารณ์ทั้งหมด"
+msgstr "แสดงบทวิจารณ์สามดาวเท่านั้น"
 
 #: src/amo/pages/AddonReviewList/index.js:235
-#, fuzzy
 msgid "Show only two-star reviews"
-msgstr "ตอบกลับบทวิจารณ์นี้"
+msgstr "แสดงบทวิจารณ์สองดาวเท่านั้น"
 
 #: src/amo/pages/AddonReviewList/index.js:236
-#, fuzzy
 msgid "Show only one-star reviews"
-msgstr "อ่าน %(count)s บทวิจารณ์ทั้งหมด"
+msgstr "แสดงบทวิจารณ์หนึ่งดาวเท่านั้น"
 
 #: src/amo/pages/AddonReviewList/index.js:276
 msgid "Reviews for %(addonName)s"
@@ -1755,9 +1743,8 @@ msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s บทวิจารณ์"
 
 #: src/amo/pages/AddonReviewList/index.js:383
-#, fuzzy
 msgid "There are no reviews"
-msgstr "ยังไม่มีการจัดอันดับ"
+msgstr "ไม่มีบทวิจารณ์"
 
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s Version history - %(total)s version"
