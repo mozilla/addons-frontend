@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-02-26 17:58+0000\n"
-"PO-Revision-Date: 2019-04-05 21:06+0000\n"
+"PO-Revision-Date: 2019-04-06 11:06+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -40,11 +40,11 @@ msgstr "ਅਣ-ਇੰਸਟਾਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: src/core/components/AMInstallButton/index.js:230
 msgid "Install Theme"
-msgstr ""
+msgstr "ਥੀਮ ਇੰਸਟਾਲ ਕਰੋ"
 
 #: src/core/components/AMInstallButton/index.js:231
 msgid "Add to Firefox"
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਵਿੱਚ ਜੋੜੋ"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -76,7 +76,7 @@ msgstr ""
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
-msgstr ""
+msgstr "ਠੀਕ ਹੈ"
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -151,11 +151,11 @@ msgstr ""
 
 #: src/disco/components/App/index.js:43
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "ਐਡ-ਆਨ ਖੋਜੋ"
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
-msgstr ""
+msgstr "ਪਰਦੇਦਾਰੀ ਸੂਚਨਾ"
 
 #: src/disco/pages/DiscoPane/index.js:166
 msgid "Find more add-ons"
@@ -173,7 +173,7 @@ msgstr ""
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
-msgstr ""
+msgstr "ਹੋਰ ਜਾਣੋ"
 
 #: src/disco/pages/DiscoPane/index.js:211
 msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
