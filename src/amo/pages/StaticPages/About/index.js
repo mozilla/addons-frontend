@@ -186,7 +186,7 @@ export class AboutBase extends React.Component<Props> {
               dangerouslySetInnerHTML={sanitizeHTML(
                 i18n.sprintf(
                   i18n.gettext(
-                    `To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s`,
+                    `To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s.`,
                   ),
                   {
                     startLink:
