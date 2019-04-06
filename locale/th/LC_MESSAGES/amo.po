@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-26 16:51+0000\n"
-"PO-Revision-Date: 2019-04-05 18:20+0000\n"
+"PO-Revision-Date: 2019-04-06 19:19+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -342,19 +342,16 @@ msgid "Cancel"
 msgstr "ยกเลิก"
 
 #: src/amo/components/AddonReviewCard/index.js:255
-#, fuzzy
 msgid "Keep reply"
-msgstr "ลบการตอบกลับของฉัน"
+msgstr "เก็บการตอบกลับ"
 
 #: src/amo/components/AddonReviewCard/index.js:259
-#, fuzzy
 msgid "Keep rating"
-msgstr "ลบบทวิจารณ์ของฉัน"
+msgstr "เก็บการจัดอันดับ"
 
 #: src/amo/components/AddonReviewCard/index.js:262
-#, fuzzy
 msgid "Keep review"
-msgstr "ลบบทวิจารณ์ของฉัน"
+msgstr "เก็บบทวิจารณ์"
 
 #: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
@@ -381,9 +378,8 @@ msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "โพสต์เมื่อ %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:351
-#, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "โดย %(authorName)s, %(timestamp)s"
+msgstr "โดย %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:438
 msgid "Deleting…"
@@ -402,9 +398,8 @@ msgid "Write a review"
 msgstr "เขียนบทวิจารณ์"
 
 #: src/amo/components/AddonReviewManager/index.js:107
-#, fuzzy
 msgid "Write about your experience with this add-on."
-msgstr "คุณเพลิดเพลินกับประสบการณ์ของคุณกับ %(addonName)s แค่ไหน?"
+msgstr "เขียนเกี่ยวกับประสบการณ์ของคุณกับส่วนเสริมนี้"
 
 #: src/amo/components/AddonReviewManager/index.js:111
 msgid "Submit review"
@@ -431,9 +426,8 @@ msgid "Saved"
 msgstr "บันทึกแล้ว"
 
 #: src/amo/components/AddonReviewManager/index.js:90
-#, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "บอกให้โลกรู้ว่าทำไมคุณจึงคิดว่าส่วนขยายนี้ยอดเยี่ยม! โปรดปฏิบัติตาม %(linkStart)sคู่มือบทวิจารณ์%(linkEnd)s ของเรา"
+msgstr "โปรดปฏิบัติตาม %(linkStart)sหลักเกณฑ์บทวิจารณ์%(linkEnd)s ของเรา"
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
@@ -539,14 +533,12 @@ msgid "by"
 msgstr "โดย"
 
 #: src/amo/components/AddonVersionCard/index.js:104
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "โพสต์เมื่อ %(timestamp)s"
+msgstr "เผยแพร่โค้ดต้นฉบับภายใต้ %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:125
-#, fuzzy
 msgid "Source code released under %(licenseName)s"
-msgstr "โพสต์เมื่อ %(timestamp)s"
+msgstr "เผยแพร่โค้ดต้นฉบับภายใต้ %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
