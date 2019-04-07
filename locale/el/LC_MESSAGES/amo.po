@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-26 16:51+0000\n"
-"PO-Revision-Date: 2019-04-07 13:11+0000\n"
+"PO-Revision-Date: 2019-04-07 13:25+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -1918,6 +1918,8 @@ msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"Θέλετε βοήθεια για να οργανώσετε όλες τις αγαπημένες σας συνταγές, άρθρα με οδηγίες, βίντεο στο YouTube, ή για να βρίσκετε οτιδήποτε στο διαδίκτυο; Το OneNote Web Clipper σάς επιτρέπει να συλλέγετε "
+"και να αποθηκεύετε όλο το αγαπημένο σας διαδικτυακό περιεχόμενο σε ένα πανίσχυρο αποθετήριο που συγχρονίζεται σε όλες τις συσκευές."
 
 #: src/amo/pages/Guides/index.js:167
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
@@ -1966,12 +1968,15 @@ msgstr "Μέγιστη αξιοποίηση των πολυμέσων"
 #: src/amo/pages/Guides/index.js:215
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
 msgstr ""
+"Οι επεκτάσεις μπορούν να ικανοποιήσουν μια ευρεία ποικιλία εξειδικευμένων αναγκών και ενδιαφερόντων για πολυμέσα, όπως για παράδειγμα αναζήτηση εικόνων, διαχείριση λήψεων και ανάγνωση κειμένων."
 
 #: src/amo/pages/Guides/index.js:220
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Έχετε συναντήσει ποτέ μια ενδιαφέρουσα εικόνα στο διαδίκτυο και θέλετε να μάθετε περισσότερα σχετικά με αυτή, όπως ποιο είναι το άτομο στην εικόνα; Υπάρχουν σχετικές εικόνες; Αυτή η επέκταση σάς "
+"επιτρέπει να κάνετε ταχύτατες και εύκολες αντίστροφες αναζητήσεις εικόνων μέσω πολλών μηχανών."
 
 #: src/amo/pages/Guides/index.js:226
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
