@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-26 16:51+0000\n"
-"PO-Revision-Date: 2019-04-06 03:56+0000\n"
+"PO-Revision-Date: 2019-04-07 13:11+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -794,6 +794,8 @@ msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Το αφαίρεσε η Mozilla. Αυτό μπορεί να συμβαίνει όταν εντοπίζονται ζητήματα κατά την αξιολόγηση της επέκτασης ή του θέματος, ή όταν η επέκταση ή το θέμα παραβιάζει τους όρους και τις προϋποθέσεις του"
+" addons.mozilla.org. Ο προγραμματιστής έχει την ευκαιρία να επιλύσει τα ζητήματα και να κάνει ξανά διαθέσιμο το πρόσθετο."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:86
 msgid ""
@@ -1061,43 +1063,43 @@ msgstr "Μάθετε περισσότερα σχετικά με τα δικαι�
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Read and modify bookmarks"
-msgstr "Ανάγνωση και τροποποίηση σελιδοδεικτών"
+msgstr "Κάνει ανάγνωση και τροποποίηση σελιδοδεικτών"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read and modify browser settings"
-msgstr "Ανάγνωση και τροποποίηση των ρυθμίσεων του προγράμματος περιήγησης"
+msgstr "Κάνει ανάγνωση και τροποποίηση των ρυθμίσεων του προγράμματος περιήγησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr "Εκκαθάριση πρόσφατου ιστορικού περιήγησης, cookies και σχετικών δεδομένων"
+msgstr "Κάνει εκκαθάριση πρόσφατου ιστορικού περιήγησης, cookies και σχετικών δεδομένων"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
-msgstr "Λήψη δεδομένων από το πρόχειρο"
+msgstr "Κάνει λήψη δεδομένων από το πρόχειρο"
 
 #: src/amo/components/PermissionsCard/permissions.js:37
 msgid "Input data to the clipboard"
-msgstr "Εισαγωγή δεδομένων στο πρόχειρο"
+msgstr "Κάνει εισαγωγή δεδομένων στο πρόχειρο"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
-msgstr "Επέκταση των εργαλείων προγραμματιστή για πρόσβαση στα δεδομένα σας στις ανοιχτές καρτέλες"
+msgstr "Κάνει επέκταση των εργαλείων προγραμματιστή για πρόσβαση στα δεδομένα σας στις ανοιχτές καρτέλες"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
-msgstr "Λήψη αρχείων και ανάγνωση/τροποποίηση ιστορικού λήψεων του προγράμματος περιήγησης"
+msgstr "Κάνει λήψη αρχείων και ανάγνωση/τροποποίηση ιστορικού λήψεων του προγράμματος περιήγησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
-msgstr "Άνοιγμα ληφθέντων αρχείων του υπολογιστή σας"
+msgstr "Κάνει άνοιγμα ληφθέντων αρχείων του υπολογιστή σας"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Read the text of all open tabs"
-msgstr "Ανάγνωση κειμένων όλων των ανοιχτών καρτελών"
+msgstr "Κάνει ανάγνωση κειμένων όλων των ανοιχτών καρτελών"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access your location"
-msgstr "Πρόσβαση στην τοποθεσία σας"
+msgstr "Έχει πρόσβαση στην τοποθεσία σας"
 
 #: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
 msgid "Access browsing history"
@@ -1105,47 +1107,47 @@ msgstr "Έχει πρόσβαση σε ιστορικό περιήγησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
-msgstr "Εποπτεία χρήσης επεκτάσεων και διαχείριση θεμάτων"
+msgstr "Κάνει εποπτεία χρήσης επεκτάσεων και διαχείριση θεμάτων"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Exchange messages with programs other than Firefox"
-msgstr "Ανταλλαγή μηνυμάτων με προγράμματα εκτός του Firefox"
+msgstr "Κάνει ανταλλαγή μηνυμάτων με προγράμματα εκτός του Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Display notifications to you"
-msgstr "Εμφάνιση ειδοποιήσεων σε εσάς"
+msgstr "Κάνει εμφάνιση ειδοποιήσεων σε εσάς"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Provide cryptographic authentication services"
-msgstr "Παροχή κρυπτογραφικών υπηρεσιών ταυτοποίησης"
+msgstr "Παρέχει κρυπτογραφικές υπηρεσίες ταυτοποίησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Control browser proxy settings"
-msgstr "Έλεγχος ρυθμίσεων μεσολάβησης προγράμματος περιήγησης"
+msgstr "Κάνει έλεγχο ρυθμίσεων μεσολάβησης προγράμματος περιήγησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Read and modify privacy settings"
-msgstr "Ανάγνωση και τροποποίηση ρυθμίσεων απορρήτου"
+msgstr "Κάνε ανάγνωση και τροποποίηση ρυθμίσεων απορρήτου"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access recently closed tabs"
-msgstr "Πρόσβαση στις πρόσφατα κλεισμένες καρτέλες"
+msgstr "Έχει πρόσβαση στις πρόσφατα κλεισμένες καρτέλες"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser tabs"
-msgstr "Πρόσβαση στις καρτέλες περιήγησης"
+msgstr "Έχει πρόσβαση στις καρτέλες περιήγησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Hide and show browser tabs"
-msgstr "Απόκρυψη και εμφάνιση καρτελών"
+msgstr "Κάνει απόκρυψη και εμφάνιση καρτελών"
 
 #: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Store unlimited amount of client-side data"
-msgstr "Αποθήκευση απεριόριστου όγκου δεδομένων στο πρόγραμμα περιήγησης"
+msgstr "Κάνει αποθήκευση απεριόριστου όγκου δεδομένων στο πρόγραμμα περιήγησης"
 
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access browser activity during navigation"
-msgstr "Πρόσβαση στις ενέργειες του περιηγητή κατά την πλοήγηση"
+msgstr "Έχει πρόσβαση στις ενέργειες του περιηγητή κατά την πλοήγηση"
 
 #: src/amo/components/RatingManager/index.js:115
 msgid "Log in to rate this dictionary"
@@ -1859,7 +1861,7 @@ msgstr "Οι συλλογές μου"
 
 #: src/amo/pages/Guides/index.js:103
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "\"Ελαφρύς\" και εξαιρετικά αποτελεσματικός αποκλεισμός διαφημίσεων. Το uBlock Origin επιβάλλει χιλιάδες φίλτρα περιεχομένου χωρίς να καταναλώνει πολλή μνήμη."
 
 #: src/amo/pages/Guides/index.js:107
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
@@ -1872,6 +1874,8 @@ msgstr "Διακοπή παρακολούθησης από διαδικτυακ�
 #: src/amo/pages/Guides/index.js:116
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
 msgstr ""
+"Οι διαφημιστές στο διαδίκτυο μπορούν να καταγράφουν τη δραστηριότητά σας από μια ιστοσελίδα στην επόμενη, συγκεντρώνοντας πληροφορίες σχετικά με εσάς και τα ενδιαφέροντά σας. Οι επεκτάσεις μπορούν "
+"να σάς βοηθήσουν να καλύπτετε τα ψηφιακά σας ίχνη."
 
 #: src/amo/pages/Guides/index.js:121
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
@@ -1890,6 +1894,8 @@ msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Αν εργάζεστε τυπικά με πολλές ανοικτές καρτέλες, θα γνωρίζετε μάλλον τον εκνευρισμό που προκύπτει από την αναζήτηση σε μια σειρά μη αναγνωρίσιμων καρτελών, ψάχνοντας αυτή που χρειάζεστε. Οι "
+"επεκτάσεις μπορούν να σάς προσφέρουν δημιουργικές λύσεις για την απλοποίηση της διαχείρισης καρτελών."
 
 #: src/amo/pages/Guides/index.js:143
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
@@ -1905,7 +1911,7 @@ msgstr "Καλύτερη περιήγηση με βελτιωμένους σελ
 
 #: src/amo/pages/Guides/index.js:156
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "Οι επεκτάσεις μπορούν να σάς βοηθήσουν να οργανώσετε τα διαδικτυακά σας ενδιαφέροντα. Οι επεκτάσεις διαχείρισης σελιδοδεικτών είναι ιδανικές για αυτούς που ασχολούνται με πολύ περιεχόμενο."
 
 #: src/amo/pages/Guides/index.js:160
 msgid ""
