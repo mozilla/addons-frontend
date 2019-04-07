@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-26 16:51+0000\n"
-"PO-Revision-Date: 2019-04-05 21:12+0000\n"
+"PO-Revision-Date: 2019-04-07 09:17+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -235,7 +235,7 @@ msgstr ""
 # This will output, in English:
 #: src/amo/components/AddonMoreInfo/index.js:139
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:152
 msgid "Read the privacy policy for this add-on"
@@ -386,7 +386,7 @@ msgstr ""
 # Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:351
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "%(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s ਦੁਆਰਾ"
 
 #: src/amo/components/AddonReviewCard/index.js:438
 msgid "Deleting…"
@@ -611,7 +611,7 @@ msgstr ""
 
 #: src/amo/components/CategoryHead/index.js:38
 msgid "%(categoryName)s"
-msgstr ""
+msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
 msgid "Added to collection"
@@ -1410,11 +1410,11 @@ msgstr[1] ""
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:125
 msgid "All"
-msgstr ""
+msgstr "ਸਾਰੇ"
 
 #: src/amo/components/SearchFilters/index.js:111
 msgid "Extension"
-msgstr ""
+msgstr "ਐਕਸਟੈਂਸ਼ਨ"
 
 #: src/amo/components/SearchFilters/index.js:112
 msgid "Search Tool"
@@ -1430,7 +1430,7 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:127
 msgid "macOS"
-msgstr ""
+msgstr "macOS"
 
 #: src/amo/components/SearchFilters/index.js:128
 msgid "Linux"
@@ -2332,7 +2332,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:48
 msgid "Do:"
-msgstr ""
+msgstr "ਕਰੋ:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:51
 msgid "Write like you are telling a friend about your experience with the add-on."
@@ -2622,15 +2622,15 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:222
 msgid "Uninstalling"
-msgstr ""
+msgstr "ਅਣ-ਇੰਸਟਾਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: src/core/components/AMInstallButton/index.js:230
 msgid "Install Theme"
-msgstr ""
+msgstr "ਥੀਮ ਇੰਸਟਾਲ ਕਰੋ"
 
 #: src/core/components/AMInstallButton/index.js:231
 msgid "Add to Firefox"
-msgstr ""
+msgstr "ਫ਼ਾਇਰਫ਼ਾਕਸ ਵਿੱਚ ਜੋੜੋ"
 
 #: src/core/components/AuthenticateButton/index.js:81
 msgid "Register or Log in"
