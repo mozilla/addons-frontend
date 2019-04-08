@@ -475,14 +475,14 @@ describe(__filename, () => {
     it('does not change the value of another notification', () => {
       const hash = 'some-hash';
       const token = 'some-token';
-      const notification1 = 'notification1';
-      const notification2 = 'notification2';
+      const updatedNotification = 'updatedNotification';
+      const pendingNotification = 'pendingNotification';
 
       let state = reducer(
         undefined,
         finishUnsubscribeNotification({
           hash,
-          notification: notification1,
+          notification: updatedNotification,
           token,
         }),
       );
@@ -491,17 +491,17 @@ describe(__filename, () => {
         unsubscribeNotification({
           errorHandlerId: 'error-handler-id',
           hash,
-          notification: notification2,
+          notification: pendingNotification,
           token,
         }),
       );
 
-      expect(isUnsubscribedFor(state, hash, notification1, token)).toEqual(
-        true,
-      );
-      expect(isUnsubscribedFor(state, hash, notification2, token)).toEqual(
-        false,
-      );
+      expect(
+        isUnsubscribedFor(state, hash, updatedNotification, token),
+      ).toEqual(true);
+      expect(
+        isUnsubscribedFor(state, hash, pendingNotification, token),
+      ).toEqual(false);
     });
   });
 
@@ -526,15 +526,15 @@ describe(__filename, () => {
     it('does not change the value of another notification', () => {
       const hash = 'some-hash';
       const token = 'some-token';
-      const notification1 = 'notification1';
-      const notification2 = 'notification2';
+      const pendingNotification = 'pendingNotification';
+      const updatedNotification = 'updatedNotification';
 
       let state = reducer(
         undefined,
         unsubscribeNotification({
           errorHandlerId: 'error-handler-id',
           hash,
-          notification: notification1,
+          notification: pendingNotification,
           token,
         }),
       );
@@ -542,22 +542,22 @@ describe(__filename, () => {
         state,
         finishUnsubscribeNotification({
           hash,
-          notification: notification2,
+          notification: updatedNotification,
           token,
         }),
       );
 
-      expect(isUnsubscribedFor(state, hash, notification1, token)).toEqual(
-        false,
-      );
-      expect(isUnsubscribedFor(state, hash, notification2, token)).toEqual(
-        true,
-      );
+      expect(
+        isUnsubscribedFor(state, hash, pendingNotification, token),
+      ).toEqual(false);
+      expect(
+        isUnsubscribedFor(state, hash, updatedNotification, token),
+      ).toEqual(true);
     });
   });
 
   describe('abortUnsubscribeNotification', () => {
-    it('sets `isUnsubscribedFor` to `true`', () => {
+    it('sets `isUnsubscribedFor` to `null`', () => {
       const hash = 'some-hash';
       const notification = 'new_review';
       const token = 'some-token';
@@ -577,15 +577,15 @@ describe(__filename, () => {
     it('does not change the value of another notification', () => {
       const hash = 'some-hash';
       const token = 'some-token';
-      const notification1 = 'notification1';
-      const notification2 = 'notification2';
+      const abortedNotification = 'abortedNotification';
+      const pendingNotification = 'pendingNotification';
 
       let state = reducer(
         undefined,
         unsubscribeNotification({
           errorHandlerId: 'error-handler-id',
           hash,
-          notification: notification1,
+          notification: pendingNotification,
           token,
         }),
       );
@@ -593,17 +593,17 @@ describe(__filename, () => {
         state,
         abortUnsubscribeNotification({
           hash,
-          notification: notification2,
+          notification: abortedNotification,
           token,
         }),
       );
 
-      expect(isUnsubscribedFor(state, hash, notification1, token)).toEqual(
-        false,
-      );
-      expect(isUnsubscribedFor(state, hash, notification2, token)).toEqual(
-        null,
-      );
+      expect(
+        isUnsubscribedFor(state, hash, pendingNotification, token),
+      ).toEqual(false);
+      expect(
+        isUnsubscribedFor(state, hash, abortedNotification, token),
+      ).toEqual(null);
     });
   });
 

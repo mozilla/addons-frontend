@@ -603,7 +603,7 @@ type Action =
   | AbortUnsubscribeNotificationAction
   | FetchUserAccountAction
   | FetchUserNotificationsAction
-  | FinishUpdateUserAccountAction
+  | FinishUnsubscribeNotificationAction
   | FinishUpdateUserAccountAction
   | LoadCurrentUserAccountAction
   | LoadUserAccountAction
