@@ -1,7 +1,7 @@
 import * as React from 'react';
 
+import { getNotificationDescription } from 'amo/utils/notifications';
 import UserProfileEditNotifications, {
-  getLabelText,
   UserProfileEditNotificationsBase,
 } from 'amo/components/UserProfileEditNotifications';
 import { getCurrentUser, loadUserNotifications } from 'amo/reducers/users';
@@ -88,7 +88,9 @@ describe(__filename, () => {
       expect(input).toHaveProp('onChange', onChange);
 
       const label = input.parent();
-      expect(label.shallow()).toHaveText(getLabelText(i18n, notification.name));
+      expect(label.shallow()).toHaveText(
+        getNotificationDescription(i18n, notification.name),
+      );
 
       const p = input.closest('p');
       expect(p).toHaveClassName('UserProfileEditNotification');
