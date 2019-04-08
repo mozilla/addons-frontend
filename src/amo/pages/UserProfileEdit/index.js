@@ -605,7 +605,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 value={this.state.displayName}
               />
               {isReviewer && user && user.reviewer_name !== undefined && (
-                <div>
+                <React.Fragment>
                   <label
                     className="UserProfileEdit--label"
                     htmlFor="reviewerName"
@@ -614,13 +614,12 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                   </label>
                   <input
                     className="UserProfileEdit-reviewerName"
-                    disabled={!user}
                     id="reviewerName"
                     name="reviewerName"
                     onChange={this.onFieldChange}
                     value={this.state.reviewerName}
                   />
-                </div>
+                </React.Fragment>
               )}
 
               {/*
