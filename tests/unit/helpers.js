@@ -357,6 +357,7 @@ export function createUserAccountResponse({
   permissions = [],
   occupation = null,
   location = null,
+  ...otherFields
 } = {}) {
   return {
     average_addon_rating,
@@ -379,6 +380,7 @@ export function createUserAccountResponse({
     url: null,
     username,
     permissions,
+    ...otherFields,
   };
 }
 

@@ -19,6 +19,7 @@ import {
   fetchUserNotifications,
   getCurrentUser,
   getUserById,
+  hasAnyReviewerRelatedPermission,
   hasPermission,
   isDeveloper,
   logOutUser,
@@ -61,6 +62,7 @@ type Props = {|
   history: ReactRouterHistoryType,
   i18n: I18nType,
   isEditingCurrentUser: boolean,
+  isReviewer: boolean,
   isUpdating: boolean,
   lang: string,
   // `match` is used in `mapStateToProps()`
@@ -81,6 +83,7 @@ type FormValues = {|
   notifications: NotificationsUpdateType,
   occupation: string | null,
   picture: File | null,
+  reviewerName?: string | null,
 |};
 
 type State = {|
@@ -330,6 +333,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       occupation,
       picture,
       pictureData,
+      reviewerName,
     } = this.state;
 
     invariant(user, 'user is required');
@@ -346,6 +350,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
           homepage,
           location,
           occupation,
+          reviewer_name: reviewerName,
         },
         userId: user.id,
       }),
@@ -361,6 +366,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       notifications: {},
       occupation: '',
       picture: null,
+      reviewerName: undefined,
     };
 
     if (!user) {
@@ -373,6 +379,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       homepage,
       location,
       occupation,
+      reviewer_name: reviewerName,
     } = user;
 
     return {
@@ -382,6 +389,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       homepage,
       location,
       occupation,
+      reviewerName,
     };
   }
 
@@ -446,6 +454,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       hasEditPermission,
       i18n,
       isEditingCurrentUser,
+      isReviewer,
       isUpdating,
       user,
       userId,
@@ -595,6 +604,23 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 onChange={this.onFieldChange}
                 value={this.state.displayName}
               />
+              {isReviewer && user && user.reviewer_name !== undefined && (
+                <React.Fragment>
+                  <label
+                    className="UserProfileEdit--label"
+                    htmlFor="reviewerName"
+                  >
+                    {i18n.gettext('Reviewer Name')}
+                  </label>
+                  <input
+                    className="UserProfileEdit-reviewerName"
+                    id="reviewerName"
+                    name="reviewerName"
+                    onChange={this.onFieldChange}
+                    value={this.state.reviewerName}
+                  />
+                </React.Fragment>
+              )}
 
               {/*
                 TODO: Don't show these to users who don't have a public-facing
@@ -875,12 +901,14 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
 
   const isEditingCurrentUser =
     currentUser && user ? currentUser.id === user.id : false;
+  const isReviewer = hasAnyReviewerRelatedPermission(state);
 
   return {
     clientApp,
     currentUser,
     hasEditPermission,
     isEditingCurrentUser,
+    isReviewer,
     isUpdating: state.users.isUpdating,
     lang,
     user,

@@ -65,17 +65,19 @@ export type ExternalUserType = {|
   picture_type: string | null,
   picture_url: string | null,
   username: string,
-  // Properties returned if we are accessing our own profile or the current user
-  // has the `Users:Edit` permission.
+  // Properties returned if we are accessing our own profile or the current
+  // user has the `Users:Edit` permission.
   deleted?: boolean,
   display_name: string | null,
   email?: string,
+  fxa_edit_email_url?: string,
+  is_verified?: boolean,
   last_login?: string,
   last_login_ip?: string,
-  is_verified?: boolean,
   permissions?: Array<string>,
   read_dev_agreement?: boolean,
-  fxa_edit_email_url?: string,
+  // This field is only returned for reviewers.
+  reviewer_name?: string | null,
 |};
 
 export type UserType = {|
@@ -107,6 +109,7 @@ export type UserEditableFieldsType = {|
   homepage?: string | null,
   location?: string | null,
   occupation?: string | null,
+  reviewer_name?: string | null, // only for reviewers.
   username?: string | null,
 |};
 

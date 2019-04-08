@@ -22,7 +22,11 @@ import {
   logOutUser,
 } from 'amo/reducers/users';
 import { createApiError } from 'core/api';
-import { CLIENT_APP_FIREFOX, USERS_EDIT } from 'core/constants';
+import {
+  ADDONS_POSTREVIEW,
+  CLIENT_APP_FIREFOX,
+  USERS_EDIT,
+} from 'core/constants';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
@@ -426,6 +430,30 @@ describe(__filename, () => {
     );
   });
 
+  it('renders a reviewerName input field for reviewers', () => {
+    const reviewerName = 'the reviewer name';
+    const root = renderUserProfileEdit({
+      userProps: defaultUserProps({
+        reviewer_name: reviewerName,
+        permissions: [ADDONS_POSTREVIEW],
+      }),
+    });
+
+    expect(root.find('.UserProfileEdit-reviewerName')).toHaveLength(1);
+    expect(root.find('.UserProfileEdit-reviewerName')).toHaveProp(
+      'value',
+      reviewerName,
+    );
+  });
+
+  it('does not render a reviewerName input field for regular users', () => {
+    const root = renderUserProfileEdit({
+      userProps: defaultUserProps(),
+    });
+
+    expect(root.find('.UserProfileEdit-reviewerName')).toHaveLength(0);
+  });
+
   it('renders a homepage input field', () => {
     const homepage = 'https://example.org';
     const root = renderUserProfileEdit({
@@ -499,7 +527,7 @@ describe(__filename, () => {
     expect(root.find('.UserProfileEdit-biography')).toHaveProp('value', '');
   });
 
-  it('captures input field changes ', () => {
+  it('captures input field changes', () => {
     const fields = [
       'biography',
       'displayName',
@@ -509,6 +537,41 @@ describe(__filename, () => {
     ];
 
     const root = renderUserProfileEdit();
+
+    expect.assertions(fields.length);
+    fields.forEach((field) => {
+      const newValue = `new-value-for-${field}`;
+
+      root.find(`.UserProfileEdit-${field}`).simulate(
+        'change',
+        createFakeEventChange({
+          name: field,
+          value: newValue,
+        }),
+      );
+      expect(root.find(`.UserProfileEdit-${field}`)).toHaveProp(
+        'value',
+        newValue,
+      );
+    });
+  });
+
+  it('captures input field changes for a reviewer', () => {
+    const fields = [
+      'biography',
+      'displayName',
+      'homepage',
+      'location',
+      'occupation',
+      'reviewerName',
+    ];
+
+    const root = renderUserProfileEdit({
+      userProps: defaultUserProps({
+        permissions: [ADDONS_POSTREVIEW],
+        reviewer_name: '', // The API would return a value !== undefined for a reviewer.
+      }),
+    });
 
     expect.assertions(fields.length);
     fields.forEach((field) => {
@@ -551,6 +614,40 @@ describe(__filename, () => {
           homepage: user.homepage,
           location: user.location,
           occupation: user.occupation,
+          reviewer_name: undefined,
+        },
+        userId: user.id,
+      }),
+    );
+  });
+
+  it('dispatches updateUserAccount action with all fields on submit for reviewers', () => {
+    const { params, store } = signInUserWithProps({
+      permissions: [ADDONS_POSTREVIEW],
+      reviewer_name: 'My Reviewer Name',
+    });
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = renderUserProfileEdit({ errorHandler, params, store });
+    const user = getCurrentUser(store.getState().users);
+
+    root.find('.UserProfileEdit-form').simulate('submit', createFakeEvent());
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      updateUserAccount({
+        errorHandlerId: errorHandler.id,
+        notifications: {},
+        picture: null,
+        pictureData: null,
+        userFields: {
+          biography: user.biography,
+          display_name: user.display_name,
+          homepage: user.homepage,
+          location: user.location,
+          occupation: user.occupation,
+          reviewer_name: user.reviewer_name,
         },
         userId: user.id,
       }),
@@ -672,6 +769,7 @@ describe(__filename, () => {
           homepage: user.homepage,
           location,
           occupation: user.occupation,
+          reviewer_name: undefined,
         },
         userId: user.id,
       }),
@@ -718,6 +816,7 @@ describe(__filename, () => {
           homepage: user.homepage,
           location: user.location,
           occupation: user.occupation,
+          reviewer_name: undefined,
         },
         userId: user.id,
       }),
