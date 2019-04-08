@@ -2,6 +2,7 @@
 /* global fetch */
 import url from 'url';
 
+import FormData from '@willdurand/isomorphic-formdata';
 import utf8 from 'utf8';
 import { oneLine } from 'common-tags';
 import config from 'config';
