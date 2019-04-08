@@ -4,9 +4,12 @@ import { call, put, select, takeLatest } from 'redux-saga/effects';
 import {
   DELETE_USER_ACCOUNT,
   DELETE_USER_PICTURE,
-  UPDATE_USER_ACCOUNT,
   FETCH_USER_ACCOUNT,
   FETCH_USER_NOTIFICATIONS,
+  UNSUBSCRIBE_NOTIFICATION,
+  UPDATE_USER_ACCOUNT,
+  abortUnsubscribeNotification,
+  finishUnsubscribeNotification,
   finishUpdateUserAccount,
   loadCurrentUserAccount,
   loadUserAccount,
@@ -19,6 +22,7 @@ import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type {
   CurrentUserAccountParams,
+  UnsubscribeNotificationParams,
   UpdateUserAccountParams,
   UpdateUserNotificationsParams,
   UserApiParams,
@@ -28,6 +32,7 @@ import type {
   DeleteUserPictureAction,
   FetchUserAccountAction,
   FetchUserNotificationsAction,
+  UnsubscribeNotificationAction,
   UpdateUserAccountAction,
 } from 'amo/reducers/users';
 import type { SetAuthTokenAction } from 'core/actions';
@@ -226,11 +231,53 @@ export function* deleteUserAccount({
   }
 }
 
+export function* unsubscribeNotification({
+  payload: { errorHandlerId, hash, token, notification },
+}: UnsubscribeNotificationAction): Saga {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+
+    const params: UnsubscribeNotificationParams = {
+      api: state.api,
+      hash,
+      notification,
+      token,
+    };
+
+    yield call(api.unsubscribeNotification, params);
+
+    yield put(
+      finishUnsubscribeNotification({
+        hash,
+        notification,
+        token,
+      }),
+    );
+  } catch (error) {
+    log.warn(
+      `Could not unsubscribe from ${notification} notification: ${error}`,
+    );
+    yield put(errorHandler.createErrorAction(error));
+    yield put(
+      abortUnsubscribeNotification({
+        hash,
+        notification,
+        token,
+      }),
+    );
+  }
+}
+
 export default function* usersSaga(): Saga {
   yield takeLatest(DELETE_USER_ACCOUNT, deleteUserAccount);
   yield takeLatest(DELETE_USER_PICTURE, deleteUserPicture);
-  yield takeLatest(UPDATE_USER_ACCOUNT, updateUserAccount);
   yield takeLatest(FETCH_USER_ACCOUNT, fetchUserAccount);
   yield takeLatest(FETCH_USER_NOTIFICATIONS, fetchUserNotifications);
   yield takeLatest(SET_AUTH_TOKEN, fetchCurrentUserAccount);
+  yield takeLatest(UNSUBSCRIBE_NOTIFICATION, unsubscribeNotification);
+  yield takeLatest(UPDATE_USER_ACCOUNT, updateUserAccount);
 }
