@@ -6,6 +6,7 @@ import {
   currentUserAccount,
   deleteUserAccount,
   deleteUserPicture,
+  unsubscribeNotification,
   updateUserAccount,
   updateUserNotifications,
   userAccount,
@@ -250,6 +251,39 @@ describe(__filename, () => {
         .returns(notificationsResponse);
 
       await updateUserNotifications(params);
+      mockApi.verify();
+    });
+  });
+
+  describe('unsubscribeNotification', () => {
+    it('unsubscribes a user from a notification', async () => {
+      const { state } = dispatchClientMetadata();
+      const hash = 'some-hash';
+      const token = 'some-token';
+      const notification = 'new_review';
+      const params = {
+        api: state.api,
+        hash,
+        notification,
+        token,
+      };
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          apiState: params.api,
+          auth: false,
+          endpoint: `accounts/unsubscribe`,
+          method: 'POST',
+          body: {
+            hash,
+            notification,
+            token,
+          },
+        })
+        .returns(createApiResponse());
+
+      await unsubscribeNotification(params);
       mockApi.verify();
     });
   });

@@ -5,6 +5,7 @@ import FormData from '@willdurand/isomorphic-formdata';
 import { callApi } from 'core/api';
 import type {
   ExternalUserType,
+  NotificationType,
   NotificationsType,
   NotificationsUpdateType,
   UserEditableFieldsType,
@@ -152,5 +153,31 @@ export function deleteUserAccount({
     endpoint: `accounts/account/${userId}`,
     method: 'DELETE',
     apiState: api,
+  });
+}
+
+export type UnsubscribeNotificationParams = {|
+  api: ApiState,
+  hash: string,
+  notification: string,
+  token: string,
+|};
+
+export function unsubscribeNotification({
+  api,
+  hash,
+  notification,
+  token,
+}: UnsubscribeNotificationParams): Promise<NotificationType> {
+  return callApi({
+    auth: false,
+    apiState: api,
+    endpoint: 'accounts/unsubscribe',
+    method: 'POST',
+    body: {
+      hash,
+      notification,
+      token,
+    },
   });
 }
