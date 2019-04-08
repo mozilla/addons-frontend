@@ -22,7 +22,11 @@ import {
   logOutUser,
 } from 'amo/reducers/users';
 import { createApiError } from 'core/api';
-import { ADDONS_POSTREVIEW, CLIENT_APP_FIREFOX, USERS_EDIT } from 'core/constants';
+import {
+  ADDONS_POSTREVIEW,
+  CLIENT_APP_FIREFOX,
+  USERS_EDIT,
+} from 'core/constants';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
@@ -618,7 +622,10 @@ describe(__filename, () => {
   });
 
   it('dispatches updateUserAccount action with all fields on submit for reviewers', () => {
-    const { params, store } = signInUserWithProps({ permissions: [ADDONS_POSTREVIEW], reviewer_name: 'My Reviewer Name' });
+    const { params, store } = signInUserWithProps({
+      permissions: [ADDONS_POSTREVIEW],
+      reviewer_name: 'My Reviewer Name',
+    });
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
