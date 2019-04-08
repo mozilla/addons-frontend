@@ -28,6 +28,12 @@ export const LOAD_USER_NOTIFICATIONS: 'LOAD_USER_NOTIFICATIONS' =
   'LOAD_USER_NOTIFICATIONS';
 export const DELETE_USER_ACCOUNT: 'DELETE_USER_ACCOUNT' = 'DELETE_USER_ACCOUNT';
 export const UNLOAD_USER_ACCOUNT: 'UNLOAD_USER_ACCOUNT' = 'UNLOAD_USER_ACCOUNT';
+export const UNSUBSCRIBE_NOTIFICATION: 'UNSUBSCRIBE_NOTIFICATION' =
+  'UNSUBSCRIBE_NOTIFICATION';
+export const ABORT_UNSUBSCRIBE_NOTIFICATION: 'ABORT_UNSUBSCRIBE_NOTIFICATION' =
+  'ABORT_UNSUBSCRIBE_NOTIFICATION';
+export const FINISH_UNSUBSCRIBE_NOTIFICATION: 'FINISH_UNSUBSCRIBE_NOTIFICATION' =
+  'FINISH_UNSUBSCRIBE_NOTIFICATION';
 
 export type UserId = number;
 
@@ -86,6 +92,13 @@ export type UsersState = {
     loading: boolean,
     userId: UserId | null,
   },
+  isUnsubscribedFor: {
+    // `undefined`: no API call has been made yet
+    // `null`: an error has occured
+    // `false`: unsubscribing in progress
+    // `true`: user is unsubscribed
+    [key: string]: boolean | null,
+  },
 };
 
 export type UserEditableFieldsType = {|
@@ -106,6 +119,7 @@ export const initialState: UsersState = {
     loading: false,
     userId: null,
   },
+  isUnsubscribedFor: {},
 };
 
 type FetchUserAccountParams = {|
@@ -361,6 +375,35 @@ export const loadUserNotifications = ({
   };
 };
 
+type UnsubscribeNotificationParams = {|
+  errorHandlerId: string,
+  hash: string,
+  notification: string,
+  token: string,
+|};
+
+export type UnsubscribeNotificationAction = {|
+  type: typeof UNSUBSCRIBE_NOTIFICATION,
+  payload: UnsubscribeNotificationParams,
+|};
+
+export const unsubscribeNotification = ({
+  errorHandlerId,
+  hash,
+  notification,
+  token,
+}: UnsubscribeNotificationParams): UnsubscribeNotificationAction => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(hash, 'hash is required');
+  invariant(notification, 'notification is required');
+  invariant(token, 'token is required');
+
+  return {
+    type: UNSUBSCRIBE_NOTIFICATION,
+    payload: { errorHandlerId, hash, notification, token },
+  };
+};
+
 export const getUserById = (users: UsersState, userId: UserId) => {
   invariant(typeof userId === 'number', 'userId is required');
   return users.byID[userId];
@@ -475,15 +518,99 @@ export const addUserToState = ({
   return { byID, byUsername };
 };
 
+type FinishUnsubscribeNotificationParams = {|
+  hash: string,
+  notification: string,
+  token: string,
+|};
+
+export type FinishUnsubscribeNotificationAction = {|
+  type: typeof FINISH_UNSUBSCRIBE_NOTIFICATION,
+  payload: FinishUnsubscribeNotificationParams,
+|};
+
+export const finishUnsubscribeNotification = ({
+  hash,
+  notification,
+  token,
+}: FinishUnsubscribeNotificationParams): FinishUnsubscribeNotificationAction => {
+  invariant(hash, 'hash is required');
+  invariant(notification, 'notification is required');
+  invariant(token, 'token is required');
+
+  return {
+    type: FINISH_UNSUBSCRIBE_NOTIFICATION,
+    payload: { hash, notification, token },
+  };
+};
+
+type AbortUnsubscribeNotificationParams = {|
+  hash: string,
+  notification: string,
+  token: string,
+|};
+
+export type AbortUnsubscribeNotificationAction = {|
+  type: typeof ABORT_UNSUBSCRIBE_NOTIFICATION,
+  payload: AbortUnsubscribeNotificationParams,
+|};
+
+export const abortUnsubscribeNotification = ({
+  hash,
+  notification,
+  token,
+}: AbortUnsubscribeNotificationParams): AbortUnsubscribeNotificationAction => {
+  invariant(hash, 'hash is required');
+  invariant(notification, 'notification is required');
+  invariant(token, 'token is required');
+
+  return {
+    type: ABORT_UNSUBSCRIBE_NOTIFICATION,
+    payload: { hash, notification, token },
+  };
+};
+
+type GetUnsubscribeKeyParams = {|
+  hash: string,
+  notification: string,
+  token: string,
+|};
+
+export const getUnsubscribeKey = ({
+  hash,
+  notification,
+  token,
+}: GetUnsubscribeKeyParams) => {
+  invariant(hash, 'hash is required');
+  invariant(notification, 'notification is required');
+  invariant(token, 'token is required');
+
+  return `${hash}-${notification}-${token}`;
+};
+
+export const isUnsubscribedFor = (
+  usersState: UsersState,
+  hash: string,
+  notification: string,
+  token: string,
+) => {
+  return usersState.isUnsubscribedFor[
+    getUnsubscribeKey({ hash, notification, token })
+  ];
+};
+
 type Action =
+  | AbortUnsubscribeNotificationAction
   | FetchUserAccountAction
   | FetchUserNotificationsAction
+  | FinishUnsubscribeNotificationAction
   | FinishUpdateUserAccountAction
-  | UpdateUserAccountAction
   | LoadCurrentUserAccountAction
   | LoadUserAccountAction
   | LoadUserNotificationsAction
-  | LogOutUserAction;
+  | LogOutUserAction
+  | UnsubscribeNotificationAction
+  | UpdateUserAccountAction;
 
 const reducer = (
   state: UsersState = initialState,
@@ -563,6 +690,39 @@ const reducer = (
       }
 
       return state;
+    }
+    case UNSUBSCRIBE_NOTIFICATION: {
+      const { hash, notification, token } = action.payload;
+
+      return {
+        ...state,
+        isUnsubscribedFor: {
+          ...state.isUnsubscribedFor,
+          [getUnsubscribeKey({ hash, notification, token })]: false,
+        },
+      };
+    }
+    case ABORT_UNSUBSCRIBE_NOTIFICATION: {
+      const { hash, notification, token } = action.payload;
+
+      return {
+        ...state,
+        isUnsubscribedFor: {
+          ...state.isUnsubscribedFor,
+          [getUnsubscribeKey({ hash, notification, token })]: null,
+        },
+      };
+    }
+    case FINISH_UNSUBSCRIBE_NOTIFICATION: {
+      const { hash, notification, token } = action.payload;
+
+      return {
+        ...state,
+        isUnsubscribedFor: {
+          ...state.isUnsubscribedFor,
+          [getUnsubscribeKey({ hash, notification, token })]: true,
+        },
+      };
     }
     default:
       return state;

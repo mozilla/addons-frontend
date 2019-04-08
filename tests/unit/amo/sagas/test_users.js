@@ -2,16 +2,19 @@ import SagaTester from 'redux-saga-tester';
 
 import usersSaga from 'amo/sagas/users';
 import usersReducer, {
+  abortUnsubscribeNotification,
   deleteUserAccount,
   deleteUserPicture,
-  updateUserAccount,
   fetchUserAccount,
   fetchUserNotifications,
+  finishUnsubscribeNotification,
   finishUpdateUserAccount,
   loadCurrentUserAccount,
   loadUserAccount,
   loadUserNotifications,
   unloadUserAccount,
+  unsubscribeNotification,
+  updateUserAccount,
 } from 'amo/reducers/users';
 import * as api from 'amo/api/users';
 import { setAuthToken } from 'core/actions';
@@ -528,6 +531,79 @@ describe(__filename, () => {
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);
       expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+    });
+  });
+
+  describe('unsubscribeNotification', () => {
+    const hash = 'hash';
+    const notification = 'notification';
+    const token = 'token';
+
+    it('calls the API to unsubscribe a user from a notification', async () => {
+      const state = sagaTester.getState();
+      mockApi
+        .expects('unsubscribeNotification')
+        .once()
+        .withArgs({
+          api: state.api,
+          hash,
+          notification,
+          token,
+        })
+        .returns(createApiResponse());
+
+      sagaTester.dispatch(
+        unsubscribeNotification({
+          errorHandlerId: errorHandler.id,
+          hash,
+          notification,
+          token,
+        }),
+      );
+
+      const expectedFirstAction = errorHandler.createClearingAction();
+      const firstCalledAction = await sagaTester.waitFor(
+        expectedFirstAction.type,
+      );
+      expect(firstCalledAction).toEqual(expectedFirstAction);
+
+      const expectedSecondAction = finishUnsubscribeNotification({
+        hash,
+        notification,
+        token,
+      });
+      const secondCalledAction = await sagaTester.waitFor(
+        expectedSecondAction.type,
+      );
+      expect(secondCalledAction).toEqual(expectedSecondAction);
+
+      mockApi.verify();
+    });
+
+    it('dispatches an error and abort', async () => {
+      const error = new Error('a bad API error');
+      mockApi.expects('unsubscribeNotification').returns(Promise.reject(error));
+
+      sagaTester.dispatch(
+        unsubscribeNotification({
+          errorHandlerId: errorHandler.id,
+          hash,
+          notification,
+          token,
+        }),
+      );
+
+      const errorAction = errorHandler.createErrorAction(error);
+      const firstCalledAction = await sagaTester.waitFor(errorAction.type);
+      expect(firstCalledAction).toEqual(errorAction);
+
+      const abortAction = abortUnsubscribeNotification({
+        hash,
+        notification,
+        token,
+      });
+      const secondCalledAction = await sagaTester.waitFor(abortAction.type);
+      expect(secondCalledAction).toEqual(abortAction);
     });
   });
 });

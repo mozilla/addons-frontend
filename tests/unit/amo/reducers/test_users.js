@@ -1,19 +1,24 @@
 import reducer, {
   LOAD_USER_ACCOUNT,
-  updateUserAccount,
+  abortUnsubscribeNotification,
+  finishUnsubscribeNotification,
   finishUpdateUserAccount,
   getCurrentUser,
+  getUnsubscribeKey,
   getUserById,
   getUserByUsername,
   hasAnyReviewerRelatedPermission,
   hasPermission,
   initialState,
   isDeveloper,
+  isUnsubscribedFor,
   loadCurrentUserAccount,
   loadUserAccount,
   loadUserNotifications,
   logOutUser,
   unloadUserAccount,
+  unsubscribeNotification,
+  updateUserAccount,
 } from 'amo/reducers/users';
 import {
   ADDONS_POSTREVIEW,
@@ -443,6 +448,174 @@ describe(__filename, () => {
       const user = createUserAccountResponse();
 
       expect(isDeveloper(user)).toEqual(false);
+    });
+  });
+
+  describe('unsubscribeNotification', () => {
+    it('sets `isUnsubscribedFor` to `false`', () => {
+      const hash = 'some-hash';
+      const notification = 'new_review';
+      const token = 'some-token';
+
+      const state = reducer(
+        undefined,
+        unsubscribeNotification({
+          errorHandlerId: 'error-handler-id',
+          hash,
+          notification,
+          token,
+        }),
+      );
+
+      expect(isUnsubscribedFor(state, hash, notification, token)).toEqual(
+        false,
+      );
+    });
+
+    it('does not change the value of another notification', () => {
+      const hash = 'some-hash';
+      const token = 'some-token';
+      const updatedNotification = 'updatedNotification';
+      const pendingNotification = 'pendingNotification';
+
+      let state = reducer(
+        undefined,
+        finishUnsubscribeNotification({
+          hash,
+          notification: updatedNotification,
+          token,
+        }),
+      );
+      state = reducer(
+        state,
+        unsubscribeNotification({
+          errorHandlerId: 'error-handler-id',
+          hash,
+          notification: pendingNotification,
+          token,
+        }),
+      );
+
+      expect(
+        isUnsubscribedFor(state, hash, updatedNotification, token),
+      ).toEqual(true);
+      expect(
+        isUnsubscribedFor(state, hash, pendingNotification, token),
+      ).toEqual(false);
+    });
+  });
+
+  describe('finishUnsubscribeNotification', () => {
+    it('sets `isUnsubscribedFor` to `true`', () => {
+      const hash = 'some-hash';
+      const notification = 'new_review';
+      const token = 'some-token';
+
+      const state = reducer(
+        undefined,
+        finishUnsubscribeNotification({
+          hash,
+          notification,
+          token,
+        }),
+      );
+
+      expect(isUnsubscribedFor(state, hash, notification, token)).toEqual(true);
+    });
+
+    it('does not change the value of another notification', () => {
+      const hash = 'some-hash';
+      const token = 'some-token';
+      const pendingNotification = 'pendingNotification';
+      const updatedNotification = 'updatedNotification';
+
+      let state = reducer(
+        undefined,
+        unsubscribeNotification({
+          errorHandlerId: 'error-handler-id',
+          hash,
+          notification: pendingNotification,
+          token,
+        }),
+      );
+      state = reducer(
+        state,
+        finishUnsubscribeNotification({
+          hash,
+          notification: updatedNotification,
+          token,
+        }),
+      );
+
+      expect(
+        isUnsubscribedFor(state, hash, pendingNotification, token),
+      ).toEqual(false);
+      expect(
+        isUnsubscribedFor(state, hash, updatedNotification, token),
+      ).toEqual(true);
+    });
+  });
+
+  describe('abortUnsubscribeNotification', () => {
+    it('sets `isUnsubscribedFor` to `null`', () => {
+      const hash = 'some-hash';
+      const notification = 'new_review';
+      const token = 'some-token';
+
+      const state = reducer(
+        undefined,
+        abortUnsubscribeNotification({
+          hash,
+          notification,
+          token,
+        }),
+      );
+
+      expect(isUnsubscribedFor(state, hash, notification, token)).toEqual(null);
+    });
+
+    it('does not change the value of another notification', () => {
+      const hash = 'some-hash';
+      const token = 'some-token';
+      const abortedNotification = 'abortedNotification';
+      const pendingNotification = 'pendingNotification';
+
+      let state = reducer(
+        undefined,
+        unsubscribeNotification({
+          errorHandlerId: 'error-handler-id',
+          hash,
+          notification: pendingNotification,
+          token,
+        }),
+      );
+      state = reducer(
+        state,
+        abortUnsubscribeNotification({
+          hash,
+          notification: abortedNotification,
+          token,
+        }),
+      );
+
+      expect(
+        isUnsubscribedFor(state, hash, pendingNotification, token),
+      ).toEqual(false);
+      expect(
+        isUnsubscribedFor(state, hash, abortedNotification, token),
+      ).toEqual(null);
+    });
+  });
+
+  describe('getUnsubscribeKey', () => {
+    it('creates a unique key based on a hash, a token and a notification name', () => {
+      const hash = 'some-hash';
+      const token = 'some-token';
+      const notification = 'new_review';
+
+      expect(getUnsubscribeKey({ hash, notification, token })).toEqual(
+        `${hash}-${notification}-${token}`,
+      );
     });
   });
 });
