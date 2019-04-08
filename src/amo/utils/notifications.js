@@ -25,7 +25,6 @@ export const getNotificationDescription = (
     case 'upgrade_success':
       return i18n.gettext(`my add-on's compatibility is upgraded successfully`);
     default:
+      return null;
   }
-
-  return null;
 };
