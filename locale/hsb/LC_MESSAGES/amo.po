@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-09 21:50+0000\n"
+"PO-Revision-Date: 2019-04-09 21:53+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2240,9 +2240,8 @@ msgid "Tell your friends and family that Firefox is a fast, secure browser that 
 msgstr "Zdźělće swojim přećelam a swojej swójbje, zo Firefox je spěšny, wěsty wobhladowak, kotryž jich priwatnosć škita a zo móžeja jón z přidatkami přiměrić!"
 
 #: src/amo/pages/StaticPages/About/index.js:190
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "Zo byšće so wo dalšich móžnosćach informował, kak móžeće na zhromadźenstwje přidatkow sobu dźěłać, wopytajće prošu naš %(startLink)swiki%(endLink)s"
+msgstr "Zo byšće so wo dalšich móžnosćach informował, kak móžeće na zhromadźenstwje přidatkow sobu dźěłać, wopytajće prošu naš %(startLink)swiki%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:204
 msgid "Get support"
@@ -2586,9 +2585,8 @@ msgid "Display Name *"
 msgstr "Zwobraznjenske mjeno *"
 
 #: src/amo/pages/UserProfileEdit/index.js:613
-#, fuzzy
 msgid "Reviewer Name"
-msgstr "Drastu přepruwować"
+msgstr "Mjeno přepruwowarja"
 
 #: src/amo/pages/UserProfileEdit/index.js:646
 msgid "This URL will only be visible for users who are developers."
@@ -2687,9 +2685,8 @@ msgid "Unsubscribe"
 msgstr "Wotskazać"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:56
-#, fuzzy
 msgid "You are successfully unsubscribed!"
-msgstr "Wobraz je so wuspěšnje zhašał"
+msgstr "Waš abonement je so wuspěšnje wotskazał!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:63
