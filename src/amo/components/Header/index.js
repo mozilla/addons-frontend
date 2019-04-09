@@ -92,6 +92,7 @@ export class HeaderBase extends React.Component {
             prependClientApp={false}
             prependLang={false}
             target="_blank"
+            title={i18n.gettext('Learn how to create extensions and themes')}
           >
             {i18n.gettext('Extension Workshop')}
           </Link>
@@ -101,6 +102,7 @@ export class HeaderBase extends React.Component {
             external
             prependClientApp={false}
             target="_blank"
+            title={i18n.gettext('Submit and manage extensions and themes')}
           >
             {i18n.gettext('Developer Hub')}
           </Link>
