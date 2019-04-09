@@ -1,4 +1,11 @@
-import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
+import * as React from 'react';
+
+import Link from 'amo/components/Link';
+import {
+  getLocalizedTextWithLinkParts,
+  getReplacementKey,
+  replaceStringsWithJSX,
+} from 'core/utils/i18n';
 import { fakeI18n } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -68,6 +75,117 @@ describe(__filename, () => {
           text: 'Just some text.',
         });
       }).toThrow(/linkStart and linkEnd values cannot be missing from text/);
+    });
+  });
+
+  describe('replaceStringsWithJSX', () => {
+    it('lets you replace format strings with JSX', () => {
+      expect(
+        replaceStringsWithJSX({
+          text:
+            'Click on %(redLinkStart)sred%(redLinkEnd)s or %(blueLinkStart)sblue%(blueLinkEnd)s, your choice',
+          replacements: {
+            [getReplacementKey('redLinkStart', 'redLinkEnd')]: (text) => {
+              return (
+                <Link key="red" to="/red">
+                  {text}
+                </Link>
+              );
+            },
+            [getReplacementKey('blueLinkStart', 'blueLinkEnd')]: (text) => {
+              return (
+                <Link key="blue" to="/blue">
+                  {text}
+                </Link>
+              );
+            },
+          },
+        }),
+      ).toEqual([
+        'Click on ',
+        <Link key="red" to="/red">
+          red
+        </Link>,
+        ' or ',
+        <Link key="blue" to="/blue">
+          blue
+        </Link>,
+        ', your choice',
+      ]);
+    });
+
+    it('lets you replace format strings with JSX in any order', () => {
+      expect(
+        replaceStringsWithJSX({
+          text:
+            'Click on %(blueLinkStart)sblue%(blueLinkEnd)s or %(redLinkStart)sred%(redLinkEnd)s, your choice',
+          replacements: {
+            [getReplacementKey('redLinkStart', 'redLinkEnd')]: (text) => {
+              return (
+                <Link key="red" to="/red">
+                  {text}
+                </Link>
+              );
+            },
+            [getReplacementKey('blueLinkStart', 'blueLinkEnd')]: (text) => {
+              return (
+                <Link key="blue" to="/blue">
+                  {text}
+                </Link>
+              );
+            },
+          },
+        }),
+      ).toEqual([
+        'Click on ',
+        <Link key="blue" to="/blue">
+          blue
+        </Link>,
+        ' or ',
+        <Link key="red" to="/red">
+          red
+        </Link>,
+        ', your choice',
+      ]);
+    });
+
+    it('returns an array with `text` when there is no replacement', () => {
+      const text = 'some localized content';
+
+      expect(replaceStringsWithJSX({ text, replacements: {} })).toEqual([text]);
+    });
+
+    it('throws an error when the `text` has no variables and there are replacements', () => {
+      expect(() => {
+        replaceStringsWithJSX({
+          text: 'some localized content',
+          replacements: {
+            [getReplacementKey('start', 'end')]: (text) => text,
+          },
+        });
+      }).toThrow(/does not appear to be compatible/);
+    });
+
+    it('throws an error when the `text` is an empty string and there are replacements', () => {
+      expect(() => {
+        replaceStringsWithJSX({
+          text: '',
+          replacements: {
+            [getReplacementKey('start', 'end')]: (text) => text,
+          },
+        });
+      }).toThrow(/does not appear to be compatible/);
+    });
+
+    it('throws an error when not all replacements have been used', () => {
+      expect(() => {
+        replaceStringsWithJSX({
+          text: 'a string with %(startLink)sa link%(endLink)s.',
+          replacements: {
+            [getReplacementKey('start', 'end')]: (text) => text,
+          },
+        });
+      }).toThrow(/Not all replacements have been used/);
     });
   });
 });
