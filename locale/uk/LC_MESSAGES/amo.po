@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-26 16:51+0000\n"
+"POT-Creation-Date: 2019-04-09 19:48+0000\n"
 "PO-Revision-Date: 2019-03-25 14:24+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
@@ -319,12 +319,13 @@ msgstr "Більше інформації"
 
 #: src/amo/components/AddonMoreInfo/index.js:59
 #: src/amo/pages/UserProfile/index.js:355
-#: src/amo/pages/UserProfileEdit/index.js:608
+#: src/amo/pages/UserProfileEdit/index.js:634
 msgid "Homepage"
 msgstr "Домашня сторінка"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
-msgid "Support Site"
+#, fuzzy
+msgid "Support site"
 msgstr "Сайт підтримки"
 
 #: src/amo/components/AddonMoreInfo/index.js:84
@@ -382,7 +383,7 @@ msgstr "Видалити"
 #: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:147
 #: src/amo/components/CollectionManager/index.js:313
-#: src/amo/pages/UserProfileEdit/index.js:852
+#: src/amo/pages/UserProfileEdit/index.js:878
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
@@ -691,7 +692,7 @@ msgid "Back to collection"
 msgstr "Назад до збірки"
 
 #: src/amo/components/CollectionDetails/index.js:79
-#: src/amo/components/Footer/index.js:42
+#: src/amo/components/Footer/index.js:48
 msgid "Add-ons"
 msgstr "Додатки"
 
@@ -963,12 +964,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Позначено як повідомлення про помилку або запит підтримки"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Позначити"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Позначено"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Позначити"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1010,44 +1011,48 @@ msgstr "Містить ненормативну лексику"
 msgid "Flagged for inappropriate language"
 msgstr "Позначено таким, що містить ненормативну лексику"
 
-#: src/amo/components/Footer/index.js:111
+#: src/amo/components/Footer/index.js:104
+msgid "Site Status"
+msgstr "Статус сайту"
+
+#: src/amo/components/Footer/index.js:117
 #: src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
 msgstr "Завантажити Firefox"
 
-#: src/amo/components/Footer/index.js:116
+#: src/amo/components/Footer/index.js:122
 msgid "Android Browser"
 msgstr "Браузер для Android"
 
-#: src/amo/components/Footer/index.js:121
+#: src/amo/components/Footer/index.js:127
 msgid "iOS Browser"
 msgstr "Браузер для iOS"
 
-#: src/amo/components/Footer/index.js:126
+#: src/amo/components/Footer/index.js:132
 msgid "Focus Browser"
 msgstr "Браузер Focus"
 
-#: src/amo/components/Footer/index.js:131
+#: src/amo/components/Footer/index.js:137
 msgid "Desktop Browser"
 msgstr "Браузер для комп'ютера"
 
-#: src/amo/components/Footer/index.js:136
+#: src/amo/components/Footer/index.js:142
 msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Developer Edition"
 
-#: src/amo/components/Footer/index.js:165
+#: src/amo/components/Footer/index.js:171
 msgid "Privacy"
 msgstr "Приватність"
 
-#: src/amo/components/Footer/index.js:173
+#: src/amo/components/Footer/index.js:179
 msgid "Cookies"
 msgstr "Куки"
 
-#: src/amo/components/Footer/index.js:181
+#: src/amo/components/Footer/index.js:187
 msgid "Legal"
 msgstr "Юридична інформація"
 
-#: src/amo/components/Footer/index.js:191
+#: src/amo/components/Footer/index.js:197
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1058,46 +1063,42 @@ msgstr ""
 "Commons Attribution Share-Alike License v3.0%(endLicenseLink)s, або будь-"
 "якою новішою версією."
 
-#: src/amo/components/Footer/index.js:21
+#: src/amo/components/Footer/index.js:27
 msgid "Go to Mozilla's homepage"
 msgstr "Перейти на домівку Mozilla"
 
-#: src/amo/components/Footer/index.js:47
+#: src/amo/components/Footer/index.js:53
 msgid "About"
 msgstr "Про"
 
-#: src/amo/components/Footer/index.js:52
+#: src/amo/components/Footer/index.js:58
 msgid "Blog"
 msgstr "Блог"
 
-#: src/amo/components/Footer/index.js:65 src/amo/components/Header/index.js:84
+#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:97
 #, fuzzy
 msgid "Extension Workshop"
 msgstr "Розширення"
 
-#: src/amo/components/Footer/index.js:70 src/amo/components/Header/index.js:93
+#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:107
 msgid "Developer Hub"
 msgstr "Центр розробника"
 
-#: src/amo/components/Footer/index.js:75
+#: src/amo/components/Footer/index.js:81
 msgid "Developer Policies"
 msgstr "Політики розробників"
 
-#: src/amo/components/Footer/index.js:80
+#: src/amo/components/Footer/index.js:86
 msgid "Forum"
 msgstr "Форум"
 
-#: src/amo/components/Footer/index.js:88
+#: src/amo/components/Footer/index.js:94
 msgid "Report a bug"
 msgstr "Повідомити про помилку"
 
-#: src/amo/components/Footer/index.js:93
+#: src/amo/components/Footer/index.js:99
 msgid "Review Guide"
 msgstr "Настанови з написання відгуків"
-
-#: src/amo/components/Footer/index.js:98
-msgid "Site Status"
-msgstr "Статус сайту"
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
@@ -1108,51 +1109,61 @@ msgid "Staff Pick"
 msgstr "Вибір редакції"
 
 #: src/amo/components/Header/index.js:105
+#, fuzzy
+msgid "Submit and manage extensions and themes"
+msgstr "Спостерігати за використанням додатків і керувати темами"
+
+#: src/amo/components/Header/index.js:119
 msgid "My Account"
 msgstr "Мій обліковий запис"
 
-#: src/amo/components/Header/index.js:111
+#: src/amo/components/Header/index.js:125
 msgid "View My Collections"
 msgstr "Переглянути мої збірки"
 
-#: src/amo/components/Header/index.js:119
-#: src/amo/pages/UserProfileEdit/index.js:502
+#: src/amo/components/Header/index.js:133
+#: src/amo/pages/UserProfileEdit/index.js:511
 msgid "View My Profile"
 msgstr "Переглянути мій профіль"
 
-#: src/amo/components/Header/index.js:127
-#: src/amo/pages/UserProfileEdit/index.js:508
+#: src/amo/components/Header/index.js:141
+#: src/amo/pages/UserProfileEdit/index.js:517
 msgid "Edit My Profile"
 msgstr "Редагувати мій профіль"
 
-#: src/amo/components/Header/index.js:131
+#: src/amo/components/Header/index.js:145
 msgid "Tools"
 msgstr "Інструменти"
 
-#: src/amo/components/Header/index.js:137
+#: src/amo/components/Header/index.js:151
 msgid "Submit a New Add-on"
 msgstr "Подати новий додаток"
 
-#: src/amo/components/Header/index.js:142
+#: src/amo/components/Header/index.js:156
 msgid "Submit a New Theme"
 msgstr "Подати нову тему"
 
-#: src/amo/components/Header/index.js:151
+#: src/amo/components/Header/index.js:165
 msgid "Manage My Submissions"
 msgstr "Керувати моїми поданнями"
 
-#: src/amo/components/Header/index.js:161
+#: src/amo/components/Header/index.js:175
 msgid "Reviewer Tools"
 msgstr "Інструменти рецензента"
 
-#: src/amo/components/Header/index.js:171
+#: src/amo/components/Header/index.js:185
 #: src/core/components/AuthenticateButton/index.js:80
 msgid "Log out"
 msgstr "Вийти"
 
-#: src/amo/components/Header/index.js:55
+#: src/amo/components/Header/index.js:65
 msgid "Firefox Add-ons"
 msgstr "Додатки Firefox"
+
+#: src/amo/components/Header/index.js:95
+#, fuzzy
+msgid "Learn how to create extensions and themes"
+msgstr "Спостерігати за використанням додатків і керувати темами"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:267
@@ -1455,12 +1466,12 @@ msgid "Search results"
 msgstr "Результати пошуку"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:309 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:302 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Відібрані розширення"
 
 #: src/amo/components/Search/index.js:124 src/amo/pages/Category/index.js:170
-#: src/amo/pages/Home/index.js:338 src/amo/pages/LandingPage/index.js:161
+#: src/amo/pages/Home/index.js:331 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
 msgstr "Відібрані теми"
 
@@ -1469,7 +1480,7 @@ msgid "Featured add-ons"
 msgstr "Відібрані додатки"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:355 src/amo/pages/LandingPage/index.js:141
+#: src/amo/pages/Home/index.js:346 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr "Популярні розширення"
 
@@ -1614,7 +1625,7 @@ msgstr[1] "Знайдено %(count)s розширення"
 msgstr[2] "Знайдено %(count)s розширень"
 
 #: src/amo/components/SearchFilters/index.js:110
-#: src/amo/components/SearchFilters/index.js:125
+#: src/amo/components/SearchFilters/index.js:126
 msgid "All"
 msgstr "Всі"
 
@@ -1626,59 +1637,59 @@ msgstr "Розширення"
 msgid "Search Tool"
 msgstr "Засіб пошуку"
 
-#: src/amo/components/SearchFilters/index.js:113
+#: src/amo/components/SearchFilters/index.js:114
 msgid "Theme"
 msgstr "Тема"
 
-#: src/amo/components/SearchFilters/index.js:126
+#: src/amo/components/SearchFilters/index.js:127
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:127
+#: src/amo/components/SearchFilters/index.js:128
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:128
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:136
+#: src/amo/components/SearchFilters/index.js:137
 msgid "Relevance"
 msgstr "Відповідність"
 
-#: src/amo/components/SearchFilters/index.js:138
+#: src/amo/components/SearchFilters/index.js:139
 msgid "Recently Updated"
 msgstr "Нещодавно оновлені"
 
-#: src/amo/components/SearchFilters/index.js:141
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Most Users"
 msgstr "Найбільше користувачів"
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:143
 msgid "Top Rated"
 msgstr "Найвище оцінені"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:144
 msgid "Trending"
 msgstr "Популярні"
 
-#: src/amo/components/SearchFilters/index.js:155
+#: src/amo/components/SearchFilters/index.js:156
 msgid "Filter results"
 msgstr "Фільтрувати результати"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:161
 msgid "Sort by"
 msgstr "Сортувати за"
 
-#: src/amo/components/SearchFilters/index.js:182
+#: src/amo/components/SearchFilters/index.js:183
 msgid "Add-on Type"
 msgstr "Тип додатка"
 
-#: src/amo/components/SearchFilters/index.js:202
+#: src/amo/components/SearchFilters/index.js:203
 msgid "Operating System"
 msgstr "Операційна система"
 
-#: src/amo/components/SearchFilters/index.js:228
+#: src/amo/components/SearchFilters/index.js:229
 msgid "Featured add-ons only"
 msgstr "Лише відібрані додатки"
 
@@ -1783,43 +1794,6 @@ msgstr "Перегляд всіх тем"
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
 msgstr "Початкова сторінка додатків"
-
-#: src/amo/components/UserProfileEditNotifications/index.js:18
-msgid ""
-"stay up-to-date with news and events relevant to add-on developers "
-"(including the about:addons newsletter)"
-msgstr ""
-"будьте в курсі новин та подій, пов'язаних з розробкою додатків (включно з "
-"розсилкою about:addons)"
-
-#: src/amo/components/UserProfileEditNotifications/index.js:21
-msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
-"Mozilla необхідно зв'язатися зі мною з приводу мого індивідуального додатка"
-
-#: src/amo/components/UserProfileEditNotifications/index.js:24
-msgid "new add-ons or Firefox features are available"
-msgstr "доступні нові додатки чи можливості Firefox"
-
-#: src/amo/components/UserProfileEditNotifications/index.js:26
-msgid "someone writes a review of my add-on"
-msgstr "хтось пише відгук до мого додатка"
-
-#: src/amo/components/UserProfileEditNotifications/index.js:28
-msgid "an add-on developer replies to my review"
-msgstr "розробник додатка відповідає на мій відгук"
-
-#: src/amo/components/UserProfileEditNotifications/index.js:30
-msgid "my add-on is reviewed by a reviewer"
-msgstr "мій додаток перевірений редактором"
-
-#: src/amo/components/UserProfileEditNotifications/index.js:32
-msgid "my add-on's compatibility cannot be upgraded"
-msgstr "сумісність мого додатка не може бути оновлена"
-
-#: src/amo/components/UserProfileEditNotifications/index.js:34
-msgid "my add-on's compatibility is upgraded successfully"
-msgstr "сумісність мого додатка успішно оновлена"
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
@@ -1967,8 +1941,9 @@ msgid "There are no reviews"
 msgstr "Відгуків немає"
 
 #: src/amo/pages/AddonVersions/index.js:125
-msgid "%(addonName)s Version history - %(total)s version"
-msgid_plural "%(addonName)s Version history - %(total)s versions"
+#, fuzzy
+msgid "%(addonName)s version history - %(total)s version"
+msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "Історія версій %(addonName)s - %(total)s версія"
 msgstr[1] "Історія версій %(addonName)s - %(total)s версії"
 msgstr[2] "Історія версій %(addonName)s - %(total)s версій"
@@ -2001,12 +1976,12 @@ msgstr "Всі категорії розширень"
 msgid "All theme categories"
 msgstr "Всі категорії тем"
 
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:310
+#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:303
 #: src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
 msgstr "Більше відібраних розширень"
 
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:356
+#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:347
 #: src/amo/pages/LandingPage/index.js:149
 msgid "See more trending extensions"
 msgstr "Більше популярних розширень"
@@ -2015,7 +1990,7 @@ msgstr "Більше популярних розширень"
 msgid "See more top rated extensions"
 msgstr "Найвище оцінені розширення"
 
-#: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:328
+#: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:321
 #: src/amo/pages/LandingPage/index.js:169
 msgid "See more featured themes"
 msgstr "Більше відібраних тем"
@@ -2384,63 +2359,65 @@ msgstr ""
 "реклами можуть блокувати чи фільтрувати надокучливу рекламу, що відволікає "
 "вас."
 
-#: src/amo/pages/Home/index.js:140
+#: src/amo/pages/Home/index.js:133
 msgid "Bookmarks"
 msgstr "Закладки"
 
-#: src/amo/pages/Home/index.js:144
+#: src/amo/pages/Home/index.js:137
 msgid "Password managers"
 msgstr "Менеджери паролів"
 
-#: src/amo/pages/Home/index.js:148
+#: src/amo/pages/Home/index.js:141
 msgid "Ad blockers"
 msgstr "Блокування реклами"
 
-#: src/amo/pages/Home/index.js:152
-msgid "Smarter Shopping"
+#: src/amo/pages/Home/index.js:145
+#, fuzzy
+msgid "Smarter shopping"
 msgstr "Розумний шопінг"
 
-#: src/amo/pages/Home/index.js:156
+#: src/amo/pages/Home/index.js:149
 msgid "Productivity"
 msgstr "Продуктивність"
 
-#: src/amo/pages/Home/index.js:160
-msgid "Watching Videos"
+#: src/amo/pages/Home/index.js:153
+#, fuzzy
+msgid "Watching videos"
 msgstr "Перегляд відео"
 
-#: src/amo/pages/Home/index.js:188
+#: src/amo/pages/Home/index.js:181
 msgid "Abstract"
 msgstr "Абстрактні"
 
-#: src/amo/pages/Home/index.js:193
+#: src/amo/pages/Home/index.js:186
 msgid "Nature"
 msgstr "Природа"
 
-#: src/amo/pages/Home/index.js:198
+#: src/amo/pages/Home/index.js:191
 msgid "Film & TV"
 msgstr "Фільми і ТБ"
 
-#: src/amo/pages/Home/index.js:203
+#: src/amo/pages/Home/index.js:196
 msgid "Scenery"
 msgstr "Пейзажі"
 
-#: src/amo/pages/Home/index.js:208
+#: src/amo/pages/Home/index.js:201
 msgid "Music"
 msgstr "Музика"
 
-#: src/amo/pages/Home/index.js:213
+#: src/amo/pages/Home/index.js:206
 msgid "Seasonal"
 msgstr "Пори року"
 
-#: src/amo/pages/Home/index.js:245
+#: src/amo/pages/Home/index.js:238
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "Налаштуйте роботу Firefox за допомогою розширень…"
 
-#: src/amo/pages/Home/index.js:247
+#: src/amo/pages/Home/index.js:240
 msgid "Change the way Firefox looks with themes."
 msgstr "Змініть вигляд Firefox за допомогою тем."
 
-#: src/amo/pages/Home/index.js:277
+#: src/amo/pages/Home/index.js:270
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2450,35 +2427,29 @@ msgstr ""
 "Вони можуть блокувати надокучливу рекламу, зберігати паролі, змінювати "
 "зовнішній вигляд браузера та інше."
 
-#: src/amo/pages/Home/index.js:55
-msgid "See more video extensions"
-msgstr "Інші розширення для відео"
+#: src/amo/pages/Home/index.js:54
+msgid "See more feed readers"
+msgstr "Більше відібраних тем"
 
-#: src/amo/pages/Home/index.js:56
-msgid "Extensions for enhancing video"
-msgstr "Розширення для покращення відео"
+#: src/amo/pages/Home/index.js:55
+#, fuzzy
+msgid "Feed readers"
+msgstr "Більше відібраних тем"
+
+#: src/amo/pages/Home/index.js:60
+#, fuzzy
+msgid "See more VPN solutions"
+msgstr "Інші розширення для вкладок"
 
 #: src/amo/pages/Home/index.js:61
-msgid "See more spring themes"
-msgstr "Інші теми весняної тематики"
+msgid "VPN solutions"
+msgstr ""
 
-#: src/amo/pages/Home/index.js:62
-msgid "Spring themes"
-msgstr "Теми весняної тематики"
-
-#: src/amo/pages/Home/index.js:67
-msgid "See more Wikipedia boosters"
-msgstr "Інші засоби для Wikipedia"
-
-#: src/amo/pages/Home/index.js:68
-msgid "Wikipedia boosters"
-msgstr "Засоби для Wikipedia"
-
-#: src/amo/pages/Home/index.js:73
+#: src/amo/pages/Home/index.js:66
 msgid "See more tab extensions"
 msgstr "Інші розширення для вкладок"
 
-#: src/amo/pages/Home/index.js:74
+#: src/amo/pages/Home/index.js:67
 msgid "Change up your tabs"
 msgstr "Змініть свої вкладки"
 
@@ -2596,7 +2567,15 @@ msgstr ""
 "%(endAddonsServerRepoLink)s та %(startAddonsFrontendRepoLink)sінтерфейсу"
 "%(endAddonsFrontendRepoLink)s AMO на Github."
 
-#: src/amo/pages/StaticPages/About/index.js:132
+#: src/amo/pages/StaticPages/About/index.js:134
+msgid ""
+"Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
+"the %(startAddonsServerDocumentation)sAdd-ons Servers documentation"
+"%(endAddonsServerDocumentation)s for details about the APIs used by AMO and "
+"the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
+msgstr ""
+
+#: src/amo/pages/StaticPages/About/index.js:155
 msgid ""
 "If you want to contribute but are not quite as technical, there are still "
 "ways to help:"
@@ -2604,11 +2583,11 @@ msgstr ""
 "Якщо ви хочете допомогти, але не зовсім дружите з технологіями, ви все одно "
 "можете це зробити:"
 
-#: src/amo/pages/StaticPages/About/index.js:141
+#: src/amo/pages/StaticPages/About/index.js:164
 msgid "Participate in our %(startLink)sforum%(endLink)s."
 msgstr "Візьміть участь в роботі нашого %(startLink)sфоруму%(endLink)s."
 
-#: src/amo/pages/StaticPages/About/index.js:154
+#: src/amo/pages/StaticPages/About/index.js:177
 msgid ""
 "Leave feedback for your favorite add-ons. Add-on authors are more likely to "
 "improve their add-ons and create new ones when they know people appreciate "
@@ -2618,7 +2597,7 @@ msgstr ""
 "вдосконалення своїх додатків та написання нових, якщо вони знають, що люди "
 "цінять їх роботу."
 
-#: src/amo/pages/StaticPages/About/index.js:159
+#: src/amo/pages/StaticPages/About/index.js:182
 msgid ""
 "Tell your friends and family that Firefox is a fast, secure browser that "
 "protects their privacy, and they can use add-ons to make it their own!"
@@ -2627,19 +2606,20 @@ msgstr ""
 "браузер, що захищає їхню приватність і дозволяє використовувати додатки для "
 "його персоналізації!"
 
-#: src/amo/pages/StaticPages/About/index.js:167
+#: src/amo/pages/StaticPages/About/index.js:190
+#, fuzzy
 msgid ""
 "To see more ways you can contribute to the add-on community, please visit "
-"our %(startLink)swiki%(endLink)s"
+"our %(startLink)swiki%(endLink)s."
 msgstr ""
 "Щоб дізнатися про багато способів, якими ви можете допомогти спільноті "
 "додатків, будь ласка, відвідайте нашу %(startLink)sвікі-сторінку%(endLink)s"
 
-#: src/amo/pages/StaticPages/About/index.js:181
+#: src/amo/pages/StaticPages/About/index.js:204
 msgid "Get support"
 msgstr "Отримати підтримку"
 
-#: src/amo/pages/StaticPages/About/index.js:186
+#: src/amo/pages/StaticPages/About/index.js:209
 msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or "
 "need to find general Firefox support, please visit %(startSUMOLink)sSupport"
@@ -2652,17 +2632,17 @@ msgstr ""
 "відповідь, спробуйте %(startForumLink)sзадати питання на форумі нашої "
 "спільноти%(endForumLink)s."
 
-#: src/amo/pages/StaticPages/About/index.js:207
+#: src/amo/pages/StaticPages/About/index.js:22
+msgid "About Firefox Add-ons"
+msgstr "Про додатки Firefox"
+
+#: src/amo/pages/StaticPages/About/index.js:230
 msgid ""
 "%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
 "found here%(endLink)s."
 msgstr ""
 "%(startLink)sІнформацію про те, як зв'язатися з командою додатків Mozilla "
 "можна знайти тут%(endLink)s."
-
-#: src/amo/pages/StaticPages/About/index.js:22
-msgid "About Firefox Add-ons"
-msgstr "Про додатки Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:31
 msgid ""
@@ -2972,7 +2952,7 @@ msgid "Theme artist"
 msgstr "Автор теми"
 
 #: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:490
+#: src/amo/pages/UserProfileEdit/index.js:499
 msgid "User Profile for %(user)s"
 msgstr "Профіль користувача для %(user)s"
 
@@ -2981,12 +2961,12 @@ msgid "User Profile"
 msgstr "Профіль користувача"
 
 #: src/amo/pages/UserProfile/index.js:365
-#: src/amo/pages/UserProfileEdit/index.js:625
+#: src/amo/pages/UserProfileEdit/index.js:651
 msgid "Location"
 msgstr "Розташування"
 
 #: src/amo/pages/UserProfile/index.js:373
-#: src/amo/pages/UserProfileEdit/index.js:637
+#: src/amo/pages/UserProfileEdit/index.js:663
 msgid "Occupation"
 msgstr "Заняття"
 
@@ -3003,7 +2983,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Середня оцінка додатків розробника"
 
 #: src/amo/pages/UserProfile/index.js:411
-#: src/amo/pages/UserProfileEdit/index.js:659
+#: src/amo/pages/UserProfileEdit/index.js:685
 msgid "Biography"
 msgstr "Біографія"
 
@@ -3015,11 +2995,11 @@ msgstr "Редагувати профіль"
 msgid "Admin user"
 msgstr "Адміністратор"
 
-#: src/amo/pages/UserProfileEdit/index.js:192
+#: src/amo/pages/UserProfileEdit/index.js:195
 msgid "Picture successfully deleted"
 msgstr "Зображення успішно видалено"
 
-#: src/amo/pages/UserProfileEdit/index.js:417
+#: src/amo/pages/UserProfileEdit/index.js:425
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -3027,7 +3007,7 @@ msgstr ""
 "Розкажіть іншим трохи більше інформації про себе. Більшість полів є "
 "необов’язковими, але вони допоможуть користувачам краще з вами познайомитися."
 
-#: src/amo/pages/UserProfileEdit/index.js:421
+#: src/amo/pages/UserProfileEdit/index.js:429
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -3036,43 +3016,43 @@ msgstr ""
 "полів є необов’язковими, але вони допоможуть користувачам краще "
 "познайомитися з %(userName)s."
 
-#: src/amo/pages/UserProfileEdit/index.js:436
+#: src/amo/pages/UserProfileEdit/index.js:444
 msgid "Introduce yourself to the community if you like"
 msgstr "Розкажіть про себе спільноті, якщо бажаєте"
 
-#: src/amo/pages/UserProfileEdit/index.js:437
+#: src/amo/pages/UserProfileEdit/index.js:445
 msgid "Introduce %(userName)s to the community"
 msgstr "Представте спільноті %(userName)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:460
+#: src/amo/pages/UserProfileEdit/index.js:469
 msgid "Log in to edit the profile"
 msgstr "Увійдіть, щоб редагувати профіль"
 
-#: src/amo/pages/UserProfileEdit/index.js:503
+#: src/amo/pages/UserProfileEdit/index.js:512
 msgid "View user's profile"
 msgstr "Переглянути профіль користувача"
 
-#: src/amo/pages/UserProfileEdit/index.js:509
+#: src/amo/pages/UserProfileEdit/index.js:518
 msgid "Edit user's profile"
 msgstr "Редагувати профіль користувача"
 
-#: src/amo/pages/UserProfileEdit/index.js:527
+#: src/amo/pages/UserProfileEdit/index.js:536
 msgid "Account"
 msgstr "Обліковий запис"
 
-#: src/amo/pages/UserProfileEdit/index.js:528
+#: src/amo/pages/UserProfileEdit/index.js:537
 msgid "Account for %(userName)s"
 msgstr "Обліковий запис %(userName)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:535
+#: src/amo/pages/UserProfileEdit/index.js:544
 msgid "Email Address"
 msgstr "Адреса е-пошти"
 
-#: src/amo/pages/UserProfileEdit/index.js:542
+#: src/amo/pages/UserProfileEdit/index.js:551
 msgid "Email address cannot be changed here"
 msgstr "Тут неможливо змінити адресу е-пошти"
 
-#: src/amo/pages/UserProfileEdit/index.js:551
+#: src/amo/pages/UserProfileEdit/index.js:560
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3080,35 +3060,40 @@ msgstr ""
 "Ви можете змінити свою адресу е-пошти в обліковому записі Firefox. "
 "%(startLink)sПотрібна допомога?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:568
+#: src/amo/pages/UserProfileEdit/index.js:577
 msgid "Manage Firefox Accounts…"
 msgstr "Керувати обліковими записами Firefox…"
 
-#: src/amo/pages/UserProfileEdit/index.js:576
+#: src/amo/pages/UserProfileEdit/index.js:585
 msgid "Profile"
 msgstr "Профіль"
 
-#: src/amo/pages/UserProfileEdit/index.js:585
+#: src/amo/pages/UserProfileEdit/index.js:594
 msgid "This field is required"
 msgstr "Це поле обов'язкове"
 
-#: src/amo/pages/UserProfileEdit/index.js:588
+#: src/amo/pages/UserProfileEdit/index.js:597
 msgid "Display Name *"
 msgstr "Відображуване ім'я *"
 
-#: src/amo/pages/UserProfileEdit/index.js:620
+#: src/amo/pages/UserProfileEdit/index.js:613
+#, fuzzy
+msgid "Reviewer Name"
+msgstr "Перевірка теми"
+
+#: src/amo/pages/UserProfileEdit/index.js:646
 msgid "This URL will only be visible for users who are developers."
 msgstr "Цю URL-адресу будуть бачити лише користувачі, що є розробниками."
 
-#: src/amo/pages/UserProfileEdit/index.js:674
+#: src/amo/pages/UserProfileEdit/index.js:700
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Підтримуються деякі HTML: %(htmlTags)s. Посилання заборонені."
 
-#: src/amo/pages/UserProfileEdit/index.js:698
+#: src/amo/pages/UserProfileEdit/index.js:724
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: src/amo/pages/UserProfileEdit/index.js:702
+#: src/amo/pages/UserProfileEdit/index.js:728
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3117,7 +3102,7 @@ msgstr ""
 "наближаються, та про події додатків. Будь ласка, оберіть теми, які вас "
 "цікавлять."
 
-#: src/amo/pages/UserProfileEdit/index.js:707
+#: src/amo/pages/UserProfileEdit/index.js:733
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3126,7 +3111,7 @@ msgstr ""
 "випуски, що наближаються, та про події додатків. Будь ласка, оберіть теми, "
 "які можуть бути цікавими для цього користувача."
 
-#: src/amo/pages/UserProfileEdit/index.js:722
+#: src/amo/pages/UserProfileEdit/index.js:748
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3134,45 +3119,45 @@ msgstr ""
 "Mozilla зберігає за собою право звернутись до вас особисто з особливими "
 "питаннями щодо розміщених вами додатків."
 
-#: src/amo/pages/UserProfileEdit/index.js:740
+#: src/amo/pages/UserProfileEdit/index.js:766
 msgid "Updating your profile…"
 msgstr "Оновлення вашого профілю…"
 
-#: src/amo/pages/UserProfileEdit/index.js:741
+#: src/amo/pages/UserProfileEdit/index.js:767
 msgid "Update My Profile"
 msgstr "Оновити мій профіль"
 
-#: src/amo/pages/UserProfileEdit/index.js:743
+#: src/amo/pages/UserProfileEdit/index.js:769
 msgid "Updating profile…"
 msgstr "Оновлення профілю…"
 
-#: src/amo/pages/UserProfileEdit/index.js:744
+#: src/amo/pages/UserProfileEdit/index.js:770
 msgid "Update Profile"
 msgstr "Оновити профіль"
 
-#: src/amo/pages/UserProfileEdit/index.js:755
-#: src/amo/pages/UserProfileEdit/index.js:844
+#: src/amo/pages/UserProfileEdit/index.js:781
+#: src/amo/pages/UserProfileEdit/index.js:870
 msgid "Delete My Profile"
 msgstr "Видалити мій профіль"
 
-#: src/amo/pages/UserProfileEdit/index.js:756
-#: src/amo/pages/UserProfileEdit/index.js:845
+#: src/amo/pages/UserProfileEdit/index.js:782
+#: src/amo/pages/UserProfileEdit/index.js:871
 msgid "Delete Profile"
 msgstr "Видалити профіль"
 
-#: src/amo/pages/UserProfileEdit/index.js:768
+#: src/amo/pages/UserProfileEdit/index.js:794
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 "ВАЖЛИВО: Видалення вашого профілю на сайті додатків Firefox є незворотною "
 "дією."
 
-#: src/amo/pages/UserProfileEdit/index.js:771
+#: src/amo/pages/UserProfileEdit/index.js:797
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr ""
 "ВАЖЛИВО: Видалення цього профілю на сайті додатків Firefox є незворотною "
 "дією."
 
-#: src/amo/pages/UserProfileEdit/index.js:780
+#: src/amo/pages/UserProfileEdit/index.js:806
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation) and "
@@ -3184,7 +3169,7 @@ msgstr ""
 "домівкою, інформацією про себе, заняттям) і налаштуваннями сповіщень. Ваші "
 "оцінки та відгуки стануть анонімними й недоступними для редагування."
 
-#: src/amo/pages/UserProfileEdit/index.js:787
+#: src/amo/pages/UserProfileEdit/index.js:813
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3196,7 +3181,7 @@ msgstr ""
 "домівкою, інформацією про себе, заняттям) і налаштуваннями сповіщень. Оцінки "
 "та відгуки стануть анонімними й недоступними для редагування."
 
-#: src/amo/pages/UserProfileEdit/index.js:797
+#: src/amo/pages/UserProfileEdit/index.js:823
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, you "
 "will create a new Firefox Add-ons profile that is in no way associated with "
@@ -3206,7 +3191,7 @@ msgstr ""
 "mozilla.org, ви створите новий профіль на сайті додатків Firefox, який "
 "жодним чином не буде пов'язаний з видаленим вами профілем."
 
-#: src/amo/pages/UserProfileEdit/index.js:810
+#: src/amo/pages/UserProfileEdit/index.js:836
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
 "the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
@@ -3218,13 +3203,72 @@ msgstr ""
 "видалення профілю ви повинні %(docLinkStart)sпередати власність"
 "%(docLinkEnd)s або видалити додатки."
 
-#: src/amo/pages/UserProfileEdit/index.js:817
+#: src/amo/pages/UserProfileEdit/index.js:843
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
 "user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
 msgstr ""
 "%(strongStart)sПРИМІТКА:%(strongEnd)s Ви не можете видалити профіль "
 "користувача, якщо він є %(linkStart)sавтором будь-якого додатку%(linkEnd)s."
+
+#: src/amo/pages/UsersUnsubscribe/index.js:45
+msgid ""
+"You can edit your notification settings by %(linkStart)sediting your profile"
+"%(linkEnd)s."
+msgstr ""
+
+#: src/amo/pages/UsersUnsubscribe/index.js:53
+msgid "Unsubscribe"
+msgstr ""
+
+#: src/amo/pages/UsersUnsubscribe/index.js:56
+#, fuzzy
+msgid "You are successfully unsubscribed!"
+msgstr "Зображення успішно видалено"
+
+# a list of notifications will be displayed under this prompt.
+#: src/amo/pages/UsersUnsubscribe/index.js:63
+msgid ""
+"The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
+"messages when:"
+msgstr ""
+
+#: src/amo/utils/notifications.js:10
+msgid ""
+"stay up-to-date with news and events relevant to add-on developers "
+"(including the about:addons newsletter)"
+msgstr ""
+"будьте в курсі новин та подій, пов'язаних з розробкою додатків (включно з "
+"розсилкою about:addons)"
+
+#: src/amo/utils/notifications.js:13
+msgid "Mozilla needs to contact me about my individual add-on"
+msgstr ""
+"Mozilla необхідно зв'язатися зі мною з приводу мого індивідуального додатка"
+
+#: src/amo/utils/notifications.js:16
+msgid "new add-ons or Firefox features are available"
+msgstr "доступні нові додатки чи можливості Firefox"
+
+#: src/amo/utils/notifications.js:18
+msgid "someone writes a review of my add-on"
+msgstr "хтось пише відгук до мого додатка"
+
+#: src/amo/utils/notifications.js:20
+msgid "an add-on developer replies to my review"
+msgstr "розробник додатка відповідає на мій відгук"
+
+#: src/amo/utils/notifications.js:22
+msgid "my add-on is reviewed by a reviewer"
+msgstr "мій додаток перевірений редактором"
+
+#: src/amo/utils/notifications.js:24
+msgid "my add-on's compatibility cannot be upgraded"
+msgstr "сумісність мого додатка не може бути оновлена"
+
+#: src/amo/utils/notifications.js:26
+msgid "my add-on's compatibility is upgraded successfully"
+msgstr "сумісність мого додатка успішно оновлена"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Enable"
@@ -3463,6 +3507,24 @@ msgstr[2] "%(total)s додатків"
 msgid "Developer response"
 msgstr "Відповідь розробника"
 
+#~ msgid "See more video extensions"
+#~ msgstr "Інші розширення для відео"
+
+#~ msgid "Extensions for enhancing video"
+#~ msgstr "Розширення для покращення відео"
+
+#~ msgid "See more spring themes"
+#~ msgstr "Інші теми весняної тематики"
+
+#~ msgid "Spring themes"
+#~ msgstr "Теми весняної тематики"
+
+#~ msgid "See more Wikipedia boosters"
+#~ msgstr "Інші засоби для Wikipedia"
+
+#~ msgid "Wikipedia boosters"
+#~ msgstr "Засоби для Wikipedia"
+
 #~ msgid "See more weather extensions"
 #~ msgstr "Більше відібраних розширень"
 
@@ -3471,9 +3533,6 @@ msgstr "Відповідь розробника"
 
 #~ msgid "See more tools"
 #~ msgstr "Дивіться більше"
-
-#~ msgid "See more feed readers"
-#~ msgstr "Більше відібраних тем"
 
 #~ msgid "See more health & wellness extensions"
 #~ msgstr "Більше відібраних розширень"
