@@ -127,6 +127,29 @@ export class AboutBase extends React.Component<Props> {
                   ['a'],
                 )}
               />
+              <li
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={sanitizeHTML(
+                  i18n.sprintf(
+                    i18n.gettext(`Want to interact with addons.mozilla.org
+                      (AMO) programmatically? Check out the
+                      %(startAddonsServerDocumentation)sAdd-ons Servers
+                      documentation%(endAddonsServerDocumentation)s for details
+                      about the APIs used by AMO and the
+                      %(startAddonsManager)sAdd-ons
+                      Manager%(endAddonsManager)s.`),
+                    {
+                      startAddonsServerDocumentation:
+                        '<a href="https://addons-server.readthedocs.io/en/latest/index.html">',
+                      endAddonsServerDocumentation: '</a>',
+                      startAddonsManager:
+                        '<a href="https://blog.mozilla.org/firefox/add-ons-manager/">',
+                      endAddonsManager: '</a>',
+                    },
+                  ),
+                  ['a'],
+                )}
+              />
             </ul>
             <p>
               {i18n.gettext(
@@ -165,7 +188,7 @@ export class AboutBase extends React.Component<Props> {
               dangerouslySetInnerHTML={sanitizeHTML(
                 i18n.sprintf(
                   i18n.gettext(
-                    `To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s`,
+                    `To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s.`,
                   ),
                   {
                     startLink:
