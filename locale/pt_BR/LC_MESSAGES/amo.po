@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-09 21:49+0000\n"
+"PO-Revision-Date: 2019-04-09 22:07+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -287,7 +287,6 @@ msgid "Homepage"
 msgstr "Página Inicial"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
-#, fuzzy
 msgid "Support site"
 msgstr "Site de suporte"
 
@@ -981,9 +980,8 @@ msgid "Staff Pick"
 msgstr "Escolha da equipe"
 
 #: src/amo/components/Header/index.js:105
-#, fuzzy
 msgid "Submit and manage extensions and themes"
-msgstr "Monitorar o uso de extensões e gerenciar temas"
+msgstr "Enviar e gerenciar extensões e temas"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1030,9 +1028,8 @@ msgid "Firefox Add-ons"
 msgstr "Extensões do Firefox"
 
 #: src/amo/components/Header/index.js:95
-#, fuzzy
 msgid "Learn how to create extensions and themes"
-msgstr "Monitorar o uso de extensões e gerenciar temas"
+msgstr "Saiba como criar extensões e senhas"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
@@ -1727,7 +1724,6 @@ msgid "There are no reviews"
 msgstr "Ainda não existem análises"
 
 #: src/amo/pages/AddonVersions/index.js:125
-#, fuzzy
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "Histórico de versões do %(addonName)s - %(total)s versão"
@@ -2032,16 +2028,14 @@ msgid "Ad blockers"
 msgstr "Bloqueadores de anúncios"
 
 #: src/amo/pages/Home/index.js:145
-#, fuzzy
 msgid "Smarter shopping"
-msgstr "Compras inteligentes"
+msgstr "Compras mais inteligentes"
 
 #: src/amo/pages/Home/index.js:149
 msgid "Productivity"
 msgstr "Produtividade"
 
 #: src/amo/pages/Home/index.js:153
-#, fuzzy
 msgid "Watching videos"
 msgstr "Ver vídeos"
 
@@ -2090,9 +2084,8 @@ msgid "Feed readers"
 msgstr "Leitores de fontes de notícias"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more VPN solutions"
-msgstr "Mais extensões de abas"
+msgstr "Mais soluções de VPN"
 
 #: src/amo/pages/Home/index.js:61
 msgid "VPN solutions"
@@ -2179,6 +2172,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Quer interagir com o addons.mozilla.org (AMO) através de programas? Dê uma olhada na %(startAddonsServerDocumentation)sdocumentação de servidores de extensões%(endAddonsServerDocumentation)s para "
+"ver detalhes sobre as APIs usadas pelo AMO e pelo %(startAddonsManager)sgerenciador de extensões%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:155
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2197,9 +2192,8 @@ msgid "Tell your friends and family that Firefox is a fast, secure browser that 
 msgstr "Diga a seus amigos e familiares que o Firefox é um navegador rápido e seguro, que protege sua privacidade, e que podem usar extensões para o personalizar ao seu gosto!"
 
 #: src/amo/pages/StaticPages/About/index.js:190
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "Para ver mais formas de contribuir com a comunidade de extensão, por favor visite nosso %(startLink)swiki%(endLink)s"
+msgstr "Para ver mais formas de contribuir com a comunidade de extensões, visite nosso %(startLink)swiki%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:204
 msgid "Get support"
@@ -2545,9 +2539,8 @@ msgid "Display Name *"
 msgstr "Nome de exibição *"
 
 #: src/amo/pages/UserProfileEdit/index.js:613
-#, fuzzy
 msgid "Reviewer Name"
-msgstr "Analisar tema"
+msgstr "Nome do avaliador"
 
 #: src/amo/pages/UserProfileEdit/index.js:646
 msgid "This URL will only be visible for users who are developers."
@@ -2647,9 +2640,8 @@ msgid "Unsubscribe"
 msgstr "Cancelar inscrição"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:56
-#, fuzzy
 msgid "You are successfully unsubscribed!"
-msgstr "Foto excluída com sucesso"
+msgstr "Sua inscrição foi cancelada com sucesso!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:63
