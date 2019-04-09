@@ -132,9 +132,9 @@ export class AboutBase extends React.Component<Props> {
                 dangerouslySetInnerHTML={sanitizeHTML(
                   i18n.sprintf(
                     i18n.gettext(`Want to interact with addons.mozilla.org (AMO)
-                    programmatically? Check out the documentation for the
+                    programmatically? Check out the
                     %(startAddonsServerDocumentation)sAdd-ons Servers documentation %(endAddonsServerDocumentation)s
-                    for details about the AMO APIs, the APIs used by the
+                    for details about the APIs used by AMO and the
                     %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s.`),
                     {
                       startAddonsServerDocumentation:
