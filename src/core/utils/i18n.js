@@ -41,23 +41,20 @@ export const getLocalizedTextWithLinkParts = ({
   };
 };
 
-export const getReplacementKey = (start: string, end: string): string => {
+const getReplacementKey = (start: string, end: string): string => {
   return `${start},${end}`;
 };
 
 type ReplaceStringsWithJSXParams = {|
   text: string,
-  // `replacementKey` should be computed with `getReplacementKey()`.
-  replacements: { [replacementKey: string]: (text: string) => React.Node },
+  replacements: Array<[string, string, (text: string) => React.Node]>,
 |};
 
 export const replaceStringsWithJSX = ({
   text,
   replacements,
 }: ReplaceStringsWithJSXParams): Array<React.Node | string> => {
-  const numberOfReplacements = Object.keys(replacements).length;
-
-  if (numberOfReplacements === 0) {
+  if (replacements.length === 0) {
     return [text];
   }
 
@@ -67,15 +64,19 @@ export const replaceStringsWithJSX = ({
       '^(.*?)',
       // Add a generic regexp to match each replacement entry, possibly
       // separated by some more text.
-      Object.keys(replacements)
-        .map(() => '%\\((\\w+)\\)s(.+?)%\\((\\w+)\\)s')
-        .join('(.*?)'),
+      replacements.map(() => '%\\((\\w+)\\)s(.+?)%\\((\\w+)\\)s').join('(.*?)'),
       // After all replacements (pairs of keys).
       '(.*?)$',
     ].join(''),
   );
 
   const matches = text.match(expression);
+  const internalReplacements = replacements.reduce((map, replacement) => {
+    return {
+      ...map,
+      [getReplacementKey(replacement[0], replacement[1])]: replacement[2],
+    };
+  }, {});
 
   if (!matches) {
     // This usually happens when the number of pairs of keys in `text` is not
@@ -90,26 +91,31 @@ export const replaceStringsWithJSX = ({
   matches.shift();
 
   const output = [];
-  let notReplaced = numberOfReplacements;
-
   while (matches.length) {
     const keyOrText = matches.shift();
 
     // Look-ahead to see if we found a known pair of keys.
-    if (replacements[getReplacementKey(keyOrText, matches[1])]) {
+    if (internalReplacements[getReplacementKey(keyOrText, matches[1])]) {
       const innerText = matches.shift();
       const secondKey = matches.shift();
-      const replaceFn = replacements[getReplacementKey(keyOrText, secondKey)];
+
+      const key = getReplacementKey(keyOrText, secondKey);
+      const replaceFn = internalReplacements[key];
 
       output.push(replaceFn(innerText));
-      notReplaced--;
+      // eslint-disable-next-line no-param-reassign
+      delete internalReplacements[key];
     } else {
       output.push(keyOrText);
     }
   }
 
-  if (notReplaced > 0) {
-    throw new Error('Not all replacements have been used');
+  if (Object.keys(internalReplacements).length > 0) {
+    throw new Error(
+      `Not all replacements have been used; unused keys: ${Object.keys(
+        internalReplacements,
+      ).join('; ')}`,
+    );
   }
 
   return output;

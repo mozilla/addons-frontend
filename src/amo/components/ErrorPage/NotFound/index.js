@@ -7,7 +7,7 @@ import Link from 'amo/components/Link';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML, visibleAddonType } from 'core/utils';
-import { getReplacementKey, replaceStringsWithJSX } from 'core/utils/i18n';
+import { replaceStringsWithJSX } from 'core/utils/i18n';
 import Card from 'ui/components/Card';
 import type { I18nType } from 'core/types/i18n';
 
@@ -33,24 +33,32 @@ export class NotFoundBase extends React.Component<InternalProps> {
         looking for in one of the available %(linkStart)sextensions%(linkEnd)s
         or %(secondLinkStart)sthemes%(secondLinkEnd)s.`,
       ),
-      replacements: {
-        [getReplacementKey('linkStart', 'linkEnd')]: (text) => (
-          <Link
-            key="link-extensions"
-            to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}
-          >
-            {text}
-          </Link>
-        ),
-        [getReplacementKey('secondLinkStart', 'secondLinkEnd')]: (text) => (
-          <Link
-            key="link-themes"
-            to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}
-          >
-            {text}
-          </Link>
-        ),
-      },
+      replacements: [
+        [
+          'linkStart',
+          'linkEnd',
+          (text) => (
+            <Link
+              key="link-extensions"
+              to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}
+            >
+              {text}
+            </Link>
+          ),
+        ],
+        [
+          'secondLinkStart',
+          'secondLinkEnd',
+          (text) => (
+            <Link
+              key="link-themes"
+              to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}
+            >
+              {text}
+            </Link>
+          ),
+        ],
+      ],
     });
 
     return (
