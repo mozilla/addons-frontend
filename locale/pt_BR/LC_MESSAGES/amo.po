@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-09 22:07+0000\n"
+"PO-Revision-Date: 2019-04-10 03:24+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -130,59 +130,59 @@ msgstr "Sua versão do Firefox não suporta plugins de pesquisa."
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Obtenha esta extensão para o 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Instale esta extensão para o 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:105
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Obtenha este pacote de idioma para o 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Instale este pacote de idioma para o 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:111
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Obtenha este tema para o 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Instale este tema para o 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:116
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Obtenha esta ferramenta de pesquisa para o 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Instale esta ferramenta de pesquisa para o 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:121
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Obtenha este complemento para o 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Instale esta extensão para o 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:135
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr "Baixe %(addonName)s para o Firefox. %(summary)s"
+msgstr "Baixe o %(addonName)s para o Firefox. %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:61
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obtenha este dicionário para o 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Instale este dicionário para o 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:66
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obtenha esta extensão para o 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Instale esta extensão para o 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:71
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obtenha este pacote de idioma para o 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Instale este pacote de idioma para o 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:77
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obtenha este tema para o 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Instale este tema para o 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:83
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obtenha esta ferramenta de pesquisa para o 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Instale esta ferramenta de pesquisa para o 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:88
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – Obtenha esta extensão para o 🦊 Firefox Android (%(locale)s)"
+msgstr "%(addonName)s – Instale esta extensão para o 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:95
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Obtenha este dicionário para o 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Instale este dicionário para o 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:116
 msgid "%(total)s Star"
@@ -973,7 +973,7 @@ msgstr "Guia de análise"
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
-msgstr "Apenas com o Firefox—Obtenha o Firefox agora"
+msgstr "Apenas no Firefox—Instale o Firefox agora"
 
 #: src/amo/components/GuidesAddonCard/index.js:77
 msgid "Staff Pick"
