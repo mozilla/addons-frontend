@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-10 12:11+0000\n"
+"PO-Revision-Date: 2019-04-10 12:17+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -2194,6 +2194,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Möchten Sie als Programmierer an addons.mozilla.org (AMO) mitwirken? In der %(startAddonsServerDocumentation)sAdd-ons-Server-Dokumentation%(endAddonsServerDocumentation)s finden Sie Informationen "
+"über die von AMO verwendeten APIs und den %(startAddonsManager)sAdd-ons-Manager%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:155
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2661,11 +2663,11 @@ msgstr "%(strongStart)sHINWEIS:%(strongEnd)s Sie können ein Benutzerprofil nich
 
 #: src/amo/pages/UsersUnsubscribe/index.js:45
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Sie können Ihre Benachrichtigungseinstellungen ändern, indem Sie %(linkStart)sIhr Profil bearbeiten%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:53
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Abonnement entfernen"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:56
 msgid "You are successfully unsubscribed!"
@@ -2674,7 +2676,7 @@ msgstr "Ihr Abonnement wurde erfolgreich aufgehoben!"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:63
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "Die E-Mail-Adresse %(strongStart)s%(email)s%(strongEnd)s wird keine Nachrichten mehr erhalten, wenn:"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
