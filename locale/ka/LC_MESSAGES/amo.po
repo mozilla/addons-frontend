@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-10 08:47+0000\n"
+"PO-Revision-Date: 2019-04-10 09:12+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -2665,21 +2665,20 @@ msgstr "%(strongStart)sშენიშვნა:%(strongEnd)s ანგარი
 
 #: src/amo/pages/UsersUnsubscribe/index.js:45
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "შეტყობინებების პარამეტრების შეცვლა, შეგიძლიათ %(linkStart)sთქვენი პროფილის ჩასწორებით%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:53
 msgid "Unsubscribe"
-msgstr ""
+msgstr "გამოწერის გაუქმება"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:56
-#, fuzzy
 msgid "You are successfully unsubscribed!"
-msgstr "სურათი წარმატებით წაიშალა"
+msgstr "გამოწერა გაუქმდა წარმატებით!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:63
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "%(strongStart)s%(email)s%(strongEnd)s ელფოსტის მისამართზე წერილებს ვეღარ მიიღებთ, როცა:"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
