@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-10 00:09+0000\n"
+"PO-Revision-Date: 2019-04-10 01:28+0000\n"
 "Last-Translator: passionforlife <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -2563,7 +2563,7 @@ msgstr "%(strongStart)s注意：%(strongEnd)s您无法注销%(linkStart)s任何�
 
 #: src/amo/pages/UsersUnsubscribe/index.js:45
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "您可以通过%(linkStart)s编辑您的个人资料%(linkEnd)s来调整通知设置。"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:53
 msgid "Unsubscribe"
