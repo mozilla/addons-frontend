@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-10 07:47+0000\n"
+"PO-Revision-Date: 2019-04-10 15:10+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -782,10 +782,12 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
+"מומלץ לנסות לבקר בדף מאוחר יותר, מכיוון שערכת הנושא או ההרחבה עשויים להיות זמינים שוב. לחלופין, ייתכן שיהיה באפשרותך למצוא את מה שחיפשת ב%(linkStart)sהרחבות%(linkEnd)s או %(secondLinkStart)sערכות "
+"נושא%(secondLinkEnd)s."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:60
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "אופס! איננו מוצאים את הדף"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:63
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -1990,7 +1992,7 @@ msgstr "יצירה וניהול ססמאות חזקות"
 
 #: src/amo/pages/Guides/index.js:79
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
-msgstr ""
+msgstr "מנהלי ססמאות יכולים לסייע לך ליצור ססמאות מאובטחות, לאחסן אותן (בבטחה) במקום אחד ולתת לך גישה קלה לפרטי ההתחברות שלך מכל מקום."
 
 #: src/amo/pages/Guides/index.js:84
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
