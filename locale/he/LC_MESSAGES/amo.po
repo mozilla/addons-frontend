@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-10 07:29+0000\n"
+"PO-Revision-Date: 2019-04-10 07:47+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1937,7 +1937,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:215
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
-msgstr ""
+msgstr "הרחבות יכולות לתת מענה למגוון רחב של צרכי מדיה, כגון חיפוש תמונות, ניהול הורדות וקוראי טקסט, בין השאר."
 
 #: src/amo/pages/Guides/index.js:220
 msgid ""
@@ -2084,7 +2084,7 @@ msgstr "הצגת הרחבות לשוניות נוספות"
 
 #: src/amo/pages/Home/index.js:61
 msgid "VPN solutions"
-msgstr ""
+msgstr "פתרונות VPN"
 
 #: src/amo/pages/Home/index.js:66
 msgid "See more tab extensions"
@@ -2092,7 +2092,7 @@ msgstr "הצגת הרחבות לשוניות נוספות"
 
 #: src/amo/pages/Home/index.js:67
 msgid "Change up your tabs"
-msgstr ""
+msgstr "שינוי הלשוניות שלך"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2608,11 +2608,11 @@ msgstr "%(strongStart)sלתשומת לבך:%(strongEnd)s לא ניתן למחו�
 
 #: src/amo/pages/UsersUnsubscribe/index.js:45
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "באפשרותך לערוך הגדרות ההתראות שלך על־ידי %(linkStart)sעריכת הפרופיל שלך%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:53
 msgid "Unsubscribe"
-msgstr ""
+msgstr "ביטול הרשמה"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:56
 #, fuzzy
@@ -2622,7 +2622,7 @@ msgstr "התמונה נמחקה בהצלחה"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:63
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "כתובת הדוא״ל %(strongStart)s%(email)s%(strongEnd)s לא תקבל יותר הודעות כאשר:"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
