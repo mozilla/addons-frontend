@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-10 03:01+0000\n"
+"PO-Revision-Date: 2019-04-10 03:23+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -973,9 +973,8 @@ msgid "Staff Pick"
 msgstr "編輯精選"
 
 #: src/amo/components/Header/index.js:105
-#, fuzzy
 msgid "Submit and manage extensions and themes"
-msgstr "監控擴充套件使用情況並管理佈景主題"
+msgstr "送出並管理擴充套件與佈景主題"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1022,9 +1021,8 @@ msgid "Firefox Add-ons"
 msgstr "Firefox 附加元件"
 
 #: src/amo/components/Header/index.js:95
-#, fuzzy
 msgid "Learn how to create extensions and themes"
-msgstr "監控擴充套件使用情況並管理佈景主題"
+msgstr "了解如何建立擴充套件與佈景主題"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
@@ -2051,7 +2049,7 @@ msgstr "看更多 VPN 解決方案"
 
 #: src/amo/pages/Home/index.js:61
 msgid "VPN solutions"
-msgstr ""
+msgstr "VPN 解決方案"
 
 #: src/amo/pages/Home/index.js:66
 msgid "See more tab extensions"
@@ -2133,7 +2131,7 @@ msgstr ""
 msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
-msgstr ""
+msgstr "想要使用程式與 addons.mozilla.org（AMO）互動嗎？請參考%(startAddonsServerDocumentation)s附加元件站伺服器文件%(endAddonsServerDocumentation)s，當中有 AMO 及%(startAddonsManager)s附加元件管理員%(endAddonsManager)s會用到的 API 詳細資訊。"
 
 #: src/amo/pages/StaticPages/About/index.js:155
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2152,9 +2150,8 @@ msgid "Tell your friends and family that Firefox is a fast, secure browser that 
 msgstr "告訴您的親朋好友 Firefox 是一套超快、超安全的瀏覽器，會保護人們的隱私，還可以用附加元件讓瀏覽器有自己的個性！"
 
 #: src/amo/pages/StaticPages/About/index.js:190
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "歡迎看看 %(startLink)swiki%(endLink)s 來瞭解您能如何貢獻附加元件社群"
+msgstr "請到我們的 %(startLink)swiki%(endLink)s 來瞭解能貢獻到附加元件社群的更多方式。"
 
 #: src/amo/pages/StaticPages/About/index.js:204
 msgid "Get support"
@@ -2479,9 +2476,8 @@ msgid "Display Name *"
 msgstr "顯示名稱 *"
 
 #: src/amo/pages/UserProfileEdit/index.js:613
-#, fuzzy
 msgid "Reviewer Name"
-msgstr "審核佈景主題"
+msgstr "審核者姓名"
 
 #: src/amo/pages/UserProfileEdit/index.js:646
 msgid "This URL will only be visible for users who are developers."
@@ -2567,21 +2563,20 @@ msgstr "%(strongStart)s註:%(strongEnd)s 您無法刪除%(linkStart)s任何附�
 
 #: src/amo/pages/UsersUnsubscribe/index.js:45
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "您可以%(linkStart)s編輯個人資料頁%(linkEnd)s當中的通知設定。"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:53
 msgid "Unsubscribe"
-msgstr ""
+msgstr "取消訂閱"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:56
-#, fuzzy
 msgid "You are successfully unsubscribed!"
-msgstr "已成功刪除照片"
+msgstr "已成功退訂！"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:63
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "下列情況時，電子郵件信箱 %(strongStart)s%(email)s%(strongEnd)s 將不再收到訊息:"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
