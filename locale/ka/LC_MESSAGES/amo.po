@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-10 08:31+0000\n"
+"PO-Revision-Date: 2019-04-10 08:47+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -839,7 +839,7 @@ msgstr "გამოეხმაურა %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
 msgid "Review by %(userName)s"
-msgstr "მიმომხილველია %(userName)s"
+msgstr "მიმომხილველი %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
@@ -1740,7 +1740,7 @@ msgstr[1] "%(total)s მიმოხილვა"
 
 #: src/amo/pages/AddonReviewList/index.js:383
 msgid "There are no reviews"
-msgstr "ჯერ არ განუხილავთ"
+msgstr "მიმოხილვები არაა"
 
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s version history - %(total)s version"
@@ -2046,7 +2046,6 @@ msgid "Ad blockers"
 msgstr "რეკლამის შეზღუდვა"
 
 #: src/amo/pages/Home/index.js:145
-#, fuzzy
 msgid "Smarter shopping"
 msgstr "მოსახერხებელი ვაჭრობა"
 
@@ -2055,9 +2054,8 @@ msgid "Productivity"
 msgstr "სასარგებლო"
 
 #: src/amo/pages/Home/index.js:153
-#, fuzzy
 msgid "Watching videos"
-msgstr "ვიდეოები"
+msgstr "ვიდეოების ყურება"
 
 #: src/amo/pages/Home/index.js:181
 msgid "Abstract"
@@ -2106,13 +2104,12 @@ msgid "Feed readers"
 msgstr "არხის წამკითხველები"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more VPN solutions"
-msgstr "ჩანართების სხვა გაფართოებები"
+msgstr "სხვა საშუალებები VPN-ისთვის"
 
 #: src/amo/pages/Home/index.js:61
 msgid "VPN solutions"
-msgstr ""
+msgstr "VPN-საშუალებები"
 
 #: src/amo/pages/Home/index.js:66
 msgid "See more tab extensions"
@@ -2200,6 +2197,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"გსურთ, ჩაერთოთ addons.mozilla.org (AMO) საიტის დაპროგრამებაში? გაეცანით %(startAddonsServerDocumentation)sდამატებების სერვერების მასალებს%(endAddonsServerDocumentation)s დაწვრილებითი ინფორმაციის "
+"მისაღებად, AMO-სა და %(startAddonsManager)sდამატებების მმართველში%(endAddonsManager)s გამოიყენებული API-ების შესახებ."
 
 #: src/amo/pages/StaticPages/About/index.js:155
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2222,9 +2221,8 @@ msgstr ""
 "სურვილისამებრ მოწყობა!"
 
 #: src/amo/pages/StaticPages/About/index.js:190
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "სხვადასხვა გზების მოსაძიებლად, დამატებების ერთობაში წვლილის შეტანის შესახებ, ეწვიეთ ჩვენს %(startLink)swiki%(endLink)s გვერდს"
+msgstr "სხვადასხვა გზების მოსაძიებლად, დამატებების ერთობაში წვლილის შეტანის შესახებ, ეწვიეთ ჩვენი %(startLink)sვიკის%(endLink)s გვერდს."
 
 #: src/amo/pages/StaticPages/About/index.js:204
 msgid "Get support"
@@ -2573,9 +2571,8 @@ msgid "Display Name *"
 msgstr "გამოსაჩენი სახელი *"
 
 #: src/amo/pages/UserProfileEdit/index.js:613
-#, fuzzy
 msgid "Reviewer Name"
-msgstr "თემის მიმოხილვა"
+msgstr "მიმომხილველის სახელი"
 
 #: src/amo/pages/UserProfileEdit/index.js:646
 msgid "This URL will only be visible for users who are developers."
