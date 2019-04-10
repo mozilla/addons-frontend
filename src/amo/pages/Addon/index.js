@@ -32,6 +32,7 @@ import {
   fetchAddon,
   getAddonByID,
   getAddonBySlug,
+  getAddonByGUID,
   isAddonLoading,
 } from 'core/reducers/addons';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
@@ -525,7 +526,7 @@ export class AddonBase extends React.Component {
 export function mapStateToProps(state, ownProps) {
   let { slug } = ownProps.match.params;
   slug = typeof slug === 'string' ? slug.trim() : slug;
-  let addon = getAddonBySlug(state, slug);
+  let addon = getAddonBySlug(state, slug) || getAddonByGUID(state, slug);
 
   // It is possible to load an add-on by its ID but in the routing parameters,
   // the parameter is always named `slug`.

@@ -1585,4 +1585,24 @@ describe(__filename, () => {
 
     expect(root.find(AddonInstallError)).toHaveProp('error', error);
   });
+
+  it(`dispatches a server redirect when slug is the add-on's GUID`, () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { store } = dispatchClientMetadata({ clientApp });
+    const guid = 'this_is@a.guid';
+    const addon = { ...fakeAddon, guid };
+    store.dispatch(_loadAddonResults({ addon }));
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    renderComponent({ params: { slug: guid }, store });
+
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: `/en-US/${clientApp}/addon/${addon.slug}/`,
+      }),
+    );
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
 });
