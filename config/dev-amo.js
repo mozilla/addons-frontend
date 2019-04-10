@@ -31,5 +31,5 @@ module.exports = {
     },
   },
 
-  extensionWorkshopUrl: 'https://extensionworkshop.allizom.org',
+  extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
 };
