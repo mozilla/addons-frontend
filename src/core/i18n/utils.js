@@ -1,5 +1,6 @@
 /* global Intl */
 /* @flow */
+import * as React from 'react';
 import config from 'config';
 import filesize from 'filesize';
 import Jed from 'jed';
@@ -382,3 +383,105 @@ export function makeI18n(
 
   return i18n;
 }
+
+const getReplacementKey = (start: string, end: string): string => {
+  return `${start},${end}`;
+};
+
+type ReplaceStringsWithJSXParams = {|
+  text: string,
+  replacements: Array<[string, string, (text: string) => React.Node]>,
+|};
+
+export const replaceStringsWithJSX = ({
+  text,
+  replacements,
+}: ReplaceStringsWithJSXParams): Array<React.Node | string> => {
+  if (replacements.length === 0) {
+    throw new Error('`replacements` should not be empty');
+  }
+
+  // Find placeholders in `text`. A placeholder looks like this: `%(var)s`.
+  const placeholders = text.match(/%\(\w+\)s/g);
+  const numberOfPlaceholders = (placeholders && placeholders.length) || 0;
+  const numberOfPairs = numberOfPlaceholders / 2;
+
+  if (numberOfPairs === 0) {
+    throw new Error('No placeholder found in `text`');
+  }
+
+  if (numberOfPairs !== replacements.length) {
+    throw new Error(
+      `Expected ${numberOfPairs} replacements but only got ${
+        replacements.length
+      }`,
+    );
+  }
+
+  const expression = new RegExp(
+    [
+      // Before any replacement (pair of keys).
+      '^(.*?)',
+      // Add a generic regexp to match each replacement entry, possibly
+      // separated by some more text.
+      replacements.map(() => '%\\((\\w+)\\)s(.+?)%\\((\\w+)\\)s').join('(.*?)'),
+      // After all replacements (pairs of keys).
+      '(.*?)$',
+    ].join(''),
+  );
+
+  const matches = text.match(expression);
+  const internalReplacements = replacements.reduce((map, replacement) => {
+    const key = getReplacementKey(replacement[0], replacement[1]);
+
+    if (map[key]) {
+      throw new Error(`Duplicate key detected in \`replacements\`: ${key}`);
+    }
+
+    return {
+      ...map,
+      [key]: replacement[2],
+    };
+  }, {});
+
+  if (!matches) {
+    // This should not be possible anymore thanks to the other checks above.
+    throw new Error(
+      '`text` does not appear to be compatible with the provided replacements',
+    );
+  }
+
+  // The first entry is always the whole string (a.k.a. `text`), so let's
+  // remove it before processing this array.
+  matches.shift();
+
+  const output = [];
+  while (matches.length) {
+    const keyOrText = matches.shift();
+
+    // Look-ahead to see if we found a known pair of keys.
+    if (internalReplacements[getReplacementKey(keyOrText, matches[1])]) {
+      const innerText = matches.shift();
+      const secondKey = matches.shift();
+
+      const key = getReplacementKey(keyOrText, secondKey);
+      const replaceFn = internalReplacements[key];
+
+      output.push(replaceFn(innerText));
+      // eslint-disable-next-line no-param-reassign
+      delete internalReplacements[key];
+    } else {
+      output.push(keyOrText);
+    }
+  }
+
+  if (Object.keys(internalReplacements).length > 0) {
+    throw new Error(
+      `Not all replacements have been used; unused keys: ${Object.keys(
+        internalReplacements,
+      ).join('; ')}`,
+    );
+  }
+
+  return output;
+};

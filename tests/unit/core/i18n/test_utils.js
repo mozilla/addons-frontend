@@ -1,7 +1,9 @@
+import * as React from 'react';
 import config from 'config';
 import moment from 'moment';
 import { oneLine } from 'common-tags';
 
+import Link from 'amo/components/Link';
 import * as utils from 'core/i18n/utils';
 import { RTL, LTR } from 'core/constants';
 import { fakeI18n, getFakeLogger } from 'tests/unit/helpers';
@@ -564,5 +566,161 @@ describe(__filename, () => {
         });
       },
     );
+  });
+
+  describe('replaceStringsWithJSX', () => {
+    it('lets you replace format strings with JSX', () => {
+      expect(
+        utils.replaceStringsWithJSX({
+          text:
+            'Click on %(redLinkStart)sred%(redLinkEnd)s or %(blueLinkStart)sblue%(blueLinkEnd)s, your choice',
+          replacements: [
+            [
+              'redLinkStart',
+              'redLinkEnd',
+              (text) => (
+                <Link key="red" to="/red">
+                  {text}
+                </Link>
+              ),
+            ],
+            [
+              'blueLinkStart',
+              'blueLinkEnd',
+              (text) => (
+                <Link key="blue" to="/blue">
+                  {text}
+                </Link>
+              ),
+            ],
+          ],
+        }),
+      ).toEqual([
+        'Click on ',
+        <Link key="red" to="/red">
+          red
+        </Link>,
+        ' or ',
+        <Link key="blue" to="/blue">
+          blue
+        </Link>,
+        ', your choice',
+      ]);
+    });
+
+    it('lets you replace format strings with JSX in any order', () => {
+      expect(
+        utils.replaceStringsWithJSX({
+          text:
+            'Click on %(blueLinkStart)sblue%(blueLinkEnd)s or %(redLinkStart)sred%(redLinkEnd)s, your choice',
+          replacements: [
+            [
+              'redLinkStart',
+              'redLinkEnd',
+              (text) => {
+                return (
+                  <Link key="red" to="/red">
+                    {text}
+                  </Link>
+                );
+              },
+            ],
+            [
+              'blueLinkStart',
+              'blueLinkEnd',
+              (text) => {
+                return (
+                  <Link key="blue" to="/blue">
+                    {text}
+                  </Link>
+                );
+              },
+            ],
+          ],
+        }),
+      ).toEqual([
+        'Click on ',
+        <Link key="blue" to="/blue">
+          blue
+        </Link>,
+        ' or ',
+        <Link key="red" to="/red">
+          red
+        </Link>,
+        ', your choice',
+      ]);
+    });
+
+    it('throws an error when there is no replacement', () => {
+      expect(() => {
+        utils.replaceStringsWithJSX({ text: 'some text', replacements: [] });
+      }).toThrow(/`replacements` should not be empty/);
+    });
+
+    it('throws an error when the `text` has no variables and there are replacements', () => {
+      expect(() => {
+        utils.replaceStringsWithJSX({
+          text: 'some localized content',
+          replacements: [['start', 'end', (text) => text]],
+        });
+      }).toThrow(/No placeholder found in `text`/);
+    });
+
+    it('throws an error when the `text` is an empty string and there are replacements', () => {
+      expect(() => {
+        utils.replaceStringsWithJSX({
+          text: '',
+          replacements: [['start', 'end', (text) => text]],
+        });
+      }).toThrow(/No placeholder found in `text`/);
+    });
+
+    it('throws an error when not all replacements have been used', () => {
+      expect(() => {
+        utils.replaceStringsWithJSX({
+          text:
+            'a string with %(startFirst)sa link%(endFirst)s and %(startSecond)sanother one%(endSecond)s.',
+          replacements: [
+            ['startA', 'endA', (text) => text],
+            ['startB', 'endB', (text) => text],
+          ],
+        });
+      }).toThrow(
+        /Not all replacements have been used; unused keys: startA,endA; startB,endB/,
+      );
+    });
+
+    it('throws an error when `replacements` has duplicated keys', () => {
+      expect(() => {
+        utils.replaceStringsWithJSX({
+          text:
+            'a string with %(startFirst)sa link%(endFirst)s and %(startSecond)sanother one%(endSecond)s.',
+          replacements: [
+            ['startA', 'endA', (text) => text],
+            ['startA', 'endA', (text) => text],
+          ],
+        });
+      }).toThrow(/Duplicate key detected in `replacements`: startA,endA/);
+    });
+  });
+
+  it('throws an error for unmatched format strings', () => {
+    expect(() => {
+      utils.replaceStringsWithJSX({
+        text:
+          'Click on %(redLinkStart)sred%(redLinkEnd)s or %(blueLinkStart)sblue%(blueLinkEnd)s, your choice',
+        replacements: [
+          [
+            'redLinkStart',
+            'redLinkEnd',
+            (text) => (
+              <Link key="red" to="/red">
+                {text}
+              </Link>
+            ),
+          ],
+        ],
+      });
+    }).toThrow(/Expected 2 replacements but only got 1/);
   });
 });

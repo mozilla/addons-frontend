@@ -7,7 +7,7 @@ import Link from 'amo/components/Link';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML, visibleAddonType } from 'core/utils';
-import { replaceStringsWithJSX } from 'core/utils/i18n';
+import { replaceStringsWithJSX } from 'core/i18n/utils';
 import Card from 'ui/components/Card';
 import type { I18nType } from 'core/types/i18n';
 
