@@ -140,12 +140,12 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }
   }
 
-  componentWillReceiveProps(props: Props) {
+  componentDidUpdate(prevProps: Props, prevState: State) {
     const {
       isUpdating: wasUpdating,
       user: oldUser,
       userId: oldUserId,
-    } = this.props;
+    } = prevProps;
 
     const {
       clientApp,
@@ -157,7 +157,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       lang,
       user: newUser,
       userId: newUserId,
-    } = props;
+    } = this.props;
 
     if (oldUserId !== newUserId) {
       if (!newUser && newUserId) {
@@ -178,6 +178,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         );
       }
 
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState({
         ...this.getFormValues(newUser),
         pictureData: null,
@@ -189,6 +190,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       newUser &&
       !newUser.picture_url
     ) {
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState({
         picture: null,
         pictureData: null,
@@ -199,9 +201,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
       history.push(`/${lang}/${clientApp}/user/${newUserId}/`);
     }
-  }
 
-  componentDidUpdate(prevProps: Props, prevState: State) {
     if (
       (!prevProps.errorHandler.hasError() &&
         this.props.errorHandler.hasError()) ||
