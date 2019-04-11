@@ -7,7 +7,7 @@ import Link from 'amo/components/Link';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML, visibleAddonType } from 'core/utils';
-import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
+import { replaceStringsWithJSX } from 'core/i18n/utils';
 import Card from 'ui/components/Card';
 import type { I18nType } from 'core/types/i18n';
 
@@ -26,32 +26,40 @@ export class NotFoundBase extends React.Component<InternalProps> {
   render() {
     const { i18n } = this.props;
 
-    // We use `getLocalizedTextWithLinkParts()` two times to create all the
-    // variables needed to display both the `Link` components and texts
-    // before/after.
-    let linkParts = getLocalizedTextWithLinkParts({
-      i18n,
+    const paragraphWithLinks = replaceStringsWithJSX({
       text: i18n.gettext(
         `Try visiting the page later, as the theme or extension may become
         available again. Alternatively, you may be able to find what you’re
         looking for in one of the available %(linkStart)sextensions%(linkEnd)s
         or %(secondLinkStart)sthemes%(secondLinkEnd)s.`,
       ),
-      // By setting `linkStart`/`linkEnd` here, we can reuse
-      // `getLocalizedTextWithLinkParts()` directly after.
-      otherVars: {
-        secondLinkStart: '%(linkStart)s',
-        secondLinkEnd: '%(linkEnd)s',
-      },
+      replacements: [
+        [
+          'linkStart',
+          'linkEnd',
+          (text) => (
+            <Link
+              key="link-extensions"
+              to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}
+            >
+              {text}
+            </Link>
+          ),
+        ],
+        [
+          'secondLinkStart',
+          'secondLinkEnd',
+          (text) => (
+            <Link
+              key="link-themes"
+              to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}
+            >
+              {text}
+            </Link>
+          ),
+        ],
+      ],
     });
-
-    linkParts = {
-      first: linkParts,
-      second: getLocalizedTextWithLinkParts({
-        i18n,
-        text: linkParts.afterLinkText,
-      }),
-    };
 
     return (
       <NestedStatus code={404}>
@@ -95,17 +103,7 @@ export class NotFoundBase extends React.Component<InternalProps> {
               ['a'],
             )}
           />
-          <p className="ErrorPage-paragraph-with-links">
-            {linkParts.first.beforeLinkText}
-            <Link to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}>
-              {linkParts.first.innerLinkText}
-            </Link>
-            {linkParts.second.beforeLinkText}
-            <Link to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}>
-              {linkParts.second.innerLinkText}
-            </Link>
-            {linkParts.second.afterLinkText}
-          </p>
+          <p className="ErrorPage-paragraph-with-links">{paragraphWithLinks}</p>
         </Card>
       </NestedStatus>
     );

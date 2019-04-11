@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { oneLine } from 'common-tags';
 
 import NotFound, { NotFoundBase } from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
@@ -52,5 +53,35 @@ describe(__filename, () => {
     expect(landingLinks).toHaveLength(2);
     expect(landingLinks.at(0)).toHaveProp('to', '/extensions/');
     expect(landingLinks.at(1)).toHaveProp('to', '/themes/');
+  });
+
+  it('handles a localized string with links inverted', () => {
+    const localizedString = oneLine`Try visiting the page later, as the theme
+      or extension may become available again. Alternatively, you may be able
+      to find what you’re looking for in one of the available
+      %(secondLinkStart)sthemes%(secondLinkEnd)s or
+      %(linkStart)sextensions%(linkEnd)s.`;
+
+    const i18n = fakeI18n();
+    // We override the `gettext` function to inject a localized string with the
+    // two links inverted. This was the issue in
+    // https://github.com/mozilla/addons-frontend/issues/7597.
+    i18n.gettext = (string) => {
+      if (string.startsWith('Try visiting')) {
+        return localizedString;
+      }
+
+      return string;
+    };
+
+    // It should not crash.
+    const root = render({ i18n });
+    const landingLinks = root
+      .find('.ErrorPage-paragraph-with-links')
+      .at(1)
+      .find(Link);
+    expect(landingLinks).toHaveLength(2);
+    expect(landingLinks.at(0)).toHaveProp('to', '/themes/');
+    expect(landingLinks.at(1)).toHaveProp('to', '/extensions/');
   });
 });
