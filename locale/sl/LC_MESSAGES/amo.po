@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-10 06:23+0000\n"
-"Last-Translator: Rok Žerdin <zerdo90@gmail.com>\n"
+"PO-Revision-Date: 2019-04-11 19:11+0000\n"
+"Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -300,7 +300,6 @@ msgid "Homepage"
 msgstr "Domača stran"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
-#, fuzzy
 msgid "Support site"
 msgstr "Stran s podporo"
 
@@ -998,9 +997,8 @@ msgid "Staff Pick"
 msgstr "Izbor uredništva"
 
 #: src/amo/components/Header/index.js:105
-#, fuzzy
 msgid "Submit and manage extensions and themes"
-msgstr "spremlja rabo razširitev in upravlja teme"
+msgstr "Oddaja in upravljanje razširitev in tem"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1047,9 +1045,8 @@ msgid "Firefox Add-ons"
 msgstr "Dodatki za Firefox"
 
 #: src/amo/components/Header/index.js:95
-#, fuzzy
 msgid "Learn how to create extensions and themes"
-msgstr "spremlja rabo razširitev in upravlja teme"
+msgstr "Naučite se ustvarjati razširitve in teme"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
@@ -1772,7 +1769,6 @@ msgid "There are no reviews"
 msgstr "Ni ocen"
 
 #: src/amo/pages/AddonVersions/index.js:125
-#, fuzzy
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "Zgodovina različic %(addonName)s – %(total)s različica"
@@ -2078,7 +2074,6 @@ msgid "Productivity"
 msgstr "Produktivnost"
 
 #: src/amo/pages/Home/index.js:153
-#, fuzzy
 msgid "Watching videos"
 msgstr "Gledanje videoposnetkov"
 
@@ -2127,9 +2122,8 @@ msgid "Feed readers"
 msgstr "Bralniki virov"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more VPN solutions"
-msgstr "Več razširitev za zavihke"
+msgstr "Več razširitev za VPN"
 
 #: src/amo/pages/Home/index.js:61
 msgid "VPN solutions"
@@ -2671,11 +2665,11 @@ msgstr "%(strongStart)sOPOMBA:%(strongEnd)s Uporabnikovega profila ne morete izb
 
 #: src/amo/pages/UsersUnsubscribe/index.js:45
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Nastavitve obvestil lahko nastavite pri %(linkStart)surejanju profila%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:53
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Odjava"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:56
 msgid "You are successfully unsubscribed!"
