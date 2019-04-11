@@ -15,7 +15,7 @@ import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { normalizeFileNameId } from 'core/utils';
-import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
+import { replaceStringsWithJSX } from 'core/i18n/utils';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
@@ -85,24 +85,28 @@ export class AddonReviewManagerBase extends React.Component<InternalProps> {
 
     const isReply = review.isDeveloperReply;
 
-    const linkParts = getLocalizedTextWithLinkParts({
-      i18n,
+    const formFoterLink = replaceStringsWithJSX({
       text: i18n.gettext(
         'Please follow our %(linkStart)sreview guidelines%(linkEnd)s.',
       ),
+      replacements: [
+        [
+          'linkStart',
+          'linkEnd',
+          (text) => (
+            <Link
+              key="review-guide"
+              prependClientApp={false}
+              to="/review_guide"
+            >
+              {text}
+            </Link>
+          ),
+        ],
+      ],
     });
 
-    const formFooter = !isReply ? (
-      <div>
-        {linkParts.beforeLinkText}
-        <Link to="/review_guide" prependClientApp={false}>
-          {linkParts.innerLinkText}
-        </Link>
-        {linkParts.afterLinkText}
-      </div>
-    ) : (
-      undefined
-    );
+    const formFooter = !isReply ? <div>{formFoterLink}</div> : undefined;
 
     const placeholder = i18n.gettext(
       'Write about your experience with this add-on.',

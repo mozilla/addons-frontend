@@ -18,7 +18,6 @@ import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
 import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import Link from 'amo/components/Link';
 import { ErrorHandler } from 'core/errorHandler';
-import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import ErrorList from 'ui/components/ErrorList';
 import {
   dispatchClientMetadata,
@@ -74,17 +73,13 @@ describe(__filename, () => {
   it('renders a DismissibleTextForm formFooter', () => {
     const firstPart = 'this is the first part';
     const lastPart = 'this is the last part';
-    const text = `${firstPart} %(linkStart)s guides link %(linkEnd)s ${lastPart}`;
+    const linkText = 'guides link';
+    const text = `${firstPart} %(linkStart)s${linkText}%(linkEnd)s ${lastPart}`;
 
     const i18n = {
       ...fakeI18n(),
       gettext: sinon.stub().returns(text),
     };
-
-    const linkParts = getLocalizedTextWithLinkParts({
-      i18n,
-      text,
-    });
 
     const root = render({ i18n });
 
@@ -92,14 +87,14 @@ describe(__filename, () => {
     expect(form).toHaveProp('formFooter');
 
     const formFooter = shallow(form.prop('formFooter'));
-
-    expect(formFooter.childAt(0).text()).toEqual(linkParts.beforeLinkText);
+    expect(formFooter.text()).toContain(firstPart);
+    expect(formFooter.text()).toContain(lastPart);
 
     const formFooterLink = formFooter.find(Link);
-
-    expect(formFooterLink.children().text()).toEqual(linkParts.innerLinkText);
-
-    expect(formFooter.childAt(2).text()).toEqual(linkParts.afterLinkText);
+    expect(formFooterLink).toHaveLength(1);
+    expect(formFooterLink).toHaveProp('to', '/review_guide');
+    expect(formFooterLink).toHaveProp('prependClientApp', false);
+    expect(formFooterLink).toHaveProp('children', linkText);
   });
 
   it('configures DismissibleTextForm with an ID', () => {

@@ -12,7 +12,7 @@ import { INSTALL_SOURCE_DETAIL_PAGE } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { getVersionInfo } from 'core/reducers/versions';
 import { sanitizeUserHTML } from 'core/utils';
-import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
+import { replaceStringsWithJSX } from 'core/i18n/utils';
 import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
 import type { AddonVersionType, VersionInfoType } from 'core/reducers/versions';
@@ -92,38 +92,50 @@ export const AddonVersionCardBase = (props: InternalProps) => {
     const { license } = version;
 
     if (addon && license) {
-      const otherVars = {
-        licenseName: license.name,
-      };
-
       if (license.url) {
         const licenseLinkParams = license.isCustom
           ? { to: `/addon/${addon.slug}/license/` }
           : { href: license.url, prependClientApp: false, prependLang: false };
 
-        const licenseText = i18n.gettext(
-          'Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s',
+        const licenseText = i18n.sprintf(
+          i18n.gettext(
+            'Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s',
+          ),
+          {
+            licenseName: license.name,
+            // Keep the link placeholders so that we can use them to inject a
+            // `<Link />` using `replaceStringsWithJSX`.
+            linkStart: '%(linkStart)s',
+            linkEnd: '%(linkEnd)s',
+          },
         );
 
-        const licenseLinkParts = getLocalizedTextWithLinkParts({
-          i18n,
+        const licenseLink = replaceStringsWithJSX({
           text: licenseText,
-          otherVars,
+          replacements: [
+            [
+              'linkStart',
+              'linkEnd',
+              (text) => (
+                <Link key={addon.slug} {...licenseLinkParams}>
+                  {text}
+                </Link>
+              ),
+            ],
+          ],
         });
 
         licenseSection = (
-          <p className="AddonVersionCard-license">
-            {licenseLinkParts.beforeLinkText}
-            <Link {...licenseLinkParams}>{licenseLinkParts.innerLinkText}</Link>
-            {licenseLinkParts.afterLinkText}
-          </p>
+          <p className="AddonVersionCard-license">{licenseLink}</p>
         );
       } else {
         licenseSection = (
           <p className="AddonVersionCard-license">
             {i18n.sprintf(
               i18n.gettext('Source code released under %(licenseName)s'),
-              otherVars,
+              {
+                licenseName: license.name,
+              },
             )}
           </p>
         );

@@ -24,7 +24,6 @@ import { logOutUser } from 'amo/reducers/users';
 import { ALL_SUPER_POWERS } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
-import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import {
   createFakeEvent,
   createStubErrorHandler,
@@ -1143,7 +1142,7 @@ describe(__filename, () => {
     it('builds a byLine string by extracting the timestamp and inserting a link', () => {
       const firstPart = 'this is the first part';
       const lastPart = 'this is the last part';
-      const byLineString = `${firstPart} %(linkStart)s %(timestamp)s %(linkEnd)s ${lastPart}`;
+      const byLineString = `${firstPart} %(linkStart)s%(timestamp)s%(linkEnd)s ${lastPart}`;
 
       const i18n = {
         ...fakeI18n(),
@@ -1152,15 +1151,6 @@ describe(__filename, () => {
 
       const review = _setReview(fakeReview);
 
-      const linkParts = getLocalizedTextWithLinkParts({
-        i18n: fakeI18n(),
-        text: byLineString,
-        otherVars: {
-          authorName: review.userName,
-          timestamp: i18n.moment(review.created).fromNow(),
-        },
-      });
-
       const root = render({
         i18n,
         shortByLine: true,
@@ -1168,16 +1158,15 @@ describe(__filename, () => {
       });
 
       const authorByLine = renderByLine(root);
-
-      expect(authorByLine.childAt(0).text()).toEqual(linkParts.beforeLinkText);
+      expect(authorByLine.text()).toContain(firstPart);
+      expect(authorByLine.text()).toContain(lastPart);
 
       const authorTimestampLink = authorByLine.find(Link);
-
-      expect(authorTimestampLink.children().text()).toEqual(
-        linkParts.innerLinkText,
+      expect(authorTimestampLink).toHaveLength(1);
+      expect(authorTimestampLink).toHaveProp(
+        'children',
+        i18n.moment(review.created).fromNow(),
       );
-
-      expect(authorByLine.childAt(2).text()).toEqual(linkParts.afterLinkText);
     });
   });
 
