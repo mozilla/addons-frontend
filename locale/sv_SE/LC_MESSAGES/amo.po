@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-10 03:33+0000\n"
+"PO-Revision-Date: 2019-04-11 15:05+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -294,13 +294,12 @@ msgid "Homepage"
 msgstr "Hemsida"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
-#, fuzzy
 msgid "Support site"
-msgstr "Supportwebbplats"
+msgstr "Webbplats för support"
 
 #: src/amo/components/AddonMoreInfo/index.js:84
 msgid "Support Email"
-msgstr "Support e-post"
+msgstr "E-post för support"
 
 #: src/amo/components/AddonRecommendations/index.js:133
 msgid "Other users with this extension also installed"
@@ -990,9 +989,8 @@ msgid "Staff Pick"
 msgstr "Personalen väljer"
 
 #: src/amo/components/Header/index.js:105
-#, fuzzy
 msgid "Submit and manage extensions and themes"
-msgstr "Övervaka utökningsanvändning och hantera teman"
+msgstr "Skicka in och hantera tillägg och teman"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1039,9 +1037,8 @@ msgid "Firefox Add-ons"
 msgstr "Firefox tillägg"
 
 #: src/amo/components/Header/index.js:95
-#, fuzzy
 msgid "Learn how to create extensions and themes"
-msgstr "Övervaka utökningsanvändning och hantera teman"
+msgstr "Läs om hur du skapar tillägg och teman"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
@@ -1736,7 +1733,6 @@ msgid "There are no reviews"
 msgstr "Det finns inga recensioner"
 
 #: src/amo/pages/AddonVersions/index.js:125
-#, fuzzy
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "%(addonName)s versionshistorik - %(total)s version"
@@ -2040,7 +2036,6 @@ msgid "Ad blockers"
 msgstr "Annonsblockerare"
 
 #: src/amo/pages/Home/index.js:145
-#, fuzzy
 msgid "Smarter shopping"
 msgstr "Smartare shopping"
 
@@ -2049,9 +2044,8 @@ msgid "Productivity"
 msgstr "Produktivitet"
 
 #: src/amo/pages/Home/index.js:153
-#, fuzzy
 msgid "Watching videos"
-msgstr "Tittar på videos"
+msgstr "Titta på videos"
 
 #: src/amo/pages/Home/index.js:181
 msgid "Abstract"
@@ -2098,9 +2092,8 @@ msgid "Feed readers"
 msgstr "Flödesläsare"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more VPN solutions"
-msgstr "Se fler flikutökningar"
+msgstr "Se fler VPN-lösningar"
 
 #: src/amo/pages/Home/index.js:61
 msgid "VPN solutions"
@@ -2187,6 +2180,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Vill du interagera med addons.mozilla.org (AMO) programmatiskt? Kolla in %(startAddonsServerDocumentation)sserverdokumentationen för tillägg%(endAddonsServerDocumentation)s för detaljer om API:er "
+"som används av AMO och %(startAddonsManager)stilläggshanteraren%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:155
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2205,9 +2200,8 @@ msgid "Tell your friends and family that Firefox is a fast, secure browser that 
 msgstr "Berätta för dina vänner och familj att Firefox är en snabb, säker webbläsare som skyddar deras integritet och kan anpassas med tillägg!"
 
 #: src/amo/pages/StaticPages/About/index.js:190
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "För att se fler sätt du kan bidra till tilläggsgemenskapen, besök vår%(startLink)swiki%(endLink)s"
+msgstr "För att se fler sätt du kan bidra till tilläggsgemenskapen, besök vår %(startLink)swiki%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:204
 msgid "Get support"
@@ -2549,9 +2543,8 @@ msgid "Display Name *"
 msgstr "Visningsnamn *"
 
 #: src/amo/pages/UserProfileEdit/index.js:613
-#, fuzzy
 msgid "Reviewer Name"
-msgstr "Granska tema"
+msgstr "Granskarens namn"
 
 #: src/amo/pages/UserProfileEdit/index.js:646
 msgid "This URL will only be visible for users who are developers."
@@ -2643,16 +2636,15 @@ msgstr "%(strongStart)sOBS:%(strongEnd)s Du kan inte radera en användares profi
 
 #: src/amo/pages/UsersUnsubscribe/index.js:45
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Du kan redigera dina aviseringsinställningar genom att %(linkStart)sredigera din profil%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:53
 msgid "Unsubscribe"
 msgstr "Avbryt prenumeration"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:56
-#, fuzzy
 msgid "You are successfully unsubscribed!"
-msgstr "Bilden har tagits bort"
+msgstr "Du har avslutat prenumerationen!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:63
