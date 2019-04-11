@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-11 19:11+0000\n"
+"PO-Revision-Date: 2019-04-11 19:13+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1916,7 +1916,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:143
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Razporedite in prikažite zavihke v kaskadnem slogu drevesa v stranski vrstici Firefoxa."
 
 #: src/amo/pages/Guides/index.js:147
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
@@ -1976,7 +1976,7 @@ msgstr "Raziščite več %(linkStart)srazširitev za videoposnetke%(linkEnd)s po
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Get more out of media"
-msgstr ""
+msgstr "Izvlecite več iz večpredstavnosti"
 
 #: src/amo/pages/Guides/index.js:215
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
@@ -1987,6 +1987,8 @@ msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Ste že kdaj na spletu našli zanimivo sliko in želeli izvedeti več o njej, na primer kdo je oseba na sliki? Vas zanima, ali obstajajo povezane slike? Ta razširitev omogoča hitro in preprosto povratno"
+" iskanje slik z različnimi iskalniki."
 
 #: src/amo/pages/Guides/index.js:226
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
