@@ -694,7 +694,7 @@ describe(__filename, () => {
       expect(() => {
         utils.replaceStringsWithJSX({
           text:
-            'a string with %(startFirst)sa link%(endFirst)s and %(startSecond)sanother one%(endSecond)s.',
+            'a string with %(startA)sa link%(endA)s and %(startB)s second one%(endB)s',
           replacements: [
             ['startA', 'endA', (text) => text],
             ['startA', 'endA', (text) => text],
