@@ -118,8 +118,18 @@ describe(__filename, () => {
 
   it('renders a loading state without an add-on', () => {
     const root = render({ addon: null });
+    const bars = root.find('.RatingsByStar-barContainer');
 
     expect(root.find('.RatingsByStar-count').find(LoadingText)).toHaveLength(5);
+    expect(bars).toHaveLength(5);
+    bars.forEach((bar) => {
+      expect(
+        bar
+          .childAt(0)
+          .children()
+          .exists(),
+      ).toBe(false);
+    });
   });
 
   it('renders a loading state without grouped ratings', () => {
@@ -155,6 +165,37 @@ describe(__filename, () => {
     validateLink(counts.at(2), '3', 'Read all three-star reviews');
     validateLink(counts.at(3), '2', 'Read all two-star reviews');
     validateLink(counts.at(4), '1', 'Read all one-star reviews');
+  });
+
+  it('renders bars and links', () => {
+    const grouping = {
+      5: 964,
+      4: 821,
+      3: 543,
+      2: 22,
+      1: 0,
+    };
+    const addon = addonForGrouping(grouping);
+    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
+    const root = render({ addon });
+    const bars = root.find('.RatingsByStar-barContainer').map((node) => {
+      return node.parent();
+    });
+
+    function validateBar(bar, score, expectedTitle) {
+      expect(bar.is(Link)).toBe(true);
+      expect(bar).toHaveProp(
+        'to',
+        reviewListURL({ addonSlug: addon.slug, score }),
+      );
+      expect(bar).toHaveProp('title', expectedTitle);
+    }
+
+    validateBar(bars[0], '5', 'Read all five-star reviews');
+    validateBar(bars[1], '4', 'Read all four-star reviews');
+    validateBar(bars[2], '3', 'Read all three-star reviews');
+    validateBar(bars[3], '2', 'Read all two-star reviews');
+    validateBar(bars[4], '1', 'Read all one-star reviews');
   });
 
   it('renders star counts', () => {
