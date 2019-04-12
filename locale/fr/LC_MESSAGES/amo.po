@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-09 15:17+0000\n"
-"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
+"PO-Revision-Date: 2019-04-12 07:03+0000\n"
+"Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -989,9 +989,8 @@ msgid "Staff Pick"
 msgstr "Le choix de l’équipe"
 
 #: src/amo/components/Header/index.js:105
-#, fuzzy
 msgid "Submit and manage extensions and themes"
-msgstr "Surveiller l’utilisation des extensions et gérer les thèmes"
+msgstr "Soumettre et gérer des extensions et des thèmes"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1038,9 +1037,8 @@ msgid "Firefox Add-ons"
 msgstr "Modules Firefox"
 
 #: src/amo/components/Header/index.js:95
-#, fuzzy
 msgid "Learn how to create extensions and themes"
-msgstr "Surveiller l’utilisation des extensions et gérer les thèmes"
+msgstr "Apprenez à créer des extensions et des thèmes"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
@@ -2053,7 +2051,6 @@ msgid "Productivity"
 msgstr "Productivité"
 
 #: src/amo/pages/Home/index.js:153
-#, fuzzy
 msgid "Watching videos"
 msgstr "Regarder des vidéos"
 
