@@ -14,7 +14,7 @@ import { getAddonByGUID } from 'core/reducers/addons';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
+import { replaceStringsWithJSX } from 'core/i18n/utils';
 import Icon from 'ui/components/Icon';
 import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
@@ -344,15 +344,25 @@ export class GuidesBase extends React.Component<InternalProps> {
   getGuidesSections = (
     sections: Array<SectionsType>,
   ): React.ChildrenArray<React.Node> => {
-    const { _log, addons, i18n } = this.props;
+    const { _log, addons } = this.props;
 
     const hasAddonsLoaded =
       Object.keys(addons).length !== 0 && !this.props.loading;
 
     return sections.map((section) => {
-      const linkParts = getLocalizedTextWithLinkParts({
-        i18n,
+      const exploreMore = replaceStringsWithJSX({
         text: section.exploreMore,
+        replacements: [
+          [
+            'linkStart',
+            'linkEnd',
+            (text) => (
+              <Link key={section.addonGuid} to={section.exploreUrl}>
+                {text}
+              </Link>
+            ),
+          ],
+        ],
       });
 
       let addon;
@@ -376,11 +386,7 @@ export class GuidesBase extends React.Component<InternalProps> {
             addonCustomText={section.addonCustomText}
           />
 
-          <div className="Guides-section-explore-more">
-            {linkParts.beforeLinkText}
-            <Link to={section.exploreUrl}>{linkParts.innerLinkText}</Link>
-            {linkParts.afterLinkText}
-          </div>
+          <div className="Guides-section-explore-more">{exploreMore}</div>
         </div>
       );
     });

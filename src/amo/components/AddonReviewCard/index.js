@@ -25,7 +25,7 @@ import {
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
-import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
+import { replaceStringsWithJSX } from 'core/i18n/utils';
 import Button from 'ui/components/Button';
 import ConfirmationDialog from 'ui/components/ConfirmationDialog';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
@@ -352,15 +352,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             'by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
           );
 
-      const linkParts = getLocalizedTextWithLinkParts({
-        i18n,
-        text: byLineString,
-        otherVars: {
-          authorName: review.userName,
-          timestamp: i18n.moment(review.created).fromNow(),
-        },
-      });
-
       // See https://github.com/mozilla/addons-frontend/issues/7322 for why we
       // need this code.
       const slugForReviewLink =
@@ -380,29 +371,45 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         );
       }
 
+      const byLineLink = replaceStringsWithJSX({
+        text: i18n.sprintf(byLineString, {
+          authorName: review.userName,
+          timestamp: i18n.moment(review.created).fromNow(),
+          // Keep the link placeholders so that we can use them to inject a
+          // `<Link />` using `replaceStringsWithJSX`.
+          linkEnd: '%(linkEnd)s',
+          linkStart: '%(linkStart)s',
+        }),
+        replacements: [
+          [
+            'linkStart',
+            'linkEnd',
+            (text) => {
+              return slugForReviewLink ? (
+                <Link
+                  key={review.id}
+                  to={reviewListURL({
+                    addonSlug: String(slugForReviewLink),
+                    id: review.id,
+                  })}
+                >
+                  {text}
+                </Link>
+              ) : (
+                text
+              );
+            },
+          ],
+        ],
+      });
+
       byLine = (
         <span
-          className={makeClassName('', {
+          className={makeClassName({
             'AddonReviewCard-authorByLine': !noAuthor,
           })}
         >
-          {linkParts.beforeLinkText}
-
-          {slugForReviewLink ? (
-            <Link
-              key={review.id}
-              to={reviewListURL({
-                addonSlug: String(slugForReviewLink),
-                id: review.id,
-              })}
-            >
-              {linkParts.innerLinkText}
-            </Link>
-          ) : (
-            linkParts.innerLinkText
-          )}
-
-          {linkParts.afterLinkText}
+          {byLineLink}
         </span>
       );
     } else {

@@ -12,7 +12,7 @@ import LoadingText from 'ui/components/LoadingText';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
-import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
+import { replaceStringsWithJSX } from 'core/i18n/utils';
 import {
   getUnsubscribeKey,
   isUnsubscribedFor,
@@ -72,11 +72,21 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
     const { errorHandler, i18n, isUnsubscribed, match } = this.props;
     const { token, notificationName } = match.params;
 
-    const linkEditProfileParts = getLocalizedTextWithLinkParts({
-      i18n,
+    const editProfileLink = replaceStringsWithJSX({
       text: i18n.gettext(
         'You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s.',
       ),
+      replacements: [
+        [
+          'linkStart',
+          'linkEnd',
+          (text) => (
+            <Link key="edit-profile" to="/users/edit">
+              {text}
+            </Link>
+          ),
+        ],
+      ],
     });
 
     return (
@@ -131,19 +141,9 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
               )}
             </blockquote>
 
-            {isUnsubscribed ? (
-              <p className="UsersUnsubscribe-content-edit-profile">
-                {linkEditProfileParts.beforeLinkText}
-                <Link to="/users/edit">
-                  {linkEditProfileParts.innerLinkText}
-                </Link>
-                {linkEditProfileParts.afterLinkText}
-              </p>
-            ) : (
-              <p className="UsersUnsubscribe-content-edit-profile">
-                <LoadingText />
-              </p>
-            )}
+            <p className="UsersUnsubscribe-content-edit-profile">
+              {isUnsubscribed ? editProfileLink : <LoadingText />}
+            </p>
           </Card>
         )}
       </div>

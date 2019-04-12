@@ -13,7 +13,6 @@ import Guides, {
   getSections,
 } from 'amo/pages/Guides';
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
-import { getLocalizedTextWithLinkParts } from 'core/utils/i18n';
 import {
   createStubErrorHandler,
   dispatchClientMetadata,
@@ -136,11 +135,6 @@ describe(__filename, () => {
       const content = getContent({ slug, i18n: fakeI18n() });
       const guids = content.sections.map((section) => section.addonGuid);
 
-      const linkParts = getLocalizedTextWithLinkParts({
-        i18n: fakeI18n(),
-        text: content.sections[0].exploreMore,
-      });
-
       const root = render({ slug, store });
 
       expect(root.find('.Guides')).toHaveLength(1);
@@ -169,22 +163,28 @@ describe(__filename, () => {
         content.sections[0].header,
       );
 
+      // Each `exploreMore` sentence has the following form: `Explore more
+      // %(linkStart)ssomething%(linkEnd)s staff picks.`, so we split on i18n
+      // placeholders to get the different parts.
+      const exploreMoreParts = content.sections[0].exploreMore.split(
+        /%\(\w+\)s/,
+      );
+
       const sectionExploreMore = root
         .find('.Guides-section-explore-more')
         .at(0);
+      expect(sectionExploreMore.text()).toContain(exploreMoreParts[0]);
+      expect(sectionExploreMore.text()).toContain(exploreMoreParts[2]);
 
-      expect(sectionExploreMore.childAt(0).text()).toEqual(
-        linkParts.beforeLinkText,
+      const sectionExploreMoreLink = sectionExploreMore.find(Link);
+      expect(sectionExploreMoreLink).toHaveLength(1);
+      expect(sectionExploreMoreLink).toHaveProp(
+        'to',
+        content.sections[0].exploreUrl,
       );
-
-      const sectionExploreLink = sectionExploreMore.find(Link);
-
-      expect(sectionExploreLink.children().text()).toEqual(
-        linkParts.innerLinkText,
-      );
-
-      expect(sectionExploreMore.childAt(2).text()).toEqual(
-        linkParts.afterLinkText,
+      expect(sectionExploreMoreLink).toHaveProp(
+        'children',
+        exploreMoreParts[1],
       );
     });
 
