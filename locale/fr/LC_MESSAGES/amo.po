@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-12 12:29+0000\n"
-"Last-Translator: François-Joseph du Fou <francoisjoseph.du.fou@gmail.com>\n"
+"PO-Revision-Date: 2019-04-12 19:58+0000\n"
+"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -2672,7 +2672,7 @@ msgstr "Se désinscrire"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:56
 msgid "You are successfully unsubscribed!"
-msgstr ""
+msgstr "Désinscription réussie !"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:63
