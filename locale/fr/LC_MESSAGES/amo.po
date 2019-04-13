@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-12 12:39+0000\n"
-"Last-Translator: François-Joseph du Fou <francoisjoseph.du.fou@gmail.com>\n"
+"PO-Revision-Date: 2019-04-13 17:38+0000\n"
+"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -2664,7 +2664,7 @@ msgstr "%(strongStart)sNOTE :%(strongEnd)s vous ne pouvez pas supprimer le prof
 
 #: src/amo/pages/UsersUnsubscribe/index.js:45
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Vous pouvez changer vos paramètres de notification %(linkStart)sen modifiant votre profil%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:53
 msgid "Unsubscribe"
@@ -2677,7 +2677,7 @@ msgstr "Désinscription réussie !"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:63
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "L’adresse électronique %(strongStart)s%(email)s%(strongEnd)s ne recevra plus de messages lorsque :"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
