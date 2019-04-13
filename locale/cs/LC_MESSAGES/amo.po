@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-13 10:52+0000\n"
-"Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
+"PO-Revision-Date: 2019-04-11 18:43+0000\n"
+"Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -1050,7 +1050,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
-msgstr ""
+msgstr "Rozšíření jsou jako aplikace pro váš prohlížeč."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
@@ -1202,7 +1202,7 @@ msgstr "Ukládá se hodnocení..."
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
-msgstr "Hodnocení uloženo"
+msgstr ""
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
@@ -2103,11 +2103,11 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:66
 msgid "See more tab extensions"
-msgstr ""
+msgstr "Další rozšíření zaměřená na panely"
 
 #: src/amo/pages/Home/index.js:67
 msgid "Change up your tabs"
-msgstr ""
+msgstr "Vylepšete si panely"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
