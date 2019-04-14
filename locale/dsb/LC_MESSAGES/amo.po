@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-11 15:56+0000\n"
+"PO-Revision-Date: 2019-04-14 19:48+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -300,7 +300,6 @@ msgid "Homepage"
 msgstr "Startowy bok"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
-#, fuzzy
 msgid "Support site"
 msgstr "Sedło pomocy"
 
@@ -998,9 +997,8 @@ msgid "Staff Pick"
 msgstr "Wót sobuźěłaśerjow wubrane"
 
 #: src/amo/components/Header/index.js:105
-#, fuzzy
 msgid "Submit and manage extensions and themes"
-msgstr "Wužywanje rozšyrjenjow wobglědowaś a drastwy zastojaś"
+msgstr "Rozšyrjenja a drastwy wótpósłaś a zastojaś"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1047,9 +1045,8 @@ msgid "Firefox Add-ons"
 msgstr "Dodanki za Firefox"
 
 #: src/amo/components/Header/index.js:95
-#, fuzzy
 msgid "Learn how to create extensions and themes"
-msgstr "Wužywanje rozšyrjenjow wobglědowaś a drastwy zastojaś"
+msgstr "Zgóńśo, kak móžośo rozšyrjenja a drastwy napóraś"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
@@ -1774,10 +1771,9 @@ msgid "There are no reviews"
 msgstr "Njedaju pógódnośenja"
 
 #: src/amo/pages/AddonVersions/index.js:125
-#, fuzzy
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] "Wersija historija %(addonName)s - %(total)s wersija"
+msgstr[0] "Wersijowa historija %(addonName)s - %(total)s wersija"
 msgstr[1] "Wersija historija %(addonName)s - %(total)s wersiji"
 msgstr[2] "Wersija historija %(addonName)s - %(total)s wersije"
 msgstr[3] "Wersija historija %(addonName)s - %(total)s wersijow"
@@ -2078,7 +2074,6 @@ msgid "Ad blockers"
 msgstr "Wabjeńske blokěrowaki"
 
 #: src/amo/pages/Home/index.js:145
-#, fuzzy
 msgid "Smarter shopping"
 msgstr "Wěcej Inteligentne nakupowanje"
 
@@ -2087,7 +2082,6 @@ msgid "Productivity"
 msgstr "Produktiwita"
 
 #: src/amo/pages/Home/index.js:153
-#, fuzzy
 msgid "Watching videos"
 msgstr "Wideo se woglědaś"
 
@@ -2136,13 +2130,12 @@ msgid "Feed readers"
 msgstr "Kanalowe cytaki"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more VPN solutions"
-msgstr "Dalšne rejtarkowe rozšyrjenja pokazaś"
+msgstr "Dalšne VPN-rozwězanja pokazaś"
 
 #: src/amo/pages/Home/index.js:61
 msgid "VPN solutions"
-msgstr ""
+msgstr "VPN-rozwězanja"
 
 #: src/amo/pages/Home/index.js:66
 msgid "See more tab extensions"
@@ -2227,6 +2220,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Cośo na addons.mozilla.org (AMO) ako porgraměrowaŕ sobu źěłaś? Cytajśo %(startAddonsServerDocumentation)sdokumentaciju dodankowych serwerow%(endAddonsServerDocumentation)s za drobnostki wó API, "
+"kótarež se pśez AMO a %(startAddonsManager)szastojnik dodankow%(endAddonsManager)s wužywaju."
 
 #: src/amo/pages/StaticPages/About/index.js:155
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2245,9 +2240,8 @@ msgid "Tell your friends and family that Firefox is a fast, secure browser that 
 msgstr "Dajśo swójim pśjaśelam a swójej familiji k wěsći, až Firefox jo malsny, wěsty wobglědowak, kótaryž jich priwatnosć šćita a až mógu jen z dodankami pśiměriś!"
 
 #: src/amo/pages/StaticPages/About/index.js:190
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "Aby se wó dalšnych móžnosćach informěrował, kak móžośo na zgromaźeństwje dodankow sobu źěłaś, woglědajsó se pšosym k našomu %(startLink)swikijoju%(endLink)s"
+msgstr "Aby se wó dalšnych móžnosćach informěrował, kak móžośo na zgromaźeństwje dodankow sobu źěłaś, woglědajsó se pšosym k našomu %(startLink)swikijoju%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:204
 msgid "Get support"
@@ -2590,9 +2584,8 @@ msgid "Display Name *"
 msgstr "Pokazane mě *"
 
 #: src/amo/pages/UserProfileEdit/index.js:613
-#, fuzzy
 msgid "Reviewer Name"
-msgstr "Drastwu pśeglědowaś"
+msgstr "Mě pśeglědowarja"
 
 #: src/amo/pages/UserProfileEdit/index.js:646
 msgid "This URL will only be visible for users who are developers."
@@ -2684,21 +2677,20 @@ msgstr "%(strongStart)sGlědajśo:%(strongEnd)s Njamóžośo profil wužywarja w
 
 #: src/amo/pages/UsersUnsubscribe/index.js:45
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "%(linkStart)sWobźěłajśo swój profil%(linkEnd)s, aby swóje zdźěleńske nastajenja wobźěłał."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:53
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Wótskazaś"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:56
-#, fuzzy
 msgid "You are successfully unsubscribed!"
-msgstr "Wobraz jo se wuspěšnje wulašował"
+msgstr "Waš abonement jo se wuspěšnje wótskazał!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:63
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "E-mailowa adresa %(strongStart)s%(email)s%(strongEnd)s njedostawa wěcej powěsći, gaž:"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
