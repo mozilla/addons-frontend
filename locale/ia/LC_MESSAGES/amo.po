@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-14 02:49+0000\n"
+"PO-Revision-Date: 2019-04-14 03:06+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -988,9 +988,8 @@ msgid "Staff Pick"
 msgstr "Seligite per nostre equipa"
 
 #: src/amo/components/Header/index.js:105
-#, fuzzy
 msgid "Submit and manage extensions and themes"
-msgstr "Surveliar le utilisation del extensiones e gerer le themas"
+msgstr "Invia e gere extensiones e themas"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1734,11 +1733,10 @@ msgid "There are no reviews"
 msgstr "Il ha nulle revisiones"
 
 #: src/amo/pages/AddonVersions/index.js:125
-#, fuzzy
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] "%(addonName)s Chronologia del versiones - %(total)s version"
-msgstr[1] "%(addonName)s Chronologia del versiones - %(total)s versiones"
+msgstr[0] "%(addonName)s chronologia del versiones - %(total)s version"
+msgstr[1] "%(addonName)s chronologia del versiones - %(total)s versiones"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
@@ -2041,7 +2039,6 @@ msgid "Ad blockers"
 msgstr "Blocatores de avisos publicitari"
 
 #: src/amo/pages/Home/index.js:145
-#, fuzzy
 msgid "Smarter shopping"
 msgstr "Compras plus intelligente"
 
@@ -2101,13 +2098,12 @@ msgid "Feed readers"
 msgstr "Lectores de feed"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more VPN solutions"
-msgstr "Vider plus extensiones de schedas"
+msgstr "Vider plus solutiones VPN"
 
 #: src/amo/pages/Home/index.js:61
 msgid "VPN solutions"
-msgstr ""
+msgstr "Solutiones VPN"
 
 #: src/amo/pages/Home/index.js:66
 msgid "See more tab extensions"
@@ -2212,9 +2208,8 @@ msgid "Tell your friends and family that Firefox is a fast, secure browser that 
 msgstr "Conta a tu amicos e a tu familia que Firefox es un rapide, secur navigator que protege lor confidentialitate, e illes pote usar additivos pro render los lor proprie!"
 
 #: src/amo/pages/StaticPages/About/index.js:190
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "Pro vider altere manieras pro contribuer al communitate del additivos, per favor visita nostre %(startLink)swiki%(endLink)s"
+msgstr "Pro vider altere manieras pro contribuer al communitate del additivos, per favor visita nostre %(startLink)swiki%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:204
 msgid "Get support"
@@ -2657,7 +2652,7 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:53
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Remover le subscription"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:56
 msgid "You are successfully unsubscribed!"
@@ -2666,7 +2661,7 @@ msgstr "Tu inscription esseva annullate con successo!"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:63
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "Le adresse de email %(strongStart)s%(email)s%(strongEnd)s non recipera plus messages quando:"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
