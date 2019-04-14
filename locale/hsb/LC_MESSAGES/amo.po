@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-14 12:30+0000\n"
+"PO-Revision-Date: 2019-04-14 19:42+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -2137,7 +2137,7 @@ msgstr "Dalše VPN-rozrisanja pokazać"
 
 #: src/amo/pages/Home/index.js:61
 msgid "VPN solutions"
-msgstr "VPN-rozrisanaj"
+msgstr "VPN-rozrisanja"
 
 #: src/amo/pages/Home/index.js:66
 msgid "See more tab extensions"
@@ -2223,7 +2223,7 @@ msgid ""
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
 "Chceće na addons.mozilla.org (AMO) jako porgramowar sobu dźěłać? Čitajće %(startAddonsServerDocumentation)sdokumentaciju přidatkowych serwerow%(endAddonsServerDocumentation)s za podrobnosće wo API, "
-"kotrež so přez AMO a %(startAddonsManager)szrjadowak přidatko%(endAddonsManager)s wužiwaja."
+"kotrež so přez AMO a %(startAddonsManager)szrjadowak přidatkow%(endAddonsManager)s wužiwaja."
 
 #: src/amo/pages/StaticPages/About/index.js:155
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
