@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-14 19:46+0000\n"
+"PO-Revision-Date: 2019-04-14 20:04+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -263,19 +263,19 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:223
 msgid "License"
-msgstr ""
+msgstr "ਲਾਇਸੰਸ"
 
 #: src/amo/components/AddonMoreInfo/index.js:231
 msgid "Privacy Policy"
-msgstr ""
+msgstr "ਪਰਦੇਦਾਰੀ ਸੂਚਨਾ"
 
 #: src/amo/components/AddonMoreInfo/index.js:239
 msgid "End-User License Agreement"
-msgstr ""
+msgstr "ਅੰਤਿਮ ਵਰਤੋਂਕਾਰ ਲਸੰਸ ਇਕਰਾਰਨਾਮਾ"
 
 #: src/amo/components/AddonMoreInfo/index.js:247
 msgid "Version History"
-msgstr ""
+msgstr "ਵਰਜਨ ਇਤਿਹਾਸ"
 
 #: src/amo/components/AddonMoreInfo/index.js:257
 msgid "Usage Statistics"
@@ -295,7 +295,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:84
 msgid "Support Email"
-msgstr ""
+msgstr "ਸਹਿਯੋਗ ਈਮੇਲ"
 
 #: src/amo/components/AddonRecommendations/index.js:133
 msgid "Other users with this extension also installed"
@@ -583,7 +583,7 @@ msgstr ""
 
 #: src/amo/components/AutoSearchInput/index.js:299
 msgid "Find add-ons"
-msgstr ""
+msgstr "ਐਡ-ਆਨ ਲੱਭੋ"
 
 #: src/amo/components/AutoSearchInput/index.js:324 src/amo/components/AutoSearchInput/index.js:352
 msgid "Search"
@@ -1322,7 +1322,7 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:158
 msgid "Popular extensions"
-msgstr ""
+msgstr "ਪ੍ਰਸਿੱਧ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/Search/index.js:161
 msgid "Popular themes"
@@ -1330,7 +1330,7 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:164
 msgid "Popular add-ons"
-msgstr ""
+msgstr "ਪ੍ਰਸਿੱਧ ਐਡ-ਆਨ"
 
 #: src/amo/components/Search/index.js:170
 msgid "Search results for \"%(query)s\""
@@ -1470,7 +1470,7 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:161
 msgid "Sort by"
-msgstr ""
+msgstr "ਲੜੀਬੱਧ"
 
 #: src/amo/components/SearchFilters/index.js:183
 msgid "Add-on Type"
@@ -1560,11 +1560,11 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:78
 msgid "Explore"
-msgstr ""
+msgstr "ਪੜਚੋਲ"
 
 #: src/amo/components/SectionLinks/index.js:88 src/amo/pages/LandingPage/index.js:229
 msgid "Extensions"
-msgstr ""
+msgstr "ਇਕਸਟੈਨਸ਼ਨ"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
@@ -1806,7 +1806,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:112
 msgid "Collections"
-msgstr ""
+msgstr "ਸੰਗ੍ਰਹਿ"
 
 #: src/amo/pages/CollectionList/index.js:117
 msgid "Log in to view your collections"
@@ -2013,7 +2013,7 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:149
 msgid "Productivity"
-msgstr ""
+msgstr "ਉਤਪਾਦਨ"
 
 #: src/amo/pages/Home/index.js:153
 msgid "Watching videos"
@@ -2021,11 +2021,11 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:181
 msgid "Abstract"
-msgstr ""
+msgstr "ਸੰਖੇਪ"
 
 #: src/amo/pages/Home/index.js:186
 msgid "Nature"
-msgstr ""
+msgstr "ਕੁਦਰਤ"
 
 #: src/amo/pages/Home/index.js:191
 msgid "Film & TV"
@@ -2033,7 +2033,7 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:196
 msgid "Scenery"
-msgstr ""
+msgstr "ਦ੍ਰਿਸ਼"
 
 #: src/amo/pages/Home/index.js:201
 msgid "Music"
@@ -2041,7 +2041,7 @@ msgstr "ਸੰਗੀਤ"
 
 #: src/amo/pages/Home/index.js:206
 msgid "Seasonal"
-msgstr ""
+msgstr "ਮੌਸਮੀ"
 
 # The ending ellipsis alludes to a row of icons for each type
 #: src/amo/pages/Home/index.js:238
@@ -2184,7 +2184,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:22
 msgid "About Firefox Add-ons"
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ ਬਾਰੇ"
 
 #: src/amo/pages/StaticPages/About/index.js:230
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
@@ -2461,7 +2461,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:536
 msgid "Account"
-msgstr ""
+msgstr "ਖਾਤਾ"
 
 #: src/amo/pages/UserProfileEdit/index.js:537
 msgid "Account for %(userName)s"
@@ -2469,7 +2469,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:544
 msgid "Email Address"
-msgstr ""
+msgstr "ਈਮੇਲ ਪਤਾ"
 
 #: src/amo/pages/UserProfileEdit/index.js:551
 msgid "Email address cannot be changed here"
@@ -2778,11 +2778,11 @@ msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:188
 msgid "Submit"
-msgstr ""
+msgstr "ਦਾਖਲ ਕਰੋ"
 
 #: src/ui/components/DismissibleTextForm/index.js:190
 msgid "Submitting"
-msgstr ""
+msgstr "ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -2851,8 +2851,8 @@ msgstr ""
 #: src/ui/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s ਐਡ-ਆਨ"
+msgstr[1] "%(total)s ਐਡ-ਆਨ"
 
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
