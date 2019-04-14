@@ -1053,15 +1053,16 @@ describe(__filename, () => {
 
     it('renders a byLine with a permalink to the review', () => {
       const slug = 'some-slug';
+      const i18n = fakeI18n();
       const review = signInAndDispatchSavedReview({
         externalReview: { ...fakeReview, addon: { ...fakeReview.addon, slug } },
       });
       const root = render({ review, store });
 
-      expect(renderByLine(root).find(Link)).toHaveProp(
-        'to',
-        reviewListURL({ addonSlug: slug, id: review.id }),
-      );
+      expect(renderByLine(root).find(Link)).toHaveProp({
+        to: reviewListURL({ addonSlug: slug, id: review.id }),
+        title: i18n.moment(review.created).format('lll'),
+      });
     });
 
     it('uses the addonId for the byLine link when the reviewAddon has an empty slug', () => {

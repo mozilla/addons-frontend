@@ -387,6 +387,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             (text) => {
               return slugForReviewLink ? (
                 <Link
+                  title={i18n.moment(review.created).format('lll')}
                   key={review.id}
                   to={reviewListURL({
                     addonSlug: String(slugForReviewLink),
