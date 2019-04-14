@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-13 11:36+0000\n"
+"PO-Revision-Date: 2019-04-14 10:16+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -295,7 +295,7 @@ msgstr "อีเมลสนับสนุน"
 
 #: src/amo/components/AddonRecommendations/index.js:133
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "ผู้ใช้อื่น ๆ ที่มีส่วนขยายนี้ยังได้ติดตั้ง"
 
 #: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other popular extensions"
@@ -432,7 +432,7 @@ msgstr "โปรดปฏิบัติตาม %(linkStart)sหลักเ�
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "การจัดอันดับดาวของคุณ:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:241
 msgid "More dictionaries by %(author)s"
@@ -1228,7 +1228,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:132
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "รายงานส่วนเสริมนี้ว่ามีการละเมิด"
 
 #: src/amo/components/ReportAbuseButton/index.js:161
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -1854,7 +1854,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:136
 msgid "Reimagine tab management"
-msgstr ""
+msgstr "เปลี่ยนวิธีคิดในการจัดการแท็บ"
 
 #: src/amo/pages/Guides/index.js:137
 msgid ""
@@ -1872,7 +1872,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "ท่องเว็บได้ดีขึ้นด้วยที่คั่นหน้าที่ได้รับการปรับปรุง"
 
 #: src/amo/pages/Guides/index.js:156
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
@@ -1890,7 +1890,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "เพลิดเพลินไปกับประสบการณ์แท็บใหม่ที่สดใหม่"
 
 #: src/amo/pages/Guides/index.js:176
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
@@ -1943,7 +1943,7 @@ msgstr "บอกให้โลกรู้ว่าทำไมคุณจึ
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "นำสื่อมาไว้ในเบราว์เซอร์"
 
 #: src/amo/pages/Guides/index.js:235
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
@@ -1975,7 +1975,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "สร้างและจัดการรหัสผ่านที่คาดเดายาก"
 
 #: src/amo/pages/Guides/index.js:79
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
