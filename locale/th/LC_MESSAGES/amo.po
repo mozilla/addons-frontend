@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-14 10:16+0000\n"
+"PO-Revision-Date: 2019-04-15 07:13+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -392,7 +392,7 @@ msgstr "ตอบกลับบทวิจารณ์นี้"
 
 #: src/amo/components/AddonReviewCard/index.js:499
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "ลบการจัดอันดับหรือบทวิจารณ์นี้แล้ว คุณเห็นได้เนื่องจากมีสิทธิอนุญาตระดับสูง"
 
 #: src/amo/components/AddonReviewCard/index.js:545
 msgid "Write a review"
@@ -1053,7 +1053,7 @@ msgstr "เปลี่ยนภาษา"
 
 #: src/amo/components/PermissionsCard/index.js:48
 msgid "Permissions"
-msgstr "การอนุญาต"
+msgstr "สิทธิอนุญาต"
 
 #: src/amo/components/PermissionsCard/index.js:50
 msgid "This add-on can:"
@@ -1061,7 +1061,7 @@ msgstr "ส่วนเสริมนี้สามารถ:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr "เรียนรู้เพิ่มเติมเกี่ยวกับการอนุญาต"
+msgstr "เรียนรู้เพิ่มเติมเกี่ยวกับสิทธิอนุญาต"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Read and modify bookmarks"
