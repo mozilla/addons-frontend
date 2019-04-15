@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-15 07:13+0000\n"
+"PO-Revision-Date: 2019-04-15 18:25+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -526,7 +526,7 @@ msgstr[0] "%(rating)s ดาวจาก 5"
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:76 src/amo/components/AddonTitle/index.js:80
@@ -2212,7 +2212,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:69
 msgid "A community of creators"
-msgstr ""
+msgstr "ชุมชนของผู้สร้าง"
 
 #: src/amo/pages/StaticPages/About/index.js:71
 msgid ""
@@ -2497,7 +2497,7 @@ msgstr "โปรไฟล์"
 
 #: src/amo/pages/UserProfileEdit/index.js:594
 msgid "This field is required"
-msgstr ""
+msgstr "จำเป็นต้องกรอกข้อมูลในช่องนี้"
 
 #: src/amo/pages/UserProfileEdit/index.js:597
 #, fuzzy
@@ -2515,7 +2515,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:700
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "รองรับ HTML บางส่วน: %(htmlTags)s ห้ามใช้ลิงก์"
 
 #: src/amo/pages/UserProfileEdit/index.js:724
 msgid "Notifications"
@@ -2619,7 +2619,7 @@ msgstr ""
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "มีคุณลักษณะของส่วนเสริมหรือ Firefox ใหม่"
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
@@ -2627,7 +2627,7 @@ msgstr ""
 
 #: src/amo/utils/notifications.js:20
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "นักพัฒนาส่วนเสริมตอบกลับบทวิจารณ์ของฉัน"
 
 #: src/amo/utils/notifications.js:22
 msgid "my add-on is reviewed by a reviewer"
@@ -2635,11 +2635,11 @@ msgstr "ส่วนเสริมของฉันได้รับการ
 
 #: src/amo/utils/notifications.js:24
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "ไม่สามารถอัปเกรดความเข้ากันได้ของส่วนเสริมของฉัน"
 
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "อัปเกรดความเข้ากันได้ของส่วนเสริมของฉันสำเร็จ"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Enable"
