@@ -47,6 +47,7 @@ def test_theme_installs(discovery_pane, firefox, notifications):
     """Test static theme install from discovery pane."""
     theme = discovery_pane.themes[0]
     theme.install()
-    # Static themes are installed without any extra confirmation step.
+    firefox.browser.wait_for_notification(
+        notifications.AddOnInstallConfirmation).install()
     WebDriverWait(firefox.selenium, timeout=5).until(
         lambda _: theme.is_installed)
