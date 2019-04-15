@@ -46,11 +46,15 @@ import type { ConfigType } from 'core/types/config';
 // `ServerHtml`.
 
 const About = loadable(() =>
-  import(/* webpackPreload: true, webpackChunkName: "About" */ '../../pages/StaticPages/About'),
+  import(
+    /* webpackPreload: true, webpackChunkName: "About" */ '../../pages/StaticPages/About'
+  ),
 );
 
 const ReviewGuide = loadable(() =>
-  import(/* webpackPreload: true, webpackChunkName: "ReviewGuide" */ '../../pages/StaticPages/ReviewGuide'),
+  import(
+    /* webpackPreload: true, webpackChunkName: "ReviewGuide" */ '../../pages/StaticPages/ReviewGuide'
+  ),
 );
 
 type Props = {|
