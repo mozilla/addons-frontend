@@ -1670,4 +1670,24 @@ describe(__filename, () => {
       1,
     );
   });
+
+  // See: https://github.com/mozilla/addons-frontend/issues/7898
+  it('does not call setState() when current logged-in user logs out', () => {
+    const { params, store } = signInUserWithUserId(123);
+    const setStateSpy = sinon.spy(UserProfileEditBase.prototype, 'setState');
+
+    const root = renderUserProfileEdit({ params, store });
+
+    setStateSpy.resetHistory();
+    // The user logs out.
+    root.setProps({
+      currentUser: null,
+      // When the user browses their profile, `user` is the `currentUser` and
+      // there is no `userId` that is why we reset these values here.
+      user: null,
+      userId: null,
+    });
+
+    sinon.assert.notCalled(setStateSpy);
+  });
 });
