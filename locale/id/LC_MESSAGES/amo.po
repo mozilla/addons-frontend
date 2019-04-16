@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-16 08:56+0000\n"
+"PO-Revision-Date: 2019-04-16 11:05+0000\n"
 "Last-Translator: Lidya Christina <id.lidya@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -289,9 +289,8 @@ msgid "Homepage"
 msgstr "Halaman depan"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
-#, fuzzy
 msgid "Support site"
-msgstr "Situs Dukungan"
+msgstr "Situs dukungan"
 
 #: src/amo/components/AddonMoreInfo/index.js:84
 msgid "Support Email"
@@ -980,9 +979,8 @@ msgid "Staff Pick"
 msgstr "Pilihan Staf"
 
 #: src/amo/components/Header/index.js:105
-#, fuzzy
 msgid "Submit and manage extensions and themes"
-msgstr "Memantau penggunaan ekstensi dan mengelola tema"
+msgstr "Kirim dan kelola ekstensi dan tema"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1029,9 +1027,8 @@ msgid "Firefox Add-ons"
 msgstr "Pengaya Firefox"
 
 #: src/amo/components/Header/index.js:95
-#, fuzzy
 msgid "Learn how to create extensions and themes"
-msgstr "Memantau penggunaan ekstensi dan mengelola tema"
+msgstr "Pelajari bagaimana membuat ekstensi dan tema"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
@@ -2001,9 +1998,8 @@ msgid "Ad blockers"
 msgstr "Pemblokiran iklan"
 
 #: src/amo/pages/Home/index.js:145
-#, fuzzy
 msgid "Smarter shopping"
-msgstr "Berbelanja Lebih Cerdas"
+msgstr "Berbelanja lebih cerdas"
 
 #: src/amo/pages/Home/index.js:149
 msgid "Productivity"
@@ -2055,7 +2051,7 @@ msgstr "Lihat tema pilihan lainnya"
 
 #: src/amo/pages/Home/index.js:55
 msgid "Feed readers"
-msgstr ""
+msgstr "Harian pembaca"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more VPN solutions"
@@ -2166,9 +2162,8 @@ msgid "Tell your friends and family that Firefox is a fast, secure browser that 
 msgstr "Beritahu teman dan keluarga Anda bahwa Firefox itu peramban cepat dan aman yang melindungi privasi mereka dan mereka dapat menggunakan pengaya untuk menjadikan peramban itu khas miliknya!"
 
 #: src/amo/pages/StaticPages/About/index.js:190
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "Untuk melihat berbagai cara bagi Anda berkontribusi pada komunitas pengaya, silakan kunjungi %(startLink)swiki%(endLink)s kami."
+msgstr "Untuk melihat lebih banyak cara Anda dapat berkontribusi untuk komunitas pengaya, sila kunjungi %(startLink)swiki%(endLink)s kami."
 
 #: src/amo/pages/StaticPages/About/index.js:204
 msgid "Get support"
