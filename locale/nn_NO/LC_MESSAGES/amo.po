@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-16 16:11+0000\n"
-"PO-Revision-Date: 2019-04-16 17:30+0000\n"
+"PO-Revision-Date: 2019-04-16 17:46+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -982,7 +982,7 @@ msgstr "Personalet vel"
 
 #: src/amo/components/Header/index.js:105
 msgid "Submit and manage extensions and themes"
-msgstr ""
+msgstr "Send inn og handter utvidingar og tema"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1078,7 +1078,7 @@ msgstr "Les og endre nettlesarinnstillingane"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Fjern nyleg nettlesingshistorikk, infokapslar og relaterte data"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
@@ -1090,7 +1090,7 @@ msgstr "Inndata til utklippstavla"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Utvid utviklarverktøya for å få tilgang til dine data i opne faner"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
@@ -1118,7 +1118,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Utveksle meldingar med andre program enn Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Display notifications to you"
@@ -1126,7 +1126,7 @@ msgstr "Vis meldingar til deg"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Tilby tenester til kryptografisk godkjenning"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Control browser proxy settings"
@@ -1134,7 +1134,7 @@ msgstr "Kontroller proxy-innstillingane til nettlesaren"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Les og endre personverninnstillingar"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access recently closed tabs"
@@ -1150,11 +1150,11 @@ msgstr "Gøym og vis nettlesarfaner"
 
 #: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "Lagre uavgrensa mengder data på klientsida"
 
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "Tilgang til nettlesaraktivitet under navigering"
 
 #: src/amo/components/RatingManager/index.js:115
 msgid "Log in to rate this dictionary"
@@ -1727,8 +1727,8 @@ msgstr "Det finst ingen vurderingar"
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(addonName)s versjonshistorikk - %(total)s versjon"
+msgstr[1] "%(addonName)s versjonshistorikk - %(total)s versjonar"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
