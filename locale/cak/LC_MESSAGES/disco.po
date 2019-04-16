@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-26 17:58+0000\n"
+"POT-Creation-Date: 2019-04-16 16:14+0000\n"
 "PO-Revision-Date: 2019-02-28 23:09+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,10 +54,15 @@ msgid "Server Error"
 msgstr "Rusachoj K'uxasamaj"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Kojakuyu', xa xk'ulwachitäj jun sachoj ruma ri' toq man xojtikïr ta xqatz'aqatisaj ri ak'utuxik. Xqatz'ib'aj ri sachoj chuqa' xtiqatikib'a'."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Kojakuyu', xa xk'ulwachitäj jun sachoj ruma ri' toq man xojtikïr ta "
+"xqatz'aqatisaj ri ak'utuxik. Xqatz'ib'aj ri sachoj chuqa' xtiqatikib'a'."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Rub'itz'ib' sachoj: %(status)s."
 
@@ -82,23 +87,23 @@ msgstr ""
 msgid "OK"
 msgstr "ÜTZ!"
 
-#: src/core/i18n/utils.js:254
+#: src/core/i18n/utils.js:255
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s B"
 
-#: src/core/i18n/utils.js:256
+#: src/core/i18n/utils.js:257
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s KB"
 
-#: src/core/i18n/utils.js:258
+#: src/core/i18n/utils.js:259
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s MB"
 
-#: src/core/i18n/utils.js:260
+#: src/core/i18n/utils.js:261
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s GB"
 
-#: src/core/i18n/utils.js:262
+#: src/core/i18n/utils.js:263
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
@@ -172,19 +177,27 @@ msgstr "Tawichinaj ri Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"E k'o k'ïy sipan taq tz'aqat, enuk'un kuma ajb'anonela' chijun ri ruwach'ulew chuqa' yatkito' richin nawichinaj ri Firefox. Achi'el tik'asäs wachel taq wachinïk kik'in samajib'äl chuqa' achik'anel "
-"taq samaj richin anin chuqa' jikïl yatok pa k'amaya'l. Ri taq tz'aqat yatkito' richin nawichinaj ri awokik'amaya'l, richin natikirisaj yeqachilab'ej jujun chawe ruma ri rub'eyal yesamäj chuqa' ri "
-"kisamaj."
+"E k'o k'ïy sipan taq tz'aqat, enuk'un kuma ajb'anonela' chijun ri "
+"ruwach'ulew chuqa' yatkito' richin nawichinaj ri Firefox. Achi'el tik'asäs "
+"wachel taq wachinïk kik'in samajib'äl chuqa' achik'anel taq samaj richin "
+"anin chuqa' jikïl yatok pa k'amaya'l. Ri taq tz'aqat yatkito' richin "
+"nawichinaj ri awokik'amaya'l, richin natikirisaj yeqachilab'ej jujun chawe "
+"ruma ri rub'eyal yesamäj chuqa' ri kisamaj."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Tetamäx ch'aqa' chik"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
 msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44

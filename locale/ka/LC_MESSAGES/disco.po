@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-26 17:58+0000\n"
+"POT-Creation-Date: 2019-04-16 16:14+0000\n"
 "PO-Revision-Date: 2019-02-18 19:03+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,23 +83,23 @@ msgstr "მართეთ თქვენი დამატებები მ
 msgid "OK"
 msgstr "კარგი"
 
-#: src/core/i18n/utils.js:254
+#: src/core/i18n/utils.js:255
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s ბაიტი"
 
-#: src/core/i18n/utils.js:256
+#: src/core/i18n/utils.js:257
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s კბაიტი"
 
-#: src/core/i18n/utils.js:258
+#: src/core/i18n/utils.js:259
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s მბაიტი"
 
-#: src/core/i18n/utils.js:260
+#: src/core/i18n/utils.js:261
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s გბაიტი"
 
-#: src/core/i18n/utils.js:262
+#: src/core/i18n/utils.js:263
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s ტბაიტი"
 

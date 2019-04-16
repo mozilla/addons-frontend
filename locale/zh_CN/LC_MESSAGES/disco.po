@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-26 17:58+0000\n"
+"POT-Creation-Date: 2019-04-16 16:14+0000\n"
 "PO-Revision-Date: 2019-02-16 06:00+0000\n"
 "Last-Translator: 우믿트 <eloli@foxmail.com>\n"
 "Language-Team: none\n"
@@ -83,23 +83,23 @@ msgstr "点击菜单中的“附加组件”来管理您的附加组件。"
 msgid "OK"
 msgstr "确定"
 
-#: src/core/i18n/utils.js:254
+#: src/core/i18n/utils.js:255
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s B"
 
-#: src/core/i18n/utils.js:256
+#: src/core/i18n/utils.js:257
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s KB"
 
-#: src/core/i18n/utils.js:258
+#: src/core/i18n/utils.js:259
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s MB"
 
-#: src/core/i18n/utils.js:260
+#: src/core/i18n/utils.js:261
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s GB"
 
-#: src/core/i18n/utils.js:262
+#: src/core/i18n/utils.js:263
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 

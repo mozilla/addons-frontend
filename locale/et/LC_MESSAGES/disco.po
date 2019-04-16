@@ -2,13 +2,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-26 17:58+0000\n"
+"POT-Creation-Date: 2019-04-16 16:14+0000\n"
 "PO-Revision-Date: 2019-02-13 22:17+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -79,23 +79,23 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: src/core/i18n/utils.js:254
+#: src/core/i18n/utils.js:255
 msgid "%(localizedSize)s B"
 msgstr ""
 
-#: src/core/i18n/utils.js:256
+#: src/core/i18n/utils.js:257
 msgid "%(localizedSize)s KB"
 msgstr ""
 
-#: src/core/i18n/utils.js:258
+#: src/core/i18n/utils.js:259
 msgid "%(localizedSize)s MB"
 msgstr ""
 
-#: src/core/i18n/utils.js:260
+#: src/core/i18n/utils.js:261
 msgid "%(localizedSize)s GB"
 msgstr ""
 
-#: src/core/i18n/utils.js:262
+#: src/core/i18n/utils.js:263
 msgid "%(localizedSize)s TB"
 msgstr ""
 
