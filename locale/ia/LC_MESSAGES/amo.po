@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-09 19:48+0000\n"
-"PO-Revision-Date: 2019-04-14 03:06+0000\n"
+"PO-Revision-Date: 2019-04-16 07:58+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2190,6 +2190,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Vole tu interager con addons.mozilla.org (AMO) programmaticamente? Discoperi le %(startAddonsServerDocumentation)sAdd-ons Servitores documentation%(endAddonsServerDocumentation)s pro detalios re le "
+"APIs usate per AMO e le %(startAddonsManager)sAdd-ons Gestor%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:155
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2648,7 +2650,7 @@ msgstr "%(strongStart)sNOTE:%(strongEnd)s Tu non pote deler un profilo del usato
 
 #: src/amo/pages/UsersUnsubscribe/index.js:45
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Tu pote rediger tu parametros de notification per le %(linkStart)smodification de tu profilo%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:53
 msgid "Unsubscribe"
