@@ -121,6 +121,10 @@ describe(__filename, () => {
     const root = render({ addon: null });
 
     expect(root.find('.RatingsByStar-count').find(LoadingText)).toHaveLength(5);
+    expect(root.find('.RatingsByStar-barContainer')).toHaveLength(5);
+    expect(root.find('.RatingsByStar-barFrame')).toHaveLength(5);
+    // In loading state, we do not render a bar value
+    expect(root.find('.RatingsByStar-barValue')).toHaveLength(0);
   });
 
   it('renders a loading state without grouped ratings', () => {
@@ -129,7 +133,7 @@ describe(__filename, () => {
     expect(root.find('.RatingsByStar-count').find(LoadingText)).toHaveLength(5);
   });
 
-  it('renders star labels and links', () => {
+  it('renders star labels, bars and links', () => {
     const grouping = {
       5: 964,
       4: 821,
@@ -141,9 +145,9 @@ describe(__filename, () => {
     store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
     const root = render({ addon });
     const counts = root.find('.RatingsByStar-star').find(Link);
+    const bars = root.find('.RatingsByStar-barContainer').find(Link);
 
     function validateLink(link, score, expectedTitle) {
-      expect(link.children()).toHaveText(score);
       expect(link).toHaveProp(
         'to',
         reviewListURL({ addonSlug: addon.slug, score }),
@@ -151,11 +155,19 @@ describe(__filename, () => {
       expect(link).toHaveProp('title', expectedTitle);
     }
 
-    validateLink(counts.at(0), '5', 'Read all five-star reviews');
-    validateLink(counts.at(1), '4', 'Read all four-star reviews');
-    validateLink(counts.at(2), '3', 'Read all three-star reviews');
-    validateLink(counts.at(3), '2', 'Read all two-star reviews');
-    validateLink(counts.at(4), '1', 'Read all one-star reviews');
+    it.each([[counts], [bars]], (links) => {
+      validateLink(links.at(0), '5', 'Read all five-star reviews');
+      validateLink(links.at(1), '4', 'Read all four-star reviews');
+      validateLink(links.at(2), '3', 'Read all three-star reviews');
+      validateLink(links.at(3), '2', 'Read all two-star reviews');
+      validateLink(links.at(4), '1', 'Read all one-star reviews');
+    });
+
+    expect(counts.at(0).children()).toHaveText('5');
+    expect(counts.at(1).children()).toHaveText('4');
+    expect(counts.at(2).children()).toHaveText('3');
+    expect(counts.at(3).children()).toHaveText('2');
+    expect(counts.at(4).children()).toHaveText('1');
   });
 
   it('renders star counts', () => {
