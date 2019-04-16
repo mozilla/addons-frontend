@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-09 19:48+0000\n"
+"POT-Creation-Date: 2019-04-16 16:11+0000\n"
 "PO-Revision-Date: 2019-03-29 07:55+0000\n"
 "Last-Translator: Victor Bychek <a@bychek.ru>\n"
 "Language-Team: none\n"
@@ -323,7 +323,7 @@ msgstr "Больше информации"
 
 #: src/amo/components/AddonMoreInfo/index.js:59
 #: src/amo/pages/UserProfile/index.js:355
-#: src/amo/pages/UserProfileEdit/index.js:634
+#: src/amo/pages/UserProfileEdit/index.js:639
 msgid "Homepage"
 msgstr "Домашняя страница"
 
@@ -385,9 +385,9 @@ msgid "Delete"
 msgstr "Удалить"
 
 #: src/amo/components/AddonReviewCard/index.js:251
-#: src/amo/components/AddonReviewManager/index.js:147
+#: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:313
-#: src/amo/pages/UserProfileEdit/index.js:878
+#: src/amo/pages/UserProfileEdit/index.js:883
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
@@ -410,7 +410,7 @@ msgid "Write a reply to this review."
 msgstr "Напишите ответ на этот отзыв."
 
 #: src/amo/components/AddonReviewCard/index.js:301
-#: src/amo/components/AddonReviewManager/index.js:115
+#: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
 msgstr "Обновить ответ"
 
@@ -419,7 +419,7 @@ msgid "Publish reply"
 msgstr "Опубликовать ответ"
 
 #: src/amo/components/AddonReviewCard/index.js:306
-#: src/amo/components/AddonReviewManager/index.js:118
+#: src/amo/components/AddonReviewManager/index.js:122
 msgid "Updating reply"
 msgstr "Обновление ответа"
 
@@ -435,15 +435,15 @@ msgstr "опубликовано %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "от %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:438
+#: src/amo/components/AddonReviewCard/index.js:446
 msgid "Deleting…"
 msgstr "Удаление…"
 
-#: src/amo/components/AddonReviewCard/index.js:469
+#: src/amo/components/AddonReviewCard/index.js:477
 msgid "Reply to this review"
 msgstr "Ответить на отзыв"
 
-#: src/amo/components/AddonReviewCard/index.js:499
+#: src/amo/components/AddonReviewCard/index.js:507
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
@@ -451,39 +451,39 @@ msgstr ""
 "Этот рейтинг или отзыв был удалён. Вы видите его только из-за повышенных "
 "привилегий."
 
-#: src/amo/components/AddonReviewCard/index.js:545
+#: src/amo/components/AddonReviewCard/index.js:553
 msgid "Write a review"
 msgstr "Написать отзыв"
 
-#: src/amo/components/AddonReviewManager/index.js:107
+#: src/amo/components/AddonReviewManager/index.js:111
 msgid "Write about your experience with this add-on."
 msgstr "Напишите о своём опыте работы с этим дополнением."
 
-#: src/amo/components/AddonReviewManager/index.js:111
+#: src/amo/components/AddonReviewManager/index.js:115
 msgid "Submit review"
 msgstr "Отправить отзыв"
 
-#: src/amo/components/AddonReviewManager/index.js:112
+#: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submitting review"
 msgstr "Отправка отзыва"
 
-#: src/amo/components/AddonReviewManager/index.js:116
+#: src/amo/components/AddonReviewManager/index.js:120
 msgid "Update review"
 msgstr "Обновить отзыв"
 
-#: src/amo/components/AddonReviewManager/index.js:119
+#: src/amo/components/AddonReviewManager/index.js:123
 msgid "Updating review"
 msgstr "Обновление отзыва"
 
-#: src/amo/components/AddonReviewManager/index.js:140
+#: src/amo/components/AddonReviewManager/index.js:144
 msgid "Saving"
 msgstr "Сохранение"
 
-#: src/amo/components/AddonReviewManager/index.js:141
+#: src/amo/components/AddonReviewManager/index.js:145
 msgid "Saved"
 msgstr "Сохранено"
 
-#: src/amo/components/AddonReviewManager/index.js:90
+#: src/amo/components/AddonReviewManager/index.js:89
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr ""
 "Пожалуйста, следуйте нашим %(linkStart)sтребованиям к отзывам%(linkEnd)s."
@@ -594,12 +594,12 @@ msgstr ","
 msgid "by"
 msgstr "от"
 
-#: src/amo/components/AddonVersionCard/index.js:104
+#: src/amo/components/AddonVersionCard/index.js:101
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr ""
 "Исходный код выпущен на условиях %(linkStart)s%(licenseName)s%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:125
+#: src/amo/components/AddonVersionCard/index.js:135
 msgid "Source code released under %(licenseName)s"
 msgstr "Исходный код выпущен на условиях %(licenseName)s"
 
@@ -868,7 +868,7 @@ msgstr ""
 "Извините, но у вас нет прав для доступа к этой странице. Если вы не вошли на "
 "сайт, попробуйте войти, используя ссылку в верху страницы."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:34
+#: src/amo/components/ErrorPage/NotFound/index.js:30
 msgid ""
 "Try visiting the page later, as the theme or extension may become available "
 "again. Alternatively, you may be able to find what you’re looking for in one "
@@ -880,11 +880,11 @@ msgstr ""
 "одном из других %(linkStart)sрасширений%(linkEnd)s или %(secondLinkStart)sтем"
 "%(secondLinkEnd)s."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:60
+#: src/amo/components/ErrorPage/NotFound/index.js:68
 msgid "Oops! We can’t find that page"
 msgstr "Ой! Мы не можем найти эту страницу"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:63
+#: src/amo/components/ErrorPage/NotFound/index.js:71
 msgid ""
 "If you’ve followed a link from another site for an extension or theme, that "
 "item is no longer available. This could be because:"
@@ -892,7 +892,7 @@ msgstr ""
 "Если вы перешли по ссылке с другого сайта за расширением или темой, то этот "
 "продукт более недоступен. Это может быть из-за того, что:"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:69
+#: src/amo/components/ErrorPage/NotFound/index.js:77
 msgid ""
 "The developer removed it. Developers commonly do this because they no longer "
 "support the extension or theme, or have replaced it."
@@ -900,7 +900,7 @@ msgstr ""
 "Разработчик удалил его. Обычно разработчики делают это, если они больше не "
 "поддерживают расширение или тему, или заменили его."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:74
+#: src/amo/components/ErrorPage/NotFound/index.js:82
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review "
 "of the extension or theme, or the extension or theme has been abusing the "
@@ -912,7 +912,7 @@ msgstr ""
 "правила и условия addons.mozilla.org. Разработчик имеет возможность "
 "устранить проблемы и сделать дополнение доступным снова."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:86
+#: src/amo/components/ErrorPage/NotFound/index.js:94
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us "
 "fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you "
@@ -1125,12 +1125,12 @@ msgid "View My Collections"
 msgstr "Посмотреть мои подборки"
 
 #: src/amo/components/Header/index.js:133
-#: src/amo/pages/UserProfileEdit/index.js:511
+#: src/amo/pages/UserProfileEdit/index.js:516
 msgid "View My Profile"
 msgstr "Просмотреть мой профиль"
 
 #: src/amo/components/Header/index.js:141
-#: src/amo/pages/UserProfileEdit/index.js:517
+#: src/amo/pages/UserProfileEdit/index.js:522
 msgid "Edit My Profile"
 msgstr "Изменить мой профиль"
 
@@ -1815,70 +1815,70 @@ msgstr "Фото профиля"
 msgid "Choose Photo…"
 msgstr "Выберите фото…"
 
-#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:33
+#: src/amo/pages/Addon/index.js:167 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr "Предпросмотр %(title)s"
 
-#: src/amo/pages/Addon/index.js:201
+#: src/amo/pages/Addon/index.js:202
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Это дополнение нельзя оценить, так как оно не имеет опубликованных версий."
 
-#: src/amo/pages/Addon/index.js:212
+#: src/amo/pages/Addon/index.js:213
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Прочитать %(count)s отзыв"
 msgstr[1] "Прочитать %(count)s отзыва"
 msgstr[2] "Прочитать %(count)s отзывов"
 
-#: src/amo/pages/Addon/index.js:230
+#: src/amo/pages/Addon/index.js:231
 msgid "No reviews yet"
 msgstr "Пока отзывов нет"
 
-#: src/amo/pages/Addon/index.js:240
+#: src/amo/pages/Addon/index.js:241
 msgid "Rate your experience"
 msgstr "Оцените работу расширения"
 
-#: src/amo/pages/Addon/index.js:259
+#: src/amo/pages/Addon/index.js:260
 msgid "About this dictionary"
 msgstr "Об этом словаре"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:263
 msgid "About this extension"
 msgstr "Об этом расширении"
 
-#: src/amo/pages/Addon/index.js:265
+#: src/amo/pages/Addon/index.js:266
 msgid "About this language pack"
 msgstr "Об этом языковом пакете"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:269
 msgid "About this search plugin"
 msgstr "Об этом поисковом плагине"
 
-#: src/amo/pages/Addon/index.js:272
+#: src/amo/pages/Addon/index.js:273
 msgid "About this theme"
 msgstr "Об этой теме"
 
-#: src/amo/pages/Addon/index.js:275
+#: src/amo/pages/Addon/index.js:276
 msgid "About this add-on"
 msgstr "Об этом дополнении"
 
-#: src/amo/pages/Addon/index.js:318
+#: src/amo/pages/Addon/index.js:319
 msgid "Release notes for %(addonVersion)s"
 msgstr "Примечания к выпуску %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:447
+#: src/amo/pages/Addon/index.js:448
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 "Это не публичное описание. Вы видите его только из-за повышенных привилегий."
 
-#: src/amo/pages/Addon/index.js:475
+#: src/amo/pages/Addon/index.js:476
 msgid "Extension Metadata"
 msgstr "Метаданные расширения"
 
-#: src/amo/pages/Addon/index.js:492
+#: src/amo/pages/Addon/index.js:493
 msgid "Screenshots"
 msgstr "Скриншоты"
 
@@ -2960,7 +2960,7 @@ msgid "Theme artist"
 msgstr "Создатель темы"
 
 #: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:499
+#: src/amo/pages/UserProfileEdit/index.js:504
 msgid "User Profile for %(user)s"
 msgstr "Профиль пользователя %(user)s"
 
@@ -2969,12 +2969,12 @@ msgid "User Profile"
 msgstr "Профиль пользователя"
 
 #: src/amo/pages/UserProfile/index.js:365
-#: src/amo/pages/UserProfileEdit/index.js:651
+#: src/amo/pages/UserProfileEdit/index.js:656
 msgid "Location"
 msgstr "Местоположение"
 
 #: src/amo/pages/UserProfile/index.js:373
-#: src/amo/pages/UserProfileEdit/index.js:663
+#: src/amo/pages/UserProfileEdit/index.js:668
 msgid "Occupation"
 msgstr "Род деятельности"
 
@@ -2991,7 +2991,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Средний рейтинг дополнений разработчика"
 
 #: src/amo/pages/UserProfile/index.js:411
-#: src/amo/pages/UserProfileEdit/index.js:685
+#: src/amo/pages/UserProfileEdit/index.js:690
 msgid "Biography"
 msgstr "Биография"
 
@@ -3003,11 +3003,11 @@ msgstr "Изменить профиль"
 msgid "Admin user"
 msgstr "Администратор"
 
-#: src/amo/pages/UserProfileEdit/index.js:195
+#: src/amo/pages/UserProfileEdit/index.js:202
 msgid "Picture successfully deleted"
 msgstr "Изображение успешно удалено"
 
-#: src/amo/pages/UserProfileEdit/index.js:425
+#: src/amo/pages/UserProfileEdit/index.js:430
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -3015,7 +3015,7 @@ msgstr ""
 "Расскажите пользователям немного о себе. Большинство полей являются "
 "необязательными, но они помогут другим пользователям лучше вас узнать."
 
-#: src/amo/pages/UserProfileEdit/index.js:429
+#: src/amo/pages/UserProfileEdit/index.js:434
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -3024,43 +3024,43 @@ msgstr ""
 "являются необязательными, но они помогут другим пользователям лучше узнать "
 "%(userName)s."
 
-#: src/amo/pages/UserProfileEdit/index.js:444
+#: src/amo/pages/UserProfileEdit/index.js:449
 msgid "Introduce yourself to the community if you like"
 msgstr "Если хотите, представьте себя сообществу"
 
-#: src/amo/pages/UserProfileEdit/index.js:445
+#: src/amo/pages/UserProfileEdit/index.js:450
 msgid "Introduce %(userName)s to the community"
 msgstr "Представьте %(userName)s сообществу"
 
-#: src/amo/pages/UserProfileEdit/index.js:469
+#: src/amo/pages/UserProfileEdit/index.js:474
 msgid "Log in to edit the profile"
 msgstr "Войдите, чтобы изменить профиль"
 
-#: src/amo/pages/UserProfileEdit/index.js:512
+#: src/amo/pages/UserProfileEdit/index.js:517
 msgid "View user's profile"
 msgstr "Просмотреть профиль пользователя"
 
-#: src/amo/pages/UserProfileEdit/index.js:518
+#: src/amo/pages/UserProfileEdit/index.js:523
 msgid "Edit user's profile"
 msgstr "Изменить профиль пользователя"
 
-#: src/amo/pages/UserProfileEdit/index.js:536
+#: src/amo/pages/UserProfileEdit/index.js:541
 msgid "Account"
 msgstr "Учётная запись"
 
-#: src/amo/pages/UserProfileEdit/index.js:537
+#: src/amo/pages/UserProfileEdit/index.js:542
 msgid "Account for %(userName)s"
 msgstr "Учётная запись %(userName)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:544
+#: src/amo/pages/UserProfileEdit/index.js:549
 msgid "Email Address"
 msgstr "Адрес электронной почты"
 
-#: src/amo/pages/UserProfileEdit/index.js:551
+#: src/amo/pages/UserProfileEdit/index.js:556
 msgid "Email address cannot be changed here"
 msgstr "Здесь нельзя изменить адрес электронной почты"
 
-#: src/amo/pages/UserProfileEdit/index.js:560
+#: src/amo/pages/UserProfileEdit/index.js:565
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3068,40 +3068,40 @@ msgstr ""
 "Вы можете изменить свой адрес электронной почты в Аккаунте Firefox. "
 "%(startLink)sНужна помощь?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:577
+#: src/amo/pages/UserProfileEdit/index.js:582
 msgid "Manage Firefox Accounts…"
 msgstr "Управление Аккаунтами Firefox…"
 
-#: src/amo/pages/UserProfileEdit/index.js:585
+#: src/amo/pages/UserProfileEdit/index.js:590
 msgid "Profile"
 msgstr "Профиль"
 
-#: src/amo/pages/UserProfileEdit/index.js:594
+#: src/amo/pages/UserProfileEdit/index.js:599
 msgid "This field is required"
 msgstr "Это обязательное поле"
 
-#: src/amo/pages/UserProfileEdit/index.js:597
+#: src/amo/pages/UserProfileEdit/index.js:602
 msgid "Display Name *"
 msgstr "Отображаемое имя *"
 
-#: src/amo/pages/UserProfileEdit/index.js:613
+#: src/amo/pages/UserProfileEdit/index.js:618
 #, fuzzy
 msgid "Reviewer Name"
 msgstr "Проверка темы"
 
-#: src/amo/pages/UserProfileEdit/index.js:646
+#: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This URL will only be visible for users who are developers."
 msgstr "Этот URL видим только пользователям, являющимся разработчиками."
 
-#: src/amo/pages/UserProfileEdit/index.js:700
+#: src/amo/pages/UserProfileEdit/index.js:705
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Поддерживаются некоторые теги HTML: %(htmlTags)s. Ссылки запрещены."
 
-#: src/amo/pages/UserProfileEdit/index.js:724
+#: src/amo/pages/UserProfileEdit/index.js:729
 msgid "Notifications"
 msgstr "Уведомления"
 
-#: src/amo/pages/UserProfileEdit/index.js:728
+#: src/amo/pages/UserProfileEdit/index.js:733
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3110,7 +3110,7 @@ msgstr ""
 "релизах и событиях, касающихся дополнений. Пожалуйста, выберите темы, в "
 "которых вы заинтересованы."
 
-#: src/amo/pages/UserProfileEdit/index.js:733
+#: src/amo/pages/UserProfileEdit/index.js:738
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3119,7 +3119,7 @@ msgstr ""
 "выходящих вскоре релизах и событиях, касающихся дополнений. Пожалуйста, "
 "выберите темы, в которых он может быть заинтересован."
 
-#: src/amo/pages/UserProfileEdit/index.js:748
+#: src/amo/pages/UserProfileEdit/index.js:753
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3127,45 +3127,45 @@ msgstr ""
 "Mozilla оставляет за собой право связаться с вами лично, в случае, если "
 "возникнут вопросы по размещенным вами дополнениям."
 
-#: src/amo/pages/UserProfileEdit/index.js:766
+#: src/amo/pages/UserProfileEdit/index.js:771
 msgid "Updating your profile…"
 msgstr "Обновление вашего профиля…"
 
-#: src/amo/pages/UserProfileEdit/index.js:767
+#: src/amo/pages/UserProfileEdit/index.js:772
 msgid "Update My Profile"
 msgstr "Обновить мой профиль"
 
-#: src/amo/pages/UserProfileEdit/index.js:769
+#: src/amo/pages/UserProfileEdit/index.js:774
 msgid "Updating profile…"
 msgstr "Обновление профиля…"
 
-#: src/amo/pages/UserProfileEdit/index.js:770
+#: src/amo/pages/UserProfileEdit/index.js:775
 msgid "Update Profile"
 msgstr "Обновить профиль"
 
-#: src/amo/pages/UserProfileEdit/index.js:781
-#: src/amo/pages/UserProfileEdit/index.js:870
+#: src/amo/pages/UserProfileEdit/index.js:786
+#: src/amo/pages/UserProfileEdit/index.js:875
 msgid "Delete My Profile"
 msgstr "Удалить мой профиль"
 
-#: src/amo/pages/UserProfileEdit/index.js:782
-#: src/amo/pages/UserProfileEdit/index.js:871
+#: src/amo/pages/UserProfileEdit/index.js:787
+#: src/amo/pages/UserProfileEdit/index.js:876
 msgid "Delete Profile"
 msgstr "Удалить профиль"
 
-#: src/amo/pages/UserProfileEdit/index.js:794
+#: src/amo/pages/UserProfileEdit/index.js:799
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 "ВНИМАНИЕ: Удаление вашего профиля на сайте дополнений Firefox является "
 "необратимым."
 
-#: src/amo/pages/UserProfileEdit/index.js:797
+#: src/amo/pages/UserProfileEdit/index.js:802
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr ""
 "ВНИМАНИЕ: Удаление этого профиля на сайте дополнений Firefox является "
 "необратимым."
 
-#: src/amo/pages/UserProfileEdit/index.js:806
+#: src/amo/pages/UserProfileEdit/index.js:811
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation) and "
@@ -3177,7 +3177,7 @@ msgstr ""
 "биография, профессия) и настройки уведомлений. Ваши отзывы и рейтинги станут "
 "анонимными и нередактируемыми."
 
-#: src/amo/pages/UserProfileEdit/index.js:813
+#: src/amo/pages/UserProfileEdit/index.js:818
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3189,7 +3189,7 @@ msgstr ""
 "страница, биография, профессия) и настройки уведомлений. Отзывы и рейтинги "
 "станут анонимными и нередактируемыми."
 
-#: src/amo/pages/UserProfileEdit/index.js:823
+#: src/amo/pages/UserProfileEdit/index.js:828
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, you "
 "will create a new Firefox Add-ons profile that is in no way associated with "
@@ -3199,7 +3199,7 @@ msgstr ""
 "на addons.mozilla.org, вы создадите новый профиль на сайте дополнений "
 "Firefox, который никак не будет связан с профилем, который вы удалили."
 
-#: src/amo/pages/UserProfileEdit/index.js:836
+#: src/amo/pages/UserProfileEdit/index.js:841
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
 "the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
@@ -3212,7 +3212,7 @@ msgstr ""
 "владельца%(docLinkEnd)s, или удалить дополнения перед удалением своего "
 "профиля."
 
-#: src/amo/pages/UserProfileEdit/index.js:843
+#: src/amo/pages/UserProfileEdit/index.js:848
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
 "user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
@@ -3221,26 +3221,26 @@ msgstr ""
 "пользователя, если он является %(linkStart)sавтором каких-либо дополнений"
 "%(linkEnd)s."
 
-#: src/amo/pages/UsersUnsubscribe/index.js:45
-msgid ""
-"You can edit your notification settings by %(linkStart)sediting your profile"
-"%(linkEnd)s."
-msgstr ""
-
-#: src/amo/pages/UsersUnsubscribe/index.js:53
-msgid "Unsubscribe"
-msgstr ""
-
-#: src/amo/pages/UsersUnsubscribe/index.js:56
+#: src/amo/pages/UsersUnsubscribe/index.js:104
 #, fuzzy
 msgid "You are successfully unsubscribed!"
 msgstr "Изображение успешно удалено"
 
 # a list of notifications will be displayed under this prompt.
-#: src/amo/pages/UsersUnsubscribe/index.js:63
+#: src/amo/pages/UsersUnsubscribe/index.js:117
 msgid ""
 "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
 "messages when:"
+msgstr ""
+
+#: src/amo/pages/UsersUnsubscribe/index.js:76
+msgid ""
+"You can edit your notification settings by %(linkStart)sediting your profile"
+"%(linkEnd)s."
+msgstr ""
+
+#: src/amo/pages/UsersUnsubscribe/index.js:95
+msgid "Unsubscribe"
 msgstr ""
 
 #: src/amo/utils/notifications.js:10
@@ -3369,23 +3369,23 @@ msgstr ""
 "Спасибо, что посетили этот сайт! Пожалуйста, уделите нам минутку или две, "
 "чтобы рассказать о своих впечатлениях при работе с Firefox."
 
-#: src/core/i18n/utils.js:254
+#: src/core/i18n/utils.js:255
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s байт(а)"
 
-#: src/core/i18n/utils.js:256
+#: src/core/i18n/utils.js:257
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s КБ"
 
-#: src/core/i18n/utils.js:258
+#: src/core/i18n/utils.js:259
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s МБ"
 
-#: src/core/i18n/utils.js:260
+#: src/core/i18n/utils.js:261
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s ГБ"
 
-#: src/core/i18n/utils.js:262
+#: src/core/i18n/utils.js:263
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s ТБ"
 

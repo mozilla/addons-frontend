@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-09 19:48+0000\n"
+"POT-Creation-Date: 2019-04-16 16:11+0000\n"
 "PO-Revision-Date: 2018-10-16 19:24+0000\n"
 "Last-Translator: Linda DIB <lynda.dib@gmail.com>\n"
 "Language-Team: none\n"
@@ -315,7 +315,7 @@ msgstr "Ugar n telɣut"
 
 #: src/amo/components/AddonMoreInfo/index.js:59
 #: src/amo/pages/UserProfile/index.js:355
-#: src/amo/pages/UserProfileEdit/index.js:634
+#: src/amo/pages/UserProfileEdit/index.js:639
 msgid "Homepage"
 msgstr "Asebter agejdan"
 
@@ -385,9 +385,9 @@ msgid "Delete"
 msgstr "Kkes"
 
 #: src/amo/components/AddonReviewCard/index.js:251
-#: src/amo/components/AddonReviewManager/index.js:147
+#: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:313
-#: src/amo/pages/UserProfileEdit/index.js:878
+#: src/amo/pages/UserProfileEdit/index.js:883
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
@@ -413,7 +413,7 @@ msgid "Write a reply to this review."
 msgstr "Aru tiririt γef ucegger-agi."
 
 #: src/amo/components/AddonReviewCard/index.js:301
-#: src/amo/components/AddonReviewManager/index.js:115
+#: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
 msgstr "Snifel tiririt"
 
@@ -422,7 +422,7 @@ msgid "Publish reply"
 msgstr "Suffeɣ tiririt"
 
 #: src/amo/components/AddonReviewCard/index.js:306
-#: src/amo/components/AddonReviewManager/index.js:118
+#: src/amo/components/AddonReviewManager/index.js:122
 msgid "Updating reply"
 msgstr "Snifel tiririt"
 
@@ -440,59 +440,59 @@ msgstr "sγur %(timestamp)s"
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "sγur %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:438
+#: src/amo/components/AddonReviewCard/index.js:446
 #, fuzzy
 msgid "Deleting…"
 msgstr "Anadi..."
 
-#: src/amo/components/AddonReviewCard/index.js:469
+#: src/amo/components/AddonReviewCard/index.js:477
 msgid "Reply to this review"
 msgstr "Err i ucegger-agi"
 
-#: src/amo/components/AddonReviewCard/index.js:499
+#: src/amo/components/AddonReviewCard/index.js:507
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:545
+#: src/amo/components/AddonReviewCard/index.js:553
 msgid "Write a review"
 msgstr "Aru acegger"
 
-#: src/amo/components/AddonReviewManager/index.js:107
+#: src/amo/components/AddonReviewManager/index.js:111
 #, fuzzy
 msgid "Write about your experience with this add-on."
 msgstr "Aru am akken tettemslayeḍ akked umdakkel ɣef useqdec n uzegrir."
 
-#: src/amo/components/AddonReviewManager/index.js:111
+#: src/amo/components/AddonReviewManager/index.js:115
 msgid "Submit review"
-msgstr "Azen acegger"
-
-#: src/amo/components/AddonReviewManager/index.js:112
-#, fuzzy
-msgid "Submitting review"
 msgstr "Azen acegger"
 
 #: src/amo/components/AddonReviewManager/index.js:116
 #, fuzzy
+msgid "Submitting review"
+msgstr "Azen acegger"
+
+#: src/amo/components/AddonReviewManager/index.js:120
+#, fuzzy
 msgid "Update review"
 msgstr "Leqqem amaɣnu"
 
-#: src/amo/components/AddonReviewManager/index.js:119
+#: src/amo/components/AddonReviewManager/index.js:123
 #, fuzzy
 msgid "Updating review"
 msgstr "Snifel tiririt"
 
-#: src/amo/components/AddonReviewManager/index.js:140
+#: src/amo/components/AddonReviewManager/index.js:144
 msgid "Saving"
 msgstr "Aklas"
 
-#: src/amo/components/AddonReviewManager/index.js:141
+#: src/amo/components/AddonReviewManager/index.js:145
 #, fuzzy
 msgid "Saved"
 msgstr "Sekles"
 
-#: src/amo/components/AddonReviewManager/index.js:90
+#: src/amo/components/AddonReviewManager/index.js:89
 #, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr ""
@@ -605,12 +605,12 @@ msgstr ""
 msgid "by"
 msgstr ""
 
-#: src/amo/components/AddonVersionCard/index.js:104
+#: src/amo/components/AddonVersionCard/index.js:101
 #, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "sγur %(timestamp)s"
 
-#: src/amo/components/AddonVersionCard/index.js:125
+#: src/amo/components/AddonVersionCard/index.js:135
 #, fuzzy
 msgid "Source code released under %(licenseName)s"
 msgstr "sγur %(timestamp)s"
@@ -889,7 +889,7 @@ msgstr ""
 "Suref-aɣ, acku ur ɣur-k ara tasiregt akken ad tkecmeḍ ar usebter-agi. Ma "
 "yella ur teqqineḍ ara, ɛreḍ ad tesqedceḍ aseɣwen n tagara n usebter."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:34
+#: src/amo/components/ErrorPage/NotFound/index.js:30
 msgid ""
 "Try visiting the page later, as the theme or extension may become available "
 "again. Alternatively, you may be able to find what you’re looking for in one "
@@ -897,23 +897,23 @@ msgid ""
 "%(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:60
+#: src/amo/components/ErrorPage/NotFound/index.js:68
 msgid "Oops! We can’t find that page"
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:63
+#: src/amo/components/ErrorPage/NotFound/index.js:71
 msgid ""
 "If you’ve followed a link from another site for an extension or theme, that "
 "item is no longer available. This could be because:"
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:69
+#: src/amo/components/ErrorPage/NotFound/index.js:77
 msgid ""
 "The developer removed it. Developers commonly do this because they no longer "
 "support the extension or theme, or have replaced it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:74
+#: src/amo/components/ErrorPage/NotFound/index.js:82
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review "
 "of the extension or theme, or the extension or theme has been abusing the "
@@ -921,7 +921,7 @@ msgid ""
 "opportunity to resolve the issues and make the add-on available again."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:86
+#: src/amo/components/ErrorPage/NotFound/index.js:94
 #, fuzzy
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us "
@@ -1137,12 +1137,12 @@ msgid "View My Collections"
 msgstr "Wali Tilkensiyin-iw"
 
 #: src/amo/components/Header/index.js:133
-#: src/amo/pages/UserProfileEdit/index.js:511
+#: src/amo/pages/UserProfileEdit/index.js:516
 msgid "View My Profile"
 msgstr "Sken amaɣnu-iw"
 
 #: src/amo/components/Header/index.js:141
-#: src/amo/pages/UserProfileEdit/index.js:517
+#: src/amo/pages/UserProfileEdit/index.js:522
 msgid "Edit My Profile"
 msgstr "Ẓreg amaɣnu-iw"
 
@@ -1818,67 +1818,67 @@ msgstr "Tawlaft n umaɣnu"
 msgid "Choose Photo…"
 msgstr "Fren tawlaft…"
 
-#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:33
+#: src/amo/pages/Addon/index.js:167 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr "Taskant n %(title)s"
 
-#: src/amo/pages/Addon/index.js:201
+#: src/amo/pages/Addon/index.js:202
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Azegrir-agi ur yezmir ara ad yettwasezmel acku ulac lqem i d-yeffɣen."
 
-#: src/amo/pages/Addon/index.js:212
+#: src/amo/pages/Addon/index.js:213
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Ɣeṛ %(count)s n ucegger"
 msgstr[1] "Ɣeṛ akk %(count)s n iceggiren"
 
-#: src/amo/pages/Addon/index.js:230
+#: src/amo/pages/Addon/index.js:231
 msgid "No reviews yet"
 msgstr "Ulac iceggiren tura"
 
-#: src/amo/pages/Addon/index.js:240
+#: src/amo/pages/Addon/index.js:241
 msgid "Rate your experience"
 msgstr "Sezmel tarmit-ik"
 
-#: src/amo/pages/Addon/index.js:259
+#: src/amo/pages/Addon/index.js:260
 msgid "About this dictionary"
 msgstr "Ɣef umawal-agi"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:263
 msgid "About this extension"
 msgstr "Ɣef usiɣzef agi"
 
-#: src/amo/pages/Addon/index.js:265
+#: src/amo/pages/Addon/index.js:266
 msgid "About this language pack"
 msgstr "Ɣef ukemmus-agi utlayan"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:269
 msgid "About this search plugin"
 msgstr "Ɣef umenṭaḍ-agi n unadi"
 
-#: src/amo/pages/Addon/index.js:272
+#: src/amo/pages/Addon/index.js:273
 msgid "About this theme"
 msgstr "Ɣef usentel-agi"
 
-#: src/amo/pages/Addon/index.js:275
+#: src/amo/pages/Addon/index.js:276
 msgid "About this add-on"
 msgstr "Ɣef uzegrir-agi"
 
-#: src/amo/pages/Addon/index.js:318
+#: src/amo/pages/Addon/index.js:319
 msgid "Release notes for %(addonVersion)s"
 msgstr "Tizmilin n tuffɣa n %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:447
+#: src/amo/pages/Addon/index.js:448
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:475
+#: src/amo/pages/Addon/index.js:476
 msgid "Extension Metadata"
 msgstr "Asiɣzef aɣefisefka"
 
-#: src/amo/pages/Addon/index.js:492
+#: src/amo/pages/Addon/index.js:493
 msgid "Screenshots"
 msgstr "Tuṭṭfiwin n wegdil"
 
@@ -2864,7 +2864,7 @@ msgid "Theme artist"
 msgstr "Anaẓuṛ n usentel"
 
 #: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:499
+#: src/amo/pages/UserProfileEdit/index.js:504
 msgid "User Profile for %(user)s"
 msgstr "Amaɣnu n useqdac i %(user)s"
 
@@ -2874,12 +2874,12 @@ msgid "User Profile"
 msgstr "Leqqem amaɣnu"
 
 #: src/amo/pages/UserProfile/index.js:365
-#: src/amo/pages/UserProfileEdit/index.js:651
+#: src/amo/pages/UserProfileEdit/index.js:656
 msgid "Location"
 msgstr "Tansa"
 
 #: src/amo/pages/UserProfile/index.js:373
-#: src/amo/pages/UserProfileEdit/index.js:663
+#: src/amo/pages/UserProfileEdit/index.js:668
 msgid "Occupation"
 msgstr "Axeddim"
 
@@ -2896,7 +2896,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Talemmast n tezmilin n yizegrar n uneflay"
 
 #: src/amo/pages/UserProfile/index.js:411
-#: src/amo/pages/UserProfileEdit/index.js:685
+#: src/amo/pages/UserProfileEdit/index.js:690
 msgid "Biography"
 msgstr "Tabyugrafit"
 
@@ -2909,11 +2909,11 @@ msgstr "Ẓreg amaɣnu"
 msgid "Admin user"
 msgstr "TigIseɣwan n uzegrir"
 
-#: src/amo/pages/UserProfileEdit/index.js:195
+#: src/amo/pages/UserProfileEdit/index.js:202
 msgid "Picture successfully deleted"
 msgstr "Tawlaft tettwakkes akken iwata"
 
-#: src/amo/pages/UserProfileEdit/index.js:425
+#: src/amo/pages/UserProfileEdit/index.js:430
 #, fuzzy
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
@@ -2922,7 +2922,7 @@ msgstr ""
 "Meslay i yiseqdacen cwiṭ fell-ak. Akk urtan-a zemren ad ilin, acu kan ad "
 "mlen i yiseqdacen-nniḍen ayen tebɣiḍ akken ad k-issinen ugar."
 
-#: src/amo/pages/UserProfileEdit/index.js:429
+#: src/amo/pages/UserProfileEdit/index.js:434
 #, fuzzy
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
@@ -2932,45 +2932,45 @@ msgstr ""
 "kan ad mlen i yiseqdacen-nniḍen ayen tebɣiḍ akken ad k-issinen ugar "
 "%(username)s."
 
-#: src/amo/pages/UserProfileEdit/index.js:444
+#: src/amo/pages/UserProfileEdit/index.js:449
 msgid "Introduce yourself to the community if you like"
 msgstr "Qeddem iman-ik ar terbaɛt i tebɣiḍ"
 
-#: src/amo/pages/UserProfileEdit/index.js:445
+#: src/amo/pages/UserProfileEdit/index.js:450
 #, fuzzy
 msgid "Introduce %(userName)s to the community"
 msgstr "Qeddem %(username)s ar terbaɛt"
 
-#: src/amo/pages/UserProfileEdit/index.js:469
+#: src/amo/pages/UserProfileEdit/index.js:474
 msgid "Log in to edit the profile"
 msgstr "Qqen akken ad tẓergeḍ amaɣnu"
 
-#: src/amo/pages/UserProfileEdit/index.js:512
+#: src/amo/pages/UserProfileEdit/index.js:517
 msgid "View user's profile"
 msgstr "Sken amaɣnu n useqdac"
 
-#: src/amo/pages/UserProfileEdit/index.js:518
+#: src/amo/pages/UserProfileEdit/index.js:523
 msgid "Edit user's profile"
 msgstr "Ẓreg amaɣnu n useqdac"
 
-#: src/amo/pages/UserProfileEdit/index.js:536
+#: src/amo/pages/UserProfileEdit/index.js:541
 msgid "Account"
 msgstr "Amiḍan"
 
-#: src/amo/pages/UserProfileEdit/index.js:537
+#: src/amo/pages/UserProfileEdit/index.js:542
 #, fuzzy
 msgid "Account for %(userName)s"
 msgstr "Amiḍan i %(username)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:544
+#: src/amo/pages/UserProfileEdit/index.js:549
 msgid "Email Address"
 msgstr "Tansa imayl"
 
-#: src/amo/pages/UserProfileEdit/index.js:551
+#: src/amo/pages/UserProfileEdit/index.js:556
 msgid "Email address cannot be changed here"
 msgstr "Tansa imayl ur tezmir ara ad tettwabeddel dagi"
 
-#: src/amo/pages/UserProfileEdit/index.js:560
+#: src/amo/pages/UserProfileEdit/index.js:565
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -2978,41 +2978,41 @@ msgstr ""
 "Tzemreḍ ad tbeddleḍ tansa-ik n yimayl di Firefox Accounts. %(startLink)s "
 "Teriḍ tallelt? %(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:577
+#: src/amo/pages/UserProfileEdit/index.js:582
 msgid "Manage Firefox Accounts…"
 msgstr "Sefrek imiḍanen Firefox..."
 
-#: src/amo/pages/UserProfileEdit/index.js:585
+#: src/amo/pages/UserProfileEdit/index.js:590
 msgid "Profile"
 msgstr "Amɣnu"
 
-#: src/amo/pages/UserProfileEdit/index.js:594
+#: src/amo/pages/UserProfileEdit/index.js:599
 msgid "This field is required"
 msgstr ""
 
-#: src/amo/pages/UserProfileEdit/index.js:597
+#: src/amo/pages/UserProfileEdit/index.js:602
 #, fuzzy
 msgid "Display Name *"
 msgstr "Isem n uskan"
 
-#: src/amo/pages/UserProfileEdit/index.js:613
+#: src/amo/pages/UserProfileEdit/index.js:618
 #, fuzzy
 msgid "Reviewer Name"
 msgstr "Aḍris n ucegger"
 
-#: src/amo/pages/UserProfileEdit/index.js:646
+#: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This URL will only be visible for users who are developers."
 msgstr "Tansa-agi URL ad d-ban kan i yiseqdacen ineflayen."
 
-#: src/amo/pages/UserProfileEdit/index.js:700
+#: src/amo/pages/UserProfileEdit/index.js:705
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Kra n yiferdisen HTML ttwasefraken: %(htmlTags)s. Iseɣwan ttwagedlen."
 
-#: src/amo/pages/UserProfileEdit/index.js:724
+#: src/amo/pages/UserProfileEdit/index.js:729
 msgid "Notifications"
 msgstr "Ilɣa"
 
-#: src/amo/pages/UserProfileEdit/index.js:728
+#: src/amo/pages/UserProfileEdit/index.js:733
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3020,7 +3020,7 @@ msgstr ""
 "Si sya ar da, Mozilla tezmer ak-d-azen imayl ɣef tuffɣiwin d-iteddun neɣ "
 "tidyanin ɣef izegrar. Tanemmirt ma temlid-d isental i tḥemleḍ."
 
-#: src/amo/pages/UserProfileEdit/index.js:733
+#: src/amo/pages/UserProfileEdit/index.js:738
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3028,48 +3028,48 @@ msgstr ""
 "Si sya ar da, Mozilla tezmer ak-d-azen i useqdac-a imayl ɣef tuffɣiwin d-"
 "iteddun neɣ tidyanin ɣef izegrar. Tanemmirt ma temlid-d isental i tḥemleḍ."
 
-#: src/amo/pages/UserProfileEdit/index.js:748
+#: src/amo/pages/UserProfileEdit/index.js:753
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
 msgstr ""
 "Mozilla ad k-id-inermes ɣef uguren icudden ar izegrar inek izedɣen ɣur-s."
 
-#: src/amo/pages/UserProfileEdit/index.js:766
+#: src/amo/pages/UserProfileEdit/index.js:771
 msgid "Updating your profile…"
 msgstr "Aleqqem n umiḍan-ik…"
 
-#: src/amo/pages/UserProfileEdit/index.js:767
+#: src/amo/pages/UserProfileEdit/index.js:772
 msgid "Update My Profile"
 msgstr "Ẓreg amaɣnu-iw"
 
-#: src/amo/pages/UserProfileEdit/index.js:769
+#: src/amo/pages/UserProfileEdit/index.js:774
 msgid "Updating profile…"
 msgstr "Aleqqem n umaɣnu.…"
 
-#: src/amo/pages/UserProfileEdit/index.js:770
+#: src/amo/pages/UserProfileEdit/index.js:775
 msgid "Update Profile"
 msgstr "Leqqem amaɣnu"
 
-#: src/amo/pages/UserProfileEdit/index.js:781
-#: src/amo/pages/UserProfileEdit/index.js:870
+#: src/amo/pages/UserProfileEdit/index.js:786
+#: src/amo/pages/UserProfileEdit/index.js:875
 msgid "Delete My Profile"
 msgstr "Kkes amaɣnu-iw"
 
-#: src/amo/pages/UserProfileEdit/index.js:782
-#: src/amo/pages/UserProfileEdit/index.js:871
+#: src/amo/pages/UserProfileEdit/index.js:787
+#: src/amo/pages/UserProfileEdit/index.js:876
 msgid "Delete Profile"
 msgstr "Kkes amaɣnu"
 
-#: src/amo/pages/UserProfileEdit/index.js:794
+#: src/amo/pages/UserProfileEdit/index.js:799
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "IMPORTANT: Ma tekseḍ izegrar n Firefox-ik, aya ad yili i lebda."
 
-#: src/amo/pages/UserProfileEdit/index.js:797
+#: src/amo/pages/UserProfileEdit/index.js:802
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "IMPORTANT: Ma tekseḍ izegrar n Firefox-agi, aya ad yili i lebda."
 
-#: src/amo/pages/UserProfileEdit/index.js:806
+#: src/amo/pages/UserProfileEdit/index.js:811
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation) and "
@@ -3081,7 +3081,7 @@ msgstr ""
 "akked isemnyifen n yilɣa. Iceggiren-ik akked usezmel ad uɣalen d udrigen, "
 "wurgin ad ttwabeddlen."
 
-#: src/amo/pages/UserProfileEdit/index.js:813
+#: src/amo/pages/UserProfileEdit/index.js:818
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3093,7 +3093,7 @@ msgstr ""
 "akked isemnyifen n yilɣa. Iceggiren-ik akked usezmel ad uɣalen d udrigen, "
 "wurgin ad ttwabeddlen."
 
-#: src/amo/pages/UserProfileEdit/index.js:823
+#: src/amo/pages/UserProfileEdit/index.js:828
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, you "
 "will create a new Firefox Add-ons profile that is in no way associated with "
@@ -3103,7 +3103,7 @@ msgstr ""
 "org, ad d-teslaleḍ amaɣnu amaynut n izegrar Firefox ur yettilin ara cudden "
 "ɣer umaɣnu i tsefḍeḍ."
 
-#: src/amo/pages/UserProfileEdit/index.js:836
+#: src/amo/pages/UserProfileEdit/index.js:841
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
 "the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
@@ -3115,7 +3115,7 @@ msgstr ""
 "%(docLinkStart)sad tmuddeḍ ayla %(docLinkEnd)s neɣ ad tekkseḍ izegrar send "
 "ad tizmireḍ ad tekkseḍ amiḍan-ik."
 
-#: src/amo/pages/UserProfileEdit/index.js:843
+#: src/amo/pages/UserProfileEdit/index.js:848
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
 "user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
@@ -3124,26 +3124,26 @@ msgstr ""
 "useqdac ma yella aseqdac d %(linkStart)sameskar n walbaɛḍ n yizegrar"
 "%(linkEnd)s."
 
-#: src/amo/pages/UsersUnsubscribe/index.js:45
-msgid ""
-"You can edit your notification settings by %(linkStart)sediting your profile"
-"%(linkEnd)s."
-msgstr ""
-
-#: src/amo/pages/UsersUnsubscribe/index.js:53
-msgid "Unsubscribe"
-msgstr ""
-
-#: src/amo/pages/UsersUnsubscribe/index.js:56
+#: src/amo/pages/UsersUnsubscribe/index.js:104
 #, fuzzy
 msgid "You are successfully unsubscribed!"
 msgstr "Tawlaft tettwakkes akken iwata"
 
 # a list of notifications will be displayed under this prompt.
-#: src/amo/pages/UsersUnsubscribe/index.js:63
+#: src/amo/pages/UsersUnsubscribe/index.js:117
 msgid ""
 "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
 "messages when:"
+msgstr ""
+
+#: src/amo/pages/UsersUnsubscribe/index.js:76
+msgid ""
+"You can edit your notification settings by %(linkStart)sediting your profile"
+"%(linkEnd)s."
+msgstr ""
+
+#: src/amo/pages/UsersUnsubscribe/index.js:95
+msgid "Unsubscribe"
 msgstr ""
 
 #: src/amo/utils/notifications.js:10
@@ -3275,23 +3275,23 @@ msgstr ""
 "Tanemirt ɣef tirza-inek ɣer usmel-agi! Ttxil-k fkaɣ dqiqa naɣ snat iwakken "
 "ad d-tefkeḍ awal i Firefox ɣef tirmi-ik"
 
-#: src/core/i18n/utils.js:254
+#: src/core/i18n/utils.js:255
 msgid "%(localizedSize)s B"
 msgstr ""
 
-#: src/core/i18n/utils.js:256
+#: src/core/i18n/utils.js:257
 msgid "%(localizedSize)s KB"
 msgstr ""
 
-#: src/core/i18n/utils.js:258
+#: src/core/i18n/utils.js:259
 msgid "%(localizedSize)s MB"
 msgstr ""
 
-#: src/core/i18n/utils.js:260
+#: src/core/i18n/utils.js:261
 msgid "%(localizedSize)s GB"
 msgstr ""
 
-#: src/core/i18n/utils.js:262
+#: src/core/i18n/utils.js:263
 msgid "%(localizedSize)s TB"
 msgstr ""
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-09 19:48+0000\n"
+"POT-Creation-Date: 2019-04-16 16:11+0000\n"
 "PO-Revision-Date: 2019-03-29 11:39+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -316,7 +316,7 @@ msgstr "Më tepër të dhëna"
 
 #: src/amo/components/AddonMoreInfo/index.js:59
 #: src/amo/pages/UserProfile/index.js:355
-#: src/amo/pages/UserProfileEdit/index.js:634
+#: src/amo/pages/UserProfileEdit/index.js:639
 msgid "Homepage"
 msgstr "Faqe hyrëse"
 
@@ -378,9 +378,9 @@ msgid "Delete"
 msgstr "Fshije"
 
 #: src/amo/components/AddonReviewCard/index.js:251
-#: src/amo/components/AddonReviewManager/index.js:147
+#: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:313
-#: src/amo/pages/UserProfileEdit/index.js:878
+#: src/amo/pages/UserProfileEdit/index.js:883
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
@@ -403,7 +403,7 @@ msgid "Write a reply to this review."
 msgstr "Shkruani një përgjigje për këtë shqyrtim."
 
 #: src/amo/components/AddonReviewCard/index.js:301
-#: src/amo/components/AddonReviewManager/index.js:115
+#: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
 msgstr "Përditësoni përgjigjen"
 
@@ -412,7 +412,7 @@ msgid "Publish reply"
 msgstr "Botojeni përgjigjen"
 
 #: src/amo/components/AddonReviewCard/index.js:306
-#: src/amo/components/AddonReviewManager/index.js:118
+#: src/amo/components/AddonReviewManager/index.js:122
 msgid "Updating reply"
 msgstr "Po përditësohet përgjigja"
 
@@ -428,15 +428,15 @@ msgstr "postuar më %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "nga %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:438
+#: src/amo/components/AddonReviewCard/index.js:446
 msgid "Deleting…"
 msgstr "Po fshihet…"
 
-#: src/amo/components/AddonReviewCard/index.js:469
+#: src/amo/components/AddonReviewCard/index.js:477
 msgid "Reply to this review"
 msgstr "Përgjigjjuni këtij shqyrtimi"
 
-#: src/amo/components/AddonReviewCard/index.js:499
+#: src/amo/components/AddonReviewCard/index.js:507
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
@@ -444,39 +444,39 @@ msgstr ""
 "Ky vlerësim apo shqyrtim është fshirë. Po e shihni vetëm ngaqë keni leje të "
 "fuqishme."
 
-#: src/amo/components/AddonReviewCard/index.js:545
+#: src/amo/components/AddonReviewCard/index.js:553
 msgid "Write a review"
 msgstr "Shkruani një shqyrtim"
 
-#: src/amo/components/AddonReviewManager/index.js:107
+#: src/amo/components/AddonReviewManager/index.js:111
 msgid "Write about your experience with this add-on."
 msgstr "Shkruani rreth përvojës tuaj me këtë shtesë."
 
-#: src/amo/components/AddonReviewManager/index.js:111
+#: src/amo/components/AddonReviewManager/index.js:115
 msgid "Submit review"
 msgstr "Parashtroni shqyrtim"
 
-#: src/amo/components/AddonReviewManager/index.js:112
+#: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submitting review"
 msgstr "Po parashtrohet shqyrtimi"
 
-#: src/amo/components/AddonReviewManager/index.js:116
+#: src/amo/components/AddonReviewManager/index.js:120
 msgid "Update review"
 msgstr "Përditësoni shqyrtimin"
 
-#: src/amo/components/AddonReviewManager/index.js:119
+#: src/amo/components/AddonReviewManager/index.js:123
 msgid "Updating review"
 msgstr "Po përditësohet shqyrtimi"
 
-#: src/amo/components/AddonReviewManager/index.js:140
+#: src/amo/components/AddonReviewManager/index.js:144
 msgid "Saving"
 msgstr "Po ruhet"
 
-#: src/amo/components/AddonReviewManager/index.js:141
+#: src/amo/components/AddonReviewManager/index.js:145
 msgid "Saved"
 msgstr "U ruajt"
 
-#: src/amo/components/AddonReviewManager/index.js:90
+#: src/amo/components/AddonReviewManager/index.js:89
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr ""
 "Ju lutemi, ndiqni %(linkStart)sudhëzimet tona për shqyrtimes%(linkEnd)s."
@@ -586,12 +586,12 @@ msgstr ","
 msgid "by"
 msgstr "nga"
 
-#: src/amo/components/AddonVersionCard/index.js:104
+#: src/amo/components/AddonVersionCard/index.js:101
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr ""
 "Kod burim i hedhur në qarkullim sipas %(linkStart)s%(licenseName)s%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:125
+#: src/amo/components/AddonVersionCard/index.js:135
 msgid "Source code released under %(licenseName)s"
 msgstr "Kod burim i hedhur në qarkullim sipas %(licenseName)s"
 
@@ -860,7 +860,7 @@ msgstr ""
 "Na ndjeni, por s’jeni i autorizuar të hyni në këtë faqe. Nëse s’keni bërë "
 "hyrjen, provoni të hyni duke përdorur lidhjen në krye të faqes."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:34
+#: src/amo/components/ErrorPage/NotFound/index.js:30
 msgid ""
 "Try visiting the page later, as the theme or extension may become available "
 "again. Alternatively, you may be able to find what you’re looking for in one "
@@ -872,11 +872,11 @@ msgstr ""
 "në një nga %(linkStart)sextensions%(linkEnd)s oser %(secondLinkStart)sthemes"
 "%(secondLinkEnd)s e gatshme."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:60
+#: src/amo/components/ErrorPage/NotFound/index.js:68
 msgid "Oops! We can’t find that page"
 msgstr "Hëm! S’e gjejmë dot atë faqe"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:63
+#: src/amo/components/ErrorPage/NotFound/index.js:71
 msgid ""
 "If you’ve followed a link from another site for an extension or theme, that "
 "item is no longer available. This could be because:"
@@ -884,7 +884,7 @@ msgstr ""
 "Nëse ndoqët një lidhje prej një sajti tjetër drejt një teme apo zgjerimi, ai "
 "objekt s’gjendet më. Kjo mund të ndodhë ngaqë:"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:69
+#: src/amo/components/ErrorPage/NotFound/index.js:77
 msgid ""
 "The developer removed it. Developers commonly do this because they no longer "
 "support the extension or theme, or have replaced it."
@@ -892,7 +892,7 @@ msgstr ""
 "E hoqi zhvilluesi. Zhvilluesit e bëjnë rëndom këtë, ngaqë nuk e mbulojnë më "
 "zgjerimin apo temën, ose e kanë zëvendësuar."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:74
+#: src/amo/components/ErrorPage/NotFound/index.js:82
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review "
 "of the extension or theme, or the extension or theme has been abusing the "
@@ -904,7 +904,7 @@ msgstr ""
 "e addons.mozilla.org. Zhvilluesi ka mundësinë t’i zgjidhë problemet dhe ta "
 "bëjë shtesën të përdorshme sërish."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:86
+#: src/amo/components/ErrorPage/NotFound/index.js:94
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us "
 "fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you "
@@ -1118,12 +1118,12 @@ msgid "View My Collections"
 msgstr "Shihni Koleksionet e Mia"
 
 #: src/amo/components/Header/index.js:133
-#: src/amo/pages/UserProfileEdit/index.js:511
+#: src/amo/pages/UserProfileEdit/index.js:516
 msgid "View My Profile"
 msgstr "Shihni Profilin Tim"
 
 #: src/amo/components/Header/index.js:141
-#: src/amo/pages/UserProfileEdit/index.js:517
+#: src/amo/pages/UserProfileEdit/index.js:522
 msgid "Edit My Profile"
 msgstr "Përpunim i Profilit Tim"
 
@@ -1793,69 +1793,69 @@ msgstr "Foto profili"
 msgid "Choose Photo…"
 msgstr "Zgjidhni Foto…"
 
-#: src/amo/pages/Addon/index.js:166 src/ui/components/ThemeImage/index.js:33
+#: src/amo/pages/Addon/index.js:167 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr "Paraparje e %(title)s"
 
-#: src/amo/pages/Addon/index.js:201
+#: src/amo/pages/Addon/index.js:202
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Kjo shtojcë nuk mund të vlerësohet, ngaqë s’ka versione të saj të publikuar."
 
-#: src/amo/pages/Addon/index.js:212
+#: src/amo/pages/Addon/index.js:213
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Lexoni %(count)s shqyrtim"
 msgstr[1] "Lexoni krejt %(count)s shqyrtimet"
 
-#: src/amo/pages/Addon/index.js:230
+#: src/amo/pages/Addon/index.js:231
 msgid "No reviews yet"
 msgstr "Ende pa shqyrtime"
 
-#: src/amo/pages/Addon/index.js:240
+#: src/amo/pages/Addon/index.js:241
 msgid "Rate your experience"
 msgstr "Vlerësoni rastin tuaj"
 
-#: src/amo/pages/Addon/index.js:259
+#: src/amo/pages/Addon/index.js:260
 msgid "About this dictionary"
 msgstr "Rreth këtij fjalori"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:263
 msgid "About this extension"
 msgstr "Rreth këtij zgjerimi"
 
-#: src/amo/pages/Addon/index.js:265
+#: src/amo/pages/Addon/index.js:266
 msgid "About this language pack"
 msgstr "Rreth kësaj pakete gjuhësore"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:269
 msgid "About this search plugin"
 msgstr "Rreth kësaj shtojce kërkimesh"
 
-#: src/amo/pages/Addon/index.js:272
+#: src/amo/pages/Addon/index.js:273
 msgid "About this theme"
 msgstr "Rreth kësaj teme"
 
-#: src/amo/pages/Addon/index.js:275
+#: src/amo/pages/Addon/index.js:276
 msgid "About this add-on"
 msgstr "Rreth kësaj shtese"
 
-#: src/amo/pages/Addon/index.js:318
+#: src/amo/pages/Addon/index.js:319
 msgid "Release notes for %(addonVersion)s"
 msgstr "Shënime hedhjeje në qarkullim për %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:447
+#: src/amo/pages/Addon/index.js:448
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 "Kjo s’është listë publike. Po e shihni vetëm ngaqë keni leje të fuqishme."
 
-#: src/amo/pages/Addon/index.js:475
+#: src/amo/pages/Addon/index.js:476
 msgid "Extension Metadata"
 msgstr "Tejtëdhëna Zgjerimi"
 
-#: src/amo/pages/Addon/index.js:492
+#: src/amo/pages/Addon/index.js:493
 msgid "Screenshots"
 msgstr "Foto ekrani"
 
@@ -2954,7 +2954,7 @@ msgid "Theme artist"
 msgstr "Artist teme"
 
 #: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:499
+#: src/amo/pages/UserProfileEdit/index.js:504
 msgid "User Profile for %(user)s"
 msgstr "Profil Përdoruesi për %(user)s"
 
@@ -2963,12 +2963,12 @@ msgid "User Profile"
 msgstr "Profil Përdoruesi"
 
 #: src/amo/pages/UserProfile/index.js:365
-#: src/amo/pages/UserProfileEdit/index.js:651
+#: src/amo/pages/UserProfileEdit/index.js:656
 msgid "Location"
 msgstr "Vend"
 
 #: src/amo/pages/UserProfile/index.js:373
-#: src/amo/pages/UserProfileEdit/index.js:663
+#: src/amo/pages/UserProfileEdit/index.js:668
 msgid "Occupation"
 msgstr "Punësim"
 
@@ -2985,7 +2985,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Vlerësim mesatar për shtesat e programuesit"
 
 #: src/amo/pages/UserProfile/index.js:411
-#: src/amo/pages/UserProfileEdit/index.js:685
+#: src/amo/pages/UserProfileEdit/index.js:690
 msgid "Biography"
 msgstr "Jetëshkrim"
 
@@ -2997,11 +2997,11 @@ msgstr "Përpunoni profilin"
 msgid "Admin user"
 msgstr "Përdorues përgjegjës"
 
-#: src/amo/pages/UserProfileEdit/index.js:195
+#: src/amo/pages/UserProfileEdit/index.js:202
 msgid "Picture successfully deleted"
 msgstr "Fotoja u fshi me sukses"
 
-#: src/amo/pages/UserProfileEdit/index.js:425
+#: src/amo/pages/UserProfileEdit/index.js:430
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -3009,7 +3009,7 @@ msgstr ""
 "Na jepni pakëz më tepër informacion rreth vetes. Shumica e fushave janë "
 "opsionale, por ato ndihmojnë përdoruesit e tjerë t’ju njohin më mirë."
 
-#: src/amo/pages/UserProfileEdit/index.js:429
+#: src/amo/pages/UserProfileEdit/index.js:434
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -3018,43 +3018,43 @@ msgstr ""
 "janë opsionale, por ato ndihmojnë përdoruesit e tjerë ta njohin %(userName)s "
 "më mirë."
 
-#: src/amo/pages/UserProfileEdit/index.js:444
+#: src/amo/pages/UserProfileEdit/index.js:449
 msgid "Introduce yourself to the community if you like"
 msgstr "Paraqiteni veten te bashkësia, po deshët"
 
-#: src/amo/pages/UserProfileEdit/index.js:445
+#: src/amo/pages/UserProfileEdit/index.js:450
 msgid "Introduce %(userName)s to the community"
 msgstr "Prezantojani %(userName)s bashkësisë"
 
-#: src/amo/pages/UserProfileEdit/index.js:469
+#: src/amo/pages/UserProfileEdit/index.js:474
 msgid "Log in to edit the profile"
 msgstr "Bëni hyrjen, që të përpunoni profilin"
 
-#: src/amo/pages/UserProfileEdit/index.js:512
+#: src/amo/pages/UserProfileEdit/index.js:517
 msgid "View user's profile"
 msgstr "Shihni profilin e përdoruesit"
 
-#: src/amo/pages/UserProfileEdit/index.js:518
+#: src/amo/pages/UserProfileEdit/index.js:523
 msgid "Edit user's profile"
 msgstr "Përpunoni profilin e përdoruesit"
 
-#: src/amo/pages/UserProfileEdit/index.js:536
+#: src/amo/pages/UserProfileEdit/index.js:541
 msgid "Account"
 msgstr "Llogari"
 
-#: src/amo/pages/UserProfileEdit/index.js:537
+#: src/amo/pages/UserProfileEdit/index.js:542
 msgid "Account for %(userName)s"
 msgstr "Llogari për %(userName)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:544
+#: src/amo/pages/UserProfileEdit/index.js:549
 msgid "Email Address"
 msgstr "Adresë Email"
 
-#: src/amo/pages/UserProfileEdit/index.js:551
+#: src/amo/pages/UserProfileEdit/index.js:556
 msgid "Email address cannot be changed here"
 msgstr "Adresa email s’mund të ndryshohet këtu"
 
-#: src/amo/pages/UserProfileEdit/index.js:560
+#: src/amo/pages/UserProfileEdit/index.js:565
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3062,40 +3062,40 @@ msgstr ""
 "Adresën tuaj email mund ta ndryshoni te Llogaritë Firefox. %(startLink)sJu "
 "duhet ndihmë?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:577
+#: src/amo/pages/UserProfileEdit/index.js:582
 msgid "Manage Firefox Accounts…"
 msgstr "Administroni Llogari Firefox…"
 
-#: src/amo/pages/UserProfileEdit/index.js:585
+#: src/amo/pages/UserProfileEdit/index.js:590
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:594
+#: src/amo/pages/UserProfileEdit/index.js:599
 msgid "This field is required"
 msgstr "Kjo fushë është e domosdoshme"
 
-#: src/amo/pages/UserProfileEdit/index.js:597
+#: src/amo/pages/UserProfileEdit/index.js:602
 msgid "Display Name *"
 msgstr "Emër Në Ekran *"
 
-#: src/amo/pages/UserProfileEdit/index.js:613
+#: src/amo/pages/UserProfileEdit/index.js:618
 #, fuzzy
 msgid "Reviewer Name"
 msgstr "Shqyrtojeni temën"
 
-#: src/amo/pages/UserProfileEdit/index.js:646
+#: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This URL will only be visible for users who are developers."
 msgstr "Kjo URL do të jetë e dukshme vetëm për përdoruesit që janë zhvillues."
 
-#: src/amo/pages/UserProfileEdit/index.js:700
+#: src/amo/pages/UserProfileEdit/index.js:705
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Disa shenja HTML mbulohen: %(htmlTags)s. Lidhjet janë të ndaluara."
 
-#: src/amo/pages/UserProfileEdit/index.js:724
+#: src/amo/pages/UserProfileEdit/index.js:729
 msgid "Notifications"
 msgstr "Njoftime"
 
-#: src/amo/pages/UserProfileEdit/index.js:728
+#: src/amo/pages/UserProfileEdit/index.js:733
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3104,7 +3104,7 @@ msgstr ""
 "dhe veprimtari që lidhen me shtesat. Ju lutemi, përzgjidhni më poshtë temat "
 "që ju interesojnë."
 
-#: src/amo/pages/UserProfileEdit/index.js:733
+#: src/amo/pages/UserProfileEdit/index.js:738
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3113,7 +3113,7 @@ msgstr ""
 "versionesh të ardhshëm dhe veprimtari që lidhen me shtesat. Ju lutemi, "
 "përzgjidhni më poshtë temat që mund t’i interesojnë këtij përdoruesi."
 
-#: src/amo/pages/UserProfileEdit/index.js:748
+#: src/amo/pages/UserProfileEdit/index.js:753
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3121,45 +3121,45 @@ msgstr ""
 "Mozilla ruan të drejtën të lidhet me ju veçmas, lidhur me çështje të "
 "caktuara te shtesat që keni strehuar këtu."
 
-#: src/amo/pages/UserProfileEdit/index.js:766
+#: src/amo/pages/UserProfileEdit/index.js:771
 msgid "Updating your profile…"
 msgstr "Po përditësohet profili juaj…"
 
-#: src/amo/pages/UserProfileEdit/index.js:767
+#: src/amo/pages/UserProfileEdit/index.js:772
 msgid "Update My Profile"
 msgstr "Përditësoje Profilin Tim"
 
-#: src/amo/pages/UserProfileEdit/index.js:769
+#: src/amo/pages/UserProfileEdit/index.js:774
 msgid "Updating profile…"
 msgstr "Po përditësohet profili…"
 
-#: src/amo/pages/UserProfileEdit/index.js:770
+#: src/amo/pages/UserProfileEdit/index.js:775
 msgid "Update Profile"
 msgstr "Përditësoje Profilin"
 
-#: src/amo/pages/UserProfileEdit/index.js:781
-#: src/amo/pages/UserProfileEdit/index.js:870
+#: src/amo/pages/UserProfileEdit/index.js:786
+#: src/amo/pages/UserProfileEdit/index.js:875
 msgid "Delete My Profile"
 msgstr "Fshije Profilin Tim"
 
-#: src/amo/pages/UserProfileEdit/index.js:782
-#: src/amo/pages/UserProfileEdit/index.js:871
+#: src/amo/pages/UserProfileEdit/index.js:787
+#: src/amo/pages/UserProfileEdit/index.js:876
 msgid "Delete Profile"
 msgstr "Fshije Profilin"
 
-#: src/amo/pages/UserProfileEdit/index.js:794
+#: src/amo/pages/UserProfileEdit/index.js:799
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 "E RËNDËSISHME: Fshirja e profilit tuaj te Shtesa Firefox-i është e "
 "pakthyeshme."
 
-#: src/amo/pages/UserProfileEdit/index.js:797
+#: src/amo/pages/UserProfileEdit/index.js:802
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr ""
 "E RËNDËSISHME: Fshirja e këtij profili te Shtesa Firefox-i është e "
 "pakthyeshme."
 
-#: src/amo/pages/UserProfileEdit/index.js:806
+#: src/amo/pages/UserProfileEdit/index.js:811
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation) and "
@@ -3171,7 +3171,7 @@ msgstr ""
 "punësim) dhe parapëlqime njoftimesh. Shqyrtimet dhe vlerësimet tuaja do të "
 "anonimizohen dhe s’do të jenë të përpunueshme më tej."
 
-#: src/amo/pages/UserProfileEdit/index.js:813
+#: src/amo/pages/UserProfileEdit/index.js:818
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3183,7 +3183,7 @@ msgstr ""
 "jetëshkrim, punësim) dhe parapëlqime njoftimesh. Shqyrtimet dhe vlerësimet "
 "do të anonimizohen dhe s’do të jenë të përpunueshme më tej."
 
-#: src/amo/pages/UserProfileEdit/index.js:823
+#: src/amo/pages/UserProfileEdit/index.js:828
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, you "
 "will create a new Firefox Add-ons profile that is in no way associated with "
@@ -3193,7 +3193,7 @@ msgstr ""
 "krijoni një profil të ri te Shtesa Firefox-i që s’lidhet kurrkund me "
 "profilin që fshitë."
 
-#: src/amo/pages/UserProfileEdit/index.js:836
+#: src/amo/pages/UserProfileEdit/index.js:841
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
 "the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
@@ -3205,7 +3205,7 @@ msgstr ""
 "fshini profilin tuaj, duhet %(docLinkStart)stë transferoni pronësinë e saj"
 "%(docLinkEnd)s ose ta fshini shtesën."
 
-#: src/amo/pages/UserProfileEdit/index.js:843
+#: src/amo/pages/UserProfileEdit/index.js:848
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
 "user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
@@ -3213,26 +3213,26 @@ msgstr ""
 "%(strongStart)sNOTE:%(strongEnd)s S’mund ta fshini profilin e një përdoruesi "
 "nëse ai është %(linkStart)sautori i çfarëdo shtese%(linkEnd)s."
 
-#: src/amo/pages/UsersUnsubscribe/index.js:45
-msgid ""
-"You can edit your notification settings by %(linkStart)sediting your profile"
-"%(linkEnd)s."
-msgstr ""
-
-#: src/amo/pages/UsersUnsubscribe/index.js:53
-msgid "Unsubscribe"
-msgstr ""
-
-#: src/amo/pages/UsersUnsubscribe/index.js:56
+#: src/amo/pages/UsersUnsubscribe/index.js:104
 #, fuzzy
 msgid "You are successfully unsubscribed!"
 msgstr "Fotoja u fshi me sukses"
 
 # a list of notifications will be displayed under this prompt.
-#: src/amo/pages/UsersUnsubscribe/index.js:63
+#: src/amo/pages/UsersUnsubscribe/index.js:117
 msgid ""
 "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
 "messages when:"
+msgstr ""
+
+#: src/amo/pages/UsersUnsubscribe/index.js:76
+msgid ""
+"You can edit your notification settings by %(linkStart)sediting your profile"
+"%(linkEnd)s."
+msgstr ""
+
+#: src/amo/pages/UsersUnsubscribe/index.js:95
+msgid "Unsubscribe"
 msgstr ""
 
 #: src/amo/utils/notifications.js:10
@@ -3360,23 +3360,23 @@ msgstr ""
 "Faleminderit për vizitën në këtë sajt! Ju lutemi, shpenzoni një a dy minuta "
 "për t’i treguar Firefox-it mbi përshtypjet tuaja."
 
-#: src/core/i18n/utils.js:254
+#: src/core/i18n/utils.js:255
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s B"
 
-#: src/core/i18n/utils.js:256
+#: src/core/i18n/utils.js:257
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s KB"
 
-#: src/core/i18n/utils.js:258
+#: src/core/i18n/utils.js:259
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s MB"
 
-#: src/core/i18n/utils.js:260
+#: src/core/i18n/utils.js:261
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s GB"
 
-#: src/core/i18n/utils.js:262
+#: src/core/i18n/utils.js:263
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
