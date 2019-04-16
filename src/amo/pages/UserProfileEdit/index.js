@@ -149,6 +149,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     const {
       clientApp,
+      currentUser,
       dispatch,
       errorHandler,
       history,
@@ -158,6 +159,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       user: newUser,
       userId: newUserId,
     } = this.props;
+
+    if (!currentUser) {
+      return;
+    }
 
     if (oldUserId !== newUserId) {
       if (!newUser && newUserId) {
