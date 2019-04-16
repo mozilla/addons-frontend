@@ -143,21 +143,19 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
                   )}
                   <IconStar selected />
                 </div>
-                {loading ? (
-                  <div className="RatingsByStar-barContainer">
+                <div className="RatingsByStar-barContainer">
+                  {loading ? (
                     <div className="RatingsByStar-bar RatingsByStar-barFrame" />
-                  </div>
-                ) : (
-                  createLink(
-                    <div className="RatingsByStar-barContainer">
+                  ) : (
+                    createLink(
                       <div className="RatingsByStar-bar RatingsByStar-barFrame">
                         {starCount !== undefined
                           ? this.renderBarValue(starCount)
                           : null}
-                      </div>
-                    </div>,
-                  )
-                )}
+                      </div>,
+                    )
+                  )}
+                </div>
                 <div className="RatingsByStar-count">{starCountNode}</div>
               </React.Fragment>
             );

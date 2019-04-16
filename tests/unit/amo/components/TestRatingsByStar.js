@@ -118,18 +118,12 @@ describe(__filename, () => {
 
   it('renders a loading state without an add-on', () => {
     const root = render({ addon: null });
-    const bars = root.find('.RatingsByStar-barContainer');
 
     expect(root.find('.RatingsByStar-count').find(LoadingText)).toHaveLength(5);
-    expect(bars).toHaveLength(5);
-    bars.forEach((bar) => {
-      expect(
-        bar
-          .childAt(0)
-          .children()
-          .exists(),
-      ).toBe(false);
-    });
+    expect(root.find('.RatingsByStar-barContainer')).toHaveLength(5);
+    expect(root.find('.RatingsByStar-barFrame')).toHaveLength(5);
+    // In loading state, we do not render a bar value
+    expect(root.find('.RatingsByStar-barValue')).toHaveLength(0);
   });
 
   it('renders a loading state without grouped ratings', () => {
@@ -138,7 +132,7 @@ describe(__filename, () => {
     expect(root.find('.RatingsByStar-count').find(LoadingText)).toHaveLength(5);
   });
 
-  it('renders star labels and links', () => {
+  it('renders star labels, bars and links', () => {
     const grouping = {
       5: 964,
       4: 821,
@@ -150,9 +144,9 @@ describe(__filename, () => {
     store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
     const root = render({ addon });
     const counts = root.find('.RatingsByStar-star').find(Link);
+    const bars = root.find('.RatingsByStar-barContainer').find(Link);
 
     function validateLink(link, score, expectedTitle) {
-      expect(link.children()).toHaveText(score);
       expect(link).toHaveProp(
         'to',
         reviewListURL({ addonSlug: addon.slug, score }),
@@ -160,42 +154,19 @@ describe(__filename, () => {
       expect(link).toHaveProp('title', expectedTitle);
     }
 
-    validateLink(counts.at(0), '5', 'Read all five-star reviews');
-    validateLink(counts.at(1), '4', 'Read all four-star reviews');
-    validateLink(counts.at(2), '3', 'Read all three-star reviews');
-    validateLink(counts.at(3), '2', 'Read all two-star reviews');
-    validateLink(counts.at(4), '1', 'Read all one-star reviews');
-  });
-
-  it('renders bars and links', () => {
-    const grouping = {
-      5: 964,
-      4: 821,
-      3: 543,
-      2: 22,
-      1: 0,
-    };
-    const addon = addonForGrouping(grouping);
-    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
-    const root = render({ addon });
-    const bars = root.find('.RatingsByStar-barContainer').map((node) => {
-      return node.parent();
+    it.each([[counts], [bars]], (links) => {
+      validateLink(links.at(0), '5', 'Read all five-star reviews');
+      validateLink(links.at(1), '4', 'Read all four-star reviews');
+      validateLink(links.at(2), '3', 'Read all three-star reviews');
+      validateLink(links.at(3), '2', 'Read all two-star reviews');
+      validateLink(links.at(4), '1', 'Read all one-star reviews');
     });
 
-    function validateBar(bar, score, expectedTitle) {
-      expect(bar.is(Link)).toBe(true);
-      expect(bar).toHaveProp(
-        'to',
-        reviewListURL({ addonSlug: addon.slug, score }),
-      );
-      expect(bar).toHaveProp('title', expectedTitle);
-    }
-
-    validateBar(bars[0], '5', 'Read all five-star reviews');
-    validateBar(bars[1], '4', 'Read all four-star reviews');
-    validateBar(bars[2], '3', 'Read all three-star reviews');
-    validateBar(bars[3], '2', 'Read all two-star reviews');
-    validateBar(bars[4], '1', 'Read all one-star reviews');
+    expect(counts.at(0).children()).toHaveText('5');
+    expect(counts.at(1).children()).toHaveText('4');
+    expect(counts.at(2).children()).toHaveText('3');
+    expect(counts.at(3).children()).toHaveText('2');
+    expect(counts.at(4).children()).toHaveText('1');
   });
 
   it('renders star counts', () => {
