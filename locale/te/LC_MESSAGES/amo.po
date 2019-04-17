@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-16 16:11+0000\n"
-"PO-Revision-Date: 2019-04-17 16:31+0000\n"
+"PO-Revision-Date: 2019-04-17 16:32+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1404,11 +1404,10 @@ msgstr[0] "\"%(query)s\" కొరకు %(count)s అలంకారం దొ�
 msgstr[1] "\"%(query)s\" కొరకు %(count)s అలంకారాలు దొరికాయి"
 
 #: src/amo/components/SearchContextCard/index.js:150
-#, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "%(count)s పొడిగింత దొరికింది"
-msgstr[1] "%(count)s పొడిగింతలు దొరికాయి"
+msgstr[0] "%(count)s అలంకారం కనబడింది"
+msgstr[1] "%(count)s అలంకారాలు కనబడ్డాయి"
 
 #: src/amo/components/SearchContextCard/index.js:162
 msgid "%(count)s result found for \"%(query)s\""
