@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-16 16:11+0000\n"
-"PO-Revision-Date: 2019-04-17 16:32+0000\n"
+"PO-Revision-Date: 2019-04-17 17:05+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -360,7 +360,7 @@ msgstr "రద్దుచేయి"
 
 #: src/amo/components/AddonReviewCard/index.js:255
 msgid "Keep reply"
-msgstr ""
+msgstr "స్పందనను ఉంచు"
 
 #: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep rating"
@@ -508,7 +508,7 @@ msgstr "%(author)s నుండి మరిన్ని అలంకారా�
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:299
 msgid "More themes by these artists"
-msgstr ""
+msgstr "ఈ కళాకారుల మరిన్ని అలంకారాలు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:303
 msgid "Themes by %(author)s"
@@ -572,7 +572,7 @@ msgstr "ఏ పొడిగింతలు దొరకలేదు"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "వెర్షను %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
@@ -2529,7 +2529,7 @@ msgstr "ఈమెయిలు చిరునామా"
 
 #: src/amo/pages/UserProfileEdit/index.js:556
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "ఈమెయిలు చిరునామాను ఇక్కడ మార్చలేరు"
 
 #: src/amo/pages/UserProfileEdit/index.js:565
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
@@ -2537,7 +2537,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:582
 msgid "Manage Firefox Accounts…"
-msgstr ""
+msgstr "Firefox ఖాతాల నిర్వహణ…"
 
 #: src/amo/pages/UserProfileEdit/index.js:590
 msgid "Profile"
@@ -2545,7 +2545,7 @@ msgstr "ప్రొఫైలు"
 
 #: src/amo/pages/UserProfileEdit/index.js:599
 msgid "This field is required"
-msgstr ""
+msgstr "ఈ ఖాళీ తప్పనిసరి"
 
 #: src/amo/pages/UserProfileEdit/index.js:602
 msgid "Display Name *"
@@ -2688,7 +2688,7 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Enable"
-msgstr ""
+msgstr "చేతనించు"
 
 #: src/core/components/AMInstallButton/index.js:216
 msgid "Enabling"
