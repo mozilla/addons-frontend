@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-16 16:11+0000\n"
-"PO-Revision-Date: 2019-04-17 01:30+0000\n"
+"PO-Revision-Date: 2019-04-17 01:46+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1166,47 +1166,47 @@ msgstr "버전 목록"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "확장기능 사용 확인과 테마 관리"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Firefox 이외의 프로그램과 메시지를 주고 받음"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Display notifications to you"
-msgstr ""
+msgstr "알림 표시"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "암호화 인증 서비스 제공"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "브라우저 프록시 설정 제어"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "개인 정보 설정 읽기 및 수정"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "최근에 닫힌 탭에 접근"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser tabs"
-msgstr ""
+msgstr "브라우저 탭에 접근"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "브라우저 탭 보이고 숨기기"
 
 #: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "무제한 클라이언트 데이터 저장"
 
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "탐색중에 브라우저 활동에 접근"
 
 #: src/amo/components/RatingManager/index.js:115
 msgid "Log in to rate this dictionary"
@@ -1280,35 +1280,35 @@ msgstr "%(count)s개의 리뷰 보기"
 
 #: src/amo/components/ReportAbuseButton/index.js:106 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "모든 신고 사항에 대해 답변을 드릴 수는 없지만 문제는 조사될 것입니다."
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
-msgstr ""
+msgstr "이 부가 기능이 %(linkTagStart)sMozilla의 부가 기능 정책%(linkTagEnd)s이나 안전, 개인정보 관련 문제로 위협한다고 생각되시면, 이 양식을 이용하여 Mozilla에 이 문제를 보고해 주십시오."
 
 #: src/amo/components/ReportAbuseButton/index.js:132
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "이 부가 기능을 정책 위반으로 신고하기"
 
 #: src/amo/components/ReportAbuseButton/index.js:161
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "이 양식을 버그 신고나 기능 추가 요청용으로 사용하지 마십시오. 이 보고서는 Mozilla에 전송되며 개발자에게 전달되지 않습니다."
 
 #: src/amo/components/ReportAbuseButton/index.js:174 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
-msgstr ""
+msgstr "정책 위반 보고서 보내기"
 
 #: src/amo/components/ReportAbuseButton/index.js:175 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
-msgstr ""
+msgstr "정책 위반 보고서 보내는 중"
 
 #: src/amo/components/ReportAbuseButton/index.js:177
 msgid "Dismiss"
-msgstr ""
+msgstr "닫기"
 
 #: src/amo/components/ReportAbuseButton/index.js:178
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "이 부가 기능이 어떻게 정책을 위반하는지 알려주세요."
 
 #: src/amo/components/ReportAbuseButton/index.js:95
 #, fuzzy
@@ -1317,7 +1317,7 @@ msgstr "로그인하여 이 부가 기능의 평점을 남겨주세요"
 
 #: src/amo/components/ReportAbuseButton/index.js:99
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "보고서가 접수되었습니다. 이 부가 기능에 대한 우려를 알려주셔서 감사합니다."
 
 #: src/amo/components/ReportUserAbuse/index.js:106 src/amo/components/ReportUserAbuse/index.js:99
 #, fuzzy
@@ -1326,15 +1326,15 @@ msgstr "로그인하여 이 부가 기능의 평점을 남겨주세요"
 
 #: src/amo/components/ReportUserAbuse/index.js:113
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
+msgstr "이 사용자가 %(linkTagStart)sMozilla의 부가 기능 정책%(linkTagEnd)s을 위반한다고 생각하시면, Mozilla에 이 사용자를 보고해주십시오."
 
 #: src/amo/components/ReportUserAbuse/index.js:129
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr ""
+msgstr "이 양식을 버그 제보나 사용자 연락용으로 사용하지 마십시오. 보고서는 Mozilla에게만 전송되며 사용자에게는 전달되지 않습니다."
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
-msgstr ""
+msgstr "이 사용자가 정책을 어떻게 위반하는지 설명해주십시오."
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 #, fuzzy
@@ -1343,7 +1343,7 @@ msgstr "로그인하여 이 부가 기능의 평점을 남겨주세요"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr ""
+msgstr "보고서가 접수되었습니다. 이 사용자와 관련된 우려 사항을 알려주셔서 감사합니다."
 
 #: src/amo/components/Search/index.js:116 src/amo/components/SearchResults/index.js:68
 #, fuzzy
@@ -1667,7 +1667,7 @@ msgstr "부가 기능 홈 페이지"
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "이 사진을 정말로 삭제하시겠습니까?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:109
 #, fuzzy
@@ -1686,7 +1686,7 @@ msgstr "프로필 보기"
 
 #: src/amo/components/UserProfileEditPicture/index.js:97
 msgid "Choose Photo…"
-msgstr ""
+msgstr "사진 선택…"
 
 #: src/amo/pages/Addon/index.js:167 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
@@ -1739,7 +1739,7 @@ msgstr "%(addonVersion)s에 대한 출시 정보"
 
 #: src/amo/pages/Addon/index.js:448
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "공개 목록이 아닙니다. 상승된 권한으로 보고 있습다."
 
 #: src/amo/pages/Addon/index.js:476
 msgid "Extension Metadata"
@@ -1816,15 +1816,15 @@ msgstr "리뷰 작성"
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] ""
+msgstr[0] "%(addonName)s 버전 기록 - 총 %(total)s 판"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "이전 버전 사용에 주의하세요! 이러한 버전들은 시험 및 참조 용도로만 표시되는 것입니다."
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "항상 최신 버전의 부가 기능을 사용해야 합니다."
 
 #: src/amo/pages/AddonVersions/index.js:186
 #, fuzzy
@@ -1943,7 +1943,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "사용자를 추적하는 온라인 추적기를 막으세요."
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
@@ -1959,7 +1959,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:136
 msgid "Reimagine tab management"
-msgstr ""
+msgstr "탭 관리를 재정의하다"
 
 #: src/amo/pages/Guides/index.js:137
 msgid ""
@@ -1977,7 +1977,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "향상된 북마크로 더 나은 브라우징"
 
 #: src/amo/pages/Guides/index.js:156
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
@@ -1995,7 +1995,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "새로운 탭 경험을 즐기세요"
 
 #: src/amo/pages/Guides/index.js:176
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
@@ -2011,7 +2011,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:195
 msgid "Improve videos"
-msgstr ""
+msgstr "동영상 기능 향상"
 
 #: src/amo/pages/Guides/index.js:196
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
@@ -2113,15 +2113,15 @@ msgstr "암호 관리자"
 
 #: src/amo/pages/Home/index.js:141
 msgid "Ad blockers"
-msgstr ""
+msgstr "광고 차단기"
 
 #: src/amo/pages/Home/index.js:145
 msgid "Smarter shopping"
-msgstr ""
+msgstr "더 똑똑한 쇼핑"
 
 #: src/amo/pages/Home/index.js:149
 msgid "Productivity"
-msgstr ""
+msgstr "생산성"
 
 #: src/amo/pages/Home/index.js:153
 #, fuzzy
@@ -2181,7 +2181,7 @@ msgstr "가장 평점이 높은 확장 기능 더보기"
 
 #: src/amo/pages/Home/index.js:61
 msgid "VPN solutions"
-msgstr ""
+msgstr "VPN 솔루션"
 
 #: src/amo/pages/Home/index.js:66
 #, fuzzy
@@ -2215,7 +2215,7 @@ msgstr "카테고리를 불러오는데 실패했습니다."
 
 #: src/amo/pages/LanguageTools/index.js:108
 msgid "Available for your locale"
-msgstr ""
+msgstr "한글판 있음"
 
 #: src/amo/pages/LanguageTools/index.js:148
 #, fuzzy
@@ -2224,7 +2224,7 @@ msgstr "로그인하여 이 언어 팩의 평점을 남겨주세요"
 
 #: src/amo/pages/LanguageTools/index.js:157
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Firefox 사전과 언어팩 확장 기능을 다운받으세요. 맞춤법 검사에 새 언어 옵션을 추가하거나, 브라우저 인터페이스 언어를 바꿀 수 있습니다."
 
 #: src/amo/pages/LanguageTools/index.js:168
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2232,15 +2232,15 @@ msgstr ""
 
 #: src/amo/pages/LanguageTools/index.js:173
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "언어팩은 메뉴 옵션, 설정과 같은 브라우저 인터페이스의 언어를 변경합니다."
 
 #: src/amo/pages/LanguageTools/index.js:179
 msgid "All Locales"
-msgstr ""
+msgstr "모든 지역"
 
 #: src/amo/pages/LanguageTools/index.js:185
 msgid "Locale Name"
-msgstr ""
+msgstr "지역명"
 
 #: src/amo/pages/LanguageTools/index.js:188
 #, fuzzy
@@ -2249,7 +2249,7 @@ msgstr "로그인하여 이 언어 팩의 평점을 남겨주세요"
 
 #: src/amo/pages/LanguageTools/index.js:191
 msgid "Dictionaries"
-msgstr ""
+msgstr "사전"
 
 #: src/amo/pages/SearchTools/index.js:31
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
@@ -2376,7 +2376,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:136
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "문제있는 리뷰는 어떻게 신고할 수 있나요?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:138
 msgid ""
@@ -2386,21 +2386,21 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:145
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "부가 기능 제작자인데 리뷰에 답변을 달 수 있나요?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "네, 부가 기능 제작자는 리뷰에 답 하나를 제공할 수 있습니다. %(startLink)s포럼%(endLink)s에서 추가적인 토론이나 내용을 제공할 수도 있습니다."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:165
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "부가 기능 제작자인데 맘에 들지 않는 리뷰나 별점을 삭제할 수 있나요?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:170
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
-msgstr ""
+msgstr "일반적으로, 불가능합니다. 하지만 리뷰가 가이드라인을 벗어난다면, \"이 리뷰 보고\"를 눌러 제거를 요청할 수 잇습니다. 리뷰가 새 버전에서 더이상 해당되지 않는 항의 사항을 담고 있다면 리뷰의 삭제가 고려될 수 있습니다."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:22
 msgid "Review Guidelines"
