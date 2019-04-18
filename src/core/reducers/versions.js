@@ -78,7 +78,7 @@ export type PartialExternalAddonVersionType = {|
 |};
 
 type PartialVersionLicenseType = {|
-  name: string,
+  name: string | null,
   text?: string,
   url: string,
 |};
