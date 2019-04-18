@@ -102,7 +102,7 @@ export const AddonVersionCardBase = (props: InternalProps) => {
             'Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s',
           ),
           {
-            licenseName: license.name,
+            licenseName: license.name || i18n.gettext('unknown license name'),
             // Keep the link placeholders so that we can use them to inject a
             // `<Link />` using `replaceStringsWithJSX`.
             linkStart: '%(linkStart)s',
