@@ -227,7 +227,7 @@ describe(__filename, () => {
     });
 
     const license = root.find('.AddonVersionCard-license');
-    expect(license.childAt(1).children()).toHaveText('unknown license name');
+    expect(license.childAt(1).children()).toHaveText('an unidentified license');
   });
 
   it('renders a link to a non-custom license', () => {
