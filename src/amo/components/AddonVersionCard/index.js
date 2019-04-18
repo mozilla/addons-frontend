@@ -97,18 +97,22 @@ export const AddonVersionCardBase = (props: InternalProps) => {
           ? { to: `/addon/${addon.slug}/license/` }
           : { href: license.url, prependClientApp: false, prependLang: false };
 
-        const licenseText = i18n.sprintf(
-          i18n.gettext(
-            'Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s',
-          ),
-          {
-            licenseName: license.name,
-            // Keep the link placeholders so that we can use them to inject a
-            // `<Link />` using `replaceStringsWithJSX`.
-            linkStart: '%(linkStart)s',
-            linkEnd: '%(linkEnd)s',
-          },
-        );
+        const licenseText = license.name
+          ? i18n.sprintf(
+              i18n.gettext(
+                'Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s',
+              ),
+              {
+                licenseName: license.name,
+                // Keep the link placeholders so that we can use them to inject a
+                // `<Link />` using `replaceStringsWithJSX`.
+                linkStart: '%(linkStart)s',
+                linkEnd: '%(linkEnd)s',
+              },
+            )
+          : i18n.gettext(
+              'Source code released under %(linkStart)san unidentified license%(linkEnd)s',
+            );
 
         const licenseLink = replaceStringsWithJSX({
           text: licenseText,

@@ -217,6 +217,19 @@ describe(__filename, () => {
     expect(license.childAt(1).children()).toHaveText(licenseName);
   });
 
+  it('displays a license without a name', () => {
+    const licenseName = null;
+    const root = render({
+      version: createInternalVersion({
+        ...fakeVersion,
+        license: { ...fakeVersion.license, name: licenseName },
+      }),
+    });
+
+    const license = root.find('.AddonVersionCard-license');
+    expect(license.childAt(1).children()).toHaveText('an unidentified license');
+  });
+
   it('renders a link to a non-custom license', () => {
     const licenseURL = 'http://example.com/';
     const root = render({
