@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-16 16:11+0000\n"
-"PO-Revision-Date: 2019-04-19 23:55+0000\n"
+"PO-Revision-Date: 2019-04-20 00:39+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -2086,13 +2086,12 @@ msgid "Feed readers"
 msgstr "Vezi mai multe teme deosebite"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more VPN solutions"
-msgstr "Vezi mai multe extensii pentru file"
+msgstr "Vezi mai multe soluții VPN"
 
 #: src/amo/pages/Home/index.js:61
 msgid "VPN solutions"
-msgstr ""
+msgstr "Soluții VPN"
 
 #: src/amo/pages/Home/index.js:66
 msgid "See more tab extensions"
@@ -2560,7 +2559,7 @@ msgstr "Mozilla își rezervă dreptul de a te contacta individual despre proble
 
 #: src/amo/pages/UserProfileEdit/index.js:771
 msgid "Updating your profile…"
-msgstr "Ți se actualizează profilul…"
+msgstr "Se actualizează profilul…"
 
 #: src/amo/pages/UserProfileEdit/index.js:772
 msgid "Update My Profile"
