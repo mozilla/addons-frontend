@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-16 16:11+0000\n"
-"PO-Revision-Date: 2019-04-18 07:38+0000\n"
-"Last-Translator: graeme.west <graeme.west@verint.com>\n"
+"PO-Revision-Date: 2019-04-20 21:36+0000\n"
+"Last-Translator: Ian Neal <iann_bugzilla@blueyonder.co.uk>\n"
 "Language-Team: none\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
@@ -287,9 +287,8 @@ msgid "Homepage"
 msgstr "Homepage"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
-#, fuzzy
 msgid "Support site"
-msgstr "Support Site"
+msgstr "Support site"
 
 #: src/amo/components/AddonMoreInfo/index.js:84
 msgid "Support Email"
@@ -981,9 +980,8 @@ msgid "Staff Pick"
 msgstr "Staff Pick"
 
 #: src/amo/components/Header/index.js:105
-#, fuzzy
 msgid "Submit and manage extensions and themes"
-msgstr "Monitor extension usage and manage themes"
+msgstr "Submit and manage extensions and themes"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1724,11 +1722,10 @@ msgid "There are no reviews"
 msgstr "There are no reviews"
 
 #: src/amo/pages/AddonVersions/index.js:125
-#, fuzzy
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] "%(addonName)s Version history - %(total)s version"
-msgstr[1] "%(addonName)s Version history - %(total)s versions"
+msgstr[0] "%(addonName)s version history - %(total)s version"
+msgstr[1] "%(addonName)s version history - %(total)s versions"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
@@ -2025,18 +2022,16 @@ msgid "Ad blockers"
 msgstr "Ad blockers"
 
 #: src/amo/pages/Home/index.js:145
-#, fuzzy
 msgid "Smarter shopping"
-msgstr "Smarter Shopping"
+msgstr "Smarter shopping"
 
 #: src/amo/pages/Home/index.js:149
 msgid "Productivity"
 msgstr "Productivity"
 
 #: src/amo/pages/Home/index.js:153
-#, fuzzy
 msgid "Watching videos"
-msgstr "Watching Videos"
+msgstr "Watching videos"
 
 #: src/amo/pages/Home/index.js:181
 msgid "Abstract"
@@ -2079,18 +2074,16 @@ msgid "See more feed readers"
 msgstr "See more featured themes"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "Feed readers"
-msgstr "See more featured themes"
+msgstr "Feed readers"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more VPN solutions"
-msgstr "See more tab extensions"
+msgstr "See more VPN solutions"
 
 #: src/amo/pages/Home/index.js:61
 msgid "VPN solutions"
-msgstr ""
+msgstr "VPN solutions"
 
 #: src/amo/pages/Home/index.js:66
 msgid "See more tab extensions"
@@ -2173,6 +2166,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
+"APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:155
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2191,9 +2186,8 @@ msgid "Tell your friends and family that Firefox is a fast, secure browser that 
 msgstr "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
 
 #: src/amo/pages/StaticPages/About/index.js:190
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
+msgstr "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:204
 msgid "Get support"
@@ -2536,9 +2530,8 @@ msgid "Display Name *"
 msgstr "Display Name *"
 
 #: src/amo/pages/UserProfileEdit/index.js:618
-#, fuzzy
 msgid "Reviewer Name"
-msgstr "Review theme"
+msgstr "Reviewer Name"
 
 #: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This URL will only be visible for users who are developers."
@@ -2629,22 +2622,21 @@ msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if
 msgstr "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:104
-#, fuzzy
 msgid "You are successfully unsubscribed!"
-msgstr "Picture successfully deleted"
+msgstr "You are successfully unsubscribed!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:117
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:76
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:95
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Unsubscribe"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
