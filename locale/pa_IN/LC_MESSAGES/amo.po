@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-16 16:11+0000\n"
-"PO-Revision-Date: 2019-04-19 21:25+0000\n"
+"PO-Revision-Date: 2019-04-20 20:20+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -212,7 +212,7 @@ msgstr "ਕੋਈ ਉਪਭੋਗਤਾ ਨਹੀਂ"
 
 #: src/amo/components/AddonMeta/index.js:60
 msgid "Reviews"
-msgstr ""
+msgstr "ਸਮੀਖਿਆ"
 
 #: src/amo/components/AddonMeta/index.js:63
 msgid "Review"
@@ -259,7 +259,7 @@ msgstr "ਵਰਜਨ"
 
 #: src/amo/components/AddonMoreInfo/index.js:215 src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
-msgstr ""
+msgstr "ਆਖਰੀ ਅੱਪਡੇਟ"
 
 #: src/amo/components/AddonMoreInfo/index.js:223
 msgid "License"
@@ -279,11 +279,11 @@ msgstr "ਵਰਜਨ ਇਤਿਹਾਸ"
 
 #: src/amo/components/AddonMoreInfo/index.js:257
 msgid "Usage Statistics"
-msgstr ""
+msgstr "ਉਪਯੋਗਤਾ ਦੇ ਅੰਕੜੇ"
 
 #: src/amo/components/AddonMoreInfo/index.js:272
 msgid "More information"
-msgstr ""
+msgstr "ਹੋਰ ਜਾਣਕਾਰੀ"
 
 #: src/amo/components/AddonMoreInfo/index.js:59 src/amo/pages/UserProfile/index.js:355 src/amo/pages/UserProfileEdit/index.js:639
 msgid "Homepage"
@@ -291,7 +291,7 @@ msgstr "ਮੁੱਖ ਸਫ਼ਾ"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
 msgid "Support site"
-msgstr ""
+msgstr "ਸਹਿਯੋਗ ਸਾਈਟ"
 
 #: src/amo/components/AddonMoreInfo/index.js:84
 msgid "Support Email"
@@ -303,7 +303,7 @@ msgstr ""
 
 #: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other popular extensions"
-msgstr ""
+msgstr "ਹੋਰ ਪ੍ਰਸਿੱਧ ਐਕਸਟੈਂਸ਼ਨਾਂ"
 
 #: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit reply"
@@ -651,7 +651,7 @@ msgstr "ਸੰਗ੍ਰਹਿ ਰਚੋ"
 
 #: src/amo/components/CollectionManager/index.js:238
 msgid "Save changes"
-msgstr ""
+msgstr "ਤਬਦੀਲੀਆਂ ਨੂੰ ਸੰਭਾਲੋ"
 
 #: src/amo/components/CollectionManager/index.js:247
 msgid "Collection name"
@@ -659,11 +659,11 @@ msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:261
 msgid "Description"
-msgstr ""
+msgstr "ਵੇਰਵਾ"
 
 #: src/amo/components/CollectionManager/index.js:273
 msgid "Custom URL"
-msgstr ""
+msgstr "ਪਸੰਦੀਦਾ URL"
 
 #: src/amo/components/CollectionSort/index.js:104
 msgid "Sort add-ons by"
