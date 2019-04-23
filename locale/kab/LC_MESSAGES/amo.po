@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-16 16:11+0000\n"
+"POT-Creation-Date: 2019-04-23 19:51+0000\n"
 "PO-Revision-Date: 2018-10-16 19:24+0000\n"
 "Last-Translator: Linda DIB <lynda.dib@gmail.com>\n"
 "Language-Team: none\n"
@@ -605,12 +605,18 @@ msgstr ""
 msgid "by"
 msgstr ""
 
-#: src/amo/components/AddonVersionCard/index.js:101
+#: src/amo/components/AddonVersionCard/index.js:102
 #, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "sγur %(timestamp)s"
 
-#: src/amo/components/AddonVersionCard/index.js:135
+#: src/amo/components/AddonVersionCard/index.js:113
+#, fuzzy
+msgid ""
+"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgstr "sγur %(timestamp)s"
+
+#: src/amo/components/AddonVersionCard/index.js:139
 #, fuzzy
 msgid "Source code released under %(licenseName)s"
 msgstr "sγur %(timestamp)s"

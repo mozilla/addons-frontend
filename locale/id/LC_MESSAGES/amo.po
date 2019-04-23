@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-16 16:11+0000\n"
+"POT-Creation-Date: 2019-04-23 19:51+0000\n"
 "PO-Revision-Date: 2019-04-16 11:05+0000\n"
 "Last-Translator: Lidya Christina <id.lidya@gmail.com>\n"
 "Language-Team: none\n"
@@ -573,11 +573,17 @@ msgstr ","
 msgid "by"
 msgstr "oleh"
 
-#: src/amo/components/AddonVersionCard/index.js:101
+#: src/amo/components/AddonVersionCard/index.js:102
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "Kode sumber dirilis di bawah %(linkStart)s%(licenseName)s%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:135
+#: src/amo/components/AddonVersionCard/index.js:113
+#, fuzzy
+msgid ""
+"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgstr "Kode sumber dirilis di bawah %(linkStart)s%(licenseName)s%(linkEnd)s"
+
+#: src/amo/components/AddonVersionCard/index.js:139
 msgid "Source code released under %(licenseName)s"
 msgstr "Kode sumber dirilis di bawah %(licenseName)s"
 
