@@ -1475,10 +1475,10 @@
   dependencies:
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
 
-"@loadable/component@5.6.1":
-  version "5.6.1"
-  resolved "https://registry.yarnpkg.com/@loadable/component/-/component-5.6.1.tgz#7c4cc7619280ae39a770583e05c3e9980bb3a615"
-  integrity sha512-lkRMQiekLmBIANxdx/Ybod8s2KQKnS0yAHl6abv1MenSjV9OmtLMjeOMz3RB7AItgOo6D7GPTWIJr1eHswV/Iw==
+"@loadable/component@5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@loadable/component/-/component-5.9.0.tgz#9b3e983f14c730d1c8894c352b78ebc401091f76"
+  integrity sha512-6nnIm8VthaakyCX7fQVy/nTqtIv0NZwaTJpkL0BiB9msm4mXc5v+7elq4f9LJVmSpw/xIpJMeUbYwZtBYxmlEg==
   dependencies:
     hoist-non-react-statics "^3.3.0"
 

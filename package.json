@@ -212,7 +212,7 @@
   "homepage": "https://github.com/mozilla/addons-frontend#readme",
   "dependencies": {
     "@babel/polyfill": "7.4.3",
-    "@loadable/component": "5.6.1",
+    "@loadable/component": "5.9.0",
     "@loadable/server": "5.6.1",
     "@willdurand/isomorphic-formdata": "1.2.0",
     "base62": "2.0.1",
