@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-16 16:11+0000\n"
+"POT-Creation-Date: 2019-04-23 19:51+0000\n"
 "PO-Revision-Date: 2019-04-02 13:09+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
@@ -565,11 +565,16 @@ msgstr ""
 msgid "by"
 msgstr ""
 
-#: src/amo/components/AddonVersionCard/index.js:101
+#: src/amo/components/AddonVersionCard/index.js:102
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/AddonVersionCard/index.js:135
+#: src/amo/components/AddonVersionCard/index.js:113
+msgid ""
+"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgstr ""
+
+#: src/amo/components/AddonVersionCard/index.js:139
 msgid "Source code released under %(licenseName)s"
 msgstr ""
 

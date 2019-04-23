@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-16 16:11+0000\n"
+"POT-Creation-Date: 2019-04-23 19:51+0000\n"
 "PO-Revision-Date: 2019-04-14 07:39+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
@@ -576,13 +576,21 @@ msgstr ","
 msgid "by"
 msgstr "por"
 
-#: src/amo/components/AddonVersionCard/index.js:101
+#: src/amo/components/AddonVersionCard/index.js:102
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr ""
 "Se publicó el código fuente bajo la licencia %(linkStart)s%(licenseName)s"
 "%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:135
+#: src/amo/components/AddonVersionCard/index.js:113
+#, fuzzy
+msgid ""
+"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgstr ""
+"Se publicó el código fuente bajo la licencia %(linkStart)s%(licenseName)s"
+"%(linkEnd)s"
+
+#: src/amo/components/AddonVersionCard/index.js:139
 msgid "Source code released under %(licenseName)s"
 msgstr "Se publicó el código fuente bajo la licencia %(licenseName)s"
 
