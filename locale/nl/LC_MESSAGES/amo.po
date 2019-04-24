@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-24 06:35+0000\n"
-"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
+"PO-Revision-Date: 2019-04-24 13:33+0000\n"
+"Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -1699,7 +1699,7 @@ msgstr "Beoordelingen en waarderingen voor %(addonName)s. Ontdek wat andere gebr
 
 #: src/amo/pages/AddonReviewList/index.js:228
 msgid "Show all reviews"
-msgstr "Alle beoordelingen weergeven"
+msgstr "Alle beoordelingen tonen"
 
 #: src/amo/pages/AddonReviewList/index.js:230
 msgid "Show only five-star reviews"
