@@ -1482,10 +1482,10 @@
   dependencies:
     hoist-non-react-statics "^3.3.0"
 
-"@loadable/server@5.6.1":
-  version "5.6.1"
-  resolved "https://registry.yarnpkg.com/@loadable/server/-/server-5.6.1.tgz#b3425c34f4e56411965aaac070e2573ab1f2cbf0"
-  integrity sha512-XTonaoyiGtoNCQyQYy1z8wHghaJ/JAD6MJWO+r9GoOBnjO2P76zhn9+XqVQpE5OEiWQOE02hsWptqPvXIxKtEQ==
+"@loadable/server@5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@loadable/server/-/server-5.9.0.tgz#ca40a7d5317a5a211ef9ac2278810c8671fb80f4"
+  integrity sha512-AJv446qSJgMr49HBBECtfhD9JN4AB9SKtWLI+Ri20Awq6HY79a8mnYN5aFmSq2g5rdp7mhXLm6A9cstbz5LDow==
   dependencies:
     lodash "^4.17.11"
 
@@ -3184,7 +3184,6 @@ babel-eslint@^9.0.0:
 
 "babel-gettext-extractor@github:mozilla/babel-gettext-extractor#babel-7":
   version "4.0.0"
-  uid "78ff104e669edb731e979e36fbf4fe261a569924"
   resolved "https://codeload.github.com/mozilla/babel-gettext-extractor/tar.gz/78ff104e669edb731e979e36fbf4fe261a569924"
   dependencies:
     "@babel/core" "^7.0.0"
