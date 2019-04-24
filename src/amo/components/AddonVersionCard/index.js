@@ -111,7 +111,7 @@ export const AddonVersionCardBase = (props: InternalProps) => {
               },
             )
           : i18n.gettext(
-              'Source code released under %(linkStart)san unidentified license%(linkEnd)s',
+              'Source code released under %(linkStart)sCustom License%(linkEnd)s',
             );
 
         const licenseLink = replaceStringsWithJSX({
