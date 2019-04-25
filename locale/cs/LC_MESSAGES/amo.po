@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-25 13:12+0000\n"
+"PO-Revision-Date: 2019-04-22 21:36+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1938,7 +1938,7 @@ msgstr "Dopřejte si nádhernou stránku nového panelu s nastavitelným pozadí
 
 #: src/amo/pages/Guides/index.js:184
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
-msgstr ""
+msgstr "Prozkoumejte další naše výběry nabízející %(linkStart)szábavné způsoby, jak si vylepšit své panely%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:195
 msgid "Improve videos"
@@ -1955,7 +1955,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:206
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Prozkoumejte další námi vybraná %(linkStart)srozšíření zaměřená na videa%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Get more out of media"
@@ -1975,7 +1975,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:226
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Prozkoumejte další námi vybraná %(linkStart)srozšíření zaměřená na média%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Bring media right into the browser"
@@ -1991,7 +1991,7 @@ msgstr "Získejte přístup k více než 30 000 rozhlasových stanic z celého s
 
 #: src/amo/pages/Guides/index.js:244
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
-msgstr ""
+msgstr "Prozkoumejte tisíce %(linkStart)srozšíření zaměřených na fotografie, hudbu a video%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:268
 msgid ""
@@ -2015,7 +2015,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "Vytvářejte a spravujte silná hesla"
 
 #: src/amo/pages/Guides/index.js:79
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
@@ -2027,7 +2027,7 @@ msgstr "Plně šifrovaná ochrana hesel. Ukládejte své údaje bezpečně a př
 
 #: src/amo/pages/Guides/index.js:88
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Prozkoumejte další námi vybrané %(linkStart)ssprávce hesel%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:96
 msgid "Block annoying ads"
