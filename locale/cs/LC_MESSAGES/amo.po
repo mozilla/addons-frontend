@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-23 19:51+0000\n"
+"PO-Revision-Date: 2019-04-25 13:08+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -782,6 +782,8 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
+"Zkuste stránku navštívit později, protože motiv vzhledu či rozšíření může být dáno opět k dispozici. Případně můžete to, co hledáte, zkusit najít v jednom z dostupných "
+"%(linkStart)srozšíření%(linkEnd)s či %(secondLinkStart)smotivů vzhledu%(secondLinkEnd)s."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:68
 msgid "Oops! We can’t find that page"
@@ -789,17 +791,19 @@ msgstr "Jejda! Stránku nemůžeme najít"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:71
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Pokud jste se sem dostali tak, že jste na jiné stránce klepli na odkaz na rozšíření či motiv vzhledu, není už daný doplněk k dispozici. Příčiny mohou být tyto:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:77
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "Vývojář ho odstranil. Vývojáři to obvykle dělají proto, že již dané rozšíření či motiv vzhledu nepodporují, nebo ho nahradili jiným."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:82
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla ho odstranila. To se může stát tehdy, když byl během kontroly rozšíření či motivu vzhledu objeven problém, nebo když rozšíření či motiv vzhledu porušuje pravidla a podmínky webu "
+"addons.mozilla.org. Vývojář má možnost tyto problémy vyřešit a doplněk znovu zpřístupnit."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:94
 msgid ""
@@ -1048,7 +1052,7 @@ msgstr "Správa panelů a záložek"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
 msgid "Enhance Your Media Experience"
-msgstr ""
+msgstr "Mějte větší multimediální zážitek"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
@@ -1704,7 +1708,7 @@ msgstr "Zásady ochrany osobních údajů pro doplněk %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:196
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Recenze a hodnocení doplňku %(addonName)s. Zjistěte, co si ostatní uživatelé myslí o doplňku %(addonName)s a přidejte si ho do svého Firefoxu."
 
 #: src/amo/pages/AddonReviewList/index.js:228
 msgid "Show all reviews"
@@ -1748,17 +1752,17 @@ msgstr "Zatím nehodnoceno"
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Historie doplňku %(addonName)s - %(total)s verze"
+msgstr[1] "Historie doplňku %(addonName)s - %(total)s verze"
+msgstr[2] "Historie doplňku %(addonName)s - %(total)s verzí"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "Se starými verzemi opatrně! Tyto verze jsou zde dostupné jen pro testovací a referenční účely."
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "Používat byste vždy měli nejnovější verzi doplňku."
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Latest version"
@@ -1822,15 +1826,15 @@ msgstr "Nejprve vytvořte sbírku. Poté do ní můžete přidat rozšíření a
 
 #: src/amo/pages/Collection/index.js:450
 msgid "Search for extensions and themes to add to your collection."
-msgstr "Vyhledávejte doplňky a rozšíření, které můžete přidat do sbírky."
+msgstr "Vyhledávejte rozšíření a motivy vzhledu, které si můžete přidat do sbírky."
 
 #: src/amo/pages/Collection/index.js:512
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Stahujte a vytvářejte sbírky, abyste si udržovali přehled o oblíbených rozšířeních a motivech vzhledu. Prozkoumejte sbírku %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:515
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Stahujte a vytvářejte sbírky, abyste si udržovali přehled o oblíbených rozšířeních a motivech vzhledu. Prozkoumejte sbírku %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:112
 msgid "Collections"
@@ -1870,7 +1874,7 @@ msgstr "Zabraňte sledovacím prvkům ve vašem sledování"
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr ""
+msgstr "Internetoví provozovatelé reklamních sítí mohou sledovat vaši aktivitu na internetu a shromažďovat informace o vás a vašich zájmech. Rozšíření mohou pomoci zakrýt vaši digitální stopu."
 
 #: src/amo/pages/Guides/index.js:121
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
@@ -1889,10 +1893,12 @@ msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Pokud obvykle pracujete se spoustou otevřených panelů, budete pravděpodobně dobře znát onu frustraci, když prohledáváte řadu neidentifikovatelných panelů a snažíte se najít ten, který potřebujete. "
+"Rozšíření mohou nabídnout kreativní řešení pro zefektivnění správy panelů."
 
 #: src/amo/pages/Guides/index.js:143
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Zpřehledněte si své panely a uspořádejte je kaskádově do \"stromové\" podoby v postranní liště Firefoxu."
 
 #: src/amo/pages/Guides/index.js:147
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
@@ -1911,6 +1917,8 @@ msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"Chcete pomoci s organizací všech svých oblíbených online kuchařských receptů, článků s návody, videi na YouTube nebo prostě čímkoliv, co najdete na webu? OneNote Web Clipper vám umožňuje "
+"shromažďovat a ukládat si všechen svůj oblíbený webový obsah do výkonného úložiště, které se synchronizuje napříč zařízeními."
 
 #: src/amo/pages/Guides/index.js:167
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
@@ -1943,6 +1951,7 @@ msgstr ""
 #: src/amo/pages/Guides/index.js:201
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
 msgstr ""
+"Přidejte si na všechny stránky s videem na YouTube ovládací lištu, abyste mohli snadno nastavit hlasitost, rychlost přehrávání, velikost přehrávače, blokování reklam a poznámek, a další funkce."
 
 #: src/amo/pages/Guides/index.js:206
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
@@ -1950,17 +1959,19 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Get more out of media"
-msgstr ""
+msgstr "Využijte média naplno"
 
 #: src/amo/pages/Guides/index.js:215
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
-msgstr ""
+msgstr "Rozšíření umí řešit širokou škálu zvláštních potřeb a zájmů vztahujících se k médiím, jako je vyhledávání obrázků, správa stahování a předčítání textu, abychom jmenovali alespoň některé."
 
 #: src/amo/pages/Guides/index.js:220
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Už jste někdy na webu narazili na úchvatný obrázek a chtěli jste se o něm dozvědět více, jako třeba kdo je to na té fotce? Existují související obrázky? Toto rozšíření umožňuje snadno a rychle "
+"provádět reverzní vyhledávání obrázků pomocí různých vyhledávačů."
 
 #: src/amo/pages/Guides/index.js:226
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
@@ -1968,7 +1979,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "Přeneste si média přímo do prohlížeče"
 
 #: src/amo/pages/Guides/index.js:235
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
