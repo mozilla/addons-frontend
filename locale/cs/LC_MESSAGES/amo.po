@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-25 20:05+0000\n"
+"PO-Revision-Date: 2019-04-25 20:29+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -53,7 +53,7 @@ msgstr ""
 
 #: src/amo/components/AddonAdminLinks/index.js:121
 msgid "Review theme"
-msgstr ""
+msgstr "Kontrola motivu vzhledu"
 
 #: src/amo/components/AddonAdminLinks/index.js:123
 msgid "Review add-on code"
@@ -69,7 +69,7 @@ msgstr "Upravit doplněk"
 
 #: src/amo/components/AddonAdminLinks/index.js:89
 msgid "Admin add-on status"
-msgstr ""
+msgstr "Stav správy doplňku"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
@@ -2492,7 +2492,7 @@ msgstr "Upravit profil"
 
 #: src/amo/pages/UserProfile/index.js:447
 msgid "Admin user"
-msgstr ""
+msgstr "Administrátor"
 
 #: src/amo/pages/UserProfileEdit/index.js:202
 msgid "Picture successfully deleted"
@@ -2617,11 +2617,11 @@ msgstr "Smazat profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:799
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "DŮLEŽITÉ: Smazání vašeho profilu je nevratné."
 
 #: src/amo/pages/UserProfileEdit/index.js:802
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "DŮLEŽITÉ: Smazání tohoto profilu je nevratné."
 
 #: src/amo/pages/UserProfileEdit/index.js:811
 msgid ""
