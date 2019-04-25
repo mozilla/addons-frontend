@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-25 16:31+0000\n"
+"PO-Revision-Date: 2019-04-25 16:40+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -958,9 +958,8 @@ msgid "Blog"
 msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:97
-#, fuzzy
 msgid "Extension Workshop"
-msgstr "Rozšíření"
+msgstr ""
 
 #: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:107
 msgid "Developer Hub"
@@ -2037,6 +2036,8 @@ msgstr "Zablokujte otravné reklamy"
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
+"Dnešní internet je zaplněný nežádoucími reklamami, které se vám pletou do cesty a zpomalují vás. Rozšíření blokující reklamy mohou tyto reklamy blokovat nebo filtrovat, abyste zase mohli brouzdat "
+"bez rušivých vlivů."
 
 #: src/amo/pages/Home/index.js:133
 msgid "Bookmarks"
@@ -2241,7 +2242,7 @@ msgstr "%(startLink)sInformace o tom, jak kontaktovat tým, který má v Mozille
 
 #: src/amo/pages/StaticPages/About/index.js:31
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Oficiální web Mozilly pro stahování rozšíření a motivů vzhledu pro Firefox. Přidejte nové funkce a změňte vzhled prohlížeče, aby bylo vaše brouzdání co nejpříjemnější."
 
 #: src/amo/pages/StaticPages/About/index.js:42
 msgid ""
