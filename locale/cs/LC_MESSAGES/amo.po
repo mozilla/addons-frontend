@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-22 21:36+0000\n"
+"PO-Revision-Date: 2019-04-25 16:31+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1060,7 +1060,7 @@ msgstr "Rozšíření jsou jako aplikace pro váš prohlížeč."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "Přidávají do Firefoxu funkce, díky nimž je brouzdání rychlejší, komfortnější nebo prostě jen zábavnější."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1208,7 +1208,7 @@ msgstr "Ukládá se hodnocení..."
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
-msgstr ""
+msgstr "Hodnocení bylo uloženo"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
@@ -1906,11 +1906,11 @@ msgstr "Prozkoumejte další námi vybraná %(linkStart)srozšíření pro sprá
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Lepší brouzdání s vylepšenými záložkami"
 
 #: src/amo/pages/Guides/index.js:156
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "Rozšíření vám mohou pomoci uspořádat své zájmy, které na internetu máte. Správci záložek jsou ideální pro lidi, kteří potřebují sledovat velké množství obsahu."
 
 #: src/amo/pages/Guides/index.js:160
 msgid ""
@@ -1930,7 +1930,7 @@ msgstr "Osvěžte si stránku nového panelu"
 
 #: src/amo/pages/Guides/index.js:176
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "Zahajte každou relaci prohlížení upravenou přímo vám na míru díky přizpůsobení si stránky nového panelu."
 
 #: src/amo/pages/Guides/index.js:180
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
@@ -1946,7 +1946,7 @@ msgstr "Vylepšení videí"
 
 #: src/amo/pages/Guides/index.js:196
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
-msgstr ""
+msgstr "Pokud se vám moc líbí nějaké video, rozšíření nabízejí řadu způsobů, jak maximalizovat svůj zážitek, včetně přizpůsobení si webu YouTube podle svého vkusu a přehrávání videí v režimu divadla."
 
 #: src/amo/pages/Guides/index.js:201
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
