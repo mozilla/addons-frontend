@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-25 13:08+0000\n"
+"PO-Revision-Date: 2019-04-25 13:12+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -642,7 +642,7 @@ msgstr "Zpět do sbírky"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:48
 msgid "Add-ons"
-msgstr "Doplňky"
+msgstr "Počet doplňků"
 
 #: src/amo/components/CollectionDetails/index.js:83
 msgid "Creator"
@@ -1866,7 +1866,7 @@ msgstr "Jednoduché a účinné blokování reklam. uBlock Origin dokáže efekt
 
 #: src/amo/pages/Guides/index.js:107
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Prozkoumejte další námi vybrané %(linkStart)sblokátory reklam%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Stop online trackers from stalking you"
@@ -1882,7 +1882,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:125
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Prozkoumejte další námi vybraná %(linkStart)srozšíření z oblasti soukromí a zabezpečení%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:136
 msgid "Reimagine tab management"
@@ -1902,7 +1902,7 @@ msgstr "Zpřehledněte si své panely a uspořádejte je kaskádově do \"stromo
 
 #: src/amo/pages/Guides/index.js:147
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Prozkoumejte další námi vybraná %(linkStart)srozšíření pro správu panelů%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Better browsing with improved bookmarks"
@@ -1922,7 +1922,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:167
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Prozkoumejte další námi vybraná %(linkStart)srozšíření pro správu záložek%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Enjoy a fresh new tab experience"
@@ -1983,11 +1983,11 @@ msgstr "Přeneste si média přímo do prohlížeče"
 
 #: src/amo/pages/Guides/index.js:235
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "Rozšíření mohou proměnit Firefox ve vaše vlastní zábavní centrum, které vám poskytuje okamžitý přístup k hudbě, pořizování obrázků, hraní her a dalším věcem."
 
 #: src/amo/pages/Guides/index.js:240
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
-msgstr ""
+msgstr "Získejte přístup k více než 30 000 rozhlasových stanic z celého světa a mějte je vždy na dosah jediného kliknutí."
 
 #: src/amo/pages/Guides/index.js:244
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
@@ -1998,12 +1998,16 @@ msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
 msgstr ""
+"Web je nádherné, avšak divoké místo. Vaše osobní údaje mohou být použity bez vašeho souhlasu, vaše aktivity tajně sledovány a vaše hesla odcizena. Rozšíření mohou naštěstí pomoci posílit vaše "
+"soukromí a bezpečnost na internetu."
 
 #: src/amo/pages/Guides/index.js:281
 msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Pracujete s příliš mnoha otevřenými panely nebo závratným počtem záložek? Rozšíření vám mohou pomoci! Od výpomoci s jejich organizací až po poskytnutí nových zábavných funkcí mohou rozšíření "
+"dramaticky změnit způsob, jakým s panely a záložkami pracujete."
 
 #: src/amo/pages/Guides/index.js:294
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
@@ -2015,11 +2019,11 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:79
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
-msgstr ""
+msgstr "Správci hesel vám mohou pomoci vytvářet si spolehlivá hesla, uchovávat je (bezpečně) na jednom místě a poskytnout vám snadný přístup ke svým přihlašovacím údajům, ať jste kdekoliv."
 
 #: src/amo/pages/Guides/index.js:84
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
-msgstr ""
+msgstr "Plně šifrovaná ochrana hesel. Ukládejte své údaje bezpečně a přistupujte ke svým přihlašovacím údajům ze všech svých zařízení."
 
 #: src/amo/pages/Guides/index.js:88
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
@@ -2093,11 +2097,11 @@ msgstr "Změňte vzhled svého Firefoxu pomocí motivů vzhledu."
 
 #: src/amo/pages/Home/index.js:270
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "Stáhněte si rozšíření a motivy vzhledu pro Firefox. Jsou to jakési aplikace pro váš prohlížeč. Umí blokovat otravné reklamy, chránit hesla, měnit vzhled prohlížeče a mnoho dalších věcí."
 
 #: src/amo/pages/Home/index.js:54
 msgid "See more feed readers"
-msgstr "Více doporučených motivů vzhledu"
+msgstr "Další čtečky kanálů"
 
 #: src/amo/pages/Home/index.js:55
 msgid "Feed readers"
@@ -2621,12 +2625,16 @@ msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
+"Vaše údaje budou trvale odstraněny, včetně vašeho profilu (obrázek, uživatelské jméno, zobrazované jméno, umístění, domovská stránka, biografie, povolání) a nastavení oznámení. Vaše recenze a "
+"hodnocení budou anonymizována a nebude již možno je změnit."
 
 #: src/amo/pages/UserProfileEdit/index.js:818
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
+"Údaje o uživateli budou trvale odstraněny, včetně jeho profilu (obrázek, uživatelské jméno, zobrazované jméno, umístění, domovská stránka, biografie, povolání) a nastavení oznámení. Recenze a "
+"hodnocení budou anonymizována a nebude již možno je změnit."
 
 #: src/amo/pages/UserProfileEdit/index.js:828
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
