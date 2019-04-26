@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-25 20:42+0000\n"
+"PO-Revision-Date: 2019-04-26 17:12+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1876,7 +1876,7 @@ msgstr "Internetoví provozovatelé reklamních sítí mohou sledovat vaši akti
 
 #: src/amo/pages/Guides/index.js:121
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Izolujte svou facebookovou identitu do samostatného „kontejneru“ a zabraňte tak Facebooku ve sledování vaší aktivity vně jeho sociální platformy."
 
 #: src/amo/pages/Guides/index.js:125
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
@@ -2125,7 +2125,7 @@ msgstr "Vylepšete si panely"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Stáhněte si motivy vzhledu a změňte vzhled svého Firefoxu. Upravte si jeho podobu podle svého gusta. Roztomilé bytůstky, zlí roboti, krásné krajiny – tisíce možností."
 
 #: src/amo/pages/LandingPage/index.js:210
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
