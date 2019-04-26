@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-17 10:00+0000\n"
-"Last-Translator: YD <ygda+fx@free.fr>\n"
+"PO-Revision-Date: 2019-04-26 11:27+0000\n"
+"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -548,7 +548,7 @@ msgstr "Code source publié sous licence %(linkStart)s%(licenseName)s%(linkEnd)s
 
 #: src/amo/components/AddonVersionCard/index.js:113
 msgid "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
-msgstr ""
+msgstr "Code source publié sous %(linkStart)sune licence non identifiée%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:139
 msgid "Source code released under %(licenseName)s"
