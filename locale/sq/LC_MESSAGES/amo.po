@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-26 08:52+0000\n"
+"PO-Revision-Date: 2019-04-26 08:58+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -2045,18 +2045,16 @@ msgid "Ad blockers"
 msgstr "Bllokues reklamash"
 
 #: src/amo/pages/Home/index.js:145
-#, fuzzy
 msgid "Smarter shopping"
-msgstr "Blerje Më të Mençura"
+msgstr "Blerje më të mençura"
 
 #: src/amo/pages/Home/index.js:149
 msgid "Productivity"
 msgstr "Prodhimtari"
 
 #: src/amo/pages/Home/index.js:153
-#, fuzzy
 msgid "Watching videos"
-msgstr "Parje Videosh"
+msgstr "Parje videosh"
 
 #: src/amo/pages/Home/index.js:181
 msgid "Abstract"
@@ -2105,13 +2103,12 @@ msgid "Feed readers"
 msgstr "Lexues prurjesh"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more VPN solutions"
-msgstr "Shihni më tepër zgjerime për skeda"
+msgstr "Shihni më tepër zgjidhje VPN"
 
 #: src/amo/pages/Home/index.js:61
 msgid "VPN solutions"
-msgstr ""
+msgstr "Zgjidhje VPN"
 
 #: src/amo/pages/Home/index.js:66
 msgid "See more tab extensions"
@@ -2198,6 +2195,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Doni të ndërveproni me asdons.mozilla.org (AMO) si programues? Për hollësi rreth API-sh të përdorura nga AMO dhe %(startAddonsManager)sPërgjegjës Shtesash%(endAddonsManager)s, shihni "
+"%(startAddonsServerDocumentation)sDokumentimin për shërbyes shtesash%(endAddonsServerDocumentation)s."
 
 #: src/amo/pages/StaticPages/About/index.js:155
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2216,9 +2215,8 @@ msgid "Tell your friends and family that Firefox is a fast, secure browser that 
 msgstr "Tregojuni miqve dhe familjes që Firefox-i është një shfletues i shpejtë, i sigurt, që mbron privatësinë, dhe se mund të përdorin shtesa për ta bërë si e duan!"
 
 #: src/amo/pages/StaticPages/About/index.js:190
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "Që të shihni më tepër rrugë me të cilat mund të jepni ndihmesë te bashkësia e shtesave, ju lutemi, vizitoni %(startLink)swiki%(endLink)s tonë"
+msgstr "Që të shihni më tepër rrugë me të cilat mund të jepni ndihmesë te bashkësia e shtesave, ju lutemi, vizitoni %(startLink)swiki%(endLink)s tonë."
 
 #: src/amo/pages/StaticPages/About/index.js:204
 msgid "Get support"
@@ -2568,9 +2566,8 @@ msgid "Display Name *"
 msgstr "Emër Në Ekran *"
 
 #: src/amo/pages/UserProfileEdit/index.js:618
-#, fuzzy
 msgid "Reviewer Name"
-msgstr "Shqyrtojeni temën"
+msgstr "Emër Shqyrtuesi"
 
 #: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This URL will only be visible for users who are developers."
@@ -2663,22 +2660,21 @@ msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if
 msgstr "%(strongStart)sNOTE:%(strongEnd)s S’mund ta fshini profilin e një përdoruesi nëse ai është %(linkStart)sautori i çfarëdo shtese%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:104
-#, fuzzy
 msgid "You are successfully unsubscribed!"
-msgstr "Fotoja u fshi me sukses"
+msgstr "U shpajtuat me sukses!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:117
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "Adresa email %(strongStart)s%(email)s%(strongEnd)s s’do të marrë më mesazhe kur:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:76
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Rregullimet tuaja për njoftimet mund t’i përpunoni duke %(linkStart)spërpunuar profilin tuaj%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:95
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Shpajtomëni"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
