@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-26 17:12+0000\n"
+"PO-Revision-Date: 2019-04-27 08:58+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -2059,7 +2059,6 @@ msgid "Productivity"
 msgstr "Produktivita"
 
 #: src/amo/pages/Home/index.js:153
-#, fuzzy
 msgid "Watching videos"
 msgstr "Sledování videí"
 
@@ -2217,9 +2216,8 @@ msgid "Tell your friends and family that Firefox is a fast, secure browser that 
 msgstr "Řekněte o tom, že Firefox je rychlý a bezpečný prohlížeč chránící jejich soukromí, který si mohou rozšířit pomocí doplňků, své rodině a svým známým!"
 
 #: src/amo/pages/StaticPages/About/index.js:190
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "Pokud by vás zajímaly další možnosti, jak se zapojit, navštivte prosím naši %(startLink)swiki%(endLink)s"
+msgstr "Pokud by vás zajímaly další možnosti, jak se zapojit, navštivte prosím naši %(startLink)swiki%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:204
 msgid "Get support"
