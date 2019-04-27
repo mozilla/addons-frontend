@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-27 13:00+0000\n"
+"PO-Revision-Date: 2019-04-27 13:30+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -2438,14 +2438,15 @@ msgstr "Moje recence"
 #: src/amo/pages/UserProfile/index.js:268
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
+"Profil uživatele %(user)s, autora rozšíření a motivů vzhledu pro Firefox. Najděte další aplikace od uživatele %(user)s, včetně průměrných hodnocení, licenčních ujednání a možnosti nahlásit problémy."
 
 #: src/amo/pages/UserProfile/index.js:272
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil uživatele %(user)s, autora rozšíření pro Firefox. Najděte další rozšíření od uživatele %(user)s, včetně průměrných hodnocení, licenčních ujednání a možnosti nahlásit problémy."
 
 #: src/amo/pages/UserProfile/index.js:276
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Profil uživatele %(user)s, autora motivů vzhledu pro Firefox. Najděte další aplikace od uživatele %(user)s, včetně průměrných hodnocení, licenčních ujednání a možnosti nahlásit problémy."
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
@@ -2564,9 +2565,8 @@ msgid "Display Name *"
 msgstr "Zobrazované jméno *"
 
 #: src/amo/pages/UserProfileEdit/index.js:618
-#, fuzzy
 msgid "Reviewer Name"
-msgstr "Recenze od uživatele %(userName)s"
+msgstr "Jméno redaktora"
 
 #: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This URL will only be visible for users who are developers."
@@ -2655,9 +2655,8 @@ msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if
 msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:104
-#, fuzzy
 msgid "You are successfully unsubscribed!"
-msgstr "Obrázek byl úspěšně smazán"
+msgstr "Byli jste úspěšně odhlášeni!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:117
