@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-27 14:05+0000\n"
+"PO-Revision-Date: 2019-04-27 14:15+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -49,7 +49,7 @@ msgstr "Správa doplňku"
 
 #: src/amo/components/AddonAdminLinks/index.js:114
 msgid "Content review add-on"
-msgstr ""
+msgstr "Kontrola obsahu doplňku"
 
 #: src/amo/components/AddonAdminLinks/index.js:121
 msgid "Review theme"
@@ -2783,7 +2783,7 @@ msgstr "Zúčastnit se průzkumu"
 
 #: src/core/components/SurveyNotice/index.js:139
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Děkujeme za návštěvu tohoto webu! Udělejte si prosím chvilku a podělte se s Firefoxem o svých zkušenostech."
 
 #: src/core/i18n/utils.js:255
 msgid "%(localizedSize)s B"
