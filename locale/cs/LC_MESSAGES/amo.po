@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-27 13:30+0000\n"
+"PO-Revision-Date: 2019-04-27 13:48+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -2649,10 +2649,12 @@ msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
+"%(strongStart)sPOZNÁMKA:%(strongEnd)s Nemůžete smazat svůj profil, jestliže jste %(linkStart)sautor nějakého doplňku%(linkEnd)s. Před smazáním svého profilu musíte %(docLinkStart)spřevést vlastnická"
+" práva%(docLinkEnd)s nebo své doplňky smazat."
 
 #: src/amo/pages/UserProfileEdit/index.js:848
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sPOZNÁMKA:%(strongEnd)s Nemůžete smazat profil uživatele, který je %(linkStart)sautor nějakého doplňku%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:104
 msgid "You are successfully unsubscribed!"
@@ -2661,7 +2663,7 @@ msgstr "Byli jste úspěšně odhlášeni!"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:117
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "E-mailová adresa %(strongStart)s%(email)s%(strongEnd)s již nebude dostávat žádné zprávy, když:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:76
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
@@ -2669,7 +2671,7 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:95
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Zrušit odběr"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
