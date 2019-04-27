@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-27 10:31+0000\n"
+"PO-Revision-Date: 2019-04-27 11:25+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1682,7 +1682,7 @@ msgstr "Poznámky k verzi %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:448
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Toto není veřejná stránka doplňku. Vidíte ji pouze z důvodu zvýšených oprávnění."
 
 #: src/amo/pages/Addon/index.js:476
 msgid "Extension Metadata"
