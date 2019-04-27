@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-27 08:58+0000\n"
+"PO-Revision-Date: 2019-04-27 10:31+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -2248,12 +2248,13 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
-"Addons.mozilla.org (AMO) je oficiální server Mozilly, na který slouží k objevování a instalaci nových doplňků do prohlížeče Firefox. Doplňky pomáhají upravovat a přizpůsobovat vaše prohlížení tím, "
-"že do Firefoxu přidávají nové funkce, které vylepšují vaši práci s webem nebo upravují to, jak váš prohlížeč vypadá."
+"Addons.mozilla.org (AMO) je oficiální web Mozilly, který slouží k objevování a instalaci nových doplňků do prohlížeče Firefox. Doplňky pomáhají pozměnit a přizpůsobit si brouzdání tím, že do "
+"Firefoxu přidávají nové funkce, které vylepšují interakci s webovým obsahem nebo mění vzhled prohlížeče."
 
 #: src/amo/pages/StaticPages/About/index.js:52
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 msgstr ""
+"Pokud hledáte doplňky pro Thunderbird nebo SeaMonkey, navštivte prosím web %(startTBLink)saddons.thunderbird.net%(endTBLink)s nebo %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:69
 msgid "A community of creators"
@@ -2353,7 +2354,7 @@ msgstr "Příručka recenzenta"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:31
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Pokyny, tipy a nejčastější dotazy ohledně psaní recenzí pro rozšíření a motivy vzhledu, které jste si stáhli a používali ve Firefoxu."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid ""
