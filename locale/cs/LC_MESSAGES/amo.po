@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-27 13:48+0000\n"
+"PO-Revision-Date: 2019-04-27 14:05+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -2642,7 +2642,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:828
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
-msgstr ""
+msgstr "Když se na webu addons.mozilla.org znovu přihlásíte pomocí této e-mailové adresy, vytvoříte na něm nový profil, který nebude nijak propojen s vaším odstraněným profilem."
 
 #: src/amo/pages/UserProfileEdit/index.js:841
 msgid ""
@@ -2667,7 +2667,7 @@ msgstr "E-mailová adresa %(strongStart)s%(email)s%(strongEnd)s již nebude dost
 
 #: src/amo/pages/UsersUnsubscribe/index.js:76
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Své nastavení zasílání oznámení si můžete změnit %(linkStart)súpravou svého profilu%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:95
 msgid "Unsubscribe"
