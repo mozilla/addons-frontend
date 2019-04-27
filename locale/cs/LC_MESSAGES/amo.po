@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-27 10:31+0000\n"
+"PO-Revision-Date: 2019-04-27 12:49+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -2154,7 +2154,7 @@ msgstr "Slovníky a jazykové balíčky"
 
 #: src/amo/pages/LanguageTools/index.js:157
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Stáhněte si slovníky a jazykové balíčky pro Firefox. Přidejte si do prohlížeče nový jazyk pro kontrolu pravopisu nebo změňte jazyk rozhraní prohlížeče."
 
 #: src/amo/pages/LanguageTools/index.js:168
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -2183,6 +2183,7 @@ msgstr "Slovníky"
 #: src/amo/pages/SearchTools/index.js:31
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
 msgstr ""
+"Stáhněte si rozšíření pro Firefox a přizpůsobte si způsob vyhledávání – vše od vyhledávání zaměřeným na zachování soukromí až po vyhledávání jen na konkrétních webech, vyhledávání obrázků apod."
 
 #: src/amo/pages/StaticPages/About/index.js:108
 msgid ""
