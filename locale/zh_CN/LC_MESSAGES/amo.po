@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-24 09:58+0000\n"
+"PO-Revision-Date: 2019-04-27 13:35+0000\n"
 "Last-Translator: passionforlife <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -544,7 +544,7 @@ msgstr "源代码遵循 %(linkStart)s%(licenseName)s%(linkEnd)s 许可协议发�
 
 #: src/amo/components/AddonVersionCard/index.js:113
 msgid "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
-msgstr "源代码遵循%(linkStart)s不明的许可协议%(linkEnd)s发布"
+msgstr "源代码遵循%(linkStart)s未指定的许可协议%(linkEnd)s发布"
 
 #: src/amo/components/AddonVersionCard/index.js:139
 msgid "Source code released under %(licenseName)s"
