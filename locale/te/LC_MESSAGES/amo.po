@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-29 08:40+0000\n"
+"PO-Revision-Date: 2019-04-29 19:28+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1342,7 +1342,7 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:149 src/amo/pages/Category/index.js:190 src/amo/pages/LandingPage/index.js:176
 msgid "Top rated themes"
-msgstr ""
+msgstr "ఉత్తమంగా రేటైన అలంకారాలు"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Search/index.js:152
@@ -1414,8 +1414,8 @@ msgstr[1] ""
 #: src/amo/components/SearchContextCard/index.js:171
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s ఫలితం దొరికింది"
+msgstr[1] "%(count)s ఫలితాలు దొరికాయి"
 
 #: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
@@ -1555,7 +1555,7 @@ msgstr "వెతుకుతోంది…"
 
 #: src/amo/components/SearchResults/index.js:47
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "\"%(query)s\"కి ఫలితాలేమీ దొరకలేదు."
 
 #: src/amo/components/SearchResults/index.js:53
 msgid "No results were found."
