@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-09 20:55+0000\n"
+"PO-Revision-Date: 2019-04-29 07:57+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -580,14 +580,12 @@ msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Firefox యొక్క పొడిగింతలు"
+msgstr "Firefox (%(locale)s) కొసం పొడగింతలు"
 
 #: src/amo/components/App/index.js:207 src/amo/components/HeadMetaTags/index.js:71
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – Firefox యొక్క పొడిగింతలు"
+msgstr "%(title)s – Firefox (%(locale)s) కోసం పొడగింతలు"
 
 #: src/amo/components/App/index.js:215 src/amo/components/HeadMetaTags/index.js:76
 #, fuzzy
