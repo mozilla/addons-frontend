@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-30 15:29+0000\n"
+"PO-Revision-Date: 2019-04-30 15:49+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -898,7 +898,7 @@ msgstr "Použití nevhodného jazyka bylo nahlášeno"
 
 #: src/amo/components/Footer/index.js:104
 msgid "Site Status"
-msgstr "Stav serveru"
+msgstr "Stav webu"
 
 #: src/amo/components/Footer/index.js:117 src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
@@ -2341,7 +2341,7 @@ msgstr "Ano, autor doplňku může odeslat k recenzi odpověď. Pro delší disk
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:165
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr "Jsem autor doplňku, mohu smazat nepravdivé recenze či hodnocení?"
+msgstr "Jsem autor doplňku, mohu odstranit záporné recenze či hodnocení?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:170
 msgid ""
