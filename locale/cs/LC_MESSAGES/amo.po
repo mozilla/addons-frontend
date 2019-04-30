@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-30 15:49+0000\n"
+"PO-Revision-Date: 2019-04-30 16:05+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -2204,7 +2204,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:155
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr "Pokud máte zájem přispět k vývoji doplňku, ale nejste technicky založení, stále existuje několik možností, jak se zapojit:"
+msgstr "Pokud máte zájem přispět svým doplňkem, ale nejste technicky založení, stále existuje několik možností, jak se zapojit:"
 
 #: src/amo/pages/StaticPages/About/index.js:164
 msgid "Participate in our %(startLink)sforum%(endLink)s."
@@ -2231,7 +2231,7 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"Pokud byste se rádi dozvědeli, jak zpravovat doplňky ve Firefoxu nebo potřebujete obecnou pomoc s používáním Firefoxu, navštivte prosím stránky %(startSUMOLink)sPodpory Mozilly%(endSUMOLink)s. Pokud"
+"Pokud byste se rádi dozvěděli, jak spravovat doplňky ve Firefoxu nebo potřebujete obecnou pomoc s používáním Firefoxu, navštivte prosím %(startSUMOLink)sstránky podpory Mozilly%(endSUMOLink)s. Pokud"
 " nenajdete odpověď tam, můžete se %(startForumLink)szeptat na našem komunitním fóru%(endForumLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:22
