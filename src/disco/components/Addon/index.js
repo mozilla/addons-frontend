@@ -310,7 +310,7 @@ export class AddonBase extends React.Component<InternalProps> {
 }
 
 function mapStateToProps(state: AppState, ownProps: Props) {
-  const addon = getAddonByID(state, ownProps.addonId);
+  const addon = getAddonByID(state.addons, ownProps.addonId);
   let currentVersion = null;
 
   let installation = {};

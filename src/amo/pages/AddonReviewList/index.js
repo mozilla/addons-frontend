@@ -395,7 +395,7 @@ export function mapStateToProps(
   ownProps: Props,
 ): $Shape<InternalProps> {
   const { addonSlug } = ownProps.match.params;
-  const addon = getAddonBySlug(state, addonSlug);
+  const addon = getAddonBySlug(state.addons, addonSlug);
   const reviewData = selectReviews({
     page: getCurrentPage(ownProps.location),
     reviewsState: state.reviews,

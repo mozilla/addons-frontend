@@ -20,7 +20,6 @@ import type {
   PartialExternalAddonType,
   ThemeData,
 } from 'core/types/addons';
-import type { AppState as DiscoAppState } from 'disco/store';
 
 export const FETCH_ADDON_INFO: 'FETCH_ADDON_INFO' = 'FETCH_ADDON_INFO';
 export const LOAD_ADDON_INFO: 'LOAD_ADDON_INFO' = 'LOAD_ADDON_INFO';
@@ -274,32 +273,32 @@ export function createInternalAddon(
 }
 
 export const getAddonByID = (
-  state: AppState | DiscoAppState,
+  addons: AddonsState,
   id: AddonID,
 ): AddonType | null => {
-  return state.addons.byID[`${id}`] || null;
+  return addons.byID[`${id}`] || null;
 };
 
 export const getAddonBySlug = (
-  state: AppState,
+  addons: AddonsState,
   slug: string,
 ): AddonType | null => {
   if (typeof slug !== 'string') {
     return null;
   }
 
-  const addonId = state.addons.bySlug[slug.toLowerCase()];
+  const addonId = addons.bySlug[slug.toLowerCase()];
 
-  return getAddonByID(state, addonId);
+  return getAddonByID(addons, addonId);
 };
 
 export const getAddonByGUID = (
-  state: AppState | DiscoAppState,
+  addons: AddonsState,
   guid: string,
 ): AddonType | null => {
-  const addonId = state.addons.byGUID[guid];
+  const addonId = addons.byGUID[guid];
 
-  return getAddonByID(state, addonId);
+  return getAddonByID(addons, addonId);
 };
 
 export const isAddonLoading = (state: AppState, slug: string): boolean => {
@@ -414,7 +413,7 @@ export default function addonsReducer(
 
     case UNLOAD_ADDON_REVIEWS: {
       const { addonId } = action.payload;
-      const addon = state.byID[`${addonId}`];
+      const addon = getAddonByID(state, addonId);
       if (addon) {
         return {
           ...state,
@@ -442,7 +441,7 @@ export default function addonsReducer(
     case UPDATE_RATING_COUNTS: {
       const { addonId, oldReview, newReview } = action.payload;
 
-      const addon = state.byID[`${addonId}`];
+      const addon = getAddonByID(state, addonId);
       if (!addon) {
         return state;
       }

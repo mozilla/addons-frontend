@@ -121,14 +121,16 @@ describe(__filename, () => {
     const extension = { ...fakeAddon, type: ADDON_TYPE_EXTENSION };
     const state = addons(undefined, loadAddonResults({ addons: [extension] }));
 
-    expect(state.byID[extension.id]).toEqual(createInternalAddon(extension));
+    expect(getAddonByID(state, extension.id)).toEqual(
+      createInternalAddon(extension),
+    );
   });
 
   it('stores an internal representation of a theme', () => {
     const theme = { ...fakeTheme };
     const state = addons(undefined, loadAddonResults({ addons: [theme] }));
 
-    expect(state.byID[theme.id]).toEqual(createInternalAddon(theme));
+    expect(getAddonByID(state, theme.id)).toEqual(createInternalAddon(theme));
   });
 
   it('does not let theme_data set properties to undefined', () => {
@@ -141,7 +143,7 @@ describe(__filename, () => {
     };
     const state = addons(undefined, loadAddonResults({ addons: [theme] }));
 
-    expect(state.byID[theme.id].id).toEqual(theme.id);
+    expect(getAddonByID(state, theme.id).id).toEqual(theme.id);
   });
 
   it('does not store undefined properties', () => {
@@ -149,15 +151,20 @@ describe(__filename, () => {
     const state = addons(undefined, loadAddonResults({ addons: [extension] }));
 
     // eslint-disable-next-line no-prototype-builtins
-    expect(state.byID[extension.id].hasOwnProperty('description')).toEqual(
-      false,
-    );
+    expect(
+      Object.prototype.hasOwnProperty.call(
+        getAddonByID(state, extension.id),
+        'description',
+      ),
+    ).toEqual(false);
   });
 
   it('mimics how Firefox appends @persona.mozilla.org to GUIDs', () => {
     const state = addons(undefined, loadAddonResults({ addons: [fakeTheme] }));
 
-    expect(state.byID[fakeTheme.id].guid).toEqual('54321@personas.mozilla.org');
+    expect(getAddonByID(state, fakeTheme.id).guid).toEqual(
+      '54321@personas.mozilla.org',
+    );
   });
 
   it('exposes `isRestartRequired` attribute from current version files', () => {
@@ -168,7 +175,7 @@ describe(__filename, () => {
     });
 
     const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].isRestartRequired).toBe(true);
+    expect(getAddonByID(state, addon.id).isRestartRequired).toBe(true);
   });
 
   it('sets `isRestartRequired` to `false` when restart is not required', () => {
@@ -179,14 +186,14 @@ describe(__filename, () => {
     });
 
     const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].isRestartRequired).toBe(false);
+    expect(getAddonByID(state, addon.id).isRestartRequired).toBe(false);
   });
 
   it('sets `isRestartRequired` to `false` when addon has no files', () => {
     const addon = createFakeAddon({ files: [] });
 
     const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].isRestartRequired).toBe(false);
+    expect(getAddonByID(state, addon.id).isRestartRequired).toBe(false);
   });
 
   it('sets `isRestartRequired` to `true` when any file declares it', () => {
@@ -198,7 +205,7 @@ describe(__filename, () => {
     });
 
     const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].isRestartRequired).toBe(true);
+    expect(getAddonByID(state, addon.id).isRestartRequired).toBe(true);
   });
 
   it('exposes `isWebExtension` attribute from current version files', () => {
@@ -207,7 +214,7 @@ describe(__filename, () => {
     });
 
     const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].isWebExtension).toBe(true);
+    expect(getAddonByID(state, addon.id).isWebExtension).toBe(true);
   });
 
   it('sets `isWebExtension` to `false` when add-on is not a web extension', () => {
@@ -216,14 +223,14 @@ describe(__filename, () => {
     });
 
     const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].isWebExtension).toBe(false);
+    expect(getAddonByID(state, addon.id).isWebExtension).toBe(false);
   });
 
   it('sets `isWebExtension` to `false` when addon has no files', () => {
     const addon = createFakeAddon({ files: [] });
 
     const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].isWebExtension).toBe(false);
+    expect(getAddonByID(state, addon.id).isWebExtension).toBe(false);
   });
 
   it('sets `isWebExtension` to `true` when any file declares it', () => {
@@ -232,7 +239,7 @@ describe(__filename, () => {
     });
 
     const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].isWebExtension).toBe(true);
+    expect(getAddonByID(state, addon.id).isWebExtension).toBe(true);
   });
 
   it('exposes `isMozillaSignedExtension` from current version files', () => {
@@ -241,7 +248,7 @@ describe(__filename, () => {
     });
 
     const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].isMozillaSignedExtension).toBe(true);
+    expect(getAddonByID(state, addon.id).isMozillaSignedExtension).toBe(true);
   });
 
   it('sets `isMozillaSignedExtension` to `false` when not declared', () => {
@@ -250,14 +257,14 @@ describe(__filename, () => {
     });
 
     const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].isMozillaSignedExtension).toBe(false);
+    expect(getAddonByID(state, addon.id).isMozillaSignedExtension).toBe(false);
   });
 
   it('sets `isMozillaSignedExtension` to `false` without files', () => {
     const addon = createFakeAddon({ files: [] });
 
     const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].isMozillaSignedExtension).toBe(false);
+    expect(getAddonByID(state, addon.id).isMozillaSignedExtension).toBe(false);
   });
 
   it('sets `isMozillaSignedExtension` to `true` when any file declares it', () => {
@@ -269,7 +276,7 @@ describe(__filename, () => {
     });
 
     const state = addons(undefined, loadAddonResults({ addons: [addon] }));
-    expect(state.byID[addon.id].isMozillaSignedExtension).toBe(true);
+    expect(getAddonByID(state, addon.id).isMozillaSignedExtension).toBe(true);
   });
 
   it('sets the loading state for add-ons to false', () => {
@@ -338,14 +345,14 @@ describe(__filename, () => {
     it('returns null if no add-on found with the given slug', () => {
       const { state } = dispatchClientMetadata();
 
-      expect(getAddonByID(state, 'id')).toEqual(null);
+      expect(getAddonByID(state.addons, 'id')).toEqual(null);
     });
 
     it('returns an add-on by id', () => {
       const { store } = dispatchClientMetadata();
       store.dispatch(loadAddonResults({ addons: [fakeAddon] }));
 
-      expect(getAddonByID(store.getState(), fakeAddon.id)).toEqual(
+      expect(getAddonByID(store.getState().addons, fakeAddon.id)).toEqual(
         createInternalAddon(fakeAddon),
       );
     });
@@ -355,32 +362,32 @@ describe(__filename, () => {
     it('returns null if no add-on found with the given slug', () => {
       const { state } = dispatchClientMetadata();
 
-      expect(getAddonBySlug(state, 'slug')).toEqual(null);
+      expect(getAddonBySlug(state.addons, 'slug')).toEqual(null);
     });
 
     it('returns null when slug is null', () => {
       const { state } = dispatchClientMetadata();
 
-      expect(getAddonBySlug(state, null)).toEqual(null);
+      expect(getAddonBySlug(state.addons, null)).toEqual(null);
     });
 
     it('returns null when slug is undefined', () => {
       const { state } = dispatchClientMetadata();
 
-      expect(getAddonBySlug(state, undefined)).toEqual(null);
+      expect(getAddonBySlug(state.addons, undefined)).toEqual(null);
     });
 
     it('returns null when slug is not a string', () => {
       const { state } = dispatchClientMetadata();
 
-      expect(getAddonBySlug(state, 123)).toEqual(null);
+      expect(getAddonBySlug(state.addons, 123)).toEqual(null);
     });
 
     it('returns an add-on by slug', () => {
       const { store } = dispatchClientMetadata();
       store.dispatch(loadAddonResults({ addons: [fakeAddon] }));
 
-      expect(getAddonBySlug(store.getState(), fakeAddon.slug)).toEqual(
+      expect(getAddonBySlug(store.getState().addons, fakeAddon.slug)).toEqual(
         createInternalAddon(fakeAddon),
       );
     });
@@ -392,9 +399,9 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata();
       store.dispatch(loadAddonResults({ addons: [externalAddon] }));
 
-      expect(getAddonBySlug(store.getState(), slug.toUpperCase())).toEqual(
-        createInternalAddon(externalAddon),
-      );
+      expect(
+        getAddonBySlug(store.getState().addons, slug.toUpperCase()),
+      ).toEqual(createInternalAddon(externalAddon));
     });
   });
 
@@ -402,14 +409,14 @@ describe(__filename, () => {
     it('returns null if no add-on found with the given guid', () => {
       const { state } = dispatchClientMetadata();
 
-      expect(getAddonByGUID(state, 'guid')).toEqual(null);
+      expect(getAddonByGUID(state.addons, 'guid')).toEqual(null);
     });
 
     it('returns an add-on by guid', () => {
       const { store } = dispatchClientMetadata();
       store.dispatch(loadAddonResults({ addons: [fakeAddon] }));
 
-      expect(getAddonByGUID(store.getState(), fakeAddon.guid)).toEqual(
+      expect(getAddonByGUID(store.getState().addons, fakeAddon.guid)).toEqual(
         createInternalAddon(fakeAddon),
       );
     });
@@ -551,8 +558,8 @@ describe(__filename, () => {
 
       state = addons(state, unloadAddonReviews({ addonId: id1, reviewId: 1 }));
 
-      expect(state.byGUID[addon1.guid]).toEqual(undefined);
-      expect(state.byID[addon1.id]).toEqual(undefined);
+      expect(getAddonByGUID(state, addon1.guid)).toEqual(null);
+      expect(getAddonByID(state, addon1.id)).toEqual(null);
       expect(state.bySlug).toEqual({ [slug2]: id2 });
       expect(state.loadingBySlug).toEqual({ [slug2]: false });
     });
@@ -613,7 +620,7 @@ describe(__filename, () => {
         }),
       );
 
-      const storedAddon = state.byID[addon.id];
+      const storedAddon = getAddonByID(state, addon.id);
       expect(storedAddon.ratings.count).toEqual(ratingCount + 1);
       // Since a review without a body was added, no change.
       expect(storedAddon.ratings.text_count).toEqual(reviewCount);
@@ -639,7 +646,9 @@ describe(__filename, () => {
         }),
       );
 
-      expect(state.byID[addon.id].ratings.text_count).toEqual(reviewCount + 1);
+      expect(getAddonByID(state, addon.id).ratings.text_count).toEqual(
+        reviewCount + 1,
+      );
     });
 
     it('increments the review count for reviews updated to include a body', () => {
@@ -666,7 +675,9 @@ describe(__filename, () => {
         }),
       );
 
-      expect(state.byID[addon.id].ratings.text_count).toEqual(reviewCount + 1);
+      expect(getAddonByID(state, addon.id).ratings.text_count).toEqual(
+        reviewCount + 1,
+      );
     });
 
     it('does not increment rating or review counts for existing reviews', () => {
@@ -687,7 +698,7 @@ describe(__filename, () => {
         }),
       );
 
-      const newAddon = state.byID[addon.id];
+      const newAddon = getAddonByID(state, addon.id);
       expect(newAddon.ratings.count).toEqual(ratingCount);
       expect(newAddon.ratings.text_count).toEqual(reviewCount);
     });
@@ -709,7 +720,7 @@ describe(__filename, () => {
         }),
       );
 
-      const storedAddon = state.byID[addon.id];
+      const storedAddon = getAddonByID(state, addon.id);
       expect(storedAddon.ratings.count).toEqual(1);
       expect(storedAddon.ratings.text_count).toEqual(1);
     });
@@ -735,7 +746,7 @@ describe(__filename, () => {
         }),
       );
 
-      expect(state.byID[addon.id].ratings.average.toFixed(3)).toEqual(
+      expect(getAddonByID(state, addon.id).ratings.average.toFixed(3)).toEqual(
         average(ratings).toFixed(3),
       );
     });
@@ -760,7 +771,7 @@ describe(__filename, () => {
         }),
       );
 
-      expect(state.byID[addon.id].ratings.average.toFixed(3)).toEqual(
+      expect(getAddonByID(state, addon.id).ratings.average.toFixed(3)).toEqual(
         average(ratings).toFixed(3),
       );
     });
@@ -781,7 +792,7 @@ describe(__filename, () => {
         }),
       );
 
-      expect(state.byID[addon.id].ratings.average.toFixed(3)).toEqual(
+      expect(getAddonByID(state, addon.id).ratings.average.toFixed(3)).toEqual(
         average(ratings).toFixed(3),
       );
     });
@@ -813,7 +824,7 @@ describe(__filename, () => {
       );
 
       // Make sure average is not NaN
-      expect(state.byID[addon.id].ratings.average).toEqual(oldAverage);
+      expect(getAddonByID(state, addon.id).ratings.average).toEqual(oldAverage);
     });
 
     it('sets bayesian_average to average', () => {
@@ -837,9 +848,9 @@ describe(__filename, () => {
         }),
       );
 
-      expect(state.byID[addon.id].ratings.bayesian_average.toFixed(3)).toEqual(
-        average(ratings).toFixed(3),
-      );
+      expect(
+        getAddonByID(state, addon.id).ratings.bayesian_average.toFixed(3),
+      ).toEqual(average(ratings).toFixed(3));
     });
   });
 
