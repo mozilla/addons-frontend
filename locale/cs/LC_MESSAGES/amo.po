@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-06 23:27+0000\n"
+"PO-Revision-Date: 2019-04-30 07:10+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -331,7 +331,7 @@ msgstr "Opravdu chcete odstranit tuto odpověď?"
 
 #: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this rating?"
-msgstr "Opravdu chcete odstranit tuto recenzi?"
+msgstr "Opravdu chcete odstranit toto hodnocení?"
 
 #: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
