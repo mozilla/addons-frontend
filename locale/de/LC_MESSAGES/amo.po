@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-24 13:02+0000\n"
+"PO-Revision-Date: 2019-04-30 19:51+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -894,11 +894,11 @@ msgstr "Als Werbung gemeldet"
 
 #: src/amo/components/FlagReviewMenu/index.js:89
 msgid "This contains inappropriate language"
-msgstr "Dies enthält unpassenden Sprache"
+msgstr "Dies enthält unangemessene Sprache"
 
 #: src/amo/components/FlagReviewMenu/index.js:90
 msgid "Flagged for inappropriate language"
-msgstr "Wegen unpassender Sprache gemeldet"
+msgstr "Wegen unangemessener Sprache gemeldet"
 
 #: src/amo/components/Footer/index.js:104
 msgid "Site Status"
@@ -1062,7 +1062,7 @@ msgstr "Erweiterungen sind wie Apps für Ihren Browser."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr "Sie fügen Funktionen zu Firefox hinzu, um das Surfen schneller, intelligenter oder einfach nur Spaß zu machen."
+msgstr "Sie fügen Funktionen zu Firefox hinzu, um das Surfen schneller und intelligenter zu machen oder einfach nur Spaß zu haben."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
