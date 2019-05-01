@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-05-01 09:30+0000\n"
+"PO-Revision-Date: 2019-05-01 09:36+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1895,10 +1895,12 @@ msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Dacă lucrezi de obicei cu o mulțime de file deschise, probabil ești familiarizat(ă) cu frustrarea de a căuta printr-un șir de file neidentificabile în căutarea celei de care ai nevoie. Extensiile "
+"pot oferi soluții creatoare pentru eficientizarea gestionării filelor."
 
 #: src/amo/pages/Guides/index.js:143
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Aranjează și vizualizează filele într-un „arbore” în cascadă în bara laterală Firefox."
 
 #: src/amo/pages/Guides/index.js:147
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
@@ -1906,11 +1908,11 @@ msgstr "Explorează mai multe %(linkStart)sinstrumente de gestionare a filelor%(
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Navigare mai bună cu marcaje îmbunătățite"
 
 #: src/amo/pages/Guides/index.js:156
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "Extensiile te pot ajuta să îți organizezi interesele online. Managerii de marcaje sunt ideali pentru persoanele care urmăresc multe conținuturi."
 
 #: src/amo/pages/Guides/index.js:160
 msgid ""
