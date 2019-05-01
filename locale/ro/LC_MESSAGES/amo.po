@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-05-01 04:52+0000\n"
+"PO-Revision-Date: 2019-05-01 07:51+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -532,7 +532,7 @@ msgstr[2] "%(rating)s de stele din 5"
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:76 src/amo/components/AddonTitle/index.js:80
@@ -979,7 +979,7 @@ msgstr "Numai cu Firefox — Obține Firefox acum"
 
 #: src/amo/components/GuidesAddonCard/index.js:77
 msgid "Staff Pick"
-msgstr ""
+msgstr "Alegerea echipei"
 
 #: src/amo/components/Header/index.js:105
 msgid "Submit and manage extensions and themes"
@@ -1199,11 +1199,11 @@ msgstr "Se salvează evaluarea în stele"
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
-msgstr ""
+msgstr "Evaluarea prin stele a fost salvată"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Citește toate recenziile cu cinci stele"
 
 #: src/amo/components/RatingsByStar/index.js:93
 msgid "Read all four-star reviews"
@@ -1211,7 +1211,7 @@ msgstr "Citește toate recenziile cu patru stele"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "Citește toate recenziile cu trei stele"
 
 #: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all two-star reviews"
@@ -1223,11 +1223,13 @@ msgstr "Citește toate recenziile cu o stea"
 
 #: src/amo/components/ReportAbuseButton/index.js:106 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "Nu putem răspunde oricărei raportări de abuzuri, dar vom analiza situația."
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"În cazul în care crezi că acest supliment încalcă %(linkTagStart)spoliticile Mozilla privind suplimentele%(linkTagEnd)s sau că are probleme de securitate sau de confidențialitate, te rugăm să ne "
+"raportezi aceste probleme completând acest formular."
 
 #: src/amo/components/ReportAbuseButton/index.js:132
 msgid "Report this add-on for abuse"
@@ -1236,14 +1238,15 @@ msgstr "Raportează acest supliment pentru abuz"
 #: src/amo/components/ReportAbuseButton/index.js:161
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
 msgstr ""
+"Te rugăm să nu folosești acest formular ca să raportezi probleme sau ca să soliciți funcționalități de suplimente; acest raport va fi transmis către Mozilla și nu către dezvoltatorul suplimentului."
 
 #: src/amo/components/ReportAbuseButton/index.js:174 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
-msgstr ""
+msgstr "Trimite raportul de abuz"
 
 #: src/amo/components/ReportAbuseButton/index.js:175 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Se trimite raportul de abuz"
 
 #: src/amo/components/ReportAbuseButton/index.js:177
 msgid "Dismiss"
@@ -1251,7 +1254,7 @@ msgstr "Înlătură"
 
 #: src/amo/components/ReportAbuseButton/index.js:178
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Explică-ne cum ne violează acest supliment politicile."
 
 #: src/amo/components/ReportAbuseButton/index.js:95
 msgid "You reported this add-on for abuse"
@@ -1259,7 +1262,7 @@ msgstr "Ai raportat acest supliment pentru abuz"
 
 #: src/amo/components/ReportAbuseButton/index.js:99
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Am primit raportul tău. Îți mulțumim că ne-ai anunțat despre îngrijorările tale cu privire la acest supliment."
 
 #: src/amo/components/ReportUserAbuse/index.js:106 src/amo/components/ReportUserAbuse/index.js:99
 msgid "Report this user for abuse"
@@ -1267,15 +1270,15 @@ msgstr "Raportează acest utilizator pentru abuz"
 
 #: src/amo/components/ReportUserAbuse/index.js:113
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
+msgstr "În cazul în care consideri că acest utilizator încalcă %(linkTagStart)spoliticile Mozilla privind suplimentele%(linkTagEnd)s, te rugăm să raportezi acest utilizator către Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:129
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr ""
+msgstr "Te rugăm să nu folosești acest formular ca să raportezi probleme sau ca să contactezi utilizatorul; acest raport va fi transmis către Mozilla și nu către utilizator."
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
-msgstr ""
+msgstr "Explică-ne cum ne violează acest utilizator politicile."
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "You reported this user for abuse"
@@ -1283,7 +1286,7 @@ msgstr "Ai raportat acest utilizator pentru abuz"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr ""
+msgstr "Am primit raportul tău. Îți mulțumim că ne-ai anunțat despre îngrijorările tale cu privire la acest utilizator."
 
 #: src/amo/components/Search/index.js:116 src/amo/components/SearchResults/index.js:68
 msgid "Search results"
@@ -1673,11 +1676,11 @@ msgstr "Note privind versiunea %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:448
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Aceasta nu este o listare publică. O vezi numai pentru că ai permisiuni de nivel ridicat."
 
 #: src/amo/pages/Addon/index.js:476
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Metadatele extensiei"
 
 #: src/amo/pages/Addon/index.js:493
 msgid "Screenshots"
@@ -1859,7 +1862,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "Împiedică elementele de urmărire online să te hărțuiască"
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
