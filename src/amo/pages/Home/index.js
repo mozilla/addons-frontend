@@ -31,9 +31,9 @@ import './styles.scss';
 export const MOZILLA_USER_ID = config.get('mozillaUserId');
 
 export const FEATURED_COLLECTIONS = [
+  { slug: 'be-more-productive', userId: MOZILLA_USER_ID },
+  { slug: 'youtube-boosters', userId: MOZILLA_USER_ID },
   { slug: 'feed-readers', userId: MOZILLA_USER_ID },
-  { slug: 'vpn-solutions', userId: MOZILLA_USER_ID },
-  { slug: 'change-up-your-tabs', userId: MOZILLA_USER_ID },
 ];
 
 export const isFeaturedCollection = (
@@ -51,20 +51,20 @@ export const isFeaturedCollection = (
 export const getFeaturedCollectionsMetadata = (i18n) => {
   return [
     {
-      footerText: i18n.gettext('See more feed readers'),
-      header: i18n.gettext('Feed readers'),
+      footerText: i18n.gettext('See more productivity extensions'),
+      header: i18n.gettext('Productivity extensions'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[0],
     },
     {
-      footerText: i18n.gettext('See more VPN solutions'),
-      header: i18n.gettext('VPN solutions'),
+      footerText: i18n.gettext('See more YouTube extensions'),
+      header: i18n.gettext('YouTube boosters'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[1],
     },
     {
-      footerText: i18n.gettext('See more tab extensions'),
-      header: i18n.gettext('Change up your tabs'),
+      footerText: i18n.gettext('See more feed readers'),
+      header: i18n.gettext('Feed readers'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[2],
     },
