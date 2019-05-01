@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-05-01 07:51+0000\n"
+"PO-Revision-Date: 2019-05-01 07:52+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1867,6 +1867,8 @@ msgstr "Împiedică elementele de urmărire online să te hărțuiască"
 #: src/amo/pages/Guides/index.js:116
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
 msgstr ""
+"Elementele de publicitate online îți pot urmări activitatea de pe un site web pe altul, adună informații despre tine și despre interesele tale. Extensiile te pot ajuta să îți acoperi urmele "
+"digitale."
 
 #: src/amo/pages/Guides/index.js:121
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
@@ -1878,7 +1880,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:136
 msgid "Reimagine tab management"
-msgstr ""
+msgstr "Reconfigurează gestionarea filelor"
 
 #: src/amo/pages/Guides/index.js:137
 msgid ""
