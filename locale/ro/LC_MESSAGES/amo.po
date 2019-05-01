@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-05-01 07:52+0000\n"
+"PO-Revision-Date: 2019-05-01 09:30+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -113,7 +113,7 @@ msgstr "Acest supliment nu este disponibil pe platforma ta."
 
 #: src/amo/components/AddonCompatibilityError/index.js:114
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
+msgstr "Acest supliment necesită o <a href=\"%(downloadUrl)s\">versiune mai nouă de Firefox</a> (cel puțin versiunea %(minVersion)s). Ai Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:131
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -396,7 +396,7 @@ msgstr "Răspunde la această recenzie"
 
 #: src/amo/components/AddonReviewCard/index.js:507
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Evaluarea sau recenzia a fost ștearsă. O vezi numai pentru că ai permisiuni de nivel ridicat."
 
 #: src/amo/components/AddonReviewCard/index.js:553
 msgid "Write a review"
@@ -766,6 +766,8 @@ msgstr "Editează"
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
+"Dacă ești autentificat(ă) și consideri că acest mesaj este o eroare, te rugăm să <a href=\"%(url)s\">raportezi o problemă</a>. Spune-ne de unde veneai și ce încercai să accesezi și vom soluționa "
+"problema."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:37
 msgid "Not Authorized"
@@ -773,13 +775,15 @@ msgstr "Acces interzis"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:40
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "Ne pare rău, dar nu ai autorizația de a accesa această pagină. Dacă nu ești autentificat(ă), încearcă să o faci folosind linkul din partea de sus a paginii."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:30
 msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
+"Încearcă să intri pe pagină mai târziu, pentru că tema sau extensia poate deveni disponibilă mai târziu. Alternativ, este posibil să găsești ce cauți într-una dintre "
+"%(linkStart)sextensiile%(linkEnd)s sau %(secondLinkStart)stemele%(secondLinkEnd)s disponibile."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:68
 msgid "Oops! We can’t find that page"
@@ -787,23 +791,27 @@ msgstr "Ups! Nu putem găsi pagina respectivă"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:71
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Dacă ai urmat un link de pe un alt site pentru o extensie sau o temă, articolul respectiv nu mai este disponibil. Cauze posibile:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:77
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "Dezvoltatorul a scos-o. Dezvoltatorii procedează adesea așa pentru că nu mai oferă suport pentru extensia sau tema respectivă sau au înlocuit-o."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:82
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla a scos-o. Se poate întâmpla când sunt depistate probleme în timpul recenzării extensiei sau temei ori extensia sau tema abuza de termenii și condițiile pentru addons.mozilla.org. "
+"Dezvoltatorul are oportunitatea de a rezolva problemele și de a pune din nou la dispoziție suplimentul."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:94
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll get it sorted."
 msgstr ""
+"Dacă ai urmat un link pentru a ajunge pe acest site, ai dat peste o greșeală. Ajută-ne să reparăm linkul prin <a href=\"%(url)s\">raportarea unei probleme</a>. Spune-ne de unde veneai și ce căutai "
+"și vom rezolva problema."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
@@ -979,7 +987,7 @@ msgstr "Numai cu Firefox — Obține Firefox acum"
 
 #: src/amo/components/GuidesAddonCard/index.js:77
 msgid "Staff Pick"
-msgstr "Alegerea echipei"
+msgstr "Recomandate de echipa noastră"
 
 #: src/amo/components/Header/index.js:105
 msgid "Submit and manage extensions and themes"
@@ -1700,7 +1708,7 @@ msgstr "Politica de confidențialitate pentru %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:196
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Recenzii și evaluări pentru %(addonName)s. Află ce cred alți utilizatori despre %(addonName)s și adaugă-l în browserul Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:228
 msgid "Show all reviews"
@@ -1822,11 +1830,11 @@ msgstr "Caută extensii și teme pe care să le adăugi în colecția ta."
 
 #: src/amo/pages/Collection/index.js:512
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Descarcă și creează colecții Firefox ca să urmărești extensiile și temele favorite. Explorează %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:515
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Descarcă și creează colecții Firefox ca să urmărești extensiile și temele favorite. Explorează %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:112
 msgid "Collections"
@@ -1854,11 +1862,11 @@ msgstr "Colecțiile mele"
 
 #: src/amo/pages/Guides/index.js:103
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "Instrument de blocare a reclamelor, de greutate mică și de eficiență ridicată. uBlock Origin aplică mii de filtre de conținut fără să mănânce prea multă memorie."
 
 #: src/amo/pages/Guides/index.js:107
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Explorează mai multe %(linkStart)sinstrumente de blocat reclame%(linkEnd)s selecționate de echipa noastră."
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Stop online trackers from stalking you"
@@ -1872,11 +1880,11 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:121
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Izolează-ți identitatea Facebook într-un „container” separat ca să împiedici Facebook să îți urmărească activitatea în afara platformei de socializare."
 
 #: src/amo/pages/Guides/index.js:125
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Explorează mai multe %(linkStart)sinstrumente de confidențialitate și securitate%(linkEnd)s selecționate de echipa noastră."
 
 #: src/amo/pages/Guides/index.js:136
 msgid "Reimagine tab management"
@@ -1894,7 +1902,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:147
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Explorează mai multe %(linkStart)sinstrumente de gestionare a filelor%(linkEnd)s selecționate de echipa noastră."
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Better browsing with improved bookmarks"
@@ -1912,7 +1920,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:167
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Explorează mai multe %(linkStart)sinstrumente de gestionare a marcajelor%(linkEnd)s selecționate de echipa noastră."
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Enjoy a fresh new tab experience"
@@ -1928,7 +1936,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:184
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
-msgstr ""
+msgstr "Explorează mai multe %(linkStart)smodalități amuzante de schimbare a filelor%(linkEnd)s selecționate de echipa noastră."
 
 #: src/amo/pages/Guides/index.js:195
 msgid "Improve videos"
@@ -1944,7 +1952,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:206
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "Explorează mai multe %(linkStart)sextensii video%(linkEnd)s selectate de echipă."
+msgstr "Explorează mai multe %(linkStart)sextensii video%(linkEnd)s selecționate de echipa noastră."
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Get more out of media"
@@ -1962,7 +1970,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:226
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "Explorează mai multe %(linkStart)sextensii media%(linkEnd)s selectate de echipă."
+msgstr "Explorează mai multe %(linkStart)sextensii media%(linkEnd)s selecționate de echipa noastră."
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Bring media right into the browser"
@@ -2010,7 +2018,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:88
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
-msgstr ""
+msgstr "Explorează mai multe %(linkStart)sinstrumente de gestionare a parolelor%(linkEnd)s selecționate de echipa noastră."
 
 #: src/amo/pages/Guides/index.js:96
 msgid "Block annoying ads"
