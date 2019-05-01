@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-05-01 03:03+0000\n"
+"PO-Revision-Date: 2019-05-01 04:52+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -544,9 +544,8 @@ msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "Codul sursă lansat sub licență %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:113
-#, fuzzy
 msgid "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
-msgstr "Codul sursă lansat sub licență %(linkStart)s%(licenseName)s%(linkEnd)s"
+msgstr "Cod-sursă lansat sub o %(linkStart)slicență neidentificată%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:139
 msgid "Source code released under %(licenseName)s"
@@ -983,9 +982,8 @@ msgid "Staff Pick"
 msgstr ""
 
 #: src/amo/components/Header/index.js:105
-#, fuzzy
 msgid "Submit and manage extensions and themes"
-msgstr "Să monitorizeze utilizarea de extensii și să gestioneze teme"
+msgstr "Trimitere și gestionare de extensii și teme"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1032,9 +1030,8 @@ msgid "Firefox Add-ons"
 msgstr "Suplimente Firefox"
 
 #: src/amo/components/Header/index.js:95
-#, fuzzy
 msgid "Learn how to create extensions and themes"
-msgstr "Să monitorizeze utilizarea de extensii și să gestioneze teme"
+msgstr "Află cum să creezi extensii și teme"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
@@ -2032,7 +2029,6 @@ msgid "Ad blockers"
 msgstr "Blockere de reclame"
 
 #: src/amo/pages/Home/index.js:145
-#, fuzzy
 msgid "Smarter shopping"
 msgstr "Cumpărături mai inteligente"
 
@@ -2041,7 +2037,6 @@ msgid "Productivity"
 msgstr "Productivitate"
 
 #: src/amo/pages/Home/index.js:153
-#, fuzzy
 msgid "Watching videos"
 msgstr "Vizionare de videoclipuri"
 
@@ -2086,9 +2081,8 @@ msgid "See more feed readers"
 msgstr "Vezi mai multe teme deosebite"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "Feed readers"
-msgstr "Vezi mai multe teme deosebite"
+msgstr "Cititoare de flux"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more VPN solutions"
@@ -2534,9 +2528,8 @@ msgid "Display Name *"
 msgstr "Nume afișat *"
 
 #: src/amo/pages/UserProfileEdit/index.js:618
-#, fuzzy
 msgid "Reviewer Name"
-msgstr "Analizează tema"
+msgstr "Nume recenzent"
 
 #: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This URL will only be visible for users who are developers."
@@ -2623,9 +2616,8 @@ msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if
 msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:104
-#, fuzzy
 msgid "You are successfully unsubscribed!"
-msgstr "Imagine ștearsă cu succes"
+msgstr "Te-ai dezabonat cu succes!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:117
