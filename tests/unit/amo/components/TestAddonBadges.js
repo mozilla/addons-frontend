@@ -13,13 +13,18 @@ import {
   createFakeAddon,
   fakeAddon,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import Badge from 'ui/components/Badge';
+import RecommendedBadge from 'ui/components/RecommendedBadge';
 
 describe(__filename, () => {
   function shallowRender(props) {
     const allProps = {
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: false,
+      }),
       i18n: fakeI18n(),
       ...props,
     };
@@ -40,6 +45,38 @@ describe(__filename, () => {
     const root = shallowRender({ addon });
 
     expect(root.find(Badge)).toHaveLength(0);
+  });
+
+  it('displays a badge when the addon is recommended', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      is_recommended: true,
+      type: ADDON_TYPE_EXTENSION,
+    });
+    const root = shallowRender({
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: true,
+      }),
+      addon,
+    });
+
+    expect(root.find(RecommendedBadge)).toHaveLength(1);
+  });
+
+  it('does not display a recommended badge when the feature is disabled', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      is_recommended: true,
+      type: ADDON_TYPE_EXTENSION,
+    });
+    const root = shallowRender({
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: false,
+      }),
+      addon,
+    });
+
+    expect(root.find(RecommendedBadge)).toHaveLength(0);
   });
 
   it('displays a badge when the addon is featured', () => {
