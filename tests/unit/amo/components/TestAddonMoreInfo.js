@@ -221,6 +221,27 @@ describe(__filename, () => {
     expect(link).toHaveProp('to', `/addon/${addon.slug}/license/`);
   });
 
+  it('renders a default name when the license name is null', () => {
+    _loadVersions({ license: { name: null, url: 'some-url' } });
+
+    const root = render({});
+
+    const license = root.find('.AddonMoreInfo-license-link');
+    expect(license).toHaveLength(1);
+    expect(license.children()).toIncludeText('Custom License');
+  });
+
+  it('renders a default name when the license name and url are null', () => {
+    _loadVersions({ license: { name: null, url: null } });
+
+    const root = render({});
+
+    const license = root.find('.AddonMoreInfo-license-name');
+    expect(license).toHaveLength(1);
+    expect(license.children()).toIncludeText('Custom License');
+    expect(root.find('.AddonMoreInfo-license-link')).toHaveLength(0);
+  });
+
   it('renders the license info without a link if the url is null', () => {
     _loadVersions({ license: { name: 'justText', url: null } });
     const root = render({});
