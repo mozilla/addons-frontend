@@ -239,6 +239,7 @@ describe(__filename, () => {
     const license = root.find('.AddonMoreInfo-license-name');
     expect(license).toHaveLength(1);
     expect(license.children()).toIncludeText('Custom License');
+    expect(root.find('.AddonMoreInfo-license-link')).toHaveLength(0);
   });
 
   it('renders the license info without a link if the url is null', () => {
