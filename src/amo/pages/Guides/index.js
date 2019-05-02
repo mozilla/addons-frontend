@@ -432,7 +432,7 @@ export const mapStateToProps = (
 
   const addons = {};
   getGUIDsBySlug({ guidesState, slug }).forEach((guid) => {
-    addons[guid] = getAddonByGUID(state, guid);
+    addons[guid] = getAddonByGUID(state.addons, guid);
   });
 
   return {

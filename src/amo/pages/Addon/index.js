@@ -526,12 +526,13 @@ export class AddonBase extends React.Component {
 export function mapStateToProps(state, ownProps) {
   let { slug } = ownProps.match.params;
   slug = typeof slug === 'string' ? slug.trim() : slug;
-  let addon = getAddonBySlug(state, slug) || getAddonByGUID(state, slug);
+  let addon =
+    getAddonBySlug(state.addons, slug) || getAddonByGUID(state.addons, slug);
 
   // It is possible to load an add-on by its ID but in the routing parameters,
   // the parameter is always named `slug`.
   if (slugIsPositiveID(slug)) {
-    addon = getAddonByID(state, slug);
+    addon = getAddonByID(state.addons, slug);
   }
 
   let addonsByAuthors;
