@@ -6,11 +6,13 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   createFakeAddon,
+  dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
   getFakeConfig,
@@ -26,6 +28,7 @@ describe(__filename, () => {
         enableFeatureRecommendedBadges: false,
       }),
       i18n: fakeI18n(),
+      store: dispatchClientMetadata().store,
       ...props,
     };
 
@@ -48,6 +51,10 @@ describe(__filename, () => {
   });
 
   it('displays a badge when the addon is recommended', () => {
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+    });
+
     const addon = createInternalAddon({
       ...fakeAddon,
       is_recommended: true,
@@ -58,9 +65,31 @@ describe(__filename, () => {
         enableFeatureRecommendedBadges: true,
       }),
       addon,
+      store,
     });
 
     expect(root.find(RecommendedBadge)).toHaveLength(1);
+  });
+
+  it('does not display a recommended badge on Android', () => {
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+    });
+
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      is_recommended: true,
+      type: ADDON_TYPE_EXTENSION,
+    });
+    const root = shallowRender({
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: true,
+      }),
+      addon,
+      store,
+    });
+
+    expect(root.find(RecommendedBadge)).toHaveLength(0);
   });
 
   it('does not display a recommended badge when the feature is disabled', () => {

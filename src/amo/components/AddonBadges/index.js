@@ -1,17 +1,20 @@
 /* @flow */
 import config from 'config';
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { isQuantumCompatible } from 'core/utils/compatibility';
 import Badge from 'ui/components/Badge';
 import RecommendedBadge from 'ui/components/RecommendedBadge';
+import type { AppState } from 'amo/store';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
@@ -24,6 +27,7 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   _config: typeof config,
+  clientApp: string,
   i18n: I18nType,
 |};
 
@@ -33,7 +37,7 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { _config, addon, i18n } = this.props;
+    const { _config, addon, clientApp, i18n } = this.props;
 
     if (!addon) {
       return null;
@@ -58,7 +62,8 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
     return (
       <div className="AddonBadges">
         {_config.get('enableFeatureRecommendedBadges') &&
-        addon.is_recommended ? (
+        addon.is_recommended &&
+        clientApp !== CLIENT_APP_ANDROID ? (
           <RecommendedBadge />
         ) : null}
         {addon.is_featured ? (
@@ -90,8 +95,15 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
   }
 }
 
-const AddonBadges: React.ComponentType<Props> = compose(translate())(
-  AddonBadgesBase,
-);
+export const mapStateToProps = (state: AppState) => {
+  return {
+    clientApp: state.api.clientApp,
+  };
+};
+
+const AddonBadges: React.ComponentType<Props> = compose(
+  connect(mapStateToProps),
+  translate(),
+)(AddonBadgesBase);
 
 export default AddonBadges;
