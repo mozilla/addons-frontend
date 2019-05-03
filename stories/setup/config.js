@@ -1,6 +1,7 @@
 import { configure, setAddon, addDecorator } from '@storybook/react';
 import { setDefaults } from '@storybook/addon-info';
 import { withOptions } from '@storybook/addon-options';
+import { initializeRTL } from 'storybook-addon-rtl';
 import chaptersAddon, {
   setDefaults as setAddonChaptersDefaults,
 } from 'react-storybook-addon-chapters';
@@ -27,7 +28,7 @@ addDecorator(
     name: 'Mozilla Addons frontend',
     url: 'https://github.com/mozilla/addons-frontend',
     // Hide empty panel for now.
-    showAddonPanel: false,
+    showAddonPanel: true,
   }),
 );
 
@@ -45,5 +46,7 @@ function loadStories() {
   /* eslint-disable global-require */
   require('./../index');
 }
+
+initializeRTL();
 
 configure(loadStories, module);
