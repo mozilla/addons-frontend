@@ -23,6 +23,8 @@ export const RecommendedBadgeBase = (props: InternalProps) => {
       <a
         className="RecommendedBadge-link"
         href="https://support.mozilla.org/"
+        rel="noopener noreferrer"
+        target="_blank"
         title={i18n.gettext(
           'Recommended extensions are safe, high-quality extensions.',
         )}
