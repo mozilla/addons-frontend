@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-05-05 10:49+0000\n"
+"PO-Revision-Date: 2019-05-05 11:07+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1877,10 +1877,12 @@ msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"As jo wurkje mei in protte iepensteande ljepblêden, dan binne jo wierskynlik bekend mei de frustraasje fan it sykjen troch in rige net werkenbere ljepblêden op syk nei dat ljepblêd dat jo nedich "
+"hawwe. Utwreidingen kinne kreative oplossingen biede om ljepblêdbehear te streamlynjen."
 
 #: src/amo/pages/Guides/index.js:143
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Oarderje en fisualisearje jo ljepblêden yn in út te klappen ‘beam’-struktuer yn de sidebalke fan Firefox."
 
 #: src/amo/pages/Guides/index.js:147
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
@@ -1888,17 +1890,19 @@ msgstr "Mear troch de stêf útkeazen %(linkStart)sljepblêdbehearders%(linkEnd)
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Better sneupe mei ferbettere blêdwizers"
 
 #: src/amo/pages/Guides/index.js:156
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "Mei útwreidingen kinne jo jo online ynteressen organisearje. Blêdwizerbehearders binne ideaal foar minsken dy't in protte ynhâld folgje wolle."
 
 #: src/amo/pages/Guides/index.js:160
 msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to articles, YouTube videos, or just about anything you find on the web? OneNote Web Clipper lets you collect and store all your"
 " favorite online content in a powerful repository that syncs across devices."
 msgstr ""
+"Wolle jo help by it organisearjen fan al jo favorite onlineresepten, hantliedingen, YouTube-fideo’s, of sa’n bytjse alles wat jo op it web fine kinne? Mei OneNote Web Clipper kinne jo al jo favorite"
+" online ynhâld sammelje en bewarje yn in krêftich argyf dat op jo ferskate apparaten syngronisearret."
 
 #: src/amo/pages/Guides/index.js:167
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
@@ -1906,11 +1910,11 @@ msgstr "Mear troch de stêf útkeazen %(linkStart)sblêdwizerbehearders%(linkEnd
 
 #: src/amo/pages/Guides/index.js:175
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Genietsje fan in frisse nije ljepblêdbelibbing"
 
 #: src/amo/pages/Guides/index.js:176
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "Begjin elke sneupsesje foar jo op maat makke troch jo ûnderfining fan in nij ljepblêd oan te passen."
 
 #: src/amo/pages/Guides/index.js:180
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
@@ -1922,15 +1926,19 @@ msgstr "Mear %(linkStart)saardige manieren om jo ljepblêden oan te passen%(link
 
 #: src/amo/pages/Guides/index.js:195
 msgid "Improve videos"
-msgstr ""
+msgstr "Ferbetterje fideo’s"
 
 #: src/amo/pages/Guides/index.js:196
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
 msgstr ""
+"As jo fan fideo-ynhâld hâlde, kinne jo mei útwreidingen op ferskate manieren jo ûnderfining optimalisearje, fariearjend fan it oan jo smaak oanpassen fan YouTube oant it ôfspyljen fan fideo’s yn "
+"bioskoopmodus."
 
 #: src/amo/pages/Guides/index.js:201
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
 msgstr ""
+"Foegje in bestjoeringsbalke ta oan fideosiden op YouTube sadat jo ienfâldich folume, ôfspylsnelheid en spilergrutte oanpasse kinne, advertinsjes en opmerkingen blokkearje kinne en oare funksjes ta "
+"jo beskikking hawwe."
 
 #: src/amo/pages/Guides/index.js:206
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
@@ -1938,17 +1946,21 @@ msgstr "Mear troch de stêf útkeazen %(linkStart)sfideo-útwreidingen%(linkEnd)
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Get more out of media"
-msgstr ""
+msgstr "Helje mear út media"
 
 #: src/amo/pages/Guides/index.js:215
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
 msgstr ""
+"Utwreidingen kinne ynfolling jaan oan in grutte fariaasje oan spesifike behoeften en ynteressen op it mêd fan media, lykas sykje nei ôfbyldingen, downloadbehear en tekstlêzers, om der mar in pear te"
+" neamen."
 
 #: src/amo/pages/Guides/index.js:220
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
 " reverse image searches through a variety of engines."
 msgstr ""
+"Binne jo ea in yntrigearjende ôfbylding op it ynternet tsjinkommen en woene jo der mear oer witte, lykas wa't dy persoan yn de ôfbylding is? Binne der besibbe ôfbyldingen? Mei dizze útwreiding kinne"
+" jo fluch en ienfâldich omkeard ôfbyldingen sykje mei ferskate sykmasinen."
 
 #: src/amo/pages/Guides/index.js:226
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
@@ -1956,7 +1968,7 @@ msgstr "Mear troch de stêf útkeazen %(linkStart)smedia-útwreidingen%(linkEnd)
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "Bring media nei de browser"
 
 #: src/amo/pages/Guides/index.js:235
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
