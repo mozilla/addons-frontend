@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-05-05 10:30+0000\n"
+"PO-Revision-Date: 2019-05-05 10:49+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -560,11 +560,11 @@ msgstr "Gjin ferzje fûn"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Ferzje %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Utjûn op %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
@@ -783,24 +783,28 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(linkStart)sextensions%(linkEnd)s or %(secondLinkStart)sthemes%(secondLinkEnd)s."
 msgstr ""
+"Probearje de side letter te besykjen, want it tema of de útwreiding komt mooglik wer beskikber. Mooglik kinne jo dat wat jo sykje yn ien fan de beskikbere %(linkStart)sútwreidingen%(linkEnd)s of "
+"%(secondLinkStart)stema’s%(secondLinkEnd)s fine."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:68
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Oeps! Wy kinne dy side net fine"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:71
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "As jo in keppeling nei in útwreiding of tema fan in oare website ôf folge hawwe, is dat item net mear beskikber. Dit kin it gefal wêze om de folgjende reden:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:77
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "De ûntwikkeler hat de add-on fuortsmiten. Untwikkelers dogge dit meastentiids omdat se de útwreiding of it tema net mear stypje, of ferfongen hawwe."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:82
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla hat de add-on fuortsmiten. Dit kin barre as der problemen fûn wurde by de beoardieling fan de útwreiding of it tema, of as de útwreiding of it tema de betingsten fan addons.mozilla.org "
+"skeind hat. De ûntwikkeler hat de mooglikheid de problemen op te lossen en de add-on wer beskikber te meitsjen."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:94
 msgid ""
@@ -1733,16 +1737,16 @@ msgstr "Der binne gjin beoardielingen"
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ferzjeskiednis fan %(addonName)s - %(total)s ferzje"
+msgstr[1] "Ferzjeskiednis fan %(addonName)s - %(total)s ferzjes"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "Wês foarsichtich mei âlde ferzjes! Dizze ferzjes wurde foar test- en referinsjedoeleinen werjûn."
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "Jo moatte altyd de meast resinte ferzje fan in add-on brûke."
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Latest version"
