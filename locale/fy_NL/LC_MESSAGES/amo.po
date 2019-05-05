@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-05-05 11:07+0000\n"
+"PO-Revision-Date: 2019-05-05 11:28+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1972,15 +1972,15 @@ msgstr "Bring media nei de browser"
 
 #: src/amo/pages/Guides/index.js:235
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "Utwreidingen kinne Firefox yn jo eigen entertainmentsintrum feroarje, sadat jo streekrjocht tagong hawwe ta muzyk, bewarjen fan ôfbyldingen, spultsjes, en mear."
 
 #: src/amo/pages/Guides/index.js:240
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
-msgstr ""
+msgstr "Tagong ta mear as 30.000 radiostasjons wrâldwiid, altyd mei mar ien mûsklik."
 
 #: src/amo/pages/Guides/index.js:244
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
-msgstr ""
+msgstr "Ferken tûzenen %(linkStart)sútwreidingen foar foto’s, muzyk en fideo%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:268
 msgid ""
@@ -1995,10 +1995,12 @@ msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Hawwe jo te meitsjen mei te folle iepensteande ljepblêden of in dûzeljend oantal blêdwizers? Utwreidingen kinne helpe! Fan help by organisearjen oant oanbod fan aardige nije funksjes, útwreidingen "
+"kinne de manier wêrop jo mei ljepblêden en blêdwizers omgeane dramatysk feroarje."
 
 #: src/amo/pages/Guides/index.js:294
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "Utwreidingen kinne online media op alderlei ynteressante manieren oanfolje, fan it besjen fan fideo’s oant it omgean mei ôfbyldingen, muzyk en mear."
 
 #: src/amo/pages/Guides/index.js:78
 msgid "Create and manage strong passwords"
@@ -2024,6 +2026,8 @@ msgstr "Ferfelende advertinsjes blokkearje"
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
+"It web is hjoed de dei ferjûn fan net winske advertinsjes dy't yn it paad sitte en jo fertraagje. Adblockers kinne soksoarte advertinsjes blokkearje of filterje, sadat jo werom kinne nei "
+"ôfliedingsfrij sneupe."
 
 #: src/amo/pages/Home/index.js:133
 msgid "Bookmarks"
@@ -2099,7 +2103,7 @@ msgstr "Mear VPN-oplossingen besjen"
 
 #: src/amo/pages/Home/index.js:61
 msgid "VPN solutions"
-msgstr ""
+msgstr "VPN-oplossingen"
 
 #: src/amo/pages/Home/index.js:66
 msgid "See more tab extensions"
@@ -2107,7 +2111,7 @@ msgstr "Mear ljepblêdútwreidingen besjen"
 
 #: src/amo/pages/Home/index.js:67
 msgid "Change up your tabs"
-msgstr ""
+msgstr "Wizigje jo ljepblêden"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2184,6 +2188,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Wolle jo programmeartechnyske ynteraksje mei addons.mozilla.org (AMO)? Lês dan de %(startAddonsServerDocumentation)sdokumintaasje fan de Add-ons-servers%(endAddonsServerDocumentation)s foar details "
+"oer de troch AMO en de %(startAddonsManager)sAdd-onbehearder%(endAddonsManager)s brûkte API’s."
 
 #: src/amo/pages/StaticPages/About/index.js:155
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2540,7 +2546,7 @@ msgstr "Profyl"
 
 #: src/amo/pages/UserProfileEdit/index.js:599
 msgid "This field is required"
-msgstr ""
+msgstr "Dit fjild is ferplichte"
 
 #: src/amo/pages/UserProfileEdit/index.js:602
 msgid "Display Name *"
@@ -2645,15 +2651,15 @@ msgstr "Jo abonnemint is mei sukses opsein!"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:117
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "It e-mailadres %(strongStart)s%(email)s%(strongEnd)s krijt gjin berjochten mear wannear:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:76
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Jo kinne jo notifikaasje-ynstellingen bewurkje troch %(linkStart)sjo profyl te bewurkjen%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:95
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Ofmelde"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
