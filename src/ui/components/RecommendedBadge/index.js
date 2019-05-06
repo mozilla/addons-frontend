@@ -26,7 +26,7 @@ export const RecommendedBadgeBase = (props: InternalProps) => {
         rel="noopener noreferrer"
         target="_blank"
         title={i18n.gettext(
-          'Recommended extensions are safe, high-quality extensions.',
+          'Recommended extensions are vetted for exceptional security and performance.',
         )}
       >
         <span className="RecommendedBadge-icon">
