@@ -13,8 +13,8 @@ describe(__filename, () => {
       RecommendedBadgeBase,
     );
 
-    const link = badge.find('.RecommendedBadge-link');
-    expect(link.find(Icon)).toHaveProp('alt', 'Recommended');
-    expect(link.childAt(1)).toIncludeText('Recommended');
+    const oval = badge.find('.RecommendedBadge-oval');
+    expect(oval.find(Icon)).toHaveProp('alt', 'Recommended');
+    expect(oval.childAt(1)).toIncludeText('Recommended');
   });
 });
