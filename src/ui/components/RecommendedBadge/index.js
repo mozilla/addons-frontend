@@ -29,12 +29,10 @@ export const RecommendedBadgeBase = (props: InternalProps) => {
           'Recommended extensions are safe, high-quality extensions.',
         )}
       >
-        <span className="RecommendedBadge-oval">
-          <span className="RecommendedBadge-icon">
-            <Icon alt={label} name="recommended" />
-          </span>
-          {label}
+        <span className="RecommendedBadge-icon">
+          <Icon alt={label} name="recommended" />
         </span>
+        <span className="RecommendedBadge-label">{label}</span>
       </a>
     </div>
   );
