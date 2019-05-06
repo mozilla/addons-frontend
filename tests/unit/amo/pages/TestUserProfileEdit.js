@@ -872,7 +872,7 @@ describe(__filename, () => {
     );
   });
 
-  it('does not render a success message when an error occured', () => {
+  it('does not render a success message when an error occurred', () => {
     const { params, store } = signInUserWithUserId(123);
     const user = getCurrentUser(store.getState().users);
 
@@ -900,7 +900,7 @@ describe(__filename, () => {
       true,
     );
 
-    // An error occured while updating the user profile.
+    // An error occurred while updating the user profile.
     errorHandler.handle(new Error('unexpected error'));
     store.dispatch(finishUpdateUserAccount());
 

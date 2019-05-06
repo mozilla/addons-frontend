@@ -958,7 +958,7 @@ describe(__filename, () => {
       );
     });
 
-    it('does not dispatch fetchReviewPermissions() when an error has occured', () => {
+    it('does not dispatch fetchReviewPermissions() when an error has occurred', () => {
       const addon = { ...fakeAddon };
       const userId = 66432;
 
