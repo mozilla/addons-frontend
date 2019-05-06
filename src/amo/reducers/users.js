@@ -96,7 +96,7 @@ export type UsersState = {
   },
   isUnsubscribedFor: {
     // `undefined`: no API call has been made yet
-    // `null`: an error has occured
+    // `null`: an error has occurred
     // `false`: unsubscribing in progress
     // `true`: user is unsubscribed
     [key: string]: boolean | null,
