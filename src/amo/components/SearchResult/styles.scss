@@ -95,6 +95,7 @@ $icon-default-size: 32px;
   @include font-medium();
 
   color: $type-black;
+  display: flex;
   flex-grow: 1;
   font-size: $font-size-m-smaller;
   line-height: 1.2;
@@ -103,6 +104,10 @@ $icon-default-size: 32px;
   text-decoration: none;
   width: 100%;
   word-wrap: break-word;
+
+  .RecommendedBadge {
+    @include margin-start(10px);
+  }
 
   .SearchResult-link:focus &,
   .SearchResult-link:hover & {

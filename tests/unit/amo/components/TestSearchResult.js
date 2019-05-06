@@ -1,37 +1,60 @@
 import url from 'url';
 
-import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { SearchResultBase } from 'amo/components/SearchResult';
+import SearchResult, { SearchResultBase } from 'amo/components/SearchResult';
 import {
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   ADDON_TYPE_OPENSEARCH,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
+  dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
   fakePreview,
   fakeTheme,
+  getFakeConfig,
+  shallowUntilTarget,
 } from 'tests/unit/helpers';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
+import RecommendedBadge from 'ui/components/RecommendedBadge';
 
 describe(__filename, () => {
   const baseAddon = createInternalAddon({
     ...fakeAddon,
     authors: [{ name: 'A funky déveloper' }, { name: 'A groovy developer' }],
     average_daily_users: 5253,
+    is_recommended: false,
     name: 'A search result',
     slug: 'a-search-result',
   });
 
-  function render({ addon = baseAddon, lang = 'en-GB', ...props } = {}) {
-    return shallow(
-      <SearchResultBase i18n={fakeI18n({ lang })} addon={addon} {...props} />,
+  function render({
+    _config = getFakeConfig({
+      enableFeatureRecommendedBadges: false,
+    }),
+    addon = baseAddon,
+    lang = 'en-GB',
+    store = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+    }).store,
+    ...props
+  } = {}) {
+    return shallowUntilTarget(
+      <SearchResult
+        _config={_config}
+        addon={addon}
+        i18n={fakeI18n({ lang })}
+        store={store}
+        {...props}
+      />,
+      SearchResultBase,
     );
   }
 
@@ -374,5 +397,54 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find('.SearchResult-users')).toHaveLength(0);
+  });
+
+  it('displays a badge when the addon is recommended', () => {
+    const root = render({
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: true,
+      }),
+      addon: createInternalAddon({ ...fakeAddon, is_recommended: true }),
+    });
+
+    expect(root.find(RecommendedBadge)).toHaveLength(1);
+  });
+
+  it('does not display a recommended badge when the feature is disabled', () => {
+    const root = render({
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: false,
+      }),
+      addon: createInternalAddon({ ...fakeAddon, is_recommended: true }),
+    });
+
+    expect(root.find(RecommendedBadge)).toHaveLength(0);
+  });
+
+  it('does not display a recommended badge on Android', () => {
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+    });
+
+    const root = render({
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: true,
+      }),
+      addon: createInternalAddon({ ...fakeAddon, is_recommended: true }),
+      store,
+    });
+
+    expect(root.find(RecommendedBadge)).toHaveLength(0);
+  });
+
+  it('does not display a recommended badge when the addon is not recommended', () => {
+    const root = render({
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: true,
+      }),
+      addon: createInternalAddon({ ...fakeAddon, is_recommended: false }),
+    });
+
+    expect(root.find(RecommendedBadge)).toHaveLength(0);
   });
 });
