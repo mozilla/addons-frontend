@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-07 21:43+0000\n"
+"PO-Revision-Date: 2019-05-07 22:38+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -2770,7 +2770,7 @@ msgstr "Anterior"
 
 #: src/core/components/Paginate/index.js:154
 msgid "Next"
-msgstr "Próxima"
+msgstr "Seguinte"
 
 #: src/core/components/Paginate/index.js:160
 msgid "Page %(currentPage)s of %(totalPages)s"
