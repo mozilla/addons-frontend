@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-23 19:51+0000\n"
+"POT-Creation-Date: 2019-05-07 16:21+0000\n"
 "PO-Revision-Date: 2018-11-21 10:22+0000\n"
 "Last-Translator: Othman Wagiman <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -254,56 +254,61 @@ msgstr "Digunakan oleh"
 msgid "Visit stats dashboard"
 msgstr "Lawati papan pemuka statistik"
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:116
+#, fuzzy
+msgid "Custom License"
+msgstr "Lesen"
+
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:152
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "Read the privacy policy for this add-on"
 msgstr "Baca dasar privasi untuk add-on ini"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:161
 msgid "Read the license agreement for this add-on"
 msgstr "Baca perjanjian lesen untuk add-on ini"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "See all versions"
 msgstr "Lihat semua versi"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:196
 msgid "Add-on Links"
 msgstr "Pautan Add-on"
 
-#: src/amo/components/AddonMoreInfo/index.js:207
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Version"
 msgstr "Versi"
 
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Kemaskini terakhir"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "License"
 msgstr "Lesen"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Privacy Policy"
 msgstr "Dasar Privasi"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "End-User License Agreement"
 msgstr "Perjanjian Lesen Pengguna Akhir"
 
-#: src/amo/components/AddonMoreInfo/index.js:247
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Version History"
 msgstr "Sejarah Versi"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "Usage Statistics"
 msgstr "Statistik Penggunaan"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:273
 msgid "More information"
 msgstr "Maklumat lanjut"
 
@@ -588,8 +593,7 @@ msgstr "disiarkan %(timestamp)s"
 
 #: src/amo/components/AddonVersionCard/index.js:113
 #, fuzzy
-msgid ""
-"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "disiarkan %(timestamp)s"
 
 #: src/amo/components/AddonVersionCard/index.js:139
@@ -2401,31 +2405,32 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:54
 #, fuzzy
-msgid "See more feed readers"
-msgstr "Lihat tema sorotan selanjutnya"
+msgid "See more productivity extensions"
+msgstr "Ekstensi produktiviti"
 
 #: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "Feed readers"
-msgstr "Lihat tema sorotan selanjutnya"
+msgid "Productivity extensions"
+msgstr "Ekstensi produktiviti"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
-msgid "See more VPN solutions"
-msgstr "Lihat ekstensi tahap tinggi selanjutnya"
+msgid "See more YouTube extensions"
+msgstr "Lihat ekstensi YouTube selanjutnya"
 
 #: src/amo/pages/Home/index.js:61
-msgid "VPN solutions"
-msgstr ""
+#, fuzzy
+msgid "YouTube boosters"
+msgstr "Penggalak YouTube"
 
 #: src/amo/pages/Home/index.js:66
 #, fuzzy
-msgid "See more tab extensions"
-msgstr "Lihat ekstensi tahap tinggi selanjutnya"
+msgid "See more feed readers"
+msgstr "Lihat tema sorotan selanjutnya"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Change up your tabs"
-msgstr ""
+#, fuzzy
+msgid "Feed readers"
+msgstr "Lihat tema sorotan selanjutnya"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3482,6 +3487,19 @@ msgid "Developer response"
 msgstr "Respons pembangun"
 
 #, fuzzy
+#~ msgid ""
+#~ "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+#~ msgstr "disiarkan %(timestamp)s"
+
+#, fuzzy
+#~ msgid "See more VPN solutions"
+#~ msgstr "Lihat ekstensi tahap tinggi selanjutnya"
+
+#, fuzzy
+#~ msgid "See more tab extensions"
+#~ msgstr "Lihat ekstensi tahap tinggi selanjutnya"
+
+#, fuzzy
 #~ msgid "See more video extensions"
 #~ msgstr "Lihat ekstensi tahap tinggi selanjutnya"
 
@@ -3532,14 +3550,6 @@ msgstr "Respons pembangun"
 #, fuzzy
 #~ msgid "See more YouTube boosters"
 #~ msgstr "Lihat Wikipedia boosters selanjutnya"
-
-#, fuzzy
-#~ msgid "YouTube boosters"
-#~ msgstr "Penggalak YouTube"
-
-#, fuzzy
-#~ msgid "See more productivity extensions"
-#~ msgstr "Ekstensi produktiviti"
 
 #~ msgid "Highly customizable text highlighter"
 #~ msgstr "Penyerlah teks yang mudah disesuaikan"
@@ -3991,9 +4001,6 @@ msgstr "Respons pembangun"
 
 #~ msgid "Fall themes"
 #~ msgstr "Tema musim luruh"
-
-#~ msgid "See more YouTube extensions"
-#~ msgstr "Lihat ekstensi YouTube selanjutnya"
 
 #~ msgid "Go to this review"
 #~ msgstr "Pergi ke ulasan ini"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-23 19:51+0000\n"
+"POT-Creation-Date: 2019-05-07 16:21+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -262,59 +262,64 @@ msgstr "Used by"
 msgid "Visit stats dashboard"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:116
+#, fuzzy
+msgid "Custom License"
+msgstr "No results were found for \"%(query)s\"."
+
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:152
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "Read the privacy policy for this add-on"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:161
 msgid "Read the license agreement for this add-on"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:170
 #, fuzzy
 msgid "See all versions"
 msgstr "Browse all extensions"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:196
 #, fuzzy
 msgid "Add-on Links"
 msgstr "Add-ons for Firefox"
 
-#: src/amo/components/AddonMoreInfo/index.js:207
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Version"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "License"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:232
 #, fuzzy
 msgid "Privacy Policy"
 msgstr "Privacy policy"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "End-User License Agreement"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:247
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Version History"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "Usage Statistics"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:273
 msgid "More information"
 msgstr ""
 
@@ -619,8 +624,7 @@ msgstr "Tell the world why you think this extension is fantastic!"
 
 #: src/amo/components/AddonVersionCard/index.js:113
 #, fuzzy
-msgid ""
-"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "Tell the world why you think this extension is fantastic!"
 
 #: src/amo/components/AddonVersionCard/index.js:139
@@ -2399,31 +2403,32 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:54
 #, fuzzy
-msgid "See more feed readers"
-msgstr "Browse all themes"
+msgid "See more productivity extensions"
+msgstr "Browse all extensions"
 
 #: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "Feed readers"
-msgstr "Browse all themes"
+msgid "Productivity extensions"
+msgstr "Browse all extensions"
 
 #: src/amo/pages/Home/index.js:60
 #, fuzzy
-msgid "See more VPN solutions"
+msgid "See more YouTube extensions"
 msgstr "Browse all extensions"
 
 #: src/amo/pages/Home/index.js:61
-msgid "VPN solutions"
+msgid "YouTube boosters"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:66
 #, fuzzy
-msgid "See more tab extensions"
-msgstr "Browse all extensions"
+msgid "See more feed readers"
+msgstr "Browse all themes"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Change up your tabs"
-msgstr ""
+#, fuzzy
+msgid "Feed readers"
+msgstr "Browse all themes"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3351,6 +3356,19 @@ msgid "Developer response"
 msgstr ""
 
 #, fuzzy
+#~ msgid ""
+#~ "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+#~ msgstr "Tell the world why you think this extension is fantastic!"
+
+#, fuzzy
+#~ msgid "See more VPN solutions"
+#~ msgstr "Browse all extensions"
+
+#, fuzzy
+#~ msgid "See more tab extensions"
+#~ msgstr "Browse all extensions"
+
+#, fuzzy
 #~ msgid "See more video extensions"
 #~ msgstr "Browse all extensions"
 
@@ -3384,10 +3402,6 @@ msgstr ""
 
 #, fuzzy
 #~ msgid "See more popular themes"
-#~ msgstr "Browse all extensions"
-
-#, fuzzy
-#~ msgid "See more productivity extensions"
 #~ msgstr "Browse all extensions"
 
 #, fuzzy
@@ -3521,10 +3535,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Fall themes"
 #~ msgstr "Browse all themes"
-
-#, fuzzy
-#~ msgid "See more YouTube extensions"
-#~ msgstr "Browse all extensions"
 
 #, fuzzy
 #~ msgid "Go to this review"

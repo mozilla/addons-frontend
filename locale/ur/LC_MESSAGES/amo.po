@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-23 19:51+0000\n"
+"POT-Creation-Date: 2019-05-07 16:21+0000\n"
 "PO-Revision-Date: 2018-12-14 06:04+0000\n"
 "Last-Translator: Nabeela Qadir <nabeelaqadir8@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -249,56 +249,61 @@ msgstr "کی جانب سے استعمال شدہ"
 msgid "Visit stats dashboard"
 msgstr "اعداد و شمار ڈیش بورڈ ملاحظہ کریں"
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:116
+#, fuzzy
+msgid "Custom License"
+msgstr "لائسنس"
+
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:152
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "Read the privacy policy for this add-on"
 msgstr "ایڈ -اون کے لیئے رازداری پالیسی پڑھیں"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:161
 msgid "Read the license agreement for this add-on"
 msgstr "اس ایڈ -اون کے لیئے لائسنس معاہدہ پڑھیں"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "See all versions"
 msgstr "تمام ورژن دیکھیں"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:196
 msgid "Add-on Links"
 msgstr "ایڈ-اون ربظ"
 
-#: src/amo/components/AddonMoreInfo/index.js:207
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Version"
 msgstr "ورژن"
 
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "آخری تازہ کاری"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "License"
 msgstr "لائسنس"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Privacy Policy"
 msgstr "رازداری پالیسی"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "End-User License Agreement"
 msgstr "اختتامی صارف لائسنس معاہدہ"
 
-#: src/amo/components/AddonMoreInfo/index.js:247
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Version History"
 msgstr "ورژن سابقات"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "Usage Statistics"
 msgstr "استعمال کے اعداد و شمار"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:273
 msgid "More information"
 msgstr "مزید معلومات"
 
@@ -600,8 +605,7 @@ msgstr "پوسٹ کیا گیا %(timestamp)s"
 
 #: src/amo/components/AddonVersionCard/index.js:113
 #, fuzzy
-msgid ""
-"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "پوسٹ کیا گیا %(timestamp)s"
 
 #: src/amo/components/AddonVersionCard/index.js:139
@@ -2383,31 +2387,31 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:54
 #, fuzzy
-msgid "See more feed readers"
-msgstr "مزید مقبول خیالیے"
+msgid "See more productivity extensions"
+msgstr "توسیعات تلاش کریں"
 
 #: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "Feed readers"
-msgstr "مزید مقبول خیالیے"
+msgid "Productivity extensions"
+msgstr "توسیعات تلاش کریں"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
-msgid "See more VPN solutions"
+msgid "See more YouTube extensions"
 msgstr "زیادہ مقبول توسیعات"
 
 #: src/amo/pages/Home/index.js:61
-msgid "VPN solutions"
+msgid "YouTube boosters"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:66
 #, fuzzy
-msgid "See more tab extensions"
-msgstr "زیادہ مقبول توسیعات"
+msgid "See more feed readers"
+msgstr "مزید مقبول خیالیے"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Change up your tabs"
-msgstr ""
+#, fuzzy
+msgid "Feed readers"
+msgstr "مزید مقبول خیالیے"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3339,6 +3343,19 @@ msgid "Developer response"
 msgstr "ڈویلپر کا جواب"
 
 #, fuzzy
+#~ msgid ""
+#~ "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+#~ msgstr "پوسٹ کیا گیا %(timestamp)s"
+
+#, fuzzy
+#~ msgid "See more VPN solutions"
+#~ msgstr "زیادہ مقبول توسیعات"
+
+#, fuzzy
+#~ msgid "See more tab extensions"
+#~ msgstr "زیادہ مقبول توسیعات"
+
+#, fuzzy
 #~ msgid "See more video extensions"
 #~ msgstr "زیادہ مقبول توسیعات"
 
@@ -3375,10 +3392,6 @@ msgstr "ڈویلپر کا جواب"
 
 #, fuzzy
 #~ msgid "See more popular themes"
-#~ msgstr "توسیعات تلاش کریں"
-
-#, fuzzy
-#~ msgid "See more productivity extensions"
 #~ msgstr "توسیعات تلاش کریں"
 
 #~ msgid "Highly customizable text highlighter"
@@ -3625,9 +3638,6 @@ msgstr "ڈویلپر کا جواب"
 
 #~ msgid "Fall themes"
 #~ msgstr "خبریں تلاش کریں"
-
-#~ msgid "See more YouTube extensions"
-#~ msgstr "زیادہ مقبول توسیعات"
 
 #~ msgid "Go to this review"
 #~ msgstr "پیش منظر کے ؛لیئے تھپتپائیں"

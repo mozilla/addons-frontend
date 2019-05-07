@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-23 19:51+0000\n"
+"POT-Creation-Date: 2019-05-07 16:21+0000\n"
 "PO-Revision-Date: 2019-04-12 14:14+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -247,56 +247,61 @@ msgstr "Kullanan"
 msgid "Visit stats dashboard"
 msgstr "İstatistik panosuna git"
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:116
+#, fuzzy
+msgid "Custom License"
+msgstr "Lisans"
+
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:152
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "Read the privacy policy for this add-on"
 msgstr "Bu eklentinin gizlilik ilkelerini okuyun"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:161
 msgid "Read the license agreement for this add-on"
 msgstr "Bu eklentinin lisans anlaşmasını okuyun"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "See all versions"
 msgstr "Tüm sürümleri göster"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:196
 msgid "Add-on Links"
 msgstr "Eklenti bağlantıları"
 
-#: src/amo/components/AddonMoreInfo/index.js:207
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Version"
 msgstr "Sürüm"
 
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Son güncelleme"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "License"
 msgstr "Lisans"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Privacy Policy"
 msgstr "Gizlilik ilkeleri"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "End-User License Agreement"
 msgstr "Son Kullanıcı Lisans Anlaşması"
 
-#: src/amo/components/AddonMoreInfo/index.js:247
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Version History"
 msgstr "Sürüm geçmişi"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "Usage Statistics"
 msgstr "Kullanım istatistikleri"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:273
 msgid "More information"
 msgstr "Daha fazla bilgi"
 
@@ -583,8 +588,7 @@ msgstr "gönderilme: %(timestamp)s"
 
 #: src/amo/components/AddonVersionCard/index.js:113
 #, fuzzy
-msgid ""
-"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "gönderilme: %(timestamp)s"
 
 #: src/amo/components/AddonVersionCard/index.js:139
@@ -2385,31 +2389,30 @@ msgstr ""
 "fazlasını yapabilirler."
 
 #: src/amo/pages/Home/index.js:54
-msgid "See more feed readers"
-msgstr "Öne çıkan diğer temalara bakın"
+msgid "See more productivity extensions"
+msgstr "Verimlilik eklentileri"
 
 #: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "Feed readers"
-msgstr "Öne çıkan diğer temalara bakın"
+msgid "Productivity extensions"
+msgstr "Verimlilik eklentileri"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
-msgid "See more VPN solutions"
-msgstr "En yüksek puanlı diğer eklentilere bakın"
+msgid "See more YouTube extensions"
+msgstr "Diğer sekme eklentilerine bakın"
 
 #: src/amo/pages/Home/index.js:61
-msgid "VPN solutions"
-msgstr "VPN çözümleri"
+msgid "YouTube boosters"
+msgstr "Haber iyileştiricileri"
 
 #: src/amo/pages/Home/index.js:66
-#, fuzzy
-msgid "See more tab extensions"
-msgstr "En yüksek puanlı diğer eklentilere bakın"
+msgid "See more feed readers"
+msgstr "Öne çıkan diğer temalara bakın"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Change up your tabs"
-msgstr "Sekmelerinizi değiştirin"
+#, fuzzy
+msgid "Feed readers"
+msgstr "Öne çıkan diğer temalara bakın"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3455,6 +3458,25 @@ msgstr[1] "%(total)s eklenti"
 msgid "Developer response"
 msgstr "Geliştiricinin yanıtı"
 
+#, fuzzy
+#~ msgid ""
+#~ "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+#~ msgstr "gönderilme: %(timestamp)s"
+
+#, fuzzy
+#~ msgid "See more VPN solutions"
+#~ msgstr "En yüksek puanlı diğer eklentilere bakın"
+
+#~ msgid "VPN solutions"
+#~ msgstr "VPN çözümleri"
+
+#, fuzzy
+#~ msgid "See more tab extensions"
+#~ msgstr "En yüksek puanlı diğer eklentilere bakın"
+
+#~ msgid "Change up your tabs"
+#~ msgstr "Sekmelerinizi değiştirin"
+
 #~ msgid "See more video extensions"
 #~ msgstr "En yüksek puanlı diğer eklentilere bakın"
 
@@ -3496,12 +3518,6 @@ msgstr "Geliştiricinin yanıtı"
 
 #~ msgid "See more YouTube boosters"
 #~ msgstr "Diğer haber geliştiricilere bakın"
-
-#~ msgid "YouTube boosters"
-#~ msgstr "Haber iyileştiricileri"
-
-#~ msgid "See more productivity extensions"
-#~ msgstr "Verimlilik eklentileri"
 
 #~ msgid "Highly customizable text highlighter"
 #~ msgstr "Son derece özelleştirilebilir metin işaretleyici"
@@ -3951,9 +3967,6 @@ msgstr "Geliştiricinin yanıtı"
 
 #~ msgid "Fall themes"
 #~ msgstr "Tema ara"
-
-#~ msgid "See more YouTube extensions"
-#~ msgstr "Diğer sekme eklentilerine bakın"
 
 #~ msgid "Go to this review"
 #~ msgstr "Bu incelemeyi yanıtla"

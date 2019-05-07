@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-23 19:51+0000\n"
+"POT-Creation-Date: 2019-05-07 16:21+0000\n"
 "PO-Revision-Date: 2018-02-01 18:44+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
@@ -261,56 +261,61 @@ msgstr "এর দ্বারা ব্যবহৃত"
 msgid "Visit stats dashboard"
 msgstr "পরিসংখ্যান ড্যাশবোর্ডে পরিদর্শন করুন"
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:116
+#, fuzzy
+msgid "Custom License"
+msgstr "লাইসেন্স"
+
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:152
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "Read the privacy policy for this add-on"
 msgstr "এই অ্যাড-অনটির জন্যে গোপনীয়তার নীতি পড়ুন"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:161
 msgid "Read the license agreement for this add-on"
 msgstr "এই অ্যাড-অনের গোপনীয়তার নীতি পড়ুন"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "See all versions"
 msgstr "সকল সংস্করণ দেখুন"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:196
 msgid "Add-on Links"
 msgstr "অ্যাড-অন লিংক"
 
-#: src/amo/components/AddonMoreInfo/index.js:207
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Version"
 msgstr "সংস্করণ"
 
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "শেষ আপডেট"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "License"
 msgstr "লাইসেন্স"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Privacy Policy"
 msgstr "গোপনীয়তা নীতি"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "End-User License Agreement"
 msgstr "এন্ড ইউজার লাইসেন্স এগ্রিমেন্ট"
 
-#: src/amo/components/AddonMoreInfo/index.js:247
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Version History"
 msgstr "সংস্করণ ইতিহাস"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "Usage Statistics"
 msgstr "ব্যবহারকারীর পরিসংখ্যান"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:273
 msgid "More information"
 msgstr "আরও তথ্য"
 
@@ -620,8 +625,7 @@ msgstr "%(timestamp)s এ পোস্ট করা হয়েছে"
 
 #: src/amo/components/AddonVersionCard/index.js:113
 #, fuzzy
-msgid ""
-"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "%(timestamp)s এ পোস্ট করা হয়েছে"
 
 #: src/amo/components/AddonVersionCard/index.js:139
@@ -2374,31 +2378,32 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:54
 #, fuzzy
-msgid "See more feed readers"
-msgstr "আরও বৈশিষ্ট্যপূর্ণ থিম দেখুন"
+msgid "See more productivity extensions"
+msgstr "আরো জনপ্রিয় এক্সটেনশন দেখুন"
 
 #: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "Feed readers"
-msgstr "আরও বৈশিষ্ট্যপূর্ণ থিম দেখুন"
+msgid "Productivity extensions"
+msgstr "আরো জনপ্রিয় এক্সটেনশন দেখুন"
 
 #: src/amo/pages/Home/index.js:60
 #, fuzzy
-msgid "See more VPN solutions"
-msgstr "সর্বোচ্চ রেট পাওয়া এক্সটেনশন দেখুন"
+msgid "See more YouTube extensions"
+msgstr "এক্সটেনশন অনুসন্ধান"
 
 #: src/amo/pages/Home/index.js:61
-msgid "VPN solutions"
+msgid "YouTube boosters"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:66
 #, fuzzy
-msgid "See more tab extensions"
-msgstr "সর্বোচ্চ রেট পাওয়া এক্সটেনশন দেখুন"
+msgid "See more feed readers"
+msgstr "আরও বৈশিষ্ট্যপূর্ণ থিম দেখুন"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Change up your tabs"
-msgstr ""
+#, fuzzy
+msgid "Feed readers"
+msgstr "আরও বৈশিষ্ট্যপূর্ণ থিম দেখুন"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3338,6 +3343,19 @@ msgid "Developer response"
 msgstr "ডেভেলপারদের সাড়া"
 
 #, fuzzy
+#~ msgid ""
+#~ "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+#~ msgstr "%(timestamp)s এ পোস্ট করা হয়েছে"
+
+#, fuzzy
+#~ msgid "See more VPN solutions"
+#~ msgstr "সর্বোচ্চ রেট পাওয়া এক্সটেনশন দেখুন"
+
+#, fuzzy
+#~ msgid "See more tab extensions"
+#~ msgstr "সর্বোচ্চ রেট পাওয়া এক্সটেনশন দেখুন"
+
+#, fuzzy
 #~ msgid "See more video extensions"
 #~ msgstr "সর্বোচ্চ রেট পাওয়া এক্সটেনশন দেখুন"
 
@@ -3374,10 +3392,6 @@ msgstr "ডেভেলপারদের সাড়া"
 
 #, fuzzy
 #~ msgid "See more popular themes"
-#~ msgstr "আরো জনপ্রিয় এক্সটেনশন দেখুন"
-
-#, fuzzy
-#~ msgid "See more productivity extensions"
 #~ msgstr "আরো জনপ্রিয় এক্সটেনশন দেখুন"
 
 #, fuzzy
@@ -3561,10 +3575,6 @@ msgstr "ডেভেলপারদের সাড়া"
 #, fuzzy
 #~ msgid "Fall themes"
 #~ msgstr "সংবাদ অনুসন্ধান করুন"
-
-#, fuzzy
-#~ msgid "See more YouTube extensions"
-#~ msgstr "এক্সটেনশন অনুসন্ধান"
 
 #, fuzzy
 #~ msgid "Go to this review"

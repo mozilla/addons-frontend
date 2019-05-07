@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-23 19:51+0000\n"
+"POT-Creation-Date: 2019-05-07 16:21+0000\n"
 "PO-Revision-Date: 2019-02-28 23:08+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -263,57 +263,62 @@ msgstr "Okisan ruma"
 msgid "Visit stats dashboard"
 msgstr "Titz'et ri kipas molob'a'"
 
+#: src/amo/components/AddonMoreInfo/index.js:116
+#, fuzzy
+msgid "Custom License"
+msgstr "Ya'oj q'ij"
+
 # This will output, in English:
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:152
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "Read the privacy policy for this add-on"
 msgstr "Tisik'ïx ri richinanem na'oj re tz'aqat re'"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:161
 msgid "Read the license agreement for this add-on"
 msgstr "Tisik'ïx ri ruch'ob'on tzij ya'oj q'ij re tz'aqat re'"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "See all versions"
 msgstr "Ke'atz'eta' ronojel ri kiwäch"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:196
 msgid "Add-on Links"
 msgstr "Kiximonel Tz'aqat"
 
-#: src/amo/components/AddonMoreInfo/index.js:207
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Version"
 msgstr "Ruwäch"
 
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Ruk'isib'äl k'exoj"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "License"
 msgstr "Ya'oj q'ij"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Privacy Policy"
 msgstr "Ichinanem Na'oj"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "End-User License Agreement"
 msgstr "Taq Rutzij Ya'oj Q'ij kichin ri Ruk'isib'äl okisanel"
 
-#: src/amo/components/AddonMoreInfo/index.js:247
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Version History"
 msgstr "Runatab'al Ruwäch"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "Usage Statistics"
 msgstr "Kimolob'a' okisanïk"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:273
 msgid "More information"
 msgstr "Ch'aqa' chik etamab'äl"
 
@@ -628,8 +633,7 @@ msgstr "talun rutzijol %(timestamp)s"
 
 #: src/amo/components/AddonVersionCard/index.js:113
 #, fuzzy
-msgid ""
-"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "talun rutzijol %(timestamp)s"
 
 #: src/amo/components/AddonVersionCard/index.js:139
@@ -2426,31 +2430,30 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Home/index.js:54
-msgid "See more feed readers"
-msgstr "Ketz'et ch'aqa' chik talun taq wachinel"
+msgid "See more productivity extensions"
+msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
 
 #: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "Feed readers"
-msgstr "Ketz'et ch'aqa' chik talun taq wachinel"
+msgid "Productivity extensions"
+msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
-msgid "See more VPN solutions"
+msgid "See more YouTube extensions"
 msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
 
 #: src/amo/pages/Home/index.js:61
-msgid "VPN solutions"
-msgstr ""
+msgid "YouTube boosters"
+msgstr "Rajtijonela' Wikipedia"
 
 #: src/amo/pages/Home/index.js:66
-#, fuzzy
-msgid "See more tab extensions"
-msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
+msgid "See more feed readers"
+msgstr "Ketz'et ch'aqa' chik talun taq wachinel"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Change up your tabs"
-msgstr ""
+#, fuzzy
+msgid "Feed readers"
+msgstr "Ketz'et ch'aqa' chik talun taq wachinel"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3488,6 +3491,19 @@ msgid "Developer response"
 msgstr "Tzolin rutzij b'anonel"
 
 #, fuzzy
+#~ msgid ""
+#~ "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+#~ msgstr "talun rutzijol %(timestamp)s"
+
+#, fuzzy
+#~ msgid "See more VPN solutions"
+#~ msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
+
+#, fuzzy
+#~ msgid "See more tab extensions"
+#~ msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
+
+#, fuzzy
 #~ msgid "See more video extensions"
 #~ msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
 
@@ -3522,12 +3538,6 @@ msgstr "Tzolin rutzij b'anonel"
 #~ msgstr "Tatz'ib'aj jun tzij nikanöx richin yekanöx taq Kitz'aqat Firefox."
 
 #~ msgid "See more popular themes"
-#~ msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
-
-#~ msgid "YouTube boosters"
-#~ msgstr "Rajtijonela' Wikipedia"
-
-#~ msgid "See more productivity extensions"
 #~ msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
 
 #~ msgid "Highly customizable text highlighter"
@@ -3778,9 +3788,6 @@ msgstr "Tzolin rutzij b'anonel"
 
 #~ msgid "Fall themes"
 #~ msgstr "Ketz'et ronojel ri taq wachinïk"
-
-#~ msgid "See more YouTube extensions"
-#~ msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
 
 #~ msgid "Go to this review"
 #~ msgstr "Titzolïx tzij chi re ri tzijoxïk"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-23 19:51+0000\n"
+"POT-Creation-Date: 2019-05-07 16:21+0000\n"
 "PO-Revision-Date: 2018-11-13 15:28+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
@@ -258,56 +258,61 @@ msgstr "Ползвател"
 msgid "Visit stats dashboard"
 msgstr "Табло със статистика"
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:116
+#, fuzzy
+msgid "Custom License"
+msgstr "Лиценз"
+
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:152
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "Read the privacy policy for this add-on"
 msgstr "Прочетете декларацията за поверителност на добавката"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:161
 msgid "Read the license agreement for this add-on"
 msgstr "Прочетете лицензното споразумение на добавката"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "See all versions"
 msgstr "Всички издания"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:196
 msgid "Add-on Links"
 msgstr "Препратки"
 
-#: src/amo/components/AddonMoreInfo/index.js:207
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Version"
 msgstr "Издание"
 
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Последно обновяване"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "License"
 msgstr "Лиценз"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Privacy Policy"
 msgstr "Политика на поверителност"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "End-User License Agreement"
 msgstr "Лицензно споразумение на крайния потребител"
 
-#: src/amo/components/AddonMoreInfo/index.js:247
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Version History"
 msgstr "Хронология на изданията"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "Usage Statistics"
 msgstr "Статистика на използване"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:273
 msgid "More information"
 msgstr "Повече сведения"
 
@@ -605,8 +610,7 @@ msgstr "написано на %(timestamp)s"
 
 #: src/amo/components/AddonVersionCard/index.js:113
 #, fuzzy
-msgid ""
-"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "написано на %(timestamp)s"
 
 #: src/amo/components/AddonVersionCard/index.js:139
@@ -2370,31 +2374,32 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:54
 #, fuzzy
-msgid "See more feed readers"
-msgstr "Повече препоръчани теми"
+msgid "See more productivity extensions"
+msgstr "Добавки за производителност"
 
 #: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "Feed readers"
-msgstr "Повече препоръчани теми"
+msgid "Productivity extensions"
+msgstr "Добавки за производителност"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
-msgid "See more VPN solutions"
-msgstr "Повече високо оценени разширения"
+msgid "See more YouTube extensions"
+msgstr "Повече от разширенията за търсене"
 
 #: src/amo/pages/Home/index.js:61
-msgid "VPN solutions"
-msgstr ""
+#, fuzzy
+msgid "YouTube boosters"
+msgstr "Подобрения на Wikipedia"
 
 #: src/amo/pages/Home/index.js:66
 #, fuzzy
-msgid "See more tab extensions"
-msgstr "Повече високо оценени разширения"
+msgid "See more feed readers"
+msgstr "Повече препоръчани теми"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Change up your tabs"
-msgstr ""
+#, fuzzy
+msgid "Feed readers"
+msgstr "Повече препоръчани теми"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3358,6 +3363,19 @@ msgid "Developer response"
 msgstr "Отговор от разработчика"
 
 #, fuzzy
+#~ msgid ""
+#~ "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+#~ msgstr "написано на %(timestamp)s"
+
+#, fuzzy
+#~ msgid "See more VPN solutions"
+#~ msgstr "Повече високо оценени разширения"
+
+#, fuzzy
+#~ msgid "See more tab extensions"
+#~ msgstr "Повече високо оценени разширения"
+
+#, fuzzy
 #~ msgid "See more video extensions"
 #~ msgstr "Повече високо оценени разширения"
 
@@ -3395,14 +3413,6 @@ msgstr "Отговор от разработчика"
 #, fuzzy
 #~ msgid "See more popular themes"
 #~ msgstr "Повече от известните"
-
-#, fuzzy
-#~ msgid "YouTube boosters"
-#~ msgstr "Подобрения на Wikipedia"
-
-#, fuzzy
-#~ msgid "See more productivity extensions"
-#~ msgstr "Добавки за производителност"
 
 #~ msgid "Watch2Gether"
 #~ msgstr "Watch2Gether"
@@ -3728,9 +3738,6 @@ msgstr "Отговор от разработчика"
 
 #~ msgid "Fall themes"
 #~ msgstr "Търсене на теми"
-
-#~ msgid "See more YouTube extensions"
-#~ msgstr "Повече от разширенията за търсене"
 
 #~ msgid "Go to this review"
 #~ msgstr "Отговаряне на отзива"

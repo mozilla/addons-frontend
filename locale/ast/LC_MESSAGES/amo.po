@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-23 19:51+0000\n"
+"POT-Creation-Date: 2019-05-07 16:21+0000\n"
 "PO-Revision-Date: 2018-09-15 17:36+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
@@ -251,56 +251,61 @@ msgstr ""
 msgid "Visit stats dashboard"
 msgstr "Visitar el panel d'estadístiques"
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:116
+#, fuzzy
+msgid "Custom License"
+msgstr "Llicencia"
+
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:152
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "Read the privacy policy for this add-on"
 msgstr "Lleer la política de privacidá d'esti complementu"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:161
 msgid "Read the license agreement for this add-on"
 msgstr "Lleer l'alcuerdu de llicencia d'esi complementu"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "See all versions"
 msgstr "Ver toles versiones"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:196
 msgid "Add-on Links"
 msgstr "Enllaces del complementu"
 
-#: src/amo/components/AddonMoreInfo/index.js:207
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Version"
 msgstr "Versión"
 
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Últimu anovamientu"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "License"
 msgstr "Llicencia"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Privacy Policy"
 msgstr "Política de privacidá"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "End-User License Agreement"
 msgstr "Alcuerdu de llicencia d'usuariu final"
 
-#: src/amo/components/AddonMoreInfo/index.js:247
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Version History"
 msgstr "Historial de versiones"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "Usage Statistics"
 msgstr "Estadístiques d'usu"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:273
 msgid "More information"
 msgstr "Más información"
 
@@ -591,8 +596,7 @@ msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:113
-msgid ""
-"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:139
@@ -2283,31 +2287,32 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:54
 #, fuzzy
-msgid "See more feed readers"
+msgid "See more productivity extensions"
 msgstr "Restolar toles estensiones"
 
 #: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "Feed readers"
+msgid "Productivity extensions"
 msgstr "Restolar toles estensiones"
 
 #: src/amo/pages/Home/index.js:60
 #, fuzzy
-msgid "See more VPN solutions"
+msgid "See more YouTube extensions"
 msgstr "Restolar toles estensiones"
 
 #: src/amo/pages/Home/index.js:61
-msgid "VPN solutions"
+msgid "YouTube boosters"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:66
 #, fuzzy
-msgid "See more tab extensions"
+msgid "See more feed readers"
 msgstr "Restolar toles estensiones"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Change up your tabs"
-msgstr ""
+#, fuzzy
+msgid "Feed readers"
+msgstr "Restolar toles estensiones"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3216,6 +3221,10 @@ msgid "Developer response"
 msgstr ""
 
 #, fuzzy
+#~ msgid "See more VPN solutions"
+#~ msgstr "Restolar toles estensiones"
+
+#, fuzzy
 #~ msgid "See more video extensions"
 #~ msgstr "Restolar toles estensiones"
 
@@ -3241,10 +3250,6 @@ msgstr ""
 
 #, fuzzy
 #~ msgid "See more tools"
-#~ msgstr "Restolar toles estensiones"
-
-#, fuzzy
-#~ msgid "See more productivity extensions"
 #~ msgstr "Restolar toles estensiones"
 
 #~ msgid "Search Site"
