@@ -59,6 +59,11 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
       addon.type === ADDON_TYPE_EXTENSION &&
       isQuantumCompatible({ addon }) === false;
 
+    const showFeaturedBadge =
+      addon.is_featured &&
+      (!_config.get('enableFeatureRecommendedBadges') ||
+        addon.type !== ADDON_TYPE_EXTENSION);
+
     return (
       <div className="AddonBadges">
         {_config.get('enableFeatureRecommendedBadges') &&
@@ -66,7 +71,7 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
         clientApp !== CLIENT_APP_ANDROID ? (
           <RecommendedBadge />
         ) : null}
-        {addon.is_featured ? (
+        {showFeaturedBadge ? (
           <Badge type="featured" label={getFeaturedText(addon.type)} />
         ) : null}
         {addon.isRestartRequired ? (
