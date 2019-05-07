@@ -28,7 +28,7 @@ describe(__filename, () => {
         enableFeatureRecommendedBadges: false,
       }),
       i18n: fakeI18n(),
-      store: dispatchClientMetadata().store,
+      store: dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store,
       ...props,
     };
 
@@ -50,11 +50,7 @@ describe(__filename, () => {
     expect(root.find(Badge)).toHaveLength(0);
   });
 
-  it('displays a badge when the addon is recommended', () => {
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_FIREFOX,
-    });
-
+  it('displays a recommended badge when the addon is recommended', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       is_recommended: true,
@@ -65,7 +61,6 @@ describe(__filename, () => {
         enableFeatureRecommendedBadges: true,
       }),
       addon,
-      store,
     });
 
     expect(root.find(RecommendedBadge)).toHaveLength(1);
@@ -108,7 +103,7 @@ describe(__filename, () => {
     expect(root.find(RecommendedBadge)).toHaveLength(0);
   });
 
-  it('displays a badge for an extension when the addon is featured and the recommended feature is off', () => {
+  it('displays a featured badge for an extension when the addon is featured and the recommended feature is off', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       is_featured: true,
@@ -125,7 +120,7 @@ describe(__filename, () => {
     expect(root.find(Badge)).toHaveProp('label', 'Featured Extension');
   });
 
-  it('displays a badge for a theme when the addon is featured and the recommended feature is on', () => {
+  it('displays a featured badge for a theme when the addon is featured and the recommended feature is on', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       is_featured: true,
