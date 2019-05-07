@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-23 19:51+0000\n"
-"PO-Revision-Date: 2019-04-29 19:28+0000\n"
+"PO-Revision-Date: 2019-05-07 10:04+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -414,9 +414,8 @@ msgid "Write a review"
 msgstr "సమీక్షను వ్రాయండి"
 
 #: src/amo/components/AddonReviewManager/index.js:111
-#, fuzzy
 msgid "Write about your experience with this add-on."
-msgstr "ఈ పొడిగింతతో మీ అనుభవాన్ని మాకు తెలియజేయండి. ప్రత్యేకంగా మరియు సంక్షిప్తంగా వివరణను చెప్పండి."
+msgstr "ఈ పొడగింతతో మీ అనుభవం గురించి వ్రాయండి."
 
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Submit review"
@@ -588,14 +587,12 @@ msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Firefox (%(locale)s) కోసం పొడగింతలు"
 
 #: src/amo/components/App/index.js:215 src/amo/components/HeadMetaTags/index.js:76
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Firefox యొక్క పొడిగింతలు"
+msgstr "Firefox Andriod (%(locale)s) కోసం పొడగింతలు"
 
 #: src/amo/components/App/index.js:219 src/amo/components/HeadMetaTags/index.js:70
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%s – Firefox యొక్క పొడిగింతలు"
+msgstr "%(title)s – Firefox Android (%(locale)s) కోసం పొడగింతలు"
 
 #: src/amo/components/AutoSearchInput/index.js:204
 msgid "Loading"
