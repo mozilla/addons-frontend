@@ -327,3 +327,10 @@
   height: 12px;
   width: 12px;
 }
+
+.Icon-recommended {
+  @include icon($name: 'recommended');
+
+  height: 12px;
+  width: 12px;
+}

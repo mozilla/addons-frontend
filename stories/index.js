@@ -8,3 +8,4 @@ import './setup/styles.scss';
 import './ui/Badge';
 import './ui/Button';
 import './ui/Rating';
+import './ui/RecommendedBadge';

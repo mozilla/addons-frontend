@@ -1,0 +1,57 @@
+@import '~ui/css/styles';
+
+$recommended-text-color: $orange-70;
+$recommended-hover-color: $orange-50;
+
+.RecommendedBadge {
+  align-items: center;
+  color: $recommended-text-color;
+  display: flex;
+  font-size: $font-size-m-smaller;
+  margin-bottom: 6px;
+
+  @include respond-to(large) {
+    justify-content: flex-end;
+  }
+
+  a,
+  a:link,
+  a:visited {
+    color: $recommended-text-color;
+    font-weight: normal;
+    text-decoration: none;
+  }
+
+  a:active,
+  a:focus,
+  a:hover {
+    border-color: $recommended-hover-color;
+    color: $recommended-hover-color;
+
+    .RecommendedBadge-icon {
+      background-color: $recommended-hover-color;
+    }
+  }
+}
+
+.RecommendedBadge-link {
+  @include padding-end(10px);
+
+  border: 1px solid $recommended-text-color;
+  border-radius: 20px;
+  height: 24px;
+}
+
+.RecommendedBadge-icon {
+  @include margin-end(6px);
+  @include padding-end(0);
+  @include padding-start(4px);
+
+  background-color: $recommended-text-color;
+  border-radius: 50%;
+  display: inline-block;
+  height: 22px;
+  padding-bottom: 4px;
+  padding-top: 2px;
+  width: 22px;
+}
