@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-23 19:51+0000\n"
+"POT-Creation-Date: 2019-05-07 16:21+0000\n"
 "PO-Revision-Date: 2019-04-16 13:22+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
@@ -264,56 +264,61 @@ msgstr "Використовується"
 msgid "Visit stats dashboard"
 msgstr "Відвідати панель статистики"
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:116
+#, fuzzy
+msgid "Custom License"
+msgstr "Ліцензія"
+
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:152
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "Read the privacy policy for this add-on"
 msgstr "Ознайомитись з політикою приватності для цього додатка"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:161
 msgid "Read the license agreement for this add-on"
 msgstr "Ознайомитись з ліцензійною угодою для цього додатка"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "See all versions"
 msgstr "Переглянути всі версії"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:196
 msgid "Add-on Links"
 msgstr "Посилання додатка"
 
-#: src/amo/components/AddonMoreInfo/index.js:207
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Version"
 msgstr "Версія"
 
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Востаннє оновлено"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "License"
 msgstr "Ліцензія"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Privacy Policy"
 msgstr "Політика приватності"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "End-User License Agreement"
 msgstr "Ліцензійна угода з кінцевим користувачем"
 
-#: src/amo/components/AddonMoreInfo/index.js:247
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Version History"
 msgstr "Історія версій"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "Usage Statistics"
 msgstr "Статистика використання"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:273
 msgid "More information"
 msgstr "Більше інформації"
 
@@ -595,8 +600,7 @@ msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:113
 #, fuzzy
-msgid ""
-"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr ""
 "Програмний код випущено на умовах %(linkStart)s%(licenseName)s%(linkEnd)s"
 
@@ -2428,28 +2432,29 @@ msgstr ""
 "зовнішній вигляд браузера та інше."
 
 #: src/amo/pages/Home/index.js:54
+msgid "See more productivity extensions"
+msgstr "Розширення для продуктивності"
+
+#: src/amo/pages/Home/index.js:55
+#, fuzzy
+msgid "Productivity extensions"
+msgstr "Розширення для продуктивності"
+
+#: src/amo/pages/Home/index.js:60
+msgid "See more YouTube extensions"
+msgstr "Більше розширень для YouTube"
+
+#: src/amo/pages/Home/index.js:61
+msgid "YouTube boosters"
+msgstr "Новини"
+
+#: src/amo/pages/Home/index.js:66
 msgid "See more feed readers"
 msgstr "Більше відібраних тем"
 
-#: src/amo/pages/Home/index.js:55
+#: src/amo/pages/Home/index.js:67
 msgid "Feed readers"
 msgstr "Читачі новин"
-
-#: src/amo/pages/Home/index.js:60
-msgid "See more VPN solutions"
-msgstr "Докладніше про рішення VPN"
-
-#: src/amo/pages/Home/index.js:61
-msgid "VPN solutions"
-msgstr "Рішення VPN"
-
-#: src/amo/pages/Home/index.js:66
-msgid "See more tab extensions"
-msgstr "Інші розширення для вкладок"
-
-#: src/amo/pages/Home/index.js:67
-msgid "Change up your tabs"
-msgstr "Змініть свої вкладки"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3511,6 +3516,24 @@ msgstr[2] "%(total)s додатків"
 msgid "Developer response"
 msgstr "Відповідь розробника"
 
+#, fuzzy
+#~ msgid ""
+#~ "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+#~ msgstr ""
+#~ "Програмний код випущено на умовах %(linkStart)s%(licenseName)s%(linkEnd)s"
+
+#~ msgid "See more VPN solutions"
+#~ msgstr "Докладніше про рішення VPN"
+
+#~ msgid "VPN solutions"
+#~ msgstr "Рішення VPN"
+
+#~ msgid "See more tab extensions"
+#~ msgstr "Інші розширення для вкладок"
+
+#~ msgid "Change up your tabs"
+#~ msgstr "Змініть свої вкладки"
+
 #~ msgid "See more video extensions"
 #~ msgstr "Інші розширення для відео"
 
@@ -3555,12 +3578,6 @@ msgstr "Відповідь розробника"
 
 #~ msgid "See more YouTube boosters"
 #~ msgstr "Інші обробники перегляду новин"
-
-#~ msgid "YouTube boosters"
-#~ msgstr "Новини"
-
-#~ msgid "See more productivity extensions"
-#~ msgstr "Розширення для продуктивності"
 
 #~ msgid "Highly customizable text highlighter"
 #~ msgstr "Засіб для підсвічування тексту з широкими можливостями"
@@ -4018,9 +4035,6 @@ msgstr "Відповідь розробника"
 
 #~ msgid "Fall themes"
 #~ msgstr "Осінні теми"
-
-#~ msgid "See more YouTube extensions"
-#~ msgstr "Більше розширень для YouTube"
 
 #~ msgid "Go to this review"
 #~ msgstr "Відповісти на цей відгук"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-23 19:51+0000\n"
+"POT-Creation-Date: 2019-05-07 16:21+0000\n"
 "PO-Revision-Date: 2019-04-19 09:33+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
@@ -250,56 +250,61 @@ msgstr "Käyttäjiä"
 msgid "Visit stats dashboard"
 msgstr "Näytä tilastosivu"
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:116
+#, fuzzy
+msgid "Custom License"
+msgstr "Lisenssi"
+
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:152
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "Read the privacy policy for this add-on"
 msgstr "Lue tämän lisäosan tietosuojakäytäntö"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:161
 msgid "Read the license agreement for this add-on"
 msgstr "Lue tämän lisäosan lisenssisopimus"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "See all versions"
 msgstr "Näytä kaikki versiot"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:196
 msgid "Add-on Links"
 msgstr "Lisäosan linkit"
 
-#: src/amo/components/AddonMoreInfo/index.js:207
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Version"
 msgstr "Versio"
 
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Viimeksi päivitetty"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "License"
 msgstr "Lisenssi"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Privacy Policy"
 msgstr "Tietosuojakäytäntö"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "End-User License Agreement"
 msgstr "Loppukäyttäjän lisenssisopimus"
 
-#: src/amo/components/AddonMoreInfo/index.js:247
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Version History"
 msgstr "Versiohistoria"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "Usage Statistics"
 msgstr "Käyttötilastot"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:273
 msgid "More information"
 msgstr "Lisätietoja"
 
@@ -582,8 +587,7 @@ msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:113
 #, fuzzy
-msgid ""
-"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr ""
 "Lähdekoodi julkaistu lisenssillä %(linkStart)s%(licenseName)s%(linkEnd)s"
 
@@ -2389,28 +2393,29 @@ msgstr ""
 "salasanoja, muuttaa selaimen ulkoasua ja paljon muuta."
 
 #: src/amo/pages/Home/index.js:54
+msgid "See more productivity extensions"
+msgstr "Katso lisää tuottavuuslaajennuksia"
+
+#: src/amo/pages/Home/index.js:55
+#, fuzzy
+msgid "Productivity extensions"
+msgstr "Katso lisää tuottavuuslaajennuksia"
+
+#: src/amo/pages/Home/index.js:60
+msgid "See more YouTube extensions"
+msgstr "Katso lisää YouTube-laajennuksia"
+
+#: src/amo/pages/Home/index.js:61
+msgid "YouTube boosters"
+msgstr "YouTube-tehostimet"
+
+#: src/amo/pages/Home/index.js:66
 msgid "See more feed readers"
 msgstr "Katso lisää suositeltuja teemoja"
 
-#: src/amo/pages/Home/index.js:55
+#: src/amo/pages/Home/index.js:67
 msgid "Feed readers"
 msgstr "Syötteenlukijat"
-
-#: src/amo/pages/Home/index.js:60
-msgid "See more VPN solutions"
-msgstr "Katso lisää VPN-ratkaisuja"
-
-#: src/amo/pages/Home/index.js:61
-msgid "VPN solutions"
-msgstr "VPN-ratkaisut"
-
-#: src/amo/pages/Home/index.js:66
-msgid "See more tab extensions"
-msgstr "Katso lisää välilehtilaajennuksia"
-
-#: src/amo/pages/Home/index.js:67
-msgid "Change up your tabs"
-msgstr "Mukauta välilehtiäsi"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3431,6 +3436,24 @@ msgstr[1] "%(total)s lisäosaa"
 msgid "Developer response"
 msgstr "Kehittäjän vastaus"
 
+#, fuzzy
+#~ msgid ""
+#~ "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+#~ msgstr ""
+#~ "Lähdekoodi julkaistu lisenssillä %(linkStart)s%(licenseName)s%(linkEnd)s"
+
+#~ msgid "See more VPN solutions"
+#~ msgstr "Katso lisää VPN-ratkaisuja"
+
+#~ msgid "VPN solutions"
+#~ msgstr "VPN-ratkaisut"
+
+#~ msgid "See more tab extensions"
+#~ msgstr "Katso lisää välilehtilaajennuksia"
+
+#~ msgid "Change up your tabs"
+#~ msgstr "Mukauta välilehtiäsi"
+
 #~ msgid "See more video extensions"
 #~ msgstr "Katso lisää videolaajennuksia"
 
@@ -3478,12 +3501,6 @@ msgstr "Kehittäjän vastaus"
 
 #~ msgid "See more popular themes"
 #~ msgstr "Katso lisää suosittuja teemoja"
-
-#~ msgid "YouTube boosters"
-#~ msgstr "YouTube-tehostimet"
-
-#~ msgid "See more productivity extensions"
-#~ msgstr "Katso lisää tuottavuuslaajennuksia"
 
 #~ msgid "Be more productive"
 #~ msgstr "Ole entistä tuotteliaampi"
@@ -3870,9 +3887,6 @@ msgstr "Kehittäjän vastaus"
 
 #~ msgid "Fall themes"
 #~ msgstr "Syysteemat"
-
-#~ msgid "See more YouTube extensions"
-#~ msgstr "Katso lisää YouTube-laajennuksia"
 
 #~ msgid "Go to this review"
 #~ msgstr "Siirry tähän arvioon"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-23 19:51+0000\n"
+"POT-Creation-Date: 2019-05-07 16:21+0000\n"
 "PO-Revision-Date: 2019-03-05 17:15+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
@@ -263,56 +263,61 @@ msgstr "Brugt af"
 msgid "Visit stats dashboard"
 msgstr "Besøg statistikoversigt"
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:116
+#, fuzzy
+msgid "Custom License"
+msgstr "Licens"
+
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:152
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "Read the privacy policy for this add-on"
 msgstr "Læs denne tilføjelses privatlivspolitik"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:161
 msgid "Read the license agreement for this add-on"
 msgstr "Læs denne tilføjelses licensaftale"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "See all versions"
 msgstr "Se alle versioner"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:196
 msgid "Add-on Links"
 msgstr "Tilføjelses-links"
 
-#: src/amo/components/AddonMoreInfo/index.js:207
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Version"
 msgstr "Version"
 
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Senest opdateret"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "License"
 msgstr "Licens"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Privacy Policy"
 msgstr "Privatlivspolitik"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "End-User License Agreement"
 msgstr "Licensaftale for slutbrugere"
 
-#: src/amo/components/AddonMoreInfo/index.js:247
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Version History"
 msgstr "Versions-historik"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "Usage Statistics"
 msgstr "Brugsstatistik"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:273
 msgid "More information"
 msgstr "Mere information"
 
@@ -591,8 +596,7 @@ msgstr "Kildekode udgivet under %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:113
 #, fuzzy
-msgid ""
-"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "Kildekode udgivet under %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:139
@@ -2335,30 +2339,30 @@ msgstr ""
 "udseende og meget mere."
 
 #: src/amo/pages/Home/index.js:54
-msgid "See more feed readers"
-msgstr "Se flere udvalgte temaer"
+msgid "See more productivity extensions"
+msgstr "Se flere produktivitets-udvidelser"
 
 #: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "Feed readers"
-msgstr "Se flere udvalgte temaer"
+msgid "Productivity extensions"
+msgstr "Se flere produktivitets-udvidelser"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
-msgid "See more VPN solutions"
-msgstr "Se flere faneblads-udvidelser"
+msgid "See more YouTube extensions"
+msgstr "Se flere YouTube-udvidelser"
 
 #: src/amo/pages/Home/index.js:61
-msgid "VPN solutions"
-msgstr ""
+msgid "YouTube boosters"
+msgstr "Forbedringer af YouTube"
 
 #: src/amo/pages/Home/index.js:66
-msgid "See more tab extensions"
-msgstr "Se flere faneblads-udvidelser"
+msgid "See more feed readers"
+msgstr "Se flere udvalgte temaer"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Change up your tabs"
-msgstr ""
+#, fuzzy
+msgid "Feed readers"
+msgstr "Se flere udvalgte temaer"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3384,6 +3388,18 @@ msgstr[1] "%(total)s tilføjelser"
 msgid "Developer response"
 msgstr "Svar fra udvikleren"
 
+#, fuzzy
+#~ msgid ""
+#~ "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+#~ msgstr "Kildekode udgivet under %(linkStart)s%(licenseName)s%(linkEnd)s"
+
+#, fuzzy
+#~ msgid "See more VPN solutions"
+#~ msgstr "Se flere faneblads-udvidelser"
+
+#~ msgid "See more tab extensions"
+#~ msgstr "Se flere faneblads-udvidelser"
+
 #~ msgid "Wikipedia boosters"
 #~ msgstr "Wikipedia-boostere"
 
@@ -3416,12 +3432,6 @@ msgstr "Svar fra udvikleren"
 
 #~ msgid "See more YouTube boosters"
 #~ msgstr "Se flere forbedringer til YouTube"
-
-#~ msgid "YouTube boosters"
-#~ msgstr "Forbedringer af YouTube"
-
-#~ msgid "See more productivity extensions"
-#~ msgstr "Se flere produktivitets-udvidelser"
 
 #~ msgid "Be more productive"
 #~ msgstr "Bliv mere produktiv"
@@ -3821,9 +3831,6 @@ msgstr "Svar fra udvikleren"
 
 #~ msgid "Fall themes"
 #~ msgstr "Efterårs-temaer"
-
-#~ msgid "See more YouTube extensions"
-#~ msgstr "Se flere YouTube-udvidelser"
 
 #~ msgid "Go to this review"
 #~ msgstr "Svar på denne anmeldelse"

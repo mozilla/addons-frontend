@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-23 19:51+0000\n"
+"POT-Creation-Date: 2019-05-07 16:21+0000\n"
 "PO-Revision-Date: 2019-04-17 01:46+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -246,56 +246,61 @@ msgstr "사용됨"
 msgid "Visit stats dashboard"
 msgstr "통계 대시보드 방문"
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:116
+#, fuzzy
+msgid "Custom License"
+msgstr "라이센스"
+
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:152
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "Read the privacy policy for this add-on"
 msgstr "이 부가 기능에 대한 개인 정보 보호 정책 읽기"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:161
 msgid "Read the license agreement for this add-on"
 msgstr "이 부가 기능에 대한 사용권 계약 읽기"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "See all versions"
 msgstr "모든 버전 보기"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:196
 msgid "Add-on Links"
 msgstr "부가 기능 링크"
 
-#: src/amo/components/AddonMoreInfo/index.js:207
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Version"
 msgstr "버전"
 
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "최신 버전"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "License"
 msgstr "라이센스"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Privacy Policy"
 msgstr "개인 정보 보호 정책"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "End-User License Agreement"
 msgstr "사용자 라이선스 동의서"
 
-#: src/amo/components/AddonMoreInfo/index.js:247
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Version History"
 msgstr "버전 목록"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "Usage Statistics"
 msgstr "사용 통계"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:273
 msgid "More information"
 msgstr "추가 정보"
 
@@ -608,8 +613,7 @@ msgstr "%(timestamp)s에 작성됨"
 
 #: src/amo/components/AddonVersionCard/index.js:113
 #, fuzzy
-msgid ""
-"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "%(timestamp)s에 작성됨"
 
 #: src/amo/components/AddonVersionCard/index.js:139
@@ -2395,31 +2399,30 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Home/index.js:54
-msgid "See more feed readers"
-msgstr "추천 테마 더보기"
+msgid "See more productivity extensions"
+msgstr "인기 확장 기능 더보기"
 
 #: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "Feed readers"
-msgstr "추천 테마 더보기"
+msgid "Productivity extensions"
+msgstr "인기 확장 기능 더보기"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
-msgid "See more VPN solutions"
-msgstr "가장 평점이 높은 확장 기능 더보기"
+msgid "See more YouTube extensions"
+msgstr "확장 기능 검색"
 
 #: src/amo/pages/Home/index.js:61
-msgid "VPN solutions"
-msgstr "VPN 솔루션"
+msgid "YouTube boosters"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:66
-#, fuzzy
-msgid "See more tab extensions"
-msgstr "가장 평점이 높은 확장 기능 더보기"
+msgid "See more feed readers"
+msgstr "추천 테마 더보기"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Change up your tabs"
-msgstr ""
+#, fuzzy
+msgid "Feed readers"
+msgstr "추천 테마 더보기"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3367,6 +3370,22 @@ msgstr[0] "카테고리가 없습니다."
 msgid "Developer response"
 msgstr "개발자 응답"
 
+#, fuzzy
+#~ msgid ""
+#~ "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+#~ msgstr "%(timestamp)s에 작성됨"
+
+#, fuzzy
+#~ msgid "See more VPN solutions"
+#~ msgstr "가장 평점이 높은 확장 기능 더보기"
+
+#~ msgid "VPN solutions"
+#~ msgstr "VPN 솔루션"
+
+#, fuzzy
+#~ msgid "See more tab extensions"
+#~ msgstr "가장 평점이 높은 확장 기능 더보기"
+
 #~ msgid "See more video extensions"
 #~ msgstr "가장 평점이 높은 확장 기능 더보기"
 
@@ -3395,9 +3414,6 @@ msgstr "개발자 응답"
 #~ msgstr "Firefox 부가 기능을 검색하려면 검색어를 입력해주세요."
 
 #~ msgid "See more popular themes"
-#~ msgstr "인기 확장 기능 더보기"
-
-#~ msgid "See more productivity extensions"
 #~ msgstr "인기 확장 기능 더보기"
 
 #~ msgid "Context Search"
@@ -3580,9 +3596,6 @@ msgstr "개발자 응답"
 
 #~ msgid "Fall themes"
 #~ msgstr "추천 테마"
-
-#~ msgid "See more YouTube extensions"
-#~ msgstr "확장 기능 검색"
 
 #~ msgid "Go to this review"
 #~ msgstr "이 리뷰에 답변"

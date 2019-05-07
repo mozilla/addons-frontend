@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-23 19:51+0000\n"
+"POT-Creation-Date: 2019-05-07 16:21+0000\n"
 "PO-Revision-Date: 2018-09-25 15:17+0000\n"
 "Last-Translator: Abdelrahman Manna <abood.fcb@hotmail.com>\n"
 "Language-Team: none\n"
@@ -270,56 +270,61 @@ msgstr "يستخدمُها"
 msgid "Visit stats dashboard"
 msgstr "زُر لوحة الإحصاءات"
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:116
+#, fuzzy
+msgid "Custom License"
+msgstr "الرخصة"
+
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:152
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "Read the privacy policy for this add-on"
 msgstr "اقرأ سياسة الخصوصية لهذه الإضافة"
 
-#: src/amo/components/AddonMoreInfo/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:161
 msgid "Read the license agreement for this add-on"
 msgstr "اقرأ اتفاقية الترخيص لهذه الإضافة"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:170
 msgid "See all versions"
 msgstr "اطّلع على كل الإصدارات"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:196
 msgid "Add-on Links"
 msgstr "روابط الإضافات"
 
-#: src/amo/components/AddonMoreInfo/index.js:207
+#: src/amo/components/AddonMoreInfo/index.js:208
 msgid "Version"
 msgstr "الإصدارة"
 
-#: src/amo/components/AddonMoreInfo/index.js:215
+#: src/amo/components/AddonMoreInfo/index.js:216
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "آخر تحديث"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "License"
 msgstr "الرخصة"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Privacy Policy"
 msgstr "سياسة الخصوصية"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:240
 msgid "End-User License Agreement"
 msgstr "اتفاقية ترخيص المستخدم"
 
-#: src/amo/components/AddonMoreInfo/index.js:247
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Version History"
 msgstr "تأريخ الإصدار"
 
-#: src/amo/components/AddonMoreInfo/index.js:257
+#: src/amo/components/AddonMoreInfo/index.js:258
 msgid "Usage Statistics"
 msgstr "إحصائيات الاستخدام"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:273
 msgid "More information"
 msgstr "معلومات أكثر"
 
@@ -617,8 +622,7 @@ msgstr "نُشرت %(timestamp)s"
 
 #: src/amo/components/AddonVersionCard/index.js:113
 #, fuzzy
-msgid ""
-"Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "نُشرت %(timestamp)s"
 
 #: src/amo/components/AddonVersionCard/index.js:139
@@ -2434,31 +2438,31 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:54
 #, fuzzy
-msgid "See more feed readers"
-msgstr "طالع المزيد من السمات المُختارة"
+msgid "See more productivity extensions"
+msgstr "الإنتاجية"
 
 #: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "Feed readers"
-msgstr "طالع المزيد من السمات المُختارة"
+msgid "Productivity extensions"
+msgstr "الإنتاجية"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
-msgid "See more VPN solutions"
-msgstr "طالع المزيد من الامتدادات الأعلى تقييما"
+msgid "See more YouTube extensions"
+msgstr "طالع المزيد من امتدادات يوتيوب"
 
 #: src/amo/pages/Home/index.js:61
-msgid "VPN solutions"
+msgid "YouTube boosters"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:66
 #, fuzzy
-msgid "See more tab extensions"
-msgstr "طالع المزيد من الامتدادات الأعلى تقييما"
+msgid "See more feed readers"
+msgstr "طالع المزيد من السمات المُختارة"
 
 #: src/amo/pages/Home/index.js:67
-msgid "Change up your tabs"
-msgstr ""
+#, fuzzy
+msgid "Feed readers"
+msgstr "طالع المزيد من السمات المُختارة"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid ""
@@ -3461,6 +3465,19 @@ msgid "Developer response"
 msgstr "رد المطور"
 
 #, fuzzy
+#~ msgid ""
+#~ "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+#~ msgstr "نُشرت %(timestamp)s"
+
+#, fuzzy
+#~ msgid "See more VPN solutions"
+#~ msgstr "طالع المزيد من الامتدادات الأعلى تقييما"
+
+#, fuzzy
+#~ msgid "See more tab extensions"
+#~ msgstr "طالع المزيد من الامتدادات الأعلى تقييما"
+
+#, fuzzy
 #~ msgid "See more video extensions"
 #~ msgstr "طالع المزيد من الامتدادات الأعلى تقييما"
 
@@ -3504,10 +3521,6 @@ msgstr "رد المطور"
 #, fuzzy
 #~ msgid "See more popular themes"
 #~ msgstr "تصفّح كل الامتدادات"
-
-#, fuzzy
-#~ msgid "See more productivity extensions"
-#~ msgstr "الإنتاجية"
 
 #~ msgid "Highly customizable text highlighter"
 #~ msgstr "برمجية عالية التخصيص لإبراز النصوص"
@@ -3758,9 +3771,6 @@ msgstr "رد المطور"
 
 #~ msgid "Fall themes"
 #~ msgstr "سمات الخريف"
-
-#~ msgid "See more YouTube extensions"
-#~ msgstr "طالع المزيد من امتدادات يوتيوب"
 
 #, fuzzy
 #~ msgid "Go to this review"
