@@ -4,9 +4,10 @@ import * as React from 'react';
 
 import SearchResult, { SearchResultBase } from 'amo/components/SearchResult';
 import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  ADDON_TYPE_OPENSEARCH,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
@@ -399,15 +400,35 @@ describe(__filename, () => {
     expect(root.find('.SearchResult-users')).toHaveLength(0);
   });
 
-  it('displays a badge when the addon is recommended', () => {
+  it('displays a recommended badge when an extension is recommended', () => {
     const root = render({
       _config: getFakeConfig({
         enableFeatureRecommendedBadges: true,
       }),
-      addon: createInternalAddon({ ...fakeAddon, is_recommended: true }),
+      addon: createInternalAddon({
+        ...fakeAddon,
+        is_recommended: true,
+        type: ADDON_TYPE_EXTENSION,
+      }),
     });
 
     expect(root.find(RecommendedBadge)).toHaveLength(1);
+  });
+
+  it('does not display a recommended badge when showRecommendedBadge is false', () => {
+    const root = render({
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: true,
+      }),
+      addon: createInternalAddon({
+        ...fakeAddon,
+        is_recommended: true,
+        type: ADDON_TYPE_EXTENSION,
+      }),
+      showRecommendedBadge: false,
+    });
+
+    expect(root.find(RecommendedBadge)).toHaveLength(0);
   });
 
   it('does not display a recommended badge when the feature is disabled', () => {
@@ -415,7 +436,11 @@ describe(__filename, () => {
       _config: getFakeConfig({
         enableFeatureRecommendedBadges: false,
       }),
-      addon: createInternalAddon({ ...fakeAddon, is_recommended: true }),
+      addon: createInternalAddon({
+        ...fakeAddon,
+        is_recommended: true,
+        type: ADDON_TYPE_EXTENSION,
+      }),
     });
 
     expect(root.find(RecommendedBadge)).toHaveLength(0);
@@ -430,7 +455,11 @@ describe(__filename, () => {
       _config: getFakeConfig({
         enableFeatureRecommendedBadges: true,
       }),
-      addon: createInternalAddon({ ...fakeAddon, is_recommended: true }),
+      addon: createInternalAddon({
+        ...fakeAddon,
+        is_recommended: true,
+        type: ADDON_TYPE_EXTENSION,
+      }),
       store,
     });
 
@@ -442,7 +471,26 @@ describe(__filename, () => {
       _config: getFakeConfig({
         enableFeatureRecommendedBadges: true,
       }),
-      addon: createInternalAddon({ ...fakeAddon, is_recommended: false }),
+      addon: createInternalAddon({
+        ...fakeAddon,
+        is_recommended: false,
+        type: ADDON_TYPE_EXTENSION,
+      }),
+    });
+
+    expect(root.find(RecommendedBadge)).toHaveLength(0);
+  });
+
+  it('does not display a recommended badge when an addon not an extension', () => {
+    const root = render({
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: true,
+      }),
+      addon: createInternalAddon({
+        ...fakeAddon,
+        is_recommended: true,
+        type: ADDON_TYPE_STATIC_THEME,
+      }),
     });
 
     expect(root.find(RecommendedBadge)).toHaveLength(0);

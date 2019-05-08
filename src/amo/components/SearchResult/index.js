@@ -8,8 +8,9 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 import {
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
 } from 'core/constants';
 import {
@@ -34,6 +35,7 @@ type Props = {|
   addon?: AddonType | CollectionAddonType,
   addonInstallSource?: string,
   showMetadata?: boolean,
+  showRecommendedBadge?: boolean,
   showSummary?: boolean,
 |};
 
@@ -50,6 +52,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     _config: config,
     _isAllowedOrigin: isAllowedOrigin,
     showMetadata: true,
+    showRecommendedBadge: true,
     showSummary: true,
   };
 
@@ -61,6 +64,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
       clientApp,
       i18n,
       showMetadata,
+      showRecommendedBadge,
       showSummary,
     } = this.props;
 
@@ -136,9 +140,11 @@ export class SearchResultBase extends React.Component<InternalProps> {
         <div className="SearchResult-contents">
           <h2 className="SearchResult-name">
             {addon ? addon.name : <LoadingText />}
-            {_config.get('enableFeatureRecommendedBadges') &&
+            {showRecommendedBadge &&
+            _config.get('enableFeatureRecommendedBadges') &&
             addon &&
             addon.is_recommended &&
+            addon.type === ADDON_TYPE_EXTENSION &&
             clientApp !== CLIENT_APP_ANDROID ? (
               <RecommendedBadge />
             ) : null}

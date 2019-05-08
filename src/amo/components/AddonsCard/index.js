@@ -29,6 +29,7 @@ type Props = {|
   placeholderCount: number,
   type?: 'horizontal' | 'vertical',
   showMetadata?: boolean,
+  showRecommendedBadge?: boolean,
   showSummary?: boolean,
 
   // These are all passed through to Card.
@@ -48,6 +49,7 @@ export default class AddonsCard extends React.Component<Props> {
     editing: false,
     loading: false,
     placeholderCount: DEFAULT_API_PAGE_SIZE,
+    showRecommendedBadge: true,
   };
 
   render() {
@@ -63,6 +65,7 @@ export default class AddonsCard extends React.Component<Props> {
       saveNote,
       placeholderCount,
       showMetadata,
+      showRecommendedBadge,
       showSummary,
       type,
       ...otherProps
@@ -95,6 +98,7 @@ export default class AddonsCard extends React.Component<Props> {
               addon={addon}
               key={`${addon.slug}-${addon.type}`}
               showMetadata={showMetadata}
+              showRecommendedBadge={showRecommendedBadge}
               showSummary={!isTheme(addon.type) ? showSummary : false}
             />,
           );

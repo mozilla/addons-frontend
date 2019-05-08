@@ -174,4 +174,13 @@ describe(__filename, () => {
     const root = render({ header });
     expect(root.find(CardList)).toHaveProp('header', header);
   });
+
+  it('passes the showRecommendedBadge prop through to SearchResult', () => {
+    const showRecommendedBadge = false;
+    const root = render({ addons: [fakeAddon], showRecommendedBadge });
+    expect(root.find(SearchResult)).toHaveProp(
+      'showRecommendedBadge',
+      showRecommendedBadge,
+    );
+  });
 });
