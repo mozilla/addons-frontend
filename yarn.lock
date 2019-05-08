@@ -12851,14 +12851,14 @@ react-clientside-effect@^1.2.0:
     "@babel/runtime" "^7.0.0"
     shallowequal "^1.1.0"
 
-react-cookie@3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-3.1.2.tgz#3835d25d3aabfa1dab38799f6bde49f5050580ac"
-  integrity sha512-kHBDW7dLiXfvR+lw2ZeH9fMjEM0gf1IwxDXOyXQrf22X5+Ifluyz22HCVFzq1va6FSEHk6hrBbH6oeNLTD2vIQ==
+react-cookie@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-4.0.0.tgz#90153f2b87bfba382d1ebab03db74ecc35fb3226"
+  integrity sha512-om/HB4MBHt4k+moR8Mb5h1kmKxcmOxK2U6aaQZ8Y+f+igICcE5bpng7yCiAo3kKN0btFpzvQ70XnpONOC0xkdA==
   dependencies:
     "@types/hoist-non-react-statics" "^3.0.1"
     hoist-non-react-statics "^3.0.0"
-    universal-cookie "^3.1.0"
+    universal-cookie "^4.0.0"
 
 react-dev-utils@^6.1.0:
   version "6.1.1"
@@ -14895,7 +14895,7 @@ stealthy-require@^1.1.1:
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
 
-storybook-addon-rtl@0.2.2:
+storybook-addon-rtl@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/storybook-addon-rtl/-/storybook-addon-rtl-0.2.2.tgz#5e5dabeb35f021b540b6d9cb03cfc4b34732f23d"
   integrity sha512-vTXX2qKyIzH6amknJHPQFQf6LDPUEu8UwYqQVU0JlYrfjgrsMb/KKhk47iTjrR6eHCtDBOmJJt9lPWr1uTqmuA==
@@ -16049,17 +16049,17 @@ unist-util-visit@^1.1.0:
   dependencies:
     unist-util-visit-parents "^2.0.0"
 
-universal-cookie-express@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-3.1.0.tgz#f85d04dcd655444ee50f1c1980ac9b6521624681"
-  integrity sha512-F3hMX6V1fBwBd85VlKCScG0zz1SVg2ZpZhX9dHT9QjFxeRxUgbHdz0dTjDGJ14GG7p2isCQe7qgXnZ8Nn90r0A==
+universal-cookie-express@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-4.0.0.tgz#6c278b3e384651ea678d513581f8692c51cc1edc"
+  integrity sha512-aNUcwtGAd1CsAnp0uE13bmVts1qrMtBxjvhB6Z6+pv2Od/3n/uG7DX1Ugq7q8ylmNq6auakYWOu92aU8+SYOSw==
   dependencies:
-    universal-cookie "^3.0.7"
+    universal-cookie "^4.0.0"
 
-universal-cookie@^3.0.7, universal-cookie@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/universal-cookie/-/universal-cookie-3.1.0.tgz#a16964ccb16cf8fa463bda1ebe86482945339ad8"
-  integrity sha512-sP6WuFgqIUro7ikgI2ndrsw9Ro+YvVBe5O9cQfWnjTicpLaSMUEUUDjQF8m8utzWF2ONl7tRkcZd7v4n6NnzjQ==
+universal-cookie@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/universal-cookie/-/universal-cookie-4.0.0.tgz#1eb790a684e047574694ea71418dc9752d188630"
+  integrity sha512-6JVx+3oGPjslGqFhQ8YSIBHmYTx8HbyAEH++2/b6SKNXsbsdQ7lU7wRG2bYcRB5JVCz8GYgQ+Ixew91hn3Dy9w==
   dependencies:
     "@types/cookie" "^0.3.1"
     "@types/object-assign" "^4.0.30"
