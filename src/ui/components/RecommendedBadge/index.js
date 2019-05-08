@@ -26,7 +26,7 @@ export const RecommendedBadgeBase = (props: InternalProps) => {
         rel="noopener noreferrer"
         target="_blank"
         title={i18n.gettext(
-          'Recommended extensions are vetted for exceptional security and performance.',
+          'Firefox only recommends extensions that meet our standards for security and performance.',
         )}
       >
         <span className="RecommendedBadge-icon">
