@@ -1,7 +1,7 @@
 @import '~ui/css/styles';
 
-$recommended-text-color: $orange-70;
-$recommended-hover-color: $orange-50;
+$recommended-text-color: $orange-50;
+$recommended-hover-color: $orange-60;
 
 .RecommendedBadge {
   align-items: center;
@@ -54,4 +54,8 @@ $recommended-hover-color: $orange-50;
   padding-bottom: 4px;
   padding-top: 2px;
   width: 22px;
+}
+
+.RecommendedBadge-label {
+  color: $orange-80;
 }
