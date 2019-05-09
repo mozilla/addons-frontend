@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-03 17:01+0000\n"
-"Last-Translator: Sanjna <randhawasanjna75@gmail.com>\n"
+"PO-Revision-Date: 2019-05-09 05:28+0000\n"
+"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -340,7 +340,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
-msgstr ""
+msgstr "ਕੀ ਤੁਸੀਂ ਸੱਚਮੁੱਚ ਇਸ ਸਮੀਖਿਆ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: src/amo/components/AddonReviewCard/index.js:233 src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
@@ -998,11 +998,11 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:133 src/amo/pages/UserProfileEdit/index.js:516
 msgid "View My Profile"
-msgstr ""
+msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਦੇਖੋ"
 
 #: src/amo/components/Header/index.js:141 src/amo/pages/UserProfileEdit/index.js:522
 msgid "Edit My Profile"
-msgstr ""
+msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਸੰਪਾਦਿਤ ਕਰੋ"
 
 #: src/amo/components/Header/index.js:145
 msgid "Tools"
@@ -1010,7 +1010,7 @@ msgstr "ਸੰਦ"
 
 #: src/amo/components/Header/index.js:151
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "ਇੱਕ ਨਵਾਂ ਐਡ-ਆਨ ਦਰਜ ਕਰੋ"
 
 #: src/amo/components/Header/index.js:156
 msgid "Submit a New Theme"
@@ -1561,7 +1561,7 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:60
 msgid "for Firefox"
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਲਈ"
 
 #: src/amo/components/SectionLinks/index.js:62
 msgid "for Android"
@@ -1577,19 +1577,19 @@ msgstr "ਇਕਸਟੈਨਸ਼ਨ"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
-msgstr ""
+msgstr "ਸੁਝਾਏ ਗਏ ਸਫ਼ੇ"
 
 #: src/amo/components/SuggestedPages/index.js:29
 msgid "Browse all extensions"
-msgstr ""
+msgstr "ਸਾਰੇ ਐਡ-ਆਨਾਂ ਦੀ ਝਲਕ ਵੇਖੋ"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
-msgstr ""
+msgstr "ਸਾਰੇ ਥੀਮਾੰ ਦੀ ਝਲਕ ਵੇਖੋ"
 
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
-msgstr ""
+msgstr "ਐਡ-ਆਨ ਮੁੱਖ ਸਫ਼ਾ"
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
