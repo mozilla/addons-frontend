@@ -50,7 +50,7 @@ describe(__filename, () => {
     expect(root.find(Badge)).toHaveLength(0);
   });
 
-  it('displays a recommended badge when the addon is recommended', () => {
+  it('displays a recommended badge for a recommended extension', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       is_recommended: true,
@@ -64,6 +64,22 @@ describe(__filename, () => {
     });
 
     expect(root.find(RecommendedBadge)).toHaveLength(1);
+  });
+
+  it('does not display a recommended badge for a non-extension', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      is_recommended: true,
+      type: ADDON_TYPE_STATIC_THEME,
+    });
+    const root = shallowRender({
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: true,
+      }),
+      addon,
+    });
+
+    expect(root.find(RecommendedBadge)).toHaveLength(0);
   });
 
   it('does not display a recommended badge on Android', () => {

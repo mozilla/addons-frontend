@@ -66,7 +66,8 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
 
     return (
       <div className="AddonBadges">
-        {_config.get('enableFeatureRecommendedBadges') &&
+        {addon.type === ADDON_TYPE_EXTENSION &&
+        _config.get('enableFeatureRecommendedBadges') &&
         addon.is_recommended &&
         clientApp !== CLIENT_APP_ANDROID ? (
           <RecommendedBadge />
