@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-11 15:36+0000\n"
-"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
+"PO-Revision-Date: 2019-05-03 17:23+0000\n"
+"Last-Translator: Sanjna <randhawasanjna75@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -415,7 +415,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Submit review"
-msgstr ""
+msgstr "ਸਮੀਖਿਆ ਪੇਸ਼ ਕਰੋ"
 
 #: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submitting review"
@@ -455,7 +455,7 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:248
 msgid "Dictionaries by %(author)s"
-msgstr ""
+msgstr "%(author)s ਦੁਆਰਾ ਸ਼ਬਦਕੋਸ਼"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:251
 msgid "Dictionaries by these translators"
