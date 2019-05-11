@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-09 05:28+0000\n"
+"PO-Revision-Date: 2019-05-11 15:36+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -112,7 +112,7 @@ msgstr "ਫਾਇਰਫਾਕਸ ਦਾ ਤੁਹਾਡਾ ਵਰਜਨ ਇਸ �
 
 #: src/amo/components/AddonCompatibilityError/index.js:106
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "iOS ਲਈ ਫਾਇਰਫਾਕਸ ਵਰਤਮਾਨ ਵਿੱਚ ਐਡ-ਆਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾ।"
 
 #: src/amo/components/AddonCompatibilityError/index.js:110
 msgid "This add-on is not available on your platform."
@@ -132,7 +132,7 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:99
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਦਾ ਤੁਹਾਡਾ ਵਰਜਨ ਖੋਜ ਪਲੱਗਇਨ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
 #: src/amo/components/AddonHead/index.js:100
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
@@ -435,7 +435,7 @@ msgstr "ਸੰਭਾਲਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: src/amo/components/AddonReviewManager/index.js:145
 msgid "Saved"
-msgstr ""
+msgstr "ਸੰਭਾਲੀ ਗਈ"
 
 #: src/amo/components/AddonReviewManager/index.js:89
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -588,7 +588,7 @@ msgstr ""
 
 #: src/amo/components/AutoSearchInput/index.js:204
 msgid "Loading"
-msgstr ""
+msgstr "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ"
 
 #: src/amo/components/AutoSearchInput/index.js:299
 msgid "Find add-ons"
