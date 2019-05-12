@@ -547,14 +547,18 @@ export default function reviewsReducer(
         throw new Error(oneLine`Cannot store reply to review ID
           ${reviewId} because it does not exist`);
       }
+      const reviewReply = action.payload.reply;
+      const replyData = createInternalReview(action.payload.reply);
+
       return {
         ...state,
         byId: {
           ...state.byId,
           [review.id]: {
             ...review,
-            reply: createInternalReview(action.payload.reply),
+            reply: replyData,
           },
+          [reviewReply.id]: replyData,
         },
       };
     }

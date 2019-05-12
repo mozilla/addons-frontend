@@ -89,6 +89,7 @@ export class FeaturedAddonReviewBase extends React.Component<InternalProps> {
       : null;
 
     const featuredReviewCard =
+      !featuredReview &&
       errorHandler.hasError() &&
       errorHandler.capturedError.responseStatusCode === 404 ? (
         <NestedStatus code={404}>

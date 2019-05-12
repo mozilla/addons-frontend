@@ -225,6 +225,7 @@ describe(__filename, () => {
     expect(newState.byId[review.id].body).toEqual('Original review body');
     expect(newState.byId[review.id].reply.body).toEqual('A developer reply');
     expect(newState.byId[review.id].reply).toEqual(createInternalReview(reply));
+    expect(newState.byId[reply.id]).toEqual(createInternalReview(reply));
   });
 
   it('cannot store a reply to a non-existant review', () => {
