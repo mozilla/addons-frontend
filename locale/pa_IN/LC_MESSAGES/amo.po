@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-03 17:23+0000\n"
-"Last-Translator: Sanjna <randhawasanjna75@gmail.com>\n"
+"PO-Revision-Date: 2019-05-12 06:03+0000\n"
+"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -332,11 +332,11 @@ msgstr "ਪੜਤਾਲ ਹਟਾਓ"
 
 #: src/amo/components/AddonReviewCard/index.js:219
 msgid "Do you really want to delete this reply?"
-msgstr ""
+msgstr "ਕੀ ਤੁਸੀਂ ਸੱਚਮੁੱਚ ਵਿੱਚ ਇਹ ਜਵਾਬ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this rating?"
-msgstr ""
+msgstr "ਕੀ ਤੁਸੀਂ ਸੱਚਮੁੱਚ ਵਿੱਚ ਇਸ ਰੇਟਿੰਗ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
@@ -365,7 +365,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
-msgstr ""
+msgstr "ਇਸ ਸਮੀਖਿਆ ਲਈ ਜਵਾਬ ਲਿਖੋ।"
 
 #: src/amo/components/AddonReviewCard/index.js:301 src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
@@ -519,7 +519,7 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:320
 msgid "Add-ons by %(author)s"
-msgstr ""
+msgstr "%(author)s ਦੁਆਰਾ ਐਡ-ਆਨ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:323
 msgid "Add-ons by these developers"
@@ -564,7 +564,7 @@ msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "ਵਰਜਨ %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
@@ -616,7 +616,7 @@ msgstr ""
 
 #: src/amo/components/CategoryHead/index.js:34
 msgid "%(categoryName)s – Themes"
-msgstr ""
+msgstr "%(categoryName)s – ਥੀਮ"
 
 #: src/amo/components/CategoryHead/index.js:38
 msgid "%(categoryName)s"
@@ -848,7 +848,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
-msgstr ""
+msgstr "ਨਿਸ਼ਾਨਬੱਧ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
@@ -1521,7 +1521,7 @@ msgstr[1] "%(total)s ਉਪਭੋਗੀ"
 
 #: src/amo/components/SearchResults/index.js:42
 msgid "Searching…"
-msgstr ""
+msgstr "ਖੋਜ ਰਿਹਾ ਹੈ…"
 
 #: src/amo/components/SearchResults/index.js:47
 msgid "No results were found for \"%(query)s\"."
@@ -2338,7 +2338,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:67
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "ਤੁਹਾਨੂੰ ਕਿਹੜੇ ਗੁਣ ਪਸੰਦ ਜਾਂ ਨਾ-ਪਸੰਦ ਹਨ?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:69
 msgid "Was it useful?"
@@ -2675,7 +2675,7 @@ msgstr "ਫ਼ਾਇਰਫ਼ਾਕਸ ਵਿੱਚ ਜੋੜੋ"
 
 #: src/core/components/AuthenticateButton/index.js:81
 msgid "Register or Log in"
-msgstr ""
+msgstr "ਰਜਿਸਟਰ ਜਾਂ ਲੌਗਇਨ ਕਰੋ"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
@@ -2707,11 +2707,11 @@ msgstr "ਠੀਕ ਹੈ"
 
 #: src/core/components/Paginate/index.js:137
 msgid "Previous"
-msgstr ""
+msgstr "ਪਿਛਲਾ"
 
 #: src/core/components/Paginate/index.js:154
 msgid "Next"
-msgstr ""
+msgstr "ਅਗਲਾ"
 
 #: src/core/components/Paginate/index.js:160
 msgid "Page %(currentPage)s of %(totalPages)s"
