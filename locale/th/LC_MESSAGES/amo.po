@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-09 15:19+0000\n"
+"PO-Revision-Date: 2019-05-14 18:09+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -2020,7 +2020,6 @@ msgid "Ad blockers"
 msgstr "ตัวปิดกั้นโฆษณา"
 
 #: src/amo/pages/Home/index.js:145
-#, fuzzy
 msgid "Smarter shopping"
 msgstr "การซื้อของที่ชาญฉลาดกว่า"
 
@@ -2029,7 +2028,6 @@ msgid "Productivity"
 msgstr "ผลผลิต"
 
 #: src/amo/pages/Home/index.js:153
-#, fuzzy
 msgid "Watching videos"
 msgstr "การดูวิดีโอ"
 
@@ -2074,9 +2072,8 @@ msgid "See more productivity extensions"
 msgstr "ดูส่วนขยายยอดนิยมเพิ่มเติม"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "Productivity extensions"
-msgstr "ดูส่วนขยายยอดนิยมเพิ่มเติม"
+msgstr "ส่วนขยายผลผลิต"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more YouTube extensions"
@@ -2091,9 +2088,8 @@ msgid "See more feed readers"
 msgstr "ดูชุดตกแต่งที่แนะนำเพิ่มเติม"
 
 #: src/amo/pages/Home/index.js:67
-#, fuzzy
 msgid "Feed readers"
-msgstr "ดูชุดตกแต่งที่แนะนำเพิ่มเติม"
+msgstr "ตัวอ่านฟีด"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2509,9 +2505,8 @@ msgid "This field is required"
 msgstr "จำเป็นต้องกรอกข้อมูลในช่องนี้"
 
 #: src/amo/pages/UserProfileEdit/index.js:602
-#, fuzzy
 msgid "Display Name *"
-msgstr "ชื่อที่แสดงผล"
+msgstr "ชื่อที่แสดง *"
 
 #: src/amo/pages/UserProfileEdit/index.js:618
 #, fuzzy
