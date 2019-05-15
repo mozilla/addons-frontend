@@ -27,6 +27,7 @@ export const paramsToFilter = {
   page_size: 'page_size',
   platform: 'operatingSystem',
   q: 'query',
+  recommended: 'recommended',
   sort: 'sort',
   tag: 'tag',
   type: 'addonType',

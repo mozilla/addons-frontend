@@ -73,16 +73,20 @@ export class SearchFiltersBase extends React.Component {
   };
 
   onChangeCheckbox = () => {
-    const { filters } = this.props;
+    const { _config, filters } = this.props;
     const newFilters = { ...filters };
 
     // When a checkbox changes, we want to invert its previous value.
     // If it was checked, then we remove the filter since the API only supports
-    // `featured=true`, otherwise we set this filter.
-    if (filters.featured) {
-      delete newFilters.featured;
+    // `recommended=true`, otherwise we set this filter.
+    const filterName = _config.get('enableFeatureRecommendedBadges')
+      ? 'recommended'
+      : 'featured';
+
+    if (filters[filterName]) {
+      delete newFilters[filterName];
     } else {
-      newFilters.featured = true;
+      newFilters[filterName] = true;
     }
 
     this.doSearch({ newFilters });
@@ -146,7 +150,7 @@ export class SearchFiltersBase extends React.Component {
   }
 
   render() {
-    const { filters, i18n } = this.props;
+    const { _config, filters, i18n } = this.props;
 
     const expandableCardName = 'SearchFilters';
 
@@ -215,18 +219,24 @@ export class SearchFiltersBase extends React.Component {
           </Select>
 
           <label
-            className="SearchFilters-label SearchFilters-Featured-label"
-            htmlFor="SearchFilters-Featured"
+            className="SearchFilters-label SearchFilters-Recommended-label"
+            htmlFor="SearchFilters-Recommended"
           >
             <input
-              className="SearchFilters-Featured"
-              checked={!!filters.featured}
-              id="SearchFilters-Featured"
-              name="featured"
+              className="SearchFilters-Recommended"
+              checked={
+                _config.get('enableFeatureRecommendedBadges')
+                  ? !!filters.recommended
+                  : !!filters.featured
+              }
+              id="SearchFilters-Recommended"
+              name="recommended"
               onChange={this.onChangeCheckbox}
               type="checkbox"
             />
-            {i18n.gettext('Featured add-ons only')}
+            {_config.get('enableFeatureRecommendedBadges')
+              ? i18n.gettext('Recommended add-ons only')
+              : i18n.gettext('Featured add-ons only')}
           </label>
         </form>
       </ExpandableCard>

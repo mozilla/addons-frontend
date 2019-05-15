@@ -21,6 +21,7 @@ export type SearchFilters = {|
   page?: string,
   page_size?: string,
   query?: string,
+  recommended?: boolean,
   sort?: string,
 |};
 
