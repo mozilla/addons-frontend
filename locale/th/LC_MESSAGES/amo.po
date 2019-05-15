@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-14 18:09+0000\n"
+"PO-Revision-Date: 2019-05-15 15:33+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -2515,7 +2515,7 @@ msgstr "ตรวจทานชุดตกแต่ง"
 
 #: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "URL นี้จะมองเห็นได้เฉพาะผู้ใช้ที่เป็นนักพัฒนาเท่านั้น"
 
 #: src/amo/pages/UserProfileEdit/index.js:705
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
