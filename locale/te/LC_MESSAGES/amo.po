@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-16 13:50+0000\n"
+"PO-Revision-Date: 2019-05-16 13:52+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -384,9 +384,8 @@ msgid "Publishing reply"
 msgstr "ప్రత్యుత్తరం ప్రచురించబడుతొంధి"
 
 #: src/amo/components/AddonReviewCard/index.js:349
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "వ్రాసినది %(timestamp)s"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:351
 #, fuzzy
@@ -438,9 +437,8 @@ msgid "Saved"
 msgstr "భద్రమైంది"
 
 #: src/amo/components/AddonReviewManager/index.js:89
-#, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "ఈ పొడగింత అద్భుతమని ఎందుకు అనుకుంటున్నారో ప్రపంచానికి చెప్పండి! దయచేసి మా %(linkStart)sసమీక్షా నియమావళి%(linkEnd)sని పాఠించండి."
+msgstr "దయచేసి మా %(linkStart)sసమీక్షా నియమావళి%(linkEnd)sని పాఠించండి."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
@@ -548,19 +546,16 @@ msgid "by"
 msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:102
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "వ్రాసినది %(timestamp)s"
+msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:113
-#, fuzzy
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
-msgstr "వ్రాసినది %(timestamp)s"
+msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:139
-#, fuzzy
 msgid "Source code released under %(licenseName)s"
-msgstr "వ్రాసినది %(timestamp)s"
+msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
@@ -1520,9 +1515,8 @@ msgid "Firefox Add-ons (%(locale)s)"
 msgstr "Firefox పొడిగింతలు (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
-#, fuzzy
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr "Android యొక్క పొడిగింతలు"
+msgstr ""
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
@@ -1719,19 +1713,16 @@ msgid "Show all reviews"
 msgstr "సమీక్షలన్నీ చూపించు"
 
 #: src/amo/pages/AddonReviewList/index.js:230
-#, fuzzy
 msgid "Show only five-star reviews"
-msgstr "%(count)s సమీక్షను చదవండి"
+msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:231
-#, fuzzy
 msgid "Show only four-star reviews"
-msgstr "%(count)s సమీక్షను చదవండి"
+msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:233
-#, fuzzy
 msgid "Show only three-star reviews"
-msgstr "%(count)s సమీక్షను చదవండి"
+msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:235
 #, fuzzy
