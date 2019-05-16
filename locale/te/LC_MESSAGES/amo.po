@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-15 17:48+0000\n"
+"PO-Revision-Date: 2019-05-16 13:50+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -71,9 +71,8 @@ msgstr ""
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/AddonAdminLinks/index.js:89
-#, fuzzy
 msgid "Admin add-on status"
-msgstr "పొడిగింతలను కనుగొనండి"
+msgstr "నిర్వహణ పొడగింత స్థితి"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
