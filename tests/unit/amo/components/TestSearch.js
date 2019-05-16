@@ -29,6 +29,7 @@ import {
   dispatchClientMetadata,
   dispatchSearchResults,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -41,6 +42,9 @@ describe(__filename, () => {
 
   beforeEach(() => {
     props = {
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: false,
+      }),
       context: VIEW_CONTEXT_EXPLORE,
       count: 80,
       dispatch: sinon.stub(),
@@ -185,22 +189,48 @@ describe(__filename, () => {
     expect(wrapper.find('title')).toHaveText('Search results');
   });
 
-  it('renders an HTML title for featured extensions', () => {
-    const filters = { addonType: ADDON_TYPE_EXTENSION, featured: true };
-    const wrapper = render({ filters });
-    expect(wrapper.find('title')).toHaveText('Featured extensions');
+  describe('HTML titles with enableFeatureRecommendedBadges on', () => {
+    const _config = getFakeConfig({ enableFeatureRecommendedBadges: true });
+
+    it('renders an HTML title for recommended extensions', () => {
+      const filters = { addonType: ADDON_TYPE_EXTENSION, recommended: true };
+      const wrapper = render({ _config, filters });
+      expect(wrapper.find('title')).toHaveText('Recommended extensions');
+    });
+
+    it('renders an HTML title for recommended themes', () => {
+      const filters = { addonType: ADDON_TYPE_THEME, recommended: true };
+      const wrapper = render({ _config, filters });
+      expect(wrapper.find('title')).toHaveText('Recommended themes');
+    });
+
+    it('renders an HTML title for recommended add-ons', () => {
+      const filters = { addonType: ADDON_TYPE_LANG, recommended: true };
+      const wrapper = render({ _config, filters });
+      expect(wrapper.find('title')).toHaveText('Recommended add-ons');
+    });
   });
 
-  it('renders an HTML title for featured themes', () => {
-    const filters = { addonType: ADDON_TYPE_THEME, featured: true };
-    const wrapper = render({ filters });
-    expect(wrapper.find('title')).toHaveText('Featured themes');
-  });
+  describe('HTML titles with enableFeatureRecommendedBadges off', () => {
+    const _config = getFakeConfig({ enableFeatureRecommendedBadges: false });
 
-  it('renders an HTML title for featured add-ons', () => {
-    const filters = { addonType: ADDON_TYPE_LANG, featured: true };
-    const wrapper = render({ filters });
-    expect(wrapper.find('title')).toHaveText('Featured add-ons');
+    it('renders an HTML title for featured extensions', () => {
+      const filters = { addonType: ADDON_TYPE_EXTENSION, featured: true };
+      const wrapper = render({ _config, filters });
+      expect(wrapper.find('title')).toHaveText('Featured extensions');
+    });
+
+    it('renders an HTML title for featured themes', () => {
+      const filters = { addonType: ADDON_TYPE_THEME, featured: true };
+      const wrapper = render({ _config, filters });
+      expect(wrapper.find('title')).toHaveText('Featured themes');
+    });
+
+    it('renders an HTML title for featured add-ons', () => {
+      const filters = { addonType: ADDON_TYPE_LANG, featured: true };
+      const wrapper = render({ _config, filters });
+      expect(wrapper.find('title')).toHaveText('Featured add-ons');
+    });
   });
 
   it('renders an HTML title for trending extensions', () => {

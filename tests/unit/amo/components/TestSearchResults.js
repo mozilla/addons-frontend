@@ -8,12 +8,16 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   function render(props = {}) {
     const allProps = {
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: false,
+      }),
       i18n: fakeI18n(),
       paginator: null,
       store: dispatchClientMetadata().store,
@@ -100,7 +104,21 @@ describe(__filename, () => {
 
   it('sets add-on install source to featured when approrpriate', () => {
     const root = render({
+      _config: getFakeConfig({ enableFeatureRecommendedBadges: false }),
       filters: { query: 'ad blockers', featured: true },
+      loading: false,
+      results: [fakeAddon],
+    });
+    expect(root.find(AddonsCard)).toHaveProp(
+      'addonInstallSource',
+      INSTALL_SOURCE_FEATURED,
+    );
+  });
+
+  it('sets add-on install source to recommended when approrpriate', () => {
+    const root = render({
+      _config: getFakeConfig({ enableFeatureRecommendedBadges: true }),
+      filters: { query: 'ad blockers', recommended: true },
       loading: false,
       results: [fakeAddon],
     });

@@ -1,4 +1,5 @@
 /* @flow */
+import config from 'config';
 import * as React from 'react';
 import { compose } from 'redux';
 
@@ -20,18 +21,28 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _config: typeof config,
   i18n: I18nType,
 |};
 
 export class SearchResultsBase extends React.Component<InternalProps> {
   static defaultProps = {
+    _config: config,
     count: 0,
     filters: {},
     results: [],
   };
 
   render() {
-    const { count, filters, i18n, loading, paginator, results } = this.props;
+    const {
+      _config,
+      count,
+      filters,
+      i18n,
+      loading,
+      paginator,
+      results,
+    } = this.props;
     const { query } = filters;
 
     let loadingMessage;
@@ -54,7 +65,11 @@ export class SearchResultsBase extends React.Component<InternalProps> {
       }
     }
 
-    const addonInstallSource = filters.featured
+    const recommendedFilter = _config.get('enableFeatureRecommendedBadges')
+      ? filters.recommended
+      : filters.featured;
+
+    const addonInstallSource = recommendedFilter
       ? INSTALL_SOURCE_FEATURED
       : INSTALL_SOURCE_SEARCH;
 
