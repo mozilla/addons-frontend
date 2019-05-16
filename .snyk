@@ -113,9 +113,6 @@ ignore:
     - chokidar > node-pre-gyp > tar > chownr:
         reason: We only use chokidar in bin/server.js for development (file watching)
         expires: '2018-08-30T21:19:40.011Z'
-      chokidar > fsevents > node-pre-gyp > tar > chownr:
-        reason: We only use chokidar in bin/server.js for development (file watching)
-        expires: '2019-02-13T08:53:31.604Z'
     - chokidar > fsevents > node-pre-gyp > tar > chownr:
         reason: We only use chokidar in bin/server.js for development (file watching)
         expires: '2018-08-30T21:19:40.012Z'
@@ -131,6 +128,9 @@ ignore:
     - node-pre-gyp > tar > chownr:
         reason: chownr is only used by chokidar
         expires: '2019-01-13T03:36:20.642Z'
+    - chokidar > fsevents > node-pre-gyp > tar > chownr:
+        reason: We only use chokidar in bin/server.js for development (file watching)
+        expires: '2019-02-13T08:53:31.604Z'
   SNYK-JS-CHOWNR-73502:
     - chokidar > fsevents > node-pre-gyp > tar > chownr:
         reason: We only use chokidar in bin/server.js for development (file watching)
@@ -139,4 +139,4 @@ ignore:
         reason: None given
         expires: '2019-02-13T08:53:31.604Z'
 patch: {}
-version: v1.13.3
+version: v1.13.5
