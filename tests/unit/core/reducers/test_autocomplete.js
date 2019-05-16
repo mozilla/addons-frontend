@@ -62,8 +62,11 @@ describe(__filename, () => {
       expect(suggestions[2]).toHaveProperty('name', 'baz');
     });
 
-    it('sets the addonId and iconUrl', () => {
-      const result = createFakeAutocompleteResult({ name: 'baz' });
+    it('sets the suggestion properties', () => {
+      const result = createFakeAutocompleteResult({
+        is_recommended: true,
+        name: 'baz',
+      });
       const results = [result];
 
       const { loading, suggestions } = reducer(
@@ -74,9 +77,10 @@ describe(__filename, () => {
       expect(suggestions).toEqual([
         {
           addonId: result.id,
+          iconUrl: result.icon_url,
+          isRecommended: result.is_recommended,
           name: result.name,
           url: result.url,
-          iconUrl: result.icon_url,
         },
       ]);
     });

@@ -39,6 +39,7 @@ export const SEARCH_TERM_MAX_LENGTH = 100;
 export type SuggestionType = {|
   addonId: number,
   iconUrl: string,
+  isRecommended: boolean,
   name: string,
   type: string,
   url: string,
@@ -201,6 +202,7 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       return Array(10).fill({
         addonId: undefined,
         iconUrl: getAddonIconUrl(),
+        isRecommended: false,
         name: this.props.i18n.gettext('Loading'),
         url: undefined,
       });
@@ -260,12 +262,13 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
 
   renderSuggestion = (suggestion: SuggestionType) => {
     const { loadingSuggestions, selectSuggestionText } = this.props;
-    const { iconUrl, name, type } = suggestion;
+    const { iconUrl, isRecommended, name, type } = suggestion;
 
     return (
       <SearchSuggestion
         arrowAlt={selectSuggestionText}
         iconUrl={iconUrl}
+        isRecommended={isRecommended}
         loading={loadingSuggestions}
         name={name}
         type={type}
