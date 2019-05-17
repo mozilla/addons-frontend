@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-16 13:52+0000\n"
+"PO-Revision-Date: 2019-05-17 12:29+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1410,9 +1410,8 @@ msgid "Searching for \"%(query)s\""
 msgstr "\"%(query)s\" కోసం శోధిస్తున్నారు"
 
 #: src/amo/components/SearchContextCard/index.js:186
-#, fuzzy
 msgid "Searching for add-ons"
-msgstr "\"%(query)s\" కోసం శోధిస్తున్నారు"
+msgstr ""
 
 #: src/amo/components/SearchContextCard/index.js:60
 #, fuzzy
@@ -1435,11 +1434,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:88
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "%(count)s పొడిగింత దొరికింది"
-msgstr[1] "%(count)s పొడిగింతలు దొరికాయి"
+msgstr[0] "%(count)s పొడగింత దొరికింది"
+msgstr[1] "%(count)s పొడగింతలు దొరికాయి"
 
 #: src/amo/components/SearchFilters/index.js:110 src/amo/components/SearchFilters/index.js:126
 msgid "All"
@@ -1691,14 +1689,12 @@ msgid "Screenshots"
 msgstr "తెరపట్లు"
 
 #: src/amo/pages/AddonInfo/index.js:157
-#, fuzzy
 msgid "Custom License for %(addonName)s"
-msgstr "%(addonName)s కోసం సమీక్షలు"
+msgstr "%(addonName)s కోసం అభిమత లైసెన్సు"
 
 #: src/amo/pages/AddonInfo/index.js:164
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "అంతిమ-వాడుకరి లైసెన్సు ఒప్పందపత్రం"
+msgstr "%(addonName)s కొరకు అంతిమ-వాడుకరి లైసెన్సు ఒప్పందం"
 
 #: src/amo/pages/AddonInfo/index.js:168
 msgid "Privacy policy for %(addonName)s"
@@ -1725,14 +1721,12 @@ msgid "Show only three-star reviews"
 msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:235
-#, fuzzy
 msgid "Show only two-star reviews"
-msgstr "ఈ సమీక్షకి స్పందించు"
+msgstr "రెండు-నక్షత్రాల సమీక్షలను మాత్రమే చూపించు"
 
 #: src/amo/pages/AddonReviewList/index.js:236
-#, fuzzy
 msgid "Show only one-star reviews"
-msgstr "%(count)s సమీక్షను చదవండి"
+msgstr "ఒక-నక్షత్ర సమీక్షలను మాత్రమే చూపించు"
 
 #: src/amo/pages/AddonReviewList/index.js:276
 msgid "Reviews for %(addonName)s"
@@ -2097,9 +2091,8 @@ msgid "Productivity extensions"
 msgstr "పొడిగింతలను శోధించు"
 
 #: src/amo/pages/Home/index.js:60
-#, fuzzy
 msgid "See more YouTube extensions"
-msgstr "మరిన్ని ట్యాబుల పొడగింతలు చూడండి"
+msgstr "మరిన్ని యూట్యూబ్ పొడగింతలను చూపించు"
 
 #: src/amo/pages/Home/index.js:61
 msgid "YouTube boosters"
@@ -2787,14 +2780,12 @@ msgid "Download failed. Please check your connection."
 msgstr ""
 
 #: src/core/utils/addons.js:33
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "ఊహించని పొరపాటు దొర్లింది"
+msgstr "స్థాపనలో ఊహించని పొరపాటు దొర్లింది."
 
 #: src/core/utils/addons.js:35
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "ఊహించని పొరపాటు దొర్లింది"
+msgstr "నిర్మూలనలో ఊహించని పొరపాటు దొర్లింది."
 
 #: src/core/utils/addons.js:40
 msgid "An unexpected error occurred."
