@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-15 15:33+0000\n"
+"PO-Revision-Date: 2019-05-17 07:07+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -228,9 +228,8 @@ msgid "Visit stats dashboard"
 msgstr "เยี่ยมชมแดชบอร์ดสถิติ"
 
 #: src/amo/components/AddonMoreInfo/index.js:116
-#, fuzzy
 msgid "Custom License"
-msgstr "สัญญาอนุญาต"
+msgstr "สัญญาอนุญาตที่กำหนดเอง"
 
 #: src/amo/components/AddonMoreInfo/index.js:140
 msgid "%(timeFromNow)s (%(date)s)"
