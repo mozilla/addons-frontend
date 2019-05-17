@@ -106,7 +106,7 @@ $icon-default-size: 32px;
   word-wrap: break-word;
 
   .RecommendedBadge {
-    @include margin-start(10px);
+    @include margin-start(8px);
   }
 
   .SearchResult-link:focus &,

@@ -4,7 +4,6 @@ import * as React from 'react';
 
 import SearchResult, { SearchResultBase } from 'amo/components/SearchResult';
 import {
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
@@ -400,7 +399,7 @@ describe(__filename, () => {
     expect(root.find('.SearchResult-users')).toHaveLength(0);
   });
 
-  it('displays a recommended badge when an extension is recommended', () => {
+  it('displays a recommended badge when an add-on is recommended', () => {
     const root = render({
       _config: getFakeConfig({
         enableFeatureRecommendedBadges: true,
@@ -408,7 +407,6 @@ describe(__filename, () => {
       addon: createInternalAddon({
         ...fakeAddon,
         is_recommended: true,
-        type: ADDON_TYPE_EXTENSION,
       }),
     });
 
@@ -423,7 +421,6 @@ describe(__filename, () => {
       addon: createInternalAddon({
         ...fakeAddon,
         is_recommended: true,
-        type: ADDON_TYPE_EXTENSION,
       }),
       showRecommendedBadge: false,
     });
@@ -439,7 +436,6 @@ describe(__filename, () => {
       addon: createInternalAddon({
         ...fakeAddon,
         is_recommended: true,
-        type: ADDON_TYPE_EXTENSION,
       }),
     });
 
@@ -458,7 +454,6 @@ describe(__filename, () => {
       addon: createInternalAddon({
         ...fakeAddon,
         is_recommended: true,
-        type: ADDON_TYPE_EXTENSION,
       }),
       store,
     });
@@ -474,22 +469,6 @@ describe(__filename, () => {
       addon: createInternalAddon({
         ...fakeAddon,
         is_recommended: false,
-        type: ADDON_TYPE_EXTENSION,
-      }),
-    });
-
-    expect(root.find(RecommendedBadge)).toHaveLength(0);
-  });
-
-  it('does not display a recommended badge when an addon not an extension', () => {
-    const root = render({
-      _config: getFakeConfig({
-        enableFeatureRecommendedBadges: true,
-      }),
-      addon: createInternalAddon({
-        ...fakeAddon,
-        is_recommended: true,
-        type: ADDON_TYPE_STATIC_THEME,
       }),
     });
 

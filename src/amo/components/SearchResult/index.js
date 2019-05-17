@@ -8,7 +8,6 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 import {
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
@@ -144,7 +143,6 @@ export class SearchResultBase extends React.Component<InternalProps> {
             _config.get('enableFeatureRecommendedBadges') &&
             addon &&
             addon.is_recommended &&
-            addon.type === ADDON_TYPE_EXTENSION &&
             clientApp !== CLIENT_APP_ANDROID ? (
               <RecommendedBadge />
             ) : null}
