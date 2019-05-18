@@ -355,7 +355,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                   term={i18n.gettext('Homepage')}
                 >
                   <a href={user.homepage}>
-                    {removeProtocolFromURL(user.homepage)}
+                    {i18n.gettext('Homepage')}
                   </a>
                 </Definition>
               ) : null}
