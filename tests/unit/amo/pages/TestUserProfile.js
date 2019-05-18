@@ -266,7 +266,7 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfile-homepage')).toHaveLength(1);
     expect(root.find('.UserProfile-homepage').children()).toHaveText(
-      'hamsterdance.com/',
+      'Homepage',
     );
   });
 
