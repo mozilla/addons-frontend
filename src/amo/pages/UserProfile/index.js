@@ -35,7 +35,7 @@ import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
-import { removeProtocolFromURL, sanitizeUserHTML } from 'core/utils';
+import { sanitizeUserHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import CardList from 'ui/components/CardList';
