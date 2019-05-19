@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-19 07:31+0000\n"
+"PO-Revision-Date: 2019-05-19 07:35+0000\n"
 "Last-Translator: nuttapong2539 <nuttapong2539@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -2124,7 +2124,7 @@ msgstr ""
 
 #: src/amo/pages/LanguageTools/index.js:168
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "การติดตั้งส่วนเสริมพจนานุกรมจะเพิ่มตัวเลือกภาษาใหม่เข้าไปในตัวตรวจสอบการสะกดของคุณที่จะคอยตรวจสอบการสะกดที่คุณพิมพ์ใน Firefox"
 
 #: src/amo/pages/LanguageTools/index.js:173
 msgid "Language packs change your browser's interface language, including menu options and settings."
@@ -2270,7 +2270,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:136
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "ฉันจะรายงานการตรวจสอบที่มีปัญหาได้อย่างไร?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:138
 msgid ""
@@ -2835,7 +2835,7 @@ msgstr "เข้าถึงข้อมูลของคุณสำหรั
 
 #: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "เพิกเฉยประกาศนี้"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
