@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-19 16:12+0000\n"
+"PO-Revision-Date: 2019-05-19 16:32+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -414,19 +414,19 @@ msgstr ""
 
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Submit review"
-msgstr "ਸਮੀਖਿਆ ਪੇਸ਼ ਕਰੋ"
+msgstr "ਪੜਤਾਲ ਭੇਜੋ"
 
 #: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submitting review"
-msgstr ""
+msgstr "ਪੜਤਾਲ ਭੇਜੀ ਜਾ ਰਹੀ ਹੈ"
 
 #: src/amo/components/AddonReviewManager/index.js:120
 msgid "Update review"
-msgstr ""
+msgstr "ਪੜਤਾਲ ਅੱਪਡੇਟ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ"
 
 #: src/amo/components/AddonReviewManager/index.js:123
 msgid "Updating review"
-msgstr ""
+msgstr "ਪੜਤਾਲ ਅੱਪਡੇਟ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ"
 
 #: src/amo/components/AddonReviewManager/index.js:144
 msgid "Saving"
@@ -442,15 +442,15 @@ msgstr ""
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "ਤੁਹਾਡਾ ਤਾਰਾ ਦਰਜਾ:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:241
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "%(author)s ਦੁਆਰਾ ਹੋਰ ਸ਼ਬਦਕੋਸ਼"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:244
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "ਇਹਨਾਂ ਅਨੁਵਾਦਕਾਂ ਦੁਆਰਾ ਹੋਰ ਸ਼ਬਦਕੋਸ਼"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:248
 msgid "Dictionaries by %(author)s"
@@ -470,11 +470,11 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:265
 msgid "Extensions by %(author)s"
-msgstr ""
+msgstr "%(author)s ਵਲੋਂ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:268
 msgid "Extensions by these developers"
-msgstr ""
+msgstr "ਇਹਨਾਂ ਡਿਵੈਲਪਰਾਂ ਵਲੋਂ ਇਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:276
 msgid "More language packs by %(author)s"
@@ -502,23 +502,23 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:303
 msgid "Themes by %(author)s"
-msgstr ""
+msgstr "%(author)s ਵਲੋਂ ਥੀਮ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:306
 msgid "Themes by these artists"
-msgstr ""
+msgstr "ਇਨ੍ਹਾਂ ਕਲਾਕਾਰਾਂ ਵਲੋਂ ਥੀਮ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:313
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "%(author)s ਵਲੋਂ ਹੋਰ ਐਡ-ਆਨ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:316
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "ਇਹਨਾਂ ਡਿਵੈਲਪਰਾਂ ਦੁਆਰਾ ਹੋਰ ਐਡ-ਆਨ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:320
 msgid "Add-ons by %(author)s"
-msgstr "%(author)s ਦੁਆਰਾ ਐਡ-ਆਨ"
+msgstr "%(author)s ਵਲੋਂ ਐਡ-ਆਨ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:323
 msgid "Add-ons by these developers"
@@ -526,14 +526,14 @@ msgstr ""
 
 #: src/amo/components/AddonSummaryCard/index.js:40
 msgid "Add-on icon"
-msgstr ""
+msgstr "ਐਡ-ਆਨ ਆਈਕਾਨ"
 
 # roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 #: src/amo/components/AddonSummaryCard/index.js:62
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "5 ਵਿੱਚੋਂ %(rating)s ਤਾਰਾ"
+msgstr[1] "5 ਵਿੱਚੋਂ %(rating)s ਤਾਰੇ"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:41
@@ -543,11 +543,11 @@ msgstr ","
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:76 src/amo/components/AddonTitle/index.js:80
 msgid "by"
-msgstr "ਦੁਆਰਾ"
+msgstr "ਵਲੋਂ"
 
 #: src/amo/components/AddonVersionCard/index.js:102
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr ""
+msgstr "ਸਰੋਤ ਕੋਡ%(linkStart)s%(licenseName)s%(linkEnd)s ਦੇ ਅਧੀਨ ਜਾਰੀ ਕੀਤਾ ਗਿਆ ਹੈ"
 
 #: src/amo/components/AddonVersionCard/index.js:113
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
@@ -559,31 +559,31 @@ msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
-msgstr ""
+msgstr "ਕੋਈ ਵਰਜਨ ਨਹੀਂ ਮਿਲਿਆ"
 
 #: src/amo/components/AddonVersionCard/index.js:58
 msgid "Version %(versionNumber)s"
-msgstr "ਵਰਜਨ %(versionNumber)s"
+msgstr "ਵਰਜ਼ਨ %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:82
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "%(dateReleased)s - %(fileSize)s ਜਾਰੀ ਕੀਤਾ"
 
 #: src/amo/components/App/index.js:203 src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
 #: src/amo/components/App/index.js:207 src/amo/components/HeadMetaTags/index.js:71
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
 #: src/amo/components/App/index.js:215 src/amo/components/HeadMetaTags/index.js:76
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਐਂਡਰਾਈਡ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
 #: src/amo/components/App/index.js:219 src/amo/components/HeadMetaTags/index.js:70
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – ਫਾਇਰਫਾਕਸ ਐਂਡਰਾਇਡ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
 #: src/amo/components/AutoSearchInput/index.js:204
 msgid "Loading"
@@ -599,7 +599,7 @@ msgstr "ਖੋਜ"
 
 #: src/amo/components/Categories/index.js:114
 msgid "No categories found."
-msgstr ""
+msgstr "ਕੋਈ ਵਰਗ ਨਹੀਂ ਲੱਭਿਆ।"
 
 #: src/amo/components/Categories/index.js:121
 msgid "Categories"
@@ -607,11 +607,11 @@ msgstr "ਵਰਗ"
 
 #: src/amo/components/Categories/index.js:126
 msgid "Loading categories."
-msgstr ""
+msgstr "ਵਰਗ ਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ।"
 
 #: src/amo/components/CategoryHead/index.js:31
 msgid "%(categoryName)s – Extensions"
-msgstr ""
+msgstr "%(categoryName)s – ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/CategoryHead/index.js:34
 msgid "%(categoryName)s – Themes"
@@ -675,15 +675,15 @@ msgstr "ਪਸੰਦੀਦਾ URL"
 
 #: src/amo/components/CollectionSort/index.js:104
 msgid "Sort add-ons by"
-msgstr ""
+msgstr "ਐਡ-ਆਨ ਨੂੰ ਲੜੀਬੱਧ ਕਰੋ"
 
 #: src/amo/components/CollectionSort/index.js:80
 msgid "Newest first"
-msgstr ""
+msgstr "ਨਵੇਂ ਸਭ ਤੋਂ ਪਹਿਲਾਂ"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Oldest first"
-msgstr ""
+msgstr "ਪੁਰਾਣੇ ਸਭ ਤੋਂ ਪਹਿਲਾਂ"
 
 #: src/amo/components/CollectionSort/index.js:88
 msgid "Name"
@@ -691,15 +691,15 @@ msgstr "ਨਾਂ"
 
 #: src/amo/components/CollectionSort/index.js:92
 msgid "Popularity"
-msgstr "ਪ੍ਰਸਿੱਧੀ"
+msgstr "ਹਰਮਨਪਿਆਰਾ"
 
 #: src/amo/components/ContributeCard/index.js:32
 msgid "Support this developer"
-msgstr ""
+msgstr "ਇਸ ਡਿਵੈਲਪਰ ਨੂੰ ਸਮਰਥਨ ਦਿਉ"
 
 #: src/amo/components/ContributeCard/index.js:33
 msgid "Support these developers"
-msgstr ""
+msgstr "ਇਹਨਾਂ ਡਿਵੈਲਪਰਾਂ ਦਾ ਸਮਰਥਨ ਕਰੋ"
 
 #: src/amo/components/ContributeCard/index.js:37
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -711,11 +711,11 @@ msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:46
 msgid "Support this artist"
-msgstr ""
+msgstr "ਇਸ ਕਲਾਕਾਰ ਦਾ ਸਮਰਥਨ ਕਰੋ"
 
 #: src/amo/components/ContributeCard/index.js:47
 msgid "Support these artists"
-msgstr ""
+msgstr "ਇਨ੍ਹਾਂ ਕਲਾਕਾਰਾਂ ਦਾ ਸਮਰਥਨ ਕਰੋ"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
@@ -727,11 +727,11 @@ msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support this author"
-msgstr ""
+msgstr "ਇਸ ਲੇਖਕ ਦਾ ਸਮਰਥਨ ਕਰੋ"
 
 #: src/amo/components/ContributeCard/index.js:61
 msgid "Support these authors"
-msgstr ""
+msgstr "ਇਹਨਾਂ ਲੇਖਕਾਂ ਦਾ ਸਮਰਥਨ ਕਰੋ"
 
 #: src/amo/components/ContributeCard/index.js:65
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
@@ -743,11 +743,11 @@ msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:86
 msgid "Contribute now"
-msgstr ""
+msgstr "ਹੁਣ ਯੋਗਦਾਨ ਪਾਓ"
 
 #: src/amo/components/EditableCollectionAddon/index.js:133
 msgid "Leave a note"
-msgstr ""
+msgstr "ਇੱਕ ਨੋਟ ਛੱਡੋ"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143 src/core/components/AMInstallButton/index.js:214
 msgid "Remove"
@@ -755,11 +755,11 @@ msgstr "ਹਟਾਓ"
 
 #: src/amo/components/EditableCollectionAddon/index.js:150
 msgid "User comment"
-msgstr ""
+msgstr "ਵਰਤੋਂਕਾਰ ਟਿੱਪਣੀ"
 
 #: src/amo/components/EditableCollectionAddon/index.js:165
 msgid "Add a comment about this add-on."
-msgstr ""
+msgstr "ਇਸ ਐਡ-ਆਨ ਬਾਰੇ ਟਿੱਪਣੀ ਜੋੜੋ।"
 
 #: src/amo/components/EditableCollectionAddon/index.js:166
 msgid "Save"
@@ -789,7 +789,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:68
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "ਓਹੋ! ਅਸੀਂ ਉਹ ਸਫ਼ਾ ਨਹੀਂ ਲੱਭ ਸਕੇ"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:71
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -827,15 +827,15 @@ msgstr ""
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
-msgstr ""
+msgstr "%(userName)s ਵਲੋਂ ਜਵਾਬ"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
 msgid "Review by %(userName)s"
-msgstr ""
+msgstr "%(userName)s ਵਲੋਂ ਪੜਤਾਲ"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
-msgstr ""
+msgstr "ਪੜਤਾਲ ਨਹੀਂ ਮਿਲੀ ਸੀ।"
 
 #: src/amo/components/FlagReviewMenu/index.js:103
 msgid "This is a bug report or support request"
@@ -879,7 +879,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:78
 msgid "This is spam"
-msgstr ""
+msgstr "ਇਹ ਸਪੈਮ"
 
 #: src/amo/components/FlagReviewMenu/index.js:79
 msgid "Flagged as spam"
@@ -899,27 +899,27 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:117 src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਡਾਊਨਲੋਡ ਕਰੋ"
 
 #: src/amo/components/Footer/index.js:122
 msgid "Android Browser"
-msgstr ""
+msgstr "ਐਂਡਰਾਈਡ ਬਰਾਊਜ਼ਰ"
 
 #: src/amo/components/Footer/index.js:127
 msgid "iOS Browser"
-msgstr ""
+msgstr "iOS ਬਰਾਊਜ਼ਰ"
 
 #: src/amo/components/Footer/index.js:132
 msgid "Focus Browser"
-msgstr ""
+msgstr "ਫੋਕਸ ਬਰਾਊਜ਼ਰ"
 
 #: src/amo/components/Footer/index.js:137
 msgid "Desktop Browser"
-msgstr ""
+msgstr "ਡੈਸਕਟਾਪ ਬਰਾਊਜ਼ਰ"
 
 #: src/amo/components/Footer/index.js:142
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "ਬੀਟਾ, ਨਾਈਟਲੀ, ਡਿਵੈਲਪਰ ਐਡੀਸ਼ਨ"
 
 #: src/amo/components/Footer/index.js:171
 msgid "Privacy"
@@ -941,7 +941,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:27
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "ਮੋਜ਼ੀਲਾ ਮੁੱਖ ਸਫ਼ੇ ਉਤੇ ਜਾਓ"
 
 #: src/amo/components/Footer/index.js:53
 msgid "About"
@@ -953,7 +953,7 @@ msgstr "ਬਲੌਗ"
 
 #: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:97
 msgid "Extension Workshop"
-msgstr "ਐਕਸਟੈਂਸ਼ਨ ਵਰਕਸ਼ਾਪ"
+msgstr "ਇਕਸਟੈਨਸ਼ਨ ਵਰਕਸ਼ਾਪ"
 
 #: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:107
 msgid "Developer Hub"
@@ -977,11 +977,11 @@ msgstr ""
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਨਾਲ ਹੀ — ਫਾਇਰਫਾਕਸ ਹੁਣੇ ਲਵੋ"
 
 #: src/amo/components/GuidesAddonCard/index.js:77
 msgid "Staff Pick"
-msgstr ""
+msgstr "ਸਟਾਫ਼ ਵਲੋਂ ਚੁਣੇ"
 
 #: src/amo/components/Header/index.js:105
 msgid "Submit and manage extensions and themes"
@@ -989,7 +989,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
-msgstr ""
+msgstr "ਮੇਰਾ ਖਾਤਾ"
 
 #: src/amo/components/Header/index.js:125
 msgid "View My Collections"
@@ -1290,15 +1290,15 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:116 src/amo/components/SearchResults/index.js:68
 msgid "Search results"
-msgstr ""
+msgstr "ਖੋਜ ਨਤੀਜੇ"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138 src/amo/pages/Home/index.js:302 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
-msgstr ""
+msgstr "ਖਾਸ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/Search/index.js:124 src/amo/pages/Category/index.js:170 src/amo/pages/Home/index.js:331 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
-msgstr ""
+msgstr "ਖਾਸ ਥੀਮ"
 
 #: src/amo/components/Search/index.js:127
 msgid "Featured add-ons"
@@ -1342,7 +1342,7 @@ msgstr "ਪ੍ਰਸਿੱਧ ਐਡ-ਆਨ"
 
 #: src/amo/components/Search/index.js:170
 msgid "Search results for \"%(query)s\""
-msgstr ""
+msgstr "\"%(query)s\" ਲਈ ਖੋਜ ਨਤੀਜੇ"
 
 #: src/amo/components/SearchContextCard/index.js:100
 msgid "%(count)s Search Tool found for \"%(query)s\""
@@ -1430,11 +1430,11 @@ msgstr "ਸਾਰੇ"
 
 #: src/amo/components/SearchFilters/index.js:111
 msgid "Extension"
-msgstr "ਐਕਸਟੈਂਸ਼ਨ"
+msgstr "ਇਕਸਟੈਨਸ਼ਨ"
 
 #: src/amo/components/SearchFilters/index.js:112
 msgid "Search Tool"
-msgstr ""
+msgstr "ਖੋਜ ਸੰਦ"
 
 #: src/amo/components/SearchFilters/index.js:114
 msgid "Theme"
@@ -1450,15 +1450,15 @@ msgstr "macOS"
 
 #: src/amo/components/SearchFilters/index.js:129
 msgid "Linux"
-msgstr ""
+msgstr "ਲੀਨਕਸ"
 
 #: src/amo/components/SearchFilters/index.js:137
 msgid "Relevance"
-msgstr "ਉਚਿਤਤਾ"
+msgstr "ਢੁੱਕਵਾਂਪਣ"
 
 #: src/amo/components/SearchFilters/index.js:139
 msgid "Recently Updated"
-msgstr "ਹਾਲ ਹੀ ਵਿੱਚ ਨਵਿਆਏ"
+msgstr "ਹਾਲ ਹੀ ਵਿੱਚ ਅੱਪਡੇਟ ਕੀਤੇ"
 
 #: src/amo/components/SearchFilters/index.js:142
 msgid "Most Users"
@@ -1482,11 +1482,11 @@ msgstr "ਲੜੀਬੱਧ"
 
 #: src/amo/components/SearchFilters/index.js:183
 msgid "Add-on Type"
-msgstr ""
+msgstr "ਐਡ-ਆਨ ਕਿਸਮ"
 
 #: src/amo/components/SearchFilters/index.js:203
 msgid "Operating System"
-msgstr ""
+msgstr "ਓਪਰੇਟਿੰਗ ਸਿਸਟਮ"
 
 #: src/amo/components/SearchFilters/index.js:229
 msgid "Featured add-ons only"
@@ -1494,11 +1494,11 @@ msgstr ""
 
 #: src/amo/components/SearchForm/index.js:61
 msgid "Firefox Add-ons (%(locale)s)"
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr ""
+msgstr "ਐਂਡਰਾਈਡ ਲਈ ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
@@ -1515,12 +1515,12 @@ msgstr "ਐਡ-ਆਨ ਨੋਟ"
 #: src/amo/components/SearchResult/index.js:165
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(total)s ਉਪਭੋਗੀ"
-msgstr[1] "%(total)s ਉਪਭੋਗੀ"
+msgstr[0] "%(total)s ਵਰਤੋਂਕਾਰ"
+msgstr[1] "%(total)s ਵਰਤੋਂਕਾਰ"
 
 #: src/amo/components/SearchResults/index.js:42
 msgid "Searching…"
-msgstr "ਖੋਜ ਰਿਹਾ ਹੈ…"
+msgstr "…ਖੋਜਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: src/amo/components/SearchResults/index.js:47
 msgid "No results were found for \"%(query)s\"."
@@ -1536,11 +1536,11 @@ msgstr "ਥੀਮ"
 
 #: src/amo/components/SectionLinks/index.js:108
 msgid "More…"
-msgstr "ਹੋਰ…"
+msgstr "…ਹੋਰ"
 
 #: src/amo/components/SectionLinks/index.js:122
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "ਸ਼ਬਦ-ਕੋਸ਼ ਅਤੇ ਭਾਸ਼ਾ ਪੈਕ"
 
 #: src/amo/components/SectionLinks/index.js:128 src/amo/pages/SearchTools/index.js:34
 msgid "Search Tools"
@@ -1742,11 +1742,11 @@ msgstr ""
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Latest version"
-msgstr ""
+msgstr "ਨਵਾਂ ਵਰਜ਼ਨ"
 
 #: src/amo/pages/AddonVersions/index.js:195
 msgid "Older versions"
-msgstr ""
+msgstr "ਪੁਰਾਣਾ ਵਰਜ਼ਨ"
 
 #: src/amo/pages/CategoriesPage/index.js:34
 msgid "All extension categories"
@@ -2009,15 +2009,15 @@ msgstr "ਬੁੱਕਮਾਰਕ"
 
 #: src/amo/pages/Home/index.js:137
 msgid "Password managers"
-msgstr ""
+msgstr "ਪਾਸਵਰਡ ਮੈਨੇਜਰ"
 
 #: src/amo/pages/Home/index.js:141
 msgid "Ad blockers"
-msgstr ""
+msgstr "ਇਸ਼ਤਿਹਾਰ ਰੋਕੂ"
 
 #: src/amo/pages/Home/index.js:145
 msgid "Smarter shopping"
-msgstr ""
+msgstr "ਚੁਸਤ ਖਰੀਦਦਾਰੀ"
 
 #: src/amo/pages/Home/index.js:149
 msgid "Productivity"
@@ -2025,7 +2025,7 @@ msgstr "ਉਤਪਾਦਨ"
 
 #: src/amo/pages/Home/index.js:153
 msgid "Watching videos"
-msgstr ""
+msgstr "ਵੀਡਿਓ ਵੇਖਣਾ"
 
 #: src/amo/pages/Home/index.js:181
 msgid "Abstract"
@@ -2133,19 +2133,19 @@ msgstr ""
 
 #: src/amo/pages/LanguageTools/index.js:179
 msgid "All Locales"
-msgstr ""
+msgstr "ਸਾਰੀਆਂ ਭਾਸ਼ਾਵਾਂ"
 
 #: src/amo/pages/LanguageTools/index.js:185
 msgid "Locale Name"
-msgstr ""
+msgstr "ਭਾਸ਼ਾ ਦਾ ਨਾਂ"
 
 #: src/amo/pages/LanguageTools/index.js:188
 msgid "Language Packs"
-msgstr ""
+msgstr "ਭਾਸ਼ਾ ਪੈਕ"
 
 #: src/amo/pages/LanguageTools/index.js:191
 msgid "Dictionaries"
-msgstr ""
+msgstr "ਸ਼ਬਦ-ਕੋਸ਼"
 
 #: src/amo/pages/SearchTools/index.js:31
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
@@ -2674,7 +2674,7 @@ msgstr "ਫ਼ਾਇਰਫ਼ਾਕਸ ਵਿੱਚ ਜੋੜੋ"
 
 #: src/core/components/AuthenticateButton/index.js:81
 msgid "Register or Log in"
-msgstr "ਰਜਿਸਟਰ ਜਾਂ ਲੌਗਇਨ ਕਰੋ"
+msgstr "ਰਜਿਸਟਰ ਜਾਂ ਲਾਗਇਨ ਕਰੋ"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
@@ -2785,11 +2785,11 @@ msgstr "ਪੁਸ਼ਟੀ"
 
 #: src/ui/components/DismissibleTextForm/index.js:187
 msgid "Enter text."
-msgstr ""
+msgstr "ਲਿਖਤ ਦਿਓ।"
 
 #: src/ui/components/DismissibleTextForm/index.js:188
 msgid "Submit"
-msgstr "ਦਾਖਲ ਕਰੋ"
+msgstr "ਭੇਜੋ"
 
 #: src/ui/components/DismissibleTextForm/index.js:190
 msgid "Submitting"
