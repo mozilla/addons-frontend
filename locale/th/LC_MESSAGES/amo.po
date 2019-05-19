@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-17 07:07+0000\n"
-"Last-Translator: Top <teerapatxtop@yahoo.com>\n"
+"PO-Revision-Date: 2019-05-19 07:31+0000\n"
+"Last-Translator: nuttapong2539 <nuttapong2539@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
@@ -1256,7 +1256,7 @@ msgstr "ยกเลิก"
 
 #: src/amo/components/ReportAbuseButton/index.js:178
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "อธิบายทำไมส่วนเสริมนี้ละเมิดนโยบายของเรา"
 
 #: src/amo/components/ReportAbuseButton/index.js:95
 #, fuzzy
@@ -1265,7 +1265,7 @@ msgstr "เข้าสู่ระบบเพื่อให้คะแนน
 
 #: src/amo/components/ReportAbuseButton/index.js:99
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "เราได้รับรายงานของคุณแล้ว ขอบคุณที่ทำให้เรารู้เกี่ยวกับความกังวลของคุณเกี่ยวกับส่วนเสริมนี้"
 
 #: src/amo/components/ReportUserAbuse/index.js:106 src/amo/components/ReportUserAbuse/index.js:99
 #, fuzzy
@@ -1282,7 +1282,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
-msgstr ""
+msgstr "อธิบายว่าทำไมผู้ใช้คนนี้ฝ่าฝืนนโยบายของเรา"
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 #, fuzzy
@@ -1737,7 +1737,7 @@ msgstr ""
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "คุณควรใช้ส่วนเสริมรุ่นล่าสุดเสมอ"
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Latest version"
@@ -1846,7 +1846,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:115
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "หยุดผู้ติดตามออนไลน์ในการเฝ้าติดตามคุณ"
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
