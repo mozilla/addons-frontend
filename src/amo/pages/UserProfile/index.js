@@ -354,9 +354,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                   className="UserProfile-homepage"
                   term={i18n.gettext('Homepage')}
                 >
-                  <a href={user.homepage}>
-                    {i18n.gettext('Homepage')}
-                  </a>
+                  <a href={user.homepage}>{i18n.gettext('Homepage')}</a>
                 </Definition>
               ) : null}
               {user && user.location ? (
