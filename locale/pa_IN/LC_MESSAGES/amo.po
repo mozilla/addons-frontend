@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-03 17:19+0000\n"
-"Last-Translator: Sanjna <randhawasanjna75@gmail.com>\n"
+"PO-Revision-Date: 2019-05-19 16:12+0000\n"
+"Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ…"
 
 #: src/amo/components/AddAddonToCollection/index.js:178
 msgid "Adding…"
-msgstr ""
+msgstr "…ਜੋੜਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: src/amo/components/AddAddonToCollection/index.js:194
 msgid "Select a collection…"
@@ -37,7 +37,7 @@ msgstr "%(collectionName)s ਵਿੱਚ ਜੋੜਿਆ ਗਿਆ"
 # This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:260
 msgid "Add to…"
-msgstr "ਸ਼ਾਮਿਲ ਕਰੋ..."
+msgstr "…ਵਿੱਚ ਜੋੜੋ"
 
 #: src/amo/components/AddAddonToCollection/index.js:265 src/amo/components/CollectionAddAddon/index.js:173
 msgid "Add to collection"
@@ -46,7 +46,7 @@ msgstr "ਸੰਗ੍ਰਹਿ ਵਿੱਚ ਜੋੜੋ"
 # This action allows an admin to maintain an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:102
 msgid "Admin add-on"
-msgstr "ਪਰਬੰਧਕ ਐਡ-ਆਨ"
+msgstr "ਪਰਸ਼ਾਸ਼ਕ ਐਡ-ਆਨ"
 
 # This action allows a reviewer to perform a content review of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:114
@@ -66,33 +66,33 @@ msgstr "ਐਡ-ਆਨ ਕੋਡ ਦੀ ਸਮੀਖਿਆ ਕਰੋ"
 # This is a list of links to administrative functions.
 #: src/amo/components/AddonAdminLinks/index.js:147
 msgid "Admin Links"
-msgstr "ਐਡਮਿਨ ਲਿੰਕ"
+msgstr "ਪਰਸ਼ਾਸ਼ਕੀ ਲਿੰਕ"
 
 # This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:77
 msgid "Edit add-on"
-msgstr "ਐਡ-ਆਨ ਸੰਪਾਦਿਤ ਕਰੋ"
+msgstr "ਐਡ-ਆਨ ਸੋਧੋ"
 
 # This action allows an admin to edit the status of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:89
 msgid "Admin add-on status"
-msgstr ""
+msgstr "ਪਰਸ਼ਾਸ਼ਕੀ ਐਡ-ਆਨ ਹਾਲਤ"
 
 #: src/amo/components/AddonBadges/index.js:33
 msgid "Featured Extension"
-msgstr "ਇਕਸਟੈਨਸ਼ਨਾਂ ਦੀ ਪੇਸਕਸ਼"
+msgstr "ਖਾਸ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/AddonBadges/index.js:36
 msgid "Featured Theme"
-msgstr "ਥੀਮ ਪੇਸਕਸ਼"
+msgstr "ਖਾਸ ਥੀਮ"
 
 #: src/amo/components/AddonBadges/index.js:38
 msgid "Featured Add-on"
-msgstr "ਪੇਸ਼ ਕੀਤੇ ਐਡ-ਆਨ"
+msgstr "ਖਾਸ ਐਡ-ਆਨ"
 
 #: src/amo/components/AddonBadges/index.js:54
 msgid "Restart Required"
-msgstr "ਮੁੜ-ਸ਼ੁਰੂ ਕਰਨਾ ਜਰੂਰੀ ਹੈ"
+msgstr "ਮੁੜ-ਸ਼ੁਰੂ ਕਰਨ ਦੀ ਲੋੜ ਹੈ"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
@@ -104,7 +104,7 @@ msgstr "ਫਾਇਰਫਾਕਸ ਕੁਅੰਟਮ ਦੇ ਅਨੁਕੂਲ �
 
 #: src/amo/components/AddonBadges/index.js:69
 msgid "Some features may require payment"
-msgstr "ਕੁਝ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਲਈ ਭੁਗਤਾਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ"
+msgstr "ਕੁਝ ਫੀਚਰਾਂ ਲਈ ਭੁਗਤਾਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ"
 
 #: src/amo/components/AddonCompatibilityError/index.js:103
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
@@ -120,11 +120,11 @@ msgstr "ਇਹ ਐਡ-ਆਨ ਤੁਹਾਡੇ ਪਲੇਟਫਾਰਮ ਤੇ 
 
 #: src/amo/components/AddonCompatibilityError/index.js:114
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
+msgstr "ਇਸ ਐਡ-ਆਨ ਲਈ <a href=\"%(downloadUrl)s\">ਫਾਇਰਫਾਕਸ ਦਾ ਨਵਾਂ ਵਰਜ਼ਨ</a> ਚਾਹੀਦਾ ਹੈ (ਘੱਟੋ-ਘੱਟ %(minVersion)s ਚਾਹੀਦਾ ਹੈ)। ਤੁਸੀਂ ਫਾਇਰਫਾਕਸ %(yourVersion)s ਵਰਤ ਰਹੇ ਹੋ।"
 
 #: src/amo/components/AddonCompatibilityError/index.js:131
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "ਤੁਹਾਡਾ ਬ੍ਰਾਉਜ਼ਰ ਐਡ-ਆਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾ। ਤੁਸੀਂ ਇਸ ਐਡ-ਆਨ ਨੂੰ ਇੰਸਟਾਲ ਕਰਨ ਲਈ <a href=\"%(downloadUrl)s\">ਫਾਇਰਫਾਕਸ ਡਾਊਨਲੋਡ</a> ਕਰ ਸਕਦੇ ਹੋ।"
+msgstr "ਤੁਹਾਡਾ ਬਰਾਉਜ਼ਰ ਐਡ-ਆਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾ। ਤੁਸੀਂ ਇਸ ਐਡ-ਆਨ ਨੂੰ ਇੰਸਟਾਲ ਕਰਨ ਲਈ <a href=\"%(downloadUrl)s\">ਫਾਇਰਫਾਕਸ ਡਾਊਨਲੋਡ</a> ਕਰ ਸਕਦੇ ਹੋ।"
 
 #: src/amo/components/AddonCompatibilityError/index.js:96
 msgid "This add-on is not compatible with your version of Firefox."
@@ -136,31 +136,31 @@ msgstr "ਫਾਇਰਫਾਕਸ ਦਾ ਤੁਹਾਡਾ ਵਰਜਨ ਖੋ�
 
 #: src/amo/components/AddonHead/index.js:100
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s– 🦊 ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਇਹ ਇਕਸਟੈਨਸ਼ਨ ਲਵੋ"
 
 #: src/amo/components/AddonHead/index.js:105
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਇਹ ਭਾਸ਼ਾ ਪੈਕ ਲਵੋ"
 
 #: src/amo/components/AddonHead/index.js:111
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਇਹ ਥੀਮ ਲਵੋ"
 
 #: src/amo/components/AddonHead/index.js:116
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਖੋਜ ਥੀਮ ਲਵੋ"
 
 #: src/amo/components/AddonHead/index.js:121
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s –🦊 ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਇਹ ਐਡ-ਆਨ ਲਵੋ"
 
 #: src/amo/components/AddonHead/index.js:135
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਲਈ%(addonName)s ਡਾਊਨਲੋਡ ਕਰੋ। %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:61
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 Firefox ਐਂਡਰਾਈਡ (%(locale)s) ਲਈ ਇਹ ਸ਼ਬਦ-ਕੋਸ਼ ਲਵੋ"
 
 #: src/amo/components/AddonHead/index.js:66
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
@@ -189,53 +189,52 @@ msgstr ""
 #: src/amo/components/AddonMeta/index.js:116
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
-msgstr[0] "%(total)s ਸਿਤਾਰੇ"
+msgstr[0] "%(total)s ਤਾਰੇ"
 msgstr[1] "%(total)s ਸਿਤਾਰੇ"
 
 #: src/amo/components/AddonMeta/index.js:125
 msgid "Not rated yet"
-msgstr ""
+msgstr "ਅਜੇ ਦਰਜਾ ਨਹੀਂ ਹੈ"
 
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Users"
-msgstr "ਉਪਯੋਗਕਰਤਾ"
+msgstr "ਵਰਤੋਂਕਾਰ"
 
 #: src/amo/components/AddonMeta/index.js:51
 msgid "User"
 msgid_plural "Users"
-msgstr[0] "ਯੂਜ਼ਰ"
-msgstr[1] "ਯੂਜ਼ਰ"
+msgstr[0] "ਵਰਤੋਂਕਾਰ"
+msgstr[1] "ਵਰਤੋੱਕਾਰ"
 
 #: src/amo/components/AddonMeta/index.js:53
 msgid "No Users"
-msgstr "ਕੋਈ ਉਪਭੋਗਤਾ ਨਹੀਂ"
+msgstr "ਕੋਈ ਵਰਤੋਂਕਾਰ ਨਹੀਂ ਹੈ"
 
 #: src/amo/components/AddonMeta/index.js:60
 msgid "Reviews"
-msgstr "ਸਮੀਖਿਆ"
+msgstr "ਪੜਤਾਲ"
 
 #: src/amo/components/AddonMeta/index.js:63
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] "ਸਮੀਖਿਆ"
-msgstr[1] "ਸਮੀਖਿਆ"
+msgstr[0] "ਪੜਤਾਲ"
+msgstr[1] "ਪੜਤਾਲਾਂ"
 
 #: src/amo/components/AddonMeta/index.js:65
 msgid "No Reviews"
-msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ"
+msgstr "ਕੋਈ ਪੜਤਾਲ ਨਹੀਂ ਹੈ"
 
 #: src/amo/components/AddonMeta/index.js:89
 msgid "Used by"
-msgstr ""
+msgstr "ਵਲੋਂ ਵਰਤਿਆ"
 
 #: src/amo/components/AddonMoreInfo/index.js:103
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "ਅੰਕੜੇ ਡੈਸ਼ਬੋਰਡ ਤੇ ਜਾਓ"
 
 #: src/amo/components/AddonMoreInfo/index.js:116
-#, fuzzy
 msgid "Custom License"
-msgstr "ਲਾਇਸੰਸ"
+msgstr "ਪਸੰਦੀਦਾ ਲਸੰਸ"
 
 # This will output, in English:
 #: src/amo/components/AddonMoreInfo/index.js:140
@@ -244,15 +243,15 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:153
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "ਇਸ ਐਡ-ਆਨ ਲਈ ਪਰਦੇਦਾਰੀ ਨੀਤੀ ਪੜ੍ਹੋ"
 
 #: src/amo/components/AddonMoreInfo/index.js:161
 msgid "Read the license agreement for this add-on"
-msgstr ""
+msgstr "ਇਸ ਐਡ-ਆਨ ਲਈ ਲਸੰਸ ਇਕਰਾਰਨਾਮਾ ਪੜ੍ਹੋ"
 
 #: src/amo/components/AddonMoreInfo/index.js:170
 msgid "See all versions"
-msgstr "ਸਾਰੇ ਵਰਜਨ ਵੇਖੋ"
+msgstr "ਸਾਰੇ ਵਰਜ਼ਨ ਵੇਖੋ"
 
 #: src/amo/components/AddonMoreInfo/index.js:196
 msgid "Add-on Links"
@@ -268,7 +267,7 @@ msgstr "ਆਖਰੀ ਅੱਪਡੇਟ"
 
 #: src/amo/components/AddonMoreInfo/index.js:224
 msgid "License"
-msgstr "ਲਾਇਸੰਸ"
+msgstr "ਲਸੰਸ"
 
 #: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Privacy Policy"
@@ -280,11 +279,11 @@ msgstr "ਅੰਤਿਮ ਵਰਤੋਂਕਾਰ ਲਸੰਸ ਇਕਰਾਰਨ
 
 #: src/amo/components/AddonMoreInfo/index.js:248
 msgid "Version History"
-msgstr "ਵਰਜਨ ਇਤਿਹਾਸ"
+msgstr "ਵਰਜਨ ਅਤੀਤ"
 
 #: src/amo/components/AddonMoreInfo/index.js:258
 msgid "Usage Statistics"
-msgstr "ਉਪਯੋਗਤਾ ਦੇ ਅੰਕੜੇ"
+msgstr "ਵਰਤੋਂ ਅੰਕੜੇ"
 
 #: src/amo/components/AddonMoreInfo/index.js:273
 msgid "More information"
@@ -304,27 +303,27 @@ msgstr "ਸਹਿਯੋਗ ਈਮੇਲ"
 
 #: src/amo/components/AddonRecommendations/index.js:133
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "ਇਸ ਇਕਸਟੈਨਸ਼ਨ ਵਾਲੇ ਹੋਰ ਵਰਤੋਂਕਾਰਾਂ ਨੇ ਇੰਸਟਾਲ ਕੀਤੇ ਹਨ"
 
 #: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other popular extensions"
-msgstr "ਹੋਰ ਪ੍ਰਸਿੱਧ ਐਕਸਟੈਂਸ਼ਨਾਂ"
+msgstr "ਹੋਰ ਹਰਮਨਪਿਆਰੀਆਂ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit reply"
-msgstr "ਜਵਾਬ ਸੰਪਾਦਿਤ ਕਰੋ"
+msgstr "ਜਵਾਬ ਸੋਧੋ"
 
 #: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
-msgstr "ਸਮੀਖਿਆ ਸੋਧ"
+msgstr "ਪੜਤਾਲ ਸੋਧੋ"
 
 #: src/amo/components/AddonReviewCard/index.js:205 src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
-msgstr "ਜਵਾਬ ਮਿਟਾਓ"
+msgstr "ਜਵਾਬ ਹਟਾਓ"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
-msgstr "ਰੇਟਿੰਗ ਮਿਟਾਓ"
+msgstr "ਦਰਜਾ ਹਟਾਓ"
 
 #: src/amo/components/AddonReviewCard/index.js:212 src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
@@ -332,15 +331,15 @@ msgstr "ਪੜਤਾਲ ਹਟਾਓ"
 
 #: src/amo/components/AddonReviewCard/index.js:219
 msgid "Do you really want to delete this reply?"
-msgstr "ਕੀ ਤੁਸੀਂ ਸੱਚਮੁੱਚ ਵਿੱਚ ਇਹ ਜਵਾਬ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+msgstr "ਕੀ ਤੁਸੀਂ ਇਹ ਜਵਾਬ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this rating?"
-msgstr "ਕੀ ਤੁਸੀਂ ਸੱਚਮੁੱਚ ਵਿੱਚ ਇਸ ਰੇਟਿੰਗ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+msgstr "ਕੀ ਤੁਸੀਂ ਇਸ ਦਰਜੇ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
-msgstr "ਕੀ ਤੁਸੀਂ ਸੱਚਮੁੱਚ ਇਸ ਸਮੀਖਿਆ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+msgstr "ਕੀ ਤੁਸੀਂ ਇਸ ਪੜਤਾਲ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: src/amo/components/AddonReviewCard/index.js:233 src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
@@ -353,53 +352,53 @@ msgstr "ਰੱਦ ਕਰੋ"
 
 #: src/amo/components/AddonReviewCard/index.js:255
 msgid "Keep reply"
-msgstr ""
+msgstr "ਜਵਾਬ ਰੱਖੋ"
 
 #: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep rating"
-msgstr ""
+msgstr "ਦਰਜਾ ਰੱਖੋ"
 
 #: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep review"
-msgstr ""
+msgstr "ਪੜਤਾਲ ਰੱਖੋ"
 
 #: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
-msgstr "ਇਸ ਸਮੀਖਿਆ ਲਈ ਜਵਾਬ ਲਿਖੋ।"
+msgstr "ਇਸ ਪੜਤਾਲ ਲਈ ਜਵਾਬ ਲਿਖੋ।"
 
 #: src/amo/components/AddonReviewCard/index.js:301 src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
-msgstr ""
+msgstr "ਜਵਾਬ ਅੱਪਡੇਟ ਕਰੋ"
 
 #: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
-msgstr ""
+msgstr "ਜਵਾਬ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰੋ"
 
 #: src/amo/components/AddonReviewCard/index.js:306 src/amo/components/AddonReviewManager/index.js:122
 msgid "Updating reply"
-msgstr ""
+msgstr "ਜਵਾਬ ਨੂੰ ਅੱਪਡੇਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: src/amo/components/AddonReviewCard/index.js:307
 msgid "Publishing reply"
-msgstr ""
+msgstr "ਜਵਾਬ ਪਰਕਾਸ਼ਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
 # Example in English: "posted last week"
 #: src/amo/components/AddonReviewCard/index.js:349
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "%(linkStart)s%(timestamp)s%(linkEnd)s ਨੂੰ ਪੋਸਟ ਕੀਤਾ"
 
 # Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:351
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "%(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s ਦੁਆਰਾ"
+msgstr "%(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s ਵਲੋਂ"
 
 #: src/amo/components/AddonReviewCard/index.js:446
 msgid "Deleting…"
-msgstr ""
+msgstr "…ਹਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: src/amo/components/AddonReviewCard/index.js:477
 msgid "Reply to this review"
-msgstr ""
+msgstr "ਇਸ ਪੜਤਾਲ ਦਾ ਜਵਾਬ ਦਿਓ"
 
 #: src/amo/components/AddonReviewCard/index.js:507
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
@@ -407,7 +406,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:553
 msgid "Write a review"
-msgstr "ਇੱਕ ਸਮੀਖਿਆ ਲਿਖੋ"
+msgstr "ਪੜਤਾਲ ਲਿਖੋ"
 
 #: src/amo/components/AddonReviewManager/index.js:111
 msgid "Write about your experience with this add-on."
