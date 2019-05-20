@@ -35,7 +35,7 @@ import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
-import { removeProtocolFromURL, sanitizeUserHTML } from 'core/utils';
+import { sanitizeUserHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import CardList from 'ui/components/CardList';
@@ -354,9 +354,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                   className="UserProfile-homepage"
                   term={i18n.gettext('Homepage')}
                 >
-                  <a href={user.homepage}>
-                    {removeProtocolFromURL(user.homepage)}
-                  </a>
+                  <a href={user.homepage}>{i18n.gettext('Homepage')}</a>
                 </Definition>
               ) : null}
               {user && user.location ? (
