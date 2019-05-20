@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-10 23:24+0000\n"
+"PO-Revision-Date: 2019-05-20 18:15+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -794,7 +794,7 @@ msgstr "Jejda! Stránku nemůžeme najít"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:71
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr "Pokud jste se sem dostali tak, že jste na jiné stránce klepli na odkaz na rozšíření či motiv vzhledu, není už daný doplněk k dispozici. Příčiny mohou být tyto:"
+msgstr "Pokud jste se sem dostali tak, že jste na jiném webu klepli na odkaz na rozšíření či motiv vzhledu, není už daný doplněk k dispozici. Příčiny mohou být tyto:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:77
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
