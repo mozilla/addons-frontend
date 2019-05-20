@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-17 12:29+0000\n"
+"PO-Revision-Date: 2019-05-20 15:10+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -388,9 +388,8 @@ msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:351
-#, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "%(authorName)s ద్వారా, %(timestamp)s"
+msgstr "%(authorName)s చే, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:446
 msgid "Deleting…"
@@ -986,9 +985,8 @@ msgid "Staff Pick"
 msgstr ""
 
 #: src/amo/components/Header/index.js:105
-#, fuzzy
 msgid "Submit and manage extensions and themes"
-msgstr "పొడిగింత వినియోగాన్ని పర్యవేక్షించండి మరియు థీమ్లను నిర్వహించండి"
+msgstr "పొడగింతలు, అలంకారాల దాఖలు, నిర్వహణ"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1036,9 +1034,8 @@ msgid "Firefox Add-ons"
 msgstr "Firefox పొడిగింతలు"
 
 #: src/amo/components/Header/index.js:95
-#, fuzzy
 msgid "Learn how to create extensions and themes"
-msgstr "పొడిగింత వినియోగాన్ని పర్యవేక్షించండి మరియు థీమ్లను నిర్వహించండి"
+msgstr "పొడగింతలను, అలంకారాలను ఎలా తయారుచేయాలో తెలుసుకోండి"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
