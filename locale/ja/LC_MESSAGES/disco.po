@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-04-16 16:14+0000\n"
-"PO-Revision-Date: 2019-03-21 22:37+0000\n"
-"Last-Translator: dskmori <ghoti.fish.dsk@gmail.com>\n"
+"PO-Revision-Date: 2019-05-21 01:34+0000\n"
+"Last-Translator: marsf <chimantaea_mirabilis@yahoo.co.jp>\n"
 "Language-Team: none\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -51,15 +51,10 @@ msgid "Server Error"
 msgstr "サーバーエラー"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"申し訳ありませんが、エラーが発生したため、あなたのリクエストを完了することが"
-"できませんでした。私たちはこのエラーを記録しており、今後調査を行います。"
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "申し訳ありませんが、エラーが発生したため、あなたのリクエストを完了することができませんでした。私たちはこのエラーを記録しており、今後調査を行います。"
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "エラーコード: %(status)s"
 
@@ -85,33 +80,33 @@ msgstr "OK"
 
 #: src/core/i18n/utils.js:255
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s バイト"
 
 #: src/core/i18n/utils.js:257
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:259
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:261
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:263
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s バージョン %(minVersion)s 以降"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s バージョン %(minVersion)s から %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
@@ -172,29 +167,17 @@ msgstr "Firefox をパーソナライズしよう"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
-msgstr ""
-"インストールして Firefox をパーソナライズできる無料のアドオンが、世界中の開発"
-"者によって何千種類も作られています。楽しいデザインのテーマから、ブラウジング"
-"をより早くより安全にするパワフルなツールや機能まで、アドオンを使ってお使いの"
-"ブラウザーを自分だけのものにしましょう。手始めに、パフォーマンスや機能が優れ"
-"ているおすすめのアドオンをいくつか紹介します。"
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+msgstr "インストールして Firefox をパーソナライズできる無料のアドオンが、世界中の開発者によって何千種類も作られています。楽しいデザインのテーマから、ブラウジングをより早くより安全にするパワフルなツールや機能まで、アドオンを使ってお使いのブラウザーを自分だけのものにしましょう。手始めに、パフォーマンスや機能が優れているおすすめのアドオンをいくつか紹介します。"
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "詳しく学ぶ"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
-"このおすすめの一部はパーソナライズされています。おすすめは、インストールされ"
-"た他の拡張機能やプロファイル設定、利用状況に基づいています。"
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgstr "このおすすめの一部はパーソナライズされています。おすすめは、インストールされた他の拡張機能やプロファイル設定、利用状況に基づいています。"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -223,8 +206,7 @@ msgstr "%(title)s のプレビュー"
 #~ msgstr "%(name)s をインストールしています。"
 
 #~ msgid "%(name)s is installed and enabled. Click to uninstall."
-#~ msgstr ""
-#~ "%(name)s はインストール、有効化されています。削除するにはここをクリック。"
+#~ msgstr "%(name)s はインストール、有効化されています。削除するにはここをクリック。"
 
 #~ msgid "%(name)s is disabled. Click to enable."
 #~ msgstr "%(name)s は無効化されています。有効化するにはここをクリック。"
@@ -251,8 +233,7 @@ msgstr "%(title)s のプレビュー"
 #~ msgstr "今後はツールバーから %(name)s にアクセスできます"
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
+#~ msgstr "%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "画像にマウスオーバーしてプレビュー"

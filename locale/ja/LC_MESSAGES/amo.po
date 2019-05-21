@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-21 01:31+0000\n"
+"PO-Revision-Date: 2019-05-21 01:46+0000\n"
 "Last-Translator: marsf <chimantaea_mirabilis@yahoo.co.jp>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -394,7 +394,7 @@ msgstr "このレビューに返信"
 
 #: src/amo/components/AddonReviewCard/index.js:507
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "この評価またはレビューは削除されました。これは、あなたが昇格された権限を持っているため表示されています。"
 
 #: src/amo/components/AddonReviewCard/index.js:553
 msgid "Write a review"
@@ -434,7 +434,7 @@ msgstr "%(linkStart)sレビューガイドライン%(linkEnd)s に従ってく�
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "あなたの評価:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:241
 msgid "More dictionaries by %(author)s"
@@ -649,7 +649,7 @@ msgstr "新しいコレクションを作成"
 
 #: src/amo/components/CollectionManager/index.js:238
 msgid "Save changes"
-msgstr ""
+msgstr "変更を保存"
 
 #: src/amo/components/CollectionManager/index.js:247
 msgid "Collection name"
@@ -825,7 +825,7 @@ msgstr "%(userName)s によるレビュー"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
-msgstr ""
+msgstr "レビューが見つかりませんでした。"
 
 #: src/amo/components/FlagReviewMenu/index.js:103
 msgid "This is a bug report or support request"
@@ -1191,7 +1191,7 @@ msgstr "星の評価を保存しています"
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
-msgstr ""
+msgstr "星の評価を保存しました"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
@@ -1703,7 +1703,7 @@ msgstr "まだレビューはありません"
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] ""
+msgstr[0] "%(addonName)s のバージョン履歴 - 全 %(total)s バージョン"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
@@ -2470,7 +2470,7 @@ msgstr "プロファイル"
 
 #: src/amo/pages/UserProfileEdit/index.js:599
 msgid "This field is required"
-msgstr ""
+msgstr "この項目は必須です"
 
 #: src/amo/pages/UserProfileEdit/index.js:602
 msgid "Display Name *"
@@ -2569,15 +2569,15 @@ msgstr "購読の解除が完了しました。"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:117
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "このメールアドレス %(strongStart)s%(email)s%(strongEnd)s には以下の通知が送られなくなります:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:76
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "%(linkStart)sユーザープロファイルを編集%(linkEnd)s して通知設定を変更してください。"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:95
 msgid "Unsubscribe"
-msgstr ""
+msgstr "購読解除"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2693,33 +2693,33 @@ msgstr "このサイトを訪れていただきありがとうございます！
 
 #: src/core/i18n/utils.js:255
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s バイト"
 
 #: src/core/i18n/utils.js:257
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:259
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:261
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:263
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s バージョン %(minVersion)s 以降"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s バージョン %(minVersion)s から %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
@@ -2728,11 +2728,11 @@ msgstr "%(listOfApplicatonsAndVersions)s で動作"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "インストールに失敗しました。もう一度試してください。"
 
 #: src/core/utils/addons.js:31
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "ダウンロードに失敗しました。接続を確認してください。"
 
 #: src/core/utils/addons.js:33
 msgid "An unexpected error occurred during installation."
