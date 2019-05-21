@@ -59,6 +59,10 @@ export const unfilteredLanguages = {
     English: 'Bengali (India)',
     native: '\u09ac\u09be\u0982\u09b2\u09be (\u09ad\u09be\u09b0\u09a4)',
   },
+  'bn': {
+    English: 'Bengali',
+    native: '\u09ac\u09be\u0982\u09b2\u09be',
+  },  
   br: {
     English: 'Breton',
     native: 'Brezhoneg',
