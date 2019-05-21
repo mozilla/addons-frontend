@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-19 16:33+0000\n"
-"Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
+"PO-Revision-Date: 2019-05-21 17:49+0000\n"
+"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -494,7 +494,7 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:296
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "%(author)s ਦੁਆਰਾ ਹੋਰ ਥੀਮ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:299
 msgid "More themes by these artists"
@@ -969,7 +969,7 @@ msgstr "ਫ਼ੋਰਮ"
 
 #: src/amo/components/Footer/index.js:94
 msgid "Report a bug"
-msgstr ""
+msgstr "ਬੱਗ ਦੀ ਰਿਪੋਰਟ ਕਰੋ"
 
 #: src/amo/components/Footer/index.js:99
 msgid "Review Guide"
@@ -1608,7 +1608,7 @@ msgstr "ਪ੍ਰੋਫ਼ਾਈਲ ਫ਼ੋਟੋ"
 
 #: src/amo/components/UserProfileEditPicture/index.js:97
 msgid "Choose Photo…"
-msgstr ""
+msgstr "ਫੋਟੋ ਚੁਣੋ…"
 
 #: src/amo/pages/Addon/index.js:167 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
@@ -2407,15 +2407,15 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:656
 msgid "Location"
-msgstr ""
+msgstr "ਟਿਕਾਣਾ"
 
 #: src/amo/pages/UserProfile/index.js:373 src/amo/pages/UserProfileEdit/index.js:668
 msgid "Occupation"
-msgstr ""
+msgstr "ਕਿੱਤਾ"
 
 #: src/amo/pages/UserProfile/index.js:380
 msgid "User since"
-msgstr ""
+msgstr "ਤੋਂ ਉਪਭੋਗੀ"
 
 #: src/amo/pages/UserProfile/index.js:390
 msgid "Number of add-ons"
@@ -2559,7 +2559,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:787 src/amo/pages/UserProfileEdit/index.js:876
 msgid "Delete Profile"
-msgstr ""
+msgstr "ਪਰੋਫਾਈਲ ਨੂੰ ਹਟਾਓ"
 
 #: src/amo/pages/UserProfileEdit/index.js:799
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
@@ -2752,7 +2752,7 @@ msgstr ""
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s ਤੋਂ %(maxVersion)s ਤੱਕ"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
