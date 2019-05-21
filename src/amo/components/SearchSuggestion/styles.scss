@@ -29,9 +29,12 @@
   }
 }
 
-.SearchSuggestion-icon-arrow {
+.SearchSuggestion-icon-arrow,
+.SearchSuggestion-icon-recommended {
   @include margin-end(2px);
+}
 
+.SearchSuggestion-icon-arrow {
   display: none;
   height: 16px;
   margin-top: 1px;

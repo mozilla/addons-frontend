@@ -13,6 +13,7 @@ export const AUTOCOMPLETE_CANCELLED: 'AUTOCOMPLETE_CANCELLED' =
 type ExternalSuggestion = {|
   icon_url: string,
   id: number,
+  is_recommended: boolean,
   name: string,
   type: string,
   url: string,
@@ -21,6 +22,7 @@ type ExternalSuggestion = {|
 type Suggestion = {|
   addonId: number,
   iconUrl: string,
+  isRecommended: boolean,
   name: string,
   type: string,
   url: string,
@@ -96,6 +98,7 @@ export const createInternalSuggestion = (
   return {
     addonId: externalSuggestion.id,
     iconUrl: getAddonIconUrl(externalSuggestion),
+    isRecommended: externalSuggestion.is_recommended,
     name: externalSuggestion.name,
     type: externalSuggestion.type,
     url: externalSuggestion.url,

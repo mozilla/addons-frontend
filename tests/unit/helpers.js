@@ -458,6 +458,7 @@ export function createFakeAutocompleteResult({
   return {
     id: randomId(),
     icon_url: `${config.get('amoCDN')}/${name}.png`,
+    is_recommended: false,
     name,
     url: `https://example.org/en-US/firefox/addons/${name}/`,
     ...props,

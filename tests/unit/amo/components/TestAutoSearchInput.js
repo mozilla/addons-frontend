@@ -557,14 +557,16 @@ describe(__filename, () => {
     });
 
     it('renders a suggestion', () => {
+      const isRecommended = true;
       const name = 'uBlock Origin';
       const suggestionData = createInternalSuggestion(
-        createFakeAutocompleteResult({ name }),
+        createFakeAutocompleteResult({ name, is_recommended: isRecommended }),
       );
       const suggestion = renderSuggestion({ suggestionData });
 
       expect(suggestion).toHaveProp('name', name);
       expect(suggestion).toHaveProp('iconUrl', suggestionData.iconUrl);
+      expect(suggestion).toHaveProp('isRecommended', isRecommended);
       expect(suggestion).toHaveProp('type', suggestionData.type);
     });
 
