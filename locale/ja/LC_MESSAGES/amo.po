@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-21 01:10+0000\n"
+"PO-Revision-Date: 2019-05-21 01:31+0000\n"
 "Last-Translator: marsf <chimantaea_mirabilis@yahoo.co.jp>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -422,7 +422,7 @@ msgstr "レビューを更新しています"
 
 #: src/amo/components/AddonReviewManager/index.js:144
 msgid "Saving"
-msgstr ""
+msgstr "保存中"
 
 #: src/amo/components/AddonReviewManager/index.js:145
 msgid "Saved"
@@ -796,11 +796,10 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:94
-#, fuzzy
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll get it sorted."
-msgstr "もしあなたがどこからかリンクを辿ってきた場合は、<a href=\"%(url)s\">問題を報告</a> してください。参照元のページと何を探していたかを教えてもらえれば、私たちは問題の修正に最善を尽くします。"
+msgstr "このサイトへ辿ってきたリンクに誤りがあります。リンクの修正を助けるため、<a href=\"%(url)s\">問題を報告</a> してください。リンク元のページとお探しのページをお知らせください。私たちは問題の修正に最善を尽くします。"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
@@ -817,14 +816,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "申し訳ありませんが、サーバー上でエラーが発生したため、あなたのリクエストを完了することができませんでした。私たちはこのエラーを記録しており、今後調査を行います。"
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "%(addonName)s のレビュー"
+msgstr "%(userName)s による応答"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "%(addonName)s のレビュー"
+msgstr "%(userName)s によるレビュー"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
@@ -945,18 +942,16 @@ msgid "Blog"
 msgstr "ブログ"
 
 #: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:97
-#, fuzzy
 msgid "Extension Workshop"
-msgstr "拡張機能"
+msgstr "拡張機能ワークショップ"
 
 #: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:107
 msgid "Developer Hub"
 msgstr "開発者センター"
 
 #: src/amo/components/Footer/index.js:81
-#, fuzzy
 msgid "Developer Policies"
-msgstr "開発者の返信"
+msgstr "開発者ポリシー"
 
 #: src/amo/components/Footer/index.js:86
 msgid "Forum"
@@ -979,9 +974,8 @@ msgid "Staff Pick"
 msgstr "スタッフおすすめ"
 
 #: src/amo/components/Header/index.js:105
-#, fuzzy
 msgid "Submit and manage extensions and themes"
-msgstr "拡張機能の使用状況の監視とテーマの管理"
+msgstr "拡張機能とテーマの投稿と管理"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1028,9 +1022,8 @@ msgid "Firefox Add-ons"
 msgstr "Firefox Add-ons"
 
 #: src/amo/components/Header/index.js:95
-#, fuzzy
 msgid "Learn how to create extensions and themes"
-msgstr "拡張機能の使用状況の監視とテーマの管理"
+msgstr "拡張機能とテーマの制作方法を学んでください"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
@@ -1181,23 +1174,20 @@ msgid "Log in to rate this add-on"
 msgstr "ログインしてこのアドオンを評価"
 
 #: src/amo/components/RatingManager/index.js:173
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "本当にこの写真を削除しますか？"
+msgstr "この %(addonName)s のレビューを削除してもよろしいですか？"
 
 #: src/amo/components/RatingManager/index.js:178
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "本当にこの写真を削除しますか？"
+msgstr "この %(addonName)s の評価を削除してもよろしいですか？"
 
 #: src/amo/components/RatingManager/index.js:183
 msgid "How are you enjoying %(addonName)s?"
 msgstr "%(addonName)s をどのぐらい楽しんでいますか？"
 
 #: src/amo/components/RatingManager/index.js:226
-#, fuzzy
 msgid "Saving star rating"
-msgstr "平均 %(rating)s つ星"
+msgstr "星の評価を保存しています"
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
@@ -1379,31 +1369,27 @@ msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "「%(query)s」に一致する結果が %(count)s 件見つかりました"
 
 #: src/amo/components/SearchContextCard/index.js:171
-#, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "「%(query)s」の検索結果は %(count)s 件です"
+msgstr[0] "%(count)s 件見つかりました"
 
 #: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
 msgstr "「%(query)s」を検索しています"
 
 #: src/amo/components/SearchContextCard/index.js:186
-#, fuzzy
 msgid "Searching for add-ons"
-msgstr "アドオンを読み込んでいます"
+msgstr "アドオンを検索しています"
 
 #: src/amo/components/SearchContextCard/index.js:60
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "「%(query)s」に一致する拡張機能が %(count)s 件見つかりました"
+msgstr[0] "\"%(query)s\" に一致する拡張機能が %(categoryName)s のカテゴリーに %(count)s 件見つかりました"
 
 #: src/amo/components/SearchContextCard/index.js:69
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "「%(query)s」に一致する拡張機能が %(count)s 件見つかりました"
+msgstr[0] "拡張機能が %(categoryName)s のカテゴリーに %(count)s 件見つかりました"
 
 #: src/amo/components/SearchContextCard/index.js:79
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1484,14 +1470,12 @@ msgid "Featured add-ons only"
 msgstr "おすすめのアドオンのみ"
 
 #: src/amo/components/SearchForm/index.js:61
-#, fuzzy
 msgid "Firefox Add-ons (%(locale)s)"
-msgstr "Add-ons for Firefox"
+msgstr "Firefox Add-ons (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
-#, fuzzy
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr "Android 向けアドオン"
+msgstr "Android 版 Firefox 向けのアドオン (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
@@ -1664,18 +1648,16 @@ msgid "Screenshots"
 msgstr "スクリーンショット"
 
 #: src/amo/pages/AddonInfo/index.js:157
-#, fuzzy
 msgid "Custom License for %(addonName)s"
-msgstr "%(addonName)s のレビュー"
+msgstr "%(addonName)s の独自のライセンス"
 
 #: src/amo/pages/AddonInfo/index.js:164
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "%(addonName)s のエンドユーザー使用許諾契約"
 
 #: src/amo/pages/AddonInfo/index.js:168
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "%(addonName)s のレビュー"
+msgstr "%(addonName)s の個人情報保護方針"
 
 #: src/amo/pages/AddonReviewList/index.js:196
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -1740,14 +1722,12 @@ msgid "Older versions"
 msgstr "以前のバージョン"
 
 #: src/amo/pages/CategoriesPage/index.js:34
-#, fuzzy
 msgid "All extension categories"
-msgstr "このカテゴリーの拡張機能をすべて見る"
+msgstr "すべての拡張機能のカテゴリー"
 
 #: src/amo/pages/CategoriesPage/index.js:36
-#, fuzzy
 msgid "All theme categories"
-msgstr "すべてのカテゴリーを見る"
+msgstr "すべてのテーマのカテゴリー"
 
 #: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:303 src/amo/pages/LandingPage/index.js:140
 msgid "See more featured extensions"
@@ -1898,9 +1878,8 @@ msgid "Start each browsing session tailored just for you by customizing your new
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:180
-#, fuzzy
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-msgstr "カスタマイズ可能な背景、地元の天気予報などが含まれた素敵な新しいタブページを楽しめます"
+msgstr "カスタマイズ可能な背景、地元の天気予報などが含まれた素敵な新しいタブページを楽しめます。"
 
 #: src/amo/pages/Guides/index.js:184
 msgid "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks."
@@ -1919,9 +1898,8 @@ msgid "Add a control bar to all YouTube video pages so you can easily adjust vol
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:206
-#, fuzzy
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "この拡張機能について他の人にも伝えましょう。%(linkStart)sレビューガイドライン%(linkEnd)s に従うことをお忘れなく。"
+msgstr "スタッフが選んだ %(linkStart)s動画用の拡張機能%(linkEnd)s をさらに探しましょう。"
 
 #: src/amo/pages/Guides/index.js:214
 msgid "Get more out of media"
@@ -1938,9 +1916,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:226
-#, fuzzy
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "この拡張機能について他の人にも伝えましょう。%(linkStart)sレビューガイドライン%(linkEnd)s に従うことをお忘れなく。"
+msgstr "スタッフが選んだ %(linkStart)sメディア用の拡張機能%(linkEnd)s をさらに探しましょう。"
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Bring media right into the browser"
@@ -1991,9 +1968,8 @@ msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:96
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "広告をブロック"
+msgstr "迷惑な広告をブロック"
 
 #: src/amo/pages/Guides/index.js:97
 msgid ""
@@ -2065,9 +2041,8 @@ msgid "See more productivity extensions"
 msgstr "仕事効率化の拡張機能をもっと見る"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "Productivity extensions"
-msgstr "仕事効率化の拡張機能をもっと見る"
+msgstr "仕事効率化の拡張機能"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more YouTube extensions"
@@ -2176,9 +2151,8 @@ msgid "Tell your friends and family that Firefox is a fast, secure browser that 
 msgstr "Firefox が高速、安全なブラウザーで、プライバシーを守ってくれて、自由にカスタマイズできるアドオンが使えることを、友達や家族に教えてあげてください。"
 
 #: src/amo/pages/StaticPages/About/index.js:190
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "アドオンコミュニティへ貢献できるその他の方法を知るには、こちらの %(startLink)swiki%(endLink)s を見てください。"
+msgstr "アドオンコミュニティに貢献する他の方法は、こちらの %(startLink)swiki%(endLink)s をご覧ください。"
 
 #: src/amo/pages/StaticPages/About/index.js:204
 msgid "Get support"
@@ -2399,9 +2373,8 @@ msgid "User Profile for %(user)s"
 msgstr "%(user)s のユーザープロフィール"
 
 #: src/amo/pages/UserProfile/index.js:338
-#, fuzzy
 msgid "User Profile"
-msgstr "プロファイルを更新"
+msgstr "ユーザープロファイル"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:656
 msgid "Location"
@@ -2432,32 +2405,28 @@ msgid "Edit profile"
 msgstr "プロファイルを編集"
 
 #: src/amo/pages/UserProfile/index.js:447
-#, fuzzy
 msgid "Admin user"
-msgstr "アドオンリンク"
+msgstr "管理者ユーザー"
 
 #: src/amo/pages/UserProfileEdit/index.js:202
 msgid "Picture successfully deleted"
 msgstr "写真の削除が完了しました"
 
 #: src/amo/pages/UserProfileEdit/index.js:430
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "あなたについてもう少し詳しい情報をユーザーへ伝えましょう。これらの項目は任意ですが、他のユーザがあなたを知る手掛かりとなるでしょう。"
+msgstr "他のユーザーに、あなたについてのもう少し詳しい情報を伝えましょう。これらの項目は任意ですが、他のユーザがあなたを知る手掛かりとなるでしょう。"
 
 #: src/amo/pages/UserProfileEdit/index.js:434
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "このユーザーについてもう少し詳しい情報をユーザーへ伝えましょう。これらの項目は任意ですが、他のユーザが %(username)s さんを知る手掛かりとなるでしょう。"
+msgstr "他のユーザーに、このユーザーについてのもう少し詳しい情報を伝えましょう。これらの項目は任意ですが、他のユーザが %(username)s さんを知る手掛かりとなるでしょう。"
 
 #: src/amo/pages/UserProfileEdit/index.js:449
 msgid "Introduce yourself to the community if you like"
 msgstr "もしよければコミュニティに向けて自己紹介してください"
 
 #: src/amo/pages/UserProfileEdit/index.js:450
-#, fuzzy
 msgid "Introduce %(userName)s to the community"
-msgstr "コミュニティに向けて %(username)s を紹介"
+msgstr "コミュニティに向けて %(userName)s を紹介"
 
 #: src/amo/pages/UserProfileEdit/index.js:474
 msgid "Log in to edit the profile"
@@ -2476,9 +2445,8 @@ msgid "Account"
 msgstr "アカウント"
 
 #: src/amo/pages/UserProfileEdit/index.js:542
-#, fuzzy
 msgid "Account for %(userName)s"
-msgstr "%(username)s のアカウント"
+msgstr "%(userName)s のアカウント"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "Email Address"
@@ -2505,14 +2473,12 @@ msgid "This field is required"
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:602
-#, fuzzy
 msgid "Display Name *"
-msgstr "表示名"
+msgstr "表示名 *"
 
 #: src/amo/pages/UserProfileEdit/index.js:618
-#, fuzzy
 msgid "Reviewer Name"
-msgstr "レビューテキスト"
+msgstr "レビュアー名"
 
 #: src/amo/pages/UserProfileEdit/index.js:651
 msgid "This URL will only be visible for users who are developers."
@@ -2597,9 +2563,8 @@ msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if
 msgstr "%(strongStart)s注:%(strongEnd)s ユーザーが %(linkStart)sいずれかのアドオンの作者%(linkEnd)s である場合、そのプロファイルを削除することはできません。"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:104
-#, fuzzy
 msgid "You are successfully unsubscribed!"
-msgstr "写真の削除が完了しました"
+msgstr "購読の解除が完了しました。"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:117
@@ -2770,19 +2735,16 @@ msgid "Download failed. Please check your connection."
 msgstr ""
 
 #: src/core/utils/addons.js:33
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "予期せぬエラーが発生しました"
+msgstr "インストール中に予期せぬエラーが発生しました。"
 
 #: src/core/utils/addons.js:35
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "予期せぬエラーが発生しました"
+msgstr "アンインストール中に予期せぬエラーが発生しました。"
 
 #: src/core/utils/addons.js:40
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "予期せぬエラーが発生しました"
+msgstr "予期せぬエラーが発生しました。"
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
