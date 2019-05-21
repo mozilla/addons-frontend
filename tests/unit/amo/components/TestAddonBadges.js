@@ -50,11 +50,10 @@ describe(__filename, () => {
     expect(root.find(Badge)).toHaveLength(0);
   });
 
-  it('displays a recommended badge for a recommended extension', () => {
+  it('displays a recommended badge for a recommended add-on', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       is_recommended: true,
-      type: ADDON_TYPE_EXTENSION,
     });
     const root = shallowRender({
       _config: getFakeConfig({
@@ -64,22 +63,6 @@ describe(__filename, () => {
     });
 
     expect(root.find(RecommendedBadge)).toHaveLength(1);
-  });
-
-  it('does not display a recommended badge for a non-extension', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      is_recommended: true,
-      type: ADDON_TYPE_STATIC_THEME,
-    });
-    const root = shallowRender({
-      _config: getFakeConfig({
-        enableFeatureRecommendedBadges: true,
-      }),
-      addon,
-    });
-
-    expect(root.find(RecommendedBadge)).toHaveLength(0);
   });
 
   it('does not display a recommended badge on Android', () => {
@@ -119,11 +102,10 @@ describe(__filename, () => {
     expect(root.find(RecommendedBadge)).toHaveLength(0);
   });
 
-  it('displays a featured badge for an extension when the addon is featured and the recommended feature is off', () => {
+  it('displays a featured badge for a featured addon when the recommended feature is off', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       is_featured: true,
-      type: ADDON_TYPE_EXTENSION,
     });
     const root = shallowRender({
       _config: getFakeConfig({
@@ -136,27 +118,10 @@ describe(__filename, () => {
     expect(root.find(Badge)).toHaveProp('label', 'Featured Extension');
   });
 
-  it('displays a featured badge for a theme when the addon is featured and the recommended feature is on', () => {
+  it('does not display a badge for a featured addon when the recommended feature is on', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       is_featured: true,
-      type: ADDON_TYPE_THEME,
-    });
-    const root = shallowRender({
-      _config: getFakeConfig({
-        enableFeatureRecommendedBadges: true,
-      }),
-      addon,
-    });
-
-    expect(root.find(Badge)).toHaveProp('type', 'featured');
-  });
-
-  it('does not display a badge for an extension when the addon is featured and the recommended feature is on', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      is_featured: true,
-      type: ADDON_TYPE_EXTENSION,
     });
     const root = shallowRender({
       _config: getFakeConfig({
