@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-19 07:35+0000\n"
-"Last-Translator: nuttapong2539 <nuttapong2539@gmail.com>\n"
+"PO-Revision-Date: 2019-05-22 16:53+0000\n"
+"Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
@@ -1053,7 +1053,7 @@ msgstr "ส่วนขยายเป็นเหมือนแอปสำห
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr "ส่วนขยายเพิ่มคุณลักษณะไปยัง Firefox เพื่อทำให้การท่องเว็บเร็วขึ้น ฉลาดขึ้น หรือเพียงแค่ความสนุกธรรมดา"
+msgstr "ส่วนขยายเพิ่มคุณลักษณะไปยัง Firefox เพื่อทำให้การเรียกดูเร็วขึ้น ฉลาดขึ้น หรือเพียงแค่ความสนุกธรรมดา"
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1081,7 +1081,7 @@ msgstr "อ่านและเปลี่ยนแปลงการตั้
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr "ล้างประวัติการท่องเว็บ, คุกกี้ และข้อมูลที่เกี่ยวข้องล่าสุด"
+msgstr "ล้างประวัติการเรียกดู, คุกกี้ และข้อมูลที่เกี่ยวข้องล่าสุด"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
@@ -1113,7 +1113,7 @@ msgstr "เข้าถึงตำแหน่งที่ตั้งของ
 
 #: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
 msgid "Access browsing history"
-msgstr "เข้าถึงประวัติการท่องเว็บ"
+msgstr "เข้าถึงประวัติการเรียกดู"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
@@ -1880,7 +1880,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:155
 msgid "Better browsing with improved bookmarks"
-msgstr "ท่องเว็บได้ดีขึ้นด้วยที่คั่นหน้าที่ได้รับการปรับปรุง"
+msgstr "เรียกดูได้ดีขึ้นด้วยที่คั่นหน้าที่ได้รับการปรับปรุง"
 
 #: src/amo/pages/Guides/index.js:156
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
