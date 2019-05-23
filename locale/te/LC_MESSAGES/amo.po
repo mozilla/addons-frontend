@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-20 15:10+0000\n"
+"PO-Revision-Date: 2019-05-23 10:43+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1186,14 +1186,12 @@ msgid "Log in to rate this add-on"
 msgstr ""
 
 #: src/amo/components/RatingManager/index.js:173
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "మీరు నిజంగానే ఈ సమీక్షను తొలగించాలని అనుకుంటున్నారా?"
+msgstr "మీరు నిజంగానే %(addonName)sపై మీ సమీక్షను తొలగించాలని అనుకుంటున్నారా?"
 
 #: src/amo/components/RatingManager/index.js:178
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "మీరు నిజంగానే ఈ సమీక్షను తొలగించాలని అనుకుంటున్నారా?"
+msgstr "మీరు నిజంగానే %(addonName)sపై మీ రేటింగును తొలగించాలని అనుకుంటున్నారా?"
 
 #: src/amo/components/RatingManager/index.js:183
 msgid "How are you enjoying %(addonName)s?"
@@ -1351,18 +1349,16 @@ msgid "Search results for \"%(query)s\""
 msgstr "\"%(query)s\"కి వెతుకుడు ఫలితాలు"
 
 #: src/amo/components/SearchContextCard/index.js:100
-#, fuzzy
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] "\"%(query)s\" కొరకు %(count)s అలంకారం దొరికింది"
-msgstr[1] "\"%(query)s\" కొరకు %(count)s అలంకారాలు దొరికాయి"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:109
-#, fuzzy
 msgid "%(count)s Search Tool found"
 msgid_plural "%(count)s Search Tools found"
-msgstr[0] "\"%(query)s\"కి %(count)s ఫలితం"
-msgstr[1] "\"%(query)s\"కి %(count)s ఫలితాలు"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:122
 #, fuzzy
