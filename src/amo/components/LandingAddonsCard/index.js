@@ -62,6 +62,7 @@ export default class LandingAddonsCard extends React.Component<Props> {
         className={makeClassName('LandingAddonsCard', className)}
         footerLink={footerLinkHtml}
         header={header}
+        showRecommendedBadge={false}
         type="horizontal"
         loading={loading}
         placeholderCount={count}

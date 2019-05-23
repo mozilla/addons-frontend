@@ -1,11 +1,17 @@
 /* @flow */
 import makeClassName from 'classnames';
+import config from 'config';
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
-import { ADDON_TYPE_THEME, ADDON_TYPE_OPENSEARCH } from 'core/constants';
+import {
+  ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
+} from 'core/constants';
 import {
   addQueryParams,
   isAllowedOrigin,
@@ -17,6 +23,8 @@ import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
+import RecommendedBadge from 'ui/components/RecommendedBadge';
+import type { AppState } from 'amo/store';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
@@ -26,28 +34,36 @@ type Props = {|
   addon?: AddonType | CollectionAddonType,
   addonInstallSource?: string,
   showMetadata?: boolean,
+  showRecommendedBadge?: boolean,
   showSummary?: boolean,
 |};
 
 type InternalProps = {|
   ...Props,
-  i18n: I18nType,
+  _config: typeof config,
   _isAllowedOrigin: Function,
+  clientApp: string,
+  i18n: I18nType,
 |};
 
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps = {
+    _config: config,
     _isAllowedOrigin: isAllowedOrigin,
     showMetadata: true,
+    showRecommendedBadge: true,
     showSummary: true,
   };
 
   renderResult() {
     const {
-      addon,
-      i18n,
+      _config,
       _isAllowedOrigin,
+      addon,
+      clientApp,
+      i18n,
       showMetadata,
+      showRecommendedBadge,
       showSummary,
     } = this.props;
 
@@ -123,6 +139,13 @@ export class SearchResultBase extends React.Component<InternalProps> {
         <div className="SearchResult-contents">
           <h2 className="SearchResult-name">
             {addon ? addon.name : <LoadingText />}
+            {showRecommendedBadge &&
+            _config.get('enableFeatureRecommendedBadges') &&
+            addon &&
+            addon.is_recommended &&
+            clientApp !== CLIENT_APP_ANDROID ? (
+              <RecommendedBadge />
+            ) : null}
           </h2>
           {summary}
 
@@ -205,8 +228,15 @@ export class SearchResultBase extends React.Component<InternalProps> {
   }
 }
 
-const SearchResult: React.ComponentType<Props> = compose(translate())(
-  SearchResultBase,
-);
+export const mapStateToProps = (state: AppState) => {
+  return {
+    clientApp: state.api.clientApp,
+  };
+};
+
+const SearchResult: React.ComponentType<Props> = compose(
+  connect(mapStateToProps),
+  translate(),
+)(SearchResultBase);
 
 export default SearchResult;
