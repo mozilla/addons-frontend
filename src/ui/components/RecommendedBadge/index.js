@@ -1,25 +1,41 @@
 /* @flow */
+import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
-import Icon from 'ui/components/Icon';
+import IconRecommendedBadge from 'ui/components/IconRecommendedBadge';
+import type { RecommendedBadgeSize } from 'ui/components/IconRecommendedBadge';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-type Props = {};
+type Props = {|
+  size: RecommendedBadgeSize,
+|};
 
 type InternalProps = {|
+  ...Props,
   i18n: I18nType,
 |};
 
-export const RecommendedBadgeBase = (props: InternalProps) => {
-  const { i18n } = props;
-
+export const RecommendedBadgeBase = ({ i18n, size }: InternalProps) => {
   const label = i18n.gettext('Recommended');
+
+  let sizeClassName;
+  switch (size) {
+    case 'large':
+      sizeClassName = 'RecommendedBadge-large';
+      break;
+    case 'small':
+      sizeClassName = 'RecommendedBadge-small';
+      break;
+    default:
+      throw new Error(`Unknown size: "${size}"`);
+  }
+
   return (
-    <div className="RecommendedBadge">
+    <div className={makeClassName('RecommendedBadge', sizeClassName)}>
       <a
         className="RecommendedBadge-link"
         href="https://support.mozilla.org/"
@@ -29,9 +45,7 @@ export const RecommendedBadgeBase = (props: InternalProps) => {
           'Firefox only recommends extensions that meet our standards for security and performance.',
         )}
       >
-        <span className="RecommendedBadge-icon">
-          <Icon alt={label} name="recommended" />
-        </span>
+        <IconRecommendedBadge alt={label} size={size} />
         <span className="RecommendedBadge-label">{label}</span>
       </a>
     </div>

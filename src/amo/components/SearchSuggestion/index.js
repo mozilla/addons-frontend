@@ -5,6 +5,7 @@ import makeClassName from 'classnames';
 
 import translate from 'core/i18n/translate';
 import Icon from 'ui/components/Icon';
+import IconRecommendedBadge from 'ui/components/IconRecommendedBadge';
 import LoadingText from 'ui/components/LoadingText';
 import type { I18nType } from 'core/types/i18n';
 
@@ -44,10 +45,10 @@ export const SearchSuggestionBase = ({
         {loading ? <LoadingText minWidth={20} range={12} /> : name}
       </span>
       {_config.get('enableFeatureRecommendedBadges') && isRecommended && (
-        <Icon
+        <IconRecommendedBadge
           alt={i18n.gettext('Recommended')}
           className="SearchSuggestion-icon-recommended"
-          name="recommended-circle"
+          size="small"
         />
       )}
       <Icon

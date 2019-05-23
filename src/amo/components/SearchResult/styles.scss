@@ -94,9 +94,12 @@ $icon-default-size: 32px;
 .SearchResult-name {
   @include font-medium();
 
+  align-items: flex-start;
   color: $type-black;
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
+  flex-wrap: wrap;
   font-size: $font-size-m-smaller;
   line-height: 1.2;
   margin: 0;
@@ -106,7 +109,19 @@ $icon-default-size: 32px;
   word-wrap: break-word;
 
   .RecommendedBadge {
-    @include margin-start(8px);
+    justify-content: flex-start;
+    margin-top: 6px;
+  }
+
+  @include respond-to(extraLarge) {
+    flex-direction: row;
+    margin-top: 0;
+
+    .RecommendedBadge {
+      @include margin-start(8px);
+
+      margin-top: 0;
+    }
   }
 
   .SearchResult-link:focus &,
