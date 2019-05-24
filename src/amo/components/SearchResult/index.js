@@ -144,7 +144,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
             addon &&
             addon.is_recommended &&
             clientApp !== CLIENT_APP_ANDROID ? (
-              <RecommendedBadge />
+              <RecommendedBadge size="small" />
             ) : null}
           </h2>
           {summary}

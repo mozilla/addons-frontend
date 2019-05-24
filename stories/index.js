@@ -7,5 +7,6 @@ import './setup/styles.scss';
 // Components
 import './ui/Badge';
 import './ui/Button';
+import './ui/IconRecommendedBadge';
 import './ui/Rating';
 import './ui/RecommendedBadge';

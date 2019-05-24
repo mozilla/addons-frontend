@@ -1,61 +1,63 @@
 @import '~ui/css/styles';
-
-$recommended-text-color: $orange-50;
-$recommended-hover-color: $orange-60;
+@import '~ui/components/IconRecommendedBadge/styles';
 
 .RecommendedBadge {
-  align-items: center;
-  color: $recommended-text-color;
+  align-items: flex-start;
+  color: $orange-50;
   display: flex;
-  font-size: $font-size-m-smaller;
+  font-size: $font-size-micro;
   margin-bottom: 6px;
+
+  &.RecommendedBadge-large {
+    font-size: $font-size-m-smaller;
+  }
 
   @include respond-to(large) {
     justify-content: flex-end;
   }
+}
 
-  a,
-  a:link,
-  a:visited {
-    color: $recommended-text-color;
+.RecommendedBadge-link {
+  align-items: center;
+  border: 1px solid $orange-50;
+  border-radius: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-height: $icon-recommended-small-size;
+
+  .RecommendedBadge-large & {
+    max-height: $icon-recommended-large-size;
+  }
+
+  &,
+  &:link,
+  &:visited {
+    color: $orange-50;
     font-weight: normal;
     text-decoration: none;
   }
 
-  a:active,
-  a:focus,
-  a:hover {
-    border-color: $recommended-hover-color;
-    color: $recommended-hover-color;
+  &:active,
+  &:focus,
+  &:hover {
+    border-color: $orange-60;
+    color: $orange-60;
 
-    .RecommendedBadge-icon {
-      background-color: $recommended-hover-color;
+    .IconRecommendedBadge-shellPath {
+      fill: $orange-60;
     }
   }
 }
 
-.RecommendedBadge-link {
-  @include padding-end(10px);
-
-  border: 1px solid $recommended-text-color;
-  border-radius: 20px;
-  height: 24px;
-}
-
-.RecommendedBadge-icon {
-  @include margin-end(6px);
-  @include padding-end(0);
-  @include padding-start(4px);
-
-  background-color: $recommended-text-color;
-  border-radius: 50%;
-  display: inline-block;
-  height: 22px;
-  padding-bottom: 4px;
-  padding-top: 2px;
-  width: 22px;
-}
-
 .RecommendedBadge-label {
+  @include margin-start(2px);
+  @include margin-end(8px);
+
+  .RecommendedBadge-large & {
+    @include margin-start(6px);
+  }
+
   color: $orange-80;
 }

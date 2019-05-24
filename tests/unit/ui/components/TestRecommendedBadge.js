@@ -4,17 +4,26 @@ import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import RecommendedBadge, {
   RecommendedBadgeBase,
 } from 'ui/components/RecommendedBadge';
-import Icon from 'ui/components/Icon';
 
 describe(__filename, () => {
-  it('renders a badge', () => {
-    const root = shallowUntilTarget(
-      <RecommendedBadge i18n={fakeI18n()} />,
+  const render = (moreProps = {}) => {
+    const props = {
+      i18n: fakeI18n(),
+      size: 'large',
+      ...moreProps,
+    };
+    return shallowUntilTarget(
+      <RecommendedBadge {...props} />,
       RecommendedBadgeBase,
     );
-    const label = 'Recommended';
+  };
 
-    expect(root.find(Icon)).toHaveProp('alt', label);
-    expect(root.find('.RecommendedBadge-label')).toIncludeText(label);
+  it.each([
+    ['RecommendedBadge-large', 'large'],
+    ['RecommendedBadge-small', 'small'],
+  ])('adds the class "%s" for size="%s"', (className, size) => {
+    const root = render({ size });
+
+    expect(root).toHaveClassName(className);
   });
 });

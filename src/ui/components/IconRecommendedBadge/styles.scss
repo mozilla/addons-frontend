@@ -1,0 +1,51 @@
+@import '~ui/css/styles';
+@import '~ui/components/Icon/vars';
+
+$icon-recommended-large-size: 24px;
+$icon-recommended-small-size: 16px;
+
+.IconRecommendedBadge {
+  box-sizing: border-box;
+  display: flex;
+  height: auto;
+  width: auto;
+}
+
+.IconRecommendedBadge-svg {
+  box-sizing: border-box;
+  height: $default-icon-size;
+  width: $default-icon-size;
+}
+
+.IconRecommendedBadge-shellPath {
+  fill: $orange-50;
+}
+
+.IconRecommendedBadge-iconPath {
+  fill: $white;
+  transform-origin: 50% 50%;
+}
+
+.IconRecommendedBadge-large {
+  .IconRecommendedBadge-svg {
+    height: $icon-recommended-large-size;
+    width: $icon-recommended-large-size;
+  }
+
+  .IconRecommendedBadge-iconPath {
+    // Nudge the trophy into the center of the circle.
+    transform: translate(2px, 2.5px) scale(1.1);
+  }
+}
+
+.IconRecommendedBadge-small {
+  .IconRecommendedBadge-svg {
+    height: $icon-recommended-small-size;
+    width: $icon-recommended-small-size;
+  }
+
+  .IconRecommendedBadge-iconPath {
+    // Nudge the trophy into the center of the circle.
+    transform: translate(-1.5px, -1.5px) scale(0.8);
+  }
+}

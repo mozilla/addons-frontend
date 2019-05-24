@@ -75,7 +75,6 @@ describe(__filename, () => {
     };
     const root = shallowComponent(props);
 
-    expect(root.find(Icon)).toHaveLength(2);
     expect(root.find('.SearchSuggestion-icon-recommended')).toHaveLength(1);
   });
 

@@ -70,7 +70,7 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
         _config.get('enableFeatureRecommendedBadges') &&
         addon.is_recommended &&
         clientApp !== CLIENT_APP_ANDROID ? (
-          <RecommendedBadge />
+          <RecommendedBadge size="large" />
         ) : null}
         {showFeaturedBadge ? (
           <Badge type="featured" label={getFeaturedText(addon.type)} />
