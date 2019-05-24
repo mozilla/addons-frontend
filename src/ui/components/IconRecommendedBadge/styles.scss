@@ -1,6 +1,9 @@
 @import '~ui/css/styles';
 @import '~ui/components/Icon/vars';
 
+$icon-recommended-large-size: 24px;
+$icon-recommended-small-size: 16px;
+
 .IconRecommendedBadge {
   box-sizing: border-box;
   display: flex;
@@ -25,24 +28,24 @@
 
 .IconRecommendedBadge-large {
   .IconRecommendedBadge-svg {
-    height: 24px;
-    width: 24px;
+    height: $icon-recommended-large-size;
+    width: $icon-recommended-large-size;
   }
 
   .IconRecommendedBadge-iconPath {
     // Nudge the trophy into the center of the circle.
-    transform: translate(1.5px, 2.5px) scale(1.1);
+    transform: translate(2px, 2.5px) scale(1.1);
   }
 }
 
 .IconRecommendedBadge-small {
   .IconRecommendedBadge-svg {
-    height: 16px;
-    width: 16px;
+    height: $icon-recommended-small-size;
+    width: $icon-recommended-small-size;
   }
 
   .IconRecommendedBadge-iconPath {
     // Nudge the trophy into the center of the circle.
-    transform: translate(-1.8px, -1px) scale(0.8);
+    transform: translate(-1.5px, -1.5px) scale(0.8);
   }
 }

@@ -22,20 +22,13 @@ type InternalProps = {|
 export const RecommendedBadgeBase = ({ i18n, size }: InternalProps) => {
   const label = i18n.gettext('Recommended');
 
-  let sizeClassName;
-  switch (size) {
-    case 'large':
-      sizeClassName = 'RecommendedBadge-large';
-      break;
-    case 'small':
-      sizeClassName = 'RecommendedBadge-small';
-      break;
-    default:
-      throw new Error(`Unknown size: "${size}"`);
-  }
-
   return (
-    <div className={makeClassName('RecommendedBadge', sizeClassName)}>
+    <div
+      className={makeClassName('RecommendedBadge', {
+        'RecommendedBadge-large': size === 'large',
+        'RecommendedBadge-small': size === 'small',
+      })}
+    >
       <a
         className="RecommendedBadge-link"
         href="https://support.mozilla.org/"

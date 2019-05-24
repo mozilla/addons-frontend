@@ -22,10 +22,6 @@ describe(__filename, () => {
     expect(root).toHaveClassName(className);
   });
 
-  it('throws for unknown sizes', () => {
-    expect(() => render({ size: 'clownShoesBig' })).toThrow(/Unknown size/);
-  });
-
   it('adds a custom class', () => {
     const className = 'MyCoolBadge';
     const root = render({ className });

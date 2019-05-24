@@ -16,26 +16,13 @@ type Props = {|
 |};
 
 const IconRecommendedBadge = ({ className, size, ...iconProps }: Props) => {
-  let sizeClassName;
-  switch (size) {
-    case 'large':
-      sizeClassName = 'IconRecommendedBadge-large';
-      break;
-    case 'small':
-      sizeClassName = 'IconRecommendedBadge-small';
-      break;
-    default:
-      throw new Error(`Unknown size: "${size}"`);
-  }
-
   return (
     <Icon
       {...iconProps}
-      className={makeClassName(
-        'IconRecommendedBadge',
-        sizeClassName,
-        className,
-      )}
+      className={makeClassName('IconRecommendedBadge', className, {
+        'IconRecommendedBadge-large': size === 'large',
+        'IconRecommendedBadge-small': size === 'small',
+      })}
       name="inline-content"
     >
       <svg

@@ -4,7 +4,6 @@ import SearchSuggestion, {
   SearchSuggestionBase,
 } from 'amo/components/SearchSuggestion';
 import Icon from 'ui/components/Icon';
-import IconRecommendedBadge from 'ui/components/IconRecommendedBadge';
 import LoadingText from 'ui/components/LoadingText';
 import {
   fakeAddon,
@@ -76,7 +75,6 @@ describe(__filename, () => {
     };
     const root = shallowComponent(props);
 
-    expect(root.find(IconRecommendedBadge)).toHaveLength(1);
     expect(root.find('.SearchSuggestion-icon-recommended')).toHaveLength(1);
   });
 

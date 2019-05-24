@@ -5,9 +5,32 @@ import { fakeI18n } from 'tests/unit/helpers';
 
 import { RecommendedBadgeBase } from 'ui/components/RecommendedBadge';
 
-storiesOf('RecommendedBadge', module).add('default', () => (
-  <RecommendedBadgeBase
-    size="large"
-    i18n={fakeI18n({ includeJedSpy: false })}
-  />
-));
+const render = (moreProps = {}) => {
+  const props = {
+    size: 'large',
+    ...moreProps,
+  };
+  return (
+    <RecommendedBadgeBase
+      i18n={fakeI18n({ includeJedSpy: false })}
+      {...props}
+    />
+  );
+};
+
+storiesOf('RecommendedBadge', module).addWithChapters('all variants', {
+  chapters: [
+    {
+      sections: [
+        {
+          title: 'size="large"',
+          sectionFn: () => render({ size: 'large' }),
+        },
+        {
+          title: 'size="small"',
+          sectionFn: () => render({ size: 'small' }),
+        },
+      ],
+    },
+  ],
+});
