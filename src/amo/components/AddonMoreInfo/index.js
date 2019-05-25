@@ -108,6 +108,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     const lastUpdated = addon.last_updated;
     const license = currentVersion && currentVersion.license;
     let versionLicenseLink = null;
+    const fileSize = addon.file_size;
 
     if (license) {
       const linkProps = license.isCustom
@@ -133,6 +134,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
         currentVersion && addonHasVersionHistory(addon)
           ? currentVersion.version
           : null,
+      fileSize,
       versionLastUpdated: lastUpdated
         ? i18n.sprintf(
             // translators: This will output, in English:
@@ -182,6 +184,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     privacyPolicyLink = null,
     eulaLink = null,
     version = null,
+    fileSize = null,
     versionLastUpdated,
     versionLicenseLink = null,
     versionHistoryLink = null,
@@ -208,6 +211,14 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
               term={i18n.gettext('Version')}
             >
               {version}
+            </Definition>
+          )}
+          {fileSize && (
+            <Definition
+              className="AddonMoreInfo-size"
+              term={i18n.gettext('Size')}
+            >
+              {fileSize}
             </Definition>
           )}
           {versionLastUpdated && (

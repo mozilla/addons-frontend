@@ -80,6 +80,7 @@ export type ExternalAddonType = {|
   // If you make an API request as an admin for an incomplete
   // add-on (status=0) then the current_version could be null.
   current_version?: ExternalAddonVersionType | PartialExternalAddonVersionType,
+  file_size?: string,
   default_locale: string,
   description?: string,
   edit_url?: string,

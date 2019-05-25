@@ -168,7 +168,6 @@ export function createInternalThemeData(
   if (!apiAddon.theme_data) {
     return null;
   }
-
   return {
     accentcolor: apiAddon.theme_data.accentcolor,
     author: apiAddon.theme_data.author,
@@ -192,6 +191,7 @@ export function createInternalThemeData(
 export function createInternalAddon(
   apiAddon: ExternalAddonType | PartialExternalAddonType,
 ): AddonType {
+  const currentVersion = apiAddon.current_version;
   let addon: AddonType = {
     authors: apiAddon.authors,
     average_daily_users: apiAddon.average_daily_users,
@@ -231,7 +231,6 @@ export function createInternalAddon(
     type: apiAddon.type,
     url: apiAddon.url,
     weekly_downloads: apiAddon.weekly_downloads,
-
     // These are custom properties not in the API response.
     currentVersionId: apiAddon.current_version
       ? apiAddon.current_version.id
@@ -242,13 +241,21 @@ export function createInternalAddon(
     themeData: createInternalThemeData(apiAddon),
   };
 
-  const currentVersion = apiAddon.current_version;
-
   if (
     currentVersion &&
     currentVersion.files &&
     currentVersion.files.length > 0
   ) {
+    const { files } = currentVersion;
+    const fileSizeInBytes = files
+      .map((file) => file.size)
+      .reduce((accumulator, size) => accumulator + size);
+    const fileSize =
+      fileSizeInBytes <= 10 ** 5
+        ? `${(fileSizeInBytes / 10 ** 3).toFixed(1)} KiB`
+        : `${(fileSizeInBytes / 10 ** 6).toFixed(1)} MiB`;
+
+    addon.file_size = fileSize;
     addon.isRestartRequired = currentVersion.files.some(
       (file) => !!file.is_restart_required,
     );

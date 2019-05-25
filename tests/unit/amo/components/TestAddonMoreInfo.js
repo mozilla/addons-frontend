@@ -184,6 +184,16 @@ describe(__filename, () => {
     expect(root.find('.AddonMoreInfo-version').children()).toHaveText('2.0.1');
   });
 
+  it('renders the size of an add-on', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+    });
+    addon.file_size = '1.4 MiB';
+    const root = render({ addon });
+
+    expect(root.find('.AddonMoreInfo-size').children()).toHaveText('1.4 MiB');
+  });
+
   it('renders a non-custom license and link', () => {
     const licenseName = 'some license';
     const licenseUrl = 'http://license.com/';
