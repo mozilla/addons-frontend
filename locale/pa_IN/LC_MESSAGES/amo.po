@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-26 18:52+0000\n"
+"PO-Revision-Date: 2019-05-26 19:50+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -164,7 +164,7 @@ msgstr "%(addonName)s – 🦊 Firefox ਐਂਡਰਾਈਡ (%(locale)s) ਲਈ
 
 #: src/amo/components/AddonHead/index.js:66
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 ਫਾਇਰਫਾਕਸ ਛੁਪਾਓ (%(locale)s) ਲਈ ਇਹ ਇਕਸਟੈਨਸ਼ਨ ਲਵੋ"
 
 #: src/amo/components/AddonHead/index.js:71
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
@@ -663,7 +663,7 @@ msgstr "ਤਬਦੀਲੀਆਂ ਨੂੰ ਸੰਭਾਲੋ"
 
 #: src/amo/components/CollectionManager/index.js:247
 msgid "Collection name"
-msgstr ""
+msgstr "ਸੰਗ੍ਰਹਿ ਨਾਮ"
 
 #: src/amo/components/CollectionManager/index.js:261
 msgid "Description"
@@ -719,7 +719,7 @@ msgstr "ਇਨ੍ਹਾਂ ਕਲਾਕਾਰਾਂ ਦਾ ਸਮਰਥਨ ਕ�
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "ਇਸ ਥੀਮ ਦਾ ਕਲਾਕਾਰ ਇਹ ਪੁੱਛਦਾ ਹੈ ਕਿ ਤੁਸੀਂ ਇਕ ਛੋਟਾ ਜਿਹਾ ਯੋਗਦਾਨ ਪਾ ਕੇ ਇਸ ਦੀ ਨਿਰੰਤਰ ਸ੍ਰਿਸ਼ਟੀ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਦੇ ਹੋ।"
 
 #: src/amo/components/ContributeCard/index.js:53
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
