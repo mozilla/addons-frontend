@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-26 20:09+0000\n"
+"PO-Revision-Date: 2019-05-26 23:28+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -462,11 +462,11 @@ msgstr "ਇਹਨਾਂ ਅਨੁਵਾਦਕਾਂ ਦੁਆਰਾ ਸ਼ਬਦ
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:258
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "%(author)s ਦੁਆਰਾ ਹੋਰ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:261
 msgid "More extensions by these developers"
-msgstr ""
+msgstr "ਇਹਨਾਂ ਡਿਵੈਲਪਰਾਂ ਦੁਆਰਾ ਹੋਰ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:265
 msgid "Extensions by %(author)s"
