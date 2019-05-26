@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-26 18:27+0000\n"
+"PO-Revision-Date: 2019-05-26 18:46+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -176,7 +176,7 @@ msgstr "%(addonName)s – 🦊 ਫਾਇਰਫਾਕਸ ਛੁਪਾਓ (%(local
 
 #: src/amo/components/AddonHead/index.js:83
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 ਫਾਇਰਫਾਕਸ ਛੁਪਾਓ (%(locale)s) ਲਈ ਖੋਜ ਟੂਲ ਲਵੋ"
 
 #: src/amo/components/AddonHead/index.js:88
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
@@ -486,7 +486,7 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:285
 msgid "Language packs by %(author)s"
-msgstr ""
+msgstr "ਭਾਸ਼ਾ ਪੈਕ %(author)s ਦੁਆਰਾ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:288
 msgid "Language packs by these translators"
