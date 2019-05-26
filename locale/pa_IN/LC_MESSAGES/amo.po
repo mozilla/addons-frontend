@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-26 18:46+0000\n"
+"PO-Revision-Date: 2019-05-26 18:52+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -458,7 +458,7 @@ msgstr "%(author)s ਦੁਆਰਾ ਸ਼ਬਦਕੋਸ਼"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:251
 msgid "Dictionaries by these translators"
-msgstr ""
+msgstr "ਇਹਨਾਂ ਅਨੁਵਾਦਕਾਂ ਦੁਆਰਾ ਸ਼ਬਦਕੋਸ਼"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:258
 msgid "More extensions by %(author)s"
@@ -478,11 +478,11 @@ msgstr "ਇਹਨਾਂ ਡਿਵੈਲਪਰਾਂ ਵਲੋਂ ਇਸਟੈਨ
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:276
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "%(author)s ਦੁਆਰਾ ਜਿਆਦਾ ਭਾਸ਼ਾ ਪੈਕ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:281
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "ਇਹਨਾਂ ਅਨੁਵਾਦਕਾਂ ਦੁਆਰਾ ਹੋਰ ਭਾਸ਼ਾ ਪੈਕ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:285
 msgid "Language packs by %(author)s"
@@ -703,11 +703,11 @@ msgstr "ਇਹਨਾਂ ਡਿਵੈਲਪਰਾਂ ਦਾ ਸਮਰਥਨ ਕ�
 
 #: src/amo/components/ContributeCard/index.js:37
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "ਇਸ ਐਕਸਟੈਂਸ਼ਨ ਦੇ ਡਿਵੈਲਪਰ ਨੇ ਕਿਹਾ ਹੈ ਕਿ ਤੁਸੀਂ ਇੱਕ ਛੋਟਾ ਯੋਗਦਾਨ ਕਰਕੇ ਆਪਣਾ ਨਿਰੰਤਰ ਵਿਕਾਸ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਦੇ ਹੋ।"
 
 #: src/amo/components/ContributeCard/index.js:39
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "ਇਸ ਐਕਸਟੈਂਸ਼ਨ ਦੇ ਡਿਵੈਲਪਰ ਨੇ ਕਿਹਾ ਹੈ ਕਿ ਤੁਸੀਂ ਇੱਕ ਛੋਟਾ ਯੋਗਦਾਨ ਕਰਕੇ ਆਪਣੀ ਨਿਰੰਤਰ ਵਿਕਾਸ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਦੇ ਹੋ।"
 
 #: src/amo/components/ContributeCard/index.js:46
 msgid "Support this artist"
@@ -735,7 +735,7 @@ msgstr "ਇਹਨਾਂ ਲੇਖਕਾਂ ਦਾ ਸਮਰਥਨ ਕਰੋ"
 
 #: src/amo/components/ContributeCard/index.js:65
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "ਇਹ ਐਡ-ਆਨ ਦੇ ਲੇਖਕ ਨੇ ਤੁਹਾਨੂੰ ਪੁੱਛਿਆ ਹੈ ਕਿ ਤੁਸੀਂ ਛੋਟਾ ਜਿਹਾ ਯੋਗਦਾਨ ਦੇ ਕੇ ਲਗਾਤਾਰ ਕੰਮ ਜਾਰੀ ਰੱਖਣ ਵਿੱਚ ਮੱਦਦ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ।"
 
 #: src/amo/components/ContributeCard/index.js:67
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
