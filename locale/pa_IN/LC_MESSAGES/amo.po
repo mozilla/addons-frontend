@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-26 19:50+0000\n"
+"PO-Revision-Date: 2019-05-26 20:09+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -180,11 +180,11 @@ msgstr "%(addonName)s – 🦊 ਫਾਇਰਫਾਕਸ ਛੁਪਾਓ (%(local
 
 #: src/amo/components/AddonHead/index.js:88
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – 🦊 ਫਾਇਰਫਾਕਸ ਛੁਪਾਓ (%(locale)s) ਲਈ ਇਹ ਐਡ-ਆਨ ਪ੍ਰਾਪਤ ਕਰੋ"
 
 #: src/amo/components/AddonHead/index.js:95
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s– 🦊 ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਇਹ ਸ਼ਬਦਕੋਸ਼ ਲਵੋ"
 
 #: src/amo/components/AddonMeta/index.js:116
 msgid "%(total)s Star"
