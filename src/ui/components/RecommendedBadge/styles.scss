@@ -12,6 +12,9 @@
     font-size: $font-size-m-smaller;
   }
 
+  .Addon-theme & {
+    @include margin-end(12px);
+  }
   @include respond-to(large) {
     justify-content: flex-end;
 
