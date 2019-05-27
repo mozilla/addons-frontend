@@ -23,6 +23,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -32,6 +33,9 @@ describe(__filename, () => {
 
   function renderProps({ _store = store, ...otherProps } = {}) {
     return {
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: true,
+      }),
       errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
       match: {
@@ -98,21 +102,28 @@ describe(__filename, () => {
   });
 
   it('dispatches getLanding when results are not loaded', () => {
+    const enableFeatureRecommendedBadges = true;
+    const _config = getFakeConfig({ enableFeatureRecommendedBadges });
+
     const errorHandler = createStubErrorHandler();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    render({ errorHandler, store });
+    render({ _config, errorHandler, store });
 
     sinon.assert.calledWith(
       fakeDispatch,
       getLanding({
         addonType: ADDON_TYPE_EXTENSION,
+        enableFeatureRecommendedBadges,
         errorHandlerId: errorHandler.id,
       }),
     );
   });
 
   it('dispatches getLanding when addon type changes', () => {
+    const enableFeatureRecommendedBadges = true;
+    const _config = getFakeConfig({ enableFeatureRecommendedBadges });
+
     const addonType = ADDON_TYPE_EXTENSION;
     const errorHandler = createStubErrorHandler();
 
@@ -123,6 +134,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
 
     const root = render({
+      _config,
       errorHandler,
       match: {
         params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
@@ -142,6 +154,7 @@ describe(__filename, () => {
       fakeDispatch,
       getLanding({
         addonType,
+        enableFeatureRecommendedBadges,
         errorHandlerId: errorHandler.id,
       }),
     );
@@ -417,6 +430,9 @@ describe(__filename, () => {
   });
 
   it('dispatches getLanding when category filter is set', () => {
+    const enableFeatureRecommendedBadges = true;
+    const _config = getFakeConfig({ enableFeatureRecommendedBadges });
+
     const addonType = ADDON_TYPE_EXTENSION;
 
     const errorHandler = createStubErrorHandler();
@@ -439,13 +455,14 @@ describe(__filename, () => {
     );
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    render({ errorHandler, store });
+    render({ _config, errorHandler, store });
 
     sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
     sinon.assert.calledWith(
       fakeDispatch,
       getLanding({
         addonType,
+        enableFeatureRecommendedBadges,
         errorHandlerId: errorHandler.id,
       }),
     );

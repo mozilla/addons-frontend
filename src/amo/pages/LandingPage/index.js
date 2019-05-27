@@ -84,6 +84,7 @@ export class LandingPageBase extends React.Component {
 
   getLandingDataIfNeeded() {
     const {
+      _config,
       addonTypeOfResults,
       dispatch,
       errorHandler,
@@ -103,6 +104,9 @@ export class LandingPageBase extends React.Component {
         getLanding({
           addonType: requestedAddonType,
           errorHandlerId: errorHandler.id,
+          enableFeatureRecommendedBadges: _config.get(
+            'enableFeatureRecommendedBadges',
+          ),
         }),
       );
     }

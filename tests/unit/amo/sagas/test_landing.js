@@ -56,6 +56,7 @@ describe(__filename, () => {
         getLanding({
           addonType: ADDON_TYPE_EXTENSION,
           errorHandlerId: errorHandler.id,
+          enableFeatureRecommendedBadges: true,
           ...overrides,
         }),
       );
@@ -78,6 +79,7 @@ describe(__filename, () => {
         const baseFilters = {
           addonType: getAddonTypeFilter(addonType),
           page_size: pageSize,
+          recommended: addonType === ADDON_TYPE_EXTENSION ? true : undefined,
         };
 
         const featured = createAddonsApiResult([
@@ -176,6 +178,7 @@ describe(__filename, () => {
         addonType,
         category,
         page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+        recommended: true,
       };
 
       const featured = createAddonsApiResult([
@@ -246,6 +249,7 @@ describe(__filename, () => {
       const baseFilters = {
         addonType,
         page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+        recommended: true,
       };
 
       const featured = createAddonsApiResult([
@@ -295,6 +299,81 @@ describe(__filename, () => {
         .returns(Promise.resolve(trending));
 
       _getLanding({ addonType, category: undefined });
+
+      await sagaTester.waitFor(LOAD_LANDING);
+      mockSearchApi.verify();
+
+      const calledActions = sagaTester.getCalledActions();
+      expect(calledActions[1]).toEqual(
+        loadLanding({
+          addonType,
+          featured,
+          highlyRated,
+          trending,
+        }),
+      );
+    });
+
+    it('does not include only recommended add-ons when the enableFeatureRecommendedBadges is false', async () => {
+      const addonType = ADDON_TYPE_EXTENSION;
+      const baseArgs = { api: apiState };
+      const baseFilters = {
+        addonType,
+        page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+        recommended: undefined,
+      };
+
+      const featured = createAddonsApiResult([
+        { ...fakeAddon, slug: 'featured-addon' },
+      ]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            featured: true,
+            sort: SEARCH_SORT_RANDOM,
+            page: '1',
+          },
+        })
+        .returns(Promise.resolve(featured));
+
+      const highlyRated = createAddonsApiResult([
+        { ...fakeAddon, slug: 'highly-rated-addon' },
+      ]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            sort: SEARCH_SORT_TOP_RATED,
+            page: '1',
+          },
+        })
+        .returns(Promise.resolve(highlyRated));
+
+      const trending = createAddonsApiResult([
+        { ...fakeAddon, slug: 'trending-addon' },
+      ]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            sort: SEARCH_SORT_TRENDING,
+            page: '1',
+          },
+        })
+        .returns(Promise.resolve(trending));
+
+      _getLanding({
+        addonType,
+        category: undefined,
+        enableFeatureRecommendedBadges: false,
+      });
 
       await sagaTester.waitFor(LOAD_LANDING);
       mockSearchApi.verify();
