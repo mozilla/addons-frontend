@@ -6,12 +6,17 @@ import SearchSuggestion, {
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import {
+  dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+} from 'core/constants';
 
 describe(__filename, () => {
   const shallowComponent = (props = {}) => {
@@ -24,6 +29,7 @@ describe(__filename, () => {
       iconUrl: fakeAddon.icon_url,
       isRecommended: false,
       loading: false,
+      store: dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store,
       ...props,
     };
 
@@ -76,6 +82,23 @@ describe(__filename, () => {
     const root = shallowComponent(props);
 
     expect(root.find('.SearchSuggestion-icon-recommended')).toHaveLength(1);
+  });
+
+  it('does not display a recommended icon on Android', () => {
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+    });
+
+    const props = {
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: true,
+      }),
+      isRecommended: true,
+      store,
+    };
+    const root = shallowComponent(props);
+
+    expect(root.find('.SearchSuggestion-icon-recommended')).toHaveLength(0);
   });
 
   it('does not display a recommended icon when the add-on is not recommended', () => {
