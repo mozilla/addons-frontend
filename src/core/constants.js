@@ -140,6 +140,7 @@ export const SEARCH_SORT_POPULAR = 'users';
 export const SEARCH_SORT_RANDOM = 'random';
 export const SEARCH_SORT_RELEVANCE = 'relevance';
 export const SEARCH_SORT_UPDATED = 'updated';
+export const SEARCH_SORT_RECOMMENDED = 'recommended';
 
 // Collection add-ons sort values
 export const COLLECTION_SORT_DATE_ADDED_ASCENDING = 'added';
