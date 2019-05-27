@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-03-08 18:07+0000\n"
+"PO-Revision-Date: 2019-05-27 11:35+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1359,7 +1359,7 @@ msgstr "Rezultatele căutării pentru „%(query)s”"
 #: src/amo/components/SearchContextCard/index.js:100
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] "%(count)s de unelte de căutare găsite pentru „%(query)s”"
+msgstr[0] "%(count)s unealtă de căutare găsită pentru „%(query)s”"
 msgstr[1] "%(count)s unelte de căutare găsite pentru „%(query)s”"
 msgstr[2] "%(count)s de unelte de căutare găsite pentru „%(query)s”"
 
@@ -1380,28 +1380,28 @@ msgstr[2] "%(count)s de teme găsite pentru „%(query)s” în %(categoryName)s
 #: src/amo/components/SearchContextCard/index.js:131
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "%(count)s de teme găsite în %(categoryName)s"
+msgstr[0] "%(count)s temă găsită în %(categoryName)s"
 msgstr[1] "%(count)s teme găsite în %(categoryName)s"
 msgstr[2] "%(count)s de teme găsite în %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:141
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "%(count)s de teme găsite pentru „%(query)s”"
+msgstr[0] "%(count)s temă găsită pentru „%(query)s”"
 msgstr[1] "%(count)s teme găsite pentru „%(query)s”"
 msgstr[2] "%(count)s de teme găsite pentru „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:150
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "%(count)s de teme găsite"
+msgstr[0] "%(count)s temă găsită"
 msgstr[1] "%(count)s teme găsite"
 msgstr[2] "%(count)s de teme găsite"
 
 #: src/amo/components/SearchContextCard/index.js:162
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "%(count)s de rezultate găsite pentru „%(query)s”"
+msgstr[0] "%(count)s rezultat găsit pentru „%(query)s”"
 msgstr[1] "%(count)s rezultate găsite pentru „%(query)s”"
 msgstr[2] "%(count)s de rezultate găsite pentru „%(query)s”"
 
@@ -1437,7 +1437,7 @@ msgstr[2] "%(count)s de extensii găsite în %(categoryName)s"
 #: src/amo/components/SearchContextCard/index.js:79
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "%(count)s de extensii găsite pentru „%(query)s”"
+msgstr[0] "%(count)s extensie găsită pentru „%(query)s”"
 msgstr[1] "%(count)s extensii găsite pentru „%(query)s”"
 msgstr[2] "%(count)s de extensii găsite pentru „%(query)s”"
 
@@ -1708,7 +1708,7 @@ msgstr "Acord de licență pentru utilizatorul final pentru %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:168
 msgid "Privacy policy for %(addonName)s"
-msgstr "Politica de confidențialitate pentru %(addonName)s"
+msgstr "Politică de confidențialitate pentru %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:196
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -1720,23 +1720,23 @@ msgstr "Afișează toate recenziile"
 
 #: src/amo/pages/AddonReviewList/index.js:230
 msgid "Show only five-star reviews"
-msgstr "Arată numai recenziile cu cinci stele"
+msgstr "Afișează numai recenziile cu cinci stele"
 
 #: src/amo/pages/AddonReviewList/index.js:231
 msgid "Show only four-star reviews"
-msgstr "Arată numai recenziile cu patru stele"
+msgstr "Afișează numai recenziile cu patru stele"
 
 #: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show only three-star reviews"
-msgstr "Arată numai recenziile cu trei stele"
+msgstr "Afișează numai recenziile cu trei stele"
 
 #: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only two-star reviews"
-msgstr "Arată numai recenziile cu două stele"
+msgstr "Afișează numai recenziile cu două stele"
 
 #: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only one-star reviews"
-msgstr "Arată numai recenziile cu o stea"
+msgstr "Afișează numai recenziile cu o stea"
 
 #: src/amo/pages/AddonReviewList/index.js:276
 msgid "Reviews for %(addonName)s"
@@ -1745,7 +1745,7 @@ msgstr "Recenzii pentru %(addonName)s"
 #: src/amo/pages/AddonReviewList/index.js:286
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s recenzii"
+msgstr[0] "%(total)s recenzie"
 msgstr[1] "%(total)s recenzii"
 msgstr[2] "%(total)s de recenzii"
 
