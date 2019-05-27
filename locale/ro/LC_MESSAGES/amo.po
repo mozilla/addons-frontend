@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-07 16:21+0000\n"
-"PO-Revision-Date: 2019-05-27 11:35+0000\n"
-"Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
+"PO-Revision-Date: 2019-05-27 12:02+0000\n"
+"Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -217,9 +217,9 @@ msgstr "Recenzii"
 #: src/amo/components/AddonMeta/index.js:63
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] "de recenzii"
-msgstr[1] "Recenzii"
-msgstr[2] "Recenzii"
+msgstr[0] "recenzie"
+msgstr[1] "recenzii"
+msgstr[2] "de recenzii"
 
 #: src/amo/components/AddonMeta/index.js:65
 msgid "No Reviews"
@@ -661,7 +661,7 @@ msgstr "Salvează modificările"
 
 #: src/amo/components/CollectionManager/index.js:247
 msgid "Collection name"
-msgstr "Denumirea colecției"
+msgstr "Denumire colecție"
 
 #: src/amo/components/CollectionManager/index.js:261
 msgid "Description"
@@ -1539,7 +1539,7 @@ msgstr "Notă la supliment"
 #: src/amo/components/SearchResult/index.js:165
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(total)s de utilizatori"
+msgstr[0] "%(total)s utilizator"
 msgstr[1] "%(total)s utilizatori"
 msgstr[2] "%(total)s de utilizatori"
 
@@ -1646,7 +1646,7 @@ msgstr "Acest supliment nu poate fi evaluat deoarece nu au fost publicate versiu
 #: src/amo/pages/Addon/index.js:213
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] "Citește toate cele %(count)s de recenzii"
+msgstr[0] "Citește %(count)s recenzie"
 msgstr[1] "Citește toate cele %(count)s recenzii"
 msgstr[2] "Citește toate cele %(count)s de recenzii"
 
@@ -1692,7 +1692,7 @@ msgstr "Aceasta nu este o listare publică. O vezi numai pentru că ai permisiun
 
 #: src/amo/pages/Addon/index.js:476
 msgid "Extension Metadata"
-msgstr "Metadatele extensiei"
+msgstr "Metadate extensie"
 
 #: src/amo/pages/Addon/index.js:493
 msgid "Screenshots"
@@ -2905,7 +2905,7 @@ msgstr "Să îți acceseze datele pentru site-uri din domeniul %(param)s"
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] "Să îți acceseze datele pe alte %(param)s site-uri"
+msgstr[0] "Să îți acceseze datele pe %(param)s alt site"
 msgstr[1] "Să îți acceseze datele pe alte %(param)s site-uri"
 msgstr[2] "Să îți acceseze datele pe alte %(param)s de site-uri"
 
@@ -2940,7 +2940,7 @@ msgstr "<span class=\"visually-hidden\">Extinde pentru</span> Mai multe informa�
 #: src/ui/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] "%(total)s suplimente"
+msgstr[0] "%(total)s supliment"
 msgstr[1] "%(total)s suplimente"
 msgstr[2] "%(total)s de suplimente"
 
