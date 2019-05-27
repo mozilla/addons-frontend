@@ -3,6 +3,11 @@
 .AddonBadges {
   width: 100%;
 
+  .Addon-theme & {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   @include respond-to(large) {
     grid-column: 2;
     grid-row: 1;
@@ -16,6 +21,10 @@
 
 .AddonBadges .Badge {
   @include text-align-start();
+
+  .Addon-theme & {
+    @include margin-end(12px);
+  }
 
   @include respond-to(large) {
     @include margin-start(12px);
