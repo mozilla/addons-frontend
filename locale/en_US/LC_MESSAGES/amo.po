@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-07 16:21+0000\n"
+"POT-Creation-Date: 2019-05-28 19:28+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -81,34 +81,34 @@ msgstr "Firefox Add-ons"
 msgid "Admin add-on status"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/AddonBadges/index.js:33
+#: src/amo/components/AddonBadges/index.js:49
 #, fuzzy
 msgid "Featured Extension"
 msgstr "Browse all extensions"
 
-#: src/amo/components/AddonBadges/index.js:36
+#: src/amo/components/AddonBadges/index.js:52
 #, fuzzy
 msgid "Featured Theme"
 msgstr "Browse all extensions"
 
-#: src/amo/components/AddonBadges/index.js:38
+#: src/amo/components/AddonBadges/index.js:54
 #, fuzzy
 msgid "Featured Add-on"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/AddonBadges/index.js:54
+#: src/amo/components/AddonBadges/index.js:75
 msgid "Restart Required"
 msgstr ""
 
-#: src/amo/components/AddonBadges/index.js:58
+#: src/amo/components/AddonBadges/index.js:79
 msgid "Experimental"
 msgstr ""
 
-#: src/amo/components/AddonBadges/index.js:63
+#: src/amo/components/AddonBadges/index.js:84
 msgid "Not compatible with Firefox Quantum"
 msgstr ""
 
-#: src/amo/components/AddonBadges/index.js:69
+#: src/amo/components/AddonBadges/index.js:90
 msgid "Some features may require payment"
 msgstr ""
 
@@ -325,6 +325,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:59
 #: src/amo/pages/UserProfile/index.js:355
+#: src/amo/pages/UserProfile/index.js:357
 #: src/amo/pages/UserProfileEdit/index.js:639
 msgid "Homepage"
 msgstr ""
@@ -668,18 +669,18 @@ msgstr "Add-ons for Firefox"
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "Add-ons for Firefox"
 
-#: src/amo/components/AutoSearchInput/index.js:204
+#: src/amo/components/AutoSearchInput/index.js:206
 #, fuzzy
 msgid "Loading"
 msgstr "Searching..."
 
-#: src/amo/components/AutoSearchInput/index.js:299
+#: src/amo/components/AutoSearchInput/index.js:302
 #, fuzzy
 msgid "Find add-ons"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/AutoSearchInput/index.js:324
-#: src/amo/components/AutoSearchInput/index.js:352
+#: src/amo/components/AutoSearchInput/index.js:327
+#: src/amo/components/AutoSearchInput/index.js:355
 #, fuzzy
 msgid "Search"
 msgstr "Searching..."
@@ -980,11 +981,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:123
@@ -1467,77 +1468,92 @@ msgid ""
 "with this user."
 msgstr ""
 
-#: src/amo/components/Search/index.js:116
-#: src/amo/components/SearchResults/index.js:68
+#: src/amo/components/Search/index.js:119
+#: src/amo/components/SearchResults/index.js:83
 #, fuzzy
 msgid "Search results"
 msgstr "Searching..."
 
-#: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
+#: src/amo/components/Search/index.js:129
+#, fuzzy
+msgid "Recommended extensions"
+msgstr "Browse all extensions"
+
+#: src/amo/components/Search/index.js:130 src/amo/pages/Category/index.js:138
 #: src/amo/pages/Home/index.js:302 src/amo/pages/LandingPage/index.js:132
 #, fuzzy
 msgid "Featured extensions"
 msgstr "Browse all extensions"
 
-#: src/amo/components/Search/index.js:124 src/amo/pages/Category/index.js:170
+#: src/amo/components/Search/index.js:134
+#, fuzzy
+msgid "Recommended themes"
+msgstr "Browse all themes"
+
+#: src/amo/components/Search/index.js:135 src/amo/pages/Category/index.js:170
 #: src/amo/pages/Home/index.js:331 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
 msgstr ""
 
-#: src/amo/components/Search/index.js:127
+#: src/amo/components/Search/index.js:139
+#, fuzzy
+msgid "Recommended add-ons"
+msgstr "Firefox Add-ons"
+
+#: src/amo/components/Search/index.js:140
 #, fuzzy
 msgid "Featured add-ons"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
+#: src/amo/components/Search/index.js:147 src/amo/pages/Category/index.js:148
 #: src/amo/pages/Home/index.js:346 src/amo/pages/LandingPage/index.js:141
 #, fuzzy
 msgid "Trending extensions"
 msgstr "Browse all extensions"
 
-#: src/amo/components/Search/index.js:137 src/amo/pages/Category/index.js:180
+#: src/amo/components/Search/index.js:150 src/amo/pages/Category/index.js:180
 #: src/amo/pages/LandingPage/index.js:170
 #, fuzzy
 msgid "Trending themes"
 msgstr "Browse all themes"
 
-#: src/amo/components/Search/index.js:140
+#: src/amo/components/Search/index.js:153
 #, fuzzy
 msgid "Trending add-ons"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/Search/index.js:146 src/amo/pages/Category/index.js:158
+#: src/amo/components/Search/index.js:159 src/amo/pages/Category/index.js:158
 #: src/amo/pages/LandingPage/index.js:150
 #, fuzzy
 msgid "Top rated extensions"
 msgstr "Browse all extensions"
 
-#: src/amo/components/Search/index.js:149 src/amo/pages/Category/index.js:190
+#: src/amo/components/Search/index.js:162 src/amo/pages/Category/index.js:190
 #: src/amo/pages/LandingPage/index.js:176
 #, fuzzy
 msgid "Top rated themes"
 msgstr "Browse all themes"
 
-#: src/amo/components/Search/index.js:152
+#: src/amo/components/Search/index.js:165
 #, fuzzy
 msgid "Top rated add-ons"
 msgstr "Browse all extensions"
 
-#: src/amo/components/Search/index.js:158
+#: src/amo/components/Search/index.js:171
 #, fuzzy
 msgid "Popular extensions"
 msgstr "Browse all extensions"
 
-#: src/amo/components/Search/index.js:161
+#: src/amo/components/Search/index.js:174
 #, fuzzy
 msgid "Popular themes"
 msgstr "Browse all themes"
 
-#: src/amo/components/Search/index.js:164
+#: src/amo/components/Search/index.js:177
 msgid "Popular add-ons"
 msgstr ""
 
-#: src/amo/components/Search/index.js:170
+#: src/amo/components/Search/index.js:183
 #, fuzzy
 msgid "Search results for \"%(query)s\""
 msgstr "No results were found for \"%(query)s\"."
@@ -1636,76 +1652,81 @@ msgid_plural "%(count)s extensions found"
 msgstr[0] "No results were found for \"%(query)s\"."
 msgstr[1] "No results were found for \"%(query)s\"."
 
-#: src/amo/components/SearchFilters/index.js:110
-#: src/amo/components/SearchFilters/index.js:126
+#: src/amo/components/SearchFilters/index.js:114
+#: src/amo/components/SearchFilters/index.js:130
 msgid "All"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:111
+#: src/amo/components/SearchFilters/index.js:115
 #, fuzzy
 msgid "Extension"
 msgstr "Extension Metadata"
 
-#: src/amo/components/SearchFilters/index.js:112
+#: src/amo/components/SearchFilters/index.js:116
 #, fuzzy
 msgid "Search Tool"
 msgstr "Searching..."
 
-#: src/amo/components/SearchFilters/index.js:114
+#: src/amo/components/SearchFilters/index.js:118
 msgid "Theme"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:127
+#: src/amo/components/SearchFilters/index.js:131
 msgid "Windows"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:128
+#: src/amo/components/SearchFilters/index.js:132
 msgid "macOS"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:129
+#: src/amo/components/SearchFilters/index.js:133
 msgid "Linux"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:137
+#: src/amo/components/SearchFilters/index.js:141
 msgid "Relevance"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:139
+#: src/amo/components/SearchFilters/index.js:143
 msgid "Recently Updated"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:146
 msgid "Most Users"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Top Rated"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:144
+#: src/amo/components/SearchFilters/index.js:148
 msgid "Trending"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:160
 #, fuzzy
 msgid "Filter results"
 msgstr "Searching..."
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:165
 msgid "Sort by"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:183
+#: src/amo/components/SearchFilters/index.js:187
 #, fuzzy
 msgid "Add-on Type"
 msgstr "Add-ons for Firefox"
 
-#: src/amo/components/SearchFilters/index.js:203
+#: src/amo/components/SearchFilters/index.js:207
 msgid "Operating System"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:229
+#: src/amo/components/SearchFilters/index.js:238
+#, fuzzy
+msgid "Recommended add-ons only"
+msgstr "Firefox Add-ons"
+
+#: src/amo/components/SearchFilters/index.js:239
 #, fuzzy
 msgid "Featured add-ons only"
 msgstr "Firefox Add-ons"
@@ -1724,35 +1745,40 @@ msgstr "Add-ons for Firefox"
 msgid "Go to the add-on page"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:118
+#: src/amo/components/SearchResult/index.js:134
 msgid "No theme preview available"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:146
+#: src/amo/components/SearchResult/index.js:169
 #, fuzzy
 msgid "Add-on note"
 msgstr "Add-ons for Firefox"
 
-#: src/amo/components/SearchResult/index.js:165
+#: src/amo/components/SearchResult/index.js:188
 #, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(users)s user"
 msgstr[1] "%(users)s users"
 
-#: src/amo/components/SearchResults/index.js:42
+#: src/amo/components/SearchResults/index.js:53
 #, fuzzy
 msgid "Searching…"
 msgstr "Searching..."
 
-#: src/amo/components/SearchResults/index.js:47
+#: src/amo/components/SearchResults/index.js:58
 msgid "No results were found for \"%(query)s\"."
 msgstr "No results were found for \"%(query)s\"."
 
-#: src/amo/components/SearchResults/index.js:53
+#: src/amo/components/SearchResults/index.js:64
 #, fuzzy
 msgid "No results were found."
 msgstr "No results were found for \"%(query)s\"."
+
+#: src/amo/components/SearchSuggestion/index.js:57
+#: src/ui/components/RecommendedBadge/index.js:23
+msgid "Recommended"
+msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:102
 #: src/amo/pages/LandingPage/index.js:228
@@ -2833,40 +2859,40 @@ msgstr "No results were found for \"%(query)s\"."
 msgid "User Profile"
 msgstr "Write a review"
 
-#: src/amo/pages/UserProfile/index.js:365
+#: src/amo/pages/UserProfile/index.js:363
 #: src/amo/pages/UserProfileEdit/index.js:656
 msgid "Location"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:373
+#: src/amo/pages/UserProfile/index.js:371
 #: src/amo/pages/UserProfileEdit/index.js:668
 msgid "Occupation"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:380
+#: src/amo/pages/UserProfile/index.js:378
 msgid "User since"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:390
+#: src/amo/pages/UserProfile/index.js:388
 #, fuzzy
 msgid "Number of add-ons"
 msgstr "Firefox Add-ons"
 
-#: src/amo/pages/UserProfile/index.js:396
+#: src/amo/pages/UserProfile/index.js:394
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:411
+#: src/amo/pages/UserProfile/index.js:409
 #: src/amo/pages/UserProfileEdit/index.js:690
 msgid "Biography"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:435
+#: src/amo/pages/UserProfile/index.js:433
 #, fuzzy
 msgid "Edit profile"
 msgstr "Write a review"
 
-#: src/amo/pages/UserProfile/index.js:447
+#: src/amo/pages/UserProfile/index.js:445
 #, fuzzy
 msgid "Admin user"
 msgstr "Add-ons for Firefox"
@@ -3340,6 +3366,12 @@ msgstr "Average rating: %(rating)s out of 5"
 msgid "There are no ratings yet"
 msgstr ""
 
+#: src/ui/components/RecommendedBadge/index.js:37
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr ""
+
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
@@ -3575,10 +3607,6 @@ msgstr ""
 #~ msgstr "Browse all extensions"
 
 #, fuzzy
-#~ msgid "Summer themes"
-#~ msgstr "Browse all themes"
-
-#, fuzzy
 #~ msgid "See more must-have media extensions"
 #~ msgstr "Browse all extensions"
 
@@ -3679,10 +3707,6 @@ msgstr ""
 
 #, fuzzy
 #~ msgid "Up & Coming Extensions"
-#~ msgstr "Browse all extensions"
-
-#, fuzzy
-#~ msgid "Find extensions"
 #~ msgstr "Browse all extensions"
 
 #, fuzzy
