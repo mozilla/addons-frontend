@@ -49,7 +49,7 @@ describe(__filename, () => {
     function defaultParams() {
       return {
         addonType: ADDON_TYPE_THEME,
-        featured: { count: 0, results: [] },
+        recommended: { count: 0, results: [] },
         highlyRated: { count: 0, results: [] },
         trending: { count: 0, results: [] },
       };
@@ -74,27 +74,33 @@ describe(__filename, () => {
     });
 
     it('defaults to zero count', () => {
-      const { featured, highlyRated, trending } = landing(undefined, {
+      const { recommended, highlyRated, trending } = landing(undefined, {
         type: 'unrelated',
       });
 
-      expect(featured.count).toBe(0);
+      expect(recommended.count).toBe(0);
       expect(highlyRated.count).toBe(0);
       expect(trending.count).toBe(0);
     });
 
     it('defaults to empty results', () => {
-      const { featured, highlyRated, trending } = landing(undefined, {
+      const { recommended, highlyRated, trending } = landing(undefined, {
         type: 'unrelated',
       });
-      expect(featured.results).toEqual([]);
+      expect(recommended.results).toEqual([]);
       expect(highlyRated.results).toEqual([]);
       expect(trending.results).toEqual([]);
     });
 
     describe('GET_LANDING', () => {
       it('sets the initialState', () => {
-        const { addonType, featured, highlyRated, loading, trending } = landing(
+        const {
+          addonType,
+          recommended,
+          highlyRated,
+          loading,
+          trending,
+        } = landing(
           initialState,
           getLanding({
             addonType: ADDON_TYPE_THEME,
@@ -104,7 +110,7 @@ describe(__filename, () => {
 
         expect(addonType).toEqual(ADDON_TYPE_THEME);
         expect(loading).toEqual(true);
-        expect(featured).toEqual(initialState.featured);
+        expect(recommended).toEqual(initialState.recommended);
         expect(highlyRated).toEqual(initialState.highlyRated);
         expect(trending).toEqual(initialState.trending);
       });
@@ -125,7 +131,7 @@ describe(__filename, () => {
         const state = landing(
           {
             ...initialState,
-            featured: {
+            recommended: {
               count: 2,
               results: [
                 { ...fakeAddon, slug: 'foo' },
@@ -139,7 +145,7 @@ describe(__filename, () => {
           }),
         );
 
-        expect(state.featured).toEqual(initialState.featured);
+        expect(state.recommended).toEqual(initialState.recommended);
         expect(state.highlyRated).toEqual(initialState.highlyRated);
         expect(state.trending).toEqual(initialState.trending);
       });
@@ -151,7 +157,7 @@ describe(__filename, () => {
           initialState,
           loadLanding({
             addonType: ADDON_TYPE_THEME,
-            featured: {
+            recommended: {
               count: 2,
               results: [
                 { ...fakeAddon, slug: 'foo' },
@@ -162,8 +168,8 @@ describe(__filename, () => {
             trending: { count: 0, results: [] },
           }),
         );
-        expect(state.featured.count).toEqual(2);
-        expect(state.featured.results).toEqual([
+        expect(state.recommended.count).toEqual(2);
+        expect(state.recommended.results).toEqual([
           createInternalAddon({ ...fakeAddon, slug: 'foo' }),
           createInternalAddon({ ...fakeAddon, slug: 'food' }),
         ]);
@@ -180,7 +186,7 @@ describe(__filename, () => {
 
         const action = loadLanding({
           addonType: ADDON_TYPE_THEME,
-          featured: {
+          recommended: {
             count: 2,
             results: [
               { ...fakeAddon, slug: 'foo' },

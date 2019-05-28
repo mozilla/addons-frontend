@@ -21,7 +21,7 @@ type ExternalResultSet = {|
 export type LandingState = {|
   addonType: string | null,
   category: string | null,
-  featured: ResultSet,
+  recommended: ResultSet,
   highlyRated: ResultSet,
   loading: boolean,
   resultsLoaded: boolean,
@@ -31,7 +31,7 @@ export type LandingState = {|
 export const initialState: LandingState = {
   addonType: null,
   category: null,
-  featured: { count: 0, results: [] },
+  recommended: { count: 0, results: [] },
   highlyRated: { count: 0, results: [] },
   loading: false,
   trending: { count: 0, results: [] },
@@ -72,7 +72,7 @@ export function getLanding({
 
 type LoadLandingParams = {|
   addonType: string,
-  featured: ExternalResultSet,
+  recommended: ExternalResultSet,
   highlyRated: ExternalResultSet,
   trending: ExternalResultSet,
 |};
@@ -84,18 +84,18 @@ type LoadLandingAction = {|
 
 export function loadLanding({
   addonType,
-  featured,
+  recommended,
   highlyRated,
   trending,
 }: LoadLandingParams): LoadLandingAction {
   invariant(addonType, 'addonType is required');
-  invariant(featured, 'featured is required');
+  invariant(recommended, 'recommended is required');
   invariant(highlyRated, 'highlyRated is required');
   invariant(trending, 'trending is required');
 
   return {
     type: LOAD_LANDING,
-    payload: { addonType, featured, highlyRated, trending },
+    payload: { addonType, recommended, highlyRated, trending },
   };
 }
 
@@ -122,7 +122,7 @@ export default function reducer(
 
       const newState = { ...state, loading: false, resultsLoaded: true };
 
-      ['featured', 'highlyRated', 'trending'].forEach((key) => {
+      ['recommended', 'highlyRated', 'trending'].forEach((key) => {
         if (payload[key]) {
           newState[key] = {
             count: payload[key].count,

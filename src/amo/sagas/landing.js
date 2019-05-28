@@ -48,11 +48,12 @@ export function* fetchLandingAddons({
       filters = { ...filters, category };
     }
 
-    const featuredParams: SearchParams = {
+    const recommendedParams: SearchParams = {
       api,
       filters: {
         ...filters,
-        featured: true,
+        featured: enableFeatureRecommendedBadges ? undefined : true,
+        recommended: enableFeatureRecommendedBadges ? true : undefined,
         sort: SEARCH_SORT_RANDOM,
         page: '1',
       },
@@ -74,8 +75,8 @@ export function* fetchLandingAddons({
       },
     };
 
-    const [featured, highlyRated, trending] = yield all([
-      call(searchApi, featuredParams),
+    const [recommended, highlyRated, trending] = yield all([
+      call(searchApi, recommendedParams),
       call(searchApi, highlyRatedParams),
       call(searchApi, trendingParams),
     ]);
@@ -83,7 +84,7 @@ export function* fetchLandingAddons({
     yield put(
       loadLanding({
         addonType,
-        featured,
+        recommended,
         highlyRated,
         trending,
       }),

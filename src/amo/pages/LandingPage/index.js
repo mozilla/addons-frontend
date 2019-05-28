@@ -19,6 +19,7 @@ import {
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_TOP_RATED,
   INSTALL_SOURCE_TRENDING,
+  SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
@@ -45,7 +46,7 @@ export class LandingPageBase extends React.Component {
     context: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    featuredAddons: PropTypes.array.isRequired,
+    recommendedAddons: PropTypes.array.isRequired,
     highlyRatedAddons: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
     trendingAddons: PropTypes.array.isRequired,
@@ -125,28 +126,38 @@ export class LandingPageBase extends React.Component {
   }
 
   contentForType = (visibleAddonType) => {
-    const { i18n } = this.props;
+    const { _config, i18n } = this.props;
     const addonType = apiAddonType(visibleAddonType);
-    const themeFilter = getAddonTypeFilter(ADDON_TYPE_THEME, {
-      _config: this.props._config,
-    });
+    const themeFilter = getAddonTypeFilter(ADDON_TYPE_THEME, { _config });
+    const enableFeatureRecommendedBadges = _config.get(
+      'enableFeatureRecommendedBadges',
+    );
 
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {
-        featuredHeader: i18n.gettext('Featured extensions'),
-        featuredFooterLink: {
+        recommendedHeader: enableFeatureRecommendedBadges
+          ? i18n.gettext('Recommended extensions')
+          : i18n.gettext('Featured extensions'),
+        recommendedFooterLink: {
           pathname: '/search/',
           query: {
             addonType: ADDON_TYPE_EXTENSION,
-            featured: true,
+            featured: enableFeatureRecommendedBadges ? undefined : true,
+            recommended: enableFeatureRecommendedBadges ? true : undefined,
+            sort: enableFeatureRecommendedBadges
+              ? SEARCH_SORT_RANDOM
+              : undefined,
           },
         },
-        featuredFooterText: i18n.gettext('See more featured extensions'),
+        recommendedFooterText: enableFeatureRecommendedBadges
+          ? i18n.gettext('See more recommended extensions')
+          : i18n.gettext('See more featured extensions'),
         trendingHeader: i18n.gettext('Trending extensions'),
         trendingFooterLink: {
           pathname: '/search/',
           query: {
             addonType: ADDON_TYPE_EXTENSION,
+            recommended: enableFeatureRecommendedBadges ? true : undefined,
             sort: SEARCH_SORT_TRENDING,
           },
         },
@@ -156,21 +167,30 @@ export class LandingPageBase extends React.Component {
           pathname: '/search/',
           query: {
             addonType: ADDON_TYPE_EXTENSION,
+            recommended: enableFeatureRecommendedBadges ? true : undefined,
             sort: SEARCH_SORT_TOP_RATED,
           },
         },
         highlyRatedFooterText: i18n.gettext('See more top rated extensions'),
       },
       [ADDON_TYPE_THEME]: {
-        featuredHeader: i18n.gettext('Featured themes'),
-        featuredFooterLink: {
+        recommendedHeader: enableFeatureRecommendedBadges
+          ? i18n.gettext('Recommended themes')
+          : i18n.gettext('Featured themes'),
+        recommendedFooterLink: {
           pathname: '/search/',
           query: {
             addonType: themeFilter,
-            featured: true,
+            featured: enableFeatureRecommendedBadges ? undefined : true,
+            recommended: enableFeatureRecommendedBadges ? true : undefined,
+            sort: enableFeatureRecommendedBadges
+              ? SEARCH_SORT_RANDOM
+              : undefined,
           },
         },
-        featuredFooterText: i18n.gettext('See more featured themes'),
+        recommendedFooterText: enableFeatureRecommendedBadges
+          ? i18n.gettext('See more recommended themes')
+          : i18n.gettext('See more featured themes'),
         trendingHeader: i18n.gettext('Trending themes'),
         trendingFooterLink: {
           pathname: '/search/',
@@ -219,7 +239,7 @@ export class LandingPageBase extends React.Component {
   render() {
     const {
       errorHandler,
-      featuredAddons,
+      recommendedAddons,
       highlyRatedAddons,
       i18n,
       loading,
@@ -278,14 +298,14 @@ export class LandingPageBase extends React.Component {
         </Button>
 
         {this.renderIfNotEmpty(
-          featuredAddons,
+          recommendedAddons,
           <LandingAddonsCard
             addonInstallSource={INSTALL_SOURCE_FEATURED}
-            addons={featuredAddons}
-            className="FeaturedAddons"
-            footerText={html.featuredFooterText}
-            footerLink={html.featuredFooterLink}
-            header={html.featuredHeader}
+            addons={recommendedAddons}
+            className="RecommendedAddons"
+            footerText={html.recommendedFooterText}
+            footerLink={html.recommendedFooterLink}
+            header={html.recommendedHeader}
             isTheme={isAddonTheme}
             loading={loading}
           />,
@@ -327,7 +347,7 @@ export function mapStateToProps(state) {
   return {
     addonTypeOfResults: landing.addonType,
     context: viewContext.context,
-    featuredAddons: landing.featured.results,
+    recommendedAddons: landing.recommended.results,
     highlyRatedAddons: landing.highlyRated.results,
     loading: landing.loading,
     trendingAddons: landing.trending.results,
