@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-28 19:28+0000\n"
-"PO-Revision-Date: 2019-05-28 20:41+0000\n"
+"PO-Revision-Date: 2019-05-28 21:18+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1298,27 +1298,24 @@ msgid "Search results"
 msgstr "Resultados da pesquisa"
 
 #: src/amo/components/Search/index.js:129
-#, fuzzy
 msgid "Recommended extensions"
-msgstr "Pesquisar extensões"
+msgstr "Extensões recomendadas"
 
 #: src/amo/components/Search/index.js:130 src/amo/pages/Category/index.js:138 src/amo/pages/Home/index.js:302 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Extensões em destaque"
 
 #: src/amo/components/Search/index.js:134
-#, fuzzy
 msgid "Recommended themes"
-msgstr "Temas de verão"
+msgstr "Temas recomendados"
 
 #: src/amo/components/Search/index.js:135 src/amo/pages/Category/index.js:170 src/amo/pages/Home/index.js:331 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
 msgstr "Temas em destaque"
 
 #: src/amo/components/Search/index.js:139
-#, fuzzy
 msgid "Recommended add-ons"
-msgstr "Pesquisar extensões"
+msgstr "Extensões recomendadas"
 
 #: src/amo/components/Search/index.js:140
 msgid "Featured add-ons"
@@ -1509,9 +1506,8 @@ msgid "Operating System"
 msgstr "Sistema operacional"
 
 #: src/amo/components/SearchFilters/index.js:238
-#, fuzzy
 msgid "Recommended add-ons only"
-msgstr "Somente extensões em destaque"
+msgstr "Somente extensões recomendadas"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "Featured add-ons only"
@@ -1556,9 +1552,8 @@ msgid "No results were found."
 msgstr "Nenhum resultado foi encontrado."
 
 #: src/amo/components/SearchSuggestion/index.js:57 src/ui/components/RecommendedBadge/index.js:23
-#, fuzzy
 msgid "Recommended"
-msgstr "Comentário de usuário"
+msgstr "Recomendado"
 
 #: src/amo/components/SectionLinks/index.js:102 src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
