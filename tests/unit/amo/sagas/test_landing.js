@@ -137,7 +137,7 @@ describe(__filename, () => {
           })
           .returns(Promise.resolve(trending));
 
-        _getLanding({ addonType });
+        _getLanding({ addonType, enableFeatureRecommendedBadges: true });
 
         await sagaTester.waitFor(LOAD_LANDING);
         mockSearchApi.verify();
@@ -314,7 +314,7 @@ describe(__filename, () => {
       );
     });
 
-    it('does not include only recommended add-ons when the enableFeatureRecommendedBadges is false', async () => {
+    it('does not include only recommended add-ons when the enableFeatureRecommendedBadges flag is false', async () => {
       const addonType = ADDON_TYPE_EXTENSION;
       const baseArgs = { api: apiState };
       const baseFilters = {
