@@ -18,12 +18,17 @@ import { createInternalCollection } from 'amo/reducers/collections';
 import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES_FILTER,
+  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_RECOMMENDED,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
+import { convertFiltersToQueryParams } from 'core/searchUtils';
+import { getAddonTypeFilter } from 'core/utils';
 import ErrorList from 'ui/components/ErrorList';
 import {
   createAddonsApiResult,
@@ -188,8 +193,20 @@ describe(__filename, () => {
     expect(shelf.find('.Home-SubjectShelf-list-item')).toHaveLength(
       expectedThemes.length,
     );
+
     expectedThemes.forEach((slug) => {
-      expect(shelf.find({ to: `/themes/${slug}/` })).toHaveLength(1);
+      expect(
+        shelf.find({
+          to: {
+            pathname: '/search/',
+            query: convertFiltersToQueryParams({
+              addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
+              category: slug,
+              sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
+            }),
+          },
+        }),
+      ).toHaveLength(1);
     });
   });
 
