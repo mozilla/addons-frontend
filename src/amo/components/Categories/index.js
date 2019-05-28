@@ -6,10 +6,12 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import { fetchCategories } from 'core/reducers/categories';
+import { SEARCH_SORT_POPULAR, SEARCH_SORT_RECOMMENDED } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { getCategoryColor, visibleAddonType } from 'core/utils';
+import { fetchCategories } from 'core/reducers/categories';
+import { convertFiltersToQueryParams } from 'core/searchUtils';
+import { getAddonTypeFilter, getCategoryColor } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
@@ -146,12 +148,21 @@ export class CategoriesBase extends React.Component<InternalProps> {
               // $FLOW_IGNORE
               const { name, slug } = category;
 
+              const linkTo = {
+                pathname: '/search/',
+                query: convertFiltersToQueryParams({
+                  addonType: getAddonTypeFilter(addonType),
+                  category: slug,
+                  sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
+                }),
+              };
+
               return (
                 <li className="Categories-item" key={name}>
                   <Button
                     className={`Categories-link
                       Categories--category-color-${getCategoryColor(category)}`}
-                    to={`/${visibleAddonType(addonType)}/${slug}/`}
+                    to={linkTo}
                   >
                     {name}
                   </Button>

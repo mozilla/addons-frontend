@@ -8,7 +8,10 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
+  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_RECOMMENDED,
 } from 'core/constants';
+import { getAddonTypeFilter } from 'core/utils';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
 import {
@@ -187,6 +190,35 @@ describe(__filename, () => {
         .childAt(1)
         .find(Button),
     ).toHaveProp('children', 'Travel');
+  });
+
+  it('generates an expected link for a category', () => {
+    const slug = 'games';
+    const type = ADDON_TYPE_EXTENSION;
+    const categoriesResponse = {
+      results: [
+        {
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
+          slug,
+          type,
+        },
+      ],
+    };
+
+    store.dispatch(loadCategories(categoriesResponse));
+
+    const root = render({
+      addonType: type,
+    });
+
+    const buttonTo = root.find(Button).prop('to');
+    expect(buttonTo.pathname).toEqual('/search/');
+    expect(buttonTo.query.category).toEqual(slug);
+    expect(buttonTo.query.type).toEqual(getAddonTypeFilter(type));
+    expect(buttonTo.query.sort).toEqual(
+      `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
+    );
   });
 
   it('sorts and renders the sorted categories', () => {
