@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-07 16:21+0000\n"
+"POT-Creation-Date: 2019-05-28 19:28+0000\n"
 "PO-Revision-Date: 2019-04-17 01:46+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -73,31 +73,31 @@ msgstr "부가 기능 수정"
 msgid "Admin add-on status"
 msgstr "관리자 부가 기능 상태"
 
-#: src/amo/components/AddonBadges/index.js:33
+#: src/amo/components/AddonBadges/index.js:49
 msgid "Featured Extension"
 msgstr "추천 확장 기능"
 
-#: src/amo/components/AddonBadges/index.js:36
+#: src/amo/components/AddonBadges/index.js:52
 msgid "Featured Theme"
 msgstr "추천 테마"
 
-#: src/amo/components/AddonBadges/index.js:38
+#: src/amo/components/AddonBadges/index.js:54
 msgid "Featured Add-on"
 msgstr "추천 부가 기능"
 
-#: src/amo/components/AddonBadges/index.js:54
+#: src/amo/components/AddonBadges/index.js:75
 msgid "Restart Required"
 msgstr "재시작 필요"
 
-#: src/amo/components/AddonBadges/index.js:58
+#: src/amo/components/AddonBadges/index.js:79
 msgid "Experimental"
 msgstr "실험적"
 
-#: src/amo/components/AddonBadges/index.js:63
+#: src/amo/components/AddonBadges/index.js:84
 msgid "Not compatible with Firefox Quantum"
 msgstr "Firefox 퀀텀과 호환되지 않음"
 
-#: src/amo/components/AddonBadges/index.js:69
+#: src/amo/components/AddonBadges/index.js:90
 msgid "Some features may require payment"
 msgstr "일부 기능은 결제가 필요할 수 있음"
 
@@ -306,6 +306,7 @@ msgstr "추가 정보"
 
 #: src/amo/components/AddonMoreInfo/index.js:59
 #: src/amo/pages/UserProfile/index.js:355
+#: src/amo/pages/UserProfile/index.js:357
 #: src/amo/pages/UserProfileEdit/index.js:639
 msgid "Homepage"
 msgstr "홈 페이지"
@@ -658,16 +659,16 @@ msgstr "Firefox 부가 기능"
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%s – Firefox 부가 기능"
 
-#: src/amo/components/AutoSearchInput/index.js:204
+#: src/amo/components/AutoSearchInput/index.js:206
 msgid "Loading"
 msgstr "로딩"
 
-#: src/amo/components/AutoSearchInput/index.js:299
+#: src/amo/components/AutoSearchInput/index.js:302
 msgid "Find add-ons"
 msgstr "부가 기능 찾기"
 
-#: src/amo/components/AutoSearchInput/index.js:324
-#: src/amo/components/AutoSearchInput/index.js:352
+#: src/amo/components/AutoSearchInput/index.js:327
+#: src/amo/components/AutoSearchInput/index.js:355
 msgid "Search"
 msgstr "검색"
 
@@ -987,12 +988,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "버그 신고 또는 지원 요청으로 표시됨"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "표시됨"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "표시하기"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "표시됨"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 #, fuzzy
@@ -1494,72 +1495,87 @@ msgstr ""
 "보고서가 접수되었습니다. 이 사용자와 관련된 우려 사항을 알려주셔서 감사합니"
 "다."
 
-#: src/amo/components/Search/index.js:116
-#: src/amo/components/SearchResults/index.js:68
+#: src/amo/components/Search/index.js:119
+#: src/amo/components/SearchResults/index.js:83
 #, fuzzy
 msgid "Search results"
 msgstr "테마 검색"
 
-#: src/amo/components/Search/index.js:121 src/amo/pages/Category/index.js:138
+#: src/amo/components/Search/index.js:129
+#, fuzzy
+msgid "Recommended extensions"
+msgstr "추천 확장 기능"
+
+#: src/amo/components/Search/index.js:130 src/amo/pages/Category/index.js:138
 #: src/amo/pages/Home/index.js:302 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "추천 확장 기능"
 
-#: src/amo/components/Search/index.js:124 src/amo/pages/Category/index.js:170
+#: src/amo/components/Search/index.js:134
+#, fuzzy
+msgid "Recommended themes"
+msgstr "가장 인기있는 테마"
+
+#: src/amo/components/Search/index.js:135 src/amo/pages/Category/index.js:170
 #: src/amo/pages/Home/index.js:331 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
 msgstr "추천 테마"
 
-#: src/amo/components/Search/index.js:127
+#: src/amo/components/Search/index.js:139
+#, fuzzy
+msgid "Recommended add-ons"
+msgstr "부가 기능 찾기"
+
+#: src/amo/components/Search/index.js:140
 #, fuzzy
 msgid "Featured add-ons"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Category/index.js:148
+#: src/amo/components/Search/index.js:147 src/amo/pages/Category/index.js:148
 #: src/amo/pages/Home/index.js:346 src/amo/pages/LandingPage/index.js:141
 msgid "Trending extensions"
 msgstr "유행하는 확장 기능"
 
-#: src/amo/components/Search/index.js:137 src/amo/pages/Category/index.js:180
+#: src/amo/components/Search/index.js:150 src/amo/pages/Category/index.js:180
 #: src/amo/pages/LandingPage/index.js:170
 msgid "Trending themes"
 msgstr "유행하는 테마"
 
-#: src/amo/components/Search/index.js:140
+#: src/amo/components/Search/index.js:153
 #, fuzzy
 msgid "Trending add-ons"
 msgstr "카테고리를 불러오는데 실패했습니다."
 
-#: src/amo/components/Search/index.js:146 src/amo/pages/Category/index.js:158
+#: src/amo/components/Search/index.js:159 src/amo/pages/Category/index.js:158
 #: src/amo/pages/LandingPage/index.js:150
 msgid "Top rated extensions"
 msgstr "가장 평점이 높은 확장 기능"
 
-#: src/amo/components/Search/index.js:149 src/amo/pages/Category/index.js:190
+#: src/amo/components/Search/index.js:162 src/amo/pages/Category/index.js:190
 #: src/amo/pages/LandingPage/index.js:176
 msgid "Top rated themes"
 msgstr "가장 평점이 높은 테마"
 
-#: src/amo/components/Search/index.js:152
+#: src/amo/components/Search/index.js:165
 #, fuzzy
 msgid "Top rated add-ons"
 msgstr "가장 평점이 높은 확장 기능"
 
-#: src/amo/components/Search/index.js:158
+#: src/amo/components/Search/index.js:171
 msgid "Popular extensions"
 msgstr "인기 확장 기능"
 
-#: src/amo/components/Search/index.js:161
+#: src/amo/components/Search/index.js:174
 #, fuzzy
 msgid "Popular themes"
 msgstr "가장 인기있는 테마"
 
-#: src/amo/components/Search/index.js:164
+#: src/amo/components/Search/index.js:177
 #, fuzzy
 msgid "Popular add-ons"
 msgstr "카테고리를 불러오는데 실패했습니다."
 
-#: src/amo/components/Search/index.js:170
+#: src/amo/components/Search/index.js:183
 #, fuzzy
 msgid "Search results for \"%(query)s\""
 msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
@@ -1646,76 +1662,81 @@ msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
 msgstr[0] "카테고리가 없습니다."
 
-#: src/amo/components/SearchFilters/index.js:110
-#: src/amo/components/SearchFilters/index.js:126
+#: src/amo/components/SearchFilters/index.js:114
+#: src/amo/components/SearchFilters/index.js:130
 msgid "All"
 msgstr "모두"
 
-#: src/amo/components/SearchFilters/index.js:111
+#: src/amo/components/SearchFilters/index.js:115
 msgid "Extension"
 msgstr "확장 기능"
 
-#: src/amo/components/SearchFilters/index.js:112
+#: src/amo/components/SearchFilters/index.js:116
 #, fuzzy
 msgid "Search Tool"
 msgstr "테마 검색"
 
-#: src/amo/components/SearchFilters/index.js:114
+#: src/amo/components/SearchFilters/index.js:118
 msgid "Theme"
 msgstr "테마"
 
-#: src/amo/components/SearchFilters/index.js:127
+#: src/amo/components/SearchFilters/index.js:131
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:128
+#: src/amo/components/SearchFilters/index.js:132
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:129
+#: src/amo/components/SearchFilters/index.js:133
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:137
+#: src/amo/components/SearchFilters/index.js:141
 msgid "Relevance"
 msgstr "관련성 높음"
 
-#: src/amo/components/SearchFilters/index.js:139
+#: src/amo/components/SearchFilters/index.js:143
 msgid "Recently Updated"
 msgstr "최근 업데이트됨"
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:146
 msgid "Most Users"
 msgstr "많이 씀"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Top Rated"
 msgstr "평점 높음"
 
-#: src/amo/components/SearchFilters/index.js:144
+#: src/amo/components/SearchFilters/index.js:148
 msgid "Trending"
 msgstr "인기"
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:160
 #, fuzzy
 msgid "Filter results"
 msgstr "테마 검색"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:165
 #, fuzzy
 msgid "Sort by"
 msgstr "정렬"
 
-#: src/amo/components/SearchFilters/index.js:183
+#: src/amo/components/SearchFilters/index.js:187
 #, fuzzy
 msgid "Add-on Type"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/SearchFilters/index.js:203
+#: src/amo/components/SearchFilters/index.js:207
 msgid "Operating System"
 msgstr "운영체제"
 
-#: src/amo/components/SearchFilters/index.js:229
+#: src/amo/components/SearchFilters/index.js:238
+#, fuzzy
+msgid "Recommended add-ons only"
+msgstr "Firefox 부가 기능"
+
+#: src/amo/components/SearchFilters/index.js:239
 #, fuzzy
 msgid "Featured add-ons only"
 msgstr "Firefox 부가 기능"
@@ -1734,31 +1755,37 @@ msgstr "Android 부가 기능"
 msgid "Go to the add-on page"
 msgstr "부가 기능 페이지로 가기"
 
-#: src/amo/components/SearchResult/index.js:118
+#: src/amo/components/SearchResult/index.js:134
 msgid "No theme preview available"
 msgstr "테마 미리보기가 없습니다"
 
-#: src/amo/components/SearchResult/index.js:146
+#: src/amo/components/SearchResult/index.js:169
 #, fuzzy
 msgid "Add-on note"
 msgstr "추가 기능 아이콘"
 
-#: src/amo/components/SearchResult/index.js:165
+#: src/amo/components/SearchResult/index.js:188
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s명의 사용자"
 
-#: src/amo/components/SearchResults/index.js:42
+#: src/amo/components/SearchResults/index.js:53
 msgid "Searching…"
 msgstr "검색중…"
 
-#: src/amo/components/SearchResults/index.js:47
+#: src/amo/components/SearchResults/index.js:58
 msgid "No results were found for \"%(query)s\"."
 msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
 
-#: src/amo/components/SearchResults/index.js:53
+#: src/amo/components/SearchResults/index.js:64
 msgid "No results were found."
 msgstr "검색 결과가 없습니다."
+
+#: src/amo/components/SearchSuggestion/index.js:57
+#: src/ui/components/RecommendedBadge/index.js:23
+#, fuzzy
+msgid "Recommended"
+msgstr "사용자 의견"
 
 #: src/amo/components/SectionLinks/index.js:102
 #: src/amo/pages/LandingPage/index.js:228
@@ -2840,41 +2867,41 @@ msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
 msgid "User Profile"
 msgstr "댓글 수정"
 
-#: src/amo/pages/UserProfile/index.js:365
+#: src/amo/pages/UserProfile/index.js:363
 #: src/amo/pages/UserProfileEdit/index.js:656
 msgid "Location"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:373
+#: src/amo/pages/UserProfile/index.js:371
 #: src/amo/pages/UserProfileEdit/index.js:668
 msgid "Occupation"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:380
+#: src/amo/pages/UserProfile/index.js:378
 #, fuzzy
 msgid "User since"
 msgstr "사용자"
 
-#: src/amo/pages/UserProfile/index.js:390
+#: src/amo/pages/UserProfile/index.js:388
 #, fuzzy
 msgid "Number of add-ons"
 msgstr "카테고리를 불러오는데 실패했습니다."
 
-#: src/amo/pages/UserProfile/index.js:396
+#: src/amo/pages/UserProfile/index.js:394
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:411
+#: src/amo/pages/UserProfile/index.js:409
 #: src/amo/pages/UserProfileEdit/index.js:690
 msgid "Biography"
 msgstr ""
 
-#: src/amo/pages/UserProfile/index.js:435
+#: src/amo/pages/UserProfile/index.js:433
 #, fuzzy
 msgid "Edit profile"
 msgstr "프로필 수정"
 
-#: src/amo/pages/UserProfile/index.js:447
+#: src/amo/pages/UserProfile/index.js:445
 #, fuzzy
 msgid "Admin user"
 msgstr "부가 기능 링크"
@@ -3356,6 +3383,12 @@ msgstr "5점 만점에 %(rating)s점"
 msgid "There are no ratings yet"
 msgstr ""
 
+#: src/ui/components/RecommendedBadge/index.js:37
+msgid ""
+"Firefox only recommends extensions that meet our standards for security and "
+"performance."
+msgstr ""
+
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">눌러서</span> 더보기"
@@ -3628,9 +3661,6 @@ msgstr "개발자 응답"
 #~ msgid "See more summer themes"
 #~ msgstr "인기있는 테마 더보기"
 
-#~ msgid "Summer themes"
-#~ msgstr "가장 인기있는 테마"
-
 #~ msgid "See more must-have media extensions"
 #~ msgstr "유행하는 확장 기능 더보기"
 
@@ -3743,9 +3773,6 @@ msgstr "개발자 응답"
 #~ msgstr "가장 인기있는 확장 기능"
 
 #~ msgid "Up & Coming Extensions"
-#~ msgstr "추천 확장 기능"
-
-#~ msgid "Find extensions"
 #~ msgstr "추천 확장 기능"
 
 #~ msgid "Find language pack"
