@@ -11,6 +11,7 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
+  SEARCH_SORT_RECOMMENDED,
   SEARCH_SORT_RELEVANCE,
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_TRENDING,
@@ -30,6 +31,7 @@ import Select from 'ui/components/Select';
 import './styles.scss';
 
 const NO_FILTER = '';
+const sortSelectName = 'sort';
 
 export class SearchFiltersBase extends React.Component {
   static propTypes = {
@@ -54,7 +56,20 @@ export class SearchFiltersBase extends React.Component {
 
     // Get the filter we're supposed to change and set it.
     const filterName = event.currentTarget.getAttribute('name');
-    newFilters[filterName] = event.currentTarget.value;
+    const filterValue = event.currentTarget.value;
+
+    // If we are currently filtering by category, and the filter to change is 'sort',
+    // force recommendations to the top.
+    // See https://github.com/mozilla/addons-frontend/issues/8084
+    if (
+      newFilters.category &&
+      filterName === sortSelectName &&
+      filterValue !== SEARCH_SORT_RECOMMENDED
+    ) {
+      newFilters[filterName] = `${SEARCH_SORT_RECOMMENDED},${filterValue}`;
+    } else {
+      newFilters[filterName] = filterValue;
+    }
 
     // If the filters haven't changed we're not going to change the URL.
     if (newFilters[filterName] === filters[filterName]) {
@@ -153,6 +168,8 @@ export class SearchFiltersBase extends React.Component {
     const { _config, filters, i18n } = this.props;
 
     const expandableCardName = 'SearchFilters';
+    const selectedSortFields = filters.sort ? filters.sort.split(',') : [''];
+    const selectedSort = selectedSortFields[selectedSortFields.length - 1];
 
     return (
       <ExpandableCard
@@ -165,11 +182,11 @@ export class SearchFiltersBase extends React.Component {
             {i18n.gettext('Sort by')}
           </label>
           <Select
-            className="SearchFilters-select"
+            className="SearchFilters-Sort SearchFilters-select"
             id="SearchFilters-Sort"
-            name="sort"
+            name={sortSelectName}
             onChange={this.onSelectElementChange}
-            value={filters.sort || 'relevance'}
+            value={selectedSort || SEARCH_SORT_RELEVANCE}
           >
             {this.sortOptions().map((option) => {
               return <option key={option.value} {...option} />;
