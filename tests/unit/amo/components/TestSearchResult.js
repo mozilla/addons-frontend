@@ -100,9 +100,9 @@ describe(__filename, () => {
   it('localises the user count', () => {
     const root = render({ lang: 'fr' });
 
-    // `\xa0` is a non-breaking space.
-    // See: https://github.com/airbnb/enzyme/issues/1349
-    expect(root.find('.SearchResult-users-text')).toIncludeText('5\xa0253');
+    // `\u202F` is a narrow non-breaking space, see:
+    // https://www.fileformat.info/info/unicode/char/202f/index.htm
+    expect(root.find('.SearchResult-users-text')).toIncludeText('5\u202F253');
   });
 
   it('renders the user count as singular', () => {
