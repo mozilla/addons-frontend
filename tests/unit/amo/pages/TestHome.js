@@ -8,6 +8,7 @@ import Home, {
   getFeaturedCollectionsMetadata,
   isFeaturedCollection,
 } from 'amo/pages/Home';
+import { categoryResultsLinkTo } from 'amo/components/Categories';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroGuides from 'amo/components/HomeHeroGuides';
 import HeadLinks from 'amo/components/HeadLinks';
@@ -18,6 +19,7 @@ import { createInternalCollection } from 'amo/reducers/collections';
 import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES_FILTER,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
@@ -188,8 +190,13 @@ describe(__filename, () => {
     expect(shelf.find('.Home-SubjectShelf-list-item')).toHaveLength(
       expectedThemes.length,
     );
+
     expectedThemes.forEach((slug) => {
-      expect(shelf.find({ to: `/themes/${slug}/` })).toHaveLength(1);
+      expect(
+        shelf.find({
+          to: categoryResultsLinkTo({ addonType: ADDON_TYPE_THEME, slug }),
+        }),
+      ).toHaveLength(1);
     });
   });
 

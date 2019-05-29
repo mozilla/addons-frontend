@@ -6,6 +6,7 @@ import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import CategoryIcon from 'amo/components/CategoryIcon';
+import { categoryResultsLinkTo } from 'amo/components/Categories';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroGuides from 'amo/components/HomeHeroGuides';
 import HeadLinks from 'amo/components/HeadLinks';
@@ -211,7 +212,10 @@ export class HomeBase extends React.Component {
       <ul className="Home-SubjectShelf-list">
         {curatedThemes.map(({ color, slug, title }) => (
           <li className="Home-SubjectShelf-list-item" key={slug}>
-            <Link to={`/themes/${slug}/`} className="Home-SubjectShelf-link">
+            <Link
+              to={categoryResultsLinkTo({ addonType: ADDON_TYPE_THEME, slug })}
+              className="Home-SubjectShelf-link"
+            >
               <CategoryIcon name={slug} color={color} />
               <span>{title}</span>
             </Link>

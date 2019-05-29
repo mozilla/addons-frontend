@@ -2,7 +2,11 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import { CategoriesBase, mapStateToProps } from 'amo/components/Categories';
+import {
+  CategoriesBase,
+  categoryResultsLinkTo,
+  mapStateToProps,
+} from 'amo/components/Categories';
 import { fetchCategories, loadCategories } from 'core/reducers/categories';
 import {
   ADDON_TYPE_EXTENSION,
@@ -212,12 +216,8 @@ describe(__filename, () => {
       addonType: type,
     });
 
-    const buttonTo = root.find(Button).prop('to');
-    expect(buttonTo.pathname).toEqual('/search/');
-    expect(buttonTo.query.category).toEqual(slug);
-    expect(buttonTo.query.type).toEqual(getAddonTypeFilter(type));
-    expect(buttonTo.query.sort).toEqual(
-      `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
+    expect(root.find(Button).prop('to')).toEqual(
+      categoryResultsLinkTo({ addonType: type, slug }),
     );
   });
 
@@ -304,5 +304,18 @@ describe(__filename, () => {
     const root = render({ errorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  describe('categoryResultsLinkTo', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+    const slug = 'some-slug';
+
+    const toValue = categoryResultsLinkTo({ addonType, slug });
+    expect(toValue.pathname).toEqual('/search/');
+    expect(toValue.query.category).toEqual(slug);
+    expect(toValue.query.type).toEqual(getAddonTypeFilter(addonType));
+    expect(toValue.query.sort).toEqual(
+      `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
+    );
   });
 });
