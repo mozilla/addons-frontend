@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-28 19:28+0000\n"
-"PO-Revision-Date: 2019-05-29 20:11+0000\n"
+"PO-Revision-Date: 2019-05-29 20:18+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1308,7 +1308,7 @@ msgstr "Resultatos del recerca"
 
 #: src/amo/components/Search/index.js:129
 msgid "Recommended extensions"
-msgstr "Extensiones consiliate"
+msgstr "Extensiones recommendate"
 
 #: src/amo/components/Search/index.js:130 src/amo/pages/Category/index.js:138 src/amo/pages/Home/index.js:302 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
@@ -1316,7 +1316,7 @@ msgstr "Extensiones consiliate"
 
 #: src/amo/components/Search/index.js:134
 msgid "Recommended themes"
-msgstr "Themas consiliate"
+msgstr "Themas recommendate"
 
 #: src/amo/components/Search/index.js:135 src/amo/pages/Category/index.js:170 src/amo/pages/Home/index.js:331 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
@@ -1324,7 +1324,7 @@ msgstr "Themas consiliate"
 
 #: src/amo/components/Search/index.js:139
 msgid "Recommended add-ons"
-msgstr "Additivos consiliate"
+msgstr "Additivos recommendate"
 
 #: src/amo/components/Search/index.js:140
 msgid "Featured add-ons"
@@ -1516,7 +1516,7 @@ msgstr "Systema operative"
 
 #: src/amo/components/SearchFilters/index.js:238
 msgid "Recommended add-ons only"
-msgstr "Additivos consiliate solmente"
+msgstr "Solo additivos recommendate"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "Featured add-ons only"
@@ -1561,9 +1561,8 @@ msgid "No results were found."
 msgstr "Nulle resultatos esseva trovate."
 
 #: src/amo/components/SearchSuggestion/index.js:57 src/ui/components/RecommendedBadge/index.js:23
-#, fuzzy
 msgid "Recommended"
-msgstr "Commento del usator"
+msgstr "Recommendate"
 
 #: src/amo/components/SectionLinks/index.js:102 src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
@@ -2939,7 +2938,7 @@ msgstr "Il ha nulle valutationes ancora"
 
 #: src/ui/components/RecommendedBadge/index.js:37
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "Firefox recommenda solo le extensiones que satisface nostre standardos pro securitate e prestation."
 
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
