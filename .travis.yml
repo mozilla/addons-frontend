@@ -10,12 +10,16 @@ _aliases:
     # This is the NodeJS version we run in production.
     language: node_js
     node_js: '10'
-    before_install: npm install -g yarn
+    before_install:
+      - npm install -g yarn
+      - npm rebuild
   - &node-next
     # This is the next NodeJS version we will support.
     language: node_js
     node_js: '11'
-    before_install: npm install -g yarn
+    before_install:
+      - npm install -g yarn
+      - npm rebuild
 services:
   - docker
 cache:
