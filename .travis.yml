@@ -20,6 +20,8 @@ _aliases:
     before_install:
       - npm install -g yarn
       - npm rebuild
+      # Verify ICU
+      - node --icu-data-dir=./node_modules/full-icu -e "console.log(new Intl.DateTimeFormat('es',{month:'long'}).format(new Date(9E8)));"
 services:
   - docker
 cache:
