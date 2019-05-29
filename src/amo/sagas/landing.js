@@ -9,6 +9,7 @@ import {
 } from 'amo/constants';
 import { search as searchApi } from 'core/api/search';
 import {
+  ADDON_TYPE_EXTENSION,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
@@ -21,7 +22,12 @@ import type { SearchParams } from 'core/api/search';
 import type { Saga } from 'core/types/sagas';
 
 export function* fetchLandingAddons({
-  payload: { addonType, category, errorHandlerId },
+  payload: {
+    addonType,
+    category,
+    enableFeatureRecommendedBadges,
+    errorHandlerId,
+  },
 }: GetLandingAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
@@ -32,6 +38,10 @@ export function* fetchLandingAddons({
       page_size: isTheme(addonType)
         ? String(LANDING_PAGE_THEME_COUNT)
         : String(LANDING_PAGE_EXTENSION_COUNT),
+      recommended:
+        addonType === ADDON_TYPE_EXTENSION && enableFeatureRecommendedBadges
+          ? true
+          : undefined,
     };
 
     if (category) {
