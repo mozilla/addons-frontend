@@ -57,6 +57,21 @@ type InternalProps = {|
   loading: boolean,
 |};
 
+type CategoryResultsLinkToParams = { addonType: string, slug: string };
+export const categoryResultsLinkTo = ({
+  addonType,
+  slug,
+}: CategoryResultsLinkToParams) => {
+  return {
+    pathname: '/search/',
+    query: convertFiltersToQueryParams({
+      addonType: getAddonTypeFilter(addonType),
+      category: slug,
+      sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
+    }),
+  };
+};
+
 export class CategoriesBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
     super(props);
@@ -148,21 +163,12 @@ export class CategoriesBase extends React.Component<InternalProps> {
               // $FLOW_IGNORE
               const { name, slug } = category;
 
-              const linkTo = {
-                pathname: '/search/',
-                query: convertFiltersToQueryParams({
-                  addonType: getAddonTypeFilter(addonType),
-                  category: slug,
-                  sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
-                }),
-              };
-
               return (
                 <li className="Categories-item" key={name}>
                   <Button
                     className={`Categories-link
                       Categories--category-color-${getCategoryColor(category)}`}
-                    to={linkTo}
+                    to={categoryResultsLinkTo({ addonType, slug })}
                   >
                     {name}
                   </Button>

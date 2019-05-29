@@ -6,6 +6,7 @@ import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import CategoryIcon from 'amo/components/CategoryIcon';
+import { categoryResultsLinkTo } from 'amo/components/Categories';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroGuides from 'amo/components/HomeHeroGuides';
 import HeadLinks from 'amo/components/HeadLinks';
@@ -17,13 +18,10 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_FEATURED,
-  SEARCH_SORT_POPULAR,
-  SEARCH_SORT_RECOMMENDED,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
 import translate from 'core/i18n/translate';
 import { getAddonTypeFilter } from 'core/utils';
 import Card from 'ui/components/Card';
@@ -215,14 +213,7 @@ export class HomeBase extends React.Component {
         {curatedThemes.map(({ color, slug, title }) => (
           <li className="Home-SubjectShelf-list-item" key={slug}>
             <Link
-              to={{
-                pathname: '/search/',
-                query: convertFiltersToQueryParams({
-                  addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
-                  category: slug,
-                  sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
-                }),
-              }}
+              to={categoryResultsLinkTo({ addonType: ADDON_TYPE_THEME, slug })}
               className="Home-SubjectShelf-link"
             >
               <CategoryIcon name={slug} color={color} />

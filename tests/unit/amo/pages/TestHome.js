@@ -8,6 +8,7 @@ import Home, {
   getFeaturedCollectionsMetadata,
   isFeaturedCollection,
 } from 'amo/pages/Home';
+import { categoryResultsLinkTo } from 'amo/components/Categories';
 import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroGuides from 'amo/components/HomeHeroGuides';
 import HeadLinks from 'amo/components/HeadLinks';
@@ -20,15 +21,11 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES_FILTER,
-  SEARCH_SORT_POPULAR,
-  SEARCH_SORT_RECOMMENDED,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
-import { getAddonTypeFilter } from 'core/utils';
 import ErrorList from 'ui/components/ErrorList';
 import {
   createAddonsApiResult,
@@ -197,14 +194,7 @@ describe(__filename, () => {
     expectedThemes.forEach((slug) => {
       expect(
         shelf.find({
-          to: {
-            pathname: '/search/',
-            query: convertFiltersToQueryParams({
-              addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
-              category: slug,
-              sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
-            }),
-          },
+          to: categoryResultsLinkTo({ addonType: ADDON_TYPE_THEME, slug }),
         }),
       ).toHaveLength(1);
     });
