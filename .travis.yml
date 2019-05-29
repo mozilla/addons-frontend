@@ -14,7 +14,7 @@ _aliases:
   - &node-next
     # This is the next NodeJS version we will support.
     language: node_js
-    node_js: '11'
+    node_js: '12'
     before_install: npm install -g yarn
 services:
   - docker
