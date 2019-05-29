@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import querystring from 'querystring';
 import https from 'https';
 
 import 'core/polyfill';
@@ -30,7 +31,12 @@ import * as middleware from 'core/middleware';
 import requestId from 'core/middleware/requestId';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import { dismissSurvey } from 'core/reducers/survey';
-import { addQueryParamsToHistory, convertBoolean } from 'core/utils';
+import {
+  addQueryParamsToHistory,
+  apiAddonType,
+  convertBoolean,
+  getCategoryResultsQuery,
+} from 'core/utils';
 import { viewFrontendVersionHandler } from 'core/utils/server';
 import {
   setAuthToken,
@@ -257,6 +263,22 @@ function baseServer(
       );
     });
   }
+
+  // Redirect category pages.
+  app.get(
+    '/:lang/:application/:visibleAddonType(extensions|themes)/:slug/',
+    (req, res) => {
+      const { application, lang, slug, visibleAddonType } = req.params;
+      const queryString = querystring.stringify(
+        getCategoryResultsQuery({
+          addonType: apiAddonType(visibleAddonType),
+          slug,
+        }),
+      );
+
+      res.redirect(301, `/${lang}/${application}/search/?${queryString}`);
+    },
+  );
 
   // Handle application and lang redirections.
   if (config.get('enablePrefixMiddleware')) {

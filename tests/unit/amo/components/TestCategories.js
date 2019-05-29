@@ -12,10 +12,8 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
-  SEARCH_SORT_POPULAR,
-  SEARCH_SORT_RECOMMENDED,
 } from 'core/constants';
-import { getAddonTypeFilter } from 'core/utils';
+import { getCategoryResultsQuery } from 'core/utils';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
 import {
@@ -312,10 +310,6 @@ describe(__filename, () => {
 
     const toValue = categoryResultsLinkTo({ addonType, slug });
     expect(toValue.pathname).toEqual('/search/');
-    expect(toValue.query.category).toEqual(slug);
-    expect(toValue.query.type).toEqual(getAddonTypeFilter(addonType));
-    expect(toValue.query.sort).toEqual(
-      `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
-    );
+    expect(toValue.query).toEqual(getCategoryResultsQuery({ addonType, slug }));
   });
 });

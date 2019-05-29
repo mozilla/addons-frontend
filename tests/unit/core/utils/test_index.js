@@ -15,6 +15,8 @@ import {
   CATEGORY_COLORS,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_RECOMMENDED,
   OS_ALL,
   OS_ANDROID,
   OS_LINUX,
@@ -33,6 +35,7 @@ import {
   findFileForPlatform,
   getAddonTypeFilter,
   getCategoryColor,
+  getCategoryResultsQuery,
   getClientApp,
   getClientConfig,
   isAddonAuthor,
@@ -896,5 +899,17 @@ describe(__filename, () => {
         }),
       ).toEqual(undefined);
     });
+  });
+
+  describe('getCategoryResultsQuery', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+    const slug = 'some-slug';
+
+    const query = getCategoryResultsQuery({ addonType, slug });
+    expect(query.category).toEqual(slug);
+    expect(query.type).toEqual(getAddonTypeFilter(addonType));
+    expect(query.sort).toEqual(
+      `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
+    );
   });
 });

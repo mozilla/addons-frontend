@@ -6,12 +6,10 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import { SEARCH_SORT_POPULAR, SEARCH_SORT_RECOMMENDED } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { fetchCategories } from 'core/reducers/categories';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
-import { getAddonTypeFilter, getCategoryColor } from 'core/utils';
+import { getCategoryResultsQuery, getCategoryColor } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
@@ -19,6 +17,7 @@ import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
+import type { GetCategoryResultsQueryParams } from 'core/utils';
 
 import './styles.scss';
 
@@ -57,17 +56,15 @@ type InternalProps = {|
   loading: boolean,
 |};
 
-type CategoryResultsLinkToParams = { addonType: string, slug: string };
 export const categoryResultsLinkTo = ({
   addonType,
   slug,
-}: CategoryResultsLinkToParams) => {
+}: GetCategoryResultsQueryParams) => {
   return {
     pathname: '/search/',
-    query: convertFiltersToQueryParams({
-      addonType: getAddonTypeFilter(addonType),
-      category: slug,
-      sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
+    query: getCategoryResultsQuery({
+      addonType,
+      slug,
     }),
   };
 };
