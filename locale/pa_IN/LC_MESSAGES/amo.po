@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-28 19:28+0000\n"
-"PO-Revision-Date: 2019-05-29 03:38+0000\n"
+"PO-Revision-Date: 2019-05-30 18:28+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1058,7 +1058,7 @@ msgstr ""
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
-msgstr ""
+msgstr "ਭਾਸ਼ਾ ਬਦਲੋ"
 
 #: src/amo/components/PermissionsCard/index.js:48
 msgid "Permissions"
@@ -1066,11 +1066,11 @@ msgstr "ਪਰਵਾਨਗੀਆਂ"
 
 #: src/amo/components/PermissionsCard/index.js:50
 msgid "This add-on can:"
-msgstr ""
+msgstr "ਇਹ ਐਡ-ਆਨ ਕਰ ਸਕਦਾ ਹੈ:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "ਅਨੁਮਤੀਆਂ ਬਾਰੇ ਹੋਰ ਜਾਣੋ"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Read and modify bookmarks"
@@ -1110,7 +1110,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access your location"
-msgstr ""
+msgstr "ਤੁਹਾਡੇ ਟਿਕਾਣੇ ਲਈ ਪਹੁੰਚ"
 
 #: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
 msgid "Access browsing history"
@@ -1588,7 +1588,7 @@ msgstr "ਫਾਇਰਫਾਕਸ ਲਈ"
 
 #: src/amo/components/SectionLinks/index.js:62
 msgid "for Android"
-msgstr ""
+msgstr "ਛੁਪਾਓ ਲਈ"
 
 #: src/amo/components/SectionLinks/index.js:78
 msgid "Explore"
@@ -1858,7 +1858,7 @@ msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:95
 msgid "My collections"
-msgstr ""
+msgstr "ਮੇਰੇ ਸੰਗ੍ਰਹਿ"
 
 #: src/amo/pages/Guides/index.js:103
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
@@ -2563,7 +2563,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:772
 msgid "Update My Profile"
-msgstr ""
+msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਅਪਡੇਟ ਕਰੋ"
 
 #: src/amo/pages/UserProfileEdit/index.js:774
 msgid "Updating profile…"
@@ -2630,7 +2630,7 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:95
 msgid "Unsubscribe"
-msgstr ""
+msgstr "ਮੈਂਬਰੀ ਹਟਾਓ"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
