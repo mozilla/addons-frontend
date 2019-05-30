@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-28 19:28+0000\n"
-"PO-Revision-Date: 2019-05-10 18:30+0000\n"
-"Last-Translator: Davide <dvd.forty@gmail.com>\n"
+"PO-Revision-Date: 2019-05-30 06:09+0000\n"
+"Last-Translator: Francesco Lodolo <flod+pontoon@mozilla.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1310,7 +1310,7 @@ msgstr "Risultati di ricerca"
 
 #: src/amo/components/Search/index.js:129
 msgid "Recommended extensions"
-msgstr ""
+msgstr "Estensioni consigliate"
 
 #: src/amo/components/Search/index.js:130 src/amo/pages/Category/index.js:138 src/amo/pages/Home/index.js:302 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
@@ -1318,7 +1318,7 @@ msgstr "Estensioni consigliate"
 
 #: src/amo/components/Search/index.js:134
 msgid "Recommended themes"
-msgstr ""
+msgstr "Temi consigliati"
 
 #: src/amo/components/Search/index.js:135 src/amo/pages/Category/index.js:170 src/amo/pages/Home/index.js:331 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
@@ -1326,7 +1326,7 @@ msgstr "Temi consigliati"
 
 #: src/amo/components/Search/index.js:139
 msgid "Recommended add-ons"
-msgstr ""
+msgstr "Componenti aggiuntivi consigliati"
 
 #: src/amo/components/Search/index.js:140
 msgid "Featured add-ons"
@@ -1518,7 +1518,7 @@ msgstr "Sistema operativo"
 
 #: src/amo/components/SearchFilters/index.js:238
 msgid "Recommended add-ons only"
-msgstr ""
+msgstr "Solo componenti aggiuntivi consigliati"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "Featured add-ons only"
@@ -1564,7 +1564,7 @@ msgstr "Nessun risultato trovato."
 
 #: src/amo/components/SearchSuggestion/index.js:57 src/ui/components/RecommendedBadge/index.js:23
 msgid "Recommended"
-msgstr ""
+msgstr "Consigliati"
 
 #: src/amo/components/SectionLinks/index.js:102 src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
@@ -2950,7 +2950,7 @@ msgstr "Non ci sono ancora valutazioni"
 
 #: src/ui/components/RecommendedBadge/index.js:37
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "Firefox consiglia solo estensioni che soddisfano i nostri standard di sicurezza e prestazioni."
 
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
