@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-28 19:28+0000\n"
-"PO-Revision-Date: 2019-06-01 15:31+0000\n"
+"PO-Revision-Date: 2019-06-01 15:33+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -2497,7 +2497,7 @@ msgstr "ਖਾਤਾ"
 
 #: src/amo/pages/UserProfileEdit/index.js:542
 msgid "Account for %(userName)s"
-msgstr ""
+msgstr "%(userName)s ਲਈ ਖਾਤਾ"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "Email Address"
@@ -2575,7 +2575,7 @@ msgstr "ਅੱਪਡੇਟ ਪਰੋਫਾਇਲ"
 
 #: src/amo/pages/UserProfileEdit/index.js:786 src/amo/pages/UserProfileEdit/index.js:875
 msgid "Delete My Profile"
-msgstr ""
+msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਹਟਾਓ"
 
 #: src/amo/pages/UserProfileEdit/index.js:787 src/amo/pages/UserProfileEdit/index.js:876
 msgid "Delete Profile"
