@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-28 19:28+0000\n"
-"PO-Revision-Date: 2019-06-01 12:53+0000\n"
+"PO-Revision-Date: 2019-06-01 14:13+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -2734,7 +2734,7 @@ msgstr "ਅਗਲਾ"
 
 #: src/core/components/Paginate/index.js:160
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "ਪੰਨਾ %(currentPage)s ਦਾ %(totalPages)s"
 
 #: src/core/components/SurveyNotice/index.js:131
 msgid "Take short survey"
@@ -2767,7 +2767,7 @@ msgstr "%(localizedSize)s TB"
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s ਅਤੇ ਬਾਅਦ ਵਿੱਚ"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
@@ -2777,7 +2777,7 @@ msgstr "%(application)s %(minVersion)s ਤੋਂ %(maxVersion)s ਤੱਕ"
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "%(listOfApplicatonsAndVersions)s ਨਾਲ ਕੰਮ ਕਰਦਾ ਹੈ"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
