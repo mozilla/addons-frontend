@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-28 19:28+0000\n"
-"PO-Revision-Date: 2019-06-01 15:33+0000\n"
+"PO-Revision-Date: 2019-06-01 17:51+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -2061,7 +2061,7 @@ msgstr "ਕੁਦਰਤ"
 
 #: src/amo/pages/Home/index.js:191
 msgid "Film & TV"
-msgstr ""
+msgstr "ਫਿਲਮ ਅਤੇ ਟੀਵੀ"
 
 #: src/amo/pages/Home/index.js:196
 msgid "Scenery"
@@ -2521,7 +2521,7 @@ msgstr "ਪ੍ਰੋਫਾਈਲ"
 
 #: src/amo/pages/UserProfileEdit/index.js:599
 msgid "This field is required"
-msgstr ""
+msgstr "ਇਸ ਫੀਲਡ ਦੀ ਲੋੜ ਹੈ"
 
 # the star is used to indicate a required field
 #: src/amo/pages/UserProfileEdit/index.js:602
@@ -2670,7 +2670,7 @@ msgstr "ਸਮਰੱਥ"
 
 #: src/core/components/AMInstallButton/index.js:216
 msgid "Enabling"
-msgstr ""
+msgstr "ਸਮਰੱਥ ਬਣਾਉਣਾ"
 
 #: src/core/components/AMInstallButton/index.js:218
 msgid "Downloading"
@@ -2706,7 +2706,7 @@ msgstr ""
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
-msgstr ""
+msgstr "ਸਫਾ ਨਹੀ ਲੱਭਾ"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
