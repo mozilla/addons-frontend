@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-28 19:28+0000\n"
-"PO-Revision-Date: 2019-06-01 14:13+0000\n"
+"PO-Revision-Date: 2019-06-01 15:31+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1636,7 +1636,7 @@ msgstr "ਫੋਟੋ ਚੁਣੋ…"
 
 #: src/amo/pages/Addon/index.js:167 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "%(title)s ਦਾ ਪੂਰਵਦਰਸ਼ਨ"
 
 #: src/amo/pages/Addon/index.js:202
 msgid "This add-on cannot be rated because no versions have been published."
@@ -1938,7 +1938,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:195
 msgid "Improve videos"
-msgstr ""
+msgstr "ਵੀਡੀਓਜ਼ ਨੂੰ ਸੁਧਾਰੋ"
 
 #: src/amo/pages/Guides/index.js:196
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
@@ -2567,11 +2567,11 @@ msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਅਪਡੇਟ ਕਰੋ"
 
 #: src/amo/pages/UserProfileEdit/index.js:774
 msgid "Updating profile…"
-msgstr ""
+msgstr "ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਅਪਡੇਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"
 
 #: src/amo/pages/UserProfileEdit/index.js:775
 msgid "Update Profile"
-msgstr ""
+msgstr "ਅੱਪਡੇਟ ਪਰੋਫਾਇਲ"
 
 #: src/amo/pages/UserProfileEdit/index.js:786 src/amo/pages/UserProfileEdit/index.js:875
 msgid "Delete My Profile"
@@ -2781,7 +2781,7 @@ msgstr "%(listOfApplicatonsAndVersions)s ਨਾਲ ਕੰਮ ਕਰਦਾ ਹੈ
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਅਸਫਲ। ਮੁੜ ਕੋਸ਼ਿਸ ਕਰੋ ਜੀੀ।"
 
 #: src/core/utils/addons.js:31
 msgid "Download failed. Please check your connection."
