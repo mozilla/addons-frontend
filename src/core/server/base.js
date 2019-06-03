@@ -167,6 +167,25 @@ function hydrateOnClient({ res, props = {}, pageProps, store }) {
   });
 }
 
+export const SERVER_REDIRECTS = {
+  categoryToSearchResults: {
+    oldUrlPattern:
+      '/:lang/:application/:visibleAddonType(extensions|themes)/:slug/',
+    buildNewURL: ({ req }) => {
+      const { application, lang, slug, visibleAddonType } = req.params;
+      const queryString = querystring.stringify(
+        getCategoryResultsQuery({
+          addonType: apiAddonType(visibleAddonType),
+          slug,
+        }),
+      );
+
+      return `/${lang}/${application}/search/?${queryString}`;
+    },
+    status: 301,
+  },
+};
+
 function baseServer(
   App,
   createStore,
@@ -264,19 +283,18 @@ function baseServer(
     });
   }
 
-  // Redirect category pages.
-  app.get(
-    '/:lang/:application/:visibleAddonType(extensions|themes)/:slug/',
-    (req, res) => {
-      const { application, lang, slug, visibleAddonType } = req.params;
-      const queryString = querystring.stringify(
-        getCategoryResultsQuery({
-          addonType: apiAddonType(visibleAddonType),
-          slug,
-        }),
-      );
+  // We must add these redirect handlers before our custom middleware to avoid
+  // unwanted side effects.
+  Object.values(SERVER_REDIRECTS).forEach(
+    ({ oldUrlPattern, buildNewURL, status }) => {
+      app.get(oldUrlPattern, (req, res) => {
+        const newURL = buildNewURL({ req });
+        log.debug(
+          `Redirecting "${req.url}" to "${newURL}" with status = ${status}`,
+        );
 
-      res.redirect(301, `/${lang}/${application}/search/?${queryString}`);
+        res.redirect(status, newURL);
+      });
     },
   );
 
