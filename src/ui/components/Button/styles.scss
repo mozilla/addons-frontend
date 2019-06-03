@@ -78,11 +78,12 @@ $default-font-size: 13px;
         padding-top: 1px;
       }
 
-      // Small text is difficult to read against the bright Photon colors.
-      // This isn't (yet) part of the spec but @tofumatt added it because
-      // he thinks it improves accessibility.
-      // See: https://github.com/FirefoxUX/photon/issues/264
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+      // Small text is difficult to read against the bright Photon colors
+      // since it is blurry
+      // This isn't (yet) part of the spec but added this because
+      // it improves accessibility.
+      // https://github.com/FirefoxUX/photon/issues/264#issuecomment-364927535
+      letter-spacing: 0.01rem;
     }
   }
 
