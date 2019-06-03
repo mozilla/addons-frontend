@@ -23,7 +23,7 @@ import {
 import { withErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
+import { convertFiltersToQueryParams, paramsToFilter } from 'core/searchUtils';
 import { getAddonTypeFilter } from 'core/utils';
 import ExpandableCard from 'ui/components/ExpandableCard';
 import Select from 'ui/components/Select';
@@ -31,7 +31,7 @@ import Select from 'ui/components/Select';
 import './styles.scss';
 
 const NO_FILTER = '';
-const sortSelectName = 'sort';
+const sortSelectName = paramsToFilter.sort;
 
 export class SearchFiltersBase extends React.Component {
   static propTypes = {
@@ -168,8 +168,12 @@ export class SearchFiltersBase extends React.Component {
     const { _config, filters, i18n } = this.props;
 
     const expandableCardName = 'SearchFilters';
-    const selectedSortFields = filters.sort ? filters.sort.split(',') : [''];
-    const selectedSort = selectedSortFields[selectedSortFields.length - 1];
+    const selectedSortFields = filters.sort
+      ? filters.sort
+          .split(',')
+          .filter((field) => field !== SEARCH_SORT_RECOMMENDED)
+      : [''];
+    const selectedSort = selectedSortFields[0];
 
     return (
       <ExpandableCard

@@ -196,23 +196,45 @@ describe(__filename, () => {
     expect(root.find('.SearchFilters-Sort')).toHaveProp('value', sort);
   });
 
-  it('selects the second sort criterion in the sort select when there are two criteria', () => {
-    const sort1 = SEARCH_SORT_RECOMMENDED;
-    const sort2 = SEARCH_SORT_TRENDING;
-    const root = render({
-      filters: {
-        query: 'Music player',
-        sort: `${sort1},${sort2}`,
-      },
-    });
+  it.each([
+    `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_TRENDING}`,
+    `${SEARCH_SORT_TRENDING},${SEARCH_SORT_RECOMMENDED}`,
+    `${SEARCH_SORT_TRENDING},${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_RELEVANCE}`,
+  ])(
+    'selects the first non-recommended sort criterion in the sort select: %s',
+    (sort) => {
+      const root = render({
+        filters: {
+          query: 'Music player',
+          sort,
+        },
+      });
 
-    expect(root.find('.SearchFilters-Sort')).toHaveProp('value', sort2);
-  });
+      expect(root.find('.SearchFilters-Sort')).toHaveProp(
+        'value',
+        SEARCH_SORT_TRENDING,
+      );
+    },
+  );
 
   it('selects SEARCH_SORT_RELEVANCE in the sort select if there is no sort criteria', () => {
     const root = render({
       filters: {
         query: 'Music player',
+      },
+    });
+
+    expect(root.find('.SearchFilters-Sort')).toHaveProp(
+      'value',
+      SEARCH_SORT_RELEVANCE,
+    );
+  });
+
+  it('selects SEARCH_SORT_RELEVANCE if the only the sort criterion is SEARCH_SORT_RECOMMENDED', () => {
+    const root = render({
+      filters: {
+        query: 'Music player',
+        sort: SEARCH_SORT_RECOMMENDED,
       },
     });
 
