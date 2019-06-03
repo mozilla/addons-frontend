@@ -1,4 +1,6 @@
 /* eslint-disable react/no-multi-comp */
+import querystring from 'querystring';
+
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import * as React from 'react';
 import Helmet from 'react-helmet';
@@ -9,13 +11,14 @@ import NestedStatus from 'react-nested-status';
 import supertest from 'supertest';
 import defaultConfig from 'config';
 import cheerio from 'cheerio';
+import MockExpressRequest from 'mock-express-request';
 
 import { setRequestId } from 'core/actions';
 import {
   AMO_REQUEST_ID_HEADER,
   DISCO_TAAR_CLIENT_ID_HEADER,
 } from 'core/constants';
-import baseServer, { createHistory } from 'core/server/base';
+import baseServer, { SERVER_REDIRECTS, createHistory } from 'core/server/base';
 import { middleware } from 'core/store';
 import apiReducer from 'core/reducers/api';
 import redirectToReducer, {
@@ -622,5 +625,48 @@ describe(__filename, () => {
 
       expect(history).toHaveProperty('location.query');
     });
+  });
+
+  describe('SERVER_REDIRECTS', () => {
+    it.each([
+      // Each entry should have the following shape:
+      //
+      // [
+      //   <an old URL>,
+      //   <the redirect config for this URL>,
+      //   <optional string to expect in the new URL>
+      // ]
+      //
+      ['/android', SERVER_REDIRECTS.androidWithoutTrailingSlash],
+      [
+        '/android?foo=bar',
+        SERVER_REDIRECTS.androidWithoutTrailingSlash,
+        '/?foo',
+      ],
+    ])(
+      'redirects "%s"',
+      async (url, { buildNewURL, status }, expectedInURL = '') => {
+        // We have to split the URL because of how superagent/supertest works.
+        const [urlWithoutQueryString, queryString] = url.split('?');
+
+        const response = await testClient()
+          .get(urlWithoutQueryString)
+          .query(queryString)
+          .end();
+
+        const newURL = buildNewURL({
+          // We cannot retrieve the original Express request with
+          // superagent/supertest, so we have to create a mock here.
+          req: new MockExpressRequest({
+            url,
+            query: querystring.parse(queryString),
+          }),
+        });
+
+        expect(response.headers).toMatchObject({ location: newURL });
+        expect(response.statusCode).toEqual(status);
+        expect(newURL).toContain(expectedInURL);
+      },
+    );
   });
 });

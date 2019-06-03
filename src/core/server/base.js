@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import https from 'https';
+import querystring from 'querystring';
 
 import 'core/polyfill';
 import { oneLine } from 'common-tags';
@@ -161,6 +162,22 @@ function hydrateOnClient({ res, props = {}, pageProps, store }) {
   });
 }
 
+export const SERVER_REDIRECTS = {
+  // See: https://github.com/mozilla/addons-frontend/issues/8059
+  androidWithoutTrailingSlash: {
+    oldUrlPattern: '^/android$',
+    buildNewURL: ({ req }) => {
+      let newURL = '/android/';
+      if (Object.keys(req.query).length) {
+        newURL = `${newURL}?${querystring.stringify(req.query)}`;
+      }
+
+      return newURL;
+    },
+    status: 301,
+  },
+};
+
 function baseServer(
   App,
   createStore,
@@ -257,6 +274,21 @@ function baseServer(
       );
     });
   }
+
+  // We must add these redirect handlers before our custom middleware to avoid
+  // unwanted side effects.
+  Object.values(SERVER_REDIRECTS).forEach(
+    ({ oldUrlPattern, buildNewURL, status }) => {
+      app.get(oldUrlPattern, (req, res) => {
+        const newURL = buildNewURL({ req });
+        log.debug(
+          `Redirecting "${req.url}" to "${newURL}" with status = ${status}`,
+        );
+
+        res.redirect(status, newURL);
+      });
+    },
+  );
 
   // Handle application and lang redirections.
   if (config.get('enablePrefixMiddleware')) {
