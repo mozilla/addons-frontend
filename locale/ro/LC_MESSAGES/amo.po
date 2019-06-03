@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-28 19:28+0000\n"
-"PO-Revision-Date: 2017-12-25 01:43+0000\n"
+"PO-Revision-Date: 2019-06-03 10:54+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1305,27 +1305,24 @@ msgid "Search results"
 msgstr "Rezultatele căutării"
 
 #: src/amo/components/Search/index.js:129
-#, fuzzy
 msgid "Recommended extensions"
-msgstr "Găsește extensii"
+msgstr "Extensii recomandate"
 
 #: src/amo/components/Search/index.js:130 src/amo/pages/Category/index.js:138 src/amo/pages/Home/index.js:302 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Extensii promovate"
 
 #: src/amo/components/Search/index.js:134
-#, fuzzy
 msgid "Recommended themes"
-msgstr "Teme populare"
+msgstr "Teme recomandate"
 
 #: src/amo/components/Search/index.js:135 src/amo/pages/Category/index.js:170 src/amo/pages/Home/index.js:331 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
 msgstr "Teme promovate"
 
 #: src/amo/components/Search/index.js:139
-#, fuzzy
 msgid "Recommended add-ons"
-msgstr "Găsește suplimente"
+msgstr "Suplimente recomandate"
 
 #: src/amo/components/Search/index.js:140
 msgid "Featured add-ons"
@@ -1528,9 +1525,8 @@ msgid "Operating System"
 msgstr "Sistem de operare"
 
 #: src/amo/components/SearchFilters/index.js:238
-#, fuzzy
 msgid "Recommended add-ons only"
-msgstr "Doar suplimente promovate"
+msgstr "Doar suplimente recomandate"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "Featured add-ons only"
@@ -1576,9 +1572,8 @@ msgid "No results were found."
 msgstr "Niciun rezultat găsit."
 
 #: src/amo/components/SearchSuggestion/index.js:57 src/ui/components/RecommendedBadge/index.js:23
-#, fuzzy
 msgid "Recommended"
-msgstr "Comentariul utilizatorului"
+msgstr "Recomandate"
 
 #: src/amo/components/SectionLinks/index.js:102 src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
