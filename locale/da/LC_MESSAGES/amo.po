@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-28 19:28+0000\n"
-"PO-Revision-Date: 2019-04-09 20:53+0000\n"
+"PO-Revision-Date: 2019-06-03 21:41+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -1000,9 +1000,8 @@ msgid "Staff Pick"
 msgstr ""
 
 #: src/amo/components/Header/index.js:105
-#, fuzzy
 msgid "Submit and manage extensions and themes"
-msgstr "Holde øje med brug af udvidelser og håndtere temaer"
+msgstr "Indsend og håndter udvidelser og temaer"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1050,9 +1049,8 @@ msgid "Firefox Add-ons"
 msgstr "Tilføjelser til Firefox"
 
 #: src/amo/components/Header/index.js:95
-#, fuzzy
 msgid "Learn how to create extensions and themes"
-msgstr "Holde øje med brug af udvidelser og håndtere temaer"
+msgstr "Læs hvordan man laver udvidelser og temaer"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
@@ -1313,27 +1311,24 @@ msgid "Search results"
 msgstr "Søgeresultater"
 
 #: src/amo/components/Search/index.js:129
-#, fuzzy
 msgid "Recommended extensions"
-msgstr "Find udvidelser"
+msgstr "Anbefalede udvidelser"
 
 #: src/amo/components/Search/index.js:130 src/amo/pages/Category/index.js:138 src/amo/pages/Home/index.js:302 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
 msgstr "Udvalgte udvidelser"
 
 #: src/amo/components/Search/index.js:134
-#, fuzzy
 msgid "Recommended themes"
-msgstr "Sommertemaer"
+msgstr "Anbefalede temaer"
 
 #: src/amo/components/Search/index.js:135 src/amo/pages/Category/index.js:170 src/amo/pages/Home/index.js:331 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
 msgstr "Udvalgte temaer"
 
 #: src/amo/components/Search/index.js:139
-#, fuzzy
 msgid "Recommended add-ons"
-msgstr "Find tilføjelser"
+msgstr "Anbefalede tilføjelser"
 
 #: src/amo/components/Search/index.js:140
 msgid "Featured add-ons"
@@ -1524,9 +1519,8 @@ msgid "Operating System"
 msgstr "Styresystem"
 
 #: src/amo/components/SearchFilters/index.js:238
-#, fuzzy
 msgid "Recommended add-ons only"
-msgstr "Kun udvalgte tilføjelser"
+msgstr "Kun anbefalede tilføjelser"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "Featured add-ons only"
@@ -1571,9 +1565,8 @@ msgid "No results were found."
 msgstr "Der blev ikke fundet nogen."
 
 #: src/amo/components/SearchSuggestion/index.js:57 src/ui/components/RecommendedBadge/index.js:23
-#, fuzzy
 msgid "Recommended"
-msgstr "Brugerkommentar"
+msgstr "Anbefalet"
 
 #: src/amo/components/SectionLinks/index.js:102 src/amo/pages/LandingPage/index.js:228
 msgid "Themes"
@@ -1772,7 +1765,6 @@ msgid "There are no reviews"
 msgstr "Der er ingen anmeldelser"
 
 #: src/amo/pages/AddonVersions/index.js:125
-#, fuzzy
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "%(addonName)s versions-historik - %(total)s version"
@@ -2004,7 +1996,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:240
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
-msgstr ""
+msgstr "Få adgang til mere end 30.000 radiostationer fra hele verden - kun et klik borte."
 
 #: src/amo/pages/Guides/index.js:244
 msgid "Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s."
@@ -2064,7 +2056,6 @@ msgid "Ad blockers"
 msgstr "Annonceblokering"
 
 #: src/amo/pages/Home/index.js:145
-#, fuzzy
 msgid "Smarter shopping"
 msgstr "Smartere shopping"
 
@@ -2118,9 +2109,8 @@ msgid "See more productivity extensions"
 msgstr "Se flere produktivitets-udvidelser"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "Productivity extensions"
-msgstr "Se flere produktivitets-udvidelser"
+msgstr "Produktivitets-udvidelser"
 
 #: src/amo/pages/Home/index.js:60
 msgid "See more YouTube extensions"
@@ -2135,9 +2125,8 @@ msgid "See more feed readers"
 msgstr "Se flere udvalgte temaer"
 
 #: src/amo/pages/Home/index.js:67
-#, fuzzy
 msgid "Feed readers"
-msgstr "Se flere udvalgte temaer"
+msgstr "Feed-læsere"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2231,9 +2220,8 @@ msgid "Tell your friends and family that Firefox is a fast, secure browser that 
 msgstr "Fortæl dine venner og familie, at Firefox er en hurtig, sikker browser, der beskytter deres privatliv, og at de kan tilpasse den med tilføjelser, så den opfylder lige netop deres behov."
 
 #: src/amo/pages/StaticPages/About/index.js:190
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "For at se flere måder, hvorpå du kan bidrage til fællesskabet omkring tilføjelser, besøg vores %(startLink)swiki%(endLink)s"
+msgstr "For at se flere måder, hvorpå du kan bidrage til fællesskabet omkring tilføjelser, besøg vores %(startLink)swiki%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:204
 msgid "Get support"
@@ -2669,14 +2657,13 @@ msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if
 msgstr "%(strongStart)sBemærk:%(strongEnd)s Du kan ikke slette en brugers profil, hvis brugeren er udvikler og %(linkStart)sstår som ejer af tilføjelser%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:104
-#, fuzzy
 msgid "You are successfully unsubscribed!"
-msgstr "Billede slettet"
+msgstr "Du abonnerer ikke længere!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:117
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "Mailadressen %(strongStart)s%(email)s%(strongEnd)s vil ikke længere modtage meddelelser når:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:76
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
@@ -2684,7 +2671,7 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:95
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Stop abonnement"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
