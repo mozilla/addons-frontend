@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-28 19:28+0000\n"
-"PO-Revision-Date: 2019-06-03 10:54+0000\n"
+"PO-Revision-Date: 2019-06-03 12:07+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -545,15 +545,15 @@ msgstr "de"
 
 #: src/amo/components/AddonVersionCard/index.js:102
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "Cod-sursă lansat sub licență %(linkStart)s%(licenseName)s%(linkEnd)s"
+msgstr "Codul sursă lansat sub licență %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:113
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
-msgstr "Cod-sursă lansat sub %(linkStart)slicență personalizată%(linkEnd)s"
+msgstr "Codul sursă lansat sub %(linkStart)slicență personalizată%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:139
 msgid "Source code released under %(licenseName)s"
-msgstr "Cod-sursă lansat sub licență %(licenseName)s"
+msgstr "Codul sursă lansat sub licență %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:50
 msgid "No version found"
