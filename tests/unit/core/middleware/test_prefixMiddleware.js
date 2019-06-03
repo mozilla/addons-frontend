@@ -229,6 +229,27 @@ describe(__filename, () => {
     sinon.assert.called(fakeRes.redirect);
   });
 
+  it('should not redirect for locale + app urls missing a trailing slash with query params', () => {
+    const fakeReq = {
+      originalUrl: '/en-US/android?foo=1',
+      headers: {},
+    };
+    prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    expect(fakeRes.locals.lang).toEqual('en-US');
+    expect(fakeRes.locals.clientApp).toEqual('android');
+    sinon.assert.notCalled(fakeRes.redirect);
+    sinon.assert.called(fakeNext);
+  });
+
+  it('should redirect for app url missing a trailing slash with query params', () => {
+    const fakeReq = {
+      originalUrl: '/android?foo=2',
+      headers: {},
+    };
+    prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/android?foo=2');
+  });
+
   it('should not mangle a query string for a redirect', () => {
     const fakeReq = {
       originalUrl: '/foo/bar?test=1&bar=2',
