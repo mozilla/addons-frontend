@@ -3283,7 +3283,6 @@ babel-eslint@^9.0.0:
 
 "babel-gettext-extractor@github:mozilla/babel-gettext-extractor#babel-7":
   version "4.0.0"
-  uid "78ff104e669edb731e979e36fbf4fe261a569924"
   resolved "https://codeload.github.com/mozilla/babel-gettext-extractor/tar.gz/78ff104e669edb731e979e36fbf4fe261a569924"
   dependencies:
     "@babel/core" "^7.0.0"
@@ -8326,9 +8325,9 @@ interpret@^1.0.0, interpret@^1.1.0, interpret@^1.2.0:
   integrity sha512-mT34yGKMNceBQUoVn7iCDKDntA7SC6gycMAWzGx1z/CMCTV7b2AAtXlo3nRyHZ1FelRkQbQjprHSYGwzLtkVbw==
 
 intl-locales-supported@^1.0.0:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/intl-locales-supported/-/intl-locales-supported-1.0.8.tgz#0e31aa591e381f54600f5ee31b11f824ab59fb6a"
-  integrity sha512-S/LQ20ajz/2QyA8V3nBLRle9d6LUjncuI2w5npvWLAWoQ3eRBRvIpFQ8NDqZKjnyZQ/r1d1Qqa2rRQyNn6AH0w==
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/intl-locales-supported/-/intl-locales-supported-1.0.10.tgz#e90ba9e2e7de58c54dc3083d0d979ecce1108a64"
+  integrity sha512-4OI+xzh35rMxs6uR9o1vkUgtp5xMENLDz/6ogYkXfRjGuiS1g7FvQKj29plPNaxjxSfNx6Ghwa8arfD2Ty4SDA==
 
 intl@^1.2.5:
   version "1.2.5"
