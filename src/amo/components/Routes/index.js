@@ -62,6 +62,10 @@ type Props = {|
 |};
 
 // If you add a new route here, check that the nginx rules maintained by ops
+//
+// TODO: remove the comment below once
+// https://github.com/yannickcr/eslint-plugin-react/issues/2298 is fixed.
+// eslint-disable-next-line react/prop-types
 const Routes = ({ _config = config }: Props = {}) => (
   <Switch>
     <Route exact path="/:lang/about" component={About} />

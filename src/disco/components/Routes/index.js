@@ -18,6 +18,9 @@ type Props = {|
 export const DISCO_PANE_PATH =
   '/:lang/firefox/discovery/pane/:version/:platform/:compatibilityMode';
 
+// TODO: remove the comment below once
+// https://github.com/yannickcr/eslint-plugin-react/issues/2298 is fixed.
+// eslint-disable-next-line react/prop-types
 const Routes = ({ _config = config }: Props = {}) => (
   <Switch>
     <Route exact path={DISCO_PANE_PATH} component={DiscoPane} />
