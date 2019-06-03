@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-28 19:28+0000\n"
-"PO-Revision-Date: 2019-05-08 20:57+0000\n"
+"PO-Revision-Date: 2019-05-28 19:53+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1308,7 +1308,7 @@ msgstr "Résultats de la recherche"
 
 #: src/amo/components/Search/index.js:129
 msgid "Recommended extensions"
-msgstr ""
+msgstr "Extensions recommandées"
 
 #: src/amo/components/Search/index.js:130 src/amo/pages/Category/index.js:138 src/amo/pages/Home/index.js:302 src/amo/pages/LandingPage/index.js:132
 msgid "Featured extensions"
@@ -1316,7 +1316,7 @@ msgstr "Extensions mises en avant"
 
 #: src/amo/components/Search/index.js:134
 msgid "Recommended themes"
-msgstr ""
+msgstr "Thèmes recommandés"
 
 #: src/amo/components/Search/index.js:135 src/amo/pages/Category/index.js:170 src/amo/pages/Home/index.js:331 src/amo/pages/LandingPage/index.js:161
 msgid "Featured themes"
@@ -1324,7 +1324,7 @@ msgstr "Thèmes mis en avant"
 
 #: src/amo/components/Search/index.js:139
 msgid "Recommended add-ons"
-msgstr ""
+msgstr "Modules recommandés"
 
 #: src/amo/components/Search/index.js:140
 msgid "Featured add-ons"
@@ -1516,7 +1516,7 @@ msgstr "Système d’exploitation"
 
 #: src/amo/components/SearchFilters/index.js:238
 msgid "Recommended add-ons only"
-msgstr ""
+msgstr "Modules recommandés uniquement"
 
 #: src/amo/components/SearchFilters/index.js:239
 msgid "Featured add-ons only"
@@ -2955,7 +2955,7 @@ msgstr "Il n’y a aucune note pour l’instant"
 
 #: src/ui/components/RecommendedBadge/index.js:37
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "Firefox ne recommande que des extensions conformes à nos normes en matière de sécurité et de performances."
 
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
