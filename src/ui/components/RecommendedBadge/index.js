@@ -31,7 +31,7 @@ export const RecommendedBadgeBase = ({ i18n, size }: InternalProps) => {
     >
       <a
         className="RecommendedBadge-link"
-        href="https://support.mozilla.org/"
+        href="https://support.mozilla.org/en-US/kb/recommended-extensions-program"
         rel="noopener noreferrer"
         target="_blank"
         title={i18n.gettext(
