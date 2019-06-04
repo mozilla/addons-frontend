@@ -1,4 +1,6 @@
 /* eslint-disable react/no-multi-comp */
+import querystring from 'querystring';
+
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import * as React from 'react';
 import Helmet from 'react-helmet';
@@ -9,13 +11,14 @@ import NestedStatus from 'react-nested-status';
 import supertest from 'supertest';
 import defaultConfig from 'config';
 import cheerio from 'cheerio';
+import MockExpressRequest from 'mock-express-request';
 
 import { setRequestId } from 'core/actions';
 import {
   AMO_REQUEST_ID_HEADER,
   DISCO_TAAR_CLIENT_ID_HEADER,
 } from 'core/constants';
-import baseServer, { createHistory } from 'core/server/base';
+import baseServer, { SERVER_REDIRECTS, createHistory } from 'core/server/base';
 import { middleware } from 'core/store';
 import apiReducer from 'core/reducers/api';
 import redirectToReducer, {
@@ -621,6 +624,60 @@ describe(__filename, () => {
       const history = createHistory({ req: request });
 
       expect(history).toHaveProperty('location.query');
+    });
+  });
+
+  describe('SERVER_REDIRECTS', () => {
+    it.each([
+      // Each entry should have the following shape:
+      //
+      // [
+      //   <an old URL>,
+      //   <the redirect config for this URL>,
+      //   <optional object of params to be used to generate the new URL>
+      // ]
+      //
+      [
+        '/en-US/firefox/extensions/appearance/',
+        SERVER_REDIRECTS.categoryToSearchResults,
+        {
+          lang: 'en-US',
+          application: 'firefox',
+          visibleAddonType: 'extensions',
+          slug: 'appearance',
+        },
+      ],
+      [
+        '/en-US/android/themes/appearance/',
+        SERVER_REDIRECTS.categoryToSearchResults,
+        {
+          lang: 'en-US',
+          application: 'android',
+          visibleAddonType: 'themes',
+          slug: 'appearance',
+        },
+      ],
+    ])('redirects "%s"', async (url, { buildNewURL, status }, params = {}) => {
+      // We have to split the URL because of how superagent/supertest works.
+      const [urlWithoutQueryString, queryString] = url.split('?');
+
+      const response = await testClient()
+        .get(urlWithoutQueryString)
+        .query(queryString)
+        .end();
+
+      const newURL = buildNewURL({
+        // We cannot retrieve the original Express request with
+        // superagent/supertest, so we have to create a mock here.
+        req: new MockExpressRequest({
+          url,
+          query: querystring.parse(queryString),
+          params,
+        }),
+      });
+
+      expect(response.headers).toMatchObject({ location: newURL });
+      expect(response.statusCode).toEqual(status);
     });
   });
 });
