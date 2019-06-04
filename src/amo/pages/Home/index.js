@@ -18,6 +18,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_FEATURED,
+  SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
@@ -80,7 +81,7 @@ export class HomeBase extends React.Component {
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
-    includeFeaturedThemes: PropTypes.bool,
+    includeRecommendedThemes: PropTypes.bool,
     includeTrendingExtensions: PropTypes.bool,
     resultsLoaded: PropTypes.bool.isRequired,
     shelves: PropTypes.object.isRequired,
@@ -89,7 +90,7 @@ export class HomeBase extends React.Component {
   static defaultProps = {
     _config: config,
     _getFeaturedCollectionsMetadata: getFeaturedCollectionsMetadata,
-    includeFeaturedThemes: true,
+    includeRecommendedThemes: true,
     includeTrendingExtensions: false,
   };
 
@@ -105,9 +106,10 @@ export class HomeBase extends React.Component {
 
   loadDataIfNeeded() {
     const {
+      _config,
       dispatch,
       errorHandler,
-      includeFeaturedThemes,
+      includeRecommendedThemes,
       includeTrendingExtensions,
       resultsLoaded,
     } = this.props;
@@ -118,8 +120,11 @@ export class HomeBase extends React.Component {
       dispatch(
         fetchHomeAddons({
           collectionsToFetch: FEATURED_COLLECTIONS,
+          enableFeatureRecommendedBadges: _config.get(
+            'enableFeatureRecommendedBadges',
+          ),
           errorHandlerId: errorHandler.id,
-          includeFeaturedThemes,
+          includeRecommendedThemes,
           includeTrendingExtensions,
         }),
       );
@@ -227,15 +232,20 @@ export class HomeBase extends React.Component {
 
   render() {
     const {
+      _config,
       _getFeaturedCollectionsMetadata,
       collections,
       errorHandler,
       i18n,
-      includeFeaturedThemes,
+      includeRecommendedThemes,
       includeTrendingExtensions,
       resultsLoaded,
       shelves,
     } = this.props;
+
+    const enableFeatureRecommendedBadges = _config.get(
+      'enableFeatureRecommendedBadges',
+    );
 
     // translators: The ending ellipsis alludes to a row of icons for each type
     // of extension.
@@ -301,15 +311,27 @@ export class HomeBase extends React.Component {
 
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={shelves.featuredExtensions}
-          className="Home-FeaturedExtensions"
-          header={i18n.gettext('Featured extensions')}
-          footerText={i18n.gettext('See more featured extensions')}
+          addons={shelves.recommendedExtensions}
+          className="Home-RecommendedExtensions"
+          header={
+            enableFeatureRecommendedBadges
+              ? i18n.gettext('Recommended extensions')
+              : i18n.gettext('Featured extensions')
+          }
+          footerText={
+            enableFeatureRecommendedBadges
+              ? i18n.gettext('See more recommended extensions')
+              : i18n.gettext('See more featured extensions')
+          }
           footerLink={{
             pathname: '/search/',
             query: {
               addonType: ADDON_TYPE_EXTENSION,
-              featured: true,
+              featured: enableFeatureRecommendedBadges ? undefined : true,
+              recommended: enableFeatureRecommendedBadges ? true : undefined,
+              sort: enableFeatureRecommendedBadges
+                ? SEARCH_SORT_RANDOM
+                : undefined,
             },
           }}
           loading={loading}
@@ -317,22 +339,34 @@ export class HomeBase extends React.Component {
 
         {renderFeaturedCollection(0)}
 
-        {includeFeaturedThemes && (
+        {includeRecommendedThemes && (
           <LandingAddonsCard
             addonInstallSource={INSTALL_SOURCE_FEATURED}
-            addons={shelves.featuredThemes}
-            className="Home-FeaturedThemes"
-            footerText={i18n.gettext('See more featured themes')}
+            addons={shelves.recommendedThemes}
+            className="Home-RecommendedThemes"
+            footerText={
+              enableFeatureRecommendedBadges
+                ? i18n.gettext('See more recommended themes')
+                : i18n.gettext('See more featured themes')
+            }
             footerLink={{
               pathname: '/search/',
               query: {
                 addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
                   _config: this.props._config,
                 }),
-                featured: true,
+                featured: enableFeatureRecommendedBadges ? undefined : true,
+                recommended: enableFeatureRecommendedBadges ? true : undefined,
+                sort: enableFeatureRecommendedBadges
+                  ? SEARCH_SORT_RANDOM
+                  : undefined,
               },
             }}
-            header={i18n.gettext('Featured themes')}
+            header={
+              enableFeatureRecommendedBadges
+                ? i18n.gettext('Recommended themes')
+                : i18n.gettext('Featured themes')
+            }
             isTheme
             loading={loading}
           />
@@ -353,6 +387,7 @@ export class HomeBase extends React.Component {
               pathname: '/search/',
               query: {
                 addonType: ADDON_TYPE_EXTENSION,
+                recommended: enableFeatureRecommendedBadges ? true : undefined,
                 sort: SEARCH_SORT_TRENDING,
               },
             }}

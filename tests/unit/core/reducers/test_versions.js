@@ -531,7 +531,7 @@ describe(__filename, () => {
           loadHomeAddons({
             collections: [],
             shelves: {
-              featuredExtensions: createAddonsApiResult([
+              recommendedExtensions: createAddonsApiResult([
                 { ...fakeAddon, current_version: version },
               ]),
             },
@@ -569,7 +569,7 @@ describe(__filename, () => {
           loadHomeAddons({
             collections: [],
             shelves: {
-              featuredExtensions: searchResult,
+              recommendedExtensions: searchResult,
             },
           }),
         );
@@ -588,7 +588,7 @@ describe(__filename, () => {
           loadHomeAddons({
             collections: [],
             shelves: {
-              featuredExtensions: null,
+              recommendedExtensions: null,
             },
           }),
         );
