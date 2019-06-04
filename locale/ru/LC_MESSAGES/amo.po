@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-28 19:28+0000\n"
+"POT-Creation-Date: 2019-06-04 21:01+0000\n"
 "PO-Revision-Date: 2019-05-10 13:57+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
@@ -658,29 +658,17 @@ msgstr "Поиск дополнений"
 msgid "Search"
 msgstr "Поиск"
 
-#: src/amo/components/Categories/index.js:114
+#: src/amo/components/Categories/index.js:128
 msgid "No categories found."
 msgstr "Категорий не найдено."
 
-#: src/amo/components/Categories/index.js:121
+#: src/amo/components/Categories/index.js:135
 msgid "Categories"
 msgstr "Категории"
 
-#: src/amo/components/Categories/index.js:126
+#: src/amo/components/Categories/index.js:140
 msgid "Loading categories."
 msgstr "Загрузка категорий."
-
-#: src/amo/components/CategoryHead/index.js:31
-msgid "%(categoryName)s – Extensions"
-msgstr "%(categoryName)s – Расширения"
-
-#: src/amo/components/CategoryHead/index.js:34
-msgid "%(categoryName)s – Themes"
-msgstr "%(categoryName)s – Темы"
-
-#: src/amo/components/CategoryHead/index.js:38
-msgid "%(categoryName)s"
-msgstr "%(categoryName)s"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
 msgid "Added to collection"
@@ -978,12 +966,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Отмечено как сообщение об ошибке или запрос поддержки"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Отметить"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Отмечено"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Отметить"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1479,23 +1467,25 @@ msgstr ""
 msgid "Search results"
 msgstr "Результаты поиска"
 
-#: src/amo/components/Search/index.js:129
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:318
+#: src/amo/pages/LandingPage/index.js:139
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "Поиск расширений"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Category/index.js:138
-#: src/amo/pages/Home/index.js:302 src/amo/pages/LandingPage/index.js:132
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:319
+#: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Избранные расширения"
 
-#: src/amo/components/Search/index.js:134
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:367
+#: src/amo/pages/LandingPage/index.js:178
 #, fuzzy
 msgid "Recommended themes"
 msgstr "Летние темы"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Category/index.js:170
-#: src/amo/pages/Home/index.js:331 src/amo/pages/LandingPage/index.js:161
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:368
+#: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Избранные темы"
 
@@ -1508,13 +1498,13 @@ msgstr "Поиск дополнений"
 msgid "Featured add-ons"
 msgstr "Избранные дополнения"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Category/index.js:148
-#: src/amo/pages/Home/index.js:346 src/amo/pages/LandingPage/index.js:141
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:384
+#: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "Популярные расширения"
 
-#: src/amo/components/Search/index.js:150 src/amo/pages/Category/index.js:180
-#: src/amo/pages/LandingPage/index.js:170
+#: src/amo/components/Search/index.js:150
+#: src/amo/pages/LandingPage/index.js:194
 msgid "Trending themes"
 msgstr "Популярные темы"
 
@@ -1522,13 +1512,13 @@ msgstr "Популярные темы"
 msgid "Trending add-ons"
 msgstr "Популярные дополнения"
 
-#: src/amo/components/Search/index.js:159 src/amo/pages/Category/index.js:158
-#: src/amo/pages/LandingPage/index.js:150
+#: src/amo/components/Search/index.js:159
+#: src/amo/pages/LandingPage/index.js:165
 msgid "Top rated extensions"
 msgstr "Самые высоко оцененные расширения"
 
-#: src/amo/components/Search/index.js:162 src/amo/pages/Category/index.js:190
-#: src/amo/pages/LandingPage/index.js:176
+#: src/amo/components/Search/index.js:162
+#: src/amo/pages/LandingPage/index.js:200
 msgid "Top rated themes"
 msgstr "Самые высоко оцененные темы"
 
@@ -1647,77 +1637,77 @@ msgstr[0] "найдено %(count)s расширение"
 msgstr[1] "найдено %(count)s расширения"
 msgstr[2] "найдено %(count)s расширений"
 
-#: src/amo/components/SearchFilters/index.js:114
-#: src/amo/components/SearchFilters/index.js:130
+#: src/amo/components/SearchFilters/index.js:129
+#: src/amo/components/SearchFilters/index.js:145
 msgid "All"
 msgstr "Все"
 
-#: src/amo/components/SearchFilters/index.js:115
+#: src/amo/components/SearchFilters/index.js:130
 msgid "Extension"
 msgstr "Расширение"
 
-#: src/amo/components/SearchFilters/index.js:116
+#: src/amo/components/SearchFilters/index.js:131
 msgid "Search Tool"
 msgstr "Инструмент поиска"
 
-#: src/amo/components/SearchFilters/index.js:118
+#: src/amo/components/SearchFilters/index.js:133
 msgid "Theme"
 msgstr "Тема"
 
-#: src/amo/components/SearchFilters/index.js:131
+#: src/amo/components/SearchFilters/index.js:146
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:132
+#: src/amo/components/SearchFilters/index.js:147
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:133
+#: src/amo/components/SearchFilters/index.js:148
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:141
+#: src/amo/components/SearchFilters/index.js:156
 msgid "Relevance"
 msgstr "Релевантность"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:158
 msgid "Recently Updated"
 msgstr "Недавно обновлённые"
 
-#: src/amo/components/SearchFilters/index.js:146
+#: src/amo/components/SearchFilters/index.js:161
 msgid "Most Users"
 msgstr "Число пользователей"
 
-#: src/amo/components/SearchFilters/index.js:147
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Top Rated"
 msgstr "Лидеры рейтинга"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:163
 msgid "Trending"
 msgstr "Популярные"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:181
 msgid "Filter results"
 msgstr "Результаты фильтра"
 
-#: src/amo/components/SearchFilters/index.js:165
+#: src/amo/components/SearchFilters/index.js:186
 msgid "Sort by"
 msgstr "Сортировать по"
 
-#: src/amo/components/SearchFilters/index.js:187
+#: src/amo/components/SearchFilters/index.js:208
 msgid "Add-on Type"
 msgstr "Тип дополнения"
 
-#: src/amo/components/SearchFilters/index.js:207
+#: src/amo/components/SearchFilters/index.js:228
 msgid "Operating System"
 msgstr "Операционная система"
 
-#: src/amo/components/SearchFilters/index.js:238
+#: src/amo/components/SearchFilters/index.js:259
 #, fuzzy
 msgid "Recommended add-ons only"
 msgstr "Только избранные дополнения"
 
-#: src/amo/components/SearchFilters/index.js:239
+#: src/amo/components/SearchFilters/index.js:260
 msgid "Featured add-ons only"
 msgstr "Только избранные дополнения"
 
@@ -1767,7 +1757,7 @@ msgid "Recommended"
 msgstr "Комментарий пользователя"
 
 #: src/amo/components/SectionLinks/index.js:102
-#: src/amo/pages/LandingPage/index.js:228
+#: src/amo/pages/LandingPage/index.js:252
 msgid "Themes"
 msgstr "Темы"
 
@@ -1809,7 +1799,7 @@ msgid "Explore"
 msgstr "Обзор"
 
 #: src/amo/components/SectionLinks/index.js:88
-#: src/amo/pages/LandingPage/index.js:229
+#: src/amo/pages/LandingPage/index.js:253
 msgid "Extensions"
 msgstr "Расширения"
 
@@ -2009,33 +1999,6 @@ msgstr "Все категории расширений"
 #: src/amo/pages/CategoriesPage/index.js:36
 msgid "All theme categories"
 msgstr "Все категории тем"
-
-#: src/amo/pages/Category/index.js:147 src/amo/pages/Home/index.js:303
-#: src/amo/pages/LandingPage/index.js:140
-msgid "See more featured extensions"
-msgstr "Больше избранных расширений"
-
-#: src/amo/pages/Category/index.js:157 src/amo/pages/Home/index.js:347
-#: src/amo/pages/LandingPage/index.js:149
-msgid "See more trending extensions"
-msgstr "Больше набирающих популярность расширений"
-
-#: src/amo/pages/Category/index.js:167 src/amo/pages/LandingPage/index.js:158
-msgid "See more top rated extensions"
-msgstr "Больше самых высоко оцененных расширений"
-
-#: src/amo/pages/Category/index.js:179 src/amo/pages/Home/index.js:321
-#: src/amo/pages/LandingPage/index.js:169
-msgid "See more featured themes"
-msgstr "Больше избранных тем"
-
-#: src/amo/pages/Category/index.js:189 src/amo/pages/LandingPage/index.js:175
-msgid "See more trending themes"
-msgstr "Больше набирающих популярность тем"
-
-#: src/amo/pages/Category/index.js:199 src/amo/pages/LandingPage/index.js:181
-msgid "See more top rated themes"
-msgstr "Больше самых высоко оцененных тем"
 
 #: src/amo/pages/Collection/index.js:391
 msgid "Do you really want to delete this collection?"
@@ -2393,63 +2356,63 @@ msgstr ""
 "замедляет работу. Расширения для блокировки рекламы могут блокировать или "
 "фильтровать её, чтобы вы смогли вернуться к веб-сёрфингу без отвлечения."
 
-#: src/amo/pages/Home/index.js:133
+#: src/amo/pages/Home/index.js:139
 msgid "Bookmarks"
 msgstr "Закладки"
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:143
 msgid "Password managers"
 msgstr "Менеджеры паролей"
 
-#: src/amo/pages/Home/index.js:141
+#: src/amo/pages/Home/index.js:147
 msgid "Ad blockers"
 msgstr "Блокировщики рекламы"
 
-#: src/amo/pages/Home/index.js:145
+#: src/amo/pages/Home/index.js:151
 msgid "Smarter shopping"
 msgstr "Умный шоппинг"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:155
 msgid "Productivity"
 msgstr "Продуктивность"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:159
 msgid "Watching videos"
 msgstr "Просмотр видео"
 
-#: src/amo/pages/Home/index.js:181
+#: src/amo/pages/Home/index.js:187
 msgid "Abstract"
 msgstr "Абстрактные"
 
-#: src/amo/pages/Home/index.js:186
+#: src/amo/pages/Home/index.js:192
 msgid "Nature"
 msgstr "Природа"
 
-#: src/amo/pages/Home/index.js:191
+#: src/amo/pages/Home/index.js:197
 msgid "Film & TV"
 msgstr "Фильмы и ТВ"
 
-#: src/amo/pages/Home/index.js:196
+#: src/amo/pages/Home/index.js:202
 msgid "Scenery"
 msgstr "Украшающие"
 
-#: src/amo/pages/Home/index.js:201
+#: src/amo/pages/Home/index.js:207
 msgid "Music"
 msgstr "Музыка"
 
-#: src/amo/pages/Home/index.js:206
+#: src/amo/pages/Home/index.js:212
 msgid "Seasonal"
 msgstr "Времена года"
 
-#: src/amo/pages/Home/index.js:238
+#: src/amo/pages/Home/index.js:252
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "Измените работу Firefox с помощью дополнений. Для чего они вам нужны…"
 
-#: src/amo/pages/Home/index.js:240
+#: src/amo/pages/Home/index.js:254
 msgid "Change the way Firefox looks with themes."
 msgstr "Измените внешний вид Firefox темами."
 
-#: src/amo/pages/Home/index.js:270
+#: src/amo/pages/Home/index.js:284
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2459,31 +2422,65 @@ msgstr ""
 "браузера. Они могут блокировать раздражающую рекламу, защищать пароли, "
 "изменять внешний вид браузера и многое другое."
 
-#: src/amo/pages/Home/index.js:54
+#: src/amo/pages/Home/index.js:323 src/amo/pages/LandingPage/index.js:153
+#, fuzzy
+msgid "See more recommended extensions"
+msgstr "Больше набирающих популярность расширений"
+
+#: src/amo/pages/Home/index.js:324 src/amo/pages/LandingPage/index.js:154
+msgid "See more featured extensions"
+msgstr "Больше избранных расширений"
+
+#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
+#, fuzzy
+msgid "See more recommended themes"
+msgstr "Больше набирающих популярность тем"
+
+#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:193
+msgid "See more featured themes"
+msgstr "Больше избранных тем"
+
+#: src/amo/pages/Home/index.js:385 src/amo/pages/LandingPage/index.js:164
+msgid "See more trending extensions"
+msgstr "Больше набирающих популярность расширений"
+
+#: src/amo/pages/Home/index.js:56
 msgid "See more productivity extensions"
 msgstr "Больше расширений для повышения продуктивности"
 
-#: src/amo/pages/Home/index.js:55
+#: src/amo/pages/Home/index.js:57
 msgid "Productivity extensions"
 msgstr "Расширения повышающие продуктивность"
 
-#: src/amo/pages/Home/index.js:60
+#: src/amo/pages/Home/index.js:62
 msgid "See more YouTube extensions"
 msgstr "Больше расширений для YouTube"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:63
 msgid "YouTube boosters"
 msgstr "Улучшатели YouTube"
 
-#: src/amo/pages/Home/index.js:66
+#: src/amo/pages/Home/index.js:68
 msgid "See more feed readers"
 msgstr "Посмотреть больше читателей новостей"
 
-#: src/amo/pages/Home/index.js:67
+#: src/amo/pages/Home/index.js:69
 msgid "Feed readers"
 msgstr "Читатели новостей"
 
+#: src/amo/pages/LandingPage/index.js:174
+msgid "See more top rated extensions"
+msgstr "Больше самых высоко оцененных расширений"
+
+#: src/amo/pages/LandingPage/index.js:199
+msgid "See more trending themes"
+msgstr "Больше набирающих популярность тем"
+
 #: src/amo/pages/LandingPage/index.js:205
+msgid "See more top rated themes"
+msgstr "Больше самых высоко оцененных тем"
+
+#: src/amo/pages/LandingPage/index.js:229
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2492,7 +2489,7 @@ msgstr ""
 "Загрузите темы, чтобы изменить внешний вид Firefox. Выберите на свой вкус. "
 "Симпатичные зверушки, злые роботы, красивые пейзажи — тысячи вариантов."
 
-#: src/amo/pages/LandingPage/index.js:210
+#: src/amo/pages/LandingPage/index.js:234
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2502,7 +2499,7 @@ msgstr ""
 "просмотр страниц. С их помощью вы сможете защищать пароли, находить выгодные "
 "покупки, улучшить просмотр видео и блокировать раздражающую рекламу."
 
-#: src/amo/pages/LandingPage/index.js:232
+#: src/amo/pages/LandingPage/index.js:256
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -2510,7 +2507,7 @@ msgstr ""
 "Измените внешний вид вашего браузера. Выбирайте из тысяч тем, чтобы придать "
 "вашему Firefox образ, который вы хотите."
 
-#: src/amo/pages/LandingPage/index.js:234
+#: src/amo/pages/LandingPage/index.js:258
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -2518,7 +2515,7 @@ msgstr ""
 "Изучите мощные инструменты и возможности, чтобы настроить Firefox и сделать "
 "его своим."
 
-#: src/amo/pages/LandingPage/index.js:273
+#: src/amo/pages/LandingPage/index.js:297
 msgid "Explore all categories"
 msgstr "Посмотреть все категории"
 
@@ -3559,6 +3556,15 @@ msgstr[2] "%(total)s дополнений"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Ответ разработчика"
+
+#~ msgid "%(categoryName)s – Extensions"
+#~ msgstr "%(categoryName)s – Расширения"
+
+#~ msgid "%(categoryName)s – Themes"
+#~ msgstr "%(categoryName)s – Темы"
+
+#~ msgid "%(categoryName)s"
+#~ msgstr "%(categoryName)s"
 
 #~ msgid ""
 #~ "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
