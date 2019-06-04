@@ -13142,10 +13142,10 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
-react-keydown@1.9.9:
-  version "1.9.9"
-  resolved "https://registry.yarnpkg.com/react-keydown/-/react-keydown-1.9.9.tgz#4dc8b4429a2e75e46a67ec188557dbec080ddb2e"
-  integrity sha512-PDO2ro2iJnUhvsewhwRXJILuLYwv9rqF8S8Oz/XhOj85LqUDHKh/eOZHotgqPFnXezmxZd8Qt76u0YZI298E8A==
+react-keydown@1.9.10:
+  version "1.9.10"
+  resolved "https://registry.yarnpkg.com/react-keydown/-/react-keydown-1.9.10.tgz#2661c2243ac1f63484d87cda5fb778983e396462"
+  integrity sha512-S9TVccsq68veLcaMpqeAgFzfl5k7AGIihsIrCLs3njkrMAfGzXLO6kEmh/DmMo0iUiLk3TRKtJ3X0a8VVxaf1g==
   dependencies:
     core-js "^3.1.2"
 
