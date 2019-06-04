@@ -13,7 +13,6 @@ import AddonInfo, {
 import AddonReviewList from 'amo/pages/AddonReviewList';
 import AddonVersions from 'amo/pages/AddonVersions';
 import CategoriesPage from 'amo/pages/CategoriesPage';
-import Category from 'amo/pages/Category';
 import Collection from 'amo/pages/Collection';
 import CollectionEdit from 'amo/pages/CollectionEdit';
 import CollectionList from 'amo/pages/CollectionList';
@@ -160,11 +159,6 @@ const Routes = ({ _config = config }: Props = {}) => (
       exact
       path="/:lang/:application/:visibleAddonType(extensions|themes)/categories/"
       component={CategoriesPage}
-    />
-    <Route
-      exact
-      path="/:lang/:application/:visibleAddonType(extensions|themes)/:slug/"
-      component={Category}
     />
 
     {/* See: https://github.com/mozilla/addons-frontend/issues/5150 */}
