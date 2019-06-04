@@ -28,8 +28,9 @@ export const initialState: HomeState = {
 
 type FetchHomeAddonsParams = {|
   collectionsToFetch: Array<Object>,
+  enableFeatureRecommendedBadges: boolean,
   errorHandlerId: string,
-  includeFeaturedThemes: boolean,
+  includeRecommendedThemes: boolean,
   includeTrendingExtensions: boolean,
 |};
 
@@ -40,8 +41,9 @@ export type FetchHomeAddonsAction = {|
 
 export const fetchHomeAddons = ({
   collectionsToFetch,
+  enableFeatureRecommendedBadges,
   errorHandlerId,
-  includeFeaturedThemes,
+  includeRecommendedThemes,
   includeTrendingExtensions,
 }: FetchHomeAddonsParams): FetchHomeAddonsAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
@@ -51,8 +53,9 @@ export const fetchHomeAddons = ({
     type: FETCH_HOME_ADDONS,
     payload: {
       collectionsToFetch,
+      enableFeatureRecommendedBadges,
       errorHandlerId,
-      includeFeaturedThemes,
+      includeRecommendedThemes,
       includeTrendingExtensions,
     },
   };

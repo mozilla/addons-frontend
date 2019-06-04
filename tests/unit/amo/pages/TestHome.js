@@ -21,6 +21,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES_FILTER,
+  SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
@@ -36,6 +37,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -81,22 +83,38 @@ describe(__filename, () => {
     },
   );
 
-  it('renders a featured extensions shelf', () => {
-    const root = render();
+  it.each([true, false])(
+    'renders a featured/recommended extensions shelf, enableFeatureRecommendedBadges: %s',
+    (enableFeatureRecommendedBadges) => {
+      const _config = getFakeConfig({ enableFeatureRecommendedBadges });
+      const root = render({ _config });
 
-    const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-FeaturedExtensions');
-    expect(shelf).toHaveProp('header', 'Featured extensions');
-    expect(shelf).toHaveProp('footerText', 'See more featured extensions');
-    expect(shelf).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_EXTENSION,
-        featured: true,
-      },
-    });
-    expect(shelf).toHaveProp('loading', true);
-  });
+      const shelves = root.find(LandingAddonsCard);
+      const shelf = shelves.find('.Home-RecommendedExtensions');
+      expect(shelf).toHaveProp(
+        'header',
+        enableFeatureRecommendedBadges
+          ? 'Recommended extensions'
+          : 'Featured extensions',
+      );
+      expect(shelf).toHaveProp(
+        'footerText',
+        enableFeatureRecommendedBadges
+          ? 'See more recommended extensions'
+          : 'See more featured extensions',
+      );
+      expect(shelf).toHaveProp('footerLink', {
+        pathname: '/search/',
+        query: {
+          addonType: ADDON_TYPE_EXTENSION,
+          featured: enableFeatureRecommendedBadges ? undefined : true,
+          recommended: enableFeatureRecommendedBadges ? true : undefined,
+          sort: enableFeatureRecommendedBadges ? SEARCH_SORT_RANDOM : undefined,
+        },
+      });
+      expect(shelf).toHaveProp('loading', true);
+    },
+  );
 
   it('renders a shelf with curated collections', () => {
     const expectedCollections = [
@@ -124,26 +142,42 @@ describe(__filename, () => {
     });
   });
 
-  it('renders a featured themes shelf if includeFeaturedThemes is true', () => {
-    const root = render({ includeFeaturedThemes: true });
+  it.each([true, false])(
+    'renders a featured/recommended themes shelf if includeRecommendedThemes is true, enableFeatureRecommendedBadges: %s',
+    (enableFeatureRecommendedBadges) => {
+      const _config = getFakeConfig({ enableFeatureRecommendedBadges });
+      const root = render({ _config, includeRecommendedThemes: true });
 
-    const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-FeaturedThemes');
-    expect(shelf).toHaveProp('header', 'Featured themes');
-    expect(shelf).toHaveProp('footerText', 'See more featured themes');
-    expect(shelf).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
-        featured: true,
-      },
-    });
-    expect(shelf).toHaveProp('loading', true);
-    expect(shelf).toHaveProp('isTheme', true);
-  });
+      const shelves = root.find(LandingAddonsCard);
+      const shelf = shelves.find('.Home-RecommendedThemes');
+      expect(shelf).toHaveProp(
+        'header',
+        enableFeatureRecommendedBadges
+          ? 'Recommended themes'
+          : 'Featured themes',
+      );
+      expect(shelf).toHaveProp(
+        'footerText',
+        enableFeatureRecommendedBadges
+          ? 'See more recommended themes'
+          : 'See more featured themes',
+      );
+      expect(shelf).toHaveProp('footerLink', {
+        pathname: '/search/',
+        query: {
+          addonType: ADDON_TYPE_THEMES_FILTER,
+          featured: enableFeatureRecommendedBadges ? undefined : true,
+          recommended: enableFeatureRecommendedBadges ? true : undefined,
+          sort: enableFeatureRecommendedBadges ? SEARCH_SORT_RANDOM : undefined,
+        },
+      });
+      expect(shelf).toHaveProp('loading', true);
+      expect(shelf).toHaveProp('isTheme', true);
+    },
+  );
 
-  it('does not render a featured themes shelf if includeFeaturedThemes is false', () => {
-    const root = render({ includeFeaturedThemes: false });
+  it('does not render a featured themes shelf if includeRecommendedThemes is false', () => {
+    const root = render({ includeRecommendedThemes: false });
 
     const shelves = root.find(LandingAddonsCard);
     expect(shelves.find('.Home-FeaturedThemes')).toHaveLength(0);
@@ -156,22 +190,27 @@ describe(__filename, () => {
     expect(shelves.find('.Home-TrendingExtensions')).toHaveLength(0);
   });
 
-  it('renders a trending extensions shelf when includeTrendingExtensions is true', () => {
-    const root = render({ includeTrendingExtensions: true });
+  it.each([true, false])(
+    'renders a trending extensions shelf when includeTrendingExtensions is true, enableFeatureRecommendedBadges: %s',
+    (enableFeatureRecommendedBadges) => {
+      const _config = getFakeConfig({ enableFeatureRecommendedBadges });
+      const root = render({ _config, includeTrendingExtensions: true });
 
-    const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-TrendingExtensions');
-    expect(shelf).toHaveProp('header', 'Trending extensions');
-    expect(shelf).toHaveProp('footerText', 'See more trending extensions');
-    expect(shelf).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: {
-        addonType: ADDON_TYPE_EXTENSION,
-        sort: SEARCH_SORT_TRENDING,
-      },
-    });
-    expect(shelf).toHaveProp('loading', true);
-  });
+      const shelves = root.find(LandingAddonsCard);
+      const shelf = shelves.find('.Home-TrendingExtensions');
+      expect(shelf).toHaveProp('header', 'Trending extensions');
+      expect(shelf).toHaveProp('footerText', 'See more trending extensions');
+      expect(shelf).toHaveProp('footerLink', {
+        pathname: '/search/',
+        query: {
+          addonType: ADDON_TYPE_EXTENSION,
+          recommended: enableFeatureRecommendedBadges ? true : undefined,
+          sort: SEARCH_SORT_TRENDING,
+        },
+      });
+      expect(shelf).toHaveProp('loading', true);
+    },
+  );
 
   it('renders a shelf with curated themes', () => {
     const expectedThemes = [
@@ -208,16 +247,19 @@ describe(__filename, () => {
   });
 
   it('dispatches an action to fetch the add-ons to display', () => {
-    const includeFeaturedThemes = false;
+    const enableFeatureRecommendedBadges = true;
+    const includeRecommendedThemes = false;
     const includeTrendingExtensions = false;
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
+    const _config = getFakeConfig({ enableFeatureRecommendedBadges });
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
 
     render({
+      _config,
       errorHandler,
-      includeFeaturedThemes,
+      includeRecommendedThemes,
       includeTrendingExtensions,
       store,
     });
@@ -227,9 +269,10 @@ describe(__filename, () => {
     sinon.assert.calledWith(
       fakeDispatch,
       fetchHomeAddons({
+        enableFeatureRecommendedBadges,
         errorHandlerId: errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
-        includeFeaturedThemes,
+        includeRecommendedThemes,
         includeTrendingExtensions,
       }),
     );
@@ -237,20 +280,23 @@ describe(__filename, () => {
 
   // This test case should be updated when we change the `defaultProps`.
   it('fetches add-ons with some defaults', () => {
+    const enableFeatureRecommendedBadges = true;
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
+    const _config = getFakeConfig({ enableFeatureRecommendedBadges });
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    render({ errorHandler, store });
+    render({ _config, errorHandler, store });
 
     sinon.assert.callCount(fakeDispatch, 2);
     sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
     sinon.assert.calledWith(
       fakeDispatch,
       fetchHomeAddons({
+        enableFeatureRecommendedBadges,
         errorHandlerId: errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
-        includeFeaturedThemes: true,
+        includeRecommendedThemes: true,
         includeTrendingExtensions: false,
       }),
     );
@@ -265,17 +311,17 @@ describe(__filename, () => {
     const collections = [
       createFakeCollectionAddonsListResponse({ addons: collectionAddons }),
     ];
-    const featuredExtensions = createAddonsApiResult(addons);
+    const recommendedExtensions = createAddonsApiResult(addons);
 
     store.dispatch(
       loadHomeAddons({
         collections,
-        shelves: { featuredExtensions },
+        shelves: { recommendedExtensions },
       }),
     );
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    const root = render({ includeFeaturedThemes: false, store });
+    const root = render({ includeRecommendedThemes: false, store });
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
@@ -287,23 +333,26 @@ describe(__filename, () => {
       collectionAddons.map((addon) => createInternalAddon(addon.addon)),
     );
 
-    const featuredExtensionsShelf = root.find('.Home-FeaturedExtensions');
-    expect(featuredExtensionsShelf).toHaveProp('loading', false);
-    expect(featuredExtensionsShelf).toHaveProp(
+    const recommendedExtensionsShelf = root.find('.Home-RecommendedExtensions');
+    expect(recommendedExtensionsShelf).toHaveProp('loading', false);
+    expect(recommendedExtensionsShelf).toHaveProp(
       'addons',
       addons.map((addon) => createInternalAddon(addon)),
     );
   });
 
   it('dispatches an action to fetch the add-ons to display on update', () => {
-    const includeFeaturedThemes = false;
+    const enableFeatureRecommendedBadges = true;
+    const includeRecommendedThemes = false;
     const includeTrendingExtensions = false;
     const { store } = dispatchClientMetadata();
+    const _config = getFakeConfig({ enableFeatureRecommendedBadges });
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
 
     const root = render({
-      includeFeaturedThemes,
+      _config,
+      includeRecommendedThemes,
       includeTrendingExtensions,
       store,
     });
@@ -317,9 +366,10 @@ describe(__filename, () => {
     sinon.assert.calledWith(
       fakeDispatch,
       fetchHomeAddons({
+        enableFeatureRecommendedBadges,
         errorHandlerId: root.instance().props.errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
-        includeFeaturedThemes,
+        includeRecommendedThemes,
         includeTrendingExtensions,
       }),
     );
@@ -331,12 +381,12 @@ describe(__filename, () => {
     const addons = [{ ...fakeAddon, slug: 'addon' }];
 
     const collections = [null, null, null];
-    const featuredExtensions = createAddonsApiResult(addons);
+    const recommendedExtensions = createAddonsApiResult(addons);
 
     store.dispatch(
       loadHomeAddons({
         collections,
-        shelves: { featuredExtensions },
+        shelves: { recommendedExtensions },
       }),
     );
 
