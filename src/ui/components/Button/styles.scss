@@ -78,10 +78,10 @@ $default-font-size: 13px;
         padding-top: 1px;
       }
 
-      // Small text is difficult to read against the bright Photon colors
-      // since it is blurry. This isn't (yet) part of the spec but added
-      // this because it improves accessibility.
-      // See: https://github.com/FirefoxUX/photon/issues/264#issuecomment-364927535
+      // Small text is difficult to read against the bright Photon colors since
+      // it is blurry. This isn't (yet) part of the spec but added this because
+      // it improves accessibility. See:
+      // https://github.com/FirefoxUX/photon/issues/264#issuecomment-364927535
       letter-spacing: 0.01rem;
     }
   }
