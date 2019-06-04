@@ -520,10 +520,10 @@ const reducer = (
     }
 
     case LOAD_LANDING: {
-      const { featured, highlyRated, trending } = action.payload;
+      const { recommended, highlyRated, trending } = action.payload;
 
       const newVersions = {};
-      for (const apiResponse of [featured, highlyRated, trending]) {
+      for (const apiResponse of [recommended, highlyRated, trending]) {
         for (const addon of apiResponse.results) {
           if (addon.current_version) {
             const version = createInternalVersion(addon.current_version);
