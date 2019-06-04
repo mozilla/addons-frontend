@@ -176,11 +176,11 @@ describe(__filename, () => {
     },
   );
 
-  it('does not render a featured themes shelf if includeRecommendedThemes is false', () => {
+  it('does not render a recommended themes shelf if includeRecommendedThemes is false', () => {
     const root = render({ includeRecommendedThemes: false });
 
     const shelves = root.find(LandingAddonsCard);
-    expect(shelves.find('.Home-FeaturedThemes')).toHaveLength(0);
+    expect(shelves.find('.Home-RecommendedThemes')).toHaveLength(0);
   });
 
   it('does not render a trending extensions shelf if includeTrendingExtensions is false', () => {
