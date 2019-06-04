@@ -250,6 +250,15 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/android?foo=2');
   });
 
+  it('should redirect for locale url missing a trailing slash with query params', () => {
+    const fakeReq = {
+      originalUrl: '/en-US?foo=3',
+      headers: {},
+    };
+    prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    sinon.assert.calledWith(fakeRes.redirect, 301, '/en-US/firefox?foo=3');
+  });
+
   it('should not mangle a query string for a redirect', () => {
     const fakeReq = {
       originalUrl: '/foo/bar?test=1&bar=2',
