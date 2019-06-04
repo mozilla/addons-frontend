@@ -635,7 +635,6 @@ describe(__filename, () => {
       //   <an old URL>,
       //   <the redirect config for this URL>,
       //   <optional object of params to be used to generate the new URL>
-      //   <optional string to expect in the new URL>
       // ]
       //
       [
@@ -658,31 +657,27 @@ describe(__filename, () => {
           slug: 'appearance',
         },
       ],
-    ])(
-      'redirects "%s"',
-      async (url, { buildNewURL, status }, params = {}, expectedInURL = '') => {
-        // We have to split the URL because of how superagent/supertest works.
-        const [urlWithoutQueryString, queryString] = url.split('?');
+    ])('redirects "%s"', async (url, { buildNewURL, status }, params = {}) => {
+      // We have to split the URL because of how superagent/supertest works.
+      const [urlWithoutQueryString, queryString] = url.split('?');
 
-        const response = await testClient()
-          .get(urlWithoutQueryString)
-          .query(queryString)
-          .end();
+      const response = await testClient()
+        .get(urlWithoutQueryString)
+        .query(queryString)
+        .end();
 
-        const newURL = buildNewURL({
-          // We cannot retrieve the original Express request with
-          // superagent/supertest, so we have to create a mock here.
-          req: new MockExpressRequest({
-            url,
-            query: querystring.parse(queryString),
-            params,
-          }),
-        });
+      const newURL = buildNewURL({
+        // We cannot retrieve the original Express request with
+        // superagent/supertest, so we have to create a mock here.
+        req: new MockExpressRequest({
+          url,
+          query: querystring.parse(queryString),
+          params,
+        }),
+      });
 
-        expect(response.headers).toMatchObject({ location: newURL });
-        expect(response.statusCode).toEqual(status);
-        expect(newURL).toContain(expectedInURL);
-      },
-    );
+      expect(response.headers).toMatchObject({ location: newURL });
+      expect(response.statusCode).toEqual(status);
+    });
   });
 });
