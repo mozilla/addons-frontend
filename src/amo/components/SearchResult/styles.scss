@@ -7,6 +7,10 @@ $icon-default-size: 32px;
 .SearchResult {
   list-style-type: none;
   margin: 0 0 1px;
+
+  :hover {
+    cursor: pointer;
+  }
 }
 
 .SearchResult-link {

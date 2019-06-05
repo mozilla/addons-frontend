@@ -12,6 +12,8 @@ import {
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
+  createContextWithFakeRouter,
+  createFakeHistory,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -40,6 +42,7 @@ describe(__filename, () => {
       enableFeatureRecommendedBadges: false,
     }),
     addon = baseAddon,
+    history = createFakeHistory(),
     lang = 'en-GB',
     store = dispatchClientMetadata({
       clientApp: CLIENT_APP_FIREFOX,
@@ -55,13 +58,38 @@ describe(__filename, () => {
         {...props}
       />,
       SearchResultBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ history }),
+      },
     );
   }
 
   it('renders the heading', () => {
     const root = render();
 
-    expect(root.find('.SearchResult-name')).toIncludeText('A search result');
+    expect(root.find('.SearchResult-link').children()).toIncludeText(
+      'A search result',
+    );
+  });
+
+  it('links the heading to the detail page', () => {
+    const slug = 'some-addon-slug';
+    const addon = createInternalAddon({ ...fakeAddon, slug });
+
+    const root = render({ addon });
+
+    expect(root.find('.SearchResult-link')).toHaveProp('to', `/addon/${slug}/`);
+  });
+
+  it('links the heading to the detail page with a source', () => {
+    const addonInstallSource = 'home-page-featured';
+
+    const root = render({ addonInstallSource });
+
+    const link = root.find('.SearchResult-link');
+    expect(url.parse(link.prop('to'), true).query).toMatchObject({
+      src: addonInstallSource,
+    });
   });
 
   it('renders the author', () => {
@@ -116,23 +144,23 @@ describe(__filename, () => {
     expect(root.find('.SearchResult-users')).toIncludeText('1 user');
   });
 
-  it('links to the detail page', () => {
-    const root = render();
+  it('links the li element to the detail page', () => {
+    const slug = 'some-addon-slug';
+    const addon = createInternalAddon({ ...fakeAddon, slug });
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'fr';
+    const history = createFakeHistory();
+    const { store } = dispatchClientMetadata({ clientApp, lang });
 
-    expect(root.find('.SearchResult-link')).toHaveProp(
-      'to',
-      '/addon/a-search-result/',
+    const root = render({ addon, history, store });
+
+    const onClick = root.find('.SearchResult').prop('onClick');
+    onClick();
+
+    sinon.assert.calledWith(
+      history.push,
+      `/${lang}/${clientApp}/addon/${slug}/`,
     );
-  });
-
-  it('links to the detail page with a source', () => {
-    const addonInstallSource = 'home-page-featured';
-    const root = render({ addonInstallSource });
-
-    const link = root.find('.SearchResult-link');
-    expect(url.parse(link.prop('to'), true).query).toMatchObject({
-      src: addonInstallSource,
-    });
   });
 
   it('renders the star ratings', () => {
