@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-04 21:01+0000\n"
-"PO-Revision-Date: 2019-06-05 14:21+0000\n"
+"PO-Revision-Date: 2019-06-05 20:38+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -73,15 +73,15 @@ msgstr "Stav správy doplňku"
 
 #: src/amo/components/AddonBadges/index.js:49
 msgid "Featured Extension"
-msgstr "Doporučené rozšíření"
+msgstr "Vybrané rozšíření"
 
 #: src/amo/components/AddonBadges/index.js:52
 msgid "Featured Theme"
-msgstr "Doporučený motiv vzhledu"
+msgstr "Vybraný motiv vzhledu"
 
 #: src/amo/components/AddonBadges/index.js:54
 msgid "Featured Add-on"
-msgstr "Doporučený doplněk"
+msgstr "Vybraný doplněk"
 
 #: src/amo/components/AddonBadges/index.js:75
 msgid "Restart Required"
@@ -1296,7 +1296,7 @@ msgstr "Doporučená rozšíření"
 
 #: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:319 src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
-msgstr "Doporučená rozšíření"
+msgstr "Vybraná rozšíření"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:367 src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
@@ -1304,7 +1304,7 @@ msgstr "Doporučené motivy vzhledu"
 
 #: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:368 src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
-msgstr "Doporučené motivy vzhledu"
+msgstr "Vybrané motivy vzhledu"
 
 #: src/amo/components/Search/index.js:139
 msgid "Recommended add-ons"
@@ -1312,7 +1312,7 @@ msgstr "Doporučené doplňky"
 
 #: src/amo/components/Search/index.js:140
 msgid "Featured add-ons"
-msgstr "Doporučené doplňky"
+msgstr "Vybrané doplňky"
 
 #: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:384 src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
@@ -1512,11 +1512,11 @@ msgstr "Operační systém"
 
 #: src/amo/components/SearchFilters/index.js:259
 msgid "Recommended add-ons only"
-msgstr "Pouze doporučené doplňky"
+msgstr "Jenom doporučené doplňky"
 
 #: src/amo/components/SearchFilters/index.js:260
 msgid "Featured add-ons only"
-msgstr "Jenom doporučené doplňky"
+msgstr "Jenom vybrané doplňky"
 
 #: src/amo/components/SearchForm/index.js:61
 msgid "Firefox Add-ons (%(locale)s)"
@@ -2092,7 +2092,7 @@ msgstr "Další doporučená rozšíření"
 
 #: src/amo/pages/Home/index.js:324 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
-msgstr "Další doporučená rozšíření"
+msgstr "Další vybraná rozšíření"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
@@ -2100,7 +2100,7 @@ msgstr "Další doporučené vzhledy"
 
 #: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
-msgstr "Další doporučené vzhledy"
+msgstr "Další vybrané vzhledy"
 
 #: src/amo/pages/Home/index.js:385 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
