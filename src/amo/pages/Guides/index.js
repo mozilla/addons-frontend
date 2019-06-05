@@ -244,7 +244,8 @@ export const getSections = ({
           exploreMore: i18n.gettext(
             'Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s.',
           ),
-          exploreUrl: '/extensions/photos-music-videos/',
+          exploreUrl:
+            '/search/?category=photos-music-videos&sort=recommended%2Cusers&type=extension',
         },
       ];
     default:
