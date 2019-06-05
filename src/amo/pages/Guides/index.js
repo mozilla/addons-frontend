@@ -1,4 +1,6 @@
 /* @flow */
+import querystring from 'querystring';
+
 import Helmet from 'react-helmet';
 import * as React from 'react';
 import { compose } from 'redux';
@@ -9,12 +11,13 @@ import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import HeadLinks from 'amo/components/HeadLinks';
 import { fetchGuidesAddons, getGUIDsBySlug } from 'amo/reducers/guides';
-import { CLIENT_APP_ANDROID } from 'core/constants';
+import { ADDON_TYPE_EXTENSION, CLIENT_APP_ANDROID } from 'core/constants';
 import { getAddonByGUID } from 'core/reducers/addons';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { replaceStringsWithJSX } from 'core/i18n/utils';
+import { getCategoryResultsQuery } from 'core/utils';
 import Icon from 'ui/components/Icon';
 import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
@@ -244,8 +247,12 @@ export const getSections = ({
           exploreMore: i18n.gettext(
             'Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s.',
           ),
-          exploreUrl:
-            '/search/?category=photos-music-videos&sort=recommended%2Cusers&type=extension',
+          exploreUrl: `/search/?${querystring.stringify(
+            getCategoryResultsQuery({
+              addonType: ADDON_TYPE_EXTENSION,
+              slug: 'photos-music-videos',
+            }),
+          )}`,
         },
       ];
     default:
