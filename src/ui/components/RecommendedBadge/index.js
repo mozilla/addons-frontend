@@ -22,6 +22,10 @@ type InternalProps = {|
 export const RecommendedBadgeBase = ({ i18n, size }: InternalProps) => {
   const label = i18n.gettext('Recommended');
 
+  const onClick = (event: SyntheticEvent<any>) => {
+    event.stopPropagation();
+  };
+
   return (
     <div
       className={makeClassName('RecommendedBadge', {
@@ -32,6 +36,7 @@ export const RecommendedBadgeBase = ({ i18n, size }: InternalProps) => {
       <a
         className="RecommendedBadge-link"
         href="https://support.mozilla.org/kb/recommended-extensions-program"
+        onClick={onClick}
         rel="noopener noreferrer"
         target="_blank"
         title={i18n.gettext(
