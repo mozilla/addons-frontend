@@ -51,9 +51,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: `accounts/account/${params.userId}/collections/${
-            params.slug
-          }`,
+          endpoint: `accounts/account/${params.userId}/collections/${params.slug}`,
           apiState,
         })
         .once()
@@ -77,9 +75,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: `accounts/account/${params.userId}/collections/${
-            params.slug
-          }/addons`,
+          endpoint: `accounts/account/${params.userId}/collections/${params.slug}/addons`,
           params: { page: filters.page, sort: filters.collectionSort },
           apiState,
         })
