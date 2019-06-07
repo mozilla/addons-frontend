@@ -1085,9 +1085,7 @@ describe(__filename, () => {
     expect(root.find('meta[name="description"]')).toHaveLength(1);
     expect(root.find('meta[name="description"]').prop('content')).toMatch(
       new RegExp(
-        `Reviews and ratings for ${
-          addon.name
-        }. Find out what other users think about ${addon.name}`,
+        `Reviews and ratings for ${addon.name}. Find out what other users think about ${addon.name}`,
       ),
     );
   });

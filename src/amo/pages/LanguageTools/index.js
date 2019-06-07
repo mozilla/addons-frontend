@@ -117,9 +117,7 @@ export class LanguageToolsBase extends React.Component<Props> {
                   key={languageTool.slug}
                 >
                   <Link
-                    className={`LanguageTools-in-your-locale-list-item--${
-                      languageTool.type
-                    }`}
+                    className={`LanguageTools-in-your-locale-list-item--${languageTool.type}`}
                     to={`/addon/${languageTool.slug}/`}
                   >
                     {languageTool.name}
@@ -234,18 +232,14 @@ export class LanguageToolsBase extends React.Component<Props> {
                         <span lang={language.locale}>{language.native}</span>
                       </Td>
                       <Td
-                        className={`LanguageTools-lang-${
-                          language.locale
-                        }-languagePacks`}
+                        className={`LanguageTools-lang-${language.locale}-languagePacks`}
                       >
                         {languagePacks.length ? (
                           <LanguageToolList languageTools={languagePacks} />
                         ) : null}
                       </Td>
                       <Td
-                        className={`LanguageTools-lang-${
-                          language.locale
-                        }-dictionaries`}
+                        className={`LanguageTools-lang-${language.locale}-dictionaries`}
                       >
                         {dictionaries.length ? (
                           <LanguageToolList languageTools={dictionaries} />

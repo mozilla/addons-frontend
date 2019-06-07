@@ -1417,9 +1417,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/${lang}/${clientApp}/collections/${collection.authorId}/${
-          collection.slug
-        }/`,
+        url: `/${lang}/${clientApp}/collections/${collection.authorId}/${collection.slug}/`,
       }),
     );
     sinon.assert.calledOnce(fakeDispatch);
@@ -1457,9 +1455,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/${lang}/${clientApp}/collections/${collection.authorId}/${
-          collection.slug
-        }/`,
+        url: `/${lang}/${clientApp}/collections/${collection.authorId}/${collection.slug}/`,
       }),
     );
     sinon.assert.calledOnce(fakeDispatch);
