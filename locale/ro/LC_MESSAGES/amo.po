@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-04 21:01+0000\n"
-"PO-Revision-Date: 2019-06-08 15:43+0000\n"
+"PO-Revision-Date: 2018-11-07 01:02+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -331,15 +331,15 @@ msgstr "Șterge recenzia"
 
 #: src/amo/components/AddonReviewCard/index.js:219
 msgid "Do you really want to delete this reply?"
-msgstr "Ești sigur(ă) că vrei să ștergi acest răspuns?"
+msgstr "Chiar vrei să ștergi acest răspuns?"
 
 #: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this rating?"
-msgstr "Ești sigur(ă) că vrei să ștergi această evaluare?"
+msgstr "Chiar vrei să ștergi această evaluare?"
 
 #: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
-msgstr "Ești sigur(ă) că vrei să ștergi această recenzie?"
+msgstr "Chiar vrei să ștergi această recenzie?"
 
 #: src/amo/components/AddonReviewCard/index.js:233 src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
@@ -1625,7 +1625,7 @@ msgstr "Pagina de start pentru suplimente"
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
-msgstr "Ești sigur(ă) că vrei ștergi această imagine?"
+msgstr "Chiar vrei să ștergi această imagine?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:109
 msgid "Delete This Picture"
@@ -1794,7 +1794,7 @@ msgstr "Toate categoriile de teme"
 
 #: src/amo/pages/Collection/index.js:391
 msgid "Do you really want to delete this collection?"
-msgstr "Ești sigur(ă) că vrei ștergi această colecție?"
+msgstr "Chiar vrei să ștergi această colecție?"
 
 #: src/amo/pages/Collection/index.js:394
 msgid "Delete this collection"
