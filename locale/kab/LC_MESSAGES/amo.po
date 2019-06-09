@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-04 21:01+0000\n"
-"PO-Revision-Date: 2019-06-09 07:30+0000\n"
+"PO-Revision-Date: 2019-06-09 07:42+0000\n"
 "Last-Translator: Muhen Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -156,34 +156,28 @@ msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:61
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s - Izegrar i Firefox"
+msgstr "%(addonName)s – Awi amawal-a i 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:66
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s - Izegrar i Firefox"
+msgstr "%(addonName)s – Awi asiɣzef-a i 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:71
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s - Izegrar i Firefox"
+msgstr "%(addonName)s – Awi akemmus-a utlayan i 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:77
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s - Izegrar i Firefox"
+msgstr "%(addonName)s – Awi asentel-a i 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:83
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s - Izegrar i Firefox"
+msgstr "%(addonName)s –Awi afecku-a n unadi i 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:88
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s - Izegrar i Firefox"
+msgstr "%(addonName)s – Awi azegrir-a i 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:95
@@ -191,16 +185,14 @@ msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
 #: src/amo/components/AddonMeta/index.js:116
-#, fuzzy
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
-msgstr[0] "%(total)s aseqdac"
-msgstr[1] "%(total)s iseqdacen"
+msgstr[0] "%(total)s Itri"
+msgstr[1] "%(total)s Itran"
 
 #: src/amo/components/AddonMeta/index.js:125
-#, fuzzy
 msgid "Not rated yet"
-msgstr "Ur yettwasezmel ara"
+msgstr "Ulac tazmilt yakan"
 
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Users"
@@ -217,9 +209,8 @@ msgid "No Users"
 msgstr "Ulac iseqdacen"
 
 #: src/amo/components/AddonMeta/index.js:60
-#, fuzzy
 msgid "Reviews"
-msgstr "Acegger"
+msgstr "Iceggiren"
 
 #: src/amo/components/AddonMeta/index.js:63
 msgid "Review"
@@ -240,9 +231,8 @@ msgid "Visit stats dashboard"
 msgstr "Rzu ar tfelwit n usenqed n tidaddanin"
 
 #: src/amo/components/AddonMoreInfo/index.js:116
-#, fuzzy
 msgid "Custom License"
-msgstr "Turagt"
+msgstr "Turagt tudmawant"
 
 #: src/amo/components/AddonMoreInfo/index.js:140
 msgid "%(timeFromNow)s (%(date)s)"
@@ -301,7 +291,6 @@ msgid "Homepage"
 msgstr "Asebter agejdan"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
-#, fuzzy
 msgid "Support site"
 msgstr "Asmel n tallelt"
 
@@ -318,44 +307,36 @@ msgid "Other popular extensions"
 msgstr "Isiɣzaf-nniḍen iɣerfanen"
 
 #: src/amo/components/AddonReviewCard/index.js:195
-#, fuzzy
 msgid "Edit reply"
-msgstr "Ẓreg tiririt-iw"
+msgstr "Ẓreg tiririt"
 
 #: src/amo/components/AddonReviewCard/index.js:198
-#, fuzzy
 msgid "Edit review"
 msgstr "Aru acegger-iw"
 
 #: src/amo/components/AddonReviewCard/index.js:205 src/amo/components/AddonReviewCard/index.js:237
-#, fuzzy
 msgid "Delete reply"
-msgstr "Ẓreg tiririt-iw"
+msgstr "Kkes tiririt"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
-#, fuzzy
 msgid "Delete rating"
-msgstr "Aru acegger-iw"
+msgstr "Kkes tazmilt"
 
 #: src/amo/components/AddonReviewCard/index.js:212 src/amo/components/AddonReviewCard/index.js:244
-#, fuzzy
 msgid "Delete review"
-msgstr "Aru acegger-iw"
+msgstr "Kkes aceggir"
 
 #: src/amo/components/AddonReviewCard/index.js:219
-#, fuzzy
 msgid "Do you really want to delete this reply?"
-msgstr "Tebγiḍ s tidet ad tekseḍ tugna-agi?"
+msgstr "Tebγiḍ s tidet ad tekkseḍ tirit-agi?"
 
 #: src/amo/components/AddonReviewCard/index.js:223
-#, fuzzy
 msgid "Do you really want to delete this rating?"
-msgstr "Tebγiḍ s tidet ad tekseḍ tugna-agi?"
+msgstr "Tebγiḍ s tidet ad tekseḍ tazmilt-agi?"
 
 #: src/amo/components/AddonReviewCard/index.js:226
-#, fuzzy
 msgid "Do you really want to delete this review?"
-msgstr "Tebγiḍ s tidet ad tekseḍ tugna-agi?"
+msgstr "Tebγiḍ s tidet ad tekseḍ aceggir-agi?"
 
 #: src/amo/components/AddonReviewCard/index.js:233 src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
@@ -367,9 +348,8 @@ msgid "Cancel"
 msgstr "Sefsex"
 
 #: src/amo/components/AddonReviewCard/index.js:255
-#, fuzzy
 msgid "Keep reply"
-msgstr "Ẓreg tiririt-iw"
+msgstr "Eǧǧ tiririt"
 
 #: src/amo/components/AddonReviewCard/index.js:259
 #, fuzzy
@@ -412,9 +392,8 @@ msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "sγur %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewCard/index.js:446
-#, fuzzy
 msgid "Deleting…"
-msgstr "Anadi..."
+msgstr "Tukksa..."
 
 #: src/amo/components/AddonReviewCard/index.js:477
 msgid "Reply to this review"
