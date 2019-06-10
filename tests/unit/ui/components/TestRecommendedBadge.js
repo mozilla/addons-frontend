@@ -31,11 +31,12 @@ describe(__filename, () => {
     expect(root).toHaveClassName(className);
   });
 
-  it('Calls event.stopPropagation after clicking on the link', () => {
+  it('calls onClick after clicking on the link', () => {
     const clickEvent = createFakeEvent();
-    const root = render();
+    const onClick = sinon.spy();
+    const root = render({ onClick });
     root.find('.RecommendedBadge-link').simulate('click', clickEvent);
 
-    sinon.assert.called(clickEvent.stopPropagation);
+    sinon.assert.calledWith(onClick, clickEvent);
   });
 });

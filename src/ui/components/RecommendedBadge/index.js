@@ -11,6 +11,7 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {|
+  onClick?: Function | null,
   size: RecommendedBadgeSize,
 |};
 
@@ -19,12 +20,12 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
-export const RecommendedBadgeBase = ({ i18n, size }: InternalProps) => {
+export const RecommendedBadgeBase = ({
+  i18n,
+  onClick = null,
+  size,
+}: InternalProps) => {
   const label = i18n.gettext('Recommended');
-
-  const onClick = (event: SyntheticEvent<any>) => {
-    event.stopPropagation();
-  };
 
   return (
     <div

@@ -8,14 +8,29 @@ $icon-default-size: 32px;
   list-style-type: none;
   margin: 0 0 1px;
 
-  :hover {
+  &:hover {
     cursor: pointer;
+
+    .SearchResult-link {
+      color: $link-color;
+    }
   }
 }
 
 .SearchResult-link {
-  color: $text-color-default;
   text-decoration: none;
+
+  &,
+  &:active,
+  &:link,
+  &:visited {
+    color: $text-color-default;
+  }
+
+  &:focus,
+  &:hover {
+    color: $link-color;
+  }
 }
 
 .SearchResult-result {
@@ -126,11 +141,6 @@ $icon-default-size: 32px;
 
       margin-top: 0;
     }
-  }
-
-  .SearchResult-link:focus &,
-  .SearchResult-link:hover & {
-    color: $link-color;
   }
 
   .LoadingText {

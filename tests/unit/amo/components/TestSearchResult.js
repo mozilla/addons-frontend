@@ -13,6 +13,7 @@ import {
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   createContextWithFakeRouter,
+  createFakeEvent,
   createFakeHistory,
   dispatchClientMetadata,
   fakeAddon,
@@ -79,6 +80,15 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find('.SearchResult-link')).toHaveProp('to', `/addon/${slug}/`);
+  });
+
+  it('stops propagation when clicking on the add-on name', () => {
+    const root = render();
+
+    const clickEvent = createFakeEvent();
+    root.find('.SearchResult-link').simulate('click', clickEvent);
+
+    sinon.assert.called(clickEvent.stopPropagation);
   });
 
   it('links the heading to the detail page with a source', () => {
@@ -439,6 +449,23 @@ describe(__filename, () => {
     });
 
     expect(root.find(RecommendedBadge)).toHaveLength(1);
+  });
+
+  it('passes an onClick function which stops propagation to RecommendedBadge', () => {
+    const root = render({
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: true,
+      }),
+      addon: createInternalAddon({
+        ...fakeAddon,
+        is_recommended: true,
+      }),
+    });
+
+    const clickEvent = createFakeEvent();
+    root.find(RecommendedBadge).simulate('click', clickEvent);
+
+    sinon.assert.called(clickEvent.stopPropagation);
   });
 
   it('does not display a recommended badge when showRecommendedBadge is false', () => {

@@ -94,8 +94,9 @@ export class SearchResultBase extends React.Component<InternalProps> {
     if (addon) {
       addonTitle = (
         <Link
-          to={this.getAddonLink(addon, addonInstallSource)}
           className="SearchResult-link"
+          to={this.getAddonLink(addon, addonInstallSource)}
+          onClick={(e) => e.stopPropagation()}
         >
           {addon.name}
         </Link>
@@ -172,7 +173,10 @@ export class SearchResultBase extends React.Component<InternalProps> {
             addon &&
             addon.is_recommended &&
             clientApp !== CLIENT_APP_ANDROID ? (
-              <RecommendedBadge size="small" />
+              <RecommendedBadge
+                onClick={(e) => e.stopPropagation()}
+                size="small"
+              />
             ) : null}
           </h2>
           {summary}
@@ -250,6 +254,8 @@ export class SearchResultBase extends React.Component<InternalProps> {
     });
 
     return (
+      // Note: The link in question is still keyboard accessible because we've
+      // added an actual link to the h2 tag.
       // eslint-disable-next-line max-len
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
       <li onClick={this.onClickResult} className={resultClassnames}>
