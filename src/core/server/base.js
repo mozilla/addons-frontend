@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import querystring from 'querystring';
 import https from 'https';
 
 import 'core/polyfill';
@@ -31,12 +30,7 @@ import * as middleware from 'core/middleware';
 import requestId from 'core/middleware/requestId';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import { dismissSurvey } from 'core/reducers/survey';
-import {
-  addQueryParamsToHistory,
-  apiAddonType,
-  convertBoolean,
-  getCategoryResultsQuery,
-} from 'core/utils';
+import { addQueryParamsToHistory, convertBoolean } from 'core/utils';
 import { viewFrontendVersionHandler } from 'core/utils/server';
 import {
   setAuthToken,
@@ -167,25 +161,6 @@ function hydrateOnClient({ res, props = {}, pageProps, store }) {
   });
 }
 
-export const SERVER_REDIRECTS = {
-  categoryToSearchResults: {
-    oldUrlPattern:
-      '/:lang/:application/:visibleAddonType(extensions|themes)/:slug/',
-    buildNewURL: ({ req }) => {
-      const { application, lang, slug, visibleAddonType } = req.params;
-      const queryString = querystring.stringify(
-        getCategoryResultsQuery({
-          addonType: apiAddonType(visibleAddonType),
-          slug,
-        }),
-      );
-
-      return `/${lang}/${application}/search/?${queryString}`;
-    },
-    status: 301,
-  },
-};
-
 function baseServer(
   App,
   createStore,
@@ -282,21 +257,6 @@ function baseServer(
       );
     });
   }
-
-  // We must add these redirect handlers before our custom middleware to avoid
-  // unwanted side effects.
-  Object.values(SERVER_REDIRECTS).forEach(
-    ({ oldUrlPattern, buildNewURL, status }) => {
-      app.get(oldUrlPattern, (req, res) => {
-        const newURL = buildNewURL({ req });
-        log.debug(
-          `Redirecting "${req.url}" to "${newURL}" with status = ${status}`,
-        );
-
-        res.redirect(status, newURL);
-      });
-    },
-  );
 
   // Handle application and lang redirections.
   if (config.get('enablePrefixMiddleware')) {
