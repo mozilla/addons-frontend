@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-04 21:01+0000\n"
-"PO-Revision-Date: 2019-06-10 09:31+0000\n"
+"PO-Revision-Date: 2019-06-10 09:51+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1676,7 +1676,7 @@ msgstr "Versjonsnotat for %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:448
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Dette er ikkje ei offentleg liste. Du ser det berre på grunn av forhøgde løyve."
 
 #: src/amo/pages/Addon/index.js:476
 msgid "Extension Metadata"
@@ -1700,7 +1700,7 @@ msgstr "Personvernpraksis for %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:196
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Vurderingar og rangeringar for %(addonName)s. Finn ut kva andre brukarar synest om %(addonName)s og legg den til i Firefox-nettlesaren din."
 
 #: src/amo/pages/AddonReviewList/index.js:228
 msgid "Show all reviews"
