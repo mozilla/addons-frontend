@@ -1,12 +1,27 @@
-Thanks for opening a Pull Request (PR), here's a few guidelines as to what we need in your PR before we review it.
+<!--
+    Thanks for opening a pull request (PR). Please read through
+    these instructions to help us review and merge your change quicker.
 
-Please delete anything that isn't relevant to your patch.
+    Replace ISSUE_NUMBER with the number of the issue related to what
+    you're fixing followed by a description of your change. For example:
 
-- [ ] This PR relates to an existing open issue and there are no existing PRs open for the same issue.
-- [ ] Add `Fixes #ISSUENUM` at the top of your PR.
-- [ ] Add a description of the changes introduced in this PR.
-- [ ] The change has been successfully run locally.
-- [ ] Add tests to cover the changes added in this PR.
-- [ ] Add before and after screenshots (Only for changes that impact the UI).
+    Fixes #3588
 
-Once you have met the above requirements please replace this section with a `Fixes #ISSUENUM` linking to the issue fixed by this PR along with an explanation of the changes. Thanks for your contribution!
+    This patch adds a margin on the logout button to correct the layout.
+-->
+
+Fixes #ISSUE_NUMBER
+
+Replace this sentence with a description of how your patch fixes the issue.
+
+<!--
+    Read through this checklist to make sure your patch is ready for review.
+
+    - Add a PR title that summarizes your patch
+    - Make sure this PR relates to an existing open issue and there are no existing PRs open for the same issue.
+    - Add tests to cover the changes added in this PR.
+    - Check that the change works locally.
+    - Add before and after screenshots (Only for changes that impact the UI).
+
+    Thanks for your contribution!
+-->
