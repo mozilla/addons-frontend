@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-06-04 21:01+0000\n"
+"POT-Creation-Date: 2019-06-11 16:05+0000\n"
 "PO-Revision-Date: 2019-05-29 20:18+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,16 +30,16 @@ msgstr "Eliger un collection…"
 msgid "Create new collection"
 msgstr "Crear un nove collection"
 
-#: src/amo/components/AddAddonToCollection/index.js:244
+#: src/amo/components/AddAddonToCollection/index.js:242
 msgid "Added to %(collectionName)s"
 msgstr "Addite a %(collectionName)s"
 
 # This is a header for a list meaning Add to [some collection name]
-#: src/amo/components/AddAddonToCollection/index.js:260
+#: src/amo/components/AddAddonToCollection/index.js:258
 msgid "Add to…"
 msgstr "Adder a…"
 
-#: src/amo/components/AddAddonToCollection/index.js:265
+#: src/amo/components/AddAddonToCollection/index.js:263
 #: src/amo/components/CollectionAddAddon/index.js:173
 msgid "Add to collection"
 msgstr "Adder al collection"
@@ -433,15 +433,15 @@ msgstr "postate %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "per %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:446
+#: src/amo/components/AddonReviewCard/index.js:442
 msgid "Deleting…"
 msgstr "Deletion…"
 
-#: src/amo/components/AddonReviewCard/index.js:477
+#: src/amo/components/AddonReviewCard/index.js:473
 msgid "Reply to this review"
 msgstr "Responder a iste revision"
 
-#: src/amo/components/AddonReviewCard/index.js:507
+#: src/amo/components/AddonReviewCard/index.js:503
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
@@ -449,7 +449,7 @@ msgstr ""
 "Iste valutation o recension era delete. Tu vide solo illo a causa de elevate "
 "permissos."
 
-#: src/amo/components/AddonReviewCard/index.js:553
+#: src/amo/components/AddonReviewCard/index.js:549
 msgid "Write a review"
 msgstr "Scribe un revision"
 
@@ -958,12 +958,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Signalate como un reporto de defecto o requesta de supporto"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Signalate"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Signalar"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Signalate"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1158,17 +1158,17 @@ msgid "Learn how to create extensions and themes"
 msgstr "Discoperi como crear extensiones e themas"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
-#: src/amo/pages/Guides/index.js:267
+#: src/amo/pages/Guides/index.js:275
 msgid "Stay Safe Online"
 msgstr "Remane secur online"
 
 #: src/amo/components/HomeHeroGuides/index.js:39
-#: src/amo/pages/Guides/index.js:280
+#: src/amo/pages/Guides/index.js:288
 msgid "Organize Tabs & Bookmarks"
 msgstr "Organisar schedas e marcapaginas"
 
 #: src/amo/components/HomeHeroGuides/index.js:44
-#: src/amo/pages/Guides/index.js:293
+#: src/amo/pages/Guides/index.js:301
 msgid "Enhance Your Media Experience"
 msgstr "Meliora tu experientia de medios"
 
@@ -1697,15 +1697,15 @@ msgstr "Additivos de Firefox pro Android (%(locale)s)"
 msgid "Go to the add-on page"
 msgstr "Ir al pagina del additivo"
 
-#: src/amo/components/SearchResult/index.js:134
+#: src/amo/components/SearchResult/index.js:164
 msgid "No theme preview available"
 msgstr "Nulle vista preliminar del thema disponibile"
 
-#: src/amo/components/SearchResult/index.js:169
+#: src/amo/components/SearchResult/index.js:202
 msgid "Add-on note"
 msgstr "Nota del additivo"
 
-#: src/amo/components/SearchResult/index.js:188
+#: src/amo/components/SearchResult/index.js:222
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s usator"
@@ -1724,7 +1724,7 @@ msgid "No results were found."
 msgstr "Nulle resultatos esseva trovate."
 
 #: src/amo/components/SearchSuggestion/index.js:57
-#: src/ui/components/RecommendedBadge/index.js:23
+#: src/ui/components/RecommendedBadge/index.js:28
 msgid "Recommended"
 msgstr "Recommendate"
 
@@ -2038,7 +2038,18 @@ msgstr "Tu non ha ulle collectiones."
 msgid "My collections"
 msgstr "Mi collectiones"
 
-#: src/amo/pages/Guides/index.js:103
+#: src/amo/pages/Guides/index.js:100
+msgid ""
+"Today’s web is tangled up with unwanted advertisements that get in your way "
+"and slow you down. Ad-blocking extensions can block or filter those ads so "
+"you can get back to distraction-free browsing."
+msgstr ""
+"Le Web hodierne es imbroliate con publicitate indesirate que te impedi e "
+"relenta. Le extensiones de blocada pote blocar o filtrar ille avisos "
+"publicitari assi que tu pote re-obtener un navigation libere de "
+"distractiones."
+
+#: src/amo/pages/Guides/index.js:106
 msgid ""
 "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands "
 "of content filters without chewing up a bunch of memory."
@@ -2046,17 +2057,17 @@ msgstr ""
 "Blocator de avisos publicitari legier e multo efficace. uBlock Origine "
 "applica milles de filtros de contento sin consummar trop memoria."
 
-#: src/amo/pages/Guides/index.js:107
+#: src/amo/pages/Guides/index.js:110
 msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
 msgstr ""
 "Discoperi le avantages del %(linkStart)sblocador del avisos publicitari"
 "%(linkEnd)s seligite per nostre equipa."
 
-#: src/amo/pages/Guides/index.js:115
+#: src/amo/pages/Guides/index.js:118
 msgid "Stop online trackers from stalking you"
 msgstr "Stoppa le traciatores online de sequer te furtivemente"
 
-#: src/amo/pages/Guides/index.js:116
+#: src/amo/pages/Guides/index.js:119
 msgid ""
 "Online advertisers can track your activity from one website to the next, "
 "gathering information about you and your interests. Extensions can help "
@@ -2066,7 +2077,7 @@ msgstr ""
 "web al altero, colligente informationes re te e tu interesses. Le "
 "extensiones pote adjutar a coperir tu pista digital."
 
-#: src/amo/pages/Guides/index.js:121
+#: src/amo/pages/Guides/index.js:124
 msgid ""
 "Isolate your Facebook identity into a separate “container” to stop Facebook "
 "from tracking your activity outside of its social platform."
@@ -2074,17 +2085,17 @@ msgstr ""
 "Isola tu identitate de Facebook in un separate “receptaculo”, pro stoppar "
 "Facebook ab le traciamento de tu activitate foras de su platteforma social."
 
-#: src/amo/pages/Guides/index.js:125
+#: src/amo/pages/Guides/index.js:128
 msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
 msgstr ""
 "Explora le avantages del %(linkStart)sconfidentialitate e securitate"
 "%(linkEnd)s seligite per nostre equipa."
 
-#: src/amo/pages/Guides/index.js:136
+#: src/amo/pages/Guides/index.js:139
 msgid "Reimagine tab management"
 msgstr "Reinventa le gestion de schedas"
 
-#: src/amo/pages/Guides/index.js:137
+#: src/amo/pages/Guides/index.js:140
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with "
 "the frustration of searching through a row of unidentifiable tabs looking "
@@ -2096,7 +2107,7 @@ msgstr ""
 "de schedas inidentificabile. Le extensiones pote offerer solutiones creative "
 "pro le rationalisation del gestion de schedas."
 
-#: src/amo/pages/Guides/index.js:143
+#: src/amo/pages/Guides/index.js:146
 msgid ""
 "Arrange and visualize your tabs in a cascading “tree” style format in "
 "Firefox’s sidebar."
@@ -2104,17 +2115,17 @@ msgstr ""
 "Arrangia e visualisa tu schedas in un formato de cascada a “arbore” in le "
 "barra lateral de Firefox."
 
-#: src/amo/pages/Guides/index.js:147
+#: src/amo/pages/Guides/index.js:150
 msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
 msgstr ""
 "Discoperi le avantages del %(linkStart)sgestion del scheda%(linkEnd)s "
 "seligite per nostre equipa."
 
-#: src/amo/pages/Guides/index.js:155
+#: src/amo/pages/Guides/index.js:158
 msgid "Better browsing with improved bookmarks"
 msgstr "Melior exploration con marcapaginas meliorate"
 
-#: src/amo/pages/Guides/index.js:156
+#: src/amo/pages/Guides/index.js:159
 msgid ""
 "Extensions can help you organize your online interests. Bookmark managers "
 "are ideal for folks with a lot of content to track."
@@ -2122,7 +2133,7 @@ msgstr ""
 "Le extensiones pote adjutar te a organisar tu interesses online. Le gestores "
 "de marcapaginas es ideal pro le personas con multe contento a traciar."
 
-#: src/amo/pages/Guides/index.js:160
+#: src/amo/pages/Guides/index.js:163
 msgid ""
 "Want help organizing all of your favorite online cooking recipes, how-to "
 "articles, YouTube videos, or just about anything you find on the web? "
@@ -2135,17 +2146,17 @@ msgstr ""
 "tu favorite contento online in un potente repositorio que se synchronisa "
 "trans tu apparatos."
 
-#: src/amo/pages/Guides/index.js:167
+#: src/amo/pages/Guides/index.js:170
 msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
 msgstr ""
 "Discoperi le avantages del %(linkStart)sgestion del marcapaginas%(linkEnd)s "
 "seligite per nostre equipa."
 
-#: src/amo/pages/Guides/index.js:175
+#: src/amo/pages/Guides/index.js:178
 msgid "Enjoy a fresh new tab experience"
 msgstr "Gaude un fresc experientia de nove scheda"
 
-#: src/amo/pages/Guides/index.js:176
+#: src/amo/pages/Guides/index.js:179
 msgid ""
 "Start each browsing session tailored just for you by customizing your new "
 "tab experience."
@@ -2153,7 +2164,7 @@ msgstr ""
 "Comencia cata session de exploration, secundo tu proprie gusto, per le "
 "personalisation de tu experientias del nove schedas."
 
-#: src/amo/pages/Guides/index.js:180
+#: src/amo/pages/Guides/index.js:183
 msgid ""
 "Enjoy a beautiful new page with customizable backgrounds, local weather "
 "info, and more."
@@ -2161,7 +2172,7 @@ msgstr ""
 "Gaude un belle nove pagina con fundos personalisabile, info del conditiones "
 "meteorologic local e altero ancora."
 
-#: src/amo/pages/Guides/index.js:184
+#: src/amo/pages/Guides/index.js:187
 msgid ""
 "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with "
 "these staff picks."
@@ -2169,11 +2180,11 @@ msgstr ""
 "Discoperi le avantages del %(linkStart)smanieras amusante pro cambiar tu "
 "schedas%(linkEnd)s con iste selectiones de nostre equipa."
 
-#: src/amo/pages/Guides/index.js:195
+#: src/amo/pages/Guides/index.js:198
 msgid "Improve videos"
 msgstr "Meliora le videos"
 
-#: src/amo/pages/Guides/index.js:196
+#: src/amo/pages/Guides/index.js:199
 msgid ""
 "If you enjoy video content, extensions offer a number of ways to optimize "
 "your experience, including customizing YouTube to your taste and playing "
@@ -2183,7 +2194,7 @@ msgstr ""
 "pro optimisar tu experientia, ab le personalisation de YouTube a gustar le "
 "videos reproducite in modo theatro."
 
-#: src/amo/pages/Guides/index.js:201
+#: src/amo/pages/Guides/index.js:204
 msgid ""
 "Add a control bar to all YouTube video pages so you can easily adjust "
 "volume, playback speed, video player size, advertising and annotation "
@@ -2194,17 +2205,17 @@ msgstr ""
 "reproductor video, blocada de publicitate e annotation, e altere "
 "functionalitates."
 
-#: src/amo/pages/Guides/index.js:206
+#: src/amo/pages/Guides/index.js:209
 msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
 msgstr ""
 "Discoperi le avantages del %(linkStart)sextensiones video%(linkEnd)s "
 "seligite per nostre equipa."
 
-#: src/amo/pages/Guides/index.js:214
+#: src/amo/pages/Guides/index.js:217
 msgid "Get more out of media"
 msgstr "Obtene plus ab le medios"
 
-#: src/amo/pages/Guides/index.js:215
+#: src/amo/pages/Guides/index.js:218
 msgid ""
 "Extensions can address a wide variety of niche media needs and interests, "
 "like image searching, download management, and text readers, to name a few."
@@ -2213,7 +2224,7 @@ msgstr ""
 "niche del medios, como recerca per imagine, gestion de discarga e lectores "
 "texto, pro nominar poc unos."
 
-#: src/amo/pages/Guides/index.js:220
+#: src/amo/pages/Guides/index.js:223
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn "
 "more about it, like who’s the person in the pic? Are there related images? "
@@ -2225,17 +2236,17 @@ msgstr ""
 "extension te pone in grado de exequer rapide e facile recercas inverse de "
 "imagines, per un varietate de motores."
 
-#: src/amo/pages/Guides/index.js:226
+#: src/amo/pages/Guides/index.js:229
 msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
 msgstr ""
 "Discoperi le avantages del %(linkStart)sextensiones de medios%(linkEnd)s "
 "seligite per nostre equipa."
 
-#: src/amo/pages/Guides/index.js:234
+#: src/amo/pages/Guides/index.js:237
 msgid "Bring media right into the browser"
 msgstr "Accede medios directemente per le navigator"
 
-#: src/amo/pages/Guides/index.js:235
+#: src/amo/pages/Guides/index.js:238
 msgid ""
 "Extensions can turn Firefox into your very own entertainment hub that gives "
 "you instant access to music, image capturing, gaming, and more."
@@ -2244,7 +2255,7 @@ msgstr ""
 "intertenimento que te da accesso instantanee a musica, captura de imagine, "
 "jocos e altero ancora."
 
-#: src/amo/pages/Guides/index.js:240
+#: src/amo/pages/Guides/index.js:243
 msgid ""
 "Access 30,000+ radio stations from all over the globe, always just a click "
 "away."
@@ -2252,7 +2263,7 @@ msgstr ""
 "Accede a 30,000+ stationes radio de tote le mundo, sempre simplemente a "
 "portata de un clic."
 
-#: src/amo/pages/Guides/index.js:244
+#: src/amo/pages/Guides/index.js:247
 msgid ""
 "Explore among thousands of %(linkStart)sphoto, music & video extensions"
 "%(linkEnd)s."
@@ -2260,7 +2271,7 @@ msgstr ""
 "Explora inter milles de %(linkStart)s extensiones pro gerer photos, musica e "
 "videos%(linkEnd)s."
 
-#: src/amo/pages/Guides/index.js:268
+#: src/amo/pages/Guides/index.js:276
 msgid ""
 "The web is a wonderful but wild place. Your personal data can be used "
 "without your consent, your activities spied upon, and your passwords stolen. "
@@ -2271,7 +2282,7 @@ msgstr ""
 "Fortunatemente, le extensiones pote adjutar a fortificar tu "
 "confidentialitate e securitate online."
 
-#: src/amo/pages/Guides/index.js:281
+#: src/amo/pages/Guides/index.js:289
 msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? "
 "Extensions can help! From organization assistance to providing fun new "
@@ -2283,7 +2294,7 @@ msgstr ""
 "nove amusante functionalitates, le extensiones pote dramaticamente cambiar "
 "le maniera que tu tracta schedas e marcapaginas."
 
-#: src/amo/pages/Guides/index.js:294
+#: src/amo/pages/Guides/index.js:302
 msgid ""
 "Extensions can augment online media in all sorts of interesting ways, from "
 "watching videos to handling images, music, and more."
@@ -2291,11 +2302,11 @@ msgstr ""
 "Le extensiones pote augmentar le medios online in tote le sortas de manieras "
 "interessante ab observar videos a gerer imagines, musica e altero ancora."
 
-#: src/amo/pages/Guides/index.js:78
+#: src/amo/pages/Guides/index.js:81
 msgid "Create and manage strong passwords"
 msgstr "Crea e gere contrasignos forte"
 
-#: src/amo/pages/Guides/index.js:79
+#: src/amo/pages/Guides/index.js:82
 msgid ""
 "Password managers can help you create secure passwords, store your passwords "
 "(safely) in one place, and give you easy access to your login credentials "
@@ -2305,7 +2316,7 @@ msgstr ""
 "reservar tu contrasignos (con securitate) in un singule loco e dar te facile "
 "accesso a tu credentiales de connexion ubicunque tu es."
 
-#: src/amo/pages/Guides/index.js:84
+#: src/amo/pages/Guides/index.js:87
 msgid ""
 "Fully encrypted password protection. Store your data securely and access "
 "logins across devices."
@@ -2313,26 +2324,15 @@ msgstr ""
 "Protection de contrasignos plenmente cifrate. Reserva tu datos con "
 "securitate e accede a tu connexiones trans plure apparatos."
 
-#: src/amo/pages/Guides/index.js:88
+#: src/amo/pages/Guides/index.js:91
 msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
 msgstr ""
 "Explora le avantages del %(linkStart)sgestor de contrasignos%(linkEnd)s "
 "seligite per nostre equipa."
 
-#: src/amo/pages/Guides/index.js:96
+#: src/amo/pages/Guides/index.js:99
 msgid "Block annoying ads"
 msgstr "Bloca enoiose avisos publicitari"
-
-#: src/amo/pages/Guides/index.js:97
-msgid ""
-"Today’s web is tangled up with unwanted advertisements that get in your way "
-"and slow you down. Ad-blocking extensions can block or filter those ads so "
-"you can get back to distraction-free browsing."
-msgstr ""
-"Le Web hodierne es imbroliate con publicitate indesirate que te impedi e "
-"relenta. Le extensiones de blocada pote blocar o filtrar ille avisos "
-"publicitari assi que tu pote re-obtener un navigation libere de "
-"distractiones."
 
 #: src/amo/pages/Home/index.js:139
 msgid "Bookmarks"
@@ -2505,11 +2505,11 @@ msgstr "Explora tote le categorias"
 msgid "Available for your locale"
 msgstr "Disponibile pro tu localisation"
 
-#: src/amo/pages/LanguageTools/index.js:148
+#: src/amo/pages/LanguageTools/index.js:146
 msgid "Dictionaries and Language Packs"
 msgstr "Dictionarios e pacchettos de lingua"
 
-#: src/amo/pages/LanguageTools/index.js:157
+#: src/amo/pages/LanguageTools/index.js:155
 msgid ""
 "Download Firefox dictionaries and language pack extensions. Add a new "
 "language option to your browser spell-checker, or change the browser's "
@@ -2519,7 +2519,7 @@ msgstr ""
 "un nove option de lingua al controlator orthographic de tu navigator, o "
 "cambia su lingua de interfacie."
 
-#: src/amo/pages/LanguageTools/index.js:168
+#: src/amo/pages/LanguageTools/index.js:166
 msgid ""
 "Installing a dictionary add-on will add a new language option to your spell-"
 "checker, which checks your spelling as you type in Firefox."
@@ -2528,7 +2528,7 @@ msgstr ""
 "controlator orthographic, que controla tu orthographia quando tu scribe in "
 "Firefox."
 
-#: src/amo/pages/LanguageTools/index.js:173
+#: src/amo/pages/LanguageTools/index.js:171
 msgid ""
 "Language packs change your browser's interface language, including menu "
 "options and settings."
@@ -2536,19 +2536,19 @@ msgstr ""
 "Le pacchettos de lingua cambia le lingua de interfacie de tu navigator, "
 "anque le optiones e le configurationes del menu."
 
-#: src/amo/pages/LanguageTools/index.js:179
+#: src/amo/pages/LanguageTools/index.js:177
 msgid "All Locales"
 msgstr "Tote le localisationes"
 
-#: src/amo/pages/LanguageTools/index.js:185
+#: src/amo/pages/LanguageTools/index.js:183
 msgid "Locale Name"
 msgstr "Nomine del localisation"
 
-#: src/amo/pages/LanguageTools/index.js:188
+#: src/amo/pages/LanguageTools/index.js:186
 msgid "Language Packs"
 msgstr "Pacchettos de lingua"
 
-#: src/amo/pages/LanguageTools/index.js:191
+#: src/amo/pages/LanguageTools/index.js:189
 msgid "Dictionaries"
 msgstr "Dictionarios"
 
@@ -3514,7 +3514,7 @@ msgstr "Classificate %(rating)s de 5"
 msgid "There are no ratings yet"
 msgstr "Il ha nulle valutationes ancora"
 
-#: src/ui/components/RecommendedBadge/index.js:37
+#: src/ui/components/RecommendedBadge/index.js:43
 msgid ""
 "Firefox only recommends extensions that meet our standards for security and "
 "performance."
