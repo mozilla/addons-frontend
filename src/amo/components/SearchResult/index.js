@@ -148,88 +148,91 @@ export class SearchResultBase extends React.Component<InternalProps> {
     }
 
     return (
-      <div className="SearchResult-result">
-        <div className={iconWrapperClassnames}>
-          {imageURL ? (
-            <img
-              className={makeClassName('SearchResult-icon', {
-                'SearchResult-icon--loading': !addon,
-              })}
-              src={imageURL}
-              alt={addon ? `${addon.name}` : ''}
-            />
-          ) : (
-            <p className="SearchResult-notheme">
-              {i18n.gettext('No theme preview available')}
-            </p>
-          )}
-        </div>
-
-        <div className="SearchResult-contents">
-          <h2 className="SearchResult-name">
-            {addonTitle}
-            {showRecommendedBadge &&
-            _config.get('enableFeatureRecommendedBadges') &&
-            addon &&
-            addon.is_recommended &&
-            clientApp !== CLIENT_APP_ANDROID ? (
-              <RecommendedBadge
-                onClick={(e) => e.stopPropagation()}
-                size="small"
+      <div className="SearchResult-wrapper">
+        <div className="SearchResult-result">
+          <div className={iconWrapperClassnames}>
+            {imageURL ? (
+              <img
+                className={makeClassName('SearchResult-icon', {
+                  'SearchResult-icon--loading': !addon,
+                })}
+                src={imageURL}
+                alt={addon ? `${addon.name}` : ''}
               />
-            ) : null}
-          </h2>
-          {summary}
+            ) : (
+              <p className="SearchResult-notheme">
+                {i18n.gettext('No theme preview available')}
+              </p>
+            )}
+          </div>
 
-          {showMetadata ? (
-            <div className="SearchResult-metadata">
-              <div className="SearchResult-rating">
-                <Rating
-                  rating={addon && addon.ratings ? addon.ratings.average : 0}
-                  readOnly
-                  styleSize="small"
+          <div className="SearchResult-contents">
+            <h2 className="SearchResult-name">
+              {addonTitle}
+              {showRecommendedBadge &&
+              _config.get('enableFeatureRecommendedBadges') &&
+              addon &&
+              addon.is_recommended &&
+              clientApp !== CLIENT_APP_ANDROID ? (
+                <RecommendedBadge
+                  onClick={(e) => e.stopPropagation()}
+                  size="small"
+                />
+              ) : null}
+            </h2>
+            {summary}
+
+            {showMetadata ? (
+              <div className="SearchResult-metadata">
+                <div className="SearchResult-rating">
+                  <Rating
+                    rating={addon && addon.ratings ? addon.ratings.average : 0}
+                    readOnly
+                    styleSize="small"
+                  />
+                </div>
+                {addonAuthors}
+              </div>
+            ) : null}
+
+            {addon && addon.notes && (
+              <div className="SearchResult-note">
+                <h4 className="SearchResult-note-header">
+                  <Icon name="comments-blue" />
+                  {i18n.gettext('Add-on note')}
+                </h4>
+                <p
+                  className="SearchResult-note-content"
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={sanitizeHTML(nl2br(addon.notes), [
+                    'br',
+                  ])}
                 />
               </div>
-              {addonAuthors}
-            </div>
+            )}
+          </div>
+
+          {!addon || (addon && addon.type !== ADDON_TYPE_OPENSEARCH) ? (
+            <h3 className="SearchResult-users SearchResult--meta-section">
+              <Icon className="SearchResult-users-icon" name="user-fill" />
+              <span className="SearchResult-users-text">
+                {averageDailyUsers !== null &&
+                averageDailyUsers !== undefined ? (
+                  i18n.sprintf(
+                    i18n.ngettext(
+                      '%(total)s user',
+                      '%(total)s users',
+                      averageDailyUsers,
+                    ),
+                    { total: i18n.formatNumber(averageDailyUsers) },
+                  )
+                ) : (
+                  <LoadingText width={90} />
+                )}
+              </span>
+            </h3>
           ) : null}
-
-          {addon && addon.notes && (
-            <div className="SearchResult-note">
-              <h4 className="SearchResult-note-header">
-                <Icon name="comments-blue" />
-                {i18n.gettext('Add-on note')}
-              </h4>
-              <p
-                className="SearchResult-note-content"
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={sanitizeHTML(nl2br(addon.notes), [
-                  'br',
-                ])}
-              />
-            </div>
-          )}
         </div>
-
-        {!addon || (addon && addon.type !== ADDON_TYPE_OPENSEARCH) ? (
-          <h3 className="SearchResult-users SearchResult--meta-section">
-            <Icon className="SearchResult-users-icon" name="user-fill" />
-            <span className="SearchResult-users-text">
-              {averageDailyUsers !== null && averageDailyUsers !== undefined ? (
-                i18n.sprintf(
-                  i18n.ngettext(
-                    '%(total)s user',
-                    '%(total)s users',
-                    averageDailyUsers,
-                  ),
-                  { total: i18n.formatNumber(averageDailyUsers) },
-                )
-              ) : (
-                <LoadingText width={90} />
-              )}
-            </span>
-          </h3>
-        ) : null}
       </div>
     );
   }
