@@ -7,6 +7,7 @@ import AddonCompatibilityError, {
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import {
   CLIENT_APP_FIREFOX,
+  INCOMPATIBLE_FIREFOX_FENIX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -236,6 +237,21 @@ describe(__filename, () => {
         .childAt(0)
         .html(),
     ).toContain('Firefox for iOS does not currently support add-ons.');
+  });
+
+  it('renders a notice for Fenix users', () => {
+    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
+      reason: INCOMPATIBLE_FIREFOX_FENIX,
+    });
+
+    const root = render({ _getClientCompatibility });
+
+    expect(
+      root
+        .find('.AddonCompatibilityError')
+        .childAt(0)
+        .html(),
+    ).toContain('Firefox Fenix does not currently support add-ons.');
   });
 
   it('renders a notice for browsers that do not support OpenSearch', () => {

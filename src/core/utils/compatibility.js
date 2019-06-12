@@ -7,6 +7,7 @@ import mozCompare from 'mozilla-version-comparator';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
+  INCOMPATIBLE_FIREFOX_FENIX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -125,6 +126,13 @@ export function isCompatibleWithUserAgent({
 
   if (!isFirefox({ userAgentInfo })) {
     return { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX };
+  }
+
+  // Fenix does not support add-ons (yet?).
+  // See: https://github.com/mozilla-mobile/fenix/issues/1134
+  // See also: https://github.com/mozilla/addons-frontend/issues/7963
+  if (os.name === 'Android' && mozCompare(browser.version, '69.0') >= 0) {
+    return { compatible: false, reason: INCOMPATIBLE_FIREFOX_FENIX };
   }
 
   // At this point we need a currentVersion in order for an extension to be
