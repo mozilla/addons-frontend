@@ -633,6 +633,10 @@ export const userAgentsByPlatform = {
     firefox40Tablet: oneLine`Mozilla/5.0 (Android; Tablet; rv:40.0)
       Gecko/40.0 Firefox/40.0`,
   },
+  fenix: {
+    firefox69: oneLine`Mozilla/5.0 (Android 9; Mobile; rv:69.0) Gecko/69.0
+      Firefox/69.0`,
+  },
   bsd: {
     firefox40FreeBSD: oneLine`Mozilla/5.0 (X11; FreeBSD amd64; rv:40.0)
       Gecko/20100101 Firefox/40.0`,
@@ -666,6 +670,8 @@ export const userAgentsByPlatform = {
       Gecko/20100101 Firefox/57.1`,
     firefox61: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:61.0)
       Gecko/20100101 Firefox/61.0`,
+    firefox69: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:69.0)
+      Gecko/20100101 Firefox/69.0`,
   },
   unix: {
     firefox51: oneLine`Mozilla/51.0.2 (X11; Unix x86_64; rv:29.0)
@@ -723,6 +729,7 @@ export const userAgents = {
     'Mozilla/5.0 (Android 4.4; Tablet; rv:41.0) Gecko/41.0 Firefox/41.0',
     'Mozilla/5.0 (Android 4.4; Tablet; rv:57.0) Gecko/57.0 Firefox/57.0',
   ],
+  fenix: [userAgentsByPlatform.fenix.firefox69],
   firefoxIOS: [
     userAgentsByPlatform.ios.firefox1iPodTouch,
     userAgentsByPlatform.ios.firefox1iPhone,

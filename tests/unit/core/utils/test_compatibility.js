@@ -5,6 +5,7 @@ import {
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  INCOMPATIBLE_FIREFOX_FENIX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -88,6 +89,12 @@ describe(__filename, () => {
         expect(isFirefox({ userAgentInfo: UAParser(userAgent) })).toEqual(true);
       });
     });
+
+    it('returns true for Firefox Fenix', () => {
+      userAgents.fenix.forEach((userAgent) => {
+        expect(isFirefox({ userAgentInfo: UAParser(userAgent) })).toEqual(true);
+      });
+    });
   });
 
   describe('isCompatibleWithUserAgent', () => {
@@ -121,6 +128,24 @@ describe(__filename, () => {
           }),
         ).toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
       });
+    });
+
+    it('is incompatible with Firefox Fenix', () => {
+      userAgents.fenix.forEach((userAgent) => {
+        expect(
+          _isCompatibleWithUserAgent({
+            userAgentInfo: UAParser(userAgent),
+          }),
+        ).toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FENIX });
+      });
+    });
+
+    it('is compatible with Firefox >= 69', () => {
+      expect(
+        _isCompatibleWithUserAgent({
+          userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox69),
+        }),
+      ).toEqual({ compatible: true, reason: null });
     });
 
     it('should use a Firefox for iOS reason code even if minVersion is also not met', () => {
