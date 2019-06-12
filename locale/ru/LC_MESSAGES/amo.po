@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-11 16:05+0000\n"
-"PO-Revision-Date: 2019-06-11 18:13+0000\n"
+"PO-Revision-Date: 2019-06-11 18:16+0000\n"
 "Last-Translator: Victor Bychek <a@bychek.ru>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -2955,7 +2955,7 @@ msgstr "Оценок пока нет"
 
 #: src/ui/components/RecommendedBadge/index.js:43
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "Firefox рекомендует только те расширения, которые соответствуют нашим стандартам по безопасности и производительности."
 
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
