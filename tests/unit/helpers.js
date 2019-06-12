@@ -636,6 +636,8 @@ export const userAgentsByPlatform = {
   fenix: {
     firefox69: oneLine`Mozilla/5.0 (Android 9; Mobile; rv:69.0) Gecko/69.0
       Firefox/69.0`,
+    firefox70: oneLine`Mozilla/5.0 (Android 9; Mobile; rv:70.0) Gecko/70.0
+      Firefox/70.0`,
   },
   bsd: {
     firefox40FreeBSD: oneLine`Mozilla/5.0 (X11; FreeBSD amd64; rv:40.0)
@@ -729,7 +731,10 @@ export const userAgents = {
     'Mozilla/5.0 (Android 4.4; Tablet; rv:41.0) Gecko/41.0 Firefox/41.0',
     'Mozilla/5.0 (Android 4.4; Tablet; rv:57.0) Gecko/57.0 Firefox/57.0',
   ],
-  fenix: [userAgentsByPlatform.fenix.firefox69],
+  fenix: [
+    userAgentsByPlatform.fenix.firefox69,
+    userAgentsByPlatform.fenix.firefox70,
+  ],
   firefoxIOS: [
     userAgentsByPlatform.ios.firefox1iPodTouch,
     userAgentsByPlatform.ios.firefox1iPhone,
