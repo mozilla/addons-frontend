@@ -412,9 +412,7 @@ export const replaceStringsWithJSX = ({
 
   if (numberOfPairs !== replacements.length) {
     throw new Error(
-      `Expected ${numberOfPairs} replacements but only got ${
-        replacements.length
-      }`,
+      `Expected ${numberOfPairs} replacements but only got ${replacements.length}`,
     );
   }
 

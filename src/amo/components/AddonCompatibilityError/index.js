@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import {
+  INCOMPATIBLE_FIREFOX_FENIX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -105,6 +106,10 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
     } else if (reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
       message = i18n.gettext(
         'Firefox for iOS does not currently support add-ons.',
+      );
+    } else if (reason === INCOMPATIBLE_FIREFOX_FENIX) {
+      message = i18n.gettext(
+        'Firefox Fenix does not currently support add-ons.',
       );
     } else if (reason === INCOMPATIBLE_UNSUPPORTED_PLATFORM) {
       message = i18n.gettext('This add-on is not available on your platform.');

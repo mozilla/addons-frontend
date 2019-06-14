@@ -54,7 +54,10 @@
     "amo/only-log-strings": ["error", {
       "methods": ["fatal", "info", "error", "warn"]
     }],
-    "react/default-props-match-prop-types": "off"
+    "react/default-props-match-prop-types": "off",
+    // This rule is disabled because it outputs a lot of false positives, see:
+    // https://github.com/benmosher/eslint-plugin-import/issues/1343
+    "import/no-cycle": "off"
   },
   "settings": {
     "import/core-modules": [

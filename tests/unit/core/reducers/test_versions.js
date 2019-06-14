@@ -531,7 +531,7 @@ describe(__filename, () => {
           loadHomeAddons({
             collections: [],
             shelves: {
-              featuredExtensions: createAddonsApiResult([
+              recommendedExtensions: createAddonsApiResult([
                 { ...fakeAddon, current_version: version },
               ]),
             },
@@ -569,7 +569,7 @@ describe(__filename, () => {
           loadHomeAddons({
             collections: [],
             shelves: {
-              featuredExtensions: searchResult,
+              recommendedExtensions: searchResult,
             },
           }),
         );
@@ -588,7 +588,7 @@ describe(__filename, () => {
           loadHomeAddons({
             collections: [],
             shelves: {
-              featuredExtensions: null,
+              recommendedExtensions: null,
             },
           }),
         );
@@ -633,12 +633,12 @@ describe(__filename, () => {
     });
 
     describe('LOAD_LANDING', () => {
-      it('loads versions for featured add-ons', () => {
+      it('loads versions for recommended add-ons', () => {
         const state = versionsReducer(
           undefined,
           loadLanding({
             addonType: ADDON_TYPE_EXTENSION,
-            featured: createAddonsApiResult([
+            recommended: createAddonsApiResult([
               { ...fakeAddon, current_version: version },
             ]),
             highlyRated: createAddonsApiResult([]),
@@ -659,7 +659,7 @@ describe(__filename, () => {
           undefined,
           loadLanding({
             addonType: ADDON_TYPE_EXTENSION,
-            featured: createAddonsApiResult([]),
+            recommended: createAddonsApiResult([]),
             highlyRated: createAddonsApiResult([
               { ...fakeAddon, current_version: version },
             ]),
@@ -680,7 +680,7 @@ describe(__filename, () => {
           undefined,
           loadLanding({
             addonType: ADDON_TYPE_EXTENSION,
-            featured: createAddonsApiResult([]),
+            recommended: createAddonsApiResult([]),
             highlyRated: createAddonsApiResult([]),
             trending: createAddonsApiResult([
               { ...fakeAddon, current_version: version },

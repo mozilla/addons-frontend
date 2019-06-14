@@ -203,9 +203,7 @@ export class AddAddonToCollectionBase extends React.Component<InternalProps> {
         onSelect: () => {
           invariant(addon, 'addon is required');
           history.push(
-            `/${lang}/${clientApp}/collections/add/?include_addon_id=${
-              addon.id
-            }`,
+            `/${lang}/${clientApp}/collections/add/?include_addon_id=${addon.id}`,
           );
         },
       }),

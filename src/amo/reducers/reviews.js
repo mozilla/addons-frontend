@@ -503,9 +503,7 @@ export default function reviewsReducer(
 
       if (review && !selectReview(state, review.id)) {
         throw new Error(
-          `Cannot handle SET_LATEST_REVIEW because review ${
-            review.id
-          } has not been set`,
+          `Cannot handle SET_LATEST_REVIEW because review ${review.id} has not been set`,
         );
       }
 

@@ -2,13 +2,18 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import { CategoriesBase, mapStateToProps } from 'amo/components/Categories';
+import {
+  CategoriesBase,
+  categoryResultsLinkTo,
+  mapStateToProps,
+} from 'amo/components/Categories';
 import { fetchCategories, loadCategories } from 'core/reducers/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
 } from 'core/constants';
+import { getCategoryResultsQuery } from 'core/utils';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
 import {
@@ -189,6 +194,31 @@ describe(__filename, () => {
     ).toHaveProp('children', 'Travel');
   });
 
+  it('generates an expected link for a category', () => {
+    const slug = 'games';
+    const type = ADDON_TYPE_EXTENSION;
+    const categoriesResponse = {
+      results: [
+        {
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
+          slug,
+          type,
+        },
+      ],
+    };
+
+    store.dispatch(loadCategories(categoriesResponse));
+
+    const root = render({
+      addonType: type,
+    });
+
+    expect(root.find(Button).prop('to')).toEqual(
+      categoryResultsLinkTo({ addonType: type, slug }),
+    );
+  });
+
   it('sorts and renders the sorted categories', () => {
     const categoriesResponse = {
       results: [
@@ -272,5 +302,14 @@ describe(__filename, () => {
     const root = render({ errorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  describe('categoryResultsLinkTo', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+    const slug = 'some-slug';
+
+    const toValue = categoryResultsLinkTo({ addonType, slug });
+    expect(toValue.pathname).toEqual('/search/');
+    expect(toValue.query).toEqual(getCategoryResultsQuery({ addonType, slug }));
   });
 });

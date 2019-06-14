@@ -14,7 +14,7 @@ _aliases:
   - &node-next
     # This is the next NodeJS version we will support.
     language: node_js
-    node_js: '11'
+    node_js: '12'
     before_install: npm install -g yarn
 services:
   - docker
@@ -29,10 +29,6 @@ script: FORCE_COLOR=0 yarn $COMMAND
 
 # See: https://github.com/mozilla/addons-frontend/issues/3034
 install: yarn install --pure-lockfile
-
-matrix:
-  allow_failures:
-    - node_js: '11'
 
 jobs:
   include:

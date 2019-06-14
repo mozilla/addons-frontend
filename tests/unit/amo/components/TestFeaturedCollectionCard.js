@@ -86,9 +86,7 @@ describe(__filename, () => {
     const landingAddonsCard = root.find(LandingAddonsCard);
     expect(landingAddonsCard).toHaveProp(
       'footerLink',
-      `/collections/${collectionProperties.userId}/${
-        collectionProperties.slug
-      }/`,
+      `/collections/${collectionProperties.userId}/${collectionProperties.slug}/`,
     );
     expect(landingAddonsCard).toHaveProp(
       'footerText',

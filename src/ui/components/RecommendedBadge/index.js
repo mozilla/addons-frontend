@@ -11,6 +11,7 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {|
+  onClick?: Function | null,
   size: RecommendedBadgeSize,
 |};
 
@@ -19,7 +20,11 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
-export const RecommendedBadgeBase = ({ i18n, size }: InternalProps) => {
+export const RecommendedBadgeBase = ({
+  i18n,
+  onClick = null,
+  size,
+}: InternalProps) => {
   const label = i18n.gettext('Recommended');
 
   return (
@@ -31,7 +36,8 @@ export const RecommendedBadgeBase = ({ i18n, size }: InternalProps) => {
     >
       <a
         className="RecommendedBadge-link"
-        href="https://support.mozilla.org/"
+        href="https://support.mozilla.org/kb/recommended-extensions-program"
+        onClick={onClick}
         rel="noopener noreferrer"
         target="_blank"
         title={i18n.gettext(

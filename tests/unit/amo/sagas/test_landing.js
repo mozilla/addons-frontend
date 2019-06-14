@@ -56,6 +56,7 @@ describe(__filename, () => {
         getLanding({
           addonType: ADDON_TYPE_EXTENSION,
           errorHandlerId: errorHandler.id,
+          enableFeatureRecommendedBadges: true,
           ...overrides,
         }),
       );
@@ -64,26 +65,46 @@ describe(__filename, () => {
     it.each([
       {
         addonType: ADDON_TYPE_EXTENSION,
+        enableFeatureRecommendedBadges: true,
+        pageSize: String(LANDING_PAGE_EXTENSION_COUNT),
+      },
+      {
+        addonType: ADDON_TYPE_EXTENSION,
+        enableFeatureRecommendedBadges: false,
         pageSize: String(LANDING_PAGE_EXTENSION_COUNT),
       },
       {
         addonType: ADDON_TYPE_THEME,
+        enableFeatureRecommendedBadges: true,
+        pageSize: String(LANDING_PAGE_THEME_COUNT),
+      },
+      {
+        addonType: ADDON_TYPE_THEME,
+        enableFeatureRecommendedBadges: false,
         pageSize: String(LANDING_PAGE_THEME_COUNT),
       },
     ])(
       `fetches landing page addons from the API for %o`,
       async (testConfig) => {
-        const { addonType, pageSize } = testConfig;
+        const {
+          addonType,
+          enableFeatureRecommendedBadges,
+          pageSize,
+        } = testConfig;
         const baseArgs = { api: apiState };
         const baseFilters = {
           addonType: getAddonTypeFilter(addonType),
           page_size: pageSize,
+          recommended:
+            addonType === ADDON_TYPE_EXTENSION && enableFeatureRecommendedBadges
+              ? true
+              : undefined,
         };
 
-        const featured = createAddonsApiResult([
+        const recommended = createAddonsApiResult([
           {
             ...fakeAddon,
-            slug: 'featured-addon',
+            slug: 'recommended-addon',
           },
         ]);
         mockSearchApi
@@ -92,12 +113,13 @@ describe(__filename, () => {
             ...baseArgs,
             filters: {
               ...baseFilters,
-              featured: true,
+              featured: enableFeatureRecommendedBadges ? undefined : true,
+              recommended: enableFeatureRecommendedBadges ? true : undefined,
               sort: SEARCH_SORT_RANDOM,
               page: '1',
             },
           })
-          .returns(Promise.resolve(featured));
+          .returns(Promise.resolve(recommended));
 
         const highlyRated = createAddonsApiResult([
           {
@@ -135,7 +157,7 @@ describe(__filename, () => {
           })
           .returns(Promise.resolve(trending));
 
-        _getLanding({ addonType });
+        _getLanding({ addonType, enableFeatureRecommendedBadges });
 
         await sagaTester.waitFor(LOAD_LANDING);
         mockSearchApi.verify();
@@ -144,7 +166,7 @@ describe(__filename, () => {
         expect(calledActions[1]).toEqual(
           loadLanding({
             addonType,
-            featured,
+            recommended,
             highlyRated,
             trending,
           }),
@@ -176,10 +198,11 @@ describe(__filename, () => {
         addonType,
         category,
         page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+        recommended: true,
       };
 
-      const featured = createAddonsApiResult([
-        { ...fakeAddon, slug: 'featured-addon' },
+      const recommended = createAddonsApiResult([
+        { ...fakeAddon, slug: 'recommended-addon' },
       ]);
       mockSearchApi
         .expects('search')
@@ -187,12 +210,12 @@ describe(__filename, () => {
           ...baseArgs,
           filters: {
             ...baseFilters,
-            featured: true,
+            featured: undefined,
             sort: SEARCH_SORT_RANDOM,
             page: '1',
           },
         })
-        .returns(Promise.resolve(featured));
+        .returns(Promise.resolve(recommended));
 
       const highlyRated = createAddonsApiResult([
         { ...fakeAddon, slug: 'highly-rated-addon' },
@@ -233,7 +256,7 @@ describe(__filename, () => {
       expect(calledActions[1]).toEqual(
         loadLanding({
           addonType,
-          featured,
+          recommended,
           highlyRated,
           trending,
         }),
@@ -246,10 +269,11 @@ describe(__filename, () => {
       const baseFilters = {
         addonType,
         page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+        recommended: true,
       };
 
-      const featured = createAddonsApiResult([
-        { ...fakeAddon, slug: 'featured-addon' },
+      const recommended = createAddonsApiResult([
+        { ...fakeAddon, slug: 'recommended-addon' },
       ]);
       mockSearchApi
         .expects('search')
@@ -257,12 +281,12 @@ describe(__filename, () => {
           ...baseArgs,
           filters: {
             ...baseFilters,
-            featured: true,
+            featured: undefined,
             sort: SEARCH_SORT_RANDOM,
             page: '1',
           },
         })
-        .returns(Promise.resolve(featured));
+        .returns(Promise.resolve(recommended));
 
       const highlyRated = createAddonsApiResult([
         { ...fakeAddon, slug: 'highly-rated-addon' },
@@ -303,7 +327,82 @@ describe(__filename, () => {
       expect(calledActions[1]).toEqual(
         loadLanding({
           addonType,
-          featured,
+          recommended,
+          highlyRated,
+          trending,
+        }),
+      );
+    });
+
+    it('does not include only recommended add-ons when the enableFeatureRecommendedBadges flag is false', async () => {
+      const addonType = ADDON_TYPE_EXTENSION;
+      const baseArgs = { api: apiState };
+      const baseFilters = {
+        addonType,
+        page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+        recommended: undefined,
+      };
+
+      const recommended = createAddonsApiResult([
+        { ...fakeAddon, slug: 'recommended-addon' },
+      ]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            featured: true,
+            sort: SEARCH_SORT_RANDOM,
+            page: '1',
+          },
+        })
+        .returns(Promise.resolve(recommended));
+
+      const highlyRated = createAddonsApiResult([
+        { ...fakeAddon, slug: 'highly-rated-addon' },
+      ]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            sort: SEARCH_SORT_TOP_RATED,
+            page: '1',
+          },
+        })
+        .returns(Promise.resolve(highlyRated));
+
+      const trending = createAddonsApiResult([
+        { ...fakeAddon, slug: 'trending-addon' },
+      ]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            sort: SEARCH_SORT_TRENDING,
+            page: '1',
+          },
+        })
+        .returns(Promise.resolve(trending));
+
+      _getLanding({
+        addonType,
+        category: undefined,
+        enableFeatureRecommendedBadges: false,
+      });
+
+      await sagaTester.waitFor(LOAD_LANDING);
+      mockSearchApi.verify();
+
+      const calledActions = sagaTester.getCalledActions();
+      expect(calledActions[1]).toEqual(
+        loadLanding({
+          addonType,
+          recommended,
           highlyRated,
           trending,
         }),

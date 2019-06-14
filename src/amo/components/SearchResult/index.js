@@ -3,6 +3,7 @@ import makeClassName from 'classnames';
 import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
@@ -27,6 +28,7 @@ import RecommendedBadge from 'ui/components/RecommendedBadge';
 import type { AppState } from 'amo/store';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
+import type { ReactRouterHistoryType } from 'core/types/router';
 
 import './styles.scss';
 
@@ -43,7 +45,9 @@ type InternalProps = {|
   _config: typeof config,
   _isAllowedOrigin: Function,
   clientApp: string,
+  history: ReactRouterHistoryType,
   i18n: I18nType,
+  lang: string,
 |};
 
 export class SearchResultBase extends React.Component<InternalProps> {
@@ -55,11 +59,23 @@ export class SearchResultBase extends React.Component<InternalProps> {
     showSummary: true,
   };
 
+  getAddonLink(
+    addon: AddonType | CollectionAddonType,
+    addonInstallSource?: string,
+  ) {
+    let linkTo = `/addon/${addon.slug}/`;
+    if (addonInstallSource) {
+      linkTo = addQueryParams(linkTo, { src: addonInstallSource });
+    }
+    return linkTo;
+  }
+
   renderResult() {
     const {
       _config,
       _isAllowedOrigin,
       addon,
+      addonInstallSource,
       clientApp,
       i18n,
       showMetadata,
@@ -73,6 +89,19 @@ export class SearchResultBase extends React.Component<InternalProps> {
     const iconURL = getAddonIconUrl(addon);
 
     let imageURL = iconURL;
+    let addonTitle = <LoadingText />;
+
+    if (addon) {
+      addonTitle = (
+        <Link
+          className="SearchResult-link"
+          to={this.getAddonLink(addon, addonInstallSource)}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {addon.name}
+        </Link>
+      );
+    }
 
     if (addon && isTheme(addon.type)) {
       let themeURL = getPreviewImage(addon);
@@ -119,91 +148,107 @@ export class SearchResultBase extends React.Component<InternalProps> {
     }
 
     return (
-      <div className="SearchResult-result">
-        <div className={iconWrapperClassnames}>
-          {imageURL ? (
-            <img
-              className={makeClassName('SearchResult-icon', {
-                'SearchResult-icon--loading': !addon,
-              })}
-              src={imageURL}
-              alt={addon ? `${addon.name}` : ''}
-            />
-          ) : (
-            <p className="SearchResult-notheme">
-              {i18n.gettext('No theme preview available')}
-            </p>
-          )}
-        </div>
+      <div className="SearchResult-wrapper">
+        <div className="SearchResult-result">
+          <div className={iconWrapperClassnames}>
+            {imageURL ? (
+              <img
+                className={makeClassName('SearchResult-icon', {
+                  'SearchResult-icon--loading': !addon,
+                })}
+                src={imageURL}
+                alt={addon ? `${addon.name}` : ''}
+              />
+            ) : (
+              <p className="SearchResult-notheme">
+                {i18n.gettext('No theme preview available')}
+              </p>
+            )}
+          </div>
 
-        <div className="SearchResult-contents">
-          <h2 className="SearchResult-name">
-            {addon ? addon.name : <LoadingText />}
-            {showRecommendedBadge &&
-            _config.get('enableFeatureRecommendedBadges') &&
-            addon &&
-            addon.is_recommended &&
-            clientApp !== CLIENT_APP_ANDROID ? (
-              <RecommendedBadge size="small" />
+          <div className="SearchResult-contents">
+            <h2 className="SearchResult-name">
+              {addonTitle}
+              {showRecommendedBadge &&
+              _config.get('enableFeatureRecommendedBadges') &&
+              addon &&
+              addon.is_recommended &&
+              clientApp !== CLIENT_APP_ANDROID ? (
+                <RecommendedBadge
+                  onClick={(e) => e.stopPropagation()}
+                  size="small"
+                />
+              ) : null}
+            </h2>
+            {summary}
+
+            {showMetadata ? (
+              <div className="SearchResult-metadata">
+                <div className="SearchResult-rating">
+                  <Rating
+                    rating={addon && addon.ratings ? addon.ratings.average : 0}
+                    readOnly
+                    styleSize="small"
+                  />
+                </div>
+                {addonAuthors}
+              </div>
             ) : null}
-          </h2>
-          {summary}
 
-          {showMetadata ? (
-            <div className="SearchResult-metadata">
-              <div className="SearchResult-rating">
-                <Rating
-                  rating={addon && addon.ratings ? addon.ratings.average : 0}
-                  readOnly
-                  styleSize="small"
+            {addon && addon.notes && (
+              <div className="SearchResult-note">
+                <h4 className="SearchResult-note-header">
+                  <Icon name="comments-blue" />
+                  {i18n.gettext('Add-on note')}
+                </h4>
+                <p
+                  className="SearchResult-note-content"
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={sanitizeHTML(nl2br(addon.notes), [
+                    'br',
+                  ])}
                 />
               </div>
-              {addonAuthors}
-            </div>
+            )}
+          </div>
+
+          {!addon || (addon && addon.type !== ADDON_TYPE_OPENSEARCH) ? (
+            <h3 className="SearchResult-users SearchResult--meta-section">
+              <Icon className="SearchResult-users-icon" name="user-fill" />
+              <span className="SearchResult-users-text">
+                {averageDailyUsers !== null &&
+                averageDailyUsers !== undefined ? (
+                  i18n.sprintf(
+                    i18n.ngettext(
+                      '%(total)s user',
+                      '%(total)s users',
+                      averageDailyUsers,
+                    ),
+                    { total: i18n.formatNumber(averageDailyUsers) },
+                  )
+                ) : (
+                  <LoadingText width={90} />
+                )}
+              </span>
+            </h3>
           ) : null}
-
-          {addon && addon.notes && (
-            <div className="SearchResult-note">
-              <h4 className="SearchResult-note-header">
-                <Icon name="comments-blue" />
-                {i18n.gettext('Add-on note')}
-              </h4>
-              <p
-                className="SearchResult-note-content"
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={sanitizeHTML(nl2br(addon.notes), [
-                  'br',
-                ])}
-              />
-            </div>
-          )}
         </div>
-
-        {!addon || (addon && addon.type !== ADDON_TYPE_OPENSEARCH) ? (
-          <h3 className="SearchResult-users SearchResult--meta-section">
-            <Icon className="SearchResult-users-icon" name="user-fill" />
-            <span className="SearchResult-users-text">
-              {averageDailyUsers !== null && averageDailyUsers !== undefined ? (
-                i18n.sprintf(
-                  i18n.ngettext(
-                    '%(total)s user',
-                    '%(total)s users',
-                    averageDailyUsers,
-                  ),
-                  { total: i18n.formatNumber(averageDailyUsers) },
-                )
-              ) : (
-                <LoadingText width={90} />
-              )}
-            </span>
-          </h3>
-        ) : null}
       </div>
     );
   }
 
+  onClickResult = () => {
+    const { addon, addonInstallSource, clientApp, history, lang } = this.props;
+
+    if (addon) {
+      history.push(
+        `/${lang}/${clientApp}${this.getAddonLink(addon, addonInstallSource)}`,
+      );
+    }
+  };
+
   render() {
-    const { addon, addonInstallSource } = this.props;
+    const { addon } = this.props;
 
     const result = this.renderResult();
     const resultClassnames = makeClassName('SearchResult', {
@@ -211,30 +256,27 @@ export class SearchResultBase extends React.Component<InternalProps> {
       'SearchResult--persona': addon && addon.type === ADDON_TYPE_THEME,
     });
 
-    let item = result;
-    if (addon) {
-      let linkTo = `/addon/${addon.slug}/`;
-      if (addonInstallSource) {
-        linkTo = addQueryParams(linkTo, { src: addonInstallSource });
-      }
-      item = (
-        <Link to={linkTo} className="SearchResult-link">
-          {result}
-        </Link>
-      );
-    }
-
-    return <li className={resultClassnames}>{item}</li>;
+    return (
+      // Note: The link in question is still keyboard accessible because we've
+      // added an actual link to the h2 tag.
+      // eslint-disable-next-line max-len
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
+      <li onClick={this.onClickResult} className={resultClassnames}>
+        {result}
+      </li>
+    );
   }
 }
 
 export const mapStateToProps = (state: AppState) => {
   return {
     clientApp: state.api.clientApp,
+    lang: state.api.lang,
   };
 };
 
 const SearchResult: React.ComponentType<Props> = compose(
+  withRouter,
   connect(mapStateToProps),
   translate(),
 )(SearchResultBase);

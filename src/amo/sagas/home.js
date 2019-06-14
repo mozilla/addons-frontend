@@ -27,8 +27,9 @@ import type { Saga } from 'core/types/sagas';
 export function* fetchHomeAddons({
   payload: {
     collectionsToFetch,
+    enableFeatureRecommendedBadges,
     errorHandlerId,
-    includeFeaturedThemes,
+    includeRecommendedThemes,
     includeTrendingExtensions,
   },
 }: FetchHomeAddonsAction): Saga {
@@ -63,23 +64,24 @@ export function* fetchHomeAddons({
     }
   }
 
-  const featuredSearchFilters = {
-    featured: true,
+  const recommendedSearchFilters = {
+    featured: enableFeatureRecommendedBadges ? undefined : true,
+    recommended: enableFeatureRecommendedBadges ? true : undefined,
     page_size: String(LANDING_PAGE_EXTENSION_COUNT),
     sort: SEARCH_SORT_RANDOM,
   };
-  const featuredExtensionsParams: SearchParams = {
+  const recommendedExtensionsParams: SearchParams = {
     api: state.api,
     filters: {
       addonType: ADDON_TYPE_EXTENSION,
-      ...featuredSearchFilters,
+      ...recommendedSearchFilters,
     },
   };
-  const featuredThemesParams: SearchParams = {
+  const recommendedThemesParams: SearchParams = {
     api: state.api,
     filters: {
       addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
-      ...featuredSearchFilters,
+      ...recommendedSearchFilters,
       page_size: String(LANDING_PAGE_THEME_COUNT),
     },
   };
@@ -88,6 +90,7 @@ export function* fetchHomeAddons({
     filters: {
       addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
       page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+      recommended: enableFeatureRecommendedBadges ? true : undefined,
       sort: SEARCH_SORT_POPULAR,
     },
   };
@@ -96,6 +99,7 @@ export function* fetchHomeAddons({
     filters: {
       addonType: ADDON_TYPE_EXTENSION,
       page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+      recommended: enableFeatureRecommendedBadges ? true : undefined,
       sort: SEARCH_SORT_TRENDING,
     },
   };
@@ -103,9 +107,9 @@ export function* fetchHomeAddons({
   let shelves = {};
   try {
     shelves = yield all({
-      featuredExtensions: call(searchApi, featuredExtensionsParams),
-      featuredThemes: includeFeaturedThemes
-        ? call(searchApi, featuredThemesParams)
+      recommendedExtensions: call(searchApi, recommendedExtensionsParams),
+      recommendedThemes: includeRecommendedThemes
+        ? call(searchApi, recommendedThemesParams)
         : null,
       popularAddons: call(searchApi, popularAddonsParams),
       trendingExtensions: includeTrendingExtensions

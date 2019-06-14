@@ -5,6 +5,9 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEMES_FILTER,
   OS_LINUX,
+  SEARCH_SORT_RECOMMENDED,
+  SEARCH_SORT_RELEVANCE,
+  SEARCH_SORT_TRENDING,
 } from 'core/constants';
 import { searchStart } from 'core/reducers/search';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
@@ -107,6 +110,138 @@ describe(__filename, () => {
         query: 'Music player',
       }),
     });
+  });
+
+  it('changes the URL when a new sort filter is selected', () => {
+    const root = render({ filters: { query: 'Music player' } });
+
+    const select = root.find('.SearchFilters-Sort');
+    const currentTarget = {
+      getAttribute: () => {
+        return select.prop('name');
+      },
+      value: SEARCH_SORT_TRENDING,
+    };
+
+    select.simulate('change', createFakeEvent({ currentTarget }));
+
+    sinon.assert.calledWithExactly(fakeHistory.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        query: 'Music player',
+        sort: SEARCH_SORT_TRENDING,
+      }),
+    });
+  });
+
+  it('forces recommended add-ons to the top when a category is specified and a new sort filter is selected', () => {
+    const root = render({
+      filters: { query: 'Music player', category: 'some-category' },
+    });
+
+    const select = root.find('.SearchFilters-Sort');
+    const currentTarget = {
+      getAttribute: () => {
+        return select.prop('name');
+      },
+      value: SEARCH_SORT_TRENDING,
+    };
+
+    select.simulate('change', createFakeEvent({ currentTarget }));
+
+    sinon.assert.calledWithExactly(fakeHistory.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        category: 'some-category',
+        query: 'Music player',
+        sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_TRENDING}`,
+      }),
+    });
+  });
+
+  it('does not add recommended twice when a category is specified and a recommended sort filter is selected', () => {
+    const root = render({
+      filters: { query: 'Music player', category: 'some-category' },
+    });
+
+    const select = root.find('.SearchFilters-Sort');
+    const currentTarget = {
+      getAttribute: () => {
+        return select.prop('name');
+      },
+      value: SEARCH_SORT_RECOMMENDED,
+    };
+
+    select.simulate('change', createFakeEvent({ currentTarget }));
+
+    sinon.assert.calledWithExactly(fakeHistory.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        category: 'some-category',
+        query: 'Music player',
+        sort: SEARCH_SORT_RECOMMENDED,
+      }),
+    });
+  });
+
+  it('selects the sort criterion in the sort select', () => {
+    const sort = SEARCH_SORT_TRENDING;
+    const root = render({
+      filters: {
+        query: 'Music player',
+        sort,
+      },
+    });
+
+    expect(root.find('.SearchFilters-Sort')).toHaveProp('value', sort);
+  });
+
+  it.each([
+    `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_TRENDING}`,
+    `${SEARCH_SORT_TRENDING},${SEARCH_SORT_RECOMMENDED}`,
+    `${SEARCH_SORT_TRENDING},${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_RELEVANCE}`,
+  ])(
+    'selects the first non-recommended sort criterion in the sort select: %s',
+    (sort) => {
+      const root = render({
+        filters: {
+          query: 'Music player',
+          sort,
+        },
+      });
+
+      expect(root.find('.SearchFilters-Sort')).toHaveProp(
+        'value',
+        SEARCH_SORT_TRENDING,
+      );
+    },
+  );
+
+  it('selects SEARCH_SORT_RELEVANCE in the sort select if there is no sort criteria', () => {
+    const root = render({
+      filters: {
+        query: 'Music player',
+      },
+    });
+
+    expect(root.find('.SearchFilters-Sort')).toHaveProp(
+      'value',
+      SEARCH_SORT_RELEVANCE,
+    );
+  });
+
+  it('selects SEARCH_SORT_RELEVANCE if the only the sort criterion is SEARCH_SORT_RECOMMENDED', () => {
+    const root = render({
+      filters: {
+        query: 'Music player',
+        sort: SEARCH_SORT_RECOMMENDED,
+      },
+    });
+
+    expect(root.find('.SearchFilters-Sort')).toHaveProp(
+      'value',
+      SEARCH_SORT_RELEVANCE,
+    );
   });
 
   it('deletes the filter if it is empty', () => {

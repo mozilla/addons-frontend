@@ -13,7 +13,6 @@ import AddonInfo, {
 import AddonReviewList from 'amo/pages/AddonReviewList';
 import AddonVersions from 'amo/pages/AddonVersions';
 import CategoriesPage from 'amo/pages/CategoriesPage';
-import Category from 'amo/pages/Category';
 import Collection from 'amo/pages/Collection';
 import CollectionEdit from 'amo/pages/CollectionEdit';
 import CollectionList from 'amo/pages/CollectionList';
@@ -62,6 +61,10 @@ type Props = {|
 |};
 
 // If you add a new route here, check that the nginx rules maintained by ops
+//
+// TODO: remove the comment below once
+// https://github.com/yannickcr/eslint-plugin-react/issues/2298 is fixed.
+// eslint-disable-next-line react/prop-types
 const Routes = ({ _config = config }: Props = {}) => (
   <Switch>
     <Route exact path="/:lang/about" component={About} />
@@ -156,11 +159,6 @@ const Routes = ({ _config = config }: Props = {}) => (
       exact
       path="/:lang/:application/:visibleAddonType(extensions|themes)/categories/"
       component={CategoriesPage}
-    />
-    <Route
-      exact
-      path="/:lang/:application/:visibleAddonType(extensions|themes)/:slug/"
-      component={Category}
     />
 
     {/* See: https://github.com/mozilla/addons-frontend/issues/5150 */}

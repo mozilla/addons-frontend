@@ -1,6 +1,10 @@
 import * as React from 'react';
 
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  createFakeEvent,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 import RecommendedBadge, {
   RecommendedBadgeBase,
 } from 'ui/components/RecommendedBadge';
@@ -25,5 +29,14 @@ describe(__filename, () => {
     const root = render({ size });
 
     expect(root).toHaveClassName(className);
+  });
+
+  it('calls onClick after clicking on the link', () => {
+    const clickEvent = createFakeEvent();
+    const onClick = sinon.spy();
+    const root = render({ onClick });
+    root.find('.RecommendedBadge-link').simulate('click', clickEvent);
+
+    sinon.assert.calledWith(onClick, clickEvent);
   });
 });

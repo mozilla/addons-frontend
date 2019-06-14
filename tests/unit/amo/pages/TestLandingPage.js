@@ -9,6 +9,7 @@ import HeadMetaTags from 'amo/components/HeadMetaTags';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
@@ -23,6 +24,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -32,6 +34,9 @@ describe(__filename, () => {
 
   function renderProps({ _store = store, ...otherProps } = {}) {
     return {
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: true,
+      }),
       errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
       match: {
@@ -63,8 +68,8 @@ describe(__filename, () => {
     store.dispatch(
       loadLanding({
         addonType,
-        featured: createAddonsApiResult([
-          { ...fakeAddon, name: 'Featured', slug: 'featured' },
+        recommended: createAddonsApiResult([
+          { ...fakeAddon, name: 'Featured', slug: 'recommended' },
         ]),
         highlyRated: createAddonsApiResult([
           { ...fakeAddon, name: 'High', slug: 'high' },
@@ -98,21 +103,28 @@ describe(__filename, () => {
   });
 
   it('dispatches getLanding when results are not loaded', () => {
+    const enableFeatureRecommendedBadges = true;
+    const _config = getFakeConfig({ enableFeatureRecommendedBadges });
+
     const errorHandler = createStubErrorHandler();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    render({ errorHandler, store });
+    render({ _config, errorHandler, store });
 
     sinon.assert.calledWith(
       fakeDispatch,
       getLanding({
         addonType: ADDON_TYPE_EXTENSION,
+        enableFeatureRecommendedBadges,
         errorHandlerId: errorHandler.id,
       }),
     );
   });
 
   it('dispatches getLanding when addon type changes', () => {
+    const enableFeatureRecommendedBadges = true;
+    const _config = getFakeConfig({ enableFeatureRecommendedBadges });
+
     const addonType = ADDON_TYPE_EXTENSION;
     const errorHandler = createStubErrorHandler();
 
@@ -123,6 +135,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
 
     const root = render({
+      _config,
       errorHandler,
       match: {
         params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
@@ -142,6 +155,7 @@ describe(__filename, () => {
       fakeDispatch,
       getLanding({
         addonType,
+        enableFeatureRecommendedBadges,
         errorHandlerId: errorHandler.id,
       }),
     );
@@ -251,71 +265,98 @@ describe(__filename, () => {
     expect(root).toHaveClassName('.LandingPage--theme');
   });
 
-  it('sets the links in each footer for extensions', () => {
-    store.dispatch(
-      loadLanding({
-        addonType: ADDON_TYPE_EXTENSION,
-        featured: createAddonsApiResult([
-          { ...fakeAddon, name: 'Featured', slug: 'featured' },
-        ]),
-        highlyRated: createAddonsApiResult([
-          { ...fakeAddon, name: 'High', slug: 'high' },
-        ]),
-        trending: createAddonsApiResult([
-          { ...fakeAddon, name: 'Trending', slug: 'trending' },
-        ]),
-      }),
-    );
+  it.each([true, false])(
+    'sets the links in each footer for extensions enableFeatureRecommendedBadges: %s',
+    (enableFeatureRecommendedBadges) => {
+      const _config = getFakeConfig({ enableFeatureRecommendedBadges });
 
-    const fakeParams = {
-      visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
-    };
-    const match = { params: fakeParams };
+      store.dispatch(
+        loadLanding({
+          addonType: ADDON_TYPE_EXTENSION,
+          recommended: createAddonsApiResult([
+            { ...fakeAddon, name: 'Featured', slug: 'recommended' },
+          ]),
+          highlyRated: createAddonsApiResult([
+            { ...fakeAddon, name: 'High', slug: 'high' },
+          ]),
+          trending: createAddonsApiResult([
+            { ...fakeAddon, name: 'Trending', slug: 'trending' },
+          ]),
+        }),
+      );
 
-    const root = render({ match });
+      const fakeParams = {
+        visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
+      };
+      const match = { params: fakeParams };
 
-    const addonCards = root.find(LandingAddonsCard);
-    expect(addonCards.at(0)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: { addonType: ADDON_TYPE_EXTENSION, featured: true },
-    });
-    expect(addonCards.at(1)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TOP_RATED },
-    });
-    expect(addonCards.at(2)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TRENDING },
-    });
-  });
+      const root = render({ _config, match });
 
-  it('sets the links in each footer for themes', () => {
-    const addonType = getAddonTypeFilter(ADDON_TYPE_THEME);
+      const addonCards = root.find(LandingAddonsCard);
+      expect(addonCards.at(0)).toHaveProp('footerLink', {
+        pathname: '/search/',
+        query: {
+          addonType: ADDON_TYPE_EXTENSION,
+          featured: enableFeatureRecommendedBadges ? undefined : true,
+          recommended: enableFeatureRecommendedBadges ? true : undefined,
+          sort: enableFeatureRecommendedBadges ? SEARCH_SORT_RANDOM : undefined,
+        },
+      });
+      expect(addonCards.at(1)).toHaveProp('footerLink', {
+        pathname: '/search/',
+        query: {
+          addonType: ADDON_TYPE_EXTENSION,
+          recommended: enableFeatureRecommendedBadges ? true : undefined,
+          sort: SEARCH_SORT_TOP_RATED,
+        },
+      });
+      expect(addonCards.at(2)).toHaveProp('footerLink', {
+        pathname: '/search/',
+        query: {
+          addonType: ADDON_TYPE_EXTENSION,
+          recommended: enableFeatureRecommendedBadges ? true : undefined,
+          sort: SEARCH_SORT_TRENDING,
+        },
+      });
+    },
+  );
 
-    _getAndLoadLandingAddons({ addonType });
+  it.each([true, false])(
+    'sets the links in each footer for themes enableFeatureRecommendedBadges: %s',
+    (enableFeatureRecommendedBadges) => {
+      const _config = getFakeConfig({ enableFeatureRecommendedBadges });
+      const addonType = getAddonTypeFilter(ADDON_TYPE_THEME);
 
-    const fakeParams = {
-      visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
-    };
+      _getAndLoadLandingAddons({ addonType });
 
-    const match = { params: fakeParams };
+      const fakeParams = {
+        visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
+      };
 
-    const root = render({ match });
+      const match = { params: fakeParams };
 
-    const addonCards = root.find(LandingAddonsCard);
-    expect(addonCards.at(0)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: { addonType, featured: true },
-    });
-    expect(addonCards.at(1)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: { addonType, sort: SEARCH_SORT_TOP_RATED },
-    });
-    expect(addonCards.at(2)).toHaveProp('footerLink', {
-      pathname: '/search/',
-      query: { addonType, sort: SEARCH_SORT_TRENDING },
-    });
-  });
+      const root = render({ _config, match });
+
+      const addonCards = root.find(LandingAddonsCard);
+      expect(addonCards.at(0)).toHaveProp('footerLink', {
+        pathname: '/search/',
+        query: {
+          addonType,
+          featured: enableFeatureRecommendedBadges ? undefined : true,
+          recommended: enableFeatureRecommendedBadges ? true : undefined,
+          sort: enableFeatureRecommendedBadges ? SEARCH_SORT_RANDOM : undefined,
+        },
+      });
+      expect(addonCards.at(1)).toHaveProp('footerLink', {
+        pathname: '/search/',
+        query: { addonType, sort: SEARCH_SORT_TOP_RATED },
+      });
+      expect(addonCards.at(2)).toHaveProp('footerLink', {
+        pathname: '/search/',
+        query: { addonType, sort: SEARCH_SORT_TRENDING },
+      });
+    },
+  );
 
   it('passes an isTheme prop as true if type is a theme', () => {
     _getAndLoadLandingAddons({ addonType: ADDON_TYPE_THEME });
@@ -363,7 +404,7 @@ describe(__filename, () => {
     store.dispatch(
       loadLanding({
         addonType: ADDON_TYPE_THEME,
-        featured: createAddonsApiResult([
+        recommended: createAddonsApiResult([
           { ...fakeAddon, name: 'Howdy', slug: 'howdy' },
           { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
           { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
@@ -388,7 +429,7 @@ describe(__filename, () => {
 
     const landingShelves = root.find(LandingAddonsCard);
 
-    // featured
+    // recommended
     expect(
       landingShelves
         .at(0)
@@ -412,11 +453,14 @@ describe(__filename, () => {
 
     expect(landingShelves.at(0)).toHaveProp(
       'footerText',
-      'See more featured themes',
+      'See more recommended themes',
     );
   });
 
   it('dispatches getLanding when category filter is set', () => {
+    const enableFeatureRecommendedBadges = true;
+    const _config = getFakeConfig({ enableFeatureRecommendedBadges });
+
     const addonType = ADDON_TYPE_EXTENSION;
 
     const errorHandler = createStubErrorHandler();
@@ -432,20 +476,21 @@ describe(__filename, () => {
     store.dispatch(
       loadLanding({
         addonType,
-        featured: createAddonsApiResult([]),
+        recommended: createAddonsApiResult([]),
         highlyRated: createAddonsApiResult([]),
         trending: createAddonsApiResult([]),
       }),
     );
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    render({ errorHandler, store });
+    render({ _config, errorHandler, store });
 
     sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
     sinon.assert.calledWith(
       fakeDispatch,
       getLanding({
         addonType,
+        enableFeatureRecommendedBadges,
         errorHandlerId: errorHandler.id,
       }),
     );
@@ -524,7 +569,7 @@ describe(__filename, () => {
     store.dispatch(
       loadLanding({
         addonType: ADDON_TYPE_THEME,
-        featured: createAddonsApiResult([
+        recommended: createAddonsApiResult([
           { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
           { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
           { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
@@ -541,15 +586,15 @@ describe(__filename, () => {
     const landingShelves = root.find(LandingAddonsCard);
 
     expect(root.find(LandingAddonsCard)).toHaveLength(2);
-    expect(landingShelves.at(0)).toHaveClassName('FeaturedAddons');
+    expect(landingShelves.at(0)).toHaveClassName('RecommendedAddons');
     expect(landingShelves.at(1)).toHaveClassName('HighlyRatedAddons');
   });
 
-  it('hides the featured shelf when there are no add-ons for it', () => {
+  it('hides the recommended shelf when there are no add-ons for it', () => {
     store.dispatch(
       loadLanding({
         addonType: ADDON_TYPE_THEME,
-        featured: createAddonsApiResult([]),
+        recommended: createAddonsApiResult([]),
         highlyRated: createAddonsApiResult([
           { ...fakeAddon, name: 'High', slug: 'high' },
           { ...fakeAddon, name: 'High again', slug: 'high-again' },
@@ -573,7 +618,7 @@ describe(__filename, () => {
     store.dispatch(
       loadLanding({
         addonType: ADDON_TYPE_THEME,
-        featured: createAddonsApiResult([
+        recommended: createAddonsApiResult([
           { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
           { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
           { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
@@ -590,7 +635,7 @@ describe(__filename, () => {
     const landingShelves = root.find(LandingAddonsCard);
 
     expect(root.find(LandingAddonsCard)).toHaveLength(2);
-    expect(landingShelves.at(0)).toHaveClassName('FeaturedAddons');
+    expect(landingShelves.at(0)).toHaveClassName('RecommendedAddons');
     expect(landingShelves.at(1)).toHaveClassName('TrendingAddons');
   });
 

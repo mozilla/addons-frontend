@@ -35,7 +35,7 @@
         padding: 0;
       }
 
-      .SearchResult-link {
+      .SearchResult-wrapper {
         display: inline-block;
         height: 100%;
         padding: 12px 24px;
@@ -95,8 +95,8 @@
         // stylelint-enable max-nesting-depth
       }
 
-      .SearchResult-link:focus,
-      .SearchResult-link:hover {
+      .SearchResult-wrapper:focus,
+      .SearchResult-wrapper:hover {
         background-color: $grey-10;
         border-radius: $border-radius-default;
 

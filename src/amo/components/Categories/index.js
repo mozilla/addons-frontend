@@ -6,10 +6,10 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import { fetchCategories } from 'core/reducers/categories';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { getCategoryColor, visibleAddonType } from 'core/utils';
+import { fetchCategories } from 'core/reducers/categories';
+import { getCategoryResultsQuery, getCategoryColor } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
@@ -17,6 +17,7 @@ import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
+import type { GetCategoryResultsQueryParams } from 'core/utils';
 
 import './styles.scss';
 
@@ -54,6 +55,19 @@ type InternalProps = {|
   i18n: I18nType,
   loading: boolean,
 |};
+
+export const categoryResultsLinkTo = ({
+  addonType,
+  slug,
+}: GetCategoryResultsQueryParams) => {
+  return {
+    pathname: '/search/',
+    query: getCategoryResultsQuery({
+      addonType,
+      slug,
+    }),
+  };
+};
 
 export class CategoriesBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
@@ -151,7 +165,7 @@ export class CategoriesBase extends React.Component<InternalProps> {
                   <Button
                     className={`Categories-link
                       Categories--category-color-${getCategoryColor(category)}`}
-                    to={`/${visibleAddonType(addonType)}/${slug}/`}
+                    to={categoryResultsLinkTo({ addonType, slug })}
                   >
                     {name}
                   </Button>

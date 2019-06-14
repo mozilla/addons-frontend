@@ -358,16 +358,12 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         review.reviewAddon.slug || review.reviewAddon.id;
       if (!review.reviewAddon.slug) {
         log.error(
-          `The add-on for reviewId: ${review.id} has an falsey slug: ${
-            review.reviewAddon.slug
-          }`,
+          `The add-on for reviewId: ${review.id} has an falsey slug: ${review.reviewAddon.slug}`,
         );
       }
       if (!review.reviewAddon.id) {
         log.error(
-          `The add-on for reviewId: ${review.id} has an falsey id: ${
-            review.reviewAddon.id
-          }`,
+          `The add-on for reviewId: ${review.id} has an falsey id: ${review.reviewAddon.id}`,
         );
       }
 

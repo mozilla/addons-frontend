@@ -12,6 +12,9 @@ import {
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
+  createContextWithFakeRouter,
+  createFakeEvent,
+  createFakeHistory,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -40,6 +43,7 @@ describe(__filename, () => {
       enableFeatureRecommendedBadges: false,
     }),
     addon = baseAddon,
+    history = createFakeHistory(),
     lang = 'en-GB',
     store = dispatchClientMetadata({
       clientApp: CLIENT_APP_FIREFOX,
@@ -55,13 +59,47 @@ describe(__filename, () => {
         {...props}
       />,
       SearchResultBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ history }),
+      },
     );
   }
 
   it('renders the heading', () => {
     const root = render();
 
-    expect(root.find('.SearchResult-name')).toIncludeText('A search result');
+    expect(root.find('.SearchResult-link').children()).toIncludeText(
+      'A search result',
+    );
+  });
+
+  it('links the heading to the detail page', () => {
+    const slug = 'some-addon-slug';
+    const addon = createInternalAddon({ ...fakeAddon, slug });
+
+    const root = render({ addon });
+
+    expect(root.find('.SearchResult-link')).toHaveProp('to', `/addon/${slug}/`);
+  });
+
+  it('stops propagation when clicking on the add-on name', () => {
+    const root = render();
+
+    const clickEvent = createFakeEvent();
+    root.find('.SearchResult-link').simulate('click', clickEvent);
+
+    sinon.assert.called(clickEvent.stopPropagation);
+  });
+
+  it('links the heading to the detail page with a source', () => {
+    const addonInstallSource = 'home-page-featured';
+
+    const root = render({ addonInstallSource });
+
+    const link = root.find('.SearchResult-link');
+    expect(url.parse(link.prop('to'), true).query).toMatchObject({
+      src: addonInstallSource,
+    });
   });
 
   it('renders the author', () => {
@@ -100,9 +138,9 @@ describe(__filename, () => {
   it('localises the user count', () => {
     const root = render({ lang: 'fr' });
 
-    // `\xa0` is a non-breaking space.
-    // See: https://github.com/airbnb/enzyme/issues/1349
-    expect(root.find('.SearchResult-users-text')).toIncludeText('5\xa0253');
+    // `\u202F` is a narrow non-breaking space, see:
+    // https://www.fileformat.info/info/unicode/char/202f/index.htm
+    expect(root.find('.SearchResult-users-text')).toIncludeText('5\u202F253');
   });
 
   it('renders the user count as singular', () => {
@@ -116,23 +154,23 @@ describe(__filename, () => {
     expect(root.find('.SearchResult-users')).toIncludeText('1 user');
   });
 
-  it('links to the detail page', () => {
-    const root = render();
+  it('links the li element to the detail page', () => {
+    const slug = 'some-addon-slug';
+    const addon = createInternalAddon({ ...fakeAddon, slug });
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'fr';
+    const history = createFakeHistory();
+    const { store } = dispatchClientMetadata({ clientApp, lang });
 
-    expect(root.find('.SearchResult-link')).toHaveProp(
-      'to',
-      '/addon/a-search-result/',
+    const root = render({ addon, history, store });
+
+    const onClick = root.find('.SearchResult').prop('onClick');
+    onClick();
+
+    sinon.assert.calledWith(
+      history.push,
+      `/${lang}/${clientApp}/addon/${slug}/`,
     );
-  });
-
-  it('links to the detail page with a source', () => {
-    const addonInstallSource = 'home-page-featured';
-    const root = render({ addonInstallSource });
-
-    const link = root.find('.SearchResult-link');
-    expect(url.parse(link.prop('to'), true).query).toMatchObject({
-      src: addonInstallSource,
-    });
   });
 
   it('renders the star ratings', () => {
@@ -411,6 +449,23 @@ describe(__filename, () => {
     });
 
     expect(root.find(RecommendedBadge)).toHaveLength(1);
+  });
+
+  it('passes an onClick function which stops propagation to RecommendedBadge', () => {
+    const root = render({
+      _config: getFakeConfig({
+        enableFeatureRecommendedBadges: true,
+      }),
+      addon: createInternalAddon({
+        ...fakeAddon,
+        is_recommended: true,
+      }),
+    });
+
+    const clickEvent = createFakeEvent();
+    root.find(RecommendedBadge).simulate('click', clickEvent);
+
+    sinon.assert.called(clickEvent.stopPropagation);
   });
 
   it('does not display a recommended badge when showRecommendedBadge is false', () => {

@@ -490,7 +490,10 @@ describe(__filename, () => {
       const i18n = utils.makeI18n({}, 'fr', FakeJed, { _Intl: {} });
       const toLocaleStringSpy = sinon.spy(Number.prototype, 'toLocaleString');
       const number = 12345;
-      expect(i18n.formatNumber(number)).toEqual('12 345');
+
+      // `\u202F` is a narrow non-breaking space, see:
+      // https://www.fileformat.info/info/unicode/char/202f/index.htm
+      expect(i18n.formatNumber(number)).toEqual('12\u202F345');
       sinon.assert.calledWith(toLocaleStringSpy, 'fr');
       sinon.assert.notCalled(numberFormatSpy);
     });
