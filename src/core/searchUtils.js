@@ -96,9 +96,15 @@ export function convertFiltersToQueryParams(filters) {
 
 export function convertQueryParamsToFilters(params) {
   return Object.keys(paramsToFilter).reduce((object, key) => {
-    const paramValue = Array.isArray(params[key])
-      ? params[key][0]
-      : params[key];
+    let paramValue = params[key];
+
+    // The param value could be an array if the param appeared on the URL
+    // multiple times. In that case just use the first instance.
+    if (Array.isArray(params[key])) {
+      log.info(`${key} param was provided multiple times: ${paramValue}`);
+      paramValue = params[key][0];
+    }
+
     if (typeof paramValue !== 'undefined' && paramValue !== '') {
       return { ...object, [paramsToFilter[key]]: paramValue };
     }
