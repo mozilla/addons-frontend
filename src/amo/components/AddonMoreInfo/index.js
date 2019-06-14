@@ -109,8 +109,8 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     const lastUpdated = addon.last_updated;
     const license = currentVersion && currentVersion.license;
     let versionLicenseLink = null;
-    const { platformFiles } = currentVersion;
-    const fileSize = formatFilesize({ i18n, size: platformFiles.all.size });
+    // const { platformFiles } = currentVersion;
+    // const fileSize = formatFilesize({ i18n, size: platformFiles.all.size });
 
     if (license) {
       const linkProps = license.isCustom
@@ -136,7 +136,10 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
         currentVersion && addonHasVersionHistory(addon)
           ? currentVersion.version
           : null,
-      fileSize,
+      fileSize:
+      currentVersion && currentVersion.platformFiles
+          ? formatFilesize({ i18n, size: currentVersion.platformFiles.all.size })
+          : null,
       versionLastUpdated: lastUpdated
         ? i18n.sprintf(
             // translators: This will output, in English:
