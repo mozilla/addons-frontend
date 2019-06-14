@@ -96,8 +96,11 @@ export function convertFiltersToQueryParams(filters) {
 
 export function convertQueryParamsToFilters(params) {
   return Object.keys(paramsToFilter).reduce((object, key) => {
-    if (typeof params[key] !== 'undefined' && params[key] !== '') {
-      return { ...object, [paramsToFilter[key]]: params[key] };
+    const paramValue = Array.isArray(params[key])
+      ? params[key][0]
+      : params[key];
+    if (typeof paramValue !== 'undefined' && paramValue !== '') {
+      return { ...object, [paramsToFilter[key]]: paramValue };
     }
     return object;
   }, {});

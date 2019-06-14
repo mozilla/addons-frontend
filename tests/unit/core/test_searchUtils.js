@@ -166,6 +166,18 @@ describe(__filename, () => {
         tag: 'firefox57',
       });
     });
+
+    it('uses the first instance of multiple query params', () => {
+      const filters = convertQueryParamsToFilters({
+        appversion: ['57.0', '58.0'],
+        page: ['4', '5', '6'],
+      });
+
+      expect(filters).toEqual({
+        compatibleWithVersion: '57.0',
+        page: '4',
+      });
+    });
   });
 
   describe('convertOSToFilterValue', () => {
