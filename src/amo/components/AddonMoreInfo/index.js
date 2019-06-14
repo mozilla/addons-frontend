@@ -21,6 +21,7 @@ import LoadingText from 'ui/components/LoadingText';
 import type { AddonVersionType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
+import { formatFilesize } from 'core/i18n/utils';
 
 type Props = {|
   addon: AddonType | null,
@@ -108,7 +109,8 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     const lastUpdated = addon.last_updated;
     const license = currentVersion && currentVersion.license;
     let versionLicenseLink = null;
-    const fileSize = addon.file_size;
+    const { platformFiles } = currentVersion;
+    const fileSize = formatFilesize({ i18n, size: platformFiles.all.size });
 
     if (license) {
       const linkProps = license.isCustom

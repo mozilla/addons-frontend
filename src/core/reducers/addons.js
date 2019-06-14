@@ -246,16 +246,6 @@ export function createInternalAddon(
     currentVersion.files &&
     currentVersion.files.length > 0
   ) {
-    const { files } = currentVersion;
-    const fileSizeInBytes = files
-      .map((file) => file.size)
-      .reduce((accumulator, size) => accumulator + size);
-    const fileSize =
-      fileSizeInBytes <= 10 ** 5
-        ? `${(fileSizeInBytes / 10 ** 3).toFixed(1)} KiB`
-        : `${(fileSizeInBytes / 10 ** 6).toFixed(1)} MiB`;
-
-    addon.file_size = fileSize;
     addon.isRestartRequired = currentVersion.files.some(
       (file) => !!file.is_restart_required,
     );
