@@ -137,7 +137,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           ? currentVersion.version
           : null,
       fileSize:
-      currentVersion && currentVersion.platformFiles
+      currentVersion && currentVersion.platformFilesplatformFiles.all.size
           ? formatFilesize({ i18n, size: currentVersion.platformFiles.all.size })
           : null,
       versionLastUpdated: lastUpdated
