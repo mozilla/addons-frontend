@@ -77,6 +77,12 @@ describe(__filename, () => {
       target_locale: 'zu',
       type: ADDON_TYPE_LANG,
     }),
+    createFakeLanguageTool({
+      id: 10,
+      name: 'Hiligaynon spell checker',
+      target_locale: 'hil',
+      type: ADDON_TYPE_DICT,
+    }),
   ];
 
   function renderShallow({
