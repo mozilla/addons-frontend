@@ -4924,10 +4924,10 @@ content-security-policy-builder@2.0.0:
   resolved "https://registry.yarnpkg.com/content-security-policy-builder/-/content-security-policy-builder-2.0.0.tgz#8749a1d542fcbe82237281ea9f716ce68b394dd2"
   integrity sha512-j+Nhmj1yfZAikJLImCvPJFE29x/UuBi+/MWqggGGc515JKaZrjuei2RhULJmy0MsstW3E3htl002bwmBNMKr7w==
 
-content-security-policy-parser@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/content-security-policy-parser/-/content-security-policy-parser-0.1.1.tgz#aab52f88264f316d909919d281a13dbf042b293c"
-  integrity sha512-JsDgjU0uZJ1IYKGSX5yVlZh20dD2iv0L3peulJbW/FhEl/OvlGF5jdJY6EpuRjZeqg/YZcnZvvUJTJm/BQmulg==
+content-security-policy-parser@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/content-security-policy-parser/-/content-security-policy-parser-0.2.0.tgz#f12e4fa9598f161a472098582b7289da7f592438"
+  integrity sha512-O0xdOyt9k6fN3/NOqrFTQVvU4QwURFii2KwCpF5+YHGwgqlUpTptxkodC4CQHe0hpWF+WMW+v2lk27R/PmWPgQ==
 
 content-type@^1.0.4, content-type@~1.0.4:
   version "1.0.4"
