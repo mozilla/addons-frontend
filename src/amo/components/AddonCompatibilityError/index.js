@@ -109,7 +109,7 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
       );
     } else if (reason === INCOMPATIBLE_FIREFOX_FENIX) {
       message = i18n.gettext(
-        'Firefox Fenix does not currently support add-ons.',
+        'Firefox Preview does not currently support add-ons.',
       );
     } else if (reason === INCOMPATIBLE_UNSUPPORTED_PLATFORM) {
       message = i18n.gettext('This add-on is not available on your platform.');

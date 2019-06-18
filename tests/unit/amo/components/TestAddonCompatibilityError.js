@@ -251,7 +251,7 @@ describe(__filename, () => {
         .find('.AddonCompatibilityError')
         .childAt(0)
         .html(),
-    ).toContain('Firefox Fenix does not currently support add-ons.');
+    ).toContain('Firefox Preview does not currently support add-ons.');
   });
 
   it('renders a notice for browsers that do not support OpenSearch', () => {
