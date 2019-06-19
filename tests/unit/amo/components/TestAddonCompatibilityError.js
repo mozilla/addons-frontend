@@ -24,6 +24,7 @@ import {
   fakeAddon,
   fakeI18n,
   fakeVersion,
+  getFakeConfig,
   getFakeLogger,
   shallowUntilTarget,
   userAgentsByPlatform,
@@ -255,11 +256,12 @@ describe(__filename, () => {
   });
 
   it('renders a notice for browsers that do not support OpenSearch', () => {
+    const _config = getFakeConfig({ server: false });
     const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       reason: INCOMPATIBLE_NO_OPENSEARCH,
     });
 
-    const root = render({ _getClientCompatibility });
+    const root = render({ _config, _getClientCompatibility });
 
     expect(
       root
@@ -319,5 +321,16 @@ describe(__filename, () => {
         .childAt(0)
         .html(),
     ).toContain('Your browser does not support add-ons.');
+  });
+
+  it('does not render an incompatibility banner for opensearch add-ons on the server', () => {
+    const _config = getFakeConfig({ server: true });
+    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
+      reason: INCOMPATIBLE_NO_OPENSEARCH,
+    });
+
+    const root = render({ _config, _getClientCompatibility });
+
+    expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
   });
 });
