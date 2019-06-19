@@ -32,4 +32,6 @@ module.exports = {
   },
 
   extensionWorkshopUrl: 'https://extensionworkshop.allizom.org',
+
+  enableFeatureRecommendedBadges: true,
 };
