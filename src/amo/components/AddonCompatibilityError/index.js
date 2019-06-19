@@ -4,6 +4,7 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import config from 'config';
 
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
@@ -38,6 +39,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _config: typeof config,
   _getClientCompatibility: typeof getClientCompatibility,
   _log: typeof log,
   clientApp: string,
@@ -48,12 +50,14 @@ type InternalProps = {|
 
 export class AddonCompatibilityErrorBase extends React.Component<InternalProps> {
   static defaultProps = {
+    _config: config,
     _log: log,
     _getClientCompatibility: getClientCompatibility,
   };
 
   render() {
     const {
+      _config,
       _getClientCompatibility,
       _log,
       addon,
@@ -83,6 +87,11 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
 
     if (reason === INCOMPATIBLE_NOT_FIREFOX) {
       // Do not display a message for non-Firefox browsers.
+      return null;
+    }
+
+    if (reason === INCOMPATIBLE_NO_OPENSEARCH && _config.get('server')) {
+      _log.info('Not rendering opensearch incompatibility error on the server');
       return null;
     }
 
