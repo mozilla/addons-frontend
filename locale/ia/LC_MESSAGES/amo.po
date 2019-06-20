@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-11 16:05+0000\n"
-"PO-Revision-Date: 2019-06-13 08:57+0000\n"
+"PO-Revision-Date: 2019-06-04 21:34+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2082,7 +2082,6 @@ msgstr ""
 "altero ancora."
 
 #: src/amo/pages/Home/index.js:323 src/amo/pages/LandingPage/index.js:153
-#, fuzzy
 msgid "See more recommended extensions"
 msgstr "Vide plus de extensiones de tendentia"
 
@@ -2091,7 +2090,6 @@ msgid "See more featured extensions"
 msgstr "Vide plus de extensiones consiliate"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
-#, fuzzy
 msgid "See more recommended themes"
 msgstr "Vide plus de themas de tendentia"
 
