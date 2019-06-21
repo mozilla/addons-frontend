@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-11 16:05+0000\n"
-"PO-Revision-Date: 2019-06-17 00:26+0000\n"
+"PO-Revision-Date: 2019-06-21 01:54+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1034,7 +1034,7 @@ msgstr "增强您的媒体体验"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
-msgstr "给浏览器像手机那样装上应用。"
+msgstr "给浏览器加点机能。"
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
@@ -2017,7 +2017,7 @@ msgstr "季节"
 
 #: src/amo/pages/Home/index.js:252
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr "使用扩展个性化 Firefox 的工作方式。似乎您喜欢…"
+msgstr "使用扩展自定 Firefox 的运作方式。也许您会喜欢…"
 
 #: src/amo/pages/Home/index.js:254
 msgid "Change the way Firefox looks with themes."
