@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-11 16:05+0000\n"
-"PO-Revision-Date: 2019-06-21 13:51+0000\n"
-"Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
+"PO-Revision-Date: 2019-05-31 10:02+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -2883,17 +2883,17 @@ msgstr "Näytä/piilota sisältö"
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
-msgstr "Pääsy tietoihin kaikilla verkkosivuilla"
+msgstr "Pääsy tietoihisi kaikilla verkkosivuilla"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] "Pääsy tietoihin %(param)s muussa verkkotunnuksessa"
-msgstr[1] "Pääsy tietoihin %(param)s muussa verkkotunnuksessa"
+msgstr[0] "Pääsy tietoihisi %(param)s muussa verkkotunnuksessa"
+msgstr[1] "Pääsy tietoihisi %(param)s muussa verkkotunnuksessa"
 
 #: src/ui/components/HostPermissions/index.js:67
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "Pääsy tietoihin sivustoilla, jotka ovat verkkotunnuksessa %(param)s"
+msgstr "Pääsy tietoihisi sivustoilla, jotka ovat verkkotunnuksessa %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
@@ -2903,7 +2903,7 @@ msgstr[1] "Pääsy tietoihisi %(param)s muulla sivustolla"
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
-msgstr "Pääsy tietoihin sivustolla %(param)s"
+msgstr "Pääsy tietoihisi sivustolla %(param)s"
 
 #: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
