@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-11 16:05+0000\n"
-"PO-Revision-Date: 2019-05-31 10:02+0000\n"
+"PO-Revision-Date: 2019-06-22 16:46+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -297,9 +297,8 @@ msgid "Homepage"
 msgstr "Kotisivu"
 
 #: src/amo/components/AddonMoreInfo/index.js:70
-#, fuzzy
 msgid "Support site"
-msgstr "Tukisivusto"
+msgstr "Tukisivu"
 
 #: src/amo/components/AddonMoreInfo/index.js:84
 msgid "Support Email"
