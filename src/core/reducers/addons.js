@@ -385,31 +385,48 @@ export default function addonsReducer(
       const bySlug = { ...state.bySlug };
       const loadingBySlug = { ...state.loadingBySlug };
 
-      loadedAddons.forEach((loadedAddon) => {
-        const addon = createInternalAddon(loadedAddon);
-        // Flow wants hash maps with string keys.
-        // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
-        byID[`${addon.id}`] = addon;
-
-        if (addon.slug) {
-          bySlug[addon.slug.toLowerCase()] = addon.id;
-          loadingBySlug[addon.slug.toLowerCase()] = false;
-        }
-
-        if (addon.guid) {
-          // `guid` is already "normalized" with the `getGuid()` function in
-          // `createInternalAddon()`.
-          byGUID[addon.guid] = addon.id;
-        }
-      });
-
-      return {
-        ...state,
-        byID,
-        byGUID,
-        bySlug,
-        loadingBySlug,
-      };
+      return loadedAddons.reduce(
+        (acc, loadedAddon) => {
+          const addon = createInternalAddon(loadedAddon);
+          // $FLOW_FIXME
+          return {
+            ...acc,
+            byID: {
+              ...acc.byID,
+              // Flow wants hash maps with string keys.
+              // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
+              [`${addon.id}`]: addon,
+            },
+            ...(addon.slug && {
+              bySlug: {
+                ...acc.bySlug,
+                [addon.slug.toLowerCase()]: addon.id,
+              },
+            }),
+            ...(addon.slug && {
+              loadingBySlug: {
+                ...acc.loadingBySlug,
+                [addon.slug.toLowerCase()]: false,
+              },
+            }),
+            ...(addon.guid && {
+              byGUID: {
+                ...acc.byGUID,
+                // `guid` is already "normalized" with the `getGuid()` function in
+                // `createInternalAddon()`.
+                [addon.guid]: addon.id,
+              },
+            }),
+          };
+        },
+        {
+          ...state,
+          byID,
+          byGUID,
+          bySlug,
+          loadingBySlug,
+        },
+      );
     }
 
     case UNLOAD_ADDON_REVIEWS: {
