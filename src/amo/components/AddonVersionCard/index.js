@@ -121,6 +121,7 @@ export const AddonVersionCardBase = (props: InternalProps) => {
               'linkStart',
               'linkEnd',
               (text) => (
+                // eslint-disable-next-line react/prop-types
                 <Link key={addon.slug} {...licenseLinkParams}>
                   {text}
                 </Link>

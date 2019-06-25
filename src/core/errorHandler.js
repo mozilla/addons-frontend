@@ -229,9 +229,12 @@ export const withFixedErrorHandler = ({ fileName, extractId }) => {
  * )(SomeComponent);
  */
 export function withRenderedErrorHandler({ name, id } = {}) {
+  type ErrorBannerProps = {
+    errorHandler: ErrorHandlerType,
+  };
+
   return (WrappedComponent) => {
-    function ErrorBanner(props) {
-      // eslint-disable-next-line react/prop-types
+    function ErrorBanner(props: ErrorBannerProps) {
       const { errorHandler } = props;
 
       if (errorHandler.hasError()) {
