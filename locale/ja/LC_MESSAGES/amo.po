@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-06-11 16:05+0000\n"
+"POT-Creation-Date: 2019-06-25 18:57+0000\n"
 "PO-Revision-Date: 2019-05-21 01:46+0000\n"
 "Last-Translator: marsf <chimantaea_mirabilis@yahoo.co.jp>\n"
 "Language-Team: none\n"
@@ -100,7 +100,15 @@ msgstr "Firefox Quantum と互換性がありません"
 msgid "Some features may require payment"
 msgstr "一部の機能は有料の場合があります"
 
-#: src/amo/components/AddonCompatibilityError/index.js:103
+#: src/amo/components/AddonCompatibilityError/index.js:106
+msgid "This add-on is not compatible with your version of Firefox."
+msgstr "このアドオンはお使いのバージョンの Firefox と互換性がありません。"
+
+#: src/amo/components/AddonCompatibilityError/index.js:109
+msgid "Your version of Firefox does not support search plugins."
+msgstr "お使いのバージョンの Firefox は検索エンジンに対応していません。"
+
+#: src/amo/components/AddonCompatibilityError/index.js:113
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -108,15 +116,20 @@ msgstr ""
 "このアドオンは再起動が必要なため、ご使用のバージョンの Firefox に対応していま"
 "せん。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:106
+#: src/amo/components/AddonCompatibilityError/index.js:116
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "iOS 版 Firefox は今のところアドオンに対応していません。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:110
+#: src/amo/components/AddonCompatibilityError/index.js:120
+#, fuzzy
+msgid "Firefox Preview does not currently support add-ons."
+msgstr "iOS 版 Firefox は今のところアドオンに対応していません。"
+
+#: src/amo/components/AddonCompatibilityError/index.js:124
 msgid "This add-on is not available on your platform."
 msgstr "このアドオンはお使いのプラットフォームに対応していません。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:114
+#: src/amo/components/AddonCompatibilityError/index.js:128
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -125,21 +138,13 @@ msgstr ""
 "a> (%(minVersion)s 以上) を必要とします。あなたは Firefox %(yourVersion)s を"
 "お使いです。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:131
+#: src/amo/components/AddonCompatibilityError/index.js:145
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
 msgstr ""
 "お使いのブラウザーはアドオンに対応していません。<a href=\"%(downloadUrl)s"
 "\">Firefox をダウンロード</a> すればこのアドオンをインストールできます。"
-
-#: src/amo/components/AddonCompatibilityError/index.js:96
-msgid "This add-on is not compatible with your version of Firefox."
-msgstr "このアドオンはお使いのバージョンの Firefox と互換性がありません。"
-
-#: src/amo/components/AddonCompatibilityError/index.js:99
-msgid "Your version of Firefox does not support search plugins."
-msgstr "お使いのバージョンの Firefox は検索エンジンに対応していません。"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
@@ -581,7 +586,7 @@ msgstr ""
 "ソースコードは %(linkStart)s独自のライセンス%(linkEnd)s の下でリリースされて"
 "います"
 
-#: src/amo/components/AddonVersionCard/index.js:139
+#: src/amo/components/AddonVersionCard/index.js:140
 msgid "Source code released under %(licenseName)s"
 msgstr "ソースコードは %(licenseName)s に従いリリースされています"
 
@@ -927,12 +932,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "バグ報告またはサポートリクエストとしてフラグが立てられました"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "フラグ"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "フラグ付き"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "フラグ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -3202,23 +3207,23 @@ msgstr ""
 "このサイトを訪れていただきありがとうございます！ 1、2 分だけ時間を取って、あ"
 "なたの体験について Firefox に聞かせてください。"
 
-#: src/core/i18n/utils.js:255
+#: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s バイト"
 
-#: src/core/i18n/utils.js:257
+#: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s KB"
 
-#: src/core/i18n/utils.js:259
+#: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s MB"
 
-#: src/core/i18n/utils.js:261
+#: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s GB"
 
-#: src/core/i18n/utils.js:263
+#: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 

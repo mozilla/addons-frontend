@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-06-11 16:05+0000\n"
+"POT-Creation-Date: 2019-06-25 18:57+0000\n"
 "PO-Revision-Date: 2019-06-05 11:01+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
@@ -100,7 +100,15 @@ msgstr "Không tương thích với Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "Một số tính năng có thể yêu cầu thanh toán"
 
-#: src/amo/components/AddonCompatibilityError/index.js:103
+#: src/amo/components/AddonCompatibilityError/index.js:106
+msgid "This add-on is not compatible with your version of Firefox."
+msgstr "Tiện ích này không tương thích với phiên bản Firefox của bạn."
+
+#: src/amo/components/AddonCompatibilityError/index.js:109
+msgid "Your version of Firefox does not support search plugins."
+msgstr "Phiên bản Firefox của bạn không hỗ trợ phần bổ trợ tìm kiếm."
+
+#: src/amo/components/AddonCompatibilityError/index.js:113
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -108,15 +116,20 @@ msgstr ""
 "Phiên bản Firefox của bạn không hỗ trợ tiện ích này vì nó yêu cầu khởi động "
 "lại."
 
-#: src/amo/components/AddonCompatibilityError/index.js:106
+#: src/amo/components/AddonCompatibilityError/index.js:116
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox dành cho iOS hiện tại không hỗ trợ các tiện ích."
 
-#: src/amo/components/AddonCompatibilityError/index.js:110
+#: src/amo/components/AddonCompatibilityError/index.js:120
+#, fuzzy
+msgid "Firefox Preview does not currently support add-ons."
+msgstr "Firefox dành cho iOS hiện tại không hỗ trợ các tiện ích."
+
+#: src/amo/components/AddonCompatibilityError/index.js:124
 msgid "This add-on is not available on your platform."
 msgstr "Tiện ích này không có sẵn cho nền tảng của bạn."
 
-#: src/amo/components/AddonCompatibilityError/index.js:114
+#: src/amo/components/AddonCompatibilityError/index.js:128
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -125,21 +138,13 @@ msgstr ""
 "Firefox</a> (hỗ trợ phiên bản thấp nhất là %(minVersion)s). Bạn đang sử dụng "
 "Firefox %(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:131
+#: src/amo/components/AddonCompatibilityError/index.js:145
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
 msgstr ""
 "Trình duyệt của bạn không hỗ trợ tiện ích. Bạn có thể <a href="
 "\"%(downloadUrl)s\">tải xuống Firefox</a> để cài đặt tiện ích này."
-
-#: src/amo/components/AddonCompatibilityError/index.js:96
-msgid "This add-on is not compatible with your version of Firefox."
-msgstr "Tiện ích này không tương thích với phiên bản Firefox của bạn."
-
-#: src/amo/components/AddonCompatibilityError/index.js:99
-msgid "Your version of Firefox does not support search plugins."
-msgstr "Phiên bản Firefox của bạn không hỗ trợ phần bổ trợ tìm kiếm."
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
@@ -584,7 +589,7 @@ msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr ""
 "Mã nguồn được phát hành dưới dạng %(linkStart)sgiấy phép tùy biến%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:139
+#: src/amo/components/AddonVersionCard/index.js:140
 msgid "Source code released under %(licenseName)s"
 msgstr "Mã nguồn được phát hành dưới dạng %(licenseName)s"
 
@@ -944,12 +949,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Đã gắn cờ là báo cáo lỗi hoặc yêu cầu hỗ trợ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Gắn cờ"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Đã gắn cờ"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Gắn cờ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -3345,23 +3350,23 @@ msgstr ""
 "Cảm ơn bạn đã ghé thăm trang web này! Vui lòng dành một hoặc hai phút để cho "
 "Firefox biết về trải nghiệm của bạn."
 
-#: src/core/i18n/utils.js:255
+#: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s B"
 
-#: src/core/i18n/utils.js:257
+#: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s KB"
 
-#: src/core/i18n/utils.js:259
+#: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s MB"
 
-#: src/core/i18n/utils.js:261
+#: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s GB"
 
-#: src/core/i18n/utils.js:263
+#: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 

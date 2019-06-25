@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-06-11 16:05+0000\n"
+"POT-Creation-Date: 2019-06-25 18:57+0000\n"
 "PO-Revision-Date: 2019-06-05 17:54+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
@@ -100,7 +100,15 @@ msgstr "Nicht kompatibel mit Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "Einige Funktionen können Zahlung erfordern"
 
-#: src/amo/components/AddonCompatibilityError/index.js:103
+#: src/amo/components/AddonCompatibilityError/index.js:106
+msgid "This add-on is not compatible with your version of Firefox."
+msgstr "Dieses Add-on ist mit Ihrer Firefox-Version nicht kompatibel."
+
+#: src/amo/components/AddonCompatibilityError/index.js:109
+msgid "Your version of Firefox does not support search plugins."
+msgstr "Ihre Firefox-Version unterstützt keine Suchplugins."
+
+#: src/amo/components/AddonCompatibilityError/index.js:113
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -108,15 +116,20 @@ msgstr ""
 "Ihre Firefox-Version unterstützt dieses Add-on nicht, weil es einen Neustart "
 "benötigt."
 
-#: src/amo/components/AddonCompatibilityError/index.js:106
+#: src/amo/components/AddonCompatibilityError/index.js:116
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox für iOS unterstützt derzeit keine Add-ons."
 
-#: src/amo/components/AddonCompatibilityError/index.js:110
+#: src/amo/components/AddonCompatibilityError/index.js:120
+#, fuzzy
+msgid "Firefox Preview does not currently support add-ons."
+msgstr "Firefox für iOS unterstützt derzeit keine Add-ons."
+
+#: src/amo/components/AddonCompatibilityError/index.js:124
 msgid "This add-on is not available on your platform."
 msgstr "Dieses Add-on ist für Ihre Plattform nicht verfügbar."
 
-#: src/amo/components/AddonCompatibilityError/index.js:114
+#: src/amo/components/AddonCompatibilityError/index.js:128
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -124,21 +137,13 @@ msgstr ""
 "Dieses Add-on erfordert eine <a href=\"%(downloadUrl)s\">neuere Version von "
 "Firefox </a> (mindestens %(minVersion)s). Sie nutzen Firefox %(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:131
+#: src/amo/components/AddonCompatibilityError/index.js:145
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
 msgstr ""
 "Ihr Browser unterstützt keine Add-ons. Sie können <a href=\"%(downloadUrl)s"
 "\">Firefox herunterladen</a> , um dieses Add-on zu installieren."
-
-#: src/amo/components/AddonCompatibilityError/index.js:96
-msgid "This add-on is not compatible with your version of Firefox."
-msgstr "Dieses Add-on ist mit Ihrer Firefox-Version nicht kompatibel."
-
-#: src/amo/components/AddonCompatibilityError/index.js:99
-msgid "Your version of Firefox does not support search plugins."
-msgstr "Ihre Firefox-Version unterstützt keine Suchplugins."
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
@@ -608,7 +613,7 @@ msgstr ""
 "Quelltext steht unter einer %(linkStart)sbenutzerdefinierten Lizenz"
 "%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:139
+#: src/amo/components/AddonVersionCard/index.js:140
 msgid "Source code released under %(licenseName)s"
 msgstr "Quelltext steht unter der %(licenseName)s"
 
@@ -970,12 +975,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Als Fehlerbericht oder Unterstützungs-Anfrage gemeldet"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Melden"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Gemeldet"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Melden"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -3406,23 +3411,23 @@ msgstr ""
 "Danke für Ihren Besuch auf dieser Website! Bitte nehmen Sie sich ein paar "
 "Minuten Zeit, um Firefox über Ihr Erlebnis zu berichten."
 
-#: src/core/i18n/utils.js:255
+#: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s B"
 
-#: src/core/i18n/utils.js:257
+#: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s KB"
 
-#: src/core/i18n/utils.js:259
+#: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s MB"
 
-#: src/core/i18n/utils.js:261
+#: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s GB"
 
-#: src/core/i18n/utils.js:263
+#: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 

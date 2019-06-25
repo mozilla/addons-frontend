@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-06-11 16:05+0000\n"
+"POT-Creation-Date: 2019-06-25 18:57+0000\n"
 "PO-Revision-Date: 2019-06-06 12:01+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
@@ -100,7 +100,15 @@ msgstr "Není kompatibilní s Firefoxem Quantum"
 msgid "Some features may require payment"
 msgstr "Použití některých funkcí může být zpoplatněno"
 
-#: src/amo/components/AddonCompatibilityError/index.js:103
+#: src/amo/components/AddonCompatibilityError/index.js:106
+msgid "This add-on is not compatible with your version of Firefox."
+msgstr "Tento doplněk není kompatibilní s vaší verzí Firefoxu."
+
+#: src/amo/components/AddonCompatibilityError/index.js:109
+msgid "Your version of Firefox does not support search plugins."
+msgstr "Vaše verze Firefoxu nepodporuje vyhledávací moduly."
+
+#: src/amo/components/AddonCompatibilityError/index.js:113
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -108,15 +116,20 @@ msgstr ""
 "Vaše verze Firefoxu nepodporuje tento doplněk, protože pro instalaci "
 "požaduje restart."
 
-#: src/amo/components/AddonCompatibilityError/index.js:106
+#: src/amo/components/AddonCompatibilityError/index.js:116
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox pro iOS zatím nepodporuje doplňky."
 
-#: src/amo/components/AddonCompatibilityError/index.js:110
+#: src/amo/components/AddonCompatibilityError/index.js:120
+#, fuzzy
+msgid "Firefox Preview does not currently support add-ons."
+msgstr "Firefox pro iOS zatím nepodporuje doplňky."
+
+#: src/amo/components/AddonCompatibilityError/index.js:124
 msgid "This add-on is not available on your platform."
 msgstr "Tento doplněk není na vaší platformě dostupný."
 
-#: src/amo/components/AddonCompatibilityError/index.js:114
+#: src/amo/components/AddonCompatibilityError/index.js:128
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -124,21 +137,13 @@ msgstr ""
 "Tento doplněk vyžaduje <a href=\"%(downloadUrl)s\">novější verzi Firefoxu</"
 "a> (alespoň %(minVersion)s). Vaše verze je %(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:131
+#: src/amo/components/AddonCompatibilityError/index.js:145
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
 msgstr ""
 "Váš prohlížeč nepodporuje doplňky. Pro instalaci tohoto doplňku si můžete <a "
 "href=\"%(downloadUrl)s\">stáhnout Firefox</a>."
-
-#: src/amo/components/AddonCompatibilityError/index.js:96
-msgid "This add-on is not compatible with your version of Firefox."
-msgstr "Tento doplněk není kompatibilní s vaší verzí Firefoxu."
-
-#: src/amo/components/AddonCompatibilityError/index.js:99
-msgid "Your version of Firefox does not support search plugins."
-msgstr "Vaše verze Firefoxu nepodporuje vyhledávací moduly."
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
@@ -586,7 +591,7 @@ msgstr ""
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "Zdrojový kód zveřejněn pod %(linkStart)svlastní licencí%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:139
+#: src/amo/components/AddonVersionCard/index.js:140
 msgid "Source code released under %(licenseName)s"
 msgstr "Zdrojový kód zveřejněn pod licencí %(licenseName)s"
 
@@ -946,12 +951,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Označeno jako hlášení chyby nebo žádost o podporu"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Nahlásit"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Nahlášeno"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Nahlásit"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -3371,23 +3376,23 @@ msgstr ""
 "Děkujeme za návštěvu tohoto webu! Udělejte si prosím chvilku a podělte se s "
 "Firefoxem o svých zkušenostech."
 
-#: src/core/i18n/utils.js:255
+#: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s B"
 
-#: src/core/i18n/utils.js:257
+#: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s KB"
 
-#: src/core/i18n/utils.js:259
+#: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s MB"
 
-#: src/core/i18n/utils.js:261
+#: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s GB"
 
-#: src/core/i18n/utils.js:263
+#: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
