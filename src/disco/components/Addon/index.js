@@ -81,7 +81,7 @@ export class AddonBase extends React.Component<InternalProps> {
         <div className="notification error">
           <p className="message">{getErrorMessage({ i18n, error })}</p>
           {error && !error.startsWith('FATAL') ? (
-            // eslint-disable-next-line jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid
+            // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <a className="close" href="#" onClick={this.closeError}>
               {i18n.gettext('Close')}
             </a>
@@ -280,7 +280,7 @@ export class AddonBase extends React.Component<InternalProps> {
                 'span',
               ])}
             />
-            {/* eslint-enable jsx-a11y/no-noninteractive-element-interactions *}
+            {/* eslint-enable jsx-a11y/no-noninteractive-element-interactions */}
             {/* eslint-enable jsx-a11y/click-events-have-key-events */}
             {this.getDescription()}
           </div>
