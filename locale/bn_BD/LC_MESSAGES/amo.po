@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-06-11 16:05+0000\n"
+"POT-Creation-Date: 2019-06-25 18:57+0000\n"
 "PO-Revision-Date: 2018-02-01 18:44+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
@@ -107,22 +107,35 @@ msgstr "Firefox Quantum এর সাথে সামঞ্জস্যপূর
 msgid "Some features may require payment"
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:103
+#: src/amo/components/AddonCompatibilityError/index.js:106
+msgid "This add-on is not compatible with your version of Firefox."
+msgstr "এই অ্যাড-অন আপনার Firefox সংস্করণের সাথে সামঞ্জস্যপূর্ণ নয়।"
+
+#: src/amo/components/AddonCompatibilityError/index.js:109
+msgid "Your version of Firefox does not support search plugins."
+msgstr "Firefox এই সংস্করণ সার্চ প্লাগিন সাপোর্ট করে না।"
+
+#: src/amo/components/AddonCompatibilityError/index.js:113
 #, fuzzy
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
 msgstr "Firefox এই সংস্করণ সার্চ প্লাগিন সাপোর্ট করে না।"
 
-#: src/amo/components/AddonCompatibilityError/index.js:106
+#: src/amo/components/AddonCompatibilityError/index.js:116
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "iOS এর জন্যৈ Firefox বর্তমানে অ্যাড-অন সমর্থন করে না।"
 
-#: src/amo/components/AddonCompatibilityError/index.js:110
+#: src/amo/components/AddonCompatibilityError/index.js:120
+#, fuzzy
+msgid "Firefox Preview does not currently support add-ons."
+msgstr "iOS এর জন্যৈ Firefox বর্তমানে অ্যাড-অন সমর্থন করে না।"
+
+#: src/amo/components/AddonCompatibilityError/index.js:124
 msgid "This add-on is not available on your platform."
 msgstr "এই অ্যাড-অনটি আপনার প্ল্যাটফর্মে উপলব্ধ নয়।"
 
-#: src/amo/components/AddonCompatibilityError/index.js:114
+#: src/amo/components/AddonCompatibilityError/index.js:128
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -131,21 +144,13 @@ msgstr ""
 "(অন্তত %(minVersion)s সংস্করণ প্রয়োজন)। আপনি ব্যবহার করছেন Firefox "
 "%(yourVersion)s।"
 
-#: src/amo/components/AddonCompatibilityError/index.js:131
+#: src/amo/components/AddonCompatibilityError/index.js:145
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
 msgstr ""
 "আপনার ব্রাউজার অ্যাড-অন সমর্থন করে না। আপনি <a href=\"%(downloadUrl)s\">Firefox "
 "ডাউনলোড</a> করে এই অ্যাড-অন ইনস্টল করতে পারেন।"
-
-#: src/amo/components/AddonCompatibilityError/index.js:96
-msgid "This add-on is not compatible with your version of Firefox."
-msgstr "এই অ্যাড-অন আপনার Firefox সংস্করণের সাথে সামঞ্জস্যপূর্ণ নয়।"
-
-#: src/amo/components/AddonCompatibilityError/index.js:99
-msgid "Your version of Firefox does not support search plugins."
-msgstr "Firefox এই সংস্করণ সার্চ প্লাগিন সাপোর্ট করে না।"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
@@ -629,7 +634,7 @@ msgstr "%(timestamp)s এ পোস্ট করা হয়েছে"
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "%(timestamp)s এ পোস্ট করা হয়েছে"
 
-#: src/amo/components/AddonVersionCard/index.js:139
+#: src/amo/components/AddonVersionCard/index.js:140
 #, fuzzy
 msgid "Source code released under %(licenseName)s"
 msgstr "%(timestamp)s এ পোস্ট করা হয়েছে"
@@ -981,12 +986,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "ফ্লাগ"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "ফ্ল্যাগকৃত"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "ফ্লাগ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -3213,23 +3218,23 @@ msgid ""
 "about your experience."
 msgstr ""
 
-#: src/core/i18n/utils.js:255
+#: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr ""
 
-#: src/core/i18n/utils.js:257
+#: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
 msgstr ""
 
-#: src/core/i18n/utils.js:259
+#: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
 msgstr ""
 
-#: src/core/i18n/utils.js:261
+#: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
 msgstr ""
 
-#: src/core/i18n/utils.js:263
+#: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
 msgstr ""
 

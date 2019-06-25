@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-06-11 16:05+0000\n"
+"POT-Creation-Date: 2019-06-25 18:57+0000\n"
 "PO-Revision-Date: 2019-06-01 17:56+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,7 +107,15 @@ msgstr "ਫਾਇਰਫਾਕਸ ਕੁਅੰਟਮ ਦੇ ਅਨੁਕੂਲ �
 msgid "Some features may require payment"
 msgstr "ਕੁਝ ਫੀਚਰਾਂ ਲਈ ਭੁਗਤਾਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ"
 
-#: src/amo/components/AddonCompatibilityError/index.js:103
+#: src/amo/components/AddonCompatibilityError/index.js:106
+msgid "This add-on is not compatible with your version of Firefox."
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:109
+msgid "Your version of Firefox does not support search plugins."
+msgstr "ਫਾਇਰਫਾਕਸ ਦਾ ਤੁਹਾਡਾ ਵਰਜਨ ਖੋਜ ਪਲੱਗਇਨ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
+
+#: src/amo/components/AddonCompatibilityError/index.js:113
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -115,15 +123,20 @@ msgstr ""
 "ਫਾਇਰਫਾਕਸ ਦਾ ਤੁਹਾਡਾ ਵਰਜਨ ਇਸ ਐਡ-ਆਨ ਨੂੰ ਸਹਿਯੋਗ ਨਹੀਂ ਦਿੰਦਾ ਕਿਉਂਕਿ ਇਸ ਨੂੰ ਮੁੜ-ਚਾਲੂ ਕਰਨ ਦੀ ਲੋੜ "
 "ਹੈ।"
 
-#: src/amo/components/AddonCompatibilityError/index.js:106
+#: src/amo/components/AddonCompatibilityError/index.js:116
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "iOS ਲਈ ਫਾਇਰਫਾਕਸ ਵਰਤਮਾਨ ਵਿੱਚ ਐਡ-ਆਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾ।"
 
-#: src/amo/components/AddonCompatibilityError/index.js:110
+#: src/amo/components/AddonCompatibilityError/index.js:120
+#, fuzzy
+msgid "Firefox Preview does not currently support add-ons."
+msgstr "iOS ਲਈ ਫਾਇਰਫਾਕਸ ਵਰਤਮਾਨ ਵਿੱਚ ਐਡ-ਆਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾ।"
+
+#: src/amo/components/AddonCompatibilityError/index.js:124
 msgid "This add-on is not available on your platform."
 msgstr "ਇਹ ਐਡ-ਆਨ ਤੁਹਾਡੇ ਪਲੇਟਫਾਰਮ ਤੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।"
 
-#: src/amo/components/AddonCompatibilityError/index.js:114
+#: src/amo/components/AddonCompatibilityError/index.js:128
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -131,21 +144,13 @@ msgstr ""
 "ਇਸ ਐਡ-ਆਨ ਲਈ <a href=\"%(downloadUrl)s\">ਫਾਇਰਫਾਕਸ ਦਾ ਨਵਾਂ ਵਰਜ਼ਨ</a> ਚਾਹੀਦਾ ਹੈ "
 "(ਘੱਟੋ-ਘੱਟ %(minVersion)s ਚਾਹੀਦਾ ਹੈ)। ਤੁਸੀਂ ਫਾਇਰਫਾਕਸ %(yourVersion)s ਵਰਤ ਰਹੇ ਹੋ।"
 
-#: src/amo/components/AddonCompatibilityError/index.js:131
+#: src/amo/components/AddonCompatibilityError/index.js:145
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
 msgstr ""
 "ਤੁਹਾਡਾ ਬਰਾਉਜ਼ਰ ਐਡ-ਆਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾ। ਤੁਸੀਂ ਇਸ ਐਡ-ਆਨ ਨੂੰ ਇੰਸਟਾਲ ਕਰਨ ਲਈ <a href="
 "\"%(downloadUrl)s\">ਫਾਇਰਫਾਕਸ ਡਾਊਨਲੋਡ</a> ਕਰ ਸਕਦੇ ਹੋ।"
-
-#: src/amo/components/AddonCompatibilityError/index.js:96
-msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
-
-#: src/amo/components/AddonCompatibilityError/index.js:99
-msgid "Your version of Firefox does not support search plugins."
-msgstr "ਫਾਇਰਫਾਕਸ ਦਾ ਤੁਹਾਡਾ ਵਰਜਨ ਖੋਜ ਪਲੱਗਇਨ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
 #: src/amo/components/AddonHead/index.js:100
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
@@ -584,7 +589,7 @@ msgstr "ਸਰੋਤ ਕੋਡ%(linkStart)s%(licenseName)s%(linkEnd)s ਦੇ ਅ
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/AddonVersionCard/index.js:139
+#: src/amo/components/AddonVersionCard/index.js:140
 msgid "Source code released under %(licenseName)s"
 msgstr ""
 
@@ -911,11 +916,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
+msgid "Flagged"
 msgstr "ਨਿਸ਼ਾਨਬੱਧ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
+msgid "Flag"
 msgstr "ਨਿਸ਼ਾਨਬੱਧ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
@@ -3048,23 +3053,23 @@ msgid ""
 "about your experience."
 msgstr ""
 
-#: src/core/i18n/utils.js:255
+#: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s B"
 
-#: src/core/i18n/utils.js:257
+#: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s KB"
 
-#: src/core/i18n/utils.js:259
+#: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s MB"
 
-#: src/core/i18n/utils.js:261
+#: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s GB"
 
-#: src/core/i18n/utils.js:263
+#: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-06-11 16:05+0000\n"
+"POT-Creation-Date: 2019-06-25 18:57+0000\n"
 "PO-Revision-Date: 2019-06-06 09:05+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
@@ -100,7 +100,15 @@ msgstr "Nem kompatibilis a Firefox Quantummal"
 msgid "Some features may require payment"
 msgstr "Néhány funkció fizetéshez kötött lehet"
 
-#: src/amo/components/AddonCompatibilityError/index.js:103
+#: src/amo/components/AddonCompatibilityError/index.js:106
+msgid "This add-on is not compatible with your version of Firefox."
+msgstr "Ez a kiegészítő nem kompatibilis ezzel a Firefox verzióval."
+
+#: src/amo/components/AddonCompatibilityError/index.js:109
+msgid "Your version of Firefox does not support search plugins."
+msgstr "A Firefox verziója nem támogatja a kereső bővítményeket."
+
+#: src/amo/components/AddonCompatibilityError/index.js:113
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -108,15 +116,20 @@ msgstr ""
 "A Firefox ezen verziója nem támogatja ezt a kiegészítőt, mert újraindítást "
 "igényel."
 
-#: src/amo/components/AddonCompatibilityError/index.js:106
+#: src/amo/components/AddonCompatibilityError/index.js:116
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "A Firefox for iOS pillanatnyilag nem támogatja a kiegészítőket."
 
-#: src/amo/components/AddonCompatibilityError/index.js:110
+#: src/amo/components/AddonCompatibilityError/index.js:120
+#, fuzzy
+msgid "Firefox Preview does not currently support add-ons."
+msgstr "A Firefox for iOS pillanatnyilag nem támogatja a kiegészítőket."
+
+#: src/amo/components/AddonCompatibilityError/index.js:124
 msgid "This add-on is not available on your platform."
 msgstr "Ez a kiegészítő nem érhető el ezen platformon."
 
-#: src/amo/components/AddonCompatibilityError/index.js:114
+#: src/amo/components/AddonCompatibilityError/index.js:128
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -125,21 +138,13 @@ msgstr ""
 "igényli (legalább Firefox %(minVersion)s). Ön a Firefox %(yourVersion)s "
 "kiadást használja."
 
-#: src/amo/components/AddonCompatibilityError/index.js:131
+#: src/amo/components/AddonCompatibilityError/index.js:145
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
 msgstr ""
 "A böngészője nem támogatja a kiegészítőket. <a href=\"%(downloadUrl)s"
 "\">Letöltheti a Firefoxot</a> a kiegészítő telepítéséhez."
-
-#: src/amo/components/AddonCompatibilityError/index.js:96
-msgid "This add-on is not compatible with your version of Firefox."
-msgstr "Ez a kiegészítő nem kompatibilis ezzel a Firefox verzióval."
-
-#: src/amo/components/AddonCompatibilityError/index.js:99
-msgid "Your version of Firefox does not support search plugins."
-msgstr "A Firefox verziója nem támogatja a kereső bővítményeket."
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
@@ -605,7 +610,7 @@ msgstr ""
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "A forráskód %(linkStart)sEgyéni licenc%(linkEnd)s alatt közzétéve"
 
-#: src/amo/components/AddonVersionCard/index.js:139
+#: src/amo/components/AddonVersionCard/index.js:140
 msgid "Source code released under %(licenseName)s"
 msgstr "A forráskód %(licenseName)s licenc alatt közzétéve"
 
@@ -963,12 +968,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Hibajelentésként vagy támogatási kérésként jelölt"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Megjelölés"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Megjelölt"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Megjelölés"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -3386,23 +3391,23 @@ msgstr ""
 "Köszönjük, hogy felkereste ezt az oldalt! Szánjon néhány percet, hogy "
 "elmondja a tapasztalatait a Firefoxról."
 
-#: src/core/i18n/utils.js:255
+#: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s B"
 
-#: src/core/i18n/utils.js:257
+#: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s kB"
 
-#: src/core/i18n/utils.js:259
+#: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s MB"
 
-#: src/core/i18n/utils.js:261
+#: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s GB"
 
-#: src/core/i18n/utils.js:263
+#: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 
