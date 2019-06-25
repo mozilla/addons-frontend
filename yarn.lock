@@ -5092,7 +5092,7 @@ create-react-context@<=0.2.2:
     fbjs "^0.8.0"
     gud "^1.0.0"
 
-create-react-context@^0.2.1, create-react-context@^0.2.3:
+create-react-context@^0.2.1:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/create-react-context/-/create-react-context-0.2.3.tgz#9ec140a6914a22ef04b8b09b7771de89567cb6f3"
   integrity sha512-CQBmD0+QGgTaxDL3OX1IDXYqjkp2It4RIbcb99jS6AEg27Ga+a9G3JtK6SIu0HBwPLZlmwt9F7UwWA4Bn92Rag==
@@ -13300,12 +13300,10 @@ react-style-proptype@^3.0.0:
   dependencies:
     prop-types "^15.5.4"
 
-react-super-responsive-table@4.3.12:
-  version "4.3.12"
-  resolved "https://registry.yarnpkg.com/react-super-responsive-table/-/react-super-responsive-table-4.3.12.tgz#dca35d75197fd5ffa8e07f733e68196955e3341f"
-  integrity sha512-78DQY0AhaGabzRGMz6n/hDWTesfRqCD7tfppmCv7k92vccek/cSnmfNhpd4S0mjRGuINxnO+uA+i1eJMnBe6mg==
-  dependencies:
-    create-react-context "^0.2.3"
+react-super-responsive-table@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/react-super-responsive-table/-/react-super-responsive-table-5.0.0.tgz#165e4c555ca3cca41789677ad94c59523d7f6cef"
+  integrity sha512-5E0biyBYGo5spLBTRQ23ghRhYC07YUb7GDWcLAQzgoJLZ+8W4JxAEIdBI1jMIoWhiC028Lusi6SU+V6V1AmRyQ==
 
 react-syntax-highlighter@^8.0.1:
   version "8.1.0"
