@@ -1,5 +1,6 @@
 import {
   DOWNLOAD_FAILED,
+  ERROR_CORRUPT_FILE,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
@@ -23,6 +24,7 @@ describe(__filename, () => {
     it.each([
       [INSTALL_FAILED, 'Installation failed'],
       [DOWNLOAD_FAILED, 'Download failed'],
+      [ERROR_CORRUPT_FILE, 'Error occurred due to corrupt file'],
       [FATAL_INSTALL_ERROR, 'error occurred during installation'],
       [FATAL_UNINSTALL_ERROR, 'error occurred during uninstallation'],
       [FATAL_ERROR, 'unexpected error occurred.'],

@@ -16,6 +16,7 @@ import {
   ENABLED,
   ENABLE_ACTION,
   ERROR,
+  ERROR_CORRUPT_FILE,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
@@ -884,6 +885,26 @@ describe(__filename, () => {
 
         handler({ state: 'WAT' }, { type: 'onNothingPerformed' });
         sinon.assert.notCalled(dispatch);
+      });
+
+      it('sets status to error on onCorruptFile', () => {
+        const dispatch = sinon.spy();
+        const guid = '{my-addon}';
+        const name = 'my-addon';
+        const type = ADDON_TYPE_EXTENSION;
+        const handler = createProgressHandler({
+          dispatch,
+          guid,
+          name,
+          type,
+        });
+
+        handler({ state: 'STATE_SOMETHING' }, { type: 'ERROR_CORRUPT_FILE' });
+
+        sinon.assert.calledWith(dispatch, {
+          type: 'ERROR_CORRUPT_FILE',
+          payload: { guid, error: ERROR_CORRUPT_FILE },
+        });
       });
     });
 

@@ -4,6 +4,7 @@ import invariant from 'invariant';
 
 import {
   DOWNLOAD_FAILED,
+  ERROR_CORRUPT_FILE,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
@@ -25,6 +26,8 @@ export const getErrorMessage = ({
   invariant(i18n, 'i18n is required');
 
   switch (error) {
+    case ERROR_CORRUPT_FILE:
+      return i18n.gettext('Error occurred due to corrupt file');
     case INSTALL_FAILED:
       return i18n.gettext('Installation failed. Please try again.');
     case DOWNLOAD_FAILED:

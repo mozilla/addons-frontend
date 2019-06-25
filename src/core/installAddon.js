@@ -20,6 +20,7 @@ import {
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
   ENABLE_ACTION,
+  ERROR_CORRUPT_FILE,
   ERROR,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
@@ -151,6 +152,8 @@ export function makeProgressHandler({
       });
     } else if (event.type === 'onInstallFailed') {
       dispatch(setInstallError({ guid, error: INSTALL_FAILED }));
+    } else if (event.type === 'onCorruptFile') {
+      dispatch(setInstallError({ guid, error: ERROR_CORRUPT_FILE }));
     }
   };
 }
