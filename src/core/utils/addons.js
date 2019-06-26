@@ -27,7 +27,9 @@ export const getErrorMessage = ({
 
   switch (error) {
     case ERROR_CORRUPT_FILE:
-      return i18n.gettext('Installation aborted because the add-on is unverified.');
+      return i18n.gettext(
+        'Installation aborted because the add-on is unverified.',
+      );
     case INSTALL_FAILED:
       return i18n.gettext('Installation failed. Please try again.');
     case DOWNLOAD_FAILED:
