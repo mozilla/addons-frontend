@@ -11,7 +11,6 @@ import {
   CLICK_CATEGORY,
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FAILED,
-  ERROR_CORRUPT_FILE,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
@@ -458,36 +457,6 @@ describe(__filename, () => {
 
       const compatError = root.find(AddonCompatibilityError);
       expect(compatError.prop('reason')).toEqual(reason);
-    });
-
-    it('renders an corrupt file error overlay', () => {
-      const addonProps = {
-        guid: 'some-guid-with-error',
-      };
-
-      // We need an install state before we can dispatch `setInstallError`.
-      store.dispatch(
-        setInstallState({
-          guid: addonProps.guid,
-          error: INSTALLED,
-        }),
-      );
-
-      store.dispatch(
-        setInstallError({
-          guid: addonProps.guid,
-          error: ERROR_CORRUPT_FILE,
-        }),
-      );
-
-      const setCurrentStatus = sinon.stub();
-
-      const root = render({ addonProps, setCurrentStatus });
-
-      const error = root.find('.notification.error');
-      error.find('.close').simulate('click', fakeEvent);
-
-      sinon.assert.called(setCurrentStatus);
     });
   });
 
