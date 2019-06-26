@@ -24,7 +24,7 @@ describe(__filename, () => {
     it.each([
       [INSTALL_FAILED, 'Installation failed'],
       [DOWNLOAD_FAILED, 'Download failed'],
-      [ERROR_CORRUPT_FILE, 'Error occurred due to corrupt file'],
+      [ERROR_CORRUPT_FILE, 'Installation aborted because the add-on is unverified.'],
       [FATAL_INSTALL_ERROR, 'error occurred during installation'],
       [FATAL_UNINSTALL_ERROR, 'error occurred during uninstallation'],
       [FATAL_ERROR, 'unexpected error occurred.'],
