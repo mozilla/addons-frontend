@@ -266,6 +266,24 @@ describe(__filename, () => {
     ]);
   });
 
+  it('renders hiligigayon spell checker above hindi language row', () => {
+    const addons = [
+      createFakeLanguageTool({
+        id: 1,
+        name: 'Hiligaynon spell checker',
+        target_locale: 'hil',
+        type: ADDON_TYPE_DICT,
+      }),
+    ];
+    const { store } = dispatchClientMetadata();
+    store.dispatch(loadLanguageTools({ languageTools: addons }));
+
+    const root = renderShallow({ store });
+
+    // We only expect hindi spell checker and don't expect hiliguyon spell checker to show up.
+    expect(root.find('.LanguageTools-table-row')).toHaveLength(0);
+  });
+
   it('renders add-ons on two different rows corresponding to two supported languages', () => {
     // The short locale is `fa` here, which is in the list of supported
     // languages (`src/core/languages.js`) together with `fa-IR`.
