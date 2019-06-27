@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-25 18:57+0000\n"
-"PO-Revision-Date: 2019-06-27 21:50+0000\n"
+"PO-Revision-Date: 2019-06-27 21:53+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -2622,7 +2622,7 @@ msgstr "Du har avslutta abonnementet!"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:117
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "E-postadressa %(strongStart)s%(email)s%(strongEnd)s vil ikkje lenger få meldingar når:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:76
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
@@ -2638,7 +2638,7 @@ msgstr ""
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla må kontakte meg om tillegget mitt"
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
@@ -2718,7 +2718,7 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s er lagt til"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Handter tillegga dine ved å klikke på Tillegg i menyen."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
