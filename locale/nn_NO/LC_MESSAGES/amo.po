@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-25 18:57+0000\n"
-"PO-Revision-Date: 2019-06-26 12:07+0000\n"
+"PO-Revision-Date: 2019-06-27 21:50+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -2642,7 +2642,7 @@ msgstr ""
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "nye tillegg eller Firefox-funksjonar er tilgjengelege"
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
@@ -2714,7 +2714,7 @@ msgstr "Vi beklagar, men vi kan ikkje finne noko på adressa du tasta inn."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s er lagt til"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
