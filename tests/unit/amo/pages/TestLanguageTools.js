@@ -266,7 +266,8 @@ describe(__filename, () => {
     ]);
   });
 
-  it('renders hiligigayon spell checker above hindi language row', () => {
+  // See: https://github.com/mozilla/addons-frontend/issues/7702
+  it('only renders supported languages', () => {
     const addons = [
       createFakeLanguageTool({
         id: 1,
@@ -280,7 +281,8 @@ describe(__filename, () => {
 
     const root = renderShallow({ store });
 
-    // We only expect hindi spell checker and don't expect hiliguyon spell checker to show up.
+    // We do not currently support `hil` and we do not want the add-on to be
+    // listed as part of the `hi` language.
     expect(root.find('.LanguageTools-table-row')).toHaveLength(0);
   });
 
