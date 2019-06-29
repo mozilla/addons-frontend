@@ -19,6 +19,7 @@ import {
   fakeI18n,
   fakeTheme,
   fakeVersion,
+  fakePlatformFile,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
@@ -182,6 +183,20 @@ describe(__filename, () => {
     const root = render({});
 
     expect(root.find('.AddonMoreInfo-version').children()).toHaveText('2.0.1');
+  });
+
+  it('renders file size of an add-on', () => {
+    _loadVersions({
+      files: [
+        {
+          ...fakePlatformFile,
+          size: 10,
+        },
+      ],
+    });
+    const root = render({});
+
+    expect(root.find('.AddonMoreInfo-filesize').children()).toHaveText('10 B');
   });
 
   it('renders a non-custom license and link', () => {
