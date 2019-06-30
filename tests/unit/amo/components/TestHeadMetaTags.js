@@ -193,4 +193,105 @@ describe(__filename, () => {
       );
     },
   );
+
+  it('renders Twitter meta tags', () => {
+    const baseURL = 'https://example.org';
+    const _config = getFakeConfig({ baseURL });
+
+    const description = 'page desc';
+    const image = 'https://example.com/image.png';
+    const title = 'page title';
+
+    const lang = 'de';
+    const pathname = '/bar';
+    const { store } = dispatchClientMetadata({ lang, pathname });
+
+    const root = render({ _config, description, image, title, store });
+
+    [
+      ['twitter:description', description],
+      ['twitter:image:src', image],
+      ['twitter:site', '@firefox'],
+      ['twitter:card', 'summary_large_image'],
+    ].forEach(([name, expectedValue]) => {
+      expect(root.find(`meta[name="${name}"]`)).toHaveProp(
+        'content',
+        expectedValue,
+      );
+    });
+
+    expect(root.find(`meta[name="twitter:title"]`)).toHaveLength(1);
+    expect(root.find(`meta[name="twitter:title"]`).prop('content')).toContain(
+      title,
+    );
+  });
+
+  it('renders a default image in "twitter:image:src" meta tag when image is null', () => {
+    const root = render({ image: null });
+
+    expect(root.find(`meta[name="twitter:image:src"]`)).toHaveProp(
+      'content',
+      'default-og-image.png',
+    );
+  });
+
+  it('renders a default image in "twitter:image:src" meta tag when image is not defined', () => {
+    const root = render({ image: undefined });
+
+    expect(root.find(`meta[name="twitter:image:src"]`)).toHaveProp(
+      'content',
+      'default-og-image.png',
+    );
+  });
+
+  it('does not render a "twitter:description" meta tag when description is null', () => {
+    const root = render({ description: null });
+
+    expect(root.find(`meta[name="twitter:description"]`)).toHaveLength(0);
+  });
+
+  it('does not render a "twitter:description" meta tag when description is not defined', () => {
+    const root = render({ description: undefined });
+
+    expect(root.find(`meta[name="twitter:description"]`)).toHaveLength(0);
+  });
+
+  it('does not append the default title in the "twitter:title" meta tag when `appendDefaultTitle` is `false`', () => {
+    const title = 'some title';
+
+    const root = render({ title, appendDefaultTitle: false });
+
+    expect(root.find(`meta[name="twitter:title"]`).prop('content')).toEqual(
+      title,
+    );
+  });
+
+  it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
+    'appends a default %s title in the "twitter:title" meta tag when title is supplied',
+    (clientApp) => {
+      const title = 'some title';
+      const lang = 'de';
+      const { store } = dispatchClientMetadata({ clientApp, lang });
+
+      const root = render({ store, title });
+
+      expect(root.find(`meta[name="twitter:title"]`).prop('content')).toMatch(
+        new RegExp(`^${title} – Add-ons for Firefox( Android)? \\(${lang}\\)$`),
+      );
+    },
+  );
+
+  it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
+    'uses the default %s title in the "twitter:title" meta tag when title is not supplied',
+    (clientApp) => {
+      const lang = 'de';
+      const { store } = dispatchClientMetadata({ clientApp, lang });
+
+      const root = render({ store, title: null });
+
+      expect(root.find(`meta[name="twitter:title"]`).prop('content')).toMatch(
+        new RegExp(`^Add-ons for Firefox( Android)? \\(${lang}\\)$`),
+      );
+    },
+  );
 });

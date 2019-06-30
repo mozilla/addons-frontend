@@ -115,6 +115,41 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
     return tags;
   }
 
+  renderTwitter() {
+    const { description } = this.props;
+
+    const tags = [
+      <meta key="twitter:site" name="twitter:site" content="@firefox" />,
+      <meta
+        key="twitter:card"
+        name="twitter:card"
+        content="summary_large_image"
+      />,
+      <meta
+        key="twitter:title"
+        name="twitter:title"
+        content={this.getTitle()}
+      />,
+      <meta
+        key="twitter:image:src"
+        name="twitter:image:src"
+        content={this.getImage()}
+      />,
+    ];
+
+    if (description) {
+      tags.push(
+        <meta
+          key="twitter:description"
+          name="twitter:description"
+          content={description}
+        />,
+      );
+    }
+
+    return tags;
+  }
+
   render() {
     const { date, description, lastModified } = this.props;
 
@@ -124,6 +159,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
         {date && <meta name="date" content={date} />}
         {lastModified && <meta name="last-modified" content={lastModified} />}
         {this.renderOpenGraph()}
+        {this.renderTwitter()}
       </Helmet>
     );
   }
