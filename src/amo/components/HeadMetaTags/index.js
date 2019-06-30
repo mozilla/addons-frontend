@@ -116,8 +116,6 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
   }
 
   renderTwitter() {
-    const { description } = this.props;
-
     const tags = [
       <meta key="twitter:site" name="twitter:site" content="@firefox" />,
       <meta
@@ -125,27 +123,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
         name="twitter:card"
         content="summary_large_image"
       />,
-      <meta
-        key="twitter:title"
-        name="twitter:title"
-        content={this.getTitle()}
-      />,
-      <meta
-        key="twitter:image:src"
-        name="twitter:image:src"
-        content={this.getImage()}
-      />,
     ];
-
-    if (description) {
-      tags.push(
-        <meta
-          key="twitter:description"
-          name="twitter:description"
-          content={description}
-        />,
-      );
-    }
 
     return tags;
   }
