@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-25 18:57+0000\n"
-"PO-Revision-Date: 2019-06-27 10:20+0000\n"
+"PO-Revision-Date: 2019-06-30 01:13+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -116,9 +116,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Saat ini, Firefox untuk iOS belum mendukung pengaya."
 
 #: src/amo/components/AddonCompatibilityError/index.js:120
-#, fuzzy
 msgid "Firefox Preview does not currently support add-ons."
-msgstr "Saat ini, Firefox untuk iOS belum mendukung pengaya."
+msgstr "Saat ini, Firefox Preview belum mendukung pengaya."
 
 #: src/amo/components/AddonCompatibilityError/index.js:124
 msgid "This add-on is not available on your platform."
@@ -2043,18 +2042,16 @@ msgid "Download Firefox extensions and themes. They’re like apps for your brow
 msgstr ""
 
 #: src/amo/pages/Home/index.js:323 src/amo/pages/LandingPage/index.js:153
-#, fuzzy
 msgid "See more recommended extensions"
-msgstr "Temukan ekstensi yang sedang populer lainnya"
+msgstr "Lihat lebih banyak ekstensi yang disarankan"
 
 #: src/amo/pages/Home/index.js:324 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "Lihat ekstensi pilihan lainnya"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
-#, fuzzy
 msgid "See more recommended themes"
-msgstr "Lihat tema yang sedang populer lainnya"
+msgstr "Lihat lebih banyak tema yang disarankan"
 
 #: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
