@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-25 18:57+0000\n"
-"PO-Revision-Date: 2019-06-30 01:13+0000\n"
+"PO-Revision-Date: 2019-06-30 04:07+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -793,6 +793,8 @@ msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla telah menghapusnya. Ini bisa terjadi ketika ditemukan masalah selama pengulasan ekstensi atau tema, atau ekstensi atau tema telah menyalahgunakan syarat dan ketentuan addons.mozilla.org. "
+"Pengembang punya kesempatan untuk menyelesaikan masalahnya dan membuat pengaya kembali tersedia."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:94
 msgid ""
@@ -1730,11 +1732,11 @@ msgstr "Belum ada ulasan"
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] ""
+msgstr[0] "riwayat versi %(addonName)s - %(total)s versi"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "Hati-hati dengan versi lama! Versi ini ditampilkan untuk tujuan pengujian dan referensi."
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
