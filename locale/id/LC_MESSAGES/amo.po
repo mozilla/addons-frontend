@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-25 18:57+0000\n"
-"PO-Revision-Date: 2019-06-30 04:07+0000\n"
+"PO-Revision-Date: 2019-06-30 04:23+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1881,7 +1881,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:178
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Nikmati pengalaman tab baru yang segar"
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
@@ -2792,7 +2792,7 @@ msgstr ""
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Berfungsi dengan %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:29
 msgid "Installation failed. Please try again."
@@ -2890,7 +2890,7 @@ msgstr "Belum ada peringkat"
 
 #: src/ui/components/RecommendedBadge/index.js:43
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "Firefox hanya menyarankan ekstensi yang memenuhi standar keamanan dan kinerja kami."
 
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
