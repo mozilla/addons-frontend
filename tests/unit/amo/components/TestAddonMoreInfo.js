@@ -12,6 +12,7 @@ import {
   STATS_VIEW,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
+import { formatFilesize } from 'core/i18n/utils';
 import {
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -186,17 +187,20 @@ describe(__filename, () => {
   });
 
   it('renders file size of an add-on', () => {
+    const size = 10;
     _loadVersions({
       files: [
         {
           ...fakePlatformFile,
-          size: 10,
+          size,
         },
       ],
     });
     const root = render({});
 
-    expect(root.find('.AddonMoreInfo-filesize').children()).toHaveText('10 B');
+    expect(root.find('.AddonMoreInfo-filesize').children()).toHaveText(
+      formatFilesize({ size, i18n: fakeI18n() }),
+    );
   });
 
   it('renders a non-custom license and link', () => {
