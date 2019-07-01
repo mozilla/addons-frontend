@@ -9,6 +9,7 @@
 .*/node_modules/eslint-plugin-jsx-a11y/.*
 .*/node_modules/react-nested-status/node_modules/.*
 .*/node_modules/stylelint
+.*/node_modules/@snyk/composer-lockfile-parser/.*
 
 [include]
 
