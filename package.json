@@ -211,7 +211,6 @@
   },
   "homepage": "https://github.com/mozilla/addons-frontend#readme",
   "dependencies": {
-    "@babel/polyfill": "7.4.4",
     "@loadable/component": "5.10.1",
     "@loadable/server": "5.9.0",
     "@willdurand/isomorphic-formdata": "1.2.0",
@@ -223,7 +222,7 @@
     "common-tags": "1.8.0",
     "config": "3.1.0",
     "connected-react-router": "5.0.1",
-    "core-js": "2",
+    "core-js": "3.1.4",
     "deep-eql": "4.0.0",
     "deepcopy": "2.0.0",
     "dompurify": "1.0.11",
