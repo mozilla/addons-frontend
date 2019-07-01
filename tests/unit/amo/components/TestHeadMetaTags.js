@@ -198,7 +198,7 @@ describe(__filename, () => {
     const root = render();
 
     [
-      ['twitter:site', '@firefox'],
+      ['twitter:site', '@mozamo'],
       ['twitter:card', 'summary_large_image'],
     ].forEach(([name, expectedValue]) => {
       expect(root.find(`meta[name="${name}"]`)).toHaveProp(
