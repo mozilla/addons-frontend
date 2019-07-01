@@ -117,7 +117,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
 
   renderTwitter() {
     const tags = [
-      <meta key="twitter:site" name="twitter:site" content="@firefox" />,
+      <meta key="twitter:site" name="twitter:site" content="@mozamo" />,
       <meta
         key="twitter:card"
         name="twitter:card"
