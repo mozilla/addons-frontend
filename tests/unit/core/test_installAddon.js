@@ -843,13 +843,11 @@ describe(__filename, () => {
         const _tracking = createFakeTracking();
         const dispatch = sinon.spy();
         const guid = '{my-addon}';
-        const name = 'my-addon';
         const type = ADDON_TYPE_EXTENSION;
         const handler = createProgressHandler({
           _tracking,
           dispatch,
           guid,
-          name,
           type,
         });
 
