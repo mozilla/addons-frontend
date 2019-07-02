@@ -174,7 +174,6 @@ export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
 export const THEME_INSTALL = 'InstallBrowserTheme';
 
 export const INSTALL_EVENT_LIST = [
-  'onCorruptFile',
   'onDownloadStarted',
   'onDownloadProgress',
   'onDownloadEnded',
