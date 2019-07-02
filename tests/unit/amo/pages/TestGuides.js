@@ -17,8 +17,8 @@ import {
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
-  getFakeLogger,
   fakeI18n,
+  getFakeLogger,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -275,6 +275,40 @@ describe(__filename, () => {
         `Could not load add-on with GUID: ${guids[0]}`,
       );
     });
+
+    it.each([['does', 'not empty'], ['does not', 'empty']])(
+      `%s display exploreMore details when a section's exploreMore text is %s`,
+      (expectation, exploreMoreStatus) => {
+        const { store } = _dispatchFirefoxClient();
+
+        const slug = 'stay-safe-online';
+        const section = getSections({ slug, i18n: fakeI18n() })[0];
+        const { addonGuid } = section;
+        const addons = [{ ...fakeAddon, addonGuid, slug }];
+
+        const expectedLength = expectation === 'does' ? 1 : 0;
+
+        if (exploreMoreStatus === 'empty') {
+          section.exploreMore = undefined;
+        }
+
+        store.dispatch(
+          fetchGuidesAddons({
+            slug,
+            guids: [addonGuid],
+            errorHandlerId: createStubErrorHandler().id,
+          }),
+        );
+
+        _loadAddonResults({ store, addons });
+
+        const root = render({ _sections: [section], store, slug });
+
+        expect(root.find('.Guides-section-explore-more')).toHaveLength(
+          expectedLength,
+        );
+      },
+    );
 
     it('renders an HTML title', () => {
       const { store } = _dispatchFirefoxClient();

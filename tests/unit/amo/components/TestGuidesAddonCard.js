@@ -13,9 +13,9 @@ import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
 import {
   dispatchClientMetadata,
   fakeAddon,
-  fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
+import RecommendedBadge from 'ui/components/RecommendedBadge';
 
 describe(__filename, () => {
   const _loadAddonResults = ({ addon = fakeAddon }) => {
@@ -25,7 +25,6 @@ describe(__filename, () => {
   const getProps = ({
     addonCustomText = 'Some text',
     hasAddonManager = true,
-    i18n = fakeI18n(),
     setCurrentStatus = sinon.spy(),
     store = dispatchClientMetadata().store,
     ...customProps
@@ -33,7 +32,6 @@ describe(__filename, () => {
     return {
       addonCustomText,
       hasAddonManager,
-      i18n,
       setCurrentStatus,
       status: UNKNOWN,
       store,
@@ -105,21 +103,18 @@ describe(__filename, () => {
     expect(root.find(AddonCompatibilityError)).toHaveLength(0);
   });
 
-  it('renders Staff Pick content by default', () => {
-    const root = render({ addon: createInternalAddon(fakeAddon) });
-    expect(
-      root.find('.GuidesAddonCard-content-header-staff-pick'),
-    ).toHaveLength(1);
+  it('renders a RecommendedBadge when the add-on is recommended', () => {
+    const root = render({
+      addon: createInternalAddon({ ...fakeAddon, is_recommended: true }),
+    });
+    expect(root.find(RecommendedBadge)).toHaveLength(1);
   });
 
-  it('does not render Staff Pick content when staffPick prop is false', () => {
+  it('does not render a RecommendedBadge when the add-on is not recommended', () => {
     const root = render({
-      addon: createInternalAddon(fakeAddon),
-      staffPick: false,
+      addon: createInternalAddon({ ...fakeAddon, is_recommended: false }),
     });
-    expect(
-      root.find('.GuidesAddonCard-content-header-staff-pick'),
-    ).toHaveLength(0);
+    expect(root.find(RecommendedBadge)).toHaveLength(0);
   });
 
   it('passes the addon to AddonTitle', () => {
