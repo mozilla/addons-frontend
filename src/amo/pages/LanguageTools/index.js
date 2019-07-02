@@ -198,7 +198,7 @@ export class LanguageToolsBase extends React.Component<Props> {
                       return addon.target_locale === language.locale;
                     }
 
-                    const re = new RegExp(`${language.locale}(-\\w+)?`);
+                    const re = new RegExp(`^${language.locale}(-\\w+)?$`);
 
                     return addon.target_locale && re.test(addon.target_locale);
                   });

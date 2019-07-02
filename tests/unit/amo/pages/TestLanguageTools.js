@@ -266,6 +266,26 @@ describe(__filename, () => {
     ]);
   });
 
+  // See: https://github.com/mozilla/addons-frontend/issues/7702
+  it('only renders supported languages', () => {
+    const addons = [
+      createFakeLanguageTool({
+        id: 1,
+        name: 'Hiligaynon spell checker',
+        target_locale: 'hil',
+        type: ADDON_TYPE_DICT,
+      }),
+    ];
+    const { store } = dispatchClientMetadata();
+    store.dispatch(loadLanguageTools({ languageTools: addons }));
+
+    const root = renderShallow({ store });
+
+    // We do not currently support `hil` and we do not want the add-on to be
+    // listed as part of the `hi` language.
+    expect(root.find('.LanguageTools-table-row')).toHaveLength(0);
+  });
+
   it('renders add-ons on two different rows corresponding to two supported languages', () => {
     // The short locale is `fa` here, which is in the list of supported
     // languages (`src/core/languages.js`) together with `fa-IR`.

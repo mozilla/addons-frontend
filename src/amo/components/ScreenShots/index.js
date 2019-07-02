@@ -1,6 +1,5 @@
 /* @flow */
-/* global document, window */
-/* eslint-disable jsx-a11y/href-no-hash */
+/* global window */
 import invariant from 'invariant';
 import * as React from 'react';
 import { PhotoSwipeGallery } from 'react-photoswipe';

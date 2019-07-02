@@ -6,7 +6,8 @@ import chaptersAddon, {
   setDefaults as setAddonChaptersDefaults,
 } from 'react-storybook-addon-chapters';
 
-import 'core/polyfill';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 // addon-info default settings.
 setDefaults({

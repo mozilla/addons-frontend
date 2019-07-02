@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-06-11 16:05+0000\n"
-"PO-Revision-Date: 2019-06-17 00:26+0000\n"
-"Last-Translator: xcffl <xcffl@outlook.com>\n"
+"POT-Creation-Date: 2019-06-25 18:57+0000\n"
+"PO-Revision-Date: 2019-06-26 14:13+0000\n"
+"Last-Translator: passionforlife <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -99,33 +99,37 @@ msgstr "不兼容 Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "某些功能可能需要付费"
 
-#: src/amo/components/AddonCompatibilityError/index.js:103
-msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr "因为此附加组件需要重开浏览器，您的 Firefox 版本并不支持。"
-
 #: src/amo/components/AddonCompatibilityError/index.js:106
-msgid "Firefox for iOS does not currently support add-ons."
-msgstr "Firefox iOS 版目前尚不支持附加组件。"
-
-#: src/amo/components/AddonCompatibilityError/index.js:110
-msgid "This add-on is not available on your platform."
-msgstr "此附加组件不适用您的平台。"
-
-#: src/amo/components/AddonCompatibilityError/index.js:114
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "此附加组件需要 <a href=\"%(downloadUrl)s\">较新版本的 Firefox</a>（至少 %(minVersion)s）。您目前使用的是 Firefox %(yourVersion)s。"
-
-#: src/amo/components/AddonCompatibilityError/index.js:131
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "您的浏览器不支持附加组件。您可以 <a href=\"%(downloadUrl)s\">下载 Firefox</a> 以安装这个附加组件。"
-
-#: src/amo/components/AddonCompatibilityError/index.js:96
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "此附加组件不兼容您的 Firefox 版本。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:99
+#: src/amo/components/AddonCompatibilityError/index.js:109
 msgid "Your version of Firefox does not support search plugins."
 msgstr "您的 Firefox 版本不支持搜索插件。"
+
+#: src/amo/components/AddonCompatibilityError/index.js:113
+msgid "Your version of Firefox does not support this add-on because it requires a restart."
+msgstr "因为此附加组件需要重开浏览器，您的 Firefox 版本并不支持。"
+
+#: src/amo/components/AddonCompatibilityError/index.js:116
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr "Firefox iOS 版目前尚不支持附加组件。"
+
+#: src/amo/components/AddonCompatibilityError/index.js:120
+msgid "Firefox Preview does not currently support add-ons."
+msgstr "Firefox Preview 目前尚不支持附加组件。"
+
+#: src/amo/components/AddonCompatibilityError/index.js:124
+msgid "This add-on is not available on your platform."
+msgstr "此附加组件不适用您的平台。"
+
+#: src/amo/components/AddonCompatibilityError/index.js:128
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "此附加组件需要 <a href=\"%(downloadUrl)s\">较新版本的 Firefox</a>（至少 %(minVersion)s）。您目前使用的是 Firefox %(yourVersion)s。"
+
+#: src/amo/components/AddonCompatibilityError/index.js:145
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "您的浏览器不支持附加组件。您可以 <a href=\"%(downloadUrl)s\">下载 Firefox</a> 以安装这个附加组件。"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
@@ -550,7 +554,7 @@ msgstr "源代码遵循 %(linkStart)s%(licenseName)s%(linkEnd)s 许可协议发�
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "源代码遵循%(linkStart)s自定义许可协议%(linkEnd)s发布"
 
-#: src/amo/components/AddonVersionCard/index.js:139
+#: src/amo/components/AddonVersionCard/index.js:140
 msgid "Source code released under %(licenseName)s"
 msgstr "源代码遵循 %(licenseName)s 许可协议发布"
 
@@ -831,12 +835,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "已报告这是一份缺陷报告或支持请求"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "标记"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "已标记"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "标记"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1034,7 +1038,7 @@ msgstr "增强您的媒体体验"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
-msgstr "给浏览器像手机那样装上应用。"
+msgstr "给浏览器加点机能。"
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
@@ -2017,7 +2021,7 @@ msgstr "季节"
 
 #: src/amo/pages/Home/index.js:252
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr "使用扩展个性化 Firefox 的工作方式。似乎您喜欢…"
+msgstr "使用扩展自定 Firefox 的运作方式。也许您会喜欢…"
 
 #: src/amo/pages/Home/index.js:254
 msgid "Change the way Firefox looks with themes."
@@ -2714,23 +2718,23 @@ msgstr "填写简短问卷"
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
 msgstr "感谢您访问本网站！请花一两分钟时间告诉 Firefox 您的使用体验。"
 
-#: src/core/i18n/utils.js:255
+#: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s B"
 
-#: src/core/i18n/utils.js:257
+#: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s KB"
 
-#: src/core/i18n/utils.js:259
+#: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s MB"
 
-#: src/core/i18n/utils.js:261
+#: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s GB"
 
-#: src/core/i18n/utils.js:263
+#: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 

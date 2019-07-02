@@ -1,4 +1,3 @@
-/* global Intl */
 /* @flow */
 import * as React from 'react';
 import config from 'config';

@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-06-11 16:05+0000\n"
-"PO-Revision-Date: 2019-06-11 18:16+0000\n"
-"Last-Translator: Victor Bychek <a@bychek.ru>\n"
+"POT-Creation-Date: 2019-06-25 18:57+0000\n"
+"PO-Revision-Date: 2019-06-26 16:21+0000\n"
+"Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -99,33 +99,37 @@ msgstr "Не совместимо с Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "Некоторые функции могут потребовать оплаты"
 
-#: src/amo/components/AddonCompatibilityError/index.js:103
-msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr "Ваша версия Firefox не поддерживает это дополнение, поскольку оно требует перезапуска."
-
 #: src/amo/components/AddonCompatibilityError/index.js:106
-msgid "Firefox for iOS does not currently support add-ons."
-msgstr "Firefox для iOS в настоящее время не поддерживает дополнения."
-
-#: src/amo/components/AddonCompatibilityError/index.js:110
-msgid "This add-on is not available on your platform."
-msgstr "Это дополнение недоступно на вашей платформе."
-
-#: src/amo/components/AddonCompatibilityError/index.js:114
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "Этому дополнению требуется <a href=\"%(downloadUrl)s\">более новая версия Firefox</a> (как минимум %(minVersion)s). Вы используете Firefox %(yourVersion)s."
-
-#: src/amo/components/AddonCompatibilityError/index.js:131
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Ваш браузер не поддерживает дополнения. Вы можете <a href=\"%(downloadUrl)s\">загрузить Firefox</a>, чтобы установить это дополнение."
-
-#: src/amo/components/AddonCompatibilityError/index.js:96
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Это дополнение несовместимо с вашей версией Firefox."
 
-#: src/amo/components/AddonCompatibilityError/index.js:99
+#: src/amo/components/AddonCompatibilityError/index.js:109
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Ваша версия Firefox не поддерживает поисковые плагины."
+
+#: src/amo/components/AddonCompatibilityError/index.js:113
+msgid "Your version of Firefox does not support this add-on because it requires a restart."
+msgstr "Ваша версия Firefox не поддерживает это дополнение, поскольку оно требует перезапуска."
+
+#: src/amo/components/AddonCompatibilityError/index.js:116
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr "Firefox для iOS в настоящее время не поддерживает дополнения."
+
+#: src/amo/components/AddonCompatibilityError/index.js:120
+msgid "Firefox Preview does not currently support add-ons."
+msgstr "Firefox Preview в настоящее время не поддерживает дополнения."
+
+#: src/amo/components/AddonCompatibilityError/index.js:124
+msgid "This add-on is not available on your platform."
+msgstr "Это дополнение недоступно на вашей платформе."
+
+#: src/amo/components/AddonCompatibilityError/index.js:128
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Этому дополнению требуется <a href=\"%(downloadUrl)s\">более новая версия Firefox</a> (как минимум %(minVersion)s). Вы используете Firefox %(yourVersion)s."
+
+#: src/amo/components/AddonCompatibilityError/index.js:145
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Ваш браузер не поддерживает дополнения. Вы можете <a href=\"%(downloadUrl)s\">загрузить Firefox</a>, чтобы установить это дополнение."
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
@@ -558,7 +562,7 @@ msgstr "Исходный код выпущен на условиях %(linkStart
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "Исходный код выпущен на условиях %(linkStart)sлицензии разработчика%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:139
+#: src/amo/components/AddonVersionCard/index.js:140
 msgid "Source code released under %(licenseName)s"
 msgstr "Исходный код выпущен на условиях %(licenseName)s"
 
@@ -849,12 +853,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Отмечено как сообщение об ошибке или запрос поддержки"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Отметить"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Отмечено"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Отметить"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -2820,23 +2824,23 @@ msgstr "Пройти короткий опрос"
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
 msgstr "Спасибо, что посетили этот сайт! Пожалуйста, уделите нам минутку или две, чтобы рассказать о своих впечатлениях при работе с Firefox."
 
-#: src/core/i18n/utils.js:255
+#: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s байт(а)"
 
-#: src/core/i18n/utils.js:257
+#: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s КБ"
 
-#: src/core/i18n/utils.js:259
+#: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s МБ"
 
-#: src/core/i18n/utils.js:261
+#: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s ГБ"
 
-#: src/core/i18n/utils.js:263
+#: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s ТБ"
 

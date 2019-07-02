@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-06-11 16:05+0000\n"
-"PO-Revision-Date: 2019-06-12 07:09+0000\n"
+"POT-Creation-Date: 2019-06-25 18:57+0000\n"
+"PO-Revision-Date: 2019-06-25 21:04+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -99,33 +99,37 @@ msgstr "Njekompatibelny z Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "Někotare funkcije mógli se płaśenje pominaś"
 
-#: src/amo/components/AddonCompatibilityError/index.js:103
-msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr "Waša wersija Firefox toś ten dodank njepódpěra, dokulaž se znowegostartowanje pomina."
-
 #: src/amo/components/AddonCompatibilityError/index.js:106
-msgid "Firefox for iOS does not currently support add-ons."
-msgstr "Firefox za iOS tuchylu dodanki njepódpěra."
-
-#: src/amo/components/AddonCompatibilityError/index.js:110
-msgid "This add-on is not available on your platform."
-msgstr "Toś ten dodank njejo na wašej platformje k dispoziciji."
-
-#: src/amo/components/AddonCompatibilityError/index.js:114
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "Toś ten dodank se <a href=\"%(downloadUrl)s\">nowšu wersiju Firefox</a> pomina (nanejmjenjej wersiju %(minVersion)s). Wužywaśo Firefox %(yourVersion)s."
-
-#: src/amo/components/AddonCompatibilityError/index.js:131
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Waš wobglědowak dodanki njepódpěra. Móžośo <a href=\"%(downloadUrl)s\">Firefox ześěgnuś</a>, aby toś ten dodank instalěrował."
-
-#: src/amo/components/AddonCompatibilityError/index.js:96
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Toś ten dodank njejo kompatibelny z wašeju wersiju Firefox."
 
-#: src/amo/components/AddonCompatibilityError/index.js:99
+#: src/amo/components/AddonCompatibilityError/index.js:109
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Waša wersija Firefox pytnice njepódpěra."
+
+#: src/amo/components/AddonCompatibilityError/index.js:113
+msgid "Your version of Firefox does not support this add-on because it requires a restart."
+msgstr "Waša wersija Firefox toś ten dodank njepódpěra, dokulaž se znowegostartowanje pomina."
+
+#: src/amo/components/AddonCompatibilityError/index.js:116
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr "Firefox za iOS tuchylu dodanki njepódpěra."
+
+#: src/amo/components/AddonCompatibilityError/index.js:120
+msgid "Firefox Preview does not currently support add-ons."
+msgstr "Firefox Preview tuchylu dodanki njepódpěra."
+
+#: src/amo/components/AddonCompatibilityError/index.js:124
+msgid "This add-on is not available on your platform."
+msgstr "Toś ten dodank njejo na wašej platformje k dispoziciji."
+
+#: src/amo/components/AddonCompatibilityError/index.js:128
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Toś ten dodank se <a href=\"%(downloadUrl)s\">nowšu wersiju Firefox</a> pomina (nanejmjenjej wersiju %(minVersion)s). Wužywaśo Firefox %(yourVersion)s."
+
+#: src/amo/components/AddonCompatibilityError/index.js:145
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Waš wobglědowak dodanki njepódpěra. Móžośo <a href=\"%(downloadUrl)s\">Firefox ześěgnuś</a>, aby toś ten dodank instalěrował."
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
@@ -562,7 +566,7 @@ msgstr "Žrědłowy kod jo pód licencu %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "Žrědłowy kod jo pód %(linkStart)sswójskeju licencu%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:139
+#: src/amo/components/AddonVersionCard/index.js:140
 msgid "Source code released under %(licenseName)s"
 msgstr "Žrědłowy kod jo pód licencu %(licenseName)s"
 
@@ -853,12 +857,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Ako zmólkowa rozpšawa abo pšosba wó pomoc wóznamjenjony"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Wóznamjeniś"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Wóznamjenjone"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Wóznamjeniś"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -2828,23 +2832,23 @@ msgstr "Na krotkem napšašowanju se wobźěliś"
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
 msgstr "Źěkujomy se za waš woglěd na toś tom websedle! Bjeŕśo se někotare minuty casa, aby wó swójom dožywjenju z Firefox wulicował."
 
-#: src/core/i18n/utils.js:255
+#: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s B"
 
-#: src/core/i18n/utils.js:257
+#: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s KB"
 
-#: src/core/i18n/utils.js:259
+#: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s MB"
 
-#: src/core/i18n/utils.js:261
+#: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s GB"
 
-#: src/core/i18n/utils.js:263
+#: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s TB"
 

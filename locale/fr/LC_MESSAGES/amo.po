@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-06-11 16:05+0000\n"
-"PO-Revision-Date: 2019-06-14 09:47+0000\n"
-"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
+"POT-Creation-Date: 2019-06-25 18:57+0000\n"
+"PO-Revision-Date: 2019-06-26 11:39+0000\n"
+"Last-Translator: YD <ygda+fx@free.fr>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -99,33 +99,37 @@ msgstr "Incompatible avec Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "Certaines fonctionnalités peuvent être payantes"
 
-#: src/amo/components/AddonCompatibilityError/index.js:103
-msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr "Votre version de Firefox ne prend pas en charge ce module parce qu’il nécessite un redémarrage."
-
 #: src/amo/components/AddonCompatibilityError/index.js:106
-msgid "Firefox for iOS does not currently support add-ons."
-msgstr "Firefox pour iOS ne prend pas en charge les modules pour le moment."
-
-#: src/amo/components/AddonCompatibilityError/index.js:110
-msgid "This add-on is not available on your platform."
-msgstr "Ce module n’est pas disponible pour votre plateforme."
-
-#: src/amo/components/AddonCompatibilityError/index.js:114
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "Ce module nécessite une <a href=\"%(downloadUrl)s\">version plus récente de Firefox</a> (version %(minVersion)s minimum). Vous utilisez Firefox %(yourVersion)s."
-
-#: src/amo/components/AddonCompatibilityError/index.js:131
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Votre navigateur ne prend pas en charge les modules. Vous pouvez <a href=\"%(downloadUrl)s\">télécharger Firefox</a> pour installer ce module."
-
-#: src/amo/components/AddonCompatibilityError/index.js:96
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Ce module est incompatible avec votre version de Firefox."
 
-#: src/amo/components/AddonCompatibilityError/index.js:99
+#: src/amo/components/AddonCompatibilityError/index.js:109
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Votre version de Firefox ne prend pas en charge les plugins de recherche."
+
+#: src/amo/components/AddonCompatibilityError/index.js:113
+msgid "Your version of Firefox does not support this add-on because it requires a restart."
+msgstr "Votre version de Firefox ne prend pas en charge ce module parce qu’il nécessite un redémarrage."
+
+#: src/amo/components/AddonCompatibilityError/index.js:116
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr "Firefox pour iOS ne prend pas en charge les modules pour le moment."
+
+#: src/amo/components/AddonCompatibilityError/index.js:120
+msgid "Firefox Preview does not currently support add-ons."
+msgstr "Firefox Preview ne prend pas en charge les modules complémentaires pour le moment."
+
+#: src/amo/components/AddonCompatibilityError/index.js:124
+msgid "This add-on is not available on your platform."
+msgstr "Ce module n’est pas disponible pour votre plateforme."
+
+#: src/amo/components/AddonCompatibilityError/index.js:128
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Ce module nécessite une <a href=\"%(downloadUrl)s\">version plus récente de Firefox</a> (version %(minVersion)s minimum). Vous utilisez Firefox %(yourVersion)s."
+
+#: src/amo/components/AddonCompatibilityError/index.js:145
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Votre navigateur ne prend pas en charge les modules. Vous pouvez <a href=\"%(downloadUrl)s\">télécharger Firefox</a> pour installer ce module."
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
@@ -554,7 +558,7 @@ msgstr "Code source publié sous licence %(linkStart)s%(licenseName)s%(linkEnd)s
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "Code source publié sous %(linkStart)slicence personnalisée%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:139
+#: src/amo/components/AddonVersionCard/index.js:140
 msgid "Source code released under %(licenseName)s"
 msgstr "Code source publié sous licence %(licenseName)s"
 
@@ -845,12 +849,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Signalé comme un rapport de bogue ou une demande d’assistance"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Signaler"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Signalé"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Signaler"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -2818,23 +2822,23 @@ msgstr "Participer à l’enquête"
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
 msgstr "Merci d’avoir parcouru ce site ! Veuillez prendre une minute ou deux pour faire part de votre expérience à l’équipe de Firefox."
 
-#: src/core/i18n/utils.js:255
+#: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
 msgstr "%(localizedSize)s octets"
 
-#: src/core/i18n/utils.js:257
+#: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
 msgstr "%(localizedSize)s Ko"
 
-#: src/core/i18n/utils.js:259
+#: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
 msgstr "%(localizedSize)s Mo"
 
-#: src/core/i18n/utils.js:261
+#: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
 msgstr "%(localizedSize)s Go"
 
-#: src/core/i18n/utils.js:263
+#: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
 msgstr "%(localizedSize)s To"
 
