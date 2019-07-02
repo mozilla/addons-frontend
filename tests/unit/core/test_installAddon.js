@@ -16,6 +16,7 @@ import {
   ENABLED,
   ENABLE_ACTION,
   ERROR,
+  ERROR_CORRUPT_FILE,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
@@ -26,6 +27,7 @@ import {
   INSTALL_CANCELLED,
   INSTALL_CANCELLED_ACTION,
   INSTALL_DOWNLOAD_FAILED_ACTION,
+  INSTALL_ERROR,
   INSTALL_FAILED,
   INSTALL_STARTED_ACTION,
   INSTALL_STARTED_THEME_CATEGORY,
@@ -813,7 +815,7 @@ describe(__filename, () => {
         handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadFailed' });
 
         sinon.assert.calledWith(dispatch, {
-          type: 'INSTALL_ERROR',
+          type: INSTALL_ERROR,
           payload: { guid, error: DOWNLOAD_FAILED },
         });
         sinon.assert.calledWith(_tracking.sendEvent, {
@@ -872,7 +874,7 @@ describe(__filename, () => {
 
         handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallFailed' });
         sinon.assert.calledWith(dispatch, {
-          type: 'INSTALL_ERROR',
+          type: INSTALL_ERROR,
           payload: { guid, error: INSTALL_FAILED },
         });
       });
@@ -884,6 +886,32 @@ describe(__filename, () => {
 
         handler({ state: 'WAT' }, { type: 'onNothingPerformed' });
         sinon.assert.notCalled(dispatch);
+      });
+
+      it('sets status to error when file appears to be corrupt', () => {
+        const _tracking = createFakeTracking();
+        const dispatch = sinon.spy();
+        const guid = '{my-addon}';
+        const name = 'my-addon';
+        const type = ADDON_TYPE_EXTENSION;
+        const handler = createProgressHandler({
+          _tracking,
+          dispatch,
+          guid,
+          name,
+          type,
+        });
+
+        handler(
+          { state: 'STATE_SOMETHING' },
+          { type: 'onDownloadFailed', target: { error: ERROR_CORRUPT_FILE } },
+        );
+
+        sinon.assert.calledWith(dispatch, {
+          type: INSTALL_ERROR,
+          payload: { guid, error: ERROR_CORRUPT_FILE },
+        });
+        sinon.assert.notCalled(_tracking.sendEvent);
       });
     });
 

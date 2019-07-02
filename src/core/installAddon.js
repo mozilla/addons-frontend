@@ -20,6 +20,7 @@ import {
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
   ENABLE_ACTION,
+  ERROR_CORRUPT_FILE,
   ERROR,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
@@ -101,6 +102,9 @@ type AddonInstallType = {|
 
 type EventType = {|
   type: string,
+  target?: {|
+    error: string,
+  |},
 |};
 
 type MakeProgressHandlerParams = {|
@@ -131,13 +135,18 @@ export function makeProgressHandler({
     } else if (event.type === 'onDownloadEnded') {
       dispatch(setInstallState({ guid, status: INSTALLING }));
     } else if (event.type === 'onDownloadFailed') {
-      dispatch(setInstallError({ guid, error: DOWNLOAD_FAILED }));
+      // See: https://github.com/mozilla/addons-frontend/issues/7985
+      if (event.target && event.target.error === ERROR_CORRUPT_FILE) {
+        dispatch(setInstallError({ guid, error: ERROR_CORRUPT_FILE }));
+      } else {
+        dispatch(setInstallError({ guid, error: DOWNLOAD_FAILED }));
 
-      _tracking.sendEvent({
-        action: getAddonTypeForTracking(type),
-        category: getAddonEventCategory(type, INSTALL_DOWNLOAD_FAILED_ACTION),
-        label: name,
-      });
+        _tracking.sendEvent({
+          action: getAddonTypeForTracking(type),
+          category: getAddonEventCategory(type, INSTALL_DOWNLOAD_FAILED_ACTION),
+          label: name,
+        });
+      }
     } else if (event.type === 'onInstallCancelled') {
       dispatch({
         type: INSTALL_CANCELLED,

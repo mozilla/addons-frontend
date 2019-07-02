@@ -33,6 +33,7 @@ export const validInstallStates = [
 export const DOWNLOAD_FAILED = 'DOWNLOAD_FAILED';
 export const INSTALL_CANCELLED = 'INSTALL_CANCELLED';
 export const INSTALL_FAILED = 'INSTALL_FAILED';
+export const ERROR_CORRUPT_FILE = 'ERROR_CORRUPT_FILE';
 
 // Unrecoverable errors.
 export const FATAL_INSTALL_ERROR = 'FATAL_INSTALL_ERROR';
