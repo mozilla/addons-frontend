@@ -888,17 +888,30 @@ describe(__filename, () => {
         sinon.assert.notCalled(dispatch);
       });
 
-      it('sets status to error on onCorruptFile', () => {
+      it('sets status to error when file appears to be corrupt', () => {
+        const _tracking = createFakeTracking();
         const dispatch = sinon.spy();
         const guid = '{my-addon}';
-        const handler = createProgressHandler({ dispatch, guid });
+        const name = 'my-addon';
+        const type = ADDON_TYPE_EXTENSION;
+        const handler = createProgressHandler({
+          _tracking,
+          dispatch,
+          guid,
+          name,
+          type,
+        });
 
-        handler({ state: 'STATE_SOMETHING' }, { type: 'onCorruptFile' });
+        handler(
+          { state: 'STATE_SOMETHING' },
+          { type: 'onDownloadFailed', target: { error: ERROR_CORRUPT_FILE } },
+        );
 
         sinon.assert.calledWith(dispatch, {
           type: INSTALL_ERROR,
           payload: { guid, error: ERROR_CORRUPT_FILE },
         });
+        sinon.assert.notCalled(_tracking.sendEvent);
       });
     });
 
