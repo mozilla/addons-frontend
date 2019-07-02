@@ -5,7 +5,7 @@ import { compose } from 'redux';
 
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import Link from 'amo/components/Link';
-import { getVersionById } from 'core/reducers/versions';
+import { getVersionById, getVersionInfo } from 'core/reducers/versions';
 import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { hasPermission } from 'amo/reducers/users';
@@ -18,12 +18,13 @@ import {
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
-import type { AddonVersionType } from 'core/reducers/versions';
+import type { AddonVersionType, VersionInfoType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
 
 type Props = {|
   addon: AddonType | null,
+  i18n: I18nType,
 |};
 
 type InternalProps = {|
@@ -32,6 +33,7 @@ type InternalProps = {|
   i18n: I18nType,
   userId: number | null,
   currentVersion: AddonVersionType | null,
+  versionInfo: VersionInfoType | null,
 |};
 
 export class AddonMoreInfoBase extends React.Component<InternalProps> {
@@ -42,6 +44,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       i18n,
       userId,
       currentVersion,
+      versionInfo,
     } = this.props;
 
     if (!addon) {
@@ -133,6 +136,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
         currentVersion && addonHasVersionHistory(addon)
           ? currentVersion.version
           : null,
+      filesize: versionInfo && versionInfo.filesize,
       versionLastUpdated: lastUpdated
         ? i18n.sprintf(
             // translators: This will output, in English:
@@ -181,6 +185,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     statsLink = null,
     privacyPolicyLink = null,
     eulaLink = null,
+    filesize = null,
     version = null,
     versionLastUpdated,
     versionLicenseLink = null,
@@ -208,6 +213,14 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
               term={i18n.gettext('Version')}
             >
               {version}
+            </Definition>
+          )}
+          {filesize && (
+            <Definition
+              className="AddonMoreInfo-filesize"
+              term={i18n.gettext('Size')}
+            >
+              {filesize}
             </Definition>
           )}
           {versionLastUpdated && (
@@ -278,20 +291,37 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 }
 
 export const mapStateToProps = (state: AppState, ownProps: Props) => {
-  const { addon } = ownProps;
+  const { addon, i18n } = ownProps;
+  let currentVersion = null;
+  let versionInfo = null;
+
+  if (addon && addon.currentVersionId) {
+    currentVersion = getVersionById({
+      id: addon.currentVersionId,
+      state: state.versions,
+    });
+  }
+
+  if (currentVersion) {
+    versionInfo = getVersionInfo({
+      i18n,
+      state: state.versions,
+      userAgentInfo: state.api.userAgentInfo,
+      versionId: currentVersion.id,
+    });
+  }
+
   return {
+    currentVersion,
+    versionInfo,
     hasStatsPermission: hasPermission(state, STATS_VIEW),
     userId: state.users.currentUserID,
-    currentVersion:
-      addon && addon.currentVersionId
-        ? getVersionById({ id: addon.currentVersionId, state: state.versions })
-        : null,
   };
 };
 
 const AddonMoreInfo: React.ComponentType<Props> = compose(
-  connect(mapStateToProps),
   translate(),
+  connect(mapStateToProps),
 )(AddonMoreInfoBase);
 
 export default AddonMoreInfo;
