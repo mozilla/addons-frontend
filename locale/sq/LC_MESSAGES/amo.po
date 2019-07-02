@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-06-25 18:57+0000\n"
+"POT-Creation-Date: 2019-07-02 19:07+0000\n"
 "PO-Revision-Date: 2019-06-21 11:27+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -262,79 +262,83 @@ msgstr "S’ka Shqyrtime"
 msgid "Used by"
 msgstr "Përdorur nga"
 
-#: src/amo/components/AddonMoreInfo/index.js:103
+#: src/amo/components/AddonMoreInfo/index.js:106
 msgid "Visit stats dashboard"
 msgstr "Vizitoni pult statistikash"
 
-#: src/amo/components/AddonMoreInfo/index.js:116
+#: src/amo/components/AddonMoreInfo/index.js:119
 msgid "Custom License"
 msgstr "Licencë e Përshtatur"
 
-#: src/amo/components/AddonMoreInfo/index.js:140
+#: src/amo/components/AddonMoreInfo/index.js:144
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:153
+#: src/amo/components/AddonMoreInfo/index.js:157
 msgid "Read the privacy policy for this add-on"
 msgstr "Lexoni rregullat e privatësisë për këtë shtesë"
 
-#: src/amo/components/AddonMoreInfo/index.js:161
+#: src/amo/components/AddonMoreInfo/index.js:165
 msgid "Read the license agreement for this add-on"
 msgstr "Lexoni marrëveshjen e licencës për këtë shtesë"
 
-#: src/amo/components/AddonMoreInfo/index.js:170
+#: src/amo/components/AddonMoreInfo/index.js:174
 msgid "See all versions"
 msgstr "Shihini krejt versionet"
 
-#: src/amo/components/AddonMoreInfo/index.js:196
+#: src/amo/components/AddonMoreInfo/index.js:201
 msgid "Add-on Links"
 msgstr "Lidhje shtese"
 
-#: src/amo/components/AddonMoreInfo/index.js:208
+#: src/amo/components/AddonMoreInfo/index.js:213
 msgid "Version"
 msgstr "Version"
 
-#: src/amo/components/AddonMoreInfo/index.js:216
+#: src/amo/components/AddonMoreInfo/index.js:221
+msgid "Size"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo/index.js:229
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Përditësuar së fundi më"
 
-#: src/amo/components/AddonMoreInfo/index.js:224
+#: src/amo/components/AddonMoreInfo/index.js:237
 msgid "License"
 msgstr "Licencë"
 
-#: src/amo/components/AddonMoreInfo/index.js:232
+#: src/amo/components/AddonMoreInfo/index.js:245
 msgid "Privacy Policy"
 msgstr "Rregulla Privatësie"
 
-#: src/amo/components/AddonMoreInfo/index.js:240
+#: src/amo/components/AddonMoreInfo/index.js:253
 msgid "End-User License Agreement"
 msgstr "Marrëveshje Licence Përdoruesi të Thjeshtë (EULA)"
 
-#: src/amo/components/AddonMoreInfo/index.js:248
+#: src/amo/components/AddonMoreInfo/index.js:261
 msgid "Version History"
 msgstr "Historik Versionesh"
 
-#: src/amo/components/AddonMoreInfo/index.js:258
+#: src/amo/components/AddonMoreInfo/index.js:271
 msgid "Usage Statistics"
 msgstr "Statistika Përdorimi"
 
-#: src/amo/components/AddonMoreInfo/index.js:273
+#: src/amo/components/AddonMoreInfo/index.js:286
 msgid "More information"
 msgstr "Më tepër të dhëna"
 
-#: src/amo/components/AddonMoreInfo/index.js:59
+#: src/amo/components/AddonMoreInfo/index.js:62
 #: src/amo/pages/UserProfile/index.js:355
 #: src/amo/pages/UserProfile/index.js:357
 #: src/amo/pages/UserProfileEdit/index.js:639
 msgid "Homepage"
 msgstr "Faqe hyrëse"
 
-#: src/amo/components/AddonMoreInfo/index.js:70
+#: src/amo/components/AddonMoreInfo/index.js:73
 msgid "Support site"
 msgstr "Sajt asistence"
 
-#: src/amo/components/AddonMoreInfo/index.js:84
+#: src/amo/components/AddonMoreInfo/index.js:87
 msgid "Support Email"
 msgstr "Email Asistence"
 
@@ -3433,23 +3437,27 @@ msgstr "%(application)s %(minVersion)s deri te %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Funksionon me %(listOfApplicatonsAndVersions)s"
 
-#: src/core/utils/addons.js:29
+#: src/core/utils/addons.js:30
+msgid "Installation aborted because the add-on appears to be corrupt."
+msgstr ""
+
+#: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
 msgstr "Instalimi dështoi. Ju lutemi, riprovoni."
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:36
 msgid "Download failed. Please check your connection."
 msgstr "Shkarkimi dështoi. Ju lutemi, kontrolloni lidhjen tuaj."
 
-#: src/core/utils/addons.js:33
+#: src/core/utils/addons.js:38
 msgid "An unexpected error occurred during installation."
 msgstr "Ndodhi një gabim të panjohur gjatë instalimit."
 
-#: src/core/utils/addons.js:35
+#: src/core/utils/addons.js:40
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Ndodhi një gabim të panjohur gjatë çinstalimit."
 
-#: src/core/utils/addons.js:40
+#: src/core/utils/addons.js:45
 msgid "An unexpected error occurred."
 msgstr "Ndodhi një gabim të papritur."
 
