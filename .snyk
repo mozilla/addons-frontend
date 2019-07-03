@@ -138,5 +138,11 @@ ignore:
     - node-pre-gyp > tar > chownr:
         reason: None given
         expires: '2019-02-13T08:53:31.604Z'
+  SNYK-JS-LODASH-450202:
+    - '*':
+        reason: >-
+          Affected functions are not used in our codebase (either directly or
+          indirectly)
+        expires: 2019-08-01T00:00:00.000Z
 patch: {}
 version: v1.13.5
