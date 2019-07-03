@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-06-25 19:10+0000\n"
+"POT-Creation-Date: 2019-07-02 19:16+0000\n"
 "PO-Revision-Date: 2018-09-13 06:38+0000\n"
 "Last-Translator: Ruba <ruba.awayes@gmail.com>\n"
 "Language-Team: none\n"
@@ -121,23 +121,27 @@ msgstr ""
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr ""
 
-#: src/core/utils/addons.js:29
+#: src/core/utils/addons.js:30
+msgid "Installation aborted because the add-on appears to be corrupt."
+msgstr ""
+
+#: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
 msgstr "فشل التثبيت. رجاء أعِد المحاولة."
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:36
 msgid "Download failed. Please check your connection."
 msgstr "فشل التنزيل. رجاء افحص اتصالك."
 
-#: src/core/utils/addons.js:33
+#: src/core/utils/addons.js:38
 msgid "An unexpected error occurred during installation."
 msgstr "حدث عطل غير متوقع أثناء التثبيت."
 
-#: src/core/utils/addons.js:35
+#: src/core/utils/addons.js:40
 msgid "An unexpected error occurred during uninstallation."
 msgstr "حدث عطل غير متوقع أثناء إلغاء التثبيت."
 
-#: src/core/utils/addons.js:40
+#: src/core/utils/addons.js:45
 msgid "An unexpected error occurred."
 msgstr "حدث عطل غير متوقع."
 

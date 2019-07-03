@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-06-25 19:10+0000\n"
+"POT-Creation-Date: 2019-07-02 19:16+0000\n"
 "PO-Revision-Date: 2019-02-01 10:46+0000\n"
 "Last-Translator: Rok Žerdin <zerdo90@gmail.com>\n"
 "Language-Team: none\n"
@@ -119,23 +119,27 @@ msgstr "%(application)s %(minVersion)s do %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Deluje s %(listOfApplicatonsAndVersions)s"
 
-#: src/core/utils/addons.js:29
+#: src/core/utils/addons.js:30
+msgid "Installation aborted because the add-on appears to be corrupt."
+msgstr ""
+
+#: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
 msgstr "Namestitev ni uspela. Poskusite znova."
 
-#: src/core/utils/addons.js:31
+#: src/core/utils/addons.js:36
 msgid "Download failed. Please check your connection."
 msgstr "Prenos ni uspel. Preverite svojo povezavo."
 
-#: src/core/utils/addons.js:33
+#: src/core/utils/addons.js:38
 msgid "An unexpected error occurred during installation."
 msgstr "Med nameščanjem je prišlo do nepričakovane napake."
 
-#: src/core/utils/addons.js:35
+#: src/core/utils/addons.js:40
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Med odstranjevanjem je prišlo do nepričakovane napake."
 
-#: src/core/utils/addons.js:40
+#: src/core/utils/addons.js:45
 msgid "An unexpected error occurred."
 msgstr "Prišlo je do nepričakovane napake."
 
