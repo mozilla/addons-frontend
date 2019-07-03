@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-02 19:16+0000\n"
-"PO-Revision-Date: 2019-02-16 06:00+0000\n"
-"Last-Translator: 우믿트 <eloli@foxmail.com>\n"
+"PO-Revision-Date: 2019-07-03 12:47+0000\n"
+"Last-Translator: passionforlife <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -51,15 +51,10 @@ msgid "Server Error"
 msgstr "服务器错误"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"很抱歉，但目前遇到一个错误，我们无法完成您的请求。我们已记录该错误，并会进行"
-"调查。"
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "很抱歉，但目前遇到一个错误，我们无法完成您的请求。我们已记录该错误，并会进行调查。"
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "错误代码：%(status)s。"
 
@@ -120,7 +115,7 @@ msgstr "适用于 %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "安装中止，因为附加组件似乎已损坏。"
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
@@ -176,26 +171,17 @@ msgstr "让火狐有你的个性"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
-msgstr ""
-"这里有成千上万完全免费的附加组件，由全球各地的开发者打造。这些附加组件可以让 "
-"Firefox 有您的个性。这里不但有养眼的主题，还有各式功能强大的工具，帮您更快更"
-"安全地上网冲浪。为了协助您上手，下面提供了一些我们力荐的轻巧好用的附加组件。"
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+msgstr "这里有成千上万完全免费的附加组件，由全球各地的开发者打造。这些附加组件可以让 Firefox 有您的个性。这里不但有养眼的主题，还有各式功能强大的工具，帮您更快更安全地上网冲浪。为了协助您上手，下面提供了一些我们力荐的轻巧好用的附加组件。"
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "详细了解"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
-"下面某些是根据您安装的其他附加组件、偏好设置、使用统计推导出的个性化推荐。"
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgstr "下面某些是根据您安装的其他附加组件、偏好设置、使用统计推导出的个性化推荐。"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
