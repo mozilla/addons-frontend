@@ -126,7 +126,21 @@ describe(__filename, () => {
           })
           .returns(Promise.resolve(recommendedThemes));
 
-        const popularAddons = createAddonsApiResult([fakeAddon]);
+        const popularExtensions = createAddonsApiResult([fakeAddon]);
+        mockSearchApi
+          .expects('search')
+          .withArgs({
+            ...baseArgs,
+            filters: {
+              page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+              addonType: ADDON_TYPE_EXTENSION,
+              recommended: enableFeatureRecommendedBadges ? true : undefined,
+              sort: SEARCH_SORT_POPULAR,
+            },
+          })
+          .returns(Promise.resolve(recommendedExtensions));
+
+        const popularThemes = createAddonsApiResult([fakeAddon]);
         mockSearchApi
           .expects('search')
           .withArgs({
@@ -134,7 +148,6 @@ describe(__filename, () => {
             filters: {
               page_size: String(LANDING_PAGE_EXTENSION_COUNT),
               addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
-              recommended: enableFeatureRecommendedBadges ? true : undefined,
               sort: SEARCH_SORT_POPULAR,
             },
           })
@@ -168,7 +181,8 @@ describe(__filename, () => {
           shelves: {
             recommendedExtensions,
             recommendedThemes,
-            popularAddons,
+            popularExtensions,
+            popularThemes,
             trendingExtensions,
           },
         });
@@ -194,8 +208,13 @@ describe(__filename, () => {
         .expects('search')
         .returns(Promise.resolve(recommendedThemes));
 
-      const popularAddons = createAddonsApiResult([fakeAddon]);
-      mockSearchApi.expects('search').returns(Promise.resolve(popularAddons));
+      const popularExtensions = createAddonsApiResult([fakeAddon]);
+      mockSearchApi
+        .expects('search')
+        .returns(Promise.resolve(popularExtensions));
+
+      const popularThemes = createAddonsApiResult([fakeAddon]);
+      mockSearchApi.expects('search').returns(Promise.resolve(popularThemes));
 
       _fetchHomeAddons({
         collectionsToFetch: [],
@@ -207,7 +226,8 @@ describe(__filename, () => {
         shelves: {
           recommendedExtensions,
           recommendedThemes,
-          popularAddons,
+          popularExtensions,
+          popularThemes,
           trendingExtensions: null,
         },
       });
@@ -225,11 +245,18 @@ describe(__filename, () => {
         .expects('search')
         .returns(Promise.resolve(recommendedExtensions));
 
-      const popularAddons = createAddonsApiResult([fakeAddon]);
-      mockSearchApi.expects('search').returns(Promise.resolve(popularAddons));
+      const popularExtensions = createAddonsApiResult([fakeAddon]);
+      mockSearchApi
+        .expects('search')
+        .returns(Promise.resolve(popularExtensions));
+
+      const popularThemes = createAddonsApiResult([fakeAddon]);
+      mockSearchApi.expects('search').returns(Promise.resolve(popularThemes));
 
       const trendingExtensions = createAddonsApiResult([fakeAddon]);
-      mockSearchApi.expects('search').returns(Promise.resolve(popularAddons));
+      mockSearchApi
+        .expects('search')
+        .returns(Promise.resolve(trendingExtensions));
 
       _fetchHomeAddons({
         collectionsToFetch: [],
@@ -241,7 +268,8 @@ describe(__filename, () => {
         shelves: {
           recommendedExtensions,
           recommendedThemes: null,
-          popularAddons,
+          popularExtensions,
+          popularThemes,
           trendingExtensions,
         },
       });
@@ -270,11 +298,18 @@ describe(__filename, () => {
           .expects('search')
           .returns(Promise.resolve(recommendedExtensions));
 
-        const popularAddons = createAddonsApiResult([fakeAddon]);
-        mockSearchApi.expects('search').returns(Promise.resolve(popularAddons));
+        const popularExtensions = createAddonsApiResult([fakeAddon]);
+        mockSearchApi
+          .expects('search')
+          .returns(Promise.resolve(popularExtensions));
+
+        const popularThemes = createAddonsApiResult([fakeAddon]);
+        mockSearchApi.expects('search').returns(Promise.resolve(popularThemes));
 
         const trendingExtensions = createAddonsApiResult([fakeAddon]);
-        mockSearchApi.expects('search').returns(Promise.resolve(popularAddons));
+        mockSearchApi
+          .expects('search')
+          .returns(Promise.resolve(trendingExtensions));
 
         _fetchHomeAddons({
           collectionsToFetch: [
@@ -288,7 +323,8 @@ describe(__filename, () => {
           shelves: {
             recommendedExtensions,
             recommendedThemes: null,
-            popularAddons,
+            popularExtensions,
+            popularThemes,
             trendingExtensions,
           },
         });
@@ -343,7 +379,7 @@ describe(__filename, () => {
 
       mockSearchApi
         .expects('search')
-        .exactly(4)
+        .exactly(5)
         .returns(Promise.reject(error));
 
       _fetchHomeAddons({ collectionsToFetch: [{ slug, userId }] });
