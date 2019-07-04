@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-02 19:07+0000\n"
-"PO-Revision-Date: 2019-07-03 13:23+0000\n"
+"PO-Revision-Date: 2019-07-04 13:45+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1819,7 +1819,7 @@ msgstr "Entre para ver suas coleções"
 
 #: src/amo/pages/CollectionList/index.js:122
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr "Coleções tornam fácil acompanhar suas extensões favoritas e compartilhar o seu navegador perfeitamente personalizado com outras pessoas."
+msgstr "Coleções facilitam acompanhar suas extensões preferidas e compartilhar seu navegador perfeitamente personalizado com outras pessoas."
 
 #: src/amo/pages/CollectionList/index.js:132
 msgid "Create a collection"
@@ -2217,7 +2217,7 @@ msgstr "Participe em nosso %(startLink)sfórum%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:177
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr "Deixe comentários nas suas extensões favoritas. Os autores das extensões são mais propensos a melhorar suas extensões e criar novas quando sabem que as pessoas apreciam seu trabalho."
+msgstr "Deixe comentários nas suas extensões preferidas. Os autores das extensões são mais propensos a melhorar suas extensões e criar novas quando sabem que as pessoas apreciam seu trabalho."
 
 #: src/amo/pages/StaticPages/About/index.js:182
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
