@@ -73,7 +73,7 @@ export class AboutBase extends React.Component<Props> {
                 world, ranging from individual hobbyists to large corporations.
                 Some add-ons listed on AMO have been automatically published
                 and may be subject to review by a team of editors once
-                publically listed.`)}
+                publicly listed.`)}
             </p>
           </section>
           <section>
