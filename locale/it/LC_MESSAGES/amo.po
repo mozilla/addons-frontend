@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-02 19:07+0000\n"
-"PO-Revision-Date: 2019-07-03 17:50+0000\n"
+"PO-Revision-Date: 2019-07-03 17:47+0000\n"
 "Last-Translator: Davide Quaranta <dvd.forty@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -117,7 +117,7 @@ msgstr "Al momento non è possibile installare componenti aggiuntivi su Firefox 
 
 #: src/amo/components/AddonCompatibilityError/index.js:120
 msgid "Firefox Preview does not currently support add-ons."
-msgstr ""
+msgstr "Attualmente Firefox Preview non supporta i componenti aggiuntivi."
 
 #: src/amo/components/AddonCompatibilityError/index.js:124
 msgid "This add-on is not available on your platform."
