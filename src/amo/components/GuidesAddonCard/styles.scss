@@ -54,6 +54,16 @@
         text-decoration: underline;
       }
     }
+
+    .RecommendedBadge {
+      margin-top: 8px;
+
+      @include respond-to(medium) {
+        @include margin-start(8px);
+
+        margin-top: 2px;
+      }
+    }
   }
 
   .GuidesAddonCard-content-header-title--loading {
@@ -114,23 +124,6 @@
 .GuidesAddonCard-content-header-title {
   @include respond-to(medium) {
     margin: 0 16px;
-  }
-}
-
-.GuidesAddonCard-content-header-staff-pick {
-  color: $grey-50;
-  display: block;
-  font-size: $font-size-micro;
-  font-weight: 500;
-  margin-top: 8px;
-  text-transform: uppercase;
-  white-space: nowrap;
-
-  @include respond-to(medium) {
-    @include margin-start(8px);
-
-    display: inline-block;
-    margin-top: 2px;
   }
 }
 

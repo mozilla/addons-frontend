@@ -85,12 +85,20 @@ export function* fetchHomeAddons({
       page_size: String(LANDING_PAGE_THEME_COUNT),
     },
   };
-  const popularAddonsParams: SearchParams = {
+  const popularExtensionsParams: SearchParams = {
+    api: state.api,
+    filters: {
+      addonType: ADDON_TYPE_EXTENSION,
+      page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+      recommended: enableFeatureRecommendedBadges ? true : undefined,
+      sort: SEARCH_SORT_POPULAR,
+    },
+  };
+  const popularThemesParams: SearchParams = {
     api: state.api,
     filters: {
       addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
       page_size: String(LANDING_PAGE_EXTENSION_COUNT),
-      recommended: enableFeatureRecommendedBadges ? true : undefined,
       sort: SEARCH_SORT_POPULAR,
     },
   };
@@ -111,7 +119,8 @@ export function* fetchHomeAddons({
       recommendedThemes: includeRecommendedThemes
         ? call(searchApi, recommendedThemesParams)
         : null,
-      popularAddons: call(searchApi, popularAddonsParams),
+      popularExtensions: call(searchApi, popularExtensionsParams),
+      popularThemes: call(searchApi, popularThemesParams),
       trendingExtensions: includeTrendingExtensions
         ? call(searchApi, trendingExtensionsParams)
         : null,

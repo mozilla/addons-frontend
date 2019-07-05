@@ -18,6 +18,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_FEATURED,
+  SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
@@ -26,16 +27,14 @@ import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { getAddonTypeFilter } from 'core/utils';
 import Card from 'ui/components/Card';
-import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
 export const MOZILLA_USER_ID = config.get('mozillaUserId');
 
 export const FEATURED_COLLECTIONS = [
-  { slug: 'be-more-productive', userId: MOZILLA_USER_ID },
-  { slug: 'youtube-boosters', userId: MOZILLA_USER_ID },
-  { slug: 'feed-readers', userId: MOZILLA_USER_ID },
+  { slug: 'privacy-matters', userId: MOZILLA_USER_ID },
+  { slug: 'password-managers', userId: MOZILLA_USER_ID },
 ];
 
 export const isFeaturedCollection = (
@@ -53,22 +52,16 @@ export const isFeaturedCollection = (
 export const getFeaturedCollectionsMetadata = (i18n) => {
   return [
     {
-      footerText: i18n.gettext('See more productivity extensions'),
-      header: i18n.gettext('Productivity extensions'),
+      footerText: i18n.gettext('See more enhanced privacy extensions'),
+      header: i18n.gettext('Enhanced privacy extensions'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[0],
     },
     {
-      footerText: i18n.gettext('See more YouTube extensions'),
-      header: i18n.gettext('YouTube boosters'),
+      footerText: i18n.gettext('See more recommended password managers'),
+      header: i18n.gettext('Recommended password managers'),
       isTheme: false,
       ...FEATURED_COLLECTIONS[1],
-    },
-    {
-      footerText: i18n.gettext('See more feed readers'),
-      header: i18n.gettext('Feed readers'),
-      isTheme: false,
-      ...FEATURED_COLLECTIONS[2],
     },
   ];
 };
@@ -129,53 +122,6 @@ export class HomeBase extends React.Component {
         }),
       );
     }
-  }
-
-  renderCuratedCollections() {
-    const { i18n } = this.props;
-
-    const curatedMozillaCollections = [
-      {
-        title: i18n.gettext('Bookmarks'),
-        collectionSlug: 'bookmark-managers',
-      },
-      {
-        title: i18n.gettext('Password managers'),
-        collectionSlug: 'password-managers',
-      },
-      {
-        title: i18n.gettext('Ad blockers'),
-        collectionSlug: 'ad-blockers',
-      },
-      {
-        title: i18n.gettext('Smarter shopping'),
-        collectionSlug: 'smarter-shopping',
-      },
-      {
-        title: i18n.gettext('Productivity'),
-        collectionSlug: 'be-more-productive',
-      },
-      {
-        title: i18n.gettext('Watching videos'),
-        collectionSlug: 'watching-videos',
-      },
-    ];
-
-    return (
-      <ul className="Home-SubjectShelf-list">
-        {curatedMozillaCollections.map(({ collectionSlug, title }) => (
-          <li className="Home-SubjectShelf-list-item" key={collectionSlug}>
-            <Link
-              to={`/collections/${MOZILLA_USER_ID}/${collectionSlug}/`}
-              className="Home-SubjectShelf-link"
-            >
-              <Icon name={`Home-SubjectShelf-${collectionSlug}`} />
-              <span>{title}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    );
   }
 
   renderCuratedThemes() {
@@ -247,10 +193,6 @@ export class HomeBase extends React.Component {
       'enableFeatureRecommendedBadges',
     );
 
-    // translators: The ending ellipsis alludes to a row of icons for each type
-    // of extension.
-    const extensionsHeader = i18n.gettext(`Customize the way Firefox works with
-      extensions. Are you interested in…`);
     const themesHeader = i18n.gettext(`Change the way Firefox looks with
       themes.`);
 
@@ -298,17 +240,6 @@ export class HomeBase extends React.Component {
 
         <HomeHeroGuides />
 
-        <Card
-          className="Home-SubjectShelf Home-CuratedCollections"
-          header={extensionsHeader}
-        >
-          <div className="Home-SubjectShelf-text-wrapper">
-            <h2 className="Home-SubjectShelf-subheading">{extensionsHeader}</h2>
-          </div>
-
-          {this.renderCuratedCollections()}
-        </Card>
-
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={shelves.recommendedExtensions}
@@ -337,7 +268,42 @@ export class HomeBase extends React.Component {
           loading={loading}
         />
 
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={shelves.popularThemes}
+          className="Home-PopularThemes"
+          header={i18n.gettext('Popular themes')}
+          footerText={i18n.gettext('See more popular themes')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
+                _config: this.props._config,
+              }),
+              sort: SEARCH_SORT_POPULAR,
+            },
+          }}
+          loading={loading}
+        />
+
         {renderFeaturedCollection(0)}
+
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={shelves.popularExtensions}
+          className="Home-PopularExtensions"
+          header={i18n.gettext('Popular extensions')}
+          footerText={i18n.gettext('See more popular extensions')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_EXTENSION,
+              recommended: enableFeatureRecommendedBadges ? true : undefined,
+              sort: SEARCH_SORT_POPULAR,
+            },
+          }}
+          loading={loading}
+        />
 
         {includeRecommendedThemes && (
           <LandingAddonsCard
@@ -373,8 +339,6 @@ export class HomeBase extends React.Component {
         )}
 
         {renderFeaturedCollection(1)}
-
-        {renderFeaturedCollection(2)}
 
         {includeTrendingExtensions && (
           <LandingAddonsCard

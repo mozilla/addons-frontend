@@ -1,11 +1,10 @@
 /* @flow */
-import querystring from 'querystring';
-
 import Helmet from 'react-helmet';
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import { categoryResultsLinkTo } from 'amo/components/Categories';
 import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
@@ -17,7 +16,6 @@ import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { replaceStringsWithJSX } from 'core/i18n/utils';
-import { getCategoryResultsQuery } from 'core/utils';
 import Icon from 'ui/components/Icon';
 import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
@@ -40,8 +38,8 @@ type SectionsType = {|
   header: string,
   description: string,
   addonCustomText: string,
-  exploreMore: string,
-  exploreUrl: string,
+  exploreMore?: string,
+  exploreUrl?: string | Object,
 |};
 
 type InternalProps = {|
@@ -89,7 +87,7 @@ export const getSections = ({
             access logins across devices.`,
           ),
           exploreMore: i18n.gettext(
-            'Explore more %(linkStart)spassword manager%(linkEnd)s staff picks.',
+            'Explore more great %(linkStart)spassword managers%(linkEnd)s.',
           ),
           exploreUrl: '/collections/4757633/password-managers/',
         },
@@ -108,7 +106,7 @@ export const getSections = ({
             thousands of content filters without chewing up a bunch of memory.`,
           ),
           exploreMore: i18n.gettext(
-            'Explore more %(linkStart)sad blocker%(linkEnd)s staff picks.',
+            'Explore more excellent %(linkStart)sad blockers%(linkEnd)s.',
           ),
           exploreUrl: '/collections/4757633/ad-blockers/',
         },
@@ -126,7 +124,7 @@ export const getSections = ({
             Facebook from tracking your activity outside of its social platform.`,
           ),
           exploreMore: i18n.gettext(
-            'Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks.',
+            'Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions.',
           ),
           exploreUrl: '/collections/4757633/privacy-matters/',
         },
@@ -148,29 +146,31 @@ export const getSections = ({
                in Firefox’s sidebar.`,
           ),
           exploreMore: i18n.gettext(
-            'Explore more %(linkStart)stab management%(linkEnd)s staff picks.',
+            'Explore more %(linkStart)stab%(linkEnd)s extensions.',
           ),
-          exploreUrl: '/collections/4757633/change-up-your-tabs/',
+          exploreUrl: categoryResultsLinkTo({
+            addonType: ADDON_TYPE_EXTENSION,
+            slug: 'tabs',
+          }),
         },
-        // OneNote Web Clipper
+        // Default Bookmark Folder
         {
-          addonGuid: 'Clipper@OneNote.com',
+          addonGuid: 'default-bookmark-folder@gustiaux.com',
           header: i18n.gettext('Better browsing with improved bookmarks'),
           description: i18n.gettext(
             `Extensions can help you organize your online interests. Bookmark
               managers are ideal for folks with a lot of content to track.`,
           ),
           addonCustomText: i18n.gettext(
-            `Want help organizing all of your favorite online cooking recipes,
-              how-to articles, YouTube videos, or just about anything you find
-              on the web? OneNote Web Clipper lets you collect and store all
-              your favorite online content in a powerful repository that syncs
-              across devices.`,
+            'Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders.',
           ),
           exploreMore: i18n.gettext(
-            'Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks.',
+            'Explore more %(linkStart)sbookmark%(linkEnd)s extensions.',
           ),
-          exploreUrl: '/collections/4757633/bookmark-managers/',
+          exploreUrl: categoryResultsLinkTo({
+            addonType: ADDON_TYPE_EXTENSION,
+            slug: 'bookmarks',
+          }),
         },
         // Tabliss
         {
@@ -185,9 +185,12 @@ export const getSections = ({
               weather info, and more.`,
           ),
           exploreMore: i18n.gettext(
-            'Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with these staff picks.',
+            'Explore more %(linkStart)stab%(linkEnd)s extensions.',
           ),
-          exploreUrl: '/collections/4757633/good-time-tabs/',
+          exploreUrl: categoryResultsLinkTo({
+            addonType: ADDON_TYPE_EXTENSION,
+            slug: 'tabs',
+          }),
         },
       ];
     case 'enhance-your-media-experience':
@@ -206,10 +209,6 @@ export const getSections = ({
             adjust volume, playback speed, video player size, advertising and
             annotation blocking, and other features. `,
           ),
-          exploreMore: i18n.gettext(
-            'Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks.',
-          ),
-          exploreUrl: '/collections/4757633/watching-videos/',
         },
         // Search by Image - Reverse Image Search
         {
@@ -226,10 +225,6 @@ export const getSections = ({
             Are there related images? This extension lets you perform quick
             and easy reverse image searches through a variety of engines.`,
           ),
-          exploreMore: i18n.gettext(
-            'Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks.',
-          ),
-          exploreUrl: '/collections/4757633/must-have-media/',
         },
         // Worldwide Radio
         {
@@ -244,15 +239,11 @@ export const getSections = ({
             `Access 30,000+ radio stations from all over the globe, always
             just a click away.`,
           ),
-          exploreMore: i18n.gettext(
-            'Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s.',
-          ),
-          exploreUrl: `/search/?${querystring.stringify(
-            getCategoryResultsQuery({
-              addonType: ADDON_TYPE_EXTENSION,
-              slug: 'photos-music-videos',
-            }),
-          )}`,
+          exploreMore: 'Explore more %(linkStart)smedia%(linkEnd)s extensions.',
+          exploreUrl: categoryResultsLinkTo({
+            addonType: ADDON_TYPE_EXTENSION,
+            slug: 'photos-music-videos',
+          }),
         },
       ];
     default:
@@ -358,20 +349,22 @@ export class GuidesBase extends React.Component<InternalProps> {
       Object.keys(addons).length !== 0 && !this.props.loading;
 
     return sections.map((section) => {
-      const exploreMore = replaceStringsWithJSX({
-        text: section.exploreMore,
-        replacements: [
-          [
-            'linkStart',
-            'linkEnd',
-            (text) => (
-              <Link key={section.addonGuid} to={section.exploreUrl}>
-                {text}
-              </Link>
-            ),
-          ],
-        ],
-      });
+      const exploreMore = section.exploreMore
+        ? replaceStringsWithJSX({
+            text: section.exploreMore,
+            replacements: [
+              [
+                'linkStart',
+                'linkEnd',
+                (text) => (
+                  <Link key={section.addonGuid} to={section.exploreUrl}>
+                    {text}
+                  </Link>
+                ),
+              ],
+            ],
+          })
+        : null;
 
       let addon;
 
@@ -385,7 +378,7 @@ export class GuidesBase extends React.Component<InternalProps> {
       }
 
       return (
-        <div className="Guides-section" key={section.exploreUrl}>
+        <div className="Guides-section" key={`${section.addonGuid}-section`}>
           <h2 className="Guides-section-title">{section.header}</h2>
           <p className="Guides-section-description">{section.description}</p>
 
@@ -394,7 +387,9 @@ export class GuidesBase extends React.Component<InternalProps> {
             addonCustomText={section.addonCustomText}
           />
 
-          <div className="Guides-section-explore-more">{exploreMore}</div>
+          {exploreMore && (
+            <div className="Guides-section-explore-more">{exploreMore}</div>
+          )}
         </div>
       );
     });

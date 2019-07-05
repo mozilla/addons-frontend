@@ -116,32 +116,6 @@ describe(__filename, () => {
     },
   );
 
-  it('renders a shelf with curated collections', () => {
-    const expectedCollections = [
-      'ad-blockers',
-      'password-managers',
-      'bookmark-managers',
-      'smarter-shopping',
-      'be-more-productive',
-      'watching-videos',
-    ];
-
-    const root = render();
-
-    const shelf = root.find('.Home-CuratedCollections');
-    expect(shelf.find('.Home-SubjectShelf-text-wrapper')).toHaveLength(1);
-    expect(shelf.find('.Home-SubjectShelf-list-item')).toHaveLength(
-      expectedCollections.length,
-    );
-    expectedCollections.forEach((collectionSlug) => {
-      expect(
-        shelf.find({
-          to: `/collections/${MOZILLA_USER_ID}/${collectionSlug}/`,
-        }),
-      ).toHaveLength(1);
-    });
-  });
-
   it.each([true, false])(
     'renders a featured/recommended themes shelf if includeRecommendedThemes is true, enableFeatureRecommendedBadges: %s',
     (enableFeatureRecommendedBadges) => {

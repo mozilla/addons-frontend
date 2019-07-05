@@ -11,34 +11,26 @@ import AddonInstallError from 'amo/components/AddonInstallError';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import { INSTALL_SOURCE_GUIDES_PAGE } from 'core/constants';
 import { getAddonIconUrl } from 'core/imageUtils';
-import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
-import Icon from 'ui/components/Icon';
+import RecommendedBadge from 'ui/components/RecommendedBadge';
 import type { AddonType } from 'core/types/addons';
 import type { AppState } from 'amo/store';
-import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
 type Props = {
   addon: AddonType | null | void,
   addonCustomText: string,
-  staffPick?: boolean,
 };
 
 type InternalProps = {
   ...Props,
   installError: string | null,
-  i18n: I18nType,
 };
 
 export class GuidesAddonCardBase extends React.Component<InternalProps> {
-  static defaultProps = {
-    staffPick: true,
-  };
-
   render() {
-    const { addon, i18n, staffPick } = this.props;
+    const { addon } = this.props;
 
     return addon !== null ? (
       <Card>
@@ -71,11 +63,8 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                       linkToAddon
                     />
                   </span>
-                  {staffPick && (
-                    <span className="GuidesAddonCard-content-header-staff-pick">
-                      <Icon name="trophy" />
-                      <span>{i18n.gettext('Staff Pick')}</span>
-                    </span>
+                  {addon && addon.is_recommended && (
+                    <RecommendedBadge size="small" />
                   )}
                 </div>
               </div>
@@ -118,7 +107,6 @@ export const mapStateToProps = (
 
 const GuidesAddonCard: React.ComponentType<Props> = compose(
   connect(mapStateToProps),
-  translate(),
 )(GuidesAddonCardBase);
 
 export default GuidesAddonCard;
