@@ -19,6 +19,7 @@ $icon-default-size: 32px;
 
 .SearchResult-link {
   text-decoration: none;
+  word-wrap: anywhere;
 
   &,
   &:active,
