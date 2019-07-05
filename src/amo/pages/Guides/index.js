@@ -239,9 +239,7 @@ export const getSections = ({
             `Access 30,000+ radio stations from all over the globe, always
             just a click away.`,
           ),
-          exploreMore: i18n.gettext(
-            'Explore among thousands of %(linkStart)sphoto, music & video extensions%(linkEnd)s.',
-          ),
+          exploreMore: 'Explore more %(linkStart)smedia%(linkEnd)s extensions.',
           exploreUrl: categoryResultsLinkTo({
             addonType: ADDON_TYPE_EXTENSION,
             slug: 'photos-music-videos',
