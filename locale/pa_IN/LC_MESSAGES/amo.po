@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-02 19:07+0000\n"
-"PO-Revision-Date: 2019-07-07 11:05+0000\n"
+"PO-Revision-Date: 2019-07-07 11:52+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -268,7 +268,7 @@ msgstr "ਵਰਜਨ"
 
 #: src/amo/components/AddonMoreInfo/index.js:221
 msgid "Size"
-msgstr ""
+msgstr "ਸਾਈਜ਼"
 
 #: src/amo/components/AddonMoreInfo/index.js:229 src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
@@ -411,7 +411,7 @@ msgstr "ਇਸ ਪੜਤਾਲ ਦਾ ਜਵਾਬ ਦਿਓ"
 
 #: src/amo/components/AddonReviewCard/index.js:503
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "ਇਹ ਰੇਟਿੰਗ ਜਾਂ ਸਮੀਖਿਆ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ। ਉੱਚੇ ਅਧਿਕਾਰਾਂ ਦੇ ਕਾਰਨ ਤੁਸੀਂ ਇਸ ਨੂੰ ਕੇਵਲ ਦੇਖ ਰਹੇ ਹੋ।"
 
 #: src/amo/components/AddonReviewCard/index.js:549
 msgid "Write a review"
@@ -772,7 +772,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:37
 msgid "Not Authorized"
-msgstr ""
+msgstr "ਅਧਿਕਾਰਤ ਨਹੀਂ"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:40
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
@@ -1175,11 +1175,11 @@ msgstr ""
 
 #: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this extension"
-msgstr ""
+msgstr "ਇਸ ਐਕਸਟੈਂਸ਼ਨ ਨੂੰ ਦਰਜਾ ਦੇਣ ਲਈ ਲੌਗਇਨ ਕਰੋ"
 
 #: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "ਇਸ ਐਡ-ਆਨ ਦੀ ਰੇਟ ਕਰਨ ਲਈ ਲੌਗਇਨ ਕਰੋ"
 
 #: src/amo/components/RatingManager/index.js:173
 msgid "Are you sure you want to delete your review of %(addonName)s?"
@@ -1199,27 +1199,27 @@ msgstr ""
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
-msgstr ""
+msgstr "ਸਟਾਰ ਰੇਟਿੰਗ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "ਸਾਰੇ ਪੰਜ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
 
 #: src/amo/components/RatingsByStar/index.js:93
 msgid "Read all four-star reviews"
-msgstr ""
+msgstr "ਚਾਰ-ਸਟਾਰ ਦੀਆਂ ਸਾਰੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "ਸਾਰੇ ਤਾਰੇ ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
 
 #: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all two-star reviews"
-msgstr ""
+msgstr "ਸਾਰੀਆਂ ਦੋ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
 
 #: src/amo/components/RatingsByStar/index.js:96
 msgid "Read all one-star reviews"
-msgstr ""
+msgstr "ਸਾਰੇ ਇੱਕ-ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
 
 #: src/amo/components/ReportAbuseButton/index.js:106 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
@@ -1346,7 +1346,7 @@ msgstr "ਪ੍ਰਸਿੱਧ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/Search/index.js:174
 msgid "Popular themes"
-msgstr ""
+msgstr "ਪ੍ਰਸਿੱਧ ਥੀਮ"
 
 #: src/amo/components/Search/index.js:177
 msgid "Popular add-ons"
@@ -1389,8 +1389,8 @@ msgstr[1] ""
 #: src/amo/components/SearchContextCard/index.js:150
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s ਦਾ ਥੀਮ ਲੱਭਿਆ ਹੈ"
+msgstr[1] "%(count)s ਦੇ ਵਿਸ਼ੇ ਮਿਲੇ ਹਨ"
 
 #: src/amo/components/SearchContextCard/index.js:162
 msgid "%(count)s result found for \"%(query)s\""
@@ -1401,8 +1401,8 @@ msgstr[1] ""
 #: src/amo/components/SearchContextCard/index.js:171
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s ਦਾ ਨਤੀਜਾ ਮਿਲਿਆ"
+msgstr[1] "%(count)s ਦੇ ਨਤੀਜੇ ਮਿਲੇ ਹਨ"
 
 #: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
@@ -1783,19 +1783,19 @@ msgstr ""
 
 #: src/amo/pages/Collection/index.js:394
 msgid "Delete this collection"
-msgstr ""
+msgstr "ਇਸ ਸੰਗ੍ਰਹਿ ਨੂੰ ਮਿਟਾਓ"
 
 #: src/amo/pages/Collection/index.js:413
 msgid "Log in to create a collection"
-msgstr ""
+msgstr "ਇੱਕ ਸੰਗ੍ਰਹਿ ਬਣਾਉਣ ਲਈ ਲੌਗਇਨ ਕਰੋ"
 
 #: src/amo/pages/Collection/index.js:414
 msgid "Log in to edit this collection"
-msgstr ""
+msgstr "ਇਸ ਭੰਡਾਰ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਲਈ ਲੌਗਿਨ ਕਰੋ"
 
 #: src/amo/pages/Collection/index.js:447
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
+msgstr "ਪਹਿਲਾਂ, ਆਪਣਾ ਸੰਗ੍ਰਹਿ ਬਣਾਓ। ਫਿਰ ਤੁਸੀਂ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਥੀਮਾਂ ਨੂੰ ਜੋੜ ਸਕਦੇ ਹੋ।"
 
 #: src/amo/pages/Collection/index.js:450
 msgid "Search for extensions and themes to add to your collection."
