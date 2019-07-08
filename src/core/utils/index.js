@@ -23,6 +23,7 @@ import {
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RECOMMENDED,
   VISIBLE_ADDON_TYPES_MAPPING,
+  ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
 import log from 'core/logger';
 import purify from 'core/purify';
@@ -297,14 +298,6 @@ export const isTheme = (addonType) => {
   return ADDON_TYPE_THEMES.includes(addonType);
 };
 
-export const getAddonTypeFilter = (addonType) => {
-  if (!isTheme(addonType)) {
-    return addonType;
-  }
-
-  return ADDON_TYPE_THEMES_FILTER;
-};
-
 /*
  * Return an ID for a filename.
  *
@@ -382,7 +375,7 @@ export const getCategoryResultsQuery = ({
   slug,
 }: GetCategoryResultsQueryParams) => {
   return convertFiltersToQueryParams({
-    addonType: getAddonTypeFilter(addonType),
+    addonType: ADDON_TYPE_STATIC_THEME,
     category: slug,
     sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
   });

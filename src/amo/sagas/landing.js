@@ -13,10 +13,11 @@ import {
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
+  ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
-import { getAddonTypeFilter, isTheme } from 'core/utils';
+import { isTheme } from 'core/utils';
 import type { GetLandingAction } from 'amo/reducers/landing';
 import type { SearchParams } from 'core/api/search';
 import type { Saga } from 'core/types/sagas';
@@ -34,7 +35,7 @@ export function* fetchLandingAddons({
     const { api } = yield select(getState);
 
     let filters = {
-      addonType: getAddonTypeFilter(addonType),
+      addonType: ADDON_TYPE_STATIC_THEME,
       page_size: isTheme(addonType)
         ? String(LANDING_PAGE_THEME_COUNT)
         : String(LANDING_PAGE_EXTENSION_COUNT),
