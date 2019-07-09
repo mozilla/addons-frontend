@@ -98,7 +98,7 @@ export function* fetchHomeAddons({
     api: state.api,
     filters: {
       addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
-      page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+      page_size: String(LANDING_PAGE_THEME_COUNT),
       sort: SEARCH_SORT_POPULAR,
     },
   };
