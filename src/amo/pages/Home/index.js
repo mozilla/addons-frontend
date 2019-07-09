@@ -283,6 +283,7 @@ export class HomeBase extends React.Component {
               sort: SEARCH_SORT_POPULAR,
             },
           }}
+          isTheme
           loading={loading}
         />
 

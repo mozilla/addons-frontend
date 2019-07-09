@@ -146,7 +146,7 @@ describe(__filename, () => {
           .withArgs({
             ...baseArgs,
             filters: {
-              page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+              page_size: String(LANDING_PAGE_THEME_COUNT),
               addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
               sort: SEARCH_SORT_POPULAR,
             },
