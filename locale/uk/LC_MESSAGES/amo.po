@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-02 19:07+0000\n"
+"POT-Creation-Date: 2019-07-09 17:50+0000\n"
 "PO-Revision-Date: 2019-06-24 07:02+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
@@ -1109,10 +1109,6 @@ msgstr "Настанови з написання відгуків"
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Лише з Firefox — Отримати Firefox зараз"
 
-#: src/amo/components/GuidesAddonCard/index.js:77
-msgid "Staff Pick"
-msgstr "Вибір редакції"
-
 #: src/amo/components/Header/index.js:105
 msgid "Submit and manage extensions and themes"
 msgstr "Відправляйте і керуйте розширеннями і темами"
@@ -1169,17 +1165,17 @@ msgid "Learn how to create extensions and themes"
 msgstr "Навчіться, як створювати розширення і теми"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
-#: src/amo/pages/Guides/index.js:275
+#: src/amo/pages/Guides/index.js:266
 msgid "Stay Safe Online"
 msgstr "Залишайтеся в безпеці онлайн"
 
 #: src/amo/components/HomeHeroGuides/index.js:39
-#: src/amo/pages/Guides/index.js:288
+#: src/amo/pages/Guides/index.js:279
 msgid "Organize Tabs & Bookmarks"
 msgstr "Організуйте вкладки і закладки"
 
 #: src/amo/components/HomeHeroGuides/index.js:44
-#: src/amo/pages/Guides/index.js:301
+#: src/amo/pages/Guides/index.js:292
 msgid "Enhance Your Media Experience"
 msgstr "Вдоскональте свою роботу з медіа"
 
@@ -1468,22 +1464,22 @@ msgstr ""
 msgid "Search results"
 msgstr "Результати пошуку"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:318
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:249
 #: src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
 msgstr "Рекомендовані розширення"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:319
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:250
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Відібрані розширення"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:367
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:334
 #: src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
 msgstr "Рекомендовані теми"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:368
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:335
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Відібрані теми"
@@ -1496,7 +1492,7 @@ msgstr "Рекомендовані додатки"
 msgid "Featured add-ons"
 msgstr "Відібрані додатки"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:384
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:349
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "Популярні розширення"
@@ -1524,11 +1520,11 @@ msgstr "Найвище оцінені теми"
 msgid "Top rated add-ons"
 msgstr "Найвище оцінені додатки"
 
-#: src/amo/components/Search/index.js:171
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:296
 msgid "Popular extensions"
 msgstr "Популярні розширення"
 
-#: src/amo/components/Search/index.js:174
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:275
 msgid "Popular themes"
 msgstr "Популярні теми"
 
@@ -2071,18 +2067,7 @@ msgstr "У вас немає жодної збірки."
 msgid "My collections"
 msgstr "Мої збірки"
 
-#: src/amo/pages/Guides/index.js:100
-msgid ""
-"Today’s web is tangled up with unwanted advertisements that get in your way "
-"and slow you down. Ad-blocking extensions can block or filter those ads so "
-"you can get back to distraction-free browsing."
-msgstr ""
-"Сучасний Інтернет переповнений небажаними рекламними оголошеннями, що "
-"перешкоджають вам і сповільнюють веб-сайти. Розширення для блокування "
-"реклами можуть блокувати чи фільтрувати надокучливу рекламу, що відволікає "
-"вас."
-
-#: src/amo/pages/Guides/index.js:106
+#: src/amo/pages/Guides/index.js:104
 msgid ""
 "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands "
 "of content filters without chewing up a bunch of memory."
@@ -2091,17 +2076,18 @@ msgstr ""
 "забезпечує тисячами фільтрів вмісту без суттєвого впливу на споживання "
 "пам'яті."
 
-#: src/amo/pages/Guides/index.js:110
-msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
+#: src/amo/pages/Guides/index.js:108
+#, fuzzy
+msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
 msgstr ""
 "Відкрийте для себе ще більше %(linkStart)sзасобів для блокування реклами"
 "%(linkEnd)s."
 
-#: src/amo/pages/Guides/index.js:118
+#: src/amo/pages/Guides/index.js:116
 msgid "Stop online trackers from stalking you"
 msgstr "Зупиніть стеження за вами в інтернеті"
 
-#: src/amo/pages/Guides/index.js:119
+#: src/amo/pages/Guides/index.js:117
 msgid ""
 "Online advertisers can track your activity from one website to the next, "
 "gathering information about you and your interests. Extensions can help "
@@ -2111,7 +2097,7 @@ msgstr ""
 "сайтах, збираючи інформацію про вас і ваші зацікавлення. Розширення можуть "
 "допомогти замести ваші цифрові сліди."
 
-#: src/amo/pages/Guides/index.js:124
+#: src/amo/pages/Guides/index.js:122
 msgid ""
 "Isolate your Facebook identity into a separate “container” to stop Facebook "
 "from tracking your activity outside of its social platform."
@@ -2119,17 +2105,20 @@ msgstr ""
 "Ізолюйте свій ідентифікатор Facebook в окремому контейнері, щоб не дозволяти "
 "Facebook стежити за вашою діяльністю поза межами його веб-сайту."
 
-#: src/amo/pages/Guides/index.js:128
-msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
+#: src/amo/pages/Guides/index.js:126
+#, fuzzy
+msgid ""
+"Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s "
+"extensions."
 msgstr ""
 "Відкрийте для себе ще більше %(linkStart)sзасобів для приватності та безпеки"
 "%(linkEnd)s."
 
-#: src/amo/pages/Guides/index.js:139
+#: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
 msgstr "Переосмисліть керування вкладками"
 
-#: src/amo/pages/Guides/index.js:140
+#: src/amo/pages/Guides/index.js:138
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with "
 "the frustration of searching through a row of unidentifiable tabs looking "
@@ -2141,7 +2130,7 @@ msgstr ""
 "інших. Розширення можуть запропонувати зручні рішення для простого керування "
 "вкладками."
 
-#: src/amo/pages/Guides/index.js:146
+#: src/amo/pages/Guides/index.js:144
 msgid ""
 "Arrange and visualize your tabs in a cascading “tree” style format in "
 "Firefox’s sidebar."
@@ -2149,17 +2138,18 @@ msgstr ""
 "Впорядкуйте та візуалізуйте свої вкладки в стилі каскадного \"дерева\" в "
 "бічній панелі Firefox."
 
-#: src/amo/pages/Guides/index.js:150
-msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
+#: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
+#, fuzzy
+msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
 msgstr ""
-"Відкрийте для себе ще більше %(linkStart)sзасобів для керування вкладками"
+"Відкрийте для себе ще більше %(linkStart)sзасобів для блокування реклами"
 "%(linkEnd)s."
 
-#: src/amo/pages/Guides/index.js:158
+#: src/amo/pages/Guides/index.js:159
 msgid "Better browsing with improved bookmarks"
 msgstr "Кращий перегляд з вдосконаленими закладками"
 
-#: src/amo/pages/Guides/index.js:159
+#: src/amo/pages/Guides/index.js:160
 msgid ""
 "Extensions can help you organize your online interests. Bookmark managers "
 "are ideal for folks with a lot of content to track."
@@ -2167,20 +2157,15 @@ msgstr ""
 "Розширення можуть допомогти вам організувати ваші онлайн інтереси. Менеджери "
 "закладок є ідеальними для тих, хто має багато вмісту, за яким вони стежать."
 
-#: src/amo/pages/Guides/index.js:163
+#: src/amo/pages/Guides/index.js:164
 msgid ""
-"Want help organizing all of your favorite online cooking recipes, how-to "
-"articles, YouTube videos, or just about anything you find on the web? "
-"OneNote Web Clipper lets you collect and store all your favorite online "
-"content in a powerful repository that syncs across devices."
+"Enjoy a better way to organize your bookmarks if you maintain multiple "
+"bookmark folders."
 msgstr ""
-"Потрібна допомога в організації всіх ваших улюблених рецептів, статей, відео "
-"YouTube, або будь-чого іншого, що ви знаходите в інтернеті? OneNote Web "
-"Clipper дозволяє вам збирати й зберігати весь улюблений вміст з інтернету в "
-"потужному сховищі, що синхронізується з різними пристроями."
 
-#: src/amo/pages/Guides/index.js:170
-msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
+#: src/amo/pages/Guides/index.js:167
+#, fuzzy
+msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
 msgstr ""
 "Відкрийте для себе ще більше %(linkStart)sзасобів для керування закладками"
 "%(linkEnd)s."
@@ -2205,19 +2190,11 @@ msgstr ""
 "Оцініть чудову нову сторінку з налаштовуваним тлом, інформацією про місцеву "
 "погоду та іншим."
 
-#: src/amo/pages/Guides/index.js:187
-msgid ""
-"Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with "
-"these staff picks."
-msgstr ""
-"Відкрийте для себе ще більше %(linkStart)sспособів змінювати свої вкладки"
-"%(linkEnd)s за допомогою цих інструментів."
-
-#: src/amo/pages/Guides/index.js:198
+#: src/amo/pages/Guides/index.js:201
 msgid "Improve videos"
 msgstr "Вдоскональте роботу з відео"
 
-#: src/amo/pages/Guides/index.js:199
+#: src/amo/pages/Guides/index.js:202
 msgid ""
 "If you enjoy video content, extensions offer a number of ways to optimize "
 "your experience, including customizing YouTube to your taste and playing "
@@ -2227,7 +2204,7 @@ msgstr ""
 "роботу, включаючи налаштування YouTube на свій смак та відтворення відео в "
 "режимі кінотеатру."
 
-#: src/amo/pages/Guides/index.js:204
+#: src/amo/pages/Guides/index.js:207
 msgid ""
 "Add a control bar to all YouTube video pages so you can easily adjust "
 "volume, playback speed, video player size, advertising and annotation "
@@ -2237,15 +2214,11 @@ msgstr ""
 "регулювати гучність, швидкість відтворення, розмір плеєра, блокування "
 "реклами й анотацій та інші функції."
 
-#: src/amo/pages/Guides/index.js:209
-msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr "Відкрийте для себе ще більше %(linkStart)sвідео-розширень%(linkEnd)s."
-
-#: src/amo/pages/Guides/index.js:217
+#: src/amo/pages/Guides/index.js:216
 msgid "Get more out of media"
 msgstr "Отримайте більше від медіа"
 
-#: src/amo/pages/Guides/index.js:218
+#: src/amo/pages/Guides/index.js:217
 msgid ""
 "Extensions can address a wide variety of niche media needs and interests, "
 "like image searching, download management, and text readers, to name a few."
@@ -2253,7 +2226,7 @@ msgstr ""
 "Розширення можуть вирішувати багато різних специфічних завдань з медіа, "
 "наприклад, пошук зображень, керування завантаженнями, озвучення тексту."
 
-#: src/amo/pages/Guides/index.js:223
+#: src/amo/pages/Guides/index.js:222
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn "
 "more about it, like who’s the person in the pic? Are there related images? "
@@ -2265,15 +2238,11 @@ msgstr ""
 "простий реверсивний пошук зображення з використанням різних пошукових "
 "засобів."
 
-#: src/amo/pages/Guides/index.js:229
-msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr "Відкрийте для себе ще більше %(linkStart)sмедіа-розширень%(linkEnd)s."
-
-#: src/amo/pages/Guides/index.js:237
+#: src/amo/pages/Guides/index.js:232
 msgid "Bring media right into the browser"
 msgstr "Додайте медіа до свого браузера"
 
-#: src/amo/pages/Guides/index.js:238
+#: src/amo/pages/Guides/index.js:233
 msgid ""
 "Extensions can turn Firefox into your very own entertainment hub that gives "
 "you instant access to music, image capturing, gaming, and more."
@@ -2281,21 +2250,13 @@ msgstr ""
 "Розширення можуть перетворити Firefox у ваш розважальний центр, який дає вам "
 "миттєвий доступ до музики, зображень, ігор та інших можливостей."
 
-#: src/amo/pages/Guides/index.js:243
+#: src/amo/pages/Guides/index.js:238
 msgid ""
 "Access 30,000+ radio stations from all over the globe, always just a click "
 "away."
 msgstr "Отримайте доступ до понад 30,000 радіостанцій з усього світу."
 
-#: src/amo/pages/Guides/index.js:247
-msgid ""
-"Explore among thousands of %(linkStart)sphoto, music & video extensions"
-"%(linkEnd)s."
-msgstr ""
-"Відкрийте для себе тисячі %(linkStart)sрозширень для фото, музики та відео"
-"%(linkEnd)s."
-
-#: src/amo/pages/Guides/index.js:276
+#: src/amo/pages/Guides/index.js:267
 msgid ""
 "The web is a wonderful but wild place. Your personal data can be used "
 "without your consent, your activities spied upon, and your passwords stolen. "
@@ -2306,7 +2267,7 @@ msgstr ""
 "можуть бути викрадені. На щастя, розширення можуть допомогти вам зміцнити "
 "вашу приватність та безпеку онлайн."
 
-#: src/amo/pages/Guides/index.js:289
+#: src/amo/pages/Guides/index.js:280
 msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? "
 "Extensions can help! From organization assistance to providing fun new "
@@ -2317,7 +2278,7 @@ msgstr ""
 "закладок? Розширення можуть вам допомогти! Вони можуть кардинально змінити "
 "ваш звичний спосіб взаємодії з вкладками та закладками."
 
-#: src/amo/pages/Guides/index.js:302
+#: src/amo/pages/Guides/index.js:293
 msgid ""
 "Extensions can augment online media in all sorts of interesting ways, from "
 "watching videos to handling images, music, and more."
@@ -2326,11 +2287,11 @@ msgstr ""
 "цікавими способами, від перегляду відео до обробки зображень, музики та "
 "інших речей."
 
-#: src/amo/pages/Guides/index.js:81
+#: src/amo/pages/Guides/index.js:79
 msgid "Create and manage strong passwords"
 msgstr "Створюйте надійні паролі та керуйте ними"
 
-#: src/amo/pages/Guides/index.js:82
+#: src/amo/pages/Guides/index.js:80
 msgid ""
 "Password managers can help you create secure passwords, store your passwords "
 "(safely) in one place, and give you easy access to your login credentials "
@@ -2340,7 +2301,7 @@ msgstr ""
 "у захищеному сховищі, а також автоматично заповнювати форми входу на веб-"
 "сайтах."
 
-#: src/amo/pages/Guides/index.js:87
+#: src/amo/pages/Guides/index.js:85
 msgid ""
 "Fully encrypted password protection. Store your data securely and access "
 "logins across devices."
@@ -2348,72 +2309,56 @@ msgstr ""
 "Повністю зашифрований захист паролів. Зберігайте дані в безпеці й отримуйте "
 "до них доступ на різних пристроях."
 
-#: src/amo/pages/Guides/index.js:91
-msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
+#: src/amo/pages/Guides/index.js:89
+#, fuzzy
+msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
 msgstr ""
 "Дізнайтеся більше про відібрані %(linkStart)sменеджери паролів%(linkEnd)s."
 
-#: src/amo/pages/Guides/index.js:99
+#: src/amo/pages/Guides/index.js:97
 msgid "Block annoying ads"
 msgstr "Блокуйте надокучливу рекламу"
 
-#: src/amo/pages/Home/index.js:139
-msgid "Bookmarks"
-msgstr "Закладки"
+#: src/amo/pages/Guides/index.js:98
+msgid ""
+"Today’s web is tangled up with unwanted advertisements that get in your way "
+"and slow you down. Ad-blocking extensions can block or filter those ads so "
+"you can get back to distraction-free browsing."
+msgstr ""
+"Сучасний Інтернет переповнений небажаними рекламними оголошеннями, що "
+"перешкоджають вам і сповільнюють веб-сайти. Розширення для блокування "
+"реклами можуть блокувати чи фільтрувати надокучливу рекламу, що відволікає "
+"вас."
 
-#: src/amo/pages/Home/index.js:143
-msgid "Password managers"
-msgstr "Менеджери паролів"
-
-#: src/amo/pages/Home/index.js:147
-msgid "Ad blockers"
-msgstr "Блокування реклами"
-
-#: src/amo/pages/Home/index.js:151
-msgid "Smarter shopping"
-msgstr "Розумніші покупки"
-
-#: src/amo/pages/Home/index.js:155
-msgid "Productivity"
-msgstr "Продуктивність"
-
-#: src/amo/pages/Home/index.js:159
-msgid "Watching videos"
-msgstr "Перегляд відео"
-
-#: src/amo/pages/Home/index.js:187
+#: src/amo/pages/Home/index.js:133
 msgid "Abstract"
 msgstr "Абстрактні"
 
-#: src/amo/pages/Home/index.js:192
+#: src/amo/pages/Home/index.js:138
 msgid "Nature"
 msgstr "Природа"
 
-#: src/amo/pages/Home/index.js:197
+#: src/amo/pages/Home/index.js:143
 msgid "Film & TV"
 msgstr "Фільми і ТБ"
 
-#: src/amo/pages/Home/index.js:202
+#: src/amo/pages/Home/index.js:148
 msgid "Scenery"
 msgstr "Пейзажі"
 
-#: src/amo/pages/Home/index.js:207
+#: src/amo/pages/Home/index.js:153
 msgid "Music"
 msgstr "Музика"
 
-#: src/amo/pages/Home/index.js:212
+#: src/amo/pages/Home/index.js:158
 msgid "Seasonal"
 msgstr "Пори року"
 
-#: src/amo/pages/Home/index.js:252
-msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr "Налаштуйте роботу Firefox за допомогою розширень…"
-
-#: src/amo/pages/Home/index.js:254
+#: src/amo/pages/Home/index.js:196
 msgid "Change the way Firefox looks with themes."
 msgstr "Змініть вигляд Firefox за допомогою тем."
 
-#: src/amo/pages/Home/index.js:284
+#: src/amo/pages/Home/index.js:226
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2423,49 +2368,54 @@ msgstr ""
 "Вони можуть блокувати надокучливу рекламу, зберігати паролі, змінювати "
 "зовнішній вигляд браузера та інше."
 
-#: src/amo/pages/Home/index.js:323 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:254 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
 msgstr "Більше рекомендованих розширень"
 
-#: src/amo/pages/Home/index.js:324 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:255 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "Більше відібраних розширень"
 
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:276
+msgid "See more popular themes"
+msgstr "Більше популярних розширень"
+
+#: src/amo/pages/Home/index.js:297
+#, fuzzy
+msgid "See more popular extensions"
+msgstr "Інші розширення для вкладок"
+
+#: src/amo/pages/Home/index.js:316 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
 msgstr "Більше рекомендованих тем"
 
-#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:317 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "Більше відібраних тем"
 
-#: src/amo/pages/Home/index.js:385 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Більше популярних розширень"
 
-#: src/amo/pages/Home/index.js:56
-msgid "See more productivity extensions"
-msgstr "Розширення для продуктивності"
+#: src/amo/pages/Home/index.js:55
+#, fuzzy
+msgid "See more enhanced privacy extensions"
+msgstr "Більше відібраних розширень"
 
-#: src/amo/pages/Home/index.js:57
-msgid "Productivity extensions"
-msgstr "Розширення для продуктивності"
+#: src/amo/pages/Home/index.js:56
+#, fuzzy
+msgid "Enhanced privacy extensions"
+msgstr "Найпопулярніші розширення для приватності"
+
+#: src/amo/pages/Home/index.js:61
+#, fuzzy
+msgid "See more recommended password managers"
+msgstr "Більше рекомендованих тем"
 
 #: src/amo/pages/Home/index.js:62
-msgid "See more YouTube extensions"
-msgstr "Більше розширень для YouTube"
-
-#: src/amo/pages/Home/index.js:63
-msgid "YouTube boosters"
-msgstr "Новини"
-
-#: src/amo/pages/Home/index.js:68
-msgid "See more feed readers"
-msgstr "Більше відібраних тем"
-
-#: src/amo/pages/Home/index.js:69
-msgid "Feed readers"
-msgstr "Читачі новин"
+#, fuzzy
+msgid "Recommended password managers"
+msgstr "Менеджери паролів"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
@@ -2712,11 +2662,12 @@ msgid "A community of creators"
 msgstr "Спільнота творців"
 
 #: src/amo/pages/StaticPages/About/index.js:71
+#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme "
 "designers from all over the world, ranging from individual hobbyists to "
 "large corporations. Some add-ons listed on AMO have been automatically "
-"published and may be subject to review by a team of editors once publically "
+"published and may be subject to review by a team of editors once publicly "
 "listed."
 msgstr ""
 "Додатки і теми, що знаходяться тут, створені тисячами розробників і "
@@ -3551,6 +3502,84 @@ msgstr[2] "%(total)s додатків"
 msgid "Developer response"
 msgstr "Відповідь розробника"
 
+#~ msgid "Staff Pick"
+#~ msgstr "Вибір редакції"
+
+#~ msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
+#~ msgstr ""
+#~ "Відкрийте для себе ще більше %(linkStart)sзасобів для керування вкладками"
+#~ "%(linkEnd)s."
+
+#~ msgid ""
+#~ "Want help organizing all of your favorite online cooking recipes, how-to "
+#~ "articles, YouTube videos, or just about anything you find on the web? "
+#~ "OneNote Web Clipper lets you collect and store all your favorite online "
+#~ "content in a powerful repository that syncs across devices."
+#~ msgstr ""
+#~ "Потрібна допомога в організації всіх ваших улюблених рецептів, статей, "
+#~ "відео YouTube, або будь-чого іншого, що ви знаходите в інтернеті? OneNote "
+#~ "Web Clipper дозволяє вам збирати й зберігати весь улюблений вміст з "
+#~ "інтернету в потужному сховищі, що синхронізується з різними пристроями."
+
+#~ msgid ""
+#~ "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with "
+#~ "these staff picks."
+#~ msgstr ""
+#~ "Відкрийте для себе ще більше %(linkStart)sспособів змінювати свої вкладки"
+#~ "%(linkEnd)s за допомогою цих інструментів."
+
+#~ msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
+#~ msgstr ""
+#~ "Відкрийте для себе ще більше %(linkStart)sвідео-розширень%(linkEnd)s."
+
+#~ msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
+#~ msgstr ""
+#~ "Відкрийте для себе ще більше %(linkStart)sмедіа-розширень%(linkEnd)s."
+
+#~ msgid ""
+#~ "Explore among thousands of %(linkStart)sphoto, music & video extensions"
+#~ "%(linkEnd)s."
+#~ msgstr ""
+#~ "Відкрийте для себе тисячі %(linkStart)sрозширень для фото, музики та відео"
+#~ "%(linkEnd)s."
+
+#~ msgid "Bookmarks"
+#~ msgstr "Закладки"
+
+#~ msgid "Ad blockers"
+#~ msgstr "Блокування реклами"
+
+#~ msgid "Smarter shopping"
+#~ msgstr "Розумніші покупки"
+
+#~ msgid "Productivity"
+#~ msgstr "Продуктивність"
+
+#~ msgid "Watching videos"
+#~ msgstr "Перегляд відео"
+
+#~ msgid ""
+#~ "Customize the way Firefox works with extensions. Are you interested in…"
+#~ msgstr "Налаштуйте роботу Firefox за допомогою розширень…"
+
+#~ msgid "See more productivity extensions"
+#~ msgstr "Розширення для продуктивності"
+
+#~ msgid "Productivity extensions"
+#~ msgstr "Розширення для продуктивності"
+
+#~ msgid "See more YouTube extensions"
+#~ msgstr "Більше розширень для YouTube"
+
+#~ msgid "YouTube boosters"
+#~ msgstr "Новини"
+
+#~ msgid "See more feed readers"
+#~ msgstr "Більше відібраних тем"
+
+#~ msgid "Feed readers"
+#~ msgstr "Читачі новин"
+
 #~ msgid "%(categoryName)s – Extensions"
 #~ msgstr "%(categoryName)s – Розширення"
 
@@ -3570,9 +3599,6 @@ msgstr "Відповідь розробника"
 
 #~ msgid "VPN solutions"
 #~ msgstr "Рішення VPN"
-
-#~ msgid "See more tab extensions"
-#~ msgstr "Інші розширення для вкладок"
 
 #~ msgid "Change up your tabs"
 #~ msgstr "Змініть свої вкладки"
@@ -3595,9 +3621,6 @@ msgstr "Відповідь розробника"
 #~ msgid "Wikipedia boosters"
 #~ msgstr "Засоби для Wikipedia"
 
-#~ msgid "See more weather extensions"
-#~ msgstr "Більше відібраних розширень"
-
 #~ msgid "Weather extensions"
 #~ msgstr "Відібрані розширення"
 
@@ -3615,9 +3638,6 @@ msgstr "Відповідь розробника"
 
 #~ msgid "my sdk-based add-on is upgraded successfully"
 #~ msgstr "мій додаток на базі SDK успішно оновлений"
-
-#~ msgid "See more popular themes"
-#~ msgstr "Більше популярних розширень"
 
 #~ msgid "See more YouTube boosters"
 #~ msgstr "Інші обробники перегляду новин"
@@ -4580,9 +4600,6 @@ msgstr "Відповідь розробника"
 #~ msgstr ""
 #~ "Захист від сторонніх сайтів, які хочуть стежити за кожним вашим кроком в "
 #~ "мережі."
-
-#~ msgid "Top privacy extensions"
-#~ msgstr "Найпопулярніші розширення для приватності"
 
 #~ msgid "Excellent extensions for all situations"
 #~ msgstr "Відмінні розширення для будь-якої ситуації"
