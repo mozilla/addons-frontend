@@ -370,7 +370,7 @@ module.exports = {
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
-  enableFeatureRecommendedBadges: false,
+  enableFeatureRecommendedBadges: true,
 
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments.
