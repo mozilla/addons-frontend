@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-02 19:07+0000\n"
+"POT-Creation-Date: 2019-07-09 17:50+0000\n"
 "PO-Revision-Date: 2019-05-07 21:08+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1150,10 +1150,6 @@ msgstr "Ruk'amöl Nik'oxïk"
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Xa xe rik'in Firefox—Tik'ul Firefox Wakami"
 
-#: src/amo/components/GuidesAddonCard/index.js:77
-msgid "Staff Pick"
-msgstr "Kicha'ik Qawinaq"
-
 #: src/amo/components/Header/index.js:105
 #, fuzzy
 msgid "Submit and manage extensions and themes"
@@ -1215,18 +1211,18 @@ msgid "Learn how to create extensions and themes"
 msgstr "Kenik'öx ri rokisaxik k'amal chuqa' ri kinuk'samajixik taq wachinel"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
-#: src/amo/pages/Guides/index.js:275
+#: src/amo/pages/Guides/index.js:266
 msgid "Stay Safe Online"
 msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:39
-#: src/amo/pages/Guides/index.js:288
+#: src/amo/pages/Guides/index.js:279
 #, fuzzy
 msgid "Organize Tabs & Bookmarks"
 msgstr "Taq yaketal"
 
 #: src/amo/components/HomeHeroGuides/index.js:44
-#: src/amo/pages/Guides/index.js:301
+#: src/amo/pages/Guides/index.js:292
 #, fuzzy
 msgid "Enhance Your Media Experience"
 msgstr "Tapaja' ri awetamab'al"
@@ -1526,24 +1522,24 @@ msgstr ""
 msgid "Search results"
 msgstr "Kiq'i'oj kanoxïk"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:318
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:249
 #: src/amo/pages/LandingPage/index.js:139
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "Talun taq k'amal"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:319
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:250
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Talun taq k'amal"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:367
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:334
 #: src/amo/pages/LandingPage/index.js:178
 #, fuzzy
 msgid "Recommended themes"
 msgstr "Taq wachinïk k'ïy kiwinaq"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:368
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:335
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Talun wachinel"
@@ -1557,7 +1553,7 @@ msgstr "Ke'ilitäj taq tz'aqat"
 msgid "Featured add-ons"
 msgstr "Talun taq tz'aqat"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:384
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:349
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "Taq k'amal k'ïy kiwinaq"
@@ -1585,11 +1581,11 @@ msgstr "Taq wachinel k'ïy kejqalem"
 msgid "Top rated add-ons"
 msgstr "Taq tz'aqat ya'on kiq'ij"
 
-#: src/amo/components/Search/index.js:171
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:296
 msgid "Popular extensions"
 msgstr "K'ïy kiwinaq taq k'amal"
 
-#: src/amo/components/Search/index.js:174
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:275
 msgid "Popular themes"
 msgstr "Taq wachinïk k'ïy kiwinaq"
 
@@ -2136,49 +2132,50 @@ msgstr "Titikirisäx molojri'ïl richin nitz'uk re mol re'"
 msgid "My collections"
 msgstr "Ketz'et taq Numol"
 
-#: src/amo/pages/Guides/index.js:100
-msgid ""
-"Today’s web is tangled up with unwanted advertisements that get in your way "
-"and slow you down. Ad-blocking extensions can block or filter those ads so "
-"you can get back to distraction-free browsing."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:106
+#: src/amo/pages/Guides/index.js:104
 msgid ""
 "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands "
 "of content filters without chewing up a bunch of memory."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:110
-msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
+#: src/amo/pages/Guides/index.js:108
+#, fuzzy
+msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
 msgstr ""
+"¡Tatzijoj chi ke konojel chi rij re k'amal re'! Tawoqaj ri "
+"%(linkStart)sk'amonel qanik'oxik%(linkEnd)s."
 
-#: src/amo/pages/Guides/index.js:118
+#: src/amo/pages/Guides/index.js:116
 msgid "Stop online trackers from stalking you"
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:119
+#: src/amo/pages/Guides/index.js:117
 msgid ""
 "Online advertisers can track your activity from one website to the next, "
 "gathering information about you and your interests. Extensions can help "
 "cover your digital trail."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:124
+#: src/amo/pages/Guides/index.js:122
 msgid ""
 "Isolate your Facebook identity into a separate “container” to stop Facebook "
 "from tracking your activity outside of its social platform."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:128
-msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
+#: src/amo/pages/Guides/index.js:126
+#, fuzzy
+msgid ""
+"Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s "
+"extensions."
 msgstr ""
+"¡Tatzijoj chi ke konojel chi rij re k'amal re'! Tawoqaj ri "
+"%(linkStart)sk'amonel qanik'oxik%(linkEnd)s."
 
-#: src/amo/pages/Guides/index.js:139
+#: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:140
+#: src/amo/pages/Guides/index.js:138
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with "
 "the frustration of searching through a row of unidentifiable tabs looking "
@@ -2186,37 +2183,41 @@ msgid ""
 "streamlining tab management."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:146
+#: src/amo/pages/Guides/index.js:144
 msgid ""
 "Arrange and visualize your tabs in a cascading “tree” style format in "
 "Firefox’s sidebar."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:150
-msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
+#: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
+#, fuzzy
+msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
 msgstr ""
+"¡Tatzijoj chi ke konojel chi rij re k'amal re'! Tawoqaj ri "
+"%(linkStart)sk'amonel qanik'oxik%(linkEnd)s."
 
-#: src/amo/pages/Guides/index.js:158
+#: src/amo/pages/Guides/index.js:159
 msgid "Better browsing with improved bookmarks"
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:159
+#: src/amo/pages/Guides/index.js:160
 msgid ""
 "Extensions can help you organize your online interests. Bookmark managers "
 "are ideal for folks with a lot of content to track."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:163
+#: src/amo/pages/Guides/index.js:164
 msgid ""
-"Want help organizing all of your favorite online cooking recipes, how-to "
-"articles, YouTube videos, or just about anything you find on the web? "
-"OneNote Web Clipper lets you collect and store all your favorite online "
-"content in a powerful repository that syncs across devices."
+"Enjoy a better way to organize your bookmarks if you maintain multiple "
+"bookmark folders."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:170
-msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
+#: src/amo/pages/Guides/index.js:167
+#, fuzzy
+msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
 msgstr ""
+"¡Tatzijoj chi ke konojel chi rij re k'amal re'! Tawoqaj ri "
+"%(linkStart)sk'amonel qanik'oxik%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:178
 msgid "Enjoy a fresh new tab experience"
@@ -2234,48 +2235,35 @@ msgid ""
 "info, and more."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:187
-msgid ""
-"Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with "
-"these staff picks."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:198
+#: src/amo/pages/Guides/index.js:201
 msgid "Improve videos"
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:199
+#: src/amo/pages/Guides/index.js:202
 msgid ""
 "If you enjoy video content, extensions offer a number of ways to optimize "
 "your experience, including customizing YouTube to your taste and playing "
 "videos in theater mode."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:204
+#: src/amo/pages/Guides/index.js:207
 msgid ""
 "Add a control bar to all YouTube video pages so you can easily adjust "
 "volume, playback speed, video player size, advertising and annotation "
 "blocking, and other features."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:209
-#, fuzzy
-msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr ""
-"¡Tatzijoj chi ke konojel chi rij re k'amal re'! Tawoqaj ri "
-"%(linkStart)sk'amonel qanik'oxik%(linkEnd)s."
-
-#: src/amo/pages/Guides/index.js:217
+#: src/amo/pages/Guides/index.js:216
 msgid "Get more out of media"
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:218
+#: src/amo/pages/Guides/index.js:217
 msgid ""
 "Extensions can address a wide variety of niche media needs and interests, "
 "like image searching, download management, and text readers, to name a few."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:223
+#: src/amo/pages/Guides/index.js:222
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn "
 "more about it, like who’s the person in the pic? Are there related images? "
@@ -2283,43 +2271,30 @@ msgid ""
 "through a variety of engines."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:229
-#, fuzzy
-msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr ""
-"¡Tatzijoj chi ke konojel chi rij re k'amal re'! Tawoqaj ri "
-"%(linkStart)sk'amonel qanik'oxik%(linkEnd)s."
-
-#: src/amo/pages/Guides/index.js:237
+#: src/amo/pages/Guides/index.js:232
 msgid "Bring media right into the browser"
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:238
+#: src/amo/pages/Guides/index.js:233
 msgid ""
 "Extensions can turn Firefox into your very own entertainment hub that gives "
 "you instant access to music, image capturing, gaming, and more."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:243
+#: src/amo/pages/Guides/index.js:238
 msgid ""
 "Access 30,000+ radio stations from all over the globe, always just a click "
 "away."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:247
-msgid ""
-"Explore among thousands of %(linkStart)sphoto, music & video extensions"
-"%(linkEnd)s."
-msgstr ""
-
-#: src/amo/pages/Guides/index.js:276
+#: src/amo/pages/Guides/index.js:267
 msgid ""
 "The web is a wonderful but wild place. Your personal data can be used "
 "without your consent, your activities spied upon, and your passwords stolen. "
 "Fortunately, extensions can help fortify your online privacy and security."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:289
+#: src/amo/pages/Guides/index.js:280
 msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? "
 "Extensions can help! From organization assistance to providing fun new "
@@ -2327,150 +2302,132 @@ msgid ""
 "bookmarks."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:302
+#: src/amo/pages/Guides/index.js:293
 msgid ""
 "Extensions can augment online media in all sorts of interesting ways, from "
 "watching videos to handling images, music, and more."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:81
+#: src/amo/pages/Guides/index.js:79
 msgid "Create and manage strong passwords"
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:82
+#: src/amo/pages/Guides/index.js:80
 msgid ""
 "Password managers can help you create secure passwords, store your passwords "
 "(safely) in one place, and give you easy access to your login credentials "
 "wherever you are."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:87
+#: src/amo/pages/Guides/index.js:85
 msgid ""
 "Fully encrypted password protection. Store your data securely and access "
 "logins across devices."
 msgstr ""
 
-#: src/amo/pages/Guides/index.js:91
-msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
+#: src/amo/pages/Guides/index.js:89
+#, fuzzy
+msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
 msgstr ""
+"¡Tatzijoj chi ke konojel chi rij re k'amal re'! Tawoqaj ri "
+"%(linkStart)sk'amonel qanik'oxik%(linkEnd)s."
 
-#: src/amo/pages/Guides/index.js:99
+#: src/amo/pages/Guides/index.js:97
 msgid "Block annoying ads"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:139
-msgid "Bookmarks"
-msgstr "Taq yaketal"
+#: src/amo/pages/Guides/index.js:98
+msgid ""
+"Today’s web is tangled up with unwanted advertisements that get in your way "
+"and slow you down. Ad-blocking extensions can block or filter those ads so "
+"you can get back to distraction-free browsing."
+msgstr ""
 
-#: src/amo/pages/Home/index.js:143
-msgid "Password managers"
-msgstr "Kinuk'samajel ewan tzij"
-
-#: src/amo/pages/Home/index.js:147
-msgid "Ad blockers"
-msgstr "Kiq'atonela' eletzijob'äl"
-
-#: src/amo/pages/Home/index.js:151
-#, fuzzy
-msgid "Smarter shopping"
-msgstr "Na'owinäq taq loq'oj"
-
-#: src/amo/pages/Home/index.js:155
-msgid "Productivity"
-msgstr "Ruwa k'ay"
-
-#: src/amo/pages/Home/index.js:159
-#, fuzzy
-msgid "Watching videos"
-msgstr "Ketz'et Silowäch"
-
-#: src/amo/pages/Home/index.js:187
+#: src/amo/pages/Home/index.js:133
 msgid "Abstract"
 msgstr "Ch'utinisan Na'oj"
 
-#: src/amo/pages/Home/index.js:192
+#: src/amo/pages/Home/index.js:138
 msgid "Nature"
 msgstr "Ruwach'ulew"
 
-#: src/amo/pages/Home/index.js:197
+#: src/amo/pages/Home/index.js:143
 msgid "Film & TV"
 msgstr "Silowachil & TV"
 
-#: src/amo/pages/Home/index.js:202
+#: src/amo/pages/Home/index.js:148
 msgid "Scenery"
 msgstr "Wachaj"
 
-#: src/amo/pages/Home/index.js:207
+#: src/amo/pages/Home/index.js:153
 msgid "Music"
 msgstr "Q'ojom"
 
-#: src/amo/pages/Home/index.js:212
+#: src/amo/pages/Home/index.js:158
 msgid "Seasonal"
 msgstr "Kajtz'ukalil"
 
-# The ending ellipsis alludes to a row of icons for each type
-#: src/amo/pages/Home/index.js:252
-msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr "Tawichinaj rusamaj Firefox kik'in k'amal. La ütz natz'ët…"
-
-#: src/amo/pages/Home/index.js:254
+#: src/amo/pages/Home/index.js:196
 msgid "Change the way Firefox looks with themes."
 msgstr "Tijal ri ruwäch Firefox kik'in wachinel."
 
-#: src/amo/pages/Home/index.js:284
+#: src/amo/pages/Home/index.js:226
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:323 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:254 src/amo/pages/LandingPage/index.js:153
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "Ketz'et ch'aqa' chik k'ïy kiwinaq taq k'amal"
 
-#: src/amo/pages/Home/index.js:324 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:255 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "Ketz'et ch'aqa' chik talun taq k'amal"
 
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:276
+msgid "See more popular themes"
+msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
+
+#: src/amo/pages/Home/index.js:297
+#, fuzzy
+msgid "See more popular extensions"
+msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
+
+#: src/amo/pages/Home/index.js:316 src/amo/pages/LandingPage/index.js:192
 #, fuzzy
 msgid "See more recommended themes"
 msgstr "Ketz'et ch'aqa' chik taq wachinel k'ïy kiwinaq"
 
-#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:317 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "Ketz'et ch'aqa' chik talun taq wachinel"
 
-#: src/amo/pages/Home/index.js:385 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Ketz'et ch'aqa' chik k'ïy kiwinaq taq k'amal"
 
-#: src/amo/pages/Home/index.js:56
-msgid "See more productivity extensions"
-msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
-
-#: src/amo/pages/Home/index.js:57
+#: src/amo/pages/Home/index.js:55
 #, fuzzy
-msgid "Productivity extensions"
-msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
+msgid "See more enhanced privacy extensions"
+msgstr "Ketz'et ch'aqa' chik talun taq k'amal"
+
+#: src/amo/pages/Home/index.js:56
+#, fuzzy
+msgid "Enhanced privacy extensions"
+msgstr "Ketz'et ronojel ri taq k'amal"
+
+#: src/amo/pages/Home/index.js:61
+#, fuzzy
+msgid "See more recommended password managers"
+msgstr "Ketz'et ch'aqa' chik taq wachinel k'ïy kiwinaq"
 
 #: src/amo/pages/Home/index.js:62
-msgid "See more YouTube extensions"
-msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
-
-#: src/amo/pages/Home/index.js:63
-msgid "YouTube boosters"
-msgstr "Rajtijonela' Wikipedia"
-
-#: src/amo/pages/Home/index.js:68
-msgid "See more feed readers"
-msgstr "Ketz'et ch'aqa' chik talun taq wachinel"
-
-#: src/amo/pages/Home/index.js:69
 #, fuzzy
-msgid "Feed readers"
-msgstr "Ketz'et ch'aqa' chik talun taq wachinel"
+msgid "Recommended password managers"
+msgstr "Kinuk'samajel ewan tzij"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
@@ -2702,11 +2659,12 @@ msgid "A community of creators"
 msgstr "Jun kitinamit tz'ukunela'"
 
 #: src/amo/pages/StaticPages/About/index.js:71
+#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme "
 "designers from all over the world, ranging from individual hobbyists to "
 "large corporations. Some add-ons listed on AMO have been automatically "
-"published and may be subject to review by a team of editors once publically "
+"published and may be subject to review by a team of editors once publicly "
 "listed."
 msgstr ""
 "Ri taq tz'aqat e k'o wawe', enuk'un kuma k'ïy b'anonela' chuqa' "
@@ -3529,6 +3487,51 @@ msgstr[1] "%(count)s taq tz'aqat xe'ilitäj"
 msgid "Developer response"
 msgstr "Tzolin rutzij b'anonel"
 
+#~ msgid "Staff Pick"
+#~ msgstr "Kicha'ik Qawinaq"
+
+#~ msgid "Bookmarks"
+#~ msgstr "Taq yaketal"
+
+#~ msgid "Ad blockers"
+#~ msgstr "Kiq'atonela' eletzijob'äl"
+
+#, fuzzy
+#~ msgid "Smarter shopping"
+#~ msgstr "Na'owinäq taq loq'oj"
+
+#~ msgid "Productivity"
+#~ msgstr "Ruwa k'ay"
+
+#, fuzzy
+#~ msgid "Watching videos"
+#~ msgstr "Ketz'et Silowäch"
+
+# The ending ellipsis alludes to a row of icons for each type
+#~ msgid ""
+#~ "Customize the way Firefox works with extensions. Are you interested in…"
+#~ msgstr "Tawichinaj rusamaj Firefox kik'in k'amal. La ütz natz'ët…"
+
+#~ msgid "See more productivity extensions"
+#~ msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
+
+#, fuzzy
+#~ msgid "Productivity extensions"
+#~ msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
+
+#~ msgid "See more YouTube extensions"
+#~ msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
+
+#~ msgid "YouTube boosters"
+#~ msgstr "Rajtijonela' Wikipedia"
+
+#~ msgid "See more feed readers"
+#~ msgstr "Ketz'et ch'aqa' chik talun taq wachinel"
+
+#, fuzzy
+#~ msgid "Feed readers"
+#~ msgstr "Ketz'et ch'aqa' chik talun taq wachinel"
+
 #~ msgid "%(categoryName)s – Extensions"
 #~ msgstr "%(categoryName)s – Taq K'amal"
 
@@ -3546,9 +3549,6 @@ msgstr "Tzolin rutzij b'anonel"
 #~ msgid "See more VPN solutions"
 #~ msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
 
-#~ msgid "See more tab extensions"
-#~ msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
-
 #~ msgid "See more video extensions"
 #~ msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
 
@@ -3561,9 +3561,6 @@ msgstr "Tzolin rutzij b'anonel"
 #~ msgid "See more Wikipedia boosters"
 #~ msgstr "Ketz'et ch'aqa' chik kajtijonela' Wikipedia"
 
-#~ msgid "See more weather extensions"
-#~ msgstr "Ketz'et ch'aqa' chik talun taq k'amal"
-
 #~ msgid "Weather extensions"
 #~ msgstr "Talun taq k'amal"
 
@@ -3575,9 +3572,6 @@ msgstr "Tzolin rutzij b'anonel"
 
 #~ msgid "Please enter a search term to search Firefox Add-ons."
 #~ msgstr "Tatz'ib'aj jun tzij nikanöx richin yekanöx taq Kitz'aqat Firefox."
-
-#~ msgid "See more popular themes"
-#~ msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
 
 #~ msgid "Highly customizable text highlighter"
 #~ msgstr "Ruya'ik retal tz'ib'anïk yalan nib'an runuk'ulem"
@@ -3928,9 +3922,6 @@ msgstr "Tzolin rutzij b'anonel"
 
 #~ msgid "Yes, delete my profile"
 #~ msgstr "Tik'ex ri tzolin tzij"
-
-#~ msgid "Essential extensions"
-#~ msgstr "Ketz'et ronojel ri taq k'amal"
 
 #~ msgid "Top-rated themes"
 #~ msgstr "Taq wachinel k'ïy kejqalem"

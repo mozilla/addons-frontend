@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-02 19:07+0000\n"
+"POT-Creation-Date: 2019-07-09 17:50+0000\n"
 "PO-Revision-Date: 2019-06-21 11:27+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -1107,10 +1107,6 @@ msgstr "Udhërrëfyes Shqyrtimesh"
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Vetëm me Firefox — Merreni Firefox-in Tani"
 
-#: src/amo/components/GuidesAddonCard/index.js:77
-msgid "Staff Pick"
-msgstr "Zgjedhje Nga Stafi"
-
 #: src/amo/components/Header/index.js:105
 msgid "Submit and manage extensions and themes"
 msgstr "Parashtroni dhe administroni zgjerime dhe tema"
@@ -1167,17 +1163,17 @@ msgid "Learn how to create extensions and themes"
 msgstr "Mësoni si të krijoni zgjerime dhe tema"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
-#: src/amo/pages/Guides/index.js:275
+#: src/amo/pages/Guides/index.js:266
 msgid "Stay Safe Online"
 msgstr "Jini i Parrezikuar Në Internet"
 
 #: src/amo/components/HomeHeroGuides/index.js:39
-#: src/amo/pages/Guides/index.js:288
+#: src/amo/pages/Guides/index.js:279
 msgid "Organize Tabs & Bookmarks"
 msgstr "Sistemoni Skeda & Faqerojtës"
 
 #: src/amo/components/HomeHeroGuides/index.js:44
-#: src/amo/pages/Guides/index.js:301
+#: src/amo/pages/Guides/index.js:292
 msgid "Enhance Your Media Experience"
 msgstr "Thelloni Punimin Tuaj Me Media"
 
@@ -1470,24 +1466,24 @@ msgstr ""
 msgid "Search results"
 msgstr "Përfundime kërkimi"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:318
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:249
 #: src/amo/pages/LandingPage/index.js:139
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "Zgjerime të zgjedhura"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:319
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:250
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Zgjerime të zgjedhura"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:367
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:334
 #: src/amo/pages/LandingPage/index.js:178
 #, fuzzy
 msgid "Recommended themes"
 msgstr "Tema popullore"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:368
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:335
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Tema të zgjedhura"
@@ -1501,7 +1497,7 @@ msgstr "Gjeni shtesa"
 msgid "Featured add-ons"
 msgstr "Shtesa të zgjedhura"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:384
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:349
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "Zgjerime në modë"
@@ -1529,11 +1525,11 @@ msgstr "Temat më të vlerësuara"
 msgid "Top rated add-ons"
 msgstr "Shtesat më të vlerësuara"
 
-#: src/amo/components/Search/index.js:171
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:296
 msgid "Popular extensions"
 msgstr "Zgjerime popullore"
 
-#: src/amo/components/Search/index.js:174
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:275
 msgid "Popular themes"
 msgstr "Tema popullore"
 
@@ -2054,18 +2050,7 @@ msgstr "S’keni ndonjë koleksion."
 msgid "My collections"
 msgstr "Koleksionet e mia"
 
-#: src/amo/pages/Guides/index.js:100
-msgid ""
-"Today’s web is tangled up with unwanted advertisements that get in your way "
-"and slow you down. Ad-blocking extensions can block or filter those ads so "
-"you can get back to distraction-free browsing."
-msgstr ""
-"Interneti i sotëm është bërë çorbë me reklama të padëshiruara që të zënë "
-"rrugën dhe të ngadalësojnë punën. Zgjerimet për bllokim reklamash mund t’i "
-"bllokojnë ose filtrojnë këto reklama, që t’i riktheheni shfletimit pa "
-"telashe."
-
-#: src/amo/pages/Guides/index.js:106
+#: src/amo/pages/Guides/index.js:104
 msgid ""
 "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands "
 "of content filters without chewing up a bunch of memory."
@@ -2073,17 +2058,18 @@ msgstr ""
 "Një bllokues i lehtë dhe i efektshëm reklamash. uBlock Origin përforcon "
 "mijëra filtra lënde pa ngrënë kujtesë kushedi."
 
-#: src/amo/pages/Guides/index.js:110
-msgid "Explore more %(linkStart)sad blocker%(linkEnd)s staff picks."
+#: src/amo/pages/Guides/index.js:108
+#, fuzzy
+msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
 msgstr ""
 "Eksploroni më tepër %(linkStart)sbllokues reklamash%(linkEnd)s zgjedhur nga "
 "stafi."
 
-#: src/amo/pages/Guides/index.js:118
+#: src/amo/pages/Guides/index.js:116
 msgid "Stop online trackers from stalking you"
 msgstr "Ndalni gjurmuesit internetorë t’ju ndjekin hap pas hapi"
 
-#: src/amo/pages/Guides/index.js:119
+#: src/amo/pages/Guides/index.js:117
 msgid ""
 "Online advertisers can track your activity from one website to the next, "
 "gathering information about you and your interests. Extensions can help "
@@ -2093,7 +2079,7 @@ msgstr ""
 "një tjetër, duke grumbulluar të dhëna rreth jush dhe interesave tuaj. "
 "Zgjerimet mund të ndihmojnë për të mbuluar gjurmët tuaja dixhitale."
 
-#: src/amo/pages/Guides/index.js:124
+#: src/amo/pages/Guides/index.js:122
 msgid ""
 "Isolate your Facebook identity into a separate “container” to stop Facebook "
 "from tracking your activity outside of its social platform."
@@ -2102,17 +2088,20 @@ msgstr ""
 "pengoni Facebook-ut të ndjekë veprimtarinë tuaj jashtë platformës së vet "
 "shoqërore."
 
-#: src/amo/pages/Guides/index.js:128
-msgid "Explore more %(linkStart)sprivacy & security%(linkEnd)s staff picks."
+#: src/amo/pages/Guides/index.js:126
+#, fuzzy
+msgid ""
+"Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s "
+"extensions."
 msgstr ""
 "Eksploroni më tepër zgjedhje nga stafi mbi %(linkStart)sprivatësinë & "
 "sigurinë%(linkEnd)s."
 
-#: src/amo/pages/Guides/index.js:139
+#: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
 msgstr "Ripërfytyroni administrimin e skedave"
 
-#: src/amo/pages/Guides/index.js:140
+#: src/amo/pages/Guides/index.js:138
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with "
 "the frustration of searching through a row of unidentifiable tabs looking "
@@ -2124,7 +2113,7 @@ msgstr ""
 "gjeni atë që ju duhet. Zgjerimet mund të ofrojnë zgjidhje të goditura për "
 "administrim më të lehtë të skedave."
 
-#: src/amo/pages/Guides/index.js:146
+#: src/amo/pages/Guides/index.js:144
 msgid ""
 "Arrange and visualize your tabs in a cascading “tree” style format in "
 "Firefox’s sidebar."
@@ -2132,17 +2121,18 @@ msgstr ""
 "Sistemojini dhe vizualizojini skedat tuaja te anështylla e Firefox-it sipas "
 "një formati në stil “strukture” ujëvarë."
 
-#: src/amo/pages/Guides/index.js:150
-msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
+#: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
+#, fuzzy
+msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
 msgstr ""
-"Eksploroni më tepër zgjedhje nga stafi mbi %(linkStart)sadministrim skedash"
-"%(linkEnd)s."
+"Eksploroni më tepër %(linkStart)sbllokues reklamash%(linkEnd)s zgjedhur nga "
+"stafi."
 
-#: src/amo/pages/Guides/index.js:158
+#: src/amo/pages/Guides/index.js:159
 msgid "Better browsing with improved bookmarks"
 msgstr "Shfletim më i mirë, me faqerojtës të përmirësuar"
 
-#: src/amo/pages/Guides/index.js:159
+#: src/amo/pages/Guides/index.js:160
 msgid ""
 "Extensions can help you organize your online interests. Bookmark managers "
 "are ideal for folks with a lot of content to track."
@@ -2151,21 +2141,15 @@ msgstr ""
 "Përgjegjësit e faqerojtësve janë idealë për persona të cilëve u duhen të "
 "ndjekin shumë lëndë."
 
-#: src/amo/pages/Guides/index.js:163
+#: src/amo/pages/Guides/index.js:164
 msgid ""
-"Want help organizing all of your favorite online cooking recipes, how-to "
-"articles, YouTube videos, or just about anything you find on the web? "
-"OneNote Web Clipper lets you collect and store all your favorite online "
-"content in a powerful repository that syncs across devices."
+"Enjoy a better way to organize your bookmarks if you maintain multiple "
+"bookmark folders."
 msgstr ""
-"Doni ndihmë që të sistemoni krejt recetat tuaja të gatimit të parapëlqyera "
-"në internet, artikuj të llojit si-të, video YouTube, apo thjesht çfarëdo "
-"gjëje që gjeni në web? OneNote Web Clipper ju lejon të grumbulloni dhe "
-"depozitoni krejt lëndën tuaj të parapëlqyer prej interneti, në një depo të "
-"fuqishme që njëkohësohet përmes pajisjeve tuaja."
 
-#: src/amo/pages/Guides/index.js:170
-msgid "Explore more %(linkStart)sbookmark manager%(linkEnd)s staff picks."
+#: src/amo/pages/Guides/index.js:167
+#, fuzzy
+msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
 msgstr ""
 "Eksploroni më tepër %(linkStart)spërgjegjës fjalëkalimesh%(linkEnd)s "
 "zgjedhur nga stafi."
@@ -2190,19 +2174,11 @@ msgstr ""
 "Gëzojuni një faqeje të re të hijshme me sfonde të personalizueshëm, të dhëna "
 "për motin vendor, etj."
 
-#: src/amo/pages/Guides/index.js:187
-msgid ""
-"Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with "
-"these staff picks."
-msgstr ""
-"Eksploroni më tepër %(linkStart)srrugë zbavitëse për të ndryshuar skedat "
-"tuaja%(linkEnd)s përmes këtyre zgjedhjeve nga stafi."
-
-#: src/amo/pages/Guides/index.js:198
+#: src/amo/pages/Guides/index.js:201
 msgid "Improve videos"
 msgstr "Përmirësoni video"
 
-#: src/amo/pages/Guides/index.js:199
+#: src/amo/pages/Guides/index.js:202
 msgid ""
 "If you enjoy video content, extensions offer a number of ways to optimize "
 "your experience, including customizing YouTube to your taste and playing "
@@ -2212,7 +2188,7 @@ msgstr ""
 "të mirë punën tuaj me to, përfshi përshtatje lidhur me YouTube-in dhe "
 "luajtje videosh si në kinema."
 
-#: src/amo/pages/Guides/index.js:204
+#: src/amo/pages/Guides/index.js:207
 msgid ""
 "Add a control bar to all YouTube video pages so you can easily adjust "
 "volume, playback speed, video player size, advertising and annotation "
@@ -2222,17 +2198,11 @@ msgstr ""
 "përimtoni lehtësisht volumin e tyre, shpejtësinë e luajtjes, madhësinë e "
 "lojtësit të videove, bllokim reklamash dhe shënimesh, dhe veçori të tjera."
 
-#: src/amo/pages/Guides/index.js:209
-msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
-msgstr ""
-"Eksploroni më tepër zgjedhje nga stafi për %(linkStart)szgjerime për video"
-"%(linkEnd)s."
-
-#: src/amo/pages/Guides/index.js:217
+#: src/amo/pages/Guides/index.js:216
 msgid "Get more out of media"
 msgstr "Përfitoni më tepër nga media"
 
-#: src/amo/pages/Guides/index.js:218
+#: src/amo/pages/Guides/index.js:217
 msgid ""
 "Extensions can address a wide variety of niche media needs and interests, "
 "like image searching, download management, and text readers, to name a few."
@@ -2241,7 +2211,7 @@ msgstr ""
 "speciale lidhur me median, fjala vjen, kërkim figurash, administrim "
 "shkarkimesh, lexues teksti, sa për të përmendur një a dy."
 
-#: src/amo/pages/Guides/index.js:223
+#: src/amo/pages/Guides/index.js:222
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn "
 "more about it, like who’s the person in the pic? Are there related images? "
@@ -2253,17 +2223,11 @@ msgstr ""
 "figura të afërta me të? Ky zgjerim ju lejon të kryeni kërkime së prapthi për "
 "figurat, shpejt dhe lehtë, përmes një numri motorësh."
 
-#: src/amo/pages/Guides/index.js:229
-msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
-msgstr ""
-"Eksploroni më tepër zgjedhje nga stafi për %(linkStart)szgjerime për media"
-"%(linkEnd)s."
-
-#: src/amo/pages/Guides/index.js:237
+#: src/amo/pages/Guides/index.js:232
 msgid "Bring media right into the browser"
 msgstr "Silleni median mu te shfletuesi"
 
-#: src/amo/pages/Guides/index.js:238
+#: src/amo/pages/Guides/index.js:233
 msgid ""
 "Extensions can turn Firefox into your very own entertainment hub that gives "
 "you instant access to music, image capturing, gaming, and more."
@@ -2271,7 +2235,7 @@ msgstr ""
 "Zgjerimet mund ta shndërrojnë Firefox-in në qendrën tuaj personale të "
 "dëfrimit, që ju lejon dëgjim të menjëhershëm muzike, marrje figurash, etj."
 
-#: src/amo/pages/Guides/index.js:243
+#: src/amo/pages/Guides/index.js:238
 msgid ""
 "Access 30,000+ radio stations from all over the globe, always just a click "
 "away."
@@ -2279,14 +2243,7 @@ msgstr ""
 "Përdorni më shumë se 30 mijë stacione nga anembanë rruzullit, përherë vetëm "
 "një klikim larg jush."
 
-#: src/amo/pages/Guides/index.js:247
-msgid ""
-"Explore among thousands of %(linkStart)sphoto, music & video extensions"
-"%(linkEnd)s."
-msgstr ""
-"Eksploroni mijëra %(linkStart)szgjerime për foto, muzikë & video%(linkEnd)s."
-
-#: src/amo/pages/Guides/index.js:276
+#: src/amo/pages/Guides/index.js:267
 msgid ""
 "The web is a wonderful but wild place. Your personal data can be used "
 "without your consent, your activities spied upon, and your passwords stolen. "
@@ -2297,7 +2254,7 @@ msgstr ""
 "dhe fjalëkalimet tuaj të vidhen. Për fat të mirë, zgjerimet mund t’ju "
 "ndihmojnë të fortifikoni privatësinë dhe sigurinë tuaj në internet."
 
-#: src/amo/pages/Guides/index.js:289
+#: src/amo/pages/Guides/index.js:280
 msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? "
 "Extensions can help! From organization assistance to providing fun new "
@@ -2310,7 +2267,7 @@ msgstr ""
 "zbavitëse, zgjerimet mund të ndryshojnë në mënyrë dramatike mënyrën se si "
 "përdorni skedat dhe faqerojtësit."
 
-#: src/amo/pages/Guides/index.js:302
+#: src/amo/pages/Guides/index.js:293
 msgid ""
 "Extensions can augment online media in all sorts of interesting ways, from "
 "watching videos to handling images, music, and more."
@@ -2319,11 +2276,11 @@ msgstr ""
 "mënyrash interesante, që nga parja e videove e deri te trajtimi i figurave, "
 "muzikës, etj."
 
-#: src/amo/pages/Guides/index.js:81
+#: src/amo/pages/Guides/index.js:79
 msgid "Create and manage strong passwords"
 msgstr "Krijoni dhe administroni fjalëkalime të fuqishëm"
 
-#: src/amo/pages/Guides/index.js:82
+#: src/amo/pages/Guides/index.js:80
 msgid ""
 "Password managers can help you create secure passwords, store your passwords "
 "(safely) in one place, and give you easy access to your login credentials "
@@ -2333,7 +2290,7 @@ msgstr ""
 "sigurt, të depozitoni (pa rrezik) fjalëkalimet tuaja në një vend, dhe t’ju "
 "lejojnë përdorim të lehtë të kredencialeve tuaja për hyrje, kudo qofshi."
 
-#: src/amo/pages/Guides/index.js:87
+#: src/amo/pages/Guides/index.js:85
 msgid ""
 "Fully encrypted password protection. Store your data securely and access "
 "logins across devices."
@@ -2342,74 +2299,57 @@ msgstr ""
 "tuaja në mënyrë të sigurt dhe përdorini kredencialet e hyrjse që nga pajisje "
 "të ndryshme."
 
-#: src/amo/pages/Guides/index.js:91
-msgid "Explore more %(linkStart)spassword manager%(linkEnd)s staff picks."
+#: src/amo/pages/Guides/index.js:89
+#, fuzzy
+msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
 msgstr ""
 "Eksploroni më tepër %(linkStart)spërgjegjës fjalëkalimesh%(linkEnd)s të "
 "zgjedhur nga stafi."
 
-#: src/amo/pages/Guides/index.js:99
+#: src/amo/pages/Guides/index.js:97
 msgid "Block annoying ads"
 msgstr "Bllokoni reklama bezdisëse"
 
-#: src/amo/pages/Home/index.js:139
-msgid "Bookmarks"
-msgstr "Faqerojtës"
+#: src/amo/pages/Guides/index.js:98
+msgid ""
+"Today’s web is tangled up with unwanted advertisements that get in your way "
+"and slow you down. Ad-blocking extensions can block or filter those ads so "
+"you can get back to distraction-free browsing."
+msgstr ""
+"Interneti i sotëm është bërë çorbë me reklama të padëshiruara që të zënë "
+"rrugën dhe të ngadalësojnë punën. Zgjerimet për bllokim reklamash mund t’i "
+"bllokojnë ose filtrojnë këto reklama, që t’i riktheheni shfletimit pa "
+"telashe."
 
-#: src/amo/pages/Home/index.js:143
-msgid "Password managers"
-msgstr "Përgjegjës fjalëkalimesh"
-
-#: src/amo/pages/Home/index.js:147
-msgid "Ad blockers"
-msgstr "Bllokues reklamash"
-
-#: src/amo/pages/Home/index.js:151
-msgid "Smarter shopping"
-msgstr "Blerje më të mençura"
-
-#: src/amo/pages/Home/index.js:155
-msgid "Productivity"
-msgstr "Prodhimtari"
-
-#: src/amo/pages/Home/index.js:159
-msgid "Watching videos"
-msgstr "Parje videosh"
-
-#: src/amo/pages/Home/index.js:187
+#: src/amo/pages/Home/index.js:133
 msgid "Abstract"
 msgstr "Abstrakte"
 
-#: src/amo/pages/Home/index.js:192
+#: src/amo/pages/Home/index.js:138
 msgid "Nature"
 msgstr "Natyrë"
 
-#: src/amo/pages/Home/index.js:197
+#: src/amo/pages/Home/index.js:143
 msgid "Film & TV"
 msgstr "Filma dhe TV"
 
-#: src/amo/pages/Home/index.js:202
+#: src/amo/pages/Home/index.js:148
 msgid "Scenery"
 msgstr "Peizazhe"
 
-#: src/amo/pages/Home/index.js:207
+#: src/amo/pages/Home/index.js:153
 msgid "Music"
 msgstr "Muzikë"
 
-#: src/amo/pages/Home/index.js:212
+#: src/amo/pages/Home/index.js:158
 msgid "Seasonal"
 msgstr "Sezonale"
 
-#: src/amo/pages/Home/index.js:252
-msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
-"Përshtatni përmes zgjerimesh mënyrën se si punon Firefox-i. Ju interesojnë…"
-
-#: src/amo/pages/Home/index.js:254
+#: src/amo/pages/Home/index.js:196
 msgid "Change the way Firefox looks with themes."
 msgstr "Ndryshoni përmes temash mënyrën se si duket Firefox-i."
 
-#: src/amo/pages/Home/index.js:284
+#: src/amo/pages/Home/index.js:226
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2419,51 +2359,56 @@ msgstr ""
 "shfletuesin tuaj. Për bllokim reklamash të bezdisura, për mbrojtje "
 "fjalëkalimesh, për ndryshim të pamjes së shfletuesit, etj."
 
-#: src/amo/pages/Home/index.js:323 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:254 src/amo/pages/LandingPage/index.js:153
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "Shihni më tepër zgjerime në modë"
 
-#: src/amo/pages/Home/index.js:324 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:255 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "Shihni më tepër zgjerime të zgjedhura"
 
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:276
+msgid "See more popular themes"
+msgstr "Shihni më tepër tema popullore"
+
+#: src/amo/pages/Home/index.js:297
+#, fuzzy
+msgid "See more popular extensions"
+msgstr "Shihni më tepër zgjerime për skeda"
+
+#: src/amo/pages/Home/index.js:316 src/amo/pages/LandingPage/index.js:192
 #, fuzzy
 msgid "See more recommended themes"
 msgstr "Shihni më tepër tema në modë"
 
-#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:317 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "Shihni më tepër tema të zgjedhura"
 
-#: src/amo/pages/Home/index.js:385 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Shihni më tepër zgjerime në modë"
 
-#: src/amo/pages/Home/index.js:56
-msgid "See more productivity extensions"
-msgstr "Shihni më tepër zgjerime prodhimtarie"
+#: src/amo/pages/Home/index.js:55
+#, fuzzy
+msgid "See more enhanced privacy extensions"
+msgstr "Shihni më tepër zgjerime mbi motin"
 
-#: src/amo/pages/Home/index.js:57
-msgid "Productivity extensions"
-msgstr "Zgjerime prodhimtarie"
+#: src/amo/pages/Home/index.js:56
+#, fuzzy
+msgid "Enhanced privacy extensions"
+msgstr "Zgjerimet më të vlerësuara"
+
+#: src/amo/pages/Home/index.js:61
+#, fuzzy
+msgid "See more recommended password managers"
+msgstr "Shihni më tepër tema në modë"
 
 #: src/amo/pages/Home/index.js:62
-msgid "See more YouTube extensions"
-msgstr "Shihni më tepër zgjerime kërkimi"
-
-#: src/amo/pages/Home/index.js:63
-msgid "YouTube boosters"
-msgstr "Fuqizues YouTube"
-
-#: src/amo/pages/Home/index.js:68
-msgid "See more feed readers"
-msgstr "Shihni më tepër lexues temash"
-
-#: src/amo/pages/Home/index.js:69
-msgid "Feed readers"
-msgstr "Lexues prurjesh"
+#, fuzzy
+msgid "Recommended password managers"
+msgstr "Përgjegjës fjalëkalimesh"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
@@ -2716,11 +2661,12 @@ msgid "A community of creators"
 msgstr "Një bashkësi krijuesish"
 
 #: src/amo/pages/StaticPages/About/index.js:71
+#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme "
 "designers from all over the world, ranging from individual hobbyists to "
 "large corporations. Some add-ons listed on AMO have been automatically "
-"published and may be subject to review by a team of editors once publically "
+"published and may be subject to review by a team of editors once publicly "
 "listed."
 msgstr ""
 "Shtesat e radhitura këtu janë krijuar nga mijëra zhvillues shtesash dhe "
@@ -3559,6 +3505,89 @@ msgstr[1] "%(total)s shtesa"
 msgid "Developer response"
 msgstr "Përgjigje zhvilluesi"
 
+#~ msgid "Staff Pick"
+#~ msgstr "Zgjedhje Nga Stafi"
+
+#~ msgid "Explore more %(linkStart)stab management%(linkEnd)s staff picks."
+#~ msgstr ""
+#~ "Eksploroni më tepër zgjedhje nga stafi mbi %(linkStart)sadministrim "
+#~ "skedash%(linkEnd)s."
+
+#~ msgid ""
+#~ "Want help organizing all of your favorite online cooking recipes, how-to "
+#~ "articles, YouTube videos, or just about anything you find on the web? "
+#~ "OneNote Web Clipper lets you collect and store all your favorite online "
+#~ "content in a powerful repository that syncs across devices."
+#~ msgstr ""
+#~ "Doni ndihmë që të sistemoni krejt recetat tuaja të gatimit të "
+#~ "parapëlqyera në internet, artikuj të llojit si-të, video YouTube, apo "
+#~ "thjesht çfarëdo gjëje që gjeni në web? OneNote Web Clipper ju lejon të "
+#~ "grumbulloni dhe depozitoni krejt lëndën tuaj të parapëlqyer prej "
+#~ "interneti, në një depo të fuqishme që njëkohësohet përmes pajisjeve tuaja."
+
+#~ msgid ""
+#~ "Explore more %(linkStart)sfun ways to change up your tabs%(linkEnd)s with "
+#~ "these staff picks."
+#~ msgstr ""
+#~ "Eksploroni më tepër %(linkStart)srrugë zbavitëse për të ndryshuar skedat "
+#~ "tuaja%(linkEnd)s përmes këtyre zgjedhjeve nga stafi."
+
+#~ msgid "Explore more %(linkStart)svideo extensions%(linkEnd)s staff picks."
+#~ msgstr ""
+#~ "Eksploroni më tepër zgjedhje nga stafi për %(linkStart)szgjerime për video"
+#~ "%(linkEnd)s."
+
+#~ msgid "Explore more %(linkStart)smedia extensions%(linkEnd)s staff picks."
+#~ msgstr ""
+#~ "Eksploroni më tepër zgjedhje nga stafi për %(linkStart)szgjerime për media"
+#~ "%(linkEnd)s."
+
+#~ msgid ""
+#~ "Explore among thousands of %(linkStart)sphoto, music & video extensions"
+#~ "%(linkEnd)s."
+#~ msgstr ""
+#~ "Eksploroni mijëra %(linkStart)szgjerime për foto, muzikë & video"
+#~ "%(linkEnd)s."
+
+#~ msgid "Bookmarks"
+#~ msgstr "Faqerojtës"
+
+#~ msgid "Ad blockers"
+#~ msgstr "Bllokues reklamash"
+
+#~ msgid "Smarter shopping"
+#~ msgstr "Blerje më të mençura"
+
+#~ msgid "Productivity"
+#~ msgstr "Prodhimtari"
+
+#~ msgid "Watching videos"
+#~ msgstr "Parje videosh"
+
+#~ msgid ""
+#~ "Customize the way Firefox works with extensions. Are you interested in…"
+#~ msgstr ""
+#~ "Përshtatni përmes zgjerimesh mënyrën se si punon Firefox-i. Ju "
+#~ "interesojnë…"
+
+#~ msgid "See more productivity extensions"
+#~ msgstr "Shihni më tepër zgjerime prodhimtarie"
+
+#~ msgid "Productivity extensions"
+#~ msgstr "Zgjerime prodhimtarie"
+
+#~ msgid "See more YouTube extensions"
+#~ msgstr "Shihni më tepër zgjerime kërkimi"
+
+#~ msgid "YouTube boosters"
+#~ msgstr "Fuqizues YouTube"
+
+#~ msgid "See more feed readers"
+#~ msgstr "Shihni më tepër lexues temash"
+
+#~ msgid "Feed readers"
+#~ msgstr "Lexues prurjesh"
+
 #~ msgid "%(categoryName)s – Extensions"
 #~ msgstr "%(categoryName)s – Zgjerime"
 
@@ -3580,9 +3609,6 @@ msgstr "Përgjigje zhvilluesi"
 #~ msgid "VPN solutions"
 #~ msgstr "Zgjidhje VPN"
 
-#~ msgid "See more tab extensions"
-#~ msgstr "Shihni më tepër zgjerime për skeda"
-
 #~ msgid "Change up your tabs"
 #~ msgstr "Ndryshoni skedat tuaja"
 
@@ -3603,9 +3629,6 @@ msgstr "Përgjigje zhvilluesi"
 
 #~ msgid "Wikipedia boosters"
 #~ msgstr "Fuqizues Wikipedia"
-
-#~ msgid "See more weather extensions"
-#~ msgstr "Shihni më tepër zgjerime mbi motin"
 
 #~ msgid "Weather extensions"
 #~ msgstr "Zgjerime mbi motin"
@@ -3631,9 +3654,6 @@ msgstr "Përgjigje zhvilluesi"
 
 #~ msgid "my sdk-based add-on is upgraded successfully"
 #~ msgstr "shtesa sime e bazuar në sdk është përmirësuar me sukses"
-
-#~ msgid "See more popular themes"
-#~ msgstr "Shihni më tepër tema popullore"
 
 #~ msgid "Be more productive"
 #~ msgstr "Jini më prodhimtar"
@@ -4456,9 +4476,6 @@ msgstr "Përgjigje zhvilluesi"
 #~ msgstr ""
 #~ "Mbrojtje nga gjurmimet kundër sajtesh që synojnë të regjistrojnë çdo "
 #~ "lëvizje tuajën në internet."
-
-#~ msgid "Top privacy extensions"
-#~ msgstr "Zgjerimet më të vlerësuara"
 
 #~ msgid "Most Popular Extensions"
 #~ msgstr "Zgjerimet më popullore"
