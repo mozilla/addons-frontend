@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-09 21:25+0000\n"
+"PO-Revision-Date: 2019-07-09 21:34+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -1894,7 +1894,7 @@ msgstr "As extensões podem ajudar-lhe a organizar os seus interesses online. Os
 
 #: src/amo/pages/Guides/index.js:164
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-msgstr ""
+msgstr "Desfrute de uma maneira melhor de organizar os seus marcadores se mantiver várias pastas de marcadores."
 
 #: src/amo/pages/Guides/index.js:167
 #, fuzzy
@@ -2804,7 +2804,7 @@ msgstr "Funciona com %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "Instalação abortada porque o extra parece estar corrompido."
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
