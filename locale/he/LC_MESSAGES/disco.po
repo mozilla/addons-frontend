@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-02 19:16+0000\n"
-"PO-Revision-Date: 2019-02-14 11:17+0000\n"
+"PO-Revision-Date: 2019-07-09 20:54+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -51,15 +51,10 @@ msgid "Server Error"
 msgstr "שגיאת שרת"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"מצטערים, אבל אירעה שגיאה ולא הצלחנו להשלים את הבקשה שלך. תיעדנו את השגיאה "
-"הזאת ואנו נחקור אותה."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "מצטערים, אבל אירעה שגיאה ולא הצלחנו להשלים את הבקשה שלך. תיעדנו את השגיאה הזאת ואנו נחקור אותה."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "קוד שגיאה: %(status)s."
 
@@ -120,7 +115,7 @@ msgstr "עובד עם %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "ההתקנה בוטלה מכיוון שנראה שהתוספת פגומה."
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
@@ -176,29 +171,19 @@ msgstr "התאמה אישית של ה־Firefox שלך"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"ישנן אלפי תוספות חינמיות שנוצרו על־ידי מפתחים מכל רחבי העולם, הניתנות להתקנה "
-"על מנת לעצב ולהתאים אישית את ה־Firefox שלך. מערכות נושא ועד כלים רבי עצמה "
-"ההופכים את הגלישה שלך למהירה ובטוחה יותר, תוספות הופכות את הדפדפן שלך – "
-"לשלך. על־מנת לעזור לך להתחיל, להלן מספר תוספות שאנו ממליצים עליהן בזכות "
-"הפונקציונליות והביצועים שלהן."
+"ישנן אלפי תוספות חינמיות שנוצרו על־ידי מפתחים מכל רחבי העולם, הניתנות להתקנה על מנת לעצב ולהתאים אישית את ה־Firefox שלך. מערכות נושא ועד כלים רבי עצמה ההופכים את הגלישה שלך למהירה ובטוחה יותר, "
+"תוספות הופכות את הדפדפן שלך – לשלך. על־מנת לעזור לך להתחיל, להלן מספר תוספות שאנו ממליצים עליהן בזכות הפונקציונליות והביצועים שלהן."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "מידע נוסף"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
-"חלק מהמלצות אלה מותאמות אישית. הן מבוססות על הרחבות אחרות שהתקנת, העדפות "
-"פרופיל וסטטיסטיקת שימוש."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgstr "חלק מהמלצות אלה מותאמות אישית. הן מבוססות על הרחבות אחרות שהתקנת, העדפות פרופיל וסטטיסטיקת שימוש."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
