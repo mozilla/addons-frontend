@@ -11,6 +11,8 @@ import {
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import type { AddonType } from 'core/types/addons';
 
+import './styles.scss';
+
 type Props = {|
   addonInstallSource?: string,
   addons?: Array<AddonType> | null,
@@ -59,7 +61,9 @@ export default class LandingAddonsCard extends React.Component<Props> {
       <AddonsCard
         addonInstallSource={addonInstallSource}
         addons={addons}
-        className={makeClassName('LandingAddonsCard', className)}
+        className={makeClassName('LandingAddonsCard', className, {
+          'LandingAddonsCard-Themes': isTheme,
+        })}
         footerLink={footerLinkHtml}
         header={header}
         showRecommendedBadge={false}
