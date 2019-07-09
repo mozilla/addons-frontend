@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-09 19:11+0000\n"
+"PO-Revision-Date: 2019-07-09 19:17+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1883,9 +1883,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr "Lochki, jara efektiwny blokowak wabjenja. uBlock Origin wunuzuje tysacy wobsahowych filtrow, bjez toho zo by so wjele składa přetrjebało."
 
 #: src/amo/pages/Guides/index.js:108
-#, fuzzy
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "Wuslědźće dalše %(linkStart)sblokowak wabjenja%(linkEnd)s z wuběra sobudźěłaćerjow."
+msgstr "Wuslědźće dalše wuběrne %(linkStart)sblokowak wabjenja%(linkEnd)s z wuběra sobudźěłaćerjow."
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Stop online trackers from stalking you"
@@ -1900,9 +1899,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr "Izolujće swoju identitu Facebook do separatneho “kontejnera”, zo byšće Facebook při slědowanju swojeje aktiwity zwonka jeho socialneje platformy haćił."
 
 #: src/amo/pages/Guides/index.js:126
-#, fuzzy
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "Wuslědźće dalšu %(linkStart)spriwatnosć a wěstotu%(linkEnd)s z wuběra sobudźěłaćerjow."
+msgstr "Wuslědźće dalše doporučene rozšěrjenja za %(linkStart)spriwatnosć a wěstotu%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
@@ -1921,9 +1919,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr "Rjadujće a wizualizujće swoje rajtarki w kaskadowacym “štomowym” formaće w bóčnicy Firefox."
 
 #: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
-#, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "Wuslědźće dalše %(linkStart)sblokowak wabjenja%(linkEnd)s z wuběra sobudźěłaćerjow."
+msgstr "Wuslědźće dalše rozšěrjenja za %(linkStart)srajtarki%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:159
 msgid "Better browsing with improved bookmarks"
@@ -1938,9 +1935,8 @@ msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bo
 msgstr "Wužiwajće lěpše wašnje zapołožki organizować, jeli wjacore rjadowaki zapołožkow wudźeržeće."
 
 #: src/amo/pages/Guides/index.js:167
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "Wuslědźće dalše %(linkStart)szrjadowaki zapołožkow%(linkEnd)s z wuběra sobudźěłaćerjow."
+msgstr "Wuslědźće dalše rozšěrjenja za %(linkStart)szapołožki%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:178
 msgid "Enjoy a fresh new tab experience"
@@ -2029,9 +2025,8 @@ msgid "Fully encrypted password protection. Store your data securely and access 
 msgstr "Dospołnje zaklučowany hesłowy škit. Składujće swoje daty wěsće a mějće přistup na přizjewjenja přez graty."
 
 #: src/amo/pages/Guides/index.js:89
-#, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "Wuslědźće dalše %(linkStart)szrjadowaki hesłow%(linkEnd)s z wuběra sobudźěłaćerjow."
+msgstr "Wuslědźće dalše wulkotne %(linkStart)szrjadowaki hesłow%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:97
 msgid "Block annoying ads"
@@ -2089,9 +2084,8 @@ msgid "See more popular themes"
 msgstr "Dalše woblubowane drasty pokazać"
 
 #: src/amo/pages/Home/index.js:297
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Dalše rajtarkowe rozšěrjenja pokazać"
+msgstr "Dalše woblubowane rozšěrjenja sej wobhladać"
 
 #: src/amo/pages/Home/index.js:316 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
@@ -2106,24 +2100,20 @@ msgid "See more trending extensions"
 msgstr "Dalše tuchwilu woblubowane rozšěrjenja sej wobhladać"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more enhanced privacy extensions"
-msgstr "Dalše wjedrowe rozšěrjenja pokazać"
+msgstr "Dalše polěpšene rozšěrjenja za priwatnosć pokazać"
 
 #: src/amo/pages/Home/index.js:56
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "Najwyše pohódnoćene rozšěrjenja priwatnosće"
+msgstr "Polěpšene rozšěrjenja za priwatnosć"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "See more recommended password managers"
-msgstr "Dalše doporučene drasty pokazać"
+msgstr "Dalše doporučene zrjadowaki hesłow pokazać"
 
 #: src/amo/pages/Home/index.js:62
-#, fuzzy
 msgid "Recommended password managers"
-msgstr "Zrjadowaki hesłow"
+msgstr "Doporučene zrjadowaki hesłow"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
@@ -2277,7 +2267,6 @@ msgid "A community of creators"
 msgstr "Zhromadźenstwo wuwiwarjow"
 
 #: src/amo/pages/StaticPages/About/index.js:71
-#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
