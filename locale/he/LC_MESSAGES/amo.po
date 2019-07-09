@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-09 21:29+0000\n"
+"PO-Revision-Date: 2019-07-09 21:38+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1839,9 +1839,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr "חוסם פרסומות קל ויעיל. uBlock Origin אוכף אלפי מסנני תוכן מבלי לזלול זיכרון."
 
 #: src/amo/pages/Guides/index.js:108
-#, fuzzy
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "נא לפעול בהתאם ל%(linkStart)sכללי הסקירה%(linkEnd)s שלנו."
+msgstr "ניתן לסייר בעוד %(linkStart)sחוסמי פרסומות%(linkEnd)s מצויינים."
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Stop online trackers from stalking you"
@@ -1856,9 +1855,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr "בידוד הזהות שלך ב־Facebook אל תוך ״מיכל״ נפרד כדי למנוע מ־Facebook לעקוב אחר הפעילות שלך מחוץ לפלטפורמה החברתית שלה."
 
 #: src/amo/pages/Guides/index.js:126
-#, fuzzy
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "נא לפעול בהתאם ל%(linkStart)sכללי הסקירה%(linkEnd)s שלנו."
+msgstr "ניתן לסייר בעוד הרחבות מומלצות בנושאי %(linkStart)sפרטיות ואבטחה%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
@@ -1875,9 +1873,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr "סידור והצגת הלשוניות שלך בסגנון ״עץ״ מדורג בסרגל הצד של Firefox."
 
 #: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
-#, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "נא לפעול בהתאם ל%(linkStart)sכללי הסקירה%(linkEnd)s שלנו."
+msgstr "ניתן לסייר בעוד הרחבות %(linkStart)sלשוניות%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:159
 msgid "Better browsing with improved bookmarks"
@@ -1892,9 +1889,8 @@ msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bo
 msgstr "להנות מדרך טובה יותר לארגון סימניות אם משתמשים בתיקיות סימניות מרובות."
 
 #: src/amo/pages/Guides/index.js:167
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "נא לפעול בהתאם ל%(linkStart)sכללי הסקירה%(linkEnd)s שלנו."
+msgstr "ניתן לסייר בעוד הרחבות %(linkStart)sסימניות%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:178
 msgid "Enjoy a fresh new tab experience"
@@ -1914,7 +1910,7 @@ msgstr "שיפור סרטונים"
 
 #: src/amo/pages/Guides/index.js:202
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
-msgstr "אם תכני וידאו מהנים עבורך, הרחבות מציעות מספר דרכים כדי לשפר את החוויה שלך, לרבות התאמה אישית של YouTube לטעם שלך והפעלת סרטונים במצב קולנוע."
+msgstr "אם תכני וידאו מהנים עבורך, הרחבות מציעות מספר דרכים כדי לשפר את החוויה שלך, לרבות התאמה אישית של YouTube לטעמך והפעלת סרטונים במצב קולנוע."
 
 #: src/amo/pages/Guides/index.js:207
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
@@ -1977,9 +1973,8 @@ msgid "Fully encrypted password protection. Store your data securely and access 
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:89
-#, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "נא לפעול בהתאם ל%(linkStart)sכללי הסקירה%(linkEnd)s שלנו."
+msgstr "ניתן לסייר בעוד %(linkStart)sמנהלי ססמאות%(linkEnd)s נהדרים."
 
 #: src/amo/pages/Guides/index.js:97
 msgid "Block annoying ads"
