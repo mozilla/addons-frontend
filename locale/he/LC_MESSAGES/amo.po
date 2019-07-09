@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-09 20:53+0000\n"
+"PO-Revision-Date: 2019-07-09 21:29+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1853,7 +1853,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:122
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "בידוד הזהות שלך ב־Facebook אל תוך ״מיכל״ נפרד כדי למנוע מ־Facebook לעקוב אחר הפעילות שלך מחוץ לפלטפורמה החברתית שלה."
 
 #: src/amo/pages/Guides/index.js:126
 #, fuzzy
@@ -1872,7 +1872,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:144
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "סידור והצגת הלשוניות שלך בסגנון ״עץ״ מדורג בסרגל הצד של Firefox."
 
 #: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
 #, fuzzy
@@ -1889,7 +1889,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:164
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-msgstr ""
+msgstr "להנות מדרך טובה יותר לארגון סימניות אם משתמשים בתיקיות סימניות מרובות."
 
 #: src/amo/pages/Guides/index.js:167
 #, fuzzy
@@ -1898,7 +1898,7 @@ msgstr "נא לפעול בהתאם ל%(linkStart)sכללי הסקירה%(linkEnd
 
 #: src/amo/pages/Guides/index.js:178
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "להנות מחוויה רעננה של לשונית חדשה"
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
