@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-10 15:05+0000\n"
+"PO-Revision-Date: 2019-07-10 17:50+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1315,15 +1315,15 @@ msgstr "Extensão em destaque"
 
 #: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
-msgstr "Extensões em tendência"
+msgstr "Extensões em alta"
 
 #: src/amo/components/Search/index.js:150 src/amo/pages/LandingPage/index.js:194
 msgid "Trending themes"
-msgstr "Temas em tendência"
+msgstr "Temas em alta"
 
 #: src/amo/components/Search/index.js:153
 msgid "Trending add-ons"
-msgstr "Extensões em tendência"
+msgstr "Extensões em alta"
 
 #: src/amo/components/Search/index.js:159 src/amo/pages/LandingPage/index.js:165
 msgid "Top rated extensions"
@@ -2049,7 +2049,7 @@ msgstr "Mais temas em destaque"
 
 #: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
-msgstr "Mais extensões em tendência"
+msgstr "Mais extensões em alta"
 
 #: src/amo/pages/Home/index.js:55
 msgid "See more enhanced privacy extensions"
@@ -2073,7 +2073,7 @@ msgstr "Mais extensões melhor avaliadas"
 
 #: src/amo/pages/LandingPage/index.js:199
 msgid "See more trending themes"
-msgstr "Mais temas em destaque"
+msgstr "Mais temas em alta"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "See more top rated themes"
