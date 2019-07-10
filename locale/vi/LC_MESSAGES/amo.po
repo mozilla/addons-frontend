@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-10 03:10+0000\n"
+"PO-Revision-Date: 2019-07-10 03:11+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -1856,9 +1856,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr "Sắp xếp và trực quan hóa các thẻ của bạn theo định dạng kiểu “cây” xếp tầng trong thanh bên của Firefox."
 
 #: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
-#, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "Khám phá thêm về %(linkStart)strình chặn quảng cáo%(linkEnd)s được chọn bởi biên tập viên."
+msgstr "Khám phá thêm về tiện ích mở rộng %(linkStart)sthẻ%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:159
 msgid "Better browsing with improved bookmarks"
@@ -1873,9 +1872,8 @@ msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bo
 msgstr "Tận hưởng một cách tốt hơn để sắp xếp dấu trang của bạn nếu bạn duy trì nhiều thư mục dấu trang."
 
 #: src/amo/pages/Guides/index.js:167
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "Khám phá thêm về %(linkStart)strình quản lí dấu trang%(linkEnd)s được chọn bởi biên tập viên."
+msgstr "Khám phá thêm về tiện ích mở rộng %(linkStart)sdấu trang%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:178
 msgid "Enjoy a fresh new tab experience"
@@ -1964,9 +1962,8 @@ msgid "Fully encrypted password protection. Store your data securely and access 
 msgstr "Được bảo vệ hoàn toàn bằng mật khẩu. Lưu trữ dữ liệu của bạn một cách an toàn và truy cập tài khoản đăng nhập trên các thiết bị."
 
 #: src/amo/pages/Guides/index.js:89
-#, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "Khám phá thêm về %(linkStart)strình quản lý mật khẩu%(linkEnd)s được chọn bởi biên tập viên."
+msgstr "Khám phá thêm về %(linkStart)strình quản lí mật khẩu%(linkEnd)s tốt."
 
 #: src/amo/pages/Guides/index.js:97
 msgid "Block annoying ads"
