@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-10 14:46+0000\n"
+"PO-Revision-Date: 2019-07-10 14:49+0000\n"
 "Last-Translator: corentin.jacquet <corentin.jacquet@telecomnancy.net>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1894,7 +1894,7 @@ msgstr "Les extensions peuvent vous aider à organiser vos centres d’intérêt
 
 #: src/amo/pages/Guides/index.js:164
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-msgstr ""
+msgstr "Gérez plus efficacement vos marque-pages si vous utilisez plusieurs dossiers de marque-pages."
 
 #: src/amo/pages/Guides/index.js:167
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
@@ -2072,9 +2072,8 @@ msgid "See more enhanced privacy extensions"
 msgstr "Voir plus d’extensions pour le respect de la vie privée"
 
 #: src/amo/pages/Home/index.js:56
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "Extensions les plus populaires pour la vie privée"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:61
 msgid "See more recommended password managers"
@@ -2247,12 +2246,11 @@ msgid "A community of creators"
 msgstr "Une communauté de créateurs et créatrices"
 
 #: src/amo/pages/StaticPages/About/index.js:71
-#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
-"Les modules répertoriés ici ont été développés par des milliers de développeurs, développeuses et graphistes du monde entier, que ce soit des personnes qui codent leur temps libre ou de grandes "
+"Les modules répertoriés ici ont été développés par des milliers de développeurs, développeuses et graphistes du monde entier, allant des personnes qui codent sur leur temps libre à de grandes "
 "entreprises. Certains modules listés sur AMO on été publiés automatiquement et peuvent être sujets à une validation éditoriale une fois publics."
 
 #: src/amo/pages/StaticPages/About/index.js:80
