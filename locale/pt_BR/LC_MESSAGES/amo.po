@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-10 14:23+0000\n"
+"PO-Revision-Date: 2019-07-10 15:05+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -2036,9 +2036,8 @@ msgid "See more popular themes"
 msgstr "Ver mais temas populares"
 
 #: src/amo/pages/Home/index.js:297
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Mais extensões de abas"
+msgstr "Mais extensões populares"
 
 #: src/amo/pages/Home/index.js:316 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
@@ -2053,24 +2052,20 @@ msgid "See more trending extensions"
 msgstr "Mais extensões em tendência"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more enhanced privacy extensions"
-msgstr "Mais extensões de clima"
+msgstr "Mais extensões de privacidade aprimorada"
 
 #: src/amo/pages/Home/index.js:56
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "Melhores extensões de privacidade"
+msgstr "Extensões de privacidade aprimorada"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "See more recommended password managers"
-msgstr "Mais temas recomendados"
+msgstr "Mais gerenciadores de senhas recomendados"
 
 #: src/amo/pages/Home/index.js:62
-#, fuzzy
 msgid "Recommended password managers"
-msgstr "Gerenciadores de senhas"
+msgstr "Gerenciadores de senhas recomendados"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
@@ -2222,13 +2217,12 @@ msgid "A community of creators"
 msgstr "Uma comunidade de criadores"
 
 #: src/amo/pages/StaticPages/About/index.js:71
-#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
-"As extensões listadas aqui são criadas por milhares de desenvolvedores e designers de temas de todo o mundo, variando de hobbyistas a grandes corporações. Algumas extesões listadas no AMO foram "
-"publicadas automaticamente e podem estar sujeitas a revisão por uma equipe de editores quando listadas publicamente."
+"As extensões listadas aqui são criadas por milhares de desenvolvedores e designers de temas do mundo todo, desde amadores individuais até grandes corporações. Algumas extensões listadas no AMO foram"
+" publicadas automaticamente e podem estar sujeitas a revisão por uma equipe de editores quando listadas publicamente."
 
 #: src/amo/pages/StaticPages/About/index.js:80
 msgid "Get involved"
