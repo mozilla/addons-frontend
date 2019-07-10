@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-10 08:31+0000\n"
+"PO-Revision-Date: 2019-07-10 08:37+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -197,11 +197,10 @@ msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
 #: src/amo/components/AddonMeta/index.js:116
-#, fuzzy
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
-msgstr[0] "%(total)s صارف"
-msgstr[1] "%(total)s صارفین"
+msgstr[0] "%(total)s ستارے"
+msgstr[1] "%(total)s ستارے"
 
 #: src/amo/components/AddonMeta/index.js:125
 #, fuzzy
@@ -2612,7 +2611,7 @@ msgstr "پروفائل"
 
 #: src/amo/pages/UserProfileEdit/index.js:599
 msgid "This field is required"
-msgstr ""
+msgstr "یہ قطعہ درکار ہے"
 
 #: src/amo/pages/UserProfileEdit/index.js:602
 #, fuzzy
@@ -2769,9 +2768,8 @@ msgid "Enabling"
 msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:218
-#, fuzzy
 msgid "Downloading"
-msgstr "۔%(name)s ڈائونلوڈ کر رہا ہے۔"
+msgstr "ڈاؤن لوڈ کر رہا ہے"
 
 #: src/core/components/AMInstallButton/index.js:220
 #, fuzzy
@@ -2819,9 +2817,8 @@ msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr ""
 
 #: src/core/components/InfoDialog/index.js:88
-#, fuzzy
 msgid "OK"
-msgstr "ٹھیک ہے!"
+msgstr "ٹھیک ہے"
 
 #: src/core/components/Paginate/index.js:137
 msgid "Previous"
