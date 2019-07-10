@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-10 21:06+0000\n"
+"PO-Revision-Date: 2019-07-10 22:22+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -278,7 +278,7 @@ msgstr "Version"
 
 #: src/amo/components/AddonMoreInfo/index.js:221
 msgid "Size"
-msgstr ""
+msgstr "Størrelse"
 
 #: src/amo/components/AddonMoreInfo/index.js:229 src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
@@ -2041,9 +2041,8 @@ msgid "See more popular themes"
 msgstr "Se flere populære temaer"
 
 #: src/amo/pages/Home/index.js:297
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Se flere faneblads-udvidelser"
+msgstr "Se flere populære udvidelser"
 
 #: src/amo/pages/Home/index.js:316 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
@@ -2784,7 +2783,7 @@ msgstr "Virker med %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "Installationen blev afbrudt, fordi tilføjelsen ser ud til at være beskadiget."
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
