@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-10 17:50+0000\n"
+"PO-Revision-Date: 2019-07-10 17:58+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1479,7 +1479,7 @@ msgstr "Melhor avaliadas"
 
 #: src/amo/components/SearchFilters/index.js:163
 msgid "Trending"
-msgstr "Tendência"
+msgstr "Em alta"
 
 #: src/amo/components/SearchFilters/index.js:181
 msgid "Filter results"
