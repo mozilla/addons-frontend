@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-10 03:58+0000\n"
+"PO-Revision-Date: 2019-07-10 05:44+0000\n"
 "Last-Translator: Rok Žerdin <zerdo90@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1881,9 +1881,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr "Lahko in zelo učinkovito zavračanje oglasov. uBlock Origin uporablja tisoče filtrov vsebin brez prekomerne porabe pomnilnika."
 
 #: src/amo/pages/Guides/index.js:108
-#, fuzzy
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "Raziščite več dodatkov za %(linkStart)szavračanje oglasov%(linkEnd)s po izboru uredništva."
+msgstr "Raziščite več odličnih dodatkov za %(linkStart)szavračanje oglasov%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Stop online trackers from stalking you"
@@ -1898,9 +1897,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr "Spravite svojo identiteto na Facebooku v ločen “vsebnik” in preprečite Facebooku, da bi sledil vaši dejavnosti zunaj svoje družbene platforme."
 
 #: src/amo/pages/Guides/index.js:126
-#, fuzzy
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "Raziščite več dodatkov za %(linkStart)szasebnost in varnost%(linkEnd)s po izboru uredništva."
+msgstr "Raziščite več priporočenih dodatkov za %(linkStart)szasebnost in varnost%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
@@ -2087,9 +2085,8 @@ msgid "See more popular themes"
 msgstr "Več priljubljenih tem"
 
 #: src/amo/pages/Home/index.js:297
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Ostale priljubljene razširitve"
+msgstr "Več priljubljenih razširitev"
 
 #: src/amo/pages/Home/index.js:316 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
@@ -2104,24 +2101,20 @@ msgid "See more trending extensions"
 msgstr "Več trenutno priljubljenih razširitev"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more enhanced privacy extensions"
-msgstr "Več razširitev za vreme"
+msgstr "Več izboljšanih razširitev za zasebnost"
 
 #: src/amo/pages/Home/index.js:56
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "Najboljše razširitve za zasebnost"
+msgstr "Izboljšane razširitve za zasebnost"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "See more recommended password managers"
-msgstr "Več priporočenih tem"
+msgstr "Več priporočenih upraviteljev gesel"
 
 #: src/amo/pages/Home/index.js:62
-#, fuzzy
 msgid "Recommended password managers"
-msgstr "Upravitelji gesel"
+msgstr "Priporočeni upravitelji gesel"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
