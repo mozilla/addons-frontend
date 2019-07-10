@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-10 15:52+0000\n"
+"PO-Revision-Date: 2019-07-10 15:56+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -1907,12 +1907,11 @@ msgstr "Rozszerzenia mogą pomóc w organizowaniu swoich zainteresowań w Inte
 
 #: src/amo/pages/Guides/index.js:164
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-msgstr ""
+msgstr "Ciesz się lepszym sposobem organizowania zakładek, jeśli masz wiele folderów z zakładkami."
 
 #: src/amo/pages/Guides/index.js:167
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "Poznaj więcej %(linkStart)smenedżerów zakładek%(linkEnd)s wybranych przez nas."
+msgstr "Poznaj więcej rozszerzeń %(linkStart)sdo pracy z zakładkami%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:178
 msgid "Enjoy a fresh new tab experience"
@@ -2001,9 +2000,8 @@ msgid "Fully encrypted password protection. Store your data securely and access 
 msgstr "W pełni zaszyfrowana ochrona haseł. Bezpiecznie przechowuj swoje dane i miej dostęp do danych logowania na wszystkich urządzeniach."
 
 #: src/amo/pages/Guides/index.js:89
-#, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "Poznaj więcej %(linkStart)smenedżerów haseł%(linkEnd)s wybranych przez nas."
+msgstr "Poznaj więcej wspaniałych %(linkStart)smenedżerów haseł%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:97
 msgid "Block annoying ads"
@@ -2059,9 +2057,8 @@ msgid "See more popular themes"
 msgstr "Więcej popularnych motywów"
 
 #: src/amo/pages/Home/index.js:297
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Więcej rozszerzeń do pracy z kartami"
+msgstr "Więcej popularnych rozszerzeń"
 
 #: src/amo/pages/Home/index.js:316 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
@@ -2076,24 +2073,20 @@ msgid "See more trending extensions"
 msgstr "Więcej rozszerzeń na czasie"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more enhanced privacy extensions"
-msgstr "Więcej rozszerzeń pogodowych"
+msgstr "Więcej rozszerzeń ochrony prywatności"
 
 #: src/amo/pages/Home/index.js:56
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "Najlepsze rozszerzenia ochrony prywatności"
+msgstr "Rozszerzenia zwiększające prywatność"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "See more recommended password managers"
-msgstr "Więcej polecanych motywów"
+msgstr "Więcej polecanych menedżerów haseł"
 
 #: src/amo/pages/Home/index.js:62
-#, fuzzy
 msgid "Recommended password managers"
-msgstr "Menedżery haseł"
+msgstr "Polecane menedżery haseł"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
@@ -2248,7 +2241,6 @@ msgid "A community of creators"
 msgstr "Społeczność twórców"
 
 #: src/amo/pages/StaticPages/About/index.js:71
-#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
