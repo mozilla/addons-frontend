@@ -5,6 +5,7 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
+import IconRecommendedBadge from 'ui/components/IconRecommendedBadge';
 import RecommendedBadge, {
   RecommendedBadgeBase,
 } from 'ui/components/RecommendedBadge';
@@ -38,5 +39,12 @@ describe(__filename, () => {
     root.find('.RecommendedBadge-link').simulate('click', clickEvent);
 
     sinon.assert.calledWith(onClick, clickEvent);
+  });
+
+  // See https://github.com/mozilla/addons-frontend/issues/8285.
+  it('does not pass an alt property to IconRecommendedBadge', () => {
+    const root = render();
+
+    expect(root.find(IconRecommendedBadge)).not.toHaveProp('alt');
   });
 });

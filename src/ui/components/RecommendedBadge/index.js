@@ -44,7 +44,7 @@ export const RecommendedBadgeBase = ({
           'Firefox only recommends extensions that meet our standards for security and performance.',
         )}
       >
-        <IconRecommendedBadge alt={label} size={size} />
+        <IconRecommendedBadge size={size} />
         <span className="RecommendedBadge-label">{label}</span>
       </a>
     </div>
