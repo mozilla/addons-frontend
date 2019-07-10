@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-10 00:39+0000\n"
+"PO-Revision-Date: 2019-07-10 10:02+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1843,9 +1843,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr "En lätt och effektiv annonsblockerare. uBlock Origin använder tusentals filter utan att använda en massa minne."
 
 #: src/amo/pages/Guides/index.js:108
-#, fuzzy
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "Utforska fler %(linkStart)sannonsblockerare%(linkEnd)s utvalda av personalen."
+msgstr "Utforska fler bra %(linkStart)sannonsblockerare%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Stop online trackers from stalking you"
@@ -1860,9 +1859,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr "Isolera din Facebook-identitet i en separat ”behållare” för att stoppa Facebook från att spåra din aktivitet utanför dess sociala plattform."
 
 #: src/amo/pages/Guides/index.js:126
-#, fuzzy
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "Utforska fler %(linkStart)ssekretess & säkerhet%(linkEnd)s utvalda av personalen."
+msgstr "Utforska fler rekommenderade %(linkStart)sintegritets & säkerhets%(linkEnd)s tillägg."
 
 #: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
@@ -1881,9 +1879,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr "Ordna och visualisera dina flikar i ett kaskadartigt trädformat i Firefox sidofält."
 
 #: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
-#, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "Utforska fler %(linkStart)sannonsblockerare%(linkEnd)s utvalda av personalen."
+msgstr "Utforska fler %(linkStart)s flik%(linkEnd)s tillägg."
 
 #: src/amo/pages/Guides/index.js:159
 msgid "Better browsing with improved bookmarks"
@@ -1895,12 +1892,11 @@ msgstr "Utökningar kan hjälpa dig att organisera dina intressen på nätet. Bo
 
 #: src/amo/pages/Guides/index.js:164
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-msgstr ""
+msgstr "Njut av ett bättre sätt att organisera dina bokmärken om du har hand om flera bokmärkesmappar."
 
 #: src/amo/pages/Guides/index.js:167
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "Utforska fler %(linkStart)sbokmärkeshanterare%(linkEnd)s utvalda av personalen."
+msgstr "Utforska fler bra %(linkStart)sbokmärkes%(linkEnd)s hanterare."
 
 #: src/amo/pages/Guides/index.js:178
 msgid "Enjoy a fresh new tab experience"
@@ -1989,9 +1985,8 @@ msgid "Fully encrypted password protection. Store your data securely and access 
 msgstr "Fullständigt krypterat lösenordsskydd. Spara dina data säkert och få tillgång till inloggningar mellan enheter."
 
 #: src/amo/pages/Guides/index.js:89
-#, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "Utforska fler %(linkStart)slösenordshanterare%(linkEnd)s utvalda av personalen."
+msgstr "Utforska fler bra %(linkStart)s lösenordshanterar%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:97
 msgid "Block annoying ads"
@@ -2065,14 +2060,12 @@ msgid "See more trending extensions"
 msgstr "Se fler trendiga utökningar"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more enhanced privacy extensions"
-msgstr "Se fler väderutökningar"
+msgstr "Se fler förbättrade integritets tillägg"
 
 #: src/amo/pages/Home/index.js:56
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "Högst rankade integritetsutökning"
+msgstr "Förbättrade integritets tillägg"
 
 #: src/amo/pages/Home/index.js:61
 msgid "See more recommended password managers"
