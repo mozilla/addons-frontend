@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-10 14:49+0000\n"
-"Last-Translator: corentin.jacquet <corentin.jacquet@telecomnancy.net>\n"
+"PO-Revision-Date: 2019-07-10 19:29+0000\n"
+"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -1882,7 +1882,7 @@ msgstr "Organisez et visualisez vos onglets sous l’aspect d’un « arbre »
 
 #: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr ""
+msgstr "Découvrez plus d’extensions relatives aux %(linkStart)songlets%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:159
 msgid "Better browsing with improved bookmarks"
