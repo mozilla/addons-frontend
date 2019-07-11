@@ -32,13 +32,24 @@
     }
   }
 
-  .GuidesAddonCard-content-header-title {
+  .GuidesAddonCard-content-header-title,
+  .GuidesAddonCard-content-button {
     width: 100%;
 
     @include respond-to(medium) {
+      align-items: center;
       display: flex;
+      justify-content: space-between;
     }
+  }
 
+  .GuidesAddonCard-content-button {
+    .InstallButtonWrapper {
+      padding-bottom: 8px;
+    }
+  }
+
+  .GuidesAddonCard-content-header-title {
     .GuidesAddonCard-content-header-authors {
       width: auto;
     }
@@ -82,6 +93,10 @@
   }
 }
 
+.GuidesAddonCard-content-text {
+  width: 100%;
+}
+
 .GuidesAddonCard-content {
   display: flex;
   flex-wrap: wrap;
@@ -123,7 +138,7 @@
 
 .GuidesAddonCard-content-header-title {
   @include respond-to(medium) {
-    margin: 0 16px;
+    @include margin-start(16px);
   }
 }
 

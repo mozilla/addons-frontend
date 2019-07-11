@@ -68,18 +68,20 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                   )}
                 </div>
               </div>
-              <p className="GuidesAddonCard-content-description">
-                {this.props.addonCustomText}
-              </p>
+              <div className="GuidesAddonCard-content-button">
+                <p className="GuidesAddonCard-content-description">
+                  {this.props.addonCustomText}
+                </p>
+                {addon && (
+                  <InstallButtonWrapper
+                    addon={addon}
+                    defaultInstallSource={INSTALL_SOURCE_GUIDES_PAGE}
+                    getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+                    puffy={false}
+                  />
+                )}
+              </div>
             </div>
-            {addon && (
-              <InstallButtonWrapper
-                addon={addon}
-                defaultInstallSource={INSTALL_SOURCE_GUIDES_PAGE}
-                getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
-                puffy={false}
-              />
-            )}
           </div>
         </div>
       </Card>
