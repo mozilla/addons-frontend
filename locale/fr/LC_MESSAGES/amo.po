@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-10 19:29+0000\n"
-"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
+"PO-Revision-Date: 2019-07-11 06:38+0000\n"
+"Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -1862,7 +1862,7 @@ msgstr "Isolez votre identité Facebook dans un onglet contextuel distinct pour 
 
 #: src/amo/pages/Guides/index.js:126
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr ""
+msgstr "Découvrez davantage d’extensions pour %(linkStart)sla vie privée et la sécurité%(linkEnd)s sélectionnées par notre équipe."
 
 #: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
@@ -2073,7 +2073,7 @@ msgstr "Voir plus d’extensions pour le respect de la vie privée"
 
 #: src/amo/pages/Home/index.js:56
 msgid "Enhanced privacy extensions"
-msgstr ""
+msgstr "Extensions pour protéger mieux votre vie privée"
 
 #: src/amo/pages/Home/index.js:61
 msgid "See more recommended password managers"
