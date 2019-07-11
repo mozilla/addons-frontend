@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-10 05:44+0000\n"
+"PO-Revision-Date: 2019-07-11 07:58+0000\n"
 "Last-Translator: Rok Žerdin <zerdo90@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1931,7 +1931,7 @@ msgstr "Razširitve vam lahko pomagajo organizirati vaše spletno življenje. Up
 
 #: src/amo/pages/Guides/index.js:164
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-msgstr ""
+msgstr "Izkoristite boljši način za upravljanje zaznamkov, če uporabljate več map za zaznamke."
 
 #: src/amo/pages/Guides/index.js:167
 #, fuzzy
@@ -2823,7 +2823,7 @@ msgstr "Deluje z %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "Namestitev je prekinjena, ker je dodatek poškodovan."
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
