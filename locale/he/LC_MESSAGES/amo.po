@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-09 21:38+0000\n"
+"PO-Revision-Date: 2019-07-11 17:54+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -274,7 +274,7 @@ msgstr "גרסה"
 
 #: src/amo/components/AddonMoreInfo/index.js:221
 msgid "Size"
-msgstr ""
+msgstr "גודל"
 
 #: src/amo/components/AddonMoreInfo/index.js:229 src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
@@ -1882,7 +1882,7 @@ msgstr "גלישה טובה יותר עם סימניות משופרות"
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "הרחבות יכולות לעזור לך לארגן את תחומי העניין המקוונים שלך. מנהלי סימניות הם מושלמים עבור אנשים שעוקבים אחרי הרבה תוכן."
 
 #: src/amo/pages/Guides/index.js:164
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
