@@ -503,6 +503,8 @@ export class AddonBase extends React.Component {
             )}
           </div>
 
+          <PermissionsCard version={currentVersion} />
+
           {this.renderRatingsCard()}
 
           <ContributeCard addon={addon} />
@@ -510,8 +512,6 @@ export class AddonBase extends React.Component {
           <AddAddonToCollection addon={addon} />
 
           <AddonMoreInfo addon={addon} />
-
-          <PermissionsCard version={currentVersion} />
 
           {this.renderVersionReleaseNotes()}
 
