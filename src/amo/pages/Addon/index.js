@@ -503,15 +503,15 @@ export class AddonBase extends React.Component {
             )}
           </div>
 
-          <PermissionsCard version={currentVersion} />
-
           {this.renderRatingsCard()}
 
           <ContributeCard addon={addon} />
 
-          <AddAddonToCollection addon={addon} />
+          <PermissionsCard version={currentVersion} />
 
           <AddonMoreInfo addon={addon} />
+
+          <AddAddonToCollection addon={addon} />
 
           {this.renderVersionReleaseNotes()}
 
