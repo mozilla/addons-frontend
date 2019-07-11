@@ -507,11 +507,11 @@ export class AddonBase extends React.Component {
 
           <ContributeCard addon={addon} />
 
-          <AddAddonToCollection addon={addon} />
+          <PermissionsCard version={currentVersion} />
 
           <AddonMoreInfo addon={addon} />
 
-          <PermissionsCard version={currentVersion} />
+          <AddAddonToCollection addon={addon} />
 
           {this.renderVersionReleaseNotes()}
 
