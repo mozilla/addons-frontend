@@ -9,7 +9,13 @@ import AutoSearchInput, {
   SEARCH_TERM_MAX_LENGTH,
 } from 'amo/components/AutoSearchInput';
 import SearchSuggestion from 'amo/components/SearchSuggestion';
-import { ADDON_TYPE_EXTENSION, OS_LINUX, OS_WINDOWS } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  OS_LINUX,
+  OS_WINDOWS,
+  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_RANDOM,
+} from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import {
   autocompleteCancel,
@@ -276,6 +282,48 @@ describe(__filename, () => {
             // Make sure the search is executed without a page parameter.
             (filters) => typeof filters.page === 'undefined',
           ),
+        }),
+      );
+    });
+
+    it('does not pass a `random` sort filter', () => {
+      const { store } = dispatchClientMetadata();
+      const dispatchSpy = sinon.stub(store, 'dispatch');
+      const root = render({
+        location: createFakeLocation({ query: { sort: SEARCH_SORT_RANDOM } }),
+        store,
+      });
+
+      fetchSuggestions({ root, query: 'ad blocker' });
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        autocompleteStart({
+          errorHandlerId: root.instance().props.errorHandler.id,
+          filters: sinon.match(
+            // Make sure the search is executed without a sort parameter.
+            (filters) => typeof filters.sort === 'undefined',
+          ),
+        }),
+      );
+    });
+
+    it('does pass a sort filter that is not `random`', () => {
+      const { store } = dispatchClientMetadata();
+      const dispatchSpy = sinon.stub(store, 'dispatch');
+      const sort = SEARCH_SORT_POPULAR;
+      const root = render({
+        location: createFakeLocation({ query: { sort } }),
+        store,
+      });
+
+      fetchSuggestions({ root, query: 'ad blocker' });
+
+      sinon.assert.calledWith(
+        dispatchSpy,
+        autocompleteStart({
+          errorHandlerId: root.instance().props.errorHandler.id,
+          filters: sinon.match({ sort }),
         }),
       );
     });
