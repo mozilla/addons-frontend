@@ -4,6 +4,8 @@ import {
   ADDON_TYPE_EXTENSION,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  SEARCH_SORT_RANDOM,
+  SEARCH_SORT_RELEVANCE,
 } from 'core/constants';
 import {
   createApiResponse,
@@ -176,6 +178,93 @@ describe(__filename, () => {
     return _search().then(unexpectedSuccess, (err) => {
       expect(err.response.status).toEqual(401);
       expect(err.response.apiURL).toMatch('/api/v4/addons/search/');
+    });
+  });
+
+  it('removes sort=random when the recommended and featured filters are missing', () => {
+    mockWindow
+      .expects('fetch')
+      .withArgs(sinon.match((url) => !url.includes('sort')))
+      .returns(mockResponse());
+
+    return _search({ filters: { sort: SEARCH_SORT_RANDOM } }).then(() => {
+      mockWindow.verify();
+    });
+  });
+
+  it('removes sort=random when the recommended and query filters are set', () => {
+    const recommended = true;
+    const q = 'some query';
+
+    mockWindow
+      .expects('fetch')
+      .withArgs(sinon.match((url) => !url.includes('sort')))
+      .withArgs(urlWithTheseParams({ recommended, q }))
+      .returns(mockResponse());
+
+    return _search({
+      filters: { sort: SEARCH_SORT_RANDOM, recommended, query: q },
+    }).then(() => {
+      mockWindow.verify();
+    });
+  });
+
+  it('removes sort=random when the featured and query filters are set', () => {
+    const featured = true;
+    const q = 'some query';
+
+    mockWindow
+      .expects('fetch')
+      .withArgs(sinon.match((url) => !url.includes('sort')))
+      .withArgs(urlWithTheseParams({ featured, q }))
+      .returns(mockResponse());
+
+    return _search({
+      filters: { sort: SEARCH_SORT_RANDOM, featured, query: q },
+    }).then(() => {
+      mockWindow.verify();
+    });
+  });
+
+  it('does not remove sort=random when recommended is set', () => {
+    const recommended = true;
+    const sort = SEARCH_SORT_RANDOM;
+
+    mockWindow
+      .expects('fetch')
+      .withArgs(urlWithTheseParams({ sort, recommended }))
+      .returns(mockResponse());
+
+    return _search({ filters: { sort, recommended } }).then(() => {
+      mockWindow.verify();
+    });
+  });
+
+  it('does not remove sort=random when featured is set', () => {
+    const featured = true;
+    const sort = SEARCH_SORT_RANDOM;
+
+    mockWindow
+      .expects('fetch')
+      .withArgs(urlWithTheseParams({ sort, featured }))
+      .returns(mockResponse());
+
+    return _search({ filters: { sort, featured } }).then(() => {
+      mockWindow.verify();
+    });
+  });
+
+  it('does not remove the sort filter when its value is not "random"', () => {
+    const recommended = true;
+    const sort = SEARCH_SORT_RELEVANCE;
+
+    mockWindow
+      .expects('fetch')
+      .withArgs(urlWithTheseParams({ sort, recommended }))
+      .returns(mockResponse());
+
+    return _search({ filters: { sort, recommended } }).then(() => {
+      mockWindow.verify();
     });
   });
 });

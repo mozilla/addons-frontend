@@ -10,15 +10,16 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
+  OS_LINUX,
+  OS_MAC,
+  OS_WINDOWS,
   SEARCH_SORT_POPULAR,
+  SEARCH_SORT_RANDOM,
   SEARCH_SORT_RECOMMENDED,
   SEARCH_SORT_RELEVANCE,
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_UPDATED,
-  OS_LINUX,
-  OS_MAC,
-  OS_WINDOWS,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
@@ -100,6 +101,14 @@ export class SearchFiltersBase extends React.Component {
 
     if (filters[filterName]) {
       delete newFilters[filterName];
+
+      // We cannot pass `sort=random` without `recommended` or `featured`.
+      // Given that we deleted the filter above, we also have to delete
+      // `sort=random`.
+      // See: https://github.com/mozilla/addons-frontend/issues/8301
+      if (newFilters.sort && newFilters.sort === SEARCH_SORT_RANDOM) {
+        delete newFilters.sort;
+      }
     } else {
       newFilters[filterName] = true;
     }
