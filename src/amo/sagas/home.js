@@ -54,7 +54,7 @@ export function* fetchHomeAddons({
         oneLine`Home collection: ${collection.userId}/${collection.slug}
           failed to load: ${error}`,
       );
-      if (error.response && [401, 404].includes(error.response.status)) {
+      if (error.response && [401, 403, 404].includes(error.response.status)) {
         // The collection was not found or is marked private.
         collections.push(null);
       } else {

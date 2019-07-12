@@ -279,7 +279,7 @@ describe(__filename, () => {
       expect(expectedAction).toEqual(loadAction);
     });
 
-    it.each([401, 404])(
+    it.each([401, 403, 404])(
       'loads a null for a collection that returns a %i',
       async (status) => {
         const error = createApiError({ response: { status } });
