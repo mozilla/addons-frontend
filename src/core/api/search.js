@@ -46,10 +46,7 @@ export function search({ api, auth = false, filters = {} }: SearchParams) {
   // parameter absent.'
   // Let's make sure we don't send invalid filters.
   if (newFilters.sort && newFilters.sort === SEARCH_SORT_RANDOM) {
-    if (
-      !(newFilters.recommended || newFilters.featured) ||
-      ((newFilters.recommended || newFilters.featured) && newFilters.q)
-    ) {
+    if (!(newFilters.recommended || newFilters.featured) || newFilters.q) {
       delete newFilters.sort;
 
       log.warn(oneLine`search api filter "sort=random" has been removed before
