@@ -5,6 +5,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEMES_FILTER,
   OS_LINUX,
+  SEARCH_SORT_RANDOM,
   SEARCH_SORT_RECOMMENDED,
   SEARCH_SORT_RELEVANCE,
   SEARCH_SORT_TRENDING,
@@ -386,6 +387,45 @@ describe(__filename, () => {
         }),
       });
     });
+
+    it('does not pass sort=random when the recommended checkbox is unchecked', () => {
+      const root = render({
+        _config,
+        filters: {
+          recommended: true,
+          sort: SEARCH_SORT_RANDOM,
+        },
+      });
+
+      const checkbox = root.find('.SearchFilters-Recommended');
+      checkbox.simulate('change', createFakeEvent());
+
+      sinon.assert.calledWithExactly(fakeHistory.push, {
+        pathname: `/en-US/android/search/`,
+        query: convertFiltersToQueryParams({}),
+      });
+    });
+
+    it('does pass sort=random when the recommended checkbox is checked', () => {
+      const root = render({
+        _config,
+        filters: {
+          recommended: false,
+          sort: SEARCH_SORT_RANDOM,
+        },
+      });
+
+      const checkbox = root.find('.SearchFilters-Recommended');
+      checkbox.simulate('change', createFakeEvent());
+
+      sinon.assert.calledWithExactly(fakeHistory.push, {
+        pathname: `/en-US/android/search/`,
+        query: convertFiltersToQueryParams({
+          recommended: true,
+          sort: SEARCH_SORT_RANDOM,
+        }),
+      });
+    });
   });
 
   describe('Checkbox with enableFeatureRecommendedBadges off', () => {
@@ -480,6 +520,45 @@ describe(__filename, () => {
         query: convertFiltersToQueryParams({
           page: '1',
           query: 'Music player',
+        }),
+      });
+    });
+
+    it('does not pass sort=random when the featured checkbox is unchecked', () => {
+      const root = render({
+        _config,
+        filters: {
+          featured: true,
+          sort: SEARCH_SORT_RANDOM,
+        },
+      });
+
+      const checkbox = root.find('.SearchFilters-Recommended');
+      checkbox.simulate('change', createFakeEvent());
+
+      sinon.assert.calledWithExactly(fakeHistory.push, {
+        pathname: `/en-US/android/search/`,
+        query: convertFiltersToQueryParams({}),
+      });
+    });
+
+    it('does pass sort=random when the featured checkbox is checked', () => {
+      const root = render({
+        _config,
+        filters: {
+          featured: false,
+          sort: SEARCH_SORT_RANDOM,
+        },
+      });
+
+      const checkbox = root.find('.SearchFilters-Recommended');
+      checkbox.simulate('change', createFakeEvent());
+
+      sinon.assert.calledWithExactly(fakeHistory.push, {
+        pathname: `/en-US/android/search/`,
+        query: convertFiltersToQueryParams({
+          featured: true,
+          sort: SEARCH_SORT_RANDOM,
         }),
       });
     });
