@@ -152,6 +152,8 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       delete filtersFromLocation.page;
     }
 
+    // We want to make sure not to pass `sort=random` along with a query, so
+    // we remove it here.
     if (
       filtersFromLocation.sort &&
       filtersFromLocation.sort === SEARCH_SORT_RANDOM
