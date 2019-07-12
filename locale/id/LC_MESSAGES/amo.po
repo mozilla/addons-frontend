@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-12 13:51+0000\n"
+"PO-Revision-Date: 2019-07-12 13:55+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1819,9 +1819,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:108
-#, fuzzy
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "Telusuri lebih banyak %(linkStart)sekstensi video%(linkEnd)s pilihan staff."
+msgstr "Telusuri lebih banyak %(linkStart)spemblokir iklan%(linkEnd)s istimewa."
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Stop online trackers from stalking you"
@@ -1836,9 +1835,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:126
-#, fuzzy
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "Telusuri lebih banyak %(linkStart)sekstensi media%(linkEnd)s pilihan staf."
+msgstr "Telusuri lebih banyak ekstensi %(linkStart)sprivasi dan keamanan%(linkEnd)s yang direkomendasikan."
 
 #: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
@@ -1855,9 +1853,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
-#, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "Telusuri lebih banyak %(linkStart)sekstensi video%(linkEnd)s pilihan staff."
+msgstr "Telusuri lebih banyak ekstensi %(linkStart)stab%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:159
 msgid "Better browsing with improved bookmarks"
@@ -1872,9 +1869,8 @@ msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bo
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:167
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "Telusuri lebih banyak %(linkStart)sekstensi video%(linkEnd)s pilihan staff."
+msgstr "Telusuri lebih banyak ekstensi %(linkStart)smarkah%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:178
 msgid "Enjoy a fresh new tab experience"
@@ -1957,9 +1953,8 @@ msgid "Fully encrypted password protection. Store your data securely and access 
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:89
-#, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "Telusuri lebih banyak %(linkStart)sekstensi media%(linkEnd)s pilihan staf."
+msgstr "Telusuri lebih banyak %(linkStart)spengelola sandi%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:97
 msgid "Block annoying ads"
@@ -2197,13 +2192,12 @@ msgid "A community of creators"
 msgstr "Sebuah komunitas pencipta"
 
 #: src/amo/pages/StaticPages/About/index.js:71
-#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
-"Pengaya yang terdaftar di sini diciptakan oleh ribuan pengembang dan desainer tema dari seluruh dunia, mulai dari peminat pribadi hingga korporasi besar. Sebagian pengaya yang terdaftar di AMO telah"
-" ditayangkan otomatis dan mungkin perlu ditinjau tim penyunting setelah didaftarkan secara publik."
+"Pengaya yang terdaftar di sini diciptakan oleh ribuan pengembang dan perancang tema dari seluruh dunia, mulai dari peminat pribadi hingga korporasi besar. Sebagian pengaya yang terdaftar di AMO "
+"telah ditayangkan otomatis dan mungkin perlu ditinjau oleh tim penyunting setelah didaftarkan secara publik."
 
 #: src/amo/pages/StaticPages/About/index.js:80
 msgid "Get involved"
