@@ -405,27 +405,6 @@ describe(__filename, () => {
         query: convertFiltersToQueryParams({}),
       });
     });
-
-    it('does pass sort=random when the recommended checkbox is checked', () => {
-      const root = render({
-        _config,
-        filters: {
-          recommended: false,
-          sort: SEARCH_SORT_RANDOM,
-        },
-      });
-
-      const checkbox = root.find('.SearchFilters-Recommended');
-      checkbox.simulate('change', createFakeEvent());
-
-      sinon.assert.calledWithExactly(fakeHistory.push, {
-        pathname: `/en-US/android/search/`,
-        query: convertFiltersToQueryParams({
-          recommended: true,
-          sort: SEARCH_SORT_RANDOM,
-        }),
-      });
-    });
   });
 
   describe('Checkbox with enableFeatureRecommendedBadges off', () => {
@@ -539,27 +518,6 @@ describe(__filename, () => {
       sinon.assert.calledWithExactly(fakeHistory.push, {
         pathname: `/en-US/android/search/`,
         query: convertFiltersToQueryParams({}),
-      });
-    });
-
-    it('does pass sort=random when the featured checkbox is checked', () => {
-      const root = render({
-        _config,
-        filters: {
-          featured: false,
-          sort: SEARCH_SORT_RANDOM,
-        },
-      });
-
-      const checkbox = root.find('.SearchFilters-Recommended');
-      checkbox.simulate('change', createFakeEvent());
-
-      sinon.assert.calledWithExactly(fakeHistory.push, {
-        pathname: `/en-US/android/search/`,
-        query: convertFiltersToQueryParams({
-          featured: true,
-          sort: SEARCH_SORT_RANDOM,
-        }),
       });
     });
   });
