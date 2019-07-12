@@ -10,6 +10,7 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 
 import SearchSuggestion from 'amo/components/SearchSuggestion';
+import { SEARCH_SORT_RANDOM } from 'core/constants';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import { getAddonIconUrl } from 'core/imageUtils';
 import log from 'core/logger';
@@ -149,6 +150,15 @@ export class AutoSearchInputBase extends React.Component<InternalProps, State> {
       filtersFromLocation = convertQueryParamsToFilters(location.query);
       // Do not preserve page. New searches should always start on page 1.
       delete filtersFromLocation.page;
+    }
+
+    // We want to make sure not to pass `sort=random` along with a query, so
+    // we remove it here.
+    if (
+      filtersFromLocation.sort &&
+      filtersFromLocation.sort === SEARCH_SORT_RANDOM
+    ) {
+      delete filtersFromLocation.sort;
     }
 
     return {
