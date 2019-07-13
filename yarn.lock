@@ -5940,10 +5940,10 @@ expect@^24.8.0:
     jest-message-util "^24.8.0"
     jest-regex-util "^24.3.0"
 
-express-http-context@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/express-http-context/-/express-http-context-1.2.2.tgz#bb47f4d0d3a7325297d220f0fc53da26c59cda26"
-  integrity sha512-udq2xYE4Om8rNSyCTvKBcMSxjMnt5myy32AJqO02fM59fhNEIZFvHnxrN7u5ooevoZ9H1HxCQWFEYNVJScEGag==
+express-http-context@1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/express-http-context/-/express-http-context-1.2.3.tgz#780c96006e5b6f0a384a175afb35b40411d4f331"
+  integrity sha512-Cde8XZJ8qYc4ACZSwn2NxuBG6mnPfXDtJUW+Ppgb2AhyNP4ttESK2SrYfAk6CluFADbxy24C5mVP25sOeBAgbQ==
   dependencies:
     "@types/cls-hooked" "^4.2.1"
     "@types/express" "^4.16.0"
