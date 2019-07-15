@@ -107,6 +107,10 @@ export class HomeBase extends React.Component {
       resultsLoaded,
     } = this.props;
 
+    if (errorHandler.hasError()) {
+      return;
+    }
+
     dispatch(setViewContext(VIEW_CONTEXT_HOME));
 
     if (!resultsLoaded) {

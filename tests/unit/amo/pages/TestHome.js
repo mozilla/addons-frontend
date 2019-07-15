@@ -252,6 +252,16 @@ describe(__filename, () => {
     );
   });
 
+  it('does not dispatch any actions when there is an error', () => {
+    const errorHandler = createStubErrorHandler(new Error('some error'));
+    const { store } = dispatchClientMetadata();
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+
+    render({ errorHandler, store });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
   // This test case should be updated when we change the `defaultProps`.
   it('fetches add-ons with some defaults', () => {
     const enableFeatureRecommendedBadges = true;
