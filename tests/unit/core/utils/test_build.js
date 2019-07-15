@@ -20,6 +20,13 @@ describe(__filename, () => {
       );
     });
 
+    it('returns the commit if version is undefined', () => {
+      const versionJson = getVersionJson();
+      delete versionJson.version;
+
+      expect(getDeploymentVersion({ versionJson })).toEqual(versionJson.commit);
+    });
+
     it('returns the commit if version is null', () => {
       const versionJson = getVersionJson({ version: null });
 
