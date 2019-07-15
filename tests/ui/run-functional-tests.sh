@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+export PYTEST_ADDOPTS=-k "test_home or test_search" -n 4 --reruns 1
 set -x
 sudo sysctl -w vm.max_map_count=262144
 sudo apt-get update -qqy && sudo apt-get -qqy install uuid
