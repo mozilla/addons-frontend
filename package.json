@@ -385,7 +385,7 @@
   "bundlesize": [
     {
       "path": "./dist/@(amo|disco)-!(i18n-)*.js",
-      "maxSize": "430 kB"
+      "maxSize": "435 kB"
     },
     {
       "path": "./dist/@(amo|disco)-i18n-*.js",
