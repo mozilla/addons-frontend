@@ -1,3 +1,4 @@
+/* global DEPLOYMENT_VERSION */
 import 'core/polyfill';
 import { oneLine } from 'common-tags';
 import config from 'config';
@@ -12,6 +13,7 @@ import Root from 'core/components/Root';
 import { langToLocale, makeI18n, sanitizeLanguage } from 'core/i18n/utils';
 import log from 'core/logger';
 import { addQueryParamsToHistory } from 'core/utils';
+import { getSentryRelease } from 'core/utils/sentry';
 
 export default async function createClient(
   createStore,
@@ -28,13 +30,23 @@ export default async function createClient(
     await fetchBufferedLogs();
   }
 
+  const appName = _config.get('appName');
+
   // This code needs to come before anything else so we get logs/errors if
   // anything else in this function goes wrong.
   const publicSentryDsn = _config.get('publicSentryDsn');
   const sentryIsEnabled = Boolean(publicSentryDsn);
   if (sentryIsEnabled) {
     log.info(`Configured client-side Sentry with DSN ${publicSentryDsn}`);
-    _RavenJs.config(publicSentryDsn, { logger: 'client-js' }).install();
+    _RavenJs
+      .config(publicSentryDsn, {
+        logger: 'client-js',
+        // `DEPLOYMENT_VERSION` is injected by webpack at build time (thanks to
+        // the `DefinePlugin`).
+        // See: https://github.com/mozilla/addons-frontend/issues/8270
+        release: getSentryRelease({ appName, version: DEPLOYMENT_VERSION }),
+      })
+      .install();
   } else {
     log.warn('Client-side Sentry reporting was disabled by the config');
   }
@@ -47,7 +59,6 @@ export default async function createClient(
   const html = document.querySelector('html');
   const lang = sanitizeLanguage(html.getAttribute('lang'));
   const locale = langToLocale(lang);
-  const appName = _config.get('appName');
 
   if (initialStateContainer) {
     try {

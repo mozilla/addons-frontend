@@ -1,10 +1,13 @@
 import createAmoStore from 'amo/store';
 import { setRequestId } from 'core/actions';
 import createClient from 'core/client/base';
+import { getSentryRelease } from 'core/utils/sentry';
 import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('createClient()', () => {
+    const deploymentVersion = '1.2.3';
+
     let fakeCreateStore;
     let fakeFastClick;
 
@@ -20,6 +23,8 @@ describe(__filename, () => {
     }
 
     beforeEach(() => {
+      global.DEPLOYMENT_VERSION = deploymentVersion;
+
       fakeCreateStore = () => {
         return {
           sagaMiddleware: null,
@@ -77,6 +82,10 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(_RavenJs.config, publicSentryDsn, {
         logger: 'client-js',
+        release: getSentryRelease({
+          appName: _config.get('appName'),
+          version: deploymentVersion,
+        }),
       });
       sinon.assert.called(ravenInstall);
     });
