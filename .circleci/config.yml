@@ -109,7 +109,7 @@ jobs:
           name: Run tests
           environment:
             MOZ_HEADLESS: 1
-            PYTEST_ADDOPTS: "--reruns 2"
+            PYTEST_ADDOPTS: -k "test_devhub or test_install" -n 4 --reruns 1
           command: ./tests/ui/run-functional-tests.sh
       - store_artifacts:
           path: addons-server/ui-test.html

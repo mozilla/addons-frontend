@@ -4,7 +4,6 @@ sudo sysctl -w vm.max_map_count=262144
 # Install UUID for fxa email accounts
 sudo apt-get update -qqy && sudo apt-get -qqy install uuid
 # Only run homepage and search tests
-export PYTEST_ADDOPTS=-k "test_home or test_search" -n 4 --reruns 1
 export UITEST_FXA_EMAIL=uitest-$(uuid)@restmail.net
 git clone --depth 1 https://github.com/mozilla/addons-server.git
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml pull --quiet
