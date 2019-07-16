@@ -18,6 +18,7 @@ import {
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
+  ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
 import apiReducer from 'core/reducers/api';
 import {
@@ -28,7 +29,6 @@ import {
   fakeAddon,
   fakeTheme,
 } from 'tests/unit/helpers';
-import { getAddonTypeFilter } from 'core/utils';
 
 describe(__filename, () => {
   let errorHandler;
@@ -118,7 +118,7 @@ describe(__filename, () => {
             ...baseArgs,
             filters: {
               page_size: String(LANDING_PAGE_THEME_COUNT),
-              addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
+              addonType: ADDON_TYPE_STATIC_THEME,
               featured: enableFeatureRecommendedBadges ? undefined : true,
               recommended: enableFeatureRecommendedBadges ? true : undefined,
               sort: SEARCH_SORT_RANDOM,
@@ -147,7 +147,7 @@ describe(__filename, () => {
             ...baseArgs,
             filters: {
               page_size: String(LANDING_PAGE_THEME_COUNT),
-              addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
+              addonType: ADDON_TYPE_STATIC_THEME,
               sort: SEARCH_SORT_POPULAR,
             },
           })

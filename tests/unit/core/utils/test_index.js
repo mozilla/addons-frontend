@@ -33,7 +33,6 @@ import {
   convertBoolean,
   decodeHtmlEntities,
   findFileForPlatform,
-  getAddonTypeFilter,
   getCategoryColor,
   getCategoryResultsQuery,
   getClientApp,
@@ -666,20 +665,20 @@ describe(__filename, () => {
     });
   });
 
-  describe('getAddonTypeFilter', () => {
+  describe('ADDON_TYPE_STATIC_THEME', () => {
     it('returns ADDON_TYPE_THEMES_FILTER when add-on type is a lightweight theme', () => {
       const addon = createInternalAddon({ type: ADDON_TYPE_THEME });
-      expect(getAddonTypeFilter(addon.type)).toEqual(ADDON_TYPE_THEMES_FILTER);
+      expect(ADDON_TYPE_STATIC_THEME).toEqual(ADDON_TYPE_THEMES_FILTER);
     });
 
     it('returns ADDON_TYPE_THEMES_FILTER when add-on type is a static theme', () => {
       const addon = createInternalAddon({ type: ADDON_TYPE_STATIC_THEME });
-      expect(getAddonTypeFilter(addon.type)).toEqual(ADDON_TYPE_THEMES_FILTER);
+      expect(ADDON_TYPE_STATIC_THEME).toEqual(ADDON_TYPE_THEMES_FILTER);
     });
 
     it('returns ADDON_TYPE_EXTENSION when add-on type is an extension', () => {
       const addon = createInternalAddon({ type: ADDON_TYPE_EXTENSION });
-      expect(getAddonTypeFilter(addon.type)).toEqual(ADDON_TYPE_EXTENSION);
+      expect(ADDON_TYPE_STATIC_THEME).toEqual(ADDON_TYPE_EXTENSION);
     });
   });
 
@@ -907,7 +906,7 @@ describe(__filename, () => {
 
     const query = getCategoryResultsQuery({ addonType, slug });
     expect(query.category).toEqual(slug);
-    expect(query.type).toEqual(getAddonTypeFilter(addonType));
+    expect(query.type).toEqual(ADDON_TYPE_STATIC_THEME);
     expect(query.sort).toEqual(
       `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
     );
