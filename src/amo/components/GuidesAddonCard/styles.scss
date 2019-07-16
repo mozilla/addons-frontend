@@ -44,9 +44,7 @@
   }
 
   .GuidesAddonCard-content-button {
-    .InstallButtonWrapper {
-      padding-bottom: 8px;
-    }
+    margin: 8px 0 10px;
   }
 
   .GuidesAddonCard-content-header-title {
@@ -149,6 +147,6 @@
   line-height: 1.4;
 
   @include respond-to(medium) {
-    margin: 8px 16px;
+    margin: 0 16px;
   }
 }
