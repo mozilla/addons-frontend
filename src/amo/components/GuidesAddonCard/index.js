@@ -68,7 +68,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                   )}
                 </div>
               </div>
-              <div className="GuidesAddonCard-content-button">
+              <div className="GuidesAddonCard-content-description-button">
                 <p className="GuidesAddonCard-content-description">
                   {this.props.addonCustomText}
                 </p>

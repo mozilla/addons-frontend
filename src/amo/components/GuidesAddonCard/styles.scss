@@ -33,7 +33,7 @@
   }
 
   .GuidesAddonCard-content-header-title,
-  .GuidesAddonCard-content-button {
+  .GuidesAddonCard-content-description-button {
     width: 100%;
 
     @include respond-to(medium) {
@@ -43,7 +43,7 @@
     }
   }
 
-  .GuidesAddonCard-content-button {
+  .GuidesAddonCard-content-description-button {
     margin: 8px 0 10px;
   }
 
