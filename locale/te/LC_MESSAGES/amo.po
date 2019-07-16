@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-09 17:50+0000\n"
+"POT-Creation-Date: 2019-07-16 19:50+0000\n"
 "PO-Revision-Date: 2017-07-17 18:43+0000\n"
 "Last-Translator: Sahithi <sahithi@swecha.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -621,17 +621,17 @@ msgstr "Firefox Andriod (%(locale)s) కోసం పొడగింతలు"
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Firefox Android (%(locale)s) కోసం పొడగింతలు"
 
-#: src/amo/components/AutoSearchInput/index.js:206
+#: src/amo/components/AutoSearchInput/index.js:216
 msgid "Loading"
 msgstr "లోడవుతున్నది"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/AutoSearchInput/index.js:302
+#: src/amo/components/AutoSearchInput/index.js:312
 msgid "Find add-ons"
 msgstr "పొడిగింతలను కనుగొనండి"
 
-#: src/amo/components/AutoSearchInput/index.js:327
-#: src/amo/components/AutoSearchInput/index.js:355
+#: src/amo/components/AutoSearchInput/index.js:337
+#: src/amo/components/AutoSearchInput/index.js:365
 msgid "Search"
 msgstr "వెతుకు"
 
@@ -786,6 +786,7 @@ msgid "Contribute now"
 msgstr "ఇప్పుడే తోడ్పడండి"
 
 #: src/amo/components/EditableCollectionAddon/index.js:133
+#: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Leave a note"
 msgstr "ఒక సందేశం వదలండి"
 
@@ -794,19 +795,20 @@ msgstr "ఒక సందేశం వదలండి"
 msgid "Remove"
 msgstr "తొలగించు"
 
-#: src/amo/components/EditableCollectionAddon/index.js:150
-msgid "User comment"
-msgstr "వాడుకరి వ్యాఖ్య"
+#: src/amo/components/EditableCollectionAddon/index.js:152
+#, fuzzy
+msgid "Collector's note"
+msgstr "సేకరణ పేరు"
 
-#: src/amo/components/EditableCollectionAddon/index.js:165
+#: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
 msgstr "ఈ యాడ్-ఆన్ గురించి ఒక వ్యాఖ్య చేర్చండి."
 
-#: src/amo/components/EditableCollectionAddon/index.js:166
+#: src/amo/components/EditableCollectionAddon/index.js:168
 msgid "Save"
 msgstr "భద్రపరచు"
 
-#: src/amo/components/EditableCollectionAddon/index.js:187
+#: src/amo/components/EditableCollectionAddon/index.js:189
 msgid "Edit"
 msgstr "సరిదిద్దు"
 
@@ -906,12 +908,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr ""
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "పతాకం"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1377,22 +1379,22 @@ msgstr ""
 msgid "Search results"
 msgstr "వెతుకుడు ఫలితాలు"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:249
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:253
 #: src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
 msgstr ""
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:250
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:254
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "విశేష పొడగింతలు"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:334
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:338
 #: src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
 msgstr ""
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:335
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:339
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "విశేష అలంకారాలు"
@@ -1407,7 +1409,7 @@ msgstr ""
 msgid "Featured add-ons"
 msgstr "విశేష పొడిగింతలు"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:349
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:353
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "ట్రెండవుతూన్న పొడగింతలు"
@@ -1437,11 +1439,11 @@ msgstr "ఉత్తమంగా రేటైన అలంకారాలు"
 msgid "Top rated add-ons"
 msgstr "మేటి పొడిగింతలు"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:296
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:300
 msgid "Popular extensions"
 msgstr "ప్రాచుర్య పొడిగింతలు"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:275
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:279
 msgid "Popular themes"
 msgstr "ప్రాచుర్య అలంకారాలు"
 
@@ -1535,78 +1537,78 @@ msgid_plural "%(count)s extensions found"
 msgstr[0] "%(count)s పొడగింత దొరికింది"
 msgstr[1] "%(count)s పొడగింతలు దొరికాయి"
 
-#: src/amo/components/SearchFilters/index.js:129
-#: src/amo/components/SearchFilters/index.js:145
+#: src/amo/components/SearchFilters/index.js:138
+#: src/amo/components/SearchFilters/index.js:154
 msgid "All"
 msgstr "అన్నీ"
 
-#: src/amo/components/SearchFilters/index.js:130
+#: src/amo/components/SearchFilters/index.js:139
 msgid "Extension"
 msgstr "పొడిగింత"
 
-#: src/amo/components/SearchFilters/index.js:131
+#: src/amo/components/SearchFilters/index.js:140
 msgid "Search Tool"
 msgstr "శోధన సాధనాలు"
 
-#: src/amo/components/SearchFilters/index.js:133
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Theme"
 msgstr "అలంకారం"
 
-#: src/amo/components/SearchFilters/index.js:146
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:147
+#: src/amo/components/SearchFilters/index.js:156
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:157
 msgid "Linux"
 msgstr "లైనక్స్"
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:165
 msgid "Relevance"
 msgstr "ఔచిత్యం"
 
-#: src/amo/components/SearchFilters/index.js:158
+#: src/amo/components/SearchFilters/index.js:167
 msgid "Recently Updated"
 msgstr "ఇటీవలి నవీకరణలు"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Most Users"
 msgstr "చాలా మంది వాడుకరులు"
 
-#: src/amo/components/SearchFilters/index.js:162
+#: src/amo/components/SearchFilters/index.js:171
 msgid "Top Rated"
 msgstr "ఉత్తమ రేటింగ్"
 
-#: src/amo/components/SearchFilters/index.js:163
+#: src/amo/components/SearchFilters/index.js:172
 msgid "Trending"
 msgstr "ట్రెండింగ్"
 
-#: src/amo/components/SearchFilters/index.js:181
+#: src/amo/components/SearchFilters/index.js:190
 msgid "Filter results"
 msgstr "ఫలితాల వడపోత"
 
-#: src/amo/components/SearchFilters/index.js:186
+#: src/amo/components/SearchFilters/index.js:195
 msgid "Sort by"
 msgstr "క్రమపరచు"
 
-#: src/amo/components/SearchFilters/index.js:208
+#: src/amo/components/SearchFilters/index.js:217
 msgid "Add-on Type"
 msgstr "పొడిగింత రకం"
 
-#: src/amo/components/SearchFilters/index.js:228
+#: src/amo/components/SearchFilters/index.js:237
 msgid "Operating System"
 msgstr "ఆపరేటింగ్ సిస్టమ్"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/SearchFilters/index.js:259
+#: src/amo/components/SearchFilters/index.js:268
 msgid "Recommended add-ons only"
 msgstr ""
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/SearchFilters/index.js:260
+#: src/amo/components/SearchFilters/index.js:269
 msgid "Featured add-ons only"
 msgstr "విశేష పొడిగింతలు మాత్రమే"
 
@@ -2161,69 +2163,69 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:133
+#: src/amo/pages/Home/index.js:137
 msgid "Abstract"
 msgstr "సంక్షిప్తము"
 
-#: src/amo/pages/Home/index.js:138
+#: src/amo/pages/Home/index.js:142
 msgid "Nature"
 msgstr "ప్రకృతి"
 
-#: src/amo/pages/Home/index.js:143
+#: src/amo/pages/Home/index.js:147
 msgid "Film & TV"
 msgstr "సినిమా & టీవీ"
 
-#: src/amo/pages/Home/index.js:148
+#: src/amo/pages/Home/index.js:152
 msgid "Scenery"
 msgstr "దృశ్యం"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:157
 msgid "Music"
 msgstr "సంగీతం"
 
-#: src/amo/pages/Home/index.js:158
+#: src/amo/pages/Home/index.js:162
 msgid "Seasonal"
 msgstr "కాలానుగుణం"
 
-#: src/amo/pages/Home/index.js:196
+#: src/amo/pages/Home/index.js:200
 msgid "Change the way Firefox looks with themes."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:226
+#: src/amo/pages/Home/index.js:230
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:254 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:258 src/amo/pages/LandingPage/index.js:153
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "మరిన్ని ట్రెండవుతూన్న పొడగింతలను చూడండి"
 
-#: src/amo/pages/Home/index.js:255 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:259 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "మరిన్ని విశేష పొడిగింతలను చూడండి"
 
-#: src/amo/pages/Home/index.js:276
+#: src/amo/pages/Home/index.js:280
 msgid "See more popular themes"
 msgstr "పొడిగింతలను శోధించు"
 
-#: src/amo/pages/Home/index.js:297
+#: src/amo/pages/Home/index.js:301
 #, fuzzy
 msgid "See more popular extensions"
 msgstr "ఇతర ప్రాచుర్య పొడిగింతలు"
 
-#: src/amo/pages/Home/index.js:316 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:320 src/amo/pages/LandingPage/index.js:192
 #, fuzzy
 msgid "See more recommended themes"
 msgstr "మరిన్ని ట్రెండవుతూన్న అలంకారాలను చూడండి"
 
-#: src/amo/pages/Home/index.js:317 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:321 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "మరిన్ని విశేష అలంకారాలను చూడండి"
 
-#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "మరిన్ని ట్రెండవుతూన్న పొడగింతలను చూడండి"
 
@@ -3166,6 +3168,9 @@ msgstr[1] "%(total)s యాడాన్లు"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "డెవలపర్ స్పందన"
+
+#~ msgid "User comment"
+#~ msgstr "వాడుకరి వ్యాఖ్య"
 
 #~ msgid "Bookmarks"
 #~ msgstr "ఇష్టాంశాలు"
