@@ -8,6 +8,9 @@ import LoadablePlugin from '@loadable/webpack-plugin';
 
 import 'core/polyfill';
 import { getClientConfig } from 'core/utils';
+import { getDeploymentVersion } from 'core/utils/build';
+
+import versionJson from './version';
 
 export function getStyleRules({
   bundleStylesWithJs = false,
@@ -124,6 +127,7 @@ export function getPlugins({
     new webpack.DefinePlugin({
       CLIENT_CONFIG: JSON.stringify(clientConfig),
       'process.env.NODE_ENV': JSON.stringify('production'),
+      DEPLOYMENT_VERSION: JSON.stringify(getDeploymentVersion({ versionJson })),
     }),
     // Since the NodeJS code does not run from a webpack bundle, here
     // are a few replacements that affect only the client side bundle.

@@ -29,6 +29,7 @@ $icon-size: 32px;
 
 .EditableCollectionAddon-buttons {
   grid-template-columns: min-content min-content;
+  justify-content: flex-end;
 }
 
 .EditableCollectionAddon-icon {

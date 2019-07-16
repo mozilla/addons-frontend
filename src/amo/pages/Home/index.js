@@ -22,10 +22,10 @@ import {
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
+  ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { getAddonTypeFilter } from 'core/utils';
 import Card from 'ui/components/Card';
 
 import './styles.scss';
@@ -106,6 +106,10 @@ export class HomeBase extends React.Component {
       includeTrendingExtensions,
       resultsLoaded,
     } = this.props;
+
+    if (errorHandler.hasError()) {
+      return;
+    }
 
     dispatch(setViewContext(VIEW_CONTEXT_HOME));
 
@@ -277,9 +281,7 @@ export class HomeBase extends React.Component {
           footerLink={{
             pathname: '/search/',
             query: {
-              addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
-                _config: this.props._config,
-              }),
+              addonType: ADDON_TYPE_STATIC_THEME,
               sort: SEARCH_SORT_POPULAR,
             },
           }}
@@ -319,9 +321,7 @@ export class HomeBase extends React.Component {
             footerLink={{
               pathname: '/search/',
               query: {
-                addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
-                  _config: this.props._config,
-                }),
+                addonType: ADDON_TYPE_STATIC_THEME,
                 featured: enableFeatureRecommendedBadges ? undefined : true,
                 recommended: enableFeatureRecommendedBadges ? true : undefined,
                 sort: enableFeatureRecommendedBadges

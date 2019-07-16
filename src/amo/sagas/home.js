@@ -14,9 +14,9 @@ import {
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
+  ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
 import { search as searchApi } from 'core/api/search';
-import { getAddonTypeFilter } from 'core/utils';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { GetCollectionAddonsParams } from 'amo/api/collections';
@@ -37,106 +37,108 @@ export function* fetchHomeAddons({
 
   yield put(errorHandler.createClearingAction());
 
-  const state = yield select(getState);
+  try {
+    const state = yield select(getState);
 
-  const collections = [];
-  for (const collection of collectionsToFetch) {
-    try {
-      const params: GetCollectionAddonsParams = {
-        api: state.api,
-        slug: collection.slug,
-        userId: collection.userId,
-      };
-      const result = yield call(getCollectionAddons, params);
-      collections.push(result);
-    } catch (error) {
-      log.warn(
-        oneLine`Home collection: ${collection.userId}/${collection.slug}
+    const collections = [];
+    for (const collection of collectionsToFetch) {
+      try {
+        const params: GetCollectionAddonsParams = {
+          api: state.api,
+          slug: collection.slug,
+          userId: collection.userId,
+        };
+        const result = yield call(getCollectionAddons, params);
+        collections.push(result);
+      } catch (error) {
+        log.warn(
+          oneLine`Home collection: ${collection.userId}/${collection.slug}
           failed to load: ${error}`,
-      );
-      if (error.response && [401, 404].includes(error.response.status)) {
-        // The collection was not found or is marked private.
-        collections.push(null);
-      } else {
-        yield put(errorHandler.createErrorAction(error));
-        return;
+        );
+        if (error.response && [401, 403, 404].includes(error.response.status)) {
+          // The collection was not found or is marked private.
+          collections.push(null);
+        } else {
+          throw error;
+        }
       }
     }
-  }
 
-  const recommendedSearchFilters = {
-    featured: enableFeatureRecommendedBadges ? undefined : true,
-    recommended: enableFeatureRecommendedBadges ? true : undefined,
-    page_size: String(LANDING_PAGE_EXTENSION_COUNT),
-    sort: SEARCH_SORT_RANDOM,
-  };
-  const recommendedExtensionsParams: SearchParams = {
-    api: state.api,
-    filters: {
-      addonType: ADDON_TYPE_EXTENSION,
-      ...recommendedSearchFilters,
-    },
-  };
-  const recommendedThemesParams: SearchParams = {
-    api: state.api,
-    filters: {
-      addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
-      ...recommendedSearchFilters,
-      page_size: String(LANDING_PAGE_THEME_COUNT),
-    },
-  };
-  const popularExtensionsParams: SearchParams = {
-    api: state.api,
-    filters: {
-      addonType: ADDON_TYPE_EXTENSION,
-      page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+    const recommendedSearchFilters = {
+      featured: enableFeatureRecommendedBadges ? undefined : true,
       recommended: enableFeatureRecommendedBadges ? true : undefined,
-      sort: SEARCH_SORT_POPULAR,
-    },
-  };
-  const popularThemesParams: SearchParams = {
-    api: state.api,
-    filters: {
-      addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
-      page_size: String(LANDING_PAGE_THEME_COUNT),
-      sort: SEARCH_SORT_POPULAR,
-    },
-  };
-  const trendingExtensionsParams: SearchParams = {
-    api: state.api,
-    filters: {
-      addonType: ADDON_TYPE_EXTENSION,
       page_size: String(LANDING_PAGE_EXTENSION_COUNT),
-      recommended: enableFeatureRecommendedBadges ? true : undefined,
-      sort: SEARCH_SORT_TRENDING,
-    },
-  };
+      sort: SEARCH_SORT_RANDOM,
+    };
+    const recommendedExtensionsParams: SearchParams = {
+      api: state.api,
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        ...recommendedSearchFilters,
+      },
+    };
+    const recommendedThemesParams: SearchParams = {
+      api: state.api,
+      filters: {
+        addonType: ADDON_TYPE_STATIC_THEME,
+        ...recommendedSearchFilters,
+        page_size: String(LANDING_PAGE_THEME_COUNT),
+      },
+    };
+    const popularExtensionsParams: SearchParams = {
+      api: state.api,
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+        recommended: enableFeatureRecommendedBadges ? true : undefined,
+        sort: SEARCH_SORT_POPULAR,
+      },
+    };
+    const popularThemesParams: SearchParams = {
+      api: state.api,
+      filters: {
+        addonType: ADDON_TYPE_STATIC_THEME,
+        page_size: String(LANDING_PAGE_THEME_COUNT),
+        sort: SEARCH_SORT_POPULAR,
+      },
+    };
+    const trendingExtensionsParams: SearchParams = {
+      api: state.api,
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+        recommended: enableFeatureRecommendedBadges ? true : undefined,
+        sort: SEARCH_SORT_TRENDING,
+      },
+    };
 
-  let shelves = {};
-  try {
-    shelves = yield all({
-      recommendedExtensions: call(searchApi, recommendedExtensionsParams),
-      recommendedThemes: includeRecommendedThemes
-        ? call(searchApi, recommendedThemesParams)
-        : null,
-      popularExtensions: call(searchApi, popularExtensionsParams),
-      popularThemes: call(searchApi, popularThemesParams),
-      trendingExtensions: includeTrendingExtensions
-        ? call(searchApi, trendingExtensionsParams)
-        : null,
-    });
+    let shelves = {};
+    try {
+      shelves = yield all({
+        recommendedExtensions: call(searchApi, recommendedExtensionsParams),
+        recommendedThemes: includeRecommendedThemes
+          ? call(searchApi, recommendedThemesParams)
+          : null,
+        popularExtensions: call(searchApi, popularExtensionsParams),
+        popularThemes: call(searchApi, popularThemesParams),
+        trendingExtensions: includeTrendingExtensions
+          ? call(searchApi, trendingExtensionsParams)
+          : null,
+      });
+    } catch (error) {
+      log.warn(`Home add-ons failed to load: ${error}`);
+      throw error;
+    }
+
+    yield put(
+      loadHomeAddons({
+        collections,
+        shelves,
+      }),
+    );
   } catch (error) {
-    log.warn(`Home add-ons failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
-    return;
   }
-
-  yield put(
-    loadHomeAddons({
-      collections,
-      shelves,
-    }),
-  );
 }
 
 export default function* homeSaga(): Saga {

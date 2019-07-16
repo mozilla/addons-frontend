@@ -12,12 +12,10 @@ import {
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
+  ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import {
-  visibleAddonType as getVisibleAddonType,
-  getAddonTypeFilter,
-} from 'core/utils';
+import { visibleAddonType as getVisibleAddonType } from 'core/utils';
 import {
   createAddonsApiResult,
   createStubErrorHandler,
@@ -325,7 +323,7 @@ describe(__filename, () => {
     'sets the links in each footer for themes enableFeatureRecommendedBadges: %s',
     (enableFeatureRecommendedBadges) => {
       const _config = getFakeConfig({ enableFeatureRecommendedBadges });
-      const addonType = getAddonTypeFilter(ADDON_TYPE_THEME);
+      const addonType = ADDON_TYPE_STATIC_THEME;
 
       _getAndLoadLandingAddons({ addonType });
 

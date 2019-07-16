@@ -148,8 +148,8 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
             <h4 className="EditableCollectionAddon-notes-header">
               <Icon name="comments-blue" />
               {this.props.uiState.editingNote
-                ? i18n.gettext('Leave a Note')
-                : i18n.gettext("Collector's Note")}
+                ? i18n.gettext('Leave a note')
+                : i18n.gettext("Collector's note")}
             </h4>
 
             {this.props.uiState.editingNote ? (

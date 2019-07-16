@@ -97,6 +97,7 @@ jobs:
           name: Install Docker Compose
           command: |
             set -x
+            pip install -U pip
             pip install docker-compose>=1.18
             docker-compose --version
       - run:

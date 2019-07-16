@@ -46,6 +46,8 @@ import {
   makeI18n,
 } from 'core/i18n/utils';
 import { setHashedClientId } from 'disco/reducers/telemetry';
+import { getDeploymentVersion } from 'core/utils/build';
+import { getSentryRelease } from 'core/utils/sentry';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
 
@@ -185,9 +187,19 @@ function baseServer(
     app.use(requestId);
   }
 
+  const versionJson = JSON.parse(
+    fs.readFileSync(path.join(config.get('basePath'), 'version.json')),
+  );
+
   const sentryDsn = config.get('sentryDsn');
   if (sentryDsn) {
-    Raven.config(sentryDsn, { logger: 'server-js' }).install();
+    Raven.config(sentryDsn, {
+      logger: 'server-js',
+      release: getSentryRelease({
+        appName,
+        version: getDeploymentVersion({ versionJson }),
+      }),
+    }).install();
     app.use(Raven.requestHandler());
     _log.info(`Sentry reporting configured with DSN ${sentryDsn}`);
     // The error handler is defined below.

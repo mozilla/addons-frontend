@@ -22,13 +22,13 @@ import {
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
+  ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import {
   apiAddonType,
   apiAddonTypeIsValid,
-  getAddonTypeFilter,
   isTheme,
   visibleAddonType as getVisibleAddonType,
 } from 'core/utils';
@@ -128,7 +128,7 @@ export class LandingPageBase extends React.Component {
   contentForType = (visibleAddonType) => {
     const { _config, i18n } = this.props;
     const addonType = apiAddonType(visibleAddonType);
-    const themeFilter = getAddonTypeFilter(ADDON_TYPE_THEME, { _config });
+    const themeFilter = ADDON_TYPE_STATIC_THEME;
     const enableFeatureRecommendedBadges = _config.get(
       'enableFeatureRecommendedBadges',
     );
