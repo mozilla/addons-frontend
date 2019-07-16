@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-09 17:50+0000\n"
+"POT-Creation-Date: 2019-07-16 19:50+0000\n"
 "PO-Revision-Date: 2019-06-09 07:42+0000\n"
 "Last-Translator: Muhen Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
@@ -643,16 +643,16 @@ msgstr "Izegrar i Firefox"
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%s - Izegrar i Firefox"
 
-#: src/amo/components/AutoSearchInput/index.js:206
+#: src/amo/components/AutoSearchInput/index.js:216
 msgid "Loading"
 msgstr "Asali"
 
-#: src/amo/components/AutoSearchInput/index.js:302
+#: src/amo/components/AutoSearchInput/index.js:312
 msgid "Find add-ons"
 msgstr "Nadi isiɣzaf"
 
-#: src/amo/components/AutoSearchInput/index.js:327
-#: src/amo/components/AutoSearchInput/index.js:355
+#: src/amo/components/AutoSearchInput/index.js:337
+#: src/amo/components/AutoSearchInput/index.js:365
 msgid "Search"
 msgstr "Nadi"
 
@@ -821,6 +821,7 @@ msgid "Contribute now"
 msgstr "Ttekki tura"
 
 #: src/amo/components/EditableCollectionAddon/index.js:133
+#: src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Leave a note"
 msgstr "Eǧǧ-d tamawt"
 
@@ -829,19 +830,20 @@ msgstr "Eǧǧ-d tamawt"
 msgid "Remove"
 msgstr "Kkes"
 
-#: src/amo/components/EditableCollectionAddon/index.js:150
-msgid "User comment"
-msgstr "Awennit n useqdac"
+#: src/amo/components/EditableCollectionAddon/index.js:152
+#, fuzzy
+msgid "Collector's note"
+msgstr "Isem n tegrumma"
 
-#: src/amo/components/EditableCollectionAddon/index.js:165
+#: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
 msgstr "Ɣef uzegrir-agiRnu awennit ɣef uzegrir-a."
 
-#: src/amo/components/EditableCollectionAddon/index.js:166
+#: src/amo/components/EditableCollectionAddon/index.js:168
 msgid "Save"
 msgstr "Sekles"
 
-#: src/amo/components/EditableCollectionAddon/index.js:187
+#: src/amo/components/EditableCollectionAddon/index.js:189
 msgid "Edit"
 msgstr "Ẓreg"
 
@@ -957,12 +959,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Yettwacreḍ d tuzna n ubug neɣ asuter n tallelt"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Yettwammel"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Creḍ"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Yettwammel"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1452,24 +1454,24 @@ msgstr "Nermes-d aneqqis-ik. Tanemmirt imi i aɣ-d-mliḍ ugur akked useqdac-a."
 msgid "Search results"
 msgstr "Igmaḍ n unadi"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:249
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:253
 #: src/amo/pages/LandingPage/index.js:139
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "Aff isiɣzaf"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:250
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:254
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Isiɣzaf yettwaszemlen"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:334
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:338
 #: src/amo/pages/LandingPage/index.js:178
 #, fuzzy
 msgid "Recommended themes"
 msgstr "Isental n unebdu"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:335
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:339
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Isental itran"
@@ -1483,7 +1485,7 @@ msgstr "Nadi isiɣzaf"
 msgid "Featured add-ons"
 msgstr "Izegrar yettwasnen"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:349
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:353
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "Isiɣzaf itran"
@@ -1511,11 +1513,11 @@ msgstr "Isental yettwaszemlen aṭas"
 msgid "Top rated add-ons"
 msgstr "Isiɣzaf yettwaszemlen aṭas"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:296
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:300
 msgid "Popular extensions"
 msgstr "Isiɣzaf iɣerfanen"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:275
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:279
 msgid "Popular themes"
 msgstr "ISental iɣerfanen"
 
@@ -1617,77 +1619,77 @@ msgid_plural "%(count)s extensions found"
 msgstr[0] "%(count)s n usiɣzef yellan"
 msgstr[1] "%(count)s n isiγzaf yellan"
 
-#: src/amo/components/SearchFilters/index.js:129
-#: src/amo/components/SearchFilters/index.js:145
+#: src/amo/components/SearchFilters/index.js:138
+#: src/amo/components/SearchFilters/index.js:154
 msgid "All"
 msgstr "Akk"
 
-#: src/amo/components/SearchFilters/index.js:130
+#: src/amo/components/SearchFilters/index.js:139
 msgid "Extension"
 msgstr "Asiɣzef"
 
-#: src/amo/components/SearchFilters/index.js:131
+#: src/amo/components/SearchFilters/index.js:140
 msgid "Search Tool"
 msgstr "Afecku n unadi"
 
-#: src/amo/components/SearchFilters/index.js:133
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Theme"
 msgstr "Asentel"
 
-#: src/amo/components/SearchFilters/index.js:146
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Windows"
 msgstr "Isfuyla"
 
-#: src/amo/components/SearchFilters/index.js:147
+#: src/amo/components/SearchFilters/index.js:156
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:157
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:165
 msgid "Relevance"
 msgstr "Amsami"
 
-#: src/amo/components/SearchFilters/index.js:158
+#: src/amo/components/SearchFilters/index.js:167
 msgid "Recently Updated"
 msgstr "Ttwaleqmen melmi kan"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Most Users"
 msgstr "Yettwaseqdac aṭas"
 
-#: src/amo/components/SearchFilters/index.js:162
+#: src/amo/components/SearchFilters/index.js:171
 msgid "Top Rated"
 msgstr "Yettwasezmel aṭas"
 
-#: src/amo/components/SearchFilters/index.js:163
+#: src/amo/components/SearchFilters/index.js:172
 msgid "Trending"
 msgstr "Tiddin"
 
-#: src/amo/components/SearchFilters/index.js:181
+#: src/amo/components/SearchFilters/index.js:190
 msgid "Filter results"
 msgstr "Sizdeg igmaḍ n unadi"
 
-#: src/amo/components/SearchFilters/index.js:186
+#: src/amo/components/SearchFilters/index.js:195
 msgid "Sort by"
 msgstr "Smizzwer"
 
-#: src/amo/components/SearchFilters/index.js:208
+#: src/amo/components/SearchFilters/index.js:217
 msgid "Add-on Type"
 msgstr "Anaw n uzegrir"
 
-#: src/amo/components/SearchFilters/index.js:228
+#: src/amo/components/SearchFilters/index.js:237
 msgid "Operating System"
 msgstr "Anagraw n wammud"
 
-#: src/amo/components/SearchFilters/index.js:259
+#: src/amo/components/SearchFilters/index.js:268
 #, fuzzy
 msgid "Recommended add-ons only"
 msgstr "Izegrrar itran kan"
 
-#: src/amo/components/SearchFilters/index.js:260
+#: src/amo/components/SearchFilters/index.js:269
 msgid "Featured add-ons only"
 msgstr "Izegrrar itran kan"
 
@@ -2268,69 +2270,69 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:133
+#: src/amo/pages/Home/index.js:137
 msgid "Abstract"
 msgstr "Amadwan"
 
-#: src/amo/pages/Home/index.js:138
+#: src/amo/pages/Home/index.js:142
 msgid "Nature"
 msgstr "Agama"
 
-#: src/amo/pages/Home/index.js:143
+#: src/amo/pages/Home/index.js:147
 msgid "Film & TV"
 msgstr "Asaru d TV"
 
-#: src/amo/pages/Home/index.js:148
+#: src/amo/pages/Home/index.js:152
 msgid "Scenery"
 msgstr "Imeẓri"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:157
 msgid "Music"
 msgstr "Aẓawan"
 
-#: src/amo/pages/Home/index.js:158
+#: src/amo/pages/Home/index.js:162
 msgid "Seasonal"
 msgstr "Asemhuyan"
 
-#: src/amo/pages/Home/index.js:196
+#: src/amo/pages/Home/index.js:200
 msgid "Change the way Firefox looks with themes."
 msgstr "Snifel amek id-ittban Firefox s isental."
 
-#: src/amo/pages/Home/index.js:226
+#: src/amo/pages/Home/index.js:230
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:254 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:258 src/amo/pages/LandingPage/index.js:153
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "Ugar n yisiɣzaf itran"
 
-#: src/amo/pages/Home/index.js:255 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:259 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "Ugar n yisiɣzaf yettwasersen d imezwura"
 
-#: src/amo/pages/Home/index.js:276
+#: src/amo/pages/Home/index.js:280
 msgid "See more popular themes"
 msgstr "Isiɣzaf yettwasnen aṭas"
 
-#: src/amo/pages/Home/index.js:297
+#: src/amo/pages/Home/index.js:301
 #, fuzzy
 msgid "See more popular extensions"
 msgstr "Wali isiɣzaft gar wid yettwaszemlen aṭas"
 
-#: src/amo/pages/Home/index.js:316 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:320 src/amo/pages/LandingPage/index.js:192
 #, fuzzy
 msgid "See more recommended themes"
 msgstr "Ugar n yisental itran"
 
-#: src/amo/pages/Home/index.js:317 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:321 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "Ugar n yisental yettwasersen d imezwura"
 
-#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Ugar n yisiɣzaf itran"
 
@@ -3402,6 +3404,9 @@ msgstr[1] "%(total)s n yizegrar"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Tiririt n ineflayen"
+
+#~ msgid "User comment"
+#~ msgstr "Awennit n useqdac"
 
 #~ msgid "Bookmarks"
 #~ msgstr "Ticraḍ n isebtar"
