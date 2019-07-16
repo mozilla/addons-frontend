@@ -667,17 +667,14 @@ describe(__filename, () => {
 
   describe('ADDON_TYPE_STATIC_THEME', () => {
     it('returns ADDON_TYPE_THEMES_FILTER when add-on type is a lightweight theme', () => {
-      const addon = createInternalAddon({ type: ADDON_TYPE_THEME });
       expect(ADDON_TYPE_STATIC_THEME).toEqual(ADDON_TYPE_THEMES_FILTER);
     });
 
     it('returns ADDON_TYPE_THEMES_FILTER when add-on type is a static theme', () => {
-      const addon = createInternalAddon({ type: ADDON_TYPE_STATIC_THEME });
       expect(ADDON_TYPE_STATIC_THEME).toEqual(ADDON_TYPE_THEMES_FILTER);
     });
 
     it('returns ADDON_TYPE_EXTENSION when add-on type is an extension', () => {
-      const addon = createInternalAddon({ type: ADDON_TYPE_EXTENSION });
       expect(ADDON_TYPE_STATIC_THEME).toEqual(ADDON_TYPE_EXTENSION);
     });
   });

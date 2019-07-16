@@ -12,7 +12,6 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES,
-  ADDON_TYPE_THEMES_FILTER,
   API_ADDON_TYPES_MAPPING,
   CATEGORY_COLORS,
   OS_ALL,
@@ -371,7 +370,6 @@ export const findFileForPlatform = ({ userAgentInfo, platformFiles }) => {
 export type GetCategoryResultsQueryParams = { addonType: string, slug: string };
 
 export const getCategoryResultsQuery = ({
-  addonType,
   slug,
 }: GetCategoryResultsQueryParams) => {
   return convertFiltersToQueryParams({

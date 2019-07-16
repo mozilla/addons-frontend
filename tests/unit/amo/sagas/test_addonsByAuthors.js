@@ -8,7 +8,6 @@ import addonsByAuthorsReducer, {
 } from 'amo/reducers/addonsByAuthors';
 import addonsByAuthorsSaga from 'amo/sagas/addonsByAuthors';
 import {
-  ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TRENDING,
   ADDON_TYPE_STATIC_THEME,

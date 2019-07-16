@@ -14,7 +14,6 @@ import { createApiError } from 'core/api';
 import * as searchApi from 'core/api/search';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,

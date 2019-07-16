@@ -10,7 +10,6 @@ import {
 import { FETCH_HOME_ADDONS, loadHomeAddons } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
