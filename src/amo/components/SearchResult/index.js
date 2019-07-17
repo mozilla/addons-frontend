@@ -174,10 +174,13 @@ export class SearchResultBase extends React.Component<InternalProps> {
               addon &&
               addon.is_recommended &&
               clientApp !== CLIENT_APP_ANDROID ? (
-                <RecommendedBadge
-                  onClick={(e) => e.stopPropagation()}
-                  size="small"
-                />
+                <React.Fragment>
+                  <span className="SearchResult-recommendedBadgeSpacer" />
+                  <RecommendedBadge
+                    onClick={(e) => e.stopPropagation()}
+                    size="small"
+                  />
+                </React.Fragment>
               ) : null}
             </h2>
             {summary}
