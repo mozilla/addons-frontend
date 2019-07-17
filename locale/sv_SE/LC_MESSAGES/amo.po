@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-09 17:50+0000\n"
-"PO-Revision-Date: 2019-07-14 18:46+0000\n"
+"POT-Creation-Date: 2019-07-16 19:50+0000\n"
+"PO-Revision-Date: 2019-07-16 20:15+0000\n"
 "Last-Translator: Peter Kihlstedt <peter.kihlstedt@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -594,15 +594,15 @@ msgstr "Tillägg för Firefox Android (%(locale)s)"
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Tillägg för Firefox Android (%(locale)s)"
 
-#: src/amo/components/AutoSearchInput/index.js:206
+#: src/amo/components/AutoSearchInput/index.js:216
 msgid "Loading"
 msgstr "Laddar"
 
-#: src/amo/components/AutoSearchInput/index.js:302
+#: src/amo/components/AutoSearchInput/index.js:312
 msgid "Find add-ons"
 msgstr "Hitta tillägg"
 
-#: src/amo/components/AutoSearchInput/index.js:327 src/amo/components/AutoSearchInput/index.js:355
+#: src/amo/components/AutoSearchInput/index.js:337 src/amo/components/AutoSearchInput/index.js:365
 msgid "Search"
 msgstr "Sök"
 
@@ -742,7 +742,7 @@ msgstr "Författarna av detta tillägg frågar att du kan hjälpa till att stöd
 msgid "Contribute now"
 msgstr "Bidra nu"
 
-#: src/amo/components/EditableCollectionAddon/index.js:133
+#: src/amo/components/EditableCollectionAddon/index.js:133 src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Leave a note"
 msgstr "Lämna ett meddelande"
 
@@ -750,19 +750,19 @@ msgstr "Lämna ett meddelande"
 msgid "Remove"
 msgstr "Ta bort"
 
-#: src/amo/components/EditableCollectionAddon/index.js:150
-msgid "User comment"
-msgstr "Användarkommentar"
+#: src/amo/components/EditableCollectionAddon/index.js:152
+msgid "Collector's note"
+msgstr "Samlingsnamn"
 
-#: src/amo/components/EditableCollectionAddon/index.js:165
+#: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
 msgstr "Lägg till en kommentar om den här tillägget."
 
-#: src/amo/components/EditableCollectionAddon/index.js:166
+#: src/amo/components/EditableCollectionAddon/index.js:168
 msgid "Save"
 msgstr "Spara"
 
-#: src/amo/components/EditableCollectionAddon/index.js:187
+#: src/amo/components/EditableCollectionAddon/index.js:189
 msgid "Edit"
 msgstr "Redigera"
 
@@ -853,12 +853,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Flaggad som en felrapport eller supportförfrågan"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Flaggad"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Flagga"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Flaggad"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1298,19 +1298,19 @@ msgstr "Vi har fått din rapport. Tack för att du informerade oss om dina probl
 msgid "Search results"
 msgstr "Sökresultat"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:249 src/amo/pages/LandingPage/index.js:139
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:253 src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
 msgstr "Rekommenderade utökningar"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:250 src/amo/pages/LandingPage/index.js:140
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:254 src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Utvalda utökningar"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:334 src/amo/pages/LandingPage/index.js:178
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:338 src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
 msgstr "Rekommenderade teman"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:335 src/amo/pages/LandingPage/index.js:179
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:339 src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Utvalda teman"
 
@@ -1322,7 +1322,7 @@ msgstr "Rekommenderade tillägg"
 msgid "Featured add-ons"
 msgstr "Utvalda tillägg"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:155
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:353 src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "Trendiga utökningar"
 
@@ -1346,11 +1346,11 @@ msgstr "Högst rankade teman"
 msgid "Top rated add-ons"
 msgstr "Högst rankade tillägg"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:296
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:300
 msgid "Popular extensions"
 msgstr "Populära utökningar"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:275
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:279
 msgid "Popular themes"
 msgstr "Populära teman"
 
@@ -1442,75 +1442,75 @@ msgid_plural "%(count)s extensions found"
 msgstr[0] "%(count)s tillägg hittades"
 msgstr[1] "%(count)s tillägg hittades"
 
-#: src/amo/components/SearchFilters/index.js:129 src/amo/components/SearchFilters/index.js:145
+#: src/amo/components/SearchFilters/index.js:138 src/amo/components/SearchFilters/index.js:154
 msgid "All"
 msgstr "Alla"
 
-#: src/amo/components/SearchFilters/index.js:130
+#: src/amo/components/SearchFilters/index.js:139
 msgid "Extension"
 msgstr "Utökning"
 
-#: src/amo/components/SearchFilters/index.js:131
+#: src/amo/components/SearchFilters/index.js:140
 msgid "Search Tool"
 msgstr "Sökverktyg"
 
-#: src/amo/components/SearchFilters/index.js:133
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Theme"
 msgstr "Tema"
 
-#: src/amo/components/SearchFilters/index.js:146
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:147
+#: src/amo/components/SearchFilters/index.js:156
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:157
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:165
 msgid "Relevance"
 msgstr "Relevans"
 
-#: src/amo/components/SearchFilters/index.js:158
+#: src/amo/components/SearchFilters/index.js:167
 msgid "Recently Updated"
 msgstr "Nyligen uppdaterad"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Most Users"
 msgstr "Flest användare"
 
-#: src/amo/components/SearchFilters/index.js:162
+#: src/amo/components/SearchFilters/index.js:171
 msgid "Top Rated"
 msgstr "Högst rankade"
 
-#: src/amo/components/SearchFilters/index.js:163
+#: src/amo/components/SearchFilters/index.js:172
 msgid "Trending"
 msgstr "Trend"
 
-#: src/amo/components/SearchFilters/index.js:181
+#: src/amo/components/SearchFilters/index.js:190
 msgid "Filter results"
 msgstr "Filtrera resultat"
 
-#: src/amo/components/SearchFilters/index.js:186
+#: src/amo/components/SearchFilters/index.js:195
 msgid "Sort by"
 msgstr "Sortera efter"
 
-#: src/amo/components/SearchFilters/index.js:208
+#: src/amo/components/SearchFilters/index.js:217
 msgid "Add-on Type"
 msgstr "Tilläggstyp"
 
-#: src/amo/components/SearchFilters/index.js:228
+#: src/amo/components/SearchFilters/index.js:237
 msgid "Operating System"
 msgstr "Operativsystem"
 
-#: src/amo/components/SearchFilters/index.js:259
+#: src/amo/components/SearchFilters/index.js:268
 msgid "Recommended add-ons only"
 msgstr "Endast rekommenderade tillägg"
 
-#: src/amo/components/SearchFilters/index.js:260
+#: src/amo/components/SearchFilters/index.js:269
 msgid "Featured add-ons only"
 msgstr "Endast utvalda tillägg"
 
@@ -1999,63 +1999,63 @@ msgstr ""
 "Dagens Internet är fullt av oönskad annonsering som kommer i vägen och saktar ner dig. Utökningar för annonsblockering kan blockera eller filtrera dessa annonser så att du kan surfa igen utan att "
 "vara störd."
 
-#: src/amo/pages/Home/index.js:133
+#: src/amo/pages/Home/index.js:137
 msgid "Abstract"
 msgstr "Abstrakt"
 
-#: src/amo/pages/Home/index.js:138
+#: src/amo/pages/Home/index.js:142
 msgid "Nature"
 msgstr "Natur"
 
-#: src/amo/pages/Home/index.js:143
+#: src/amo/pages/Home/index.js:147
 msgid "Film & TV"
 msgstr "Film & TV"
 
-#: src/amo/pages/Home/index.js:148
+#: src/amo/pages/Home/index.js:152
 msgid "Scenery"
 msgstr "Landskap"
 
-#: src/amo/pages/Home/index.js:153
+#: src/amo/pages/Home/index.js:157
 msgid "Music"
 msgstr "Musik"
 
-#: src/amo/pages/Home/index.js:158
+#: src/amo/pages/Home/index.js:162
 msgid "Seasonal"
 msgstr "Säsongsbetonat"
 
-#: src/amo/pages/Home/index.js:196
+#: src/amo/pages/Home/index.js:200
 msgid "Change the way Firefox looks with themes."
 msgstr "Ändra hur Firefox ser ut med teman."
 
-#: src/amo/pages/Home/index.js:226
+#: src/amo/pages/Home/index.js:230
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
 msgstr "Hämta Firefox-tillägg och teman. De är som appar för din webbläsare. De kan blockera irriterande annonser, skydda lösenord, ändra webbläsarens utseende och mer."
 
-#: src/amo/pages/Home/index.js:254 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:258 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
 msgstr "Se fler rekommenderade utökningar"
 
-#: src/amo/pages/Home/index.js:255 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:259 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "Se fler utvalda utökningar"
 
-#: src/amo/pages/Home/index.js:276
+#: src/amo/pages/Home/index.js:280
 msgid "See more popular themes"
 msgstr "Se fler populära teman"
 
-#: src/amo/pages/Home/index.js:297
+#: src/amo/pages/Home/index.js:301
 msgid "See more popular extensions"
 msgstr "Se flera populära tillägg"
 
-#: src/amo/pages/Home/index.js:316 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:320 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
 msgstr "Se fler rekommenderade teman"
 
-#: src/amo/pages/Home/index.js:317 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:321 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "Se fler utvalda teman"
 
-#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Se fler trendiga utökningar"
 
@@ -2895,6 +2895,9 @@ msgstr[1] "%(total)s tillägg"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Utvecklarens svar"
+
+#~ msgid "User comment"
+#~ msgstr "Användarkommentar"
 
 #~ msgid "Staff Pick"
 #~ msgstr "Personalen väljer"
