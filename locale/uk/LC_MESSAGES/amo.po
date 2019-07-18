@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-16 19:50+0000\n"
-"PO-Revision-Date: 2019-07-18 13:53+0000\n"
+"PO-Revision-Date: 2019-07-18 13:54+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -2243,13 +2243,12 @@ msgid "A community of creators"
 msgstr "Спільнота творців"
 
 #: src/amo/pages/StaticPages/About/index.js:71
-#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
-"Додатки і теми, що знаходяться тут, створені тисячами розробників і дизайнерів з усього світу, починаючи від окремих любителів і до великих корпорацій. Деякі додатки AMO були автоматично оприлюднені"
-" та можуть бути предметом для перевірки командою рецензентів після їх оприлюднення."
+"Додатки, що знаходяться тут, створені тисячами розробників і дизайнерів з усього світу, починаючи від окремих любителів і до великих корпорацій. Деякі додатки AMO були автоматично оприлюднені та "
+"можуть бути предметом для перевірки командою рецензентів після їх оприлюднення."
 
 #: src/amo/pages/StaticPages/About/index.js:80
 msgid "Get involved"
