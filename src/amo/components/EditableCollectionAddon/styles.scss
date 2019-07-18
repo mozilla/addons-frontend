@@ -89,7 +89,6 @@ div.EditableCollectionAddon-notes {
   margin-top: $padding-page;
   padding: 12px;
   word-break: break-all;
-  
   @include respond-to(large) {
     margin-top: 0;
 
