@@ -196,7 +196,7 @@ module.exports = {
     'ast',
     'az',
     'bg',
-    'bn-BD',
+    'bn',
     'bs',
     'ca',
     'cak',
