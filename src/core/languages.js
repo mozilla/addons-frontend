@@ -50,15 +50,6 @@ export const unfilteredLanguages = {
     English: 'Bambara',
     native: 'Bamanankan',
   },
-  'bn-BD': {
-    English: 'Bengali (Bangladesh)',
-    native:
-      '\u09ac\u09be\u0982\u09b2\u09be (\u09ac\u09be\u0982\u09b2\u09be\u09a6\u09c7\u09b6)',
-  },
-  'bn-IN': {
-    English: 'Bengali (India)',
-    native: '\u09ac\u09be\u0982\u09b2\u09be (\u09ad\u09be\u09b0\u09a4)',
-  },
   bn: {
     English: 'Bengali',
     native: '\u09ac\u09be\u0982\u09b2\u09be',

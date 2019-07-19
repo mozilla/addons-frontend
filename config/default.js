@@ -285,7 +285,6 @@ module.exports = {
   // locales are lowercase and do not use an underscore.
   // See: https://github.com/mozilla/addons-frontend/issues/1515
   momentLangMap: {
-    'bn-bd': 'bn',
     'fy-nl': 'fy',
     'nb-no': 'nb',
     'nn-no': 'nn',
