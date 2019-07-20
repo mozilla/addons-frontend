@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-16 19:50+0000\n"
-"PO-Revision-Date: 2019-07-20 13:10+0000\n"
+"PO-Revision-Date: 2019-07-20 13:18+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -2240,13 +2240,12 @@ msgid "A community of creators"
 msgstr "Komunita tvůrců"
 
 #: src/amo/pages/StaticPages/About/index.js:71
-#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
-"Všechny zde zveřejněné doplňky jsou výtvorem tisíců vývojářů a návrhářů motivů vzhledu z celého světa, od jednotlivců, kteří je tvoří ve svém volném čase, až po velké korporace s tisíci zaměstnanců."
-" Některé doplňky na AMO byly publikovány automaticky a mohou být kontrolovány týmem editorů."
+"Všechny zde zveřejněné doplňky jsou výtvorem tisíců vývojářů a návrhářů motivů vzhledu z celého světa, od jednotlivců, kteří je tvoří ve svém volném čase, až po velké korporace. Některé doplňky na "
+"AMO byly publikovány automaticky a ihned po svém uveřejnění mohou být předmětem kontroly editorského týmu."
 
 #: src/amo/pages/StaticPages/About/index.js:80
 msgid "Get involved"
