@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-16 19:50+0000\n"
-"PO-Revision-Date: 2019-07-17 01:24+0000\n"
+"PO-Revision-Date: 2019-07-20 12:50+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -748,7 +748,6 @@ msgid "Remove"
 msgstr "Odebrat"
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
-#, fuzzy
 msgid "Collector's note"
 msgstr "Název sbírky"
 
@@ -1856,9 +1855,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr "Jednoduché a účinné blokování reklam. uBlock Origin dokáže efektivně pracovat s tisíci pravidly pro rozpoznání reklamy bez velkých dopadů na rychlost vašeho počítače."
 
 #: src/amo/pages/Guides/index.js:108
-#, fuzzy
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "Prozkoumejte další námi vybrané %(linkStart)sblokátory reklam%(linkEnd)s."
+msgstr "Prozkoumejte další skvělé %(linkStart)s blokátory reklam %(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Stop online trackers from stalking you"
@@ -1873,9 +1871,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr "Izolujte svou facebookovou identitu do samostatného „kontejneru“ a zabraňte tak Facebooku ve sledování vaší aktivity vně jeho sociální platformy."
 
 #: src/amo/pages/Guides/index.js:126
-#, fuzzy
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "Prozkoumejte další námi vybraná %(linkStart)srozšíření z oblasti soukromí a zabezpečení%(linkEnd)s."
+msgstr "Prozkoumejte další doporučená %(linkStart)s rozšíření z oblasti soukromí a zabezpečení %(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
@@ -1894,9 +1891,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr "Zpřehledněte si své panely a uspořádejte je kaskádově do „stromové“ podoby v postranní liště Firefoxu."
 
 #: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
-#, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "Prozkoumejte další námi vybrané %(linkStart)sblokátory reklam%(linkEnd)s."
+msgstr ""
 
 #: src/amo/pages/Guides/index.js:159
 msgid "Better browsing with improved bookmarks"
