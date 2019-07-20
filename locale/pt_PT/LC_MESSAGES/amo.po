@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-16 19:50+0000\n"
-"PO-Revision-Date: 2019-07-19 23:52+0000\n"
+"PO-Revision-Date: 2019-07-19 23:55+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -2064,22 +2064,19 @@ msgstr "Ver mais extensões em tendência"
 
 #: src/amo/pages/Home/index.js:55
 msgid "See more enhanced privacy extensions"
-msgstr "Ver mais extensões de melhoria da privacidade"
+msgstr "Ver mais extensões de reforço da privacidade"
 
 #: src/amo/pages/Home/index.js:56
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "Top de extensões de privacidade"
+msgstr "Extensões para reforço da privacidade"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "See more recommended password managers"
-msgstr "Ver mais temas recomendados"
+msgstr "Ver mais gestores de palavra-passe recomendados"
 
 #: src/amo/pages/Home/index.js:62
-#, fuzzy
 msgid "Recommended password managers"
-msgstr "Gestores de palavras-passe"
+msgstr "Gestores de palavras-passe recomendados"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
@@ -2233,12 +2230,11 @@ msgid "A community of creators"
 msgstr "Uma comunidade de criadores"
 
 #: src/amo/pages/StaticPages/About/index.js:71
-#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
-"Os extras listados aqui são criados por milhares de programadores e designers de temas de todo o mundo, que vão desde pessoas individuais a grande empresas. Alguns extras listados no AMO foram "
+"Os extras aqui listados são criados por milhares de programadores e designers de temas de todo o mundo, que vão desde amadores individuais a grandes empresas. Alguns extras listados no AMO foram "
 "publicados automaticamente e podem ser sujeitos a uma revisão por uma equipa de editores quando listados publicamente."
 
 #: src/amo/pages/StaticPages/About/index.js:80
