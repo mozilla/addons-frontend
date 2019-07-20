@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-16 19:50+0000\n"
-"PO-Revision-Date: 2019-07-20 21:37+0000\n"
+"PO-Revision-Date: 2019-07-20 23:01+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2052,9 +2052,8 @@ msgid "See more featured extensions"
 msgstr "Vide plus de extensiones consiliate"
 
 #: src/amo/pages/Home/index.js:280
-#, fuzzy
 msgid "See more popular themes"
-msgstr "Vide plus de themas de tendentia"
+msgstr "Vide altere themas popular"
 
 #: src/amo/pages/Home/index.js:301
 #, fuzzy
@@ -2089,9 +2088,8 @@ msgid "See more recommended password managers"
 msgstr "Vide plus de themas de tendentia"
 
 #: src/amo/pages/Home/index.js:62
-#, fuzzy
 msgid "Recommended password managers"
-msgstr "Gestor de contrasigno"
+msgstr "Gestor recommendate de contrasigno"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
@@ -2246,7 +2244,6 @@ msgid "A community of creators"
 msgstr "Un communitate de autores"
 
 #: src/amo/pages/StaticPages/About/index.js:71
-#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
