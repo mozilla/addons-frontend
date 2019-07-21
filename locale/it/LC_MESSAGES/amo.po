@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-16 19:50+0000\n"
-"PO-Revision-Date: 2019-07-21 08:36+0000\n"
+"PO-Revision-Date: 2019-07-21 13:11+0000\n"
 "Last-Translator: Davide Quaranta <dvd.forty@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1864,7 +1864,7 @@ msgstr "Isola la tua identità di Facebook in un “contenitore” separato per 
 
 #: src/amo/pages/Guides/index.js:126
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr ""
+msgstr "Scopri altre estensioni raccomandate per %(linkStart)sprivacy e sicurezza%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
@@ -1995,7 +1995,7 @@ msgstr "Protezione garantita dalla cifratura completa con password. Archivia i t
 
 #: src/amo/pages/Guides/index.js:89
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr ""
+msgstr "Scopri altri ottimi %(linkStart)sstrumenti di gestione password%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:97
 msgid "Block annoying ads"
@@ -2072,19 +2072,19 @@ msgstr "Visualizza altre estensioni di tendenza"
 
 #: src/amo/pages/Home/index.js:55
 msgid "See more enhanced privacy extensions"
-msgstr ""
+msgstr "Visualizza altre estensioni per aumentare la privacy"
 
 #: src/amo/pages/Home/index.js:56
 msgid "Enhanced privacy extensions"
-msgstr ""
+msgstr "Estensioni per aumentare la privacy"
 
 #: src/amo/pages/Home/index.js:61
 msgid "See more recommended password managers"
-msgstr ""
+msgstr "Visualizza altri strumenti di gestione password consigliati"
 
 #: src/amo/pages/Home/index.js:62
 msgid "Recommended password managers"
-msgstr ""
+msgstr "Strumenti di gestione password consigliati"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
@@ -2245,6 +2245,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
+"I componenti aggiuntivi che trovi su questo sito sono opera di migliaia di sviluppatori e designer di tutto il mondo: gli autori vanno dai singoli appassionati di informatica fino alle grandi "
+"società. Alcuni componenti aggiuntivi presenti su AMO vengono caricati automaticamente, ma potrebbero venire sottoposti a revisione da parte del nostro team dopo la pubblicazione."
 
 #: src/amo/pages/StaticPages/About/index.js:80
 msgid "Get involved"
