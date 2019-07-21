@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-16 19:50+0000\n"
-"PO-Revision-Date: 2019-07-19 11:09+0000\n"
-"Last-Translator: Francesco Lodolo <flod+pontoon@mozilla.com>\n"
+"PO-Revision-Date: 2019-07-21 08:40+0000\n"
+"Last-Translator: Davide Quaranta <dvd.forty@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -753,9 +753,8 @@ msgid "Remove"
 msgstr "Elimina"
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
-#, fuzzy
 msgid "Collector's note"
-msgstr "Nome della raccolta"
+msgstr "Nota dell’autore della raccolta"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
@@ -1846,9 +1845,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr "Uno strumento affidabile e leggero per bloccare la pubblicità. uBlock Origin filtra migliaia di contenuti senza pesare troppo sulla memoria."
 
 #: src/amo/pages/Guides/index.js:108
-#, fuzzy
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "Scopri altri %(linkStart)sstrumenti per bloccare le pubblicità%(linkEnd)s consigliati dallo staff."
+msgstr ""
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Stop online trackers from stalking you"
@@ -1865,9 +1863,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr "Isola la tua identità di Facebook in un “contenitore” separato per impedire al social network di tracciare la tua attività su altri siti."
 
 #: src/amo/pages/Guides/index.js:126
-#, fuzzy
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "Scopri altri strumenti relativi a %(linkStart)sprivacy e sicurezza%(linkEnd)s consigliati dallo staff."
+msgstr ""
 
 #: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
@@ -1886,9 +1883,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr "Disponi e visualizza le schede con una struttura ad “albero” nella barra laterale di Firefox."
 
 #: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
-#, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "Scopri altri %(linkStart)sstrumenti per bloccare le pubblicità%(linkEnd)s consigliati dallo staff."
+msgstr ""
 
 #: src/amo/pages/Guides/index.js:159
 msgid "Better browsing with improved bookmarks"
@@ -1900,12 +1896,11 @@ msgstr "Le estensioni possono aiutarti a organizzare i tuoi interessi online. I 
 
 #: src/amo/pages/Guides/index.js:164
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-msgstr ""
+msgstr "Un sistema migliore per organizzare i segnalibri in più cartelle."
 
 #: src/amo/pages/Guides/index.js:167
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "Scopri altri %(linkStart)sgestori di segnalibri%(linkEnd)s consigliati dallo staff."
+msgstr "Scopri altre estensioni per i %(linkStart)ssegnalibri%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:178
 msgid "Enjoy a fresh new tab experience"
@@ -1999,9 +1994,8 @@ msgid "Fully encrypted password protection. Store your data securely and access 
 msgstr "Protezione garantita dalla cifratura completa con password. Archivia i tuoi dati in modo sicuro e accedi alle tue credenziali di accesso da tutti i dispositivi."
 
 #: src/amo/pages/Guides/index.js:89
-#, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "Scopri altri %(linkStart)sgestori di password%(linkEnd)s consigliati dallo staff."
+msgstr ""
 
 #: src/amo/pages/Guides/index.js:97
 msgid "Block annoying ads"
@@ -2061,9 +2055,8 @@ msgid "See more popular themes"
 msgstr "Visualizza altri temi popolari"
 
 #: src/amo/pages/Home/index.js:301
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Visualizza altre estensioni per le schede"
+msgstr "Visualizza altre estensioni popolari"
 
 #: src/amo/pages/Home/index.js:320 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
@@ -2078,24 +2071,20 @@ msgid "See more trending extensions"
 msgstr "Visualizza altre estensioni di tendenza"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more enhanced privacy extensions"
-msgstr "Visualizza altre estensioni per il meteo"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:56
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "Estensioni per la privacy più votate"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "See more recommended password managers"
-msgstr "Visualizza altri temi consigliati"
+msgstr ""
 
 #: src/amo/pages/Home/index.js:62
-#, fuzzy
 msgid "Recommended password managers"
-msgstr "Gestione password"
+msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
