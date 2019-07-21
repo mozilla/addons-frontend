@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-16 19:50+0000\n"
-"PO-Revision-Date: 2019-07-21 12:13+0000\n"
+"PO-Revision-Date: 2019-07-21 12:16+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1860,7 +1860,7 @@ msgstr "Isolera din Facebook-identitet i en separat ”behållare” för att st
 
 #: src/amo/pages/Guides/index.js:126
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "Utforska fler rekommenderade %(linkStart)sintegritets & säkerhets%(linkEnd)s tillägg."
+msgstr "Utforska fler rekommenderade %(linkStart)sintegritets & säkerhetstillägg%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
@@ -1880,7 +1880,7 @@ msgstr "Ordna och visualisera dina flikar i ett kaskadartigt trädformat i Firef
 
 #: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "Utforska fler %(linkStart)s flik%(linkEnd)s tillägg."
+msgstr "Utforska fler %(linkStart)sfliktillägg%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:159
 msgid "Better browsing with improved bookmarks"
@@ -1896,7 +1896,7 @@ msgstr "Njut av ett bättre sätt att organisera dina bokmärken om du har hand 
 
 #: src/amo/pages/Guides/index.js:167
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "Utforska fler bra %(linkStart)sbokmärkes%(linkEnd)s hanterare."
+msgstr "Utforska fler bra %(linkStart)sbokmärkestillägg%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:178
 msgid "Enjoy a fresh new tab experience"
@@ -1986,7 +1986,7 @@ msgstr "Fullständigt krypterat lösenordsskydd. Spara dina data säkert och få
 
 #: src/amo/pages/Guides/index.js:89
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "Utforska fler bra %(linkStart)s lösenordshanterar%(linkEnd)s."
+msgstr "Utforska fler bra %(linkStart)slösenordshanterare%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:97
 msgid "Block annoying ads"
@@ -2061,7 +2061,7 @@ msgstr "Se fler trendiga utökningar"
 
 #: src/amo/pages/Home/index.js:55
 msgid "See more enhanced privacy extensions"
-msgstr "Se fler förbättrade integritets tillägg"
+msgstr "Se fler förbättrade integritetstillägg"
 
 #: src/amo/pages/Home/index.js:56
 msgid "Enhanced privacy extensions"
