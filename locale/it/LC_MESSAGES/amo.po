@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-16 19:50+0000\n"
-"PO-Revision-Date: 2019-07-21 08:40+0000\n"
+"PO-Revision-Date: 2019-07-21 08:36+0000\n"
 "Last-Translator: Davide Quaranta <dvd.forty@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1846,7 +1846,7 @@ msgstr "Uno strumento affidabile e leggero per bloccare la pubblicità. uBlock O
 
 #: src/amo/pages/Guides/index.js:108
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr ""
+msgstr "Scopri altri strumenti eccellenti per %(linkStart)sbloccare le pubblicità%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Stop online trackers from stalking you"
@@ -1884,7 +1884,7 @@ msgstr "Disponi e visualizza le schede con una struttura ad “albero” nella b
 
 #: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr ""
+msgstr "Scopri altre estensioni per le %(linkStart)sschede%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:159
 msgid "Better browsing with improved bookmarks"
@@ -2241,13 +2241,10 @@ msgid "A community of creators"
 msgstr "Una comunità di creativi"
 
 #: src/amo/pages/StaticPages/About/index.js:71
-#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
-"I componenti aggiuntivi che trovi su questo sito sono opera di migliaia di sviluppatori e designer da tutto il mondo molto diversi tra loro, dai singoli individui che si dedicano alla programmazione"
-" a livello amatoriale fino a grandi aziende informatiche. Alcuni dei componenti aggiuntivi di AMO vengono pubblicati in automatico, ma potrebbero essere sottoposti a revisione dopo la pubblicazione."
 
 #: src/amo/pages/StaticPages/About/index.js:80
 msgid "Get involved"
