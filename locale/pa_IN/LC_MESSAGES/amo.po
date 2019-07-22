@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-16 19:50+0000\n"
-"PO-Revision-Date: 2019-07-03 17:55+0000\n"
-"Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
+"PO-Revision-Date: 2019-07-22 18:11+0000\n"
+"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -419,7 +419,7 @@ msgstr "ਪੜਤਾਲ ਲਿਖੋ"
 
 #: src/amo/components/AddonReviewManager/index.js:111
 msgid "Write about your experience with this add-on."
-msgstr ""
+msgstr "ਇਸ ਐਡ-ਆਨ ਨਾਲ ਆਪਣਾ ਅਨੁਭਵ ਲਿਖੋ।"
 
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Submit review"
@@ -447,7 +447,7 @@ msgstr "ਸੰਭਾਲੀ ਗਈ"
 
 #: src/amo/components/AddonReviewManager/index.js:89
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "ਕਿਰਪਾ ਕਰਕੇ ਸਾਡੇ %(linkStart)s ਦੀ ਸਮੀਖਿਆ ਕਰੋ ਸੇਰਵਿਊ ਦਿਸ਼ਾ ਨਿਰਦੇਸ਼ਸ %(linkEnd)s ਦਾ ਪਾਲਣ ਕਰੋ।"
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
@@ -751,9 +751,8 @@ msgid "Remove"
 msgstr "ਹਟਾਓ"
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
-#, fuzzy
 msgid "Collector's note"
-msgstr "ਸੰਗ੍ਰਹਿ ਨਾਮ"
+msgstr "ਕੁਲੈਕਟਰ ਦੇ ਨੋਟ"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
@@ -857,19 +856,19 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this review"
-msgstr ""
+msgstr "ਇਸ ਸਮੀਖਿਆ ਨੂੰ ਨਿਸ਼ਾਨਬੱਧ ਕਰੋ"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
 msgid "Log in to flag this response"
-msgstr ""
+msgstr "ਇਸ ਜਵਾਬ ਨੂੰ ਨਿਸ਼ਾਨਬੱਧ ਕਰਨ ਲਈ ਲੌਗ ਇਨ ਕਰੋ"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
 msgid "Log in to flag this review"
-msgstr ""
+msgstr "ਇਸ ਸਮੀਖਿਆ ਨੂੰ ਨਿਸ਼ਾਨਬੱਧ ਕਰਨ ਲਈ ਲੌਗਇਨ ਕਰੋ"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "ਤੁਸੀਂ ਆਪਣਾ ਜਵਾਬ ਨਹੀਂ ਦਿਖਾ ਸਕਦੇ"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
@@ -881,7 +880,7 @@ msgstr "ਇਹ ਸਪੈਮ"
 
 #: src/amo/components/FlagReviewMenu/index.js:79
 msgid "Flagged as spam"
-msgstr ""
+msgstr "ਸਪੈਮ ਦੇ ਰੂਪ ਵਿੱਚ ਨਿਸ਼ਾਨਬੱਧ ਕੀਤਾ"
 
 #: src/amo/components/FlagReviewMenu/index.js:89
 msgid "This contains inappropriate language"
@@ -1120,7 +1119,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Display notifications to you"
-msgstr ""
+msgstr "ਤੁਹਾਨੂੰ ਸੂਚਨਾਵਾਂ ਦਿਖਾਉਣ"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Provide cryptographic authentication services"
@@ -1168,7 +1167,7 @@ msgstr ""
 
 #: src/amo/components/RatingManager/index.js:122
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "ਇਸ ਥੀਮ ਨੂੰ ਦਰਜਾ ਦੇਣ ਲਈ ਲੌਗਇਨ ਕਰੋ"
 
 #: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this extension"
@@ -1180,19 +1179,19 @@ msgstr "ਇਸ ਐਡ-ਆਨ ਦੀ ਰੇਟ ਕਰਨ ਲਈ ਲੌਗਇਨ �
 
 #: src/amo/components/RatingManager/index.js:173
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr ""
+msgstr "ਕੀ ਤੁਸੀਂ %(addonName)s ਦੀ ਆਪਣੀ ਸਮੀਖਿਆ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: src/amo/components/RatingManager/index.js:178
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr ""
+msgstr "ਕੀ ਤੁਸੀਂ ਨਿਸ਼ਚਤ ਰੂਪ ਤੋਂ ਆਪਣੀ %(addonName)s ਰੇਟਿੰਗ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: src/amo/components/RatingManager/index.js:183
 msgid "How are you enjoying %(addonName)s?"
-msgstr ""
+msgstr "ਤੁਸੀਂ %(addonName)s ਦਾ ਆਨੰਦ ਕਿਵੇਂ ਮਾਣ ਰਹੇ ਹੋ?"
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
-msgstr ""
+msgstr "ਸਟਾਰ ਰੇਟਿੰਗ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰ ਰਿਹਾ ਹੈ"
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
@@ -1236,7 +1235,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:174 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
-msgstr ""
+msgstr "ਦੁਰਵਿਵਹਾਰ ਰਿਪੋਰਟ ਭੇਜੋ"
 
 #: src/amo/components/ReportAbuseButton/index.js:175 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
@@ -1296,22 +1295,20 @@ msgid "Featured extensions"
 msgstr "ਖਾਸ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:338 src/amo/pages/LandingPage/index.js:178
-#, fuzzy
 msgid "Recommended themes"
-msgstr "ਖਾਸ ਥੀਮ"
+msgstr "ਸਿਫਾਰਸ਼ੀ ਥੀਮ"
 
 #: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:339 src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "ਖਾਸ ਥੀਮ"
 
 #: src/amo/components/Search/index.js:139
-#, fuzzy
 msgid "Recommended add-ons"
-msgstr "ਐਡ-ਆਨ ਲੱਭੋ"
+msgstr "ਸਿਫਾਰਸ਼ੀ ਐਡ-ਆਨ"
 
 #: src/amo/components/Search/index.js:140
 msgid "Featured add-ons"
-msgstr ""
+msgstr "ਫੀਚਰ ਐਡ-ਆਨ"
 
 #: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:353 src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
@@ -1331,11 +1328,11 @@ msgstr "ਸਿਖਰਲੀ ਦਰਜਾਬੰਦੀ ਦੇ ਵਾਧਰੇ"
 
 #: src/amo/components/Search/index.js:162 src/amo/pages/LandingPage/index.js:200
 msgid "Top rated themes"
-msgstr ""
+msgstr "ਸਿਖਰ ਤੇ ਦਿੱਤੇ ਗਏ ਵਿਸ਼ੇ"
 
 #: src/amo/components/Search/index.js:165
 msgid "Top rated add-ons"
-msgstr ""
+msgstr "ਸਿਖਰ ਤੇ ਐਡ-ਆਨ ਸ਼ਾਮਲ"
 
 #: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:300
 msgid "Popular extensions"
@@ -1407,7 +1404,7 @@ msgstr ""
 
 #: src/amo/components/SearchContextCard/index.js:186
 msgid "Searching for add-ons"
-msgstr ""
+msgstr "ਐਡ-ਆਨ ਲੱਭ ਰਿਹਾ ਹੈ"
 
 #: src/amo/components/SearchContextCard/index.js:60
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -1499,7 +1496,7 @@ msgstr "ਓਪਰੇਟਿੰਗ ਸਿਸਟਮ"
 
 #: src/amo/components/SearchFilters/index.js:268
 msgid "Recommended add-ons only"
-msgstr ""
+msgstr "ਸਿਰਫ ਸਿਫਾਰਸ਼ੀ ਐਡ-ਆਨ"
 
 #: src/amo/components/SearchFilters/index.js:269
 msgid "Featured add-ons only"
@@ -1544,9 +1541,8 @@ msgid "No results were found."
 msgstr ""
 
 #: src/amo/components/SearchSuggestion/index.js:57 src/ui/components/RecommendedBadge/index.js:28
-#, fuzzy
 msgid "Recommended"
-msgstr "ਵਰਤੋਂਕਾਰ ਟਿੱਪਣੀ"
+msgstr "ਸਿਫ਼ਾਰਸ਼ੀ"
 
 #: src/amo/components/SectionLinks/index.js:102 src/amo/pages/LandingPage/index.js:252
 msgid "Themes"
@@ -1712,15 +1708,15 @@ msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:230
 msgid "Show only five-star reviews"
-msgstr ""
+msgstr "ਕੇਵਲ ਪੰਜ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
 #: src/amo/pages/AddonReviewList/index.js:231
 msgid "Show only four-star reviews"
-msgstr ""
+msgstr "ਸਿਰਫ ਚਾਰ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
 #: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show only three-star reviews"
-msgstr ""
+msgstr "ਸਿਰਫ ਤਿੰਨ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
 #: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only two-star reviews"
@@ -1728,7 +1724,7 @@ msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only one-star reviews"
-msgstr ""
+msgstr "ਸਿਰਫ ਇੱਕ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
 #: src/amo/pages/AddonReviewList/index.js:276
 msgid "Reviews for %(addonName)s"
@@ -1742,7 +1738,7 @@ msgstr[1] "%(total)s ਸਮੀਖਿਆਵਾਂ"
 
 #: src/amo/pages/AddonReviewList/index.js:383
 msgid "There are no reviews"
-msgstr ""
+msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
 
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s version history - %(total)s version"
@@ -2025,9 +2021,8 @@ msgid "See more featured extensions"
 msgstr ""
 
 #: src/amo/pages/Home/index.js:280
-#, fuzzy
 msgid "See more popular themes"
-msgstr "ਪ੍ਰਸਿੱਧ ਥੀਮ"
+msgstr "ਵਧੇਰੇ ਪ੍ਰਸਿੱਧ ਥੀਮ ਵੇਖੋ"
 
 #: src/amo/pages/Home/index.js:301
 #, fuzzy
@@ -2101,15 +2096,15 @@ msgstr ""
 
 #: src/amo/pages/LanguageTools/index.js:108
 msgid "Available for your locale"
-msgstr ""
+msgstr "ਤੁਹਾਡੇ ਲੋਕੇਲ ਲਈ ਉਪਲਬਧ"
 
 #: src/amo/pages/LanguageTools/index.js:146
 msgid "Dictionaries and Language Packs"
-msgstr ""
+msgstr "ਸ਼ਬਦਕੋਸ਼ ਅਤੇ ਭਾਸ਼ਾ ਪੈਕ"
 
 #: src/amo/pages/LanguageTools/index.js:155
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਸ਼ਬਦਕੋਸ਼ ਅਤੇ ਭਾਸ਼ਾ ਪੈਕ ਐਕਸਟੈਂਸ਼ਨਾਂ ਡਾਊਨਲੋਡ ਕਰੋ। ਆਪਣੇ ਬ੍ਰਾਉਜ਼ਰ ਸਪੈੱਲ-ਚੈਕਰ ਲਈ ਨਵੀਂ ਭਾਸ਼ਾ ਵਿਕਲਪ ਜੋੜੋ, ਜਾਂ ਬ੍ਰਾਊਜ਼ਰ ਦੀ ਇੰਟਰਫੇਸ ਭਾਸ਼ਾ ਨੂੰ ਬਦਲੋ।"
 
 #: src/amo/pages/LanguageTools/index.js:166
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
