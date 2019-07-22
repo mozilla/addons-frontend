@@ -6,6 +6,7 @@ import AddonVersionCard, {
   AddonVersionCardBase,
 } from 'amo/components/AddonVersionCard';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
+import InstallWarning from 'amo/components/InstallWarning';
 import Link from 'amo/components/Link';
 import { setInstallError, setInstallState } from 'core/actions/installations';
 import { FATAL_ERROR, INSTALLING } from 'core/constants';
@@ -353,5 +354,26 @@ describe(__filename, () => {
     });
 
     expect(root.find(InstallButtonWrapper)).toHaveLength(0);
+  });
+
+  describe('InstallWarning', () => {
+    it('renders the InstallWarning if an add-on exists', () => {
+      const root = render({ addon: createInternalAddon(fakeAddon) });
+
+      expect(root.find(InstallWarning)).toHaveLength(1);
+    });
+
+    it('does not render the InstallWarning if an add-on does not exist', () => {
+      const root = render({ addon: undefined });
+
+      expect(root.find(InstallWarning)).toHaveLength(0);
+    });
+
+    it('passes the addon to the InstallWarning', () => {
+      const addon = createInternalAddon(fakeAddon);
+      const root = render({ addon });
+
+      expect(root.find(InstallWarning)).toHaveProp('addon', addon);
+    });
   });
 });

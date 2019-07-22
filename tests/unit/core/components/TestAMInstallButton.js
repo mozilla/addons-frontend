@@ -5,6 +5,10 @@ import AMInstallButton, {
   AMInstallButtonBase,
 } from 'core/components/AMInstallButton';
 import {
+  EXPERIMENT_CATEGORY_CLICK,
+  VARIANT_INCLUDE_WARNING,
+} from 'amo/components/InstallWarning';
+import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
@@ -417,6 +421,124 @@ describe(__filename, () => {
     sinon.assert.notCalled(enable);
     sinon.assert.calledOnce(event.preventDefault);
     sinon.assert.calledOnce(event.stopPropagation);
+  });
+
+  it('sends a tracking event for the install warning test when installing an extension', async () => {
+    const _tracking = createFakeTracking();
+    const addon = createInternalAddon({ ...fakeAddon, is_recommended: true });
+    const install = sinon.spy();
+    const variant = VARIANT_INCLUDE_WARNING;
+
+    const root = render({
+      _tracking,
+      addon,
+      isExperimentEnabled: true,
+      install,
+      variant,
+    });
+
+    const event = createFakeEvent();
+    const installButton = root.find('.AMInstallButton-button');
+
+    const onClick = installButton.prop('onClick');
+    await onClick(event);
+
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: variant,
+      category: `${EXPERIMENT_CATEGORY_CLICK}-recommended`,
+      label: addon.name,
+    });
+    sinon.assert.calledOnce(_tracking.sendEvent);
+  });
+
+  it('sends the expected category for a tracking event for a non-recommended extension', async () => {
+    const _tracking = createFakeTracking();
+    const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
+    const install = sinon.spy();
+    const variant = VARIANT_INCLUDE_WARNING;
+
+    const root = render({
+      _tracking,
+      addon,
+      isExperimentEnabled: true,
+      install,
+      variant,
+    });
+
+    const event = createFakeEvent();
+    const installButton = root.find('.AMInstallButton-button');
+
+    const onClick = installButton.prop('onClick');
+    await onClick(event);
+
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: variant,
+      category: `${EXPERIMENT_CATEGORY_CLICK}-not_recommended`,
+      label: addon.name,
+    });
+    sinon.assert.calledOnce(_tracking.sendEvent);
+  });
+
+  it('does not send a tracking event for the install warning test if the experiment is disabled', async () => {
+    const _tracking = createFakeTracking();
+    const install = sinon.spy();
+
+    const root = render({
+      _tracking,
+      addon: createInternalAddon(fakeAddon),
+      isExperimentEnabled: false,
+      install,
+      variant: VARIANT_INCLUDE_WARNING,
+    });
+
+    const event = createFakeEvent();
+    const installButton = root.find('.AMInstallButton-button');
+
+    const onClick = installButton.prop('onClick');
+    await onClick(event);
+
+    sinon.assert.notCalled(_tracking.sendEvent);
+  });
+
+  it('does not send a tracking event for the install warning test if there is no variant', async () => {
+    const _tracking = createFakeTracking();
+    const install = sinon.spy();
+
+    const root = render({
+      _tracking,
+      addon: createInternalAddon(fakeAddon),
+      isExperimentEnabled: true,
+      install,
+    });
+
+    const event = createFakeEvent();
+    const installButton = root.find('.AMInstallButton-button');
+
+    const onClick = installButton.prop('onClick');
+    await onClick(event);
+
+    sinon.assert.notCalled(_tracking.sendEvent);
+  });
+
+  it('does not send a tracking event for the install warning test for a theme', async () => {
+    const _tracking = createFakeTracking();
+    const install = sinon.spy();
+
+    const root = render({
+      _tracking,
+      addon: createInternalAddon(fakeTheme),
+      isExperimentEnabled: true,
+      install,
+      variant: VARIANT_INCLUDE_WARNING,
+    });
+
+    const event = createFakeEvent();
+    const installButton = root.find('.AMInstallButton-button');
+
+    const onClick = installButton.prop('onClick');
+    await onClick(event);
+
+    sinon.assert.notCalled(_tracking.sendEvent);
   });
 
   it('calls the `install` and `enable` helpers to install a static theme', async () => {

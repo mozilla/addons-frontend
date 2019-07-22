@@ -9,6 +9,7 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
 import AddonInstallError from 'amo/components/AddonInstallError';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
+import InstallWarning from 'amo/components/InstallWarning';
 import { INSTALL_SOURCE_GUIDES_PAGE } from 'core/constants';
 import { getAddonIconUrl } from 'core/imageUtils';
 import Card from 'ui/components/Card';
@@ -83,6 +84,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
               </div>
             </div>
           </div>
+          {addon && <InstallWarning addon={addon} />}
         </div>
       </Card>
     ) : null;

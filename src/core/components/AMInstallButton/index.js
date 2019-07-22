@@ -10,6 +10,12 @@ import { withRouter } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import {
+  EXPERIMENT_CATEGORY_CLICK,
+  EXPERIMENT_ID,
+  VARIANT_INCLUDE_WARNING,
+  VARIANT_EXCLUDE_WARNING,
+} from 'amo/components/InstallWarning';
+import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
@@ -34,6 +40,7 @@ import tracking, {
 } from 'core/tracking';
 import { isTheme } from 'core/utils';
 import { isFirefox } from 'core/utils/compatibility';
+import { withExperiment } from 'core/withExperiment';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 import type { AddonVersionType } from 'core/reducers/versions';
@@ -43,6 +50,7 @@ import type { UserAgentInfoType } from 'core/reducers/api';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterLocationType } from 'core/types/router';
+import type { WithExperimentInjectedProps } from 'core/withExperiment';
 import type { ButtonType } from 'ui/components/Button';
 
 import './styles.scss';
@@ -61,6 +69,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  ...WithExperimentInjectedProps,
   _config: typeof config,
   _log: typeof log,
   _tracking: typeof tracking,
@@ -130,7 +139,26 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
   };
 
   installExtension = async (event: SyntheticEvent<HTMLAnchorElement>) => {
-    const { addon, enable, install, isAddonEnabled } = this.props;
+    const {
+      _tracking,
+      addon,
+      enable,
+      isExperimentEnabled,
+      install,
+      isAddonEnabled,
+      variant,
+    } = this.props;
+
+    if (isExperimentEnabled && variant) {
+      const category = `${EXPERIMENT_CATEGORY_CLICK}-${
+        !addon.is_recommended ? 'not_' : ''
+      }recommended`;
+      _tracking.sendEvent({
+        action: variant,
+        category,
+        label: addon.name,
+      });
+    }
 
     event.preventDefault();
     event.stopPropagation();
@@ -378,6 +406,11 @@ const AMInstallButton: React.ComponentType<Props> = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
+  withExperiment({
+    id: EXPERIMENT_ID,
+    variantA: VARIANT_INCLUDE_WARNING,
+    variantB: VARIANT_EXCLUDE_WARNING,
+  }),
 )(AMInstallButtonBase);
 
 export default AMInstallButton;

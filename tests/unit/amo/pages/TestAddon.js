@@ -18,6 +18,7 @@ import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
+import InstallWarning from 'amo/components/InstallWarning';
 import RatingManager, {
   RatingManagerWithI18n,
 } from 'amo/components/RatingManager';
@@ -1608,5 +1609,37 @@ describe(__filename, () => {
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
+  });
+
+  describe('InstallWarning', () => {
+    let addon;
+    let store;
+
+    beforeEach(() => {
+      addon = fakeAddon;
+      store = dispatchClientMetadata().store;
+    });
+
+    it('renders the InstallWarning if an add-on exists', () => {
+      store.dispatch(_loadAddonResults({ addon }));
+      const root = renderComponent({ store });
+
+      expect(root.find(InstallWarning)).toHaveLength(1);
+    });
+
+    it('does not render the InstallWarning if an add-on does not exist', () => {
+      const root = renderComponent({ store });
+
+      expect(root.find(InstallWarning)).toHaveLength(0);
+    });
+
+    it('passes the addon to the InstallWarning', () => {
+      const internalAddon = createInternalAddon(addon);
+      store.dispatch(_loadAddonResults({ addon }));
+
+      const root = renderComponent({ addon: internalAddon, store });
+
+      expect(root.find(InstallWarning)).toHaveProp('addon', internalAddon);
+    });
   });
 });

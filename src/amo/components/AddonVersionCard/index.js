@@ -7,6 +7,7 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonInstallError from 'amo/components/AddonInstallError';
 import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
+import InstallWarning from 'amo/components/InstallWarning';
 import Link from 'amo/components/Link';
 import { INSTALL_SOURCE_DETAIL_PAGE } from 'core/constants';
 import translate from 'core/i18n/translate';
@@ -150,43 +151,48 @@ export const AddonVersionCardBase = (props: InternalProps) => {
 
   return (
     <li className="AddonVersionCard">
-      <div>
-        {headerText && (
-          <h1 className="AddonVersionCard-header">{headerText}</h1>
-        )}
+      <div className="AddonVersionCard-content">
+        <div>
+          {headerText && (
+            <h1 className="AddonVersionCard-header">{headerText}</h1>
+          )}
 
-        {version && <AddonInstallError error={installError} />}
-        {version && <AddonCompatibilityError addon={addon} version={version} />}
+          {version && <AddonInstallError error={installError} />}
+          {version && (
+            <AddonCompatibilityError addon={addon} version={version} />
+          )}
 
-        <h2 className="AddonVersionCard-version">{versionNumber}</h2>
-        {getFileInfoText()}
+          <h2 className="AddonVersionCard-version">{versionNumber}</h2>
+          {getFileInfoText()}
 
-        {versionInfo && (
-          <div className="AddonVersionCard-compatibility">
-            {versionInfo.compatibilityString}
-          </div>
-        )}
+          {versionInfo && (
+            <div className="AddonVersionCard-compatibility">
+              {versionInfo.compatibilityString}
+            </div>
+          )}
 
-        {version ? (
-          <div
-            className="AddonVersionCard-releaseNotes"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={sanitizeUserHTML(version.releaseNotes)}
+          {version ? (
+            <div
+              className="AddonVersionCard-releaseNotes"
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={sanitizeUserHTML(version.releaseNotes)}
+            />
+          ) : (
+            <LoadingText />
+          )}
+
+          {licenseSection}
+        </div>
+        {addon && version && (
+          <InstallButtonWrapper
+            addon={addon}
+            defaultInstallSource={INSTALL_SOURCE_DETAIL_PAGE}
+            getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+            version={version}
           />
-        ) : (
-          <LoadingText />
         )}
-
-        {licenseSection}
       </div>
-      {addon && version && (
-        <InstallButtonWrapper
-          addon={addon}
-          defaultInstallSource={INSTALL_SOURCE_DETAIL_PAGE}
-          getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
-          version={version}
-        />
-      )}
+      <div>{addon && <InstallWarning addon={addon} />}</div>
     </li>
   );
 };
