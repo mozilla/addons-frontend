@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-16 19:50+0000\n"
-"PO-Revision-Date: 2019-07-03 19:14+0000\n"
+"PO-Revision-Date: 2019-07-03 17:55+0000\n"
 "Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -499,7 +499,7 @@ msgstr "ਭਾਸ਼ਾ ਪੈਕ %(author)s ਦੁਆਰਾ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:288
 msgid "Language packs by these translators"
-msgstr ""
+msgstr "ਇਹਨਾਂ ਅਨੁਵਾਦਕਾਂ ਦੁਆਰਾ ਭਾਸ਼ਾ ਪੈਕ"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:296
 msgid "More themes by %(author)s"
@@ -817,7 +817,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr ""
+msgstr "ਸਰਵਰ ਗਲਤੀ"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:35
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -1128,23 +1128,23 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "ਬਰਾਊਜ਼ਰ ਪਰਾਕਸੀ ਸੈਟਿੰਗਾਂ ਨੂੰ ਕੰਟਰੋਲ ਕਰੋ"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "ਪਰਦੇਦਾਰੀ ਸੈਟਿੰਗਾਂ ਨੂੰ ਪੜ੍ਹਨ ਤੇ ਸੋਧਣ"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "ਹੁਣੇ ਹੀ ਬੰਦ ਕੀਤੀਆਂ ਟੈਬਾਂ ਲਈ ਪਹੁੰਚ"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser tabs"
-msgstr ""
+msgstr "ਬਰਾਊਜ਼ਰ ਟੈਬਾਂ ਲਈ ਪਹੁੰਚ"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "ਬਰਾਊਜ਼ਰ ਟੈਬਾਂ ਨੂੰ ਲੁਕਾਉਣ ਅਤੇ ਵੇਖਾਉਣ"
 
 #: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Store unlimited amount of client-side data"
