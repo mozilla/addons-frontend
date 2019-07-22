@@ -72,7 +72,7 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                 <p className="GuidesAddonCard-content-description">
                   {this.props.addonCustomText}
                 </p>
-                {addon && (
+                {addon && addon.is_recommended && (
                   <InstallButtonWrapper
                     addon={addon}
                     defaultInstallSource={INSTALL_SOURCE_GUIDES_PAGE}
@@ -82,6 +82,14 @@ export class GuidesAddonCardBase extends React.Component<InternalProps> {
                 )}
               </div>
             </div>
+            {addon && !addon.is_recommended && (
+              <InstallButtonWrapper
+                addon={addon}
+                defaultInstallSource={INSTALL_SOURCE_GUIDES_PAGE}
+                getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+                puffy={false}
+              />
+            )}
           </div>
         </div>
       </Card>
