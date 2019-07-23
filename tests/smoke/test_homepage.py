@@ -21,7 +21,7 @@ def selenium(base_url, selenium):
     selenium.get(base_url)
     WebDriverWait(selenium, 60).until(
         EC.visibility_of_element_located(
-            (By.CSS_SELECTOR, ".Hero-contents")
+            (By.CSS_SELECTOR, ".visually-hidden")
         )
     )
     return selenium
