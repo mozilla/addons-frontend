@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-02 19:16+0000\n"
+"POT-Creation-Date: 2019-07-23 19:22+0000\n"
 "PO-Revision-Date: 2019-07-03 12:47+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
@@ -51,10 +51,15 @@ msgid "Server Error"
 msgstr "Serverfout"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Sorry, maar er is een fout opgetreden, en uw aanvraag kon niet worden voltooid. We hebben deze fout vastgelegd en zullen hem onderzoeken."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Sorry, maar er is een fout opgetreden, en uw aanvraag kon niet worden "
+"voltooid. We hebben deze fout vastgelegd en zullen hem onderzoeken."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Foutcode: %(status)s."
 
@@ -171,20 +176,31 @@ msgstr "Personaliseer uw Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Er zijn duizenden gratis add-ons, gemaakt door ontwikkelaars van over de hele wereld, die u kunt installeren om uw Firefox te personaliseren. Variërend van leuke visuele thema’s tot krachtige "
-"hulpmiddelen die het browsen sneller en veiliger maken, maken add-ons uw browser persoonlijk. Om u op gang te helpen, zijn hier een paar add-ons die we aanbevelen vanwege hun uitstekende prestaties "
-"en functionaliteit."
+"Er zijn duizenden gratis add-ons, gemaakt door ontwikkelaars van over de "
+"hele wereld, die u kunt installeren om uw Firefox te personaliseren. "
+"Variërend van leuke visuele thema’s tot krachtige hulpmiddelen die het "
+"browsen sneller en veiliger maken, maken add-ons uw browser persoonlijk. Om "
+"u op gang te helpen, zijn hier een paar add-ons die we aanbevelen vanwege "
+"hun uitstekende prestaties en functionaliteit."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Meer lezen"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr "Enkele van deze aanbevelingen zijn gepersonaliseerd. Ze zijn gebaseerd op andere door u geïnstalleerde extensies, profielvoorkeuren en gebruiksstatistieken."
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"Enkele van deze aanbevelingen zijn gepersonaliseerd. Ze zijn gebaseerd op "
+"andere door u geïnstalleerde extensies, profielvoorkeuren en "
+"gebruiksstatistieken."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -213,7 +229,9 @@ msgstr "Voorbeeld van %(title)s"
 #~ msgstr "%(name)s wordt geïnstalleerd."
 
 #~ msgid "%(name)s is installed and enabled. Click to uninstall."
-#~ msgstr "%(name)s is geïnstalleerd en ingeschakeld. Klik om de add-on te verwijderen."
+#~ msgstr ""
+#~ "%(name)s is geïnstalleerd en ingeschakeld. Klik om de add-on te "
+#~ "verwijderen."
 
 #~ msgid "%(name)s is disabled. Click to enable."
 #~ msgstr "%(name)s is uitgeschakeld. Klik om de add-on in te schakelen."
@@ -240,7 +258,9 @@ msgstr "Voorbeeld van %(title)s"
 #~ msgstr "U kunt %(name)s nu benaderen vanaf de werkbalk."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te installeren"
+#~ msgstr ""
+#~ "Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te "
+#~ "installeren"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Houd de muisaanwijzer boven de afbeelding voor een voorbeeld"
