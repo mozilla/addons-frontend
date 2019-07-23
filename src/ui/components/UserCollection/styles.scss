@@ -12,6 +12,7 @@
 .UserCollection {
   grid-column: auto;
   list-style-type: none;
+  word-break : break-all;
 }
 
 .UserCollection-link {
