@@ -32,6 +32,9 @@ $icon-default-size: 32px;
   &:hover {
     color: $link-color;
   }
+
+  // This margin gives the recommended badge some space.
+  @include margin-end(8px);
 }
 
 .SearchResult-result {
@@ -133,22 +136,9 @@ $icon-default-size: 32px;
     margin-top: 6px;
   }
 
-  .SearchResult-recommendedBadgeSpacer {
-    display: none;
-  }
-
   @include respond-to(extraLarge) {
     flex-direction: row;
     margin-top: 0;
-
-    // Hold up! Before you get bummed about this spacer,
-    // consider how it's currently impossible to detect a flex
-    // wrapping event in CSS. The spacer exists to solve this
-    // wrapping problem: https://github.com/mozilla/addons-frontend/issues/8330
-    .SearchResult-recommendedBadgeSpacer {
-      display: inline-block;
-      width: 8px;
-    }
 
     .RecommendedBadge {
       margin-top: 0;
