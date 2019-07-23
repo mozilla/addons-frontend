@@ -130,17 +130,25 @@ describe(__filename, () => {
   });
 
   it('renders the user count', () => {
-    const root = render();
+    const root = render({ addon: { ...baseAddon, average_daily_users: 6233 } });
 
-    expect(root.find('.SearchResult-users')).toIncludeText('5,253 users');
+    expect(root.find('.SearchResult-users')).toIncludeText('6,233 users');
   });
 
   it('localises the user count', () => {
-    const root = render({ lang: 'fr' });
+    const root = render({
+      addon: { ...baseAddon, average_daily_users: 6233 },
+      lang: 'fr',
+    });
 
-    // `\u202F` is a narrow non-breaking space, see:
-    // https://www.fileformat.info/info/unicode/char/202f/index.htm
-    expect(root.find('.SearchResult-users-text')).toIncludeText('5\u202F253');
+    expect(
+      root
+        .find('.SearchResult-users-text')
+        .text()
+        // This handles `\u202F` which is a narrow non-breaking space, see:
+        // https://www.fileformat.info/info/unicode/char/202f/index.htm
+        .replace(/\s/g, ' '),
+    ).toContain('6 233');
   });
 
   it('renders the user count as singular', () => {
