@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-16 19:50+0000\n"
-"PO-Revision-Date: 2019-07-23 22:49+0000\n"
+"PO-Revision-Date: 2019-07-23 22:55+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -812,8 +812,8 @@ msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
-"Se tem informação adicional que nos pode ajudar, pode <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">submeter um problema</a>. Diga-nos que passos deu que levaram ao erro e "
-"faremos o nosso melhor para corrigir."
+"Se você tem informações adicionais que podem nos ajudar, pode <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">registrar um problema</a>. Diga-nos que passos o levaram ao erro e "
+"faremos o possível para corrigir."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -1065,7 +1065,7 @@ msgstr "Esta extensão pode:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr "Saiba mais sobre as permissões"
+msgstr "Saiba mais sobre permissões"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Read and modify bookmarks"
