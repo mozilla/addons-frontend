@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-16 19:50+0000\n"
+"POT-Creation-Date: 2019-07-23 19:18+0000\n"
 "PO-Revision-Date: 2019-04-17 01:46+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -987,12 +987,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "버그 신고 또는 지원 요청으로 표시됨"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "표시하기"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "표시됨"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "표시하기"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 #, fuzzy
@@ -1756,12 +1756,12 @@ msgstr "부가 기능 페이지로 가기"
 msgid "No theme preview available"
 msgstr "테마 미리보기가 없습니다"
 
-#: src/amo/components/SearchResult/index.js:202
+#: src/amo/components/SearchResult/index.js:205
 #, fuzzy
 msgid "Add-on note"
 msgstr "추가 기능 아이콘"
 
-#: src/amo/components/SearchResult/index.js:222
+#: src/amo/components/SearchResult/index.js:225
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s명의 사용자"

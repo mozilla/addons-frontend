@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-16 19:50+0000\n"
+"POT-Creation-Date: 2019-07-23 19:18+0000\n"
 "PO-Revision-Date: 2019-07-11 07:58+0000\n"
 "Last-Translator: Rok Žerdin <zerdo90@gmail.com>\n"
 "Language-Team: none\n"
@@ -963,12 +963,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Označeno kot poročilo o napaki ali zahteva za podporo"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Prijavi"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Prijavljeno"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Prijavi"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1719,11 +1719,11 @@ msgstr "Pojdi na stran dodatka"
 msgid "No theme preview available"
 msgstr "Predogled teme ni na voljo"
 
-#: src/amo/components/SearchResult/index.js:202
+#: src/amo/components/SearchResult/index.js:205
 msgid "Add-on note"
 msgstr "Opomba dodatka"
 
-#: src/amo/components/SearchResult/index.js:222
+#: src/amo/components/SearchResult/index.js:225
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s uporabnik"

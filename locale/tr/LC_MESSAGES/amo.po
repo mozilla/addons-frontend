@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-16 19:50+0000\n"
+"POT-Creation-Date: 2019-07-23 19:18+0000\n"
 "PO-Revision-Date: 2019-07-05 13:08+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -957,12 +957,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Hata raporu veya destek isteği olarak işaretlendi"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "İşaretle"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "İşaretlendi"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "İşaretle"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1711,11 +1711,11 @@ msgstr "Eklentinin sayfasına git"
 msgid "No theme preview available"
 msgstr "Tema ön izlemesi yok"
 
-#: src/amo/components/SearchResult/index.js:202
+#: src/amo/components/SearchResult/index.js:205
 msgid "Add-on note"
 msgstr "Eklenti notu"
 
-#: src/amo/components/SearchResult/index.js:222
+#: src/amo/components/SearchResult/index.js:225
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s kullanıcı"

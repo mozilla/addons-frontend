@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-16 19:50+0000\n"
+"POT-Creation-Date: 2019-07-23 19:18+0000\n"
 "PO-Revision-Date: 2019-07-10 08:37+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -973,12 +973,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "بگ رپورٹ یا سپورٹ کی درخواست کے طور پر نشان لگا دیا گیا"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "پرچم"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "نشان لگا دیا گیا"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "پرچم"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1729,12 +1729,12 @@ msgstr "اضافہ جات کے صفحہ پر جائیں"
 msgid "No theme preview available"
 msgstr "خیالیہ کا کوئی بھی پیش منظر دستیاب نہیں"
 
-#: src/amo/components/SearchResult/index.js:202
+#: src/amo/components/SearchResult/index.js:205
 #, fuzzy
 msgid "Add-on note"
 msgstr "ایڈ ان آئکن"
 
-#: src/amo/components/SearchResult/index.js:222
+#: src/amo/components/SearchResult/index.js:225
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s صارف"
