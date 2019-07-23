@@ -29,4 +29,5 @@ def selenium(base_url, selenium):
 
 @pytest.mark.nondestructive
 def test_hidden_class_is_found(selenium):
+    """Test hidden element is found."""
     selenium.find_element(By.CSS_SELECTOR, ".visually-hidden")
