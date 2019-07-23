@@ -28,18 +28,5 @@ def selenium(base_url, selenium):
 
 
 @pytest.mark.nondestructive
-def test_hero_section_loads(selenium):
-    """Test hero section loads categories."""
-    hero = selenium.find_element_by_class_name("Hero-contents")
-    hero_elements = hero.find_elements_by_class_name("HeroSection")
-    assert len(hero_elements) == 3
-
-
-@pytest.mark.nondestructive
-def test_recommends_load(selenium):
-    """Test recommended extensions load."""
-    card = selenium.find_element(
-        By.CSS_SELECTOR, ".Home-RecommendedExtensions .AddonsCard-list"
-    )
-    elements = card.find_elements(By.CSS_SELECTOR, ".AddonsCard-list li")
-    assert len(elements) == 4
+def test_hidden_class_is_found(selenium):
+    selenium.find_element(By.CSS_SELECTOR, ".visually-hidden")

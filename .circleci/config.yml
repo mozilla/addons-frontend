@@ -42,7 +42,7 @@ jobs:
           name: Test Image
           command: |
             docker run --net "host" --detach addons-frontend yarn amo:dev
-            tox -e ui-smoke-tests
+            tox -e smoke-tests
       - run:
           name: Write the sha256 sum to an artifact for verification
           command: |
@@ -97,7 +97,7 @@ jobs:
           name: Test Image
           command: |
             docker run --net "host" --detach addons-frontend yarn amo:dev
-            tox -e ui-smoke-tests
+            tox -e smoke-tests
       - run:
           name: Write the sha256 sum to an artifact for verification
           command: |
