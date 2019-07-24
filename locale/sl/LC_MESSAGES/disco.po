@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-02 19:16+0000\n"
+"POT-Creation-Date: 2019-07-23 19:22+0000\n"
 "PO-Revision-Date: 2019-07-11 07:56+0000\n"
 "Last-Translator: Rok Žerdin <zerdo90@gmail.com>\n"
 "Language-Team: none\n"
@@ -11,7 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
 #: src/core/components/AMInstallButton/index.js:211
@@ -51,10 +52,15 @@ msgid "Server Error"
 msgstr "Napaka strežnika"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Žal je prišlo do napake in vaše zahteve nismo mogli izpolniti. Napako smo zabeležili in se ji bomo posvetili."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Žal je prišlo do napake in vaše zahteve nismo mogli izpolniti. Napako smo "
+"zabeležili in se ji bomo posvetili."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Koda napake: %(status)s."
 
@@ -171,19 +177,29 @@ msgstr "Prikrojite Firefox po svoji meri"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Razvijalci širom sveta so ustvarili na tisoče dodatkov, s katerimi si lahko prilagodite Firefox. Od zabavnih grafičnih tem do zmogljivih orodij, ki napravijo vaše brskanje hitrejše in varnejše — "
-"dodatki naredijo vaš Firefox čisto vaš. Za začetek lahko preskusite naslednje, ki jih priporočamo zaradi izredne zmogljivosti in uporabnosti."
+"Razvijalci širom sveta so ustvarili na tisoče dodatkov, s katerimi si lahko "
+"prilagodite Firefox. Od zabavnih grafičnih tem do zmogljivih orodij, ki "
+"napravijo vaše brskanje hitrejše in varnejše — dodatki naredijo vaš Firefox "
+"čisto vaš. Za začetek lahko preskusite naslednje, ki jih priporočamo zaradi "
+"izredne zmogljivosti in uporabnosti."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Več o tem"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr "Nekatera od teh priporočil so prilagojena. Temeljijo na drugih razširitvah, ki ste jih namestili, nastavitvah profila in statistiki uporabe."
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"Nekatera od teh priporočil so prilagojena. Temeljijo na drugih razširitvah, "
+"ki ste jih namestili, nastavitvah profila in statistiki uporabe."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -239,7 +255,8 @@ msgstr "Predogled %(title)s"
 #~ msgstr "Sedaj lahko do %(name)s dostopate iz orodne vrstice."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "Pridržite miškin kazalec za predogled ali kliknite, da namestite %(name)s"
+#~ msgstr ""
+#~ "Pridržite miškin kazalec za predogled ali kliknite, da namestite %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Premaknite miško nad sliko za predogled"
