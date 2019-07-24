@@ -271,8 +271,10 @@ module.exports = {
     en: 'en-US',
     pt: 'pt-PT',
   },
-  // Map of short langs to longer ones.
+  // Map of langs, usually short to longer ones but can also be used to
+  // redirect long langs to shorter ones.
   langMap: {
+    'bn-BD': 'bn',
     en: 'en-US',
     ga: 'ga-IE',
     pt: 'pt-PT',
