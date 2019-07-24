@@ -14,20 +14,8 @@ def firefox_options(firefox_options):
     return firefox_options
 
 
-@pytest.fixture
-def selenium(base_url, selenium):
-    """Set up selenium."""
-    # Simple wait for homepage to load
-    selenium.get(base_url)
-    WebDriverWait(selenium, 60).until(
-        EC.visibility_of_element_located(
-            (By.CSS_SELECTOR, ".do-not-remove")
-        )
-    )
-    return selenium
-
-
 @pytest.mark.nondestructive
-def test_hidden_class_is_found(selenium):
+def test_hidden_class_is_found(base_url, selenium):
     """Test hidden element is found."""
+    selenium.get(base_url)
     assert "<!-- Godzilla of browsers -->" in selenium.page_source
