@@ -5,6 +5,7 @@ import invariant from 'invariant';
 import { withCookies, Cookies } from 'react-cookie';
 
 import log from 'core/logger';
+import tracking from 'core/tracking';
 import { getDisplayName } from 'core/utils';
 
 export type WithExperimentInjectedProps = {|
@@ -17,6 +18,7 @@ type CookieConfig = {|
 |};
 
 type withExperimentProps = {|
+  _tracking?: typeof tracking,
   cookieConfig?: CookieConfig,
   id: string,
   variantA: string,
@@ -34,6 +36,7 @@ type withExperimentInternalProps = {|
 const defaultCookieConfig: CookieConfig = { path: '/' };
 
 export const withExperiment = ({
+  _tracking = tracking,
   cookieConfig = defaultCookieConfig,
   id: defaultId,
   variantA: defaultVariantA,
@@ -64,13 +67,19 @@ export const withExperiment = ({
         return;
       }
 
-      const { cookies, randomizer, variantA, variantB } = this.props;
+      const { cookies, id, randomizer, variantA, variantB } = this.props;
 
       this.experimentCookie = cookies.get(this.getCookieName());
 
       if (this.experimentCookie === undefined) {
-        this.experimentCookie = randomizer() >= 0.5 ? variantA : variantB;
+        const variant = randomizer() >= 0.5 ? variantA : variantB;
+        this.experimentCookie = variant;
         cookies.set(this.getCookieName(), this.experimentCookie, cookieConfig);
+        // send an enrollment event
+        _tracking.sendEvent({
+          action: variant,
+          category: `AMO Experiment enrollment - id: ${id}`,
+        });
       }
     }
 
