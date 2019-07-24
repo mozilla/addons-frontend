@@ -145,7 +145,9 @@ describe(__filename, () => {
       root
         .find('.SearchResult-users-text')
         .text()
-        // This handles `\u202F` which is a narrow non-breaking space, see:
+        // This regex handles `\u202F` which is a narrow,
+        // non-breaking space. The actual character varies between
+        // platform and Node.JS version. More info:
         // https://www.fileformat.info/info/unicode/char/202f/index.htm
         .replace(/\s/g, ' '),
     ).toContain('6 233');
