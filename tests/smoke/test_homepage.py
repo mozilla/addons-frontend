@@ -21,7 +21,7 @@ def selenium(base_url, selenium):
     selenium.get(base_url)
     WebDriverWait(selenium, 60).until(
         EC.visibility_of_element_located(
-            (By.CSS_SELECTOR, ".visually-hidden")
+            (By.CSS_SELECTOR, ".do-not-remove")
         )
     )
     return selenium
@@ -30,4 +30,4 @@ def selenium(base_url, selenium):
 @pytest.mark.nondestructive
 def test_hidden_class_is_found(selenium):
     """Test hidden element is found."""
-    selenium.find_element(By.CSS_SELECTOR, ".visually-hidden")
+    assert "<!-- Godzilla of browsers -->" in selenium.page_source
