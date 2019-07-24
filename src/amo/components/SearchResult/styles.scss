@@ -18,6 +18,9 @@ $icon-default-size: 32px;
 }
 
 .SearchResult-link {
+  // This margin gives the recommended badge some space.
+  @include margin-end(8px);
+
   text-decoration: none;
   word-wrap: anywhere;
 
@@ -32,9 +35,6 @@ $icon-default-size: 32px;
   &:hover {
     color: $link-color;
   }
-
-  // This margin gives the recommended badge some space.
-  @include margin-end(8px);
 }
 
 .SearchResult-result {
