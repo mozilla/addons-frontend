@@ -24,6 +24,7 @@ import {
   finishCollectionModification,
   finishEditingCollectionDetails,
   fetchCurrentCollectionPage as fetchCurrentCollectionPageAction,
+  fetchUserCollections as fetchUserCollectionsAction,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
@@ -187,6 +188,13 @@ export function* addAddonToCollection({
           errorHandlerId: errorHandler.id,
           filters,
           slug,
+          userId,
+        }),
+      );
+    } else {
+      yield put(
+        fetchUserCollectionsAction({
+          errorHandlerId: errorHandler.id,
           userId,
         }),
       );
