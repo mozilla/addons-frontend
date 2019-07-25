@@ -39,11 +39,6 @@ jobs:
       - run: docker build --pull -t addons-frontend .
       - run: docker images
       - run:
-          name: Test Image
-          command: |
-            docker run --net "host" --detach addons-frontend yarn amo:dev
-            tox -e smoke-tests
-      - run:
           name: Write the sha256 sum to an artifact for verification
           command: |
             docker images --no-trunc | awk '/^app/ {print $3}' | sudo tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt
@@ -61,6 +56,18 @@ jobs:
             docker tag addons-frontend $DOCKERHUB_REPO:$CIRCLE_TAG
             docker images
             docker push $DOCKERHUB_REPO:$CIRCLE_TAG
+      - run:
+          name: Set hosts
+          command: |
+            echo 127.0.0.1 olympia.test | sudo tee -a /etc/hosts
+            cat /etc/hosts
+      - run:
+          name: Test Image
+          environment:
+            MOZ_HEADLESS: 1
+          command: |
+            ./tests/smoke/setup_docker.sh
+            tox -e smoke-tests
   release-master: # build for the master branch and tags
     machine:
       image: ubuntu-1604:201903-01
@@ -94,11 +101,6 @@ jobs:
       - run: docker build --pull -t addons-frontend .
       - run: docker images
       - run:
-          name: Test Image
-          command: |
-            docker run --net "host" --detach addons-frontend yarn amo:dev
-            tox -e smoke-tests
-      - run:
           name: Write the sha256 sum to an artifact for verification
           command: |
             docker images --no-trunc | awk '/^app/ {print $3}' | sudo tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt
@@ -114,6 +116,18 @@ jobs:
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker tag addons-frontend $DOCKERHUB_REPO:latest
             docker push $DOCKERHUB_REPO:latest
+      - run:
+          name: Set hosts
+          command: |
+            echo 127.0.0.1 olympia.test | sudo tee -a /etc/hosts
+            cat /etc/hosts
+      - run:
+          name: Test Image
+          environment:
+            MOZ_HEADLESS: 1
+          command: |
+            ./tests/smoke/setup_docker.sh
+            tox -e smoke-tests
   integration-test:
     working_directory: ~/addons-frontend
     machine:
