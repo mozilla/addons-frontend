@@ -12,7 +12,7 @@ def firefox_options(firefox_options):
 
 
 @pytest.mark.nondestructive
-def test_hidden_class_is_found(base_url, selenium):
+def test_hidden_comment_is_found(base_url, selenium):
     """Test hidden element is found."""
     selenium.get(base_url)
     assert "<!-- Godzilla of browsers -->" in selenium.page_source
