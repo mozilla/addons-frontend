@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-23 19:18+0000\n"
-"PO-Revision-Date: 2019-07-26 13:53+0000\n"
+"PO-Revision-Date: 2019-07-26 21:32+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -1740,7 +1740,7 @@ msgstr "Относно добавката"
 
 #: src/amo/pages/Addon/index.js:319
 msgid "Release notes for %(addonVersion)s"
-msgstr "Бележки по изданието за %(addonVersion)s"
+msgstr "Бележки към изданието на %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:448
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
