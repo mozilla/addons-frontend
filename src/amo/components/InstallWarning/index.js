@@ -4,15 +4,18 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import type { AppState } from 'amo/store';
+import { hasAddonManager } from 'core/addonManager';
 import { ADDON_TYPE_EXTENSION, UNINSTALLED, UNKNOWN } from 'core/constants';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import tracking from 'core/tracking';
+import { isFirefox } from 'core/utils/compatibility';
 import { withExperiment } from 'core/withExperiment';
 import Notice from 'ui/components/Notice';
+import type { UserAgentInfoType } from 'core/reducers/api';
+import type { InstalledAddon } from 'core/reducers/installations';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
-import type { InstalledAddon } from 'core/reducers/installations';
 import type { WithExperimentInjectedProps } from 'core/withExperiment';
 
 import './styles.scss';
@@ -21,38 +24,16 @@ type Props = {|
   addon: AddonType,
 |};
 
-type CouldShowWarningParams = {|
-  addonIsExtension: boolean,
-  addonIsRecommended: boolean | void,
-  experimentIsEnabled: $PropertyType<
-    WithExperimentInjectedProps,
-    'experimentIsEnabled',
-  >,
-  installStatus: $PropertyType<InstalledAddon, 'status'>,
-|};
-
-export const couldShowWarning = ({
-  addonIsExtension,
-  addonIsRecommended,
-  experimentIsEnabled,
-  installStatus,
-}: CouldShowWarningParams) => {
-  return (
-    addonIsExtension &&
-    !addonIsRecommended &&
-    experimentIsEnabled &&
-    [UNINSTALLED, UNKNOWN].includes(installStatus)
-  );
-};
-
 type InternalProps = {|
   ...Props,
   ...WithExperimentInjectedProps,
-  _couldShowWarning: typeof couldShowWarning,
+  _couldShowWarning?: () => boolean,
+  _hasAddonManager: typeof hasAddonManager,
   _log: typeof log,
   _tracking: typeof tracking,
   i18n: I18nType,
   installStatus: $PropertyType<InstalledAddon, 'status'>,
+  userAgentInfo: UserAgentInfoType,
 |};
 
 export const EXPERIMENT_CATEGORY_CLICK =
@@ -68,30 +49,34 @@ export const VARIANT_EXCLUDE_WARNING = 'excludeWarning';
 
 export class InstallWarningBase extends React.Component<InternalProps> {
   static defaultProps = {
-    _couldShowWarning: couldShowWarning,
+    _hasAddonManager: hasAddonManager,
     _log: log,
     _tracking: tracking,
   };
 
-  maybeSendDisplayTrackingEvent = () => {
+  couldShowWarning = () => {
     const {
       _couldShowWarning,
-      _tracking,
+      _hasAddonManager,
       addon,
       experimentIsEnabled,
       installStatus,
-      variant,
+      userAgentInfo,
     } = this.props;
+    return _couldShowWarning
+      ? _couldShowWarning()
+      : isFirefox({ userAgentInfo }) &&
+          addon.type === ADDON_TYPE_EXTENSION &&
+          !addon.is_recommended &&
+          experimentIsEnabled &&
+          (!_hasAddonManager() ||
+            [UNINSTALLED, UNKNOWN].includes(installStatus));
+  };
 
-    if (
-      _couldShowWarning({
-        addonIsExtension: addon.type === ADDON_TYPE_EXTENSION,
-        addonIsRecommended: addon.is_recommended,
-        experimentIsEnabled,
-        installStatus,
-      }) &&
-      variant
-    ) {
+  maybeSendDisplayTrackingEvent = () => {
+    const { _tracking, addon, variant } = this.props;
+
+    if (this.couldShowWarning() && variant) {
       _tracking.sendEvent({
         action: variant,
         category: EXPERIMENT_CATEGORY_DISPLAY,
@@ -125,24 +110,9 @@ export class InstallWarningBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const {
-      _couldShowWarning,
-      addon,
-      experimentIsEnabled,
-      i18n,
-      installStatus,
-      variant,
-    } = this.props;
+    const { i18n, variant } = this.props;
 
-    if (
-      _couldShowWarning({
-        addonIsExtension: addon.type === ADDON_TYPE_EXTENSION,
-        addonIsRecommended: addon.is_recommended,
-        experimentIsEnabled,
-        installStatus,
-      }) &&
-      variant === VARIANT_INCLUDE_WARNING
-    ) {
+    if (this.couldShowWarning() && variant === VARIANT_INCLUDE_WARNING) {
       return (
         <Notice
           actionHref="https://support.mozilla.org/kb/recommended-extensions-program"
@@ -166,6 +136,7 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
 
   return {
     installStatus: installedAddon.status,
+    userAgentInfo: state.api.userAgentInfo,
   };
 };
 

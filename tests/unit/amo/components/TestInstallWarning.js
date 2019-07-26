@@ -6,7 +6,6 @@ import InstallWarning, {
   INSTALL_WARNING_EXPERIMENT_DIMENSION,
   VARIANT_INCLUDE_WARNING,
   VARIANT_EXCLUDE_WARNING,
-  couldShowWarning,
   InstallWarningBase,
 } from 'amo/components/InstallWarning';
 import { setInstallState } from 'core/actions/installations';
@@ -26,6 +25,7 @@ import {
   fakeInstalledAddon,
   getFakeLogger,
   shallowUntilTarget,
+  userAgentsByPlatform,
 } from 'tests/unit/helpers';
 import Notice from 'ui/components/Notice';
 
@@ -33,7 +33,9 @@ describe(__filename, () => {
   let store;
 
   beforeEach(() => {
-    store = dispatchClientMetadata().store;
+    store = dispatchClientMetadata({
+      userAgent: userAgentsByPlatform.mac.firefox57,
+    }).store;
   });
 
   const render = (props = {}) => {
@@ -61,62 +63,105 @@ describe(__filename, () => {
   };
 
   describe('couldShowWarning', () => {
+    const addonThatWouldShowWarning = {
+      ...fakeAddon,
+      is_recommended: false,
+      type: ADDON_TYPE_EXTENSION,
+    };
+
+    // This will render the component with values needed to allow
+    // couldShowWarning to be true.
+    const renderWithWarning = (props = {}) => {
+      return render({
+        _hasAddonManager: sinon.stub().returns(false),
+        addon: createInternalAddon(addonThatWouldShowWarning),
+        experimentIsEnabled: true,
+        ...props,
+      });
+    };
+
+    // This is a test for the happy path, but also serves as a sanity test for
+    // renderWithWarning returning the happy path.
+    it('returns true if the experiment is enabled, the userAgent is Firefox, and the add-on is an extension and is not recommended', () => {
+      const component = renderWithWarning();
+
+      expect(component.instance().couldShowWarning()).toEqual(true);
+    });
+
     it.each([UNINSTALLED, UNKNOWN])(
-      `returns true if the add-on is an extension, is not recommended, has a status of %s, and the experiment is enabled`,
+      `returns true if mozAddonManager exists and the add-on has a status of %s`,
       (installStatus) => {
-        expect(
-          couldShowWarning({
-            addonIsExtension: true,
-            addonIsRecommended: false,
-            experimentIsEnabled: true,
-            installStatus,
-          }),
-        ).toEqual(true);
+        const addon = addonThatWouldShowWarning;
+        _setInstallStatus({ addon, status: installStatus });
+
+        const component = renderWithWarning({
+          _hasAddonManager: sinon.stub().returns(true),
+          addon: createInternalAddon(addon),
+        });
+
+        expect(component.instance().couldShowWarning()).toEqual(true);
       },
     );
 
+    it('returns true regardless of status if there is no mozAddonManager', () => {
+      const component = renderWithWarning({
+        _hasAddonManager: sinon.stub().returns(false),
+      });
+
+      expect(component.instance().couldShowWarning()).toEqual(true);
+    });
+
     it('returns false if the add-on is not an extension', () => {
-      expect(
-        couldShowWarning({
-          addonIsExtension: false,
-          addonIsRecommended: true,
-          experimentIsEnabled: true,
-          installStatus: UNINSTALLED,
+      const component = renderWithWarning({
+        addon: createInternalAddon({
+          ...addonThatWouldShowWarning,
+          type: ADDON_TYPE_STATIC_THEME,
         }),
-      ).toEqual(false);
+      });
+
+      expect(component.instance().couldShowWarning()).toEqual(false);
     });
 
     it('returns false if the add-on is recommended', () => {
-      expect(
-        couldShowWarning({
-          addonIsExtension: true,
-          addonIsRecommended: true,
-          experimentIsEnabled: true,
-          installStatus: UNINSTALLED,
+      const component = renderWithWarning({
+        addon: createInternalAddon({
+          ...addonThatWouldShowWarning,
+          is_recommended: true,
         }),
-      ).toEqual(false);
+      });
+
+      expect(component.instance().couldShowWarning()).toEqual(false);
     });
 
-    it('returns false if the addon does not have a status of UNINSTALLED or UNKNOWN', () => {
-      expect(
-        couldShowWarning({
-          addonIsExtension: true,
-          addonIsRecommended: false,
-          experimentIsEnabled: true,
-          installStatus: INSTALLED,
-        }),
-      ).toEqual(false);
+    it('returns false if mozAddonManager exists and the addon does not have a status of UNINSTALLED or UNKNOWN', () => {
+      const addon = addonThatWouldShowWarning;
+      _setInstallStatus({ addon, status: INSTALLED });
+
+      const component = renderWithWarning({
+        _hasAddonManager: sinon.stub().returns(true),
+        addon: createInternalAddon(addon),
+      });
+
+      expect(component.instance().couldShowWarning()).toEqual(false);
     });
 
     it('returns false if the experiment is disabled', () => {
-      expect(
-        couldShowWarning({
-          addonIsExtension: true,
-          addonIsRecommended: false,
-          experimentIsEnabled: false,
-          installStatus: UNINSTALLED,
-        }),
-      ).toEqual(false);
+      const component = renderWithWarning({
+        experimentIsEnabled: false,
+      });
+
+      expect(component.instance().couldShowWarning()).toEqual(false);
+    });
+
+    it('returns false if the userAgent is not Firefox', () => {
+      dispatchClientMetadata({
+        store,
+        userAgent: userAgentsByPlatform.mac.chrome41,
+      });
+
+      const component = renderWithWarning({ store });
+
+      expect(component.instance().couldShowWarning()).toEqual(false);
     });
   });
 
@@ -145,53 +190,24 @@ describe(__filename, () => {
     );
   });
 
-  it('passes installStatus to couldShowWarning on mount', () => {
+  it('calls couldShowWarning on mount', () => {
     const _couldShowWarning = sinon.spy();
-    const isRecommended = false;
-    const experimentIsEnabled = true;
-    const installStatus = UNINSTALLED;
-    const addon = { ...fakeAddon, is_recommended: isRecommended };
-    _setInstallStatus({ addon, status: installStatus });
 
-    render({
-      _couldShowWarning,
-      addon: createInternalAddon(addon),
-      experimentIsEnabled,
-      variant: VARIANT_INCLUDE_WARNING,
-    });
+    render({ _couldShowWarning });
 
-    sinon.assert.calledWith(_couldShowWarning, {
-      addonIsExtension: true,
-      addonIsRecommended: isRecommended,
-      experimentIsEnabled,
-      installStatus,
-    });
+    sinon.assert.called(_couldShowWarning);
   });
 
-  it('passes installStatus to couldShowWarning on update', () => {
+  it('calls couldShowWarning on update', () => {
     const _couldShowWarning = sinon.spy();
-    const isRecommended = false;
-    const experimentIsEnabled = true;
-    const installStatus = UNINSTALLED;
-    const addon = { ...fakeAddon, is_recommended: isRecommended };
 
-    const root = render({
-      _couldShowWarning,
-      addon: createInternalAddon(addon),
-      experimentIsEnabled,
-      variant: VARIANT_INCLUDE_WARNING,
-    });
+    const root = render({ _couldShowWarning });
 
     _couldShowWarning.resetHistory();
 
-    root.setProps({ installStatus });
+    root.setProps({ installStatus: INSTALLED });
 
-    sinon.assert.calledWith(_couldShowWarning, {
-      addonIsExtension: true,
-      addonIsRecommended: isRecommended,
-      experimentIsEnabled,
-      installStatus,
-    });
+    sinon.assert.called(_couldShowWarning);
   });
 
   describe('display tracking event', () => {
@@ -292,33 +308,6 @@ describe(__filename, () => {
     });
     expect(root.find(Notice)).toHaveLength(1);
   });
-
-  it.each([[true, ADDON_TYPE_EXTENSION], [false, ADDON_TYPE_STATIC_THEME]])(
-    `passes addonIsExtension = %s to couldShowWarning on render for type: %s`,
-    (expected, type) => {
-      const _couldShowWarning = sinon.spy();
-      const experimentIsEnabled = true;
-      const isRecommended = true;
-      const addon = {
-        ...fakeAddon,
-        is_recommended: isRecommended,
-        type,
-      };
-
-      render({
-        _couldShowWarning,
-        addon: createInternalAddon(addon),
-        experimentIsEnabled,
-      });
-
-      sinon.assert.calledWith(_couldShowWarning, {
-        addonIsExtension: expected,
-        addonIsRecommended: isRecommended,
-        experimentIsEnabled,
-        installStatus: undefined,
-      });
-    },
-  );
 
   it('does not display a warning if couldShowWarning is false', () => {
     const _couldShowWarning = sinon.stub().returns(false);
