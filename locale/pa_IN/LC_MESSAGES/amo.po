@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-23 19:18+0000\n"
-"PO-Revision-Date: 2019-07-26 12:06+0000\n"
-"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
+"PO-Revision-Date: 2019-07-03 19:37+0000\n"
+"Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -1079,7 +1079,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "ਕਲਿਪਬੋਰਡ ਤੋਂ ਡੇਟਾ ਪ੍ਰਾਪਤ ਕਰੋ"
 
 #: src/amo/components/PermissionsCard/permissions.js:37
 msgid "Input data to the clipboard"
@@ -1312,15 +1312,15 @@ msgstr "ਫੀਚਰ ਐਡ-ਆਨ"
 
 #: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:353 src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
-msgstr ""
+msgstr "ਟ੍ਰੈਂਡਿੰਗ ਐਕਸਟੈਂਸ਼ਨਾਂ"
 
 #: src/amo/components/Search/index.js:150 src/amo/pages/LandingPage/index.js:194
 msgid "Trending themes"
-msgstr ""
+msgstr "ਰੁਝਾਨ ਥੀਮ"
 
 #: src/amo/components/Search/index.js:153
 msgid "Trending add-ons"
-msgstr ""
+msgstr "ਟ੍ਰੇਡਿੰਗ ਐਡ-ਆਨ"
 
 #: src/amo/components/Search/index.js:159 src/amo/pages/LandingPage/index.js:165
 msgid "Top rated extensions"
@@ -1400,7 +1400,7 @@ msgstr[1] "%(count)s ਦੇ ਨਤੀਜੇ ਮਿਲੇ ਹਨ"
 
 #: src/amo/components/SearchContextCard/index.js:182
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "\"%(query)s\" ਲਈ ਖੋਜ ਕਰ ਰਿਹਾ ਹੈ"
 
 #: src/amo/components/SearchContextCard/index.js:186
 msgid "Searching for add-ons"
@@ -1704,7 +1704,7 @@ msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:228
 msgid "Show all reviews"
-msgstr ""
+msgstr "ਸਾਰੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
 #: src/amo/pages/AddonReviewList/index.js:230
 msgid "Show only five-star reviews"
@@ -1720,7 +1720,7 @@ msgstr "ਸਿਰਫ ਤਿੰਨ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆ�
 
 #: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only two-star reviews"
-msgstr ""
+msgstr "ਸਿਰਫ ਦੋ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
 #: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only one-star reviews"
@@ -1764,7 +1764,7 @@ msgstr "ਪੁਰਾਣਾ ਵਰਜ਼ਨ"
 
 #: src/amo/pages/CategoriesPage/index.js:34
 msgid "All extension categories"
-msgstr ""
+msgstr "ਸਾਰੇ ਐਕਸਟੈਂਸ਼ਨ ਵਰਗਾਂ"
 
 #: src/amo/pages/CategoriesPage/index.js:36
 msgid "All theme categories"
@@ -2018,7 +2018,7 @@ msgstr "ਖਾਸ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/pages/Home/index.js:259 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
-msgstr ""
+msgstr "ਹੋਰ ਫੀਚਰਡ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੇਖੋ"
 
 #: src/amo/pages/Home/index.js:280
 msgid "See more popular themes"
@@ -2036,7 +2036,7 @@ msgstr "ਖਾਸ ਥੀਮ"
 
 #: src/amo/pages/Home/index.js:321 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
-msgstr ""
+msgstr "ਹੋਰ ਫੀਚਰਡ ਥੀਮ ਵੇਖੋ"
 
 #: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
@@ -2200,7 +2200,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:69
 msgid "A community of creators"
-msgstr ""
+msgstr "ਸਿਰਜਣਹਾਰਾਂ ਦਾ ਇੱਕ ਸਮੂਹ"
 
 #: src/amo/pages/StaticPages/About/index.js:71
 msgid ""
@@ -2410,7 +2410,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:409 src/amo/pages/UserProfileEdit/index.js:690
 msgid "Biography"
-msgstr ""
+msgstr "ਮੇਰੇ ਬਾਰੇ"
 
 #: src/amo/pages/UserProfile/index.js:433
 msgid "Edit profile"
@@ -2419,7 +2419,7 @@ msgstr "ਪਰੋਫਾਇਲ ਸੋਧ"
 # This action allows an admin to maintain a user.
 #: src/amo/pages/UserProfile/index.js:445
 msgid "Admin user"
-msgstr ""
+msgstr "ਐਡਮਿਨ ਯੂਜਰ"
 
 #: src/amo/pages/UserProfileEdit/index.js:202
 msgid "Picture successfully deleted"
@@ -2795,7 +2795,7 @@ msgstr "ਜਾਰੀ ਰੱਖਣ ਲਈ ਮੁੜ-ਲੋਡ ਕਰੋ"
 
 #: src/ui/components/ExpandableCard/index.js:57
 msgid "Toggle contents"
-msgstr ""
+msgstr "ਸਮਗਰੀ ਬਦਲੋ"
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
