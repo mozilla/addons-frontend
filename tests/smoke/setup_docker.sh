@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 set -x
-sudo sysctl -w vm.max_map_count=262144
 git clone --depth 1 https://github.com/mozilla/addons-server.git
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml pull --quiet
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml up -d --build

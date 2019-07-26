@@ -66,6 +66,7 @@ jobs:
           environment:
             MOZ_HEADLESS: 1
           command: |
+            sudo sysctl -w vm.max_map_count=262144
             ./tests/smoke/setup_docker.sh
             tox -e smoke-tests
   release-master: # build for the master branch and tags
@@ -126,6 +127,7 @@ jobs:
           environment:
             MOZ_HEADLESS: 1
           command: |
+            sudo sysctl -w vm.max_map_count=262144
             ./tests/smoke/setup_docker.sh
             tox -e smoke-tests
   integration-test:
