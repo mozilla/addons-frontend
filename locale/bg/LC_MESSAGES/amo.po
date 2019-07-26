@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-23 19:18+0000\n"
-"PO-Revision-Date: 2018-03-22 11:29+0000\n"
+"PO-Revision-Date: 2019-07-26 13:53+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -280,7 +280,7 @@ msgstr "Издание"
 
 #: src/amo/components/AddonMoreInfo/index.js:221
 msgid "Size"
-msgstr ""
+msgstr "Размер"
 
 #: src/amo/components/AddonMoreInfo/index.js:229 src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
@@ -315,7 +315,6 @@ msgid "Homepage"
 msgstr "Страница"
 
 #: src/amo/components/AddonMoreInfo/index.js:73
-#, fuzzy
 msgid "Support site"
 msgstr "Страница за поддръжка"
 
@@ -1085,11 +1084,11 @@ msgstr "Дайте оценка"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
-msgstr ""
+msgstr "Разширенията са като приложения за вашия четец."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "Те добавят възможности към Firefox, за да направят разглеждането по-бързо, по-интелигентно или просто забавно."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1337,9 +1336,8 @@ msgid "Search results"
 msgstr "Резултати"
 
 #: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:253 src/amo/pages/LandingPage/index.js:139
-#, fuzzy
 msgid "Recommended extensions"
-msgstr "Търсене на разширения"
+msgstr "Препоръчителни разширения"
 
 #: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:254 src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
@@ -2098,59 +2096,51 @@ msgstr "Променете облика на Firefox с теми."
 
 #: src/amo/pages/Home/index.js:230
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "Изтеглете разширения и теми за Firefox. Те са като приложения за вашия четец. Могат да блокират досадните реклами, да защитават паролите, да променят облика на четеца и други."
 
 #: src/amo/pages/Home/index.js:258 src/amo/pages/LandingPage/index.js:153
-#, fuzzy
 msgid "See more recommended extensions"
-msgstr "Повече популярни разширения"
+msgstr "Повече препоръчани разширения"
 
 #: src/amo/pages/Home/index.js:259 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
-msgstr "Повече препоръчани разширения"
+msgstr "Повече подбрани разширения"
 
 #: src/amo/pages/Home/index.js:280
-#, fuzzy
 msgid "See more popular themes"
-msgstr "Повече от известните"
+msgstr "Повече известни теми"
 
 #: src/amo/pages/Home/index.js:301
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Повече високо оценени разширения"
+msgstr "Повече известни разширения"
 
 #: src/amo/pages/Home/index.js:320 src/amo/pages/LandingPage/index.js:192
-#, fuzzy
 msgid "See more recommended themes"
-msgstr "Повече популярни теми"
+msgstr "Повече препоръчани теми"
 
 #: src/amo/pages/Home/index.js:321 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
-msgstr "Повече препоръчани теми"
+msgstr "Повече подбрани теми"
 
 #: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
-msgstr "Повече популярни разширения"
+msgstr "Повече набиращи популярност разширения"
 
 #: src/amo/pages/Home/index.js:55
-#, fuzzy
 msgid "See more enhanced privacy extensions"
-msgstr "Повече препоръчани разширения"
+msgstr "Повече за подобряване на поверителността"
 
 #: src/amo/pages/Home/index.js:56
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "Най-поверителни разширения"
+msgstr "Разширения за подобряване на поверителността"
 
 #: src/amo/pages/Home/index.js:61
-#, fuzzy
 msgid "See more recommended password managers"
-msgstr "Повече популярни теми"
+msgstr "Повече препоръчани за управление на пароли"
 
 #: src/amo/pages/Home/index.js:62
-#, fuzzy
 msgid "Recommended password managers"
-msgstr "Управление на пароли"
+msgstr "Препоръчани за управление на пароли"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
@@ -2158,7 +2148,7 @@ msgstr "Повече високо оценени разширения"
 
 #: src/amo/pages/LandingPage/index.js:199
 msgid "See more trending themes"
-msgstr "Повече популярни теми"
+msgstr "Повече набиращи популярност теми"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "See more top rated themes"
@@ -2561,9 +2551,8 @@ msgid "Account"
 msgstr "Сметка"
 
 #: src/amo/pages/UserProfileEdit/index.js:542
-#, fuzzy
 msgid "Account for %(userName)s"
-msgstr "Сметка на %(username)s"
+msgstr "Сметка на %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "Email Address"
