@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-23 19:18+0000\n"
-"PO-Revision-Date: 2019-07-25 07:33+0000\n"
+"PO-Revision-Date: 2018-03-22 11:29+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -1105,7 +1105,7 @@ msgstr "Добавката може да:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr "Научете за правата"
+msgstr "Научете повече за правата"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Read and modify bookmarks"
