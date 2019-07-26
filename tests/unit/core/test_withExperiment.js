@@ -1,7 +1,10 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { withExperiment } from 'core/withExperiment';
+import {
+  EXPERIMENT_ENROLLMENT_CATEGORY,
+  withExperiment,
+} from 'core/withExperiment';
 import {
   createFakeTracking,
   fakeCookies,
@@ -109,7 +112,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(_tracking.sendEvent, {
       action: root.instance().experimentCookie,
-      category: `AMO Experiment enrollment - id: ${id}`,
+      category: [EXPERIMENT_ENROLLMENT_CATEGORY, id].join(' '),
     });
   });
 

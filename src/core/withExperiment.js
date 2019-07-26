@@ -8,6 +8,8 @@ import log from 'core/logger';
 import tracking from 'core/tracking';
 import { getDisplayName } from 'core/utils';
 
+export const EXPERIMENT_ENROLLMENT_CATEGORY = 'AMO Experiment Enrollment -';
+
 export type WithExperimentInjectedProps = {|
   experimentEnabled: boolean,
   variant: string | null,
@@ -78,7 +80,7 @@ export const withExperiment = ({
         // send an enrollment event
         _tracking.sendEvent({
           action: variant,
-          category: `AMO Experiment enrollment - id: ${id}`,
+          category: [EXPERIMENT_ENROLLMENT_CATEGORY, id].join(' '),
         });
       }
     }
