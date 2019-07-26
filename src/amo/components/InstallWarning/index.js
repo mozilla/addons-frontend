@@ -24,9 +24,9 @@ type Props = {|
 type CouldShowWarningParams = {|
   addonIsExtension: boolean,
   addonIsRecommended: boolean | void,
-  experimentEnabled: $PropertyType<
+  experimentIsEnabled: $PropertyType<
     WithExperimentInjectedProps,
-    'experimentEnabled',
+    'experimentIsEnabled',
   >,
   installStatus: $PropertyType<InstalledAddon, 'status'>,
 |};
@@ -34,19 +34,15 @@ type CouldShowWarningParams = {|
 export const couldShowWarning = ({
   addonIsExtension,
   addonIsRecommended,
-  experimentEnabled,
+  experimentIsEnabled,
   installStatus,
 }: CouldShowWarningParams) => {
   return (
     addonIsExtension &&
     !addonIsRecommended &&
-    experimentEnabled &&
+    experimentIsEnabled &&
     [UNINSTALLED, UNKNOWN].includes(installStatus)
   );
-};
-
-const addonIsExtension = (addon: AddonType) => {
-  return addon.type === ADDON_TYPE_EXTENSION;
 };
 
 type InternalProps = {|
@@ -61,9 +57,11 @@ type InternalProps = {|
 
 export const EXPERIMENT_CATEGORY_CLICK =
   'AMO Install Button Warning Experiment - Click';
-export const EXPERIMENT_CATEGORY_SHOW =
+export const EXPERIMENT_CATEGORY_DISPLAY =
   'AMO Install Button Warning Experiment - Display';
 export const EXPERIMENT_ID = 'installButtonWarning';
+// We use dimension6 because that is a custom GA dimension added for this
+// particular experiment.
 export const INSTALL_WARNING_EXPERIMENT_DIMENSION = 'dimension6';
 export const VARIANT_INCLUDE_WARNING = 'includeWarning';
 export const VARIANT_EXCLUDE_WARNING = 'excludeWarning';
@@ -80,23 +78,23 @@ export class InstallWarningBase extends React.Component<InternalProps> {
       _couldShowWarning,
       _tracking,
       addon,
-      experimentEnabled,
+      experimentIsEnabled,
       installStatus,
       variant,
     } = this.props;
 
     if (
       _couldShowWarning({
-        addonIsExtension: addonIsExtension(addon),
+        addonIsExtension: addon.type === ADDON_TYPE_EXTENSION,
         addonIsRecommended: addon.is_recommended,
-        experimentEnabled,
+        experimentIsEnabled,
         installStatus,
       }) &&
       variant
     ) {
       _tracking.sendEvent({
         action: variant,
-        category: EXPERIMENT_CATEGORY_SHOW,
+        category: EXPERIMENT_CATEGORY_DISPLAY,
         label: addon.name,
       });
     }
@@ -130,7 +128,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
     const {
       _couldShowWarning,
       addon,
-      experimentEnabled,
+      experimentIsEnabled,
       i18n,
       installStatus,
       variant,
@@ -138,9 +136,9 @@ export class InstallWarningBase extends React.Component<InternalProps> {
 
     if (
       _couldShowWarning({
-        addonIsExtension: addonIsExtension(addon),
+        addonIsExtension: addon.type === ADDON_TYPE_EXTENSION,
         addonIsRecommended: addon.is_recommended,
-        experimentEnabled,
+        experimentIsEnabled,
         installStatus,
       }) &&
       variant === VARIANT_INCLUDE_WARNING
@@ -162,14 +160,14 @@ export class InstallWarningBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState, ownProps: InternalProps) {
+export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
   const { addon } = ownProps;
   const installedAddon = (addon && state.installations[addon.guid]) || {};
 
   return {
     installStatus: installedAddon.status,
   };
-}
+};
 
 const InstallWarning: React.ComponentType<Props> = compose(
   connect(mapStateToProps),

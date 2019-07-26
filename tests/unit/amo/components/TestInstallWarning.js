@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import InstallWarning, {
-  EXPERIMENT_CATEGORY_SHOW,
+  EXPERIMENT_CATEGORY_DISPLAY,
   EXPERIMENT_ID,
   INSTALL_WARNING_EXPERIMENT_DIMENSION,
   VARIANT_INCLUDE_WARNING,
@@ -40,7 +40,7 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <InstallWarning
         addon={createInternalAddon(fakeAddon)}
-        experimentEnabled
+        experimentIsEnabled
         i18n={fakeI18n()}
         store={store}
         variant={VARIANT_INCLUDE_WARNING}
@@ -68,7 +68,7 @@ describe(__filename, () => {
           couldShowWarning({
             addonIsExtension: true,
             addonIsRecommended: false,
-            experimentEnabled: true,
+            experimentIsEnabled: true,
             installStatus,
           }),
         ).toEqual(true);
@@ -80,7 +80,7 @@ describe(__filename, () => {
         couldShowWarning({
           addonIsExtension: false,
           addonIsRecommended: true,
-          experimentEnabled: true,
+          experimentIsEnabled: true,
           installStatus: UNINSTALLED,
         }),
       ).toEqual(false);
@@ -91,7 +91,7 @@ describe(__filename, () => {
         couldShowWarning({
           addonIsExtension: true,
           addonIsRecommended: true,
-          experimentEnabled: true,
+          experimentIsEnabled: true,
           installStatus: UNINSTALLED,
         }),
       ).toEqual(false);
@@ -102,7 +102,7 @@ describe(__filename, () => {
         couldShowWarning({
           addonIsExtension: true,
           addonIsRecommended: false,
-          experimentEnabled: true,
+          experimentIsEnabled: true,
           installStatus: INSTALLED,
         }),
       ).toEqual(false);
@@ -113,7 +113,7 @@ describe(__filename, () => {
         couldShowWarning({
           addonIsExtension: true,
           addonIsRecommended: false,
-          experimentEnabled: false,
+          experimentIsEnabled: false,
           installStatus: UNINSTALLED,
         }),
       ).toEqual(false);
@@ -148,7 +148,7 @@ describe(__filename, () => {
   it('passes installStatus to couldShowWarning on mount', () => {
     const _couldShowWarning = sinon.spy();
     const isRecommended = false;
-    const experimentEnabled = true;
+    const experimentIsEnabled = true;
     const installStatus = UNINSTALLED;
     const addon = { ...fakeAddon, is_recommended: isRecommended };
     _setInstallStatus({ addon, status: installStatus });
@@ -156,14 +156,14 @@ describe(__filename, () => {
     render({
       _couldShowWarning,
       addon: createInternalAddon(addon),
-      experimentEnabled,
+      experimentIsEnabled,
       variant: VARIANT_INCLUDE_WARNING,
     });
 
     sinon.assert.calledWith(_couldShowWarning, {
       addonIsExtension: true,
       addonIsRecommended: isRecommended,
-      experimentEnabled,
+      experimentIsEnabled,
       installStatus,
     });
   });
@@ -171,22 +171,15 @@ describe(__filename, () => {
   it('passes installStatus to couldShowWarning on update', () => {
     const _couldShowWarning = sinon.spy();
     const isRecommended = false;
-    const experimentEnabled = true;
+    const experimentIsEnabled = true;
     const installStatus = UNINSTALLED;
     const addon = { ...fakeAddon, is_recommended: isRecommended };
 
     const root = render({
       _couldShowWarning,
       addon: createInternalAddon(addon),
-      experimentEnabled,
+      experimentIsEnabled,
       variant: VARIANT_INCLUDE_WARNING,
-    });
-
-    sinon.assert.calledWith(_couldShowWarning, {
-      addonIsExtension: true,
-      addonIsRecommended: isRecommended,
-      experimentEnabled,
-      installStatus: undefined,
     });
 
     _couldShowWarning.resetHistory();
@@ -196,94 +189,97 @@ describe(__filename, () => {
     sinon.assert.calledWith(_couldShowWarning, {
       addonIsExtension: true,
       addonIsRecommended: isRecommended,
-      experimentEnabled,
+      experimentIsEnabled,
       installStatus,
     });
   });
 
   describe('display tracking event', () => {
     const _tracking = createFakeTracking();
-    const variant = VARIANT_INCLUDE_WARNING;
 
     beforeEach(() => {
       _tracking.sendEvent.resetHistory();
     });
 
-    it('sends the event on mount if couldShowWarning is true and a variant exists', () => {
-      const _couldShowWarning = sinon.stub().returns(true);
-      const addon = fakeAddon;
+    describe('VARIANT_INCLUDE_WARNING', () => {
+      const variant = VARIANT_INCLUDE_WARNING;
 
-      render({
-        _couldShowWarning,
-        _tracking,
-        addon: createInternalAddon(addon),
-        variant,
+      it('sends the event on mount if couldShowWarning is true and a variant exists', () => {
+        const _couldShowWarning = sinon.stub().returns(true);
+        const addon = createInternalAddon(fakeAddon);
+
+        render({
+          _couldShowWarning,
+          _tracking,
+          addon,
+          variant,
+        });
+
+        sinon.assert.calledWith(_tracking.sendEvent, {
+          action: variant,
+          category: EXPERIMENT_CATEGORY_DISPLAY,
+          label: addon.name,
+        });
       });
 
-      sinon.assert.calledWith(_tracking.sendEvent, {
-        action: variant,
-        category: EXPERIMENT_CATEGORY_SHOW,
-        label: addon.name,
-      });
-    });
+      it('does not send the event on mount if couldShowWarning is false', () => {
+        const _couldShowWarning = sinon.stub().returns(false);
 
-    it('does not send the event on mount if couldShowWarning is false', () => {
-      const _couldShowWarning = sinon.stub().returns(false);
+        render({ _couldShowWarning, _tracking, variant });
 
-      render({ _couldShowWarning, _tracking, variant });
-
-      sinon.assert.notCalled(_tracking.sendEvent);
-    });
-
-    it('does not send the event on mount if a variant is not set', () => {
-      const _couldShowWarning = sinon.stub().returns(true);
-
-      render({ _couldShowWarning, _tracking, variant: undefined });
-
-      sinon.assert.notCalled(_tracking.sendEvent);
-    });
-
-    it('sends the event on update if installStatus has changed', () => {
-      const _couldShowWarning = sinon.stub().returns(true);
-      const addon = fakeAddon;
-      const installStatus = UNINSTALLED;
-
-      const root = render({
-        _couldShowWarning,
-        _tracking,
-        addon: createInternalAddon(addon),
-        installStatus: undefined,
-        variant,
+        sinon.assert.notCalled(_tracking.sendEvent);
       });
 
-      _tracking.sendEvent.resetHistory();
+      it('does not send the event on mount if a variant is not set', () => {
+        const _couldShowWarning = sinon.stub().returns(true);
 
-      root.setProps({ installStatus });
+        render({ _couldShowWarning, _tracking, variant: undefined });
 
-      sinon.assert.calledWith(_tracking.sendEvent, {
-        action: variant,
-        category: EXPERIMENT_CATEGORY_SHOW,
-        label: addon.name,
-      });
-    });
-
-    it('does not send the event on update if installStatus has not changed', () => {
-      const _couldShowWarning = sinon.stub().returns(true);
-      const installStatus = UNINSTALLED;
-      const addon = fakeAddon;
-      _setInstallStatus({ addon, status: installStatus });
-
-      const root = render({
-        _couldShowWarning,
-        _tracking,
-        variant,
+        sinon.assert.notCalled(_tracking.sendEvent);
       });
 
-      _tracking.sendEvent.resetHistory();
+      it('sends the event on update if installStatus has changed', () => {
+        const _couldShowWarning = sinon.stub().returns(true);
+        const addon = createInternalAddon(fakeAddon);
+        const installStatus = UNINSTALLED;
 
-      root.setProps({ installStatus });
+        const root = render({
+          _couldShowWarning,
+          _tracking,
+          addon,
+          installStatus: undefined,
+          variant,
+        });
 
-      sinon.assert.notCalled(_tracking.sendEvent);
+        _tracking.sendEvent.resetHistory();
+
+        root.setProps({ installStatus });
+
+        sinon.assert.calledWith(_tracking.sendEvent, {
+          action: variant,
+          category: EXPERIMENT_CATEGORY_DISPLAY,
+          label: addon.name,
+        });
+      });
+
+      it('does not send the event on update if installStatus has not changed', () => {
+        const _couldShowWarning = sinon.stub().returns(true);
+        const installStatus = UNINSTALLED;
+        const addon = fakeAddon;
+        _setInstallStatus({ addon, status: installStatus });
+
+        const root = render({
+          _couldShowWarning,
+          _tracking,
+          variant,
+        });
+
+        _tracking.sendEvent.resetHistory();
+
+        root.setProps({ installStatus });
+
+        sinon.assert.notCalled(_tracking.sendEvent);
+      });
     });
   });
 
@@ -301,7 +297,7 @@ describe(__filename, () => {
     `passes addonIsExtension = %s to couldShowWarning on render for type: %s`,
     (expected, type) => {
       const _couldShowWarning = sinon.spy();
-      const experimentEnabled = true;
+      const experimentIsEnabled = true;
       const isRecommended = true;
       const addon = {
         ...fakeAddon,
@@ -312,13 +308,13 @@ describe(__filename, () => {
       render({
         _couldShowWarning,
         addon: createInternalAddon(addon),
-        experimentEnabled,
+        experimentIsEnabled,
       });
 
       sinon.assert.calledWith(_couldShowWarning, {
         addonIsExtension: expected,
         addonIsRecommended: isRecommended,
-        experimentEnabled,
+        experimentIsEnabled,
         installStatus: undefined,
       });
     },
@@ -334,13 +330,15 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(0);
   });
 
-  it('does not display a warning if the user is in the excluded cohort', () => {
-    const _couldShowWarning = sinon.stub().returns(true);
+  describe('VARIANT_EXCLUDE_WARNING', () => {
+    it('does not display a warning if the user is in the excluded cohort', () => {
+      const _couldShowWarning = sinon.stub().returns(true);
 
-    const root = render({
-      _couldShowWarning,
-      variant: VARIANT_EXCLUDE_WARNING,
+      const root = render({
+        _couldShowWarning,
+        variant: VARIANT_EXCLUDE_WARNING,
+      });
+      expect(root.find(Notice)).toHaveLength(0);
     });
-    expect(root.find(Notice)).toHaveLength(0);
   });
 });
