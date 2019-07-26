@@ -1,8 +1,15 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { withExperiment } from 'core/withExperiment';
-import { fakeCookies, getFakeConfig } from 'tests/unit/helpers';
+import {
+  EXPERIMENT_ENROLLMENT_CATEGORY,
+  withExperiment,
+} from 'core/withExperiment';
+import {
+  createFakeTracking,
+  fakeCookies,
+  getFakeConfig,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   class SomeComponentBase extends React.Component {
@@ -90,6 +97,25 @@ describe(__filename, () => {
     );
   });
 
+  it('sends an enrollment event upon construction if no cookie has been loaded', () => {
+    const id = 'hero';
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(undefined),
+    });
+    const _tracking = createFakeTracking();
+
+    // `react-cookie` uses the React (stable) Context API.
+    const root = render({
+      context: cookies,
+      experimentProps: { _tracking, id },
+    });
+
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: root.instance().experimentCookie,
+      category: [EXPERIMENT_ENROLLMENT_CATEGORY, id].join(' '),
+    });
+  });
+
   it('does not create a cookie upon construction if one has been loaded', () => {
     const id = 'hero';
     const cookies = fakeCookies({
@@ -100,6 +126,44 @@ describe(__filename, () => {
     render({ context: cookies, experimentProps: { id } });
 
     sinon.assert.notCalled(cookies.set);
+  });
+
+  it('does not send an enrollment event upon construction if a cookie has been loaded', () => {
+    const id = 'hero';
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(`${id}Experiment`),
+    });
+    const _tracking = createFakeTracking();
+
+    // `react-cookie` uses the React (stable) Context API.
+    render({
+      context: cookies,
+      experimentProps: { _tracking, id },
+    });
+
+    sinon.assert.notCalled(_tracking.sendEvent);
+  });
+
+  it('does not send an enrollment event upon construction if the experiment is disabled', () => {
+    const id = 'hero';
+    const cookies = fakeCookies({
+      get: sinon.stub().returns(undefined),
+    });
+    const _config = getFakeConfig({
+      experiments: {
+        [id]: false,
+      },
+    });
+    const _tracking = createFakeTracking();
+
+    // `react-cookie` uses the React (stable) Context API.
+    render({
+      context: cookies,
+      props: { _config },
+      experimentProps: { _tracking, id },
+    });
+
+    sinon.assert.notCalled(_tracking.sendEvent);
   });
 
   it('allows a custom cookie configuration', () => {
