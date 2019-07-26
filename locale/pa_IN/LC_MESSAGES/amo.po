@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-23 19:18+0000\n"
-"PO-Revision-Date: 2019-07-03 19:37+0000\n"
+"PO-Revision-Date: 2019-07-03 17:56+0000\n"
 "Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -958,7 +958,7 @@ msgstr "ਡਿਵੈਲਪਰ ਹੱਬ"
 
 #: src/amo/components/Footer/index.js:81
 msgid "Developer Policies"
-msgstr ""
+msgstr "ਵਿਕਾਸਕਾਰ ਦੀਆਂ ਨੀਤੀਆਂ"
 
 #: src/amo/components/Footer/index.js:86
 msgid "Forum"
@@ -978,7 +978,7 @@ msgstr "ਫਾਇਰਫਾਕਸ ਨਾਲ ਹੀ — ਫਾਇਰਫਾਕਸ �
 
 #: src/amo/components/Header/index.js:105
 msgid "Submit and manage extensions and themes"
-msgstr ""
+msgstr "ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਵਿਸ਼ਿਆਂ ਨੂੰ ਦਰਜ ਅਤੇ ਪ੍ਰਬੰਧਿਤ ਕਰੋ"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1027,7 +1027,7 @@ msgstr "ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ"
 
 #: src/amo/components/Header/index.js:95
 msgid "Learn how to create extensions and themes"
-msgstr ""
+msgstr "ਸਿੱਖੋ ਕਿ ਐਕਸਟੈਂਸ਼ਨ ਅਤੇ ਵਿਸ਼ੇ ਕਿਵੇਂ ਬਣਾਉਣੇ ਹਨ"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:266
 msgid "Stay Safe Online"
@@ -1035,7 +1035,7 @@ msgstr "ਆਨਲਾਈਨ ਸੁਰੱਖਿਅਤ ਰਹੋ"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:279
 msgid "Organize Tabs & Bookmarks"
-msgstr ""
+msgstr "ਟੈਬਸ ਅਤੇ ਬੁੱਕਮਾਰਕਸ ਨੂੰ ਸੰਗਠਿਤ ਕਰੋ"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:292
 msgid "Enhance Your Media Experience"
@@ -1159,11 +1159,11 @@ msgstr ""
 
 #: src/amo/components/RatingManager/index.js:117
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "ਇਸ ਭਾਸ਼ਾ ਪੈਕ ਨੂੰ ਰੇਟ ਕਰਨ ਲਈ ਲੌਗਇਨ ਕਰੋ"
 
 #: src/amo/components/RatingManager/index.js:119
 msgid "Log in to rate this search plugin"
-msgstr ""
+msgstr "ਇਸ ਖੋਜ ਪਲੱਗਇਨ ਨੂੰ ਦਰਜਾ ਦੇਣ ਲਈ ਲਾਗਇਨ ਕਰੋ"
 
 #: src/amo/components/RatingManager/index.js:122
 msgid "Log in to rate this theme"
