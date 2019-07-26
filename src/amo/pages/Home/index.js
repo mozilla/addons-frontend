@@ -11,12 +11,14 @@ import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroGuides from 'amo/components/HomeHeroGuides';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
+import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeAddons } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
   INSTALL_SOURCE_FEATURED,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
@@ -70,6 +72,7 @@ export class HomeBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
     _getFeaturedCollectionsMetadata: PropTypes.func,
+    clientApp: PropTypes.string.isRequired,
     collections: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
@@ -184,6 +187,7 @@ export class HomeBase extends React.Component {
     const {
       _config,
       _getFeaturedCollectionsMetadata,
+      clientApp,
       collections,
       errorHandler,
       i18n,
@@ -241,6 +245,20 @@ export class HomeBase extends React.Component {
         />
 
         {errorHandler.renderErrorIfPresent()}
+
+        {_config.get('enableFeatureHeroRecommendation') &&
+        clientApp !== CLIENT_APP_ANDROID ? (
+          // TODO: replace the heading / linkHref with real values.
+          // The 'heading' value is a brand name so it should not be localized.
+          <HeroRecommendation
+            heading="Forest Preserve Nougat (beta)"
+            body={i18n.gettext(`Get enhanced privacy protection while
+              browsing using public wi-fi. This beta service from Firefox
+              is currently only available in the United States.`)}
+            linkText={i18n.gettext('Get Started')}
+            linkHref="https://forest-preserve-nougat.com/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=homepage-primary-hero "
+          />
+        ) : null}
 
         <HomeHeroGuides />
 
