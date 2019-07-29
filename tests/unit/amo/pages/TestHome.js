@@ -504,40 +504,42 @@ describe(__filename, () => {
     expect(root.find(HeadLinks)).toHaveLength(1);
   });
 
-  it('renders HeroRecommendation when enabled', () => {
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_FIREFOX,
-    });
-    const root = render({
-      _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
-      store,
+  describe('HeroRecommendation', () => {
+    it('renders when enabled', () => {
+      const { store } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_FIREFOX,
+      });
+      const root = render({
+        _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
+        store,
+      });
+
+      expect(root.find(HeroRecommendation)).toHaveLength(1);
     });
 
-    expect(root.find(HeroRecommendation)).toHaveLength(1);
-  });
+    it('does not render when enabled on Android', () => {
+      const { store } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_ANDROID,
+      });
+      const root = render({
+        _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
+        store,
+      });
 
-  it('does not render HeroRecommendation when enabled on Android', () => {
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_ANDROID,
-    });
-    const root = render({
-      _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
-      store,
-    });
-
-    expect(root.find(HeroRecommendation)).toHaveLength(0);
-  });
-
-  it('does not render HeroRecommendation when disabled', () => {
-    const { store } = dispatchClientMetadata({
-      clientApp: CLIENT_APP_FIREFOX,
-    });
-    const root = render({
-      _config: getFakeConfig({ enableFeatureHeroRecommendation: false }),
-      store,
+      expect(root.find(HeroRecommendation)).toHaveLength(0);
     });
 
-    expect(root.find(HeroRecommendation)).toHaveLength(0);
+    it('does not render when disabled', () => {
+      const { store } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_FIREFOX,
+      });
+      const root = render({
+        _config: getFakeConfig({ enableFeatureHeroRecommendation: false }),
+        store,
+      });
+
+      expect(root.find(HeroRecommendation)).toHaveLength(0);
+    });
   });
 
   describe('getFeaturedCollectionsMetadata', () => {

@@ -94,15 +94,17 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     invariant(linkText, 'The linkText property is required');
     invariant(linkHref, 'The linkHref property is required');
 
+    // translators: If uppercase does not work in your locale, change it to lowercase.
+    // This is used as a secondary heading.
+    const recommended = i18n.gettext('RECOMMENDED');
+
     return (
       <section className="HeroRecommendation HeroRecommendation-purple">
         <div>
           <img className="HeroRecommendation-image" alt="" src={promoImage} />
         </div>
         <div className="HeroRecommendation-info">
-          <div className="HeroRecommendation-recommended">
-            {i18n.gettext('Recommended')}
-          </div>
+          <div className="HeroRecommendation-recommended">{recommended}</div>
           <h2 className="HeroRecommendation-heading">{heading}</h2>
           <p className="HeroRecommendation-body">{body}</p>
           <a className="HeroRecommendation-link" href={linkHref}>

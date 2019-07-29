@@ -15,6 +15,7 @@ import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeAddons } from 'amo/reducers/home';
+import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -248,15 +249,23 @@ export class HomeBase extends React.Component {
 
         {_config.get('enableFeatureHeroRecommendation') &&
         clientApp !== CLIENT_APP_ANDROID ? (
-          // TODO: replace the heading / linkHref with real values.
-          // The 'heading' value is a brand name so it should not be localized.
           <HeroRecommendation
+            // TODO: replace with a real value.
+            // See https://github.com/mozilla/addons-frontend/issues/8406
+            // This is a brand name so it should not be localized.
             heading="Forest Preserve Nougat (beta)"
             body={i18n.gettext(`Get enhanced privacy protection while
-              browsing using public wi-fi. This beta service from Firefox
+              browsing using public Wi-Fi. This beta service from Firefox
               is currently only available in the United States.`)}
             linkText={i18n.gettext('Get Started')}
-            linkHref="https://forest-preserve-nougat.com/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=homepage-primary-hero "
+            // TODO: replace with a real value.
+            // See https://github.com/mozilla/addons-frontend/issues/8406
+            linkHref={`https://forest-preserve-nougat.com/${makeQueryStringWithUTM(
+              {
+                utm_content: 'homepage-primary-hero',
+                utm_campaign: '',
+              },
+            )}`}
           />
         ) : null}
 
