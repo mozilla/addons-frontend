@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-23 19:18+0000\n"
-"PO-Revision-Date: 2019-07-03 18:36+0000\n"
+"PO-Revision-Date: 2019-07-03 19:40+0000\n"
 "Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1688,7 +1688,7 @@ msgstr "ਸਕਰੀਨਸ਼ਾਟ"
 
 #: src/amo/pages/AddonInfo/index.js:157
 msgid "Custom License for %(addonName)s"
-msgstr ""
+msgstr "%(addonName)s ਲਈ ਕਸਟਮ ਲਾਇਸੈਂਸ"
 
 #: src/amo/pages/AddonInfo/index.js:164
 msgid "End-User License Agreement for %(addonName)s"
@@ -2328,7 +2328,7 @@ msgstr "ਕੀ ਇਹ ਮਦਦਗਾਰ ਸੀ?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:70
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "ਕੀ ਇਹ ਵਰਤੋਂ ਵਿੱਚ ਅਸਾਨ ਸੀ?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:72
 msgid "Will you continue to use this add-on?"
@@ -2358,7 +2358,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:240
 msgid "My reviews"
-msgstr ""
+msgstr "ਮੇਰੀ ਸਮੀਖਿਆ"
 
 #: src/amo/pages/UserProfile/index.js:268
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
@@ -2700,7 +2700,7 @@ msgstr "ਪੰਨਾ %(currentPage)s ਦਾ %(totalPages)s"
 
 #: src/core/components/SurveyNotice/index.js:131
 msgid "Take short survey"
-msgstr ""
+msgstr "ਛੋਟੇ ਸਰਵੇਖਣ ਲਵੋ"
 
 #: src/core/components/SurveyNotice/index.js:139
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
@@ -2823,11 +2823,11 @@ msgstr ""
 
 #: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "ਇਸ ਨੋਟਿਸ ਨੂੰ ਖਾਰਜ ਕਰੋ"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr ""
+msgstr "ਆਪਣੀ ਰੇਟਿੰਗ ਨੂੰ 5 ਤੋਂ ਬਾਹਰ %(starRating)s ਦੇ ਅਨੁਸਾਰ ਅਪਡੇਟ ਕਰੋ"
 
 #: src/ui/components/Rating/index.js:106
 msgid "Rate this add-on %(starRating)s out of 5"
@@ -2839,7 +2839,7 @@ msgstr ""
 
 #: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "ਹਾਲੇ ਤੱਕ ਕੋਈ ਰੇਟਿੰਗ ਨਹੀਂ ਹਨ"
 
 #: src/ui/components/RecommendedBadge/index.js:43
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
