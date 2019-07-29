@@ -16,12 +16,8 @@ jobs:
           name: Install dependencies
           command: sudo apt-get update; sudo apt-get install pigz
       - run:
-          name: Install python 3
-          command: |
-            sudo apt install software-properties-common
-            sudo add-apt-repository ppa:deadsnakes/ppa
-            sudo apt update
-            sudo apt install python3.7
+          name: "Set Python Version"
+          command: pyenv global 3.7.0
       - run: docker info
         # Build the container, using Circle's Docker cache. Only use 1 image per
         # day to keep the cache size down.
@@ -79,12 +75,8 @@ jobs:
           name: Install dependencies
           command: sudo apt-get update; sudo apt-get install pigz
       - run:
-          name: Install python 3
-          command: |
-            sudo apt install software-properties-common
-            sudo add-apt-repository ppa:deadsnakes/ppa
-            sudo apt update
-            sudo apt install python3.7
+          name: "Set Python Version"
+          command: pyenv global 3.7.0
       - run: docker info
         # Build the container, using Circle's Docker cache. Only use 1 image per
         # day to keep the cache size down.

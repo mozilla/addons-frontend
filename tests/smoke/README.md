@@ -10,6 +10,5 @@ You should also stop any services that may be using the port `3000`. You will al
 
 ### Steps
 
-1. Build the docker image from the projects root directory: `docker build -t addons-frontend .`.
-2. Run the script `setup_docker.sh` in the `tests/smoke` directory and wait for it to exit.
-3. Run the tox command `tox -e smoke-tests`.
+1. Run the script `./tests/smoke/setup_docker.sh` and wait for it to exit.
+2. Run the tox command `tox -e smoke-tests`.
