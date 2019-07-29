@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-23 19:18+0000\n"
-"PO-Revision-Date: 2019-07-03 17:56+0000\n"
+"PO-Revision-Date: 2019-07-03 18:36+0000\n"
 "Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -872,7 +872,7 @@ msgstr "ਤੁਸੀਂ ਆਪਣਾ ਜਵਾਬ ਨਹੀਂ ਦਿਖਾ ਸ�
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "ਤੁਸੀਂ ਆਪਣੀ ਖੁਦ ਦੀ ਸਮੀਖਿਆ ਨਿਸ਼ਾਨਬੱਧ ਨਹੀਂ ਕਰ ਸਕਦੇ"
 
 #: src/amo/components/FlagReviewMenu/index.js:78
 msgid "This is spam"
@@ -884,11 +884,11 @@ msgstr "ਸਪੈਮ ਦੇ ਰੂਪ ਵਿੱਚ ਨਿਸ਼ਾਨਬੱਧ ਕ�
 
 #: src/amo/components/FlagReviewMenu/index.js:89
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "ਇਸ ਵਿੱਚ ਅਣਉਚਿਤ ਭਾਸ਼ਾ ਸ਼ਾਮਲ ਹੈ"
 
 #: src/amo/components/FlagReviewMenu/index.js:90
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "ਅਣਉਚਿਤ ਭਾਸ਼ਾ ਲਈ ਨਿਸ਼ਾਨਬੱਧ ਕੀਤਾ"
 
 #: src/amo/components/Footer/index.js:104
 msgid "Site Status"
@@ -1039,7 +1039,7 @@ msgstr "ਟੈਬਸ ਅਤੇ ਬੁੱਕਮਾਰਕਸ ਨੂੰ ਸੰਗ�
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:292
 msgid "Enhance Your Media Experience"
-msgstr ""
+msgstr "ਆਪਣੇ ਮੀਡੀਆ ਅਨੁਭਵ ਨੂੰ ਵਧਾਓ"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
@@ -1680,7 +1680,7 @@ msgstr ""
 
 #: src/amo/pages/Addon/index.js:476
 msgid "Extension Metadata"
-msgstr ""
+msgstr "ਐਕਸਟੈਂਸ਼ਨ ਮੈਟਾਡੇਟਾ"
 
 #: src/amo/pages/Addon/index.js:493
 msgid "Screenshots"
