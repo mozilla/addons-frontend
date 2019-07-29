@@ -122,10 +122,15 @@ $overlayShapeZIndex: 1;
     text-decoration: none;
   }
 
-  &:active,
   &:hover {
     .HeroRecommendation-linkText {
       transform: scale(1.05);
+    }
+  }
+
+  &:active {
+    .HeroRecommendation-linkText {
+      transform: scale(0.95);
     }
   }
 }
