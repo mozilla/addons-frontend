@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-23 19:18+0000\n"
-"PO-Revision-Date: 2019-07-03 19:40+0000\n"
-"Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
+"PO-Revision-Date: 2019-07-29 18:05+0000\n"
+"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -1083,7 +1083,7 @@ msgstr "ਕਲਿਪਬੋਰਡ ਤੋਂ ਡੇਟਾ ਪ੍ਰਾਪਤ ਕ�
 
 #: src/amo/components/PermissionsCard/permissions.js:37
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "ਕਲਿੱਪਬੋਰਡ 'ਚ ਡਾਟਾ ਇਨਪੁੱਟ ਕਰਨ"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
@@ -1155,7 +1155,7 @@ msgstr ""
 
 #: src/amo/components/RatingManager/index.js:115
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "ਇਸ ਸ਼ਬਦਕੋਸ਼ ਨੂੰ ਰੇਟ ਕਰਨ ਲਈ ਲੌਗਇਨ ਕਰੋ"
 
 #: src/amo/components/RatingManager/index.js:117
 msgid "Log in to rate this language pack"
@@ -1286,9 +1286,8 @@ msgid "Search results"
 msgstr "ਖੋਜ ਨਤੀਜੇ"
 
 #: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:253 src/amo/pages/LandingPage/index.js:139
-#, fuzzy
 msgid "Recommended extensions"
-msgstr "ਖਾਸ ਇਕਸਟੈਨਸ਼ਨਾਂ"
+msgstr "ਸਿਫਾਰਸ਼ੀ ਐਕਸਟੈਂਸ਼ਨਾਂ"
 
 #: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:254 src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
@@ -1512,7 +1511,7 @@ msgstr "ਐਂਡਰਾਈਡ ਲਈ ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ (%(l
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "ਐਡ-ਆਨ ਪੇਜ ਤੇ ਜਾਓ"
 
 #: src/amo/components/SearchResult/index.js:164
 msgid "No theme preview available"
@@ -1570,7 +1569,7 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:157
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਲਈ ਐਡ-ਆਨ"
 
 #: src/amo/components/SectionLinks/index.js:60
 msgid "for Firefox"
@@ -1606,7 +1605,7 @@ msgstr "ਐਡ-ਆਨ ਮੁੱਖ ਸਫ਼ਾ"
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "ਕੀ ਤੁਸੀਂ ਅਸਲ ਵਿੱਚ ਇਸ ਤਸਵੀਰ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:109
 msgid "Delete This Picture"
@@ -1913,7 +1912,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:216
 msgid "Get more out of media"
-msgstr ""
+msgstr "ਮੀਡੀਆ ਤੋਂ ਵੱਧ ਪ੍ਰਾਪਤ ਕਰੋ"
 
 #: src/amo/pages/Guides/index.js:217
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
@@ -2030,9 +2029,8 @@ msgid "See more popular extensions"
 msgstr "ਹੋਰ ਹਰਮਨਪਿਆਰੀਆਂ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/pages/Home/index.js:320 src/amo/pages/LandingPage/index.js:192
-#, fuzzy
 msgid "See more recommended themes"
-msgstr "ਖਾਸ ਥੀਮ"
+msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਥੀਮ ਵੇਖੋ"
 
 #: src/amo/pages/Home/index.js:321 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
@@ -2072,7 +2070,7 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "See more top rated themes"
-msgstr ""
+msgstr "ਹੋਰ ਪ੍ਰਮੁੱਖ ਰੇਟ ਕੀਤੇ ਥੀਮ ਵੇਖੋ"
 
 #: src/amo/pages/LandingPage/index.js:229
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2374,7 +2372,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
-msgstr ""
+msgstr "ਐਡ-ਆਨ ਡਿਵੈਲਪਰ"
 
 #: src/amo/pages/UserProfile/index.js:321
 msgid "Theme artist"
@@ -2382,7 +2380,7 @@ msgstr "ਥੀਮ ਕਲਾਕਾਰ"
 
 #: src/amo/pages/UserProfile/index.js:335 src/amo/pages/UserProfileEdit/index.js:504
 msgid "User Profile for %(user)s"
-msgstr ""
+msgstr "%(user)s ਲਈ ਯੂਜ਼ਰ ਪਰੋਫਾਈਲ"
 
 #: src/amo/pages/UserProfile/index.js:338
 msgid "User Profile"
@@ -2402,7 +2400,7 @@ msgstr "ਤੋਂ ਉਪਭੋਗੀ"
 
 #: src/amo/pages/UserProfile/index.js:388
 msgid "Number of add-ons"
-msgstr ""
+msgstr "ਐਡ-ਆਨ ਦੀ ਗਿਣਤੀ"
 
 #: src/amo/pages/UserProfile/index.js:394
 msgid "Average rating of developer’s add-ons"
@@ -2423,7 +2421,7 @@ msgstr "ਐਡਮਿਨ ਯੂਜਰ"
 
 #: src/amo/pages/UserProfileEdit/index.js:202
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "ਤਸਵੀਰ ਸਫਲਤਾਪੂਰਵਕ ਮਿਟਾ ਦਿੱਤੀ ਗਈ"
 
 #: src/amo/pages/UserProfileEdit/index.js:430
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
@@ -2443,7 +2441,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:474
 msgid "Log in to edit the profile"
-msgstr ""
+msgstr "ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਲਈ ਲੌਗ ਇਨ ਕਰੋ"
 
 #: src/amo/pages/UserProfileEdit/index.js:517
 msgid "View user's profile"
