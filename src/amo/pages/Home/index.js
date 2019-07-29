@@ -254,9 +254,11 @@ export class HomeBase extends React.Component {
             // See https://github.com/mozilla/addons-frontend/issues/8406
             // This is a brand name so it should not be localized.
             heading="Forest Preserve Nougat (beta)"
-            body={i18n.gettext(`Get enhanced privacy protection while
-              browsing using public Wi-Fi. This beta service from Firefox
-              is currently only available in the United States.`)}
+            // TODO: replace with a real value.
+            // See https://github.com/mozilla/addons-frontend/issues/8406
+            body={`Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Sed augue lacus viverra vitae.`}
             linkText={i18n.gettext('Get Started')}
             // TODO: replace with a real value.
             // See https://github.com/mozilla/addons-frontend/issues/8406
