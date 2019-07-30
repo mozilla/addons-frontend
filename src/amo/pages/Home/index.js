@@ -11,12 +11,15 @@ import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroGuides from 'amo/components/HomeHeroGuides';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
+import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeAddons } from 'amo/reducers/home';
+import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
   INSTALL_SOURCE_FEATURED,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
@@ -70,6 +73,7 @@ export class HomeBase extends React.Component {
   static propTypes = {
     _config: PropTypes.object,
     _getFeaturedCollectionsMetadata: PropTypes.func,
+    clientApp: PropTypes.string.isRequired,
     collections: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
@@ -184,6 +188,7 @@ export class HomeBase extends React.Component {
     const {
       _config,
       _getFeaturedCollectionsMetadata,
+      clientApp,
       collections,
       errorHandler,
       i18n,
@@ -241,6 +246,30 @@ export class HomeBase extends React.Component {
         />
 
         {errorHandler.renderErrorIfPresent()}
+
+        {_config.get('enableFeatureHeroRecommendation') &&
+        clientApp !== CLIENT_APP_ANDROID ? (
+          <HeroRecommendation
+            // TODO: replace with a real value.
+            // See https://github.com/mozilla/addons-frontend/issues/8406
+            // This is a brand name so it should not be localized.
+            heading="Forest Preserve Nougat (beta)"
+            // TODO: replace with a real value.
+            // See https://github.com/mozilla/addons-frontend/issues/8406
+            body={`Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Sed augue lacus viverra vitae.`}
+            linkText={i18n.gettext('Get Started')}
+            // TODO: replace with a real value.
+            // See https://github.com/mozilla/addons-frontend/issues/8406
+            linkHref={`https://forest-preserve-nougat.com/${makeQueryStringWithUTM(
+              {
+                utm_content: 'homepage-primary-hero',
+                utm_campaign: '',
+              },
+            )}`}
+          />
+        ) : null}
 
         <HomeHeroGuides />
 

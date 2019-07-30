@@ -13,6 +13,7 @@ import FeaturedCollectionCard from 'amo/components/FeaturedCollectionCard';
 import HomeHeroGuides from 'amo/components/HomeHeroGuides';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
+import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { fetchHomeAddons, loadHomeAddons } from 'amo/reducers/home';
 import { createInternalCollection } from 'amo/reducers/collections';
@@ -21,6 +22,8 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES_FILTER,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
@@ -499,6 +502,44 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find(HeadLinks)).toHaveLength(1);
+  });
+
+  describe('HeroRecommendation', () => {
+    it('renders when enabled', () => {
+      const { store } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_FIREFOX,
+      });
+      const root = render({
+        _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
+        store,
+      });
+
+      expect(root.find(HeroRecommendation)).toHaveLength(1);
+    });
+
+    it('does not render when enabled on Android', () => {
+      const { store } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_ANDROID,
+      });
+      const root = render({
+        _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
+        store,
+      });
+
+      expect(root.find(HeroRecommendation)).toHaveLength(0);
+    });
+
+    it('does not render when disabled', () => {
+      const { store } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_FIREFOX,
+      });
+      const root = render({
+        _config: getFakeConfig({ enableFeatureHeroRecommendation: false }),
+        store,
+      });
+
+      expect(root.find(HeroRecommendation)).toHaveLength(0);
+    });
   });
 
   describe('getFeaturedCollectionsMetadata', () => {
