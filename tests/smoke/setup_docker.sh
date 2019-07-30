@@ -13,4 +13,4 @@ docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.fu
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml stop nginx
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml up -d
 # Pull and run selenium firefox docker image
-docker run --net "host" --detach selenium/standalone-firefox
+docker run -p 4444:4444 --detach selenium/standalone-firefox
