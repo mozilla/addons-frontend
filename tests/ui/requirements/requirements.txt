@@ -7,12 +7,14 @@ execnet==1.6.1
 FoxPuppet==1.0.3
 funcsigs==1.0.2
 idna==2.8
+importlib-metadata==0.19
 more-itertools==7.2.0
 pathlib2==2.3.4
-pluggy==0.9.0
+packaging==19.1 
+pluggy==0.12.0
 py==1.8.0
 PyPOM==2.2.0
-pytest==4.4.0
+pytest==5.0.1
 pytest-base-url==1.4.1
 pytest-firefox==0.1.1
 pytest-forked==1.0.2
@@ -28,6 +30,7 @@ scandir==1.10.0
 selenium==3.141.0
 six==1.12.0
 urllib3==1.25.3
+zipp==0.5.2
 zope.component==4.5
 zope.deferredimport==4.3
 zope.event==4.4
