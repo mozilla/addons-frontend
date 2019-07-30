@@ -5,22 +5,20 @@ import { fakeI18n } from 'tests/unit/helpers';
 
 import { HeroRecommendationBase } from 'amo/components/HeroRecommendation';
 
-const render = (props = {}) => {
-  return (
-    <HeroRecommendationBase
-      i18n={fakeI18n({ includeJedSpy: false })}
-      {...props}
-    />
-  );
-};
-
-storiesOf('HeroRecommendation', module).add('default', () => {
-  return render({
-    heading: 'Forest Preserve Nougat (beta)',
+const render = (moreProps = {}) => {
+  const props = {
     body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
       sed do eiusmod tempor incididunt ut labore et dolore magna
       aliqua. Sed augue lacus viverra vitae.`,
-    linkText: 'Get Started',
+    heading: 'Forest Preserve Nougat (beta)',
+    i18n: fakeI18n({ includeJedSpy: false }),
     linkHref: 'https://forest-preserve-nougat.com/',
-  });
+    linkText: 'Get Started',
+    ...moreProps,
+  };
+  return <HeroRecommendationBase {...props} />;
+};
+
+storiesOf('HeroRecommendation', module).add('default', () => {
+  return render();
 });
