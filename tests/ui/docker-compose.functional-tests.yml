@@ -5,4 +5,5 @@ version: "2.3"
 
 services:
   addons-frontend:
-    build: ../.
+    image: addons-frontend:latest
+    # This should build a local image if it isn't built already.

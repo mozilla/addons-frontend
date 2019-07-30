@@ -7,13 +7,17 @@ version: 2.0
 
 jobs:
   release-tag: # build for the master branch and tags
-    machine: true
+    machine:
+      image: ubuntu-1604:201903-01
     working_directory: ~/addons-frontend
     steps:
       - checkout
       - run:
           name: Install dependencies
           command: sudo apt-get update; sudo apt-get install pigz
+      - run:
+          name: "Set Python Version"
+          command: pyenv global 3.7.0
       - run: docker info
         # Build the container, using Circle's Docker cache. Only use 1 image per
         # day to keep the cache size down.
@@ -48,14 +52,31 @@ jobs:
             docker tag addons-frontend $DOCKERHUB_REPO:$CIRCLE_TAG
             docker images
             docker push $DOCKERHUB_REPO:$CIRCLE_TAG
+      - run:
+          name: Set hosts
+          command: |
+            echo 127.0.0.1 olympia.test | sudo tee -a /etc/hosts
+            cat /etc/hosts
+      - run:
+          name: Test Image
+          environment:
+            MOZ_HEADLESS: 1
+          command: |
+            sudo sysctl -w vm.max_map_count=262144
+            ./tests/smoke/setup_docker.sh
+            tox -e smoke-tests
   release-master: # build for the master branch and tags
-    machine: true
+    machine:
+      image: ubuntu-1604:201903-01
     working_directory: ~/addons-frontend
     steps:
       - checkout
       - run:
           name: Install dependencies
           command: sudo apt-get update; sudo apt-get install pigz
+      - run:
+          name: "Set Python Version"
+          command: pyenv global 3.7.0
       - run: docker info
         # Build the container, using Circle's Docker cache. Only use 1 image per
         # day to keep the cache size down.
@@ -88,9 +109,23 @@ jobs:
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker tag addons-frontend $DOCKERHUB_REPO:latest
             docker push $DOCKERHUB_REPO:latest
+      - run:
+          name: Set hosts
+          command: |
+            echo 127.0.0.1 olympia.test | sudo tee -a /etc/hosts
+            cat /etc/hosts
+      - run:
+          name: Test Image
+          environment:
+            MOZ_HEADLESS: 1
+          command: |
+            sudo sysctl -w vm.max_map_count=262144
+            ./tests/smoke/setup_docker.sh
+            tox -e smoke-tests
   integration-test:
     working_directory: ~/addons-frontend
-    machine: true
+    machine:
+      image: ubuntu-1604:201903-01
     steps:
       - checkout
       - run:
