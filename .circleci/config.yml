@@ -18,6 +18,9 @@ jobs:
       - run:
           name: "Set Python Version"
           command: pyenv global 3.7.0
+      - run:
+          name: "Install Tox"
+          command: pip install tox
       - run: docker info
         # Build the container, using Circle's Docker cache. Only use 1 image per
         # day to keep the cache size down.
@@ -77,6 +80,9 @@ jobs:
       - run:
           name: "Set Python Version"
           command: pyenv global 3.7.0
+      - run:
+          name: "Install Tox"
+          command: pip install tox
       - run: docker info
         # Build the container, using Circle's Docker cache. Only use 1 image per
         # day to keep the cache size down.
