@@ -5,6 +5,7 @@ import 'core/css/inc/lib.scss';
 import './setup/styles.scss';
 
 // Components
+import './amo/HeroRecommendation';
 import './ui/Badge';
 import './ui/Button';
 import './ui/IconRecommendedBadge';
