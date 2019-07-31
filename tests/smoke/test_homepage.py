@@ -1,6 +1,5 @@
 """Smoke tests for addons-frontend docker image."""
 
-import pytest
 import requests
 
 
