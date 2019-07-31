@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-23 19:18+0000\n"
+"POT-Creation-Date: 2019-07-31 07:59+0000\n"
 "PO-Revision-Date: 2019-07-16 20:27+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
@@ -1170,6 +1170,11 @@ msgstr "Přidatki za Firefox"
 msgid "Learn how to create extensions and themes"
 msgstr "Zhońće, kak móžeće rozšěrjenja a drasty wutworić"
 
+# If uppercase does not work in your locale, change it to lowercase.
+#: src/amo/components/HeroRecommendation/index.js:99
+msgid "RECOMMENDED"
+msgstr ""
+
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
 msgid "Stay Safe Online"
@@ -1476,22 +1481,22 @@ msgstr ""
 msgid "Search results"
 msgstr "Pytanske wuslědki"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:253
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:282
 #: src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
 msgstr "Doporučene rozšěrjenja"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:254
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:283
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Předstajene rozšěrjenja"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:338
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:367
 #: src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
 msgstr "Doporučene drasty"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:339
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:368
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Předstajene drasty"
@@ -1504,7 +1509,7 @@ msgstr "Doporučene přidatki"
 msgid "Featured add-ons"
 msgstr "Předstajene přidatki"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:353
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:382
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "Woblubowane rozšěrjenja"
@@ -1532,11 +1537,11 @@ msgstr "Wysoko pohódnoćene drasty"
 msgid "Top rated add-ons"
 msgstr "Najwyše pohódnoćene přidatki"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:300
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:329
 msgid "Popular extensions"
 msgstr "Woblubowane rozšěrjenja"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:279
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:308
 msgid "Popular themes"
 msgstr "Woblubowane drasty"
 
@@ -1747,11 +1752,11 @@ msgstr "K stronje přidatka"
 msgid "No theme preview available"
 msgstr "Přehlad drasty k dispoziciji njeje"
 
-#: src/amo/components/SearchResult/index.js:205
+#: src/amo/components/SearchResult/index.js:202
 msgid "Add-on note"
 msgstr "Přidatkowa notica"
 
-#: src/amo/components/SearchResult/index.js:225
+#: src/amo/components/SearchResult/index.js:222
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s wužiwar"
@@ -2351,35 +2356,35 @@ msgstr ""
 "was zaspina. Rozšěrjenja za blokowanje wabjenja móža tute wabjenje blokować "
 "abo filtrować, zo byšće móhł zaso bjez mylenja přehladować."
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:141
 msgid "Abstract"
 msgstr "Abstraktnje"
 
-#: src/amo/pages/Home/index.js:142
+#: src/amo/pages/Home/index.js:146
 msgid "Nature"
 msgstr "Přiroda"
 
-#: src/amo/pages/Home/index.js:147
+#: src/amo/pages/Home/index.js:151
 msgid "Film & TV"
 msgstr "Film a telewizija"
 
-#: src/amo/pages/Home/index.js:152
+#: src/amo/pages/Home/index.js:156
 msgid "Scenery"
 msgstr "Krajina"
 
-#: src/amo/pages/Home/index.js:157
+#: src/amo/pages/Home/index.js:161
 msgid "Music"
 msgstr "Hudźba"
 
-#: src/amo/pages/Home/index.js:162
+#: src/amo/pages/Home/index.js:166
 msgid "Seasonal"
 msgstr "Počasy"
 
-#: src/amo/pages/Home/index.js:200
+#: src/amo/pages/Home/index.js:205
 msgid "Change the way Firefox looks with themes."
 msgstr "Změńće wonkowny napohlad Firefox přez drasty."
 
-#: src/amo/pages/Home/index.js:230
+#: src/amo/pages/Home/index.js:235
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2389,47 +2394,51 @@ msgstr ""
 "Móža mjerzace wabjenje blokować, hesła škitać, zwonkowne wobhladowaka změnić "
 "a wjace."
 
-#: src/amo/pages/Home/index.js:258 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:262
+msgid "Get Started"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:287 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
 msgstr "Dalše doporučene rozšěrjenja pokazać"
 
-#: src/amo/pages/Home/index.js:259 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:288 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "Dalše předstajene rozšěrjenja sej wobhladać"
 
-#: src/amo/pages/Home/index.js:280
+#: src/amo/pages/Home/index.js:309
 msgid "See more popular themes"
 msgstr "Dalše woblubowane drasty pokazać"
 
-#: src/amo/pages/Home/index.js:301
+#: src/amo/pages/Home/index.js:330
 msgid "See more popular extensions"
 msgstr "Dalše woblubowane rozšěrjenja sej wobhladać"
 
-#: src/amo/pages/Home/index.js:320 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
 msgstr "Dalše doporučene drasty pokazać"
 
-#: src/amo/pages/Home/index.js:321 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "Dalše předstajene drasty sej wobhladać"
 
-#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:383 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Dalše tuchwilu woblubowane rozšěrjenja sej wobhladać"
 
-#: src/amo/pages/Home/index.js:55
+#: src/amo/pages/Home/index.js:58
 msgid "See more enhanced privacy extensions"
 msgstr "Dalše polěpšene rozšěrjenja za priwatnosć pokazać"
 
-#: src/amo/pages/Home/index.js:56
+#: src/amo/pages/Home/index.js:59
 msgid "Enhanced privacy extensions"
 msgstr "Polěpšene rozšěrjenja za priwatnosć"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
 msgstr "Dalše doporučene zrjadowaki hesłow pokazać"
 
-#: src/amo/pages/Home/index.js:62
+#: src/amo/pages/Home/index.js:65
 msgid "Recommended password managers"
 msgstr "Doporučene zrjadowaki hesłow"
 

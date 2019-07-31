@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-23 19:18+0000\n"
+"POT-Creation-Date: 2019-07-31 07:59+0000\n"
 "PO-Revision-Date: 2019-07-16 21:31+0000\n"
 "Last-Translator: passionforlife <eloli@foxmail.com>\n"
 "Language-Team: none\n"
@@ -1119,6 +1119,11 @@ msgstr "Firefox 附加组件"
 msgid "Learn how to create extensions and themes"
 msgstr "了解如何创建扩展和主题"
 
+# If uppercase does not work in your locale, change it to lowercase.
+#: src/amo/components/HeroRecommendation/index.js:99
+msgid "RECOMMENDED"
+msgstr ""
+
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
 msgid "Stay Safe Online"
@@ -1407,22 +1412,22 @@ msgstr "我们已收到您的报告。感谢告知。"
 msgid "Search results"
 msgstr "搜索结果"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:253
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:282
 #: src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
 msgstr "推荐扩展"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:254
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:283
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "精选扩展"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:338
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:367
 #: src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
 msgstr "推荐主题"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:339
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:368
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "精选主题"
@@ -1435,7 +1440,7 @@ msgstr "推荐附加组件"
 msgid "Featured add-ons"
 msgstr "精选附加组件"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:353
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:382
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "热门扩展"
@@ -1463,11 +1468,11 @@ msgstr "最受好评的主题"
 msgid "Top rated add-ons"
 msgstr "最受好评附加组件"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:300
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:329
 msgid "Popular extensions"
 msgstr "最流行的扩展"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:279
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:308
 msgid "Popular themes"
 msgstr "最流行的主题"
 
@@ -1636,11 +1641,11 @@ msgstr "访问附加组件页面"
 msgid "No theme preview available"
 msgstr "无主题预览可用"
 
-#: src/amo/components/SearchResult/index.js:205
+#: src/amo/components/SearchResult/index.js:202
 msgid "Add-on note"
 msgstr "附加组件说明"
 
-#: src/amo/components/SearchResult/index.js:225
+#: src/amo/components/SearchResult/index.js:222
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s 个用户"
@@ -2189,35 +2194,35 @@ msgstr ""
 "现在网络上有各种讨厌或挡视线的广告，还拖慢了网速。广告拦截扩展可以屏蔽或过滤"
 "这些广告，让您可以上网不必再分心。"
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:141
 msgid "Abstract"
 msgstr "抽象"
 
-#: src/amo/pages/Home/index.js:142
+#: src/amo/pages/Home/index.js:146
 msgid "Nature"
 msgstr "自然"
 
-#: src/amo/pages/Home/index.js:147
+#: src/amo/pages/Home/index.js:151
 msgid "Film & TV"
 msgstr "电影和电视"
 
-#: src/amo/pages/Home/index.js:152
+#: src/amo/pages/Home/index.js:156
 msgid "Scenery"
 msgstr "风景"
 
-#: src/amo/pages/Home/index.js:157
+#: src/amo/pages/Home/index.js:161
 msgid "Music"
 msgstr "音乐"
 
-#: src/amo/pages/Home/index.js:162
+#: src/amo/pages/Home/index.js:166
 msgid "Seasonal"
 msgstr "季节"
 
-#: src/amo/pages/Home/index.js:200
+#: src/amo/pages/Home/index.js:205
 msgid "Change the way Firefox looks with themes."
 msgstr "使用主题改变 Firefox 的外观。"
 
-#: src/amo/pages/Home/index.js:230
+#: src/amo/pages/Home/index.js:235
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2226,47 +2231,51 @@ msgstr ""
 "下载 Firefox 扩展与主题，它们就像是您浏览器上的应用程序，可以屏蔽讨人厌的广"
 "告、保护密码、更改浏览器外观，还有更多功能。"
 
-#: src/amo/pages/Home/index.js:258 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:262
+msgid "Get Started"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:287 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
 msgstr "看看更多推荐扩展"
 
-#: src/amo/pages/Home/index.js:259 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:288 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "看看更多精选扩展"
 
-#: src/amo/pages/Home/index.js:280
+#: src/amo/pages/Home/index.js:309
 msgid "See more popular themes"
 msgstr "看看更多流行主题"
 
-#: src/amo/pages/Home/index.js:301
+#: src/amo/pages/Home/index.js:330
 msgid "See more popular extensions"
 msgstr "查看更多流行扩展"
 
-#: src/amo/pages/Home/index.js:320 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
 msgstr "看看更多推荐主题"
 
-#: src/amo/pages/Home/index.js:321 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "看看更多精选主题"
 
-#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:383 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "看看更多热门扩展"
 
-#: src/amo/pages/Home/index.js:55
+#: src/amo/pages/Home/index.js:58
 msgid "See more enhanced privacy extensions"
 msgstr "看看更多隐私增强扩展"
 
-#: src/amo/pages/Home/index.js:56
+#: src/amo/pages/Home/index.js:59
 msgid "Enhanced privacy extensions"
 msgstr "隐私增强扩展"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
 msgstr "看看更多推荐的密码管理器"
 
-#: src/amo/pages/Home/index.js:62
+#: src/amo/pages/Home/index.js:65
 msgid "Recommended password managers"
 msgstr "推荐的密码管理器"
 

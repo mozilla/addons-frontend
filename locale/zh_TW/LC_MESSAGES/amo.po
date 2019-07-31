@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-23 19:18+0000\n"
+"POT-Creation-Date: 2019-07-31 07:59+0000\n"
 "PO-Revision-Date: 2019-07-17 04:11+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -1120,6 +1120,11 @@ msgstr "Firefox 附加元件"
 msgid "Learn how to create extensions and themes"
 msgstr "了解如何建立擴充套件與佈景主題"
 
+# If uppercase does not work in your locale, change it to lowercase.
+#: src/amo/components/HeroRecommendation/index.js:99
+msgid "RECOMMENDED"
+msgstr ""
+
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
 msgid "Stay Safe Online"
@@ -1408,22 +1413,22 @@ msgstr "已收到您的回報。感謝讓我們知道這位使用者可能有問
 msgid "Search results"
 msgstr "搜尋結果"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:253
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:282
 #: src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
 msgstr "推薦的擴充套件"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:254
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:283
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "精選擴充套件"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:338
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:367
 #: src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
 msgstr "推薦的佈景主題"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:339
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:368
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "精選佈景主題"
@@ -1436,7 +1441,7 @@ msgstr "推薦的附加元件"
 msgid "Featured add-ons"
 msgstr "精選附加元件"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:353
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:382
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "熱門擴充套件"
@@ -1464,11 +1469,11 @@ msgstr "分數最高的佈景主題"
 msgid "Top rated add-ons"
 msgstr "分數最高的附加元件"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:300
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:329
 msgid "Popular extensions"
 msgstr "熱門擴充套件"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:279
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:308
 msgid "Popular themes"
 msgstr "熱門佈景主題"
 
@@ -1637,11 +1642,11 @@ msgstr "前往附加元件頁面"
 msgid "No theme preview available"
 msgstr "沒有佈景主題預覽可以使用"
 
-#: src/amo/components/SearchResult/index.js:205
+#: src/amo/components/SearchResult/index.js:202
 msgid "Add-on note"
 msgstr "附加元件註記"
 
-#: src/amo/components/SearchResult/index.js:225
+#: src/amo/components/SearchResult/index.js:222
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s 位使用者"
@@ -2189,35 +2194,35 @@ msgstr ""
 "現在的網路上有各種不被人喜愛的廣告，拖慢您的上網速度。封鎖廣告用的擴充套件可"
 "封鎖或過濾這些廣告，這樣就讓上網不再分心。"
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:141
 msgid "Abstract"
 msgstr "抽象派"
 
-#: src/amo/pages/Home/index.js:142
+#: src/amo/pages/Home/index.js:146
 msgid "Nature"
 msgstr "自然"
 
-#: src/amo/pages/Home/index.js:147
+#: src/amo/pages/Home/index.js:151
 msgid "Film & TV"
 msgstr "電影與電視"
 
-#: src/amo/pages/Home/index.js:152
+#: src/amo/pages/Home/index.js:156
 msgid "Scenery"
 msgstr "風景"
 
-#: src/amo/pages/Home/index.js:157
+#: src/amo/pages/Home/index.js:161
 msgid "Music"
 msgstr "音樂"
 
-#: src/amo/pages/Home/index.js:162
+#: src/amo/pages/Home/index.js:166
 msgid "Seasonal"
 msgstr "季節"
 
-#: src/amo/pages/Home/index.js:200
+#: src/amo/pages/Home/index.js:205
 msgid "Change the way Firefox looks with themes."
 msgstr "使用佈景主題修改 Firefox 外觀。"
 
-#: src/amo/pages/Home/index.js:230
+#: src/amo/pages/Home/index.js:235
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2226,47 +2231,51 @@ msgstr ""
 "下載 Firefox 擴充套件與佈景主題，它們就像是在瀏覽器中安裝外掛，可以封鎖討人厭"
 "的廣告、保護密碼、更改瀏覽器外觀，還有更多功能。"
 
-#: src/amo/pages/Home/index.js:258 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:262
+msgid "Get Started"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:287 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
 msgstr "看更多推薦擴充套件"
 
-#: src/amo/pages/Home/index.js:259 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:288 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "看更多精選擴充套件"
 
-#: src/amo/pages/Home/index.js:280
+#: src/amo/pages/Home/index.js:309
 msgid "See more popular themes"
 msgstr "看更多熱門佈景主題"
 
-#: src/amo/pages/Home/index.js:301
+#: src/amo/pages/Home/index.js:330
 msgid "See more popular extensions"
 msgstr "看更多知名擴充套件"
 
-#: src/amo/pages/Home/index.js:320 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
 msgstr "看更多推薦佈景主題"
 
-#: src/amo/pages/Home/index.js:321 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "看更多精選佈景主題"
 
-#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:383 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "看更多熱門擴充套件"
 
-#: src/amo/pages/Home/index.js:55
+#: src/amo/pages/Home/index.js:58
 msgid "See more enhanced privacy extensions"
 msgstr "看更多加強隱私保護擴充套件"
 
-#: src/amo/pages/Home/index.js:56
+#: src/amo/pages/Home/index.js:59
 msgid "Enhanced privacy extensions"
 msgstr "加強隱私保護擴充套件"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
 msgstr "看更多推薦密碼管理員"
 
-#: src/amo/pages/Home/index.js:62
+#: src/amo/pages/Home/index.js:65
 msgid "Recommended password managers"
 msgstr "推薦的密碼管理員"
 

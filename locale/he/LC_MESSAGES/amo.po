@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-23 19:18+0000\n"
+"POT-Creation-Date: 2019-07-31 07:59+0000\n"
 "PO-Revision-Date: 2019-07-16 20:30+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -1132,6 +1132,11 @@ msgstr "תוספות של Firefox"
 msgid "Learn how to create extensions and themes"
 msgstr "מידע על אופן יצירת הרחבות וערכות נושא"
 
+# If uppercase does not work in your locale, change it to lowercase.
+#: src/amo/components/HeroRecommendation/index.js:99
+msgid "RECOMMENDED"
+msgstr ""
+
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
 msgid "Stay Safe Online"
@@ -1423,22 +1428,22 @@ msgstr "קיבלנו את הדיווח שלך. תודה שהודעת לנו על
 msgid "Search results"
 msgstr "תוצאות חיפוש"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:253
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:282
 #: src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
 msgstr "הרחבות מומלצות"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:254
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:283
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "הרחבות מומלצות"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:338
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:367
 #: src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
 msgstr "ערכות נושא מומלצות"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:339
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:368
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "ערכות נושא מומלצות"
@@ -1451,7 +1456,7 @@ msgstr "תוספות מומלצות"
 msgid "Featured add-ons"
 msgstr "תוספות מומלצות"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:353
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:382
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "ההרחבות שמובילות לאחרונה"
@@ -1479,11 +1484,11 @@ msgstr "ערכות הנושא המדורגות ביותר"
 msgid "Top rated add-ons"
 msgstr "התוספות המדורגות ביותר"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:300
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:329
 msgid "Popular extensions"
 msgstr "הרחבות פופולריות"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:279
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:308
 msgid "Popular themes"
 msgstr "ערכות נושא פופולריות"
 
@@ -1665,11 +1670,11 @@ msgstr "מעבר לדף התוספת"
 msgid "No theme preview available"
 msgstr "תצוגה מקדימה של ערכת נושא אינה זמינה"
 
-#: src/amo/components/SearchResult/index.js:205
+#: src/amo/components/SearchResult/index.js:202
 msgid "Add-on note"
 msgstr "הערת תוספת"
 
-#: src/amo/components/SearchResult/index.js:225
+#: src/amo/components/SearchResult/index.js:222
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "משתמש אחד"
@@ -2216,82 +2221,86 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:141
 msgid "Abstract"
 msgstr "מופשט"
 
-#: src/amo/pages/Home/index.js:142
+#: src/amo/pages/Home/index.js:146
 msgid "Nature"
 msgstr "טבע"
 
-#: src/amo/pages/Home/index.js:147
+#: src/amo/pages/Home/index.js:151
 msgid "Film & TV"
 msgstr "סרטים וטלוויזיה"
 
-#: src/amo/pages/Home/index.js:152
+#: src/amo/pages/Home/index.js:156
 msgid "Scenery"
 msgstr "נופי"
 
-#: src/amo/pages/Home/index.js:157
+#: src/amo/pages/Home/index.js:161
 msgid "Music"
 msgstr "מוזיקה"
 
-#: src/amo/pages/Home/index.js:162
+#: src/amo/pages/Home/index.js:166
 msgid "Seasonal"
 msgstr "עונתי"
 
-#: src/amo/pages/Home/index.js:200
+#: src/amo/pages/Home/index.js:205
 msgid "Change the way Firefox looks with themes."
 msgstr "שינוי המראה של Firefox עם ערכות נושא."
 
-#: src/amo/pages/Home/index.js:230
+#: src/amo/pages/Home/index.js:235
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:258 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:262
+msgid "Get Started"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:287 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
 msgstr "הצגת הרחבות מומלצות נוספות"
 
-#: src/amo/pages/Home/index.js:259 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:288 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "הצגת הרחבות מומלצות נוספות"
 
-#: src/amo/pages/Home/index.js:280
+#: src/amo/pages/Home/index.js:309
 msgid "See more popular themes"
 msgstr "הצגת ערכות נושא פופולריות נוספות"
 
-#: src/amo/pages/Home/index.js:301
+#: src/amo/pages/Home/index.js:330
 msgid "See more popular extensions"
 msgstr "הצגת הרחבות פופולריות נוספות"
 
-#: src/amo/pages/Home/index.js:320 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
 msgstr "הצגת ערכות נושא מומלצות נוספות"
 
-#: src/amo/pages/Home/index.js:321 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "הצגת ערכות נושא מומלצות נוספות"
 
-#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:383 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "הצגת הרחבות נוספות שמובילות לאחרונה"
 
-#: src/amo/pages/Home/index.js:55
+#: src/amo/pages/Home/index.js:58
 msgid "See more enhanced privacy extensions"
 msgstr "הצגת הרחבות נוספות לשיפור הפרטיות"
 
-#: src/amo/pages/Home/index.js:56
+#: src/amo/pages/Home/index.js:59
 msgid "Enhanced privacy extensions"
 msgstr "הרחבות לשיפור הפרטיות"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
 msgstr "הצגת מנהלי ססמאות מומלצים נוספים"
 
-#: src/amo/pages/Home/index.js:62
+#: src/amo/pages/Home/index.js:65
 msgid "Recommended password managers"
 msgstr "מנהלי ססמאות מומלצים"
 

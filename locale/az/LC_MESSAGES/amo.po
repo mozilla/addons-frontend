@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-23 19:18+0000\n"
+"POT-Creation-Date: 2019-07-31 07:59+0000\n"
 "PO-Revision-Date: 2018-10-31 16:33+0000\n"
 "Last-Translator: Emin Mastizada <emin@mastizada.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1131,6 +1131,11 @@ msgstr "Firefox Əlavələri"
 msgid "Learn how to create extensions and themes"
 msgstr "Uzantı istifadəsini izləmək və mövzuları idarə etmək"
 
+# If uppercase does not work in your locale, change it to lowercase.
+#: src/amo/components/HeroRecommendation/index.js:99
+msgid "RECOMMENDED"
+msgstr ""
+
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
 msgid "Stay Safe Online"
@@ -1417,24 +1422,24 @@ msgstr ""
 msgid "Search results"
 msgstr "Axtarış nəticələri"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:253
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:282
 #: src/amo/pages/LandingPage/index.js:139
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "Seçilmiş uzantılar"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:254
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:283
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Seçilmiş uzantılar"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:338
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:367
 #: src/amo/pages/LandingPage/index.js:178
 #, fuzzy
 msgid "Recommended themes"
 msgstr "Yay mövzuları"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:339
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:368
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Seçilmiş mövzular"
@@ -1448,7 +1453,7 @@ msgstr "Əlavələri tap"
 msgid "Featured add-ons"
 msgstr "Seçilmiş əlavələr"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:353
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:382
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "Trenddəki uzantılar"
@@ -1476,11 +1481,11 @@ msgstr "Ən çox qiymətləndirilən mövzular"
 msgid "Top rated add-ons"
 msgstr "Ən çox qiymətləndirilən əlavələr"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:300
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:329
 msgid "Popular extensions"
 msgstr "Məşhur uzantılar"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:279
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:308
 msgid "Popular themes"
 msgstr "Məşhur mövzular"
 
@@ -1674,11 +1679,11 @@ msgstr "Əlavə səhifəsinə get"
 msgid "No theme preview available"
 msgstr "Mövzu ön baxışı yoxdur"
 
-#: src/amo/components/SearchResult/index.js:205
+#: src/amo/components/SearchResult/index.js:202
 msgid "Add-on note"
 msgstr "Əlavə qeydi"
 
-#: src/amo/components/SearchResult/index.js:225
+#: src/amo/components/SearchResult/index.js:222
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s istifadəçi"
@@ -2219,89 +2224,93 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:137
+#: src/amo/pages/Home/index.js:141
 msgid "Abstract"
 msgstr "Mücərrəd"
 
-#: src/amo/pages/Home/index.js:142
+#: src/amo/pages/Home/index.js:146
 msgid "Nature"
 msgstr "Təbiət"
 
-#: src/amo/pages/Home/index.js:147
+#: src/amo/pages/Home/index.js:151
 msgid "Film & TV"
 msgstr "Kino və TV"
 
-#: src/amo/pages/Home/index.js:152
+#: src/amo/pages/Home/index.js:156
 msgid "Scenery"
 msgstr "Mənzərə"
 
-#: src/amo/pages/Home/index.js:157
+#: src/amo/pages/Home/index.js:161
 msgid "Music"
 msgstr "Musiqi"
 
-#: src/amo/pages/Home/index.js:162
+#: src/amo/pages/Home/index.js:166
 msgid "Seasonal"
 msgstr "Fəsillik"
 
-#: src/amo/pages/Home/index.js:200
+#: src/amo/pages/Home/index.js:205
 msgid "Change the way Firefox looks with themes."
 msgstr "Firefox-un necə göründüyünü mövzularla dəyişdirin."
 
-#: src/amo/pages/Home/index.js:230
+#: src/amo/pages/Home/index.js:235
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:258 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:262
+msgid "Get Started"
+msgstr ""
+
+#: src/amo/pages/Home/index.js:287 src/amo/pages/LandingPage/index.js:153
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "Daha çox trenddəki uzantı gör"
 
-#: src/amo/pages/Home/index.js:259 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:288 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "Daha çox seçilmiş uzantı gör"
 
-#: src/amo/pages/Home/index.js:280
+#: src/amo/pages/Home/index.js:309
 #, fuzzy
 msgid "See more popular themes"
 msgstr "Daha çox məşhur uzantıları gör"
 
-#: src/amo/pages/Home/index.js:301
+#: src/amo/pages/Home/index.js:330
 #, fuzzy
 msgid "See more popular extensions"
 msgstr "Daha çox yüksək qiymətləndirilmiş uzantı gör"
 
-#: src/amo/pages/Home/index.js:320 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
 #, fuzzy
 msgid "See more recommended themes"
 msgstr "Daha çox trenddəki mövzu gör"
 
-#: src/amo/pages/Home/index.js:321 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "Daha çox seçilmiş mövzu gör"
 
-#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:383 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Daha çox trenddəki uzantı gör"
 
-#: src/amo/pages/Home/index.js:55
+#: src/amo/pages/Home/index.js:58
 #, fuzzy
 msgid "See more enhanced privacy extensions"
 msgstr "Daha çox seçilmiş uzantı gör"
 
-#: src/amo/pages/Home/index.js:56
+#: src/amo/pages/Home/index.js:59
 #, fuzzy
 msgid "Enhanced privacy extensions"
 msgstr "Digər məşhur uzantılar"
 
-#: src/amo/pages/Home/index.js:61
+#: src/amo/pages/Home/index.js:64
 #, fuzzy
 msgid "See more recommended password managers"
 msgstr "Daha çox trenddəki mövzu gör"
 
-#: src/amo/pages/Home/index.js:62
+#: src/amo/pages/Home/index.js:65
 #, fuzzy
 msgid "Recommended password managers"
 msgstr "Parol idarəçiləri"
