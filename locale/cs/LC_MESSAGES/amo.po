@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 07:59+0000\n"
-"PO-Revision-Date: 2019-07-31 22:37+0000\n"
+"PO-Revision-Date: 2019-07-31 23:12+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1325,15 +1325,15 @@ msgstr "Doporučené doplňky"
 
 #: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:382 src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
-msgstr "Aktuálně oblíbená rozšíření"
+msgstr "Právě populární rozšíření"
 
 #: src/amo/components/Search/index.js:150 src/amo/pages/LandingPage/index.js:194
 msgid "Trending themes"
-msgstr "Aktuálně oblíbené rozšíření"
+msgstr "Právě populární motivy vzhledu"
 
 #: src/amo/components/Search/index.js:153
 msgid "Trending add-ons"
-msgstr "Právě populární doplňků"
+msgstr "Právě populární doplňky"
 
 #: src/amo/components/Search/index.js:159 src/amo/pages/LandingPage/index.js:165
 msgid "Top rated extensions"
@@ -2061,11 +2061,11 @@ msgstr "Další doporučená rozšíření"
 
 #: src/amo/pages/Home/index.js:309
 msgid "See more popular themes"
-msgstr "Další populární rozšíření"
+msgstr "Další oblíbené vzhledy"
 
 #: src/amo/pages/Home/index.js:330
 msgid "See more popular extensions"
-msgstr "Prohlédnout si další oblíbená rozšíření"
+msgstr "Další oblíbená rozšíření"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
@@ -2077,11 +2077,11 @@ msgstr "Další doporučené vzhledy"
 
 #: src/amo/pages/Home/index.js:383 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
-msgstr "Další oblíbená rozšíření"
+msgstr "Další právě populární rozšíření"
 
 #: src/amo/pages/Home/index.js:58
 msgid "See more enhanced privacy extensions"
-msgstr "Prohlédnout si další rozšíření zaměřená na zvýšení soukromí"
+msgstr "Další rozšíření zaměřená na zvýšení soukromí"
 
 #: src/amo/pages/Home/index.js:59
 msgid "Enhanced privacy extensions"
@@ -2089,7 +2089,7 @@ msgstr "Rozšíření zaměřená na zvýšení soukromí"
 
 #: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
-msgstr "Prohlédnout si další doporučené správce hesel"
+msgstr "Další doporučení správci hesel"
 
 #: src/amo/pages/Home/index.js:65
 msgid "Recommended password managers"
@@ -2097,7 +2097,7 @@ msgstr "Doporučení správci hesel"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
-msgstr "Další dobře hodnocená rozšíření"
+msgstr "Další nejlépe hodnocená rozšíření"
 
 #: src/amo/pages/LandingPage/index.js:199
 msgid "See more trending themes"
