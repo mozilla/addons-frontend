@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-23 19:22+0000\n"
+"POT-Creation-Date: 2019-07-31 08:06+0000\n"
 "PO-Revision-Date: 2019-07-26 14:00+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
@@ -51,10 +51,15 @@ msgid "Server Error"
 msgstr "Σφάλμα διακομιστή"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Συγγνώμη, αλλά προέκυψε σφάλμα και δεν μπορέσαμε να εκπληρώσουμε το αίτημά σας. Έχουμε καταγράψει αυτό το σφάλμα και θα το ερευνήσουμε."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Συγγνώμη, αλλά προέκυψε σφάλμα και δεν μπορέσαμε να εκπληρώσουμε το αίτημά "
+"σας. Έχουμε καταγράψει αυτό το σφάλμα και θα το ερευνήσουμε."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Κωδικός σφάλματος: %(status)s."
 
@@ -72,7 +77,8 @@ msgstr "Το %(strongStart)s%(name)s%(strongEnd)s έχει προστεθεί"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr "Διαχειριστείτε τα πρόσθετά σας κάνοντας κλικ στο \"Πρόσθετα\" στο μενού."
+msgstr ""
+"Διαχειριστείτε τα πρόσθετά σας κάνοντας κλικ στο \"Πρόσθετα\" στο μενού."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -115,7 +121,8 @@ msgstr "Λειτουργεί με %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr "Η εγκατάσταση ακυρώθηκε, επειδή το πρόσθετο φαίνεται να έχει καταστραφεί."
+msgstr ""
+"Η εγκατάσταση ακυρώθηκε, επειδή το πρόσθετο φαίνεται να έχει καταστραφεί."
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
@@ -171,20 +178,30 @@ msgstr "Εξατομίκευση Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Υπάρχουν χιλιάδες δωρεάν πρόσθετα, που δημιουργούνται από προγραμματιστές απ' όλο τον κόσμο, που μπορείτε να εγκαταστήσετε για να εξατομικεύσετε το Firefox. Από διασκεδαστικά θέματα μέχρι ισχυρά "
-"εργαλεία που κάνουν την περιήγηση πιο γρήγορη και ασφαλή, τα πρόσθετα κάνουν το πρόγραμμα περιήγησής σας μοναδικό. Για να σας βοηθήσουμε να ξεκινήσετε, ορίστε μερικά πρόσθετα που προτείνουμε για την"
-" ξεχωριστή απόδοση και λειτουργικότητά τους."
+"Υπάρχουν χιλιάδες δωρεάν πρόσθετα, που δημιουργούνται από προγραμματιστές "
+"απ' όλο τον κόσμο, που μπορείτε να εγκαταστήσετε για να εξατομικεύσετε το "
+"Firefox. Από διασκεδαστικά θέματα μέχρι ισχυρά εργαλεία που κάνουν την "
+"περιήγηση πιο γρήγορη και ασφαλή, τα πρόσθετα κάνουν το πρόγραμμα περιήγησής "
+"σας μοναδικό. Για να σας βοηθήσουμε να ξεκινήσετε, ορίστε μερικά πρόσθετα "
+"που προτείνουμε για την ξεχωριστή απόδοση και λειτουργικότητά τους."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Μάθετε περισσότερα"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr "Μερικές από αυτές τις προτάσεις είναι εξατομικευμένες. Βασίζονται σε άλλες επεκτάσεις που έχετε εγκαταστήσει, προτιμήσεις προφίλ και στατιστικά χρήσης."
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"Μερικές από αυτές τις προτάσεις είναι εξατομικευμένες. Βασίζονται σε άλλες "
+"επεκτάσεις που έχετε εγκαταστήσει, προτιμήσεις προφίλ και στατιστικά χρήσης."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -213,7 +230,9 @@ msgstr "Προεπισκόπηση του %(title)s"
 #~ msgstr "Γίνεται εγκατάσταση του %(name)s."
 
 #~ msgid "%(name)s is installed and enabled. Click to uninstall."
-#~ msgstr "Το %(name)s έχει εγκατασταθεί και ενεργοποιηθεί. Κάντε κλικ για απεγκατάσταση."
+#~ msgstr ""
+#~ "Το %(name)s έχει εγκατασταθεί και ενεργοποιηθεί. Κάντε κλικ για "
+#~ "απεγκατάσταση."
 
 #~ msgid "%(name)s is disabled. Click to enable."
 #~ msgstr "Το %(name)s έχει απεγκατασταθεί. Κάντε κλικ για ενεργοποίηση."
@@ -240,7 +259,9 @@ msgstr "Προεπισκόπηση του %(title)s"
 #~ msgstr "Έχετε πλέον πρόσβαση στο %(name)s από τη γραμμή εργαλείων."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "Περάστε από πάνω τον κέρσορα για προεπισκόπηση ή κάντε κλικ για εγκατάσταση του %(name)s"
+#~ msgstr ""
+#~ "Περάστε από πάνω τον κέρσορα για προεπισκόπηση ή κάντε κλικ για "
+#~ "εγκατάσταση του %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Μετακινήστε τον κέρσορα πάνω από την εικόνα για προεπισκόπηση"
