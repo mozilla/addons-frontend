@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 07:59+0000\n"
-"PO-Revision-Date: 2019-07-31 23:12+0000\n"
+"PO-Revision-Date: 2019-07-31 23:15+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -2101,11 +2101,11 @@ msgstr "Další nejlépe hodnocená rozšíření"
 
 #: src/amo/pages/LandingPage/index.js:199
 msgid "See more trending themes"
-msgstr "Další oblíbené vzhledy"
+msgstr "Další právě populární vzhledy"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "See more top rated themes"
-msgstr "Další dobře hodnocené vzhledy"
+msgstr "Další nejlépe hodnocené vzhledy"
 
 #: src/amo/pages/LandingPage/index.js:229
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
