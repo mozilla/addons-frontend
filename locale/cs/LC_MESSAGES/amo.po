@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 07:59+0000\n"
-"PO-Revision-Date: 2019-07-31 22:30+0000\n"
+"PO-Revision-Date: 2019-07-31 22:37+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -315,7 +315,7 @@ msgstr "Ostatní uživatelé tohoto doplňku si také nainstalovali"
 
 #: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other popular extensions"
-msgstr "Další populární rozšíření"
+msgstr "Další oblíbená rozšíření"
 
 #: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit reply"
@@ -2065,7 +2065,7 @@ msgstr "Další populární rozšíření"
 
 #: src/amo/pages/Home/index.js:330
 msgid "See more popular extensions"
-msgstr "Prohlédněte si další populární rozšíření"
+msgstr "Prohlédnout si další oblíbená rozšíření"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
@@ -2081,7 +2081,7 @@ msgstr "Další oblíbená rozšíření"
 
 #: src/amo/pages/Home/index.js:58
 msgid "See more enhanced privacy extensions"
-msgstr "Prohlédněte si další rozšíření zaměřená na zvýšení soukromí"
+msgstr "Prohlédnout si další rozšíření zaměřená na zvýšení soukromí"
 
 #: src/amo/pages/Home/index.js:59
 msgid "Enhanced privacy extensions"
@@ -2089,7 +2089,7 @@ msgstr "Rozšíření zaměřená na zvýšení soukromí"
 
 #: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
-msgstr "Prohlédněte si další doporučené správce hesel"
+msgstr "Prohlédnout si další doporučené správce hesel"
 
 #: src/amo/pages/Home/index.js:65
 msgid "Recommended password managers"
