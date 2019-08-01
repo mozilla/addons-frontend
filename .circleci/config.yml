@@ -62,8 +62,6 @@ jobs:
             cat /etc/hosts
       - run:
           name: Test Image
-          environment:
-            MOZ_HEADLESS: 1
           command: |
             sudo sysctl -w vm.max_map_count=262144
             ./tests/smoke/setup_docker.sh
@@ -122,8 +120,6 @@ jobs:
             cat /etc/hosts
       - run:
           name: Test Image
-          environment:
-            MOZ_HEADLESS: 1
           command: |
             sudo sysctl -w vm.max_map_count=262144
             ./tests/smoke/setup_docker.sh
