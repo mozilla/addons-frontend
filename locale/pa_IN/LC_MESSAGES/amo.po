@@ -1092,7 +1092,7 @@ msgstr "ਕਲਿੱਪਬੋਰਡ 'ਚ ਡਾਟਾ ਇਨਪੁੱਟ ਕਰ�
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "ਟੈਬਾਂ ਖੋਲ੍ਹਣ ਵਿੱਚ ਤੁਹਾਡੇ ਡਾਟਾ ਲਈ ਡਿਵੈਲਪਰ ਟੂਲਾਂ ਦੀ ਪਹੁੰਚ ਵਧਾਓ"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
@@ -1100,7 +1100,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "ਆਪਣੇ ਕੰਪਿਊਟਰ ਤੇ ਡਾਊਨਲੋਡ ਕੀਤੀਆਂ ਫਾਈਲਾਂ ਨੂੰ ਖੋਲ੍ਹੋ"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Read the text of all open tabs"
@@ -1959,7 +1959,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:79
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "ਮਜ਼ਬੂਤ ਪਾਸਵਰਡ ਬਣਾਓ ਅਤੇ ਪ੍ਰਬੰਧਿਤ ਕਰੋ"
 
 #: src/amo/pages/Guides/index.js:80
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
@@ -2623,7 +2623,7 @@ msgstr ""
 
 #: src/amo/utils/notifications.js:22
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "ਮੇਰੇ ਐਡਆਨ ਦੀ ਸਮੀਖਿਅਕ ਵੱਲੋਂ ਸਮੀਖਿਆ ਹੋਈ"
 
 #: src/amo/utils/notifications.js:24
 msgid "my add-on's compatibility cannot be upgraded"
@@ -2770,7 +2770,7 @@ msgstr ""
 
 #: src/core/utils/addons.js:45
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "ਅਚਾਨਕ ਗਲਤੀ ਆਈ ਹੈ।"
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
