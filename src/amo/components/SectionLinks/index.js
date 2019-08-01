@@ -10,6 +10,7 @@ import { setClientApp } from 'core/actions';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   VIEW_CONTEXT_EXPLORE,
@@ -94,7 +95,7 @@ export class SectionLinksBase extends React.Component<Props> {
               'SectionLinks-link',
               'SectionLinks-link-theme',
               {
-                'SectionLinks-link--active': viewContext === ADDON_TYPE_THEME,
+                'SectionLinks-link--active': viewContext === ADDON_TYPE_STATIC_THEME,
               },
             )}
             to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}
