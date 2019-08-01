@@ -3,6 +3,10 @@
 .HeroRecommendation {
   color: $white;
   display: flex;
+  // This works around a layout bug in Firefox.
+  // It is currently unfixed as of 70.0 (Nightly).
+  // https://github.com/mozilla/addons-frontend/issues/8426
+  overflow: auto;
   padding: 24px;
   position: relative;
 
