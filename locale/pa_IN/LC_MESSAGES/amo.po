@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 07:59+0000\n"
-"PO-Revision-Date: 2019-07-03 19:02+0000\n"
-"Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
+"PO-Revision-Date: 2019-08-01 11:12+0000\n"
+"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -790,11 +790,11 @@ msgstr "ਓਹੋ! ਅਸੀਂ ਉਹ ਸਫ਼ਾ ਨਹੀਂ ਲੱਭ ਸ�
 
 #: src/amo/components/ErrorPage/NotFound/index.js:71
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਇੱਕ ਐਕਸਟੈਂਸ਼ਨ ਜਾਂ ਥੀਮ ਲਈ ਕਿਸੇ ਹੋਰ ਸਾਈਟ ਤੋਂ ਇੱਕ ਲਿੰਕ ਦਾ ਅਨੁਸਰਣ ਕੀਤਾ ਹੈ, ਤਾਂ ਉਹ ਆਈਟਮ ਹੁਣ ਉਪਲਬਧ ਨਹੀਂ ਹੋਵੇਗੀੇ। ਇਹ ਇਸ ਲਈ ਹੋ ਸਕਦਾ ਹੈ ਕਿਉਂਕਿ:"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:77
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "ਡਿਵੈਲਪਰ ਨੇ ਇਸਨੂੰ ਹਟਾ ਦਿੱਤਾੇ। ਡਿਵੈਲਪਰ ਆਮ ਤੌਰ ਤੇ ਅਜਿਹਾ ਕਰਦੇ ਹਨ ਕਿਉਂਕਿ ਉਹ ਐਕਸਟੈਂਸ਼ਨ ਜਾਂ ਥੀਮ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੇ, ਜਾਂ ਇਸ ਨੂੰ ਬਦਲ ਦਿੰਦੇ ਹਨ।"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:82
 msgid ""
@@ -836,11 +836,11 @@ msgstr "ਪੜਤਾਲ ਨਹੀਂ ਮਿਲੀ ਸੀ।"
 
 #: src/amo/components/FlagReviewMenu/index.js:103
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "ਇਹ ਇੱਕ ਬੱਗ ਰਿਪੋਰਟ ਜਾਂ ਸਹਿਯੋਗ ਬੇਨਤੀ ਹੈ"
 
 #: src/amo/components/FlagReviewMenu/index.js:106
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "ਇਹ ਇੱਕ ਬੱਗ ਰਿਪੋਰਟ ਜਾਂ ਸਹਿਯੋਗ ਬੇਨਤੀ ਹੈ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
@@ -1048,7 +1048,7 @@ msgstr "ਆਪਣੇ ਮੀਡੀਆ ਅਨੁਭਵ ਨੂੰ ਵਧਾਓ"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
-msgstr ""
+msgstr "ਐਕਸਟੈਂਸ਼ਨ ਤੁਹਾਡੇ ਬ੍ਰਾਊਜ਼ਰ ਲਈ ਐਪਸ ਦੀ ਤਰ੍ਹਾਂ ਹਨੇ।"
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
@@ -2671,7 +2671,7 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "ਗਲਤੀ ਕੋਡ: %(status)s।"
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -2790,7 +2790,7 @@ msgstr "ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "ਤੁਹਾਡੇ ਸੈਸ਼ਨ ਦੀ ਮਿਆਦ ਪੁੱਗ ਗਈ ਹੈ"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
@@ -2806,7 +2806,7 @@ msgstr "ਸਮਗਰੀ ਬਦਲੋ"
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "ਸਾਰੀਆਂ ਵੈੱਬਸਾਈਟਾਂ ਲਈ ਤੁਹਾਡੇ ਡਾਟੇ ਵਾਸਤੇ ਪਹੁੰਚ"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
@@ -2864,7 +2864,7 @@ msgstr[1] "%(total)s ਐਡ-ਆਨ"
 
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
-msgstr ""
+msgstr "ਵਿਕਾਸਕਾਰ ਜਵਾਬ"
 
 #~ msgid "User comment"
 #~ msgstr "ਵਰਤੋਂਕਾਰ ਟਿੱਪਣੀ"
