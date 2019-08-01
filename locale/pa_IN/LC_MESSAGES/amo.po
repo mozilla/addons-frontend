@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 07:59+0000\n"
-"PO-Revision-Date: 2019-07-03 18:39+0000\n"
+"PO-Revision-Date: 2019-07-03 19:26+0000\n"
 "Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1700,7 +1700,7 @@ msgstr ""
 
 #: src/amo/pages/AddonInfo/index.js:168
 msgid "Privacy policy for %(addonName)s"
-msgstr ""
+msgstr "%(addonName)s ਲਈ ਪ੍ਰਾਈਵੇਸੀ ਨੀਤੀ"
 
 #: src/amo/pages/AddonReviewList/index.js:196
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -1893,7 +1893,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:178
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "ਇੱਕ ਤਾਜ਼ੇ ਨਵੇਂ ਟੈਬ ਅਨੁਭਵ ਦਾ ਅਨੰਦ ਮਾਣੋ"
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
@@ -2075,7 +2075,7 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:199
 msgid "See more trending themes"
-msgstr ""
+msgstr "ਵਧੇਰੇ ਪ੍ਰਚਲਿਤ ਥੀਮ ਵੇਖੋ"
 
 #: src/amo/pages/LandingPage/index.js:205
 msgid "See more top rated themes"
@@ -2339,7 +2339,7 @@ msgstr "ਕੀ ਇਹ ਵਰਤੋਂ ਵਿੱਚ ਅਸਾਨ ਸੀ?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:72
 msgid "Will you continue to use this add-on?"
-msgstr ""
+msgstr "ਕੀ ਤੁਸੀਂ ਇਸ ਐਡ-ਆਨ ਨੂੰ ਵਰਤਣਾ ਜਾਰੀ ਰੱਖੋਗੇ?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:77
 msgid "Take a moment to read your review before submitting it to minimize typos."
