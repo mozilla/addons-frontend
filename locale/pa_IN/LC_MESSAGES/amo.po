@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 07:59+0000\n"
-"PO-Revision-Date: 2019-08-01 09:38+0000\n"
-"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
+"PO-Revision-Date: 2019-07-03 19:02+0000\n"
+"Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -1520,7 +1520,7 @@ msgstr "ਐਡ-ਆਨ ਪੇਜ ਤੇ ਜਾਓ"
 
 #: src/amo/components/SearchResult/index.js:164
 msgid "No theme preview available"
-msgstr ""
+msgstr "ਕੋਈ ਥੀਮ ਪ੍ਰੀਵਿਊ ਉਪਲਬਧ ਨਹੀਂ"
 
 #: src/amo/components/SearchResult/index.js:202
 msgid "Add-on note"
@@ -2047,7 +2047,7 @@ msgstr "ਹੋਰ ਫੀਚਰਡ ਥੀਮ ਵੇਖੋ"
 
 #: src/amo/pages/Home/index.js:383 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
-msgstr ""
+msgstr "ਵਧੇਰੇ ਟ੍ਰੈਂਡਿੰਗ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੇਖੋ"
 
 #: src/amo/pages/Home/index.js:58
 #, fuzzy
