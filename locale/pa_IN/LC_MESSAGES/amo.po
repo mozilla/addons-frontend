@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 07:59+0000\n"
-"PO-Revision-Date: 2019-08-02 15:19+0000\n"
-"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
+"PO-Revision-Date: 2019-07-03 19:39+0000\n"
+"Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -1104,7 +1104,7 @@ msgstr "ਆਪਣੇ ਕੰਪਿਊਟਰ ਤੇ ਡਾਊਨਲੋਡ ਕੀ�
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "ਸਾਰੀਆਂ ਖੁੱਲ੍ਹੀਆਂ ਟੈਬਾਂ ਦੀ ਲਿਖਤ ਨੂੰ ਪੜ੍ਹੋ"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access your location"
@@ -1538,7 +1538,7 @@ msgstr "…ਖੋਜਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: src/amo/components/SearchResults/index.js:58
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "\"%(query)s\" ਲਈ ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਮਿਲਿਆ।"
 
 #: src/amo/components/SearchResults/index.js:64
 msgid "No results were found."
@@ -2099,7 +2099,7 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:297
 msgid "Explore all categories"
-msgstr ""
+msgstr "ਸਾਰੇ ਵਰਗਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ"
 
 #: src/amo/pages/LanguageTools/index.js:108
 msgid "Available for your locale"
@@ -2261,7 +2261,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:136
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "ਮੈਂ ਸਮੱਸਿਆ ਵਾਲੀ ਸਮੀਖਿਆ ਦੀ ਕਿਵੇਂ ਰਿਪੋਰਟ ਕਰ ਸਕਦਾ ਹਾਂ?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:138
 msgid ""
@@ -2615,7 +2615,7 @@ msgstr ""
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "ਕਿਸੇ ਨੇ ਮੇਰੇ ਐਡ-ਆਨ ਲਈ ਸਮੀਖਿਆ ਲਿਖੀ"
 
 #: src/amo/utils/notifications.js:20
 msgid "an add-on developer replies to my review"
@@ -2758,7 +2758,7 @@ msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਅਸਫਲ। ਮੁੜ ਕੋਸ਼ਿ
 
 #: src/core/utils/addons.js:36
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "ਡਾਊਨਲੋਡ ਅਸਫਲ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ।"
 
 #: src/core/utils/addons.js:38
 msgid "An unexpected error occurred during installation."
@@ -2826,7 +2826,7 @@ msgstr[1] ""
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "%(param)s ਲਈ ਆਪਣਾ ਡੇਟਾ ਐਕਸੈਸ ਕਰੋ"
 
 #: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
