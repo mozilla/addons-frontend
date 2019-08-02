@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 07:59+0000\n"
-"PO-Revision-Date: 2019-07-03 19:26+0000\n"
-"Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
+"PO-Revision-Date: 2019-08-02 15:19+0000\n"
+"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -1076,7 +1076,7 @@ msgstr "ਬੁੱਕਮਾਰਕ ਪੜ੍ਹਨ ਅਤੇ ਸੋਧਣ"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "ਬਰਾਊਜ਼ਰ ਸੈਟਿੰਗਾਂ ਨੂੰ ਪੜ੍ਹਨ ਅਤੇ ਸੋਧਣ"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Clear recent browsing history, cookies, and related data"
@@ -1676,7 +1676,7 @@ msgstr "ਇਸ ਐਡ-ਆਨ ਬਾਰੇ"
 
 #: src/amo/pages/Addon/index.js:319
 msgid "Release notes for %(addonVersion)s"
-msgstr ""
+msgstr "%(addonVersion)s ਲਈ ਰੀਲਿਜ਼ ਨੋਟਿਸ"
 
 #: src/amo/pages/Addon/index.js:448
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
@@ -2343,7 +2343,7 @@ msgstr "ਕੀ ਤੁਸੀਂ ਇਸ ਐਡ-ਆਨ ਨੂੰ ਵਰਤਣਾ �
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:77
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "ਗਲਤੀਆਂ ਨੂੰ ਘੱਟ ਕਰਨ ਲਈ ਆਪਣੀ ਸਮੀਖਿਆ ਦਾਖਲ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਪੜਨ ਵਿੱਚ ਸਮਾਂ ਲਗਾਓ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:82
 msgid "Don't:"
@@ -2482,7 +2482,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:582
 msgid "Manage Firefox Accounts…"
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਖਾਤੇ ਪ੍ਰਬੰਧਿਤ ਕਰੋ…"
 
 #: src/amo/pages/UserProfileEdit/index.js:590
 msgid "Profile"
