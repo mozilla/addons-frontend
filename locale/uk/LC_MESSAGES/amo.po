@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 07:59+0000\n"
-"PO-Revision-Date: 2019-08-02 09:01+0000\n"
+"PO-Revision-Date: 2019-08-02 11:48+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -2072,7 +2072,7 @@ msgstr "Більше популярних розширень"
 
 #: src/amo/pages/Home/index.js:330
 msgid "See more popular extensions"
-msgstr "Інші популярні розширення"
+msgstr "Більше популярних розширень"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
@@ -2088,7 +2088,7 @@ msgstr "Більше популярних розширень"
 
 #: src/amo/pages/Home/index.js:58
 msgid "See more enhanced privacy extensions"
-msgstr "Інші розширення для покращення приватності"
+msgstr "Більше розширень для покращення приватності"
 
 #: src/amo/pages/Home/index.js:59
 msgid "Enhanced privacy extensions"
@@ -2096,7 +2096,7 @@ msgstr "Розширення для покращення приватності"
 
 #: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
-msgstr "Інші рекомендовані менеджери паролів"
+msgstr "Більше рекомендованих менеджерів паролів"
 
 #: src/amo/pages/Home/index.js:65
 msgid "Recommended password managers"
