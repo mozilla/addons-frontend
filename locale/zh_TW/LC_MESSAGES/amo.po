@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 07:59+0000\n"
-"PO-Revision-Date: 2019-07-31 09:49+0000\n"
+"PO-Revision-Date: 2019-08-03 02:42+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -1811,7 +1811,7 @@ msgstr "我的收藏集"
 
 #: src/amo/pages/Guides/index.js:104
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr "uBlock Origin 是輕量而有效的廣告封鎖器，可套用數以千計的的內容過濾條件，而不花費太多記憶體。"
+msgstr "uBlock Origin 是輕量而有效的廣告封鎖器，可套用數以千計的內容過濾條件，而不花費太多記憶體。"
 
 #: src/amo/pages/Guides/index.js:108
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
@@ -2540,7 +2540,7 @@ msgstr "將永久刪除該使用者的資料，包含個人詳細資料（大頭
 
 #: src/amo/pages/UserProfileEdit/index.js:828
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
-msgstr "當您再次使用此電子郵件地址登入至 addons.mozilla.org 時，就會建立一個與帳號無關的的新 Firefox 附加元件站帳號。"
+msgstr "當您再次使用此電子郵件地址登入至 addons.mozilla.org 時，就會建立一個與帳號無關的新 Firefox 附加元件站帳號。"
 
 #: src/amo/pages/UserProfileEdit/index.js:841
 msgid ""
