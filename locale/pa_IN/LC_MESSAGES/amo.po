@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 07:59+0000\n"
-"PO-Revision-Date: 2019-07-03 18:33+0000\n"
+"PO-Revision-Date: 2019-07-03 17:59+0000\n"
 "Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1236,7 +1236,7 @@ msgstr "ਦੁਰਵਿਵਹਾਰ ਲਈ ਇਸ ਐਡ-ਆਨ ਦੀ ਰਿਪ
 
 #: src/amo/components/ReportAbuseButton/index.js:161
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "ਕਿਰਪਾ ਕਰਕੇ ਬੱਗ ਦੀ ਰਿਪੋਰਟ ਕਰਨ ਲਈ ਜਾਂ ਐਡ-ਆਨ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦੀ ਬੇਨਤੀ ਕਰਨ ਲਈ ਇਸ ਫਾਰਮ ਦੀ ਵਰਤੋਂ ਨਾ ਕਰੋ; ਇਹ ਰਿਪੋਰਟ ਮੋਜ਼ੀਲਾ ਨੂੰ ਭੇਜੀ ਜਾਵੇਗੀ ਨਾ ਐਡ-ਆਨ ਡਿਵੈਲਪਰ ਨੂੰ।"
 
 #: src/amo/components/ReportAbuseButton/index.js:174 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
@@ -1256,7 +1256,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:95
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "ਤੁਸੀਂ ਦੁਰਵਿਵਹਾਰ ਲਈ ਇਸ ਐਡ-ਓਨ ਦੀ ਰਿਪੋਰਟ ਕੀਤੀ ਹੈ"
 
 #: src/amo/components/ReportAbuseButton/index.js:99
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
