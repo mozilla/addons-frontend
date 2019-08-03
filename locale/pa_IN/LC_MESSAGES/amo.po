@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 07:59+0000\n"
-"PO-Revision-Date: 2019-07-03 17:59+0000\n"
-"Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
+"PO-Revision-Date: 2019-07-03 09:30+0000\n"
+"Last-Translator: Jasmine <bangerjasmine9@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -1732,7 +1732,7 @@ msgstr "ਸਿਰਫ ਇੱਕ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਦਿ�
 
 #: src/amo/pages/AddonReviewList/index.js:276
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "%(addonName)s ਲਈ ਸਮੀਖਿਆ"
 
 #: src/amo/pages/AddonReviewList/index.js:286
 msgid "%(total)s review"
