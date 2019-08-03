@@ -19,8 +19,11 @@ const getIconNameForType = (type) => {
   switch (type) {
     case 'experimental':
       return 'experimental-badge';
+      break;
     case 'restart-required':
       return 'restart';
+      break;
+      
     default:
   }
 
