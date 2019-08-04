@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 07:59+0000\n"
-"PO-Revision-Date: 2019-08-04 03:31+0000\n"
+"PO-Revision-Date: 2019-08-04 04:06+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1043,7 +1043,7 @@ msgstr "Discoperi como crear extensiones e themas"
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:99
 msgid "RECOMMENDED"
-msgstr ""
+msgstr "RECOMMENDATE"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:266
 msgid "Stay Safe Online"
@@ -2048,7 +2048,7 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:262
 msgid "Get Started"
-msgstr ""
+msgstr "Comenciar"
 
 #: src/amo/pages/Home/index.js:287 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
