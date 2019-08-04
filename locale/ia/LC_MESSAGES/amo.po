@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 07:59+0000\n"
-"PO-Revision-Date: 2019-08-04 22:23+0000\n"
+"PO-Revision-Date: 2019-08-04 22:37+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1997,9 +1997,8 @@ msgid "Fully encrypted password protection. Store your data securely and access 
 msgstr "Protection de contrasignos plenmente cifrate. Reserva tu datos con securitate e accede a tu connexiones trans plure apparatos."
 
 #: src/amo/pages/Guides/index.js:89
-#, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "Explora le avantages del %(linkStart)sgestor de contrasignos%(linkEnd)s seligite per nostre equipa."
+msgstr "Explora le major %(linkStart)sgestores de contrasignos%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:97
 msgid "Block annoying ads"
