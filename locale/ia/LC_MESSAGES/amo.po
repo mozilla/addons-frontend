@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 07:59+0000\n"
-"PO-Revision-Date: 2019-08-04 04:06+0000\n"
+"PO-Revision-Date: 2019-08-04 22:23+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2063,9 +2063,8 @@ msgid "See more popular themes"
 msgstr "Vide altere themas popular"
 
 #: src/amo/pages/Home/index.js:330
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Vider plus extensiones de schedas"
+msgstr "Vider plus extensiones popular"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
@@ -2080,19 +2079,16 @@ msgid "See more trending extensions"
 msgstr "Vide plus de extensiones de tendentia"
 
 #: src/amo/pages/Home/index.js:58
-#, fuzzy
 msgid "See more enhanced privacy extensions"
-msgstr "Vider altere extensiones meteorologic"
+msgstr "Vider altere extensiones pro accrescer le confidentialitate"
 
 #: src/amo/pages/Home/index.js:59
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "Altere extensiones popular"
+msgstr "Extensiones pro accrescer le confidentialitate"
 
 #: src/amo/pages/Home/index.js:64
-#, fuzzy
 msgid "See more recommended password managers"
-msgstr "Vide plus de themas de tendentia"
+msgstr "Vider altere gestores de contrasignos recommendate"
 
 #: src/amo/pages/Home/index.js:65
 msgid "Recommended password managers"
