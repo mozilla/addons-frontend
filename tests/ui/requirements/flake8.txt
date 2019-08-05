@@ -1,6 +1,3 @@
 flake8==3.7.8
 flake8-isort==2.7.0
 flake8-docstrings==1.3.1
-# TODO: remove the line below once flake8-docstrings has been fixed, see:
-# https://github.com/mozilla/addons-frontend/issues/8268
-pydocstyle==4.0.0
