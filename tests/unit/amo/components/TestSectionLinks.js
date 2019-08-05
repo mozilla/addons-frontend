@@ -111,7 +111,7 @@ describe(__filename, () => {
     );
   });
 
-  it('renders Themes active when addonType is themes', () => {
+  it('renders Themes active when add-on is a lightweight theme', () => {
     _store.dispatch(setViewContext(ADDON_TYPE_THEME));
     const root = render();
 
