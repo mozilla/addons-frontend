@@ -1,6 +1,9 @@
 @import '~amo/css/styles';
 
 .AddonSummaryCard-overallRatingStars {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   margin: 0 0 12px;
 
   @include respond-to(extraExtraLarge) {
