@@ -5,6 +5,7 @@ import SectionLinks, { SectionLinksBase } from 'amo/components/SectionLinks';
 import { setClientApp } from 'core/actions';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -110,8 +111,17 @@ describe(__filename, () => {
     );
   });
 
-  it('renders Themes active when addonType is themes', () => {
+  it('renders Themes active when add-on is a lightweight theme', () => {
     _store.dispatch(setViewContext(ADDON_TYPE_THEME));
+    const root = render();
+
+    expect(root.find('.SectionLinks-link--active').children()).toIncludeText(
+      'Themes',
+    );
+  });
+
+  it('renders Themes active when add-on is a static theme', () => {
+    _store.dispatch(setViewContext(ADDON_TYPE_STATIC_THEME));
     const root = render();
 
     expect(root.find('.SectionLinks-link--active').children()).toIncludeText(
