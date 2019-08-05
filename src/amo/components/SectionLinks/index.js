@@ -96,7 +96,10 @@ export class SectionLinksBase extends React.Component<Props> {
               'SectionLinks-link-theme',
               {
                 'SectionLinks-link--active':
-                  viewContext === ADDON_TYPE_STATIC_THEME,
+                  // TODO: remove `ADDON_TYPE_THEME`
+                  [ADDON_TYPE_THEME, ADDON_TYPE_STATIC_THEME].includes(
+                    viewContext,
+                  ),
               },
             )}
             to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}
