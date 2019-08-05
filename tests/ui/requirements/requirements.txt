@@ -21,7 +21,7 @@ pytest-forked==1.0.2
 pytest-html==1.21.1
 pytest-metadata==1.8.0
 pytest-repeat==0.8.0
-pytest-selenium==1.16.0
+pytest-selenium==1.17.0
 pytest-variables==1.7.1
 pytest-xdist==1.29.0
 atomicwrites==1.3.0
@@ -32,7 +32,7 @@ six==1.12.0
 urllib3==1.25.3
 zipp==0.5.2
 zope.component==4.5
-zope.deferredimport==4.3
+zope.deferredimport==4.3.1
 zope.event==4.4
 zope.hookable==4.2.0
 zope.interface==4.6.0
