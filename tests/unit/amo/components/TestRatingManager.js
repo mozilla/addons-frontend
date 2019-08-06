@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { shallow } from 'enzyme';
 
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -28,7 +29,10 @@ import {
 } from 'amo/actions/reviews';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonReviewManagerRating from 'amo/components/AddonReviewManagerRating';
-import RatingManager, { RatingManagerBase } from 'amo/components/RatingManager';
+import RatingManager, {
+  RatingManagerBase,
+  mapStateToProps,
+} from 'amo/components/RatingManager';
 import RatingManagerNotice from 'amo/components/RatingManagerNotice';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import AuthenticateButton from 'core/components/AuthenticateButton';
@@ -45,8 +49,8 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  function render(customProps = {}) {
-    const props = {
+  function getRenderProps(customProps = {}) {
+    return {
       addon: createInternalAddon(fakeAddon),
       errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
@@ -55,6 +59,10 @@ describe(__filename, () => {
       version: fakeAddon.current_version,
       ...customProps,
     };
+  }
+
+  function render(customProps) {
+    const props = getRenderProps(customProps);
 
     return shallowUntilTarget(<RatingManager {...props} />, RatingManagerBase);
   }
@@ -122,6 +130,30 @@ describe(__filename, () => {
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
     render({ addon, store });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('does not fetchLatestUserReview if there is an error', () => {
+    const addon = createInternalAddon({ ...fakeAddon, id: 3344 });
+    const { store } = dispatchSignInActions();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    const errorHandler = createStubErrorHandler(new Error('unexpected error'));
+
+    const props = getRenderProps({
+      addon,
+      dispatch: store.dispatch,
+      errorHandler,
+      store,
+    });
+    const mapped = mapStateToProps(store.getState(), props);
+
+    // This uses shallow() because shallowUntilTarget() cannot handle
+    // the <div /> returned from withRenderedErrorHandler().
+    // It throws:
+    // ShallowWrapper::dive() can not be called on Host Components
+    shallow(<RatingManagerBase {...props} {...mapped} />);
 
     sinon.assert.notCalled(dispatchSpy);
   });
