@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-31 07:59+0000\n"
+"POT-Creation-Date: 2019-08-06 16:20+0000\n"
 "PO-Revision-Date: 2019-07-23 09:04+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -1751,49 +1751,49 @@ msgstr "Niciun rezultat găsit."
 msgid "Recommended"
 msgstr "Recomandate"
 
-#: src/amo/components/SectionLinks/index.js:102
+#: src/amo/components/SectionLinks/index.js:107
 #: src/amo/pages/LandingPage/index.js:252
 msgid "Themes"
 msgstr "Teme"
 
-#: src/amo/components/SectionLinks/index.js:108
+#: src/amo/components/SectionLinks/index.js:113
 msgid "More…"
 msgstr "Mai multe…"
 
-#: src/amo/components/SectionLinks/index.js:122
+#: src/amo/components/SectionLinks/index.js:127
 msgid "Dictionaries & Language Packs"
 msgstr "Dicționare și pachete lingvistice"
 
-#: src/amo/components/SectionLinks/index.js:128
+#: src/amo/components/SectionLinks/index.js:133
 #: src/amo/pages/SearchTools/index.js:34
 msgid "Search Tools"
 msgstr "Unelte de căutare"
 
-#: src/amo/components/SectionLinks/index.js:133
+#: src/amo/components/SectionLinks/index.js:138
 msgid "Other Browser Sites"
 msgstr "Site-uri pentru alte browsere"
 
-#: src/amo/components/SectionLinks/index.js:144
+#: src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Android"
 msgstr "Suplimente pentru Android"
 
-#: src/amo/components/SectionLinks/index.js:157
+#: src/amo/components/SectionLinks/index.js:162
 msgid "Add-ons for Firefox"
 msgstr "Suplimente pentru Firefox"
 
-#: src/amo/components/SectionLinks/index.js:60
+#: src/amo/components/SectionLinks/index.js:61
 msgid "for Firefox"
 msgstr "pentru Firefox"
 
-#: src/amo/components/SectionLinks/index.js:62
+#: src/amo/components/SectionLinks/index.js:63
 msgid "for Android"
 msgstr "pentru Android"
 
-#: src/amo/components/SectionLinks/index.js:78
+#: src/amo/components/SectionLinks/index.js:79
 msgid "Explore"
 msgstr "Explorează"
 
-#: src/amo/components/SectionLinks/index.js:88
+#: src/amo/components/SectionLinks/index.js:89
 #: src/amo/pages/LandingPage/index.js:253
 msgid "Extensions"
 msgstr "Extensii"
