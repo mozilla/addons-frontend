@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-31 07:59+0000\n"
+"POT-Creation-Date: 2019-08-06 16:20+0000\n"
 "PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -1885,52 +1885,52 @@ msgstr "Gan torthaí ar bith."
 msgid "Recommended"
 msgstr "Líon is mó úsáideoirí"
 
-#: src/amo/components/SectionLinks/index.js:102
+#: src/amo/components/SectionLinks/index.js:107
 #: src/amo/pages/LandingPage/index.js:252
 msgid "Themes"
 msgstr "Téamaí"
 
-#: src/amo/components/SectionLinks/index.js:108
+#: src/amo/components/SectionLinks/index.js:113
 msgid "More…"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:122
+#: src/amo/components/SectionLinks/index.js:127
 msgid "Dictionaries & Language Packs"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:128
+#: src/amo/components/SectionLinks/index.js:133
 #: src/amo/pages/SearchTools/index.js:34
 #, fuzzy
 msgid "Search Tools"
 msgstr "Cuardaigh na téamaí"
 
-#: src/amo/components/SectionLinks/index.js:133
+#: src/amo/components/SectionLinks/index.js:138
 msgid "Other Browser Sites"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:144
+#: src/amo/components/SectionLinks/index.js:149
 #, fuzzy
 msgid "Add-ons for Android"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/SectionLinks/index.js:157
+#: src/amo/components/SectionLinks/index.js:162
 msgid "Add-ons for Firefox"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/SectionLinks/index.js:60
+#: src/amo/components/SectionLinks/index.js:61
 #, fuzzy
 msgid "for Firefox"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/SectionLinks/index.js:62
+#: src/amo/components/SectionLinks/index.js:63
 msgid "for Android"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:78
+#: src/amo/components/SectionLinks/index.js:79
 msgid "Explore"
 msgstr "Taiscéal"
 
-#: src/amo/components/SectionLinks/index.js:88
+#: src/amo/components/SectionLinks/index.js:89
 #: src/amo/pages/LandingPage/index.js:253
 msgid "Extensions"
 msgstr "Eisínteachtaí"

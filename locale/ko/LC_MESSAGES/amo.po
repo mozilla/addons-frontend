@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-31 07:59+0000\n"
+"POT-Creation-Date: 2019-08-06 16:20+0000\n"
 "PO-Revision-Date: 2019-04-17 01:46+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -1789,51 +1789,51 @@ msgstr "검색 결과가 없습니다."
 msgid "Recommended"
 msgstr "사용자 의견"
 
-#: src/amo/components/SectionLinks/index.js:102
+#: src/amo/components/SectionLinks/index.js:107
 #: src/amo/pages/LandingPage/index.js:252
 msgid "Themes"
 msgstr "테마"
 
-#: src/amo/components/SectionLinks/index.js:108
+#: src/amo/components/SectionLinks/index.js:113
 msgid "More…"
 msgstr "더보기…"
 
-#: src/amo/components/SectionLinks/index.js:122
+#: src/amo/components/SectionLinks/index.js:127
 msgid "Dictionaries & Language Packs"
 msgstr "사전과 언어 팩"
 
-#: src/amo/components/SectionLinks/index.js:128
+#: src/amo/components/SectionLinks/index.js:133
 #: src/amo/pages/SearchTools/index.js:34
 #, fuzzy
 msgid "Search Tools"
 msgstr "테마 검색"
 
-#: src/amo/components/SectionLinks/index.js:133
+#: src/amo/components/SectionLinks/index.js:138
 msgid "Other Browser Sites"
 msgstr "다른 브라우저 사이트"
 
-#: src/amo/components/SectionLinks/index.js:144
+#: src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Android"
 msgstr "Android 부가 기능"
 
-#: src/amo/components/SectionLinks/index.js:157
+#: src/amo/components/SectionLinks/index.js:162
 msgid "Add-ons for Firefox"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/SectionLinks/index.js:60
+#: src/amo/components/SectionLinks/index.js:61
 #, fuzzy
 msgid "for Firefox"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/SectionLinks/index.js:62
+#: src/amo/components/SectionLinks/index.js:63
 msgid "for Android"
 msgstr "Android 용"
 
-#: src/amo/components/SectionLinks/index.js:78
+#: src/amo/components/SectionLinks/index.js:79
 msgid "Explore"
 msgstr "탐색"
 
-#: src/amo/components/SectionLinks/index.js:88
+#: src/amo/components/SectionLinks/index.js:89
 #: src/amo/pages/LandingPage/index.js:253
 msgid "Extensions"
 msgstr "확장 기능"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-31 07:59+0000\n"
+"POT-Creation-Date: 2019-08-06 16:20+0000\n"
 "PO-Revision-Date: 2019-05-07 21:08+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1814,49 +1814,49 @@ msgstr "Majun taq q'i'oj xe'ilitäj."
 msgid "Recommended"
 msgstr "Okisanel pa"
 
-#: src/amo/components/SectionLinks/index.js:102
+#: src/amo/components/SectionLinks/index.js:107
 #: src/amo/pages/LandingPage/index.js:252
 msgid "Themes"
 msgstr "Taq wachinel"
 
-#: src/amo/components/SectionLinks/index.js:108
+#: src/amo/components/SectionLinks/index.js:113
 msgid "More…"
 msgstr "Ch'aqa' chik…"
 
-#: src/amo/components/SectionLinks/index.js:122
+#: src/amo/components/SectionLinks/index.js:127
 msgid "Dictionaries & Language Packs"
 msgstr "Taq Soltzij & Tanaj taq Ch'ab'äl"
 
-#: src/amo/components/SectionLinks/index.js:128
+#: src/amo/components/SectionLinks/index.js:133
 #: src/amo/pages/SearchTools/index.js:34
 msgid "Search Tools"
 msgstr "Kekanöx Samajib'äl"
 
-#: src/amo/components/SectionLinks/index.js:133
+#: src/amo/components/SectionLinks/index.js:138
 msgid "Other Browser Sites"
 msgstr "Ch'aqa' chik Ruxaq Okik'amaya'l"
 
-#: src/amo/components/SectionLinks/index.js:144
+#: src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Android"
 msgstr "Kitz'aqat Android"
 
-#: src/amo/components/SectionLinks/index.js:157
+#: src/amo/components/SectionLinks/index.js:162
 msgid "Add-ons for Firefox"
 msgstr "Kitz'aqat Firefox"
 
-#: src/amo/components/SectionLinks/index.js:60
+#: src/amo/components/SectionLinks/index.js:61
 msgid "for Firefox"
 msgstr "richin Firefox"
 
-#: src/amo/components/SectionLinks/index.js:62
+#: src/amo/components/SectionLinks/index.js:63
 msgid "for Android"
 msgstr "richin Android"
 
-#: src/amo/components/SectionLinks/index.js:78
+#: src/amo/components/SectionLinks/index.js:79
 msgid "Explore"
 msgstr "Tikanöx"
 
-#: src/amo/components/SectionLinks/index.js:88
+#: src/amo/components/SectionLinks/index.js:89
 #: src/amo/pages/LandingPage/index.js:253
 msgid "Extensions"
 msgstr "Taq k'amal"
