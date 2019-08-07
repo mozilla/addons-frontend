@@ -1233,3 +1233,12 @@ export function createFakeLocalState(overrides = {}) {
     ...overrides,
   };
 }
+
+// Return a string where all blank spaces are consistent across platforms.
+export function normalizeSpaces(text) {
+  // Specifically, this regex replaces `\u202F` -- a narrow,
+  // non-breaking space -- with ' '. This is because the actual code point
+  // may vary between platform and Node.JS version. More info:
+  // https://www.fileformat.info/info/unicode/char/202f/index.htm
+  return text ? text.replace(/\s/g, ' ') : text;
+}

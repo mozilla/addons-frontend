@@ -21,6 +21,7 @@ import {
   fakePreview,
   fakeTheme,
   getFakeConfig,
+  normalizeSpaces,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import Icon from 'ui/components/Icon';
@@ -142,14 +143,7 @@ describe(__filename, () => {
     });
 
     expect(
-      root
-        .find('.SearchResult-users-text')
-        .text()
-        // This regex handles `\u202F` which is a narrow,
-        // non-breaking space. The actual character varies between
-        // platform and Node.JS version. More info:
-        // https://www.fileformat.info/info/unicode/char/202f/index.htm
-        .replace(/\s/g, ' '),
+      normalizeSpaces(root.find('.SearchResult-users-text').text()),
     ).toContain('6 233');
   });
 
