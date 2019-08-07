@@ -15,6 +15,7 @@ import {
   getFakeConfig,
   matchingSagaAction,
   onLocationChanged,
+  normalizeSpaces,
   shallowUntilTarget,
   unexpectedSuccess,
 } from 'tests/unit/helpers';
@@ -326,6 +327,20 @@ describe(__filename, () => {
         onLocationChanged({ pathname, key: sinon.match.string }),
       );
       sinon.assert.calledOnce(dispatchSpy);
+    });
+  });
+
+  describe('normalizeSpaces', () => {
+    it('replaces non-breaking space code points', () => {
+      expect(normalizeSpaces('\u202F_thing')).toEqual(' _thing');
+    });
+
+    it('normalizes all spaces', () => {
+      expect(normalizeSpaces('\u202F_thing_\u202F')).toEqual(' _thing_ ');
+    });
+
+    it('ignores falsy values', () => {
+      expect(normalizeSpaces(null)).toEqual(null);
     });
   });
 });

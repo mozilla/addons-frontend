@@ -6,7 +6,7 @@ import { oneLine } from 'common-tags';
 import Link from 'amo/components/Link';
 import * as utils from 'core/i18n/utils';
 import { RTL, LTR } from 'core/constants';
-import { fakeI18n, getFakeLogger } from 'tests/unit/helpers';
+import { fakeI18n, getFakeLogger, normalizeSpaces } from 'tests/unit/helpers';
 
 const defaultLang = config.get('defaultLang');
 
@@ -491,9 +491,7 @@ describe(__filename, () => {
       const toLocaleStringSpy = sinon.spy(Number.prototype, 'toLocaleString');
       const number = 12345;
 
-      // `\u202F` is a narrow non-breaking space, see:
-      // https://www.fileformat.info/info/unicode/char/202f/index.htm
-      expect(i18n.formatNumber(number)).toEqual('12\u202F345');
+      expect(normalizeSpaces(i18n.formatNumber(number))).toEqual('12 345');
       sinon.assert.calledWith(toLocaleStringSpy, 'fr');
       sinon.assert.notCalled(numberFormatSpy);
     });
