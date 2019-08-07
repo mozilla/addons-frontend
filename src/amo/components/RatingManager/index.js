@@ -66,6 +66,11 @@ export class RatingManagerBase extends React.Component<InternalProps> {
   componentDidMount() {
     const { addon, dispatch, errorHandler, userId, userReview } = this.props;
 
+    if (errorHandler.hasError()) {
+      log.warn('Not loading data because of an error');
+      return;
+    }
+
     if (userId && userReview === undefined) {
       log.debug(`Loading a saved rating (if it exists) for user ${userId}`);
       dispatch(
@@ -263,7 +268,7 @@ export class RatingManagerBase extends React.Component<InternalProps> {
   }
 }
 
-const mapStateToProps = (state: AppState, ownProps: Props) => {
+export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const userId = state.users.currentUserID;
   let userReview;
   if (userId && ownProps.addon) {

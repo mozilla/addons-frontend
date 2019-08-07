@@ -109,8 +109,12 @@ function renderProps({
   };
 }
 
-function renderAsDOMNode(...args) {
-  const { store, i18n, ...props } = renderProps(...args);
+function renderAsDOMNode(customProps) {
+  const { store, i18n, ...props } = renderProps({
+    // Use the real RatingManager since we're doing a full mount.
+    RatingManager,
+    ...customProps,
+  });
   props.i18n = i18n;
 
   const history = addQueryParamsToHistory({
