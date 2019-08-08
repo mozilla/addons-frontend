@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-06 16:20+0000\n"
-"PO-Revision-Date: 2019-08-08 17:20+0000\n"
+"PO-Revision-Date: 2019-08-08 17:57+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -693,7 +693,7 @@ msgstr "სახელი"
 
 #: src/amo/components/CollectionSort/index.js:92
 msgid "Popularity"
-msgstr "სასურველობა"
+msgstr "გავრცელებულობა"
 
 #: src/amo/components/ContributeCard/index.js:32
 msgid "Support this developer"
@@ -756,9 +756,8 @@ msgid "Remove"
 msgstr "ამოშლა"
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
-#, fuzzy
 msgid "Collector's note"
-msgstr "კრებულის დასახელება"
+msgstr "შემგროვებლის შენიშვნა"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
@@ -1050,7 +1049,7 @@ msgstr "იხილეთ, როგორ იქმნება გაფა�
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:99
 msgid "RECOMMENDED"
-msgstr ""
+msgstr "სასურველი"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:266
 msgid "Stay Safe Online"
@@ -1314,7 +1313,7 @@ msgstr "ძიების შედეგები"
 
 #: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:282 src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
-msgstr "შემოთავაზებული გაფართოებები"
+msgstr "სასურველი გაფართოებები"
 
 #: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:283 src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
@@ -1322,7 +1321,7 @@ msgstr "რჩეული გაფართოებები"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:367 src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
-msgstr "შემოთავაზებული თემები"
+msgstr "სასურველი თემები"
 
 #: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:368 src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
@@ -1331,7 +1330,7 @@ msgstr "გამორჩეული თემები"
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Search/index.js:139
 msgid "Recommended add-ons"
-msgstr "შემოთავაზებული დამატებები"
+msgstr "სასურველი დამატებები"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Search/index.js:140
@@ -1364,15 +1363,15 @@ msgstr "საუკეთესოდ შეფასებული დამ�
 
 #: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:329
 msgid "Popular extensions"
-msgstr "ყველაზე მეტად სასურველი გაფართოებები"
+msgstr "მეტად გავრცელებული გაფართოებები"
 
 #: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:308
 msgid "Popular themes"
-msgstr "ყველაზე მეტად სასურველი თემები"
+msgstr "მეტად გავრცელებული თემები"
 
 #: src/amo/components/Search/index.js:177
 msgid "Popular add-ons"
-msgstr "ყველაზე მეტად სასურველი დამატებები"
+msgstr "მეტად გავრცელებული დამატებები"
 
 #: src/amo/components/Search/index.js:183
 msgid "Search results for \"%(query)s\""
@@ -1525,7 +1524,7 @@ msgstr "საოპერაციო სისტემა"
 # "Firefox" should not be translated. :-)
 #: src/amo/components/SearchFilters/index.js:268
 msgid "Recommended add-ons only"
-msgstr "მხოლოდ შემოთავაზებული დამატებები"
+msgstr "მხოლოდ სასურველი დამატებები"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/SearchFilters/index.js:269
@@ -1572,7 +1571,7 @@ msgstr "შედეგები ვერ მოიძებნა."
 
 #: src/amo/components/SearchSuggestion/index.js:57 src/ui/components/RecommendedBadge/index.js:28
 msgid "Recommended"
-msgstr "შემოთავაზებული"
+msgstr "სასურველი"
 
 #: src/amo/components/SectionLinks/index.js:107 src/amo/pages/LandingPage/index.js:252
 msgid "Themes"
@@ -1861,9 +1860,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr "მსუბუქი და მძლავრი რეკლამების შემზღუდავი. uBlock Origin გაფართოებას, შეუძლია ათასობით გვერდის გაფილტვრა, მეხსიერების დატვირთვის გარეშე."
 
 #: src/amo/pages/Guides/index.js:108
-#, fuzzy
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "იხილეთ ჩვენი თანამშრომლების მიერ შერჩეული %(linkStart)sრეკლამების შეზღუდვის%(linkEnd)s სხვა საშუალებები."
+msgstr "იხილეთ სხვა შესანიშნავი %(linkStart)sრეკლამების შემზღუდავები%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Stop online trackers from stalking you"
@@ -1880,9 +1878,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr "გამიჯნეთ თქვენი Facebook-ვინაობა ცალკე „სათავსის“ მეშვეობით, Facebook-ის მიერ, სხვა საიტებზე თქვენი მოქმედებებისთვის თვალის მიდევნების შესაჩერებლად."
 
 #: src/amo/pages/Guides/index.js:126
-#, fuzzy
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "იხილეთ ჩვენი თანამშრომლების მიერ შერჩეული %(linkStart)sპირადულობისა და უსაფთხოების%(linkEnd)s სხვა საშუალებები."
+msgstr "იხილეთ სხვა სასურველი გაფართოებები %(linkStart)sპირადულობისა და უსაფთხოებისთვის%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
@@ -2062,7 +2059,7 @@ msgstr "დაწყება"
 
 #: src/amo/pages/Home/index.js:287 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
-msgstr "სხვა შემოთავაზებული გაფართოებები"
+msgstr "სხვა სასურველი გაფართოებები"
 
 #: src/amo/pages/Home/index.js:288 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
@@ -2070,15 +2067,15 @@ msgstr "სხვა რჩეული გაფართოებები"
 
 #: src/amo/pages/Home/index.js:309
 msgid "See more popular themes"
-msgstr "სხვა სასურველი გაფართოებები"
+msgstr "სხვა გავრცელებული გაფართოებები"
 
 #: src/amo/pages/Home/index.js:330
 msgid "See more popular extensions"
-msgstr "სხვა სასურველი გაფართოებები"
+msgstr "სხვა გავრცელებული გაფართოებები"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
-msgstr "სხვა შემოთავაზებული თემები"
+msgstr "სხვა სასურველი თემები"
 
 #: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
@@ -2097,9 +2094,8 @@ msgid "Enhanced privacy extensions"
 msgstr "გაფართოებები პირადულობის ასამაღლებლად"
 
 #: src/amo/pages/Home/index.js:64
-#, fuzzy
 msgid "See more recommended password managers"
-msgstr "სხვა შემოთავაზებული თემები"
+msgstr "სხვა სასურველი პაროლების მართველები"
 
 #: src/amo/pages/Home/index.js:65
 #, fuzzy
@@ -2929,7 +2925,7 @@ msgstr "ჯერ არ შეფასებულა"
 
 #: src/ui/components/RecommendedBadge/index.js:43
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr "Firefox მხოლოდ იმ გაფართოებებს გთავაზობთ, რომლებიც აკმაყოფილებს უსაფრთხოებისა და წარმადობის მაღალ მოთხოვნებს."
+msgstr "Firefox მხოლოდ იმ გაფართოებებს გირჩევთ, რომლებიც აკმაყოფილებს უსაფრთხოებისა და წარმადობის მაღალ მოთხოვნებს."
 
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
