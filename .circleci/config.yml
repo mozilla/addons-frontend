@@ -131,6 +131,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "Set Python Version"
+          command: pyenv global 3.7.0
+      - run:
           name: Install Docker Compose
           command: |
             set -x
