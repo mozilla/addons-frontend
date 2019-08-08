@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-set -x
+set -ex
 sudo sysctl -w vm.max_map_count=262144
 # create fxa email
 git clone --depth 1 https://github.com/mozilla/addons-server.git
