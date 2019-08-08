@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-06 16:20+0000\n"
-"PO-Revision-Date: 2019-08-08 16:29+0000\n"
+"PO-Revision-Date: 2019-08-08 16:57+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -2089,14 +2089,12 @@ msgid "See more trending extensions"
 msgstr "სხვა ხშირად ჩამოტვირთული გაფართოებები"
 
 #: src/amo/pages/Home/index.js:58
-#, fuzzy
 msgid "See more enhanced privacy extensions"
-msgstr "ამინდის სხვა გაფართოებები"
+msgstr "სხვა გაფართოებები პირადულობის ასამაღლებლად"
 
 #: src/amo/pages/Home/index.js:59
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "საუკეთესო გაფართოებები პირადულობისთვის"
+msgstr "გაფართოებები პირადულობის ასამაღლებლად"
 
 #: src/amo/pages/Home/index.js:64
 #, fuzzy
