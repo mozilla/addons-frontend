@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-06 16:20+0000\n"
-"PO-Revision-Date: 2019-08-08 17:57+0000\n"
+"PO-Revision-Date: 2019-08-08 18:04+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1861,7 +1861,7 @@ msgstr "მსუბუქი და მძლავრი რეკლამე
 
 #: src/amo/pages/Guides/index.js:108
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "იხილეთ სხვა შესანიშნავი %(linkStart)sრეკლამების შემზღუდავები%(linkEnd)s."
+msgstr "იხილეთ %(linkStart)sრეკლამების შეზღუდვის%(linkEnd)s სხვა შესანიშნავი საშუალებებიც."
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Stop online trackers from stalking you"
@@ -1898,9 +1898,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr "დაალაგეთ და წარმოადგინეთ თქვენი ჩანართები თანმიმდევრული „ხისებრი“ ფორმით Firefox-ის გვერდით ზოლზე."
 
 #: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
-#, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "იხილეთ ჩვენი თანამშრომლების მიერ შერჩეული %(linkStart)sრეკლამების შეზღუდვის%(linkEnd)s სხვა საშუალებები."
+msgstr "იხილეთ %(linkStart)sჩანართების%(linkEnd)s სხვა გაფართოებები."
 
 #: src/amo/pages/Guides/index.js:159
 msgid "Better browsing with improved bookmarks"
@@ -1912,12 +1911,11 @@ msgstr "გაფართოებები დაგეხმარება�
 
 #: src/amo/pages/Guides/index.js:164
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-msgstr ""
+msgstr "ისარგებლეთ სანიშნების უკეთ დალაგების შესაძლებლობით, როცა მრავალ საქაღალდესთან მუშაობა გიწევთ."
 
 #: src/amo/pages/Guides/index.js:167
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "იხილეთ ჩვენი თანამშრომლების მიერ შერჩეული %(linkStart)sსანიშნების მართვის%(linkEnd)s სხვა საშუალებები."
+msgstr "აღმოაჩინეთ %(linkStart)sსანიშნების მართვის%(linkEnd)s სხვა საშუალებებიც."
 
 #: src/amo/pages/Guides/index.js:178
 msgid "Enjoy a fresh new tab experience"
@@ -2004,9 +2002,8 @@ msgid "Fully encrypted password protection. Store your data securely and access 
 msgstr "პაროლების დაცვა სრულყოფილი დაშიფვრით. შეინახეთ თქვენი მონაცემები უსაფრთხოდ და მიიღეთ წვდომა ანგარიშებზე, ნებისმიერი მოწყობილობიდან."
 
 #: src/amo/pages/Guides/index.js:89
-#, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "იხილეთ %(linkStart)sპაროლის მართვის%(linkEnd)s სხვა საშუალებები."
+msgstr "აღმოაჩინეთ %(linkStart)sპაროლის მართვის%(linkEnd)s სხვა შესანიშნავი საშუალებებიც."
 
 #: src/amo/pages/Guides/index.js:97
 msgid "Block annoying ads"
@@ -2098,9 +2095,8 @@ msgid "See more recommended password managers"
 msgstr "სხვა სასურველი პაროლების მართველები"
 
 #: src/amo/pages/Home/index.js:65
-#, fuzzy
 msgid "Recommended password managers"
-msgstr "პაროლების მართვა"
+msgstr "პაროლების მართვის სასურველი საშუალებები"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
@@ -2261,12 +2257,11 @@ msgid "A community of creators"
 msgstr "შემქმნელების ერთობა"
 
 #: src/amo/pages/StaticPages/About/index.js:71
-#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
-"აქ გამოქვეყნებული დამატებები შექმნილია ათასობით შემმუშავებლისა და თემის მხატვრების მიერ, მთელი მსოფლიოდან, დაწყებული ცალკეული მოხალისეებით, დამთავრებული დიდი ორგანიზაციებით. ზოგიერთი დამატება AMO "
+"აქ გამოქვეყნებული დამატებები შექმნილია ათასობით შემმუშავებლისა და თემის მხატვრების მიერ, მთელი მსოფლიოდან, დაწყებული ცალკეული მოხალისეებით, დამთავრებული დიდი დაწესებულებებით. ზოგიერთი დამატება AMO-"
 "საიტზე ავტომატურად ქვეყნდება და შეიძლება ექვემდებარებოდეს მიმომხილველთა გუნდის მიერ შემოწმებას."
 
 #: src/amo/pages/StaticPages/About/index.js:80
