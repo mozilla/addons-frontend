@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-06 16:20+0000\n"
-"PO-Revision-Date: 2019-08-08 16:57+0000\n"
+"PO-Revision-Date: 2019-08-08 17:20+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1340,7 +1340,7 @@ msgstr "რჩეული დამატებები"
 
 #: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:382 src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
-msgstr "ხშირად ჩამოტვირთული გაფართოებები"
+msgstr "მეტად გავრცელებული გაფართოებები"
 
 #: src/amo/components/Search/index.js:150 src/amo/pages/LandingPage/index.js:194
 msgid "Trending themes"
