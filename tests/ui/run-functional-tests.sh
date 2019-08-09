@@ -4,7 +4,6 @@ sudo sysctl -w vm.max_map_count=262144
 # create fxa email
 git clone --depth 1 https://github.com/mozilla/addons-server.git
 export UITEST_FXA_EMAIL=$(python ./addons-server/tests/ui/scripts/generate_fxa_email.py)
-docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml pull --quiet
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml up -d --build
 # Wait for server to start
 until docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml images | grep "addons-server_addons-frontend_1" ;
