@@ -169,13 +169,9 @@ workflows:
               only: master
             tags:
               ignore: /.*/
-  scheduled-workflow:
-    triggers:
-      - schedule:
-          cron: "0 0,12,15,18,21 * * *"
+      - integration-test:
           filters:
             branches:
-              only:
-                - master
-    jobs:
-      - integration-test
+              only: master
+            tags:
+              ignore: /.*/
