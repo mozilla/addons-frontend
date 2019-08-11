@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-06 16:20+0000\n"
-"PO-Revision-Date: 2019-08-11 09:29+0000\n"
+"PO-Revision-Date: 2019-08-11 09:35+0000\n"
 "Last-Translator: Sahithi <sahithi@swecha.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1927,7 +1927,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:216
 msgid "Get more out of media"
-msgstr ""
+msgstr "మీడియా నుండి మరింత పొందండి"
 
 #: src/amo/pages/Guides/index.js:217
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
@@ -1941,7 +1941,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:232
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "మీడియాను బ్రౌజర్‌లోకి తీసుకురండి"
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
@@ -2608,7 +2608,7 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:95
 msgid "Unsubscribe"
-msgstr ""
+msgstr "చందావిరమించు"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2648,7 +2648,7 @@ msgstr "చేతనించు"
 
 #: src/core/components/AMInstallButton/index.js:216
 msgid "Enabling"
-msgstr ""
+msgstr "చేతనపరచు"
 
 #: src/core/components/AMInstallButton/index.js:218
 msgid "Downloading"
@@ -2660,7 +2660,7 @@ msgstr "స్థాపిస్తోంది"
 
 #: src/core/components/AMInstallButton/index.js:222
 msgid "Uninstalling"
-msgstr ""
+msgstr "నిర్మూలించు"
 
 #: src/core/components/AMInstallButton/index.js:230
 msgid "Install Theme"
@@ -2716,7 +2716,7 @@ msgstr " %(totalPages)sలో %(currentPage)sవ పేజీ"
 
 #: src/core/components/SurveyNotice/index.js:131
 msgid "Take short survey"
-msgstr ""
+msgstr "చిన్న సర్వే తీసుకోండి"
 
 #: src/core/components/SurveyNotice/index.js:139
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
@@ -2728,7 +2728,7 @@ msgstr ""
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
@@ -2839,7 +2839,7 @@ msgstr "%(param)s కోసం మీ డేటాను పొందడం"
 
 #: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "ఈ గమనికను తీసేయి"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
