@@ -42,7 +42,7 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <InstallWarning
         addon={createInternalAddon(fakeAddon)}
-        experimentIsEnabled
+        isExperimentEnabled
         i18n={fakeI18n()}
         store={store}
         variant={VARIANT_INCLUDE_WARNING}
@@ -75,7 +75,7 @@ describe(__filename, () => {
       return render({
         _hasAddonManager: sinon.stub().returns(false),
         addon: createInternalAddon(addonThatWouldShowWarning),
-        experimentIsEnabled: true,
+        isExperimentEnabled: true,
         ...props,
       });
     };
@@ -147,7 +147,7 @@ describe(__filename, () => {
 
     it('returns false if the experiment is disabled', () => {
       const component = renderWithWarning({
-        experimentIsEnabled: false,
+        isExperimentEnabled: false,
       });
 
       expect(component.instance().couldShowWarning()).toEqual(false);

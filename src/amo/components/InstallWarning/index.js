@@ -46,6 +46,8 @@ export const EXPERIMENT_ID = 'installButtonWarning';
 export const INSTALL_WARNING_EXPERIMENT_DIMENSION = 'dimension6';
 export const VARIANT_INCLUDE_WARNING = 'includeWarning';
 export const VARIANT_EXCLUDE_WARNING = 'excludeWarning';
+const WARNING_LINK_DESTINATION =
+  'https://support.mozilla.org/kb/recommended-extensions-program';
 
 export class InstallWarningBase extends React.Component<InternalProps> {
   static defaultProps = {
@@ -59,7 +61,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
       _couldShowWarning,
       _hasAddonManager,
       addon,
-      experimentIsEnabled,
+      isExperimentEnabled,
       installStatus,
       userAgentInfo,
     } = this.props;
@@ -68,7 +70,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
       : isFirefox({ userAgentInfo }) &&
           addon.type === ADDON_TYPE_EXTENSION &&
           !addon.is_recommended &&
-          experimentIsEnabled &&
+          isExperimentEnabled &&
           (!_hasAddonManager() ||
             [UNINSTALLED, UNKNOWN].includes(installStatus));
   };
@@ -115,7 +117,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
     if (this.couldShowWarning() && variant === VARIANT_INCLUDE_WARNING) {
       return (
         <Notice
-          actionHref="https://support.mozilla.org/kb/recommended-extensions-program"
+          actionHref={WARNING_LINK_DESTINATION}
           actionTarget="_blank"
           actionText={i18n.gettext('Learn more')}
           className="InstallWarning"

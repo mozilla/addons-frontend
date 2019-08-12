@@ -67,9 +67,9 @@ describe(__filename, () => {
     expect(root).toHaveProp('variant');
   });
 
-  it('injects an experimentIsEnabled prop', () => {
+  it('injects an isExperimentEnabled prop', () => {
     const root = render();
-    expect(root).toHaveProp('experimentIsEnabled', true);
+    expect(root).toHaveProp('isExperimentEnabled', true);
   });
 
   it('gets a cookie upon construction', () => {
@@ -206,7 +206,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(cookies.get);
   });
 
-  it('sets experimentIsEnabled prop to false when experiment is disabled by config', () => {
+  it('sets isExperimentEnabled prop to false when experiment is disabled by config', () => {
     const id = 'disabled_experiment';
     const _config = getFakeConfig({
       experiments: {
@@ -215,7 +215,7 @@ describe(__filename, () => {
     });
 
     const root = render({ props: { _config }, experimentProps: { id } });
-    expect(root).toHaveProp('experimentIsEnabled', false);
+    expect(root).toHaveProp('isExperimentEnabled', false);
   });
 
   it('disables the experiment by default', () => {
@@ -225,6 +225,6 @@ describe(__filename, () => {
     });
 
     const root = render({ props: { _config } });
-    expect(root).toHaveProp('experimentIsEnabled', false);
+    expect(root).toHaveProp('isExperimentEnabled', false);
   });
 });
