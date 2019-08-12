@@ -11,7 +11,7 @@ import { getDisplayName } from 'core/utils';
 export const EXPERIMENT_ENROLLMENT_CATEGORY = 'AMO Experiment Enrollment -';
 
 export type WithExperimentInjectedProps = {|
-  experimentEnabled: boolean,
+  isExperimentEnabled: boolean,
   variant: string | null,
 |};
 
@@ -108,7 +108,7 @@ export const withExperiment = ({
       const isExperimentEnabled = this.isExperimentEnabled();
 
       const exposedProps: WithExperimentInjectedProps = {
-        experimentEnabled: isExperimentEnabled,
+        isExperimentEnabled,
         variant: isExperimentEnabled ? cookies.get(this.getCookieName()) : null,
       };
 

@@ -1,0 +1,10 @@
+@import '~amo/css/styles';
+
+.InstallWarning {
+  margin: 8px auto;
+  width: fit-content;
+
+  @include respond-to(medium) {
+    margin: 0 auto;
+  }
+}
