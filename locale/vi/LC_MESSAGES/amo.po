@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-08-06 16:20+0000\n"
+"POT-Creation-Date: 2019-08-13 13:19+0000\n"
 "PO-Revision-Date: 2019-08-01 04:18+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
@@ -1286,47 +1286,47 @@ msgstr "Lưu trữ số lượng không giới hạn dữ liệu phía máy khá
 msgid "Access browser activity during navigation"
 msgstr "Truy cập hoạt động của trình duyệt trong khi điều hướng"
 
-#: src/amo/components/RatingManager/index.js:115
+#: src/amo/components/RatingManager/index.js:120
 msgid "Log in to rate this dictionary"
 msgstr "Đăng nhập để đánh giá từ điển này"
 
-#: src/amo/components/RatingManager/index.js:117
+#: src/amo/components/RatingManager/index.js:122
 msgid "Log in to rate this language pack"
 msgstr "Đăng nhập để đánh giá gói ngôn ngữ này"
 
-#: src/amo/components/RatingManager/index.js:119
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this search plugin"
 msgstr "Đăng nhập để đánh giá plugin tìm kiếm này"
 
-#: src/amo/components/RatingManager/index.js:122
+#: src/amo/components/RatingManager/index.js:127
 msgid "Log in to rate this theme"
 msgstr "Đăng nhập để đánh giá chủ đề này"
 
-#: src/amo/components/RatingManager/index.js:124
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this extension"
 msgstr "Đăng nhập để đánh giá tiện ích này"
 
-#: src/amo/components/RatingManager/index.js:132
+#: src/amo/components/RatingManager/index.js:137
 msgid "Log in to rate this add-on"
 msgstr "Đăng nhập để đánh giá tiện ích này"
 
-#: src/amo/components/RatingManager/index.js:173
+#: src/amo/components/RatingManager/index.js:178
 msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr "Bạn có chắc muốn xóa đánh giá của bạn về %(addonName)s không?"
 
-#: src/amo/components/RatingManager/index.js:178
+#: src/amo/components/RatingManager/index.js:183
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
 msgstr "Bạn có chắc muốn xóa xếp hạng %(addonName)s của mình không?"
 
-#: src/amo/components/RatingManager/index.js:183
+#: src/amo/components/RatingManager/index.js:188
 msgid "How are you enjoying %(addonName)s?"
 msgstr "Cảm nhận của bạn về %(addonName)s như thế nào?"
 
-#: src/amo/components/RatingManager/index.js:226
+#: src/amo/components/RatingManager/index.js:231
 msgid "Saving star rating"
 msgstr "Đang lưu xếp hạng sao"
 
-#: src/amo/components/RatingManager/index.js:227
+#: src/amo/components/RatingManager/index.js:232
 msgid "Star rating saved"
 msgstr "Đã lưu xếp hạng sao"
 

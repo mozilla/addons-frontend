@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-08-06 16:20+0000\n"
+"POT-Creation-Date: 2019-08-13 13:19+0000\n"
 "PO-Revision-Date: 2019-08-03 11:23+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -1303,47 +1303,47 @@ msgstr "Przechowywać nieograniczoną ilość danych na komputerze"
 msgid "Access browser activity during navigation"
 msgstr "Mieć dostęp do aktywności przeglądarki podczas nawigacji"
 
-#: src/amo/components/RatingManager/index.js:115
+#: src/amo/components/RatingManager/index.js:120
 msgid "Log in to rate this dictionary"
 msgstr "Zaloguj się, aby ocenić ten słownik"
 
-#: src/amo/components/RatingManager/index.js:117
+#: src/amo/components/RatingManager/index.js:122
 msgid "Log in to rate this language pack"
 msgstr "Zaloguj się, aby ocenić ten pakiet językowy"
 
-#: src/amo/components/RatingManager/index.js:119
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this search plugin"
 msgstr "Zaloguj się, aby ocenić tę wtyczkę z wyszukiwarką"
 
-#: src/amo/components/RatingManager/index.js:122
+#: src/amo/components/RatingManager/index.js:127
 msgid "Log in to rate this theme"
 msgstr "Zaloguj się, aby ocenić ten motyw"
 
-#: src/amo/components/RatingManager/index.js:124
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this extension"
 msgstr "Zaloguj się, aby ocenić to rozszerzenie"
 
-#: src/amo/components/RatingManager/index.js:132
+#: src/amo/components/RatingManager/index.js:137
 msgid "Log in to rate this add-on"
 msgstr "Zaloguj się, aby ocenić ten dodatek"
 
-#: src/amo/components/RatingManager/index.js:173
+#: src/amo/components/RatingManager/index.js:178
 msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr "Czy na pewno usunąć recenzję dodatku „%(addonName)s”?"
 
-#: src/amo/components/RatingManager/index.js:178
+#: src/amo/components/RatingManager/index.js:183
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
 msgstr "Czy na pewno usunąć ocenę dodatku „%(addonName)s”?"
 
-#: src/amo/components/RatingManager/index.js:183
+#: src/amo/components/RatingManager/index.js:188
 msgid "How are you enjoying %(addonName)s?"
 msgstr "Jak oceniasz dodatek „%(addonName)s”?"
 
-#: src/amo/components/RatingManager/index.js:226
+#: src/amo/components/RatingManager/index.js:231
 msgid "Saving star rating"
 msgstr "Zapisywanie oceny w gwiazdkach"
 
-#: src/amo/components/RatingManager/index.js:227
+#: src/amo/components/RatingManager/index.js:232
 msgid "Star rating saved"
 msgstr "Zapisano ocenę w gwiazdkach"
 
