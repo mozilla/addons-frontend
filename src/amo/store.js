@@ -6,6 +6,7 @@ import { connectRouter, routerMiddleware } from 'connected-react-router';
 
 import addonsByAuthors from 'amo/reducers/addonsByAuthors';
 import collections from 'amo/reducers/collections';
+import hero from 'amo/reducers/hero';
 import home from 'amo/reducers/home';
 import landing from 'amo/reducers/landing';
 import recommendations from 'amo/reducers/recommendations';
@@ -35,6 +36,7 @@ import { middleware } from 'core/store';
 import type { AddonsByAuthorsState } from 'amo/reducers/addonsByAuthors';
 import type { CollectionsState } from 'amo/reducers/collections';
 import type { GuidesState } from 'amo/reducers/guides';
+import type { HeroShelvesState } from 'amo/reducers/hero';
 import type { HomeState } from 'amo/reducers/home';
 import type { LandingState } from 'amo/reducers/landing';
 import type { RecommendationsState } from 'amo/reducers/recommendations';
@@ -72,6 +74,7 @@ type InternalAppState = {|
   errors: Object,
   formOverlay: FormOverlayState,
   guides: GuidesState,
+  hero: HeroShelvesState,
   heroBanners: Object,
   home: HomeState,
   infoDialog: InfoDialogState,
@@ -128,6 +131,7 @@ export const reducers: AppReducersType = {
   errors,
   errorPage,
   formOverlay,
+  hero,
   heroBanners,
   home,
   guides,

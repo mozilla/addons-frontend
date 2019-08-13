@@ -274,6 +274,42 @@ export const fakeAddonInfo = {
   privacy_policy: ' some privacy policy text',
 };
 
+export const fakePrimaryHeroShelf = Object.freeze({
+  gradient: { start: '000000', end: 'FFFFFF' },
+  featured_image: 'https://addons.cdn.mozilla.net/image.png',
+  description: 'Primary shelf description',
+  addon: fakeAddon,
+  external: undefined,
+});
+
+export const fakeSecondaryHeroShelf = Object.freeze({
+  headline: 'Secondary shelf headline',
+  description: 'Secondary shelf description',
+  cta: { url: 'https://mozilla.org', text: 'Some cta text' },
+  modules: [
+    {
+      icon: 'icon1',
+      description: 'module 1 description',
+      cta: { url: 'https://mozilla.org/1', text: 'module 1 cta text' },
+    },
+    {
+      icon: 'icon2',
+      description: 'module 2 description',
+      cta: { url: 'https://mozilla.org/2', text: 'module 2 cta text' },
+    },
+    {
+      icon: 'icon3',
+      description: 'module 3 description',
+      cta: { url: 'https://mozilla.org/3', text: 'module 3 cta text' },
+    },
+  ],
+});
+
+export const fakeHeroShelves = Object.freeze({
+  primary: fakePrimaryHeroShelf,
+  secondary: fakeSecondaryHeroShelf,
+});
+
 export const onLocationChanged = ({ pathname, search = '', ...others }) => {
   const history = addQueryParamsToHistory({
     history: createMemoryHistory({

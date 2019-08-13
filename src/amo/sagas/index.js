@@ -4,6 +4,7 @@ import { all, fork } from 'redux-saga/effects';
 import addonsByAuthors from 'amo/sagas/addonsByAuthors';
 import collections from 'amo/sagas/collections';
 import guides from 'amo/sagas/guides';
+import hero from 'amo/sagas/hero';
 import home from 'amo/sagas/home';
 import landing from 'amo/sagas/landing';
 import recommendations from 'amo/sagas/recommendations';
@@ -29,6 +30,7 @@ export default function* rootSaga(): Saga {
     fork(categories),
     fork(collections),
     fork(guides),
+    fork(hero),
     fork(home),
     fork(landing),
     fork(languageTools),
