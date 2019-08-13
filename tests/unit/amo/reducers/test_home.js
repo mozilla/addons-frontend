@@ -3,9 +3,10 @@ import {
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
 import homeReducer, {
-  fetchHomeAddons,
+  createInternalHeroShelves,
+  fetchHomeData,
   initialState,
-  loadHomeAddons,
+  loadHomeData,
 } from 'amo/reducers/home';
 import { createInternalAddon } from 'core/reducers/addons';
 import { ADDON_TYPE_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
@@ -16,14 +17,21 @@ import {
   createFakeCollectionAddonsListResponse,
   dispatchClientMetadata,
   fakeAddon,
+  createHeroShelves,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('reducer', () => {
-    const _loadHomeAddons = ({ store, collections = [], shelves = {} }) => {
+    const _loadHomeData = ({
+      store,
+      collections = [],
+      heroShelves = createHeroShelves(),
+      shelves = {},
+    }) => {
       store.dispatch(
-        loadHomeAddons({
+        loadHomeData({
           collections,
+          heroShelves,
           shelves,
         }),
       );
@@ -42,7 +50,7 @@ describe(__filename, () => {
     it('loads collections', () => {
       const { store } = dispatchClientMetadata();
 
-      _loadHomeAddons({
+      _loadHomeData({
         store,
         collections: [
           createFakeCollectionAddonsListResponse({
@@ -72,7 +80,7 @@ describe(__filename, () => {
       const addon1 = { ...fakeAddon, slug: 'addon1' };
       const addon2 = { ...fakeAddon, slug: 'addon2' };
 
-      _loadHomeAddons({
+      _loadHomeData({
         store,
         shelves: {
           [shelfName1]: createAddonsApiResult([addon1]),
@@ -90,13 +98,29 @@ describe(__filename, () => {
       ]);
     });
 
+    it('loads hero shelves', () => {
+      const { store } = dispatchClientMetadata();
+
+      const heroShelves = createHeroShelves();
+      _loadHomeData({
+        store,
+        heroShelves,
+      });
+
+      const homeState = store.getState().home;
+
+      expect(homeState.heroShelves).toEqual(
+        createInternalHeroShelves(heroShelves),
+      );
+    });
+
     it('sets null when a shelf has no response', () => {
       const { store } = dispatchClientMetadata();
       const shelfName1 = 'someShelfName1';
       const shelfName2 = 'someShelfName2';
       const addon1 = { ...fakeAddon, slug: 'addon1' };
 
-      _loadHomeAddons({
+      _loadHomeData({
         store,
         shelves: {
           [shelfName1]: createAddonsApiResult([addon1]),
@@ -115,7 +139,7 @@ describe(__filename, () => {
     it('loads the the correct amount of theme add-ons in a collection to display on homepage', () => {
       const { store } = dispatchClientMetadata();
 
-      _loadHomeAddons({
+      _loadHomeData({
         store,
         collections: [
           createFakeCollectionAddonsListResponse({
@@ -149,7 +173,7 @@ describe(__filename, () => {
     it('loads a null for a missing collection', () => {
       const { store } = dispatchClientMetadata();
 
-      _loadHomeAddons({
+      _loadHomeData({
         store,
         collections: [null],
       });
@@ -163,7 +187,7 @@ describe(__filename, () => {
     it('returns null for an empty collection', () => {
       const { store } = dispatchClientMetadata();
 
-      _loadHomeAddons({
+      _loadHomeData({
         store,
         collections: [
           createFakeCollectionAddonsListResponse({
@@ -181,7 +205,7 @@ describe(__filename, () => {
 
       const state = homeReducer(
         loadedState,
-        fetchHomeAddons({
+        fetchHomeData({
           collectionsToFetch: [],
           errorHandlerId: 'some-error-handler-id',
           includeFeaturedThemes: true,
@@ -194,7 +218,7 @@ describe(__filename, () => {
     it('resets the state when clientApp changes', () => {
       const { store } = dispatchClientMetadata();
 
-      _loadHomeAddons({
+      _loadHomeData({
         store,
         collections: [
           createFakeCollectionAddonsListResponse({

@@ -274,6 +274,70 @@ export const fakeAddonInfo = {
   privacy_policy: ' some privacy policy text',
 };
 
+export const fakePrimaryHeroShelfExternal = Object.freeze({
+  id: 1,
+  guid: 'some-guid',
+  homepage: 'https://mozilla.org',
+  name: 'some external name',
+  type: ADDON_TYPE_EXTENSION,
+});
+
+export const createPrimaryHeroShelf = ({
+  addon = fakeAddon,
+  description = 'Primary shelf description',
+  external = undefined,
+  featuredImage = 'https://addons-dev-cdn.allizom.org/static/img/hero/featured/teamaddons.jpg',
+  gradient = { start: '000000', end: 'FFFFFF' },
+} = {}) => {
+  return {
+    addon,
+    description,
+    external,
+    featured_image: featuredImage,
+    gradient,
+  };
+};
+
+export const createSecondaryHeroShelf = ({
+  cta = { url: 'https://mozilla.org', text: 'Some cta text' },
+  description = 'Secondary shelf description',
+  headline = 'Secondary shelf headline',
+  modules = [
+    {
+      icon: 'icon1',
+      description: 'module 1 description',
+      cta: { url: 'https://mozilla.org/1', text: 'module 1 cta text' },
+    },
+    {
+      icon: 'icon2',
+      description: 'module 2 description',
+      cta: { url: 'https://mozilla.org/2', text: 'module 2 cta text' },
+    },
+    {
+      icon: 'icon3',
+      description: 'module 3 description',
+      cta: { url: 'https://mozilla.org/3', text: 'module 3 cta text' },
+    },
+  ],
+} = {}) => {
+  return {
+    cta,
+    description,
+    headline,
+    modules,
+  };
+};
+
+export const createHeroShelves = ({
+  primaryProps = {},
+  secondaryProps = {},
+} = {}) => {
+  return {
+    primary: createPrimaryHeroShelf(primaryProps),
+    secondary: createSecondaryHeroShelf(secondaryProps),
+  };
+};
+
 export const onLocationChanged = ({ pathname, search = '', ...others }) => {
   const history = addQueryParamsToHistory({
     history: createMemoryHistory({

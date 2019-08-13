@@ -14,7 +14,7 @@ import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
-import { fetchHomeAddons } from 'amo/reducers/home';
+import { fetchHomeData } from 'amo/reducers/home';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
@@ -119,7 +119,7 @@ export class HomeBase extends React.Component {
 
     if (!resultsLoaded) {
       dispatch(
-        fetchHomeAddons({
+        fetchHomeData({
           collectionsToFetch: FEATURED_COLLECTIONS,
           enableFeatureRecommendedBadges: _config.get(
             'enableFeatureRecommendedBadges',
