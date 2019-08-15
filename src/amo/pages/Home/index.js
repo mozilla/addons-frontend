@@ -15,7 +15,6 @@ import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeData } from 'amo/reducers/home';
-import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -77,6 +76,7 @@ export class HomeBase extends React.Component {
     collections: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
+    heroShelves: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     includeRecommendedThemes: PropTypes.bool,
     includeTrendingExtensions: PropTypes.bool,
@@ -191,6 +191,7 @@ export class HomeBase extends React.Component {
       clientApp,
       collections,
       errorHandler,
+      heroShelves,
       i18n,
       includeRecommendedThemes,
       includeTrendingExtensions,
@@ -248,26 +249,13 @@ export class HomeBase extends React.Component {
         {errorHandler.renderErrorIfPresent()}
 
         {_config.get('enableFeatureHeroRecommendation') &&
-        clientApp !== CLIENT_APP_ANDROID ? (
+        clientApp !== CLIENT_APP_ANDROID &&
+        heroShelves ? (
           <HeroRecommendation
-            // TODO: replace with a real value.
-            // See https://github.com/mozilla/addons-frontend/issues/8406
-            // This is a brand name so it should not be localized.
-            heading="Forest Preserve Nougat (beta)"
-            // TODO: replace with a real value.
-            // See https://github.com/mozilla/addons-frontend/issues/8406
-            body={`Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua. Sed augue lacus viverra vitae.`}
+            shelfData={heroShelves.primary}
+            // linkText remains hardcoded for now as it is not currently
+            // supported via the hero API
             linkText={i18n.gettext('Get Started')}
-            // TODO: replace with a real value.
-            // See https://github.com/mozilla/addons-frontend/issues/8406
-            linkHref={`https://forest-preserve-nougat.com/${makeQueryStringWithUTM(
-              {
-                utm_content: 'homepage-primary-hero',
-                utm_campaign: '',
-              },
-            )}`}
           />
         ) : null}
 
@@ -412,6 +400,7 @@ export function mapStateToProps(state) {
   return {
     clientApp: state.api.clientApp,
     collections: state.home.collections,
+    heroShelves: state.home.heroShelves,
     resultsLoaded: state.home.resultsLoaded,
     shelves: state.home.shelves,
   };

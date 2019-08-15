@@ -1,18 +1,31 @@
 import * as React from 'react';
 
+import AddonTitle from 'amo/components/AddonTitle';
 import HeroRecommendation, {
   HeroRecommendationBase,
 } from 'amo/components/HeroRecommendation';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import { createInternalAddon } from 'core/reducers/addons';
+import { createInternalHeroShelves } from 'amo/reducers/home';
+import { makeQueryStringWithUTM } from 'amo/utils';
+import {
+  createHeroShelves,
+  fakeAddon,
+  fakeI18n,
+  fakePrimaryHeroShelfExternal,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  const createShelfData = (primaryProps = {}) => {
+    return createInternalHeroShelves(createHeroShelves({ primaryProps }))
+      .primary;
+  };
+
   const render = (moreProps = {}) => {
     const props = {
-      body: 'Example of a promo description',
-      heading: 'Promo Title Example',
       i18n: fakeI18n(),
       linkText: 'Get It Now',
-      linkHref: 'https://promo-site.com/',
+      shelfData: createShelfData(),
       ...moreProps,
     };
     return shallowUntilTarget(
@@ -21,27 +34,107 @@ describe(__filename, () => {
     );
   };
 
-  it('renders a heading', () => {
-    const heading = 'Forest Preserve Nougat (beta)';
-    const root = render({ heading });
+  describe('for an addon', () => {
+    it('renders a heading', () => {
+      const addon = fakeAddon;
+      const shelfData = createShelfData({ addon });
 
-    expect(root.find('.HeroRecommendation-heading')).toHaveText(heading);
+      const root = render({ shelfData });
+
+      expect(root.find(AddonTitle)).toHaveProp(
+        'addon',
+        createInternalAddon(addon),
+      );
+    });
+
+    it('renders a link', () => {
+      const linkText = 'some link text';
+      const slug = 'some-addon-slug';
+      const shelfData = createShelfData({ addon: { ...fakeAddon, slug } });
+
+      const root = render({ linkText, shelfData });
+
+      expect(root.find('.HeroRecommendation-link')).toHaveProp(
+        'to',
+        `/addon/${slug}/${makeQueryStringWithUTM({
+          utm_content: 'homepage-primary-hero',
+          utm_campaign: '',
+        })}`,
+      );
+      expect(root.find('.HeroRecommendation-linkText')).toHaveText(linkText);
+    });
+  });
+
+  describe('for an external item', () => {
+    it('renders a heading', () => {
+      const name = 'External Name';
+      const shelfData = createShelfData({
+        addon: null,
+        external: { ...fakePrimaryHeroShelfExternal, name },
+      });
+
+      const root = render({ shelfData });
+
+      expect(root.find('.HeroRecommendation-heading')).toHaveText(name);
+    });
+
+    it('renders a link', () => {
+      const homepage = 'https://somehomepage.com';
+      const linkText = 'some link text';
+      const shelfData = createShelfData({
+        addon: null,
+        external: { ...fakePrimaryHeroShelfExternal, homepage },
+      });
+
+      const root = render({ linkText, shelfData });
+
+      expect(root.find('.HeroRecommendation-link')).toHaveProp(
+        'href',
+        homepage,
+      );
+      expect(root.find('.HeroRecommendation-linkText')).toHaveText(linkText);
+    });
+  });
+
+  it('renders an image', () => {
+    const featuredImage = 'https://mozilla.org/featured.png';
+    const shelfData = createShelfData({ featuredImage });
+
+    const root = render({ shelfData });
+
+    expect(root.find('.HeroRecommendation-image')).toHaveProp(
+      'src',
+      featuredImage,
+    );
   });
 
   it('renders a body', () => {
-    const body = 'Change the way you shop with Forest Preserve Nougat.';
-    const root = render({ body });
+    const description = 'some body text';
+    const shelfData = createShelfData({ description });
 
-    expect(root.find('.HeroRecommendation-body')).toHaveText(body);
+    const root = render({ shelfData });
+
+    expect(root.find('.HeroRecommendation-body').html()).toContain(description);
   });
 
-  it('renders a link', () => {
-    const linkText = 'Shop For Mall Music Now';
-    const linkHref = 'https://internet-mall-music.com/';
-    const root = render({ linkText, linkHref });
+  it('allows some html tags in the body', () => {
+    const description = '<blockquote><b>Some body text</b></blockquote>';
+    const shelfData = createShelfData({ description });
 
-    const link = root.find('.HeroRecommendation-link');
-    expect(link).toHaveProp('href', linkHref);
-    expect(link).toHaveText(linkText);
+    const root = render({ shelfData });
+
+    expect(root.find('.HeroRecommendation-body').html()).toContain(description);
+  });
+
+  it('sanitizes html tags in the body', () => {
+    const description = '<blockquote><b>Some body text</b></blockquote>';
+    const scriptHtml = '<script>alert(document.cookie);</script>';
+    const shelfData = createShelfData({
+      description: `${description}${scriptHtml}`,
+    });
+
+    const root = render({ shelfData });
+
+    expect(root.find('.HeroRecommendation-body').html()).toContain(description);
   });
 });

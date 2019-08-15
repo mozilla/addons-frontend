@@ -15,7 +15,11 @@ import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
-import { fetchHomeData, loadHomeData } from 'amo/reducers/home';
+import {
+  createInternalHeroShelves,
+  fetchHomeData,
+  loadHomeData,
+} from 'amo/reducers/home';
 import { createInternalCollection } from 'amo/reducers/collections';
 import { createApiError } from 'core/api/index';
 import {
@@ -65,6 +69,15 @@ describe(__filename, () => {
 
     return shallowUntilTarget(<Home {...allProps} />, HomeBase);
   }
+
+  const _loadHomeData = ({
+    store,
+    collections = [],
+    heroShelves = createHeroShelves(),
+    shelves = {},
+  }) => {
+    store.dispatch(loadHomeData({ collections, heroShelves, shelves }));
+  };
 
   // Note: We often have more than one collection to display, which is why the
   // it.each logic is used below.
@@ -301,13 +314,12 @@ describe(__filename, () => {
     ];
     const recommendedExtensions = createAddonsApiResult(addons);
 
-    store.dispatch(
-      loadHomeData({
-        collections,
-        heroShelves: createHeroShelves(),
-        shelves: { recommendedExtensions },
-      }),
-    );
+    _loadHomeData({
+      store,
+      collections,
+      heroShelves: createHeroShelves(),
+      shelves: { recommendedExtensions },
+    });
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({ includeRecommendedThemes: false, store });
@@ -367,18 +379,7 @@ describe(__filename, () => {
   it('does not display a collection shelf if there is no collection in state', () => {
     const { store } = dispatchClientMetadata();
 
-    const addons = [{ ...fakeAddon, slug: 'addon' }];
-
-    const collections = [null, null, null];
-    const recommendedExtensions = createAddonsApiResult(addons);
-
-    store.dispatch(
-      loadHomeData({
-        collections,
-        heroShelves: createHeroShelves(),
-        shelves: { recommendedExtensions },
-      }),
-    );
+    _loadHomeData({ store, collections: [null] });
 
     const root = render({ store });
     const shelves = root.find(LandingAddonsCard);
@@ -512,18 +513,41 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
       });
+      const heroShelves = createHeroShelves();
+      _loadHomeData({ store, heroShelves });
+
       const root = render({
         _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
         store,
       });
 
-      expect(root.find(HeroRecommendation)).toHaveLength(1);
+      const heroRecommendation = root.find(HeroRecommendation);
+      expect(heroRecommendation).toHaveLength(1);
+      expect(heroRecommendation).toHaveProp(
+        'shelfData',
+        createInternalHeroShelves(heroShelves).primary,
+      );
+    });
+
+    it('does not render if heroShelves are not loaded', () => {
+      const { store } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_FIREFOX,
+      });
+
+      const root = render({
+        _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
+        store,
+      });
+
+      expect(root.find(HeroRecommendation)).toHaveLength(0);
     });
 
     it('does not render when enabled on Android', () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_ANDROID,
       });
+      _loadHomeData({ store, heroShelves: createHeroShelves() });
+
       const root = render({
         _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
         store,
@@ -536,6 +560,8 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
       });
+      _loadHomeData({ store, heroShelves: createHeroShelves() });
+
       const root = render({
         _config: getFakeConfig({ enableFeatureHeroRecommendation: false }),
         store,
