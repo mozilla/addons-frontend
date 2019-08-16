@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-13 13:19+0000\n"
-"PO-Revision-Date: 2019-08-16 17:52+0000\n"
+"PO-Revision-Date: 2019-08-16 18:01+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -786,7 +786,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:68
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "అయ్యో! మేము ఆ పేజీని కనుగొనలేము"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:71
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -1240,11 +1240,11 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:174 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
-msgstr ""
+msgstr "దుర్వినియోగ నివేదికను పంపించు"
 
 #: src/amo/components/ReportAbuseButton/index.js:175 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
-msgstr ""
+msgstr "దుర్వినియోగ నివేదికను పంపుతోంది"
 
 #: src/amo/components/ReportAbuseButton/index.js:177
 msgid "Dismiss"
@@ -1264,7 +1264,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:106 src/amo/components/ReportUserAbuse/index.js:99
 msgid "Report this user for abuse"
-msgstr ""
+msgstr "ఈ వాడుకరిని దుర్వినియోగం క్రింద నివేదించండి"
 
 #: src/amo/components/ReportUserAbuse/index.js:113
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
@@ -1280,7 +1280,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "You reported this user for abuse"
-msgstr ""
+msgstr "ఈ వాడుకరిని మీరు దుర్వినియోగం క్రింద నివేదించారు"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -1724,11 +1724,11 @@ msgstr "ఐదు-నక్షత్రాల సమీక్షలను మా
 
 #: src/amo/pages/AddonReviewList/index.js:231
 msgid "Show only four-star reviews"
-msgstr ""
+msgstr "నాలుగు-నక్షత్ర సమీక్షలను మాత్రమే చూపించు"
 
 #: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show only three-star reviews"
-msgstr ""
+msgstr "మూడు-నక్షత్ర సమీక్షలను మాత్రమే చూపించు"
 
 #: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only two-star reviews"
