@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-13 13:19+0000\n"
-"PO-Revision-Date: 2019-07-03 19:05+0000\n"
-"Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
+"PO-Revision-Date: 2019-08-18 15:47+0000\n"
+"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -560,7 +560,7 @@ msgstr "ਸਰੋਤ ਕੋਡ%(linkStart)s%(licenseName)s%(linkEnd)s ਦੇ ਅ
 
 #: src/amo/components/AddonVersionCard/index.js:113
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
-msgstr ""
+msgstr "ਸਰੋਤ ਕੋਡ %(linkStart)s ਕਸਟਮ ਲਾਇਸੈਂਸ %(linkEnd)s ਦੇ ਅਧੀਨ ਜਾਰੀ ਕੀਤਾ"
 
 #: src/amo/components/AddonVersionCard/index.js:140
 msgid "Source code released under %(licenseName)s"
@@ -1116,7 +1116,7 @@ msgstr "ਬਰਾਊਜ਼ਰ ਅਤੀਤ ਲਈ ਪਹੁੰਚ"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "ਇਕਸਟੈਨਸ਼ਨ ਵਰਤੋਂ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਅਤੇ ਥੀਮਾਂ ਦਾ ਬੰਦੋਬਸਤ ਕਰੋ"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Exchange messages with programs other than Firefox"
@@ -1128,7 +1128,7 @@ msgstr "ਤੁਹਾਨੂੰ ਸੂਚਨਾਵਾਂ ਦਿਖਾਉਣ"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "ਕ੍ਰਿਪਟੋਗਰਾਫ਼ਿਕ ਪਰਮਾਣਕਿਤਾ ਸੇਵਾਵਾਂ ਦੇਣ"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Control browser proxy settings"
@@ -1224,7 +1224,7 @@ msgstr "ਸਾਰੇ ਇੱਕ-ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
 
 #: src/amo/components/ReportAbuseButton/index.js:106 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "ਅਸੀਂ ਹਰੇਕ ਬਦਸਲੂਕੀ ਦੀ ਰਿਪੋਰਟ ਦਾ ਜਵਾਬ ਨਹੀਂ ਦੇ ਸਕਦੇ, ਪਰ ਅਸੀਂ ਇਸ ਮੁੱਦੇ ਤੇ ਵਿਚਾਰ ਕਰਾਂਗੇ।"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
@@ -1252,7 +1252,7 @@ msgstr "ਖਾਰਜ ਕਰੋ"
 
 #: src/amo/components/ReportAbuseButton/index.js:178
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "ਇਹ ਸਮਝਾਓ ਕਿ ਇਹ ਐਡ-ਆਨ ਸਾਡੇ ਨੀਤੀਆਂ ਦੀ ਕਿਵੇਂ ਉਲੰਘਣਾ ਕਰ ਰਿਹਾ ਹੈ।"
 
 #: src/amo/components/ReportAbuseButton/index.js:95
 msgid "You reported this add-on for abuse"
@@ -1268,11 +1268,11 @@ msgstr "ਦੁਰਵਿਵਹਾਰ ਲਈ ਇਸ ਉਪਭੋਗਤਾ ਦੀ �
 
 #: src/amo/components/ReportUserAbuse/index.js:113
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਸੋਚਦੇ ਹੋ ਕਿ ਇਹ ਯੂਜ਼ਰ %(linkTagStart)s ਮੋਜ਼ੀਲਾ ਦੀ ਐਡ-ਆਨ ਪਾਲਿਸੀਆਂ %(linkTagEnd)s ਦੀ ਉਲੰਘਣਾ ਕਰ ਰਿਹਾ ਹੈ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਮੌਜ਼ਿਲਾ ਨੂੰ ਇਸ ਉਪਭੋਗਤਾ ਨੂੰ ਰਿਪੋਰਟ ਕਰੋ।"
 
 #: src/amo/components/ReportUserAbuse/index.js:129
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr ""
+msgstr "ਕਿਰਪਾ ਕਰਕੇ ਬੱਗ ਦੀ ਰਿਪੋਰਟ ਕਰਨ ਲਈ ਜਾਂ ਇਸ ਉਪਭੋਗਤਾ ਨਾਲ ਸੰਪਰਕ ਕਰਨ ਲਈ ਇਸ ਫਾਰਮ ਦੀ ਵਰਤੋਂ ਨਾ ਕਰੋ; ਤੁਹਾਡੀ ਰਿਪੋਰਟ ਸਿਰਫ ਮੋਜ਼ੀਲਾ ਨੂੰ ਭੇਜੀ ਜਾਵੇਗੀ ਨਾ ਕਿ ਇਸ ਉਪਭੋਗਤਾ ਤੇ।"
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
@@ -1369,19 +1369,19 @@ msgstr[1] "%(count)s ਖੋਜ ਸੰਦ ਲੱਭਿਆ"
 #: src/amo/components/SearchContextCard/index.js:122
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦਾ ਥੀਮ ਪਾਇਆ ਗਿਆ ਹੈ"
+msgstr[1] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦੇ ਥੀਮ ਲੱਭੇ"
 
 #: src/amo/components/SearchContextCard/index.js:131
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s ਦਾ ਥੀਮ %(categoryName)s ਵਿੱਚ ਮਿਲਿਆ ਹੈ"
+msgstr[1] "%(count)s ਦੇ ਥੀਮ %(categoryName)s ਵਿੱਚ ਲੱਭੇ ਹਨ"
 
 #: src/amo/components/SearchContextCard/index.js:141
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] ""
+msgstr[0] "%(count)s ਲਈ \"%(query)s\" ਦਾ ਥੀਮ ਮਿਲਿਆ"
 msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:150
@@ -2083,11 +2083,13 @@ msgstr "ਹੋਰ ਪ੍ਰਮੁੱਖ ਰੇਟ ਕੀਤੇ ਥੀਮ ਵੇ�
 
 #: src/amo/pages/LandingPage/index.js:229
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਕਿਵੇਂ ਵੇਖਦਾ ਹੈ ਨੂੰ ਬਦਲਣ ਲਈ ਥੀਮ ਡਾਊਨਲੋਡ ਕਰੋ। ਆਪਣੇ ਅਨੁਭਵ ਨੂੰ ਆਪਣੇ ਸੁਆਰਥ ਨੂੰ ਦਰੁਸਤ ਕਰੋ। ਸੁੰਦਰ ਕ੍ਰੇਟਰ, ਬੁਰੇ ਰੋਬੋਟ, ਸੁੰਦਰ ਭੂਮੀ-ਹਜ਼ਾਰਾਂ ਵਿਕਲਪ।"
 
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
+"ਅਜਿਹੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਜੋੜਨ ਲਈ ਫਾਇਰਫਾਕਸ ਐਕਸਟੈਂਸ਼ਨਾਂ ਨੂੰ ਡਾਊਨਲੋਡ ਕਰੋ ਜੋ ਬ੍ਰਾਊਜ਼ਿੰਗ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰਦੀਆਂ ਹਨ। ਪਾਸਵਰਡ ਸੁਰੱਖਿਅਤ ਕਰੋ, ਸੌਦੇ ਲੱਭੋ, ਵੀਡੀਓ ਨੂੰ ਵਧਾਓ ਅਤੇ ਬ੍ਰਾਉਜ਼ਰ ਐਪਸ ਨਾਲ ਤੰਗ ਕਰਨ ਵਾਲੇ ਵਿਗਿਆਪਨਾਂ"
+" ਨੂੰ ਰੋਕੋ।"
 
 #: src/amo/pages/LandingPage/index.js:256
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2095,7 +2097,7 @@ msgstr "ਆਪਣੇ ਬ੍ਰਾਉਜ਼ਰ ਦੀ ਦਿੱਖ ਨੂੰ ਬ�
 
 #: src/amo/pages/LandingPage/index.js:258
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਨੂੰ ਕਸਟਮ ਕਰਨ ਲਈ ਅਤੇ ਬਰਾਊਜ਼ਰ ਨੂੰ ਆਪਣੀ ਥਾਂ ਤੇ ਬਣਾਉਣ ਲਈ ਸ਼ਕਤੀਸ਼ਾਲੀ ਟੂਲ ਅਤੇ ਫੀਚਰ ਦੀ ਪੜਚੋਲ ਕਰੋ।"
 
 #: src/amo/pages/LandingPage/index.js:297
 msgid "Explore all categories"
@@ -2271,7 +2273,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:145
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "ਮੈਂ ਇੱਕ ਐਡ-ਆਨ ਲੇਖਕ ਹਾਂ, ਕੀ ਮੈਂ ਸਮੀਖਿਆਵਾਂ ਤੇ ਪ੍ਰਤਿਕਿਰਿਆ ਦੇ ਸਕਦਾ?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
@@ -2667,7 +2669,7 @@ msgstr "ਰਜਿਸਟਰ ਜਾਂ ਲਾਗਇਨ ਕਰੋ"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "ਮੁਆਫ ਕਰਨਾ, ਪਰ ਇੱਕ ਗਲਤੀ ਹੋਈ ਸੀ ਅਤੇ ਅਸੀਂ ਤੁਹਾਡੀ ਬੇਨਤੀ ਪੂਰੀ ਨਹੀਂ ਕਰ ਸਕੇ। ਅਸੀਂ ਇਸ ਗ਼ਲਤੀ ਨੂੰ ਲਾਗ ਕੀਤਾ ਹੈ ਅਤੇ ਇਸ ਦੀ ਜਾਂਚ ਕਰਾਂਗੇ।"
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
@@ -2766,7 +2768,7 @@ msgstr ""
 
 #: src/core/utils/addons.js:40
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "ਅਨ ਸਥਾਪਿਤ ਹੋਣ ਦੇ ਦੌਰਾਨ ਇੱਕ ਅਚਾਨਕ ਤਰੁੱਟੀ ਉਤਪੰਨ ਹੋਈ।"
 
 #: src/core/utils/addons.js:45
 msgid "An unexpected error occurred."
@@ -2811,18 +2813,18 @@ msgstr "ਸਾਰੀਆਂ ਵੈੱਬਸਾਈਟਾਂ ਲਈ ਤੁਹਾਡ
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(param)s ਦੇ ਦੂਜੇ ਡੋਮੇਨ ਵਿੱਚ ਆਪਣੇ ਡੇਟਾ ਨੂੰ ਐਕਸੈਸ ਕਰੋ"
+msgstr[1] "%(param)s ਦੇ ਹੋਰ ਡੋਮੇਨਾਂ ਵਿੱਚ ਆਪਣੇ ਡੇਟਾ ਨੂੰ ਐਕਸੈਸ ਕਰੋ"
 
 #: src/ui/components/HostPermissions/index.js:67
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "%(param)s ਦੇ ਡੋਮੇਨ ਵਿਚ ਸਾਈਟਾਂ ਲਈ ਆਪਣਾ ਡੇਟਾ ਐਕਸੈਸ ਕਰੋ"
 
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(param)s ਦੀ ਦੂਜੀ ਸਾਈਟ ਤੇ ਆਪਣੇ ਡੇਟਾ ਨੂੰ ਐਕਸੈਸ ਕਰੋ"
+msgstr[1] "%(param)s ਦੀਆਂ ਹੋਰ ਸਾਈਟਾਂ ਤੇ ਆਪਣੇ ਡਾਟੇ ਨੂੰ ਐਕਸੈਸ ਕਰੋ"
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
