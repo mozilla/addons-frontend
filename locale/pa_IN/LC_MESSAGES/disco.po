@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-07-31 08:06+0000\n"
-"PO-Revision-Date: 2019-07-03 19:44+0000\n"
-"Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
+"PO-Revision-Date: 2019-08-18 13:17+0000\n"
+"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgstr "ਸਰਵਰ ਗਲਤੀ"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "ਮੁਆਫ ਕਰਨਾ, ਪਰ ਇੱਕ ਗਲਤੀ ਹੋਈ ਸੀ ਅਤੇ ਅਸੀਂ ਤੁਹਾਡੀ ਬੇਨਤੀ ਪੂਰੀ ਨਹੀਂ ਕਰ ਸਕੇ। ਅਸੀਂ ਇਸ ਗ਼ਲਤੀ ਨੂੰ ਲਾਗ ਕੀਤਾ ਹੈ ਅਤੇ ਇਸ ਦੀ ਜਾਂਚ ਕਰਾਂਗੇ।"
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
@@ -64,15 +64,15 @@ msgstr "ਪੰਨਾ ਮਿਲਿਆ ਨਹੀਂ"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "ਅਫਸੋਸ, ਪਰ ਅਸੀਂ ਤੁਹਾਡੇ ਦੁਆਰਾ ਦਾਖ਼ਲ ਕੀਤੇ ਗਏ URL ਤੇ ਕੁਝ ਨਹੀਂ ਲੱਭ ਸਕਦੇ।"
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s %(name)s %(strongEnd)s ਸ਼ਾਮਿਲ ਕੀਤਾ ਗਿਆ ਹੈ"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "ਮੀਨੂ ਵਿੱਚ ਐਡ-ਆਨ ਕਲਿਕ ਕਰਕੇ ਆਪਣੇ ਐਡ-ਆਨ ਦਾ ਪ੍ਰਬੰਧ ਕਰੋ।"
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -115,7 +115,7 @@ msgstr "%(listOfApplicatonsAndVersions)s ਨਾਲ ਕੰਮ ਕਰਦਾ ਹੈ
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਅਸਫਲ ਕੀਤੀ ਗਈ ਕਿਉਂਕਿ ਐਡ-ਆਨ ਭ੍ਰਿਸ਼ਟ ਜਾਪਦੀ ਹੈ।"
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
@@ -131,11 +131,11 @@ msgstr "ਇੰਸਟੌਲੇਸ਼ਨ ਦੇ ਦੌਰਾਨ ਇੱਕ ਅਚ�
 
 #: src/core/utils/addons.js:40
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "ਅਨ ਸਥਾਪਿਤ ਹੋਣ ਦੇ ਦੌਰਾਨ ਇੱਕ ਅਚਾਨਕ ਤਰੁੱਟੀ ਉਤਪੰਨ ਹੋਈ।"
 
 #: src/core/utils/addons.js:45
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "ਅਚਾਨਕ ਗਲਤੀ ਆਈ ਹੈ।"
 
 #: src/disco/components/Addon/index.js:86
 msgid "Close"
@@ -143,15 +143,15 @@ msgstr "ਬੰਦ ਕਰੋ"
 
 #: src/disco/components/AddonCompatibilityError/index.js:30
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "iOS ਲਈ ਫਾਇਰਫਾਕਸ ਵਰਤਮਾਨ ਵਿੱਚ ਐਡ-ਆਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾ।"
 
 #: src/disco/components/AddonCompatibilityError/index.js:34
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
+msgstr "ਇਹ ਐਡ-ਆਨ ਤੁਹਾਡੇ ਫਾਇਰਫਾਕਸ ਦੇ ਵਰਜਨ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
 #: src/disco/components/AddonCompatibilityError/index.js:40
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "ਇਹ ਐਡਆਨ ਤੁਹਾਡੇ ਬ੍ਰਾਉਜ਼ਰ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀ।"
 
 #: src/disco/components/App/index.js:43
 msgid "Discover Add-ons"
@@ -174,6 +174,8 @@ msgid ""
 "There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
 "and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
+"ਹਜ਼ਾਰਾਂ ਮੁਫ਼ਤ ਐਡ-ਆਨ ਹਨ, ਜੋ ਵਿਸ਼ਵ ਭਰ ਦੇ ਡਿਵੈਲਪਰਾਂ ਦੁਆਰਾ ਬਣਾਏ ਗਏ ਹਨ, ਤਾਂ ਕਿ ਤੁਸੀਂ ਆਪਣੇ ਫਾਇਰਫਾਕਸ ਨੂੰ ਨਿੱਜੀ ਬਣਾਉਣ ਲਈ ਇੰਸਟਾਲ ਕਰ ਸਕੋ। ਮਜ਼ੇਦਾਰ ਵਿਜ਼ੁਅਲ ਥੀਮ ਤੋਂ ਸ਼ਕਤੀਸ਼ਾਲੀ ਸਾਧਨਾਂ ਨੂੰ ਵੇਖੋ ਜੋ ਕਿ ਤੇਜ਼ ਅਤੇ "
+"ਸੁਰੱਖਿਅਤ ਬ੍ਰਾਉਜ਼ਿੰਗ ਕਰਦੇ ਹਨ, ਐਡ-ਆਨ ਆਪਣੇ ਬ੍ਰਾਊਜ਼ਰ ਦਾ ਆਪਣਾ ਬਣਾਉ। ਸ਼ੁਰੂ ਕਰਨ ਵਿੱਚ ਤੁਹਾਡੀ ਮਦਦ ਲਈ, ਇੱਥੇ ਕੁਝ ਹਨ ਜਿਨ੍ਹਾਂ ਦੀ ਅਸੀਂ ਉਹਨਾਂ ਦੇ ਸਟੈਂਡ-ਆਊਟ ਪ੍ਰਦਰਸ਼ਨ ਅਤੇ ਕਾਰਜਾਤਮਕਤਾ ਲਈ ਸਲਾਹ ਦਿੰਦੇ ਹਾਂ।"
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
@@ -181,7 +183,7 @@ msgstr "ਹੋਰ ਜਾਣੋ"
 
 #: src/disco/pages/DiscoPane/index.js:211
 msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
+msgstr "ਇਹਨਾਂ ਵਿੱਚੋਂ ਕੁੱਝ ਸਿਫਾਰਸ਼ਾਂ ਨੂੰ ਨਿੱਜੀ ਬਣਾਇਆ ਗਿਆ ਹੈ। ਉਹ ਤੁਹਾਡੇ ਦੁਆਰਾ ਸਥਾਪਿਤ ਕੀਤੀਆਂ ਗਈਆਂ ਹੋਰ ਐਕਸਟੈਂਸ਼ਨਾਂ ਤੇ ਆਧਾਰਿਤ ਹਨ, ਪ੍ਰੋਫਾਈਲ ਪਸੰਦ ਅਤੇ ਵਰਤੋਂ ਦੇ ਅੰਕੜੇ।"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-13 13:19+0000\n"
-"PO-Revision-Date: 2019-08-16 21:12+0000\n"
+"PO-Revision-Date: 2019-08-18 13:24+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1120,7 +1120,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਤੋਂ ਬਿਨਾਂ ਹੋਰ ਪਰੋਗਰਾਮਾਂ ਨਾਲ ਸੁਨੇਹੇ ਤਬਾਦਲਾ ਕਰੋ"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Display notifications to you"
@@ -1152,7 +1152,7 @@ msgstr "ਬਰਾਊਜ਼ਰ ਟੈਬਾਂ ਨੂੰ ਲੁਕਾਉਣ ਅਤ�
 
 #: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "ਕਲਾਈਂਟ ਸਾਈਡ ਡਾਟਾ ਦੀ ਅਸੀਮ ਮਾਤਰਾ ਨੂੰ ਸਟੋਰ ਕਰੋ"
 
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access browser activity during navigation"
@@ -1280,7 +1280,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "You reported this user for abuse"
-msgstr ""
+msgstr "ਤੁਸੀਂ ਦੁਰਵਿਵਹਾਰ ਲਈ ਇਸ ਉਪਭੋਗਤਾ ਦੀ ਰਿਪੋਰਟ ਕੀਤੀ"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -1357,8 +1357,8 @@ msgstr "\"%(query)s\" ਲਈ ਖੋਜ ਨਤੀਜੇ"
 #: src/amo/components/SearchContextCard/index.js:100
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s ਖੋਜ ਸੰਦ \"%(query)s\" ਲਈ ਲੱਭਿਆ ਹੈ"
+msgstr[1] "%(count)s ਲਈ ਲੱਭੇ ਗਏ \"%(query)s\" ਖੋਜ ਟੂਲ"
 
 #: src/amo/components/SearchContextCard/index.js:109
 msgid "%(count)s Search Tool found"
@@ -2017,7 +2017,7 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:262
 msgid "Get Started"
-msgstr ""
+msgstr "ਸ਼ੁਰੂ ਕਰੋ"
 
 #: src/amo/pages/Home/index.js:287 src/amo/pages/LandingPage/index.js:153
 #, fuzzy
@@ -2071,7 +2071,7 @@ msgstr "ਪਾਸਵਰਡ ਮੈਨੇਜਰ"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
-msgstr ""
+msgstr "ਵਧੇਰੇ ਉੱਚ ਰੇਟ ਦਿੱਤੇ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੇਖੋ"
 
 #: src/amo/pages/LandingPage/index.js:199
 msgid "See more trending themes"
@@ -2458,7 +2458,7 @@ msgstr "ਉਪਭੋਗਤਾ ਦਾ ਪ੍ਰੋਫ਼ਾਈਲ ਵੇਖੋ"
 
 #: src/amo/pages/UserProfileEdit/index.js:523
 msgid "Edit user's profile"
-msgstr ""
+msgstr "ਯੂਜਰ ਪਰੋਫਾਇਲ ਸੋਧੋ"
 
 #: src/amo/pages/UserProfileEdit/index.js:541
 msgid "Account"
