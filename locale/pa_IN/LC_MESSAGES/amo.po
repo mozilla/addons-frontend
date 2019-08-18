@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-13 13:19+0000\n"
-"PO-Revision-Date: 2019-08-18 13:24+0000\n"
-"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
+"PO-Revision-Date: 2019-07-03 19:05+0000\n"
+"Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -1096,7 +1096,7 @@ msgstr "ਟੈਬਾਂ ਖੋਲ੍ਹਣ ਵਿੱਚ ਤੁਹਾਡੇ ਡ�
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "ਫ਼ਾਈਲਾਂ ਨੂੰ ਡਾਊਨਲੋਡ ਕਰਨ ਅਤੇ ਬਰਾਊਜ਼ਰ ਦੇ ਡਾਊਨਲੋਡ ਅਤੀਤ ਨੂੰ ਪੜ੍ਹਣ ਅਤੇ ਸੋਧਣ"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
@@ -1156,7 +1156,7 @@ msgstr "ਕਲਾਈਂਟ ਸਾਈਡ ਡਾਟਾ ਦੀ ਅਸੀਮ ਮਾ�
 
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "ਨੇਵੀਗੇਸ਼ਨ ਦੌਰਾਨ ਬਰਾਊਜ਼ਰ ਸਰਗਰਮੀ ਲਈ ਪਹੁੰਚ"
 
 #: src/amo/components/RatingManager/index.js:120
 msgid "Log in to rate this dictionary"
@@ -1276,7 +1276,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
-msgstr ""
+msgstr "ਵਿਆਖਿਆ ਕਰੋ ਕਿ ਇਹ ਉਪਯੋਗਕਰਤਾ ਸਾਡੀ ਨੀਤੀਆਂ ਦੀ ਕਿਵੇਂ ਉਲੰਘਣਾ ਕਰ ਰਿਹਾ ਹੈ।"
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "You reported this user for abuse"
@@ -1284,7 +1284,7 @@ msgstr "ਤੁਸੀਂ ਦੁਰਵਿਵਹਾਰ ਲਈ ਇਸ ਉਪਭੋ�
 
 #: src/amo/components/ReportUserAbuse/index.js:157
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr ""
+msgstr "ਸਾਨੂੰ ਤੁਹਾਡੀ ਰਿਪੋਰਟ ਮਿਲੀ ਹੈ। ਸਾਨੂੰ ਇਸ ਉਪਭੋਗਤਾ ਨਾਲ ਆਪਣੀਆਂ ਚਿੰਤਾਵਾਂ ਬਾਰੇ ਦੱਸਣ ਲਈ ਧੰਨਵਾਦ।"
 
 #: src/amo/components/Search/index.js:119 src/amo/components/SearchResults/index.js:83
 msgid "Search results"
@@ -2091,7 +2091,7 @@ msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:256
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr ""
+msgstr "ਆਪਣੇ ਬ੍ਰਾਉਜ਼ਰ ਦੀ ਦਿੱਖ ਨੂੰ ਬਦਲੋ। ਫਾਇਰਫਾਕਸ ਨੂੰ ਤੁਸੀਂ ਜੋ ਦਿੱਸਦੇ ਹੋ ਉਸ ਨੂੰ ਦੇਣ ਲਈ ਹਜ਼ਾਰਾਂ ਥੀਮਜ਼ ਵਿੱਚੋਂ ਚੁਣੋ।"
 
 #: src/amo/pages/LandingPage/index.js:258
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
