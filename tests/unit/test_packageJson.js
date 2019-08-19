@@ -18,7 +18,9 @@ const packageJson = JSON.parse(
 // observed in: https://github.com/mozilla/addons-frontend/pull/7603 and it is
 // likely due to this Enzyme patch: https://github.com/airbnb/enzyme/pull/2007
 
-const skipDevDeps = ['prettier', 'pretty-quick', 'enzyme'];
+// eslint: there is an issue with 6.2.0 and the `no-unused-vars` rule, see:
+// https://github.com/eslint/eslint/issues/12117
+const skipDevDeps = ['prettier', 'pretty-quick', 'enzyme', 'eslint'];
 
 describe(__filename, () => {
   Object.keys(packageJson.devDependencies).forEach((key) => {
