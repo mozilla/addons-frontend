@@ -37,7 +37,8 @@
     "FormData": true,
     // This is used to upload files in the browser.
     "File": true,
-    "FileReader": true
+    "FileReader": true,
+    "ProgressEvent": true
   },
   "parser": "babel-eslint",
   "plugins": [
