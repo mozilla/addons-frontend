@@ -93,12 +93,6 @@ type State = {|
   successMessage: string | null,
 |};
 
-type FileReaderEvent = {|
-  target: {|
-    result: string,
-  |},
-|};
-
 export class UserProfileEditBase extends React.Component<Props, State> {
   static defaultProps = {
     _window: typeof window !== 'undefined' ? window : {},
@@ -264,8 +258,11 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     history.push(`/${lang}/${clientApp}`);
   };
 
-  onPictureLoaded = (e: FileReaderEvent) => {
-    this.setState({ pictureData: e.target.result });
+  onPictureLoaded = (e: ProgressEvent) => {
+    // $FLOW_FIXME: `result` should exist.
+    const { result } = e.target;
+
+    this.setState({ pictureData: result });
   };
 
   onPictureChange = (event: SyntheticEvent<HTMLInputElement>) => {
