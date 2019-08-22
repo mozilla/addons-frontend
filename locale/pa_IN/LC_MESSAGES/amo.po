@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-13 13:19+0000\n"
-"PO-Revision-Date: 2019-08-22 20:26+0000\n"
+"PO-Revision-Date: 2019-08-22 20:38+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1903,7 +1903,7 @@ msgstr "ਆਪਣੇ ਨਵੇਂ ਟੈਬ ਅਨੁਭਵ ਨੂੰ ਅਨੁ�
 
 #: src/amo/pages/Guides/index.js:183
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-msgstr ""
+msgstr "ਅਨੁਕੂਲ ਬੈਕਗਰਾਊਂਡ, ਸਥਾਨਕ ਮੌਸਮ ਜਾਣਕਾਰੀ, ਅਤੇ ਹੋਰ ਦੇ ਨਾਲ ਇੱਕ ਸੁੰਦਰ ਨਵੇਂ ਪੰਨੇ ਦਾ ਆਨੰਦ ਮਾਣੋ।"
 
 #: src/amo/pages/Guides/index.js:201
 msgid "Improve videos"
@@ -2160,15 +2160,15 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:155
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਯੋਗਦਾਨ ਦੇਣਾ ਚਾਹੁੰਦੇ ਹੋ ਪਰ ਤਕਨੀਕੀ ਤੌਰ ਤੇ ਨਹੀਂ ਹੋ, ਫਿਰ ਵੀ ਤੁਹਾਡੀ ਮਦਦ ਕਰਨ ਦੇ ਤਰੀਕੇ ਹਨ:"
 
 #: src/amo/pages/StaticPages/About/index.js:164
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "ਸਾਡੇ %(startLink)s ਫੋਰਮ %(endLink)s s ਵਿੱਚ ਹਿੱਸਾ ਲਓ।"
 
 #: src/amo/pages/StaticPages/About/index.js:177
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr ""
+msgstr "ਆਪਣੇ ਪਸੰਦੀਦਾ ਐਡ-ਆਨ ਲਈ ਫੀਡਬੈਕ ਛੱਡੋ। ਐਡ-ਆਨ ਲੇਖਕ ਆਪਣੇ ਐਡ-ਆਨ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਂਦੇ ਹਨ ਅਤੇ ਨਵੇਂ ਲੋਕਾਂ ਨੂੰ ਬਣਾਉਂਦੇ ਹਨ ਜਦੋਂ ਉਹ ਜਾਣਦੇ ਹਨ ਕਿ ਲੋਕਾਂ ਨੇ ਉਹਨਾਂ ਦੇ ਕੰਮ ਦੀ ਕਦਰ ਕੀਤੀ ਹੈ।"
 
 #: src/amo/pages/StaticPages/About/index.js:182
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
@@ -2205,6 +2205,8 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO), ਫਾਇਰਫਾਕਸ ਬਰਾਉਜ਼ਰ ਲਈ ਐਡ-ਆਨ ਲੱਭਣ ਅਤੇ ਇੰਸਟਾਲ ਕਰਨ ਲਈ ਮੋਜ਼ੀਲਾ ਦੀ ਸਰਕਾਰੀ ਸਾਈਟ ਹੈ। ਐਡ-ਆਨ ਤੁਹਾਨੂੰ ਫਾਇਰਫਾਕਸ ਵਿਚ ਨਵੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਜੋੜ ਕੇ, ਵੈਬ ਸਮੱਗਰੀ ਨਾਲ ਆਪਣੇ ਪਰਸਪਰ ਪ੍ਰਭਾਵ ਵਧਾਉਣ"
+" ਅਤੇ ਤੁਹਾਡੇ ਬਰਾਊਜ਼ਰ ਨੂੰ ਵੇਖਣ ਦੇ ਢੰਗ ਨੂੰ ਬਦਲਣ ਦੁਆਰਾ ਆਪਣਾ ਬ੍ਰਾਊਜ਼ਿੰਗ ਅਨੁਭਵ ਨੂੰ ਸੰਸ਼ੋਧਿਤ ਅਤੇ ਨਿੱਜੀ ਬਣਾਉਣ ਵਿੱਚ ਤੁਹਾਡੀ ਮਦਦ ਕਰਦਾ ਹੈ।"
 
 #: src/amo/pages/StaticPages/About/index.js:52
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
@@ -2236,11 +2238,11 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:100
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "ਅਪਮਾਨਜਨਕ, ਜਿਨਸੀ ਭਾਸ਼ਾ ਜਾਂ ਭਾਸ਼ਾ ਦਾ ਉਪਯੋਗ ਕਰੋ ਜਿਸਨੂੰ ਘਿਰਨਾਜਨਕ ਸਮਝਿਆ ਜਾ ਸਕਦਾ ਹੈ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:105
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "HTML, ਲਿੰਕਾਂ, ਸੋਰਸ ਕੋਡ ਜਾਂ ਕੋਡ ਸਨਿੱਪਟਾਂ ਨੂੰ ਸ਼ਾਮਲ ਕਰਦੇ ਹੋਏ। ਸਮੀਖਿਆਵਾਂ ਦਾ ਭਾਵ ਕੇਵਲ ਟੈਕਸਟ ਤੋਂ ਹੈ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:110
 msgid "Make false statements, disparage add-on authors or personally insult them."
@@ -2282,7 +2284,7 @@ msgstr "ਮੈਂ ਇੱਕ ਐਡ-ਆਨ ਲੇਖਕ ਹਾਂ, ਕੀ ਮੈ�
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "ਹਾਂ, ਐਡ-ਆਨ ਲੇਖਕ ਇੱਕ ਸਮੀਖਿਆ ਲਈ ਇੱਕ ਇੱਕਲੀ ਪ੍ਰਤਿਕਿਰਿਆ ਦੇ ਸਕਦਾ। ਤੁਸੀਂ ਹੋਰ ਚਰਚਾ ਵਿੱਚ ਹਿੱਸਾ ਲੈਣ ਜਾਂ ਸਮਰਥਨ ਲਈ ਸਾਡੀ %(startLink)s ਫੋਰਮ %(endLink)s ਵਿੱਚ ਇੱਕ ਚਰਚਾ ਦਾ ਵਿਸ਼ਾ ਸੈੱਟ ਕਰ ਸਕਦੇ ਹੋ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:165
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -2302,7 +2304,7 @@ msgstr "ਹਿਦਾਇਤਾਂ ਦੀ ਸਮੀਖਿਆ ਕਰੋ"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:31
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਤੇ ਡਾਊਨਲੋਡ ਅਤੇ ਵਰਤੇ ਗਏ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਵਿਸ਼ਿਆਂ ਲਈ ਇੱਕ ਸਮੀਖਿਆ ਛੱਡਣ ਲਈ ਦਿਸ਼ਾ ਨਿਰਦੇਸ਼, ਸੁਝਾਅ ਅਤੇ ਅਕਸਰ ਪੁੱਛੇ ਜਾਂਦੇ ਸਵਾਲ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid ""
@@ -2360,7 +2362,7 @@ msgstr "ਨਾ ਕਰੋ:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:85
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "ਇੱਕ-ਅੱਖਰ ਸਮੀਖਿਆ ਦਾਖਲ ਕਰਨਾ ਜਿਵੇਂ \"ਮਹਾਨ!\", \"ਹੈਰਾਨੀਜਨਕ,\" ਜਾਂ \"ਬੁਰਾ\"।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:90
 msgid ""
@@ -2445,7 +2447,7 @@ msgstr "ਤਸਵੀਰ ਸਫਲਤਾਪੂਰਵਕ ਮਿਟਾ ਦਿੱਤ
 
 #: src/amo/pages/UserProfileEdit/index.js:430
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ ਆਪਣੇ ਬਾਰੇ ਕੁਝ ਹੋਰ ਜਾਣਕਾਰੀ ਦੱਸੋ। ਜ਼ਿਆਦਾਤਰ ਖੇਤਰ ਅਖ਼ਤਿਆਰੀ ਹਨ, ਪਰ ਉਹ ਹੋਰ ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ ਤੁਹਾਡੀ ਬਿਹਤਰ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰਨ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਨਗੇ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:434
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
