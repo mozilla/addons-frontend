@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-13 13:19+0000\n"
-"PO-Revision-Date: 2019-08-16 16:34+0000\n"
-"Last-Translator: Sanjna <randhawasanjna75@gmail.com>\n"
+"PO-Revision-Date: 2019-08-22 20:26+0000\n"
+"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -1849,7 +1849,7 @@ msgstr "ਔਨਲਾਈਨ ਵਿਗਿਆਪਨਕਰਤਾ ਤੁਹਾਡੀ 
 
 #: src/amo/pages/Guides/index.js:122
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "ਫੇਸਬੁੱਕ ਨੂੰ ਆਪਣੇ ਸਮਾਜਿਕ ਪਲੇਟਫਾਰਮ ਦੇ ਬਾਹਰ ਆਪਣੀ ਗਤੀਵਿਧੀ ਨੂੰ ਟਰੈਕ ਕਰਨ ਤੋਂ ਰੋਕਣ ਲਈ ਆਪਣੀ ਫੇਸਬੁੱਕ ਪਛਾਣ ਨੂੰ ਅਲੱਗ “ਕੰਟੇਨਰ” ਵਿੱਚ ਅਲੱਗ ਰੱਖੋ।"
 
 #: src/amo/pages/Guides/index.js:126
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
@@ -1857,17 +1857,19 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
-msgstr ""
+msgstr "ਹੋਰ ਇਕ ਵਾਰੀ ਕਲਪਨਾ ਕਰੋ ਟੈਬ ਪ੍ਰਬੰਧਨ"
 
 #: src/amo/pages/Guides/index.js:138
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"ਜੇ ਤੁਸੀਂ ਆਮ ਤੌਰ ਤੇ ਬਹੁਤ ਸਾਰੀਆਂ ਖੁੱਲ੍ਹੀਆਂ ਟੈਬਾਂ ਨਾਲ ਕੰਮ ਕਰਦੇ ਹੋ, ਤਾਂ ਸੰਭਵ ਤੌਰ ਤੇ ਤੁਹਾਨੂੰ ਸਿਰਫ ਲੋੜੀਂਦੀ ਇੱਕ ਦੀ ਤਲਾਸ਼ ਕਰਨ ਵਾਲੀ ਅਗਿਆਤ ਟੈਬਸ ਦੀ ਇੱਕ ਕਤਾਰ ਦੁਆਰਾ ਖੋਜ ਦੀ ਨਿਰਾਸ਼ਾ ਤੋਂ ਜਾਣੂ ਹੋ ਸਕਦਾ ਹੈ। "
+"ਐਕਸਟੈਂਸ਼ਨਾਂ ਨੂੰ ਟੈਬ ਪ੍ਰਬੰਧਨ ਨੂੰ ਸਰਲ ਬਣਾਉਣ ਲਈ ਸਿਰਜਣਾਤਮਕ ਹੱਲ ਪੇਸ਼ ਕਰ ਸਕਦੇ ਹਨ।"
 
 #: src/amo/pages/Guides/index.js:144
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਦੇ ਬਾਹੀ ਵਿੱਚ ਕੈਸਕੇਡਿੰਗ ਵਾਲੇ “ਰੁੱਖ” ਸਟਾਈਲ ਫਾਰਮੈਟ ਵਿੱਚ ਆਪਣੇ ਟੈਬਸ ਨੂੰ ਵਿਵਸਥਿਤ ਕਰੋ ਅਤੇ ਵਿਜ਼ੁਅਲ ਕਰੋ।"
 
 # Example in English: "posted last week"
 #: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
@@ -1881,7 +1883,7 @@ msgstr "ਸੁਧਰੇ ਹੋਏ ਬੁੱਕਮਾਰਕਸ ਨਾਲ ਵਧ�
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "ਐਕਸਟੈਂਸ਼ਨ ਤੁਹਾਡੀ ਔਨਲਾਈਨ ਰੁਚੀਆਂ ਨੂੰ ਸੰਗਠਿਤ ਕਰਨ ਵਿੱਚ ਤੁਹਾਡੀ ਸਹਾਇਤਾ ਕਰ ਸਕਦੇ ਹਨ। ਬੁੱਕਮਾਰਕ ਪ੍ਰਬੰਧਕ, ਟਰੈਕ ਕਰਨ ਲਈ ਬਹੁਤ ਸਾਰੀ ਸਮੱਗਰੀ ਵਾਲੇ ਲੋਕਾਂ ਲਈ ਆਦਰਸ਼ ਹਨ।"
 
 #: src/amo/pages/Guides/index.js:164
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
@@ -1897,7 +1899,7 @@ msgstr "ਇੱਕ ਤਾਜ਼ੇ ਨਵੇਂ ਟੈਬ ਅਨੁਭਵ ਦਾ 
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "ਆਪਣੇ ਨਵੇਂ ਟੈਬ ਅਨੁਭਵ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰਕੇ ਤੁਹਾਡੇ ਲਈ ਤਿਆਰ ਕੀਤੇ ਗਏ ਹਰੇਕ ਬ੍ਰਾਊਜ਼ਿੰਗ ਸੈਸ਼ਨ ਨੂੰ ਸ਼ੁਰੂ ਕਰੋ।"
 
 #: src/amo/pages/Guides/index.js:183
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
@@ -1910,6 +1912,7 @@ msgstr "ਵੀਡੀਓਜ਼ ਨੂੰ ਸੁਧਾਰੋ"
 #: src/amo/pages/Guides/index.js:202
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
 msgstr ""
+"ਜੇ ਤੁਸੀਂ ਵੀਡੀਓ ਸਮਗਰੀ ਦਾ ਅਨੰਦ ਮਾਣਦੇ ਹੋ, ਤਾਂ ਐਕਸਟੈਂਸ਼ਨ ਤੁਹਾਡੇ ਤਜਰਬੇ ਨੂੰ ਅਨੁਕੂਲ ਬਣਾਉਣ ਦੇ ਕਈ ਤਰੀਕੇ ਪੇਸ਼ ਕਰਦੇ ਹਨ, ਜਿਸ ਵਿੱਚ ਥੀਏਟਰ ਮੋਡ ਵਿੱਚ YouTube ਨੂੰ ਆਪਣੇ ਸੁਆਦ ਅਤੇ ਵੀਡੀਓਜ਼ ਨੂੰ ਅਨੁਕੂਲ ਕਰਨਾ ਸ਼ਾਮਲ ਹੈ।"
 
 #: src/amo/pages/Guides/index.js:207
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
@@ -2241,21 +2244,23 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:110
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "ਝੂਠੇ ਬਿਆਨ ਦੇਣਾ, ਐਡ-ਆਨ ਲੇਖਕਾਂ ਨੂੰ ਨਿੰਦਣਾ, ਜਾਂ ਉਸ ਨੂੰ ਨਿੱਜੀ ਤੌਰ ਤੇ ਬੇਇੱਜ਼ਤ ਕਰਨਾ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:115
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "ਆਪਣਾ ਖੁਦ ਜਾਂ ਹੋਰ ਕਿਸੇ ਦਾ ਈਮੇਲ, ਫੋਨ ਨੰਬਰ, ਜਾਂ ਹੋਰ ਨਿੱਜੀ ਵੇਰਵਾ ਸ਼ਾਮਲ ਕਰੋ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "ਤੁਹਾਡੇ ਜਾਂ ਤੁਹਾਡੇ ਸੰਗਠਨ ਤੇ ਐਡ-ਆਨ ਲਈ ਪੋਸਟ ਸਮੀਖਿਆਵਾਂ ਲਿਖੀਆਂ ਜਾਂ ਪੇਸ਼ ਕੀਤੀਆਂ ਗਈਆਂ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:125
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"ਕਿਸੇ ਐਡ-ਆਨ ਦੀ ਨੁਕਤਾਚੀਨੀ ਕਰੋ ਜਿਸਦਾ ਅਜਿਹਾ ਕਰਨ ਦਾ ਇਰਾਦਾ ਹੈ। ਉਦਾਹਰਨ ਲਈ, ਐਡ-ਆਨ ਦੀ ਇੱਕ ਨਕਾਰਾਤਮਕ ਸਮੀਖਿਆ ਨੂੰ ਛੱਡ ਕੇ ਜਾਂ ਡੇਟਾ ਇਕੱਤਰ ਕਰਨ ਦੀ ਲੋੜ ਲਈ, ਜਦੋਂ ਐਡ-ਆਨ ਦਾ ਇਰਾਦਾ ਮੰਤਵ ਹੁੰਦਾ ਹੈ, ਜਾਂ ਐਡ-ਓਨ ਕੰਮ ਕਰਨ ਲਈ "
+"ਇਕੱਤਰ ਕਰਨ ਵਾਲੇ ਡੇਟਾ ਦੀ ਲੋੜ ਹੈ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:134
 msgid "Frequently Asked Questions about Reviews"
@@ -2327,7 +2332,7 @@ msgstr "ਖਾਸ ਅਤੇ ਲਾਭਕਾਰੀ ਵੇਰਵੇ ਦਿਓ। �
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:64
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "ਕੀ ਐਡ-ਆਨ ਤੁਹਾਡੀ ਉਮੀਦ ਅਨੁਸਾਰ ਕੰਮ ਕਰਦਾ?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:67
 msgid "What features did you like or dislike?"
@@ -2362,10 +2367,12 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"ਤਕਨੀਕੀ ਮੁੱਦਿਆਂ, ਸਹਾਇਤਾ ਬੇਨਤੀਆਂ, ਜਾਂ ਵਿਸ਼ੇਸ਼ਤਾ ਸੁਝਾਅ ਪੋਸਟ ਕਰੋ। ਜੇ ਉਪਲਬਧ ਹੋਵੇ ਤਾਂ ਹਰੇਕ ਐਡ-ਆਨ ਲਈ ਉਪਲਬਧ ਸਹਾਇਤਾ ਚੋਣਾਂ ਦੀ ਵਰਤੋਂ ਕਰੋ। ਤੁਸੀਂ ਐਡ-ਆਨ ਦੇ ਵਿਵਰਣ ਪੇਜ ਤੇ ਸਾਈਡਬਾਰ ਵਿਚ \"ਹੋਰ ਜਾਣਕਾਰੀ\" ਸੈਕਸ਼ਨ ਵਿਚ "
+"ਉਨ੍ਹਾਂ ਨੂੰ ਲੱਭ ਸਕਦੇ ਹੋ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:95
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "ਐਡ-ਆਨ ਲਈ ਸਮੀਖਿਆਵਾਂ ਲਿੱਖੋ ਜਿਸ ਨੂੰ ਤੁਸੀਂ ਨਿੱਜੀ ਤੌਰ ਤੇ ਨਹੀਂ ਵਰਤਿਆ।"
 
 #: src/amo/pages/UserProfile/index.js:240
 msgid "My reviews"
@@ -2373,7 +2380,7 @@ msgstr "ਮੇਰੀ ਸਮੀਖਿਆ"
 
 #: src/amo/pages/UserProfile/index.js:268
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "%(user)s ਦੇ ਪਰੋਫਾਈਲ, ਫਾਇਰਫਾਕਸ ਐਕਸਟੈਂਸ਼ਨ ਅਤੇ ਥੀਮ ਲੇਖਕ. ਔਸਤ ਰੇਟਿੰਗਾਂ। ਕਾਰਜਕਾਲ ਅਤੇ ਮੁੱਦਿਆਂ ਦੀ ਰਿਪੋਰਟ ਕਰਨ ਦੇ ਵਿਕਲਪ ਸਮੇਤ, %(user)s ਦੁਆਰਾ ਹੋਰ ਐਪਸ ਲੱਭੋ।"
 
 #: src/amo/pages/UserProfile/index.js:272
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
@@ -2442,7 +2449,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:434
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr ""
+msgstr "ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ ਇਸ ਉਪਭੋਗਤਾ ਬਾਰੇ ਕੁਝ ਹੋਰ ਜਾਣਕਾਰੀ ਦੱਸੋ। ਜ਼ਿਆਦਾਤਰ ਖੇਤਰ ਅਖ਼ਤਿਆਰੀ ਹਨ, ਪਰ ਉਹ ਹੋਰ ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ %(userName)s ਦੀ ਬਿਹਤਰ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰਨਗੇ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:449
 msgid "Introduce yourself to the community if you like"
@@ -2450,7 +2457,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ਚਾਹੋ ਤਾਂ ਆਪਣੇ ਆਪ ਨੂ
 
 #: src/amo/pages/UserProfileEdit/index.js:450
 msgid "Introduce %(userName)s to the community"
-msgstr ""
+msgstr "ਕਮਿਊਨਿਟੀ ਵਿੱਚ %(userName)s ਨੂੰ ਪੇਸ਼ ਕਰੋ"
 
 #: src/amo/pages/UserProfileEdit/index.js:474
 msgid "Log in to edit the profile"
@@ -2635,7 +2642,7 @@ msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਅੱਪਗ�
 
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਸਫ਼ਲਤਾਪੂਰਨ ਅੱਪਗਰੇਡ ਹੋਈ"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Enable"
@@ -2683,11 +2690,11 @@ msgstr "ਸਫਾ ਨਹੀ ਲੱਭਾ"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "ਅਫਸੋਸ ਹੈ, ਪਰ ਅਸੀਂ ਤੁਹਾਡੇ ਦੁਆਰਾ ਦਾਖ਼ਲ ਕੀਤੇ ਗਏ URL ਤੇ ਕੁਝ ਨਹੀਂ ਲੱਭ ਸਕਦੇ।"
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s %(name)s %(strongEnd)s ਨੂੰ ਜੋੜਿਆ ਗਿਆ ਹੈ"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
@@ -2715,7 +2722,7 @@ msgstr "ਛੋਟੇ ਸਰਵੇਖਣ ਲਵੋ"
 
 #: src/core/components/SurveyNotice/index.js:139
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "ਇਸ ਸਾਈਟ ਨੂੰ ਦੇਖਣ ਲਈ ਧੰਨਵਾਦ! ਫਾਇਰਫੌਕਸ ਨੂੰ ਆਪਣੇ ਤਜ਼ਰਬੇ ਬਾਰੇ ਦੱਸਣ ਲਈ ਇੱਕ ਜਾਂ ਦੋ ਮਿੰਟ ਦਾ ਸਮਾਂ ਲਓ।"
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -2754,7 +2761,7 @@ msgstr "%(listOfApplicatonsAndVersions)s ਨਾਲ ਕੰਮ ਕਰਦਾ ਹੈ
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਅਸਫਲ ਕੀਤੀ ਗਈ ਕਿਉਂਕਿ ਐਡ-ਆਨ ਭ੍ਰਿਸ਼ਟ ਜਾਪਦੀ ਹੈ।"
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
@@ -2842,7 +2849,7 @@ msgstr "ਆਪਣੀ ਰੇਟਿੰਗ ਨੂੰ 5 ਤੋਂ ਬਾਹਰ %(sta
 
 #: src/ui/components/Rating/index.js:106
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr ""
+msgstr "ਇਸ ਐਡ-ਆਨ %(starRating)s ਨੂੰ 5 ਵਿਚੋਂ ਰੇਟ ਕਰੋ"
 
 #: src/ui/components/Rating/index.js:83 src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
@@ -2854,11 +2861,11 @@ msgstr "ਹਾਲੇ ਤੱਕ ਕੋਈ ਰੇਟਿੰਗ ਨਹੀਂ ਹਨ"
 
 #: src/ui/components/RecommendedBadge/index.js:43
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "ਫਾਇਰਫਾਕਸ ਉਹ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦਾ ਹੈ ਜੋ ਸੁਰੱਖਿਆ ਅਤੇ ਕਾਰਗੁਜ਼ਾਰੀ ਲਈ ਸਾਡੇ ਮਿਆਰ ਪੂਰੇ ਕਰਦੇ ਹਨ।"
 
 #: src/ui/components/ShowMoreCard/index.js:130
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">ਫੈਲਾਓ</span> ਹੋਰ ਪੜ੍ਹੋ"
 
 #: src/ui/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
