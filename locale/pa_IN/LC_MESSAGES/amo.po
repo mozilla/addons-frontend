@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-13 13:19+0000\n"
-"PO-Revision-Date: 2019-07-03 19:02+0000\n"
-"Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
+"PO-Revision-Date: 2019-08-16 16:34+0000\n"
+"Last-Translator: Sanjna <randhawasanjna75@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -1393,8 +1393,8 @@ msgstr[1] "%(count)s ਦੇ ਵਿਸ਼ੇ ਮਿਲੇ ਹਨ"
 #: src/amo/components/SearchContextCard/index.js:162
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s ਦਾ ਨਤੀਜਾ \"%(query)s\" ਲਈ ਮਿਲਿਆ ਹੈ"
+msgstr[1] "\"%(query)s\" ਲਈ %(count)s ਦੇ ਨਤੀਜੇ ਮਿਲੇ ਹਨ"
 
 #: src/amo/components/SearchContextCard/index.js:171
 msgid "%(count)s result found"
@@ -1413,20 +1413,20 @@ msgstr "ਐਡ-ਆਨ ਲੱਭ ਰਿਹਾ ਹੈ"
 #: src/amo/components/SearchContextCard/index.js:60
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਐਕਸਟੈਂਸ਼ਨ ਮਿਲੀ ਹੈ"
+msgstr[1] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦੇ ਐਕਸਟੈਂਸ਼ਨ ਮਿਲੇ ਹਨ"
 
 #: src/amo/components/SearchContextCard/index.js:69
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s ਦਾ ਐਕਸਟੈਂਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭਿਆ ਹੈ"
+msgstr[1] "%(count)s ਦੇ ਐਕਸਟੈਨਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭੇ ਹਨ"
 
 #: src/amo/components/SearchContextCard/index.js:79
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "\"%(query)s\" ਲਈ %(count)s ਦੀ ਐਕਸਟੈਂਸ਼ਨ ਮਿਲੀ"
+msgstr[1] "\"%(query)s\" ਲਈ %(count)s ਦੇ ਐਕਸਟੈਂਸ਼ਨ ਮਿਲੇ ਹਨ"
 
 #: src/amo/components/SearchContextCard/index.js:88
 msgid "%(count)s extension found"
@@ -1634,7 +1634,7 @@ msgstr "%(title)s ਦਾ ਪੂਰਵਦਰਸ਼ਨ"
 
 #: src/amo/pages/Addon/index.js:202
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
+msgstr "ਇਹ ਐਡ-ਆਨ ਨੂੰ ਦਰਜਾ ਨਹੀਂ ਦਿੱਤਾ ਜਾ ਸਕਦਾ ਕਿਉਂਕਿ ਕੋਈ ਵਰਜਨ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਕੀਤੇ ਗਏ ਹਨ।"
 
 #: src/amo/pages/Addon/index.js:213
 msgid "Read %(count)s review"
@@ -1680,7 +1680,7 @@ msgstr "%(addonVersion)s ਲਈ ਰੀਲਿਜ਼ ਨੋਟਿਸ"
 
 #: src/amo/pages/Addon/index.js:448
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "ਇਹ ਜਨਤਕ ਸੂਚੀ ਨਹੀਂ ਹੈ। ਉੱਚੇ ਅਧਿਕਾਰਾਂ ਦੇ ਕਾਰਨ ਤੁਸੀਂ ਇਸ ਨੂੰ ਕੇਵਲ ਦੇਖ ਰਹੇ ਹੋ।"
 
 #: src/amo/pages/Addon/index.js:476
 msgid "Extension Metadata"
@@ -1696,7 +1696,7 @@ msgstr "%(addonName)s ਲਈ ਕਸਟਮ ਲਾਇਸੈਂਸ"
 
 #: src/amo/pages/AddonInfo/index.js:164
 msgid "End-User License Agreement for %(addonName)s"
-msgstr ""
+msgstr "%(addonName)s ਲਈ ਐਂਡ-ਯੂਜ਼ਰ ਲਸੰਸ ਸਮਝੌਤਾ"
 
 #: src/amo/pages/AddonInfo/index.js:168
 msgid "Privacy policy for %(addonName)s"
@@ -1704,7 +1704,7 @@ msgstr "%(addonName)s ਲਈ ਪ੍ਰਾਈਵੇਸੀ ਨੀਤੀ"
 
 #: src/amo/pages/AddonReviewList/index.js:196
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "%(addonName)s ਲਈ ਸਮੀਖਿਆ ਅਤੇ ਰੇਟਿੰਗ। ਪਤਾ ਕਰੋ ਕਿ ਹੋਰ ਉਪਭੋਗਤਾ %(addonName)s ਬਾਰੇ ਕੀ ਸੋਚਦੇ ਹਨ ਅਤੇ ਇਸ ਨੂੰ ਆਪਣੇ ਫਾਇਰਫਾਕਸ ਬਰਾਊਜ਼ਰ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ।"
 
 #: src/amo/pages/AddonReviewList/index.js:228
 msgid "Show all reviews"
@@ -1747,12 +1747,12 @@ msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
 #: src/amo/pages/AddonVersions/index.js:125
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(addonName)s ਦਾ ਵਰਜਨ ਅਤੀਤ - %(total)s ਦਾ ਵਰਜਨ"
+msgstr[1] "%(addonName)s ਦਾ ਵਰਜਨ ਅਤੀਤ - %(total)s s ਵਰਜਨ"
 
 #: src/amo/pages/AddonVersions/index.js:172
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "ਪੁਰਾਣੇ ਵਰਜਨ ਨਾਲ ਸਾਵਧਾਨ ਰਹੋ! ਇਹ ਵਰਜਨ ਟੈਸਟਿੰਗ ਅਤੇ ਸੰਦਰਭ ਦੇ ਉਦੇਸ਼ਾਂ ਲਈ ਪ੍ਰਦਰਸ਼ਿਤ ਹੁੰਦੇ ਹਨ।"
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
@@ -1796,15 +1796,15 @@ msgstr "ਪਹਿਲਾਂ, ਆਪਣਾ ਸੰਗ੍ਰਹਿ ਬਣਾਓ। �
 
 #: src/amo/pages/Collection/index.js:450
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "ਆਪਣੇ ਸੰਗ੍ਰਹਿ ਵਿੱਚ ਜੋੜਨ ਲਈ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਵਿਸ਼ਿਆਂ ਲਈ ਖੋਜ ਕਰੋ।"
 
 #: src/amo/pages/Collection/index.js:512
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "ਮਨਪਸੰਦ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਥੀਮਾਂ ਦਾ ਟਰੈਕ ਰੱਖਣ ਲਈ ਫਾਇਰਫਾਕਸ ਸੰਗ੍ਰਿਹ ਡਾਊਨਲੋਡ ਕਰੋ ਅਤੇ ਬਣਾਓ। %(collectionName)s—%(collectionDescription)s ਪੜਚੋਲ ਕਰੋ।"
 
 #: src/amo/pages/Collection/index.js:515
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "ਮਨਪਸੰਦ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਥੀਮਾਂ ਦਾ ਟਰੈਕ ਰੱਖਣ ਲਈ ਫਾਇਰਫਾਕਸ ਸੰਗ੍ਰਿਹ ਡਾਊਨਲੋਡ ਕਰੋ ਅਤੇ ਬਣਾਓ। %(collectionName)s ਪੜਚੋਲ ਕਰੋ।"
 
 #: src/amo/pages/CollectionList/index.js:112
 msgid "Collections"
@@ -1816,7 +1816,7 @@ msgstr "ਆਪਣੇ ਸੰਗ੍ਰਿਹਾਂ ਨੂੰ ਦੇਖਣ ਲਈ �
 
 #: src/amo/pages/CollectionList/index.js:122
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "ਸੰਗ੍ਰਹਿ ਪਸੰਦ ਕਰਦੇ ਹੋਏ ਐਡ-ਆਨ ਦਾ ਟ੍ਰੈਕ ਰੱਖਣਾ ਆਸਾਨ ਬਣਾਉਂਦੇ ਹਨ ਅਤੇ ਦੂਜਿਆਂ ਦੁਆਰਾ ਤੁਹਾਡੇ ਬਿਲਕੁਲ ਅਨੁਕੂਲ ਬਣਾਏ ਗਏ ਬ੍ਰਾਉਜ਼ਰ ਨੂੰ ਸਾਂਝਾ ਕਰਦੇ ਹਨ।"
 
 #: src/amo/pages/CollectionList/index.js:132
 msgid "Create a collection"
@@ -1841,11 +1841,11 @@ msgstr "ਸਰੋਤ ਕੋਡ%(linkStart)s%(licenseName)s%(linkEnd)s ਦੇ ਅ
 
 #: src/amo/pages/Guides/index.js:116
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "ਆਨਲਾਈਨ ਟਰੈਕਰਜ਼ ਨੂੰ ਤੁਹਾਡੇ ਤੇ ਹਮਲਾ ਕਰਨ ਤੋਂ ਰੋਕੋ"
 
 #: src/amo/pages/Guides/index.js:117
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr ""
+msgstr "ਔਨਲਾਈਨ ਵਿਗਿਆਪਨਕਰਤਾ ਤੁਹਾਡੀ ਗਤੀਵਿਧੀ ਨੂੰ ਇੱਕ ਵੈਬਸਾਈਟ ਤੋਂ ਅਗਲੇ ਤੇ, ਤੁਹਾਡੇ ਅਤੇ ਤੁਹਾਡੀ ਦਿਲਚਸਪੀਆਂ ਬਾਰੇ ਜਾਣਕਾਰੀ ਇਕੱਤਰ ਕਰ ਸਕਦੇ ਹਨ। ਐਕਸਟੈਂਸ਼ਨ ਤੁਹਾਡੇ ਡਿਜੀਟਲ ਟ੍ਰਾਇਲ ਨੂੰ ਕਵਰ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੇ ਹਨ।"
 
 #: src/amo/pages/Guides/index.js:122
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
@@ -2259,7 +2259,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:134
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "ਸਮੀਖਿਆਵਾਂ ਬਾਰੇ ਅਕਸਰ ਪੁੱਛੇ ਜਾਂਦੇ ਸਵਾਲ"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:136
 msgid "How can I report a problematic review?"
@@ -2281,13 +2281,15 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:165
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "ਮੈਂ ਇੱਕ ਐਡ-ਆਨ ਲੇਖਕ ਹਾਂ, ਕੀ ਮੈਂ ਨਾਪਸੰਦ ਸਮੀਖਿਆਵਾਂ ਜਾਂ ਰੇਟਿੰਗਾਂ ਨੂੰ ਹਟਾ ਸਕਦਾ?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:170
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"ਆਮ ਤੌਰ ਤੇ, ਨਹੀਂ। ਪਰ ਜੇ ਸਮੀਖਿਆ ਉੱਤੇ ਉਪਰੋਕਤ ਸਮੀਖਿਆ ਦਿਸ਼ਾ ਨਿਰਦੇਸ਼ਾਂ ਦੀ ਪੂਰਤੀ ਨਹੀਂ ਕੀਤੀ ਗਈ ਸੀ, ਤਾਂ ਤੁਸੀਂ \"ਇਸ ਸਮੀਖਿਆ ਦੀ ਰਿਪੋਰਟ ਕਰੋ\" ਤੇ ਕਲਿਕ ਕਰ ਸਕਦੇ ਹੋ ਅਤੇ ਇਸਨੂੰ ਸੰਚਾਲਿਤ ਕਰ ਸਕਦੇ ਹੋ। ਜੇ ਕਿਸੇ ਸਮੀਖਿਆ ਵਿੱਚ "
+"ਇੱਕ ਸ਼ਿਕਾਇਤ ਸ਼ਾਮਲ ਕੀਤੀ ਗਈ ਹੈ ਜੋ ਹੁਣ ਤੁਹਾਡੇ ਐਡਆਨ ਦੀ ਨਵੀਂ ਰੀਲੀਜ਼ ਕਾਰਨ ਪ੍ਰਮਾਣਿਤ ਨਹੀਂ ਹੈ, ਤਾਂ ਅਸੀਂ ਸਮੀਖਿਆ ਨੂੰ ਮਿਟਾਉਣ ਬਾਰੇ ਵਿਚਾਰ ਕਰ ਸਕਦੇ ਹਾਂ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:22
 msgid "Review Guidelines"
@@ -2317,7 +2319,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "ਸਮੀਖਿਆਵਾਂ ਨੂੰ ਸੰਖੇਪ ਅਤੇ ਸਮਝਣ ਵਿੱਚ ਅਸਾਨ ਰੱਖੋ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:59
 msgid "Give specific and helpful details. For example:"
@@ -2444,7 +2446,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:449
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਚਾਹੋ ਤਾਂ ਆਪਣੇ ਆਪ ਨੂੰ ਕਮਿਊਨਿਟੀ ਨਾਲ ਜੋੜੋ"
 
 #: src/amo/pages/UserProfileEdit/index.js:450
 msgid "Introduce %(userName)s to the community"
@@ -2476,11 +2478,11 @@ msgstr "ਈਮੇਲ ਪਤਾ"
 
 #: src/amo/pages/UserProfileEdit/index.js:556
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "ਈਮੇਲ ਪਤਾ ਇੱਥੇ ਤਬਦੀਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"
 
 #: src/amo/pages/UserProfileEdit/index.js:565
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "ਤੁਸੀਂ ਫਾਇਰਫਾਕਸ ਅਕਾਊਂਟ ਤੇ ਆਪਣਾ ਈਮੇਲ ਪਤਾ ਬਦਲ ਸਕਦੇ ਹੋ। %(startLink)s ਮਦਦ ਦੀ ਲੋੜ ਹੈ?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:582
 msgid "Manage Firefox Accounts…"
@@ -2530,7 +2532,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:771
 msgid "Updating your profile…"
-msgstr ""
+msgstr "ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਅਪਡੇਟ ਕਰ ਰਿਹਾ ਹੈ…"
 
 #: src/amo/pages/UserProfileEdit/index.js:772
 msgid "Update My Profile"
@@ -2609,11 +2611,11 @@ msgstr ""
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "ਮੌਜੀਲਾ ਨੂੰ ਮੇਰੇ ਵਿਅਕਤੀਗਤ ਐਡ-ਆਨ ਬਾਰੇ ਮੈਨੂੰ ਸੰਪਰਕ ਕਰਨ ਦੀ ਲੋੜ"
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "ਨਵੇਂ ਐਡ-ਆਨ ਜਾਂ ਫ਼ਾਇਰਫ਼ਾਕਸ ਗੁਣ ਉੱਪਲਬਧ ਹਨ"
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
@@ -2621,7 +2623,7 @@ msgstr "ਕਿਸੇ ਨੇ ਮੇਰੇ ਐਡ-ਆਨ ਲਈ ਸਮੀਖਿਆ
 
 #: src/amo/utils/notifications.js:20
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "ਇੱਕ ਐਡ-ਆਨ ਡਿਵੈਲਪਰ ਨੇ ਮੇਰੀ ਸਮੀਖਿਆ ਦਾ ਜਵਾਬ ਦਿੱਤਾ"
 
 #: src/amo/utils/notifications.js:22
 msgid "my add-on is reviewed by a reviewer"
@@ -2629,7 +2631,7 @@ msgstr "ਮੇਰੇ ਐਡਆਨ ਦੀ ਸਮੀਖਿਅਕ ਵੱਲੋਂ �
 
 #: src/amo/utils/notifications.js:24
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਅੱਪਗਰੇਡ ਨਹੀਂ ਹੋ ਸਕਦੀ"
 
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
@@ -2764,7 +2766,7 @@ msgstr "ਡਾਊਨਲੋਡ ਅਸਫਲ। ਕਿਰਪਾ ਕਰਕੇ ਆ�
 
 #: src/core/utils/addons.js:38
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "ਇੰਸਟੌਲੇਸ਼ਨ ਦੇ ਦੌਰਾਨ ਇੱਕ ਅਚਾਨਕ ਤਰੁੱਟੀ ਪੈਦਾ ਹੋਈ।"
 
 #: src/core/utils/addons.js:40
 msgid "An unexpected error occurred during uninstallation."
