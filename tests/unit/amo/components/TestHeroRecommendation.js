@@ -24,7 +24,6 @@ describe(__filename, () => {
   const render = (moreProps = {}) => {
     const props = {
       i18n: fakeI18n(),
-      linkText: 'Get It Now',
       shelfData: createShelfData(),
       ...moreProps,
     };
@@ -48,11 +47,10 @@ describe(__filename, () => {
     });
 
     it('renders a link', () => {
-      const linkText = 'some link text';
       const slug = 'some-addon-slug';
       const shelfData = createShelfData({ addon: { ...fakeAddon, slug } });
 
-      const root = render({ linkText, shelfData });
+      const root = render({ shelfData });
 
       expect(root.find('.HeroRecommendation-link')).toHaveProp(
         'to',
@@ -61,7 +59,6 @@ describe(__filename, () => {
           utm_campaign: '',
         })}`,
       );
-      expect(root.find('.HeroRecommendation-linkText')).toHaveText(linkText);
     });
   });
 
@@ -80,19 +77,17 @@ describe(__filename, () => {
 
     it('renders a link', () => {
       const homepage = 'https://somehomepage.com';
-      const linkText = 'some link text';
       const shelfData = createShelfData({
         addon: null,
         external: { ...fakePrimaryHeroShelfExternal, homepage },
       });
 
-      const root = render({ linkText, shelfData });
+      const root = render({ shelfData });
 
       expect(root.find('.HeroRecommendation-link')).toHaveProp(
         'href',
         homepage,
       );
-      expect(root.find('.HeroRecommendation-linkText')).toHaveText(linkText);
     });
   });
 

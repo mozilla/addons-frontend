@@ -14,7 +14,6 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {|
-  linkText: string,
   shelfData: PrimaryHeroShelfType,
 |};
 
@@ -89,14 +88,15 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { i18n, linkText, shelfData } = this.props;
-    invariant(linkText, 'The linkText property is required');
+    const { i18n, shelfData } = this.props;
     invariant(shelfData, 'The shelfData property is required');
 
     const { addon, description, external, featuredImage } = shelfData;
 
     const linkInsides = (
-      <span className="HeroRecommendation-linkText">{linkText}</span>
+      <span className="HeroRecommendation-linkText">
+        {i18n.gettext('Get the extension')}
+      </span>
     );
 
     let heading;
@@ -119,7 +119,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       heading = external.name;
       link = (
         <a className="HeroRecommendation-link" href={external.homepage}>
-          <span className="HeroRecommendation-linkText">{linkText}</span>
+          {linkInsides}
         </a>
       );
     }

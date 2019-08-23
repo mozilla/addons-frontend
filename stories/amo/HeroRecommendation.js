@@ -19,7 +19,6 @@ const render = (moreProps = {}) => {
       }),
     ).primary,
     i18n: fakeI18n({ includeJedSpy: false }),
-    linkText: 'Get Started',
     ...moreProps,
   };
   return <HeroRecommendationBase {...props} />;

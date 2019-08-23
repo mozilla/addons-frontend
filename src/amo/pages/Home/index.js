@@ -251,12 +251,7 @@ export class HomeBase extends React.Component {
         {_config.get('enableFeatureHeroRecommendation') &&
         clientApp !== CLIENT_APP_ANDROID &&
         heroShelves ? (
-          <HeroRecommendation
-            shelfData={heroShelves.primary}
-            // linkText remains hardcoded for now as it is not currently
-            // supported via the hero API
-            linkText={i18n.gettext('Get Started')}
-          />
+          <HeroRecommendation shelfData={heroShelves.primary} />
         ) : null}
 
         <HomeHeroGuides />
