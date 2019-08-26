@@ -6,7 +6,7 @@ import {
   loadCurrentCollectionPage,
   loadCurrentCollection,
 } from 'amo/reducers/collections';
-import { loadHomeAddons } from 'amo/reducers/home';
+import { loadHomeData } from 'amo/reducers/home';
 import { loadLanding } from 'amo/reducers/landing';
 import {
   OUTCOME_RECOMMENDED,
@@ -524,11 +524,11 @@ describe(__filename, () => {
       });
     });
 
-    describe('LOAD_HOME_ADDONS', () => {
+    describe('LOAD_HOME_DATA', () => {
       it('loads versions from shelves', () => {
         const state = versionsReducer(
           undefined,
-          loadHomeAddons({
+          loadHomeData({
             collections: [],
             shelves: {
               recommendedExtensions: createAddonsApiResult([
@@ -566,7 +566,7 @@ describe(__filename, () => {
 
         state = versionsReducer(
           state,
-          loadHomeAddons({
+          loadHomeData({
             collections: [],
             shelves: {
               recommendedExtensions: searchResult,
@@ -585,7 +585,7 @@ describe(__filename, () => {
       it('handles invalid shelves', () => {
         const state = versionsReducer(
           undefined,
-          loadHomeAddons({
+          loadHomeData({
             collections: [],
             shelves: {
               recommendedExtensions: null,
@@ -608,7 +608,7 @@ describe(__filename, () => {
 
         const state = versionsReducer(
           undefined,
-          loadHomeAddons({
+          loadHomeData({
             collections: [
               { results: [fakeCollectionAddon1] },
               { results: [fakeCollectionAddon2] },

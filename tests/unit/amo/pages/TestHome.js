@@ -15,7 +15,7 @@ import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
-import { fetchHomeAddons, loadHomeAddons } from 'amo/reducers/home';
+import { fetchHomeData, loadHomeData } from 'amo/reducers/home';
 import { createInternalCollection } from 'amo/reducers/collections';
 import { createApiError } from 'core/api/index';
 import {
@@ -36,6 +36,7 @@ import {
   createFakeCollectionAddons,
   createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,
+  createHeroShelves,
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
@@ -245,7 +246,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
     sinon.assert.calledWith(
       fakeDispatch,
-      fetchHomeAddons({
+      fetchHomeData({
         enableFeatureRecommendedBadges,
         errorHandlerId: errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
@@ -279,7 +280,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
     sinon.assert.calledWith(
       fakeDispatch,
-      fetchHomeAddons({
+      fetchHomeData({
         enableFeatureRecommendedBadges,
         errorHandlerId: errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
@@ -301,8 +302,9 @@ describe(__filename, () => {
     const recommendedExtensions = createAddonsApiResult(addons);
 
     store.dispatch(
-      loadHomeAddons({
+      loadHomeData({
         collections,
+        heroShelves: createHeroShelves(),
         shelves: { recommendedExtensions },
       }),
     );
@@ -352,7 +354,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
     sinon.assert.calledWith(
       fakeDispatch,
-      fetchHomeAddons({
+      fetchHomeData({
         enableFeatureRecommendedBadges,
         errorHandlerId: root.instance().props.errorHandler.id,
         collectionsToFetch: FEATURED_COLLECTIONS,
@@ -371,8 +373,9 @@ describe(__filename, () => {
     const recommendedExtensions = createAddonsApiResult(addons);
 
     store.dispatch(
-      loadHomeAddons({
+      loadHomeData({
         collections,
+        heroShelves: createHeroShelves(),
         shelves: { recommendedExtensions },
       }),
     );

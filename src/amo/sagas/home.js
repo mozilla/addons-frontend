@@ -3,11 +3,12 @@ import { oneLine } from 'common-tags';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
 import { getCollectionAddons } from 'amo/api/collections';
+import { getHeroShelves } from 'amo/api/hero';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
-import { FETCH_HOME_ADDONS, loadHomeAddons } from 'amo/reducers/home';
+import { FETCH_HOME_DATA, loadHomeData } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -20,11 +21,11 @@ import { getAddonTypeFilter } from 'core/utils';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { GetCollectionAddonsParams } from 'amo/api/collections';
-import type { FetchHomeAddonsAction } from 'amo/reducers/home';
+import type { FetchHomeDataAction } from 'amo/reducers/home';
 import type { SearchParams } from 'core/api/search';
 import type { Saga } from 'core/types/sagas';
 
-export function* fetchHomeAddons({
+export function* fetchHomeData({
   payload: {
     collectionsToFetch,
     enableFeatureRecommendedBadges,
@@ -32,13 +33,21 @@ export function* fetchHomeAddons({
     includeRecommendedThemes,
     includeTrendingExtensions,
   },
-}: FetchHomeAddonsAction): Saga {
+}: FetchHomeDataAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
 
   try {
     const state = yield select(getState);
+
+    let heroShelves = null;
+    try {
+      heroShelves = yield call(getHeroShelves, { api: state.api });
+    } catch (error) {
+      log.warn(`Home hero shelves failed to load: ${error}`);
+      throw error;
+    }
 
     const collections = [];
     for (const collection of collectionsToFetch) {
@@ -131,8 +140,9 @@ export function* fetchHomeAddons({
     }
 
     yield put(
-      loadHomeAddons({
+      loadHomeData({
         collections,
+        heroShelves,
         shelves,
       }),
     );
@@ -142,5 +152,5 @@ export function* fetchHomeAddons({
 }
 
 export default function* homeSaga(): Saga {
-  yield takeLatest(FETCH_HOME_ADDONS, fetchHomeAddons);
+  yield takeLatest(FETCH_HOME_DATA, fetchHomeData);
 }

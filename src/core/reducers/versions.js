@@ -8,7 +8,7 @@ import {
   LOAD_CURRENT_COLLECTION,
   LOAD_CURRENT_COLLECTION_PAGE,
 } from 'amo/reducers/collections';
-import { LOAD_HOME_ADDONS } from 'amo/reducers/home';
+import { LOAD_HOME_DATA } from 'amo/reducers/home';
 import { LOAD_LANDING } from 'amo/reducers/landing';
 import { LOAD_RECOMMENDATIONS } from 'amo/reducers/recommendations';
 import {
@@ -474,7 +474,7 @@ const reducer = (
       };
     }
 
-    case LOAD_HOME_ADDONS: {
+    case LOAD_HOME_DATA: {
       const { collections, shelves } = action.payload;
 
       const newVersions = {};
