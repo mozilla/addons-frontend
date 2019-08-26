@@ -26,15 +26,17 @@ export type PrimaryHeroShelfExternalType = {|
   type: string,
 |};
 
+type HeroGradientType = {|
+  start: string,
+  end: string,
+|};
+
 export type ExternalPrimaryHeroShelfType = {|
-  gradient: {|
-    start: string,
-    end: string,
-  |},
+  gradient: HeroGradientType,
   featured_image: string,
   description: string | null,
-  addon: PartialExternalAddonType | void,
-  external: PrimaryHeroShelfExternalType | void,
+  addon?: PartialExternalAddonType,
+  external?: PrimaryHeroShelfExternalType,
 |};
 
 export type PrimaryHeroShelfType = {|
@@ -48,7 +50,7 @@ export type PrimaryHeroShelfType = {|
   external: PrimaryHeroShelfExternalType | void,
 |};
 
-export type HeroCTAType = {|
+export type HeroCallToActionType = {|
   url: string,
   text: string,
 |};
@@ -56,13 +58,13 @@ export type HeroCTAType = {|
 export type SecondaryHeroModuleType = {|
   icon: string,
   description: string,
-  cta: HeroCTAType,
+  cta: HeroCallToActionType | null,
 |};
 
 export type SecondaryHeroShelfType = {|
   headline: string,
   description: string,
-  cta: HeroCTAType,
+  cta: HeroCallToActionType | null,
   modules: Array<SecondaryHeroModuleType>,
 |};
 
@@ -178,7 +180,7 @@ export const createInternalHeroShelves = (
       featuredImage: primary.featured_image,
       description: primary.description,
       addon: primary.addon ? createInternalAddon(primary.addon) : undefined,
-      external: primary.external,
+      external: primary.external || undefined,
     },
     secondary,
   };

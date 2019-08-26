@@ -283,7 +283,7 @@ export const fakePrimaryHeroShelfExternal = Object.freeze({
 });
 
 export const createPrimaryHeroShelf = ({
-  addon = fakeAddon,
+  addon = undefined,
   description = 'Primary shelf description',
   external = undefined,
   featuredImage = 'https://addons-dev-cdn.allizom.org/static/img/hero/featured/teamaddons.jpg',

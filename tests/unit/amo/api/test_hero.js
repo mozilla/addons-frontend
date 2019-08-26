@@ -11,7 +11,7 @@ describe(__filename, () => {
       .expects('callApi')
       .withArgs({
         auth: true,
-        endpoint: 'hero/',
+        endpoint: 'hero',
         apiState,
       })
       .once()

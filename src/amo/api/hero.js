@@ -11,6 +11,6 @@ export const getHeroShelves = ({
   return callApi({
     apiState: api,
     auth: true,
-    endpoint: 'hero/',
+    endpoint: 'hero',
   });
 };

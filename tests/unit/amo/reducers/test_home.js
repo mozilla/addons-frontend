@@ -15,8 +15,11 @@ import {
   createAddonsApiResult,
   createFakeCollectionAddon,
   createFakeCollectionAddonsListResponse,
+  createPrimaryHeroShelf,
+  createSecondaryHeroShelf,
   dispatchClientMetadata,
   fakeAddon,
+  fakePrimaryHeroShelfExternal,
   createHeroShelves,
 } from 'tests/unit/helpers';
 
@@ -232,6 +235,103 @@ describe(__filename, () => {
 
       const state = homeReducer(prevState, setClientApp(CLIENT_APP_FIREFOX));
       expect(state).toEqual(initialState);
+    });
+  });
+
+  describe('createInternalHeroShelves', () => {
+    it('creates an internal representation of hero shelves', () => {
+      const addon = fakeAddon;
+      const heroShelves = createHeroShelves({
+        primaryProps: { addon, external: undefined },
+      });
+
+      expect(createInternalHeroShelves(heroShelves)).toEqual({
+        primary: {
+          addon: createInternalAddon(addon),
+          description: heroShelves.primary.description,
+          external: undefined,
+          featuredImage: heroShelves.primary.featured_image,
+          gradient: {
+            end: heroShelves.primary.gradient.end,
+            start: heroShelves.primary.gradient.start,
+          },
+        },
+        secondary: {
+          cta: heroShelves.secondary.cta,
+          description: heroShelves.secondary.description,
+          headline: heroShelves.secondary.headline,
+          modules: heroShelves.secondary.modules,
+        },
+      });
+    });
+
+    it('works when an addon is not defined', () => {
+      const external = fakePrimaryHeroShelfExternal;
+      const heroShelves = createHeroShelves({
+        primaryProps: {
+          addon: undefined,
+          external,
+        },
+      });
+
+      expect(createInternalHeroShelves(heroShelves).primary).toMatchObject({
+        addon: undefined,
+        external,
+      });
+    });
+
+    it('works when external is not defined', () => {
+      const addon = fakeAddon;
+      const heroShelves = createHeroShelves({
+        primaryProps: {
+          addon,
+          external: undefined,
+        },
+      });
+
+      expect(createInternalHeroShelves(heroShelves).primary).toMatchObject({
+        addon: createInternalAddon(addon),
+        external: undefined,
+      });
+    });
+
+    it('works when primary description is null', () => {
+      const addon = fakeAddon;
+      const heroShelves = createHeroShelves({
+        primaryProps: {
+          addon,
+          description: null,
+        },
+      });
+
+      expect(createInternalHeroShelves(heroShelves).primary).toMatchObject({
+        addon: createInternalAddon(addon),
+        description: null,
+      });
+    });
+
+    it('works when secondary cta is null', () => {
+      const heroShelves = createHeroShelves({
+        primaryProps: { addon: fakeAddon },
+        secondaryProps: { cta: null },
+      });
+
+      expect(createInternalHeroShelves(heroShelves).secondary).toMatchObject({
+        cta: null,
+        description: heroShelves.secondary.description,
+      });
+    });
+
+    it(`works when a secondary module's cta is null`, () => {
+      const primaryShelf = createPrimaryHeroShelf({ addon: fakeAddon });
+      const secondaryShelf = createSecondaryHeroShelf();
+      // Replace the default cta in module 1 with null.
+      secondaryShelf.modules[0].cta = null;
+      const heroShelves = { primary: primaryShelf, secondary: secondaryShelf };
+
+      expect(createInternalHeroShelves(heroShelves).secondary).toMatchObject({
+        modules: heroShelves.secondary.modules,
+      });
     });
   });
 });
