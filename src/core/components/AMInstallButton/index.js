@@ -16,6 +16,7 @@ import {
   VARIANT_EXCLUDE_WARNING,
 } from 'amo/components/InstallWarning';
 import {
+  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
@@ -40,7 +41,7 @@ import tracking, {
 } from 'core/tracking';
 import { isTheme } from 'core/utils';
 import { isFirefox } from 'core/utils/compatibility';
-import { withExperiment } from 'core/withExperiment';
+import { NOT_IN_EXPERIMENT, withExperiment } from 'core/withExperiment';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 import type { AddonVersionType } from 'core/reducers/versions';
@@ -95,7 +96,6 @@ type ButtonProps = {|
 |};
 
 const TRANSITION_TIMEOUT = 150;
-export const NOT_IN_EXPERIMENT = 'notInExperiment';
 
 export class AMInstallButtonBase extends React.Component<InternalProps> {
   static defaultProps = {
@@ -149,15 +149,16 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       variant,
     } = this.props;
 
-    const category = `${EXPERIMENT_CATEGORY_CLICK}-${
-      !addon.is_recommended ? 'not_' : ''
-    }recommended`;
-    _tracking.sendEvent({
-      // If the experiment is not enabled we still want to send the event.
-      action: variant || NOT_IN_EXPERIMENT,
-      category,
-      label: addon.name,
-    });
+    if (addon.type === ADDON_TYPE_EXTENSION) {
+      const category = `${EXPERIMENT_CATEGORY_CLICK}-${
+        !addon.is_recommended ? 'not_' : ''
+      }recommended`;
+      _tracking.sendEvent({
+        action: variant || NOT_IN_EXPERIMENT,
+        category,
+        label: addon.name,
+      });
+    }
 
     event.preventDefault();
     event.stopPropagation();

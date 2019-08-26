@@ -2,7 +2,6 @@ import * as React from 'react';
 import { TransitionGroup } from 'react-transition-group';
 
 import AMInstallButton, {
-  NOT_IN_EXPERIMENT,
   AMInstallButtonBase,
 } from 'core/components/AMInstallButton';
 import {
@@ -30,6 +29,7 @@ import {
 import { createInternalAddon } from 'core/reducers/addons';
 import { createInternalVersion } from 'core/reducers/versions';
 import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
+import { NOT_IN_EXPERIMENT } from 'core/withExperiment';
 import Icon from 'ui/components/Icon';
 import {
   createContextWithFakeRouter,
@@ -427,14 +427,12 @@ describe(__filename, () => {
   it('sends a tracking event for the install warning test when installing an extension', async () => {
     const _tracking = createFakeTracking();
     const addon = createInternalAddon({ ...fakeAddon, is_recommended: true });
-    const install = sinon.spy();
     const variant = VARIANT_INCLUDE_WARNING;
 
     const root = render({
       _tracking,
       addon,
       isExperimentEnabled: true,
-      install,
       variant,
     });
 
@@ -455,14 +453,12 @@ describe(__filename, () => {
   it('sends the expected category for a tracking event for a non-recommended extension', async () => {
     const _tracking = createFakeTracking();
     const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
-    const install = sinon.spy();
     const variant = VARIANT_INCLUDE_WARNING;
 
     const root = render({
       _tracking,
       addon,
       isExperimentEnabled: true,
-      install,
       variant,
     });
 
@@ -483,13 +479,11 @@ describe(__filename, () => {
   it('sends a tracking event for the install warning test if the experiment is disabled', async () => {
     const _tracking = createFakeTracking();
     const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
-    const install = sinon.spy();
 
     const root = render({
       _tracking,
       addon,
       isExperimentEnabled: false,
-      install,
     });
 
     const event = createFakeEvent();
@@ -509,13 +503,11 @@ describe(__filename, () => {
   it('sends a tracking event for the install warning test if there is no variant', async () => {
     const _tracking = createFakeTracking();
     const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
-    const install = sinon.spy();
 
     const root = render({
       _tracking,
       addon,
       isExperimentEnabled: true,
-      install,
     });
 
     const event = createFakeEvent();
@@ -534,13 +526,12 @@ describe(__filename, () => {
 
   it('does not send a tracking event for the install warning test for a theme', async () => {
     const _tracking = createFakeTracking();
-    const install = sinon.spy();
+    const themeAddon = { ...fakeAddon, type: ADDON_TYPE_STATIC_THEME };
 
     const root = render({
       _tracking,
-      addon: createInternalAddon(fakeTheme),
+      addon: createInternalAddon(themeAddon),
       isExperimentEnabled: true,
-      install,
       variant: VARIANT_INCLUDE_WARNING,
     });
 
