@@ -2,6 +2,7 @@ import * as React from 'react';
 import { TransitionGroup } from 'react-transition-group';
 
 import AMInstallButton, {
+  NOT_IN_EXPERIMENT,
   AMInstallButtonBase,
 } from 'core/components/AMInstallButton';
 import {
@@ -479,16 +480,16 @@ describe(__filename, () => {
     sinon.assert.calledOnce(_tracking.sendEvent);
   });
 
-  it('does not send a tracking event for the install warning test if the experiment is disabled', async () => {
+  it('sends a tracking event for the install warning test if the experiment is disabled', async () => {
     const _tracking = createFakeTracking();
+    const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
     const install = sinon.spy();
 
     const root = render({
       _tracking,
-      addon: createInternalAddon(fakeAddon),
+      addon,
       isExperimentEnabled: false,
       install,
-      variant: VARIANT_INCLUDE_WARNING,
     });
 
     const event = createFakeEvent();
@@ -497,16 +498,22 @@ describe(__filename, () => {
     const onClick = installButton.prop('onClick');
     await onClick(event);
 
-    sinon.assert.notCalled(_tracking.sendEvent);
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: NOT_IN_EXPERIMENT,
+      category: `${EXPERIMENT_CATEGORY_CLICK}-not_recommended`,
+      label: addon.name,
+    });
+    sinon.assert.calledOnce(_tracking.sendEvent);
   });
 
-  it('does not send a tracking event for the install warning test if there is no variant', async () => {
+  it('sends a tracking event for the install warning test if there is no variant', async () => {
     const _tracking = createFakeTracking();
+    const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
     const install = sinon.spy();
 
     const root = render({
       _tracking,
-      addon: createInternalAddon(fakeAddon),
+      addon,
       isExperimentEnabled: true,
       install,
     });
@@ -517,7 +524,12 @@ describe(__filename, () => {
     const onClick = installButton.prop('onClick');
     await onClick(event);
 
-    sinon.assert.notCalled(_tracking.sendEvent);
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: NOT_IN_EXPERIMENT,
+      category: `${EXPERIMENT_CATEGORY_CLICK}-not_recommended`,
+      label: addon.name,
+    });
+    sinon.assert.calledOnce(_tracking.sendEvent);
   });
 
   it('does not send a tracking event for the install warning test for a theme', async () => {

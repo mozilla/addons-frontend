@@ -95,6 +95,7 @@ type ButtonProps = {|
 |};
 
 const TRANSITION_TIMEOUT = 150;
+export const NOT_IN_EXPERIMENT = 'notInExperiment';
 
 export class AMInstallButtonBase extends React.Component<InternalProps> {
   static defaultProps = {
@@ -143,22 +144,20 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       _tracking,
       addon,
       enable,
-      isExperimentEnabled,
       install,
       isAddonEnabled,
       variant,
     } = this.props;
 
-    if (isExperimentEnabled && variant) {
-      const category = `${EXPERIMENT_CATEGORY_CLICK}-${
-        !addon.is_recommended ? 'not_' : ''
-      }recommended`;
-      _tracking.sendEvent({
-        action: variant,
-        category,
-        label: addon.name,
-      });
-    }
+    const category = `${EXPERIMENT_CATEGORY_CLICK}-${
+      !addon.is_recommended ? 'not_' : ''
+    }recommended`;
+    _tracking.sendEvent({
+      // If the experiment is not enabled we still want to send the event.
+      action: variant || NOT_IN_EXPERIMENT,
+      category,
+      label: addon.name,
+    });
 
     event.preventDefault();
     event.stopPropagation();
