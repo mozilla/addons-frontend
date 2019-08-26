@@ -61,7 +61,7 @@ export const AddonTitleBase = ({
   return (
     <Component className="AddonTitle">
       {addon ? (
-        <React.Fragment>
+        <>
           {linkToAddon ? (
             <Link to={`/addon/${addon.slug}/`}>{addon.name}</Link>
           ) : (
@@ -70,19 +70,19 @@ export const AddonTitleBase = ({
           {authors.length > 0 && (
             <span className="AddonTitle-author">
               {isRTL ? (
-                <React.Fragment>
+                <>
                   {authors}{' '}
                   {// translators: Example: add-on "by" some authors
                   i18n.gettext('by')}
-                </React.Fragment>
+                </>
               ) : (
-                <React.Fragment>
+                <>
                   {i18n.gettext('by')} {authors}
-                </React.Fragment>
+                </>
               )}
             </span>
           )}
-        </React.Fragment>
+        </>
       ) : (
         <LoadingText width={70} />
       )}

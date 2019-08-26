@@ -189,7 +189,7 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
         }),
       );
     }
-    return <React.Fragment>{hostPermissions}</React.Fragment>;
+    return <>{hostPermissions}</>;
   }
 }
 

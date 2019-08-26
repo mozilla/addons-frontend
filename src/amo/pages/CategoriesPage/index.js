@@ -46,7 +46,7 @@ export class CategoriesPageBase extends React.Component<InternalProps> {
     const title = this.getPageTitle(addonType);
 
     return (
-      <React.Fragment>
+      <>
         <Helmet>
           <title>{title}</title>
         </Helmet>
@@ -56,7 +56,7 @@ export class CategoriesPageBase extends React.Component<InternalProps> {
         <HeadLinks />
 
         <Categories addonType={addonType} className="CategoriesPage" />
-      </React.Fragment>
+      </>
     );
   }
 }

@@ -26,7 +26,7 @@ export class SearchToolsBase extends React.Component<InternalProps> {
     const { filters, i18n } = this.props;
 
     return (
-      <React.Fragment>
+      <>
         <HeadMetaTags
           description={i18n.gettext(`Download Firefox extensions to customize
             the way you search—everything from privacy-enhanced searching to
@@ -41,7 +41,7 @@ export class SearchToolsBase extends React.Component<InternalProps> {
           filters={filters}
           paginationQueryParams={convertFiltersToQueryParams(filters)}
         />
-      </React.Fragment>
+      </>
     );
   }
 }

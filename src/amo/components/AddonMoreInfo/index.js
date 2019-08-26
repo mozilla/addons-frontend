@@ -193,7 +193,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
   }: Object) {
     const { addon, i18n } = this.props;
     return (
-      <React.Fragment>
+      <>
         <DefinitionList className="AddonMoreInfo-dl">
           {(homepage || supportUrl || supportEmail) && (
             <Definition
@@ -275,7 +275,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           )}
         </DefinitionList>
         <AddonAdminLinks addon={addon} />
-      </React.Fragment>
+      </>
     );
   }
 

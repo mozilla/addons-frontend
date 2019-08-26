@@ -117,7 +117,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
                 logInText={i18n.gettext('Log in to view your collections')}
               />
             ) : (
-              <React.Fragment>
+              <>
                 <p className="CollectionList-info-text">
                   {i18n.gettext(`Collections make it easy to keep track of
                     favorite add-ons and share your perfectly customized browser
@@ -131,7 +131,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
                 >
                   {i18n.gettext('Create a collection')}
                 </Button>
-              </React.Fragment>
+              </>
             )}
           </Card>
           {isLoggedIn ? this.renderCollections() : null}

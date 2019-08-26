@@ -171,7 +171,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
 
       return (
         // eslint-disable-next-line react/jsx-key
-        <React.Fragment>
+        <>
           <button
             aria-describedby={id}
             type="button"
@@ -183,7 +183,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
             </span>
             {this.renderStar({ selected: isSelected, yellow: true })}
           </button>
-        </React.Fragment>
+        </>
       );
     });
   }

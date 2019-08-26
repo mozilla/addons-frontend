@@ -607,7 +607,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 value={this.state.displayName}
               />
               {isReviewer && user && user.reviewer_name !== undefined && (
-                <React.Fragment>
+                <>
                   <label
                     className="UserProfileEdit--label"
                     htmlFor="reviewerName"
@@ -621,7 +621,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                     onChange={this.onFieldChange}
                     value={this.state.reviewerName}
                   />
-                </React.Fragment>
+                </>
               )}
 
               {/*

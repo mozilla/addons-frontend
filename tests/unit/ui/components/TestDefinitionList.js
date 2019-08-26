@@ -18,14 +18,14 @@ describe(__filename, () => {
     it('renders children', () => {
       const root = render({
         children: (
-          <React.Fragment>
+          <>
             <Definition className="cool" title="cool">
               Snow
             </Definition>
             <Definition className="hot" title="Hot">
               Beach
             </Definition>
-          </React.Fragment>
+          </>
         ),
       });
 

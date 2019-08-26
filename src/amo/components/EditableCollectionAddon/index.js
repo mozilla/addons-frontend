@@ -153,7 +153,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
             </h4>
 
             {this.props.uiState.editingNote ? (
-              <React.Fragment>
+              <>
                 {errorHandler.renderErrorIfPresent()}
                 <DismissibleTextForm
                   className="EditableCollectionAddon-notes-form"
@@ -168,7 +168,7 @@ export class EditableCollectionAddonBase extends React.Component<InternalProps> 
                   submitButtonText={i18n.gettext('Save')}
                   text={sanitizeHTML(addon.notes || '').__html}
                 />
-              </React.Fragment>
+              </>
             ) : (
               <div className="EditableCollectionAddon-notes-read-only">
                 <span

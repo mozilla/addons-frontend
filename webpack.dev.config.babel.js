@@ -22,11 +22,12 @@ const babelrcObject = JSON.parse(babelrc);
 const babelPlugins = babelrcObject.plugins || [];
 const babelDevPlugins = ['react-hot-loader/babel'];
 
-export const babelOptions = Object.assign({}, babelrcObject, {
+export const babelOptions = {
+  ...babelrcObject,
   plugins: localDevelopment
     ? babelPlugins.concat(babelDevPlugins)
     : babelPlugins,
-});
+};
 
 const webpackHost = config.get('webpackServerHost');
 const webpackPort = config.get('webpackServerPort');
@@ -45,18 +46,20 @@ for (const app of appsBuildList) {
 // We do not want the production optimization settings in development.
 delete webpackConfig.optimization;
 
-export default Object.assign({}, webpackConfig, {
+export default {
+  ...webpackConfig,
   mode: 'development',
   devtool: 'cheap-module-source-map',
   context: path.resolve(__dirname),
   entry: entryPoints,
-  output: Object.assign({}, webpackConfig.output, {
+  output: {
+    ...webpackConfig.output,
     path: assetsPath,
     filename: '[name]-[hash].js',
     chunkFilename: '[name]-[hash].js',
     // We need to remove the protocol because of `yarn amo:dev-https`.
     publicPath: `//${webpackHost}:${webpackPort}/`,
-  }),
+  },
   module: {
     rules: getRules({ babelOptions, bundleStylesWithJs: true }),
   },
@@ -79,4 +82,4 @@ export default Object.assign({}, webpackConfig, {
     new webpack.IgnorePlugin(/webpack-stats\.json$/),
     webpackIsomorphicToolsPlugin.development(),
   ],
-});
+};

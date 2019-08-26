@@ -561,6 +561,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
 export const withInstallHelpers = (
   WrappedComponent: React.ComponentType<any>,
 ) => {
+  // eslint-disable-next-line react/static-property-placement
   WithInstallHelpers.displayName = `WithInstallHelpers(${getDisplayName(
     WrappedComponent,
   )})`;

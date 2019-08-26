@@ -136,6 +136,7 @@ const withUIState = ({
       }
     }
 
+    // eslint-disable-next-line react/static-property-placement
     WithUIState.displayName = `WithUIState(${getDisplayName(
       WrappedComponent,
     )})`;

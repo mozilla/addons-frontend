@@ -1,4 +1,4 @@
-/* eslint-disable react/no-multi-comp */
+/* eslint-disable react/no-multi-comp, max-classes-per-file */
 import React, { Component } from 'react';
 import { ConnectedRouter } from 'connected-react-router';
 import { shallow, mount } from 'enzyme';

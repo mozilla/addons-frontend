@@ -153,7 +153,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
       : getPreviewImage(addon);
 
     return (
-      <React.Fragment>
+      <>
         <Helmet titleTemplate={null}>
           <title>{this.getPageTitle()}</title>
 
@@ -172,7 +172,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
         />
 
         <HeadLinks />
-      </React.Fragment>
+      </>
     );
   }
 }
