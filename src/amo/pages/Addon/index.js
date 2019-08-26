@@ -20,6 +20,7 @@ import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import ContributeCard from 'amo/components/ContributeCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
+import InstallWarning from 'amo/components/InstallWarning';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import DefaultRatingManager from 'amo/components/RatingManager';
@@ -476,6 +477,7 @@ export class AddonBase extends React.Component {
                 {i18n.gettext('Extension Metadata')}
               </h2>
             </header>
+            {addon && <InstallWarning addon={addon} />}
           </Card>
 
           <Card className="Addon-header-meta-and-ratings" photonStyle>

@@ -9,6 +9,7 @@ import tracking from 'core/tracking';
 import { getDisplayName } from 'core/utils';
 
 export const EXPERIMENT_ENROLLMENT_CATEGORY = 'AMO Experiment Enrollment -';
+export const NOT_IN_EXPERIMENT = 'notInExperiment';
 
 export type WithExperimentInjectedProps = {|
   isExperimentEnabled: boolean,

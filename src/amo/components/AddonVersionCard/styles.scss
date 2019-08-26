@@ -1,6 +1,18 @@
 @import '~amo/css/styles';
 
 .AddonVersionCard {
+  display: block;
+
+  .InstallWarning {
+    margin: 8px auto 0 auto;
+
+    @include respond-to(large) {
+      margin: 0 auto;
+    }
+  }
+}
+
+.AddonVersionCard-content {
   @include respond-to(large) {
     display: flex;
   }

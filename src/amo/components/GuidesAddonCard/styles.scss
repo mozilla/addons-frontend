@@ -4,6 +4,10 @@
   display: flex;
   flex-direction: column;
 
+  .InstallWarning {
+    margin: 0 auto;
+  }
+
   .GetFirefoxButton,
   .AMInstallButton {
     @include respond-to(medium) {
