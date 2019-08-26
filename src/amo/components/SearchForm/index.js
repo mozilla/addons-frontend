@@ -70,7 +70,7 @@ export class SearchFormBase extends React.Component<Props> {
     }
 
     return (
-      <React.Fragment>
+      <>
         <Helmet>
           <link
             title={openSearchTitle}
@@ -95,7 +95,7 @@ export class SearchFormBase extends React.Component<Props> {
             showInputLabel={false}
           />
         </form>
-      </React.Fragment>
+      </>
     );
   }
 }

@@ -12,10 +12,10 @@ type DefinitionProps = {|
 
 export const Definition = ({ children, className, term }: DefinitionProps) => {
   return (
-    <React.Fragment>
+    <>
       <dt className="Definition-dt">{term}</dt>
       <dd className={makeClassName('Definition-dd', className)}>{children}</dd>
-    </React.Fragment>
+    </>
   );
 };
 

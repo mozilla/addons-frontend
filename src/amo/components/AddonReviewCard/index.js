@@ -427,7 +427,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     const controls = controlsAreVisible ? (
       <div className="AddonReviewCard-allControls">
         {review && showEditControls ? (
-          <React.Fragment>
+          <>
             {!this.isRatingOnly() && (
               <a
                 href="#edit"
@@ -453,7 +453,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
                 {this.deletePrompt()}
               </Button>
             )}
-          </React.Fragment>
+          </>
         ) : null}
 
         {review &&

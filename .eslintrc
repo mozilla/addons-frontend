@@ -51,6 +51,7 @@
     "no-mixed-operators": "off",
     "operator-linebreak": "off",
     "react/jsx-one-expression-per-line": "off",
+    "react/jsx-curly-newline": "off",
     // We omit `debug` because we don't turn that on by default.
     "amo/only-log-strings": ["error", {
       "methods": ["fatal", "info", "error", "warn"]

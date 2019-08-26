@@ -123,6 +123,7 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
 
     const readMoreLink = (
       <a
+        aria-label={i18n.gettext('Expand to read more')}
         className="ShowMoreCard-expand-link"
         href="#show-more"
         onClick={this.onClick}

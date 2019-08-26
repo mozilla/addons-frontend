@@ -1,4 +1,4 @@
-/* eslint-disable react/no-multi-comp */
+/* eslint-disable react/no-multi-comp, max-classes-per-file */
 import { mount } from 'enzyme';
 import * as React from 'react';
 import PropTypes from 'prop-types';

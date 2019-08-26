@@ -1,4 +1,4 @@
-/* eslint-disable react/no-multi-comp, react/prop-types */
+/* eslint-disable react/no-multi-comp, react/prop-types, max-classes-per-file */
 import { shallow } from 'enzyme';
 import * as React from 'react';
 

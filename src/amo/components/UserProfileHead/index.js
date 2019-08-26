@@ -65,7 +65,7 @@ export class UserProfileHeadBase extends React.Component<InternalProps> {
     const queryString = this.computeQueryString();
 
     return (
-      <React.Fragment>
+      <>
         <Helmet>
           <title>{props.title}</title>
         </Helmet>
@@ -73,7 +73,7 @@ export class UserProfileHeadBase extends React.Component<InternalProps> {
         <HeadMetaTags {...props} queryString={queryString} />
 
         <HeadLinks queryString={queryString} />
-      </React.Fragment>
+      </>
     );
   }
 }

@@ -63,11 +63,13 @@ const babelL10nPlugins = [
   ],
 ];
 
-const babelOptions = Object.assign({}, babelrcObject, {
+const babelOptions = {
+  ...babelrcObject,
   plugins: babelPlugins.concat(babelL10nPlugins),
-});
+};
 
-export default Object.assign({}, webpackConfig, {
+export default {
+  ...webpackConfig,
   entry: { [appName]: `${appName}/client` },
   module: {
     rules: getRules({ babelOptions }),
@@ -77,4 +79,4 @@ export default Object.assign({}, webpackConfig, {
     new webpack.IgnorePlugin(new RegExp(`locale\\/.*\\/${appName}\\.js$`)),
     ...webpackConfig.plugins,
   ],
-});
+};
