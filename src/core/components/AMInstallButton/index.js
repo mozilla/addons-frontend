@@ -20,6 +20,7 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
   DISABLED,
   DOWNLOADING,
   ENABLED,
@@ -75,6 +76,7 @@ type InternalProps = {|
   _log: typeof log,
   _tracking: typeof tracking,
   _window: typeof window,
+  clientApp: string,
   i18n: I18nType,
   location: ReactRouterLocationType,
   userAgentInfo: UserAgentInfoType,
@@ -143,13 +145,17 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     const {
       _tracking,
       addon,
+      clientApp,
       enable,
       install,
       isAddonEnabled,
       variant,
     } = this.props;
 
-    if (addon.type === ADDON_TYPE_EXTENSION) {
+    if (
+      addon.type === ADDON_TYPE_EXTENSION &&
+      clientApp !== CLIENT_APP_ANDROID
+    ) {
       const category = `${EXPERIMENT_CATEGORY_CLICK}-${
         !addon.is_recommended ? 'not_' : ''
       }recommended`;
@@ -398,6 +404,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
 
 export function mapStateToProps(state: AppState) {
   return {
+    clientApp: state.api.clientApp,
     userAgentInfo: state.api.userAgentInfo,
   };
 }

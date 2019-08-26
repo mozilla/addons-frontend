@@ -12,6 +12,8 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   DISABLED,
   DOWNLOADING,
   ENABLED,
@@ -94,7 +96,7 @@ describe(__filename, () => {
     isAddonEnabled: sinon.stub(),
     location: createFakeLocation(),
     status: UNINSTALLED,
-    store: dispatchClientMetadata().store,
+    store: dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX }).store,
     uninstall: sinon.stub(),
     ...customProps,
   });
@@ -533,6 +535,28 @@ describe(__filename, () => {
       addon: createInternalAddon(themeAddon),
       isExperimentEnabled: true,
       variant: VARIANT_INCLUDE_WARNING,
+    });
+
+    const event = createFakeEvent();
+    const installButton = root.find('.AMInstallButton-button');
+
+    const onClick = installButton.prop('onClick');
+    await onClick(event);
+
+    sinon.assert.notCalled(_tracking.sendEvent);
+  });
+
+  it('does not send a tracking event for the install warning test when clientApp is Android', async () => {
+    const _tracking = createFakeTracking();
+    const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
+
+    const root = render({
+      _tracking,
+      addon,
+      isExperimentEnabled: true,
+      store: dispatchClientMetadata({
+        clientApp: CLIENT_APP_ANDROID,
+      }).store,
     });
 
     const event = createFakeEvent();
