@@ -12,6 +12,8 @@ import { setInstallState } from 'core/actions/installations';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   INSTALLED,
   UNINSTALLED,
   UNKNOWN,
@@ -34,6 +36,7 @@ describe(__filename, () => {
 
   beforeEach(() => {
     store = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
       userAgent: userAgentsByPlatform.mac.firefox57,
     }).store;
   });
@@ -82,7 +85,7 @@ describe(__filename, () => {
 
     // This is a test for the happy path, but also serves as a sanity test for
     // renderWithWarning returning the happy path.
-    it('returns true if the experiment is enabled, the userAgent is Firefox, and the add-on is an extension and is not recommended', () => {
+    it('returns true if the experiment is enabled, the userAgent and clientApp are both Firefox, and the add-on is an extension and is not recommended', () => {
       const component = renderWithWarning();
 
       expect(component.instance().couldShowWarning()).toEqual(true);
@@ -163,6 +166,14 @@ describe(__filename, () => {
 
       expect(component.instance().couldShowWarning()).toEqual(false);
     });
+
+    it('returns false if the clientApp is Android', () => {
+      dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID, store });
+
+      const component = renderWithWarning({ store });
+
+      expect(component.instance().couldShowWarning()).toEqual(false);
+    });
   });
 
   it('sets a dimension on mount if a variant exists', () => {
@@ -188,6 +199,15 @@ describe(__filename, () => {
       _log.debug,
       `No variant set for experiment "${EXPERIMENT_ID}"`,
     );
+  });
+
+  it('does not set a dimension on mount if clientApp is Android', () => {
+    const _tracking = createFakeTracking();
+    dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID, store });
+
+    render({ _tracking, store, variant: VARIANT_INCLUDE_WARNING });
+
+    sinon.assert.notCalled(_tracking.setDimension);
   });
 
   it('calls couldShowWarning on mount', () => {

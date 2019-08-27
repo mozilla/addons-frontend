@@ -5,7 +5,12 @@ import { compose } from 'redux';
 
 import type { AppState } from 'amo/store';
 import { hasAddonManager } from 'core/addonManager';
-import { ADDON_TYPE_EXTENSION, UNINSTALLED, UNKNOWN } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  CLIENT_APP_FIREFOX,
+  UNINSTALLED,
+  UNKNOWN,
+} from 'core/constants';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import tracking from 'core/tracking';
@@ -31,6 +36,7 @@ type InternalProps = {|
   _hasAddonManager: typeof hasAddonManager,
   _log: typeof log,
   _tracking: typeof tracking,
+  clientApp: string,
   i18n: I18nType,
   installStatus: $PropertyType<InstalledAddon, 'status'>,
   userAgentInfo: UserAgentInfoType,
@@ -61,6 +67,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
       _couldShowWarning,
       _hasAddonManager,
       addon,
+      clientApp,
       isExperimentEnabled,
       installStatus,
       userAgentInfo,
@@ -68,6 +75,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
     return _couldShowWarning
       ? _couldShowWarning()
       : isFirefox({ userAgentInfo }) &&
+          clientApp === CLIENT_APP_FIREFOX &&
           addon.type === ADDON_TYPE_EXTENSION &&
           !addon.is_recommended &&
           isExperimentEnabled &&
@@ -88,17 +96,19 @@ export class InstallWarningBase extends React.Component<InternalProps> {
   };
 
   componentDidMount() {
-    const { _log, _tracking, variant } = this.props;
+    const { _log, _tracking, clientApp, variant } = this.props;
 
     if (!variant) {
       _log.debug(`No variant set for experiment "${EXPERIMENT_ID}"`);
       return;
     }
 
-    _tracking.setDimension({
-      dimension: INSTALL_WARNING_EXPERIMENT_DIMENSION,
-      value: variant,
-    });
+    if (clientApp === CLIENT_APP_FIREFOX) {
+      _tracking.setDimension({
+        dimension: INSTALL_WARNING_EXPERIMENT_DIMENSION,
+        value: variant,
+      });
+    }
 
     this.maybeSendDisplayTrackingEvent();
   }
@@ -137,6 +147,7 @@ export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
   const installedAddon = (addon && state.installations[addon.guid]) || {};
 
   return {
+    clientApp: state.api.clientApp,
     installStatus: installedAddon.status,
     userAgentInfo: state.api.userAgentInfo,
   };
