@@ -20,7 +20,7 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   DISABLED,
   DOWNLOADING,
   ENABLED,
@@ -154,7 +154,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
 
     if (
       addon.type === ADDON_TYPE_EXTENSION &&
-      clientApp !== CLIENT_APP_ANDROID
+      clientApp === CLIENT_APP_FIREFOX
     ) {
       const category = `${EXPERIMENT_CATEGORY_CLICK}-${
         !addon.is_recommended ? 'not_' : ''

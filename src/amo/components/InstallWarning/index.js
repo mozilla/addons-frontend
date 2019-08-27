@@ -7,7 +7,7 @@ import type { AppState } from 'amo/store';
 import { hasAddonManager } from 'core/addonManager';
 import {
   ADDON_TYPE_EXTENSION,
-  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   UNINSTALLED,
   UNKNOWN,
 } from 'core/constants';
@@ -75,7 +75,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
     return _couldShowWarning
       ? _couldShowWarning()
       : isFirefox({ userAgentInfo }) &&
-          clientApp !== CLIENT_APP_ANDROID &&
+          clientApp === CLIENT_APP_FIREFOX &&
           addon.type === ADDON_TYPE_EXTENSION &&
           !addon.is_recommended &&
           isExperimentEnabled &&
@@ -103,7 +103,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
       return;
     }
 
-    if (clientApp !== CLIENT_APP_ANDROID) {
+    if (clientApp === CLIENT_APP_FIREFOX) {
       _tracking.setDimension({
         dimension: INSTALL_WARNING_EXPERIMENT_DIMENSION,
         value: variant,
