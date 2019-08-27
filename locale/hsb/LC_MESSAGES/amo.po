@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-27 16:22+0000\n"
-"PO-Revision-Date: 2019-08-27 18:51+0000\n"
+"PO-Revision-Date: 2019-08-27 18:59+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1079,7 +1079,7 @@ msgstr "Dalše informacije"
 
 #: src/amo/components/InstallWarning/index.js:136
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr "Tute rozšěrjenje so přez Mozilla njedohladuje. Kontrolujće, hač móžeće rozšěrjenju dowěrić, prjdy hač jo instalujeće."
+msgstr "Tute rozšěrjenje so přez Mozilla njedohladuje. Kontrolujće, hač móžeće rozšěrjenju dowěrić, prjedy hač jo instalujeće."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -2949,7 +2949,7 @@ msgstr "Firefox jenož rozšěrjenja doporučuje, kotrež našim standardam za w
 
 #: src/ui/components/ShowMoreCard/index.js:126
 msgid "Expand to read more"
-msgstr ""
+msgstr "Wočińće, zo byšće wjace čitał"
 
 #: src/ui/components/ShowMoreCard/index.js:131
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
