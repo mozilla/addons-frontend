@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-31 08:06+0000\n"
+"POT-Creation-Date: 2019-08-27 16:52+0000\n"
 "PO-Revision-Date: 2018-08-11 12:01+0000\n"
 "Last-Translator: Slimane AMIRI <slimane.amiri@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,38 +14,48 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/amo/components/InstallWarning/index.js:132
+msgid "Learn more"
+msgstr ""
+
+#: src/amo/components/InstallWarning/index.js:136
+msgid ""
+"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
+"before you install it."
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Remove"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:218
+#: src/core/components/AMInstallButton/index.js:252
 #, fuzzy
 msgid "Downloading"
 msgstr "Asider n %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:220
+#: src/core/components/AMInstallButton/index.js:254
 #, fuzzy
 msgid "Installing"
 msgstr "Asebded n %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:222
+#: src/core/components/AMInstallButton/index.js:256
 #, fuzzy
 msgid "Uninstalling"
 msgstr "Tukksa n %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:230
+#: src/core/components/AMInstallButton/index.js:264
 msgid "Install Theme"
 msgstr "Sebded asentel"
 
-#: src/core/components/AMInstallButton/index.js:231
+#: src/core/components/AMInstallButton/index.js:265
 msgid "Add to Firefox"
 msgstr "Rnu ɣer Firefox"
 

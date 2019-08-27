@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-31 08:06+0000\n"
+"POT-Creation-Date: 2019-08-27 16:52+0000\n"
 "PO-Revision-Date: 2019-08-21 23:59+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,35 +14,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/amo/components/InstallWarning/index.js:132
+#, fuzzy
+msgid "Learn more"
+msgstr "Les meir"
+
+#: src/amo/components/InstallWarning/index.js:136
+msgid ""
+"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
+"before you install it."
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
 msgstr "Slå på"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Remove"
 msgstr "Fjern"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Enabling"
 msgstr "Slår på"
 
-#: src/core/components/AMInstallButton/index.js:218
+#: src/core/components/AMInstallButton/index.js:252
 msgid "Downloading"
 msgstr "Lastar ned"
 
-#: src/core/components/AMInstallButton/index.js:220
+#: src/core/components/AMInstallButton/index.js:254
 msgid "Installing"
 msgstr "Installerer"
 
-#: src/core/components/AMInstallButton/index.js:222
+#: src/core/components/AMInstallButton/index.js:256
 msgid "Uninstalling"
 msgstr "Avinstallerer"
 
-#: src/core/components/AMInstallButton/index.js:230
+#: src/core/components/AMInstallButton/index.js:264
 msgid "Install Theme"
 msgstr "Installer tema"
 
-#: src/core/components/AMInstallButton/index.js:231
+#: src/core/components/AMInstallButton/index.js:265
 msgid "Add to Firefox"
 msgstr "Legg til i Firefox"
 
@@ -51,10 +62,15 @@ msgid "Server Error"
 msgstr "Tenarfeil"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Beklagar, men det oppstod ein feil, og vi klarte ikkje å fullføre førespurnaden din. Vi har logga denne feilen og kjem til å undersøke det."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Beklagar, men det oppstod ein feil, og vi klarte ikkje å fullføre "
+"førespurnaden din. Vi har logga denne feilen og kjem til å undersøke det."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Feilkode: %(status)s."
 
@@ -171,19 +187,27 @@ msgstr "Tilpass Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Utviklarar over heile verda har laga tusenvis av gratis utvidingar som kan personleggjere surfinga di på nettet — du kan legge til alt frå artige tema til kraftfulle verktøy og funksjonar. Her er "
-"nokre du kan prøve."
+"Utviklarar over heile verda har laga tusenvis av gratis utvidingar som kan "
+"personleggjere surfinga di på nettet — du kan legge til alt frå artige tema "
+"til kraftfulle verktøy og funksjonar. Her er nokre du kan prøve."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Les meir"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr "Nokre av desse tilrådingane er personlege. Dei er baserte på andre utvidingar du har installert, profilinnstillingar og brukarstatistikk."
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"Nokre av desse tilrådingane er personlege. Dei er baserte på andre "
+"utvidingar du har installert, profilinnstillingar og brukarstatistikk."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -239,7 +263,9 @@ msgstr "Førehandsvising av %(title)s"
 #~ msgstr "No kan du få tilgang til %(name)s frå verktøylinja."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "Hald musepeikaren over for å førehandsvise eller klikk for å installere %(name)s"
+#~ msgstr ""
+#~ "Hald musepeikaren over for å førehandsvise eller klikk for å installere "
+#~ "%(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Hald musepeikaren over bildet for å førehandsvise"
