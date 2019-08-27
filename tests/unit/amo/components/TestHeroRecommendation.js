@@ -66,7 +66,6 @@ describe(__filename, () => {
     it('renders a heading', () => {
       const name = 'External Name';
       const shelfData = createShelfData({
-        addon: null,
         external: { ...fakePrimaryHeroShelfExternal, name },
       });
 
@@ -78,7 +77,6 @@ describe(__filename, () => {
     it('renders a link', () => {
       const homepage = 'https://somehomepage.com';
       const shelfData = createShelfData({
-        addon: null,
         external: { ...fakePrimaryHeroShelfExternal, homepage },
       });
 
@@ -93,7 +91,7 @@ describe(__filename, () => {
 
   it('renders an image', () => {
     const featuredImage = 'https://mozilla.org/featured.png';
-    const shelfData = createShelfData({ featuredImage });
+    const shelfData = createShelfData({ addon: fakeAddon, featuredImage });
 
     const root = render({ shelfData });
 
@@ -105,7 +103,7 @@ describe(__filename, () => {
 
   it('renders a body', () => {
     const description = 'some body text';
-    const shelfData = createShelfData({ description });
+    const shelfData = createShelfData({ addon: fakeAddon, description });
 
     const root = render({ shelfData });
 
@@ -114,7 +112,7 @@ describe(__filename, () => {
 
   it('allows some html tags in the body', () => {
     const description = '<blockquote><b>Some body text</b></blockquote>';
-    const shelfData = createShelfData({ description });
+    const shelfData = createShelfData({ addon: fakeAddon, description });
 
     const root = render({ shelfData });
 
@@ -125,6 +123,7 @@ describe(__filename, () => {
     const description = '<blockquote><b>Some body text</b></blockquote>';
     const scriptHtml = '<script>alert(document.cookie);</script>';
     const shelfData = createShelfData({
+      addon: fakeAddon,
       description: `${description}${scriptHtml}`,
     });
 
