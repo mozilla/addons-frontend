@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-08-13 13:19+0000\n"
+"POT-Creation-Date: 2019-08-27 16:22+0000\n"
 "PO-Revision-Date: 2019-07-31 14:27+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
@@ -336,7 +336,7 @@ msgstr "További információk"
 #: src/amo/components/AddonMoreInfo/index.js:62
 #: src/amo/pages/UserProfile/index.js:355
 #: src/amo/pages/UserProfile/index.js:357
-#: src/amo/pages/UserProfileEdit/index.js:639
+#: src/amo/pages/UserProfileEdit/index.js:636
 msgid "Homepage"
 msgstr "Kezdőlap"
 
@@ -399,7 +399,7 @@ msgstr "Törlés"
 #: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:313
-#: src/amo/pages/UserProfileEdit/index.js:883
+#: src/amo/pages/UserProfileEdit/index.js:880
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
@@ -604,28 +604,28 @@ msgstr ","
 msgid "by"
 msgstr "szerző:"
 
-#: src/amo/components/AddonVersionCard/index.js:102
+#: src/amo/components/AddonVersionCard/index.js:103
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr ""
 "A forráskód %(linkStart)s%(licenseName)s%(linkEnd)s licenc alatt közzétéve"
 
-#: src/amo/components/AddonVersionCard/index.js:113
+#: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "A forráskód %(linkStart)sEgyéni licenc%(linkEnd)s alatt közzétéve"
 
-#: src/amo/components/AddonVersionCard/index.js:140
+#: src/amo/components/AddonVersionCard/index.js:141
 msgid "Source code released under %(licenseName)s"
 msgstr "A forráskód %(licenseName)s licenc alatt közzétéve"
 
-#: src/amo/components/AddonVersionCard/index.js:50
+#: src/amo/components/AddonVersionCard/index.js:51
 msgid "No version found"
 msgstr "Nem található verzió"
 
-#: src/amo/components/AddonVersionCard/index.js:58
+#: src/amo/components/AddonVersionCard/index.js:59
 msgid "Version %(versionNumber)s"
 msgstr "Verzió: %(versionNumber)s"
 
-#: src/amo/components/AddonVersionCard/index.js:82
+#: src/amo/components/AddonVersionCard/index.js:83
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Kiadva: %(dateReleased)s – %(fileSize)s"
 
@@ -829,7 +829,7 @@ msgid "Leave a note"
 msgstr "Hagyjon egy megjegyzést"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Remove"
 msgstr "Eltávolítás"
 
@@ -1123,12 +1123,12 @@ msgid "View My Collections"
 msgstr "Saját gyűjtemények megtekintése"
 
 #: src/amo/components/Header/index.js:133
-#: src/amo/pages/UserProfileEdit/index.js:516
+#: src/amo/pages/UserProfileEdit/index.js:513
 msgid "View My Profile"
 msgstr "Saját profil megtekintése"
 
 #: src/amo/components/Header/index.js:141
-#: src/amo/pages/UserProfileEdit/index.js:522
+#: src/amo/pages/UserProfileEdit/index.js:519
 msgid "Edit My Profile"
 msgstr "Saját profil szerkesztése"
 
@@ -1196,6 +1196,16 @@ msgid ""
 msgstr ""
 "Olyan funkciókat adnak a Firefoxhoz, amelyek gyorsabbá, okosabbá vagy "
 "egyszerűen szórakoztatóvá teszik a böngészést."
+
+#: src/amo/components/InstallWarning/index.js:132
+msgid "Learn more"
+msgstr ""
+
+#: src/amo/components/InstallWarning/index.js:136
+msgid ""
+"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
+"before you install it."
+msgstr ""
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1830,59 +1840,59 @@ msgstr "Profilkép"
 msgid "Choose Photo…"
 msgstr "Válasszon fényképet…"
 
-#: src/amo/pages/Addon/index.js:167 src/ui/components/ThemeImage/index.js:33
+#: src/amo/pages/Addon/index.js:168 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr "%(title)s előnézete"
 
-#: src/amo/pages/Addon/index.js:202
+#: src/amo/pages/Addon/index.js:203
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Ezt a kiegészítőt nem lehet értékelni, mert még egyetlen verzió sem lett "
 "közzétéve."
 
-#: src/amo/pages/Addon/index.js:213
+#: src/amo/pages/Addon/index.js:214
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s értékelés elolvasása"
 msgstr[1] "%(count)s értékelés elolvasása"
 
-#: src/amo/pages/Addon/index.js:231
+#: src/amo/pages/Addon/index.js:232
 msgid "No reviews yet"
 msgstr "Még nincsenek értékelések"
 
-#: src/amo/pages/Addon/index.js:241
+#: src/amo/pages/Addon/index.js:242
 msgid "Rate your experience"
 msgstr "Értékelje a tapasztalatait"
 
-#: src/amo/pages/Addon/index.js:260
+#: src/amo/pages/Addon/index.js:261
 msgid "About this dictionary"
 msgstr "A szótár névjegye"
 
-#: src/amo/pages/Addon/index.js:263
+#: src/amo/pages/Addon/index.js:264
 msgid "About this extension"
 msgstr "A kiegészítő névjegye"
 
-#: src/amo/pages/Addon/index.js:266
+#: src/amo/pages/Addon/index.js:267
 msgid "About this language pack"
 msgstr "A nyelvi csomag névjegye"
 
-#: src/amo/pages/Addon/index.js:269
+#: src/amo/pages/Addon/index.js:270
 msgid "About this search plugin"
 msgstr "A kereső bővítmény névjegye"
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:274
 msgid "About this theme"
 msgstr "A téma névjegye"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:277
 msgid "About this add-on"
 msgstr "A kiegészítő névjegye"
 
-#: src/amo/pages/Addon/index.js:319
+#: src/amo/pages/Addon/index.js:320
 msgid "Release notes for %(addonVersion)s"
 msgstr "Kiadási megjegyzések ehhez: %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:448
+#: src/amo/pages/Addon/index.js:449
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -1890,11 +1900,11 @@ msgstr ""
 "Ez nem egy nyilvános listázás. Csak azért látja, mert emelt szintű "
 "jogosultságokkal rendelkezik."
 
-#: src/amo/pages/Addon/index.js:476
+#: src/amo/pages/Addon/index.js:477
 msgid "Extension Metadata"
 msgstr "Kiegészítő metaadatai"
 
-#: src/amo/pages/Addon/index.js:493
+#: src/amo/pages/Addon/index.js:495
 msgid "Screenshots"
 msgstr "Képernyőképek"
 
@@ -2927,7 +2937,7 @@ msgid "Theme artist"
 msgstr "Témaalkotó"
 
 #: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:504
+#: src/amo/pages/UserProfileEdit/index.js:501
 msgid "User Profile for %(user)s"
 msgstr "%(user)s felhasználói profilja"
 
@@ -2936,12 +2946,12 @@ msgid "User Profile"
 msgstr "Felhasználói profil"
 
 #: src/amo/pages/UserProfile/index.js:363
-#: src/amo/pages/UserProfileEdit/index.js:656
+#: src/amo/pages/UserProfileEdit/index.js:653
 msgid "Location"
 msgstr "Hely"
 
 #: src/amo/pages/UserProfile/index.js:371
-#: src/amo/pages/UserProfileEdit/index.js:668
+#: src/amo/pages/UserProfileEdit/index.js:665
 msgid "Occupation"
 msgstr "Foglalkozás"
 
@@ -2958,7 +2968,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "A fejlesztő kiegészítőinek átlagos értékelése"
 
 #: src/amo/pages/UserProfile/index.js:409
-#: src/amo/pages/UserProfileEdit/index.js:690
+#: src/amo/pages/UserProfileEdit/index.js:687
 msgid "Biography"
 msgstr "Életrajz"
 
@@ -2970,11 +2980,11 @@ msgstr "Profil szerkesztése"
 msgid "Admin user"
 msgstr "Adminisztrátor"
 
-#: src/amo/pages/UserProfileEdit/index.js:202
+#: src/amo/pages/UserProfileEdit/index.js:196
 msgid "Picture successfully deleted"
 msgstr "Kép sikeresen törölve"
 
-#: src/amo/pages/UserProfileEdit/index.js:430
+#: src/amo/pages/UserProfileEdit/index.js:427
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -2982,7 +2992,7 @@ msgstr ""
 "Adjon meg némi információt saját magáról. A legtöbb mező nem kötelező, de "
 "segítenek más felhasználóknak jobban megismerni Önt."
 
-#: src/amo/pages/UserProfileEdit/index.js:434
+#: src/amo/pages/UserProfileEdit/index.js:431
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -2991,43 +3001,43 @@ msgstr ""
 "kötelező, de segítenek más felhasználóknak jobban megismerni %(userName)s "
 "felhasználót."
 
-#: src/amo/pages/UserProfileEdit/index.js:449
+#: src/amo/pages/UserProfileEdit/index.js:446
 msgid "Introduce yourself to the community if you like"
 msgstr "Ha szeretné, mutassa be magát a közösségnek"
 
-#: src/amo/pages/UserProfileEdit/index.js:450
+#: src/amo/pages/UserProfileEdit/index.js:447
 msgid "Introduce %(userName)s to the community"
 msgstr "Mutassa be őt a közösségnek: %(userName)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:474
+#: src/amo/pages/UserProfileEdit/index.js:471
 msgid "Log in to edit the profile"
 msgstr "Jelentkezzen be a profil szerkesztéséhez"
 
-#: src/amo/pages/UserProfileEdit/index.js:517
+#: src/amo/pages/UserProfileEdit/index.js:514
 msgid "View user's profile"
 msgstr "Profil megtekintése"
 
-#: src/amo/pages/UserProfileEdit/index.js:523
+#: src/amo/pages/UserProfileEdit/index.js:520
 msgid "Edit user's profile"
 msgstr "Profil szerkesztése"
 
-#: src/amo/pages/UserProfileEdit/index.js:541
+#: src/amo/pages/UserProfileEdit/index.js:538
 msgid "Account"
 msgstr "Fiók"
 
-#: src/amo/pages/UserProfileEdit/index.js:542
+#: src/amo/pages/UserProfileEdit/index.js:539
 msgid "Account for %(userName)s"
 msgstr "%(userName)s fiókja"
 
-#: src/amo/pages/UserProfileEdit/index.js:549
+#: src/amo/pages/UserProfileEdit/index.js:546
 msgid "Email Address"
 msgstr "E-mail cím"
 
-#: src/amo/pages/UserProfileEdit/index.js:556
+#: src/amo/pages/UserProfileEdit/index.js:553
 msgid "Email address cannot be changed here"
 msgstr "Az e-mail cím itt nem változtatható meg"
 
-#: src/amo/pages/UserProfileEdit/index.js:565
+#: src/amo/pages/UserProfileEdit/index.js:562
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3035,40 +3045,40 @@ msgstr ""
 "Az e-mail címét a Firefox fiókokban változtathatja meg. "
 "%(startLink)sSegítségre van szüksége?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:582
+#: src/amo/pages/UserProfileEdit/index.js:579
 msgid "Manage Firefox Accounts…"
 msgstr "Firefox-fiókok kezelése…"
 
-#: src/amo/pages/UserProfileEdit/index.js:590
+#: src/amo/pages/UserProfileEdit/index.js:587
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:599
+#: src/amo/pages/UserProfileEdit/index.js:596
 msgid "This field is required"
 msgstr "Ez a mező kötelező"
 
-#: src/amo/pages/UserProfileEdit/index.js:602
+#: src/amo/pages/UserProfileEdit/index.js:599
 msgid "Display Name *"
 msgstr "Megjelenítendő név *"
 
-#: src/amo/pages/UserProfileEdit/index.js:618
+#: src/amo/pages/UserProfileEdit/index.js:615
 msgid "Reviewer Name"
 msgstr "Értékelő neve"
 
-#: src/amo/pages/UserProfileEdit/index.js:651
+#: src/amo/pages/UserProfileEdit/index.js:648
 msgid "This URL will only be visible for users who are developers."
 msgstr ""
 "Ez az URL csak azon felhasználók számára lesz látható, akik fejlesztők is."
 
-#: src/amo/pages/UserProfileEdit/index.js:705
+#: src/amo/pages/UserProfileEdit/index.js:702
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Némi HTML támogatott: %(htmlTags)s. A hivatkozások tiltottak."
 
-#: src/amo/pages/UserProfileEdit/index.js:729
+#: src/amo/pages/UserProfileEdit/index.js:726
 msgid "Notifications"
 msgstr "Értesítések"
 
-#: src/amo/pages/UserProfileEdit/index.js:733
+#: src/amo/pages/UserProfileEdit/index.js:730
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3077,7 +3087,7 @@ msgstr ""
 "kiadásokról és eseményekről. Kérjük válassza ki azokat a témákat, melyek "
 "érdeklik."
 
-#: src/amo/pages/UserProfileEdit/index.js:738
+#: src/amo/pages/UserProfileEdit/index.js:735
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3086,7 +3096,7 @@ msgstr ""
 "soron következő kiadásokról és eseményekről. Kérjük válassza ki azokat a "
 "témákat, amelyek érdekelhetik ezt a felhasználót."
 
-#: src/amo/pages/UserProfileEdit/index.js:753
+#: src/amo/pages/UserProfileEdit/index.js:750
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3094,41 +3104,41 @@ msgstr ""
 "A Mozilla fenntartja a jogot, hogy egyénileg felvegye Önnel a kapcsolatot, "
 "ha aggasztónak találja az Ön által beküldött kiegészítőket."
 
-#: src/amo/pages/UserProfileEdit/index.js:771
+#: src/amo/pages/UserProfileEdit/index.js:768
 msgid "Updating your profile…"
 msgstr "Saját profil frissítése…"
 
-#: src/amo/pages/UserProfileEdit/index.js:772
+#: src/amo/pages/UserProfileEdit/index.js:769
 msgid "Update My Profile"
 msgstr "Saját profil frissítése"
 
-#: src/amo/pages/UserProfileEdit/index.js:774
+#: src/amo/pages/UserProfileEdit/index.js:771
 msgid "Updating profile…"
 msgstr "Profil frissítése…"
 
-#: src/amo/pages/UserProfileEdit/index.js:775
+#: src/amo/pages/UserProfileEdit/index.js:772
 msgid "Update Profile"
 msgstr "Saját profil frissítése"
 
-#: src/amo/pages/UserProfileEdit/index.js:786
-#: src/amo/pages/UserProfileEdit/index.js:875
+#: src/amo/pages/UserProfileEdit/index.js:783
+#: src/amo/pages/UserProfileEdit/index.js:872
 msgid "Delete My Profile"
 msgstr "Saját profil törlése"
 
-#: src/amo/pages/UserProfileEdit/index.js:787
-#: src/amo/pages/UserProfileEdit/index.js:876
+#: src/amo/pages/UserProfileEdit/index.js:784
+#: src/amo/pages/UserProfileEdit/index.js:873
 msgid "Delete Profile"
 msgstr "Profil törlése"
 
-#: src/amo/pages/UserProfileEdit/index.js:799
+#: src/amo/pages/UserProfileEdit/index.js:796
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "FONTOS: A Firefox kiegészítők fiók törlése nem vonható vissza."
 
-#: src/amo/pages/UserProfileEdit/index.js:802
+#: src/amo/pages/UserProfileEdit/index.js:799
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "FONTOS: A Firefox kiegészítők fiókja törlése nem vonható vissza."
 
-#: src/amo/pages/UserProfileEdit/index.js:811
+#: src/amo/pages/UserProfileEdit/index.js:808
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation) and "
@@ -3141,7 +3151,7 @@ msgstr ""
 "mint a minősítések és értékelések anonimizálásra kerülnek, és többé nem "
 "szerkeszthetőek."
 
-#: src/amo/pages/UserProfileEdit/index.js:818
+#: src/amo/pages/UserProfileEdit/index.js:815
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3154,7 +3164,7 @@ msgstr ""
 "mint a minősítések és értékelések anonimizálásra kerülnek, és többé nem "
 "szerkeszthetőek."
 
-#: src/amo/pages/UserProfileEdit/index.js:828
+#: src/amo/pages/UserProfileEdit/index.js:825
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, you "
 "will create a new Firefox Add-ons profile that is in no way associated with "
@@ -3164,7 +3174,7 @@ msgstr ""
 "bejelentkezéshez használja, akkor egy új Firefox kiegészítők profilt hoz "
 "létre, amely semmilyen módon nem kapcsolódik a törölt profilhoz."
 
-#: src/amo/pages/UserProfileEdit/index.js:841
+#: src/amo/pages/UserProfileEdit/index.js:838
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
 "the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
@@ -3176,7 +3186,7 @@ msgstr ""
 "a tulajdonjogukat%(docLinkEnd)s, vagy törölnie kell a kiegészítőit, mielőtt "
 "törölheti a profiljét."
 
-#: src/amo/pages/UserProfileEdit/index.js:848
+#: src/amo/pages/UserProfileEdit/index.js:845
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
 "user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
@@ -3245,31 +3255,31 @@ msgstr "a kiegészítőm kompatibilitása nem frissíthető"
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "a kiegészítőm kompatibilitása sikeresen frissítve"
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
 msgstr "Engedélyezés"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Enabling"
 msgstr "Engedélyezés"
 
-#: src/core/components/AMInstallButton/index.js:218
+#: src/core/components/AMInstallButton/index.js:252
 msgid "Downloading"
 msgstr "Letöltés"
 
-#: src/core/components/AMInstallButton/index.js:220
+#: src/core/components/AMInstallButton/index.js:254
 msgid "Installing"
 msgstr "Telepítés"
 
-#: src/core/components/AMInstallButton/index.js:222
+#: src/core/components/AMInstallButton/index.js:256
 msgid "Uninstalling"
 msgstr "Eltávolítás"
 
-#: src/core/components/AMInstallButton/index.js:230
+#: src/core/components/AMInstallButton/index.js:264
 msgid "Install Theme"
 msgstr "Téma telepítése"
 
-#: src/core/components/AMInstallButton/index.js:231
+#: src/core/components/AMInstallButton/index.js:265
 msgid "Add to Firefox"
 msgstr "Hozzáadás a Firefoxhoz"
 
@@ -3477,7 +3487,11 @@ msgstr ""
 "A Firefox csak olyan kiegészítőket ajánl, amelyek megfelelnek a biztonsági "
 "és a teljesítménybeli követelményeinknek."
 
-#: src/ui/components/ShowMoreCard/index.js:130
+#: src/ui/components/ShowMoreCard/index.js:126
+msgid "Expand to read more"
+msgstr ""
+
+#: src/ui/components/ShowMoreCard/index.js:131
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Kibontás,</span> Tudjon meg többet"
 

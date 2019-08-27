@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-08-13 13:19+0000\n"
+"POT-Creation-Date: 2019-08-27 16:22+0000\n"
 "PO-Revision-Date: 2019-08-04 19:46+0000\n"
 "Last-Translator: Sopor <sopor@hotmail.com>\n"
 "Language-Team: none\n"
@@ -323,7 +323,7 @@ msgstr "Mer information"
 #: src/amo/components/AddonMoreInfo/index.js:62
 #: src/amo/pages/UserProfile/index.js:355
 #: src/amo/pages/UserProfile/index.js:357
-#: src/amo/pages/UserProfileEdit/index.js:639
+#: src/amo/pages/UserProfileEdit/index.js:636
 msgid "Homepage"
 msgstr "Hemsida"
 
@@ -386,7 +386,7 @@ msgstr "Ta bort"
 #: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:313
-#: src/amo/pages/UserProfileEdit/index.js:883
+#: src/amo/pages/UserProfileEdit/index.js:880
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
@@ -591,27 +591,27 @@ msgstr ","
 msgid "by"
 msgstr "av"
 
-#: src/amo/components/AddonVersionCard/index.js:102
+#: src/amo/components/AddonVersionCard/index.js:103
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
 msgstr "Källkod släppt under %(linkStart)s%(licenseName)s%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:113
+#: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
 msgstr "Källkod släppt under %(linkStart)sanpassad licens%(linkEnd)s"
 
-#: src/amo/components/AddonVersionCard/index.js:140
+#: src/amo/components/AddonVersionCard/index.js:141
 msgid "Source code released under %(licenseName)s"
 msgstr "Källkod släppt under %(licenseName)s"
 
-#: src/amo/components/AddonVersionCard/index.js:50
+#: src/amo/components/AddonVersionCard/index.js:51
 msgid "No version found"
 msgstr "Ingen version hittades"
 
-#: src/amo/components/AddonVersionCard/index.js:58
+#: src/amo/components/AddonVersionCard/index.js:59
 msgid "Version %(versionNumber)s"
 msgstr "Version %(versionNumber)s"
 
-#: src/amo/components/AddonVersionCard/index.js:82
+#: src/amo/components/AddonVersionCard/index.js:83
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Släppt %(dateReleased)s - %(fileSize)s"
 
@@ -815,7 +815,7 @@ msgid "Leave a note"
 msgstr "Lämna ett meddelande"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:248
 msgid "Remove"
 msgstr "Ta bort"
 
@@ -1110,12 +1110,12 @@ msgid "View My Collections"
 msgstr "Visa mina samlingar"
 
 #: src/amo/components/Header/index.js:133
-#: src/amo/pages/UserProfileEdit/index.js:516
+#: src/amo/pages/UserProfileEdit/index.js:513
 msgid "View My Profile"
 msgstr "Visa min profil"
 
 #: src/amo/components/Header/index.js:141
-#: src/amo/pages/UserProfileEdit/index.js:522
+#: src/amo/pages/UserProfileEdit/index.js:519
 msgid "Edit My Profile"
 msgstr "Redigera min profil"
 
@@ -1183,6 +1183,16 @@ msgid ""
 msgstr ""
 "De lägger till funktioner i Firefox för att göra surfning snabbare, smartare "
 "eller helt enkelt roligare."
+
+#: src/amo/components/InstallWarning/index.js:132
+msgid "Learn more"
+msgstr ""
+
+#: src/amo/components/InstallWarning/index.js:136
+msgid ""
+"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
+"before you install it."
+msgstr ""
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1808,58 +1818,58 @@ msgstr "Profilbild"
 msgid "Choose Photo…"
 msgstr "Välj bild…"
 
-#: src/amo/pages/Addon/index.js:167 src/ui/components/ThemeImage/index.js:33
+#: src/amo/pages/Addon/index.js:168 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr "Förhandsvisning av %(title)s"
 
-#: src/amo/pages/Addon/index.js:202
+#: src/amo/pages/Addon/index.js:203
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Detta tillägg kan inte klassificeras eftersom inga versioner har publicerats."
 
-#: src/amo/pages/Addon/index.js:213
+#: src/amo/pages/Addon/index.js:214
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Läst %(count)s recension"
 msgstr[1] "Läst alla %(count)s recensioner"
 
-#: src/amo/pages/Addon/index.js:231
+#: src/amo/pages/Addon/index.js:232
 msgid "No reviews yet"
 msgstr "Inga recensioner ännu"
 
-#: src/amo/pages/Addon/index.js:241
+#: src/amo/pages/Addon/index.js:242
 msgid "Rate your experience"
 msgstr "Betygsätt din upplevelse"
 
-#: src/amo/pages/Addon/index.js:260
+#: src/amo/pages/Addon/index.js:261
 msgid "About this dictionary"
 msgstr "Om denna ordbok"
 
-#: src/amo/pages/Addon/index.js:263
+#: src/amo/pages/Addon/index.js:264
 msgid "About this extension"
 msgstr "Om denna utökning"
 
-#: src/amo/pages/Addon/index.js:266
+#: src/amo/pages/Addon/index.js:267
 msgid "About this language pack"
 msgstr "Om detta språkpaket"
 
-#: src/amo/pages/Addon/index.js:269
+#: src/amo/pages/Addon/index.js:270
 msgid "About this search plugin"
 msgstr "Om denna sök-insticksmodul"
 
-#: src/amo/pages/Addon/index.js:273
+#: src/amo/pages/Addon/index.js:274
 msgid "About this theme"
 msgstr "Om detta tema"
 
-#: src/amo/pages/Addon/index.js:276
+#: src/amo/pages/Addon/index.js:277
 msgid "About this add-on"
 msgstr "Om detta tillägg"
 
-#: src/amo/pages/Addon/index.js:319
+#: src/amo/pages/Addon/index.js:320
 msgid "Release notes for %(addonVersion)s"
 msgstr "Versionsfakta för %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:448
+#: src/amo/pages/Addon/index.js:449
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -1867,11 +1877,11 @@ msgstr ""
 "Detta är inte en publik listning. Du ser endast det på grund av förhöjda "
 "behörigheter."
 
-#: src/amo/pages/Addon/index.js:476
+#: src/amo/pages/Addon/index.js:477
 msgid "Extension Metadata"
 msgstr "Metadata för utökning"
 
-#: src/amo/pages/Addon/index.js:493
+#: src/amo/pages/Addon/index.js:495
 msgid "Screenshots"
 msgstr "Skärmbilder"
 
@@ -2891,7 +2901,7 @@ msgid "Theme artist"
 msgstr "Konstnär för tema"
 
 #: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:504
+#: src/amo/pages/UserProfileEdit/index.js:501
 msgid "User Profile for %(user)s"
 msgstr "Användarprofil för %(user)s"
 
@@ -2900,12 +2910,12 @@ msgid "User Profile"
 msgstr "Användarprofil"
 
 #: src/amo/pages/UserProfile/index.js:363
-#: src/amo/pages/UserProfileEdit/index.js:656
+#: src/amo/pages/UserProfileEdit/index.js:653
 msgid "Location"
 msgstr "Plats"
 
 #: src/amo/pages/UserProfile/index.js:371
-#: src/amo/pages/UserProfileEdit/index.js:668
+#: src/amo/pages/UserProfileEdit/index.js:665
 msgid "Occupation"
 msgstr "Yrke"
 
@@ -2922,7 +2932,7 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Genomsnittliga betyg för utvecklarens tillägg"
 
 #: src/amo/pages/UserProfile/index.js:409
-#: src/amo/pages/UserProfileEdit/index.js:690
+#: src/amo/pages/UserProfileEdit/index.js:687
 msgid "Biography"
 msgstr "Biografi"
 
@@ -2934,11 +2944,11 @@ msgstr "Redigera profil"
 msgid "Admin user"
 msgstr "Adminanvändare"
 
-#: src/amo/pages/UserProfileEdit/index.js:202
+#: src/amo/pages/UserProfileEdit/index.js:196
 msgid "Picture successfully deleted"
 msgstr "Bilden har tagits bort"
 
-#: src/amo/pages/UserProfileEdit/index.js:430
+#: src/amo/pages/UserProfileEdit/index.js:427
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -2946,7 +2956,7 @@ msgstr ""
 "Berätta lite för användarna om dig själv. Dessa fält är frivilliga, men de "
 "hjälper andra användare att lära känna dig bättre."
 
-#: src/amo/pages/UserProfileEdit/index.js:434
+#: src/amo/pages/UserProfileEdit/index.js:431
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -2955,43 +2965,43 @@ msgstr ""
 "frivilliga, men de hjälper andra användare att lära känna %(userName)s "
 "bättre."
 
-#: src/amo/pages/UserProfileEdit/index.js:449
+#: src/amo/pages/UserProfileEdit/index.js:446
 msgid "Introduce yourself to the community if you like"
 msgstr "Presentera dig själv för gemenskapen om du vill"
 
-#: src/amo/pages/UserProfileEdit/index.js:450
+#: src/amo/pages/UserProfileEdit/index.js:447
 msgid "Introduce %(userName)s to the community"
 msgstr "Presentera %(userName)s för gemenskapen"
 
-#: src/amo/pages/UserProfileEdit/index.js:474
+#: src/amo/pages/UserProfileEdit/index.js:471
 msgid "Log in to edit the profile"
 msgstr "Logga in för att redigera profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:517
+#: src/amo/pages/UserProfileEdit/index.js:514
 msgid "View user's profile"
 msgstr "Visa användarprofil"
 
-#: src/amo/pages/UserProfileEdit/index.js:523
+#: src/amo/pages/UserProfileEdit/index.js:520
 msgid "Edit user's profile"
 msgstr "Redigera användarprofil"
 
-#: src/amo/pages/UserProfileEdit/index.js:541
+#: src/amo/pages/UserProfileEdit/index.js:538
 msgid "Account"
 msgstr "Konto"
 
-#: src/amo/pages/UserProfileEdit/index.js:542
+#: src/amo/pages/UserProfileEdit/index.js:539
 msgid "Account for %(userName)s"
 msgstr "Konto för %(userName)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:549
+#: src/amo/pages/UserProfileEdit/index.js:546
 msgid "Email Address"
 msgstr "E-postadress"
 
-#: src/amo/pages/UserProfileEdit/index.js:556
+#: src/amo/pages/UserProfileEdit/index.js:553
 msgid "Email address cannot be changed here"
 msgstr "E-postadressen kan inte ändras här"
 
-#: src/amo/pages/UserProfileEdit/index.js:565
+#: src/amo/pages/UserProfileEdit/index.js:562
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -2999,39 +3009,39 @@ msgstr ""
 "Du kan ändra din e-postadress från ditt Firefox-konto. %(startLink)sBehöver "
 "du hjälp?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:582
+#: src/amo/pages/UserProfileEdit/index.js:579
 msgid "Manage Firefox Accounts…"
 msgstr "Hantera Firefox-konton…"
 
-#: src/amo/pages/UserProfileEdit/index.js:590
+#: src/amo/pages/UserProfileEdit/index.js:587
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:599
+#: src/amo/pages/UserProfileEdit/index.js:596
 msgid "This field is required"
 msgstr "Det här fältet är obligatoriskt"
 
-#: src/amo/pages/UserProfileEdit/index.js:602
+#: src/amo/pages/UserProfileEdit/index.js:599
 msgid "Display Name *"
 msgstr "Visningsnamn *"
 
-#: src/amo/pages/UserProfileEdit/index.js:618
+#: src/amo/pages/UserProfileEdit/index.js:615
 msgid "Reviewer Name"
 msgstr "Granskarens namn"
 
-#: src/amo/pages/UserProfileEdit/index.js:651
+#: src/amo/pages/UserProfileEdit/index.js:648
 msgid "This URL will only be visible for users who are developers."
 msgstr "Denna URL kommer endast visas för användare som är utvecklare."
 
-#: src/amo/pages/UserProfileEdit/index.js:705
+#: src/amo/pages/UserProfileEdit/index.js:702
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Lite HTML stöds: %(htmlTags)s. Länkar är förbjudna."
 
-#: src/amo/pages/UserProfileEdit/index.js:729
+#: src/amo/pages/UserProfileEdit/index.js:726
 msgid "Notifications"
 msgstr "Aviseringar"
 
-#: src/amo/pages/UserProfileEdit/index.js:733
+#: src/amo/pages/UserProfileEdit/index.js:730
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3039,7 +3049,7 @@ msgstr ""
 "Från tid till annan kan Mozilla skicka dig e-post om kommande versioner och "
 "tilläggsevenemang. Välj de ämnen du är intresserad av."
 
-#: src/amo/pages/UserProfileEdit/index.js:738
+#: src/amo/pages/UserProfileEdit/index.js:735
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3048,7 +3058,7 @@ msgstr ""
 "om kommande utgåvor och tilläggsevenemang. Välj de ämnen som den här "
 "användaren kan vara intresserad av."
 
-#: src/amo/pages/UserProfileEdit/index.js:753
+#: src/amo/pages/UserProfileEdit/index.js:750
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3056,41 +3066,41 @@ msgstr ""
 "Mozilla förbehåller sig rätten att kontakta dig individuellt om specifika "
 "problem med dina hostade tillägg."
 
-#: src/amo/pages/UserProfileEdit/index.js:771
+#: src/amo/pages/UserProfileEdit/index.js:768
 msgid "Updating your profile…"
 msgstr "Uppdaterar din profil…"
 
-#: src/amo/pages/UserProfileEdit/index.js:772
+#: src/amo/pages/UserProfileEdit/index.js:769
 msgid "Update My Profile"
 msgstr "Uppdatera min profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:774
+#: src/amo/pages/UserProfileEdit/index.js:771
 msgid "Updating profile…"
 msgstr "Uppdaterar profil…"
 
-#: src/amo/pages/UserProfileEdit/index.js:775
+#: src/amo/pages/UserProfileEdit/index.js:772
 msgid "Update Profile"
 msgstr "Uppdatera profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:786
-#: src/amo/pages/UserProfileEdit/index.js:875
+#: src/amo/pages/UserProfileEdit/index.js:783
+#: src/amo/pages/UserProfileEdit/index.js:872
 msgid "Delete My Profile"
 msgstr "Ta bort min profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:787
-#: src/amo/pages/UserProfileEdit/index.js:876
+#: src/amo/pages/UserProfileEdit/index.js:784
+#: src/amo/pages/UserProfileEdit/index.js:873
 msgid "Delete Profile"
 msgstr "Ta bort profil"
 
-#: src/amo/pages/UserProfileEdit/index.js:799
+#: src/amo/pages/UserProfileEdit/index.js:796
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "VIKTIGT: Att ta bort Firefox tilläggsprofil är oåterkallelig."
 
-#: src/amo/pages/UserProfileEdit/index.js:802
+#: src/amo/pages/UserProfileEdit/index.js:799
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "VIKTIGT: Att ta bort Firefox tilläggsprofil är oåterkallelig."
 
-#: src/amo/pages/UserProfileEdit/index.js:811
+#: src/amo/pages/UserProfileEdit/index.js:808
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation) and "
@@ -3102,7 +3112,7 @@ msgstr ""
 "aviseringsinställningar. Dina recensioner och betyg kommer att bli "
 "anonymiserade och inte längre redigerbara."
 
-#: src/amo/pages/UserProfileEdit/index.js:818
+#: src/amo/pages/UserProfileEdit/index.js:815
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3114,7 +3124,7 @@ msgstr ""
 "aviseringsinställningar. Recensioner och betyg kommer att anonymiseras och "
 "kan inte redigeras längre."
 
-#: src/amo/pages/UserProfileEdit/index.js:828
+#: src/amo/pages/UserProfileEdit/index.js:825
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, you "
 "will create a new Firefox Add-ons profile that is in no way associated with "
@@ -3124,7 +3134,7 @@ msgstr ""
 "mozilla.org, skapar du en ny Firefox tilläggsprofil som inte på något sätt "
 "är associerad med den profil du raderade."
 
-#: src/amo/pages/UserProfileEdit/index.js:841
+#: src/amo/pages/UserProfileEdit/index.js:838
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
 "the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
@@ -3136,7 +3146,7 @@ msgstr ""
 "%(docLinkStart)söverföra ägande%(docLinkEnd)s eller ta bort tillägget innan "
 "du kan radera din profil."
 
-#: src/amo/pages/UserProfileEdit/index.js:848
+#: src/amo/pages/UserProfileEdit/index.js:845
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
 "user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
@@ -3205,31 +3215,31 @@ msgstr "mitt tilläggs kompatibilitet kan inte uppgraderas"
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "mitt tilläggs kompatibilitet har uppgraderats"
 
-#: src/core/components/AMInstallButton/index.js:211
+#: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
 msgstr "Aktivera"
 
-#: src/core/components/AMInstallButton/index.js:216
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Enabling"
 msgstr "Aktiverar"
 
-#: src/core/components/AMInstallButton/index.js:218
+#: src/core/components/AMInstallButton/index.js:252
 msgid "Downloading"
 msgstr "Hämtar"
 
-#: src/core/components/AMInstallButton/index.js:220
+#: src/core/components/AMInstallButton/index.js:254
 msgid "Installing"
 msgstr "Installerar"
 
-#: src/core/components/AMInstallButton/index.js:222
+#: src/core/components/AMInstallButton/index.js:256
 msgid "Uninstalling"
 msgstr "Avinstallerar"
 
-#: src/core/components/AMInstallButton/index.js:230
+#: src/core/components/AMInstallButton/index.js:264
 msgid "Install Theme"
 msgstr "Installera tema"
 
-#: src/core/components/AMInstallButton/index.js:231
+#: src/core/components/AMInstallButton/index.js:265
 msgid "Add to Firefox"
 msgstr "Lägg till i Firefox"
 
@@ -3437,7 +3447,11 @@ msgstr ""
 "Firefox rekommenderar endast tillägg som uppfyller våra standarder för "
 "säkerhet och prestanda."
 
-#: src/ui/components/ShowMoreCard/index.js:130
+#: src/ui/components/ShowMoreCard/index.js:126
+msgid "Expand to read more"
+msgstr ""
+
+#: src/ui/components/ShowMoreCard/index.js:131
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Fäll ut för att</span> läsa mer"
 
