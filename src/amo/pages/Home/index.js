@@ -14,6 +14,7 @@ import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
+import SecondaryHero from 'amo/components/SecondaryHero';
 import { fetchHomeData } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
@@ -251,10 +252,16 @@ export class HomeBase extends React.Component {
         {_config.get('enableFeatureHeroRecommendation') &&
         clientApp !== CLIENT_APP_ANDROID &&
         heroShelves ? (
-          <HeroRecommendation shelfData={heroShelves.primary} />
+          <div className="Home-HeroShelves">
+            <HeroRecommendation shelfData={heroShelves.primary} />
+            <SecondaryHero shelfData={heroShelves.secondary} />
+          </div>
         ) : null}
 
-        <HomeHeroGuides />
+        {!_config.get('enableFeatureHeroRecommendation') ||
+        clientApp === CLIENT_APP_ANDROID ? (
+          <HomeHeroGuides />
+        ) : null}
 
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}

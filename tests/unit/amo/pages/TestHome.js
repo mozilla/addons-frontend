@@ -15,6 +15,7 @@ import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
+import SecondaryHero from 'amo/components/SecondaryHero';
 import {
   createInternalHeroShelves,
   fetchHomeData,
@@ -511,7 +512,7 @@ describe(__filename, () => {
     expect(root.find(HeadLinks)).toHaveLength(1);
   });
 
-  describe('HeroRecommendation', () => {
+  describe('Hero Shelves', () => {
     it('renders when enabled', () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
@@ -530,6 +531,28 @@ describe(__filename, () => {
         'shelfData',
         createInternalHeroShelves(heroShelves).primary,
       );
+
+      const secondaryHero = root.find(SecondaryHero);
+      expect(secondaryHero).toHaveLength(1);
+      expect(secondaryHero).toHaveProp(
+        'shelfData',
+        createInternalHeroShelves(heroShelves).secondary,
+      );
+    });
+
+    it('hides the HomeHeroGuides when enabled', () => {
+      const { store } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_FIREFOX,
+      });
+      const heroShelves = _createHeroShelves();
+      _loadHomeData({ store, heroShelves });
+
+      const root = render({
+        _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
+        store,
+      });
+
+      expect(root.find(HomeHeroGuides)).toHaveLength(0);
     });
 
     it('does not render if heroShelves are not loaded', () => {
@@ -543,6 +566,7 @@ describe(__filename, () => {
       });
 
       expect(root.find(HeroRecommendation)).toHaveLength(0);
+      expect(root.find(SecondaryHero)).toHaveLength(0);
     });
 
     it('does not render when enabled on Android', () => {
@@ -557,6 +581,7 @@ describe(__filename, () => {
       });
 
       expect(root.find(HeroRecommendation)).toHaveLength(0);
+      expect(root.find(SecondaryHero)).toHaveLength(0);
     });
 
     it('does not render when disabled', () => {
@@ -571,6 +596,7 @@ describe(__filename, () => {
       });
 
       expect(root.find(HeroRecommendation)).toHaveLength(0);
+      expect(root.find(SecondaryHero)).toHaveLength(0);
     });
   });
 

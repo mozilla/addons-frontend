@@ -1,0 +1,63 @@
+@import '~amo/css/styles';
+
+.SecondaryHero {
+  color: $black;
+  display: flex;
+  justify-content: space-between;
+  min-height: 216px;
+  padding: $padding-page-l $padding-page;
+}
+
+.SecondaryHero-message {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 16px;
+  width: 25%;
+}
+
+.SecondaryHero-message-headline {
+  font-size: 24px;
+  line-height: 1.333;
+}
+
+.SecondaryHero-message-description {
+  padding: $padding-page 0;
+}
+
+.SecondaryHero-modules {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.SecondaryHero-module {
+  align-items: center;
+  background-color: $white;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  font-size: 18px;
+  justify-content: space-around;
+  line-height: 1.222;
+  margin: 16px;
+  padding: 0 16px 16px 16px;
+  position: relative;
+  text-align: center;
+  width: 33%;
+}
+
+.SecondaryHero-module-icon {
+  height: 60px;
+  margin: 16px;
+  width: 60px;
+}
+
+.SecondaryHero-module-link {
+  margin-top: 16px;
+}
+
+.SecondaryHero-message-linkText,
+.SecondaryHero-module-linkText {
+  font-weight: normal;
+}
