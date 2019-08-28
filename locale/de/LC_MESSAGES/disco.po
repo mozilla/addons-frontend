@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-27 16:52+0000\n"
-"PO-Revision-Date: 2019-07-03 12:50+0000\n"
+"PO-Revision-Date: 2019-08-28 09:00+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -15,15 +15,12 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/InstallWarning/index.js:132
-#, fuzzy
 msgid "Learn more"
 msgstr "Weitere Informationen"
 
 #: src/amo/components/InstallWarning/index.js:136
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
+msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
+msgstr "Diese Erweiterung wird von Mozilla nicht überwacht. Stellen Sie sicher, dass Sie der Erweiterung vertrauen, bevor Sie sie installieren."
 
 #: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
@@ -62,16 +59,10 @@ msgid "Server Error"
 msgstr "Serverfehler"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Entschuldigen Sie, es ist ein Fehler aufgetreten und die Anfrage konnte "
-"nicht abgeschlossen werden. Der Fehler wurde protokolliert und wird "
-"untersucht."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Entschuldigen Sie, es ist ein Fehler aufgetreten und die Anfrage konnte nicht abgeschlossen werden. Der Fehler wurde protokolliert und wird untersucht."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Fehlercode: %(status)s."
 
@@ -81,8 +72,7 @@ msgstr "Seite nicht gefunden"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
-"Entschuldigen Sie, aber wir konnten zu der eingegebenen URL nichts finden."
+msgstr "Entschuldigen Sie, aber wir konnten zu der eingegebenen URL nichts finden."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
@@ -90,8 +80,7 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s wurde hinzugefügt"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
-"Die Add-ons können durch einen Klick auf Add-ons im Menü verwaltet werden."
+msgstr "Die Add-ons können durch einen Klick auf Add-ons im Menü verwaltet werden."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -134,8 +123,7 @@ msgstr "Funktioniert mit %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
-"Die Installation wurde abgebrochen, da das Add-on beschädigt zu sein scheint."
+msgstr "Die Installation wurde abgebrochen, da das Add-on beschädigt zu sein scheint."
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
@@ -191,29 +179,19 @@ msgstr "Passen Sie Ihren Firefox an."
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Es gibt Tausende von kostenlosen Add-ons von Entwicklern auf der ganzen "
-"Welt, mit denen Sie Firefox an Ihre Bedürfnisse anpassen können – alles, von "
-"lustigen Themes zu mächtigen Werkzeugen, dank denen Sie schneller und "
-"sicherer surfen können. Für den Einstieg empfehlen wir Ihnen hier einige "
-"besonders leistungsfähige und funktionsreiche Add-ons."
+"Es gibt Tausende von kostenlosen Add-ons von Entwicklern auf der ganzen Welt, mit denen Sie Firefox an Ihre Bedürfnisse anpassen können – alles, von lustigen Themes zu mächtigen Werkzeugen, dank "
+"denen Sie schneller und sicherer surfen können. Für den Einstieg empfehlen wir Ihnen hier einige besonders leistungsfähige und funktionsreiche Add-ons."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Weitere Informationen"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
-"Einige dieser Empfehlungen sind personalisiert. Sie basieren auf anderen "
-"installierten Erweiterungen, Profileinstellungen und Nutzungsstatistiken."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgstr "Einige dieser Empfehlungen sind personalisiert. Sie basieren auf anderen installierten Erweiterungen, Profileinstellungen und Nutzungsstatistiken."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -242,9 +220,7 @@ msgstr "Vorschau von %(title)s"
 #~ msgstr "%(name)s wird installiert."
 
 #~ msgid "%(name)s is installed and enabled. Click to uninstall."
-#~ msgstr ""
-#~ "%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu "
-#~ "deinstallieren."
+#~ msgstr "%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu deinstallieren."
 
 #~ msgid "%(name)s is disabled. Click to enable."
 #~ msgstr "%(name)s wurde deaktiviert. Klicken Sie, um es zu aktivieren."
@@ -259,8 +235,7 @@ msgstr "Vorschau von %(title)s"
 #~ msgstr "Installationsstatus für %(name)s ist unbekannt."
 
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
-#~ msgstr ""
-#~ "Dieses Add-on wird deinstalliert, nachdem Sie Firefox neu gestartet haben."
+#~ msgstr "Dieses Add-on wird deinstalliert, nachdem Sie Firefox neu gestartet haben."
 
 #~ msgid "Please restart Firefox to use this add-on."
 #~ msgstr "Bitte starten Sie Firefox neu, um dieses Add-on zu verwenden."
@@ -272,13 +247,10 @@ msgstr "Vorschau von %(title)s"
 #~ msgstr "Sie können jetzt über die Symbolleiste auf %(name)s zugreifen."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "Zur Vorschau Mauszeiger darüber halten, zum Installieren von %(name)s "
-#~ "klicken"
+#~ msgstr "Zur Vorschau Mauszeiger darüber halten, zum Installieren von %(name)s klicken"
 
 #~ msgid "Hover over the image to preview"
-#~ msgstr ""
-#~ "Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
+#~ msgstr "Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
 
 #~ msgid "Click to play"
 #~ msgstr "Klicken Sie zum Abspielen"
