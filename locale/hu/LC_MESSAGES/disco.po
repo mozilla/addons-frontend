@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-27 16:52+0000\n"
-"PO-Revision-Date: 2019-07-04 13:57+0000\n"
+"PO-Revision-Date: 2019-08-28 09:23+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -15,15 +15,12 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/InstallWarning/index.js:132
-#, fuzzy
 msgid "Learn more"
 msgstr "További tudnivalók"
 
 #: src/amo/components/InstallWarning/index.js:136
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
+msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
+msgstr "Ezt a kiegészítőt a Mozilla nem figyeli. Telepítés előtt győződjön meg arról, hogy megbízik-e a kiegészítőben."
 
 #: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
@@ -62,15 +59,10 @@ msgid "Server Error"
 msgstr "Kiszolgálóhiba"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Sajnáljuk, de hiba történt, és nem tudtuk teljesíteni a kérését. Naplóztuk "
-"ezt a hibát, és ki fogjuk vizsgálni."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Sajnáljuk, de hiba történt, és nem tudtuk teljesíteni a kérését. Naplóztuk ezt a hibát, és ki fogjuk vizsgálni."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Hibakód: %(status)s."
 
@@ -187,20 +179,13 @@ msgstr "A Firefox testreszabása"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Ingyenes kiegészítők ezrei léteznek, a világ minden táján lévő "
-"fejlesztőktől,\n"
-"amelyeket telepítve testre szabhatja a Firefoxát. A mókás vizuális témáktól "
-"kezdve,\n"
-"a hatékony eszközökig, amelyek a böngészést gyorsabbá és biztonságosabbá "
-"teszik,\n"
-"a kiegészítők teszik a böngészőt az Önévé. Hogy segítsünk az elindulásban, "
-"itt van néhány,\n"
+"Ingyenes kiegészítők ezrei léteznek, a világ minden táján lévő fejlesztőktől,\n"
+"amelyeket telepítve testre szabhatja a Firefoxát. A mókás vizuális témáktól kezdve,\n"
+"a hatékony eszközökig, amelyek a böngészést gyorsabbá és biztonságosabbá teszik,\n"
+"a kiegészítők teszik a böngészőt az Önévé. Hogy segítsünk az elindulásban, itt van néhány,\n"
 "amelyeket ajánlunk a kiemelkedő teljesítményük és funkcionalitásuk miatt."
 
 #: src/disco/pages/DiscoPane/index.js:207
@@ -208,12 +193,8 @@ msgid "Learn More"
 msgstr "További tudnivalók"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
-"Ezen ajánlások némelyike személyre szabott. Az ajánlások alapja a telepített "
-"kiegészítők, a profilbeállítások és a használati statisztikák."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgstr "Ezen ajánlások némelyike személyre szabott. Az ajánlások alapja a telepített kiegészítők, a profilbeállítások és a használati statisztikák."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -242,9 +223,7 @@ msgstr "%(title)s előnézete"
 #~ msgstr "%(name)s telepítése."
 
 #~ msgid "%(name)s is installed and enabled. Click to uninstall."
-#~ msgstr ""
-#~ "A(z) %(name)s telepítve van, és engedélyezett. Kattintson az "
-#~ "eltávolításhoz."
+#~ msgstr "A(z) %(name)s telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
 
 #~ msgid "%(name)s is disabled. Click to enable."
 #~ msgstr "A(z) %(name)s le van tiltva. Kattintson az engedélyezéshez."
@@ -271,9 +250,7 @@ msgstr "%(title)s előnézete"
 #~ msgstr "Most már elérheti ezt az eszköztáron: %(name)s."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s "
-#~ "telepítéséhez"
+#~ msgstr "Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s telepítéséhez"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Az előnézethez vigye a kép fölé az egeret"
