@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-27 16:52+0000\n"
-"PO-Revision-Date: 2019-07-04 06:21+0000\n"
+"PO-Revision-Date: 2019-08-28 14:14+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -15,15 +15,12 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/InstallWarning/index.js:132
-#, fuzzy
 msgid "Learn more"
 msgstr "Tìm hiểu thêm"
 
 #: src/amo/components/InstallWarning/index.js:136
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
+msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
+msgstr "Tiện ích mở rộng này không được phát hành bởi Mozilla. Hãy chắc chắn rằng bạn tin tưởng tiện ích mở rộng trước khi cài đặt nó."
 
 #: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
@@ -62,15 +59,10 @@ msgid "Server Error"
 msgstr "Lỗi máy chủ"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Xin lỗi, nhưng đã xảy ra lỗi và chúng tôi không thể hoàn thành yêu cầu của "
-"bạn. Chúng tôi đã ghi lại lỗi này và sẽ điều tra nó."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Xin lỗi, nhưng đã xảy ra lỗi và chúng tôi không thể hoàn thành yêu cầu của bạn. Chúng tôi đã ghi lại lỗi này và sẽ điều tra nó."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Mã lỗi: %(status)s."
 
@@ -80,8 +72,7 @@ msgstr "Trang không tồn tại"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
-"Xin lỗi, nhưng chúng tôi không thể tìm thấy bất cứ gì bằng URL bạn đã nhập."
+msgstr "Xin lỗi, nhưng chúng tôi không thể tìm thấy bất cứ gì bằng URL bạn đã nhập."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
@@ -188,30 +179,20 @@ msgstr "Cá nhân hóa Firefox của bạn"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Có hàng ngàn tiện ích miễn phí, được tạo bởi các nhà phát triển trên khắp "
-"thế giới, mà bạn có thể cài đặt để cá nhân hóa Firefox của bạn. Từ các chủ "
-"đề trực quan thú vị đến các công cụ mạnh mẽ giúp việc duyệt web nhanh hơn và "
-"an toàn hơn, các tiện ích bổ sung sẽ làm cho trình duyệt của bạn trở thành "
-"của bạn. Để giúp bạn bắt đầu, dưới đây là một số khuyến nghị cho hiệu suất "
-"và chức năng nổi bật của chúng."
+"Có hàng ngàn tiện ích miễn phí, được tạo bởi các nhà phát triển trên khắp thế giới, mà bạn có thể cài đặt để cá nhân hóa Firefox của bạn. Từ các chủ đề trực quan thú vị đến các công cụ mạnh mẽ giúp "
+"việc duyệt web nhanh hơn và an toàn hơn, các tiện ích bổ sung sẽ làm cho trình duyệt của bạn trở thành của bạn. Để giúp bạn bắt đầu, dưới đây là một số khuyến nghị cho hiệu suất và chức năng nổi bật"
+" của chúng."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Tìm hiểu thêm"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
-"Một số trong những khuyến nghị được cá nhân hóa. Chúng dựa trên các tiện ích "
-"mở rộng khác mà bạn đã cài đặt, tùy chọn hồ sơ và thống kê sử dụng."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgstr "Một số trong những khuyến nghị được cá nhân hóa. Chúng dựa trên các tiện ích mở rộng khác mà bạn đã cài đặt, tùy chọn hồ sơ và thống kê sử dụng."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
