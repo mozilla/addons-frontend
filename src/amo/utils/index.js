@@ -1,5 +1,7 @@
 /* @flow */
 /* eslint camelcase: 0 */
+import url from 'url';
+
 import base62 from 'base62';
 import config from 'config';
 
@@ -47,4 +49,35 @@ export const getCanonicalURL = ({
   locationPathname: string,
 |}): string => {
   return `${_config.get('baseURL')}${locationPathname}`;
+};
+
+type QueryParams = { [key: string]: any };
+
+type MakeInternalExternalURLParams = {|
+  _config: typeof config,
+  urlString: string,
+  internalQueryParams?: QueryParams,
+  externalQueryParams?: QueryParams,
+|};
+
+export const makeInternalExternalURL = ({
+  _config = config,
+  externalQueryParams = {},
+  internalQueryParams = {},
+  urlString,
+}: MakeInternalExternalURLParams) => {
+  const baseURL = _config.get('baseURL');
+  const urlParts = url.parse(urlString, true);
+
+  const queryParams =
+    !urlParts.protocol || baseURL.includes(urlParts.host)
+      ? internalQueryParams
+      : externalQueryParams;
+
+  return url.format({
+    ...urlParts,
+    // Reset the search string so we can define a new one.
+    search: undefined,
+    query: { ...urlParts.query, ...queryParams },
+  });
 };
