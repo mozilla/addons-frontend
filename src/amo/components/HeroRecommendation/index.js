@@ -3,17 +3,19 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 
+import AddonTitle from 'amo/components/AddonTitle';
+import Link from 'amo/components/Link';
+import { makeQueryStringWithUTM } from 'amo/utils';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
+import { sanitizeUserHTML } from 'core/utils';
+import type { PrimaryHeroShelfType } from 'amo/reducers/home';
 import type { I18nType } from 'core/types/i18n';
 
-import promoImage from './img/christin-hume-mfB1B1s4sMc-unsplash.png';
 import './styles.scss';
 
 type Props = {|
-  body: string,
-  heading: string,
-  linkText: string,
-  linkHref: string,
+  shelfData: PrimaryHeroShelfType,
 |};
 
 type InternalProps = {|
@@ -87,12 +89,46 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { body, heading, i18n, linkText, linkHref } = this.props;
+    const { i18n, shelfData } = this.props;
+    invariant(shelfData, 'The shelfData property is required');
 
-    invariant(body, 'The body property is required');
-    invariant(heading, 'The heading property is required');
-    invariant(linkText, 'The linkText property is required');
-    invariant(linkHref, 'The linkHref property is required');
+    const { addon, description, external, featuredImage } = shelfData;
+
+    const linkInsides = <span> {i18n.gettext('Get the extension')} </span>;
+
+    let heading;
+    let link;
+
+    if (addon) {
+      heading = <AddonTitle addon={addon} as="div" />;
+      link = (
+        <Link
+          className="HeroRecommendation-link"
+          to={`/addon/${addon.slug}/${makeQueryStringWithUTM({
+            utm_content: 'homepage-primary-hero',
+            utm_campaign: '',
+          })}`}
+        >
+          {linkInsides}
+        </Link>
+      );
+    } else if (external) {
+      heading = external.name;
+      link = (
+        <a className="HeroRecommendation-link" href={external.homepage}>
+          {linkInsides}
+        </a>
+      );
+    }
+
+    if (!heading || !link) {
+      // This should be impossible, as the API must return either an addon or
+      // an external entry to us, but it seems like a useful safety check.
+      log.warn(
+        'Neither an addon nor an external entry were returned by the hero API',
+      );
+      return null;
+    }
 
     // translators: If uppercase does not work in your locale, change it to lowercase.
     // This is used as a secondary heading.
@@ -101,15 +137,21 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     return (
       <section className="HeroRecommendation HeroRecommendation-purple">
         <div>
-          <img className="HeroRecommendation-image" alt="" src={promoImage} />
+          <img
+            className="HeroRecommendation-image"
+            alt=""
+            src={featuredImage}
+          />
         </div>
         <div className="HeroRecommendation-info">
           <div className="HeroRecommendation-recommended">{recommended}</div>
           <h2 className="HeroRecommendation-heading">{heading}</h2>
-          <p className="HeroRecommendation-body">{body}</p>
-          <a className="HeroRecommendation-link" href={linkHref}>
-            <span className="HeroRecommendation-linkText">{linkText}</span>
-          </a>
+          <div
+            className="HeroRecommendation-body"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={sanitizeUserHTML(description)}
+          />
+          {link}
         </div>
         {this.renderOverlayShape()}
       </section>
