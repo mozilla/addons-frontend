@@ -31,13 +31,27 @@ type HeroGradientType = {|
   end: string,
 |};
 
-export type ExternalPrimaryHeroShelfType = {|
+type BaseExternalPrimaryHeroShelfType = {|
   gradient: HeroGradientType,
   featured_image: string,
   description: string | null,
-  addon?: PartialExternalAddonType,
-  external?: PrimaryHeroShelfExternalType,
 |};
+
+type ExternalPrimaryHeroShelfWithAddonType = {|
+  ...BaseExternalPrimaryHeroShelfType,
+  addon: PartialExternalAddonType,
+  external: void,
+|};
+
+type ExternalPrimaryHeroShelfWithExternalType = {|
+  ...BaseExternalPrimaryHeroShelfType,
+  addon: void,
+  external: PrimaryHeroShelfExternalType,
+|};
+
+export type ExternalPrimaryHeroShelfType =
+  | ExternalPrimaryHeroShelfWithAddonType
+  | ExternalPrimaryHeroShelfWithExternalType;
 
 export type PrimaryHeroShelfType = {|
   gradient: {|

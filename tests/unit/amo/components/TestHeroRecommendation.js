@@ -131,4 +131,18 @@ describe(__filename, () => {
 
     expect(root.find('.HeroRecommendation-body').html()).toContain(description);
   });
+
+  it('returns nothing if the API returns neither an addon nor an external entry', () => {
+    // Note that this should not be possible from the API, as well as based on
+    // the Flow definitions, but all consumers of this component are not
+    // covered by Flow.
+    const root = render({
+      shelfData: createShelfData({
+        addon: undefined,
+        external: undefined,
+      }),
+    });
+
+    expect(root.find('.HeroRecommendation')).toHaveLength(0);
+  });
 });

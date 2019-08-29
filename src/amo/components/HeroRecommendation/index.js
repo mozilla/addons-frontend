@@ -7,6 +7,7 @@ import AddonTitle from 'amo/components/AddonTitle';
 import Link from 'amo/components/Link';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
 import { sanitizeUserHTML } from 'core/utils';
 import type { PrimaryHeroShelfType } from 'amo/reducers/home';
 import type { I18nType } from 'core/types/i18n';
@@ -93,11 +94,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
 
     const { addon, description, external, featuredImage } = shelfData;
 
-    const linkInsides = (
-      <span className="HeroRecommendation-linkText">
-        {i18n.gettext('Get the extension')}
-      </span>
-    );
+    const linkInsides = <span> {i18n.gettext('Get the extension')} </span>;
 
     let heading;
     let link;
@@ -127,7 +124,9 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     if (!heading || !link) {
       // This should be impossible, as the API must return either an addon or
       // an external entry to us, but it seems like a useful safety check.
-      /* istanbul ignore next */
+      log.warn(
+        'Neither an addon nor an external entry were returned by the hero API',
+      );
       return null;
     }
 
