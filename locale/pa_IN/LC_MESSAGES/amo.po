@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-27 16:22+0000\n"
-"PO-Revision-Date: 2019-08-29 21:22+0000\n"
-"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
+"PO-Revision-Date: 2019-07-03 19:01+0000\n"
+"Last-Translator: Suhail Singh Bains <suhail.singhyo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -1959,6 +1959,8 @@ msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
 msgstr ""
+"ਵੈਬ ਇਕ ਸ਼ਾਨਦਾਰ ਪਰ ਜੰਗਲੀ ਜਗ੍ਹਾ ਹੈ। ਤੁਹਾਡੀ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਤੁਹਾਡੀ ਸਹਿਮਤੀ ਤੋਂ ਬਿਨਾਂ ਵਰਤੀ ਜਾ ਸਕਦੀ ਹੈ, ਤੁਹਾਡੀਆਂ ਗਤੀਵਿਧੀਆਂ ਤੇ ਜਾਸੂਸੀ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ, ਅਤੇ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਚੋਰੀ ਹੋ ਸਕਦੇ ਹਨ। ਖੁਸ਼ਕਿਸਮਤੀ ਨਾਲ, "
+"ਐਕਸਟੈਂਸ਼ਨਜ਼ ਤੁਹਾਡੀ ਔਨਲਾਈਨ ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ ਨੂੰ ਮਜਬੂਤ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੀ ਹੈ।"
 
 #: src/amo/pages/Guides/index.js:280
 msgid ""
@@ -1977,10 +1979,11 @@ msgstr "ਮਜ਼ਬੂਤ ਪਾਸਵਰਡ ਬਣਾਓ ਅਤੇ ਪ੍ਰ�
 #: src/amo/pages/Guides/index.js:80
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
 msgstr ""
+"ਪਾਸਵਰਡ ਪ੍ਰਬੰਧਕ ਤੁਹਾਨੂੰ ਸੁਰੱਖਿਅਤ ਪਾਸਵਰਡ ਬਣਾਉਣ, ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਸਟੋਰ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੇ ਹਨ (ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ) ਇਕ ਥਾਂ ਤੇ, ਅਤੇ ਤੁਸੀਂ ਜਿੱਥੇ ਵੀ ਹੋਵੋ ਉੱਥੇ ਆਪਣੇ ਲਾਗਇਨ ਪ੍ਰਮਾਣ ਪੱਤਰ ਤਕ ਆਸਾਨ ਪਹੁੰਚ ਪ੍ਰਦਾਨ ਕਰੋ।"
 
 #: src/amo/pages/Guides/index.js:85
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
-msgstr ""
+msgstr "ਪੂਰੀ ਤਰ੍ਹਾਂ ਇਨਕਰਿਪਟਡ ਪਾਸਵਰਡ ਸੁਰੱਖਿਆ। ਆਪਣੇ ਡੇਟਾ ਨੂੰ ਸੁਰੱਖਿਅਤ ਰੂਪ ਨਾਲ ਸਟੋਰ ਕਰੋ ਅਤੇ ਡਿਵਾਈਸਾਂ ਵਿੱਚ ਐਕਸੈਸ ਕਰੋ।"
 
 #: src/amo/pages/Guides/index.js:89
 #, fuzzy
