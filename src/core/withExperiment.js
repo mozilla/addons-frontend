@@ -8,7 +8,10 @@ import log from 'core/logger';
 import tracking from 'core/tracking';
 import { getDisplayName } from 'core/utils';
 
-export const DEFAULT_COOKIE_MAX_AGE = 30 * 24 * 60 * 60; // 30 days in seconds
+// This value defaults to 30 days in seconds. This value should not be changed
+// unless directed to do so by a requirements change.
+// See https://github.com/mozilla/addons-frontend/issues/8515
+export const DEFAULT_COOKIE_MAX_AGE = 30 * 24 * 60 * 60;
 export const EXPERIMENT_ENROLLMENT_CATEGORY = 'AMO Experiment Enrollment -';
 export const NOT_IN_EXPERIMENT = 'notInExperiment';
 
