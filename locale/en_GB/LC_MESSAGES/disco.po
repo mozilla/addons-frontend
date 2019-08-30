@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-27 16:52+0000\n"
-"PO-Revision-Date: 2019-08-30 15:06+0000\n"
+"PO-Revision-Date: 2019-08-30 15:38+0000\n"
 "Last-Translator: Ian Neal <iann_bugzilla@blueyonder.co.uk>\n"
 "Language-Team: none\n"
 "Language: en_GB\n"
@@ -15,9 +15,8 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/InstallWarning/index.js:132
-#, fuzzy
 msgid "Learn more"
-msgstr "Learn More"
+msgstr "Learn more"
 
 #: src/amo/components/InstallWarning/index.js:136
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
