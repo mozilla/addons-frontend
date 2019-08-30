@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-27 16:22+0000\n"
-"PO-Revision-Date: 2019-08-27 18:11+0000\n"
+"PO-Revision-Date: 2019-08-30 11:00+0000\n"
 "Last-Translator: Rok Žerdin <zerdo90@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1079,7 +1079,7 @@ msgstr "Več o tem"
 
 #: src/amo/components/InstallWarning/index.js:136
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr ""
+msgstr "Mozilla te razširitve ne nadzira. Prepričajte se, da razširitvi zaupate, preden jo namestite."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
