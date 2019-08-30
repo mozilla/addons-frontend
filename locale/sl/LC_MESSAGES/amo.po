@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-27 16:22+0000\n"
-"PO-Revision-Date: 2019-08-30 11:00+0000\n"
+"PO-Revision-Date: 2019-08-30 11:05+0000\n"
 "Last-Translator: Rok Žerdin <zerdo90@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1967,7 +1967,7 @@ msgstr "Izboljšajte videoposnetke"
 
 #: src/amo/pages/Guides/index.js:202
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
-msgstr ""
+msgstr "Če uživate v video vsebini, razširitve ponujajo več načinov za optimizacijo vaše izkušnje, vključno s prilagajanjem YouTuba svojemu okusu in predvajanjem videov v gledališkem načinu."
 
 #: src/amo/pages/Guides/index.js:207
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
@@ -1981,7 +1981,7 @@ msgstr "Izvlecite več iz večpredstavnosti"
 
 #: src/amo/pages/Guides/index.js:217
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
-msgstr ""
+msgstr "Razširitve lahko zajamejo številne različne potrebe in interese, kot so iskanje slik, upravljanje prenosov in bralniki besedil."
 
 #: src/amo/pages/Guides/index.js:222
 msgid ""
@@ -2149,6 +2149,7 @@ msgstr "Prenesite teme za spreminjanje videza Firefoxa. Prilagodite brskalnik sv
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
+"Prenesite razširitve za Firefox in dodajte funkcije, ki prilagodijo brskanje. Zaščitite gesla, poiščite ponudbe, izboljšajte videoposnetke in zavrnite nadležne oglase z aplikacijami brskalnika."
 
 #: src/amo/pages/LandingPage/index.js:256
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2200,7 +2201,7 @@ msgstr "Slovarji"
 
 #: src/amo/pages/SearchTools/index.js:31
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "Prenesite razširitve za Firefox in prilagodite način iskanja – od zasebnega iskanja do iskanja po spletnih straneh, iskanja slik in drugo."
 
 #: src/amo/pages/StaticPages/About/index.js:108
 msgid ""
@@ -2944,7 +2945,7 @@ msgstr "Firefox priporoča samo razširitve, ki ustrezajo našim standardom gled
 
 #: src/ui/components/ShowMoreCard/index.js:126
 msgid "Expand to read more"
-msgstr ""
+msgstr "Razširi in preberi več"
 
 #: src/ui/components/ShowMoreCard/index.js:131
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
