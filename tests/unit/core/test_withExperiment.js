@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import {
   EXPERIMENT_ENROLLMENT_CATEGORY,
+  defaultCookieConfig,
   withExperiment,
 } from 'core/withExperiment';
 import {
@@ -94,6 +95,7 @@ describe(__filename, () => {
       cookies.set,
       `${id}Experiment`,
       root.instance().experimentCookie,
+      defaultCookieConfig,
     );
   });
 
