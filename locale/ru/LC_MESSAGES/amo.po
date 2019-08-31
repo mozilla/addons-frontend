@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-27 16:22+0000\n"
-"PO-Revision-Date: 2019-08-28 21:30+0000\n"
+"PO-Revision-Date: 2019-08-28 21:33+0000\n"
 "Last-Translator: Victor Bychek <a@bychek.ru>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -1075,7 +1075,7 @@ msgstr "Подробнее"
 
 #: src/amo/components/InstallWarning/index.js:136
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr ""
+msgstr "Это расширение не контролируется Mozilla. Убедитесь, что вы доверяете расширению перед его установкой."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -2936,7 +2936,7 @@ msgstr "Firefox рекомендует только те расширения, �
 
 #: src/ui/components/ShowMoreCard/index.js:126
 msgid "Expand to read more"
-msgstr ""
+msgstr "Разверните, чтобы узнать больше"
 
 #: src/ui/components/ShowMoreCard/index.js:131
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
