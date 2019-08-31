@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-27 16:52+0000\n"
-"PO-Revision-Date: 2019-07-03 17:50+0000\n"
+"PO-Revision-Date: 2019-08-27 17:52+0000\n"
 "Last-Translator: Davide Quaranta <dvd.forty@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -15,14 +15,11 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/InstallWarning/index.js:132
-#, fuzzy
 msgid "Learn more"
 msgstr "Ulteriori informazioni"
 
 #: src/amo/components/InstallWarning/index.js:136
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
+msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
 msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:245
@@ -62,15 +59,10 @@ msgid "Server Error"
 msgstr "Errore del server"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Attenzione: la richiesta non è stata elaborata a causa di un errore. "
-"L’errore è stato registrato per essere analizzato."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Attenzione: la richiesta non è stata elaborata a causa di un errore. L’errore è stato registrato per essere analizzato."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Codice di errore: %(status)s."
 
@@ -88,9 +80,7 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s è stato aggiunto"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
-"Gestisci i componenti aggiuntivi cliccando il pulsante Componenti aggiuntivi "
-"nel menu."
+msgstr "Gestisci i componenti aggiuntivi cliccando il pulsante Componenti aggiuntivi nel menu."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -133,9 +123,7 @@ msgstr "Compatibile con %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
-"L’installazione è stata interrotta perché il componente aggiuntivo risulta "
-"danneggiato."
+msgstr "L’installazione è stata interrotta perché il componente aggiuntivo risulta danneggiato."
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
@@ -143,9 +131,7 @@ msgstr "Installazione del componente aggiuntivo non riuscita. Riprova."
 
 #: src/core/utils/addons.js:36
 msgid "Download failed. Please check your connection."
-msgstr ""
-"Non è riuscito il download del componente aggiuntivo. Controlla la "
-"connessione alla rete."
+msgstr "Non è riuscito il download del componente aggiuntivo. Controlla la connessione alla rete."
 
 #: src/core/utils/addons.js:38
 msgid "An unexpected error occurred during installation."
@@ -169,8 +155,7 @@ msgstr "Attualmente Firefox per iOS non supporta i componenti aggiuntivi."
 
 #: src/disco/components/AddonCompatibilityError/index.js:34
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
-"Questo componente aggiuntivo non supporta la versione di Firefox in uso."
+msgstr "Questo componente aggiuntivo non supporta la versione di Firefox in uso."
 
 #: src/disco/components/AddonCompatibilityError/index.js:40
 msgid "This add-on does not support your browser."
@@ -194,32 +179,20 @@ msgstr "Personalizza Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Hai la possibilità di personalizzare Firefox secondo le tue esigenze "
-"scegliendo tra migliaia di componenti aggiuntivi gratuiti, creati da "
-"sviluppatori provenienti da ogni parte del mondo. Dagli sgargianti temi per "
-"dare un tocco di originalità all'interfaccia utente fino a strumenti e "
-"caratteristiche avanzate che rendono la navigazione più veloce e sicura, i "
-"componenti aggiuntivi rendono il tuo browser più \"tuo\". Se non sai da dove "
-"iniziare, ecco una lista di componenti aggiuntivi che ci sentiamo di "
-"consigliarti, distintisi per gli alti standard di prestazioni e funzionalità."
+"Hai la possibilità di personalizzare Firefox secondo le tue esigenze scegliendo tra migliaia di componenti aggiuntivi gratuiti, creati da sviluppatori provenienti da ogni parte del mondo. Dagli "
+"sgargianti temi per dare un tocco di originalità all'interfaccia utente fino a strumenti e caratteristiche avanzate che rendono la navigazione più veloce e sicura, i componenti aggiuntivi rendono il"
+" tuo browser più \"tuo\". Se non sai da dove iniziare, ecco una lista di componenti aggiuntivi che ci sentiamo di consigliarti, distintisi per gli alti standard di prestazioni e funzionalità."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Ulteriori informazioni"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
-"Alcuni di questi suggerimenti sono personalizzati. Si basano su estensioni "
-"che hai già installato, preferenze del profilo e statistiche di utilizzo."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgstr "Alcuni di questi suggerimenti sono personalizzati. Si basano su estensioni che hai già installato, preferenze del profilo e statistiche di utilizzo."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -257,16 +230,13 @@ msgstr "Anteprima di %(title)s"
 #~ msgstr "Disinstallazione di %(name)s."
 
 #~ msgid "%(name)s is uninstalled. Click to install."
-#~ msgstr ""
-#~ "%(name)s è stato disinstallato. Fare clic per reinstallarlo nuovamente."
+#~ msgstr "%(name)s è stato disinstallato. Fare clic per reinstallarlo nuovamente."
 
 #~ msgid "Install state for %(name)s is unknown."
 #~ msgstr "Impossibile determinare lo stato di installazione di %(name)s."
 
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
-#~ msgstr ""
-#~ "Questo componente aggiuntivo verrà disinstallato al prossimo riavvio di "
-#~ "Firefox."
+#~ msgstr "Questo componente aggiuntivo verrà disinstallato al prossimo riavvio di Firefox."
 
 #~ msgid "Please restart Firefox to use this add-on."
 #~ msgstr "riavvia Firefox per utilizzare questo componente aggiuntivo."
@@ -278,14 +248,10 @@ msgstr "Anteprima di %(title)s"
 #~ msgstr "Adesso è possibile accedere a %(name)s dalla barra degli strumenti."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "Passa sopra col puntatore del mouse per visualizzare un’anteprima di "
-#~ "%(name)s o fai clic per installarlo"
+#~ msgstr "Passa sopra col puntatore del mouse per visualizzare un’anteprima di %(name)s o fai clic per installarlo"
 
 #~ msgid "Hover over the image to preview"
-#~ msgstr ""
-#~ "Passa sopra l’immagine col puntatore del mouse per visualizzare "
-#~ "l’anteprima"
+#~ msgstr "Passa sopra l’immagine col puntatore del mouse per visualizzare l’anteprima"
 
 #~ msgid "Click to play"
 #~ msgstr "Fai clic per riprodurre"
