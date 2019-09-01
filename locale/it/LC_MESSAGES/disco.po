@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-27 16:52+0000\n"
-"PO-Revision-Date: 2019-08-27 17:52+0000\n"
-"Last-Translator: Davide Quaranta <dvd.forty@gmail.com>\n"
+"PO-Revision-Date: 2019-08-31 08:18+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr "Ulteriori informazioni"
 
 #: src/amo/components/InstallWarning/index.js:136
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr ""
+msgstr "Questa estensione non è monitorata da Mozilla. Assicurarsi che l’estensione sia affidabile prima di installarla."
 
 #: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
