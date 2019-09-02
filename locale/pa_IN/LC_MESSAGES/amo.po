@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-27 16:22+0000\n"
-"PO-Revision-Date: 2019-09-02 19:31+0000\n"
+"PO-Revision-Date: 2019-09-02 19:50+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1766,7 +1766,7 @@ msgstr "ਪੁਰਾਣੇ ਵਰਜਨ ਨਾਲ ਸਾਵਧਾਨ ਰਹੋ! 
 
 #: src/amo/pages/AddonVersions/index.js:177
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "ਤੁਹਾਨੂੰ ਹਮੇਸ਼ਾਂ ਐਡ-ਆਨ ਦਾ ਨਵੀਨਤਮ ਸੰਸਕਰਣ ਵਰਤਣਾ ਚਾਹੀਦਾ ਹੈ।"
 
 #: src/amo/pages/AddonVersions/index.js:186
 msgid "Latest version"
@@ -1863,7 +1863,7 @@ msgstr "ਫੇਸਬੁੱਕ ਨੂੰ ਆਪਣੇ ਸਮਾਜਿਕ ਪਲ�
 
 #: src/amo/pages/Guides/index.js:126
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr ""
+msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ੀ %(linkStart)s ਪ੍ਰਾਈਵਸੀ ਅਤੇ ਸਕਿਓਰਿਟੀ%(linkEnd)s ਦੇ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ।"
 
 #: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
