@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-27 16:22+0000\n"
-"PO-Revision-Date: 2019-09-02 19:50+0000\n"
+"PO-Revision-Date: 2019-09-02 19:58+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -2532,7 +2532,7 @@ msgstr "ਪੜਤਾਲ ਕਰਤਾ ਦਾ ਨਾਂ"
 
 #: src/amo/pages/UserProfileEdit/index.js:648
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "ਇਹ URL ਸਿਰਫ ਉਨ੍ਹਾਂ ਉਪਭੋਗਤਾਵਾਂ ਲਈ ਦਿਖਾਈ ਦੇਵੇਗੀ ਜੋ ਵਿਕਾਸ ਕਰਤਾ ਹਨ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:702
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
