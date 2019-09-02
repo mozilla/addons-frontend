@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-27 16:22+0000\n"
-"PO-Revision-Date: 2019-09-02 19:58+0000\n"
+"PO-Revision-Date: 2019-09-02 20:40+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -2000,6 +2000,8 @@ msgstr "ਤੰਗ ਕਰਨ ਵਾਲੇ ਵਿਗਿਆਪਨ ਬਲੌਕ ਕ�
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
+"ਅੱਜ ਦਾ ਵੈੱਬ ਅਣਚਾਹੇ ਇਸ਼ਤਿਹਾਰਾਂ ਨਾਲ ਟੈਂਗਲ ਹੋ ਜਾਂਦਾ ਹੈ ਜੋ ਤੁਹਾਡੇ ਰਾਹ ਵਿੱਚ ਆਉਂਦੇ ਹਨ ਅਤੇ ਤੁਹਾਨੂੰ ਹੌਲੀ ਕਰਦੇ ਹਨ। ਐਡ-ਬਲੌਕਿੰਗ ਐਕਸਟੈਂਸ਼ਨਾਂ ਉਹਨਾਂ ਵਿਗਿਆਪਨਾਂ ਨੂੰ ਬਲੌਕ ਜਾਂ ਫਿਲਟਰ ਕਰ ਸਕਦੀਆਂ ਹਨ ਤਾਂ ਜੋ ਤੁਸੀਂ "
+"ਵਿਰਾਮ-ਮੁਕਤ ਬ੍ਰਾਊਜ਼ਿੰਗ ਤੇ ਵਾਪਸ ਪ੍ਰਾਪਤ ਕਰ ਸਕੋ।"
 
 #: src/amo/pages/Home/index.js:141
 msgid "Abstract"
@@ -2584,7 +2586,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:799
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "IMPORTANT: ਇਸ ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਹਟਾਉਣਾ ਵਾਪਸੀਯੋਗ ਨਹੀਂ ਹੈ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:808
 msgid ""
@@ -2614,12 +2616,12 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:104
 msgid "You are successfully unsubscribed!"
-msgstr ""
+msgstr "ਤੁਹਾਡੀ ਗਾਹਕੀ ਸਫ਼ਲਤਾਪੂਰਨ ਰੱਦ ਹੋਈ!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:117
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "ਈਮੇਲ ਐਡਰੈੱਸ %(strongStart)s%(email)s%(strongEnd)s ਨੂੰ ਹੁਣ ਸੁਨੇਹੇ ਨਹੀਂ ਮਿਲਣਗੇ ਜਦੋਂ:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:76
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
