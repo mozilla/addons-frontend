@@ -83,6 +83,13 @@ describe(__filename, () => {
       });
     };
 
+    it('can be customized with a class name', () => {
+      const className = 'ExampleClass';
+      const root = render({ className });
+
+      expect(root).toHaveClassName(className);
+    });
+
     // This is a test for the happy path, but also serves as a sanity test for
     // renderWithWarning returning the happy path.
     it('returns true if the experiment is enabled, the userAgent and clientApp are both Firefox, and the add-on is an extension and is not recommended', () => {
