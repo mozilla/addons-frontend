@@ -477,7 +477,12 @@ export class AddonBase extends React.Component {
                 {i18n.gettext('Extension Metadata')}
               </h2>
             </header>
-            {addon && <InstallWarning addon={addon} />}
+            {addon && (
+              <InstallWarning
+                addon={addon}
+                className="Addon-install-warning-notice"
+              />
+            )}
           </Card>
 
           <Card className="Addon-header-meta-and-ratings" photonStyle>

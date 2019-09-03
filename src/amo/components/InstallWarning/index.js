@@ -1,4 +1,5 @@
 /* @flow */
+import makeClassName from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -37,6 +38,7 @@ type InternalProps = {|
   _log: typeof log,
   _tracking: typeof tracking,
   clientApp: string,
+  className?: string,
   i18n: I18nType,
   installStatus: $PropertyType<InstalledAddon, 'status'>,
   userAgentInfo: UserAgentInfoType,
@@ -122,7 +124,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { i18n, variant } = this.props;
+    const { className, i18n, variant } = this.props;
 
     if (this.couldShowWarning() && variant === VARIANT_INCLUDE_WARNING) {
       return (
@@ -130,7 +132,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
           actionHref={WARNING_LINK_DESTINATION}
           actionTarget="_blank"
           actionText={i18n.gettext('Learn more')}
-          className="InstallWarning"
+          className={makeClassName('InstallWarning', className)}
           type="warning"
         >
           {i18n.gettext(`This extension isn’t monitored by Mozilla. Make sure you trust the
