@@ -2,7 +2,7 @@
 
 .InstallWarning {
   margin: 8px auto;
-  width: fit-content;
+  width: 100%;
 
   @include respond-to(medium) {
     margin: 0 auto;
