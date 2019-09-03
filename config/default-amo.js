@@ -123,8 +123,4 @@ module.exports = {
   // This needs to match the SESSION_COOKIE_AGE in addons-server:
   // https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L990
   authTokenValidFor: 2592000, // 30 days
-
-  experiments: {
-    installButtonWarning: false,
-  },
 };

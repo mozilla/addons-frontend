@@ -377,7 +377,7 @@ module.exports = {
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments.
   experiments: {
-    installButtonWarning: false,
+    installButtonWarning: true,
   },
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
