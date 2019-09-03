@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-08-27 16:22+0000\n"
+"POT-Creation-Date: 2019-09-03 18:03+0000\n"
 "PO-Revision-Date: 2019-04-17 01:46+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -1189,9 +1189,14 @@ msgid "Learn how to create extensions and themes"
 msgstr "가장 평점이 높은 확장 기능 더보기"
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:99
+#: src/amo/components/HeroRecommendation/index.js:135
 msgid "RECOMMENDED"
 msgstr ""
+
+#: src/amo/components/HeroRecommendation/index.js:97
+#, fuzzy
+msgid "Get the extension"
+msgstr "추천 확장 기능"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
@@ -1220,11 +1225,11 @@ msgid ""
 "fun."
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:132
+#: src/amo/components/InstallWarning/index.js:134
 msgid "Learn more"
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:136
+#: src/amo/components/InstallWarning/index.js:138
 msgid ""
 "This extension isn’t monitored by Mozilla. Make sure you trust the extension "
 "before you install it."
@@ -1511,24 +1516,24 @@ msgstr ""
 msgid "Search results"
 msgstr "테마 검색"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:282
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:265
 #: src/amo/pages/LandingPage/index.js:139
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "추천 확장 기능"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:283
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:266
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "추천 확장 기능"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:367
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:350
 #: src/amo/pages/LandingPage/index.js:178
 #, fuzzy
 msgid "Recommended themes"
 msgstr "가장 인기있는 테마"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:368
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:351
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "추천 테마"
@@ -1543,7 +1548,7 @@ msgstr "부가 기능 찾기"
 msgid "Featured add-ons"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:382
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:365
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "유행하는 확장 기능"
@@ -1573,11 +1578,11 @@ msgstr "가장 평점이 높은 테마"
 msgid "Top rated add-ons"
 msgstr "가장 평점이 높은 확장 기능"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:329
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:312
 msgid "Popular extensions"
 msgstr "인기 확장 기능"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:308
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:291
 #, fuzzy
 msgid "Popular themes"
 msgstr "가장 인기있는 테마"
@@ -2359,68 +2364,64 @@ msgstr "음악"
 msgid "Seasonal"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:205
+#: src/amo/pages/Home/index.js:206
 msgid "Change the way Firefox looks with themes."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:235
+#: src/amo/pages/Home/index.js:236
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:262
-msgid "Get Started"
-msgstr ""
-
-#: src/amo/pages/Home/index.js:287 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:270 src/amo/pages/LandingPage/index.js:153
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "유행하는 확장 기능 더보기"
 
-#: src/amo/pages/Home/index.js:288 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:271 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "추천 확장 기능 더보기"
 
-#: src/amo/pages/Home/index.js:309
+#: src/amo/pages/Home/index.js:292
 msgid "See more popular themes"
 msgstr "인기 확장 기능 더보기"
 
-#: src/amo/pages/Home/index.js:330
+#: src/amo/pages/Home/index.js:313
 #, fuzzy
 msgid "See more popular extensions"
 msgstr "가장 평점이 높은 확장 기능 더보기"
 
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:332 src/amo/pages/LandingPage/index.js:192
 #, fuzzy
 msgid "See more recommended themes"
 msgstr "유행하는 테마 더보기"
 
-#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:333 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "추천 테마 더보기"
 
-#: src/amo/pages/Home/index.js:383 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:366 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "유행하는 확장 기능 더보기"
 
-#: src/amo/pages/Home/index.js:58
+#: src/amo/pages/Home/index.js:57
 #, fuzzy
 msgid "See more enhanced privacy extensions"
 msgstr "추천 확장 기능 더보기"
 
-#: src/amo/pages/Home/index.js:59
+#: src/amo/pages/Home/index.js:58
 #, fuzzy
 msgid "Enhanced privacy extensions"
 msgstr "가장 평점이 높은 확장 기능"
 
-#: src/amo/pages/Home/index.js:64
+#: src/amo/pages/Home/index.js:63
 #, fuzzy
 msgid "See more recommended password managers"
 msgstr "유행하는 테마 더보기"
 
-#: src/amo/pages/Home/index.js:65
+#: src/amo/pages/Home/index.js:64
 #, fuzzy
 msgid "Recommended password managers"
 msgstr "암호 관리자"
@@ -3468,9 +3469,6 @@ msgstr "개발자 응답"
 
 #~ msgid "See more Wikipedia boosters"
 #~ msgstr "유행하는 테마 더보기"
-
-#~ msgid "Weather extensions"
-#~ msgstr "추천 확장 기능"
 
 #~ msgid "See more tools"
 #~ msgstr "확장 기능 검색"

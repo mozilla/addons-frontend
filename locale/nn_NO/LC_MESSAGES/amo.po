@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-08-27 16:22+0000\n"
+"POT-Creation-Date: 2019-09-03 18:03+0000\n"
 "PO-Revision-Date: 2019-08-27 00:30+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1142,9 +1142,14 @@ msgid "Learn how to create extensions and themes"
 msgstr "Les om korleis du lagar uvidingar og tema"
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:99
+#: src/amo/components/HeroRecommendation/index.js:135
 msgid "RECOMMENDED"
 msgstr ""
+
+#: src/amo/components/HeroRecommendation/index.js:97
+#, fuzzy
+msgid "Get the extension"
+msgstr "Vêr-utvidingar"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
@@ -1173,11 +1178,11 @@ msgstr ""
 "Dei legg til funksjonar i Firefox for å gjere surfinga raskare, smartare "
 "eller rett og slett morosamare."
 
-#: src/amo/components/InstallWarning/index.js:132
+#: src/amo/components/InstallWarning/index.js:134
 msgid "Learn more"
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:136
+#: src/amo/components/InstallWarning/index.js:138
 msgid ""
 "This extension isn’t monitored by Mozilla. Make sure you trust the extension "
 "before you install it."
@@ -1457,22 +1462,22 @@ msgstr ""
 msgid "Search results"
 msgstr "Søkjeresultat"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:282
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:265
 #: src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
 msgstr "Tilrådde utvidingar"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:283
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:266
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Framheva utvidingar"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:367
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:350
 #: src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
 msgstr "Tilrådde tema"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:368
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:351
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Framheva tema"
@@ -1485,7 +1490,7 @@ msgstr "Tilrådde tillegg"
 msgid "Featured add-ons"
 msgstr "Framheva tillegg"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:382
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:365
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "Populære utvidingar"
@@ -1513,11 +1518,11 @@ msgstr "Høgst vurderte tema"
 msgid "Top rated add-ons"
 msgstr "Høgast vurderte utvidingar"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:329
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:312
 msgid "Popular extensions"
 msgstr "Populære udvidingar"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:308
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:291
 msgid "Popular themes"
 msgstr "Populære tema"
 
@@ -2262,62 +2267,58 @@ msgstr "Musikk"
 msgid "Seasonal"
 msgstr "Sesong"
 
-#: src/amo/pages/Home/index.js:205
+#: src/amo/pages/Home/index.js:206
 msgid "Change the way Firefox looks with themes."
 msgstr "Endre korleis Firefox ser ut med tema."
 
-#: src/amo/pages/Home/index.js:235
+#: src/amo/pages/Home/index.js:236
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:262
-msgid "Get Started"
-msgstr ""
-
-#: src/amo/pages/Home/index.js:287 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:270 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
 msgstr "Vis fleire tilrådde utvidingar"
 
-#: src/amo/pages/Home/index.js:288 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:271 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "Fleire framheva utvidingar"
 
-#: src/amo/pages/Home/index.js:309
+#: src/amo/pages/Home/index.js:292
 msgid "See more popular themes"
 msgstr "Vis fleire populære tema"
 
-#: src/amo/pages/Home/index.js:330
+#: src/amo/pages/Home/index.js:313
 msgid "See more popular extensions"
 msgstr "Vis fleire populære utvidingar"
 
-#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:332 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
 msgstr "Vis fleire tilrådde tema"
 
-#: src/amo/pages/Home/index.js:350 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:333 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "Vis fleire framheva tema"
 
-#: src/amo/pages/Home/index.js:383 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:366 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Vis fleire populære utvidingar"
 
-#: src/amo/pages/Home/index.js:58
+#: src/amo/pages/Home/index.js:57
 msgid "See more enhanced privacy extensions"
 msgstr "Vis fleire forbetra personvernutvidingar"
 
-#: src/amo/pages/Home/index.js:59
+#: src/amo/pages/Home/index.js:58
 msgid "Enhanced privacy extensions"
 msgstr "Forbetra personvernutvidingar"
 
-#: src/amo/pages/Home/index.js:64
+#: src/amo/pages/Home/index.js:63
 msgid "See more recommended password managers"
 msgstr "Vis fleire tilrådde passordhandsamarar"
 
-#: src/amo/pages/Home/index.js:65
+#: src/amo/pages/Home/index.js:64
 msgid "Recommended password managers"
 msgstr "Tilrådde passordhandterarar"
 
@@ -3361,9 +3362,6 @@ msgstr "Svar frå utviklaren"
 
 #~ msgid "Wikipedia boosters"
 #~ msgstr "Wikipedia-forbetringar"
-
-#~ msgid "Weather extensions"
-#~ msgstr "Vêr-utvidingar"
 
 #~ msgid "See more tools"
 #~ msgstr "Vis fleire verktøy"
