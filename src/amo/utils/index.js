@@ -1,5 +1,7 @@
 /* @flow */
 /* eslint camelcase: 0 */
+import url from 'url';
+
 import base62 from 'base62';
 import config from 'config';
 
@@ -47,4 +49,17 @@ export const getCanonicalURL = ({
   locationPathname: string,
 |}): string => {
   return `${_config.get('baseURL')}${locationPathname}`;
+};
+
+export const isInternalURL = ({
+  _config = config,
+  urlString,
+}: {|
+  _config?: typeof config,
+  urlString: string,
+|}): boolean => {
+  const baseURL = _config.get('baseURL');
+  const urlParts = url.parse(urlString, true);
+
+  return !urlParts.protocol || baseURL.includes(urlParts.host);
 };
