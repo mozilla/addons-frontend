@@ -10,12 +10,15 @@ import AddonTitle from 'amo/components/AddonTitle';
 import Link from 'amo/components/Link';
 import { isInternalURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
-import log from 'core/logger';
+import tracking from 'core/tracking';
 import { addQueryParams, sanitizeUserHTML } from 'core/utils';
 import type { PrimaryHeroShelfType } from 'amo/reducers/home';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
+
+export const PRIMARY_HERO_CLICK_CATEGORY = 'AMO Primary Hero Clicks';
+export const PRIMARY_HERO_SRC = 'homepage-primary-hero';
 
 type Props = {|
   shelfData: PrimaryHeroShelfType,
@@ -24,6 +27,7 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
+  _tracking: typeof tracking,
 |};
 
 type QueryParams = { [key: string]: any };
@@ -37,8 +41,6 @@ type AddParamsToHeroURLParams = {|
   externalQueryParams?: QueryParams,
   urlString: string,
 |};
-
-export const PRIMARY_HERO_SRC = 'homepage-primary-hero';
 
 export const addParamsToHeroURL = ({
   _addQueryParams = addQueryParams,
@@ -60,6 +62,41 @@ export const addParamsToHeroURL = ({
 };
 
 export class HeroRecommendationBase extends React.Component<InternalProps> {
+  callToActionURL: string;
+
+  static defaultProps = {
+    _tracking: tracking,
+  };
+
+  constructor(props: InternalProps) {
+    super(props);
+
+    const { shelfData } = props;
+    invariant(shelfData, 'The shelfData property is required');
+
+    const { addon, external } = shelfData;
+    this.callToActionURL = '';
+
+    if (addon) {
+      this.callToActionURL = addParamsToHeroURL({
+        urlString: `/addon/${addon.slug}/`,
+      });
+    } else if (external) {
+      this.callToActionURL = addParamsToHeroURL({
+        urlString: external.homepage,
+      });
+    }
+  }
+
+  onHeroClick = () => {
+    const { _tracking } = this.props;
+
+    _tracking.sendEvent({
+      action: this.callToActionURL,
+      category: PRIMARY_HERO_CLICK_CATEGORY,
+    });
+  };
+
   renderOverlayShape() {
     const gradientA = 'HeroRecommendation-gradient-a';
     const gradientB = 'HeroRecommendation-gradient-b';
@@ -126,8 +163,6 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
 
   render() {
     const { i18n, shelfData } = this.props;
-    invariant(shelfData, 'The shelfData property is required');
-
     const { addon, description, external, featuredImage } = shelfData;
 
     const linkInsides = <span> {i18n.gettext('Get the extension')} </span>;
@@ -140,9 +175,8 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       link = (
         <Link
           className="HeroRecommendation-link"
-          to={addParamsToHeroURL({
-            urlString: `/addon/${addon.slug}/`,
-          })}
+          onClick={this.onHeroClick}
+          to={this.callToActionURL}
         >
           {linkInsides}
         </Link>
@@ -152,20 +186,12 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       link = (
         <a
           className="HeroRecommendation-link"
-          href={addParamsToHeroURL({ urlString: external.homepage })}
+          href={this.callToActionURL}
+          onClick={this.onHeroClick}
         >
           {linkInsides}
         </a>
       );
-    }
-
-    if (!heading || !link) {
-      // This should be impossible, as the API must return either an addon or
-      // an external entry to us, but it seems like a useful safety check.
-      log.warn(
-        'Neither an addon nor an external entry were returned by the hero API',
-      );
-      return null;
     }
 
     // translators: If uppercase does not work in your locale, change it to lowercase.

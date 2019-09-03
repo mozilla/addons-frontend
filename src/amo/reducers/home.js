@@ -53,16 +53,27 @@ export type ExternalPrimaryHeroShelfType =
   | ExternalPrimaryHeroShelfWithAddonType
   | ExternalPrimaryHeroShelfWithExternalType;
 
-export type PrimaryHeroShelfType = {|
-  gradient: {|
-    start: string,
-    end: string,
-  |},
+type BasePrimaryHeroShelfType = {|
+  gradient: HeroGradientType,
   featuredImage: string,
   description: string | null,
-  addon: AddonType | void,
-  external: PrimaryHeroShelfExternalType | void,
 |};
+
+type PrimaryHeroShelfWithAddonType = {|
+  ...BasePrimaryHeroShelfType,
+  addon: AddonType,
+  external: void,
+|};
+
+type PrimaryHeroShelfWithExternalType = {|
+  ...BasePrimaryHeroShelfType,
+  addon: void,
+  external: PrimaryHeroShelfExternalType,
+|};
+
+export type PrimaryHeroShelfType =
+  | PrimaryHeroShelfWithAddonType
+  | PrimaryHeroShelfWithExternalType;
 
 export type HeroCallToActionType = {|
   url: string,
@@ -188,16 +199,43 @@ export const createInternalHeroShelves = (
 ): HeroShelvesType => {
   const { primary, secondary } = heroShelves;
 
-  return {
-    primary: {
-      gradient: primary.gradient,
-      featuredImage: primary.featured_image,
-      description: primary.description,
-      addon: primary.addon ? createInternalAddon(primary.addon) : undefined,
-      external: primary.external || undefined,
-    },
-    secondary,
+  invariant(
+    primary.addon || primary.external,
+    'Either primary.addon or primary.external is required',
+  );
+
+  let shelves;
+
+  const basePrimaryShelf = {
+    gradient: primary.gradient,
+    featuredImage: primary.featured_image,
+    description: primary.description,
   };
+
+  if (primary.addon) {
+    const primaryShelf: PrimaryHeroShelfWithAddonType = {
+      ...basePrimaryShelf,
+      addon: createInternalAddon(primary.addon),
+      external: undefined,
+    };
+
+    shelves = {
+      primary: primaryShelf,
+      secondary,
+    };
+  } else {
+    const primaryShelf: PrimaryHeroShelfWithExternalType = {
+      ...basePrimaryShelf,
+      addon: undefined,
+      external: primary.external,
+    };
+    shelves = {
+      primary: primaryShelf,
+      secondary,
+    };
+  }
+
+  return shelves;
 };
 
 const reducer = (

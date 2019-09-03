@@ -4,6 +4,7 @@ import * as React from 'react';
 
 import AddonTitle from 'amo/components/AddonTitle';
 import HeroRecommendation, {
+  PRIMARY_HERO_CLICK_CATEGORY,
   PRIMARY_HERO_SRC,
   addParamsToHeroURL,
   HeroRecommendationBase,
@@ -11,6 +12,8 @@ import HeroRecommendation, {
 import { createInternalAddon } from 'core/reducers/addons';
 import { createInternalHeroShelves } from 'amo/reducers/home';
 import {
+  createFakeEvent,
+  createFakeTracking,
   createHeroShelves,
   fakeAddon,
   fakeI18n,
@@ -28,7 +31,7 @@ describe(__filename, () => {
   const render = (moreProps = {}) => {
     const props = {
       i18n: fakeI18n(),
-      shelfData: createShelfData(),
+      shelfData: createShelfData({ addon: fakeAddon }),
       ...moreProps,
     };
     return shallowUntilTarget(
@@ -131,20 +134,6 @@ describe(__filename, () => {
     const root = render({ shelfData });
 
     expect(root.find('.HeroRecommendation-body').html()).toContain(description);
-  });
-
-  it('returns nothing if the API returns neither an addon nor an external entry', () => {
-    // Note that this should not be possible from the API, as well as based on
-    // the Flow definitions, but all consumers of this component are not
-    // covered by Flow.
-    const root = render({
-      shelfData: createShelfData({
-        addon: undefined,
-        external: undefined,
-      }),
-    });
-
-    expect(root.find('.HeroRecommendation')).toHaveLength(0);
   });
 
   describe('addParamsToHeroURL', () => {
@@ -253,5 +242,33 @@ describe(__filename, () => {
         sinon.match({ utm_content: heroSrcCode }),
       );
     });
+  });
+
+  describe('tracking', () => {
+    const withAddonShelfData = createShelfData({ addon: fakeAddon });
+    const withExternalShelfData = createShelfData({
+      external: fakePrimaryHeroShelfExternal,
+    });
+
+    it.each([
+      ['addon', withAddonShelfData],
+      ['external', withExternalShelfData],
+    ])(
+      'sends a tracking event when the cta is clicked for %s',
+      (feature, shelfData) => {
+        const _tracking = createFakeTracking();
+
+        const root = render({ _tracking, shelfData });
+
+        const event = createFakeEvent();
+        root.find('.HeroRecommendation-link').simulate('click', event);
+
+        sinon.assert.calledWith(_tracking.sendEvent, {
+          action: root.instance().callToActionURL,
+          category: PRIMARY_HERO_CLICK_CATEGORY,
+        });
+        sinon.assert.calledOnce(_tracking.sendEvent);
+      },
+    );
   });
 });
