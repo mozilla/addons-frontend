@@ -386,11 +386,11 @@
   "bundlesize": [
     {
       "path": "./dist/@(amo|disco)-!(i18n-)*.js",
-      "maxSize": "435 kB"
+      "maxSize": "475 kB"
     },
     {
       "path": "./dist/@(amo|disco)-i18n-*.js",
-      "maxSize": "30 kB"
+      "maxSize": "33 kB"
     }
   ],
   "snyk": true
