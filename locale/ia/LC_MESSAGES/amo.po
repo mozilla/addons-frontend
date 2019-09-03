@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-03 18:03+0000\n"
-"PO-Revision-Date: 2019-09-03 22:09+0000\n"
+"PO-Revision-Date: 2019-09-03 23:13+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2228,7 +2228,7 @@ msgstr "A proposito del additivos de Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:230
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr "%(startLink)sInformationes circa como continger le equipa del additivos de Mozilla pote ser trovate ci%(endLink)s."
+msgstr "%(startLink)sInformationes de contacto pro le equipa del additivos de Mozilla se trova ci%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:31
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
@@ -2578,7 +2578,7 @@ msgstr "De tempore in tempore, Mozilla pote mitter iste email de usator circa ve
 
 #: src/amo/pages/UserProfileEdit/index.js:750
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr "Mozilla se reserva le derecto de continger te individualmente circa specific problemas con tu additivos hospite."
+msgstr "Mozilla se reserva le derecto de contactar te individualmente sur specific problemas con tu additivos albergate."
 
 #: src/amo/pages/UserProfileEdit/index.js:768
 msgid "Updating your profile…"
@@ -2668,7 +2668,7 @@ msgstr "remane ajornate con novas e eventos pertinente al disveloppatores de add
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr "Mozilla debe continger me circa mi additivo personal"
+msgstr "Mozilla debe contactar me sur mi additivo individual"
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
