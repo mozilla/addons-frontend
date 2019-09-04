@@ -91,6 +91,32 @@ describe(__filename, () => {
         root.instance().makeCallToActionURL(),
       );
     });
+
+    it('configures an external link to open in a new tab', () => {
+      const _isInternalURL = sinon.stub().returns(false);
+      const shelfData = createShelfData({
+        external: fakePrimaryHeroShelfExternal,
+      });
+
+      const root = render({ _isInternalURL, shelfData });
+
+      const link = root.find('.HeroRecommendation-link');
+      expect(link).toHaveProp('rel', 'noopener noreferrer');
+      expect(link).toHaveProp('target', '_blank');
+    });
+
+    it('does not configure an internal link to open in a new tab', () => {
+      const _isInternalURL = sinon.stub().returns(true);
+      const shelfData = createShelfData({
+        external: fakePrimaryHeroShelfExternal,
+      });
+
+      const root = render({ _isInternalURL, shelfData });
+
+      const link = root.find('.HeroRecommendation-link');
+      expect(link).not.toHaveProp('rel');
+      expect(link).not.toHaveProp('target');
+    });
   });
 
   it('renders an image', () => {
