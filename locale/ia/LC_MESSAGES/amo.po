@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-03 18:03+0000\n"
-"PO-Revision-Date: 2019-09-03 23:13+0000\n"
+"PO-Revision-Date: 2019-09-04 00:17+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1624,7 +1624,7 @@ msgstr "Paginas suggerite"
 
 #: src/amo/components/SuggestedPages/index.js:29
 msgid "Browse all extensions"
-msgstr "Naviga trans tote le extensiones"
+msgstr "Explora tote le extensiones"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
@@ -1734,7 +1734,7 @@ msgstr "Revisiones e valutationes pro %(addonName)s. Discoperi lo que altere usa
 
 #: src/amo/pages/AddonReviewList/index.js:228
 msgid "Show all reviews"
-msgstr "Monstrar tote le revisiones"
+msgstr "Monstrar tote le recensiones"
 
 #: src/amo/pages/AddonReviewList/index.js:230
 msgid "Show only five-star reviews"
@@ -1794,7 +1794,7 @@ msgstr "Versiones previe"
 
 #: src/amo/pages/CategoriesPage/index.js:34
 msgid "All extension categories"
-msgstr "Tote le categorias de extension"
+msgstr "Tote le categorias de extensiones"
 
 #: src/amo/pages/CategoriesPage/index.js:36
 msgid "All theme categories"
