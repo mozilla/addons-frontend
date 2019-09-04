@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-03 18:03+0000\n"
-"PO-Revision-Date: 2019-09-03 20:17+0000\n"
+"PO-Revision-Date: 2019-09-04 16:09+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -2825,7 +2825,7 @@ msgstr "החלפת מצב תוכן"
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
-msgstr "גישה לכלל המידע שלך מכל האתרים"
+msgstr "גישה לנתונים שלך מכל האתרים"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
