@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-03 18:03+0000\n"
-"PO-Revision-Date: 2019-09-05 14:38+0000\n"
+"PO-Revision-Date: 2019-09-05 15:45+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -821,6 +821,8 @@ msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"ਜੇ ਤੁਹਾਡੇ ਕੋਲ ਵਧੇਰੇ ਜਾਣਕਾਰੀ ਹੈ ਜੋ ਸਾਡੀ ਮਦਦ ਕਰੇਗੀ ਤਾਂ ਤੁਸੀਂ <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">ਕੋਈ ਮੁੱਦਾ ਦਾਇਰ ਕਰ ਸਕਦੇ ਹੋ</a>। ਸਾਨੂੰ ਦੱਸੋ ਕਿ ਤੁਸੀਂ ਕਿਹੜੇ ਕਦਮ ਚੁੱਕੇ ਜੋ ਉਸ"
+" ਗਲਤੀ ਵੱਲ ਲੈ ਗਿਆ ਅਤੇ ਅਸੀਂ ਇਸਨੂੰ ਠੀਕ ਕਰਨ ਲਈ ਪੂਰੀ ਕੋਸ਼ਿਸ਼ ਕਰਾਂਗੇ।"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -828,7 +830,7 @@ msgstr "ਸਰਵਰ ਗਲਤੀ"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:35
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "ਮੁਆਫ ਕਰਨਾ, ਪਰ ਸਾਡੇ ਸਰਵਰ ਨਾਲ ਇੱਕ ਗਲਤੀ ਆਈ ਹੈ ਅਤੇ ਅਸੀਂ ਤੁਹਾਡੀ ਬੇਨਤੀ ਨੂੰ ਪੂਰਾ ਨਹੀਂ ਕਰ ਸਕੇ। ਅਸੀਂ ਇਸ ਗਲਤੀ ਨੂੰ ਲਾਗ ਕੀਤਾ ਹੈ ਅਤੇ ਇਸਦੀ ਪੜਤਾਲ ਕਰਾਂਗੇ।"
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
@@ -943,6 +945,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"ਸਿਵਾਏ ਜਿੱਥੇ ਕਿ %(startNotedLink)sਦੱਸਿਆ ਗਿਆ ਹੋਵੇ%(endNotedLink)s, ਇਸ ਸਾਈਟ ਤੇ ਸਮੱਗਰੀ ਨੂੰ%(startLicenseLink)s ਕਰੀਏਟਿਵ ਕਾਮਨਜ਼ ਐਟ੍ਰੀਬਿ ਸ਼ੇਅਰ-ਅਲੀਕ ਲਾਇਸੈਂਸ v3.0%(endLicenseLink)s s ਜਾਂ ਕਿਸੇ ਵੀ ਅਗਲੇ ਵਰਜਨ ਦੇ"
+" ਅਧੀਨ ਲਾਇਸੰਸਸ਼ੁਦਾ ਕੀਤਾ ਗਿਆ ਹੈ।"
 
 #: src/amo/components/Footer/index.js:27
 msgid "Go to Mozilla's homepage"
@@ -1250,6 +1254,8 @@ msgstr "ਅਸੀਂ ਹਰੇਕ ਬਦਸਲੂਕੀ ਦੀ ਰਿਪੋਰ�
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"ਜੇ ਤੁਸੀਂ ਸੋਚਦੇ ਹੋ ਕਿ ਇਹ ਐਡ-ਆਨ %(linkTagStart)sਮੋਜ਼ੀਲਾ ਦੀ ਐਡ-ਆਨ ਨੀਤੀਆਂ%(linkTagEnd)s ਦੀ ਜਾਂ ਸੁਰੱਖਿਆ ਜਾਂ ਗੁਪਤਤਾ ਦੀਆਂ ਸਮੱਸਿਆਵਾਂ ਹੈ, ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਫਾਰਮ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਮੋਜ਼ੀਲਾ ਨੂੰ ਇਨ੍ਹਾਂ ਮੁੱਦਿਆਂ ਦੀ ਰਿਪੋਰਟ"
+" ਕਰੋ।"
 
 #: src/amo/components/ReportAbuseButton/index.js:132
 msgid "Report this add-on for abuse"
@@ -1403,7 +1409,7 @@ msgstr[1] "%(count)s ਦੇ ਥੀਮ %(categoryName)s ਵਿੱਚ ਲੱਭੇ
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "%(count)s ਲਈ \"%(query)s\" ਦਾ ਥੀਮ ਮਿਲਿਆ"
-msgstr[1] ""
+msgstr[1] "%(count)s ਦੇ ਥੀਮ \"%(query)s\" ਲਈ ਲੱਭੇ"
 
 #: src/amo/components/SearchContextCard/index.js:150
 msgid "%(count)s theme found"
@@ -2183,6 +2189,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"addons.mozilla.org (AMO) ਪ੍ਰੋਗਰਾਮ ਦੇ ਨਾਲ ਇੰਟਰੈਕਟ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ? AMO ਦੁਆਰਾ ਵਰਤੇ ਗਏ API ਅਤੇ %(startAddonsManager)s ਐਡਆਨ ਮੈਨੇਜਰ %(endAddonsManager)s ਦੇ ਵੇਰਵਿਆਂ ਲਈ "
+"%(startAddonsServerDocumentation)sਐਡਆਨ ਸਰਵਰ ਡੌਕੂਮੈਂਟੇਸ਼ਨ %(endAddonsServerDocumentation)s ਵੇਖੋ।"
 
 #: src/amo/pages/StaticPages/About/index.js:155
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2202,7 +2210,7 @@ msgstr "ਆਪਣੇ ਦੋਸਤਾਂ ਅਤੇ ਪਰਿਵਾਰ ਨੂੰ �
 
 #: src/amo/pages/StaticPages/About/index.js:190
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr ""
+msgstr "ਐਡਆਨ ਕਮਿਨਿਟੀ ਵਿੱਚ ਯੋਗਦਾਨ ਪਾਉਣ ਦੇ ਹੋਰ ਤਰੀਕਿਆਂ ਨੂੰ ਵੇਖਣ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ ਸਾਡੇ%(startLink)s ਸਵਿਕੀ%(endLink)s ਤੇ ਜਾਓ।"
 
 #: src/amo/pages/StaticPages/About/index.js:204
 msgid "Get support"
@@ -2418,7 +2426,7 @@ msgstr "%(user)s ਦੇ ਪਰੋਫਾਈਲ, ਫਾਇਰਫਾਕਸ ਐਕ�
 
 #: src/amo/pages/UserProfile/index.js:272
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "%(user)s ਦੇ ਪਰੋਫਾਈਲ, ਫਾਇਰਫਾਕਸ ਐਕਸ਼ਟੇਸ਼ਨ ਲੇਖਕੋ। ਔਸਤ ਰੇਟਿੰਗਾਂ, ਕਾਰਜਕਾਲ ਅਤੇ ਮੁੱਦਿਆਂ ਦੀ ਰਿਪੋਰਟ ਕਰਨ ਦੇ ਵਿਕਲਪ ਸਮੇਤ,%(user)s ਦੁਆਰਾ ਹੋਰ ਐਕਸਟੈਨਸ਼ਨ ਲੱਭੋ।"
 
 #: src/amo/pages/UserProfile/index.js:276
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
@@ -2553,7 +2561,7 @@ msgstr "ਇਹ URL ਸਿਰਫ ਉਨ੍ਹਾਂ ਉਪਭੋਗਤਾਵਾ�
 
 #: src/amo/pages/UserProfileEdit/index.js:702
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "ਕੁਝ HTML ਸਹਿਯੋਗੀ: %(htmlTags)s। ਲਿੰਕਾਂ ਦੀ ਮਨਾਹੀ ਹੈ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:726
 msgid "Notifications"
@@ -2561,11 +2569,11 @@ msgstr "ਸੂਚਨਾਵਾਂ"
 
 #: src/amo/pages/UserProfileEdit/index.js:730
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "ਸਮੇਂ-ਸਮੇ ਤੇ, ਮੌਜੀਲਾ ਆਉਣ ਵਾਲੀਆਂ ਰੀਲੀਜ਼ਾਂ ਅਤੇ ਐਡ-ਆਨ ਸਮਾਗਮਾਂ ਬਾਰੇ ਈਮੇਲ ਭੇਜਦਾ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਵਿਸ਼ਾ ਚੁਣੋ ਜਿਸ ਵਿੱਚ ਤੁਹਾਡੀ ਦਿਲਚਸਪੀ ਹੋਵੇ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:735
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "ਸਮੇਂ ਸਮੇਂ ਤੇ, ਮੋਜ਼ੀਲਾ ਆਉਣ ਵਾਲੇ ਰੀਲੀਜ਼ਾਂ ਅਤੇ ਐਡ-ਆਨ ਪ੍ਰੋਗਰਾਮਾਂ ਬਾਰੇ ਇਸ ਉਪਭੋਗਤਾ ਨੂੰ ਈਮੇਲ ਭੇਜ ਸਕਦੀ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਉਹ ਵਿਸ਼ੇ ਚੁਣੋ ਜੋ ਇਸ ਉਪਭੋਗਤਾ ਵਿੱਚ ਦਿਲਚਸਪੀ ਲੈ ਸਕਦੇ ਹਨ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:750
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
@@ -2597,7 +2605,7 @@ msgstr "ਪਰੋਫਾਈਲ ਨੂੰ ਹਟਾਓ"
 
 #: src/amo/pages/UserProfileEdit/index.js:796
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "IMPORTANT: ਤੁਹਾਡੇ ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਹਟਾਉਣਾ ਵਾਪਸੀਯੋਗ ਨਹੀਂ ਹੈ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:799
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
@@ -2648,7 +2656,7 @@ msgstr "ਮੈਂਬਰੀ ਹਟਾਓ"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "ਐਡਆਨ ਡਿਵੈਲਪਰ (ਐਡਆਨ ਨਿਊਜ਼ਲੈਟਰ ਸਮੇਤ) ਨਾਲ ਸਬੰਧਤ ਖ਼ਬਰਾਂ ਅਤੇ ਸਮਾਗਮਾਂ ਦੇ ਨਾਲ ਨਵੀਨਤਮ ਰਹੋ"
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
@@ -2899,7 +2907,7 @@ msgstr "ਫਾਇਰਫਾਕਸ ਉਹ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ
 
 #: src/ui/components/ShowMoreCard/index.js:126
 msgid "Expand to read more"
-msgstr ""
+msgstr "ਹੋਰ ਪੜ੍ਹਨ ਲਈ ਫੈਲਾਓ"
 
 #: src/ui/components/ShowMoreCard/index.js:131
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
