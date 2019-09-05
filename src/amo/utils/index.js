@@ -61,5 +61,5 @@ export const isInternalURL = ({
   const baseURL = _config.get('baseURL');
   const urlParts = url.parse(urlString, true);
 
-  return !urlParts.protocol || baseURL.includes(urlParts.host);
+  return !urlParts.protocol || url.parse(baseURL).host === urlParts.host;
 };

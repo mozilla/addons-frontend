@@ -45,5 +45,39 @@ describe(__filename, () => {
         }),
       ).toEqual(false);
     });
+
+    it('returns false for an subdomain of the current host', () => {
+      const siteBaseURL = 'https://example.org';
+      const subdomainBaseURL = 'https://subdomain.example.org';
+
+      const urlString = url.format({
+        ...url.parse(subdomainBaseURL),
+        pathname,
+      });
+
+      expect(
+        isInternalURL({
+          _config: getFakeConfig({ baseURL: siteBaseURL }),
+          urlString,
+        }),
+      ).toEqual(false);
+    });
+
+    it('returns false if the current host is a subdomain of the proposed URLs host', () => {
+      const siteBaseURL = 'https://subdomain.example.org';
+      const proposedBaseURL = 'https://example.org';
+
+      const urlString = url.format({
+        ...url.parse(proposedBaseURL),
+        pathname,
+      });
+
+      expect(
+        isInternalURL({
+          _config: getFakeConfig({ baseURL: siteBaseURL }),
+          urlString,
+        }),
+      ).toEqual(false);
+    });
   });
 });
