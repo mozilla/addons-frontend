@@ -1,14 +1,17 @@
 /* @flow */
+import url from 'url';
+
+import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 
 import AddonTitle from 'amo/components/AddonTitle';
 import Link from 'amo/components/Link';
-import { makeQueryStringWithUTM } from 'amo/utils';
+import { isInternalURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import { sanitizeUserHTML } from 'core/utils';
+import { addQueryParams, sanitizeUserHTML } from 'core/utils';
 import type { PrimaryHeroShelfType } from 'amo/reducers/home';
 import type { I18nType } from 'core/types/i18n';
 
@@ -22,6 +25,39 @@ type InternalProps = {|
   ...Props,
   i18n: I18nType,
 |};
+
+type QueryParams = { [key: string]: any };
+
+type AddParamsToHeroURLParams = {|
+  _addQueryParams?: typeof addQueryParams,
+  _config?: typeof config,
+  _isInternalURL?: typeof isInternalURL,
+  heroSrcCode?: string,
+  internalQueryParams?: QueryParams,
+  externalQueryParams?: QueryParams,
+  urlString: string,
+|};
+
+export const PRIMARY_HERO_SRC = 'homepage-primary-hero';
+
+export const addParamsToHeroURL = ({
+  _addQueryParams = addQueryParams,
+  _config = config,
+  _isInternalURL = isInternalURL,
+  heroSrcCode = PRIMARY_HERO_SRC,
+  internalQueryParams = { src: heroSrcCode },
+  externalQueryParams = {
+    utm_content: heroSrcCode,
+    utm_medium: 'referral',
+    utm_source: url.parse(_config.get('baseURL')).host,
+  },
+  urlString,
+}: AddParamsToHeroURLParams) => {
+  return _addQueryParams(
+    urlString,
+    _isInternalURL({ urlString }) ? internalQueryParams : externalQueryParams,
+  );
+};
 
 export class HeroRecommendationBase extends React.Component<InternalProps> {
   renderOverlayShape() {
@@ -104,10 +140,9 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       link = (
         <Link
           className="HeroRecommendation-link"
-          to={`/addon/${addon.slug}/${makeQueryStringWithUTM({
-            utm_content: 'homepage-primary-hero',
-            utm_campaign: '',
-          })}`}
+          to={addParamsToHeroURL({
+            urlString: `/addon/${addon.slug}/`,
+          })}
         >
           {linkInsides}
         </Link>
@@ -115,7 +150,10 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     } else if (external) {
       heading = external.name;
       link = (
-        <a className="HeroRecommendation-link" href={external.homepage}>
+        <a
+          className="HeroRecommendation-link"
+          href={addParamsToHeroURL({ urlString: external.homepage })}
+        >
           {linkInsides}
         </a>
       );
