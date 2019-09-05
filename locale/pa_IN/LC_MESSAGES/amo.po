@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-03 18:03+0000\n"
-"PO-Revision-Date: 2019-09-05 14:24+0000\n"
+"PO-Revision-Date: 2019-09-05 14:38+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -2045,6 +2045,8 @@ msgstr "ਫਾਇਰਫਾਕਸ ਨੂੰ ਥੀਮਾਂ ਦੇ ਰੂਪ ਵ�
 #: src/amo/pages/Home/index.js:236
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
 msgstr ""
+"ਫਾਇਰਫਾਕਸ ਐਕਸ਼ਟੇਸ਼ਨ ਅਤੇ ਥੀਮ ਡਾਊਨਲੋਡ ਕਰੋ। ਉਹ ਤੁਹਾਡੇ ਬ੍ਰਾਊਜ਼ਰ ਲਈ ਐਪਸ ਵਾਂਗ ਹਨ। ਉਹ ਤੰਗ ਕਰਨ ਵਾਲੇ ਵਿਗਿਆਪਨਾਂ ਨੂੰ ਰੋਕ ਸਕਦੇ ਹਨ, ਪਾਸਵਰਡ ਦੀ ਰੱਖਿਆ ਕਰ ਸਕਦੇ ਹਨ, ਬ੍ਰਾਉਜ਼ਰ ਦਿੱਖ ਬਦਲ ਸਕਦੇ ਹਨ ਅਤੇ ਹੋਰ ਵੀ ਬਹੁਤ ਕੁਝ ਕਰ "
+"ਸਕਦੇ ਹਨ।"
 
 #: src/amo/pages/Home/index.js:270 src/amo/pages/LandingPage/index.js:153
 #, fuzzy
@@ -2144,7 +2146,7 @@ msgstr "ਫਾਇਰਫਾਕਸ ਸ਼ਬਦਕੋਸ਼ ਅਤੇ ਭਾਸ਼
 
 #: src/amo/pages/LanguageTools/index.js:166
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "ਇੱਕ ਸ਼ਬਦਕੋਸ਼ ਐਡ-ਆਨ ਸਥਾਪਤ ਕਰਨ ਨਾਲ ਤੁਹਾਡੇ ਸਪੈਲ-ਚੈਕਰ ਲਈ ਇੱਕ ਨਵੀਂ ਭਾਸ਼ਾ ਵਿਕਲਪ ਸ਼ਾਮਲ ਹੋਵੇਗਾ, ਜੋ ਫਾਇਰਫਾਕਸ ਵਿੱਚ ਟਾਈਪ ਕਰਦੇ ਸਮੇਂ ਤੁਹਾਡੀ ਸਪੈਲਿੰਗ ਦੀ ਜਾਂਚ ਕਰਦਾ ਹੈ।"
 
 #: src/amo/pages/LanguageTools/index.js:171
 msgid "Language packs change your browser's interface language, including menu options and settings."
@@ -2168,7 +2170,7 @@ msgstr "ਸ਼ਬਦ-ਕੋਸ਼"
 
 #: src/amo/pages/SearchTools/index.js:31
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "ਤੁਹਾਡੀ ਖੋਜ ਦੇ ਤਰੀਕੇ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰਨ ਲਈ ਫਾਇਰਫਾਕਸ ਐਕਸਟੈਂਸ਼ਨਾਂ ਨੂੰ ਡਾਊਨਲੋਡ ਕਰੋ—ਹਰ ਚੀਜ਼, ਗੋਪਨੀਯਤਾ-ਵਧੀਕ ਖੋਜਾਂ ਤੋਂ ਵੈਬਸਾਈਟ-ਵਿਸ਼ੇਸ਼ ਖੋਜਾਂ, ਚਿੱਤਰ ਖੋਜ ਅਤੇ ਹੋਰ ਲਈ।"
 
 #: src/amo/pages/StaticPages/About/index.js:108
 msgid ""
@@ -2196,7 +2198,7 @@ msgstr "ਆਪਣੇ ਪਸੰਦੀਦਾ ਐਡ-ਆਨ ਲਈ ਫੀਡਬੈ�
 
 #: src/amo/pages/StaticPages/About/index.js:182
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "ਆਪਣੇ ਦੋਸਤਾਂ ਅਤੇ ਪਰਿਵਾਰ ਨੂੰ ਦੱਸੋ ਕਿ ਫਾਇਰਫਾਕਸ ਇੱਕ ਤੇਜ਼, ਸੁਰੱਖਿਅਤ ਬ੍ਰਾਉਜ਼ਰ ਹੈ ਜੋ ਆਪਣੀ ਨਿੱਜਤਾ ਦੀ ਰੱਖਿਆ ਕਰਦਾ ਹੈ, ਅਤੇ ਉਹ ਆਪਣੇ ਆਪ ਨੂੰ ਬਣਾਉਣ ਲਈ ਐਡ-ਆਨ ਦਾ ਇਸਤੇਮਾਲ ਕਰ ਸਕਦੇ ਹਨ!"
 
 #: src/amo/pages/StaticPages/About/index.js:190
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
@@ -2211,6 +2213,8 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"ਜੇ ਤੁਸੀਂ ਫਾਇਰਫਾਕਸ ਵਿਚ ਐਡ-ਆਨ ਦਾ ਪ੍ਰਬੰਧ ਕਿਵੇਂ ਕਰਨਾ ਹੈ, ਜਾਂ ਆਮ ਫਾਇਰਫਾਕਸ ਸਹਿਯੋਗ ਲੱਭਣ ਬਾਰੇ ਹੋਰ ਜਾਣਕਾਰੀ ਲੈਣਾ ਚਾਹੁੰਦੇ ਹੋ ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ %(startSUMOLink)s ਸਹਿਯੋਗ %(endSUMOLink)s ਮੋਜ਼ੀਲਾ ਵੇਖੋ। ਜੇ ਤੁਸੀਂ ਉੱਥੇ "
+"ਕੋਈ ਜਵਾਬ ਨਹੀਂ ਲੱਭ ਰਹੇ ਹੋ, ਤਾਂ ਤੁਸੀਂ ਸਾਡੇ ਕਮਿਊਨਿਟੀ ਫੋਰਮ %(startForumLink)s ਤੇ %(endForumLink)s ਸ਼ੁਰੂ ਕਰ ਸਕਦੇ ਹੋ।"
 
 #: src/amo/pages/StaticPages/About/index.js:22
 msgid "About Firefox Add-ons"
@@ -2218,7 +2222,7 @@ msgstr "ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ ਬਾਰੇ"
 
 #: src/amo/pages/StaticPages/About/index.js:230
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)s ਮੋਜ਼ੀਲਾ ਐਡ-ਆਨ ਦੀ ਟੀਮ ਨਾਲ ਸੰਪਰਕ ਕਿਵੇਂ ਕਰਨਾ ਹੈ ਇਸ ਬਾਰੇ ਜਾਣਕਾਰੀ ਇੱਥੇ %(endLink)s ਹੈ।"
 
 #: src/amo/pages/StaticPages/About/index.js:31
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
@@ -2301,6 +2305,8 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"ਕਿਰਪਾ ਕਰਕੇ ਕਿਸੇ ਵੀ ਪ੍ਰਸ਼ਨਾਤਮਕ ਸਮੀਖਿਆ ਬਾਰੇ \"ਇਸ ਸਮੀਖਿਆ ਦੀ ਸੂਚਨਾ\" ਤੇ ਕਲਿੱਕ ਕਰਨ ਦੁਆਰਾ ਫ਼ਲੈਗ ਜਾਂ ਸੂਚਨਾ ਦਿਓ ਅਤੇ ਇਹ ਸਾਈਟ ਤੇ ਸੰਜਮ ਲਈ ਦਾਖਲ ਕਰ ਦਿੱਤੀ ਜਾਵੇਗੀ। ਇਸ ਸਮੀਖਿਆ ਨੂੰ ਸਾਈਟ ਤੇ ਵਾਪਸ ਰੱਖਣ ਜਾਂ ਹਟਾ ਦੇਣ ਬਾਰੇ "
+"ਫ਼ੈਸਲਾ ਲੈਣ ਸਾਡੀ ਸੰਜਮ ਟੀਮ ਸਮੀਖਿਆ ਦਿਸ਼ਾ-ਨਿਰਦੇਸ਼ਾਂ ਦੀ ਵਰਤੋਂ ਕਰੇਗੀ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:145
 msgid "I'm an add-on author, can I respond to reviews?"
@@ -2335,6 +2341,8 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"ਐਡ-ਆਨ ਸਮੀਖਿਆਵਾਂ ਤੁਹਾਡੇ ਲਈ ਤੁਹਾਡੇ ਵਲੋਂ ਇੰਸਟਾਲ ਕੀਤੇ ਅਤੇ ਵਰਤੇ ਐਡ-ਆਨਾਂ ਬਾਰੇ ਆਪਣੀ ਰਾਏ ਸਾਂਝੀ ਕਰਨ ਦਾ ਇੱਕ ਜਰੀਆ ਹਨ। ਸਾਡੀ ਸਮੀਖਿਆ ਸੂਤਰਧਾਰ ਟੀਮ ਕੋਲ ਕਿਸੇ ਵੀ ਸਮੀਖਿਆ ਨੂੰ ਇਨਕਾਰਨ ਜਾਂ ਹਟਾਉਣ ਦਾ ਅਧਿਕਾਰ ਹੈ ਜੋ ਸਾਡੇ "
+"ਦਿਸ਼ਾ-ਨਿਰਦੇਸ਼ਾਂ ਦੀ ਪਾਲਣਾ ਨਹੀਂ ਕਰਦੀ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:47
 msgid "Tips for writing a great review"
@@ -2346,7 +2354,7 @@ msgstr "ਕਰੋ:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:51
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "ਇਸ ਤਰ੍ਹਾਂ ਲਿਖੋ ਜਿਵੇਂ ਤੁਸੀਂ ਆਪਣੇ ਇੱਕ ਮਿੱਤਰ ਨੂੰ ਐਡ-ਆਨ ਬਾਰੇ ਆਪਣਾ ਅਨੁਭਵ ਦੱਸ ਰਹੇ ਹੋਵੋ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Keep reviews concise and easy to understand."
