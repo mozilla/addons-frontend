@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-03 18:03+0000\n"
-"PO-Revision-Date: 2019-09-05 15:45+0000\n"
+"PO-Revision-Date: 2019-09-07 09:07+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1914,11 +1914,11 @@ msgstr "ਐਕਸਟੈਂਸ਼ਨ ਤੁਹਾਡੀ ਔਨਲਾਈਨ ਰੁ
 
 #: src/amo/pages/Guides/index.js:164
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-msgstr ""
+msgstr "ਆਪਣੇ ਬੁੱਕਮਾਰਕਸ ਨੂੰ ਵਿਵਸਥਿਤ ਕਰਨ ਦਾ ਅਨੰਦ ਲਓ ਜੇ ਤੁਸੀਂ ਕਈ ਬੁੱਕਮਾਰਕ ਫੋਲਡਰਾਂ ਨੂੰ ਬਣਾਈ ਰੱਖਦੇ ਹੋ।"
 
 #: src/amo/pages/Guides/index.js:167
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr ""
+msgstr "ਹੋਰ %(linkStart)s ਬੁੱਕਮਾਰਕ%(linkEnd)s ਦੇ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ।"
 
 #: src/amo/pages/Guides/index.js:178
 msgid "Enjoy a fresh new tab experience"
@@ -1967,7 +1967,7 @@ msgstr "ਮੀਡੀਆ ਨੂੰ ਬਰਾਊਜ਼ਰ ਵਿੱਚ ਲਿਆ�
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "ਐਕਸਟੈਂਸ਼ਨ ਫਾਇਰਫਾਕਸ ਨੂੰ ਤੁਹਾਡੇ ਆਪਣੇ ਮਨੋਰੰਜਨ ਹੱਬ ਵਿੱਚ ਬਦਲ ਸਕਦੀ ਹੈ ਜੋ ਤੁਹਾਨੂੰ ਸੰਗੀਤ, ਚਿੱਤਰ ਕੈਪਚਰ, ਗੇਮਿੰਗ ਅਤੇ ਹੋਰ ਵੀ ਬਹੁਤ ਕੁਝ ਦੀ ਪਹੁੰਚ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ।"
 
 #: src/amo/pages/Guides/index.js:238
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
@@ -2577,7 +2577,7 @@ msgstr "ਸਮੇਂ ਸਮੇਂ ਤੇ, ਮੋਜ਼ੀਲਾ ਆਉਣ ਵਾ
 
 #: src/amo/pages/UserProfileEdit/index.js:750
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "ਮੌਜੀਲਾ ਕੋਲ ਤੁਹਾਡੇ ਵੱਲੋਂ ਮੇਜ਼ਬਾਨ ਐਡ-ਆਨ ਬਾਰੇ ਖਾਸ਼ ਤਸ਼ਵੀਸ਼ ਲਈ ਤੁਹਾਨੂੰ ਵਿਅਕਤੀਗਤ ਰੂਪ ਵਿੱਚ ਸੰਪਰਕ ਕਰਨ ਦਾ ਅਧਿਕਾਰ ਰਾਖਵਾਂ ਹੈ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:768
 msgid "Updating your profile…"
@@ -2616,26 +2616,33 @@ msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
+"ਤੁਹਾਡਾ ਡਾਟਾ ਪੱਕੇ ਤੌਰ ਤੇ ਹਟਾ ਦਿੱਤਾ ਜਾਏਗਾ, ਪ੍ਰੋਫਾਈਲ ਵੇਰਵਿਆਂ (ਤਸਵੀਰ, ਉਪਭੋਗਤਾ ਦਾ ਨਾਮ, ਪ੍ਰਦਰਸ਼ਨੀ ਦਾ ਨਾਮ, ਸਥਾਨ, ਮੁੱਖ ਪੰਨਾ, ਜੀਵਨੀ, ਪੇਸ਼ਾ) ਅਤੇ ਨੋਟੀਫਿਕੇਸ਼ਨ ਪਸੰਦਾਂ ਸਮੇਤ। ਤੁਹਾਡੀਆਂ ਸਮੀਖਿਆਵਾਂ ਅਤੇ ਰੇਟਿੰਗ ਗੁਮਨਾਮ "
+"ਹੋਣਗੀਆਂ ਅਤੇ ਹੁਣ ਸੰਪਾਦਨ ਯੋਗ ਨਹੀਂ ਹੋਣਗੇ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:815
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
+"ਉਪਭੋਗਤਾ ਦੇ ਡੇਟਾ ਨੂੰ ਪੱਕੇ ਤੌਰ ਤੇ ਹਟਾ ਦਿੱਤਾ ਜਾਏਗਾ, ਪ੍ਰੋਫਾਈਲ ਵੇਰਵਿਆਂ (ਤਸਵੀਰ, ਉਪਭੋਗਤਾ ਨਾਮ, ਪ੍ਰਦਰਸ਼ਨੀ ਦਾ ਨਾਮ, ਸਥਾਨ, ਹੋਮ ਪੇਜ, ਜੀਵਨੀ, ਪੇਸ਼ਾ) ਅਤੇ ਸੂਚਨਾ ਤਰਜੀਹਾਂ ਸਮੇਤ। ਸਮੀਖਿਆਵਾਂ ਅਤੇ ਦਰਜਾ ਅਗਿਆਤ ਹੋਣਗੇ ਅਤੇ ਹੁਣ "
+"ਸੰਪਾਦਨ ਯੋਗ ਨਹੀਂ ਹੋਣਗੇ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:825
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
 msgstr ""
+"ਜਦੋਂ ਤੁਸੀਂ ਇਸ ਈ-ਮੇਲ ਪਤੇ ਨੂੰ addons.mozilla.org ਵਿੱਚ ਦੁਬਾਰਾ ਲੌਗ ਇਨ ਕਰਨ ਲਈ ਵਰਤਦੇ ਹੋ, ਤਾਂ ਤੁਸੀਂ ਇੱਕ ਨਵਾਂ ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ ਪ੍ਰੋਫਾਈਲ ਬਣਾਉਗੇ ਜੋ ਤੁਹਾਡੇ ਦੁਆਰਾ ਮਿਟਾਏ ਗਏ ਪ੍ਰੋਫਾਈਲ ਨਾਲ ਕਿਸੇ ਵੀ ਤਰਾਂ ਸਬੰਧਤ ਨਹੀਂ ਹੈ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:838
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
+"%(strongStart)sNOTE:%(strongEnd)s ਤੁਸੀਂ ਆਪਣਾ ਪਰੋਫਾਈਲ ਨਹੀਂ ਹਟਾ ਸਕਦੇ ਜੇ ਤੁਸੀਂ %(linkStart)s ਕਿਸੇ ਐਡ-ਆਨ%(linkEnd)s ਦੇ ਅਧਿਕਾਰਤ ਹੋ। ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਪਹਿਲਾਂ ਤੁਹਾਨੂੰ %(docLinkStart)sਦੀ "
+"ਮਲਕੀਅਤ%(docLinkEnd)s ਨੂੰ ਤਬਦੀਲ ਕਰਨਾ ਪਵੇਗਾ ਜਾਂ ਐਡ-ਆਨ ਨੂੰ ਮਿਟਾਉਣਾ ਪਵੇਗਾ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:845
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sNOTE:%(strongEnd)s ਤੁਸੀਂ ਉਪਭੋਗਤਾ ਦਾ ਪ੍ਰੋਫਾਈਲ ਨਹੀਂ ਮਿਟਾ ਸਕਦੇ ਜੇ ਉਪਯੋਗਕਰਤਾ%(linkStart)s ਕਿਸੇ ਐਡ-ਆਨ%(linkEnd)s ਦਾ ਅਧਿਕਾਰਤ ਹੈ।"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:104
 msgid "You are successfully unsubscribed!"
@@ -2648,7 +2655,7 @@ msgstr "ਈਮੇਲ ਐਡਰੈੱਸ %(strongStart)s%(email)s%(strongEnd)s �
 
 #: src/amo/pages/UsersUnsubscribe/index.js:76
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "ਤੁਸੀਂ ਆਪਣੇ ਨੋਟੀਫਿਕੇਸ਼ਨ ਸੈਟਿੰਗਾਂ ਨੂੰ%(linkStart)s ਦੁਆਰਾ ਆਪਣੇ ਪ੍ਰੋਫਾਈਲ%(linkEnd)s ਨੂੰ ਭਰਮਾ ਸਕਦੇ ਹੋ।"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:95
 msgid "Unsubscribe"
