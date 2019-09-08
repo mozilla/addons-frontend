@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-03 18:03+0000\n"
-"PO-Revision-Date: 2019-07-31 09:23+0000\n"
+"PO-Revision-Date: 2019-09-08 12:49+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1071,11 +1071,11 @@ msgstr "Elles ajoutent des fonctionnalités à Firefox pour rendre la navigation
 
 #: src/amo/components/InstallWarning/index.js:134
 msgid "Learn more"
-msgstr ""
+msgstr "En savoir plus"
 
 #: src/amo/components/InstallWarning/index.js:138
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr ""
+msgstr "Cette extension n’est pas surveillée par Mozilla. Assurez-vous que vous puissiez lui faire confiance avant de l’installer."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
