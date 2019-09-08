@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-03 18:03+0000\n"
-"PO-Revision-Date: 2019-09-04 16:09+0000\n"
+"PO-Revision-Date: 2019-09-08 17:44+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1118,7 +1118,7 @@ msgstr "הרחבת כלי הפיתוח לקבלת גישה לנתונים שלך
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
-msgstr "הורדת קבצים, קריאה ועריכת היסטורית ההורדות של הדפדפן"
+msgstr "הורדת קבצים, קריאה ועריכת היסטוריית ההורדות של הדפדפן"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
@@ -1134,7 +1134,7 @@ msgstr "גישה למיקום שלך"
 
 #: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
 msgid "Access browsing history"
-msgstr "גישה להיסטורית הגלישה"
+msgstr "גישה להיסטוריית הגלישה"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
