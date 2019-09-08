@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-03 18:03+0000\n"
-"PO-Revision-Date: 2019-09-04 02:00+0000\n"
+"PO-Revision-Date: 2019-09-08 06:31+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -2487,7 +2487,7 @@ msgstr "E-postadressa kan ikkje endrast her"
 
 #: src/amo/pages/UserProfileEdit/index.js:562
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Du kan endre e-postadressa di i Firefox Accounts. %(startLink)sTreng du hjelp?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:579
 msgid "Manage Firefox Accounts…"
