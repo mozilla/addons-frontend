@@ -79,16 +79,11 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
         urlString: `/addon/${addon.slug}/`,
       });
     }
-    if (external) {
-      return addParamsToHeroURL({
-        urlString: external.homepage,
-      });
-    }
-    // This isn't possible because an internal HeroShelves object cannot be
-    // created without either an addon or an external, but eslint wants us to
-    // return something.
-    /* istanbul ignore next */
-    return '';
+
+    invariant(external, 'Either an addon or an external is required');
+    return addParamsToHeroURL({
+      urlString: external.homepage,
+    });
   };
 
   onHeroClick = () => {
