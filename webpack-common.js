@@ -41,7 +41,10 @@ export function getStyleRules({
               plugins: postCssPlugins,
             },
           },
-          { loader: 'sass-loader', options: { outputStyle: 'expanded' } },
+          {
+            loader: 'sass-loader',
+            options: { sassOptions: { outputStyle: 'expanded' } },
+          },
         ],
       },
     ];
@@ -70,9 +73,10 @@ export function getStyleRules({
           {
             loader: 'sass-loader',
             options: {
-              outputStyle: 'expanded',
               sourceMap: true,
-              sourceMapContents: true,
+              sassOptions: {
+                outputStyle: 'expanded',
+              },
             },
           },
         ],
