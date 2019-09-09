@@ -61,7 +61,7 @@ describe(__filename, () => {
 
       expect(root.find('.HeroRecommendation-link')).toHaveProp(
         'to',
-        addParamsToHeroURL({ urlString: `/addon/${slug}/` }),
+        root.instance().makeCallToActionURL(),
       );
     });
   });
@@ -88,7 +88,7 @@ describe(__filename, () => {
 
       expect(root.find('.HeroRecommendation-link')).toHaveProp(
         'href',
-        addParamsToHeroURL({ urlString: homepage }),
+        root.instance().makeCallToActionURL(),
       );
     });
   });
@@ -244,6 +244,32 @@ describe(__filename, () => {
     });
   });
 
+  describe('makeCallToActionURL', () => {
+    it('creates a URL for an addon', () => {
+      const slug = 'some-addon-slug';
+      const shelfData = createShelfData({ addon: { ...fakeAddon, slug } });
+
+      const root = render({ shelfData });
+
+      expect(root.instance().makeCallToActionURL()).toEqual(
+        addParamsToHeroURL({ urlString: `/addon/${slug}/` }),
+      );
+    });
+
+    it('creates a URL for an external entry', () => {
+      const homepage = 'https://somehomepage.com';
+      const shelfData = createShelfData({
+        external: { ...fakePrimaryHeroShelfExternal, homepage },
+      });
+
+      const root = render({ shelfData });
+
+      expect(root.instance().makeCallToActionURL()).toEqual(
+        addParamsToHeroURL({ urlString: homepage }),
+      );
+    });
+  });
+
   describe('tracking', () => {
     const withAddonShelfData = createShelfData({ addon: fakeAddon });
     const withExternalShelfData = createShelfData({
@@ -264,7 +290,7 @@ describe(__filename, () => {
         root.find('.HeroRecommendation-link').simulate('click', event);
 
         sinon.assert.calledWith(_tracking.sendEvent, {
-          action: root.instance().callToActionURL,
+          action: root.instance().makeCallToActionURL(),
           category: PRIMARY_HERO_CLICK_CATEGORY,
         });
         sinon.assert.calledOnce(_tracking.sendEvent);

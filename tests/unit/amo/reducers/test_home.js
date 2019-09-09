@@ -40,6 +40,10 @@ describe(__filename, () => {
       );
     };
 
+    const _createHeroShelves = (primaryProps = { addon: fakeAddon }) => {
+      return createHeroShelves({ primaryProps });
+    };
+
     it('initializes properly', () => {
       const state = homeReducer(undefined, {});
       expect(state).toEqual(initialState);
@@ -104,9 +108,7 @@ describe(__filename, () => {
     it('loads hero shelves', () => {
       const { store } = dispatchClientMetadata();
 
-      const heroShelves = createHeroShelves({
-        primaryProps: { addon: fakeAddon },
-      });
+      const heroShelves = _createHeroShelves();
       _loadHomeData({
         store,
         heroShelves,

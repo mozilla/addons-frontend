@@ -68,31 +68,30 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     _tracking: tracking,
   };
 
-  constructor(props: InternalProps) {
-    super(props);
-
-    const { shelfData } = props;
+  makeCallToActionURL = () => {
+    const { shelfData } = this.props;
     invariant(shelfData, 'The shelfData property is required');
 
     const { addon, external } = shelfData;
-    this.callToActionURL = '';
 
     if (addon) {
-      this.callToActionURL = addParamsToHeroURL({
+      return addParamsToHeroURL({
         urlString: `/addon/${addon.slug}/`,
       });
-    } else if (external) {
-      this.callToActionURL = addParamsToHeroURL({
+    }
+    if (external) {
+      return addParamsToHeroURL({
         urlString: external.homepage,
       });
     }
-  }
+    return '';
+  };
 
   onHeroClick = () => {
     const { _tracking } = this.props;
 
     _tracking.sendEvent({
-      action: this.callToActionURL,
+      action: this.makeCallToActionURL(),
       category: PRIMARY_HERO_CLICK_CATEGORY,
     });
   };
@@ -176,7 +175,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
         <Link
           className="HeroRecommendation-link"
           onClick={this.onHeroClick}
-          to={this.callToActionURL}
+          to={this.makeCallToActionURL()}
         >
           {linkInsides}
         </Link>
@@ -186,7 +185,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       link = (
         <a
           className="HeroRecommendation-link"
-          href={this.callToActionURL}
+          href={this.makeCallToActionURL()}
           onClick={this.onHeroClick}
         >
           {linkInsides}
