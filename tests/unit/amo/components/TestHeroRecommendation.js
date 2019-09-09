@@ -94,21 +94,25 @@ describe(__filename, () => {
 
     it('configures an external link to open in a new tab', () => {
       const _isInternalURL = sinon.stub().returns(false);
-      const shelfData = createShelfData({
-        external: fakePrimaryHeroShelfExternal,
-      });
+      const external = fakePrimaryHeroShelfExternal;
+      const shelfData = createShelfData({ external });
 
       const root = render({ _isInternalURL, shelfData });
 
       const link = root.find('.HeroRecommendation-link');
       expect(link).toHaveProp('rel', 'noopener noreferrer');
       expect(link).toHaveProp('target', '_blank');
+      sinon.assert.calledWith(
+        _isInternalURL,
+        sinon.match({ urlString: sinon.match(external.homepage) }),
+      );
     });
 
     it('does not configure an internal link to open in a new tab', () => {
       const _isInternalURL = sinon.stub().returns(true);
+      const slug = 'some-slug';
       const shelfData = createShelfData({
-        external: fakePrimaryHeroShelfExternal,
+        addon: { ...fakeAddon, slug },
       });
 
       const root = render({ _isInternalURL, shelfData });
@@ -116,6 +120,10 @@ describe(__filename, () => {
       const link = root.find('.HeroRecommendation-link');
       expect(link).not.toHaveProp('rel');
       expect(link).not.toHaveProp('target');
+      sinon.assert.calledWith(
+        _isInternalURL,
+        sinon.match({ urlString: sinon.match(slug) }),
+      );
     });
   });
 
