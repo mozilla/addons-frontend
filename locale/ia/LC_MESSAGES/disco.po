@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-03 18:07+0000\n"
-"PO-Revision-Date: 2019-08-27 17:52+0000\n"
+"PO-Revision-Date: 2019-09-09 06:48+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -19,10 +19,8 @@ msgid "Learn more"
 msgstr "Saper plus"
 
 #: src/amo/components/InstallWarning/index.js:138
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
+msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
+msgstr "Iste extension non es controlate per Mozilla. Attention a verificar le extension ante lo installar."
 
 #: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
@@ -61,15 +59,10 @@ msgid "Server Error"
 msgstr "Error de servitor"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Pardono, ma il ha habite un error e nos non pote completar tu requesta. Nos "
-"ha registrate iste error e investigara re illo."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Pardono, ma il ha habite un error e nos non pote completar tu requesta. Nos ha registrate iste error e investigara re illo."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Codice de error: %(status)s."
 
@@ -79,8 +72,7 @@ msgstr "Pagina non trovate"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
-"Pardono, ma nos non pote trovar tote le cosas al URL que tu specificava."
+msgstr "Pardono, ma nos non pote trovar tote le cosas al URL que tu specificava."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
@@ -187,30 +179,19 @@ msgstr "Personalisa tu Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Il ha milles de additivos libere, create per disveloppatores per tote le "
-"mundo, que tu pote installar pro personalisar tu Firefox. Ab amusante themas "
-"visual a potente applicationes que rende le exploration plus veloce e plus "
-"secur, le additivos rende tue tu navigator. Pro te adjutar a comenciar, ecce "
-"alcunos que nos recommenda pro lor prestationes e functionalitate relevante."
+"Il ha milles de additivos libere, create per disveloppatores per tote le mundo, que tu pote installar pro personalisar tu Firefox. Ab amusante themas visual a potente applicationes que rende le "
+"exploration plus veloce e plus secur, le additivos rende tue tu navigator. Pro te adjutar a comenciar, ecce alcunos que nos recommenda pro lor prestationes e functionalitate relevante."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Saper plus"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
-"Alcunos de iste recommendationes es personalisate. Illos es basate sur "
-"nostre extensiones que tu installava, sur preferentias del profilo e "
-"statisticas de utilisation."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgstr "Alcunos de iste recommendationes es personalisate. Illos es basate sur nostre extensiones que tu installava, sur preferentias del profilo e statisticas de utilisation."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-03 18:03+0000\n"
-"PO-Revision-Date: 2019-09-06 21:53+0000\n"
+"PO-Revision-Date: 2019-09-09 06:47+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1075,7 +1075,7 @@ msgstr "Saper plus"
 
 #: src/amo/components/InstallWarning/index.js:138
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr ""
+msgstr "Iste extension non es controlate per Mozilla. Attention a verificar le extension ante lo installar."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
