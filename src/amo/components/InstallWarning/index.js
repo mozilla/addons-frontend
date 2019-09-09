@@ -55,7 +55,7 @@ export const INSTALL_WARNING_EXPERIMENT_DIMENSION = 'dimension6';
 export const VARIANT_INCLUDE_WARNING = 'includeWarning';
 export const VARIANT_EXCLUDE_WARNING = 'excludeWarning';
 const WARNING_LINK_DESTINATION =
-  'https://support.mozilla.org/kb/recommended-extensions-program';
+  'https://support.mozilla.org/kb/recommended-extensions-program#w_what-are-the-risks-of-installing-non-recommended-extensions';
 
 export class InstallWarningBase extends React.Component<InternalProps> {
   static defaultProps = {
