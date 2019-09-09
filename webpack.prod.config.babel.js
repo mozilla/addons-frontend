@@ -45,8 +45,9 @@ export default {
       // We do not use UglifyJsPlugin because it does not work as intended with
       // our config, but TerserPlugin is very similar.
       new TerserPlugin({
-        cache: true,
-        parallel: true,
+        // This has been enabled by default in terser-webpack-plugin 2.0.0 but
+        // we were not using it before.
+        extractComments: false,
         // Even though devtool is set to source-map, this must be true to
         // output source maps:
         sourceMap: true,
