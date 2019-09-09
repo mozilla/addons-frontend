@@ -28,7 +28,7 @@ describe(__filename, () => {
     const _loadHomeData = ({
       store,
       collections = [],
-      heroShelves = createHeroShelves(),
+      heroShelves = createHeroShelves({ primaryProps: { addon: fakeAddon } }),
       shelves = {},
     }) => {
       store.dispatch(
@@ -38,6 +38,10 @@ describe(__filename, () => {
           shelves,
         }),
       );
+    };
+
+    const _createHeroShelves = (primaryProps = { addon: fakeAddon }) => {
+      return createHeroShelves({ primaryProps });
     };
 
     it('initializes properly', () => {
@@ -104,7 +108,7 @@ describe(__filename, () => {
     it('loads hero shelves', () => {
       const { store } = dispatchClientMetadata();
 
-      const heroShelves = createHeroShelves();
+      const heroShelves = _createHeroShelves();
       _loadHomeData({
         store,
         heroShelves,
@@ -332,6 +336,15 @@ describe(__filename, () => {
       expect(createInternalHeroShelves(heroShelves).secondary).toMatchObject({
         modules: heroShelves.secondary.modules,
       });
+    });
+
+    it('throws an exception if neither an addon nor an external entry is provided', () => {
+      const heroShelves = createHeroShelves({
+        primaryProps: { addon: undefined, external: undefined },
+      });
+      expect(() => createInternalHeroShelves(heroShelves)).toThrow(
+        /Either primary.addon or primary.external is required/,
+      );
     });
   });
 });

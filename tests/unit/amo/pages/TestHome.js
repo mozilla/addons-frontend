@@ -70,10 +70,14 @@ describe(__filename, () => {
     return shallowUntilTarget(<Home {...allProps} />, HomeBase);
   }
 
+  const _createHeroShelves = (primaryProps = { addon: fakeAddon }) => {
+    return createHeroShelves({ primaryProps });
+  };
+
   const _loadHomeData = ({
     store,
     collections = [],
-    heroShelves = createHeroShelves(),
+    heroShelves = _createHeroShelves(),
     shelves = {},
   }) => {
     store.dispatch(loadHomeData({ collections, heroShelves, shelves }));
@@ -317,7 +321,6 @@ describe(__filename, () => {
     _loadHomeData({
       store,
       collections,
-      heroShelves: createHeroShelves(),
       shelves: { recommendedExtensions },
     });
 
@@ -513,7 +516,7 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
       });
-      const heroShelves = createHeroShelves();
+      const heroShelves = _createHeroShelves();
       _loadHomeData({ store, heroShelves });
 
       const root = render({
@@ -546,7 +549,7 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_ANDROID,
       });
-      _loadHomeData({ store, heroShelves: createHeroShelves() });
+      _loadHomeData({ store, heroShelves: _createHeroShelves() });
 
       const root = render({
         _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
@@ -560,7 +563,7 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
       });
-      _loadHomeData({ store, heroShelves: createHeroShelves() });
+      _loadHomeData({ store, heroShelves: _createHeroShelves() });
 
       const root = render({
         _config: getFakeConfig({ enableFeatureHeroRecommendation: false }),
