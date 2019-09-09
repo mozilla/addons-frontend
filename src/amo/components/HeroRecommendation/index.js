@@ -84,6 +84,10 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
         urlString: external.homepage,
       });
     }
+    // This isn't possible because an internal HeroShelves object cannot be
+    // created without either an addon or an external, but eslint wants us to
+    // return something.
+    /* istanbul ignore next */
     return '';
   };
 
