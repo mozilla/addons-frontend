@@ -27,6 +27,7 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
+  _isInternalURL: typeof isInternalURL,
   _tracking: typeof tracking,
 |};
 
@@ -62,9 +63,8 @@ export const addParamsToHeroURL = ({
 };
 
 export class HeroRecommendationBase extends React.Component<InternalProps> {
-  callToActionURL: string;
-
   static defaultProps = {
+    _isInternalURL: isInternalURL,
     _tracking: tracking,
   };
 
@@ -160,13 +160,17 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { i18n, shelfData } = this.props;
+    const { _isInternalURL, i18n, shelfData } = this.props;
     const { addon, description, external, featuredImage } = shelfData;
 
     const linkInsides = <span> {i18n.gettext('Get the extension')} </span>;
 
     let heading;
     let link;
+
+    const linkProps = _isInternalURL({ urlString: this.makeCallToActionURL() })
+      ? {}
+      : { rel: 'noopener noreferrer', target: '_blank' };
 
     if (addon) {
       heading = <AddonTitle addon={addon} as="div" />;
@@ -186,6 +190,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
           className="HeroRecommendation-link"
           href={this.makeCallToActionURL()}
           onClick={this.onHeroClick}
+          {...linkProps}
         >
           {linkInsides}
         </a>
