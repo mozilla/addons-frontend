@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-03 18:07+0000\n"
-"PO-Revision-Date: 2017-12-09 19:58+0000\n"
-"Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
+"PO-Revision-Date: 2019-03-30 21:25+0000\n"
+"Last-Translator: Zobayer Ahmed Khan <zobayer.mc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
@@ -24,15 +24,15 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
-msgstr ""
+msgstr "সক্রিয়"
 
 #: src/core/components/AMInstallButton/index.js:248
 msgid "Remove"
-msgstr ""
+msgstr "অপসারণ"
 
 #: src/core/components/AMInstallButton/index.js:250
 msgid "Enabling"
-msgstr ""
+msgstr "সক্রিয় হচ্ছে"
 
 #: src/core/components/AMInstallButton/index.js:252
 msgid "Downloading"
@@ -88,33 +88,33 @@ msgstr ""
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s এবং পরবর্তী"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s থেকে %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
@@ -187,7 +187,7 @@ msgstr ""
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
-msgstr ""
+msgstr "আরও জানুন"
 
 #: src/disco/pages/DiscoPane/index.js:211
 msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
@@ -195,7 +195,7 @@ msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "আপনার সেশন মেয়াদ উত্তীর্ণ হয়েছে"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
@@ -203,11 +203,11 @@ msgstr "অপ্রত্যাশিত ভুল হয়েছে"
 
 #: src/ui/components/ErrorList/index.js:59
 msgid "Reload To Continue"
-msgstr ""
+msgstr "অব্যাহত রাখতে রিলোড করুন"
 
 #: src/ui/components/Notice/index.js:147
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "এই নোটিশটি বাতিল করুন"
 
 #: src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
