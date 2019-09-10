@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-03 18:03+0000\n"
+"POT-Creation-Date: 2019-09-10 16:11+0000\n"
 "PO-Revision-Date: 2019-06-21 11:27+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -1164,15 +1164,15 @@ msgstr "Shtesa Firefox-i"
 msgid "Learn how to create extensions and themes"
 msgstr "Mësoni si të krijoni zgjerime dhe tema"
 
-# If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:135
-msgid "RECOMMENDED"
-msgstr ""
-
-#: src/amo/components/HeroRecommendation/index.js:97
+#: src/amo/components/HeroRecommendation/index.js:166
 #, fuzzy
 msgid "Get the extension"
 msgstr "Zgjerime mbi motin"
+
+# If uppercase does not work in your locale, change it to lowercase.
+#: src/amo/components/HeroRecommendation/index.js:202
+msgid "RECOMMENDED"
+msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
