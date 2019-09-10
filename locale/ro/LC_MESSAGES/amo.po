@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-03 18:03+0000\n"
-"PO-Revision-Date: 2019-09-10 04:32+0000\n"
+"PO-Revision-Date: 2019-09-10 05:13+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1922,7 +1922,7 @@ msgstr "Navigare mai bună cu marcaje îmbunătățite"
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr "Extensiile te pot ajuta să îți organizezi interesele online. Managerele de marcaje sunt ideale pentru persoanele care urmăresc multe conținuturi."
+msgstr "Extensiile te pot ajuta să îți organizezi interesele online. Managerii de marcaje sunt ideali pentru persoanele care urmăresc multe conținuturi."
 
 #: src/amo/pages/Guides/index.js:164
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
@@ -2013,7 +2013,7 @@ msgstr "Creează și gestionează parole puternice"
 #: src/amo/pages/Guides/index.js:80
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
 msgstr ""
-"Managerele de parole te pot ajuta să îți creezi parole securizate, să le stochezi (în siguranță) într-un singur loc și îți oferă accesul facil la datele tale de autentificare oriunde te-ai afla."
+"Managerii de parole te pot ajuta să îți creezi parole securizate, să le stochezi (în siguranță) într-un singur loc și îți oferă accesul facil la datele tale de autentificare oriunde te-ai afla."
 
 #: src/amo/pages/Guides/index.js:85
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
@@ -2021,7 +2021,7 @@ msgstr "Protecție prin parolă criptată complet. Stochează-ți datele în sig
 
 #: src/amo/pages/Guides/index.js:89
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "Explorează mai multe %(linkStart)smanagere de parole%(linkEnd)s nemaipomenite."
+msgstr "Explorează mai mulți %(linkStart)smanageri de parole%(linkEnd)s nemaipomeniți."
 
 #: src/amo/pages/Guides/index.js:97
 msgid "Block annoying ads"
@@ -2104,11 +2104,11 @@ msgstr "Extensii care sporesc confidențialitatea"
 
 #: src/amo/pages/Home/index.js:63
 msgid "See more recommended password managers"
-msgstr "Vezi mai multe managere de parole recomandate"
+msgstr "Vezi mai mulți manageri de parole recomandați"
 
 #: src/amo/pages/Home/index.js:64
 msgid "Recommended password managers"
-msgstr "Managere de parole recomandate"
+msgstr "Manageri de parole recomandați"
 
 #: src/amo/pages/LandingPage/index.js:174
 msgid "See more top rated extensions"
