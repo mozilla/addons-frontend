@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-03 18:07+0000\n"
-"PO-Revision-Date: 2019-08-27 17:53+0000\n"
+"PO-Revision-Date: 2019-09-10 04:33+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/InstallWarning/index.js:134
@@ -20,10 +19,8 @@ msgid "Learn more"
 msgstr "Află mai multe"
 
 #: src/amo/components/InstallWarning/index.js:138
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
+msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
+msgstr "Această extensie nu este monitorizată de Mozilla. Asigură-te că ai încredere în extensie înainte de a o instala."
 
 #: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
@@ -62,15 +59,10 @@ msgid "Server Error"
 msgstr "Eroare de server"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Ne pare rău, dar a apărut o eroare și nu am putut finaliza cererea ta. Am "
-"înregistrat această eroare și o vom investiga."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Ne pare rău, dar a apărut o eroare și nu am putut finaliza cererea ta. Am înregistrat această eroare și o vom investiga."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Codul erorii: %(status)s."
 
@@ -187,31 +179,20 @@ msgstr "Personalizează Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Există mii de suplimente gratuite, create de dezvoltatori din întreaga lume, "
-"pe care le poți instala pentru a personaliza Firefox. De la teme vizuale "
-"amuzante la instrumente puternice care fac navigarea mai rapidă și mai "
-"sigură, suplimentele îți creează o experiență unică în browser. Pentru a te "
-"ajuta să începi, iată câteva dintre ele pe care le recomandăm pentru "
-"performanța și funcționalitatea remarcantă a acestora."
+"Există mii de suplimente gratuite, create de dezvoltatori din întreaga lume, pe care le poți instala pentru a personaliza Firefox. De la teme vizuale amuzante la instrumente puternice care fac "
+"navigarea mai rapidă și mai sigură, suplimentele îți creează o experiență unică în browser. Pentru a te ajuta să începi, iată câteva dintre ele pe care le recomandăm pentru performanța și "
+"funcționalitatea remarcantă a acestora."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Află mai multe"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
-"Unele dintre aceste recomandări sunt personalizate. Ele se bazează pe alte "
-"extensii pe care le-ai instalat, pe preferințele profilului și pe "
-"statisticile de utilizare."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgstr "Unele dintre aceste recomandări sunt personalizate. Ele se bazează pe alte extensii pe care le-ai instalat, pe preferințele profilului și pe statisticile de utilizare."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
