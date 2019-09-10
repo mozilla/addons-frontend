@@ -1,7 +1,8 @@
 import url from 'url';
 
-import { getCanonicalURL, isInternalURL } from 'amo/utils';
-import { getFakeConfig } from 'tests/unit/helpers';
+import { getCanonicalURL, isInternalURL, getAddonURLUsingSlug } from 'amo/utils';
+import { getFakeConfig, fakeAddon } from 'tests/unit/helpers';
+import { createInternalAddon } from 'core/reducers/addons';
 
 describe(__filename, () => {
   describe('getCanonicalURL', () => {
@@ -12,6 +13,16 @@ describe(__filename, () => {
 
       expect(getCanonicalURL({ _config, locationPathname })).toEqual(
         `${baseURL}${locationPathname}`,
+      );
+    });
+  });
+
+  describe('getAddonURLUsingSlug', () => {
+    it(`returns an addon URL using slug`, () => {
+      const addon = createInternalAddon(fakeAddon);
+
+      expect(getAddonURLUsingSlug(addon.slug)).toEqual(
+        `/addon/${addon.slug}/`
       );
     });
   });

@@ -29,6 +29,7 @@ import type { AppState } from 'amo/store';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterHistoryType } from 'core/types/router';
+import { getAddonURLUsingSlug } from 'amo/utils';
 
 import './styles.scss';
 
@@ -63,7 +64,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     addon: AddonType | CollectionAddonType,
     addonInstallSource?: string,
   ) {
-    let linkTo = `/addon/${addon.slug}/`;
+    let linkTo = getAddonURLUsingSlug(addon.slug);
     if (addonInstallSource) {
       linkTo = addQueryParams(linkTo, { src: addonInstallSource });
     }

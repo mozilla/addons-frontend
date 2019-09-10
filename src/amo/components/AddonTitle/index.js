@@ -10,6 +10,7 @@ import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
+import { getAddonURLUsingSlug } from 'amo/utils';
 
 import './styles.scss';
 
@@ -63,7 +64,7 @@ export const AddonTitleBase = ({
       {addon ? (
         <>
           {linkToAddon ? (
-            <Link to={`/addon/${addon.slug}/`}>{addon.name}</Link>
+            <Link to={getAddonURLUsingSlug(addon.slug)}>{addon.name}</Link>
           ) : (
             addon.name
           )}

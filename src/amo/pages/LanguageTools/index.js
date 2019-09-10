@@ -30,6 +30,7 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { LanguageToolType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
+import { getAddonURLUsingSlug } from 'amo/utils';
 
 import './styles.scss';
 
@@ -60,7 +61,7 @@ export const LanguageToolList = ({ languageTools }: LanguageToolListProps) => {
       {languageTools.map((addon: LanguageToolType) => {
         return (
           <li key={addon.slug}>
-            <Link to={`/addon/${addon.slug}/`}>{addon.name}</Link>
+            <Link to={getAddonURLUsingSlug(addon.slug)}>{addon.name}</Link>
           </li>
         );
       })}
