@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-10 16:11+0000\n"
-"PO-Revision-Date: 2019-09-11 03:13+0000\n"
+"PO-Revision-Date: 2019-09-11 03:15+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1795,7 +1795,7 @@ msgstr "ਪੁਰਾਣਾ ਵਰਜ਼ਨ"
 
 #: src/amo/pages/CategoriesPage/index.js:34
 msgid "All extension categories"
-msgstr "ਸਾਰੇ ਐਕਸਟੈਂਸ਼ਨ ਵਰਗਾਂ"
+msgstr "ਸਾਰੇ ਇਕਸਟੈਨਸ਼ਨ ਵਰਗ"
 
 #: src/amo/pages/CategoriesPage/index.js:36
 msgid "All theme categories"
@@ -1891,12 +1891,12 @@ msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
-"ਜੇ ਤੁਸੀਂ ਆਮ ਤੌਰ ਤੇ ਬਹੁਤ ਸਾਰੀਆਂ ਖੁੱਲ੍ਹੀਆਂ ਟੈਬਾਂ ਨਾਲ ਕੰਮ ਕਰਦੇ ਹੋ, ਤਾਂ ਸੰਭਵ ਤੌਰ ਤੇ ਤੁਹਾਨੂੰ ਸਿਰਫ ਲੋੜੀਂਦੀ ਇੱਕ ਦੀ ਤਲਾਸ਼ ਕਰਨ ਵਾਲੀ ਅਗਿਆਤ ਟੈਬਸ ਦੀ ਇੱਕ ਕਤਾਰ ਦੁਆਰਾ ਖੋਜ ਦੀ ਨਿਰਾਸ਼ਾ ਤੋਂ ਜਾਣੂ ਹੋ ਸਕਦਾ ਹੈ। "
-"ਐਕਸਟੈਂਸ਼ਨਾਂ ਨੂੰ ਟੈਬ ਪ੍ਰਬੰਧਨ ਨੂੰ ਸਰਲ ਬਣਾਉਣ ਲਈ ਸਿਰਜਣਾਤਮਕ ਹੱਲ ਪੇਸ਼ ਕਰ ਸਕਦੇ ਹਨ।"
+"ਜੇ ਤੁਸੀਂ ਆਮ ਤੌਰ ਤੇ ਬਹੁਤ ਸਾਰੀਆਂ ਖੁੱਲ੍ਹੀਆਂ ਟੈਬਾਂ ਨਾਲ ਕੰਮ ਕਰਦੇ ਹੋ, ਤਾਂ ਸੰਭਵ ਤੌਰ ਤੇ ਤੁਹਾਨੂੰ ਸਿਰਫ ਲੋੜੀਂਦੀ ਇੱਕ ਦੀ ਤਲਾਸ਼ ਕਰਨ ਵਾਲੀ ਅਗਿਆਤ ਟੈਬਾਂ ਦੀ ਇੱਕ ਕਤਾਰ ਦੁਆਰਾ ਖੋਜ ਦੀ ਨਿਰਾਸ਼ਾ ਤੋਂ ਜਾਣੂ ਹੋ ਸਕਦਾ ਹੈ। "
+"ਇਕਸਟੈਨਸ਼ਨਾਂ ਨੂੰ ਟੈਬ ਦੇ ਇੰਤਜ਼ਾਮ ਨੂੰ ਸਰਲ ਬਣਾਉਣ ਲਈ ਸਿਰਜਣਾਤਮਕ ਹੱਲ ਪੇਸ਼ ਕਰ ਸਕਦੇ ਹਨ।"
 
 #: src/amo/pages/Guides/index.js:144
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr "ਫਾਇਰਫਾਕਸ ਦੇ ਬਾਹੀ ਵਿੱਚ ਕੈਸਕੇਡਿੰਗ ਵਾਲੇ “ਰੁੱਖ” ਸਟਾਈਲ ਫਾਰਮੈਟ ਵਿੱਚ ਆਪਣੇ ਟੈਬਸ ਨੂੰ ਵਿਵਸਥਿਤ ਕਰੋ ਅਤੇ ਵਿਜ਼ੁਅਲ ਕਰੋ।"
+msgstr "ਫਾਇਰਫਾਕਸ ਦੇ ਬਾਹੀ ਵਿੱਚ ਕੈਸਕੇਡਿੰਗ ਵਾਲੀ “ਲੜੀ” ਸਟਾਈਲ ਫਾਰਮੈਟ ਵਿੱਚ ਆਪਣੇ ਟੈਬਾਂ ਨੂੰ ਇੰਤਜ਼ਾਮ ਕਰੋ ਅਤੇ ਵੇਖੋ।"
 
 # Example in English: "posted last week"
 #: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
@@ -2060,7 +2060,7 @@ msgstr "ਖਾਸ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/pages/Home/index.js:271 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
-msgstr "ਹੋਰ ਫੀਚਰਡ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੇਖੋ"
+msgstr "ਹੋਰ ਖਾਸ ਇਕਸਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
 
 #: src/amo/pages/Home/index.js:292
 msgid "See more popular themes"
