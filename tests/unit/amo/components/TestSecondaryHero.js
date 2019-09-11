@@ -47,7 +47,7 @@ describe(__filename, () => {
     expect(root.find('.SecondaryHero-message-linkText')).toHaveLength(0);
   });
 
-  it('renders modules with and without links', () => {
+  describe('modules', () => {
     const module1 = {
       icon: 'icon1',
       description: 'module1 description',
@@ -64,53 +64,43 @@ describe(__filename, () => {
       cta: { text: 'cta3 text', url: 'cta/url3' },
     };
 
-    const shelfData = createShelfData({ modules: [module1, module2, module3] });
+    const shelfData = createShelfData({
+      modules: [module1, module2, module3],
+    });
 
-    const root = render({ shelfData });
+    it('renders all of the modules', () => {
+      const root = render({ shelfData });
 
-    const renderedModules = root.find('.SecondaryHero-module');
-    expect(renderedModules).toHaveLength(3);
+      const renderedModules = root.find('.SecondaryHero-module');
+      expect(renderedModules).toHaveLength(3);
+    });
 
-    const renderedModule1 = renderedModules.at(0);
-    expect(renderedModule1.find('.SecondaryHero-module-icon')).toHaveProp(
-      'src',
-      module1.icon,
-    );
-    expect(
-      renderedModule1.find('.SecondaryHero-module-description'),
-    ).toHaveText(module1.description);
-    expect(renderedModule1.find('.SecondaryHero-module-linkText')).toHaveText(
-      module1.cta.text,
-    );
-    expect(renderedModule1.find('.SecondaryHero-module-link')).toHaveProp(
-      'href',
-      module1.cta.url,
-    );
+    it.each([[0, module1], [1, module2], [2, module3]])(
+      'renders the module at position "%s"',
+      (moduleIndex, moduleData) => {
+        const root = render({ shelfData });
 
-    const renderedModule2 = renderedModules.at(1);
-    expect(renderedModule2.find('.SecondaryHero-module-icon')).toHaveProp(
-      'src',
-      module2.icon,
-    );
-    expect(
-      renderedModule2.find('.SecondaryHero-module-description'),
-    ).toHaveText(module2.description);
-    expect(renderedModule2.find('.SecondaryHero-module-link')).toHaveLength(0);
-
-    const renderedModule3 = renderedModules.at(2);
-    expect(renderedModule3.find('.SecondaryHero-module-icon')).toHaveProp(
-      'src',
-      module3.icon,
-    );
-    expect(
-      renderedModule3.find('.SecondaryHero-module-description'),
-    ).toHaveText(module3.description);
-    expect(renderedModule3.find('.SecondaryHero-module-linkText')).toHaveText(
-      module3.cta.text,
-    );
-    expect(renderedModule3.find('.SecondaryHero-module-link')).toHaveProp(
-      'href',
-      module3.cta.url,
+        const module = root.find('.SecondaryHero-module').at(moduleIndex);
+        expect(module.find('.SecondaryHero-module-icon')).toHaveProp(
+          'src',
+          moduleData.icon,
+        );
+        expect(module.find('.SecondaryHero-module-description')).toHaveText(
+          moduleData.description,
+        );
+        expect(module.find('.SecondaryHero-module-link')).toHaveLength(
+          moduleData.cta ? 1 : 0,
+        );
+        if (moduleData.cta) {
+          expect(module.find('.SecondaryHero-module-linkText')).toHaveText(
+            moduleData.cta.text,
+          );
+          expect(module.find('.SecondaryHero-module-link')).toHaveProp(
+            'href',
+            moduleData.cta.url,
+          );
+        }
+      },
     );
   });
 });

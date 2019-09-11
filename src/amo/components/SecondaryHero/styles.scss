@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   min-height: 216px;
-  padding: $padding-page-l $padding-page;
+  padding: $padding-page-l 0;
 }
 
 .SecondaryHero-message {
@@ -16,7 +16,7 @@
 }
 
 .SecondaryHero-message-headline {
-  font-size: 24px;
+  font-size: $font-size-l;
   line-height: 1.333;
 }
 
@@ -25,39 +25,48 @@
 }
 
 .SecondaryHero-modules {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 32px;
   width: 70%;
 }
 
 .SecondaryHero-module {
   align-items: center;
   background-color: $white;
-  border-radius: 4px;
+  border-radius: $border-radius-s;
   display: flex;
   flex-direction: column;
-  flex-grow: 0;
+  // flex-grow: 0;
   font-size: 18px;
-  justify-content: space-around;
+  // justify-content: space-around;
   line-height: 1.222;
-  margin: 16px;
+  // margin: 16px 0;
   padding: 0 16px 16px 16px;
-  position: relative;
+  // position: relative;
   text-align: center;
-  width: 33%;
+  // width: 33%;
 }
 
 .SecondaryHero-module-icon {
   height: 60px;
-  margin: 16px;
+  margin: 30px auto 36px auto;
   width: 60px;
 }
 
 .SecondaryHero-module-link {
-  margin-top: 16px;
+  margin-top: 6px;
 }
 
-.SecondaryHero-message-linkText,
-.SecondaryHero-module-linkText {
-  font-weight: normal;
+.SecondaryHero-message-link,
+.SecondaryHero-module-link {
+  &,
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: $link-color;
+    font-weight: normal;
+    text-decoration: none;
+  }
 }
