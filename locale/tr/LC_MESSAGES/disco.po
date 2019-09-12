@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-03 18:07+0000\n"
-"PO-Revision-Date: 2019-04-12 14:14+0000\n"
+"PO-Revision-Date: 2019-09-12 11:18+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -20,10 +20,8 @@ msgid "Learn more"
 msgstr "Daha fazla bilgi alın"
 
 #: src/amo/components/InstallWarning/index.js:138
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
+msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
+msgstr "Bu eklenti Mozilla tarafından izlenmiyor. Yüklemeden önce eklentinin güvenilir olup olmadığını kontrol etmenizi öneririz."
 
 #: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
@@ -62,15 +60,10 @@ msgid "Server Error"
 msgstr "Sunucu hatası"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Ne yazık ki bir hata oluştu ve isteğinizi tamamlayamadık. Bu hatayı "
-"kaydettik ve araştıracağız."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Ne yazık ki bir hata oluştu ve isteğinizi tamamlayamadık. Bu hatayı kaydettik ve araştıracağız."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Hata kodu: %(status)s."
 
@@ -88,8 +81,7 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s eklendi"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
-"Eklentilerinizi menüdeki Eklentiler öğesine tıklayarak yönetebilirsiniz."
+msgstr "Eklentilerinizi menüdeki Eklentiler öğesine tıklayarak yönetebilirsiniz."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -188,31 +180,19 @@ msgstr "Firefox’unuzu kişiselleştirin"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Firefox’u kişiselleştirmek için yükleyebileceğiniz, dünyanın her yanındaki "
-"geliştiriciler tarafından oluşturulan binlerce ücretsiz eklenti var. İster "
-"eğlenceli görsel temalarla ister web’de gezinmeyi daha hızlı ve güvenli hale "
-"getiren güçlü araçlara tarayıcınızı özelleştirebilirsiniz. İlk adımı atmanız "
-"için performansları ve işlevleriyle öne çıkan birkaç eklentiyi aşağıda "
-"sıraladık."
+"Firefox’u kişiselleştirmek için yükleyebileceğiniz, dünyanın her yanındaki geliştiriciler tarafından oluşturulan binlerce ücretsiz eklenti var. İster eğlenceli görsel temalarla ister web’de "
+"gezinmeyi daha hızlı ve güvenli hale getiren güçlü araçlara tarayıcınızı özelleştirebilirsiniz. İlk adımı atmanız için performansları ve işlevleriyle öne çıkan birkaç eklentiyi aşağıda sıraladık."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Daha fazla bilgi alın"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
-"Bu önerilerden bazıları kişiselleştirilmiştir. Önerilerimiz yüklediğiniz "
-"diğer eklentileri, profil tercihlerinizi ve kullanım istatistiklerinizi "
-"temel alır."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgstr "Bu önerilerden bazıları kişiselleştirilmiştir. Önerilerimiz yüklediğiniz diğer eklentileri, profil tercihlerinizi ve kullanım istatistiklerinizi temel alır."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -268,9 +248,7 @@ msgstr "%(title)s ön izlemesi"
 #~ msgstr "%(name)s artık araç çubuğunuzda."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ " %(name)s temasını ön izlemek için üzerine gidin veya yüklemek için "
-#~ "tıklayın"
+#~ msgstr " %(name)s temasını ön izlemek için üzerine gidin veya yüklemek için tıklayın"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Ön izlemesini görmek için resmin üzerine gidin"
