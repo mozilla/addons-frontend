@@ -17,6 +17,8 @@ import type {
   PartialExternalAddonType,
 } from 'core/types/addons';
 
+export const ABORT_FETCH_HOME_DATA: 'ABORT_FETCH_HOME_DATA' =
+  'ABORT_FETCH_HOME_DATA';
 export const FETCH_HOME_DATA: 'FETCH_HOME_DATA' = 'FETCH_HOME_DATA';
 export const LOAD_HOME_DATA: 'LOAD_HOME_DATA' = 'LOAD_HOME_DATA';
 
@@ -108,6 +110,7 @@ export type HeroShelvesType = {|
 export type HomeState = {
   collections: Array<Object | null>,
   heroShelves: HeroShelvesType | null,
+  isLoading: boolean,
   resetStateOnNextChange: boolean,
   resultsLoaded: boolean,
   shelves: { [shelfName: string]: Array<AddonType> | null },
@@ -116,9 +119,16 @@ export type HomeState = {
 export const initialState: HomeState = {
   collections: [],
   heroShelves: null,
+  isLoading: false,
   resetStateOnNextChange: false,
   resultsLoaded: false,
   shelves: {},
+};
+
+export type AbortFetchHomeDataAction = {| type: typeof ABORT_FETCH_HOME_DATA |};
+
+export const abortFetchHomeData = (): AbortFetchHomeDataAction => {
+  return { type: ABORT_FETCH_HOME_DATA };
 };
 
 type FetchHomeDataParams = {|
@@ -190,7 +200,11 @@ export const loadHomeData = ({
   };
 };
 
-type Action = FetchHomeDataAction | LoadHomeDataAction | SetClientAppAction;
+type Action =
+  | AbortFetchHomeDataAction
+  | FetchHomeDataAction
+  | LoadHomeDataAction
+  | SetClientAppAction;
 
 const createInternalAddons = (
   response: ApiAddonsResponse,
@@ -251,9 +265,16 @@ const reducer = (
     case SET_CLIENT_APP:
       return initialState;
 
+    case ABORT_FETCH_HOME_DATA:
+      return {
+        ...state,
+        isLoading: false,
+      };
+
     case FETCH_HOME_DATA:
       return {
         ...state,
+        isLoading: true,
         resultsLoaded: false,
       };
 
@@ -274,6 +295,7 @@ const reducer = (
           return null;
         }),
         heroShelves: createInternalHeroShelves(heroShelves),
+        isLoading: false,
         resultsLoaded: true,
         shelves: Object.keys(shelves).reduce((shelvesToLoad, shelfName) => {
           const response = shelves[shelfName];

@@ -8,7 +8,11 @@ import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
-import { FETCH_HOME_DATA, loadHomeData } from 'amo/reducers/home';
+import {
+  FETCH_HOME_DATA,
+  abortFetchHomeData,
+  loadHomeData,
+} from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -46,6 +50,7 @@ export function* fetchHomeData({
       heroShelves = yield call(getHeroShelves, { api: state.api });
     } catch (error) {
       log.warn(`Home hero shelves failed to load: ${error}`);
+      yield put(abortFetchHomeData());
       throw error;
     }
 
@@ -68,6 +73,7 @@ export function* fetchHomeData({
           // The collection was not found or is marked private.
           collections.push(null);
         } else {
+          yield put(abortFetchHomeData());
           throw error;
         }
       }
@@ -136,6 +142,7 @@ export function* fetchHomeData({
       });
     } catch (error) {
       log.warn(`Home add-ons failed to load: ${error}`);
+      yield put(abortFetchHomeData());
       throw error;
     }
 
@@ -148,6 +155,7 @@ export function* fetchHomeData({
     );
   } catch (error) {
     yield put(errorHandler.createErrorAction(error));
+    yield put(abortFetchHomeData());
   }
 }
 

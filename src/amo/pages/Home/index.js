@@ -81,6 +81,7 @@ export class HomeBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     includeRecommendedThemes: PropTypes.bool,
     includeTrendingExtensions: PropTypes.bool,
+    isLoading: PropTypes.bool,
     resultsLoaded: PropTypes.bool.isRequired,
     shelves: PropTypes.object.isRequired,
   };
@@ -109,6 +110,7 @@ export class HomeBase extends React.Component {
       errorHandler,
       includeRecommendedThemes,
       includeTrendingExtensions,
+      isLoading,
       resultsLoaded,
     } = this.props;
 
@@ -118,7 +120,7 @@ export class HomeBase extends React.Component {
 
     dispatch(setViewContext(VIEW_CONTEXT_HOME));
 
-    if (!resultsLoaded) {
+    if (!resultsLoaded && !isLoading) {
       dispatch(
         fetchHomeData({
           collectionsToFetch: FEATURED_COLLECTIONS,
@@ -404,6 +406,7 @@ export function mapStateToProps(state) {
     clientApp: state.api.clientApp,
     collections: state.home.collections,
     heroShelves: state.home.heroShelves,
+    isLoading: state.home.isLoading,
     resultsLoaded: state.home.resultsLoaded,
     shelves: state.home.shelves,
   };

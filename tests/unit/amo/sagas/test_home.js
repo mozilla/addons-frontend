@@ -6,7 +6,11 @@ import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
-import homeReducer, { fetchHomeData, loadHomeData } from 'amo/reducers/home';
+import homeReducer, {
+  abortFetchHomeData,
+  fetchHomeData,
+  loadHomeData,
+} from 'amo/reducers/home';
 import homeSaga from 'amo/sagas/home';
 import { createApiError } from 'core/api';
 import * as searchApi from 'core/api/search';
@@ -387,6 +391,25 @@ describe(__filename, () => {
       expect(expectedAction).toEqual(errorAction);
     });
 
+    it('aborts fetching for a failed collection fetch', async () => {
+      const error = createApiError({ response: { status: 500 } });
+
+      mockHeroApi
+        .expects('getHeroShelves')
+        .returns(Promise.resolve(createHeroShelves()));
+
+      mockCollectionsApi
+        .expects('getCollectionAddons')
+        .returns(Promise.reject(error));
+
+      _fetchHomeData();
+
+      const abortAction = abortFetchHomeData();
+
+      const expectedAction = await sagaTester.waitFor(abortAction.type);
+      expect(expectedAction).toEqual(abortAction);
+    });
+
     it('dispatches an error for a failed search fetch', async () => {
       const state = sagaTester.getState();
 
@@ -421,6 +444,41 @@ describe(__filename, () => {
       expect(expectedAction).toEqual(errorAction);
     });
 
+    it('aborts fetching for a failed search fetch', async () => {
+      const state = sagaTester.getState();
+
+      const slug = 'collection-slug';
+      const userId = 123;
+
+      mockHeroApi
+        .expects('getHeroShelves')
+        .returns(Promise.resolve(createHeroShelves()));
+
+      const firstCollection = createFakeCollectionAddonsListResponse();
+      mockCollectionsApi
+        .expects('getCollectionAddons')
+        .withArgs({
+          api: state.api,
+          slug,
+          userId,
+        })
+        .returns(Promise.resolve(firstCollection));
+
+      const error = new Error('some API error maybe');
+
+      mockSearchApi
+        .expects('search')
+        .exactly(5)
+        .returns(Promise.reject(error));
+
+      _fetchHomeData({ collectionsToFetch: [{ slug, userId }] });
+
+      const abortAction = abortFetchHomeData();
+
+      const expectedAction = await sagaTester.waitFor(abortAction.type);
+      expect(expectedAction).toEqual(abortAction);
+    });
+
     it('dispatches an error for a failed hero fetch', async () => {
       const error = createApiError({ response: { status: 500 } });
 
@@ -431,6 +489,19 @@ describe(__filename, () => {
       const errorAction = errorHandler.createErrorAction(error);
       const expectedAction = await sagaTester.waitFor(errorAction.type);
       expect(expectedAction).toEqual(errorAction);
+    });
+
+    it('aborts fetching for a failed hero fetch', async () => {
+      const error = createApiError({ response: { status: 500 } });
+
+      mockHeroApi.expects('getHeroShelves').returns(Promise.reject(error));
+
+      _fetchHomeData();
+
+      const abortAction = abortFetchHomeData();
+
+      const expectedAction = await sagaTester.waitFor(abortAction.type);
+      expect(expectedAction).toEqual(abortAction);
     });
   });
 });

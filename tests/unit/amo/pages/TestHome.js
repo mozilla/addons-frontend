@@ -17,6 +17,7 @@ import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import SecondaryHero from 'amo/components/SecondaryHero';
 import {
+  FETCH_HOME_DATA,
   createInternalHeroShelves,
   fetchHomeData,
   loadHomeData,
@@ -344,6 +345,24 @@ describe(__filename, () => {
       'addons',
       addons.map((addon) => createInternalAddon(addon)),
     );
+  });
+
+  it('does not fetch data when isLoading is true', () => {
+    const { store } = dispatchClientMetadata();
+
+    store.dispatch(
+      fetchHomeData({
+        errorHandlerId: 'some-error-handler-id',
+        collectionsToFetch: FEATURED_COLLECTIONS,
+      }),
+    );
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    render({ store });
+
+    sinon.assert.neverCalledWithMatch(fakeDispatch, {
+      type: FETCH_HOME_DATA,
+    });
   });
 
   it('dispatches an action to fetch the add-ons to display on update', () => {
