@@ -1,7 +1,6 @@
 @import '~amo/css/styles';
 
 .HeroRecommendation {
-  background-image: linear-gradient(#20123a, #712290);
   color: $white;
   display: flex;
   padding: 24px;
@@ -10,6 +9,12 @@
     padding: 36px;
 
     @include padding-start(96px);
+  }
+
+  .HeroRecommendation-link {
+    @include respond-to(large) {
+      background-color: transparent;
+    }
   }
 }
 
@@ -103,4 +108,37 @@
     color: $white;
     text-decoration: none;
   }
+}
+
+@mixin gradientStyle($stopColor) {
+  background-image: linear-gradient($color-ink-80, $stopColor);
+
+  .HeroRecommendation-link {
+    &,
+    &:hover,
+    &:active {
+      background-color: $stopColor;
+    }
+  }
+}
+
+// Styles that correspond to gradients returned by the hero API
+.color-ink-80-color-blue-70 {
+  @include gradientStyle($color-blue-70);
+}
+
+.color-ink-80-color-green-70 {
+  @include gradientStyle($color-green-70);
+}
+
+.color-ink-80-color-pink-70 {
+  @include gradientStyle($color-pink-70);
+}
+
+.color-ink-80-color-purple-70 {
+  @include gradientStyle($color-purple-70);
+}
+
+.color-ink-80-color-violet-70 {
+  @include gradientStyle($color-violet-70);
 }

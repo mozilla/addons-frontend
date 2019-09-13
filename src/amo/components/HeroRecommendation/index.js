@@ -1,4 +1,5 @@
 /* @flow */
+import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
@@ -64,7 +65,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
 
   render() {
     const { _checkInternalURL, i18n, shelfData } = this.props;
-    const { addon, description, external, featuredImage } = shelfData;
+    const { addon, description, external, gradient, featuredImage } = shelfData;
 
     const linkInsides = <span> {i18n.gettext('Get the extension')} </span>;
 
@@ -105,9 +106,13 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     // translators: If uppercase does not work in your locale, change it to lowercase.
     // This is used as a secondary heading.
     const recommended = i18n.gettext('RECOMMENDED');
+    const classnames = makeClassName(
+      'HeroRecommendation',
+      `${gradient.start}-${gradient.end}`,
+    );
 
     return (
-      <section className="HeroRecommendation HeroRecommendation-purple">
+      <section className={classnames}>
         <div>
           <img
             className="HeroRecommendation-image"
