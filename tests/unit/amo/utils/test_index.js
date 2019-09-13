@@ -1,12 +1,7 @@
 import url from 'url';
 
-import {
-  getCanonicalURL,
-  isInternalURL,
-  getAddonURLUsingSlug,
-} from 'amo/utils';
-import { getFakeConfig, fakeAddon } from 'tests/unit/helpers';
-import { createInternalAddon } from 'core/reducers/addons';
+import { getCanonicalURL, getAddonURL, isInternalURL } from 'amo/utils';
+import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('getCanonicalURL', () => {
@@ -21,11 +16,11 @@ describe(__filename, () => {
     });
   });
 
-  describe('getAddonURLUsingSlug', () => {
+  describe('getAddonURL', () => {
     it(`returns an addon URL using slug`, () => {
-      const addon = createInternalAddon(fakeAddon);
+      const slug = 'some-addon-slug';
 
-      expect(getAddonURLUsingSlug(addon.slug)).toEqual(`/addon/${addon.slug}/`);
+      expect(getAddonURL(slug)).toEqual(`/addon/${slug}/`);
     });
   });
 

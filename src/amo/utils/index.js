@@ -22,7 +22,7 @@ export function getDjangoBase62() {
   return base62;
 }
 
-export function getAddonURLUsingSlug(slug: string) {
+export function getAddonURL(slug: string) {
   return `/addon/${slug}/`;
 }
 

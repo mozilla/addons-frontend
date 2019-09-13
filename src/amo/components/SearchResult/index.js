@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
+import { getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import {
   ADDON_TYPE_OPENSEARCH,
@@ -29,7 +30,6 @@ import type { AppState } from 'amo/store';
 import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterHistoryType } from 'core/types/router';
-import { getAddonURLUsingSlug } from 'amo/utils';
 
 import './styles.scss';
 
@@ -64,7 +64,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     addon: AddonType | CollectionAddonType,
     addonInstallSource?: string,
   ) {
-    let linkTo = getAddonURLUsingSlug(addon.slug);
+    let linkTo = getAddonURL(addon.slug);
     if (addonInstallSource) {
       linkTo = addQueryParams(linkTo, { src: addonInstallSource });
     }

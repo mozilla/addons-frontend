@@ -28,6 +28,7 @@ import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
 import { reviewListURL } from 'amo/reducers/reviews';
+import { getAddonURL } from 'amo/utils';
 import { getVersionById } from 'core/reducers/versions';
 import {
   fetchAddon,
@@ -118,10 +119,11 @@ export class AddonBase extends React.Component {
         if (slugIsPositiveID(slug) || addon.slug !== slug) {
           // We only load add-ons by slug, but ID must be supported too because
           // it is a legacy behavior.
+          const url = getAddonURL(addon.slug);
           dispatch(
             sendServerRedirect({
               status: 301,
-              url: `/${lang}/${clientApp}/addon/${addon.slug}/`,
+              url: `/${lang}/${clientApp}${url}`,
             }),
           );
           return;

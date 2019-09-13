@@ -13,7 +13,7 @@ import Rating from 'ui/components/Rating';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import { roundToOneDigit } from 'amo/components/AddonMeta';
-import { getAddonURLUsingSlug } from 'amo/utils';
+import { getAddonURL } from 'amo/utils';
 
 import './styles.scss';
 
@@ -32,7 +32,7 @@ export const AddonSummaryCardBase = ({
   headerText,
   i18n,
 }: InternalProps) => {
-  const addonUrl = addon ? getAddonURLUsingSlug(addon.slug) : '';
+  const addonUrl = addon ? getAddonURL(addon.slug) : '';
   const iconUrl = getAddonIconUrl(addon);
   const iconImage = (
     <img

@@ -23,6 +23,7 @@ import RatingManager, {
   RatingManagerWithI18n,
 } from 'amo/components/RatingManager';
 import { reviewListURL } from 'amo/reducers/reviews';
+import { getAddonURL } from 'amo/utils';
 import { createInternalVersion } from 'core/reducers/versions';
 import createStore from 'amo/store';
 import {
@@ -507,6 +508,7 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = fakeAddon;
+    const addonURL = getAddonURL(addon.slug);
     store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -520,7 +522,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${clientApp}/addon/${addon.slug}/`,
+        url: `/en-US/${clientApp}${addonURL}`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -532,6 +534,7 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = { ...fakeAddon, slug };
+    const addonURL = getAddonURL(addon.slug);
     store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -545,7 +548,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${clientApp}/addon/${slug}/`,
+        url: `/en-US/${clientApp}${addonURL}`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -555,6 +558,7 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = fakeAddon;
+    const addonURL = getAddonURL(addon.slug);
     store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -568,7 +572,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${clientApp}/addon/${addon.slug}/`,
+        url: `/en-US/${clientApp}${addonURL}`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -602,6 +606,7 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = { ...fakeAddon, slug };
+    const addonURL = getAddonURL(addon.slug);
     store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -615,7 +620,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${clientApp}/addon/${addon.slug}/`,
+        url: `/en-US/${clientApp}${addonURL}`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -1596,6 +1601,7 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata({ clientApp });
     const guid = 'this_is@a.guid';
     const addon = { ...fakeAddon, guid };
+    const addonURL = getAddonURL(addon.slug);
     store.dispatch(_loadAddonResults({ addon }));
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -1605,7 +1611,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${clientApp}/addon/${addon.slug}/`,
+        url: `/en-US/${clientApp}${addonURL}`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);

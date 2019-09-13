@@ -3,6 +3,7 @@ import url from 'url';
 import * as React from 'react';
 
 import SearchResult, { SearchResultBase } from 'amo/components/SearchResult';
+import { getAddonURL } from 'amo/utils';
 import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
@@ -79,8 +80,9 @@ describe(__filename, () => {
     const addon = createInternalAddon({ ...fakeAddon, slug });
 
     const root = render({ addon });
+    const addonURL = getAddonURL(slug);
 
-    expect(root.find('.SearchResult-link')).toHaveProp('to', `/addon/${slug}/`);
+    expect(root.find('.SearchResult-link')).toHaveProp('to', addonURL);
   });
 
   it('stops propagation when clicking on the add-on name', () => {
@@ -165,16 +167,14 @@ describe(__filename, () => {
     const lang = 'fr';
     const history = createFakeHistory();
     const { store } = dispatchClientMetadata({ clientApp, lang });
+    const addonURL = getAddonURL(slug);
 
     const root = render({ addon, history, store });
 
     const onClick = root.find('.SearchResult').prop('onClick');
     onClick();
 
-    sinon.assert.calledWith(
-      history.push,
-      `/${lang}/${clientApp}/addon/${slug}/`,
-    );
+    sinon.assert.calledWith(history.push, `/${lang}/${clientApp}${addonURL}`);
   });
 
   it('renders the star ratings', () => {

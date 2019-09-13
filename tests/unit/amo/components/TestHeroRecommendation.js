@@ -11,6 +11,7 @@ import HeroRecommendation, {
 } from 'amo/components/HeroRecommendation';
 import { createInternalAddon } from 'core/reducers/addons';
 import { createInternalHeroShelves } from 'amo/reducers/home';
+import { getAddonURL } from 'amo/utils';
 import {
   createFakeEvent,
   createFakeTracking,
@@ -284,9 +285,10 @@ describe(__filename, () => {
       const shelfData = createShelfData({ addon: { ...fakeAddon, slug } });
 
       const root = render({ shelfData });
+      const addonURL = getAddonURL(slug);
 
       expect(root.instance().makeCallToActionURL()).toEqual(
-        addParamsToHeroURL({ urlString: `/addon/${slug}/` }),
+        addParamsToHeroURL({ urlString: addonURL }),
       );
     });
 

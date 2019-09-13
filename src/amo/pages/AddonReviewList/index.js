@@ -21,6 +21,7 @@ import {
   selectReviews,
 } from 'amo/reducers/reviews';
 import { getCurrentUser } from 'amo/reducers/users';
+import { getAddonURL } from 'amo/utils';
 import {
   fetchAddon,
   getAddonBySlug,
@@ -49,7 +50,6 @@ import type {
   ReactRouterMatchType,
 } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
-import { getAddonURLUsingSlug } from 'amo/utils';
 
 import './styles.scss';
 
@@ -185,7 +185,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     if (!addon) {
       throw new Error('cannot access addonURL() with a falsey addon property');
     }
-    return getAddonURLUsingSlug(addon.slug);
+    return getAddonURL(addon.slug);
   }
 
   getPageDescription() {

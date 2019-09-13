@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
+import { getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import { isRtlLang } from 'core/i18n/utils';
 import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
-import { getAddonURLUsingSlug } from 'amo/utils';
 
 import './styles.scss';
 
@@ -64,7 +64,7 @@ export const AddonTitleBase = ({
       {addon ? (
         <>
           {linkToAddon ? (
-            <Link to={getAddonURLUsingSlug(addon.slug)}>{addon.name}</Link>
+            <Link to={getAddonURL(addon.slug)}>{addon.name}</Link>
           ) : (
             addon.name
           )}

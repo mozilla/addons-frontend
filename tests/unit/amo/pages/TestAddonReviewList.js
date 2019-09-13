@@ -17,6 +17,7 @@ import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import { getAddonURL } from 'amo/utils';
 import { ErrorHandler } from 'core/errorHandler';
 import Link from 'amo/components/Link';
 import { reviewListURL } from 'amo/reducers/reviews';
@@ -750,7 +751,7 @@ describe(__filename, () => {
         render()
           .instance()
           .addonURL(),
-      ).toEqual(`/addon/${addon.slug}/`);
+      ).toEqual(getAddonURL(addon.slug));
     });
 
     it('requires an addon prop to produce a URL', () => {

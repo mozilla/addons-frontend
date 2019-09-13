@@ -11,6 +11,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
+import { getAddonURL } from 'amo/utils';
 import { withErrorHandler } from 'core/errorHandler';
 import {
   ADDON_TYPE_DICT,
@@ -30,7 +31,6 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { LanguageToolType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
-import { getAddonURLUsingSlug } from 'amo/utils';
 
 import './styles.scss';
 
@@ -61,7 +61,7 @@ export const LanguageToolList = ({ languageTools }: LanguageToolListProps) => {
       {languageTools.map((addon: LanguageToolType) => {
         return (
           <li key={addon.slug}>
-            <Link to={getAddonURLUsingSlug(addon.slug)}>{addon.name}</Link>
+            <Link to={getAddonURL(addon.slug)}>{addon.name}</Link>
           </li>
         );
       })}
@@ -119,7 +119,7 @@ export class LanguageToolsBase extends React.Component<Props> {
                 >
                   <Link
                     className={`LanguageTools-in-your-locale-list-item--${languageTool.type}`}
-                    to={`/addon/${languageTool.slug}/`}
+                    to={getAddonURL(languageTool.slug)}
                   >
                     {languageTool.name}
                   </Link>
