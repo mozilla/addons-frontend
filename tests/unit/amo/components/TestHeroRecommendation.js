@@ -285,10 +285,9 @@ describe(__filename, () => {
       const shelfData = createShelfData({ addon: { ...fakeAddon, slug } });
 
       const root = render({ shelfData });
-      const addonURL = getAddonURL(slug);
 
       expect(root.instance().makeCallToActionURL()).toEqual(
-        addParamsToHeroURL({ urlString: addonURL }),
+        addParamsToHeroURL({ urlString: getAddonURL(slug) }),
       );
     });
 

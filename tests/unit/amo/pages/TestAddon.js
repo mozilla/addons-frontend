@@ -508,7 +508,6 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = fakeAddon;
-    const addonURL = getAddonURL(addon.slug);
     store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -522,7 +521,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${clientApp}${addonURL}`,
+        url: `/en-US/${clientApp}${getAddonURL(addon.slug)}`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -534,7 +533,6 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = { ...fakeAddon, slug };
-    const addonURL = getAddonURL(addon.slug);
     store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -548,7 +546,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${clientApp}${addonURL}`,
+        url: `/en-US/${clientApp}${getAddonURL(addon.slug)}`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -558,7 +556,6 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = fakeAddon;
-    const addonURL = getAddonURL(addon.slug);
     store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -572,7 +569,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${clientApp}${addonURL}`,
+        url: `/en-US/${clientApp}${getAddonURL(addon.slug)}`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -606,7 +603,6 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = { ...fakeAddon, slug };
-    const addonURL = getAddonURL(addon.slug);
     store.dispatch(_loadAddonResults({ addon }));
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -620,7 +616,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${clientApp}${addonURL}`,
+        url: `/en-US/${clientApp}${getAddonURL(addon.slug)}`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -1601,7 +1597,6 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata({ clientApp });
     const guid = 'this_is@a.guid';
     const addon = { ...fakeAddon, guid };
-    const addonURL = getAddonURL(addon.slug);
     store.dispatch(_loadAddonResults({ addon }));
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -1611,7 +1606,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${clientApp}${addonURL}`,
+        url: `/en-US/${clientApp}${getAddonURL(addon.slug)}`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);

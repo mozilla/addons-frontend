@@ -119,11 +119,10 @@ export class AddonBase extends React.Component {
         if (slugIsPositiveID(slug) || addon.slug !== slug) {
           // We only load add-ons by slug, but ID must be supported too because
           // it is a legacy behavior.
-          const url = getAddonURL(addon.slug);
           dispatch(
             sendServerRedirect({
               status: 301,
-              url: `/${lang}/${clientApp}${url}`,
+              url: `/${lang}/${clientApp}${getAddonURL(addon.slug)}`,
             }),
           );
           return;
