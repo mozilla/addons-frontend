@@ -2,33 +2,28 @@
 
 .SecondaryHero {
   color: $black;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-gap: 32px;
+  grid-template-columns: repeat(4, 1fr);
   min-height: 216px;
-  padding: $padding-page-l 0;
+  padding: 48px 0 24px 0;
 }
 
 .SecondaryHero-message {
-  font-size: 16px;
+  font-size: $font-size-m;
   line-height: 1.5;
-  margin-top: 16px;
-  width: 25%;
+  margin-top: 0;
 }
 
 .SecondaryHero-message-headline {
   font-size: $font-size-l;
+  font-weight: normal;
   line-height: 1.333;
+  margin: 0;
 }
 
 .SecondaryHero-message-description {
-  padding: $padding-page 0;
-}
-
-.SecondaryHero-modules {
-  display: grid;
-  grid-gap: 32px;
-  grid-template-columns: repeat(3, 1fr);
-  width: 70%;
+  padding: 8px 0 24px 0;
 }
 
 .SecondaryHero-module {
@@ -37,15 +32,9 @@
   border-radius: $border-radius-s;
   display: flex;
   flex-direction: column;
-  // flex-grow: 0;
   font-size: 18px;
-  // justify-content: space-around;
   line-height: 1.222;
-  // margin: 16px 0;
-  padding: 0 16px 16px 16px;
-  // position: relative;
-  text-align: center;
-  // width: 33%;
+  padding: 0 24px 24px 24px;
 }
 
 .SecondaryHero-module-icon {
@@ -69,4 +58,8 @@
     font-weight: normal;
     text-decoration: none;
   }
+}
+
+.SecondaryHero-module-description {
+  text-align: center;
 }

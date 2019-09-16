@@ -41,7 +41,7 @@ export const SecondaryHeroBase = ({ shelfData }: Props) => {
   return (
     <section className="SecondaryHero">
       <div className="SecondaryHero-message">
-        <div className="SecondaryHero-message-headline">{headline}</div>
+        <h2 className="SecondaryHero-message-headline">{headline}</h2>
         <div className="SecondaryHero-message-description">{description}</div>
         {cta && (
           <a className="SecondaryHero-message-link" href={cta.url}>
@@ -49,7 +49,7 @@ export const SecondaryHeroBase = ({ shelfData }: Props) => {
           </a>
         )}
       </div>
-      <div className="SecondaryHero-modules">{renderedModules}</div>
+      {renderedModules}
     </section>
   );
 };
