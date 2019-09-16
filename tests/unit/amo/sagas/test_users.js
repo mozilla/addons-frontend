@@ -19,6 +19,7 @@ import usersReducer, {
 import * as api from 'amo/api/users';
 import { setAuthToken } from 'core/actions';
 import apiReducer from 'core/reducers/api';
+import { loadSiteStatus } from 'core/reducers/site';
 import {
   createApiResponse,
   createStubErrorHandler,
@@ -50,7 +51,11 @@ describe(__filename, () => {
 
   describe('loadCurrentUserAccount', () => {
     it('calls the API to fetch user profile after setAuthToken()', async () => {
-      const user = createUserAccountResponse();
+      const readOnly = true;
+      const notice = 'some notice';
+      const user = createUserAccountResponse({
+        site_status: { read_only: readOnly, notice },
+      });
 
       mockApi
         .expects('currentUserAccount')
@@ -59,13 +64,19 @@ describe(__filename, () => {
 
       sagaTester.dispatch(setAuthToken(userAuthToken()));
 
-      const expectedCalledAction = loadCurrentUserAccount({ user });
+      const expectedLoadUserAction = loadCurrentUserAccount({ user });
+      const firstCalledAction = await sagaTester.waitFor(
+        expectedLoadUserAction.type,
+      );
+      expect(firstCalledAction).toEqual(expectedLoadUserAction);
 
-      await sagaTester.waitFor(expectedCalledAction.type);
+      const expectedLoadSiteStatusAction = loadSiteStatus({ readOnly, notice });
+      const secondCalledAction = await sagaTester.waitFor(
+        expectedLoadSiteStatusAction.type,
+      );
+      expect(secondCalledAction).toEqual(expectedLoadSiteStatusAction);
+
       mockApi.verify();
-
-      const calledAction = sagaTester.getCalledActions()[1];
-      expect(calledAction).toEqual(expectedCalledAction);
     });
 
     it('allows exceptions to be thrown', () => {

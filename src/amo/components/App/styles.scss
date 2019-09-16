@@ -134,9 +134,17 @@ fieldset {
   padding-bottom: $padding-page / 2;
   padding-top: $padding-page / 2;
 
+  & > *:not(:last-child) {
+    margin-bottom: $padding-page / 2;
+  }
+
   @include respond-to(large) {
     padding: $padding-page-l;
     padding-bottom: $padding-page-l / 2;
     padding-top: $padding-page-l / 2;
+
+    & > *:not(:last-child) {
+      margin-bottom: $padding-page-l / 2;
+    }
   }
 }
