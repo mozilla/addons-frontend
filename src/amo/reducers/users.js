@@ -12,6 +12,7 @@ import {
   THEMES_REVIEW,
 } from 'core/constants';
 import type { AppState } from 'amo/store';
+import type { ExternalSiteStatus } from 'core/reducers/site';
 
 export const FINISH_UPDATE_USER_ACCOUNT: 'FINISH_UPDATE_USER_ACCOUNT' =
   'FINISH_UPDATE_USER_ACCOUNT';
@@ -47,8 +48,7 @@ export type NotificationsType = Array<NotificationType>;
 
 export type NotificationsUpdateType = { [name: string]: boolean };
 
-// Basic user account object fields, returned by the API.
-export type ExternalUserType = {|
+export type BaseExternalUserType = {|
   average_addon_rating: number,
   biography: string | null,
   created: string,
@@ -80,8 +80,17 @@ export type ExternalUserType = {|
   reviewer_name?: string | null,
 |};
 
+// Basic user account object fields, returned by the API. You can update
+// `BaseExternalUserType` to add attributes that you want to store in the Redux
+// state. The attributes added below are part of the Users API response but we
+// do not want to store them in the`UsersState`.
+export type ExternalUserType = {|
+  ...BaseExternalUserType,
+  site_status: ExternalSiteStatus,
+|};
+
 export type UserType = {|
-  ...ExternalUserType,
+  ...BaseExternalUserType,
   notifications: NotificationsType | null,
 |};
 
