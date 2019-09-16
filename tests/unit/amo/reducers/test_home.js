@@ -1,3 +1,5 @@
+import { LOCATION_CHANGE } from 'connected-react-router';
+
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
@@ -20,6 +22,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakePrimaryHeroShelfExternal,
+  getFakeConfig,
   createHeroShelves,
 } from 'tests/unit/helpers';
 
@@ -239,6 +242,76 @@ describe(__filename, () => {
 
       const state = homeReducer(prevState, setClientApp(CLIENT_APP_FIREFOX));
       expect(state).toEqual(initialState);
+    });
+
+    it('sets `clientSideLocationChanges` to `true` after a location change on the client', () => {
+      const _config = getFakeConfig({ server: false });
+
+      const state = homeReducer(undefined, { type: LOCATION_CHANGE }, _config);
+
+      expect(state.clientSideLocationChanges).toEqual(true);
+    });
+
+    it('does not set `clientSideLocationChanges` to `true` after a location change on the server', () => {
+      const _config = getFakeConfig({ server: true });
+
+      const state = homeReducer(undefined, { type: LOCATION_CHANGE }, _config);
+
+      expect(state.clientSideLocationChanges).toEqual(false);
+    });
+
+    it('resets the state to the initial state after at least two location changes on the client', () => {
+      const _config = getFakeConfig({ server: false });
+      const { store } = dispatchClientMetadata();
+
+      _loadHomeData({
+        store,
+        collections: [
+          createFakeCollectionAddonsListResponse({
+            addons: Array(10).fill(createFakeCollectionAddon()),
+          }),
+        ],
+      });
+
+      let state = store.getState().home;
+      expect(state.collections).toHaveLength(1);
+
+      // Perform two client-side location changes.
+      state = homeReducer(state, { type: LOCATION_CHANGE }, _config);
+      state = homeReducer(state, { type: LOCATION_CHANGE }, _config);
+
+      expect(state).toEqual({
+        ...initialState,
+        clientSideLocationChanges: true,
+      });
+    });
+
+    it('does not reset the state to the initial state after only one location change on the client', () => {
+      const _config = getFakeConfig({ server: false });
+      const { store } = dispatchClientMetadata();
+
+      _loadHomeData({
+        store,
+        collections: [
+          createFakeCollectionAddonsListResponse({
+            addons: Array(10).fill(createFakeCollectionAddon()),
+          }),
+        ],
+      });
+
+      const firstState = store.getState().home;
+      expect(firstState.collections).toHaveLength(1);
+
+      const newState = homeReducer(
+        firstState,
+        { type: LOCATION_CHANGE },
+        _config,
+      );
+
+      expect(newState).toEqual({
+        ...firstState,
+        clientSideLocationChanges: true,
+      });
     });
   });
 

@@ -1,4 +1,6 @@
 /* @flow */
+import config from 'config';
+import { LOCATION_CHANGE } from 'connected-react-router';
 import invariant from 'invariant';
 
 import {
@@ -106,6 +108,7 @@ export type HeroShelvesType = {|
 export type HomeState = {
   collections: Array<Object | null>,
   heroShelves: HeroShelvesType | null,
+  clientSideLocationChanges: boolean,
   resultsLoaded: boolean,
   shelves: { [shelfName: string]: Array<AddonType> | null },
 };
@@ -113,6 +116,7 @@ export type HomeState = {
 export const initialState: HomeState = {
   collections: [],
   heroShelves: null,
+  clientSideLocationChanges: false,
   resultsLoaded: false,
   shelves: {},
 };
@@ -241,6 +245,7 @@ export const createInternalHeroShelves = (
 const reducer = (
   state: HomeState = initialState,
   action: Action,
+  _config: typeof config = config,
 ): HomeState => {
   switch (action.type) {
     case SET_CLIENT_APP:
@@ -278,6 +283,15 @@ const reducer = (
             [shelfName]: response ? createInternalAddons(response) : null,
           };
         }, {}),
+      };
+    }
+
+    case LOCATION_CHANGE: {
+      const newState = state.clientSideLocationChanges ? initialState : state;
+
+      return {
+        ...newState,
+        clientSideLocationChanges: !_config.get('server'),
       };
     }
 
