@@ -18,7 +18,7 @@ import {
   INSTALL_STATE,
   maximumSetTimeoutDelay,
 } from 'core/constants';
-import SiteNotice from 'core/components/SiteNotice';
+import SiteNotices from 'core/components/SiteNotices';
 import {
   createContextWithFakeRouter,
   dispatchClientMetadata,
@@ -330,9 +330,9 @@ describe(__filename, () => {
     });
   });
 
-  it('renders a SiteNotice', () => {
+  it('renders a SiteNotices', () => {
     const root = render();
 
-    expect(root.find(SiteNotice)).toHaveLength(1);
+    expect(root.find(SiteNotices)).toHaveLength(1);
   });
 });

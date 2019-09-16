@@ -350,6 +350,9 @@ function baseServer(
         if (token) {
           store.dispatch(setAuthToken(token));
         } else {
+          // We only need to do this without a token because the user login
+          // saga already sets the site status (the Users API returns site
+          // status in its response).
           store.dispatch(fetchSiteStatus());
         }
 

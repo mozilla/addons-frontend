@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import SiteNotice, { SiteNoticeBase } from 'core/components/SiteNotice';
+import SiteNotices, { SiteNoticesBase } from 'core/components/SiteNotices';
 import { loadSiteStatus } from 'core/reducers/site';
 import Notice from 'ui/components/Notice';
 import {
@@ -20,7 +20,7 @@ describe(__filename, () => {
       ...customProps,
     };
 
-    return shallowUntilTarget(<SiteNotice {...props} />, SiteNoticeBase);
+    return shallowUntilTarget(<SiteNotices {...props} />, SiteNoticesBase);
   };
 
   it('renders nothing by default', () => {
@@ -39,6 +39,15 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice)).toHaveProp('id', 'amo-site-notice');
     expect(root.find(Notice)).toHaveProp('children', notice);
+  });
+
+  it('renders nothing when the site is not in read only mode and there is no site notice configured', () => {
+    const { store } = dispatchClientMetadata();
+    store.dispatch(loadSiteStatus({ readOnly: false, notice: null }));
+
+    const root = render({ store });
+
+    expect(root.find(Notice)).toHaveLength(0);
   });
 
   it('renders a notice when the site is in read only mode', () => {

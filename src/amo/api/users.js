@@ -22,9 +22,11 @@ export type CurrentUserAccountParams = {|
   api: ApiState,
 |};
 
+export type CurrentUserAccountResponse = ExternalUserType;
+
 export function currentUserAccount({
   api,
-}: CurrentUserAccountParams): Promise<ExternalUserType> {
+}: CurrentUserAccountParams): Promise<CurrentUserAccountResponse> {
   invariant(api, 'api state is required.');
 
   return callApi({

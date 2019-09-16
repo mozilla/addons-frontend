@@ -23,6 +23,7 @@ import { createErrorHandler, getState } from 'core/sagas/utils';
 import { loadSiteStatus } from 'core/reducers/site';
 import type {
   CurrentUserAccountParams,
+  CurrentUserAccountResponse,
   UnsubscribeNotificationParams,
   UpdateUserAccountParams,
   UpdateUserNotificationsParams,
@@ -31,7 +32,6 @@ import type {
 import type {
   DeleteUserAccountAction,
   DeleteUserPictureAction,
-  ExternalUserType,
   FetchUserAccountAction,
   FetchUserNotificationsAction,
   UnsubscribeNotificationAction,
@@ -42,7 +42,8 @@ import type { Saga } from 'core/types/sagas';
 
 // This saga is not triggered by the UI but on the server side, hence do not
 // have a `errorHandler`. We do not want to miss any error because it would
-// mean no ways for the users to log in, so we let the errors bubble up.
+// mean no ways for the users to log in, so we let this saga throw errors
+// without catching them.
 export function* fetchCurrentUserAccount({
   payload,
 }: SetAuthTokenAction): Saga {
@@ -57,7 +58,10 @@ export function* fetchCurrentUserAccount({
     },
   };
 
-  const response: ExternalUserType = yield call(api.currentUserAccount, params);
+  const response: CurrentUserAccountResponse = yield call(
+    api.currentUserAccount,
+    params,
+  );
   yield put(loadCurrentUserAccount({ user: response }));
 
   const {

@@ -11,13 +11,20 @@ import type { AppState } from 'amo/store';
 
 import './styles.scss';
 
-type Props = {|
-  i18n: I18nType,
+type Props = {||};
+
+type MappedProps = {|
   siteIsReadOnly: boolean,
   siteNotice: string | null,
 |};
 
-export class SiteNoticeBase extends React.Component<Props> {
+type InternalProps = {|
+  ...Props,
+  ...MappedProps,
+  i18n: I18nType,
+|};
+
+export class SiteNoticesBase extends React.Component<InternalProps> {
   render() {
     const { i18n, siteIsReadOnly, siteNotice } = this.props;
 
@@ -25,7 +32,7 @@ export class SiteNoticeBase extends React.Component<Props> {
 
     if (siteNotice) {
       notices.push(
-        <Notice className="SiteNotice" id="amo-site-notice" type="warning">
+        <Notice className="SiteNotices" id="amo-site-notice" type="warning">
           {sanitizeHTML(siteNotice).__html}
         </Notice>,
       );
@@ -33,7 +40,7 @@ export class SiteNoticeBase extends React.Component<Props> {
 
     if (siteIsReadOnly) {
       notices.push(
-        <Notice className="SiteNotice" id="amo-site-read-only" type="warning">
+        <Notice className="SiteNotices" id="amo-site-read-only" type="warning">
           {i18n.gettext(`Some features are temporarily disabled while we
             perform website maintenance. We'll be back to full capacity
             shortly.`)}
@@ -45,7 +52,7 @@ export class SiteNoticeBase extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: AppState) => {
+const mapStateToProps = (state: AppState): MappedProps => {
   return {
     siteIsReadOnly: state.site.readOnly,
     siteNotice: state.site.notice,
@@ -55,4 +62,4 @@ const mapStateToProps = (state: AppState) => {
 export default compose(
   connect(mapStateToProps),
   translate(),
-)(SiteNoticeBase);
+)(SiteNoticesBase);

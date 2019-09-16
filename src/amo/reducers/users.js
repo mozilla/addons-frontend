@@ -48,8 +48,7 @@ export type NotificationsType = Array<NotificationType>;
 
 export type NotificationsUpdateType = { [name: string]: boolean };
 
-// Basic user account object fields, returned by the API.
-export type ExternalUserType = {|
+export type BaseExternalUserType = {|
   average_addon_rating: number,
   biography: string | null,
   created: string,
@@ -79,39 +78,19 @@ export type ExternalUserType = {|
   read_dev_agreement?: boolean,
   // This field is only returned for reviewers.
   reviewer_name?: string | null,
+|};
+
+// Basic user account object fields, returned by the API. You can update
+// `BaseExternalUserType` to add attributes that you want to store in the Redux
+// state. The attributes added below are part of the Users API response but we
+// do not want to store them in the`UsersState`.
+export type ExternalUserType = {|
+  ...BaseExternalUserType,
   site_status: ExternalSiteStatus,
 |};
 
 export type UserType = {|
-  average_addon_rating: number,
-  biography: string | null,
-  created: string,
-  has_anonymous_display_name: boolean,
-  has_anonymous_username: boolean,
-  homepage: string | null,
-  id: number,
-  is_addon_developer: boolean,
-  is_artist: boolean,
-  location: string | null,
-  name: string,
-  num_addons_listed: number,
-  occupation: string | null,
-  picture_type: string | null,
-  picture_url: string | null,
-  username: string,
-  // Properties returned if we are accessing our own profile or the current
-  // user has the `Users:Edit` permission.
-  deleted?: boolean,
-  display_name: string | null,
-  email?: string,
-  fxa_edit_email_url?: string,
-  is_verified?: boolean,
-  last_login?: string,
-  last_login_ip?: string,
-  permissions?: Array<string>,
-  read_dev_agreement?: boolean,
-  // This field is only returned for reviewers.
-  reviewer_name?: string | null,
+  ...BaseExternalUserType,
   notifications: NotificationsType | null,
 |};
 

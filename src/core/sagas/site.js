@@ -8,8 +8,8 @@ import type { GetSiteStatusParams } from 'core/api/site';
 import type { Saga } from 'core/types/sagas';
 
 // This saga is not triggered by the UI but on the server side, hence do not
-// have a `errorHandler`. We do not want to miss any error because it would
-// mean no ways for the users to log in, so we let the errors bubble up.
+// have a `errorHandler`. We do not want to miss any error so we let this saga
+// throw errors without catching them.
 export function* fetchSiteStatus(): Saga {
   const state = yield select(getState);
 
