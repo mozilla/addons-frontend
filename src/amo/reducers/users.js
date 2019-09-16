@@ -12,6 +12,7 @@ import {
   THEMES_REVIEW,
 } from 'core/constants';
 import type { AppState } from 'amo/store';
+import type { ExternalSiteStatus } from 'core/reducers/site';
 
 export const FINISH_UPDATE_USER_ACCOUNT: 'FINISH_UPDATE_USER_ACCOUNT' =
   'FINISH_UPDATE_USER_ACCOUNT';
@@ -78,10 +79,39 @@ export type ExternalUserType = {|
   read_dev_agreement?: boolean,
   // This field is only returned for reviewers.
   reviewer_name?: string | null,
+  site_status: ExternalSiteStatus,
 |};
 
 export type UserType = {|
-  ...ExternalUserType,
+  average_addon_rating: number,
+  biography: string | null,
+  created: string,
+  has_anonymous_display_name: boolean,
+  has_anonymous_username: boolean,
+  homepage: string | null,
+  id: number,
+  is_addon_developer: boolean,
+  is_artist: boolean,
+  location: string | null,
+  name: string,
+  num_addons_listed: number,
+  occupation: string | null,
+  picture_type: string | null,
+  picture_url: string | null,
+  username: string,
+  // Properties returned if we are accessing our own profile or the current
+  // user has the `Users:Edit` permission.
+  deleted?: boolean,
+  display_name: string | null,
+  email?: string,
+  fxa_edit_email_url?: string,
+  is_verified?: boolean,
+  last_login?: string,
+  last_login_ip?: string,
+  permissions?: Array<string>,
+  read_dev_agreement?: boolean,
+  // This field is only returned for reviewers.
+  reviewer_name?: string | null,
   notifications: NotificationsType | null,
 |};
 

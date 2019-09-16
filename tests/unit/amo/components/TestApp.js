@@ -18,6 +18,7 @@ import {
   INSTALL_STATE,
   maximumSetTimeoutDelay,
 } from 'core/constants';
+import SiteNotice from 'core/components/SiteNotice';
 import {
   createContextWithFakeRouter,
   dispatchClientMetadata,
@@ -327,5 +328,11 @@ describe(__filename, () => {
 
       sinon.assert.notCalled(dispatchSpy);
     });
+  });
+
+  it('renders a SiteNotice', () => {
+    const root = render();
+
+    expect(root.find(SiteNotice)).toHaveLength(1);
   });
 });

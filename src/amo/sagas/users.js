@@ -20,6 +20,7 @@ import * as api from 'amo/api/users';
 import { SET_AUTH_TOKEN } from 'core/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
+import { loadSiteStatus } from 'core/reducers/site';
 import type {
   CurrentUserAccountParams,
   UnsubscribeNotificationParams,
@@ -30,6 +31,7 @@ import type {
 import type {
   DeleteUserAccountAction,
   DeleteUserPictureAction,
+  ExternalUserType,
   FetchUserAccountAction,
   FetchUserNotificationsAction,
   UnsubscribeNotificationAction,
@@ -55,9 +57,13 @@ export function* fetchCurrentUserAccount({
     },
   };
 
-  const response = yield call(api.currentUserAccount, params);
-
+  const response: ExternalUserType = yield call(api.currentUserAccount, params);
   yield put(loadCurrentUserAccount({ user: response }));
+
+  const {
+    site_status: { read_only: readOnly, notice },
+  } = response;
+  yield put(loadSiteStatus({ readOnly, notice }));
 }
 
 export function* updateUserAccount({

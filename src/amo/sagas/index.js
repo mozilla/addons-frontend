@@ -12,6 +12,7 @@ import abuse from 'core/sagas/abuse';
 import addons from 'core/sagas/addons';
 import categories from 'core/sagas/categories';
 import search from 'core/sagas/search';
+import site from 'core/sagas/site';
 import autocomplete from 'core/sagas/autocomplete';
 import languageTools from 'core/sagas/languageTools';
 import userAbuseReports from 'amo/sagas/userAbuseReports';
@@ -35,6 +36,7 @@ export default function* rootSaga(): Saga {
     fork(recommendations),
     fork(reviews),
     fork(search),
+    fork(site),
     fork(userAbuseReports),
     fork(users),
     fork(versions),

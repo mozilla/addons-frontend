@@ -48,6 +48,7 @@ import {
 import { setHashedClientId } from 'disco/reducers/telemetry';
 import { getDeploymentVersion } from 'core/utils/build';
 import { getSentryRelease } from 'core/utils/sentry';
+import { fetchSiteStatus } from 'core/reducers/site';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
 
@@ -348,7 +349,10 @@ function baseServer(
         const token = req.universalCookies.get(config.get('cookieName'));
         if (token) {
           store.dispatch(setAuthToken(token));
+        } else {
+          store.dispatch(fetchSiteStatus());
         }
+
         if (
           req.universalCookies.get(
             config.get('dismissedExperienceSurveyCookieName'),
