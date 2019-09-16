@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
+import { getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import { isRtlLang } from 'core/i18n/utils';
 import LoadingText from 'ui/components/LoadingText';
@@ -63,7 +64,7 @@ export const AddonTitleBase = ({
       {addon ? (
         <>
           {linkToAddon ? (
-            <Link to={`/addon/${addon.slug}/`}>{addon.name}</Link>
+            <Link to={getAddonURL(addon.slug)}>{addon.name}</Link>
           ) : (
             addon.name
           )}

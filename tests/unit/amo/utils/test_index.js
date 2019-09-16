@@ -1,6 +1,6 @@
 import url from 'url';
 
-import { getCanonicalURL, isInternalURL } from 'amo/utils';
+import { getCanonicalURL, getAddonURL, isInternalURL } from 'amo/utils';
 import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -13,6 +13,14 @@ describe(__filename, () => {
       expect(getCanonicalURL({ _config, locationPathname })).toEqual(
         `${baseURL}${locationPathname}`,
       );
+    });
+  });
+
+  describe('getAddonURL', () => {
+    it(`returns an addon URL using slug`, () => {
+      const slug = 'some-addon-slug';
+
+      expect(getAddonURL(slug)).toEqual(`/addon/${slug}/`);
     });
   });
 

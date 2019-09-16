@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import AddonTitle, { AddonTitleBase } from 'amo/components/AddonTitle';
 import Link from 'amo/components/Link';
+import { getAddonURL } from 'amo/utils';
 import { createInternalAddon } from 'core/reducers/addons';
 import LoadingText from 'ui/components/LoadingText';
 import {
@@ -180,7 +181,7 @@ describe(__filename, () => {
 
     expect(root.find(Link)).toHaveLength(2);
     expect(root.find(Link).at(0)).toHaveProp('children', addon.name);
-    expect(root.find(Link).at(0)).toHaveProp('to', `/addon/${addon.slug}/`);
+    expect(root.find(Link).at(0)).toHaveProp('to', getAddonURL(addon.slug));
   });
 
   it('renders with a h1 tag by default', () => {

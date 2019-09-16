@@ -23,6 +23,7 @@ import RatingManager, {
   RatingManagerWithI18n,
 } from 'amo/components/RatingManager';
 import { reviewListURL } from 'amo/reducers/reviews';
+import { getAddonURL } from 'amo/utils';
 import { createInternalVersion } from 'core/reducers/versions';
 import createStore from 'amo/store';
 import {
@@ -520,7 +521,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${clientApp}/addon/${addon.slug}/`,
+        url: `/en-US/${clientApp}${getAddonURL(addon.slug)}`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -545,7 +546,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${clientApp}/addon/${slug}/`,
+        url: `/en-US/${clientApp}${getAddonURL(addon.slug)}`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -568,7 +569,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${clientApp}/addon/${addon.slug}/`,
+        url: `/en-US/${clientApp}${getAddonURL(addon.slug)}`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -615,7 +616,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${clientApp}/addon/${addon.slug}/`,
+        url: `/en-US/${clientApp}${getAddonURL(addon.slug)}`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);
@@ -1605,7 +1606,7 @@ describe(__filename, () => {
       fakeDispatch,
       sendServerRedirect({
         status: 301,
-        url: `/en-US/${clientApp}/addon/${addon.slug}/`,
+        url: `/en-US/${clientApp}${getAddonURL(addon.slug)}`,
       }),
     );
     sinon.assert.callCount(fakeDispatch, 1);

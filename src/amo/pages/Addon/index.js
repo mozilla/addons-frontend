@@ -28,6 +28,7 @@ import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
 import { reviewListURL } from 'amo/reducers/reviews';
+import { getAddonURL } from 'amo/utils';
 import { getVersionById } from 'core/reducers/versions';
 import {
   fetchAddon,
@@ -121,7 +122,7 @@ export class AddonBase extends React.Component {
           dispatch(
             sendServerRedirect({
               status: 301,
-              url: `/${lang}/${clientApp}/addon/${addon.slug}/`,
+              url: `/${lang}/${clientApp}${getAddonURL(addon.slug)}`,
             }),
           );
           return;

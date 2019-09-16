@@ -8,7 +8,7 @@ import { compose } from 'redux';
 
 import AddonTitle from 'amo/components/AddonTitle';
 import Link from 'amo/components/Link';
-import { isInternalURL } from 'amo/utils';
+import { isInternalURL, getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import tracking from 'core/tracking';
 import { addQueryParams, sanitizeUserHTML } from 'core/utils';
@@ -76,7 +76,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
 
     if (addon) {
       return addParamsToHeroURL({
-        urlString: `/addon/${addon.slug}/`,
+        urlString: getAddonURL(addon.slug),
       });
     }
 

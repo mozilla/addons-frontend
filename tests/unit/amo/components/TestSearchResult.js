@@ -3,6 +3,7 @@ import url from 'url';
 import * as React from 'react';
 
 import SearchResult, { SearchResultBase } from 'amo/components/SearchResult';
+import { getAddonURL } from 'amo/utils';
 import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
@@ -80,7 +81,7 @@ describe(__filename, () => {
 
     const root = render({ addon });
 
-    expect(root.find('.SearchResult-link')).toHaveProp('to', `/addon/${slug}/`);
+    expect(root.find('.SearchResult-link')).toHaveProp('to', getAddonURL(slug));
   });
 
   it('stops propagation when clicking on the add-on name', () => {
@@ -173,7 +174,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       history.push,
-      `/${lang}/${clientApp}/addon/${slug}/`,
+      `/${lang}/${clientApp}${getAddonURL(slug)}`,
     );
   });
 

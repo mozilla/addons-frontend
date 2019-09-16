@@ -22,6 +22,10 @@ export function getDjangoBase62() {
   return base62;
 }
 
+export function getAddonURL(slug: string) {
+  return `/addon/${slug}/`;
+}
+
 export const makeQueryStringWithUTM = ({
   utm_source = 'addons.mozilla.org',
   utm_medium = 'referral',
