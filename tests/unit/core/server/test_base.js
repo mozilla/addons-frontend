@@ -1,4 +1,5 @@
 /* eslint-disable react/no-multi-comp, max-classes-per-file */
+import { all, fork } from 'redux-saga/effects';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import * as React from 'react';
 import Helmet from 'react-helmet';
@@ -27,6 +28,9 @@ import * as usersApi from 'amo/api/users';
 import surveyReducer, {
   initialState as initialSurveyState,
 } from 'core/reducers/survey';
+import * as siteApi from 'core/api/site';
+import siteReducer from 'core/reducers/site';
+import siteSaga from 'core/sagas/site';
 import telemetryReducer, { setHashedClientId } from 'disco/reducers/telemetry';
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
 import {
@@ -40,6 +44,7 @@ function createStoreAndSagas({
   history = createHistory({ req: { url: '' } }),
   reducers = {
     api: apiReducer,
+    site: siteReducer,
     survey: surveyReducer,
     users: usersReducer,
   },
@@ -122,6 +127,7 @@ export class ServerTestHelper {
 }
 
 describe(__filename, () => {
+  let mockSiteApi;
   let mockUsersApi;
 
   const serverTestHelper = new ServerTestHelper();
@@ -129,6 +135,7 @@ describe(__filename, () => {
 
   beforeEach(() => {
     serverTestHelper.beforeEach();
+    mockSiteApi = sinon.mock(siteApi);
     mockUsersApi = sinon.mock(usersApi);
   });
 
@@ -259,30 +266,78 @@ describe(__filename, () => {
     });
 
     it('fetches the user profile when given a token', async () => {
-      const user = createUserAccountResponse({ id: 42, username: 'babar' });
+      // Site status data is exposed in the user account response.
+      // eslint-disable-next-line camelcase
+      const site_status = { read_only: true, notice: 'some notice' };
+      const user = createUserAccountResponse({
+        id: 42,
+        username: 'babar',
+        site_status,
+      });
 
       mockUsersApi
         .expects('currentUserAccount')
         .once()
         .returns(Promise.resolve(user));
 
+      mockSiteApi.expects('getSiteStatus').never();
+
+      function* appSagas() {
+        yield all([fork(usersSaga), fork(siteSaga)]);
+      }
+
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
       const response = await testClient({
         store,
         sagaMiddleware,
-        appSagas: usersSaga,
+        appSagas,
       })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
         .end();
 
-      const { api, users } = store.getState();
+      const { api, users, site } = store.getState();
 
       expect(response.statusCode).toEqual(200);
       expect(api.token).toEqual(token);
       expect(users.currentUserID).toEqual(42);
       expect(getCurrentUser(users).username).toEqual('babar');
+      expect(site.readOnly).toEqual(site_status.read_only);
+      expect(site.notice).toEqual(site_status.notice);
+      mockSiteApi.verify();
+      mockUsersApi.verify();
+    });
+
+    it('fetches the site status when there is no user token', async () => {
+      const siteStatus = { read_only: true, notice: 'some notice' };
+
+      mockSiteApi
+        .expects('getSiteStatus')
+        .once()
+        .returns(Promise.resolve(siteStatus));
+
+      mockUsersApi.expects('currentUserAccount').never();
+
+      function* appSagas() {
+        yield all([fork(usersSaga), fork(siteSaga)]);
+      }
+
+      const { store, sagaMiddleware } = createStoreAndSagas();
+      const response = await testClient({
+        store,
+        sagaMiddleware,
+        appSagas,
+      })
+        .get('/en-US/firefox/')
+        .end();
+
+      const { site } = store.getState();
+
+      expect(response.statusCode).toEqual(200);
+      expect(site.readOnly).toEqual(siteStatus.read_only);
+      expect(site.notice).toEqual(siteStatus.notice);
+      mockSiteApi.verify();
       mockUsersApi.verify();
     });
 

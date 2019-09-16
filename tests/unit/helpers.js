@@ -417,11 +417,15 @@ export function createUserAccountResponse({
   num_addons_listed = 1,
   picture_url = `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
   picture_type = '',
-  /* eslint-enable camelcase */
   homepage = null,
   permissions = [],
   occupation = null,
   location = null,
+  site_status = {
+    read_only: false,
+    notice: null,
+  },
+  /* eslint-enable camelcase */
   ...otherFields
 } = {}) {
   return {
@@ -445,6 +449,7 @@ export function createUserAccountResponse({
     url: null,
     username,
     permissions,
+    site_status,
     ...otherFields,
   };
 }

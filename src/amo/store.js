@@ -28,6 +28,7 @@ import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import redirectTo from 'core/reducers/redirectTo';
 import search from 'core/reducers/search';
+import site from 'core/reducers/site';
 import survey from 'core/reducers/survey';
 import uiState from 'core/reducers/uiState';
 import versions from 'core/reducers/versions';
@@ -54,6 +55,7 @@ import type { InfoDialogState } from 'core/reducers/infoDialog';
 import type { InstallationsState } from 'core/reducers/installations';
 import type { RedirectToState } from 'core/reducers/redirectTo';
 import type { SearchState } from 'core/reducers/search';
+import type { SiteState } from 'core/reducers/site';
 import type { SurveyState } from 'core/reducers/survey';
 import type { UIStateState } from 'core/reducers/uiState';
 import type { VersionsState } from 'core/reducers/versions';
@@ -82,6 +84,7 @@ type InternalAppState = {|
   redirectTo: RedirectToState,
   reviews: ReviewsState,
   search: SearchState,
+  site: SiteState,
   survey: SurveyState,
   uiState: UIStateState,
   userAbuseReports: UserAbuseReportsState,
@@ -139,6 +142,7 @@ export const reducers: AppReducersType = {
   redirectTo,
   reviews,
   search,
+  site,
   survey,
   uiState,
   userAbuseReports,
