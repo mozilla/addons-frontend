@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
 import Notice from 'ui/components/Notice';
 import type { I18nType } from 'core/types/i18n';
 import type { AppState } from 'amo/store';
@@ -33,7 +32,7 @@ export class SiteNoticesBase extends React.Component<InternalProps> {
     if (siteNotice) {
       notices.push(
         <Notice className="SiteNotices" id="amo-site-notice" type="warning">
-          {sanitizeHTML(siteNotice).__html}
+          {siteNotice}
         </Notice>,
       );
     }
