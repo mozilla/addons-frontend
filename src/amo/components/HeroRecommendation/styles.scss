@@ -78,8 +78,7 @@ $overlayShapeZIndex: 1;
   }
 }
 
-.HeroRecommendation-heading,
-.HeroRecommendation-heading .AddonTitle {
+.HeroRecommendation-heading {
   color: $white;
   font-size: $font-size-l;
   font-weight: normal;
@@ -89,14 +88,6 @@ $overlayShapeZIndex: 1;
 
   @include respond-to(extraExtraLarge) {
     font-size: $font-size-xl;
-  }
-
-  .AddonTitle-author {
-    &,
-    a,
-    a:link {
-      color: $white;
-    }
   }
 }
 
