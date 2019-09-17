@@ -3,10 +3,15 @@
 .SecondaryHero {
   color: $black;
   display: grid;
-  grid-gap: 32px;
-  grid-template-columns: repeat(4, 1fr);
-  min-height: 216px;
-  padding: 48px 0 24px 0;
+  grid-gap: $padding-page;
+  grid-template-columns: auto;
+  padding: $padding-page 0 0 0;
+
+  @include respond-to(large) {
+    grid-gap: 32px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 48px 0 24px 0;
+  }
 }
 
 .SecondaryHero-message {
@@ -23,7 +28,11 @@
 }
 
 .SecondaryHero-message-description {
-  padding: 8px 0 24px 0;
+  padding: $padding-page 0;
+
+  @include respond-to(large) {
+    padding: 8px 0 24px 0;
+  }
 }
 
 .SecondaryHero-module {
@@ -34,13 +43,22 @@
   flex-direction: column;
   font-size: $font-size-hero-description;
   line-height: 1.222;
-  padding: 0 24px 24px 24px;
+  padding: $padding-page 0;
+  padding-top: 0;
+
+  @include respond-to(large) {
+    padding: 0 24px 24px 24px;
+  }
 }
 
 .SecondaryHero-module-icon {
   height: 60px;
-  margin: 30px auto 36px auto;
+  margin: $padding-page auto;
   width: 60px;
+
+  @include respond-to(large) {
+    margin: 30px auto 36px auto;
+  }
 }
 
 .SecondaryHero-module-link {
