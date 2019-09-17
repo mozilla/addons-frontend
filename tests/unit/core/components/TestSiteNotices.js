@@ -38,7 +38,27 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice)).toHaveProp('id', 'amo-site-notice');
-    expect(root.find(Notice)).toHaveProp('children', notice);
+    expect(
+      root
+        .find(Notice)
+        .find('div')
+        .html(),
+    ).toContain(notice);
+  });
+
+  it('renders a site notice with HTML tags', () => {
+    const notice = 'more info <a href="https://example.org">here</a>';
+    const { store } = dispatchClientMetadata();
+    store.dispatch(loadSiteStatus({ readOnly: false, notice }));
+
+    const root = render({ store });
+
+    expect(
+      root
+        .find(Notice)
+        .find('div')
+        .html(),
+    ).toContain(notice);
   });
 
   it('renders nothing when the site is not in read only mode and there is no site notice configured', () => {

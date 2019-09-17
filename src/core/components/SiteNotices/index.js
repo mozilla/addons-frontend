@@ -3,6 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { sanitizeUserHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
 import Notice from 'ui/components/Notice';
 import type { I18nType } from 'core/types/i18n';
@@ -32,7 +33,10 @@ export class SiteNoticesBase extends React.Component<InternalProps> {
     if (siteNotice) {
       notices.push(
         <Notice className="SiteNotices" id="amo-site-notice" type="warning">
-          {siteNotice}
+          <div
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={sanitizeUserHTML(siteNotice)}
+          />
         </Notice>,
       );
     }
