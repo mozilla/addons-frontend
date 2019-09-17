@@ -129,6 +129,7 @@ export class Tracking {
       ga.l = +new Date();
       /* eslint-enable */
       ga('create', this.id, 'auto');
+      ga('set', 'transport', 'beacon');
       if (convertBoolean(_config.get('trackingSendInitPageView'))) {
         ga('send', 'pageview');
       }
