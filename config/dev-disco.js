@@ -17,7 +17,6 @@ module.exports = {
         'data:',
         amoDevCDN,
         staticHost,
-        'https://www.google-analytics.com',
       ],
       mediaSrc: [staticHost],
     },

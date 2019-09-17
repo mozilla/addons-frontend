@@ -17,7 +17,6 @@ module.exports = {
         "'self'",
         'data:',
         amoDevCDN,
-        'https://www.google-analytics.com',
       ],
       mediaSrc: ["'self'"],
     },
