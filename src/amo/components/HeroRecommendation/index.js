@@ -6,7 +6,6 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import AddonTitle from 'amo/components/AddonTitle';
 import Link from 'amo/components/Link';
 import { isInternalURL, getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
@@ -173,7 +172,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       : { rel: 'noopener noreferrer', target: '_blank' };
 
     if (addon) {
-      heading = <AddonTitle addon={addon} as="div" />;
+      heading = addon.name;
       link = (
         <Link
           className="HeroRecommendation-link"

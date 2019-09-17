@@ -2,14 +2,12 @@ import url from 'url';
 
 import * as React from 'react';
 
-import AddonTitle from 'amo/components/AddonTitle';
 import HeroRecommendation, {
   PRIMARY_HERO_CLICK_CATEGORY,
   PRIMARY_HERO_SRC,
   addParamsToHeroURL,
   HeroRecommendationBase,
 } from 'amo/components/HeroRecommendation';
-import { createInternalAddon } from 'core/reducers/addons';
 import { createInternalHeroShelves } from 'amo/reducers/home';
 import { getAddonURL } from 'amo/utils';
 import {
@@ -48,10 +46,7 @@ describe(__filename, () => {
 
       const root = render({ shelfData });
 
-      expect(root.find(AddonTitle)).toHaveProp(
-        'addon',
-        createInternalAddon(addon),
-      );
+      expect(root.find('.HeroRecommendation-heading')).toHaveText(addon.name);
     });
 
     it('renders a link', () => {
