@@ -50,6 +50,7 @@ module.exports = {
         "'unsafe-inline'",
         amoDevCDN,
         webpackHost,
+        `${analyticsHost}/analytics.js`,
       ],
       styleSrc: [
         "'self'",
