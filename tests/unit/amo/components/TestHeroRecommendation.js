@@ -8,6 +8,11 @@ import HeroRecommendation, {
   addParamsToHeroURL,
   HeroRecommendationBase,
 } from 'amo/components/HeroRecommendation';
+import {
+  getDecoration,
+  svg1,
+  svg2,
+} from 'amo/components/HeroRecommendation/decorations';
 import { createInternalHeroShelves } from 'amo/reducers/home';
 import { getAddonURL } from 'amo/utils';
 import {
@@ -133,6 +138,12 @@ describe(__filename, () => {
       'src',
       featuredImage,
     );
+  });
+
+  it('renders a decoration', () => {
+    const root = render();
+
+    expect(root.find('.HeroRecommendation-decoration')).toHaveLength(1);
   });
 
   it('renders a body', () => {
@@ -324,6 +335,16 @@ describe(__filename, () => {
           category: PRIMARY_HERO_CLICK_CATEGORY,
         });
         sinon.assert.calledOnce(_tracking.sendEvent);
+      },
+    );
+  });
+
+  describe('getDecoration', () => {
+    it.each([[0.4, svg1], [0.6, svg2]])(
+      'retuns the expected svg file for %s',
+      (randomNumber, expectedSvg) => {
+        const randomizer = () => randomNumber;
+        expect(getDecoration(randomizer)).toEqual(expectedSvg);
       },
     );
   });
