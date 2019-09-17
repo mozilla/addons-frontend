@@ -4,7 +4,7 @@
 
 import path from 'path';
 
-import { amoProdCDN, apiProdHost, baseUrlProd, sentryHost } from './lib/shared';
+import { amoProdCDN, analyticsHost, apiProdHost, baseUrlProd, sentryHost } from './lib/shared';
 
 const appName = process.env.NODE_APP_INSTANCE || null;
 const validAppNames = [
@@ -156,7 +156,7 @@ module.exports = {
       defaultSrc: ["'none'"],
       baseUri: ["'self'"],
       childSrc: ["'none'"],
-      connectSrc: [apiProdHost, sentryHost],
+      connectSrc: [analyticsHost, apiProdHost, sentryHost],
       formAction: ["'none'"],
       frameSrc: ["'none'"],
       imgSrc: [

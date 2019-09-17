@@ -1,5 +1,5 @@
 // Config for the stage server.
-import { amoStageCDN, apiStageHost, sentryHost } from './lib/shared';
+import { amoStageCDN, analyticsHost, apiStageHost, sentryHost } from './lib/shared';
 
 
 module.exports = {
@@ -11,6 +11,7 @@ module.exports = {
   CSP: {
     directives: {
       connectSrc: [
+        analyticsHost,
         apiStageHost,
         sentryHost,
       ],

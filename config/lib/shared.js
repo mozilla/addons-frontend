@@ -11,3 +11,4 @@ export const baseUrlProd = apiProdHost;
 export const baseUrlStage = apiStageHost;
 
 export const sentryHost = 'https://sentry.prod.mozaws.net';
+export const analyticsHost = 'https://www.google-analytics.com';
