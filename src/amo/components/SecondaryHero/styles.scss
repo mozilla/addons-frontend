@@ -1,0 +1,83 @@
+@import '~amo/css/styles';
+
+.SecondaryHero {
+  color: $black;
+  display: grid;
+  grid-gap: $padding-page;
+  grid-template-columns: auto;
+  padding: $padding-page 0 0 0;
+
+  @include respond-to(large) {
+    grid-gap: 32px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 48px 0 24px 0;
+  }
+}
+
+.SecondaryHero-message {
+  font-size: $font-size-m;
+  line-height: 1.5;
+  margin-top: 0;
+}
+
+.SecondaryHero-message-headline {
+  font-size: $font-size-l;
+  font-weight: normal;
+  line-height: 1.333;
+  margin: 0;
+}
+
+.SecondaryHero-message-description {
+  padding: $padding-page 0;
+
+  @include respond-to(large) {
+    padding: 8px 0 24px 0;
+  }
+}
+
+.SecondaryHero-module {
+  align-items: center;
+  background-color: $white;
+  border-radius: $border-radius-s;
+  display: flex;
+  flex-direction: column;
+  font-size: $font-size-hero-description;
+  line-height: 1.222;
+  padding: $padding-page 0;
+  padding-top: 0;
+
+  @include respond-to(large) {
+    padding: 0 24px 24px 24px;
+  }
+}
+
+.SecondaryHero-module-icon {
+  height: 60px;
+  margin: $padding-page auto;
+  width: 60px;
+
+  @include respond-to(large) {
+    margin: 30px auto 36px auto;
+  }
+}
+
+.SecondaryHero-module-link {
+  margin-top: 6px;
+}
+
+.SecondaryHero-message-link,
+.SecondaryHero-module-link {
+  &,
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: $link-color;
+    font-weight: normal;
+    text-decoration: none;
+  }
+}
+
+.SecondaryHero-module-description {
+  text-align: center;
+}
