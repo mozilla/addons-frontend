@@ -1,4 +1,4 @@
-import { amoProdCDN } from './lib/shared';
+import { amoProdCDN, analyticsHost } from './lib/shared';
 
 const staticHost = 'https://addons-amo.cdn.mozilla.net';
 
@@ -14,7 +14,7 @@ module.exports = {
       // Script is limited to the amo specific CDN.
       scriptSrc: [
         staticHost,
-        'https://www.google-analytics.com/analytics.js',
+        `${analyticsHost}/analytics.js`,
       ],
       styleSrc: [staticHost],
       imgSrc: [
@@ -22,7 +22,6 @@ module.exports = {
         'data:',
         amoProdCDN,
         staticHost,
-        'https://www.google-analytics.com',
       ],
       // This is needed because `prefetchSrc` isn't supported by FF yet.
       // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1457204

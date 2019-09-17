@@ -1,5 +1,5 @@
 // Config specific to local development
-import { amoDevCDN, apiDevHost, sentryHost } from './lib/shared';
+import { amoDevCDN, analyticsHost, apiDevHost, sentryHost } from './lib/shared';
 
 const webpackServerHost = process.env.WEBPACK_SERVER_HOST || '127.0.0.1';
 const webpackServerPort = 3001;
@@ -29,6 +29,7 @@ module.exports = {
       connectSrc: [
         "'self'",
         amoDevCDN,
+        analyticsHost,
         sentryHost,
         webpackHost,
         // This is needed for pino-devtools.
@@ -49,6 +50,7 @@ module.exports = {
         "'unsafe-inline'",
         amoDevCDN,
         webpackHost,
+        `${analyticsHost}/analytics.js`,
       ],
       styleSrc: [
         "'self'",

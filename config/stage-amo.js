@@ -1,4 +1,4 @@
-import { amoStageCDN, baseUrlStage } from './lib/shared';
+import { amoStageCDN, analyticsHost, baseUrlStage } from './lib/shared';
 
 const staticHost = 'https://addons-amo-cdn.allizom.org';
 
@@ -14,7 +14,7 @@ module.exports = {
       ],
       scriptSrc: [
         staticHost,
-        'https://www.google-analytics.com/analytics.js',
+        `${analyticsHost}/analytics.js`,
       ],
       styleSrc: [staticHost],
       imgSrc: [
@@ -22,7 +22,6 @@ module.exports = {
         'data:',
         amoStageCDN,
         staticHost,
-        'https://www.google-analytics.com',
       ],
       // This is needed because `prefetchSrc` isn't supported by FF yet.
       // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1457204

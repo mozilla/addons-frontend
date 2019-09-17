@@ -1,5 +1,5 @@
 // Config for the -dev server.
-import { amoDevCDN, apiDevHost, sentryHost } from './lib/shared';
+import { amoDevCDN, analyticsHost, apiDevHost, sentryHost } from './lib/shared';
 
 
 module.exports = {
@@ -13,6 +13,7 @@ module.exports = {
   CSP: {
     directives: {
       connectSrc: [
+        analyticsHost,
         apiDevHost,
         sentryHost,
       ],

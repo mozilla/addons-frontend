@@ -103,6 +103,11 @@ describe(__filename, () => {
       sinon.assert.calledWith(window.ga, 'send', 'pageview');
     });
 
+    it('should set the transport mechanism to beacon', () => {
+      createTracking();
+      sinon.assert.calledWith(window.ga, 'set', 'transport', 'beacon');
+    });
+
     it('should set dimension3', () => {
       createTracking();
       sinon.assert.calledWith(
@@ -121,13 +126,14 @@ describe(__filename, () => {
       });
       // Make sure only 'create' and 'set' were called, not 'send'.
       sinon.assert.calledWith(window.ga, 'create');
+      sinon.assert.calledWith(window.ga, 'set', 'transport', 'beacon');
       sinon.assert.calledWith(
         window.ga,
         'set',
         'dimension3',
         'addons-frontend',
       );
-      sinon.assert.callCount(window.ga, 2);
+      sinon.assert.callCount(window.ga, 3);
     });
 
     it('should throw if page not set', () => {
