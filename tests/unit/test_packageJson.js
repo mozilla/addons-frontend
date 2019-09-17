@@ -20,7 +20,20 @@ const packageJson = JSON.parse(
 
 // eslint: there is an issue with 6.2.0 and the `no-unused-vars` rule, see:
 // https://github.com/eslint/eslint/issues/12117
-const skipDevDeps = ['prettier', 'pretty-quick', 'enzyme', 'eslint'];
+//
+// @storybook/*: there is an issue with Storybook addon-chapters and Storybook
+// 5.2.0, see: https://github.com/Checkfront/react-storybook-addon-chapters/issues/54
+const skipDevDeps = [
+  '@storybook/addon-info',
+  '@storybook/addon-options',
+  '@storybook/addons',
+  '@storybook/core',
+  '@storybook/react',
+  'enzyme',
+  'eslint',
+  'prettier',
+  'pretty-quick',
+];
 
 describe(__filename, () => {
   Object.keys(packageJson.devDependencies).forEach((key) => {
