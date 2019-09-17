@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-10 16:11+0000\n"
+"POT-Creation-Date: 2019-09-17 16:59+0000\n"
 "PO-Revision-Date: 2018-09-25 15:17+0000\n"
 "Last-Translator: Abdelrahman Manna <abood.fcb@hotmail.com>\n"
 "Language-Team: none\n"
@@ -599,11 +599,11 @@ msgstr "إضافات من %(author)s"
 msgid "Add-ons by these developers"
 msgstr "إضافات من هؤلاء المطورين"
 
-#: src/amo/components/AddonSummaryCard/index.js:40
+#: src/amo/components/AddonSummaryCard/index.js:41
 msgid "Add-on icon"
 msgstr "أيقونة الإضافة"
 
-#: src/amo/components/AddonSummaryCard/index.js:62
+#: src/amo/components/AddonSummaryCard/index.js:63
 #, fuzzy
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
@@ -615,13 +615,13 @@ msgstr[4] "مقيّمة بِ‍ %(rating)s من ٥"
 msgstr[5] "مقيّمة بِ‍ %(rating)s من ٥"
 
 # A comma, used in a list of authors: a1, a2, a3.
-#: src/amo/components/AddonTitle/index.js:41
+#: src/amo/components/AddonTitle/index.js:42
 msgid ","
 msgstr ""
 
 # Example: add-on "by" some authors
-#: src/amo/components/AddonTitle/index.js:76
-#: src/amo/components/AddonTitle/index.js:80
+#: src/amo/components/AddonTitle/index.js:77
+#: src/amo/components/AddonTitle/index.js:81
 msgid "by"
 msgstr ""
 
@@ -653,25 +653,25 @@ msgstr ""
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
-#: src/amo/components/App/index.js:203
+#: src/amo/components/App/index.js:204
 #: src/amo/components/HeadMetaTags/index.js:77
 #, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "إضافات فَيَرفُكس"
 
-#: src/amo/components/App/index.js:207
+#: src/amo/components/App/index.js:208
 #: src/amo/components/HeadMetaTags/index.js:71
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%s – إضافات فَيَرفُكس"
 
-#: src/amo/components/App/index.js:215
+#: src/amo/components/App/index.js:216
 #: src/amo/components/HeadMetaTags/index.js:76
 #, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "إضافات فَيَرفُكس"
 
-#: src/amo/components/App/index.js:219
+#: src/amo/components/App/index.js:220
 #: src/amo/components/HeadMetaTags/index.js:70
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
@@ -1806,15 +1806,15 @@ msgstr "إضافات إصدارة أندرويد"
 msgid "Go to the add-on page"
 msgstr "انتقل إلى صفحة الإضافة"
 
-#: src/amo/components/SearchResult/index.js:164
+#: src/amo/components/SearchResult/index.js:165
 msgid "No theme preview available"
 msgstr "لا تتوفر معاينة للسمة"
 
-#: src/amo/components/SearchResult/index.js:202
+#: src/amo/components/SearchResult/index.js:203
 msgid "Add-on note"
 msgstr "ملاحظة على الإضافة"
 
-#: src/amo/components/SearchResult/index.js:222
+#: src/amo/components/SearchResult/index.js:223
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "لا مستخدمين"
@@ -1925,15 +1925,15 @@ msgstr "صورة الملف الشخصي"
 msgid "Choose Photo…"
 msgstr "اختر صورة…"
 
-#: src/amo/pages/Addon/index.js:168 src/ui/components/ThemeImage/index.js:33
+#: src/amo/pages/Addon/index.js:169 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr "معاينة لسمة ”⁨%(title)s⁩“"
 
-#: src/amo/pages/Addon/index.js:203
+#: src/amo/pages/Addon/index.js:204
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "لا يمكن تقييم هذه الإضافة إذ لم تُنشر أية إصدارات منها."
 
-#: src/amo/pages/Addon/index.js:214
+#: src/amo/pages/Addon/index.js:215
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "لا شيء لقراءته"
@@ -1943,53 +1943,53 @@ msgstr[3] "اقرأ كل المراجعات ال‍ %(count)s"
 msgstr[4] "اقرأ كل المراجعات ال‍ %(count)s"
 msgstr[5] "اقرأ كل المراجعات ال‍ %(count)s"
 
-#: src/amo/pages/Addon/index.js:232
+#: src/amo/pages/Addon/index.js:233
 msgid "No reviews yet"
 msgstr "لا مراجعات بعد"
 
-#: src/amo/pages/Addon/index.js:242
+#: src/amo/pages/Addon/index.js:243
 msgid "Rate your experience"
 msgstr "قيّم تجربتك"
 
-#: src/amo/pages/Addon/index.js:261
+#: src/amo/pages/Addon/index.js:262
 msgid "About this dictionary"
 msgstr "عن القاموس هذا"
 
-#: src/amo/pages/Addon/index.js:264
+#: src/amo/pages/Addon/index.js:265
 msgid "About this extension"
 msgstr "عن الامتداد هذا"
 
-#: src/amo/pages/Addon/index.js:267
+#: src/amo/pages/Addon/index.js:268
 msgid "About this language pack"
 msgstr "عن حزمة اللغة هذه"
 
-#: src/amo/pages/Addon/index.js:270
+#: src/amo/pages/Addon/index.js:271
 msgid "About this search plugin"
 msgstr "عن ملحقة البحث هذه"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:275
 msgid "About this theme"
 msgstr "عن السمة هذه"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:278
 msgid "About this add-on"
 msgstr "عن الإضافة هذه"
 
-#: src/amo/pages/Addon/index.js:320
+#: src/amo/pages/Addon/index.js:321
 msgid "Release notes for %(addonVersion)s"
 msgstr "ملاحظات إصدار %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:449
+#: src/amo/pages/Addon/index.js:450
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:477
+#: src/amo/pages/Addon/index.js:478
 msgid "Extension Metadata"
 msgstr "بيانات الامتداد الوصفية"
 
-#: src/amo/pages/Addon/index.js:495
+#: src/amo/pages/Addon/index.js:496
 msgid "Screenshots"
 msgstr "لقطات الشاشة"
 
@@ -2008,47 +2008,47 @@ msgstr "اتفاقية ترخيص المستخدم"
 msgid "Privacy policy for %(addonName)s"
 msgstr "مراجعات %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:196
+#: src/amo/pages/AddonReviewList/index.js:197
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:228
+#: src/amo/pages/AddonReviewList/index.js:229
 #, fuzzy
 msgid "Show all reviews"
 msgstr "مراجعاتي"
 
-#: src/amo/pages/AddonReviewList/index.js:230
+#: src/amo/pages/AddonReviewList/index.js:231
 #, fuzzy
 msgid "Show only five-star reviews"
 msgstr "لا شيء لقراءته"
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:232
 #, fuzzy
 msgid "Show only four-star reviews"
 msgstr "لا شيء لقراءته"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:234
 #, fuzzy
 msgid "Show only three-star reviews"
 msgstr "لا شيء لقراءته"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:236
 #, fuzzy
 msgid "Show only two-star reviews"
 msgstr "رُد على هذه المراجعة"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 #, fuzzy
 msgid "Show only one-star reviews"
 msgstr "لا شيء لقراءته"
 
-#: src/amo/pages/AddonReviewList/index.js:276
+#: src/amo/pages/AddonReviewList/index.js:277
 msgid "Reviews for %(addonName)s"
 msgstr "مراجعات %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:286
+#: src/amo/pages/AddonReviewList/index.js:287
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
@@ -2059,7 +2059,7 @@ msgstr[3] "%(total)s نجوم"
 msgstr[4] "%(total)s نجمة"
 msgstr[5] "%(total)s نجمة"
 
-#: src/amo/pages/AddonReviewList/index.js:383
+#: src/amo/pages/AddonReviewList/index.js:384
 #, fuzzy
 msgid "There are no reviews"
 msgstr "لا تقييمات بعد"
@@ -2500,22 +2500,22 @@ msgstr "استكشِف أعتى الأدوات والميزات لتُخصّص �
 msgid "Explore all categories"
 msgstr "استكشِف كل الأقسام"
 
-#: src/amo/pages/LanguageTools/index.js:108
+#: src/amo/pages/LanguageTools/index.js:109
 msgid "Available for your locale"
 msgstr "مُتاحة لمحليتك"
 
-#: src/amo/pages/LanguageTools/index.js:146
+#: src/amo/pages/LanguageTools/index.js:147
 msgid "Dictionaries and Language Packs"
 msgstr "القواميس وحزم اللغات"
 
-#: src/amo/pages/LanguageTools/index.js:155
+#: src/amo/pages/LanguageTools/index.js:156
 msgid ""
 "Download Firefox dictionaries and language pack extensions. Add a new "
 "language option to your browser spell-checker, or change the browser's "
 "interface language."
 msgstr ""
 
-#: src/amo/pages/LanguageTools/index.js:166
+#: src/amo/pages/LanguageTools/index.js:167
 msgid ""
 "Installing a dictionary add-on will add a new language option to your spell-"
 "checker, which checks your spelling as you type in Firefox."
@@ -2523,26 +2523,26 @@ msgstr ""
 "سيتيح لك تثبيت إضافة قاموس خيار لغة جديد إلى مدقق الإملاء، والذي يتأكد من "
 "صحة الإملاء وأنت تكتب في فَيَرفُكس."
 
-#: src/amo/pages/LanguageTools/index.js:171
+#: src/amo/pages/LanguageTools/index.js:172
 msgid ""
 "Language packs change your browser's interface language, including menu "
 "options and settings."
 msgstr ""
 "تُغيّر حزم اللغات لغة واجهة المتصفح، بما في ذلك خيارات القوائم والإعدادات."
 
-#: src/amo/pages/LanguageTools/index.js:177
+#: src/amo/pages/LanguageTools/index.js:178
 msgid "All Locales"
 msgstr "كل المحليات"
 
-#: src/amo/pages/LanguageTools/index.js:183
+#: src/amo/pages/LanguageTools/index.js:184
 msgid "Locale Name"
 msgstr "اسم المحلية"
 
-#: src/amo/pages/LanguageTools/index.js:186
+#: src/amo/pages/LanguageTools/index.js:187
 msgid "Language Packs"
 msgstr "حزم اللغات"
 
-#: src/amo/pages/LanguageTools/index.js:189
+#: src/amo/pages/LanguageTools/index.js:190
 msgid "Dictionaries"
 msgstr "القواميس"
 
@@ -3299,6 +3299,12 @@ msgstr "التالي"
 #: src/core/components/Paginate/index.js:160
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "صفحة %(currentPage)s من أصل %(totalPages)s"
+
+#: src/core/components/SiteNotices/index.js:47
+msgid ""
+"Some features are temporarily disabled while we perform website maintenance. "
+"We'll be back to full capacity shortly."
+msgstr ""
 
 #: src/core/components/SurveyNotice/index.js:131
 msgid "Take short survey"

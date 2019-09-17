@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-10 16:11+0000\n"
+"POT-Creation-Date: 2019-09-17 16:59+0000\n"
 "PO-Revision-Date: 2019-09-03 19:15+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
@@ -585,24 +585,24 @@ msgstr "Add-ons von %(author)s"
 msgid "Add-ons by these developers"
 msgstr "Add-ons von diesen Entwicklern"
 
-#: src/amo/components/AddonSummaryCard/index.js:40
+#: src/amo/components/AddonSummaryCard/index.js:41
 msgid "Add-on icon"
 msgstr "Add-on-Symbol"
 
-#: src/amo/components/AddonSummaryCard/index.js:62
+#: src/amo/components/AddonSummaryCard/index.js:63
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
 msgstr[0] "%(rating)s von 5 Sternen"
 msgstr[1] "%(rating)s von 5 Sternen"
 
 # A comma, used in a list of authors: a1, a2, a3.
-#: src/amo/components/AddonTitle/index.js:41
+#: src/amo/components/AddonTitle/index.js:42
 msgid ","
 msgstr ","
 
 # Example: add-on "by" some authors
-#: src/amo/components/AddonTitle/index.js:76
-#: src/amo/components/AddonTitle/index.js:80
+#: src/amo/components/AddonTitle/index.js:77
+#: src/amo/components/AddonTitle/index.js:81
 msgid "by"
 msgstr "von"
 
@@ -632,22 +632,22 @@ msgstr "Version %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Veröffentlicht %(dateReleased)s – %(fileSize)s"
 
-#: src/amo/components/App/index.js:203
+#: src/amo/components/App/index.js:204
 #: src/amo/components/HeadMetaTags/index.js:77
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Add-ons für Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:207
+#: src/amo/components/App/index.js:208
 #: src/amo/components/HeadMetaTags/index.js:71
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Add-ons für Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:215
+#: src/amo/components/App/index.js:216
 #: src/amo/components/HeadMetaTags/index.js:76
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Add-ons für Firefox Android (%(locale)s)"
 
-#: src/amo/components/App/index.js:219
+#: src/amo/components/App/index.js:220
 #: src/amo/components/HeadMetaTags/index.js:70
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Add-ons für Firefox Android (%(locale)s)"
@@ -1733,15 +1733,15 @@ msgstr "Firefox-Add-ons für Android (%(locale)s)"
 msgid "Go to the add-on page"
 msgstr "Zur Seite des Add-ons gehen"
 
-#: src/amo/components/SearchResult/index.js:164
+#: src/amo/components/SearchResult/index.js:165
 msgid "No theme preview available"
 msgstr "Keine Theme-Vorschau verfügbar"
 
-#: src/amo/components/SearchResult/index.js:202
+#: src/amo/components/SearchResult/index.js:203
 msgid "Add-on note"
 msgstr "Add-on-Notiz"
 
-#: src/amo/components/SearchResult/index.js:222
+#: src/amo/components/SearchResult/index.js:223
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s Benutzer"
@@ -1847,59 +1847,59 @@ msgstr "Profilfoto"
 msgid "Choose Photo…"
 msgstr "Foto auswählen…"
 
-#: src/amo/pages/Addon/index.js:168 src/ui/components/ThemeImage/index.js:33
+#: src/amo/pages/Addon/index.js:169 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr "Vorschau von %(title)s"
 
-#: src/amo/pages/Addon/index.js:203
+#: src/amo/pages/Addon/index.js:204
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Dieses Add-on kann nicht bewertet werden, weil keine Versionen "
 "veröffentlicht wurden."
 
-#: src/amo/pages/Addon/index.js:214
+#: src/amo/pages/Addon/index.js:215
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s Bewertung lesen"
 msgstr[1] "%(count)s Bewertungen lesen"
 
-#: src/amo/pages/Addon/index.js:232
+#: src/amo/pages/Addon/index.js:233
 msgid "No reviews yet"
 msgstr "Noch keine Bewertungen"
 
-#: src/amo/pages/Addon/index.js:242
+#: src/amo/pages/Addon/index.js:243
 msgid "Rate your experience"
 msgstr "Bewertung Ihres Eindrucks"
 
-#: src/amo/pages/Addon/index.js:261
+#: src/amo/pages/Addon/index.js:262
 msgid "About this dictionary"
 msgstr "Über dieses Wörterbuch"
 
-#: src/amo/pages/Addon/index.js:264
+#: src/amo/pages/Addon/index.js:265
 msgid "About this extension"
 msgstr "Über diese Erweiterung"
 
-#: src/amo/pages/Addon/index.js:267
+#: src/amo/pages/Addon/index.js:268
 msgid "About this language pack"
 msgstr "Über dieses Sprachpaket"
 
-#: src/amo/pages/Addon/index.js:270
+#: src/amo/pages/Addon/index.js:271
 msgid "About this search plugin"
 msgstr "Über diese Suchmaschine"
 
-#: src/amo/pages/Addon/index.js:274
+#: src/amo/pages/Addon/index.js:275
 msgid "About this theme"
 msgstr "Über dieses Theme"
 
-#: src/amo/pages/Addon/index.js:277
+#: src/amo/pages/Addon/index.js:278
 msgid "About this add-on"
 msgstr "Über dieses Add-on"
 
-#: src/amo/pages/Addon/index.js:320
+#: src/amo/pages/Addon/index.js:321
 msgid "Release notes for %(addonVersion)s"
 msgstr "Versionshinweise für %(addonVersion)s"
 
-#: src/amo/pages/Addon/index.js:449
+#: src/amo/pages/Addon/index.js:450
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -1907,11 +1907,11 @@ msgstr ""
 "Dies ist kein öffentlicher Listeneintrag. Sie sehen ihn nur wegen der "
 "höheren Berechtigung."
 
-#: src/amo/pages/Addon/index.js:477
+#: src/amo/pages/Addon/index.js:478
 msgid "Extension Metadata"
 msgstr "Metadaten zur Erweiterung"
 
-#: src/amo/pages/Addon/index.js:495
+#: src/amo/pages/Addon/index.js:496
 msgid "Screenshots"
 msgstr "Screenshots"
 
@@ -1927,7 +1927,7 @@ msgstr "Endbenutzer-Lizenzvereinbarung für %(addonName)s"
 msgid "Privacy policy for %(addonName)s"
 msgstr "Datenschutzerklärung für %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:196
+#: src/amo/pages/AddonReviewList/index.js:197
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -1935,41 +1935,41 @@ msgstr ""
 "Bewertungen für %(addonName)s. Erfahren Sie, was andere Nutzer über "
 "%(addonName)s denken und installieren Sie es in Ihrem Firefox-Browser."
 
-#: src/amo/pages/AddonReviewList/index.js:228
+#: src/amo/pages/AddonReviewList/index.js:229
 msgid "Show all reviews"
 msgstr "Alle Bewertungen anzeigen"
 
-#: src/amo/pages/AddonReviewList/index.js:230
+#: src/amo/pages/AddonReviewList/index.js:231
 msgid "Show only five-star reviews"
 msgstr "Nur Fünf-Sterne-Bewertungen anzeigen"
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:232
 msgid "Show only four-star reviews"
 msgstr "Nur Vier-Sterne-Bewertungen anzeigen"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:234
 msgid "Show only three-star reviews"
 msgstr "Nur Drei-Sterne-Bewertungen anzeigen"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:236
 msgid "Show only two-star reviews"
 msgstr "Nur Zwei-Sterne-Bewertungen anzeigen"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only one-star reviews"
 msgstr "Nur Ein-Stern-Bewertungen anzeigen"
 
-#: src/amo/pages/AddonReviewList/index.js:276
+#: src/amo/pages/AddonReviewList/index.js:277
 msgid "Reviews for %(addonName)s"
 msgstr "Bewertungen für %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:286
+#: src/amo/pages/AddonReviewList/index.js:287
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s Bewertung"
 msgstr[1] "%(total)s Bewertungen"
 
-#: src/amo/pages/AddonReviewList/index.js:383
+#: src/amo/pages/AddonReviewList/index.js:384
 msgid "There are no reviews"
 msgstr "Es liegen noch keine Bewertungen vor"
 
@@ -2474,15 +2474,15 @@ msgstr ""
 msgid "Explore all categories"
 msgstr "Alle Kategorien durchsuchen"
 
-#: src/amo/pages/LanguageTools/index.js:108
+#: src/amo/pages/LanguageTools/index.js:109
 msgid "Available for your locale"
 msgstr "Für Ihre Sprache verfügbar"
 
-#: src/amo/pages/LanguageTools/index.js:146
+#: src/amo/pages/LanguageTools/index.js:147
 msgid "Dictionaries and Language Packs"
 msgstr "Wörterbücher und Sprachpakete"
 
-#: src/amo/pages/LanguageTools/index.js:155
+#: src/amo/pages/LanguageTools/index.js:156
 msgid ""
 "Download Firefox dictionaries and language pack extensions. Add a new "
 "language option to your browser spell-checker, or change the browser's "
@@ -2492,7 +2492,7 @@ msgstr ""
 "Fügen Sie der Rechtschreibprüfung Ihres Browsers eine neue Sprachoption "
 "hinzu oder ändern Sie die Sprache der Benutzeroberfläche des Browsers."
 
-#: src/amo/pages/LanguageTools/index.js:166
+#: src/amo/pages/LanguageTools/index.js:167
 msgid ""
 "Installing a dictionary add-on will add a new language option to your spell-"
 "checker, which checks your spelling as you type in Firefox."
@@ -2500,7 +2500,7 @@ msgstr ""
 "Wenn Sie ein Wörterbuch-Add-on installieren, hat Ihre Rechtschreibprüfung, "
 "die eingegebene Texte auf Fehler prüft, eine weitere Sprache zur Auswahl."
 
-#: src/amo/pages/LanguageTools/index.js:171
+#: src/amo/pages/LanguageTools/index.js:172
 msgid ""
 "Language packs change your browser's interface language, including menu "
 "options and settings."
@@ -2508,19 +2508,19 @@ msgstr ""
 "Sprachpakete ändern die Sprache der Benutzeroberfläche Ihres Browsers, "
 "einschließlich Menüoptionen und Einstellungen."
 
-#: src/amo/pages/LanguageTools/index.js:177
+#: src/amo/pages/LanguageTools/index.js:178
 msgid "All Locales"
 msgstr "Alle Sprachversionen"
 
-#: src/amo/pages/LanguageTools/index.js:183
+#: src/amo/pages/LanguageTools/index.js:184
 msgid "Locale Name"
 msgstr "Name der Sprache"
 
-#: src/amo/pages/LanguageTools/index.js:186
+#: src/amo/pages/LanguageTools/index.js:187
 msgid "Language Packs"
 msgstr "Sprachpakete"
 
-#: src/amo/pages/LanguageTools/index.js:189
+#: src/amo/pages/LanguageTools/index.js:190
 msgid "Dictionaries"
 msgstr "Wörterbücher"
 
@@ -3351,6 +3351,12 @@ msgstr "Nächste"
 #: src/core/components/Paginate/index.js:160
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Seite %(currentPage)s von %(totalPages)s"
+
+#: src/core/components/SiteNotices/index.js:47
+msgid ""
+"Some features are temporarily disabled while we perform website maintenance. "
+"We'll be back to full capacity shortly."
+msgstr ""
 
 #: src/core/components/SurveyNotice/index.js:131
 msgid "Take short survey"
