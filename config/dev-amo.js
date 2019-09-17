@@ -1,4 +1,4 @@
-import { amoDevCDN, baseUrlDev } from './lib/shared';
+import { amoDevCDN, analyticsHost, baseUrlDev } from './lib/shared';
 
 const staticHost = 'https://addons-amo-dev-cdn.allizom.org';
 
@@ -14,7 +14,7 @@ module.exports = {
       ],
       scriptSrc: [
         staticHost,
-        'https://www.google-analytics.com/analytics.js',
+        `${analyticsHost}/analytics.js`,
       ],
       styleSrc: [staticHost],
       imgSrc: [

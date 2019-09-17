@@ -1,4 +1,4 @@
-import { amoStageCDN } from './lib/shared';
+import { amoStageCDN, analyticsHost } from './lib/shared';
 
 const staticHost = 'https://addons-discovery-cdn.allizom.org';
 
@@ -9,7 +9,7 @@ module.exports = {
     directives: {
       scriptSrc: [
         staticHost,
-        'https://www.google-analytics.com/analytics.js',
+        `${analyticsHost}/analytics.js`,
       ],
       styleSrc: [staticHost],
       imgSrc: [

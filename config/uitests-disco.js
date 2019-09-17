@@ -1,4 +1,4 @@
-import { amoDevCDN, apiDevHost } from './lib/shared';
+import { amoDevCDN, analyticsHost, apiDevHost } from './lib/shared';
 
 module.exports = {
   apiHost: apiDevHost,
@@ -10,7 +10,7 @@ module.exports = {
     directives: {
       scriptSrc: [
         "'self'",
-        'https://www.google-analytics.com',
+        analyticsHost,
       ],
       styleSrc: ["'self'"],
       imgSrc: [
