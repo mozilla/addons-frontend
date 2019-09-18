@@ -3,7 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { sanitizeUserHTML } from 'core/utils';
+import { sanitizeHTML, nl2br } from 'core/utils';
 import translate from 'core/i18n/translate';
 import Notice from 'ui/components/Notice';
 import type { I18nType } from 'core/types/i18n';
@@ -24,6 +24,15 @@ type InternalProps = {|
   i18n: I18nType,
 |};
 
+// This is needed because of https://github.com/mozilla/addons-frontend/issues/8616
+//
+// We cannot use `sanitizeUserHTML()` on a `<span />`, which is required to
+// avoid the UI glitch so we configure our own sanitize function to make sure
+// it is safe to use `<span />`.
+const sanitizeNoticeHTML = (text: string): string => {
+  return sanitizeHTML(nl2br(text), ['a', 'b', 'br', 'em', 'i', 'strong']);
+};
+
 export class SiteNoticesBase extends React.Component<InternalProps> {
   render() {
     const { i18n, siteIsReadOnly, siteNotice } = this.props;
@@ -33,9 +42,9 @@ export class SiteNoticesBase extends React.Component<InternalProps> {
     if (siteNotice) {
       notices.push(
         <Notice className="SiteNotices" id="amo-site-notice" type="warning">
-          <div
+          <span
             // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={sanitizeUserHTML(siteNotice)}
+            dangerouslySetInnerHTML={sanitizeNoticeHTML(siteNotice)}
           />
         </Notice>,
       );
