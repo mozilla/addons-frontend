@@ -21,6 +21,7 @@ export type Props = {|
   lastModified?: Date | null,
   queryString?: string,
   title?: string | null,
+  withTwitterMeta?: boolean,
 |};
 
 type InternalProps = {|
@@ -36,6 +37,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
   static defaultProps = {
     _config: config,
     appendDefaultTitle: true,
+    withTwitterMeta: false,
   };
 
   getImage() {
@@ -115,6 +117,23 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
     return tags;
   }
 
+  renderTwitter() {
+    if (!this.props.withTwitterMeta) {
+      return null;
+    }
+
+    const tags = [
+      <meta key="twitter:site" name="twitter:site" content="@mozamo" />,
+      <meta
+        key="twitter:card"
+        name="twitter:card"
+        content="summary_large_image"
+      />,
+    ];
+
+    return tags;
+  }
+
   render() {
     const { date, description, lastModified } = this.props;
 
@@ -124,6 +143,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
         {date && <meta name="date" content={date} />}
         {lastModified && <meta name="last-modified" content={lastModified} />}
         {this.renderOpenGraph()}
+        {this.renderTwitter()}
       </Helmet>
     );
   }

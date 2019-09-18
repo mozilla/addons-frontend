@@ -193,4 +193,26 @@ describe(__filename, () => {
       );
     },
   );
+
+  it('does not render Twitter meta tags by default', () => {
+    const root = render();
+
+    ['twitter:site', 'twitter:card'].forEach((name) => {
+      expect(root.find(`meta[name="${name}"]`)).toHaveLength(0);
+    });
+  });
+
+  it('renders Twitter meta tags when withTwitterMeta is true', () => {
+    const root = render({ withTwitterMeta: true });
+
+    [
+      ['twitter:site', '@mozamo'],
+      ['twitter:card', 'summary_large_image'],
+    ].forEach(([name, expectedValue]) => {
+      expect(root.find(`meta[name="${name}"]`)).toHaveProp(
+        'content',
+        expectedValue,
+      );
+    });
+  });
 });
