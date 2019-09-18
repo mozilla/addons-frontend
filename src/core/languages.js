@@ -581,8 +581,8 @@ export const unfilteredLanguages = {
   },
   trs: {
     English: 'Triqui',
-    native: 'N\u00e1nj n\u00ef\'\u00efn',
-  },  
+    native: "N\u00e1nj n\u00ef'\u00efn",
+  },
   ts: {
     English: 'Tsonga',
     native: 'Xitsonga',
