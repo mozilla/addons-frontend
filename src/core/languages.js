@@ -81,7 +81,7 @@ export const unfilteredLanguages = {
   },
   'ca-valencia': {
     English: 'Catalan (Valencian)',
-    native: 'catal\u00e0 (valenci\u00e0)',
+    native: 'Catal\u00e0 (Valenci\u00e0)',
   },
   cak: {
     English: 'Kaqchikel',
@@ -578,6 +578,10 @@ export const unfilteredLanguages = {
   tr: {
     English: 'Turkish',
     native: 'T\u00fcrk\u00e7e',
+  },
+  trs: {
+    English: 'Triqui',
+    native: "N\u00e1nj n\u00ef'\u00efn",
   },
   ts: {
     English: 'Tsonga',
