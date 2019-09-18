@@ -14,7 +14,7 @@ import { addQueryParams, sanitizeUserHTML } from 'core/utils';
 import type { PrimaryHeroShelfType } from 'amo/reducers/home';
 import type { I18nType } from 'core/types/i18n';
 
-import { getDecoration } from './decorations';
+import { decorations } from './decorations';
 import './styles.scss';
 
 export const PRIMARY_HERO_CLICK_CATEGORY = 'AMO Primary Hero Clicks';
@@ -68,8 +68,6 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     _tracking: tracking,
   };
 
-  decoration: React.Element<any>;
-
   makeCallToActionURL = () => {
     const { shelfData } = this.props;
     invariant(shelfData, 'The shelfData property is required');
@@ -99,11 +97,13 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
 
   render() {
     const { _isInternalURL, i18n, shelfData } = this.props;
-    const { addon, description, external, featuredImage } = shelfData;
-
-    if (!this.decoration) {
-      this.decoration = getDecoration();
-    }
+    const {
+      addon,
+      decorationIndex,
+      description,
+      external,
+      featuredImage,
+    } = shelfData;
 
     const linkInsides = <span> {i18n.gettext('Get the extension')} </span>;
 
@@ -162,7 +162,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
           />
           {link}
         </div>
-        {this.decoration}
+        {decorations[decorationIndex]}
       </section>
     );
   }

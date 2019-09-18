@@ -8,11 +8,7 @@ import HeroRecommendation, {
   addParamsToHeroURL,
   HeroRecommendationBase,
 } from 'amo/components/HeroRecommendation';
-import {
-  getDecoration,
-  svg1,
-  svg2,
-} from 'amo/components/HeroRecommendation/decorations';
+import { getDecorationIndex } from 'amo/components/HeroRecommendation/decorations';
 import { createInternalHeroShelves } from 'amo/reducers/home';
 import { getAddonURL } from 'amo/utils';
 import {
@@ -339,12 +335,12 @@ describe(__filename, () => {
     );
   });
 
-  describe('getDecoration', () => {
-    it.each([[0.4, svg1], [0.6, svg2]])(
-      'retuns the expected svg file for %s',
-      (randomNumber, expectedSvg) => {
+  describe('getDecorationIndex', () => {
+    it.each([[0.4, 0], [0.6, 1]])(
+      'retuns the expected index for %s',
+      (randomNumber, expectedIndex) => {
         const randomizer = () => randomNumber;
-        expect(getDecoration(randomizer)).toEqual(expectedSvg);
+        expect(getDecorationIndex(randomizer)).toEqual(expectedIndex);
       },
     );
   });

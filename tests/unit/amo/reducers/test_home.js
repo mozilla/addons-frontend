@@ -322,6 +322,7 @@ describe(__filename, () => {
       expect(createInternalHeroShelves(heroShelves)).toEqual({
         primary: {
           addon: createInternalAddon(addon),
+          decorationIndex: heroShelves.primary.decorationIndex,
           description: heroShelves.primary.description,
           external: undefined,
           featuredImage: heroShelves.primary.featured_image,

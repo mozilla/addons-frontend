@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 
-export const svg1 = (
+const svg1 = (
   <svg
     className="HeroRecommendation-decoration"
     xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,7 @@ export const svg1 = (
   </svg>
 );
 
-export const svg2 = (
+const svg2 = (
   <svg
     className="HeroRecommendation-decoration"
     xmlns="http://www.w3.org/2000/svg"
@@ -91,6 +91,8 @@ export const svg2 = (
   </svg>
 );
 
-export const getDecoration = (randomizer: () => number = Math.random) => {
-  return randomizer() <= 0.5 ? svg1 : svg2;
+export const decorations = [svg1, svg2];
+
+export const getDecorationIndex = (randomizer: () => number = Math.random) => {
+  return Math.floor(randomizer() * decorations.length);
 };

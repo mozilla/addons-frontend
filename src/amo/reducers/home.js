@@ -3,6 +3,7 @@ import config from 'config';
 import { LOCATION_CHANGE } from 'connected-react-router';
 import invariant from 'invariant';
 
+import { getDecorationIndex } from 'amo/components/HeroRecommendation/decorations';
 import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
@@ -56,6 +57,7 @@ export type ExternalPrimaryHeroShelfType =
   | ExternalPrimaryHeroShelfWithExternalType;
 
 type BasePrimaryHeroShelfType = {|
+  decorationIndex: number,
   gradient: HeroGradientType,
   featuredImage: string,
   description: string | null,
@@ -200,6 +202,7 @@ const createInternalAddons = (
 
 export const createInternalHeroShelves = (
   heroShelves: ExternalHeroShelvesType,
+  randomizer: () => number = Math.random,
 ): HeroShelvesType => {
   const { primary, secondary } = heroShelves;
 
@@ -211,6 +214,7 @@ export const createInternalHeroShelves = (
   let shelves;
 
   const basePrimaryShelf = {
+    decorationIndex: getDecorationIndex(randomizer),
     gradient: primary.gradient,
     featuredImage: primary.featured_image,
     description: primary.description,
