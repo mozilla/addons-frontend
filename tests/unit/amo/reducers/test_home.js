@@ -244,20 +244,20 @@ describe(__filename, () => {
       expect(state).toEqual(initialState);
     });
 
-    it('sets `clientSideLocationChanges` to `true` after a location change on the client', () => {
+    it('sets `resetStateOnNextChange` to `true` after a location change on the client', () => {
       const _config = getFakeConfig({ server: false });
 
       const state = homeReducer(undefined, { type: LOCATION_CHANGE }, _config);
 
-      expect(state.clientSideLocationChanges).toEqual(true);
+      expect(state.resetStateOnNextChange).toEqual(true);
     });
 
-    it('does not set `clientSideLocationChanges` to `true` after a location change on the server', () => {
+    it('does not set `resetStateOnNextChange` to `true` after a location change on the server', () => {
       const _config = getFakeConfig({ server: true });
 
       const state = homeReducer(undefined, { type: LOCATION_CHANGE }, _config);
 
-      expect(state.clientSideLocationChanges).toEqual(false);
+      expect(state.resetStateOnNextChange).toEqual(false);
     });
 
     it('resets the state to the initial state after at least two location changes on the client', () => {
@@ -280,10 +280,7 @@ describe(__filename, () => {
       state = homeReducer(state, { type: LOCATION_CHANGE }, _config);
       state = homeReducer(state, { type: LOCATION_CHANGE }, _config);
 
-      expect(state).toEqual({
-        ...initialState,
-        clientSideLocationChanges: true,
-      });
+      expect(state).toEqual(initialState);
     });
 
     it('does not reset the state to the initial state after only one location change on the client', () => {
@@ -310,7 +307,7 @@ describe(__filename, () => {
 
       expect(newState).toEqual({
         ...firstState,
-        clientSideLocationChanges: true,
+        resetStateOnNextChange: true,
       });
     });
   });

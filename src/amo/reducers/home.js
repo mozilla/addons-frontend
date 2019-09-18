@@ -108,7 +108,7 @@ export type HeroShelvesType = {|
 export type HomeState = {
   collections: Array<Object | null>,
   heroShelves: HeroShelvesType | null,
-  clientSideLocationChanges: boolean,
+  resetStateOnNextChange: boolean,
   resultsLoaded: boolean,
   shelves: { [shelfName: string]: Array<AddonType> | null },
 };
@@ -116,7 +116,7 @@ export type HomeState = {
 export const initialState: HomeState = {
   collections: [],
   heroShelves: null,
-  clientSideLocationChanges: false,
+  resetStateOnNextChange: false,
   resultsLoaded: false,
   shelves: {},
 };
@@ -286,12 +286,23 @@ const reducer = (
       };
     }
 
+    // See: https://github.com/mozilla/addons-frontend/issues/8601
     case LOCATION_CHANGE: {
-      const newState = state.clientSideLocationChanges ? initialState : state;
+      if (_config.get('server')) {
+        // We only care about client side navigation.
+        return state;
+      }
+
+      // When the client initializes, it updates its location. On next location
+      // change, we want to reset this state to fetch fresh data once user goes
+      // back to the homepage.
+      if (state.resetStateOnNextChange) {
+        return initialState;
+      }
 
       return {
-        ...newState,
-        clientSideLocationChanges: !_config.get('server'),
+        ...state,
+        resetStateOnNextChange: true,
       };
     }
 
