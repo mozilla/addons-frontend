@@ -169,6 +169,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
           image={image}
           lastModified={addon.last_updated}
           title={this.getPageTitle()}
+          withTwitterMeta={addon.type === ADDON_TYPE_EXTENSION}
         />
 
         <HeadLinks />

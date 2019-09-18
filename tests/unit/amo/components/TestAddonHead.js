@@ -115,6 +115,7 @@ describe(__filename, () => {
       'title',
       `${addon.name} – Get this Extension for 🦊 Firefox Android (${lang})`,
     );
+    expect(root.find(HeadMetaTags)).toHaveProp('withTwitterMeta', true);
   });
 
   it('passes the preview URL as `image` to the HeadMetaTags component when add-on is a lightweight theme', () => {
@@ -125,6 +126,8 @@ describe(__filename, () => {
       'image',
       addon.themeData.previewURL,
     );
+    // This prop is only true for ADDON_TYPE_EXTENSION.
+    expect(root.find(HeadMetaTags)).toHaveProp('withTwitterMeta', false);
   });
 
   it('renders JSON linked data', () => {

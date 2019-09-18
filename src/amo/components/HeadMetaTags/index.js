@@ -21,6 +21,7 @@ export type Props = {|
   lastModified?: Date | null,
   queryString?: string,
   title?: string | null,
+  withTwitterMeta?: boolean,
 |};
 
 type InternalProps = {|
@@ -36,6 +37,7 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
   static defaultProps = {
     _config: config,
     appendDefaultTitle: true,
+    withTwitterMeta: false,
   };
 
   getImage() {
@@ -116,6 +118,10 @@ export class HeadMetaTagsBase extends React.PureComponent<InternalProps> {
   }
 
   renderTwitter() {
+    if (!this.props.withTwitterMeta) {
+      return null;
+    }
+
     const tags = [
       <meta key="twitter:site" name="twitter:site" content="@mozamo" />,
       <meta
