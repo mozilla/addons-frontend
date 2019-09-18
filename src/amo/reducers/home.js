@@ -302,6 +302,7 @@ const reducer = (
 
       return {
         ...state,
+        // This will only be set *after* a single location change on the client.
         resetStateOnNextChange: true,
       };
     }

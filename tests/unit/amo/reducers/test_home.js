@@ -260,7 +260,7 @@ describe(__filename, () => {
       expect(state.resetStateOnNextChange).toEqual(false);
     });
 
-    it('resets the state to the initial state after at least two location changes on the client', () => {
+    it('resets the state to the initial state after two location changes on the client', () => {
       const _config = getFakeConfig({ server: false });
       const { store } = dispatchClientMetadata();
 
