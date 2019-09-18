@@ -1,4 +1,6 @@
 /* @flow */
+import config from 'config';
+import { LOCATION_CHANGE } from 'connected-react-router';
 import invariant from 'invariant';
 
 import {
@@ -106,6 +108,7 @@ export type HeroShelvesType = {|
 export type HomeState = {
   collections: Array<Object | null>,
   heroShelves: HeroShelvesType | null,
+  resetStateOnNextChange: boolean,
   resultsLoaded: boolean,
   shelves: { [shelfName: string]: Array<AddonType> | null },
 };
@@ -113,6 +116,7 @@ export type HomeState = {
 export const initialState: HomeState = {
   collections: [],
   heroShelves: null,
+  resetStateOnNextChange: false,
   resultsLoaded: false,
   shelves: {},
 };
@@ -241,6 +245,7 @@ export const createInternalHeroShelves = (
 const reducer = (
   state: HomeState = initialState,
   action: Action,
+  _config: typeof config = config,
 ): HomeState => {
   switch (action.type) {
     case SET_CLIENT_APP:
@@ -278,6 +283,27 @@ const reducer = (
             [shelfName]: response ? createInternalAddons(response) : null,
           };
         }, {}),
+      };
+    }
+
+    // See: https://github.com/mozilla/addons-frontend/issues/8601
+    case LOCATION_CHANGE: {
+      if (_config.get('server')) {
+        // We only care about client side navigation.
+        return state;
+      }
+
+      // When the client initializes, it updates its location. On next location
+      // change, we want to reset this state to fetch fresh data once user goes
+      // back to the homepage.
+      if (state.resetStateOnNextChange) {
+        return initialState;
+      }
+
+      return {
+        ...state,
+        // This will only be set *after* a single location change on the client.
+        resetStateOnNextChange: true,
       };
     }
 
