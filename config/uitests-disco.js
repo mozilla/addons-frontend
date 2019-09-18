@@ -1,8 +1,8 @@
-import { amoDevCDN, analyticsHost, apiDevHost } from './lib/shared';
+import { addonsServerDevCDN, analyticsHost, apiDevHost } from './lib/shared';
 
 module.exports = {
   apiHost: apiDevHost,
-  amoCDN: amoDevCDN,
+  amoCDN: addonsServerDevCDN,
 
   staticHost: '',
 
@@ -16,7 +16,7 @@ module.exports = {
       imgSrc: [
         "'self'",
         'data:',
-        amoDevCDN,
+        addonsServerDevCDN,
       ],
       mediaSrc: ["'self'"],
     },

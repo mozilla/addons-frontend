@@ -1,32 +1,32 @@
-import { amoDevCDN, analyticsHost, baseUrlDev } from './lib/shared';
+import { addonsServerDevCDN, analyticsHost, baseUrlDev } from './lib/shared';
 
-const staticHost = 'https://addons-amo-dev-cdn.allizom.org';
+const addonsFrontendCDN = 'https://addons-amo-dev-cdn.allizom.org';
 
 module.exports = {
   baseURL: baseUrlDev,
 
-  staticHost,
+  staticHost: addonsFrontendCDN,
 
   CSP: {
     directives: {
       fontSrc: [
-        staticHost,
+        addonsFrontendCDN,
       ],
       scriptSrc: [
-        staticHost,
+        addonsFrontendCDN,
         `${analyticsHost}/analytics.js`,
       ],
-      styleSrc: [staticHost],
+      styleSrc: [addonsFrontendCDN],
       imgSrc: [
         "'self'",
         'data:',
-        amoDevCDN,
-        staticHost,
+        addonsServerDevCDN,
+        addonsFrontendCDN,
       ],
       // This is needed because `prefetchSrc` isn't supported by FF yet.
       // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1457204
-      defaultSrc: [amoDevCDN],
-      prefetchSrc: [amoDevCDN],
+      defaultSrc: [addonsFrontendCDN],
+      prefetchSrc: [addonsFrontendCDN],
     },
   },
 

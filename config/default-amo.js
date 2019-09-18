@@ -1,32 +1,32 @@
-import { amoProdCDN, analyticsHost } from './lib/shared';
+import { addonsServerProdCDN, analyticsHost } from './lib/shared';
 
-const staticHost = 'https://addons-amo.cdn.mozilla.net';
+const addonsFrontendCDN = 'https://addons-amo.cdn.mozilla.net';
 
 module.exports = {
-  staticHost,
+  staticHost: addonsFrontendCDN,
 
   CSP: {
     directives: {
-      fontSrc: [staticHost],
+      fontSrc: [addonsFrontendCDN],
       formAction: [
         "'self'",
       ],
       // Script is limited to the amo specific CDN.
       scriptSrc: [
-        staticHost,
+        addonsFrontendCDN,
         `${analyticsHost}/analytics.js`,
       ],
-      styleSrc: [staticHost],
+      styleSrc: [addonsFrontendCDN],
       imgSrc: [
         "'self'",
         'data:',
-        amoProdCDN,
-        staticHost,
+        addonsServerProdCDN,
+        addonsFrontendCDN,
       ],
       // This is needed because `prefetchSrc` isn't supported by FF yet.
       // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1457204
-      defaultSrc: [amoProdCDN],
-      prefetchSrc: [amoProdCDN],
+      defaultSrc: [addonsFrontendCDN],
+      prefetchSrc: [addonsFrontendCDN],
     },
   },
   enableTrailingSlashesMiddleware: true,

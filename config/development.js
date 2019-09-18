@@ -1,5 +1,5 @@
 // Config specific to local development
-import { amoDevCDN, analyticsHost, apiDevHost, sentryHost } from './lib/shared';
+import { addonsServerDevCDN, analyticsHost, apiDevHost, sentryHost } from './lib/shared';
 
 const webpackServerHost = process.env.WEBPACK_SERVER_HOST || '127.0.0.1';
 const webpackServerPort = 3001;
@@ -7,7 +7,7 @@ const webpackHost = `${webpackServerHost}:${webpackServerPort}`;
 
 module.exports = {
   apiHost: apiDevHost,
-  amoCDN: amoDevCDN,
+  amoCDN: addonsServerDevCDN,
 
   // Statics will be served by node.
   staticHost: undefined,
@@ -28,7 +28,7 @@ module.exports = {
     directives: {
       connectSrc: [
         "'self'",
-        amoDevCDN,
+        addonsServerDevCDN,
         analyticsHost,
         sentryHost,
         webpackHost,
@@ -41,14 +41,14 @@ module.exports = {
       imgSrc: [
         "'self'",
         'data:',
-        amoDevCDN,
+        addonsServerDevCDN,
         webpackHost,
       ],
       scriptSrc: [
         "'self'",
         // webpack injects inline JS
         "'unsafe-inline'",
-        amoDevCDN,
+        addonsServerDevCDN,
         webpackHost,
         `${analyticsHost}/analytics.js`,
       ],

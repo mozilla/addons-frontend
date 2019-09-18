@@ -1,11 +1,11 @@
 // Config for the -dev server.
-import { amoDevCDN, analyticsHost, apiDevHost, sentryHost } from './lib/shared';
+import { addonsServerDevCDN, analyticsHost, apiDevHost, sentryHost } from './lib/shared';
 
 
 module.exports = {
   apiHost: apiDevHost,
-  amoCDN: amoDevCDN,
-  staticHost: amoDevCDN,
+  amoCDN: addonsServerDevCDN,
+  staticHost: addonsServerDevCDN,
 
   enableDevTools: true,
 
@@ -19,14 +19,14 @@ module.exports = {
       ],
       imgSrc: [
         "'self'",
-        amoDevCDN,
+        addonsServerDevCDN,
         'data:',
       ],
       scriptSrc: [
-        amoDevCDN,
+        addonsServerDevCDN,
       ],
       styleSrc: [
-        amoDevCDN,
+        addonsServerDevCDN,
       ],
     },
   },
