@@ -21,13 +21,15 @@ import reducer, {
   updateUserAccount,
 } from 'amo/reducers/users';
 import {
-  ADDONS_POSTREVIEW,
   ADDONS_CONTENTREVIEW,
+  ADDONS_EDIT,
+  ADDONS_POSTREVIEW,
   ADDONS_REVIEW,
-  ALL_SUPER_POWERS,
   ADMIN_TOOLS_VIEW,
+  ALL_SUPER_POWERS,
   STATS_VIEW,
   THEMES_REVIEW,
+  USERS_EDIT,
 } from 'core/constants';
 import {
   createUserAccountResponse,
@@ -311,6 +313,27 @@ describe(__filename, () => {
       const { state } = dispatchSignInActions({ userProps: { permissions } });
 
       expect(hasPermission(state, THEMES_REVIEW)).toEqual(true);
+    });
+
+    it('returns `true` when user has a broad permission', () => {
+      const permissions = ['Addons:*'];
+      const { state } = dispatchSignInActions({ userProps: { permissions } });
+
+      expect(hasPermission(state, ADDONS_EDIT)).toEqual(true);
+    });
+
+    it('returns `false` when user does not have a broad permission', () => {
+      const permissions = [ADDONS_REVIEW];
+      const { state } = dispatchSignInActions({ userProps: { permissions } });
+
+      expect(hasPermission(state, ADDONS_EDIT)).toEqual(false);
+    });
+
+    it('returns `false` when user has a broad permission but app is different', () => {
+      const permissions = ['Addons:*'];
+      const { state } = dispatchSignInActions({ userProps: { permissions } });
+
+      expect(hasPermission(state, USERS_EDIT)).toEqual(false);
     });
   });
 

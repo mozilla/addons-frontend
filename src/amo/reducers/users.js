@@ -467,7 +467,22 @@ export const hasPermission = (state: AppState, permission: string): boolean => {
     return true;
   }
 
-  return permissions.includes(permission);
+  // Match exact permissions.
+  if (permissions.includes(permission)) {
+    return true;
+  }
+
+  // See: https://github.com/mozilla/addons-frontend/issues/8575
+  const appsWithAllPermissions = permissions
+    // Only consider permissions with wildcards.
+    .filter((perm) => perm.endsWith(':*'))
+    // Return the permission "app".
+    // See: https://github.com/mozilla/addons-server/blob/3a15aafb703349923ee2eb9a9f7b527ba9b16c03/src/olympia/constants/permissions.py#L4
+    .map((perm) => perm.replace(':*', ''));
+
+  const app = permission.split(':')[0];
+
+  return appsWithAllPermissions.includes(app);
 };
 
 export const hasAnyReviewerRelatedPermission = (state: AppState): boolean => {
