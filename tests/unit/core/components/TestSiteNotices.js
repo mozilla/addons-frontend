@@ -41,7 +41,7 @@ describe(__filename, () => {
     expect(
       root
         .find(Notice)
-        .find('div')
+        .find('span')
         .html(),
     ).toContain(notice);
   });
@@ -56,7 +56,7 @@ describe(__filename, () => {
     expect(
       root
         .find(Notice)
-        .find('div')
+        .find('span')
         .html(),
     ).toContain(notice);
   });
