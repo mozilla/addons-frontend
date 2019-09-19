@@ -1,8 +1,11 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import SecondaryHero from 'amo/components/SecondaryHero';
+import SecondaryHero, {
+  SECONDARY_HERO_SRC,
+} from 'amo/components/SecondaryHero';
 import { createInternalHeroShelves } from 'amo/reducers/home';
+import { addParamsToHeroURL } from 'amo/utils';
 import { createHeroShelves, fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -35,7 +38,10 @@ describe(__filename, () => {
     expect(root.find('.SecondaryHero-message-linkText')).toHaveText(cta.text);
     expect(root.find('.SecondaryHero-message-link')).toHaveProp(
       'href',
-      cta.url,
+      addParamsToHeroURL({
+        heroSrcCode: SECONDARY_HERO_SRC,
+        urlString: cta.url,
+      }),
     );
   });
 
@@ -45,6 +51,38 @@ describe(__filename, () => {
     const root = render({ shelfData });
 
     expect(root.find('.SecondaryHero-message-linkText')).toHaveLength(0);
+  });
+
+  it('configures an external link to open in a new tab', () => {
+    const _isInternalURL = sinon.stub().returns(false);
+    const cta = { text: 'cta text', url: 'some/url' };
+    const shelfData = createShelfData({ cta });
+
+    const root = render({ _isInternalURL, shelfData });
+
+    const link = root.find('.SecondaryHero-message-link');
+    expect(link).toHaveProp('rel', 'noopener noreferrer');
+    expect(link).toHaveProp('target', '_blank');
+    sinon.assert.calledWith(
+      _isInternalURL,
+      sinon.match({ urlString: sinon.match(cta.url) }),
+    );
+  });
+
+  it('does not configure an internal link to open in a new tab', () => {
+    const _isInternalURL = sinon.stub().returns(true);
+    const cta = { text: 'cta text', url: 'some/url' };
+    const shelfData = createShelfData({ cta });
+
+    const root = render({ _isInternalURL, shelfData });
+
+    const link = root.find('.SecondaryHero-message-link');
+    expect(link).not.toHaveProp('rel', 'noopener noreferrer');
+    expect(link).not.toHaveProp('target', '_blank');
+    sinon.assert.calledWith(
+      _isInternalURL,
+      sinon.match({ urlString: sinon.match(cta.url) }),
+    );
   });
 
   describe('modules', () => {
@@ -97,10 +135,41 @@ describe(__filename, () => {
           );
           expect(module.find('.SecondaryHero-module-link')).toHaveProp(
             'href',
-            moduleData.cta.url,
+            addParamsToHeroURL({
+              heroSrcCode: SECONDARY_HERO_SRC,
+              urlString: moduleData.cta.url,
+            }),
           );
         }
       },
     );
+
+    it('configures an external link to open in a new tab', () => {
+      const _isInternalURL = sinon.stub().returns(false);
+
+      const root = render({ _isInternalURL, shelfData });
+
+      const link = root.find('.SecondaryHero-module-link').at(0);
+      expect(link).toHaveProp('rel', 'noopener noreferrer');
+      expect(link).toHaveProp('target', '_blank');
+      sinon.assert.calledWith(
+        _isInternalURL,
+        sinon.match({ urlString: sinon.match(module1.cta.url) }),
+      );
+    });
+
+    it('does not configure an internal link to open in a new tab', () => {
+      const _isInternalURL = sinon.stub().returns(true);
+
+      const root = render({ _isInternalURL, shelfData });
+
+      const link = root.find('.SecondaryHero-module-link').at(0);
+      expect(link).not.toHaveProp('rel', 'noopener noreferrer');
+      expect(link).not.toHaveProp('target', '_blank');
+      sinon.assert.calledWith(
+        _isInternalURL,
+        sinon.match({ urlString: sinon.match(module1.cta.url) }),
+      );
+    });
   });
 });

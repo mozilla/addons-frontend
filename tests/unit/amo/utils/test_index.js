@@ -1,6 +1,11 @@
 import url from 'url';
 
-import { getCanonicalURL, getAddonURL, isInternalURL } from 'amo/utils';
+import {
+  addParamsToHeroURL,
+  getCanonicalURL,
+  getAddonURL,
+  isInternalURL,
+} from 'amo/utils';
 import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -86,6 +91,85 @@ describe(__filename, () => {
           urlString,
         }),
       ).toEqual(false);
+    });
+  });
+
+  describe('addParamsToHeroURL', () => {
+    let _addQueryParams;
+    let _isInternalURL;
+    const externalQueryParams = { externalParam1: 'externalParam1' };
+    const heroSrcCode = 'homepage-primary-hero';
+    const internalQueryParams = { internalParam1: 'internalParam1' };
+    const urlString = '/path/name';
+
+    beforeEach(() => {
+      _addQueryParams = sinon.spy();
+      _isInternalURL = sinon.stub();
+    });
+
+    it('passes internal query params to _addQueryParams for an internal URL', () => {
+      _isInternalURL.returns(true);
+
+      addParamsToHeroURL({
+        _addQueryParams,
+        _isInternalURL,
+        externalQueryParams,
+        heroSrcCode,
+        internalQueryParams,
+        urlString,
+      });
+
+      sinon.assert.calledWith(_addQueryParams, urlString, internalQueryParams);
+    });
+
+    it('passes default internal query params to _addQueryParams for an internal URL', () => {
+      _isInternalURL.returns(true);
+
+      addParamsToHeroURL({
+        _addQueryParams,
+        _isInternalURL,
+        heroSrcCode,
+        urlString,
+      });
+
+      sinon.assert.calledWith(_addQueryParams, urlString, {
+        src: heroSrcCode,
+      });
+    });
+
+    it('passes external query params to _addQueryParams for an external URL', () => {
+      _isInternalURL.returns(false);
+
+      addParamsToHeroURL({
+        _addQueryParams,
+        _isInternalURL,
+        externalQueryParams,
+        heroSrcCode,
+        internalQueryParams,
+        urlString,
+      });
+
+      sinon.assert.calledWith(_addQueryParams, urlString, externalQueryParams);
+    });
+
+    it('passes default external query params to _addQueryParams for an external URL', () => {
+      const baseURL = 'https://example.org';
+      const _config = getFakeConfig({ baseURL });
+      _isInternalURL.returns(false);
+
+      addParamsToHeroURL({
+        _addQueryParams,
+        _config,
+        _isInternalURL,
+        heroSrcCode,
+        urlString,
+      });
+
+      sinon.assert.calledWith(_addQueryParams, urlString, {
+        utm_content: heroSrcCode,
+        utm_medium: 'referral',
+        utm_source: url.parse(baseURL).host,
+      });
     });
   });
 });
