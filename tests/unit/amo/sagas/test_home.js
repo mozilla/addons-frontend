@@ -394,13 +394,9 @@ describe(__filename, () => {
     it('aborts fetching for a failed collection fetch', async () => {
       const error = createApiError({ response: { status: 500 } });
 
-      mockHeroApi
-        .expects('getHeroShelves')
-        .returns(Promise.resolve(createHeroShelves()));
+      mockHeroApi.expects('getHeroShelves').resolves(createHeroShelves());
 
-      mockCollectionsApi
-        .expects('getCollectionAddons')
-        .returns(Promise.reject(error));
+      mockCollectionsApi.expects('getCollectionAddons').rejects(error);
 
       _fetchHomeData();
 
@@ -445,33 +441,20 @@ describe(__filename, () => {
     });
 
     it('aborts fetching for a failed search fetch', async () => {
-      const state = sagaTester.getState();
-
-      const slug = 'collection-slug';
-      const userId = 123;
-
-      mockHeroApi
-        .expects('getHeroShelves')
-        .returns(Promise.resolve(createHeroShelves()));
+      mockHeroApi.expects('getHeroShelves').resolves(createHeroShelves());
 
       const firstCollection = createFakeCollectionAddonsListResponse();
       mockCollectionsApi
         .expects('getCollectionAddons')
-        .withArgs({
-          api: state.api,
-          slug,
-          userId,
-        })
-        .returns(Promise.resolve(firstCollection));
+        .resolves(firstCollection);
 
       const error = new Error('some API error maybe');
 
-      mockSearchApi
-        .expects('search')
-        .exactly(5)
-        .returns(Promise.reject(error));
+      mockSearchApi.expects('search').rejects(error);
 
-      _fetchHomeData({ collectionsToFetch: [{ slug, userId }] });
+      _fetchHomeData({
+        collectionsToFetch: [{ slug: 'collection-slug', userId: 123 }],
+      });
 
       const abortAction = abortFetchHomeData();
 
@@ -494,7 +477,7 @@ describe(__filename, () => {
     it('aborts fetching for a failed hero fetch', async () => {
       const error = createApiError({ response: { status: 500 } });
 
-      mockHeroApi.expects('getHeroShelves').returns(Promise.reject(error));
+      mockHeroApi.expects('getHeroShelves').rejects(error);
 
       _fetchHomeData();
 

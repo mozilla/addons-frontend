@@ -50,7 +50,6 @@ export function* fetchHomeData({
       heroShelves = yield call(getHeroShelves, { api: state.api });
     } catch (error) {
       log.warn(`Home hero shelves failed to load: ${error}`);
-      yield put(abortFetchHomeData());
       throw error;
     }
 
@@ -73,7 +72,6 @@ export function* fetchHomeData({
           // The collection was not found or is marked private.
           collections.push(null);
         } else {
-          yield put(abortFetchHomeData());
           throw error;
         }
       }
@@ -142,7 +140,6 @@ export function* fetchHomeData({
       });
     } catch (error) {
       log.warn(`Home add-ons failed to load: ${error}`);
-      yield put(abortFetchHomeData());
       throw error;
     }
 
