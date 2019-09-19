@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-17 16:59+0000\n"
-"PO-Revision-Date: 2019-09-19 19:46+0000\n"
+"PO-Revision-Date: 2019-09-19 21:10+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1987,7 +1987,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:293
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "ਐਕਸਟੈਂਸ਼ਨ ਵਿਡਿਓ ਦੇਖਣ ਤੋਂ ਲੈ ਕੇ ਹੈਂਡਲ ਕਰਨ ਵਾਲੀਆਂ ਤਸਵੀਰਾਂ, ਸੰਗੀਤ ਅਤੇ ਹੋਰ ਵੀ ਕਈ ਤਰਾਂ ਦੇ ਆਨਲਾਈਨ ਦਿਲਚਸਪ ਮੀਡੀਆ ਨੂੰ ਵਧਾ ਸਕਦੇ ਹਨ।"
 
 #: src/amo/pages/Guides/index.js:79
 msgid "Create and manage strong passwords"
@@ -2238,7 +2238,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:52
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਥੰਡਰਬਰਡ ਜਾਂ ਸੀਮੋਨਕੀ ਲਈ ਐਡ-ਆਨ ਦੀ ਭਾਲ ਕਰ ਰਹੇ ਹੋ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ%(startTBLink)s addons.thunderbird.net%(endTBLink)s ਜਾਂ %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s।"
 
 #: src/amo/pages/StaticPages/About/index.js:69
 msgid "A community of creators"
@@ -2249,6 +2249,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
+"ਇੱਥੇ ਸੂਚੀਬੱਧ ਐਡ-ਆਨ ਪੂਰੀ ਦੁਨੀਆ ਤੋਂ ਹਜ਼ਾਰਾਂ ਡਿਵੈਲਪਰਾਂ ਅਤੇ ਥੀਮ ਡਿਜ਼ਾਈਨਰਾਂ ਦੁਆਰਾ ਤਿਆਰ ਕੀਤੇ ਗਏ ਹਨ, ਵਿਅਕਤੀਗਤ ਸ਼ੌਕੀਨਾਂ ਤੋਂ ਲੈ ਕੇ ਵੱਡੇ ਕਾਰਪੋਰੇਸ਼ਨਾਂ ਤੱਕ। AMO ਤੇ ਸੂਚੀਬੱਧ ਕੁਝ ਐਡ-ਆਨ ਆਪਣੇ ਆਪ ਪ੍ਰਕਾਸ਼ਤ ਹੋ ਗਏ ਹਨ "
+"ਅਤੇ ਇੱਕ ਵਾਰ ਜਨਤਕ ਤੌਰ ਤੇ ਸੂਚੀਬੱਧ ਸੰਪਾਦਕਾਂ ਦੀ ਟੀਮ ਦੁਆਰਾ ਸਮੀਖਿਆ ਕੀਤੇ ਜਾ ਸਕਦੇ ਹਨ।"
 
 #: src/amo/pages/StaticPages/About/index.js:80
 msgid "Get involved"
@@ -2259,10 +2261,12 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"ਮੋਜ਼ੀਲਾ ਇੰਟਰਨੈਟ ਦਾ ਇੱਕ ਗੈਰ-ਮੁਨਾਫਾ ਚੈਂਪੀਅਨ ਹੈ, ਅਸੀਂ ਇਸ ਨੂੰ ਸਿਹਤਮੰਦ, ਖੁੱਲੇ ਅਤੇ ਪਹੁੰਚ ਵਿੱਚ ਰੱਖਣ ਵਿੱਚ ਸਹਾਇਤਾ ਲਈ ਫਾਇਰਫੌਕਸ ਬਣਾਉਂਦੇ ਹਾਂ। ਐਡ-ਆਨ ਫਾਇਰਫਾਕਸ ਵਿੱਚ ਉਪਭੋਗਤਾ ਦੀ ਪਸੰਦ ਅਤੇ ਅਨੁਕੂਲਤਾ ਦਾ ਸਮਰਥਨ ਕਰਦੇ ਹਨ, "
+"ਅਤੇ ਤੁਸੀਂ ਹੇਠ ਦਿੱਤੇ ਤਰੀਕਿਆਂ ਵਿੱਚ ਯੋਗਦਾਨ ਪਾ ਸਕਦੇ ਹੋ:"
 
 #: src/amo/pages/StaticPages/About/index.js:92
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sਆਪਣੇ ਐਡ-ਆਨ ਦੀ ਰਚਨਾ ਕਰੋ%(endLink)s। ਅਸੀਂ ਮੁਫ਼ਤ ਹੋਸਟਿੰਗ ਅਤੇ ਅੱਪਡੇਟ ਸੇਵਾਵਾਂ ਮੁਹੱਇਆ ਕਰਵਾਉਂਦੇ ਅਤੇ ਉਪਭੋਗੀ ਦੀ ਇੱਕ ਵੱਡੀ ਹਾਜ਼ਰੀਨ ਤੱਕ ਪਹੁੰਚਣ ਵਿੱਚ ਤੁਹਾਡੀ ਮਦਦ ਕਰਦੇ ਹਾਂ।"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:100
 msgid "Use profanity, sexual language or language that can be construed as hateful."
@@ -2422,7 +2426,7 @@ msgstr "%(user)s ਦੇ ਪਰੋਫਾਈਲ, ਫਾਇਰਫਾਕਸ ਐਕ�
 
 #: src/amo/pages/UserProfile/index.js:276
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "%(user)s ਦੇ ਪਰੋਫਾਈਲ, ਫਾਇਰਫਾਕਸ ਥੀਮ ਲੇਖਕੋ। ਔਸਤ ਰੇਟਿੰਗਾਂ, ਕਾਰਜਕਾਲ ਅਤੇ ਮੁੱਦਿਆਂ ਦੀ ਰਿਪੋਰਟ ਕਰਨ ਦੇ ਵਿਕਲਪ ਸਮੇਤ,%(user)s ਦੁਆਰਾ ਹੋਰ ਥੀਮ ਲੱਭੋ।"
 
 #: src/amo/pages/UserProfile/index.js:315
 msgid "Add-ons developer"
