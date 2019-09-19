@@ -1,11 +1,11 @@
 // Config for the stage server.
-import { amoStageCDN, analyticsHost, apiStageHost, sentryHost } from './lib/shared';
+import { addonsServerStageCDN, analyticsHost, apiStageHost, sentryHost } from './lib/shared';
 
 
 module.exports = {
   apiHost: apiStageHost,
-  amoCDN: amoStageCDN,
-  staticHost: amoStageCDN,
+  amoCDN: addonsServerStageCDN,
+  staticHost: addonsServerStageCDN,
 
   // Content security policy.
   CSP: {
@@ -17,14 +17,14 @@ module.exports = {
       ],
       imgSrc: [
         "'self'",
-        amoStageCDN,
+        addonsServerStageCDN,
         'data:',
       ],
       scriptSrc: [
-        amoStageCDN,
+        addonsServerStageCDN,
       ],
       styleSrc: [
-        amoStageCDN,
+        addonsServerStageCDN,
       ],
     },
   },

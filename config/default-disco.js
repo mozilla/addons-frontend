@@ -1,9 +1,9 @@
 /*
  * This is the default (production) config for the discovery pane app.
  */
-import { amoProdCDN, analyticsHost } from './lib/shared';
+import { addonsServerProdCDN, analyticsHost } from './lib/shared';
 
-const staticHost = 'https://addons-discovery.cdn.mozilla.net';
+const addonsFrontendCDN = 'https://addons-discovery.cdn.mozilla.net';
 
 module.exports = {
   // The keys listed here will be exposed on the client.
@@ -40,23 +40,23 @@ module.exports = {
     'unsupportedHrefLangs',
   ],
 
-  staticHost,
+  staticHost: addonsFrontendCDN,
 
   CSP: {
     directives: {
       // Script is limited to the discovery specific CDN.
       scriptSrc: [
-        staticHost,
+        addonsFrontendCDN,
         `${analyticsHost}/analytics.js`,
       ],
-      styleSrc: [staticHost],
+      styleSrc: [addonsFrontendCDN],
       imgSrc: [
         "'self'",
         'data:',
-        amoProdCDN,
-        staticHost,
+        addonsServerProdCDN,
+        addonsFrontendCDN,
       ],
-      mediaSrc: [staticHost],
+      mediaSrc: [addonsFrontendCDN],
     },
   },
   // Firefox sets these query params when loading the Discovery Pane.

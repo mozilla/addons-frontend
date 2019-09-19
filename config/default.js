@@ -4,7 +4,7 @@
 
 import path from 'path';
 
-import { amoProdCDN, analyticsHost, apiProdHost, baseUrlProd, sentryHost } from './lib/shared';
+import { addonsServerProdCDN, analyticsHost, apiProdHost, baseUrlProd, sentryHost } from './lib/shared';
 
 const appName = process.env.NODE_APP_INSTANCE || null;
 const validAppNames = [
@@ -84,8 +84,8 @@ module.exports = {
   datadogPort: null,
 
   // The CDN host for AMO.
-  amoCDN: amoProdCDN,
-  staticHost: amoProdCDN,
+  amoCDN: addonsServerProdCDN,
+  staticHost: addonsServerProdCDN,
   apiHost: apiProdHost,
   apiPath: '/api/',
   apiVersion: 'v4',
@@ -163,14 +163,14 @@ module.exports = {
         // Favicons are normally served
         // from the document host.
         "'self'",
-        amoProdCDN,
+        addonsServerProdCDN,
         'data:',
       ],
       manifestSrc: ["'none'"],
       mediaSrc: ["'none'"],
       objectSrc: ["'none'"],
-      scriptSrc: [amoProdCDN],
-      styleSrc: [amoProdCDN],
+      scriptSrc: [addonsServerProdCDN],
+      styleSrc: [addonsServerProdCDN],
       workerSrc: ["'none'"],
       reportUri: '/__cspreport__',
     },

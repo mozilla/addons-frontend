@@ -1,24 +1,24 @@
-import { amoStageCDN, analyticsHost } from './lib/shared';
+import { addonsServerStageCDN, analyticsHost } from './lib/shared';
 
-const staticHost = 'https://addons-discovery-cdn.allizom.org';
+const addonsFrontendCDN = 'https://addons-discovery-cdn.allizom.org';
 
 module.exports = {
-  staticHost,
+  staticHost: addonsFrontendCDN,
 
   CSP: {
     directives: {
       scriptSrc: [
-        staticHost,
+        addonsFrontendCDN,
         `${analyticsHost}/analytics.js`,
       ],
-      styleSrc: [staticHost],
+      styleSrc: [addonsFrontendCDN],
       imgSrc: [
         "'self'",
         'data:',
-        amoStageCDN,
-        staticHost,
+        addonsServerStageCDN,
+        addonsFrontendCDN,
       ],
-      mediaSrc: [staticHost],
+      mediaSrc: [addonsFrontendCDN],
     },
   },
 

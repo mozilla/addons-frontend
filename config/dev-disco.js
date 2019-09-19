@@ -1,4 +1,4 @@
-import { amoDevCDN, analyticsHost } from './lib/shared';
+import { addonsServerDevCDN, analyticsHost } from './lib/shared';
 
 const staticHost = 'https://addons-discovery-dev-cdn.allizom.org';
 
@@ -15,7 +15,7 @@ module.exports = {
       imgSrc: [
         "'self'",
         'data:',
-        amoDevCDN,
+        addonsServerDevCDN,
         staticHost,
       ],
       mediaSrc: [staticHost],
