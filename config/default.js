@@ -184,6 +184,8 @@ module.exports = {
 
     // Set to true if you want to disable CSP on Android where it can be buggy.
     disableAndroid: false,
+
+    browserSniff: false,
   },
 
   frameGuard: {
