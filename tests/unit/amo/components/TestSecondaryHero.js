@@ -2,11 +2,17 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import SecondaryHero, {
+  SECONDARY_HERO_CLICK_CATEGORY,
   SECONDARY_HERO_SRC,
 } from 'amo/components/SecondaryHero';
 import { createInternalHeroShelves } from 'amo/reducers/home';
 import { addParamsToHeroURL } from 'amo/utils';
-import { createHeroShelves, fakeAddon } from 'tests/unit/helpers';
+import {
+  createFakeEvent,
+  createFakeTracking,
+  createHeroShelves,
+  fakeAddon,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const createShelfData = (secondaryProps = {}) => {
@@ -85,6 +91,23 @@ describe(__filename, () => {
     const root = render({ shelfData });
 
     expect(root.find('.SecondaryHero-message-linkText')).toHaveLength(0);
+  });
+
+  it('sends a tracking event when the cta is clicked', () => {
+    const _tracking = createFakeTracking();
+    const cta = { text: 'cta text', url: 'some/url' };
+    const shelfData = createShelfData({ cta });
+
+    const root = render({ _tracking, shelfData });
+
+    const event = createFakeEvent({ currentTarget: { href: cta.url } });
+    root.find('.SecondaryHero-message-link').simulate('click', event);
+
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: event.currentTarget.href,
+      category: SECONDARY_HERO_CLICK_CATEGORY,
+    });
+    sinon.assert.calledOnce(_tracking.sendEvent);
   });
 
   describe('modules', () => {
@@ -174,5 +197,26 @@ describe(__filename, () => {
         }
       },
     );
+
+    it('sends a tracking event when the cta is clicked', () => {
+      const _tracking = createFakeTracking();
+
+      const root = render({ _tracking, shelfData });
+
+      const event = createFakeEvent({
+        currentTarget: { href: module1.cta.url },
+      });
+
+      root
+        .find('.SecondaryHero-module-link')
+        .at(0)
+        .simulate('click', event);
+
+      sinon.assert.calledWith(_tracking.sendEvent, {
+        action: event.currentTarget.href,
+        category: SECONDARY_HERO_CLICK_CATEGORY,
+      });
+      sinon.assert.calledOnce(_tracking.sendEvent);
+    });
   });
 });

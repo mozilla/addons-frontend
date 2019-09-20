@@ -4,6 +4,7 @@ import * as React from 'react';
 
 import Link from 'amo/components/Link';
 import { addParamsToHeroURL, checkInternalURL } from 'amo/utils';
+import tracking from 'core/tracking';
 import type {
   HeroCallToActionType,
   SecondaryHeroShelfType,
@@ -11,6 +12,7 @@ import type {
 
 import './styles.scss';
 
+export const SECONDARY_HERO_CLICK_CATEGORY = 'AMO Secondary Hero Clicks';
 export const SECONDARY_HERO_SRC = 'homepage-secondary-hero';
 
 type Props = {| shelfData: SecondaryHeroShelfType |};
@@ -18,6 +20,7 @@ type Props = {| shelfData: SecondaryHeroShelfType |};
 type InternalProps = {|
   ...Props,
   _checkInternalURL: typeof checkInternalURL,
+  _tracking: typeof tracking,
 |};
 
 const makeCallToActionURL = (urlString: string) => {
@@ -26,6 +29,7 @@ const makeCallToActionURL = (urlString: string) => {
 
 export const SecondaryHeroBase = ({
   _checkInternalURL = checkInternalURL,
+  _tracking = tracking,
   shelfData,
 }: InternalProps) => {
   const { headline, description, cta, modules } = shelfData;
@@ -50,6 +54,13 @@ export const SecondaryHeroBase = ({
     return {};
   };
 
+  const onHeroClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
+    _tracking.sendEvent({
+      action: event.currentTarget.href,
+      category: SECONDARY_HERO_CLICK_CATEGORY,
+    });
+  };
+
   const renderedModules = [];
   modules.forEach((module) => {
     renderedModules.push(
@@ -65,6 +76,7 @@ export const SecondaryHeroBase = ({
         {module.cta && (
           <Link
             className="SecondaryHero-module-link"
+            onClick={onHeroClick}
             {...getLinkProps(module.cta)}
           >
             <span className="SecondaryHero-module-linkText">
