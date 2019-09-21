@@ -1,14 +1,10 @@
 @import '~amo/css/styles';
 
 .HeroRecommendation {
+  background-image: linear-gradient(#20123a, #712290);
   color: $white;
   display: flex;
-  // This works around a layout bug in Firefox.
-  // It is currently unfixed as of 70.0 (Nightly).
-  // https://github.com/mozilla/addons-frontend/issues/8426
-  overflow: auto;
   padding: 24px;
-  position: relative;
 
   @include respond-to(extraExtraLarge) {
     padding: 36px;
@@ -26,23 +22,6 @@
 
   @include respond-to(extraExtraLarge) {
     @include margin-start(136px);
-  }
-}
-
-$overlayShapeZIndex: 1;
-
-.HeroRecommendation-overlayShape {
-  bottom: 0;
-  height: 70%;
-  left: 0;
-  max-height: 307px;
-  position: absolute;
-  z-index: $overlayShapeZIndex;
-
-  [dir='rtl'] & {
-    left: auto;
-    right: 0;
-    transform: scaleX(-1);
   }
 }
 
@@ -123,58 +102,5 @@ $overlayShapeZIndex: 1;
   &:visited {
     color: $white;
     text-decoration: none;
-  }
-}
-
-.HeroRecommendation-heading,
-.HeroRecommendation-body,
-.HeroRecommendation-link {
-  position: relative;
-  z-index: $overlayShapeZIndex + 1;
-}
-
-.HeroRecommendation-purple {
-  $heroPurple1: #20123a;
-  $heroPurple2: #712290;
-  $heroPurple3: #592acb;
-  $heroPurple4: #312a65;
-  $heroPurple5: #9059ff;
-  $heroPurple6: #e31587;
-  $heroPurple7: #312a65;
-
-  background-image: linear-gradient($heroPurple1, $heroPurple2);
-
-  .HeroRecommendation-gradientA-startColor {
-    stop-color: $heroPurple3;
-  }
-
-  .HeroRecommendation-gradientA-endColor {
-    stop-color: $heroPurple4;
-  }
-
-  .HeroRecommendation-gradientB-startColor {
-    stop-color: $heroPurple5;
-  }
-
-  .HeroRecommendation-gradientB-endColor {
-    stop-color: $heroPurple6;
-  }
-
-  .HeroRecommendation-solidSwoosh {
-    fill: $heroPurple7;
-  }
-
-  .HeroRecommendation-link {
-    &,
-    &:hover,
-    &:active {
-      // Fill the background on small screens in case the overlayShape
-      // overlaps the button. Also, fill the background when hovering.
-      background-color: $heroPurple2;
-    }
-
-    @include respond-to(large) {
-      background-color: transparent;
-    }
   }
 }
