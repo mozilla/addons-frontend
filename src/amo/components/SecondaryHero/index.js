@@ -38,13 +38,22 @@ export const SecondaryHeroBase = ({
   invariant(description, 'The description property is required');
   invariant(modules, 'The modules property is required');
 
+  const onHeroClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
+    _tracking.sendEvent({
+      action: event.currentTarget.href,
+      category: SECONDARY_HERO_CLICK_CATEGORY,
+    });
+  };
+
   const getLinkProps = (link: HeroCallToActionType | null) => {
+    const props = { onClick: onHeroClick };
     if (link) {
       const urlInfo = _checkInternalURL({ urlString: link.url });
       if (urlInfo.isInternal) {
-        return { to: makeCallToActionURL(urlInfo.relativeURL) };
+        return { ...props, to: makeCallToActionURL(urlInfo.relativeURL) };
       }
       return {
+        ...props,
         href: makeCallToActionURL(link.url),
         prependClientApp: false,
         prependLang: false,
@@ -52,13 +61,6 @@ export const SecondaryHeroBase = ({
       };
     }
     return {};
-  };
-
-  const onHeroClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
-    _tracking.sendEvent({
-      action: event.currentTarget.href,
-      category: SECONDARY_HERO_CLICK_CATEGORY,
-    });
   };
 
   const renderedModules = [];
@@ -76,7 +78,6 @@ export const SecondaryHeroBase = ({
         {module.cta && (
           <Link
             className="SecondaryHero-module-link"
-            onClick={onHeroClick}
             {...getLinkProps(module.cta)}
           >
             <span className="SecondaryHero-module-linkText">
