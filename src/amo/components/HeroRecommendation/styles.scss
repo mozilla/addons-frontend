@@ -10,12 +10,6 @@
 
     @include padding-start(96px);
   }
-
-  .HeroRecommendation-link {
-    @include respond-to(large) {
-      background-color: transparent;
-    }
-  }
 }
 
 .HeroRecommendation-info {
@@ -110,11 +104,14 @@
   }
 }
 
-@mixin gradientStyle($stopColor) {
-  background-image: linear-gradient($color-ink-80, $stopColor);
+@mixin gradientStyle($stopColor, $startColor: $color-ink-80) {
+  background-image: linear-gradient($startColor, $stopColor);
 
   .HeroRecommendation-link {
-    &,
+    background-color: transparent;
+  }
+
+  .HeroRecommendation-link {
     &:hover,
     &:active {
       background-color: $stopColor;

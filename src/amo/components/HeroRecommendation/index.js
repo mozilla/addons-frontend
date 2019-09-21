@@ -7,6 +7,7 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import { addParamsToHeroURL, checkInternalURL, getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
 import tracking from 'core/tracking';
 import { sanitizeUserHTML } from 'core/utils';
 import type { PrimaryHeroShelfType } from 'amo/reducers/home';
@@ -106,13 +107,15 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     // translators: If uppercase does not work in your locale, change it to lowercase.
     // This is used as a secondary heading.
     const recommended = i18n.gettext('RECOMMENDED');
-    const classnames = makeClassName(
-      'HeroRecommendation',
-      `${gradient.start}-${gradient.end}`,
+    const gradientsClassName = `${gradient.start}-${gradient.end}`;
+    log.info(
+      `className ${gradientsClassName} generated from the API response. This should match a selector in styles.scss`,
     );
 
     return (
-      <section className={classnames}>
+      <section
+        className={makeClassName('HeroRecommendation', gradientsClassName)}
+      >
         <div>
           <img
             className="HeroRecommendation-image"
