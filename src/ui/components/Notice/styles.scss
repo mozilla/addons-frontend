@@ -64,7 +64,7 @@
   margin: 0;
   padding: 4px 0;
 
-  a:link {color: $android-link-color}
+  a:link { color: $android-link-color; }
 
   .Notice-light & {
     padding: 0;
