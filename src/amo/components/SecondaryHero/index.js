@@ -3,7 +3,7 @@ import invariant from 'invariant';
 import * as React from 'react';
 
 import Link from 'amo/components/Link';
-import { addParamsToHeroURL, isInternalURL } from 'amo/utils';
+import { addParamsToHeroURL, checkInternalURL } from 'amo/utils';
 import type {
   HeroCallToActionType,
   SecondaryHeroShelfType,
@@ -17,7 +17,7 @@ type Props = {| shelfData: SecondaryHeroShelfType |};
 
 type InternalProps = {|
   ...Props,
-  _isInternalURL: typeof isInternalURL,
+  _checkInternalURL: typeof checkInternalURL,
 |};
 
 const makeCallToActionURL = (urlString: string) => {
@@ -25,7 +25,7 @@ const makeCallToActionURL = (urlString: string) => {
 };
 
 export const SecondaryHeroBase = ({
-  _isInternalURL = isInternalURL,
+  _checkInternalURL = checkInternalURL,
   shelfData,
 }: InternalProps) => {
   const { headline, description, cta, modules } = shelfData;
@@ -36,10 +36,16 @@ export const SecondaryHeroBase = ({
 
   const getLinkProps = (link: HeroCallToActionType | null) => {
     if (link) {
-      if (_isInternalURL({ urlString: link.url })) {
-        return { to: makeCallToActionURL(link.url) };
+      const internalURLCheck = _checkInternalURL({ urlString: link.url });
+      if (internalURLCheck.isInternalURL) {
+        return { to: makeCallToActionURL(internalURLCheck.strippedURL) };
       }
-      return { href: makeCallToActionURL(link.url), target: '_blank' };
+      return {
+        href: makeCallToActionURL(link.url),
+        prependClientApp: false,
+        prependLang: false,
+        target: '_blank',
+      };
     }
     return {};
   };

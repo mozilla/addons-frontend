@@ -56,17 +56,22 @@ export const getCanonicalURL = ({
   return `${_config.get('baseURL')}${locationPathname}`;
 };
 
-export const isInternalURL = ({
+export const checkInternalURL = ({
   _config = config,
   urlString,
 }: {|
   _config?: typeof config,
   urlString: string,
-|}): boolean => {
+|}): { isInternalURL: boolean, strippedURL: string } => {
   const baseURL = _config.get('baseURL');
   const urlParts = url.parse(urlString, true);
+  const strippedURL = urlString.replace(baseURL, '');
 
-  return !urlParts.protocol || url.parse(baseURL).host === urlParts.host;
+  return {
+    isInternalURL:
+      !urlParts.protocol || url.parse(baseURL).host === urlParts.host,
+    strippedURL,
+  };
 };
 
 type QueryParams = { [key: string]: any };
@@ -74,7 +79,7 @@ type QueryParams = { [key: string]: any };
 type AddParamsToHeroURLParams = {|
   _addQueryParams?: typeof addQueryParams,
   _config?: typeof config,
-  _isInternalURL?: typeof isInternalURL,
+  _checkInternalURL?: typeof checkInternalURL,
   heroSrcCode: string,
   internalQueryParams?: QueryParams,
   externalQueryParams?: QueryParams,
@@ -84,7 +89,7 @@ type AddParamsToHeroURLParams = {|
 export const addParamsToHeroURL = ({
   _addQueryParams = addQueryParams,
   _config = config,
-  _isInternalURL = isInternalURL,
+  _checkInternalURL = checkInternalURL,
   heroSrcCode,
   internalQueryParams = { src: heroSrcCode },
   externalQueryParams = {
@@ -96,6 +101,8 @@ export const addParamsToHeroURL = ({
 }: AddParamsToHeroURLParams) => {
   return _addQueryParams(
     urlString,
-    _isInternalURL({ urlString }) ? internalQueryParams : externalQueryParams,
+    _checkInternalURL({ urlString }).isInternalURL
+      ? internalQueryParams
+      : externalQueryParams,
   );
 };

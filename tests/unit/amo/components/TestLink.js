@@ -57,6 +57,13 @@ describe(__filename, () => {
     expect(root.find(ReactRouterLink)).toHaveProp('to', '/fr/android/test');
   });
 
+  it('does not prefix the `to` prop if it already contains the prefix', () => {
+    const to = '/fr/android/test';
+    const root = render({ to });
+
+    expect(root.find(ReactRouterLink)).toHaveProp('to', to);
+  });
+
   it('prefixes the `to.pathname` prop', () => {
     const root = render({ to: { pathname: '/test' } });
 
@@ -97,6 +104,13 @@ describe(__filename, () => {
     const root = render({ href: '/test' });
 
     expect(root.find('a')).toHaveProp('href', '/fr/android/test');
+  });
+
+  it('does not prefix the `href` prop if it already contains the prefix', () => {
+    const href = '/fr/android/test';
+    const root = render({ href });
+
+    expect(root.find('a')).toHaveProp('href', href);
   });
 
   it('does not prepend clientApp when `prependClientApp` is false', () => {

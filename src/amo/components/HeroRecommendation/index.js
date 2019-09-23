@@ -4,7 +4,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
-import { addParamsToHeroURL, isInternalURL, getAddonURL } from 'amo/utils';
+import { addParamsToHeroURL, checkInternalURL, getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import tracking from 'core/tracking';
 import { sanitizeUserHTML } from 'core/utils';
@@ -23,13 +23,13 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
-  _isInternalURL: typeof isInternalURL,
+  _checkInternalURL: typeof checkInternalURL,
   _tracking: typeof tracking,
 |};
 
 export class HeroRecommendationBase extends React.Component<InternalProps> {
   static defaultProps = {
-    _isInternalURL: isInternalURL,
+    _checkInternalURL: checkInternalURL,
     _tracking: tracking,
   };
 
@@ -63,7 +63,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { _isInternalURL, i18n, shelfData } = this.props;
+    const { _checkInternalURL, i18n, shelfData } = this.props;
     const { addon, description, external, featuredImage } = shelfData;
 
     const linkInsides = <span> {i18n.gettext('Get the extension')} </span>;
@@ -71,7 +71,9 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     let heading;
     let link;
 
-    const linkProps = _isInternalURL({ urlString: this.makeCallToActionURL() })
+    const linkProps = _checkInternalURL({
+      urlString: this.makeCallToActionURL(),
+    }).isInternalURL
       ? {}
       : { rel: 'noopener noreferrer', target: '_blank' };
 

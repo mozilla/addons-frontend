@@ -95,7 +95,10 @@ export class LinkBase extends React.Component {
     };
 
     if (typeof href === 'string') {
-      const linkHref = urlPrefix ? joinUrl.pathname(urlPrefix, href) : href;
+      const linkHref =
+        urlPrefix && !href.startsWith(urlPrefix)
+          ? joinUrl.pathname(urlPrefix, href)
+          : href;
 
       return (
         <a {...linkProps} href={linkHref}>
@@ -107,7 +110,10 @@ export class LinkBase extends React.Component {
 
     let linkTo = to;
     if (typeof to === 'string') {
-      linkTo = urlPrefix ? joinUrl.pathname(urlPrefix, to) : to;
+      linkTo =
+        urlPrefix && !to.startsWith(urlPrefix)
+          ? joinUrl.pathname(urlPrefix, to)
+          : to;
     } else if (to && to.pathname) {
       linkTo = {
         ...to,
