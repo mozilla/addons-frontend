@@ -107,7 +107,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     // translators: If uppercase does not work in your locale, change it to lowercase.
     // This is used as a secondary heading.
     const recommended = i18n.gettext('RECOMMENDED');
-    const gradientsClassName = `${gradient.start}-${gradient.end}`;
+    const gradientsClassName = `HeroRecommendation-${gradient.start}-${gradient.end}`;
     log.info(
       `className ${gradientsClassName} generated from the API response. This should match a selector in styles.scss`,
     );

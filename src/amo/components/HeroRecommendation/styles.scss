@@ -117,22 +117,22 @@
 }
 
 // Styles that correspond to gradients returned by the hero API
-.color-ink-80-color-blue-70 {
+.HeroRecommendation-color-ink-80-color-blue-70 {
   @include gradientStyle($color-blue-70);
 }
 
-.color-ink-80-color-green-70 {
+.HeroRecommendation-color-ink-80-color-green-70 {
   @include gradientStyle($color-green-70);
 }
 
-.color-ink-80-color-pink-70 {
+.HeroRecommendation-color-ink-80-color-pink-70 {
   @include gradientStyle($color-pink-70);
 }
 
-.color-ink-80-color-purple-70 {
+.HeroRecommendation-color-ink-80-color-purple-70 {
   @include gradientStyle($color-purple-70);
 }
 
-.color-ink-80-color-violet-70 {
+.HeroRecommendation-color-ink-80-color-violet-70 {
   @include gradientStyle($color-violet-70);
 }

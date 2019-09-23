@@ -136,7 +136,9 @@ describe(__filename, () => {
     const root = render({ shelfData });
 
     expect(root).toHaveClassName('HeroRecommendation');
-    expect(root).toHaveClassName(`${gradient.start}-${gradient.end}`);
+    expect(root).toHaveClassName(
+      `HeroRecommendation-${gradient.start}-${gradient.end}`,
+    );
   });
 
   it('renders a body', () => {
