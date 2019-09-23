@@ -12,10 +12,12 @@ const render = (moreProps = {}) => {
   const props = {
     shelfData: createInternalHeroShelves(
       createHeroShelves({
-        addon: { ...fakeAddon, name: 'Forest Preserve Nougat (beta)' },
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        primaryProps: {
+          addon: { ...fakeAddon, name: 'Forest Preserve Nougat (beta)' },
+          description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
       sed do eiusmod tempor incididunt ut labore et dolore magna
       aliqua. Sed augue lacus viverra vitae.`,
+        },
       }),
     ).primary,
     i18n: fakeI18n({ includeJedSpy: false }),
