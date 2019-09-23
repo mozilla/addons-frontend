@@ -38,7 +38,17 @@ describe(__filename, () => {
 
       expect(
         checkInternalURL({ _config: getFakeConfig({ baseURL }), urlString })
-          .strippedURL,
+          .relativeURL,
+      ).toEqual(pathname);
+    });
+
+    it('ensures that the generated URL always starst with a /', () => {
+      const baseURL = 'https://example.org/';
+      const urlString = url.format({ ...url.parse(baseURL), pathname });
+
+      expect(
+        checkInternalURL({ _config: getFakeConfig({ baseURL }), urlString })
+          .relativeURL,
       ).toEqual(pathname);
     });
 
@@ -52,13 +62,13 @@ describe(__filename, () => {
         checkInternalURL({
           _config: getFakeConfig({ baseURL: siteBaseURL }),
           urlString,
-        }).strippedURL,
+        }).relativeURL,
       ).toEqual(urlString);
     });
 
-    describe('isInternalURL prop', () => {
+    describe('isInternal prop', () => {
       it('returns true for a slash-prefixed URL', () => {
-        expect(checkInternalURL({ urlString: pathname }).isInternalURL).toEqual(
+        expect(checkInternalURL({ urlString: pathname }).isInternal).toEqual(
           true,
         );
       });
@@ -69,7 +79,7 @@ describe(__filename, () => {
 
         expect(
           checkInternalURL({ _config: getFakeConfig({ baseURL }), urlString })
-            .isInternalURL,
+            .isInternal,
         ).toEqual(true);
       });
 
@@ -83,7 +93,7 @@ describe(__filename, () => {
           checkInternalURL({
             _config: getFakeConfig({ baseURL: siteBaseURL }),
             urlString,
-          }).isInternalURL,
+          }).isInternal,
         ).toEqual(false);
       });
 
@@ -100,7 +110,7 @@ describe(__filename, () => {
           checkInternalURL({
             _config: getFakeConfig({ baseURL: siteBaseURL }),
             urlString,
-          }).isInternalURL,
+          }).isInternal,
         ).toEqual(false);
       });
 
@@ -117,7 +127,7 @@ describe(__filename, () => {
           checkInternalURL({
             _config: getFakeConfig({ baseURL: siteBaseURL }),
             urlString,
-          }).isInternalURL,
+          }).isInternal,
         ).toEqual(false);
       });
     });
@@ -137,7 +147,7 @@ describe(__filename, () => {
     });
 
     it('passes internal query params to _addQueryParams for an internal URL', () => {
-      _checkInternalURL.returns({ isInternalURL: true });
+      _checkInternalURL.returns({ isInternal: true });
 
       addParamsToHeroURL({
         _addQueryParams,
@@ -152,7 +162,7 @@ describe(__filename, () => {
     });
 
     it('passes default internal query params to _addQueryParams for an internal URL', () => {
-      _checkInternalURL.returns({ isInternalURL: true });
+      _checkInternalURL.returns({ isInternal: true });
 
       addParamsToHeroURL({
         _addQueryParams,
@@ -167,7 +177,7 @@ describe(__filename, () => {
     });
 
     it('passes external query params to _addQueryParams for an external URL', () => {
-      _checkInternalURL.returns({ isInternalURL: false });
+      _checkInternalURL.returns({ isInternal: false });
 
       addParamsToHeroURL({
         _addQueryParams,
@@ -184,7 +194,7 @@ describe(__filename, () => {
     it('passes default external query params to _addQueryParams for an external URL', () => {
       const baseURL = 'https://example.org';
       const _config = getFakeConfig({ baseURL });
-      _checkInternalURL.returns({ isInternalURL: false });
+      _checkInternalURL.returns({ isInternal: false });
 
       addParamsToHeroURL({
         _addQueryParams,

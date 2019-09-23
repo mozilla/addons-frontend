@@ -85,7 +85,7 @@ describe(__filename, () => {
     });
 
     it('configures an external link to open in a new tab', () => {
-      const _checkInternalURL = sinon.stub().returns({ isInternalURL: false });
+      const _checkInternalURL = sinon.stub().returns({ isInternal: false });
       const external = fakePrimaryHeroShelfExternal;
       const shelfData = createShelfData({ external });
 
@@ -101,7 +101,7 @@ describe(__filename, () => {
     });
 
     it('does not configure an internal link to open in a new tab', () => {
-      const _checkInternalURL = sinon.stub().returns({ isInternalURL: true });
+      const _checkInternalURL = sinon.stub().returns({ isInternal: true });
       const external = fakePrimaryHeroShelfExternal;
       const shelfData = createShelfData({ external });
 

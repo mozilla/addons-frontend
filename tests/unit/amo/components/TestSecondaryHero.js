@@ -27,7 +27,7 @@ describe(__filename, () => {
     const cta = { text: 'cta text', url: 'some/url' };
     const _checkInternalURL = sinon
       .stub()
-      .returns({ isInternalURL: true, strippedURL: cta.url });
+      .returns({ isInternal: true, relativeURL: cta.url });
     const description = 'A description';
     const headline = 'A Headline';
     const shelfData = createShelfData({ cta, description, headline });
@@ -55,7 +55,7 @@ describe(__filename, () => {
   });
 
   it('renders a message with an external link', () => {
-    const _checkInternalURL = sinon.stub().returns({ isInternalURL: false });
+    const _checkInternalURL = sinon.stub().returns({ isInternal: false });
     const cta = { text: 'cta text', url: 'some/url' };
     const shelfData = createShelfData({ cta });
 
@@ -123,8 +123,8 @@ describe(__filename, () => {
       'renders the module at position "%s" with an %s link',
       (moduleIndex, linkType, moduleData) => {
         const _checkInternalURL = sinon.stub().returns({
-          isInternalURL: linkType === 'internal',
-          strippedURL: moduleData.cta && moduleData.cta.url,
+          isInternal: linkType === 'internal',
+          relativeURL: moduleData.cta && moduleData.cta.url,
         });
 
         const root = render({ _checkInternalURL, shelfData });

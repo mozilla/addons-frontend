@@ -62,15 +62,19 @@ export const checkInternalURL = ({
 }: {|
   _config?: typeof config,
   urlString: string,
-|}): { isInternalURL: boolean, strippedURL: string } => {
+|}): { isInternal: boolean, relativeURL: string } => {
   const baseURL = _config.get('baseURL');
   const urlParts = url.parse(urlString, true);
-  const strippedURL = urlString.replace(baseURL, '');
+  const isInternal =
+    !urlParts.protocol || url.parse(baseURL).host === urlParts.host;
+  let relativeURL = urlString.replace(baseURL, '');
+  if (isInternal && !relativeURL.startsWith('/')) {
+    relativeURL = `/${relativeURL}`;
+  }
 
   return {
-    isInternalURL:
-      !urlParts.protocol || url.parse(baseURL).host === urlParts.host,
-    strippedURL,
+    isInternal,
+    relativeURL,
   };
 };
 
@@ -101,7 +105,7 @@ export const addParamsToHeroURL = ({
 }: AddParamsToHeroURLParams) => {
   return _addQueryParams(
     urlString,
-    _checkInternalURL({ urlString }).isInternalURL
+    _checkInternalURL({ urlString }).isInternal
       ? internalQueryParams
       : externalQueryParams,
   );

@@ -36,9 +36,9 @@ export const SecondaryHeroBase = ({
 
   const getLinkProps = (link: HeroCallToActionType | null) => {
     if (link) {
-      const internalURLCheck = _checkInternalURL({ urlString: link.url });
-      if (internalURLCheck.isInternalURL) {
-        return { to: makeCallToActionURL(internalURLCheck.strippedURL) };
+      const urlInfo = _checkInternalURL({ urlString: link.url });
+      if (urlInfo.isInternal) {
+        return { to: makeCallToActionURL(urlInfo.relativeURL) };
       }
       return {
         href: makeCallToActionURL(link.url),

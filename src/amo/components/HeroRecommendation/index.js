@@ -73,7 +73,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
 
     const linkProps = _checkInternalURL({
       urlString: this.makeCallToActionURL(),
-    }).isInternalURL
+    }).isInternal
       ? {}
       : { rel: 'noopener noreferrer', target: '_blank' };
 
