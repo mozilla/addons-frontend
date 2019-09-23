@@ -2,18 +2,47 @@
 import invariant from 'invariant';
 import * as React from 'react';
 
-import type { SecondaryHeroShelfType } from 'amo/reducers/home';
+import Link from 'amo/components/Link';
+import { addParamsToHeroURL, isInternalURL } from 'amo/utils';
+import type {
+  HeroCallToActionType,
+  SecondaryHeroShelfType,
+} from 'amo/reducers/home';
 
 import './styles.scss';
 
+export const SECONDARY_HERO_SRC = 'homepage-secondary-hero';
+
 type Props = {| shelfData: SecondaryHeroShelfType |};
 
-export const SecondaryHeroBase = ({ shelfData }: Props) => {
+type InternalProps = {|
+  ...Props,
+  _isInternalURL: typeof isInternalURL,
+|};
+
+const makeCallToActionURL = (urlString: string) => {
+  return addParamsToHeroURL({ heroSrcCode: SECONDARY_HERO_SRC, urlString });
+};
+
+export const SecondaryHeroBase = ({
+  _isInternalURL = isInternalURL,
+  shelfData,
+}: InternalProps) => {
   const { headline, description, cta, modules } = shelfData;
 
   invariant(headline, 'The headline property is required');
   invariant(description, 'The description property is required');
   invariant(modules, 'The modules property is required');
+
+  const getLinkProps = (link: HeroCallToActionType | null) => {
+    if (link) {
+      if (_isInternalURL({ urlString: link.url })) {
+        return { to: makeCallToActionURL(link.url) };
+      }
+      return { href: makeCallToActionURL(link.url), target: '_blank' };
+    }
+    return {};
+  };
 
   const renderedModules = [];
   modules.forEach((module) => {
@@ -28,11 +57,14 @@ export const SecondaryHeroBase = ({ shelfData }: Props) => {
           {module.description}
         </div>
         {module.cta && (
-          <a className="SecondaryHero-module-link" href={module.cta.url}>
+          <Link
+            className="SecondaryHero-module-link"
+            {...getLinkProps(module.cta)}
+          >
             <span className="SecondaryHero-module-linkText">
               {module.cta.text}
             </span>
-          </a>
+          </Link>
         )}
       </div>,
     );
@@ -44,9 +76,9 @@ export const SecondaryHeroBase = ({ shelfData }: Props) => {
         <h2 className="SecondaryHero-message-headline">{headline}</h2>
         <div className="SecondaryHero-message-description">{description}</div>
         {cta && (
-          <a className="SecondaryHero-message-link" href={cta.url}>
+          <Link className="SecondaryHero-message-link" {...getLinkProps(cta)}>
             <span className="SecondaryHero-message-linkText">{cta.text}</span>
-          </a>
+          </Link>
         )}
       </div>
       {renderedModules}

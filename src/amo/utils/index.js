@@ -6,6 +6,7 @@ import base62 from 'base62';
 import config from 'config';
 
 import { makeQueryString } from 'core/api';
+import { addQueryParams } from 'core/utils';
 
 /*
  * Return a base62 object that encodes/decodes just like how Django does it
@@ -66,4 +67,35 @@ export const isInternalURL = ({
   const urlParts = url.parse(urlString, true);
 
   return !urlParts.protocol || url.parse(baseURL).host === urlParts.host;
+};
+
+type QueryParams = { [key: string]: any };
+
+type AddParamsToHeroURLParams = {|
+  _addQueryParams?: typeof addQueryParams,
+  _config?: typeof config,
+  _isInternalURL?: typeof isInternalURL,
+  heroSrcCode: string,
+  internalQueryParams?: QueryParams,
+  externalQueryParams?: QueryParams,
+  urlString: string,
+|};
+
+export const addParamsToHeroURL = ({
+  _addQueryParams = addQueryParams,
+  _config = config,
+  _isInternalURL = isInternalURL,
+  heroSrcCode,
+  internalQueryParams = { src: heroSrcCode },
+  externalQueryParams = {
+    utm_content: heroSrcCode,
+    utm_medium: 'referral',
+    utm_source: url.parse(_config.get('baseURL')).host,
+  },
+  urlString,
+}: AddParamsToHeroURLParams) => {
+  return _addQueryParams(
+    urlString,
+    _isInternalURL({ urlString }) ? internalQueryParams : externalQueryParams,
+  );
 };

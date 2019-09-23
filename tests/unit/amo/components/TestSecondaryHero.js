@@ -1,8 +1,11 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import SecondaryHero from 'amo/components/SecondaryHero';
+import SecondaryHero, {
+  SECONDARY_HERO_SRC,
+} from 'amo/components/SecondaryHero';
 import { createInternalHeroShelves } from 'amo/reducers/home';
+import { addParamsToHeroURL } from 'amo/utils';
 import { createHeroShelves, fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -20,22 +23,55 @@ describe(__filename, () => {
     return shallow(<SecondaryHero {...props} />);
   };
 
-  it('renders a message with a link', () => {
+  it('renders a message with an internal link', () => {
+    const _isInternalURL = sinon.stub().returns(true);
     const cta = { text: 'cta text', url: 'some/url' };
     const description = 'A description';
     const headline = 'A Headline';
     const shelfData = createShelfData({ cta, description, headline });
 
-    const root = render({ shelfData });
+    const root = render({ _isInternalURL, shelfData });
 
     expect(root.find('.SecondaryHero-message-headline')).toHaveText(headline);
     expect(root.find('.SecondaryHero-message-description')).toHaveText(
       description,
     );
     expect(root.find('.SecondaryHero-message-linkText')).toHaveText(cta.text);
-    expect(root.find('.SecondaryHero-message-link')).toHaveProp(
+    const link = root.find('.SecondaryHero-message-link');
+    expect(link).toHaveProp(
+      'to',
+      addParamsToHeroURL({
+        heroSrcCode: SECONDARY_HERO_SRC,
+        urlString: cta.url,
+      }),
+    );
+    expect(link).not.toHaveProp('target');
+    sinon.assert.calledWith(
+      _isInternalURL,
+      sinon.match({ urlString: sinon.match(cta.url) }),
+    );
+  });
+
+  it('renders a message with an external link', () => {
+    const _isInternalURL = sinon.stub().returns(false);
+    const cta = { text: 'cta text', url: 'some/url' };
+    const shelfData = createShelfData({ cta });
+
+    const root = render({ _isInternalURL, shelfData });
+
+    expect(root.find('.SecondaryHero-message-linkText')).toHaveText(cta.text);
+    const link = root.find('.SecondaryHero-message-link');
+    expect(link).toHaveProp(
       'href',
-      cta.url,
+      addParamsToHeroURL({
+        heroSrcCode: SECONDARY_HERO_SRC,
+        urlString: cta.url,
+      }),
+    );
+    expect(link).toHaveProp('target', '_blank');
+    sinon.assert.calledWith(
+      _isInternalURL,
+      sinon.match({ urlString: sinon.match(cta.url) }),
     );
   });
 
@@ -75,10 +111,16 @@ describe(__filename, () => {
       expect(renderedModules).toHaveLength(3);
     });
 
-    it.each([[0, module1], [1, module2], [2, module3]])(
-      'renders the module at position "%s"',
-      (moduleIndex, moduleData) => {
-        const root = render({ shelfData });
+    it.each([
+      [0, 'internal', module1],
+      [1, 'undefined', module2],
+      [2, 'external', module3],
+    ])(
+      'renders the module at position "%s" with an %s link',
+      (moduleIndex, linkType, moduleData) => {
+        const _isInternalURL = sinon.stub().returns(linkType === 'internal');
+
+        const root = render({ _isInternalURL, shelfData });
 
         const module = root.find('.SecondaryHero-module').at(moduleIndex);
         expect(module.find('.SecondaryHero-module-icon')).toHaveProp(
@@ -91,14 +133,37 @@ describe(__filename, () => {
         expect(module.find('.SecondaryHero-module-link')).toHaveLength(
           moduleData.cta ? 1 : 0,
         );
+
         if (moduleData.cta) {
+          sinon.assert.calledWith(
+            _isInternalURL,
+            sinon.match({ urlString: sinon.match(moduleData.cta.url) }),
+          );
           expect(module.find('.SecondaryHero-module-linkText')).toHaveText(
             moduleData.cta.text,
           );
-          expect(module.find('.SecondaryHero-module-link')).toHaveProp(
-            'href',
-            moduleData.cta.url,
-          );
+
+          const link = module.find('.SecondaryHero-module-link');
+
+          if (linkType === 'external') {
+            expect(link).toHaveProp(
+              'href',
+              addParamsToHeroURL({
+                heroSrcCode: SECONDARY_HERO_SRC,
+                urlString: moduleData.cta.url,
+              }),
+            );
+            expect(link).toHaveProp('target', '_blank');
+          } else if (linkType === 'internal') {
+            expect(link).toHaveProp(
+              'to',
+              addParamsToHeroURL({
+                heroSrcCode: SECONDARY_HERO_SRC,
+                urlString: moduleData.cta.url,
+              }),
+            );
+            expect(link).not.toHaveProp('target');
+          }
         }
       },
     );

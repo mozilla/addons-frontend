@@ -1,16 +1,13 @@
 /* @flow */
-import url from 'url';
-
-import config from 'config';
 import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
-import { isInternalURL, getAddonURL } from 'amo/utils';
+import { addParamsToHeroURL, isInternalURL, getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import tracking from 'core/tracking';
-import { addQueryParams, sanitizeUserHTML } from 'core/utils';
+import { sanitizeUserHTML } from 'core/utils';
 import type { PrimaryHeroShelfType } from 'amo/reducers/home';
 import type { I18nType } from 'core/types/i18n';
 
@@ -30,37 +27,6 @@ type InternalProps = {|
   _tracking: typeof tracking,
 |};
 
-type QueryParams = { [key: string]: any };
-
-type AddParamsToHeroURLParams = {|
-  _addQueryParams?: typeof addQueryParams,
-  _config?: typeof config,
-  _isInternalURL?: typeof isInternalURL,
-  heroSrcCode?: string,
-  internalQueryParams?: QueryParams,
-  externalQueryParams?: QueryParams,
-  urlString: string,
-|};
-
-export const addParamsToHeroURL = ({
-  _addQueryParams = addQueryParams,
-  _config = config,
-  _isInternalURL = isInternalURL,
-  heroSrcCode = PRIMARY_HERO_SRC,
-  internalQueryParams = { src: heroSrcCode },
-  externalQueryParams = {
-    utm_content: heroSrcCode,
-    utm_medium: 'referral',
-    utm_source: url.parse(_config.get('baseURL')).host,
-  },
-  urlString,
-}: AddParamsToHeroURLParams) => {
-  return _addQueryParams(
-    urlString,
-    _isInternalURL({ urlString }) ? internalQueryParams : externalQueryParams,
-  );
-};
-
 export class HeroRecommendationBase extends React.Component<InternalProps> {
   static defaultProps = {
     _isInternalURL: isInternalURL,
@@ -75,12 +41,14 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
 
     if (addon) {
       return addParamsToHeroURL({
+        heroSrcCode: PRIMARY_HERO_SRC,
         urlString: getAddonURL(addon.slug),
       });
     }
 
     invariant(external, 'Either an addon or an external is required');
     return addParamsToHeroURL({
+      heroSrcCode: PRIMARY_HERO_SRC,
       urlString: external.homepage,
     });
   };
