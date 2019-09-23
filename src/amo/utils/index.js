@@ -56,17 +56,26 @@ export const getCanonicalURL = ({
   return `${_config.get('baseURL')}${locationPathname}`;
 };
 
-export const isInternalURL = ({
+export const checkInternalURL = ({
   _config = config,
   urlString,
 }: {|
   _config?: typeof config,
   urlString: string,
-|}): boolean => {
+|}): { isInternal: boolean, relativeURL: string } => {
   const baseURL = _config.get('baseURL');
   const urlParts = url.parse(urlString, true);
+  const isInternal =
+    !urlParts.protocol || url.parse(baseURL).host === urlParts.host;
+  let relativeURL = urlString.replace(baseURL, '');
+  if (isInternal && !relativeURL.startsWith('/')) {
+    relativeURL = `/${relativeURL}`;
+  }
 
-  return !urlParts.protocol || url.parse(baseURL).host === urlParts.host;
+  return {
+    isInternal,
+    relativeURL,
+  };
 };
 
 type QueryParams = { [key: string]: any };
@@ -74,7 +83,7 @@ type QueryParams = { [key: string]: any };
 type AddParamsToHeroURLParams = {|
   _addQueryParams?: typeof addQueryParams,
   _config?: typeof config,
-  _isInternalURL?: typeof isInternalURL,
+  _checkInternalURL?: typeof checkInternalURL,
   heroSrcCode: string,
   internalQueryParams?: QueryParams,
   externalQueryParams?: QueryParams,
@@ -84,7 +93,7 @@ type AddParamsToHeroURLParams = {|
 export const addParamsToHeroURL = ({
   _addQueryParams = addQueryParams,
   _config = config,
-  _isInternalURL = isInternalURL,
+  _checkInternalURL = checkInternalURL,
   heroSrcCode,
   internalQueryParams = { src: heroSrcCode },
   externalQueryParams = {
@@ -96,6 +105,8 @@ export const addParamsToHeroURL = ({
 }: AddParamsToHeroURLParams) => {
   return _addQueryParams(
     urlString,
-    _isInternalURL({ urlString }) ? internalQueryParams : externalQueryParams,
+    _checkInternalURL({ urlString }).isInternal
+      ? internalQueryParams
+      : externalQueryParams,
   );
 };

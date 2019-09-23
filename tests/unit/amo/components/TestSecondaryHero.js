@@ -24,13 +24,15 @@ describe(__filename, () => {
   };
 
   it('renders a message with an internal link', () => {
-    const _isInternalURL = sinon.stub().returns(true);
     const cta = { text: 'cta text', url: 'some/url' };
+    const _checkInternalURL = sinon
+      .stub()
+      .returns({ isInternal: true, relativeURL: cta.url });
     const description = 'A description';
     const headline = 'A Headline';
     const shelfData = createShelfData({ cta, description, headline });
 
-    const root = render({ _isInternalURL, shelfData });
+    const root = render({ _checkInternalURL, shelfData });
 
     expect(root.find('.SecondaryHero-message-headline')).toHaveText(headline);
     expect(root.find('.SecondaryHero-message-description')).toHaveText(
@@ -47,17 +49,17 @@ describe(__filename, () => {
     );
     expect(link).not.toHaveProp('target');
     sinon.assert.calledWith(
-      _isInternalURL,
+      _checkInternalURL,
       sinon.match({ urlString: sinon.match(cta.url) }),
     );
   });
 
   it('renders a message with an external link', () => {
-    const _isInternalURL = sinon.stub().returns(false);
+    const _checkInternalURL = sinon.stub().returns({ isInternal: false });
     const cta = { text: 'cta text', url: 'some/url' };
     const shelfData = createShelfData({ cta });
 
-    const root = render({ _isInternalURL, shelfData });
+    const root = render({ _checkInternalURL, shelfData });
 
     expect(root.find('.SecondaryHero-message-linkText')).toHaveText(cta.text);
     const link = root.find('.SecondaryHero-message-link');
@@ -68,9 +70,11 @@ describe(__filename, () => {
         urlString: cta.url,
       }),
     );
+    expect(link).toHaveProp('prependClientApp', false);
+    expect(link).toHaveProp('prependLang', false);
     expect(link).toHaveProp('target', '_blank');
     sinon.assert.calledWith(
-      _isInternalURL,
+      _checkInternalURL,
       sinon.match({ urlString: sinon.match(cta.url) }),
     );
   });
@@ -118,9 +122,12 @@ describe(__filename, () => {
     ])(
       'renders the module at position "%s" with an %s link',
       (moduleIndex, linkType, moduleData) => {
-        const _isInternalURL = sinon.stub().returns(linkType === 'internal');
+        const _checkInternalURL = sinon.stub().returns({
+          isInternal: linkType === 'internal',
+          relativeURL: moduleData.cta && moduleData.cta.url,
+        });
 
-        const root = render({ _isInternalURL, shelfData });
+        const root = render({ _checkInternalURL, shelfData });
 
         const module = root.find('.SecondaryHero-module').at(moduleIndex);
         expect(module.find('.SecondaryHero-module-icon')).toHaveProp(
@@ -136,7 +143,7 @@ describe(__filename, () => {
 
         if (moduleData.cta) {
           sinon.assert.calledWith(
-            _isInternalURL,
+            _checkInternalURL,
             sinon.match({ urlString: sinon.match(moduleData.cta.url) }),
           );
           expect(module.find('.SecondaryHero-module-linkText')).toHaveText(
