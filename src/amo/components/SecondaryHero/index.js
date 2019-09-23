@@ -2,6 +2,7 @@
 import invariant from 'invariant';
 import * as React from 'react';
 
+import Link from 'amo/components/Link';
 import { addParamsToHeroURL, isInternalURL } from 'amo/utils';
 import type {
   HeroCallToActionType,
@@ -19,14 +20,14 @@ type InternalProps = {|
   _isInternalURL: typeof isInternalURL,
 |};
 
+const makeCallToActionURL = (urlString: string) => {
+  return addParamsToHeroURL({ heroSrcCode: SECONDARY_HERO_SRC, urlString });
+};
+
 export const SecondaryHeroBase = ({
   _isInternalURL = isInternalURL,
   shelfData,
 }: InternalProps) => {
-  const makeCallToActionURL = (urlString: string) => {
-    return addParamsToHeroURL({ heroSrcCode: SECONDARY_HERO_SRC, urlString });
-  };
-
   const { headline, description, cta, modules } = shelfData;
 
   invariant(headline, 'The headline property is required');
@@ -34,9 +35,13 @@ export const SecondaryHeroBase = ({
   invariant(modules, 'The modules property is required');
 
   const getLinkProps = (link: HeroCallToActionType | null) => {
-    return !link || _isInternalURL({ urlString: link.url })
-      ? {}
-      : { rel: 'noopener noreferrer', target: '_blank' };
+    if (link) {
+      if (_isInternalURL({ urlString: link.url })) {
+        return { to: makeCallToActionURL(link.url) };
+      }
+      return { href: makeCallToActionURL(link.url), target: '_blank' };
+    }
+    return {};
   };
 
   const renderedModules = [];
@@ -52,15 +57,14 @@ export const SecondaryHeroBase = ({
           {module.description}
         </div>
         {module.cta && (
-          <a
+          <Link
             className="SecondaryHero-module-link"
-            href={makeCallToActionURL(module.cta.url)}
             {...getLinkProps(module.cta)}
           >
             <span className="SecondaryHero-module-linkText">
               {module.cta.text}
             </span>
-          </a>
+          </Link>
         )}
       </div>,
     );
@@ -72,13 +76,9 @@ export const SecondaryHeroBase = ({
         <h2 className="SecondaryHero-message-headline">{headline}</h2>
         <div className="SecondaryHero-message-description">{description}</div>
         {cta && (
-          <a
-            className="SecondaryHero-message-link"
-            href={makeCallToActionURL(cta.url)}
-            {...getLinkProps(cta)}
-          >
+          <Link className="SecondaryHero-message-link" {...getLinkProps(cta)}>
             <span className="SecondaryHero-message-linkText">{cta.text}</span>
-          </a>
+          </Link>
         )}
       </div>
       {renderedModules}
