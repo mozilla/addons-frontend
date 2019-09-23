@@ -117,16 +117,27 @@ describe(__filename, () => {
     });
   });
 
-  it('renders an image', () => {
+  it('renders with an image', () => {
     const featuredImage = 'https://mozilla.org/featured.png';
     const shelfData = createShelfData({ addon: fakeAddon, featuredImage });
 
     const root = render({ shelfData });
 
+    expect(root).not.toHaveClassName('HeroRecommendation--no-image');
     expect(root.find('.HeroRecommendation-image')).toHaveProp(
       'src',
       featuredImage,
     );
+  });
+
+  it('renders without an image', () => {
+    const featuredImage = null;
+    const shelfData = createShelfData({ addon: fakeAddon, featuredImage });
+
+    const root = render({ shelfData });
+
+    expect(root).toHaveClassName('HeroRecommendation--no-image');
+    expect(root.find('.HeroRecommendation-image')).toHaveLength(0);
   });
 
   it('assigns a className based on the gradient', () => {

@@ -114,15 +114,19 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
 
     return (
       <section
-        className={makeClassName('HeroRecommendation', gradientsClassName)}
+        className={makeClassName('HeroRecommendation', gradientsClassName, {
+          'HeroRecommendation--no-image': !featuredImage,
+        })}
       >
-        <div>
-          <img
-            className="HeroRecommendation-image"
-            alt=""
-            src={featuredImage}
-          />
-        </div>
+        {featuredImage && (
+          <div>
+            <img
+              className="HeroRecommendation-image"
+              alt=""
+              src={featuredImage}
+            />
+          </div>
+        )}
         <div className="HeroRecommendation-info">
           <div className="HeroRecommendation-recommended">{recommended}</div>
           <h2 className="HeroRecommendation-heading">{heading}</h2>

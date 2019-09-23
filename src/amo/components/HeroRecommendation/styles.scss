@@ -24,6 +24,22 @@
   }
 }
 
+.HeroRecommendation--no-image {
+  justify-content: center;
+
+  @include respond-to(extraExtraLarge) {
+    @include padding-start(36px);
+  }
+
+  .HeroRecommendation-info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    @include margin-start(0);
+  }
+}
+
 .HeroRecommendation-image {
   height: 0;
   visibility: hidden;
