@@ -5,13 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import type { AppState } from 'amo/store';
-import { hasAddonManager } from 'core/addonManager';
-import {
-  ADDON_TYPE_EXTENSION,
-  CLIENT_APP_FIREFOX,
-  UNINSTALLED,
-  UNKNOWN,
-} from 'core/constants';
+import { ADDON_TYPE_EXTENSION, CLIENT_APP_FIREFOX } from 'core/constants';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import tracking from 'core/tracking';
@@ -19,7 +13,6 @@ import { isFirefox } from 'core/utils/compatibility';
 import { withExperiment } from 'core/withExperiment';
 import Notice from 'ui/components/Notice';
 import type { UserAgentInfoType } from 'core/reducers/api';
-import type { InstalledAddon } from 'core/reducers/installations';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { WithExperimentInjectedProps } from 'core/withExperiment';
@@ -34,13 +27,11 @@ type InternalProps = {|
   ...Props,
   ...WithExperimentInjectedProps,
   _couldShowWarning?: () => boolean,
-  _hasAddonManager: typeof hasAddonManager,
   _log: typeof log,
   _tracking: typeof tracking,
   clientApp: string,
   className?: string,
   i18n: I18nType,
-  installStatus: $PropertyType<InstalledAddon, 'status'>,
   userAgentInfo: UserAgentInfoType,
 |};
 
@@ -59,7 +50,6 @@ const WARNING_LINK_DESTINATION =
 
 export class InstallWarningBase extends React.Component<InternalProps> {
   static defaultProps = {
-    _hasAddonManager: hasAddonManager,
     _log: log,
     _tracking: tracking,
   };
@@ -67,11 +57,9 @@ export class InstallWarningBase extends React.Component<InternalProps> {
   couldShowWarning = () => {
     const {
       _couldShowWarning,
-      _hasAddonManager,
       addon,
       clientApp,
       isExperimentEnabled,
-      installStatus,
       userAgentInfo,
     } = this.props;
     return _couldShowWarning
@@ -80,9 +68,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
           clientApp === CLIENT_APP_FIREFOX &&
           addon.type === ADDON_TYPE_EXTENSION &&
           !addon.is_recommended &&
-          isExperimentEnabled &&
-          (!_hasAddonManager() ||
-            [UNINSTALLED, UNKNOWN].includes(installStatus));
+          isExperimentEnabled;
   };
 
   maybeSendDisplayTrackingEvent = () => {
@@ -115,14 +101,6 @@ export class InstallWarningBase extends React.Component<InternalProps> {
     this.maybeSendDisplayTrackingEvent();
   }
 
-  componentDidUpdate({ installStatus: oldInstallStatus }: InternalProps) {
-    const { installStatus: newInstallStatus } = this.props;
-
-    if (newInstallStatus !== oldInstallStatus) {
-      this.maybeSendDisplayTrackingEvent();
-    }
-  }
-
   render() {
     const { className, i18n, variant } = this.props;
 
@@ -144,13 +122,9 @@ export class InstallWarningBase extends React.Component<InternalProps> {
   }
 }
 
-export const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
-  const { addon } = ownProps;
-  const installedAddon = (addon && state.installations[addon.guid]) || {};
-
+export const mapStateToProps = (state: AppState) => {
   return {
     clientApp: state.api.clientApp,
-    installStatus: installedAddon.status,
     userAgentInfo: state.api.userAgentInfo,
   };
 };

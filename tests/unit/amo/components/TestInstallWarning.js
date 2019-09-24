@@ -8,15 +8,11 @@ import InstallWarning, {
   VARIANT_EXCLUDE_WARNING,
   InstallWarningBase,
 } from 'amo/components/InstallWarning';
-import { setInstallState } from 'core/actions/installations';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  INSTALLED,
-  UNINSTALLED,
-  UNKNOWN,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -24,7 +20,6 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  fakeInstalledAddon,
   getFakeLogger,
   shallowUntilTarget,
   userAgentsByPlatform,
@@ -55,16 +50,6 @@ describe(__filename, () => {
     );
   };
 
-  const _setInstallStatus = ({ addon, status }) => {
-    store.dispatch(
-      setInstallState({
-        ...fakeInstalledAddon,
-        guid: addon.guid,
-        status,
-      }),
-    );
-  };
-
   describe('couldShowWarning', () => {
     const addonThatWouldShowWarning = {
       ...fakeAddon,
@@ -76,7 +61,6 @@ describe(__filename, () => {
     // couldShowWarning to be true.
     const renderWithWarning = (props = {}) => {
       return render({
-        _hasAddonManager: sinon.stub().returns(false),
         addon: createInternalAddon(addonThatWouldShowWarning),
         isExperimentEnabled: true,
         ...props,
@@ -98,29 +82,6 @@ describe(__filename, () => {
       expect(component.instance().couldShowWarning()).toEqual(true);
     });
 
-    it.each([UNINSTALLED, UNKNOWN])(
-      `returns true if mozAddonManager exists and the add-on has a status of %s`,
-      (installStatus) => {
-        const addon = addonThatWouldShowWarning;
-        _setInstallStatus({ addon, status: installStatus });
-
-        const component = renderWithWarning({
-          _hasAddonManager: sinon.stub().returns(true),
-          addon: createInternalAddon(addon),
-        });
-
-        expect(component.instance().couldShowWarning()).toEqual(true);
-      },
-    );
-
-    it('returns true regardless of status if there is no mozAddonManager', () => {
-      const component = renderWithWarning({
-        _hasAddonManager: sinon.stub().returns(false),
-      });
-
-      expect(component.instance().couldShowWarning()).toEqual(true);
-    });
-
     it('returns false if the add-on is not an extension', () => {
       const component = renderWithWarning({
         addon: createInternalAddon({
@@ -138,18 +99,6 @@ describe(__filename, () => {
           ...addonThatWouldShowWarning,
           is_recommended: true,
         }),
-      });
-
-      expect(component.instance().couldShowWarning()).toEqual(false);
-    });
-
-    it('returns false if mozAddonManager exists and the addon does not have a status of UNINSTALLED or UNKNOWN', () => {
-      const addon = addonThatWouldShowWarning;
-      _setInstallStatus({ addon, status: INSTALLED });
-
-      const component = renderWithWarning({
-        _hasAddonManager: sinon.stub().returns(true),
-        addon: createInternalAddon(addon),
       });
 
       expect(component.instance().couldShowWarning()).toEqual(false);
@@ -225,18 +174,6 @@ describe(__filename, () => {
     sinon.assert.called(_couldShowWarning);
   });
 
-  it('calls couldShowWarning on update', () => {
-    const _couldShowWarning = sinon.spy();
-
-    const root = render({ _couldShowWarning });
-
-    _couldShowWarning.resetHistory();
-
-    root.setProps({ installStatus: INSTALLED });
-
-    sinon.assert.called(_couldShowWarning);
-  });
-
   describe('display tracking event', () => {
     const _tracking = createFakeTracking();
 
@@ -277,49 +214,6 @@ describe(__filename, () => {
         const _couldShowWarning = sinon.stub().returns(true);
 
         render({ _couldShowWarning, _tracking, variant: undefined });
-
-        sinon.assert.notCalled(_tracking.sendEvent);
-      });
-
-      it('sends the event on update if installStatus has changed', () => {
-        const _couldShowWarning = sinon.stub().returns(true);
-        const addon = createInternalAddon(fakeAddon);
-        const installStatus = UNINSTALLED;
-
-        const root = render({
-          _couldShowWarning,
-          _tracking,
-          addon,
-          installStatus: undefined,
-          variant,
-        });
-
-        _tracking.sendEvent.resetHistory();
-
-        root.setProps({ installStatus });
-
-        sinon.assert.calledWith(_tracking.sendEvent, {
-          action: variant,
-          category: EXPERIMENT_CATEGORY_DISPLAY,
-          label: addon.name,
-        });
-      });
-
-      it('does not send the event on update if installStatus has not changed', () => {
-        const _couldShowWarning = sinon.stub().returns(true);
-        const installStatus = UNINSTALLED;
-        const addon = fakeAddon;
-        _setInstallStatus({ addon, status: installStatus });
-
-        const root = render({
-          _couldShowWarning,
-          _tracking,
-          variant,
-        });
-
-        _tracking.sendEvent.resetHistory();
-
-        root.setProps({ installStatus });
 
         sinon.assert.notCalled(_tracking.sendEvent);
       });
