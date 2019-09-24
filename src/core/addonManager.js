@@ -130,7 +130,8 @@ export function install(
       installObj.addEventListener('onInstallEnded', () => resolve());
       installObj.addEventListener('onInstallFailed', () => reject());
       log.info('Events to handle the installation initialized.');
-      installObj.install();
+      // See: https://github.com/mozilla/addons-frontend/issues/8633
+      installObj.install().catch(reject);
     });
   });
 }

@@ -197,6 +197,25 @@ describe(__filename, () => {
       );
     });
 
+    it('rejects if the install returns an error', () => {
+      const error = new Error('oops');
+      fakeInstallObj.install = sinon.spy(() => {
+        return Promise.reject(error);
+      });
+
+      return (
+        addonManager
+          .install(fakeInstallUrl, fakeCallback, {
+            _mozAddonManager: fakeMozAddonManager,
+            src: 'home',
+          })
+          // The second argument is the reject function.
+          .then(unexpectedSuccess, () => {
+            sinon.assert.calledOnce(fakeInstallObj.install);
+          })
+      );
+    });
+
     it('passes the installObj, the event and the id to the callback', async () => {
       const fakeEvent = { type: 'fakeEvent' };
 
