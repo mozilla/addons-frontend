@@ -41,7 +41,7 @@ storiesOf('HeroRecommendation', module)
             sectionFn: () => render(),
           },
           {
-            title: 'wihout image',
+            title: 'without image',
             sectionFn: () => render({ featuredImage: null }),
           },
         ],

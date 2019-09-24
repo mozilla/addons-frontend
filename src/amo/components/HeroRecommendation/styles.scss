@@ -20,39 +20,7 @@
   }
 
   @include respond-to(extraExtraLarge) {
-    @include margin-start(136px);
-  }
-}
-
-.HeroRecommendation--no-image {
-  justify-content: center;
-
-  @include respond-to(extraExtraLarge) {
-    @include padding-start(36px);
-  }
-
-  .HeroRecommendation-info {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-
-    @include margin-start(0);
-  }
-}
-
-.HeroRecommendation-image {
-  height: 0;
-  visibility: hidden;
-  width: 0;
-
-  @include respond-to(medium) {
-    height: auto;
-    visibility: visible;
-    width: 100%;
-  }
-
-  @include respond-to(extraExtraLarge) {
-    width: 480px;
+    @include margin-start(132px);
   }
 }
 
@@ -97,6 +65,48 @@
 
   @include respond-to(extraExtraLarge) {
     margin-bottom: 84px;
+  }
+}
+
+.HeroRecommendation--no-image {
+  justify-content: center;
+
+  @include respond-to(extraExtraLarge) {
+    @include padding-start(36px);
+  }
+
+  .HeroRecommendation-info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    @include respond-to(large) {
+      width: 576px;
+    }
+  }
+
+  .HeroRecommendation-recommended,
+  .HeroRecommendation-heading,
+  .HeroRecommendation-body,
+  .HeroRecommendation-link {
+    text-align: center;
+  }
+}
+
+.HeroRecommendation-image {
+  height: 0;
+  visibility: hidden;
+  width: 0;
+
+  @include respond-to(medium) {
+    height: auto;
+    visibility: visible;
+    width: 100%;
+  }
+
+  @include respond-to(extraExtraLarge) {
+    width: 480px;
   }
 }
 
