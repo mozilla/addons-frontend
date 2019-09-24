@@ -8,7 +8,11 @@ import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
-import { FETCH_HOME_DATA, loadHomeData } from 'amo/reducers/home';
+import {
+  FETCH_HOME_DATA,
+  abortFetchHomeData,
+  loadHomeData,
+} from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -148,6 +152,7 @@ export function* fetchHomeData({
     );
   } catch (error) {
     yield put(errorHandler.createErrorAction(error));
+    yield put(abortFetchHomeData());
   }
 }
 

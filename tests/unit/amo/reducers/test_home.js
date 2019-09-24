@@ -5,6 +5,7 @@ import {
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
 import homeReducer, {
+  abortFetchHomeData,
   createInternalHeroShelves,
   fetchHomeData,
   initialState,
@@ -210,7 +211,7 @@ describe(__filename, () => {
       expect(homeState.collections).toEqual([null]);
     });
 
-    it('sets `resultsLoaded` to `false` when fetching home add-ons', () => {
+    it('sets `resultsLoaded` to `false` and `isLoading` to `true` when fetching home add-ons', () => {
       const loadedState = { ...initialState, resultsLoaded: true };
 
       const state = homeReducer(
@@ -218,11 +219,42 @@ describe(__filename, () => {
         fetchHomeData({
           collectionsToFetch: [],
           errorHandlerId: 'some-error-handler-id',
-          includeFeaturedThemes: true,
         }),
       );
 
       expect(state.resultsLoaded).toEqual(false);
+      expect(state.isLoading).toEqual(true);
+    });
+
+    it('sets `isLoading` to `false` after loading data', () => {
+      const { store } = dispatchClientMetadata();
+
+      store.dispatch(
+        fetchHomeData({
+          collectionsToFetch: [],
+          errorHandlerId: 'some-error-handler-id',
+        }),
+      );
+
+      _loadHomeData({ store });
+
+      const homeState = store.getState().home;
+
+      expect(homeState.isLoading).toEqual(false);
+    });
+
+    it('aborts fetching of data', () => {
+      let state = homeReducer(
+        undefined,
+        fetchHomeData({
+          collectionsToFetch: [],
+          errorHandlerId: 'some-error-handler-id',
+        }),
+      );
+
+      state = homeReducer(state, abortFetchHomeData());
+
+      expect(state.isLoading).toEqual(false);
     });
 
     it('resets the state when clientApp changes', () => {
