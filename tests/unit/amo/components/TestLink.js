@@ -72,6 +72,13 @@ describe(__filename, () => {
     });
   });
 
+  it('does not prefix the `to.pathname` prop if it already contains the prefix', () => {
+    const pathname = '/fr/android/test';
+    const root = render({ to: { pathname } });
+
+    expect(root.find(ReactRouterLink)).toHaveProp('to', { pathname });
+  });
+
   it('renders children when `to` is used', () => {
     const root = render({ children: 'hello', to: '/test' });
 
