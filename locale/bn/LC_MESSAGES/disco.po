@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-03 18:07+0000\n"
+"POT-Creation-Date: 2019-09-24 16:33+0000\n"
 "PO-Revision-Date: 2019-03-30 21:25+0000\n"
 "Last-Translator: Zobayer Ahmed Khan <zobayer.mc@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,12 +14,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/InstallWarning/index.js:134
+#: src/amo/components/InstallWarning/index.js:112
 msgid "Learn more"
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:138
-msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
+#: src/amo/components/InstallWarning/index.js:116
+msgid ""
+"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
+"before you install it."
 msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:245
@@ -59,10 +61,15 @@ msgid "Server Error"
 msgstr "সার্ভার ত্রুটি"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "দুঃখিত, কিন্তু একটি ত্রুটি ছিল এবং আমরা আপনার অনুরোধটি সম্পূর্ণ করতে পারিনি। আমরা এই ত্রুটি লিপিবদ্ধ করেছি এবং এটা আমরা তদন্ত করে দেখবো।"
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"দুঃখিত, কিন্তু একটি ত্রুটি ছিল এবং আমরা আপনার অনুরোধটি সম্পূর্ণ করতে পারিনি। আমরা এই "
+"ত্রুটি লিপিবদ্ধ করেছি এবং এটা আমরা তদন্ত করে দেখবো।"
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "এরর কোড: %(status)s।"
 
@@ -179,18 +186,26 @@ msgstr "আপনার Firefox ব্যক্তিগত করুন"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"সাড়া বিশ্বের ডেভলপারদের তৈরি বিণামূল্যের হাজারো অ্যাড-অন রয়েছে, যা ইন্সটল করে আপনি Firefox কে নিজের মত করে সাজিয়ে নিতে পারেন। মজার থিম থেকে শুরু করে শক্তিশালী টুল রয়েছে যা ব্রাউজিং কে করবে দ্রুত ও "
-"নিরাপদ, অ্যাড-অন ব্রাউজারকে করবে একান্তই আপনার। সহজে আরম্ভ করতে, আমরা কিছু অ্যাড-অন কার্যক্ষমতা ও ফাংশনালিটির উপর ভিত্তি করে এখানে সুপারিশ করছি।"
+"সাড়া বিশ্বের ডেভলপারদের তৈরি বিণামূল্যের হাজারো অ্যাড-অন রয়েছে, যা ইন্সটল করে "
+"আপনি Firefox কে নিজের মত করে সাজিয়ে নিতে পারেন। মজার থিম থেকে শুরু করে "
+"শক্তিশালী টুল রয়েছে যা ব্রাউজিং কে করবে দ্রুত ও নিরাপদ, অ্যাড-অন ব্রাউজারকে করবে "
+"একান্তই আপনার। সহজে আরম্ভ করতে, আমরা কিছু অ্যাড-অন কার্যক্ষমতা ও ফাংশনালিটির উপর "
+"ভিত্তি করে এখানে সুপারিশ করছি।"
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "আরও জানুন"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
 msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
