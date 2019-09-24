@@ -1,4 +1,5 @@
 /* @flow */
+import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
@@ -6,6 +7,7 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import { addParamsToHeroURL, checkInternalURL, getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
 import tracking from 'core/tracking';
 import { sanitizeUserHTML } from 'core/utils';
 import type { PrimaryHeroShelfType } from 'amo/reducers/home';
@@ -64,7 +66,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
 
   render() {
     const { _checkInternalURL, i18n, shelfData } = this.props;
-    const { addon, description, external, featuredImage } = shelfData;
+    const { addon, description, external, gradient, featuredImage } = shelfData;
 
     const linkInsides = <span> {i18n.gettext('Get the extension')} </span>;
 
@@ -105,9 +107,15 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     // translators: If uppercase does not work in your locale, change it to lowercase.
     // This is used as a secondary heading.
     const recommended = i18n.gettext('RECOMMENDED');
+    const gradientsClassName = `HeroRecommendation-${gradient.start}-${gradient.end}`;
+    log.info(
+      `className ${gradientsClassName} generated from the API response. This should match a selector in styles.scss`,
+    );
 
     return (
-      <section className="HeroRecommendation HeroRecommendation-purple">
+      <section
+        className={makeClassName('HeroRecommendation', gradientsClassName)}
+      >
         <div>
           <img
             className="HeroRecommendation-image"

@@ -129,6 +129,18 @@ describe(__filename, () => {
     );
   });
 
+  it('assigns a className based on the gradient', () => {
+    const gradient = { start: 'start-color', end: 'stop-color' };
+    const shelfData = createShelfData({ addon: fakeAddon, gradient });
+
+    const root = render({ shelfData });
+
+    expect(root).toHaveClassName('HeroRecommendation');
+    expect(root).toHaveClassName(
+      `HeroRecommendation-${gradient.start}-${gradient.end}`,
+    );
+  });
+
   it('renders a body', () => {
     const description = 'some body text';
     const shelfData = createShelfData({ addon: fakeAddon, description });
