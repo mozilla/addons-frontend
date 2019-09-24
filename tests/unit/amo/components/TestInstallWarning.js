@@ -8,13 +8,11 @@ import InstallWarning, {
   VARIANT_EXCLUDE_WARNING,
   InstallWarningBase,
 } from 'amo/components/InstallWarning';
-import { setInstallState } from 'core/actions/installations';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  validInstallStates,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -22,7 +20,6 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  fakeInstalledAddon,
   getFakeLogger,
   shallowUntilTarget,
   userAgentsByPlatform,
@@ -50,16 +47,6 @@ describe(__filename, () => {
         {...props}
       />,
       InstallWarningBase,
-    );
-  };
-
-  const _setInstallStatus = ({ addon, status }) => {
-    store.dispatch(
-      setInstallState({
-        ...fakeInstalledAddon,
-        guid: addon.guid,
-        status,
-      }),
     );
   };
 
@@ -94,21 +81,6 @@ describe(__filename, () => {
 
       expect(component.instance().couldShowWarning()).toEqual(true);
     });
-
-    // See https://github.com/mozilla/addons-frontend/issues/8642.
-    it.each(validInstallStates)(
-      `returns true if the add-on has a status of %s`,
-      (installStatus) => {
-        const addon = addonThatWouldShowWarning;
-        _setInstallStatus({ addon, status: installStatus });
-
-        const component = renderWithWarning({
-          addon: createInternalAddon(addon),
-        });
-
-        expect(component.instance().couldShowWarning()).toEqual(true);
-      },
-    );
 
     it('returns false if the add-on is not an extension', () => {
       const component = renderWithWarning({
