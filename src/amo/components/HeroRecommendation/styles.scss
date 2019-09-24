@@ -1,6 +1,10 @@
 @import '~amo/css/styles';
 
-.HeroRecommendation {
+.HeroRecommendation-banner {
+  padding-bottom: 0;
+}
+
+.HeroRecommendation-content {
   color: $white;
   display: flex;
   padding: 24px;
