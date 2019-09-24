@@ -2,7 +2,7 @@ import createAmoStore from 'amo/store';
 import { setRequestId } from 'core/actions';
 import createClient from 'core/client/base';
 import { getSentryRelease } from 'core/utils/sentry';
-import { getFakeConfig } from 'tests/unit/helpers';
+import { getFakeConfig, createFakeTracking } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('createClient()', () => {
@@ -117,6 +117,17 @@ describe(__filename, () => {
 
       sinon.assert.notCalled(_RavenJs.config);
       sinon.assert.notCalled(_RavenJs.setTagsContext);
+    });
+
+    it('updates the tracking page on location change', async () => {
+      const _tracking = createFakeTracking();
+      const { history } = await _createClient({ _tracking });
+      const pathname = '/foo';
+
+      history.push({ pathname });
+
+      sinon.assert.calledWith(_tracking.setPage, pathname);
+      sinon.assert.calledWith(_tracking.pageView, { title: '' });
     });
   });
 });

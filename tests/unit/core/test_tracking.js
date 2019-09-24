@@ -184,8 +184,13 @@ describe(__filename, () => {
         dimension1: 'whatever',
         dimension2: 'whatever2',
       };
+
       tracking.pageView(data);
-      sinon.assert.calledWith(window.ga, 'send', 'pageview', data);
+
+      sinon.assert.calledWith(window.ga, 'send', {
+        hitType: 'pageview',
+        ...data,
+      });
     });
 
     it('should set a custom dimension when requested', () => {
