@@ -37,7 +37,7 @@ type HeroGradientType = {|
 
 type BaseExternalPrimaryHeroShelfType = {|
   gradient: HeroGradientType,
-  featured_image: string,
+  featured_image: string | null,
   description: string | null,
 |};
 
@@ -59,7 +59,7 @@ export type ExternalPrimaryHeroShelfType =
 
 type BasePrimaryHeroShelfType = {|
   gradient: HeroGradientType,
-  featuredImage: string,
+  featuredImage: string | null,
   description: string | null,
 |};
 

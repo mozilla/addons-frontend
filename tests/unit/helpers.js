@@ -287,7 +287,7 @@ export const createPrimaryHeroShelf = ({
   description = 'Primary shelf description',
   external = undefined,
   featuredImage = 'https://addons-dev-cdn.allizom.org/static/img/hero/featured/teamaddons.jpg',
-  gradient = { start: '000000', end: 'FFFFFF' },
+  gradient = { start: 'color-ink-80', end: 'color-blue-70' },
 } = {}) => {
   return {
     addon,
