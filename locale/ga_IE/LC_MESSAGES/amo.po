@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-17 16:59+0000\n"
+"POT-Creation-Date: 2019-09-24 16:31+0000\n"
 "PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -690,25 +690,25 @@ msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
 #: src/amo/components/App/index.js:204
-#: src/amo/components/HeadMetaTags/index.js:77
+#: src/amo/components/HeadMetaTags/index.js:79
 #, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Breiseáin Firefox"
 
 #: src/amo/components/App/index.js:208
-#: src/amo/components/HeadMetaTags/index.js:71
+#: src/amo/components/HeadMetaTags/index.js:73
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "Breiseáin Firefox"
 
 #: src/amo/components/App/index.js:216
-#: src/amo/components/HeadMetaTags/index.js:76
+#: src/amo/components/HeadMetaTags/index.js:78
 #, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Breiseáin Firefox"
 
 #: src/amo/components/App/index.js:220
-#: src/amo/components/HeadMetaTags/index.js:70
+#: src/amo/components/HeadMetaTags/index.js:72
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "Breiseáin Firefox"
@@ -1239,15 +1239,15 @@ msgstr "Breiseáin Firefox"
 msgid "Learn how to create extensions and themes"
 msgstr "Eisínteachtaí leis na rátálacha is fearr"
 
-#: src/amo/components/HeroRecommendation/index.js:166
+# If uppercase does not work in your locale, change it to lowercase.
+#: src/amo/components/HeroRecommendation/index.js:109
+msgid "RECOMMENDED"
+msgstr ""
+
+#: src/amo/components/HeroRecommendation/index.js:71
 #, fuzzy
 msgid "Get the extension"
 msgstr "Eisínteachtaí mór-le-rá"
-
-# If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:202
-msgid "RECOMMENDED"
-msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
@@ -1276,11 +1276,11 @@ msgid ""
 "fun."
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:134
+#: src/amo/components/InstallWarning/index.js:112
 msgid "Learn more"
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:138
+#: src/amo/components/InstallWarning/index.js:116
 msgid ""
 "This extension isn’t monitored by Mozilla. Make sure you trust the extension "
 "before you install it."
@@ -1555,24 +1555,24 @@ msgstr ""
 msgid "Search results"
 msgstr "Cuardaigh na téamaí"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:265
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:275
 #: src/amo/pages/LandingPage/index.js:139
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "Eisínteachtaí mór-le-rá"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:266
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:276
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Eisínteachtaí mór-le-rá"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:350
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:360
 #: src/amo/pages/LandingPage/index.js:178
 #, fuzzy
 msgid "Recommended themes"
 msgstr "Na téamaí is mó a bhfuil tóir orthu"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:351
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:361
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Téamaí mór-le-rá"
@@ -1587,7 +1587,7 @@ msgstr "Catagóirí á lódáil."
 msgid "Featured add-ons"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:365
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:375
 #: src/amo/pages/LandingPage/index.js:155
 #, fuzzy
 msgid "Trending extensions"
@@ -1619,12 +1619,12 @@ msgstr "Téamaí leis na rátálacha is fearr"
 msgid "Top rated add-ons"
 msgstr "Eisínteachtaí leis na rátálacha is fearr"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:312
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:322
 #, fuzzy
 msgid "Popular extensions"
 msgstr "Na heisínteachtaí is mó a bhfuil tóir orthu"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:291
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:301
 #, fuzzy
 msgid "Popular themes"
 msgstr "Na téamaí is mó a bhfuil tóir orthu"
@@ -2449,93 +2449,93 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:141
+#: src/amo/pages/Home/index.js:144
 msgid "Abstract"
 msgstr "Teibí"
 
-#: src/amo/pages/Home/index.js:146
+#: src/amo/pages/Home/index.js:149
 msgid "Nature"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:151
+#: src/amo/pages/Home/index.js:154
 msgid "Film & TV"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:156
+#: src/amo/pages/Home/index.js:159
 #, fuzzy
 msgid "Scenery"
 msgstr "Sciamhach"
 
-#: src/amo/pages/Home/index.js:161
+#: src/amo/pages/Home/index.js:164
 msgid "Music"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:166
+#: src/amo/pages/Home/index.js:169
 msgid "Seasonal"
 msgstr ""
 
-#: src/amo/pages/Home/index.js:206
+#: src/amo/pages/Home/index.js:209
 msgid "Change the way Firefox looks with themes."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:236
+#: src/amo/pages/Home/index.js:239
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:270 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:280 src/amo/pages/LandingPage/index.js:153
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "Tuilleadh eisínteachtaí mór-le-rá"
 
-#: src/amo/pages/Home/index.js:271 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:281 src/amo/pages/LandingPage/index.js:154
 #, fuzzy
 msgid "See more featured extensions"
 msgstr "Tuilleadh eisínteachtaí mór-le-rá"
 
-#: src/amo/pages/Home/index.js:292
+#: src/amo/pages/Home/index.js:302
 #, fuzzy
 msgid "See more popular themes"
 msgstr "Tuilleadh eisínteachtaí a bhfuil tóir orthu"
 
-#: src/amo/pages/Home/index.js:313
+#: src/amo/pages/Home/index.js:323
 #, fuzzy
 msgid "See more popular extensions"
 msgstr "Eisínteachtaí leis na rátálacha is fearr"
 
-#: src/amo/pages/Home/index.js:332 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:342 src/amo/pages/LandingPage/index.js:192
 #, fuzzy
 msgid "See more recommended themes"
 msgstr "Tuilleadh téamaí mór-le-rá"
 
-#: src/amo/pages/Home/index.js:333 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:343 src/amo/pages/LandingPage/index.js:193
 #, fuzzy
 msgid "See more featured themes"
 msgstr "Tuilleadh téamaí mór-le-rá"
 
-#: src/amo/pages/Home/index.js:366 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:376 src/amo/pages/LandingPage/index.js:164
 #, fuzzy
 msgid "See more trending extensions"
 msgstr "Tuilleadh eisínteachtaí mór-le-rá"
 
-#: src/amo/pages/Home/index.js:57
+#: src/amo/pages/Home/index.js:58
 #, fuzzy
 msgid "See more enhanced privacy extensions"
 msgstr "Tuilleadh eisínteachtaí mór-le-rá"
 
-#: src/amo/pages/Home/index.js:58
+#: src/amo/pages/Home/index.js:59
 #, fuzzy
 msgid "Enhanced privacy extensions"
 msgstr "Eisínteachtaí leis na rátálacha is fearr"
 
-#: src/amo/pages/Home/index.js:63
+#: src/amo/pages/Home/index.js:64
 #, fuzzy
 msgid "See more recommended password managers"
 msgstr "Tuilleadh téamaí mór-le-rá"
 
-#: src/amo/pages/Home/index.js:64
+#: src/amo/pages/Home/index.js:65
 #, fuzzy
 msgid "Recommended password managers"
 msgstr "Catagóirí á lódáil."
@@ -3331,7 +3331,7 @@ msgstr "Ar Aghaidh"
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Leathanach %(currentPage)s as %(totalPages)s"
 
-#: src/core/components/SiteNotices/index.js:47
+#: src/core/components/SiteNotices/index.js:56
 msgid ""
 "Some features are temporarily disabled while we perform website maintenance. "
 "We'll be back to full capacity shortly."

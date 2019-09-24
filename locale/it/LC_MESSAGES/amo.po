@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-17 16:59+0000\n"
+"POT-Creation-Date: 2019-09-24 16:31+0000\n"
 "PO-Revision-Date: 2019-09-10 07:09+0000\n"
 "Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
@@ -634,22 +634,22 @@ msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Riilasciato %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:204
-#: src/amo/components/HeadMetaTags/index.js:77
+#: src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Componenti aggiuntivi per Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:208
-#: src/amo/components/HeadMetaTags/index.js:71
+#: src/amo/components/HeadMetaTags/index.js:73
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Componenti aggiuntivi per Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:216
-#: src/amo/components/HeadMetaTags/index.js:76
+#: src/amo/components/HeadMetaTags/index.js:78
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Componenti aggiuntivi per Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:220
-#: src/amo/components/HeadMetaTags/index.js:70
+#: src/amo/components/HeadMetaTags/index.js:72
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Componenti aggiuntivi per Firefox Android (%(locale)s)"
 
@@ -1175,14 +1175,14 @@ msgstr "Componenti aggiuntivi per Firefox"
 msgid "Learn how to create extensions and themes"
 msgstr "Scopri come creare estensioni e temi"
 
-#: src/amo/components/HeroRecommendation/index.js:166
-msgid "Get the extension"
-msgstr "Scarica estensione"
-
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:202
+#: src/amo/components/HeroRecommendation/index.js:109
 msgid "RECOMMENDED"
 msgstr "CONSIGLIATI"
+
+#: src/amo/components/HeroRecommendation/index.js:71
+msgid "Get the extension"
+msgstr "Scarica estensione"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
@@ -1211,11 +1211,11 @@ msgstr ""
 "Aggiungono funzionalità a Firefox per rendere la navigazione più veloce, più "
 "intelligente o semplicemente divertente."
 
-#: src/amo/components/InstallWarning/index.js:134
+#: src/amo/components/InstallWarning/index.js:112
 msgid "Learn more"
 msgstr "Ulteriori informazioni"
 
-#: src/amo/components/InstallWarning/index.js:138
+#: src/amo/components/InstallWarning/index.js:116
 msgid ""
 "This extension isn’t monitored by Mozilla. Make sure you trust the extension "
 "before you install it."
@@ -1502,22 +1502,22 @@ msgstr ""
 msgid "Search results"
 msgstr "Risultati di ricerca"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:265
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:275
 #: src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
 msgstr "Estensioni consigliate"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:266
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:276
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Estensioni consigliate"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:350
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:360
 #: src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
 msgstr "Temi consigliati"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:351
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:361
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Temi consigliati"
@@ -1530,7 +1530,7 @@ msgstr "Componenti aggiuntivi consigliati"
 msgid "Featured add-ons"
 msgstr "Componenti aggiuntivi consigliati"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:365
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:375
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "Ultime tendenze tra le estensioni"
@@ -1558,11 +1558,11 @@ msgstr "Temi più votati"
 msgid "Top rated add-ons"
 msgstr "Componenti aggiuntivi più votati"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:312
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:322
 msgid "Popular extensions"
 msgstr "Estensioni più popolari"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:291
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:301
 msgid "Popular themes"
 msgstr "Temi più popolari"
 
@@ -2347,35 +2347,35 @@ msgstr ""
 "possono filtrare e mettere un freno a questi annunci in modo da garantire "
 "una navigazione senza distrazioni."
 
-#: src/amo/pages/Home/index.js:141
+#: src/amo/pages/Home/index.js:144
 msgid "Abstract"
 msgstr "Astratto"
 
-#: src/amo/pages/Home/index.js:146
+#: src/amo/pages/Home/index.js:149
 msgid "Nature"
 msgstr "Natura"
 
-#: src/amo/pages/Home/index.js:151
+#: src/amo/pages/Home/index.js:154
 msgid "Film & TV"
 msgstr "Film & TV"
 
-#: src/amo/pages/Home/index.js:156
+#: src/amo/pages/Home/index.js:159
 msgid "Scenery"
 msgstr "Paesaggistica"
 
-#: src/amo/pages/Home/index.js:161
+#: src/amo/pages/Home/index.js:164
 msgid "Music"
 msgstr "Musica"
 
-#: src/amo/pages/Home/index.js:166
+#: src/amo/pages/Home/index.js:169
 msgid "Seasonal"
 msgstr "Stagioni"
 
-#: src/amo/pages/Home/index.js:206
+#: src/amo/pages/Home/index.js:209
 msgid "Change the way Firefox looks with themes."
 msgstr "Modifica l’aspetto di Firefox con i temi."
 
-#: src/amo/pages/Home/index.js:236
+#: src/amo/pages/Home/index.js:239
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2385,47 +2385,47 @@ msgstr ""
 "tuo browser. Possono bloccare fastidiosi annunci pubblicitari, proteggere le "
 "tue password, modificare l’aspetto del browser e molto altro."
 
-#: src/amo/pages/Home/index.js:270 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:280 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
 msgstr "Visualizza altre estensioni consigliate"
 
-#: src/amo/pages/Home/index.js:271 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:281 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "Visualizza altre estensioni consigliate"
 
-#: src/amo/pages/Home/index.js:292
+#: src/amo/pages/Home/index.js:302
 msgid "See more popular themes"
 msgstr "Visualizza altri temi popolari"
 
-#: src/amo/pages/Home/index.js:313
+#: src/amo/pages/Home/index.js:323
 msgid "See more popular extensions"
 msgstr "Visualizza altre estensioni popolari"
 
-#: src/amo/pages/Home/index.js:332 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:342 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
 msgstr "Visualizza altri temi consigliati"
 
-#: src/amo/pages/Home/index.js:333 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:343 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "Visualizza altri temi consigliati"
 
-#: src/amo/pages/Home/index.js:366 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:376 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Visualizza altre estensioni di tendenza"
 
-#: src/amo/pages/Home/index.js:57
+#: src/amo/pages/Home/index.js:58
 msgid "See more enhanced privacy extensions"
 msgstr "Visualizza altre estensioni per aumentare la privacy"
 
-#: src/amo/pages/Home/index.js:58
+#: src/amo/pages/Home/index.js:59
 msgid "Enhanced privacy extensions"
 msgstr "Estensioni per aumentare la privacy"
 
-#: src/amo/pages/Home/index.js:63
+#: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
 msgstr "Visualizza altri strumenti di gestione password consigliati"
 
-#: src/amo/pages/Home/index.js:64
+#: src/amo/pages/Home/index.js:65
 msgid "Recommended password managers"
 msgstr "Strumenti di gestione password consigliati"
 
@@ -3370,7 +3370,7 @@ msgstr "Successiva"
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Pagina %(currentPage)s di %(totalPages)s"
 
-#: src/core/components/SiteNotices/index.js:47
+#: src/core/components/SiteNotices/index.js:56
 msgid ""
 "Some features are temporarily disabled while we perform website maintenance. "
 "We'll be back to full capacity shortly."

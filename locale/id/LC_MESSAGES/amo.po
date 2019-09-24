@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-17 16:59+0000\n"
+"POT-Creation-Date: 2019-09-24 16:31+0000\n"
 "PO-Revision-Date: 2019-07-12 13:55+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
@@ -611,22 +611,22 @@ msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Dirilis %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:204
-#: src/amo/components/HeadMetaTags/index.js:77
+#: src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Pengaya untuk Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:208
-#: src/amo/components/HeadMetaTags/index.js:71
+#: src/amo/components/HeadMetaTags/index.js:73
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Pengaya untuk Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:216
-#: src/amo/components/HeadMetaTags/index.js:76
+#: src/amo/components/HeadMetaTags/index.js:78
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Pengaya untuk Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:220
-#: src/amo/components/HeadMetaTags/index.js:70
+#: src/amo/components/HeadMetaTags/index.js:72
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Pengaya untuk Firefox Android (%(locale)s)"
 
@@ -1142,15 +1142,15 @@ msgstr "Pengaya Firefox"
 msgid "Learn how to create extensions and themes"
 msgstr "Pelajari bagaimana membuat ekstensi dan tema"
 
-#: src/amo/components/HeroRecommendation/index.js:166
+# If uppercase does not work in your locale, change it to lowercase.
+#: src/amo/components/HeroRecommendation/index.js:109
+msgid "RECOMMENDED"
+msgstr ""
+
+#: src/amo/components/HeroRecommendation/index.js:71
 #, fuzzy
 msgid "Get the extension"
 msgstr "Ekstensi cuaca"
-
-# If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:202
-msgid "RECOMMENDED"
-msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
@@ -1177,11 +1177,11 @@ msgid ""
 "fun."
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:134
+#: src/amo/components/InstallWarning/index.js:112
 msgid "Learn more"
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:138
+#: src/amo/components/InstallWarning/index.js:116
 msgid ""
 "This extension isn’t monitored by Mozilla. Make sure you trust the extension "
 "before you install it."
@@ -1458,22 +1458,22 @@ msgstr ""
 msgid "Search results"
 msgstr "Hasil pencarian"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:265
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:275
 #: src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
 msgstr "Ekstensi yang disarankan"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:266
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:276
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Ekstensi pilihan"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:350
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:360
 #: src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
 msgstr "Tema yang disarankan"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:351
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:361
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Tema pilihan"
@@ -1486,7 +1486,7 @@ msgstr "Pengaya yang disarankan"
 msgid "Featured add-ons"
 msgstr "Pengaya unggulan"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:365
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:375
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "Ekstensi yang sedang populer"
@@ -1514,11 +1514,11 @@ msgstr "Tema peringkat teratas"
 msgid "Top rated add-ons"
 msgstr "Pengaya peringkat teratas"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:312
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:322
 msgid "Popular extensions"
 msgstr "Ekstensi populer"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:291
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:301
 msgid "Popular themes"
 msgstr "Tema populer"
 
@@ -2227,84 +2227,84 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:141
+#: src/amo/pages/Home/index.js:144
 msgid "Abstract"
 msgstr "Abstrak"
 
-#: src/amo/pages/Home/index.js:146
+#: src/amo/pages/Home/index.js:149
 msgid "Nature"
 msgstr "Alam"
 
-#: src/amo/pages/Home/index.js:151
+#: src/amo/pages/Home/index.js:154
 msgid "Film & TV"
 msgstr "Film & TV"
 
-#: src/amo/pages/Home/index.js:156
+#: src/amo/pages/Home/index.js:159
 msgid "Scenery"
 msgstr "Pemandangan"
 
-#: src/amo/pages/Home/index.js:161
+#: src/amo/pages/Home/index.js:164
 msgid "Music"
 msgstr "Musik"
 
-#: src/amo/pages/Home/index.js:166
+#: src/amo/pages/Home/index.js:169
 msgid "Seasonal"
 msgstr "Musiman"
 
-#: src/amo/pages/Home/index.js:206
+#: src/amo/pages/Home/index.js:209
 msgid "Change the way Firefox looks with themes."
 msgstr "Ubah tampilan Firefox dengan tema."
 
-#: src/amo/pages/Home/index.js:236
+#: src/amo/pages/Home/index.js:239
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:270 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:280 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
 msgstr "Lihat lebih banyak ekstensi yang disarankan"
 
-#: src/amo/pages/Home/index.js:271 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:281 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "Lihat ekstensi pilihan lainnya"
 
-#: src/amo/pages/Home/index.js:292
+#: src/amo/pages/Home/index.js:302
 msgid "See more popular themes"
 msgstr "Extensi populer lainnya"
 
-#: src/amo/pages/Home/index.js:313
+#: src/amo/pages/Home/index.js:323
 msgid "See more popular extensions"
 msgstr "Lihat lebih banyak ekstensi populer"
 
-#: src/amo/pages/Home/index.js:332 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:342 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
 msgstr "Lihat lebih banyak tema yang disarankan"
 
-#: src/amo/pages/Home/index.js:333 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:343 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "Lihat tema pilihan lainnya"
 
-#: src/amo/pages/Home/index.js:366 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:376 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Temukan ekstensi yang sedang populer lainnya"
 
-#: src/amo/pages/Home/index.js:57
+#: src/amo/pages/Home/index.js:58
 #, fuzzy
 msgid "See more enhanced privacy extensions"
 msgstr "Lihat lebih banyak ekstensi cuaca"
 
-#: src/amo/pages/Home/index.js:58
+#: src/amo/pages/Home/index.js:59
 #, fuzzy
 msgid "Enhanced privacy extensions"
 msgstr "Ekstensi peringkat teratas"
 
-#: src/amo/pages/Home/index.js:63
+#: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
 msgstr "Lihat lebih banyak pengelola sandi yang direkomendasikan"
 
-#: src/amo/pages/Home/index.js:64
+#: src/amo/pages/Home/index.js:65
 msgid "Recommended password managers"
 msgstr "Pengelola sandi yang direkomendasikan"
 
@@ -3196,7 +3196,7 @@ msgstr "Selanjutnya"
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Laman %(currentPage)s dari %(totalPages)s"
 
-#: src/core/components/SiteNotices/index.js:47
+#: src/core/components/SiteNotices/index.js:56
 msgid ""
 "Some features are temporarily disabled while we perform website maintenance. "
 "We'll be back to full capacity shortly."
