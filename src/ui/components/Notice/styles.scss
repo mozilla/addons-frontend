@@ -131,13 +131,7 @@
   }
 
   background-color: $notice-background-color;
-
-  &,
-  :link,
-  :hover,
-  :active {
-    color: $notice-link-color;
-  }
+  color: $notice-link-color;
 }
 
 .Notice-error {
