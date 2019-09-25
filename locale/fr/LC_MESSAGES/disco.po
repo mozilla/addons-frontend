@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-24 16:33+0000\n"
-"PO-Revision-Date: 2019-08-27 17:52+0000\n"
-"Last-Translator: Mélanie Chauvel <perso@hack-libre.org>\n"
+"PO-Revision-Date: 2019-09-24 18:17+0000\n"
+"Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -19,12 +19,8 @@ msgid "Learn more"
 msgstr "En savoir plus"
 
 #: src/amo/components/InstallWarning/index.js:116
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
-"Cette extension n’est pas surveillée par Mozilla. Assurez-vous que vous "
-"puissiez lui faire confiance avant de l’installer."
+msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
+msgstr "Cette extension n’est pas surveillée par Mozilla. Assurez-vous que vous pouvez lui faire confiance avant de l’installer."
 
 #: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
@@ -63,15 +59,10 @@ msgid "Server Error"
 msgstr "Erreur serveur"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Une erreur s’est malheureusement produite et votre requête n’a pas pu "
-"aboutir. Nous avons enregistré cette erreur et allons l’analyser."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Une erreur s’est malheureusement produite et votre requête n’a pas pu aboutir. Nous avons enregistré cette erreur et allons l’analyser."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Code d’erreur : %(status)s."
 
@@ -89,8 +80,7 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s a été ajouté"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
-"Gérez vos modules en cliquant sur Modules complémentaires dans le menu."
+msgstr "Gérez vos modules en cliquant sur Modules complémentaires dans le menu."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -133,8 +123,7 @@ msgstr "Fonctionne avec %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
-"Installation annulée, car le module complémentaire semble être corrompu."
+msgstr "Installation annulée, car le module complémentaire semble être corrompu."
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
@@ -190,32 +179,21 @@ msgstr "Personnalisez Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Il existe des milliers de modules gratuits, créés par des développeurs du "
-"monde entier, que vous pouvez installer pour personnaliser Firefox. Des "
-"thèmes amusants jusqu’aux puissants outils qui rendent votre navigation "
-"encore plus rapide et sûre, les modules vous permettent de personnaliser "
-"complètement votre navigation. Pour vous aider à bien démarrer, nous en "
-"avons sélectionné quelques-uns selon leurs performances et leurs "
-"fonctionnalités."
+"Il existe des milliers de modules gratuits, créés par des développeurs du monde entier, que vous pouvez installer pour personnaliser Firefox. Des thèmes amusants jusqu’aux puissants outils qui "
+"rendent votre navigation encore plus rapide et sûre, les modules vous permettent de personnaliser complètement votre navigation. Pour vous aider à bien démarrer, nous en avons sélectionné quelques-"
+"uns selon leurs performances et leurs fonctionnalités."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "En savoir plus"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
 msgstr ""
-"Certaines de ces recommandations sont personnalisées. Cette sélection se "
-"fonde sur d’autres extensions que vous avez installées, les préférences de "
-"votre profil et les statistiques d’utilisation."
+"Certaines de ces recommandations sont personnalisées. Cette sélection se fonde sur d’autres extensions que vous avez installées, les préférences de votre profil et les statistiques d’utilisation."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -271,9 +249,7 @@ msgstr "Aperçu de %(title)s"
 #~ msgstr "Vous pouvez à présent accéder à %(name)s depuis la barre d’outils."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "Survolez l’image pour activer la prévisualisation ou cliquez pour "
-#~ "installer %(name)s"
+#~ msgstr "Survolez l’image pour activer la prévisualisation ou cliquez pour installer %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Survolez l’image pour activer la prévisualisation"
