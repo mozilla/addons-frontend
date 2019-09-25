@@ -64,10 +64,6 @@
   margin: 0;
   padding: 4px 0;
 
-  a:link {
-    color: $android-link-color;
-  }
-
   .Notice-light & {
     padding: 0;
   }
@@ -135,13 +131,7 @@
   }
 
   background-color: $notice-background-color;
-
-  &,
-  :link,
-  :hover,
-  :active {
-    color: $notice-link-color;
-  }
+  color: $notice-link-color;
 }
 
 .Notice-error {
