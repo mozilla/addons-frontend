@@ -102,17 +102,21 @@ export function getAddon(
 
 type OptionalInstallParams = {|
   ...OptionalParams,
-  src: string,
+  _log?: typeof log,
   hash?: string | null,
+  onIgnoredRejection?: () => void,
+  src: string,
 |};
 
 export function install(
   _url: string | void,
   eventCallback: Function,
   {
+    _log = log,
     _mozAddonManager = window.navigator.mozAddonManager,
-    src,
     hash,
+    onIgnoredRejection = () => {},
+    src,
   }: OptionalInstallParams = {},
 ) {
   if (src === undefined) {
@@ -123,15 +127,22 @@ export function install(
   return _mozAddonManager.createInstall({ url, hash }).then((installObj) => {
     const callback = (e) => eventCallback(installObj, e);
     for (const event of INSTALL_EVENT_LIST) {
-      log.info(`[install] Adding listener for ${event}`);
+      _log.info(`[install] Adding listener for ${event}`);
       installObj.addEventListener(event, callback);
     }
     return new Promise((resolve, reject) => {
       installObj.addEventListener('onInstallEnded', () => resolve());
       installObj.addEventListener('onInstallFailed', () => reject());
-      log.info('Events to handle the installation initialized.');
-      // See: https://github.com/mozilla/addons-frontend/issues/8633
-      installObj.install().catch(reject);
+      _log.info('Events to handle the installation initialized.');
+
+      installObj.install().catch((error) => {
+        // The `mozAddonManager` has events we can listen to, this error occurs
+        // when a user cancels the installation but we are already notified via
+        // `onInstallCancelled`.
+        // See: https://github.com/mozilla/addons-frontend/issues/8668
+        _log.warn(`Ignoring promise rejection during installation: ${error}`);
+        onIgnoredRejection();
+      });
     });
   });
 }

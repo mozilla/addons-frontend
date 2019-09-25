@@ -197,23 +197,27 @@ describe(__filename, () => {
       );
     });
 
-    it('rejects if the install returns an error', () => {
-      const error = new Error('oops');
+    // See: https://github.com/mozilla/addons-frontend/issues/8633
+    it('logs and ignores rejected install errors', async () => {
+      let finishInstall;
+      const installToFinish = new Promise((resolve) => {
+        finishInstall = resolve;
+      });
+      const _log = getFakeLogger();
+
       fakeInstallObj.install = sinon.spy(() => {
-        return Promise.reject(error);
+        return Promise.reject(new Error('oops'));
       });
 
-      return (
-        addonManager
-          .install(fakeInstallUrl, fakeCallback, {
-            _mozAddonManager: fakeMozAddonManager,
-            src: 'home',
-          })
-          // The second argument is the reject function.
-          .then(unexpectedSuccess, () => {
-            sinon.assert.calledOnce(fakeInstallObj.install);
-          })
-      );
+      addonManager.install(fakeInstallUrl, fakeCallback, {
+        _log,
+        _mozAddonManager: fakeMozAddonManager,
+        onIgnoredRejection: () => finishInstall(),
+        src: 'home',
+      });
+
+      await installToFinish;
+      sinon.assert.calledOnce(_log.warn);
     });
 
     it('passes the installObj, the event and the id to the callback', async () => {
