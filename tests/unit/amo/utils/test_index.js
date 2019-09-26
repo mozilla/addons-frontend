@@ -77,7 +77,7 @@ describe(__filename, () => {
         ).toEqual(true);
       });
 
-      it('returns false for a URL for a different host', () => {
+      it('returns false for a URL containing a different host', () => {
         const siteBaseURL = 'https://example.org';
         const otherBaseURL = 'https://www.mozilla.org';
 
