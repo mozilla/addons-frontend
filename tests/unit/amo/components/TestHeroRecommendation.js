@@ -8,10 +8,13 @@ import HeroRecommendation, {
 } from 'amo/components/HeroRecommendation';
 import { createInternalHeroShelves } from 'amo/reducers/home';
 import { addParamsToHeroURL, getAddonURL } from 'amo/utils';
+import { loadSiteStatus } from 'core/reducers/site';
+import LoadingText from 'ui/components/LoadingText';
 import {
   createFakeEvent,
   createFakeTracking,
   createHeroShelves,
+  dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
   fakePrimaryHeroShelfExternal,
@@ -27,7 +30,7 @@ describe(__filename, () => {
   const render = (moreProps = {}) => {
     const props = {
       i18n: fakeI18n(),
-      shelfData: createShelfData({ addon: fakeAddon }),
+      store: dispatchClientMetadata().store,
       ...moreProps,
     };
     return shallowUntilTarget(
@@ -188,6 +191,38 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find(AppBanner)).toHaveLength(1);
+  });
+
+  it.each([
+    { readOnly: true, notice: null },
+    { readOnly: false, notice: 'some notice' },
+    { readOnly: true, notice: 'some notice' },
+  ])(
+    'assigns the expected class when an AppBanner is present, status: %s',
+    (status) => {
+      const { store } = dispatchClientMetadata();
+      store.dispatch(loadSiteStatus(status));
+
+      const root = render({ store });
+
+      expect(root).toHaveClassName('HeroRecommendation--height-with-notice');
+    },
+  );
+
+  it('assigns the expected class when an AppBanner is not present', () => {
+    const { store } = dispatchClientMetadata();
+    store.dispatch(loadSiteStatus({ readOnly: false, notice: null }));
+
+    const root = render({ store });
+
+    expect(root).toHaveClassName('HeroRecommendation--height-without-notice');
+  });
+
+  it('renders in a loading state', () => {
+    const root = render();
+
+    expect(root).toHaveClassName('HeroRecommendation--loading');
+    expect(root.find(LoadingText)).toHaveLength(3);
   });
 
   describe('makeCallToActionURL', () => {

@@ -1,10 +1,10 @@
 /* @flow */
-import invariant from 'invariant';
 import * as React from 'react';
 
 import Link from 'amo/components/Link';
 import { addParamsToHeroURL, checkInternalURL } from 'amo/utils';
 import tracking from 'core/tracking';
+import LoadingText from 'ui/components/LoadingText';
 import type {
   HeroCallToActionType,
   SecondaryHeroShelfType,
@@ -15,7 +15,7 @@ import './styles.scss';
 export const SECONDARY_HERO_CLICK_CATEGORY = 'AMO Secondary Hero Clicks';
 export const SECONDARY_HERO_SRC = 'homepage-secondary-hero';
 
-type Props = {| shelfData: SecondaryHeroShelfType |};
+type Props = {| shelfData?: SecondaryHeroShelfType |};
 
 type InternalProps = {|
   ...Props,
@@ -32,11 +32,8 @@ export const SecondaryHeroBase = ({
   _tracking = tracking,
   shelfData,
 }: InternalProps) => {
-  const { headline, description, cta, modules } = shelfData;
-
-  invariant(headline, 'The headline property is required');
-  invariant(description, 'The description property is required');
-  invariant(modules, 'The modules property is required');
+  const { headline, description, cta } = shelfData || {};
+  const modules = (shelfData && shelfData.modules) || Array(3).fill({});
 
   const onHeroClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
     _tracking.sendEvent({
@@ -67,14 +64,22 @@ export const SecondaryHeroBase = ({
   modules.forEach((module) => {
     renderedModules.push(
       <div className="SecondaryHero-module" key={module.description}>
-        <img
-          alt={module.description}
-          className="SecondaryHero-module-icon"
-          src={module.icon}
-        />
-        <div className="SecondaryHero-module-description">
-          {module.description}
-        </div>
+        {module.icon ? (
+          <img
+            alt={module.description}
+            className="SecondaryHero-module-icon"
+            src={module.icon}
+          />
+        ) : (
+          <LoadingText className="SecondaryHero-module-icon" width={50} />
+        )}
+        {module.description ? (
+          <div className="SecondaryHero-module-description">
+            {module.description}
+          </div>
+        ) : (
+          <LoadingText width={100} />
+        )}
         {module.cta && (
           <Link
             className="SecondaryHero-module-link"
@@ -92,8 +97,12 @@ export const SecondaryHeroBase = ({
   return (
     <section className="SecondaryHero">
       <div className="SecondaryHero-message">
-        <h2 className="SecondaryHero-message-headline">{headline}</h2>
-        <div className="SecondaryHero-message-description">{description}</div>
+        <h2 className="SecondaryHero-message-headline">
+          {headline || <LoadingText width={50} />}
+        </h2>
+        <div className="SecondaryHero-message-description">
+          {description || <LoadingText width={100} />}
+        </div>
         {cta && (
           <Link className="SecondaryHero-message-link" {...getLinkProps(cta)}>
             <span className="SecondaryHero-message-linkText">{cta.text}</span>

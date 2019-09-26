@@ -3,6 +3,29 @@
 .HeroRecommendation-wrapper {
   margin: 0 auto;
   max-width: $max-content-width;
+
+.HeroRecommendation--height-with-notice {
+  min-height: 300px;
+
+  @include respond-to(medium) {
+    min-height: 324px;
+  }
+
+  @include respond-to(extraExtraLarge) {
+    min-height: 432px;
+  }
+}
+
+.HeroRecommendation--height-without-notice {
+  min-height: 252px;
+
+  @include respond-to(medium) {
+    min-height: 268px;
+  }
+
+  @include respond-to(extraExtraLarge) {
+    min-height: 376px;
+  }
 }
 
 .HeroRecommendation-banner {
@@ -168,4 +191,8 @@
 
 .HeroRecommendation-color-ink-80-color-violet-70 {
   @include gradientStyle($color-ink-80, $color-violet-70);
+}
+
+.HeroRecommendation--loading {
+  @include gradientStyle($color-ink-80, $background-grey);
 }

@@ -5,12 +5,22 @@
   display: grid;
   grid-gap: $padding-page;
   grid-template-columns: auto;
+  min-height: 568px;
   padding: $padding-page 0 0 0;
+
+  @include respond-to(medium) {
+    min-height: 628px;
+  }
 
   @include respond-to(large) {
     grid-gap: 32px;
     grid-template-columns: repeat(4, 1fr);
+    min-height: 340px;
     padding: 48px 0 24px 0;
+  }
+
+  @include respond-to(extraLarge) {
+    min-height: 296px;
   }
 }
 
