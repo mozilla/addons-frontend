@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-24 16:31+0000\n"
-"PO-Revision-Date: 2019-09-26 05:09+0000\n"
+"PO-Revision-Date: 2019-09-26 05:20+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1050,9 +1050,8 @@ msgid "RECOMMENDED"
 msgstr "РЕКОМЕНДОВАНО"
 
 #: src/amo/components/HeroRecommendation/index.js:71
-#, fuzzy
 msgid "Get the extension"
-msgstr "Відібрані розширення"
+msgstr "Отримати розширення"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:266
 msgid "Stay Safe Online"
@@ -1080,7 +1079,7 @@ msgstr "Докладніше"
 
 #: src/amo/components/InstallWarning/index.js:116
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr ""
+msgstr "Це розширення не контролюється Mozilla. Переконайтеся, що ви довіряєте цьому розширенню, перш ніж встановлювати його."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -2778,7 +2777,7 @@ msgstr "Сторінка %(currentPage)s із %(totalPages)s"
 
 #: src/core/components/SiteNotices/index.js:56
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
-msgstr ""
+msgstr "Деякі функції тимчасово недоступні, поки ми проводимо обслуговування сайту. Незабаром ми повернемо повну функціональність."
 
 #: src/core/components/SurveyNotice/index.js:131
 msgid "Take short survey"
@@ -2931,7 +2930,7 @@ msgstr "Firefox рекомендує лише ті розширення, які 
 
 #: src/ui/components/ShowMoreCard/index.js:126
 msgid "Expand to read more"
-msgstr ""
+msgstr "Розгорніть, щоб прочитати більше"
 
 #: src/ui/components/ShowMoreCard/index.js:131
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
