@@ -67,7 +67,7 @@ describe(__filename, () => {
     });
 
     describe('isInternal prop', () => {
-      it('returns true for a URL for the current host', () => {
+      it('returns true for a URL containing the current host', () => {
         const baseURL = 'https://example.org';
         const urlString = url.format({ ...url.parse(baseURL), pathname });
 
