@@ -65,8 +65,7 @@ export const checkInternalURL = ({
 |}): { isInternal: boolean, relativeURL: string } => {
   const baseURL = _config.get('baseURL');
   const urlParts = url.parse(urlString, true);
-  const isInternal =
-    !urlParts.protocol || url.parse(baseURL).host === urlParts.host;
+  const isInternal = url.parse(baseURL).host === urlParts.host;
   let relativeURL = urlString.replace(baseURL, '');
   if (isInternal && !relativeURL.startsWith('/')) {
     relativeURL = `/${relativeURL}`;
