@@ -67,13 +67,7 @@ describe(__filename, () => {
     });
 
     describe('isInternal prop', () => {
-      it('returns true for a slash-prefixed URL', () => {
-        expect(checkInternalURL({ urlString: pathname }).isInternal).toEqual(
-          true,
-        );
-      });
-
-      it('returns true for a full URL for the current host', () => {
+      it('returns true for a URL for the current host', () => {
         const baseURL = 'https://example.org';
         const urlString = url.format({ ...url.parse(baseURL), pathname });
 
@@ -83,7 +77,7 @@ describe(__filename, () => {
         ).toEqual(true);
       });
 
-      it('returns false for a full URL for a different host', () => {
+      it('returns false for a URL for a different host', () => {
         const siteBaseURL = 'https://example.org';
         const otherBaseURL = 'https://www.mozilla.org';
 
