@@ -65,10 +65,11 @@ export const checkInternalURL = ({
 |}): { isInternal: boolean, relativeURL: string } => {
   const baseURL = _config.get('baseURL');
   const urlParts = url.parse(urlString, true);
-  const isInternal =
+  const isRelative =
     // The double slash is for protocol-free URLs.
-    (urlString.startsWith('/') && !urlString.startsWith('//')) ||
-    url.parse(baseURL).host === urlParts.host;
+    urlString.startsWith('/') && !urlString.startsWith('//');
+  const isInternal = isRelative || url.parse(baseURL).host === urlParts.host;
+
   let relativeURL = urlString.replace(baseURL, '');
   if (isInternal && !relativeURL.startsWith('/')) {
     relativeURL = `/${relativeURL}`;
