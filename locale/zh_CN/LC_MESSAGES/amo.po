@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-09-24 16:31+0000\n"
-"PO-Revision-Date: 2019-09-28 02:21+0000\n"
-"Last-Translator: passionforlife <eloli@foxmail.com>\n"
+"PO-Revision-Date: 2017-08-30 10:53+0000\n"
+"Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -85,7 +85,7 @@ msgstr "精选附加组件"
 
 #: src/amo/components/AddonBadges/index.js:75
 msgid "Restart Required"
-msgstr "需要重启（非重启系统）"
+msgstr "需要重启"
 
 #: src/amo/components/AddonBadges/index.js:79
 msgid "Experimental"
