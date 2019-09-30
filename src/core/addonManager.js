@@ -117,7 +117,7 @@ export async function install(
   }: OptionalInstallParams = {},
 ) {
   if (src === undefined) {
-    return Promise.reject(new Error('No src for add-on install'));
+    throw new Error('No src for add-on install');
   }
   const url = addQueryParams(_url, { src });
 
@@ -197,6 +197,8 @@ export function addChangeListeners(
           'Unexpected error after having received onOperationCancelled event',
           error,
         );
+        // eslint-disable-next-line consistent-return
+        return;
       }
     }
 

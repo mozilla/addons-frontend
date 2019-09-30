@@ -321,15 +321,15 @@ describe(__filename, () => {
       });
     });
 
-    it('throws on unknown event', () => {
+    it('rejects on unknown event', () => {
       const handleChangeEvent = addonManager.addChangeListeners(
         fakeEventCallback,
         fakeMozAddonManager,
       );
 
-      expect(() => {
-        handleChangeEvent({ type: 'whatevs' });
-      }).toThrowError(/Unknown global event/);
+      return expect(handleChangeEvent({ type: 'whatevs' })).rejects.toThrow(
+        /Unknown global event/,
+      );
     });
 
     it('listens to onOperationCancelled', () => {
