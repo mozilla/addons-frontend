@@ -35,6 +35,10 @@
   font-weight: normal;
   line-height: 1.333;
   margin: 0;
+
+  .LoadingText {
+    height: 1em;
+  }
 }
 
 .SecondaryHero-message-description {
@@ -42,6 +46,10 @@
 
   @include respond-to(large) {
     padding: 8px 0 24px 0;
+  }
+
+  .LoadingText {
+    height: 1em;
   }
 }
 
@@ -88,6 +96,17 @@
   }
 }
 
-.SecondaryHero-module-description {
+.SecondaryHero-message-link,
+.SecondaryHero-module-description,
+.SecondaryHero-module-link {
+  width: 100%;
+
+  .LoadingText {
+    height: 1em;
+  }
+}
+
+.SecondaryHero-module-description,
+.SecondaryHero-module-link {
   text-align: center;
 }

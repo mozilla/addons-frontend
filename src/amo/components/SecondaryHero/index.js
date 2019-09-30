@@ -71,15 +71,11 @@ export const SecondaryHeroBase = ({
             src={module.icon}
           />
         ) : (
-          <LoadingText className="SecondaryHero-module-icon" width={50} />
+          <LoadingText className="SecondaryHero-module-icon" width={40} />
         )}
-        {module.description ? (
-          <div className="SecondaryHero-module-description">
-            {module.description}
-          </div>
-        ) : (
-          <LoadingText width={100} />
-        )}
+        <div className="SecondaryHero-module-description">
+          {module.description || <LoadingText width={60} />}
+        </div>
         {module.cta && (
           <Link
             className="SecondaryHero-module-link"
@@ -90,6 +86,11 @@ export const SecondaryHeroBase = ({
             </span>
           </Link>
         )}
+        {!module.description && (
+          <div className="SecondaryHero-module-link">
+            <LoadingText width={50} />
+          </div>
+        )}
       </div>,
     );
   });
@@ -98,15 +99,20 @@ export const SecondaryHeroBase = ({
     <section className="SecondaryHero">
       <div className="SecondaryHero-message">
         <h2 className="SecondaryHero-message-headline">
-          {headline || <LoadingText width={50} />}
+          {headline || <LoadingText width={60} />}
         </h2>
         <div className="SecondaryHero-message-description">
-          {description || <LoadingText width={100} />}
+          {description || <LoadingText width={70} />}
         </div>
         {cta && (
           <Link className="SecondaryHero-message-link" {...getLinkProps(cta)}>
             <span className="SecondaryHero-message-linkText">{cta.text}</span>
           </Link>
+        )}
+        {!headline && (
+          <div className="SecondaryHero-message-link">
+            <LoadingText width={40} />
+          </div>
         )}
       </div>
       {renderedModules}
