@@ -82,22 +82,19 @@ export function hasPermissionPromptsEnabled({
   return undefined;
 }
 
-export function getAddon(
+export async function getAddon(
   guid: string,
   { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
 ) {
   if (_mozAddonManager || module.exports.hasAddonManager()) {
-    // Resolves a promise with the addon on success.
-    return _mozAddonManager.getAddonByID(guid).then((addon) => {
-      if (!addon) {
-        throw new Error('Addon not found');
-      }
-      log.debug('Add-on found', addon);
-
-      return addon;
-    });
+    const addon = await _mozAddonManager.getAddonByID(guid);
+    if (!addon) {
+      throw new Error('Addon not found');
+    }
+    log.debug('Add-on found', addon);
+    return addon;
   }
-  return Promise.reject(new Error('Cannot check add-on status'));
+  throw new Error('Cannot check add-on status');
 }
 
 type OptionalInstallParams = {|
@@ -108,7 +105,7 @@ type OptionalInstallParams = {|
   src: string,
 |};
 
-export function install(
+export async function install(
   _url: string | void,
   eventCallback: Function,
   {
@@ -124,45 +121,40 @@ export function install(
   }
   const url = addQueryParams(_url, { src });
 
-  return _mozAddonManager.createInstall({ url, hash }).then((installObj) => {
-    const callback = (e) => eventCallback(installObj, e);
-    for (const event of INSTALL_EVENT_LIST) {
-      _log.info(`[install] Adding listener for ${event}`);
-      installObj.addEventListener(event, callback);
-    }
-    return new Promise((resolve, reject) => {
-      installObj.addEventListener('onInstallEnded', () => resolve());
-      installObj.addEventListener('onInstallFailed', () => reject());
-      _log.info('Events to handle the installation initialized.');
+  const installObj = await _mozAddonManager.createInstall({ url, hash });
+  const callback = (e) => eventCallback(installObj, e);
+  for (const event of INSTALL_EVENT_LIST) {
+    _log.info(`[install] Adding listener for ${event}`);
+    installObj.addEventListener(event, callback);
+  }
+  return new Promise((resolve, reject) => {
+    installObj.addEventListener('onInstallEnded', () => resolve());
+    installObj.addEventListener('onInstallFailed', () => reject());
+    _log.info('Events to handle the installation initialized.');
 
-      installObj.install().catch((error) => {
-        // The `mozAddonManager` has events we can listen to, this error occurs
-        // when a user cancels the installation but we are already notified via
-        // `onInstallCancelled`.
-        // See: https://github.com/mozilla/addons-frontend/issues/8668
-        _log.warn(`Ignoring promise rejection during installation: ${error}`);
-        onIgnoredRejection();
-      });
+    installObj.install().catch((error) => {
+      // The `mozAddonManager` has events we can listen to, this error occurs
+      // when a user cancels the installation but we are already notified via
+      // `onInstallCancelled`.
+      // See: https://github.com/mozilla/addons-frontend/issues/8668
+      _log.warn(`Ignoring promise rejection during installation: ${error}`);
+      onIgnoredRejection();
     });
   });
 }
 
-export function uninstall(
+export async function uninstall(
   guid: string,
   { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
 ) {
-  return getAddon(guid, { _mozAddonManager })
-    .then((addon) => {
-      log.info(`Requesting uninstall of ${guid}`);
-      return addon.uninstall();
-    })
-    .then((result) => {
-      // Until bug 1268075 this will resolve with a boolean
-      // for success and failure.
-      if (result === false) {
-        throw new Error('Uninstall failed');
-      }
-    });
+  const addon = await getAddon(guid, { _mozAddonManager });
+  log.info(`Requesting uninstall of ${guid}`);
+  const result = await addon.uninstall();
+  // Until bug 1268075 this will resolve with a boolean
+  // for success and failure.
+  if (result === false) {
+    throw new Error('Uninstall failed');
+  }
 }
 
 type AddonChangeEvent = {|
@@ -180,7 +172,7 @@ export function addChangeListeners(
   mozAddonManager: MozAddonManagerType,
   { _log = log }: {| _log: typeof log |} = {},
 ) {
-  function handleChangeEvent(e: AddonChangeEvent) {
+  async function handleChangeEvent(e: AddonChangeEvent) {
     const { id: guid, type, needsRestart } = e;
 
     // eslint-disable-next-line amo/only-log-strings
@@ -188,23 +180,24 @@ export function addChangeListeners(
 
     if (type === ON_OPERATION_CANCELLED_EVENT) {
       // We need to retrieve the correct status for this add-on.
-      return getAddon(guid, { _mozAddonManager: mozAddonManager })
-        .then((addon) => {
-          const status = getAddonStatus({ addon });
-
-          return callback({
-            guid,
-            status,
-            needsRestart,
-          });
-        })
-        .catch((error) => {
-          // eslint-disable-next-line amo/only-log-strings
-          _log.error(
-            'Unexpected error after having received onOperationCancelled event',
-            error,
-          );
+      try {
+        const addon = await getAddon(guid, {
+          _mozAddonManager: mozAddonManager,
         });
+        const status = getAddonStatus({ addon });
+
+        return callback({
+          guid,
+          status,
+          needsRestart,
+        });
+      } catch (error) {
+        // eslint-disable-next-line amo/only-log-strings
+        _log.error(
+          'Unexpected error after having received onOperationCancelled event',
+          error,
+        );
+      }
     }
 
     // eslint-disable-next-line no-prototype-builtins
@@ -238,15 +231,14 @@ export function addChangeListeners(
   return handleChangeEvent;
 }
 
-export function enable(
+export async function enable(
   guid: string,
   { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
 ) {
-  return getAddon(guid, { _mozAddonManager }).then((addon) => {
-    log.info(`Enable ${guid}`);
-    if (addon.setEnabled) {
-      return addon.setEnabled(true);
-    }
-    throw new Error(SET_ENABLE_NOT_AVAILABLE);
-  });
+  const addon = await getAddon(guid, { _mozAddonManager });
+  log.info(`Enable ${guid}`);
+  if (addon.setEnabled) {
+    return addon.setEnabled(true);
+  }
+  throw new Error(SET_ENABLE_NOT_AVAILABLE);
 }
