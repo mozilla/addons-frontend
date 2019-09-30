@@ -212,7 +212,7 @@
   "homepage": "https://github.com/mozilla/addons-frontend#readme",
   "dependencies": {
     "@loadable/component": "5.10.3",
-    "@loadable/server": "5.10.2",
+    "@loadable/server": "5.10.3",
     "@mozilla-protocol/tokens": "4.0.0",
     "@willdurand/isomorphic-formdata": "1.2.0",
     "base62": "2.0.1",
@@ -299,7 +299,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@emotion/core": "^10.0.16",
-    "@loadable/babel-plugin": "^5.0.1",
+    "@loadable/babel-plugin": "^5.7.1",
     "@loadable/webpack-plugin": "^5.2.1",
     "@storybook/addon-info": "^5.1.9",
     "@storybook/addon-options": "^5.1.9",
