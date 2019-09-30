@@ -67,16 +67,10 @@ describe(__filename, () => {
     });
 
     describe('isInternal prop', () => {
-      it('returns true for a single slash-prefixed URL', () => {
-        expect(checkInternalURL({ urlString: pathname }).isInternal).toEqual(
-          true,
-        );
-      });
-
-      it('returns false for a double slash-prefixed URL', () => {
+      it('returns true for a relative URL', () => {
         expect(
-          checkInternalURL({ urlString: '//path/name' }).isInternal,
-        ).toEqual(false);
+          checkInternalURL({ urlString: '/some/path' }).isInternal,
+        ).toEqual(true);
       });
 
       it('returns true for a full URL containing the current host', () => {
