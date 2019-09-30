@@ -25,6 +25,10 @@
         "universal-cookie-express"
       ],
       "groupName": "reactivestack/cookies"
+    },
+    {
+      "packagePatterns": ["@loadable/*"],
+      "groupName": "loadable components"
     }
   ]
 }
