@@ -1,15 +1,10 @@
 /* @flow */
-import Helmet from 'react-helmet';
 import * as React from 'react';
 
-import HeadLinks from 'amo/components/HeadLinks';
-import HeadMetaTags from 'amo/components/HeadMetaTags';
-import Card from 'ui/components/Card';
+import StaticPage from 'amo/components/StaticPage';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import type { I18nType } from 'core/types/i18n';
-
-import '../styles.scss';
 
 type Props = {|
   i18n: I18nType,
@@ -19,24 +14,14 @@ export class AboutBase extends React.Component<Props> {
   render() {
     const { i18n } = this.props;
 
-    const title = i18n.gettext('About Firefox Add-ons');
-
     return (
-      <Card className="StaticPage" header={title}>
-        <Helmet>
-          <title>{title}</title>
-        </Helmet>
-
-        <HeadMetaTags
-          description={i18n.gettext(`The official Mozilla site for downloading
-            Firefox extensions and themes. Add new features and change the
-            browser’s appearance to customize your web experience.`)}
-          title={title}
-        />
-
-        <HeadLinks />
-
-        <div className="StaticPageWrapper">
+      <StaticPage
+        title={i18n.gettext('About Firefox Add-ons')}
+        metaDescription={i18n.gettext(`The official Mozilla site for downloading
+          Firefox extensions and themes. Add new features and change the
+          browser’s appearance to customize your web experience.`)}
+      >
+        <>
           <div id="about">
             <p>
               {i18n.gettext(`Addons.mozilla.org (AMO), is Mozilla's official site
@@ -240,8 +225,8 @@ export class AboutBase extends React.Component<Props> {
               )}
             />
           </section>
-        </div>
-      </Card>
+        </>
+      </StaticPage>
     );
   }
 }

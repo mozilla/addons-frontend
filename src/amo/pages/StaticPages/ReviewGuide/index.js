@@ -1,15 +1,10 @@
 /* @flow */
-import Helmet from 'react-helmet';
 import * as React from 'react';
 
-import HeadLinks from 'amo/components/HeadLinks';
-import HeadMetaTags from 'amo/components/HeadMetaTags';
-import Card from 'ui/components/Card';
+import StaticPage from 'amo/components/StaticPage';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import type { I18nType } from 'core/types/i18n';
-
-import '../styles.scss';
 
 type Props = {|
   i18n: I18nType,
@@ -19,24 +14,15 @@ export class ReviewGuideBase extends React.Component<Props> {
   render() {
     const { i18n } = this.props;
 
-    const title = i18n.gettext('Review Guidelines');
-
     return (
-      <Card className="StaticPage" header={title}>
-        <Helmet>
-          <title>{title}</title>
-        </Helmet>
-
-        <HeadMetaTags
-          description={i18n.gettext(`Guidelines, tips, and Frequently Asked
-              Questions to leave a review for the extensions and themes you’ve
-              downloaded and used on Firefox.`)}
-          title={title}
-        />
-
-        <HeadLinks />
-
-        <div className="StaticPageWrapper">
+      <StaticPage
+        title={i18n.gettext('Review Guidelines')}
+        metaDescription={i18n.gettext(`
+          Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and
+          themes you’ve downloaded and used on Firefox.
+        `)}
+      >
+        <>
           <section id="review-guide">
             <p>
               {i18n.gettext(`Add-on reviews are a way for you to share your opinions
@@ -173,8 +159,8 @@ export class ReviewGuideBase extends React.Component<Props> {
               may consider deleting the review.`)}
             </p>
           </section>
-        </div>
-      </Card>
+        </>
+      </StaticPage>
     );
   }
 }
