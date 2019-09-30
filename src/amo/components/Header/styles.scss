@@ -1,7 +1,14 @@
 @import '~amo/css/styles';
 
-.Header {
+.Header-new-hero {
   background: $color-ink-80;
+}
+
+.Header-old-hero {
+  background: $ink-90;
+}
+
+.Header-wrapper {
   display: grid;
   grid-template-columns: repeat(3, auto) min-content;
   min-height: 112px;

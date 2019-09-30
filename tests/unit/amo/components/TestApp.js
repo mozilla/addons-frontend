@@ -15,6 +15,7 @@ import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import createStore from 'amo/store';
 import { setUserAgent as setUserAgentAction } from 'core/actions';
 import {
+  ADDON_TYPE_EXTENSION,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   INSTALL_STATE,
@@ -26,6 +27,7 @@ import {
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
   userAuthToken,
 } from 'tests/unit/helpers';
@@ -334,23 +336,37 @@ describe(__filename, () => {
 
   it('renders an AppBanner if it is not the home page', () => {
     const { store } = dispatchClientMetadata();
-    store.dispatch(setViewContext('SOME_CONTEXT'));
+    store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
     const root = render({ store });
 
     expect(root.find(AppBanner)).toHaveLength(1);
   });
 
-  it('does not render an AppBanner if it is the home page', () => {
+  it('renders an AppBanner if enableFeatureHeroRecommendation is false', () => {
     const { store } = dispatchClientMetadata();
     store.dispatch(setViewContext(VIEW_CONTEXT_HOME));
-    const root = render({ store });
+    const root = render({
+      _config: getFakeConfig({ enableFeatureHeroRecommendation: false }),
+      store,
+    });
+
+    expect(root.find(AppBanner)).toHaveLength(1);
+  });
+
+  it('does not render an AppBanner if it is the home page and enableFeatureHeroRecommendation is true', () => {
+    const { store } = dispatchClientMetadata();
+    store.dispatch(setViewContext(VIEW_CONTEXT_HOME));
+    const root = render({
+      _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
+      store,
+    });
 
     expect(root.find(AppBanner)).toHaveLength(0);
   });
 
   it('uses the expected className for a page other than the home page', () => {
     const { store } = dispatchClientMetadata();
-    store.dispatch(setViewContext('SOME_CONTEXT'));
+    store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
     const root = render({ store });
 
     expect(root.find('.App-content-wrapper')).toHaveLength(1);
@@ -359,7 +375,7 @@ describe(__filename, () => {
 
   it('uses the expected className for the home page', () => {
     const { store } = dispatchClientMetadata();
-    store.dispatch(setViewContext('VIEW_CONTEXT_HOME'));
+    store.dispatch(setViewContext(VIEW_CONTEXT_HOME));
     const root = render({ store });
 
     expect(root.find('.App-content-wrapper')).toHaveLength(0);

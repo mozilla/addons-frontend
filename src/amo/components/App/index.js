@@ -50,6 +50,7 @@ interface MozNavigator extends Navigator {
 }
 
 type Props = {|
+  _config: typeof config,
   ErrorPage: typeof DefaultErrorPage,
   FooterComponent: typeof Footer,
   InfoDialogComponent: typeof InfoDialog,
@@ -76,6 +77,7 @@ export class AppBase extends React.Component<Props> {
   scheduledLogout: TimeoutID;
 
   static defaultProps = {
+    _config: config,
     ErrorPage: DefaultErrorPage,
     FooterComponent: Footer,
     InfoDialogComponent: InfoDialog,
@@ -185,6 +187,7 @@ export class AppBase extends React.Component<Props> {
 
   render() {
     const {
+      _config,
       ErrorPage,
       FooterComponent,
       HeaderComponent,
@@ -248,9 +251,12 @@ export class AppBase extends React.Component<Props> {
                     : 'App-content-wrapper',
                 )}
               >
-                {// Exclude the AppBanner from the home page as it is included
-                // via HeroRecommendation.
-                !isHomePage && <AppBanner />}
+                {// Exclude the AppBanner from the home page if it will be
+                // included via HeroRecommendation.
+                (!isHomePage ||
+                  !_config.get('enableFeatureHeroRecommendation')) && (
+                  <AppBanner />
+                )}
                 <ErrorPage getErrorComponent={getErrorComponent}>
                   <Routes />
                 </ErrorPage>

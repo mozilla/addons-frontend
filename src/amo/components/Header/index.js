@@ -1,3 +1,4 @@
+import makeClassName from 'classnames';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -68,132 +69,146 @@ export class HeaderBase extends React.Component {
     );
 
     return (
-      <header className="Header">
-        <div className="Header-content">
-          {isHomePage ? (
-            <h1 className="Header-title-wrapper">{headerLink}</h1>
-          ) : (
-            headerLink
-          )}
-        </div>
+      <header
+        className={makeClassName(
+          'Header',
+          _config.get('enableFeatureHeroRecommendation')
+            ? 'Header-new-hero'
+            : 'Header-old-hero',
+        )}
+      >
+        <div className="Header-wrapper">
+          <div className="Header-content">
+            {isHomePage ? (
+              <h1 className="Header-title-wrapper">{headerLink}</h1>
+            ) : (
+              headerLink
+            )}
+          </div>
 
-        <SectionLinks className="Header-SectionLinks" location={location} />
+          <SectionLinks className="Header-SectionLinks" location={location} />
 
-        <div className="Header-user-and-external-links">
-          <Link
-            className="Header-extension-workshop-link Header-button"
-            href={`${_config.get(
-              'extensionWorkshopUrl',
-            )}/${makeQueryStringWithUTM({
-              utm_content: 'header-link',
-              utm_campaign: null,
-            })}`}
-            external
-            prependClientApp={false}
-            prependLang={false}
-            target="_blank"
-            title={i18n.gettext('Learn how to create extensions and themes')}
-          >
-            {i18n.gettext('Extension Workshop')}
-          </Link>
-          <Link
-            className="Header-developer-hub-link Header-button"
-            href="/developers/"
-            external
-            prependClientApp={false}
-            target="_blank"
-            title={i18n.gettext('Submit and manage extensions and themes')}
-          >
-            {i18n.gettext('Developer Hub')}
-          </Link>
-          <GetFirefoxButton
-            buttonType={GET_FIREFOX_BUTTON_TYPE_HEADER}
-            className="Header-download-button Header-button"
-          />
-
-          {siteUser ? (
-            <DropdownMenu
-              text={siteUser.name}
-              className="Header-authenticate-button Header-button"
+          <div className="Header-user-and-external-links">
+            <Link
+              className="Header-extension-workshop-link Header-button"
+              href={`${_config.get(
+                'extensionWorkshopUrl',
+              )}/${makeQueryStringWithUTM({
+                utm_content: 'header-link',
+                utm_campaign: null,
+              })}`}
+              external
+              prependClientApp={false}
+              prependLang={false}
+              target="_blank"
+              title={i18n.gettext('Learn how to create extensions and themes')}
             >
-              <DropdownMenuItem>{i18n.gettext('My Account')}</DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link
-                  className="Header-user-menu-collections-link"
-                  to="/collections/"
-                >
-                  {i18n.gettext('View My Collections')}
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link
-                  className="Header-user-menu-view-profile-link"
-                  to={siteUser ? `/user/${siteUser.id}/` : null}
-                >
-                  {i18n.gettext('View My Profile')}
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link
-                  className="Header-user-menu-edit-profile-link"
-                  to={siteUser ? '/users/edit' : null}
-                >
-                  {i18n.gettext('Edit My Profile')}
-                </Link>
-              </DropdownMenuItem>
+              {i18n.gettext('Extension Workshop')}
+            </Link>
+            <Link
+              className="Header-developer-hub-link Header-button"
+              href="/developers/"
+              external
+              prependClientApp={false}
+              target="_blank"
+              title={i18n.gettext('Submit and manage extensions and themes')}
+            >
+              {i18n.gettext('Developer Hub')}
+            </Link>
+            <GetFirefoxButton
+              buttonType={GET_FIREFOX_BUTTON_TYPE_HEADER}
+              className="Header-download-button Header-button"
+            />
 
-              <DropdownMenuItem>{i18n.gettext('Tools')}</DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link
-                  href="/developers/addon/submit/distribution"
-                  prependClientApp={false}
-                >
-                  {i18n.gettext('Submit a New Add-on')}
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/developers/theme/submit" prependClientApp={false}>
-                  {i18n.gettext('Submit a New Theme')}
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link
-                  className="Header-user-menu-developers-submissions-link"
-                  href="/developers/addons/"
-                  prependClientApp={false}
-                >
-                  {i18n.gettext('Manage My Submissions')}
-                </Link>
-              </DropdownMenuItem>
-              {isReviewer && (
+            {siteUser ? (
+              <DropdownMenu
+                text={siteUser.name}
+                className="Header-authenticate-button Header-button"
+              >
+                <DropdownMenuItem>
+                  {i18n.gettext('My Account')}
+                </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Link
-                    className="Header-user-menu-reviewer-tools-link"
-                    href="/reviewers/"
-                    prependClientApp={false}
+                    className="Header-user-menu-collections-link"
+                    to="/collections/"
                   >
-                    {i18n.gettext('Reviewer Tools')}
+                    {i18n.gettext('View My Collections')}
                   </Link>
                 </DropdownMenuItem>
-              )}
+                <DropdownMenuItem>
+                  <Link
+                    className="Header-user-menu-view-profile-link"
+                    to={siteUser ? `/user/${siteUser.id}/` : null}
+                  >
+                    {i18n.gettext('View My Profile')}
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link
+                    className="Header-user-menu-edit-profile-link"
+                    to={siteUser ? '/users/edit' : null}
+                  >
+                    {i18n.gettext('Edit My Profile')}
+                  </Link>
+                </DropdownMenuItem>
 
-              <DropdownMenuItem
-                className="Header-logout-button"
-                detached
-                onClick={this.handleLogOut}
-              >
-                {i18n.gettext('Log out')}
-              </DropdownMenuItem>
-            </DropdownMenu>
-          ) : (
-            <AuthenticateButton
-              className="Header-authenticate-button Header-button"
-              noIcon
-            />
-          )}
+                <DropdownMenuItem>{i18n.gettext('Tools')}</DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link
+                    href="/developers/addon/submit/distribution"
+                    prependClientApp={false}
+                  >
+                    {i18n.gettext('Submit a New Add-on')}
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link
+                    href="/developers/theme/submit"
+                    prependClientApp={false}
+                  >
+                    {i18n.gettext('Submit a New Theme')}
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link
+                    className="Header-user-menu-developers-submissions-link"
+                    href="/developers/addons/"
+                    prependClientApp={false}
+                  >
+                    {i18n.gettext('Manage My Submissions')}
+                  </Link>
+                </DropdownMenuItem>
+                {isReviewer && (
+                  <DropdownMenuItem>
+                    <Link
+                      className="Header-user-menu-reviewer-tools-link"
+                      href="/reviewers/"
+                      prependClientApp={false}
+                    >
+                      {i18n.gettext('Reviewer Tools')}
+                    </Link>
+                  </DropdownMenuItem>
+                )}
+
+                <DropdownMenuItem
+                  className="Header-logout-button"
+                  detached
+                  onClick={this.handleLogOut}
+                >
+                  {i18n.gettext('Log out')}
+                </DropdownMenuItem>
+              </DropdownMenu>
+            ) : (
+              <AuthenticateButton
+                className="Header-authenticate-button Header-button"
+                noIcon
+              />
+            )}
+          </div>
+
+          <SearchForm className="Header-search-form" pathname="/search/" />
         </div>
-
-        <SearchForm className="Header-search-form" pathname="/search/" />
       </header>
     );
   }
