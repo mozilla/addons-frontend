@@ -73,8 +73,8 @@ export class HeaderBase extends React.Component {
         className={makeClassName(
           'Header',
           _config.get('enableFeatureHeroRecommendation')
-            ? 'Header-new-hero'
-            : 'Header-old-hero',
+            ? 'Header-hero-promo'
+            : 'Header-no-hero-promo',
         )}
       >
         <div className="Header-wrapper">

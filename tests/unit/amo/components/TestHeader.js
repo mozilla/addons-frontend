@@ -183,7 +183,7 @@ describe(__filename, () => {
     );
   });
 
-  it.each([[true, 'Header-new-hero'], [false, 'Header-old-hero']])(
+  it.each([[true, 'Header-hero-promo'], [false, 'Header-no-hero-promo']])(
     'renders the expected className when enableFeatureHeroRecommendation is %s',
     (enableFeatureHeroRecommendation, expectedClassName) => {
       const _config = getFakeConfig({ enableFeatureHeroRecommendation });
