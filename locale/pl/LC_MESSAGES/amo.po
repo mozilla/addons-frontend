@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-24 16:31+0000\n"
+"POT-Creation-Date: 2019-10-01 16:19+0000\n"
 "PO-Revision-Date: 2019-09-22 13:13+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -2543,7 +2543,156 @@ msgstr ""
 "wszystko od wyszukiwania ze zwiększoną prywatnością, do wyszukiwania na "
 "konkretnych stronach, wyszukiwania obrazów i nie tylko."
 
-#: src/amo/pages/StaticPages/About/index.js:108
+#: src/amo/pages/StaticPages/About/index.js:119
+msgid ""
+"Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
+"the %(startAddonsServerDocumentation)sAdd-ons Servers documentation"
+"%(endAddonsServerDocumentation)s for details about the APIs used by AMO and "
+"the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
+msgstr ""
+"Potrzebujesz programistycznie komunikować się ze stroną addons.mozilla.org "
+"(AMO)? %(startAddonsServerDocumentation)sDokumentacja serwera dodatków"
+"%(endAddonsServerDocumentation)s zawiera informacje o API używanych przez "
+"AMO i %(startAddonsManager)smenedżera dodatków%(endAddonsManager)s."
+
+#: src/amo/pages/StaticPages/About/index.js:140
+msgid ""
+"If you want to contribute but are not quite as technical, there are still "
+"ways to help:"
+msgstr ""
+"Jeśli chcesz wziąć udział, ale niekoniecznie od strony technicznej, oto inne "
+"sposoby pomagania:"
+
+#: src/amo/pages/StaticPages/About/index.js:149
+msgid "Participate in our %(startLink)sforum%(endLink)s."
+msgstr "Udzielaj się na naszym %(startLink)sforum%(endLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:162
+msgid ""
+"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
+"improve their add-ons and create new ones when they know people appreciate "
+"their work."
+msgstr ""
+"Pisz opinie o swoich ulubionych dodatkach. Ich autorzy są bardziej skłonni "
+"je ulepszać i tworzyć nowe, kiedy wiedzą, że ich praca jest doceniana."
+
+#: src/amo/pages/StaticPages/About/index.js:167
+msgid ""
+"Tell your friends and family that Firefox is a fast, secure browser that "
+"protects their privacy, and they can use add-ons to make it their own!"
+msgstr ""
+"Powiedz znajomym i rodzinie, że Firefox jest szybką, bezpieczną "
+"przeglądarką, która chroni ich prywatność i którą można dostosować do "
+"własnych upodobań dodatkami."
+
+#: src/amo/pages/StaticPages/About/index.js:175
+msgid ""
+"To see more ways you can contribute to the add-on community, please visit "
+"our %(startLink)swiki%(endLink)s."
+msgstr ""
+"Nasza %(startLink)swiki%(endLink)s zawiera więcej informacji o udzielaniu "
+"się w społeczności dodatków."
+
+#: src/amo/pages/StaticPages/About/index.js:189
+msgid "Get support"
+msgstr "Pomoc"
+
+#: src/amo/pages/StaticPages/About/index.js:19
+msgid "About Firefox Add-ons"
+msgstr "O serwisie"
+
+#: src/amo/pages/StaticPages/About/index.js:194
+msgid ""
+"If you would like to learn more about how to manage add-ons in Firefox, or "
+"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
+"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
+"%(startForumLink)sask on our community forum%(endForumLink)s."
+msgstr ""
+"%(startSUMOLink)sPomoc%(endSUMOLink)s Mozilli zawiera więcej informacji "
+"o zarządzaniu dodatkami w Firefoksie i używaniu Firefoksa. Jeśli czegoś tam "
+"brakuje, to można %(startForumLink)szapytać na forum społeczności"
+"%(endForumLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:20
+msgid ""
+"The official Mozilla site for downloading Firefox extensions and themes. Add "
+"new features and change the browser’s appearance to customize your web "
+"experience."
+msgstr ""
+"Oficjalna strona Mozilli do pobierania rozszerzeń i motywów Firefoksa. "
+"Dodawaj nowe funkcje i zmieniaj wygląd przeglądarki, aby ją spersonalizować."
+
+#: src/amo/pages/StaticPages/About/index.js:215
+msgid ""
+"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
+"found here%(endLink)s."
+msgstr "%(startLink)sKontakt z zespołem dodatków Mozilli%(endLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:27
+msgid ""
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
+"installing add-ons for the Firefox browser. Add-ons help you modify and "
+"personalize your browsing experience by adding new features to Firefox, "
+"enhancing your interactions with Web content, and changing the way your "
+"browser looks."
+msgstr ""
+"Addons.mozilla.org (AMO) to oficjalna strona Mozilli do przeglądania "
+"i instalowania dodatków do przeglądarki Firefox. Dodatki pomagają "
+"modyfikować i personalizować przeglądarkę przez dodawanie nowych funkcji, "
+"ulepszanie sposobów korzystania z Internetu i zmieniając jej wygląd."
+
+#: src/amo/pages/StaticPages/About/index.js:37
+msgid ""
+"If you are looking for add-ons for Thunderbird or SeaMonkey, please visit "
+"%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
+"thunderbird.net/seamonkey%(endSMLink)s."
+msgstr ""
+"Dodatki do programów Thunderbird i SeaMonkey można znaleźć na stronach "
+"%(startTBLink)saddons.thunderbird.net%(endTBLink)s i %(startSMLink)saddons."
+"thunderbird.net/seamonkey%(endSMLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:54
+msgid "A community of creators"
+msgstr "Społeczność twórców"
+
+#: src/amo/pages/StaticPages/About/index.js:56
+msgid ""
+"The add-ons listed here are created by thousands of developers and theme "
+"designers from all over the world, ranging from individual hobbyists to "
+"large corporations. Some add-ons listed on AMO have been automatically "
+"published and may be subject to review by a team of editors once publicly "
+"listed."
+msgstr ""
+"Dodatki dostępne w serwisie są tworzone przez tysiące programistów "
+"i projektantów motywów z całego świata, od pracujących samodzielnie amatorów "
+"do wielkich firm. Część dostępnych dodatków zostało opublikowanych "
+"automatycznie i mogą zostać sprawdzone przez zespół redaktorów po "
+"udostępnieniu publicznie."
+
+#: src/amo/pages/StaticPages/About/index.js:65
+msgid "Get involved"
+msgstr "Dołącz do nas"
+
+#: src/amo/pages/StaticPages/About/index.js:67
+msgid ""
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
+"keep it healthy, open and accessible. Add-ons support user choice and "
+"customization in Firefox, and you can contribute in the following ways:"
+msgstr ""
+"Mozilla to organizacja non-profit broniąca Internetu, która tworzy Firefoksa "
+"po to, aby był on zawsze zdrowy, otwarty i dostępny. Dodatki dają "
+"użytkownikom możliwość wyboru i dostosowania Firefoksa. Można pomagać na te "
+"sposoby:"
+
+#: src/amo/pages/StaticPages/About/index.js:77
+msgid ""
+"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
+"update services and can help you reach a large audience of users."
+msgstr ""
+"%(startLink)sNapisz nowy dodatek%(endLink)s. Oferujemy bezpłatny hosting "
+"i usługi aktualizacji oraz pomagamy użytkownikom znaleźć Twój dodatek."
+
+#: src/amo/pages/StaticPages/About/index.js:93
 msgid ""
 "Help improve this website. It's open source, and you can file bugs and "
 "submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
@@ -2559,177 +2708,7 @@ msgstr ""
 "%(endAddonsServerRepoLink)s i %(startAddonsFrontendRepoLink)sinterfejsu"
 "%(endAddonsFrontendRepoLink)s AMO na GitHubie."
 
-#: src/amo/pages/StaticPages/About/index.js:134
-msgid ""
-"Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
-"the %(startAddonsServerDocumentation)sAdd-ons Servers documentation"
-"%(endAddonsServerDocumentation)s for details about the APIs used by AMO and "
-"the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
-msgstr ""
-"Potrzebujesz programistycznie komunikować się ze stroną addons.mozilla.org "
-"(AMO)? %(startAddonsServerDocumentation)sDokumentacja serwera dodatków"
-"%(endAddonsServerDocumentation)s zawiera informacje o API używanych przez "
-"AMO i %(startAddonsManager)smenedżera dodatków%(endAddonsManager)s."
-
-#: src/amo/pages/StaticPages/About/index.js:155
-msgid ""
-"If you want to contribute but are not quite as technical, there are still "
-"ways to help:"
-msgstr ""
-"Jeśli chcesz wziąć udział, ale niekoniecznie od strony technicznej, oto inne "
-"sposoby pomagania:"
-
-#: src/amo/pages/StaticPages/About/index.js:164
-msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr "Udzielaj się na naszym %(startLink)sforum%(endLink)s."
-
-#: src/amo/pages/StaticPages/About/index.js:177
-msgid ""
-"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
-"improve their add-ons and create new ones when they know people appreciate "
-"their work."
-msgstr ""
-"Pisz opinie o swoich ulubionych dodatkach. Ich autorzy są bardziej skłonni "
-"je ulepszać i tworzyć nowe, kiedy wiedzą, że ich praca jest doceniana."
-
-#: src/amo/pages/StaticPages/About/index.js:182
-msgid ""
-"Tell your friends and family that Firefox is a fast, secure browser that "
-"protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
-"Powiedz znajomym i rodzinie, że Firefox jest szybką, bezpieczną "
-"przeglądarką, która chroni ich prywatność i którą można dostosować do "
-"własnych upodobań dodatkami."
-
-#: src/amo/pages/StaticPages/About/index.js:190
-msgid ""
-"To see more ways you can contribute to the add-on community, please visit "
-"our %(startLink)swiki%(endLink)s."
-msgstr ""
-"Nasza %(startLink)swiki%(endLink)s zawiera więcej informacji o udzielaniu "
-"się w społeczności dodatków."
-
-#: src/amo/pages/StaticPages/About/index.js:204
-msgid "Get support"
-msgstr "Pomoc"
-
-#: src/amo/pages/StaticPages/About/index.js:209
-msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or "
-"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
-"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
-"%(startForumLink)sask on our community forum%(endForumLink)s."
-msgstr ""
-"%(startSUMOLink)sPomoc%(endSUMOLink)s Mozilli zawiera więcej informacji "
-"o zarządzaniu dodatkami w Firefoksie i używaniu Firefoksa. Jeśli czegoś tam "
-"brakuje, to można %(startForumLink)szapytać na forum społeczności"
-"%(endForumLink)s."
-
-#: src/amo/pages/StaticPages/About/index.js:22
-msgid "About Firefox Add-ons"
-msgstr "O serwisie"
-
-#: src/amo/pages/StaticPages/About/index.js:230
-msgid ""
-"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
-"found here%(endLink)s."
-msgstr "%(startLink)sKontakt z zespołem dodatków Mozilli%(endLink)s."
-
-#: src/amo/pages/StaticPages/About/index.js:31
-msgid ""
-"The official Mozilla site for downloading Firefox extensions and themes. Add "
-"new features and change the browser’s appearance to customize your web "
-"experience."
-msgstr ""
-"Oficjalna strona Mozilli do pobierania rozszerzeń i motywów Firefoksa. "
-"Dodawaj nowe funkcje i zmieniaj wygląd przeglądarki, aby ją spersonalizować."
-
-#: src/amo/pages/StaticPages/About/index.js:42
-msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
-"installing add-ons for the Firefox browser. Add-ons help you modify and "
-"personalize your browsing experience by adding new features to Firefox, "
-"enhancing your interactions with Web content, and changing the way your "
-"browser looks."
-msgstr ""
-"Addons.mozilla.org (AMO) to oficjalna strona Mozilli do przeglądania "
-"i instalowania dodatków do przeglądarki Firefox. Dodatki pomagają "
-"modyfikować i personalizować przeglądarkę przez dodawanie nowych funkcji, "
-"ulepszanie sposobów korzystania z Internetu i zmieniając jej wygląd."
-
-#: src/amo/pages/StaticPages/About/index.js:52
-msgid ""
-"If you are looking for add-ons for Thunderbird or SeaMonkey, please visit "
-"%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
-"thunderbird.net/seamonkey%(endSMLink)s."
-msgstr ""
-"Dodatki do programów Thunderbird i SeaMonkey można znaleźć na stronach "
-"%(startTBLink)saddons.thunderbird.net%(endTBLink)s i %(startSMLink)saddons."
-"thunderbird.net/seamonkey%(endSMLink)s."
-
-#: src/amo/pages/StaticPages/About/index.js:69
-msgid "A community of creators"
-msgstr "Społeczność twórców"
-
-#: src/amo/pages/StaticPages/About/index.js:71
-msgid ""
-"The add-ons listed here are created by thousands of developers and theme "
-"designers from all over the world, ranging from individual hobbyists to "
-"large corporations. Some add-ons listed on AMO have been automatically "
-"published and may be subject to review by a team of editors once publicly "
-"listed."
-msgstr ""
-"Dodatki dostępne w serwisie są tworzone przez tysiące programistów "
-"i projektantów motywów z całego świata, od pracujących samodzielnie amatorów "
-"do wielkich firm. Część dostępnych dodatków zostało opublikowanych "
-"automatycznie i mogą zostać sprawdzone przez zespół redaktorów po "
-"udostępnieniu publicznie."
-
-#: src/amo/pages/StaticPages/About/index.js:80
-msgid "Get involved"
-msgstr "Dołącz do nas"
-
-#: src/amo/pages/StaticPages/About/index.js:82
-msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
-"keep it healthy, open and accessible. Add-ons support user choice and "
-"customization in Firefox, and you can contribute in the following ways:"
-msgstr ""
-"Mozilla to organizacja non-profit broniąca Internetu, która tworzy Firefoksa "
-"po to, aby był on zawsze zdrowy, otwarty i dostępny. Dodatki dają "
-"użytkownikom możliwość wyboru i dostosowania Firefoksa. Można pomagać na te "
-"sposoby:"
-
-#: src/amo/pages/StaticPages/About/index.js:92
-msgid ""
-"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
-"update services and can help you reach a large audience of users."
-msgstr ""
-"%(startLink)sNapisz nowy dodatek%(endLink)s. Oferujemy bezpłatny hosting "
-"i usługi aktualizacji oraz pomagamy użytkownikom znaleźć Twój dodatek."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:100
-msgid ""
-"Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
-"Nie używaj wulgaryzmów, słów związanych z seksem ani języka, który może "
-"zostać zrozumiany jako mowa nienawiści."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:105
-msgid ""
-"Include HTML, links, source code or code snippets. Reviews are meant to be "
-"text only."
-msgstr ""
-"Nie wklejaj kodu HTML, odnośników, kodu źródłowego ani jego fragmentów. "
-"Recenzje mają być wyłącznie tekstowe."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:110
-msgid ""
-"Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
-"Nie pisz nieprawdy, nie dyskredytuj autorów dodatków ani ich nie obrażaj."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:115
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid ""
 "Include your own or anyone else’s email, phone number, or other personal "
 "details."
@@ -2737,13 +2716,13 @@ msgstr ""
 "Nie wklejaj adresów e-mail, numerów telefonu i innych informacji osobistych "
 "o sobie ani innych."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:120
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
 msgstr ""
 "Nie wysyłaj recenzji dodatków napisanych lub publikowanych przez Ciebie lub "
 "Twoją organizację."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:125
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving "
 "a negative review of an add-on for displaying ads or requiring data "
@@ -2755,15 +2734,15 @@ msgstr ""
 "danych, kiedy to właśnie jest jego funkcją, albo jeśli dodatek wymaga "
 "zbierania danych do działania."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:134
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
 msgstr "Najczęściej zadawane pytania na temat recenzji"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:136
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:122
 msgid "How can I report a problematic review?"
 msgstr "Jak mogę zgłosić problematyczną recenzję?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:138
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:124
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this "
 "review\" and it will be submitted to the site for moderation. Our moderation "
@@ -2775,11 +2754,11 @@ msgstr ""
 "użyje wytycznych pisania recenzji do ustalenia, czy usunąć tę recenzję, czy "
 "ją przywrócić."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:145
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
 msgstr "Czy autorzy dodatków mogą odpowiadać na recenzje?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:151
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid ""
 "Yes, add-on authors can provide a single response to a review. You can set "
 "up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
@@ -2789,11 +2768,11 @@ msgstr ""
 "założyć temat na naszym %(startLink)sforum%(endLink)s, aby rozpocząć "
 "dyskusję lub kontynuować odpowiedź."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:165
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
 msgstr "Czy autorzy dodatków mogą usuwać nieprzychylne recenzje i oceny?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:170
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
 "In general, no. But if the review did not meet the review guidelines "
 "outlined above, you can click \"Report this review\" and have it moderated. "
@@ -2805,11 +2784,11 @@ msgstr ""
 "moderowana. Jeśli recenzja zawiera uwagę nieaktualną z powodu nowego wydania "
 "dodatku, to możemy rozważyć jej usunięcie."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:22
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
 msgstr "Wytyczne pisania recenzji"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:31
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid ""
 "Guidelines, tips, and Frequently Asked Questions to leave a review for the "
 "extensions and themes you’ve downloaded and used on Firefox."
@@ -2817,7 +2796,7 @@ msgstr ""
 "Wytyczne, wskazówki i najczęściej zadawane pytania na temat pisania recenzji "
 "rozszerzeń i motywów pobranych i używanych w Firefoksie."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:42
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons "
 "you’ve installed and used. Our review moderation team reserves the right to "
@@ -2827,65 +2806,65 @@ msgstr ""
 "i używanych dodatkach. Nasz zespół moderatorów recenzji zastrzega sobie "
 "prawo do odrzucania i usuwania recenzji niespełniających tych wytycznych."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:47
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
 msgstr "Wskazówki pisania dobrych recenzji"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:48
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Do:"
 msgstr "Co robić:"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:51
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid ""
 "Write like you are telling a friend about your experience with the add-on."
 msgstr "Pisz o swoich doświadczeniach z dodatkiem tak, jak do znajomego."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:56
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
 msgstr "Pisz zwięźle i prosto."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:59
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:45
 msgid "Give specific and helpful details. For example:"
 msgstr "Podawaj konkretne i przydatne informacje. Na przykład:"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:64
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid "Did the add-on work as you expected it to?"
 msgstr "Czy dodatek działa zgodnie z oczekiwaniami?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:67
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
 msgstr "Które funkcje lubisz, a których nie lubisz?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:69
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
 msgstr "Czy jest przydatny?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:70
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Was it easy to use?"
 msgstr "Czy jest łatwy w użyciu?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:72
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:58
 msgid "Will you continue to use this add-on?"
 msgstr "Czy zamierzasz dalej używać tego dodatku?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:77
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:63
 msgid ""
 "Take a moment to read your review before submitting it to minimize typos."
 msgstr ""
 "Poświęć chwilę na przeczytanie recenzji przed jej wysłaniem, aby ograniczyć "
 "liczbę literówek."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:82
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:68
 msgid "Don't:"
 msgstr "Czego nie robić:"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:85
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:71
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
 msgstr ""
 "Nie pisz jednowyrazowych recenzji, takich jak „Świetny!”, „Wspaniały” czy "
 "„Kiepski”."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:90
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:76
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the "
 "available support options for each add-on, if available. You can find them "
@@ -2897,9 +2876,30 @@ msgstr ""
 "znaleźć w sekcji „Więcej informacji” na pasku bocznym strony informacji "
 "o dodatku."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:95
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr "Nie pisz recenzji dla dodatków, których osobiście nie używano."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:86
+msgid ""
+"Use profanity, sexual language or language that can be construed as hateful."
+msgstr ""
+"Nie używaj wulgaryzmów, słów związanych z seksem ani języka, który może "
+"zostać zrozumiany jako mowa nienawiści."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:91
+msgid ""
+"Include HTML, links, source code or code snippets. Reviews are meant to be "
+"text only."
+msgstr ""
+"Nie wklejaj kodu HTML, odnośników, kodu źródłowego ani jego fragmentów. "
+"Recenzje mają być wyłącznie tekstowe."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:96
+msgid ""
+"Make false statements, disparage add-on authors or personally insult them."
+msgstr ""
+"Nie pisz nieprawdy, nie dyskredytuj autorów dodatków ani ich nie obrażaj."
 
 #: src/amo/pages/UserProfile/index.js:240
 msgid "My reviews"

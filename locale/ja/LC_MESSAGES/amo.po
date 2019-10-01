@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-24 16:31+0000\n"
+"POT-Creation-Date: 2019-10-01 16:19+0000\n"
 "PO-Revision-Date: 2019-08-19 10:12+0000\n"
 "Last-Translator: marsf <chimantaea_mirabilis@yahoo.co.jp>\n"
 "Language-Team: none\n"
@@ -2413,7 +2413,153 @@ msgid ""
 "and more."
 msgstr ""
 
-#: src/amo/pages/StaticPages/About/index.js:108
+#: src/amo/pages/StaticPages/About/index.js:119
+msgid ""
+"Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
+"the %(startAddonsServerDocumentation)sAdd-ons Servers documentation"
+"%(endAddonsServerDocumentation)s for details about the APIs used by AMO and "
+"the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
+msgstr ""
+
+#: src/amo/pages/StaticPages/About/index.js:140
+msgid ""
+"If you want to contribute but are not quite as technical, there are still "
+"ways to help:"
+msgstr ""
+"何か貢献したいけれどあまり技術的な知識はないという場合も、協力方法はいくつか"
+"あります:"
+
+#: src/amo/pages/StaticPages/About/index.js:149
+msgid "Participate in our %(startLink)sforum%(endLink)s."
+msgstr "私たちの %(startLink)sフォーラム%(endLink)s に参加してください。"
+
+#: src/amo/pages/StaticPages/About/index.js:162
+msgid ""
+"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
+"improve their add-ons and create new ones when they know people appreciate "
+"their work."
+msgstr ""
+"お気に入りのアドオンにフィードバックを残してください。アドオン作者は、人々が"
+"自分の成果物を評価してくれていると分かると、既存のアドオンを改良したり、新し"
+"いものを作ったりする可能性が高まります。"
+
+#: src/amo/pages/StaticPages/About/index.js:167
+msgid ""
+"Tell your friends and family that Firefox is a fast, secure browser that "
+"protects their privacy, and they can use add-ons to make it their own!"
+msgstr ""
+"Firefox が高速、安全なブラウザーで、プライバシーを守ってくれて、自由にカスタ"
+"マイズできるアドオンが使えることを、友達や家族に教えてあげてください。"
+
+#: src/amo/pages/StaticPages/About/index.js:175
+msgid ""
+"To see more ways you can contribute to the add-on community, please visit "
+"our %(startLink)swiki%(endLink)s."
+msgstr ""
+"アドオンコミュニティに貢献する他の方法は、こちらの %(startLink)swiki"
+"%(endLink)s をご覧ください。"
+
+#: src/amo/pages/StaticPages/About/index.js:189
+msgid "Get support"
+msgstr "サポートを得る"
+
+#: src/amo/pages/StaticPages/About/index.js:19
+msgid "About Firefox Add-ons"
+msgstr "Firefox Add-ons について"
+
+#: src/amo/pages/StaticPages/About/index.js:194
+msgid ""
+"If you would like to learn more about how to manage add-ons in Firefox, or "
+"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
+"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
+"%(startForumLink)sask on our community forum%(endForumLink)s."
+msgstr ""
+"Firefox のアドオン管理方法について詳しく知りたい場合や、Firefox の一般的なサ"
+"ポートを求めている場合は、%(startSUMOLink)sMozilla Support%(endSUMOLink)s を"
+"訪れてください。そこで答えが見つからない場合は、%(startForumLink)sコミュニ"
+"ティフォーラムで質問する%(endForumLink)s こともできます。"
+
+#: src/amo/pages/StaticPages/About/index.js:20
+msgid ""
+"The official Mozilla site for downloading Firefox extensions and themes. Add "
+"new features and change the browser’s appearance to customize your web "
+"experience."
+msgstr ""
+
+#: src/amo/pages/StaticPages/About/index.js:215
+msgid ""
+"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
+"found here%(endLink)s."
+msgstr ""
+"%(startLink)sMozilla のアドオンチームへの連絡方法に関する情報はこちらにありま"
+"す%(endLink)s。"
+
+#: src/amo/pages/StaticPages/About/index.js:27
+msgid ""
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
+"installing add-ons for the Firefox browser. Add-ons help you modify and "
+"personalize your browsing experience by adding new features to Firefox, "
+"enhancing your interactions with Web content, and changing the way your "
+"browser looks."
+msgstr ""
+"addons.mozilla.org (AMO) は、Firefox ブラウザー向けのアドオンを見つけてインス"
+"トールできる Mozilla の公式サイトです。アドオンは、Firefox へ新たな機能を追加"
+"したり、ウェブコンテンツの操作性を向上させたり、ブラウザーの見た目を変えたり"
+"して、ブラウジング体験を変更しカスタマイズするのに役立ちます。"
+
+#: src/amo/pages/StaticPages/About/index.js:37
+msgid ""
+"If you are looking for add-ons for Thunderbird or SeaMonkey, please visit "
+"%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
+"thunderbird.net/seamonkey%(endSMLink)s."
+msgstr ""
+"Thunderbird や SeaMonkey 向けのアドオンをお探しなら、%(startTBLink)saddons."
+"thunderbird.net%(endTBLink)s か %(startSMLink)saddons.thunderbird.net/"
+"seamonkey%(endSMLink)s を訪れてください。"
+
+#: src/amo/pages/StaticPages/About/index.js:54
+msgid "A community of creators"
+msgstr "クリエイターのコミュニティ"
+
+#: src/amo/pages/StaticPages/About/index.js:56
+#, fuzzy
+msgid ""
+"The add-ons listed here are created by thousands of developers and theme "
+"designers from all over the world, ranging from individual hobbyists to "
+"large corporations. Some add-ons listed on AMO have been automatically "
+"published and may be subject to review by a team of editors once publicly "
+"listed."
+msgstr ""
+"ここに載っているアドオンは、単に趣味でプログラムを書いている個人から大企業ま"
+"で、世界中の多数の開発者やテーマデザイナーによって作られています。AMO に載っ"
+"ている一部のアドオンは自動的に公開され、一般公開後にエディターのチームによっ"
+"て審査の対象となる可能性もあります。"
+
+#: src/amo/pages/StaticPages/About/index.js:65
+msgid "Get involved"
+msgstr "参加しよう"
+
+#: src/amo/pages/StaticPages/About/index.js:67
+msgid ""
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
+"keep it healthy, open and accessible. Add-ons support user choice and "
+"customization in Firefox, and you can contribute in the following ways:"
+msgstr ""
+"Mozilla はインターネットの擁護者を自認する非営利法人で、それが健全で、広く開"
+"かれ、誰でも参加可能な場所であり続けるよう Firefox を開発しています。アドオン"
+"は Firefox におけるユーザーの選択肢やカスタマイズを支援するもので、あなたも以"
+"下のような方法で貢献できます。"
+
+#: src/amo/pages/StaticPages/About/index.js:77
+msgid ""
+"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
+"update services and can help you reach a large audience of users."
+msgstr ""
+"%(startLink)s自分でアドオンを作ってみましょう%(endLink)s。私たちは無料のホス"
+"ティングと更新サービスを提供しており、あなたが大勢のユーザーへリーチできるよ"
+"う支援します。"
+
+#: src/amo/pages/StaticPages/About/index.js:93
 msgid ""
 "Help improve this website. It's open source, and you can file bugs and "
 "submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
@@ -2429,174 +2575,7 @@ msgstr ""
 "%(startAddonsFrontendRepoLink)sフロントエンド%(endAddonsFrontendRepoLink)s に"
 "関するすべての未解決バグを見ることもできます。"
 
-#: src/amo/pages/StaticPages/About/index.js:134
-msgid ""
-"Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
-"the %(startAddonsServerDocumentation)sAdd-ons Servers documentation"
-"%(endAddonsServerDocumentation)s for details about the APIs used by AMO and "
-"the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
-msgstr ""
-
-#: src/amo/pages/StaticPages/About/index.js:155
-msgid ""
-"If you want to contribute but are not quite as technical, there are still "
-"ways to help:"
-msgstr ""
-"何か貢献したいけれどあまり技術的な知識はないという場合も、協力方法はいくつか"
-"あります:"
-
-#: src/amo/pages/StaticPages/About/index.js:164
-msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr "私たちの %(startLink)sフォーラム%(endLink)s に参加してください。"
-
-#: src/amo/pages/StaticPages/About/index.js:177
-msgid ""
-"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
-"improve their add-ons and create new ones when they know people appreciate "
-"their work."
-msgstr ""
-"お気に入りのアドオンにフィードバックを残してください。アドオン作者は、人々が"
-"自分の成果物を評価してくれていると分かると、既存のアドオンを改良したり、新し"
-"いものを作ったりする可能性が高まります。"
-
-#: src/amo/pages/StaticPages/About/index.js:182
-msgid ""
-"Tell your friends and family that Firefox is a fast, secure browser that "
-"protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
-"Firefox が高速、安全なブラウザーで、プライバシーを守ってくれて、自由にカスタ"
-"マイズできるアドオンが使えることを、友達や家族に教えてあげてください。"
-
-#: src/amo/pages/StaticPages/About/index.js:190
-msgid ""
-"To see more ways you can contribute to the add-on community, please visit "
-"our %(startLink)swiki%(endLink)s."
-msgstr ""
-"アドオンコミュニティに貢献する他の方法は、こちらの %(startLink)swiki"
-"%(endLink)s をご覧ください。"
-
-#: src/amo/pages/StaticPages/About/index.js:204
-msgid "Get support"
-msgstr "サポートを得る"
-
-#: src/amo/pages/StaticPages/About/index.js:209
-msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or "
-"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
-"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
-"%(startForumLink)sask on our community forum%(endForumLink)s."
-msgstr ""
-"Firefox のアドオン管理方法について詳しく知りたい場合や、Firefox の一般的なサ"
-"ポートを求めている場合は、%(startSUMOLink)sMozilla Support%(endSUMOLink)s を"
-"訪れてください。そこで答えが見つからない場合は、%(startForumLink)sコミュニ"
-"ティフォーラムで質問する%(endForumLink)s こともできます。"
-
-#: src/amo/pages/StaticPages/About/index.js:22
-msgid "About Firefox Add-ons"
-msgstr "Firefox Add-ons について"
-
-#: src/amo/pages/StaticPages/About/index.js:230
-msgid ""
-"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
-"found here%(endLink)s."
-msgstr ""
-"%(startLink)sMozilla のアドオンチームへの連絡方法に関する情報はこちらにありま"
-"す%(endLink)s。"
-
-#: src/amo/pages/StaticPages/About/index.js:31
-msgid ""
-"The official Mozilla site for downloading Firefox extensions and themes. Add "
-"new features and change the browser’s appearance to customize your web "
-"experience."
-msgstr ""
-
-#: src/amo/pages/StaticPages/About/index.js:42
-msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
-"installing add-ons for the Firefox browser. Add-ons help you modify and "
-"personalize your browsing experience by adding new features to Firefox, "
-"enhancing your interactions with Web content, and changing the way your "
-"browser looks."
-msgstr ""
-"addons.mozilla.org (AMO) は、Firefox ブラウザー向けのアドオンを見つけてインス"
-"トールできる Mozilla の公式サイトです。アドオンは、Firefox へ新たな機能を追加"
-"したり、ウェブコンテンツの操作性を向上させたり、ブラウザーの見た目を変えたり"
-"して、ブラウジング体験を変更しカスタマイズするのに役立ちます。"
-
-#: src/amo/pages/StaticPages/About/index.js:52
-msgid ""
-"If you are looking for add-ons for Thunderbird or SeaMonkey, please visit "
-"%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
-"thunderbird.net/seamonkey%(endSMLink)s."
-msgstr ""
-"Thunderbird や SeaMonkey 向けのアドオンをお探しなら、%(startTBLink)saddons."
-"thunderbird.net%(endTBLink)s か %(startSMLink)saddons.thunderbird.net/"
-"seamonkey%(endSMLink)s を訪れてください。"
-
-#: src/amo/pages/StaticPages/About/index.js:69
-msgid "A community of creators"
-msgstr "クリエイターのコミュニティ"
-
-#: src/amo/pages/StaticPages/About/index.js:71
-#, fuzzy
-msgid ""
-"The add-ons listed here are created by thousands of developers and theme "
-"designers from all over the world, ranging from individual hobbyists to "
-"large corporations. Some add-ons listed on AMO have been automatically "
-"published and may be subject to review by a team of editors once publicly "
-"listed."
-msgstr ""
-"ここに載っているアドオンは、単に趣味でプログラムを書いている個人から大企業ま"
-"で、世界中の多数の開発者やテーマデザイナーによって作られています。AMO に載っ"
-"ている一部のアドオンは自動的に公開され、一般公開後にエディターのチームによっ"
-"て審査の対象となる可能性もあります。"
-
-#: src/amo/pages/StaticPages/About/index.js:80
-msgid "Get involved"
-msgstr "参加しよう"
-
-#: src/amo/pages/StaticPages/About/index.js:82
-msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
-"keep it healthy, open and accessible. Add-ons support user choice and "
-"customization in Firefox, and you can contribute in the following ways:"
-msgstr ""
-"Mozilla はインターネットの擁護者を自認する非営利法人で、それが健全で、広く開"
-"かれ、誰でも参加可能な場所であり続けるよう Firefox を開発しています。アドオン"
-"は Firefox におけるユーザーの選択肢やカスタマイズを支援するもので、あなたも以"
-"下のような方法で貢献できます。"
-
-#: src/amo/pages/StaticPages/About/index.js:92
-msgid ""
-"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
-"update services and can help you reach a large audience of users."
-msgstr ""
-"%(startLink)s自分でアドオンを作ってみましょう%(endLink)s。私たちは無料のホス"
-"ティングと更新サービスを提供しており、あなたが大勢のユーザーへリーチできるよ"
-"う支援します。"
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:100
-msgid ""
-"Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
-"冒涜、下品、性的な言葉や相手を傷つけるような言葉遣いをしてはいけません。"
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:105
-msgid ""
-"Include HTML, links, source code or code snippets. Reviews are meant to be "
-"text only."
-msgstr ""
-"HTML、リンク、ソースコードあるいはコードの一部を書き込むこと。レビューは文章"
-"のみとなります。"
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:110
-msgid ""
-"Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
-"虚偽のレビューやアドオンの作者を貶す内容、個人的な辱める内容を書いてはいけま"
-"せん。"
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:115
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid ""
 "Include your own or anyone else’s email, phone number, or other personal "
 "details."
@@ -2604,13 +2583,13 @@ msgstr ""
 "自分自身あるいは他人のメールアドレス、電話番号、その他の個人情報を書き込むこ"
 "と。"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:120
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
 msgstr ""
 "あなたまたはあなたが所属する組織が作成、提供するアドオンにレビューを投稿して"
 "はいけません。"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:125
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving "
 "a negative review of an add-on for displaying ads or requiring data "
@@ -2622,15 +2601,15 @@ msgstr ""
 "るか、機能上データ収集を必要としたりするにも関わらず、その挙動を非難するレ"
 "ビューを残すこと。"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:134
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
 msgstr "レビューについてのよくある質問と答え"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:136
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:122
 msgid "How can I report a problematic review?"
 msgstr "問題のあるレビューを報告するには？"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:138
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:124
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this "
 "review\" and it will be submitted to the site for moderation. Our moderation "
@@ -2642,11 +2621,11 @@ msgstr ""
 "ビューガイドラインを基準として、レビューを削除するかどうかや、再度公開するか"
 "どうかを判断します。"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:145
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
 msgstr "私はアドオンの作者ですが、レビューに返答できますか？"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:151
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid ""
 "Yes, add-on authors can provide a single response to a review. You can set "
 "up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
@@ -2656,11 +2635,11 @@ msgstr ""
 "た、%(startLink)sフォーラム%(endLink)s にトピックを立てて、さらに議論を進めた"
 "り追跡調査を行ったりすることもできます。"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:165
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
 msgstr "私はアドオンの作者ですが、気に入らないレビューや評価は削除できますか？"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:170
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
 "In general, no. But if the review did not meet the review guidelines "
 "outlined above, you can click \"Report this review\" and have it moderated. "
@@ -2672,17 +2651,17 @@ msgstr ""
 "ジョンが公開されたことで妥当性がなくなった苦情がレビューに含まれている場合"
 "は、そのレビューの削除を検討します。"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:22
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
 msgstr "レビューガイドライン"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:31
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid ""
 "Guidelines, tips, and Frequently Asked Questions to leave a review for the "
 "extensions and themes you’ve downloaded and used on Firefox."
 msgstr ""
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:42
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons "
 "you’ve installed and used. Our review moderation team reserves the right to "
@@ -2692,62 +2671,62 @@ msgstr ""
 "共有する方法です。ただし、レビュー管理チームは、以下のガイドラインに従ってい"
 "ないレビューを拒否あるいは削除する権利を留保しています。"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:47
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
 msgstr "良いレビューを書くためのヒント"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:48
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Do:"
 msgstr "良いレビュー:"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:51
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid ""
 "Write like you are telling a friend about your experience with the add-on."
 msgstr "このアドオンを使った感想を友人に伝えるように書きましょう。"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:56
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
 msgstr "簡潔で理解しやすいレビューを書きましょう。"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:59
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:45
 msgid "Give specific and helpful details. For example:"
 msgstr "明確で役立つ情報を書きましょう。例えば:"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:64
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid "Did the add-on work as you expected it to?"
 msgstr "このアドオンはあなたの期待通りに動作しましたか？"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:67
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
 msgstr "どの機能が気に入りましたか？ または気に入りませんでしたか？"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:69
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
 msgstr "このアドオンは役に立ちましたか？"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:70
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Was it easy to use?"
 msgstr "このアドオンは簡単に使えましたか？"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:72
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:58
 msgid "Will you continue to use this add-on?"
 msgstr "このアドオンを使い続けますか？"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:77
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:63
 msgid ""
 "Take a moment to read your review before submitting it to minimize typos."
 msgstr "投稿前に入力ミスがないか自分のレビューを読み直してください。"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:82
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:68
 msgid "Don't:"
 msgstr "悪いレビュー:"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:85
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:71
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
 msgstr ""
 "「よかった！」「すばらしい」「よくなかった」 など、一言だけのレビュー。"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:90
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:76
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the "
 "available support options for each add-on, if available. You can find them "
@@ -2759,9 +2738,30 @@ msgstr ""
 "リンクは、アドオン詳細ページ上のサイドバーにある「詳しい情報」の項目にありま"
 "す。"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:95
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr "自分で使ったのではないアドオンのレビューを書いてはいけません。"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:86
+msgid ""
+"Use profanity, sexual language or language that can be construed as hateful."
+msgstr ""
+"冒涜、下品、性的な言葉や相手を傷つけるような言葉遣いをしてはいけません。"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:91
+msgid ""
+"Include HTML, links, source code or code snippets. Reviews are meant to be "
+"text only."
+msgstr ""
+"HTML、リンク、ソースコードあるいはコードの一部を書き込むこと。レビューは文章"
+"のみとなります。"
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:96
+msgid ""
+"Make false statements, disparage add-on authors or personally insult them."
+msgstr ""
+"虚偽のレビューやアドオンの作者を貶す内容、個人的な辱める内容を書いてはいけま"
+"せん。"
 
 #: src/amo/pages/UserProfile/index.js:240
 msgid "My reviews"
