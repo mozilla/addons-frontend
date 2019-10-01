@@ -211,11 +211,7 @@ export class FooterBase extends React.Component {
           />
 
           <div className="Footer-language-picker">
-            <LanguagePicker
-              ref={(ref) => {
-                this.languagePicker = ref;
-              }}
-            />
+            <LanguagePicker />
           </div>
         </div>
       </footer>
