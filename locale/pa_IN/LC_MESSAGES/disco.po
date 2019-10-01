@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-24 16:33+0000\n"
+"POT-Creation-Date: 2019-10-01 16:23+0000\n"
 "PO-Revision-Date: 2019-09-25 03:58+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,8 +19,12 @@ msgid "Learn more"
 msgstr "ਹੋਰ ਜਾਣੋ"
 
 #: src/amo/components/InstallWarning/index.js:116
-msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr "ਇਸ ਵਿਸਥਾਰ ਦੀ ਮੋਜ਼ੀਲਾ ਦੁਆਰਾ ਨਿਗਰਾਨੀ ਨਹੀਂ ਕੀਤੀ ਜਾਂਦੀ। ਇਹ ਪੱਕਾ ਕਰੋ ਕਿ ਤੁਸੀਂ ਇਸਨੂੰ ਸਥਾਪਤ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਐਕਸਟੈਂਸ਼ਨ ਤੇ ਭਰੋਸਾ ਕਰਦੇ ਹੋ।"
+msgid ""
+"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
+"before you install it."
+msgstr ""
+"ਇਸ ਵਿਸਥਾਰ ਦੀ ਮੋਜ਼ੀਲਾ ਦੁਆਰਾ ਨਿਗਰਾਨੀ ਨਹੀਂ ਕੀਤੀ ਜਾਂਦੀ। ਇਹ ਪੱਕਾ ਕਰੋ ਕਿ ਤੁਸੀਂ ਇਸਨੂੰ ਸਥਾਪਤ "
+"ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਐਕਸਟੈਂਸ਼ਨ ਤੇ ਭਰੋਸਾ ਕਰਦੇ ਹੋ।"
 
 #: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
@@ -59,10 +63,15 @@ msgid "Server Error"
 msgstr "ਸਰਵਰ ਗਲਤੀ"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "ਮੁਆਫ ਕਰਨਾ, ਪਰ ਇੱਕ ਗਲਤੀ ਹੋਈ ਸੀ ਅਤੇ ਅਸੀਂ ਤੁਹਾਡੀ ਬੇਨਤੀ ਪੂਰੀ ਨਹੀਂ ਕਰ ਸਕੇ। ਅਸੀਂ ਇਸ ਗ਼ਲਤੀ ਨੂੰ ਲਾਗ ਕੀਤਾ ਹੈ ਅਤੇ ਇਸ ਦੀ ਜਾਂਚ ਕਰਾਂਗੇ।"
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"ਮੁਆਫ ਕਰਨਾ, ਪਰ ਇੱਕ ਗਲਤੀ ਹੋਈ ਸੀ ਅਤੇ ਅਸੀਂ ਤੁਹਾਡੀ ਬੇਨਤੀ ਪੂਰੀ ਨਹੀਂ ਕਰ ਸਕੇ। ਅਸੀਂ ਇਸ ਗ਼ਲਤੀ ਨੂੰ "
+"ਲਾਗ ਕੀਤਾ ਹੈ ਅਤੇ ਇਸ ਦੀ ਜਾਂਚ ਕਰਾਂਗੇ।"
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "ਗਲਤ ਕੋਡ: %(status)s।"
 
@@ -179,19 +188,29 @@ msgstr "ਆਪਣੇ ਫਾਇਰਫਾਕਸ ਨੂੰ ਨਿੱਜੀ ਬਣ�
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"ਹਜ਼ਾਰਾਂ ਮੁਫ਼ਤ ਐਡ-ਆਨ ਹਨ, ਜੋ ਵਿਸ਼ਵ ਭਰ ਦੇ ਡਿਵੈਲਪਰਾਂ ਦੁਆਰਾ ਬਣਾਏ ਗਏ ਹਨ, ਤਾਂ ਕਿ ਤੁਸੀਂ ਆਪਣੇ ਫਾਇਰਫਾਕਸ ਨੂੰ ਨਿੱਜੀ ਬਣਾਉਣ ਲਈ ਇੰਸਟਾਲ ਕਰ ਸਕੋ। ਮਜ਼ੇਦਾਰ ਵਿਜ਼ੁਅਲ ਥੀਮ ਤੋਂ ਸ਼ਕਤੀਸ਼ਾਲੀ ਸਾਧਨਾਂ ਨੂੰ ਵੇਖੋ ਜੋ ਕਿ ਤੇਜ਼ ਅਤੇ "
-"ਸੁਰੱਖਿਅਤ ਬ੍ਰਾਉਜ਼ਿੰਗ ਕਰਦੇ ਹਨ, ਐਡ-ਆਨ ਆਪਣੇ ਬ੍ਰਾਊਜ਼ਰ ਦਾ ਆਪਣਾ ਬਣਾਉ। ਸ਼ੁਰੂ ਕਰਨ ਵਿੱਚ ਤੁਹਾਡੀ ਮਦਦ ਲਈ, ਇੱਥੇ ਕੁਝ ਹਨ ਜਿਨ੍ਹਾਂ ਦੀ ਅਸੀਂ ਉਹਨਾਂ ਦੇ ਸਟੈਂਡ-ਆਊਟ ਪ੍ਰਦਰਸ਼ਨ ਅਤੇ ਕਾਰਜਾਤਮਕਤਾ ਲਈ ਸਲਾਹ ਦਿੰਦੇ ਹਾਂ।"
+"ਹਜ਼ਾਰਾਂ ਮੁਫ਼ਤ ਐਡ-ਆਨ ਹਨ, ਜੋ ਵਿਸ਼ਵ ਭਰ ਦੇ ਡਿਵੈਲਪਰਾਂ ਦੁਆਰਾ ਬਣਾਏ ਗਏ ਹਨ, ਤਾਂ ਕਿ ਤੁਸੀਂ ਆਪਣੇ "
+"ਫਾਇਰਫਾਕਸ ਨੂੰ ਨਿੱਜੀ ਬਣਾਉਣ ਲਈ ਇੰਸਟਾਲ ਕਰ ਸਕੋ। ਮਜ਼ੇਦਾਰ ਵਿਜ਼ੁਅਲ ਥੀਮ ਤੋਂ ਸ਼ਕਤੀਸ਼ਾਲੀ ਸਾਧਨਾਂ ਨੂੰ ਵੇਖੋ "
+"ਜੋ ਕਿ ਤੇਜ਼ ਅਤੇ ਸੁਰੱਖਿਅਤ ਬ੍ਰਾਉਜ਼ਿੰਗ ਕਰਦੇ ਹਨ, ਐਡ-ਆਨ ਆਪਣੇ ਬ੍ਰਾਊਜ਼ਰ ਦਾ ਆਪਣਾ ਬਣਾਉ। ਸ਼ੁਰੂ ਕਰਨ ਵਿੱਚ "
+"ਤੁਹਾਡੀ ਮਦਦ ਲਈ, ਇੱਥੇ ਕੁਝ ਹਨ ਜਿਨ੍ਹਾਂ ਦੀ ਅਸੀਂ ਉਹਨਾਂ ਦੇ ਸਟੈਂਡ-ਆਊਟ ਪ੍ਰਦਰਸ਼ਨ ਅਤੇ ਕਾਰਜਾਤਮਕਤਾ ਲਈ "
+"ਸਲਾਹ ਦਿੰਦੇ ਹਾਂ।"
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "ਹੋਰ ਜਾਣੋ"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr "ਇਹਨਾਂ ਵਿੱਚੋਂ ਕੁੱਝ ਸਿਫਾਰਸ਼ਾਂ ਨੂੰ ਨਿੱਜੀ ਬਣਾਇਆ ਗਿਆ ਹੈ। ਉਹ ਤੁਹਾਡੇ ਦੁਆਰਾ ਸਥਾਪਿਤ ਕੀਤੀਆਂ ਗਈਆਂ ਹੋਰ ਐਕਸਟੈਂਸ਼ਨਾਂ ਤੇ ਆਧਾਰਿਤ ਹਨ, ਪ੍ਰੋਫਾਈਲ ਪਸੰਦ ਅਤੇ ਵਰਤੋਂ ਦੇ ਅੰਕੜੇ।"
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"ਇਹਨਾਂ ਵਿੱਚੋਂ ਕੁੱਝ ਸਿਫਾਰਸ਼ਾਂ ਨੂੰ ਨਿੱਜੀ ਬਣਾਇਆ ਗਿਆ ਹੈ। ਉਹ ਤੁਹਾਡੇ ਦੁਆਰਾ ਸਥਾਪਿਤ ਕੀਤੀਆਂ ਗਈਆਂ ਹੋਰ "
+"ਐਕਸਟੈਂਸ਼ਨਾਂ ਤੇ ਆਧਾਰਿਤ ਹਨ, ਪ੍ਰੋਫਾਈਲ ਪਸੰਦ ਅਤੇ ਵਰਤੋਂ ਦੇ ਅੰਕੜੇ।"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
