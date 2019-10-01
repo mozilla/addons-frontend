@@ -57,7 +57,7 @@ module.exports = {
   // If true node will serve the static files.
   enableNodeStatics: false,
 
-  enableStrictMode: true,
+  enableStrictMode: false,
 
   isDeployed: true,
   isDevelopment: false,

@@ -51,6 +51,11 @@ export default async function createClient(
     log.warn('Client-side Sentry reporting was disabled by the config');
   }
 
+  if (config.get('enableStrictMode')) {
+    log.info(oneLine`StrictMode is enabled, which causes double redux action
+      dispatching. See: https://github.com/mozilla/addons-frontend/issues/6424`);
+  }
+
   _FastClick.attach(document.body);
 
   const initialStateContainer = document.getElementById('redux-store-state');
