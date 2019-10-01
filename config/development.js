@@ -19,6 +19,8 @@ module.exports = {
 
   enableDevTools: true,
 
+  enableStrictMode: true,
+
   serverPort: 3000,
   webpackServerHost,
   webpackServerPort,

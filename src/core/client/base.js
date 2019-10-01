@@ -30,6 +30,12 @@ export default async function createClient(
     await fetchBufferedLogs();
   }
 
+  if (config.get('enableStrictMode')) {
+    log.info(
+      `StrictMode is enabled, which causes double redux action dispatching. See: https://github.com/mozilla/addons-frontend/issues/6424.`,
+    );
+  }
+
   const appName = _config.get('appName');
 
   // This code needs to come before anything else so we get logs/errors if
