@@ -32,13 +32,25 @@ describe(__filename, () => {
   describe('checkInternalURL', () => {
     const pathname = '/path/name';
 
-    it('strips the host name for the current host', () => {
+    it('strips the host name for a full URL containing the current host', () => {
       const baseURL = 'https://example.org';
       const urlString = url.format({ ...url.parse(baseURL), pathname });
 
       expect(
         checkInternalURL({ _config: getFakeConfig({ baseURL }), urlString })
           .relativeURL,
+      ).toEqual(pathname);
+    });
+
+    it('strips the host name for a protocol-free URL containing the current host', () => {
+      const currentHost = 'example.org';
+      const baseURL = `https://${currentHost}`;
+
+      expect(
+        checkInternalURL({
+          _config: getFakeConfig({ baseURL }),
+          urlString: `//${currentHost}${pathname}`,
+        }).relativeURL,
       ).toEqual(pathname);
     });
 
@@ -67,7 +79,36 @@ describe(__filename, () => {
     });
 
     describe('isInternal prop', () => {
-      it('returns true for a URL containing the current host', () => {
+      it('returns true for a single slash-prefixed URL', () => {
+        expect(
+          checkInternalURL({ urlString: '/some/path' }).isInternal,
+        ).toEqual(true);
+      });
+
+      it('returns true for a protocol-free URL containing the current host', () => {
+        const currentHost = 'example.org';
+        const baseURL = `https://${currentHost}`;
+
+        expect(
+          checkInternalURL({
+            _config: getFakeConfig({ baseURL }),
+            urlString: `//${currentHost}`,
+          }).isInternal,
+        ).toEqual(true);
+      });
+
+      it('returns false for a protocol-free URL containing a different host', () => {
+        const baseURL = 'https://example.org';
+
+        expect(
+          checkInternalURL({
+            _config: getFakeConfig({ baseURL }),
+            urlString: '//www.mozilla.org',
+          }).isInternal,
+        ).toEqual(false);
+      });
+
+      it('returns true for a full URL containing the current host', () => {
         const baseURL = 'https://example.org';
         const urlString = url.format({ ...url.parse(baseURL), pathname });
 
@@ -77,7 +118,7 @@ describe(__filename, () => {
         ).toEqual(true);
       });
 
-      it('returns false for a URL containing a different host', () => {
+      it('returns false for a full URL containing a different host', () => {
         const siteBaseURL = 'https://example.org';
         const otherBaseURL = 'https://www.mozilla.org';
 
