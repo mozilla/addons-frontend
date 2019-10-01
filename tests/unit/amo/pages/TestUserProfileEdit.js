@@ -36,6 +36,7 @@ import LoadingText from 'ui/components/LoadingText';
 import {
   createFakeEvent,
   createFakeHistory,
+  createFakeLocation,
   createStubErrorHandler,
   createUserAccountResponse,
   createUserNotificationsResponse,
@@ -85,6 +86,7 @@ describe(__filename, () => {
   function renderUserProfileEdit({
     history = createFakeHistory(),
     i18n = fakeI18n(),
+    location = createFakeLocation(),
     params = { userId: 100 },
     store = null,
     userProps,
@@ -103,6 +105,7 @@ describe(__filename, () => {
         _window={{}}
         history={history}
         i18n={i18n}
+        location={location}
         match={{ params }}
         store={store}
         {...props}
@@ -655,13 +658,25 @@ describe(__filename, () => {
     );
   });
 
-  it('renders a submit button', () => {
+  it('renders an update button', () => {
     const root = renderUserProfileEdit();
     const button = root.find('.UserProfileEdit-submit-button');
 
     expect(button).toHaveLength(1);
     expect(button.dive()).toHaveText('Update My Profile');
     expect(button).toHaveProp('disabled', false);
+  });
+
+  it('renders a create button', () => {
+    const { store } = dispatchSignInActions({
+      userProps: defaultUserProps({ display_name: '' }),
+    });
+
+    const root = renderUserProfileEdit({ store });
+    const button = root.find('.UserProfileEdit-submit-button');
+
+    expect(button).toHaveLength(1);
+    expect(button.dive()).toHaveText('Create My Profile');
   });
 
   it('renders a delete profile button', () => {
@@ -673,10 +688,20 @@ describe(__filename, () => {
     expect(button).toHaveProp('disabled', false);
   });
 
-  it('renders a submit button with a different text when user is not the logged-in user', () => {
-    const { store } = signInUserWithUserId(123);
-    const params = { userId: 456 };
+  it('renders an update button with a different text when user is not the logged-in user', () => {
+    const userId = 123;
+    const { store } = signInUserWithProps({
+      userId,
+      permissions: [USERS_EDIT],
+    });
 
+    const user = createUserAccountResponse({
+      display_name: 'Display name',
+      id: userId + 999,
+    });
+    store.dispatch(loadUserAccount({ user }));
+
+    const params = { userId: user.id };
     const root = renderUserProfileEdit({ params, store });
 
     expect(root.find('.UserProfileEdit-submit-button').dive()).toHaveText(
@@ -695,7 +720,7 @@ describe(__filename, () => {
     );
   });
 
-  it('renders a submit button with a different text when editing', () => {
+  it('renders an update button with a different text when editing', () => {
     const { params, store } = signInUserWithUserId(123);
 
     _updateUserAccount({ store });
@@ -707,9 +732,36 @@ describe(__filename, () => {
     );
   });
 
-  it('renders a submit button with a different text when user is not the logged-in user and editing', () => {
-    const { store } = signInUserWithUserId(123);
-    const params = { userId: 456 };
+  it('renders a create button with a different text when editing', () => {
+    const userId = 123;
+    const { store } = dispatchSignInActions({
+      userId,
+      userProps: defaultUserProps({ display_name: '', id: userId }),
+    });
+
+    _updateUserAccount({ store });
+
+    const root = renderUserProfileEdit({ params: { userId }, store });
+
+    expect(root.find('.UserProfileEdit-submit-button').dive()).toHaveText(
+      'Creating your profile…',
+    );
+  });
+
+  it('renders an update button with a different text when user is not the logged-in user and editing', () => {
+    const userId = 123;
+    const { store } = signInUserWithProps({
+      userId,
+      permissions: [USERS_EDIT],
+    });
+
+    const user = createUserAccountResponse({
+      display_name: 'Display name',
+      id: userId + 999,
+    });
+    store.dispatch(loadUserAccount({ user }));
+
+    const params = { userId: user.id };
 
     _updateUserAccount({ store });
 
@@ -871,6 +923,45 @@ describe(__filename, () => {
       history.push,
       `/${lang}/${clientApp}/user/${userId}/`,
     );
+  });
+
+  it('redirects to the `to` URL param after saving a user profile', () => {
+    const userId = 123;
+    const to = '/addon/some-slug/';
+    const { store } = dispatchSignInActions({
+      userId,
+      userProps: defaultUserProps({ userId }),
+    });
+    const user = getCurrentUser(store.getState().users);
+    const history = createFakeHistory();
+    const location = createFakeLocation({ query: { to } });
+    const params = { userId };
+
+    const occupation = 'new occupation';
+
+    _updateUserAccount({
+      store,
+      userFields: {
+        occupation,
+      },
+      userId: user.id,
+    });
+
+    const root = renderUserProfileEdit({ history, location, params, store });
+
+    expect(root.find(Notice)).toHaveLength(0);
+    expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
+      'disabled',
+      true,
+    );
+
+    // The user profile has been updated.
+    store.dispatch(finishUpdateUserAccount());
+
+    const { isUpdating } = store.getState().users;
+    root.setProps({ isUpdating });
+
+    sinon.assert.calledWith(history.push, to);
   });
 
   it('does not render a success message when an error occurred', () => {

@@ -47,6 +47,7 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type {
   ReactRouterHistoryType,
+  ReactRouterLocationType,
   ReactRouterMatchType,
 } from 'core/types/router';
 
@@ -55,7 +56,6 @@ import './styles.scss';
 type Props = {|
   _window: typeof window | Object,
   clientApp: string,
-  history: ReactRouterHistoryType,
   currentUser: UserType | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
@@ -66,6 +66,7 @@ type Props = {|
   isReviewer: boolean,
   isUpdating: boolean,
   lang: string,
+  location: ReactRouterLocationType,
   // `match` is used in `mapStateToProps()`
   // eslint-disable-next-line react/no-unused-prop-types
   match: {|
@@ -151,6 +152,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       i18n,
       isUpdating,
       lang,
+      location,
       user: newUser,
       userId: newUserId,
     } = this.props;
@@ -199,7 +201,13 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }
 
     if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
-      history.push(`/${lang}/${clientApp}/user/${newUserId}/`);
+      let newPath =
+        location.query.to || `/${lang}/${clientApp}/user/${newUserId}/`;
+      if (!newPath.startsWith('/')) {
+        newPath = `/${newPath}`;
+      }
+
+      history.push(newPath);
     }
 
     if (
@@ -490,6 +498,21 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
       if (user && !hasEditPermission) {
         return <NotFound />;
+      }
+    }
+
+    let submitButtonText = isUpdating
+      ? i18n.gettext('Creating your profile…')
+      : i18n.gettext('Create My Profile');
+    if (user && user.display_name) {
+      if (isEditingCurrentUser) {
+        submitButtonText = isUpdating
+          ? i18n.gettext('Updating your profile…')
+          : i18n.gettext('Update My Profile');
+      } else {
+        submitButtonText = isUpdating
+          ? i18n.gettext('Updating profile…')
+          : i18n.gettext('Update Profile');
       }
     }
 
