@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-24 16:31+0000\n"
+"POT-Creation-Date: 2019-10-01 16:19+0000\n"
 "PO-Revision-Date: 2019-09-23 16:10+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2540,7 +2540,164 @@ msgstr ""
 "დაწყებული პირადი მონაცემების დაცვით, გაგრძელებული საიტების შიდა ძიების, "
 "სურათებით მსგავსი გამოსახულების მოძიების საშუალებებით და ა. შ."
 
-#: src/amo/pages/StaticPages/About/index.js:108
+#: src/amo/pages/StaticPages/About/index.js:119
+msgid ""
+"Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
+"the %(startAddonsServerDocumentation)sAdd-ons Servers documentation"
+"%(endAddonsServerDocumentation)s for details about the APIs used by AMO and "
+"the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
+msgstr ""
+"გსურთ, ჩაერთოთ addons.mozilla.org (AMO) საიტის დაპროგრამებაში? გაეცანით "
+"%(startAddonsServerDocumentation)sდამატებების სერვერების მასალებს"
+"%(endAddonsServerDocumentation)s დაწვრილებითი ინფორმაციის მისაღებად, AMO-სა "
+"და %(startAddonsManager)sდამატებების მმართველში%(endAddonsManager)s "
+"გამოიყენებული API-ების შესახებ."
+
+#: src/amo/pages/StaticPages/About/index.js:140
+msgid ""
+"If you want to contribute but are not quite as technical, there are still "
+"ways to help:"
+msgstr ""
+"თუ გსურთ წვლილის შეტანა, მაგრამ არ გაქვთ საკმარისი ტექნიკური ცოდნა, არის "
+"სხვა გზებიც დასახმარებლად:"
+
+#: src/amo/pages/StaticPages/About/index.js:149
+msgid "Participate in our %(startLink)sforum%(endLink)s."
+msgstr "მიიღეთ მონაწილეობა ჩვენს %(startLink)sფორუმში%(endLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:162
+msgid ""
+"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
+"improve their add-ons and create new ones when they know people appreciate "
+"their work."
+msgstr ""
+"დატოვეთ გამოხმაურება თქვენს რჩეულ დამატებებზე. დამატების ავტორები უფრო მეტად "
+"მონდომებულად შეეცდებიან გააუმჯობესონ და დახვეწონ თავიანთი ნამუშევრები, როცა "
+"ეცოდინებათ, რომ ხალხი სათანადოდ დაუფასებს მათ შრომას."
+
+#: src/amo/pages/StaticPages/About/index.js:167
+msgid ""
+"Tell your friends and family that Firefox is a fast, secure browser that "
+"protects their privacy, and they can use add-ons to make it their own!"
+msgstr ""
+"მოუყევით თქვენს მეგობრებსა და ოჯახის წევრებს, რომ Firefox არის სწრაფი, "
+"უსაფრთხო ბრაუზერი, რომელიც დაიცავს მათ პირადულობას, ხოლო დამატებების "
+"საშუალებით შეეძლებათ მისი საკუთარი გემოვნებით და სურვილისამებრ მოწყობა!"
+
+#: src/amo/pages/StaticPages/About/index.js:175
+msgid ""
+"To see more ways you can contribute to the add-on community, please visit "
+"our %(startLink)swiki%(endLink)s."
+msgstr ""
+"სხვადასხვა გზების მოსაძიებლად, დამატებების ერთობაში წვლილის შეტანის შესახებ, "
+"ეწვიეთ ჩვენი %(startLink)sვიკის%(endLink)s გვერდს."
+
+#: src/amo/pages/StaticPages/About/index.js:189
+msgid "Get support"
+msgstr "მხარდაჭერის მიღება"
+
+# "Firefox" should not be translated. :-)
+#: src/amo/pages/StaticPages/About/index.js:19
+msgid "About Firefox Add-ons"
+msgstr "Firefox დამატებების შესახებ"
+
+#: src/amo/pages/StaticPages/About/index.js:194
+msgid ""
+"If you would like to learn more about how to manage add-ons in Firefox, or "
+"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
+"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
+"%(startForumLink)sask on our community forum%(endForumLink)s."
+msgstr ""
+"ვრცლად, Firefox-ში დამატებების მართვის შესახებ, ან Firefox-თან დაკავშირებით, "
+"ზოგადი ინფორმაციის მისაღებად, ეწვიეთ Mozilla %(startSUMOLink)sმხარდაჭერის"
+"%(endSUMOLink)s გვერდს. თუ მანდ პასუხს ვერ იპოვით, შეგიძლიათ "
+"%(startForumLink)sკითხვა დასვათ ჩვენს ფორუმზე%(endForumLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:20
+msgid ""
+"The official Mozilla site for downloading Firefox extensions and themes. Add "
+"new features and change the browser’s appearance to customize your web "
+"experience."
+msgstr ""
+"Mozilla-ს ოფიციალური საიტი Firefox-ის გაფართოებებისა და თემების "
+"ჩამოსატვირთად. დაამატეთ ახალი შესაძლებლობები და შეცვალეთ ბრაუზერის იერსახე "
+"თქვენს მოთხოვნებზე უკეთ მოსარგებად."
+
+#: src/amo/pages/StaticPages/About/index.js:215
+msgid ""
+"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
+"found here%(endLink)s."
+msgstr ""
+"%(startLink)sMozilla-ს დამატებებთან მომუშავე გუნდთან დასაკავშირებლად, "
+"გადადით ამ ბმულზე%(endLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:27
+msgid ""
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
+"installing add-ons for the Firefox browser. Add-ons help you modify and "
+"personalize your browsing experience by adding new features to Firefox, "
+"enhancing your interactions with Web content, and changing the way your "
+"browser looks."
+msgstr ""
+"Addons.mozilla.org (AMO), არის Mozilla-ს ოფიციალური საიტი, Firefox "
+"ბრაუზერისთვის დამატებების მოსაძიებლად და დასაყენებლად. დამატებები "
+"დაგეხმარებათ ბრაუზერის შეცვლასა და გარდაქმნაში, Firefox-ისთვის ახალი "
+"შესაძლებლობების შემატებით, ვებშიგთავსთან მუშაობის გაუმჯობესებით და იერსახის "
+"ცვლილებებით."
+
+#: src/amo/pages/StaticPages/About/index.js:37
+msgid ""
+"If you are looking for add-ons for Thunderbird or SeaMonkey, please visit "
+"%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
+"thunderbird.net/seamonkey%(endSMLink)s."
+msgstr ""
+"თუ ეძებთ Thunderbird-ისა და SeaMonkey-ის დამატებებს, გთხოვთ ეწვიოთ "
+"%(startTBLink)saddons.thunderbird.net%(endTBLink)s ან %(startSMLink)saddons."
+"thunderbird.net/seamonkey%(endSMLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:54
+msgid "A community of creators"
+msgstr "შემქმნელების ერთობა"
+
+#: src/amo/pages/StaticPages/About/index.js:56
+msgid ""
+"The add-ons listed here are created by thousands of developers and theme "
+"designers from all over the world, ranging from individual hobbyists to "
+"large corporations. Some add-ons listed on AMO have been automatically "
+"published and may be subject to review by a team of editors once publicly "
+"listed."
+msgstr ""
+"აქ გამოქვეყნებული დამატებები შექმნილია ათასობით შემმუშავებლისა და თემის "
+"მხატვრების მიერ, მთელი მსოფლიოდან, დაწყებული ცალკეული მოხალისეებით, "
+"დამთავრებული დიდი დაწესებულებებით. ზოგიერთი დამატება AMO-საიტზე ავტომატურად "
+"ქვეყნდება და შეიძლება ექვემდებარებოდეს მიმომხილველთა გუნდის მიერ შემოწმებას."
+
+#: src/amo/pages/StaticPages/About/index.js:65
+msgid "Get involved"
+msgstr "შემოგვიერთდით"
+
+#: src/amo/pages/StaticPages/About/index.js:67
+msgid ""
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
+"keep it healthy, open and accessible. Add-ons support user choice and "
+"customization in Firefox, and you can contribute in the following ways:"
+msgstr ""
+"Mozilla არის არამომგებიანი მებრძოლი ერთობა, ინტერნეტის სადარაჯოზე, ჩვენ "
+"ვქმნით Firefox-ს მისი სიჯანსაღის, გახსნილობისა და ხელმისაწვდომობის "
+"შესანარჩუნებლად. დამატებები უზრუნველყოფენ მომხმარებლების თავისუფალი "
+"არჩევანის შესაძლებლობას, Firefox-ის საკუთარ საჭიროებებზე მორგების კუთხით, "
+"ამაში კი თქვენც შეგიძლიათ წვლილის შეტანა:"
+
+#: src/amo/pages/StaticPages/About/index.js:77
+msgid ""
+"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
+"update services and can help you reach a large audience of users."
+msgstr ""
+"%(startLink)sშექმენით საკუთარი დამატება%(endLink)s. ჩვენ გთავაზობთ უფასო "
+"ადგილს განსათავსებლად და მომსახურებებს, მარტივად განახლებისთვის, რაც "
+"დაგეხმარებათ თქვენი ნამუშევრის, ფართო საზოგადოებისთვის მიწოდებაში."
+
+#: src/amo/pages/StaticPages/About/index.js:93
 msgid ""
 "Help improve this website. It's open source, and you can file bugs and "
 "submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
@@ -2557,184 +2714,7 @@ msgstr ""
 "%(startAddonsFrontendRepoLink)sკლიენტის%(endAddonsFrontendRepoLink)s მხარეს "
 "არსებული ხარვეზების შესახებ, Github-ზე."
 
-#: src/amo/pages/StaticPages/About/index.js:134
-msgid ""
-"Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
-"the %(startAddonsServerDocumentation)sAdd-ons Servers documentation"
-"%(endAddonsServerDocumentation)s for details about the APIs used by AMO and "
-"the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
-msgstr ""
-"გსურთ, ჩაერთოთ addons.mozilla.org (AMO) საიტის დაპროგრამებაში? გაეცანით "
-"%(startAddonsServerDocumentation)sდამატებების სერვერების მასალებს"
-"%(endAddonsServerDocumentation)s დაწვრილებითი ინფორმაციის მისაღებად, AMO-სა "
-"და %(startAddonsManager)sდამატებების მმართველში%(endAddonsManager)s "
-"გამოიყენებული API-ების შესახებ."
-
-#: src/amo/pages/StaticPages/About/index.js:155
-msgid ""
-"If you want to contribute but are not quite as technical, there are still "
-"ways to help:"
-msgstr ""
-"თუ გსურთ წვლილის შეტანა, მაგრამ არ გაქვთ საკმარისი ტექნიკური ცოდნა, არის "
-"სხვა გზებიც დასახმარებლად:"
-
-#: src/amo/pages/StaticPages/About/index.js:164
-msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr "მიიღეთ მონაწილეობა ჩვენს %(startLink)sფორუმში%(endLink)s."
-
-#: src/amo/pages/StaticPages/About/index.js:177
-msgid ""
-"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
-"improve their add-ons and create new ones when they know people appreciate "
-"their work."
-msgstr ""
-"დატოვეთ გამოხმაურება თქვენს რჩეულ დამატებებზე. დამატების ავტორები უფრო მეტად "
-"მონდომებულად შეეცდებიან გააუმჯობესონ და დახვეწონ თავიანთი ნამუშევრები, როცა "
-"ეცოდინებათ, რომ ხალხი სათანადოდ დაუფასებს მათ შრომას."
-
-#: src/amo/pages/StaticPages/About/index.js:182
-msgid ""
-"Tell your friends and family that Firefox is a fast, secure browser that "
-"protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
-"მოუყევით თქვენს მეგობრებსა და ოჯახის წევრებს, რომ Firefox არის სწრაფი, "
-"უსაფრთხო ბრაუზერი, რომელიც დაიცავს მათ პირადულობას, ხოლო დამატებების "
-"საშუალებით შეეძლებათ მისი საკუთარი გემოვნებით და სურვილისამებრ მოწყობა!"
-
-#: src/amo/pages/StaticPages/About/index.js:190
-msgid ""
-"To see more ways you can contribute to the add-on community, please visit "
-"our %(startLink)swiki%(endLink)s."
-msgstr ""
-"სხვადასხვა გზების მოსაძიებლად, დამატებების ერთობაში წვლილის შეტანის შესახებ, "
-"ეწვიეთ ჩვენი %(startLink)sვიკის%(endLink)s გვერდს."
-
-#: src/amo/pages/StaticPages/About/index.js:204
-msgid "Get support"
-msgstr "მხარდაჭერის მიღება"
-
-#: src/amo/pages/StaticPages/About/index.js:209
-msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or "
-"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
-"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
-"%(startForumLink)sask on our community forum%(endForumLink)s."
-msgstr ""
-"ვრცლად, Firefox-ში დამატებების მართვის შესახებ, ან Firefox-თან დაკავშირებით, "
-"ზოგადი ინფორმაციის მისაღებად, ეწვიეთ Mozilla %(startSUMOLink)sმხარდაჭერის"
-"%(endSUMOLink)s გვერდს. თუ მანდ პასუხს ვერ იპოვით, შეგიძლიათ "
-"%(startForumLink)sკითხვა დასვათ ჩვენს ფორუმზე%(endForumLink)s."
-
-# "Firefox" should not be translated. :-)
-#: src/amo/pages/StaticPages/About/index.js:22
-msgid "About Firefox Add-ons"
-msgstr "Firefox დამატებების შესახებ"
-
-#: src/amo/pages/StaticPages/About/index.js:230
-msgid ""
-"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
-"found here%(endLink)s."
-msgstr ""
-"%(startLink)sMozilla-ს დამატებებთან მომუშავე გუნდთან დასაკავშირებლად, "
-"გადადით ამ ბმულზე%(endLink)s."
-
-#: src/amo/pages/StaticPages/About/index.js:31
-msgid ""
-"The official Mozilla site for downloading Firefox extensions and themes. Add "
-"new features and change the browser’s appearance to customize your web "
-"experience."
-msgstr ""
-"Mozilla-ს ოფიციალური საიტი Firefox-ის გაფართოებებისა და თემების "
-"ჩამოსატვირთად. დაამატეთ ახალი შესაძლებლობები და შეცვალეთ ბრაუზერის იერსახე "
-"თქვენს მოთხოვნებზე უკეთ მოსარგებად."
-
-#: src/amo/pages/StaticPages/About/index.js:42
-msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
-"installing add-ons for the Firefox browser. Add-ons help you modify and "
-"personalize your browsing experience by adding new features to Firefox, "
-"enhancing your interactions with Web content, and changing the way your "
-"browser looks."
-msgstr ""
-"Addons.mozilla.org (AMO), არის Mozilla-ს ოფიციალური საიტი, Firefox "
-"ბრაუზერისთვის დამატებების მოსაძიებლად და დასაყენებლად. დამატებები "
-"დაგეხმარებათ ბრაუზერის შეცვლასა და გარდაქმნაში, Firefox-ისთვის ახალი "
-"შესაძლებლობების შემატებით, ვებშიგთავსთან მუშაობის გაუმჯობესებით და იერსახის "
-"ცვლილებებით."
-
-#: src/amo/pages/StaticPages/About/index.js:52
-msgid ""
-"If you are looking for add-ons for Thunderbird or SeaMonkey, please visit "
-"%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
-"thunderbird.net/seamonkey%(endSMLink)s."
-msgstr ""
-"თუ ეძებთ Thunderbird-ისა და SeaMonkey-ის დამატებებს, გთხოვთ ეწვიოთ "
-"%(startTBLink)saddons.thunderbird.net%(endTBLink)s ან %(startSMLink)saddons."
-"thunderbird.net/seamonkey%(endSMLink)s."
-
-#: src/amo/pages/StaticPages/About/index.js:69
-msgid "A community of creators"
-msgstr "შემქმნელების ერთობა"
-
-#: src/amo/pages/StaticPages/About/index.js:71
-msgid ""
-"The add-ons listed here are created by thousands of developers and theme "
-"designers from all over the world, ranging from individual hobbyists to "
-"large corporations. Some add-ons listed on AMO have been automatically "
-"published and may be subject to review by a team of editors once publicly "
-"listed."
-msgstr ""
-"აქ გამოქვეყნებული დამატებები შექმნილია ათასობით შემმუშავებლისა და თემის "
-"მხატვრების მიერ, მთელი მსოფლიოდან, დაწყებული ცალკეული მოხალისეებით, "
-"დამთავრებული დიდი დაწესებულებებით. ზოგიერთი დამატება AMO-საიტზე ავტომატურად "
-"ქვეყნდება და შეიძლება ექვემდებარებოდეს მიმომხილველთა გუნდის მიერ შემოწმებას."
-
-#: src/amo/pages/StaticPages/About/index.js:80
-msgid "Get involved"
-msgstr "შემოგვიერთდით"
-
-#: src/amo/pages/StaticPages/About/index.js:82
-msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
-"keep it healthy, open and accessible. Add-ons support user choice and "
-"customization in Firefox, and you can contribute in the following ways:"
-msgstr ""
-"Mozilla არის არამომგებიანი მებრძოლი ერთობა, ინტერნეტის სადარაჯოზე, ჩვენ "
-"ვქმნით Firefox-ს მისი სიჯანსაღის, გახსნილობისა და ხელმისაწვდომობის "
-"შესანარჩუნებლად. დამატებები უზრუნველყოფენ მომხმარებლების თავისუფალი "
-"არჩევანის შესაძლებლობას, Firefox-ის საკუთარ საჭიროებებზე მორგების კუთხით, "
-"ამაში კი თქვენც შეგიძლიათ წვლილის შეტანა:"
-
-#: src/amo/pages/StaticPages/About/index.js:92
-msgid ""
-"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
-"update services and can help you reach a large audience of users."
-msgstr ""
-"%(startLink)sშექმენით საკუთარი დამატება%(endLink)s. ჩვენ გთავაზობთ უფასო "
-"ადგილს განსათავსებლად და მომსახურებებს, მარტივად განახლებისთვის, რაც "
-"დაგეხმარებათ თქვენი ნამუშევრის, ფართო საზოგადოებისთვის მიწოდებაში."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:100
-msgid ""
-"Use profanity, sexual language or language that can be construed as hateful."
-msgstr "უპატივცემლო, უხამსი მიმართვა ან სიძულვილის ენის გამოყენება."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:105
-msgid ""
-"Include HTML, links, source code or code snippets. Reviews are meant to be "
-"text only."
-msgstr ""
-"HTML კოდების, ბმულების, სკრიპტების დართვა. მიმოხილვები უნდა შედგებოდეს "
-"მხოლოდ ტექსტისგან."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:110
-msgid ""
-"Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
-"მცდარი მოსაზრებების წარმოდგენა, დამატების ავტორების დამცირება, ან მათთვის "
-"პირადი შეურაცხყოფის მიყენება."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:115
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid ""
 "Include your own or anyone else’s email, phone number, or other personal "
 "details."
@@ -2742,11 +2722,11 @@ msgstr ""
 "თქვენი საკუთარი ან სხვისი ელფოსტის მისამართის, ტელეფონის ნომრის, ან სხვა "
 "პირადი მონაცემების მითითება."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:120
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
 msgstr "მიმოხილვებში საკუთარი თავის ან დაწესებულების წარდგენა."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:125
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving "
 "a negative review of an add-on for displaying ads or requiring data "
@@ -2758,15 +2738,15 @@ msgstr ""
 "შეგროვების შესახებ, მაშინ როცა ეს ყველაფერი დამატების დანიშნულებას "
 "წარმოადგენს ან მისი მუშაობისთვისაა აუცილებელი."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:134
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
 msgstr "ხშირად დასმული კითხვები, მიმოხილვის გაკეთების შესახებ"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:136
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:122
 msgid "How can I report a problematic review?"
 msgstr "როგორ გავგზავნო მოხსენება, არასასურველი მიმოხილვის შესახებ?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:138
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:124
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this "
 "review\" and it will be submitted to the site for moderation. Our moderation "
@@ -2779,11 +2759,11 @@ msgstr ""
 "სახელმძღვანელოს მიხედვით გადაწყვეტს, წაიშალოს თუ არა მოცემული მიმოხილვა ან "
 "დაბრუნდეს თუ არა საიტზე."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:145
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
 msgstr "მე ვარ დამატების ავტორი, შემიძლია მიმოხილვაზე გამოხმაურება?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:151
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid ""
 "Yes, add-on authors can provide a single response to a review. You can set "
 "up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
@@ -2793,13 +2773,13 @@ msgstr ""
 "დამატებითი განხილვისთვის კი შეგიძლიათ თემა გახსნათ ჩვენს %(startLink)sფორუმზე"
 "%(endLink)s."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:165
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
 msgstr ""
 "მე ვარ დამატების ავტორი, შემიძლია თუ არა, არასასურველი მიმოხილვების ან "
 "შეფასებების წაშლა?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:170
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
 "In general, no. But if the review did not meet the review guidelines "
 "outlined above, you can click \"Report this review\" and have it moderated. "
@@ -2812,11 +2792,11 @@ msgstr ""
 "უკმაყოფილებას იმ საკითხზე, რაც უკვე გამოსწორებულია ახალ ვერსიაში, ჩვენ "
 "შეიძლება წავშალოთ ასეთი მიმოხილვა."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:22
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
 msgstr "მითითებები მიმოხილვის გასაკეთებლად"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:31
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid ""
 "Guidelines, tips, and Frequently Asked Questions to leave a review for the "
 "extensions and themes you’ve downloaded and used on Firefox."
@@ -2825,7 +2805,7 @@ msgstr ""
 "დასატოვებლად იმ გაფართოებებსა და თემებზე, რომლებიც ჩამოტვირთული გაქვთ და "
 "რომელთაც იყენებთ Firefox-ზე."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:42
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons "
 "you’ve installed and used. Our review moderation team reserves the right to "
@@ -2836,66 +2816,66 @@ msgstr ""
 "უარყოს, ან წაშალოს ნებისმიერი მიმოხილვა, რომელიც ეწინააღმდეგება ჩვენს "
 "წესდებას."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:47
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
 msgstr "რჩევები, სრულყოფილი მიმოხილვის გასაკეთებლად"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:48
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Do:"
 msgstr "სასურველია:"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:51
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid ""
 "Write like you are telling a friend about your experience with the add-on."
 msgstr ""
 "დაწეროთ ისე, თითქოს თქვენს მეგობარს უამბობთ თქვენი გამოცდილების შესახებ, "
 "დამატებით სარგებლობასთან დაკავშირებით."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:56
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
 msgstr "თქვენი მიმოხილვები იყოს მოკლე, მკაფიო და მარტივად გასაგები."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:59
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:45
 msgid "Give specific and helpful details. For example:"
 msgstr "საჭირო და დამხმარე მონაცემების მითითება. მაგალითად:"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:64
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid "Did the add-on work as you expected it to?"
 msgstr "გაამართლა დამატებამ თქვენი მოლოდინი?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:67
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
 msgstr "რომელი შესაძლებლობები მოგეწონათ და რომელი არა?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:69
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
 msgstr "იყო სასარგებლო და გამოსადეგი?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:70
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Was it easy to use?"
 msgstr "იყო ადვილად გამოსაყენებელი?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:72
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:58
 msgid "Will you continue to use this add-on?"
 msgstr "მომავალშიც განაგრძობთ მის გამოყენებას?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:77
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:63
 msgid ""
 "Take a moment to read your review before submitting it to minimize typos."
 msgstr ""
 "გადაავლოთ თვალი თქვენს მიმოხილვას წარდგენამდე, მართლწერის შესამოწმებლად."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:82
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:68
 msgid "Don't:"
 msgstr "არაა სასურველი:"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:85
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:71
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
 msgstr ""
 "ერთსიტყვიანი მიმოხილვის გაგზავნა, როგორიცაა \"მშვენიერია!\", \"საოცარია\", "
 "ან \"ცუდია\"."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:90
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:76
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the "
 "available support options for each add-on, if available. You can find them "
@@ -2907,9 +2887,29 @@ msgstr ""
 "გამოიყენოთ დამატების მხარდასაჭერი ბმულები, არსებობის შემთხვევაში. მათი "
 "პოვნა, დამატების მთავარი გვერდის მარცხნივ არსებულ სვეტში შეიძლება."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:95
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr "იმ დამატებებზე მიმოხილვის გაკეთება, რომელიც თავად არ გამოგიყენებიათ."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:86
+msgid ""
+"Use profanity, sexual language or language that can be construed as hateful."
+msgstr "უპატივცემლო, უხამსი მიმართვა ან სიძულვილის ენის გამოყენება."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:91
+msgid ""
+"Include HTML, links, source code or code snippets. Reviews are meant to be "
+"text only."
+msgstr ""
+"HTML კოდების, ბმულების, სკრიპტების დართვა. მიმოხილვები უნდა შედგებოდეს "
+"მხოლოდ ტექსტისგან."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:96
+msgid ""
+"Make false statements, disparage add-on authors or personally insult them."
+msgstr ""
+"მცდარი მოსაზრებების წარმოდგენა, დამატების ავტორების დამცირება, ან მათთვის "
+"პირადი შეურაცხყოფის მიყენება."
 
 #: src/amo/pages/UserProfile/index.js:240
 msgid "My reviews"

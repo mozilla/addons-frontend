@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-24 16:31+0000\n"
+"POT-Creation-Date: 2019-10-01 16:19+0000\n"
 "PO-Revision-Date: 2019-09-17 18:14+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
@@ -2566,7 +2566,161 @@ msgstr ""
 "wot pytanje z polěpšenej priwatnosću do pytanjow specifiskich za websydła, "
 "pytanja za wobrazami a wjace."
 
-#: src/amo/pages/StaticPages/About/index.js:108
+#: src/amo/pages/StaticPages/About/index.js:119
+msgid ""
+"Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
+"the %(startAddonsServerDocumentation)sAdd-ons Servers documentation"
+"%(endAddonsServerDocumentation)s for details about the APIs used by AMO and "
+"the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
+msgstr ""
+"Chceće na addons.mozilla.org (AMO) jako porgramowar sobu dźěłać? Čitajće "
+"%(startAddonsServerDocumentation)sdokumentaciju přidatkowych serwerow"
+"%(endAddonsServerDocumentation)s za podrobnosće wo API, kotrež so přez AMO a "
+"%(startAddonsManager)szrjadowak přidatkow%(endAddonsManager)s wužiwaja."
+
+#: src/amo/pages/StaticPages/About/index.js:140
+msgid ""
+"If you want to contribute but are not quite as technical, there are still "
+"ways to help:"
+msgstr ""
+"Jeli chceće sobu činić, ale technisce nazhonity njejsće, maće tři móžnosće, "
+"zo byšće pomhał:"
+
+#: src/amo/pages/StaticPages/About/index.js:149
+msgid "Participate in our %(startLink)sforum%(endLink)s."
+msgstr "Wobdźělće so na našim %(startLink)sforumje%(endLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:162
+msgid ""
+"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
+"improve their add-ons and create new ones when they know people appreciate "
+"their work."
+msgstr ""
+"Pisajće swoje měnjenje wo swojich najlubšich přidatkach. Wuwiwarjo přidatkow "
+"zawěsće skerje swoje přidatki polěpšuja a nowe wutworjeja, hdyž wědźa, zo "
+"sej wužiwarjo jich dźěło waža."
+
+#: src/amo/pages/StaticPages/About/index.js:167
+msgid ""
+"Tell your friends and family that Firefox is a fast, secure browser that "
+"protects their privacy, and they can use add-ons to make it their own!"
+msgstr ""
+"Zdźělće swojim přećelam a swojej swójbje, zo Firefox je spěšny, wěsty "
+"wobhladowak, kotryž jich priwatnosć škita a zo móžeja jón z přidatkami "
+"přiměrić!"
+
+#: src/amo/pages/StaticPages/About/index.js:175
+msgid ""
+"To see more ways you can contribute to the add-on community, please visit "
+"our %(startLink)swiki%(endLink)s."
+msgstr ""
+"Zo byšće so wo dalšich móžnosćach informował, kak móžeće na zhromadźenstwje "
+"přidatkow sobu dźěłać, wopytajće prošu naš %(startLink)swiki%(endLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:189
+msgid "Get support"
+msgstr "Pomoc dóstać"
+
+#: src/amo/pages/StaticPages/About/index.js:19
+msgid "About Firefox Add-ons"
+msgstr "Wo přidatkach za Firefox"
+
+#: src/amo/pages/StaticPages/About/index.js:194
+msgid ""
+"If you would like to learn more about how to manage add-ons in Firefox, or "
+"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
+"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
+"%(startForumLink)sask on our community forum%(endForumLink)s."
+msgstr ""
+"Jeli chceće wjace wo tym zhonić, kak móžeće přidatki W Firefox rjadować, abo "
+"prosće pomoc wo Firefox trjebaće, wopytajće %(startSUMOLink)sSupport"
+"%(endSUMOLink)s Mozilla. Jeli tam wotmołwu njenamakaće, móžeće "
+"%(startForumLink)sso na forumje našeho zhromadźenstwa prašeć%(endForumLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:20
+msgid ""
+"The official Mozilla site for downloading Firefox extensions and themes. Add "
+"new features and change the browser’s appearance to customize your web "
+"experience."
+msgstr ""
+"Oficielne sydło Mozilla za sćahowanje rozšěrjenjow a drastow Firefox. "
+"Přidajće nowe funkcije a změńće zwonkowne wobhladowaka, zo byšće swoje "
+"webdožiwjenje přiměrił."
+
+#: src/amo/pages/StaticPages/About/index.js:215
+msgid ""
+"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
+"found here%(endLink)s."
+msgstr ""
+"%(startLink)sInformacije wo tym, kak móžeće so z teamom přidatkow Mozilla do "
+"zwiska stajić, namakaće tu%(endLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:27
+msgid ""
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
+"installing add-ons for the Firefox browser. Add-ons help you modify and "
+"personalize your browsing experience by adding new features to Firefox, "
+"enhancing your interactions with Web content, and changing the way your "
+"browser looks."
+msgstr ""
+"Addon.mozilla.org (AMO) je oficielne sydło Mozilla za wotkrywanje a "
+"instalowanje přidatkow za wobhladowak Firefox. Přidajće nowe funkcije "
+"Firefox, polěpšće swoje interakcije z webwobsahom a změńće napohlad swojeho "
+"wobhladowaka, zo byšće swoje přehladowanske dožiwjenje změnił a přiměrił."
+
+#: src/amo/pages/StaticPages/About/index.js:37
+msgid ""
+"If you are looking for add-ons for Thunderbird or SeaMonkey, please visit "
+"%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
+"thunderbird.net/seamonkey%(endSMLink)s."
+msgstr ""
+"Jeli přidatki za Thunderbird abo SeaMonkey pytaće, wopytajće prošu "
+"%(startTBLink)saddons.thunderbird.net%(endTBLink)s abo %(startSMLink)saddons."
+"thunderbird.net//seamonkey%(endSMLink)s namakał."
+
+#: src/amo/pages/StaticPages/About/index.js:54
+msgid "A community of creators"
+msgstr "Zhromadźenstwo wuwiwarjow"
+
+#: src/amo/pages/StaticPages/About/index.js:56
+msgid ""
+"The add-ons listed here are created by thousands of developers and theme "
+"designers from all over the world, ranging from individual hobbyists to "
+"large corporations. Some add-ons listed on AMO have been automatically "
+"published and may be subject to review by a team of editors once publicly "
+"listed."
+msgstr ""
+"Tu nalistowane přidatki su so wot tysacow wuwiwarjow a designerow drastow z "
+"cyłeho swěta wutworili, kotřiž wot jednotliwych hobbyjowych wuwiwarjowy hač "
+"k wulkim předewzaćam sahaja. Někotre přidatki nalistowane na AMO su "
+"awtomatisce wozjewjene a móža přepruwowanju teama wobdźěłarjow podležeć, tak "
+"chětre kaž so zjawnje pokazuja."
+
+#: src/amo/pages/StaticPages/About/index.js:65
+msgid "Get involved"
+msgstr "Čińće sobu"
+
+#: src/amo/pages/StaticPages/About/index.js:67
+msgid ""
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
+"keep it healthy, open and accessible. Add-ons support user choice and "
+"customization in Firefox, and you can contribute in the following ways:"
+msgstr ""
+"Mozilla je powšitkownosći wužitny zakitowar interneta, wuwiwamy Firefox, zo "
+"bychmy jón strowy, wotewrjeny a přistupny wobchowali. Přidatki podpěruja "
+"wólbu wužiwarjow a přiměrjomnosć w Firefox a móžeće na slědowace wašnje sobu "
+"pomhać:"
+
+#: src/amo/pages/StaticPages/About/index.js:77
+msgid ""
+"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
+"update services and can help you reach a large audience of users."
+msgstr ""
+"%(startLink)sWutworće swójski přidatk%(endLink)s. Skićimy darmotne "
+"hospodowanje a aktualizowanske słužby a móžemy wam pomhać, wulki kruh "
+"wužiwarjow docpěć."
+
+#: src/amo/pages/StaticPages/About/index.js:93
 msgid ""
 "Help improve this website. It's open source, and you can file bugs and "
 "submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
@@ -2583,182 +2737,7 @@ msgstr ""
 "%(startAddonsFrontendRepoLink)sstronu%(endAddonsFrontendRepoLink)s na Github "
 "wobhladać."
 
-#: src/amo/pages/StaticPages/About/index.js:134
-msgid ""
-"Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
-"the %(startAddonsServerDocumentation)sAdd-ons Servers documentation"
-"%(endAddonsServerDocumentation)s for details about the APIs used by AMO and "
-"the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
-msgstr ""
-"Chceće na addons.mozilla.org (AMO) jako porgramowar sobu dźěłać? Čitajće "
-"%(startAddonsServerDocumentation)sdokumentaciju přidatkowych serwerow"
-"%(endAddonsServerDocumentation)s za podrobnosće wo API, kotrež so přez AMO a "
-"%(startAddonsManager)szrjadowak přidatkow%(endAddonsManager)s wužiwaja."
-
-#: src/amo/pages/StaticPages/About/index.js:155
-msgid ""
-"If you want to contribute but are not quite as technical, there are still "
-"ways to help:"
-msgstr ""
-"Jeli chceće sobu činić, ale technisce nazhonity njejsće, maće tři móžnosće, "
-"zo byšće pomhał:"
-
-#: src/amo/pages/StaticPages/About/index.js:164
-msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr "Wobdźělće so na našim %(startLink)sforumje%(endLink)s."
-
-#: src/amo/pages/StaticPages/About/index.js:177
-msgid ""
-"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
-"improve their add-ons and create new ones when they know people appreciate "
-"their work."
-msgstr ""
-"Pisajće swoje měnjenje wo swojich najlubšich přidatkach. Wuwiwarjo přidatkow "
-"zawěsće skerje swoje přidatki polěpšuja a nowe wutworjeja, hdyž wědźa, zo "
-"sej wužiwarjo jich dźěło waža."
-
-#: src/amo/pages/StaticPages/About/index.js:182
-msgid ""
-"Tell your friends and family that Firefox is a fast, secure browser that "
-"protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
-"Zdźělće swojim přećelam a swojej swójbje, zo Firefox je spěšny, wěsty "
-"wobhladowak, kotryž jich priwatnosć škita a zo móžeja jón z přidatkami "
-"přiměrić!"
-
-#: src/amo/pages/StaticPages/About/index.js:190
-msgid ""
-"To see more ways you can contribute to the add-on community, please visit "
-"our %(startLink)swiki%(endLink)s."
-msgstr ""
-"Zo byšće so wo dalšich móžnosćach informował, kak móžeće na zhromadźenstwje "
-"přidatkow sobu dźěłać, wopytajće prošu naš %(startLink)swiki%(endLink)s."
-
-#: src/amo/pages/StaticPages/About/index.js:204
-msgid "Get support"
-msgstr "Pomoc dóstać"
-
-#: src/amo/pages/StaticPages/About/index.js:209
-msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or "
-"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
-"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
-"%(startForumLink)sask on our community forum%(endForumLink)s."
-msgstr ""
-"Jeli chceće wjace wo tym zhonić, kak móžeće přidatki W Firefox rjadować, abo "
-"prosće pomoc wo Firefox trjebaće, wopytajće %(startSUMOLink)sSupport"
-"%(endSUMOLink)s Mozilla. Jeli tam wotmołwu njenamakaće, móžeće "
-"%(startForumLink)sso na forumje našeho zhromadźenstwa prašeć%(endForumLink)s."
-
-#: src/amo/pages/StaticPages/About/index.js:22
-msgid "About Firefox Add-ons"
-msgstr "Wo přidatkach za Firefox"
-
-#: src/amo/pages/StaticPages/About/index.js:230
-msgid ""
-"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
-"found here%(endLink)s."
-msgstr ""
-"%(startLink)sInformacije wo tym, kak móžeće so z teamom přidatkow Mozilla do "
-"zwiska stajić, namakaće tu%(endLink)s."
-
-#: src/amo/pages/StaticPages/About/index.js:31
-msgid ""
-"The official Mozilla site for downloading Firefox extensions and themes. Add "
-"new features and change the browser’s appearance to customize your web "
-"experience."
-msgstr ""
-"Oficielne sydło Mozilla za sćahowanje rozšěrjenjow a drastow Firefox. "
-"Přidajće nowe funkcije a změńće zwonkowne wobhladowaka, zo byšće swoje "
-"webdožiwjenje přiměrił."
-
-#: src/amo/pages/StaticPages/About/index.js:42
-msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
-"installing add-ons for the Firefox browser. Add-ons help you modify and "
-"personalize your browsing experience by adding new features to Firefox, "
-"enhancing your interactions with Web content, and changing the way your "
-"browser looks."
-msgstr ""
-"Addon.mozilla.org (AMO) je oficielne sydło Mozilla za wotkrywanje a "
-"instalowanje přidatkow za wobhladowak Firefox. Přidajće nowe funkcije "
-"Firefox, polěpšće swoje interakcije z webwobsahom a změńće napohlad swojeho "
-"wobhladowaka, zo byšće swoje přehladowanske dožiwjenje změnił a přiměrił."
-
-#: src/amo/pages/StaticPages/About/index.js:52
-msgid ""
-"If you are looking for add-ons for Thunderbird or SeaMonkey, please visit "
-"%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
-"thunderbird.net/seamonkey%(endSMLink)s."
-msgstr ""
-"Jeli přidatki za Thunderbird abo SeaMonkey pytaće, wopytajće prošu "
-"%(startTBLink)saddons.thunderbird.net%(endTBLink)s abo %(startSMLink)saddons."
-"thunderbird.net//seamonkey%(endSMLink)s namakał."
-
-#: src/amo/pages/StaticPages/About/index.js:69
-msgid "A community of creators"
-msgstr "Zhromadźenstwo wuwiwarjow"
-
-#: src/amo/pages/StaticPages/About/index.js:71
-msgid ""
-"The add-ons listed here are created by thousands of developers and theme "
-"designers from all over the world, ranging from individual hobbyists to "
-"large corporations. Some add-ons listed on AMO have been automatically "
-"published and may be subject to review by a team of editors once publicly "
-"listed."
-msgstr ""
-"Tu nalistowane přidatki su so wot tysacow wuwiwarjow a designerow drastow z "
-"cyłeho swěta wutworili, kotřiž wot jednotliwych hobbyjowych wuwiwarjowy hač "
-"k wulkim předewzaćam sahaja. Někotre přidatki nalistowane na AMO su "
-"awtomatisce wozjewjene a móža přepruwowanju teama wobdźěłarjow podležeć, tak "
-"chětre kaž so zjawnje pokazuja."
-
-#: src/amo/pages/StaticPages/About/index.js:80
-msgid "Get involved"
-msgstr "Čińće sobu"
-
-#: src/amo/pages/StaticPages/About/index.js:82
-msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
-"keep it healthy, open and accessible. Add-ons support user choice and "
-"customization in Firefox, and you can contribute in the following ways:"
-msgstr ""
-"Mozilla je powšitkownosći wužitny zakitowar interneta, wuwiwamy Firefox, zo "
-"bychmy jón strowy, wotewrjeny a přistupny wobchowali. Přidatki podpěruja "
-"wólbu wužiwarjow a přiměrjomnosć w Firefox a móžeće na slědowace wašnje sobu "
-"pomhać:"
-
-#: src/amo/pages/StaticPages/About/index.js:92
-msgid ""
-"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
-"update services and can help you reach a large audience of users."
-msgstr ""
-"%(startLink)sWutworće swójski přidatk%(endLink)s. Skićimy darmotne "
-"hospodowanje a aktualizowanske słužby a móžemy wam pomhać, wulki kruh "
-"wužiwarjow docpěć."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:100
-msgid ""
-"Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
-"Njewužiwajće wulgarne, seksualne wurazy abo wurazy, kotrež maja za hidypołne."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:105
-msgid ""
-"Include HTML, links, source code or code snippets. Reviews are meant to be "
-"text only."
-msgstr ""
-"Njewužiwajće HTML, wotkazy, žórłowy kod abo dźěle žórłoweho koda. "
-"Pohódnoćenja smědźa jenož luty tekst wobsahować."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:110
-msgid ""
-"Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
-"Nječińće wopačne podaća, njeponižujće awtorow přidatkow abo njekřiwdźće jich "
-"wosobinsce."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:115
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid ""
 "Include your own or anyone else’s email, phone number, or other personal "
 "details."
@@ -2766,13 +2745,13 @@ msgstr ""
 "Njepodajće e-mejlowu adresu, telefonowe čisło abo druhe wosobinske daty, ani "
 "swójske ani te z druhich wosobow."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:120
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
 msgstr ""
 "Njepisajće pohódnoćenja za přidatk, kotryž je so wot was abo wašeje "
 "organizacije wuwił abo so reprezentuje."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:125
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving "
 "a negative review of an add-on for displaying ads or requiring data "
@@ -2784,15 +2763,15 @@ msgstr ""
 "daty zběrać, jeli to je zaměr přidatka, abo jeli přidatk dyrbi daty zběrać, "
 "zo by fungował."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:134
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
 msgstr "Huste prašenja wo pohódnoćenjach"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:136
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:122
 msgid "How can I report a problematic review?"
 msgstr "Kak móžu problematiske pohódnoćenje zdźělić?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:138
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:124
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this "
 "review\" and it will be submitted to the site for moderation. Our moderation "
@@ -2804,11 +2783,11 @@ msgstr ""
 "team budźe směrnicu za pohódnoćenja wužiwać, zo by posudźił, hač měło so "
 "pohódnoćenje zhašeć abo nic, abo hač měło so wobnowić."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:145
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
 msgstr "Sym wuwiwar přidatka, móžu na pohódnoćenjach wotmołwić?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:151
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid ""
 "Yes, add-on authors can provide a single response to a review. You can set "
 "up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
@@ -2818,11 +2797,11 @@ msgstr ""
 "našim %(startLink)sforumje%(endLink)s móžeće diskusijnu temu wotewrić, zo "
 "byšće dalšu diskusiju zastorčił."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:165
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
 msgstr "Sym awtor přidatka, móžu njepřijomne pohódnoćenja zhašeć?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:170
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
 "In general, no. But if the review did not meet the review guidelines "
 "outlined above, you can click \"Report this review\" and have it moderated. "
@@ -2835,11 +2814,11 @@ msgstr ""
 "nowej wersiji wašeho přidatka hižo aktualny njeje, móžemy tute pohódnoćenje "
 "zhašeć."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:22
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
 msgstr "Směrnica za pohódnoćenja"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:31
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid ""
 "Guidelines, tips, and Frequently Asked Questions to leave a review for the "
 "extensions and themes you’ve downloaded and used on Firefox."
@@ -2847,7 +2826,7 @@ msgstr ""
 "Směrnicy, pokiwy a huste prašenja za pisanje pohódnoćenja za rozšěrjenja a "
 "drasty, kotrež sće sćahnył a z Firefox wužił."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:42
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons "
 "you’ve installed and used. Our review moderation team reserves the right to "
@@ -2858,66 +2837,66 @@ msgstr ""
 "pohódnoćenja sej prawo wuměnja, pohódnoćenja wotpokazać abo wotstronić, "
 "kotrež tutym směrnicam njewotpowěduja."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:47
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
 msgstr "Pokiwy za pisanje wulkotneho pohódnoćenja"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:48
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Do:"
 msgstr "Dobre:"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:51
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid ""
 "Write like you are telling a friend about your experience with the add-on."
 msgstr ""
 "Pisajće, kaž byšće přećelej wo swojich nazhonjenjach z přidatkom powědał."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:56
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
 msgstr "Dźeržće pohódnoćenja krótke a lochko zrozumliwe."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:59
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:45
 msgid "Give specific and helpful details. For example:"
 msgstr "Podajće specifiske a pomocliwe podrobnosće. Na přikład:"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:64
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid "Did the add-on work as you expected it to?"
 msgstr "Je přidatk tak fungował, kak sće wočakował?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:67
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
 msgstr "Kotre funkcije so wam spodobaja abo njespodobaja?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:69
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
 msgstr "Bě to pomocliwe?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:70
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Was it easy to use?"
 msgstr "Da so jednorje wužiwać?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:72
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:58
 msgid "Will you continue to use this add-on?"
 msgstr "Budźeće tutón přidatk dale wužiwać?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:77
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:63
 msgid ""
 "Take a moment to read your review before submitting it to minimize typos."
 msgstr ""
 "Bjerće sej wokomik časa, zo byšće swoje pohódnoćenje přečitał, prjedy hač jo "
 "wotpósćeleće, zo byšće pisanske zmylki miniměrował."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:82
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:68
 msgid "Don't:"
 msgstr "Kedźbu:"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:85
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:71
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
 msgstr ""
 "NJezapodajće jednosłowne pohódnoćenja kaž „Wulkotne!“, „Wuběrne“ abo "
 "„Špatne“."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:90
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:76
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the "
 "available support options for each add-on, if available. You can find them "
@@ -2929,9 +2908,30 @@ msgstr ""
 "přidatka město toho, jeli k dispoziciji. Namakaće je we wotrězku „Dalše "
 "informacije“ w bócnicy na stronje podrobnosćow přidatka."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:95
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr "Njepisajće pohódnoćenja za přidatki, kotrež njejsće sam wužił."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:86
+msgid ""
+"Use profanity, sexual language or language that can be construed as hateful."
+msgstr ""
+"Njewužiwajće wulgarne, seksualne wurazy abo wurazy, kotrež maja za hidypołne."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:91
+msgid ""
+"Include HTML, links, source code or code snippets. Reviews are meant to be "
+"text only."
+msgstr ""
+"Njewužiwajće HTML, wotkazy, žórłowy kod abo dźěle žórłoweho koda. "
+"Pohódnoćenja smědźa jenož luty tekst wobsahować."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:96
+msgid ""
+"Make false statements, disparage add-on authors or personally insult them."
+msgstr ""
+"Nječińće wopačne podaća, njeponižujće awtorow přidatkow abo njekřiwdźće jich "
+"wosobinsce."
 
 #: src/amo/pages/UserProfile/index.js:240
 msgid "My reviews"
