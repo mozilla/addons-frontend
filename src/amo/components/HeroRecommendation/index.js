@@ -119,27 +119,31 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
           'HeroRecommendation--no-image': !featuredImage,
         })}
       >
-        <AppBanner className="HeroRecommendation-banner" />
+        <div className="HeroRecommendation-wrapper">
+          <AppBanner className="HeroRecommendation-banner" />
 
-        <div className="HeroRecommendation-content">
-          {featuredImage && (
-            <div>
-              <img
-                className="HeroRecommendation-image"
-                alt=""
-                src={featuredImage}
+          <div className="HeroRecommendation-content">
+            {featuredImage && (
+              <div>
+                <img
+                  className="HeroRecommendation-image"
+                  alt=""
+                  src={featuredImage}
+                />
+              </div>
+            )}
+            <div className="HeroRecommendation-info">
+              <div className="HeroRecommendation-recommended">
+                {recommended}
+              </div>
+              <h2 className="HeroRecommendation-heading">{heading}</h2>
+              <div
+                className="HeroRecommendation-body"
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={sanitizeUserHTML(description)}
               />
+              {link}
             </div>
-          )}
-          <div className="HeroRecommendation-info">
-            <div className="HeroRecommendation-recommended">{recommended}</div>
-            <h2 className="HeroRecommendation-heading">{heading}</h2>
-            <div
-              className="HeroRecommendation-body"
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={sanitizeUserHTML(description)}
-            />
-            {link}
           </div>
         </div>
       </section>

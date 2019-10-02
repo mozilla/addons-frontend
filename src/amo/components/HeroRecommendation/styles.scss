@@ -1,5 +1,10 @@
 @import '~amo/css/styles';
 
+.HeroRecommendation-wrapper {
+  margin: 0 auto;
+  max-width: $max-content-width;
+}
+
 .HeroRecommendation-banner {
   padding-bottom: 0;
 }
@@ -11,8 +16,6 @@
 
   @include respond-to(extraExtraLarge) {
     padding: 36px;
-
-    @include padding-start(96px);
   }
 }
 
