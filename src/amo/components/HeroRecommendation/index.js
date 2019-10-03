@@ -135,16 +135,6 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
       gradientsClassName = `HeroRecommendation--loading`;
     }
 
-    const recommended = shelfData ? (
-      <div className="HeroRecommendation-recommended">
-        {/* translators: If uppercase does not work in your locale, change it */}
-        {/*  to lowercase. This is used as a secondary heading. */}
-        {i18n.gettext('RECOMMENDED')}
-      </div>
-    ) : (
-      <LoadingText width={20} />
-    );
-
     return (
       <section
         className={makeClassName(
@@ -171,16 +161,17 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
             )}
             <div className="HeroRecommendation-info">
               <div className="HeroRecommendation-recommended">
-                {recommended}
+                {/* translators: If uppercase does not work in your locale, change it */}
+                {/*  to lowercase. This is used as a secondary heading. */}
+                {shelfData ? (
+                  i18n.gettext('RECOMMENDED')
+                ) : (
+                  <LoadingText width={20} />
+                )}
               </div>
-              {heading ? (
-                <h2 className="HeroRecommendation-heading">{heading}</h2>
-              ) : (
-                <LoadingText
-                  className="HeroRecommendation-heading"
-                  width={50}
-                />
-              )}
+              <h2 className="HeroRecommendation-heading">
+                {heading || <LoadingText width={60} />}
+              </h2>
               {description ? (
                 <div
                   className="HeroRecommendation-body"
@@ -188,7 +179,13 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
                   dangerouslySetInnerHTML={sanitizeUserHTML(description)}
                 />
               ) : (
-                <LoadingText className="HeroRecommendation-body" width={100} />
+                <div className="HeroRecommendation-body">
+                  <>
+                    <LoadingText width={100} />
+                    <br />
+                    <LoadingText width={80} />
+                  </>
+                </div>
               )}
               {link}
             </div>

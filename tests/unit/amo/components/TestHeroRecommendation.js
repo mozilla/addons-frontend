@@ -222,7 +222,7 @@ describe(__filename, () => {
     const root = render();
 
     expect(root).toHaveClassName('HeroRecommendation--loading');
-    expect(root.find(LoadingText)).toHaveLength(3);
+    expect(root.find(LoadingText)).toHaveLength(4);
   });
 
   describe('makeCallToActionURL', () => {

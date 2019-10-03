@@ -3,29 +3,14 @@
 .HeroRecommendation-wrapper {
   margin: 0 auto;
   max-width: $max-content-width;
+}
 
 .HeroRecommendation--height-with-notice {
-  min-height: 300px;
-
-  @include respond-to(medium) {
-    min-height: 324px;
-  }
-
-  @include respond-to(extraExtraLarge) {
-    min-height: 452px;
-  }
+  min-height: 452px;
 }
 
 .HeroRecommendation--height-without-notice {
-  min-height: 252px;
-
-  @include respond-to(medium) {
-    min-height: 268px;
-  }
-
-  @include respond-to(extraExtraLarge) {
-    min-height: 376px;
-  }
+  min-height: 376px;
 }
 
 .HeroRecommendation-banner {
@@ -67,6 +52,16 @@
 
   @include respond-to(extraExtraLarge) {
     margin-top: 16px;
+  }
+}
+
+.HeroRecommendation-body,
+.HeroRecommendation-heading,
+.HeroRecommendation-recommended {
+  width: 100%;
+
+  .LoadingText {
+    height: 1em;
   }
 }
 
@@ -194,5 +189,5 @@
 }
 
 .HeroRecommendation--loading {
-  @include gradientStyle($color-ink-80, $background-grey);
+  @include gradientStyle($color-ink-80, $color-blue-70);
 }

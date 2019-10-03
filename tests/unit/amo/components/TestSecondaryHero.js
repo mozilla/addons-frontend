@@ -110,7 +110,7 @@ describe(__filename, () => {
   it('renders in a loading state', () => {
     const root = render();
 
-    expect(root.find(LoadingText)).toHaveLength(8);
+    expect(root.find(LoadingText)).toHaveLength(11);
   });
 
   describe('modules', () => {

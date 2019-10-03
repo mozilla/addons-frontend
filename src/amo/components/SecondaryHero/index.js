@@ -71,7 +71,7 @@ export const SecondaryHeroBase = ({
             src={module.icon}
           />
         ) : (
-          <LoadingText className="SecondaryHero-module-icon" width={40} />
+          <div className="SecondaryHero-module-icon" />
         )}
         <div className="SecondaryHero-module-description">
           {module.description || <LoadingText width={60} />}
@@ -99,10 +99,22 @@ export const SecondaryHeroBase = ({
     <section className="SecondaryHero">
       <div className="SecondaryHero-message">
         <h2 className="SecondaryHero-message-headline">
-          {headline || <LoadingText width={60} />}
+          {headline || (
+            <>
+              <LoadingText width={70} />
+              <br />
+              <LoadingText width={50} />
+            </>
+          )}
         </h2>
         <div className="SecondaryHero-message-description">
-          {description || <LoadingText width={70} />}
+          {description || (
+            <>
+              <LoadingText width={80} />
+              <br />
+              <LoadingText width={60} />
+            </>
+          )}
         </div>
         {cta && (
           <Link className="SecondaryHero-message-link" {...getLinkProps(cta)}>
@@ -111,7 +123,7 @@ export const SecondaryHeroBase = ({
         )}
         {!headline && (
           <div className="SecondaryHero-message-link">
-            <LoadingText width={40} />
+            <LoadingText width={50} />
           </div>
         )}
       </div>
