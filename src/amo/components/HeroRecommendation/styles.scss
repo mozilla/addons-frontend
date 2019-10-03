@@ -1,14 +1,21 @@
 @import '~amo/css/styles';
 
-.HeroRecommendation {
+.HeroRecommendation-wrapper {
+  margin: 0 auto;
+  max-width: $max-content-width;
+}
+
+.HeroRecommendation-banner {
+  padding-bottom: 0;
+}
+
+.HeroRecommendation-content {
   color: $white;
   display: flex;
   padding: 24px;
 
   @include respond-to(extraExtraLarge) {
     padding: 36px;
-
-    @include padding-start(96px);
   }
 }
 

@@ -4,6 +4,7 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 
+import AppBanner from 'amo/components/AppBanner';
 import Link from 'amo/components/Link';
 import { addParamsToHeroURL, checkInternalURL, getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
@@ -118,24 +119,32 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
           'HeroRecommendation--no-image': !featuredImage,
         })}
       >
-        {featuredImage && (
-          <div>
-            <img
-              className="HeroRecommendation-image"
-              alt=""
-              src={featuredImage}
-            />
+        <div className="HeroRecommendation-wrapper">
+          <AppBanner className="HeroRecommendation-banner" />
+
+          <div className="HeroRecommendation-content">
+            {featuredImage && (
+              <div>
+                <img
+                  className="HeroRecommendation-image"
+                  alt=""
+                  src={featuredImage}
+                />
+              </div>
+            )}
+            <div className="HeroRecommendation-info">
+              <div className="HeroRecommendation-recommended">
+                {recommended}
+              </div>
+              <h2 className="HeroRecommendation-heading">{heading}</h2>
+              <div
+                className="HeroRecommendation-body"
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={sanitizeUserHTML(description)}
+              />
+              {link}
+            </div>
           </div>
-        )}
-        <div className="HeroRecommendation-info">
-          <div className="HeroRecommendation-recommended">{recommended}</div>
-          <h2 className="HeroRecommendation-heading">{heading}</h2>
-          <div
-            className="HeroRecommendation-body"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={sanitizeUserHTML(description)}
-          />
-          {link}
         </div>
       </section>
     );

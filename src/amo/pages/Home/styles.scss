@@ -1,7 +1,17 @@
 @import '~amo/css/styles';
 
 .Home {
-  @include page-padding();
+  width: 100%;
+}
+
+.Home-content {
+  margin: 0 auto;
+  max-width: $max-content-width;
+  padding: 0 $padding-page $padding-page;
+
+  @include respond-to(large) {
+    padding: 0 $padding-page-l $padding-page-l;
+  }
 }
 
 .Home-SubjectShelf {
