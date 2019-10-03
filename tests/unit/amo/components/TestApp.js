@@ -4,9 +4,9 @@ import * as React from 'react';
 import NestedStatus from 'react-nested-status';
 import Helmet from 'react-helmet';
 
-import { setViewContext } from 'amo/actions/viewContext';
 import App, {
   AppBase,
+  isHomePage,
   mapDispatchToProps,
   mapStateToProps,
 } from 'amo/components/App';
@@ -15,15 +15,14 @@ import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import createStore from 'amo/store';
 import { setUserAgent as setUserAgentAction } from 'core/actions';
 import {
-  ADDON_TYPE_EXTENSION,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   INSTALL_STATE,
-  VIEW_CONTEXT_HOME,
   maximumSetTimeoutDelay,
 } from 'core/constants';
 import {
   createContextWithFakeRouter,
+  createFakeLocation,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeI18n,
@@ -48,14 +47,14 @@ describe(__filename, () => {
     };
   }
 
-  const render = (props = {}) => {
+  const render = (props = {}, location) => {
     const allProps = {
       ...renderProps(),
       ...props,
     };
 
     return shallowUntilTarget(<App {...allProps} />, AppBase, {
-      shallowOptions: createContextWithFakeRouter(),
+      shallowOptions: createContextWithFakeRouter({ location }),
     });
   };
 
@@ -334,49 +333,75 @@ describe(__filename, () => {
     });
   });
 
+  describe('isHomePage', () => {
+    it.each([
+      'en-US/firefox',
+      '/en-US/firefox',
+      'en-US/firefox/',
+      '/en-US/firefox/',
+    ])('returns true for a path with two items, e.g., %s', (pathname) => {
+      expect(isHomePage(createFakeLocation({ pathname }))).toEqual(true);
+    });
+
+    it.each([
+      'en-US/firefox/extensions',
+      '/en-US/firefox/extensions',
+      'en-US/firefox/extensions/',
+      '/en-US/firefox/extensions/',
+    ])(
+      'returns false for a path with more than two items, e.g., %s',
+      (pathname) => {
+        expect(isHomePage(createFakeLocation({ pathname }))).toEqual(false);
+      },
+    );
+  });
+
   it('renders an AppBanner if it is not the home page', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
-    const root = render({ store });
+    const location = createFakeLocation({
+      pathname: '/en-US/firefox/extensions/',
+    });
+    const _isHomePage = sinon.stub().returns(false);
+    const root = render({ _isHomePage }, location);
 
     expect(root.find(AppBanner)).toHaveLength(1);
+    sinon.assert.calledWith(_isHomePage, location);
   });
 
   it('renders an AppBanner if enableFeatureHeroRecommendation is false', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(setViewContext(VIEW_CONTEXT_HOME));
+    const _isHomePage = sinon.stub().returns(false);
     const root = render({
       _config: getFakeConfig({ enableFeatureHeroRecommendation: false }),
-      store,
+      _isHomePage,
     });
 
     expect(root.find(AppBanner)).toHaveLength(1);
   });
 
   it('does not render an AppBanner if it is the home page and enableFeatureHeroRecommendation is true', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(setViewContext(VIEW_CONTEXT_HOME));
+    const _isHomePage = sinon.stub().returns(true);
     const root = render({
       _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
-      store,
+      _isHomePage,
     });
 
     expect(root.find(AppBanner)).toHaveLength(0);
   });
 
   it('uses the expected className for a page other than the home page', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
-    const root = render({ store });
+    const location = createFakeLocation({
+      pathname: '/en-US/firefox/extensions/',
+    });
+    const _isHomePage = sinon.stub().returns(false);
+    const root = render({ _isHomePage }, location);
 
     expect(root.find('.App-content-wrapper')).toHaveLength(1);
     expect(root.find('.App-content-wrapper-homepage')).toHaveLength(0);
+    sinon.assert.calledWith(_isHomePage, location);
   });
 
   it('uses the expected className for the home page', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(setViewContext(VIEW_CONTEXT_HOME));
-    const root = render({ store });
+    const _isHomePage = sinon.stub().returns(true);
+    const root = render({ _isHomePage });
 
     expect(root.find('.App-content-wrapper')).toHaveLength(0);
     expect(root.find('.App-content-wrapper-homepage')).toHaveLength(1);

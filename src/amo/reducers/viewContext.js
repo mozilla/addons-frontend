@@ -1,7 +1,4 @@
 /* @flow */
-import config from 'config';
-import { LOCATION_CHANGE } from 'connected-react-router';
-
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -32,22 +29,10 @@ export const initialState = { context: VIEW_CONTEXT_EXPLORE };
 export default function viewContext(
   state: ViewContextState = initialState,
   action: ViewContextActionType,
-  _config: typeof config = config,
 ) {
   switch (action.type) {
     case SET_VIEW_CONTEXT:
       return { ...state, context: action.payload.context };
-
-    // This is a hack to make sure that the viewContext does not remain
-    // VIEW_CONTEXT_HOME  when we leave the home page, because there is code
-    // in /components/App/index.js which uses this to determine if we are
-    // currently on the home page.
-    case LOCATION_CHANGE: {
-      if (!_config.get('server') && state.context === VIEW_CONTEXT_HOME) {
-        return initialState;
-      }
-      return state;
-    }
 
     default:
       return state;

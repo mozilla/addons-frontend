@@ -29,11 +29,7 @@ import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import { addChangeListeners } from 'core/addonManager';
 import { setUserAgent as setUserAgentAction } from 'core/actions';
 import { setInstallState } from 'core/actions/installations';
-import {
-  CLIENT_APP_ANDROID,
-  VIEW_CONTEXT_HOME,
-  maximumSetTimeoutDelay,
-} from 'core/constants';
+import { CLIENT_APP_ANDROID, maximumSetTimeoutDelay } from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/components/InfoDialog';
 import translate from 'core/i18n/translate';
@@ -49,8 +45,13 @@ interface MozNavigator extends Navigator {
   mozAddonManager?: Object;
 }
 
+export const isHomePage = (location: ReactRouterLocationType) => {
+  return location.pathname.split('/').filter(Boolean).length === 2;
+};
+
 type Props = {|
   _config: typeof config,
+  _isHomePage: typeof isHomePage,
   ErrorPage: typeof DefaultErrorPage,
   FooterComponent: typeof Footer,
   InfoDialogComponent: typeof InfoDialog,
@@ -62,7 +63,6 @@ type Props = {|
   clientApp: string,
   handleGlobalEvent: () => void,
   i18n: I18nType,
-  isHomePage: boolean,
   lang: string,
   location: ReactRouterLocationType,
   logOutUser: () => void,
@@ -78,6 +78,7 @@ export class AppBase extends React.Component<Props> {
 
   static defaultProps = {
     _config: config,
+    _isHomePage: isHomePage,
     ErrorPage: DefaultErrorPage,
     FooterComponent: Footer,
     InfoDialogComponent: InfoDialog,
@@ -188,13 +189,13 @@ export class AppBase extends React.Component<Props> {
   render() {
     const {
       _config,
+      _isHomePage,
       ErrorPage,
       FooterComponent,
       HeaderComponent,
       InfoDialogComponent,
       clientApp,
       i18n,
-      isHomePage,
       lang,
       location,
     } = this.props;
@@ -236,7 +237,7 @@ export class AppBase extends React.Component<Props> {
             <InfoDialogComponent />
 
             <HeaderComponent
-              isHomePage={isHomePage}
+              isHomePage={_isHomePage(location)}
               location={location}
               ref={(ref) => {
                 this.header = ref;
@@ -246,14 +247,14 @@ export class AppBase extends React.Component<Props> {
             <div className="App-content">
               <div
                 className={makeClassName(
-                  isHomePage
+                  _isHomePage(location)
                     ? 'App-content-wrapper-homepage'
                     : 'App-content-wrapper',
                 )}
               >
                 {// Exclude the AppBanner from the home page if it will be
                 // included via HeroRecommendation.
-                (!isHomePage ||
+                (!_isHomePage(location) ||
                   !_config.get('enableFeatureHeroRecommendation')) && (
                   <AppBanner />
                 )}
@@ -274,7 +275,6 @@ export class AppBase extends React.Component<Props> {
 export const mapStateToProps = (state: AppState) => ({
   authToken: state.api && state.api.token,
   clientApp: state.api.clientApp,
-  isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME,
   lang: state.api.lang,
   userAgent: state.api.userAgent,
 });
