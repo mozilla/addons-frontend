@@ -45,8 +45,12 @@ interface MozNavigator extends Navigator {
   mozAddonManager?: Object;
 }
 
+// This function assumed the home page will no more than two parts in its path,
+// whereas any page other than the home page will have more than two.
+// Every path in the app starts with /lang/application/ (e.g., /en-US/firefox/)
+// which is what this logic is based upon.
 export const isHomePage = (location: ReactRouterLocationType) => {
-  return location.pathname.split('/').filter(Boolean).length === 2;
+  return location.pathname.split('/').filter(Boolean).length <= 2;
 };
 
 type Props = {|
