@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-01 16:23+0000\n"
-"PO-Revision-Date: 2019-10-05 09:57+0000\n"
+"PO-Revision-Date: 2019-10-05 10:34+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -20,7 +20,7 @@ msgstr "Mësoni më tepër"
 
 #: src/amo/components/InstallWarning/index.js:116
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr ""
+msgstr "Ky zgjerim nuk mbikëqyret nga Mozilla. Sigurohuni se i zini besë këtij zgjerimi, përpara se ta instaloni."
 
 #: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
@@ -123,7 +123,7 @@ msgstr "Funksionon me %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "Instalimi u ndërpre, ngaqë shtesa duket të jetë e dëmtuar."
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
