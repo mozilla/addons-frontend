@@ -232,7 +232,9 @@ describe(__filename, () => {
       },
     });
 
-    expect(root).toIncludeText('Explore powerful tools and features');
+    expect(root.find('.LandingPage')).toIncludeText(
+      'Explore powerful tools and features',
+    );
   });
 
   it('renders a link to all categories', () => {
@@ -253,7 +255,9 @@ describe(__filename, () => {
     const root = render({
       params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION) },
     });
-    expect(root).not.toHaveClassName('.LandingPage--theme');
+    expect(root.find('.LandingPage')).not.toHaveClassName(
+      '.LandingPage--theme',
+    );
   });
 
   it('renders a theme class name when page type is themes', () => {
@@ -262,7 +266,7 @@ describe(__filename, () => {
         params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
       },
     });
-    expect(root).toHaveClassName('.LandingPage--theme');
+    expect(root.find('.LandingPage')).toHaveClassName('.LandingPage--theme');
   });
 
   it.each([true, false])(
@@ -397,7 +401,9 @@ describe(__filename, () => {
       },
     });
 
-    expect(root).toIncludeText("Change your browser's appearance");
+    expect(root.find('.LandingPage')).toIncludeText(
+      "Change your browser's appearance",
+    );
   });
 
   it('renders each add-on when set', () => {

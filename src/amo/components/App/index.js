@@ -1,12 +1,10 @@
 /* @flow */
 /* global Navigator, navigator */
-import makeClassName from 'classnames';
 import config from 'config';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
 
@@ -18,29 +16,22 @@ import 'normalize.css/normalize.css';
 import './styles.scss';
 
 /* eslint-disable import/first */
-import AppBanner from 'amo/components/AppBanner';
 import Routes from 'amo/components/Routes';
 import ScrollToTop from 'core/components/ScrollToTop';
 import { getDjangoBase62 } from 'amo/utils';
 import { getErrorComponent } from 'amo/utils/errors';
 import Footer from 'amo/components/Footer';
-import Header from 'amo/components/Header';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import { addChangeListeners } from 'core/addonManager';
 import { setUserAgent as setUserAgentAction } from 'core/actions';
 import { setInstallState } from 'core/actions/installations';
-import {
-  CLIENT_APP_ANDROID,
-  VIEW_CONTEXT_HOME,
-  maximumSetTimeoutDelay,
-} from 'core/constants';
+import { CLIENT_APP_ANDROID, maximumSetTimeoutDelay } from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/components/InfoDialog';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocationType } from 'core/types/router';
 import type { InstalledAddon } from 'core/reducers/installations';
 import type { I18nType } from 'core/types/i18n';
 /* eslint-enable import/first */
@@ -50,11 +41,9 @@ interface MozNavigator extends Navigator {
 }
 
 type Props = {|
-  _config: typeof config,
   ErrorPage: typeof DefaultErrorPage,
   FooterComponent: typeof Footer,
   InfoDialogComponent: typeof InfoDialog,
-  HeaderComponent: typeof Header,
   _addChangeListeners: (callback: Function, mozAddonManager?: Object) => void,
   _navigator: typeof navigator,
   authToken?: string,
@@ -62,9 +51,7 @@ type Props = {|
   clientApp: string,
   handleGlobalEvent: () => void,
   i18n: I18nType,
-  isHomePage: boolean,
   lang: string,
-  location: ReactRouterLocationType,
   logOutUser: () => void,
   mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
   setUserAgent: (userAgent: string) => void,
@@ -72,16 +59,12 @@ type Props = {|
 |};
 
 export class AppBase extends React.Component<Props> {
-  header: React.ElementRef<typeof Header>;
-
   scheduledLogout: TimeoutID;
 
   static defaultProps = {
-    _config: config,
     ErrorPage: DefaultErrorPage,
     FooterComponent: Footer,
     InfoDialogComponent: InfoDialog,
-    HeaderComponent: Header,
     _addChangeListeners: addChangeListeners,
     _navigator: typeof navigator !== 'undefined' ? navigator : null,
     authTokenValidFor: config.get('authTokenValidFor'),
@@ -187,16 +170,12 @@ export class AppBase extends React.Component<Props> {
 
   render() {
     const {
-      _config,
       ErrorPage,
       FooterComponent,
-      HeaderComponent,
       InfoDialogComponent,
       clientApp,
       i18n,
-      isHomePage,
       lang,
-      location,
     } = this.props;
 
     const i18nValues = {
@@ -235,32 +214,10 @@ export class AppBase extends React.Component<Props> {
 
             <InfoDialogComponent />
 
-            <HeaderComponent
-              isHomePage={isHomePage}
-              location={location}
-              ref={(ref) => {
-                this.header = ref;
-              }}
-            />
-
             <div className="App-content">
-              <div
-                className={makeClassName(
-                  isHomePage
-                    ? 'App-content-wrapper-homepage'
-                    : 'App-content-wrapper',
-                )}
-              >
-                {// Exclude the AppBanner from the home page if it will be
-                // included via HeroRecommendation.
-                (!isHomePage ||
-                  !_config.get('enableFeatureHeroRecommendation')) && (
-                  <AppBanner />
-                )}
-                <ErrorPage getErrorComponent={getErrorComponent}>
-                  <Routes />
-                </ErrorPage>
-              </div>
+              <ErrorPage getErrorComponent={getErrorComponent}>
+                <Routes />
+              </ErrorPage>
             </div>
 
             <FooterComponent />
@@ -274,7 +231,6 @@ export class AppBase extends React.Component<Props> {
 export const mapStateToProps = (state: AppState) => ({
   authToken: state.api && state.api.token,
   clientApp: state.api.clientApp,
-  isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME,
   lang: state.api.lang,
   userAgent: state.api.userAgent,
 });
@@ -294,7 +250,6 @@ export function mapDispatchToProps(dispatch: DispatchFunc) {
 }
 
 const App: React.ComponentType<Props> = compose(
-  withRouter,
   connect(
     mapStateToProps,
     mapDispatchToProps,

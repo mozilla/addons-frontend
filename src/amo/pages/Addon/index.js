@@ -22,6 +22,7 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import { GET_FIREFOX_BUTTON_TYPE_ADDON } from 'amo/components/GetFirefoxButton';
 import InstallWarning from 'amo/components/InstallWarning';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
+import Page from 'amo/components/Page';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
@@ -427,100 +428,103 @@ export class AddonBase extends React.Component {
       : 0;
 
     return (
-      <div
-        className={makeClassName('Addon', `Addon-${addonType}`, {
-          'Addon-theme': isThemeType,
-          'Addon--has-more-than-0-addons': numberOfAddonsByAuthors > 0,
-          'Addon--has-more-than-3-addons': numberOfAddonsByAuthors > 3,
-        })}
-        data-site-identifier={addon ? addon.id : null}
-      >
-        <AddonHead addon={addon} />
+      <Page>
+        <div
+          className={makeClassName('Addon', `Addon-${addonType}`, {
+            'Addon-theme': isThemeType,
+            'Addon--has-more-than-0-addons': numberOfAddonsByAuthors > 0,
+            'Addon--has-more-than-3-addons': numberOfAddonsByAuthors > 3,
+          })}
+          data-site-identifier={addon ? addon.id : null}
+        >
+          <AddonHead addon={addon} />
 
-        {errorBanner}
+          {errorBanner}
 
-        <div className="Addon-header-wrapper">
-          <Card className="Addon-header-info-card" photonStyle>
-            <AddonInstallError error={this.props.installError} />
+          <div className="Addon-header-wrapper">
+            <Card className="Addon-header-info-card" photonStyle>
+              <AddonInstallError error={this.props.installError} />
 
-            <AddonCompatibilityError addon={addon} />
+              <AddonCompatibilityError addon={addon} />
 
-            {addon && (addon.status !== STATUS_PUBLIC || addon.is_disabled) ? (
-              <Notice type="error" className="Addon-non-public-notice">
-                {i18n.gettext(
-                  'This is not a public listing. You are only seeing it because of elevated permissions.',
-                )}
-              </Notice>
-            ) : null}
+              {addon &&
+              (addon.status !== STATUS_PUBLIC || addon.is_disabled) ? (
+                <Notice type="error" className="Addon-non-public-notice">
+                  {i18n.gettext(
+                    'This is not a public listing. You are only seeing it because of elevated permissions.',
+                  )}
+                </Notice>
+              ) : null}
 
-            <header className="Addon-header">
-              {this.headerImage()}
+              <header className="Addon-header">
+                {this.headerImage()}
 
-              <AddonTitle addon={addon} />
+                <AddonTitle addon={addon} />
 
-              <AddonBadges addon={addon} />
+                <AddonBadges addon={addon} />
 
-              <div className="Addon-summary-and-install-button-wrapper">
-                {showSummary ? (
-                  <p className="Addon-summary" {...summaryProps} />
-                ) : null}
+                <div className="Addon-summary-and-install-button-wrapper">
+                  {showSummary ? (
+                    <p className="Addon-summary" {...summaryProps} />
+                  ) : null}
 
-                {addon && (
-                  <InstallButtonWrapper
-                    addon={addon}
-                    defaultInstallSource={INSTALL_SOURCE_DETAIL_PAGE}
-                    getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
-                  />
-                )}
-              </div>
+                  {addon && (
+                    <InstallButtonWrapper
+                      addon={addon}
+                      defaultInstallSource={INSTALL_SOURCE_DETAIL_PAGE}
+                      getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+                    />
+                  )}
+                </div>
 
-              <h2 className="visually-hidden">
-                {i18n.gettext('Extension Metadata')}
-              </h2>
-            </header>
-            {addon && <InstallWarning addon={addon} />}
-          </Card>
+                <h2 className="visually-hidden">
+                  {i18n.gettext('Extension Metadata')}
+                </h2>
+              </header>
+              {addon && <InstallWarning addon={addon} />}
+            </Card>
 
-          <Card className="Addon-header-meta-and-ratings" photonStyle>
-            <AddonMeta addon={addon} />
-          </Card>
-        </div>
-
-        <div className="Addon-details">
-          <div className="Addon-main-content">
-            {this.renderAddonsByAuthorsCard({ isForTheme: true })}
-
-            {addonPreviews.length > 0 && !isThemeType ? (
-              <Card
-                className="Addon-screenshots"
-                header={i18n.gettext('Screenshots')}
-              >
-                <ScreenShots previews={addonPreviews} />
-              </Card>
-            ) : null}
-
-            {this.renderShowMoreCard()}
-
-            {addonType === ADDON_TYPE_EXTENSION && (
-              <AddonRecommendations addon={addon} />
-            )}
+            <Card className="Addon-header-meta-and-ratings" photonStyle>
+              <AddonMeta addon={addon} />
+            </Card>
           </div>
 
-          {this.renderRatingsCard()}
+          <div className="Addon-details">
+            <div className="Addon-main-content">
+              {this.renderAddonsByAuthorsCard({ isForTheme: true })}
 
-          <ContributeCard addon={addon} />
+              {addonPreviews.length > 0 && !isThemeType ? (
+                <Card
+                  className="Addon-screenshots"
+                  header={i18n.gettext('Screenshots')}
+                >
+                  <ScreenShots previews={addonPreviews} />
+                </Card>
+              ) : null}
 
-          <PermissionsCard version={currentVersion} />
+              {this.renderShowMoreCard()}
 
-          <AddonMoreInfo addon={addon} />
+              {addonType === ADDON_TYPE_EXTENSION && (
+                <AddonRecommendations addon={addon} />
+              )}
+            </div>
 
-          <AddAddonToCollection addon={addon} />
+            {this.renderRatingsCard()}
 
-          {this.renderVersionReleaseNotes()}
+            <ContributeCard addon={addon} />
 
-          {this.renderAddonsByAuthorsCard({ isForTheme: false })}
+            <PermissionsCard version={currentVersion} />
+
+            <AddonMoreInfo addon={addon} />
+
+            <AddAddonToCollection addon={addon} />
+
+            {this.renderVersionReleaseNotes()}
+
+            {this.renderAddonsByAuthorsCard({ isForTheme: false })}
+          </div>
         </div>
-      </div>
+      </Page>
     );
     // eslint-enable react/no-danger
   }

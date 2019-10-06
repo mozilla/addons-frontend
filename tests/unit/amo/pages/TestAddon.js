@@ -1391,7 +1391,10 @@ describe(__filename, () => {
       ];
       const { store } = dispatchAddonData({ addon, addonsByAuthors });
 
-      const root = renderComponent({ params: { slug: addon.slug }, store });
+      const root = renderComponent({
+        params: { slug: addon.slug },
+        store,
+      }).find('.Addon');
 
       expect(root).toHaveClassName('.Addon--has-more-than-0-addons');
       expect(root).not.toHaveClassName('.Addon--has-more-than-3-addons');
@@ -1407,7 +1410,10 @@ describe(__filename, () => {
       ];
       const { store } = dispatchAddonData({ addon, addonsByAuthors });
 
-      const root = renderComponent({ params: { slug: addon.slug }, store });
+      const root = renderComponent({
+        params: { slug: addon.slug },
+        store,
+      }).find('.Addon');
 
       expect(root).toHaveClassName('.Addon--has-more-than-0-addons');
       expect(root).toHaveClassName('.Addon--has-more-than-3-addons');

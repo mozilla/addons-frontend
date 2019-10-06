@@ -7,6 +7,7 @@ import { compose } from 'redux';
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import AddonVersionCard from 'amo/components/AddonVersionCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import Page from 'amo/components/Page';
 import {
   fetchVersions,
   getLoadingBySlug,
@@ -149,60 +150,63 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
     }
 
     return (
-      <div className="AddonVersions">
-        {addon && (
-          <Helmet>
-            <title>{header}</title>
-          </Helmet>
-        )}
+      <Page>
+        {' '}
+        <div className="AddonVersions">
+          {addon && (
+            <Helmet>
+              <title>{header}</title>
+            </Helmet>
+          )}
 
-        {errorHandler.renderErrorIfPresent()}
+          {errorHandler.renderErrorIfPresent()}
 
-        <div className="AddonVersions-wrapper">
-          <AddonSummaryCard addon={addon} headerText={header} />
+          <div className="AddonVersions-wrapper">
+            <AddonSummaryCard addon={addon} headerText={header} />
 
-          <CardList
-            className="AddonVersions-versions"
-            header={header || <LoadingText />}
-          >
-            <ul>
-              <li>
-                <Notice type="warning">
-                  <p className="AddonVersions-warning-text">
-                    {i18n.gettext(
-                      'Be careful with old versions! These versions are displayed for testing and reference purposes.',
-                    )}
-                  </p>
-                  <p className="AddonVersions-warning-text">
-                    {i18n.gettext(
-                      'You should always use the latest version of an add-on.',
-                    )}
-                  </p>
-                </Notice>
-              </li>
+            <CardList
+              className="AddonVersions-versions"
+              header={header || <LoadingText />}
+            >
+              <ul>
+                <li>
+                  <Notice type="warning">
+                    <p className="AddonVersions-warning-text">
+                      {i18n.gettext(
+                        'Be careful with old versions! These versions are displayed for testing and reference purposes.',
+                      )}
+                    </p>
+                    <p className="AddonVersions-warning-text">
+                      {i18n.gettext(
+                        'You should always use the latest version of an add-on.',
+                      )}
+                    </p>
+                  </Notice>
+                </li>
 
-              <AddonVersionCard
-                addon={addon}
-                headerText={i18n.gettext('Latest version')}
-                key="latestVersion"
-                version={latestVersion}
-              />
-              {olderVersions.map((version, index) => {
-                return (
-                  <AddonVersionCard
-                    addon={addon}
-                    headerText={
-                      index === 0 ? i18n.gettext('Older versions') : null
-                    }
-                    key={version.id}
-                    version={version}
-                  />
-                );
-              })}
-            </ul>
-          </CardList>
+                <AddonVersionCard
+                  addon={addon}
+                  headerText={i18n.gettext('Latest version')}
+                  key="latestVersion"
+                  version={latestVersion}
+                />
+                {olderVersions.map((version, index) => {
+                  return (
+                    <AddonVersionCard
+                      addon={addon}
+                      headerText={
+                        index === 0 ? i18n.gettext('Older versions') : null
+                      }
+                      key={version.id}
+                      version={version}
+                    />
+                  );
+                })}
+              </ul>
+            </CardList>
+          </div>
         </div>
-      </div>
+      </Page>
     );
   }
 }

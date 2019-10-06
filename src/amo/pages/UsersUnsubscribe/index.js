@@ -6,6 +6,7 @@ import base64url from 'base64url';
 import { connect } from 'react-redux';
 
 import Link from 'amo/components/Link';
+import Page from 'amo/components/Page';
 import { getNotificationDescription } from 'amo/utils/notifications';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
@@ -90,63 +91,65 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
     });
 
     return (
-      <div className="UsersUnsubscribe">
-        <Helmet>
-          <title>{i18n.gettext('Unsubscribe')}</title>
-        </Helmet>
+      <Page>
+        <div className="UsersUnsubscribe">
+          <Helmet>
+            <title>{i18n.gettext('Unsubscribe')}</title>
+          </Helmet>
 
-        {errorHandler.hasError() ? (
-          errorHandler.renderError()
-        ) : (
-          <Card
-            header={
-              isUnsubscribed ? (
-                i18n.gettext('You are successfully unsubscribed!')
-              ) : (
-                <LoadingText />
-              )
-            }
-          >
-            {isUnsubscribed ? (
-              <p
-                className="UsersUnsubscribe-content-explanation"
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={sanitizeHTML(
-                  i18n.sprintf(
-                    // translators: a list of notifications will be displayed under this prompt.
-                    i18n.gettext(
-                      `The email address %(strongStart)s%(email)s%(strongEnd)s
-                      will no longer get messages when:`,
-                    ),
-                    {
-                      strongStart: '<strong>',
-                      strongEnd: '</strong>',
-                      email: base64url.decode(token),
-                    },
-                  ),
-                  ['strong'],
-                )}
-              />
-            ) : (
-              <p className="UsersUnsubscribe-content-explanation">
-                <LoadingText minWidth={40} />
-              </p>
-            )}
-
-            <blockquote className="UsersUnsubscribe-content-notification">
+          {errorHandler.hasError() ? (
+            errorHandler.renderError()
+          ) : (
+            <Card
+              header={
+                isUnsubscribed ? (
+                  i18n.gettext('You are successfully unsubscribed!')
+                ) : (
+                  <LoadingText />
+                )
+              }
+            >
               {isUnsubscribed ? (
-                getNotificationDescription(i18n, notificationName)
+                <p
+                  className="UsersUnsubscribe-content-explanation"
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={sanitizeHTML(
+                    i18n.sprintf(
+                      // translators: a list of notifications will be displayed under this prompt.
+                      i18n.gettext(
+                        `The email address %(strongStart)s%(email)s%(strongEnd)s
+      will no longer get messages when:`,
+                      ),
+                      {
+                        strongStart: '<strong>',
+                        strongEnd: '</strong>',
+                        email: base64url.decode(token),
+                      },
+                    ),
+                    ['strong'],
+                  )}
+                />
               ) : (
-                <LoadingText range={30} />
+                <p className="UsersUnsubscribe-content-explanation">
+                  <LoadingText minWidth={40} />
+                </p>
               )}
-            </blockquote>
 
-            <p className="UsersUnsubscribe-content-edit-profile">
-              {isUnsubscribed ? editProfileLink : <LoadingText />}
-            </p>
-          </Card>
-        )}
-      </div>
+              <blockquote className="UsersUnsubscribe-content-notification">
+                {isUnsubscribed ? (
+                  getNotificationDescription(i18n, notificationName)
+                ) : (
+                  <LoadingText range={30} />
+                )}
+              </blockquote>
+
+              <p className="UsersUnsubscribe-content-edit-profile">
+                {isUnsubscribed ? editProfileLink : <LoadingText />}
+              </p>
+            </Card>
+          )}
+        </div>
+      </Page>
     );
   }
 }

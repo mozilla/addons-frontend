@@ -9,6 +9,7 @@ import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import HeadLinks from 'amo/components/HeadLinks';
+import Page from 'amo/components/Page';
 import { fetchGuidesAddons, getGUIDsBySlug } from 'amo/reducers/guides';
 import { ADDON_TYPE_EXTENSION, CLIENT_APP_ANDROID } from 'core/constants';
 import { getAddonByGUID } from 'core/reducers/addons';
@@ -407,20 +408,22 @@ export class GuidesBase extends React.Component<InternalProps> {
     const { introText, icon, title, sections } = content;
 
     return (
-      <div className="Guides-page">
-        <Helmet>
-          <title>{title}</title>
-        </Helmet>
-        <HeadLinks />
-        <div className="Guides">
-          <div className="Guides-header">
-            <Icon className="Guides-header-icon" name={icon} />
-            <h1 className="Guides-header-page-title">{title}</h1>
-            <p className="Guides-header-intro">{introText}</p>
+      <Page>
+        <div className="Guides-page">
+          <Helmet>
+            <title>{title}</title>
+          </Helmet>
+          <HeadLinks />
+          <div className="Guides">
+            <div className="Guides-header">
+              <Icon className="Guides-header-icon" name={icon} />
+              <h1 className="Guides-header-page-title">{title}</h1>
+              <p className="Guides-header-intro">{introText}</p>
+            </div>
+            {this.getGuidesSections(sections)}
           </div>
-          {this.getGuidesSections(sections)}
         </div>
-      </div>
+      </Page>
     );
   }
 }

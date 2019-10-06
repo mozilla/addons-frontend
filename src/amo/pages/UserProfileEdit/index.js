@@ -9,6 +9,7 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import Page from 'amo/components/Page';
 import UserProfileEditNotifications from 'amo/components/UserProfileEditNotifications';
 import UserProfileEditPicture from 'amo/components/UserProfileEditPicture';
 import {
@@ -494,137 +495,138 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     const overlayClassName = 'UserProfileEdit-deletion-modal';
 
     return (
-      <div className="UserProfileEdit">
-        {user && (
-          <Helmet>
-            <title>
-              {i18n.sprintf(i18n.gettext('User Profile for %(user)s'), {
-                user: user.name,
-              })}
-            </title>
-          </Helmet>
-        )}
+      <Page>
+        <div className="UserProfileEdit">
+          {user && (
+            <Helmet>
+              <title>
+                {i18n.sprintf(i18n.gettext('User Profile for %(user)s'), {
+                  user: user.name,
+                })}
+              </title>
+            </Helmet>
+          )}
 
-        <Card className="UserProfileEdit-user-links">
-          <ul>
-            <li>
-              <Link to={userProfileURL}>
+          <Card className="UserProfileEdit-user-links">
+            <ul>
+              <li>
+                <Link to={userProfileURL}>
+                  {isEditingCurrentUser
+                    ? i18n.gettext('View My Profile')
+                    : i18n.gettext(`View user's profile`)}
+                </Link>
+              </li>
+              <li>
                 {isEditingCurrentUser
-                  ? i18n.gettext('View My Profile')
-                  : i18n.gettext(`View user's profile`)}
-              </Link>
-            </li>
-            <li>
-              {isEditingCurrentUser
-                ? i18n.gettext('Edit My Profile')
-                : i18n.gettext(`Edit user's profile`)}
-            </li>
-          </ul>
-        </Card>
+                  ? i18n.gettext('Edit My Profile')
+                  : i18n.gettext(`Edit user's profile`)}
+              </li>
+            </ul>
+          </Card>
 
-        <form className="UserProfileEdit-form" onSubmit={this.onSubmit}>
-          <div className="UserProfileEdit-form-messages">
-            {errorMessage}
+          <form className="UserProfileEdit-form" onSubmit={this.onSubmit}>
+            <div className="UserProfileEdit-form-messages">
+              {errorMessage}
 
-            {this.state.successMessage && (
-              <Notice type="success">{this.state.successMessage}</Notice>
-            )}
-          </div>
-          <div>
-            <Card
-              className="UserProfileEdit--Card"
-              header={
-                isEditingCurrentUser || !user
-                  ? i18n.gettext('Account')
-                  : i18n.sprintf(i18n.gettext('Account for %(userName)s'), {
-                      userName: user.name,
-                    })
-              }
-            >
-              <div>
-                <label className="UserProfileEdit--label" htmlFor="email">
-                  {i18n.gettext('Email Address')}
-                </label>
-                <input
-                  className="UserProfileEdit-email"
-                  value={user && user.email}
-                  disabled
-                  onChange={this.onFieldChange}
-                  title={i18n.gettext('Email address cannot be changed here')}
-                  type="email"
-                />
-                {isEditingCurrentUser && (
-                  <p
-                    className="UserProfileEdit-email--help"
-                    // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={sanitizeHTML(
-                      i18n.sprintf(
-                        i18n.gettext(`You can change your email address on
-                          Firefox Accounts. %(startLink)sNeed help?%(endLink)s`),
-                        {
-                          startLink:
-                            '<a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">',
-                          endLink: '</a>',
-                        },
-                      ),
-                      ['a'],
-                    )}
-                  />
-                )}
-                {isEditingCurrentUser && user && user.fxa_edit_email_url && (
-                  <a
-                    href={user.fxa_edit_email_url}
-                    className="UserProfileEdit-manage-account-link"
-                  >
-                    {i18n.gettext('Manage Firefox Accounts…')}
-                  </a>
-                )}
-              </div>
-            </Card>
-
-            <Card
-              className="UserProfileEdit--Card"
-              header={i18n.gettext('Profile')}
-            >
-              <p className="UserProfileEdit-profile-aside">
-                {this.renderProfileAside()}
-              </p>
-
-              <label
-                className="UserProfileEdit--label"
-                htmlFor="displayName"
-                title={i18n.gettext('This field is required')}
+              {this.state.successMessage && (
+                <Notice type="success">{this.state.successMessage}</Notice>
+              )}
+            </div>
+            <div>
+              <Card
+                className="UserProfileEdit--Card"
+                header={
+                  isEditingCurrentUser || !user
+                    ? i18n.gettext('Account')
+                    : i18n.sprintf(i18n.gettext('Account for %(userName)s'), {
+                        userName: user.name,
+                      })
+                }
               >
-                {// translators: the star is used to indicate a required field
-                i18n.gettext('Display Name *')}
-              </label>
-              <input
-                className="UserProfileEdit-displayName"
-                disabled={!user}
-                id="displayName"
-                name="displayName"
-                onChange={this.onFieldChange}
-                value={this.state.displayName}
-              />
-              {isReviewer && user && user.reviewer_name !== undefined && (
-                <>
-                  <label
-                    className="UserProfileEdit--label"
-                    htmlFor="reviewerName"
-                  >
-                    {i18n.gettext('Reviewer Name')}
+                <div>
+                  <label className="UserProfileEdit--label" htmlFor="email">
+                    {i18n.gettext('Email Address')}
                   </label>
                   <input
-                    className="UserProfileEdit-reviewerName"
-                    id="reviewerName"
-                    name="reviewerName"
+                    className="UserProfileEdit-email"
+                    value={user && user.email}
+                    disabled
                     onChange={this.onFieldChange}
-                    value={this.state.reviewerName}
+                    title={i18n.gettext('Email address cannot be changed here')}
+                    type="email"
                   />
-                </>
-              )}
+                  {isEditingCurrentUser && (
+                    <p
+                      className="UserProfileEdit-email--help"
+                      // eslint-disable-next-line react/no-danger
+                      dangerouslySetInnerHTML={sanitizeHTML(
+                        i18n.sprintf(
+                          i18n.gettext(`You can change your email address on
+                          Firefox Accounts. %(startLink)sNeed help?%(endLink)s`),
+                          {
+                            startLink:
+                              '<a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">',
+                            endLink: '</a>',
+                          },
+                        ),
+                        ['a'],
+                      )}
+                    />
+                  )}
+                  {isEditingCurrentUser && user && user.fxa_edit_email_url && (
+                    <a
+                      href={user.fxa_edit_email_url}
+                      className="UserProfileEdit-manage-account-link"
+                    >
+                      {i18n.gettext('Manage Firefox Accounts…')}
+                    </a>
+                  )}
+                </div>
+              </Card>
 
-              {/*
+              <Card
+                className="UserProfileEdit--Card"
+                header={i18n.gettext('Profile')}
+              >
+                <p className="UserProfileEdit-profile-aside">
+                  {this.renderProfileAside()}
+                </p>
+
+                <label
+                  className="UserProfileEdit--label"
+                  htmlFor="displayName"
+                  title={i18n.gettext('This field is required')}
+                >
+                  {// translators: the star is used to indicate a required field
+                  i18n.gettext('Display Name *')}
+                </label>
+                <input
+                  className="UserProfileEdit-displayName"
+                  disabled={!user}
+                  id="displayName"
+                  name="displayName"
+                  onChange={this.onFieldChange}
+                  value={this.state.displayName}
+                />
+                {isReviewer && user && user.reviewer_name !== undefined && (
+                  <>
+                    <label
+                      className="UserProfileEdit--label"
+                      htmlFor="reviewerName"
+                    >
+                      {i18n.gettext('Reviewer Name')}
+                    </label>
+                    <input
+                      className="UserProfileEdit-reviewerName"
+                      id="reviewerName"
+                      name="reviewerName"
+                      onChange={this.onFieldChange}
+                      value={this.state.reviewerName}
+                    />
+                  </>
+                )}
+
+                {/*
                 TODO: Don't show these to users who don't have a public-facing
                 user profile page (eg are developers). It's just noise and may
                 encourage them to enter a lot of text (especially the bio) which
@@ -632,257 +634,258 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 like notifications, below.
                 See: https://github.com/mozilla/addons-frontend/issues/4964
               */}
-              <label className="UserProfileEdit--label" htmlFor="homepage">
-                {i18n.gettext('Homepage')}
-              </label>
-              <input
-                className="UserProfileEdit-homepage"
-                disabled={!user}
-                id="homepage"
-                name="homepage"
-                onChange={this.onFieldChange}
-                type="url"
-                value={this.state.homepage}
-              />
-              <p className="UserProfileEdit-homepage--help">
-                {i18n.gettext(`This URL will only be visible for users who are
+                <label className="UserProfileEdit--label" htmlFor="homepage">
+                  {i18n.gettext('Homepage')}
+                </label>
+                <input
+                  className="UserProfileEdit-homepage"
+                  disabled={!user}
+                  id="homepage"
+                  name="homepage"
+                  onChange={this.onFieldChange}
+                  type="url"
+                  value={this.state.homepage}
+                />
+                <p className="UserProfileEdit-homepage--help">
+                  {i18n.gettext(`This URL will only be visible for users who are
                   developers.`)}
-              </p>
+                </p>
 
-              <label className="UserProfileEdit--label" htmlFor="location">
-                {i18n.gettext('Location')}
-              </label>
-              <input
-                className="UserProfileEdit-location"
-                disabled={!user}
-                id="location"
-                name="location"
-                onChange={this.onFieldChange}
-                value={this.state.location}
-              />
+                <label className="UserProfileEdit--label" htmlFor="location">
+                  {i18n.gettext('Location')}
+                </label>
+                <input
+                  className="UserProfileEdit-location"
+                  disabled={!user}
+                  id="location"
+                  name="location"
+                  onChange={this.onFieldChange}
+                  value={this.state.location}
+                />
 
-              <label className="UserProfileEdit--label" htmlFor="occupation">
-                {i18n.gettext('Occupation')}
-              </label>
-              <input
-                className="UserProfileEdit-occupation"
-                disabled={!user}
-                id="occupation"
-                name="occupation"
-                onChange={this.onFieldChange}
-                value={this.state.occupation}
-              />
+                <label className="UserProfileEdit--label" htmlFor="occupation">
+                  {i18n.gettext('Occupation')}
+                </label>
+                <input
+                  className="UserProfileEdit-occupation"
+                  disabled={!user}
+                  id="occupation"
+                  name="occupation"
+                  onChange={this.onFieldChange}
+                  value={this.state.occupation}
+                />
 
-              <UserProfileEditPicture
-                name="picture"
-                onDelete={this.onPictureDelete}
-                onSelect={this.onPictureChange}
-                preview={this.state.pictureData}
-                user={user}
-              />
-            </Card>
+                <UserProfileEditPicture
+                  name="picture"
+                  onDelete={this.onPictureDelete}
+                  onSelect={this.onPictureChange}
+                  preview={this.state.pictureData}
+                  user={user}
+                />
+              </Card>
 
-            <Card
-              className="UserProfileEdit--Card"
-              header={i18n.gettext('Biography')}
-            >
-              <label className="UserProfileEdit--label" htmlFor="biography">
-                {this.renderBiographyLabel()}
-              </label>
-              <Textarea
-                className="UserProfileEdit-biography"
-                disabled={!user}
-                id="biography"
-                name="biography"
-                onChange={this.onFieldChange}
-                value={this.state.biography || ''}
-              />
-              <p className="UserProfileEdit-biography--help">
-                {i18n.sprintf(
-                  i18n.gettext(
-                    `Some HTML supported: %(htmlTags)s. Links are forbidden.`,
-                  ),
-                  {
-                    htmlTags: [
-                      '<abbr title>',
-                      '<acronym title>',
-                      '<b>',
-                      '<blockquote>',
-                      '<code>',
-                      '<em>',
-                      '<i>',
-                      '<li>',
-                      '<ol>',
-                      '<strong>',
-                      '<ul>',
-                    ].join(' '),
-                  },
-                )}
-              </p>
-            </Card>
+              <Card
+                className="UserProfileEdit--Card"
+                header={i18n.gettext('Biography')}
+              >
+                <label className="UserProfileEdit--label" htmlFor="biography">
+                  {this.renderBiographyLabel()}
+                </label>
+                <Textarea
+                  className="UserProfileEdit-biography"
+                  disabled={!user}
+                  id="biography"
+                  name="biography"
+                  onChange={this.onFieldChange}
+                  value={this.state.biography || ''}
+                />
+                <p className="UserProfileEdit-biography--help">
+                  {i18n.sprintf(
+                    i18n.gettext(
+                      `Some HTML supported: %(htmlTags)s. Links are forbidden.`,
+                    ),
+                    {
+                      htmlTags: [
+                        '<abbr title>',
+                        '<acronym title>',
+                        '<b>',
+                        '<blockquote>',
+                        '<code>',
+                        '<em>',
+                        '<i>',
+                        '<li>',
+                        '<ol>',
+                        '<strong>',
+                        '<ul>',
+                      ].join(' '),
+                    },
+                  )}
+                </p>
+              </Card>
 
-            <Card
-              className="UserProfileEdit--Card"
-              header={i18n.gettext('Notifications')}
-            >
-              <p className="UserProfileEdit-notifications-aside">
-                {isEditingCurrentUser
-                  ? i18n.gettext(
-                      `From time to time, Mozilla may send you email about
+              <Card
+                className="UserProfileEdit--Card"
+                header={i18n.gettext('Notifications')}
+              >
+                <p className="UserProfileEdit-notifications-aside">
+                  {isEditingCurrentUser
+                    ? i18n.gettext(
+                        `From time to time, Mozilla may send you email about
                       upcoming releases and add-on events. Please select the
                       topics you are interested in.`,
-                    )
-                  : i18n.gettext(
-                      `From time to time, Mozilla may send this user email
+                      )
+                    : i18n.gettext(
+                        `From time to time, Mozilla may send this user email
                       about upcoming releases and add-on events. Please select
                       the topics this user may be interested in.`,
-                    )}
-              </p>
+                      )}
+                </p>
 
-              <UserProfileEditNotifications
-                key={user && user.id}
-                onChange={this.onNotificationChange}
-                user={user}
-              />
+                <UserProfileEditNotifications
+                  key={user && user.id}
+                  onChange={this.onNotificationChange}
+                  user={user}
+                />
 
-              {isEditingCurrentUser && isDeveloper(user) && (
-                <p className="UserProfileEdit-notifications--help">
-                  {i18n.gettext(`Mozilla reserves the right to contact you
+                {isEditingCurrentUser && isDeveloper(user) && (
+                  <p className="UserProfileEdit-notifications--help">
+                    {i18n.gettext(`Mozilla reserves the right to contact you
                     individually about specific concerns with your hosted
                     add-ons.`)}
-                </p>
-              )}
-            </Card>
+                  </p>
+                )}
+              </Card>
 
-            <div className="UserProfileEdit-buttons-wrapper">
-              <Button
-                buttonType="action"
-                className="UserProfileEdit-submit-button UserProfileEdit-button"
-                disabled={this.preventSubmit()}
-                puffy
-                type="submit"
-              >
-                {/* eslint-disable-next-line no-nested-ternary */}
-                {isEditingCurrentUser
-                  ? isUpdating
-                    ? i18n.gettext('Updating your profile…')
-                    : i18n.gettext('Update My Profile')
-                  : isUpdating
-                  ? i18n.gettext('Updating profile…')
-                  : i18n.gettext('Update Profile')}
-              </Button>
-              <Button
-                buttonType="neutral"
-                className="UserProfileEdit-button UserProfileEdit-delete-button"
-                disabled={!user}
-                onClick={this.onDeleteProfile}
-                puffy
-                type="button"
-              >
-                {isEditingCurrentUser
-                  ? i18n.gettext('Delete My Profile')
-                  : i18n.gettext(`Delete Profile`)}
-              </Button>
+              <div className="UserProfileEdit-buttons-wrapper">
+                <Button
+                  buttonType="action"
+                  className="UserProfileEdit-submit-button UserProfileEdit-button"
+                  disabled={this.preventSubmit()}
+                  puffy
+                  type="submit"
+                >
+                  {/* eslint-disable-next-line no-nested-ternary */}
+                  {isEditingCurrentUser
+                    ? isUpdating
+                      ? i18n.gettext('Updating your profile…')
+                      : i18n.gettext('Update My Profile')
+                    : isUpdating
+                    ? i18n.gettext('Updating profile…')
+                    : i18n.gettext('Update Profile')}
+                </Button>
+                <Button
+                  buttonType="neutral"
+                  className="UserProfileEdit-button UserProfileEdit-delete-button"
+                  disabled={!user}
+                  onClick={this.onDeleteProfile}
+                  puffy
+                  type="button"
+                >
+                  {isEditingCurrentUser
+                    ? i18n.gettext('Delete My Profile')
+                    : i18n.gettext(`Delete Profile`)}
+                </Button>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
 
-        {this.state.showProfileDeletionModal && (
-          <OverlayCard
-            onEscapeOverlay={this.onCancelProfileDeletion}
-            className={overlayClassName}
-            header={
-              isEditingCurrentUser
-                ? i18n.gettext(
-                    `IMPORTANT: Deleting your Firefox Add-ons profile is irreversible.`,
-                  )
-                : i18n.gettext(
-                    `IMPORTANT: Deleting this Firefox Add-ons profile is irreversible.`,
-                  )
-            }
-            id={overlayClassName}
-            visibleOnLoad
-          >
-            <p>
-              {isEditingCurrentUser
-                ? i18n.gettext(
-                    `Your data will be permanently removed, including profile
+          {this.state.showProfileDeletionModal && (
+            <OverlayCard
+              onEscapeOverlay={this.onCancelProfileDeletion}
+              className={overlayClassName}
+              header={
+                isEditingCurrentUser
+                  ? i18n.gettext(
+                      `IMPORTANT: Deleting your Firefox Add-ons profile is irreversible.`,
+                    )
+                  : i18n.gettext(
+                      `IMPORTANT: Deleting this Firefox Add-ons profile is irreversible.`,
+                    )
+              }
+              id={overlayClassName}
+              visibleOnLoad
+            >
+              <p>
+                {isEditingCurrentUser
+                  ? i18n.gettext(
+                      `Your data will be permanently removed, including profile
                     details (picture, user name, display name, location, home
                     page, biography, occupation) and notification preferences.
                     Your reviews and ratings will be anonymised and no longer
                     editable.`,
-                  )
-                : i18n.gettext(
-                    `The user’s data will be permanently removed, including
+                    )
+                  : i18n.gettext(
+                      `The user’s data will be permanently removed, including
                     profile details (picture, user name, display name,
                     location, home page, biography, occupation) and
                     notification preferences. Reviews and ratings will be
                     anonymised and no longer editable.`,
-                  )}
-            </p>
-            {isEditingCurrentUser && (
-              <p>
-                {i18n.gettext(
-                  `When you use this email address to log in again to
+                    )}
+              </p>
+              {isEditingCurrentUser && (
+                <p>
+                  {i18n.gettext(
+                    `When you use this email address to log in again to
                   addons.mozilla.org, you will create a new Firefox Add-ons
                   profile that is in no way associated with the profile you
                   deleted.`,
-                )}
-              </p>
-            )}
-            <p
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={sanitizeHTML(
-                i18n.sprintf(
-                  isEditingCurrentUser
-                    ? i18n.gettext(
-                        `%(strongStart)sNOTE:%(strongEnd)s You cannot delete
+                  )}
+                </p>
+              )}
+              <p
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={sanitizeHTML(
+                  i18n.sprintf(
+                    isEditingCurrentUser
+                      ? i18n.gettext(
+                          `%(strongStart)sNOTE:%(strongEnd)s You cannot delete
                         your profile if you are the %(linkStart)sauthor of any
                         add-ons%(linkEnd)s. You must %(docLinkStart)stransfer
                         ownership%(docLinkEnd)s or delete the add-ons before
                         you can delete your profile.`,
-                      )
-                    : i18n.gettext(
-                        `%(strongStart)sNOTE:%(strongEnd)s You cannot delete a
+                        )
+                      : i18n.gettext(
+                          `%(strongStart)sNOTE:%(strongEnd)s You cannot delete a
                         user’s profile if the user is the %(linkStart)sauthor
                         of any add-ons%(linkEnd)s.`,
-                      ),
-                  {
-                    linkStart: `<a href="${userProfileURL}">`,
-                    linkEnd: '</a>',
-                    docLinkStart:
-                      '<a href="https://developer.mozilla.org/Add-ons/Distribution#More_information_about_AMO">',
-                    docLinkEnd: '</a>',
-                    strongStart: '<strong>',
-                    strongEnd: '</strong>',
-                  },
-                ),
-                ['a', 'strong'],
-              )}
-            />
-            <div className="UserProfileEdit-buttons-wrapper">
-              <Button
-                buttonType="alert"
-                className="UserProfileEdit-button UserProfileEdit-confirm-button"
-                disabled={!!(user && user.num_addons_listed > 0)}
-                onClick={this.onConfirmProfileDeletion}
-                puffy
-              >
-                {isEditingCurrentUser
-                  ? i18n.gettext('Delete My Profile')
-                  : i18n.gettext('Delete Profile')}
-              </Button>
-              <Button
-                buttonType="cancel"
-                className="UserProfileEdit-button UserProfileEdit-cancel-button"
-                onClick={this.onCancelProfileDeletion}
-              >
-                {i18n.gettext('Cancel')}
-              </Button>
-            </div>
-          </OverlayCard>
-        )}
-      </div>
+                        ),
+                    {
+                      linkStart: `<a href="${userProfileURL}">`,
+                      linkEnd: '</a>',
+                      docLinkStart:
+                        '<a href="https://developer.mozilla.org/Add-ons/Distribution#More_information_about_AMO">',
+                      docLinkEnd: '</a>',
+                      strongStart: '<strong>',
+                      strongEnd: '</strong>',
+                    },
+                  ),
+                  ['a', 'strong'],
+                )}
+              />
+              <div className="UserProfileEdit-buttons-wrapper">
+                <Button
+                  buttonType="alert"
+                  className="UserProfileEdit-button UserProfileEdit-confirm-button"
+                  disabled={!!(user && user.num_addons_listed > 0)}
+                  onClick={this.onConfirmProfileDeletion}
+                  puffy
+                >
+                  {isEditingCurrentUser
+                    ? i18n.gettext('Delete My Profile')
+                    : i18n.gettext('Delete Profile')}
+                </Button>
+                <Button
+                  buttonType="cancel"
+                  className="UserProfileEdit-button UserProfileEdit-cancel-button"
+                  onClick={this.onCancelProfileDeletion}
+                >
+                  {i18n.gettext('Cancel')}
+                </Button>
+              </div>
+            </OverlayCard>
+          )}
+        </div>
+      </Page>
     );
   }
 }

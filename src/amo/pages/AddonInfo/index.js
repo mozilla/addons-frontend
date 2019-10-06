@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
+import Page from 'amo/components/Page';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -181,30 +182,32 @@ export class AddonInfoBase extends React.Component<InternalProps> {
     }
 
     return (
-      <div className={makeClassName('AddonInfo', `AddonInfo--${infoType}`)}>
-        {addon && (
-          <Helmet>
-            <title>{header}</title>
-            <meta name="robots" content="noindex, follow" />
-          </Helmet>
-        )}
-
-        {errorHandler.renderErrorIfPresent()}
-
-        <AddonSummaryCard addon={addon} headerText={header} />
-
-        <Card className="AddonInfo-info" header={header}>
-          {infoHtml ? (
-            <p
-              className="AddonInfo-info-html"
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={infoHtml}
-            />
-          ) : (
-            <LoadingText />
+      <Page>
+        <div className={makeClassName('AddonInfo', `AddonInfo--${infoType}`)}>
+          {addon && (
+            <Helmet>
+              <title>{header}</title>
+              <meta name="robots" content="noindex, follow" />
+            </Helmet>
           )}
-        </Card>
-      </div>
+
+          {errorHandler.renderErrorIfPresent()}
+
+          <AddonSummaryCard addon={addon} headerText={header} />
+
+          <Card className="AddonInfo-info" header={header}>
+            {infoHtml ? (
+              <p
+                className="AddonInfo-info-html"
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={infoHtml}
+              />
+            ) : (
+              <LoadingText />
+            )}
+          </Card>
+        </div>
+      </Page>
     );
   }
 }

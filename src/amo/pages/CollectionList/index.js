@@ -3,6 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import Page from 'amo/components/Page';
 import {
   expandCollections,
   fetchUserCollections,
@@ -105,38 +106,40 @@ export class CollectionListBase extends React.Component<InternalProps> {
     const { i18n, isLoggedIn } = this.props;
 
     return (
-      <div className="CollectionList">
-        <div className="CollectionList-wrapper">
-          <Card
-            className="CollectionList-info"
-            header={i18n.gettext('Collections')}
-          >
-            {!isLoggedIn ? (
-              <AuthenticateButton
-                noIcon
-                logInText={i18n.gettext('Log in to view your collections')}
-              />
-            ) : (
-              <>
-                <p className="CollectionList-info-text">
-                  {i18n.gettext(`Collections make it easy to keep track of
-                    favorite add-ons and share your perfectly customized browser
-                    with others.`)}
-                </p>
-                <Button
-                  buttonType="action"
-                  className="CollectionList-create"
-                  puffy
-                  to="/collections/add/"
-                >
-                  {i18n.gettext('Create a collection')}
-                </Button>
-              </>
-            )}
-          </Card>
-          {isLoggedIn ? this.renderCollections() : null}
+      <Page>
+        <div className="CollectionList">
+          <div className="CollectionList-wrapper">
+            <Card
+              className="CollectionList-info"
+              header={i18n.gettext('Collections')}
+            >
+              {!isLoggedIn ? (
+                <AuthenticateButton
+                  noIcon
+                  logInText={i18n.gettext('Log in to view your collections')}
+                />
+              ) : (
+                <>
+                  <p className="CollectionList-info-text">
+                    {i18n.gettext(`Collections make it easy to keep track of
+      favorite add-ons and share your perfectly customized browser
+      with others.`)}
+                  </p>
+                  <Button
+                    buttonType="action"
+                    className="CollectionList-create"
+                    puffy
+                    to="/collections/add/"
+                  >
+                    {i18n.gettext('Create a collection')}
+                  </Button>
+                </>
+              )}
+            </Card>
+            {isLoggedIn ? this.renderCollections() : null}
+          </div>
         </div>
-      </div>
+      </Page>
     );
   }
 }

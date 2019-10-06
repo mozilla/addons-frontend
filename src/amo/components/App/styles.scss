@@ -62,15 +62,6 @@ body {
   }
 }
 
-.App-content-wrapper {
-  margin: 0 auto;
-  max-width: $max-content-width;
-}
-
-.App-content-wrapper-homepage {
-  margin: 0 auto;
-}
-
 h1,
 h2 {
   @include font-bold();
