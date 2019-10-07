@@ -161,9 +161,9 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
             )}
             <div className="HeroRecommendation-info">
               <div className="HeroRecommendation-recommended">
-                {/* translators: If uppercase does not work in your locale, change it */}
-                {/*  to lowercase. This is used as a secondary heading. */}
                 {shelfData ? (
+                  // translators: If uppercase does not work in your locale,
+                  // change it to lowercase. This is used as a secondary heading.
                   i18n.gettext('RECOMMENDED')
                 ) : (
                   <LoadingText width={20} />
