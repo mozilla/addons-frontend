@@ -81,7 +81,7 @@ type CallApiParams = {|
   _log?: typeof log,
 |};
 
-export function callApi({
+export async function callApi({
   endpoint,
   params = {},
   auth = false,
@@ -166,63 +166,57 @@ export function callApi({
     apiURL = utf8.encode(apiURL);
   }
 
-  return fetch(apiURL, options)
-    .then((response) => {
-      // There isn't always a 'Content-Type' in headers, e.g., with a DELETE
-      // method or 5xx responses.
-      let contentType = response.headers.get('Content-Type');
-      contentType = contentType && contentType.toLowerCase();
+  let response;
+  try {
+    response = await fetch(apiURL, options);
+  } catch (fetchError) {
+    // This actually handles the case when the call to fetch() is
+    // rejected, say, for a network connection error, etc.
+    if (errorHandler) {
+      errorHandler.handle(fetchError);
+    }
+    throw fetchError;
+  }
+  // There isn't always a 'Content-Type' in headers, e.g., with a DELETE
+  // method or 5xx responses.
+  let contentType = response.headers.get('Content-Type');
+  contentType = contentType && contentType.toLowerCase();
 
-      // This is a bit paranoid, but we ensure the API returns a JSON response
-      // (see https://github.com/mozilla/addons-frontend/issues/1701).
-      // If not we'll store the text response in JSON and log an error.
-      // If the JSON parsing fails; we log the error and return an "unknown
-      // error".
-      if (contentType === 'application/json') {
-        return response
-          .json()
-          .then((jsonResponse) => ({ response, jsonResponse }));
-      }
-
-      return response.text().then((text) => {
-        // eslint-disable-next-line amo/only-log-strings
-        _log.warn(
-          oneLine`Response from API was not JSON (was Content-Type:
-            ${contentType || '[unknown]'})`,
-          {
-            body: text ? text.substring(0, 100) : '[empty]',
-            status: response.status || '[unknown]',
-            url: response.url || '[unknown]',
-          },
-        );
-
-        // jsonResponse should be an empty object in this case. Otherwise, its
-        // keys could be treated as generic API errors.
-        return { jsonResponse: {}, response };
-      });
-    })
-    .then(
-      ({ response, jsonResponse }) => {
-        if (response.ok) {
-          return jsonResponse;
-        }
-
-        // If response is not ok we'll throw an error.
-        const apiError = createApiError({ apiURL, response, jsonResponse });
-        if (errorHandler) {
-          errorHandler.handle(apiError);
-        }
-        throw apiError;
-      },
-      (fetchError) => {
-        // This actually handles the case when the call to fetch() is
-        // rejected, say, for a network connection error, etc.
-        if (errorHandler) {
-          errorHandler.handle(fetchError);
-        }
-        throw fetchError;
+  // This is a bit paranoid, but we ensure the API returns a JSON response
+  // (see https://github.com/mozilla/addons-frontend/issues/1701).
+  // If not we'll store the text response in JSON and log an error.
+  // If the JSON parsing fails; we log the error and return an "unknown
+  // error".
+  let jsonResponse;
+  if (contentType === 'application/json') {
+    jsonResponse = await response.json();
+  } else {
+    const text = await response.text();
+    // eslint-disable-next-line amo/only-log-strings
+    _log.warn(
+      oneLine`Response from API was not JSON (was Content-Type: ${contentType ||
+        '[unknown]'})`,
+      {
+        body: text ? text.substring(0, 100) : '[empty]',
+        status: response.status || '[unknown]',
+        url: response.url || '[unknown]',
       },
     );
+    // jsonResponse should be an empty object in this case. Otherwise, its
+    // keys could be treated as generic API errors.
+    jsonResponse = {};
+  }
+
+  if (response.ok) {
+    return jsonResponse;
+  }
+
+  // If response is not ok we'll throw an error.
+  const apiError = createApiError({ apiURL, response, jsonResponse });
+  if (errorHandler) {
+    errorHandler.handle(apiError);
+  }
+  throw apiError;
 }
 
 export type FetchAddonParams = {|
