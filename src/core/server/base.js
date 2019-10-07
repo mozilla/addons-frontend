@@ -502,7 +502,8 @@ function baseServer(
   return app;
 }
 
-export function runServer({
+// eslint-disable-next-line consistent-return
+export async function runServer({
   listen = true,
   exitProcess = true,
   config = defaultConfig,
@@ -517,99 +518,101 @@ export function runServer({
     WebpackIsomorphicToolsConfig,
   );
 
-  return new Promise((resolve) => {
+  try {
     if (!appName) {
       throw new Error(
         `Please specify a valid appName from ${config.get('validAppNames')}`,
       );
     }
-    resolve();
-  })
-    .then(() => isoMorphicServer.server(config.get('basePath')))
-    .then(() => {
-      global.webpackIsomorphicTools = isoMorphicServer;
-      // Webpack Isomorphic tools is ready
-      // now fire up the actual server.
-      return new Promise((resolve, reject) => {
-        /* eslint-disable global-require, import/no-dynamic-require */
-        const App = require(`${appName}/components/App`).default;
-        const createStore = require(`${appName}/store`).default;
-        /* eslint-enable global-require, import/no-dynamic-require */
-        let server = baseServer(App, createStore, {
-          appInstanceName: appName,
-        });
-        if (listen === true) {
-          if (useHttpsForDev) {
-            if (host === 'example.com') {
-              const options = {
-                key: fs.readFileSync(
-                  'bin/local-dev-server-certs/example.com.key.pem',
-                ),
-                cert: fs.readFileSync(
-                  'bin/local-dev-server-certs/example.com.crt.pem',
-                ),
-                ca: fs.readFileSync(
-                  'bin/local-dev-server-certs/example.com.ca.crt.pem',
-                ),
-                passphrase: '',
-              };
-              server = https.createServer(options, server);
-            } else {
-              log.info(
-                `To use the HTTPS server you must serve the site at example.com (host was "${host}")`,
-              );
-            }
-          }
-          server.listen(port, host, (err) => {
-            if (err) {
-              return reject(err);
-            }
-            const proxyEnabled = convertBoolean(config.get('proxyEnabled'));
-            // Not using oneLine here since it seems to change '  ' to ' '.
-            // eslint-disable-next-line amo/only-log-strings
-            log.info(
-              [
-                `🔥  Addons-frontend server is running`,
-                `[ENV:${config.util.getEnv('NODE_ENV')}]`,
-                `[APP:${appName}]`,
-                `[isDevelopment:${config.get('isDevelopment')}]`,
-                `[isDeployed:${config.get('isDeployed')}]`,
-                `[apiHost:${config.get('apiHost')}]`,
-                `[apiPath:${config.get('apiPath')}]`,
-                `[apiVersion:${config.get('apiVersion')}]`,
-              ].join(' '),
-            );
-            if (proxyEnabled) {
-              const proxyPort = config.get('proxyPort');
-              log.info(
-                `🚦  Proxy detected, frontend running at http://${host}:${port}.`,
-              );
-              log.info(
-                `👁  Open your browser at http://localhost:${proxyPort} to view it.`,
-              );
-            } else {
-              log.info(
-                `👁  Open your browser at http${
-                  useHttpsForDev ? 's' : ''
-                }://${host}:${port} to view it.`,
-              );
-            }
-            return resolve(server);
-          });
-        } else {
-          resolve(server);
-        }
-      });
-    })
-    .catch((err) => {
-      // eslint-disable-next-line amo/only-log-strings
-      log.error({ err });
 
-      if (exitProcess) {
-        process.exit(1);
+    await isoMorphicServer.server(config.get('basePath'));
+    global.webpackIsomorphicTools = isoMorphicServer;
+
+    // Webpack Isomorphic tools is ready
+    // now fire up the actual server.
+    return await new Promise((resolve, reject) => {
+      /* eslint-disable global-require, import/no-dynamic-require */
+      const App = require(`${appName}/components/App`).default;
+      const createStore = require(`${appName}/store`).default;
+      /* eslint-enable global-require, import/no-dynamic-require */
+      let server = baseServer(App, createStore, {
+        appInstanceName: appName,
+      });
+
+      if (listen === true) {
+        if (useHttpsForDev) {
+          if (host === 'example.com') {
+            const options = {
+              key: fs.readFileSync(
+                'bin/local-dev-server-certs/example.com.key.pem',
+              ),
+              cert: fs.readFileSync(
+                'bin/local-dev-server-certs/example.com.crt.pem',
+              ),
+              ca: fs.readFileSync(
+                'bin/local-dev-server-certs/example.com.ca.crt.pem',
+              ),
+              passphrase: '',
+            };
+            server = https.createServer(options, server);
+          } else {
+            log.info(
+              `To use the HTTPS server you must serve the site at example.com (host was "${host}")`,
+            );
+          }
+        }
+
+        server.listen(port, host, (err) => {
+          if (err) {
+            reject(err);
+          }
+          const proxyEnabled = convertBoolean(config.get('proxyEnabled'));
+          // Not using oneLine here since it seems to change '  ' to ' '.
+          // eslint-disable-next-line amo/only-log-strings
+          log.info(
+            [
+              `🔥  Addons-frontend server is running`,
+              `[ENV:${config.util.getEnv('NODE_ENV')}]`,
+              `[APP:${appName}]`,
+              `[isDevelopment:${config.get('isDevelopment')}]`,
+              `[isDeployed:${config.get('isDeployed')}]`,
+              `[apiHost:${config.get('apiHost')}]`,
+              `[apiPath:${config.get('apiPath')}]`,
+              `[apiVersion:${config.get('apiVersion')}]`,
+            ].join(' '),
+          );
+
+          if (proxyEnabled) {
+            const proxyPort = config.get('proxyPort');
+            log.info(
+              `🚦  Proxy detected, frontend running at http://${host}:${port}.`,
+            );
+            log.info(
+              `👁  Open your browser at http://localhost:${proxyPort} to view it.`,
+            );
+          } else {
+            log.info(
+              `👁  Open your browser at http${
+                useHttpsForDev ? 's' : ''
+              }://${host}:${port} to view it.`,
+            );
+          }
+
+          resolve(server);
+        });
       } else {
-        throw err;
+        resolve(server);
       }
     });
+  } catch (err) {
+    // eslint-disable-next-line amo/only-log-strings
+    log.error({ err });
+
+    if (exitProcess) {
+      process.exit(1);
+    } else {
+      throw err;
+    }
+  }
 }
 export default baseServer;
