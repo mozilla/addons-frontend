@@ -200,14 +200,25 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       });
     }
 
-    if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
-      let newPath =
-        location.query.to || `/${lang}/${clientApp}/user/${newUserId}/`;
-      if (!newPath.startsWith('/')) {
-        newPath = `/${newPath}`;
-      }
+    const redirectToUserProfile = () => {
+      history.push(`/${lang}/${clientApp}/user/${newUserId}/`);
+    };
 
-      history.push(newPath);
+    if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
+      let toPath = location.query.to;
+      if (toPath) {
+        if (!toPath.startsWith('/')) {
+          toPath = `/${toPath}`;
+        }
+        try {
+          history.push(toPath);
+        } catch (error) {
+          log.warn(`Error redirecting to location: ${toPath}`);
+          redirectToUserProfile();
+        }
+      } else {
+        redirectToUserProfile();
+      }
     }
 
     if (
@@ -795,14 +806,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                     puffy
                     type="submit"
                   >
-                    {/* eslint-disable-next-line no-nested-ternary */}
-                    {isEditingCurrentUser
-                      ? isUpdating
-                        ? i18n.gettext('Updating your profile…')
-                        : i18n.gettext('Update My Profile')
-                      : isUpdating
-                      ? i18n.gettext('Updating profile…')
-                      : i18n.gettext('Update Profile')}
+                    {submitButtonText}
                   </Button>
                   <Button
                     buttonType="neutral"

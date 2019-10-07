@@ -937,31 +937,67 @@ describe(__filename, () => {
     const location = createFakeLocation({ query: { to } });
     const params = { userId };
 
-    const occupation = 'new occupation';
-
-    _updateUserAccount({
-      store,
-      userFields: {
-        occupation,
-      },
-      userId: user.id,
-    });
+    _updateUserAccount({ store, userId: user.id });
 
     const root = renderUserProfileEdit({ history, location, params, store });
 
-    expect(root.find(Notice)).toHaveLength(0);
-    expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
-      'disabled',
-      true,
-    );
-
-    // The user profile has been updated.
-    store.dispatch(finishUpdateUserAccount());
-
-    const { isUpdating } = store.getState().users;
-    root.setProps({ isUpdating });
+    // Simulate a user having been updated.
+    root.setProps({ isUpdating: false });
 
     sinon.assert.calledWith(history.push, to);
+  });
+
+  it('converts an absolute `to` URL into a relative one', () => {
+    const userId = 123;
+    const to = 'https://addons.mozilla.org/addon/some-slug/';
+    const { store } = dispatchSignInActions({
+      userId,
+      userProps: defaultUserProps({ userId }),
+    });
+    const user = getCurrentUser(store.getState().users);
+    const history = createFakeHistory();
+    const location = createFakeLocation({ query: { to } });
+    const params = { userId };
+
+    _updateUserAccount({ store, userId: user.id });
+
+    const root = renderUserProfileEdit({ history, location, params, store });
+
+    // Simulate a user having been updated.
+    root.setProps({ isUpdating: false });
+
+    sinon.assert.calledWith(history.push, `/${to}`);
+  });
+
+  it('redirects to user profile page if the `to` URL throws an error', () => {
+    const userId = 123;
+    const to = '//addons.mozilla.org/addon/some-slug/';
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'en-US';
+    const { store } = dispatchSignInActions({
+      clientApp,
+      lang,
+      userId,
+      userProps: defaultUserProps({ userId }),
+    });
+    const user = getCurrentUser(store.getState().users);
+    const history = createFakeHistory();
+    const location = createFakeLocation({ query: { to } });
+    const params = { userId };
+
+    _updateUserAccount({ store, userId: user.id });
+
+    const root = renderUserProfileEdit({ history, location, params, store });
+
+    history.push.onCall(0).throws(new Error('Some error'));
+    history.push.onCall(1).returns();
+
+    root.setProps({ isUpdating: false });
+
+    sinon.assert.callOrder(
+      history.push.withArgs(`${to}`),
+      history.push.withArgs(`/${lang}/${clientApp}/user/${userId}/`),
+    );
   });
 
   it('does not render a success message when an error occurred', () => {
