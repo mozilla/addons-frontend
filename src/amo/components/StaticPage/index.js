@@ -5,7 +5,6 @@ import * as React from 'react';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import Page from 'amo/components/Page';
-import Card from 'ui/components/Card';
 
 import './styles.scss';
 
@@ -19,18 +18,20 @@ const StaticPage = (props: Props) => {
   const { title, metaDescription, children } = props;
 
   return (
-    <Page>
-      <Card className="StaticPage" header={title}>
-        <Helmet>
-          <title>{title}</title>
-        </Helmet>
+    <Page
+      className="StaticPage"
+      componentProps={{ header: title }}
+      ComponentType="Card"
+    >
+      <Helmet>
+        <title>{title}</title>
+      </Helmet>
 
-        <HeadMetaTags description={metaDescription} title={title} />
+      <HeadMetaTags description={metaDescription} title={title} />
 
-        <HeadLinks />
+      <HeadLinks />
 
-        <div className="StaticPage-content">{children}</div>
-      </Card>
+      <div className="StaticPage-content">{children}</div>
     </Page>
   );
 };

@@ -182,31 +182,29 @@ export class AddonInfoBase extends React.Component<InternalProps> {
     }
 
     return (
-      <Page>
-        <div className={makeClassName('AddonInfo', `AddonInfo--${infoType}`)}>
-          {addon && (
-            <Helmet>
-              <title>{header}</title>
-              <meta name="robots" content="noindex, follow" />
-            </Helmet>
+      <Page className={makeClassName('AddonInfo', `AddonInfo--${infoType}`)}>
+        {addon && (
+          <Helmet>
+            <title>{header}</title>
+            <meta name="robots" content="noindex, follow" />
+          </Helmet>
+        )}
+
+        {errorHandler.renderErrorIfPresent()}
+
+        <AddonSummaryCard addon={addon} headerText={header} />
+
+        <Card className="AddonInfo-info" header={header}>
+          {infoHtml ? (
+            <p
+              className="AddonInfo-info-html"
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={infoHtml}
+            />
+          ) : (
+            <LoadingText />
           )}
-
-          {errorHandler.renderErrorIfPresent()}
-
-          <AddonSummaryCard addon={addon} headerText={header} />
-
-          <Card className="AddonInfo-info" header={header}>
-            {infoHtml ? (
-              <p
-                className="AddonInfo-info-html"
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={infoHtml}
-              />
-            ) : (
-              <LoadingText />
-            )}
-          </Card>
-        </div>
+        </Card>
       </Page>
     );
   }

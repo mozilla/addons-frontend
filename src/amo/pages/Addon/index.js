@@ -428,101 +428,98 @@ export class AddonBase extends React.Component {
       : 0;
 
     return (
-      <Page>
-        <div
-          className={makeClassName('Addon', `Addon-${addonType}`, {
-            'Addon-theme': isThemeType,
-            'Addon--has-more-than-0-addons': numberOfAddonsByAuthors > 0,
-            'Addon--has-more-than-3-addons': numberOfAddonsByAuthors > 3,
-          })}
-          data-site-identifier={addon ? addon.id : null}
-        >
-          <AddonHead addon={addon} />
+      <Page
+        className={makeClassName('Addon', `Addon-${addonType}`, {
+          'Addon-theme': isThemeType,
+          'Addon--has-more-than-0-addons': numberOfAddonsByAuthors > 0,
+          'Addon--has-more-than-3-addons': numberOfAddonsByAuthors > 3,
+        })}
+        componentProps={{ 'data-site-identifier': addon ? addon.id : null }}
+      >
+        <AddonHead addon={addon} />
 
-          {errorBanner}
+        {errorBanner}
 
-          <div className="Addon-header-wrapper">
-            <Card className="Addon-header-info-card" photonStyle>
-              <AddonInstallError error={this.props.installError} />
+        <div className="Addon-header-wrapper">
+          <Card className="Addon-header-info-card" photonStyle>
+            <AddonInstallError error={this.props.installError} />
 
-              <AddonCompatibilityError addon={addon} />
+            <AddonCompatibilityError addon={addon} />
 
-              {addon &&
-              (addon.status !== STATUS_PUBLIC || addon.is_disabled) ? (
-                <Notice type="error" className="Addon-non-public-notice">
-                  {i18n.gettext(
-                    'This is not a public listing. You are only seeing it because of elevated permissions.',
-                  )}
-                </Notice>
-              ) : null}
+            {addon && (addon.status !== STATUS_PUBLIC || addon.is_disabled) ? (
+              <Notice type="error" className="Addon-non-public-notice">
+                {i18n.gettext(
+                  'This is not a public listing. You are only seeing it because of elevated permissions.',
+                )}
+              </Notice>
+            ) : null}
 
-              <header className="Addon-header">
-                {this.headerImage()}
+            <header className="Addon-header">
+              {this.headerImage()}
 
-                <AddonTitle addon={addon} />
+              <AddonTitle addon={addon} />
 
-                <AddonBadges addon={addon} />
+              <AddonBadges addon={addon} />
 
-                <div className="Addon-summary-and-install-button-wrapper">
-                  {showSummary ? (
-                    <p className="Addon-summary" {...summaryProps} />
-                  ) : null}
+              <div className="Addon-summary-and-install-button-wrapper">
+                {showSummary ? (
+                  <p className="Addon-summary" {...summaryProps} />
+                ) : null}
 
-                  {addon && (
-                    <InstallButtonWrapper
-                      addon={addon}
-                      defaultInstallSource={INSTALL_SOURCE_DETAIL_PAGE}
-                      getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
-                    />
-                  )}
-                </div>
+                {addon && (
+                  <InstallButtonWrapper
+                    addon={addon}
+                    defaultInstallSource={INSTALL_SOURCE_DETAIL_PAGE}
+                    getFirefoxButtonType={GET_FIREFOX_BUTTON_TYPE_ADDON}
+                  />
+                )}
+              </div>
 
-                <h2 className="visually-hidden">
-                  {i18n.gettext('Extension Metadata')}
-                </h2>
-              </header>
-              {addon && <InstallWarning addon={addon} />}
-            </Card>
+              <h2 className="visually-hidden">
+                {i18n.gettext('Extension Metadata')}
+              </h2>
+            </header>
+            {addon && <InstallWarning addon={addon} />}
+          </Card>
 
-            <Card className="Addon-header-meta-and-ratings" photonStyle>
-              <AddonMeta addon={addon} />
-            </Card>
+          <Card className="Addon-header-meta-and-ratings" photonStyle>
+            <AddonMeta addon={addon} />
+          </Card>
+        </div>
+
+        <div className="Addon-details">
+          <div className="Addon-main-content">
+            {this.renderAddonsByAuthorsCard({ isForTheme: true })}
+
+            {addonPreviews.length > 0 && !isThemeType ? (
+              <Card
+                className="Addon-screenshots"
+                header={i18n.gettext('Screenshots')}
+              >
+                <ScreenShots previews={addonPreviews} />
+              </Card>
+            ) : null}
+
+            {this.renderShowMoreCard()}
+
+            {addonType === ADDON_TYPE_EXTENSION && (
+              <AddonRecommendations addon={addon} />
+            )}
           </div>
 
-          <div className="Addon-details">
-            <div className="Addon-main-content">
-              {this.renderAddonsByAuthorsCard({ isForTheme: true })}
+          {this.renderRatingsCard()}
 
-              {addonPreviews.length > 0 && !isThemeType ? (
-                <Card
-                  className="Addon-screenshots"
-                  header={i18n.gettext('Screenshots')}
-                >
-                  <ScreenShots previews={addonPreviews} />
-                </Card>
-              ) : null}
+          <ContributeCard addon={addon} />
 
-              {this.renderShowMoreCard()}
+          <PermissionsCard version={currentVersion} />
 
-              {addonType === ADDON_TYPE_EXTENSION && (
-                <AddonRecommendations addon={addon} />
-              )}
-            </div>
+          <AddonMoreInfo addon={addon} />
 
-            {this.renderRatingsCard()}
+          <AddAddonToCollection addon={addon} />
 
-            <ContributeCard addon={addon} />
+          {this.renderVersionReleaseNotes()}
 
-            <PermissionsCard version={currentVersion} />
-
-            <AddonMoreInfo addon={addon} />
-
-            <AddAddonToCollection addon={addon} />
-
-            {this.renderVersionReleaseNotes()}
-
-            {this.renderAddonsByAuthorsCard({ isForTheme: false })}
-          </div>
+          {this.renderAddonsByAuthorsCard({ isForTheme: false })}
         </div>
       </Page>
     );

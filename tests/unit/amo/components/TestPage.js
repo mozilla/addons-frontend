@@ -26,18 +26,16 @@ describe(__filename, () => {
     expect(root.find(Header)).toHaveProp('isHomePage', isHomePage);
   });
 
-  it('uses the expected className for a page other than the home page', () => {
+  it('assigns a className to a page other than the home page', () => {
     const root = render({ isHomePage: false });
 
-    expect(root.find('.Page')).toHaveLength(1);
-    expect(root.find('.Page-homepage')).toHaveLength(0);
+    expect(root.find('.Page-not-homepage')).toHaveLength(1);
   });
 
-  it('uses the expected className for the home page', () => {
+  it('does not assign an extra className to the home page', () => {
     const root = render({ isHomePage: true });
 
-    expect(root.find('.Page')).toHaveLength(0);
-    expect(root.find('.Page-homepage')).toHaveLength(1);
+    expect(root.find('.Page-not-homepage')).toHaveLength(0);
   });
 
   it('renders an AppBanner if it is not the home page', () => {
@@ -62,6 +60,37 @@ describe(__filename, () => {
     });
 
     expect(root.find(AppBanner)).toHaveLength(0);
+  });
+
+  it('can assign a className to the rendered component', () => {
+    const className = 'a-component-className';
+    const root = render({ className });
+
+    expect(root.find(`.${className}`)).toHaveLength(1);
+  });
+
+  it('renders a div by default', () => {
+    const className = 'a-component-className';
+    const root = render({ className });
+
+    expect(root.find(`div.${className}`)).toHaveLength(1);
+  });
+
+  it('can render a different top level component', () => {
+    const className = 'a-component-className';
+    const ComponentType = 'span';
+    const root = render({ className, ComponentType });
+
+    expect(root.find(`${ComponentType}.${className}`)).toHaveLength(1);
+  });
+
+  it('passes componentProps into the rendered component', () => {
+    const className = 'a-component-className';
+    const header = 'header text';
+    const componentProps = { header };
+    const root = render({ className, componentProps });
+
+    expect(root.find(`.${className}`)).toHaveProp('header', header);
   });
 
   it('renders children', () => {

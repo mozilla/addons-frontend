@@ -5,6 +5,7 @@ import { oneLine } from 'common-tags';
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
 
@@ -250,6 +251,7 @@ export function mapDispatchToProps(dispatch: DispatchFunc) {
 }
 
 const App: React.ComponentType<Props> = compose(
+  withRouter,
   connect(
     mapStateToProps,
     mapDispatchToProps,

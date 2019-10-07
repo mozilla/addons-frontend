@@ -231,8 +231,7 @@ describe(__filename, () => {
         params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION) },
       },
     });
-
-    expect(root.find('.LandingPage')).toIncludeText(
+    expect(root.find('.LandingPage-heading-content')).toIncludeText(
       'Explore powerful tools and features',
     );
   });
@@ -401,7 +400,7 @@ describe(__filename, () => {
       },
     });
 
-    expect(root.find('.LandingPage')).toIncludeText(
+    expect(root.find('.LandingPage-heading-content')).toIncludeText(
       "Change your browser's appearance",
     );
   });

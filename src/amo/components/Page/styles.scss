@@ -2,9 +2,8 @@
 
 .Page {
   margin: 0 auto;
-  max-width: $max-content-width;
 }
 
-.Page-homepage {
-  margin: 0 auto;
+.Page-not-homepage {
+  max-width: $max-content-width;
 }

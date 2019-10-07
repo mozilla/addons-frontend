@@ -339,145 +339,143 @@ export class UserProfileBase extends React.Component<InternalProps> {
       : i18n.gettext('User Profile');
 
     return (
-      <Page>
-        <div className="UserProfile">
-          <UserProfileHead
-            title={userProfileTitle}
-            description={this.getMetaDescription()}
-          />
+      <Page className="UserProfile">
+        <UserProfileHead
+          title={userProfileTitle}
+          description={this.getMetaDescription()}
+        />
 
-          {errorMessage}
+        {errorMessage}
 
-          <div className="UserProfile-wrapper">
-            <Card className="UserProfile-user-info" header={userProfileHeader}>
-              <DefinitionList className="UserProfile-dl">
-                {user && user.homepage ? (
-                  <Definition
-                    className="UserProfile-homepage"
-                    term={i18n.gettext('Homepage')}
-                  >
-                    <a href={user.homepage}>{i18n.gettext('Homepage')}</a>
-                  </Definition>
-                ) : null}
-                {user && user.location ? (
-                  <Definition
-                    className="UserProfile-location"
-                    term={i18n.gettext('Location')}
-                  >
-                    {user.location}
-                  </Definition>
-                ) : null}
-                {user && user.occupation ? (
-                  <Definition
-                    className="UserProfile-occupation"
-                    term={i18n.gettext('Occupation')}
-                  >
-                    {user.occupation}
-                  </Definition>
-                ) : null}
+        <div className="UserProfile-wrapper">
+          <Card className="UserProfile-user-info" header={userProfileHeader}>
+            <DefinitionList className="UserProfile-dl">
+              {user && user.homepage ? (
                 <Definition
-                  className="UserProfile-user-since"
-                  term={i18n.gettext('User since')}
+                  className="UserProfile-homepage"
+                  term={i18n.gettext('Homepage')}
                 >
-                  {user ? (
-                    i18n.moment(user.created).format('ll')
-                  ) : (
-                    <LoadingText />
-                  )}
+                  <a href={user.homepage}>{i18n.gettext('Homepage')}</a>
                 </Definition>
-                <Definition
-                  className="UserProfile-number-of-addons"
-                  term={i18n.gettext('Number of add-ons')}
-                >
-                  {user ? user.num_addons_listed : <LoadingText />}
-                </Definition>
-                <Definition
-                  className="UserProfile-rating-average"
-                  term={i18n.gettext('Average rating of developer’s add-ons')}
-                >
-                  {user ? (
-                    <Rating
-                      rating={user.average_addon_rating}
-                      readOnly
-                      styleSize="small"
-                    />
-                  ) : (
-                    <LoadingText />
-                  )}
-                </Definition>
-                {user && user.biography && user.biography.length ? (
-                  <Definition
-                    className="UserProfile-biography"
-                    term={i18n.gettext('Biography')}
-                  >
-                    <div
-                      // eslint-disable-next-line react/no-danger
-                      dangerouslySetInnerHTML={sanitizeUserHTML(user.biography)}
-                    />
-                  </Definition>
-                ) : null}
-              </DefinitionList>
-
-              {!isOwner && (
-                <ReportUserAbuse
-                  className="UserProfile-abuse-button"
-                  user={user}
-                />
-              )}
-
-              {canEditProfile ? (
-                <Button
-                  className="UserProfile-edit-link"
-                  buttonType="neutral"
-                  to={this.getEditURL()}
-                  puffy
-                >
-                  {i18n.gettext('Edit profile')}
-                </Button>
               ) : null}
-
-              {canAdminUser && user ? (
-                <Button
-                  className="UserProfile-admin-link"
-                  buttonType="neutral"
-                  href={`/admin/models/users/userprofile/${user.id}/`}
-                  puffy
+              {user && user.location ? (
+                <Definition
+                  className="UserProfile-location"
+                  term={i18n.gettext('Location')}
                 >
-                  {// translators: This action allows an admin to maintain a user.
-                  i18n.gettext('Admin user')}
-                </Button>
+                  {user.location}
+                </Definition>
               ) : null}
-            </Card>
+              {user && user.occupation ? (
+                <Definition
+                  className="UserProfile-occupation"
+                  term={i18n.gettext('Occupation')}
+                >
+                  {user.occupation}
+                </Definition>
+              ) : null}
+              <Definition
+                className="UserProfile-user-since"
+                term={i18n.gettext('User since')}
+              >
+                {user ? (
+                  i18n.moment(user.created).format('ll')
+                ) : (
+                  <LoadingText />
+                )}
+              </Definition>
+              <Definition
+                className="UserProfile-number-of-addons"
+                term={i18n.gettext('Number of add-ons')}
+              >
+                {user ? user.num_addons_listed : <LoadingText />}
+              </Definition>
+              <Definition
+                className="UserProfile-rating-average"
+                term={i18n.gettext('Average rating of developer’s add-ons')}
+              >
+                {user ? (
+                  <Rating
+                    rating={user.average_addon_rating}
+                    readOnly
+                    styleSize="small"
+                  />
+                ) : (
+                  <LoadingText />
+                )}
+              </Definition>
+              {user && user.biography && user.biography.length ? (
+                <Definition
+                  className="UserProfile-biography"
+                  term={i18n.gettext('Biography')}
+                >
+                  <div
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={sanitizeUserHTML(user.biography)}
+                  />
+                </Definition>
+              ) : null}
+            </DefinitionList>
 
-            <div className="UserProfile-addons-and-reviews">
-              <AddonsByAuthorsCard
-                addonType={ADDON_TYPE_EXTENSION}
-                authorDisplayName={user ? user.name : null}
-                authorIds={user ? [user.id] : null}
-                errorHandler={errorHandler}
-                numberOfAddons={EXTENSIONS_BY_AUTHORS_PAGE_SIZE}
-                pageParam="page_e"
-                paginate
-                pathname={this.getURL()}
-                showMore={false}
-                showSummary
-                type="vertical"
+            {!isOwner && (
+              <ReportUserAbuse
+                className="UserProfile-abuse-button"
+                user={user}
               />
+            )}
 
-              <AddonsByAuthorsCard
-                addonType={ADDON_TYPE_THEME}
-                authorDisplayName={user ? user.name : null}
-                authorIds={user ? [user.id] : null}
-                errorHandler={errorHandler}
-                numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
-                pageParam="page_t"
-                paginate
-                pathname={this.getURL()}
-                showMore={false}
-              />
+            {canEditProfile ? (
+              <Button
+                className="UserProfile-edit-link"
+                buttonType="neutral"
+                to={this.getEditURL()}
+                puffy
+              >
+                {i18n.gettext('Edit profile')}
+              </Button>
+            ) : null}
 
-              {this.renderReviews()}
-            </div>
+            {canAdminUser && user ? (
+              <Button
+                className="UserProfile-admin-link"
+                buttonType="neutral"
+                href={`/admin/models/users/userprofile/${user.id}/`}
+                puffy
+              >
+                {// translators: This action allows an admin to maintain a user.
+                i18n.gettext('Admin user')}
+              </Button>
+            ) : null}
+          </Card>
+
+          <div className="UserProfile-addons-and-reviews">
+            <AddonsByAuthorsCard
+              addonType={ADDON_TYPE_EXTENSION}
+              authorDisplayName={user ? user.name : null}
+              authorIds={user ? [user.id] : null}
+              errorHandler={errorHandler}
+              numberOfAddons={EXTENSIONS_BY_AUTHORS_PAGE_SIZE}
+              pageParam="page_e"
+              paginate
+              pathname={this.getURL()}
+              showMore={false}
+              showSummary
+              type="vertical"
+            />
+
+            <AddonsByAuthorsCard
+              addonType={ADDON_TYPE_THEME}
+              authorDisplayName={user ? user.name : null}
+              authorIds={user ? [user.id] : null}
+              errorHandler={errorHandler}
+              numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
+              pageParam="page_t"
+              paginate
+              pathname={this.getURL()}
+              showMore={false}
+            />
+
+            {this.renderReviews()}
           </div>
         </div>
       </Page>

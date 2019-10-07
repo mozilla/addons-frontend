@@ -295,7 +295,9 @@ describe(__filename, () => {
     const root = renderComponent({ store });
 
     expect(root.find('.Addon')).toHaveLength(1);
-    expect(root.find('.Addon')).toHaveProp('data-site-identifier', addon.id);
+    expect(root.find('.Addon')).toHaveProp('componentProps', {
+      'data-site-identifier': addon.id,
+    });
   });
 
   it('dispatches fetchAddon when rendering without an add-on', () => {
@@ -1421,10 +1423,13 @@ describe(__filename, () => {
   });
 
   it('renders the site identifier as a data attribute', () => {
-    const addon = createInternalAddon({ ...fakeAddon, id: 9001 });
+    const id = 9001;
+    const addon = createInternalAddon({ ...fakeAddon, id });
     const root = shallowRender({ addon });
 
-    expect(root.find('.Addon')).toHaveProp('data-site-identifier', 9001);
+    expect(root.find('.Addon')).toHaveProp('componentProps', {
+      'data-site-identifier': id,
+    });
   });
 
   it('renders a ContributeCard', () => {

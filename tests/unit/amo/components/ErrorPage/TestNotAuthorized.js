@@ -5,7 +5,6 @@ import NotAuthorized, {
 } from 'amo/components/ErrorPage/NotAuthorized';
 import { createApiError } from 'core/api';
 import { loadErrorPage } from 'core/reducers/errorPage';
-import Card from 'ui/components/Card';
 import {
   dispatchSignInActions,
   fakeI18n,
@@ -31,6 +30,8 @@ describe(__filename, () => {
   it('renders a not authorized error', () => {
     const root = render();
 
-    expect(root.find(Card)).toHaveProp('header', 'Not Authorized');
+    expect(root.find('.ErrorPage')).toHaveProp('componentProps', {
+      header: 'Not Authorized',
+    });
   });
 });

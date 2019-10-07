@@ -7,7 +7,6 @@ import Page from 'amo/components/Page';
 import SuggestedPages from 'amo/components/SuggestedPages';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
-import Card from 'ui/components/Card';
 import type { I18nType } from 'core/types/i18n';
 
 import '../styles.scss';
@@ -33,22 +32,21 @@ export class NotAuthorizedBase extends React.Component<Props> {
     /* eslint-disable react/no-danger */
     return (
       <NestedStatus code={401}>
-        <Page>
-          <Card
-            className="ErrorPage NotAuthorized"
-            header={i18n.gettext('Not Authorized')}
-          >
-            <p>
-              {i18n.gettext(`
-        Sorry, but you aren't authorized to access this page. If you
-        aren't signed in, try signing in using the link at the top
-        of the page.`)}
-            </p>
+        <Page
+          className="ErrorPage NotAuthorized"
+          componentProps={{ header: i18n.gettext('Not Authorized') }}
+          ComponentType="Card"
+        >
+          <p>
+            {i18n.gettext(`
+              Sorry, but you aren't authorized to access this page. If you
+              aren't signed in, try signing in using the link at the top
+              of the page.`)}
+          </p>
 
-            <SuggestedPages />
+          <SuggestedPages />
 
-            <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
-          </Card>
+          <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
         </Page>
       </NestedStatus>
     );

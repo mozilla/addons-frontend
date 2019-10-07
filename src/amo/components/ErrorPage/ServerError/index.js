@@ -7,7 +7,6 @@ import Page from 'amo/components/Page';
 import SuggestedPages from 'amo/components/SuggestedPages';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
-import Card from 'ui/components/Card';
 
 import '../styles.scss';
 
@@ -28,22 +27,23 @@ export class ServerErrorBase extends React.Component {
     /* eslint-disable react/no-danger */
     return (
       <NestedStatus code={500}>
-        <Page>
-          <Card
-            className="ErrorPage ServerError"
-            header={i18n.gettext('Server Error')}
-          >
-            <p>
-              {i18n.gettext(`
-        Sorry, but there was an error with our server and we couldn't
-        complete your request. We have logged this error and will
-        investigate it.`)}
-            </p>
+        <Page
+          className="ErrorPage ServerError"
+          componentProps={{
+            header: i18n.gettext('Server Error'),
+          }}
+          ComponentType="Card"
+        >
+          <p>
+            {i18n.gettext(`
+              Sorry, but there was an error with our server and we couldn't
+              complete your request. We have logged this error and will
+              investigate it.`)}
+          </p>
 
-            <SuggestedPages />
+          <SuggestedPages />
 
-            <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
-          </Card>
+          <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
         </Page>
       </NestedStatus>
     );

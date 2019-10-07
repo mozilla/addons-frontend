@@ -408,20 +408,18 @@ export class GuidesBase extends React.Component<InternalProps> {
     const { introText, icon, title, sections } = content;
 
     return (
-      <Page>
-        <div className="Guides-page">
-          <Helmet>
-            <title>{title}</title>
-          </Helmet>
-          <HeadLinks />
-          <div className="Guides">
-            <div className="Guides-header">
-              <Icon className="Guides-header-icon" name={icon} />
-              <h1 className="Guides-header-page-title">{title}</h1>
-              <p className="Guides-header-intro">{introText}</p>
-            </div>
-            {this.getGuidesSections(sections)}
+      <Page className="Guides-page">
+        <Helmet>
+          <title>{title}</title>
+        </Helmet>
+        <HeadLinks />
+        <div className="Guides">
+          <div className="Guides-header">
+            <Icon className="Guides-header-icon" name={icon} />
+            <h1 className="Guides-header-page-title">{title}</h1>
+            <p className="Guides-header-intro">{introText}</p>
           </div>
+          {this.getGuidesSections(sections)}
         </div>
       </Page>
     );

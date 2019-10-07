@@ -10,7 +10,13 @@ import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
-type Props = {| children: React.Node, isHomePage?: boolean |};
+type Props = {|
+  children: React.Node,
+  className?: string,
+  componentProps?: { [name: string]: any },
+  ComponentType?: string,
+  isHomePage?: boolean,
+|};
 
 type InternalProps = {|
   ...Props,
@@ -21,19 +27,26 @@ type InternalProps = {|
 export const PageBase = ({
   _config = config,
   children,
+  className,
+  componentProps = {},
+  ComponentType = 'div',
   isHomePage = false,
   location,
 }: InternalProps) => {
   return (
     <>
       <Header isHomePage={isHomePage} location={location} />
-      <div className={makeClassName(isHomePage ? 'Page-homepage' : 'Page')}>
+      <div
+        className={makeClassName('Page', { 'Page-not-homepage': !isHomePage })}
+      >
         {// Exclude the AppBanner from the home page if it will be
         // included via HeroRecommendation.
         (!isHomePage || !_config.get('enableFeatureHeroRecommendation')) && (
           <AppBanner />
         )}
-        {children}
+        <ComponentType className={className} {...componentProps}>
+          {children}
+        </ComponentType>
       </div>
     </>
   );

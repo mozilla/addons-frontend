@@ -4,7 +4,6 @@ import { shallow } from 'enzyme';
 import StaticPage from 'amo/components/StaticPage';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
-import Card from 'ui/components/Card';
 
 describe(__filename, () => {
   const render = ({
@@ -27,8 +26,8 @@ describe(__filename, () => {
     const wrapper = render({ title, metaDescription, children });
 
     expect(wrapper.find(HeadLinks)).toHaveLength(1);
-    expect(wrapper.find(Card)).toHaveClassName('StaticPage');
-    expect(wrapper.find(Card)).toHaveProp('header', title);
+    expect(wrapper).toHaveClassName('StaticPage');
+    expect(wrapper).toHaveProp('componentProps', { header: title });
     expect(wrapper.find(HeadMetaTags)).toHaveProp('title', title);
     expect(wrapper.find(HeadMetaTags)).toHaveProp(
       'description',

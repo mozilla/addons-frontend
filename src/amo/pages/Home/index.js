@@ -235,63 +235,122 @@ export class HomeBase extends React.Component {
     };
 
     return (
-      <Page isHomePage>
-        <div className="Home">
-          <HeadMetaTags
-            description={i18n.gettext(`Download Firefox extensions and themes.
+      <Page className="Home" isHomePage>
+        <HeadMetaTags
+          description={i18n.gettext(`Download Firefox extensions and themes.
             They’re like apps for your browser. They can block annoying ads,
             protect passwords, change browser appearance, and more.`)}
-            withTwitterMeta
-          />
+          withTwitterMeta
+        />
 
-          <HeadLinks />
+        <HeadLinks />
 
-          <span
-            className="visually-hidden do-not-remove"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-              __html: '<!-- Godzilla of browsers -->',
-            }}
-          />
+        <span
+          className="visually-hidden do-not-remove"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: '<!-- Godzilla of browsers -->' }}
+        />
 
-          {errorHandler.renderErrorIfPresent()}
+        {errorHandler.renderErrorIfPresent()}
 
+        {_config.get('enableFeatureHeroRecommendation') &&
+        clientApp !== CLIENT_APP_ANDROID ? (
+          <HeroRecommendation shelfData={heroShelves && heroShelves.primary} />
+        ) : null}
+
+        <div className="Home-content">
           {_config.get('enableFeatureHeroRecommendation') &&
           clientApp !== CLIENT_APP_ANDROID ? (
-            <HeroRecommendation
-              shelfData={heroShelves && heroShelves.primary}
-            />
+            <SecondaryHero shelfData={heroShelves && heroShelves.secondary} />
           ) : null}
 
-          <div className="Home-content">
-            {_config.get('enableFeatureHeroRecommendation') &&
-            clientApp !== CLIENT_APP_ANDROID ? (
-              <SecondaryHero shelfData={heroShelves && heroShelves.secondary} />
-            ) : null}
+          {!_config.get('enableFeatureHeroRecommendation') ||
+          clientApp === CLIENT_APP_ANDROID ? (
+            <HomeHeroGuides />
+          ) : null}
 
-            {!_config.get('enableFeatureHeroRecommendation') ||
-            clientApp === CLIENT_APP_ANDROID ? (
-              <HomeHeroGuides />
-            ) : null}
+          <LandingAddonsCard
+            addonInstallSource={INSTALL_SOURCE_FEATURED}
+            addons={shelves.recommendedExtensions}
+            className="Home-RecommendedExtensions"
+            header={
+              enableFeatureRecommendedBadges
+                ? i18n.gettext('Recommended extensions')
+                : i18n.gettext('Featured extensions')
+            }
+            footerText={
+              enableFeatureRecommendedBadges
+                ? i18n.gettext('See more recommended extensions')
+                : i18n.gettext('See more featured extensions')
+            }
+            footerLink={{
+              pathname: '/search/',
+              query: {
+                addonType: ADDON_TYPE_EXTENSION,
+                featured: enableFeatureRecommendedBadges ? undefined : true,
+                recommended: enableFeatureRecommendedBadges ? true : undefined,
+                sort: enableFeatureRecommendedBadges
+                  ? SEARCH_SORT_RANDOM
+                  : undefined,
+              },
+            }}
+            loading={loading}
+          />
 
+          <LandingAddonsCard
+            addonInstallSource={INSTALL_SOURCE_FEATURED}
+            addons={shelves.popularThemes}
+            className="Home-PopularThemes"
+            header={i18n.gettext('Popular themes')}
+            footerText={i18n.gettext('See more popular themes')}
+            footerLink={{
+              pathname: '/search/',
+              query: {
+                addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
+                  _config: this.props._config,
+                }),
+                sort: SEARCH_SORT_POPULAR,
+              },
+            }}
+            isTheme
+            loading={loading}
+          />
+
+          {renderFeaturedCollection(0)}
+
+          <LandingAddonsCard
+            addonInstallSource={INSTALL_SOURCE_FEATURED}
+            addons={shelves.popularExtensions}
+            className="Home-PopularExtensions"
+            header={i18n.gettext('Popular extensions')}
+            footerText={i18n.gettext('See more popular extensions')}
+            footerLink={{
+              pathname: '/search/',
+              query: {
+                addonType: ADDON_TYPE_EXTENSION,
+                recommended: enableFeatureRecommendedBadges ? true : undefined,
+                sort: SEARCH_SORT_POPULAR,
+              },
+            }}
+            loading={loading}
+          />
+
+          {includeRecommendedThemes && (
             <LandingAddonsCard
               addonInstallSource={INSTALL_SOURCE_FEATURED}
-              addons={shelves.recommendedExtensions}
-              className="Home-RecommendedExtensions"
-              header={
-                enableFeatureRecommendedBadges
-                  ? i18n.gettext('Recommended extensions')
-                  : i18n.gettext('Featured extensions')
-              }
+              addons={shelves.recommendedThemes}
+              className="Home-RecommendedThemes"
               footerText={
                 enableFeatureRecommendedBadges
-                  ? i18n.gettext('See more recommended extensions')
-                  : i18n.gettext('See more featured extensions')
+                  ? i18n.gettext('See more recommended themes')
+                  : i18n.gettext('See more featured themes')
               }
               footerLink={{
                 pathname: '/search/',
                 query: {
-                  addonType: ADDON_TYPE_EXTENSION,
+                  addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
+                    _config: this.props._config,
+                  }),
                   featured: enableFeatureRecommendedBadges ? undefined : true,
                   recommended: enableFeatureRecommendedBadges
                     ? true
@@ -301,36 +360,25 @@ export class HomeBase extends React.Component {
                     : undefined,
                 },
               }}
-              loading={loading}
-            />
-
-            <LandingAddonsCard
-              addonInstallSource={INSTALL_SOURCE_FEATURED}
-              addons={shelves.popularThemes}
-              className="Home-PopularThemes"
-              header={i18n.gettext('Popular themes')}
-              footerText={i18n.gettext('See more popular themes')}
-              footerLink={{
-                pathname: '/search/',
-                query: {
-                  addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
-                    _config: this.props._config,
-                  }),
-                  sort: SEARCH_SORT_POPULAR,
-                },
-              }}
+              header={
+                enableFeatureRecommendedBadges
+                  ? i18n.gettext('Recommended themes')
+                  : i18n.gettext('Featured themes')
+              }
               isTheme
               loading={loading}
             />
+          )}
 
-            {renderFeaturedCollection(0)}
+          {renderFeaturedCollection(1)}
 
+          {includeTrendingExtensions && (
             <LandingAddonsCard
               addonInstallSource={INSTALL_SOURCE_FEATURED}
-              addons={shelves.popularExtensions}
-              className="Home-PopularExtensions"
-              header={i18n.gettext('Popular extensions')}
-              footerText={i18n.gettext('See more popular extensions')}
+              addons={shelves.trendingExtensions}
+              className="Home-TrendingExtensions"
+              header={i18n.gettext('Trending extensions')}
+              footerText={i18n.gettext('See more trending extensions')}
               footerLink={{
                 pathname: '/search/',
                 query: {
@@ -338,81 +386,23 @@ export class HomeBase extends React.Component {
                   recommended: enableFeatureRecommendedBadges
                     ? true
                     : undefined,
-                  sort: SEARCH_SORT_POPULAR,
+                  sort: SEARCH_SORT_TRENDING,
                 },
               }}
               loading={loading}
             />
+          )}
 
-            {includeRecommendedThemes && (
-              <LandingAddonsCard
-                addonInstallSource={INSTALL_SOURCE_FEATURED}
-                addons={shelves.recommendedThemes}
-                className="Home-RecommendedThemes"
-                footerText={
-                  enableFeatureRecommendedBadges
-                    ? i18n.gettext('See more recommended themes')
-                    : i18n.gettext('See more featured themes')
-                }
-                footerLink={{
-                  pathname: '/search/',
-                  query: {
-                    addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
-                      _config: this.props._config,
-                    }),
-                    featured: enableFeatureRecommendedBadges ? undefined : true,
-                    recommended: enableFeatureRecommendedBadges
-                      ? true
-                      : undefined,
-                    sort: enableFeatureRecommendedBadges
-                      ? SEARCH_SORT_RANDOM
-                      : undefined,
-                  },
-                }}
-                header={
-                  enableFeatureRecommendedBadges
-                    ? i18n.gettext('Recommended themes')
-                    : i18n.gettext('Featured themes')
-                }
-                isTheme
-                loading={loading}
-              />
-            )}
+          <Card
+            className="Home-SubjectShelf Home-CuratedThemes"
+            header={themesHeader}
+          >
+            <div className="Home-SubjectShelf-text-wrapper">
+              <h2 className="Home-SubjectShelf-subheading">{themesHeader}</h2>
+            </div>
 
-            {renderFeaturedCollection(1)}
-
-            {includeTrendingExtensions && (
-              <LandingAddonsCard
-                addonInstallSource={INSTALL_SOURCE_FEATURED}
-                addons={shelves.trendingExtensions}
-                className="Home-TrendingExtensions"
-                header={i18n.gettext('Trending extensions')}
-                footerText={i18n.gettext('See more trending extensions')}
-                footerLink={{
-                  pathname: '/search/',
-                  query: {
-                    addonType: ADDON_TYPE_EXTENSION,
-                    recommended: enableFeatureRecommendedBadges
-                      ? true
-                      : undefined,
-                    sort: SEARCH_SORT_TRENDING,
-                  },
-                }}
-                loading={loading}
-              />
-            )}
-
-            <Card
-              className="Home-SubjectShelf Home-CuratedThemes"
-              header={themesHeader}
-            >
-              <div className="Home-SubjectShelf-text-wrapper">
-                <h2 className="Home-SubjectShelf-subheading">{themesHeader}</h2>
-              </div>
-
-              {this.renderCuratedThemes()}
-            </Card>
-          </div>
+            {this.renderCuratedThemes()}
+          </Card>
         </div>
       </Page>
     );
