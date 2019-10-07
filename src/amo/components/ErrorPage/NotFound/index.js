@@ -68,7 +68,7 @@ export class NotFoundBase extends React.Component<InternalProps> {
           componentProps={{
             header: i18n.gettext('Oops! We can’t find that page'),
           }}
-          ComponentType="Card"
+          useCardComponent
         >
           <p>
             {i18n.gettext(`If you’ve followed a link from another site for an

@@ -3,6 +3,7 @@ import * as React from 'react';
 import Page, { PageBase } from 'amo/components/Page';
 import AppBanner from 'amo/components/AppBanner';
 import Header from 'amo/components/Header';
+import Card from 'ui/components/Card';
 import {
   createContextWithFakeRouter,
   getFakeConfig,
@@ -76,12 +77,11 @@ describe(__filename, () => {
     expect(root.find(`div.${className}`)).toHaveLength(1);
   });
 
-  it('can render a different top level component', () => {
+  it('can render a Card', () => {
     const className = 'a-component-className';
-    const ComponentType = 'span';
-    const root = render({ className, ComponentType });
+    const root = render({ className, useCardComponent: true });
 
-    expect(root.find(`${ComponentType}.${className}`)).toHaveLength(1);
+    expect(root.find(Card)).toHaveClassName(className);
   });
 
   it('passes componentProps into the rendered component', () => {

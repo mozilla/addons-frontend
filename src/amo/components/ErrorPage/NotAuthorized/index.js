@@ -35,7 +35,7 @@ export class NotAuthorizedBase extends React.Component<Props> {
         <Page
           className="ErrorPage NotAuthorized"
           componentProps={{ header: i18n.gettext('Not Authorized') }}
-          ComponentType="Card"
+          useCardComponent
         >
           <p>
             {i18n.gettext(`

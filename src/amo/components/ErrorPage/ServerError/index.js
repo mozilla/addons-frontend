@@ -32,7 +32,7 @@ export class ServerErrorBase extends React.Component {
           componentProps={{
             header: i18n.gettext('Server Error'),
           }}
-          ComponentType="Card"
+          useCardComponent
         >
           <p>
             {i18n.gettext(`

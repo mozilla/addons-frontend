@@ -150,7 +150,7 @@ export class LanguageToolsBase extends React.Component<Props> {
       <Page
         className="LanguageTools"
         componentProps={{ header }}
-        ComponentType="Card"
+        useCardComponent
       >
         <Helmet>
           <title>{header}</title>

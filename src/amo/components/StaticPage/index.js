@@ -21,7 +21,7 @@ const StaticPage = (props: Props) => {
     <Page
       className="StaticPage"
       componentProps={{ header: title }}
-      ComponentType="Card"
+      useCardComponent
     >
       <Helmet>
         <title>{title}</title>
