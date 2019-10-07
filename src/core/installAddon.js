@@ -381,50 +381,50 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     }
   }
 
-  enable({ sendTrackingEvent }: EnableParams = { sendTrackingEvent: true }) {
+  async enable(
+    { sendTrackingEvent }: EnableParams = { sendTrackingEvent: true },
+  ) {
     const { _addonManager, _log, _tracking, dispatch, addon } = this.props;
 
     if (!addon) {
       _log.debug('no addon found, aborting enable().');
-      return Promise.resolve();
+      return;
     }
 
     const { guid, type, name } = addon;
 
-    return _addonManager
-      .enable(guid)
-      .then(() => {
-        if (sendTrackingEvent) {
-          _tracking.sendEvent({
-            action: getAddonTypeForTracking(type),
-            category: getAddonEventCategory(type, ENABLE_ACTION),
-            label: name,
-          });
-        }
+    try {
+      await _addonManager.enable(guid);
+      if (sendTrackingEvent) {
+        _tracking.sendEvent({
+          action: getAddonTypeForTracking(type),
+          category: getAddonEventCategory(type, ENABLE_ACTION),
+          label: name,
+        });
+      }
 
-        if (!_addonManager.hasPermissionPromptsEnabled()) {
-          this.showInfo();
-        }
-      })
-      .catch((err) => {
-        if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
-          _log.info(`addon.setEnabled not available. Unable to enable ${guid}`);
-        } else {
-          // eslint-disable-next-line amo/only-log-strings
-          _log.error(`Error while trying to enable ${guid}:`, err);
+      if (!_addonManager.hasPermissionPromptsEnabled()) {
+        this.showInfo();
+      }
+    } catch (err) {
+      if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
+        _log.info(`addon.setEnabled not available. Unable to enable ${guid}`);
+      } else {
+        // eslint-disable-next-line amo/only-log-strings
+        _log.error(`Error while trying to enable ${guid}:`, err);
 
-          dispatch(
-            setInstallState({
-              guid,
-              status: ERROR,
-              error: FATAL_ERROR,
-            }),
-          );
-        }
-      });
+        dispatch(
+          setInstallState({
+            guid,
+            status: ERROR,
+            error: FATAL_ERROR,
+          }),
+        );
+      }
+    }
   }
 
-  install() {
+  async install() {
     const {
       _addonManager,
       _log,
@@ -439,66 +439,60 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
 
     if (!addon) {
       _log.debug('no addon found, aborting install().');
-      return Promise.resolve();
+      return;
     }
 
     if (!currentVersion) {
       _log.debug('no currentVersion found, aborting install().');
-      return Promise.resolve();
+      return;
     }
 
     const { guid, name, type } = addon;
     const { platformFiles } = currentVersion;
 
-    return new Promise((resolve) => {
-      dispatch({ type: START_DOWNLOAD, payload: { guid } });
+    dispatch({ type: START_DOWNLOAD, payload: { guid } });
+    _tracking.sendEvent({
+      action: getAddonTypeForTracking(type),
+      category: getAddonEventCategory(type, INSTALL_STARTED_ACTION),
+      label: name,
+    });
+
+    const installURL = findInstallURL({
+      defaultInstallSource,
+      location,
+      platformFiles,
+      userAgentInfo,
+    });
+
+    const hash =
+      installURL && getFileHash({ addon, installURL, version: currentVersion });
+
+    try {
+      await _addonManager.install(
+        installURL,
+        makeProgressHandler({
+          _tracking,
+          dispatch,
+          guid,
+          name,
+          type,
+        }),
+        { src: defaultInstallSource, hash },
+      );
+
       _tracking.sendEvent({
         action: getAddonTypeForTracking(type),
-        category: getAddonEventCategory(type, INSTALL_STARTED_ACTION),
+        category: getAddonEventCategory(type, INSTALL_ACTION),
         label: name,
       });
+      if (!_addonManager.hasPermissionPromptsEnabled()) {
+        this.showInfo();
+      }
+    } catch (error) {
+      _log.error(`Install error: ${error}`);
 
-      const installURL = findInstallURL({
-        defaultInstallSource,
-        location,
-        platformFiles,
-        userAgentInfo,
-      });
-
-      resolve(installURL);
-    })
-      .then((installURL) => {
-        const hash =
-          installURL &&
-          getFileHash({ addon, installURL, version: currentVersion });
-
-        return _addonManager.install(
-          installURL,
-          makeProgressHandler({
-            _tracking,
-            dispatch,
-            guid,
-            name,
-            type,
-          }),
-          { src: defaultInstallSource, hash },
-        );
-      })
-      .then(() => {
-        _tracking.sendEvent({
-          action: getAddonTypeForTracking(type),
-          category: getAddonEventCategory(type, INSTALL_ACTION),
-          label: name,
-        });
-        if (!_addonManager.hasPermissionPromptsEnabled()) {
-          this.showInfo();
-        }
-      })
-      .catch((error) => {
-        _log.error(`Install error: ${error}`);
-
-        dispatch(setInstallError({ guid, error: FATAL_INSTALL_ERROR }));
-      });
+      dispatch(setInstallError({ guid, error: FATAL_INSTALL_ERROR }));
+    }
   }
 
   showInfo() {
@@ -514,26 +508,24 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     );
   }
 
-  uninstall({ guid, name, type }: UninstallParams) {
+  async uninstall({ guid, name, type }: UninstallParams) {
     const { _addonManager, _log, _tracking, dispatch } = this.props;
 
     dispatch(setInstallState({ guid, status: UNINSTALLING }));
 
     const action = getAddonTypeForTracking(type);
-    return _addonManager
-      .uninstall(guid)
-      .then(() => {
-        _tracking.sendEvent({
-          action,
-          category: getAddonEventCategory(type, UNINSTALL_ACTION),
-          label: name,
-        });
-      })
-      .catch((error) => {
-        _log.error(`Uninstall error: ${error}`);
-
-        dispatch(setInstallError({ guid, error: FATAL_UNINSTALL_ERROR }));
+    try {
+      await _addonManager.uninstall(guid);
+      _tracking.sendEvent({
+        action,
+        category: getAddonEventCategory(type, UNINSTALL_ACTION),
+        label: name,
       });
+    } catch (error) {
+      _log.error(`Uninstall error: ${error}`);
+
+      dispatch(setInstallError({ guid, error: FATAL_UNINSTALL_ERROR }));
+    }
   }
 
   render() {
