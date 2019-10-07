@@ -2,6 +2,7 @@
 import makeClassName from 'classnames';
 import invariant from 'invariant';
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AppBanner from 'amo/components/AppBanner';
@@ -11,7 +12,9 @@ import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import tracking from 'core/tracking';
 import { sanitizeUserHTML } from 'core/utils';
+import LoadingText from 'ui/components/LoadingText';
 import type { PrimaryHeroShelfType } from 'amo/reducers/home';
+import type { AppState } from 'amo/store';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
@@ -20,11 +23,17 @@ export const PRIMARY_HERO_CLICK_CATEGORY = 'AMO Primary Hero Clicks';
 export const PRIMARY_HERO_SRC = 'homepage-primary-hero';
 
 type Props = {|
-  shelfData: PrimaryHeroShelfType,
+  shelfData?: PrimaryHeroShelfType,
+|};
+
+type MappedProps = {|
+  siteIsReadOnly: boolean,
+  siteNotice: string | null,
 |};
 
 type InternalProps = {|
   ...Props,
+  ...MappedProps,
   i18n: I18nType,
   _checkInternalURL: typeof checkInternalURL,
   _tracking: typeof tracking,
@@ -66,58 +75,76 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { _checkInternalURL, i18n, shelfData } = this.props;
-    const { addon, description, external, gradient, featuredImage } = shelfData;
+    const {
+      _checkInternalURL,
+      i18n,
+      shelfData,
+      siteIsReadOnly,
+      siteNotice,
+    } = this.props;
+    const { addon, description, external, featuredImage, gradient } =
+      shelfData || {};
 
-    const linkInsides = <span> {i18n.gettext('Get the extension')} </span>;
-
+    let gradientsClassName;
     let heading;
     let link;
 
-    const linkProps = _checkInternalURL({
-      urlString: this.makeCallToActionURL(),
-    }).isInternal
-      ? {}
-      : { rel: 'noopener noreferrer', target: '_blank' };
+    const heightClassName =
+      siteIsReadOnly || siteNotice
+        ? 'HeroRecommendation--height-with-notice'
+        : 'HeroRecommendation--height-without-notice';
 
-    if (addon) {
-      heading = addon.name;
-      link = (
-        <Link
-          className="HeroRecommendation-link"
-          onClick={this.onHeroClick}
-          to={this.makeCallToActionURL()}
-        >
-          {linkInsides}
-        </Link>
+    if (shelfData) {
+      gradientsClassName = `HeroRecommendation-${gradient.start}-${gradient.end}`;
+      log.info(
+        `className ${gradientsClassName} generated from the API response. This should match a selector in styles.scss`,
       );
-    } else if (external) {
-      heading = external.name;
-      link = (
-        <a
-          className="HeroRecommendation-link"
-          href={this.makeCallToActionURL()}
-          onClick={this.onHeroClick}
-          {...linkProps}
-        >
-          {linkInsides}
-        </a>
-      );
+
+      const linkInsides = <span> {i18n.gettext('Get the extension')} </span>;
+      const linkProps = _checkInternalURL({
+        urlString: this.makeCallToActionURL(),
+      }).isInternal
+        ? {}
+        : { rel: 'noopener noreferrer', target: '_blank' };
+
+      if (addon) {
+        heading = addon.name;
+        link = (
+          <Link
+            className="HeroRecommendation-link"
+            onClick={this.onHeroClick}
+            to={this.makeCallToActionURL()}
+          >
+            {linkInsides}
+          </Link>
+        );
+      } else if (external) {
+        heading = external.name;
+        link = (
+          <a
+            className="HeroRecommendation-link"
+            href={this.makeCallToActionURL()}
+            onClick={this.onHeroClick}
+            {...linkProps}
+          >
+            {linkInsides}
+          </a>
+        );
+      }
+    } else {
+      gradientsClassName = `HeroRecommendation--loading`;
     }
-
-    // translators: If uppercase does not work in your locale, change it to lowercase.
-    // This is used as a secondary heading.
-    const recommended = i18n.gettext('RECOMMENDED');
-    const gradientsClassName = `HeroRecommendation-${gradient.start}-${gradient.end}`;
-    log.info(
-      `className ${gradientsClassName} generated from the API response. This should match a selector in styles.scss`,
-    );
 
     return (
       <section
-        className={makeClassName('HeroRecommendation', gradientsClassName, {
-          'HeroRecommendation--no-image': !featuredImage,
-        })}
+        className={makeClassName(
+          'HeroRecommendation',
+          gradientsClassName,
+          heightClassName,
+          {
+            'HeroRecommendation--no-image': !featuredImage,
+          },
+        )}
       >
         <div className="HeroRecommendation-wrapper">
           <AppBanner className="HeroRecommendation-banner" />
@@ -134,14 +161,32 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
             )}
             <div className="HeroRecommendation-info">
               <div className="HeroRecommendation-recommended">
-                {recommended}
+                {shelfData ? (
+                  // translators: If uppercase does not work in your locale,
+                  // change it to lowercase. This is used as a secondary heading.
+                  i18n.gettext('RECOMMENDED')
+                ) : (
+                  <LoadingText width={20} />
+                )}
               </div>
-              <h2 className="HeroRecommendation-heading">{heading}</h2>
-              <div
-                className="HeroRecommendation-body"
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={sanitizeUserHTML(description)}
-              />
+              <h2 className="HeroRecommendation-heading">
+                {heading || <LoadingText width={60} />}
+              </h2>
+              {description ? (
+                <div
+                  className="HeroRecommendation-body"
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={sanitizeUserHTML(description)}
+                />
+              ) : (
+                <div className="HeroRecommendation-body">
+                  <>
+                    <LoadingText width={100} />
+                    <br />
+                    <LoadingText width={80} />
+                  </>
+                </div>
+              )}
               {link}
             </div>
           </div>
@@ -151,8 +196,16 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
   }
 }
 
-const HeroRecommendation: React.ComponentType<Props> = compose(translate())(
-  HeroRecommendationBase,
-);
+const mapStateToProps = (state: AppState): MappedProps => {
+  return {
+    siteIsReadOnly: state.site.readOnly,
+    siteNotice: state.site.notice,
+  };
+};
+
+const HeroRecommendation: React.ComponentType<Props> = compose(
+  connect(mapStateToProps),
+  translate(),
+)(HeroRecommendationBase);
 
 export default HeroRecommendation;

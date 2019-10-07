@@ -7,6 +7,7 @@ import SecondaryHero, {
 } from 'amo/components/SecondaryHero';
 import { createInternalHeroShelves } from 'amo/reducers/home';
 import { addParamsToHeroURL } from 'amo/utils';
+import LoadingText from 'ui/components/LoadingText';
 import {
   createFakeEvent,
   createFakeTracking,
@@ -21,11 +22,7 @@ describe(__filename, () => {
     ).secondary;
   };
 
-  const render = (moreProps = {}) => {
-    const props = {
-      shelfData: createShelfData(),
-      ...moreProps,
-    };
+  const render = (props = {}) => {
     return shallow(<SecondaryHero {...props} />);
   };
 
@@ -108,6 +105,12 @@ describe(__filename, () => {
       category: SECONDARY_HERO_CLICK_CATEGORY,
     });
     sinon.assert.calledOnce(_tracking.sendEvent);
+  });
+
+  it('renders in a loading state', () => {
+    const root = render();
+
+    expect(root.find(LoadingText)).toHaveLength(11);
   });
 
   describe('modules', () => {

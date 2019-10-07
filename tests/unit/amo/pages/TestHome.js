@@ -574,7 +574,7 @@ describe(__filename, () => {
       expect(root.find(HomeHeroGuides)).toHaveLength(0);
     });
 
-    it('does not render if heroShelves are not loaded', () => {
+    it('renders even if heroShelves are not loaded', () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
       });
@@ -584,8 +584,8 @@ describe(__filename, () => {
         store,
       });
 
-      expect(root.find(HeroRecommendation)).toHaveLength(0);
-      expect(root.find(SecondaryHero)).toHaveLength(0);
+      expect(root.find(HeroRecommendation)).toHaveLength(1);
+      expect(root.find(SecondaryHero)).toHaveLength(1);
     });
 
     it('does not render when enabled on Android', () => {

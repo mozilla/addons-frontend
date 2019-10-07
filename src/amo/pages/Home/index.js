@@ -253,16 +253,14 @@ export class HomeBase extends React.Component {
         {errorHandler.renderErrorIfPresent()}
 
         {_config.get('enableFeatureHeroRecommendation') &&
-        clientApp !== CLIENT_APP_ANDROID &&
-        heroShelves ? (
-          <HeroRecommendation shelfData={heroShelves.primary} />
+        clientApp !== CLIENT_APP_ANDROID ? (
+          <HeroRecommendation shelfData={heroShelves && heroShelves.primary} />
         ) : null}
 
         <div className="Home-content">
           {_config.get('enableFeatureHeroRecommendation') &&
-          clientApp !== CLIENT_APP_ANDROID &&
-          heroShelves ? (
-            <SecondaryHero shelfData={heroShelves.secondary} />
+          clientApp !== CLIENT_APP_ANDROID ? (
+            <SecondaryHero shelfData={heroShelves && heroShelves.secondary} />
           ) : null}
 
           {!_config.get('enableFeatureHeroRecommendation') ||

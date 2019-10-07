@@ -5,6 +5,14 @@
   max-width: $max-content-width;
 }
 
+.HeroRecommendation--height-with-notice {
+  min-height: 452px;
+}
+
+.HeroRecommendation--height-without-notice {
+  min-height: 376px;
+}
+
 .HeroRecommendation-banner {
   padding-bottom: 0;
 }
@@ -44,6 +52,16 @@
 
   @include respond-to(extraExtraLarge) {
     margin-top: 16px;
+  }
+}
+
+.HeroRecommendation-body,
+.HeroRecommendation-heading,
+.HeroRecommendation-recommended {
+  width: 100%;
+
+  .LoadingText {
+    height: 1em;
   }
 }
 
@@ -168,4 +186,8 @@
 
 .HeroRecommendation-color-ink-80-color-violet-70 {
   @include gradientStyle($color-ink-80, $color-violet-70);
+}
+
+.HeroRecommendation--loading {
+  @include gradientStyle($color-ink-80, $color-blue-70);
 }

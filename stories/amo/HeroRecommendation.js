@@ -21,6 +21,8 @@ const render = (shelfProps = {}, moreProps = {}) => {
       }),
     ).primary,
     i18n: fakeI18n({ includeJedSpy: false }),
+    siteIsReadOnly: false,
+    siteNotice: null,
     ...moreProps,
   };
   return <HeroRecommendationBase {...props} />;
@@ -43,6 +45,10 @@ storiesOf('HeroRecommendation', module)
           {
             title: 'without image',
             sectionFn: () => render({ featuredImage: null }),
+          },
+          {
+            title: 'loading',
+            sectionFn: () => render({}, { shelfData: undefined }),
           },
         ],
       },

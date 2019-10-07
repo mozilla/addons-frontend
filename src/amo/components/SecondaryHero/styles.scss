@@ -5,12 +5,22 @@
   display: grid;
   grid-gap: $padding-page;
   grid-template-columns: auto;
+  min-height: 568px;
   padding: $padding-page 0 0 0;
+
+  @include respond-to(medium) {
+    min-height: 628px;
+  }
 
   @include respond-to(large) {
     grid-gap: 32px;
     grid-template-columns: repeat(4, 1fr);
+    min-height: 340px;
     padding: 48px 0 24px 0;
+  }
+
+  @include respond-to(extraLarge) {
+    min-height: 296px;
   }
 }
 
@@ -25,6 +35,10 @@
   font-weight: normal;
   line-height: 1.333;
   margin: 0;
+
+  .LoadingText {
+    height: 1em;
+  }
 }
 
 .SecondaryHero-message-description {
@@ -32,6 +46,10 @@
 
   @include respond-to(large) {
     padding: 8px 0 24px 0;
+  }
+
+  .LoadingText {
+    height: 1em;
   }
 }
 
@@ -78,6 +96,17 @@
   }
 }
 
-.SecondaryHero-module-description {
+.SecondaryHero-message-link,
+.SecondaryHero-module-description,
+.SecondaryHero-module-link {
+  width: 100%;
+
+  .LoadingText {
+    height: 1em;
+  }
+}
+
+.SecondaryHero-module-description,
+.SecondaryHero-module-link {
   text-align: center;
 }
