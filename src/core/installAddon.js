@@ -309,7 +309,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     return false;
   }
 
-  setCurrentStatus() {
+  async setCurrentStatus() {
     const {
       _addonManager,
       _log,
@@ -323,17 +323,17 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
 
     if (!_addonManager.hasAddonManager()) {
       _log.info('No addon manager, cannot set add-on status');
-      return Promise.resolve();
+      return;
     }
 
     if (!addon) {
       _log.debug('no addon, aborting setCurrentStatus()');
-      return Promise.resolve();
+      return;
     }
 
     if (!currentVersion) {
       _log.debug('no currentVersion, aborting setCurrentStatus()');
-      return Promise.resolve();
+      return;
     }
 
     const { guid, type } = addon;
@@ -349,24 +349,15 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
     const payload = { guid, url: installURL };
 
     _log.info('Setting add-on status');
-    return _addonManager
-      .getAddon(guid)
-      .then(
-        (clientAddon) => {
-          const status = _addonManager.getAddonStatus({
-            addon: clientAddon,
-            type,
-          });
-
-          dispatch(setInstallState({ ...payload, status }));
-        },
-        (error) => {
-          _log.info(oneLine`Add-on "${guid}" not found so setting status to
-            UNINSTALLED; exact error: ${error}`);
-          dispatch(setInstallState({ ...payload, status: UNINSTALLED }));
-        },
-      )
-      .catch((error) => {
+    try {
+      const clientAddon = await _addonManager.getAddon(guid);
+      try {
+        const status = _addonManager.getAddonStatus({
+          addon: clientAddon,
+          type,
+        });
+        dispatch(setInstallState({ ...payload, status }));
+      } catch (error) {
         _log.error(`Caught error from addonManager: ${error}`);
         // Dispatch a generic error should the success/error functions throw.
         dispatch(
@@ -376,7 +367,18 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
             error: FATAL_ERROR,
           }),
         );
-      });
+      }
+    } catch (error) {
+      _log.info(
+        oneLine`Add-on "${guid}" not found so setting status to UNINSTALLED; exact error: ${error}`,
+      );
+      dispatch(
+        setInstallState({
+          ...payload,
+          status: UNINSTALLED,
+        }),
+      );
+    }
   }
 
   enable({ sendTrackingEvent }: EnableParams = { sendTrackingEvent: true }) {
