@@ -47,23 +47,25 @@ export class LocalState {
     }
   }
 
-  clear(): Promise<void> {
-    return this.localForage.removeItem(this.id).catch((error) => {
+  async clear(): Promise<void> {
+    try {
+      await this.localForage.removeItem(this.id);
+    } catch (error) {
       log.debug(`Error with localForage.removeItem("${this.id}"): ${error}`);
       throw error;
-    });
+    }
   }
 
-  save(data: Object): Promise<void> {
+  async save(data: Object): Promise<void> {
     if (typeof data !== 'object' || data === null) {
-      return Promise.reject(
-        new Error('The argument to save() must be an object'),
-      );
+      throw new Error('The argument to save() must be an object');
     }
-    return this.localForage.setItem(this.id, data).catch((error) => {
+    try {
+      await this.localForage.setItem(this.id, data);
+    } catch (error) {
       log.debug(`Error with localForage.setItem("${this.id}"): ${error}`);
       throw error;
-    });
+    }
   }
 }
 
