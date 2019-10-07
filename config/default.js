@@ -57,7 +57,7 @@ module.exports = {
   // If true node will serve the static files.
   enableNodeStatics: false,
 
-  enableStrictMode: true,
+  enableStrictMode: false,
 
   isDeployed: true,
   isDevelopment: false,
@@ -379,7 +379,7 @@ module.exports = {
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments.
   experiments: {
-    installButtonWarning: true,
+    installButtonWarning: false,
   },
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',

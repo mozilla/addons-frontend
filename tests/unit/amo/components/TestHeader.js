@@ -182,4 +182,15 @@ describe(__filename, () => {
       })}`,
     );
   });
+
+  it.each([[true, 'Header-hero-promo'], [false, 'Header-no-hero-promo']])(
+    'renders the expected className when enableFeatureHeroRecommendation is %s',
+    (enableFeatureHeroRecommendation, expectedClassName) => {
+      const _config = getFakeConfig({ enableFeatureHeroRecommendation });
+
+      const wrapper = renderHeader({ _config });
+
+      expect(wrapper.find('.Header')).toHaveClassName(expectedClassName);
+    },
+  );
 });

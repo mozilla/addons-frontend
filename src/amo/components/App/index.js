@@ -1,5 +1,6 @@
 /* @flow */
 /* global Navigator, navigator */
+import makeClassName from 'classnames';
 import config from 'config';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
@@ -17,6 +18,7 @@ import 'normalize.css/normalize.css';
 import './styles.scss';
 
 /* eslint-disable import/first */
+import AppBanner from 'amo/components/AppBanner';
 import Routes from 'amo/components/Routes';
 import ScrollToTop from 'core/components/ScrollToTop';
 import { getDjangoBase62 } from 'amo/utils';
@@ -33,8 +35,6 @@ import {
   maximumSetTimeoutDelay,
 } from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
-import SiteNotices from 'core/components/SiteNotices';
-import SurveyNotice from 'core/components/SurveyNotice';
 import InfoDialog from 'core/components/InfoDialog';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -50,6 +50,7 @@ interface MozNavigator extends Navigator {
 }
 
 type Props = {|
+  _config: typeof config,
   ErrorPage: typeof DefaultErrorPage,
   FooterComponent: typeof Footer,
   InfoDialogComponent: typeof InfoDialog,
@@ -76,6 +77,7 @@ export class AppBase extends React.Component<Props> {
   scheduledLogout: TimeoutID;
 
   static defaultProps = {
+    _config: config,
     ErrorPage: DefaultErrorPage,
     FooterComponent: Footer,
     InfoDialogComponent: InfoDialog,
@@ -185,6 +187,7 @@ export class AppBase extends React.Component<Props> {
 
   render() {
     const {
+      _config,
       ErrorPage,
       FooterComponent,
       HeaderComponent,
@@ -241,11 +244,19 @@ export class AppBase extends React.Component<Props> {
             />
 
             <div className="App-content">
-              <div className="App-content-wrapper">
-                <div className="App-banner">
-                  <SiteNotices />
-                  <SurveyNotice location={location} />
-                </div>
+              <div
+                className={makeClassName(
+                  isHomePage
+                    ? 'App-content-wrapper-homepage'
+                    : 'App-content-wrapper',
+                )}
+              >
+                {// Exclude the AppBanner from the home page if it will be
+                // included via HeroRecommendation.
+                (!isHomePage ||
+                  !_config.get('enableFeatureHeroRecommendation')) && (
+                  <AppBanner />
+                )}
                 <ErrorPage getErrorComponent={getErrorComponent}>
                   <Routes />
                 </ErrorPage>

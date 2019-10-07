@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-24 16:33+0000\n"
-"PO-Revision-Date: 2019-02-04 10:07+0000\n"
+"POT-Creation-Date: 2019-10-01 16:23+0000\n"
+"PO-Revision-Date: 2019-10-05 10:34+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -15,15 +15,12 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/InstallWarning/index.js:112
-#, fuzzy
 msgid "Learn more"
-msgstr "Mësoni Më Tepër"
+msgstr "Mësoni më tepër"
 
 #: src/amo/components/InstallWarning/index.js:116
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
+msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
+msgstr "Ky zgjerim nuk mbikëqyret nga Mozilla. Sigurohuni se i zini besë këtij zgjerimi, përpara se ta instaloni."
 
 #: src/core/components/AMInstallButton/index.js:245
 msgid "Enable"
@@ -62,15 +59,10 @@ msgid "Server Error"
 msgstr "Gabim Shërbyesi"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Na ndjeni, por pati një gabim dhe s’mundëm të plotësonim kërkesën tuaj. E "
-"kemi regjistruar këtë gabim dhe do ta hetojmë."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Na ndjeni, por pati një gabim dhe s’mundëm të plotësonim kërkesën tuaj. E kemi regjistruar këtë gabim dhe do ta hetojmë."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Kod gabimi: %(status)s."
 
@@ -131,7 +123,7 @@ msgstr "Funksionon me %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "Instalimi u ndërpre, ngaqë shtesa duket të jetë e dëmtuar."
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
@@ -187,30 +179,19 @@ msgstr "Personalizoni Firefox-in Tuaj"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Ka me mijëra shtesa, të krijuara nga programues anembanë botës, që mund t’i "
-"instaloni për të personalizuar Firefox-in tuaj. Nga temat pamore zbavitëse e "
-"deri te mjete të fuqishme që e bëjnë shfletimin tuaj më të shpejtë dhe më të "
-"sigurt, shtesat jua bëjnë shfletuesin tuajin.\n"
-"Për t’ju ndihmuar t’ia filloni, ja disa që i këshillojmë për shkak të punës "
-"së shkëlqyer që bëjnë dhe funksionimit të tyre."
+"Ka me mijëra shtesa, të krijuara nga programues anembanë botës, që mund t’i instaloni për të personalizuar Firefox-in tuaj. Nga temat pamore zbavitëse e deri te mjete të fuqishme që e bëjnë shfletimin tuaj më të shpejtë dhe më të sigurt, shtesat jua bëjnë shfletuesin tuajin.\n"
+"Për t’ju ndihmuar t’ia filloni, ja disa që i këshillojmë për shkak të punës së shkëlqyer që bëjnë dhe funksionimit të tyre."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Mësoni Më Tepër"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
-"Disa nga këto rekomandime janë personalizuar. Ato bazohen në zgjerime të "
-"tjera që keni instaluar, parapëlqime profili dhe statistika përdorimi."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgstr "Disa nga këto rekomandime janë personalizuar. Ato bazohen në zgjerime të tjera që keni instaluar, parapëlqime profili dhe statistika përdorimi."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -266,9 +247,7 @@ msgstr "Paraparje e %(title)s"
 #~ msgstr "Tani mund të hyni te %(name)s që nga paneli."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "Kalojini kursorin përsipër që ta parashihni ose klikoni që të instalohet "
-#~ "%(name)s"
+#~ msgstr "Kalojini kursorin përsipër që ta parashihni ose klikoni që të instalohet %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Kalojeni kursorin përsipër figurës që ta parashihni"

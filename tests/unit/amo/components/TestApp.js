@@ -4,26 +4,30 @@ import * as React from 'react';
 import NestedStatus from 'react-nested-status';
 import Helmet from 'react-helmet';
 
+import { setViewContext } from 'amo/actions/viewContext';
 import App, {
   AppBase,
   mapDispatchToProps,
   mapStateToProps,
 } from 'amo/components/App';
+import AppBanner from 'amo/components/AppBanner';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import createStore from 'amo/store';
 import { setUserAgent as setUserAgentAction } from 'core/actions';
 import {
+  ADDON_TYPE_EXTENSION,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   INSTALL_STATE,
+  VIEW_CONTEXT_HOME,
   maximumSetTimeoutDelay,
 } from 'core/constants';
-import SiteNotices from 'core/components/SiteNotices';
 import {
   createContextWithFakeRouter,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
   userAuthToken,
 } from 'tests/unit/helpers';
@@ -330,9 +334,51 @@ describe(__filename, () => {
     });
   });
 
-  it('renders a SiteNotices', () => {
-    const root = render();
+  it('renders an AppBanner if it is not the home page', () => {
+    const { store } = dispatchClientMetadata();
+    store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
+    const root = render({ store });
 
-    expect(root.find(SiteNotices)).toHaveLength(1);
+    expect(root.find(AppBanner)).toHaveLength(1);
+  });
+
+  it('renders an AppBanner if enableFeatureHeroRecommendation is false', () => {
+    const { store } = dispatchClientMetadata();
+    store.dispatch(setViewContext(VIEW_CONTEXT_HOME));
+    const root = render({
+      _config: getFakeConfig({ enableFeatureHeroRecommendation: false }),
+      store,
+    });
+
+    expect(root.find(AppBanner)).toHaveLength(1);
+  });
+
+  it('does not render an AppBanner if it is the home page and enableFeatureHeroRecommendation is true', () => {
+    const { store } = dispatchClientMetadata();
+    store.dispatch(setViewContext(VIEW_CONTEXT_HOME));
+    const root = render({
+      _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
+      store,
+    });
+
+    expect(root.find(AppBanner)).toHaveLength(0);
+  });
+
+  it('uses the expected className for a page other than the home page', () => {
+    const { store } = dispatchClientMetadata();
+    store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
+    const root = render({ store });
+
+    expect(root.find('.App-content-wrapper')).toHaveLength(1);
+    expect(root.find('.App-content-wrapper-homepage')).toHaveLength(0);
+  });
+
+  it('uses the expected className for the home page', () => {
+    const { store } = dispatchClientMetadata();
+    store.dispatch(setViewContext(VIEW_CONTEXT_HOME));
+    const root = render({ store });
+
+    expect(root.find('.App-content-wrapper')).toHaveLength(0);
+    expect(root.find('.App-content-wrapper-homepage')).toHaveLength(1);
   });
 });

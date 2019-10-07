@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-24 16:31+0000\n"
+"POT-Creation-Date: 2019-10-01 16:19+0000\n"
 "PO-Revision-Date: 2019-09-17 18:44+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -2421,7 +2421,150 @@ msgid ""
 "and more."
 msgstr ""
 
-#: src/amo/pages/StaticPages/About/index.js:108
+#: src/amo/pages/StaticPages/About/index.js:119
+msgid ""
+"Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
+"the %(startAddonsServerDocumentation)sAdd-ons Servers documentation"
+"%(endAddonsServerDocumentation)s for details about the APIs used by AMO and "
+"the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
+msgstr ""
+
+#: src/amo/pages/StaticPages/About/index.js:140
+msgid ""
+"If you want to contribute but are not quite as technical, there are still "
+"ways to help:"
+msgstr ""
+"אם ברצונכם לתרום אך אינכם בעלי ידע טכני נרחב, ישנן מספר דרכים נוספות לסייע:"
+
+#: src/amo/pages/StaticPages/About/index.js:149
+msgid "Participate in our %(startLink)sforum%(endLink)s."
+msgstr "השתתפו ב%(startLink)sפורום%(endLink)s שלנו."
+
+#: src/amo/pages/StaticPages/About/index.js:162
+msgid ""
+"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
+"improve their add-ons and create new ones when they know people appreciate "
+"their work."
+msgstr ""
+"השאירו משוב על התוספות האהובות עליכם. יש סיכוי די טוב שיוצרי התוספות ישפרו "
+"את התוספות שלהם וייצרו חדשות מתוך ידיעה שעבודתם מוערכת."
+
+#: src/amo/pages/StaticPages/About/index.js:167
+msgid ""
+"Tell your friends and family that Firefox is a fast, secure browser that "
+"protects their privacy, and they can use add-ons to make it their own!"
+msgstr ""
+"ספרו לחברים ולמשפחה שלכם ש־Firefox הוא דפדפן מהיר ומאובטח שמגן על הפרטיות "
+"שלהם ושהם יכולים להשתמש בתוספות כדי להתאים אותו לפי העדפותיהם!"
+
+#: src/amo/pages/StaticPages/About/index.js:175
+msgid ""
+"To see more ways you can contribute to the add-on community, please visit "
+"our %(startLink)swiki%(endLink)s."
+msgstr ""
+"כדי לצפות בדרכים נוספות לתרום לקהילת התוספות, ניתן לבקר ב%(startLink)sויקי"
+"%(endLink)s שלנו."
+
+#: src/amo/pages/StaticPages/About/index.js:189
+msgid "Get support"
+msgstr "קבלת תמיכה"
+
+#: src/amo/pages/StaticPages/About/index.js:19
+msgid "About Firefox Add-ons"
+msgstr "על אודות התוספות של Firefox"
+
+#: src/amo/pages/StaticPages/About/index.js:194
+msgid ""
+"If you would like to learn more about how to manage add-ons in Firefox, or "
+"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
+"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
+"%(startForumLink)sask on our community forum%(endForumLink)s."
+msgstr ""
+"כדי ללמוד עוד על איך לנהל תוספות ב־Firefox או כדי למצוא תמיכה כללית ב־"
+"Firefox, נא לבקר ב%(startSUMOLink)sתמיכה%(endSUMOLink)s של Mozilla. אם לא "
+"מצאת שם תשובה, ניתן %(startForumLink)sלשאול בפורום הקהילתי שלנו"
+"%(endForumLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:20
+msgid ""
+"The official Mozilla site for downloading Firefox extensions and themes. Add "
+"new features and change the browser’s appearance to customize your web "
+"experience."
+msgstr ""
+"האתר הרשמי של Mozilla להורדת הרחבות וערכות נושא של Firefox. הוספת תכונות "
+"חדשות ושינוי מראה הדפדפן כדי להתאים אישית את חווית הגלישה שלך."
+
+#: src/amo/pages/StaticPages/About/index.js:215
+msgid ""
+"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
+"found here%(endLink)s."
+msgstr ""
+"%(startLink)sמידע על אופן יצירת הקשר עם צוות התוספות של Mozilla ניתן למצוא "
+"כאן%(endLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:27
+msgid ""
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
+"installing add-ons for the Firefox browser. Add-ons help you modify and "
+"personalize your browsing experience by adding new features to Firefox, "
+"enhancing your interactions with Web content, and changing the way your "
+"browser looks."
+msgstr ""
+"‏Addons.mozilla.org‏ (AMO), הוא האתר הרשמי של Mozilla לטובת גילוי והתקנה של "
+"תוספות לדפדפן Firefox. תוספות מסייעות לך לשנות ולהתאים אישית את חווית הגלישה "
+"שלך על ידי הוספת תכונות חדשות ל־Firefox, שיפור האינטראקציה שלך עם תוכן מקוון "
+"ושינוי המראה של הדפדפן שלך."
+
+#: src/amo/pages/StaticPages/About/index.js:37
+msgid ""
+"If you are looking for add-ons for Thunderbird or SeaMonkey, please visit "
+"%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
+"thunderbird.net/seamonkey%(endSMLink)s."
+msgstr ""
+"אם ברצונך לחפש אחר תוספות עבור Thunderbird או SeaMonkey, נא לבקר ב־"
+"%(startTBLink)saddons.thunderbird.net%(endTBLink)s או %(startSMLink)saddons."
+"thunderbird.net/seamonkey%(endSMLink)s."
+
+#: src/amo/pages/StaticPages/About/index.js:54
+msgid "A community of creators"
+msgstr "קהילה של יוצרים"
+
+#: src/amo/pages/StaticPages/About/index.js:56
+msgid ""
+"The add-ons listed here are created by thousands of developers and theme "
+"designers from all over the world, ranging from individual hobbyists to "
+"large corporations. Some add-ons listed on AMO have been automatically "
+"published and may be subject to review by a team of editors once publicly "
+"listed."
+msgstr ""
+"התוספות שמופיעות כאן נוצרות על־ידי אלפי מפתחים ומעצבי ערכות נושא מכל רחבי "
+"העולם, החל מחובבים עצמאיים וכלה בתאגידי ענק. חלק מהתוספות שמופיעות ב־AMO "
+"פורסמו אוטומטית ויתכן שהן כפופות לסקירה על־ידי צוות של עורכים לאחר הפרסום "
+"לציבור."
+
+#: src/amo/pages/StaticPages/About/index.js:65
+msgid "Get involved"
+msgstr "גילוי מעורבות"
+
+#: src/amo/pages/StaticPages/About/index.js:67
+msgid ""
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
+"keep it healthy, open and accessible. Add-ons support user choice and "
+"customization in Firefox, and you can contribute in the following ways:"
+msgstr ""
+"קרן Mozilla היא האלופה של האינטרנט וללא מטרות רווח, אנו מפתחים את Firefox "
+"כדי לסייע בשמירה על בריאות האינטרנט. תוספות תומכות בבחירה ובהתאמה לטובת "
+"המשתמשים ב־Firefox וניתן לתרום בדרכים הבאות:"
+
+#: src/amo/pages/StaticPages/About/index.js:77
+msgid ""
+"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
+"update services and can help you reach a large audience of users."
+msgstr ""
+"%(startLink)sפיתוח תוספות משלך%(endLink)s. אנו מספקים אירוח ושירותי עדכונים "
+"בחינם ומאפשרים לך להגיע לקהל יעד רחב של משתמשים."
+
+#: src/amo/pages/StaticPages/About/index.js:93
 msgid ""
 "Help improve this website. It's open source, and you can file bugs and "
 "submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
@@ -2437,167 +2580,7 @@ msgstr ""
 "%(startAddonsFrontendRepoLink)sמנשק המשתמש%(endAddonsFrontendRepoLink)s של "
 "AMO ב־Github."
 
-#: src/amo/pages/StaticPages/About/index.js:134
-msgid ""
-"Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
-"the %(startAddonsServerDocumentation)sAdd-ons Servers documentation"
-"%(endAddonsServerDocumentation)s for details about the APIs used by AMO and "
-"the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
-msgstr ""
-
-#: src/amo/pages/StaticPages/About/index.js:155
-msgid ""
-"If you want to contribute but are not quite as technical, there are still "
-"ways to help:"
-msgstr ""
-"אם ברצונכם לתרום אך אינכם בעלי ידע טכני נרחב, ישנן מספר דרכים נוספות לסייע:"
-
-#: src/amo/pages/StaticPages/About/index.js:164
-msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr "השתתפו ב%(startLink)sפורום%(endLink)s שלנו."
-
-#: src/amo/pages/StaticPages/About/index.js:177
-msgid ""
-"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
-"improve their add-ons and create new ones when they know people appreciate "
-"their work."
-msgstr ""
-"השאירו משוב על התוספות האהובות עליכם. יש סיכוי די טוב שיוצרי התוספות ישפרו "
-"את התוספות שלהם וייצרו חדשות מתוך ידיעה שעבודתם מוערכת."
-
-#: src/amo/pages/StaticPages/About/index.js:182
-msgid ""
-"Tell your friends and family that Firefox is a fast, secure browser that "
-"protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
-"ספרו לחברים ולמשפחה שלכם ש־Firefox הוא דפדפן מהיר ומאובטח שמגן על הפרטיות "
-"שלהם ושהם יכולים להשתמש בתוספות כדי להתאים אותו לפי העדפותיהם!"
-
-#: src/amo/pages/StaticPages/About/index.js:190
-msgid ""
-"To see more ways you can contribute to the add-on community, please visit "
-"our %(startLink)swiki%(endLink)s."
-msgstr ""
-"כדי לצפות בדרכים נוספות לתרום לקהילת התוספות, ניתן לבקר ב%(startLink)sויקי"
-"%(endLink)s שלנו."
-
-#: src/amo/pages/StaticPages/About/index.js:204
-msgid "Get support"
-msgstr "קבלת תמיכה"
-
-#: src/amo/pages/StaticPages/About/index.js:209
-msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or "
-"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
-"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
-"%(startForumLink)sask on our community forum%(endForumLink)s."
-msgstr ""
-"כדי ללמוד עוד על איך לנהל תוספות ב־Firefox או כדי למצוא תמיכה כללית ב־"
-"Firefox, נא לבקר ב%(startSUMOLink)sתמיכה%(endSUMOLink)s של Mozilla. אם לא "
-"מצאת שם תשובה, ניתן %(startForumLink)sלשאול בפורום הקהילתי שלנו"
-"%(endForumLink)s."
-
-#: src/amo/pages/StaticPages/About/index.js:22
-msgid "About Firefox Add-ons"
-msgstr "על אודות התוספות של Firefox"
-
-#: src/amo/pages/StaticPages/About/index.js:230
-msgid ""
-"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
-"found here%(endLink)s."
-msgstr ""
-"%(startLink)sמידע על אופן יצירת הקשר עם צוות התוספות של Mozilla ניתן למצוא "
-"כאן%(endLink)s."
-
-#: src/amo/pages/StaticPages/About/index.js:31
-msgid ""
-"The official Mozilla site for downloading Firefox extensions and themes. Add "
-"new features and change the browser’s appearance to customize your web "
-"experience."
-msgstr ""
-"האתר הרשמי של Mozilla להורדת הרחבות וערכות נושא של Firefox. הוספת תכונות "
-"חדשות ושינוי מראה הדפדפן כדי להתאים אישית את חווית הגלישה שלך."
-
-#: src/amo/pages/StaticPages/About/index.js:42
-msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
-"installing add-ons for the Firefox browser. Add-ons help you modify and "
-"personalize your browsing experience by adding new features to Firefox, "
-"enhancing your interactions with Web content, and changing the way your "
-"browser looks."
-msgstr ""
-"‏Addons.mozilla.org‏ (AMO), הוא האתר הרשמי של Mozilla לטובת גילוי והתקנה של "
-"תוספות לדפדפן Firefox. תוספות מסייעות לך לשנות ולהתאים אישית את חווית הגלישה "
-"שלך על ידי הוספת תכונות חדשות ל־Firefox, שיפור האינטראקציה שלך עם תוכן מקוון "
-"ושינוי המראה של הדפדפן שלך."
-
-#: src/amo/pages/StaticPages/About/index.js:52
-msgid ""
-"If you are looking for add-ons for Thunderbird or SeaMonkey, please visit "
-"%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
-"thunderbird.net/seamonkey%(endSMLink)s."
-msgstr ""
-"אם ברצונך לחפש אחר תוספות עבור Thunderbird או SeaMonkey, נא לבקר ב־"
-"%(startTBLink)saddons.thunderbird.net%(endTBLink)s או %(startSMLink)saddons."
-"thunderbird.net/seamonkey%(endSMLink)s."
-
-#: src/amo/pages/StaticPages/About/index.js:69
-msgid "A community of creators"
-msgstr "קהילה של יוצרים"
-
-#: src/amo/pages/StaticPages/About/index.js:71
-msgid ""
-"The add-ons listed here are created by thousands of developers and theme "
-"designers from all over the world, ranging from individual hobbyists to "
-"large corporations. Some add-ons listed on AMO have been automatically "
-"published and may be subject to review by a team of editors once publicly "
-"listed."
-msgstr ""
-"התוספות שמופיעות כאן נוצרות על־ידי אלפי מפתחים ומעצבי ערכות נושא מכל רחבי "
-"העולם, החל מחובבים עצמאיים וכלה בתאגידי ענק. חלק מהתוספות שמופיעות ב־AMO "
-"פורסמו אוטומטית ויתכן שהן כפופות לסקירה על־ידי צוות של עורכים לאחר הפרסום "
-"לציבור."
-
-#: src/amo/pages/StaticPages/About/index.js:80
-msgid "Get involved"
-msgstr "גילוי מעורבות"
-
-#: src/amo/pages/StaticPages/About/index.js:82
-msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
-"keep it healthy, open and accessible. Add-ons support user choice and "
-"customization in Firefox, and you can contribute in the following ways:"
-msgstr ""
-"קרן Mozilla היא האלופה של האינטרנט וללא מטרות רווח, אנו מפתחים את Firefox "
-"כדי לסייע בשמירה על בריאות האינטרנט. תוספות תומכות בבחירה ובהתאמה לטובת "
-"המשתמשים ב־Firefox וניתן לתרום בדרכים הבאות:"
-
-#: src/amo/pages/StaticPages/About/index.js:92
-msgid ""
-"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
-"update services and can help you reach a large audience of users."
-msgstr ""
-"%(startLink)sפיתוח תוספות משלך%(endLink)s. אנו מספקים אירוח ושירותי עדכונים "
-"בחינם ומאפשרים לך להגיע לקהל יעד רחב של משתמשים."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:100
-msgid ""
-"Use profanity, sexual language or language that can be construed as hateful."
-msgstr "להשתמש בשפה בוטה, מינית או בשפה שעשויה להתפרש כפוגענית."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:105
-msgid ""
-"Include HTML, links, source code or code snippets. Reviews are meant to be "
-"text only."
-msgstr ""
-"לכלול HTML, קישורים, קוד מקור או קטעי קוד. סקירות אמורות להיות טקסט בלבד."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:110
-msgid ""
-"Make false statements, disparage add-on authors or personally insult them."
-msgstr "לפרסם הצהרות שווא, לזלזל ביוצרי תוספות או להעליב אותם באופן אישי."
-
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:115
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid ""
 "Include your own or anyone else’s email, phone number, or other personal "
 "details."
@@ -2605,11 +2588,11 @@ msgstr ""
 "לכלול פרטי זיהוי אישיים שלך או של כל אדם אחר כמו כתובת דוא״ל, מספר טלפון או "
 "כל פרט אישי אחר."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:120
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
 msgstr "לפרסם סקירות לתוספת שלך או של ארגון אליו יש לך קשר עסקי או ייצוג."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:125
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving "
 "a negative review of an add-on for displaying ads or requiring data "
@@ -2620,15 +2603,15 @@ msgstr ""
 "כך שהיא מציגה פרסומות או דורשת איסוף מידע, כאשר זו המהות של התוספת או "
 "שהתוספת אוספת מידע כדי לתפקד."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:134
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
 msgstr "שאלות נפוצות על סקירות"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:136
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:122
 msgid "How can I report a problematic review?"
 msgstr "איך ניתן לדווח על סקירה בעייתית?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:138
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:124
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this "
 "review\" and it will be submitted to the site for moderation. Our moderation "
@@ -2639,11 +2622,11 @@ msgstr ""
 "זו” והיא תישלח לאתר לפיקוח. צוות הפיקוח שלנו ישתמש בכללי הסקירה כדי להעריך "
 "אם למחוק את הסקירה או לשחזר אותה לאתר."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:145
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
 msgstr "אני יוצר תוספות, אוכל להגיב לסקירות?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:151
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid ""
 "Yes, add-on authors can provide a single response to a review. You can set "
 "up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
@@ -2652,11 +2635,11 @@ msgstr ""
 "כן, יוצרי תוספות יכולים לספק תגובה אחת לכל סקירה. באפשרותך להקים נושא לדיון ב"
 "%(startLink)sפורום%(endLink)s שלנו כדי להמשיך את השיחה או את הטיפול בפנייה."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:165
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
 msgstr "אני יוצר תוספות, אוכל למחוק סקירות או דירוגים שאינם מחמיאים?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:170
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
 "In general, no. But if the review did not meet the review guidelines "
 "outlined above, you can click \"Report this review\" and have it moderated. "
@@ -2667,17 +2650,17 @@ msgstr ""
 "ללחוץ על „דיווח על סקירה זו” כדי שתיבדק. אם סקירה כוללת תלונה שאינה תקפה עוד "
 "עקב מהדורה חדשה של התוספת שלך, אנו נשקול להסיר את הסקירה."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:22
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
 msgstr "כללי סקירה"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:31
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid ""
 "Guidelines, tips, and Frequently Asked Questions to leave a review for the "
 "extensions and themes you’ve downloaded and used on Firefox."
 msgstr ""
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:42
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons "
 "you’ve installed and used. Our review moderation team reserves the right to "
@@ -2687,61 +2670,61 @@ msgstr ""
 "צוות פיקוח הסקירות שומר לו את הזכות לסרב או להסיר כל סקירה שאינה עומדת "
 "בכללים אלה."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:47
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
 msgstr "עצות לכתיבת סקירה מוצלחת"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:48
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Do:"
 msgstr "לעשות:"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:51
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid ""
 "Write like you are telling a friend about your experience with the add-on."
 msgstr "לכתוב כאילו זאת הייתה הודעה לחבר בנוגע להתנסות שלך עם התוספת."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:56
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
 msgstr "לשמור על הסקירות מתומצתות וקלות להבנה."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:59
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:45
 msgid "Give specific and helpful details. For example:"
 msgstr "לספק פרטים ספציפיים ומועילים. למשל:"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:64
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid "Did the add-on work as you expected it to?"
 msgstr "האם התוספת עבדה כפי שציפית?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:67
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
 msgstr "אילו תכונות אהבת או לא אהבת?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:69
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
 msgstr "האם התוספת שימושית?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:70
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Was it easy to use?"
 msgstr "האם היא קלה לשימוש?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:72
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:58
 msgid "Will you continue to use this add-on?"
 msgstr "האם תוספת זו תמשיך לשמש אותך?"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:77
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:63
 msgid ""
 "Take a moment to read your review before submitting it to minimize typos."
 msgstr "לקרוא את הסקירה לפני שליחתה למניעת טעויות כתיב."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:82
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:68
 msgid "Don't:"
 msgstr "לא לעשות:"
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:85
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:71
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
 msgstr "לפרסם סקירות באורך של מילה בודדה כמו „מצוין!”, „מעולה” או „גרוע”."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:90
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:76
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the "
 "available support options for each add-on, if available. You can find them "
@@ -2752,9 +2735,26 @@ msgstr ""
 "באפשרויות התמיכה הזמינות לכל תוספת. ניתן למצוא אותן תחת הסעיף „מידע נוסף” "
 "בסרגל הצד בעמוד הפירוט של התוספת."
 
-#: src/amo/pages/StaticPages/ReviewGuide/index.js:95
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr "לכתוב סקירות לתוספות שלא השתמשת בהן באופן אישי."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:86
+msgid ""
+"Use profanity, sexual language or language that can be construed as hateful."
+msgstr "להשתמש בשפה בוטה, מינית או בשפה שעשויה להתפרש כפוגענית."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:91
+msgid ""
+"Include HTML, links, source code or code snippets. Reviews are meant to be "
+"text only."
+msgstr ""
+"לכלול HTML, קישורים, קוד מקור או קטעי קוד. סקירות אמורות להיות טקסט בלבד."
+
+#: src/amo/pages/StaticPages/ReviewGuide/index.js:96
+msgid ""
+"Make false statements, disparage add-on authors or personally insult them."
+msgstr "לפרסם הצהרות שווא, לזלזל ביוצרי תוספות או להעליב אותם באופן אישי."
 
 #: src/amo/pages/UserProfile/index.js:240
 msgid "My reviews"

@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import AppBanner from 'amo/components/AppBanner';
 import HeroRecommendation, {
   PRIMARY_HERO_CLICK_CATEGORY,
   PRIMARY_HERO_SRC,
@@ -181,6 +182,12 @@ describe(__filename, () => {
     const root = render({ shelfData });
 
     expect(root.find('.HeroRecommendation-body').html()).toContain(description);
+  });
+
+  it('renders an AppBanner', () => {
+    const root = render();
+
+    expect(root.find(AppBanner)).toHaveLength(1);
   });
 
   describe('makeCallToActionURL', () => {
