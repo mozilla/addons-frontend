@@ -1,6 +1,6 @@
 apipkg==1.5
 atomicwrites==1.3.0
-attrs==19.1.0
+attrs==19.2.0
 certifi==2019.9.11
 chardet==3.0.4
 execnet==1.7.1
@@ -14,7 +14,7 @@ packaging==19.2
 pluggy==0.13.0
 py==1.8.0
 PyPOM==2.2.0
-pytest==5.2.0
+pytest==5.2.1
 pytest-base-url==1.4.1
 pytest-firefox==0.1.1
 pytest-forked==1.0.2
@@ -23,7 +23,7 @@ pytest-metadata==1.8.0
 pytest-repeat==0.8.0
 pytest-selenium==1.17.0
 pytest-variables==1.8.0
-pytest-xdist==1.29.0
+pytest-xdist==1.30.0
 atomicwrites==1.3.0
 requests==2.22.0
 scandir==1.10.0
