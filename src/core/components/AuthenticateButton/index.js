@@ -129,8 +129,9 @@ type DispatchMappedProps = {|
 export const createHandleLogOutFunction = (
   dispatch: DispatchFunc,
 ): HandleLogOutFunction => {
-  return ({ api }) => {
-    return logOutFromServer({ api }).then(() => dispatch(logOutUser()));
+  return async ({ api }) => {
+    await logOutFromServer({ api });
+    return dispatch(logOutUser());
   };
 };
 

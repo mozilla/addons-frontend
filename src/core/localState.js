@@ -34,19 +34,17 @@ export class LocalState {
     configureLocalForage({ localForage });
   }
 
-  load(): Promise<Object | null> {
-    return this.localForage
-      .getItem(this.id)
-      .then((data) => {
-        if (!data) {
-          return null;
-        }
-        return data;
-      })
-      .catch((error) => {
-        log.debug(`Error with localForage.getItem("${this.id}"): ${error}`);
-        throw error;
-      });
+  async load(): Promise<Object | null> {
+    try {
+      const data = await this.localForage.getItem(this.id);
+      if (!data) {
+        return null;
+      }
+      return data;
+    } catch (error) {
+      log.debug(`Error with localForage.getItem("${this.id}"): ${error}`);
+      throw error;
+    }
   }
 
   clear(): Promise<void> {
