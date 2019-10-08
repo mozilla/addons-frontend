@@ -1,5 +1,21 @@
 @import '~amo/css/styles';
 
+.Page-amo {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.Page-content {
+  background: $background-grey;
+  flex-grow: 1;
+  padding: 0 0 $padding-page;
+
+  @include respond-to(large) {
+    padding: 0 0 $padding-page-l;
+  }
+}
+
 .Page {
   margin: 0 auto;
 }

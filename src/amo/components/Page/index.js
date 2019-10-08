@@ -30,12 +30,12 @@ export const PageBase = ({
   location,
 }: InternalProps) => {
   return (
-    <div className="App-amo">
+    <div className="Page-amo">
       <InfoDialog />
 
       <Header isHomePage={isHomePage} location={location} />
 
-      <div className="App-content">
+      <div className="Page-content">
         <div
           className={makeClassName('Page', {
             'Page-not-homepage': !isHomePage,

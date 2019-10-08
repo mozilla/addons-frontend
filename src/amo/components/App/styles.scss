@@ -46,22 +46,6 @@ body {
   height: 100%;
 }
 
-.App-amo {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-.App-content {
-  background: $background-grey;
-  flex-grow: 1;
-  padding: 0 0 $padding-page;
-
-  @include respond-to(large) {
-    padding: 0 0 $padding-page-l;
-  }
-}
-
 h1,
 h2 {
   @include font-bold();
