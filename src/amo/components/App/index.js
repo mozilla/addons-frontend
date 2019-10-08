@@ -20,15 +20,11 @@ import './styles.scss';
 import Routes from 'amo/components/Routes';
 import ScrollToTop from 'core/components/ScrollToTop';
 import { getDjangoBase62 } from 'amo/utils';
-import { getErrorComponent } from 'amo/utils/errors';
-import Footer from 'amo/components/Footer';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import { addChangeListeners } from 'core/addonManager';
 import { setUserAgent as setUserAgentAction } from 'core/actions';
 import { setInstallState } from 'core/actions/installations';
 import { CLIENT_APP_ANDROID, maximumSetTimeoutDelay } from 'core/constants';
-import DefaultErrorPage from 'core/components/ErrorPage';
-import InfoDialog from 'core/components/InfoDialog';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import type { AppState } from 'amo/store';
@@ -42,7 +38,6 @@ interface MozNavigator extends Navigator {
 }
 
 type Props = {|
-  ErrorPage: typeof DefaultErrorPage,
   _addChangeListeners: (callback: Function, mozAddonManager?: Object) => void,
   _navigator: typeof navigator,
   authToken?: string,
@@ -61,7 +56,6 @@ export class AppBase extends React.Component<Props> {
   scheduledLogout: TimeoutID;
 
   static defaultProps = {
-    ErrorPage: DefaultErrorPage,
     _addChangeListeners: addChangeListeners,
     _navigator: typeof navigator !== 'undefined' ? navigator : null,
     authTokenValidFor: config.get('authTokenValidFor'),
@@ -166,7 +160,7 @@ export class AppBase extends React.Component<Props> {
   }
 
   render() {
-    const { ErrorPage, clientApp, i18n, lang } = this.props;
+    const { clientApp, i18n, lang } = this.props;
 
     const i18nValues = {
       locale: lang,
@@ -199,19 +193,8 @@ export class AppBase extends React.Component<Props> {
     return (
       <NestedStatus code={200}>
         <ScrollToTop>
-          <div className="App-amo">
-            <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate} />
-
-            <InfoDialog />
-
-            <div className="App-content">
-              <ErrorPage getErrorComponent={getErrorComponent}>
-                <Routes />
-              </ErrorPage>
-            </div>
-
-            <Footer />
-          </div>
+          <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate} />
+          <Routes />
         </ScrollToTop>
       </NestedStatus>
     );
