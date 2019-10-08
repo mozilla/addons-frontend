@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 16:19+0000\n"
+"POT-Creation-Date: 2019-10-08 19:31+0000\n"
 "PO-Revision-Date: 2017-08-30 10:53+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
@@ -603,22 +603,22 @@ msgstr "版本 %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "发布于 %(dateReleased)s - %(fileSize)s"
 
-#: src/amo/components/App/index.js:204
+#: src/amo/components/App/index.js:207
 #: src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Firefox 附加组件（%(locale)s）"
 
-#: src/amo/components/App/index.js:208
+#: src/amo/components/App/index.js:211
 #: src/amo/components/HeadMetaTags/index.js:73
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Firefox 附加组件（%(locale)s）"
 
-#: src/amo/components/App/index.js:216
+#: src/amo/components/App/index.js:219
 #: src/amo/components/HeadMetaTags/index.js:78
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "适用于 Android 的 Firefox 附加组件（%(locale)s）"
 
-#: src/amo/components/App/index.js:220
+#: src/amo/components/App/index.js:223
 #: src/amo/components/HeadMetaTags/index.js:72
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – 适用于 Android 的 Firefox 附加组件（%(locale)s）"
@@ -926,12 +926,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "已报告这是一份缺陷报告或支持请求"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "已标记"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "标记"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "已标记"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1036,11 +1036,11 @@ msgstr "关于"
 msgid "Blog"
 msgstr "博客"
 
-#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:97
+#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:106
 msgid "Extension Workshop"
 msgstr "扩展工坊"
 
-#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:107
+#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:116
 msgid "Developer Hub"
 msgstr "开发者中心"
 
@@ -1064,69 +1064,69 @@ msgstr "评价指南"
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "只能用于 Firefox — 获取 Firefox"
 
-#: src/amo/components/Header/index.js:105
+#: src/amo/components/Header/index.js:104
+msgid "Learn how to create extensions and themes"
+msgstr "了解如何创建扩展和主题"
+
+#: src/amo/components/Header/index.js:114
 msgid "Submit and manage extensions and themes"
 msgstr "提交和管理扩展和主题"
 
-#: src/amo/components/Header/index.js:119
+#: src/amo/components/Header/index.js:129
 msgid "My Account"
 msgstr "我的账户"
 
-#: src/amo/components/Header/index.js:125
+#: src/amo/components/Header/index.js:136
 msgid "View My Collections"
 msgstr "查看我的收藏集"
 
-#: src/amo/components/Header/index.js:133
+#: src/amo/components/Header/index.js:144
 #: src/amo/pages/UserProfileEdit/index.js:513
 msgid "View My Profile"
 msgstr "查看我的个人资料"
 
-#: src/amo/components/Header/index.js:141
+#: src/amo/components/Header/index.js:152
 #: src/amo/pages/UserProfileEdit/index.js:519
 msgid "Edit My Profile"
 msgstr "编辑我的个人资料"
 
-#: src/amo/components/Header/index.js:145
+#: src/amo/components/Header/index.js:156
 msgid "Tools"
 msgstr "工具"
 
-#: src/amo/components/Header/index.js:151
+#: src/amo/components/Header/index.js:162
 msgid "Submit a New Add-on"
 msgstr "提交新附加组件"
 
-#: src/amo/components/Header/index.js:156
+#: src/amo/components/Header/index.js:170
 msgid "Submit a New Theme"
 msgstr "提交新主题"
 
-#: src/amo/components/Header/index.js:165
+#: src/amo/components/Header/index.js:179
 msgid "Manage My Submissions"
 msgstr "管理我的提交"
 
-#: src/amo/components/Header/index.js:175
+#: src/amo/components/Header/index.js:189
 msgid "Reviewer Tools"
 msgstr "审核员工具"
 
-#: src/amo/components/Header/index.js:185
+#: src/amo/components/Header/index.js:199
 #: src/core/components/AuthenticateButton/index.js:80
 msgid "Log out"
 msgstr "退出"
 
-#: src/amo/components/Header/index.js:65
+#: src/amo/components/Header/index.js:66
 msgid "Firefox Add-ons"
 msgstr "Firefox 附加组件"
 
-#: src/amo/components/Header/index.js:95
-msgid "Learn how to create extensions and themes"
-msgstr "了解如何创建扩展和主题"
-
-# If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:109
-msgid "RECOMMENDED"
-msgstr "推荐"
-
-#: src/amo/components/HeroRecommendation/index.js:71
+#: src/amo/components/HeroRecommendation/index.js:103
 msgid "Get the extension"
 msgstr "获取扩展"
+
+# If uppercase does not work in your locale, change it to lowercase.
+#: src/amo/components/HeroRecommendation/index.js:167
+msgid "RECOMMENDED"
+msgstr "推荐"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
@@ -1426,22 +1426,22 @@ msgstr "我们已收到您的报告。感谢告知。"
 msgid "Search results"
 msgstr "搜索结果"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:275
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:277
 #: src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
 msgstr "推荐扩展"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:276
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:278
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "精选扩展"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:360
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:364
 #: src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
 msgstr "推荐主题"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:361
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:365
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "精选主题"
@@ -1454,7 +1454,7 @@ msgstr "推荐附加组件"
 msgid "Featured add-ons"
 msgstr "精选附加组件"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:375
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:379
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "热门扩展"
@@ -1482,11 +1482,11 @@ msgstr "最受好评的主题"
 msgid "Top rated add-ons"
 msgstr "最受好评附加组件"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:322
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:324
 msgid "Popular extensions"
 msgstr "最流行的扩展"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:301
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:303
 msgid "Popular themes"
 msgstr "最流行的主题"
 
@@ -2245,31 +2245,31 @@ msgstr ""
 "下载 Firefox 扩展与主题，它们就像是您浏览器上的应用程序，可以屏蔽讨人厌的广"
 "告、保护密码、更改浏览器外观，还有更多功能。"
 
-#: src/amo/pages/Home/index.js:280 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:282 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
 msgstr "看看更多推荐扩展"
 
-#: src/amo/pages/Home/index.js:281 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:283 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "看看更多精选扩展"
 
-#: src/amo/pages/Home/index.js:302
+#: src/amo/pages/Home/index.js:304
 msgid "See more popular themes"
 msgstr "看看更多流行主题"
 
-#: src/amo/pages/Home/index.js:323
+#: src/amo/pages/Home/index.js:325
 msgid "See more popular extensions"
 msgstr "查看更多流行扩展"
 
-#: src/amo/pages/Home/index.js:342 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:344 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
 msgstr "看看更多推荐主题"
 
-#: src/amo/pages/Home/index.js:343 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:345 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "看看更多精选主题"
 
-#: src/amo/pages/Home/index.js:376 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "看看更多热门扩展"
 

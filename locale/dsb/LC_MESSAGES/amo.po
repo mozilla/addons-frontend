@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 16:19+0000\n"
+"POT-Creation-Date: 2019-10-08 19:31+0000\n"
 "PO-Revision-Date: 2019-09-17 18:15+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
@@ -634,22 +634,22 @@ msgstr "Wersija %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "%(dateReleased)s wózjawjone - %(fileSize)s"
 
-#: src/amo/components/App/index.js:204
+#: src/amo/components/App/index.js:207
 #: src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Dodanki za Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:208
+#: src/amo/components/App/index.js:211
 #: src/amo/components/HeadMetaTags/index.js:73
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Dodanki za Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:216
+#: src/amo/components/App/index.js:219
 #: src/amo/components/HeadMetaTags/index.js:78
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Dodanki za Firefox Android (%(locale)s)"
 
-#: src/amo/components/App/index.js:220
+#: src/amo/components/App/index.js:223
 #: src/amo/components/HeadMetaTags/index.js:72
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Dodanki za Firefox Android (%(locale)s)"
@@ -977,12 +977,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Ako zmólkowa rozpšawa abo pšosba wó pomoc wóznamjenjony"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Wóznamjenjone"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Wóznamjeniś"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Wóznamjenjone"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1087,11 +1087,11 @@ msgstr "Wó nas"
 msgid "Blog"
 msgstr "Blog"
 
-#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:97
+#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:106
 msgid "Extension Workshop"
 msgstr "Źěłowa kupka rozšyrjenjow"
 
-#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:107
+#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:116
 msgid "Developer Hub"
 msgstr "Wuwijarski rožk"
 
@@ -1115,69 +1115,69 @@ msgstr "Směrnica za pógódnośenja"
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Jano z Firefox – Wobstarajśo se něnto Firefox"
 
-#: src/amo/components/Header/index.js:105
+#: src/amo/components/Header/index.js:104
+msgid "Learn how to create extensions and themes"
+msgstr "Zgóńśo, kak móžośo rozšyrjenja a drastwy napóraś"
+
+#: src/amo/components/Header/index.js:114
 msgid "Submit and manage extensions and themes"
 msgstr "Rozšyrjenja a drastwy wótpósłaś a zastojaś"
 
-#: src/amo/components/Header/index.js:119
+#: src/amo/components/Header/index.js:129
 msgid "My Account"
 msgstr "Mójo konto"
 
-#: src/amo/components/Header/index.js:125
+#: src/amo/components/Header/index.js:136
 msgid "View My Collections"
 msgstr "Móje zběrki pokazaś"
 
-#: src/amo/components/Header/index.js:133
+#: src/amo/components/Header/index.js:144
 #: src/amo/pages/UserProfileEdit/index.js:513
 msgid "View My Profile"
 msgstr "Mój profil pokazaś"
 
-#: src/amo/components/Header/index.js:141
+#: src/amo/components/Header/index.js:152
 #: src/amo/pages/UserProfileEdit/index.js:519
 msgid "Edit My Profile"
 msgstr "Mój profil wobźěłaś"
 
-#: src/amo/components/Header/index.js:145
+#: src/amo/components/Header/index.js:156
 msgid "Tools"
 msgstr "Rědy"
 
-#: src/amo/components/Header/index.js:151
+#: src/amo/components/Header/index.js:162
 msgid "Submit a New Add-on"
 msgstr "Nowy dodank zapódaś"
 
-#: src/amo/components/Header/index.js:156
+#: src/amo/components/Header/index.js:170
 msgid "Submit a New Theme"
 msgstr "Nowu drastwu zapódaś"
 
-#: src/amo/components/Header/index.js:165
+#: src/amo/components/Header/index.js:179
 msgid "Manage My Submissions"
 msgstr "Móje zapódaśa zastojaś"
 
-#: src/amo/components/Header/index.js:175
+#: src/amo/components/Header/index.js:189
 msgid "Reviewer Tools"
 msgstr "Rědy za pśeglědowarje"
 
-#: src/amo/components/Header/index.js:185
+#: src/amo/components/Header/index.js:199
 #: src/core/components/AuthenticateButton/index.js:80
 msgid "Log out"
 msgstr "Wótzjawiś"
 
-#: src/amo/components/Header/index.js:65
+#: src/amo/components/Header/index.js:66
 msgid "Firefox Add-ons"
 msgstr "Dodanki za Firefox"
 
-#: src/amo/components/Header/index.js:95
-msgid "Learn how to create extensions and themes"
-msgstr "Zgóńśo, kak móžośo rozšyrjenja a drastwy napóraś"
-
-# If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:109
-msgid "RECOMMENDED"
-msgstr "DOPÓRUCONY"
-
-#: src/amo/components/HeroRecommendation/index.js:71
+#: src/amo/components/HeroRecommendation/index.js:103
 msgid "Get the extension"
 msgstr "Wobstarajśo se rozšyrjenje"
+
+# If uppercase does not work in your locale, change it to lowercase.
+#: src/amo/components/HeroRecommendation/index.js:167
+msgid "RECOMMENDED"
+msgstr "DOPÓRUCONY"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
@@ -1498,22 +1498,22 @@ msgstr ""
 msgid "Search results"
 msgstr "Pytańske wuslědki"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:275
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:277
 #: src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
 msgstr "Dopórucone rozšyrjenja"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:276
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:278
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Pśedstajone rozšyrjenja"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:360
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:364
 #: src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
 msgstr "Dopórucone drastwy"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:361
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:365
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Pśedstajone drastwy"
@@ -1526,7 +1526,7 @@ msgstr "Dopórucone dodanki"
 msgid "Featured add-ons"
 msgstr "Pśedstajone dodanki"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:375
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:379
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "Woblubowane rozšyrjenja"
@@ -1554,11 +1554,11 @@ msgstr "Wusoko pógódnośone drastwy"
 msgid "Top rated add-ons"
 msgstr "Nejwušej pógódnośone dodanki"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:322
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:324
 msgid "Popular extensions"
 msgstr "Woblubowane rozšyrjenja"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:301
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:303
 msgid "Popular themes"
 msgstr "Woblubowane drastwy"
 
@@ -2413,31 +2413,31 @@ msgstr ""
 "wobglědowak. Mógu gramne wabjenje blokěrowaś, gronidła šćitaś, wuglědanje "
 "wobglědowaka změniś a wěcej."
 
-#: src/amo/pages/Home/index.js:280 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:282 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
 msgstr "Dalšne dopórucone rozšyrjenja pokazaś"
 
-#: src/amo/pages/Home/index.js:281 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:283 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "Dalšne pśedstajone rozšyrjenja se woglědaś"
 
-#: src/amo/pages/Home/index.js:302
+#: src/amo/pages/Home/index.js:304
 msgid "See more popular themes"
 msgstr "Dalšne woblubowane drastwy pokazaś"
 
-#: src/amo/pages/Home/index.js:323
+#: src/amo/pages/Home/index.js:325
 msgid "See more popular extensions"
 msgstr "Dalšne woblubowane rozšyrjenja se woglědaś"
 
-#: src/amo/pages/Home/index.js:342 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:344 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
 msgstr "Dalšne dopórucone drastwy pokazaś"
 
-#: src/amo/pages/Home/index.js:343 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:345 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "Dalšne pśedstajone drastwy se woglědaś"
 
-#: src/amo/pages/Home/index.js:376 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Dalšne tuchylu woblubowane rozšyrjenja se woglědaś"
 
