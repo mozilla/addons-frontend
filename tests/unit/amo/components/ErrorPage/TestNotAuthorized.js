@@ -30,7 +30,7 @@ describe(__filename, () => {
   it('renders a not authorized error', () => {
     const root = render();
 
-    expect(root.find('.ErrorPage')).toHaveProp('componentProps', {
+    expect(root.find('.ErrorPage')).toHaveProp('contentProps', {
       header: 'Not Authorized',
     });
   });

@@ -534,7 +534,7 @@ export class CollectionBase extends React.Component<InternalProps> {
     }
 
     return (
-      <Page className="Collection">
+      <Page contentClassName="Collection">
         {collection && (
           <Helmet>
             <title>{collection.name}</title>

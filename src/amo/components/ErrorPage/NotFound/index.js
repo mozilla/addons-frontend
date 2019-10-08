@@ -9,6 +9,7 @@ import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML, visibleAddonType } from 'core/utils';
 import { replaceStringsWithJSX } from 'core/i18n/utils';
+import Card from 'ui/components/Card';
 import type { I18nType } from 'core/types/i18n';
 
 import '../styles.scss';
@@ -64,11 +65,11 @@ export class NotFoundBase extends React.Component<InternalProps> {
     return (
       <NestedStatus code={404}>
         <Page
-          className="ErrorPage NotFound"
-          componentProps={{
+          contentClassName="ErrorPage NotFound"
+          contentProps={{
             header: i18n.gettext('Oops! We can’t find that page'),
           }}
-          useCardComponent
+          ContentComponentType={Card}
         >
           <p>
             {i18n.gettext(`If you’ve followed a link from another site for an

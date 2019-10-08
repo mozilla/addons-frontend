@@ -434,7 +434,7 @@ export class AddonBase extends React.Component {
           'Addon--has-more-than-0-addons': numberOfAddonsByAuthors > 0,
           'Addon--has-more-than-3-addons': numberOfAddonsByAuthors > 3,
         })}
-        componentProps={{ 'data-site-identifier': addon ? addon.id : null }}
+        contentProps={{ 'data-site-identifier': addon ? addon.id : null }}
       >
         <AddonHead addon={addon} />
 

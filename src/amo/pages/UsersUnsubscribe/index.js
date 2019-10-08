@@ -91,7 +91,7 @@ export class UsersUnsubscribeBase extends React.Component<InternalProps> {
     });
 
     return (
-      <Page className="UsersUnsubscribe">
+      <Page contentClassName="UsersUnsubscribe">
         <Helmet>
           <title>{i18n.gettext('Unsubscribe')}</title>
         </Helmet>

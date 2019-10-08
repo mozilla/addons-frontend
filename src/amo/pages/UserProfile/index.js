@@ -339,7 +339,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
       : i18n.gettext('User Profile');
 
     return (
-      <Page className="UserProfile">
+      <Page contentClassName="UserProfile">
         <UserProfileHead
           title={userProfileTitle}
           description={this.getMetaDescription()}

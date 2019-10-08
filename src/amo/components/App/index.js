@@ -43,8 +43,6 @@ interface MozNavigator extends Navigator {
 
 type Props = {|
   ErrorPage: typeof DefaultErrorPage,
-  FooterComponent: typeof Footer,
-  InfoDialogComponent: typeof InfoDialog,
   _addChangeListeners: (callback: Function, mozAddonManager?: Object) => void,
   _navigator: typeof navigator,
   authToken?: string,
@@ -64,8 +62,6 @@ export class AppBase extends React.Component<Props> {
 
   static defaultProps = {
     ErrorPage: DefaultErrorPage,
-    FooterComponent: Footer,
-    InfoDialogComponent: InfoDialog,
     _addChangeListeners: addChangeListeners,
     _navigator: typeof navigator !== 'undefined' ? navigator : null,
     authTokenValidFor: config.get('authTokenValidFor'),
@@ -170,14 +166,7 @@ export class AppBase extends React.Component<Props> {
   }
 
   render() {
-    const {
-      ErrorPage,
-      FooterComponent,
-      InfoDialogComponent,
-      clientApp,
-      i18n,
-      lang,
-    } = this.props;
+    const { ErrorPage, clientApp, i18n, lang } = this.props;
 
     const i18nValues = {
       locale: lang,
@@ -213,7 +202,7 @@ export class AppBase extends React.Component<Props> {
           <div className="App-amo">
             <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate} />
 
-            <InfoDialogComponent />
+            <InfoDialog />
 
             <div className="App-content">
               <ErrorPage getErrorComponent={getErrorComponent}>
@@ -221,7 +210,7 @@ export class AppBase extends React.Component<Props> {
               </ErrorPage>
             </div>
 
-            <FooterComponent />
+            <Footer />
           </div>
         </ScrollToTop>
       </NestedStatus>

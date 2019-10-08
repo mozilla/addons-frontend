@@ -150,7 +150,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
     }
 
     return (
-      <Page className="AddonVersions">
+      <Page contentClassName="AddonVersions">
         {addon && (
           <Helmet>
             <title>{header}</title>

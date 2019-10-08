@@ -15,6 +15,7 @@ import AddonHead from 'amo/components/AddonHead';
 import AddonTitle from 'amo/components/AddonTitle';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
+import Page from 'amo/components/Page';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
@@ -293,9 +294,10 @@ describe(__filename, () => {
     store.dispatch(_loadAddonResults({ addon }));
 
     const root = renderComponent({ store });
+    console.log(root.debug());
 
-    expect(root.find('.Addon')).toHaveLength(1);
-    expect(root.find('.Addon')).toHaveProp('componentProps', {
+    expect(root.find(Page)).toHaveLength(1);
+    expect(root.find(Page)).toHaveProp('contentProps', {
       'data-site-identifier': addon.id,
     });
   });
@@ -1427,7 +1429,7 @@ describe(__filename, () => {
     const addon = createInternalAddon({ ...fakeAddon, id });
     const root = shallowRender({ addon });
 
-    expect(root.find('.Addon')).toHaveProp('componentProps', {
+    expect(root.find('.Addon')).toHaveProp('contentProps', {
       'data-site-identifier': id,
     });
   });

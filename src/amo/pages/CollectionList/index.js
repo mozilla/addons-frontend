@@ -106,7 +106,7 @@ export class CollectionListBase extends React.Component<InternalProps> {
     const { i18n, isLoggedIn } = this.props;
 
     return (
-      <Page className="CollectionList">
+      <Page contentClassName="CollectionList">
         <div className="CollectionList-wrapper">
           <Card
             className="CollectionList-info"

@@ -182,7 +182,7 @@ export class AddonInfoBase extends React.Component<InternalProps> {
     }
 
     return (
-      <Page className={makeClassName('AddonInfo', `AddonInfo--${infoType}`)}>
+      <Page contentClassName={makeClassName('AddonInfo', `AddonInfo--${infoType}`)}>
         {addon && (
           <Helmet>
             <title>{header}</title>

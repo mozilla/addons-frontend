@@ -7,6 +7,7 @@ import Page from 'amo/components/Page';
 import SuggestedPages from 'amo/components/SuggestedPages';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
+import Card from 'ui/components/Card';
 import type { I18nType } from 'core/types/i18n';
 
 import '../styles.scss';
@@ -33,9 +34,9 @@ export class NotAuthorizedBase extends React.Component<Props> {
     return (
       <NestedStatus code={401}>
         <Page
-          className="ErrorPage NotAuthorized"
-          componentProps={{ header: i18n.gettext('Not Authorized') }}
-          useCardComponent
+          contentClassName="ErrorPage NotAuthorized"
+          contentProps={{ header: i18n.gettext('Not Authorized') }}
+          ContentComponentType={Card}
         >
           <p>
             {i18n.gettext(`

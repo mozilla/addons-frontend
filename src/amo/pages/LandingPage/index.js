@@ -265,7 +265,7 @@ export class LandingPageBase extends React.Component {
 
     return (
       <Page
-        className={makeClassName('LandingPage', `LandingPage--${addonType}`, {
+        contentClassName={makeClassName('LandingPage', `LandingPage--${addonType}`, {
           'LandingPage--theme': isAddonTheme,
         })}
       >

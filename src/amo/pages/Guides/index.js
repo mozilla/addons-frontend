@@ -408,7 +408,7 @@ export class GuidesBase extends React.Component<InternalProps> {
     const { introText, icon, title, sections } = content;
 
     return (
-      <Page className="Guides-page">
+      <Page contentClassName="Guides-page">
         <Helmet>
           <title>{title}</title>
         </Helmet>

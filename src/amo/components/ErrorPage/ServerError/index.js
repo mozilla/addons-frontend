@@ -7,6 +7,7 @@ import Page from 'amo/components/Page';
 import SuggestedPages from 'amo/components/SuggestedPages';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
+import Card from 'ui/components/Card';
 
 import '../styles.scss';
 
@@ -28,11 +29,11 @@ export class ServerErrorBase extends React.Component {
     return (
       <NestedStatus code={500}>
         <Page
-          className="ErrorPage ServerError"
-          componentProps={{
+          contentClassName="ErrorPage ServerError"
+          contentProps={{
             header: i18n.gettext('Server Error'),
           }}
-          useCardComponent
+          ContentComponentType={Card}
         >
           <p>
             {i18n.gettext(`

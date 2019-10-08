@@ -27,7 +27,7 @@ describe(__filename, () => {
 
     expect(wrapper.find(HeadLinks)).toHaveLength(1);
     expect(wrapper).toHaveClassName('StaticPage');
-    expect(wrapper).toHaveProp('componentProps', { header: title });
+    expect(wrapper).toHaveProp('contentProps', { header: title });
     expect(wrapper.find(HeadMetaTags)).toHaveProp('title', title);
     expect(wrapper.find(HeadMetaTags)).toHaveProp(
       'description',

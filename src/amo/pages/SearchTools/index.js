@@ -30,8 +30,8 @@ export class SearchToolsBase extends React.Component<InternalProps> {
       <Page>
         <HeadMetaTags
           description={i18n.gettext(`Download Firefox extensions to customize
-        the way you search—everything from privacy-enhanced searching to
-        website-specific searches, image searching, and more.`)}
+            the way you search—everything from privacy-enhanced searching to
+            website-specific searches, image searching, and more.`)}
           title={i18n.gettext('Search Tools')}
         />
 

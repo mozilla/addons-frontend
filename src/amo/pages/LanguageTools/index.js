@@ -25,6 +25,7 @@ import {
   fetchLanguageTools,
   getAllLanguageTools,
 } from 'core/reducers/languageTools';
+import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -148,9 +149,9 @@ export class LanguageToolsBase extends React.Component<Props> {
 
     return (
       <Page
-        className="LanguageTools"
-        componentProps={{ header }}
-        useCardComponent
+        contentClassName="LanguageTools"
+        contentProps={{ header }}
+        ContentComponentType={Card}
       >
         <Helmet>
           <title>{header}</title>

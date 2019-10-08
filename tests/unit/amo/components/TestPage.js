@@ -12,7 +12,7 @@ import {
 
 describe(__filename, () => {
   const render = (props = {}) => {
-    const allProps = { children: '', ...props };
+    const allProps = { children: <div>Some content</div>, ...props };
 
     return shallowUntilTarget(<Page {...allProps} />, PageBase, {
       shallowOptions: createContextWithFakeRouter(),
@@ -64,33 +64,33 @@ describe(__filename, () => {
   });
 
   it('can assign a className to the rendered component', () => {
-    const className = 'a-component-className';
-    const root = render({ className });
+    const contentClassName = 'a-component-className';
+    const root = render({ contentClassName });
 
-    expect(root.find(`.${className}`)).toHaveLength(1);
+    expect(root.find(`.${contentClassName}`)).toHaveLength(1);
   });
 
   it('renders a div by default', () => {
-    const className = 'a-component-className';
-    const root = render({ className });
+    const contentClassName = 'a-component-className';
+    const root = render({ contentClassName });
 
-    expect(root.find(`div.${className}`)).toHaveLength(1);
+    expect(root.find(`div.${contentClassName}`)).toHaveLength(1);
   });
 
-  it('can render a Card', () => {
-    const className = 'a-component-className';
-    const root = render({ className, useCardComponent: true });
+  it('can render a different component type', () => {
+    const contentClassName = 'a-component-className';
+    const root = render({ contentClassName, ComponentType: Card });
 
-    expect(root.find(Card)).toHaveClassName(className);
+    expect(root.find(Card)).toHaveClassName(contentClassName);
   });
 
-  it('passes componentProps into the rendered component', () => {
-    const className = 'a-component-className';
+  it('passes contentProps into the rendered component', () => {
+    const contentClassName = 'a-component-className';
     const header = 'header text';
-    const componentProps = { header };
-    const root = render({ className, componentProps });
+    const contentProps = { header };
+    const root = render({ contentClassName, contentProps });
 
-    expect(root.find(`.${className}`)).toHaveProp('header', header);
+    expect(root.find(`.${contentClassName}`)).toHaveProp('header', header);
   });
 
   it('renders children', () => {

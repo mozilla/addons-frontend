@@ -6,17 +6,16 @@ import { withRouter } from 'react-router-dom';
 
 import AppBanner from 'amo/components/AppBanner';
 import Header from 'amo/components/Header';
-import Card from 'ui/components/Card';
 import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
 type Props = {|
   children: React.Node,
-  className?: string,
-  componentProps?: { [name: string]: any },
+  contentClassName?: string,
+  contentProps?: { [name: string]: any },
+  ContentComponentType?: any,
   isHomePage?: boolean,
-  useCardComponent?: boolean,
 |};
 
 type InternalProps = {|
@@ -28,11 +27,11 @@ type InternalProps = {|
 export const PageBase = ({
   _config = config,
   children,
-  className,
-  componentProps = {},
+  contentClassName,
+  contentProps = {},
+  ContentComponentType = 'div',
   isHomePage = false,
   location,
-  useCardComponent = false,
 }: InternalProps) => {
   return (
     <>
@@ -45,15 +44,9 @@ export const PageBase = ({
         (!isHomePage || !_config.get('enableFeatureHeroRecommendation')) && (
           <AppBanner />
         )}
-        {useCardComponent ? (
-          <Card className={className} {...componentProps}>
-            {children}
-          </Card>
-        ) : (
-          <div className={className} {...componentProps}>
-            {children}
-          </div>
-        )}
+        <ContentComponentType className={contentClassName} {...contentProps}>
+          {children}
+        </ContentComponentType>
       </div>
     </>
   );

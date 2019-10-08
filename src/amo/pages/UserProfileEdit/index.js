@@ -495,7 +495,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     const overlayClassName = 'UserProfileEdit-deletion-modal';
 
     return (
-      <Page className="UserProfileEdit">
+      <Page contentClassName="UserProfileEdit">
         {user && (
           <Helmet>
             <title>

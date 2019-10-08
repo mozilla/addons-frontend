@@ -334,7 +334,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
 
     return (
       <Page
-        className={makeClassName(
+        contentClassName={makeClassName(
           'AddonReviewList',
           addon && addon.type ? [`AddonReviewList--${addon.type}`] : null,
         )}
