@@ -12,6 +12,7 @@ import CollectionControls from 'amo/components/CollectionControls';
 import CollectionDetailsCard from 'amo/components/CollectionDetailsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
+import Page from 'amo/components/Page';
 import { isFeaturedCollection } from 'amo/pages/Home';
 import {
   collectionEditUrl,
@@ -533,18 +534,20 @@ export class CollectionBase extends React.Component<InternalProps> {
     }
 
     return (
-      <div className="Collection">
-        {collection && (
-          <Helmet>
-            <title>{collection.name}</title>
-            <meta name="description" content={this.getPageDescription()} />
-          </Helmet>
-        )}
+      <Page>
+        <div className="Collection">
+          {collection && (
+            <Helmet>
+              <title>{collection.name}</title>
+              <meta name="description" content={this.getPageDescription()} />
+            </Helmet>
+          )}
 
-        {errorHandler.renderErrorIfPresent()}
+          {errorHandler.renderErrorIfPresent()}
 
-        {this.renderCollection()}
-      </div>
+          {this.renderCollection()}
+        </div>
+      </Page>
     );
   }
 }

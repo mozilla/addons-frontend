@@ -3,6 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import Page from 'amo/components/Page';
 import Search from 'amo/components/Search';
 import {
   ADDON_TYPE_DICT,
@@ -102,11 +103,13 @@ export class SearchPageBase extends React.Component<InternalProps> {
     const { filters } = this.props;
 
     return (
-      <Search
-        enableSearchFilters
-        filters={filters}
-        paginationQueryParams={convertFiltersToQueryParams(filters)}
-      />
+      <Page>
+        <Search
+          enableSearchFilters
+          filters={filters}
+          paginationQueryParams={convertFiltersToQueryParams(filters)}
+        />
+      </Page>
     );
   }
 }

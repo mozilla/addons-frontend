@@ -5,6 +5,7 @@ import Helmet from 'react-helmet';
 import Categories from 'amo/components/Categories';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
+import Page from 'amo/components/Page';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { apiAddonType } from 'core/utils';
@@ -46,7 +47,7 @@ export class CategoriesPageBase extends React.Component<InternalProps> {
     const title = this.getPageTitle(addonType);
 
     return (
-      <>
+      <Page>
         <Helmet>
           <title>{title}</title>
         </Helmet>
@@ -56,7 +57,7 @@ export class CategoriesPageBase extends React.Component<InternalProps> {
         <HeadLinks />
 
         <Categories addonType={addonType} className="CategoriesPage" />
-      </>
+      </Page>
     );
   }
 }

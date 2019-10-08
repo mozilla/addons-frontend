@@ -739,7 +739,7 @@ describe(__filename, () => {
       });
       const root = render();
 
-      expect(root).toHaveClassName(
+      expect(root.find('.AddonReviewList')).toHaveClassName(
         `AddonReviewList--${ADDON_TYPE_STATIC_THEME}`,
       );
     });

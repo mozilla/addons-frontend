@@ -46,31 +46,6 @@ body {
   height: 100%;
 }
 
-.App-amo {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-.App-content {
-  background: $background-grey;
-  flex-grow: 1;
-  padding: 0 0 $padding-page;
-
-  @include respond-to(large) {
-    padding: 0 0 $padding-page-l;
-  }
-}
-
-.App-content-wrapper {
-  margin: 0 auto;
-  max-width: $max-content-width;
-}
-
-.App-content-wrapper-homepage {
-  margin: 0 auto;
-}
-
 h1,
 h2 {
   @include font-bold();

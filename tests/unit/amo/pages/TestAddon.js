@@ -1391,7 +1391,10 @@ describe(__filename, () => {
       ];
       const { store } = dispatchAddonData({ addon, addonsByAuthors });
 
-      const root = renderComponent({ params: { slug: addon.slug }, store });
+      const root = renderComponent({
+        params: { slug: addon.slug },
+        store,
+      }).find('.Addon');
 
       expect(root).toHaveClassName('.Addon--has-more-than-0-addons');
       expect(root).not.toHaveClassName('.Addon--has-more-than-3-addons');
@@ -1407,7 +1410,10 @@ describe(__filename, () => {
       ];
       const { store } = dispatchAddonData({ addon, addonsByAuthors });
 
-      const root = renderComponent({ params: { slug: addon.slug }, store });
+      const root = renderComponent({
+        params: { slug: addon.slug },
+        store,
+      }).find('.Addon');
 
       expect(root).toHaveClassName('.Addon--has-more-than-0-addons');
       expect(root).toHaveClassName('.Addon--has-more-than-3-addons');
@@ -1415,10 +1421,11 @@ describe(__filename, () => {
   });
 
   it('renders the site identifier as a data attribute', () => {
-    const addon = createInternalAddon({ ...fakeAddon, id: 9001 });
+    const id = 9001;
+    const addon = createInternalAddon({ ...fakeAddon, id });
     const root = shallowRender({ addon });
 
-    expect(root.find('.Addon')).toHaveProp('data-site-identifier', 9001);
+    expect(root.find('.Addon')).toHaveProp('data-site-identifier', id);
   });
 
   it('renders a ContributeCard', () => {
