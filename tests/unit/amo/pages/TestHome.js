@@ -15,6 +15,7 @@ import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import HeroRecommendation from 'amo/components/HeroRecommendation';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
+import Page from 'amo/components/Page';
 import SecondaryHero from 'amo/components/SecondaryHero';
 import {
   FETCH_HOME_DATA,
@@ -84,6 +85,11 @@ describe(__filename, () => {
   }) => {
     store.dispatch(loadHomeData({ collections, heroShelves, shelves }));
   };
+
+  it('renders a Page component passing `true` for `isHomePage`', () => {
+    const root = render();
+    expect(root.find(Page)).toHaveProp('isHomePage', true);
+  });
 
   // Note: We often have more than one collection to display, which is why the
   // it.each logic is used below.

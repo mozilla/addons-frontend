@@ -11,6 +11,7 @@ import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
+import Page from 'amo/components/Page';
 import { fetchReviewPermissions, fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import {
@@ -332,61 +333,63 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
       ) : null;
 
     return (
-      <div
-        className={makeClassName(
-          'AddonReviewList',
-          addon && addon.type ? [`AddonReviewList--${addon.type}`] : null,
-        )}
-      >
-        {addon && (
-          <Helmet>
-            <title>{header}</title>
-            <meta name="description" content={this.getPageDescription()} />
-            {reviewId && <meta name="robots" content="noindex, follow" />}
-          </Helmet>
-        )}
-
-        {errorHandler.renderErrorIfPresent()}
-
-        <AddonSummaryCard addon={addon} headerText={header} />
-
-        <div className="AddonReviewList-reviews">
-          {reviewId && (
-            <FeaturedAddonReview
-              addon={addon}
-              reviewId={reviewId}
-              siteUserCanReply={siteUserCanReplyToReviews}
-            />
+      <Page>
+        <div
+          className={makeClassName(
+            'AddonReviewList',
+            addon && addon.type ? [`AddonReviewList--${addon.type}`] : null,
           )}
-          {allReviews.length ? (
-            <CardList
-              className="AddonReviewList-reviews-listing"
-              footer={paginator}
-              header={reviewCountHTML}
-            >
-              <ul>
-                {allReviews.map((review, index) => {
-                  return (
-                    <li key={String(index)}>
-                      <AddonReviewCard
-                        addon={addon}
-                        review={review}
-                        siteUserCanReply={siteUserCanReplyToReviews}
-                      />
-                    </li>
-                  );
-                })}
-              </ul>
-            </CardList>
-          ) : (
-            <Card header={reviewCountHTML}>
-              <p className="AddonReviewList-noReviews">
-                {i18n.gettext('There are no reviews')}
-              </p>
-            </Card>
+        >
+          {addon && (
+            <Helmet>
+              <title>{header}</title>
+              <meta name="description" content={this.getPageDescription()} />
+              {reviewId && <meta name="robots" content="noindex, follow" />}
+            </Helmet>
           )}
+
+          {errorHandler.renderErrorIfPresent()}
+
+          <AddonSummaryCard addon={addon} headerText={header} />
+
+          <div className="AddonReviewList-reviews">
+            {reviewId && (
+              <FeaturedAddonReview
+                addon={addon}
+                reviewId={reviewId}
+                siteUserCanReply={siteUserCanReplyToReviews}
+              />
+            )}
+            {allReviews.length ? (
+              <CardList
+                className="AddonReviewList-reviews-listing"
+                footer={paginator}
+                header={reviewCountHTML}
+              >
+                <ul>
+                  {allReviews.map((review, index) => {
+                    return (
+                      <li key={String(index)}>
+                        <AddonReviewCard
+                          addon={addon}
+                          review={review}
+                          siteUserCanReply={siteUserCanReplyToReviews}
+                        />
+                      </li>
+                    );
+                  })}
+                </ul>
+              </CardList>
+            ) : (
+              <Card header={reviewCountHTML}>
+                <p className="AddonReviewList-noReviews">
+                  {i18n.gettext('There are no reviews')}
+                </p>
+              </Card>
+            )}
+          </div>
         </div>
-      </div>
+      </Page>
     );
   }
 }

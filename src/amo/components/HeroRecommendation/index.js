@@ -147,6 +147,9 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
         )}
       >
         <div className="HeroRecommendation-wrapper">
+          {/* The AppBanner is included here as it wants to live inside the
+          HeroRecommendation on the home page. All other pages in the app
+          include it via the Page component. */}
           <AppBanner className="HeroRecommendation-banner" />
 
           <div className="HeroRecommendation-content">

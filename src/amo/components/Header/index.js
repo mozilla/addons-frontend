@@ -19,7 +19,6 @@ import {
   hasAnyReviewerRelatedPermission,
 } from 'amo/reducers/users';
 import { makeQueryStringWithUTM } from 'amo/utils';
-import { VIEW_CONTEXT_HOME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import DropdownMenu from 'ui/components/DropdownMenu';
 import DropdownMenuItem from 'ui/components/DropdownMenuItem';
@@ -32,16 +31,13 @@ export class HeaderBase extends React.Component {
     api: PropTypes.object.isRequired,
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-    isHomePage: PropTypes.bool,
+    isHomePage: PropTypes.bool.isRequired,
     location: PropTypes.object.isRequired,
     siteUser: PropTypes.object,
     isReviewer: PropTypes.bool.isRequired,
   };
 
-  static defaultProps = {
-    _config: config,
-    isHomePage: false,
-  };
+  static defaultProps = { _config: config };
 
   handleLogOut = (event) => {
     event.preventDefault();
@@ -217,7 +213,6 @@ export class HeaderBase extends React.Component {
 export const mapStateToProps = (state) => {
   return {
     api: state.api,
-    isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME,
     siteUser: getCurrentUser(state.users),
     isReviewer: hasAnyReviewerRelatedPermission(state),
   };

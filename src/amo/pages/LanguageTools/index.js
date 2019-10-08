@@ -11,6 +11,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
+import Page from 'amo/components/Page';
 import { getAddonURL } from 'amo/utils';
 import { withErrorHandler } from 'core/errorHandler';
 import {
@@ -147,125 +148,131 @@ export class LanguageToolsBase extends React.Component<Props> {
     const header = i18n.gettext('Dictionaries and Language Packs');
 
     return (
-      <Card className="LanguageTools" header={header}>
-        <Helmet>
-          <title>{header}</title>
-        </Helmet>
+      <Page>
+        <Card className="LanguageTools" header={header}>
+          <Helmet>
+            <title>{header}</title>
+          </Helmet>
 
-        <HeadMetaTags
-          description={i18n.gettext(`Download Firefox dictionaries and language
+          <HeadMetaTags
+            description={i18n.gettext(`Download Firefox dictionaries and language
             pack extensions. Add a new language option to your browser
             spell-checker, or change the browser's interface language.`)}
-          title={header}
-        />
+            title={header}
+          />
 
-        <HeadLinks />
+          <HeadLinks />
 
-        {errorHandler.renderErrorIfPresent()}
+          {errorHandler.renderErrorIfPresent()}
 
-        <p>
-          {i18n.gettext(`Installing a dictionary add-on will add a new language
+          <p>
+            {i18n.gettext(`Installing a dictionary add-on will add a new language
             option to your spell-checker, which checks your spelling as you
             type in Firefox.`)}
-        </p>
-        <p>
-          {i18n.gettext(`Language packs change your browser's interface
+          </p>
+          <p>
+            {i18n.gettext(`Language packs change your browser's interface
             language, including menu options and settings.`)}
-        </p>
+          </p>
 
-        {this.languageToolsInYourLocale()}
+          {this.languageToolsInYourLocale()}
 
-        <h2 className="LanguageTools-header">{i18n.gettext('All Locales')}</h2>
+          <h2 className="LanguageTools-header">
+            {i18n.gettext('All Locales')}
+          </h2>
 
-        <Table className="LanguageTools-table">
-          <Thead>
-            <Tr className="LanguageTools-header-row">
-              <Th className="LanguageTools-header-cell LanguageTool-localeName">
-                {i18n.gettext('Locale Name')}
-              </Th>
-              <Th className="LanguageTools-header-cell">
-                {i18n.gettext('Language Packs')}
-              </Th>
-              <Th className="LanguageTools-header-cell">
-                {i18n.gettext('Dictionaries')}
-              </Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {languageTools.length
-              ? sortedLanguages.map((language) => {
-                  const toolsInLocale = languageTools.filter((addon) => {
-                    if (sortedLocales.includes(addon.target_locale)) {
-                      return addon.target_locale === language.locale;
+          <Table className="LanguageTools-table">
+            <Thead>
+              <Tr className="LanguageTools-header-row">
+                <Th className="LanguageTools-header-cell LanguageTool-localeName">
+                  {i18n.gettext('Locale Name')}
+                </Th>
+                <Th className="LanguageTools-header-cell">
+                  {i18n.gettext('Language Packs')}
+                </Th>
+                <Th className="LanguageTools-header-cell">
+                  {i18n.gettext('Dictionaries')}
+                </Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {languageTools.length
+                ? sortedLanguages.map((language) => {
+                    const toolsInLocale = languageTools.filter((addon) => {
+                      if (sortedLocales.includes(addon.target_locale)) {
+                        return addon.target_locale === language.locale;
+                      }
+
+                      const re = new RegExp(`^${language.locale}(-\\w+)?$`);
+
+                      return (
+                        addon.target_locale && re.test(addon.target_locale)
+                      );
+                    });
+
+                    // This means there are no language tools available in this
+                    // known locale.
+                    if (!toolsInLocale || !toolsInLocale.length) {
+                      return null;
                     }
 
-                    const re = new RegExp(`^${language.locale}(-\\w+)?$`);
+                    const dictionaries = toolsInLocale.filter((addon) => {
+                      return addon.type === ADDON_TYPE_DICT;
+                    });
 
-                    return addon.target_locale && re.test(addon.target_locale);
-                  });
+                    const languagePacks = toolsInLocale.filter((addon) => {
+                      return addon.type === ADDON_TYPE_LANG;
+                    });
 
-                  // This means there are no language tools available in this
-                  // known locale.
-                  if (!toolsInLocale || !toolsInLocale.length) {
-                    return null;
-                  }
-
-                  const dictionaries = toolsInLocale.filter((addon) => {
-                    return addon.type === ADDON_TYPE_DICT;
-                  });
-
-                  const languagePacks = toolsInLocale.filter((addon) => {
-                    return addon.type === ADDON_TYPE_LANG;
-                  });
-
-                  return (
-                    // Required to preserve space between strong and span.
-                    /* eslint-disable react/jsx-closing-tag-location */
-                    <Tr
-                      className={makeClassName(
-                        'LanguageTools-table-row',
-                        `LanguageTools-lang-${language.locale}`,
-                      )}
-                      key={language.locale}
-                    >
+                    return (
+                      // Required to preserve space between strong and span.
+                      /* eslint-disable react/jsx-closing-tag-location */
+                      <Tr
+                        className={makeClassName(
+                          'LanguageTools-table-row',
+                          `LanguageTools-lang-${language.locale}`,
+                        )}
+                        key={language.locale}
+                      >
+                        <Td>
+                          <strong>{language.english}</strong>{' '}
+                          <span lang={language.locale}>{language.native}</span>
+                        </Td>
+                        <Td
+                          className={`LanguageTools-lang-${language.locale}-languagePacks`}
+                        >
+                          {languagePacks.length ? (
+                            <LanguageToolList languageTools={languagePacks} />
+                          ) : null}
+                        </Td>
+                        <Td
+                          className={`LanguageTools-lang-${language.locale}-dictionaries`}
+                        >
+                          {dictionaries.length ? (
+                            <LanguageToolList languageTools={dictionaries} />
+                          ) : null}
+                        </Td>
+                      </Tr>
+                    );
+                  })
+                : Array.from(Array(50)).map((_, i) => (
+                    // eslint-disable-next-line react/jsx-indent, react/no-array-index-key
+                    <Tr key={`LoadingText-${i}`}>
                       <Td>
-                        <strong>{language.english}</strong>{' '}
-                        <span lang={language.locale}>{language.native}</span>
+                        <LoadingText />
                       </Td>
-                      <Td
-                        className={`LanguageTools-lang-${language.locale}-languagePacks`}
-                      >
-                        {languagePacks.length ? (
-                          <LanguageToolList languageTools={languagePacks} />
-                        ) : null}
+                      <Td>
+                        <LoadingText />
                       </Td>
-                      <Td
-                        className={`LanguageTools-lang-${language.locale}-dictionaries`}
-                      >
-                        {dictionaries.length ? (
-                          <LanguageToolList languageTools={dictionaries} />
-                        ) : null}
+                      <Td>
+                        <LoadingText />
                       </Td>
                     </Tr>
-                  );
-                })
-              : Array.from(Array(50)).map((_, i) => (
-                  // eslint-disable-next-line react/jsx-indent, react/no-array-index-key
-                  <Tr key={`LoadingText-${i}`}>
-                    <Td>
-                      <LoadingText />
-                    </Td>
-                    <Td>
-                      <LoadingText />
-                    </Td>
-                    <Td>
-                      <LoadingText />
-                    </Td>
-                  </Tr>
-                ))}
-          </Tbody>
-        </Table>
-      </Card>
+                  ))}
+            </Tbody>
+          </Table>
+        </Card>
+      </Page>
     );
   }
 }

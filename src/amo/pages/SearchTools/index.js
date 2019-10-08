@@ -6,6 +6,7 @@ import { compose } from 'redux';
 import Search from 'amo/components/Search';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
+import Page from 'amo/components/Page';
 import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_TOP_RATED } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
@@ -26,7 +27,7 @@ export class SearchToolsBase extends React.Component<InternalProps> {
     const { filters, i18n } = this.props;
 
     return (
-      <>
+      <Page>
         <HeadMetaTags
           description={i18n.gettext(`Download Firefox extensions to customize
             the way you search—everything from privacy-enhanced searching to
@@ -41,7 +42,7 @@ export class SearchToolsBase extends React.Component<InternalProps> {
           filters={filters}
           paginationQueryParams={convertFiltersToQueryParams(filters)}
         />
-      </>
+      </Page>
     );
   }
 }

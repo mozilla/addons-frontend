@@ -1,14 +1,13 @@
 import * as React from 'react';
 
-import { setViewContext } from 'amo/actions/viewContext';
 import Header, { HeaderBase } from 'amo/components/Header';
 import Link from 'amo/components/Link';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import DropdownMenu from 'ui/components/DropdownMenu';
-import { VIEW_CONTEXT_HOME } from 'core/constants';
 import {
   createFakeEvent,
+  createFakeLocation,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeI18n,
@@ -23,6 +22,7 @@ describe(__filename, () => {
   } = {}) {
     const allProps = {
       i18n: fakeI18n(),
+      location: createFakeLocation(),
       ...props,
     };
 
@@ -33,9 +33,7 @@ describe(__filename, () => {
   }
 
   it('renders an <h1> when isHomepage is true', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(setViewContext(VIEW_CONTEXT_HOME));
-    const root = renderHeader({ store });
+    const root = renderHeader({ isHomePage: true });
 
     expect(root.find('.Header-title-wrapper')).toHaveTagName('h1');
     expect(root.find('.Header-title').type()).toEqual(Link);
@@ -45,7 +43,7 @@ describe(__filename, () => {
   });
 
   it('always renders a link in the header when not on homepage', () => {
-    const root = renderHeader();
+    const root = renderHeader({ isHomePage: false });
 
     // There shouldn't be an H1 in the header on pages that aren't the
     // homepage; other routes will render their own, more relevant, H1 tags.

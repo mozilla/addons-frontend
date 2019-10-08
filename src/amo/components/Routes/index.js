@@ -23,6 +23,7 @@ import LanguageTools from 'amo/pages/LanguageTools';
 import SearchTools from 'amo/pages/SearchTools';
 import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import Page from 'amo/components/Page';
 import SearchPage from 'amo/pages/SearchPage';
 import ServerError from 'amo/components/ErrorPage/ServerError';
 import UserProfile from 'amo/pages/UserProfile';
@@ -190,17 +191,29 @@ const Routes = ({ _config = config }: Props = {}) => (
     <Route
       exact
       path="/:lang/:application/simulate-async-error/"
-      component={SimulateAsyncError}
+      component={() => (
+        <Page>
+          <SimulateAsyncError />
+        </Page>
+      )}
     />
     <Route
       exact
       path="/:lang/:application/simulate-sync-error/"
-      component={SimulateSyncError}
+      component={() => (
+        <Page>
+          <SimulateSyncError />
+        </Page>
+      )}
     />
     <Route
       exact
       path="/:lang/:application/simulate-client-error/"
-      component={SimulateClientError}
+      component={() => (
+        <Page>
+          <SimulateClientError />
+        </Page>
+      )}
     />
     <Route
       exact
