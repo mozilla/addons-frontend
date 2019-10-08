@@ -32,9 +32,10 @@ export class HeaderBase extends React.Component {
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     isHomePage: PropTypes.bool.isRequired,
-    location: PropTypes.object.isRequired,
-    siteUser: PropTypes.object,
     isReviewer: PropTypes.bool.isRequired,
+    location: PropTypes.object.isRequired,
+    siteIsReadOnly: PropTypes.bool.isRequired,
+    siteUser: PropTypes.object,
   };
 
   static defaultProps = { _config: config };
@@ -52,6 +53,7 @@ export class HeaderBase extends React.Component {
       isHomePage,
       isReviewer,
       location,
+      siteIsReadOnly,
       siteUser,
     } = this.props;
 
@@ -190,7 +192,14 @@ export class HeaderBase extends React.Component {
                 <DropdownMenuItem
                   className="Header-logout-button"
                   detached
+                  disabled={siteIsReadOnly}
                   onClick={this.handleLogOut}
+                  title={
+                    siteIsReadOnly
+                      ? i18n.gettext(`This action is currently unavailable.
+                          Please reload the page in a moment.`)
+                      : null
+                  }
                 >
                   {i18n.gettext('Log out')}
                 </DropdownMenuItem>
@@ -213,8 +222,9 @@ export class HeaderBase extends React.Component {
 export const mapStateToProps = (state) => {
   return {
     api: state.api,
-    siteUser: getCurrentUser(state.users),
     isReviewer: hasAnyReviewerRelatedPermission(state),
+    siteIsReadOnly: state.site.readOnly,
+    siteUser: getCurrentUser(state.users),
   };
 };
 

@@ -124,4 +124,28 @@ describe(__filename, () => {
     expect(button.type()).toEqual('span');
     expect(button).toHaveClassName(className);
   });
+
+  it('renders a read only button with a title', () => {
+    const title = 'some title';
+    const button = render({ noLink: true, title });
+
+    expect(button.type()).toEqual('span');
+    expect(button).toHaveProp('title', title);
+  });
+
+  it('renders a link with a title', () => {
+    const title = 'some title';
+    const button = render({ href: '/', title });
+
+    expect(button.type()).toEqual(Link);
+    expect(button).toHaveProp('title', title);
+  });
+
+  it('renders a submit button with a title', () => {
+    const title = 'some title';
+    const button = render({ title });
+
+    expect(button.type()).toEqual('button');
+    expect(button).toHaveProp('title', title);
+  });
 });

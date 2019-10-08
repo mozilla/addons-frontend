@@ -5,6 +5,7 @@ import Link from 'amo/components/Link';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import DropdownMenu from 'ui/components/DropdownMenu';
+import { loadSiteStatus } from 'core/reducers/site';
 import {
   createFakeEvent,
   createFakeLocation,
@@ -191,4 +192,27 @@ describe(__filename, () => {
       expect(wrapper.find('.Header')).toHaveClassName(expectedClassName);
     },
   );
+
+  it('disables the logout button when the site is in readonly mode', () => {
+    const { store } = dispatchSignInActions();
+    store.dispatch(loadSiteStatus({ readOnly: true, notice: null }));
+
+    const root = renderHeader({ store });
+
+    expect(root.find('.Header-logout-button')).toHaveProp('disabled', true);
+    expect(root.find('.Header-logout-button')).toHaveProp(
+      'title',
+      expect.stringContaining('currently unavailable'),
+    );
+  });
+
+  it('does not disable the logout button when the site is not in readonly mode', () => {
+    const { store } = dispatchSignInActions();
+    store.dispatch(loadSiteStatus({ readOnly: false, notice: null }));
+
+    const root = renderHeader({ store });
+
+    expect(root.find('.Header-logout-button')).toHaveProp('disabled', false);
+    expect(root.find('.Header-logout-button')).toHaveProp('title', null);
+  });
 });

@@ -33,6 +33,13 @@
   margin-top: 8px;
 }
 
+.DropdownMenuItem--disabled {
+  &,
+  & button {
+    @include disabled();
+  }
+}
+
 .DropdownMenuItem {
   overflow: hidden;
   text-overflow: ellipsis;

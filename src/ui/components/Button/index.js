@@ -29,6 +29,7 @@ export type Props = {|
   noLink: boolean,
   onClick?: Function | null,
   puffy: boolean,
+  title?: string | null,
   // TODO: make a better Object type.
   to?: string | Object,
   target?: string,
@@ -101,7 +102,11 @@ export default class Button extends React.Component<Props> {
     };
 
     if (noLink) {
-      return <span className={getClassName()}>{children}</span>;
+      return (
+        <span className={getClassName()} title={rest.title}>
+          {children}
+        </span>
+      );
     }
 
     if (href || to) {

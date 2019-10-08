@@ -72,4 +72,27 @@ describe(__filename, () => {
     expect(item).toHaveClassName('DropdownMenuItem-section');
     expect(item).toHaveClassName('custom-class');
   });
+
+  it('can render a disabled button', () => {
+    const stub = sinon.stub();
+    const item = shallow(
+      <DropdownMenuItem onClick={stub} disabled>
+        A disabled button
+      </DropdownMenuItem>,
+    );
+
+    expect(item).toHaveClassName('DropdownMenuItem--disabled');
+  });
+
+  it('renders a button with a title', () => {
+    const stub = sinon.stub();
+    const title = 'some title';
+    const item = shallow(
+      <DropdownMenuItem onClick={stub} title={title}>
+        A button with title
+      </DropdownMenuItem>,
+    );
+
+    expect(item.find('button')).toHaveProp('title', title);
+  });
 });
