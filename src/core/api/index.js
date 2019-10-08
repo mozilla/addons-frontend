@@ -144,6 +144,7 @@ export function callApi({
     if (body instanceof FormData) {
       options.body = body;
       // Let the browser sets this header, including the boundary value.
+      // $FLOW_IGNORE
       delete options.headers['Content-type'];
     } else {
       options.body = JSON.stringify(body);
