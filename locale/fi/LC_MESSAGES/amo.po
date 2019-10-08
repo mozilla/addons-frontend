@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 16:19+0000\n"
+"POT-Creation-Date: 2019-10-08 19:31+0000\n"
 "PO-Revision-Date: 2019-09-17 14:44+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
@@ -611,22 +611,22 @@ msgstr "Versio %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Julkaistu %(dateReleased)s - %(fileSize)s"
 
-#: src/amo/components/App/index.js:204
+#: src/amo/components/App/index.js:207
 #: src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Lisäosia Firefoxille (%(locale)s)"
 
-#: src/amo/components/App/index.js:208
+#: src/amo/components/App/index.js:211
 #: src/amo/components/HeadMetaTags/index.js:73
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Lisäosia Firefoxille (%(locale)s)"
 
-#: src/amo/components/App/index.js:216
+#: src/amo/components/App/index.js:219
 #: src/amo/components/HeadMetaTags/index.js:78
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Lisäosia Firefox Androidille (%(locale)s)"
 
-#: src/amo/components/App/index.js:220
+#: src/amo/components/App/index.js:223
 #: src/amo/components/HeadMetaTags/index.js:72
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
@@ -954,12 +954,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Merkitty vikailmoitukseksi tai tukipyynnöksi"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Merkitty"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Merkitse"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Merkitty"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1064,11 +1064,11 @@ msgstr "Tietoja"
 msgid "Blog"
 msgstr "Blogi"
 
-#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:97
+#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:106
 msgid "Extension Workshop"
 msgstr "Laajennustyöpaja"
 
-#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:107
+#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:116
 msgid "Developer Hub"
 msgstr "Kehityskeskus"
 
@@ -1092,70 +1092,70 @@ msgstr "Opas arviointiin"
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Vain Firefoxilla — Hanki Firefox nyt"
 
-#: src/amo/components/Header/index.js:105
+#: src/amo/components/Header/index.js:104
+msgid "Learn how to create extensions and themes"
+msgstr "Opi kuinka laajennuksia ja teemoja luodaan"
+
+#: src/amo/components/Header/index.js:114
 msgid "Submit and manage extensions and themes"
 msgstr "Lähetä ja hallitse laajennuksia sekä teemoja"
 
-#: src/amo/components/Header/index.js:119
+#: src/amo/components/Header/index.js:129
 msgid "My Account"
 msgstr "Oma tili"
 
-#: src/amo/components/Header/index.js:125
+#: src/amo/components/Header/index.js:136
 msgid "View My Collections"
 msgstr "Näytä kokoelmani"
 
-#: src/amo/components/Header/index.js:133
+#: src/amo/components/Header/index.js:144
 #: src/amo/pages/UserProfileEdit/index.js:513
 msgid "View My Profile"
 msgstr "Näytä profiilini"
 
-#: src/amo/components/Header/index.js:141
+#: src/amo/components/Header/index.js:152
 #: src/amo/pages/UserProfileEdit/index.js:519
 msgid "Edit My Profile"
 msgstr "Muokkaa profiiliani"
 
-#: src/amo/components/Header/index.js:145
+#: src/amo/components/Header/index.js:156
 msgid "Tools"
 msgstr "Työkalut"
 
-#: src/amo/components/Header/index.js:151
+#: src/amo/components/Header/index.js:162
 msgid "Submit a New Add-on"
 msgstr "Lähetä uusi lisäosa"
 
-#: src/amo/components/Header/index.js:156
+#: src/amo/components/Header/index.js:170
 msgid "Submit a New Theme"
 msgstr "Lähetä uusi teema"
 
-#: src/amo/components/Header/index.js:165
+#: src/amo/components/Header/index.js:179
 msgid "Manage My Submissions"
 msgstr "Hallitse lähettämiäsi lisäosia"
 
-#: src/amo/components/Header/index.js:175
+#: src/amo/components/Header/index.js:189
 msgid "Reviewer Tools"
 msgstr "Arvioijan työkalut"
 
-#: src/amo/components/Header/index.js:185
+#: src/amo/components/Header/index.js:199
 #: src/core/components/AuthenticateButton/index.js:80
 msgid "Log out"
 msgstr "Kirjaudu ulos"
 
-#: src/amo/components/Header/index.js:65
+#: src/amo/components/Header/index.js:66
 msgid "Firefox Add-ons"
 msgstr "Firefoxin lisäosat"
 
-#: src/amo/components/Header/index.js:95
-msgid "Learn how to create extensions and themes"
-msgstr "Opi kuinka laajennuksia ja teemoja luodaan"
-
-# If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:109
-msgid "RECOMMENDED"
-msgstr "SUOSITELTU"
-
-#: src/amo/components/HeroRecommendation/index.js:71
+#: src/amo/components/HeroRecommendation/index.js:103
 #, fuzzy
 msgid "Get the extension"
 msgstr "Säälaajennukset"
+
+# If uppercase does not work in your locale, change it to lowercase.
+#: src/amo/components/HeroRecommendation/index.js:167
+msgid "RECOMMENDED"
+msgstr "SUOSITELTU"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
@@ -1472,22 +1472,22 @@ msgstr ""
 msgid "Search results"
 msgstr "Hakutulokset"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:275
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:277
 #: src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
 msgstr "Suositellut laajennukset"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:276
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:278
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Suositellut laajennukset"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:360
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:364
 #: src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
 msgstr "Suositellut teemat"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:361
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:365
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Suositellut teemat"
@@ -1500,7 +1500,7 @@ msgstr "Suositellut lisäosat"
 msgid "Featured add-ons"
 msgstr "Suositellut lisäosat"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:375
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:379
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "Nousussa olevat laajennukset"
@@ -1528,11 +1528,11 @@ msgstr "Parhaiten arvioidut teemat"
 msgid "Top rated add-ons"
 msgstr "Parhaiten arvioidut lisäosat"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:322
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:324
 msgid "Popular extensions"
 msgstr "Suositut laajennukset"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:301
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:303
 msgid "Popular themes"
 msgstr "Suositut teemat"
 
@@ -2351,31 +2351,31 @@ msgstr ""
 "selaimellesi. Niiden avulla voit estää ärsyttävät mainokset, suojata "
 "salasanoja, muuttaa selaimen ulkoasua ja paljon muuta."
 
-#: src/amo/pages/Home/index.js:280 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:282 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
 msgstr "Katso lisää suositeltuja laajennuksia"
 
-#: src/amo/pages/Home/index.js:281 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:283 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "Katso lisää suositeltuja laajennuksia"
 
-#: src/amo/pages/Home/index.js:302
+#: src/amo/pages/Home/index.js:304
 msgid "See more popular themes"
 msgstr "Katso lisää suosittuja teemoja"
 
-#: src/amo/pages/Home/index.js:323
+#: src/amo/pages/Home/index.js:325
 msgid "See more popular extensions"
 msgstr "Katso lisää suosittuja laajennuksia"
 
-#: src/amo/pages/Home/index.js:342 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:344 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
 msgstr "Katso lisää suositeltuja teemoja"
 
-#: src/amo/pages/Home/index.js:343 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:345 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "Katso lisää suositeltuja teemoja"
 
-#: src/amo/pages/Home/index.js:376 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Katso lisää nousussa olevia laajennuksia"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 16:19+0000\n"
+"POT-Creation-Date: 2019-10-08 19:31+0000\n"
 "PO-Revision-Date: 2019-09-18 03:35+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
@@ -615,22 +615,22 @@ msgstr "Version %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Släppt %(dateReleased)s - %(fileSize)s"
 
-#: src/amo/components/App/index.js:204
+#: src/amo/components/App/index.js:207
 #: src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Tillägg för Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:208
+#: src/amo/components/App/index.js:211
 #: src/amo/components/HeadMetaTags/index.js:73
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Tillägg för Firefox (%(locale)s)"
 
-#: src/amo/components/App/index.js:216
+#: src/amo/components/App/index.js:219
 #: src/amo/components/HeadMetaTags/index.js:78
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Tillägg för Firefox Android (%(locale)s)"
 
-#: src/amo/components/App/index.js:220
+#: src/amo/components/App/index.js:223
 #: src/amo/components/HeadMetaTags/index.js:72
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Tillägg för Firefox Android (%(locale)s)"
@@ -958,12 +958,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Flaggad som en felrapport eller supportförfrågan"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Flaggad"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Flagga"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Flaggad"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1069,11 +1069,11 @@ msgstr "Om"
 msgid "Blog"
 msgstr "Blogg"
 
-#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:97
+#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:106
 msgid "Extension Workshop"
 msgstr "Utökningsverkstad"
 
-#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:107
+#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:116
 msgid "Developer Hub"
 msgstr "Utvecklarcenter"
 
@@ -1097,69 +1097,69 @@ msgstr "Recensionsriktlinjer"
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Endast med Firefox—Hämta Firefox nu"
 
-#: src/amo/components/Header/index.js:105
+#: src/amo/components/Header/index.js:104
+msgid "Learn how to create extensions and themes"
+msgstr "Läs om hur du skapar tillägg och teman"
+
+#: src/amo/components/Header/index.js:114
 msgid "Submit and manage extensions and themes"
 msgstr "Skicka in och hantera tillägg och teman"
 
-#: src/amo/components/Header/index.js:119
+#: src/amo/components/Header/index.js:129
 msgid "My Account"
 msgstr "Mitt konto"
 
-#: src/amo/components/Header/index.js:125
+#: src/amo/components/Header/index.js:136
 msgid "View My Collections"
 msgstr "Visa mina samlingar"
 
-#: src/amo/components/Header/index.js:133
+#: src/amo/components/Header/index.js:144
 #: src/amo/pages/UserProfileEdit/index.js:513
 msgid "View My Profile"
 msgstr "Visa min profil"
 
-#: src/amo/components/Header/index.js:141
+#: src/amo/components/Header/index.js:152
 #: src/amo/pages/UserProfileEdit/index.js:519
 msgid "Edit My Profile"
 msgstr "Redigera min profil"
 
-#: src/amo/components/Header/index.js:145
+#: src/amo/components/Header/index.js:156
 msgid "Tools"
 msgstr "Verktyg"
 
-#: src/amo/components/Header/index.js:151
+#: src/amo/components/Header/index.js:162
 msgid "Submit a New Add-on"
 msgstr "Skicka in ett nytt tillägg"
 
-#: src/amo/components/Header/index.js:156
+#: src/amo/components/Header/index.js:170
 msgid "Submit a New Theme"
 msgstr "Skicka in ett nytt tema"
 
-#: src/amo/components/Header/index.js:165
+#: src/amo/components/Header/index.js:179
 msgid "Manage My Submissions"
 msgstr "Hantera mina bidrag"
 
-#: src/amo/components/Header/index.js:175
+#: src/amo/components/Header/index.js:189
 msgid "Reviewer Tools"
 msgstr "Granskningsverktyg"
 
-#: src/amo/components/Header/index.js:185
+#: src/amo/components/Header/index.js:199
 #: src/core/components/AuthenticateButton/index.js:80
 msgid "Log out"
 msgstr "Logga ut"
 
-#: src/amo/components/Header/index.js:65
+#: src/amo/components/Header/index.js:66
 msgid "Firefox Add-ons"
 msgstr "Firefox tillägg"
 
-#: src/amo/components/Header/index.js:95
-msgid "Learn how to create extensions and themes"
-msgstr "Läs om hur du skapar tillägg och teman"
-
-# If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:109
-msgid "RECOMMENDED"
-msgstr "REKOMMENDERAD"
-
-#: src/amo/components/HeroRecommendation/index.js:71
+#: src/amo/components/HeroRecommendation/index.js:103
 msgid "Get the extension"
 msgstr "Hämta tillägget"
+
+# If uppercase does not work in your locale, change it to lowercase.
+#: src/amo/components/HeroRecommendation/index.js:167
+msgid "RECOMMENDED"
+msgstr "REKOMMENDERAD"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
@@ -1473,22 +1473,22 @@ msgstr ""
 msgid "Search results"
 msgstr "Sökresultat"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:275
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:277
 #: src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
 msgstr "Rekommenderade utökningar"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:276
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:278
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Utvalda utökningar"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:360
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:364
 #: src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
 msgstr "Rekommenderade teman"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:361
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:365
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Utvalda teman"
@@ -1501,7 +1501,7 @@ msgstr "Rekommenderade tillägg"
 msgid "Featured add-ons"
 msgstr "Utvalda tillägg"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:375
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:379
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "Trendiga utökningar"
@@ -1529,11 +1529,11 @@ msgstr "Högst rankade teman"
 msgid "Top rated add-ons"
 msgstr "Högst rankade tillägg"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:322
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:324
 msgid "Popular extensions"
 msgstr "Populära utökningar"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:301
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:303
 msgid "Popular themes"
 msgstr "Populära teman"
 
@@ -2341,31 +2341,31 @@ msgstr ""
 "blockera irriterande annonser, skydda lösenord, ändra webbläsarens utseende "
 "och mer."
 
-#: src/amo/pages/Home/index.js:280 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:282 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
 msgstr "Se fler rekommenderade utökningar"
 
-#: src/amo/pages/Home/index.js:281 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:283 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "Se fler utvalda utökningar"
 
-#: src/amo/pages/Home/index.js:302
+#: src/amo/pages/Home/index.js:304
 msgid "See more popular themes"
 msgstr "Se fler populära teman"
 
-#: src/amo/pages/Home/index.js:323
+#: src/amo/pages/Home/index.js:325
 msgid "See more popular extensions"
 msgstr "Se flera populära tillägg"
 
-#: src/amo/pages/Home/index.js:342 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:344 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
 msgstr "Se fler rekommenderade teman"
 
-#: src/amo/pages/Home/index.js:343 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:345 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "Se fler utvalda teman"
 
-#: src/amo/pages/Home/index.js:376 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Se fler trendiga utökningar"
 

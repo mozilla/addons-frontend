@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 16:19+0000\n"
+"POT-Creation-Date: 2019-10-08 19:31+0000\n"
 "PO-Revision-Date: 2019-09-30 15:43+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -610,22 +610,22 @@ msgstr "Sürüm %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "%(dateReleased)s tarihinde çıktı - %(fileSize)s"
 
-#: src/amo/components/App/index.js:204
+#: src/amo/components/App/index.js:207
 #: src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Firefox Eklentileri (%(locale)s)"
 
-#: src/amo/components/App/index.js:208
+#: src/amo/components/App/index.js:211
 #: src/amo/components/HeadMetaTags/index.js:73
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Firefox Eklentileri (%(locale)s)"
 
-#: src/amo/components/App/index.js:216
+#: src/amo/components/App/index.js:219
 #: src/amo/components/HeadMetaTags/index.js:78
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Firefox Android Eklentileri (%(locale)s)"
 
-#: src/amo/components/App/index.js:220
+#: src/amo/components/App/index.js:223
 #: src/amo/components/HeadMetaTags/index.js:72
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Firefox Android Eklentileri (%(locale)s)"
@@ -947,12 +947,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Hata raporu veya destek isteği olarak işaretlendi"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "İşaretlendi"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "İşaretle"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "İşaretlendi"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1057,11 +1057,11 @@ msgstr "Hakkında"
 msgid "Blog"
 msgstr "Blog"
 
-#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:97
+#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:106
 msgid "Extension Workshop"
 msgstr "Eklenti Atölyesi"
 
-#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:107
+#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:116
 msgid "Developer Hub"
 msgstr "Geliştirici Merkezi"
 
@@ -1085,71 +1085,71 @@ msgstr "İnceleme rehberi"
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Yalnızca Firefox’ta: Firefox’u hemen indirin"
 
-#: src/amo/components/Header/index.js:105
-#, fuzzy
-msgid "Submit and manage extensions and themes"
-msgstr "Eklenti kullanımını izleme ve temaları yönetme"
-
-#: src/amo/components/Header/index.js:119
-msgid "My Account"
-msgstr "Hesabım"
-
-#: src/amo/components/Header/index.js:125
-msgid "View My Collections"
-msgstr "Koleksiyonlarımı göster"
-
-#: src/amo/components/Header/index.js:133
-#: src/amo/pages/UserProfileEdit/index.js:513
-msgid "View My Profile"
-msgstr "Profilimi göster"
-
-#: src/amo/components/Header/index.js:141
-#: src/amo/pages/UserProfileEdit/index.js:519
-msgid "Edit My Profile"
-msgstr "Profilimi düzenle"
-
-#: src/amo/components/Header/index.js:145
-msgid "Tools"
-msgstr "Araçlar"
-
-#: src/amo/components/Header/index.js:151
-msgid "Submit a New Add-on"
-msgstr "Yeni eklenti gönder"
-
-#: src/amo/components/Header/index.js:156
-msgid "Submit a New Theme"
-msgstr "Yeni tema gönder"
-
-#: src/amo/components/Header/index.js:165
-msgid "Manage My Submissions"
-msgstr "Gönderilerimi yönet"
-
-#: src/amo/components/Header/index.js:175
-msgid "Reviewer Tools"
-msgstr "İnceleyici Araçları"
-
-#: src/amo/components/Header/index.js:185
-#: src/core/components/AuthenticateButton/index.js:80
-msgid "Log out"
-msgstr "Çıkış"
-
-#: src/amo/components/Header/index.js:65
-msgid "Firefox Add-ons"
-msgstr "Firefox Eklentileri"
-
-#: src/amo/components/Header/index.js:95
+#: src/amo/components/Header/index.js:104
 #, fuzzy
 msgid "Learn how to create extensions and themes"
 msgstr "Eklenti kullanımını izleme ve temaları yönetme"
 
-# If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:109
-msgid "RECOMMENDED"
-msgstr "ÖNERİLEN"
+#: src/amo/components/Header/index.js:114
+#, fuzzy
+msgid "Submit and manage extensions and themes"
+msgstr "Eklenti kullanımını izleme ve temaları yönetme"
 
-#: src/amo/components/HeroRecommendation/index.js:71
+#: src/amo/components/Header/index.js:129
+msgid "My Account"
+msgstr "Hesabım"
+
+#: src/amo/components/Header/index.js:136
+msgid "View My Collections"
+msgstr "Koleksiyonlarımı göster"
+
+#: src/amo/components/Header/index.js:144
+#: src/amo/pages/UserProfileEdit/index.js:513
+msgid "View My Profile"
+msgstr "Profilimi göster"
+
+#: src/amo/components/Header/index.js:152
+#: src/amo/pages/UserProfileEdit/index.js:519
+msgid "Edit My Profile"
+msgstr "Profilimi düzenle"
+
+#: src/amo/components/Header/index.js:156
+msgid "Tools"
+msgstr "Araçlar"
+
+#: src/amo/components/Header/index.js:162
+msgid "Submit a New Add-on"
+msgstr "Yeni eklenti gönder"
+
+#: src/amo/components/Header/index.js:170
+msgid "Submit a New Theme"
+msgstr "Yeni tema gönder"
+
+#: src/amo/components/Header/index.js:179
+msgid "Manage My Submissions"
+msgstr "Gönderilerimi yönet"
+
+#: src/amo/components/Header/index.js:189
+msgid "Reviewer Tools"
+msgstr "İnceleyici Araçları"
+
+#: src/amo/components/Header/index.js:199
+#: src/core/components/AuthenticateButton/index.js:80
+msgid "Log out"
+msgstr "Çıkış"
+
+#: src/amo/components/Header/index.js:66
+msgid "Firefox Add-ons"
+msgstr "Firefox Eklentileri"
+
+#: src/amo/components/HeroRecommendation/index.js:103
 msgid "Get the extension"
 msgstr "Eklentiyi yükle"
+
+# If uppercase does not work in your locale, change it to lowercase.
+#: src/amo/components/HeroRecommendation/index.js:167
+msgid "RECOMMENDED"
+msgstr "ÖNERİLEN"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
@@ -1464,22 +1464,22 @@ msgstr ""
 msgid "Search results"
 msgstr "Arama sonuçları"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:275
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:277
 #: src/amo/pages/LandingPage/index.js:139
 msgid "Recommended extensions"
 msgstr "Önerilen eklentiler"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:276
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:278
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "Öne çıkan eklentiler"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:360
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:364
 #: src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
 msgstr "Önerilen temalar"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:361
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:365
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "Öne çıkan temalar"
@@ -1492,7 +1492,7 @@ msgstr "Önerilen eklentiler"
 msgid "Featured add-ons"
 msgstr "Öne çıkan eklentiler"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:375
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:379
 #: src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
 msgstr "Gündemdeki eklentiler"
@@ -1520,11 +1520,11 @@ msgstr "En yüksek puanlı temalar"
 msgid "Top rated add-ons"
 msgstr "En yüksek puanlı eklentiler"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:322
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:324
 msgid "Popular extensions"
 msgstr "Popüler eklentiler"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:301
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:303
 msgid "Popular themes"
 msgstr "Popüler temalar"
 
@@ -2347,31 +2347,31 @@ msgstr ""
 "parolalarınızı koruyabilir, tarayıcı görünümünü değiştirebilir ve daha "
 "fazlasını yapabilirler."
 
-#: src/amo/pages/Home/index.js:280 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:282 src/amo/pages/LandingPage/index.js:153
 msgid "See more recommended extensions"
 msgstr "Önerdiğimiz diğer eklentilere bakın"
 
-#: src/amo/pages/Home/index.js:281 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:283 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
 msgstr "Öne çıkan diğer eklentilere bakın"
 
-#: src/amo/pages/Home/index.js:302
+#: src/amo/pages/Home/index.js:304
 msgid "See more popular themes"
 msgstr "Diğer popüler eklentilere bakın"
 
-#: src/amo/pages/Home/index.js:323
+#: src/amo/pages/Home/index.js:325
 msgid "See more popular extensions"
 msgstr "Diğer popüler eklentilere bakın"
 
-#: src/amo/pages/Home/index.js:342 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:344 src/amo/pages/LandingPage/index.js:192
 msgid "See more recommended themes"
 msgstr "Önerdiğimiz diğer temalara bakın"
 
-#: src/amo/pages/Home/index.js:343 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:345 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
 msgstr "Öne çıkan diğer temalara bakın"
 
-#: src/amo/pages/Home/index.js:376 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
 msgstr "Diğer yükselen eklentilere bakın"
 

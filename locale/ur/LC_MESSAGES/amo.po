@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 16:19+0000\n"
+"POT-Creation-Date: 2019-10-08 19:31+0000\n"
 "PO-Revision-Date: 2019-07-10 08:37+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -632,25 +632,25 @@ msgstr ""
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
-#: src/amo/components/App/index.js:204
+#: src/amo/components/App/index.js:207
 #: src/amo/components/HeadMetaTags/index.js:79
 #, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Firefox میں شامل کریں"
 
-#: src/amo/components/App/index.js:208
+#: src/amo/components/App/index.js:211
 #: src/amo/components/HeadMetaTags/index.js:73
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "Firefox میں شامل کریں"
 
-#: src/amo/components/App/index.js:216
+#: src/amo/components/App/index.js:219
 #: src/amo/components/HeadMetaTags/index.js:78
 #, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Firefox میں شامل کریں"
 
-#: src/amo/components/App/index.js:220
+#: src/amo/components/App/index.js:223
 #: src/amo/components/HeadMetaTags/index.js:72
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
@@ -973,12 +973,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "بگ رپورٹ یا سپورٹ کی درخواست کے طور پر نشان لگا دیا گیا"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "نشان لگا دیا گیا"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "پرچم"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "نشان لگا دیا گیا"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1082,12 +1082,12 @@ msgstr "کے بارے میں"
 msgid "Blog"
 msgstr "بلاگ"
 
-#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:97
+#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:106
 #, fuzzy
 msgid "Extension Workshop"
 msgstr "توسیعات"
 
-#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:107
+#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:116
 msgid "Developer Hub"
 msgstr "ڈویلپر ہب"
 
@@ -1113,72 +1113,72 @@ msgstr "متن کا جائزہ لیں"
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "صرف Firefox کے ساتھ—ابھی Firefox حاصل کریں"
 
-#: src/amo/components/Header/index.js:105
-msgid "Submit and manage extensions and themes"
-msgstr ""
-
-#: src/amo/components/Header/index.js:119
-msgid "My Account"
-msgstr "میرا اکائونٹ"
-
-#: src/amo/components/Header/index.js:125
-msgid "View My Collections"
-msgstr "میرا مجموعہ دیکھیں"
-
-#: src/amo/components/Header/index.js:133
-#: src/amo/pages/UserProfileEdit/index.js:513
-msgid "View My Profile"
-msgstr "میری پروفائل دیکھیں"
-
-#: src/amo/components/Header/index.js:141
-#: src/amo/pages/UserProfileEdit/index.js:519
-msgid "Edit My Profile"
-msgstr "میری پروفائل کی تدوین کریں"
-
-#: src/amo/components/Header/index.js:145
-msgid "Tools"
-msgstr "آلات"
-
-#: src/amo/components/Header/index.js:151
-msgid "Submit a New Add-on"
-msgstr "ایک نیا ایڈاون جمع کریں"
-
-#: src/amo/components/Header/index.js:156
-msgid "Submit a New Theme"
-msgstr "ایک نئی تھیم جمع کرو"
-
-#: src/amo/components/Header/index.js:165
-msgid "Manage My Submissions"
-msgstr "میرے نشستوں کا نظم کریں"
-
-#: src/amo/components/Header/index.js:175
-#, fuzzy
-msgid "Reviewer Tools"
-msgstr "متن کا جائزہ لیں"
-
-#: src/amo/components/Header/index.js:185
-#: src/core/components/AuthenticateButton/index.js:80
-msgid "Log out"
-msgstr "لاگ آؤٹ"
-
-#: src/amo/components/Header/index.js:65
-msgid "Firefox Add-ons"
-msgstr "Firefox اظافہ حات"
-
-#: src/amo/components/Header/index.js:95
+#: src/amo/components/Header/index.js:104
 #, fuzzy
 msgid "Learn how to create extensions and themes"
 msgstr "زیادہ مقبول توسیعات"
 
-# If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:109
-msgid "RECOMMENDED"
+#: src/amo/components/Header/index.js:114
+msgid "Submit and manage extensions and themes"
 msgstr ""
 
-#: src/amo/components/HeroRecommendation/index.js:71
+#: src/amo/components/Header/index.js:129
+msgid "My Account"
+msgstr "میرا اکائونٹ"
+
+#: src/amo/components/Header/index.js:136
+msgid "View My Collections"
+msgstr "میرا مجموعہ دیکھیں"
+
+#: src/amo/components/Header/index.js:144
+#: src/amo/pages/UserProfileEdit/index.js:513
+msgid "View My Profile"
+msgstr "میری پروفائل دیکھیں"
+
+#: src/amo/components/Header/index.js:152
+#: src/amo/pages/UserProfileEdit/index.js:519
+msgid "Edit My Profile"
+msgstr "میری پروفائل کی تدوین کریں"
+
+#: src/amo/components/Header/index.js:156
+msgid "Tools"
+msgstr "آلات"
+
+#: src/amo/components/Header/index.js:162
+msgid "Submit a New Add-on"
+msgstr "ایک نیا ایڈاون جمع کریں"
+
+#: src/amo/components/Header/index.js:170
+msgid "Submit a New Theme"
+msgstr "ایک نئی تھیم جمع کرو"
+
+#: src/amo/components/Header/index.js:179
+msgid "Manage My Submissions"
+msgstr "میرے نشستوں کا نظم کریں"
+
+#: src/amo/components/Header/index.js:189
+#, fuzzy
+msgid "Reviewer Tools"
+msgstr "متن کا جائزہ لیں"
+
+#: src/amo/components/Header/index.js:199
+#: src/core/components/AuthenticateButton/index.js:80
+msgid "Log out"
+msgstr "لاگ آؤٹ"
+
+#: src/amo/components/Header/index.js:66
+msgid "Firefox Add-ons"
+msgstr "Firefox اظافہ حات"
+
+#: src/amo/components/HeroRecommendation/index.js:103
 #, fuzzy
 msgid "Get the extension"
 msgstr "نمایاں توسیعات"
+
+# If uppercase does not work in your locale, change it to lowercase.
+#: src/amo/components/HeroRecommendation/index.js:167
+msgid "RECOMMENDED"
+msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:34
 #: src/amo/pages/Guides/index.js:266
@@ -1486,24 +1486,24 @@ msgstr ""
 msgid "Search results"
 msgstr "خیالہ تلاش کریں"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:275
+#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:277
 #: src/amo/pages/LandingPage/index.js:139
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "توسیعات"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:276
+#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:278
 #: src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
 msgstr "نمایاں توسیعات"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:360
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:364
 #: src/amo/pages/LandingPage/index.js:178
 #, fuzzy
 msgid "Recommended themes"
 msgstr "سب سے زیادہ مقبول خیالیے"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:361
+#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:365
 #: src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
 msgstr "نمایاں خیالہ"
@@ -1518,7 +1518,7 @@ msgstr "اضافہ جات تلاش کری٘ں"
 msgid "Featured add-ons"
 msgstr "نمایاں توسیعات"
 
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:375
+#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:379
 #: src/amo/pages/LandingPage/index.js:155
 #, fuzzy
 msgid "Trending extensions"
@@ -1550,11 +1550,11 @@ msgstr "سب سے اوپر ریٹیڈ خیالہ"
 msgid "Top rated add-ons"
 msgstr "ایڈ-اونز لوڈ کر رہا ہے"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:322
+#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:324
 msgid "Popular extensions"
 msgstr "مقبول توسیعات"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:301
+#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:303
 msgid "Popular themes"
 msgstr "مقبول خیالیے"
 
@@ -2350,36 +2350,36 @@ msgid ""
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:280 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:282 src/amo/pages/LandingPage/index.js:153
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "زیادہ مقبول توسیعات"
 
-#: src/amo/pages/Home/index.js:281 src/amo/pages/LandingPage/index.js:154
+#: src/amo/pages/Home/index.js:283 src/amo/pages/LandingPage/index.js:154
 #, fuzzy
 msgid "See more featured extensions"
 msgstr "زیادہ مقبول توسیعات"
 
-#: src/amo/pages/Home/index.js:302
+#: src/amo/pages/Home/index.js:304
 msgid "See more popular themes"
 msgstr "توسیعات تلاش کریں"
 
-#: src/amo/pages/Home/index.js:323
+#: src/amo/pages/Home/index.js:325
 #, fuzzy
 msgid "See more popular extensions"
 msgstr "زیادہ مقبول توسیعات"
 
-#: src/amo/pages/Home/index.js:342 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:344 src/amo/pages/LandingPage/index.js:192
 #, fuzzy
 msgid "See more recommended themes"
 msgstr "مزید مقبول خیالیے"
 
-#: src/amo/pages/Home/index.js:343 src/amo/pages/LandingPage/index.js:193
+#: src/amo/pages/Home/index.js:345 src/amo/pages/LandingPage/index.js:193
 #, fuzzy
 msgid "See more featured themes"
 msgstr "مزید مقبول خیالیے"
 
-#: src/amo/pages/Home/index.js:376 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:164
 #, fuzzy
 msgid "See more trending extensions"
 msgstr "زیادہ مقبول توسیعات"
