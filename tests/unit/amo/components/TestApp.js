@@ -1,10 +1,8 @@
 /* eslint-disable react/no-multi-comp */
-import { shallow } from 'enzyme';
 import { createMemoryHistory } from 'history';
 import * as React from 'react';
 import NestedStatus from 'react-nested-status';
 import Helmet from 'react-helmet';
-import { Route } from 'react-router-dom';
 
 import App, {
   AppBase,
@@ -178,14 +176,6 @@ describe(__filename, () => {
       'titleTemplate',
       `%s – Add-ons for Firefox Android (${lang})`,
     );
-  });
-
-  it('is wrapped via withRouter', () => {
-    const root = shallow(<App {...renderProps()} />);
-
-    // It is important that App be wrapped via withRouter. This was the only
-    // way I could figure out how to verify this.
-    expect(root.find(Route)).toHaveLength(1);
   });
 
   describe('handling expired auth tokens', () => {

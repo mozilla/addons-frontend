@@ -32,9 +32,10 @@ describe(__filename, () => {
   it('renders a not found error', () => {
     const root = render();
 
-    expect(root.find('.ErrorPage')).toHaveProp('contentProps', {
-      header: 'Oops! We can’t find that page',
-    });
+    expect(root.find('.ErrorPage')).toHaveProp(
+      'header',
+      'Oops! We can’t find that page',
+    );
 
     // There is a link to GitHub in the first paragraph.
     expect(

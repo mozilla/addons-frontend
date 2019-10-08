@@ -12,9 +12,6 @@ import './styles.scss';
 
 type Props = {|
   children: React.Node,
-  contentClassName?: string,
-  contentProps?: { [name: string]: any },
-  ContentComponentType?: any,
   isHomePage?: boolean,
 |};
 
@@ -27,9 +24,6 @@ type InternalProps = {|
 export const PageBase = ({
   _config = config,
   children,
-  contentClassName,
-  contentProps = {},
-  ContentComponentType = 'div',
   isHomePage = false,
   location,
 }: InternalProps) => {
@@ -44,9 +38,7 @@ export const PageBase = ({
         (!isHomePage || !_config.get('enableFeatureHeroRecommendation')) && (
           <AppBanner />
         )}
-        <ContentComponentType className={contentClassName} {...contentProps}>
-          {children}
-        </ContentComponentType>
+        {children}
       </div>
     </>
   );

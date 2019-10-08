@@ -3,7 +3,6 @@ import * as React from 'react';
 import Page, { PageBase } from 'amo/components/Page';
 import AppBanner from 'amo/components/AppBanner';
 import Header from 'amo/components/Header';
-import Card from 'ui/components/Card';
 import {
   createContextWithFakeRouter,
   getFakeConfig,
@@ -61,36 +60,6 @@ describe(__filename, () => {
     });
 
     expect(root.find(AppBanner)).toHaveLength(0);
-  });
-
-  it('can assign a className to the rendered component', () => {
-    const contentClassName = 'a-component-className';
-    const root = render({ contentClassName });
-
-    expect(root.find(`.${contentClassName}`)).toHaveLength(1);
-  });
-
-  it('renders a div by default', () => {
-    const contentClassName = 'a-component-className';
-    const root = render({ contentClassName });
-
-    expect(root.find(`div.${contentClassName}`)).toHaveLength(1);
-  });
-
-  it('can render a different component type', () => {
-    const contentClassName = 'a-component-className';
-    const root = render({ contentClassName, ComponentType: Card });
-
-    expect(root.find(Card)).toHaveClassName(contentClassName);
-  });
-
-  it('passes contentProps into the rendered component', () => {
-    const contentClassName = 'a-component-className';
-    const header = 'header text';
-    const contentProps = { header };
-    const root = render({ contentClassName, contentProps });
-
-    expect(root.find(`.${contentClassName}`)).toHaveProp('header', header);
   });
 
   it('renders children', () => {

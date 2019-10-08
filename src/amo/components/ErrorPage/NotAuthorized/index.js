@@ -33,21 +33,22 @@ export class NotAuthorizedBase extends React.Component<Props> {
     /* eslint-disable react/no-danger */
     return (
       <NestedStatus code={401}>
-        <Page
-          contentClassName="ErrorPage NotAuthorized"
-          contentProps={{ header: i18n.gettext('Not Authorized') }}
-          ContentComponentType={Card}
-        >
-          <p>
-            {i18n.gettext(`
+        <Page>
+          <Card
+            className="ErrorPage NotAuthorized"
+            header={i18n.gettext('Not Authorized')}
+          >
+            <p>
+              {i18n.gettext(`
               Sorry, but you aren't authorized to access this page. If you
               aren't signed in, try signing in using the link at the top
               of the page.`)}
-          </p>
+            </p>
 
-          <SuggestedPages />
+            <SuggestedPages />
 
-          <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
+            <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
+          </Card>
         </Page>
       </NestedStatus>
     );

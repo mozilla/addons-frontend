@@ -15,7 +15,6 @@ import AddonHead from 'amo/components/AddonHead';
 import AddonTitle from 'amo/components/AddonTitle';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
-import Page from 'amo/components/Page';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
@@ -294,12 +293,9 @@ describe(__filename, () => {
     store.dispatch(_loadAddonResults({ addon }));
 
     const root = renderComponent({ store });
-    console.log(root.debug());
 
-    expect(root.find(Page)).toHaveLength(1);
-    expect(root.find(Page)).toHaveProp('contentProps', {
-      'data-site-identifier': addon.id,
-    });
+    expect(root.find('.Addon')).toHaveLength(1);
+    expect(root.find('.Addon')).toHaveProp('data-site-identifier', addon.id);
   });
 
   it('dispatches fetchAddon when rendering without an add-on', () => {
@@ -1429,9 +1425,7 @@ describe(__filename, () => {
     const addon = createInternalAddon({ ...fakeAddon, id });
     const root = shallowRender({ addon });
 
-    expect(root.find('.Addon')).toHaveProp('contentProps', {
-      'data-site-identifier': id,
-    });
+    expect(root.find('.Addon')).toHaveProp('data-site-identifier', id);
   });
 
   it('renders a ContributeCard', () => {

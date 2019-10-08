@@ -28,23 +28,22 @@ export class ServerErrorBase extends React.Component {
     /* eslint-disable react/no-danger */
     return (
       <NestedStatus code={500}>
-        <Page
-          contentClassName="ErrorPage ServerError"
-          contentProps={{
-            header: i18n.gettext('Server Error'),
-          }}
-          ContentComponentType={Card}
-        >
-          <p>
-            {i18n.gettext(`
+        <Page>
+          <Card
+            className="ErrorPage ServerError"
+            header={i18n.gettext('Server Error')}
+          >
+            <p>
+              {i18n.gettext(`
               Sorry, but there was an error with our server and we couldn't
               complete your request. We have logged this error and will
               investigate it.`)}
-          </p>
+            </p>
 
-          <SuggestedPages />
+            <SuggestedPages />
 
-          <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
+            <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
+          </Card>
         </Page>
       </NestedStatus>
     );

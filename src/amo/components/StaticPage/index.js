@@ -19,20 +19,18 @@ const StaticPage = (props: Props) => {
   const { title, metaDescription, children } = props;
 
   return (
-    <Page
-      contentClassName="StaticPage"
-      contentProps={{ header: title }}
-      ContentComponentType={Card}
-    >
-      <Helmet>
-        <title>{title}</title>
-      </Helmet>
+    <Page>
+      <Card className="StaticPage" header={title}>
+        <Helmet>
+          <title>{title}</title>
+        </Helmet>
 
-      <HeadMetaTags description={metaDescription} title={title} />
+        <HeadMetaTags description={metaDescription} title={title} />
 
-      <HeadLinks />
+        <HeadLinks />
 
-      <div className="StaticPage-content">{children}</div>
+        <div className="StaticPage-content">{children}</div>
+      </Card>
     </Page>
   );
 };

@@ -264,79 +264,81 @@ export class LandingPageBase extends React.Component {
     const title = headingText[addonType];
 
     return (
-      <Page
-        contentClassName={makeClassName('LandingPage', `LandingPage--${addonType}`, {
-          'LandingPage--theme': isAddonTheme,
-        })}
-      >
-        <Helmet>
-          <title>{title}</title>
-        </Helmet>
-
-        <HeadMetaTags description={this.getPageDescription()} title={title} />
-
-        <HeadLinks />
-
-        {errorHandler.renderErrorIfPresent()}
-
-        <div className="LandingPage-header">
-          <h1 className="LandingPage-addonType-name">
-            {headingText[addonType]}
-          </h1>
-          <p className="LandingPage-heading-content">
-            {contentText[addonType]}
-          </p>
-        </div>
-
-        <Categories addonType={addonType} />
-
-        <Button
-          buttonType="light"
-          className="LandingPage-button"
-          to={`/${getVisibleAddonType(addonType)}/categories/`}
+      <Page>
+        <div
+          className={makeClassName('LandingPage', `LandingPage--${addonType}`, {
+            'LandingPage--theme': isAddonTheme,
+          })}
         >
-          {i18n.gettext('Explore all categories')}
-        </Button>
+          <Helmet>
+            <title>{title}</title>
+          </Helmet>
 
-        {this.renderIfNotEmpty(
-          recommendedAddons,
-          <LandingAddonsCard
-            addonInstallSource={INSTALL_SOURCE_FEATURED}
-            addons={recommendedAddons}
-            className="RecommendedAddons"
-            footerText={html.recommendedFooterText}
-            footerLink={html.recommendedFooterLink}
-            header={html.recommendedHeader}
-            isTheme={isAddonTheme}
-            loading={loading}
-          />,
-        )}
-        {this.renderIfNotEmpty(
-          highlyRatedAddons,
-          <LandingAddonsCard
-            addonInstallSource={INSTALL_SOURCE_TOP_RATED}
-            addons={highlyRatedAddons}
-            className="HighlyRatedAddons"
-            footerLink={html.highlyRatedFooterLink}
-            footerText={html.highlyRatedFooterText}
-            header={html.highlyRatedHeader}
-            isTheme={isAddonTheme}
-            loading={loading}
-          />,
-        )}
-        {this.renderIfNotEmpty(
-          trendingAddons,
-          <LandingAddonsCard
-            addonInstallSource={INSTALL_SOURCE_TRENDING}
-            addons={trendingAddons}
-            className="TrendingAddons"
-            footerLink={html.trendingFooterLink}
-            footerText={html.trendingFooterText}
-            header={html.trendingHeader}
-            isTheme={isAddonTheme}
-            loading={loading}
-          />,
-        )}
+          <HeadMetaTags description={this.getPageDescription()} title={title} />
+
+          <HeadLinks />
+
+          {errorHandler.renderErrorIfPresent()}
+
+          <div className="LandingPage-header">
+            <h1 className="LandingPage-addonType-name">
+              {headingText[addonType]}
+            </h1>
+            <p className="LandingPage-heading-content">
+              {contentText[addonType]}
+            </p>
+          </div>
+
+          <Categories addonType={addonType} />
+
+          <Button
+            buttonType="light"
+            className="LandingPage-button"
+            to={`/${getVisibleAddonType(addonType)}/categories/`}
+          >
+            {i18n.gettext('Explore all categories')}
+          </Button>
+
+          {this.renderIfNotEmpty(
+            recommendedAddons,
+            <LandingAddonsCard
+              addonInstallSource={INSTALL_SOURCE_FEATURED}
+              addons={recommendedAddons}
+              className="RecommendedAddons"
+              footerText={html.recommendedFooterText}
+              footerLink={html.recommendedFooterLink}
+              header={html.recommendedHeader}
+              isTheme={isAddonTheme}
+              loading={loading}
+            />,
+          )}
+          {this.renderIfNotEmpty(
+            highlyRatedAddons,
+            <LandingAddonsCard
+              addonInstallSource={INSTALL_SOURCE_TOP_RATED}
+              addons={highlyRatedAddons}
+              className="HighlyRatedAddons"
+              footerLink={html.highlyRatedFooterLink}
+              footerText={html.highlyRatedFooterText}
+              header={html.highlyRatedHeader}
+              isTheme={isAddonTheme}
+              loading={loading}
+            />,
+          )}
+          {this.renderIfNotEmpty(
+            trendingAddons,
+            <LandingAddonsCard
+              addonInstallSource={INSTALL_SOURCE_TRENDING}
+              addons={trendingAddons}
+              className="TrendingAddons"
+              footerLink={html.trendingFooterLink}
+              footerText={html.trendingFooterText}
+              header={html.trendingHeader}
+              isTheme={isAddonTheme}
+              loading={loading}
+            />,
+          )}
+        </div>
       </Page>
     );
   }

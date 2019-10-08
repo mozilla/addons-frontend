@@ -257,15 +257,11 @@ describe(__filename, () => {
     // We expect only one row with all the add-ons in it.
     expect(root.find('.LanguageTools-table-row')).toHaveLength(1);
 
-    const languageToolsForLocale = root
-      .find('.LanguageTools')
-      .find(LanguageToolList);
-
-    // expect(languageToolsForLocale).toHaveLength(2);
-    expect(languageToolsForLocale.at(0)).toHaveProp('languageTools', [
+    expect(root.find(LanguageToolList)).toHaveLength(2);
+    expect(root.find(LanguageToolList).at(0)).toHaveProp('languageTools', [
       addons[0],
     ]);
-    expect(languageToolsForLocale.at(1)).toHaveProp('languageTools', [
+    expect(root.find(LanguageToolList).at(1)).toHaveProp('languageTools', [
       addons[1],
     ]);
   });

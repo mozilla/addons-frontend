@@ -64,50 +64,52 @@ export class NotFoundBase extends React.Component<InternalProps> {
 
     return (
       <NestedStatus code={404}>
-        <Page
-          contentClassName="ErrorPage NotFound"
-          contentProps={{
-            header: i18n.gettext('Oops! We can’t find that page'),
-          }}
-          ContentComponentType={Card}
-        >
-          <p>
-            {i18n.gettext(`If you’ve followed a link from another site for an
+        <Page>
+          <Card
+            className="ErrorPage NotFound"
+            header={i18n.gettext('Oops! We can’t find that page')}
+          >
+            <p>
+              {i18n.gettext(`If you’ve followed a link from another site for an
               extension or theme, that item is no longer available. This could
               be because:`)}
-          </p>
-          <ul>
-            <li>
-              {i18n.gettext(`The developer removed it. Developers commonly do
+            </p>
+            <ul>
+              <li>
+                {i18n.gettext(`The developer removed it. Developers commonly do
                 this because they no longer support the extension or theme, or
                 have replaced it.`)}
-            </li>
-            <li>
-              {i18n.gettext(`Mozilla removed it. This can happen when issues
+              </li>
+              <li>
+                {i18n.gettext(`Mozilla removed it. This can happen when issues
                 are found during the review of the extension or theme, or the
                 extension or theme has been abusing the terms and conditions
                 for addons.mozilla.org. The developer has the opportunity to
                 resolve the issues and make the add-on available again.`)}
-            </li>
-          </ul>
-          <p
-            className="ErrorPage-paragraph-with-links"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={sanitizeHTML(
-              i18n.sprintf(
-                i18n.gettext(`If you’ve followed a link on this site, you’ve
+              </li>
+            </ul>
+            <p
+              className="ErrorPage-paragraph-with-links"
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={sanitizeHTML(
+                i18n.sprintf(
+                  i18n.gettext(`If you’ve followed a link on this site, you’ve
                   have found a mistake. Help us fix the link by <a
                   href="%(url)s">filing an issue</a>. Tell us where you came
                   from and what you were looking for, and we'll get it
                   sorted.`),
-                {
-                  url: 'https://github.com/mozilla/addons-frontend/issues/new/',
-                },
-              ),
-              ['a'],
-            )}
-          />
-          <p className="ErrorPage-paragraph-with-links">{paragraphWithLinks}</p>
+                  {
+                    url:
+                      'https://github.com/mozilla/addons-frontend/issues/new/',
+                  },
+                ),
+                ['a'],
+              )}
+            />
+            <p className="ErrorPage-paragraph-with-links">
+              {paragraphWithLinks}
+            </p>
+          </Card>
         </Page>
       </NestedStatus>
     );

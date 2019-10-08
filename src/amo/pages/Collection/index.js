@@ -534,17 +534,19 @@ export class CollectionBase extends React.Component<InternalProps> {
     }
 
     return (
-      <Page contentClassName="Collection">
-        {collection && (
-          <Helmet>
-            <title>{collection.name}</title>
-            <meta name="description" content={this.getPageDescription()} />
-          </Helmet>
-        )}
+      <Page>
+        <div className="Collection">
+          {collection && (
+            <Helmet>
+              <title>{collection.name}</title>
+              <meta name="description" content={this.getPageDescription()} />
+            </Helmet>
+          )}
 
-        {errorHandler.renderErrorIfPresent()}
+          {errorHandler.renderErrorIfPresent()}
 
-        {this.renderCollection()}
+          {this.renderCollection()}
+        </div>
       </Page>
     );
   }
