@@ -20,11 +20,13 @@ import './styles.scss';
 import Routes from 'amo/components/Routes';
 import ScrollToTop from 'core/components/ScrollToTop';
 import { getDjangoBase62 } from 'amo/utils';
+import { getErrorComponent } from 'amo/utils/errors';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import { addChangeListeners } from 'core/addonManager';
 import { setUserAgent as setUserAgentAction } from 'core/actions';
 import { setInstallState } from 'core/actions/installations';
 import { CLIENT_APP_ANDROID, maximumSetTimeoutDelay } from 'core/constants';
+import ErrorPage from 'core/components/ErrorPage';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import type { AppState } from 'amo/store';
@@ -194,7 +196,9 @@ export class AppBase extends React.Component<Props> {
       <NestedStatus code={200}>
         <ScrollToTop>
           <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate} />
-          <Routes />
+          <ErrorPage getErrorComponent={getErrorComponent}>
+            <Routes />
+          </ErrorPage>
         </ScrollToTop>
       </NestedStatus>
     );

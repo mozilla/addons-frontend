@@ -114,13 +114,6 @@ describe(__filename, () => {
     });
   });
 
-  it('renders an ErrorPage component', () => {
-    const SomeErrorPage = () => <p />;
-    const root = render({ ErrorPage: SomeErrorPage });
-
-    expect(root.find(SomeErrorPage)).toHaveLength(1);
-  });
-
   it('renders a response with a 200 status', () => {
     const root = render();
     expect(root.find(NestedStatus)).toHaveProp('code', 200);

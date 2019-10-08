@@ -7,8 +7,6 @@ import { withRouter } from 'react-router-dom';
 import AppBanner from 'amo/components/AppBanner';
 import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
-import { getErrorComponent } from 'amo/utils/errors';
-import ErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/components/InfoDialog';
 import type { ReactRouterLocationType } from 'core/types/router';
 
@@ -38,19 +36,18 @@ export const PageBase = ({
       <Header isHomePage={isHomePage} location={location} />
 
       <div className="App-content">
-        <ErrorPage getErrorComponent={getErrorComponent}>
-          <div
-            className={makeClassName('Page', {
-              'Page-not-homepage': !isHomePage,
-            })}
-          >
-            {// Exclude the AppBanner from the home page if it will be
-            // included via HeroRecommendation.
-            (!isHomePage ||
-              !_config.get('enableFeatureHeroRecommendation')) && <AppBanner />}
-            {children}
-          </div>
-        </ErrorPage>
+        <div
+          className={makeClassName('Page', {
+            'Page-not-homepage': !isHomePage,
+          })}
+        >
+          {// Exclude the AppBanner from the home page if it will be
+          // included via HeroRecommendation.
+          (!isHomePage || !_config.get('enableFeatureHeroRecommendation')) && (
+            <AppBanner />
+          )}
+          {children}
+        </div>
       </div>
 
       <Footer />
