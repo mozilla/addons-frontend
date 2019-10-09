@@ -465,14 +465,16 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     if (!currentUser) {
       return (
-        <div className="UserProfileEdit">
-          <Card className="UserProfileEdit-authenticate">
-            <AuthenticateButton
-              noIcon
-              logInText={i18n.gettext('Log in to edit the profile')}
-            />
-          </Card>
-        </div>
+        <Page>
+          <div className="UserProfileEdit">
+            <Card className="UserProfileEdit-authenticate">
+              <AuthenticateButton
+                noIcon
+                logInText={i18n.gettext('Log in to edit the profile')}
+              />
+            </Card>
+          </div>
+        </Page>
       );
     }
 

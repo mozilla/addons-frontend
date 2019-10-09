@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
+import Page from 'amo/components/Page';
 import UserProfileEdit, {
   extractId,
   UserProfileEditBase,
@@ -1013,6 +1014,7 @@ describe(__filename, () => {
       params: {},
     });
 
+    expect(root.find(Page)).toHaveLength(1);
     expect(root.find(AuthenticateButton)).toHaveLength(1);
     expect(root.find(AuthenticateButton)).toHaveProp(
       'logInText',
