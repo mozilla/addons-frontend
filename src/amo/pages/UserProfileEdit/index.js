@@ -464,6 +464,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     } = this.props;
 
     let alternateOutput;
+    let errorMessage;
 
     if (!currentUser) {
       alternateOutput = (
@@ -476,21 +477,20 @@ export class UserProfileEditBase extends React.Component<Props, State> {
           </Card>
         </div>
       );
-    }
+    } else {
+      if (errorHandler.hasError()) {
+        log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
 
-    let errorMessage;
-    if (errorHandler.hasError()) {
-      log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
+        if (errorHandler.capturedError.responseStatusCode === 404) {
+          return <NotFound errorCode={errorHandler.capturedError.code} />;
+        }
 
-      if (errorHandler.capturedError.responseStatusCode === 404) {
-        return <NotFound errorCode={errorHandler.capturedError.code} />;
+        errorMessage = errorHandler.renderError();
       }
 
-      errorMessage = errorHandler.renderError();
-    }
-
-    if (user && !hasEditPermission) {
-      return <NotFound />;
+      if (user && !hasEditPermission) {
+        return <NotFound />;
+      }
     }
 
     const userProfileURL = `/user/${userId}/`;
