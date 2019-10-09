@@ -28,6 +28,7 @@
 .HeroRecommendation-content {
   color: $white;
   display: flex;
+  min-width: 0;
   padding: 24px;
 
   @include respond-to(extraExtraLarge) {
@@ -36,7 +37,13 @@
 }
 
 .HeroRecommendation-info {
-  @include margin-start(24px);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  @include respond-to(medium) {
+    @include margin-start(24px);
+  }
 
   @include respond-to(extraLarge) {
     @include margin-start(96px);
@@ -149,7 +156,8 @@
   display: inline-block;
   font-size: $font-size-m;
   line-height: 1.25;
-  padding: 12px 48px;
+  padding: 12px 24px;
+  text-align: center;
   // The theme styles will add a hover effect.
   transition: background-color $transition-medium ease-in-out;
   white-space: nowrap;
@@ -161,6 +169,10 @@
   &:visited {
     color: $white;
     text-decoration: none;
+  }
+
+  @include respond-to(medium) {
+    padding: 12px 48px;
   }
 }
 
