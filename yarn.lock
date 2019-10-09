@@ -6464,10 +6464,10 @@ filesize@3.6.1:
   resolved "https://registry.yarnpkg.com/filesize/-/filesize-3.6.1.tgz#090bb3ee01b6f801a8a8be99d31710b3422bb317"
   integrity sha512-7KjR1vv6qnicaPMi1iiTcI85CyYwRO/PSFCu6SvqL8jN2Wjt/NIYQTFtFs7fSDCYOstUkEWIQGFUg5YZQfjlcg==
 
-filesize@5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/filesize/-/filesize-5.0.2.tgz#b284b81b04dffcba2602c3dae11749f303629a02"
-  integrity sha512-EU7BtXbva4fOuNzfIb2HbKs2wGqL45Tt+XwSAXLg4LUu2cmmdeUQIa2ZfGKYcjMIo1qldeXy8FADXU9oY090qw==
+filesize@5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/filesize/-/filesize-5.0.3.tgz#2fa284185e9d2e8edbec2915b4dadce4043aac31"
+  integrity sha512-RM123v6KPqgZJmVCh4rLvCo8tLKr4sgD92DeZ+AuoUE8teGZJHKs1cTORwETcpIJSlGsz2WYdwKDQUXby5hNqQ==
 
 fill-range@^2.1.0:
   version "2.2.4"
