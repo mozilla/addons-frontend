@@ -1014,6 +1014,7 @@ describe(__filename, () => {
       params: {},
     });
 
+    // See https://github.com/mozilla/addons-frontend/issues/8738
     expect(root.find(Page)).toHaveLength(1);
     expect(root.find(AuthenticateButton)).toHaveLength(1);
     expect(root.find(AuthenticateButton)).toHaveProp(
