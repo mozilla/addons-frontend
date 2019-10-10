@@ -24,7 +24,6 @@ import {
   loadHomeData,
 } from 'amo/reducers/home';
 import { createInternalCollection } from 'amo/reducers/collections';
-import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -35,7 +34,6 @@ import {
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
 import {
@@ -417,23 +415,48 @@ describe(__filename, () => {
     expect(collectionShelves).toHaveLength(0);
   });
 
-  it('displays an error if present', () => {
-    const { store } = dispatchClientMetadata();
+  it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
+    'displays an error if enableFeatureHeroRecommendation is false and clientApp is %s',
+    (clientApp) => {
+      const errorHandler = createStubErrorHandler(new Error('some error'));
+      const { store } = dispatchClientMetadata({ clientApp });
 
-    const errorHandler = new ErrorHandler({
-      id: 'some-error-handler-id',
-      dispatch: store.dispatch,
+      const root = render({
+        _config: getFakeConfig({ enableFeatureHeroRecommendation: false }),
+        errorHandler,
+        store,
+      });
+      expect(root.find(ErrorList)).toHaveLength(1);
+    },
+  );
+
+  it.each([true, false])(
+    'displays an error if clientApp is Android and enableFeatureHeroRecommendation is %s',
+    (enableFeatureHeroRecommendation) => {
+      const errorHandler = createStubErrorHandler(new Error('some error'));
+      const { store } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_ANDROID,
+      });
+
+      const root = render({
+        _config: getFakeConfig({ enableFeatureHeroRecommendation }),
+        errorHandler,
+        store,
+      });
+      expect(root.find(ErrorList)).toHaveLength(1);
+    },
+  );
+
+  it('does not display an error if enableFeatureHeroRecommendation is true and clientApp is not Android', () => {
+    const errorHandler = createStubErrorHandler(new Error('some error'));
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+
+    const root = render({
+      _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
+      errorHandler,
+      store,
     });
-    errorHandler.handle(
-      createApiError({
-        response: { status: 500 },
-        apiURL: 'https://some/api/endpoint',
-        jsonResponse: { message: 'Nope.' },
-      }),
-    );
-
-    const root = render({ errorHandler, store });
-    expect(root.find(ErrorList)).toHaveLength(1);
+    expect(root.find(ErrorList)).toHaveLength(0);
   });
 
   describe('isFeaturedCollection', () => {
@@ -539,6 +562,8 @@ describe(__filename, () => {
 
   describe('Hero Shelves', () => {
     it('renders when enabled', () => {
+      const errorHandler = createStubErrorHandler();
+
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
       });
@@ -547,11 +572,13 @@ describe(__filename, () => {
 
       const root = render({
         _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
+        errorHandler,
         store,
       });
 
       const heroRecommendation = root.find(HeroRecommendation);
       expect(heroRecommendation).toHaveLength(1);
+      expect(heroRecommendation).toHaveProp('errorHandler', errorHandler);
       expect(heroRecommendation).toHaveProp(
         'shelfData',
         createInternalHeroShelves(heroShelves).primary,

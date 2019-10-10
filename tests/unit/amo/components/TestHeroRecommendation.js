@@ -9,11 +9,13 @@ import HeroRecommendation, {
 import { createInternalHeroShelves } from 'amo/reducers/home';
 import { addParamsToHeroURL, getAddonURL } from 'amo/utils';
 import { loadSiteStatus } from 'core/reducers/site';
+import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import {
   createFakeEvent,
   createFakeTracking,
   createHeroShelves,
+  createStubErrorHandler,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -29,6 +31,7 @@ describe(__filename, () => {
 
   const render = (moreProps = {}) => {
     const props = {
+      errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
       store: dispatchClientMetadata().store,
       ...moreProps,
@@ -191,6 +194,13 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find(AppBanner)).toHaveLength(1);
+  });
+
+  it('renders an error if present', () => {
+    const errorHandler = createStubErrorHandler(new Error('some error'));
+
+    const root = render({ errorHandler });
+    expect(root.find(ErrorList)).toHaveLength(1);
   });
 
   it.each([
