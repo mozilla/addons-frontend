@@ -22,6 +22,7 @@ $icon-default-size: 32px;
   @include margin-end(8px);
 
   text-decoration: none;
+  word-break: break-word;
   word-wrap: anywhere;
 
   &,
