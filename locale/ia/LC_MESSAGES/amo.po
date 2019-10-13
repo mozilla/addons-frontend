@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-08 19:31+0000\n"
-"PO-Revision-Date: 2019-10-13 13:30+0000\n"
+"PO-Revision-Date: 2019-10-13 20:35+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -965,11 +965,11 @@ msgstr "Laboratorio de extensiones"
 
 #: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:116
 msgid "Developer Hub"
-msgstr "Centro de developpatores"
+msgstr "Centro de disveloppatores"
 
 #: src/amo/components/Footer/index.js:81
 msgid "Developer Policies"
-msgstr "Politicas de developpator"
+msgstr "Politicas pro disveloppatores"
 
 #: src/amo/components/Footer/index.js:86
 msgid "Forum"
@@ -1115,7 +1115,7 @@ msgstr "Inserer le datos in le planchetta"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
-msgstr "Extende le instrumentos de developpator pro acceder a tu datos in le schedas aperite"
+msgstr "Extende le instrumentos de disveloppamento pro acceder a tu datos in le schedas aperite"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
