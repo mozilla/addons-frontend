@@ -6,11 +6,19 @@
 }
 
 .HeroRecommendation--height-with-notice {
-  min-height: 452px;
+  min-height: 328px;
+
+  @include respond-to(extraExtraLarge) {
+    min-height: 452px;
+  }
 }
 
 .HeroRecommendation--height-without-notice {
-  min-height: 376px;
+  min-height: 252px;
+
+  @include respond-to(extraExtraLarge) {
+    min-height: 376px;
+  }
 }
 
 .HeroRecommendation-banner {
