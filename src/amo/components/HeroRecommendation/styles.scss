@@ -39,7 +39,6 @@
 .HeroRecommendation-info {
   display: flex;
   flex-direction: column;
-  min-width: 0;
 
   @include respond-to(medium) {
     @include margin-start(24px);
