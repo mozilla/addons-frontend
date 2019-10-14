@@ -206,19 +206,18 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
       let toPath = location.query.to;
-      if (toPath) {
+      if (toPath && typeof toPath === 'string' && !toPath.startsWith('//')) {
         if (!toPath.startsWith('/')) {
           toPath = `/${toPath}`;
         }
         try {
           history.push(toPath);
+          return;
         } catch (error) {
-          log.warn(`Error redirecting to location: ${toPath}`);
-          redirectToUserProfile();
+          log.warn(`Error redirecting to location: ${toPath}: ${error}`);
         }
-      } else {
-        redirectToUserProfile();
       }
+      redirectToUserProfile();
     }
 
     if (

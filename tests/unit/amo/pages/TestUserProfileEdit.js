@@ -6,6 +6,7 @@ import Link from 'amo/components/Link';
 import Page from 'amo/components/Page';
 import UserProfileEdit, {
   extractId,
+  mapStateToProps,
   UserProfileEditBase,
 } from 'amo/pages/UserProfileEdit';
 import UserProfileEditNotifications from 'amo/components/UserProfileEditNotifications';
@@ -941,8 +942,8 @@ describe(__filename, () => {
 
     const root = renderUserProfileEdit({ history, location, params, store });
 
-    // Simulate a user having been updated.
-    root.setProps({ isUpdating: false });
+    store.dispatch(finishUpdateUserAccount());
+    root.setProps(mapStateToProps(store.getState(), root.instance().props));
 
     sinon.assert.calledWith(history.push, to);
   });
@@ -963,15 +964,73 @@ describe(__filename, () => {
 
     const root = renderUserProfileEdit({ history, location, params, store });
 
-    // Simulate a user having been updated.
-    root.setProps({ isUpdating: false });
+    store.dispatch(finishUpdateUserAccount());
+    root.setProps(mapStateToProps(store.getState(), root.instance().props));
 
     sinon.assert.calledWith(history.push, `/${to}`);
   });
 
+  it('redirects to user profile page after saving a user profile when the `to` param is a protocol-less URL', () => {
+    const userId = 123;
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'en-US';
+    const to = '//addon/some-slug/';
+    const { store } = dispatchSignInActions({
+      clientApp,
+      lang,
+      userId,
+      userProps: defaultUserProps({ userId }),
+    });
+    const user = getCurrentUser(store.getState().users);
+    const history = createFakeHistory();
+    const location = createFakeLocation({ query: { to } });
+    const params = { userId };
+
+    _updateUserAccount({ store, userId: user.id });
+
+    const root = renderUserProfileEdit({ history, location, params, store });
+
+    store.dispatch(finishUpdateUserAccount());
+    root.setProps(mapStateToProps(store.getState(), root.instance().props));
+
+    sinon.assert.calledWith(
+      history.push,
+      `/${lang}/${clientApp}/user/${userId}/`,
+    );
+  });
+
+  it('redirects to user profile page after saving a user profile when the `to` param is not a string', () => {
+    const userId = 123;
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'en-US';
+    const to = { url: '/addon/some-slug/' };
+    const { store } = dispatchSignInActions({
+      clientApp,
+      lang,
+      userId,
+      userProps: defaultUserProps({ userId }),
+    });
+    const user = getCurrentUser(store.getState().users);
+    const history = createFakeHistory();
+    const location = createFakeLocation({ query: { to } });
+    const params = { userId };
+
+    _updateUserAccount({ store, userId: user.id });
+
+    const root = renderUserProfileEdit({ history, location, params, store });
+
+    store.dispatch(finishUpdateUserAccount());
+    root.setProps(mapStateToProps(store.getState(), root.instance().props));
+
+    sinon.assert.calledWith(
+      history.push,
+      `/${lang}/${clientApp}/user/${userId}/`,
+    );
+  });
+
   it('redirects to user profile page if the `to` URL throws an error', () => {
     const userId = 123;
-    const to = '//addons.mozilla.org/addon/some-slug/';
+    const to = '/addon/some-slug/';
     const clientApp = CLIENT_APP_FIREFOX;
     const lang = 'en-US';
     const { store } = dispatchSignInActions({
@@ -992,7 +1051,8 @@ describe(__filename, () => {
     history.push.onCall(0).throws(new Error('Some error'));
     history.push.onCall(1).returns();
 
-    root.setProps({ isUpdating: false });
+    store.dispatch(finishUpdateUserAccount());
+    root.setProps(mapStateToProps(store.getState(), root.instance().props));
 
     sinon.assert.callOrder(
       history.push.withArgs(`${to}`),
