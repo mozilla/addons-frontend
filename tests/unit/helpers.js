@@ -1042,7 +1042,7 @@ export const createFakeHistory = ({ location = createFakeLocation() } = {}) => {
     location,
     goBack: sinon.spy(),
     listen: sinon.spy(),
-    push: sinon.spy(),
+    push: sinon.stub(),
   };
 };
 

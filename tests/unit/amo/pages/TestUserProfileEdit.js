@@ -6,6 +6,7 @@ import Link from 'amo/components/Link';
 import Page from 'amo/components/Page';
 import UserProfileEdit, {
   extractId,
+  mapStateToProps,
   UserProfileEditBase,
 } from 'amo/pages/UserProfileEdit';
 import UserProfileEditNotifications from 'amo/components/UserProfileEditNotifications';
@@ -36,6 +37,7 @@ import LoadingText from 'ui/components/LoadingText';
 import {
   createFakeEvent,
   createFakeHistory,
+  createFakeLocation,
   createStubErrorHandler,
   createUserAccountResponse,
   createUserNotificationsResponse,
@@ -85,6 +87,7 @@ describe(__filename, () => {
   function renderUserProfileEdit({
     history = createFakeHistory(),
     i18n = fakeI18n(),
+    location = createFakeLocation(),
     params = { userId: 100 },
     store = null,
     userProps,
@@ -103,6 +106,7 @@ describe(__filename, () => {
         _window={{}}
         history={history}
         i18n={i18n}
+        location={location}
         match={{ params }}
         store={store}
         {...props}
@@ -655,13 +659,25 @@ describe(__filename, () => {
     );
   });
 
-  it('renders a submit button', () => {
+  it('renders an update button', () => {
     const root = renderUserProfileEdit();
     const button = root.find('.UserProfileEdit-submit-button');
 
     expect(button).toHaveLength(1);
     expect(button.dive()).toHaveText('Update My Profile');
     expect(button).toHaveProp('disabled', false);
+  });
+
+  it('renders a create button', () => {
+    const { store } = dispatchSignInActions({
+      userProps: defaultUserProps({ display_name: '' }),
+    });
+
+    const root = renderUserProfileEdit({ store });
+    const button = root.find('.UserProfileEdit-submit-button');
+
+    expect(button).toHaveLength(1);
+    expect(button.dive()).toHaveText('Create My Profile');
   });
 
   it('renders a delete profile button', () => {
@@ -673,10 +689,20 @@ describe(__filename, () => {
     expect(button).toHaveProp('disabled', false);
   });
 
-  it('renders a submit button with a different text when user is not the logged-in user', () => {
-    const { store } = signInUserWithUserId(123);
-    const params = { userId: 456 };
+  it('renders an update button with a different text when user is not the logged-in user', () => {
+    const userId = 123;
+    const { store } = signInUserWithProps({
+      userId,
+      permissions: [USERS_EDIT],
+    });
 
+    const user = createUserAccountResponse({
+      display_name: 'Display name',
+      id: userId + 999,
+    });
+    store.dispatch(loadUserAccount({ user }));
+
+    const params = { userId: user.id };
     const root = renderUserProfileEdit({ params, store });
 
     expect(root.find('.UserProfileEdit-submit-button').dive()).toHaveText(
@@ -695,7 +721,7 @@ describe(__filename, () => {
     );
   });
 
-  it('renders a submit button with a different text when editing', () => {
+  it('renders an update button with a different text when editing', () => {
     const { params, store } = signInUserWithUserId(123);
 
     _updateUserAccount({ store });
@@ -707,9 +733,36 @@ describe(__filename, () => {
     );
   });
 
-  it('renders a submit button with a different text when user is not the logged-in user and editing', () => {
-    const { store } = signInUserWithUserId(123);
-    const params = { userId: 456 };
+  it('renders a create button with a different text when editing', () => {
+    const userId = 123;
+    const { store } = dispatchSignInActions({
+      userId,
+      userProps: defaultUserProps({ display_name: '', id: userId }),
+    });
+
+    _updateUserAccount({ store });
+
+    const root = renderUserProfileEdit({ params: { userId }, store });
+
+    expect(root.find('.UserProfileEdit-submit-button').dive()).toHaveText(
+      'Creating your profile…',
+    );
+  });
+
+  it('renders an update button with a different text when user is not the logged-in user and editing', () => {
+    const userId = 123;
+    const { store } = signInUserWithProps({
+      userId,
+      permissions: [USERS_EDIT],
+    });
+
+    const user = createUserAccountResponse({
+      display_name: 'Display name',
+      id: userId + 999,
+    });
+    store.dispatch(loadUserAccount({ user }));
+
+    const params = { userId: user.id };
 
     _updateUserAccount({ store });
 
@@ -824,53 +877,120 @@ describe(__filename, () => {
     );
   });
 
-  it('redirects to user profile page when user profile has been updated', () => {
-    const userId = 123;
-    const clientApp = CLIENT_APP_FIREFOX;
-    const lang = 'en-US';
-    const { store } = dispatchSignInActions({
-      clientApp,
-      lang,
-      userId,
-      userProps: defaultUserProps({ userId }),
+  describe('redirect after profile update', () => {
+    const testRedirect = ({
+      clientApp = CLIENT_APP_FIREFOX,
+      expectedURL,
+      lang = 'en-US',
+      to = null,
+      userId = 123,
+    }) => {
+      const { store } = dispatchSignInActions({
+        clientApp,
+        lang,
+        userId,
+        userProps: defaultUserProps({ userId }),
+      });
+      const history = createFakeHistory();
+      const location = createFakeLocation({ query: { to } });
+      const params = { userId };
+
+      _updateUserAccount({ store, userId });
+
+      const root = renderUserProfileEdit({ history, location, params, store });
+
+      expect(root.find(Notice)).toHaveLength(0);
+      expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
+        'disabled',
+        true,
+      );
+
+      store.dispatch(finishUpdateUserAccount());
+      root.setProps(mapStateToProps(store.getState(), root.instance().props));
+
+      expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
+        'disabled',
+        false,
+      );
+
+      sinon.assert.calledWith(history.push, expectedURL);
+    };
+
+    it('redirects to the user profile page when there is no `to` param', () => {
+      const clientApp = CLIENT_APP_FIREFOX;
+      const lang = 'en-US';
+      const to = null;
+      const userId = 123;
+
+      const expectedURL = `/${lang}/${clientApp}/user/${userId}/`;
+
+      testRedirect({ clientApp, expectedURL, lang, to, userId });
     });
-    const user = getCurrentUser(store.getState().users);
-    const history = createFakeHistory();
-    const params = { userId };
 
-    const occupation = 'new occupation';
+    it('redirects to the `to` URL param', () => {
+      const to = '/addon/some-slug/';
 
-    _updateUserAccount({
-      store,
-      userFields: {
-        occupation,
-      },
-      userId: user.id,
+      testRedirect({ expectedURL: to, to });
     });
 
-    const root = renderUserProfileEdit({ history, params, store });
+    it('converts an absolute `to` URL into a relative one', () => {
+      const to = 'https://addons.mozilla.org/addon/some-slug/';
 
-    expect(root.find(Notice)).toHaveLength(0);
-    expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
-      'disabled',
-      true,
-    );
+      testRedirect({ expectedURL: `/${to}`, to });
+    });
 
-    // The user profile has been updated.
-    store.dispatch(finishUpdateUserAccount());
+    it('redirects to user profile page when the `to` param is a protocol-less URL', () => {
+      const clientApp = CLIENT_APP_FIREFOX;
+      const lang = 'en-US';
+      const to = '//addon/some-slug/';
+      const userId = 123;
 
-    const { isUpdating } = store.getState().users;
-    root.setProps({ isUpdating });
+      const expectedURL = `/${lang}/${clientApp}/user/${userId}/`;
 
-    expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
-      'disabled',
-      false,
-    );
+      testRedirect({ expectedURL, to });
+    });
 
-    sinon.assert.calledWith(
-      history.push,
-      `/${lang}/${clientApp}/user/${userId}/`,
-    );
+    it('redirects to user profile page when the `to` param is not a string', () => {
+      const clientApp = CLIENT_APP_FIREFOX;
+      const lang = 'en-US';
+      const to = { url: '/addon/some-slug/' };
+      const userId = 123;
+
+      const expectedURL = `/${lang}/${clientApp}/user/${userId}/`;
+
+      testRedirect({ expectedURL, to });
+    });
+
+    it('redirects to user profile page if the `to` URL throws an error', () => {
+      const userId = 123;
+      const to = '/addon/some-slug/';
+      const clientApp = CLIENT_APP_FIREFOX;
+      const lang = 'en-US';
+      const { store } = dispatchSignInActions({
+        clientApp,
+        lang,
+        userId,
+        userProps: defaultUserProps({ userId }),
+      });
+      const history = createFakeHistory();
+      const location = createFakeLocation({ query: { to } });
+      const params = { userId };
+
+      _updateUserAccount({ store, userId });
+
+      const root = renderUserProfileEdit({ history, location, params, store });
+
+      history.push.onCall(0).throws(new Error('Some error'));
+      history.push.onCall(1).returns();
+
+      store.dispatch(finishUpdateUserAccount());
+      root.setProps(mapStateToProps(store.getState(), root.instance().props));
+
+      sinon.assert.callOrder(
+        history.push.withArgs(`${to}`),
+        history.push.withArgs(`/${lang}/${clientApp}/user/${userId}/`),
+      );
+    });
   });
 
   it('does not render a success message when an error occurred', () => {
