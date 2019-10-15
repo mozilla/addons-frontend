@@ -200,10 +200,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       });
     }
 
-    const redirectToUserProfile = () => {
-      history.push(`/${lang}/${clientApp}/user/${newUserId}/`);
-    };
-
     if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
       let toPath = location.query.to;
       if (toPath && typeof toPath === 'string' && !toPath.startsWith('//')) {
@@ -217,7 +213,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
           log.warn(`Error redirecting to location: ${toPath}: ${error}`);
         }
       }
-      redirectToUserProfile();
+      history.push(`/${lang}/${clientApp}/user/${newUserId}/`);
     }
 
     if (
