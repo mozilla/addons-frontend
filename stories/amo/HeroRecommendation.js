@@ -1,7 +1,12 @@
 /* @flow */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { createHeroShelves, fakeAddon, fakeI18n } from 'tests/unit/helpers';
+import {
+  createHeroShelves,
+  dispatchClientMetadata,
+  fakeAddon,
+  fakeI18n,
+} from 'tests/unit/helpers';
 
 import { HeroRecommendationBase } from 'amo/components/HeroRecommendation';
 import { createInternalHeroShelves } from 'amo/reducers/home';
@@ -50,16 +55,15 @@ storiesOf('HeroRecommendation', module)
           },
           {
             title: 'with error',
-            sectionFn: () =>
-              render(
-                {},
-                {
-                  errorHandler: new ErrorHandler({
-                    id: 'some-id',
-                    capturedError: new Error('Some error'),
-                  }),
-                },
-              ),
+            sectionFn: () => {
+              const { store } = dispatchClientMetadata();
+              const errorHandler = new ErrorHandler({
+                dispatch: store.dispatch,
+                id: 'some-id',
+              });
+              errorHandler.handle(new Error('Some error'));
+              return render({}, { errorHandler });
+            },
           },
           {
             title: 'loading',

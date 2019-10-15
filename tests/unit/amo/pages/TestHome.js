@@ -35,7 +35,6 @@ import {
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import ErrorList from 'ui/components/ErrorList';
 import {
   createAddonsApiResult,
   createFakeCollectionAddons,
@@ -426,7 +425,7 @@ describe(__filename, () => {
         errorHandler,
         store,
       });
-      expect(root.find(ErrorList)).toHaveLength(1);
+      expect(root.find('.Home-noHeroError')).toHaveLength(1);
     },
   );
 
@@ -443,7 +442,7 @@ describe(__filename, () => {
         errorHandler,
         store,
       });
-      expect(root.find(ErrorList)).toHaveLength(1);
+      expect(root.find('.Home-noHeroError')).toHaveLength(1);
     },
   );
 
@@ -456,7 +455,7 @@ describe(__filename, () => {
       errorHandler,
       store,
     });
-    expect(root.find(ErrorList)).toHaveLength(0);
+    expect(root.find('.Home-noHeroError')).toHaveLength(0);
   });
 
   describe('isFeaturedCollection', () => {

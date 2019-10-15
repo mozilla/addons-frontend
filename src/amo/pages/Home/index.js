@@ -256,7 +256,9 @@ export class HomeBase extends React.Component {
 
           {(!_config.get('enableFeatureHeroRecommendation') ||
             clientApp === CLIENT_APP_ANDROID) &&
-            errorHandler.renderErrorIfPresent()}
+          errorHandler.hasError() ? (
+            <div className="Home-noHeroError">{errorHandler.renderError()}</div>
+          ) : null}
 
           {_config.get('enableFeatureHeroRecommendation') &&
           clientApp !== CLIENT_APP_ANDROID ? (
