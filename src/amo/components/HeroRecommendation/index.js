@@ -15,6 +15,7 @@ import { sanitizeUserHTML } from 'core/utils';
 import LoadingText from 'ui/components/LoadingText';
 import type { PrimaryHeroShelfType } from 'amo/reducers/home';
 import type { AppState } from 'amo/store';
+import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
@@ -23,6 +24,7 @@ export const PRIMARY_HERO_CLICK_CATEGORY = 'AMO Primary Hero Clicks';
 export const PRIMARY_HERO_SRC = 'homepage-primary-hero';
 
 type Props = {|
+  errorHandler: ErrorHandlerType,
   shelfData?: PrimaryHeroShelfType,
 |};
 
@@ -78,6 +80,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
     const {
       _checkInternalURL,
       i18n,
+      errorHandler,
       shelfData,
       siteIsReadOnly,
       siteNotice,
@@ -151,6 +154,8 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
           HeroRecommendation on the home page. All other pages in the app
           include it via the Page component. */}
           <AppBanner className="HeroRecommendation-banner" />
+
+          {errorHandler.renderErrorIfPresent()}
 
           <div className="HeroRecommendation-content">
             {featuredImage && (

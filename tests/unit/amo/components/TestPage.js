@@ -38,6 +38,22 @@ describe(__filename, () => {
     expect(root.find('.Page-not-homepage')).toHaveLength(0);
   });
 
+  it('assigns a className when there is no hero promo', () => {
+    const root = render({
+      _config: getFakeConfig({ enableFeatureHeroRecommendation: false }),
+    });
+
+    expect(root.find('.Page-no-hero-promo')).toHaveLength(1);
+  });
+
+  it('does not assign an extra className when there is a hero promo', () => {
+    const root = render({
+      _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
+    });
+
+    expect(root.find('.Page-no-hero-promo')).toHaveLength(0);
+  });
+
   it('renders an AppBanner if it is not the home page', () => {
     const root = render({ isHomePage: false });
 

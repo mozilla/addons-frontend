@@ -29,6 +29,10 @@ export const PageBase = ({
   isHomePage = false,
   location,
 }: InternalProps) => {
+  const enableFeatureHeroRecommendation = _config.get(
+    'enableFeatureHeroRecommendation',
+  );
+
   return (
     <div className="Page-amo">
       <InfoDialog />
@@ -39,13 +43,12 @@ export const PageBase = ({
         <div
           className={makeClassName('Page', {
             'Page-not-homepage': !isHomePage,
+            'Page-no-hero-promo': !enableFeatureHeroRecommendation,
           })}
         >
           {// Exclude the AppBanner from the home page if it will be
           // included via HeroRecommendation.
-          (!isHomePage || !_config.get('enableFeatureHeroRecommendation')) && (
-            <AppBanner />
-          )}
+          (!isHomePage || !enableFeatureHeroRecommendation) && <AppBanner />}
           {children}
         </div>
       </div>

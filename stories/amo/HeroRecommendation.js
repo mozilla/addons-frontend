@@ -1,15 +1,23 @@
 /* @flow */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { createHeroShelves, fakeAddon, fakeI18n } from 'tests/unit/helpers';
+import {
+  createHeroShelves,
+  dispatchClientMetadata,
+  fakeAddon,
+  fakeI18n,
+} from 'tests/unit/helpers';
 
 import { HeroRecommendationBase } from 'amo/components/HeroRecommendation';
 import { createInternalHeroShelves } from 'amo/reducers/home';
+import { ErrorHandler } from 'core/errorHandler';
 
 import Provider from '../setup/Provider';
 
 const render = (shelfProps = {}, moreProps = {}) => {
   const props = {
+    errorHandler: new ErrorHandler({ id: 'some-id' }),
+    i18n: fakeI18n({ includeJedSpy: false }),
     shelfData: createInternalHeroShelves(
       createHeroShelves({
         primaryProps: {
@@ -20,7 +28,6 @@ const render = (shelfProps = {}, moreProps = {}) => {
         },
       }),
     ).primary,
-    i18n: fakeI18n({ includeJedSpy: false }),
     siteIsReadOnly: false,
     siteNotice: null,
     ...moreProps,
@@ -45,6 +52,18 @@ storiesOf('HeroRecommendation', module)
           {
             title: 'without image',
             sectionFn: () => render({ featuredImage: null }),
+          },
+          {
+            title: 'with error',
+            sectionFn: () => {
+              const { store } = dispatchClientMetadata();
+              const errorHandler = new ErrorHandler({
+                dispatch: store.dispatch,
+                id: 'some-id',
+              });
+              errorHandler.handle(new Error('Some error'));
+              return render({}, { errorHandler });
+            },
           },
           {
             title: 'loading',
