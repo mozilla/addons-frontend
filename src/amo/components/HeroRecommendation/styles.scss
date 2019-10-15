@@ -167,6 +167,7 @@
   // The theme styles will add a hover effect.
   transition: background-color $transition-medium ease-in-out;
   white-space: nowrap;
+  width: fit-content;
 
   &,
   &:active,
