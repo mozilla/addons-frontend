@@ -43,8 +43,8 @@
 }
 
 .SecondaryHero-message-description {
-  padding: $padding-page 0;
   overflow-wrap: anywhere;
+  padding: $padding-page 0;
 
   @include respond-to(large) {
     padding: 8px 0 24px 0;
@@ -101,8 +101,8 @@
 .SecondaryHero-message-link,
 .SecondaryHero-module-description,
 .SecondaryHero-module-link {
-  width: 100%;
   overflow-wrap: anywhere;
+  width: 100%;
 
   .LoadingText {
     height: 1em;
