@@ -9,7 +9,6 @@ export type Props = {|
   label: string,
   type?:
     | 'experimental'
-    | 'featured'
     | 'restart-required'
     | 'not-compatible'
     | 'requires-payment',
@@ -33,7 +32,6 @@ const Badge = ({ label, type }: Props) => {
     ![
       'not-compatible',
       'experimental',
-      'featured',
       'restart-required',
       'requires-payment',
     ].includes(type)

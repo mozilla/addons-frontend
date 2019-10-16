@@ -21,7 +21,6 @@ import {
   fakeI18n,
   fakePreview,
   fakeTheme,
-  getFakeConfig,
   normalizeSpaces,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -41,9 +40,6 @@ describe(__filename, () => {
   });
 
   function render({
-    _config = getFakeConfig({
-      enableFeatureRecommendedBadges: false,
-    }),
     addon = baseAddon,
     history = createFakeHistory(),
     lang = 'en-GB',
@@ -54,7 +50,6 @@ describe(__filename, () => {
   } = {}) {
     return shallowUntilTarget(
       <SearchResult
-        _config={_config}
         addon={addon}
         i18n={fakeI18n({ lang })}
         store={store}
@@ -444,9 +439,6 @@ describe(__filename, () => {
 
   it('displays a recommended badge when an add-on is recommended', () => {
     const root = render({
-      _config: getFakeConfig({
-        enableFeatureRecommendedBadges: true,
-      }),
       addon: createInternalAddon({
         ...fakeAddon,
         is_recommended: true,
@@ -458,9 +450,6 @@ describe(__filename, () => {
 
   it('passes an onClick function which stops propagation to RecommendedBadge', () => {
     const root = render({
-      _config: getFakeConfig({
-        enableFeatureRecommendedBadges: true,
-      }),
       addon: createInternalAddon({
         ...fakeAddon,
         is_recommended: true,
@@ -475,28 +464,11 @@ describe(__filename, () => {
 
   it('does not display a recommended badge when showRecommendedBadge is false', () => {
     const root = render({
-      _config: getFakeConfig({
-        enableFeatureRecommendedBadges: true,
-      }),
       addon: createInternalAddon({
         ...fakeAddon,
         is_recommended: true,
       }),
       showRecommendedBadge: false,
-    });
-
-    expect(root.find(RecommendedBadge)).toHaveLength(0);
-  });
-
-  it('does not display a recommended badge when the feature is disabled', () => {
-    const root = render({
-      _config: getFakeConfig({
-        enableFeatureRecommendedBadges: false,
-      }),
-      addon: createInternalAddon({
-        ...fakeAddon,
-        is_recommended: true,
-      }),
     });
 
     expect(root.find(RecommendedBadge)).toHaveLength(0);
@@ -508,9 +480,6 @@ describe(__filename, () => {
     });
 
     const root = render({
-      _config: getFakeConfig({
-        enableFeatureRecommendedBadges: true,
-      }),
       addon: createInternalAddon({
         ...fakeAddon,
         is_recommended: true,
@@ -523,9 +492,6 @@ describe(__filename, () => {
 
   it('does not display a recommended badge when the addon is not recommended', () => {
     const root = render({
-      _config: getFakeConfig({
-        enableFeatureRecommendedBadges: true,
-      }),
       addon: createInternalAddon({
         ...fakeAddon,
         is_recommended: false,

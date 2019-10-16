@@ -21,7 +21,6 @@ import {
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -29,9 +28,6 @@ describe(__filename, () => {
   let fakeHistory;
 
   function render({
-    _config = getFakeConfig({
-      enableFeatureRecommendedBadges: false,
-    }),
     filters = {},
     pathname = '/search/',
     store = dispatchClientMetadata().store,
@@ -43,7 +39,6 @@ describe(__filename, () => {
 
     return shallowUntilTarget(
       <SearchFilters
-        _config={_config}
         i18n={fakeI18n()}
         pathname={pathname}
         store={store}
@@ -292,233 +287,110 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeHistory.push);
   });
 
-  describe('Checkbox with enableFeatureRecommendedBadges on', () => {
-    const _config = getFakeConfig({ enableFeatureRecommendedBadges: true });
+  it('defaults the recommended checkbox to true when the filter is set', () => {
+    const root = render({ filters: { recommended: true } });
 
-    it('defaults the recommended checkbox to true when the filter is set', () => {
-      const root = render({ _config, filters: { recommended: true } });
+    const checkbox = root.find('.SearchFilters-Recommended');
+    expect(checkbox).toHaveProp('checked', true);
+  });
 
-      const checkbox = root.find('.SearchFilters-Recommended');
-      expect(checkbox).toHaveProp('checked', true);
-    });
+  it('defaults the recommended checkbox to false when the filter is not set', () => {
+    const root = render();
 
-    it('defaults the recommended checkbox to false when the filter is not set', () => {
-      const root = render({ _config });
+    const checkbox = root.find('.SearchFilters-Recommended');
+    expect(checkbox).toHaveProp('checked', false);
+  });
 
-      const checkbox = root.find('.SearchFilters-Recommended');
-      expect(checkbox).toHaveProp('checked', false);
-    });
+  it('changes the URL when recommended checkbox is checked', () => {
+    const root = render({ filters: { query: 'Music player' } });
 
-    it('changes the URL when recommended checkbox is checked', () => {
-      const root = render({ _config, filters: { query: 'Music player' } });
+    const checkbox = root.find('.SearchFilters-Recommended');
+    checkbox.simulate('change', createFakeEvent());
 
-      const checkbox = root.find('.SearchFilters-Recommended');
-      checkbox.simulate('change', createFakeEvent());
-
-      sinon.assert.calledWithExactly(fakeHistory.push, {
-        pathname: `/en-US/android/search/`,
-        query: convertFiltersToQueryParams({
-          recommended: true,
-          query: 'Music player',
-        }),
-      });
-    });
-
-    it('deletes recommended filter when checkbox is unchecked', () => {
-      const root = render({
-        _config,
-        filters: {
-          recommended: true,
-          query: 'Music player',
-        },
-      });
-
-      const checkbox = root.find('.SearchFilters-Recommended');
-      checkbox.simulate('change', createFakeEvent());
-
-      sinon.assert.calledWithExactly(fakeHistory.push, {
-        pathname: `/en-US/android/search/`,
-        query: convertFiltersToQueryParams({
-          query: 'Music player',
-        }),
-      });
-    });
-
-    it('resets the page filter when checkbox is checked', () => {
-      const root = render({
-        _config,
-        filters: {
-          page: 42,
-          query: 'Music player',
-        },
-      });
-
-      const checkbox = root.find('.SearchFilters-Recommended');
-      checkbox.simulate('change', createFakeEvent());
-
-      sinon.assert.calledWithExactly(fakeHistory.push, {
-        pathname: `/en-US/android/search/`,
-        query: convertFiltersToQueryParams({
-          recommended: true,
-          page: '1',
-          query: 'Music player',
-        }),
-      });
-    });
-
-    it('resets the page filter when checkbox is unchecked', () => {
-      const root = render({
-        _config,
-        filters: {
-          recommended: true,
-          page: '42',
-          query: 'Music player',
-        },
-      });
-
-      const checkbox = root.find('.SearchFilters-Recommended');
-      checkbox.simulate('change', createFakeEvent());
-
-      sinon.assert.calledWithExactly(fakeHistory.push, {
-        pathname: `/en-US/android/search/`,
-        query: convertFiltersToQueryParams({
-          page: '1',
-          query: 'Music player',
-        }),
-      });
-    });
-
-    it('does not pass sort=random when the recommended checkbox is unchecked', () => {
-      const root = render({
-        _config,
-        filters: {
-          recommended: true,
-          sort: SEARCH_SORT_RANDOM,
-        },
-      });
-
-      const checkbox = root.find('.SearchFilters-Recommended');
-      checkbox.simulate('change', createFakeEvent());
-
-      sinon.assert.calledWithExactly(fakeHistory.push, {
-        pathname: `/en-US/android/search/`,
-        query: convertFiltersToQueryParams({}),
-      });
+    sinon.assert.calledWithExactly(fakeHistory.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        recommended: true,
+        query: 'Music player',
+      }),
     });
   });
 
-  describe('Checkbox with enableFeatureRecommendedBadges off', () => {
-    const _config = getFakeConfig({ enableFeatureRecommendedBadges: false });
-
-    it('defaults the featured checkbox to true when the filter is set', () => {
-      const root = render({ _config, filters: { featured: true } });
-
-      const checkbox = root.find('.SearchFilters-Recommended');
-      expect(checkbox).toHaveProp('checked', true);
+  it('deletes recommended filter when checkbox is unchecked', () => {
+    const root = render({
+      filters: {
+        recommended: true,
+        query: 'Music player',
+      },
     });
 
-    it('defaults the featured checkbox to false when the filter is not set', () => {
-      const root = render({ _config });
+    const checkbox = root.find('.SearchFilters-Recommended');
+    checkbox.simulate('change', createFakeEvent());
 
-      const checkbox = root.find('.SearchFilters-Recommended');
-      expect(checkbox).toHaveProp('checked', false);
+    sinon.assert.calledWithExactly(fakeHistory.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        query: 'Music player',
+      }),
+    });
+  });
+
+  it('resets the page filter when checkbox is checked', () => {
+    const root = render({
+      filters: {
+        page: 42,
+        query: 'Music player',
+      },
     });
 
-    it('changes the URL when featured checkbox is checked', () => {
-      const root = render({ _config, filters: { query: 'Music player' } });
+    const checkbox = root.find('.SearchFilters-Recommended');
+    checkbox.simulate('change', createFakeEvent());
 
-      const checkbox = root.find('.SearchFilters-Recommended');
-      checkbox.simulate('change', createFakeEvent());
+    sinon.assert.calledWithExactly(fakeHistory.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        recommended: true,
+        page: '1',
+        query: 'Music player',
+      }),
+    });
+  });
 
-      sinon.assert.calledWithExactly(fakeHistory.push, {
-        pathname: `/en-US/android/search/`,
-        query: convertFiltersToQueryParams({
-          featured: true,
-          query: 'Music player',
-        }),
-      });
+  it('resets the page filter when checkbox is unchecked', () => {
+    const root = render({
+      filters: {
+        recommended: true,
+        page: '42',
+        query: 'Music player',
+      },
     });
 
-    it('deletes featured filter when checkbox is unchecked', () => {
-      const root = render({
-        _config,
-        filters: {
-          featured: true,
-          query: 'Music player',
-        },
-      });
+    const checkbox = root.find('.SearchFilters-Recommended');
+    checkbox.simulate('change', createFakeEvent());
 
-      const checkbox = root.find('.SearchFilters-Recommended');
-      checkbox.simulate('change', createFakeEvent());
+    sinon.assert.calledWithExactly(fakeHistory.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        page: '1',
+        query: 'Music player',
+      }),
+    });
+  });
 
-      sinon.assert.calledWithExactly(fakeHistory.push, {
-        pathname: `/en-US/android/search/`,
-        query: convertFiltersToQueryParams({
-          query: 'Music player',
-        }),
-      });
+  it('does not pass sort=random when the recommended checkbox is unchecked', () => {
+    const root = render({
+      filters: {
+        recommended: true,
+        sort: SEARCH_SORT_RANDOM,
+      },
     });
 
-    it('resets the page filter when checkbox is checked', () => {
-      const root = render({
-        _config,
-        filters: {
-          page: 42,
-          query: 'Music player',
-        },
-      });
+    const checkbox = root.find('.SearchFilters-Recommended');
+    checkbox.simulate('change', createFakeEvent());
 
-      const checkbox = root.find('.SearchFilters-Recommended');
-      checkbox.simulate('change', createFakeEvent());
-
-      sinon.assert.calledWithExactly(fakeHistory.push, {
-        pathname: `/en-US/android/search/`,
-        query: convertFiltersToQueryParams({
-          featured: true,
-          page: '1',
-          query: 'Music player',
-        }),
-      });
-    });
-
-    it('resets the page filter when checkbox is unchecked', () => {
-      const root = render({
-        _config,
-        filters: {
-          featured: true,
-          page: '42',
-          query: 'Music player',
-        },
-      });
-
-      const checkbox = root.find('.SearchFilters-Recommended');
-      checkbox.simulate('change', createFakeEvent());
-
-      sinon.assert.calledWithExactly(fakeHistory.push, {
-        pathname: `/en-US/android/search/`,
-        query: convertFiltersToQueryParams({
-          page: '1',
-          query: 'Music player',
-        }),
-      });
-    });
-
-    it('does not pass sort=random when the featured checkbox is unchecked', () => {
-      const root = render({
-        _config,
-        filters: {
-          featured: true,
-          sort: SEARCH_SORT_RANDOM,
-        },
-      });
-
-      const checkbox = root.find('.SearchFilters-Recommended');
-      checkbox.simulate('change', createFakeEvent());
-
-      sinon.assert.calledWithExactly(fakeHistory.push, {
-        pathname: `/en-US/android/search/`,
-        query: convertFiltersToQueryParams({}),
-      });
+    sinon.assert.calledWithExactly(fakeHistory.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({}),
     });
   });
 

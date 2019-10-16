@@ -21,9 +21,6 @@ import {
 describe(__filename, () => {
   const shallowComponent = (props = {}) => {
     const allProps = {
-      _config: getFakeConfig({
-        enableFeatureRecommendedBadges: false,
-      }),
       name: fakeAddon.name,
       i18n: fakeI18n(),
       iconUrl: fakeAddon.icon_url,
@@ -73,12 +70,7 @@ describe(__filename, () => {
   });
 
   it('displays a recommended icon when the add-on is recommended', () => {
-    const props = {
-      _config: getFakeConfig({
-        enableFeatureRecommendedBadges: true,
-      }),
-      isRecommended: true,
-    };
+    const props = { isRecommended: true };
     const root = shallowComponent(props);
 
     expect(root.find('.SearchSuggestion-icon-recommended')).toHaveLength(1);
@@ -89,37 +81,14 @@ describe(__filename, () => {
       clientApp: CLIENT_APP_ANDROID,
     });
 
-    const props = {
-      _config: getFakeConfig({
-        enableFeatureRecommendedBadges: true,
-      }),
-      isRecommended: true,
-      store,
-    };
+    const props = { isRecommended: true, store };
     const root = shallowComponent(props);
 
     expect(root.find('.SearchSuggestion-icon-recommended')).toHaveLength(0);
   });
 
   it('does not display a recommended icon when the add-on is not recommended', () => {
-    const props = {
-      _config: getFakeConfig({
-        enableFeatureRecommendedBadges: true,
-      }),
-      isRecommended: false,
-    };
-    const root = shallowComponent(props);
-
-    expect(root.find('.SearchSuggestion-icon-recommended')).toHaveLength(0);
-  });
-
-  it('does not display a recommended icon when the feature is disabled', () => {
-    const props = {
-      _config: getFakeConfig({
-        enableFeatureRecommendedBadges: false,
-      }),
-      isRecommended: true,
-    };
+    const props = { isRecommended: false };
     const root = shallowComponent(props);
 
     expect(root.find('.SearchSuggestion-icon-recommended')).toHaveLength(0);

@@ -22,12 +22,7 @@ import type { SearchParams } from 'core/api/search';
 import type { Saga } from 'core/types/sagas';
 
 export function* fetchLandingAddons({
-  payload: {
-    addonType,
-    category,
-    enableFeatureRecommendedBadges,
-    errorHandlerId,
-  },
+  payload: { addonType, category, errorHandlerId },
 }: GetLandingAction): Saga {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
@@ -38,10 +33,7 @@ export function* fetchLandingAddons({
       page_size: isTheme(addonType)
         ? String(LANDING_PAGE_THEME_COUNT)
         : String(LANDING_PAGE_EXTENSION_COUNT),
-      recommended:
-        addonType === ADDON_TYPE_EXTENSION && enableFeatureRecommendedBadges
-          ? true
-          : undefined,
+      recommended: addonType === ADDON_TYPE_EXTENSION ? true : undefined,
     };
 
     if (category) {
@@ -52,8 +44,7 @@ export function* fetchLandingAddons({
       api,
       filters: {
         ...filters,
-        featured: enableFeatureRecommendedBadges ? undefined : true,
-        recommended: enableFeatureRecommendedBadges ? true : undefined,
+        recommended: true,
         sort: SEARCH_SORT_RANDOM,
         page: '1',
       },

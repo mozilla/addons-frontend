@@ -74,7 +74,7 @@ We use [Enzyme](http://airbnb.io/enzyme/docs/api/index.html) for testing UI comp
 - Assert components on public properties (props), _e.g._:
 
   ```js
-  expect(root.find(Badge)).toHaveProp('type', 'featured');
+  expect(root.find(Badge)).toHaveProp('type', 'experimental');
   ```
 
 - You can use `shallowUntilTarget()` (`tests/unit/helpers`) for testing a component wrapped in one or more HOCs (higher order components). See `tests/unit/core/components/TestInstallButton.js` for an example of a test case with this helper.

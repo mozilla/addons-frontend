@@ -60,7 +60,6 @@ describe(__filename, () => {
       sagaTester.dispatch(
         fetchHomeData({
           collectionsToFetch: [{ slug: 'some-slug', user: 'some-user' }],
-          enableFeatureRecommendedBadges: true,
           errorHandlerId: errorHandler.id,
           includeRecommendedThemes: true,
           includeTrendingExtensions: true,
@@ -69,143 +68,137 @@ describe(__filename, () => {
       );
     }
 
-    it.each([true, false])(
-      'calls the API to fetch the data to display on home, enableFeatureRecommendedBadges: %s',
-      async (enableFeatureRecommendedBadges) => {
-        const state = sagaTester.getState();
+    it('calls the API to fetch the data to display on home', async () => {
+      const state = sagaTester.getState();
 
-        const firstCollectionSlug = 'collection-slug';
-        const firstCollectionUserId = 123;
-        const secondCollectionSlug = 'collection-slug-2';
-        const secondCollectionUserId = 456;
+      const firstCollectionSlug = 'collection-slug';
+      const firstCollectionUserId = 123;
+      const secondCollectionSlug = 'collection-slug-2';
+      const secondCollectionUserId = 456;
 
-        const baseArgs = { api: state.api };
+      const baseArgs = { api: state.api };
 
-        const firstCollection = createFakeCollectionAddonsListResponse();
-        const secondCollection = createFakeCollectionAddonsListResponse();
-        mockCollectionsApi
-          .expects('getCollectionAddons')
-          .withArgs({
-            ...baseArgs,
-            slug: firstCollectionSlug,
-            userId: firstCollectionUserId,
-          })
-          .resolves(firstCollection);
-        mockCollectionsApi
-          .expects('getCollectionAddons')
-          .withArgs({
-            ...baseArgs,
-            slug: secondCollectionSlug,
-            userId: secondCollectionUserId,
-          })
-          .resolves(secondCollection);
-        const collections = [firstCollection, secondCollection];
+      const firstCollection = createFakeCollectionAddonsListResponse();
+      const secondCollection = createFakeCollectionAddonsListResponse();
+      mockCollectionsApi
+        .expects('getCollectionAddons')
+        .withArgs({
+          ...baseArgs,
+          slug: firstCollectionSlug,
+          userId: firstCollectionUserId,
+        })
+        .resolves(firstCollection);
+      mockCollectionsApi
+        .expects('getCollectionAddons')
+        .withArgs({
+          ...baseArgs,
+          slug: secondCollectionSlug,
+          userId: secondCollectionUserId,
+        })
+        .resolves(secondCollection);
+      const collections = [firstCollection, secondCollection];
 
-        const recommendedExtensions = createAddonsApiResult([fakeAddon]);
-        mockSearchApi
-          .expects('search')
-          .withArgs({
-            ...baseArgs,
-            filters: {
-              page_size: String(LANDING_PAGE_EXTENSION_COUNT),
-              addonType: ADDON_TYPE_EXTENSION,
-              featured: enableFeatureRecommendedBadges ? undefined : true,
-              recommended: enableFeatureRecommendedBadges ? true : undefined,
-              sort: SEARCH_SORT_RANDOM,
-            },
-          })
-          .resolves(recommendedExtensions);
-
-        const recommendedThemes = createAddonsApiResult([fakeTheme]);
-        mockSearchApi
-          .expects('search')
-          .withArgs({
-            ...baseArgs,
-            filters: {
-              page_size: String(LANDING_PAGE_THEME_COUNT),
-              addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
-              featured: enableFeatureRecommendedBadges ? undefined : true,
-              recommended: enableFeatureRecommendedBadges ? true : undefined,
-              sort: SEARCH_SORT_RANDOM,
-            },
-          })
-          .resolves(recommendedThemes);
-
-        const popularExtensions = createAddonsApiResult([fakeAddon]);
-        mockSearchApi
-          .expects('search')
-          .withArgs({
-            ...baseArgs,
-            filters: {
-              page_size: String(LANDING_PAGE_EXTENSION_COUNT),
-              addonType: ADDON_TYPE_EXTENSION,
-              recommended: enableFeatureRecommendedBadges ? true : undefined,
-              sort: SEARCH_SORT_POPULAR,
-            },
-          })
-          .resolves(recommendedExtensions);
-
-        const popularThemes = createAddonsApiResult([fakeAddon]);
-        mockSearchApi
-          .expects('search')
-          .withArgs({
-            ...baseArgs,
-            filters: {
-              page_size: String(LANDING_PAGE_THEME_COUNT),
-              addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
-              sort: SEARCH_SORT_POPULAR,
-            },
-          })
-          .resolves(recommendedExtensions);
-
-        const trendingExtensions = createAddonsApiResult([fakeAddon]);
-        mockSearchApi
-          .expects('search')
-          .withArgs({
-            ...baseArgs,
-            filters: {
-              page_size: String(LANDING_PAGE_EXTENSION_COUNT),
-              addonType: ADDON_TYPE_EXTENSION,
-              recommended: enableFeatureRecommendedBadges ? true : undefined,
-              sort: SEARCH_SORT_TRENDING,
-            },
-          })
-          .resolves(recommendedExtensions);
-
-        const heroShelves = createHeroShelves();
-        mockHeroApi
-          .expects('getHeroShelves')
-          .withArgs(baseArgs)
-          .resolves(heroShelves);
-
-        _fetchHomeData({
-          collectionsToFetch: [
-            { slug: firstCollectionSlug, userId: firstCollectionUserId },
-            { slug: secondCollectionSlug, userId: secondCollectionUserId },
-          ],
-          enableFeatureRecommendedBadges,
-          includeRecommendedThemes: true,
-        });
-
-        const loadAction = loadHomeData({
-          collections,
-          heroShelves,
-          shelves: {
-            recommendedExtensions,
-            recommendedThemes,
-            popularExtensions,
-            popularThemes,
-            trendingExtensions,
+      const recommendedExtensions = createAddonsApiResult([fakeAddon]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+            addonType: ADDON_TYPE_EXTENSION,
+            recommended: true,
+            sort: SEARCH_SORT_RANDOM,
           },
-        });
+        })
+        .resolves(recommendedExtensions);
 
-        const expectedAction = await sagaTester.waitFor(loadAction.type);
-        mockCollectionsApi.verify();
-        mockSearchApi.verify();
+      const recommendedThemes = createAddonsApiResult([fakeTheme]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            page_size: String(LANDING_PAGE_THEME_COUNT),
+            addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
+            recommended: true,
+            sort: SEARCH_SORT_RANDOM,
+          },
+        })
+        .resolves(recommendedThemes);
 
-        expect(expectedAction).toEqual(loadAction);
-      },
-    );
+      const popularExtensions = createAddonsApiResult([fakeAddon]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+            addonType: ADDON_TYPE_EXTENSION,
+            recommended: true,
+            sort: SEARCH_SORT_POPULAR,
+          },
+        })
+        .resolves(recommendedExtensions);
+
+      const popularThemes = createAddonsApiResult([fakeAddon]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            page_size: String(LANDING_PAGE_THEME_COUNT),
+            addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
+            sort: SEARCH_SORT_POPULAR,
+          },
+        })
+        .resolves(recommendedExtensions);
+
+      const trendingExtensions = createAddonsApiResult([fakeAddon]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            page_size: String(LANDING_PAGE_EXTENSION_COUNT),
+            addonType: ADDON_TYPE_EXTENSION,
+            recommended: true,
+            sort: SEARCH_SORT_TRENDING,
+          },
+        })
+        .resolves(recommendedExtensions);
+
+      const heroShelves = createHeroShelves();
+      mockHeroApi
+        .expects('getHeroShelves')
+        .withArgs(baseArgs)
+        .resolves(heroShelves);
+
+      _fetchHomeData({
+        collectionsToFetch: [
+          { slug: firstCollectionSlug, userId: firstCollectionUserId },
+          { slug: secondCollectionSlug, userId: secondCollectionUserId },
+        ],
+        includeRecommendedThemes: true,
+      });
+
+      const loadAction = loadHomeData({
+        collections,
+        heroShelves,
+        shelves: {
+          recommendedExtensions,
+          recommendedThemes,
+          popularExtensions,
+          popularThemes,
+          trendingExtensions,
+        },
+      });
+
+      const expectedAction = await sagaTester.waitFor(loadAction.type);
+      mockCollectionsApi.verify();
+      mockSearchApi.verify();
+
+      expect(expectedAction).toEqual(loadAction);
+    });
 
     it('does not fetch trending extensions if includeTrendingExtensions is false', async () => {
       const collections = [];
@@ -247,7 +240,7 @@ describe(__filename, () => {
       expect(expectedAction).toEqual(loadAction);
     });
 
-    it('does not fetch featured themes if includeRecommendedThemes is false', async () => {
+    it('does not fetch recommended themes if includeRecommendedThemes is false', async () => {
       const collections = [];
 
       const recommendedExtensions = createAddonsApiResult([fakeAddon]);

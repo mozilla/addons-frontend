@@ -133,7 +133,6 @@ export const abortFetchHomeData = (): AbortFetchHomeDataAction => {
 
 type FetchHomeDataParams = {|
   collectionsToFetch: Array<Object>,
-  enableFeatureRecommendedBadges: boolean,
   errorHandlerId: string,
   includeRecommendedThemes: boolean,
   includeTrendingExtensions: boolean,
@@ -146,7 +145,6 @@ export type FetchHomeDataAction = {|
 
 export const fetchHomeData = ({
   collectionsToFetch,
-  enableFeatureRecommendedBadges,
   errorHandlerId,
   includeRecommendedThemes,
   includeTrendingExtensions,
@@ -158,7 +156,6 @@ export const fetchHomeData = ({
     type: FETCH_HOME_DATA,
     payload: {
       collectionsToFetch,
-      enableFeatureRecommendedBadges,
       errorHandlerId,
       includeRecommendedThemes,
       includeTrendingExtensions,

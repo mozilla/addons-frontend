@@ -1,5 +1,4 @@
 import { oneLine } from 'common-tags';
-import config from 'config';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -36,17 +35,12 @@ const sortSelectName = paramsToFilter.sort;
 
 export class SearchFiltersBase extends React.Component {
   static propTypes = {
-    _config: PropTypes.object,
     clientApp: PropTypes.string.isRequired,
     filters: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     lang: PropTypes.string.isRequired,
     pathname: PropTypes.string.isRequired,
-  };
-
-  static defaultProps = {
-    _config: config,
   };
 
   onSelectElementChange = (event) => {
@@ -89,20 +83,18 @@ export class SearchFiltersBase extends React.Component {
   };
 
   onChangeCheckbox = () => {
-    const { _config, filters } = this.props;
+    const { filters } = this.props;
     const newFilters = { ...filters };
 
     // When a checkbox changes, we want to invert its previous value.
     // If it was checked, then we remove the filter since the API only supports
     // `recommended=true`, otherwise we set this filter.
-    const filterName = _config.get('enableFeatureRecommendedBadges')
-      ? 'recommended'
-      : 'featured';
+    const filterName = 'recommended';
 
     if (filters[filterName]) {
       delete newFilters[filterName];
 
-      // We cannot pass `sort=random` without `recommended` or `featured`.
+      // We cannot pass `sort=random` without `recommended`.
       // Given that we deleted the filter above, we also have to delete
       // `sort=random`.
       // See: https://github.com/mozilla/addons-frontend/issues/8301
@@ -174,7 +166,7 @@ export class SearchFiltersBase extends React.Component {
   }
 
   render() {
-    const { _config, filters, i18n } = this.props;
+    const { filters, i18n } = this.props;
 
     const expandableCardName = 'SearchFilters';
     const selectedSortFields = filters.sort
@@ -254,19 +246,13 @@ export class SearchFiltersBase extends React.Component {
           >
             <input
               className="SearchFilters-Recommended"
-              checked={
-                _config.get('enableFeatureRecommendedBadges')
-                  ? !!filters.recommended
-                  : !!filters.featured
-              }
+              checked={!!filters.recommended}
               id="SearchFilters-Recommended"
               name="recommended"
               onChange={this.onChangeCheckbox}
               type="checkbox"
             />
-            {_config.get('enableFeatureRecommendedBadges')
-              ? i18n.gettext('Recommended add-ons only')
-              : i18n.gettext('Featured add-ons only')}
+            {i18n.gettext('Recommended add-ons only')}
           </label>
         </form>
       </ExpandableCard>

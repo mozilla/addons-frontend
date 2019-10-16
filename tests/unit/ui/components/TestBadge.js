@@ -13,15 +13,10 @@ describe(__filename, () => {
     expect(badge.children()).toIncludeText('super badge');
   });
 
-  it('optionally has a type', () => {
-    const badge = shallow(<Badge type="featured" label="foo" />);
+  it('can override the icon label', () => {
+    const badge = shallow(<Badge type="experimental" label="foo" />);
 
-    expect(badge).toHaveClassName('Badge');
-    expect(badge).toHaveClassName('Badge-featured');
-    expect(badge.find(Icon)).toHaveLength(1);
     expect(badge.find(Icon)).toHaveProp('alt', 'foo');
-    expect(badge.find(Icon)).toHaveProp('name', 'featured');
-    expect(badge.text()).toContain('foo');
   });
 
   it('displays the restart icon for type `restart-required`', () => {

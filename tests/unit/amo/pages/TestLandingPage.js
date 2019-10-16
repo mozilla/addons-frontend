@@ -34,9 +34,6 @@ describe(__filename, () => {
 
   function renderProps({ _store = store, ...otherProps } = {}) {
     return {
-      _config: getFakeConfig({
-        enableFeatureRecommendedBadges: true,
-      }),
       errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
       match: {
@@ -103,28 +100,21 @@ describe(__filename, () => {
   });
 
   it('dispatches getLanding when results are not loaded', () => {
-    const enableFeatureRecommendedBadges = true;
-    const _config = getFakeConfig({ enableFeatureRecommendedBadges });
-
     const errorHandler = createStubErrorHandler();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    render({ _config, errorHandler, store });
+    render({ errorHandler, store });
 
     sinon.assert.calledWith(
       fakeDispatch,
       getLanding({
         addonType: ADDON_TYPE_EXTENSION,
-        enableFeatureRecommendedBadges,
         errorHandlerId: errorHandler.id,
       }),
     );
   });
 
   it('dispatches getLanding when addon type changes', () => {
-    const enableFeatureRecommendedBadges = true;
-    const _config = getFakeConfig({ enableFeatureRecommendedBadges });
-
     const addonType = ADDON_TYPE_EXTENSION;
     const errorHandler = createStubErrorHandler();
 
@@ -135,7 +125,6 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
 
     const root = render({
-      _config,
       errorHandler,
       match: {
         params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
@@ -155,7 +144,6 @@ describe(__filename, () => {
       fakeDispatch,
       getLanding({
         addonType,
-        enableFeatureRecommendedBadges,
         errorHandlerId: errorHandler.id,
       }),
     );
@@ -268,98 +256,87 @@ describe(__filename, () => {
     expect(root.find('.LandingPage')).toHaveClassName('.LandingPage--theme');
   });
 
-  it.each([true, false])(
-    'sets the links in each footer for extensions enableFeatureRecommendedBadges: %s',
-    (enableFeatureRecommendedBadges) => {
-      const _config = getFakeConfig({ enableFeatureRecommendedBadges });
+  it('sets the links in each footer for extensions', () => {
+    store.dispatch(
+      loadLanding({
+        addonType: ADDON_TYPE_EXTENSION,
+        recommended: createAddonsApiResult([
+          { ...fakeAddon, name: 'Featured', slug: 'recommended' },
+        ]),
+        highlyRated: createAddonsApiResult([
+          { ...fakeAddon, name: 'High', slug: 'high' },
+        ]),
+        trending: createAddonsApiResult([
+          { ...fakeAddon, name: 'Trending', slug: 'trending' },
+        ]),
+      }),
+    );
 
-      store.dispatch(
-        loadLanding({
-          addonType: ADDON_TYPE_EXTENSION,
-          recommended: createAddonsApiResult([
-            { ...fakeAddon, name: 'Featured', slug: 'recommended' },
-          ]),
-          highlyRated: createAddonsApiResult([
-            { ...fakeAddon, name: 'High', slug: 'high' },
-          ]),
-          trending: createAddonsApiResult([
-            { ...fakeAddon, name: 'Trending', slug: 'trending' },
-          ]),
-        }),
-      );
+    const fakeParams = {
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
+    };
+    const match = { params: fakeParams };
 
-      const fakeParams = {
-        visibleAddonType: getVisibleAddonType(ADDON_TYPE_EXTENSION),
-      };
-      const match = { params: fakeParams };
+    const root = render({ match });
 
-      const root = render({ _config, match });
+    const addonCards = root.find(LandingAddonsCard);
+    expect(addonCards.at(0)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_EXTENSION,
+        recommended: true,
+        sort: SEARCH_SORT_RANDOM,
+      },
+    });
+    expect(addonCards.at(1)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_EXTENSION,
+        recommended: true,
+        sort: SEARCH_SORT_TOP_RATED,
+      },
+    });
+    expect(addonCards.at(2)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_EXTENSION,
+        recommended: true,
+        sort: SEARCH_SORT_TRENDING,
+      },
+    });
+  });
 
-      const addonCards = root.find(LandingAddonsCard);
-      expect(addonCards.at(0)).toHaveProp('footerLink', {
-        pathname: '/search/',
-        query: {
-          addonType: ADDON_TYPE_EXTENSION,
-          featured: enableFeatureRecommendedBadges ? undefined : true,
-          recommended: enableFeatureRecommendedBadges ? true : undefined,
-          sort: enableFeatureRecommendedBadges ? SEARCH_SORT_RANDOM : undefined,
-        },
-      });
-      expect(addonCards.at(1)).toHaveProp('footerLink', {
-        pathname: '/search/',
-        query: {
-          addonType: ADDON_TYPE_EXTENSION,
-          recommended: enableFeatureRecommendedBadges ? true : undefined,
-          sort: SEARCH_SORT_TOP_RATED,
-        },
-      });
-      expect(addonCards.at(2)).toHaveProp('footerLink', {
-        pathname: '/search/',
-        query: {
-          addonType: ADDON_TYPE_EXTENSION,
-          recommended: enableFeatureRecommendedBadges ? true : undefined,
-          sort: SEARCH_SORT_TRENDING,
-        },
-      });
-    },
-  );
+  it('sets the links in each footer for themes', () => {
+    const addonType = getAddonTypeFilter(ADDON_TYPE_THEME);
 
-  it.each([true, false])(
-    'sets the links in each footer for themes enableFeatureRecommendedBadges: %s',
-    (enableFeatureRecommendedBadges) => {
-      const _config = getFakeConfig({ enableFeatureRecommendedBadges });
-      const addonType = getAddonTypeFilter(ADDON_TYPE_THEME);
+    _getAndLoadLandingAddons({ addonType });
 
-      _getAndLoadLandingAddons({ addonType });
+    const fakeParams = {
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
+    };
 
-      const fakeParams = {
-        visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
-      };
+    const match = { params: fakeParams };
 
-      const match = { params: fakeParams };
+    const root = render({ match });
 
-      const root = render({ _config, match });
-
-      const addonCards = root.find(LandingAddonsCard);
-      expect(addonCards.at(0)).toHaveProp('footerLink', {
-        pathname: '/search/',
-        query: {
-          addonType,
-          featured: enableFeatureRecommendedBadges ? undefined : true,
-          recommended: enableFeatureRecommendedBadges ? true : undefined,
-          sort: enableFeatureRecommendedBadges ? SEARCH_SORT_RANDOM : undefined,
-        },
-      });
-      expect(addonCards.at(1)).toHaveProp('footerLink', {
-        pathname: '/search/',
-        query: { addonType, sort: SEARCH_SORT_TOP_RATED },
-      });
-      expect(addonCards.at(2)).toHaveProp('footerLink', {
-        pathname: '/search/',
-        query: { addonType, sort: SEARCH_SORT_TRENDING },
-      });
-    },
-  );
+    const addonCards = root.find(LandingAddonsCard);
+    expect(addonCards.at(0)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType,
+        recommended: true,
+        sort: SEARCH_SORT_RANDOM,
+      },
+    });
+    expect(addonCards.at(1)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: { addonType, sort: SEARCH_SORT_TOP_RATED },
+    });
+    expect(addonCards.at(2)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: { addonType, sort: SEARCH_SORT_TRENDING },
+    });
+  });
 
   it('passes an isTheme prop as true if type is a theme', () => {
     _getAndLoadLandingAddons({ addonType: ADDON_TYPE_THEME });
@@ -463,9 +440,6 @@ describe(__filename, () => {
   });
 
   it('dispatches getLanding when category filter is set', () => {
-    const enableFeatureRecommendedBadges = true;
-    const _config = getFakeConfig({ enableFeatureRecommendedBadges });
-
     const addonType = ADDON_TYPE_EXTENSION;
 
     const errorHandler = createStubErrorHandler();
@@ -488,14 +462,13 @@ describe(__filename, () => {
     );
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    render({ _config, errorHandler, store });
+    render({ errorHandler, store });
 
     sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
     sinon.assert.calledWith(
       fakeDispatch,
       getLanding({
         addonType,
-        enableFeatureRecommendedBadges,
         errorHandlerId: errorHandler.id,
       }),
     );
