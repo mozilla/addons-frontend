@@ -132,9 +132,7 @@ export class SearchFiltersBase extends React.Component {
       { children: i18n.gettext('Search Tool'), value: ADDON_TYPE_OPENSEARCH },
       {
         children: i18n.gettext('Theme'),
-        value: getAddonTypeFilter(ADDON_TYPE_THEME, {
-          _config: this.props._config,
-        }),
+        value: getAddonTypeFilter(ADDON_TYPE_THEME),
       },
     ];
   }

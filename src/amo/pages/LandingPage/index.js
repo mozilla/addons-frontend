@@ -117,9 +117,9 @@ export class LandingPageBase extends React.Component {
   }
 
   contentForType = (visibleAddonType) => {
-    const { _config, i18n } = this.props;
+    const { i18n } = this.props;
     const addonType = apiAddonType(visibleAddonType);
-    const themeFilter = getAddonTypeFilter(ADDON_TYPE_THEME, { _config });
+    const themeFilter = getAddonTypeFilter(ADDON_TYPE_THEME);
 
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {

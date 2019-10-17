@@ -106,7 +106,6 @@ export class HomeBase extends React.Component {
 
   loadDataIfNeeded() {
     const {
-      _config,
       dispatch,
       errorHandler,
       includeRecommendedThemes,
