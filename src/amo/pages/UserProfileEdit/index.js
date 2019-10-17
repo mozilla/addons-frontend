@@ -148,7 +148,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       currentUser,
       dispatch,
       errorHandler,
-      history,
       i18n,
       isUpdating,
       lang,
@@ -207,13 +206,15 @@ export class UserProfileEditBase extends React.Component<Props, State> {
           toPath = `/${toPath}`;
         }
         try {
-          history.push(toPath);
+          this.props._window.location.assign(toPath);
           return;
         } catch (error) {
           log.warn(`Error redirecting to location: ${toPath}: ${error}`);
         }
       }
-      history.push(`/${lang}/${clientApp}/user/${newUserId}/`);
+      this.props._window.location.assign(
+        `/${lang}/${clientApp}/user/${newUserId}/`,
+      );
     }
 
     if (

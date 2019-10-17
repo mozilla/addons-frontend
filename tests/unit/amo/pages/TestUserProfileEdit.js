@@ -891,13 +891,13 @@ describe(__filename, () => {
         userId,
         userProps: defaultUserProps({ userId }),
       });
-      const history = createFakeHistory();
+      const _window = { location: { assign: sinon.spy() } };
       const location = createFakeLocation({ query: { to } });
       const params = { userId };
 
       _updateUserAccount({ store, userId });
 
-      const root = renderUserProfileEdit({ history, location, params, store });
+      const root = renderUserProfileEdit({ _window, location, params, store });
 
       expect(root.find(Notice)).toHaveLength(0);
       expect(root.find('.UserProfileEdit-submit-button')).toHaveProp(
@@ -913,7 +913,7 @@ describe(__filename, () => {
         false,
       );
 
-      sinon.assert.calledWith(history.push, expectedURL);
+      sinon.assert.calledWith(_window.location.assign, expectedURL);
     };
 
     it('redirects to the user profile page when there is no `to` param', () => {
@@ -972,23 +972,25 @@ describe(__filename, () => {
         userId,
         userProps: defaultUserProps({ userId }),
       });
-      const history = createFakeHistory();
+      const _window = { location: { assign: sinon.stub() } };
       const location = createFakeLocation({ query: { to } });
       const params = { userId };
 
       _updateUserAccount({ store, userId });
 
-      const root = renderUserProfileEdit({ history, location, params, store });
+      const root = renderUserProfileEdit({ _window, location, params, store });
 
-      history.push.onCall(0).throws(new Error('Some error'));
-      history.push.onCall(1).returns();
+      _window.location.assign.onCall(0).throws(new Error('Some error'));
+      _window.location.assign.onCall(1).returns();
 
       store.dispatch(finishUpdateUserAccount());
       root.setProps(mapStateToProps(store.getState(), root.instance().props));
 
       sinon.assert.callOrder(
-        history.push.withArgs(`${to}`),
-        history.push.withArgs(`/${lang}/${clientApp}/user/${userId}/`),
+        _window.location.assign.withArgs(`${to}`),
+        _window.location.assign.withArgs(
+          `/${lang}/${clientApp}/user/${userId}/`,
+        ),
       );
     });
   });
