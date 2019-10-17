@@ -1,5 +1,6 @@
 import UAParser from 'ua-parser-js';
 
+import { USER_AGENT_OS_ANDROID, USER_AGENT_OS_MAC } from 'core/reducers/api';
 import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
@@ -18,6 +19,7 @@ import {
   OS_LINUX,
   OS_MAC,
   OS_WINDOWS,
+  USER_AGENT_BROWSER_FIREFOX,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -28,9 +30,11 @@ import {
   isCompatibleWithUserAgent,
   isFirefox,
   isQuantumCompatible,
+  correctedLocationForPlatform,
 } from 'core/utils/compatibility';
 import {
   createFakeAddon,
+  createFakeLocation,
   createFakeMozWindow,
   fakeAddon,
   fakeVersion,
@@ -934,5 +938,109 @@ describe(__filename, () => {
 
       expect(isQuantumCompatible({ addon })).toEqual(true);
     });
+  });
+
+  describe('correctedLocationForPlatform', () => {
+    const _correctedLocationForPlatform = ({
+      clientApp,
+      location = createFakeLocation(),
+      userAgentInfo,
+    }) => {
+      return correctedLocationForPlatform({
+        clientApp,
+        location,
+        userAgentInfo,
+      });
+    };
+
+    it('returns a link with `CLIENT_APP_ANDROID` replaced with `CLIENT_APP_FIREFOX` when on Firefox desktop', () => {
+      const pathname = `/en-US/${CLIENT_APP_ANDROID}/addon/slug/`;
+      const search = '?src=featured';
+
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_ANDROID,
+          location: createFakeLocation({ pathname, search }),
+          userAgentInfo: {
+            browser: { name: USER_AGENT_BROWSER_FIREFOX },
+            os: { name: USER_AGENT_OS_MAC },
+          },
+        }),
+      ).toEqual(
+        `${pathname.replace(CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX)}${search}`,
+      );
+    });
+
+    it('returns a link with `CLIENT_APP_FIREFOX` replaced with `CLIENT_APP_ANDROID` when on Firefox for Android', () => {
+      const pathname = `/en-US/${CLIENT_APP_FIREFOX}/addon/slug/`;
+      const search = '?src=featured';
+
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_FIREFOX,
+          location: createFakeLocation({ pathname, search }),
+          userAgentInfo: {
+            browser: { name: USER_AGENT_BROWSER_FIREFOX },
+            os: { name: USER_AGENT_OS_ANDROID },
+          },
+        }),
+      ).toEqual(
+        `${pathname.replace(CLIENT_APP_FIREFOX, CLIENT_APP_ANDROID)}${search}`,
+      );
+    });
+
+    it('returns null if clientApp is `CLIENT_APP_FIREFOX` on desktop', () => {
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_FIREFOX,
+          userAgentInfo: {
+            browser: { name: USER_AGENT_BROWSER_FIREFOX },
+            os: { name: USER_AGENT_OS_MAC },
+          },
+        }),
+      ).toEqual(null);
+    });
+
+    it('returns null if clientApp is `CLIENT_APP_ANDROID` on Android', () => {
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_ANDROID,
+          userAgentInfo: {
+            browser: { name: USER_AGENT_BROWSER_FIREFOX },
+            os: { name: USER_AGENT_OS_ANDROID },
+          },
+        }),
+      ).toEqual(null);
+    });
+
+    it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
+      'returns null for clientApp %s on Desktop for a non-Firefox browser',
+      (clientApp) => {
+        expect(
+          _correctedLocationForPlatform({
+            clientApp,
+            userAgentInfo: {
+              browser: { name: 'Chrome' },
+              os: { name: USER_AGENT_OS_MAC },
+            },
+          }),
+        ).toEqual(null);
+      },
+    );
+
+    it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
+      'returns null for clientApp %s on Android for a non-Firefox browser',
+      (clientApp) => {
+        expect(
+          _correctedLocationForPlatform({
+            clientApp,
+            userAgentInfo: {
+              browser: { name: 'Chrome' },
+              os: { name: USER_AGENT_OS_ANDROID },
+            },
+          }),
+        ).toEqual(null);
+      },
+    );
   });
 });

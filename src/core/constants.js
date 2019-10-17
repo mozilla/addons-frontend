@@ -309,3 +309,5 @@ export const LTR = 'ltr';
 
 export const AMO_REQUEST_ID_HEADER = 'amo-request-id';
 export const DISCO_TAAR_CLIENT_ID_HEADER = 'moz-client-id';
+
+export const USER_AGENT_BROWSER_FIREFOX = 'Firefox';
