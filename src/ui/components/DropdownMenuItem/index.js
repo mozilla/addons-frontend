@@ -10,14 +10,18 @@ type Props = {|
   children?: string | Link,
   className?: string,
   detached?: boolean,
+  disabled?: boolean,
   onClick?: Function,
+  title?: string | null,
 |};
 
 const DropdownMenuItem = ({
   children,
   className,
   onClick,
+  title,
   detached = false,
+  disabled = false,
 }: Props) => {
   const childIsComponent = typeof children === 'object';
   const _classNames = makeClassName(
@@ -26,6 +30,7 @@ const DropdownMenuItem = ({
       'DropdownMenuItem-section': !childIsComponent && !onClick,
       'DropdownMenuItem-link': childIsComponent || onClick,
       'DropdownMenuItem--detached': detached,
+      'DropdownMenuItem--disabled': disabled,
     },
     className,
   );
@@ -33,7 +38,12 @@ const DropdownMenuItem = ({
   return (
     <li className={_classNames}>
       {onClick ? (
-        <button onClick={onClick} type="button">
+        <button
+          disabled={disabled}
+          onClick={onClick}
+          title={title}
+          type="button"
+        >
           {children}
         </button>
       ) : (

@@ -33,6 +33,17 @@
   margin-top: 8px;
 }
 
+.DropdownMenuItem--disabled {
+  &,
+  & button {
+    @include disabled();
+
+    // We override the opacity because the default value in the `disabled()`
+    // mixin makes the text hard to read.
+    opacity: 0.8;
+  }
+}
+
 .DropdownMenuItem {
   overflow: hidden;
   text-overflow: ellipsis;

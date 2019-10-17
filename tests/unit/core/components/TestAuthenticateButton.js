@@ -8,6 +8,7 @@ import AuthenticateButton, {
   createHandleLogOutFunction,
   mapStateToProps,
 } from 'core/components/AuthenticateButton';
+import { loadSiteStatus } from 'core/reducers/site';
 import {
   createContextWithFakeRouter,
   createFakeEvent,
@@ -155,6 +156,29 @@ describe(__filename, () => {
     sinon.assert.calledWith(handleLogOut, {
       api: store.getState().api,
     });
+  });
+
+  it('is disabled when the site is in readonly mode', () => {
+    const { store } = dispatchSignInActions();
+    store.dispatch(loadSiteStatus({ readOnly: true, notice: null }));
+
+    const root = render({ store });
+
+    expect(root).toHaveProp('disabled', true);
+    expect(root).toHaveProp(
+      'title',
+      expect.stringContaining('currently unavailable'),
+    );
+  });
+
+  it('is not disabled when the site is not in readonly mode', () => {
+    const { store } = dispatchSignInActions();
+    store.dispatch(loadSiteStatus({ readOnly: false, notice: null }));
+
+    const root = render({ store });
+
+    expect(root).toHaveProp('disabled', false);
+    expect(root).toHaveProp('title', null);
   });
 
   describe('createHandleLogOutFunction()', () => {
