@@ -37,6 +37,10 @@
   &,
   & button {
     @include disabled();
+
+    // We override the opacity because the default value in the `disabled()`
+    // mixin makes the text hard to read.
+    opacity: 0.8;
   }
 }
 
