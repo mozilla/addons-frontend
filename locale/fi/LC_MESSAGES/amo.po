@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-08 19:31+0000\n"
-"PO-Revision-Date: 2019-10-16 19:58+0000\n"
-"Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
+"PO-Revision-Date: 2019-10-06 17:53+0000\n"
+"Last-Translator: Teemu <teemu.kaiturinmaki@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -2657,7 +2657,7 @@ msgstr "pysy ajan tasalla lisäosien kehittäjille olennaisista uutisista ja tap
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozillan on otettava minuun yhteyttä henkilökohtaisesta lisäosastani"
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
