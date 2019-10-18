@@ -162,4 +162,13 @@ describe(__filename, () => {
       linkString,
     );
   });
+
+  it.each([true, false])(
+    'sets useThemePlaceholder to the value of isTheme on the AddonsCard',
+    (isTheme) => {
+      const root = render({ isTheme });
+
+      expect(root.find(AddonsCard)).toHaveProp('useThemePlaceholder', isTheme);
+    },
+  );
 });
