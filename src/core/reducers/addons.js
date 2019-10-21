@@ -209,7 +209,6 @@ export function createInternalAddon(
     id: apiAddon.id,
     is_disabled: apiAddon.is_disabled,
     is_experimental: apiAddon.is_experimental,
-    is_featured: apiAddon.is_featured,
     is_recommended: apiAddon.is_recommended,
     is_source_public: apiAddon.is_source_public,
     last_updated: apiAddon.last_updated,

@@ -91,7 +91,6 @@ export type ExternalAddonType = {|
   id: number,
   is_disabled?: boolean,
   is_experimental?: boolean,
-  is_featured?: boolean,
   is_recommended?: boolean,
   is_source_public?: boolean,
   last_updated: Date | null,

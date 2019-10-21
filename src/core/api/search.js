@@ -19,7 +19,6 @@ export type SearchFilters = {|
   clientApp?: string,
   compatibleWithVersion?: number | string,
   exclude_addons?: string,
-  featured?: boolean,
   guid?: string,
   operatingSystem?: string,
   page?: string,
@@ -45,8 +44,9 @@ export function search({ api, auth = false, filters = {} }: SearchParams) {
   // the "featured" or "recommended" parameter is also present, and the "q"
   // parameter absent.'
   // Let's make sure we don't send invalid filters.
+  // Note that we no longer make use of the "featured" filter.
   if (newFilters.sort && newFilters.sort === SEARCH_SORT_RANDOM) {
-    if (!(newFilters.recommended || newFilters.featured) || newFilters.q) {
+    if (!newFilters.recommended || newFilters.q) {
       delete newFilters.sort;
 
       log.warn(oneLine`search api filter "sort=random" has been removed before
