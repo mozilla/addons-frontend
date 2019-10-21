@@ -1,8 +1,8 @@
 /* @flow */
 import { createBrowserHistory } from 'history';
 import React from 'react';
-import { dispatchClientMetadata, fakeI18n } from 'tests/unit/helpers';
 
+import { dispatchClientMetadata, fakeI18n } from 'tests/unit/helpers';
 import Root from 'core/components/Root';
 import { addQueryParamsToHistory } from 'core/utils';
 

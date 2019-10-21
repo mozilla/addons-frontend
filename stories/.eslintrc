@@ -4,14 +4,13 @@
       // Allow dev-dependencies in this directory.
       "devDependencies": true
     }],
-    "import/no-unresolved": [
-      "error", {
-        // TODO: Look for a better way.
-        // This was the only way I could disable the
-        // tests resolve linting issue for now (without
-        // adding disable eslint [this rule] to the file itself).
-        "ignore": [ "tests" ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        // This adds ./src and ./tests for relative imports.
+        "moduleDirectory": ["node_modules", "src", ""]
       }
-    ]
+    }
   }
 }

@@ -2,8 +2,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { fakeI18n } from 'tests/unit/helpers';
 
+import { fakeI18n } from 'tests/unit/helpers';
 import Rating, { RatingBase } from 'ui/components/Rating';
 import type { Props as RatingProps } from 'ui/components/Rating';
 

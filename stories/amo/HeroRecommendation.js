@@ -1,13 +1,13 @@
 /* @flow */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+
 import {
   createHeroShelves,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
 } from 'tests/unit/helpers';
-
 import { HeroRecommendationBase } from 'amo/components/HeroRecommendation';
 import { createInternalHeroShelves } from 'amo/reducers/home';
 import { ErrorHandler } from 'core/errorHandler';
