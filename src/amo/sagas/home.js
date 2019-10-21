@@ -32,7 +32,6 @@ import type { Saga } from 'core/types/sagas';
 export function* fetchHomeData({
   payload: {
     collectionsToFetch,
-    enableFeatureRecommendedBadges,
     errorHandlerId,
     includeRecommendedThemes,
     includeTrendingExtensions,
@@ -78,8 +77,7 @@ export function* fetchHomeData({
     }
 
     const recommendedSearchFilters = {
-      featured: enableFeatureRecommendedBadges ? undefined : true,
-      recommended: enableFeatureRecommendedBadges ? true : undefined,
+      recommended: true,
       page_size: String(LANDING_PAGE_EXTENSION_COUNT),
       sort: SEARCH_SORT_RANDOM,
     };
@@ -103,7 +101,7 @@ export function* fetchHomeData({
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
         page_size: String(LANDING_PAGE_EXTENSION_COUNT),
-        recommended: enableFeatureRecommendedBadges ? true : undefined,
+        recommended: true,
         sort: SEARCH_SORT_POPULAR,
       },
     };
@@ -120,7 +118,7 @@ export function* fetchHomeData({
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
         page_size: String(LANDING_PAGE_EXTENSION_COUNT),
-        recommended: enableFeatureRecommendedBadges ? true : undefined,
+        recommended: true,
         sort: SEARCH_SORT_TRENDING,
       },
     };

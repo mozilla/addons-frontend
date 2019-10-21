@@ -1,5 +1,4 @@
 import makeClassName from 'classnames';
-import config from 'config';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -40,7 +39,6 @@ import './styles.scss';
 
 export class LandingPageBase extends React.Component {
   static propTypes = {
-    _config: PropTypes.object,
     addonTypeOfResults: PropTypes.string,
     // This is a bug; context is used in `setViewContextType()`.
     // eslint-disable-next-line react/no-unused-prop-types
@@ -58,10 +56,6 @@ export class LandingPageBase extends React.Component {
       }).isRequired,
     }).isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
-  };
-
-  static defaultProps = {
-    _config: config,
   };
 
   constructor(props) {
@@ -86,7 +80,6 @@ export class LandingPageBase extends React.Component {
 
   getLandingDataIfNeeded() {
     const {
-      _config,
       addonTypeOfResults,
       dispatch,
       errorHandler,
@@ -106,9 +99,6 @@ export class LandingPageBase extends React.Component {
         getLanding({
           addonType: requestedAddonType,
           errorHandlerId: errorHandler.id,
-          enableFeatureRecommendedBadges: _config.get(
-            'enableFeatureRecommendedBadges',
-          ),
         }),
       );
     }
@@ -127,38 +117,28 @@ export class LandingPageBase extends React.Component {
   }
 
   contentForType = (visibleAddonType) => {
-    const { _config, i18n } = this.props;
+    const { i18n } = this.props;
     const addonType = apiAddonType(visibleAddonType);
-    const themeFilter = getAddonTypeFilter(ADDON_TYPE_THEME, { _config });
-    const enableFeatureRecommendedBadges = _config.get(
-      'enableFeatureRecommendedBadges',
-    );
+    const themeFilter = getAddonTypeFilter(ADDON_TYPE_THEME);
 
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {
-        recommendedHeader: enableFeatureRecommendedBadges
-          ? i18n.gettext('Recommended extensions')
-          : i18n.gettext('Featured extensions'),
+        recommendedHeader: i18n.gettext('Recommended extensions'),
         recommendedFooterLink: {
           pathname: '/search/',
           query: {
             addonType: ADDON_TYPE_EXTENSION,
-            featured: enableFeatureRecommendedBadges ? undefined : true,
-            recommended: enableFeatureRecommendedBadges ? true : undefined,
-            sort: enableFeatureRecommendedBadges
-              ? SEARCH_SORT_RANDOM
-              : undefined,
+            recommended: true,
+            sort: SEARCH_SORT_RANDOM,
           },
         },
-        recommendedFooterText: enableFeatureRecommendedBadges
-          ? i18n.gettext('See more recommended extensions')
-          : i18n.gettext('See more featured extensions'),
+        recommendedFooterText: i18n.gettext('See more recommended extensions'),
         trendingHeader: i18n.gettext('Trending extensions'),
         trendingFooterLink: {
           pathname: '/search/',
           query: {
             addonType: ADDON_TYPE_EXTENSION,
-            recommended: enableFeatureRecommendedBadges ? true : undefined,
+            recommended: true,
             sort: SEARCH_SORT_TRENDING,
           },
         },
@@ -168,30 +148,23 @@ export class LandingPageBase extends React.Component {
           pathname: '/search/',
           query: {
             addonType: ADDON_TYPE_EXTENSION,
-            recommended: enableFeatureRecommendedBadges ? true : undefined,
+            recommended: true,
             sort: SEARCH_SORT_TOP_RATED,
           },
         },
         highlyRatedFooterText: i18n.gettext('See more top rated extensions'),
       },
       [ADDON_TYPE_THEME]: {
-        recommendedHeader: enableFeatureRecommendedBadges
-          ? i18n.gettext('Recommended themes')
-          : i18n.gettext('Featured themes'),
+        recommendedHeader: i18n.gettext('Recommended themes'),
         recommendedFooterLink: {
           pathname: '/search/',
           query: {
             addonType: themeFilter,
-            featured: enableFeatureRecommendedBadges ? undefined : true,
-            recommended: enableFeatureRecommendedBadges ? true : undefined,
-            sort: enableFeatureRecommendedBadges
-              ? SEARCH_SORT_RANDOM
-              : undefined,
+            recommended: true,
+            sort: SEARCH_SORT_RANDOM,
           },
         },
-        recommendedFooterText: enableFeatureRecommendedBadges
-          ? i18n.gettext('See more recommended themes')
-          : i18n.gettext('See more featured themes'),
+        recommendedFooterText: i18n.gettext('See more recommended themes'),
         trendingHeader: i18n.gettext('Trending themes'),
         trendingFooterLink: {
           pathname: '/search/',

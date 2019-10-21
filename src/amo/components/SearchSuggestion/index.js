@@ -1,6 +1,5 @@
 /* @flow */
 import makeClassName from 'classnames';
-import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -26,13 +25,11 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   clientApp: string,
   i18n: I18nType,
 |};
 
 export const SearchSuggestionBase = ({
-  _config = config,
   arrowAlt,
   clientApp,
   i18n,
@@ -50,15 +47,13 @@ export const SearchSuggestionBase = ({
       <span className="SearchSuggestion-name">
         {loading ? <LoadingText minWidth={20} range={12} /> : name}
       </span>
-      {_config.get('enableFeatureRecommendedBadges') &&
-        isRecommended &&
-        clientApp !== CLIENT_APP_ANDROID && (
-          <IconRecommendedBadge
-            alt={i18n.gettext('Recommended')}
-            className="SearchSuggestion-icon-recommended"
-            size="small"
-          />
-        )}
+      {isRecommended && clientApp !== CLIENT_APP_ANDROID && (
+        <IconRecommendedBadge
+          alt={i18n.gettext('Recommended')}
+          className="SearchSuggestion-icon-recommended"
+          size="small"
+        />
+      )}
       <Icon
         alt={arrowAlt}
         className="SearchSuggestion-icon-arrow"

@@ -20,7 +20,6 @@ export const paramsToFilter = {
   author: 'author',
   category: 'category',
   exclude_addons: 'exclude_addons',
-  featured: 'featured',
   guid: 'guid',
   page: 'page',
   // TODO: Change our filter to `pageSize`, for consistency.

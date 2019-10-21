@@ -11,7 +11,6 @@ import { createChapters } from '../utils';
 const label = 'Hello Badge';
 
 const types = [
-  'featured',
   'experimental',
   'restart-required',
   'not-compatible',

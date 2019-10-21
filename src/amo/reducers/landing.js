@@ -41,7 +41,6 @@ export const initialState: LandingState = {
 type GetLandingParams = {|
   addonType: string,
   category?: string | null,
-  enableFeatureRecommendedBadges?: boolean,
   errorHandlerId: string,
 |};
 
@@ -53,7 +52,6 @@ export type GetLandingAction = {|
 export function getLanding({
   addonType,
   category,
-  enableFeatureRecommendedBadges,
   errorHandlerId,
 }: GetLandingParams): GetLandingAction {
   invariant(addonType, 'addonType is required');
@@ -65,7 +63,6 @@ export function getLanding({
       addonType,
       category: category || null,
       errorHandlerId,
-      enableFeatureRecommendedBadges,
     },
   };
 }

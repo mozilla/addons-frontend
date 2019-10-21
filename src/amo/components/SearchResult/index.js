@@ -1,6 +1,5 @@
 /* @flow */
 import makeClassName from 'classnames';
-import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -43,7 +42,6 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   _isAllowedOrigin: Function,
   clientApp: string,
   history: ReactRouterHistoryType,
@@ -53,7 +51,6 @@ type InternalProps = {|
 
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps = {
-    _config: config,
     _isAllowedOrigin: isAllowedOrigin,
     showMetadata: true,
     showRecommendedBadge: true,
@@ -73,7 +70,6 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
   renderResult() {
     const {
-      _config,
       _isAllowedOrigin,
       addon,
       addonInstallSource,
@@ -171,7 +167,6 @@ export class SearchResultBase extends React.Component<InternalProps> {
             <h2 className="SearchResult-name">
               {addonTitle}
               {showRecommendedBadge &&
-              _config.get('enableFeatureRecommendedBadges') &&
               addon &&
               addon.is_recommended &&
               clientApp !== CLIENT_APP_ANDROID ? (

@@ -181,7 +181,7 @@ describe(__filename, () => {
     });
   });
 
-  it('removes sort=random when the recommended and featured filters are missing', () => {
+  it('removes sort=random when the recommended filter is missing', () => {
     mockWindow
       .expects('fetch')
       .withArgs(sinon.match((url) => !url.includes('sort')))
@@ -209,23 +209,6 @@ describe(__filename, () => {
     });
   });
 
-  it('removes sort=random when the featured and query filters are set', () => {
-    const featured = true;
-    const q = 'some query';
-
-    mockWindow
-      .expects('fetch')
-      .withArgs(sinon.match((url) => !url.includes('sort')))
-      .withArgs(urlWithTheseParams({ featured, q }))
-      .returns(mockResponse());
-
-    return _search({
-      filters: { sort: SEARCH_SORT_RANDOM, featured, query: q },
-    }).then(() => {
-      mockWindow.verify();
-    });
-  });
-
   it('does not remove sort=random when recommended is set', () => {
     const recommended = true;
     const sort = SEARCH_SORT_RANDOM;
@@ -236,20 +219,6 @@ describe(__filename, () => {
       .returns(mockResponse());
 
     return _search({ filters: { sort, recommended } }).then(() => {
-      mockWindow.verify();
-    });
-  });
-
-  it('does not remove sort=random when featured is set', () => {
-    const featured = true;
-    const sort = SEARCH_SORT_RANDOM;
-
-    mockWindow
-      .expects('fetch')
-      .withArgs(urlWithTheseParams({ sort, featured }))
-      .returns(mockResponse());
-
-    return _search({ filters: { sort, featured } }).then(() => {
       mockWindow.verify();
     });
   });

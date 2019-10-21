@@ -1,15 +1,9 @@
 /* @flow */
-import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import {
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
-  CLIENT_APP_ANDROID,
-} from 'core/constants';
+import { ADDON_TYPE_EXTENSION, CLIENT_APP_ANDROID } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { isQuantumCompatible } from 'core/utils/compatibility';
 import Badge from 'ui/components/Badge';
@@ -26,34 +20,17 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   clientApp: string,
   i18n: I18nType,
 |};
 
 export class AddonBadgesBase extends React.Component<InternalProps> {
-  static defaultProps = {
-    _config: config,
-  };
-
   render() {
-    const { _config, addon, clientApp, i18n } = this.props;
+    const { addon, clientApp, i18n } = this.props;
 
     if (!addon) {
       return null;
     }
-
-    const getFeaturedText = (addonType: string) => {
-      switch (addonType) {
-        case ADDON_TYPE_EXTENSION:
-          return i18n.gettext('Featured Extension');
-        case ADDON_TYPE_STATIC_THEME:
-        case ADDON_TYPE_THEME:
-          return i18n.gettext('Featured Theme');
-        default:
-          return i18n.gettext('Featured Add-on');
-      }
-    };
 
     const isIncompatible =
       addon.type === ADDON_TYPE_EXTENSION &&
@@ -61,13 +38,8 @@ export class AddonBadgesBase extends React.Component<InternalProps> {
 
     return (
       <div className="AddonBadges">
-        {_config.get('enableFeatureRecommendedBadges') &&
-        addon.is_recommended &&
-        clientApp !== CLIENT_APP_ANDROID ? (
+        {addon.is_recommended && clientApp !== CLIENT_APP_ANDROID ? (
           <RecommendedBadge size="large" />
-        ) : null}
-        {addon.is_featured && !_config.get('enableFeatureRecommendedBadges') ? (
-          <Badge type="featured" label={getFeaturedText(addon.type)} />
         ) : null}
         {addon.isRestartRequired ? (
           <Badge

@@ -57,7 +57,7 @@ describe(__filename, () => {
     const root = render({
       location: createFakeLocation({
         query: {
-          featured: true,
+          recommended: true,
           page: 2,
           q: 'burger',
           tag: 'firefox57',
@@ -66,7 +66,7 @@ describe(__filename, () => {
     });
 
     expect(root.find(Search)).toHaveProp('paginationQueryParams', {
-      featured: true,
+      recommended: true,
       page: 2,
       q: 'burger',
       tag: 'firefox57',

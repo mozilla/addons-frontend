@@ -1,5 +1,4 @@
 /* @flow */
-import config from 'config';
 import deepEqual from 'deep-eql';
 import * as React from 'react';
 import Helmet from 'react-helmet';
@@ -44,7 +43,6 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   LinkComponent: React.Node,
   context: string,
   count: number,
@@ -59,7 +57,6 @@ type InternalProps = {|
 
 export class SearchBase extends React.Component<InternalProps> {
   static defaultProps = {
-    _config: config,
     LinkComponent: Link,
     count: 0,
     enableSearchFilters: true,
@@ -114,30 +111,20 @@ export class SearchBase extends React.Component<InternalProps> {
   }
 
   renderHelmetTitle() {
-    const { _config, i18n, filters } = this.props;
+    const { i18n, filters } = this.props;
 
     let title = i18n.gettext('Search results');
 
-    const recommendedFilter = _config.get('enableFeatureRecommendedBadges')
-      ? filters.recommended
-      : filters.featured;
-
-    if (recommendedFilter) {
+    if (filters.recommended) {
       switch (filters.addonType) {
         case ADDON_TYPE_EXTENSION:
-          title = _config.get('enableFeatureRecommendedBadges')
-            ? i18n.gettext('Recommended extensions')
-            : i18n.gettext('Featured extensions');
+          title = i18n.gettext('Recommended extensions');
           break;
         case ADDON_TYPE_THEME:
-          title = _config.get('enableFeatureRecommendedBadges')
-            ? i18n.gettext('Recommended themes')
-            : i18n.gettext('Featured themes');
+          title = i18n.gettext('Recommended themes');
           break;
         default:
-          title = _config.get('enableFeatureRecommendedBadges')
-            ? i18n.gettext('Recommended add-ons')
-            : i18n.gettext('Featured add-ons');
+          title = i18n.gettext('Recommended add-ons');
       }
     } else if (filters.sort) {
       switch (filters.sort) {

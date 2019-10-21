@@ -12,7 +12,6 @@ describe(__filename, () => {
     const getActionParams = () => ({
       addonType: ADDON_TYPE_THEME,
       errorHandlerId: 'some-error-handler',
-      enableFeatureRecommendedBadges: true,
     });
     const action = getLanding(getActionParams());
 
@@ -25,7 +24,6 @@ describe(__filename, () => {
         addonType: ADDON_TYPE_THEME,
         category: null,
         errorHandlerId: 'some-error-handler',
-        enableFeatureRecommendedBadges: true,
       });
     });
 
@@ -40,7 +38,6 @@ describe(__filename, () => {
         addonType: ADDON_TYPE_THEME,
         category,
         errorHandlerId: 'some-error-handler',
-        enableFeatureRecommendedBadges: true,
       });
     });
   });
