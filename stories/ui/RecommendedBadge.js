@@ -1,8 +1,8 @@
 /* @flow */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { fakeI18n } from 'tests/unit/helpers';
 
+import { fakeI18n } from 'tests/unit/helpers';
 import { RecommendedBadgeBase } from 'ui/components/RecommendedBadge';
 
 const render = (moreProps = {}) => {
