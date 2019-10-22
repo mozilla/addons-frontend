@@ -53,12 +53,8 @@ export const ADDON_TYPE_STATIC_THEME = 'statictheme';
 export const ADDON_TYPE_THEME = 'persona';
 export const ADDON_TYPE_THEMES = [ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME];
 export const ADDON_TYPE_THEMES_FILTER = ADDON_TYPE_STATIC_THEME;
-// TODO: Remove ADDON_TYPE_COMPLETE_THEME once we don't support complete
-// themes.
-export const ADDON_TYPE_COMPLETE_THEME = 'theme';
 
 export type AddonTypeType =
-  | typeof ADDON_TYPE_COMPLETE_THEME
   | typeof ADDON_TYPE_DICT
   | typeof ADDON_TYPE_EXTENSION
   | typeof ADDON_TYPE_LANG
@@ -67,7 +63,6 @@ export type AddonTypeType =
   | typeof ADDON_TYPE_THEME;
 
 export const validAddonTypes = [
-  ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
@@ -283,8 +278,6 @@ export const maximumSetTimeoutDelay = 2147483647;
 // category background header/link. Most have 12, but certain add-on types
 // can have their own color set with a different max number.
 export const CATEGORY_COLORS = {
-  // TODO: Remove when complete theme support is removed.
-  [ADDON_TYPE_COMPLETE_THEME]: 12,
   [ADDON_TYPE_DICT]: 12,
   [ADDON_TYPE_EXTENSION]: 10,
   [ADDON_TYPE_LANG]: 12,

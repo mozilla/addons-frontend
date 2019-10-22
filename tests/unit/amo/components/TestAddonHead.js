@@ -5,7 +5,6 @@ import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import AddonHead, { AddonHeadBase } from 'amo/components/AddonHead';
 import {
-  ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
@@ -49,7 +48,6 @@ describe(__filename, () => {
     [ADDON_TYPE_OPENSEARCH, 'Search Tool'],
     [ADDON_TYPE_STATIC_THEME, 'Theme'],
     [ADDON_TYPE_THEME, 'Theme'],
-    [ADDON_TYPE_COMPLETE_THEME, 'Add-on'],
   ])('renders an HTML title for Firefox (add-on type: %s)', (type, name) => {
     const lang = 'fr';
     const addon = createInternalAddon({ ...fakeAddon, type });
@@ -71,7 +69,6 @@ describe(__filename, () => {
     [ADDON_TYPE_OPENSEARCH, 'Search Tool'],
     [ADDON_TYPE_STATIC_THEME, 'Theme'],
     [ADDON_TYPE_THEME, 'Theme'],
-    [ADDON_TYPE_COMPLETE_THEME, 'Add-on'],
   ])('renders an HTML title for Android (add-on type: %s)', (type, name) => {
     const lang = 'fr';
     const addon = createInternalAddon({ ...fakeAddon, type });
