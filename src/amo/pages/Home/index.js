@@ -19,7 +19,7 @@ import SecondaryHero from 'amo/components/SecondaryHero';
 import { fetchHomeData } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   INSTALL_SOURCE_FEATURED,
   SEARCH_SORT_POPULAR,
@@ -29,7 +29,6 @@ import {
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { getAddonTypeFilter } from 'core/utils';
 import Card from 'ui/components/Card';
 
 import './styles.scss';
@@ -172,7 +171,10 @@ export class HomeBase extends React.Component {
         {curatedThemes.map(({ color, slug, title }) => (
           <li className="Home-SubjectShelf-list-item" key={slug}>
             <Link
-              to={categoryResultsLinkTo({ addonType: ADDON_TYPE_THEME, slug })}
+              to={categoryResultsLinkTo({
+                addonType: ADDON_TYPE_STATIC_THEME,
+                slug,
+              })}
               className="Home-SubjectShelf-link"
             >
               <CategoryIcon name={slug} color={color} />
@@ -297,9 +299,7 @@ export class HomeBase extends React.Component {
               footerLink={{
                 pathname: '/search/',
                 query: {
-                  addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
-                    _config: this.props._config,
-                  }),
+                  addonType: ADDON_TYPE_STATIC_THEME,
                   sort: SEARCH_SORT_POPULAR,
                 },
               }}
@@ -335,9 +335,7 @@ export class HomeBase extends React.Component {
                 footerLink={{
                   pathname: '/search/',
                   query: {
-                    addonType: getAddonTypeFilter(ADDON_TYPE_THEME, {
-                      _config: this.props._config,
-                    }),
+                    addonType: ADDON_TYPE_STATIC_THEME,
                     recommended: true,
                     sort: SEARCH_SORT_RANDOM,
                   },

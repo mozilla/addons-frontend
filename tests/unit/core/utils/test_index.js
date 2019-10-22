@@ -11,7 +11,6 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  ADDON_TYPE_THEMES_FILTER,
   CATEGORY_COLORS,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -33,7 +32,6 @@ import {
   convertBoolean,
   decodeHtmlEntities,
   findFileForPlatform,
-  getAddonTypeFilter,
   getCategoryColor,
   getCategoryResultsQuery,
   getClientApp,
@@ -666,23 +664,6 @@ describe(__filename, () => {
     });
   });
 
-  describe('getAddonTypeFilter', () => {
-    it('returns ADDON_TYPE_THEMES_FILTER when add-on type is a lightweight theme', () => {
-      const addon = createInternalAddon({ type: ADDON_TYPE_THEME });
-      expect(getAddonTypeFilter(addon.type)).toEqual(ADDON_TYPE_THEMES_FILTER);
-    });
-
-    it('returns ADDON_TYPE_THEMES_FILTER when add-on type is a static theme', () => {
-      const addon = createInternalAddon({ type: ADDON_TYPE_STATIC_THEME });
-      expect(getAddonTypeFilter(addon.type)).toEqual(ADDON_TYPE_THEMES_FILTER);
-    });
-
-    it('returns ADDON_TYPE_EXTENSION when add-on type is an extension', () => {
-      const addon = createInternalAddon({ type: ADDON_TYPE_EXTENSION });
-      expect(getAddonTypeFilter(addon.type)).toEqual(ADDON_TYPE_EXTENSION);
-    });
-  });
-
   describe('normalizeFileNameId', () => {
     it('returns a path relative to the project root directory', () => {
       expect(normalizeFileNameId('/path/to/src/foo/index.js')).toEqual(
@@ -907,7 +888,7 @@ describe(__filename, () => {
 
     const query = getCategoryResultsQuery({ addonType, slug });
     expect(query.category).toEqual(slug);
-    expect(query.type).toEqual(getAddonTypeFilter(addonType));
+    expect(query.type).toEqual(addonType);
     expect(query.sort).toEqual(
       `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
     );

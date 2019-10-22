@@ -14,8 +14,9 @@ import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import Page from 'amo/components/Page';
 import {
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_STATIC_THEME,
   INSTALL_SOURCE_FEATURED,
   INSTALL_SOURCE_TOP_RATED,
   INSTALL_SOURCE_TRENDING,
@@ -28,7 +29,6 @@ import log from 'core/logger';
 import {
   apiAddonType,
   apiAddonTypeIsValid,
-  getAddonTypeFilter,
   isTheme,
   visibleAddonType as getVisibleAddonType,
 } from 'core/utils';
@@ -119,7 +119,6 @@ export class LandingPageBase extends React.Component {
   contentForType = (visibleAddonType) => {
     const { i18n } = this.props;
     const addonType = apiAddonType(visibleAddonType);
-    const themeFilter = getAddonTypeFilter(ADDON_TYPE_THEME);
 
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {
@@ -159,7 +158,7 @@ export class LandingPageBase extends React.Component {
         recommendedFooterLink: {
           pathname: '/search/',
           query: {
-            addonType: themeFilter,
+            addonType: ADDON_TYPE_STATIC_THEME,
             recommended: true,
             sort: SEARCH_SORT_RANDOM,
           },
@@ -168,13 +167,19 @@ export class LandingPageBase extends React.Component {
         trendingHeader: i18n.gettext('Trending themes'),
         trendingFooterLink: {
           pathname: '/search/',
-          query: { addonType: themeFilter, sort: SEARCH_SORT_TRENDING },
+          query: {
+            addonType: ADDON_TYPE_STATIC_THEME,
+            sort: SEARCH_SORT_TRENDING,
+          },
         },
         trendingFooterText: i18n.gettext('See more trending themes'),
         highlyRatedHeader: i18n.gettext('Top rated themes'),
         highlyRatedFooterLink: {
           pathname: '/search/',
-          query: { addonType: themeFilter, sort: SEARCH_SORT_TOP_RATED },
+          query: {
+            addonType: ADDON_TYPE_STATIC_THEME,
+            sort: SEARCH_SORT_TOP_RATED,
+          },
         },
         highlyRatedFooterText: i18n.gettext('See more top rated themes'),
       },

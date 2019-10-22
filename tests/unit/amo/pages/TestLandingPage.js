@@ -9,15 +9,13 @@ import HeadMetaTags from 'amo/components/HeadMetaTags';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  ADDON_TYPE_STATIC_THEME,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import {
-  visibleAddonType as getVisibleAddonType,
-  getAddonTypeFilter,
-} from 'core/utils';
+import { visibleAddonType as getVisibleAddonType } from 'core/utils';
 import {
   createAddonsApiResult,
   createStubErrorHandler,
@@ -91,7 +89,9 @@ describe(__filename, () => {
     fakeDispatch.resetHistory();
     root.setProps({
       match: {
-        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
+        params: {
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
+        },
       },
     });
 
@@ -126,7 +126,9 @@ describe(__filename, () => {
     const root = render({
       errorHandler,
       match: {
-        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
+        params: {
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
+        },
       },
       store,
     });
@@ -249,7 +251,9 @@ describe(__filename, () => {
   it('renders a theme class name when page type is themes', () => {
     const root = render({
       match: {
-        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
+        params: {
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
+        },
       },
     });
     expect(root.find('.LandingPage')).toHaveClassName('.LandingPage--theme');
@@ -306,7 +310,7 @@ describe(__filename, () => {
   });
 
   it('sets the links in each footer for themes', () => {
-    const addonType = getAddonTypeFilter(ADDON_TYPE_THEME);
+    const addonType = ADDON_TYPE_STATIC_THEME;
 
     _getAndLoadLandingAddons({ addonType });
 
@@ -338,7 +342,7 @@ describe(__filename, () => {
   });
 
   it('passes an isTheme prop as true if type is a theme', () => {
-    _getAndLoadLandingAddons({ addonType: ADDON_TYPE_THEME });
+    _getAndLoadLandingAddons({ addonType: ADDON_TYPE_STATIC_THEME });
 
     const root = render({
       match: {
@@ -372,7 +376,9 @@ describe(__filename, () => {
   it('renders a LandingPage with themes HTML', () => {
     const root = render({
       match: {
-        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
+        params: {
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
+        },
       },
     });
 
@@ -384,7 +390,7 @@ describe(__filename, () => {
   it('renders each add-on when set', () => {
     store.dispatch(
       loadLanding({
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_STATIC_THEME,
         recommended: createAddonsApiResult([
           { ...fakeAddon, name: 'Howdy', slug: 'howdy' },
           { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
@@ -404,7 +410,9 @@ describe(__filename, () => {
 
     const root = render({
       match: {
-        params: { visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME) },
+        params: {
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
+        },
       },
     });
 
@@ -545,7 +553,7 @@ describe(__filename, () => {
   it('hides the trending shelf when there are no add-ons for it', () => {
     store.dispatch(
       loadLanding({
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_STATIC_THEME,
         recommended: createAddonsApiResult([
           { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
           { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
@@ -570,7 +578,7 @@ describe(__filename, () => {
   it('hides the recommended shelf when there are no add-ons for it', () => {
     store.dispatch(
       loadLanding({
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_STATIC_THEME,
         recommended: createAddonsApiResult([]),
         highlyRated: createAddonsApiResult([
           { ...fakeAddon, name: 'High', slug: 'high' },
@@ -594,7 +602,7 @@ describe(__filename, () => {
   it('hides the highly rated shelf when there are no add-ons for it', () => {
     store.dispatch(
       loadLanding({
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_STATIC_THEME,
         recommended: createAddonsApiResult([
           { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
           { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },

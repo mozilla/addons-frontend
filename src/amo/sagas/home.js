@@ -15,13 +15,12 @@ import {
 } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_STATIC_THEME,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
 } from 'core/constants';
 import { search as searchApi } from 'core/api/search';
-import { getAddonTypeFilter } from 'core/utils';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { GetCollectionAddonsParams } from 'amo/api/collections';
@@ -91,7 +90,7 @@ export function* fetchHomeData({
     const recommendedThemesParams: SearchParams = {
       api: state.api,
       filters: {
-        addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
+        addonType: ADDON_TYPE_STATIC_THEME,
         ...recommendedSearchFilters,
         page_size: String(LANDING_PAGE_THEME_COUNT),
       },
@@ -108,7 +107,7 @@ export function* fetchHomeData({
     const popularThemesParams: SearchParams = {
       api: state.api,
       filters: {
-        addonType: getAddonTypeFilter(ADDON_TYPE_THEME),
+        addonType: ADDON_TYPE_STATIC_THEME,
         page_size: String(LANDING_PAGE_THEME_COUNT),
         sort: SEARCH_SORT_POPULAR,
       },

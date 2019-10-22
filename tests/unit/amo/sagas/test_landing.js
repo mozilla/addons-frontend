@@ -13,7 +13,7 @@ import landingReducer, {
 import landingSaga from 'amo/sagas/landing';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_STATIC_THEME,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_RANDOM,
@@ -25,7 +25,6 @@ import {
   dispatchClientMetadata,
   fakeAddon,
 } from 'tests/unit/helpers';
-import { getAddonTypeFilter } from 'core/utils';
 
 describe(__filename, () => {
   describe('fetchLandingAddons', () => {
@@ -67,15 +66,7 @@ describe(__filename, () => {
         pageSize: String(LANDING_PAGE_EXTENSION_COUNT),
       },
       {
-        addonType: ADDON_TYPE_EXTENSION,
-        pageSize: String(LANDING_PAGE_EXTENSION_COUNT),
-      },
-      {
-        addonType: ADDON_TYPE_THEME,
-        pageSize: String(LANDING_PAGE_THEME_COUNT),
-      },
-      {
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_STATIC_THEME,
         pageSize: String(LANDING_PAGE_THEME_COUNT),
       },
     ])(
@@ -84,7 +75,7 @@ describe(__filename, () => {
         const { addonType, pageSize } = testConfig;
         const baseArgs = { api: apiState };
         const baseFilters = {
-          addonType: getAddonTypeFilter(addonType),
+          addonType,
           page_size: pageSize,
           recommended: addonType === ADDON_TYPE_EXTENSION ? true : undefined,
         };
