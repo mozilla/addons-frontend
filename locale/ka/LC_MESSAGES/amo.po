@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-08 19:31+0000\n"
+"POT-Creation-Date: 2019-10-22 18:54+0000\n"
 "PO-Revision-Date: 2019-09-23 16:10+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,32 +74,19 @@ msgstr "დამატების ჩასწორება"
 msgid "Admin add-on status"
 msgstr "მმართველის დამატების მდგომარეობა"
 
-#: src/amo/components/AddonBadges/index.js:49
-msgid "Featured Extension"
-msgstr "რჩეული გაფართოება"
-
-#: src/amo/components/AddonBadges/index.js:52
-msgid "Featured Theme"
-msgstr "გამორჩეული თემა"
-
-# "Firefox" should not be translated. :-)
-#: src/amo/components/AddonBadges/index.js:54
-msgid "Featured Add-on"
-msgstr "რჩეული დამატება"
-
-#: src/amo/components/AddonBadges/index.js:75
+#: src/amo/components/AddonBadges/index.js:47
 msgid "Restart Required"
 msgstr "საჭიროებს გადატვირთვას"
 
-#: src/amo/components/AddonBadges/index.js:79
+#: src/amo/components/AddonBadges/index.js:51
 msgid "Experimental"
 msgstr "საცდელი"
 
-#: src/amo/components/AddonBadges/index.js:84
+#: src/amo/components/AddonBadges/index.js:56
 msgid "Not compatible with Firefox Quantum"
 msgstr "არათავსებადია Firefox Quantum-თან"
 
-#: src/amo/components/AddonBadges/index.js:90
+#: src/amo/components/AddonBadges/index.js:62
 msgid "Some features may require payment"
 msgstr "ზოგიერთი შესაძლებლობა, თანხის გადახდას საჭიროებს"
 
@@ -327,9 +314,9 @@ msgid "More information"
 msgstr "დამატებითი მონაცემები"
 
 #: src/amo/components/AddonMoreInfo/index.js:62
-#: src/amo/pages/UserProfile/index.js:355
 #: src/amo/pages/UserProfile/index.js:357
-#: src/amo/pages/UserProfileEdit/index.js:636
+#: src/amo/pages/UserProfile/index.js:359
+#: src/amo/pages/UserProfileEdit/index.js:673
 msgid "Homepage"
 msgstr "მთავარი გვერდი"
 
@@ -392,7 +379,7 @@ msgstr "წაშლა"
 #: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:313
-#: src/amo/pages/UserProfileEdit/index.js:880
+#: src/amo/pages/UserProfileEdit/index.js:913
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
@@ -624,22 +611,22 @@ msgstr "ვერსია %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "გამოშვების თარიღი %(dateReleased)s – %(fileSize)s"
 
-#: src/amo/components/App/index.js:207
+#: src/amo/components/App/index.js:172
 #: src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Firefox-ის დამატებები (%(locale)s)"
 
-#: src/amo/components/App/index.js:211
+#: src/amo/components/App/index.js:176
 #: src/amo/components/HeadMetaTags/index.js:73
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – Firefox-ის დამატებები (%(locale)s)"
 
-#: src/amo/components/App/index.js:219
+#: src/amo/components/App/index.js:184
 #: src/amo/components/HeadMetaTags/index.js:78
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Firefox Android-ის დამატებები (%(locale)s)"
 
-#: src/amo/components/App/index.js:223
+#: src/amo/components/App/index.js:188
 #: src/amo/components/HeadMetaTags/index.js:72
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – Firefox Android-ის დამატებები (%(locale)s)"
@@ -846,7 +833,7 @@ msgstr "შენახვა"
 msgid "Edit"
 msgstr "ჩასწორება"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:23
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:24
 msgid ""
 "If you are signed in and think this message is an error, please <a href="
 "\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
@@ -857,11 +844,11 @@ msgstr ""
 "საიდან გადმოხვედით ამ ბმულზე, რის ნახვას ცდილობდით და ჩვენ აუცილებლად "
 "გამოვასწორებთ."
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:37
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:39
 msgid "Not Authorized"
 msgstr "არ ხართ შესული ანგარიშზე"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:40
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:42
 msgid ""
 "Sorry, but you aren't authorized to access this page. If you aren't signed "
 "in, try signing in using the link at the top of the page."
@@ -869,7 +856,7 @@ msgstr ""
 "ვწუხვართ, მაგრამ ამ გვერდის ნახვის უფლება არ გაქვთ. თუ არ ხართ ანგარიშზე "
 "შესული, გამოიყენეთ გვერდის დასაწყისში არსებული ბმული, შესასვლელად."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:30
+#: src/amo/components/ErrorPage/NotFound/index.js:31
 msgid ""
 "Try visiting the page later, as the theme or extension may become available "
 "again. Alternatively, you may be able to find what you’re looking for in one "
@@ -881,11 +868,11 @@ msgstr ""
 "%(linkStart)sგაფართოებებში%(linkEnd)s ან %(secondLinkStart)sთემებში"
 "%(secondLinkEnd)s."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:68
+#: src/amo/components/ErrorPage/NotFound/index.js:70
 msgid "Oops! We can’t find that page"
 msgstr "უკაცრავად! მოთხოვნილი გვერდი ვერ მოიძებნა"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:71
+#: src/amo/components/ErrorPage/NotFound/index.js:73
 msgid ""
 "If you’ve followed a link from another site for an extension or theme, that "
 "item is no longer available. This could be because:"
@@ -893,7 +880,7 @@ msgstr ""
 "თუ გაფართოების ან თემის ბმულს გამოჰყევით სხვა საიტიდან, შეიძლება იგი აღარ "
 "იყოს ხელმისაწვდომი. შესაძლო მიზეზებია:"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:77
+#: src/amo/components/ErrorPage/NotFound/index.js:79
 msgid ""
 "The developer removed it. Developers commonly do this because they no longer "
 "support the extension or theme, or have replaced it."
@@ -901,7 +888,7 @@ msgstr ""
 "წაშლილია შემმუშავებლის მიერ. ჩვეულებრივ ამას მაშინ აკეთებენ, როცა მოცემული "
 "გაფართოების ან თემის მხარდაჭერას წყვეტენ, ანდაც ცვლიან სხვა ნამუშევრით."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:82
+#: src/amo/components/ErrorPage/NotFound/index.js:84
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review "
 "of the extension or theme, or the extension or theme has been abusing the "
@@ -913,7 +900,7 @@ msgstr ""
 "წესებსა და პირობებს. შემმუშავებელს ეძლევა საშუალება აღმოფხვრას მითითებული "
 "ხარვეზები და კვლავ გახადოს დამატება ხელმისაწვდომი."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:94
+#: src/amo/components/ErrorPage/NotFound/index.js:96
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us "
 "fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you "
@@ -924,7 +911,7 @@ msgstr ""
 "გვაცნობეთ, რომელი გვერდიდან გადმოხვედით, რას ეძებდით და აუცილებლად "
 "გავასწორებთ."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:21
+#: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
 "If you have additional information that would help us you can <a href="
 "\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
@@ -936,12 +923,12 @@ msgstr ""
 "შესახებ</a>. გვაცნობეთ, რა ნაბიჯები გადადგით, სანამ ხარვეზს წააწყდებოდით და "
 "აუცილებლად შევეცდებით მის გამოსწორებას."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/amo/components/ErrorPage/ServerError/index.js:34
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "შეცდომა სერვერზე"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:35
+#: src/amo/components/ErrorPage/ServerError/index.js:37
 msgid ""
 "Sorry, but there was an error with our server and we couldn't complete your "
 "request. We have logged this error and will investigate it."
@@ -970,12 +957,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "მონიშნულია როგორც მოხსენება ხარვეზის შესახებ ან მხარდაჭერის მოთხოვნა"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "საჩივარი"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "გასაჩივრებულია"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "საჩივარი"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1080,11 +1067,11 @@ msgstr "შესახებ"
 msgid "Blog"
 msgstr "სვეტი"
 
-#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:106
+#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:104
 msgid "Extension Workshop"
 msgstr "გაფართოებების შემუშავება"
 
-#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:116
+#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:114
 msgid "Developer Hub"
 msgstr "შემმუშავებლები"
 
@@ -1108,83 +1095,89 @@ msgstr "მითითებები მიმოხილვის გას�
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "მხოლოდ Firefox-თან ერთად – გადმოწერეთ Firefox ახლავე"
 
-#: src/amo/components/Header/index.js:104
+#: src/amo/components/Header/index.js:102
 msgid "Learn how to create extensions and themes"
 msgstr "იხილეთ, როგორ იქმნება გაფართოებები და თემები"
 
-#: src/amo/components/Header/index.js:114
+#: src/amo/components/Header/index.js:112
 msgid "Submit and manage extensions and themes"
 msgstr "წარდგენა და გაფართოებისა და თემების მართვა"
 
-#: src/amo/components/Header/index.js:129
+#: src/amo/components/Header/index.js:127
 msgid "My Account"
 msgstr "ჩემი ანგარიში"
 
-#: src/amo/components/Header/index.js:136
+#: src/amo/components/Header/index.js:134
 msgid "View My Collections"
 msgstr "ჩემი კრებულების ნახვა"
 
-#: src/amo/components/Header/index.js:144
-#: src/amo/pages/UserProfileEdit/index.js:513
+#: src/amo/components/Header/index.js:142
+#: src/amo/pages/UserProfileEdit/index.js:548
 msgid "View My Profile"
 msgstr "პროფილის ნახვა"
 
-#: src/amo/components/Header/index.js:152
-#: src/amo/pages/UserProfileEdit/index.js:519
+#: src/amo/components/Header/index.js:150
+#: src/amo/pages/UserProfileEdit/index.js:554
 msgid "Edit My Profile"
 msgstr "პროფილის ჩასწორება"
 
-#: src/amo/components/Header/index.js:156
+#: src/amo/components/Header/index.js:154
 msgid "Tools"
 msgstr "ხელსაწყოები"
 
-#: src/amo/components/Header/index.js:162
+#: src/amo/components/Header/index.js:160
 msgid "Submit a New Add-on"
 msgstr "ახალი დამატების წარდგენა"
 
-#: src/amo/components/Header/index.js:170
+#: src/amo/components/Header/index.js:168
 msgid "Submit a New Theme"
 msgstr "ახალი თემის წარდგენა"
 
-#: src/amo/components/Header/index.js:179
+#: src/amo/components/Header/index.js:177
 msgid "Manage My Submissions"
 msgstr "წარდგენილი ნამუშევრების მართვა"
 
-#: src/amo/components/Header/index.js:189
+#: src/amo/components/Header/index.js:187
 msgid "Reviewer Tools"
 msgstr "მიმოხილვის ხელსაწყოები"
 
 #: src/amo/components/Header/index.js:199
-#: src/core/components/AuthenticateButton/index.js:80
+#: src/core/components/AuthenticateButton/index.js:90
+msgid ""
+"This action is currently unavailable. Please reload the page in a moment."
+msgstr ""
+
+#: src/amo/components/Header/index.js:204
+#: src/core/components/AuthenticateButton/index.js:86
 msgid "Log out"
 msgstr "გასვლა"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Header/index.js:66
+#: src/amo/components/Header/index.js:64
 msgid "Firefox Add-ons"
 msgstr "Firefox დამატებები"
 
-#: src/amo/components/HeroRecommendation/index.js:103
+#: src/amo/components/HeroRecommendation/index.js:106
 msgid "Get the extension"
 msgstr "გადმოწერეთ გაფართოება"
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:167
+#: src/amo/components/HeroRecommendation/index.js:175
 msgid "RECOMMENDED"
 msgstr "სასურველი"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
-#: src/amo/pages/Guides/index.js:266
+#: src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
 msgstr "იყავით დაცული ინტერნეტში"
 
 #: src/amo/components/HomeHeroGuides/index.js:39
-#: src/amo/pages/Guides/index.js:279
+#: src/amo/pages/Guides/index.js:280
 msgid "Organize Tabs & Bookmarks"
 msgstr "დაალაგეთ ჩანართები და სანიშნები"
 
 #: src/amo/components/HomeHeroGuides/index.js:44
-#: src/amo/pages/Guides/index.js:292
+#: src/amo/pages/Guides/index.js:293
 msgid "Enhance Your Media Experience"
 msgstr "უკეთ იმუშავეთ ფაილებთან"
 
@@ -1483,82 +1476,67 @@ msgstr ""
 "ჩვენ მივიღეთ თქვენი მოხსენება. გმადლობთ, რომ გვაცნობეთ თქვენი "
 "დამოკიდებულების შესახებ, ამ მომხმარებლის თაობაზე."
 
-#: src/amo/components/Search/index.js:119
-#: src/amo/components/SearchResults/index.js:83
+#: src/amo/components/Search/index.js:116
+#: src/amo/components/SearchResults/index.js:68
 msgid "Search results"
 msgstr "ძიების შედეგები"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:277
-#: src/amo/pages/LandingPage/index.js:139
+#: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:278
+#: src/amo/pages/LandingPage/index.js:126
 msgid "Recommended extensions"
 msgstr "სასურველი გაფართოებები"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:278
-#: src/amo/pages/LandingPage/index.js:140
-msgid "Featured extensions"
-msgstr "რჩეული გაფართოებები"
-
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:364
-#: src/amo/pages/LandingPage/index.js:178
+#: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:345
+#: src/amo/pages/LandingPage/index.js:158
 msgid "Recommended themes"
 msgstr "სასურველი თემები"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:365
-#: src/amo/pages/LandingPage/index.js:179
-msgid "Featured themes"
-msgstr "გამორჩეული თემები"
-
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Search/index.js:139
+#: src/amo/components/Search/index.js:127
 msgid "Recommended add-ons"
 msgstr "სასურველი დამატებები"
 
-# "Firefox" should not be translated. :-)
-#: src/amo/components/Search/index.js:140
-msgid "Featured add-ons"
-msgstr "რჩეული დამატებები"
-
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:379
-#: src/amo/pages/LandingPage/index.js:155
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:358
+#: src/amo/pages/LandingPage/index.js:136
 msgid "Trending extensions"
 msgstr "მეტად გავრცელებული გაფართოებები"
 
-#: src/amo/components/Search/index.js:150
-#: src/amo/pages/LandingPage/index.js:194
+#: src/amo/components/Search/index.js:137
+#: src/amo/pages/LandingPage/index.js:168
 msgid "Trending themes"
 msgstr "ფართოდ გავრცელებული თემები"
 
-#: src/amo/components/Search/index.js:153
+#: src/amo/components/Search/index.js:140
 msgid "Trending add-ons"
 msgstr "ხშირად ჩამოტვირთული დამატებები ამ დროისთვის"
 
-#: src/amo/components/Search/index.js:159
-#: src/amo/pages/LandingPage/index.js:165
+#: src/amo/components/Search/index.js:146
+#: src/amo/pages/LandingPage/index.js:146
 msgid "Top rated extensions"
 msgstr "საუკეთესოდ შეფასებული გაფართოებები"
 
-#: src/amo/components/Search/index.js:162
-#: src/amo/pages/LandingPage/index.js:200
+#: src/amo/components/Search/index.js:149
+#: src/amo/pages/LandingPage/index.js:174
 msgid "Top rated themes"
 msgstr "საუკეთესოდ შეფასებული თემები"
 
-#: src/amo/components/Search/index.js:165
+#: src/amo/components/Search/index.js:152
 msgid "Top rated add-ons"
 msgstr "საუკეთესოდ შეფასებული დამატებები"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:324
+#: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:316
 msgid "Popular extensions"
 msgstr "მეტად გავრცელებული გაფართოებები"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:303
+#: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:295
 msgid "Popular themes"
 msgstr "მეტად გავრცელებული თემები"
 
-#: src/amo/components/Search/index.js:177
+#: src/amo/components/Search/index.js:164
 msgid "Popular add-ons"
 msgstr "მეტად გავრცელებული დამატებები"
 
-#: src/amo/components/Search/index.js:183
+#: src/amo/components/Search/index.js:170
 msgid "Search results for \"%(query)s\""
 msgstr "ძიების შედეგები „%(query)s“ ფრაზისთვის"
 
@@ -1648,80 +1626,75 @@ msgid_plural "%(count)s extensions found"
 msgstr[0] "%(count)s გაფართოება მოიძებნა"
 msgstr[1] "%(count)s გაფართოება მოიძებნა"
 
-#: src/amo/components/SearchFilters/index.js:138
-#: src/amo/components/SearchFilters/index.js:154
+#: src/amo/components/SearchFilters/index.js:130
+#: src/amo/components/SearchFilters/index.js:144
 msgid "All"
 msgstr "ყველა"
 
-#: src/amo/components/SearchFilters/index.js:139
+#: src/amo/components/SearchFilters/index.js:131
 msgid "Extension"
 msgstr "გაფართოება"
 
-#: src/amo/components/SearchFilters/index.js:140
+#: src/amo/components/SearchFilters/index.js:132
 msgid "Search Tool"
 msgstr "ძიების ხელსაწყო"
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:134
 msgid "Theme"
 msgstr "თემა"
 
-#: src/amo/components/SearchFilters/index.js:155
+#: src/amo/components/SearchFilters/index.js:145
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:146
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:157
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:165
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Relevance"
 msgstr "შესაბამისობა"
 
-#: src/amo/components/SearchFilters/index.js:167
+#: src/amo/components/SearchFilters/index.js:157
 msgid "Recently Updated"
 msgstr "ბოლოს განახლებული"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Most Users"
 msgstr "მეტი მომხმარებელი"
 
-#: src/amo/components/SearchFilters/index.js:171
+#: src/amo/components/SearchFilters/index.js:161
 msgid "Top Rated"
 msgstr "საუკეთესოდ შეფასებული"
 
-#: src/amo/components/SearchFilters/index.js:172
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Trending"
 msgstr "ხშირად ჩამოტვირთული"
 
-#: src/amo/components/SearchFilters/index.js:190
+#: src/amo/components/SearchFilters/index.js:180
 msgid "Filter results"
 msgstr "დახარისხებული შედეგები"
 
-#: src/amo/components/SearchFilters/index.js:195
+#: src/amo/components/SearchFilters/index.js:185
 msgid "Sort by"
 msgstr "დალაგება"
 
-#: src/amo/components/SearchFilters/index.js:217
+#: src/amo/components/SearchFilters/index.js:207
 msgid "Add-on Type"
 msgstr "დამატების სახეობა"
 
-#: src/amo/components/SearchFilters/index.js:237
+#: src/amo/components/SearchFilters/index.js:227
 msgid "Operating System"
 msgstr "საოპერაციო სისტემა"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/SearchFilters/index.js:268
+#: src/amo/components/SearchFilters/index.js:253
 msgid "Recommended add-ons only"
 msgstr "მხოლოდ სასურველი დამატებები"
-
-# "Firefox" should not be translated. :-)
-#: src/amo/components/SearchFilters/index.js:269
-msgid "Featured add-ons only"
-msgstr "მხოლოდ რჩეული დამატებები"
 
 #: src/amo/components/SearchForm/index.js:61
 msgid "Firefox Add-ons (%(locale)s)"
@@ -1735,7 +1708,7 @@ msgstr "Firefox Android-ის დამატებები (%(locale)s)"
 msgid "Go to the add-on page"
 msgstr "დამატების მთავარ გვერდზე გადასვლა"
 
-#: src/amo/components/SearchResult/index.js:165
+#: src/amo/components/SearchResult/index.js:166
 msgid "No theme preview available"
 msgstr "თემის წინასწარი შეთვალიერება შეუძლებელია"
 
@@ -1749,25 +1722,25 @@ msgid_plural "%(total)s users"
 msgstr[0] "%(total)s მომხმარებელი"
 msgstr[1] "%(total)s მომხმარებელი"
 
-#: src/amo/components/SearchResults/index.js:53
+#: src/amo/components/SearchResults/index.js:42
 msgid "Searching…"
 msgstr "ძიება…"
 
-#: src/amo/components/SearchResults/index.js:58
+#: src/amo/components/SearchResults/index.js:47
 msgid "No results were found for \"%(query)s\"."
 msgstr "„%(query)s“ ფრაზისთვის შედეგები ვერ მოიძებნა."
 
-#: src/amo/components/SearchResults/index.js:64
+#: src/amo/components/SearchResults/index.js:53
 msgid "No results were found."
 msgstr "შედეგები ვერ მოიძებნა."
 
-#: src/amo/components/SearchSuggestion/index.js:57
+#: src/amo/components/SearchSuggestion/index.js:52
 #: src/ui/components/RecommendedBadge/index.js:28
 msgid "Recommended"
 msgstr "სასურველი"
 
 #: src/amo/components/SectionLinks/index.js:107
-#: src/amo/pages/LandingPage/index.js:252
+#: src/amo/pages/LandingPage/index.js:226
 msgid "Themes"
 msgstr "თემები"
 
@@ -1780,7 +1753,7 @@ msgid "Dictionaries & Language Packs"
 msgstr "ლექსიკონები და ენის ნაკრებები"
 
 #: src/amo/components/SectionLinks/index.js:133
-#: src/amo/pages/SearchTools/index.js:34
+#: src/amo/pages/SearchTools/index.js:35
 msgid "Search Tools"
 msgstr "ძიების ხელსაწყოები"
 
@@ -1809,7 +1782,7 @@ msgid "Explore"
 msgstr "დათვალიერება"
 
 #: src/amo/components/SectionLinks/index.js:89
-#: src/amo/pages/LandingPage/index.js:253
+#: src/amo/pages/LandingPage/index.js:227
 msgid "Extensions"
 msgstr "გაფართოებები"
 
@@ -1849,58 +1822,58 @@ msgstr "პროფილის სურათი"
 msgid "Choose Photo…"
 msgstr "სურათის არჩევა..."
 
-#: src/amo/pages/Addon/index.js:169 src/ui/components/ThemeImage/index.js:33
+#: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr "%(title)s – წინასწარი შეთვალიერება"
 
-#: src/amo/pages/Addon/index.js:204
+#: src/amo/pages/Addon/index.js:205
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "დამატების შეფასება შეუძლებელია, რადგან არცერთი ვერსია არ გამოქვეყნებულა."
 
-#: src/amo/pages/Addon/index.js:215
+#: src/amo/pages/Addon/index.js:216
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "ყველა (%(count)s) მიმოხილვის ნახვა"
 msgstr[1] "ყველა (%(count)s) მიმოხილვის ნახვა"
 
-#: src/amo/pages/Addon/index.js:233
+#: src/amo/pages/Addon/index.js:234
 msgid "No reviews yet"
 msgstr "მიმოხილვები არაა"
 
-#: src/amo/pages/Addon/index.js:243
+#: src/amo/pages/Addon/index.js:244
 msgid "Rate your experience"
 msgstr "თქვენი შეფასება"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:263
 msgid "About this dictionary"
 msgstr "ლექსიკონის შესახებ"
 
-#: src/amo/pages/Addon/index.js:265
+#: src/amo/pages/Addon/index.js:266
 msgid "About this extension"
 msgstr "გაფართოების შესახებ"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:269
 msgid "About this language pack"
 msgstr "ენის ნაკრების შესახებ"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:272
 msgid "About this search plugin"
 msgstr "მოდულის შესახებ"
 
-#: src/amo/pages/Addon/index.js:275
+#: src/amo/pages/Addon/index.js:276
 msgid "About this theme"
 msgstr "თემის შესახებ"
 
-#: src/amo/pages/Addon/index.js:278
+#: src/amo/pages/Addon/index.js:279
 msgid "About this add-on"
 msgstr "დამატების შესახებ"
 
-#: src/amo/pages/Addon/index.js:321
+#: src/amo/pages/Addon/index.js:322
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s გამოშვების მონაცემები"
 
-#: src/amo/pages/Addon/index.js:450
+#: src/amo/pages/Addon/index.js:453
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
@@ -1908,27 +1881,27 @@ msgstr ""
 "ეს არ არის გამოქვეყნებული. თქვენ ხედავთ იმიტომ, რომ აღმატებული უფლებები "
 "გაგაჩნიათ."
 
-#: src/amo/pages/Addon/index.js:478
+#: src/amo/pages/Addon/index.js:481
 msgid "Extension Metadata"
 msgstr "გაფართოების მონაცემები"
 
-#: src/amo/pages/Addon/index.js:496
+#: src/amo/pages/Addon/index.js:499
 msgid "Screenshots"
 msgstr "ეკრანის სურათები"
 
-#: src/amo/pages/AddonInfo/index.js:157
+#: src/amo/pages/AddonInfo/index.js:158
 msgid "Custom License for %(addonName)s"
 msgstr "საკუთარი ლიცენზია %(addonName)s-ისთვის"
 
-#: src/amo/pages/AddonInfo/index.js:164
+#: src/amo/pages/AddonInfo/index.js:165
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "%(addonName)s – სამომხმარებლო სალიცენზიო შეთანხმება"
 
-#: src/amo/pages/AddonInfo/index.js:168
+#: src/amo/pages/AddonInfo/index.js:169
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s – პირადი მონაცემების დაცვა"
 
-#: src/amo/pages/AddonReviewList/index.js:197
+#: src/amo/pages/AddonReviewList/index.js:198
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -1937,51 +1910,51 @@ msgstr ""
 "ფიქრობენ სხვა მომხმარებლები გაფართოებაზე %(addonName)s და დაამატეთ თქვენს "
 "Firefox-ის ბრაუზერს."
 
-#: src/amo/pages/AddonReviewList/index.js:229
+#: src/amo/pages/AddonReviewList/index.js:230
 msgid "Show all reviews"
 msgstr "ყველა მიმოხილვის ჩვენება"
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:232
 msgid "Show only five-star reviews"
 msgstr "მხოლოდ ხუთვარსკვლავიანი მიმოხილვების გამოჩენა"
 
-#: src/amo/pages/AddonReviewList/index.js:232
+#: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show only four-star reviews"
 msgstr "მხოლოდ ოთხვარსკვლავიანი მიმოხილვების გამოჩენა"
 
-#: src/amo/pages/AddonReviewList/index.js:234
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only three-star reviews"
 msgstr "მხოლოდ სამვარსკვლავიანი მიმოხილვების გამოჩენა"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only two-star reviews"
 msgstr "მხოლოდ ორვარსკვლავიანი მიმოხილვების გამოჩენა"
 
-#: src/amo/pages/AddonReviewList/index.js:237
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only one-star reviews"
 msgstr "მხოლოდ ერთვარსკვლავიანი მიმოხილვების გამოჩენა"
 
-#: src/amo/pages/AddonReviewList/index.js:277
+#: src/amo/pages/AddonReviewList/index.js:278
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s-ის მიმოხილვები"
 
-#: src/amo/pages/AddonReviewList/index.js:287
+#: src/amo/pages/AddonReviewList/index.js:288
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s მიმოხილვა"
 msgstr[1] "%(total)s მიმოხილვა"
 
-#: src/amo/pages/AddonReviewList/index.js:384
+#: src/amo/pages/AddonReviewList/index.js:386
 msgid "There are no reviews"
 msgstr "მიმოხილვები არაა"
 
-#: src/amo/pages/AddonVersions/index.js:125
+#: src/amo/pages/AddonVersions/index.js:126
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "%(addonName)s: ვერსიების ისტორია – %(total)s ვერსია"
 msgstr[1] "%(addonName)s: ვერსიების ისტორია – %(total)s ვერსია"
 
-#: src/amo/pages/AddonVersions/index.js:172
+#: src/amo/pages/AddonVersions/index.js:174
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
@@ -1989,55 +1962,55 @@ msgstr ""
 "სიფრთხილე გამოიჩინეთ, ძველ ვერსიებთან! მოცემული ვერსიები, მხოლოდ "
 "განსახილველად და შესამოწმებლადაა განკუთვნილი."
 
-#: src/amo/pages/AddonVersions/index.js:177
+#: src/amo/pages/AddonVersions/index.js:179
 msgid "You should always use the latest version of an add-on."
 msgstr ""
 "ყოველდღიური მოხმარებისთვის, დამატებების მხოლოდ უახლესი ვერსია უნდა "
 "გამოიყენოთ."
 
-#: src/amo/pages/AddonVersions/index.js:186
+#: src/amo/pages/AddonVersions/index.js:188
 msgid "Latest version"
 msgstr "უახლესი ვერსია"
 
-#: src/amo/pages/AddonVersions/index.js:195
+#: src/amo/pages/AddonVersions/index.js:197
 msgid "Older versions"
 msgstr "ადრინდელი ვერსიები"
 
-#: src/amo/pages/CategoriesPage/index.js:34
+#: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
 msgstr "გაფართოების ყველა კატეგორია"
 
-#: src/amo/pages/CategoriesPage/index.js:36
+#: src/amo/pages/CategoriesPage/index.js:37
 msgid "All theme categories"
 msgstr "თემის ყველა კატეგორია"
 
-#: src/amo/pages/Collection/index.js:391
+#: src/amo/pages/Collection/index.js:392
 msgid "Do you really want to delete this collection?"
 msgstr "ნამდვილად გსურთ ამ კრებულის წაშლა?"
 
-#: src/amo/pages/Collection/index.js:394
+#: src/amo/pages/Collection/index.js:395
 msgid "Delete this collection"
 msgstr "კრებულის წაშლა"
 
-#: src/amo/pages/Collection/index.js:413
+#: src/amo/pages/Collection/index.js:414
 msgid "Log in to create a collection"
 msgstr "შედით ანგარიშზე კრებულის შესაქმნელად"
 
-#: src/amo/pages/Collection/index.js:414
+#: src/amo/pages/Collection/index.js:415
 msgid "Log in to edit this collection"
 msgstr "შედით ანგარიშზე კრებულის ჩასასწორებლად"
 
-#: src/amo/pages/Collection/index.js:447
+#: src/amo/pages/Collection/index.js:448
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 "გთხოვთ, ჯერ შექმნათ თქვენი კრებული. ამის შემდეგ შეგეძლებათ დამატებების "
 "შეტანა."
 
-#: src/amo/pages/Collection/index.js:450
+#: src/amo/pages/Collection/index.js:451
 msgid "Search for extensions and themes to add to your collection."
 msgstr "მოიძიეთ გაფართოებები და თემები, თქვენს კრებულში დასამატებლად."
 
-#: src/amo/pages/Collection/index.js:512
+#: src/amo/pages/Collection/index.js:513
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2046,7 +2019,7 @@ msgstr ""
 "თვალის მისადევნებლად. დაათვალიერეთ %(collectionName)s—"
 "%(collectionDescription)s."
 
-#: src/amo/pages/Collection/index.js:515
+#: src/amo/pages/Collection/index.js:516
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2054,15 +2027,15 @@ msgstr ""
 "ჩამოტვირთეთ და შექმენით Firefox-ის კრებულები რჩეულ გაფართოებებსა და თემებზე "
 "თვალის მისადევნებლად. დაათვალიერეთ %(collectionName)s."
 
-#: src/amo/pages/CollectionList/index.js:112
+#: src/amo/pages/CollectionList/index.js:114
 msgid "Collections"
 msgstr "კრებულები"
 
-#: src/amo/pages/CollectionList/index.js:117
+#: src/amo/pages/CollectionList/index.js:119
 msgid "Log in to view your collections"
 msgstr "შედით ანგარიშზე თქვენი კრებულების სანახავად"
 
-#: src/amo/pages/CollectionList/index.js:122
+#: src/amo/pages/CollectionList/index.js:124
 msgid ""
 "Collections make it easy to keep track of favorite add-ons and share your "
 "perfectly customized browser with others."
@@ -2070,19 +2043,19 @@ msgstr ""
 "კრებულები აადვილებს რჩეულ დამატებების სიახლეებზე თვალის მიდევნებას და "
 "სხვებისთვის, საკუთარი, სრულყოფილად მორგებული ბრაუზერის გაზიარებას."
 
-#: src/amo/pages/CollectionList/index.js:132
+#: src/amo/pages/CollectionList/index.js:134
 msgid "Create a collection"
 msgstr "კრებულის შექმნა"
 
-#: src/amo/pages/CollectionList/index.js:61
+#: src/amo/pages/CollectionList/index.js:62
 msgid "You do not have any collections."
 msgstr "არცერთი კრებული არ გაქვთ."
 
-#: src/amo/pages/CollectionList/index.js:95
+#: src/amo/pages/CollectionList/index.js:96
 msgid "My collections"
 msgstr "ჩემი კრებულები"
 
-#: src/amo/pages/Guides/index.js:104
+#: src/amo/pages/Guides/index.js:105
 msgid ""
 "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands "
 "of content filters without chewing up a bunch of memory."
@@ -2090,17 +2063,17 @@ msgstr ""
 "მსუბუქი და მძლავრი რეკლამების შემზღუდავი. uBlock Origin გაფართოებას, შეუძლია "
 "ათასობით გვერდის გაფილტვრა, მეხსიერების დატვირთვის გარეშე."
 
-#: src/amo/pages/Guides/index.js:108
+#: src/amo/pages/Guides/index.js:109
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
 msgstr ""
 "იხილეთ %(linkStart)sრეკლამების შეზღუდვის%(linkEnd)s სხვა შესანიშნავი "
 "საშუალებებიც."
 
-#: src/amo/pages/Guides/index.js:116
+#: src/amo/pages/Guides/index.js:117
 msgid "Stop online trackers from stalking you"
 msgstr "არ მისცეთ ინტერნეტმეთვალყურეებს თქვენი თვალთვალის საშუალება"
 
-#: src/amo/pages/Guides/index.js:117
+#: src/amo/pages/Guides/index.js:118
 msgid ""
 "Online advertisers can track your activity from one website to the next, "
 "gathering information about you and your interests. Extensions can help "
@@ -2111,7 +2084,7 @@ msgstr ""
 "მისწრაფებების შესახებ მონაცემების აღრიცხვის საშუალებას. გაფართოებებს კი "
 "შეუძლია დაგეხმაროთ თქვენი ციფრული კვალის შენიღბვაში."
 
-#: src/amo/pages/Guides/index.js:122
+#: src/amo/pages/Guides/index.js:123
 msgid ""
 "Isolate your Facebook identity into a separate “container” to stop Facebook "
 "from tracking your activity outside of its social platform."
@@ -2119,7 +2092,7 @@ msgstr ""
 "გამიჯნეთ თქვენი Facebook-ვინაობა ცალკე „სათავსის“ მეშვეობით, Facebook-ის "
 "მიერ, სხვა საიტებზე თქვენი მოქმედებებისთვის თვალის მიდევნების შესაჩერებლად."
 
-#: src/amo/pages/Guides/index.js:126
+#: src/amo/pages/Guides/index.js:127
 msgid ""
 "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s "
 "extensions."
@@ -2127,11 +2100,11 @@ msgstr ""
 "იხილეთ სხვა სასურველი გაფართოებები %(linkStart)sპირადულობისა და "
 "უსაფთხოებისთვის%(linkEnd)s."
 
-#: src/amo/pages/Guides/index.js:137
+#: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
 msgstr "ჩანართების მართვის ხელახლა წარმოდგენა"
 
-#: src/amo/pages/Guides/index.js:138
+#: src/amo/pages/Guides/index.js:139
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with "
 "the frustration of searching through a row of unidentifiable tabs looking "
@@ -2143,7 +2116,7 @@ msgstr ""
 "ჩანართების რიგში, საჭირო ჩანართის მონახვისას. გაფართოებები გთავაზობთ "
 "მახვილგონივრულ ხერხებს, ჩანართების მართვის გასამარტივებლად."
 
-#: src/amo/pages/Guides/index.js:144
+#: src/amo/pages/Guides/index.js:145
 msgid ""
 "Arrange and visualize your tabs in a cascading “tree” style format in "
 "Firefox’s sidebar."
@@ -2151,15 +2124,15 @@ msgstr ""
 "დაალაგეთ და წარმოადგინეთ თქვენი ჩანართები თანმიმდევრული „ხისებრი“ ფორმით "
 "Firefox-ის გვერდით ზოლზე."
 
-#: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
+#: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
 msgstr "იხილეთ %(linkStart)sჩანართების%(linkEnd)s სხვა გაფართოებები."
 
-#: src/amo/pages/Guides/index.js:159
+#: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
 msgstr "გვერდების უკეთ მონახულება გაუმჯობესებული სანიშნებით"
 
-#: src/amo/pages/Guides/index.js:160
+#: src/amo/pages/Guides/index.js:161
 msgid ""
 "Extensions can help you organize your online interests. Bookmark managers "
 "are ideal for folks with a lot of content to track."
@@ -2167,7 +2140,7 @@ msgstr ""
 "გაფართოებები დაგეხმარებათ უკეთ დაალაგოთ თქვენი მისწრაფებები. სანიშნების "
 "მმართველები საუკეთესო საშუალებაა დიდძალ მასალასთან სამუშაოდ."
 
-#: src/amo/pages/Guides/index.js:164
+#: src/amo/pages/Guides/index.js:165
 msgid ""
 "Enjoy a better way to organize your bookmarks if you maintain multiple "
 "bookmark folders."
@@ -2175,16 +2148,16 @@ msgstr ""
 "ისარგებლეთ სანიშნების უკეთ დალაგების შესაძლებლობით, როცა მრავალ "
 "საქაღალდესთან მუშაობა გიწევთ."
 
-#: src/amo/pages/Guides/index.js:167
+#: src/amo/pages/Guides/index.js:168
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
 msgstr ""
 "აღმოაჩინეთ %(linkStart)sსანიშნების მართვის%(linkEnd)s სხვა საშუალებებიც."
 
-#: src/amo/pages/Guides/index.js:178
+#: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a fresh new tab experience"
 msgstr "ისიამოვნეთ ჩანართების ახალთახალი შესაძლებლობებით"
 
-#: src/amo/pages/Guides/index.js:179
+#: src/amo/pages/Guides/index.js:180
 msgid ""
 "Start each browsing session tailored just for you by customizing your new "
 "tab experience."
@@ -2192,7 +2165,7 @@ msgstr ""
 "მიიღეთ თქვენს მოთხოვნილებებზე ზედგამოჭრილი გარემო, ბრაუზერის ყოველი "
 "გახსნისას, ახალი ჩანართის მორგების შედეგად."
 
-#: src/amo/pages/Guides/index.js:183
+#: src/amo/pages/Guides/index.js:184
 msgid ""
 "Enjoy a beautiful new page with customizable backgrounds, local weather "
 "info, and more."
@@ -2200,11 +2173,11 @@ msgstr ""
 "ისიამოვნეთ მშვენიერი ახალი გვერდით, მორგებული ფონებით, ადგილობრივი ამინდის "
 "მონაცემებით და ა. შ."
 
-#: src/amo/pages/Guides/index.js:201
+#: src/amo/pages/Guides/index.js:202
 msgid "Improve videos"
 msgstr "გააუმჯობესეთ ვიდეოები"
 
-#: src/amo/pages/Guides/index.js:202
+#: src/amo/pages/Guides/index.js:203
 msgid ""
 "If you enjoy video content, extensions offer a number of ways to optimize "
 "your experience, including customizing YouTube to your taste and playing "
@@ -2214,7 +2187,7 @@ msgstr ""
 "შემოთავაზება YouTube-ის თქვენს გემოვნებაზე მოსარგებად, ვიდეოების თეატრის "
 "რეჟიმში გასაშვებად და ა. შ."
 
-#: src/amo/pages/Guides/index.js:207
+#: src/amo/pages/Guides/index.js:208
 msgid ""
 "Add a control bar to all YouTube video pages so you can easily adjust "
 "volume, playback speed, video player size, advertising and annotation "
@@ -2224,11 +2197,11 @@ msgstr ""
 "შეგეძლებათ ხმის სიმაღლის, გაშვების სიჩქარის, ვიდეოს ზომების მართვა, "
 "რეკლამების, ცნობების შეზღუდვა და ა. შ."
 
-#: src/amo/pages/Guides/index.js:216
+#: src/amo/pages/Guides/index.js:217
 msgid "Get more out of media"
 msgstr "სრულყოფილად გამოიყენეთ ფაილები"
 
-#: src/amo/pages/Guides/index.js:217
+#: src/amo/pages/Guides/index.js:218
 msgid ""
 "Extensions can address a wide variety of niche media needs and interests, "
 "like image searching, download management, and text readers, to name a few."
@@ -2237,7 +2210,7 @@ msgstr ""
 "მისწრაფებების შესაბამისად, მაგალითად სურათების ძიება, ჩამოტვირთვების მართვა, "
 "ტექსტის წაკითხვა და კიდევ უამრავი სხვა."
 
-#: src/amo/pages/Guides/index.js:222
+#: src/amo/pages/Guides/index.js:223
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn "
 "more about it, like who’s the person in the pic? Are there related images? "
@@ -2249,11 +2222,11 @@ msgstr ""
 "სხვა სურათებიც თუ ახლავს? ეს გაფართოება საშუალებას მოგცემთ სწრაფად და "
 "მარტივად მონახოთ მსგავსი სურათები, სხვადასხვა საძიებო სისტემებით."
 
-#: src/amo/pages/Guides/index.js:232
+#: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
 msgstr "მოზიდეთ სხვადასხვა სახის ფაილები ბრაუზერში"
 
-#: src/amo/pages/Guides/index.js:233
+#: src/amo/pages/Guides/index.js:234
 msgid ""
 "Extensions can turn Firefox into your very own entertainment hub that gives "
 "you instant access to music, image capturing, gaming, and more."
@@ -2261,7 +2234,7 @@ msgstr ""
 "გაფართოებებს შეუძლია აქციოს Firefox ერთგვარ გასართობ ცენტრად, რომელიც "
 "მყისიერ წვდომას მოგცემთ მუსიკასთან, სურათებთან, თამაშებთან და ა. შ."
 
-#: src/amo/pages/Guides/index.js:238
+#: src/amo/pages/Guides/index.js:239
 msgid ""
 "Access 30,000+ radio stations from all over the globe, always just a click "
 "away."
@@ -2269,7 +2242,7 @@ msgstr ""
 "მიიღოთ წვდომა 30,000-ზე მეტ რადიოსადგურთან მთელი მსოფლიოდან, მხოლოდ ერთი "
 "დაწკაპებით."
 
-#: src/amo/pages/Guides/index.js:267
+#: src/amo/pages/Guides/index.js:268
 msgid ""
 "The web is a wonderful but wild place. Your personal data can be used "
 "without your consent, your activities spied upon, and your passwords stolen. "
@@ -2280,7 +2253,7 @@ msgstr ""
 "მოქმედება და მოიპარონ თქვენი პაროლები. საბედნიეროდ, გაფართოებებს შეუძლია "
 "დაიფაროს თქვენი პირადი და მნიშვნელოვანი ინფორმაცია ამ საფრთხეებისგან."
 
-#: src/amo/pages/Guides/index.js:280
+#: src/amo/pages/Guides/index.js:281
 msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? "
 "Extensions can help! From organization assistance to providing fun new "
@@ -2292,7 +2265,7 @@ msgstr ""
 "გაგრძელებული ახალი სახალისო შესაძლებლობებით, ძირეულად შეცვლის ჩანართებსა და "
 "სანიშნებთან მუშაობის ხერხებს."
 
-#: src/amo/pages/Guides/index.js:293
+#: src/amo/pages/Guides/index.js:294
 msgid ""
 "Extensions can augment online media in all sorts of interesting ways, from "
 "watching videos to handling images, music, and more."
@@ -2301,11 +2274,11 @@ msgstr ""
 "დაწყებული ვიდეოების ყურებიდან, გაგრძელებული სურათების, მუსიკის დამუშავებითა "
 "და ა. შ."
 
-#: src/amo/pages/Guides/index.js:79
+#: src/amo/pages/Guides/index.js:80
 msgid "Create and manage strong passwords"
 msgstr "შექმენით და მართეთ ძლიერი პაროლები"
 
-#: src/amo/pages/Guides/index.js:80
+#: src/amo/pages/Guides/index.js:81
 msgid ""
 "Password managers can help you create secure passwords, store your passwords "
 "(safely) in one place, and give you easy access to your login credentials "
@@ -2315,7 +2288,7 @@ msgstr ""
 "(უსაფრთხოდ) ერთ ადგილას და მიიღოთ მარტივი წვდომა ანგარიშის მონაცემებზე, "
 "სადაც არ უნდა იყოთ."
 
-#: src/amo/pages/Guides/index.js:85
+#: src/amo/pages/Guides/index.js:86
 msgid ""
 "Fully encrypted password protection. Store your data securely and access "
 "logins across devices."
@@ -2323,17 +2296,17 @@ msgstr ""
 "პაროლების დაცვა სრულყოფილი დაშიფვრით. შეინახეთ თქვენი მონაცემები უსაფრთხოდ "
 "და მიიღეთ წვდომა ანგარიშებზე, ნებისმიერი მოწყობილობიდან."
 
-#: src/amo/pages/Guides/index.js:89
+#: src/amo/pages/Guides/index.js:90
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
 msgstr ""
 "აღმოაჩინეთ %(linkStart)sპაროლის მართვის%(linkEnd)s სხვა შესანიშნავი "
 "საშუალებებიც."
 
-#: src/amo/pages/Guides/index.js:97
+#: src/amo/pages/Guides/index.js:98
 msgid "Block annoying ads"
 msgstr "შეზღუდეთ მომაბეზრებელი რეკლამები"
 
-#: src/amo/pages/Guides/index.js:98
+#: src/amo/pages/Guides/index.js:99
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way "
 "and slow you down. Ad-blocking extensions can block or filter those ads so "
@@ -2344,35 +2317,35 @@ msgstr ""
 "შესაზღუდ გაფართოებებს, შეუძლია გამოარჩიოს და მოაცილოს რეკლამები, რის "
 "შედეგადაც შეგეძლებათ გვერდების თავისუფლად დათვალიერება."
 
-#: src/amo/pages/Home/index.js:144
+#: src/amo/pages/Home/index.js:141
 msgid "Abstract"
 msgstr "აბსტრაქტული"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:146
 msgid "Nature"
 msgstr "ბუნება"
 
-#: src/amo/pages/Home/index.js:154
+#: src/amo/pages/Home/index.js:151
 msgid "Film & TV"
 msgstr "ფილმი და ტელევიზია"
 
-#: src/amo/pages/Home/index.js:159
+#: src/amo/pages/Home/index.js:156
 msgid "Scenery"
 msgstr "ხედები"
 
-#: src/amo/pages/Home/index.js:164
+#: src/amo/pages/Home/index.js:161
 msgid "Music"
 msgstr "მუსიკა"
 
-#: src/amo/pages/Home/index.js:169
+#: src/amo/pages/Home/index.js:166
 msgid "Seasonal"
 msgstr "სეზონური"
 
-#: src/amo/pages/Home/index.js:209
+#: src/amo/pages/Home/index.js:202
 msgid "Change the way Firefox looks with themes."
 msgstr "გააფორმეთ Firefox თქვენი გემოვნებით."
 
-#: src/amo/pages/Home/index.js:239
+#: src/amo/pages/Home/index.js:233
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2382,63 +2355,55 @@ msgstr ""
 "პროგრამებს თქვენი ბრაუზერისთვის. მათი საშუალებით შესაძლებელია მომაბეზრებელი "
 "რეკლამების შეზღუდვა, პაროლების დაცვა, ბრაუზერის იერსახის შეცვლა და ა. შ."
 
-#: src/amo/pages/Home/index.js:282 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:279 src/amo/pages/LandingPage/index.js:135
 msgid "See more recommended extensions"
 msgstr "სხვა სასურველი გაფართოებები"
 
-#: src/amo/pages/Home/index.js:283 src/amo/pages/LandingPage/index.js:154
-msgid "See more featured extensions"
-msgstr "სხვა რჩეული გაფართოებები"
-
-#: src/amo/pages/Home/index.js:304
+#: src/amo/pages/Home/index.js:296
 msgid "See more popular themes"
 msgstr "სხვა გავრცელებული გაფართოებები"
 
-#: src/amo/pages/Home/index.js:325
+#: src/amo/pages/Home/index.js:317
 msgid "See more popular extensions"
 msgstr "სხვა გავრცელებული გაფართოებები"
 
-#: src/amo/pages/Home/index.js:344 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:334 src/amo/pages/LandingPage/index.js:167
 msgid "See more recommended themes"
 msgstr "სხვა სასურველი თემები"
 
-#: src/amo/pages/Home/index.js:345 src/amo/pages/LandingPage/index.js:193
-msgid "See more featured themes"
-msgstr "სხვა გამორჩეული თემები"
-
-#: src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:359 src/amo/pages/LandingPage/index.js:145
 msgid "See more trending extensions"
 msgstr "სხვა ხშირად ჩამოტვირთული გაფართოებები"
 
-#: src/amo/pages/Home/index.js:58
+#: src/amo/pages/Home/index.js:59
 msgid "See more enhanced privacy extensions"
 msgstr "სხვა გაფართოებები პირადულობის ასამაღლებლად"
 
-#: src/amo/pages/Home/index.js:59
+#: src/amo/pages/Home/index.js:60
 msgid "Enhanced privacy extensions"
 msgstr "გაფართოებები პირადულობის ასამაღლებლად"
 
-#: src/amo/pages/Home/index.js:64
+#: src/amo/pages/Home/index.js:65
 msgid "See more recommended password managers"
 msgstr "სხვა სასურველი პაროლების მართველები"
 
-#: src/amo/pages/Home/index.js:65
+#: src/amo/pages/Home/index.js:66
 msgid "Recommended password managers"
 msgstr "პაროლების მართვის სასურველი საშუალებები"
 
-#: src/amo/pages/LandingPage/index.js:174
+#: src/amo/pages/LandingPage/index.js:155
 msgid "See more top rated extensions"
 msgstr "სხვა საუკეთესოდ შეფასებული გაფართოებები"
 
-#: src/amo/pages/LandingPage/index.js:199
+#: src/amo/pages/LandingPage/index.js:173
 msgid "See more trending themes"
 msgstr "სხვა ფართოდ გავრცელებული თემები"
 
-#: src/amo/pages/LandingPage/index.js:205
+#: src/amo/pages/LandingPage/index.js:179
 msgid "See more top rated themes"
 msgstr "სხვა საუკეთესოდ შეფასებული თემები"
 
-#: src/amo/pages/LandingPage/index.js:229
+#: src/amo/pages/LandingPage/index.js:203
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2448,7 +2413,7 @@ msgstr ""
 "გემოვნებას. საყვარელი ცხოველები, ბოროტი რობოტები, ულამაზესი ხედები — "
 "ათასობით არჩევანია."
 
-#: src/amo/pages/LandingPage/index.js:234
+#: src/amo/pages/LandingPage/index.js:208
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2459,7 +2424,7 @@ msgstr ""
 "ვიდეოების ჩვენება და მოაცილეთ მომაბეზრებელი რეკლამები ბრაუზერის პროგრამების "
 "საშუალებით."
 
-#: src/amo/pages/LandingPage/index.js:256
+#: src/amo/pages/LandingPage/index.js:230
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -2467,7 +2432,7 @@ msgstr ""
 "შეუცვალეთ თქვენს ბრაუზერს იერსახე. შეარჩიეთ რომელიმე, ათასობით თემიდან, "
 "Firefox-ის სურვილისამებრ გასაფორმებლად."
 
-#: src/amo/pages/LandingPage/index.js:258
+#: src/amo/pages/LandingPage/index.js:232
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -2475,19 +2440,19 @@ msgstr ""
 "მოიძიეთ მძლავრი ხელსაწყოები, შემატეთ ბრაუზერს ახალი შესაძლებლობები და "
 "მოარგეთ Firefox თქვენს მოთხოვნილებებს."
 
-#: src/amo/pages/LandingPage/index.js:297
+#: src/amo/pages/LandingPage/index.js:272
 msgid "Explore all categories"
 msgstr "დათვალიერება ყველა კატეგორიის"
 
-#: src/amo/pages/LanguageTools/index.js:109
+#: src/amo/pages/LanguageTools/index.js:110
 msgid "Available for your locale"
 msgstr "თქვენს ენაზე ხელმისაწვდომი"
 
-#: src/amo/pages/LanguageTools/index.js:147
+#: src/amo/pages/LanguageTools/index.js:148
 msgid "Dictionaries and Language Packs"
 msgstr "ლექსიკონები და ენის ნაკრებები"
 
-#: src/amo/pages/LanguageTools/index.js:156
+#: src/amo/pages/LanguageTools/index.js:158
 msgid ""
 "Download Firefox dictionaries and language pack extensions. Add a new "
 "language option to your browser spell-checker, or change the browser's "
@@ -2497,7 +2462,7 @@ msgstr ""
 "ახალი არჩევანი თქვენს ბრაუზერს მართლწერის შესამოწმებლად ან შეცვალეთ "
 "ბრაუზერის სამომხმარებლო გარემოს ენა."
 
-#: src/amo/pages/LanguageTools/index.js:167
+#: src/amo/pages/LanguageTools/index.js:169
 msgid ""
 "Installing a dictionary add-on will add a new language option to your spell-"
 "checker, which checks your spelling as you type in Firefox."
@@ -2506,7 +2471,7 @@ msgstr ""
 "დაემატება ახალი ენა, რომელიც შეამოწმებს ვებგვერდებზე არსებულ ველებში "
 "შეყვანილ ტექსტს."
 
-#: src/amo/pages/LanguageTools/index.js:172
+#: src/amo/pages/LanguageTools/index.js:174
 msgid ""
 "Language packs change your browser's interface language, including menu "
 "options and settings."
@@ -2514,23 +2479,23 @@ msgstr ""
 "ენის ნაკრების დამატება კი მთლიანად შეცვლის პროგრამის ენას, მათ შორის, მენიუს "
 "ელემენტებისა და პარამეტრების."
 
-#: src/amo/pages/LanguageTools/index.js:178
+#: src/amo/pages/LanguageTools/index.js:181
 msgid "All Locales"
 msgstr "ყველა ენა"
 
-#: src/amo/pages/LanguageTools/index.js:184
+#: src/amo/pages/LanguageTools/index.js:188
 msgid "Locale Name"
 msgstr "ენის სახელი"
 
-#: src/amo/pages/LanguageTools/index.js:187
+#: src/amo/pages/LanguageTools/index.js:191
 msgid "Language Packs"
 msgstr "ენის ნაკრებები"
 
-#: src/amo/pages/LanguageTools/index.js:190
+#: src/amo/pages/LanguageTools/index.js:194
 msgid "Dictionaries"
 msgstr "ლექსიკონები"
 
-#: src/amo/pages/SearchTools/index.js:31
+#: src/amo/pages/SearchTools/index.js:32
 msgid ""
 "Download Firefox extensions to customize the way you search—everything from "
 "privacy-enhanced searching to website-specific searches, image searching, "
@@ -2911,11 +2876,11 @@ msgstr ""
 "მცდარი მოსაზრებების წარმოდგენა, დამატების ავტორების დამცირება, ან მათთვის "
 "პირადი შეურაცხყოფის მიყენება."
 
-#: src/amo/pages/UserProfile/index.js:240
+#: src/amo/pages/UserProfile/index.js:241
 msgid "My reviews"
 msgstr "მიმოხილვები"
 
-#: src/amo/pages/UserProfile/index.js:268
+#: src/amo/pages/UserProfile/index.js:269
 msgid ""
 "The profile of %(user)s, a Firefox extension and theme author. Find other "
 "apps by %(user)s, including average ratings, tenure, and the option to "
@@ -2925,7 +2890,7 @@ msgstr ""
 "იხილეთ %(user)s შემმუშავებლის სხვა პროგრამები, ასევე საშუალო შეფასებები, "
 "შემოერთების თარიღი და მოხსენების გაკეთების შესაძლებლობები."
 
-#: src/amo/pages/UserProfile/index.js:272
+#: src/amo/pages/UserProfile/index.js:273
 msgid ""
 "The profile of %(user)s, Firefox extension author. Find other extensions by "
 "%(user)s, including average ratings, tenure, and the option to report issues."
@@ -2934,7 +2899,7 @@ msgstr ""
 "%(user)s შემმუშავებლის სხვა პროგრამები, ასევე საშუალო შეფასებები, "
 "შემოერთების თარიღი და მოხსენების გაკეთების შესაძლებლობები."
 
-#: src/amo/pages/UserProfile/index.js:276
+#: src/amo/pages/UserProfile/index.js:277
 msgid ""
 "The profile of %(user)s, Firefox theme author. Find other themes by "
 "%(user)s, including average ratings, tenure, and the option to report issues."
@@ -2943,63 +2908,63 @@ msgstr ""
 "შემმუშავებლის სხვა პროგრამები, ასევე საშუალო შეფასებები, შემოერთების თარიღი "
 "და მოხსენების გაკეთების შესაძლებლობები."
 
-#: src/amo/pages/UserProfile/index.js:315
+#: src/amo/pages/UserProfile/index.js:316
 msgid "Add-ons developer"
 msgstr "დამატებების შემმუშავებელი"
 
-#: src/amo/pages/UserProfile/index.js:321
+#: src/amo/pages/UserProfile/index.js:322
 msgid "Theme artist"
 msgstr "თემის მხატვარი"
 
-#: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:501
+#: src/amo/pages/UserProfile/index.js:336
+#: src/amo/pages/UserProfileEdit/index.js:536
 msgid "User Profile for %(user)s"
 msgstr "მომხმარებლის პროფილი %(user)s"
 
-#: src/amo/pages/UserProfile/index.js:338
+#: src/amo/pages/UserProfile/index.js:339
 msgid "User Profile"
 msgstr "მომხმარებლის პროფილი"
 
-#: src/amo/pages/UserProfile/index.js:363
-#: src/amo/pages/UserProfileEdit/index.js:653
+#: src/amo/pages/UserProfile/index.js:365
+#: src/amo/pages/UserProfileEdit/index.js:690
 msgid "Location"
 msgstr "მდებარეობა"
 
-#: src/amo/pages/UserProfile/index.js:371
-#: src/amo/pages/UserProfileEdit/index.js:665
+#: src/amo/pages/UserProfile/index.js:373
+#: src/amo/pages/UserProfileEdit/index.js:705
 msgid "Occupation"
 msgstr "საქმიანობა"
 
-#: src/amo/pages/UserProfile/index.js:378
+#: src/amo/pages/UserProfile/index.js:380
 msgid "User since"
 msgstr "გაწევრიანების თარიღი:"
 
-#: src/amo/pages/UserProfile/index.js:388
+#: src/amo/pages/UserProfile/index.js:390
 msgid "Number of add-ons"
 msgstr "დამატებების რაოდენობა"
 
-#: src/amo/pages/UserProfile/index.js:394
+#: src/amo/pages/UserProfile/index.js:396
 msgid "Average rating of developer’s add-ons"
 msgstr "შემმუშავებლის დამატებების საშუალო შეფასება"
 
-#: src/amo/pages/UserProfile/index.js:409
-#: src/amo/pages/UserProfileEdit/index.js:687
+#: src/amo/pages/UserProfile/index.js:411
+#: src/amo/pages/UserProfileEdit/index.js:727
 msgid "Biography"
 msgstr "ბიოგრაფია"
 
-#: src/amo/pages/UserProfile/index.js:433
+#: src/amo/pages/UserProfile/index.js:435
 msgid "Edit profile"
 msgstr "პროფილის ჩასწორება"
 
-#: src/amo/pages/UserProfile/index.js:445
+#: src/amo/pages/UserProfile/index.js:447
 msgid "Admin user"
 msgstr "მმართველი"
 
-#: src/amo/pages/UserProfileEdit/index.js:196
+#: src/amo/pages/UserProfileEdit/index.js:198
 msgid "Picture successfully deleted"
 msgstr "სურათი წარმატებით წაიშალა"
 
-#: src/amo/pages/UserProfileEdit/index.js:427
+#: src/amo/pages/UserProfileEdit/index.js:443
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -3007,7 +2972,7 @@ msgstr ""
 "მიაწოდეთ მომხმარებლებს ცოტა უფრო მეტი ინფორმაცია თქვენზე. ყველა ამ ველის "
 "შევსება, არაა სავალდებულო, თუმცა დაეხმარება სხვებს, უკეთ გაგიცნონ."
 
-#: src/amo/pages/UserProfileEdit/index.js:431
+#: src/amo/pages/UserProfileEdit/index.js:447
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -3016,43 +2981,69 @@ msgstr ""
 "შევსება, არაა სავალდებულო, თუმცა დაეხმარება სხვა მომხმარებლებს, უკეთ გაიცნონ "
 "%(userName)s."
 
-#: src/amo/pages/UserProfileEdit/index.js:446
+#: src/amo/pages/UserProfileEdit/index.js:462
 msgid "Introduce yourself to the community if you like"
 msgstr "წარუდგინეთ თავი ჩვენს ერთობას, თუ სურვილი გაქვთ"
 
-#: src/amo/pages/UserProfileEdit/index.js:447
+#: src/amo/pages/UserProfileEdit/index.js:463
 msgid "Introduce %(userName)s to the community"
 msgstr "წარუდგინეთ %(userName)s ჩვენს ერთობას"
 
-#: src/amo/pages/UserProfileEdit/index.js:471
+#: src/amo/pages/UserProfileEdit/index.js:490
 msgid "Log in to edit the profile"
 msgstr "შედით ანგარიშზე პროფილის ჩასასწორებლად"
 
-#: src/amo/pages/UserProfileEdit/index.js:514
+#: src/amo/pages/UserProfileEdit/index.js:512
+#, fuzzy
+msgid "Creating your profile…"
+msgstr "პროფილი ახლდება…"
+
+#: src/amo/pages/UserProfileEdit/index.js:513
+#, fuzzy
+msgid "Create My Profile"
+msgstr "პროფილის განახლება"
+
+#: src/amo/pages/UserProfileEdit/index.js:517
+msgid "Updating your profile…"
+msgstr "პროფილი ახლდება…"
+
+#: src/amo/pages/UserProfileEdit/index.js:518
+msgid "Update My Profile"
+msgstr "პროფილის განახლება"
+
+#: src/amo/pages/UserProfileEdit/index.js:521
+msgid "Updating profile…"
+msgstr "პროფილი ახლდება…"
+
+#: src/amo/pages/UserProfileEdit/index.js:522
+msgid "Update Profile"
+msgstr "პროფილის განახლება"
+
+#: src/amo/pages/UserProfileEdit/index.js:549
 msgid "View user's profile"
 msgstr "მომხმარებლის პროფილის ნახვა"
 
-#: src/amo/pages/UserProfileEdit/index.js:520
+#: src/amo/pages/UserProfileEdit/index.js:555
 msgid "Edit user's profile"
 msgstr "მომხმარებლის პროფილის ჩასწორება"
 
-#: src/amo/pages/UserProfileEdit/index.js:538
+#: src/amo/pages/UserProfileEdit/index.js:573
 msgid "Account"
 msgstr "ანგარიში"
 
-#: src/amo/pages/UserProfileEdit/index.js:539
+#: src/amo/pages/UserProfileEdit/index.js:574
 msgid "Account for %(userName)s"
 msgstr "%(userName)s მომხმარებლის ანგარიში"
 
-#: src/amo/pages/UserProfileEdit/index.js:546
+#: src/amo/pages/UserProfileEdit/index.js:581
 msgid "Email Address"
 msgstr "ელფოსტის მისამართი"
 
-#: src/amo/pages/UserProfileEdit/index.js:553
+#: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Email address cannot be changed here"
 msgstr "ელფოსტის აქედან შეცვლა, შეუძლებელია"
 
-#: src/amo/pages/UserProfileEdit/index.js:562
+#: src/amo/pages/UserProfileEdit/index.js:599
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -3060,43 +3051,43 @@ msgstr ""
 "ელფოსტის მისამართის შეცვლა შეგიძლიათ Firefox-ანგარიშებიდან. "
 "%(startLink)sდახმარება გესაჭიროებათ?%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:579
+#: src/amo/pages/UserProfileEdit/index.js:616
 msgid "Manage Firefox Accounts…"
 msgstr "Firefox-ანგარიშების მართვა..."
 
-#: src/amo/pages/UserProfileEdit/index.js:587
+#: src/amo/pages/UserProfileEdit/index.js:624
 msgid "Profile"
 msgstr "პროფილი"
 
-#: src/amo/pages/UserProfileEdit/index.js:596
+#: src/amo/pages/UserProfileEdit/index.js:633
 msgid "This field is required"
 msgstr "ველის შევსება აუცილებელია"
 
-#: src/amo/pages/UserProfileEdit/index.js:599
+#: src/amo/pages/UserProfileEdit/index.js:636
 msgid "Display Name *"
 msgstr "გამოსაჩენი სახელი *"
 
-#: src/amo/pages/UserProfileEdit/index.js:615
+#: src/amo/pages/UserProfileEdit/index.js:652
 msgid "Reviewer Name"
 msgstr "მიმომხილველის სახელი"
 
-#: src/amo/pages/UserProfileEdit/index.js:648
+#: src/amo/pages/UserProfileEdit/index.js:685
 msgid "This URL will only be visible for users who are developers."
 msgstr ""
 "ეს URL-ბმული მხოლოდ იმ მომხმარებლებისთვის იქნება ხილული, რომლებიც "
 "შემმუშავებლები არიან."
 
-#: src/amo/pages/UserProfileEdit/index.js:702
+#: src/amo/pages/UserProfileEdit/index.js:742
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 "მხარდაჭერილია ზოგიერთი HTML ელემენტი: %(htmlTags)s. ბმულის დადება არაა "
 "დაშვებული."
 
-#: src/amo/pages/UserProfileEdit/index.js:726
+#: src/amo/pages/UserProfileEdit/index.js:766
 msgid "Notifications"
 msgstr "შეტყობინებები"
 
-#: src/amo/pages/UserProfileEdit/index.js:730
+#: src/amo/pages/UserProfileEdit/index.js:770
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -3105,7 +3096,7 @@ msgstr ""
 "და დამატებების შესახებ ცნობები. გთხოვთ მიუთითოთ ის თემები, რომლებიც "
 "გაინტერესებთ."
 
-#: src/amo/pages/UserProfileEdit/index.js:735
+#: src/amo/pages/UserProfileEdit/index.js:775
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3114,7 +3105,7 @@ msgstr ""
 "გამოშვებებისა და დამატებების შესახებ ცნობები. გთხოვთ მიუთითოთ ის თემები, "
 "რომლებიც ამ მომხმარებელს შეიძლება აინტერესებდეს."
 
-#: src/amo/pages/UserProfileEdit/index.js:750
+#: src/amo/pages/UserProfileEdit/index.js:790
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3122,42 +3113,26 @@ msgstr ""
 "Mozilla იტოვებს უფლებას, საჭიროებისამებრ პირადად გამოგეხმაუროთ, თქვენს "
 "დამატებებთან დაკავშირებულ საკითხებზე."
 
-#: src/amo/pages/UserProfileEdit/index.js:768
-msgid "Updating your profile…"
-msgstr "პროფილი ახლდება…"
-
-#: src/amo/pages/UserProfileEdit/index.js:769
-msgid "Update My Profile"
-msgstr "პროფილის განახლება"
-
-#: src/amo/pages/UserProfileEdit/index.js:771
-msgid "Updating profile…"
-msgstr "პროფილი ახლდება…"
-
-#: src/amo/pages/UserProfileEdit/index.js:772
-msgid "Update Profile"
-msgstr "პროფილის განახლება"
-
-#: src/amo/pages/UserProfileEdit/index.js:783
-#: src/amo/pages/UserProfileEdit/index.js:872
+#: src/amo/pages/UserProfileEdit/index.js:816
+#: src/amo/pages/UserProfileEdit/index.js:905
 msgid "Delete My Profile"
 msgstr "პროფილის წაშლა"
 
-#: src/amo/pages/UserProfileEdit/index.js:784
-#: src/amo/pages/UserProfileEdit/index.js:873
+#: src/amo/pages/UserProfileEdit/index.js:817
+#: src/amo/pages/UserProfileEdit/index.js:906
 msgid "Delete Profile"
 msgstr "პროფილის წაშლა"
 
-#: src/amo/pages/UserProfileEdit/index.js:796
+#: src/amo/pages/UserProfileEdit/index.js:829
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr ""
 "ყურადღება: თქვენი Firefox დამატებების ანგარიშის წაშლა შეუქცევადი ქმედებაა."
 
-#: src/amo/pages/UserProfileEdit/index.js:799
+#: src/amo/pages/UserProfileEdit/index.js:832
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "ყურადღება: ამ Firefox დამატებების ანგარიშის წაშლა შეუქცევადი ქმედებაა."
 
-#: src/amo/pages/UserProfileEdit/index.js:808
+#: src/amo/pages/UserProfileEdit/index.js:841
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation) and "
@@ -3170,7 +3145,7 @@ msgstr ""
 "შეფასებებსა და მიმოხილვებზე ვინაობა დაიფარება და შეიზღუდება ჩასწორების "
 "შესაძლებლობა."
 
-#: src/amo/pages/UserProfileEdit/index.js:815
+#: src/amo/pages/UserProfileEdit/index.js:848
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3183,7 +3158,7 @@ msgstr ""
 "პარამეტრები. დატოვებულ შეფასებებსა და მიმოხილვებზე ვინაობა დაიფარება და "
 "შეიზღუდება ჩასწორების შესაძლებლობა."
 
-#: src/amo/pages/UserProfileEdit/index.js:825
+#: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, you "
 "will create a new Firefox Add-ons profile that is in no way associated with "
@@ -3193,7 +3168,7 @@ msgstr ""
 "შეიქმნება ახალი Firefox დამატებების ანგარიში, რომელსაც არანაირი საერთო არ "
 "ექნება წაშლილ ანგარიშთან."
 
-#: src/amo/pages/UserProfileEdit/index.js:838
+#: src/amo/pages/UserProfileEdit/index.js:871
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
 "the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
@@ -3205,7 +3180,7 @@ msgstr ""
 "საჭიროა %(docLinkStart)sგადასცეთ სხვას საკუთრების უფლება%(docLinkEnd)s ან "
 "წაშალოთ დამატებები, ანგარიშის წაშლამდე."
 
-#: src/amo/pages/UserProfileEdit/index.js:845
+#: src/amo/pages/UserProfileEdit/index.js:878
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
 "user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
@@ -3213,12 +3188,12 @@ msgstr ""
 "%(strongStart)sშენიშვნა:%(strongEnd)s ანგარიშის წაშლა არ შეგიძლიათ, თუ ეს "
 "მომხმარებელი, რომელიმე %(linkStart)sდამატების მფლობელია%(linkEnd)s."
 
-#: src/amo/pages/UsersUnsubscribe/index.js:104
+#: src/amo/pages/UsersUnsubscribe/index.js:106
 msgid "You are successfully unsubscribed!"
 msgstr "გამოწერა გაუქმდა წარმატებით!"
 
 # a list of notifications will be displayed under this prompt.
-#: src/amo/pages/UsersUnsubscribe/index.js:117
+#: src/amo/pages/UsersUnsubscribe/index.js:119
 msgid ""
 "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
 "messages when:"
@@ -3226,7 +3201,7 @@ msgstr ""
 "%(strongStart)s%(email)s%(strongEnd)s ელფოსტის მისამართზე წერილებს ვეღარ "
 "მიიღებთ, როცა:"
 
-#: src/amo/pages/UsersUnsubscribe/index.js:76
+#: src/amo/pages/UsersUnsubscribe/index.js:77
 msgid ""
 "You can edit your notification settings by %(linkStart)sediting your profile"
 "%(linkEnd)s."
@@ -3234,7 +3209,7 @@ msgstr ""
 "შეტყობინებების პარამეტრების შეცვლა, შეგიძლიათ %(linkStart)sთქვენი პროფილის "
 "ჩასწორებით%(linkEnd)s."
 
-#: src/amo/pages/UsersUnsubscribe/index.js:95
+#: src/amo/pages/UsersUnsubscribe/index.js:97
 msgid "Unsubscribe"
 msgstr "გამოწერის გაუქმება"
 
@@ -3303,7 +3278,7 @@ msgstr "თემის ჩადგმა"
 msgid "Add to Firefox"
 msgstr "Firefox-ზე დამატება"
 
-#: src/core/components/AuthenticateButton/index.js:81
+#: src/core/components/AuthenticateButton/index.js:87
 msgid "Register or Log in"
 msgstr "რეგისტრაცია ან შესვლა"
 
@@ -3532,6 +3507,36 @@ msgstr[1] "%(total)s დამატება"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "შემმუშავებლის პასუხი"
+
+#~ msgid "Featured Extension"
+#~ msgstr "რჩეული გაფართოება"
+
+#~ msgid "Featured Theme"
+#~ msgstr "გამორჩეული თემა"
+
+# "Firefox" should not be translated. :-)
+#~ msgid "Featured Add-on"
+#~ msgstr "რჩეული დამატება"
+
+#~ msgid "Featured extensions"
+#~ msgstr "რჩეული გაფართოებები"
+
+#~ msgid "Featured themes"
+#~ msgstr "გამორჩეული თემები"
+
+# "Firefox" should not be translated. :-)
+#~ msgid "Featured add-ons"
+#~ msgstr "რჩეული დამატებები"
+
+# "Firefox" should not be translated. :-)
+#~ msgid "Featured add-ons only"
+#~ msgstr "მხოლოდ რჩეული დამატებები"
+
+#~ msgid "See more featured extensions"
+#~ msgstr "სხვა რჩეული გაფართოებები"
+
+#~ msgid "See more featured themes"
+#~ msgstr "სხვა გამორჩეული თემები"
 
 #~ msgid "Get Started"
 #~ msgstr "დაწყება"
