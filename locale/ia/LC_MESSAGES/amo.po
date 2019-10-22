@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-08 19:31+0000\n"
-"PO-Revision-Date: 2019-10-22 13:36+0000\n"
+"PO-Revision-Date: 2019-10-22 15:41+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -73,15 +73,15 @@ msgstr "Stato de additivo de administrator"
 
 #: src/amo/components/AddonBadges/index.js:49
 msgid "Featured Extension"
-msgstr "Extension favorite"
+msgstr "Extension promovite"
 
 #: src/amo/components/AddonBadges/index.js:52
 msgid "Featured Theme"
-msgstr "Thema favorite"
+msgstr "Thema promovite"
 
 #: src/amo/components/AddonBadges/index.js:54
 msgid "Featured Add-on"
-msgstr "Additivo favorite"
+msgstr "Additivo promovite"
 
 #: src/amo/components/AddonBadges/index.js:75
 msgid "Restart Required"
@@ -1321,7 +1321,7 @@ msgstr "Extensiones recommendate"
 
 #: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:278 src/amo/pages/LandingPage/index.js:140
 msgid "Featured extensions"
-msgstr "Extensiones consiliate"
+msgstr "Extensiones promovite"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:364 src/amo/pages/LandingPage/index.js:178
 msgid "Recommended themes"
@@ -1329,7 +1329,7 @@ msgstr "Themas recommendate"
 
 #: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:365 src/amo/pages/LandingPage/index.js:179
 msgid "Featured themes"
-msgstr "Themas consiliate"
+msgstr "Themas promovite"
 
 #: src/amo/components/Search/index.js:139
 msgid "Recommended add-ons"
@@ -1337,7 +1337,7 @@ msgstr "Additivos recommendate"
 
 #: src/amo/components/Search/index.js:140
 msgid "Featured add-ons"
-msgstr "Additivos consiliate"
+msgstr "Additivos promovite"
 
 #: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:379 src/amo/pages/LandingPage/index.js:155
 msgid "Trending extensions"
@@ -1529,7 +1529,7 @@ msgstr "Solo additivos recommendate"
 
 #: src/amo/components/SearchFilters/index.js:269
 msgid "Featured add-ons only"
-msgstr "Additivos consiliate solmente"
+msgstr "Additivos promovite solmente"
 
 #: src/amo/components/SearchForm/index.js:61
 msgid "Firefox Add-ons (%(locale)s)"
@@ -2059,7 +2059,7 @@ msgstr "Vide plus de extensiones de tendentia"
 
 #: src/amo/pages/Home/index.js:283 src/amo/pages/LandingPage/index.js:154
 msgid "See more featured extensions"
-msgstr "Vide plus de extensiones consiliate"
+msgstr "Vider plus extensiones promovite"
 
 #: src/amo/pages/Home/index.js:304
 msgid "See more popular themes"
@@ -2075,7 +2075,7 @@ msgstr "Vide plus de themas de tendentia"
 
 #: src/amo/pages/Home/index.js:345 src/amo/pages/LandingPage/index.js:193
 msgid "See more featured themes"
-msgstr "Vide plus de themas consiliate"
+msgstr "Vide plus themas promovite"
 
 #: src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:164
 msgid "See more trending extensions"
