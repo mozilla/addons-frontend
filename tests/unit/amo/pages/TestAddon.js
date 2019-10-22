@@ -39,7 +39,6 @@ import { setError } from 'core/actions/errors';
 import { setInstallError, setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';
 import {
-  ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
@@ -731,7 +730,7 @@ describe(__filename, () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
-        type: ADDON_TYPE_COMPLETE_THEME,
+        type: 'generic-type',
       }),
     });
     expect(root.find('.AddonDescription').prop('header')).toContain(
@@ -822,20 +821,6 @@ describe(__filename, () => {
       addon: createInternalAddon({
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
-        summary,
-        description: null,
-      }),
-    });
-
-    expect(root.find('.AddonDescription')).toHaveLength(0);
-  });
-
-  it('does not display anything when the complete theme has no description', () => {
-    const summary = 'my theme is very cool';
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_COMPLETE_THEME,
         summary,
         description: null,
       }),
@@ -1113,7 +1098,6 @@ describe(__filename, () => {
 
   it('does not render recommendations if the add-on is not an extension', () => {
     for (const addonType of [
-      ADDON_TYPE_COMPLETE_THEME,
       ADDON_TYPE_DICT,
       ADDON_TYPE_LANG,
       ADDON_TYPE_OPENSEARCH,

@@ -8,7 +8,6 @@ import qhistory from 'qhistory';
 import { stringify, parse } from 'qs';
 
 import {
-  ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES,
@@ -279,7 +278,6 @@ export function addonHasVersionHistory(addon) {
   }
 
   return ![
-    ADDON_TYPE_COMPLETE_THEME,
     ADDON_TYPE_OPENSEARCH,
     ADDON_TYPE_THEME,
   ].includes(addon.type);

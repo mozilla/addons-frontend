@@ -4,7 +4,6 @@ import config from 'config';
 import UAParser from 'ua-parser-js';
 
 import {
-  ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
@@ -74,12 +73,6 @@ describe(__filename, () => {
       expect(() => {
         addonHasVersionHistory();
       }).toThrow('addon is required');
-    });
-
-    it('returns false for complete (legacy/XUL) theme', () => {
-      const addon = createAddonWithType(ADDON_TYPE_COMPLETE_THEME);
-
-      expect(addonHasVersionHistory(addon)).toEqual(false);
     });
 
     it('returns true for dictionary', () => {
