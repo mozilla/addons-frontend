@@ -381,5 +381,5 @@ module.exports = {
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 
-  enableFeatureHeroRecommendation: false,
+  enableFeatureHeroRecommendation: true,
 };

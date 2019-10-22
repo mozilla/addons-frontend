@@ -31,5 +31,4 @@ module.exports = {
   },
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
-  enableFeatureHeroRecommendation: true,
 };
