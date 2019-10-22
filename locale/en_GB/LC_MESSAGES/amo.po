@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-22 18:54+0000\n"
-"PO-Revision-Date: 2019-10-22 22:57+0000\n"
+"PO-Revision-Date: 2019-10-22 23:13+0000\n"
 "Last-Translator: Ian Neal <iann_bugzilla@blueyonder.co.uk>\n"
 "Language-Team: none\n"
 "Language: en_GB\n"
@@ -2451,14 +2451,12 @@ msgid "Log in to edit the profile"
 msgstr "Log in to edit the profile"
 
 #: src/amo/pages/UserProfileEdit/index.js:512
-#, fuzzy
 msgid "Creating your profile…"
-msgstr "Updating your profile…"
+msgstr "Creating your profile…"
 
 #: src/amo/pages/UserProfileEdit/index.js:513
-#, fuzzy
 msgid "Create My Profile"
-msgstr "Update My Profile"
+msgstr "Create My Profile"
 
 #: src/amo/pages/UserProfileEdit/index.js:517
 msgid "Updating your profile…"
