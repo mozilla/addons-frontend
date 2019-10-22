@@ -177,3 +177,13 @@
   //   display: none;
   // }
 }
+
+.Addon .WrongPlatformWarning {
+  margin: 12px 0 0 0;
+  padding-left: 0;
+  padding-right: 0;
+
+  @include respond-to(medium) {
+    margin-top: 0;
+  }
+}

@@ -9,7 +9,7 @@ import { CLIENT_APP_ANDROID } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import { correctedLocationForPlatform } from 'core/utils/compatibility';
-import Notice from 'ui/components/Notice';
+import Notice, { warningInfoType } from 'ui/components/Notice';
 import type { AppState } from 'amo/store';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
@@ -99,10 +99,9 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
     return (
       <div className={makeClassName('WrongPlatformWarning', className)}>
         <Notice
-          className="WrongPlatformWarning-Notice"
           dismissible
           id="WrongPlatformWarning-Notice"
-          type="warning"
+          type={warningInfoType}
         >
           <span
             className="WrongPlatformWarning-message"

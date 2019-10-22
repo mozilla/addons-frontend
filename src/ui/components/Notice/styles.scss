@@ -185,7 +185,8 @@
   );
 }
 
-.Notice-warning {
+.Notice-warning,
+.Notice-warningInfo {
   @include notice_type(
     $button-background-color: $yellow-60,
     $button-background-active-color: $yellow-80,
@@ -207,6 +208,6 @@
   background-image: url('./img/firefox.svg');
 }
 
-.WrongPlatformWarning-Notice .Notice-icon {
+.Notice-warningInfo .Notice-icon {
   background-image: url('./img/generic-info-mark.svg');
 }

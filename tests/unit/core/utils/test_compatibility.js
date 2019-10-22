@@ -971,6 +971,21 @@ describe(__filename, () => {
       );
     });
 
+    it('maintains the word `android` in a slug for an add-on when switching platforms', () => {
+      const pathname = `/en-US/${CLIENT_APP_ANDROID}/addon/awesome-android-extension/`;
+
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_ANDROID,
+          location: createFakeLocation({ pathname }),
+          userAgentInfo: {
+            browser: { name: USER_AGENT_BROWSER_FIREFOX },
+            os: { name: USER_AGENT_OS_MAC },
+          },
+        }),
+      ).toEqual('/en-US/firefox/addon/awesome-android-extension/');
+    });
+
     it('returns a link with `CLIENT_APP_FIREFOX` replaced with `CLIENT_APP_ANDROID` when on Firefox for Android', () => {
       const pathname = `/en-US/${CLIENT_APP_FIREFOX}/addon/slug/`;
       const search = '?src=featured';
@@ -987,6 +1002,21 @@ describe(__filename, () => {
       ).toEqual(
         `${pathname.replace(CLIENT_APP_FIREFOX, CLIENT_APP_ANDROID)}${search}`,
       );
+    });
+
+    it('maintains the word `firefox` in a slug for an add-on when switching platforms', () => {
+      const pathname = `/en-US/${CLIENT_APP_FIREFOX}/addon/awesome-firefox-extension/`;
+
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_FIREFOX,
+          location: createFakeLocation({ pathname }),
+          userAgentInfo: {
+            browser: { name: USER_AGENT_BROWSER_FIREFOX },
+            os: { name: USER_AGENT_OS_ANDROID },
+          },
+        }),
+      ).toEqual('/en-US/android/addon/awesome-firefox-extension/');
     });
 
     it('returns null if clientApp is `CLIENT_APP_FIREFOX` on desktop', () => {
