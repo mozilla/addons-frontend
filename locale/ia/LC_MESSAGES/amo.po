@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-22 18:54+0000\n"
-"PO-Revision-Date: 2019-10-22 19:31+0000\n"
+"PO-Revision-Date: 2019-10-22 20:42+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1021,7 +1021,7 @@ msgstr "Utensiles de revisores"
 
 #: src/amo/components/Header/index.js:199 src/core/components/AuthenticateButton/index.js:90
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "Iste action es temporarimente indisponibile. Per favor recarga le pagina in un momento."
 
 #: src/amo/components/Header/index.js:204 src/core/components/AuthenticateButton/index.js:86
 msgid "Log out"
@@ -2474,14 +2474,12 @@ msgid "Log in to edit the profile"
 msgstr "Accede pro rediger le profilo"
 
 #: src/amo/pages/UserProfileEdit/index.js:512
-#, fuzzy
 msgid "Creating your profile…"
-msgstr "Actualisation de tu profilo…"
+msgstr "Creante tu profilo…"
 
 #: src/amo/pages/UserProfileEdit/index.js:513
-#, fuzzy
 msgid "Create My Profile"
-msgstr "Actualisar mi profilo"
+msgstr "Crear mi profilo"
 
 #: src/amo/pages/UserProfileEdit/index.js:517
 msgid "Updating your profile…"
