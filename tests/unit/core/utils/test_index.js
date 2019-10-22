@@ -122,8 +122,8 @@ describe(__filename, () => {
 
   describe('apiAddonType', () => {
     it('maps plural/visible addonTypes to internal types', () => {
-      expect(apiAddonType('extensions')).toEqual('extension');
-      expect(apiAddonType('themes')).toEqual('persona');
+      expect(apiAddonType('extensions')).toEqual(ADDON_TYPE_EXTENSION);
+      expect(apiAddonType('themes')).toEqual(ADDON_TYPE_STATIC_THEME);
     });
 
     it('fails on unrecognised plural/visible addonType', () => {
@@ -481,15 +481,15 @@ describe(__filename, () => {
 
   describe('visibleAddonType', () => {
     it('maps internal addonTypes to plural/visible types', () => {
-      expect(visibleAddonType('extension')).toEqual('extensions');
-      expect(visibleAddonType('persona')).toEqual('themes');
+      expect(visibleAddonType(ADDON_TYPE_EXTENSION)).toEqual('extensions');
+      expect(visibleAddonType(ADDON_TYPE_STATIC_THEME)).toEqual('themes');
     });
 
     it('fails on unrecognised internal addonType', () => {
       expect(() => {
         // "theme" is not a valid visible addonType; it should be "themes".
-        visibleAddonType('personas');
-      }).toThrowError('"personas" not found in VISIBLE_ADDON_TYPES_MAPPING');
+        visibleAddonType('theme');
+      }).toThrowError('"theme" not found in VISIBLE_ADDON_TYPES_MAPPING');
     });
 
     // See:

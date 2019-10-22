@@ -6,7 +6,6 @@ import { setClientApp } from 'core/actions';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   VIEW_CONTEXT_EXPLORE,
@@ -108,15 +107,6 @@ describe(__filename, () => {
 
     expect(root.find('.SectionLinks-link--active').children()).toIncludeText(
       'Extensions',
-    );
-  });
-
-  it('renders Themes active when add-on is a lightweight theme', () => {
-    _store.dispatch(setViewContext(ADDON_TYPE_THEME));
-    const root = render();
-
-    expect(root.find('.SectionLinks-link--active').children()).toIncludeText(
-      'Themes',
     );
   });
 

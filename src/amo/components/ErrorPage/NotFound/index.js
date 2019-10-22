@@ -5,7 +5,7 @@ import NestedStatus from 'react-nested-status';
 
 import Link from 'amo/components/Link';
 import Page from 'amo/components/Page';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML, visibleAddonType } from 'core/utils';
 import { replaceStringsWithJSX } from 'core/i18n/utils';
@@ -53,7 +53,7 @@ export class NotFoundBase extends React.Component<InternalProps> {
           (text) => (
             <Link
               key="link-themes"
-              to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}
+              to={`/${visibleAddonType(ADDON_TYPE_STATIC_THEME)}/`}
             >
               {text}
             </Link>

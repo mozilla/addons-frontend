@@ -8,7 +8,6 @@ import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
   ADDON_TYPE_STATIC_THEME,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
@@ -90,12 +89,15 @@ describe(__filename, () => {
     root.setProps({
       match: {
         params: {
-          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
         },
       },
     });
 
-    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_THEME));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      setViewContext(ADDON_TYPE_STATIC_THEME),
+    );
   });
 
   it('dispatches getLanding when results are not loaded', () => {
@@ -118,8 +120,11 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
 
     // We load theme add-ons.
-    _getAndLoadLandingAddons({ addonType: ADDON_TYPE_THEME, errorHandler });
-    store.dispatch(setViewContext(ADDON_TYPE_THEME));
+    _getAndLoadLandingAddons({
+      addonType: ADDON_TYPE_STATIC_THEME,
+      errorHandler,
+    });
+    store.dispatch(setViewContext(ADDON_TYPE_STATIC_THEME));
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
 
@@ -127,7 +132,7 @@ describe(__filename, () => {
       errorHandler,
       match: {
         params: {
-          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
         },
       },
       store,
@@ -252,7 +257,7 @@ describe(__filename, () => {
     const root = render({
       match: {
         params: {
-          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
         },
       },
     });
@@ -315,7 +320,7 @@ describe(__filename, () => {
     _getAndLoadLandingAddons({ addonType });
 
     const fakeParams = {
-      visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
     };
 
     const match = { params: fakeParams };
@@ -347,7 +352,7 @@ describe(__filename, () => {
     const root = render({
       match: {
         params: {
-          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
         },
       },
     });
@@ -377,7 +382,7 @@ describe(__filename, () => {
     const root = render({
       match: {
         params: {
-          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
         },
       },
     });
@@ -411,7 +416,7 @@ describe(__filename, () => {
     const root = render({
       match: {
         params: {
-          visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
+          visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
         },
       },
     });
@@ -532,7 +537,7 @@ describe(__filename, () => {
 
   it('renders an HTML title for themes', () => {
     const fakeParams = {
-      visibleAddonType: getVisibleAddonType(ADDON_TYPE_THEME),
+      visibleAddonType: getVisibleAddonType(ADDON_TYPE_STATIC_THEME),
     };
     const match = { params: fakeParams };
 
@@ -630,7 +635,7 @@ describe(__filename, () => {
       'Extensions',
       /Download Firefox Extensions to add features/,
     ],
-    [ADDON_TYPE_THEME, 'Themes', /Download themes to change/],
+    [ADDON_TYPE_STATIC_THEME, 'Themes', /Download themes to change/],
   ])(
     'renders a HeadMetaTags component for %s',
     (addonType, expectedTitle, expectedDescriptionMatch) => {
