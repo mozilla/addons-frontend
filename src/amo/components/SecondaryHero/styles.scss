@@ -28,6 +28,11 @@
   font-size: $font-size-m;
   line-height: 1.5;
   margin-top: 0;
+  padding: 0 10px 10px 10px;
+
+  @include respond-to(large) {
+    padding: 0;
+  }
 }
 
 .SecondaryHero-message-headline {
