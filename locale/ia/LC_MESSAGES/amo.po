@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-08 19:31+0000\n"
-"PO-Revision-Date: 2019-10-22 15:41+0000\n"
+"PO-Revision-Date: 2019-10-22 16:26+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -97,7 +97,7 @@ msgstr "Non compatibile con Firefox Quantum"
 
 #: src/amo/components/AddonBadges/index.js:90
 msgid "Some features may require payment"
-msgstr "Alcun functionalitates pote ser a pagamento"
+msgstr "Alcun functiones pote requirer pagamento"
 
 #: src/amo/components/AddonCompatibilityError/index.js:106
 msgid "This add-on is not compatible with your version of Firefox."
@@ -1067,7 +1067,7 @@ msgstr "Le extensiones es como applicationes pro tu navigator."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr "Illos adde functionalitates a Firefox pro render le exploration plus veloce, plus intelligente, o justo simple amusante."
+msgstr "Illos adde functiones a Firefox pro render le navigation plus veloce, plus intelligente o simplemente plus amusante."
 
 #: src/amo/components/InstallWarning/index.js:112
 msgid "Learn more"
@@ -1261,7 +1261,7 @@ msgstr "Reportar iste additivo pro abuso"
 
 #: src/amo/components/ReportAbuseButton/index.js:161
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr "Per favor non usar iste formulario pro reportar defectos o requesta de functionalitates de additivo; iste reporto sera inviate a Mozilla e non al disveloppator de additivos."
+msgstr "Per favor non usa iste formulario pro reportar problemas o requestar meliorationes pro le additivo; iste reporto essera inviate a Mozilla e non al disveloppator del additivo."
 
 #: src/amo/components/ReportAbuseButton/index.js:174 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
@@ -1983,8 +1983,8 @@ msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
-"Tracta tu con trop schedas aperte o un vertiginose numero de marcapaginas? Le extensiones pote adjutar! Ab le assistentia pro le organisation al fornir nove amusante functionalitates, le extensiones"
-" pote dramaticamente cambiar le maniera que tu tracta schedas e marcapaginas."
+"Lucta tu con troppo de schedas aperte o un vertiginose numero de marcapaginas? Le extensiones pote adjutar! Offerente toto ab le assistentia al organisation usque al addition de nove functiones "
+"amusante, le extensiones pote dramaticamente cambiar tu maniera de gerer schedas e marcapaginas."
 
 #: src/amo/pages/Guides/index.js:293
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
