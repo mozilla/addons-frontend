@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-08 19:31+0000\n"
+"POT-Creation-Date: 2019-10-22 18:54+0000\n"
 "PO-Revision-Date: 2019-09-25 04:20+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,31 +79,19 @@ msgstr "ਐਡ-ਆਨ ਸੋਧੋ"
 msgid "Admin add-on status"
 msgstr "ਪਰਸ਼ਾਸ਼ਕੀ ਐਡ-ਆਨ ਹਾਲਤ"
 
-#: src/amo/components/AddonBadges/index.js:49
-msgid "Featured Extension"
-msgstr "ਖਾਸ ਇਕਸਟੈਨਸ਼ਨਾਂ"
-
-#: src/amo/components/AddonBadges/index.js:52
-msgid "Featured Theme"
-msgstr "ਖਾਸ ਥੀਮ"
-
-#: src/amo/components/AddonBadges/index.js:54
-msgid "Featured Add-on"
-msgstr "ਖਾਸ ਐਡ-ਆਨ"
-
-#: src/amo/components/AddonBadges/index.js:75
+#: src/amo/components/AddonBadges/index.js:47
 msgid "Restart Required"
 msgstr "ਮੁੜ-ਸ਼ੁਰੂ ਕਰਨ ਦੀ ਲੋੜ ਹੈ"
 
-#: src/amo/components/AddonBadges/index.js:79
+#: src/amo/components/AddonBadges/index.js:51
 msgid "Experimental"
 msgstr "ਤਜਰਬੇ"
 
-#: src/amo/components/AddonBadges/index.js:84
+#: src/amo/components/AddonBadges/index.js:56
 msgid "Not compatible with Firefox Quantum"
 msgstr "ਫਾਇਰਫਾਕਸ ਕੁਅੰਟਮ ਦੇ ਅਨੁਕੂਲ ਨਹੀਂ ਹੈ"
 
-#: src/amo/components/AddonBadges/index.js:90
+#: src/amo/components/AddonBadges/index.js:62
 msgid "Some features may require payment"
 msgstr "ਕੁਝ ਫੀਚਰਾਂ ਲਈ ਭੁਗਤਾਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ"
 
@@ -313,9 +301,9 @@ msgid "More information"
 msgstr "ਹੋਰ ਜਾਣਕਾਰੀ"
 
 #: src/amo/components/AddonMoreInfo/index.js:62
-#: src/amo/pages/UserProfile/index.js:355
 #: src/amo/pages/UserProfile/index.js:357
-#: src/amo/pages/UserProfileEdit/index.js:636
+#: src/amo/pages/UserProfile/index.js:359
+#: src/amo/pages/UserProfileEdit/index.js:673
 msgid "Homepage"
 msgstr "ਮੁੱਖ ਸਫ਼ਾ"
 
@@ -378,7 +366,7 @@ msgstr "ਹਟਾਓ"
 #: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:313
-#: src/amo/pages/UserProfileEdit/index.js:880
+#: src/amo/pages/UserProfileEdit/index.js:913
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
@@ -611,22 +599,22 @@ msgstr "ਵਰਜ਼ਨ %(versionNumber)s"
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "%(dateReleased)s - %(fileSize)s ਜਾਰੀ ਕੀਤਾ"
 
-#: src/amo/components/App/index.js:207
+#: src/amo/components/App/index.js:172
 #: src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
-#: src/amo/components/App/index.js:211
+#: src/amo/components/App/index.js:176
 #: src/amo/components/HeadMetaTags/index.js:73
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%(title)s – ਫਾਇਰਫਾਕਸ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
-#: src/amo/components/App/index.js:219
+#: src/amo/components/App/index.js:184
 #: src/amo/components/HeadMetaTags/index.js:78
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "ਫਾਇਰਫਾਕਸ ਐਂਡਰਾਈਡ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
 
-#: src/amo/components/App/index.js:223
+#: src/amo/components/App/index.js:188
 #: src/amo/components/HeadMetaTags/index.js:72
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%(title)s – ਫਾਇਰਫਾਕਸ ਐਂਡਰਾਇਡ (%(locale)s) ਲਈ ਐਡ-ਆਨ"
@@ -831,7 +819,7 @@ msgstr "ਸੰਭਾਲੋ"
 msgid "Edit"
 msgstr "ਸੋਧ"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:23
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:24
 msgid ""
 "If you are signed in and think this message is an error, please <a href="
 "\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
@@ -841,11 +829,11 @@ msgstr ""
 "\"%(url)s\"> ਇੱਕ ਮੁੱਦਾ ਦਾਇਰ ਕਰੋ </a>। ਸਾਨੂੰ ਦੱਸੋ ਕਿ ਤੁਸੀਂ ਕਿੱਥੋਂ ਆਏ ਹੋ ਅਤੇ ਤੁਸੀਂ ਕਿਸ ਦੀ ਪਹੁੰਚ "
 "ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਹੇ ਸੀ, ਅਤੇ ਅਸੀਂ ਇਸ ਮੁੱਦੇ ਨੂੰ ਹੱਲ ਕਰਾਂਗੋ।"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:37
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:39
 msgid "Not Authorized"
 msgstr "ਅਧਿਕਾਰਤ ਨਹੀਂ"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:40
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:42
 msgid ""
 "Sorry, but you aren't authorized to access this page. If you aren't signed "
 "in, try signing in using the link at the top of the page."
@@ -853,7 +841,7 @@ msgstr ""
 "ਮੁਆਫ ਕਰਨਾ, ਪਰ ਤੁਸੀਂ ਇਸ ਪੇਜ ਨੂੰ ਐਕਸੈਸ ਕਰਨ ਲਈ ਅਧਿਕਾਰਤ ਨਹੀਂ ਹੋ। ਜੇਕਰ ਤੁਸੀਂ ਸਾਇਨ ਇਨ ਨਹੀਂ ਹੋ, "
 "ਤਾਂ ਪੰਨੇ ਦੇ ਸਿਖਰ ਤੇ ਲਿੰਕ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਸਾਈਨ ਇਨ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:30
+#: src/amo/components/ErrorPage/NotFound/index.js:31
 msgid ""
 "Try visiting the page later, as the theme or extension may become available "
 "again. Alternatively, you may be able to find what you’re looking for in one "
@@ -864,11 +852,11 @@ msgstr ""
 "ਵਿਕਲਪਿਕ ਤੌਰ ਤੇ, ਤੁਸੀਂ ਉਹ ਲੱਭਣ ਦੇ ਯੋਗ ਹੋ ਸਕਦੇ ਹੋ ਜੋ ਤੁਸੀਂ ਉਪਲਬਧ%(linkStart)s ਐਕਸਟੈਂਸ਼ਨਾਂ"
 "%(linkEnd)s ਜਾਂ%(secondLinkStart)sਥੀਮ%(secondLinkEnd)s ਵਿੱਚ ਲੱਭ ਰਹੇ ਹੋੋ।"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:68
+#: src/amo/components/ErrorPage/NotFound/index.js:70
 msgid "Oops! We can’t find that page"
 msgstr "ਓਹੋ! ਅਸੀਂ ਉਹ ਸਫ਼ਾ ਨਹੀਂ ਲੱਭ ਸਕੇ"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:71
+#: src/amo/components/ErrorPage/NotFound/index.js:73
 msgid ""
 "If you’ve followed a link from another site for an extension or theme, that "
 "item is no longer available. This could be because:"
@@ -876,7 +864,7 @@ msgstr ""
 "ਜੇ ਤੁਸੀਂ ਇੱਕ ਐਕਸਟੈਂਸ਼ਨ ਜਾਂ ਥੀਮ ਲਈ ਕਿਸੇ ਹੋਰ ਸਾਈਟ ਤੋਂ ਇੱਕ ਲਿੰਕ ਦਾ ਅਨੁਸਰਣ ਕੀਤਾ ਹੈ, ਤਾਂ ਉਹ ਆਈਟਮ "
 "ਹੁਣ ਉਪਲਬਧ ਨਹੀਂ ਹੋਵੇਗੀੇ। ਇਹ ਇਸ ਲਈ ਹੋ ਸਕਦਾ ਹੈ ਕਿਉਂਕਿ:"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:77
+#: src/amo/components/ErrorPage/NotFound/index.js:79
 msgid ""
 "The developer removed it. Developers commonly do this because they no longer "
 "support the extension or theme, or have replaced it."
@@ -884,7 +872,7 @@ msgstr ""
 "ਡਿਵੈਲਪਰ ਨੇ ਇਸਨੂੰ ਹਟਾ ਦਿੱਤਾੇ। ਡਿਵੈਲਪਰ ਆਮ ਤੌਰ ਤੇ ਅਜਿਹਾ ਕਰਦੇ ਹਨ ਕਿਉਂਕਿ ਉਹ ਐਕਸਟੈਂਸ਼ਨ ਜਾਂ ਥੀਮ ਦਾ "
 "ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੇ, ਜਾਂ ਇਸ ਨੂੰ ਬਦਲ ਦਿੰਦੇ ਹਨ।"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:82
+#: src/amo/components/ErrorPage/NotFound/index.js:84
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review "
 "of the extension or theme, or the extension or theme has been abusing the "
@@ -895,7 +883,7 @@ msgstr ""
 "ਲੱਭੇ ਜਾਂਦੇ ਹਨ, ਜਾਂ ਇਕਸਟੈਨਸ਼ਨ ਜਾਂ ਥੀਮ addons.mozilla.org ਲਈ ਨਿਯਮਾਂ ਅਤੇ ਸ਼ਰਤਾਂ ਦੀ ਦੁਰਵਰਤੋਂ ਕਰ "
 "ਰਹੇ ਹਨੋੋ। ਡਿਵੈਲਪਰ ਕੋਲ ਮੁੱਦਿਆਂ ਨੂੰ ਸੁਲਝਾਉਣ ਅਤੇ ਐਡ-ਆਨ ਨੂੰ ਦੁਬਾਰਾ ਉਪਲਬਧ ਕਰਾਉਣ ਦਾ ਮੌਕਾ ਹੁੰਦਾ ਹੈ।"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:94
+#: src/amo/components/ErrorPage/NotFound/index.js:96
 msgid ""
 "If you’ve followed a link on this site, you’ve have found a mistake. Help us "
 "fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you "
@@ -905,7 +893,7 @@ msgstr ""
 "href=\"%(url)s\">ਕੋਈ ਮੁੱਦਾ ਦਾਇਰ ਕਰਕੇ </a>ਲਿੰਕ ਨੂੰ ਠੀਕ ਕਰਨ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰੋੋੋ। ਸਾਨੂੰ ਦੱਸੋ ਕਿ "
 "ਤੁਸੀਂ ਕਿੱਥੋਂ ਆਏ ਹੋ ਅਤੇ ਤੁਸੀਂ ਕੀ ਲੱਭ ਰਹੇ ਸੀ, ਅਤੇ ਅਸੀਂ ਇਸ ਨੂੰ ਕ੍ਰਮਬੱਧ ਕਰਾਂਗੇੋੋ।"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:21
+#: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
 "If you have additional information that would help us you can <a href="
 "\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
@@ -916,12 +904,12 @@ msgstr ""
 "mozilla/addons-frontend/issues/new/\">ਕੋਈ ਮੁੱਦਾ ਦਾਇਰ ਕਰ ਸਕਦੇ ਹੋ</a>। ਸਾਨੂੰ ਦੱਸੋ ਕਿ "
 "ਤੁਸੀਂ ਕਿਹੜੇ ਕਦਮ ਚੁੱਕੇ ਜੋ ਉਸ ਗਲਤੀ ਵੱਲ ਲੈ ਗਿਆ ਅਤੇ ਅਸੀਂ ਇਸਨੂੰ ਠੀਕ ਕਰਨ ਲਈ ਪੂਰੀ ਕੋਸ਼ਿਸ਼ ਕਰਾਂਗੇ।"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/amo/components/ErrorPage/ServerError/index.js:34
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "ਸਰਵਰ ਗਲਤੀ"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:35
+#: src/amo/components/ErrorPage/ServerError/index.js:37
 msgid ""
 "Sorry, but there was an error with our server and we couldn't complete your "
 "request. We have logged this error and will investigate it."
@@ -950,11 +938,11 @@ msgid "Flagged as a bug report or support request"
 msgstr "ਇਹ ਇੱਕ ਬੱਗ ਰਿਪੋਰਟ ਜਾਂ ਸਹਿਯੋਗ ਬੇਨਤੀ ਹੈ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
+msgid "Flagged"
 msgstr "ਨਿਸ਼ਾਨਬੱਧ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
+msgid "Flag"
 msgstr "ਨਿਸ਼ਾਨਬੱਧ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
@@ -1060,11 +1048,11 @@ msgstr "ਇਸ ਬਾਰੇ"
 msgid "Blog"
 msgstr "ਬਲੌਗ"
 
-#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:106
+#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:104
 msgid "Extension Workshop"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ ਵਰਕਸ਼ਾਪ"
 
-#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:116
+#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:114
 msgid "Developer Hub"
 msgstr "ਡਿਵੈਲਪਰ ਹੱਬ"
 
@@ -1088,83 +1076,89 @@ msgstr "ਸਮੀਖਿਅਕ ਗਾਈਡ"
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "ਫਾਇਰਫਾਕਸ ਨਾਲ ਹੀ — ਫਾਇਰਫਾਕਸ ਹੁਣੇ ਲਵੋ"
 
-#: src/amo/components/Header/index.js:104
+#: src/amo/components/Header/index.js:102
 msgid "Learn how to create extensions and themes"
 msgstr "ਸਿੱਖੋ ਕਿ ਇਕਸਟੈਨਸ਼ਨ ਅਤੇ ਵਿਸ਼ੇ ਕਿਵੇਂ ਬਣਾਉਣੇ ਹਨ"
 
-#: src/amo/components/Header/index.js:114
+#: src/amo/components/Header/index.js:112
 msgid "Submit and manage extensions and themes"
 msgstr "ਇਕਸਟੈਨਸ਼ਨਾਂ ਤੇ ਥੀਮ ਭੇਜੋ ਅਤੇ ਇੰਤਜ਼ਾਮ ਕਰੋ"
 
-#: src/amo/components/Header/index.js:129
+#: src/amo/components/Header/index.js:127
 msgid "My Account"
 msgstr "ਮੇਰਾ ਖਾਤਾ"
 
-#: src/amo/components/Header/index.js:136
+#: src/amo/components/Header/index.js:134
 msgid "View My Collections"
 msgstr "ਮੇਰੇ ਸੰਗ੍ਰਹਿ ਵੇਖੋ"
 
-#: src/amo/components/Header/index.js:144
-#: src/amo/pages/UserProfileEdit/index.js:513
+#: src/amo/components/Header/index.js:142
+#: src/amo/pages/UserProfileEdit/index.js:548
 msgid "View My Profile"
 msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਦੇਖੋ"
 
-#: src/amo/components/Header/index.js:152
-#: src/amo/pages/UserProfileEdit/index.js:519
+#: src/amo/components/Header/index.js:150
+#: src/amo/pages/UserProfileEdit/index.js:554
 msgid "Edit My Profile"
 msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਸੰਪਾਦਿਤ ਕਰੋ"
 
-#: src/amo/components/Header/index.js:156
+#: src/amo/components/Header/index.js:154
 msgid "Tools"
 msgstr "ਸੰਦ"
 
-#: src/amo/components/Header/index.js:162
+#: src/amo/components/Header/index.js:160
 msgid "Submit a New Add-on"
 msgstr "ਇੱਕ ਨਵਾਂ ਐਡ-ਆਨ ਦਰਜ ਕਰੋ"
 
-#: src/amo/components/Header/index.js:170
+#: src/amo/components/Header/index.js:168
 msgid "Submit a New Theme"
 msgstr "ਇੱਕ ਨਵਾਂ ਥੀਮ ਭੇਜੋ"
 
-#: src/amo/components/Header/index.js:179
+#: src/amo/components/Header/index.js:177
 msgid "Manage My Submissions"
 msgstr "ਮੇਰੀਆਂ ਪੇਸ਼ਕਸ਼ਾਂ ਦਾ ਬੰਦੋਬਸਤ ਕਰੋ"
 
-#: src/amo/components/Header/index.js:189
+#: src/amo/components/Header/index.js:187
 msgid "Reviewer Tools"
 msgstr "ਸਮੀਖਿਅਕ ਸੰਦ"
 
 #: src/amo/components/Header/index.js:199
-#: src/core/components/AuthenticateButton/index.js:80
+#: src/core/components/AuthenticateButton/index.js:90
+msgid ""
+"This action is currently unavailable. Please reload the page in a moment."
+msgstr ""
+
+#: src/amo/components/Header/index.js:204
+#: src/core/components/AuthenticateButton/index.js:86
 msgid "Log out"
 msgstr "ਲਾਗ ਆਉਟ"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Header/index.js:66
+#: src/amo/components/Header/index.js:64
 msgid "Firefox Add-ons"
 msgstr "ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ"
 
-#: src/amo/components/HeroRecommendation/index.js:103
+#: src/amo/components/HeroRecommendation/index.js:106
 msgid "Get the extension"
 msgstr "ਐਕਸਟੈਂਸ਼ਨ ਪ੍ਰਾਪਤ ਕਰੋ"
 
 # If uppercase does not work in your locale, change it to lowercase.
-#: src/amo/components/HeroRecommendation/index.js:167
+#: src/amo/components/HeroRecommendation/index.js:175
 msgid "RECOMMENDED"
 msgstr "RECOMMENDED"
 
 #: src/amo/components/HomeHeroGuides/index.js:34
-#: src/amo/pages/Guides/index.js:266
+#: src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
 msgstr "ਆਨਲਾਈਨ ਸੁਰੱਖਿਅਤ ਰਹੋ"
 
 #: src/amo/components/HomeHeroGuides/index.js:39
-#: src/amo/pages/Guides/index.js:279
+#: src/amo/pages/Guides/index.js:280
 msgid "Organize Tabs & Bookmarks"
 msgstr "ਟੈਬਾਂ ਅਤੇ ਬੁੱਕਮਾਰਕਾਂ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰੋ"
 
 #: src/amo/components/HomeHeroGuides/index.js:44
-#: src/amo/pages/Guides/index.js:292
+#: src/amo/pages/Guides/index.js:293
 msgid "Enhance Your Media Experience"
 msgstr "ਆਪਣੇ ਮੀਡੀਆ ਅਨੁਭਵ ਨੂੰ ਵਧਾਓ"
 
@@ -1452,80 +1446,66 @@ msgid ""
 msgstr ""
 "ਸਾਨੂੰ ਤੁਹਾਡੀ ਰਿਪੋਰਟ ਮਿਲੀ ਹੈ। ਸਾਨੂੰ ਇਸ ਉਪਭੋਗਤਾ ਨਾਲ ਆਪਣੀਆਂ ਚਿੰਤਾਵਾਂ ਬਾਰੇ ਦੱਸਣ ਲਈ ਧੰਨਵਾਦ।"
 
-#: src/amo/components/Search/index.js:119
-#: src/amo/components/SearchResults/index.js:83
+#: src/amo/components/Search/index.js:116
+#: src/amo/components/SearchResults/index.js:68
 msgid "Search results"
 msgstr "ਖੋਜ ਨਤੀਜੇ"
 
-#: src/amo/components/Search/index.js:129 src/amo/pages/Home/index.js:277
-#: src/amo/pages/LandingPage/index.js:139
+#: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:278
+#: src/amo/pages/LandingPage/index.js:126
 msgid "Recommended extensions"
 msgstr "ਸਿਫਾਰਸ਼ੀ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
-#: src/amo/components/Search/index.js:130 src/amo/pages/Home/index.js:278
-#: src/amo/pages/LandingPage/index.js:140
-msgid "Featured extensions"
-msgstr "ਖਾਸ ਇਕਸਟੈਨਸ਼ਨਾਂ"
-
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:364
-#: src/amo/pages/LandingPage/index.js:178
+#: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:345
+#: src/amo/pages/LandingPage/index.js:158
 msgid "Recommended themes"
 msgstr "ਸਿਫਾਰਸ਼ੀ ਥੀਮ"
 
-#: src/amo/components/Search/index.js:135 src/amo/pages/Home/index.js:365
-#: src/amo/pages/LandingPage/index.js:179
-msgid "Featured themes"
-msgstr "ਖਾਸ ਥੀਮ"
-
-#: src/amo/components/Search/index.js:139
+#: src/amo/components/Search/index.js:127
 msgid "Recommended add-ons"
 msgstr "ਸਿਫਾਰਸ਼ੀ ਐਡ-ਆਨ"
 
-#: src/amo/components/Search/index.js:140
-msgid "Featured add-ons"
-msgstr "ਫੀਚਰ ਐਡ-ਆਨ"
-
-#: src/amo/components/Search/index.js:147 src/amo/pages/Home/index.js:379
-#: src/amo/pages/LandingPage/index.js:155
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:358
+#: src/amo/pages/LandingPage/index.js:136
 msgid "Trending extensions"
 msgstr "ਇਕਸਟੈਨਸ਼ਨਾਂ ਦਾ ਰੁਝਾਨ"
 
-#: src/amo/components/Search/index.js:150
-#: src/amo/pages/LandingPage/index.js:194
+#: src/amo/components/Search/index.js:137
+#: src/amo/pages/LandingPage/index.js:168
 msgid "Trending themes"
 msgstr "ਰੁਝਾਨ ਥੀਮ"
 
-#: src/amo/components/Search/index.js:153
+#: src/amo/components/Search/index.js:140
 msgid "Trending add-ons"
 msgstr "ਟ੍ਰੇਡਿੰਗ ਐਡ-ਆਨ"
 
-#: src/amo/components/Search/index.js:159
-#: src/amo/pages/LandingPage/index.js:165
+#: src/amo/components/Search/index.js:146
+#: src/amo/pages/LandingPage/index.js:146
 msgid "Top rated extensions"
 msgstr "ਸਿਖਰਲੀ ਦਰਜਾਬੰਦੀ ਦੇ ਵਾਧਰੇ"
 
-#: src/amo/components/Search/index.js:162
-#: src/amo/pages/LandingPage/index.js:200
+#: src/amo/components/Search/index.js:149
+#: src/amo/pages/LandingPage/index.js:174
 msgid "Top rated themes"
 msgstr "ਸਿਖਰ ਤੇ ਦਿੱਤੇ ਗਏ ਵਿਸ਼ੇ"
 
-#: src/amo/components/Search/index.js:165
+#: src/amo/components/Search/index.js:152
 msgid "Top rated add-ons"
 msgstr "ਸਿਖਰ ਤੇ ਐਡ-ਆਨ ਸ਼ਾਮਲ"
 
-#: src/amo/components/Search/index.js:171 src/amo/pages/Home/index.js:324
+#: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:316
 msgid "Popular extensions"
 msgstr "ਪ੍ਰਸਿੱਧ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
-#: src/amo/components/Search/index.js:174 src/amo/pages/Home/index.js:303
+#: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:295
 msgid "Popular themes"
 msgstr "ਪ੍ਰਸਿੱਧ ਥੀਮ"
 
-#: src/amo/components/Search/index.js:177
+#: src/amo/components/Search/index.js:164
 msgid "Popular add-ons"
 msgstr "ਪ੍ਰਸਿੱਧ ਐਡ-ਆਨ"
 
-#: src/amo/components/Search/index.js:183
+#: src/amo/components/Search/index.js:170
 msgid "Search results for \"%(query)s\""
 msgstr "\"%(query)s\" ਲਈ ਖੋਜ ਨਤੀਜੇ"
 
@@ -1609,78 +1589,74 @@ msgid_plural "%(count)s extensions found"
 msgstr[0] "%(count)s ਦਾ ਐਕਸਟੈਂਸ਼ਨ ਲੱਭਿਆ"
 msgstr[1] "%(count)s ਦੇ ਐਕਸਟੈਨਸ਼ਨ ਮਿਲੇ"
 
-#: src/amo/components/SearchFilters/index.js:138
-#: src/amo/components/SearchFilters/index.js:154
+#: src/amo/components/SearchFilters/index.js:130
+#: src/amo/components/SearchFilters/index.js:144
 msgid "All"
 msgstr "ਸਾਰੇ"
 
-#: src/amo/components/SearchFilters/index.js:139
+#: src/amo/components/SearchFilters/index.js:131
 msgid "Extension"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ"
 
-#: src/amo/components/SearchFilters/index.js:140
+#: src/amo/components/SearchFilters/index.js:132
 msgid "Search Tool"
 msgstr "ਖੋਜ ਸੰਦ"
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:134
 msgid "Theme"
 msgstr "ਥੀਮ"
 
-#: src/amo/components/SearchFilters/index.js:155
+#: src/amo/components/SearchFilters/index.js:145
 msgid "Windows"
 msgstr "ਵਿੰਡੋਜ਼"
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:146
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:157
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Linux"
 msgstr "ਲੀਨਕਸ"
 
-#: src/amo/components/SearchFilters/index.js:165
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Relevance"
 msgstr "ਢੁੱਕਵਾਂਪਣ"
 
-#: src/amo/components/SearchFilters/index.js:167
+#: src/amo/components/SearchFilters/index.js:157
 msgid "Recently Updated"
 msgstr "ਹਾਲ ਹੀ ਵਿੱਚ ਅੱਪਡੇਟ ਕੀਤੇ"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Most Users"
 msgstr "ਬਹੁਤੇ ਵਰਤੋਂਕਾਰ"
 
-#: src/amo/components/SearchFilters/index.js:171
+#: src/amo/components/SearchFilters/index.js:161
 msgid "Top Rated"
 msgstr "ਚੋਟੀ ਦਾ ਦਰਜਾ"
 
-#: src/amo/components/SearchFilters/index.js:172
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Trending"
 msgstr "ਰੁਝਾਨ"
 
-#: src/amo/components/SearchFilters/index.js:190
+#: src/amo/components/SearchFilters/index.js:180
 msgid "Filter results"
 msgstr "ਨਤੀਜੇ ਛਾਂਟੋ"
 
-#: src/amo/components/SearchFilters/index.js:195
+#: src/amo/components/SearchFilters/index.js:185
 msgid "Sort by"
 msgstr "ਲੜੀਬੱਧ"
 
-#: src/amo/components/SearchFilters/index.js:217
+#: src/amo/components/SearchFilters/index.js:207
 msgid "Add-on Type"
 msgstr "ਐਡ-ਆਨ ਕਿਸਮ"
 
-#: src/amo/components/SearchFilters/index.js:237
+#: src/amo/components/SearchFilters/index.js:227
 msgid "Operating System"
 msgstr "ਓਪਰੇਟਿੰਗ ਸਿਸਟਮ"
 
-#: src/amo/components/SearchFilters/index.js:268
+#: src/amo/components/SearchFilters/index.js:253
 msgid "Recommended add-ons only"
 msgstr "ਸਿਰਫ ਸਿਫਾਰਸ਼ੀ ਐਡ-ਆਨ"
-
-#: src/amo/components/SearchFilters/index.js:269
-msgid "Featured add-ons only"
-msgstr "ਸਿਰਫ ਫੀਚਰਡ ਐਡ-ਆਨ"
 
 #: src/amo/components/SearchForm/index.js:61
 msgid "Firefox Add-ons (%(locale)s)"
@@ -1694,7 +1670,7 @@ msgstr "ਐਂਡਰਾਈਡ ਲਈ ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ (%(l
 msgid "Go to the add-on page"
 msgstr "ਐਡ-ਆਨ ਪੇਜ ਤੇ ਜਾਓ"
 
-#: src/amo/components/SearchResult/index.js:165
+#: src/amo/components/SearchResult/index.js:166
 msgid "No theme preview available"
 msgstr "ਕੋਈ ਥੀਮ ਪ੍ਰੀਵਿਊ ਉਪਲਬਧ ਨਹੀਂ"
 
@@ -1708,25 +1684,25 @@ msgid_plural "%(total)s users"
 msgstr[0] "%(total)s ਵਰਤੋਂਕਾਰ"
 msgstr[1] "%(total)s ਵਰਤੋਂਕਾਰ"
 
-#: src/amo/components/SearchResults/index.js:53
+#: src/amo/components/SearchResults/index.js:42
 msgid "Searching…"
 msgstr "…ਖੋਜਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/amo/components/SearchResults/index.js:58
+#: src/amo/components/SearchResults/index.js:47
 msgid "No results were found for \"%(query)s\"."
 msgstr "\"%(query)s\" ਲਈ ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਮਿਲਿਆ।"
 
-#: src/amo/components/SearchResults/index.js:64
+#: src/amo/components/SearchResults/index.js:53
 msgid "No results were found."
 msgstr "ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਮਿਲਿਆ।"
 
-#: src/amo/components/SearchSuggestion/index.js:57
+#: src/amo/components/SearchSuggestion/index.js:52
 #: src/ui/components/RecommendedBadge/index.js:28
 msgid "Recommended"
 msgstr "ਸਿਫ਼ਾਰਸ਼ੀ"
 
 #: src/amo/components/SectionLinks/index.js:107
-#: src/amo/pages/LandingPage/index.js:252
+#: src/amo/pages/LandingPage/index.js:226
 msgid "Themes"
 msgstr "ਥੀਮ"
 
@@ -1739,7 +1715,7 @@ msgid "Dictionaries & Language Packs"
 msgstr "ਸ਼ਬਦ-ਕੋਸ਼ ਅਤੇ ਭਾਸ਼ਾ ਪੈਕ"
 
 #: src/amo/components/SectionLinks/index.js:133
-#: src/amo/pages/SearchTools/index.js:34
+#: src/amo/pages/SearchTools/index.js:35
 msgid "Search Tools"
 msgstr "ਖੋਜ ਸੰਦ"
 
@@ -1768,7 +1744,7 @@ msgid "Explore"
 msgstr "ਪੜਚੋਲ"
 
 #: src/amo/components/SectionLinks/index.js:89
-#: src/amo/pages/LandingPage/index.js:253
+#: src/amo/pages/LandingPage/index.js:227
 msgid "Extensions"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ"
 
@@ -1808,83 +1784,83 @@ msgstr "ਪ੍ਰੋਫ਼ਾਈਲ ਫ਼ੋਟੋ"
 msgid "Choose Photo…"
 msgstr "ਫੋਟੋ ਚੁਣੋ…"
 
-#: src/amo/pages/Addon/index.js:169 src/ui/components/ThemeImage/index.js:33
+#: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
 msgstr "%(title)s ਦਾ ਪੂਰਵਦਰਸ਼ਨ"
 
-#: src/amo/pages/Addon/index.js:204
+#: src/amo/pages/Addon/index.js:205
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "ਇਹ ਐਡ-ਆਨ ਨੂੰ ਦਰਜਾ ਨਹੀਂ ਦਿੱਤਾ ਜਾ ਸਕਦਾ ਕਿਉਂਕਿ ਕੋਈ ਵਰਜਨ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਕੀਤੇ ਗਏ ਹਨ।"
 
-#: src/amo/pages/Addon/index.js:215
+#: src/amo/pages/Addon/index.js:216
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s ਦੀ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
 msgstr[1] "ਸਾਰੇ %(count)s ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਪੜ੍ਹੋ"
 
-#: src/amo/pages/Addon/index.js:233
+#: src/amo/pages/Addon/index.js:234
 msgid "No reviews yet"
 msgstr "ਅਜੇ ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ"
 
-#: src/amo/pages/Addon/index.js:243
+#: src/amo/pages/Addon/index.js:244
 msgid "Rate your experience"
 msgstr "ਆਪਣੇ ਅਨੁਭਵ ਨੂੰ ਦਰਜਾ ਦਿਓ"
 
-#: src/amo/pages/Addon/index.js:262
+#: src/amo/pages/Addon/index.js:263
 msgid "About this dictionary"
 msgstr "ਇਸ ਸ਼ਬਦਕੋਸ਼ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:265
+#: src/amo/pages/Addon/index.js:266
 msgid "About this extension"
 msgstr "ਇਸ ਇਕਸਟੈਨਸ਼ਨ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:268
+#: src/amo/pages/Addon/index.js:269
 msgid "About this language pack"
 msgstr "ਇਸ ਭਾਸ਼ਾ ਪੈਕ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:271
+#: src/amo/pages/Addon/index.js:272
 msgid "About this search plugin"
 msgstr "ਇਸ ਖੋਜ ਪਲਗਇਨ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:275
+#: src/amo/pages/Addon/index.js:276
 msgid "About this theme"
 msgstr "ਇਸ ਥੀਮ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:278
+#: src/amo/pages/Addon/index.js:279
 msgid "About this add-on"
 msgstr "ਇਸ ਐਡ-ਆਨ ਬਾਰੇ"
 
-#: src/amo/pages/Addon/index.js:321
+#: src/amo/pages/Addon/index.js:322
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s ਲਈ ਰੀਲਿਜ਼ ਨੋਟਿਸ"
 
-#: src/amo/pages/Addon/index.js:450
+#: src/amo/pages/Addon/index.js:453
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr "ਇਹ ਜਨਤਕ ਸੂਚੀ ਨਹੀਂ ਹੈ। ਉੱਚੇ ਅਧਿਕਾਰਾਂ ਦੇ ਕਾਰਨ ਤੁਸੀਂ ਇਸ ਨੂੰ ਕੇਵਲ ਦੇਖ ਰਹੇ ਹੋ।"
 
-#: src/amo/pages/Addon/index.js:478
+#: src/amo/pages/Addon/index.js:481
 msgid "Extension Metadata"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ ਮੈਟਾਡੇਟਾ"
 
-#: src/amo/pages/Addon/index.js:496
+#: src/amo/pages/Addon/index.js:499
 msgid "Screenshots"
 msgstr "ਸਕਰੀਨਸ਼ਾਟ"
 
-#: src/amo/pages/AddonInfo/index.js:157
+#: src/amo/pages/AddonInfo/index.js:158
 msgid "Custom License for %(addonName)s"
 msgstr "%(addonName)s ਲਈ ਕਸਟਮ ਲਾਇਸੈਂਸ"
 
-#: src/amo/pages/AddonInfo/index.js:164
+#: src/amo/pages/AddonInfo/index.js:165
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "%(addonName)s ਲਈ ਐਂਡ-ਯੂਜ਼ਰ ਲਸੰਸ ਸਮਝੌਤਾ"
 
-#: src/amo/pages/AddonInfo/index.js:168
+#: src/amo/pages/AddonInfo/index.js:169
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s ਲਈ ਪ੍ਰਾਈਵੇਸੀ ਨੀਤੀ"
 
-#: src/amo/pages/AddonReviewList/index.js:197
+#: src/amo/pages/AddonReviewList/index.js:198
 msgid ""
 "Reviews and ratings for %(addonName)s. Find out what other users think about "
 "%(addonName)s and add it to your Firefox Browser."
@@ -1892,102 +1868,102 @@ msgstr ""
 "%(addonName)s ਲਈ ਸਮੀਖਿਆ ਅਤੇ ਰੇਟਿੰਗ। ਪਤਾ ਕਰੋ ਕਿ ਹੋਰ ਉਪਭੋਗਤਾ %(addonName)s ਬਾਰੇ ਕੀ "
 "ਸੋਚਦੇ ਹਨ ਅਤੇ ਇਸ ਨੂੰ ਆਪਣੇ ਫਾਇਰਫਾਕਸ ਬਰਾਊਜ਼ਰ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ।"
 
-#: src/amo/pages/AddonReviewList/index.js:229
+#: src/amo/pages/AddonReviewList/index.js:230
 msgid "Show all reviews"
 msgstr "ਸਾਰੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:231
+#: src/amo/pages/AddonReviewList/index.js:232
 msgid "Show only five-star reviews"
 msgstr "ਕੇਵਲ ਪੰਜ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:232
+#: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show only four-star reviews"
 msgstr "ਸਿਰਫ ਚਾਰ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:234
+#: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only three-star reviews"
 msgstr "ਸਿਰਫ ਤਿੰਨ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:236
+#: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only two-star reviews"
 msgstr "ਸਿਰਫ ਦੋ-ਤਾਰਾ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:237
+#: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only one-star reviews"
 msgstr "ਸਿਰਫ ਇੱਕ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਦਿਖਾਓ"
 
-#: src/amo/pages/AddonReviewList/index.js:277
+#: src/amo/pages/AddonReviewList/index.js:278
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s ਲਈ ਸਮੀਖਿਆ"
 
-#: src/amo/pages/AddonReviewList/index.js:287
+#: src/amo/pages/AddonReviewList/index.js:288
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s ਸਮੀਖਿਆ"
 msgstr[1] "%(total)s ਸਮੀਖਿਆਵਾਂ"
 
-#: src/amo/pages/AddonReviewList/index.js:384
+#: src/amo/pages/AddonReviewList/index.js:386
 msgid "There are no reviews"
 msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
 
-#: src/amo/pages/AddonVersions/index.js:125
+#: src/amo/pages/AddonVersions/index.js:126
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "%(addonName)s ਦਾ ਵਰਜਨ ਅਤੀਤ - %(total)s ਦਾ ਵਰਜਨ"
 msgstr[1] "%(addonName)s ਦਾ ਵਰਜਨ ਅਤੀਤ - %(total)s s ਵਰਜਨ"
 
-#: src/amo/pages/AddonVersions/index.js:172
+#: src/amo/pages/AddonVersions/index.js:174
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
 msgstr ""
 "ਪੁਰਾਣੇ ਵਰਜਨ ਨਾਲ ਸਾਵਧਾਨ ਰਹੋ! ਇਹ ਵਰਜਨ ਟੈਸਟਿੰਗ ਅਤੇ ਸੰਦਰਭ ਦੇ ਉਦੇਸ਼ਾਂ ਲਈ ਪ੍ਰਦਰਸ਼ਿਤ ਹੁੰਦੇ ਹਨ।"
 
-#: src/amo/pages/AddonVersions/index.js:177
+#: src/amo/pages/AddonVersions/index.js:179
 msgid "You should always use the latest version of an add-on."
 msgstr "ਤੁਹਾਨੂੰ ਹਮੇਸ਼ਾਂ ਐਡ-ਆਨ ਦਾ ਨਵੀਨਤਮ ਸੰਸਕਰਣ ਵਰਤਣਾ ਚਾਹੀਦਾ ਹੈ।"
 
-#: src/amo/pages/AddonVersions/index.js:186
+#: src/amo/pages/AddonVersions/index.js:188
 msgid "Latest version"
 msgstr "ਨਵਾਂ ਵਰਜ਼ਨ"
 
-#: src/amo/pages/AddonVersions/index.js:195
+#: src/amo/pages/AddonVersions/index.js:197
 msgid "Older versions"
 msgstr "ਪੁਰਾਣਾ ਵਰਜ਼ਨ"
 
-#: src/amo/pages/CategoriesPage/index.js:34
+#: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
 msgstr "ਸਾਰੇ ਇਕਸਟੈਨਸ਼ਨ ਵਰਗ"
 
-#: src/amo/pages/CategoriesPage/index.js:36
+#: src/amo/pages/CategoriesPage/index.js:37
 msgid "All theme categories"
 msgstr "ਸਭ ਥੀਮ ਵਰਗਾਂ"
 
-#: src/amo/pages/Collection/index.js:391
+#: src/amo/pages/Collection/index.js:392
 msgid "Do you really want to delete this collection?"
 msgstr "ਕੀ ਤੁਸੀਂ ਅਸਲ ਵਿੱਚ ਇਸ ਸੰਗ੍ਰਹਿ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: src/amo/pages/Collection/index.js:394
+#: src/amo/pages/Collection/index.js:395
 msgid "Delete this collection"
 msgstr "ਇਸ ਸੰਗ੍ਰਹਿ ਨੂੰ ਮਿਟਾਓ"
 
-#: src/amo/pages/Collection/index.js:413
+#: src/amo/pages/Collection/index.js:414
 msgid "Log in to create a collection"
 msgstr "ਇੱਕ ਸੰਗ੍ਰਹਿ ਬਣਾਉਣ ਲਈ ਲੌਗਇਨ ਕਰੋ"
 
-#: src/amo/pages/Collection/index.js:414
+#: src/amo/pages/Collection/index.js:415
 msgid "Log in to edit this collection"
 msgstr "ਇਸ ਭੰਡਾਰ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਲਈ ਲੌਗਿਨ ਕਰੋ"
 
-#: src/amo/pages/Collection/index.js:447
+#: src/amo/pages/Collection/index.js:448
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "ਪਹਿਲਾਂ, ਆਪਣਾ ਸੰਗ੍ਰਹਿ ਬਣਾਓ। ਫਿਰ ਤੁਸੀਂ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਥੀਮਾਂ ਨੂੰ ਜੋੜ ਸਕਦੇ ਹੋ।"
 
-#: src/amo/pages/Collection/index.js:450
+#: src/amo/pages/Collection/index.js:451
 msgid "Search for extensions and themes to add to your collection."
 msgstr "ਆਪਣੇ ਸੰਗ੍ਰਹਿ ਵਿੱਚ ਜੋੜਨ ਲਈ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਵਿਸ਼ਿਆਂ ਲਈ ਖੋਜ ਕਰੋ।"
 
-#: src/amo/pages/Collection/index.js:512
+#: src/amo/pages/Collection/index.js:513
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -1995,7 +1971,7 @@ msgstr ""
 "ਮਨਪਸੰਦ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਥੀਮਾਂ ਦਾ ਟਰੈਕ ਰੱਖਣ ਲਈ ਫਾਇਰਫਾਕਸ ਸੰਗ੍ਰਿਹ ਡਾਊਨਲੋਡ ਕਰੋ ਅਤੇ ਬਣਾਓ। "
 "%(collectionName)s—%(collectionDescription)s ਪੜਚੋਲ ਕਰੋ।"
 
-#: src/amo/pages/Collection/index.js:515
+#: src/amo/pages/Collection/index.js:516
 msgid ""
 "Download and create Firefox collections to keep track of favorite extensions "
 "and themes. Explore the %(collectionName)s."
@@ -2003,15 +1979,15 @@ msgstr ""
 "ਮਨਪਸੰਦ ਐਕਸਟੈਂਸ਼ਨਾਂ ਅਤੇ ਥੀਮਾਂ ਦਾ ਟਰੈਕ ਰੱਖਣ ਲਈ ਫਾਇਰਫਾਕਸ ਸੰਗ੍ਰਿਹ ਡਾਊਨਲੋਡ ਕਰੋ ਅਤੇ ਬਣਾਓ। "
 "%(collectionName)s ਪੜਚੋਲ ਕਰੋ।"
 
-#: src/amo/pages/CollectionList/index.js:112
+#: src/amo/pages/CollectionList/index.js:114
 msgid "Collections"
 msgstr "ਸੰਗ੍ਰਹਿ"
 
-#: src/amo/pages/CollectionList/index.js:117
+#: src/amo/pages/CollectionList/index.js:119
 msgid "Log in to view your collections"
 msgstr "ਆਪਣੇ ਸੰਗ੍ਰਿਹਾਂ ਨੂੰ ਦੇਖਣ ਲਈ ਦਾਖਲ ਹੋਵੋ"
 
-#: src/amo/pages/CollectionList/index.js:122
+#: src/amo/pages/CollectionList/index.js:124
 msgid ""
 "Collections make it easy to keep track of favorite add-ons and share your "
 "perfectly customized browser with others."
@@ -2019,19 +1995,19 @@ msgstr ""
 "ਸੰਗ੍ਰਹਿ ਪਸੰਦ ਕਰਦੇ ਹੋਏ ਐਡ-ਆਨ ਦਾ ਟ੍ਰੈਕ ਰੱਖਣਾ ਆਸਾਨ ਬਣਾਉਂਦੇ ਹਨ ਅਤੇ ਦੂਜਿਆਂ ਦੁਆਰਾ ਤੁਹਾਡੇ ਬਿਲਕੁਲ "
 "ਅਨੁਕੂਲ ਬਣਾਏ ਗਏ ਬ੍ਰਾਉਜ਼ਰ ਨੂੰ ਸਾਂਝਾ ਕਰਦੇ ਹਨ।"
 
-#: src/amo/pages/CollectionList/index.js:132
+#: src/amo/pages/CollectionList/index.js:134
 msgid "Create a collection"
 msgstr "ਸੰਗ੍ਰਹਿ ਬਣਾਓ"
 
-#: src/amo/pages/CollectionList/index.js:61
+#: src/amo/pages/CollectionList/index.js:62
 msgid "You do not have any collections."
 msgstr "ਤੁਹਾਡੇ ਕੋਲ ਕੋਈ ਸੰਗ੍ਰਹਿ ਨਹੀਂ ਹੈ।"
 
-#: src/amo/pages/CollectionList/index.js:95
+#: src/amo/pages/CollectionList/index.js:96
 msgid "My collections"
 msgstr "ਮੇਰੇ ਸੰਗ੍ਰਹਿ"
 
-#: src/amo/pages/Guides/index.js:104
+#: src/amo/pages/Guides/index.js:105
 msgid ""
 "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands "
 "of content filters without chewing up a bunch of memory."
@@ -2039,15 +2015,15 @@ msgstr ""
 "ਹਲਕਾ, ਬਹੁਤ ਪ੍ਰਭਾਵਸ਼ਾਲੀ ਇਸ਼ਤਿਹਾਰ ਪਾਬੰਦੀ ਲਾਉਣ ਵਾਲਾ। uBlock ਮੂਲ ਹਜ਼ਾਰਾਂ ਸਮੱਗਰੀ ਫਿਲਟਰਾਂ ਨੂੰ "
 "ਮੈਮੋਰੀ ਖ਼ਪਤ ਕੀਤੇ ਬਗੈਰ ਲਾਗੂ ਕਰਦਾ ਹੈ।"
 
-#: src/amo/pages/Guides/index.js:108
+#: src/amo/pages/Guides/index.js:109
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
 msgstr "ਵਧੇਰੇ ਸ਼ਾਨਦਾਰ%(linkStart)s ਉਦਾਸ ਬਲੌਕਰ%(linkEnd)s ਦੀ ਪੜਚੋਲ ਕਰੋ।"
 
-#: src/amo/pages/Guides/index.js:116
+#: src/amo/pages/Guides/index.js:117
 msgid "Stop online trackers from stalking you"
 msgstr "ਆਨਲਾਈਨ ਟਰੈਕਰਜ਼ ਨੂੰ ਤੁਹਾਡੇ ਤੇ ਹਮਲਾ ਕਰਨ ਤੋਂ ਰੋਕੋ"
 
-#: src/amo/pages/Guides/index.js:117
+#: src/amo/pages/Guides/index.js:118
 msgid ""
 "Online advertisers can track your activity from one website to the next, "
 "gathering information about you and your interests. Extensions can help "
@@ -2057,7 +2033,7 @@ msgstr ""
 "ਬਾਰੇ ਜਾਣਕਾਰੀ ਇਕੱਤਰ ਕਰ ਸਕਦੇ ਹਨ। ਇਕਸਟੈਂਸ਼ਨ ਤੁਹਾਡੇ ਡਿਜੀਟਲ ਟ੍ਰਾਇਲ ਨੂੰ ਕਵਰ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰ "
 "ਸਕਦੇ ਹਨ।"
 
-#: src/amo/pages/Guides/index.js:122
+#: src/amo/pages/Guides/index.js:123
 msgid ""
 "Isolate your Facebook identity into a separate “container” to stop Facebook "
 "from tracking your activity outside of its social platform."
@@ -2065,18 +2041,18 @@ msgstr ""
 "ਫੇਸਬੁੱਕ ਨੂੰ ਆਪਣੇ ਸਮਾਜਿਕ ਪਲੇਟਫਾਰਮ ਦੇ ਬਾਹਰ ਆਪਣੀ ਗਤੀਵਿਧੀ ਨੂੰ ਟਰੈਕ ਕਰਨ ਤੋਂ ਰੋਕਣ ਲਈ ਆਪਣੀ ਫੇਸਬੁੱਕ "
 "ਪਛਾਣ ਨੂੰ ਅਲੱਗ “ਕੰਟੇਨਰ” ਵਿੱਚ ਅਲੱਗ ਰੱਖੋ।"
 
-#: src/amo/pages/Guides/index.js:126
+#: src/amo/pages/Guides/index.js:127
 msgid ""
 "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s "
 "extensions."
 msgstr ""
 "ਹੋਰ ਸਿਫਾਰਸ਼ੀ %(linkStart)s ਪ੍ਰਾਈਵਸੀ ਅਤੇ ਸਕਿਓਰਿਟੀ%(linkEnd)s ਦੇ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ।"
 
-#: src/amo/pages/Guides/index.js:137
+#: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
 msgstr "ਹੋਰ ਇਕ ਵਾਰੀ ਕਲਪਨਾ ਕਰੋ ਟੈਬ ਪ੍ਰਬੰਧਨ"
 
-#: src/amo/pages/Guides/index.js:138
+#: src/amo/pages/Guides/index.js:139
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with "
 "the frustration of searching through a row of unidentifiable tabs looking "
@@ -2087,7 +2063,7 @@ msgstr ""
 "ਇੱਕ ਦੀ ਤਲਾਸ਼ ਕਰਨ ਵਾਲੀ ਅਗਿਆਤ ਟੈਬਾਂ ਦੀ ਇੱਕ ਕਤਾਰ ਦੁਆਰਾ ਖੋਜ ਦੀ ਨਿਰਾਸ਼ਾ ਤੋਂ ਜਾਣੂ ਹੋ ਸਕਦਾ ਹੈ। "
 "ਇਕਸਟੈਨਸ਼ਨਾਂ ਨੂੰ ਟੈਬ ਦੇ ਇੰਤਜ਼ਾਮ ਨੂੰ ਸਰਲ ਬਣਾਉਣ ਲਈ ਸਿਰਜਣਾਤਮਕ ਹੱਲ ਪੇਸ਼ ਕਰ ਸਕਦੇ ਹਨ।"
 
-#: src/amo/pages/Guides/index.js:144
+#: src/amo/pages/Guides/index.js:145
 msgid ""
 "Arrange and visualize your tabs in a cascading “tree” style format in "
 "Firefox’s sidebar."
@@ -2096,15 +2072,15 @@ msgstr ""
 "ਵੇਖੋ।"
 
 # Example in English: "posted last week"
-#: src/amo/pages/Guides/index.js:148 src/amo/pages/Guides/index.js:187
+#: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
 msgstr "ਹੋਰ%(linkStart)s ਟੈਬ%(linkEnd)s ਦੇ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ।"
 
-#: src/amo/pages/Guides/index.js:159
+#: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
 msgstr "ਸੁਧਾਰ ਕੀਤੇ ਬੁੱਕਮਾਰਕ ਨਾਲ ਵਧੀਆ ਬਰਾਊਜ਼ਿੰਗ"
 
-#: src/amo/pages/Guides/index.js:160
+#: src/amo/pages/Guides/index.js:161
 msgid ""
 "Extensions can help you organize your online interests. Bookmark managers "
 "are ideal for folks with a lot of content to track."
@@ -2112,7 +2088,7 @@ msgstr ""
 "ਇਕਸਟੈਂਸ਼ਨ ਤੁਹਾਡੀ ਆਨਲਾਈਨ ਰੁਚੀਆਂ ਦੇ ਬੰਦੋਬਸਤ ਕਰਨ ਵਿੱਚ ਤੁਹਾਡੀ ਸਹਾਇਤਾ ਕਰ ਸਕਦੇ ਹਨ। ਬੁੱਕਮਾਰਕ "
 "ਮੈਨੇਜਰ, ਟਰੈਕ ਕਰਨ ਲਈ ਬਹੁਤ ਸਾਰੀ ਸਮੱਗਰੀ ਵਾਲੇ ਲੋਕਾਂ ਲਈ ਆਦਰਸ਼ ਹਨ।"
 
-#: src/amo/pages/Guides/index.js:164
+#: src/amo/pages/Guides/index.js:165
 msgid ""
 "Enjoy a better way to organize your bookmarks if you maintain multiple "
 "bookmark folders."
@@ -2120,32 +2096,32 @@ msgstr ""
 "ਜੇ ਤੁਸੀਂ ਕਈ ਬੁੱਕਮਾਰਕ ਫੋਲਡਰਾਂ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰਦੇ ਹੋ ਤਾਂ ਆਪਣੇ ਬੁੱਕਮਾਰਕਾਂ ਦੇ ਇੰਤਜ਼ਾਮ ਕਰਨ ਦੇ ਵਧੀਆ ਢੰਗ ਦਾ "
 "ਆਨੰਦ ਲਵੋ।"
 
-#: src/amo/pages/Guides/index.js:167
+#: src/amo/pages/Guides/index.js:168
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
 msgstr "ਹੋਰ %(linkStart)s ਬੁੱਕਮਾਰਕ%(linkEnd)s ਦੇ ਇਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ।"
 
-#: src/amo/pages/Guides/index.js:178
+#: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a fresh new tab experience"
 msgstr "ਇੱਕ ਤਾਜ਼ੇ ਨਵੇਂ ਟੈਬ ਅਨੁਭਵ ਦਾ ਅਨੰਦ ਮਾਣੋ"
 
-#: src/amo/pages/Guides/index.js:179
+#: src/amo/pages/Guides/index.js:180
 msgid ""
 "Start each browsing session tailored just for you by customizing your new "
 "tab experience."
 msgstr ""
 "ਆਪਣੇ ਨਵੇਂ ਟੈਬ ਅਨੁਭਵ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰਕੇ ਤੁਹਾਡੇ ਲਈ ਤਿਆਰ ਕੀਤੇ ਗਏ ਹਰੇਕ ਬ੍ਰਾਊਜ਼ਿੰਗ ਸੈਸ਼ਨ ਨੂੰ ਸ਼ੁਰੂ ਕਰੋ।"
 
-#: src/amo/pages/Guides/index.js:183
+#: src/amo/pages/Guides/index.js:184
 msgid ""
 "Enjoy a beautiful new page with customizable backgrounds, local weather "
 "info, and more."
 msgstr "ਅਨੁਕੂਲ ਬੈਕਗਰਾਊਂਡ, ਸਥਾਨਕ ਮੌਸਮ ਜਾਣਕਾਰੀ, ਅਤੇ ਹੋਰ ਦੇ ਨਾਲ ਇੱਕ ਸੁੰਦਰ ਨਵੇਂ ਪੰਨੇ ਦਾ ਆਨੰਦ ਮਾਣੋ।"
 
-#: src/amo/pages/Guides/index.js:201
+#: src/amo/pages/Guides/index.js:202
 msgid "Improve videos"
 msgstr "ਵੀਡੀਓਜ਼ ਨੂੰ ਸੁਧਾਰੋ"
 
-#: src/amo/pages/Guides/index.js:202
+#: src/amo/pages/Guides/index.js:203
 msgid ""
 "If you enjoy video content, extensions offer a number of ways to optimize "
 "your experience, including customizing YouTube to your taste and playing "
@@ -2155,7 +2131,7 @@ msgstr ""
 "ਪੇਸ਼ ਕਰਦੇ ਹਨ, ਜਿਸ ਵਿੱਚ ਥੀਏਟਰ ਮੋਡ ਵਿੱਚ YouTube ਨੂੰ ਆਪਣੇ ਸੁਆਦ ਅਤੇ ਵੀਡੀਓਜ਼ ਨੂੰ ਅਨੁਕੂਲ ਕਰਨਾ ਸ਼ਾਮਲ "
 "ਹੈ।"
 
-#: src/amo/pages/Guides/index.js:207
+#: src/amo/pages/Guides/index.js:208
 msgid ""
 "Add a control bar to all YouTube video pages so you can easily adjust "
 "volume, playback speed, video player size, advertising and annotation "
@@ -2164,11 +2140,11 @@ msgstr ""
 "ਸਾਰੇ YouTube ਵੀਡੀਓ ਸਫ਼ਿਆਂ ਉੱਤੇ ਕੰਟਰੋਲ ਪੱਟੀ ਜੋੜੋ ਤਾਂ ਜੋ ਤੁਸੀਂ ਆਕਾਰ, ਪਲੇਬੈਕ ਸਪੀਡ, ਵਿਡੀਓ ਪਲੇਅਰ "
 "ਦਾ ਆਕਾਰ, ਇਸ਼ਤਿਹਾਰ ਅਤੇ ਐਨੋਟੇਸ਼ਨ ਪਾਬੰਦੀਆਂ ਅਤੇ ਹੋਰ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਆਸਾਨੀ ਨਾਲ ਅਨੁਕੂਲ ਕਰ ਸਕੋ।"
 
-#: src/amo/pages/Guides/index.js:216
+#: src/amo/pages/Guides/index.js:217
 msgid "Get more out of media"
 msgstr "ਮੀਡੀਆ ਤੋਂ ਵੱਧ ਪ੍ਰਾਪਤ ਕਰੋ"
 
-#: src/amo/pages/Guides/index.js:217
+#: src/amo/pages/Guides/index.js:218
 msgid ""
 "Extensions can address a wide variety of niche media needs and interests, "
 "like image searching, download management, and text readers, to name a few."
@@ -2176,7 +2152,7 @@ msgstr ""
 "ਐਕਸਟੈਂਸ਼ਨ ਵੱਖ-ਵੱਖ ਕਿਸਮ ਦੇ ਮੀਡੀਆ ਲੋੜਾਂ ਅਤੇ ਦਿਲਚਸਪੀਆਂ ਨੂੰ ਸੰਬੋਧਨ ਕਰ ਸਕਦੇ ਹਨ, ਜਿਵੇਂ ਕਿ ਚਿੱਤਰ ਖੋਜ, "
 "ਡਾਊਨਲੋਡ ਪ੍ਰਬੰਧਨ, ਅਤੇ ਪਾਠ ਪਾਠਕ, ਕੁਝ ਨਾਂ ਲਿਖਣ ਲਈ।"
 
-#: src/amo/pages/Guides/index.js:222
+#: src/amo/pages/Guides/index.js:223
 msgid ""
 "Have you ever stumbled upon an intriguing image on the web and want to learn "
 "more about it, like who’s the person in the pic? Are there related images? "
@@ -2187,11 +2163,11 @@ msgstr ""
 "ਕਿ ਤਸਵੀਰ ਵਿਚਲੇ ਵਿਅਕਤੀ ਦਾ? ਕੀ ਇੱਥੇ ਸਬੰਧਿਤ ਤਸਵੀਰਾਂ ਹਨ? ਇਹ ਐਕਸਟੈਂਸ਼ਨ ਤੁਹਾਨੂੰ ਵੱਖ ਵੱਖ ਇੰਜਣਾਂ "
 "ਦੁਆਰਾ ਤੇਜ਼ ਅਤੇ ਆਸਾਨ ਉਲਟਾ ਚਿੱਤਰ ਖੋਜ ਕਰਨ ਦੀ ਆਗਿਆ ਦਿੰਦੀ ਹੈ।"
 
-#: src/amo/pages/Guides/index.js:232
+#: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
 msgstr "ਮੀਡੀਆ ਨੂੰ ਬਰਾਊਜ਼ਰ ਵਿੱਚ ਲਿਆਓ"
 
-#: src/amo/pages/Guides/index.js:233
+#: src/amo/pages/Guides/index.js:234
 msgid ""
 "Extensions can turn Firefox into your very own entertainment hub that gives "
 "you instant access to music, image capturing, gaming, and more."
@@ -2199,13 +2175,13 @@ msgstr ""
 "ਐਕਸਟੈਂਸ਼ਨ ਫਾਇਰਫਾਕਸ ਨੂੰ ਤੁਹਾਡੇ ਆਪਣੇ ਮਨੋਰੰਜਨ ਹੱਬ ਵਿੱਚ ਬਦਲ ਸਕਦੀ ਹੈ ਜੋ ਤੁਹਾਨੂੰ ਸੰਗੀਤ, ਚਿੱਤਰ ਕੈਪਚਰ, "
 "ਗੇਮਿੰਗ ਅਤੇ ਹੋਰ ਵੀ ਬਹੁਤ ਕੁਝ ਦੀ ਪਹੁੰਚ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ।"
 
-#: src/amo/pages/Guides/index.js:238
+#: src/amo/pages/Guides/index.js:239
 msgid ""
 "Access 30,000+ radio stations from all over the globe, always just a click "
 "away."
 msgstr "ਦੁਨੀਆ ਭਰ ਤੋਂ 30,000+ ਰੇਡੀਓ ਸਟੇਸ਼ਨਾਂ ਤੱਕ ਪਹੁੰਚੋ, ਹਮੇਸ਼ਾ ਇੱਕ ਕਲਿਕ ਦੂਰ।"
 
-#: src/amo/pages/Guides/index.js:267
+#: src/amo/pages/Guides/index.js:268
 msgid ""
 "The web is a wonderful but wild place. Your personal data can be used "
 "without your consent, your activities spied upon, and your passwords stolen. "
@@ -2216,7 +2192,7 @@ msgstr ""
 "ਖੁਸ਼ਕਿਸਮਤੀ ਨਾਲ, ਐਕਸਟੈਂਸ਼ਨਜ਼ ਤੁਹਾਡੀ ਔਨਲਾਈਨ ਪਰਦੇਦਾਰੀ ਅਤੇ ਸੁਰੱਖਿਆ ਨੂੰ ਮਜਬੂਤ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰ "
 "ਸਕਦੀ ਹੈ।"
 
-#: src/amo/pages/Guides/index.js:280
+#: src/amo/pages/Guides/index.js:281
 msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? "
 "Extensions can help! From organization assistance to providing fun new "
@@ -2227,7 +2203,7 @@ msgstr ""
 "ਸਕਦੀਆਂ ਹਨ! ਸੰਗਠਨ ਦੀ ਸਹਾਇਤਾ ਤੋਂ ਲੈ ਕੇ ਮਨੋਰੰਜਨ ਦੀਆਂ ਨਵੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਪ੍ਰਦਾਨ ਕਰਨ ਤੱਕ, ਐਕਸਟੈਂਸ਼ਨਾਂ "
 "ਨਾਲ ਤੁਹਾਡੇ ਟੈਬਾਂ ਅਤੇ ਬੁੱਕਮਾਰਕਸ ਨਾਲ ਨਜਿੱਠਣ ਦਾ ਤਰੀਕਾ ਬਦਲ ਦਿਓ ਨੂੰ ਬਦਲ ਸਕਦੀਆਂ ਹਨ।"
 
-#: src/amo/pages/Guides/index.js:293
+#: src/amo/pages/Guides/index.js:294
 msgid ""
 "Extensions can augment online media in all sorts of interesting ways, from "
 "watching videos to handling images, music, and more."
@@ -2235,11 +2211,11 @@ msgstr ""
 "ਐਕਸਟੈਂਸ਼ਨ ਵਿਡਿਓ ਦੇਖਣ ਤੋਂ ਲੈ ਕੇ ਹੈਂਡਲ ਕਰਨ ਵਾਲੀਆਂ ਤਸਵੀਰਾਂ, ਸੰਗੀਤ ਅਤੇ ਹੋਰ ਵੀ ਕਈ ਤਰਾਂ ਦੇ ਆਨਲਾਈਨ "
 "ਦਿਲਚਸਪ ਮੀਡੀਆ ਨੂੰ ਵਧਾ ਸਕਦੇ ਹਨ।"
 
-#: src/amo/pages/Guides/index.js:79
+#: src/amo/pages/Guides/index.js:80
 msgid "Create and manage strong passwords"
 msgstr "ਮਜ਼ਬੂਤ ਪਾਸਵਰਡ ਬਣਾਓ ਅਤੇ ਪ੍ਰਬੰਧਿਤ ਕਰੋ"
 
-#: src/amo/pages/Guides/index.js:80
+#: src/amo/pages/Guides/index.js:81
 msgid ""
 "Password managers can help you create secure passwords, store your passwords "
 "(safely) in one place, and give you easy access to your login credentials "
@@ -2249,7 +2225,7 @@ msgstr ""
 "(ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ) ਇਕ ਥਾਂ ਤੇ, ਅਤੇ ਤੁਸੀਂ ਜਿੱਥੇ ਵੀ ਹੋਵੋ ਉੱਥੇ ਆਪਣੇ ਲਾਗਇਨ ਪ੍ਰਮਾਣ ਪੱਤਰ ਤਕ ਆਸਾਨ ਪਹੁੰਚ "
 "ਪ੍ਰਦਾਨ ਕਰੋ।"
 
-#: src/amo/pages/Guides/index.js:85
+#: src/amo/pages/Guides/index.js:86
 msgid ""
 "Fully encrypted password protection. Store your data securely and access "
 "logins across devices."
@@ -2257,15 +2233,15 @@ msgstr ""
 "ਪੂਰੀ ਤਰ੍ਹਾਂ ਇਨਕਰਿਪਟਡ ਪਾਸਵਰਡ ਸੁਰੱਖਿਆ। ਆਪਣੇ ਡੇਟਾ ਨੂੰ ਸੁਰੱਖਿਅਤ ਰੂਪ ਨਾਲ ਸਟੋਰ ਕਰੋ ਅਤੇ ਡਿਵਾਈਸਾਂ "
 "ਵਿੱਚ ਐਕਸੈਸ ਕਰੋ।"
 
-#: src/amo/pages/Guides/index.js:89
+#: src/amo/pages/Guides/index.js:90
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
 msgstr "ਹੋਰ ਮਹਾਨ %(linkStart)sਪਾਸਵਰਡ ਮੈਨੇਜਰ%(linkEnd)s ਦੀ ਪੜਚੋਲ ਕਰੋ।"
 
-#: src/amo/pages/Guides/index.js:97
+#: src/amo/pages/Guides/index.js:98
 msgid "Block annoying ads"
 msgstr "ਤੰਗ ਕਰਨ ਵਾਲੇ ਇਸ਼ਤਿਹਾਰਾਂ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
 
-#: src/amo/pages/Guides/index.js:98
+#: src/amo/pages/Guides/index.js:99
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way "
 "and slow you down. Ad-blocking extensions can block or filter those ads so "
@@ -2275,35 +2251,35 @@ msgstr ""
 "ਹੌਲੀ ਕਰਦੇ ਹਨ। ਇਸ਼ਤਿਹਾਰ-ਪਾਬੰਦੀ ਇਕਸਟੈਂਸ਼ਨਾਂ ਉਹਨਾਂ ਇਸ਼ਤਿਹਾਰਾਂ ਉੱਤੇ ਪਾਬੰਦੀ ਲਗਾਉਂਦਾ ਜਾਂ ਫਿਲਟਰ ਕਰ "
 "ਸਕਦੀਆਂ ਹਨ ਤਾਂ ਜੋ ਤੁਸੀਂ ਬਿਨਾਂ-ਅਟਕੇ ਬਰਾਊਜ਼ਿੰਗ ਉੱਤੇ ਵਾਪਸ ਪ੍ਰਾਪਤ ਕਰ ਸਕੋ।"
 
-#: src/amo/pages/Home/index.js:144
+#: src/amo/pages/Home/index.js:141
 msgid "Abstract"
 msgstr "ਸੰਖੇਪ"
 
-#: src/amo/pages/Home/index.js:149
+#: src/amo/pages/Home/index.js:146
 msgid "Nature"
 msgstr "ਕੁਦਰਤ"
 
-#: src/amo/pages/Home/index.js:154
+#: src/amo/pages/Home/index.js:151
 msgid "Film & TV"
 msgstr "ਫਿਲਮ ਅਤੇ ਟੀਵੀ"
 
-#: src/amo/pages/Home/index.js:159
+#: src/amo/pages/Home/index.js:156
 msgid "Scenery"
 msgstr "ਦ੍ਰਿਸ਼"
 
-#: src/amo/pages/Home/index.js:164
+#: src/amo/pages/Home/index.js:161
 msgid "Music"
 msgstr "ਸੰਗੀਤ"
 
-#: src/amo/pages/Home/index.js:169
+#: src/amo/pages/Home/index.js:166
 msgid "Seasonal"
 msgstr "ਮੌਸਮੀ"
 
-#: src/amo/pages/Home/index.js:209
+#: src/amo/pages/Home/index.js:202
 msgid "Change the way Firefox looks with themes."
 msgstr "ਫਾਇਰਫਾਕਸ ਨੂੰ ਥੀਮਾਂ ਦੇ ਰੂਪ ਵਿੱਚ ਵੇਖਣਾ ਬਦਲੋ।"
 
-#: src/amo/pages/Home/index.js:239
+#: src/amo/pages/Home/index.js:233
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
@@ -2313,63 +2289,55 @@ msgstr ""
 "ਵਾਲੇ ਇਸ਼ਤਿਹਾਰ ਨੂੰ ਰੋਕ ਸਕਦੇ ਹਨ, ਪਾਸਵਰਡ ਸੰਭਾਲ ਸਕਦੇ ਹਨ, ਬਰਾਊਜ਼ਰ ਦਿੱਖ ਬਦਲ ਸਕਦੇ ਹਨ ਅਤੇ ਹੋਰ ਵੀ "
 "ਬਹੁਤ ਕੁਝ ਕਰ ਸਕਦੇ ਹਨ।"
 
-#: src/amo/pages/Home/index.js:282 src/amo/pages/LandingPage/index.js:153
+#: src/amo/pages/Home/index.js:279 src/amo/pages/LandingPage/index.js:135
 msgid "See more recommended extensions"
 msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਐਕਸਟੈਂਸ਼ਨਾਂ ਵੇਖੋ"
 
-#: src/amo/pages/Home/index.js:283 src/amo/pages/LandingPage/index.js:154
-msgid "See more featured extensions"
-msgstr "ਹੋਰ ਖਾਸ ਇਕਸਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
-
-#: src/amo/pages/Home/index.js:304
+#: src/amo/pages/Home/index.js:296
 msgid "See more popular themes"
 msgstr "ਵਧੇਰੇ ਪ੍ਰਸਿੱਧ ਥੀਮ ਵੇਖੋ"
 
-#: src/amo/pages/Home/index.js:325
+#: src/amo/pages/Home/index.js:317
 msgid "See more popular extensions"
 msgstr "ਹੋਰ ਪ੍ਰਸਿੱਧ ਐਕਸਟੈਂਸ਼ਨਾਂ ਵੇਖੋ"
 
-#: src/amo/pages/Home/index.js:344 src/amo/pages/LandingPage/index.js:192
+#: src/amo/pages/Home/index.js:334 src/amo/pages/LandingPage/index.js:167
 msgid "See more recommended themes"
 msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਥੀਮ ਵੇਖੋ"
 
-#: src/amo/pages/Home/index.js:345 src/amo/pages/LandingPage/index.js:193
-msgid "See more featured themes"
-msgstr "ਹੋਰ ਫੀਚਰਡ ਥੀਮ ਵੇਖੋ"
-
-#: src/amo/pages/Home/index.js:380 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:359 src/amo/pages/LandingPage/index.js:145
 msgid "See more trending extensions"
 msgstr "ਵਧੇਰੇ ਟ੍ਰੈਂਡਿੰਗ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੇਖੋ"
 
-#: src/amo/pages/Home/index.js:58
+#: src/amo/pages/Home/index.js:59
 msgid "See more enhanced privacy extensions"
 msgstr "ਹੋਰ ਵਧਾਈ ਗਈ ਗੋਪਨੀਯਤਾ ਐਕਸਟੈਂਸ਼ਨਾਂ ਵੇਖੋ"
 
-#: src/amo/pages/Home/index.js:59
+#: src/amo/pages/Home/index.js:60
 msgid "Enhanced privacy extensions"
 msgstr "ਸੁਧਾਰਿਆ ਗਿਆ ਗੋਪਨੀਯਤਾ ਵਧਾਉਣਾ"
 
-#: src/amo/pages/Home/index.js:64
+#: src/amo/pages/Home/index.js:65
 msgid "See more recommended password managers"
 msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਪਾਸਵਰਡ ਪ੍ਰਬੰਧਕ ਵੇਖੋ"
 
-#: src/amo/pages/Home/index.js:65
+#: src/amo/pages/Home/index.js:66
 msgid "Recommended password managers"
 msgstr "ਸਿਫਾਰਸ਼ੀ ਪਾਸਵਰਡ ਪ੍ਰਬੰਧਕ"
 
-#: src/amo/pages/LandingPage/index.js:174
+#: src/amo/pages/LandingPage/index.js:155
 msgid "See more top rated extensions"
 msgstr "ਵਧੇਰੇ ਉੱਚ ਰੇਟ ਦਿੱਤੇ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੇਖੋ"
 
-#: src/amo/pages/LandingPage/index.js:199
+#: src/amo/pages/LandingPage/index.js:173
 msgid "See more trending themes"
 msgstr "ਵਧੇਰੇ ਪ੍ਰਚਲਿਤ ਥੀਮ ਵੇਖੋ"
 
-#: src/amo/pages/LandingPage/index.js:205
+#: src/amo/pages/LandingPage/index.js:179
 msgid "See more top rated themes"
 msgstr "ਹੋਰ ਪ੍ਰਮੁੱਖ ਰੇਟ ਕੀਤੇ ਥੀਮ ਵੇਖੋ"
 
-#: src/amo/pages/LandingPage/index.js:229
+#: src/amo/pages/LandingPage/index.js:203
 msgid ""
 "Download themes to change how Firefox looks. Tailor your experience to your "
 "tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
@@ -2378,7 +2346,7 @@ msgstr ""
 "ਫਾਇਰਫਾਕਸ ਕਿਵੇਂ ਵੇਖਦਾ ਹੈ ਨੂੰ ਬਦਲਣ ਲਈ ਥੀਮ ਡਾਊਨਲੋਡ ਕਰੋ। ਆਪਣੇ ਅਨੁਭਵ ਨੂੰ ਆਪਣੇ ਸੁਆਰਥ ਨੂੰ ਦਰੁਸਤ ਕਰੋ। "
 "ਸੁੰਦਰ ਕ੍ਰੇਟਰ, ਬੁਰੇ ਰੋਬੋਟ, ਸੁੰਦਰ ਭੂਮੀ-ਹਜ਼ਾਰਾਂ ਵਿਕਲਪ।"
 
-#: src/amo/pages/LandingPage/index.js:234
+#: src/amo/pages/LandingPage/index.js:208
 msgid ""
 "Download Firefox Extensions to add features that customize browsing. Protect "
 "passwords, find deals, enhance video, and block annoying ads with browser "
@@ -2388,7 +2356,7 @@ msgstr ""
 "ਕਰਦੀਆਂ ਹਨ। ਪਾਸਵਰਡ ਸੁਰੱਖਿਅਤ ਕਰੋ, ਸੌਦੇ ਲੱਭੋ, ਵੀਡੀਓ ਨੂੰ ਵਧਾਓ ਅਤੇ ਬਰਾਊਜ਼ਰ ਐਪਸ ਨਾਲ ਤੰਗ ਕਰਨ ਵਾਲੇ "
 "ਇਸ਼ਤਿਹਾਰ ਨੂੰ ਰੋਕੋ।"
 
-#: src/amo/pages/LandingPage/index.js:256
+#: src/amo/pages/LandingPage/index.js:230
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -2396,7 +2364,7 @@ msgstr ""
 "ਆਪਣੇ ਬ੍ਰਾਉਜ਼ਰ ਦੀ ਦਿੱਖ ਨੂੰ ਬਦਲੋ। ਫਾਇਰਫਾਕਸ ਨੂੰ ਤੁਸੀਂ ਜੋ ਦਿੱਸਦੇ ਹੋ ਉਸ ਨੂੰ ਦੇਣ ਲਈ ਹਜ਼ਾਰਾਂ ਥੀਮਜ਼ ਵਿੱਚੋਂ "
 "ਚੁਣੋ।"
 
-#: src/amo/pages/LandingPage/index.js:258
+#: src/amo/pages/LandingPage/index.js:232
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -2404,19 +2372,19 @@ msgstr ""
 "ਫਾਇਰਫਾਕਸ ਨੂੰ ਕਸਟਮ ਕਰਨ ਲਈ ਅਤੇ ਬਰਾਊਜ਼ਰ ਨੂੰ ਆਪਣੀ ਥਾਂ ਤੇ ਬਣਾਉਣ ਲਈ ਸ਼ਕਤੀਸ਼ਾਲੀ ਟੂਲ ਅਤੇ ਫੀਚਰ ਦੀ "
 "ਪੜਚੋਲ ਕਰੋ।"
 
-#: src/amo/pages/LandingPage/index.js:297
+#: src/amo/pages/LandingPage/index.js:272
 msgid "Explore all categories"
 msgstr "ਸਾਰੇ ਵਰਗਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ"
 
-#: src/amo/pages/LanguageTools/index.js:109
+#: src/amo/pages/LanguageTools/index.js:110
 msgid "Available for your locale"
 msgstr "ਤੁਹਾਡੇ ਲੋਕੇਲ ਲਈ ਉਪਲਬਧ"
 
-#: src/amo/pages/LanguageTools/index.js:147
+#: src/amo/pages/LanguageTools/index.js:148
 msgid "Dictionaries and Language Packs"
 msgstr "ਸ਼ਬਦਕੋਸ਼ ਅਤੇ ਭਾਸ਼ਾ ਪੈਕ"
 
-#: src/amo/pages/LanguageTools/index.js:156
+#: src/amo/pages/LanguageTools/index.js:158
 msgid ""
 "Download Firefox dictionaries and language pack extensions. Add a new "
 "language option to your browser spell-checker, or change the browser's "
@@ -2425,7 +2393,7 @@ msgstr ""
 "ਫਾਇਰਫਾਕਸ ਸ਼ਬਦਕੋਸ਼ ਅਤੇ ਭਾਸ਼ਾ ਪੈਕ ਐਕਸਟੈਂਸ਼ਨਾਂ ਡਾਊਨਲੋਡ ਕਰੋ। ਆਪਣੇ ਬ੍ਰਾਉਜ਼ਰ ਸਪੈੱਲ-ਚੈਕਰ ਲਈ ਨਵੀਂ ਭਾਸ਼ਾ "
 "ਵਿਕਲਪ ਜੋੜੋ, ਜਾਂ ਬ੍ਰਾਊਜ਼ਰ ਦੀ ਇੰਟਰਫੇਸ ਭਾਸ਼ਾ ਨੂੰ ਬਦਲੋ।"
 
-#: src/amo/pages/LanguageTools/index.js:167
+#: src/amo/pages/LanguageTools/index.js:169
 msgid ""
 "Installing a dictionary add-on will add a new language option to your spell-"
 "checker, which checks your spelling as you type in Firefox."
@@ -2433,7 +2401,7 @@ msgstr ""
 "ਇੱਕ ਸ਼ਬਦਕੋਸ਼ ਐਡ-ਆਨ ਸਥਾਪਤ ਕਰਨ ਨਾਲ ਤੁਹਾਡੇ ਸਪੈਲ-ਚੈਕਰ ਲਈ ਇੱਕ ਨਵੀਂ ਭਾਸ਼ਾ ਵਿਕਲਪ ਸ਼ਾਮਲ ਹੋਵੇਗਾ, ਜੋ "
 "ਫਾਇਰਫਾਕਸ ਵਿੱਚ ਟਾਈਪ ਕਰਦੇ ਸਮੇਂ ਤੁਹਾਡੀ ਸਪੈਲਿੰਗ ਦੀ ਜਾਂਚ ਕਰਦਾ ਹੈ।"
 
-#: src/amo/pages/LanguageTools/index.js:172
+#: src/amo/pages/LanguageTools/index.js:174
 msgid ""
 "Language packs change your browser's interface language, including menu "
 "options and settings."
@@ -2441,23 +2409,23 @@ msgstr ""
 "ਭਾਸ਼ਾ ਪੈਕ ਤੁਹਾਡੇ ਬ੍ਰਾਉਜ਼ਰ ਦੀ ਇੰਟਰਫੇਸ ਭਾਸ਼ਾ ਨੂੰ ਬਦਲਦਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਮੀਨੂ ਵਿਕਲਪਾਂ ਅਤੇ ਸੈਟਿੰਗਾਂ "
 "ਸ਼ਾਮਲ ਹਨ।"
 
-#: src/amo/pages/LanguageTools/index.js:178
+#: src/amo/pages/LanguageTools/index.js:181
 msgid "All Locales"
 msgstr "ਸਾਰੀਆਂ ਭਾਸ਼ਾਵਾਂ"
 
-#: src/amo/pages/LanguageTools/index.js:184
+#: src/amo/pages/LanguageTools/index.js:188
 msgid "Locale Name"
 msgstr "ਭਾਸ਼ਾ ਦਾ ਨਾਂ"
 
-#: src/amo/pages/LanguageTools/index.js:187
+#: src/amo/pages/LanguageTools/index.js:191
 msgid "Language Packs"
 msgstr "ਭਾਸ਼ਾ ਪੈਕ"
 
-#: src/amo/pages/LanguageTools/index.js:190
+#: src/amo/pages/LanguageTools/index.js:194
 msgid "Dictionaries"
 msgstr "ਸ਼ਬਦ-ਕੋਸ਼"
 
-#: src/amo/pages/SearchTools/index.js:31
+#: src/amo/pages/SearchTools/index.js:32
 msgid ""
 "Download Firefox extensions to customize the way you search—everything from "
 "privacy-enhanced searching to website-specific searches, image searching, "
@@ -2806,11 +2774,11 @@ msgid ""
 "Make false statements, disparage add-on authors or personally insult them."
 msgstr "ਝੂਠੇ ਬਿਆਨ ਦੇਣਾ, ਐਡ-ਆਨ ਲੇਖਕਾਂ ਨੂੰ ਨਿੰਦਣਾ, ਜਾਂ ਉਸ ਨੂੰ ਨਿੱਜੀ ਤੌਰ ਤੇ ਬੇਇੱਜ਼ਤ ਕਰਨਾ।"
 
-#: src/amo/pages/UserProfile/index.js:240
+#: src/amo/pages/UserProfile/index.js:241
 msgid "My reviews"
 msgstr "ਮੇਰੀ ਸਮੀਖਿਆ"
 
-#: src/amo/pages/UserProfile/index.js:268
+#: src/amo/pages/UserProfile/index.js:269
 msgid ""
 "The profile of %(user)s, a Firefox extension and theme author. Find other "
 "apps by %(user)s, including average ratings, tenure, and the option to "
@@ -2819,7 +2787,7 @@ msgstr ""
 "%(user)s ਦੇ ਪਰੋਫਾਈਲ, ਫਾਇਰਫਾਕਸ ਐਕਸਟੈਂਸ਼ਨ ਅਤੇ ਥੀਮ ਲੇਖਕ. ਔਸਤ ਰੇਟਿੰਗਾਂ। ਕਾਰਜਕਾਲ ਅਤੇ ਮੁੱਦਿਆਂ ਦੀ "
 "ਰਿਪੋਰਟ ਕਰਨ ਦੇ ਵਿਕਲਪ ਸਮੇਤ, %(user)s ਦੁਆਰਾ ਹੋਰ ਐਪਸ ਲੱਭੋ।"
 
-#: src/amo/pages/UserProfile/index.js:272
+#: src/amo/pages/UserProfile/index.js:273
 msgid ""
 "The profile of %(user)s, Firefox extension author. Find other extensions by "
 "%(user)s, including average ratings, tenure, and the option to report issues."
@@ -2827,7 +2795,7 @@ msgstr ""
 "%(user)s ਦੇ ਪਰੋਫਾਈਲ, ਫਾਇਰਫਾਕਸ ਐਕਸ਼ਟੇਸ਼ਨ ਲੇਖਕੋ। ਔਸਤ ਰੇਟਿੰਗਾਂ, ਕਾਰਜਕਾਲ ਅਤੇ ਮੁੱਦਿਆਂ ਦੀ ਰਿਪੋਰਟ "
 "ਕਰਨ ਦੇ ਵਿਕਲਪ ਸਮੇਤ,%(user)s ਦੁਆਰਾ ਹੋਰ ਐਕਸਟੈਨਸ਼ਨ ਲੱਭੋ।"
 
-#: src/amo/pages/UserProfile/index.js:276
+#: src/amo/pages/UserProfile/index.js:277
 msgid ""
 "The profile of %(user)s, Firefox theme author. Find other themes by "
 "%(user)s, including average ratings, tenure, and the option to report issues."
@@ -2835,64 +2803,64 @@ msgstr ""
 "%(user)s ਦੇ ਪਰੋਫਾਈਲ, ਫਾਇਰਫਾਕਸ ਥੀਮ ਲੇਖਕੋ। ਔਸਤ ਰੇਟਿੰਗਾਂ, ਕਾਰਜਕਾਲ ਅਤੇ ਮੁੱਦਿਆਂ ਦੀ ਰਿਪੋਰਟ ਕਰਨ "
 "ਦੇ ਵਿਕਲਪ ਸਮੇਤ,%(user)s ਦੁਆਰਾ ਹੋਰ ਥੀਮ ਲੱਭੋ।"
 
-#: src/amo/pages/UserProfile/index.js:315
+#: src/amo/pages/UserProfile/index.js:316
 msgid "Add-ons developer"
 msgstr "ਐਡ-ਆਨ ਡਿਵੈਲਪਰ"
 
-#: src/amo/pages/UserProfile/index.js:321
+#: src/amo/pages/UserProfile/index.js:322
 msgid "Theme artist"
 msgstr "ਥੀਮ ਕਲਾਕਾਰ"
 
-#: src/amo/pages/UserProfile/index.js:335
-#: src/amo/pages/UserProfileEdit/index.js:501
+#: src/amo/pages/UserProfile/index.js:336
+#: src/amo/pages/UserProfileEdit/index.js:536
 msgid "User Profile for %(user)s"
 msgstr "%(user)s ਲਈ ਯੂਜ਼ਰ ਪਰੋਫਾਈਲ"
 
-#: src/amo/pages/UserProfile/index.js:338
+#: src/amo/pages/UserProfile/index.js:339
 msgid "User Profile"
 msgstr "ਵਰਤੋਂਕਾਰ ਦਾ ਬਿਉਰਾ"
 
-#: src/amo/pages/UserProfile/index.js:363
-#: src/amo/pages/UserProfileEdit/index.js:653
+#: src/amo/pages/UserProfile/index.js:365
+#: src/amo/pages/UserProfileEdit/index.js:690
 msgid "Location"
 msgstr "ਟਿਕਾਣਾ"
 
-#: src/amo/pages/UserProfile/index.js:371
-#: src/amo/pages/UserProfileEdit/index.js:665
+#: src/amo/pages/UserProfile/index.js:373
+#: src/amo/pages/UserProfileEdit/index.js:705
 msgid "Occupation"
 msgstr "ਕਿੱਤਾ"
 
-#: src/amo/pages/UserProfile/index.js:378
+#: src/amo/pages/UserProfile/index.js:380
 msgid "User since"
 msgstr "ਤੋਂ ਉਪਭੋਗੀ"
 
-#: src/amo/pages/UserProfile/index.js:388
+#: src/amo/pages/UserProfile/index.js:390
 msgid "Number of add-ons"
 msgstr "ਐਡ-ਆਨ ਦੀ ਗਿਣਤੀ"
 
-#: src/amo/pages/UserProfile/index.js:394
+#: src/amo/pages/UserProfile/index.js:396
 msgid "Average rating of developer’s add-ons"
 msgstr "ਡਿਵੈਲਪਰ ਦੇ ਐਡ-ਆਨ ਦੀ ਔਸਤ ਰੇਟਿੰਗ"
 
-#: src/amo/pages/UserProfile/index.js:409
-#: src/amo/pages/UserProfileEdit/index.js:687
+#: src/amo/pages/UserProfile/index.js:411
+#: src/amo/pages/UserProfileEdit/index.js:727
 msgid "Biography"
 msgstr "ਮੇਰੇ ਬਾਰੇ"
 
-#: src/amo/pages/UserProfile/index.js:433
+#: src/amo/pages/UserProfile/index.js:435
 msgid "Edit profile"
 msgstr "ਪਰੋਫਾਇਲ ਸੋਧ"
 
 # This action allows an admin to maintain a user.
-#: src/amo/pages/UserProfile/index.js:445
+#: src/amo/pages/UserProfile/index.js:447
 msgid "Admin user"
 msgstr "ਐਡਮਿਨ ਯੂਜਰ"
 
-#: src/amo/pages/UserProfileEdit/index.js:196
+#: src/amo/pages/UserProfileEdit/index.js:198
 msgid "Picture successfully deleted"
 msgstr "ਤਸਵੀਰ ਸਫਲਤਾਪੂਰਵਕ ਮਿਟਾ ਦਿੱਤੀ ਗਈ"
 
-#: src/amo/pages/UserProfileEdit/index.js:427
+#: src/amo/pages/UserProfileEdit/index.js:443
 msgid ""
 "Tell users a bit more information about yourself. Most fields are optional, "
 "but they'll help other users get to know you better."
@@ -2900,7 +2868,7 @@ msgstr ""
 "ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ ਆਪਣੇ ਬਾਰੇ ਕੁਝ ਹੋਰ ਜਾਣਕਾਰੀ ਦੱਸੋ। ਜ਼ਿਆਦਾਤਰ ਖੇਤਰ ਅਖ਼ਤਿਆਰੀ ਹਨ, ਪਰ ਉਹ ਹੋਰ "
 "ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ ਤੁਹਾਡੀ ਬਿਹਤਰ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰਨ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਨਗੇ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:431
+#: src/amo/pages/UserProfileEdit/index.js:447
 msgid ""
 "Tell users a bit more information about this user. Most fields are optional, "
 "but they'll help other users get to know %(userName)s better."
@@ -2908,43 +2876,69 @@ msgstr ""
 "ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ ਇਸ ਉਪਭੋਗਤਾ ਬਾਰੇ ਕੁਝ ਹੋਰ ਜਾਣਕਾਰੀ ਦੱਸੋ। ਜ਼ਿਆਦਾਤਰ ਖੇਤਰ ਅਖ਼ਤਿਆਰੀ ਹਨ, ਪਰ ਉਹ ਹੋਰ "
 "ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ %(userName)s ਦੀ ਬਿਹਤਰ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰਨਗੇ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:446
+#: src/amo/pages/UserProfileEdit/index.js:462
 msgid "Introduce yourself to the community if you like"
 msgstr "ਜੇ ਤੁਸੀਂ ਚਾਹੋ ਤਾਂ ਆਪਣੇ ਆਪ ਨੂੰ ਕਮਿਊਨਿਟੀ ਨਾਲ ਜੋੜੋ"
 
-#: src/amo/pages/UserProfileEdit/index.js:447
+#: src/amo/pages/UserProfileEdit/index.js:463
 msgid "Introduce %(userName)s to the community"
 msgstr "ਕਮਿਊਨਿਟੀ ਵਿੱਚ %(userName)s ਨੂੰ ਪੇਸ਼ ਕਰੋ"
 
-#: src/amo/pages/UserProfileEdit/index.js:471
+#: src/amo/pages/UserProfileEdit/index.js:490
 msgid "Log in to edit the profile"
 msgstr "ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਲਈ ਲੌਗ ਇਨ ਕਰੋ"
 
-#: src/amo/pages/UserProfileEdit/index.js:514
+#: src/amo/pages/UserProfileEdit/index.js:512
+#, fuzzy
+msgid "Creating your profile…"
+msgstr "ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਅਪਡੇਟ ਕਰ ਰਿਹਾ ਹੈ…"
+
+#: src/amo/pages/UserProfileEdit/index.js:513
+#, fuzzy
+msgid "Create My Profile"
+msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਅਪਡੇਟ ਕਰੋ"
+
+#: src/amo/pages/UserProfileEdit/index.js:517
+msgid "Updating your profile…"
+msgstr "ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਅਪਡੇਟ ਕਰ ਰਿਹਾ ਹੈ…"
+
+#: src/amo/pages/UserProfileEdit/index.js:518
+msgid "Update My Profile"
+msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਅਪਡੇਟ ਕਰੋ"
+
+#: src/amo/pages/UserProfileEdit/index.js:521
+msgid "Updating profile…"
+msgstr "ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਅਪਡੇਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"
+
+#: src/amo/pages/UserProfileEdit/index.js:522
+msgid "Update Profile"
+msgstr "ਅੱਪਡੇਟ ਪਰੋਫਾਇਲ"
+
+#: src/amo/pages/UserProfileEdit/index.js:549
 msgid "View user's profile"
 msgstr "ਉਪਭੋਗਤਾ ਦਾ ਪ੍ਰੋਫ਼ਾਈਲ ਵੇਖੋ"
 
-#: src/amo/pages/UserProfileEdit/index.js:520
+#: src/amo/pages/UserProfileEdit/index.js:555
 msgid "Edit user's profile"
 msgstr "ਯੂਜਰ ਪਰੋਫਾਇਲ ਸੋਧੋ"
 
-#: src/amo/pages/UserProfileEdit/index.js:538
+#: src/amo/pages/UserProfileEdit/index.js:573
 msgid "Account"
 msgstr "ਖਾਤਾ"
 
-#: src/amo/pages/UserProfileEdit/index.js:539
+#: src/amo/pages/UserProfileEdit/index.js:574
 msgid "Account for %(userName)s"
 msgstr "%(userName)s ਲਈ ਖਾਤਾ"
 
-#: src/amo/pages/UserProfileEdit/index.js:546
+#: src/amo/pages/UserProfileEdit/index.js:581
 msgid "Email Address"
 msgstr "ਈਮੇਲ ਪਤਾ"
 
-#: src/amo/pages/UserProfileEdit/index.js:553
+#: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Email address cannot be changed here"
 msgstr "ਈਮੇਲ ਪਤਾ ਇੱਥੇ ਤਬਦੀਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"
 
-#: src/amo/pages/UserProfileEdit/index.js:562
+#: src/amo/pages/UserProfileEdit/index.js:599
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -2952,41 +2946,41 @@ msgstr ""
 "ਤੁਸੀਂ ਫਾਇਰਫਾਕਸ ਅਕਾਊਂਟ ਤੇ ਆਪਣਾ ਈਮੇਲ ਪਤਾ ਬਦਲ ਸਕਦੇ ਹੋ। %(startLink)s ਮਦਦ ਦੀ ਲੋੜ ਹੈ?"
 "%(endLink)s"
 
-#: src/amo/pages/UserProfileEdit/index.js:579
+#: src/amo/pages/UserProfileEdit/index.js:616
 msgid "Manage Firefox Accounts…"
 msgstr "ਫਾਇਰਫਾਕਸ ਖਾਤੇ ਪ੍ਰਬੰਧਿਤ ਕਰੋ…"
 
-#: src/amo/pages/UserProfileEdit/index.js:587
+#: src/amo/pages/UserProfileEdit/index.js:624
 msgid "Profile"
 msgstr "ਪ੍ਰੋਫਾਈਲ"
 
-#: src/amo/pages/UserProfileEdit/index.js:596
+#: src/amo/pages/UserProfileEdit/index.js:633
 msgid "This field is required"
 msgstr "ਇਸ ਫੀਲਡ ਦੀ ਲੋੜ ਹੈ"
 
 # the star is used to indicate a required field
-#: src/amo/pages/UserProfileEdit/index.js:599
+#: src/amo/pages/UserProfileEdit/index.js:636
 msgid "Display Name *"
 msgstr "ਨਾਂ ਵਿਖਾਓ *"
 
 # This action allows a reviewer to perform a review of a theme.
-#: src/amo/pages/UserProfileEdit/index.js:615
+#: src/amo/pages/UserProfileEdit/index.js:652
 msgid "Reviewer Name"
 msgstr "ਪੜਤਾਲ ਕਰਤਾ ਦਾ ਨਾਂ"
 
-#: src/amo/pages/UserProfileEdit/index.js:648
+#: src/amo/pages/UserProfileEdit/index.js:685
 msgid "This URL will only be visible for users who are developers."
 msgstr "ਇਹ URL ਸਿਰਫ ਉਨ੍ਹਾਂ ਉਪਭੋਗਤਾਵਾਂ ਲਈ ਦਿਖਾਈ ਦੇਵੇਗੀ ਜੋ ਵਿਕਾਸ ਕਰਤਾ ਹਨ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:702
+#: src/amo/pages/UserProfileEdit/index.js:742
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "ਕੁਝ HTML ਸਹਿਯੋਗੀ: %(htmlTags)s। ਲਿੰਕਾਂ ਦੀ ਮਨਾਹੀ ਹੈ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:726
+#: src/amo/pages/UserProfileEdit/index.js:766
 msgid "Notifications"
 msgstr "ਸੂਚਨਾਵਾਂ"
 
-#: src/amo/pages/UserProfileEdit/index.js:730
+#: src/amo/pages/UserProfileEdit/index.js:770
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
@@ -2994,7 +2988,7 @@ msgstr ""
 "ਸਮੇਂ-ਸਮੇ ਤੇ, ਮੌਜੀਲਾ ਆਉਣ ਵਾਲੀਆਂ ਰੀਲੀਜ਼ਾਂ ਅਤੇ ਐਡ-ਆਨ ਸਮਾਗਮਾਂ ਬਾਰੇ ਈਮੇਲ ਭੇਜਦਾ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ "
 "ਵਿਸ਼ਾ ਚੁਣੋ ਜਿਸ ਵਿੱਚ ਤੁਹਾਡੀ ਦਿਲਚਸਪੀ ਹੋਵੇ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:735
+#: src/amo/pages/UserProfileEdit/index.js:775
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
@@ -3002,7 +2996,7 @@ msgstr ""
 "ਸਮੇਂ ਸਮੇਂ ਤੇ, ਮੋਜ਼ੀਲਾ ਆਉਣ ਵਾਲੇ ਰੀਲੀਜ਼ਾਂ ਅਤੇ ਐਡ-ਆਨ ਪ੍ਰੋਗਰਾਮਾਂ ਬਾਰੇ ਇਸ ਉਪਭੋਗਤਾ ਨੂੰ ਈਮੇਲ ਭੇਜ ਸਕਦੀ "
 "ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਉਹ ਵਿਸ਼ੇ ਚੁਣੋ ਜੋ ਇਸ ਉਪਭੋਗਤਾ ਵਿੱਚ ਦਿਲਚਸਪੀ ਲੈ ਸਕਦੇ ਹਨ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:750
+#: src/amo/pages/UserProfileEdit/index.js:790
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
@@ -3010,41 +3004,25 @@ msgstr ""
 "ਮੌਜੀਲਾ ਕੋਲ ਤੁਹਾਡੇ ਵੱਲੋਂ ਮੇਜ਼ਬਾਨ ਐਡ-ਆਨ ਬਾਰੇ ਖਾਸ਼ ਤਸ਼ਵੀਸ਼ ਲਈ ਤੁਹਾਨੂੰ ਵਿਅਕਤੀਗਤ ਰੂਪ ਵਿੱਚ ਸੰਪਰਕ ਕਰਨ "
 "ਦਾ ਅਧਿਕਾਰ ਰਾਖਵਾਂ ਹੈ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:768
-msgid "Updating your profile…"
-msgstr "ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਅਪਡੇਟ ਕਰ ਰਿਹਾ ਹੈ…"
-
-#: src/amo/pages/UserProfileEdit/index.js:769
-msgid "Update My Profile"
-msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਅਪਡੇਟ ਕਰੋ"
-
-#: src/amo/pages/UserProfileEdit/index.js:771
-msgid "Updating profile…"
-msgstr "ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਅਪਡੇਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"
-
-#: src/amo/pages/UserProfileEdit/index.js:772
-msgid "Update Profile"
-msgstr "ਅੱਪਡੇਟ ਪਰੋਫਾਇਲ"
-
-#: src/amo/pages/UserProfileEdit/index.js:783
-#: src/amo/pages/UserProfileEdit/index.js:872
+#: src/amo/pages/UserProfileEdit/index.js:816
+#: src/amo/pages/UserProfileEdit/index.js:905
 msgid "Delete My Profile"
 msgstr "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਹਟਾਓ"
 
-#: src/amo/pages/UserProfileEdit/index.js:784
-#: src/amo/pages/UserProfileEdit/index.js:873
+#: src/amo/pages/UserProfileEdit/index.js:817
+#: src/amo/pages/UserProfileEdit/index.js:906
 msgid "Delete Profile"
 msgstr "ਪਰੋਫਾਈਲ ਨੂੰ ਹਟਾਓ"
 
-#: src/amo/pages/UserProfileEdit/index.js:796
+#: src/amo/pages/UserProfileEdit/index.js:829
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
 msgstr "IMPORTANT: ਤੁਹਾਡੇ ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਹਟਾਉਣਾ ਵਾਪਸੀਯੋਗ ਨਹੀਂ ਹੈ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:799
+#: src/amo/pages/UserProfileEdit/index.js:832
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
 msgstr "IMPORTANT: ਇਸ ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਹਟਾਉਣਾ ਵਾਪਸੀਯੋਗ ਨਹੀਂ ਹੈ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:808
+#: src/amo/pages/UserProfileEdit/index.js:841
 msgid ""
 "Your data will be permanently removed, including profile details (picture, "
 "user name, display name, location, home page, biography, occupation) and "
@@ -3055,7 +3033,7 @@ msgstr ""
 "ਪ੍ਰਦਰਸ਼ਨੀ ਦਾ ਨਾਮ, ਸਥਾਨ, ਮੁੱਖ ਪੰਨਾ, ਜੀਵਨੀ, ਪੇਸ਼ਾ) ਅਤੇ ਨੋਟੀਫਿਕੇਸ਼ਨ ਪਸੰਦਾਂ ਸਮੇਤ। ਤੁਹਾਡੀਆਂ "
 "ਸਮੀਖਿਆਵਾਂ ਅਤੇ ਰੇਟਿੰਗ ਗੁਮਨਾਮ ਹੋਣਗੀਆਂ ਅਤੇ ਹੁਣ ਸੰਪਾਦਨ ਯੋਗ ਨਹੀਂ ਹੋਣਗੇ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:815
+#: src/amo/pages/UserProfileEdit/index.js:848
 msgid ""
 "The user’s data will be permanently removed, including profile details "
 "(picture, user name, display name, location, home page, biography, "
@@ -3066,7 +3044,7 @@ msgstr ""
 "ਪ੍ਰਦਰਸ਼ਨੀ ਦਾ ਨਾਮ, ਸਥਾਨ, ਹੋਮ ਪੇਜ, ਜੀਵਨੀ, ਪੇਸ਼ਾ) ਅਤੇ ਸੂਚਨਾ ਤਰਜੀਹਾਂ ਸਮੇਤ। ਸਮੀਖਿਆਵਾਂ ਅਤੇ "
 "ਦਰਜਾ ਅਗਿਆਤ ਹੋਣਗੇ ਅਤੇ ਹੁਣ ਸੰਪਾਦਨ ਯੋਗ ਨਹੀਂ ਹੋਣਗੇ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:825
+#: src/amo/pages/UserProfileEdit/index.js:858
 msgid ""
 "When you use this email address to log in again to addons.mozilla.org, you "
 "will create a new Firefox Add-ons profile that is in no way associated with "
@@ -3076,7 +3054,7 @@ msgstr ""
 "ਇੱਕ ਨਵਾਂ ਫਾਇਰਫਾਕਸ ਐਡ-ਆਨ ਪ੍ਰੋਫਾਈਲ ਬਣਾਉਗੇ ਜੋ ਤੁਹਾਡੇ ਦੁਆਰਾ ਮਿਟਾਏ ਗਏ ਪ੍ਰੋਫਾਈਲ ਨਾਲ ਕਿਸੇ ਵੀ "
 "ਤਰਾਂ ਸਬੰਧਤ ਨਹੀਂ ਹੈ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:838
+#: src/amo/pages/UserProfileEdit/index.js:871
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
 "the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
@@ -3088,7 +3066,7 @@ msgstr ""
 "ਤੁਹਾਨੂੰ %(docLinkStart)sਦੀ ਮਲਕੀਅਤ%(docLinkEnd)s ਨੂੰ ਤਬਦੀਲ ਕਰਨਾ ਪਵੇਗਾ ਜਾਂ ਐਡ-ਆਨ ਨੂੰ "
 "ਮਿਟਾਉਣਾ ਪਵੇਗਾ।"
 
-#: src/amo/pages/UserProfileEdit/index.js:845
+#: src/amo/pages/UserProfileEdit/index.js:878
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
 "user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
@@ -3096,18 +3074,18 @@ msgstr ""
 "%(strongStart)sNOTE:%(strongEnd)s ਤੁਸੀਂ ਉਪਭੋਗਤਾ ਦਾ ਪ੍ਰੋਫਾਈਲ ਨਹੀਂ ਮਿਟਾ ਸਕਦੇ ਜੇ "
 "ਉਪਯੋਗਕਰਤਾ%(linkStart)s ਕਿਸੇ ਐਡ-ਆਨ%(linkEnd)s ਦਾ ਅਧਿਕਾਰਤ ਹੈ।"
 
-#: src/amo/pages/UsersUnsubscribe/index.js:104
+#: src/amo/pages/UsersUnsubscribe/index.js:106
 msgid "You are successfully unsubscribed!"
 msgstr "ਤੁਹਾਡੀ ਗਾਹਕੀ ਸਫ਼ਲਤਾਪੂਰਨ ਰੱਦ ਹੋਈ!"
 
 # a list of notifications will be displayed under this prompt.
-#: src/amo/pages/UsersUnsubscribe/index.js:117
+#: src/amo/pages/UsersUnsubscribe/index.js:119
 msgid ""
 "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
 "messages when:"
 msgstr "ਈਮੇਲ ਐਡਰੈੱਸ %(strongStart)s%(email)s%(strongEnd)s ਨੂੰ ਹੁਣ ਸੁਨੇਹੇ ਨਹੀਂ ਮਿਲਣਗੇ ਜਦੋਂ:"
 
-#: src/amo/pages/UsersUnsubscribe/index.js:76
+#: src/amo/pages/UsersUnsubscribe/index.js:77
 msgid ""
 "You can edit your notification settings by %(linkStart)sediting your profile"
 "%(linkEnd)s."
@@ -3115,7 +3093,7 @@ msgstr ""
 "ਤੁਸੀਂ ਆਪਣੇ ਨੋਟੀਫਿਕੇਸ਼ਨ ਸੈਟਿੰਗਾਂ ਨੂੰ%(linkStart)s ਦੁਆਰਾ ਆਪਣੇ ਪ੍ਰੋਫਾਈਲ%(linkEnd)s ਨੂੰ ਭਰਮਾ ਸਕਦੇ "
 "ਹੋ।"
 
-#: src/amo/pages/UsersUnsubscribe/index.js:95
+#: src/amo/pages/UsersUnsubscribe/index.js:97
 msgid "Unsubscribe"
 msgstr "ਮੈਂਬਰੀ ਹਟਾਓ"
 
@@ -3181,7 +3159,7 @@ msgstr "ਥੀਮ ਇੰਸਟਾਲ ਕਰੋ"
 msgid "Add to Firefox"
 msgstr "ਫ਼ਾਇਰਫ਼ਾਕਸ ਵਿੱਚ ਜੋੜੋ"
 
-#: src/core/components/AuthenticateButton/index.js:81
+#: src/core/components/AuthenticateButton/index.js:87
 msgid "Register or Log in"
 msgstr "ਰਜਿਸਟਰ ਜਾਂ ਲਾਗਇਨ ਕਰੋ"
 
@@ -3409,6 +3387,33 @@ msgstr[1] "%(total)s ਐਡ-ਆਨ"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "ਵਿਕਾਸਕਾਰ ਜਵਾਬ"
+
+#~ msgid "Featured Extension"
+#~ msgstr "ਖਾਸ ਇਕਸਟੈਨਸ਼ਨਾਂ"
+
+#~ msgid "Featured Theme"
+#~ msgstr "ਖਾਸ ਥੀਮ"
+
+#~ msgid "Featured Add-on"
+#~ msgstr "ਖਾਸ ਐਡ-ਆਨ"
+
+#~ msgid "Featured extensions"
+#~ msgstr "ਖਾਸ ਇਕਸਟੈਨਸ਼ਨਾਂ"
+
+#~ msgid "Featured themes"
+#~ msgstr "ਖਾਸ ਥੀਮ"
+
+#~ msgid "Featured add-ons"
+#~ msgstr "ਫੀਚਰ ਐਡ-ਆਨ"
+
+#~ msgid "Featured add-ons only"
+#~ msgstr "ਸਿਰਫ ਫੀਚਰਡ ਐਡ-ਆਨ"
+
+#~ msgid "See more featured extensions"
+#~ msgstr "ਹੋਰ ਖਾਸ ਇਕਸਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
+
+#~ msgid "See more featured themes"
+#~ msgstr "ਹੋਰ ਫੀਚਰਡ ਥੀਮ ਵੇਖੋ"
 
 #~ msgid "Get Started"
 #~ msgstr "ਸ਼ੁਰੂ ਕਰੋ"
