@@ -64,13 +64,14 @@ $icon-default-size: 32px;
 .SearchResult-icon-wrapper--no-theme-image {
   align-items: center;
   background: #ccc;
-  color: $white;
+  color: $black;
   display: flex;
   font-size: 14px;
   font-weight: normal;
+  height: 100%;
   justify-content: center;
   text-align: center;
-  text-shadow: 0 0 1px $black;
+  text-shadow: 0 0 2px $white;
 }
 
 .SearchResult-icon {

@@ -98,6 +98,8 @@ describe(__filename, () => {
     expect(results).toHaveLength(DEFAULT_API_PAGE_SIZE);
     // Do a quick check to make sure these are rendered as placeholders.
     expect(results.at(0)).not.toHaveProp('addon');
+    // By default we do not want "theme" placeholders.
+    expect(results.at(0)).toHaveProp('useThemePlaceholder', false);
   });
 
   it('handles an empty set of addons', () => {
@@ -181,6 +183,18 @@ describe(__filename, () => {
     expect(root.find(SearchResult)).toHaveProp(
       'showRecommendedBadge',
       showRecommendedBadge,
+    );
+  });
+
+  it('passes the useThemePlaceholder to the SearchResult placeholders when loading', () => {
+    const useThemePlaceholder = true;
+
+    const root = render({ addons: null, loading: true, useThemePlaceholder });
+
+    const results = root.find(SearchResult);
+    expect(results.at(0)).toHaveProp(
+      'useThemePlaceholder',
+      useThemePlaceholder,
     );
   });
 });

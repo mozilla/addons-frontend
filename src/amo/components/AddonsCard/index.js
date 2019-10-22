@@ -24,6 +24,7 @@ type Props = {|
   className?: string,
   editing?: boolean,
   loading?: boolean,
+  useThemePlaceholder?: boolean,
   // When loading, this is the number of placeholders
   // that will be rendered.
   placeholderCount: number,
@@ -50,6 +51,7 @@ export default class AddonsCard extends React.Component<Props> {
     loading: false,
     placeholderCount: DEFAULT_API_PAGE_SIZE,
     showRecommendedBadge: true,
+    useThemePlaceholder: false,
   };
 
   render() {
@@ -64,6 +66,7 @@ export default class AddonsCard extends React.Component<Props> {
       removeAddon,
       saveNote,
       placeholderCount,
+      useThemePlaceholder,
       showMetadata,
       showRecommendedBadge,
       showSummary,
@@ -106,7 +109,12 @@ export default class AddonsCard extends React.Component<Props> {
       });
     } else if (loading) {
       for (let count = 0; count < placeholderCount; count++) {
-        addonElements.push(<SearchResult key={count} />);
+        addonElements.push(
+          <SearchResult
+            key={count}
+            useThemePlaceholder={useThemePlaceholder}
+          />,
+        );
       }
     }
 

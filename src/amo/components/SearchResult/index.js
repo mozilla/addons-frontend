@@ -38,6 +38,7 @@ type Props = {|
   showMetadata?: boolean,
   showRecommendedBadge?: boolean,
   showSummary?: boolean,
+  useThemePlaceholder?: boolean,
 |};
 
 type InternalProps = {|
@@ -55,6 +56,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     showMetadata: true,
     showRecommendedBadge: true,
     showSummary: true,
+    useThemePlaceholder: false,
   };
 
   getAddonLink(
@@ -78,6 +80,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
       showMetadata,
       showRecommendedBadge,
       showSummary,
+      useThemePlaceholder,
     } = this.props;
 
     const averageDailyUsers = addon ? addon.average_daily_users : null;
@@ -115,7 +118,9 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
     // Sets classes to handle fallback if theme preview is not available.
     const iconWrapperClassnames = makeClassName('SearchResult-icon-wrapper', {
-      'SearchResult-icon-wrapper--no-theme-image': isTheme && imageURL === null,
+      'SearchResult-icon-wrapper--no-theme-image': addon
+        ? imageURL === null
+        : useThemePlaceholder,
     });
 
     let addonAuthors = null;
@@ -148,7 +153,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
       <div className="SearchResult-wrapper">
         <div className="SearchResult-result">
           <div className={iconWrapperClassnames}>
-            {imageURL ? (
+            {(addon && imageURL) || (!addon && !useThemePlaceholder) ? (
               <img
                 className={makeClassName('SearchResult-icon', {
                   'SearchResult-icon--loading': !addon,
@@ -244,11 +249,11 @@ export class SearchResultBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { addon } = this.props;
+    const { addon, useThemePlaceholder } = this.props;
 
     const result = this.renderResult();
     const resultClassnames = makeClassName('SearchResult', {
-      'SearchResult--theme': addon && isTheme(addon.type),
+      'SearchResult--theme': addon ? isTheme(addon.type) : useThemePlaceholder,
       'SearchResult--persona': addon && addon.type === ADDON_TYPE_THEME,
     });
 

@@ -70,6 +70,7 @@ export default class LandingAddonsCard extends React.Component<Props> {
         type="horizontal"
         loading={loading}
         placeholderCount={count}
+        useThemePlaceholder={isTheme}
       />
     );
   }

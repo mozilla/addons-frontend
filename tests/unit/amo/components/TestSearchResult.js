@@ -214,6 +214,12 @@ describe(__filename, () => {
     expect(root).toHaveClassName('SearchResult--theme');
   });
 
+  it('adds a theme-specific class when useThemePlaceholder is true and it is loading', () => {
+    const root = render({ addon: null, useThemePlaceholder: true });
+
+    expect(root).toHaveClassName('SearchResult--theme');
+  });
+
   it('does not render a theme image if the isAllowedOrigin is false', () => {
     const root = render({
       _isAllowedOrigin: sinon.stub().returns(false),
@@ -499,5 +505,74 @@ describe(__filename, () => {
     });
 
     expect(root.find(RecommendedBadge)).toHaveLength(0);
+  });
+
+  it('does not set an extra css class to the icon wrapper when there is a theme image', () => {
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+        previews: [],
+        theme_data: {
+          previewURL:
+            'https://addons.cdn.mozilla.net/user-media/addons/334902/preview_large.jpg?1313374873',
+        },
+      }),
+    });
+
+    expect(root.find('.SearchResult-icon-wrapper')).toHaveLength(1);
+    expect(
+      root.find('.SearchResult-icon-wrapper--no-theme-image'),
+    ).toHaveLength(0);
+  });
+
+  it('sets an extra css class to the icon wrapper when there is no theme image', () => {
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+        previews: [],
+        theme_data: null,
+      }),
+    });
+
+    expect(root.find('.SearchResult-icon-wrapper')).toHaveLength(1);
+    expect(
+      root.find('.SearchResult-icon-wrapper--no-theme-image'),
+    ).toHaveLength(1);
+  });
+
+  it('sets an extra css class to the icon wrapper when there is no add-on and we want to use a theme placeholder', () => {
+    const root = render({ addon: null, useThemePlaceholder: true });
+
+    expect(root.find('.SearchResult-icon-wrapper')).toHaveLength(1);
+    expect(
+      root.find('.SearchResult-icon-wrapper--no-theme-image'),
+    ).toHaveLength(1);
+  });
+
+  it('does not set an extra css class to the icon wrapper when there is no add-on and we do not want to use a theme placeholder', () => {
+    const root = render({ addon: null, useThemePlaceholder: false });
+
+    expect(root.find('.SearchResult-icon-wrapper')).toHaveLength(1);
+    expect(
+      root.find('.SearchResult-icon-wrapper--no-theme-image'),
+    ).toHaveLength(0);
+  });
+
+  it('renders a "notheme" placeholder when there is no add-on and we want to use a theme placeholder', () => {
+    const root = render({ addon: null, useThemePlaceholder: true });
+
+    expect(root.find('.SearchResult-notheme')).toIncludeText(
+      'No theme preview available',
+    );
+  });
+
+  it('does not render a "notheme" placeholder when there is no add-on and we do not want to use a theme placeholder', () => {
+    const root = render({ addon: null, useThemePlaceholder: false });
+
+    expect(root.find('.SearchResult-notheme')).not.toIncludeText(
+      'No theme preview available',
+    );
   });
 });
