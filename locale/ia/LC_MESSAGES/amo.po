@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-08 19:31+0000\n"
-"PO-Revision-Date: 2019-10-22 16:26+0000\n"
+"PO-Revision-Date: 2019-10-22 16:51+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1103,7 +1103,7 @@ msgstr "Leger e modificar le parametros del navigator"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr "Clarar le chronologia de exploration, le cookies e le datos correlate recente"
+msgstr "Eliminar le chronologia de navigation recente con le cookies e datos associate"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
@@ -1825,11 +1825,11 @@ msgstr "Cerca pro extensiones e themas a adder a tu collection."
 
 #: src/amo/pages/Collection/index.js:512
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr "Discarga e crea collectiones de Firefox pro tener tracia de extensiones e themas favorite. Explora le %(collectionName)s—%(collectionDescription)s."
+msgstr "Discarga e crea collectiones de Firefox pro sequer tu extensiones e themas favorite. Explora le %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:515
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr "Discarga e crea collectiones de Firefox pro tener tracia de extensiones e themas favorite. Explora le %(collectionName)s."
+msgstr "Discarga e crea collectiones de Firefox pro sequer tu extensiones e themas favorite. Explora le %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:112
 msgid "Collections"
@@ -1878,7 +1878,7 @@ msgstr "Isola tu identitate de Facebook in un separate “receptaculo”, pro st
 
 #: src/amo/pages/Guides/index.js:126
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "Explora le plus recommendate extensiones de %(linkStart)sconfidentialitate e securitate%(linkEnd)s."
+msgstr "Explora altere extensiones recommendate de %(linkStart)sconfidentialitate e securitate%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:137
 msgid "Reimagine tab management"
@@ -1902,7 +1902,7 @@ msgstr "Discoperi altere extensiones de %(linkStart)sschedas%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:159
 msgid "Better browsing with improved bookmarks"
-msgstr "Melior exploration con marcapaginas meliorate"
+msgstr "Melior navigation con melior marcapaginas"
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
