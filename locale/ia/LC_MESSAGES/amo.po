@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-08 19:31+0000\n"
-"PO-Revision-Date: 2019-10-13 20:35+0000\n"
+"PO-Revision-Date: 2019-10-22 00:32+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -413,7 +413,7 @@ msgstr "Responder a iste revision"
 
 #: src/amo/components/AddonReviewCard/index.js:503
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr "Iste valutation o recension era delete. Tu vide solo illo a causa de elevate permissos."
+msgstr "Iste evalutation o recension ha essite delite. Tu lo vide solmente a causa de permissiones elevate."
 
 #: src/amo/components/AddonReviewCard/index.js:549
 msgid "Write a review"
@@ -1083,7 +1083,7 @@ msgstr "Cambia lingua"
 
 #: src/amo/components/PermissionsCard/index.js:48
 msgid "Permissions"
-msgstr "Permissos"
+msgstr "Permissiones"
 
 #: src/amo/components/PermissionsCard/index.js:50
 msgid "This add-on can:"
@@ -1091,7 +1091,7 @@ msgstr "Iste additivo pote:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr "Saper plus super permissos"
+msgstr "Saper plus sur le permissiones"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Read and modify bookmarks"
@@ -1705,7 +1705,7 @@ msgstr "Notas de version pro %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:450
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr "Isto non es un lista de presentation public. Tu vide illo solo pois que de elevate permissos."
+msgstr "Iste entrata non es public. Tu lo vide solmente a causa de permissiones elevate."
 
 #: src/amo/pages/Addon/index.js:478
 msgid "Extension Metadata"
