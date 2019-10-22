@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-08 19:31+0000\n"
-"PO-Revision-Date: 2019-10-22 00:32+0000\n"
+"PO-Revision-Date: 2019-10-22 02:14+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -777,7 +777,7 @@ msgstr "Non autorisate"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:40
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr "Pardono, ma tu non es autorisate ad acceder iste pagina. Si tu non es connexe, prova a authenticar te per le ligamine al apice del pagina."
+msgstr "Tu non es autorisate a acceder a iste pagina. Si tu non ha aperite session, prova a authenticar te con le ligamine al initio del pagina."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:30
 msgid ""
