@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-08 19:31+0000\n"
-"PO-Revision-Date: 2019-10-22 16:51+0000\n"
+"PO-Revision-Date: 2019-10-22 16:59+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1922,7 +1922,7 @@ msgstr "Gaude un fresc experientia de nove scheda"
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr "Comencia cata session de exploration, secundo tu proprie gusto, per le personalisation de tu experientias del nove schedas."
+msgstr "Comencia a navigar de maniera optimal pro te. Personalisa tu experientia de nove scheda."
 
 #: src/amo/pages/Guides/index.js:183
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
@@ -2116,8 +2116,8 @@ msgstr "Discarga themas pro cambiar le apparentia de Firefox. Personalisa tu exp
 #: src/amo/pages/LandingPage/index.js:234
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
-"Discarga extensiones de Firefox pro adder functionalitates que personalisa le exploration. Protege contrasignos, trova accordos, meliora video, e bloca enoiose avisos publicitari con le "
-"applicationes del navigator."
+"Discarga extensiones de Firefox pro adder functiones que personalisa le navigation. Protege contrasignos, trova offertas, meliora video, e bloca enoiose avisos publicitari con le applicationes pro "
+"le navigator."
 
 #: src/amo/pages/LandingPage/index.js:256
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2125,7 +2125,7 @@ msgstr "Cambiar apparentia a tu navigator. Elige ex milles de themas pro dar a F
 
 #: src/amo/pages/LandingPage/index.js:258
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr "Explora potente applicationes e functionalitates pro personalisar Firefox e render tote tu proprie le navigator."
+msgstr "Explora instrumentos e functiones impressionante pro render Firefox vermente personal."
 
 #: src/amo/pages/LandingPage/index.js:297
 msgid "Explore all categories"
@@ -2228,8 +2228,8 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
-"Addons.mozilla.org (AMO), es le sito official de Mozilla pro discoperir e installar additivos pro le navigator Firefox. Le additivos te adjuta a modificar e personalisar tu experientia exploration "
-"per le addition de nove functionalitates a Firefox, meliorante tu interactiones con le contento del web, e cambiante le apparentia de tu navigator."
+"Addons.mozilla.org (AMO) es le sito official de Mozilla pro discoperir e installar additivos pro le navigator Firefox. Le additivos te adjuta a modificar e personalisar tu experientia de navigation "
+"per le addition de nove functiones a Firefox, meliorante tu interactiones con le contento del web, e cambiante le apparentia de tu navigator."
 
 #: src/amo/pages/StaticPages/About/index.js:37
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
