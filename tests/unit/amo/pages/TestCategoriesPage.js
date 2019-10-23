@@ -5,7 +5,7 @@ import Categories from 'amo/components/Categories';
 import { CategoriesPageBase } from 'amo/pages/CategoriesPage';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { visibleAddonType } from 'core/utils';
 import { fakeI18n } from 'tests/unit/helpers';
 
@@ -25,7 +25,7 @@ describe(__filename, () => {
     return shallow(<CategoriesPageBase {...allProps} />);
   };
 
-  it.each([ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME])(
+  it.each([ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME])(
     'renders the %s categories',
     (addonType) => {
       const params = { visibleAddonType: visibleAddonType(addonType) };
@@ -39,7 +39,7 @@ describe(__filename, () => {
 
   it.each([
     [ADDON_TYPE_EXTENSION, /All extension/],
-    [ADDON_TYPE_THEME, /All theme/],
+    [ADDON_TYPE_STATIC_THEME, /All theme/],
   ])('renders an HTML title for %s', (addonType, expectedMatch) => {
     const params = { visibleAddonType: visibleAddonType(addonType) };
 
@@ -57,7 +57,7 @@ describe(__filename, () => {
 
   it.each([
     [ADDON_TYPE_EXTENSION, /All extension/],
-    [ADDON_TYPE_THEME, /All theme/],
+    [ADDON_TYPE_STATIC_THEME, /All theme/],
   ])('renders a HeadMetaTags component for %s', (addonType, expectedMatch) => {
     const params = { visibleAddonType: visibleAddonType(addonType) };
 

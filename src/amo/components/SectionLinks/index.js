@@ -9,7 +9,6 @@ import Link from 'amo/components/Link';
 import { setClientApp } from 'core/actions';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -96,13 +95,10 @@ export class SectionLinksBase extends React.Component<Props> {
               'SectionLinks-link-theme',
               {
                 'SectionLinks-link--active':
-                  // TODO: remove `ADDON_TYPE_THEME`
-                  [ADDON_TYPE_THEME, ADDON_TYPE_STATIC_THEME].includes(
-                    viewContext,
-                  ),
+                  viewContext === ADDON_TYPE_STATIC_THEME,
               },
             )}
-            to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}
+            to={`/${visibleAddonType(ADDON_TYPE_STATIC_THEME)}/`}
           >
             {i18n.gettext('Themes')}
           </Link>

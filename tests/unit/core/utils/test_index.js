@@ -10,7 +10,6 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  ADDON_TYPE_THEMES_FILTER,
   CATEGORY_COLORS,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -32,7 +31,6 @@ import {
   convertBoolean,
   decodeHtmlEntities,
   findFileForPlatform,
-  getAddonTypeFilter,
   getCategoryColor,
   getCategoryResultsQuery,
   getClientApp,
@@ -117,8 +115,8 @@ describe(__filename, () => {
 
   describe('apiAddonType', () => {
     it('maps plural/visible addonTypes to internal types', () => {
-      expect(apiAddonType('extensions')).toEqual('extension');
-      expect(apiAddonType('themes')).toEqual('persona');
+      expect(apiAddonType('extensions')).toEqual(ADDON_TYPE_EXTENSION);
+      expect(apiAddonType('themes')).toEqual(ADDON_TYPE_STATIC_THEME);
     });
 
     it('fails on unrecognised plural/visible addonType', () => {
@@ -476,15 +474,15 @@ describe(__filename, () => {
 
   describe('visibleAddonType', () => {
     it('maps internal addonTypes to plural/visible types', () => {
-      expect(visibleAddonType('extension')).toEqual('extensions');
-      expect(visibleAddonType('persona')).toEqual('themes');
+      expect(visibleAddonType(ADDON_TYPE_EXTENSION)).toEqual('extensions');
+      expect(visibleAddonType(ADDON_TYPE_STATIC_THEME)).toEqual('themes');
     });
 
     it('fails on unrecognised internal addonType', () => {
       expect(() => {
         // "theme" is not a valid visible addonType; it should be "themes".
-        visibleAddonType('personas');
-      }).toThrowError('"personas" not found in VISIBLE_ADDON_TYPES_MAPPING');
+        visibleAddonType('theme');
+      }).toThrowError('"theme" not found in VISIBLE_ADDON_TYPES_MAPPING');
     });
 
     // See:
@@ -656,23 +654,6 @@ describe(__filename, () => {
 
     it('removes // from URL', () => {
       expect(removeProtocolFromURL('//test.com/')).toEqual('test.com/');
-    });
-  });
-
-  describe('getAddonTypeFilter', () => {
-    it('returns ADDON_TYPE_THEMES_FILTER when add-on type is a lightweight theme', () => {
-      const addon = createInternalAddon({ type: ADDON_TYPE_THEME });
-      expect(getAddonTypeFilter(addon.type)).toEqual(ADDON_TYPE_THEMES_FILTER);
-    });
-
-    it('returns ADDON_TYPE_THEMES_FILTER when add-on type is a static theme', () => {
-      const addon = createInternalAddon({ type: ADDON_TYPE_STATIC_THEME });
-      expect(getAddonTypeFilter(addon.type)).toEqual(ADDON_TYPE_THEMES_FILTER);
-    });
-
-    it('returns ADDON_TYPE_EXTENSION when add-on type is an extension', () => {
-      const addon = createInternalAddon({ type: ADDON_TYPE_EXTENSION });
-      expect(getAddonTypeFilter(addon.type)).toEqual(ADDON_TYPE_EXTENSION);
     });
   });
 
@@ -900,7 +881,7 @@ describe(__filename, () => {
 
     const query = getCategoryResultsQuery({ addonType, slug });
     expect(query.category).toEqual(slug);
-    expect(query.type).toEqual(getAddonTypeFilter(addonType));
+    expect(query.type).toEqual(addonType);
     expect(query.sort).toEqual(
       `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
     );

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { visibleAddonType } from 'core/utils';
 import type { I18nType } from 'core/types/i18n';
@@ -30,7 +30,7 @@ export class SuggestedPagesBase extends React.Component<InternalProps> {
             </Link>
           </li>
           <li className="SuggestedPages-link-themes">
-            <Link to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}>
+            <Link to={`/${visibleAddonType(ADDON_TYPE_STATIC_THEME)}/`}>
               {i18n.gettext('Browse all themes')}
             </Link>
           </li>

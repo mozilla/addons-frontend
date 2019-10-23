@@ -11,7 +11,6 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES,
-  ADDON_TYPE_THEMES_FILTER,
   API_ADDON_TYPES_MAPPING,
   CATEGORY_COLORS,
   OS_ALL,
@@ -292,14 +291,6 @@ export const isTheme = (addonType) => {
   return ADDON_TYPE_THEMES.includes(addonType);
 };
 
-export const getAddonTypeFilter = (addonType) => {
-  if (!isTheme(addonType)) {
-    return addonType;
-  }
-
-  return ADDON_TYPE_THEMES_FILTER;
-};
-
 /*
  * Return an ID for a filename.
  *
@@ -377,7 +368,7 @@ export const getCategoryResultsQuery = ({
   slug,
 }: GetCategoryResultsQueryParams) => {
   return convertFiltersToQueryParams({
-    addonType: getAddonTypeFilter(addonType),
+    addonType,
     category: slug,
     sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
   });

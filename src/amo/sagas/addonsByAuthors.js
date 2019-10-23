@@ -9,7 +9,6 @@ import {
 import { search as searchApi } from 'core/api/search';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
-import { getAddonTypeFilter } from 'core/utils';
 import type { FetchAddonsByAuthorsAction } from 'amo/reducers/addonsByAuthors';
 import type { SearchParams } from 'core/api/search';
 import type { Saga } from 'core/types/sagas';
@@ -37,7 +36,7 @@ export function* fetchAddonsByAuthors({
     const params: SearchParams = {
       api: state.api,
       filters: {
-        addonType: getAddonTypeFilter(addonType),
+        addonType,
         author: authorIds.join(','),
         exclude_addons: forAddonSlug,
         page: page || '1',

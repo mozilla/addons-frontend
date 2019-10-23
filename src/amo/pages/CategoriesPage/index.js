@@ -6,7 +6,7 @@ import Categories from 'amo/components/Categories';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import Page from 'amo/components/Page';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { apiAddonType } from 'core/utils';
 import type { ReactRouterMatchType } from 'core/types/router';
@@ -33,7 +33,7 @@ export class CategoriesPageBase extends React.Component<InternalProps> {
     switch (addonType) {
       case ADDON_TYPE_EXTENSION:
         return i18n.gettext('All extension categories');
-      case ADDON_TYPE_THEME:
+      case ADDON_TYPE_STATIC_THEME:
         return i18n.gettext('All theme categories');
       default:
         return null;
