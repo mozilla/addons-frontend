@@ -273,19 +273,6 @@ export const ERROR_ADDON_DISABLED_BY_ADMIN = 'ERROR_ADDON_DISABLED_BY_ADMIN';
 // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#Maximum_delay_value
 export const maximumSetTimeoutDelay = 2147483647;
 
-// Category Color Numbers
-// These are used to define the number of colors used to add accent color to a
-// category background header/link. Most have 12, but certain add-on types
-// can have their own color set with a different max number.
-export const CATEGORY_COLORS = {
-  [ADDON_TYPE_DICT]: 12,
-  [ADDON_TYPE_EXTENSION]: 10,
-  [ADDON_TYPE_LANG]: 12,
-  [ADDON_TYPE_OPENSEARCH]: 12,
-  [ADDON_TYPE_STATIC_THEME]: 12,
-  [ADDON_TYPE_THEME]: 12,
-};
-
 // Can access the website admin interface index page. Inner pages may require
 // other/additional permissions.
 export const ADMIN_TOOLS_VIEW = 'AdminTools:View';

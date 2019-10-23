@@ -9,7 +9,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { fetchCategories } from 'core/reducers/categories';
-import { getCategoryResultsQuery, getCategoryColor } from 'core/utils';
+import { getCategoryResultsQuery } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
@@ -153,7 +153,7 @@ export class CategoriesBase extends React.Component<InternalProps> {
           </div>
         ) : (
           <ul className="Categories-list">
-            {categories.map((category) => {
+            {categories.map((category, index) => {
               // Flow cannot figure out CategoryType in this case.
               // See https://github.com/facebook/flow/issues/2174
               // and https://github.com/facebook/flow/issues/2221
@@ -164,7 +164,7 @@ export class CategoriesBase extends React.Component<InternalProps> {
                 <li className="Categories-item" key={name}>
                   <Button
                     className={`Categories-link
-                      Categories--category-color-${getCategoryColor(category)}`}
+                      Categories--category-color-${(index % 12) + 1}`}
                     to={categoryResultsLinkTo({ addonType, slug })}
                   >
                     {name}

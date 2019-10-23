@@ -10,7 +10,6 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  CATEGORY_COLORS,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   SEARCH_SORT_POPULAR,
@@ -20,7 +19,6 @@ import {
   OS_LINUX,
   OS_MAC,
   OS_WINDOWS,
-  validAddonTypes,
 } from 'core/constants';
 import {
   addQueryParams,
@@ -31,7 +29,6 @@ import {
   convertBoolean,
   decodeHtmlEntities,
   findFileForPlatform,
-  getCategoryColor,
   getCategoryResultsQuery,
   getClientApp,
   getClientConfig,
@@ -536,52 +533,6 @@ describe(__filename, () => {
       expect(trimAndAddProtocolToUrl('https://test.com')).toEqual(
         'https://test.com',
       );
-    });
-  });
-
-  describe('getCategoryColor', () => {
-    it('throws if category is false-y', () => {
-      expect(() => {
-        getCategoryColor(null);
-      }).toThrowError('category is required');
-    });
-
-    it('all valid addonTypes are in CATEGORY_COLORS', () => {
-      expect(() => {
-        validAddonTypes.forEach((addonType) => {
-          const category = { id: 2, type: addonType };
-
-          getCategoryColor(category);
-        });
-      }).not.toThrowError('not found in CATEGORY_COLORS');
-    });
-
-    it('throws on unrecognised addonType', () => {
-      expect(() => {
-        getCategoryColor({ id: 5, type: 'NOT_A_REAL_TYPE' });
-      }).toThrowError(
-        'addonType "NOT_A_REAL_TYPE" not found in CATEGORY_COLORS',
-      );
-    });
-
-    it('deals with high category IDs', () => {
-      for (let i = 750; i < 800; i++) {
-        const category = { id: i, type: ADDON_TYPE_THEME };
-        const categoryColor = getCategoryColor(category);
-
-        expect(categoryColor).toBeLessThanOrEqual(
-          CATEGORY_COLORS[ADDON_TYPE_THEME],
-        );
-        expect(categoryColor).toBeLessThanOrEqual(12);
-        expect(categoryColor).toBeGreaterThanOrEqual(1);
-      }
-    });
-
-    it('has a different number of colors for different addonTypes', () => {
-      const category = { id: 11, type: ADDON_TYPE_EXTENSION };
-      const categoryColor = getCategoryColor(category);
-
-      expect(categoryColor).toEqual(1);
     });
   });
 
