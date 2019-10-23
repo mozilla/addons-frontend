@@ -163,6 +163,8 @@ export class CategoriesBase extends React.Component<InternalProps> {
               return (
                 <li className="Categories-item" key={name}>
                   <Button
+                    // `12` is the number of colors declared in
+                    // "$category-colors".
                     className={`Categories-link
                       Categories--category-color-${(index % 12) + 1}`}
                     to={categoryResultsLinkTo({ addonType, slug })}

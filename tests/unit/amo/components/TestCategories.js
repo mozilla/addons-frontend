@@ -304,6 +304,47 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
+  it('renders a class name with a color for each category', () => {
+    const categoriesResponse = {
+      // Generate 13 categories. We use 13 ordered letters because the reducer
+      // sorts the categories by name (alphabetically). By doing this here, we
+      // ensure a consistent output, which we need to make sure the 1st and
+      // 13rd categories have the correct CSS class names...
+      results: 'abcdefghijklm'.split('').map((letter, index) => ({
+        ...fakeCategory,
+        application: CLIENT_APP_ANDROID,
+        id: index + 1,
+        name: `category ${letter}`,
+        slug: `category-${letter}`,
+        type: ADDON_TYPE_EXTENSION,
+      })),
+    };
+    store.dispatch(loadCategories(categoriesResponse));
+
+    const root = render();
+
+    expect(root.find('.Categories-link')).toHaveLength(13);
+    // There are 2 `color-1` class names because we only have 12 category
+    // colors. We loop over these 12 colors to give a color to each category.
+    expect(root.find('.Categories--category-color-1')).toHaveLength(2);
+    // The first `color-1` should be set on the 1st category.
+    expect(root.find('.Categories--category-color-1').at(0)).toHaveProp(
+      'children',
+      'category a',
+    );
+    // The first `color-1` should be set on the 13rd category.
+    expect(root.find('.Categories--category-color-1').at(1)).toHaveProp(
+      'children',
+      'category m',
+    );
+    // Quick check for the 12nd category.
+    expect(root.find('.Categories--category-color-12')).toHaveLength(1);
+    expect(root.find('.Categories--category-color-12')).toHaveProp(
+      'children',
+      'category l',
+    );
+  });
+
   describe('categoryResultsLinkTo', () => {
     const addonType = ADDON_TYPE_EXTENSION;
     const slug = 'some-slug';
