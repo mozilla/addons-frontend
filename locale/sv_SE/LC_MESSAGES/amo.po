@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-22 18:54+0000\n"
-"PO-Revision-Date: 2019-10-23 15:16+0000\n"
+"PO-Revision-Date: 2019-10-23 15:21+0000\n"
 "Last-Translator: Hampus <hampus@hmpx.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1211,7 +1211,7 @@ msgstr "Hur tycker du om %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:231
 msgid "Saving star rating"
-msgstr "Spara stjärnklassificering"
+msgstr "Sparar stjärnklassificering"
 
 #: src/amo/components/RatingManager/index.js:232
 msgid "Star rating saved"
