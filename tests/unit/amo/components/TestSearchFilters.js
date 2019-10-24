@@ -3,7 +3,7 @@ import * as React from 'react';
 import SearchFilters, { SearchFiltersBase } from 'amo/components/SearchFilters';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEMES_FILTER,
+  ADDON_TYPE_STATIC_THEME,
   OS_LINUX,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_RECOMMENDED,
@@ -429,7 +429,7 @@ describe(__filename, () => {
     expect(root.find('.SearchFilters-AddonType')).toHaveLength(0);
   });
 
-  it('sets themes filters shelf with the ADDON_TYPE_THEMES_FILTER filter', () => {
+  it('sets themes filters shelf with the ADDON_TYPE_STATIC_THEME filter', () => {
     const root = render();
     const selectFilters = root.find(Select);
 
@@ -437,6 +437,6 @@ describe(__filename, () => {
       .find('#SearchFilters-AddonType')
       .children()
       .map((option) => option.props().value);
-    expect(optionValues).toContain(ADDON_TYPE_THEMES_FILTER);
+    expect(optionValues).toContain(ADDON_TYPE_STATIC_THEME);
   });
 });

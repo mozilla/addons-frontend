@@ -18,7 +18,6 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEMES_FILTER,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
@@ -145,13 +144,13 @@ describe(__filename, () => {
     );
   });
 
-  it('should render singular form when only one result is found with addonType ADDON_TYPE_THEMES_FILTER', () => {
+  it('should render singular form when only one result is found with addonType ADDON_TYPE_STATIC_THEME', () => {
     const query = 'test';
     dispatchSearchResults({
       store: _store,
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
+        addonType: ADDON_TYPE_STATIC_THEME,
         query,
       },
     });
@@ -163,12 +162,12 @@ describe(__filename, () => {
     );
   });
 
-  it('should render plural form when multiple results are found with addonType ADDON_TYPE_THEMES_FILTER', () => {
+  it('should render plural form when multiple results are found with addonType ADDON_TYPE_STATIC_THEME', () => {
     const query = 'test';
     dispatchSearchResults({
       store: _store,
       filters: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
+        addonType: ADDON_TYPE_STATIC_THEME,
         query,
       },
     });
@@ -215,7 +214,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it('should render results with categoryName and query for addonType ADDON_TYPE_THEMES_FILTER when search is loaded', () => {
+  it('should render results with categoryName and query for addonType ADDON_TYPE_STATIC_THEME when search is loaded', () => {
     const categoryName = 'Causes';
 
     _fetchCategories();
@@ -223,7 +222,7 @@ describe(__filename, () => {
 
     dispatchSearchResults({
       filters: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
+        addonType: ADDON_TYPE_STATIC_THEME,
         category: 'causes',
         query: 'test',
       },
@@ -237,7 +236,7 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results with categoryName and no query for addonType ADDON_TYPE_THEMES_FILTER when search is loaded', () => {
+  it('should render results with categoryName and no query for addonType ADDON_TYPE_STATIC_THEME when search is loaded', () => {
     const categoryName = 'Causes';
 
     _fetchCategories();
@@ -245,7 +244,7 @@ describe(__filename, () => {
 
     dispatchSearchResults({
       filters: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
+        addonType: ADDON_TYPE_STATIC_THEME,
         category: 'causes',
       },
       store: _store,
@@ -258,10 +257,10 @@ describe(__filename, () => {
     );
   });
 
-  it('should render results without categoryName or query when neither are present for addonType ADDON_TYPE_THEMES_FILTER', () => {
+  it('should render results without categoryName or query when neither are present for addonType ADDON_TYPE_STATIC_THEME', () => {
     dispatchSearchResults({
       filters: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
+        addonType: ADDON_TYPE_STATIC_THEME,
       },
       store: _store,
     });
