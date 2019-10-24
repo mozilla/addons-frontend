@@ -304,6 +304,39 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
+  it('renders a class name with a color for each category', () => {
+    const categoriesResponse = {
+      // Generate 13 categories.
+      results: Array(13)
+        .fill()
+        .map((_, index) => ({
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
+          id: index,
+          name: `category ${index}`,
+          slug: `category-${index}`,
+          type: ADDON_TYPE_EXTENSION,
+        })),
+    };
+    store.dispatch(loadCategories(categoriesResponse));
+
+    const root = render();
+
+    expect(root.find('.Categories-link')).toHaveLength(13);
+    // The first `color-1` should be set on the 1st category.
+    expect(root.find('.Categories-link').at(0)).toHaveClassName(
+      'Categories--category-color-1',
+    );
+    // The `color-12` should be set on the 12th category.
+    expect(root.find('.Categories-link').at(11)).toHaveClassName(
+      'Categories--category-color-12',
+    );
+    // The second `color-1` should be set on the 13th category.
+    expect(root.find('.Categories-link').at(12)).toHaveClassName(
+      'Categories--category-color-1',
+    );
+  });
+
   describe('categoryResultsLinkTo', () => {
     const addonType = ADDON_TYPE_EXTENSION;
     const slug = 'some-slug';
