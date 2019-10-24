@@ -63,13 +63,7 @@ export const PageBase = ({
           (!isHomePage ||
             !enableFeatureHeroRecommendation ||
             clientApp === CLIENT_APP_ANDROID) && <AppBanner />}
-          {// Exclude the WrongPlatformWarning from the home page if it will be
-          // included via HeroRecommendation or if showWrongPlatformWarning is
-          // false, but include it on the Android home page.
-          (!isHomePage ||
-            !enableFeatureHeroRecommendation ||
-            clientApp === CLIENT_APP_ANDROID) &&
-            showWrongPlatformWarning && <WrongPlatformWarning />}
+          {showWrongPlatformWarning && <WrongPlatformWarning />}
           {children}
         </div>
       </div>

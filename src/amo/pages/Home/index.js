@@ -228,8 +228,12 @@ export class HomeBase extends React.Component {
       return null;
     };
 
+    const showHero =
+      _config.get('enableFeatureHeroRecommendation') &&
+      clientApp !== CLIENT_APP_ANDROID;
+
     return (
-      <Page isHomePage>
+      <Page isHomePage showWrongPlatformWarning={!showHero}>
         <div className="Home">
           <HeadMetaTags
             description={i18n.gettext(`Download Firefox extensions and themes.

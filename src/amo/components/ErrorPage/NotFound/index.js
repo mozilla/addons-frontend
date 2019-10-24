@@ -64,7 +64,7 @@ export class NotFoundBase extends React.Component<InternalProps> {
 
     return (
       <NestedStatus code={404}>
-        <Page>
+        <Page showWrongPlatformWarning={false}>
           <Card
             className="ErrorPage NotFound"
             header={i18n.gettext('Oops! We can’t find that page')}

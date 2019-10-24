@@ -28,7 +28,7 @@ export class ServerErrorBase extends React.Component {
     /* eslint-disable react/no-danger */
     return (
       <NestedStatus code={500}>
-        <Page>
+        <Page showWrongPlatformWarning={false}>
           <Card
             className="ErrorPage ServerError"
             header={i18n.gettext('Server Error')}

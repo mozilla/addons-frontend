@@ -482,7 +482,17 @@ export class AddonBase extends React.Component {
                   {i18n.gettext('Extension Metadata')}
                 </h2>
               </header>
-              <WrongPlatformWarning forAddonDetailPage />
+              <WrongPlatformWarning
+                className="Addon-WrongPlatformWarning"
+                fixAndroidLinkMessage={i18n.gettext(
+                  `This add-on is not compatible with this platform.
+                    <a href="%(newLocation)s">Browse add-ons for Firefox on Android</a>.`,
+                )}
+                fixFirefoxLinkMessage={i18n.gettext(
+                  `This add-on is not compatible with this platform.
+                    <a href="%(newLocation)s">Browse add-ons for Firefox on desktop</a>.`,
+                )}
+              />
               {addon && <InstallWarning addon={addon} />}
             </Card>
 

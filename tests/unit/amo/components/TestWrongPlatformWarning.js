@@ -85,12 +85,9 @@ describe(__filename, () => {
     });
   });
 
-  // This is the test config for the four possible states of the message, the format is:
-  // [clientApp, forAddonDetailPage, [array of expected message text]
-  const messageTestData = [
+  it.each([
     [
       CLIENT_APP_ANDROID,
-      false,
       [
         'To find add-ons compatible with Firefox on desktop',
         'visit our desktop site',
@@ -98,37 +95,18 @@ describe(__filename, () => {
     ],
     [
       CLIENT_APP_FIREFOX,
-      false,
       [
         'To find add-ons compatible with Firefox on Android',
         'visit our mobile site',
       ],
     ],
-    [
-      CLIENT_APP_ANDROID,
-      true,
-      [
-        'This add-on is not compatible with this platform',
-        'Browse add-ons for Firefox on desktop',
-      ],
-    ],
-    [
-      CLIENT_APP_FIREFOX,
-      true,
-      [
-        'This add-on is not compatible with this platform',
-        'Browse add-ons for Firefox on Android',
-      ],
-    ],
-  ];
-
-  it.each(messageTestData)(
-    'generates the expected message when clientApp is %s and forAddonDetailPage is %s',
-    (clientApp, forAddonDetailPage, expectedText) => {
+  ])(
+    'generates the expected message when clientApp is %s',
+    (clientApp, expectedText) => {
       const newLocation = '/some/location/';
       _correctedLocationForPlatform.returns(newLocation);
       _dispatchClientMetadata({ clientApp });
-      const root = render({ forAddonDetailPage });
+      const root = render();
 
       for (const text of expectedText) {
         expect(root.find('.WrongPlatformWarning-message').html()).toContain(
@@ -141,13 +119,23 @@ describe(__filename, () => {
     },
   );
 
-  it('defaults forAddonDetailPage to `false`', () => {
-    _correctedLocationForPlatform.returns('/some/location/');
-    _dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-    const root = render();
+  it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
+    'can display a custom message when clientApp is %s',
+    (clientApp) => {
+      const newLocation = '/some/location/';
+      _correctedLocationForPlatform.returns(newLocation);
+      _dispatchClientMetadata({ clientApp });
+      const fixAndroidLinkMessage =
+        'A message to show when clientApp is firefox';
+      const fixFirefoxLinkMessage =
+        'A message to show when clientApp is android';
+      const root = render({ fixAndroidLinkMessage, fixFirefoxLinkMessage });
 
-    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      'To find add-ons compatible with Firefox on desktop',
-    );
-  });
+      expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+        clientApp === CLIENT_APP_ANDROID
+          ? fixFirefoxLinkMessage
+          : fixAndroidLinkMessage,
+      );
+    },
+  );
 });

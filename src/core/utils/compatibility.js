@@ -4,7 +4,11 @@ import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 import mozCompare from 'mozilla-version-comparator';
 
-import { USER_AGENT_OS_ANDROID } from 'core/reducers/api';
+import {
+  USER_AGENT_BROWSER_FIREFOX,
+  USER_AGENT_OS_ANDROID,
+  USER_AGENT_OS_IOS,
+} from 'core/reducers/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
@@ -18,7 +22,6 @@ import {
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
-  USER_AGENT_BROWSER_FIREFOX,
 } from 'core/constants';
 import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
@@ -317,17 +320,20 @@ export const correctedLocationForPlatform = ({
 
   const { browser, os } = userAgentInfo;
 
-  let newLocation = null;
+  let currentClientApp;
+  let newClientApp;
+
+  if (os.name === USER_AGENT_OS_IOS) {
+    return null;
+  }
 
   if (
     os.name === USER_AGENT_OS_ANDROID &&
     browser.name === USER_AGENT_BROWSER_FIREFOX &&
     clientApp === CLIENT_APP_FIREFOX
   ) {
-    newLocation = location.pathname.replace(
-      CLIENT_APP_FIREFOX,
-      CLIENT_APP_ANDROID,
-    );
+    currentClientApp = CLIENT_APP_FIREFOX;
+    newClientApp = CLIENT_APP_ANDROID;
   }
 
   if (
@@ -335,11 +341,13 @@ export const correctedLocationForPlatform = ({
     browser.name === USER_AGENT_BROWSER_FIREFOX &&
     clientApp === CLIENT_APP_ANDROID
   ) {
-    newLocation = location.pathname.replace(
-      CLIENT_APP_ANDROID,
-      CLIENT_APP_FIREFOX,
-    );
+    currentClientApp = CLIENT_APP_ANDROID;
+    newClientApp = CLIENT_APP_FIREFOX;
   }
 
-  return newLocation && `${newLocation}${location.search}`;
+  return currentClientApp && newClientApp
+    ? `${location.pathname.replace(currentClientApp, newClientApp)}${
+        location.search
+      }`
+    : null;
 };

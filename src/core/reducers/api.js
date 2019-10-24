@@ -19,6 +19,7 @@ import type {
 } from 'core/actions/index';
 import type { Exact } from 'core/types/util';
 
+export const USER_AGENT_BROWSER_FIREFOX = 'Firefox';
 export const USER_AGENT_OS_ANDROID: 'Android' = 'Android';
 export const USER_AGENT_OS_BSD_DRAGONFLY: 'DragonFly' = 'DragonFly';
 export const USER_AGENT_OS_BSD_FREEBSD: 'FreeBSD' = 'FreeBSD';

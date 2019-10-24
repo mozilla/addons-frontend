@@ -192,7 +192,7 @@ const Routes = ({ _config = config }: Props = {}) => (
       exact
       path="/:lang/:application/simulate-async-error/"
       component={() => (
-        <Page>
+        <Page showWrongPlatformWarning={false}>
           <SimulateAsyncError />
         </Page>
       )}
@@ -201,7 +201,7 @@ const Routes = ({ _config = config }: Props = {}) => (
       exact
       path="/:lang/:application/simulate-sync-error/"
       component={() => (
-        <Page>
+        <Page showWrongPlatformWarning={false}>
           <SimulateSyncError />
         </Page>
       )}
@@ -210,7 +210,7 @@ const Routes = ({ _config = config }: Props = {}) => (
       exact
       path="/:lang/:application/simulate-client-error/"
       component={() => (
-        <Page>
+        <Page showWrongPlatformWarning={false}>
           <SimulateClientError />
         </Page>
       )}

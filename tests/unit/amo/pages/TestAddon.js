@@ -22,6 +22,7 @@ import InstallWarning from 'amo/components/InstallWarning';
 import RatingManager, {
   RatingManagerWithI18n,
 } from 'amo/components/RatingManager';
+import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { getAddonURL } from 'amo/utils';
 import { createInternalVersion } from 'core/reducers/versions';
@@ -241,6 +242,13 @@ describe(__filename, () => {
   it('renders an AddonHead component', () => {
     const root = shallowRender();
     expect(root.find(AddonHead)).toHaveLength(1);
+  });
+
+  it('renders a WrongPlatformWarning component', () => {
+    const root = shallowRender();
+    expect(root.find(WrongPlatformWarning)).toHaveLength(1);
+    expect(root.find(WrongPlatformWarning)).toHaveProp('fixAndroidLinkMessage');
+    expect(root.find(WrongPlatformWarning)).toHaveProp('fixFirefoxLinkMessage');
   });
 
   it('renders without an add-on', () => {

@@ -19,7 +19,8 @@ import './styles.scss';
 
 type Props = {|
   className?: string,
-  forAddonDetailPage?: boolean,
+  fixAndroidLinkMessage?: string,
+  fixFirefoxLinkMessage?: string,
 |};
 
 type InternalProps = {|
@@ -34,7 +35,6 @@ type InternalProps = {|
 export class WrongPlatformWarningBase extends React.Component<InternalProps> {
   static defaultProps = {
     _correctedLocationForPlatform: correctedLocationForPlatform,
-    forAddonDetailPage: false,
   };
 
   render() {
@@ -42,7 +42,6 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
       _correctedLocationForPlatform,
       className,
       clientApp,
-      forAddonDetailPage,
       i18n,
       location,
       userAgentInfo,
@@ -58,43 +57,24 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
       return null;
     }
 
-    let message;
-
-    if (forAddonDetailPage) {
-      message =
-        clientApp === CLIENT_APP_ANDROID
-          ? i18n.sprintf(
-              i18n.gettext(
-                `This add-on is not compatible with this platform.
-               <a href="%(newLocation)s">Browse add-ons for Firefox on desktop</a>.`,
-              ),
-              { newLocation },
-            )
-          : i18n.sprintf(
-              i18n.gettext(
-                `This add-on is not compatible with this platform.
-               <a href="%(newLocation)s">Browse add-ons for Firefox on Android</a>.`,
-              ),
-              { newLocation },
-            );
-    } else {
-      message =
-        clientApp === CLIENT_APP_ANDROID
-          ? i18n.sprintf(
-              i18n.gettext(
-                `To find add-ons compatible with Firefox on desktop,
-               <a href="%(newLocation)s">visit our desktop site</a>.`,
-              ),
-              { newLocation },
-            )
-          : i18n.sprintf(
-              i18n.gettext(
-                `To find add-ons compatible with Firefox on Android,
+    const fixAndroidLinkMessage =
+      this.props.fixAndroidLinkMessage ||
+      i18n.gettext(
+        `To find add-ons compatible with Firefox on Android,
                <a href="%(newLocation)s">visit our mobile site</a>.`,
-              ),
-              { newLocation },
-            );
-    }
+      );
+
+    const fixFirefoxLinkMessage =
+      this.props.fixFirefoxLinkMessage ||
+      i18n.gettext(
+        `To find add-ons compatible with Firefox on desktop,
+               <a href="%(newLocation)s">visit our desktop site</a>.`,
+      );
+
+    const message =
+      clientApp === CLIENT_APP_ANDROID
+        ? i18n.sprintf(fixFirefoxLinkMessage, { newLocation })
+        : i18n.sprintf(fixAndroidLinkMessage, { newLocation });
 
     return (
       <div className={makeClassName('WrongPlatformWarning', className)}>
