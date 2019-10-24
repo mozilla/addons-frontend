@@ -306,42 +306,34 @@ describe(__filename, () => {
 
   it('renders a class name with a color for each category', () => {
     const categoriesResponse = {
-      // Generate 13 categories. We use 13 ordered letters because the reducer
-      // sorts the categories by name (alphabetically). By doing this here, we
-      // ensure a consistent output, which we need to make sure the 1st and
-      // 13rd categories have the correct CSS class names...
-      results: 'abcdefghijklm'.split('').map((letter, index) => ({
-        ...fakeCategory,
-        application: CLIENT_APP_ANDROID,
-        id: index + 1,
-        name: `category ${letter}`,
-        slug: `category-${letter}`,
-        type: ADDON_TYPE_EXTENSION,
-      })),
+      // Generate 13 categories.
+      results: Array(13)
+        .fill()
+        .map((_, index) => ({
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
+          id: index,
+          name: `category ${index}`,
+          slug: `category-${index}`,
+          type: ADDON_TYPE_EXTENSION,
+        })),
     };
     store.dispatch(loadCategories(categoriesResponse));
 
     const root = render();
 
     expect(root.find('.Categories-link')).toHaveLength(13);
-    // There are 2 `color-1` class names because we only have 12 category
-    // colors. We loop over these 12 colors to give a color to each category.
-    expect(root.find('.Categories--category-color-1')).toHaveLength(2);
     // The first `color-1` should be set on the 1st category.
-    expect(root.find('.Categories--category-color-1').at(0)).toHaveProp(
-      'children',
-      'category a',
+    expect(root.find('.Categories-link').at(0)).toHaveClassName(
+      'Categories--category-color-1',
     );
-    // The first `color-1` should be set on the 13rd category.
-    expect(root.find('.Categories--category-color-1').at(1)).toHaveProp(
-      'children',
-      'category m',
+    // The `color-12` should be set on the 12th category.
+    expect(root.find('.Categories-link').at(11)).toHaveClassName(
+      'Categories--category-color-12',
     );
-    // Quick check for the 12nd category.
-    expect(root.find('.Categories--category-color-12')).toHaveLength(1);
-    expect(root.find('.Categories--category-color-12')).toHaveProp(
-      'children',
-      'category l',
+    // The second `color-1` should be set on the 13th category.
+    expect(root.find('.Categories-link').at(12)).toHaveClassName(
+      'Categories--category-color-1',
     );
   });
 
