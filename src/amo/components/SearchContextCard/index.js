@@ -9,7 +9,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEMES_FILTER,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import Card from 'ui/components/Card';
@@ -115,7 +114,7 @@ export class SearchContextCardBase extends React.Component<InternalProps> {
             );
           }
           break;
-        case ADDON_TYPE_THEMES_FILTER:
+        case ADDON_TYPE_STATIC_THEME:
           if (categoryName) {
             if (query) {
               searchText = i18n.sprintf(
@@ -223,12 +222,7 @@ export function mapStateToProps(state: AppState) {
           filters.addonType &&
           typeof filters.addonType === 'string'
         ) {
-          // eslint-disable-next-line prefer-destructuring
-          let addonType = filters.addonType;
-          if (addonType === ADDON_TYPE_THEMES_FILTER) {
-            addonType = ADDON_TYPE_STATIC_THEME;
-          }
-
+          const { addonType } = filters;
           const categories = appTypes[addonType];
 
           if (categories && categories[currentCategory]) {

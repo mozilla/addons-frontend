@@ -4,7 +4,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
-  ADDON_TYPE_THEMES_FILTER,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
@@ -223,7 +222,7 @@ describe(__filename, () => {
   });
 
   describe('fixFiltersForAndroidThemes', () => {
-    it.each([ADDON_TYPE_THEMES_FILTER, ADDON_TYPE_THEME])(
+    it.each([ADDON_TYPE_THEME])(
       'changes the addonType filter to ADDON_TYPE_STATIC_THEME when addonType is "%s", clientApp is "Android" and there is a category defined',
       (addonType) => {
         const filters = {
@@ -293,7 +292,7 @@ describe(__filename, () => {
 
     it('does not change addonType when clientApp is not Android', () => {
       const filters = {
-        addonType: ADDON_TYPE_THEMES_FILTER,
+        addonType: ADDON_TYPE_STATIC_THEME,
         clientApp: CLIENT_APP_FIREFOX,
       };
 

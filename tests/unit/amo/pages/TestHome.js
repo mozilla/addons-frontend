@@ -27,7 +27,6 @@ import { createInternalCollection } from 'amo/reducers/collections';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEMES_FILTER,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   SEARCH_SORT_RANDOM,
@@ -137,7 +136,7 @@ describe(__filename, () => {
     expect(shelf).toHaveProp('footerLink', {
       pathname: '/search/',
       query: {
-        addonType: ADDON_TYPE_THEMES_FILTER,
+        addonType: ADDON_TYPE_STATIC_THEME,
         recommended: true,
         sort: SEARCH_SORT_RANDOM,
       },
