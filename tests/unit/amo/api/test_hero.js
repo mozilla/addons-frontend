@@ -13,6 +13,7 @@ describe(__filename, () => {
         auth: true,
         endpoint: 'hero',
         apiState,
+        wrapOutgoingLinks: false,
       })
       .once()
       .returns(createApiResponse());
