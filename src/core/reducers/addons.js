@@ -6,7 +6,6 @@ import {
   UPDATE_RATING_COUNTS,
 } from 'amo/actions/reviews';
 import { removeUndefinedProps } from 'core/utils/addons';
-import { ADDON_TYPE_THEME } from 'core/constants';
 import type {
   UnloadAddonReviewsAction,
   UpdateRatingCountsAction,
@@ -18,7 +17,6 @@ import type {
   AddonType,
   ExternalAddonType,
   PartialExternalAddonType,
-  ThemeData,
 } from 'core/types/addons';
 
 export const FETCH_ADDON_INFO: 'FETCH_ADDON_INFO' = 'FETCH_ADDON_INFO';
@@ -151,44 +149,6 @@ export const loadAddonInfo = ({
   };
 };
 
-export function getGuid(
-  addon: ExternalAddonType | PartialExternalAddonType,
-): string {
-  if (addon.type === ADDON_TYPE_THEME) {
-    // This mimics how Firefox appends @personas.mozilla.org internally.
-    // It's needed to look up themes in mozAddonManager.
-    return `${addon.id}@personas.mozilla.org`;
-  }
-  return addon.guid;
-}
-
-export function createInternalThemeData(
-  apiAddon: ExternalAddonType | PartialExternalAddonType,
-): ThemeData | null {
-  if (!apiAddon.theme_data) {
-    return null;
-  }
-
-  return {
-    accentcolor: apiAddon.theme_data.accentcolor,
-    author: apiAddon.theme_data.author,
-    category: apiAddon.theme_data.category,
-    description: apiAddon.theme_data.description,
-    detailURL: apiAddon.theme_data.detailURL,
-    footer: apiAddon.theme_data.footer,
-    footerURL: apiAddon.theme_data.footerURL,
-    header: apiAddon.theme_data.header,
-    headerURL: apiAddon.theme_data.headerURL,
-    iconURL: apiAddon.theme_data.iconURL,
-    id: apiAddon.theme_data.id,
-    name: apiAddon.theme_data.name,
-    previewURL: apiAddon.theme_data.previewURL,
-    textcolor: apiAddon.theme_data.textcolor,
-    updateURL: apiAddon.theme_data.updateURL,
-    version: apiAddon.theme_data.version,
-  };
-}
-
 export function createInternalAddon(
   apiAddon: ExternalAddonType | PartialExternalAddonType,
 ): AddonType {
@@ -201,7 +161,7 @@ export function createInternalAddon(
     default_locale: apiAddon.default_locale,
     description: apiAddon.description,
     edit_url: apiAddon.edit_url,
-    guid: getGuid(apiAddon),
+    guid: apiAddon.guid,
     has_eula: apiAddon.has_eula,
     has_privacy_policy: apiAddon.has_privacy_policy,
     homepage: apiAddon.homepage,
@@ -238,7 +198,6 @@ export function createInternalAddon(
     isRestartRequired: false,
     isWebExtension: false,
     isMozillaSignedExtension: false,
-    themeData: createInternalThemeData(apiAddon),
   };
 
   const currentVersion = apiAddon.current_version;
@@ -396,8 +355,6 @@ export default function addonsReducer(
         }
 
         if (addon.guid) {
-          // `guid` is already "normalized" with the `getGuid()` function in
-          // `createInternalAddon()`.
           byGUID[addon.guid] = addon.id;
         }
       });

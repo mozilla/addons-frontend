@@ -1,9 +1,7 @@
 /* @flow */
-import invariant from 'invariant';
 import makeClassName from 'classnames';
 import * as React from 'react';
 
-import { ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { getPreviewImage } from 'core/imageUtils';
 import { isTheme } from 'core/utils';
@@ -34,12 +32,7 @@ export const ThemeImageBase = ({
       title: addon.name,
     });
 
-    let previewURL = getPreviewImage(addon, { useStandardSize });
-    if (!previewURL && addon.type === ADDON_TYPE_THEME) {
-      invariant(addon.themeData, 'themeData is required');
-
-      previewURL = addon.themeData.previewURL;
-    }
+    const previewURL = getPreviewImage(addon, { useStandardSize });
 
     return (
       <div

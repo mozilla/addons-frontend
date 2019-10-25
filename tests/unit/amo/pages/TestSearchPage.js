@@ -161,24 +161,6 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
-  it('dispatches a server redirect when `atype` parameter is "9"', () => {
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-
-    render({
-      location: createFakeLocation({ query: { atype: 9 } }),
-      store,
-    });
-
-    sinon.assert.calledWith(
-      fakeDispatch,
-      sendServerRedirect({
-        status: 301,
-        url: '/en-US/android/search/?type=persona',
-      }),
-    );
-    sinon.assert.callCount(fakeDispatch, 1);
-  });
-
   it('does not dispatch a server redirect when `atype` has no mapping', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 

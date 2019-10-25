@@ -9,7 +9,6 @@ import { setInstallError, setInstallState } from 'core/actions/installations';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   DISABLED,
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
@@ -46,7 +45,6 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakePlatformFile,
-  fakeTheme,
   fakeVersion,
   getFakeAddonManagerWrapper,
   getFakeLogger,
@@ -576,7 +574,7 @@ describe(__filename, () => {
           }),
         });
         const installURL = 'http://the.url/';
-        const addon = getAddon({ type: ADDON_TYPE_THEME });
+        const addon = getAddon({ type: ADDON_TYPE_STATIC_THEME });
         loadVersionWithInstallUrl(installURL);
 
         const { root, dispatch } = renderWithInstallHelpers({
@@ -607,7 +605,7 @@ describe(__filename, () => {
           }),
         });
         const installURL = 'http://the.url/';
-        const addon = getAddon({ type: ADDON_TYPE_THEME });
+        const addon = getAddon({ type: ADDON_TYPE_STATIC_THEME });
         loadVersionWithInstallUrl(installURL);
 
         const { root, dispatch } = renderWithInstallHelpers({
@@ -638,7 +636,7 @@ describe(__filename, () => {
           }),
         });
         const installURL = 'http://the.url/';
-        const addon = getAddon({ type: ADDON_TYPE_THEME });
+        const addon = getAddon({ type: ADDON_TYPE_STATIC_THEME });
         loadVersionWithInstallUrl(installURL);
 
         const { root, dispatch } = renderWithInstallHelpers({
@@ -1517,26 +1515,6 @@ describe(__filename, () => {
               ADDON_TYPE_STATIC_THEME,
               UNINSTALL_ACTION,
             ),
-            label: addon.name,
-          });
-        });
-      });
-
-      it('tracks a theme uninstall', () => {
-        const fakeAddonManager = getFakeAddonManagerWrapper();
-        const fakeTracking = createFakeTracking();
-        const addon = createInternalAddon(fakeTheme);
-        const { root } = renderWithInstallHelpers({
-          ...addon,
-          _addonManager: fakeAddonManager,
-          _tracking: fakeTracking,
-        });
-        const { uninstall } = root.instance().props;
-
-        return uninstall(addon).then(() => {
-          sinon.assert.calledWith(fakeTracking.sendEvent, {
-            action: getAddonTypeForTracking(ADDON_TYPE_THEME),
-            category: getAddonEventCategory(ADDON_TYPE_THEME, UNINSTALL_ACTION),
             label: addon.name,
           });
         });

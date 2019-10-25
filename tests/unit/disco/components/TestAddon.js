@@ -7,7 +7,6 @@ import AMInstallButton from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   CLICK_CATEGORY,
   CLIENT_APP_FIREFOX,
   DOWNLOAD_FAILED,
@@ -460,24 +459,21 @@ describe(__filename, () => {
     });
   });
 
-  describe.each([ADDON_TYPE_THEME, ADDON_TYPE_STATIC_THEME])(
-    `Addon with type = %s`,
-    async (type) => {
-      let root;
+  describe('Addon with type = ADDON_TYPE_STATIC_THEME', async () => {
+    let root;
 
-      beforeEach(() => {
-        root = render({ addonProps: { type } });
-      });
+    beforeEach(() => {
+      root = render({ addonProps: { type: ADDON_TYPE_STATIC_THEME } });
+    });
 
-      it("doesn't render the logo", () => {
-        expect(root.find('.logo')).toHaveLength(0);
-      });
+    it("doesn't render the logo", () => {
+      expect(root.find('.logo')).toHaveLength(0);
+    });
 
-      it("doesn't render the description", () => {
-        expect(root.find('.editorial-description')).toHaveLength(0);
-      });
-    },
-  );
+    it("doesn't render the description", () => {
+      expect(root.find('.editorial-description')).toHaveLength(0);
+    });
+  });
 
   describe('addon with type static theme', () => {
     const renderStaticTheme = ({ addonProps, ...otherProps } = {}) => {
@@ -585,31 +581,6 @@ describe(__filename, () => {
       await onClick(createFakeEvent());
 
       sinon.assert.notCalled(install);
-    });
-  });
-
-  describe('addon with type lightweight theme', () => {
-    const renderLightweightTheme = ({ addonProps, ...otherProps } = {}) => {
-      return render({
-        addonProps: {
-          type: ADDON_TYPE_THEME,
-          ...addonProps,
-        },
-        ...otherProps,
-      });
-    };
-
-    it('renders a ThemeImage', () => {
-      const root = renderLightweightTheme();
-
-      expect(root.find(ThemeImage)).toHaveLength(1);
-    });
-
-    it('does not render wrapper link around ThemeImage if hasAddonManager is false', () => {
-      const root = renderLightweightTheme({ hasAddonManager: false });
-
-      expect(root.find('.Addon-ThemeImage-link')).toHaveLength(0);
-      expect(root.find(ThemeImage)).toHaveLength(1);
     });
   });
 

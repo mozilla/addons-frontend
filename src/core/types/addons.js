@@ -44,25 +44,6 @@ export type LanguageToolType = {|
   url: string,
 |};
 
-export type ThemeData = {|
-  accentcolor?: string,
-  author?: string,
-  category?: string,
-  description?: string,
-  detailURL?: string,
-  footer?: string,
-  footerURL?: string,
-  header?: string,
-  headerURL?: string,
-  iconURL?: string,
-  id?: number,
-  name?: string,
-  previewURL?: string,
-  textcolor?: string,
-  updateURL?: string,
-  version?: string,
-|};
-
 /*
  * This is the external API representation of an add-on.
  *
@@ -114,7 +95,6 @@ export type ExternalAddonType = {|
   support_url?: string,
   tags?: Array<string>,
   target_locale?: string,
-  theme_data?: ThemeData,
   type: AddonTypeType,
   url: string,
   weekly_downloads: number,
@@ -135,7 +115,6 @@ export type AddonType = {|
   isMozillaSignedExtension: boolean,
   isRestartRequired: boolean,
   isWebExtension: boolean,
-  themeData: ThemeData | null,
 |};
 
 export type CollectionAddonType = {|

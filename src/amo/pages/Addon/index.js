@@ -47,7 +47,6 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   INSTALL_SOURCE_DETAIL_PAGE,
 } from 'core/constants';
 import { isTheme, nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
@@ -273,7 +272,6 @@ export class AddonBase extends React.Component {
           title = i18n.gettext('About this search plugin');
           break;
         case ADDON_TYPE_STATIC_THEME:
-        case ADDON_TYPE_THEME:
           title = i18n.gettext('About this theme');
           break;
         default:
@@ -281,11 +279,7 @@ export class AddonBase extends React.Component {
       }
 
       const description = addon.description ? addon.description : addon.summary;
-      // For any theme type, we want to hide the summary text here since that is
-      // already displayed in the header.
-      showAbout =
-        (description === addon.summary || addon.type === ADDON_TYPE_THEME) ===
-        false;
+      showAbout = description !== addon.summary;
 
       if (!description || !description.length) {
         return null;

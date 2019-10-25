@@ -1,8 +1,4 @@
-import {
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
-} from 'core/constants';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import reducer, {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   THEMES_BY_AUTHORS_PAGE_SIZE,
@@ -156,7 +152,7 @@ describe(__filename, () => {
           // This is the case where there are more add-ons loaded than needed.
           addons: Array(THEMES_BY_AUTHORS_PAGE_SIZE + 2).fill(fakeAddon),
           authorIds: [fakeAddon.authors[0].id],
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_STATIC_THEME,
           count: THEMES_BY_AUTHORS_PAGE_SIZE + 2,
           pageSize: THEMES_BY_AUTHORS_PAGE_SIZE,
         }),
@@ -188,7 +184,7 @@ describe(__filename, () => {
         previousState,
         fetchAddonsByAuthors({
           authorIds: [randomAuthorId2],
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_STATIC_THEME,
           errorHandlerId: 'error-handler-id',
           pageSize: THEMES_BY_AUTHORS_PAGE_SIZE,
         }),
@@ -216,7 +212,7 @@ describe(__filename, () => {
       const state = reducer(
         firstState,
         fetchAddonsByAuthors({
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_STATIC_THEME,
           authorIds: [fakeAddon.authors[0].id],
           errorHandlerId: 'error-handler-id',
           forAddonSlug,
@@ -233,7 +229,7 @@ describe(__filename, () => {
       const prevState = reducer(
         undefined,
         loadAddonsByAuthors({
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_STATIC_THEME,
           addons: [fakeTheme],
           authorIds: [userId],
           count: 1,
@@ -322,14 +318,17 @@ describe(__filename, () => {
         undefined,
         fetchAddonsByAuthors({
           authorIds: [randomAuthorId1],
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_STATIC_THEME,
           errorHandlerId: 'error-handler-id',
           pageSize: THEMES_BY_AUTHORS_PAGE_SIZE,
         }),
       );
 
       expect(state.loadingFor).toMatchObject({
-        [joinAuthorIdsAndAddonType([randomAuthorId1], ADDON_TYPE_THEME)]: true,
+        [joinAuthorIdsAndAddonType(
+          [randomAuthorId1],
+          ADDON_TYPE_STATIC_THEME,
+        )]: true,
       });
     });
   });
@@ -487,7 +486,7 @@ describe(__filename, () => {
         undefined,
         fetchAddonsByAuthors({
           authorIds: [randomAuthorId1],
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_STATIC_THEME,
           errorHandlerId: 'error-handler-id',
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
@@ -496,7 +495,7 @@ describe(__filename, () => {
       state = reducer(
         state,
         loadAddonsByAuthors({
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_STATIC_THEME,
           addons: [fakeAddon],
           authorIds: [randomAuthorId1],
           count: 1,
@@ -505,7 +504,10 @@ describe(__filename, () => {
       );
 
       expect(state.loadingFor).toMatchObject({
-        [joinAuthorIdsAndAddonType([randomAuthorId1], ADDON_TYPE_THEME)]: false,
+        [joinAuthorIdsAndAddonType(
+          [randomAuthorId1],
+          ADDON_TYPE_STATIC_THEME,
+        )]: false,
       });
     });
 
@@ -547,7 +549,7 @@ describe(__filename, () => {
         undefined,
         fetchAddonsByAuthors({
           authorIds: [randomAuthorId1],
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_STATIC_THEME,
           errorHandlerId: 'error-handler-id',
           pageSize: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
         }),
@@ -556,7 +558,7 @@ describe(__filename, () => {
       state = reducer(
         state,
         loadAddonsByAuthors({
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_STATIC_THEME,
           addons: [fakeAddon],
           authorIds: [randomAuthorId1],
           count,
@@ -565,7 +567,10 @@ describe(__filename, () => {
       );
 
       expect(state.countFor).toMatchObject({
-        [joinAuthorIdsAndAddonType([randomAuthorId1], ADDON_TYPE_THEME)]: count,
+        [joinAuthorIdsAndAddonType(
+          [randomAuthorId1],
+          ADDON_TYPE_STATIC_THEME,
+        )]: count,
       });
     });
   });
@@ -826,12 +831,16 @@ describe(__filename, () => {
         undefined,
         fetchAddonsByAuthors({
           ...params,
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_STATIC_THEME,
         }),
       );
 
       expect(
-        getLoadingForAuthorIds(state, [randomAuthorId1], ADDON_TYPE_THEME),
+        getLoadingForAuthorIds(
+          state,
+          [randomAuthorId1],
+          ADDON_TYPE_STATIC_THEME,
+        ),
       ).toEqual(true);
     });
 
@@ -897,13 +906,13 @@ describe(__filename, () => {
         undefined,
         loadAddonsByAuthors({
           ...params,
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_STATIC_THEME,
           count,
         }),
       );
 
       expect(
-        getCountForAuthorIds(state, [randomAuthorId1], ADDON_TYPE_THEME),
+        getCountForAuthorIds(state, [randomAuthorId1], ADDON_TYPE_STATIC_THEME),
       ).toEqual(count);
     });
 
@@ -953,15 +962,17 @@ describe(__filename, () => {
       expect(
         joinAuthorIdsAndAddonType(
           [randomAuthorId1, randomAuthorId2],
-          ADDON_TYPE_THEME,
+          ADDON_TYPE_STATIC_THEME,
         ),
-      ).toEqual(`${randomAuthorId1}-${randomAuthorId2}-${ADDON_TYPE_THEME}`);
+      ).toEqual(
+        `${randomAuthorId1}-${randomAuthorId2}-${ADDON_TYPE_STATIC_THEME}`,
+      );
     });
 
     it('handles a single author ID', () => {
       expect(
-        joinAuthorIdsAndAddonType([randomAuthorId1], ADDON_TYPE_THEME),
-      ).toEqual(`${randomAuthorId1}-${ADDON_TYPE_THEME}`);
+        joinAuthorIdsAndAddonType([randomAuthorId1], ADDON_TYPE_STATIC_THEME),
+      ).toEqual(`${randomAuthorId1}-${ADDON_TYPE_STATIC_THEME}`);
     });
   });
 });

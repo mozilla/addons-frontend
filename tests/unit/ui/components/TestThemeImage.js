@@ -1,11 +1,7 @@
 import * as React from 'react';
 import config from 'config';
 
-import {
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
-} from 'core/constants';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import ThemeImage, { ThemeImageBase } from 'ui/components/ThemeImage';
 import {
@@ -38,25 +34,6 @@ describe(__filename, () => {
     expect(root.find('.ThemeImage')).toHaveLength(0);
   });
 
-  it('renders a theme image when add-on is a lightweight theme', () => {
-    const addon = createInternalAddon({ ...fakeTheme, type: ADDON_TYPE_THEME });
-    const root = render({ addon });
-
-    expect(root.find('.ThemeImage')).toHaveLength(1);
-    expect(root.find('.ThemeImage')).not.toHaveClassName(
-      'ThemeImage--rounded-corners',
-    );
-    expect(root.find('.ThemeImage-image')).toHaveLength(1);
-    expect(root.find('.ThemeImage-image')).toHaveProp(
-      'alt',
-      `Preview of ${addon.name}`,
-    );
-    expect(root.find('.ThemeImage-image')).toHaveProp(
-      'src',
-      addon.previews[0].image_url,
-    );
-  });
-
   it('renders a theme image when add-on is a static theme', () => {
     const addon = createInternalAddon({
       ...fakeTheme,
@@ -76,24 +53,11 @@ describe(__filename, () => {
     );
   });
 
-  it('renders a theme image with the preview URL of a lightweight theme', () => {
-    const previewURL = 'some-preview-url';
+  it('renders a theme image with rounded corners', () => {
     const addon = createInternalAddon({
       ...fakeTheme,
-      type: ADDON_TYPE_THEME,
-      previews: [],
-      theme_data: {
-        ...fakeTheme.theme_data,
-        previewURL,
-      },
+      type: ADDON_TYPE_STATIC_THEME,
     });
-    const root = render({ addon });
-
-    expect(root.find('.ThemeImage-image')).toHaveProp('src', previewURL);
-  });
-
-  it('renders a theme image with rounded corners', () => {
-    const addon = createInternalAddon({ ...fakeTheme, type: ADDON_TYPE_THEME });
     const root = render({ addon, roundedCorners: true });
 
     expect(root.find('.ThemeImage')).toHaveLength(1);

@@ -15,10 +15,10 @@ import { searchStart } from 'core/reducers/search';
 import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
-  SEARCH_SORT_TRENDING,
-  SEARCH_SORT_TOP_RATED,
+  ADDON_TYPE_STATIC_THEME,
   SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TOP_RATED,
+  SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_EXPLORE,
 } from 'core/constants';
 import { withFixedErrorHandler } from 'core/errorHandler';
@@ -120,7 +120,7 @@ export class SearchBase extends React.Component<InternalProps> {
         case ADDON_TYPE_EXTENSION:
           title = i18n.gettext('Recommended extensions');
           break;
-        case ADDON_TYPE_THEME:
+        case ADDON_TYPE_STATIC_THEME:
           title = i18n.gettext('Recommended themes');
           break;
         default:
@@ -133,7 +133,7 @@ export class SearchBase extends React.Component<InternalProps> {
             case ADDON_TYPE_EXTENSION:
               title = i18n.gettext('Trending extensions');
               break;
-            case ADDON_TYPE_THEME:
+            case ADDON_TYPE_STATIC_THEME:
               title = i18n.gettext('Trending themes');
               break;
             default:
@@ -145,7 +145,7 @@ export class SearchBase extends React.Component<InternalProps> {
             case ADDON_TYPE_EXTENSION:
               title = i18n.gettext('Top rated extensions');
               break;
-            case ADDON_TYPE_THEME:
+            case ADDON_TYPE_STATIC_THEME:
               title = i18n.gettext('Top rated themes');
               break;
             default:
@@ -157,7 +157,7 @@ export class SearchBase extends React.Component<InternalProps> {
             case ADDON_TYPE_EXTENSION:
               title = i18n.gettext('Popular extensions');
               break;
-            case ADDON_TYPE_THEME:
+            case ADDON_TYPE_STATIC_THEME:
               title = i18n.gettext('Popular themes');
               break;
             default:

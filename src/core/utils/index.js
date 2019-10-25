@@ -248,7 +248,7 @@ export function addonHasVersionHistory(addon) {
     throw new Error('addon is required');
   }
 
-  return ![ADDON_TYPE_OPENSEARCH, ADDON_TYPE_THEME].includes(addon.type);
+  return ![ADDON_TYPE_OPENSEARCH].includes(addon.type);
 }
 
 /*

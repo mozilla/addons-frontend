@@ -10,7 +10,7 @@ import {
 import { fetchCategories, loadCategories } from 'core/reducers/categories';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
 } from 'core/constants';
 import { getCategoryResultsQuery } from 'core/utils';
@@ -104,9 +104,9 @@ describe(__filename, () => {
       dispatch,
     });
 
-    root.setProps({ addonType: ADDON_TYPE_THEME });
+    root.setProps({ addonType: ADDON_TYPE_STATIC_THEME });
 
-    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_THEME));
+    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_STATIC_THEME));
   });
 
   it('does not dispatch setViewContext if addonType does not change', () => {

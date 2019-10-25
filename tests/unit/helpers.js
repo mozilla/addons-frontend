@@ -26,7 +26,7 @@ import { getAddonStatus } from 'core/addonManager';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   ENABLED,
@@ -166,25 +166,8 @@ export const fakeTheme = Object.freeze({
   id: 54321,
   name: 'Dancing Daisies by MaDonna',
   slug: 'dancing-daisies',
-  theme_data: {
-    accentcolor: '#71eafa',
-    author: 'MaDonna',
-    category: 'Nature',
-    description: 'This is theme_data description',
-    detailURL: 'https://addons.m/o/dancing-daisies-by-madonna/',
-    footer: 'https://addons.cdn.mozilla.net/610804/footer.png',
-    footerURL: 'https://addons.cdn.mozilla.net/610804/footer.png',
-    header: 'https://addons.cdn.mozilla.net/610804/header.png',
-    headerURL: 'https://addons.cdn.mozilla.net/610804/header.png',
-    iconURL: 'https://addons.cdn.mozilla.net/610804/icon.png',
-    id: 54321,
-    name: 'Dancing Daisies by MaDonna',
-    previewURL: 'https://addons.cdn.mozilla.net/610804/preview.png',
-    textcolor: '#ffffff',
-    updateURL: 'https://versioncheck.m.o/themes/update-check/610804',
-    version: '1.0',
-  },
-  type: ADDON_TYPE_THEME,
+  type: ADDON_TYPE_STATIC_THEME,
+  previews: [fakePreview],
 });
 
 export const fakeInstalledAddon = Object.freeze({
@@ -257,7 +240,7 @@ export const fakeCategory = Object.freeze({
   misc: false,
   name: 'Testing category',
   slug: 'test',
-  type: ADDON_TYPE_THEME,
+  type: ADDON_TYPE_STATIC_THEME,
   weight: 1,
 });
 

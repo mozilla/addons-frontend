@@ -12,7 +12,7 @@ import homeReducer, {
   loadHomeData,
 } from 'amo/reducers/home';
 import { createInternalAddon } from 'core/reducers/addons';
-import { ADDON_TYPE_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
+import { ADDON_TYPE_STATIC_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
 import { setClientApp } from 'core/actions';
 import {
   createAddonsApiResult,
@@ -158,7 +158,7 @@ describe(__filename, () => {
               ...createFakeCollectionAddon({
                 addon: {
                   ...fakeAddon,
-                  type: ADDON_TYPE_THEME,
+                  type: ADDON_TYPE_STATIC_THEME,
                 },
               }),
             }),
@@ -175,7 +175,7 @@ describe(__filename, () => {
         Array(LANDING_PAGE_THEME_COUNT).fill(
           createInternalAddon({
             ...fakeAddon,
-            type: ADDON_TYPE_THEME,
+            type: ADDON_TYPE_STATIC_THEME,
           }),
         ),
       );

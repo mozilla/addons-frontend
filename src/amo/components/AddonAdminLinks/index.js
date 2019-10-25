@@ -7,7 +7,6 @@ import {
   ADDONS_CONTENTREVIEW,
   ADDONS_EDIT,
   ADDONS_POSTREVIEW,
-  ADDON_TYPE_THEME,
   ADMIN_TOOLS_VIEW,
   THEMES_REVIEW,
 } from 'core/constants';
@@ -68,9 +67,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       <li>
         <a
           className="AddonAdminLinks-edit-link"
-          href={`/developers/${
-            addon.type === ADDON_TYPE_THEME ? 'theme' : 'addon'
-          }/${addon.slug}/edit`}
+          href={`/developers/addon/${addon.slug}/edit`}
         >
           {// eslint-disable-next-line max-len
           // translators: This action allows the add-on developer or an admin to edit an add-on's properties.
@@ -121,10 +118,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
         i18n.gettext('Review theme')
       : // translators: This action allows a reviewer to perform a review of an add-on's code.
         i18n.gettext('Review add-on code');
-    const reviewUrl =
-      addon.type === ADDON_TYPE_THEME
-        ? `/reviewers/themes/queue/single/${addon.slug}`
-        : `/reviewers/review/${addon.slug}`;
+    const reviewUrl = `/reviewers/review/${addon.slug}`;
     const codeReviewLink =
       showCodeReviewLink || showThemeReviewLink ? (
         <li>

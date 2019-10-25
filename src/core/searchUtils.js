@@ -1,11 +1,7 @@
 import { oneLine } from 'common-tags';
 import defaultConfig from 'config';
 
-import {
-  ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
-  CLIENT_APP_ANDROID,
-} from 'core/constants';
+import { CLIENT_APP_ANDROID } from 'core/constants';
 import log from 'core/logger';
 
 export const operatingSystems = {
@@ -135,17 +131,6 @@ export const fixFiltersForAndroidThemes = ({ api, filters }) => {
 
   if (newFilters.clientApp !== CLIENT_APP_ANDROID) {
     return newFilters;
-  }
-
-  // There are no categories containing LWT for Android, so we request ST only
-  // for Android, but only when there is a category set.
-  // See: https://github.com/mozilla/addons-frontend/issues/7459
-  if (
-    newFilters.category &&
-    newFilters.addonType &&
-    newFilters.addonType.includes(ADDON_TYPE_THEME)
-  ) {
-    newFilters.addonType = ADDON_TYPE_STATIC_THEME;
   }
 
   return newFilters;

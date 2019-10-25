@@ -21,7 +21,7 @@ import { DEFAULT_API_PAGE_SIZE, createApiError } from 'core/api';
 import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_STATIC_THEME,
   ADMIN_TOOLS,
   CLIENT_APP_FIREFOX,
   USERS_EDIT,
@@ -519,7 +519,7 @@ describe(__filename, () => {
 
     expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
       'addonType',
-      ADDON_TYPE_THEME,
+      ADDON_TYPE_STATIC_THEME,
     );
     expect(root.find(AddonsByAuthorsCard).at(1)).toHaveProp(
       'pageParam',

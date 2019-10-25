@@ -13,7 +13,6 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
@@ -72,7 +71,6 @@ export class AddonHeadBase extends React.Component<InternalProps> {
             for 🦊 Firefox Android (%(locale)s)`);
           break;
         case ADDON_TYPE_STATIC_THEME:
-        case ADDON_TYPE_THEME:
           // translators: please keep the fox emoji next to "Firefox Android".
           localizedTitle = i18n.gettext(
             `%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)`,
@@ -106,7 +104,6 @@ export class AddonHeadBase extends React.Component<InternalProps> {
             for 🦊 Firefox (%(locale)s)`);
           break;
         case ADDON_TYPE_STATIC_THEME:
-        case ADDON_TYPE_THEME:
           // translators: please keep the fox emoji next to "Firefox".
           localizedTitle = i18n.gettext(`%(addonName)s – Get this Theme for 🦊
             Firefox (%(locale)s)`);
@@ -148,9 +145,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
       return null;
     }
 
-    const image = addon.themeData
-      ? addon.themeData.previewURL
-      : getPreviewImage(addon);
+    const image = getPreviewImage(addon);
 
     return (
       <>

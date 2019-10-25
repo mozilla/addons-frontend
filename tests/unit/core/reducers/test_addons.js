@@ -27,7 +27,6 @@ import {
   fakeAddon,
   fakeAddonInfo,
   fakeReview,
-  fakeTheme,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -126,26 +125,6 @@ describe(__filename, () => {
     );
   });
 
-  it('stores an internal representation of a theme', () => {
-    const theme = { ...fakeTheme };
-    const state = addons(undefined, loadAddonResults({ addons: [theme] }));
-
-    expect(getAddonByID(state, theme.id)).toEqual(createInternalAddon(theme));
-  });
-
-  it('does not let theme_data set properties to undefined', () => {
-    const theme = {
-      ...fakeTheme,
-      theme_data: {
-        ...fakeTheme.theme_data,
-        id: undefined,
-      },
-    };
-    const state = addons(undefined, loadAddonResults({ addons: [theme] }));
-
-    expect(getAddonByID(state, theme.id).id).toEqual(theme.id);
-  });
-
   it('does not store undefined properties', () => {
     const extension = { ...fakeAddon, description: undefined };
     const state = addons(undefined, loadAddonResults({ addons: [extension] }));
@@ -157,14 +136,6 @@ describe(__filename, () => {
         'description',
       ),
     ).toEqual(false);
-  });
-
-  it('mimics how Firefox appends @persona.mozilla.org to GUIDs', () => {
-    const state = addons(undefined, loadAddonResults({ addons: [fakeTheme] }));
-
-    expect(getAddonByID(state, fakeTheme.id).guid).toEqual(
-      '54321@personas.mozilla.org',
-    );
   });
 
   it('exposes `isRestartRequired` attribute from current version files', () => {

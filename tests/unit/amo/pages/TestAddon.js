@@ -45,7 +45,6 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
   FATAL_ERROR,
   INSTALLING,
@@ -171,10 +170,16 @@ describe(__filename, () => {
     const root = shallowRender({ dispatch: fakeDispatch });
     fakeDispatch.resetHistory();
     root.setProps({
-      addon: createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_THEME }),
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+      }),
     });
 
-    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_THEME));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      setViewContext(ADDON_TYPE_STATIC_THEME),
+    );
   });
 
   it('dispatches setViewContext when updating with new addon', () => {
@@ -766,18 +771,6 @@ describe(__filename, () => {
     expect(root.find('.AddonDescription')).toHaveLength(0);
   });
 
-  it("does not display a lightweight theme's summary", () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-        summary: 'my theme is very cool',
-      }),
-    });
-
-    expect(root.find('.AddonDescription')).toHaveLength(0);
-  });
-
   it("displays a static theme's description", () => {
     const description = 'some cool description';
     const root = shallowRender({
@@ -815,20 +808,6 @@ describe(__filename, () => {
       addon: createInternalAddon({
         ...fakeAddon,
         type: ADDON_TYPE_EXTENSION,
-        summary,
-        description: null,
-      }),
-    });
-
-    expect(root.find('.AddonDescription')).toHaveLength(0);
-  });
-
-  it('does not display anything when the lightweight theme has no description', () => {
-    const summary = 'my theme is very cool';
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
         summary,
         description: null,
       }),
@@ -1014,16 +993,6 @@ describe(__filename, () => {
     expect(root.find('.Addon-screenshots')).toHaveLength(1);
   });
 
-  it('hides screenshots for lightweight theme type', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeTheme,
-        type: ADDON_TYPE_THEME,
-      }),
-    });
-    expect(root.find('.Addon-screenshots')).toHaveLength(0);
-  });
-
   it('hides screenshots for static theme type', () => {
     const root = shallowRender({
       addon: createInternalAddon({
@@ -1032,16 +1001,6 @@ describe(__filename, () => {
       }),
     });
     expect(root.find('.Addon-screenshots')).toHaveLength(0);
-  });
-
-  it('uses Addon-theme class if it is a lightweight theme', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeTheme,
-        type: ADDON_TYPE_THEME,
-      }),
-    });
-    expect(root.find('.Addon-theme')).toHaveLength(1);
   });
 
   it('uses Addon-theme class if it is a static theme', () => {
@@ -1109,7 +1068,7 @@ describe(__filename, () => {
       ADDON_TYPE_DICT,
       ADDON_TYPE_LANG,
       ADDON_TYPE_OPENSEARCH,
-      ADDON_TYPE_THEME,
+      ADDON_TYPE_STATIC_THEME,
     ]) {
       const addon = createInternalAddon({
         ...fakeAddon,

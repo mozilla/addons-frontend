@@ -5,7 +5,7 @@ import AddonsCard from 'amo/components/AddonsCard';
 import EditableCollectionAddon from 'amo/components/EditableCollectionAddon';
 import SearchResult from 'amo/components/SearchResult';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
-import { ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import CardList from 'ui/components/CardList';
 import { fakeAddon } from 'tests/unit/helpers';
 
@@ -135,17 +135,6 @@ describe(__filename, () => {
     const newFakeAddon = {
       ...fakeAddon,
       type: ADDON_TYPE_STATIC_THEME,
-    };
-    const root = render({ addons: [newFakeAddon] });
-    const results = root.find(SearchResult);
-    expect(results).toHaveLength(1);
-    expect(results.at(0)).toHaveProp('showSummary', false);
-  });
-
-  it('hides summary for a lightweight theme', () => {
-    const newFakeAddon = {
-      ...fakeAddon,
-      type: ADDON_TYPE_THEME,
     };
     const root = render({ addons: [newFakeAddon] });
     const results = root.find(SearchResult);

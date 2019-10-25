@@ -4,7 +4,6 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
@@ -58,21 +57,21 @@ describe(__filename, () => {
           application: CLIENT_APP_FIREFOX,
           name: 'Naturé',
           slug: 'naturé',
-          type: ADDON_TYPE_THEME,
+          type: ADDON_TYPE_STATIC_THEME,
         },
         {
           ...fakeCategory,
           application: CLIENT_APP_FIREFOX,
           name: 'Painting',
           slug: 'painting',
-          type: ADDON_TYPE_THEME,
+          type: ADDON_TYPE_STATIC_THEME,
         },
         {
           ...fakeCategory,
           application: CLIENT_APP_FIREFOX,
           name: 'Anime',
           slug: 'anime',
-          type: ADDON_TYPE_THEME,
+          type: ADDON_TYPE_STATIC_THEME,
         },
         {
           ...fakeCategory,
@@ -149,32 +148,32 @@ describe(__filename, () => {
           application: CLIENT_APP_FIREFOX,
           name: 'Anime',
           slug: 'anime',
-          type: ADDON_TYPE_THEME,
+          type: ADDON_TYPE_STATIC_THEME,
         },
         {
           ...fakeCategory,
           application: CLIENT_APP_FIREFOX,
           name: 'Naturé',
           slug: 'naturé',
-          type: ADDON_TYPE_THEME,
+          type: ADDON_TYPE_STATIC_THEME,
         },
         {
           ...fakeCategory,
           application: CLIENT_APP_FIREFOX,
           name: 'Painting',
           slug: 'painting',
-          type: ADDON_TYPE_THEME,
+          type: ADDON_TYPE_STATIC_THEME,
+        },
+        {
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
+          name: 'Painting',
+          slug: 'painting',
+          type: ADDON_TYPE_STATIC_THEME,
         },
       ];
       state = categories(initialState, loadCategories({ results }));
 
-      // Notice all Firefox theme categories are also set as Android theme
-      // categories and no Android categories are returned. This reflects the
-      // current state of AMO.
-      // See: https://github.com/mozilla/addons-frontend/issues/2170
-      //
-      // This can be changed once
-      // https://github.com/mozilla/addons-server/issues/4766 is fixed.
       expect(state.categories).toEqual({
         firefox: {
           [ADDON_TYPE_DICT]: {},
@@ -196,28 +195,27 @@ describe(__filename, () => {
           },
           [ADDON_TYPE_LANG]: {},
           [ADDON_TYPE_OPENSEARCH]: {},
-          [ADDON_TYPE_STATIC_THEME]: {},
-          [ADDON_TYPE_THEME]: {
+          [ADDON_TYPE_STATIC_THEME]: {
             anime: {
               ...fakeCategory,
               application: CLIENT_APP_FIREFOX,
               name: 'Anime',
               slug: 'anime',
-              type: ADDON_TYPE_THEME,
+              type: ADDON_TYPE_STATIC_THEME,
             },
             naturé: {
               ...fakeCategory,
               application: CLIENT_APP_FIREFOX,
               name: 'Naturé',
               slug: 'naturé',
-              type: ADDON_TYPE_THEME,
+              type: ADDON_TYPE_STATIC_THEME,
             },
             painting: {
               ...fakeCategory,
               application: CLIENT_APP_FIREFOX,
               name: 'Painting',
               slug: 'painting',
-              type: ADDON_TYPE_THEME,
+              type: ADDON_TYPE_STATIC_THEME,
             },
           },
         },
@@ -248,28 +246,13 @@ describe(__filename, () => {
           },
           [ADDON_TYPE_LANG]: {},
           [ADDON_TYPE_OPENSEARCH]: {},
-          [ADDON_TYPE_STATIC_THEME]: {},
-          [ADDON_TYPE_THEME]: {
-            anime: {
-              ...fakeCategory,
-              application: CLIENT_APP_FIREFOX,
-              name: 'Anime',
-              slug: 'anime',
-              type: ADDON_TYPE_THEME,
-            },
-            naturé: {
-              ...fakeCategory,
-              application: CLIENT_APP_FIREFOX,
-              name: 'Naturé',
-              slug: 'naturé',
-              type: ADDON_TYPE_THEME,
-            },
+          [ADDON_TYPE_STATIC_THEME]: {
             painting: {
               ...fakeCategory,
-              application: CLIENT_APP_FIREFOX,
+              application: CLIENT_APP_ANDROID,
               name: 'Painting',
               slug: 'painting',
-              type: ADDON_TYPE_THEME,
+              type: ADDON_TYPE_STATIC_THEME,
             },
           },
         },

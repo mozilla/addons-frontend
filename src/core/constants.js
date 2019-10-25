@@ -50,15 +50,13 @@ export const ADDON_TYPE_EXTENSION = 'extension';
 export const ADDON_TYPE_LANG = 'language';
 export const ADDON_TYPE_OPENSEARCH = 'search';
 export const ADDON_TYPE_STATIC_THEME = 'statictheme';
-export const ADDON_TYPE_THEME = 'persona';
 
 export type AddonTypeType =
   | typeof ADDON_TYPE_DICT
   | typeof ADDON_TYPE_EXTENSION
   | typeof ADDON_TYPE_LANG
   | typeof ADDON_TYPE_OPENSEARCH
-  | typeof ADDON_TYPE_STATIC_THEME
-  | typeof ADDON_TYPE_THEME;
+  | typeof ADDON_TYPE_STATIC_THEME;
 
 export const validAddonTypes = [
   ADDON_TYPE_DICT,
@@ -66,7 +64,6 @@ export const validAddonTypes = [
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
 ];
 // Mapping of the add-on types we show in URLs, etc. and what they map
 // to in the API (and how they're represented internally in the app).
@@ -103,7 +100,6 @@ export const INCOMPATIBLE_FIREFOX_FENIX = 'INCOMPATIBLE_FIREFOX_FENIX';
 // Tracking add-on types
 export const TRACKING_TYPE_EXTENSION = 'addon';
 export const TRACKING_TYPE_STATIC_THEME = ADDON_TYPE_STATIC_THEME;
-export const TRACKING_TYPE_THEME = 'theme';
 export const TRACKING_TYPE_INVALID = 'invalid';
 
 // Add-on install tracking sources.
@@ -162,9 +158,6 @@ export const SET_LANG = 'SET_LANG';
 export const SET_REQUEST_ID = 'SET_REQUEST_ID';
 export const SET_USER_AGENT = 'SET_USER_AGENT';
 export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
-
-// Theme action.
-export const THEME_INSTALL = 'InstallBrowserTheme';
 
 export const INSTALL_EVENT_LIST = [
   'onDownloadStarted',

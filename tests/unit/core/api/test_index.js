@@ -7,7 +7,7 @@ import utf8 from 'utf8';
 
 import * as api from 'core/api';
 import {
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
@@ -748,7 +748,7 @@ describe(__filename, () => {
         .withArgs(
           urlWithTheseParams({
             q: 'foo',
-            type: ADDON_TYPE_THEME,
+            type: ADDON_TYPE_STATIC_THEME,
           }),
         )
         .returns(mockResponse());
@@ -757,7 +757,7 @@ describe(__filename, () => {
         api: defaultApiState,
         filters: {
           query: 'foo',
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_STATIC_THEME,
         },
       });
       mockWindow.verify();

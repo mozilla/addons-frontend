@@ -7,7 +7,7 @@ import ContributeCard, {
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import Button from 'ui/components/Button';
@@ -86,7 +86,9 @@ describe(__filename, () => {
   });
 
   it('displays content for a theme artist', () => {
-    const root = render({ addon: createAddon({ type: ADDON_TYPE_THEME }) });
+    const root = render({
+      addon: createAddon({ type: ADDON_TYPE_STATIC_THEME }),
+    });
     expect(root.find(Card)).toHaveProp('header', 'Support this artist');
     expect(root.find('.ContributeCard-content'))
       .toHaveText(oneLine`The artist of this theme asks that you help
@@ -96,7 +98,7 @@ describe(__filename, () => {
   it('displays content for multiple theme artists', () => {
     const root = render({
       addon: createAddon({
-        type: ADDON_TYPE_THEME,
+        type: ADDON_TYPE_STATIC_THEME,
         authors: Array(3).fill(fakeAddon.authors[0]),
       }),
     });

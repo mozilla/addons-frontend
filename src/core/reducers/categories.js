@@ -3,7 +3,7 @@ import { oneLine } from 'common-tags';
 import config from 'config';
 import invariant from 'invariant';
 
-import { ADDON_TYPE_THEME, validAddonTypes } from 'core/constants';
+import { validAddonTypes } from 'core/constants';
 import log from 'core/logger';
 
 export const FETCH_CATEGORIES: 'FETCH_CATEGORIES' = 'FETCH_CATEGORIES';
@@ -149,18 +149,6 @@ export default function reducer(
             );
         });
       });
-
-      // Android doesn't have any theme categories but because all lightweight
-      // themes (personas) are installable on Firefox Desktop and Android we
-      // share categories and themes across clientApps.
-      // See: https://github.com/mozilla/addons-frontend/issues/2170
-      //
-      // TODO: Remove this code once
-      // https://github.com/mozilla/addons-server/issues/4766 is fixed.
-      log.info(oneLine`Replacing Android persona data with Firefox data until
-          https://github.com/mozilla/addons-server/issues/4766 is fixed.`);
-      categories.android[ADDON_TYPE_THEME] =
-        categories.firefox[ADDON_TYPE_THEME];
 
       return {
         categories,

@@ -9,7 +9,6 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   SEARCH_SORT_POPULAR,
@@ -93,12 +92,6 @@ describe(__filename, () => {
       // version history is useless. It's best to just say they don't
       // have a history.
       const addon = createAddonWithType(ADDON_TYPE_OPENSEARCH);
-
-      expect(addonHasVersionHistory(addon)).toEqual(false);
-    });
-
-    it('returns false for lightweight theme', () => {
-      const addon = createAddonWithType(ADDON_TYPE_THEME);
 
       expect(addonHasVersionHistory(addon)).toEqual(false);
     });
@@ -629,10 +622,6 @@ describe(__filename, () => {
   });
 
   describe('isTheme', () => {
-    it('returns true if type is a lightweight theme', () => {
-      expect(isTheme(ADDON_TYPE_THEME)).toEqual(true);
-    });
-
     it('returns true if type is a static theme', () => {
       expect(isTheme(ADDON_TYPE_STATIC_THEME)).toEqual(true);
     });

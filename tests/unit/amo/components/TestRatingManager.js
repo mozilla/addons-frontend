@@ -8,7 +8,6 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
 } from 'core/constants';
 import { selectReview } from 'amo/reducers/reviews';
 import {
@@ -333,11 +332,6 @@ describe(__filename, () => {
     it('renders a login prompt for the search plugin', () => {
       const prompt = getAuthPromptForType(ADDON_TYPE_OPENSEARCH);
       expect(prompt).toContain('search plugin');
-    });
-
-    it('renders a login prompt for themes', () => {
-      const prompt = getAuthPromptForType(ADDON_TYPE_THEME);
-      expect(prompt).toContain('theme');
     });
 
     it('renders a login prompt for static themes', () => {

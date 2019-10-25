@@ -3,7 +3,7 @@ import * as React from 'react';
 import AddonBadges, { AddonBadgesBase } from 'amo/components/AddonBadges';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
@@ -182,7 +182,7 @@ describe(__filename, () => {
               is_webextension: false,
             },
           ],
-          type: ADDON_TYPE_THEME,
+          type: ADDON_TYPE_STATIC_THEME,
           compatibility: {
             [CLIENT_APP_FIREFOX]: {
               max: '56.*',
