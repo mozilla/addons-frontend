@@ -19,7 +19,7 @@ import {
   INSTALLED,
   UNINSTALLED,
 } from 'core/constants';
-import { createInternalAddon, getGuid } from 'core/reducers/addons';
+import { createInternalAddon } from 'core/reducers/addons';
 import { createInternalVersion } from 'core/reducers/versions';
 import { getErrorMessage } from 'core/utils/addons';
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
@@ -605,46 +605,6 @@ describe(__filename, () => {
       expect(root.find(ThemeImage)).toHaveLength(1);
     });
 
-    it('makes the ThemeImage clickable when add-on manager is available', () => {
-      const addonProps = {
-        id: 'some-theme-id',
-        name: 'some-theme-name',
-        type: ADDON_TYPE_THEME,
-      };
-
-      store.dispatch(
-        setInstallState({
-          // We use this function because the GUID is changed for lightweight
-          // themes (to mimic Firefox's internal behavior).
-          guid: getGuid(addonProps),
-          status: UNINSTALLED,
-        }),
-      );
-
-      const installTheme = sinon.stub();
-
-      const root = renderLightweightTheme({
-        addonProps,
-        hasAddonManager: true,
-        installTheme,
-      });
-
-      expect(root.find(ThemeImage)).toHaveLength(1);
-
-      const imageLink = root.find('.Addon-ThemeImage-link');
-      expect(imageLink).toHaveLength(1);
-
-      const event = createFakeEvent({ currentTarget: imageLink });
-      imageLink.simulate('click', event);
-
-      sinon.assert.called(event.preventDefault);
-      sinon.assert.calledWith(installTheme, imageLink, {
-        name: addonProps.name,
-        status: UNINSTALLED,
-        type: addonProps.type,
-      });
-    });
-
     it('does not render wrapper link around ThemeImage if hasAddonManager is false', () => {
       const root = renderLightweightTheme({ hasAddonManager: false });
 
@@ -672,20 +632,17 @@ describe(__filename, () => {
     it('passes install helper functions to the install button', () => {
       const enable = sinon.stub();
       const install = sinon.stub();
-      const installTheme = sinon.stub();
       const uninstall = sinon.stub();
 
       const root = renderWithAMInstallButton({
         enable,
         install,
-        installTheme,
         uninstall,
       });
 
       const installButton = root.find(AMInstallButton);
       expect(installButton).toHaveProp('enable', enable);
       expect(installButton).toHaveProp('install', install);
-      expect(installButton).toHaveProp('installTheme', installTheme);
       expect(installButton).toHaveProp('uninstall', uninstall);
     });
   });

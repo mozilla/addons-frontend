@@ -21,7 +21,6 @@ import {
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INACTIVE,
-  INSTALLED,
   INSTALLING,
   INSTALL_ACTION,
   INSTALL_CANCELLED,
@@ -30,14 +29,11 @@ import {
   INSTALL_ERROR,
   INSTALL_FAILED,
   INSTALL_STARTED_ACTION,
-  INSTALL_STARTED_THEME_CATEGORY,
-  INSTALL_THEME_CATEGORY,
   OS_ALL,
   OS_ANDROID,
   SET_ENABLE_NOT_AVAILABLE,
   START_DOWNLOAD,
   TRACKING_TYPE_INVALID,
-  TRACKING_TYPE_THEME,
   UNINSTALLED,
   UNINSTALLING,
   UNINSTALL_ACTION,
@@ -60,7 +56,6 @@ import {
 import {
   WithInstallHelpers,
   findInstallURL,
-  installTheme,
   makeProgressHandler,
   withInstallHelpers,
 } from 'core/installAddon';
@@ -1568,68 +1563,6 @@ describe(__filename, () => {
             label: addon.name,
           });
         });
-      });
-    });
-
-    describe('installTheme', () => {
-      const baseAddon = {
-        name: 'hai-theme',
-        guid: '{install-theme}',
-        status: UNINSTALLED,
-        type: ADDON_TYPE_THEME,
-      };
-
-      function installThemeStubs() {
-        return {
-          _themeInstall: sinon.spy(),
-          _tracking: {
-            sendEvent: sinon.spy(),
-          },
-        };
-      }
-
-      it('installs the theme when it is not installed', () => {
-        const addon = { ...baseAddon };
-        const node = sinon.stub();
-        const stubs = installThemeStubs();
-        installTheme(node, addon, stubs);
-        sinon.assert.calledWith(stubs._themeInstall, node);
-      });
-
-      it('tracks a theme install', () => {
-        const addon = { ...baseAddon };
-        const node = sinon.stub();
-        const stubs = installThemeStubs();
-        installTheme(node, addon, stubs);
-        sinon.assert.calledWith(stubs._tracking.sendEvent, {
-          action: TRACKING_TYPE_THEME,
-          category: INSTALL_STARTED_THEME_CATEGORY,
-          label: 'hai-theme',
-        });
-        sinon.assert.calledWith(stubs._tracking.sendEvent, {
-          action: TRACKING_TYPE_THEME,
-          category: INSTALL_THEME_CATEGORY,
-          label: 'hai-theme',
-        });
-        sinon.assert.calledTwice(stubs._tracking.sendEvent);
-      });
-
-      it('does not try to install theme if INSTALLED', () => {
-        const addon = { ...baseAddon, status: INSTALLED };
-        const node = sinon.stub();
-        const stubs = installThemeStubs();
-        installTheme(node, addon, stubs);
-        sinon.assert.notCalled(stubs._tracking.sendEvent);
-        sinon.assert.notCalled(stubs._themeInstall);
-      });
-
-      it('does not try to install theme if it is an extension', () => {
-        const addon = { ...baseAddon, type: ADDON_TYPE_EXTENSION };
-        const node = sinon.stub();
-        const stubs = installThemeStubs();
-        installTheme(node, addon, stubs);
-        sinon.assert.notCalled(stubs._tracking.sendEvent);
-        sinon.assert.notCalled(stubs._themeInstall);
       });
     });
   });

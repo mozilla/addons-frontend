@@ -56,7 +56,6 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
     isAddonEnabled,
     install,
     installStatus,
-    installTheme,
     setCurrentStatus,
     puffy,
     uninstall,
@@ -92,7 +91,6 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
           enable={enable}
           hasAddonManager={hasAddonManager}
           install={install}
-          installTheme={installTheme}
           isAddonEnabled={isAddonEnabled}
           puffy={puffy}
           setCurrentStatus={setCurrentStatus}
