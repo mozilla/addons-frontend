@@ -135,32 +135,32 @@ export class HomeBase extends React.Component {
     const { i18n } = this.props;
     const curatedThemes = [
       {
-        color: 8,
+        color: 1,
         slug: 'abstract',
         title: i18n.gettext('Abstract'),
       },
       {
-        color: 8,
+        color: 2,
         slug: 'nature',
         title: i18n.gettext('Nature'),
       },
       {
-        color: 10,
+        color: 3,
         slug: 'film-and-tv',
         title: i18n.gettext('Film & TV'),
       },
       {
-        color: 8,
+        color: 4,
         slug: 'scenery',
         title: i18n.gettext('Scenery'),
       },
       {
-        color: 10,
+        color: 5,
         slug: 'music',
         title: i18n.gettext('Music'),
       },
       {
-        color: 9,
+        color: 6,
         slug: 'seasonal',
         title: i18n.gettext('Seasonal'),
       },
