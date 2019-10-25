@@ -126,9 +126,6 @@ export function callApi({
     ...parsedUrl.query,
     ...params,
     lang: apiState.lang,
-    // Always return URLs wrapped by the outgoing proxy, except when requested
-    // not to do so.
-    // Example: http://outgoing.prod.mozaws.net/
     wrap_outgoing_links: wrapOutgoingLinks || null,
   });
 
