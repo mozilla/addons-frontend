@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-22 18:54+0000\n"
-"PO-Revision-Date: 2019-10-22 19:38+0000\n"
-"Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
+"PO-Revision-Date: 2019-10-25 20:45+0000\n"
+"Last-Translator: paul.trevor <paul.trevor@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -1239,7 +1239,7 @@ msgstr "Lesen Sie alle Ein-Stern-Bewertungen"
 
 #: src/amo/components/ReportAbuseButton/index.js:106 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr "Wir können nicht auf jede Missbrauchsmeldung antworten, aber wir befassen uns mit dem Thema."
+msgstr "Wir können nicht jede Meldung über einen Richtlinienverstoß beantworten, aber wir befassen uns mit dem Thema."
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
@@ -1249,7 +1249,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:132
 msgid "Report this add-on for abuse"
-msgstr "Dieses Add-on wegen Missbrauchs melden"
+msgstr "Dieses Add-on wegen Richtlinienverstoß melden"
 
 #: src/amo/components/ReportAbuseButton/index.js:161
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -1257,11 +1257,11 @@ msgstr "Bitte verwenden Sie dieses Formular nicht, um Fehler zu melden oder neue
 
 #: src/amo/components/ReportAbuseButton/index.js:174 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
-msgstr "Missbrauchsmeldung senden"
+msgstr "Meldung über Richtlinienverstoß senden"
 
 #: src/amo/components/ReportAbuseButton/index.js:175 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
-msgstr "Missbrauchsmeldung wird gesendet"
+msgstr "Meldung über Richtlinienverstoß wird gesendet"
 
 #: src/amo/components/ReportAbuseButton/index.js:177
 msgid "Dismiss"
@@ -1273,7 +1273,7 @@ msgstr "Erläutern Sie, inwiefern dieses Add-on unsere Regeln verletzt."
 
 #: src/amo/components/ReportAbuseButton/index.js:95
 msgid "You reported this add-on for abuse"
-msgstr "Sie haben dieses Add-on wegen Missbrauchs gemeldet"
+msgstr "Sie haben dieses Add-on wegen Richtlinienverstoß gemeldet"
 
 #: src/amo/components/ReportAbuseButton/index.js:99
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -1281,7 +1281,7 @@ msgstr "Wir haben Ihre Meldung erhalten. Danke, dass Sie uns Ihre Bedenken zu di
 
 #: src/amo/components/ReportUserAbuse/index.js:106 src/amo/components/ReportUserAbuse/index.js:99
 msgid "Report this user for abuse"
-msgstr "Diesen Benutzer wegen Missbrauchs melden"
+msgstr "Diesen Benutzer wegen Richtlinienverstoß melden"
 
 #: src/amo/components/ReportUserAbuse/index.js:113
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
@@ -1297,7 +1297,7 @@ msgstr "Erläutern Sie, inwiefern dieses Benutzer unsere Regeln verletzt."
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "You reported this user for abuse"
-msgstr "Sie haben diesen Benutzer wegen Missbrauchs gemeldet"
+msgstr "Sie haben diesen Benutzer wegen Richtlinienverstoß gemeldet"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
