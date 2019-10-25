@@ -67,6 +67,26 @@ describe(__filename, () => {
       mockWindow.verify();
     });
 
+    it('can exclude wrap_outgoing_links param', async () => {
+      const { state } = dispatchClientMetadata();
+
+      mockWindow
+        .expects('fetch')
+        .withArgs(
+          sinon.match(
+            (urlString) => !urlString.includes('wrap_outgoing_links'),
+          ),
+        )
+        .returns(createApiResponse());
+
+      await api.callApi({
+        endpoint: 'resource',
+        apiState: state.api,
+        wrapOutgoingLinks: false,
+      });
+      mockWindow.verify();
+    });
+
     it('overrides lang parameter if already present', async () => {
       const lang = 'en-US';
       const { state } = dispatchClientMetadata({ lang });
