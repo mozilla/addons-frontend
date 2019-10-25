@@ -9,8 +9,7 @@ import { stringify, parse } from 'qs';
 
 import {
   ADDON_TYPE_OPENSEARCH,
-  ADDON_TYPE_THEME,
-  ADDON_TYPE_THEMES,
+  ADDON_TYPE_STATIC_THEME,
   API_ADDON_TYPES_MAPPING,
   OS_ALL,
   OS_ANDROID,
@@ -261,7 +260,7 @@ export const decodeHtmlEntities = (string) => {
 };
 
 export const isTheme = (addonType) => {
-  return ADDON_TYPE_THEMES.includes(addonType);
+  return addonType === ADDON_TYPE_STATIC_THEME;
 };
 
 /*

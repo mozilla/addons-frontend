@@ -51,7 +51,6 @@ export const ADDON_TYPE_LANG = 'language';
 export const ADDON_TYPE_OPENSEARCH = 'search';
 export const ADDON_TYPE_STATIC_THEME = 'statictheme';
 export const ADDON_TYPE_THEME = 'persona';
-export const ADDON_TYPE_THEMES = [ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME];
 
 export type AddonTypeType =
   | typeof ADDON_TYPE_DICT
