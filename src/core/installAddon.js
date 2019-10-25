@@ -9,19 +9,16 @@ import { connect } from 'react-redux';
 import { getAddonIconUrl } from 'core/imageUtils';
 import { setInstallError, setInstallState } from 'core/actions/installations';
 import log from 'core/logger';
-import themeInstall from 'core/themeInstall';
 import tracking, {
   getAddonTypeForTracking,
   getAddonEventCategory,
 } from 'core/tracking';
 import {
-  ADDON_TYPE_THEME,
-  DISABLED,
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
   ENABLE_ACTION,
-  ERROR_CORRUPT_FILE,
   ERROR,
+  ERROR_CORRUPT_FILE,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
@@ -32,15 +29,11 @@ import {
   INSTALL_DOWNLOAD_FAILED_ACTION,
   INSTALL_FAILED,
   INSTALL_STARTED_ACTION,
-  INSTALL_STARTED_THEME_CATEGORY,
-  INSTALL_THEME_CATEGORY,
   SET_ENABLE_NOT_AVAILABLE,
   START_DOWNLOAD,
-  TRACKING_TYPE_THEME,
   UNINSTALLED,
   UNINSTALLING,
   UNINSTALL_ACTION,
-  UNKNOWN,
 } from 'core/constants';
 import * as addonManager from 'core/addonManager';
 import { showInfoDialog } from 'core/reducers/infoDialog';
@@ -57,42 +50,6 @@ import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocationType } from 'core/types/router';
 import type { AppState as DiscoAppState } from 'disco/store';
-
-type InstallThemeParams = {|
-  name: string,
-  status: string,
-  type: string,
-|};
-
-export function installTheme(
-  node: HTMLAnchorElement,
-  { name, status, type }: InstallThemeParams,
-  {
-    _themeInstall = themeInstall,
-    _tracking = tracking,
-  }: {|
-    _themeInstall: typeof themeInstall,
-    _tracking: typeof tracking,
-  |} = {},
-) {
-  if (
-    type === ADDON_TYPE_THEME &&
-    [DISABLED, UNINSTALLED, UNKNOWN].includes(status)
-  ) {
-    _themeInstall(node);
-    // For consistency, track both a start-install and an install event.
-    _tracking.sendEvent({
-      action: TRACKING_TYPE_THEME,
-      category: INSTALL_STARTED_THEME_CATEGORY,
-      label: name,
-    });
-    _tracking.sendEvent({
-      action: TRACKING_TYPE_THEME,
-      category: INSTALL_THEME_CATEGORY,
-      label: name,
-    });
-  }
-}
 
 type AddonInstallType = {|
   maxProgress: number,
@@ -238,7 +195,6 @@ type WithInstallHelpersInternalProps = {|
   ...WithInstallHelpersProps,
   WrappedComponent: React.ComponentType<any>,
   _addonManager: typeof addonManager,
-  _installTheme: typeof installTheme,
   _log: typeof log,
   _tracking: typeof tracking,
   currentVersion: AddonVersionType | null,
@@ -261,7 +217,6 @@ export type WithInstallHelpersInjectedProps = {|
   enable: (EnableParams | void) => Promise<any>,
   hasAddonManager: boolean,
   install: () => Promise<any>,
-  installTheme: (HTMLAnchorElement, InstallThemeParams) => void,
   isAddonEnabled: () => Promise<boolean>,
   setCurrentStatus: () => Promise<any>,
   uninstall: (UninstallParams) => Promise<any>,
@@ -270,7 +225,6 @@ export type WithInstallHelpersInjectedProps = {|
 export class WithInstallHelpers extends React.Component<WithInstallHelpersInternalProps> {
   static defaultProps = {
     _addonManager: addonManager,
-    _installTheme: installTheme,
     _log: log,
     _tracking: tracking,
   };
@@ -535,12 +489,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
   }
 
   render() {
-    const {
-      WrappedComponent,
-      _addonManager,
-      _installTheme,
-      ...passThroughProps
-    } = this.props;
+    const { WrappedComponent, _addonManager, ...passThroughProps } = this.props;
 
     // Wrapped components will receive these props.
     const injectedProps: WithInstallHelpersInjectedProps = {
@@ -548,7 +497,6 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       // We pass a `boolean` value here, not the function.
       hasAddonManager: _addonManager.hasAddonManager(),
       install: (...args) => this.install(...args),
-      installTheme: (...args) => _installTheme(...args),
       isAddonEnabled: (...args) => this.isAddonEnabled(...args),
       setCurrentStatus: (...args) => this.setCurrentStatus(...args),
       uninstall: (...args) => this.uninstall(...args),

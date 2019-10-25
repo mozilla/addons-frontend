@@ -12,7 +12,6 @@ import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import AMInstallButton from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
   CLICK_CATEGORY,
   ERROR,
   UNINSTALLED,
@@ -112,19 +111,11 @@ export class AddonBase extends React.Component<InternalProps> {
       return null;
     }
 
-    let imageLinkProps = {
+    const imageLinkProps = {
       className: 'Addon-ThemeImage-link',
       href: '#',
       onClick: this.installStaticTheme,
     };
-
-    if (addon.type === ADDON_TYPE_THEME) {
-      imageLinkProps = {
-        ...imageLinkProps,
-        onClick: this.installTheme,
-        'data-browsertheme': JSON.stringify(addon.themeData),
-      };
-    }
 
     const themeImage = <ThemeImage addon={addon} useStandardSize={false} />;
 
@@ -156,18 +147,6 @@ export class AddonBase extends React.Component<InternalProps> {
       />
     );
   }
-
-  installTheme = (event: SyntheticEvent<any>) => {
-    event.preventDefault();
-
-    const { addon, installTheme, status } = this.props;
-
-    installTheme(event.currentTarget, {
-      name: addon.name,
-      status,
-      type: addon.type,
-    });
-  };
 
   closeError = (e: SyntheticEvent<any>) => {
     e.preventDefault();
@@ -219,7 +198,6 @@ export class AddonBase extends React.Component<InternalProps> {
       hasAddonManager,
       heading,
       install,
-      installTheme,
       isAddonEnabled,
       setCurrentStatus,
       status,
@@ -294,7 +272,6 @@ export class AddonBase extends React.Component<InternalProps> {
             enable={enable}
             hasAddonManager={hasAddonManager}
             install={install}
-            installTheme={installTheme}
             isAddonEnabled={isAddonEnabled}
             puffy={false}
             setCurrentStatus={setCurrentStatus}

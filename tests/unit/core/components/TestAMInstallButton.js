@@ -11,7 +11,6 @@ import {
 import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   DISABLED,
@@ -92,7 +91,6 @@ describe(__filename, () => {
     hasAddonManager: true,
     i18n: fakeI18n(),
     install: sinon.stub(),
-    installTheme: sinon.stub(),
     isAddonEnabled: sinon.stub(),
     location: createFakeLocation(),
     status: UNINSTALLED,
@@ -166,40 +164,6 @@ describe(__filename, () => {
     expect(icon).toHaveProp('name', 'plus');
   });
 
-  it('renders a button for themes', () => {
-    const installURL = 'https://a.m.o/files/addon.xpi';
-    const addon = createInternalAddon(fakeTheme);
-    const root = render({
-      addon,
-      currentVersion: createInternalVersionWithInstallURL({
-        installURL,
-      }),
-    });
-
-    expect(root.type()).toEqual(TransitionGroup);
-    expect(root.find(TransitionGroup).prop('component')).toEqual('div');
-    expect(root).toHaveClassName('AMInstallButton');
-
-    const button = root.find(Button);
-
-    expect(button).toHaveLength(1);
-    expect(button.childAt(1)).toHaveText('Install Theme');
-    expect(button).toHaveClassName('AMInstallButton-button');
-    expect(button).toHaveProp('buttonType', 'action');
-    expect(button).toHaveProp('className', 'AMInstallButton-button');
-    expect(button).toHaveProp('disabled', false);
-    expect(button).toHaveProp(
-      'data-browsertheme',
-      JSON.stringify(addon.themeData),
-    );
-    expect(button).toHaveProp('href', installURL);
-    expect(button).toHaveProp('onClick', root.instance().installTheme);
-
-    const icon = button.find(Icon);
-    expect(icon).toHaveLength(1);
-    expect(icon).toHaveProp('name', 'plus');
-  });
-
   it('renders Install Theme text on button when it is a static theme', () => {
     const addon = createInternalAddon({
       ...fakeTheme,
@@ -226,26 +190,6 @@ describe(__filename, () => {
       'onClick',
       root.instance().installOpenSearch,
     );
-  });
-
-  it('calls the `installTheme` helper to install a lightweight theme', () => {
-    const addon = createInternalAddon(fakeTheme);
-
-    const installTheme = sinon.spy();
-    const root = render({ addon, installTheme });
-
-    const button = root.find('.AMInstallButton-button');
-    const clickEvent = createFakeEvent();
-    button.simulate('click', clickEvent);
-
-    sinon.assert.calledOnce(clickEvent.preventDefault);
-    sinon.assert.calledOnce(clickEvent.stopPropagation);
-
-    sinon.assert.calledWith(installTheme, clickEvent.currentTarget, {
-      name: addon.name,
-      status: UNINSTALLED,
-      type: addon.type,
-    });
   });
 
   it('uses router location to create install URLs', () => {
@@ -297,19 +241,6 @@ describe(__filename, () => {
     const root = render({ currentVersion: null });
 
     expect(root.find(Button)).toHaveProp('disabled', true);
-    expect(root.find(Button)).toHaveProp('href', undefined);
-  });
-
-  it('does not disable the button when currentVersion is null and add-on is a lightweight theme', () => {
-    const root = render({
-      addon: createInternalAddon({
-        ...fakeTheme,
-        type: ADDON_TYPE_THEME,
-      }),
-      currentVersion: null,
-    });
-
-    expect(root.find(Button)).toHaveProp('disabled', false);
     expect(root.find(Button)).toHaveProp('href', undefined);
   });
 

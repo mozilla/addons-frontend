@@ -19,7 +19,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
   DISABLED,
   DOWNLOADING,
@@ -90,7 +89,6 @@ type TrackParams = {|
 type ButtonProps = {|
   buttonType: ButtonType,
   className: string,
-  'data-browsertheme'?: string,
   disabled: boolean,
   href: string | void,
   onClick: Function | null,
@@ -106,19 +104,6 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     _tracking: tracking,
     _window: typeof window !== 'undefined' ? window : {},
     puffy: true,
-  };
-
-  installTheme = (event: SyntheticEvent<HTMLAnchorElement>) => {
-    const { addon, status, installTheme } = this.props;
-
-    event.preventDefault();
-    event.stopPropagation();
-
-    installTheme(event.currentTarget, {
-      name: addon.name,
-      status,
-      type: addon.type,
-    });
   };
 
   installOpenSearch = (event: SyntheticEvent<HTMLAnchorElement>) => {
@@ -314,9 +299,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       : undefined;
 
     const buttonIsDisabled =
-      // An `installURL` is only available for add-ons that are not lightweight
-      // themes.
-      disabled === true || (addon.type !== ADDON_TYPE_THEME && !installURL)
+      disabled === true || !installURL
         ? true
         : hasAddonManager &&
           status === UNKNOWN &&
@@ -354,9 +337,6 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
           buttonProps.className,
           'AMInstallButton-button--enable',
         );
-      } else if (addon.type === ADDON_TYPE_THEME) {
-        buttonProps['data-browsertheme'] = JSON.stringify(addon.themeData);
-        buttonProps.onClick = this.installTheme;
       } else if (addon.type === ADDON_TYPE_OPENSEARCH) {
         buttonProps.onClick = this.installOpenSearch;
       } else if (hasAddonManager) {
