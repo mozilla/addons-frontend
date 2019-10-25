@@ -34,7 +34,6 @@ export type Props = {|
   to?: string | Object,
   target?: string,
   type?: string,
-  'data-browsertheme'?: string,
 |};
 
 const BUTTON_TYPES = [

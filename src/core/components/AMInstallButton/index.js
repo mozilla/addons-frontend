@@ -89,7 +89,6 @@ type TrackParams = {|
 type ButtonProps = {|
   buttonType: ButtonType,
   className: string,
-  'data-browsertheme'?: string,
   disabled: boolean,
   href: string | void,
   onClick: Function | null,
