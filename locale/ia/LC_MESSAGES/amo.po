@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-22 18:54+0000\n"
-"PO-Revision-Date: 2019-10-22 20:42+0000\n"
+"PO-Revision-Date: 2019-10-26 19:16+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1099,11 +1099,11 @@ msgstr "Eliminar le chronologia de navigation recente con le cookies e datos ass
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
-msgstr "Obtener le datos ab le planchetta"
+msgstr "Obtener datos ab le area de transferentia"
 
 #: src/amo/components/PermissionsCard/permissions.js:37
 msgid "Input data to the clipboard"
-msgstr "Inserer le datos in le planchetta"
+msgstr "Inserer datos in le area de transferentia"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
