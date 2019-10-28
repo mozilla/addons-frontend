@@ -27,6 +27,7 @@ import PermissionsCard from 'amo/components/PermissionsCard';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
+import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { getAddonURL } from 'amo/utils';
@@ -428,7 +429,7 @@ export class AddonBase extends React.Component {
       : 0;
 
     return (
-      <Page>
+      <Page showWrongPlatformWarning={false}>
         <div
           className={makeClassName('Addon', `Addon-${addonType}`, {
             'Addon-theme': isThemeType,
@@ -481,6 +482,17 @@ export class AddonBase extends React.Component {
                   {i18n.gettext('Extension Metadata')}
                 </h2>
               </header>
+              <WrongPlatformWarning
+                className="Addon-WrongPlatformWarning"
+                fixAndroidLinkMessage={i18n.gettext(
+                  `This listing is not intended for this platform.
+                    <a href="%(newLocation)s">Browse add-ons for Firefox on Android</a>.`,
+                )}
+                fixFirefoxLinkMessage={i18n.gettext(
+                  `This listing is not intended for this platform.
+                    <a href="%(newLocation)s">Browse add-ons for Firefox on desktop</a>.`,
+                )}
+              />
               {addon && <InstallWarning addon={addon} />}
             </Card>
 

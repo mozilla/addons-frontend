@@ -19,7 +19,7 @@ const StaticPage = (props: Props) => {
   const { title, metaDescription, children } = props;
 
   return (
-    <Page>
+    <Page showWrongPlatformWarning={false}>
       <Card className="StaticPage" header={title}>
         <Helmet>
           <title>{title}</title>

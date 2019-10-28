@@ -7,6 +7,7 @@ import { compose } from 'redux';
 
 import AppBanner from 'amo/components/AppBanner';
 import Link from 'amo/components/Link';
+import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import { addParamsToHeroURL, checkInternalURL, getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -154,6 +155,10 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
           HeroRecommendation on the home page. All other pages in the app
           include it via the Page component. */}
           <AppBanner className="HeroRecommendation-banner" />
+          {/* The WrongPlatformWarning is included here as it wants to live
+          inside the HeroRecommendation on the home page. Most other pages in
+          the app include it via the Page component. */}
+          <WrongPlatformWarning className="HeroRecommendation-WrongPlatformWarning" />
 
           {errorHandler.renderErrorIfPresent()}
 

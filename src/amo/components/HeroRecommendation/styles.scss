@@ -218,3 +218,7 @@
 .HeroRecommendation--loading {
   @include gradientStyle($color-ink-80, $color-blue-70);
 }
+
+.HeroRecommendation-WrongPlatformWarning {
+  margin-top: 12px;
+}

@@ -228,8 +228,12 @@ export class HomeBase extends React.Component {
       return null;
     };
 
+    const showHeroPromo =
+      _config.get('enableFeatureHeroRecommendation') &&
+      clientApp !== CLIENT_APP_ANDROID;
+
     return (
-      <Page isHomePage>
+      <Page isHomePage showWrongPlatformWarning={!showHeroPromo}>
         <div className="Home">
           <HeadMetaTags
             description={i18n.gettext(`Download Firefox extensions and themes.
@@ -248,14 +252,11 @@ export class HomeBase extends React.Component {
             }}
           />
 
-          {(!_config.get('enableFeatureHeroRecommendation') ||
-            clientApp === CLIENT_APP_ANDROID) &&
-          errorHandler.hasError() ? (
+          {!showHeroPromo && errorHandler.hasError() ? (
             <div className="Home-noHeroError">{errorHandler.renderError()}</div>
           ) : null}
 
-          {_config.get('enableFeatureHeroRecommendation') &&
-          clientApp !== CLIENT_APP_ANDROID ? (
+          {showHeroPromo ? (
             <HeroRecommendation
               errorHandler={errorHandler}
               shelfData={heroShelves && heroShelves.primary}
@@ -263,15 +264,11 @@ export class HomeBase extends React.Component {
           ) : null}
 
           <div className="Home-content">
-            {_config.get('enableFeatureHeroRecommendation') &&
-            clientApp !== CLIENT_APP_ANDROID ? (
+            {showHeroPromo ? (
               <SecondaryHero shelfData={heroShelves && heroShelves.secondary} />
             ) : null}
 
-            {!_config.get('enableFeatureHeroRecommendation') ||
-            clientApp === CLIENT_APP_ANDROID ? (
-              <HomeHeroGuides />
-            ) : null}
+            {!showHeroPromo ? <HomeHeroGuides /> : null}
 
             <LandingAddonsCard
               addonInstallSource={INSTALL_SOURCE_FEATURED}

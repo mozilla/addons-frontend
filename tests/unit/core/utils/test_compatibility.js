@@ -28,9 +28,11 @@ import {
   isCompatibleWithUserAgent,
   isFirefox,
   isQuantumCompatible,
+  correctedLocationForPlatform,
 } from 'core/utils/compatibility';
 import {
   createFakeAddon,
+  createFakeLocation,
   createFakeMozWindow,
   fakeAddon,
   fakeVersion,
@@ -934,5 +936,127 @@ describe(__filename, () => {
 
       expect(isQuantumCompatible({ addon })).toEqual(true);
     });
+  });
+
+  describe('correctedLocationForPlatform', () => {
+    const _correctedLocationForPlatform = ({
+      clientApp,
+      location = createFakeLocation(),
+      userAgentInfo,
+    }) => {
+      return correctedLocationForPlatform({
+        clientApp,
+        location,
+        userAgentInfo,
+      });
+    };
+
+    it('returns a link with `CLIENT_APP_ANDROID` replaced with `CLIENT_APP_FIREFOX` when on Firefox desktop', () => {
+      const pathname = `/en-US/${CLIENT_APP_ANDROID}/addon/slug/`;
+      const search = '?src=featured';
+
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_ANDROID,
+          location: createFakeLocation({ pathname, search }),
+          userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox69),
+        }),
+      ).toEqual(`/en-US/${CLIENT_APP_FIREFOX}/addon/slug/${search}`);
+    });
+
+    it('maintains the word `android` in a slug for an add-on when switching platforms', () => {
+      const pathname = `/en-US/${CLIENT_APP_ANDROID}/addon/awesome-android-extension/`;
+
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_ANDROID,
+          location: createFakeLocation({ pathname }),
+          userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox69),
+        }),
+      ).toEqual(
+        `/en-US/${CLIENT_APP_FIREFOX}/addon/awesome-android-extension/`,
+      );
+    });
+
+    it('returns a link with `CLIENT_APP_FIREFOX` replaced with `CLIENT_APP_ANDROID` when on Firefox for Android', () => {
+      const pathname = `/en-US/${CLIENT_APP_FIREFOX}/addon/slug/`;
+      const search = '?src=featured';
+
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_FIREFOX,
+          location: createFakeLocation({ pathname, search }),
+          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
+        }),
+      ).toEqual(`/en-US/${CLIENT_APP_ANDROID}/addon/slug/${search}`);
+    });
+
+    it('maintains the word `firefox` in a slug for an add-on when switching platforms', () => {
+      const pathname = `/en-US/${CLIENT_APP_FIREFOX}/addon/awesome-firefox-extension/`;
+
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_FIREFOX,
+          location: createFakeLocation({ pathname }),
+          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
+        }),
+      ).toEqual(
+        `/en-US/${CLIENT_APP_ANDROID}/addon/awesome-firefox-extension/`,
+      );
+    });
+
+    it('returns null if clientApp is `CLIENT_APP_FIREFOX` on desktop', () => {
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_FIREFOX,
+          userAgentInfo: UAParser(userAgentsByPlatform.mac.firefox69),
+        }),
+      ).toEqual(null);
+    });
+
+    it('returns null if clientApp is `CLIENT_APP_ANDROID` on Android', () => {
+      expect(
+        _correctedLocationForPlatform({
+          clientApp: CLIENT_APP_ANDROID,
+          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
+        }),
+      ).toEqual(null);
+    });
+
+    it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
+      'returns null for clientApp %s on Desktop for a non-Firefox browser',
+      (clientApp) => {
+        expect(
+          _correctedLocationForPlatform({
+            clientApp,
+            userAgentInfo: UAParser(userAgentsByPlatform.mac.chrome41),
+          }),
+        ).toEqual(null);
+      },
+    );
+
+    it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
+      'returns null for clientApp %s on Android for a non-Firefox browser',
+      (clientApp) => {
+        expect(
+          _correctedLocationForPlatform({
+            clientApp,
+            userAgentInfo: UAParser(userAgents.chromeAndroid[0]),
+          }),
+        ).toEqual(null);
+      },
+    );
+
+    it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
+      'returns null for clientApp %s on Firefox for iOS',
+      (clientApp) => {
+        expect(
+          _correctedLocationForPlatform({
+            clientApp,
+            userAgentInfo: UAParser(userAgentsByPlatform.ios.firefox1iPhone),
+          }),
+        ).toEqual(null);
+      },
+    );
   });
 });

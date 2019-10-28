@@ -16,6 +16,7 @@ export const errorType: 'error' = 'error';
 export const genericType: 'generic' = 'generic';
 export const firefoxRequiredType: 'firefox' = 'firefox';
 export const successType: 'success' = 'success';
+export const warningInfoType: 'warningInfo' = 'warningInfo';
 export const warningType: 'warning' = 'warning';
 
 const validTypes = [
@@ -23,6 +24,7 @@ const validTypes = [
   genericType,
   firefoxRequiredType,
   successType,
+  warningInfoType,
   warningType,
 ];
 
@@ -35,6 +37,7 @@ export type NoticeType =
   | typeof firefoxRequiredType
   | typeof genericType
   | typeof successType
+  | typeof warningInfoType
   | typeof warningType;
 
 type Props = {|

@@ -5,8 +5,15 @@ import invariant from 'invariant';
 import mozCompare from 'mozilla-version-comparator';
 
 import {
+  USER_AGENT_BROWSER_FIREFOX,
+  USER_AGENT_OS_ANDROID,
+  USER_AGENT_OS_IOS,
+} from 'core/reducers/api';
+import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   INCOMPATIBLE_FIREFOX_FENIX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
@@ -21,6 +28,7 @@ import log from 'core/logger';
 import type { AddonVersionType } from 'core/reducers/versions';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { AddonType } from 'core/types/addons';
+import type { ReactRouterLocationType } from 'core/types/router';
 
 // HACK: This is the GUID for the Facebook Container
 // add-on, which has a special-cased download URL supplied.
@@ -296,4 +304,50 @@ export const isQuantumCompatible = ({
   // These checks are fragile because future mozilla-signed extensions
   // may not be Quantum compatible.
   return addon.isWebExtension || addon.isMozillaSignedExtension;
+};
+
+export const correctedLocationForPlatform = ({
+  clientApp,
+  location,
+  userAgentInfo,
+}: {|
+  clientApp: string,
+  location: ReactRouterLocationType,
+  userAgentInfo: UserAgentInfoType,
+|}): string | null => {
+  // If the userAgent is false there was likely a programming error.
+  invariant(userAgentInfo, 'userAgentInfo is required');
+
+  const { browser, os } = userAgentInfo;
+
+  let currentClientApp;
+  let newClientApp;
+
+  if (os.name === USER_AGENT_OS_IOS) {
+    return null;
+  }
+
+  if (
+    os.name === USER_AGENT_OS_ANDROID &&
+    browser.name === USER_AGENT_BROWSER_FIREFOX &&
+    clientApp === CLIENT_APP_FIREFOX
+  ) {
+    currentClientApp = CLIENT_APP_FIREFOX;
+    newClientApp = CLIENT_APP_ANDROID;
+  }
+
+  if (
+    os.name !== USER_AGENT_OS_ANDROID &&
+    browser.name === USER_AGENT_BROWSER_FIREFOX &&
+    clientApp === CLIENT_APP_ANDROID
+  ) {
+    currentClientApp = CLIENT_APP_ANDROID;
+    newClientApp = CLIENT_APP_FIREFOX;
+  }
+
+  return currentClientApp && newClientApp
+    ? `${location.pathname.replace(currentClientApp, newClientApp)}${
+        location.search
+      }`
+    : null;
 };

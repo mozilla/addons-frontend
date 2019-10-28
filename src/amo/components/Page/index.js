@@ -9,6 +9,7 @@ import { compose } from 'redux';
 import AppBanner from 'amo/components/AppBanner';
 import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
+import WrongPlatformWarning from 'amo/components/WrongPlatformWarning';
 import InfoDialog from 'core/components/InfoDialog';
 import { CLIENT_APP_ANDROID } from 'core/constants';
 import type { AppState } from 'amo/store';
@@ -19,6 +20,7 @@ import './styles.scss';
 type Props = {|
   children: React.Node,
   isHomePage?: boolean,
+  showWrongPlatformWarning?: boolean,
 |};
 
 type InternalProps = {|
@@ -34,6 +36,7 @@ export const PageBase = ({
   clientApp,
   isHomePage = false,
   location,
+  showWrongPlatformWarning = true,
 }: InternalProps) => {
   const enableFeatureHeroRecommendation = _config.get(
     'enableFeatureHeroRecommendation',
@@ -60,6 +63,7 @@ export const PageBase = ({
           (!isHomePage ||
             !enableFeatureHeroRecommendation ||
             clientApp === CLIENT_APP_ANDROID) && <AppBanner />}
+          {showWrongPlatformWarning && <WrongPlatformWarning />}
           {children}
         </div>
       </div>
