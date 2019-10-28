@@ -102,21 +102,23 @@ export function getAddon(
   return Promise.reject(new Error('Cannot check add-on status'));
 }
 
-export function hasAbuseReportPanelEnabled({
-  navigator,
-}: { navigator: PrivilegedNavigatorType } = {}) {
-  if (hasAddonManager({ navigator })) {
-    const _navigator = navigator || window.navigator;
-    return _navigator.mozAddonManager.abuseReportPanelEnabled;
+export function hasAbuseReportPanelEnabled(
+  _mozAddonManager?: MozAddonManagerType = window.navigator.mozAddonManager,
+) {
+  if (_mozAddonManager || module.exports.hasAddonManager()) {
+    return _mozAddonManager.abuseReportPanelEnabled || false;
   }
-  return undefined;
+  return false;
 }
 
 export function reportAbuse(
   addonId: string,
   { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
 ) {
-  if (_mozAddonManager || module.exports.hasAddonManager()) {
+  if (
+    (_mozAddonManager || module.exports.hasAddonManager()) &&
+    module.exports.hasAbuseReportPanelEnabled(_mozAddonManager)
+  ) {
     return _mozAddonManager.reportAbuse(addonId);
   }
   return Promise.reject(new Error('Cannot report abuse via Firefox'));
