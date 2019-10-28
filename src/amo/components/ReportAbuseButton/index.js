@@ -11,6 +11,7 @@ import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import {
   hideAddonAbuseReportUI,
+  initiateAddonAbuseReportViaFirefox,
   sendAddonAbuseReport,
   showAddonAbuseReportUI,
 } from 'core/reducers/abuse';
@@ -23,6 +24,7 @@ import type { AddonAbuseState } from 'core/reducers/abuse';
 import type { DispatchFunc } from 'core/types/redux';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
+import { hasAbuseReportPanelEnabled } from 'core/addonManager';
 
 import './styles.scss';
 
@@ -32,6 +34,7 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _hasAbuseReportPanelEnabled: typeof hasAbuseReportPanelEnabled,
   abuseReport: AddonAbuseState,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
@@ -40,6 +43,10 @@ type InternalProps = {|
 |};
 
 export class ReportAbuseButtonBase extends React.Component<InternalProps> {
+  static defaultProps = {
+    _hasAbuseReportPanelEnabled: hasAbuseReportPanelEnabled,
+  };
+
   dismissReportUI = () => {
     const { addon, dispatch, loading } = this.props;
 
@@ -73,11 +80,14 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
     );
   };
 
-  showReportUI = (event: SyntheticEvent<any>) => {
+  onReportButtonClick = async (event: SyntheticEvent<any>) => {
     event.preventDefault();
 
-    const { addon, dispatch } = this.props;
-
+    const { _hasAbuseReportPanelEnabled, addon, dispatch } = this.props;
+    if (_hasAbuseReportPanelEnabled()) {
+      dispatch(initiateAddonAbuseReportViaFirefox({ addon }));
+      return;
+    }
     dispatch(showAddonAbuseReportUI({ addon }));
   };
 
@@ -88,7 +98,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
       return null;
     }
 
-    if (abuseReport && abuseReport.message) {
+    if (abuseReport && abuseReport.message !== undefined) {
       return (
         <div className="ReportAbuseButton ReportAbuseButton--report-sent">
           <h3 className="ReportAbuseButton-header">
@@ -142,7 +152,8 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
           <Button
             buttonType="neutral"
             className="ReportAbuseButton-show-more"
-            onClick={this.showReportUI}
+            disabled={loading}
+            onClick={this.onReportButtonClick}
             puffy
           >
             {prompt}
