@@ -47,6 +47,8 @@
   text-decoration: none;
 }
 
+// There are currently 12 colors and this number must be kept in sync with
+// `$category-colors` in `src/ui/css/vars.scss`.
 @for $i from 1 through 12 {
   .Categories--category-color-#{$i} {
     background: nth($category-colors, $i);
