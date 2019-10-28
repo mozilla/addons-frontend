@@ -28,10 +28,12 @@ type FirefoxAddon = {|
 |};
 
 export type MozAddonManagerType = {|
+  abuseReportPanelEnabled?: boolean,
   addEventListener: (eventName: string, handler: Function) => void,
   createInstall: ({| url: string, hash?: string | null |}) => Promise<any>,
   getAddonByID: (guid: string) => Promise<FirefoxAddon>,
   permissionPromptsEnabled: boolean,
+  reportAbuse?: (addonId: string) => Promise<boolean>,
 |};
 
 type PrivilegedNavigatorType = {|
@@ -98,6 +100,27 @@ export function getAddon(
     });
   }
   return Promise.reject(new Error('Cannot check add-on status'));
+}
+
+export function hasAbuseReportPanelEnabled(
+  _mozAddonManager?: MozAddonManagerType = window.navigator.mozAddonManager,
+) {
+  if (_mozAddonManager || hasAddonManager()) {
+    return _mozAddonManager.abuseReportPanelEnabled || false;
+  }
+  return false;
+}
+
+export function reportAbuse(
+  addonId: string,
+  { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
+) {
+  if (hasAbuseReportPanelEnabled(_mozAddonManager)) {
+    return (
+      _mozAddonManager.reportAbuse && _mozAddonManager.reportAbuse(addonId)
+    );
+  }
+  return Promise.reject(new Error('Cannot report abuse via Firefox'));
 }
 
 type OptionalInstallParams = {|
