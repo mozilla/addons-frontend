@@ -105,7 +105,7 @@ export function getAddon(
 export function hasAbuseReportPanelEnabled(
   _mozAddonManager?: MozAddonManagerType = window.navigator.mozAddonManager,
 ) {
-  if (_mozAddonManager || module.exports.hasAddonManager()) {
+  if (_mozAddonManager || hasAddonManager()) {
     return _mozAddonManager.abuseReportPanelEnabled || false;
   }
   return false;
@@ -115,7 +115,7 @@ export function reportAbuse(
   addonId: string,
   { _mozAddonManager = window.navigator.mozAddonManager }: OptionalParams = {},
 ) {
-  if (module.exports.hasAbuseReportPanelEnabled(_mozAddonManager)) {
+  if (hasAbuseReportPanelEnabled(_mozAddonManager)) {
     return (
       _mozAddonManager.reportAbuse && _mozAddonManager.reportAbuse(addonId)
     );
