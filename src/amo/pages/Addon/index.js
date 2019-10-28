@@ -485,11 +485,11 @@ export class AddonBase extends React.Component {
               <WrongPlatformWarning
                 className="Addon-WrongPlatformWarning"
                 fixAndroidLinkMessage={i18n.gettext(
-                  `This add-on is not compatible with this platform.
+                  `This listing is not intended for this platform.
                     <a href="%(newLocation)s">Browse add-ons for Firefox on Android</a>.`,
                 )}
                 fixFirefoxLinkMessage={i18n.gettext(
-                  `This add-on is not compatible with this platform.
+                  `This listing is not intended for this platform.
                     <a href="%(newLocation)s">Browse add-ons for Firefox on desktop</a>.`,
                 )}
               />
