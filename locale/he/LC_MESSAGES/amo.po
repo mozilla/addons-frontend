@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-29 16:11+0000\n"
-"PO-Revision-Date: 2019-10-29 20:09+0000\n"
+"PO-Revision-Date: 2019-10-29 20:15+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1628,11 +1628,11 @@ msgstr "בחירת תמונה…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:62
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "כדי למצוא תוספות הנתמכות ב־Firefox עבור Android, <a href=\"%(newLocation)s\">ניתן לבקר באתר שלנו לניידים</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:69
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr ""
+msgstr "כדי למצוא תוספות הנתמכות ב־Firefox למחשבים שולחניים, <a href=\"%(newLocation)s\">ניתן לבקר באתר הרגיל שלנו</a>."
 
 #: src/amo/pages/Addon/index.js:171 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
@@ -1694,11 +1694,11 @@ msgstr "נתוני העל של ההרחבה"
 
 #: src/amo/pages/Addon/index.js:487
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
+msgstr "רשומה זו אינה מיועדת לפלטפורמה זו. <a href=\"%(newLocation)s\">עיון בתוספות ל־Firefox עבור Android</a>."
 
 #: src/amo/pages/Addon/index.js:491
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
+msgstr "רשומה זו אינה מיועדת לפלטפורמה זו. <a href=\"%(newLocation)s\">עיון בתוספות ל־Firefox למחשבים שולחניים</a>."
 
 #: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
