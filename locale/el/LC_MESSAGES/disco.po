@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 16:23+0000\n"
+"POT-Creation-Date: 2019-10-29 16:13+0000\n"
 "PO-Revision-Date: 2019-09-13 08:35+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: none\n"
@@ -26,35 +26,35 @@ msgstr ""
 "Αυτή η επέκταση δεν εποπτεύεται από τη Mozilla. Βεβαιωθείτε ότι εμπιστεύεστε "
 "την επέκταση πριν την εγκατάσταση."
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Enable"
 msgstr "Ενεργοποίηση"
 
-#: src/core/components/AMInstallButton/index.js:248
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: src/core/components/AMInstallButton/index.js:250
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Enabling"
 msgstr "Ενεργοποίηση"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Downloading"
 msgstr "Λήψη"
 
-#: src/core/components/AMInstallButton/index.js:254
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Installing"
 msgstr "Εγκατάσταση"
 
-#: src/core/components/AMInstallButton/index.js:256
+#: src/core/components/AMInstallButton/index.js:241
 msgid "Uninstalling"
 msgstr "Απεγκατάσταση"
 
-#: src/core/components/AMInstallButton/index.js:264
+#: src/core/components/AMInstallButton/index.js:249
 msgid "Install Theme"
 msgstr "Εγκατάσταση θέματος"
 
-#: src/core/components/AMInstallButton/index.js:265
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Add to Firefox"
 msgstr "Προσθήκη στο Firefox"
 
@@ -156,7 +156,7 @@ msgstr "Προέκυψε ένα απροσδόκητο σφάλμα κατά τ�
 msgid "An unexpected error occurred."
 msgstr "Προέκυψε ένα απροσδόκητο σφάλμα."
 
-#: src/disco/components/Addon/index.js:86
+#: src/disco/components/Addon/index.js:85
 msgid "Close"
 msgstr "Κλείσιμο"
 
@@ -227,7 +227,7 @@ msgstr "Προέκυψε απροσδόκητο σφάλμα"
 msgid "Reload To Continue"
 msgstr "Κάντε εκ νέου φόρτωση για να συνεχίσετε"
 
-#: src/ui/components/Notice/index.js:147
+#: src/ui/components/Notice/index.js:150
 msgid "Dismiss this notice"
 msgstr "Απόρριψη ειδοποίησης"
 

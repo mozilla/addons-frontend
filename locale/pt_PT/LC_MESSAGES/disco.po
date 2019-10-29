@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 16:23+0000\n"
+"POT-Creation-Date: 2019-10-29 16:13+0000\n"
 "PO-Revision-Date: 2019-10-01 15:40+0000\n"
 "Last-Translator: Manuela Silva <manuelarodsilva@gmail.com>\n"
 "Language-Team: none\n"
@@ -19,38 +19,42 @@ msgid "Learn more"
 msgstr "Saber mais"
 
 #: src/amo/components/InstallWarning/index.js:116
-msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr "Esta extensão não é monitorizada pela Mozilla. Certifique-se que confia na extensão antes de a instalar."
+msgid ""
+"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
+"before you install it."
+msgstr ""
+"Esta extensão não é monitorizada pela Mozilla. Certifique-se que confia na "
+"extensão antes de a instalar."
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Enable"
 msgstr "Ativar"
 
-#: src/core/components/AMInstallButton/index.js:248
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Remove"
 msgstr "Remover"
 
-#: src/core/components/AMInstallButton/index.js:250
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Enabling"
 msgstr "A ativar"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Downloading"
 msgstr "A transferir"
 
-#: src/core/components/AMInstallButton/index.js:254
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Installing"
 msgstr "A instalar"
 
-#: src/core/components/AMInstallButton/index.js:256
+#: src/core/components/AMInstallButton/index.js:241
 msgid "Uninstalling"
 msgstr "A desinstalar"
 
-#: src/core/components/AMInstallButton/index.js:264
+#: src/core/components/AMInstallButton/index.js:249
 msgid "Install Theme"
 msgstr "Instalar tema"
 
-#: src/core/components/AMInstallButton/index.js:265
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Add to Firefox"
 msgstr "Adicionar ao Firefox"
 
@@ -59,10 +63,15 @@ msgid "Server Error"
 msgstr "Erro do servidor"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Desculpe, mas ocorreu um erro e não pudemos completar o seu pedido. Registámos o seu erro e iremos investigá-lo."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Desculpe, mas ocorreu um erro e não pudemos completar o seu pedido. "
+"Registámos o seu erro e iremos investigá-lo."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Código de erro: %(status)s."
 
@@ -145,7 +154,7 @@ msgstr "Ocorreu um erro inesperado durante a desinstalação."
 msgid "An unexpected error occurred."
 msgstr "Ocorreu um erro inesperado."
 
-#: src/disco/components/Addon/index.js:86
+#: src/disco/components/Addon/index.js:85
 msgid "Close"
 msgstr "Fechar"
 
@@ -179,19 +188,30 @@ msgstr "Personalize o seu Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Existem milhares de extras gratuitos, criados por programadores por todo o mundo, que pode instalar para personalizar o seu Firefox. Desde temas visuais divertidos até poderosas ferramentas que "
-"fazem a navegação ser mais rápida e segura, os extras fazem o seu navegador ser seu. Para lhe ajudar a começar, aqui estão alguns que recomendamos pelo seu desempenho e funcionalidade se destacarem."
+"Existem milhares de extras gratuitos, criados por programadores por todo o "
+"mundo, que pode instalar para personalizar o seu Firefox. Desde temas "
+"visuais divertidos até poderosas ferramentas que fazem a navegação ser mais "
+"rápida e segura, os extras fazem o seu navegador ser seu. Para lhe ajudar a "
+"começar, aqui estão alguns que recomendamos pelo seu desempenho e "
+"funcionalidade se destacarem."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Saber mais"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr "Algumas destas recomendações são personalizadas. Estas são baseadas noutras extensões que instalou, preferências de perfil e estatísticas de utilização."
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"Algumas destas recomendações são personalizadas. Estas são baseadas noutras "
+"extensões que instalou, preferências de perfil e estatísticas de utilização."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -205,7 +225,7 @@ msgstr "Ocorreu um erro inesperado"
 msgid "Reload To Continue"
 msgstr "Recarregar para continuar"
 
-#: src/ui/components/Notice/index.js:147
+#: src/ui/components/Notice/index.js:150
 msgid "Dismiss this notice"
 msgstr "Dispensar este aviso"
 
@@ -247,7 +267,8 @@ msgstr "Pré-visualização de %(title)s"
 #~ msgstr "Agora pode aceder a %(name)s pela barra de ferramentas."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "Coloque o cursor para pré-visualizar ou clique para instalar %(name)s"
+#~ msgstr ""
+#~ "Coloque o cursor para pré-visualizar ou clique para instalar %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Coloque o cursor sob a imagem para pré-visualizar"
