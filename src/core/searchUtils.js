@@ -1,7 +1,6 @@
 import { oneLine } from 'common-tags';
 import defaultConfig from 'config';
 
-import { CLIENT_APP_ANDROID } from 'core/constants';
 import log from 'core/logger';
 
 export const operatingSystems = {
