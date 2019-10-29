@@ -17,12 +17,12 @@ import {
   UNINSTALLED,
   UNKNOWN,
   validAddonTypes,
+  ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { withInstallHelpers } from 'core/installAddon';
 import { getAddonByID } from 'core/reducers/addons';
 import tracking, { getAddonTypeForTracking } from 'core/tracking';
-import { isTheme } from 'core/utils';
 import { getErrorMessage } from 'core/utils/addons';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 import { getClientCompatibility } from 'core/utils/compatibility';
@@ -107,7 +107,7 @@ export class AddonBase extends React.Component<InternalProps> {
   getThemeImage() {
     const { addon, hasAddonManager } = this.props;
 
-    if (!addon || !isTheme(addon.type)) {
+    if (!addon || ADDON_TYPE_STATIC_THEME !== addon.type) {
       return null;
     }
 
@@ -131,7 +131,7 @@ export class AddonBase extends React.Component<InternalProps> {
   getDescription() {
     const { addon, description } = this.props;
 
-    if (!addon || isTheme(addon.type)) {
+    if (!addon || ADDON_TYPE_STATIC_THEME === addon.type) {
       return null;
     }
 
@@ -212,7 +212,7 @@ export class AddonBase extends React.Component<InternalProps> {
     }
 
     const addonClasses = makeClassName('addon', {
-      theme: isTheme(type),
+      theme: ADDON_TYPE_STATIC_THEME === type,
       extension: type === ADDON_TYPE_EXTENSION,
     });
 

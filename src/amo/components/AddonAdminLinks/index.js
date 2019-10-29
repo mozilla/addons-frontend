@@ -9,11 +9,11 @@ import {
   ADDONS_POSTREVIEW,
   ADMIN_TOOLS_VIEW,
   THEMES_REVIEW,
+  ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { hasPermission } from 'amo/reducers/users';
 import type { AddonType } from 'core/types/addons';
-import { isTheme } from 'core/utils';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import type { I18nType } from 'core/types/i18n';
 import type { AppState } from 'amo/store';
@@ -48,10 +48,10 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       return null;
     }
 
-    const showCodeReviewLink = hasCodeReviewPermission && !isTheme(addon.type);
-    const showThemeReviewLink = hasThemeReviewPermission && isTheme(addon.type);
+    const showCodeReviewLink = hasCodeReviewPermission && ADDON_TYPE_STATIC_THEME !== addon.type;
+    const showThemeReviewLink = hasThemeReviewPermission && ADDON_TYPE_STATIC_THEME === addon.type;
     const showContentReviewLink =
-      hasContentReviewPermission && !isTheme(addon.type);
+      hasContentReviewPermission && ADDON_TYPE_STATIC_THEME !== addon.type;
     const hasALink =
       hasEditPermission ||
       hasAdminPermission ||
@@ -113,7 +113,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       </li>
     ) : null;
 
-    const codeReviewLinkText = isTheme(addon.type)
+    const codeReviewLinkText = ADDON_TYPE_STATIC_THEME === addon.type
       ? // translators: This action allows a reviewer to perform a review of a theme.
         i18n.gettext('Review theme')
       : // translators: This action allows a reviewer to perform a review of an add-on's code.
@@ -123,7 +123,7 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
         <li>
           <a
             className={`AddonAdminLinks-${
-              isTheme(addon.type) ? 'themeReview' : 'codeReview'
+              ADDON_TYPE_STATIC_THEME === addon.type ? 'themeReview' : 'codeReview'
             }-link`}
             href={`/reviewers/review/${addon.slug}`}
           >

@@ -7,9 +7,8 @@ import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
-import { SET_CLIENT_APP } from 'core/constants';
+import { SET_CLIENT_APP, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { isTheme } from 'core/utils';
 import type { SetClientAppAction } from 'core/actions';
 import type {
   AddonType,
@@ -282,7 +281,7 @@ const reducer = (
         ...state,
         collections: collections.map((collection) => {
           if (collection && collection.results && collection.results.length) {
-            const sliceEnd = isTheme(collection.results[0].addon.type)
+            const sliceEnd = ADDON_TYPE_STATIC_THEME === collection.results[0].addon.type
               ? LANDING_PAGE_THEME_COUNT
               : LANDING_PAGE_EXTENSION_COUNT;
             return collection.results.slice(0, sliceEnd).map((item) => {

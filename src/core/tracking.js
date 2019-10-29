@@ -32,7 +32,7 @@ import {
   UNINSTALL_THEME_CATEGORY,
 } from 'core/constants';
 import log from 'core/logger';
-import { convertBoolean, isTheme } from 'core/utils';
+import { convertBoolean } from 'core/utils';
 
 type IsDoNoTrackEnabledParams = {|
   _log: typeof log,
@@ -233,7 +233,7 @@ export const getAddonEventCategory = (
   type: string,
   installAction: string,
 ): string => {
-  const isThemeType = isTheme(type);
+  const isThemeType = ADDON_TYPE_STATIC_THEME === type;
 
   switch (installAction) {
     case ENABLE_ACTION:
