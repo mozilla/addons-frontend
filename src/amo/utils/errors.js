@@ -1,7 +1,7 @@
 /* @flow */
-import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
-import NotFound from 'amo/components/ErrorPage/NotFound';
-import ServerError from 'amo/components/ErrorPage/ServerError';
+import NotAuthorized from 'amo/components/Errors/NotAuthorized';
+import NotFound from 'amo/components/Errors/NotFound';
+import ServerError from 'amo/components/Errors/ServerError';
 
 export function getErrorComponent(status: number | null) {
   switch (status) {

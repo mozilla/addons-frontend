@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import NotAuthorized, {
   NotAuthorizedBase,
-} from 'amo/components/ErrorPage/NotAuthorized';
+} from 'amo/components/Errors/NotAuthorized';
 import { createApiError } from 'core/api';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import Card from 'ui/components/Card';

@@ -2,10 +2,10 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 import { Route } from 'react-router-dom';
 
-import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Routes from 'amo/components/Routes';
-import ServerError from 'amo/components/ErrorPage/ServerError';
+import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import { getFakeConfig } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -22,40 +22,40 @@ describe(__filename, () => {
   describe('path = /:lang/:application/401/', () => {
     const path = '/:lang/:application/401/';
 
-    it('renders a NotAuthorized component in development', () => {
+    it('renders a NotAuthorized page in development', () => {
       const _config = getFakeConfig({ isDevelopment: true });
       const root = render({ _config });
 
       expect(root.find({ path })).toHaveLength(1);
-      expect(root.find({ path })).toHaveProp('component', NotAuthorized);
+      expect(root.find({ path })).toHaveProp('component', NotAuthorizedPage);
     });
 
-    it('renders a NotFound component', () => {
+    it('renders a NotFound page', () => {
       const _config = getFakeConfig({ isDevelopment: false });
       const root = render({ _config });
 
       expect(root.find({ path })).toHaveLength(1);
-      expect(root.find({ path })).toHaveProp('component', NotFound);
+      expect(root.find({ path })).toHaveProp('component', NotFoundPage);
     });
   });
 
   describe('path = /:lang/:application/500/', () => {
     const path = '/:lang/:application/500/';
 
-    it('renders a ServerError component in development', () => {
+    it('renders a ServerError page in development', () => {
       const _config = getFakeConfig({ isDevelopment: true });
       const root = render({ _config });
 
       expect(root.find({ path })).toHaveLength(1);
-      expect(root.find({ path })).toHaveProp('component', ServerError);
+      expect(root.find({ path })).toHaveProp('component', ServerErrorPage);
     });
 
-    it('renders a NotFound component', () => {
+    it('renders a NotFound page', () => {
       const _config = getFakeConfig({ isDevelopment: false });
       const root = render({ _config });
 
       expect(root.find({ path })).toHaveLength(1);
-      expect(root.find({ path })).toHaveProp('component', NotFound);
+      expect(root.find({ path })).toHaveProp('component', NotFoundPage);
     });
   });
 });

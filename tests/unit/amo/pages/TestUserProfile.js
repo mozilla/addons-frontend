@@ -9,7 +9,7 @@ import {
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import UserProfile, { extractId, UserProfileBase } from 'amo/pages/UserProfile';
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import UserProfileHead from 'amo/components/UserProfileHead';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
 import {
@@ -548,7 +548,7 @@ describe(__filename, () => {
 
     const root = renderUserProfile({ errorHandler, store });
 
-    expect(root.find(NotFound)).toHaveLength(1);
+    expect(root.find(NotFoundPage)).toHaveLength(1);
   });
 
   it('renders errors', () => {
@@ -910,7 +910,7 @@ describe(__filename, () => {
 
     const root = renderUserProfile({ errorHandler, store });
 
-    expect(root.find(NotFound)).toHaveLength(1);
+    expect(root.find(NotFoundPage)).toHaveLength(1);
   });
 
   it('renders a user profile when URL contains a user ID', () => {

@@ -11,7 +11,7 @@ import AddonsCard from 'amo/components/AddonsCard';
 import CollectionAddAddon from 'amo/components/CollectionAddAddon';
 import CollectionDetailsCard from 'amo/components/CollectionDetailsCard';
 import CollectionControls from 'amo/components/CollectionControls';
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import Paginate from 'core/components/Paginate';
 import ConfirmButton from 'ui/components/ConfirmButton';
@@ -940,7 +940,7 @@ describe(__filename, () => {
     );
 
     const wrapper = renderComponent({ errorHandler, store });
-    expect(wrapper.find(NotFound)).toHaveLength(1);
+    expect(wrapper.find(NotFoundPage)).toHaveLength(1);
   });
 
   it('renders an error if one exists', () => {

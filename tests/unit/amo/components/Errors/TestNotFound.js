@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { oneLine } from 'common-tags';
 
-import NotFound, { NotFoundBase } from 'amo/components/ErrorPage/NotFound';
+import NotFound, { NotFoundBase } from 'amo/components/Errors/NotFound';
 import Link from 'amo/components/Link';
 import { createApiError } from 'core/api';
 import { loadErrorPage } from 'core/reducers/errorPage';

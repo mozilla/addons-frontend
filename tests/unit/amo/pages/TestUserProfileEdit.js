@@ -1,7 +1,7 @@
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Link from 'amo/components/Link';
 import Page from 'amo/components/Page';
 import UserProfileEdit, {
@@ -1050,7 +1050,7 @@ describe(__filename, () => {
     const params = { userId: user.id };
     const root = renderUserProfileEdit({ params, store });
 
-    expect(root.find(NotFound)).toHaveLength(1);
+    expect(root.find(NotFoundPage)).toHaveLength(1);
   });
 
   it('allows to edit another user if logged-in user has USERS_EDIT permission', () => {
@@ -1068,7 +1068,7 @@ describe(__filename, () => {
     const params = { userId: user.id };
     const root = renderUserProfileEdit({ params, store });
 
-    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root.find(NotFoundPage)).toHaveLength(0);
     expect(root.find('.UserProfileEdit-email')).toHaveProp('value', user.email);
 
     const linkItems = root.find('.UserProfileEdit-user-links li');
@@ -1223,7 +1223,7 @@ describe(__filename, () => {
 
     const root = renderUserProfileEdit({ errorHandler, store });
 
-    expect(root.find(NotFound)).toHaveLength(1);
+    expect(root.find(NotFoundPage)).toHaveLength(1);
   });
 
   it('does not dispatch any action when there is an error', () => {

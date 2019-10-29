@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import AddonVersionCard from 'amo/components/AddonVersionCard';
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import AddonVersions, {
   AddonVersionsBase,
   extractId,
@@ -370,7 +370,7 @@ describe(__filename, () => {
 
       const root = render({ errorHandler });
 
-      expect(root.find(NotFound)).toHaveLength(1);
+      expect(root.find(NotFoundPage)).toHaveLength(1);
     },
   );
 
@@ -395,7 +395,7 @@ describe(__filename, () => {
         createInternalVersion(version1),
       );
 
-      expect(root.find(NotFound)).toHaveLength(0);
+      expect(root.find(NotFoundPage)).toHaveLength(0);
     });
 
     it('passes undefined for the version when versions have not been loaded', () => {
@@ -437,7 +437,7 @@ describe(__filename, () => {
       const versionCards = root.find(AddonVersionCard);
       expect(versionCards).toHaveLength(3);
 
-      expect(root.find(NotFound)).toHaveLength(0);
+      expect(root.find(NotFoundPage)).toHaveLength(0);
     });
 
     it('passes the correct versions into multiple AddonVersionCards', () => {

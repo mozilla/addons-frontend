@@ -1,9 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { compose } from 'redux';
-import NestedStatus from 'react-nested-status';
 
-import Page from 'amo/components/Page';
 import SuggestedPages from 'amo/components/SuggestedPages';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
@@ -12,11 +10,14 @@ import type { I18nType } from 'core/types/i18n';
 
 import '../styles.scss';
 
-type Props = {|
+type Props = {||};
+
+type InternalProps = {|
+  ...Props,
   i18n: I18nType,
 |};
 
-export class NotAuthorizedBase extends React.Component<Props> {
+export class NotAuthorizedBase extends React.Component<InternalProps> {
   render() {
     const { i18n } = this.props;
 
@@ -32,25 +33,21 @@ export class NotAuthorizedBase extends React.Component<Props> {
     // TODO: Offer a sign in link/button inside the error page.
     /* eslint-disable react/no-danger */
     return (
-      <NestedStatus code={401}>
-        <Page showWrongPlatformWarning={false}>
-          <Card
-            className="ErrorPage NotAuthorized"
-            header={i18n.gettext('Not Authorized')}
-          >
-            <p>
-              {i18n.gettext(`
+      <Card
+        className="ErrorPage NotAuthorized"
+        header={i18n.gettext('Not Authorized')}
+      >
+        <p>
+          {i18n.gettext(`
               Sorry, but you aren't authorized to access this page. If you
               aren't signed in, try signing in using the link at the top
               of the page.`)}
-            </p>
+        </p>
 
-            <SuggestedPages />
+        <SuggestedPages />
 
-            <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
-          </Card>
-        </Page>
-      </NestedStatus>
+        <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
+      </Card>
     );
     /* eslint-enable react/no-danger */
   }

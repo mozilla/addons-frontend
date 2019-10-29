@@ -16,16 +16,16 @@ import CategoriesPage from 'amo/pages/CategoriesPage';
 import Collection from 'amo/pages/Collection';
 import CollectionEdit from 'amo/pages/CollectionEdit';
 import CollectionList from 'amo/pages/CollectionList';
+import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
+import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import Guides from 'amo/pages/Guides';
 import Home from 'amo/pages/Home';
 import LandingPage from 'amo/pages/LandingPage';
 import LanguageTools from 'amo/pages/LanguageTools';
 import SearchTools from 'amo/pages/SearchTools';
-import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
-import NotFound from 'amo/components/ErrorPage/NotFound';
 import Page from 'amo/components/Page';
 import SearchPage from 'amo/pages/SearchPage';
-import ServerError from 'amo/components/ErrorPage/ServerError';
 import UserProfile from 'amo/pages/UserProfile';
 import UserProfileEdit from 'amo/pages/UserProfileEdit';
 import UsersUnsubscribe from 'amo/pages/UsersUnsubscribe';
@@ -163,7 +163,11 @@ const Routes = ({ _config = config }: Props = {}) => (
     />
 
     {/* See: https://github.com/mozilla/addons-frontend/issues/5150 */}
-    <Route exact path="/:lang/android/language-tools/" component={NotFound} />
+    <Route
+      exact
+      path="/:lang/android/language-tools/"
+      component={NotFoundPage}
+    />
     <Route
       exact
       path="/:lang/:application/language-tools/"
@@ -179,13 +183,15 @@ const Routes = ({ _config = config }: Props = {}) => (
     <Route
       exact
       path="/:lang/:application/401/"
-      component={_config.get('isDevelopment') ? NotAuthorized : NotFound}
+      component={
+        _config.get('isDevelopment') ? NotAuthorizedPage : NotFoundPage
+      }
     />
-    <Route exact path="/:lang/:application/404/" component={NotFound} />
+    <Route exact path="/:lang/:application/404/" component={NotFoundPage} />
     <Route
       exact
       path="/:lang/:application/500/"
-      component={_config.get('isDevelopment') ? ServerError : NotFound}
+      component={_config.get('isDevelopment') ? ServerErrorPage : NotFoundPage}
     />
 
     <Route
@@ -227,7 +233,7 @@ const Routes = ({ _config = config }: Props = {}) => (
       component={UsersUnsubscribe}
     />
 
-    <Route component={NotFound} />
+    <Route component={NotFoundPage} />
   </Switch>
 );
 

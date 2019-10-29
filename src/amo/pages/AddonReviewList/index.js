@@ -33,7 +33,7 @@ import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Link from 'amo/components/Link';
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Card from 'ui/components/Card';
 import CardList from 'ui/components/CardList';
 import LoadingText from 'ui/components/LoadingText';
@@ -270,7 +270,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
         errorHandler.capturedError.responseStatusCode === 403 ||
         errorHandler.capturedError.responseStatusCode === 404
       ) {
-        return <NotFound />;
+        return <NotFoundPage />;
       }
     }
 

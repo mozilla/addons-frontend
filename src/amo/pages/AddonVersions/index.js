@@ -6,7 +6,7 @@ import { compose } from 'redux';
 
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import AddonVersionCard from 'amo/components/AddonVersionCard';
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Page from 'amo/components/Page';
 import {
   fetchVersions,
@@ -145,7 +145,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
         errorHandler.capturedError.responseStatusCode === 403 ||
         errorHandler.capturedError.responseStatusCode === 404
       ) {
-        return <NotFound errorCode={errorHandler.capturedError.code} />;
+        return <NotFoundPage errorCode={errorHandler.capturedError.code} />;
       }
     }
 
