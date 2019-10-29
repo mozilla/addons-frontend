@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 16:23+0000\n"
+"POT-Creation-Date: 2019-10-29 16:13+0000\n"
 "PO-Revision-Date: 2019-08-27 23:35+0000\n"
 "Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
@@ -26,35 +26,35 @@ msgstr ""
 "Toto rozšíření Mozilla nemonitoruje. Před jeho instalací se ujistěte, že mu "
 "důvěřujete."
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Enable"
 msgstr "Povolit"
 
-#: src/core/components/AMInstallButton/index.js:248
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Remove"
 msgstr "Odebrat"
 
-#: src/core/components/AMInstallButton/index.js:250
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Enabling"
 msgstr "Zapínání"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Downloading"
 msgstr "Stahování"
 
-#: src/core/components/AMInstallButton/index.js:254
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Installing"
 msgstr "Instalace"
 
-#: src/core/components/AMInstallButton/index.js:256
+#: src/core/components/AMInstallButton/index.js:241
 msgid "Uninstalling"
 msgstr "Odinstalace"
 
-#: src/core/components/AMInstallButton/index.js:264
+#: src/core/components/AMInstallButton/index.js:249
 msgid "Install Theme"
 msgstr "Nainstalovat vzhled"
 
-#: src/core/components/AMInstallButton/index.js:265
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Add to Firefox"
 msgstr "Přidat do Firefoxu"
 
@@ -154,7 +154,7 @@ msgstr "Během odinstalace došlo k neočekávané chybě."
 msgid "An unexpected error occurred."
 msgstr "Došlo k neočekávané chybě."
 
-#: src/disco/components/Addon/index.js:86
+#: src/disco/components/Addon/index.js:85
 msgid "Close"
 msgstr "Zavřít"
 
@@ -225,7 +225,7 @@ msgstr "Došlo k neočekávané chybě"
 msgid "Reload To Continue"
 msgstr "Pro pokračování obnovte stránku"
 
-#: src/ui/components/Notice/index.js:147
+#: src/ui/components/Notice/index.js:150
 msgid "Dismiss this notice"
 msgstr "Skrýt"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 16:23+0000\n"
+"POT-Creation-Date: 2019-10-29 16:13+0000\n"
 "PO-Revision-Date: 2019-09-25 03:58+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,35 +26,35 @@ msgstr ""
 "ਇਸ ਵਿਸਥਾਰ ਦੀ ਮੋਜ਼ੀਲਾ ਦੁਆਰਾ ਨਿਗਰਾਨੀ ਨਹੀਂ ਕੀਤੀ ਜਾਂਦੀ। ਇਹ ਪੱਕਾ ਕਰੋ ਕਿ ਤੁਸੀਂ ਇਸਨੂੰ ਸਥਾਪਤ "
 "ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਐਕਸਟੈਂਸ਼ਨ ਤੇ ਭਰੋਸਾ ਕਰਦੇ ਹੋ।"
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Enable"
 msgstr "ਸਮਰੱਥ ਕਰੋ"
 
-#: src/core/components/AMInstallButton/index.js:248
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Remove"
 msgstr "ਹਟਾਓ"
 
-#: src/core/components/AMInstallButton/index.js:250
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Enabling"
 msgstr "ਸਮਰੱਥ ਬਣਾਉਣਾ"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Downloading"
 msgstr "ਡਾਉਨਲੋਡ ਜਾਰੀ"
 
-#: src/core/components/AMInstallButton/index.js:254
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Installing"
 msgstr "ਇੰਸਟਾਲ ਹੋ ਰਿਹਾ ਹੈ"
 
-#: src/core/components/AMInstallButton/index.js:256
+#: src/core/components/AMInstallButton/index.js:241
 msgid "Uninstalling"
 msgstr "ਅਣ-ਇੰਸਟਾਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/core/components/AMInstallButton/index.js:264
+#: src/core/components/AMInstallButton/index.js:249
 msgid "Install Theme"
 msgstr "ਥੀਮ ਇੰਸਟਾਲ ਕਰੋ"
 
-#: src/core/components/AMInstallButton/index.js:265
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Add to Firefox"
 msgstr "ਫਾਇਰਫਾਕਸ ਵਿੱਚ ਜੋੜੋ"
 
@@ -154,7 +154,7 @@ msgstr "ਅਨ ਸਥਾਪਿਤ ਹੋਣ ਦੇ ਦੌਰਾਨ ਇੱਕ ਅ
 msgid "An unexpected error occurred."
 msgstr "ਅਚਾਨਕ ਗਲਤੀ ਆਈ ਹੈ।"
 
-#: src/disco/components/Addon/index.js:86
+#: src/disco/components/Addon/index.js:85
 msgid "Close"
 msgstr "ਬੰਦ ਕਰੋ"
 
@@ -224,7 +224,7 @@ msgstr "ਅਚਾਨਕ ਗਲਤੀ ਆਈ ਹੈ"
 msgid "Reload To Continue"
 msgstr "ਜਾਰੀ ਰੱਖਣ ਲਈ ਦੁਬਾਰਾ ਲੋਡ ਕਰੋ"
 
-#: src/ui/components/Notice/index.js:147
+#: src/ui/components/Notice/index.js:150
 msgid "Dismiss this notice"
 msgstr "ਇਸ ਨੋਟਿਸ ਨੂੰ ਖਾਰਜ ਕਰੋ"
 

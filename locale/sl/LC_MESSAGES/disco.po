@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 16:23+0000\n"
+"POT-Creation-Date: 2019-10-29 16:13+0000\n"
 "PO-Revision-Date: 2019-08-30 11:01+0000\n"
 "Last-Translator: Rok Žerdin <zerdo90@gmail.com>\n"
 "Language-Team: none\n"
@@ -27,35 +27,35 @@ msgstr ""
 "Mozilla te razširitve ne nadzira. Prepričajte se, da razširitvi zaupate, "
 "preden jo namestite."
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Enable"
 msgstr "Omogoči"
 
-#: src/core/components/AMInstallButton/index.js:248
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/core/components/AMInstallButton/index.js:250
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Enabling"
 msgstr "Omogočanje"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Downloading"
 msgstr "Prenašanje"
 
-#: src/core/components/AMInstallButton/index.js:254
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Installing"
 msgstr "Nameščanje"
 
-#: src/core/components/AMInstallButton/index.js:256
+#: src/core/components/AMInstallButton/index.js:241
 msgid "Uninstalling"
 msgstr "Odstranjevanje"
 
-#: src/core/components/AMInstallButton/index.js:264
+#: src/core/components/AMInstallButton/index.js:249
 msgid "Install Theme"
 msgstr "Namesti temo"
 
-#: src/core/components/AMInstallButton/index.js:265
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Add to Firefox"
 msgstr "Dodaj v Firefox"
 
@@ -155,7 +155,7 @@ msgstr "Med odstranjevanjem je prišlo do nepričakovane napake."
 msgid "An unexpected error occurred."
 msgstr "Prišlo je do nepričakovane napake."
 
-#: src/disco/components/Addon/index.js:86
+#: src/disco/components/Addon/index.js:85
 msgid "Close"
 msgstr "Zapri"
 
@@ -225,7 +225,7 @@ msgstr "Prišlo je do nepričakovane napake"
 msgid "Reload To Continue"
 msgstr "Ponovno naloži za nadaljevanje"
 
-#: src/ui/components/Notice/index.js:147
+#: src/ui/components/Notice/index.js:150
 msgid "Dismiss this notice"
 msgstr "Skrij obvestilo"
 

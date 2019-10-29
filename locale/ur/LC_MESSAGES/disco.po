@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 16:23+0000\n"
+"POT-Creation-Date: 2019-10-29 16:13+0000\n"
 "PO-Revision-Date: 2019-07-10 08:34+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,37 +25,37 @@ msgid ""
 "before you install it."
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Enable"
 msgstr "اہل بنائیں"
 
-#: src/core/components/AMInstallButton/index.js:248
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Remove"
 msgstr "ہٹائیں"
 
-#: src/core/components/AMInstallButton/index.js:250
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:237
 #, fuzzy
 msgid "Downloading"
 msgstr "%(name)s ڈائونلوڈ ہو رہا ہے۔"
 
-#: src/core/components/AMInstallButton/index.js:254
+#: src/core/components/AMInstallButton/index.js:239
 #, fuzzy
 msgid "Installing"
 msgstr "%(name)s تنصِب کر رہا ہے۔"
 
-#: src/core/components/AMInstallButton/index.js:256
+#: src/core/components/AMInstallButton/index.js:241
 msgid "Uninstalling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:264
+#: src/core/components/AMInstallButton/index.js:249
 msgid "Install Theme"
 msgstr "خیالیہ کی تنصیب کریں"
 
-#: src/core/components/AMInstallButton/index.js:265
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Add to Firefox"
 msgstr "Firefox میں شامل کریں"
 
@@ -153,7 +153,7 @@ msgstr ""
 msgid "An unexpected error occurred."
 msgstr ""
 
-#: src/disco/components/Addon/index.js:86
+#: src/disco/components/Addon/index.js:85
 msgid "Close"
 msgstr "بند کریں"
 
@@ -217,7 +217,7 @@ msgstr "ایک غیرمتوقع نقص پیش آگیا"
 msgid "Reload To Continue"
 msgstr "جاری رکھنے کے لیئے پھر لوڈ کریں"
 
-#: src/ui/components/Notice/index.js:147
+#: src/ui/components/Notice/index.js:150
 msgid "Dismiss this notice"
 msgstr "اس نوٹس کو مسترد کریں"
 

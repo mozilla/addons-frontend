@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 16:23+0000\n"
+"POT-Creation-Date: 2019-10-29 16:13+0000\n"
 "PO-Revision-Date: 2019-08-28 06:41+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,35 +26,35 @@ msgstr ""
 "ამ გაფართოებას მუდმივად არ ამოწმებს Mozilla. დარწმუნდით მის სანდოობაში, "
 "დაყენებამდე."
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:230
 msgid "Enable"
 msgstr "ჩართვა"
 
-#: src/core/components/AMInstallButton/index.js:248
+#: src/core/components/AMInstallButton/index.js:233
 msgid "Remove"
 msgstr "მოცილება"
 
-#: src/core/components/AMInstallButton/index.js:250
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Enabling"
 msgstr "ირთვება"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Downloading"
 msgstr "მიმდინარეობს ჩამოტვირთვა"
 
-#: src/core/components/AMInstallButton/index.js:254
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Installing"
 msgstr "მიმდინარეობს დაყენება"
 
-#: src/core/components/AMInstallButton/index.js:256
+#: src/core/components/AMInstallButton/index.js:241
 msgid "Uninstalling"
 msgstr "იშლება"
 
-#: src/core/components/AMInstallButton/index.js:264
+#: src/core/components/AMInstallButton/index.js:249
 msgid "Install Theme"
 msgstr "თემის ჩადგმა"
 
-#: src/core/components/AMInstallButton/index.js:265
+#: src/core/components/AMInstallButton/index.js:250
 msgid "Add to Firefox"
 msgstr "Firefox-ზე დამატება"
 
@@ -154,7 +154,7 @@ msgstr "მოულოდნელი შეცდომა ამოშლი�
 msgid "An unexpected error occurred."
 msgstr "მოულოდნელი შეცდომა."
 
-#: src/disco/components/Addon/index.js:86
+#: src/disco/components/Addon/index.js:85
 msgid "Close"
 msgstr "დახურვა"
 
@@ -225,7 +225,7 @@ msgstr "მოულოდნელი შეცდომა"
 msgid "Reload To Continue"
 msgstr "გასაგრძელებლად, ხელახლა გახსენით"
 
-#: src/ui/components/Notice/index.js:147
+#: src/ui/components/Notice/index.js:150
 msgid "Dismiss this notice"
 msgstr "ამ შეტყობინების დამალვა"
 
