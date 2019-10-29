@@ -11,7 +11,6 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   CLICK_CATEGORY,
   DISCO_NAVIGATION_CATEGORY,
   ENABLE_ACTION,
@@ -32,7 +31,6 @@ import {
   TRACKING_TYPE_EXTENSION,
   TRACKING_TYPE_INVALID,
   TRACKING_TYPE_STATIC_THEME,
-  TRACKING_TYPE_THEME,
   UNINSTALL_ACTION,
   UNINSTALL_EXTENSION_CATEGORY,
   UNINSTALL_THEME_CATEGORY,
@@ -224,12 +222,6 @@ describe(__filename, () => {
       );
     });
 
-    it('returns theme for TYPE_THEME', () => {
-      expect(getAddonTypeForTracking(ADDON_TYPE_THEME)).toEqual(
-        TRACKING_TYPE_THEME,
-      );
-    });
-
     it('returns addon:statictheme for TYPE_STATIC_THEME', () => {
       expect(getAddonTypeForTracking(ADDON_TYPE_STATIC_THEME)).toEqual(
         TRACKING_TYPE_STATIC_THEME,
@@ -250,12 +242,6 @@ describe(__filename, () => {
       ).toEqual(INSTALL_STARTED_EXTENSION_CATEGORY);
     });
 
-    it('returns the expected category when type is lightweight theme and installAction is install started', () => {
-      expect(
-        getAddonEventCategory(ADDON_TYPE_THEME, INSTALL_STARTED_ACTION),
-      ).toEqual(INSTALL_STARTED_THEME_CATEGORY);
-    });
-
     it('returns the expected category when type is static theme and installAction is install started', () => {
       expect(
         getAddonEventCategory(ADDON_TYPE_STATIC_THEME, INSTALL_STARTED_ACTION),
@@ -266,12 +252,6 @@ describe(__filename, () => {
       expect(
         getAddonEventCategory(ADDON_TYPE_EXTENSION, UNINSTALL_ACTION),
       ).toEqual(UNINSTALL_EXTENSION_CATEGORY);
-    });
-
-    it('returns the expected category when type is lightweight theme and installAction is uninstall started', () => {
-      expect(getAddonEventCategory(ADDON_TYPE_THEME, UNINSTALL_ACTION)).toEqual(
-        UNINSTALL_THEME_CATEGORY,
-      );
     });
 
     it('returns the expected category when type is static theme and installAction is uninstall started', () => {
@@ -286,12 +266,6 @@ describe(__filename, () => {
       ).toEqual(INSTALL_EXTENSION_CATEGORY);
     });
 
-    it('returns the expected category when type is lightweight theme and installAction is install', () => {
-      expect(getAddonEventCategory(ADDON_TYPE_THEME, INSTALL_ACTION)).toEqual(
-        INSTALL_THEME_CATEGORY,
-      );
-    });
-
     it('returns the expected category when type is static theme and installAction is install', () => {
       expect(
         getAddonEventCategory(ADDON_TYPE_STATIC_THEME, INSTALL_ACTION),
@@ -302,12 +276,6 @@ describe(__filename, () => {
       expect(
         getAddonEventCategory(ADDON_TYPE_EXTENSION, INSTALL_CANCELLED_ACTION),
       ).toEqual(INSTALL_CANCELLED_EXTENSION_CATEGORY);
-    });
-
-    it('returns the expected category when type is lightweight theme and installAction is cancelled', () => {
-      expect(
-        getAddonEventCategory(ADDON_TYPE_THEME, INSTALL_CANCELLED_ACTION),
-      ).toEqual(INSTALL_CANCELLED_THEME_CATEGORY);
     });
 
     it('returns the expected category when type is static theme and installAction is cancelled', () => {
@@ -325,12 +293,6 @@ describe(__filename, () => {
       ).toEqual(ENABLE_EXTENSION_CATEGORY);
     });
 
-    it('returns the expected category when type is lightweight theme and installAction is enable', () => {
-      expect(getAddonEventCategory(ADDON_TYPE_THEME, ENABLE_ACTION)).toEqual(
-        ENABLE_THEME_CATEGORY,
-      );
-    });
-
     it('returns the expected category when type is static theme and installAction is enable', () => {
       expect(
         getAddonEventCategory(ADDON_TYPE_STATIC_THEME, ENABLE_ACTION),
@@ -344,12 +306,6 @@ describe(__filename, () => {
           INSTALL_DOWNLOAD_FAILED_ACTION,
         ),
       ).toEqual(INSTALL_DOWNLOAD_FAILED_EXTENSION_CATEGORY);
-    });
-
-    it('returns the expected category when type is lightweight theme and installAction is download failed', () => {
-      expect(
-        getAddonEventCategory(ADDON_TYPE_THEME, INSTALL_DOWNLOAD_FAILED_ACTION),
-      ).toEqual(INSTALL_DOWNLOAD_FAILED_THEME_CATEGORY);
     });
 
     it('returns the expected category when type is static theme and installAction is download failed', () => {
@@ -442,10 +398,6 @@ describe(__filename, () => {
 
     it('should not change the tracking constant for an extension', () => {
       expect(TRACKING_TYPE_EXTENSION).toEqual('addon');
-    });
-
-    it('should not change the tracking constant for theme', () => {
-      expect(TRACKING_TYPE_THEME).toEqual('theme');
     });
 
     it('should not change the tracking constant for static theme', () => {

@@ -10,7 +10,6 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
@@ -20,7 +19,6 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  fakeTheme,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -47,7 +45,6 @@ describe(__filename, () => {
     [ADDON_TYPE_LANG, 'Language Pack'],
     [ADDON_TYPE_OPENSEARCH, 'Search Tool'],
     [ADDON_TYPE_STATIC_THEME, 'Theme'],
-    [ADDON_TYPE_THEME, 'Theme'],
   ])('renders an HTML title for Firefox (add-on type: %s)', (type, name) => {
     const lang = 'fr';
     const addon = createInternalAddon({ ...fakeAddon, type });
@@ -68,7 +65,6 @@ describe(__filename, () => {
     [ADDON_TYPE_LANG, 'Language Pack'],
     [ADDON_TYPE_OPENSEARCH, 'Search Tool'],
     [ADDON_TYPE_STATIC_THEME, 'Theme'],
-    [ADDON_TYPE_THEME, 'Theme'],
   ])('renders an HTML title for Android (add-on type: %s)', (type, name) => {
     const lang = 'fr';
     const addon = createInternalAddon({ ...fakeAddon, type });
@@ -113,18 +109,6 @@ describe(__filename, () => {
       `${addon.name} – Get this Extension for 🦊 Firefox Android (${lang})`,
     );
     expect(root.find(HeadMetaTags)).toHaveProp('withTwitterMeta', true);
-  });
-
-  it('passes the preview URL as `image` to the HeadMetaTags component when add-on is a lightweight theme', () => {
-    const addon = createInternalAddon(fakeTheme);
-    const root = render({ addon });
-
-    expect(root.find(HeadMetaTags)).toHaveProp(
-      'image',
-      addon.themeData.previewURL,
-    );
-    // This prop is only true for ADDON_TYPE_EXTENSION.
-    expect(root.find(HeadMetaTags)).toHaveProp('withTwitterMeta', false);
   });
 
   it('renders JSON linked data', () => {

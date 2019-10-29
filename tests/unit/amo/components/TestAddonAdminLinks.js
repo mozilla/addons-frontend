@@ -83,21 +83,6 @@ describe(__filename, () => {
     );
   });
 
-  it('shows an edit add-on link for a theme if the user has permission', () => {
-    const root = renderWithPermissions({
-      addon: createInternalAddon({
-        ...fakeTheme,
-        slug,
-      }),
-      permissions: ADDONS_EDIT,
-    });
-
-    expect(root.find('.AddonAdminLinks-edit-link')).toHaveProp(
-      'href',
-      `/developers/theme/${slug}/edit`,
-    );
-  });
-
   it('does not show an edit add-on link if the user does not have permission', () => {
     const root = renderWithPermissions({ permissions: ADMIN_TOOLS_VIEW });
 
@@ -211,24 +196,6 @@ describe(__filename, () => {
     expect(root.find('.AddonAdminLinks-themeReview-link')).toHaveProp(
       'href',
       `/reviewers/review/${slug}`,
-    );
-    expect(
-      root.find('.AddonAdminLinks-themeReview-link').children(),
-    ).toHaveText('Review theme');
-  });
-
-  it('shows a theme review link for a lightweight theme if the user has permission', () => {
-    const root = renderWithPermissions({
-      addon: createInternalAddon({
-        ...fakeTheme,
-        slug,
-      }),
-      permissions: THEMES_REVIEW,
-    });
-
-    expect(root.find('.AddonAdminLinks-themeReview-link')).toHaveProp(
-      'href',
-      `/reviewers/themes/queue/single/${slug}`,
     );
     expect(
       root.find('.AddonAdminLinks-themeReview-link').children(),

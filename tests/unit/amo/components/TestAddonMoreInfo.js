@@ -497,11 +497,17 @@ describe(__filename, () => {
     expect(root.find('.AddonMoreInfo-version-history')).toHaveLength(0);
   });
 
-  it('omits version history for themes', () => {
+  it('links to version history if add-on is a theme', () => {
     const addon = createInternalAddon({ ...fakeTheme });
-    const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-version-history')).toHaveLength(0);
+    const root = render({ addon });
+    const history = root.find('.AddonMoreInfo-version-history');
+
+    expect(history).toHaveProp('term', 'Version History');
+    expect(history.find(Link)).toHaveProp(
+      'to',
+      `/addon/${addon.slug}/versions/`,
+    );
   });
 
   it('renders the last updated date', () => {

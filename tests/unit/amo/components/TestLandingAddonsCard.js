@@ -8,7 +8,7 @@ import {
   LANDING_PAGE_EXTENSION_COUNT,
   LANDING_PAGE_THEME_COUNT,
 } from 'amo/constants';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/helpers';
 
@@ -111,7 +111,7 @@ describe(__filename, () => {
   it('hides the footer link when there are less add-ons than LANDING_PAGE_THEME_COUNT', () => {
     const root = render({
       addons: Array(LANDING_PAGE_THEME_COUNT - 1).fill(
-        createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_THEME }),
+        createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_STATIC_THEME }),
       ),
       isTheme: true,
     });
@@ -124,7 +124,7 @@ describe(__filename, () => {
 
     const root = render({
       addons: Array(LANDING_PAGE_THEME_COUNT).fill(
-        createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_THEME }),
+        createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_STATIC_THEME }),
       ),
       isTheme: true,
       footerLink,
@@ -143,7 +143,7 @@ describe(__filename, () => {
 
     const root = render({
       addons: Array(placeholderCount).fill(
-        createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_THEME }),
+        createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_STATIC_THEME }),
       ),
       placeholderCount,
       footerLink,

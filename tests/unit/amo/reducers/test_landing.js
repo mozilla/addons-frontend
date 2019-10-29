@@ -3,14 +3,14 @@ import landing, {
   initialState,
   loadLanding,
 } from 'amo/reducers/landing';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('getLanding', () => {
     const getActionParams = () => ({
-      addonType: ADDON_TYPE_THEME,
+      addonType: ADDON_TYPE_STATIC_THEME,
       errorHandlerId: 'some-error-handler',
     });
     const action = getLanding(getActionParams());
@@ -21,7 +21,7 @@ describe(__filename, () => {
 
     it('sets the filters', () => {
       expect(action.payload).toEqual({
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_STATIC_THEME,
         category: null,
         errorHandlerId: 'some-error-handler',
       });
@@ -35,7 +35,7 @@ describe(__filename, () => {
       });
 
       expect(actionWithCategorySet.payload).toEqual({
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_STATIC_THEME,
         category,
         errorHandlerId: 'some-error-handler',
       });
@@ -45,7 +45,7 @@ describe(__filename, () => {
   describe('loadLanding', () => {
     function defaultParams() {
       return {
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_STATIC_THEME,
         recommended: { count: 0, results: [] },
         highlyRated: { count: 0, results: [] },
         trending: { count: 0, results: [] },
@@ -100,12 +100,12 @@ describe(__filename, () => {
         } = landing(
           initialState,
           getLanding({
-            addonType: ADDON_TYPE_THEME,
+            addonType: ADDON_TYPE_STATIC_THEME,
             errorHandlerId: 'some-error-handler',
           }),
         );
 
-        expect(addonType).toEqual(ADDON_TYPE_THEME);
+        expect(addonType).toEqual(ADDON_TYPE_STATIC_THEME);
         expect(loading).toEqual(true);
         expect(recommended).toEqual(initialState.recommended);
         expect(highlyRated).toEqual(initialState.highlyRated);
@@ -116,7 +116,7 @@ describe(__filename, () => {
         const state = landing(
           { ...initialState, resultsLoaded: true },
           getLanding({
-            addonType: ADDON_TYPE_THEME,
+            addonType: ADDON_TYPE_STATIC_THEME,
             errorHandlerId: 'some-error-handler',
           }),
         );
@@ -137,7 +137,7 @@ describe(__filename, () => {
             },
           },
           getLanding({
-            addonType: ADDON_TYPE_THEME,
+            addonType: ADDON_TYPE_STATIC_THEME,
             errorHandlerId: 'some-error-handler',
           }),
         );
@@ -153,7 +153,7 @@ describe(__filename, () => {
         const state = landing(
           initialState,
           loadLanding({
-            addonType: ADDON_TYPE_THEME,
+            addonType: ADDON_TYPE_STATIC_THEME,
             recommended: {
               count: 2,
               results: [
@@ -182,7 +182,7 @@ describe(__filename, () => {
         };
 
         const action = loadLanding({
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_STATIC_THEME,
           recommended: {
             count: 2,
             results: [

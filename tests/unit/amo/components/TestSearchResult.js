@@ -7,7 +7,6 @@ import { getAddonURL } from 'amo/utils';
 import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
@@ -203,11 +202,7 @@ describe(__filename, () => {
     const root = render({
       addon: createInternalAddon({
         ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-        theme_data: {
-          previewURL:
-            'https://addons.cdn.mozilla.net/user-media/addons/334902/preview_large.jpg?1313374873',
-        },
+        type: ADDON_TYPE_STATIC_THEME,
       }),
     });
 
@@ -226,7 +221,7 @@ describe(__filename, () => {
       addon: createInternalAddon({
         ...fakeAddon,
         previews: [],
-        type: ADDON_TYPE_THEME,
+        type: ADDON_TYPE_STATIC_THEME,
       }),
     });
 
@@ -301,37 +296,6 @@ describe(__filename, () => {
     const image = root.find('.SearchResult-icon');
 
     expect(image.prop('src')).toEqual(headerImageFull);
-  });
-
-  it('displays a message if the lightweight theme preview image is unavailable', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      // The 'previews' field is not currently being used by lightweight themes
-      // So here we are just overridding the fakeAddon values to mimic the API
-      // response.
-      previews: [],
-      theme_data: {
-        previewURL: null,
-      },
-      type: ADDON_TYPE_THEME,
-    });
-    const root = render({ addon });
-
-    expect(root.find('.SearchResult-notheme')).toIncludeText(
-      'No theme preview available',
-    );
-  });
-
-  it("does not display a 'no theme preview available' message if the lightweight theme preview image is available", () => {
-    const addon = createInternalAddon({
-      ...fakeTheme,
-      type: ADDON_TYPE_THEME,
-    });
-    const root = render({ addon });
-
-    expect(root.find('.SearchResult-result')).not.toIncludeText(
-      'No theme preview available',
-    );
   });
 
   it('displays a message if the static theme preview image is unavailable', () => {
@@ -507,32 +471,12 @@ describe(__filename, () => {
     expect(root.find(RecommendedBadge)).toHaveLength(0);
   });
 
-  it('does not set an extra css class to the icon wrapper when there is a theme image', () => {
-    const root = render({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-        previews: [],
-        theme_data: {
-          previewURL:
-            'https://addons.cdn.mozilla.net/user-media/addons/334902/preview_large.jpg?1313374873',
-        },
-      }),
-    });
-
-    expect(root.find('.SearchResult-icon-wrapper')).toHaveLength(1);
-    expect(
-      root.find('.SearchResult-icon-wrapper--no-theme-image'),
-    ).toHaveLength(0);
-  });
-
   it('sets an extra css class to the icon wrapper when there is no theme image', () => {
     const root = render({
       addon: createInternalAddon({
         ...fakeAddon,
-        type: ADDON_TYPE_THEME,
+        type: ADDON_TYPE_STATIC_THEME,
         previews: [],
-        theme_data: null,
       }),
     });
 

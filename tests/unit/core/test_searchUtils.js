@@ -3,7 +3,6 @@ import { oneLine } from 'common-tags';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
@@ -128,7 +127,7 @@ describe(__filename, () => {
   describe('convertFiltersToQueryParams', () => {
     it('converts filters', () => {
       const queryParams = convertFiltersToQueryParams({
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_STATIC_THEME,
         compatibleWithVersion: '57.0',
         page: '4',
         query: 'Cool things',
@@ -140,7 +139,7 @@ describe(__filename, () => {
         appversion: '57.0',
         page: '4',
         q: 'Cool things',
-        type: ADDON_TYPE_THEME,
+        type: ADDON_TYPE_STATIC_THEME,
         author: 'johndoe',
         tag: 'firefox57',
       });
@@ -153,12 +152,12 @@ describe(__filename, () => {
         appversion: '57.0',
         page: '4',
         q: 'Cool things',
-        type: ADDON_TYPE_THEME,
+        type: ADDON_TYPE_STATIC_THEME,
         tag: 'firefox57',
       });
 
       expect(filters).toEqual({
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_STATIC_THEME,
         compatibleWithVersion: '57.0',
         page: '4',
         query: 'Cool things',
@@ -222,37 +221,10 @@ describe(__filename, () => {
   });
 
   describe('fixFiltersForAndroidThemes', () => {
-    it.each([ADDON_TYPE_THEME])(
-      'changes the addonType filter to ADDON_TYPE_STATIC_THEME when addonType is "%s", clientApp is "Android" and there is a category defined',
-      (addonType) => {
-        const filters = {
-          addonType,
-          category: 'nature',
-          clientApp: CLIENT_APP_ANDROID,
-        };
-
-        const newFilters = fixFiltersForAndroidThemes({ filters });
-        expect(newFilters).toEqual({
-          ...filters,
-          addonType: ADDON_TYPE_STATIC_THEME,
-        });
-      },
-    );
-
     it('does not change clientApp filter for Android extensions', () => {
       const filters = {
         addonType: ADDON_TYPE_EXTENSION,
         clientApp: CLIENT_APP_ANDROID,
-      };
-
-      const newFilters = fixFiltersForAndroidThemes({ filters });
-      expect(newFilters).toEqual(filters);
-    });
-
-    it('does not change filters unless clientApp is `android`', () => {
-      const filters = {
-        addonType: ADDON_TYPE_THEME,
-        clientApp: 'some-bogus-client',
       };
 
       const newFilters = fixFiltersForAndroidThemes({ filters });
@@ -265,7 +237,7 @@ describe(__filename, () => {
       });
 
       const filters = {
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_STATIC_THEME,
       };
 
       const newFilters = fixFiltersForAndroidThemes({
@@ -280,20 +252,10 @@ describe(__filename, () => {
 
     it('does not modify the other filters', () => {
       const filters = {
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_STATIC_THEME,
         category: 'some-category',
         clientApp: CLIENT_APP_FIREFOX,
         page: '123',
-      };
-
-      const newFilters = fixFiltersForAndroidThemes({ filters });
-      expect(newFilters).toEqual(filters);
-    });
-
-    it('does not change addonType when clientApp is not Android', () => {
-      const filters = {
-        addonType: ADDON_TYPE_STATIC_THEME,
-        clientApp: CLIENT_APP_FIREFOX,
       };
 
       const newFilters = fixFiltersForAndroidThemes({ filters });

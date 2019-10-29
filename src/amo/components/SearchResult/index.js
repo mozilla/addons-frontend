@@ -8,18 +8,8 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import { getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
-import {
-  ADDON_TYPE_OPENSEARCH,
-  ADDON_TYPE_THEME,
-  CLIENT_APP_ANDROID,
-} from 'core/constants';
-import {
-  addQueryParams,
-  isAllowedOrigin,
-  isTheme,
-  nl2br,
-  sanitizeHTML,
-} from 'core/utils';
+import { ADDON_TYPE_OPENSEARCH, CLIENT_APP_ANDROID } from 'core/constants';
+import { addQueryParams, isTheme, nl2br, sanitizeHTML } from 'core/utils';
 import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
@@ -43,7 +33,6 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _isAllowedOrigin: Function,
   clientApp: string,
   history: ReactRouterHistoryType,
   i18n: I18nType,
@@ -52,7 +41,6 @@ type InternalProps = {|
 
 export class SearchResultBase extends React.Component<InternalProps> {
   static defaultProps = {
-    _isAllowedOrigin: isAllowedOrigin,
     showMetadata: true,
     showRecommendedBadge: true,
     showSummary: true,
@@ -72,7 +60,6 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
   renderResult() {
     const {
-      _isAllowedOrigin,
       addon,
       addonInstallSource,
       clientApp,
@@ -104,16 +91,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     }
 
     if (addon && isTheme(addon.type)) {
-      let themeURL = getPreviewImage(addon);
-
-      if (!themeURL && addon && addon.type === ADDON_TYPE_THEME) {
-        themeURL =
-          addon.themeData && _isAllowedOrigin(addon.themeData.previewURL)
-            ? addon.themeData.previewURL
-            : null;
-      }
-
-      imageURL = themeURL;
+      imageURL = getPreviewImage(addon);
     }
 
     // Sets classes to handle fallback if theme preview is not available.
@@ -254,7 +232,6 @@ export class SearchResultBase extends React.Component<InternalProps> {
     const result = this.renderResult();
     const resultClassnames = makeClassName('SearchResult', {
       'SearchResult--theme': addon ? isTheme(addon.type) : useThemePlaceholder,
-      'SearchResult--persona': addon && addon.type === ADDON_TYPE_THEME,
     });
 
     return (

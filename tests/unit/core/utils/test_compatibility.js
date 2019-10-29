@@ -2,7 +2,7 @@ import UAParser from 'ua-parser-js';
 
 import {
   ADDON_TYPE_OPENSEARCH,
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   INCOMPATIBLE_FIREFOX_FENIX,
@@ -341,7 +341,7 @@ describe(__filename, () => {
     it('allows non-extensions to have mismatching platform files', () => {
       const addon = createInternalAddon({
         ...fakeAddon,
-        type: ADDON_TYPE_THEME,
+        type: ADDON_TYPE_STATIC_THEME,
       });
       const currentVersion = createInternalVersion({
         ...fakeVersion,

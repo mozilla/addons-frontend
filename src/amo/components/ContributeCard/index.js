@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { compose } from 'redux';
 
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
@@ -41,7 +41,7 @@ export const ContributeCardBase = ({ addon, i18n }: Props) => {
         numberOfAuthors,
       );
       break;
-    case ADDON_TYPE_THEME:
+    case ADDON_TYPE_STATIC_THEME:
       header = i18n.ngettext(
         i18n.gettext('Support this artist'),
         i18n.gettext('Support these artists'),

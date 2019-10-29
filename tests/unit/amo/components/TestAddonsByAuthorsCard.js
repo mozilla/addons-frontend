@@ -20,7 +20,6 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
@@ -93,7 +92,7 @@ describe(__filename, () => {
     count = null,
   }) {
     const pageSize =
-      addonType === ADDON_TYPE_THEME
+      addonType === ADDON_TYPE_STATIC_THEME
         ? THEMES_BY_AUTHORS_PAGE_SIZE
         : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
 
@@ -333,14 +332,14 @@ describe(__filename, () => {
     dispatchSpy.resetHistory();
 
     root.setProps({
-      addonType: ADDON_TYPE_THEME,
+      addonType: ADDON_TYPE_STATIC_THEME,
       authorIds: [randomAuthorId1],
     });
 
     sinon.assert.calledWith(
       dispatchSpy,
       fetchAddonsByAuthors({
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_STATIC_THEME,
         authorIds: [randomAuthorId1],
         errorHandlerId: errorHandler.id,
         pageSize: String(numberOfAddons),
@@ -352,14 +351,14 @@ describe(__filename, () => {
     dispatchSpy.resetHistory();
 
     root.setProps({
-      addonType: ADDON_TYPE_THEME,
+      addonType: ADDON_TYPE_STATIC_THEME,
       authorIds: [randomAuthorId2],
     });
 
     sinon.assert.calledWith(
       dispatchSpy,
       fetchAddonsByAuthors({
-        addonType: ADDON_TYPE_THEME,
+        addonType: ADDON_TYPE_STATIC_THEME,
         authorIds: [randomAuthorId2],
         errorHandlerId: errorHandler.id,
         pageSize: String(numberOfAddons),

@@ -28,7 +28,7 @@ import {
 import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_STATIC_THEME,
   ADMIN_TOOLS,
   USERS_EDIT,
 } from 'core/constants';
@@ -465,7 +465,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
               />
 
               <AddonsByAuthorsCard
-                addonType={ADDON_TYPE_THEME}
+                addonType={ADDON_TYPE_STATIC_THEME}
                 authorDisplayName={user ? user.name : null}
                 authorIds={user ? [user.id] : null}
                 errorHandler={errorHandler}

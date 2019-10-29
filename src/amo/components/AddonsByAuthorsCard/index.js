@@ -22,7 +22,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -290,7 +289,6 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
               );
           break;
         case ADDON_TYPE_STATIC_THEME:
-        case ADDON_TYPE_THEME:
           header = showMore
             ? i18n.ngettext(
                 i18n.sprintf(i18n.gettext('More themes by %(author)s'), {

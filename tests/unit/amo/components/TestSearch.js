@@ -14,7 +14,7 @@ import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_STATIC_THEME,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_POPULAR,
@@ -192,7 +192,7 @@ describe(__filename, () => {
   });
 
   it('renders an HTML title for recommended themes', () => {
-    const filters = { addonType: ADDON_TYPE_THEME, recommended: true };
+    const filters = { addonType: ADDON_TYPE_STATIC_THEME, recommended: true };
     const wrapper = render({ filters });
     expect(wrapper.find('title')).toHaveText('Recommended themes');
   });
@@ -214,7 +214,7 @@ describe(__filename, () => {
 
   it('renders an HTML title for trending themes', () => {
     const filters = {
-      addonType: ADDON_TYPE_THEME,
+      addonType: ADDON_TYPE_STATIC_THEME,
       sort: SEARCH_SORT_TRENDING,
     };
     const wrapper = render({ filters });
@@ -241,7 +241,7 @@ describe(__filename, () => {
 
   it('renders an HTML title for top rated themes', () => {
     const filters = {
-      addonType: ADDON_TYPE_THEME,
+      addonType: ADDON_TYPE_STATIC_THEME,
       sort: SEARCH_SORT_TOP_RATED,
     };
     const wrapper = render({ filters });
@@ -268,7 +268,7 @@ describe(__filename, () => {
 
   it('renders an HTML title for popular themes', () => {
     const filters = {
-      addonType: ADDON_TYPE_THEME,
+      addonType: ADDON_TYPE_STATIC_THEME,
       sort: SEARCH_SORT_POPULAR,
     };
     const wrapper = render({ filters });

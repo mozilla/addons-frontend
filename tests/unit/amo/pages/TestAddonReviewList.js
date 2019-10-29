@@ -26,7 +26,6 @@ import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
   SET_VIEW_CONTEXT,
 } from 'core/constants';
@@ -576,7 +575,7 @@ describe(__filename, () => {
 
     it('dispatches a view context for new add-on types', () => {
       const addon1 = { ...fakeAddon, type: ADDON_TYPE_EXTENSION };
-      const addon2 = { ...addon1, type: ADDON_TYPE_THEME };
+      const addon2 = { ...addon1, type: ADDON_TYPE_STATIC_THEME };
 
       loadAddon(addon1);
       const dispatch = sinon.stub(store, 'dispatch');
