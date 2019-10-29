@@ -102,7 +102,9 @@ export default class AddonsCard extends React.Component<Props> {
               key={`${addon.slug}-${addon.type}`}
               showMetadata={showMetadata}
               showRecommendedBadge={showRecommendedBadge}
-              showSummary={ADDON_TYPE_STATIC_THEME !== addon.type ? showSummary : false}
+              showSummary={
+                ADDON_TYPE_STATIC_THEME !== addon.type ? showSummary : false
+              }
             />,
           );
         }

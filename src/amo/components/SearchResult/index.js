@@ -8,7 +8,11 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import { getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
-import { ADDON_TYPE_OPENSEARCH, CLIENT_APP_ANDROID, ADDON_TYPE_STATIC_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_OPENSEARCH,
+  CLIENT_APP_ANDROID,
+  ADDON_TYPE_STATIC_THEME,
+} from 'core/constants';
 import { addQueryParams, nl2br, sanitizeHTML } from 'core/utils';
 import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
 import Icon from 'ui/components/Icon';
@@ -231,7 +235,9 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
     const result = this.renderResult();
     const resultClassnames = makeClassName('SearchResult', {
-      'SearchResult--theme': addon ? ADDON_TYPE_STATIC_THEME === addon.type : useThemePlaceholder,
+      'SearchResult--theme': addon
+        ? ADDON_TYPE_STATIC_THEME === addon.type
+        : useThemePlaceholder,
     });
 
     return (

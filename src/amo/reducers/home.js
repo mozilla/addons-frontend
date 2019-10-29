@@ -281,9 +281,10 @@ const reducer = (
         ...state,
         collections: collections.map((collection) => {
           if (collection && collection.results && collection.results.length) {
-            const sliceEnd = ADDON_TYPE_STATIC_THEME === collection.results[0].addon.type
-              ? LANDING_PAGE_THEME_COUNT
-              : LANDING_PAGE_EXTENSION_COUNT;
+            const sliceEnd =
+              ADDON_TYPE_STATIC_THEME === collection.results[0].addon.type
+                ? LANDING_PAGE_THEME_COUNT
+                : LANDING_PAGE_EXTENSION_COUNT;
             return collection.results.slice(0, sliceEnd).map((item) => {
               return createInternalAddon(item.addon);
             });
