@@ -1,6 +1,7 @@
 /* @flow */
 import invariant from 'invariant';
 
+import { reportAbuse } from 'core/addonManager';
 import type { AddonType } from 'core/types/addons';
 import type { AbuseReporter } from 'core/api/abuse';
 
@@ -12,6 +13,10 @@ export const SEND_ADDON_ABUSE_REPORT: 'SEND_ADDON_ABUSE_REPORT' =
   'SEND_ADDON_ABUSE_REPORT';
 export const SHOW_ADDON_ABUSE_REPORT_UI: 'SHOW_ADDON_ABUSE_REPORT_UI' =
   'SHOW_ADDON_ABUSE_REPORT_UI';
+export const INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX: 'INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX' =
+  'INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX';
+export const FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX: 'FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX' =
+  'FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX';
 
 export type AddonAbuseState = {|
   buttonEnabled?: boolean,
@@ -124,8 +129,42 @@ export function showAddonAbuseReportUI({
   };
 }
 
+type InitiateAddonAbuseReportViaFirefoxParams = {|
+  _reportAbuse: typeof reportAbuse,
+  addon: AddonType,
+|};
+
+export type InitiateAddonAbuseReportViaFirefoxAction = {|
+  type: typeof INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX,
+  payload: InitiateAddonAbuseReportViaFirefoxParams,
+|};
+
+export function initiateAddonAbuseReportViaFirefox({
+  _reportAbuse = reportAbuse,
+  addon,
+}: InitiateAddonAbuseReportViaFirefoxParams): InitiateAddonAbuseReportViaFirefoxAction {
+  invariant(addon, 'addon is required');
+
+  return {
+    type: INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX,
+    payload: { _reportAbuse, addon },
+  };
+}
+
+export type FinishAddonAbuseReportViaFirefoxAction = {|
+  type: typeof FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX,
+|};
+
+export function finishAddonAbuseReportViaFirefox(): FinishAddonAbuseReportViaFirefoxAction {
+  return {
+    type: FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX,
+  };
+}
+
 type Action =
+  | FinishAddonAbuseReportViaFirefoxAction
   | HideAddonAbuseReportUIAction
+  | InitiateAddonAbuseReportViaFirefoxAction
   | LoadAddonAbuseReportAction
   | SendAddonAbuseReportAction
   | ShowAddonAbuseReportUIAction;
@@ -157,6 +196,7 @@ export default function abuseReducer(
         loading: false,
       };
     }
+    case INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX:
     case SEND_ADDON_ABUSE_REPORT:
       return { ...state, loading: true };
     case SHOW_ADDON_ABUSE_REPORT_UI: {
@@ -170,6 +210,8 @@ export default function abuseReducer(
         },
       };
     }
+    case FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX:
+      return { ...state, loading: false };
     default:
       return state;
   }
