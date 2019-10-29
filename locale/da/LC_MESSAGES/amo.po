@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-29 16:11+0000\n"
-"PO-Revision-Date: 2019-08-08 12:18+0000\n"
+"PO-Revision-Date: 2019-10-29 18:35+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -1038,7 +1038,7 @@ msgstr "Tilføjelser til Firefox"
 
 #: src/amo/components/HeroRecommendation/index.js:107
 msgid "Get the extension"
-msgstr ""
+msgstr "Hent udvidelsen"
 
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:180
@@ -1067,7 +1067,7 @@ msgstr "De føjer funktioner til Firefox, der gør din browsing hurtigere, smart
 
 #: src/amo/components/InstallWarning/index.js:112
 msgid "Learn more"
-msgstr ""
+msgstr "Læs mere"
 
 #: src/amo/components/InstallWarning/index.js:116
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
@@ -2483,12 +2483,11 @@ msgstr "Log ind for at redigere profilen"
 
 #: src/amo/pages/UserProfileEdit/index.js:512
 msgid "Creating your profile…"
-msgstr ""
+msgstr "Opretter din profil…"
 
 #: src/amo/pages/UserProfileEdit/index.js:513
-#, fuzzy
 msgid "Create My Profile"
-msgstr "Opdater min profil"
+msgstr "Opret min profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:517
 msgid "Updating your profile…"
@@ -2901,7 +2900,7 @@ msgstr "Firefox anbefaler kun udvidelser, der opfylder vores standarder for sikk
 
 #: src/ui/components/ShowMoreCard/index.js:126
 msgid "Expand to read more"
-msgstr ""
+msgstr "Udvid for at læse mere"
 
 #: src/ui/components/ShowMoreCard/index.js:131
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
