@@ -145,8 +145,6 @@ export class AddonHeadBase extends React.Component<InternalProps> {
       return null;
     }
 
-    const image = getPreviewImage(addon);
-
     return (
       <>
         <Helmet titleTemplate={null}>
@@ -161,7 +159,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
           appendDefaultTitle={false}
           date={addon.created}
           description={this.getPageDescription()}
-          image={image}
+          image={getPreviewImage(addon)}
           lastModified={addon.last_updated}
           title={this.getPageTitle()}
           withTwitterMeta={addon.type === ADDON_TYPE_EXTENSION}

@@ -129,9 +129,5 @@ export const fixFiltersForAndroidThemes = ({ api, filters }) => {
     newFilters.clientApp = api.clientApp;
   }
 
-  if (newFilters.clientApp !== CLIENT_APP_ANDROID) {
-    return newFilters;
-  }
-
   return newFilters;
 };

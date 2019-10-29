@@ -32,8 +32,6 @@ export const ThemeImageBase = ({
       title: addon.name,
     });
 
-    const previewURL = getPreviewImage(addon, { useStandardSize });
-
     return (
       <div
         className={makeClassName('ThemeImage', {
@@ -41,7 +39,11 @@ export const ThemeImageBase = ({
         })}
         role="presentation"
       >
-        <img alt={label} className="ThemeImage-image" src={previewURL} />
+        <img
+          alt={label}
+          className="ThemeImage-image"
+          src={getPreviewImage(addon, { useStandardSize })}
+        />
       </div>
     );
   }
