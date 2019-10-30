@@ -30,7 +30,6 @@ import {
 import { createInternalAddon } from 'core/reducers/addons';
 import { createInternalVersion } from 'core/reducers/versions';
 import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
-import { NOT_IN_EXPERIMENT } from 'core/withExperiment';
 import Icon from 'ui/components/Icon';
 import {
   createContextWithFakeRouter,
@@ -366,6 +365,7 @@ describe(__filename, () => {
       _tracking,
       addon,
       isExperimentEnabled: true,
+      isUserInExperiment: true,
       variant,
     });
 
@@ -392,6 +392,7 @@ describe(__filename, () => {
       _tracking,
       addon,
       isExperimentEnabled: true,
+      isUserInExperiment: true,
       variant,
     });
 
@@ -409,7 +410,7 @@ describe(__filename, () => {
     sinon.assert.calledOnce(_tracking.sendEvent);
   });
 
-  it('sends a tracking event for the install warning test if the experiment is disabled', async () => {
+  it('does not send a tracking event for the install warning test if the experiment is disabled', async () => {
     const _tracking = createFakeTracking();
     const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
 
@@ -417,6 +418,7 @@ describe(__filename, () => {
       _tracking,
       addon,
       isExperimentEnabled: false,
+      variant: VARIANT_INCLUDE_WARNING,
     });
 
     const event = createFakeEvent();
@@ -425,15 +427,10 @@ describe(__filename, () => {
     const onClick = installButton.prop('onClick');
     await onClick(event);
 
-    sinon.assert.calledWith(_tracking.sendEvent, {
-      action: NOT_IN_EXPERIMENT,
-      category: `${EXPERIMENT_CATEGORY_CLICK}-not_recommended`,
-      label: addon.name,
-    });
-    sinon.assert.calledOnce(_tracking.sendEvent);
+    sinon.assert.notCalled(_tracking.sendEvent);
   });
 
-  it('sends a tracking event for the install warning test if there is no variant', async () => {
+  it('does not send a tracking event for the install warning test if there is no variant', async () => {
     const _tracking = createFakeTracking();
     const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
 
@@ -449,12 +446,28 @@ describe(__filename, () => {
     const onClick = installButton.prop('onClick');
     await onClick(event);
 
-    sinon.assert.calledWith(_tracking.sendEvent, {
-      action: NOT_IN_EXPERIMENT,
-      category: `${EXPERIMENT_CATEGORY_CLICK}-not_recommended`,
-      label: addon.name,
+    sinon.assert.notCalled(_tracking.sendEvent);
+  });
+
+  it('does not send a tracking event for the install warning test if the user is not in the experiment', async () => {
+    const _tracking = createFakeTracking();
+    const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
+
+    const root = render({
+      _tracking,
+      addon,
+      isExperimentEnabled: true,
+      isUserInExperiment: false,
+      variant: VARIANT_INCLUDE_WARNING,
     });
-    sinon.assert.calledOnce(_tracking.sendEvent);
+
+    const event = createFakeEvent();
+    const installButton = root.find('.AMInstallButton-button');
+
+    const onClick = installButton.prop('onClick');
+    await onClick(event);
+
+    sinon.assert.notCalled(_tracking.sendEvent);
   });
 
   it('does not send a tracking event for the install warning test for a theme', async () => {

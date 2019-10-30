@@ -40,7 +40,7 @@ import tracking, {
   getAddonEventCategory,
 } from 'core/tracking';
 import { isFirefox } from 'core/utils/compatibility';
-import { NOT_IN_EXPERIMENT, withExperiment } from 'core/withExperiment';
+import { withExperiment } from 'core/withExperiment';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 import type { AddonVersionType } from 'core/reducers/versions';
@@ -133,18 +133,23 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       enable,
       install,
       isAddonEnabled,
+      isExperimentEnabled,
+      isUserInExperiment,
       variant,
     } = this.props;
 
     if (
       addon.type === ADDON_TYPE_EXTENSION &&
-      clientApp === CLIENT_APP_FIREFOX
+      clientApp === CLIENT_APP_FIREFOX &&
+      variant &&
+      isExperimentEnabled &&
+      isUserInExperiment
     ) {
       const category = `${EXPERIMENT_CATEGORY_CLICK}-${
         !addon.is_recommended ? 'not_' : ''
       }recommended`;
       _tracking.sendEvent({
-        action: variant || NOT_IN_EXPERIMENT,
+        action: variant,
         category,
         label: addon.name,
       });
@@ -394,8 +399,10 @@ const AMInstallButton: React.ComponentType<Props> = compose(
   translate(),
   withExperiment({
     id: EXPERIMENT_ID,
-    variantA: VARIANT_INCLUDE_WARNING,
-    variantB: VARIANT_EXCLUDE_WARNING,
+    variants: [
+      { id: VARIANT_INCLUDE_WARNING, percentage: 0.5 },
+      { id: VARIANT_EXCLUDE_WARNING, percentage: 0.5 },
+    ],
   }),
 )(AMInstallButtonBase);
 
