@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-29 16:11+0000\n"
-"PO-Revision-Date: 2019-10-24 13:28+0000\n"
+"PO-Revision-Date: 2019-10-30 06:52+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:176
 msgid "Loading…"
-msgstr ""
+msgstr "Đang tải…"
 
 #: src/amo/components/AddAddonToCollection/index.js:178
 msgid "Adding…"
@@ -1609,11 +1609,11 @@ msgstr "Chọn ảnh…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:62
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "Để tìm các tiện ích mở rộng tương thích với Firefox trên Android, hãy <a href=\"%(newLocation)s\">truy cập trang web di động của chúng tôi</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:69
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr ""
+msgstr "Để tìm các tiện ích mở rộng tương thích với Firefox trên máy tính để bàn, hãy <a href=\"%(newLocation)s\">truy cập trang web trên máy tính để bàn của chúng tôi</a>."
 
 #: src/amo/pages/Addon/index.js:171 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
@@ -1674,11 +1674,11 @@ msgstr "Siêu dữ liệu mở rộng"
 
 #: src/amo/pages/Addon/index.js:487
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
+msgstr "Danh sách này không dành cho nền tảng này. <a href=\"%(newLocation)s\">Duyệt các tiện ích mở rộng cho Firefox trên Android</a>."
 
 #: src/amo/pages/Addon/index.js:491
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
+msgstr "Danh sách này không dành cho nền tảng này. <a href=\"%(newLocation)s\">Duyệt các tiện ích mở rộng cho Firefox trên máy tính để bàn</a>."
 
 #: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
