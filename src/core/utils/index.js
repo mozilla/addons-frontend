@@ -9,7 +9,6 @@ import { stringify, parse } from 'qs';
 
 import {
   ADDON_TYPE_OPENSEARCH,
-  ADDON_TYPE_STATIC_THEME,
   API_ADDON_TYPES_MAPPING,
   OS_ALL,
   OS_ANDROID,
@@ -257,10 +256,6 @@ export function addonHasVersionHistory(addon) {
 export const decodeHtmlEntities = (string) => {
   const entities = new AllHtmlEntities();
   return entities.decode(string);
-};
-
-export const isTheme = (addonType) => {
-  return addonType === ADDON_TYPE_STATIC_THEME;
 };
 
 /*

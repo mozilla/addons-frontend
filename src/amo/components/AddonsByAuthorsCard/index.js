@@ -26,7 +26,6 @@ import {
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { isTheme } from 'core/utils';
 import LoadingText from 'ui/components/LoadingText';
 import type { FetchAddonsByAuthorsParams } from 'amo/reducers/addonsByAuthors';
 import type { AppState } from 'amo/store';
@@ -325,7 +324,7 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
     }
 
     const classnames = makeClassName('AddonsByAuthorsCard', className, {
-      'AddonsByAuthorsCard--theme': isTheme(addonType),
+      'AddonsByAuthorsCard--theme': ADDON_TYPE_STATIC_THEME === addonType,
     });
 
     let paginator = null;

@@ -28,7 +28,6 @@ import log from 'core/logger';
 import {
   apiAddonType,
   apiAddonTypeIsValid,
-  isTheme,
   visibleAddonType as getVisibleAddonType,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
@@ -203,7 +202,7 @@ export class LandingPageBase extends React.Component {
 
     const addonType = apiAddonType(params.visibleAddonType);
 
-    if (isTheme(addonType)) {
+    if (addonType === ADDON_TYPE_STATIC_THEME) {
       return i18n.gettext(`Download themes to change how Firefox looks. Tailor
         your experience to your tastes. Cute critters, evil robots, beautiful
         landscapes—thousands of options.`);
@@ -237,7 +236,7 @@ export class LandingPageBase extends React.Component {
         to customize Firefox and make the browser all your own.`),
     };
 
-    const isAddonTheme = isTheme(addonType);
+    const isAddonTheme = ADDON_TYPE_STATIC_THEME === addonType;
     const title = headingText[addonType];
 
     return (

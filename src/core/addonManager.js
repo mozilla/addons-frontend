@@ -10,8 +10,9 @@ import {
   INSTALL_EVENT_LIST,
   ON_OPERATION_CANCELLED_EVENT,
   SET_ENABLE_NOT_AVAILABLE,
+  ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
-import { addQueryParams, isTheme } from 'core/utils';
+import { addQueryParams } from 'core/utils';
 
 // This is the representation of an add-on in Firefox.
 type FirefoxAddon = {|
@@ -56,7 +57,7 @@ export function getAddonStatus({ addon, type }: GetAddonStatusParams) {
 
   if (isActive && isEnabled) {
     status = ENABLED;
-  } else if (!isTheme(type) && !isActive && isEnabled) {
+  } else if (ADDON_TYPE_STATIC_THEME !== type && !isActive && isEnabled) {
     // We only use the INACTIVE status for add-ons that are not themes.
     status = INACTIVE;
   }

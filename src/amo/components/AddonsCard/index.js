@@ -6,7 +6,7 @@ import * as React from 'react';
 import EditableCollectionAddon from 'amo/components/EditableCollectionAddon';
 import SearchResult from 'amo/components/SearchResult';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
-import { isTheme } from 'core/utils';
+import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import CardList from 'ui/components/CardList';
 import type {
   DeleteAddonNoteFunc,
@@ -102,7 +102,9 @@ export default class AddonsCard extends React.Component<Props> {
               key={`${addon.slug}-${addon.type}`}
               showMetadata={showMetadata}
               showRecommendedBadge={showRecommendedBadge}
-              showSummary={!isTheme(addon.type) ? showSummary : false}
+              showSummary={
+                ADDON_TYPE_STATIC_THEME !== addon.type ? showSummary : false
+              }
             />,
           );
         }

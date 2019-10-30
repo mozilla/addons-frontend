@@ -49,7 +49,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   INSTALL_SOURCE_DETAIL_PAGE,
 } from 'core/constants';
-import { isTheme, nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
+import { nl2br, sanitizeHTML, sanitizeUserHTML } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -162,7 +162,7 @@ export class AddonBase extends React.Component {
   headerImage() {
     const { addon, i18n } = this.props;
 
-    if (addon && isTheme(addon.type)) {
+    if (addon && ADDON_TYPE_STATIC_THEME === addon.type) {
       return <ThemeImage addon={addon} roundedCorners />;
     }
 
@@ -336,7 +336,7 @@ export class AddonBase extends React.Component {
 
   renderAddonsByAuthorsCard({ isForTheme }) {
     const { addon } = this.props;
-    const isThemeType = addon && isTheme(addon.type);
+    const isThemeType = addon && ADDON_TYPE_STATIC_THEME === addon.type;
     if (
       !addon ||
       !addon.authors.length ||
@@ -376,7 +376,7 @@ export class AddonBase extends React.Component {
       i18n,
     } = this.props;
 
-    const isThemeType = addon && isTheme(addon.type);
+    const isThemeType = addon && addon.type === ADDON_TYPE_STATIC_THEME;
     let errorBanner = null;
     if (errorHandler.hasError()) {
       log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);

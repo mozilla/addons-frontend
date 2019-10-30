@@ -4,9 +4,9 @@ import * as React from 'react';
 
 import translate from 'core/i18n/translate';
 import { getPreviewImage } from 'core/imageUtils';
-import { isTheme } from 'core/utils';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
+import { ADDON_TYPE_STATIC_THEME } from 'core/constants';
 
 import './styles.scss';
 
@@ -27,7 +27,7 @@ export const ThemeImageBase = ({
   roundedCorners = false,
   useStandardSize = true,
 }: InternalProps) => {
-  if (addon && isTheme(addon.type)) {
+  if (addon && ADDON_TYPE_STATIC_THEME === addon.type) {
     const label = i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
       title: addon.name,
     });

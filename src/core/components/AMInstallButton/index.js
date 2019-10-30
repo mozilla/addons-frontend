@@ -39,7 +39,6 @@ import tracking, {
   getAddonTypeForTracking,
   getAddonEventCategory,
 } from 'core/tracking';
-import { isTheme } from 'core/utils';
 import { isFirefox } from 'core/utils/compatibility';
 import { NOT_IN_EXPERIMENT, withExperiment } from 'core/withExperiment';
 import Button from 'ui/components/Button';
@@ -156,7 +155,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
 
     await install();
 
-    if (addon.type === ADDON_TYPE_STATIC_THEME) {
+    if (ADDON_TYPE_STATIC_THEME === addon.type) {
       const isEnabled = await isAddonEnabled();
 
       if (!isEnabled) {
@@ -213,7 +212,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
   showLoadingAnimation() {
     const { addon, status } = this.props;
 
-    if (addon.type === ADDON_TYPE_STATIC_THEME && status === INSTALLED) {
+    if (ADDON_TYPE_STATIC_THEME === addon.type && status === INSTALLED) {
       // We have to enable a static theme after having installed it, so we keep
       // the animation visible to avoid flickering.
       return true;
@@ -245,7 +244,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
           return defaultButtonText;
         }
 
-        return isTheme(addon.type)
+        return ADDON_TYPE_STATIC_THEME === addon.type
           ? i18n.gettext('Install Theme')
           : i18n.gettext('Add to Firefox');
     }
