@@ -50,12 +50,9 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
 
     const isTheme = addon.type === ADDON_TYPE_STATIC_THEME;
 
-    const showCodeReviewLink =
-      hasCodeReviewPermission && !isTheme;
-    const showThemeReviewLink =
-      hasThemeReviewPermission && isTheme;
-    const showContentReviewLink =
-      hasContentReviewPermission && !isTheme;
+    const showCodeReviewLink = hasCodeReviewPermission && !isTheme;
+    const showThemeReviewLink = hasThemeReviewPermission && isTheme;
+    const showContentReviewLink = hasContentReviewPermission && !isTheme;
     const hasALink =
       hasEditPermission ||
       hasAdminPermission ||
@@ -117,20 +114,17 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
       </li>
     ) : null;
 
-    const codeReviewLinkText =
-      isTheme
-        ? // translators: This action allows a reviewer to perform a review of a theme.
-          i18n.gettext('Review theme')
-        : // translators: This action allows a reviewer to perform a review of an add-on's code.
-          i18n.gettext('Review add-on code');
+    const codeReviewLinkText = isTheme
+      ? // translators: This action allows a reviewer to perform a review of a theme.
+        i18n.gettext('Review theme')
+      : // translators: This action allows a reviewer to perform a review of an add-on's code.
+        i18n.gettext('Review add-on code');
     const codeReviewLink =
       showCodeReviewLink || showThemeReviewLink ? (
         <li>
           <a
             className={`AddonAdminLinks-${
-              isTheme
-                ? 'themeReview'
-                : 'codeReview'
+              isTheme ? 'themeReview' : 'codeReview'
             }-link`}
             href={`/reviewers/review/${addon.slug}`}
           >
