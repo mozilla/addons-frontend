@@ -3,7 +3,7 @@ import * as React from 'react';
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import AddonMoreInfo, { AddonMoreInfoBase } from 'amo/components/AddonMoreInfo';
 import Link from 'amo/components/Link';
-import { loadVersions } from 'core/reducers/versions';
+import { createInternalVersion, loadVersions } from 'core/reducers/versions';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -511,11 +511,9 @@ describe(__filename, () => {
   });
 
   it('renders the last updated date', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      last_updated: Date.now(),
-    });
-    const root = render({ addon });
+    const created = new Date();
+    const _getlastUpdated = sinon.stub().returns(created);
+    const root = render({ _getlastUpdated });
 
     expect(root.find('.AddonMoreInfo-last-updated')).toHaveLength(1);
     expect(root.find('.AddonMoreInfo-last-updated').children()).toIncludeText(
@@ -524,11 +522,8 @@ describe(__filename, () => {
   });
 
   it('does not show the last updated date if there is no last updated date', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      last_updated: null,
-    });
-    const root = render({ addon });
+    const _getlastUpdated = sinon.stub().returns(undefined);
+    const root = render({ _getlastUpdated });
 
     expect(root.find('.AddonMoreInfo-last-updated')).toHaveLength(0);
   });
@@ -538,5 +533,28 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find(AddonAdminLinks)).toHaveProp('addon', addon);
+  });
+
+  it('calls _getlastUpdated to determine lastUpdated date', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const currentVersion = createInternalVersion(fakeAddon.current_version);
+    store.dispatch(
+      loadVersions({
+        slug: fakeAddon.slug,
+        versions: [fakeAddon.current_version],
+      }),
+    );
+
+    const _getlastUpdated = sinon.spy();
+
+    render({
+      _getlastUpdated,
+      addon,
+      store,
+    });
+    sinon.assert.calledWith(_getlastUpdated, {
+      currentVersion,
+      userAgentInfo: store.getState().api.userAgentInfo,
+    });
   });
 });

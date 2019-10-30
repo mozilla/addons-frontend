@@ -31,6 +31,7 @@ import {
   getCategoryResultsQuery,
   getClientApp,
   getClientConfig,
+  getlastUpdated,
   isAddonAuthor,
   isAllowedOrigin,
   isValidClientApp,
@@ -44,7 +45,10 @@ import {
   visibleAddonType,
 } from 'core/utils';
 import { createInternalAddon } from 'core/reducers/addons';
-import { createPlatformFiles } from 'core/reducers/versions';
+import {
+  createInternalVersion,
+  createPlatformFiles,
+} from 'core/reducers/versions';
 import {
   createFakeHistory,
   createFakeLocation,
@@ -801,6 +805,55 @@ describe(__filename, () => {
           files: [],
         }),
       ).toEqual(undefined);
+    });
+  });
+
+  describe('getlastUpdated', () => {
+    let _findFileForPlatform;
+
+    beforeEach(() => {
+      _findFileForPlatform = sinon.stub().returns(fakePlatformFile);
+    });
+
+    const _getlastUpdated = ({
+      currentVersion = createInternalVersion(fakeVersion),
+      userAgentInfo = UAParser(userAgentsByPlatform.windows.firefox40),
+    } = {}) => {
+      return getlastUpdated({
+        _findFileForPlatform,
+        currentVersion,
+        userAgentInfo,
+      });
+    };
+
+    it('calls findFileForPlatform', () => {
+      const currentVersion = createInternalVersion(fakeVersion);
+      const userAgentInfo = UAParser(userAgentsByPlatform.windows.firefox40);
+
+      _getlastUpdated({ currentVersion, userAgentInfo });
+      sinon.assert.calledWith(_findFileForPlatform, {
+        platformFiles: currentVersion.platformFiles,
+        userAgentInfo,
+      });
+    });
+
+    it('returns the created date from a file', () => {
+      const created = new Date();
+      _findFileForPlatform = sinon.stub().returns({
+        ...fakePlatformFile,
+        created,
+      });
+
+      expect(_getlastUpdated()).toEqual(created);
+    });
+
+    it('returns undefined if there is no currentVersion', () => {
+      expect(_getlastUpdated({ currentVersion: null })).toEqual(undefined);
+    });
+
+    it('returns undefined if there is no file', () => {
+      _findFileForPlatform = sinon.stub().returns(undefined);
+      expect(_getlastUpdated()).toEqual(undefined);
     });
   });
 

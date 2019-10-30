@@ -12,14 +12,16 @@ import { hasPermission } from 'amo/reducers/users';
 import type { AddonType } from 'core/types/addons';
 import {
   addonHasVersionHistory,
+  getlastUpdated,
   isAddonAuthor,
   trimAndAddProtocolToUrl,
 } from 'core/utils';
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
-import type { AddonVersionType, VersionInfoType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
+import type { UserAgentInfoType } from 'core/reducers/api';
+import type { AddonVersionType, VersionInfoType } from 'core/reducers/versions';
 import type { I18nType } from 'core/types/i18n';
 
 type Props = {|
@@ -29,21 +31,29 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _getlastUpdated: typeof getlastUpdated,
   hasStatsPermission: boolean,
   i18n: I18nType,
   userId: number | null,
   currentVersion: AddonVersionType | null,
+  userAgentInfo: UserAgentInfoType,
   versionInfo: VersionInfoType | null,
 |};
 
 export class AddonMoreInfoBase extends React.Component<InternalProps> {
+  static defaultProps = {
+    _getlastUpdated: getlastUpdated,
+  };
+
   listContent() {
     const {
+      _getlastUpdated,
       addon,
       hasStatsPermission,
       i18n,
       userId,
       currentVersion,
+      userAgentInfo,
       versionInfo,
     } = this.props;
 
@@ -108,7 +118,8 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       );
     }
 
-    const lastUpdated = addon.last_updated;
+    const lastUpdated = _getlastUpdated({ currentVersion, userAgentInfo });
+
     const license = currentVersion && currentVersion.license;
     let versionLicenseLink = null;
 
@@ -315,6 +326,7 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
     currentVersion,
     versionInfo,
     hasStatsPermission: hasPermission(state, STATS_VIEW),
+    userAgentInfo: state.api.userAgentInfo,
     userId: state.users.currentUserID,
   };
 };

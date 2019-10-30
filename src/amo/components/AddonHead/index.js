@@ -18,8 +18,10 @@ import {
 import translate from 'core/i18n/translate';
 import { getPreviewImage } from 'core/imageUtils';
 import { getVersionById } from 'core/reducers/versions';
+import { getlastUpdated } from 'core/utils';
 import { getAddonJsonLinkedData } from 'core/utils/addons';
 import type { AppState } from 'amo/store';
+import type { UserAgentInfoType } from 'core/reducers/api';
 import type { AddonVersionType } from 'core/reducers/versions';
 import type { I18nType } from 'core/types/i18n';
 import type { AddonType } from 'core/types/addons';
@@ -30,16 +32,19 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _getlastUpdated: typeof getlastUpdated,
   _getAddonJsonLinkedData: typeof getAddonJsonLinkedData,
   clientApp: string,
   currentVersion: AddonVersionType | null,
   i18n: I18nType,
   lang: string,
+  userAgentInfo: UserAgentInfoType,
 |};
 
 export class AddonHeadBase extends React.Component<InternalProps> {
   static defaultProps = {
     _getAddonJsonLinkedData: getAddonJsonLinkedData,
+    _getlastUpdated: getlastUpdated,
   };
 
   getPageTitle() {
@@ -138,12 +143,20 @@ export class AddonHeadBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { _getAddonJsonLinkedData, addon, currentVersion } = this.props;
+    const {
+      _getAddonJsonLinkedData,
+      _getlastUpdated,
+      addon,
+      currentVersion,
+      userAgentInfo,
+    } = this.props;
     invariant(_getAddonJsonLinkedData, '_getAddonJsonLinkedData is required.');
 
     if (!addon) {
       return null;
     }
+
+    const lastUpdated = _getlastUpdated({ currentVersion, userAgentInfo });
 
     return (
       <>
@@ -160,7 +173,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
           date={addon.created}
           description={this.getPageDescription()}
           image={getPreviewImage(addon)}
-          lastModified={addon.last_updated}
+          lastModified={lastUpdated}
           title={this.getPageTitle()}
           withTwitterMeta={addon.type === ADDON_TYPE_EXTENSION}
         />
@@ -186,6 +199,7 @@ const mapStateToProps = (state: AppState, ownProps: Props) => {
     clientApp,
     currentVersion,
     lang,
+    userAgentInfo: state.api.userAgentInfo,
   };
 };
 
