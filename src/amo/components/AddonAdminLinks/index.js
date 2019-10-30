@@ -49,14 +49,13 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
     }
 
     const isTheme = addon.type === ADDON_TYPE_STATIC_THEME;
-    const isNotTheme = addon.type !== ADDON_TYPE_STATIC_THEME;
 
     const showCodeReviewLink =
-      hasCodeReviewPermission && isNotTheme;
+      hasCodeReviewPermission && !isTheme;
     const showThemeReviewLink =
       hasThemeReviewPermission && isTheme;
     const showContentReviewLink =
-      hasContentReviewPermission && isNotTheme;
+      hasContentReviewPermission && !isTheme;
     const hasALink =
       hasEditPermission ||
       hasAdminPermission ||
