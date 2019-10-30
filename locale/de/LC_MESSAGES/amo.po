@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-29 16:11+0000\n"
-"PO-Revision-Date: 2019-10-29 19:04+0000\n"
+"PO-Revision-Date: 2019-10-30 18:38+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -1635,7 +1635,7 @@ msgstr "Um mit Firefox für Android kompatible Add-ons zu finden, <a href=\"%(ne
 
 #: src/amo/components/WrongPlatformWarning/index.js:69
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr "Um mit Firefox für Android kompatible Add-ons zu finden, <a href=\"%(newLocation)s\">besuchen Sie unsere Website für Firefox Desktop</a>."
+msgstr "Um mit Firefox für Desktop kompatible Add-ons zu finden, <a href=\"%(newLocation)s\">besuchen Sie unsere Website für Firefox Desktop</a>."
 
 #: src/amo/pages/Addon/index.js:171 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
