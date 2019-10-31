@@ -1,5 +1,6 @@
 import SagaTester from 'redux-saga-tester';
 
+import * as addonManager from 'core/addonManager';
 import * as api from 'core/api/abuse';
 import { CLEAR_ERROR, SET_ERROR } from 'core/constants';
 import abuseReducer, {
@@ -19,11 +20,13 @@ import {
 
 describe(__filename, () => {
   let errorHandler;
+  let mockAddonManager;
   let mockApi;
   let sagaTester;
 
   beforeEach(() => {
     errorHandler = createStubErrorHandler();
+    mockAddonManager = sinon.mock(addonManager);
     mockApi = sinon.mock(api);
     const initialState = dispatchSignInActions().state;
     sagaTester = new SagaTester({
@@ -117,7 +120,6 @@ describe(__filename, () => {
     function _initiateAddonAbuseReportViaFirefox(params) {
       sagaTester.dispatch(
         initiateAddonAbuseReportViaFirefox({
-          _reportAbuse: sinon.stub(),
           addon: fakeAddon,
           ...params,
         }),
@@ -127,20 +129,23 @@ describe(__filename, () => {
     it('calls reportAbuse Firefox API', async () => {
       const addon = { ...fakeAddon, guid: 'some-guid' };
 
-      const _reportAbuse = sinon.stub().resolves(false);
+      mockAddonManager
+        .expects('reportAbuse')
+        .withArgs(addon.guid)
+        .resolves(false);
 
-      _initiateAddonAbuseReportViaFirefox({ _reportAbuse, addon });
+      _initiateAddonAbuseReportViaFirefox({ addon });
 
       await sagaTester.waitFor(finishAddonAbuseReportViaFirefox().type);
-      sinon.assert.calledWith(_reportAbuse, addon.guid);
+      mockAddonManager.verify();
     });
 
     it('dispatches loadAddonAbuseReport after a successful report', async () => {
       const addon = { ...fakeAddon, guid: 'some-guid' };
 
-      const _reportAbuse = sinon.stub().resolves(true);
+      mockAddonManager.expects('reportAbuse').resolves(true);
 
-      _initiateAddonAbuseReportViaFirefox({ _reportAbuse, addon });
+      _initiateAddonAbuseReportViaFirefox({ addon });
 
       const expectedLoadAction = loadAddonAbuseReport({
         addon: { guid: addon.guid, id: addon.id, slug: addon.slug },
@@ -155,9 +160,9 @@ describe(__filename, () => {
     it('does not dispatch loadAddonAbuseReport after a cancelled report', async () => {
       const addon = { ...fakeAddon, guid: 'some-guid' };
 
-      const _reportAbuse = sinon.stub().resolves(false);
+      mockAddonManager.expects('reportAbuse').resolves(false);
 
-      _initiateAddonAbuseReportViaFirefox({ _reportAbuse, addon });
+      _initiateAddonAbuseReportViaFirefox({ addon });
 
       await sagaTester.waitFor(finishAddonAbuseReportViaFirefox().type);
 

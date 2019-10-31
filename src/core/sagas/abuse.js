@@ -1,6 +1,7 @@
 /* @flow */
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 
+import { reportAbuse } from 'core/addonManager';
 import { reportAddon as reportAddonApi } from 'core/api/abuse';
 import log from 'core/logger';
 import {
@@ -48,9 +49,9 @@ export function* reportAddon({
 }
 
 export function* reportAddonViaFirefox({
-  payload: { _reportAbuse, addon },
+  payload: { addon },
 }: InitiateAddonAbuseReportViaFirefoxAction): Saga {
-  const abuseReported = yield _reportAbuse(addon.guid);
+  const abuseReported = yield reportAbuse(addon.guid);
   if (abuseReported) {
     yield put(
       loadAddonAbuseReport({

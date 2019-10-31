@@ -1,7 +1,6 @@
 /* @flow */
 import invariant from 'invariant';
 
-import { reportAbuse } from 'core/addonManager';
 import type { AddonType } from 'core/types/addons';
 import type { AbuseReporter } from 'core/api/abuse';
 
@@ -129,10 +128,7 @@ export function showAddonAbuseReportUI({
   };
 }
 
-type InitiateAddonAbuseReportViaFirefoxParams = {|
-  _reportAbuse: typeof reportAbuse,
-  addon: AddonType,
-|};
+type InitiateAddonAbuseReportViaFirefoxParams = {| addon: AddonType |};
 
 export type InitiateAddonAbuseReportViaFirefoxAction = {|
   type: typeof INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX,
@@ -140,14 +136,13 @@ export type InitiateAddonAbuseReportViaFirefoxAction = {|
 |};
 
 export function initiateAddonAbuseReportViaFirefox({
-  _reportAbuse = reportAbuse,
   addon,
 }: InitiateAddonAbuseReportViaFirefoxParams): InitiateAddonAbuseReportViaFirefoxAction {
   invariant(addon, 'addon is required');
 
   return {
     type: INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX,
-    payload: { _reportAbuse, addon },
+    payload: { addon },
   };
 }
 
