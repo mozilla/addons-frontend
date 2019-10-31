@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-29 16:11+0000\n"
-"PO-Revision-Date: 2019-10-30 20:59+0000\n"
-"Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
+"PO-Revision-Date: 2019-10-31 15:51+0000\n"
+"Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
@@ -1631,11 +1631,11 @@ msgstr "Elige photo…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:62
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "Pro trovar additivos compatibile con Firefox pro Android, <a href=\"%(newLocation)s\">visitar nostre sito mobile</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:69
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr ""
+msgstr "Pro trovar additivos compatibile con Firefox pro scriptorio, <a href=\"%(newLocation)s\">visitar nostre sito scriptorio</a>."
 
 #: src/amo/pages/Addon/index.js:171 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
@@ -1697,11 +1697,11 @@ msgstr "Metadatos del extension"
 
 #: src/amo/pages/Addon/index.js:487
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
+msgstr "Iste lista de presentation non es destinate pro iste systema operative. <a href=\"%(newLocation)s\">Folietta le additivos de Firefox pro Android</a>."
 
 #: src/amo/pages/Addon/index.js:491
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
+msgstr "Iste lista de presentation non es destinate pro iste systema operative. <a href=\"%(newLocation)s\">Folietta le additivos de Firefox pro scriptorio</a>."
 
 #: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
