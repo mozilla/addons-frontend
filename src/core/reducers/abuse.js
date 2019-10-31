@@ -12,10 +12,14 @@ export const SEND_ADDON_ABUSE_REPORT: 'SEND_ADDON_ABUSE_REPORT' =
   'SEND_ADDON_ABUSE_REPORT';
 export const SHOW_ADDON_ABUSE_REPORT_UI: 'SHOW_ADDON_ABUSE_REPORT_UI' =
   'SHOW_ADDON_ABUSE_REPORT_UI';
+export const INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX: 'INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX' =
+  'INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX';
+export const FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX: 'FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX' =
+  'FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX';
 
 export type AddonAbuseState = {|
   buttonEnabled?: boolean,
-  message: string,
+  message: string | null,
   reporter: AbuseReporter | null,
   uiVisible?: boolean,
 |};
@@ -56,7 +60,7 @@ type LoadAddonAbuseReportParams = {|
     id: number,
     slug: string,
   |},
-  message: string,
+  message: string | null,
   reporter: AbuseReporter | null,
 |};
 
@@ -71,7 +75,7 @@ export function loadAddonAbuseReport({
   reporter,
 }: LoadAddonAbuseReportParams): LoadAddonAbuseReportAction {
   invariant(addon, 'addon is required');
-  invariant(message, 'message is required');
+  invariant(typeof message !== 'undefined', 'message must be defined');
   invariant(typeof reporter !== 'undefined', 'reporter must be defined');
 
   return {
@@ -124,8 +128,38 @@ export function showAddonAbuseReportUI({
   };
 }
 
+type InitiateAddonAbuseReportViaFirefoxParams = {| addon: AddonType |};
+
+export type InitiateAddonAbuseReportViaFirefoxAction = {|
+  type: typeof INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX,
+  payload: InitiateAddonAbuseReportViaFirefoxParams,
+|};
+
+export function initiateAddonAbuseReportViaFirefox({
+  addon,
+}: InitiateAddonAbuseReportViaFirefoxParams): InitiateAddonAbuseReportViaFirefoxAction {
+  invariant(addon, 'addon is required');
+
+  return {
+    type: INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX,
+    payload: { addon },
+  };
+}
+
+export type FinishAddonAbuseReportViaFirefoxAction = {|
+  type: typeof FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX,
+|};
+
+export function finishAddonAbuseReportViaFirefox(): FinishAddonAbuseReportViaFirefoxAction {
+  return {
+    type: FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX,
+  };
+}
+
 type Action =
+  | FinishAddonAbuseReportViaFirefoxAction
   | HideAddonAbuseReportUIAction
+  | InitiateAddonAbuseReportViaFirefoxAction
   | LoadAddonAbuseReportAction
   | SendAddonAbuseReportAction
   | ShowAddonAbuseReportUIAction;
@@ -157,6 +191,7 @@ export default function abuseReducer(
         loading: false,
       };
     }
+    case INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX:
     case SEND_ADDON_ABUSE_REPORT:
       return { ...state, loading: true };
     case SHOW_ADDON_ABUSE_REPORT_UI: {
@@ -170,6 +205,8 @@ export default function abuseReducer(
         },
       };
     }
+    case FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX:
+      return { ...state, loading: false };
     default:
       return state;
   }

@@ -1,15 +1,21 @@
 /* @flow */
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 
+import { reportAbuse } from 'core/addonManager';
 import { reportAddon as reportAddonApi } from 'core/api/abuse';
 import log from 'core/logger';
 import {
+  INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX,
   SEND_ADDON_ABUSE_REPORT,
+  finishAddonAbuseReportViaFirefox,
   loadAddonAbuseReport,
 } from 'core/reducers/abuse';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { ReportAddonParams } from 'core/api/abuse';
-import type { SendAddonAbuseReportAction } from 'core/reducers/abuse';
+import type {
+  InitiateAddonAbuseReportViaFirefoxAction,
+  SendAddonAbuseReportAction,
+} from 'core/reducers/abuse';
 import type { Saga } from 'core/types/sagas';
 
 export function* reportAddon({
@@ -42,6 +48,30 @@ export function* reportAddon({
   }
 }
 
+export function* reportAddonViaFirefox({
+  payload: { addon },
+}: InitiateAddonAbuseReportViaFirefoxAction): Saga {
+  try {
+    const abuseReported = yield reportAbuse(addon.guid);
+    if (abuseReported) {
+      yield put(
+        loadAddonAbuseReport({
+          addon: { guid: addon.guid, id: addon.id, slug: addon.slug },
+          message: null,
+          reporter: null,
+        }),
+      );
+    }
+  } catch (error) {
+    log.warn(`Reporting add-on for abuse via firefox failed: ${error}`);
+  }
+  yield put(finishAddonAbuseReportViaFirefox());
+}
+
 export default function* abuseSaga(): Saga {
+  yield takeLatest(
+    INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX,
+    reportAddonViaFirefox,
+  );
   yield takeLatest(SEND_ADDON_ABUSE_REPORT, reportAddon);
 }
