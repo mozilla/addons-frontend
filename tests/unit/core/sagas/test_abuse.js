@@ -186,7 +186,7 @@ describe(__filename, () => {
 
     it('dispatches finishAddonAbuseReportViaFirefox on error', async () => {
       const error = new Error('An error from reportAbuse');
-      mockAddonManager.expects('reportAbuse').returns(Promise.reject(error));
+      mockAddonManager.expects('reportAbuse').rejects(error);
 
       _initiateAddonAbuseReportViaFirefox();
 
