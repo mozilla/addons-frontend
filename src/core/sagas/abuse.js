@@ -51,18 +51,21 @@ export function* reportAddon({
 export function* reportAddonViaFirefox({
   payload: { addon },
 }: InitiateAddonAbuseReportViaFirefoxAction): Saga {
-  const abuseReported = yield reportAbuse(addon.guid);
-  if (abuseReported) {
-    yield put(
-      loadAddonAbuseReport({
-        addon: { guid: addon.guid, id: addon.id, slug: addon.slug },
-        message: 'Abuse report via Firefox',
-        reporter: null,
-      }),
-    );
-  } else {
-    yield put(finishAddonAbuseReportViaFirefox());
+  try {
+    const abuseReported = yield reportAbuse(addon.guid);
+    if (abuseReported) {
+      yield put(
+        loadAddonAbuseReport({
+          addon: { guid: addon.guid, id: addon.id, slug: addon.slug },
+          message: null,
+          reporter: null,
+        }),
+      );
+    }
+  } catch (error) {
+    log.warn(`Reporting add-on for abuse via firefox failed: ${error}`);
   }
+  yield put(finishAddonAbuseReportViaFirefox());
 }
 
 export default function* abuseSaga(): Saga {

@@ -19,7 +19,7 @@ export const FINISH_ADDON_ABUSE_REPORT_VIA_FIREFOX: 'FINISH_ADDON_ABUSE_REPORT_V
 
 export type AddonAbuseState = {|
   buttonEnabled?: boolean,
-  message: string,
+  message: string | null,
   reporter: AbuseReporter | null,
   uiVisible?: boolean,
 |};
@@ -60,7 +60,7 @@ type LoadAddonAbuseReportParams = {|
     id: number,
     slug: string,
   |},
-  message: string,
+  message: string | null,
   reporter: AbuseReporter | null,
 |};
 
@@ -75,7 +75,7 @@ export function loadAddonAbuseReport({
   reporter,
 }: LoadAddonAbuseReportParams): LoadAddonAbuseReportAction {
   invariant(addon, 'addon is required');
-  invariant(message, 'message is required');
+  invariant(typeof message !== 'undefined', 'message must be defined');
   invariant(typeof reporter !== 'undefined', 'reporter must be defined');
 
   return {

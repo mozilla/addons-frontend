@@ -149,12 +149,22 @@ describe(__filename, () => {
 
       const expectedLoadAction = loadAddonAbuseReport({
         addon: { guid: addon.guid, id: addon.id, slug: addon.slug },
-        message: 'Abuse report via Firefox',
+        message: null,
         reporter: null,
       });
 
       const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
       expect(loadAction).toEqual(expectedLoadAction);
+    });
+
+    it('dispatches finishAddonAbuseReportViaFirefox after a successful report', async () => {
+      mockAddonManager.expects('reportAbuse').resolves(true);
+
+      _initiateAddonAbuseReportViaFirefox();
+
+      const expectedAction = finishAddonAbuseReportViaFirefox();
+      const finishAction = await sagaTester.waitFor(expectedAction.type);
+      expect(finishAction).toEqual(expectedAction);
     });
 
     it('does not dispatch loadAddonAbuseReport after a cancelled report', async () => {
@@ -172,6 +182,17 @@ describe(__filename, () => {
         reporter: null,
       });
       expect(sagaTester.numCalled(unexpectedAction.type)).toEqual(0);
+    });
+
+    it('dispatches finishAddonAbuseReportViaFirefox on error', async () => {
+      const error = new Error('An error from reportAbuse');
+      mockAddonManager.expects('reportAbuse').returns(Promise.reject(error));
+
+      _initiateAddonAbuseReportViaFirefox();
+
+      const expectedAction = finishAddonAbuseReportViaFirefox();
+      const finishAction = await sagaTester.waitFor(expectedAction.type);
+      expect(finishAction).toEqual(expectedAction);
     });
   });
 });
