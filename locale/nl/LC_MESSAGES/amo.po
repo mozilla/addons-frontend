@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-29 16:11+0000\n"
-"PO-Revision-Date: 2019-10-30 06:51+0000\n"
+"PO-Revision-Date: 2019-10-30 11:33+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -1696,11 +1696,11 @@ msgstr "Metagegevens van extensie"
 
 #: src/amo/pages/Addon/index.js:487
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
+msgstr "Deze lijst is niet bedoeld voor dit platform. <a href=\"%(newLocation)s\">Door add-ons voor Firefox op Android bladeren</a>."
 
 #: src/amo/pages/Addon/index.js:491
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
+msgstr "Deze lijst is niet bedoeld voor dit platform. <a href=\"%(newLocation)s\">Door add-ons voor Firefox op desktop bladeren</a>."
 
 #: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
