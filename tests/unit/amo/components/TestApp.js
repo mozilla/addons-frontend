@@ -6,9 +6,13 @@ import Helmet from 'react-helmet';
 
 import App, {
   AppBase,
+  getErrorPage,
   mapDispatchToProps,
   mapStateToProps,
 } from 'amo/components/App';
+import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
+import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import createStore from 'amo/store';
 import { setUserAgent as setUserAgentAction } from 'core/actions';
@@ -319,6 +323,24 @@ describe(__filename, () => {
       clock.tick((authTokenValidFor + fuzz) * 1000);
 
       sinon.assert.notCalled(dispatchSpy);
+    });
+  });
+
+  describe('getErrorPage', () => {
+    it('returns a NotAuthorizedPage component for 401 errors', () => {
+      expect(getErrorPage(401)).toEqual(NotAuthorizedPage);
+    });
+
+    it('returns a NotFoundPage component for 404 errors', () => {
+      expect(getErrorPage(404)).toEqual(NotFoundPage);
+    });
+
+    it('returns a ServerErrorPage component for 500 errors', () => {
+      expect(getErrorPage(500)).toEqual(ServerErrorPage);
+    });
+
+    it('returns a ServerErrorPage component by default', () => {
+      expect(getErrorPage(501)).toEqual(ServerErrorPage);
     });
   });
 });

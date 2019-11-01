@@ -19,8 +19,10 @@ import './styles.scss';
 /* eslint-disable import/first */
 import Routes from 'amo/components/Routes';
 import ScrollToTop from 'core/components/ScrollToTop';
+import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
+import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import { getDjangoBase62 } from 'amo/utils';
-import { getErrorComponent } from 'amo/utils/errors';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import { addChangeListeners } from 'core/addonManager';
 import { setUserAgent as setUserAgentAction } from 'core/actions';
@@ -54,6 +56,17 @@ type Props = {|
   userAgent: string,
 |};
 
+export function getErrorPage(status: number | null) {
+  switch (status) {
+    case 401:
+      return NotAuthorizedPage;
+    case 404:
+      return NotFoundPage;
+    case 500:
+    default:
+      return ServerErrorPage;
+  }
+}
 export class AppBase extends React.Component<Props> {
   scheduledLogout: TimeoutID;
 
@@ -196,7 +209,7 @@ export class AppBase extends React.Component<Props> {
       <NestedStatus code={200}>
         <ScrollToTop>
           <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate} />
-          <ErrorPage getErrorComponent={getErrorComponent}>
+          <ErrorPage getErrorComponent={getErrorPage}>
             <Routes />
           </ErrorPage>
         </ScrollToTop>
