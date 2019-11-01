@@ -4,14 +4,10 @@ import * as React from 'react';
 import NotFound from 'amo/components/Errors/NotFound';
 import Page from 'amo/components/Page';
 
-type Props = {|
-  errorCode?: string,
-|};
-
-const NotFoundPage = (props: Props) => {
+const NotFoundPage = () => {
   return (
     <Page showWrongPlatformWarning={false}>
-      <NotFound {...props} />
+      <NotFound />
     </Page>
   );
 };

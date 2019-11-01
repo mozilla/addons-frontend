@@ -497,7 +497,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
 
         if (errorHandler.capturedError.responseStatusCode === 404) {
-          return <NotFoundPage errorCode={errorHandler.capturedError.code} />;
+          return <NotFoundPage />;
         }
 
         errorMessage = errorHandler.renderError();

@@ -497,25 +497,6 @@ describe(__filename, () => {
     expect(root.find(NotFoundPage)).toHaveLength(1);
   });
 
-  it('renders NotFound with a custom error code', () => {
-    const errorCode = 'CUSTOM_ERROR_CODE';
-    const { store } = dispatchClientMetadata();
-
-    const error = createApiError({
-      response: { status: 403 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { code: errorCode, message: 'Some error' },
-    });
-    const errorHandler = new ErrorHandler({
-      id: 'some-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(error);
-
-    const root = renderComponent({ errorHandler, store });
-    expect(root.find(NotFoundPage)).toHaveProp('errorCode', errorCode);
-  });
-
   it('dispatches a server redirect when slug is a numeric ID', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });

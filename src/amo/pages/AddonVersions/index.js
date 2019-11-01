@@ -145,7 +145,7 @@ export class AddonVersionsBase extends React.Component<InternalProps> {
         errorHandler.capturedError.responseStatusCode === 403 ||
         errorHandler.capturedError.responseStatusCode === 404
       ) {
-        return <NotFoundPage errorCode={errorHandler.capturedError.code} />;
+        return <NotFoundPage />;
       }
     }
 

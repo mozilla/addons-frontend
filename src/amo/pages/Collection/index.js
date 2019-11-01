@@ -529,7 +529,7 @@ export class CollectionBase extends React.Component<InternalProps> {
       log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
 
       if (errorHandler.capturedError.responseStatusCode === 404) {
-        return <NotFoundPage errorCode={errorHandler.capturedError.code} />;
+        return <NotFoundPage />;
       }
     }
 

@@ -13,9 +13,7 @@ import type { I18nType } from 'core/types/i18n';
 
 import '../styles.scss';
 
-type Props = {|
-  errorCode?: string,
-|};
+type Props = {||};
 
 type InternalProps = {|
   ...Props,
