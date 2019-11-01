@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-29 16:11+0000\n"
-"PO-Revision-Date: 2019-10-31 10:04+0000\n"
+"PO-Revision-Date: 2019-11-01 15:10+0000\n"
 "Last-Translator: Belayet Hossain <bellayet@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn\n"
@@ -533,7 +533,7 @@ msgstr ","
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:77 src/amo/components/AddonTitle/index.js:81
 msgid "by"
-msgstr ""
+msgstr "দ্বারা"
 
 #: src/amo/components/AddonVersionCard/index.js:103
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
@@ -553,7 +553,7 @@ msgstr ""
 
 #: src/amo/components/AddonVersionCard/index.js:59
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "সংস্করণ %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:83
 msgid "Released %(dateReleased)s - %(fileSize)s"
@@ -1092,7 +1092,7 @@ msgstr "ক্লিপবোর্ডে তথ্য দিন"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "খুলে থাকা ট্যাবগুলো তে আপনার তথ্য ব্যবহারের জন্য ডেভেলপার টুল বাড়িয়ে নিন"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
@@ -1108,7 +1108,7 @@ msgstr "খুলে থাকা সবগুলো ট্যাবের ল�
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access your location"
-msgstr ""
+msgstr "আপনার অবস্থান ব্যবহার করুন"
 
 #: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
 msgid "Access browsing history"
@@ -1140,11 +1140,11 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "সম্প্রতি বন্ধ হওয়া ট্যাবগুলো ব্যবহার করুন"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser tabs"
-msgstr ""
+msgstr "ব্রাউজারের ট্যাবগুলো ব্যবহার করুন"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Hide and show browser tabs"
