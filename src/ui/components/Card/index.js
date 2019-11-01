@@ -63,7 +63,7 @@ export default class Card extends React.Component {
           'Card--no-footer': !footer,
         })}
       >
-        {header ? <header className="Card-header">{header}</header> : null}
+        {header ? <h2 className="Card-header">{header}</h2> : null}
 
         {children ? <div className="Card-contents">{children}</div> : null}
 
