@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-29 16:11+0000\n"
-"PO-Revision-Date: 2019-10-31 20:56+0000\n"
-"Last-Translator: Winfox <openlib@email.it>\n"
+"PO-Revision-Date: 2019-11-01 08:41+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1633,11 +1633,11 @@ msgstr "Seleziona un’immagine…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:62
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "Per trovare componenti aggiuntivi compatibili con Firefox per Android, <a href=\"%(newLocation)s\">visita il sito dedicato</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:69
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr ""
+msgstr "Per trovare componenti aggiuntivi compatibili con Firefox per desktop, <a href=\"%(newLocation)s\">visita il sito dedicato</a>."
 
 #: src/amo/pages/Addon/index.js:171 src/ui/components/ThemeImage/index.js:33
 msgid "Preview of %(title)s"
@@ -1699,11 +1699,11 @@ msgstr "Metadati estensione"
 
 #: src/amo/pages/Addon/index.js:487
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
+msgstr "Questo elenco non corrisponde alla piattaforma in uso. <a href=\"%(newLocation)s\">Sfoglia i componenti aggiuntivi compatibili con Firefox per Android</a>."
 
 #: src/amo/pages/Addon/index.js:491
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
+msgstr "Questo elenco non corrisponde alla piattaforma in uso. <a href=\"%(newLocation)s\">Sfoglia i componenti aggiuntivi compatibili con Firefox per desktop</a>."
 
 #: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
@@ -2503,7 +2503,7 @@ msgstr "Accedi per modificare il profilo"
 
 #: src/amo/pages/UserProfileEdit/index.js:512
 msgid "Creating your profile…"
-msgstr ""
+msgstr "Creazione profilo in corso…"
 
 #: src/amo/pages/UserProfileEdit/index.js:513
 msgid "Create My Profile"
