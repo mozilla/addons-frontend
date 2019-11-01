@@ -151,7 +151,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
           </div>
 
           <div className="SearchResult-contents">
-            <h2 className="SearchResult-name">
+            <h3 className="SearchResult-name">
               {addonTitle}
               {showRecommendedBadge &&
               addon &&
@@ -162,7 +162,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
                   size="small"
                 />
               ) : null}
-            </h2>
+            </h3>
             {summary}
 
             {showMetadata ? (
@@ -196,7 +196,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
           </div>
 
           {!addon || (addon && addon.type !== ADDON_TYPE_OPENSEARCH) ? (
-            <h3 className="SearchResult-users SearchResult--meta-section">
+            <p className="SearchResult-users SearchResult--meta-section">
               <Icon className="SearchResult-users-icon" name="user-fill" />
               <span className="SearchResult-users-text">
                 {averageDailyUsers !== null &&
@@ -213,7 +213,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
                   <LoadingText width={90} />
                 )}
               </span>
-            </h3>
+            </p>
           ) : null}
         </div>
       </div>
