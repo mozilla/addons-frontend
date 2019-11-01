@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-29 16:11+0000\n"
-"PO-Revision-Date: 2019-10-31 15:51+0000\n"
-"Last-Translator: Melo46 <melo@carmu.com>\n"
+"PO-Revision-Date: 2019-11-01 02:59+0000\n"
+"Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
@@ -932,8 +932,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
-"Excepte ubi alteremente %(startNotedLink)sindicate%(endNotedLink)s, le contento sur iste sito es licentiate sub le %(startLicenseLink)sCreative Commons Attribution Share-Alike Licentia "
-"v3.0%(endLicenseLink)s o ulle version plus recente."
+"Excepte ubi alteremente %(startNotedLink)sindicate%(endNotedLink)s, le contento de iste sito es publicate sub licentia %(startLicenseLink)sCreative Commons Attribution Share-Alike "
+"v3.0%(endLicenseLink)s o qualcunque version plus recente."
 
 #: src/amo/components/Footer/index.js:27
 msgid "Go to Mozilla's homepage"
@@ -1643,7 +1643,7 @@ msgstr "Vista preliminar de %(title)s"
 
 #: src/amo/pages/Addon/index.js:206
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr "Iste addition non pote ser legite perque nulle version ha essite publicate."
+msgstr "Iste additivo non pote esser evalutate perque nulle version ha essite publicate."
 
 #: src/amo/pages/Addon/index.js:217
 msgid "Read %(count)s review"
@@ -1653,7 +1653,7 @@ msgstr[1] "Leger %(count)s revisiones"
 
 #: src/amo/pages/Addon/index.js:235
 msgid "No reviews yet"
-msgstr "Ancora nulle revisiones"
+msgstr "Ancora nulle recensiones"
 
 #: src/amo/pages/Addon/index.js:245
 msgid "Rate your experience"
@@ -1759,7 +1759,7 @@ msgstr[1] "%(total)s revisiones"
 
 #: src/amo/pages/AddonReviewList/index.js:386
 msgid "There are no reviews"
-msgstr "Il ha nulle revisiones"
+msgstr "Il non ha recensiones"
 
 #: src/amo/pages/AddonVersions/index.js:126
 msgid "%(addonName)s version history - %(total)s version"
@@ -1841,7 +1841,7 @@ msgstr "Crear un collection"
 
 #: src/amo/pages/CollectionList/index.js:62
 msgid "You do not have any collections."
-msgstr "Tu non ha ulle collectiones."
+msgstr "Tu non ha collectiones."
 
 #: src/amo/pages/CollectionList/index.js:96
 msgid "My collections"
@@ -2284,8 +2284,8 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
-"Per favor reporta o signala ulle revisiones problematic per cliccar le button \"Reportar iste revision\" e illo sera submittite al sito pro le moderation. Nostre equipa de moderation usara le lineas"
-" guida del revisiones pro evalutar si deler o non le revision o lo restabilir al sito."
+"Per favor reporta o signala omne recension problematic con le button \"Reportar iste recension\" e illo essera submittite al attention del moderatores. Nostre equipa de moderation usara le "
+"directivas sur le recensiones pro determinar si deler o restaurar le recension sur le sito."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
@@ -2322,8 +2322,8 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
-"Le revisiones del additivos es un maniera pro compartir tu opiniones circa le additivos que tu ha installate e usate. Nostre equipa de moderation del revisiones se reserva le derecto de refusar o "
-"remover ulle revision que non se conforma con iste lineas guida."
+"Le recensiones del additivos es un maniera de compartir tu opinion sur le additivos que tu ha installate e usate. Nostre equipa de moderation del recensiones se reserva le derecto de refusar o "
+"remover omne recension que non respecta iste directivas."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
@@ -2627,12 +2627,12 @@ msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
-"%(strongStart)sNOTE:%(strongEnd)s Tu non pote deler tu profilo si tu es le %(linkStart)sautor de ulle additivos%(linkEnd)s. Tu debe %(docLinkStart)stransferer le proprietate%(docLinkEnd)s o deler le"
-" additivos ante que tu pote deler tu profilo."
+"%(strongStart)sNOTA:%(strongEnd)s Tu non pote deler tu profilo si tu es le %(linkStart)sautor de alcun additivos%(linkEnd)s. Tu debe %(docLinkStart)stransferer le proprietate%(docLinkEnd)s o deler "
+"le additivos ante que tu pote deler tu profilo."
 
 #: src/amo/pages/UserProfileEdit/index.js:878
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr "%(strongStart)sNOTE:%(strongEnd)s Tu non pote deler un profilo del usator si le usator es le %(linkStart)sautor de ulle additivos%(linkEnd)s."
+msgstr "%(strongStart)sNOTA:%(strongEnd)s Tu non pote deler le profilo de un usator si le usator es le %(linkStart)sautor de alcun additivos%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:106
 msgid "You are successfully unsubscribed!"
@@ -2900,7 +2900,7 @@ msgstr "Classificate %(rating)s de 5"
 
 #: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
-msgstr "Il ha nulle valutationes ancora"
+msgstr "Il ha non ha ancora evalutationes"
 
 #: src/ui/components/RecommendedBadge/index.js:43
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
