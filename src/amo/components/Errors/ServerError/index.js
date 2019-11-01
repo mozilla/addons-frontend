@@ -1,5 +1,6 @@
-import * as React from 'react';
 import PropTypes from 'prop-types';
+import * as React from 'react';
+import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
 
 import SuggestedPages from 'amo/components/SuggestedPages';
@@ -25,21 +26,23 @@ export class ServerErrorBase extends React.Component {
 
     /* eslint-disable react/no-danger */
     return (
-      <Card
-        className="ErrorPage ServerError"
-        header={i18n.gettext('Server Error')}
-      >
-        <p>
-          {i18n.gettext(`
+      <NestedStatus code={500}>
+        <Card
+          className="ErrorPage ServerError"
+          header={i18n.gettext('Server Error')}
+        >
+          <p>
+            {i18n.gettext(`
               Sorry, but there was an error with our server and we couldn't
               complete your request. We have logged this error and will
               investigate it.`)}
-        </p>
+          </p>
 
-        <SuggestedPages />
+          <SuggestedPages />
 
-        <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
-      </Card>
+          <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
+        </Card>
+      </NestedStatus>
     );
     /* eslint-enable react/no-danger */
   }

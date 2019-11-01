@@ -1,6 +1,5 @@
 /* @flow */
 import * as React from 'react';
-import NestedStatus from 'react-nested-status';
 
 import NotFound from 'amo/components/Errors/NotFound';
 import Page from 'amo/components/Page';
@@ -11,11 +10,9 @@ type Props = {|
 
 const NotFoundPage = (props: Props) => {
   return (
-    <NestedStatus code={404}>
-      <Page showWrongPlatformWarning={false}>
-        <NotFound {...props} />
-      </Page>
-    </NestedStatus>
+    <Page showWrongPlatformWarning={false}>
+      <NotFound {...props} />
+    </Page>
   );
 };
 
