@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-10-29 16:11+0000\n"
-"PO-Revision-Date: 2019-11-01 15:10+0000\n"
+"PO-Revision-Date: 2019-11-02 09:21+0000\n"
 "Last-Translator: Belayet Hossain <bellayet@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn\n"
@@ -999,7 +999,7 @@ msgstr "নতুন থিম জমা দিন"
 
 #: src/amo/components/Header/index.js:177
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "আমার জমাগুলো পরিচালনা"
 
 #: src/amo/components/Header/index.js:187
 msgid "Reviewer Tools"
@@ -1080,7 +1080,7 @@ msgstr "পড়ুন এবং ব্রাউজার সেটিংস প�
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "সাম্প্রতিক ব্রাউজিং ইতিহাস, কুকি, এবং এই সম্পর্কিত তথ্য মুছে ফেলুন"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
@@ -1100,7 +1100,7 @@ msgstr "ফাইল ডাউনলোড করুন এবং পড়ুন �
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "আপনার কম্পিউটারে ডাউনলোড হওয়া ফাইলগুলো খুলুন"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Read the text of all open tabs"
@@ -1124,7 +1124,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Display notifications to you"
-msgstr ""
+msgstr "আপনাকে নোটিফিকেশন দেখায়"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Provide cryptographic authentication services"
@@ -1136,7 +1136,7 @@ msgstr "ব্রাউজারের প্রক্সি সেটিংস 
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "পড়ুন এবং প্রাইভেসি সেটিংস পরিবর্তন করুন"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access recently closed tabs"
@@ -1276,7 +1276,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
-msgstr ""
+msgstr "এই ব্যবহারকারী কিভাবে আমাদের নীতি লঙ্ঘন করছে ব্যাখ্যা করুন।"
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "You reported this user for abuse"
@@ -1284,7 +1284,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:157
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr ""
+msgstr "আমরা আপনার রিপোর্ট পেয়েছি। এই ব্যবহারকারী নিয়ে আপনার উদ্বেগ সম্পর্কে আমাদের কে জানানোর জন্য ধন্যবাদ।"
 
 #: src/amo/components/Search/index.js:116 src/amo/components/SearchResults/index.js:68
 msgid "Search results"
@@ -2223,7 +2223,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "পর্যালোচনা সম্পর্কে প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:122
 msgid "How can I report a problematic review?"
@@ -2491,7 +2491,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:633
 msgid "This field is required"
-msgstr ""
+msgstr "ফিল্ডটি প্রয়োজন"
 
 #: src/amo/pages/UserProfileEdit/index.js:636
 msgid "Display Name *"
@@ -2789,7 +2789,7 @@ msgstr "অব্যাহত রাখতে রিলোড করুন"
 
 #: src/ui/components/ExpandableCard/index.js:57
 msgid "Toggle contents"
-msgstr ""
+msgstr "কনটেন্ট বদলাও"
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
