@@ -39,7 +39,7 @@ describe(__filename, () => {
     expect(root.find('.Header-title-wrapper')).toHaveTagName('h1');
     expect(root.find('.Header-title').type()).toEqual(Link);
     expect(root.find('.Header-title .visually-hidden').childAt(0)).toHaveText(
-      'Firefox Add-ons',
+      'Firefox Browser Add-ons',
     );
   });
 
@@ -51,7 +51,7 @@ describe(__filename, () => {
     expect(root.find('h1')).toHaveLength(0);
     expect(root.find('.Header-title').type()).toEqual(Link);
     expect(root.find('.Header-title .visually-hidden').childAt(0)).toHaveText(
-      'Firefox Add-ons',
+      'Firefox Browser Add-ons',
     );
   });
 
