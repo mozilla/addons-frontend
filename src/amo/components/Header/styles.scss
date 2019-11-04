@@ -68,24 +68,31 @@
     color: $white;
   }
 
-  background-image: url('./img/firefox-addons-min.svg');
+  // This is width / height of the source SVG.
+  $aspectRatio: 4.3125;
+  $smallHeight: 48px;
+  $smallWidth: $smallHeight * $aspectRatio;
+  $largeHeight: 64px;
+  $largeWidth: $largeHeight * $aspectRatio;
+
+  background-image: url('./img/firefox-lockup-horizontal-white.svg');
   background-position: center bottom;
   background-repeat: no-repeat;
-  background-size: 225px 48px;
+  background-size: $smallWidth $smallHeight;
   display: block;
-  height: 48px;
+  height: $smallHeight;
   margin: 0;
   width: 100%;
 
   @include respond-to(medium) {
     background-position: left bottom;
-    width: 225px;
+    width: $smallWidth;
   }
 
   @include respond-to(extraExtraLarge) {
-    background-size: 300px 64px;
-    height: 64px;
-    width: 300px;
+    background-size: $largeWidth $largeHeight;
+    height: $largeHeight;
+    width: $largeWidth;
   }
 }
 
