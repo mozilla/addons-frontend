@@ -147,7 +147,8 @@
   );
 }
 
-.Notice-generic {
+.Notice-generic,
+.Notice-genericWarning {
   @include notice_type(
     $button-background-color: $grey-90-a10,
     $button-background-active-color: $grey-90-a30,
@@ -210,4 +211,9 @@
 
 .Notice-warningInfo .Notice-icon {
   background-image: url('./img/generic-info-mark.svg');
+}
+
+.Notice-genericWarning .Notice-icon {
+  background-image: url('./img/warning.svg');
+  background-size: cover;
 }

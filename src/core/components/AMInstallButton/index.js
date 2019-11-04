@@ -12,8 +12,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import {
   EXPERIMENT_CATEGORY_CLICK,
   EXPERIMENT_ID,
-  VARIANT_INCLUDE_WARNING,
-  VARIANT_EXCLUDE_WARNING,
+  EXPERIMENT_VARIANTS,
 } from 'amo/components/InstallWarning';
 import {
   ADDON_TYPE_EXTENSION,
@@ -399,10 +398,7 @@ const AMInstallButton: React.ComponentType<Props> = compose(
   translate(),
   withExperiment({
     id: EXPERIMENT_ID,
-    variants: [
-      { id: VARIANT_INCLUDE_WARNING, percentage: 0.5 },
-      { id: VARIANT_EXCLUDE_WARNING, percentage: 0.5 },
-    ],
+    variants: EXPERIMENT_VARIANTS,
   }),
 )(AMInstallButtonBase);
 

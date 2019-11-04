@@ -6,7 +6,7 @@ import AMInstallButton, {
 } from 'core/components/AMInstallButton';
 import {
   EXPERIMENT_CATEGORY_CLICK,
-  VARIANT_INCLUDE_WARNING,
+  VARIANT_INCLUDE_WARNING_CURRENT,
 } from 'amo/components/InstallWarning';
 import {
   ADDON_TYPE_OPENSEARCH,
@@ -359,7 +359,7 @@ describe(__filename, () => {
   it('sends a tracking event for the install warning test when installing an extension', async () => {
     const _tracking = createFakeTracking();
     const addon = createInternalAddon({ ...fakeAddon, is_recommended: true });
-    const variant = VARIANT_INCLUDE_WARNING;
+    const variant = VARIANT_INCLUDE_WARNING_CURRENT;
 
     const root = render({
       _tracking,
@@ -386,7 +386,7 @@ describe(__filename, () => {
   it('sends the expected category for a tracking event for a non-recommended extension', async () => {
     const _tracking = createFakeTracking();
     const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
-    const variant = VARIANT_INCLUDE_WARNING;
+    const variant = VARIANT_INCLUDE_WARNING_CURRENT;
 
     const root = render({
       _tracking,
@@ -418,7 +418,7 @@ describe(__filename, () => {
       _tracking,
       addon,
       isExperimentEnabled: false,
-      variant: VARIANT_INCLUDE_WARNING,
+      variant: VARIANT_INCLUDE_WARNING_CURRENT,
     });
 
     const event = createFakeEvent();
@@ -458,7 +458,7 @@ describe(__filename, () => {
       addon,
       isExperimentEnabled: true,
       isUserInExperiment: false,
-      variant: VARIANT_INCLUDE_WARNING,
+      variant: VARIANT_INCLUDE_WARNING_CURRENT,
     });
 
     const event = createFakeEvent();
@@ -478,7 +478,7 @@ describe(__filename, () => {
       _tracking,
       addon: createInternalAddon(themeAddon),
       isExperimentEnabled: true,
-      variant: VARIANT_INCLUDE_WARNING,
+      variant: VARIANT_INCLUDE_WARNING_CURRENT,
     });
 
     const event = createFakeEvent();
