@@ -70,7 +70,7 @@ export const validAddonTypes = [
 //
 // Examples:
 // * '/extensions/' -> 'extension'
-// * '/themes/' -> 'persona'
+// * '/themes/' -> 'statictheme'
 export const API_ADDON_TYPES_MAPPING = {
   extensions: ADDON_TYPE_EXTENSION,
   themes: ADDON_TYPE_STATIC_THEME,

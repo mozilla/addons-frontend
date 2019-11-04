@@ -13,6 +13,6 @@ export type CategoryType = {|
     | 'dictionary'
     | 'search'
     | 'language'
-    | 'persona',
+    | 'statictheme',
   weight: number,
 |};
