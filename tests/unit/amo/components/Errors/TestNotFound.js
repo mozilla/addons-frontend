@@ -32,7 +32,7 @@ describe(__filename, () => {
   it('renders a not found error', () => {
     const root = render();
 
-    expect(root.find('.ErrorPage')).toHaveProp(
+    expect(root.find('.Errors')).toHaveProp(
       'header',
       'Oops! We can’t find that page',
     );
@@ -40,14 +40,14 @@ describe(__filename, () => {
     // There is a link to GitHub in the first paragraph.
     expect(
       root
-        .find('.ErrorPage-paragraph-with-links')
+        .find('.Errors-paragraph-with-links')
         .at(0)
         .html(),
     ).toContain('/new/">filing an issue</a>');
 
     // The last paragraph has two internal links.
     const landingLinks = root
-      .find('.ErrorPage-paragraph-with-links')
+      .find('.Errors-paragraph-with-links')
       .at(1)
       .find(Link);
     expect(landingLinks).toHaveLength(2);
@@ -77,7 +77,7 @@ describe(__filename, () => {
     // It should not crash.
     const root = render({ i18n });
     const landingLinks = root
-      .find('.ErrorPage-paragraph-with-links')
+      .find('.Errors-paragraph-with-links')
       .at(1)
       .find(Link);
     expect(landingLinks).toHaveLength(2);

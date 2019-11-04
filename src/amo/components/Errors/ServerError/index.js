@@ -28,7 +28,7 @@ export class ServerErrorBase extends React.Component {
     return (
       <NestedStatus code={500}>
         <Card
-          className="ErrorPage ServerError"
+          className="Errors ServerError"
           header={i18n.gettext('Server Error')}
         >
           <p>

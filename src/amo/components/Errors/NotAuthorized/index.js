@@ -36,7 +36,7 @@ export class NotAuthorizedBase extends React.Component<InternalProps> {
     return (
       <NestedStatus code={401}>
         <Card
-          className="ErrorPage NotAuthorized"
+          className="Errors NotAuthorized"
           header={i18n.gettext('Not Authorized')}
         >
           <p>

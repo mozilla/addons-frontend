@@ -62,7 +62,7 @@ export class NotFoundBase extends React.Component<InternalProps> {
     return (
       <NestedStatus code={404}>
         <Card
-          className="ErrorPage NotFound"
+          className="Errors NotFound"
           header={i18n.gettext('Oops! We can’t find that page')}
         >
           <p>
@@ -85,7 +85,7 @@ export class NotFoundBase extends React.Component<InternalProps> {
             </li>
           </ul>
           <p
-            className="ErrorPage-paragraph-with-links"
+            className="Errors-paragraph-with-links"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={sanitizeHTML(
               i18n.sprintf(
@@ -101,7 +101,7 @@ export class NotFoundBase extends React.Component<InternalProps> {
               ['a'],
             )}
           />
-          <p className="ErrorPage-paragraph-with-links">{paragraphWithLinks}</p>
+          <p className="Errors-paragraph-with-links">{paragraphWithLinks}</p>
         </Card>
       </NestedStatus>
     );
