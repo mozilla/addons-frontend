@@ -10,7 +10,7 @@ import AddonsCard from 'amo/components/AddonsCard';
 import CollectionAddAddon from 'amo/components/CollectionAddAddon';
 import CollectionControls from 'amo/components/CollectionControls';
 import CollectionDetailsCard from 'amo/components/CollectionDetailsCard';
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Link from 'amo/components/Link';
 import Page from 'amo/components/Page';
 import { isFeaturedCollection } from 'amo/pages/Home';
@@ -529,7 +529,7 @@ export class CollectionBase extends React.Component<InternalProps> {
       log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
 
       if (errorHandler.capturedError.responseStatusCode === 404) {
-        return <NotFound errorCode={errorHandler.capturedError.code} />;
+        return <NotFoundPage />;
       }
     }
 

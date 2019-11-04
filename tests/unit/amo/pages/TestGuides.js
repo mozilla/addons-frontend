@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
 import Link from 'amo/components/Link';
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import HeadLinks from 'amo/components/HeadLinks';
 import { fetchGuidesAddons } from 'amo/reducers/guides';
@@ -334,7 +334,7 @@ describe(__filename, () => {
       const root = render({ slug: 'bad-slug', store });
 
       expect(root.find('.Guides')).toHaveLength(0);
-      expect(root.find(NotFound)).toHaveLength(1);
+      expect(root.find(NotFoundPage)).toHaveLength(1);
     });
   });
 
@@ -358,7 +358,7 @@ describe(__filename, () => {
       const root = render({ store });
 
       expect(root.find('.Guides')).toHaveLength(0);
-      expect(root.find(NotFound)).toHaveLength(1);
+      expect(root.find(NotFoundPage)).toHaveLength(1);
     });
   });
 

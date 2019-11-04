@@ -16,7 +16,7 @@ import AddonTitle from 'amo/components/AddonTitle';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import PermissionsCard from 'amo/components/PermissionsCard';
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import InstallWarning from 'amo/components/InstallWarning';
 import RatingManager, {
@@ -456,7 +456,7 @@ describe(__filename, () => {
     });
 
     const root = shallowRender({ errorHandler });
-    expect(root.find(NotFound)).toHaveLength(1);
+    expect(root.find(NotFoundPage)).toHaveLength(1);
   });
 
   it('renders NotFound page for unauthorized add-on - 401 error', () => {
@@ -476,7 +476,7 @@ describe(__filename, () => {
     errorHandler.handle(error);
 
     const root = renderComponent({ errorHandler, store });
-    expect(root.find(NotFound)).toHaveLength(1);
+    expect(root.find(NotFoundPage)).toHaveLength(1);
   });
 
   it('renders NotFound page for forbidden add-on - 403 error', () => {
@@ -494,26 +494,7 @@ describe(__filename, () => {
     errorHandler.handle(error);
 
     const root = renderComponent({ errorHandler, store });
-    expect(root.find(NotFound)).toHaveLength(1);
-  });
-
-  it('renders NotFound with a custom error code', () => {
-    const errorCode = 'CUSTOM_ERROR_CODE';
-    const { store } = dispatchClientMetadata();
-
-    const error = createApiError({
-      response: { status: 403 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { code: errorCode, message: 'Some error' },
-    });
-    const errorHandler = new ErrorHandler({
-      id: 'some-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(error);
-
-    const root = renderComponent({ errorHandler, store });
-    expect(root.find(NotFound)).toHaveProp('errorCode', errorCode);
+    expect(root.find(NotFoundPage)).toHaveLength(1);
   });
 
   it('dispatches a server redirect when slug is a numeric ID', () => {

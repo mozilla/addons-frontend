@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { categoryResultsLinkTo } from 'amo/components/Categories';
 import GuidesAddonCard from 'amo/components/GuidesAddonCard';
 import Link from 'amo/components/Link';
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import HeadLinks from 'amo/components/HeadLinks';
 import Page from 'amo/components/Page';
 import { fetchGuidesAddons, getGUIDsBySlug } from 'amo/reducers/guides';
@@ -402,7 +402,7 @@ export class GuidesBase extends React.Component<InternalProps> {
     const content = getContent({ slug, i18n, _sections });
 
     if (!content || clientApp === CLIENT_APP_ANDROID) {
-      return <NotFound />;
+      return <NotFoundPage />;
     }
 
     const { introText, icon, title, sections } = content;

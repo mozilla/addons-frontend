@@ -16,7 +16,7 @@ import AddonReviewList, {
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import AddonSummaryCard from 'amo/components/AddonSummaryCard';
 import FeaturedAddonReview from 'amo/components/FeaturedAddonReview';
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import { getAddonURL } from 'amo/utils';
 import { ErrorHandler } from 'core/errorHandler';
 import Link from 'amo/components/Link';
@@ -608,7 +608,7 @@ describe(__filename, () => {
       errorHandler.handle(error);
 
       const root = render({ errorHandler });
-      expect(root.find(NotFound)).toHaveLength(1);
+      expect(root.find(NotFoundPage)).toHaveLength(1);
     });
 
     it('renders NotFound page if API returns 403 error', () => {
@@ -625,7 +625,7 @@ describe(__filename, () => {
       errorHandler.handle(error);
 
       const root = render({ errorHandler });
-      expect(root.find(NotFound)).toHaveLength(1);
+      expect(root.find(NotFoundPage)).toHaveLength(1);
     });
 
     it('renders NotFound page if API returns 404 error', () => {
@@ -642,7 +642,7 @@ describe(__filename, () => {
       errorHandler.handle(error);
 
       const root = render({ errorHandler });
-      expect(root.find(NotFound)).toHaveLength(1);
+      expect(root.find(NotFoundPage)).toHaveLength(1);
     });
 
     it('renders a list of reviews with ratings', () => {

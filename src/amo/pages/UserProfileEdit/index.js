@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Page from 'amo/components/Page';
 import UserProfileEditNotifications from 'amo/components/UserProfileEditNotifications';
 import UserProfileEditPicture from 'amo/components/UserProfileEditPicture';
@@ -497,14 +497,14 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
 
         if (errorHandler.capturedError.responseStatusCode === 404) {
-          return <NotFound errorCode={errorHandler.capturedError.code} />;
+          return <NotFoundPage />;
         }
 
         errorMessage = errorHandler.renderError();
       }
 
       if (user && !hasEditPermission) {
-        return <NotFound />;
+        return <NotFoundPage />;
       }
     }
 

@@ -7,7 +7,7 @@ import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotFound from 'amo/components/Errors/NotFound';
 import SearchContextCard from 'amo/components/SearchContextCard';
 import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
@@ -197,7 +197,7 @@ export class SearchBase extends React.Component<InternalProps> {
       log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
 
       if (errorHandler.capturedError.responseStatusCode === 404) {
-        return <NotFound errorCode={errorHandler.capturedError.code} />;
+        return <NotFound />;
       }
     }
 

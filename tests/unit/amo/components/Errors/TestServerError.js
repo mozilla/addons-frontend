@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import ServerError, {
   ServerErrorBase,
-} from 'amo/components/ErrorPage/ServerError';
+} from 'amo/components/Errors/ServerError';
 import { createApiError } from 'core/api';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import {

@@ -8,7 +8,7 @@ import { fetchUserReviews } from 'amo/actions/reviews';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import AddonReviewCard from 'amo/components/AddonReviewCard';
 import Link from 'amo/components/Link';
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import Page from 'amo/components/Page';
 import UserProfileHead from 'amo/components/UserProfileHead';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
@@ -299,7 +299,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
       log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
 
       if (errorHandler.capturedError.responseStatusCode === 404) {
-        return <NotFound errorCode={errorHandler.capturedError.code} />;
+        return <NotFoundPage />;
       }
 
       errorMessage = errorHandler.renderError();
