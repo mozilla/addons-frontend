@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-29 16:13+0000\n"
+"POT-Creation-Date: 2019-11-05 18:54+0000\n"
 "PO-Revision-Date: 2019-07-10 08:34+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,48 +14,48 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/InstallWarning/index.js:112
+#: src/amo/components/InstallWarning/index.js:124
 #, fuzzy
 msgid "Learn more"
 msgstr "مزید سیکھیں"
 
-#: src/amo/components/InstallWarning/index.js:116
+#: src/amo/components/InstallWarning/index.js:128
 msgid ""
 "This extension isn’t monitored by Mozilla. Make sure you trust the extension "
 "before you install it."
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:230
+#: src/core/components/AMInstallButton/index.js:234
 msgid "Enable"
 msgstr "اہل بنائیں"
 
-#: src/core/components/AMInstallButton/index.js:233
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Remove"
 msgstr "ہٹائیں"
 
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:241
 #, fuzzy
 msgid "Downloading"
 msgstr "%(name)s ڈائونلوڈ ہو رہا ہے۔"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:243
 #, fuzzy
 msgid "Installing"
 msgstr "%(name)s تنصِب کر رہا ہے۔"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:245
 msgid "Uninstalling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:249
+#: src/core/components/AMInstallButton/index.js:253
 msgid "Install Theme"
 msgstr "خیالیہ کی تنصیب کریں"
 
-#: src/core/components/AMInstallButton/index.js:250
+#: src/core/components/AMInstallButton/index.js:254
 msgid "Add to Firefox"
 msgstr "Firefox میں شامل کریں"
 
@@ -221,7 +221,7 @@ msgstr "جاری رکھنے کے لیئے پھر لوڈ کریں"
 msgid "Dismiss this notice"
 msgstr "اس نوٹس کو مسترد کریں"
 
-#: src/ui/components/ThemeImage/index.js:33
+#: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr ""
 
