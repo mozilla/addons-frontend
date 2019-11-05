@@ -18,7 +18,7 @@ export type Props = {|
   date?: Date | null,
   description?: string | null,
   image?: string | null,
-  lastModified?: Date | null,
+  lastModified?: string | null,
   queryString?: string,
   title?: string | null,
   withTwitterMeta?: boolean,

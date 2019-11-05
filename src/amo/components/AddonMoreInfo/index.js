@@ -18,8 +18,8 @@ import {
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
-import type { AddonVersionType, VersionInfoType } from 'core/reducers/versions';
 import type { AppState } from 'amo/store';
+import type { AddonVersionType, VersionInfoType } from 'core/reducers/versions';
 import type { I18nType } from 'core/types/i18n';
 
 type Props = {|
@@ -108,7 +108,8 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       );
     }
 
-    const lastUpdated = addon.last_updated;
+    const lastUpdated = versionInfo && versionInfo.created;
+
     const license = currentVersion && currentVersion.license;
     let versionLicenseLink = null;
 

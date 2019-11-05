@@ -19,6 +19,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
+  fakePlatformFile,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -80,12 +81,29 @@ describe(__filename, () => {
   });
 
   it('renders a HeadMetaTags component', () => {
+    const created = new Date();
     const addon = createInternalAddon(fakeAddon);
     const lang = 'fr';
     const { store } = dispatchClientMetadata({
       clientApp: CLIENT_APP_ANDROID,
       lang,
     });
+    store.dispatch(
+      loadVersions({
+        slug: fakeAddon.slug,
+        versions: [
+          {
+            ...fakeAddon.current_version,
+            files: [
+              {
+                ...fakePlatformFile,
+                created,
+              },
+            ],
+          },
+        ],
+      }),
+    );
 
     const root = render({ addon, store });
 
@@ -100,10 +118,7 @@ describe(__filename, () => {
       'image',
       addon.previews[0].image_url,
     );
-    expect(root.find(HeadMetaTags)).toHaveProp(
-      'lastModified',
-      addon.last_updated,
-    );
+    expect(root.find(HeadMetaTags)).toHaveProp('lastModified', created);
     expect(root.find(HeadMetaTags)).toHaveProp(
       'title',
       `${addon.name} – Get this Extension for 🦊 Firefox Android (${lang})`,
