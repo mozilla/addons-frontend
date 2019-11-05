@@ -311,14 +311,19 @@ describe(__filename, () => {
       { id: NOT_IN_EXPERIMENT, percentage: 0.7 },
     ];
 
-    it.each([[0, 0.01], [0, 0.1], [1, 0.11], [1, 0.3], [2, 0.31], [2, 1]])(
+    it.each([
+      [variants[0], 0.01],
+      [variants[0], 0.1],
+      [variants[1], 0.11],
+      [variants[1], 0.3],
+      [variants[2], 0.31],
+      [variants[2], 0.99],
+    ])(
       'assigns variant %s based on a percent of %s',
       (expectedVariant, randomNumber) => {
         const randomizer = sinon.stub().returns(randomNumber);
 
-        expect(getVariant({ randomizer, variants })).toEqual(
-          variants[expectedVariant],
-        );
+        expect(getVariant({ randomizer, variants })).toEqual(expectedVariant);
         sinon.assert.called(randomizer);
       },
     );
