@@ -328,25 +328,6 @@ export const findFileForPlatform = ({ userAgentInfo, platformFiles }) => {
   return (platform && platformFiles[platform]) || platformFiles[OS_ALL];
 };
 
-export const getlastUpdated = ({
-  _findFileForPlatform = findFileForPlatform,
-  currentVersion,
-  userAgentInfo,
-}) => {
-  invariant(userAgentInfo, 'userAgentInfo is required');
-
-  if (currentVersion) {
-    const file = _findFileForPlatform({
-      userAgentInfo,
-      platformFiles: currentVersion.platformFiles,
-    });
-    if (file) {
-      return file.created;
-    }
-  }
-  return undefined;
-};
-
 export type GetCategoryResultsQueryParams = { addonType: string, slug: string };
 
 export const getCategoryResultsQuery = ({

@@ -17,12 +17,10 @@ import {
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { getPreviewImage } from 'core/imageUtils';
-import { getVersionById } from 'core/reducers/versions';
-import { getlastUpdated } from 'core/utils';
+import { getVersionById, getVersionInfo } from 'core/reducers/versions';
 import { getAddonJsonLinkedData } from 'core/utils/addons';
 import type { AppState } from 'amo/store';
-import type { UserAgentInfoType } from 'core/reducers/api';
-import type { AddonVersionType } from 'core/reducers/versions';
+import type { AddonVersionType, VersionInfoType } from 'core/reducers/versions';
 import type { I18nType } from 'core/types/i18n';
 import type { AddonType } from 'core/types/addons';
 
@@ -32,19 +30,17 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _getlastUpdated: typeof getlastUpdated,
   _getAddonJsonLinkedData: typeof getAddonJsonLinkedData,
   clientApp: string,
   currentVersion: AddonVersionType | null,
   i18n: I18nType,
   lang: string,
-  userAgentInfo: UserAgentInfoType,
+  versionInfo: VersionInfoType | null,
 |};
 
 export class AddonHeadBase extends React.Component<InternalProps> {
   static defaultProps = {
     _getAddonJsonLinkedData: getAddonJsonLinkedData,
-    _getlastUpdated: getlastUpdated,
   };
 
   getPageTitle() {
@@ -145,10 +141,9 @@ export class AddonHeadBase extends React.Component<InternalProps> {
   render() {
     const {
       _getAddonJsonLinkedData,
-      _getlastUpdated,
       addon,
       currentVersion,
-      userAgentInfo,
+      versionInfo,
     } = this.props;
     invariant(_getAddonJsonLinkedData, '_getAddonJsonLinkedData is required.');
 
@@ -156,7 +151,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
       return null;
     }
 
-    const lastUpdated = _getlastUpdated({ currentVersion, userAgentInfo });
+    const lastUpdated = versionInfo && versionInfo.created;
 
     return (
       <>
@@ -184,10 +179,12 @@ export class AddonHeadBase extends React.Component<InternalProps> {
   }
 }
 
-const mapStateToProps = (state: AppState, ownProps: Props) => {
-  const { addon } = ownProps;
+const mapStateToProps = (state: AppState, ownProps: InternalProps) => {
+  const { addon, i18n } = ownProps;
   const { clientApp, lang } = state.api;
   let currentVersion = null;
+  let versionInfo = null;
+
   if (addon && addon.currentVersionId) {
     currentVersion = getVersionById({
       id: addon.currentVersionId,
@@ -195,11 +192,20 @@ const mapStateToProps = (state: AppState, ownProps: Props) => {
     });
   }
 
+  if (currentVersion) {
+    versionInfo = getVersionInfo({
+      i18n,
+      state: state.versions,
+      userAgentInfo: state.api.userAgentInfo,
+      versionId: currentVersion.id,
+    });
+  }
+
   return {
     clientApp,
     currentVersion,
     lang,
-    userAgentInfo: state.api.userAgentInfo,
+    versionInfo,
   };
 };
 

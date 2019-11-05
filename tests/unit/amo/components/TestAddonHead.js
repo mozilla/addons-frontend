@@ -19,6 +19,7 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
+  fakePlatformFile,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -81,15 +82,30 @@ describe(__filename, () => {
 
   it('renders a HeadMetaTags component', () => {
     const created = new Date();
-    const _getlastUpdated = sinon.stub().returns(created);
     const addon = createInternalAddon(fakeAddon);
     const lang = 'fr';
     const { store } = dispatchClientMetadata({
       clientApp: CLIENT_APP_ANDROID,
       lang,
     });
+    store.dispatch(
+      loadVersions({
+        slug: fakeAddon.slug,
+        versions: [
+          {
+            ...fakeAddon.current_version,
+            files: [
+              {
+                ...fakePlatformFile,
+                created,
+              },
+            ],
+          },
+        ],
+      }),
+    );
 
-    const root = render({ _getlastUpdated, addon, store });
+    const root = render({ addon, store });
 
     expect(root.find(HeadMetaTags)).toHaveLength(1);
     expect(root.find(HeadMetaTags)).toHaveProp('appendDefaultTitle', false);
@@ -108,30 +124,6 @@ describe(__filename, () => {
       `${addon.name} – Get this Extension for 🦊 Firefox Android (${lang})`,
     );
     expect(root.find(HeadMetaTags)).toHaveProp('withTwitterMeta', true);
-  });
-
-  it('calls _getlastUpdated to determine lastUpdated date', () => {
-    const { store } = dispatchClientMetadata();
-    const addon = createInternalAddon(fakeAddon);
-    const currentVersion = createInternalVersion(fakeAddon.current_version);
-    store.dispatch(
-      loadVersions({
-        slug: fakeAddon.slug,
-        versions: [fakeAddon.current_version],
-      }),
-    );
-
-    const _getlastUpdated = sinon.spy();
-
-    render({
-      _getlastUpdated,
-      addon,
-      store,
-    });
-    sinon.assert.calledWith(_getlastUpdated, {
-      currentVersion,
-      userAgentInfo: store.getState().api.userAgentInfo,
-    });
   });
 
   it('renders JSON linked data', () => {
