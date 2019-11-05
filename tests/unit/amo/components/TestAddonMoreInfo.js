@@ -31,7 +31,7 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store;
   });
 
-  function render(props) {
+  function render(props = {}) {
     return shallowUntilTarget(
       <AddonMoreInfo
         addon={props.addon || createInternalAddon(fakeAddon)}
@@ -181,7 +181,7 @@ describe(__filename, () => {
 
   it('renders the version number of an add-on', () => {
     _loadVersions({ version: '2.0.1' });
-    const root = render({});
+    const root = render();
 
     expect(root.find('.AddonMoreInfo-version').children()).toHaveText('2.0.1');
   });
@@ -196,7 +196,7 @@ describe(__filename, () => {
         },
       ],
     });
-    const root = render({});
+    const root = render();
 
     expect(root.find('.AddonMoreInfo-filesize').children()).toHaveText(
       formatFilesize({ size, i18n: fakeI18n() }),
@@ -213,7 +213,7 @@ describe(__filename, () => {
         url: licenseUrl,
       },
     });
-    const root = render({});
+    const root = render();
     const link = root.find('.AddonMoreInfo-license-link');
 
     expect(root.find('.AddonMoreInfo-license')).toHaveProp('term', 'License');
@@ -243,7 +243,7 @@ describe(__filename, () => {
   it('renders a default name when the license name is null', () => {
     _loadVersions({ license: { name: null, url: 'some-url' } });
 
-    const root = render({});
+    const root = render();
 
     const license = root.find('.AddonMoreInfo-license-link');
     expect(license).toHaveLength(1);
@@ -253,7 +253,7 @@ describe(__filename, () => {
   it('renders a default name when the license name and url are null', () => {
     _loadVersions({ license: { name: null, url: null } });
 
-    const root = render({});
+    const root = render();
 
     const license = root.find('.AddonMoreInfo-license-name');
     expect(license).toHaveLength(1);
@@ -263,7 +263,7 @@ describe(__filename, () => {
 
   it('renders the license info without a link if the url is null', () => {
     _loadVersions({ license: { name: 'justText', url: null } });
-    const root = render({});
+    const root = render();
     expect(root.find('.AddonMoreInfo-license-link')).toHaveLength(0);
 
     const link = root.find('.AddonMoreInfo-license-name');
@@ -272,7 +272,7 @@ describe(__filename, () => {
 
   it('does not render any license info if the license is null', () => {
     _loadVersions({ license: null });
-    const root = render({});
+    const root = render();
     expect(root.find('.AddonMoreInfo-license')).toHaveLength(0);
   });
 
@@ -281,7 +281,7 @@ describe(__filename, () => {
     _loadVersions({
       license: { name: 'tofulicense', url: 'www.license.com/' },
     });
-    const root = render({});
+    const root = render();
     const link = root.find('.AddonMoreInfo-license-link');
 
     expect(link).toHaveProp('prependClientApp', false);
@@ -520,7 +520,7 @@ describe(__filename, () => {
         },
       ],
     });
-    const root = render({});
+    const root = render();
 
     expect(root.find('.AddonMoreInfo-last-updated')).toHaveLength(1);
     expect(root.find('.AddonMoreInfo-last-updated').children()).toIncludeText(
@@ -529,7 +529,7 @@ describe(__filename, () => {
   });
 
   it('does not show the last updated date if there is no last updated date', () => {
-    const root = render({});
+    const root = render();
 
     expect(root.find('.AddonMoreInfo-last-updated')).toHaveLength(0);
   });
