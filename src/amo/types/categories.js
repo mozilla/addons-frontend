@@ -9,7 +9,6 @@ export type CategoryType = {|
   slug: string,
   type:
     | 'extension'
-    | 'theme'
     | 'dictionary'
     | 'search'
     | 'language'
