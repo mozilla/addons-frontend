@@ -53,12 +53,15 @@ export const INSTALL_WARNING_EXPERIMENT_DIMENSION = 'dimension6';
 export const VARIANT_INCLUDE_WARNING_CURRENT = 'includeWarning-current';
 export const VARIANT_INCLUDE_WARNING_PROPOSED = 'includeWarning-proposed';
 export const VARIANT_EXCLUDE_WARNING = 'excludeWarning';
-export const EXPERIMENT_VARIANTS = [
-  { id: VARIANT_INCLUDE_WARNING_CURRENT, percentage: 0.2 },
-  { id: VARIANT_INCLUDE_WARNING_PROPOSED, percentage: 0.2 },
-  { id: VARIANT_EXCLUDE_WARNING, percentage: 0.2 },
-  { id: NOT_IN_EXPERIMENT, percentage: 0.4 },
-];
+export const EXPERIMENT_CONFIG = {
+  id: EXPERIMENT_ID,
+  variants: [
+    { id: VARIANT_INCLUDE_WARNING_CURRENT, percentage: 0.2 },
+    { id: VARIANT_INCLUDE_WARNING_PROPOSED, percentage: 0.2 },
+    { id: VARIANT_EXCLUDE_WARNING, percentage: 0.2 },
+    { id: NOT_IN_EXPERIMENT, percentage: 0.4 },
+  ],
+};
 const WARNING_LINK_DESTINATION =
   'https://support.mozilla.org/kb/recommended-extensions-program#w_what-are-the-risks-of-installing-non-recommended-extensions';
 
@@ -185,10 +188,7 @@ const InstallWarning: React.ComponentType<Props> = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
-  withExperiment({
-    id: EXPERIMENT_ID,
-    variants: EXPERIMENT_VARIANTS,
-  }),
+  withExperiment(EXPERIMENT_CONFIG),
 )(InstallWarningBase);
 
 export default InstallWarning;

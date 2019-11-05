@@ -11,8 +11,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import {
   EXPERIMENT_CATEGORY_CLICK,
-  EXPERIMENT_ID,
-  EXPERIMENT_VARIANTS,
+  EXPERIMENT_CONFIG,
 } from 'amo/components/InstallWarning';
 import {
   ADDON_TYPE_EXTENSION,
@@ -396,10 +395,7 @@ const AMInstallButton: React.ComponentType<Props> = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
-  withExperiment({
-    id: EXPERIMENT_ID,
-    variants: EXPERIMENT_VARIANTS,
-  }),
+  withExperiment(EXPERIMENT_CONFIG),
 )(AMInstallButtonBase);
 
 export default AMInstallButton;
