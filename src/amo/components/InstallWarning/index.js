@@ -94,7 +94,11 @@ export class InstallWarningBase extends React.Component<InternalProps> {
       variant,
     } = this.props;
 
-    if (!variant || !isUserInExperiment) {
+    if (!variant) {
+      _log.debug(`No variant set for experiment "${EXPERIMENT_ID}"`);
+      return;
+    }
+    if (!isUserInExperiment) {
       _log.debug(`User not enrolled in experiment "${EXPERIMENT_ID}"`);
       return;
     }

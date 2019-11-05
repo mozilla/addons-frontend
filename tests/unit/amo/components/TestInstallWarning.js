@@ -164,17 +164,22 @@ describe(__filename, () => {
     sinon.assert.notCalled(_tracking.setDimension);
     sinon.assert.calledWith(
       _log.debug,
-      `User not enrolled in experiment "${EXPERIMENT_ID}"`,
+      `No variant set for experiment "${EXPERIMENT_ID}"`,
     );
   });
 
   it('does not set a dimension on mount if the user is not in the experiment', () => {
+    const _log = getFakeLogger();
     const _tracking = createFakeTracking();
     const variant = NOT_IN_EXPERIMENT;
 
-    render({ _tracking, isUserInExperiment: false, variant });
+    render({ _log, _tracking, isUserInExperiment: false, variant });
 
     sinon.assert.notCalled(_tracking.setDimension);
+    sinon.assert.calledWith(
+      _log.debug,
+      `User not enrolled in experiment "${EXPERIMENT_ID}"`,
+    );
   });
 
   it('does not set a dimension on mount if clientApp is Android', () => {
