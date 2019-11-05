@@ -115,10 +115,6 @@
 .HeroRecommendation--no-image {
   justify-content: center;
 
-  @include respond-to(extraExtraLarge) {
-    @include padding-start(36px);
-  }
-
   .HeroRecommendation-info {
     align-items: center;
     display: flex;
