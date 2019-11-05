@@ -98,10 +98,6 @@ $default-icon-size: 64px;
   @include icon($name: 'other-extension');
 }
 
-.Icon-other-persona {
-  @include icon($name: 'other-theme');
-}
-
 .Icon-photos-music-videos,
 .Icon-photos-media {
   @include icon($name: 'photos-music-video');
