@@ -60,6 +60,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
       addon,
       clientApp,
       isExperimentEnabled,
+      isUserInExperiment,
       userAgentInfo,
     } = this.props;
     return _couldShowWarning
@@ -68,7 +69,8 @@ export class InstallWarningBase extends React.Component<InternalProps> {
           clientApp === CLIENT_APP_FIREFOX &&
           addon.type === ADDON_TYPE_EXTENSION &&
           !addon.is_recommended &&
-          isExperimentEnabled;
+          isExperimentEnabled &&
+          isUserInExperiment;
   };
 
   maybeSendDisplayTrackingEvent = () => {
@@ -84,10 +86,20 @@ export class InstallWarningBase extends React.Component<InternalProps> {
   };
 
   componentDidMount() {
-    const { _log, _tracking, clientApp, variant } = this.props;
+    const {
+      _log,
+      _tracking,
+      clientApp,
+      isUserInExperiment,
+      variant,
+    } = this.props;
 
     if (!variant) {
       _log.debug(`No variant set for experiment "${EXPERIMENT_ID}"`);
+      return;
+    }
+    if (!isUserInExperiment) {
+      _log.debug(`User not enrolled in experiment "${EXPERIMENT_ID}"`);
       return;
     }
 
@@ -134,8 +146,10 @@ const InstallWarning: React.ComponentType<Props> = compose(
   translate(),
   withExperiment({
     id: EXPERIMENT_ID,
-    variantA: VARIANT_INCLUDE_WARNING,
-    variantB: VARIANT_EXCLUDE_WARNING,
+    variants: [
+      { id: VARIANT_INCLUDE_WARNING, percentage: 0.5 },
+      { id: VARIANT_EXCLUDE_WARNING, percentage: 0.5 },
+    ],
   }),
 )(InstallWarningBase);
 

@@ -15,6 +15,7 @@ import {
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
+import { NOT_IN_EXPERIMENT } from 'core/withExperiment';
 import {
   createFakeTracking,
   dispatchClientMetadata,
@@ -40,8 +41,9 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <InstallWarning
         addon={createInternalAddon(fakeAddon)}
-        isExperimentEnabled
         i18n={fakeI18n()}
+        isExperimentEnabled
+        isUserInExperiment
         store={store}
         variant={VARIANT_INCLUDE_WARNING}
         {...props}
@@ -49,6 +51,13 @@ describe(__filename, () => {
       InstallWarningBase,
     );
   };
+
+  it('can be customized with a class name', () => {
+    const className = 'ExampleClass';
+    const root = render({ className });
+
+    expect(root).toHaveClassName(className);
+  });
 
   describe('couldShowWarning', () => {
     const addonThatWouldShowWarning = {
@@ -63,16 +72,10 @@ describe(__filename, () => {
       return render({
         addon: createInternalAddon(addonThatWouldShowWarning),
         isExperimentEnabled: true,
+        isUserInExperiment: true,
         ...props,
       });
     };
-
-    it('can be customized with a class name', () => {
-      const className = 'ExampleClass';
-      const root = render({ className });
-
-      expect(root).toHaveClassName(className);
-    });
 
     // This is a test for the happy path, but also serves as a sanity test for
     // renderWithWarning returning the happy path.
@@ -107,6 +110,14 @@ describe(__filename, () => {
     it('returns false if the experiment is disabled', () => {
       const component = renderWithWarning({
         isExperimentEnabled: false,
+      });
+
+      expect(component.instance().couldShowWarning()).toEqual(false);
+    });
+
+    it('returns false if the user is not in the experiment', () => {
+      const component = renderWithWarning({
+        isUserInExperiment: false,
       });
 
       expect(component.instance().couldShowWarning()).toEqual(false);
@@ -154,6 +165,20 @@ describe(__filename, () => {
     sinon.assert.calledWith(
       _log.debug,
       `No variant set for experiment "${EXPERIMENT_ID}"`,
+    );
+  });
+
+  it('does not set a dimension on mount if the user is not in the experiment', () => {
+    const _log = getFakeLogger();
+    const _tracking = createFakeTracking();
+    const variant = NOT_IN_EXPERIMENT;
+
+    render({ _log, _tracking, isUserInExperiment: false, variant });
+
+    sinon.assert.notCalled(_tracking.setDimension);
+    sinon.assert.calledWith(
+      _log.debug,
+      `User not enrolled in experiment "${EXPERIMENT_ID}"`,
     );
   });
 
