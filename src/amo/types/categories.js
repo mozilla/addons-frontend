@@ -7,11 +7,6 @@ export type CategoryType = {|
   misc: boolean,
   name: string,
   slug: string,
-  type:
-    | 'extension'
-    | 'dictionary'
-    | 'search'
-    | 'language'
-    | 'statictheme',
+  type: 'extension' | 'dictionary' | 'search' | 'language' | 'statictheme',
   weight: number,
 |};
