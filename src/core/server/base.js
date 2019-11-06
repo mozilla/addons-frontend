@@ -543,13 +543,10 @@ export function runServer({
             if (host === 'example.com') {
               const options = {
                 key: fs.readFileSync(
-                  'bin/local-dev-server-certs/example.com.key.pem',
+                  'bin/local-dev-server-certs/example.com-key.pem',
                 ),
                 cert: fs.readFileSync(
-                  'bin/local-dev-server-certs/example.com.crt.pem',
-                ),
-                ca: fs.readFileSync(
-                  'bin/local-dev-server-certs/example.com.ca.crt.pem',
+                  'bin/local-dev-server-certs/example.com.pem',
                 ),
                 passphrase: '',
               };
@@ -569,7 +566,7 @@ export function runServer({
             // eslint-disable-next-line amo/only-log-strings
             log.info(
               [
-                `🔥  Addons-frontend server is running`,
+                `🔥 Addons-frontend server is running`,
                 `[ENV:${config.util.getEnv('NODE_ENV')}]`,
                 `[APP:${appName}]`,
                 `[isDevelopment:${config.get('isDevelopment')}]`,
@@ -582,10 +579,12 @@ export function runServer({
             if (proxyEnabled) {
               const proxyPort = config.get('proxyPort');
               log.info(
-                `🚦  Proxy detected, frontend running at http://${host}:${port}.`,
+                `🚦 Proxy detected, frontend running at http://${host}:${port}.`,
               );
               log.info(
-                `👁  Open your browser at http://localhost:${proxyPort} to view it.`,
+                `👁  Open your browser at http${
+                  useHttpsForDev ? 's' : ''
+                }://${host}:${proxyPort} to view it.`,
               );
             } else {
               log.info(

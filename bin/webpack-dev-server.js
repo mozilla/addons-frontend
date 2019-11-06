@@ -40,8 +40,8 @@ let server;
 
 if (process.env.USE_HTTPS_FOR_DEV) {
   // eslint-disable-next-line global-require
-  const { key, cert, ca } = require('./local-dev-server-certs');
-  server = https.createServer({ key, cert, ca }, app);
+  const { key, cert } = require('./local-dev-server-certs');
+  server = https.createServer({ key, cert }, app);
 } else {
   server = app;
 }
