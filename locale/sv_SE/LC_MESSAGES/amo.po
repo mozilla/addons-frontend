@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-05 18:51+0000\n"
-"PO-Revision-Date: 2019-11-05 19:53+0000\n"
-"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
+"PO-Revision-Date: 2019-11-06 00:09+0000\n"
+"Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -1030,7 +1030,7 @@ msgstr "Logga ut"
 
 #: src/amo/components/Header/index.js:64
 msgid "Firefox Browser Add-ons"
-msgstr "Firefox webbläsar tillägg"
+msgstr "Webbläsartillägg för Firefox"
 
 #: src/amo/components/HeroRecommendation/index.js:107
 msgid "Get the extension"
