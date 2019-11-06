@@ -1,4 +1,3 @@
-import makeClassName from 'classnames';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -67,14 +66,7 @@ export class HeaderBase extends React.Component {
     );
 
     return (
-      <header
-        className={makeClassName(
-          'Header',
-          _config.get('enableFeatureHeroRecommendation')
-            ? 'Header-hero-promo'
-            : 'Header-no-hero-promo',
-        )}
-      >
+      <header className="Header">
         <div className="Header-wrapper">
           <div className="Header-content">
             {isHomePage ? (

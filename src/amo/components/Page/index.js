@@ -1,6 +1,5 @@
 /* @flow */
 import makeClassName from 'classnames';
-import config from 'config';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -25,23 +24,17 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   clientApp: string,
   location: ReactRouterLocationType,
 |};
 
 export const PageBase = ({
-  _config = config,
   children,
   clientApp,
   isHomePage = false,
   location,
   showWrongPlatformWarning = true,
 }: InternalProps) => {
-  const enableFeatureHeroRecommendation = _config.get(
-    'enableFeatureHeroRecommendation',
-  );
-
   return (
     <div className="Page-amo">
       <InfoDialog />
@@ -52,17 +45,12 @@ export const PageBase = ({
         <div
           className={makeClassName('Page', {
             'Page-not-homepage': !isHomePage,
-            'Page-no-hero-promo':
-              !enableFeatureHeroRecommendation ||
-              clientApp === CLIENT_APP_ANDROID,
+            'Page-no-hero-promo': clientApp === CLIENT_APP_ANDROID,
           })}
         >
-          {// Exclude the AppBanner from the home page if it will be
-          // included via HeroRecommendation, but include it on the Android
-          // home page.
-          (!isHomePage ||
-            !enableFeatureHeroRecommendation ||
-            clientApp === CLIENT_APP_ANDROID) && <AppBanner />}
+          {// Exclude the AppBanner from the home page, but include it on the
+          // Android home page.
+          (!isHomePage || clientApp === CLIENT_APP_ANDROID) && <AppBanner />}
           {showWrongPlatformWarning && <WrongPlatformWarning />}
           {children}
         </div>

@@ -71,7 +71,6 @@ export const getFeaturedCollectionsMetadata = (i18n) => {
 
 export class HomeBase extends React.Component {
   static propTypes = {
-    _config: PropTypes.object,
     _getFeaturedCollectionsMetadata: PropTypes.func,
     clientApp: PropTypes.string.isRequired,
     collections: PropTypes.array.isRequired,
@@ -87,7 +86,6 @@ export class HomeBase extends React.Component {
   };
 
   static defaultProps = {
-    _config: config,
     _getFeaturedCollectionsMetadata: getFeaturedCollectionsMetadata,
     includeRecommendedThemes: true,
     includeTrendingExtensions: false,
@@ -188,7 +186,6 @@ export class HomeBase extends React.Component {
 
   render() {
     const {
-      _config,
       _getFeaturedCollectionsMetadata,
       clientApp,
       collections,
@@ -228,9 +225,7 @@ export class HomeBase extends React.Component {
       return null;
     };
 
-    const showHeroPromo =
-      _config.get('enableFeatureHeroRecommendation') &&
-      clientApp !== CLIENT_APP_ANDROID;
+    const showHeroPromo = clientApp !== CLIENT_APP_ANDROID;
 
     return (
       <Page isHomePage showWrongPlatformWarning={!showHeroPromo}>
