@@ -357,6 +357,28 @@ describe(__filename, () => {
         _isCompatibleWithUserAgent({ addon, currentVersion }),
       ).toMatchObject({ compatible: true });
     });
+
+    it('is incompatible with Firefox on Android if no compatibility info exists for `android`', () => {
+      const currentVersion = createInternalVersion({
+        ...fakeVersion,
+        compatibility: {
+          firefox: {
+            max: '57',
+            min: '1',
+          },
+        },
+      });
+
+      expect(
+        _isCompatibleWithUserAgent({
+          currentVersion,
+          userAgentInfo: UAParser(userAgentsByPlatform.android.firefox40Mobile),
+        }),
+      ).toEqual({
+        compatible: false,
+        reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+      });
+    });
   });
 
   describe('getCompatibleVersions', () => {

@@ -139,13 +139,27 @@ export function isCompatibleWithUserAgent({
   // Fenix does not support add-ons (yet?).
   // See: https://github.com/mozilla-mobile/fenix/issues/1134
   // See also: https://github.com/mozilla/addons-frontend/issues/7963
-  if (os.name === 'Android' && mozCompare(browser.version, '69.0') >= 0) {
+  if (
+    os.name === USER_AGENT_OS_ANDROID &&
+    mozCompare(browser.version, '69.0') >= 0
+  ) {
     return { compatible: false, reason: INCOMPATIBLE_FIREFOX_FENIX };
   }
 
   // At this point we need a currentVersion in order for an extension to be
   // marked as compatible.
   if (!currentVersion) {
+    return {
+      compatible: false,
+      reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+    };
+  }
+
+  // For Android, we need to check that compatibility info exists for `android`.
+  if (
+    os.name === USER_AGENT_OS_ANDROID &&
+    !currentVersion.compatibility[CLIENT_APP_ANDROID]
+  ) {
     return {
       compatible: false,
       reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
