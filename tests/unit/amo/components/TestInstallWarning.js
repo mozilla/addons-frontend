@@ -62,6 +62,24 @@ describe(__filename, () => {
     );
   };
 
+  // This is an add-on that would cause a warning to be displayed.
+  const addonThatWouldShowWarning = {
+    ...fakeAddon,
+    is_recommended: false,
+    type: ADDON_TYPE_EXTENSION,
+  };
+
+  // This will render the component with values needed to allow
+  // the warning to be displayed.
+  const renderWithWarning = (props = {}) => {
+    return render({
+      addon: createInternalAddon(addonThatWouldShowWarning),
+      isExperimentEnabled: true,
+      isUserInExperiment: true,
+      ...props,
+    });
+  };
+
   it('can be customized with a class name', () => {
     const className = 'ExampleClass';
     const root = render({ className });
@@ -70,23 +88,6 @@ describe(__filename, () => {
   });
 
   describe('couldShowWarning', () => {
-    const addonThatWouldShowWarning = {
-      ...fakeAddon,
-      is_recommended: false,
-      type: ADDON_TYPE_EXTENSION,
-    };
-
-    // This will render the component with values needed to allow
-    // couldShowWarning to be true.
-    const renderWithWarning = (props = {}) => {
-      return render({
-        addon: createInternalAddon(addonThatWouldShowWarning),
-        isExperimentEnabled: true,
-        isUserInExperiment: true,
-        ...props,
-      });
-    };
-
     // This is a test for the happy path, but also serves as a sanity test for
     // renderWithWarning returning the happy path.
     it('returns true if the experiment is enabled, the userAgent and clientApp are both Firefox, and the add-on is an extension and is not recommended', () => {
@@ -168,6 +169,7 @@ describe(__filename, () => {
       const _correctedLocationForPlatform = sinon.spy();
 
       dispatchClientMetadata({
+        clientApp,
         store,
         userAgent,
       });
@@ -322,10 +324,7 @@ describe(__filename, () => {
   });
 
   it('sets the expected notice type and message for VARIANT_INCLUDE_WARNING_CURRENT', () => {
-    const _couldShowWarning = sinon.stub().returns(true);
-
-    const root = render({
-      _couldShowWarning,
+    const root = renderWithWarning({
       variant: VARIANT_INCLUDE_WARNING_CURRENT,
     });
     expect(root.find(Notice)).toHaveProp('type', warningType);
@@ -336,10 +335,7 @@ describe(__filename, () => {
   });
 
   it('sets the expected notice type and message for VARIANT_INCLUDE_WARNING_PROPOSED', () => {
-    const _couldShowWarning = sinon.stub().returns(true);
-
-    const root = render({
-      _couldShowWarning,
+    const root = renderWithWarning({
       variant: VARIANT_INCLUDE_WARNING_PROPOSED,
     });
     expect(root.find(Notice)).toHaveProp('type', genericWarningType);
