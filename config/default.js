@@ -119,7 +119,6 @@ module.exports = {
     'enableDevTools',
     'enableFeatureDiscoTaar',
     'enableFeatureExperienceSurvey',
-    'enableFeatureHeroRecommendation',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -380,6 +379,4 @@ module.exports = {
   },
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
-
-  enableFeatureHeroRecommendation: true,
 };

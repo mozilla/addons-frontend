@@ -44,7 +44,6 @@ import {
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -371,47 +370,21 @@ describe(__filename, () => {
     expect(collectionShelves).toHaveLength(0);
   });
 
-  it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
-    'displays an error if enableFeatureHeroRecommendation is false and clientApp is %s',
-    (clientApp) => {
-      const errorHandler = createStubErrorHandler(new Error('some error'));
-      const { store } = dispatchClientMetadata({ clientApp });
+  it('displays an error if clientApp is Android', () => {
+    const errorHandler = createStubErrorHandler(new Error('some error'));
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+    });
 
-      const root = render({
-        _config: getFakeConfig({ enableFeatureHeroRecommendation: false }),
-        errorHandler,
-        store,
-      });
-      expect(root.find('.Home-noHeroError')).toHaveLength(1);
-    },
-  );
+    const root = render({ errorHandler, store });
+    expect(root.find('.Home-noHeroError')).toHaveLength(1);
+  });
 
-  it.each([true, false])(
-    'displays an error if clientApp is Android and enableFeatureHeroRecommendation is %s',
-    (enableFeatureHeroRecommendation) => {
-      const errorHandler = createStubErrorHandler(new Error('some error'));
-      const { store } = dispatchClientMetadata({
-        clientApp: CLIENT_APP_ANDROID,
-      });
-
-      const root = render({
-        _config: getFakeConfig({ enableFeatureHeroRecommendation }),
-        errorHandler,
-        store,
-      });
-      expect(root.find('.Home-noHeroError')).toHaveLength(1);
-    },
-  );
-
-  it('does not display an error if enableFeatureHeroRecommendation is true and clientApp is not Android', () => {
+  it('does not display an error if clientApp is not Android', () => {
     const errorHandler = createStubErrorHandler(new Error('some error'));
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
 
-    const root = render({
-      _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
-      errorHandler,
-      store,
-    });
+    const root = render({ errorHandler, store });
     expect(root.find('.Home-noHeroError')).toHaveLength(0);
   });
 
@@ -517,7 +490,7 @@ describe(__filename, () => {
   });
 
   describe('Hero Shelves', () => {
-    it('renders when enabled', () => {
+    it('renders hero shelves enabled', () => {
       const errorHandler = createStubErrorHandler();
 
       const { store } = dispatchClientMetadata({
@@ -526,11 +499,7 @@ describe(__filename, () => {
       const heroShelves = _createHeroShelves();
       _loadHomeData({ store, heroShelves });
 
-      const root = render({
-        _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
-        errorHandler,
-        store,
-      });
+      const root = render({ errorHandler, store });
 
       const heroRecommendation = root.find(HeroRecommendation);
       expect(heroRecommendation).toHaveLength(1);
@@ -548,60 +517,24 @@ describe(__filename, () => {
       );
     });
 
-    it('hides the HomeHeroGuides when enabled', () => {
-      const { store } = dispatchClientMetadata({
-        clientApp: CLIENT_APP_FIREFOX,
-      });
-      const heroShelves = _createHeroShelves();
-      _loadHomeData({ store, heroShelves });
-
-      const root = render({
-        _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
-        store,
-      });
-
-      expect(root.find(HomeHeroGuides)).toHaveLength(0);
-    });
-
     it('renders even if heroShelves are not loaded', () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_FIREFOX,
       });
 
-      const root = render({
-        _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
-        store,
-      });
+      const root = render({ store });
 
       expect(root.find(HeroRecommendation)).toHaveLength(1);
       expect(root.find(SecondaryHero)).toHaveLength(1);
     });
 
-    it('does not render when enabled on Android', () => {
+    it('does not render on Android', () => {
       const { store } = dispatchClientMetadata({
         clientApp: CLIENT_APP_ANDROID,
       });
       _loadHomeData({ store, heroShelves: _createHeroShelves() });
 
-      const root = render({
-        _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
-        store,
-      });
-
-      expect(root.find(HeroRecommendation)).toHaveLength(0);
-      expect(root.find(SecondaryHero)).toHaveLength(0);
-    });
-
-    it('does not render when disabled', () => {
-      const { store } = dispatchClientMetadata({
-        clientApp: CLIENT_APP_FIREFOX,
-      });
-      _loadHomeData({ store, heroShelves: _createHeroShelves() });
-
-      const root = render({
-        _config: getFakeConfig({ enableFeatureHeroRecommendation: false }),
-        store,
-      });
+      const root = render({ store });
 
       expect(root.find(HeroRecommendation)).toHaveLength(0);
       expect(root.find(SecondaryHero)).toHaveLength(0);

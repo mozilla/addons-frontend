@@ -7,7 +7,6 @@ import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
 import {
   createContextWithFakeRouter,
   dispatchClientMetadata,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -44,31 +43,16 @@ describe(__filename, () => {
     expect(root.find('.Page-not-homepage')).toHaveLength(0);
   });
 
-  it('assigns a className when there is no hero promo', () => {
-    const root = render({
-      _config: getFakeConfig({ enableFeatureHeroRecommendation: false }),
-    });
-
-    expect(root.find('.Page-no-hero-promo')).toHaveLength(1);
-  });
-
   it('does not assign an extra className when there is a hero promo', () => {
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
-    const root = render({
-      _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
-      store,
-    });
-
+    const root = render({ store });
     expect(root.find('.Page-no-hero-promo')).toHaveLength(0);
   });
 
-  it('assigns a className when there is a hero promo and it is also the Android home page', () => {
+  it('assigns an extra className when it is the Android home page', () => {
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
 
-    const root = render({
-      _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
-      store,
-    });
+    const root = render({ store });
 
     expect(root.find('.Page-no-hero-promo')).toHaveLength(1);
   });
@@ -79,33 +63,9 @@ describe(__filename, () => {
     expect(root.find(AppBanner)).toHaveLength(1);
   });
 
-  it('renders an AppBanner if enableFeatureHeroRecommendation is false', () => {
-    const root = render({
-      _config: getFakeConfig({ enableFeatureHeroRecommendation: false }),
-      isHomePage: true,
-    });
-
-    expect(root.find(AppBanner)).toHaveLength(1);
-  });
-
-  it('does not render an AppBanner if it is the home page and enableFeatureHeroRecommendation is true', () => {
-    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
-    const root = render({
-      _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
-      isHomePage: true,
-      store,
-    });
-
-    expect(root.find(AppBanner)).toHaveLength(0);
-  });
-
-  it('renders an AppBanner if it is the home page and enableFeatureHeroRecommendation is true on Android', () => {
+  it('renders an AppBanner if it is the home page and clientApp is `android`', () => {
     const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-    const root = render({
-      _config: getFakeConfig({ enableFeatureHeroRecommendation: true }),
-      isHomePage: true,
-      store,
-    });
+    const root = render({ isHomePage: true, store });
 
     expect(root.find(AppBanner)).toHaveLength(1);
   });
