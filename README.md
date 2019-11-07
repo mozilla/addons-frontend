@@ -50,9 +50,6 @@ Here are some commands you can run:
 | yarn flow:check | Explicitly check for Flow errors and exit |
 | yarn flow:dev | Continuously check for Flow errors |
 | yarn eslint | Lint the JS |
-| yarn snyk | Run [snyk](#snyk) (without a command) |
-| yarn snyk-ci | Run [snyk](#snyk) `test` and `monitor` |
-| yarn snyk-wizard | Run [snyk](#snyk) `wizard` to fix an issue reported by snyk |
 | yarn start-func-test-server | Start a Docker container for functional tests |
 | yarn stylelint | Lint the SCSS |
 | yarn storybook | Run [storybook](https://storybook.js.org/) |
@@ -191,20 +188,6 @@ export default ConfirmButton;
 ### Prettier
 
 We use [Prettier][] to automatically format our JavaScript code and stop all the on-going debates over styles. As a developer, you have to run it (with `yarn prettier-dev`) before submitting a Pull Request.
-
-### Snyk
-
-We use [snyk][] to continuously monitor our application's dependencies.
-
-As a member of the `add-ons-team`, you can fix an issue reported by running:
-
-```
-yarn snyk-wizard
-```
-
-The wizard allows you to decide whether you want to upgrade dependencies or ignore the issue for 30 days. See the existing reasons to ignore an issue in the [`.snyk`](.snyk) file. Snyk is a bit intrusive and changes many things (like re-adding `snyk test` to the npm `test` script): double check your changes before submitting a Pull Request. You have successfully fixed an issue when `yarn snyk-ci` does not complain. Make sure you open a Pull Request with a branch pushed to this repository and not from your fork, because the `snyk-ci` job (Travis CI) does not run on forks.
-
-Note: You should authenticate yourself once by running `yarn snyk auth` (no dash). It will open a link in your favorite browser and authenticate you locally.
 
 ### Code coverage
 
@@ -437,4 +420,3 @@ At a later date if we need to move things out into their own project we still ca
 [issue-7196]: https://github.com/mozilla/addons-frontend/issues/7196
 [jest]: https://facebook.github.io/jest/docs/en/getting-started.html
 [prettier]: https://prettier.io/
-[snyk]: https://snyk.io/

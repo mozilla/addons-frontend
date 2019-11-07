@@ -33,9 +33,6 @@
     "prettier": "prettier --write '**'",
     "prettier-ci": "prettier --list-different '**' || (echo '\n\nThis failure means you did not run `yarn prettier-dev` before committing\n\n' && exit 1)",
     "prettier-dev": "pretty-quick --branch master",
-    "snyk": "snyk --org=add-ons-team",
-    "snyk-ci": "npm run snyk test --severity-threshold=medium --file=package.json && npm run snyk monitor",
-    "snyk-wizard": "npm run snyk wizard",
     "start": "npm run version-check && better-npm-run --silent node bin/server.js | pino-mozlog",
     "start-func-test-server": "better-npm-run node bin/start-func-test-server.js",
     "storybook": "better-npm-run storybook",
@@ -364,7 +361,6 @@
     "semver": "^6.0.0",
     "shelljs": "^0.8.0",
     "sinon": "^7.4.1",
-    "snyk": "^1.124.1",
     "storybook-addon-rtl": "^0.2.2",
     "style-loader": "^1.0.0",
     "stylelint": "^11.0.0",
@@ -393,6 +389,5 @@
       "path": "./dist/@(amo|disco)-i18n-*.js",
       "maxSize": "33 kB"
     }
-  ],
-  "snyk": true
+  ]
 }
