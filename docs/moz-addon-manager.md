@@ -44,21 +44,24 @@ It is possible to serve the local development version of this project with HTTPS
    127.0.0.1   example.com
    ```
 
-2. In a custom Firefox profile, install a self-signed CA certificate for `example.com`:
+2. Install [`mkcert`](https://github.com/FiloSottile/mkcert#installation), then run:
 
-   - Download [this file](https://raw.githubusercontent.com/mozilla/addons-frontend/master/bin/local-dev-server-certs/example.com.ca.crt.pem)
-   - Go to `about:preferences#privacy`
-   - Click the _View Certificates..._ button (at the bottom of the page)
-   - Click the _Import..._ button
-   - Choose the file you have downloaded before (`example.com.ca.crt.pem`)
-   - Accept this CA certificate to trust websites
+   ```
+   $ mkcert install
+   ```
 
-3. In your custom Firefox profile, go to `about:config`, void the warranty, and set these prefs. Afterwards, restart Firefox for them to take effect.
+3. Create valid certificates for `example.com` (stored in `./bin/local-dev-server-certs/`):
+
+   ```
+   $ mkcert -cert-file ./bin/local-dev-server-certs/example.com.pem -key-file ./bin/local-dev-server-certs/example.com-key.pem example.com
+   ```
+
+4. In a custom Firefox profile, go to `about:config`, accept the risk, and set these prefs. Afterwards, restart Firefox for them to take effect.
 
    - set `extensions.webapi.testing` to `true` [to turn on `mozAddonManager`](#turning-on-mozaddonmanager-in--dev-and--stage-environments)
    - set `xpinstall.signatures.dev-root` to `true` [to install add-ons](#install-add-ons-in--dev-and--stage-environments)
 
-4. Start `addons-frontend` with the command below:
+5. Start `addons-frontend` with the command below:
 
    ```
    yarn amo:dev-https  # or yarn disco:https for Disco Pane

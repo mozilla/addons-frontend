@@ -65,8 +65,19 @@ jobs:
       addons:
         firefox: latest-nightly
         hosts: example.com
+        apt:
+          update: true
       env: TOXENV=discopane-ui-tests GECKODRIVER=0.24.0 MOZ_HEADLESS=1 PATH=./node_modules/.bin:$PATH
       install:
+        # This is required by `mkcert` to interact with Firefox
+        - sudo apt-get -y install libnss3-tools
+        # Get `mkcert`
+        # This is unfortunately needed because of https://github.com/FiloSottile/mkcert/issues/192
+        - wget https://github.com/rfay/mkcert/releases/download/v1.4.1-alpha1/mkcert-v1.4.1-alpha1-linux-amd64 -O mkcert
+        - chmod +x mkcert
+        - ./mkcert -install
+        # Generate certificate for example.com
+        - ./mkcert -cert-file ./bin/local-dev-server-certs/example.com.pem -key-file ./bin/local-dev-server-certs/example.com-key.pem example.com
         - yarn
         - yarn start-func-test-server &
       before_script:

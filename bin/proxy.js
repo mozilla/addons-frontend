@@ -73,9 +73,9 @@ let server;
 
 if (useHttpsForDev) {
   // eslint-disable-next-line global-require
-  const { key, cert, ca } = require('./local-dev-server-certs');
+  const { key, cert } = require('./local-dev-server-certs');
 
-  server = https.createServer({ key, cert, ca }, handler);
+  server = https.createServer({ key, cert }, handler);
 } else {
   server = http.createServer(handler);
 }
