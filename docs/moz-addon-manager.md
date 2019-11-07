@@ -56,7 +56,7 @@ It is possible to serve the local development version of this project with HTTPS
    $ mkcert -cert-file ./bin/local-dev-server-certs/example.com.pem -key-file ./bin/local-dev-server-certs/example.com-key.pem example.com
    ```
 
-4. In a custom Firefox profile, go to `about:config`, void the warranty, and set these prefs. Afterwards, restart Firefox for them to take effect.
+4. In a custom Firefox profile, go to `about:config`, accept the risk, and set these prefs. Afterwards, restart Firefox for them to take effect.
 
    - set `extensions.webapi.testing` to `true` [to turn on `mozAddonManager`](#turning-on-mozaddonmanager-in--dev-and--stage-environments)
    - set `xpinstall.signatures.dev-root` to `true` [to install add-ons](#install-add-ons-in--dev-and--stage-environments)
