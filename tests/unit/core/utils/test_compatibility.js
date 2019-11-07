@@ -5,6 +5,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  INCOMPATIBLE_ANDROID_UNSUPPORTED,
   INCOMPATIBLE_FIREFOX_FENIX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
@@ -376,7 +377,7 @@ describe(__filename, () => {
         }),
       ).toEqual({
         compatible: false,
-        reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+        reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
       });
     });
   });
