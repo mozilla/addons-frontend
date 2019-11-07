@@ -6,7 +6,7 @@ import AMInstallButton, {
 } from 'core/components/AMInstallButton';
 import {
   EXPERIMENT_CATEGORY_CLICK,
-  VARIANT_INCLUDE_WARNING,
+  VARIANT_INCLUDE_WARNING_CURRENT,
 } from 'amo/components/InstallWarning';
 import {
   ADDON_TYPE_OPENSEARCH,
@@ -356,16 +356,23 @@ describe(__filename, () => {
     sinon.assert.calledOnce(event.stopPropagation);
   });
 
+  const renderWithExperimentEnabled = (props = {}) => {
+    return render({
+      addon: createInternalAddon(fakeAddon),
+      isExperimentEnabled: true,
+      isUserInExperiment: true,
+      ...props,
+    });
+  };
+
   it('sends a tracking event for the install warning test when installing an extension', async () => {
     const _tracking = createFakeTracking();
     const addon = createInternalAddon({ ...fakeAddon, is_recommended: true });
-    const variant = VARIANT_INCLUDE_WARNING;
+    const variant = VARIANT_INCLUDE_WARNING_CURRENT;
 
-    const root = render({
+    const root = renderWithExperimentEnabled({
       _tracking,
       addon,
-      isExperimentEnabled: true,
-      isUserInExperiment: true,
       variant,
     });
 
@@ -386,13 +393,11 @@ describe(__filename, () => {
   it('sends the expected category for a tracking event for a non-recommended extension', async () => {
     const _tracking = createFakeTracking();
     const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
-    const variant = VARIANT_INCLUDE_WARNING;
+    const variant = VARIANT_INCLUDE_WARNING_CURRENT;
 
-    const root = render({
+    const root = renderWithExperimentEnabled({
       _tracking,
       addon,
-      isExperimentEnabled: true,
-      isUserInExperiment: true,
       variant,
     });
 
@@ -412,13 +417,11 @@ describe(__filename, () => {
 
   it('does not send a tracking event for the install warning test if the experiment is disabled', async () => {
     const _tracking = createFakeTracking();
-    const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
 
     const root = render({
       _tracking,
-      addon,
       isExperimentEnabled: false,
-      variant: VARIANT_INCLUDE_WARNING,
+      variant: VARIANT_INCLUDE_WARNING_CURRENT,
     });
 
     const event = createFakeEvent();
@@ -432,11 +435,9 @@ describe(__filename, () => {
 
   it('does not send a tracking event for the install warning test if there is no variant', async () => {
     const _tracking = createFakeTracking();
-    const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
 
-    const root = render({
+    const root = renderWithExperimentEnabled({
       _tracking,
-      addon,
       isExperimentEnabled: true,
     });
 
@@ -451,14 +452,12 @@ describe(__filename, () => {
 
   it('does not send a tracking event for the install warning test if the user is not in the experiment', async () => {
     const _tracking = createFakeTracking();
-    const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
 
     const root = render({
       _tracking,
-      addon,
       isExperimentEnabled: true,
       isUserInExperiment: false,
-      variant: VARIANT_INCLUDE_WARNING,
+      variant: VARIANT_INCLUDE_WARNING_CURRENT,
     });
 
     const event = createFakeEvent();
@@ -472,13 +471,10 @@ describe(__filename, () => {
 
   it('does not send a tracking event for the install warning test for a theme', async () => {
     const _tracking = createFakeTracking();
-    const themeAddon = { ...fakeAddon, type: ADDON_TYPE_STATIC_THEME };
 
-    const root = render({
+    const root = renderWithExperimentEnabled({
       _tracking,
-      addon: createInternalAddon(themeAddon),
-      isExperimentEnabled: true,
-      variant: VARIANT_INCLUDE_WARNING,
+      addon: createInternalAddon(fakeTheme),
     });
 
     const event = createFakeEvent();
@@ -492,12 +488,9 @@ describe(__filename, () => {
 
   it('does not send a tracking event for the install warning test when clientApp is Android', async () => {
     const _tracking = createFakeTracking();
-    const addon = createInternalAddon({ ...fakeAddon, is_recommended: false });
 
-    const root = render({
+    const root = renderWithExperimentEnabled({
       _tracking,
-      addon,
-      isExperimentEnabled: true,
       store: dispatchClientMetadata({
         clientApp: CLIENT_APP_ANDROID,
       }).store,

@@ -1,10 +1,12 @@
 import * as React from 'react';
+import UAParser from 'ua-parser-js';
 
 import InstallWarning, {
   EXPERIMENT_CATEGORY_DISPLAY,
   EXPERIMENT_ID,
   INSTALL_WARNING_EXPERIMENT_DIMENSION,
-  VARIANT_INCLUDE_WARNING,
+  VARIANT_INCLUDE_WARNING_CURRENT,
+  VARIANT_INCLUDE_WARNING_PROPOSED,
   VARIANT_EXCLUDE_WARNING,
   InstallWarningBase,
 } from 'amo/components/InstallWarning';
@@ -17,6 +19,8 @@ import {
 import { createInternalAddon } from 'core/reducers/addons';
 import { NOT_IN_EXPERIMENT } from 'core/withExperiment';
 import {
+  createContextWithFakeRouter,
+  createFakeLocation,
   createFakeTracking,
   dispatchClientMetadata,
   fakeAddon,
@@ -25,7 +29,7 @@ import {
   shallowUntilTarget,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
-import Notice from 'ui/components/Notice';
+import Notice, { genericWarningType, warningType } from 'ui/components/Notice';
 
 describe(__filename, () => {
   let store;
@@ -37,19 +41,43 @@ describe(__filename, () => {
     }).store;
   });
 
-  const render = (props = {}) => {
+  const render = ({ location = createFakeLocation(), ...customProps } = {}) => {
+    const props = {
+      _correctedLocationForPlatform: sinon.stub().returns(null),
+      addon: createInternalAddon(fakeAddon),
+      i18n: fakeI18n(),
+      isExperimentEnabled: true,
+      isUserInExperiment: true,
+      store,
+      variant: VARIANT_INCLUDE_WARNING_CURRENT,
+      ...customProps,
+    };
+
     return shallowUntilTarget(
-      <InstallWarning
-        addon={createInternalAddon(fakeAddon)}
-        i18n={fakeI18n()}
-        isExperimentEnabled
-        isUserInExperiment
-        store={store}
-        variant={VARIANT_INCLUDE_WARNING}
-        {...props}
-      />,
+      <InstallWarning {...props} />,
       InstallWarningBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ location }),
+      },
     );
+  };
+
+  // This is an add-on that would cause a warning to be displayed.
+  const addonThatWouldShowWarning = {
+    ...fakeAddon,
+    is_recommended: false,
+    type: ADDON_TYPE_EXTENSION,
+  };
+
+  // This will render the component with values needed to allow
+  // the warning to be displayed.
+  const renderWithWarning = (props = {}) => {
+    return render({
+      addon: createInternalAddon(addonThatWouldShowWarning),
+      isExperimentEnabled: true,
+      isUserInExperiment: true,
+      ...props,
+    });
   };
 
   it('can be customized with a class name', () => {
@@ -60,23 +88,6 @@ describe(__filename, () => {
   });
 
   describe('couldShowWarning', () => {
-    const addonThatWouldShowWarning = {
-      ...fakeAddon,
-      is_recommended: false,
-      type: ADDON_TYPE_EXTENSION,
-    };
-
-    // This will render the component with values needed to allow
-    // couldShowWarning to be true.
-    const renderWithWarning = (props = {}) => {
-      return render({
-        addon: createInternalAddon(addonThatWouldShowWarning),
-        isExperimentEnabled: true,
-        isUserInExperiment: true,
-        ...props,
-      });
-    };
-
     // This is a test for the happy path, but also serves as a sanity test for
     // renderWithWarning returning the happy path.
     it('returns true if the experiment is enabled, the userAgent and clientApp are both Firefox, and the add-on is an extension and is not recommended', () => {
@@ -141,11 +152,44 @@ describe(__filename, () => {
 
       expect(component.instance().couldShowWarning()).toEqual(false);
     });
+
+    it('returns false if the WrongPlatformWarning would be shown', () => {
+      const _correctedLocationForPlatform = sinon.stub().returns('/some/path/');
+
+      const component = renderWithWarning({ _correctedLocationForPlatform });
+
+      expect(component.instance().couldShowWarning()).toEqual(false);
+    });
+
+    it('calls _correctedLocationForPlatform with clientApp, location and userAgentInfo', () => {
+      const clientApp = CLIENT_APP_ANDROID;
+      const userAgent = userAgentsByPlatform.mac.firefox57;
+      const parsedUserAgent = UAParser(userAgent);
+      const location = createFakeLocation();
+      const _correctedLocationForPlatform = sinon.spy();
+
+      dispatchClientMetadata({
+        clientApp,
+        store,
+        userAgent,
+      });
+
+      renderWithWarning({ _correctedLocationForPlatform, location, store });
+
+      sinon.assert.calledWith(_correctedLocationForPlatform, {
+        clientApp,
+        location,
+        userAgentInfo: sinon.match({
+          browser: sinon.match(parsedUserAgent.browser),
+          os: sinon.match(parsedUserAgent.os),
+        }),
+      });
+    });
   });
 
   it('sets a dimension on mount if a variant exists', () => {
     const _tracking = createFakeTracking();
-    const variant = VARIANT_INCLUDE_WARNING;
+    const variant = VARIANT_INCLUDE_WARNING_CURRENT;
 
     render({ _tracking, variant });
 
@@ -186,7 +230,7 @@ describe(__filename, () => {
     const _tracking = createFakeTracking();
     dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID, store });
 
-    render({ _tracking, store, variant: VARIANT_INCLUDE_WARNING });
+    render({ _tracking, store, variant: VARIANT_INCLUDE_WARNING_CURRENT });
 
     sinon.assert.notCalled(_tracking.setDimension);
   });
@@ -206,74 +250,98 @@ describe(__filename, () => {
       _tracking.sendEvent.resetHistory();
     });
 
-    describe('VARIANT_INCLUDE_WARNING', () => {
-      const variant = VARIANT_INCLUDE_WARNING;
+    it('sends the event on mount if couldShowWarning is true and a variant exists', () => {
+      const _couldShowWarning = sinon.stub().returns(true);
+      const addon = createInternalAddon(fakeAddon);
+      const variant = VARIANT_INCLUDE_WARNING_CURRENT;
 
-      it('sends the event on mount if couldShowWarning is true and a variant exists', () => {
-        const _couldShowWarning = sinon.stub().returns(true);
-        const addon = createInternalAddon(fakeAddon);
-
-        render({
-          _couldShowWarning,
-          _tracking,
-          addon,
-          variant,
-        });
-
-        sinon.assert.calledWith(_tracking.sendEvent, {
-          action: variant,
-          category: EXPERIMENT_CATEGORY_DISPLAY,
-          label: addon.name,
-        });
+      render({
+        _couldShowWarning,
+        _tracking,
+        addon,
+        variant,
       });
 
-      it('does not send the event on mount if couldShowWarning is false', () => {
-        const _couldShowWarning = sinon.stub().returns(false);
+      sinon.assert.calledWith(_tracking.sendEvent, {
+        action: variant,
+        category: EXPERIMENT_CATEGORY_DISPLAY,
+        label: addon.name,
+      });
+    });
 
-        render({ _couldShowWarning, _tracking, variant });
+    it('does not send the event on mount if couldShowWarning is false', () => {
+      const _couldShowWarning = sinon.stub().returns(false);
 
-        sinon.assert.notCalled(_tracking.sendEvent);
+      render({
+        _couldShowWarning,
+        _tracking,
+        variant: VARIANT_INCLUDE_WARNING_CURRENT,
       });
 
-      it('does not send the event on mount if a variant is not set', () => {
-        const _couldShowWarning = sinon.stub().returns(true);
+      sinon.assert.notCalled(_tracking.sendEvent);
+    });
 
-        render({ _couldShowWarning, _tracking, variant: undefined });
+    it('does not send the event on mount if a variant is not set', () => {
+      const _couldShowWarning = sinon.stub().returns(true);
 
-        sinon.assert.notCalled(_tracking.sendEvent);
-      });
+      render({ _couldShowWarning, _tracking, variant: undefined });
+
+      sinon.assert.notCalled(_tracking.sendEvent);
     });
   });
 
-  it('displays a warning if couldShowWarning is true and the user is in the included cohort', () => {
-    const _couldShowWarning = sinon.stub().returns(true);
+  it.each([VARIANT_INCLUDE_WARNING_CURRENT, VARIANT_INCLUDE_WARNING_PROPOSED])(
+    'displays a warning if couldShowWarning is true and the user is in the %s branch',
+    (variant) => {
+      const _couldShowWarning = sinon.stub().returns(true);
 
-    const root = render({
-      _couldShowWarning,
-      variant: VARIANT_INCLUDE_WARNING,
-    });
-    expect(root.find(Notice)).toHaveLength(1);
-  });
+      const root = render({
+        _couldShowWarning,
+        variant,
+      });
+      expect(root.find(Notice)).toHaveLength(1);
+    },
+  );
 
   it('does not display a warning if couldShowWarning is false', () => {
     const _couldShowWarning = sinon.stub().returns(false);
 
     const root = render({
       _couldShowWarning,
-      variant: VARIANT_INCLUDE_WARNING,
+      variant: VARIANT_INCLUDE_WARNING_CURRENT,
     });
     expect(root.find(Notice)).toHaveLength(0);
   });
 
-  describe('VARIANT_EXCLUDE_WARNING', () => {
-    it('does not display a warning if the user is in the excluded cohort', () => {
-      const _couldShowWarning = sinon.stub().returns(true);
+  it('does not display a warning if the user is in the excluded cohort', () => {
+    const _couldShowWarning = sinon.stub().returns(true);
 
-      const root = render({
-        _couldShowWarning,
-        variant: VARIANT_EXCLUDE_WARNING,
-      });
-      expect(root.find(Notice)).toHaveLength(0);
+    const root = render({
+      _couldShowWarning,
+      variant: VARIANT_EXCLUDE_WARNING,
     });
+    expect(root.find(Notice)).toHaveLength(0);
+  });
+
+  it('sets the expected notice type and message for VARIANT_INCLUDE_WARNING_CURRENT', () => {
+    const root = renderWithWarning({
+      variant: VARIANT_INCLUDE_WARNING_CURRENT,
+    });
+    expect(root.find(Notice)).toHaveProp('type', warningType);
+    expect(root.find(Notice)).toHaveProp(
+      'children',
+      `This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it.`,
+    );
+  });
+
+  it('sets the expected notice type and message for VARIANT_INCLUDE_WARNING_PROPOSED', () => {
+    const root = renderWithWarning({
+      variant: VARIANT_INCLUDE_WARNING_PROPOSED,
+    });
+    expect(root.find(Notice)).toHaveProp('type', genericWarningType);
+    expect(root.find(Notice)).toHaveProp(
+      'children',
+      `This is not a Recommended Extension. Make sure you trust it before installing.`,
+    );
   });
 });

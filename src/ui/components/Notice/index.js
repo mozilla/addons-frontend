@@ -14,6 +14,7 @@ import './styles.scss';
 
 export const errorType: 'error' = 'error';
 export const genericType: 'generic' = 'generic';
+export const genericWarningType: 'genericWarning' = 'genericWarning';
 export const firefoxRequiredType: 'firefox' = 'firefox';
 export const successType: 'success' = 'success';
 export const warningInfoType: 'warningInfo' = 'warningInfo';
@@ -22,6 +23,7 @@ export const warningType: 'warning' = 'warning';
 const validTypes = [
   errorType,
   genericType,
+  genericWarningType,
   firefoxRequiredType,
   successType,
   warningInfoType,
@@ -36,6 +38,7 @@ export type NoticeType =
   | typeof errorType
   | typeof firefoxRequiredType
   | typeof genericType
+  | typeof genericWarningType
   | typeof successType
   | typeof warningInfoType
   | typeof warningType;
