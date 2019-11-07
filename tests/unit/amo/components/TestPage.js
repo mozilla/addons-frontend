@@ -7,7 +7,6 @@ import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
 import {
   createContextWithFakeRouter,
   dispatchClientMetadata,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
