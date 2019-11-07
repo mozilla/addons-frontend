@@ -27,7 +27,7 @@
 .SecondaryHero-message {
   @include font-regular();
 
-  font-size: $font-size-hero-description;
+  font-size: $font-size-hero-m;
   line-height: 1.5;
   margin-top: 0;
   padding: 0 10px 10px 10px;
@@ -40,7 +40,7 @@
 .SecondaryHero-message-headline {
   @include font-medium();
 
-  font-size: 24px;
+  font-size: $font-size-hero-message-headline;
   line-height: 1.333;
   margin: 0;
   overflow-wrap: anywhere;
@@ -69,7 +69,7 @@
   border-radius: $border-radius-s;
   display: flex;
   flex-direction: column;
-  font-size: $font-size-hero-description;
+  font-size: $font-size-hero-m;
   line-height: 1.5;
   padding: $padding-page 0;
   padding-top: 0;

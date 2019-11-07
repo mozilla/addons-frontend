@@ -68,7 +68,7 @@
   opacity: 0.5;
 
   @include respond-to(medium) {
-    font-size: $font-size-hero-description;
+    font-size: $font-size-hero-m;
   }
 
   @include respond-to(extraExtraLarge) {
@@ -96,7 +96,7 @@
   overflow-wrap: anywhere;
 
   @include respond-to(extraExtraLarge) {
-    font-size: 38px;
+    font-size: $font-size-hero-heading;
   }
 }
 
@@ -108,7 +108,7 @@
   margin: 18px 0 24px 0;
 
   @include respond-to(medium) {
-    font-size: 21px;
+    font-size: $font-size-hero-body;
   }
 
   @include respond-to(extraExtraLarge) {

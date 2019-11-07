@@ -31,7 +31,13 @@ $font-size-xl: 36px;
 $font-size-xxl: 42px;
 $font-size-form-header: 24px;
 $font-size-puffy-buttons: 15px;
-$font-size-hero-description: 18px;
+
+// Hero-specific font sizes
+// See https://github.com/mozilla/addons-frontend/issues/8837
+$font-size-hero-m: 18px;
+$font-size-hero-body: 21px;
+$font-size-hero-message-headline: 24px;
+$font-size-hero-heading: 38px;
 
 // Animation Variables
 $transition-short: 150ms;
