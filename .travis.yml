@@ -51,10 +51,6 @@ jobs:
       env: COMMAND=lint
     - stage:
       <<: *node-prod
-      env: COMMAND=snyk-ci
-      if: fork = false
-    - stage:
-      <<: *node-prod
       env: COMMAND=prettier-ci
     - stage:
       <<: *node-prod
