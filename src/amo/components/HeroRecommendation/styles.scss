@@ -59,6 +59,8 @@
 }
 
 .HeroRecommendation-recommended {
+  @include font-medium();
+
   font-size: $font-size-s;
   letter-spacing: 0.1em;
   line-height: 1.143;
@@ -66,7 +68,7 @@
   opacity: 0.5;
 
   @include respond-to(medium) {
-    font-size: $font-size-default;
+    font-size: $font-size-hero-m;
   }
 
   @include respond-to(extraExtraLarge) {
@@ -85,26 +87,28 @@
 }
 
 .HeroRecommendation-heading {
+  @include font-medium();
+
   color: $white;
   font-size: $font-size-l;
-  font-weight: normal;
   line-height: 1.188;
   margin: 14px 0 0 0;
   overflow-wrap: anywhere;
 
   @include respond-to(extraExtraLarge) {
-    font-size: $font-size-xl;
+    font-size: $font-size-hero-heading;
   }
 }
 
 .HeroRecommendation-body {
+  @include font-light();
+
   font-size: $font-size-s;
-  font-weight: normal;
   line-height: 1.666;
-  margin: 24px 0;
+  margin: 18px 0 24px 0;
 
   @include respond-to(medium) {
-    font-size: $font-size-m;
+    font-size: $font-size-hero-body;
   }
 
   @include respond-to(extraExtraLarge) {
