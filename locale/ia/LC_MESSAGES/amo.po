@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-05 18:51+0000\n"
-"PO-Revision-Date: 2019-11-05 19:33+0000\n"
-"Last-Translator: Melo46 <melo@carmu.com>\n"
+"PO-Revision-Date: 2019-11-09 16:29+0000\n"
+"Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
@@ -1849,7 +1849,7 @@ msgstr "Mi collectiones"
 
 #: src/amo/pages/Guides/index.js:105
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr "Blocator de avisos publicitari legier e multo efficace. uBlock Origine applica milles de filtros de contento sin consummar trop memoria."
+msgstr "Un blocator de annuncios legier e multo efficace. uBlock Origin applica milles de filtros al contento sin consumer un massa de memoria."
 
 #: src/amo/pages/Guides/index.js:109
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
@@ -2856,7 +2856,7 @@ msgstr "Recargar pro continuar"
 
 #: src/ui/components/ExpandableCard/index.js:57
 msgid "Toggle contents"
-msgstr "Mutar contentos"
+msgstr "Commutar contento"
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
