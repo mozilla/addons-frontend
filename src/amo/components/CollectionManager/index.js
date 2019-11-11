@@ -223,10 +223,10 @@ export class CollectionManagerBase extends React.Component<
 
     const formIsUnchanged =
       collection &&
-      (collection.name === name &&
-        collection.slug === slug &&
-        (collection.description === description ||
-          (collection.description === null && !description)));
+      collection.name === name &&
+      collection.slug === slug &&
+      (collection.description === description ||
+        (collection.description === null && !description));
     const formIsDisabled =
       (!collection && !creating) || isCollectionBeingModified;
     const isNameBlank = !(name && name.trim().length);

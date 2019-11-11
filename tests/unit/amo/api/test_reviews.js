@@ -233,7 +233,10 @@ describe(__filename, () => {
       mockApi.expects('callApi').resolves(
         getReviewsResponse({
           // In real life, the API should never return multiple reviews like this.
-          reviews: [{ ...fakeReview, id: 1 }, { ...fakeReview, id: 2 }],
+          reviews: [
+            { ...fakeReview, id: 1 },
+            { ...fakeReview, id: 2 },
+          ],
         }),
       );
 

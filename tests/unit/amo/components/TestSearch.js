@@ -51,7 +51,10 @@ describe(__filename, () => {
       i18n: fakeI18n(),
       loading: false,
       pageSize: String(DEFAULT_API_PAGE_SIZE),
-      results: [{ name: 'Foo', slug: 'foo' }, { name: 'Bar', slug: 'bar' }],
+      results: [
+        { name: 'Foo', slug: 'foo' },
+        { name: 'Bar', slug: 'bar' },
+      ],
     };
   });
 

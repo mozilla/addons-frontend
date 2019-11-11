@@ -255,10 +255,7 @@ export function mapDispatchToProps(dispatch: DispatchFunc) {
 
 const DiscoPane: React.ComponentType<Props> = compose(
   withErrorHandler({ name: 'DiscoPane' }),
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   translate(),
 )(DiscoPaneBase);
 

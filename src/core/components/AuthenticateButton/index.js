@@ -151,10 +151,7 @@ export const mapDispatchToProps = (
 
 const AuthenticateButton: React.ComponentType<Props> = compose(
   withRouter,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   translate(),
 )(AuthenticateButtonBase);
 

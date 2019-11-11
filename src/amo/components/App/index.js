@@ -241,10 +241,7 @@ export function mapDispatchToProps(dispatch: DispatchFunc) {
 
 const App: React.ComponentType<Props> = compose(
   withRouter,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   translate(),
 )(AppBase);
 

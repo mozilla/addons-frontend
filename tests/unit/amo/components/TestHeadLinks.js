@@ -110,29 +110,30 @@ describe(__filename, () => {
   });
 
   // This test case ensures the production configuration is taken into account.
-  it.each([['x-default', 'en-US'], ['pt', 'pt-PT'], ['en', 'en-US']])(
-    'renders a "%s" alternate link',
-    (hrefLang, locale) => {
-      const baseURL = 'https://example.org';
-      const clientApp = CLIENT_APP_FIREFOX;
-      const lang = 'fr';
-      const to = '/some-url';
+  it.each([
+    ['x-default', 'en-US'],
+    ['pt', 'pt-PT'],
+    ['en', 'en-US'],
+  ])('renders a "%s" alternate link', (hrefLang, locale) => {
+    const baseURL = 'https://example.org';
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'fr';
+    const to = '/some-url';
 
-      const _config = getFakeConfig({ baseURL });
-      const { store } = dispatchClientMetadata({
-        clientApp,
-        lang,
-        pathname: `/${lang}/${clientApp}${to}`,
-      });
+    const _config = getFakeConfig({ baseURL });
+    const { store } = dispatchClientMetadata({
+      clientApp,
+      lang,
+      pathname: `/${lang}/${clientApp}${to}`,
+    });
 
-      const root = render({ _config, store });
+    const root = render({ _config, store });
 
-      expect(root.find(`link[hrefLang="${hrefLang}"]`)).toHaveProp(
-        'href',
-        `${baseURL}/${locale}/${clientApp}${to}`,
-      );
-    },
-  );
+    expect(root.find(`link[hrefLang="${hrefLang}"]`)).toHaveProp(
+      'href',
+      `${baseURL}/${locale}/${clientApp}${to}`,
+    );
+  });
 
   it('renders a canonical link tag', () => {
     const baseURL = 'https://example.org';

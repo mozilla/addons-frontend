@@ -141,11 +141,7 @@ const withUIState = ({
       WrappedComponent,
     )})`;
 
-    return connect(
-      mapStateToProps,
-      undefined,
-      mergeUIStateProps,
-    )(WithUIState);
+    return connect(mapStateToProps, undefined, mergeUIStateProps)(WithUIState);
   };
 };
 

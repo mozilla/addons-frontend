@@ -276,7 +276,10 @@ describe(__filename, () => {
       );
     });
 
-    it.each([['does', 'not empty'], ['does not', 'empty']])(
+    it.each([
+      ['does', 'not empty'],
+      ['does not', 'empty'],
+    ])(
       `%s display exploreMore details when a section's exploreMore text is %s`,
       (expectation, exploreMoreStatus) => {
         const { store } = _dispatchFirefoxClient();
