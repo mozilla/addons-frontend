@@ -47,9 +47,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   let prependedOrMovedApplication = false;
 
   if (hasValidLocaleException) {
-    log.info(oneLine`Second part of URL is a locale exception (${
-      URLPathParts[1]
-    });
+    log.info(oneLine`Second part of URL is a locale exception (${URLPathParts[1]});
       make sure the clientApp is valid`);
 
     // Normally we look for a clientApp in the second part of a URL, but URLs

@@ -170,13 +170,9 @@ export function withErrorHandler({ name, id, extractId = null }) {
       return { ...ownProps, errorHandler };
     };
 
-    return compose(
-      connect(
-        mapStateToProps,
-        undefined,
-        mergeProps,
-      ),
-    )(WrappedComponent);
+    return compose(connect(mapStateToProps, undefined, mergeProps))(
+      WrappedComponent,
+    );
   };
 }
 

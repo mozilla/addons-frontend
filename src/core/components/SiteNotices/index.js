@@ -71,7 +71,4 @@ const mapStateToProps = (state: AppState): MappedProps => {
   };
 };
 
-export default compose(
-  connect(mapStateToProps),
-  translate(),
-)(SiteNoticesBase);
+export default compose(connect(mapStateToProps), translate())(SiteNoticesBase);

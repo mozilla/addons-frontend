@@ -225,9 +225,6 @@ export const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   translate(),
 )(HeaderBase);
