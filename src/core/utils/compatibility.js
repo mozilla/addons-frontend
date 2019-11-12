@@ -14,6 +14,7 @@ import {
   ADDON_TYPE_OPENSEARCH,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  INCOMPATIBLE_ANDROID_UNSUPPORTED,
   INCOMPATIBLE_FIREFOX_FENIX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
@@ -139,7 +140,10 @@ export function isCompatibleWithUserAgent({
   // Fenix does not support add-ons (yet?).
   // See: https://github.com/mozilla-mobile/fenix/issues/1134
   // See also: https://github.com/mozilla/addons-frontend/issues/7963
-  if (os.name === 'Android' && mozCompare(browser.version, '69.0') >= 0) {
+  if (
+    os.name === USER_AGENT_OS_ANDROID &&
+    mozCompare(browser.version, '69.0') >= 0
+  ) {
     return { compatible: false, reason: INCOMPATIBLE_FIREFOX_FENIX };
   }
 
@@ -149,6 +153,17 @@ export function isCompatibleWithUserAgent({
     return {
       compatible: false,
       reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+    };
+  }
+
+  // For Android, we need to check that compatibility info exists for `android`.
+  if (
+    os.name === USER_AGENT_OS_ANDROID &&
+    !currentVersion.compatibility[CLIENT_APP_ANDROID]
+  ) {
+    return {
+      compatible: false,
+      reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
     };
   }
 

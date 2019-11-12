@@ -9,6 +9,8 @@ import config from 'config';
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import {
+  CLIENT_APP_FIREFOX,
+  INCOMPATIBLE_ANDROID_UNSUPPORTED,
   INCOMPATIBLE_FIREFOX_FENIX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
@@ -87,6 +89,18 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
 
     if (reason === INCOMPATIBLE_NOT_FIREFOX) {
       // Do not display a message for non-Firefox browsers.
+      return null;
+    }
+
+    if (
+      reason === INCOMPATIBLE_ANDROID_UNSUPPORTED &&
+      clientApp === CLIENT_APP_FIREFOX
+    ) {
+      // Do not display a message for Android users who are on the "wrong" site.
+      // See https://github.com/mozilla/addons-frontend/pull/8897#issuecomment-551111862
+      _log.info(
+        'Not rendering incompatibility error along with "wrong platform" warning',
+      );
       return null;
     }
 
