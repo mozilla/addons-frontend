@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-12 18:11+0000\n"
-"PO-Revision-Date: 2019-08-27 20:00+0000\n"
+"PO-Revision-Date: 2019-11-12 20:51+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -19,21 +19,12 @@ msgid "Learn more"
 msgstr "Saiba mais"
 
 #: src/amo/components/InstallWarning/index.js:168
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
-"Esta extensão não é monitorada pela Mozilla. Tenha certeza de que confia na "
-"extensão antes de instalar."
+msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
+msgstr "Esta extensão não é monitorada pela Mozilla. Tenha certeza de que confia na extensão antes de instalar."
 
 #: src/amo/components/InstallWarning/index.js:170
-#, fuzzy
-msgid ""
-"This is not a Recommended Extension. Make sure you trust it before "
-"installing."
-msgstr ""
-"Esta extensão não é monitorada pela Mozilla. Tenha certeza de que confia na "
-"extensão antes de instalar."
+msgid "This is not a Recommended Extension. Make sure you trust it before installing."
+msgstr "Esta não é uma extensão recomendada. Tenha certeza de que confia nela antes de instalar."
 
 #: src/core/components/AMInstallButton/index.js:232
 msgid "Enable"
@@ -72,15 +63,10 @@ msgid "Server Error"
 msgstr "Erro do servidor"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Desculpe, mas houve um erro e não conseguimos completar sua solicitação. "
-"Registrámos este erro e iremos investigá-lo."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Desculpe, mas houve um erro e não conseguimos completar sua solicitação. Registrámos este erro e iremos investigá-lo."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Código do erro: %(status)s."
 
@@ -197,30 +183,20 @@ msgstr "Personalize seu Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Existem milhares de extensões gratuitas, criadas por desenvolvedores de todo "
-"o mundo, que você pode instalar para personalizar seu Firefox. Desde temas "
-"visuais divertidos até poderosas ferramentas que tornam a navegação mais "
-"rápida e segura, extensões fazem o navegador ficar do seu jeito. Para "
-"ajudar, aqui estão algumas extensões que recomendamos por se destacar em "
-"desempenho e funcionalidade."
+"Existem milhares de extensões gratuitas, criadas por desenvolvedores de todo o mundo, que você pode instalar para personalizar seu Firefox. Desde temas visuais divertidos até poderosas ferramentas "
+"que tornam a navegação mais rápida e segura, extensões fazem o navegador ficar do seu jeito. Para ajudar, aqui estão algumas extensões que recomendamos por se destacar em desempenho e "
+"funcionalidade."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Saiba mais"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
-"Algumas dessas recomendações são personalizadas. Elas são baseadas em outras "
-"extensões que você instalou, preferências de perfil e estatísticas de uso."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgstr "Algumas dessas recomendações são personalizadas. Elas são baseadas em outras extensões que você instalou, preferências de perfil e estatísticas de uso."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
