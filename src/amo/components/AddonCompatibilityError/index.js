@@ -98,6 +98,9 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
     ) {
       // Do not display a message for Android users who are on the "wrong" site.
       // See https://github.com/mozilla/addons-frontend/pull/8897#issuecomment-551111862
+      _log.info(
+        'Not rendering incompatibility error along with "wrong platform" warning',
+      );
       return null;
     }
 
