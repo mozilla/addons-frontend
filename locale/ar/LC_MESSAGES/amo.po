@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-05 18:51+0000\n"
+"POT-Creation-Date: 2019-11-12 18:08+0000\n"
 "PO-Revision-Date: 2018-09-25 15:17+0000\n"
 "Last-Translator: Abdelrahman Manna <abood.fcb@hotmail.com>\n"
 "Language-Team: none\n"
@@ -96,35 +96,35 @@ msgstr "ليس متوافقا مع فَيَرفُكس كوانتُم"
 msgid "Some features may require payment"
 msgstr "قد تطلب بعض المزايا دفع المال"
 
-#: src/amo/components/AddonCompatibilityError/index.js:106
+#: src/amo/components/AddonCompatibilityError/index.js:120
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "هذه الإضافة غير متوافقة مع إصدارتك من فَيَرفُكس."
 
-#: src/amo/components/AddonCompatibilityError/index.js:109
+#: src/amo/components/AddonCompatibilityError/index.js:123
 msgid "Your version of Firefox does not support search plugins."
 msgstr "إصدارة فَيَرفُكس هذه لا تدعم ملحقات البحث."
 
-#: src/amo/components/AddonCompatibilityError/index.js:113
+#: src/amo/components/AddonCompatibilityError/index.js:127
 #, fuzzy
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
 msgstr "إصدارة فَيَرفُكس هذه لا تدعم ملحقات البحث."
 
-#: src/amo/components/AddonCompatibilityError/index.js:116
+#: src/amo/components/AddonCompatibilityError/index.js:130
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "لا يدعم فَيَرفُكس لآي أو إس الإضافات حاليا."
 
-#: src/amo/components/AddonCompatibilityError/index.js:120
+#: src/amo/components/AddonCompatibilityError/index.js:134
 #, fuzzy
 msgid "Firefox Preview does not currently support add-ons."
 msgstr "لا يدعم فَيَرفُكس لآي أو إس الإضافات حاليا."
 
-#: src/amo/components/AddonCompatibilityError/index.js:124
+#: src/amo/components/AddonCompatibilityError/index.js:138
 msgid "This add-on is not available on your platform."
 msgstr "هذه الإضافة غير متوفرة على المنصة لديك."
 
-#: src/amo/components/AddonCompatibilityError/index.js:128
+#: src/amo/components/AddonCompatibilityError/index.js:142
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -132,7 +132,7 @@ msgstr ""
 "تطلب هذه الإضافة <a href=\"%(downloadUrl)s\">إصدارة أحدث من فَيَرفُكس</a> (على "
 "الأقل %(minVersion)s). أنت تستخدم إصدارة %(yourVersion)s من فَيَرفُكس."
 
-#: src/amo/components/AddonCompatibilityError/index.js:145
+#: src/amo/components/AddonCompatibilityError/index.js:159
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -845,7 +845,7 @@ msgid "Leave a note"
 msgstr "اترك ملاحظة"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Remove"
 msgstr "أزِل"
 
@@ -1087,12 +1087,12 @@ msgstr "عن"
 msgid "Blog"
 msgstr "المدونة"
 
-#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:104
+#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:96
 #, fuzzy
 msgid "Extension Workshop"
 msgstr "الامتدادات"
 
-#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:114
+#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:106
 msgid "Developer Hub"
 msgstr "مركز المطورين"
 
@@ -1117,69 +1117,69 @@ msgstr "دليل المراجعات"
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "فقط في فَيَرفُكس—نزِّل فَيَرفُكس الآن"
 
-#: src/amo/components/Header/index.js:102
-#, fuzzy
-msgid "Learn how to create extensions and themes"
-msgstr "مراقبة استخدام الامتدادات وإدارة السمات"
-
-#: src/amo/components/Header/index.js:112
+#: src/amo/components/Header/index.js:104
 #, fuzzy
 msgid "Submit and manage extensions and themes"
 msgstr "مراقبة استخدام الامتدادات وإدارة السمات"
 
-#: src/amo/components/Header/index.js:127
+#: src/amo/components/Header/index.js:119
 msgid "My Account"
 msgstr "حسابي"
 
-#: src/amo/components/Header/index.js:134
+#: src/amo/components/Header/index.js:126
 msgid "View My Collections"
 msgstr "اعرض مجموعاتي"
 
-#: src/amo/components/Header/index.js:142
+#: src/amo/components/Header/index.js:134
 #: src/amo/pages/UserProfileEdit/index.js:548
 msgid "View My Profile"
 msgstr "اعرض ملفي الشخصي"
 
-#: src/amo/components/Header/index.js:150
+#: src/amo/components/Header/index.js:142
 #: src/amo/pages/UserProfileEdit/index.js:554
 msgid "Edit My Profile"
 msgstr "حرِّر ملفي الشخصي"
 
-#: src/amo/components/Header/index.js:154
+#: src/amo/components/Header/index.js:146
 msgid "Tools"
 msgstr "أدوات"
 
-#: src/amo/components/Header/index.js:160
+#: src/amo/components/Header/index.js:152
 msgid "Submit a New Add-on"
 msgstr "أرسِل إضافة جديدة"
 
-#: src/amo/components/Header/index.js:168
+#: src/amo/components/Header/index.js:160
 msgid "Submit a New Theme"
 msgstr "أرسِل سمة جديدة"
 
-#: src/amo/components/Header/index.js:177
+#: src/amo/components/Header/index.js:169
 msgid "Manage My Submissions"
 msgstr "أدِر ما أرسلت"
 
-#: src/amo/components/Header/index.js:187
+#: src/amo/components/Header/index.js:179
 msgid "Reviewer Tools"
 msgstr "أدوات المراجعين"
 
-#: src/amo/components/Header/index.js:199
+#: src/amo/components/Header/index.js:191
 #: src/core/components/AuthenticateButton/index.js:90
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
 
-#: src/amo/components/Header/index.js:204
+#: src/amo/components/Header/index.js:196
 #: src/core/components/AuthenticateButton/index.js:86
 msgid "Log out"
 msgstr "اخرج"
 
-#: src/amo/components/Header/index.js:64
+#: src/amo/components/Header/index.js:63
 #, fuzzy
 msgid "Firefox Browser Add-ons"
 msgstr "إضافات فَيَرفُكس"
+
+#: src/amo/components/Header/index.js:94
+#, fuzzy
+msgid "Learn how to create extensions and themes"
+msgstr "مراقبة استخدام الامتدادات وإدارة السمات"
 
 #: src/amo/components/HeroRecommendation/index.js:107
 #, fuzzy
@@ -1218,14 +1218,20 @@ msgid ""
 "fun."
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:124
+#: src/amo/components/InstallWarning/index.js:159
 msgid "Learn more"
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:128
+#: src/amo/components/InstallWarning/index.js:168
 msgid ""
 "This extension isn’t monitored by Mozilla. Make sure you trust the extension "
 "before you install it."
+msgstr ""
+
+#: src/amo/components/InstallWarning/index.js:170
+msgid ""
+"This is not a Recommended Extension. Make sure you trust it before "
+"installing."
 msgstr ""
 
 #: src/amo/components/LanguagePicker/index.js:52
@@ -1403,12 +1409,23 @@ msgstr "رُد على هذه المراجعة"
 msgid "Read all one-star reviews"
 msgstr "لا شيء لقراءته"
 
-#: src/amo/components/ReportAbuseButton/index.js:106
+#: src/amo/components/ReportAbuseButton/index.js:105
+msgid "You reported this add-on for abuse"
+msgstr "أبلغتَ بأن هذه الإضافة تُسيء الاستخدام"
+
+#: src/amo/components/ReportAbuseButton/index.js:109
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this add-on."
+msgstr ""
+"لقد تلقينا البلاغ الذي بعثته. نشكرك على إعلامنا بمخاوفك تجاه هذه الإضافة."
+
+#: src/amo/components/ReportAbuseButton/index.js:116
 #: src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr "محال أن نردّ على كل بلاغ عن إساءة الاستخدام، ولكن مع ذلك سننظر فيه."
 
-#: src/amo/components/ReportAbuseButton/index.js:116
+#: src/amo/components/ReportAbuseButton/index.js:126
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
@@ -1418,11 +1435,11 @@ msgstr ""
 "%(linkTagEnd)s أو أن فيها مشاكل أمنية أو مشاكل متعلقة بالخصوصية، فرجاءً أبلِغ "
 "عن هذه المشاكل إلى موزيلا مستخدما هذه الاستمارة."
 
-#: src/amo/components/ReportAbuseButton/index.js:132
+#: src/amo/components/ReportAbuseButton/index.js:142
 msgid "Report this add-on for abuse"
 msgstr "أبلِغ بأن هذه الإضافة تُسيء الاستخدام"
 
-#: src/amo/components/ReportAbuseButton/index.js:161
+#: src/amo/components/ReportAbuseButton/index.js:172
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1430,34 +1447,23 @@ msgstr ""
 "نرجوك ألا تستخدم هذه الاستمارة للإبلاغ عن العلل أو طلب المزايا، فهذا التقرير "
 "سيُرسل إلى موزيلا وليس إلى مطوّر الإضافة."
 
-#: src/amo/components/ReportAbuseButton/index.js:174
+#: src/amo/components/ReportAbuseButton/index.js:185
 #: src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
 msgstr "أرسِل بلاغا بإساءة الاستخدام"
 
-#: src/amo/components/ReportAbuseButton/index.js:175
+#: src/amo/components/ReportAbuseButton/index.js:186
 #: src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "يُرسل البلاغ بإساءة الاستخدام"
 
-#: src/amo/components/ReportAbuseButton/index.js:177
+#: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
 msgstr "أهمِل"
 
-#: src/amo/components/ReportAbuseButton/index.js:178
+#: src/amo/components/ReportAbuseButton/index.js:189
 msgid "Explain how this add-on is violating our policies."
 msgstr "اشرح كيفية انتهاك هذه الإضافة لسياساتنا."
-
-#: src/amo/components/ReportAbuseButton/index.js:95
-msgid "You reported this add-on for abuse"
-msgstr "أبلغتَ بأن هذه الإضافة تُسيء الاستخدام"
-
-#: src/amo/components/ReportAbuseButton/index.js:99
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this add-on."
-msgstr ""
-"لقد تلقينا البلاغ الذي بعثته. نشكرك على إعلامنا بمخاوفك تجاه هذه الإضافة."
 
 #: src/amo/components/ReportUserAbuse/index.js:106
 #: src/amo/components/ReportUserAbuse/index.js:99
@@ -1500,13 +1506,13 @@ msgstr ""
 msgid "Search results"
 msgstr "نتائج البحث"
 
-#: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:277
+#: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:272
 #: src/amo/pages/LandingPage/index.js:123
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "ابحث في الامتدادات"
 
-#: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:340
+#: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:335
 #: src/amo/pages/LandingPage/index.js:155
 #, fuzzy
 msgid "Recommended themes"
@@ -1517,7 +1523,7 @@ msgstr "السمات الصيفية"
 msgid "Recommended add-ons"
 msgstr "ابحث في الإضافات"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:353
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:348
 #: src/amo/pages/LandingPage/index.js:133
 msgid "Trending extensions"
 msgstr "الامتدادات المُتداولة"
@@ -1545,11 +1551,11 @@ msgstr "السمات الأعلى تقييما"
 msgid "Top rated add-ons"
 msgstr "أعلى الإضافات تقييما"
 
-#: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:313
+#: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:308
 msgid "Popular extensions"
 msgstr "امتدادات شعبية"
 
-#: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:294
+#: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:289
 msgid "Popular themes"
 msgstr "سمات شعبية"
 
@@ -2371,62 +2377,62 @@ msgid ""
 "you can get back to distraction-free browsing."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:140
+#: src/amo/pages/Home/index.js:138
 msgid "Abstract"
 msgstr "مجرّدات"
 
-#: src/amo/pages/Home/index.js:145
+#: src/amo/pages/Home/index.js:143
 msgid "Nature"
 msgstr "الطبيعة"
 
-#: src/amo/pages/Home/index.js:150
+#: src/amo/pages/Home/index.js:148
 msgid "Film & TV"
 msgstr "الأفلام والتلفاز"
 
-#: src/amo/pages/Home/index.js:155
+#: src/amo/pages/Home/index.js:153
 msgid "Scenery"
 msgstr "المناظر الطبيعية"
 
-#: src/amo/pages/Home/index.js:160
+#: src/amo/pages/Home/index.js:158
 msgid "Music"
 msgstr "الموسيقى"
 
-#: src/amo/pages/Home/index.js:165
+#: src/amo/pages/Home/index.js:163
 msgid "Seasonal"
 msgstr "موسميّات"
 
-#: src/amo/pages/Home/index.js:204
+#: src/amo/pages/Home/index.js:201
 msgid "Change the way Firefox looks with themes."
 msgstr "غيّر شكل فَيَرفُكس باستخدامك السمات."
 
-#: src/amo/pages/Home/index.js:239
+#: src/amo/pages/Home/index.js:234
 msgid ""
 "Download Firefox extensions and themes. They’re like apps for your browser. "
 "They can block annoying ads, protect passwords, change browser appearance, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/Home/index.js:278 src/amo/pages/LandingPage/index.js:132
+#: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
 #, fuzzy
 msgid "See more recommended extensions"
 msgstr "طالع المزيد من الامتدادات المُتداولة"
 
-#: src/amo/pages/Home/index.js:295
+#: src/amo/pages/Home/index.js:290
 #, fuzzy
 msgid "See more popular themes"
 msgstr "تصفّح كل الامتدادات"
 
-#: src/amo/pages/Home/index.js:314
+#: src/amo/pages/Home/index.js:309
 #, fuzzy
 msgid "See more popular extensions"
 msgstr "طالع المزيد من الامتدادات الأعلى تقييما"
 
-#: src/amo/pages/Home/index.js:331 src/amo/pages/LandingPage/index.js:164
+#: src/amo/pages/Home/index.js:326 src/amo/pages/LandingPage/index.js:164
 #, fuzzy
 msgid "See more recommended themes"
 msgstr "طالع المزيد من السمات المُتداولة"
 
-#: src/amo/pages/Home/index.js:354 src/amo/pages/LandingPage/index.js:142
+#: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:142
 msgid "See more trending extensions"
 msgstr "طالع المزيد من الامتدادات المُتداولة"
 
@@ -3227,31 +3233,31 @@ msgstr "عندما يتعذر ترقية التوافقية لإضافتي"
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "عندما تنجح ترقية توافقية إضافتي"
 
-#: src/core/components/AMInstallButton/index.js:234
+#: src/core/components/AMInstallButton/index.js:232
 msgid "Enable"
 msgstr "فعّل"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Enabling"
 msgstr "يُفعّل"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Downloading"
 msgstr "يُنزّل"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:241
 msgid "Installing"
 msgstr "يُثبّت"
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:243
 msgid "Uninstalling"
 msgstr "يُزيل"
 
-#: src/core/components/AMInstallButton/index.js:253
+#: src/core/components/AMInstallButton/index.js:251
 msgid "Install Theme"
 msgstr "ثبّت السمة"
 
-#: src/core/components/AMInstallButton/index.js:254
+#: src/core/components/AMInstallButton/index.js:252
 msgid "Add to Firefox"
 msgstr "أضِف إلى فَيَرفُكس"
 
@@ -3445,7 +3451,7 @@ msgstr[5] "الوصول إلى بياناتك في %(param)s موقع آخر"
 msgid "Access your data for %(param)s"
 msgstr "الوصول إلى بياناتك لموقع %(param)s"
 
-#: src/ui/components/Notice/index.js:150
+#: src/ui/components/Notice/index.js:153
 msgid "Dismiss this notice"
 msgstr ""
 
