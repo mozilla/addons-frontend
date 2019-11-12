@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-05 18:54+0000\n"
+"POT-Creation-Date: 2019-11-12 18:11+0000\n"
 "PO-Revision-Date: 2019-09-10 04:33+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
@@ -15,11 +15,11 @@ msgstr ""
 "20)) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/InstallWarning/index.js:124
+#: src/amo/components/InstallWarning/index.js:159
 msgid "Learn more"
 msgstr "Află mai multe"
 
-#: src/amo/components/InstallWarning/index.js:128
+#: src/amo/components/InstallWarning/index.js:168
 msgid ""
 "This extension isn’t monitored by Mozilla. Make sure you trust the extension "
 "before you install it."
@@ -27,35 +27,44 @@ msgstr ""
 "Această extensie nu este monitorizată de Mozilla. Asigură-te că ai încredere "
 "în extensie înainte de a o instala."
 
-#: src/core/components/AMInstallButton/index.js:234
+#: src/amo/components/InstallWarning/index.js:170
+#, fuzzy
+msgid ""
+"This is not a Recommended Extension. Make sure you trust it before "
+"installing."
+msgstr ""
+"Această extensie nu este monitorizată de Mozilla. Asigură-te că ai încredere "
+"în extensie înainte de a o instala."
+
+#: src/core/components/AMInstallButton/index.js:232
 msgid "Enable"
 msgstr "Activează"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Remove"
 msgstr "Elimină"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Enabling"
 msgstr "Se activează"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Downloading"
 msgstr "Se descarcă"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:241
 msgid "Installing"
 msgstr "Se instalează"
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:243
 msgid "Uninstalling"
 msgstr "Se dezinstalează"
 
-#: src/core/components/AMInstallButton/index.js:253
+#: src/core/components/AMInstallButton/index.js:251
 msgid "Install Theme"
 msgstr "Instalează tema"
 
-#: src/core/components/AMInstallButton/index.js:254
+#: src/core/components/AMInstallButton/index.js:252
 msgid "Add to Firefox"
 msgstr "Adaugă în Firefox"
 
@@ -227,7 +236,7 @@ msgstr "S-a produs o eroare neașteptată"
 msgid "Reload To Continue"
 msgstr "Reîncarcă pentru a continua"
 
-#: src/ui/components/Notice/index.js:150
+#: src/ui/components/Notice/index.js:153
 msgid "Dismiss this notice"
 msgstr "Respinge această notificare"
 
