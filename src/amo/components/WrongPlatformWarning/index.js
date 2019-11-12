@@ -78,11 +78,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
 
     return (
       <div className={makeClassName('WrongPlatformWarning', className)}>
-        <Notice
-          dismissible
-          id="WrongPlatformWarning-Notice"
-          type={warningInfoType}
-        >
+        <Notice id="WrongPlatformWarning-Notice" type={warningInfoType}>
           <span
             className="WrongPlatformWarning-message"
             // eslint-disable-next-line react/no-danger
