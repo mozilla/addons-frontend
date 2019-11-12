@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-05 18:54+0000\n"
+"POT-Creation-Date: 2019-11-12 18:11+0000\n"
 "PO-Revision-Date: 2018-09-13 06:38+0000\n"
 "Last-Translator: Ruba <ruba.awayes@gmail.com>\n"
 "Language-Team: none\n"
@@ -15,48 +15,54 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/InstallWarning/index.js:124
+#: src/amo/components/InstallWarning/index.js:159
 msgid "Learn more"
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:128
+#: src/amo/components/InstallWarning/index.js:168
 msgid ""
 "This extension isn’t monitored by Mozilla. Make sure you trust the extension "
 "before you install it."
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:234
+#: src/amo/components/InstallWarning/index.js:170
+msgid ""
+"This is not a Recommended Extension. Make sure you trust it before "
+"installing."
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:232
 msgid "Enable"
 msgstr "فعّل"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Remove"
 msgstr "أزِل"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Enabling"
 msgstr "يُفعّل"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:239
 #, fuzzy
 msgid "Downloading"
 msgstr "يُنزّل %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:241
 #, fuzzy
 msgid "Installing"
 msgstr "يُثبّت %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:243
 #, fuzzy
 msgid "Uninstalling"
 msgstr "يُلغي تثبيت %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:253
+#: src/core/components/AMInstallButton/index.js:251
 msgid "Install Theme"
 msgstr "ثبّت السمة"
 
-#: src/core/components/AMInstallButton/index.js:254
+#: src/core/components/AMInstallButton/index.js:252
 msgid "Add to Firefox"
 msgstr "أضِف إلى فَيَرفُكس"
 
@@ -219,7 +225,7 @@ msgstr "حدث خطأ غير متوقع"
 msgid "Reload To Continue"
 msgstr "أعِد التحميل للمتابعة"
 
-#: src/ui/components/Notice/index.js:150
+#: src/ui/components/Notice/index.js:153
 msgid "Dismiss this notice"
 msgstr ""
 

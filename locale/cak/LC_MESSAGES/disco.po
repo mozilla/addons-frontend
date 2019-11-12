@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-05 18:54+0000\n"
+"POT-Creation-Date: 2019-11-12 18:11+0000\n"
 "PO-Revision-Date: 2019-02-28 23:09+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,49 +14,55 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/InstallWarning/index.js:124
+#: src/amo/components/InstallWarning/index.js:159
 #, fuzzy
 msgid "Learn more"
 msgstr "Tetamäx ch'aqa' chik"
 
-#: src/amo/components/InstallWarning/index.js:128
+#: src/amo/components/InstallWarning/index.js:168
 msgid ""
 "This extension isn’t monitored by Mozilla. Make sure you trust the extension "
 "before you install it."
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:234
+#: src/amo/components/InstallWarning/index.js:170
+msgid ""
+"This is not a Recommended Extension. Make sure you trust it before "
+"installing."
+msgstr ""
+
+#: src/core/components/AMInstallButton/index.js:232
 msgid "Enable"
 msgstr "Titzij"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Remove"
 msgstr "Tiyuj"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:239
 #, fuzzy
 msgid "Downloading"
 msgstr "Niqasäx %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:241
 #, fuzzy
 msgid "Installing"
 msgstr "Niyak %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:243
 #, fuzzy
 msgid "Uninstalling"
 msgstr "Man niyak ta %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:253
+#: src/core/components/AMInstallButton/index.js:251
 msgid "Install Theme"
 msgstr "Tiyak Wachinïk"
 
-#: src/core/components/AMInstallButton/index.js:254
+#: src/core/components/AMInstallButton/index.js:252
 msgid "Add to Firefox"
 msgstr "Taya' chupam Firefox"
 
@@ -227,7 +233,7 @@ msgstr "Man oyob'en ta re sachoj xk'ulwachitäj"
 msgid "Reload To Continue"
 msgstr "Tisamajib'ëx chik Richin Nisamäj chik"
 
-#: src/ui/components/Notice/index.js:150
+#: src/ui/components/Notice/index.js:153
 msgid "Dismiss this notice"
 msgstr ""
 

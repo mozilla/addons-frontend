@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-05 18:54+0000\n"
+"POT-Creation-Date: 2019-11-12 18:11+0000\n"
 "PO-Revision-Date: 2019-09-24 18:17+0000\n"
 "Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
@@ -14,11 +14,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/InstallWarning/index.js:124
+#: src/amo/components/InstallWarning/index.js:159
 msgid "Learn more"
 msgstr "En savoir plus"
 
-#: src/amo/components/InstallWarning/index.js:128
+#: src/amo/components/InstallWarning/index.js:168
 msgid ""
 "This extension isn’t monitored by Mozilla. Make sure you trust the extension "
 "before you install it."
@@ -26,35 +26,44 @@ msgstr ""
 "Cette extension n’est pas surveillée par Mozilla. Assurez-vous que vous "
 "pouvez lui faire confiance avant de l’installer."
 
-#: src/core/components/AMInstallButton/index.js:234
+#: src/amo/components/InstallWarning/index.js:170
+#, fuzzy
+msgid ""
+"This is not a Recommended Extension. Make sure you trust it before "
+"installing."
+msgstr ""
+"Cette extension n’est pas surveillée par Mozilla. Assurez-vous que vous "
+"pouvez lui faire confiance avant de l’installer."
+
+#: src/core/components/AMInstallButton/index.js:232
 msgid "Enable"
 msgstr "Activer"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:235
 msgid "Remove"
 msgstr "Supprimer"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:237
 msgid "Enabling"
 msgstr "Activation en cours"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:239
 msgid "Downloading"
 msgstr "Téléchargement en cours"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:241
 msgid "Installing"
 msgstr "Installation en cours"
 
-#: src/core/components/AMInstallButton/index.js:245
+#: src/core/components/AMInstallButton/index.js:243
 msgid "Uninstalling"
 msgstr "Désinstallation en cours"
 
-#: src/core/components/AMInstallButton/index.js:253
+#: src/core/components/AMInstallButton/index.js:251
 msgid "Install Theme"
 msgstr "Installer le thème"
 
-#: src/core/components/AMInstallButton/index.js:254
+#: src/core/components/AMInstallButton/index.js:252
 msgid "Add to Firefox"
 msgstr "Ajouter à Firefox"
 
@@ -229,7 +238,7 @@ msgstr "Une erreur inattendue s’est produite"
 msgid "Reload To Continue"
 msgstr "Rechargez la page pour continuer"
 
-#: src/ui/components/Notice/index.js:150
+#: src/ui/components/Notice/index.js:153
 msgid "Dismiss this notice"
 msgstr "Cacher ce message"
 
