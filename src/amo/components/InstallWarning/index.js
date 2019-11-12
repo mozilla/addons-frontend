@@ -46,7 +46,7 @@ export const EXPERIMENT_CATEGORY_CLICK =
   'AMO Install Button Warning Experiment - Click';
 export const EXPERIMENT_CATEGORY_DISPLAY =
   'AMO Install Button Warning Experiment - Display';
-export const EXPERIMENT_ID = 'installButtonWarning';
+export const EXPERIMENT_ID = 'installButtonWarning2';
 // We use dimension6 because that is a custom GA dimension added for this
 // particular experiment.
 export const INSTALL_WARNING_EXPERIMENT_DIMENSION = 'dimension6';
