@@ -376,6 +376,8 @@ module.exports = {
   // experiments.
   experiments: {
     installButtonWarning: false,
+    // See https://github.com/mozilla/addons-frontend/issues/8760.
+    installButtonWarning2: false,
   },
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
