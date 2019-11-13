@@ -5,6 +5,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -81,13 +82,26 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
   };
 
   onReportButtonClick = async (event: SyntheticEvent<any>) => {
+    const { _hasAbuseReportPanelEnabled, addon, dispatch } = this.props;
+
     event.preventDefault();
 
-    const { _hasAbuseReportPanelEnabled, addon, dispatch } = this.props;
-    if (_hasAbuseReportPanelEnabled()) {
+    if (
+      _hasAbuseReportPanelEnabled() &&
+      // The integrated abuse report panel currently supports only extensions
+      // and themes (e.g. we do only have abuse categories and related
+      // localized descriptions only for these two kind of addons), and so
+      // currently it is going to refuse to create an abuse report panel for
+      // langpacks, dictionaries and search tools.
+      //
+      // Static themes should be supported but there is a bug in FF, see:
+      // https://github.com/mozilla/addons-frontend/issues/8762#issuecomment-553430081
+      [ADDON_TYPE_EXTENSION].includes(addon.type)
+    ) {
       dispatch(initiateAddonAbuseReportViaFirefox({ addon }));
       return;
     }
+
     dispatch(showAddonAbuseReportUI({ addon }));
   };
 
