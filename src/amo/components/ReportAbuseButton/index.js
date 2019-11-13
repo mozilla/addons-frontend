@@ -93,7 +93,10 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
       // descriptions only for these two kind of addons), and so currently it
       // is going to refuse to create an abuse report panel for langpacks,
       // dictionaries and search tools.
-      [ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME].includes(addon.type)
+      //
+      // Static themes should be supported but there is a bug in FF, see:
+      // https://github.com/mozilla/addons-frontend/issues/8762#issuecomment-553430081
+      [ADDON_TYPE_EXTENSION].includes(addon.type)
     ) {
       dispatch(initiateAddonAbuseReportViaFirefox({ addon }));
       return;
