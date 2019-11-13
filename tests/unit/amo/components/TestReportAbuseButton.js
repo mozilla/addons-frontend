@@ -5,6 +5,13 @@ import ReportAbuseButton, {
 } from 'amo/components/ReportAbuseButton';
 import { setError } from 'core/actions/errors';
 import {
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_STATIC_THEME,
+} from 'core/constants';
+import {
   initiateAddonAbuseReportViaFirefox,
   loadAddonAbuseReport,
   sendAddonAbuseReport,
@@ -14,6 +21,7 @@ import {
 import Button from 'ui/components/Button';
 import ErrorList from 'ui/components/ErrorList';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
+import { createInternalAddon } from 'core/reducers/addons';
 import {
   createFakeAddonAbuseReport,
   createFakeEvent,
@@ -27,7 +35,7 @@ import {
 describe(__filename, () => {
   const defaultRenderProps = {
     _hasAbuseReportPanelEnabled: sinon.stub(),
-    addon: { ...fakeAddon, slug: 'my-addon' },
+    addon: createInternalAddon({ ...fakeAddon, slug: 'my-addon' }),
     errorHandler: createStubErrorHandler(),
     i18n: fakeI18n(),
     store: dispatchClientMetadata().store,
@@ -135,26 +143,53 @@ describe(__filename, () => {
     expect(root.find('.ReportAbuseButton--is-expanded')).toHaveLength(1);
   });
 
-  it('initiates an abuse report via Firefox when the "report" button is clicked if supported', () => {
-    const _hasAbuseReportPanelEnabled = sinon.stub().returns(true);
-    const addon = fakeAddon;
-    const fakeEvent = createFakeEvent();
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = renderShallow({
-      _hasAbuseReportPanelEnabled,
-      addon,
-      store,
-    });
+  it.each([ADDON_TYPE_EXTENSION])(
+    'initiates an abuse report via Firefox when the "report" button is clicked if supported and add-on type is %s',
+    (addonType) => {
+      const _hasAbuseReportPanelEnabled = sinon.stub().returns(true);
+      const addon = createInternalAddon({ ...fakeAddon, type: addonType });
+      const fakeEvent = createFakeEvent();
+      const { store } = dispatchClientMetadata();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const root = renderShallow({
+        _hasAbuseReportPanelEnabled,
+        addon,
+        store,
+      });
 
-    root.find(Button).simulate('click', fakeEvent);
+      root.find(Button).simulate('click', fakeEvent);
 
-    sinon.assert.called(fakeEvent.preventDefault);
-    sinon.assert.calledWith(
-      dispatchSpy,
-      initiateAddonAbuseReportViaFirefox({ addon }),
-    );
-  });
+      sinon.assert.called(fakeEvent.preventDefault);
+      sinon.assert.calledWith(
+        dispatchSpy,
+        initiateAddonAbuseReportViaFirefox({ addon }),
+      );
+    },
+  );
+
+  it.each([
+    ADDON_TYPE_DICT,
+    ADDON_TYPE_LANG,
+    ADDON_TYPE_OPENSEARCH,
+    ADDON_TYPE_STATIC_THEME,
+  ])(
+    'does not initiate an abuse report via Firefox when add-on type is %s',
+    (addonType) => {
+      const _hasAbuseReportPanelEnabled = sinon.stub().returns(true);
+      const addon = createInternalAddon({ ...fakeAddon, type: addonType });
+      const { store } = dispatchClientMetadata();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const root = renderShallow({
+        _hasAbuseReportPanelEnabled,
+        addon,
+        store,
+      });
+      root.find(Button).simulate('click', createFakeEvent());
+
+      sinon.assert.calledWith(dispatchSpy, showAddonAbuseReportUI({ addon }));
+    },
+  );
 
   it('shows a success message and hides the button if report was sent', () => {
     const addon = { ...fakeAddon, slug: 'bank-machine-skimmer' };
