@@ -5,7 +5,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
+import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
