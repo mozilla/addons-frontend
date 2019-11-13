@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-12 18:08+0000\n"
-"PO-Revision-Date: 2019-11-12 21:15+0000\n"
-"Last-Translator: Melo46 <melo@carmu.com>\n"
+"PO-Revision-Date: 2019-11-13 21:06+0000\n"
+"Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
@@ -320,7 +320,7 @@ msgstr "Rediger revision"
 
 #: src/amo/components/AddonReviewCard/index.js:205 src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
-msgstr "Deler replica"
+msgstr "Deler responsa"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
@@ -353,7 +353,7 @@ msgstr "Cancellar"
 
 #: src/amo/components/AddonReviewCard/index.js:255
 msgid "Keep reply"
-msgstr "Retener replica"
+msgstr "Retener responsa"
 
 #: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep rating"
@@ -365,23 +365,23 @@ msgstr "Retener revision"
 
 #: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
-msgstr "Scribe un replica a iste revision."
+msgstr "Scribe un responsa a iste recension."
 
 #: src/amo/components/AddonReviewCard/index.js:301 src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
-msgstr "Actualisar replica"
+msgstr "Actualisar responsa"
 
 #: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
-msgstr "Publicar replica"
+msgstr "Publicar responsa"
 
 #: src/amo/components/AddonReviewCard/index.js:306 src/amo/components/AddonReviewManager/index.js:122
 msgid "Updating reply"
-msgstr "Actualisation del replica"
+msgstr "Actualisante responsa"
 
 #: src/amo/components/AddonReviewCard/index.js:307
 msgid "Publishing reply"
-msgstr "Publication del replica"
+msgstr "Publicante responsa"
 
 #: src/amo/components/AddonReviewCard/index.js:349
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -397,7 +397,7 @@ msgstr "Deletion…"
 
 #: src/amo/components/AddonReviewCard/index.js:473
 msgid "Reply to this review"
-msgstr "Responder a iste revision"
+msgstr "Responder a iste recension"
 
 #: src/amo/components/AddonReviewCard/index.js:503
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
