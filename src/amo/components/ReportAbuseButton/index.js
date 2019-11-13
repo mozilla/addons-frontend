@@ -88,11 +88,11 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
 
     if (
       _hasAbuseReportPanelEnabled() &&
-      // The integrated abuse report panel currently support only extension and
-      // themes (e.g. we do only have abuse categories and related localized
-      // descriptions only for these two kind of addons), and so currently it
-      // is going to refuse to create an abuse report panel for langpacks,
-      // dictionaries and search tools.
+      // The integrated abuse report panel currently supports only extensions
+      // and themes (e.g. we do only have abuse categories and related
+      // localized descriptions only for these two kind of addons), and so
+      // currently it is going to refuse to create an abuse report panel for
+      // langpacks, dictionaries and search tools.
       //
       // Static themes should be supported but there is a bug in FF, see:
       // https://github.com/mozilla/addons-frontend/issues/8762#issuecomment-553430081
