@@ -5,9 +5,11 @@ import Search from 'amo/components/Search';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_TOP_RATED } from 'core/constants';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
 import {
   dispatchClientMetadata,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -52,5 +54,44 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find(HeadLinks)).toHaveLength(1);
+  });
+
+  describe('enableFeatureRemoveSearchTools = true', () => {
+    const renderWithoutSearchTools = (props = {}) => {
+      const _config = getFakeConfig({ enableFeatureRemoveSearchTools: true });
+
+      return render({ _config, ...props });
+    };
+
+    it('sends a server redirect', () => {
+      const fakeDispatch = sinon.spy(store, 'dispatch');
+
+      renderWithoutSearchTools();
+
+      sinon.assert.calledWith(
+        fakeDispatch,
+        sendServerRedirect({
+          status: 301,
+          url: sinon.match('/en-US/android/search/?category=search-tools'),
+        }),
+      );
+      sinon.assert.callCount(fakeDispatch, 1);
+    });
+  });
+
+  describe('enableFeatureRemoveSearchTools = false', () => {
+    const renderWithSearchTools = (props = {}) => {
+      const _config = getFakeConfig({ enableFeatureRemoveSearchTools: false });
+
+      return render({ _config, ...props });
+    };
+
+    it('does not send a server redirect', () => {
+      const fakeDispatch = sinon.spy(store, 'dispatch');
+
+      renderWithSearchTools();
+
+      sinon.assert.notCalled(fakeDispatch);
+    });
   });
 });

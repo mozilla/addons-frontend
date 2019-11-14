@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
+import config from 'config';
 
 import {
   ADDON_TYPE_EXTENSION,
@@ -34,12 +35,17 @@ const sortSelectName = paramsToFilter.sort;
 
 export class SearchFiltersBase extends React.Component {
   static propTypes = {
+    _config: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
     filters: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     lang: PropTypes.string.isRequired,
     pathname: PropTypes.string.isRequired,
+  };
+
+  static defaultProps = {
+    _config: config,
   };
 
   onSelectElementChange = (event) => {
@@ -123,17 +129,27 @@ export class SearchFiltersBase extends React.Component {
   }
 
   addonTypeOptions() {
-    const { i18n } = this.props;
+    const { _config, i18n } = this.props;
 
-    return [
+    const options = [
       { children: i18n.gettext('All'), value: NO_FILTER },
       { children: i18n.gettext('Extension'), value: ADDON_TYPE_EXTENSION },
-      { children: i18n.gettext('Search Tool'), value: ADDON_TYPE_OPENSEARCH },
-      {
-        children: i18n.gettext('Theme'),
-        value: ADDON_TYPE_STATIC_THEME,
-      },
     ];
+
+    // See: https://github.com/mozilla/addons-frontend/issues/8680
+    if (!_config.get('enableFeatureRemoveSearchTools')) {
+      options.push({
+        children: i18n.gettext('Search Tool'),
+        value: ADDON_TYPE_OPENSEARCH,
+      });
+    }
+
+    options.push({
+      children: i18n.gettext('Theme'),
+      value: ADDON_TYPE_STATIC_THEME,
+    });
+
+    return options;
   }
 
   operatingSystemOptions() {
