@@ -32,6 +32,8 @@ module.exports = {
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
 
+  enableFeatureRemoveSearchTools: true,
+
   experiments: {
     installButtonWarning2: true,
   },

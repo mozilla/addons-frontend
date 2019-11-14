@@ -18,6 +18,7 @@ import {
   createFakeHistory,
   dispatchClientMetadata,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import DropdownMenu from 'ui/components/DropdownMenu';
@@ -75,13 +76,27 @@ describe(__filename, () => {
   });
 
   it('renders a link to the Search Tools page', () => {
-    const root = render({ viewContext: ADDON_TYPE_EXTENSION });
+    const _config = getFakeConfig({ enableFeatureRemoveSearchTools: false });
+
+    const root = render({ _config, viewContext: ADDON_TYPE_EXTENSION });
 
     expect(
       root.find('.SectionLinks-dropdownlink').findWhere((element) => {
         return element.prop('to') === '/search-tools/';
       }),
     ).toHaveProp('children', 'Search Tools');
+  });
+
+  it('does not render a link to the Search Tools page when feature flag is active', () => {
+    const _config = getFakeConfig({ enableFeatureRemoveSearchTools: true });
+
+    const root = render({ _config, viewContext: ADDON_TYPE_EXTENSION });
+
+    expect(
+      root.find('.SectionLinks-dropdownlink').findWhere((element) => {
+        return element.prop('to') === '/search-tools/';
+      }),
+    ).toHaveLength(0);
   });
 
   it('renders Explore active on homepage', () => {

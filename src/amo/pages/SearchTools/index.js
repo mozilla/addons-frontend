@@ -2,16 +2,26 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import config from 'config';
 
 import Search from 'amo/components/Search';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import Page from 'amo/components/Page';
-import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_TOP_RATED } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_OPENSEARCH,
+  SEARCH_SORT_TOP_RATED,
+} from 'core/constants';
 import translate from 'core/i18n/translate';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
-import type { SearchFilters } from 'amo/components/AutoSearchInput';
+import { makeQueryString } from 'core/api';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
+import { getCategoryResultsQuery } from 'core/utils';
+import type { AppState } from 'amo/store';
+import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
+import type { SearchFilters } from 'amo/components/AutoSearchInput';
 
 type Props = {|
   filters: SearchFilters,
@@ -19,10 +29,41 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  _config: typeof config,
+  clientApp: string,
+  dispatch: DispatchFunc,
   i18n: I18nType,
+  lang: string,
 |};
 
 export class SearchToolsBase extends React.Component<InternalProps> {
+  static defaultProps = {
+    _config: config,
+  };
+
+  constructor(props: InternalProps) {
+    super(props);
+
+    // See: https://github.com/mozilla/addons-frontend/issues/8679
+    if (props._config.get('enableFeatureRemoveSearchTools')) {
+      const { clientApp, dispatch, lang } = props;
+
+      const queryString = makeQueryString(
+        getCategoryResultsQuery({
+          addonType: ADDON_TYPE_EXTENSION,
+          slug: 'search-tools',
+        }),
+      );
+
+      dispatch(
+        sendServerRedirect({
+          status: 301,
+          url: `/${lang}/${clientApp}/search/${queryString}`,
+        }),
+      );
+    }
+  }
+
   render() {
     const { filters, i18n } = this.props;
 
@@ -47,13 +88,17 @@ export class SearchToolsBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps() {
+export function mapStateToProps(state: AppState) {
   const filters = {
     addonType: ADDON_TYPE_OPENSEARCH,
     sort: SEARCH_SORT_TOP_RATED,
   };
 
-  return { filters };
+  return {
+    filters,
+    clientApp: state.api.clientApp,
+    lang: state.api.lang,
+  };
 }
 
 const SearchTools: React.ComponentType<Props> = compose(

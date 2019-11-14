@@ -3,6 +3,7 @@ import * as React from 'react';
 import SearchFilters, { SearchFiltersBase } from 'amo/components/SearchFilters';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   OS_LINUX,
   SEARCH_SORT_RANDOM,
@@ -21,6 +22,7 @@ import {
   createStubErrorHandler,
   dispatchClientMetadata,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -429,7 +431,7 @@ describe(__filename, () => {
     expect(root.find('.SearchFilters-AddonType')).toHaveLength(0);
   });
 
-  it('sets themes filters shelf with the ADDON_TYPE_STATIC_THEME filter', () => {
+  it('renders a theme option', () => {
     const root = render();
     const selectFilters = root.find(Select);
 
@@ -438,5 +440,31 @@ describe(__filename, () => {
       .children()
       .map((option) => option.props().value);
     expect(optionValues).toContain(ADDON_TYPE_STATIC_THEME);
+  });
+
+  it('renders a search tools option', () => {
+    const _config = getFakeConfig({ enableFeatureRemoveSearchTools: false });
+
+    const root = render({ _config });
+
+    const selectFilters = root.find(Select);
+    const optionValues = selectFilters
+      .find('#SearchFilters-AddonType')
+      .children()
+      .map((option) => option.props().value);
+    expect(optionValues).toContain(ADDON_TYPE_OPENSEARCH);
+  });
+
+  it('does not render a search tools option when the feature flag is active', () => {
+    const _config = getFakeConfig({ enableFeatureRemoveSearchTools: true });
+
+    const root = render({ _config });
+
+    const selectFilters = root.find(Select);
+    const optionValues = selectFilters
+      .find('#SearchFilters-AddonType')
+      .children()
+      .map((option) => option.props().value);
+    expect(optionValues).not.toContain(ADDON_TYPE_OPENSEARCH);
   });
 });

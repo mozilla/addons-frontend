@@ -4,6 +4,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import config from 'config';
 
 import Link from 'amo/components/Link';
 import { setClientApp } from 'core/actions';
@@ -37,7 +38,16 @@ type Props = {|
   viewContext: ViewContextType,
 |};
 
-export class SectionLinksBase extends React.Component<Props> {
+type InternalProps = {
+  ...Props,
+  _config: typeof config,
+};
+
+export class SectionLinksBase extends React.Component<InternalProps> {
+  static defaultProps = {
+    _config: config,
+  };
+
   setClientApp = (event: Object) => {
     event.preventDefault();
 
@@ -50,7 +60,7 @@ export class SectionLinksBase extends React.Component<Props> {
   };
 
   render() {
-    const { className, clientApp, i18n, viewContext } = this.props;
+    const { _config, className, clientApp, i18n, viewContext } = this.props;
     const isExploring = [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(
       viewContext,
     );
@@ -111,6 +121,7 @@ export class SectionLinksBase extends React.Component<Props> {
             <DropdownMenuItem className="SectionLinks-subheader">
               {forBrowserNameText}
             </DropdownMenuItem>
+
             {clientApp !== CLIENT_APP_ANDROID && (
               <DropdownMenuItem>
                 <Link
@@ -124,11 +135,15 @@ export class SectionLinksBase extends React.Component<Props> {
                 </Link>
               </DropdownMenuItem>
             )}
-            <DropdownMenuItem>
-              <Link className="SectionLinks-dropdownlink" to="/search-tools/">
-                {i18n.gettext('Search Tools')}
-              </Link>
-            </DropdownMenuItem>
+
+            {// See: https://github.com/mozilla/addons-frontend/issues/8680
+            !_config.get('enableFeatureRemoveSearchTools') && (
+              <DropdownMenuItem>
+                <Link className="SectionLinks-dropdownlink" to="/search-tools/">
+                  {i18n.gettext('Search Tools')}
+                </Link>
+              </DropdownMenuItem>
+            )}
 
             <DropdownMenuItem className="SectionLinks-subheader">
               {i18n.gettext('Other Browser Sites')}

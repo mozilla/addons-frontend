@@ -119,6 +119,7 @@ module.exports = {
     'enableDevTools',
     'enableFeatureDiscoTaar',
     'enableFeatureExperienceSurvey',
+    'enableFeatureRemoveSearchTools',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -371,6 +372,9 @@ module.exports = {
 
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
+
+  // See: https://github.com/mozilla/addons-frontend/issues/8680
+  enableFeatureRemoveSearchTools: false,
 
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments.
