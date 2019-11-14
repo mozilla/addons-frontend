@@ -137,7 +137,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
             )}
 
             {// See: https://github.com/mozilla/addons-frontend/issues/8680
-            _config.get('enableFeatureRemoveSearchTools') !== true && (
+            !_config.get('enableFeatureRemoveSearchTools') && (
               <DropdownMenuItem>
                 <Link className="SectionLinks-dropdownlink" to="/search-tools/">
                   {i18n.gettext('Search Tools')}

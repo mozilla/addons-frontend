@@ -11,14 +11,13 @@ import Page from 'amo/components/Page';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
-  SEARCH_SORT_POPULAR,
-  SEARCH_SORT_RECOMMENDED,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import { makeQueryString } from 'core/api';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
+import { getCategoryResultsQuery } from 'core/utils';
 import type { AppState } from 'amo/store';
 import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
@@ -49,11 +48,12 @@ export class SearchToolsBase extends React.Component<InternalProps> {
     if (props._config.get('enableFeatureRemoveSearchTools')) {
       const { clientApp, dispatch, lang } = props;
 
-      const queryString = makeQueryString({
-        category: 'search-tools',
-        sort: `${SEARCH_SORT_RECOMMENDED},${SEARCH_SORT_POPULAR}`,
-        type: ADDON_TYPE_EXTENSION,
-      });
+      const queryString = makeQueryString(
+        getCategoryResultsQuery({
+          addonType: ADDON_TYPE_EXTENSION,
+          slug: 'search-tools',
+        }),
+      );
 
       dispatch(
         sendServerRedirect({

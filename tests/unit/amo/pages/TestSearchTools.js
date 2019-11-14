@@ -57,16 +57,11 @@ describe(__filename, () => {
   });
 
   describe('enableFeatureRemoveSearchTools = true', () => {
-    const renderWithoutSearchTools = (props = {}) => {
-      const _config = getFakeConfig({ enableFeatureRemoveSearchTools: true });
-
-      return render({ _config, ...props });
-    };
-
     it('sends a server redirect', () => {
+      const _config = getFakeConfig({ enableFeatureRemoveSearchTools: true });
       const fakeDispatch = sinon.spy(store, 'dispatch');
 
-      renderWithoutSearchTools();
+      render({ _config });
 
       sinon.assert.calledWith(
         fakeDispatch,
@@ -80,16 +75,11 @@ describe(__filename, () => {
   });
 
   describe('enableFeatureRemoveSearchTools = false', () => {
-    const renderWithSearchTools = (props = {}) => {
-      const _config = getFakeConfig({ enableFeatureRemoveSearchTools: false });
-
-      return render({ _config, ...props });
-    };
-
     it('does not send a server redirect', () => {
+      const _config = getFakeConfig({ enableFeatureRemoveSearchTools: false });
       const fakeDispatch = sinon.spy(store, 'dispatch');
 
-      renderWithSearchTools();
+      render({ _config });
 
       sinon.assert.notCalled(fakeDispatch);
     });
