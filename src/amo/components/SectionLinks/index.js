@@ -72,6 +72,35 @@ export class SectionLinksBase extends React.Component<InternalProps> {
       forBrowserNameText = i18n.gettext('for Android');
     }
 
+    const sectionsForBrowser = [];
+
+    if (clientApp !== CLIENT_APP_ANDROID) {
+      sectionsForBrowser.push(
+        <DropdownMenuItem key="dictionaries-and-language-packs">
+          <Link
+            className={makeClassName('SectionLinks-dropdownlink', {
+              'SectionLinks-dropdownlink--active':
+                viewContext === VIEW_CONTEXT_LANGUAGE_TOOLS,
+            })}
+            to="/language-tools/"
+          >
+            {i18n.gettext('Dictionaries & Language Packs')}
+          </Link>
+        </DropdownMenuItem>,
+      );
+    }
+
+    // See: https://github.com/mozilla/addons-frontend/issues/8680
+    if (!_config.get('enableFeatureRemoveSearchTools')) {
+      sectionsForBrowser.push(
+        <DropdownMenuItem key="search-tools">
+          <Link className="SectionLinks-dropdownlink" to="/search-tools/">
+            {i18n.gettext('Search Tools')}
+          </Link>
+        </DropdownMenuItem>,
+      );
+    }
+
     return (
       <ul className={makeClassName('SectionLinks', className)}>
         <li>
@@ -118,32 +147,12 @@ export class SectionLinksBase extends React.Component<InternalProps> {
             className="SectionLinks-link SectionLinks-dropdown"
             text={i18n.gettext('More…')}
           >
-            <DropdownMenuItem className="SectionLinks-subheader">
-              {forBrowserNameText}
-            </DropdownMenuItem>
-
-            {clientApp !== CLIENT_APP_ANDROID && (
-              <DropdownMenuItem>
-                <Link
-                  className={makeClassName('SectionLinks-dropdownlink', {
-                    'SectionLinks-dropdownlink--active':
-                      viewContext === VIEW_CONTEXT_LANGUAGE_TOOLS,
-                  })}
-                  to="/language-tools/"
-                >
-                  {i18n.gettext('Dictionaries & Language Packs')}
-                </Link>
+            {sectionsForBrowser.length > 0 && (
+              <DropdownMenuItem className="SectionLinks-subheader">
+                {forBrowserNameText}
               </DropdownMenuItem>
             )}
-
-            {// See: https://github.com/mozilla/addons-frontend/issues/8680
-            !_config.get('enableFeatureRemoveSearchTools') && (
-              <DropdownMenuItem>
-                <Link className="SectionLinks-dropdownlink" to="/search-tools/">
-                  {i18n.gettext('Search Tools')}
-                </Link>
-              </DropdownMenuItem>
-            )}
+            {sectionsForBrowser}
 
             <DropdownMenuItem className="SectionLinks-subheader">
               {i18n.gettext('Other Browser Sites')}
