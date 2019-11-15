@@ -99,6 +99,21 @@ describe(__filename, () => {
     ).toHaveLength(0);
   });
 
+  it('does not render the "for Android" section when there is no link for it', () => {
+    // There should be no "for Android" section because:
+    // 1. we browse the "android" version of the website
+    _store.dispatch(setClientApp(CLIENT_APP_ANDROID));
+    // 2. the "remove search tools" feature is enabled
+    const _config = getFakeConfig({ enableFeatureRemoveSearchTools: true });
+
+    const root = render({ _config });
+
+    expect(root.find('.SectionLinks-subheader')).toHaveLength(1);
+    expect(root.find('.SectionLinks-subheader').children()).not.toIncludeText(
+      'for Android',
+    );
+  });
+
   it('renders Explore active on homepage', () => {
     _store.dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
     const root = render();
