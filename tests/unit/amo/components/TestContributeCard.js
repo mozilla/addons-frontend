@@ -2,6 +2,7 @@ import * as React from 'react';
 import { oneLine } from 'common-tags';
 
 import ContributeCard, {
+  CONTRIBUTE_BUTTON_CLICK_CATEGORY,
   ContributeCardBase,
 } from 'amo/components/ContributeCard';
 import {
@@ -12,7 +13,12 @@ import {
 import { createInternalAddon } from 'core/reducers/addons';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
-import { fakeAddon, fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  createFakeTracking,
+  fakeAddon,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   const createAddon = (params) => {
@@ -127,5 +133,25 @@ describe(__filename, () => {
     expect(root.find('.ContributeCard-content').text()).toMatch(
       /The authors of this add-on ask /,
     );
+  });
+
+  it('sends a tracking event when the button is clicked', () => {
+    const _tracking = createFakeTracking();
+    const slug = 'some-slug';
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      contributions_url: 'some/url',
+      slug,
+    });
+
+    const root = render({ _tracking, addon });
+
+    root.find('.ContributeCard-button').simulate('click');
+
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: slug,
+      category: CONTRIBUTE_BUTTON_CLICK_CATEGORY,
+    });
+    sinon.assert.calledOnce(_tracking.sendEvent);
   });
 });

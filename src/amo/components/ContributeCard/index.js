@@ -4,6 +4,7 @@ import { compose } from 'redux';
 
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
+import tracking from 'core/tracking';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
@@ -12,12 +13,24 @@ import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
+export const CONTRIBUTE_BUTTON_CLICK_CATEGORY =
+  'AMO Addon / Contribute Button Clicks';
+
 type Props = {|
   addon: AddonType | null,
   i18n: I18nType,
 |};
 
-export const ContributeCardBase = ({ addon, i18n }: Props) => {
+type InternalProps = {|
+  ...Props,
+  _tracking: typeof tracking,
+|};
+
+export const ContributeCardBase = ({
+  _tracking = tracking,
+  addon,
+  i18n,
+}: InternalProps) => {
   if (!addon || (addon && !addon.contributions_url)) {
     return null;
   }
@@ -71,6 +84,13 @@ export const ContributeCardBase = ({ addon, i18n }: Props) => {
       break;
   }
 
+  const onButtonClick = () => {
+    _tracking.sendEvent({
+      action: addon.slug,
+      category: CONTRIBUTE_BUTTON_CLICK_CATEGORY,
+    });
+  };
+
   return (
     <Card className="ContributeCard" header={header}>
       <p className="ContributeCard-content">{content}</p>
@@ -79,6 +99,7 @@ export const ContributeCardBase = ({ addon, i18n }: Props) => {
           buttonType="action"
           className="ContributeCard-button"
           href={addon.contributions_url}
+          onClick={onButtonClick}
           target="_blank"
           puffy
         >
