@@ -158,4 +158,15 @@ describe(__filename, () => {
 
     expect(root.find(HeadLinks)).toHaveLength(1);
   });
+
+  it('escapes JSON linked data', () => {
+    const name = '<script>';
+    const addon = createInternalAddon({ ...fakeAddon, name });
+
+    const root = render({ addon });
+
+    expect(root.find('script[type="application/ld+json"]')).not.toIncludeText(
+      name,
+    );
+  });
 });

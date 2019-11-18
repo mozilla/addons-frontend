@@ -4,6 +4,7 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import serialize from 'serialize-javascript';
 
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
@@ -159,7 +160,7 @@ export class AddonHeadBase extends React.Component<InternalProps> {
           <title>{this.getPageTitle()}</title>
 
           <script type="application/ld+json">
-            {JSON.stringify(_getAddonJsonLinkedData({ addon, currentVersion }))}
+            {serialize(_getAddonJsonLinkedData({ addon, currentVersion }))}
           </script>
         </Helmet>
 
