@@ -14,6 +14,7 @@ import { createInternalAddon } from 'core/reducers/addons';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import {
+  createFakeEvent,
   createFakeTracking,
   fakeAddon,
   fakeI18n,
@@ -137,20 +138,26 @@ describe(__filename, () => {
 
   it('sends a tracking event when the button is clicked', () => {
     const _tracking = createFakeTracking();
+    const contributionsUrl = 'some/url';
     const slug = 'some-slug';
     const addon = createInternalAddon({
       ...fakeAddon,
-      contributions_url: 'some/url',
+      contributions_url: contributionsUrl,
       slug,
     });
 
     const root = render({ _tracking, addon });
 
-    root.find('.ContributeCard-button').simulate('click');
+    const event = createFakeEvent({
+      currentTarget: { href: contributionsUrl },
+    });
+
+    root.find('.ContributeCard-button').simulate('click', event);
 
     sinon.assert.calledWith(_tracking.sendEvent, {
       action: slug,
       category: CONTRIBUTE_BUTTON_CLICK_CATEGORY,
+      label: contributionsUrl,
     });
     sinon.assert.calledOnce(_tracking.sendEvent);
   });

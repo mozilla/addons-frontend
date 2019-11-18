@@ -84,10 +84,11 @@ export const ContributeCardBase = ({
       break;
   }
 
-  const onButtonClick = () => {
+  const onButtonClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
     _tracking.sendEvent({
       action: addon.slug,
       category: CONTRIBUTE_BUTTON_CLICK_CATEGORY,
+      label: event.currentTarget.href,
     });
   };
 
