@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-12 18:08+0000\n"
+"POT-Creation-Date: 2019-11-19 19:52+0000\n"
 "PO-Revision-Date: 2019-05-07 21:08+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -138,71 +138,71 @@ msgstr ""
 "\">naqasäx Firefox</a> richin nayäk re tz'aqat re'."
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:104
+#: src/amo/components/AddonHead/index.js:100
+msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – Tak'ulu' re K'amal re' richin 🦊 Firefox (%(locale)s)"
+
+# please keep the fox emoji next to "Firefox".
+#: src/amo/components/AddonHead/index.js:105
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr ""
 "%(addonName)s – Tak'ulu' re Rupisaj Ch'ab'äl re' richin 🦊 Firefox "
 "(%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:109
+#: src/amo/components/AddonHead/index.js:110
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Tak'ulu' re Wachinel re' richin 🦊 Firefox (%(locale)s)"
 
-#: src/amo/components/AddonHead/index.js:114
+#: src/amo/components/AddonHead/index.js:115
 #, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
 msgstr "%s – Kitz'aqat Firefox"
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:119
+#: src/amo/components/AddonHead/index.js:120
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Tak'ulu' re Tz'aqat re' richin 🦊 Firefox (%(locale)s)"
 
-#: src/amo/components/AddonHead/index.js:133
+#: src/amo/components/AddonHead/index.js:134
 msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr "Tiqasäx %(addonName)s richin Firefox. %(summary)s"
 
-#: src/amo/components/AddonHead/index.js:61
+#: src/amo/components/AddonHead/index.js:62
 #, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
 msgstr "%s – Kitz'aqat Firefox"
 
-#: src/amo/components/AddonHead/index.js:66
+#: src/amo/components/AddonHead/index.js:67
 #, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
 msgstr "%s – Kitz'aqat Firefox"
 
-#: src/amo/components/AddonHead/index.js:71
+#: src/amo/components/AddonHead/index.js:72
 #, fuzzy
 msgid ""
 "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
 msgstr "%s – Kitz'aqat Firefox"
 
-#: src/amo/components/AddonHead/index.js:76
+#: src/amo/components/AddonHead/index.js:77
 #, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
 msgstr "%s – Kitz'aqat Firefox"
 
-#: src/amo/components/AddonHead/index.js:82
+#: src/amo/components/AddonHead/index.js:83
 #, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
 msgstr "%s – Kitz'aqat Firefox"
 
-#: src/amo/components/AddonHead/index.js:87
+#: src/amo/components/AddonHead/index.js:88
 #, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
 msgstr "%s – Kitz'aqat Firefox"
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:94
+#: src/amo/components/AddonHead/index.js:95
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Tak'ulu' re Soltzij re' richin 🦊 Firefox (%(locale)s)"
-
-# please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:99
-msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Tak'ulu' re K'amal re' richin 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:116
 #, fuzzy
@@ -778,15 +778,19 @@ msgstr "B'i'aj"
 msgid "Popularity"
 msgstr "Taq wachinïk k'ïy kiwinaq"
 
-#: src/amo/components/ContributeCard/index.js:32
+#: src/amo/components/ContributeCard/index.js:108
+msgid "Contribute now"
+msgstr "Kato'on wakami"
+
+#: src/amo/components/ContributeCard/index.js:45
 msgid "Support this developer"
 msgstr "Tito' re b'anonel re'"
 
-#: src/amo/components/ContributeCard/index.js:33
+#: src/amo/components/ContributeCard/index.js:46
 msgid "Support these developers"
 msgstr "Keto' re b'anonela' re'"
 
-#: src/amo/components/ContributeCard/index.js:37
+#: src/amo/components/ContributeCard/index.js:50
 msgid ""
 "The developer of this extension asks that you help support its continued "
 "development by making a small contribution."
@@ -794,7 +798,7 @@ msgstr ""
 "Ri rub'anonel re k'amal re', nuk'utüj chawe chi tato' rik'in rub'anik, "
 "rik'in naya' jun ko'öl ato'ik."
 
-#: src/amo/components/ContributeCard/index.js:39
+#: src/amo/components/ContributeCard/index.js:52
 msgid ""
 "The developers of this extension ask that you help support its continued "
 "development by making a small contribution."
@@ -802,15 +806,15 @@ msgstr ""
 "Ri e rub'anonela' re k'amal re', nuk'utüj chawe chi tato' rik'in rub'anik, "
 "rik'in naya' jun ko'öl ato'ik."
 
-#: src/amo/components/ContributeCard/index.js:46
+#: src/amo/components/ContributeCard/index.js:59
 msgid "Support this artist"
 msgstr "Tito' re b'anöl re'"
 
-#: src/amo/components/ContributeCard/index.js:47
+#: src/amo/components/ContributeCard/index.js:60
 msgid "Support these artists"
 msgstr "Keto' re b'anöl re'"
 
-#: src/amo/components/ContributeCard/index.js:51
+#: src/amo/components/ContributeCard/index.js:64
 msgid ""
 "The artist of this theme asks that you help support its continued creation "
 "by making a small contribution."
@@ -818,7 +822,7 @@ msgstr ""
 "Ri rub'anöl re wachinel re', nuk'utüj chawe chi tato' richin chi nitz'ukun, "
 "rik'in naya' jun ko'öl ato'ik."
 
-#: src/amo/components/ContributeCard/index.js:53
+#: src/amo/components/ContributeCard/index.js:66
 msgid ""
 "The artists of this theme ask that you help support its continued creation "
 "by making a small contribution."
@@ -826,15 +830,15 @@ msgstr ""
 "Ri kib'anöl re wachinel re', nikik'utüj chawe chi ke'ato' richin chi "
 "yeitz'ukun, rik'in naya' jun ko'öl ato'ik."
 
-#: src/amo/components/ContributeCard/index.js:60
+#: src/amo/components/ContributeCard/index.js:73
 msgid "Support this author"
 msgstr "Tito' re b'anel re'"
 
-#: src/amo/components/ContributeCard/index.js:61
+#: src/amo/components/ContributeCard/index.js:74
 msgid "Support these authors"
 msgstr "Keto' re taq b'anel re'"
 
-#: src/amo/components/ContributeCard/index.js:65
+#: src/amo/components/ContributeCard/index.js:78
 msgid ""
 "The author of this add-on asks that you help support its continued work by "
 "making a small contribution."
@@ -842,17 +846,13 @@ msgstr ""
 "Ri rub'anel re tz'aqat re', nuk'utuj chawe chi tato' rik'in rusamaj, rik'in "
 "naya' jun ko'öl ato'ik."
 
-#: src/amo/components/ContributeCard/index.js:67
+#: src/amo/components/ContributeCard/index.js:80
 msgid ""
 "The authors of this add-on ask that you help support its continued work by "
 "making a small contribution."
 msgstr ""
 "Ri taq rub'anel re tz'aqat re', nikik'utuj chawe chi ke'ato' rik'in kisamaj, "
 "rik'in naya' jun ko'öl ato'ik."
-
-#: src/amo/components/ContributeCard/index.js:86
-msgid "Contribute now"
-msgstr "Kato'on wakami"
 
 #: src/amo/components/EditableCollectionAddon/index.js:133
 #: src/amo/components/EditableCollectionAddon/index.js:151
@@ -998,12 +998,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Ya'on retal achi'el jun rutzijol sachoj o ruk'utuxik to'ïk"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "Xya' retal"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "Tiya' retal"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "Xya' retal"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1440,11 +1440,11 @@ msgstr "Titzolïx tzij chi re ri tzijoxïk"
 msgid "Read all one-star reviews"
 msgstr "Tisik'ïx %(count)s nik'oxïk"
 
-#: src/amo/components/ReportAbuseButton/index.js:105
+#: src/amo/components/ReportAbuseButton/index.js:119
 msgid "You reported this add-on for abuse"
 msgstr "Xaya' rutzijol itzel rokisaxik re tz'aqat re'"
 
-#: src/amo/components/ReportAbuseButton/index.js:109
+#: src/amo/components/ReportAbuseButton/index.js:123
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
@@ -1452,14 +1452,14 @@ msgstr ""
 "Xqak'ül ri atzijol. Niqak'awomaj chawe ruma ri taq amayoj chi rij re chokoy "
 "re'."
 
-#: src/amo/components/ReportAbuseButton/index.js:116
+#: src/amo/components/ReportAbuseButton/index.js:130
 #: src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 "Man yojtikïr ta niqatzolij tzij chi ke konojel ri taq rutzijol itzel "
 "kokisaxik, xa xtiqanik'oj re k'ayewal rel'."
 
-#: src/amo/components/ReportAbuseButton/index.js:126
+#: src/amo/components/ReportAbuseButton/index.js:140
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
@@ -1469,11 +1469,11 @@ msgstr ""
 "kitz'aqat Mozilla%(linkTagEnd)s o k'o k'ayewal pa ruwi' jikomal o ichinanem, "
 "taya' rutzijol chi re ri Mozilla rik'in rokisaxik re nojwuj re'."
 
-#: src/amo/components/ReportAbuseButton/index.js:142
+#: src/amo/components/ReportAbuseButton/index.js:156
 msgid "Report this add-on for abuse"
 msgstr "Tiya' rutzijol itzel rokisaxik re tz'aqat re'"
 
-#: src/amo/components/ReportAbuseButton/index.js:172
+#: src/amo/components/ReportAbuseButton/index.js:186
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1482,21 +1482,21 @@ msgstr ""
 "richin ye'ak'utuj k'ak'a' taq samaj; re rutzijol re' xtitaq chi re ri "
 "Mozilla, man chi re ta ri rub'anonel tz'aqat."
 
-#: src/amo/components/ReportAbuseButton/index.js:185
+#: src/amo/components/ReportAbuseButton/index.js:199
 #: src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
 msgstr "Nitaq rutzijol tz'ilanem"
 
-#: src/amo/components/ReportAbuseButton/index.js:186
+#: src/amo/components/ReportAbuseButton/index.js:200
 #: src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "Nitaq rutzijol tz'ilanem"
 
-#: src/amo/components/ReportAbuseButton/index.js:188
+#: src/amo/components/ReportAbuseButton/index.js:202
 msgid "Dismiss"
 msgstr "Tich'aqïx"
 
-#: src/amo/components/ReportAbuseButton/index.js:189
+#: src/amo/components/ReportAbuseButton/index.js:203
 msgid "Explain how this add-on is violating our policies."
 msgstr "Tacholo chi qe achike rub'eyal re tz'aqat re' nutz'ila' ri qana'ojil."
 
@@ -1695,72 +1695,72 @@ msgid_plural "%(count)s Search Tools found for \"%(query)s\""
 msgstr[0] "%(count)s q'i'oj xilitäj richin \"%(query)s\""
 msgstr[1] "%(count)s taq q'i'oj xe'ilitäj richin \"%(query)s\""
 
-#: src/amo/components/SearchFilters/index.js:129
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:135
+#: src/amo/components/SearchFilters/index.js:159
 msgid "All"
 msgstr "Ronojel"
 
-#: src/amo/components/SearchFilters/index.js:130
+#: src/amo/components/SearchFilters/index.js:136
 msgid "Extension"
 msgstr "K'amal"
 
-#: src/amo/components/SearchFilters/index.js:131
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Search Tool"
 msgstr "Kekanöx Samajib'äl"
 
-#: src/amo/components/SearchFilters/index.js:133
+#: src/amo/components/SearchFilters/index.js:148
 msgid "Theme"
 msgstr "Wachinïk"
 
-#: src/amo/components/SearchFilters/index.js:144
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:145
+#: src/amo/components/SearchFilters/index.js:161
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:146
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:154
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Relevance"
 msgstr "Rejqalem"
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:172
 msgid "Recently Updated"
 msgstr "Nimakol k'exoj"
 
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:175
 msgid "Most Users"
 msgstr "Ch'aqa' Okisanela'"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:176
 msgid "Top Rated"
 msgstr "Ütz Kejqalem Ya'on"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:177
 msgid "Trending"
 msgstr "K'ïy ruwinaq"
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:195
 msgid "Filter results"
 msgstr "Kichayub'al q'i'oj"
 
-#: src/amo/components/SearchFilters/index.js:184
+#: src/amo/components/SearchFilters/index.js:200
 msgid "Sort by"
 msgstr "Tichol chi"
 
-#: src/amo/components/SearchFilters/index.js:206
+#: src/amo/components/SearchFilters/index.js:222
 msgid "Add-on Type"
 msgstr "Ruwäch Tz'aqat"
 
-#: src/amo/components/SearchFilters/index.js:226
+#: src/amo/components/SearchFilters/index.js:242
 msgid "Operating System"
 msgstr "Samajel Q'inoj"
 
-#: src/amo/components/SearchFilters/index.js:252
+#: src/amo/components/SearchFilters/index.js:268
 #, fuzzy
 msgid "Recommended add-ons only"
 msgstr "Xa xe talun taq tz'aqat"
@@ -1812,52 +1812,52 @@ msgstr "Majun taq q'i'oj xe'ilitäj."
 msgid "Recommended"
 msgstr "Okisanel pa"
 
-#: src/amo/components/SectionLinks/index.js:103
+#: src/amo/components/SectionLinks/index.js:117
+msgid "Explore"
+msgstr "Tikanöx"
+
+#: src/amo/components/SectionLinks/index.js:127
+#: src/amo/pages/LandingPage/index.js:230
+msgid "Extensions"
+msgstr "Taq k'amal"
+
+#: src/amo/components/SectionLinks/index.js:142
 #: src/amo/pages/LandingPage/index.js:229
 msgid "Themes"
 msgstr "Taq wachinel"
 
-#: src/amo/components/SectionLinks/index.js:109
+#: src/amo/components/SectionLinks/index.js:148
 msgid "More…"
 msgstr "Ch'aqa' chik…"
 
-#: src/amo/components/SectionLinks/index.js:123
-msgid "Dictionaries & Language Packs"
-msgstr "Taq Soltzij & Tanaj taq Ch'ab'äl"
-
-#: src/amo/components/SectionLinks/index.js:129
-#: src/amo/pages/SearchTools/index.js:35
-msgid "Search Tools"
-msgstr "Kekanöx Samajib'äl"
-
-#: src/amo/components/SectionLinks/index.js:134
+#: src/amo/components/SectionLinks/index.js:158
 msgid "Other Browser Sites"
 msgstr "Ch'aqa' chik Ruxaq Okik'amaya'l"
 
-#: src/amo/components/SectionLinks/index.js:145
+#: src/amo/components/SectionLinks/index.js:169
 msgid "Add-ons for Android"
 msgstr "Kitz'aqat Android"
 
-#: src/amo/components/SectionLinks/index.js:158
+#: src/amo/components/SectionLinks/index.js:182
 msgid "Add-ons for Firefox"
 msgstr "Kitz'aqat Firefox"
 
-#: src/amo/components/SectionLinks/index.js:60
+#: src/amo/components/SectionLinks/index.js:70
 msgid "for Firefox"
 msgstr "richin Firefox"
 
-#: src/amo/components/SectionLinks/index.js:62
+#: src/amo/components/SectionLinks/index.js:72
 msgid "for Android"
 msgstr "richin Android"
 
-#: src/amo/components/SectionLinks/index.js:78
-msgid "Explore"
-msgstr "Tikanöx"
+#: src/amo/components/SectionLinks/index.js:87
+msgid "Dictionaries & Language Packs"
+msgstr "Taq Soltzij & Tanaj taq Ch'ab'äl"
 
-#: src/amo/components/SectionLinks/index.js:88
-#: src/amo/pages/LandingPage/index.js:230
-msgid "Extensions"
-msgstr "Taq k'amal"
+#: src/amo/components/SectionLinks/index.js:98
+#: src/amo/pages/SearchTools/index.js:76
+msgid "Search Tools"
+msgstr "Kekanöx Samajib'äl"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
@@ -2542,7 +2542,7 @@ msgstr "Tanaj Ch'ab'äl"
 msgid "Dictionaries"
 msgstr "Taq soltzij"
 
-#: src/amo/pages/SearchTools/index.js:32
+#: src/amo/pages/SearchTools/index.js:73
 msgid ""
 "Download Firefox extensions to customize the way you search—everything from "
 "privacy-enhanced searching to website-specific searches, image searching, "

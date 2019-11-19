@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-12 18:08+0000\n"
+"POT-Creation-Date: 2019-11-19 19:52+0000\n"
 "PO-Revision-Date: 2019-10-14 11:30+0000\n"
 "Last-Translator: aefgh39622 <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -131,62 +131,62 @@ msgstr ""
 "Firefox</a> เพื่อติดตั้งส่วนเสริมนี้"
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:104
+#: src/amo/components/AddonHead/index.js:100
+msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
+msgstr "%(addonName)s – รับส่วนขยายนี้สำหรับ 🦊 Firefox (%(locale)s)"
+
+# please keep the fox emoji next to "Firefox".
+#: src/amo/components/AddonHead/index.js:105
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – รับชุดภาษานี้สำหรับ 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:109
+#: src/amo/components/AddonHead/index.js:110
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – รับชุดตกแต่งนี้สำหรับ 🦊 Firefox (%(locale)s)"
 
-#: src/amo/components/AddonHead/index.js:114
+#: src/amo/components/AddonHead/index.js:115
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – รับเครื่องมือค้นหานี้สำหรับ 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:119
+#: src/amo/components/AddonHead/index.js:120
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – รับส่วนเสริมนี้สำหรับ 🦊 Firefox (%(locale)s)"
 
-#: src/amo/components/AddonHead/index.js:133
+#: src/amo/components/AddonHead/index.js:134
 msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr "ดาวน์โหลด %(addonName)s สำหรับ Firefox %(summary)s"
 
-#: src/amo/components/AddonHead/index.js:61
+#: src/amo/components/AddonHead/index.js:62
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – รับพจนานุกรมนี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
-#: src/amo/components/AddonHead/index.js:66
+#: src/amo/components/AddonHead/index.js:67
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – รับส่วนขยายนี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
-#: src/amo/components/AddonHead/index.js:71
+#: src/amo/components/AddonHead/index.js:72
 msgid ""
 "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – รับชุดภาษานี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
-#: src/amo/components/AddonHead/index.js:76
+#: src/amo/components/AddonHead/index.js:77
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – รับชุดตกแต่งนี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
-#: src/amo/components/AddonHead/index.js:82
+#: src/amo/components/AddonHead/index.js:83
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – รับเครื่องมือค้นหานี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
-#: src/amo/components/AddonHead/index.js:87
+#: src/amo/components/AddonHead/index.js:88
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – รับส่วนเสริมนี้สำหรับ 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:94
+#: src/amo/components/AddonHead/index.js:95
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – รับพจนานุกรมนี้สำหรับ 🦊 Firefox (%(locale)s)"
-
-# please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:99
-msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – รับส่วนขยายนี้สำหรับ 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:116
 msgid "%(total)s Star"
@@ -702,69 +702,69 @@ msgstr "ชื่อ"
 msgid "Popularity"
 msgstr "ความนิยม"
 
-#: src/amo/components/ContributeCard/index.js:32
+#: src/amo/components/ContributeCard/index.js:108
+msgid "Contribute now"
+msgstr "ร่วมสมทบทุนเดี๋ยวนี้"
+
+#: src/amo/components/ContributeCard/index.js:45
 msgid "Support this developer"
 msgstr "สนับสนุนนักพัฒนานี้"
 
-#: src/amo/components/ContributeCard/index.js:33
+#: src/amo/components/ContributeCard/index.js:46
 msgid "Support these developers"
 msgstr "สนับสนุนนักพัฒนาเหล่านี้"
 
-#: src/amo/components/ContributeCard/index.js:37
+#: src/amo/components/ContributeCard/index.js:50
 msgid ""
 "The developer of this extension asks that you help support its continued "
 "development by making a small contribution."
 msgstr "นักพัฒนาส่วนขยายนี้ใคร่ขอให้คุณช่วยสนับสนุนการพัฒนาอย่างต่อเนื่องโดยการสมทบทุนสักเล็กน้อย"
 
-#: src/amo/components/ContributeCard/index.js:39
+#: src/amo/components/ContributeCard/index.js:52
 msgid ""
 "The developers of this extension ask that you help support its continued "
 "development by making a small contribution."
 msgstr "นักพัฒนาส่วนขยายนี้ใคร่ขอให้คุณช่วยสนับสนุนการพัฒนาอย่างต่อเนื่องโดยการสมทบทุนสักเล็กน้อย"
 
-#: src/amo/components/ContributeCard/index.js:46
+#: src/amo/components/ContributeCard/index.js:59
 msgid "Support this artist"
 msgstr "สนับสนุนศิลปินนี้"
 
-#: src/amo/components/ContributeCard/index.js:47
+#: src/amo/components/ContributeCard/index.js:60
 msgid "Support these artists"
 msgstr "สนับสนุนศิลปินเหล่านี้"
 
-#: src/amo/components/ContributeCard/index.js:51
+#: src/amo/components/ContributeCard/index.js:64
 msgid ""
 "The artist of this theme asks that you help support its continued creation "
 "by making a small contribution."
 msgstr "ศิลปินชุดตกแต่งนี้ใคร่ขอให้คุณช่วยสนับสนุนการพัฒนาอย่างต่อเนื่องโดยการสมทบทุนสักเล็กน้อย"
 
-#: src/amo/components/ContributeCard/index.js:53
+#: src/amo/components/ContributeCard/index.js:66
 msgid ""
 "The artists of this theme ask that you help support its continued creation "
 "by making a small contribution."
 msgstr "ศิลปินชุดตกแต่งนี้ใคร่ขอให้คุณช่วยสนับสนุนการพัฒนาอย่างต่อเนื่องโดยการสมทบทุนสักเล็กน้อย"
 
-#: src/amo/components/ContributeCard/index.js:60
+#: src/amo/components/ContributeCard/index.js:73
 msgid "Support this author"
 msgstr "สนับสนุนผู้สร้างนี้"
 
-#: src/amo/components/ContributeCard/index.js:61
+#: src/amo/components/ContributeCard/index.js:74
 msgid "Support these authors"
 msgstr "สนับสนุนผู้สร้างเหล่านี้"
 
-#: src/amo/components/ContributeCard/index.js:65
+#: src/amo/components/ContributeCard/index.js:78
 msgid ""
 "The author of this add-on asks that you help support its continued work by "
 "making a small contribution."
 msgstr "ผู้จัดทำส่วนเสริมนี้ใคร่ขอให้คุณช่วยสนับสนุนการพัฒนาอย่างต่อเนื่องโดยการสมทบทุนสักเล็กน้อย"
 
-#: src/amo/components/ContributeCard/index.js:67
+#: src/amo/components/ContributeCard/index.js:80
 msgid ""
 "The authors of this add-on ask that you help support its continued work by "
 "making a small contribution."
 msgstr "ผู้จัดทำส่วนเสริมนี้ใคร่ขอให้คุณช่วยสนับสนุนการพัฒนาอย่างต่อเนื่องโดยการสมทบทุนสักเล็กน้อย"
-
-#: src/amo/components/ContributeCard/index.js:86
-msgid "Contribute now"
-msgstr "ร่วมสมทบทุนเดี๋ยวนี้"
 
 #: src/amo/components/EditableCollectionAddon/index.js:133
 #: src/amo/components/EditableCollectionAddon/index.js:151
@@ -899,12 +899,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "ตั้งค่าสถานะว่าเป็นการรายงานข้อบกพร่องหรือขอความช่วยเหลือ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "ตั้งค่าสถานะแล้ว"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "ตั้งค่าสถานะ"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "ตั้งค่าสถานะแล้ว"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1327,22 +1327,22 @@ msgstr "อ่านบทวิจารณ์สองดาวทั้งห
 msgid "Read all one-star reviews"
 msgstr "อ่านบทวิจารณ์หนึ่งดาวทั้งหมด"
 
-#: src/amo/components/ReportAbuseButton/index.js:105
+#: src/amo/components/ReportAbuseButton/index.js:119
 msgid "You reported this add-on for abuse"
 msgstr "คุณรายงานส่วนเสริมนี้ว่ามีการละเมิด"
 
-#: src/amo/components/ReportAbuseButton/index.js:109
+#: src/amo/components/ReportAbuseButton/index.js:123
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
 msgstr "เราได้รับรายงานของคุณแล้ว ขอบคุณที่ทำให้เรารู้เกี่ยวกับความกังวลของคุณเกี่ยวกับส่วนเสริมนี้"
 
-#: src/amo/components/ReportAbuseButton/index.js:116
+#: src/amo/components/ReportAbuseButton/index.js:130
 #: src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr "เราไม่สามารถตอบสนองต่อรายงานการละเมิดทั้งหมด แต่เราจะตรวจสอบปัญหานี้"
 
-#: src/amo/components/ReportAbuseButton/index.js:126
+#: src/amo/components/ReportAbuseButton/index.js:140
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
@@ -1352,11 +1352,11 @@ msgstr ""
 "หรือมีปัญหาด้านความปลอดภัยหรือความเป็นส่วนตัว โปรดรายงานปัญหาเหล่านี้กับ Mozilla "
 "โดยใช้แบบฟอร์มนี้"
 
-#: src/amo/components/ReportAbuseButton/index.js:142
+#: src/amo/components/ReportAbuseButton/index.js:156
 msgid "Report this add-on for abuse"
 msgstr "รายงานส่วนเสริมนี้ว่ามีการละเมิด"
 
-#: src/amo/components/ReportAbuseButton/index.js:172
+#: src/amo/components/ReportAbuseButton/index.js:186
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1364,21 +1364,21 @@ msgstr ""
 "โปรดอย่าใช้แบบฟอร์มนี้เพื่อรายงานบั๊กหรือขอคุณลักษณะของส่วนเสริม รายงานนี้จะถูกส่งไปยัง Mozilla "
 "และไม่ใช่ไปยังผู้พัฒนาส่วนเสริม"
 
-#: src/amo/components/ReportAbuseButton/index.js:185
+#: src/amo/components/ReportAbuseButton/index.js:199
 #: src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
 msgstr "ส่งรายงานการละเมิด"
 
-#: src/amo/components/ReportAbuseButton/index.js:186
+#: src/amo/components/ReportAbuseButton/index.js:200
 #: src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "กำลังส่งรายงานการละเมิด"
 
-#: src/amo/components/ReportAbuseButton/index.js:188
+#: src/amo/components/ReportAbuseButton/index.js:202
 msgid "Dismiss"
 msgstr "ยกเลิก"
 
-#: src/amo/components/ReportAbuseButton/index.js:189
+#: src/amo/components/ReportAbuseButton/index.js:203
 msgid "Explain how this add-on is violating our policies."
 msgstr "อธิบายทำไมส่วนเสริมนี้ละเมิดนโยบายของเรา"
 
@@ -1557,72 +1557,72 @@ msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
 msgstr[0] "พบ %(count)s ผลลัพธ์สำหรับ \"%(query)s\""
 
-#: src/amo/components/SearchFilters/index.js:129
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:135
+#: src/amo/components/SearchFilters/index.js:159
 msgid "All"
 msgstr "ทั้งหมด"
 
-#: src/amo/components/SearchFilters/index.js:130
+#: src/amo/components/SearchFilters/index.js:136
 msgid "Extension"
 msgstr "ส่วนขยาย"
 
-#: src/amo/components/SearchFilters/index.js:131
+#: src/amo/components/SearchFilters/index.js:142
 msgid "Search Tool"
 msgstr "เครื่องมือค้นหา"
 
-#: src/amo/components/SearchFilters/index.js:133
+#: src/amo/components/SearchFilters/index.js:148
 msgid "Theme"
 msgstr "ชุดตกแต่ง"
 
-#: src/amo/components/SearchFilters/index.js:144
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:145
+#: src/amo/components/SearchFilters/index.js:161
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:146
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:154
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Relevance"
 msgstr "ความเกี่ยวข้อง"
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:172
 msgid "Recently Updated"
 msgstr "อัปเดตล่าสุด"
 
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:175
 msgid "Most Users"
 msgstr "ผู้ใช้มากที่สุด"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:176
 msgid "Top Rated"
 msgstr "อันดับสูงสุด"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:177
 msgid "Trending"
 msgstr "กำลังนิยม"
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:195
 msgid "Filter results"
 msgstr "กรองผลลัพธ์"
 
-#: src/amo/components/SearchFilters/index.js:184
+#: src/amo/components/SearchFilters/index.js:200
 msgid "Sort by"
 msgstr "เรียงตาม"
 
-#: src/amo/components/SearchFilters/index.js:206
+#: src/amo/components/SearchFilters/index.js:222
 msgid "Add-on Type"
 msgstr "ชนิดส่วนเสริม"
 
-#: src/amo/components/SearchFilters/index.js:226
+#: src/amo/components/SearchFilters/index.js:242
 msgid "Operating System"
 msgstr "ระบบปฏิบัติการ"
 
-#: src/amo/components/SearchFilters/index.js:252
+#: src/amo/components/SearchFilters/index.js:268
 #, fuzzy
 msgid "Recommended add-ons only"
 msgstr "ส่วนเสริมที่แนะนำเท่านั้น"
@@ -1671,52 +1671,52 @@ msgstr "ไม่พบผลลัพธ์"
 msgid "Recommended"
 msgstr "ความคิดเห็นของผู้ใช้"
 
-#: src/amo/components/SectionLinks/index.js:103
+#: src/amo/components/SectionLinks/index.js:117
+msgid "Explore"
+msgstr "สำรวจ"
+
+#: src/amo/components/SectionLinks/index.js:127
+#: src/amo/pages/LandingPage/index.js:230
+msgid "Extensions"
+msgstr "ส่วนขยาย"
+
+#: src/amo/components/SectionLinks/index.js:142
 #: src/amo/pages/LandingPage/index.js:229
 msgid "Themes"
 msgstr "ชุดตกแต่ง"
 
-#: src/amo/components/SectionLinks/index.js:109
+#: src/amo/components/SectionLinks/index.js:148
 msgid "More…"
 msgstr "เพิ่มเติม…"
 
-#: src/amo/components/SectionLinks/index.js:123
-msgid "Dictionaries & Language Packs"
-msgstr "พจนานุกรมและชุดภาษา"
-
-#: src/amo/components/SectionLinks/index.js:129
-#: src/amo/pages/SearchTools/index.js:35
-msgid "Search Tools"
-msgstr "เครื่องมือค้นหา"
-
-#: src/amo/components/SectionLinks/index.js:134
+#: src/amo/components/SectionLinks/index.js:158
 msgid "Other Browser Sites"
 msgstr "ไซต์ของเบราว์เซอร์อื่น ๆ"
 
-#: src/amo/components/SectionLinks/index.js:145
+#: src/amo/components/SectionLinks/index.js:169
 msgid "Add-ons for Android"
 msgstr "ส่วนเสริมสำหรับ Android"
 
-#: src/amo/components/SectionLinks/index.js:158
+#: src/amo/components/SectionLinks/index.js:182
 msgid "Add-ons for Firefox"
 msgstr "ส่วนเสริมสำหรับ Firefox"
 
-#: src/amo/components/SectionLinks/index.js:60
+#: src/amo/components/SectionLinks/index.js:70
 msgid "for Firefox"
 msgstr "สำหรับ Firefox"
 
-#: src/amo/components/SectionLinks/index.js:62
+#: src/amo/components/SectionLinks/index.js:72
 msgid "for Android"
 msgstr "สำหรับ Android"
 
-#: src/amo/components/SectionLinks/index.js:78
-msgid "Explore"
-msgstr "สำรวจ"
+#: src/amo/components/SectionLinks/index.js:87
+msgid "Dictionaries & Language Packs"
+msgstr "พจนานุกรมและชุดภาษา"
 
-#: src/amo/components/SectionLinks/index.js:88
-#: src/amo/pages/LandingPage/index.js:230
-msgid "Extensions"
-msgstr "ส่วนขยาย"
+#: src/amo/components/SectionLinks/index.js:98
+#: src/amo/pages/SearchTools/index.js:76
+msgid "Search Tools"
+msgstr "เครื่องมือค้นหา"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
@@ -2368,7 +2368,7 @@ msgstr "ชุดภาษา"
 msgid "Dictionaries"
 msgstr "พจนานุกรม"
 
-#: src/amo/pages/SearchTools/index.js:32
+#: src/amo/pages/SearchTools/index.js:73
 msgid ""
 "Download Firefox extensions to customize the way you search—everything from "
 "privacy-enhanced searching to website-specific searches, image searching, "
