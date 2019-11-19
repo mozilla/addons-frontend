@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-12 18:08+0000\n"
+"POT-Creation-Date: 2019-11-19 19:52+0000\n"
 "PO-Revision-Date: 2019-08-01 05:07+0000\n"
 "Last-Translator: Md Aamir Raza <aamir.raza.md@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,68 +130,68 @@ msgid ""
 msgstr ""
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:104
+#: src/amo/components/AddonHead/index.js:100
+msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
+msgstr ""
+
+# please keep the fox emoji next to "Firefox".
+#: src/amo/components/AddonHead/index.js:105
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:109
+#: src/amo/components/AddonHead/index.js:110
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
-#: src/amo/components/AddonHead/index.js:114
+#: src/amo/components/AddonHead/index.js:115
 #, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
 msgstr "Firefox میں شامل کریں"
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:119
+#: src/amo/components/AddonHead/index.js:120
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
-#: src/amo/components/AddonHead/index.js:133
+#: src/amo/components/AddonHead/index.js:134
 msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr ""
 
-#: src/amo/components/AddonHead/index.js:61
+#: src/amo/components/AddonHead/index.js:62
 #, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
 msgstr "Firefox میں شامل کریں"
 
-#: src/amo/components/AddonHead/index.js:66
+#: src/amo/components/AddonHead/index.js:67
 #, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
 msgstr "Firefox میں شامل کریں"
 
-#: src/amo/components/AddonHead/index.js:71
+#: src/amo/components/AddonHead/index.js:72
 #, fuzzy
 msgid ""
 "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
 msgstr "Firefox میں شامل کریں"
 
-#: src/amo/components/AddonHead/index.js:76
+#: src/amo/components/AddonHead/index.js:77
 #, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
 msgstr "Firefox میں شامل کریں"
 
-#: src/amo/components/AddonHead/index.js:82
+#: src/amo/components/AddonHead/index.js:83
 #, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
 msgstr "Firefox میں شامل کریں"
 
-#: src/amo/components/AddonHead/index.js:87
+#: src/amo/components/AddonHead/index.js:88
 #, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
 msgstr "Firefox میں شامل کریں"
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:94
+#: src/amo/components/AddonHead/index.js:95
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
-
-# please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:99
-msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
 #: src/amo/components/AddonMeta/index.js:116
@@ -749,16 +749,20 @@ msgstr "نام"
 msgid "Popularity"
 msgstr "مقبولیت"
 
-#: src/amo/components/ContributeCard/index.js:32
+#: src/amo/components/ContributeCard/index.js:108
+msgid "Contribute now"
+msgstr "ابھی حصہ لیں"
+
+#: src/amo/components/ContributeCard/index.js:45
 msgid "Support this developer"
 msgstr "اس کے ڈویلپر کی حمایت کریں"
 
-#: src/amo/components/ContributeCard/index.js:33
+#: src/amo/components/ContributeCard/index.js:46
 #, fuzzy
 msgid "Support these developers"
 msgstr "ان تخلیقار کی جانبسے مزید توسیعات"
 
-#: src/amo/components/ContributeCard/index.js:37
+#: src/amo/components/ContributeCard/index.js:50
 msgid ""
 "The developer of this extension asks that you help support its continued "
 "development by making a small contribution."
@@ -766,7 +770,7 @@ msgstr ""
 "اس توسیع کا ڈیولپر آپ سے درخواست کرتا ہے کہ آپ اس کی جاری تکمیل کاری کو کچھ "
 "مدد دے کر اس کی معاونت کریں۔"
 
-#: src/amo/components/ContributeCard/index.js:39
+#: src/amo/components/ContributeCard/index.js:52
 msgid ""
 "The developers of this extension ask that you help support its continued "
 "development by making a small contribution."
@@ -774,17 +778,17 @@ msgstr ""
 "اس توسیع کے ڈیولپر آپ سے درخواست کرتے ہے کہ آپ اس کی جاری تکمیل کاری کو کچھ "
 "مدد دے کر اس کی معاونت کریں۔"
 
-#: src/amo/components/ContributeCard/index.js:46
+#: src/amo/components/ContributeCard/index.js:59
 #, fuzzy
 msgid "Support this artist"
 msgstr "معاونت کار سائٹ"
 
-#: src/amo/components/ContributeCard/index.js:47
+#: src/amo/components/ContributeCard/index.js:60
 #, fuzzy
 msgid "Support these artists"
 msgstr "معاونت کار سائٹ"
 
-#: src/amo/components/ContributeCard/index.js:51
+#: src/amo/components/ContributeCard/index.js:64
 msgid ""
 "The artist of this theme asks that you help support its continued creation "
 "by making a small contribution."
@@ -792,7 +796,7 @@ msgstr ""
 "اس خیالہ کا فنکار اس آپ سے درخواست کرتا ہے کہ آپ اس کی جاری تکمیل کاری کو "
 "کچھ مدد دے کر اس کی معاونت کریں۔"
 
-#: src/amo/components/ContributeCard/index.js:53
+#: src/amo/components/ContributeCard/index.js:66
 msgid ""
 "The artists of this theme ask that you help support its continued creation "
 "by making a small contribution."
@@ -800,17 +804,17 @@ msgstr ""
 "اس خیالہ کے فنکار اس آپ سے درخواست کرتے ہے کہ آپ اس کی جاری تکمیل کاری کو "
 "کچھ مدد دے کر اس کی معاونت کریں۔"
 
-#: src/amo/components/ContributeCard/index.js:60
+#: src/amo/components/ContributeCard/index.js:73
 #, fuzzy
 msgid "Support this author"
 msgstr "معاونت کار سائٹ"
 
-#: src/amo/components/ContributeCard/index.js:61
+#: src/amo/components/ContributeCard/index.js:74
 #, fuzzy
 msgid "Support these authors"
 msgstr "معاونت کار سائٹ"
 
-#: src/amo/components/ContributeCard/index.js:65
+#: src/amo/components/ContributeCard/index.js:78
 msgid ""
 "The author of this add-on asks that you help support its continued work by "
 "making a small contribution."
@@ -818,17 +822,13 @@ msgstr ""
 "اس ایڈ اون کا مصنف آپ سے درخواست کرتا ہے کہ آپ اس کی جاری تکمیل کاری کو کچھ "
 "مدد دے کر اس کی معاونت کریں۔"
 
-#: src/amo/components/ContributeCard/index.js:67
+#: src/amo/components/ContributeCard/index.js:80
 msgid ""
 "The authors of this add-on ask that you help support its continued work by "
 "making a small contribution."
 msgstr ""
 "اس ایڈ اون کے مصنف آپ سے درخواست کرتے ہے کہ آپ اس کی جاری تکمیل کاری کو کچھ "
 "مدد دے کر اس کی معاونت کریں۔"
-
-#: src/amo/components/ContributeCard/index.js:86
-msgid "Contribute now"
-msgstr "ابھی حصہ لیں"
 
 #: src/amo/components/EditableCollectionAddon/index.js:133
 #: src/amo/components/EditableCollectionAddon/index.js:151
@@ -961,12 +961,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "بگ رپورٹ یا سپورٹ کی درخواست کے طور پر نشان لگا دیا گیا"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
-msgstr "نشان لگا دیا گیا"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
 msgstr "پرچم"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flagged"
+msgstr "نشان لگا دیا گیا"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1396,11 +1396,11 @@ msgstr "پیش منظر کے ؛لیئے تھپتپائیں"
 msgid "Read all one-star reviews"
 msgstr "%(count)s جائزے پڑھیں"
 
-#: src/amo/components/ReportAbuseButton/index.js:105
+#: src/amo/components/ReportAbuseButton/index.js:119
 msgid "You reported this add-on for abuse"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:109
+#: src/amo/components/ReportAbuseButton/index.js:123
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
@@ -1408,45 +1408,45 @@ msgstr ""
 "ہمیں آپ کی اطلاع ملی ہے. اس ایڈاون کے خدشات کے بارے میں ہمیں بتانے کے لئے "
 "شکریہ۔"
 
-#: src/amo/components/ReportAbuseButton/index.js:116
+#: src/amo/components/ReportAbuseButton/index.js:130
 #: src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 "ہم ہر بدعنوان کی اطلاع پر جواب نہیں دے سکتے ہیں لیکن ہم اس مسئلے پر غور کریں "
 "گے۔"
 
-#: src/amo/components/ReportAbuseButton/index.js:126
+#: src/amo/components/ReportAbuseButton/index.js:140
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
 "to Mozilla using this form."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:142
+#: src/amo/components/ReportAbuseButton/index.js:156
 msgid "Report this add-on for abuse"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:172
+#: src/amo/components/ReportAbuseButton/index.js:186
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:185
+#: src/amo/components/ReportAbuseButton/index.js:199
 #: src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
 msgstr "بدعنوانی کی رپورٹ بھیجیں"
 
-#: src/amo/components/ReportAbuseButton/index.js:186
+#: src/amo/components/ReportAbuseButton/index.js:200
 #: src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "بدعنوانی کی رپورٹ بھیج رہا ہے"
 
-#: src/amo/components/ReportAbuseButton/index.js:188
+#: src/amo/components/ReportAbuseButton/index.js:202
 msgid "Dismiss"
 msgstr "برخاست کریں"
 
-#: src/amo/components/ReportAbuseButton/index.js:189
+#: src/amo/components/ReportAbuseButton/index.js:203
 msgid "Explain how this add-on is violating our policies."
 msgstr ""
 
@@ -1639,75 +1639,75 @@ msgid_plural "%(count)s Search Tools found for \"%(query)s\""
 msgstr[0] "خیالہ تلاش کریں"
 msgstr[1] "خیالہ تلاش کریں"
 
-#: src/amo/components/SearchFilters/index.js:129
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:135
+#: src/amo/components/SearchFilters/index.js:159
 msgid "All"
 msgstr "تمام"
 
-#: src/amo/components/SearchFilters/index.js:130
+#: src/amo/components/SearchFilters/index.js:136
 msgid "Extension"
 msgstr "توسیعات"
 
-#: src/amo/components/SearchFilters/index.js:131
+#: src/amo/components/SearchFilters/index.js:142
 #, fuzzy
 msgid "Search Tool"
 msgstr "خیالہ تلاش کریں"
 
-#: src/amo/components/SearchFilters/index.js:133
+#: src/amo/components/SearchFilters/index.js:148
 msgid "Theme"
 msgstr "خیالیے"
 
-#: src/amo/components/SearchFilters/index.js:144
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:145
+#: src/amo/components/SearchFilters/index.js:161
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:146
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:154
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Relevance"
 msgstr "مناسبت"
 
-#: src/amo/components/SearchFilters/index.js:156
+#: src/amo/components/SearchFilters/index.js:172
 msgid "Recently Updated"
 msgstr "حالیہ تازہ کاریاں"
 
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:175
 msgid "Most Users"
 msgstr "سب سے زیادہ صارفین"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:176
 msgid "Top Rated"
 msgstr "سب سے اوپر ریٹیڈ"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:177
 msgid "Trending"
 msgstr "رجحان سازی"
 
-#: src/amo/components/SearchFilters/index.js:179
+#: src/amo/components/SearchFilters/index.js:195
 #, fuzzy
 msgid "Filter results"
 msgstr "خیالہ تلاش کریں"
 
-#: src/amo/components/SearchFilters/index.js:184
+#: src/amo/components/SearchFilters/index.js:200
 msgid "Sort by"
 msgstr "کے مطابق چھانٹیں"
 
-#: src/amo/components/SearchFilters/index.js:206
+#: src/amo/components/SearchFilters/index.js:222
 #, fuzzy
 msgid "Add-on Type"
 msgstr "ایڈ ان آئکن"
 
-#: src/amo/components/SearchFilters/index.js:226
+#: src/amo/components/SearchFilters/index.js:242
 msgid "Operating System"
 msgstr "آپریٹنگ سسٹم"
 
-#: src/amo/components/SearchFilters/index.js:252
+#: src/amo/components/SearchFilters/index.js:268
 #, fuzzy
 msgid "Recommended add-ons only"
 msgstr "نمایاں توسیعات"
@@ -1759,54 +1759,54 @@ msgstr "کوئى نتائج نہيں ملے تھے۔"
 msgid "Recommended"
 msgstr "‏‏صارف کی رائے"
 
-#: src/amo/components/SectionLinks/index.js:103
+#: src/amo/components/SectionLinks/index.js:117
+msgid "Explore"
+msgstr "دریافت کریں"
+
+#: src/amo/components/SectionLinks/index.js:127
+#: src/amo/pages/LandingPage/index.js:230
+msgid "Extensions"
+msgstr "توسیعات"
+
+#: src/amo/components/SectionLinks/index.js:142
 #: src/amo/pages/LandingPage/index.js:229
 msgid "Themes"
 msgstr "خیالیے"
 
-#: src/amo/components/SectionLinks/index.js:109
+#: src/amo/components/SectionLinks/index.js:148
 msgid "More…"
 msgstr "مزید…"
 
-#: src/amo/components/SectionLinks/index.js:123
-msgid "Dictionaries & Language Packs"
-msgstr "لغت اور زبان پیک"
-
-#: src/amo/components/SectionLinks/index.js:129
-#: src/amo/pages/SearchTools/index.js:35
-#, fuzzy
-msgid "Search Tools"
-msgstr "خیالہ تلاش کریں"
-
-#: src/amo/components/SectionLinks/index.js:134
+#: src/amo/components/SectionLinks/index.js:158
 msgid "Other Browser Sites"
 msgstr "دیگر برائوزر سائٹس"
 
-#: src/amo/components/SectionLinks/index.js:145
+#: src/amo/components/SectionLinks/index.js:169
 #, fuzzy
 msgid "Add-ons for Android"
 msgstr "کوئی زمرہ جات نہیں ملے۔"
 
-#: src/amo/components/SectionLinks/index.js:158
+#: src/amo/components/SectionLinks/index.js:182
 msgid "Add-ons for Firefox"
 msgstr "Firefox کے لئے ایڈاون"
 
-#: src/amo/components/SectionLinks/index.js:60
+#: src/amo/components/SectionLinks/index.js:70
 msgid "for Firefox"
 msgstr "Firefox کے لیئے"
 
-#: src/amo/components/SectionLinks/index.js:62
+#: src/amo/components/SectionLinks/index.js:72
 msgid "for Android"
 msgstr "برائے Android"
 
-#: src/amo/components/SectionLinks/index.js:78
-msgid "Explore"
-msgstr "دریافت کریں"
+#: src/amo/components/SectionLinks/index.js:87
+msgid "Dictionaries & Language Packs"
+msgstr "لغت اور زبان پیک"
 
-#: src/amo/components/SectionLinks/index.js:88
-#: src/amo/pages/LandingPage/index.js:230
-msgid "Extensions"
-msgstr "توسیعات"
+#: src/amo/components/SectionLinks/index.js:98
+#: src/amo/pages/SearchTools/index.js:76
+#, fuzzy
+msgid "Search Tools"
+msgstr "خیالہ تلاش کریں"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
@@ -2487,7 +2487,7 @@ msgstr "زبان پیک"
 msgid "Dictionaries"
 msgstr "لغات"
 
-#: src/amo/pages/SearchTools/index.js:32
+#: src/amo/pages/SearchTools/index.js:73
 msgid ""
 "Download Firefox extensions to customize the way you search—everything from "
 "privacy-enhanced searching to website-specific searches, image searching, "
