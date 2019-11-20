@@ -122,4 +122,12 @@ module.exports = {
   // This needs to match the SESSION_COOKIE_AGE in addons-server:
   // https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L990
   authTokenValidFor: 2592000, // 30 days
+
+  // The withExperiment HOC relies on this config to enable/disable A/B
+  // experiments on AMO.
+  experiments: {
+    installButtonWarning: false,
+    // See https://github.com/mozilla/addons-frontend/issues/8760.
+    installButtonWarning2: true,
+ },
 };
