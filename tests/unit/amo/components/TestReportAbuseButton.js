@@ -143,7 +143,7 @@ describe(__filename, () => {
     expect(root.find('.ReportAbuseButton--is-expanded')).toHaveLength(1);
   });
 
-  it.each([ADDON_TYPE_EXTENSION])(
+  it.each([ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME])(
     'initiates an abuse report via Firefox when the "report" button is clicked if supported and add-on type is %s',
     (addonType) => {
       const _hasAbuseReportPanelEnabled = sinon.stub().returns(true);
@@ -167,12 +167,7 @@ describe(__filename, () => {
     },
   );
 
-  it.each([
-    ADDON_TYPE_DICT,
-    ADDON_TYPE_LANG,
-    ADDON_TYPE_OPENSEARCH,
-    ADDON_TYPE_STATIC_THEME,
-  ])(
+  it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG, ADDON_TYPE_OPENSEARCH])(
     'does not initiate an abuse report via Firefox when add-on type is %s',
     (addonType) => {
       const _hasAbuseReportPanelEnabled = sinon.stub().returns(true);

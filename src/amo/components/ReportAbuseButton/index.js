@@ -5,7 +5,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { ADDON_TYPE_EXTENSION } from 'core/constants';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -93,10 +93,7 @@ export class ReportAbuseButtonBase extends React.Component<InternalProps> {
       // localized descriptions only for these two kind of addons), and so
       // currently it is going to refuse to create an abuse report panel for
       // langpacks, dictionaries and search tools.
-      //
-      // Static themes should be supported but there is a bug in FF, see:
-      // https://github.com/mozilla/addons-frontend/issues/8762#issuecomment-553430081
-      [ADDON_TYPE_EXTENSION].includes(addon.type)
+      [ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME].includes(addon.type)
     ) {
       dispatch(initiateAddonAbuseReportViaFirefox({ addon }));
       return;
