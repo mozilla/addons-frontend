@@ -377,4 +377,10 @@ module.exports = {
   enableFeatureRemoveSearchTools: false,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
+
+  // This defines experiments for use with the withExperiment HOC, but no
+  // actual experiments should be defined here. Experiments should be defined
+  // in default-amo and/or default-disco depending on the target app for the
+  // experiment.
+  experiments: {},
 };
