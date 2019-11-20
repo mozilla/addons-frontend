@@ -84,4 +84,9 @@ module.exports = {
 
   // https://sentry.prod.mozaws.net/operations/addons-frontend-disco-prod/
   publicSentryDsn: 'https://b9e70d0dca144344a7a5674c29b08355@sentry.prod.mozaws.net/186',
+
+  // The withExperiment HOC relies on this config to enable/disable A/B
+  // experiments on disco pane.
+  experiments: {},
+
 };
