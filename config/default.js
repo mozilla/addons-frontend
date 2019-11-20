@@ -376,13 +376,5 @@ module.exports = {
   // See: https://github.com/mozilla/addons-frontend/issues/8680
   enableFeatureRemoveSearchTools: false,
 
-  // The withExperiment HOC relies on this config to enable/disable A/B
-  // experiments.
-  experiments: {
-    installButtonWarning: false,
-    // See https://github.com/mozilla/addons-frontend/issues/8760.
-    installButtonWarning2: true,
-  },
-
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 };
