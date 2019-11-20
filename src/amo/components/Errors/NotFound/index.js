@@ -6,7 +6,7 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { sanitizeHTML, visibleAddonType } from 'core/utils';
+import { visibleAddonType } from 'core/utils';
 import { replaceStringsWithJSX } from 'core/i18n/utils';
 import Card from 'ui/components/Card';
 import type { I18nType } from 'core/types/i18n';
@@ -28,13 +28,15 @@ export class NotFoundBase extends React.Component<InternalProps> {
       text: i18n.gettext(
         `Try visiting the page later, as the theme or extension may become
         available again. Alternatively, you may be able to find what you’re
-        looking for in one of the available %(linkStart)sextensions%(linkEnd)s
-        or %(secondLinkStart)sthemes%(secondLinkEnd)s.`,
+        looking for in one of the available
+        %(extensionStart)sextensions%(extensionEnd)s or
+        %(themeStart)sthemes%(themeEnd)s, or by asking for help on our
+        %(communityStart)scommunity forums%(communityEnd)s.`,
       ),
       replacements: [
         [
-          'linkStart',
-          'linkEnd',
+          'extensionStart',
+          'extensionEnd',
           (text) => (
             <Link
               key="link-extensions"
@@ -45,12 +47,26 @@ export class NotFoundBase extends React.Component<InternalProps> {
           ),
         ],
         [
-          'secondLinkStart',
-          'secondLinkEnd',
+          'themeStart',
+          'themeEnd',
           (text) => (
             <Link
               key="link-themes"
               to={`/${visibleAddonType(ADDON_TYPE_STATIC_THEME)}/`}
+            >
+              {text}
+            </Link>
+          ),
+        ],
+        [
+          'communityStart',
+          'communityEnd',
+          (text) => (
+            <Link
+              key="link-community"
+              href="https://discourse.mozilla.org/c/add-ons"
+              prependClientApp={false}
+              prependLang={false}
             >
               {text}
             </Link>
@@ -84,23 +100,6 @@ export class NotFoundBase extends React.Component<InternalProps> {
                 resolve the issues and make the add-on available again.`)}
             </li>
           </ul>
-          <p
-            className="Errors-paragraph-with-links"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={sanitizeHTML(
-              i18n.sprintf(
-                i18n.gettext(`If you’ve followed a link on this site, you’ve
-                  have found a mistake. Help us fix the link by <a
-                  href="%(url)s">filing an issue</a>. Tell us where you came
-                  from and what you were looking for, and we'll get it
-                  sorted.`),
-                {
-                  url: 'https://github.com/mozilla/addons-frontend/issues/new/',
-                },
-              ),
-              ['a'],
-            )}
-          />
           <p className="Errors-paragraph-with-links">{paragraphWithLinks}</p>
         </Card>
       </NestedStatus>
