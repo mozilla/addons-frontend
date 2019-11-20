@@ -47,7 +47,7 @@ It is possible to serve the local development version of this project with HTTPS
 2. Install [`mkcert`](https://github.com/FiloSottile/mkcert#installation), then run:
 
    ```
-   $ mkcert install
+   $ mkcert -install
    ```
 
 3. Create valid certificates for `example.com` (stored in `./bin/local-dev-server-certs/`):
