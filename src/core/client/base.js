@@ -14,6 +14,7 @@ import { langToLocale, makeI18n, sanitizeLanguage } from 'core/i18n/utils';
 import log from 'core/logger';
 import { addQueryParamsToHistory } from 'core/utils';
 import { getSentryRelease } from 'core/utils/sentry';
+import tracking from 'core/tracking';
 
 export default async function createClient(
   createStore,
@@ -21,6 +22,7 @@ export default async function createClient(
     _FastClick = FastClick,
     _RavenJs = RavenJs,
     _config = config,
+    _tracking = tracking,
     sagas = null,
   } = {},
 ) {
@@ -76,6 +78,15 @@ export default async function createClient(
   const history = addQueryParamsToHistory({
     history: createBrowserHistory(),
   });
+
+  // See: https://github.com/mozilla/addons-frontend/issues/8647
+  history.listen((location) => {
+    _tracking.setPage(location.pathname);
+    // It is guaranteed that the navigation has happened but the title of the
+    // page is likely stale, so we are omitting it.
+    _tracking.pageView({ title: '' });
+  });
+
   const { sagaMiddleware, store } = createStore({ history, initialState });
 
   if (sentryIsEnabled) {

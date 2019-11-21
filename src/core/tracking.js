@@ -200,7 +200,8 @@ export class Tracking {
   }
 
   pageView(data: Object = {}) {
-    this._ga('send', 'pageview', data);
+    // See: https://developers.google.com/analytics/devguides/collection/analyticsjs/pages#pageview_fields
+    this._ga('send', { hitType: 'pageview', ...data });
     this.log('pageView', JSON.stringify(data));
   }
 
