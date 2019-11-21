@@ -37,30 +37,23 @@ describe(__filename, () => {
       'Oops! We can’t find that page',
     );
 
-    // There is a link to GitHub in the first paragraph.
-    expect(
-      root
-        .find('.Errors-paragraph-with-links')
-        .at(0)
-        .html(),
-    ).toContain('/new/">filing an issue</a>');
-
-    // The last paragraph has two internal links.
-    const landingLinks = root
-      .find('.Errors-paragraph-with-links')
-      .at(1)
-      .find(Link);
-    expect(landingLinks).toHaveLength(2);
+    // The last paragraph has two internal links...
+    const landingLinks = root.find('.Errors-paragraph-with-links').find(Link);
+    expect(landingLinks).toHaveLength(3);
     expect(landingLinks.at(0)).toHaveProp('to', '/extensions/');
     expect(landingLinks.at(1)).toHaveProp('to', '/themes/');
+    // ...and an external link.
+    expect(landingLinks.at(2)).toHaveProp(
+      'href',
+      expect.stringContaining('discourse'),
+    );
   });
 
   it('handles a localized string with links inverted', () => {
-    const localizedString = oneLine`Try visiting the page later, as the theme
-      or extension may become available again. Alternatively, you may be able
-      to find what you’re looking for in one of the available
-      %(secondLinkStart)sthemes%(secondLinkEnd)s or
-      %(linkStart)sextensions%(linkEnd)s.`;
+    const localizedString = oneLine`Some content with links inverted:
+      %(themeStart)sthemes%(themeEnd)s or
+      %(communityStart)scommunity forums%(communityEnd)s or
+      %(extensionStart)sextensions%(extensionEnd)s.`;
 
     const i18n = fakeI18n();
     // We override the `gettext` function to inject a localized string with the
@@ -76,12 +69,10 @@ describe(__filename, () => {
 
     // It should not crash.
     const root = render({ i18n });
-    const landingLinks = root
-      .find('.Errors-paragraph-with-links')
-      .at(1)
-      .find(Link);
-    expect(landingLinks).toHaveLength(2);
+    const landingLinks = root.find('.Errors-paragraph-with-links').find(Link);
+    expect(landingLinks).toHaveLength(3);
     expect(landingLinks.at(0)).toHaveProp('to', '/themes/');
-    expect(landingLinks.at(1)).toHaveProp('to', '/extensions/');
+    expect(landingLinks.at(1)).toHaveProp('href');
+    expect(landingLinks.at(2)).toHaveProp('to', '/extensions/');
   });
 });
