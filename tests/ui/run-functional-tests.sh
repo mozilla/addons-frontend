@@ -20,4 +20,4 @@ docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/doc
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec selenium-firefox sudo chown -R seluser:seluser .
 sudo chown -R  $USER:$USER .
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec -T web make -f Makefile-docker run-auto-approve &
-ocker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec selenium-firefox tox -r -e ui-tests -- --base-url=http://olympia.test
+docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml exec selenium-firefox tox -r -e ui-tests -- --base-url=http://olympia.test
