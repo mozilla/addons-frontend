@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-19 19:52+0000\n"
-"PO-Revision-Date: 2019-11-22 19:50+0000\n"
+"PO-Revision-Date: 2019-11-22 20:04+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1853,7 +1853,7 @@ msgstr "Mi collectiones"
 
 #: src/amo/pages/Guides/index.js:105
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr "Un blocator de annuncios legier e multo efficace. uBlock Origin applica milles de filtros al contento sin consumer un massa de memoria."
+msgstr "Un blocator de publicitate legier e multo efficace. uBlock Origin applica milles de filtros al contento sin consumer un massa de memoria."
 
 #: src/amo/pages/Guides/index.js:109
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
@@ -2006,7 +2006,7 @@ msgstr "Explora le major %(linkStart)sgestores de contrasignos%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:98
 msgid "Block annoying ads"
-msgstr "Bloca enoiose avisos publicitari"
+msgstr "Bloca annuncios moleste"
 
 #: src/amo/pages/Guides/index.js:99
 msgid ""
@@ -2046,8 +2046,7 @@ msgstr "Cambia le apparentia de Firefox con le themas."
 #: src/amo/pages/Home/index.js:234
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
 msgstr ""
-"Discarga extensiones e themas de Firefox. Illos es como applicationes pro tu navigator. Illos pote blocar enoiose avisos publicitari, proteger contrasignos, cambiar le apparentia del navigator, e "
-"multo plus."
+"Discarga extensiones e themas de Firefox. Illos es como applicationes pro tu navigator. Illos pote blocar annuncios moleste, proteger contrasignos, cambiar le apparentia del navigator, e multo plus."
 
 #: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
 msgid "See more recommended extensions"
@@ -2104,8 +2103,8 @@ msgstr "Discarga themas pro cambiar le apparentia de Firefox. Personalisa tu exp
 #: src/amo/pages/LandingPage/index.js:211
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
-"Discarga extensiones de Firefox pro adder functiones que personalisa le navigation. Protege contrasignos, trova offertas, meliora video, e bloca enoiose avisos publicitari con le applicationes pro "
-"le navigator."
+"Discarga extensiones de Firefox pro adder functiones que personalisa le navigation. Protege contrasignos, trova offertas, meliora video, e bloca annuncios moleste con iste applicationes pro le "
+"navigator."
 
 #: src/amo/pages/LandingPage/index.js:233
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2272,8 +2271,8 @@ msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
-"Criticar un additivo pro un cosa que illo es destinate a facer. Per exemplo, lassar un recension negative de un additivo perque illo monstra avisos publicitari o require le collecta de datos, quando"
-" iste es le scopo explicite del additivo, o le additivo require le collecta de datos pro functionar."
+"Criticar un additivo pro un cosa que illo es destinate a facer. Per exemplo, lassar un recension negative de un additivo perque illo monstra annuncios o require le collecta de datos, quando iste es "
+"le scopo explicite del additivo, o le additivo require le collecta de datos pro functionar."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
