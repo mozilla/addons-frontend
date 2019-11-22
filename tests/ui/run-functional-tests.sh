@@ -3,7 +3,7 @@ set -ex
 # create fxa email
 git clone --depth 1 https://github.com/mozilla/addons-server.git
 export UITEST_FXA_EMAIL=$(python ./addons-server/tests/ui/scripts/generate_fxa_email.py)
-docker build -f addons-server/Dockerfile --build-arg GROUP_ID=$(id -g) --build-arg USER_ID=$(id -u) -t addons/addons-server:latest .
+docker build -f addons-server/Dockerfile --build-arg GROUP_ID=$(id -g) --build-arg USER_ID=$(id -u) -t addons/addons-server:latest addons-server/
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml up -d --build
 docker-compose -f addons-server/docker-compose.yml -f addons-server/tests/ui/docker-compose.selenium.yml -f tests/ui/docker-compose.functional-tests.yml ps
 mkdir addons-server/site-static
