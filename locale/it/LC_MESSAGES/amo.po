@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-19 19:52+0000\n"
-"PO-Revision-Date: 2019-11-19 23:33+0000\n"
+"PO-Revision-Date: 2019-11-26 21:50+0000\n"
 "Last-Translator: Sav22999 <saverio.morelli@outlook.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -566,7 +566,7 @@ msgstr "Versione %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:83
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr "Riilasciato %(dateReleased)s - %(fileSize)s"
+msgstr "Rilasciato %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:185 src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
