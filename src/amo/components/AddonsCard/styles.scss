@@ -20,6 +20,18 @@
       border: 0;
       position: absolute;
       top: 0;
+
+      @include respond-to(large) {
+          [dir='ltr'] & {
+              padding-left:0;
+              left: 50%;
+          }
+
+          [dir='rtl'] & {
+              right:50%;
+              padding-right:0;
+          }
+      }
     }
 
     ul.AddonsCard-list {
