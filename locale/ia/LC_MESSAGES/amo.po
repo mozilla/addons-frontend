@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-19 19:52+0000\n"
-"PO-Revision-Date: 2019-11-27 02:45+0000\n"
+"PO-Revision-Date: 2019-11-27 03:08+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -191,7 +191,7 @@ msgstr[1] "%(total)s stellas"
 
 #: src/amo/components/AddonMeta/index.js:125
 msgid "Not rated yet"
-msgstr "Non ancora valutate"
+msgstr "Non ancora evalutate"
 
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Users"
@@ -1051,7 +1051,7 @@ msgstr "Organisar schedas e marcapaginas"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
 msgid "Enhance Your Media Experience"
-msgstr "Meliora tu experientia de medios"
+msgstr "Augmenta tu experientia multimedial"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
@@ -1207,7 +1207,7 @@ msgstr "Vole tu vermente deler tu revision de %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:181
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "Vole tu vermente deler tu valutation de %(addonName)s?"
+msgstr "Es tu secur de voler deler tu evalutation de %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:186
 msgid "How are you enjoying %(addonName)s?"
@@ -1219,7 +1219,7 @@ msgstr "Salvamento del classification per stellas"
 
 #: src/amo/components/RatingManager/index.js:230
 msgid "Star rating saved"
-msgstr "Valutationes per stellas salvate"
+msgstr "Evalutation de stellas salvate"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
@@ -1337,11 +1337,11 @@ msgstr "Additivos de tendentia"
 
 #: src/amo/components/Search/index.js:146 src/amo/pages/LandingPage/index.js:143
 msgid "Top rated extensions"
-msgstr "Extensiones melio valutate"
+msgstr "Le extensiones le melio evalutate"
 
 #: src/amo/components/Search/index.js:149 src/amo/pages/LandingPage/index.js:174
 msgid "Top rated themes"
-msgstr "Themas melio valutate"
+msgstr "Le themas le melio evalutate"
 
 #: src/amo/components/Search/index.js:152
 msgid "Top rated add-ons"
@@ -1661,7 +1661,7 @@ msgstr "Ancora nulle recensiones"
 
 #: src/amo/pages/Addon/index.js:244
 msgid "Rate your experience"
-msgstr "Valuta tu experientia de usator"
+msgstr "Evaluta tu experientia"
 
 #: src/amo/pages/Addon/index.js:263
 msgid "About this dictionary"
@@ -1725,7 +1725,7 @@ msgstr "Politica de confidentialitate pro %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr "Revisiones e valutationes pro %(addonName)s. Discoperi lo que altere usatores pensa circa %(addonName)s e adde illo a tu navigator Firefox."
+msgstr "Recensiones e evalutationes de %(addonName)s. Discoperi lo que altere usatores pensa de %(addonName)s e adde lo a tu navigator Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:230
 msgid "Show all reviews"
@@ -2302,7 +2302,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr "Io es un autor de additivos, pote io deler revisiones o valutationes non favorabile?"
+msgstr "Io es le autor de un additivo, pote io deler recensiones o evalutationes non favorabile?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
@@ -2410,15 +2410,15 @@ msgstr "Mi revisiones"
 
 #: src/amo/pages/UserProfile/index.js:269
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr "Le profilo de %(user)s, un extension e thema autor de Firefox. Trova altere applicationes per %(user)s, anque le valutationes medie, possession, e le option pro reportar problemas."
+msgstr "Le profilo de %(user)s, autor de extensiones e themas pro Firefox. Trova altere applicationes de %(user)s con evalutationes medie, periodo de activitate, e le option pro reportar problemas."
 
 #: src/amo/pages/UserProfile/index.js:273
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr "Le profilo de %(user)s, autor de extension de Firefox. Trova altere extensiones per %(user)s, anque le valutationes medie, possession, e le option pro reportar problemas."
+msgstr "Le profilo de %(user)s, autor de extensiones pro Firefox. Trova altere extensiones de %(user)s con evalutationes medie, periodo de activitate, e le option pro reportar problemas."
 
 #: src/amo/pages/UserProfile/index.js:277
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr "Le profilo de %(user)s, autor de extension de Firefox. Trova altere extensiones per %(user)s, anque le valutationes medie, possession, e le option pro reportar problemas."
+msgstr "Le profilo de %(user)s, autor de themas pro Firefox. Trova altere themas de %(user)s con evalutationes medie, periodo de activitate, e le option pro reportar problemas."
 
 #: src/amo/pages/UserProfile/index.js:316
 msgid "Add-ons developer"
@@ -2454,7 +2454,7 @@ msgstr "Numero de additivos"
 
 #: src/amo/pages/UserProfile/index.js:396
 msgid "Average rating of developer’s add-ons"
-msgstr "Valutationes medie del additivos del usator"
+msgstr "Media del evalutationes del additivos de iste disveloppator"
 
 #: src/amo/pages/UserProfile/index.js:411 src/amo/pages/UserProfileEdit/index.js:727
 msgid "Biography"
@@ -2895,7 +2895,7 @@ msgstr "Actualisa tu classification pro %(starRating)s de 5"
 
 #: src/ui/components/Rating/index.js:106
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Valuta iste additivo %(starRating)s de 5"
+msgstr "Evaluta iste additivo con %(starRating)s de 5"
 
 #: src/ui/components/Rating/index.js:83 src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
