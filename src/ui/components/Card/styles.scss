@@ -66,6 +66,9 @@ $footer-padding: 10px;
     font-weight: normal;
     padding: $footer-padding;
     text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   a:focus {
