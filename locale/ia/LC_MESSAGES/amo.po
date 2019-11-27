@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-19 19:52+0000\n"
-"PO-Revision-Date: 2019-11-25 02:46+0000\n"
+"PO-Revision-Date: 2019-11-27 02:45+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1179,27 +1179,27 @@ msgstr "Acceder al activitate del navigator durante le navigation"
 
 #: src/amo/components/RatingManager/index.js:119
 msgid "Log in to rate this dictionary"
-msgstr "Authentica te pro valutar iste dictionario"
+msgstr "Aperi session pro evalutar iste dictionario"
 
 #: src/amo/components/RatingManager/index.js:121
 msgid "Log in to rate this language pack"
-msgstr "Authentica te pro valutar iste pacchetto de lingua"
+msgstr "Aperi session pro evalutar iste pacchetto de lingua"
 
 #: src/amo/components/RatingManager/index.js:123
 msgid "Log in to rate this search plugin"
-msgstr "Authentica te pro valutar iste plugin de recerca"
+msgstr "Aperi session pro evalutar iste plug-in de recerca"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this theme"
-msgstr "Authentica te pro valutar iste thema"
+msgstr "Aperi session pro evalutar iste thema"
 
 #: src/amo/components/RatingManager/index.js:127
 msgid "Log in to rate this extension"
-msgstr "Authentica te pro valutar iste extension"
+msgstr "Aperi session pro evalutar iste extension"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "Log in to rate this add-on"
-msgstr "Authentica te pro valutar iste additivo"
+msgstr "Aperi session pro evalutar iste additivo"
 
 #: src/amo/components/RatingManager/index.js:176
 msgid "Are you sure you want to delete your review of %(addonName)s?"
@@ -1481,11 +1481,11 @@ msgstr "Recentemente actualisate"
 
 #: src/amo/components/SearchFilters/index.js:175
 msgid "Most Users"
-msgstr "Le major parte del usatores"
+msgstr "Major numero de usatores"
 
 #: src/amo/components/SearchFilters/index.js:176
 msgid "Top Rated"
-msgstr "Los melio valutate"
+msgstr "Melio evalutate"
 
 #: src/amo/components/SearchFilters/index.js:177
 msgid "Trending"
