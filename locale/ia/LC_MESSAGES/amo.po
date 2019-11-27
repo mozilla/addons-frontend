@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-19 19:52+0000\n"
-"PO-Revision-Date: 2019-11-27 03:08+0000\n"
+"PO-Revision-Date: 2019-11-27 03:33+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1407,11 +1407,11 @@ msgstr[1] "%(count)s resultatos trovate"
 
 #: src/amo/components/SearchContextCard/index.js:181
 msgid "Searching for \"%(query)s\""
-msgstr "Recerca pro \"%(query)s\""
+msgstr "Cercante \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:185
 msgid "Searching for add-ons"
-msgstr "Recerca de additivos"
+msgstr "Cercante additivos"
 
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -1885,8 +1885,8 @@ msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
-"Si tu typicamente labora con multe schedas aperte, tu es probabilemente familiar con le frustration de recercar illo sol que tu require tra un rango de schedas inidentificabile. Le extensiones pote "
-"offerer solutiones creative pro le rationalisation del gestion de schedas."
+"Si tu typicamente labora con multe schedas aperte, tu es probabilemente familiar con le frustration de cercar lo que tu require inter un rango de schedas indistincte. Le extensiones pote offerer "
+"solutiones creative pro simplificar le gestion de schedas."
 
 #: src/amo/pages/Guides/index.js:145
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
