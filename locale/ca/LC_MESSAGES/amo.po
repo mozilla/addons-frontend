@@ -16,11 +16,11 @@ msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:176
 msgid "Loading…"
-msgstr "S’està carregant…"
+msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:178
 msgid "Adding…"
-msgstr "S’està afegint…"
+msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:194
 msgid "Select a collection…"
@@ -28,7 +28,7 @@ msgstr "Selecciona una col·lecció…"
 
 #: src/amo/components/AddAddonToCollection/index.js:201
 msgid "Create new collection"
-msgstr "Crea una col·lecció nova"
+msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:242
 msgid "Added to %(collectionName)s"
@@ -37,11 +37,11 @@ msgstr "S'ha afegit a %(collectionName)s"
 # This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:258
 msgid "Add to…"
-msgstr "Afegeix a…"
+msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:263 src/amo/components/CollectionAddAddon/index.js:173
 msgid "Add to collection"
-msgstr "Afegeix a una col·lecció"
+msgstr ""
 
 #: src/amo/components/AddonAdminLinks/index.js:100
 msgid "Admin add-on"
@@ -77,7 +77,7 @@ msgstr ""
 
 #: src/amo/components/AddonBadges/index.js:51
 msgid "Experimental"
-msgstr "Experimental"
+msgstr ""
 
 #: src/amo/components/AddonBadges/index.js:56
 msgid "Not compatible with Firefox Quantum"
