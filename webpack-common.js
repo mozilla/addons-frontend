@@ -90,6 +90,10 @@ export function getStyleRules({
 export function getAssetRules() {
   // Common options for URL loaders (i.e. derivatives of file-loader).
   const urlLoaderOptions = {
+    // This has been added in url-loader 2.2.0 and file-loader 5.0.0. The
+    // default value (`true`) is a breaking change, so we have to set it to
+    // `false`.
+    esModule: false,
     // If a media file is less than this size in bytes, it will be linked as a
     // data: URL. Otherwise it will be linked as a separate file URL.
     limit: 10000,
