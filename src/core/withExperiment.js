@@ -62,6 +62,7 @@ export type WithExperimentInjectedProps = {|
 type CookieConfig = {|
   maxAge?: number,
   path?: string,
+  secure?: boolean,
 |};
 
 type ExperimentVariant = {|
@@ -114,6 +115,7 @@ type withExperimentInternalProps = {|
 export const defaultCookieConfig: CookieConfig = {
   maxAge: DEFAULT_COOKIE_MAX_AGE,
   path: '/',
+  secure: true,
 };
 
 export const withExperiment = ({
