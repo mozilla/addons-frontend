@@ -64,9 +64,9 @@ $footer-padding: 10px;
     color: $link-color;
     display: block;
     font-weight: normal;
+    overflow: hidden;
     padding: $footer-padding;
     text-decoration: none;
-    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
