@@ -59,6 +59,7 @@ export type WithExperimentInjectedProps = {|
   variant: string | null,
 |};
 
+// https://github.com/reactivestack/cookies/tree/f9beead40a6bebac475d9bf17c1da55418d26751/packages/react-cookie#setcookiename-value-options
 type CookieConfig = {|
   maxAge?: number,
   path?: string,
@@ -115,6 +116,7 @@ type withExperimentInternalProps = {|
 export const defaultCookieConfig: CookieConfig = {
   maxAge: DEFAULT_COOKIE_MAX_AGE,
   path: '/',
+  // See https://github.com/mozilla/addons-frontend/issues/8957
   secure: true,
 };
 
