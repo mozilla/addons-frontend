@@ -32,10 +32,7 @@ import type { AddonInfoType } from 'core/reducers/addons';
 import type { AddonVersionType } from 'core/reducers/versions';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
-import type {
-  ReactRouterLocationType,
-  ReactRouterMatchType,
-} from 'core/types/router';
+import type { ReactRouterMatchType } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
@@ -50,7 +47,13 @@ export type AddonInfoTypeType =
   | typeof ADDON_INFO_TYPE_PRIVACY_POLICY;
 
 type Props = {|
-  location: ReactRouterLocationType,
+  match: {|
+    ...ReactRouterMatchType,
+    params: {
+      slug: string,
+    },
+  |},
+  infoType: AddonInfoTypeType,
 |};
 
 type InternalProps = {|
@@ -64,13 +67,6 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  infoType: AddonInfoTypeType,
-  match: {|
-    ...ReactRouterMatchType,
-    params: {
-      slug: string,
-    },
-  |},
 |};
 
 export class AddonInfoBase extends React.Component<InternalProps> {
@@ -235,7 +231,7 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
   };
 }
 
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: Props) => {
   const {
     infoType,
     match: {

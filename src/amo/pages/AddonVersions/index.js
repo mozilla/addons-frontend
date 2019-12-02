@@ -38,7 +38,15 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 type Props = {|
+  // The `location` prop is used in `extractId()`.
+  // eslint-disable-next-line react/no-unused-prop-types
   location: ReactRouterLocationType,
+  match: {|
+    ...ReactRouterMatchType,
+    params: {|
+      slug: string,
+    |},
+  |},
 |};
 
 type InternalProps = {|
@@ -49,12 +57,6 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
-  match: {|
-    ...ReactRouterMatchType,
-    params: {|
-      slug: string,
-    |},
-  |},
   versions: Array<AddonVersionType> | void,
 |};
 
@@ -226,7 +228,7 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
   };
 }
 
-export const extractId = (ownProps: InternalProps) => {
+export const extractId = (ownProps: Props) => {
   const {
     location,
     match: { params },

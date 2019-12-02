@@ -31,6 +31,8 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import './styles.scss';
 
 type Props = {|
+  // The `location` prop is used in `extractId()`.
+  // eslint-disable-next-line react/no-unused-prop-types
   location: ReactRouterLocationType,
   match: {|
     ...ReactRouterMatchType,
