@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-03 22:11+0000\n"
+"PO-Revision-Date: 2019-12-03 22:28+0000\n"
 "Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -2549,51 +2549,55 @@ msgstr "Aquest URL només serà visible per als usuaris que siguin desenvolupado
 
 #: src/amo/pages/UserProfileEdit/index.js:742
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "És compatible amb algun HTML: %(htmlTags)s. Els enllaços estan prohibits."
 
 #: src/amo/pages/UserProfileEdit/index.js:766
 msgid "Notifications"
-msgstr ""
+msgstr "Notificacions"
 
 #: src/amo/pages/UserProfileEdit/index.js:770
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Periòdicament, Mozilla pot enviar-vos correus sobre properes versions i esdeveniments sobre complements. Seleccioneu els temes en què esteu interessat."
 
 #: src/amo/pages/UserProfileEdit/index.js:775
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "Periòdicament, Mozilla pot enviar a aquest usuari correus sobre properes versions i esdeveniments sobre complements. Seleccioneu els temes en què aquest usuari pot estar interessat."
 
 #: src/amo/pages/UserProfileEdit/index.js:790
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla es reserva el dret de contactar-vos individualment per tractar de temes específics dels vostres complements hostatjats."
 
 #: src/amo/pages/UserProfileEdit/index.js:816 src/amo/pages/UserProfileEdit/index.js:905
 msgid "Delete My Profile"
-msgstr ""
+msgstr "Suprimeix el meu perfil"
 
 #: src/amo/pages/UserProfileEdit/index.js:817 src/amo/pages/UserProfileEdit/index.js:906
 msgid "Delete Profile"
-msgstr ""
+msgstr "Suprimeix el perfil"
 
 #: src/amo/pages/UserProfileEdit/index.js:829
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "IMPORTANT: suprimir el seu perfil de complements de Firefox és irreversible."
 
 #: src/amo/pages/UserProfileEdit/index.js:832
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "IMPORTANT: suprimir el perfil de complements de Firefox és irreversible."
 
 #: src/amo/pages/UserProfileEdit/index.js:841
 msgid ""
 "Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
 " will be anonymised and no longer editable."
 msgstr ""
+"Les vostres dades s'eliminaran de manera permanent, així com les dades del perfil (imatge, nom d'usuari, nom a mostrar, ubicació, pàgina d'inici, biografia, ocupació) i les preferències de "
+"notificació. Les vostres ressenyes i valoracions passaran a ser anònimes i no es podran editar."
 
 #: src/amo/pages/UserProfileEdit/index.js:848
 msgid ""
 "The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
 "ratings will be anonymised and no longer editable."
 msgstr ""
+"Les dades de l'usuari s'eliminaran de manera permanent, així com les dades del perfil (imatge, nom d'usuari, nom a mostrar, ubicació, pàgina d'inici, biografia, ocupació) i les preferències de "
+"notificació. Les ressenyes i valoracions passaran a ser anònimes i no es podran editar."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
