@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-19 19:52+0000\n"
-"PO-Revision-Date: 2019-12-03 02:28+0000\n"
+"PO-Revision-Date: 2019-12-03 02:42+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -316,7 +316,7 @@ msgstr "Rediger le responsa"
 
 #: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
-msgstr "Rediger revision"
+msgstr "Modificar recension"
 
 #: src/amo/components/AddonReviewCard/index.js:205 src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
@@ -328,7 +328,7 @@ msgstr "Deler classification"
 
 #: src/amo/components/AddonReviewCard/index.js:212 src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
-msgstr "Deler revision"
+msgstr "Deler recension"
 
 #: src/amo/components/AddonReviewCard/index.js:219
 msgid "Do you really want to delete this reply?"
@@ -340,7 +340,7 @@ msgstr "Vole tu vermente deler iste classification?"
 
 #: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
-msgstr "Vole tu vermente deler iste revision?"
+msgstr "Vole tu vermente deler iste recension?"
 
 #: src/amo/components/AddonReviewCard/index.js:233 src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
@@ -1203,7 +1203,7 @@ msgstr "Aperi session pro evalutar iste additivo"
 
 #: src/amo/components/RatingManager/index.js:176
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Vole tu vermente deler tu revision de %(addonName)s?"
+msgstr "Es tu secur de voler deler tu recension de %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:181
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
@@ -2309,8 +2309,8 @@ msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
-"In general, no. Ma si le revision non incontrava le lineas guida del revisiones sumite supra, tu pote cliccar \"Reportar iste revision\" e haber illo moderate. Si un revision includeva un querela "
-"que non es plus valide debite a un nove version de tu additivo, nos pote considerar de deler le revision."
+"In general, no. Ma si le recension non respecta le directivas enumerate hic supra, tu pote cliccar sur \"Signalar iste recension\" pro demandar que un moderator lo examina. Si un recension include "
+"un querela que non es plus valide post publicar un nove version de tu additivo, nos pote considerar deler le recension."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
