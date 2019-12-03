@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-03 17:51+0000\n"
+"PO-Revision-Date: 2019-12-03 18:10+0000\n"
 "Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -2375,80 +2375,80 @@ msgstr "Utilitzeu paraules gruixudes, llenguatge sexual o llenguatge que inciti 
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:91
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Inclou HTML, enllaços, codi font o fragments de codi. Les ressenyes han de ser només de text."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Feu declaracions falses, denigreu els complements dels autors o insulteu-los personalment."
 
 #: src/amo/pages/UserProfile/index.js:241
 msgid "My reviews"
-msgstr ""
+msgstr "Les meves ressenyes"
 
 #: src/amo/pages/UserProfile/index.js:269
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "El perfil de %(user)s, autor d'una extensió i d'un tema del Firefox. Cerqueu altres aplicacions de %(user)s amb la mitjana de valoracions, la permanència i l'opció de notificar problemes."
 
 #: src/amo/pages/UserProfile/index.js:273
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "El perfil de %(user)s, autor d'una extensió del Firefox. Cerqueu altres aplicacions de %(user)s amb la mitjana de valoracions, la permanència i l'opció de notificar problemes."
 
 #: src/amo/pages/UserProfile/index.js:277
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "El perfil de %(user)s, autor d'un tema del Firefox. Cerqueu altres aplicacions de %(user)s amb la mitjana de valoracions, la permanència i l'opció de notificar problemes."
 
 #: src/amo/pages/UserProfile/index.js:316
 msgid "Add-ons developer"
-msgstr ""
+msgstr "Desenvolupador de complements"
 
 #: src/amo/pages/UserProfile/index.js:322
 msgid "Theme artist"
-msgstr ""
+msgstr "Artista del tema"
 
 #: src/amo/pages/UserProfile/index.js:336 src/amo/pages/UserProfileEdit/index.js:536
 msgid "User Profile for %(user)s"
-msgstr ""
+msgstr "Perfil d'usuari de %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:339
 msgid "User Profile"
-msgstr ""
+msgstr "Perfil d’usuari"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:690
 msgid "Location"
-msgstr ""
+msgstr "Ubicació"
 
 #: src/amo/pages/UserProfile/index.js:373 src/amo/pages/UserProfileEdit/index.js:705
 msgid "Occupation"
-msgstr ""
+msgstr "Ocupació"
 
 #: src/amo/pages/UserProfile/index.js:380
 msgid "User since"
-msgstr ""
+msgstr "Usuari des de"
 
 #: src/amo/pages/UserProfile/index.js:390
 msgid "Number of add-ons"
-msgstr ""
+msgstr "Nombre de complements"
 
 #: src/amo/pages/UserProfile/index.js:396
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Valoració mitjana dels complements del desenvolupador"
 
 #: src/amo/pages/UserProfile/index.js:411 src/amo/pages/UserProfileEdit/index.js:727
 msgid "Biography"
-msgstr ""
+msgstr "Biografia"
 
 #: src/amo/pages/UserProfile/index.js:435
 msgid "Edit profile"
-msgstr ""
+msgstr "Edita el perfil"
 
 # This action allows an admin to maintain a user.
 #: src/amo/pages/UserProfile/index.js:447
 msgid "Admin user"
-msgstr ""
+msgstr "Usuari admistrador"
 
 #: src/amo/pages/UserProfileEdit/index.js:198
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "La imatge s'ha suprimit correctament"
 
 #: src/amo/pages/UserProfileEdit/index.js:443
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
