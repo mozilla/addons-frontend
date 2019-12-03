@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-03 22:28+0000\n"
+"PO-Revision-Date: 2019-12-03 22:46+0000\n"
 "Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -2601,38 +2601,40 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:858
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
-msgstr ""
+msgstr "Quan inicieu sessió a addons.mozilla.org mitjançant aquesta adreça electrònica, creareu un nou perfil de complements del Firefox que no tindrà res a veure amb el perfil suprimit."
 
 #: src/amo/pages/UserProfileEdit/index.js:871
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
+"%(strongStart)sNOTA:%(strongEnd)s no podeu suprimir el vostre perfil si sou %(linkStart)sl'autor de cap complement%(linkEnd)s. Heu de %(docLinkStart)stransferir la titularitat%(docLinkEnd)s o "
+"suprimir el complement abans."
 
 #: src/amo/pages/UserProfileEdit/index.js:878
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sNOTA:%(strongEnd)s no podeu suprimir el perfil de l'usuari si l'usuari és %(linkStart)sl'autor de cap complement%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
-msgstr ""
+msgstr "Us heu donat de baixa amb èxit!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:121
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "Aquesta adreça electrònica %(strongStart)s%(email)s%(strongEnd)s ja no rebrà més missatges quan:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Podeu editar la configuració de les notificacions quan %(linkStart)sediteu el vostre perfil%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Cancel·la la subscripció"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "estigueu al dia de les novetats i esdeveniments rellevants per als desenvolupadors de complements (inclòs el butlletí de notícies about:addons)"
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
