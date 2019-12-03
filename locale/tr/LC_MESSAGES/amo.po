@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-19 19:52+0000\n"
-"PO-Revision-Date: 2019-12-01 12:55+0000\n"
+"PO-Revision-Date: 2019-12-03 12:04+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -1013,9 +1013,8 @@ msgid "Log out"
 msgstr "Çıkış"
 
 #: src/amo/components/Header/index.js:63
-#, fuzzy
 msgid "Firefox Browser Add-ons"
-msgstr "Firefox Eklentileri"
+msgstr "Firefox Browser Eklentileri"
 
 #: src/amo/components/Header/index.js:94
 msgid "Learn how to create extensions and themes"
@@ -1059,9 +1058,8 @@ msgid "This extension isn’t monitored by Mozilla. Make sure you trust the exte
 msgstr "Bu eklenti Mozilla tarafından izlenmiyor. Yüklemeden önce eklentinin güvenilir olup olmadığını kontrol etmenizi öneririz."
 
 #: src/amo/components/InstallWarning/index.js:170
-#, fuzzy
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr "Bu eklenti Mozilla tarafından izlenmiyor. Yüklemeden önce eklentinin güvenilir olup olmadığını kontrol etmenizi öneririz."
+msgstr "Bu önerilen bir eklenti değil. Yalnızca güvendiğiniz eklentileri yüklemenizi öneririz."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1360,18 +1358,16 @@ msgstr[0] "%(count)s arama aracı bulundu"
 msgstr[1] "%(count)s arama aracı bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:121
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "\"%(query)s\" için %(count)s tema bulundu"
-msgstr[1] "\"%(query)s\" için %(count)s tema bulundu"
+msgstr[0] ""
+msgstr[1] "%(categoryName)s kategorisinde \"%(query)s\" için %(count)s tema bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:130
-#, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "\"%(query)s\" için %(count)s tema bulundu"
-msgstr[1] "\"%(query)s\" için %(count)s tema bulundu"
+msgstr[0] "%(categoryName)s kategorisinde %(count)s tema bulundu"
+msgstr[1] "%(categoryName)s kategorisinde %(count)s tema bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:140
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1380,11 +1376,10 @@ msgstr[0] "\"%(query)s\" için %(count)s tema bulundu"
 msgstr[1] "\"%(query)s\" için %(count)s tema bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:149
-#, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "%(count)s eklenti bulundu"
-msgstr[1] "%(count)s eklenti bulundu"
+msgstr[0] "%(count)s tema bulundu"
+msgstr[1] "%(count)s tema bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s result found for \"%(query)s\""
@@ -1393,11 +1388,10 @@ msgstr[0] "\"%(query)s\" için %(count)s sonuç bulundu"
 msgstr[1] "\"%(query)s\" için %(count)s sonuç bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:170
-#, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "\"%(query)s\" için %(count)s sonuç"
-msgstr[1] "\"%(query)s\" için %(count)s sonuç"
+msgstr[0] "%(count)s sonuç bulundu"
+msgstr[1] "%(count)s sonuç bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:181
 msgid "Searching for \"%(query)s\""
@@ -1408,18 +1402,16 @@ msgid "Searching for add-ons"
 msgstr "Eklentiler aranıyor"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "\"%(query)s\" için %(count)s eklenti bulundu"
-msgstr[1] "\"%(query)s\" için %(count)s eklenti bulundu"
+msgstr[0] "%(categoryName)s kategorisinde \"%(query)s\" için %(count)s eklenti bulundu"
+msgstr[1] "%(categoryName)s kategorisinde \"%(query)s\" için %(count)s eklenti bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:68
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "\"%(query)s\" için %(count)s eklenti bulundu"
-msgstr[1] "\"%(query)s\" için %(count)s eklenti bulundu"
+msgstr[0] "%(categoryName)s kategorisinde %(count)s eklenti bulundu"
+msgstr[1] "%(categoryName)s kategorisinde %(count)s eklenti bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1852,9 +1844,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr "Hafif ve çok etkili bir reklam engelleyici. uBlock Origin, binlerce içerik filtresini çok fazla bellek tüketmeden işler."
 
 #: src/amo/pages/Guides/index.js:109
-#, fuzzy
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "Ekibimizin seçtiği diğer %(linkStart)sreklam engelleyicileri%(linkEnd)s keşfedin."
+msgstr "Diğer başarılı %(linkStart)sreklam engelleyicileri%(linkEnd)s keşfedin."
 
 #: src/amo/pages/Guides/index.js:117
 msgid "Stop online trackers from stalking you"
@@ -1869,9 +1860,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr "Facebook'un kendi sosyal ağı dışında yaptıklarınızı izlemesini engellemek için Facebook kimliğinizi ayrı bir “kapsayıcı” içine hapsedin."
 
 #: src/amo/pages/Guides/index.js:127
-#, fuzzy
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "Ekibimizin seçtiği diğer %(linkStart)sgizlilik ve güvenlik%(linkEnd)s eklentilerini keşfedin."
+msgstr "Önerdiğimiz diğer %(linkStart)sgizlilik ve güvenlik%(linkEnd)s eklentilerini keşfedin."
 
 #: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
@@ -1888,9 +1878,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
-#, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "Ekibimizin seçtiği diğer %(linkStart)sreklam engelleyicileri%(linkEnd)s keşfedin."
+msgstr "Diğer %(linkStart)ssekme%(linkEnd)s eklentilerini keşfedin."
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
@@ -1905,9 +1894,8 @@ msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bo
 msgstr "Birden fazla yer imi klasörü tutuyorsanız, yer imlerinizi düzenlemek için daha iyi bir yolun keyfini çıkarın."
 
 #: src/amo/pages/Guides/index.js:168
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "Ekibimizin seçtiği diğer %(linkStart)syer imi yöneticilerini%(linkEnd)s keşfedin."
+msgstr "Diğer %(linkStart)syer imi%(linkEnd)s eklentilerini keşfedin."
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a fresh new tab experience"
@@ -1998,9 +1986,8 @@ msgid "Fully encrypted password protection. Store your data securely and access 
 msgstr "Tamamen şifrelenmiş parola koruması. Verilerinizi güvenle saklayın ve hesaplarınıza tüm cihazlarınızdan erişin."
 
 #: src/amo/pages/Guides/index.js:90
-#, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "Ekibimizin seçtiği diğer %(linkStart)sparola yöneticilerini%(linkEnd)s de keşfedin."
+msgstr "Diğer başarılı %(linkStart)sparola yöneticilerini%(linkEnd)s keşfedin."
 
 #: src/amo/pages/Guides/index.js:98
 msgid "Block annoying ads"
@@ -2181,7 +2168,6 @@ msgid "Tell your friends and family that Firefox is a fast, secure browser that 
 msgstr "Arkadaşlarınıza Firefox'un hızlı, güvenli ve herkesin gizliliğni koruyan bir tarayıcı olduğunu; üstelik eklentilerle Firefox'u kişiselleştirebileceklerini anlatın."
 
 #: src/amo/pages/StaticPages/About/index.js:175
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
 msgstr "Eklenti topluluğuna katkıda bulunabileceğiniz diğer yolları öğrenmek için %(startLink)swiki%(endLink)s'mizi ziyaret edin."
 
@@ -2228,7 +2214,6 @@ msgid "A community of creators"
 msgstr "Bir yaratıcı topluluğu"
 
 #: src/amo/pages/StaticPages/About/index.js:56
-#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
@@ -2473,37 +2458,32 @@ msgid "Picture successfully deleted"
 msgstr "Resim başarıyla silindi"
 
 #: src/amo/pages/UserProfileEdit/index.js:443
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "Kullanıcılara kendiniz hakkında biraz daha bilgi verin. Bu alanlar isteğe bağlıdır, ancak diğer kullanıcıların sizi daha iyi tanımasına yardımcı olurlar."
+msgstr "Kullanıcılara kendiniz hakkında biraz daha bilgi verin. Çoğu alan isteğe bağlıdır, ancak diğer kullanıcıların sizi daha iyi tanımalarına yardımcı olur."
 
 #: src/amo/pages/UserProfileEdit/index.js:447
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Kullanıcılara bu kullanıcı hakkında biraz daha bilgi verin. Bu alanlar isteğe bağlıdır ama başkalarının %(username)s adlı kullanıcıyı daha iyi tanımasına yardımcı olurlar."
+msgstr "Kullanıcılara bu kullanıcı hakkında biraz daha bilgi verin. Çoğu alan isteğe bağlıdır ama başkalarının %(userName)s adlı kullanıcıyı daha iyi tanımasına yardımcı olurlar."
 
 #: src/amo/pages/UserProfileEdit/index.js:462
 msgid "Introduce yourself to the community if you like"
 msgstr "İsterseniz kendinizi tanıtın"
 
 #: src/amo/pages/UserProfileEdit/index.js:463
-#, fuzzy
 msgid "Introduce %(userName)s to the community"
-msgstr "%(username)s adlı kullanıcıyı tanıtın"
+msgstr "%(userName)s adlı kullanıcıyı tanıtın"
 
 #: src/amo/pages/UserProfileEdit/index.js:490
 msgid "Log in to edit the profile"
 msgstr "Profili düzenlemek için giriş yapın"
 
 #: src/amo/pages/UserProfileEdit/index.js:512
-#, fuzzy
 msgid "Creating your profile…"
-msgstr "Profiliniz güncelleniyor…"
+msgstr "Profiliniz oluşturuluyor…"
 
 #: src/amo/pages/UserProfileEdit/index.js:513
-#, fuzzy
 msgid "Create My Profile"
-msgstr "Profilimi güncelle"
+msgstr "Profilimi oluştur"
 
 #: src/amo/pages/UserProfileEdit/index.js:517
 msgid "Updating your profile…"
