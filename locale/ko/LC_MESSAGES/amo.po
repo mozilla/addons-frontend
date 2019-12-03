@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-19 19:52+0000\n"
+"POT-Creation-Date: 2019-12-03 17:17+0000\n"
 "PO-Revision-Date: 2019-04-17 01:46+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -376,7 +376,7 @@ msgstr "삭제"
 
 #: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:151
-#: src/amo/components/CollectionManager/index.js:313
+#: src/amo/components/CollectionManager/index.js:316
 #: src/amo/pages/UserProfileEdit/index.js:913
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
@@ -493,92 +493,92 @@ msgstr ""
 msgid "Your star rating:"
 msgstr ""
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:239
+#: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
 msgstr "%(author)s의 사전 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:242
+#: src/amo/components/AddonsByAuthorsCard/index.js:250
 msgid "More dictionaries by these translators"
 msgstr "이 번역자들의 사전 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:246
+#: src/amo/components/AddonsByAuthorsCard/index.js:254
 #, fuzzy
 msgid "Dictionaries by %(author)s"
 msgstr "%(author)s의 사전 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:249
+#: src/amo/components/AddonsByAuthorsCard/index.js:257
 #, fuzzy
 msgid "Dictionaries by these translators"
 msgstr "이 번역자들의 사전 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:256
+#: src/amo/components/AddonsByAuthorsCard/index.js:264
 msgid "More extensions by %(author)s"
 msgstr "%(author)s의 확장 기능 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:259
+#: src/amo/components/AddonsByAuthorsCard/index.js:267
 msgid "More extensions by these developers"
 msgstr "이 개발자의 확장 기능 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:263
+#: src/amo/components/AddonsByAuthorsCard/index.js:271
 #, fuzzy
 msgid "Extensions by %(author)s"
 msgstr "%(author)s의 확장 기능 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:266
+#: src/amo/components/AddonsByAuthorsCard/index.js:274
 #, fuzzy
 msgid "Extensions by these developers"
 msgstr "이 개발자의 확장 기능 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:274
+#: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by %(author)s"
 msgstr "%(author)s의 언어 팩 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:279
+#: src/amo/components/AddonsByAuthorsCard/index.js:287
 msgid "More language packs by these translators"
 msgstr "이 번역자들의 언어 팩 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:283
+#: src/amo/components/AddonsByAuthorsCard/index.js:291
 #, fuzzy
 msgid "Language packs by %(author)s"
 msgstr "%(author)s의 언어 팩 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:286
+#: src/amo/components/AddonsByAuthorsCard/index.js:294
 #, fuzzy
 msgid "Language packs by these translators"
 msgstr "이 번역자들의 언어 팩 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:293
+#: src/amo/components/AddonsByAuthorsCard/index.js:301
 msgid "More themes by %(author)s"
 msgstr "%(author)s의 테마 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:296
+#: src/amo/components/AddonsByAuthorsCard/index.js:304
 msgid "More themes by these artists"
 msgstr "이 아티스트들의 테마 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:300
+#: src/amo/components/AddonsByAuthorsCard/index.js:308
 #, fuzzy
 msgid "Themes by %(author)s"
 msgstr "%(author)s의 테마 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:303
+#: src/amo/components/AddonsByAuthorsCard/index.js:311
 #, fuzzy
 msgid "Themes by these artists"
 msgstr "이 아티스트들의 테마 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:310
+#: src/amo/components/AddonsByAuthorsCard/index.js:318
 msgid "More add-ons by %(author)s"
 msgstr "%(author)s의 부가 기능 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:313
+#: src/amo/components/AddonsByAuthorsCard/index.js:321
 msgid "More add-ons by these developers"
 msgstr "이 개발자의 부가 기능 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:317
+#: src/amo/components/AddonsByAuthorsCard/index.js:325
 #, fuzzy
 msgid "Add-ons by %(author)s"
 msgstr "%(author)s의 부가 기능 더보기"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:320
+#: src/amo/components/AddonsByAuthorsCard/index.js:328
 #, fuzzy
 msgid "Add-ons by these developers"
 msgstr "이 개발자의 부가 기능 더보기"
@@ -716,24 +716,24 @@ msgstr "부가 기능"
 msgid "Creator"
 msgstr "제작자"
 
-#: src/amo/components/CollectionManager/index.js:237
+#: src/amo/components/CollectionManager/index.js:240
 #, fuzzy
 msgid "Create collection"
 msgstr "이 콜렉션 수정"
 
-#: src/amo/components/CollectionManager/index.js:238
+#: src/amo/components/CollectionManager/index.js:241
 msgid "Save changes"
 msgstr "변경사항 저장"
 
-#: src/amo/components/CollectionManager/index.js:247
+#: src/amo/components/CollectionManager/index.js:250
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:261
+#: src/amo/components/CollectionManager/index.js:264
 msgid "Description"
 msgstr "설명"
 
-#: src/amo/components/CollectionManager/index.js:273
+#: src/amo/components/CollectionManager/index.js:276
 msgid "Custom URL"
 msgstr "사용자 정의 URL"
 
@@ -885,15 +885,16 @@ msgstr ""
 msgid ""
 "Try visiting the page later, as the theme or extension may become available "
 "again. Alternatively, you may be able to find what you’re looking for in one "
-"of the available %(linkStart)sextensions%(linkEnd)s or "
-"%(secondLinkStart)sthemes%(secondLinkEnd)s."
+"of the available %(extensionStart)sextensions%(extensionEnd)s or "
+"%(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
+"%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
 
-#: src/amo/components/Errors/NotFound/index.js:66
+#: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
 msgstr "이런! 페이지를 찾을 수 없습니다."
 
-#: src/amo/components/Errors/NotFound/index.js:69
+#: src/amo/components/Errors/NotFound/index.js:85
 msgid ""
 "If you’ve followed a link from another site for an extension or theme, that "
 "item is no longer available. This could be because:"
@@ -901,7 +902,7 @@ msgstr ""
 "다른 웹사이트에서 부가 기능이나 테마 링크로 오신 경우, 해당 항목은 더이상 사"
 "용할 수 없습니다. 이는 다음과 같은 이유일 수 있습니다:"
 
-#: src/amo/components/Errors/NotFound/index.js:75
+#: src/amo/components/Errors/NotFound/index.js:91
 msgid ""
 "The developer removed it. Developers commonly do this because they no longer "
 "support the extension or theme, or have replaced it."
@@ -909,7 +910,7 @@ msgstr ""
 "개발자가 항목을 제거하였습니다. 개발자들은 일반적으로 부가 기능이나 테마를 더"
 "이상 지원하지 않거나 대체하기 위해서 이렇게 합니다."
 
-#: src/amo/components/Errors/NotFound/index.js:80
+#: src/amo/components/Errors/NotFound/index.js:96
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review "
 "of the extension or theme, or the extension or theme has been abusing the "
@@ -919,17 +920,6 @@ msgstr ""
 "Mozilla가 제거한 것입니다. 이는 부가 기능이나 테마의 검토 과정에서 문제가 발"
 "생했거나, addons.mozilla.org의 이용 약관을 위반한 경우입니다. 개발자는 문제"
 "를 해결하고 부가 기능을 다시 내려받을 수 있도록 할 수 있습니다."
-
-#: src/amo/components/Errors/NotFound/index.js:92
-#, fuzzy
-msgid ""
-"If you’ve followed a link on this site, you’ve have found a mistake. Help us "
-"fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you "
-"came from and what you were looking for, and we'll get it sorted."
-msgstr ""
-"어딘가에 있는 링크에서 접근했다면 <a href=\"%(url)s\">이슈를 올려</a>주세요. "
-"어디에서 왔으며 어떤 것을 찾으려 했는지 알려주시면 최선을 다해 고치도록 하겠"
-"습니다."
 
 #: src/amo/components/Errors/ServerError/index.js:21
 msgid ""
@@ -975,12 +965,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "버그 신고 또는 지원 요청으로 표시됨"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "표시하기"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "표시됨"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "표시하기"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 #, fuzzy
@@ -1415,24 +1405,24 @@ msgstr "이 리뷰에 답변"
 msgid "Read all one-star reviews"
 msgstr "%(count)s개의 리뷰 보기"
 
-#: src/amo/components/ReportAbuseButton/index.js:119
+#: src/amo/components/ReportAbuseButton/index.js:116
 #, fuzzy
 msgid "You reported this add-on for abuse"
 msgstr "로그인하여 이 부가 기능의 평점을 남겨주세요"
 
-#: src/amo/components/ReportAbuseButton/index.js:123
+#: src/amo/components/ReportAbuseButton/index.js:120
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
 msgstr ""
 "보고서가 접수되었습니다. 이 부가 기능에 대한 우려를 알려주셔서 감사합니다."
 
-#: src/amo/components/ReportAbuseButton/index.js:130
+#: src/amo/components/ReportAbuseButton/index.js:127
 #: src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr "모든 신고 사항에 대해 답변을 드릴 수는 없지만 문제는 조사될 것입니다."
 
-#: src/amo/components/ReportAbuseButton/index.js:140
+#: src/amo/components/ReportAbuseButton/index.js:137
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
@@ -1442,11 +1432,11 @@ msgstr ""
 "전, 개인정보 관련 문제로 위협한다고 생각되시면, 이 양식을 이용하여 Mozilla에 "
 "이 문제를 보고해 주십시오."
 
-#: src/amo/components/ReportAbuseButton/index.js:156
+#: src/amo/components/ReportAbuseButton/index.js:153
 msgid "Report this add-on for abuse"
 msgstr "이 부가 기능을 정책 위반으로 신고하기"
 
-#: src/amo/components/ReportAbuseButton/index.js:186
+#: src/amo/components/ReportAbuseButton/index.js:183
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1454,21 +1444,21 @@ msgstr ""
 "이 양식을 버그 신고나 기능 추가 요청용으로 사용하지 마십시오. 이 보고서는 "
 "Mozilla에 전송되며 개발자에게 전달되지 않습니다."
 
-#: src/amo/components/ReportAbuseButton/index.js:199
+#: src/amo/components/ReportAbuseButton/index.js:196
 #: src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
 msgstr "정책 위반 보고서 보내기"
 
-#: src/amo/components/ReportAbuseButton/index.js:200
+#: src/amo/components/ReportAbuseButton/index.js:197
 #: src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "정책 위반 보고서 보내는 중"
 
-#: src/amo/components/ReportAbuseButton/index.js:202
+#: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Dismiss"
 msgstr "닫기"
 
-#: src/amo/components/ReportAbuseButton/index.js:203
+#: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
 msgstr "이 부가 기능이 어떻게 정책을 위반하는지 알려주세요."
 
@@ -1960,17 +1950,17 @@ msgstr ""
 msgid "Screenshots"
 msgstr "스크린샷"
 
-#: src/amo/pages/AddonInfo/index.js:158
+#: src/amo/pages/AddonInfo/index.js:154
 #, fuzzy
 msgid "Custom License for %(addonName)s"
 msgstr "%(addonName)s에 대한 리뷰"
 
-#: src/amo/pages/AddonInfo/index.js:165
+#: src/amo/pages/AddonInfo/index.js:161
 #, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "사용자 라이선스 동의서"
 
-#: src/amo/pages/AddonInfo/index.js:169
+#: src/amo/pages/AddonInfo/index.js:165
 #, fuzzy
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s에 대한 리뷰"
@@ -2026,12 +2016,12 @@ msgstr[0] "%(total)s명의 사용자"
 msgid "There are no reviews"
 msgstr "리뷰 작성"
 
-#: src/amo/pages/AddonVersions/index.js:126
+#: src/amo/pages/AddonVersions/index.js:128
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "%(addonName)s 버전 기록 - 총 %(total)s 판"
 
-#: src/amo/pages/AddonVersions/index.js:174
+#: src/amo/pages/AddonVersions/index.js:176
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
@@ -2039,16 +2029,16 @@ msgstr ""
 "이전 버전 사용에 주의하세요! 이러한 버전들은 시험 및 참조 용도로만 표시되는 "
 "것입니다."
 
-#: src/amo/pages/AddonVersions/index.js:179
+#: src/amo/pages/AddonVersions/index.js:181
 msgid "You should always use the latest version of an add-on."
 msgstr "항상 최신 버전의 부가 기능을 사용해야 합니다."
 
-#: src/amo/pages/AddonVersions/index.js:188
+#: src/amo/pages/AddonVersions/index.js:190
 #, fuzzy
 msgid "Latest version"
 msgstr "버전"
 
-#: src/amo/pages/AddonVersions/index.js:197
+#: src/amo/pages/AddonVersions/index.js:199
 #, fuzzy
 msgid "Older versions"
 msgstr "모든 버전 보기"
@@ -3094,24 +3084,24 @@ msgid ""
 "user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
 msgstr ""
 
-#: src/amo/pages/UsersUnsubscribe/index.js:106
+#: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
 msgstr ""
 
 # a list of notifications will be displayed under this prompt.
-#: src/amo/pages/UsersUnsubscribe/index.js:119
+#: src/amo/pages/UsersUnsubscribe/index.js:121
 msgid ""
 "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
 "messages when:"
 msgstr ""
 
-#: src/amo/pages/UsersUnsubscribe/index.js:77
+#: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid ""
 "You can edit your notification settings by %(linkStart)sediting your profile"
 "%(linkEnd)s."
 msgstr ""
 
-#: src/amo/pages/UsersUnsubscribe/index.js:97
+#: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
 msgstr ""
 
@@ -3410,6 +3400,16 @@ msgstr[0] "카테고리가 없습니다."
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "개발자 응답"
+
+#, fuzzy
+#~ msgid ""
+#~ "If you’ve followed a link on this site, you’ve have found a mistake. Help "
+#~ "us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where "
+#~ "you came from and what you were looking for, and we'll get it sorted."
+#~ msgstr ""
+#~ "어딘가에 있는 링크에서 접근했다면 <a href=\"%(url)s\">이슈를 올려</a>주세"
+#~ "요. 어디에서 왔으며 어떤 것을 찾으려 했는지 알려주시면 최선을 다해 고치도"
+#~ "록 하겠습니다."
 
 #~ msgid "Featured Extension"
 #~ msgstr "추천 확장 기능"

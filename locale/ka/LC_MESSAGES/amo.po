@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-19 19:52+0000\n"
+"POT-Creation-Date: 2019-12-03 17:17+0000\n"
 "PO-Revision-Date: 2019-11-17 02:09+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -378,7 +378,7 @@ msgstr "წაშლა"
 
 #: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:151
-#: src/amo/components/CollectionManager/index.js:313
+#: src/amo/components/CollectionManager/index.js:316
 #: src/amo/pages/UserProfileEdit/index.js:913
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
@@ -485,83 +485,83 @@ msgstr ""
 msgid "Your star rating:"
 msgstr "თქვენი შეფასება ვარსკვლავით:"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:239
+#: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
 msgstr "%(author)s ავტორის სხვა ლექსიკონები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:242
+#: src/amo/components/AddonsByAuthorsCard/index.js:250
 msgid "More dictionaries by these translators"
 msgstr "ამ მთარგმნელების სხვა ლექსიკონები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:246
+#: src/amo/components/AddonsByAuthorsCard/index.js:254
 msgid "Dictionaries by %(author)s"
 msgstr "%(author)s ავტორის ლექსიკონები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:249
+#: src/amo/components/AddonsByAuthorsCard/index.js:257
 msgid "Dictionaries by these translators"
 msgstr "ამ მთარგმნელების ლექსიკონები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:256
+#: src/amo/components/AddonsByAuthorsCard/index.js:264
 msgid "More extensions by %(author)s"
 msgstr "%(author)s ავტორის სხვა გაფართოებები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:259
+#: src/amo/components/AddonsByAuthorsCard/index.js:267
 msgid "More extensions by these developers"
 msgstr "ამ შემმუშავებლების სხვა გაფართოებები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:263
+#: src/amo/components/AddonsByAuthorsCard/index.js:271
 msgid "Extensions by %(author)s"
 msgstr "%(author)s ავტორის გაფართოებები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:266
+#: src/amo/components/AddonsByAuthorsCard/index.js:274
 msgid "Extensions by these developers"
 msgstr "ამ შემმუშავებლების გაფართოებები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:274
+#: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by %(author)s"
 msgstr "%(author)s ავტორის სხვა ნაკრებები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:279
+#: src/amo/components/AddonsByAuthorsCard/index.js:287
 msgid "More language packs by these translators"
 msgstr "ამ მთარგმნელების სხვა ნაკრებები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:283
+#: src/amo/components/AddonsByAuthorsCard/index.js:291
 msgid "Language packs by %(author)s"
 msgstr "%(author)s ავტორის ენის ნაკრებები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:286
+#: src/amo/components/AddonsByAuthorsCard/index.js:294
 msgid "Language packs by these translators"
 msgstr "ამ მთარგმნელების ენის ნაკრებები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:293
+#: src/amo/components/AddonsByAuthorsCard/index.js:301
 msgid "More themes by %(author)s"
 msgstr "%(author)s ავტორის სხვა თემები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:296
+#: src/amo/components/AddonsByAuthorsCard/index.js:304
 msgid "More themes by these artists"
 msgstr "ამ მხატვრების სხვა თემები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:300
+#: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "Themes by %(author)s"
 msgstr "%(author)s ავტორის თემები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:303
+#: src/amo/components/AddonsByAuthorsCard/index.js:311
 msgid "Themes by these artists"
 msgstr "ამ მხატვრების თემები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:310
+#: src/amo/components/AddonsByAuthorsCard/index.js:318
 msgid "More add-ons by %(author)s"
 msgstr "%(author)s ავტორის სხვა დამატებები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:313
+#: src/amo/components/AddonsByAuthorsCard/index.js:321
 msgid "More add-ons by these developers"
 msgstr "ამ შემმუშავებლების სხვა დამატებები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:317
+#: src/amo/components/AddonsByAuthorsCard/index.js:325
 msgid "Add-ons by %(author)s"
 msgstr "%(author)s ავტორის დამატებები"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:320
+#: src/amo/components/AddonsByAuthorsCard/index.js:328
 msgid "Add-ons by these developers"
 msgstr "ამ შემმუშავებლების დამატებები"
 
@@ -691,23 +691,23 @@ msgstr "დამატებები"
 msgid "Creator"
 msgstr "შემქმნელი"
 
-#: src/amo/components/CollectionManager/index.js:237
+#: src/amo/components/CollectionManager/index.js:240
 msgid "Create collection"
 msgstr "ახალი კრებულის შექმნა"
 
-#: src/amo/components/CollectionManager/index.js:238
+#: src/amo/components/CollectionManager/index.js:241
 msgid "Save changes"
 msgstr "ცვლილებების შენახვა"
 
-#: src/amo/components/CollectionManager/index.js:247
+#: src/amo/components/CollectionManager/index.js:250
 msgid "Collection name"
 msgstr "კრებულის დასახელება"
 
-#: src/amo/components/CollectionManager/index.js:261
+#: src/amo/components/CollectionManager/index.js:264
 msgid "Description"
 msgstr "აღწერილობა"
 
-#: src/amo/components/CollectionManager/index.js:273
+#: src/amo/components/CollectionManager/index.js:276
 msgid "Custom URL"
 msgstr "შერჩეული URL-ბმული"
 
@@ -857,22 +857,24 @@ msgstr ""
 "შესული, გამოიყენეთ გვერდის დასაწყისში არსებული ბმული, შესასვლელად."
 
 #: src/amo/components/Errors/NotFound/index.js:28
+#, fuzzy
 msgid ""
 "Try visiting the page later, as the theme or extension may become available "
 "again. Alternatively, you may be able to find what you’re looking for in one "
-"of the available %(linkStart)sextensions%(linkEnd)s or "
-"%(secondLinkStart)sthemes%(secondLinkEnd)s."
+"of the available %(extensionStart)sextensions%(extensionEnd)s or "
+"%(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
+"%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
 "მოგვიანებით სცადეთ გვერდის მონახულება, შესაძლოა მოცემული თემა ან გაფართოება "
 "კვლავ გახდეს ხელმისაწვდომი. ამასთან, შეგიძლიათ მონახოთ რასაც ეძებთ არსებულ "
 "%(linkStart)sგაფართოებებში%(linkEnd)s ან %(secondLinkStart)sთემებში"
 "%(secondLinkEnd)s."
 
-#: src/amo/components/Errors/NotFound/index.js:66
+#: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
 msgstr "უკაცრავად! მოთხოვნილი გვერდი ვერ მოიძებნა"
 
-#: src/amo/components/Errors/NotFound/index.js:69
+#: src/amo/components/Errors/NotFound/index.js:85
 msgid ""
 "If you’ve followed a link from another site for an extension or theme, that "
 "item is no longer available. This could be because:"
@@ -880,7 +882,7 @@ msgstr ""
 "თუ გაფართოების ან თემის ბმულს გამოჰყევით სხვა საიტიდან, შეიძლება იგი აღარ "
 "იყოს ხელმისაწვდომი. შესაძლო მიზეზებია:"
 
-#: src/amo/components/Errors/NotFound/index.js:75
+#: src/amo/components/Errors/NotFound/index.js:91
 msgid ""
 "The developer removed it. Developers commonly do this because they no longer "
 "support the extension or theme, or have replaced it."
@@ -888,7 +890,7 @@ msgstr ""
 "წაშლილია შემმუშავებლის მიერ. ჩვეულებრივ ამას მაშინ აკეთებენ, როცა მოცემული "
 "გაფართოების ან თემის მხარდაჭერას წყვეტენ, ანდაც ცვლიან სხვა ნამუშევრით."
 
-#: src/amo/components/Errors/NotFound/index.js:80
+#: src/amo/components/Errors/NotFound/index.js:96
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review "
 "of the extension or theme, or the extension or theme has been abusing the "
@@ -899,17 +901,6 @@ msgstr ""
 "ან იმ შემთხვევაში, თუ აღმოჩნდება რომ თემა არღვევს addons.mozilla.org საიტის "
 "წესებსა და პირობებს. შემმუშავებელს ეძლევა საშუალება აღმოფხვრას მითითებული "
 "ხარვეზები და კვლავ გახადოს დამატება ხელმისაწვდომი."
-
-#: src/amo/components/Errors/NotFound/index.js:92
-msgid ""
-"If you’ve followed a link on this site, you’ve have found a mistake. Help us "
-"fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you "
-"came from and what you were looking for, and we'll get it sorted."
-msgstr ""
-"თუ ბმულს გამოჰყევით ამავე საიტიდან, ეს ნიშნავს რომ რაღაც შეცდომას წააწყდით. "
-"დაგვეხმარეთ ბმულის გასწორებაში <a href=\"%(url)s\">ხარვეზის მოხსენებით</a>. "
-"გვაცნობეთ, რომელი გვერდიდან გადმოხვედით, რას ეძებდით და აუცილებლად "
-"გავასწორებთ."
 
 #: src/amo/components/Errors/ServerError/index.js:21
 msgid ""
@@ -957,12 +948,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "მონიშნულია როგორც მოხსენება ხარვეზის შესახებ ან მხარდაჭერის მოთხოვნა"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "საჩივარი"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "გასაჩივრებულია"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "საჩივარი"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1385,11 +1376,11 @@ msgstr "ყველა ორვარსკვლავიანი მიმ�
 msgid "Read all one-star reviews"
 msgstr "ყველა ერთვარსკვლავიანი მიმოხილვის წაკითხვა"
 
-#: src/amo/components/ReportAbuseButton/index.js:119
+#: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
 msgstr "თქვენ გამოგზავნეთ მოხსენება დარღვევაზე, ამ დამატებასთან დაკავშირებით"
 
-#: src/amo/components/ReportAbuseButton/index.js:123
+#: src/amo/components/ReportAbuseButton/index.js:120
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
@@ -1397,14 +1388,14 @@ msgstr ""
 "ჩვენ მივიღეთ თქვენი მოხსენება. გმადლობთ, რომ გვაცნობეთ თქვენი "
 "დამოკიდებულების შესახებ, ამ დამატების მიმართ."
 
-#: src/amo/components/ReportAbuseButton/index.js:130
+#: src/amo/components/ReportAbuseButton/index.js:127
 #: src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 "ჩვენ ვერ შევძლებთ დარღვევების ყველა მოხსენებაზე გამოხმაურებას, მაგრამ "
 "თითოეულ მათგანს შევისწავლით."
 
-#: src/amo/components/ReportAbuseButton/index.js:140
+#: src/amo/components/ReportAbuseButton/index.js:137
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
@@ -1414,11 +1405,11 @@ msgstr ""
 "დებულებებს%(linkTagEnd)s ან ხარვეზები აქვს უსაფრთხოებასა და პირადი "
 "მონაცემების დაცვაში, გთხოვთ მოგვახსენოთ, მოცემული ველის საშუალებით."
 
-#: src/amo/components/ReportAbuseButton/index.js:156
+#: src/amo/components/ReportAbuseButton/index.js:153
 msgid "Report this add-on for abuse"
 msgstr "მოხსენება დარღვევის შესახებ ამ დამატებასთან დაკავშირებით"
 
-#: src/amo/components/ReportAbuseButton/index.js:186
+#: src/amo/components/ReportAbuseButton/index.js:183
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1427,21 +1418,21 @@ msgstr ""
 "მის შესაძლებლობებთან დაკავშირებით, მოთხოვნების გამოსაგზავნად; ეს მოხსენება "
 "ეგზავნება Mozilla-ს და არა დამატების შემმუშავებელს."
 
-#: src/amo/components/ReportAbuseButton/index.js:199
+#: src/amo/components/ReportAbuseButton/index.js:196
 #: src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
 msgstr "დარღვევის შესახებ მოხსენების გაგზავნა"
 
-#: src/amo/components/ReportAbuseButton/index.js:200
+#: src/amo/components/ReportAbuseButton/index.js:197
 #: src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "მოხსენება დარღვევის შესახებ იგზავნება"
 
-#: src/amo/components/ReportAbuseButton/index.js:202
+#: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Dismiss"
 msgstr "დახურვა"
 
-#: src/amo/components/ReportAbuseButton/index.js:203
+#: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
 msgstr "განმარტეთ, როგორ არღვევს ეს დამატება ჩვენს დებულებებს."
 
@@ -1928,15 +1919,15 @@ msgstr ""
 msgid "Screenshots"
 msgstr "ეკრანის სურათები"
 
-#: src/amo/pages/AddonInfo/index.js:158
+#: src/amo/pages/AddonInfo/index.js:154
 msgid "Custom License for %(addonName)s"
 msgstr "საკუთარი ლიცენზია %(addonName)s-ისთვის"
 
-#: src/amo/pages/AddonInfo/index.js:165
+#: src/amo/pages/AddonInfo/index.js:161
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "%(addonName)s – სამომხმარებლო სალიცენზიო შეთანხმება"
 
-#: src/amo/pages/AddonInfo/index.js:169
+#: src/amo/pages/AddonInfo/index.js:165
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s – პირადი მონაცემების დაცვა"
 
@@ -1987,13 +1978,13 @@ msgstr[1] "%(total)s მიმოხილვა"
 msgid "There are no reviews"
 msgstr "მიმოხილვები არაა"
 
-#: src/amo/pages/AddonVersions/index.js:126
+#: src/amo/pages/AddonVersions/index.js:128
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "%(addonName)s: ვერსიების ისტორია – %(total)s ვერსია"
 msgstr[1] "%(addonName)s: ვერსიების ისტორია – %(total)s ვერსია"
 
-#: src/amo/pages/AddonVersions/index.js:174
+#: src/amo/pages/AddonVersions/index.js:176
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
@@ -2001,17 +1992,17 @@ msgstr ""
 "სიფრთხილე გამოიჩინეთ, ძველ ვერსიებთან! მოცემული ვერსიები, მხოლოდ "
 "განსახილველად და შესამოწმებლადაა განკუთვნილი."
 
-#: src/amo/pages/AddonVersions/index.js:179
+#: src/amo/pages/AddonVersions/index.js:181
 msgid "You should always use the latest version of an add-on."
 msgstr ""
 "ყოველდღიური მოხმარებისთვის, დამატებების მხოლოდ უახლესი ვერსია უნდა "
 "გამოიყენოთ."
 
-#: src/amo/pages/AddonVersions/index.js:188
+#: src/amo/pages/AddonVersions/index.js:190
 msgid "Latest version"
 msgstr "უახლესი ვერსია"
 
-#: src/amo/pages/AddonVersions/index.js:197
+#: src/amo/pages/AddonVersions/index.js:199
 msgid "Older versions"
 msgstr "ადრინდელი ვერსიები"
 
@@ -3225,12 +3216,12 @@ msgstr ""
 "%(strongStart)sშენიშვნა:%(strongEnd)s ანგარიშის წაშლა არ შეგიძლიათ, თუ ეს "
 "მომხმარებელი, რომელიმე %(linkStart)sდამატების მფლობელია%(linkEnd)s."
 
-#: src/amo/pages/UsersUnsubscribe/index.js:106
+#: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
 msgstr "გამოწერა გაუქმდა წარმატებით!"
 
 # a list of notifications will be displayed under this prompt.
-#: src/amo/pages/UsersUnsubscribe/index.js:119
+#: src/amo/pages/UsersUnsubscribe/index.js:121
 msgid ""
 "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
 "messages when:"
@@ -3238,7 +3229,7 @@ msgstr ""
 "%(strongStart)s%(email)s%(strongEnd)s ელფოსტის მისამართზე წერილებს ვეღარ "
 "მიიღებთ, როცა:"
 
-#: src/amo/pages/UsersUnsubscribe/index.js:77
+#: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid ""
 "You can edit your notification settings by %(linkStart)sediting your profile"
 "%(linkEnd)s."
@@ -3246,7 +3237,7 @@ msgstr ""
 "შეტყობინებების პარამეტრების შეცვლა, შეგიძლიათ %(linkStart)sთქვენი პროფილის "
 "ჩასწორებით%(linkEnd)s."
 
-#: src/amo/pages/UsersUnsubscribe/index.js:97
+#: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
 msgstr "გამოწერის გაუქმება"
 
@@ -3544,6 +3535,16 @@ msgstr[1] "%(total)s დამატება"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "შემმუშავებლის პასუხი"
+
+#~ msgid ""
+#~ "If you’ve followed a link on this site, you’ve have found a mistake. Help "
+#~ "us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where "
+#~ "you came from and what you were looking for, and we'll get it sorted."
+#~ msgstr ""
+#~ "თუ ბმულს გამოჰყევით ამავე საიტიდან, ეს ნიშნავს რომ რაღაც შეცდომას "
+#~ "წააწყდით. დაგვეხმარეთ ბმულის გასწორებაში <a href=\"%(url)s\">ხარვეზის "
+#~ "მოხსენებით</a>. გვაცნობეთ, რომელი გვერდიდან გადმოხვედით, რას ეძებდით და "
+#~ "აუცილებლად გავასწორებთ."
 
 #~ msgid "Featured Extension"
 #~ msgstr "რჩეული გაფართოება"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-19 19:52+0000\n"
+"POT-Creation-Date: 2019-12-03 17:17+0000\n"
 "PO-Revision-Date: 2019-09-25 04:20+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -365,7 +365,7 @@ msgstr "ਹਟਾਓ"
 
 #: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:151
-#: src/amo/components/CollectionManager/index.js:313
+#: src/amo/components/CollectionManager/index.js:316
 #: src/amo/pages/UserProfileEdit/index.js:913
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
@@ -473,83 +473,83 @@ msgstr ""
 msgid "Your star rating:"
 msgstr "ਤੁਹਾਡਾ ਤਾਰਾ ਦਰਜਾ:"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:239
+#: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
 msgstr "%(author)s ਦੁਆਰਾ ਹੋਰ ਸ਼ਬਦਕੋਸ਼"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:242
+#: src/amo/components/AddonsByAuthorsCard/index.js:250
 msgid "More dictionaries by these translators"
 msgstr "ਇਹਨਾਂ ਅਨੁਵਾਦਕਾਂ ਦੁਆਰਾ ਹੋਰ ਸ਼ਬਦਕੋਸ਼"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:246
+#: src/amo/components/AddonsByAuthorsCard/index.js:254
 msgid "Dictionaries by %(author)s"
 msgstr "%(author)s ਦੁਆਰਾ ਸ਼ਬਦਕੋਸ਼"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:249
+#: src/amo/components/AddonsByAuthorsCard/index.js:257
 msgid "Dictionaries by these translators"
 msgstr "ਇਹਨਾਂ ਅਨੁਵਾਦਕਾਂ ਦੁਆਰਾ ਸ਼ਬਦਕੋਸ਼"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:256
+#: src/amo/components/AddonsByAuthorsCard/index.js:264
 msgid "More extensions by %(author)s"
 msgstr "%(author)s ਦੁਆਰਾ ਹੋਰ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:259
+#: src/amo/components/AddonsByAuthorsCard/index.js:267
 msgid "More extensions by these developers"
 msgstr "ਇਹਨਾਂ ਡਿਵੈਲਪਰਾਂ ਦੁਆਰਾ ਹੋਰ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:263
+#: src/amo/components/AddonsByAuthorsCard/index.js:271
 msgid "Extensions by %(author)s"
 msgstr "%(author)s ਵਲੋਂ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:266
+#: src/amo/components/AddonsByAuthorsCard/index.js:274
 msgid "Extensions by these developers"
 msgstr "ਇਹਨਾਂ ਡਿਵੈਲਪਰਾਂ ਵਲੋਂ ਇਸਟੈਨਸ਼ਨਾਂ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:274
+#: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by %(author)s"
 msgstr "%(author)s ਦੁਆਰਾ ਜਿਆਦਾ ਭਾਸ਼ਾ ਪੈਕ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:279
+#: src/amo/components/AddonsByAuthorsCard/index.js:287
 msgid "More language packs by these translators"
 msgstr "ਇਹਨਾਂ ਅਨੁਵਾਦਕਾਂ ਦੁਆਰਾ ਹੋਰ ਭਾਸ਼ਾ ਪੈਕ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:283
+#: src/amo/components/AddonsByAuthorsCard/index.js:291
 msgid "Language packs by %(author)s"
 msgstr "ਭਾਸ਼ਾ ਪੈਕ %(author)s ਦੁਆਰਾ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:286
+#: src/amo/components/AddonsByAuthorsCard/index.js:294
 msgid "Language packs by these translators"
 msgstr "ਇਹਨਾਂ ਅਨੁਵਾਦਕਾਂ ਦੁਆਰਾ ਭਾਸ਼ਾ ਪੈਕ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:293
+#: src/amo/components/AddonsByAuthorsCard/index.js:301
 msgid "More themes by %(author)s"
 msgstr "%(author)s ਦੁਆਰਾ ਹੋਰ ਥੀਮ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:296
+#: src/amo/components/AddonsByAuthorsCard/index.js:304
 msgid "More themes by these artists"
 msgstr "ਇਨ੍ਹਾਂ ਕਲਾਕਾਰਾਂ ਵਲੋਂ ਹੋਰ ਥੀਮ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:300
+#: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "Themes by %(author)s"
 msgstr "%(author)s ਵਲੋਂ ਥੀਮ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:303
+#: src/amo/components/AddonsByAuthorsCard/index.js:311
 msgid "Themes by these artists"
 msgstr "ਇਨ੍ਹਾਂ ਕਲਾਕਾਰਾਂ ਵਲੋਂ ਥੀਮ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:310
+#: src/amo/components/AddonsByAuthorsCard/index.js:318
 msgid "More add-ons by %(author)s"
 msgstr "%(author)s ਵਲੋਂ ਹੋਰ ਐਡ-ਆਨ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:313
+#: src/amo/components/AddonsByAuthorsCard/index.js:321
 msgid "More add-ons by these developers"
 msgstr "ਇਹਨਾਂ ਡਿਵੈਲਪਰਾਂ ਦੁਆਰਾ ਹੋਰ ਐਡ-ਆਨ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:317
+#: src/amo/components/AddonsByAuthorsCard/index.js:325
 msgid "Add-ons by %(author)s"
 msgstr "%(author)s ਵਲੋਂ ਐਡ-ਆਨ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:320
+#: src/amo/components/AddonsByAuthorsCard/index.js:328
 msgid "Add-ons by these developers"
 msgstr "ਇਹਨਾਂ ਡਿਵੈਲਪਰਾਂ ਦੁਆਰਾ ਐਡ-ਆਨ"
 
@@ -677,23 +677,23 @@ msgstr "ਐਡ-ਆਨ"
 msgid "Creator"
 msgstr "ਨਿਰਮਾਤਾ"
 
-#: src/amo/components/CollectionManager/index.js:237
+#: src/amo/components/CollectionManager/index.js:240
 msgid "Create collection"
 msgstr "ਸੰਗ੍ਰਹਿ ਰਚੋ"
 
-#: src/amo/components/CollectionManager/index.js:238
+#: src/amo/components/CollectionManager/index.js:241
 msgid "Save changes"
 msgstr "ਤਬਦੀਲੀਆਂ ਨੂੰ ਸੰਭਾਲੋ"
 
-#: src/amo/components/CollectionManager/index.js:247
+#: src/amo/components/CollectionManager/index.js:250
 msgid "Collection name"
 msgstr "ਸੰਗ੍ਰਹਿ ਨਾਮ"
 
-#: src/amo/components/CollectionManager/index.js:261
+#: src/amo/components/CollectionManager/index.js:264
 msgid "Description"
 msgstr "ਵੇਰਵਾ"
 
-#: src/amo/components/CollectionManager/index.js:273
+#: src/amo/components/CollectionManager/index.js:276
 msgid "Custom URL"
 msgstr "ਪਸੰਦੀਦਾ URL"
 
@@ -842,21 +842,23 @@ msgstr ""
 "ਤਾਂ ਪੰਨੇ ਦੇ ਸਿਖਰ ਤੇ ਲਿੰਕ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਸਾਈਨ ਇਨ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
 #: src/amo/components/Errors/NotFound/index.js:28
+#, fuzzy
 msgid ""
 "Try visiting the page later, as the theme or extension may become available "
 "again. Alternatively, you may be able to find what you’re looking for in one "
-"of the available %(linkStart)sextensions%(linkEnd)s or "
-"%(secondLinkStart)sthemes%(secondLinkEnd)s."
+"of the available %(extensionStart)sextensions%(extensionEnd)s or "
+"%(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
+"%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
 "ਪੇਜ ਨੂੰ ਬਾਅਦ ਵਿਚ ਦੇਖਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ, ਕਿਉਂਕਿ ਥੀਮ ਜਾਂ ਵਿਸਥਾਰ ਦੁਬਾਰਾ ਉਪਲਬਧ ਹੋ ਸਕਦਾ ਹੈੋ। "
 "ਵਿਕਲਪਿਕ ਤੌਰ ਤੇ, ਤੁਸੀਂ ਉਹ ਲੱਭਣ ਦੇ ਯੋਗ ਹੋ ਸਕਦੇ ਹੋ ਜੋ ਤੁਸੀਂ ਉਪਲਬਧ%(linkStart)s ਐਕਸਟੈਂਸ਼ਨਾਂ"
 "%(linkEnd)s ਜਾਂ%(secondLinkStart)sਥੀਮ%(secondLinkEnd)s ਵਿੱਚ ਲੱਭ ਰਹੇ ਹੋੋ।"
 
-#: src/amo/components/Errors/NotFound/index.js:66
+#: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
 msgstr "ਓਹੋ! ਅਸੀਂ ਉਹ ਸਫ਼ਾ ਨਹੀਂ ਲੱਭ ਸਕੇ"
 
-#: src/amo/components/Errors/NotFound/index.js:69
+#: src/amo/components/Errors/NotFound/index.js:85
 msgid ""
 "If you’ve followed a link from another site for an extension or theme, that "
 "item is no longer available. This could be because:"
@@ -864,7 +866,7 @@ msgstr ""
 "ਜੇ ਤੁਸੀਂ ਇੱਕ ਐਕਸਟੈਂਸ਼ਨ ਜਾਂ ਥੀਮ ਲਈ ਕਿਸੇ ਹੋਰ ਸਾਈਟ ਤੋਂ ਇੱਕ ਲਿੰਕ ਦਾ ਅਨੁਸਰਣ ਕੀਤਾ ਹੈ, ਤਾਂ ਉਹ ਆਈਟਮ "
 "ਹੁਣ ਉਪਲਬਧ ਨਹੀਂ ਹੋਵੇਗੀੇ। ਇਹ ਇਸ ਲਈ ਹੋ ਸਕਦਾ ਹੈ ਕਿਉਂਕਿ:"
 
-#: src/amo/components/Errors/NotFound/index.js:75
+#: src/amo/components/Errors/NotFound/index.js:91
 msgid ""
 "The developer removed it. Developers commonly do this because they no longer "
 "support the extension or theme, or have replaced it."
@@ -872,7 +874,7 @@ msgstr ""
 "ਡਿਵੈਲਪਰ ਨੇ ਇਸਨੂੰ ਹਟਾ ਦਿੱਤਾੇ। ਡਿਵੈਲਪਰ ਆਮ ਤੌਰ ਤੇ ਅਜਿਹਾ ਕਰਦੇ ਹਨ ਕਿਉਂਕਿ ਉਹ ਐਕਸਟੈਂਸ਼ਨ ਜਾਂ ਥੀਮ ਦਾ "
 "ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੇ, ਜਾਂ ਇਸ ਨੂੰ ਬਦਲ ਦਿੰਦੇ ਹਨ।"
 
-#: src/amo/components/Errors/NotFound/index.js:80
+#: src/amo/components/Errors/NotFound/index.js:96
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review "
 "of the extension or theme, or the extension or theme has been abusing the "
@@ -882,16 +884,6 @@ msgstr ""
 "ਮੌਜ਼ੀਲਾ ਨੇ ਇਸਨੂੰ ਹਟਾ ਦਿੱਤਾ। ਇਹ ਉਦੋਂ ਹੋ ਸਕਦਾ ਹੈ ਜਦੋਂ ਇਕਸਟੈਨਸ਼ਨ ਜਾਂ ਥੀਮ ਦੀ ਸਮੀਖਿਆ ਦੇ ਦੌਰਾਨ ਮੁੱਦੇ "
 "ਲੱਭੇ ਜਾਂਦੇ ਹਨ, ਜਾਂ ਇਕਸਟੈਨਸ਼ਨ ਜਾਂ ਥੀਮ addons.mozilla.org ਲਈ ਨਿਯਮਾਂ ਅਤੇ ਸ਼ਰਤਾਂ ਦੀ ਦੁਰਵਰਤੋਂ ਕਰ "
 "ਰਹੇ ਹਨੋੋ। ਡਿਵੈਲਪਰ ਕੋਲ ਮੁੱਦਿਆਂ ਨੂੰ ਸੁਲਝਾਉਣ ਅਤੇ ਐਡ-ਆਨ ਨੂੰ ਦੁਬਾਰਾ ਉਪਲਬਧ ਕਰਾਉਣ ਦਾ ਮੌਕਾ ਹੁੰਦਾ ਹੈ।"
-
-#: src/amo/components/Errors/NotFound/index.js:92
-msgid ""
-"If you’ve followed a link on this site, you’ve have found a mistake. Help us "
-"fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you "
-"came from and what you were looking for, and we'll get it sorted."
-msgstr ""
-"ਜੇ ਤੁਸੀਂ ਇਸ ਸਾਈਟ ਤੇ ਕਿਸੇ ਲਿੰਕ ਦੀ ਪਾਲਣਾ ਕੀਤੀ ਹੈ, ਤਾਂ ਤੁਹਾਨੂੰ ਇੱਕ ਗਲਤੀ ਮਿਲੀ ਹੈੋੋ। ਸਾਡੀ <a "
-"href=\"%(url)s\">ਕੋਈ ਮੁੱਦਾ ਦਾਇਰ ਕਰਕੇ </a>ਲਿੰਕ ਨੂੰ ਠੀਕ ਕਰਨ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰੋੋੋ। ਸਾਨੂੰ ਦੱਸੋ ਕਿ "
-"ਤੁਸੀਂ ਕਿੱਥੋਂ ਆਏ ਹੋ ਅਤੇ ਤੁਸੀਂ ਕੀ ਲੱਭ ਰਹੇ ਸੀ, ਅਤੇ ਅਸੀਂ ਇਸ ਨੂੰ ਕ੍ਰਮਬੱਧ ਕਰਾਂਗੇੋੋ।"
 
 #: src/amo/components/Errors/ServerError/index.js:21
 msgid ""
@@ -938,11 +930,11 @@ msgid "Flagged as a bug report or support request"
 msgstr "ਇਹ ਇੱਕ ਬੱਗ ਰਿਪੋਰਟ ਜਾਂ ਸਹਿਯੋਗ ਬੇਨਤੀ ਹੈ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
+msgid "Flagged"
 msgstr "ਨਿਸ਼ਾਨਬੱਧ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flagged"
+msgid "Flag"
 msgstr "ਨਿਸ਼ਾਨਬੱਧ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
@@ -1364,23 +1356,23 @@ msgstr "ਸਾਰੀਆਂ ਦੋ-ਸਟਾਰ ਸਮੀਖਿਆਵਾਂ ਪ�
 msgid "Read all one-star reviews"
 msgstr "ਸਾਰੇ ਇੱਕ-ਸਟਾਰ ਸਮੀਖਿਆ ਪੜ੍ਹੋ"
 
-#: src/amo/components/ReportAbuseButton/index.js:119
+#: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
 msgstr "ਤੁਸੀਂ ਦੁਰਵਿਵਹਾਰ ਲਈ ਇਸ ਐਡ-ਓਨ ਦੀ ਰਿਪੋਰਟ ਕੀਤੀ ਹੈ"
 
-#: src/amo/components/ReportAbuseButton/index.js:123
+#: src/amo/components/ReportAbuseButton/index.js:120
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
 msgstr ""
 "ਸਾਨੂੰ ਤੁਹਾਡੀ ਰਿਪੋਰਟ ਮਿਲੀ ਹੈ। ਇਸ ਐਡ-ਆਨ ਨਾਲ ਸਾਨੂੰ ਆਪਣੀਆਂ ਚਿੰਤਾਵਾਂ ਬਾਰੇ ਦੱਸਣ ਲਈ ਧੰਨਵਾਦ।"
 
-#: src/amo/components/ReportAbuseButton/index.js:130
+#: src/amo/components/ReportAbuseButton/index.js:127
 #: src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr "ਅਸੀਂ ਹਰੇਕ ਬਦਸਲੂਕੀ ਦੀ ਰਿਪੋਰਟ ਦਾ ਜਵਾਬ ਨਹੀਂ ਦੇ ਸਕਦੇ, ਪਰ ਅਸੀਂ ਇਸ ਮੁੱਦੇ ਤੇ ਵਿਚਾਰ ਕਰਾਂਗੇ।"
 
-#: src/amo/components/ReportAbuseButton/index.js:140
+#: src/amo/components/ReportAbuseButton/index.js:137
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
@@ -1390,11 +1382,11 @@ msgstr ""
 "ਦੀ ਜਾਂ ਸੁਰੱਖਿਆ ਜਾਂ ਗੁਪਤਤਾ ਦੀਆਂ ਸਮੱਸਿਆਵਾਂ ਹੈ, ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਫਾਰਮ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਮੋਜ਼ੀਲਾ ਨੂੰ "
 "ਇਨ੍ਹਾਂ ਮੁੱਦਿਆਂ ਦੀ ਰਿਪੋਰਟ ਕਰੋ।"
 
-#: src/amo/components/ReportAbuseButton/index.js:156
+#: src/amo/components/ReportAbuseButton/index.js:153
 msgid "Report this add-on for abuse"
 msgstr "ਦੁਰਵਿਵਹਾਰ ਲਈ ਇਸ ਐਡ-ਆਨ ਦੀ ਰਿਪੋਰਟ ਕਰੋ"
 
-#: src/amo/components/ReportAbuseButton/index.js:186
+#: src/amo/components/ReportAbuseButton/index.js:183
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1402,21 +1394,21 @@ msgstr ""
 "ਕਿਰਪਾ ਕਰਕੇ ਬੱਗ ਦੀ ਰਿਪੋਰਟ ਕਰਨ ਲਈ ਜਾਂ ਐਡ-ਆਨ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦੀ ਬੇਨਤੀ ਕਰਨ ਲਈ ਇਸ ਫਾਰਮ ਦੀ ਵਰਤੋਂ "
 "ਨਾ ਕਰੋ; ਇਹ ਰਿਪੋਰਟ ਮੋਜ਼ੀਲਾ ਨੂੰ ਭੇਜੀ ਜਾਵੇਗੀ ਨਾ ਐਡ-ਆਨ ਡਿਵੈਲਪਰ ਨੂੰ।"
 
-#: src/amo/components/ReportAbuseButton/index.js:199
+#: src/amo/components/ReportAbuseButton/index.js:196
 #: src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
 msgstr "ਦੁਰਵਿਵਹਾਰ ਰਿਪੋਰਟ ਭੇਜੋ"
 
-#: src/amo/components/ReportAbuseButton/index.js:200
+#: src/amo/components/ReportAbuseButton/index.js:197
 #: src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "ਸ਼ੋਸ਼ਣ ਦੀ ਰਿਪੋਰਟ ਭੇਜਣਾ"
 
-#: src/amo/components/ReportAbuseButton/index.js:202
+#: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Dismiss"
 msgstr "ਖਾਰਜ ਕਰੋ"
 
-#: src/amo/components/ReportAbuseButton/index.js:203
+#: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
 msgstr "ਇਹ ਸਮਝਾਓ ਕਿ ਇਹ ਐਡ-ਆਨ ਸਾਡੇ ਨੀਤੀਆਂ ਦੀ ਕਿਵੇਂ ਉਲੰਘਣਾ ਕਰ ਰਿਹਾ ਹੈ।"
 
@@ -1882,15 +1874,15 @@ msgstr ""
 msgid "Screenshots"
 msgstr "ਸਕਰੀਨਸ਼ਾਟ"
 
-#: src/amo/pages/AddonInfo/index.js:158
+#: src/amo/pages/AddonInfo/index.js:154
 msgid "Custom License for %(addonName)s"
 msgstr "%(addonName)s ਲਈ ਕਸਟਮ ਲਾਇਸੈਂਸ"
 
-#: src/amo/pages/AddonInfo/index.js:165
+#: src/amo/pages/AddonInfo/index.js:161
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "%(addonName)s ਲਈ ਐਂਡ-ਯੂਜ਼ਰ ਲਸੰਸ ਸਮਝੌਤਾ"
 
-#: src/amo/pages/AddonInfo/index.js:169
+#: src/amo/pages/AddonInfo/index.js:165
 msgid "Privacy policy for %(addonName)s"
 msgstr "%(addonName)s ਲਈ ਪ੍ਰਾਈਵੇਸੀ ਨੀਤੀ"
 
@@ -1940,28 +1932,28 @@ msgstr[1] "%(total)s ਸਮੀਖਿਆਵਾਂ"
 msgid "There are no reviews"
 msgstr "ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ ਹਨ"
 
-#: src/amo/pages/AddonVersions/index.js:126
+#: src/amo/pages/AddonVersions/index.js:128
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "%(addonName)s ਦਾ ਵਰਜਨ ਅਤੀਤ - %(total)s ਦਾ ਵਰਜਨ"
 msgstr[1] "%(addonName)s ਦਾ ਵਰਜਨ ਅਤੀਤ - %(total)s s ਵਰਜਨ"
 
-#: src/amo/pages/AddonVersions/index.js:174
+#: src/amo/pages/AddonVersions/index.js:176
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
 msgstr ""
 "ਪੁਰਾਣੇ ਵਰਜਨ ਨਾਲ ਸਾਵਧਾਨ ਰਹੋ! ਇਹ ਵਰਜਨ ਟੈਸਟਿੰਗ ਅਤੇ ਸੰਦਰਭ ਦੇ ਉਦੇਸ਼ਾਂ ਲਈ ਪ੍ਰਦਰਸ਼ਿਤ ਹੁੰਦੇ ਹਨ।"
 
-#: src/amo/pages/AddonVersions/index.js:179
+#: src/amo/pages/AddonVersions/index.js:181
 msgid "You should always use the latest version of an add-on."
 msgstr "ਤੁਹਾਨੂੰ ਹਮੇਸ਼ਾਂ ਐਡ-ਆਨ ਦਾ ਨਵੀਨਤਮ ਸੰਸਕਰਣ ਵਰਤਣਾ ਚਾਹੀਦਾ ਹੈ।"
 
-#: src/amo/pages/AddonVersions/index.js:188
+#: src/amo/pages/AddonVersions/index.js:190
 msgid "Latest version"
 msgstr "ਨਵਾਂ ਵਰਜ਼ਨ"
 
-#: src/amo/pages/AddonVersions/index.js:197
+#: src/amo/pages/AddonVersions/index.js:199
 msgid "Older versions"
 msgstr "ਪੁਰਾਣਾ ਵਰਜ਼ਨ"
 
@@ -3108,18 +3100,18 @@ msgstr ""
 "%(strongStart)sNOTE:%(strongEnd)s ਤੁਸੀਂ ਉਪਭੋਗਤਾ ਦਾ ਪ੍ਰੋਫਾਈਲ ਨਹੀਂ ਮਿਟਾ ਸਕਦੇ ਜੇ "
 "ਉਪਯੋਗਕਰਤਾ%(linkStart)s ਕਿਸੇ ਐਡ-ਆਨ%(linkEnd)s ਦਾ ਅਧਿਕਾਰਤ ਹੈ।"
 
-#: src/amo/pages/UsersUnsubscribe/index.js:106
+#: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
 msgstr "ਤੁਹਾਡੀ ਗਾਹਕੀ ਸਫ਼ਲਤਾਪੂਰਨ ਰੱਦ ਹੋਈ!"
 
 # a list of notifications will be displayed under this prompt.
-#: src/amo/pages/UsersUnsubscribe/index.js:119
+#: src/amo/pages/UsersUnsubscribe/index.js:121
 msgid ""
 "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
 "messages when:"
 msgstr "ਈਮੇਲ ਐਡਰੈੱਸ %(strongStart)s%(email)s%(strongEnd)s ਨੂੰ ਹੁਣ ਸੁਨੇਹੇ ਨਹੀਂ ਮਿਲਣਗੇ ਜਦੋਂ:"
 
-#: src/amo/pages/UsersUnsubscribe/index.js:77
+#: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid ""
 "You can edit your notification settings by %(linkStart)sediting your profile"
 "%(linkEnd)s."
@@ -3127,7 +3119,7 @@ msgstr ""
 "ਤੁਸੀਂ ਆਪਣੇ ਨੋਟੀਫਿਕੇਸ਼ਨ ਸੈਟਿੰਗਾਂ ਨੂੰ%(linkStart)s ਦੁਆਰਾ ਆਪਣੇ ਪ੍ਰੋਫਾਈਲ%(linkEnd)s ਨੂੰ ਭਰਮਾ ਸਕਦੇ "
 "ਹੋ।"
 
-#: src/amo/pages/UsersUnsubscribe/index.js:97
+#: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
 msgstr "ਮੈਂਬਰੀ ਹਟਾਓ"
 
@@ -3421,6 +3413,15 @@ msgstr[1] "%(total)s ਐਡ-ਆਨ"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "ਵਿਕਾਸਕਾਰ ਜਵਾਬ"
+
+#~ msgid ""
+#~ "If you’ve followed a link on this site, you’ve have found a mistake. Help "
+#~ "us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where "
+#~ "you came from and what you were looking for, and we'll get it sorted."
+#~ msgstr ""
+#~ "ਜੇ ਤੁਸੀਂ ਇਸ ਸਾਈਟ ਤੇ ਕਿਸੇ ਲਿੰਕ ਦੀ ਪਾਲਣਾ ਕੀਤੀ ਹੈ, ਤਾਂ ਤੁਹਾਨੂੰ ਇੱਕ ਗਲਤੀ ਮਿਲੀ ਹੈੋੋ। ਸਾਡੀ <a "
+#~ "href=\"%(url)s\">ਕੋਈ ਮੁੱਦਾ ਦਾਇਰ ਕਰਕੇ </a>ਲਿੰਕ ਨੂੰ ਠੀਕ ਕਰਨ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰੋੋੋ। ਸਾਨੂੰ ਦੱਸੋ "
+#~ "ਕਿ ਤੁਸੀਂ ਕਿੱਥੋਂ ਆਏ ਹੋ ਅਤੇ ਤੁਸੀਂ ਕੀ ਲੱਭ ਰਹੇ ਸੀ, ਅਤੇ ਅਸੀਂ ਇਸ ਨੂੰ ਕ੍ਰਮਬੱਧ ਕਰਾਂਗੇੋੋ।"
 
 #~ msgid "Featured Extension"
 #~ msgstr "ਖਾਸ ਇਕਸਟੈਨਸ਼ਨਾਂ"
