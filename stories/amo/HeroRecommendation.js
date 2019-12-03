@@ -11,10 +11,14 @@ import {
 import { HeroRecommendationBase } from 'amo/components/HeroRecommendation';
 import { createInternalHeroShelves } from 'amo/reducers/home';
 import { ErrorHandler } from 'core/errorHandler';
+import type { InternalProps as HeroRecommendationProps } from 'amo/components/HeroRecommendation';
 
 import Provider from '../setup/Provider';
 
-const render = (shelfProps = {}, moreProps = {}) => {
+const render = (
+  shelfProps = {},
+  moreProps: $Shape<HeroRecommendationProps> = {},
+) => {
   const props = {
     errorHandler: new ErrorHandler({ id: 'some-id' }),
     i18n: fakeI18n({ includeJedSpy: false }),

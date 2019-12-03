@@ -89,7 +89,7 @@ export function createEmptyCategoryList(): EmptyCategoryListType {
   return config.get('validClientApplications').reduce((object, appName) => {
     return {
       ...object,
-      [appName]: validAddonTypes.reduce((appObject, addonType) => {
+      [appName]: validAddonTypes.reduce((appObject, addonType: string) => {
         return { ...appObject, [addonType]: [] };
       }, {}),
     };

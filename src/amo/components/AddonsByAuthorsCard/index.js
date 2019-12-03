@@ -72,6 +72,11 @@ type DispatchFetchAddonsByAuthorsParams = {|
   page: $PropertyType<FetchAddonsByAuthorsParams, 'page'>,
 |};
 
+type FiltersForPagination = {|
+  page?: string,
+  sort?: string,
+|};
+
 export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
   static defaultProps = {
     pageParam: 'page',
@@ -177,7 +182,10 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
   }: DispatchFetchAddonsByAuthorsParams) {
     const { errorHandler, numberOfAddons, paginate } = this.props;
 
-    const filtersForPagination = {};
+    const filtersForPagination: FiltersForPagination = {
+      page: undefined,
+      sort: undefined,
+    };
 
     if (paginate) {
       invariant(page, 'page is required when paginate is `true`.');

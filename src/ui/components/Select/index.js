@@ -11,7 +11,7 @@ type Props = {
 
 const Select = ({ children, className, ...selectProps }: Props) => {
   return (
-    <select className={makeClassName('Select', className)} {...selectProps}>
+    <select {...selectProps} className={makeClassName('Select', className)}>
       {children}
     </select>
   );

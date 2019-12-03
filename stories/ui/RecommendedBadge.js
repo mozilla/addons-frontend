@@ -4,8 +4,9 @@ import { storiesOf } from '@storybook/react';
 
 import { fakeI18n } from 'tests/unit/helpers';
 import { RecommendedBadgeBase } from 'ui/components/RecommendedBadge';
+import type { InternalProps as RecommendedBadgeProps } from 'ui/components/RecommendedBadge';
 
-const render = (moreProps = {}) => {
+const render = (moreProps: $Shape<RecommendedBadgeProps> = {}) => {
   const props = {
     size: 'large',
     ...moreProps,

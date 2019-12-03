@@ -15,7 +15,7 @@ type Props = {|
   size: RecommendedBadgeSize,
 |};
 
-type InternalProps = {|
+export type InternalProps = {|
   ...Props,
   i18n: I18nType,
 |};

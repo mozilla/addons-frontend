@@ -34,7 +34,7 @@ type MappedProps = {|
   siteNotice: string | null,
 |};
 
-type InternalProps = {|
+export type InternalProps = {|
   ...Props,
   ...MappedProps,
   i18n: I18nType,

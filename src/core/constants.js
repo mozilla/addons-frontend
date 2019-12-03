@@ -78,7 +78,7 @@ export const API_ADDON_TYPES_MAPPING = {
 export const VISIBLE_ADDON_TYPES_MAPPING = Object.keys(
   API_ADDON_TYPES_MAPPING,
 ).reduce(
-  (object, key) => ({
+  (object, key: string) => ({
     ...object,
     [API_ADDON_TYPES_MAPPING[key]]: key,
   }),

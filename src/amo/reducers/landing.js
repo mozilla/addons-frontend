@@ -109,7 +109,7 @@ export default function reducer(
       return {
         ...initialState,
         addonType: payload.addonType,
-        category: payload.category,
+        category: payload.category || null,
         loading: true,
         resultsLoaded: false,
       };
