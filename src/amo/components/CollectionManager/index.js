@@ -192,12 +192,12 @@ export class CollectionManagerBase extends React.Component<
           .filter((s) => s !== '')
           .join('-')
           .substring(0, SLUG_MAX_LENGTH),
-        'name': value,
+        name: value,
       });
     } else if (creating && name === 'slug' && trimmedValue !== '') {
       this.setState({
         customSlug: true,
-        'slug': value,
+        slug: value,
       });
     } else {
       // Flow complains because it cannot infer `name` since Flow 0.113.0, see:
