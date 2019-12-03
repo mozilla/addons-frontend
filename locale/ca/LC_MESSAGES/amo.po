@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-19 19:52+0000\n"
-"PO-Revision-Date: 2019-06-03 16:31+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
+"PO-Revision-Date: 2019-12-03 17:07+0000\n"
+"Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -1386,266 +1386,266 @@ msgstr[1] ""
 #: src/amo/components/SearchContextCard/index.js:170
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "S'ha trobat %(count)s resultat"
+msgstr[1] "S'han trobat %(count)s resultats"
 
 #: src/amo/components/SearchContextCard/index.js:181
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "Cerca de \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:185
 msgid "Searching for add-ons"
-msgstr ""
+msgstr "S'està cercant complements"
 
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "S'ha trobat %(count)s extensió per \"%(query)s\" a %(categoryName)s"
+msgstr[1] "S'han trobat %(count)s extensions per \"%(query)s\" a %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "S'ha trobat %(count)s extensió a %(categoryName)s"
+msgstr[1] "S'han trobat %(count)s extensions a %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "S'ha trobat %(count)s extensió per \"%(query)s\""
+msgstr[1] "S'han trobat %(count)s extensions per \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:87
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "S'ha trobat %(count)s extensió"
+msgstr[1] "S'han trobat %(count)s extensions"
 
 #: src/amo/components/SearchContextCard/index.js:99
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "S'ha trobat %(count)s eina de cerca per \"%(query)s\""
+msgstr[1] "S'han trobat %(count)s eines de cerca per \"%(query)s\""
 
 #: src/amo/components/SearchFilters/index.js:135 src/amo/components/SearchFilters/index.js:159
 msgid "All"
-msgstr ""
+msgstr "Tot"
 
 #: src/amo/components/SearchFilters/index.js:136
 msgid "Extension"
-msgstr ""
+msgstr "Extensió"
 
 #: src/amo/components/SearchFilters/index.js:142
 msgid "Search Tool"
-msgstr ""
+msgstr "Eina de cerca"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: src/amo/components/SearchFilters/index.js:160
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #: src/amo/components/SearchFilters/index.js:161
 msgid "macOS"
-msgstr ""
+msgstr "macOS"
 
 #: src/amo/components/SearchFilters/index.js:162
 msgid "Linux"
-msgstr ""
+msgstr "Linux"
 
 #: src/amo/components/SearchFilters/index.js:170
 msgid "Relevance"
-msgstr ""
+msgstr "Rellevància"
 
 #: src/amo/components/SearchFilters/index.js:172
 msgid "Recently Updated"
-msgstr ""
+msgstr "Actualitzat recentment"
 
 #: src/amo/components/SearchFilters/index.js:175
 msgid "Most Users"
-msgstr ""
+msgstr "Amb més usuaris"
 
 #: src/amo/components/SearchFilters/index.js:176
 msgid "Top Rated"
-msgstr ""
+msgstr "Millor valorat"
 
 #: src/amo/components/SearchFilters/index.js:177
 msgid "Trending"
-msgstr ""
+msgstr "Tendència"
 
 #: src/amo/components/SearchFilters/index.js:195
 msgid "Filter results"
-msgstr ""
+msgstr "Filtrar els resultats"
 
 #: src/amo/components/SearchFilters/index.js:200
 msgid "Sort by"
-msgstr ""
+msgstr "Ordena per"
 
 #: src/amo/components/SearchFilters/index.js:222
 msgid "Add-on Type"
-msgstr ""
+msgstr "Tipus de complement"
 
 #: src/amo/components/SearchFilters/index.js:242
 msgid "Operating System"
-msgstr ""
+msgstr "Sistema operatiu"
 
 #: src/amo/components/SearchFilters/index.js:268
 msgid "Recommended add-ons only"
-msgstr ""
+msgstr "Només complements recomanats"
 
 #: src/amo/components/SearchForm/index.js:61
 msgid "Firefox Add-ons (%(locale)s)"
-msgstr ""
+msgstr "Complements del Firefox (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr ""
+msgstr "Complements del Firefox per a Android (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "Vés a la pàgina del complement"
 
 #: src/amo/components/SearchResult/index.js:148
 msgid "No theme preview available"
-msgstr ""
+msgstr "La previsualització del tema no està disponible"
 
 #: src/amo/components/SearchResult/index.js:185
 msgid "Add-on note"
-msgstr ""
+msgstr "Nota del complement"
 
 #: src/amo/components/SearchResult/index.js:205
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s usuari"
+msgstr[1] "%(total)s usuaris"
 
 #: src/amo/components/SearchResults/index.js:42
 msgid "Searching…"
-msgstr ""
+msgstr "S'està cercant…"
 
 #: src/amo/components/SearchResults/index.js:47
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "No s'han trobat resultats per a \"%(query)s\"."
 
 #: src/amo/components/SearchResults/index.js:53
 msgid "No results were found."
-msgstr ""
+msgstr "No s'han trobat resultats."
 
 #: src/amo/components/SearchSuggestion/index.js:52 src/ui/components/RecommendedBadge/index.js:28
 msgid "Recommended"
-msgstr ""
+msgstr "Recomanat"
 
 #: src/amo/components/SectionLinks/index.js:117
 msgid "Explore"
-msgstr ""
+msgstr "Explora"
 
 #: src/amo/components/SectionLinks/index.js:127 src/amo/pages/LandingPage/index.js:230
 msgid "Extensions"
-msgstr ""
+msgstr "Extensions"
 
 #: src/amo/components/SectionLinks/index.js:142 src/amo/pages/LandingPage/index.js:229
 msgid "Themes"
-msgstr ""
+msgstr "Temes"
 
 #: src/amo/components/SectionLinks/index.js:148
 msgid "More…"
-msgstr ""
+msgstr "Més…"
 
 #: src/amo/components/SectionLinks/index.js:158
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "Altres pàgines del navegador"
 
 #: src/amo/components/SectionLinks/index.js:169
 msgid "Add-ons for Android"
-msgstr ""
+msgstr "Complements per a Android"
 
 #: src/amo/components/SectionLinks/index.js:182
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Complements per al Firefox"
 
 #: src/amo/components/SectionLinks/index.js:70
 msgid "for Firefox"
-msgstr ""
+msgstr "per a Firefox"
 
 #: src/amo/components/SectionLinks/index.js:72
 msgid "for Android"
-msgstr ""
+msgstr "per a Android"
 
 #: src/amo/components/SectionLinks/index.js:87
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "Diccionaris i paquets d'idioma"
 
 #: src/amo/components/SectionLinks/index.js:98 src/amo/pages/SearchTools/index.js:76
 msgid "Search Tools"
-msgstr ""
+msgstr "Eines de cerca"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Pàgines recomanades"
 
 #: src/amo/components/SuggestedPages/index.js:29
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Cerca totes les extensions"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
-msgstr ""
+msgstr "Cerca tots els temes"
 
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
-msgstr ""
+msgstr "Pàgina d'inici dels complements"
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "Segur que voleu suprimir aquesta imatge?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:109
 msgid "Delete This Picture"
-msgstr ""
+msgstr "Suprimeix aquesta imatge"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
 msgid "Profile picture for %(name)s"
-msgstr ""
+msgstr "Imatge de perfil de %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:68
 msgid "Profile photo"
-msgstr ""
+msgstr "Imatge de perfil"
 
 #: src/amo/components/UserProfileEditPicture/index.js:97
 msgid "Choose Photo…"
-msgstr ""
+msgstr "Trieu la imatge…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:62
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "Per trobar complements compatibles amb el Firefox a Android, <a href=\"%(newLocation)s\">visiteu el nostre lloc per a mòbil</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:69
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr ""
+msgstr "Per trobar complements compatibles amb el Firefox a l'escriptori, <a href=\"%(newLocation)s\">visiteu el nostre lloc per a escriptori</a>."
 
 #: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Previsualització de %(title)s"
 
 #: src/amo/pages/Addon/index.js:205
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
+msgstr "Aquest complement no es pot classificar perquè encara no s'ha publicat cap versió."
 
 #: src/amo/pages/Addon/index.js:216
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Llegiu %(count)s ressenya"
+msgstr[1] "Llegiu %(count)s ressenyes"
 
 #: src/amo/pages/Addon/index.js:234
 msgid "No reviews yet"
-msgstr ""
+msgstr "No hi ha ressenyes encara"
 
 #: src/amo/pages/Addon/index.js:244
 msgid "Rate your experience"
-msgstr ""
+msgstr "Valoreu l'experiència"
 
 #: src/amo/pages/Addon/index.js:263
 msgid "About this dictionary"
@@ -1673,11 +1673,11 @@ msgstr "Quant a aquest complement"
 
 #: src/amo/pages/Addon/index.js:317
 msgid "Release notes for %(addonVersion)s"
-msgstr ""
+msgstr "Notes de versió per a %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:448
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Aquest llistat no és públic. El podeu veure perquè teniu permisos elevats."
 
 #: src/amo/pages/Addon/index.js:476
 msgid "Extension Metadata"
@@ -1685,11 +1685,11 @@ msgstr "Metadades de l'extensió"
 
 #: src/amo/pages/Addon/index.js:481
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
+msgstr "Aquest llistat no està destinat a aquesta plataforma. <a href=\"%(newLocation)s\">Cerca complements pel Firefox a Android</a>."
 
 #: src/amo/pages/Addon/index.js:485
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
+msgstr "Aquest llistat no està destinat a aquesta plataforma. <a href=\"%(newLocation)s\">Cerca complements pel Firefox a l'escriptori</a>."
 
 #: src/amo/pages/Addon/index.js:505
 msgid "Screenshots"
@@ -1697,63 +1697,63 @@ msgstr "Captures de pantalla"
 
 #: src/amo/pages/AddonInfo/index.js:158
 msgid "Custom License for %(addonName)s"
-msgstr ""
+msgstr "Llicència personalitzada per %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:165
 msgid "End-User License Agreement for %(addonName)s"
-msgstr ""
+msgstr "Acord de llicència de l'usuari final de %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:169
 msgid "Privacy policy for %(addonName)s"
-msgstr ""
+msgstr "Política de privadesa de %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Ressenyes i valoracions de %(addonName)s. Descobriu què pensen altres usuaris de %(addonName)s i afegiu-lo al navegador del Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:230
 msgid "Show all reviews"
-msgstr ""
+msgstr "Mostra totes les ressenyes"
 
 #: src/amo/pages/AddonReviewList/index.js:232
 msgid "Show only five-star reviews"
-msgstr ""
+msgstr "Mostra només ressenyes de cinc estrelles"
 
 #: src/amo/pages/AddonReviewList/index.js:233
 msgid "Show only four-star reviews"
-msgstr ""
+msgstr "Mostra només ressenyes de quatre estrelles"
 
 #: src/amo/pages/AddonReviewList/index.js:235
 msgid "Show only three-star reviews"
-msgstr ""
+msgstr "Mostra només ressenyes de tres estrelles"
 
 #: src/amo/pages/AddonReviewList/index.js:237
 msgid "Show only two-star reviews"
-msgstr ""
+msgstr "Mostra només ressenyes de dues estrelles"
 
 #: src/amo/pages/AddonReviewList/index.js:238
 msgid "Show only one-star reviews"
-msgstr ""
+msgstr "Mostra només ressenyes d'una estrella"
 
 #: src/amo/pages/AddonReviewList/index.js:278
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "Ressenyes sobre %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:288
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s ressenya"
+msgstr[1] "%(total)s ressenyes"
 
 #: src/amo/pages/AddonReviewList/index.js:386
 msgid "There are no reviews"
-msgstr ""
+msgstr "No hi ha ressenyes"
 
 #: src/amo/pages/AddonVersions/index.js:126
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Historial de versions de %(addonName)s - %(total)s versió"
+msgstr[1] "Historial de versions de %(addonName)s - %(total)s versions"
 
 #: src/amo/pages/AddonVersions/index.js:174
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
