@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-19 19:52+0000\n"
-"PO-Revision-Date: 2019-11-27 03:49+0000\n"
+"PO-Revision-Date: 2019-12-03 02:28+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -45,7 +45,7 @@ msgstr "Adder al collection"
 
 #: src/amo/components/AddonAdminLinks/index.js:100
 msgid "Admin add-on"
-msgstr "Additivo del administrator"
+msgstr "Gerer le additivo"
 
 #: src/amo/components/AddonAdminLinks/index.js:112
 msgid "Content review add-on"
@@ -65,7 +65,7 @@ msgstr "Ligamines del administrator"
 
 #: src/amo/components/AddonAdminLinks/index.js:75
 msgid "Edit add-on"
-msgstr "Rediger additivo"
+msgstr "Modificar le additivo"
 
 #: src/amo/components/AddonAdminLinks/index.js:87
 msgid "Admin add-on status"
@@ -589,7 +589,7 @@ msgstr "Cargamento"
 
 #: src/amo/components/AutoSearchInput/index.js:312
 msgid "Find add-ons"
-msgstr "Trovar le additivos"
+msgstr "Cercar additivos"
 
 #: src/amo/components/AutoSearchInput/index.js:337 src/amo/components/AutoSearchInput/index.js:365
 msgid "Search"
@@ -1652,8 +1652,8 @@ msgstr "Iste additivo non pote esser evalutate perque nulle version ha essite pu
 #: src/amo/pages/Addon/index.js:216
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] "Leger %(count)s revision"
-msgstr[1] "Leger %(count)s revisiones"
+msgstr[0] "Leger %(count)s recension"
+msgstr[1] "Leger %(count)s recensiones"
 
 #: src/amo/pages/Addon/index.js:234
 msgid "No reviews yet"
