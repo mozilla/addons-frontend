@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-03 23:06+0000\n"
+"PO-Revision-Date: 2019-12-03 23:18+0000\n"
 "Last-Translator: passionforlife <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -766,7 +766,7 @@ msgstr "很抱歉，但您无权访问此页面。如果您尚未登录，请使
 msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
-msgstr "请稍后再尝试访问该页面，因为主题或扩展可能会再次上架。另外，也许您可以在下列%(extensionStart)s扩展%(extensionEnd)s或%(themeStart)s主题%(themeEnd)s中找到要您要找的内容，或者到我们的%(communityStart)s社区论坛%(communityEnd)s寻求帮助。"
+msgstr "请过段时间后再尝试访问该页面，因为主题或扩展可能会再次上架。另外，也许您可以在下列%(extensionStart)s扩展%(extensionEnd)s或%(themeStart)s主题%(themeEnd)s中找到要您要找的内容，或者到我们的%(communityStart)s社区论坛%(communityEnd)s寻求帮助。"
 
 #: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
