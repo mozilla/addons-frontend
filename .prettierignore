@@ -14,6 +14,7 @@ Dockerfile
 /src/core/fonts/
 /src/locale/
 /tests/ui/
+/tests/frontend
 # white-list files we want to process
 !*.js
 !*.md
