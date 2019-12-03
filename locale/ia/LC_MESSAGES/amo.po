@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-19 19:52+0000\n"
-"PO-Revision-Date: 2019-12-03 02:42+0000\n"
+"PO-Revision-Date: 2019-12-03 03:02+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -280,7 +280,7 @@ msgstr "Accordo de licentia pro usator final (EULA)"
 
 #: src/amo/components/AddonMoreInfo/index.js:262
 msgid "Version History"
-msgstr "Chronologia del version"
+msgstr "Historia de versiones"
 
 #: src/amo/components/AddonMoreInfo/index.js:272
 msgid "Usage Statistics"
@@ -1768,8 +1768,8 @@ msgstr "Il non ha recensiones"
 #: src/amo/pages/AddonVersions/index.js:126
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] "%(addonName)s chronologia del versiones - %(total)s version"
-msgstr[1] "%(addonName)s chronologia del versiones - %(total)s versiones"
+msgstr[0] "Historia de versiones de %(addonName)s - %(total)s version"
+msgstr[1] "Historia de versiones de %(addonName)s - %(total)s versiones"
 
 #: src/amo/pages/AddonVersions/index.js:174
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
