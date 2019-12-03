@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-03 23:21+0000\n"
+"PO-Revision-Date: 2019-12-03 23:51+0000\n"
 "Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -2746,112 +2746,112 @@ msgstr "Feu una enquesta breu"
 
 #: src/core/components/SurveyNotice/index.js:139
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Gràcies per visitar-nos! Comenteu la vostra experiència Firefox."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s i posteriors"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s a %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Funciona amb %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "La instal·lació s'ha cancel·lat perquè sembla que el complement es troba malmès."
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "La instal·lació ha fallat. Torneu a provar."
 
 #: src/core/utils/addons.js:36
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Ha fallat la descàrrega. Comproveu la vostra connexió."
 
 #: src/core/utils/addons.js:38
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "S'ha produït un error inesperat durant la instal·lació."
 
 #: src/core/utils/addons.js:40
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "S'ha produït un error inesperat durant la desinstal·lació."
 
 #: src/core/utils/addons.js:45
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "S'ha produït un error inesperat."
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
-msgstr ""
+msgstr "Confirma"
 
 #: src/ui/components/DismissibleTextForm/index.js:187
 msgid "Enter text."
-msgstr ""
+msgstr "Introduïu text."
 
 #: src/ui/components/DismissibleTextForm/index.js:188
 msgid "Submit"
-msgstr ""
+msgstr "Envia"
 
 #: src/ui/components/DismissibleTextForm/index.js:190
 msgid "Submitting"
-msgstr ""
+msgstr "S'està enviant"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "La vostra sessió ha caducat"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "S'ha produït un error inesperat"
 
 #: src/ui/components/ErrorList/index.js:59
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Torna a carregar per continuar"
 
 #: src/ui/components/ExpandableCard/index.js:57
 msgid "Toggle contents"
-msgstr ""
+msgstr "Activar continguts"
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Accedir a les dades de tots els llocs web"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Accediu a les vostres dades a %(param)s altre domini"
+msgstr[1] "Accediu a les vostres dades a %(param)s altres dominis"
 
 #: src/ui/components/HostPermissions/index.js:67
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "Accediu a les vostres dades en el lloc del %(param)s domini"
 
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
