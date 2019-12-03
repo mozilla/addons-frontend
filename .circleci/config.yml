@@ -151,7 +151,7 @@ jobs:
           environment:
             MOZ_HEADLESS: 1
             PYTEST_ADDOPTS: -k "test_search or test_home" -n 4 --reruns 1
-          command: ./tests/ui/run-functional-tests.sh
+          command: tests/frontend/run-functional-tests.sh
       - store_artifacts:
           path: addons-server/ui-test.html
 workflows:
