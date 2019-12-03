@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-19 19:52+0000\n"
+"POT-Creation-Date: 2019-12-03 17:17+0000\n"
 "PO-Revision-Date: 2019-11-19 07:44+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
@@ -377,7 +377,7 @@ msgstr "Izbriši"
 
 #: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:151
-#: src/amo/components/CollectionManager/index.js:313
+#: src/amo/components/CollectionManager/index.js:316
 #: src/amo/pages/UserProfileEdit/index.js:913
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
@@ -480,83 +480,83 @@ msgstr "Upoštevajte naše %(linkStart)ssmernice za ocene%(linkEnd)s."
 msgid "Your star rating:"
 msgstr "Vaša ocena v zvezdicah:"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:239
+#: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
 msgstr "Več slovarjev avtorja %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:242
+#: src/amo/components/AddonsByAuthorsCard/index.js:250
 msgid "More dictionaries by these translators"
 msgstr "Več slovarjev teh prevajalcev"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:246
+#: src/amo/components/AddonsByAuthorsCard/index.js:254
 msgid "Dictionaries by %(author)s"
 msgstr "Slovarji avtorja %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:249
+#: src/amo/components/AddonsByAuthorsCard/index.js:257
 msgid "Dictionaries by these translators"
 msgstr "Slovarji teh prevajalcev"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:256
+#: src/amo/components/AddonsByAuthorsCard/index.js:264
 msgid "More extensions by %(author)s"
 msgstr "Več razširitev razvijalca %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:259
+#: src/amo/components/AddonsByAuthorsCard/index.js:267
 msgid "More extensions by these developers"
 msgstr "Več razširitev teh razvijalcev"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:263
+#: src/amo/components/AddonsByAuthorsCard/index.js:271
 msgid "Extensions by %(author)s"
 msgstr "Razširitve razvijalca %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:266
+#: src/amo/components/AddonsByAuthorsCard/index.js:274
 msgid "Extensions by these developers"
 msgstr "Razširitve teh razvijalcev"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:274
+#: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by %(author)s"
 msgstr "Več jezikovnih paketov avtorja %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:279
+#: src/amo/components/AddonsByAuthorsCard/index.js:287
 msgid "More language packs by these translators"
 msgstr "Več jezikovnih paketov teh prevajalcev"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:283
+#: src/amo/components/AddonsByAuthorsCard/index.js:291
 msgid "Language packs by %(author)s"
 msgstr "Jezikovni paketi avtorja %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:286
+#: src/amo/components/AddonsByAuthorsCard/index.js:294
 msgid "Language packs by these translators"
 msgstr "Jezikovni paketi teh prevajalcev"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:293
+#: src/amo/components/AddonsByAuthorsCard/index.js:301
 msgid "More themes by %(author)s"
 msgstr "Več tem avtorja %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:296
+#: src/amo/components/AddonsByAuthorsCard/index.js:304
 msgid "More themes by these artists"
 msgstr "Več tem teh ustvarjalcev"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:300
+#: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "Themes by %(author)s"
 msgstr "Teme avtorja %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:303
+#: src/amo/components/AddonsByAuthorsCard/index.js:311
 msgid "Themes by these artists"
 msgstr "Teme teh ustvarjalcev"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:310
+#: src/amo/components/AddonsByAuthorsCard/index.js:318
 msgid "More add-ons by %(author)s"
 msgstr "Več dodatkov razvijalca %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:313
+#: src/amo/components/AddonsByAuthorsCard/index.js:321
 msgid "More add-ons by these developers"
 msgstr "Več dodatkov izpod rok teh razvijalcev"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:317
+#: src/amo/components/AddonsByAuthorsCard/index.js:325
 msgid "Add-ons by %(author)s"
 msgstr "Dodatki razvijalca %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:320
+#: src/amo/components/AddonsByAuthorsCard/index.js:328
 msgid "Add-ons by these developers"
 msgstr "Dodatki izpod rok teh razvijalcev"
 
@@ -685,23 +685,23 @@ msgstr "Dodatki"
 msgid "Creator"
 msgstr "Avtor"
 
-#: src/amo/components/CollectionManager/index.js:237
+#: src/amo/components/CollectionManager/index.js:240
 msgid "Create collection"
 msgstr "Ustvari zbirko"
 
-#: src/amo/components/CollectionManager/index.js:238
+#: src/amo/components/CollectionManager/index.js:241
 msgid "Save changes"
 msgstr "Shrani spremembe"
 
-#: src/amo/components/CollectionManager/index.js:247
+#: src/amo/components/CollectionManager/index.js:250
 msgid "Collection name"
 msgstr "Ime zbirke"
 
-#: src/amo/components/CollectionManager/index.js:261
+#: src/amo/components/CollectionManager/index.js:264
 msgid "Description"
 msgstr "Opis"
 
-#: src/amo/components/CollectionManager/index.js:273
+#: src/amo/components/CollectionManager/index.js:276
 msgid "Custom URL"
 msgstr "URL po meri"
 
@@ -850,22 +850,24 @@ msgstr ""
 "prijaviti prek povezave na vrhu strani."
 
 #: src/amo/components/Errors/NotFound/index.js:28
+#, fuzzy
 msgid ""
 "Try visiting the page later, as the theme or extension may become available "
 "again. Alternatively, you may be able to find what you’re looking for in one "
-"of the available %(linkStart)sextensions%(linkEnd)s or "
-"%(secondLinkStart)sthemes%(secondLinkEnd)s."
+"of the available %(extensionStart)sextensions%(extensionEnd)s or "
+"%(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
+"%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
 "Poskusite obiskati stran pozneje, saj lahko tema ali razširitev znova "
 "postaneta na voljo. Druga možnost je, da poskusite najti, kar iščete, med "
 "razpoložljivimi %(linkStart)srazširitvami%(linkEnd)s ali "
 "%(secondLinkStart)stemami%(secondLinkEnd)s."
 
-#: src/amo/components/Errors/NotFound/index.js:66
+#: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
 msgstr "Ups! Te strani ne najdemo"
 
-#: src/amo/components/Errors/NotFound/index.js:69
+#: src/amo/components/Errors/NotFound/index.js:85
 msgid ""
 "If you’ve followed a link from another site for an extension or theme, that "
 "item is no longer available. This could be because:"
@@ -873,7 +875,7 @@ msgstr ""
 "V kolikor ste povezavi sledili z drugega spletnega mesta za razširitev ali "
 "temo, ta ni več na voljo. Možni razlogi so:"
 
-#: src/amo/components/Errors/NotFound/index.js:75
+#: src/amo/components/Errors/NotFound/index.js:91
 msgid ""
 "The developer removed it. Developers commonly do this because they no longer "
 "support the extension or theme, or have replaced it."
@@ -881,7 +883,7 @@ msgstr ""
 "Razvijalec jo je odstranil. Razvijalci to lahko storijo, če razširitve "
 "oziroma teme ne razvijajo več ali so jo zamenjali z drugo."
 
-#: src/amo/components/Errors/NotFound/index.js:80
+#: src/amo/components/Errors/NotFound/index.js:96
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review "
 "of the extension or theme, or the extension or theme has been abusing the "
@@ -892,17 +894,6 @@ msgstr ""
 "razširitve oziroma teme odkrite težave ali če je razširitev oziroma tema "
 "kršila pogoje spletnega mesta addons.mozilla.org. Razvijalec ima možnost "
 "odpraviti težave in dodatek spet narediti javno dostopen."
-
-#: src/amo/components/Errors/NotFound/index.js:92
-msgid ""
-"If you’ve followed a link on this site, you’ve have found a mistake. Help us "
-"fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you "
-"came from and what you were looking for, and we'll get it sorted."
-msgstr ""
-"Če ste sledili povezavi na tem spletnem mestu, ste odkrili napako. Pomagajte "
-"nam popraviti stran in <a href=\"%(url)s\">izpolnite poročilo o težavi</a>. "
-"Povejte nam, od kod ste prišli in kaj ste iskali, mi pa bomo uredili "
-"povezavo."
 
 #: src/amo/components/Errors/ServerError/index.js:21
 msgid ""
@@ -950,12 +941,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Označeno kot poročilo o napaki ali zahteva za podporo"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "Prijavi"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "Prijavljeno"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "Prijavi"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1376,11 +1367,11 @@ msgstr "Preberi vse ocene z dvema zvezdicama"
 msgid "Read all one-star reviews"
 msgstr "Preberi vse ocene z eno zvezdico"
 
-#: src/amo/components/ReportAbuseButton/index.js:119
+#: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
 msgstr "Ta dodatek ste prijavili kot zlorabo"
 
-#: src/amo/components/ReportAbuseButton/index.js:123
+#: src/amo/components/ReportAbuseButton/index.js:120
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
@@ -1388,14 +1379,14 @@ msgstr ""
 "Prejeli smo vaše poročilo. Hvala, ker ste nas obvestili o svojih pomislekih "
 "glede tega dodatka."
 
-#: src/amo/components/ReportAbuseButton/index.js:130
+#: src/amo/components/ReportAbuseButton/index.js:127
 #: src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 "Na vsako poročilo o zlorabi se ne moremo odzvati, vendar bomo vašo prijavo "
 "preverili."
 
-#: src/amo/components/ReportAbuseButton/index.js:140
+#: src/amo/components/ReportAbuseButton/index.js:137
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
@@ -1405,11 +1396,11 @@ msgstr ""
 "%(linkTagEnd)s ali da ima težave z zasebnostjo ali varnostjo, prijavite te "
 "težave Mozilli prek tega obrazca."
 
-#: src/amo/components/ReportAbuseButton/index.js:156
+#: src/amo/components/ReportAbuseButton/index.js:153
 msgid "Report this add-on for abuse"
 msgstr "Prijavi ta dodatek kot zlorabo"
 
-#: src/amo/components/ReportAbuseButton/index.js:186
+#: src/amo/components/ReportAbuseButton/index.js:183
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1417,21 +1408,21 @@ msgstr ""
 "Ne uporabljajte tega obrazca za poročanje o napakah ali zahtevanje novih "
 "funkcij; poročilo bo poslano Mozilli in ne razvijalcu dodatka."
 
-#: src/amo/components/ReportAbuseButton/index.js:199
+#: src/amo/components/ReportAbuseButton/index.js:196
 #: src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
 msgstr "Pošlji poročilo o zlorabi"
 
-#: src/amo/components/ReportAbuseButton/index.js:200
+#: src/amo/components/ReportAbuseButton/index.js:197
 #: src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "Pošiljanje poročila o zlorabi"
 
-#: src/amo/components/ReportAbuseButton/index.js:202
+#: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Dismiss"
 msgstr "Prekliči"
 
-#: src/amo/components/ReportAbuseButton/index.js:203
+#: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
 msgstr "Opišite, kako ta dodatek krši naše pravilnike."
 
@@ -1926,15 +1917,15 @@ msgstr ""
 msgid "Screenshots"
 msgstr "Posnetki zaslona"
 
-#: src/amo/pages/AddonInfo/index.js:158
+#: src/amo/pages/AddonInfo/index.js:154
 msgid "Custom License for %(addonName)s"
 msgstr "Licenca po meri za %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:165
+#: src/amo/pages/AddonInfo/index.js:161
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "Licenčni sporazum za %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:169
+#: src/amo/pages/AddonInfo/index.js:165
 msgid "Privacy policy for %(addonName)s"
 msgstr "Politika zasebnosti za %(addonName)s"
 
@@ -1986,7 +1977,7 @@ msgstr[3] "%(total)s ocen"
 msgid "There are no reviews"
 msgstr "Ni ocen"
 
-#: src/amo/pages/AddonVersions/index.js:126
+#: src/amo/pages/AddonVersions/index.js:128
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "Zgodovina različic %(addonName)s – %(total)s različica"
@@ -1994,7 +1985,7 @@ msgstr[1] "Zgodovina različic %(addonName)s – %(total)s različici"
 msgstr[2] "Zgodovina različic %(addonName)s – %(total)s različice"
 msgstr[3] "Zgodovina različic %(addonName)s – %(total)s različic"
 
-#: src/amo/pages/AddonVersions/index.js:174
+#: src/amo/pages/AddonVersions/index.js:176
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
@@ -2002,15 +1993,15 @@ msgstr ""
 "Previdno s starimi različicami! Spodnje različice so na razpolago za namene "
 "preskušanja in sklicevanja."
 
-#: src/amo/pages/AddonVersions/index.js:179
+#: src/amo/pages/AddonVersions/index.js:181
 msgid "You should always use the latest version of an add-on."
 msgstr "Vedno uporabljajte najnovejšo različico dodatka."
 
-#: src/amo/pages/AddonVersions/index.js:188
+#: src/amo/pages/AddonVersions/index.js:190
 msgid "Latest version"
 msgstr "Najnovejša različica"
 
-#: src/amo/pages/AddonVersions/index.js:197
+#: src/amo/pages/AddonVersions/index.js:199
 msgid "Older versions"
 msgstr "Starejše različice"
 
@@ -3194,12 +3185,12 @@ msgstr ""
 "izbrisati, če je uporabnik %(linkStart)savtor katerega od dodatkov"
 "%(linkEnd)s."
 
-#: src/amo/pages/UsersUnsubscribe/index.js:106
+#: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
 msgstr "Uspešno ste se odjavili!"
 
 # a list of notifications will be displayed under this prompt.
-#: src/amo/pages/UsersUnsubscribe/index.js:119
+#: src/amo/pages/UsersUnsubscribe/index.js:121
 msgid ""
 "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
 "messages when:"
@@ -3207,7 +3198,7 @@ msgstr ""
 "E-poštni naslov %(strongStart)s%(email)s%(strongEnd)s ne bo več dobival "
 "pošte, ko:"
 
-#: src/amo/pages/UsersUnsubscribe/index.js:77
+#: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid ""
 "You can edit your notification settings by %(linkStart)sediting your profile"
 "%(linkEnd)s."
@@ -3215,7 +3206,7 @@ msgstr ""
 "Nastavitve obvestil lahko nastavite pri %(linkStart)surejanju profila"
 "%(linkEnd)s."
 
-#: src/amo/pages/UsersUnsubscribe/index.js:97
+#: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
 msgstr "Odjava"
 
@@ -3518,6 +3509,16 @@ msgstr[3] "%(total)s dodatkov"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Odgovor razvijalca"
+
+#~ msgid ""
+#~ "If you’ve followed a link on this site, you’ve have found a mistake. Help "
+#~ "us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where "
+#~ "you came from and what you were looking for, and we'll get it sorted."
+#~ msgstr ""
+#~ "Če ste sledili povezavi na tem spletnem mestu, ste odkrili napako. "
+#~ "Pomagajte nam popraviti stran in <a href=\"%(url)s\">izpolnite poročilo o "
+#~ "težavi</a>. Povejte nam, od kod ste prišli in kaj ste iskali, mi pa bomo "
+#~ "uredili povezavo."
 
 #~ msgid "Featured Extension"
 #~ msgstr "Izbrana razširitev"

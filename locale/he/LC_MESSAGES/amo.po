@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-19 19:52+0000\n"
+"POT-Creation-Date: 2019-12-03 17:17+0000\n"
 "PO-Revision-Date: 2019-11-12 19:58+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -374,7 +374,7 @@ msgstr "מחיקה"
 
 #: src/amo/components/AddonReviewCard/index.js:251
 #: src/amo/components/AddonReviewManager/index.js:151
-#: src/amo/components/CollectionManager/index.js:313
+#: src/amo/components/CollectionManager/index.js:316
 #: src/amo/pages/UserProfileEdit/index.js:913
 #: src/ui/components/ConfirmationDialog/index.js:60
 #: src/ui/components/DismissibleTextForm/index.js:209
@@ -479,83 +479,83 @@ msgstr "נא לפעול בהתאם ל%(linkStart)sכללי הסקירה%(linkEnd
 msgid "Your star rating:"
 msgstr "דירוג הכוכבים שלך:"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:239
+#: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
 msgstr "עוד מילונים מאת %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:242
+#: src/amo/components/AddonsByAuthorsCard/index.js:250
 msgid "More dictionaries by these translators"
 msgstr "עוד מילונים מאת המתרגמים האלה"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:246
+#: src/amo/components/AddonsByAuthorsCard/index.js:254
 msgid "Dictionaries by %(author)s"
 msgstr "מילונים מאת %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:249
+#: src/amo/components/AddonsByAuthorsCard/index.js:257
 msgid "Dictionaries by these translators"
 msgstr "מילונים מאת המתרגמים האלה"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:256
+#: src/amo/components/AddonsByAuthorsCard/index.js:264
 msgid "More extensions by %(author)s"
 msgstr "עוד הרחבות מאת %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:259
+#: src/amo/components/AddonsByAuthorsCard/index.js:267
 msgid "More extensions by these developers"
 msgstr "הרחבות נוספות מאת המפתחים האלה"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:263
+#: src/amo/components/AddonsByAuthorsCard/index.js:271
 msgid "Extensions by %(author)s"
 msgstr "הרחבות מאת %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:266
+#: src/amo/components/AddonsByAuthorsCard/index.js:274
 msgid "Extensions by these developers"
 msgstr "הרחבות מאת המפתחים האלה"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:274
+#: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by %(author)s"
 msgstr "עוד חבילות שפה מאת %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:279
+#: src/amo/components/AddonsByAuthorsCard/index.js:287
 msgid "More language packs by these translators"
 msgstr "עוד חבילות שפה מאת המתרגמים האלה"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:283
+#: src/amo/components/AddonsByAuthorsCard/index.js:291
 msgid "Language packs by %(author)s"
 msgstr "חבילות שפה מאת %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:286
+#: src/amo/components/AddonsByAuthorsCard/index.js:294
 msgid "Language packs by these translators"
 msgstr "חבילות שפה מאת המתרגמים האלה"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:293
+#: src/amo/components/AddonsByAuthorsCard/index.js:301
 msgid "More themes by %(author)s"
 msgstr "עוד ערכות נושא מאת %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:296
+#: src/amo/components/AddonsByAuthorsCard/index.js:304
 msgid "More themes by these artists"
 msgstr "עוד ערכות נושא מאת האמנים האלה"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:300
+#: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "Themes by %(author)s"
 msgstr "ערכות נושא מאת %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:303
+#: src/amo/components/AddonsByAuthorsCard/index.js:311
 msgid "Themes by these artists"
 msgstr "ערכות נושא מאת האמנים האלה"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:310
+#: src/amo/components/AddonsByAuthorsCard/index.js:318
 msgid "More add-ons by %(author)s"
 msgstr "עוד תוספות מאת %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:313
+#: src/amo/components/AddonsByAuthorsCard/index.js:321
 msgid "More add-ons by these developers"
 msgstr "עוד תוספות מאת המפתחים האלה"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:317
+#: src/amo/components/AddonsByAuthorsCard/index.js:325
 msgid "Add-ons by %(author)s"
 msgstr "תוספות מאת %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:320
+#: src/amo/components/AddonsByAuthorsCard/index.js:328
 msgid "Add-ons by these developers"
 msgstr "תוספות מאת המפתחים האלה"
 
@@ -682,23 +682,23 @@ msgstr "תוספות"
 msgid "Creator"
 msgstr "יוצר"
 
-#: src/amo/components/CollectionManager/index.js:237
+#: src/amo/components/CollectionManager/index.js:240
 msgid "Create collection"
 msgstr "יצירת אוסף"
 
-#: src/amo/components/CollectionManager/index.js:238
+#: src/amo/components/CollectionManager/index.js:241
 msgid "Save changes"
 msgstr "שמירת שינויים"
 
-#: src/amo/components/CollectionManager/index.js:247
+#: src/amo/components/CollectionManager/index.js:250
 msgid "Collection name"
 msgstr "שם האוסף"
 
-#: src/amo/components/CollectionManager/index.js:261
+#: src/amo/components/CollectionManager/index.js:264
 msgid "Description"
 msgstr "תיאור"
 
-#: src/amo/components/CollectionManager/index.js:273
+#: src/amo/components/CollectionManager/index.js:276
 msgid "Custom URL"
 msgstr "כתובת מותאמת אישית"
 
@@ -835,22 +835,24 @@ msgstr ""
 "הקישור שבראש העמוד."
 
 #: src/amo/components/Errors/NotFound/index.js:28
+#, fuzzy
 msgid ""
 "Try visiting the page later, as the theme or extension may become available "
 "again. Alternatively, you may be able to find what you’re looking for in one "
-"of the available %(linkStart)sextensions%(linkEnd)s or "
-"%(secondLinkStart)sthemes%(secondLinkEnd)s."
+"of the available %(extensionStart)sextensions%(extensionEnd)s or "
+"%(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
+"%(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
 "מומלץ לנסות לבקר בדף מאוחר יותר, מכיוון שערכת הנושא או ההרחבה עשויים להיות "
 "זמינים שוב. לחלופין, ייתכן שיהיה באפשרותך למצוא את מה שחיפשת ב"
 "%(linkStart)sהרחבות%(linkEnd)s או %(secondLinkStart)sערכות נושא"
 "%(secondLinkEnd)s."
 
-#: src/amo/components/Errors/NotFound/index.js:66
+#: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
 msgstr "אופס! איננו מוצאים את הדף"
 
-#: src/amo/components/Errors/NotFound/index.js:69
+#: src/amo/components/Errors/NotFound/index.js:85
 msgid ""
 "If you’ve followed a link from another site for an extension or theme, that "
 "item is no longer available. This could be because:"
@@ -858,7 +860,7 @@ msgstr ""
 "אם עקבת אחר קישור מאתר אחר עבור הרחבה או ערכת נושא, פריט זה אינו זמין עוד. "
 "זה יכול להיות כי:"
 
-#: src/amo/components/Errors/NotFound/index.js:75
+#: src/amo/components/Errors/NotFound/index.js:91
 msgid ""
 "The developer removed it. Developers commonly do this because they no longer "
 "support the extension or theme, or have replaced it."
@@ -866,7 +868,7 @@ msgstr ""
 "המפתח הסיר אותה. מפתחים עושים זאת בדרך כלל מכיוון שאינם תומכים עוד בהרחבה או "
 "בערכת הנושא, או שהחליפו אותה."
 
-#: src/amo/components/Errors/NotFound/index.js:80
+#: src/amo/components/Errors/NotFound/index.js:96
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review "
 "of the extension or theme, or the extension or theme has been abusing the "
@@ -876,16 +878,6 @@ msgstr ""
 "Mozilla הסירה אותה. מצב זה יכול לקרות כאשר נמצאו בעיות במהלך סקירת ההרחבה או "
 "ערכת הנושא, או שהן מפרות את תנאי השימוש עבור addons.mozilla.org. באפשרות "
 "המפתח לפתור את הבעיות ולהפוך את התוספת לזמינה שוב."
-
-#: src/amo/components/Errors/NotFound/index.js:92
-msgid ""
-"If you’ve followed a link on this site, you’ve have found a mistake. Help us "
-"fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you "
-"came from and what you were looking for, and we'll get it sorted."
-msgstr ""
-"אם הגעת לכאן מקישור באתר זה, מצאת טעות. נשמח לעזרתך בתיקון הקישור על־ידי <a "
-"href=\"%(url)s\">דיווח על בעיה</a>. יש למלא מאיפה הגעת ומה חיפשת, ואנו נטפל "
-"בבעיה."
 
 #: src/amo/components/Errors/ServerError/index.js:21
 msgid ""
@@ -932,12 +924,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "סומן כדיווח על תקלה או בקשת תמיכה"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "סימון בדגל"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "מסומן בדגל"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "סימון בדגל"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
@@ -1353,22 +1345,22 @@ msgstr "קריאת כל הסקירות בדירוג 2 כוכבים"
 msgid "Read all one-star reviews"
 msgstr "קריאת כל הסקירות בדירוג כוכב אחד"
 
-#: src/amo/components/ReportAbuseButton/index.js:119
+#: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
 msgstr "דיווחת על תוספת זו בגין שימוש לרעה"
 
-#: src/amo/components/ReportAbuseButton/index.js:123
+#: src/amo/components/ReportAbuseButton/index.js:120
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
 msgstr "קיבלנו את הדיווח שלך. תודה שהודעת לנו על החששות שלך בנוגע לתוספת זו."
 
-#: src/amo/components/ReportAbuseButton/index.js:130
+#: src/amo/components/ReportAbuseButton/index.js:127
 #: src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr "איננו יכולים להגיב לכל דיווח על שימוש לרעה אבל נבדוק את הנושא."
 
-#: src/amo/components/ReportAbuseButton/index.js:140
+#: src/amo/components/ReportAbuseButton/index.js:137
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
@@ -1378,11 +1370,11 @@ msgstr ""
 "%(linkTagEnd)s או שיש לה בעיות אבטחה או פרטיות, נא לדווח על כך ל־Mozilla "
 "באמצעות טופס זה."
 
-#: src/amo/components/ReportAbuseButton/index.js:156
+#: src/amo/components/ReportAbuseButton/index.js:153
 msgid "Report this add-on for abuse"
 msgstr "דיווח תוספת זו על שימוש לרעה"
 
-#: src/amo/components/ReportAbuseButton/index.js:186
+#: src/amo/components/ReportAbuseButton/index.js:183
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1390,21 +1382,21 @@ msgstr ""
 "נא לא להשתמש בטופס זה כדי לדווח על תקלות או לבקש להוסיף תכונות לתוספת; דיווח "
 "זה יישלח ל־Mozilla ולא למפתח התוספת."
 
-#: src/amo/components/ReportAbuseButton/index.js:199
+#: src/amo/components/ReportAbuseButton/index.js:196
 #: src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
 msgstr "שליחת דיווח על שימוש לרעה"
 
-#: src/amo/components/ReportAbuseButton/index.js:200
+#: src/amo/components/ReportAbuseButton/index.js:197
 #: src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "דיווח על שימוש לרעה נשלח כעת"
 
-#: src/amo/components/ReportAbuseButton/index.js:202
+#: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Dismiss"
 msgstr "סגירה"
 
-#: src/amo/components/ReportAbuseButton/index.js:203
+#: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
 msgstr "נא לפרט כיצד תוספת זו מפרה את המדיניות שלנו."
 
@@ -1879,15 +1871,15 @@ msgstr ""
 msgid "Screenshots"
 msgstr "צילומי מסך"
 
-#: src/amo/pages/AddonInfo/index.js:158
+#: src/amo/pages/AddonInfo/index.js:154
 msgid "Custom License for %(addonName)s"
 msgstr "רישיון מותאם אישית עבור %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:165
+#: src/amo/pages/AddonInfo/index.js:161
 msgid "End-User License Agreement for %(addonName)s"
 msgstr "הסכם רישיון למשתמש קצה עבור %(addonName)s"
 
-#: src/amo/pages/AddonInfo/index.js:169
+#: src/amo/pages/AddonInfo/index.js:165
 msgid "Privacy policy for %(addonName)s"
 msgstr "מדיניות פרטיות עבור %(addonName)s"
 
@@ -1937,27 +1929,27 @@ msgstr[1] "%(total)s דירוגים"
 msgid "There are no reviews"
 msgstr "אין דירוגים"
 
-#: src/amo/pages/AddonVersions/index.js:126
+#: src/amo/pages/AddonVersions/index.js:128
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "היסטוריית גרסאות עבור %(addonName)s - גרסה אחת"
 msgstr[1] "היסטוריית גרסאות עבור %(addonName)s - ‏%(total)s גרסאות"
 
-#: src/amo/pages/AddonVersions/index.js:174
+#: src/amo/pages/AddonVersions/index.js:176
 msgid ""
 "Be careful with old versions! These versions are displayed for testing and "
 "reference purposes."
 msgstr ""
 
-#: src/amo/pages/AddonVersions/index.js:179
+#: src/amo/pages/AddonVersions/index.js:181
 msgid "You should always use the latest version of an add-on."
 msgstr "מומלץ תמיד להשתמש בגרסה העדכנית של תוספת."
 
-#: src/amo/pages/AddonVersions/index.js:188
+#: src/amo/pages/AddonVersions/index.js:190
 msgid "Latest version"
 msgstr "הגרסה העדכנית ביותר"
 
-#: src/amo/pages/AddonVersions/index.js:197
+#: src/amo/pages/AddonVersions/index.js:199
 msgid "Older versions"
 msgstr "גרסאות ישנות יותר"
 
@@ -3049,19 +3041,19 @@ msgstr ""
 "%(strongStart)sלתשומת לבך:%(strongEnd)s לא ניתן למחוק פרופיל משתמש אם המשתמש "
 "הוא %(linkStart)sהיוצר של תוספות כלשהן%(linkEnd)s."
 
-#: src/amo/pages/UsersUnsubscribe/index.js:106
+#: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
 msgstr "ביטלת את המינוי שלך בהצלחה!"
 
 # a list of notifications will be displayed under this prompt.
-#: src/amo/pages/UsersUnsubscribe/index.js:119
+#: src/amo/pages/UsersUnsubscribe/index.js:121
 msgid ""
 "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
 "messages when:"
 msgstr ""
 "כתובת הדוא״ל %(strongStart)s%(email)s%(strongEnd)s לא תקבל יותר הודעות כאשר:"
 
-#: src/amo/pages/UsersUnsubscribe/index.js:77
+#: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid ""
 "You can edit your notification settings by %(linkStart)sediting your profile"
 "%(linkEnd)s."
@@ -3069,7 +3061,7 @@ msgstr ""
 "באפשרותך לערוך הגדרות ההתראות שלך על־ידי %(linkStart)sעריכת הפרופיל שלך"
 "%(linkEnd)s."
 
-#: src/amo/pages/UsersUnsubscribe/index.js:97
+#: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
 msgstr "ביטול הרשמה"
 
@@ -3363,6 +3355,15 @@ msgstr[1] "%(total)s תוספות"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "תגובת המפתח"
+
+#~ msgid ""
+#~ "If you’ve followed a link on this site, you’ve have found a mistake. Help "
+#~ "us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where "
+#~ "you came from and what you were looking for, and we'll get it sorted."
+#~ msgstr ""
+#~ "אם הגעת לכאן מקישור באתר זה, מצאת טעות. נשמח לעזרתך בתיקון הקישור על־ידי "
+#~ "<a href=\"%(url)s\">דיווח על בעיה</a>. יש למלא מאיפה הגעת ומה חיפשת, ואנו "
+#~ "נטפל בבעיה."
 
 #~ msgid "Featured Extension"
 #~ msgstr "הרחבה מומלצת"
