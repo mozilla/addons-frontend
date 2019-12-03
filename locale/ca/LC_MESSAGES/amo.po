@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-03 18:10+0000\n"
+"PO-Revision-Date: 2019-12-03 22:11+0000\n"
 "Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -2452,100 +2452,100 @@ msgstr "La imatge s'ha suprimit correctament"
 
 #: src/amo/pages/UserProfileEdit/index.js:443
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Expliqueu als usuaris una mica més sobre vosaltres. La majoria dels camps són opcionals, però ajudaran a altres usuaris a conèixer-vos millor."
 
 #: src/amo/pages/UserProfileEdit/index.js:447
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr ""
+msgstr "Expliqueu als usuaris una mica més sobre aquest usuari. La majoria dels camps són opcionals, però ajudaran a altres usuaris a conèixer a %(userName)s millor."
 
 #: src/amo/pages/UserProfileEdit/index.js:462
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Us animem a presentar-vos a la comunitat"
 
 #: src/amo/pages/UserProfileEdit/index.js:463
 msgid "Introduce %(userName)s to the community"
-msgstr ""
+msgstr "Presenteu %(userName)s a la comunitat"
 
 #: src/amo/pages/UserProfileEdit/index.js:490
 msgid "Log in to edit the profile"
-msgstr ""
+msgstr "Inicieu sessió per editar el perfil"
 
 #: src/amo/pages/UserProfileEdit/index.js:512
 msgid "Creating your profile…"
-msgstr ""
+msgstr "El vostre perfil s'està creant…"
 
 #: src/amo/pages/UserProfileEdit/index.js:513
 msgid "Create My Profile"
-msgstr ""
+msgstr "Crea el meu perfil"
 
 #: src/amo/pages/UserProfileEdit/index.js:517
 msgid "Updating your profile…"
-msgstr ""
+msgstr "El vostre perfil s'està actualitzant…"
 
 #: src/amo/pages/UserProfileEdit/index.js:518
 msgid "Update My Profile"
-msgstr ""
+msgstr "Actualitza el meu perfil"
 
 #: src/amo/pages/UserProfileEdit/index.js:521
 msgid "Updating profile…"
-msgstr ""
+msgstr "El perfil s'està actualitzant…"
 
 #: src/amo/pages/UserProfileEdit/index.js:522
 msgid "Update Profile"
-msgstr ""
+msgstr "Actualitza el perfil"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "View user's profile"
-msgstr ""
+msgstr "Veure el perfil de l'usuari"
 
 #: src/amo/pages/UserProfileEdit/index.js:555
 msgid "Edit user's profile"
-msgstr ""
+msgstr "Edita el perfil de l'usuari"
 
 #: src/amo/pages/UserProfileEdit/index.js:573
 msgid "Account"
-msgstr ""
+msgstr "Compte"
 
 #: src/amo/pages/UserProfileEdit/index.js:574
 msgid "Account for %(userName)s"
-msgstr ""
+msgstr "Compte per %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:581
 msgid "Email Address"
-msgstr ""
+msgstr "Adreça electrònica"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "L'adreça electrònica no es pot canviar aquí"
 
 #: src/amo/pages/UserProfileEdit/index.js:599
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Podeu canviar l'adreça electrònica a comptes del Firefox. %(startLink)sNecessiteu ajuda?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:616
 msgid "Manage Firefox Accounts…"
-msgstr ""
+msgstr "Gestiona els comptes del Firefox…"
 
 #: src/amo/pages/UserProfileEdit/index.js:624
 msgid "Profile"
-msgstr ""
+msgstr "Perfil"
 
 #: src/amo/pages/UserProfileEdit/index.js:633
 msgid "This field is required"
-msgstr ""
+msgstr "Camp obligatori"
 
 # the star is used to indicate a required field
 #: src/amo/pages/UserProfileEdit/index.js:636
 msgid "Display Name *"
-msgstr ""
+msgstr "Nom a mostrar *"
 
 #: src/amo/pages/UserProfileEdit/index.js:652
 msgid "Reviewer Name"
-msgstr ""
+msgstr "Nom de l'autor de la ressenya"
 
 #: src/amo/pages/UserProfileEdit/index.js:685
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Aquest URL només serà visible per als usuaris que siguin desenvolupadors."
 
 #: src/amo/pages/UserProfileEdit/index.js:742
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
