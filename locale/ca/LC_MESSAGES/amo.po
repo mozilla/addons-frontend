@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-04 23:33+0000\n"
+"PO-Revision-Date: 2019-12-04 23:40+0000\n"
 "Last-Translator: hello <hello@awordz.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -1003,7 +1003,7 @@ msgstr "Gestiona els enviaments"
 
 #: src/amo/components/Header/index.js:179
 msgid "Reviewer Tools"
-msgstr ""
+msgstr "Eines de valoració"
 
 #: src/amo/components/Header/index.js:191 src/core/components/AuthenticateButton/index.js:90
 msgid "This action is currently unavailable. Please reload the page in a moment."
@@ -1033,11 +1033,11 @@ msgstr "RECOMANACIONS"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
-msgstr ""
+msgstr "Manteniu-vos segur en línia"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:280
 msgid "Organize Tabs & Bookmarks"
-msgstr ""
+msgstr "Organitza les pestanyes i les adreces d'interès"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
 msgid "Enhance Your Media Experience"
@@ -1045,59 +1045,59 @@ msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
-msgstr ""
+msgstr "Les extensions són com les aplicacions del vostre navegador."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "Afegeixen funcions al Firefox per fer que la navegació sigui més ràpida, més intel·ligent o, senzillament, més divertida."
 
 #: src/amo/components/InstallWarning/index.js:159
 msgid "Learn more"
-msgstr ""
+msgstr "Més informació"
 
 #: src/amo/components/InstallWarning/index.js:168
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr ""
+msgstr "Mozilla no controla aquesta extensió. Assegureu-vos que confieu en l’extensió abans d’instal·lar-la."
 
 #: src/amo/components/InstallWarning/index.js:170
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr ""
+msgstr "Aquesta no és una extensió recomanada. Assegureu-vos que hi confieu abans d’instal·lar-la."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
-msgstr ""
+msgstr "Canvia l'idioma"
 
 #: src/amo/components/PermissionsCard/index.js:48
 msgid "Permissions"
-msgstr ""
+msgstr "Permisos"
 
 #: src/amo/components/PermissionsCard/index.js:50
 msgid "This add-on can:"
-msgstr ""
+msgstr "Aquest complement pot:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "Més informació sobre els permisos"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "Llegeix i modifica les adreces d'interès"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Llegeix i modifica la configuració del navegador"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Esborra l'historial de navegació recent, les galetes i dades relacionades"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Obtén les dades del porta-retalls"
 
 #: src/amo/components/PermissionsCard/permissions.js:37
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Afegeix les dades al porta-retalls"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
@@ -1105,7 +1105,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Baixa els fitxers i modifica l'historial de baixades del navegador"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
