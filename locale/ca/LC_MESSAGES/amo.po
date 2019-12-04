@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-04 22:28+0000\n"
+"PO-Revision-Date: 2019-12-04 22:49+0000\n"
 "Last-Translator: hello <hello@awordz.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -681,11 +681,11 @@ msgstr "Contribuïu-hi ara"
 
 #: src/amo/components/ContributeCard/index.js:45
 msgid "Support this developer"
-msgstr ""
+msgstr "Ajuda aquest desenvolupador"
 
 #: src/amo/components/ContributeCard/index.js:46
 msgid "Support these developers"
-msgstr ""
+msgstr "Ajuda aquests desenvolupadors"
 
 #: src/amo/components/ContributeCard/index.js:50
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -693,67 +693,69 @@ msgstr "El desenvolupador d'aquesta extensió us demana que l'ajudeu a continuar
 
 #: src/amo/components/ContributeCard/index.js:52
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr "Els desenvolupadors d'aquesta extensió us demana que l'ajudeu a continuar amb el seu desenvolupament fent una petita donació."
+msgstr "Els desenvolupadors d'aquesta extensió us demanen que els ajudeu a continuar amb el seu desenvolupament fent una petita donació."
 
 #: src/amo/components/ContributeCard/index.js:59
 msgid "Support this artist"
-msgstr ""
+msgstr "Ajuda aquest artista"
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support these artists"
-msgstr ""
+msgstr "Ajuda aquests artistes"
 
 #: src/amo/components/ContributeCard/index.js:64
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "L'artista d'aquest tema us demana que l'ajudeu a continuar amb la seva creació fent una petita donació."
 
 #: src/amo/components/ContributeCard/index.js:66
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Els artistes d'aquest tema us demanen que els ajudeu a continuar amb la seva creació fent una petita donació."
 
 #: src/amo/components/ContributeCard/index.js:73
 msgid "Support this author"
-msgstr ""
+msgstr "Ajuda aquest autor"
 
 #: src/amo/components/ContributeCard/index.js:74
 msgid "Support these authors"
-msgstr ""
+msgstr "Ajuda aquests autors"
 
 #: src/amo/components/ContributeCard/index.js:78
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "L'autor d'aquest complement us demana que l'ajudeu a continuar amb el seu treball fent una petita donació."
 
 #: src/amo/components/ContributeCard/index.js:80
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Els autors d'aquest complement us demanen que els ajudeu a continuar amb el seu treball fent una petita donació."
 
 #: src/amo/components/EditableCollectionAddon/index.js:133 src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Leave a note"
-msgstr ""
+msgstr "Deixa una nota"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143 src/core/components/AMInstallButton/index.js:235
 msgid "Remove"
-msgstr ""
+msgstr "Suprimeix"
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
 msgid "Collector's note"
-msgstr ""
+msgstr "Nota de l'autor de la col·lecció"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
-msgstr ""
+msgstr "Afegiu un comentari sobre aquest complement."
 
 #: src/amo/components/EditableCollectionAddon/index.js:168
 msgid "Save"
-msgstr ""
+msgstr "Desa"
 
 #: src/amo/components/EditableCollectionAddon/index.js:189
 msgid "Edit"
-msgstr ""
+msgstr "Edita"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:26
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
+"Si teniu la sessió iniciada i creieu que aquest missatge és un error, <a href=\"%(url)s\">informeu-nos del problema</a>. Indiqueu-nos d’on veníeu i a què intentàveu accedir i us solucionarem el "
+"problema."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:40
 msgid "Not Authorized"
