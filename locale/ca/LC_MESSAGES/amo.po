@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-03 23:58+0000\n"
+"PO-Revision-Date: 2019-12-04 10:44+0000\n"
 "Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -1385,7 +1385,7 @@ msgstr[1] "S'han trobat %(count)s resultats"
 
 #: src/amo/components/SearchContextCard/index.js:181
 msgid "Searching for \"%(query)s\""
-msgstr "Cerca de \"%(query)s\""
+msgstr "Cerca de «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:185
 msgid "Searching for add-ons"
@@ -1394,8 +1394,8 @@ msgstr "S'està cercant complements"
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "S'ha trobat %(count)s extensió per \"%(query)s\" a %(categoryName)s"
-msgstr[1] "S'han trobat %(count)s extensions per \"%(query)s\" a %(categoryName)s"
+msgstr[0] "S'ha trobat %(count)s extensió per «%(query)s» a %(categoryName)s"
+msgstr[1] "S'han trobat %(count)s extensions per «%(query)s» a %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found in %(categoryName)s"
@@ -1406,8 +1406,8 @@ msgstr[1] "S'han trobat %(count)s extensions a %(categoryName)s"
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "S'ha trobat %(count)s extensió per \"%(query)s\""
-msgstr[1] "S'han trobat %(count)s extensions per \"%(query)s\""
+msgstr[0] "S'ha trobat %(count)s extensió per «%(query)s»"
+msgstr[1] "S'han trobat %(count)s extensions per «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:87
 msgid "%(count)s extension found"
@@ -1418,8 +1418,8 @@ msgstr[1] "S'han trobat %(count)s extensions"
 #: src/amo/components/SearchContextCard/index.js:99
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] "S'ha trobat %(count)s eina de cerca per \"%(query)s\""
-msgstr[1] "S'han trobat %(count)s eines de cerca per \"%(query)s\""
+msgstr[0] "S'ha trobat %(count)s eina de cerca per «%(query)s»"
+msgstr[1] "S'han trobat %(count)s eines de cerca per «%(query)s»"
 
 #: src/amo/components/SearchFilters/index.js:135 src/amo/components/SearchFilters/index.js:159
 msgid "All"
@@ -1521,7 +1521,7 @@ msgstr "S'està cercant…"
 
 #: src/amo/components/SearchResults/index.js:47
 msgid "No results were found for \"%(query)s\"."
-msgstr "No s'han trobat resultats per a \"%(query)s\"."
+msgstr "No s'han trobat resultats per a «%(query)s»."
 
 #: src/amo/components/SearchResults/index.js:53
 msgid "No results were found."
