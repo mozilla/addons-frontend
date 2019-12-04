@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-04 22:49+0000\n"
+"PO-Revision-Date: 2019-12-04 23:12+0000\n"
 "Last-Translator: hello <hello@awordz.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -759,85 +759,91 @@ msgstr ""
 
 #: src/amo/components/Errors/NotAuthorized/index.js:40
 msgid "Not Authorized"
-msgstr ""
+msgstr "No esteu autoritzat"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:43
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "Ens sap greu, però no teniu permís per accedir a aquesta pàgina. Si no teniu la sessió iniciada, intenteu fer-ho mitjançant l’enllaç de la part superior de la pàgina."
 
 #: src/amo/components/Errors/NotFound/index.js:28
 msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
+"Proveu de visitar la pàgina més endavant, ja que el tema o l’extensió potser tornen a estar disponibles. De manera alternativa, és possible que pugueu trobar allò que busqueu a una de les "
+"%(extensionStart)sextensions%(extensionEnd)s o %(themeStart)stemes%(themeEnd)s disponibles. A més, també podeu demanar ajuda en els nostres %(communityStart)sfòrums de la comunitat%(communityEnd)s."
 
 #: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Vaja! No hem pogut trobar la pàgina"
 
 #: src/amo/components/Errors/NotFound/index.js:85
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Si heu seguit un enllaç d’una extensió o un tema d'un altre lloc, aquest element ja no està disponible. Això podria ser pels següents motius:"
 
 #: src/amo/components/Errors/NotFound/index.js:91
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "El desenvolupador l'ha suprimit. Solen fer-ho perquè ja no mantenen l'extensió o el tema, o perquè els han substituït."
 
 #: src/amo/components/Errors/NotFound/index.js:96
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla l'ha suprimit. Això pot succeir quan es troben problemes durant la revisió de l’extensió o el tema, o si l’extensió o el tema incompleixen els termes i condicions de addons.mozilla.org. El "
+"desenvolupador té l'oportunitat de resoldre els problemes i tornar a publicar el complement."
 
 #: src/amo/components/Errors/ServerError/index.js:21
 msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"Si teniu informació addicional que ens pogués ajudar, <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">conteu-nos el problema</a>. Indiqueu-nos quins passos heu seguit fins veure "
+"l'error i farem tot el possible per solucionar-ho."
 
 #: src/amo/components/Errors/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr ""
+msgstr "S'ha produït un error del servidor"
 
 #: src/amo/components/Errors/ServerError/index.js:35
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Ens sap greu, però s'ha produït un error amb el nostre servidor i no hem pogut completar la sol·licitud. Hem registrat aquest error i ho investigarem."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
-msgstr ""
+msgstr "Resposta de %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
 msgid "Review by %(userName)s"
-msgstr ""
+msgstr "Ressenya de %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
-msgstr ""
+msgstr "No s'ha trobat la ressenya."
 
 #: src/amo/components/FlagReviewMenu/index.js:103
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Això és un informe d'error o una sol·licitud d'assistència"
 
 #: src/amo/components/FlagReviewMenu/index.js:106
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "S'ha marcat com un informe d'error o una sol·licitud d'assistència"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
-msgstr ""
+msgstr "S'ha marcat"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
-msgstr ""
+msgstr "Marca"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
-msgstr ""
+msgstr "Marca aquesta resposta del desenvolupador"
 
 #: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this review"
-msgstr ""
+msgstr "Marca aquesta ressenya"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
 msgid "Log in to flag this response"
