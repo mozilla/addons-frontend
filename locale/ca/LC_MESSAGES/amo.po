@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-03 23:51+0000\n"
+"PO-Revision-Date: 2019-12-03 23:58+0000\n"
 "Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -2856,54 +2856,54 @@ msgstr "Accediu a les vostres dades en el lloc del %(param)s domini"
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Accediu a les vostres dades a %(param)s altre lloc"
+msgstr[1] "Accediu a les vostres dades a %(param)s altres llocs"
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "Accediu a les dades per a %(param)s"
 
 #: src/ui/components/Notice/index.js:153
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Elimina aquest avís"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr ""
+msgstr "Actualitzeu la valoració a %(starRating)s sobre 5"
 
 #: src/ui/components/Rating/index.js:106
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr ""
+msgstr "Puntueu aquest complement %(starRating)s sobre 5"
 
 #: src/ui/components/Rating/index.js:83 src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "Valorat %(rating)s sobre 5"
 
 #: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "Encara no hi ha valoracions"
 
 #: src/ui/components/RecommendedBadge/index.js:43
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "El Firefox només recomana extensions que compleixen els nostres estàndards de seguretat i de rendiment."
 
 #: src/ui/components/ShowMoreCard/index.js:126
 msgid "Expand to read more"
-msgstr ""
+msgstr "Amplieu per llegir-ne més"
 
 #: src/ui/components/ShowMoreCard/index.js:131
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\"> Amplieu per </span> llegir-ne més"
 
 #: src/ui/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s complement"
+msgstr[1] "%(total)s complements"
 
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
-msgstr ""
+msgstr "Resposta del desenvolupador"
 
 #~ msgid "User comment"
 #~ msgstr "Comentari de l'usuari"
