@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-11-27 15:30+0000\n"
+"PO-Revision-Date: 2019-12-04 16:13+0000\n"
 "Last-Translator: hello <hello@awordz.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -137,99 +137,99 @@ msgstr "%(addonName)s – Obteniu aquest tema per al 🦊 Firefox (%(locale)s)"
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:115
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Obteniu aquesta eina de cerca per al 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:120
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Obteniu aquest complement per al 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:134
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "Baixa el complement %(addonName)s per al Firefox. %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:62
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Obteniu aquest diccionari per al 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:67
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Obteniu aquesta extensió per al 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:72
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Obteniu aquest paquet d'idiomes per al 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:77
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Obteniu aquest tema per al 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:83
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Obteniu aquesta eina de cerca per al 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:88
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Obteniu aquest complement per al 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:95
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Obteniu aquest diccionari per al 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:116
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s estrella"
+msgstr[1] "%(total)s estrelles"
 
 #: src/amo/components/AddonMeta/index.js:125
 msgid "Not rated yet"
-msgstr ""
+msgstr "Encara no s'ha classificat"
 
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Users"
-msgstr ""
+msgstr "Usuaris"
 
 #: src/amo/components/AddonMeta/index.js:51
 msgid "User"
 msgid_plural "Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Usuari"
+msgstr[1] "Usuaris"
 
 #: src/amo/components/AddonMeta/index.js:53
 msgid "No Users"
-msgstr ""
+msgstr "Cap usuari"
 
 #: src/amo/components/AddonMeta/index.js:60
 msgid "Reviews"
-msgstr ""
+msgstr "Valoracions"
 
 #: src/amo/components/AddonMeta/index.js:63
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Valoració"
+msgstr[1] "Valoracions"
 
 #: src/amo/components/AddonMeta/index.js:65
 msgid "No Reviews"
-msgstr ""
+msgstr "No hi ha cap valoració"
 
 #: src/amo/components/AddonMeta/index.js:89
 msgid "Used by"
-msgstr ""
+msgstr "Ha estat utilitzat per"
 
 #: src/amo/components/AddonMoreInfo/index.js:106
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Tauler d'estadístiques de visita"
 
 #: src/amo/components/AddonMoreInfo/index.js:120
 msgid "Custom License"
-msgstr ""
+msgstr "Llicència particular"
 
 #: src/amo/components/AddonMoreInfo/index.js:145
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:158
 msgid "Read the privacy policy for this add-on"
@@ -249,15 +249,15 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:214
 msgid "Version"
-msgstr ""
+msgstr "Versió"
 
 #: src/amo/components/AddonMoreInfo/index.js:222
 msgid "Size"
-msgstr ""
+msgstr "Mida"
 
 #: src/amo/components/AddonMoreInfo/index.js:230 src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
-msgstr ""
+msgstr "Última actualització"
 
 #: src/amo/components/AddonMoreInfo/index.js:238
 msgid "License"
@@ -269,11 +269,11 @@ msgstr "Política de privadesa"
 
 #: src/amo/components/AddonMoreInfo/index.js:254
 msgid "End-User License Agreement"
-msgstr ""
+msgstr "Acord de llicència d'usuari final"
 
 #: src/amo/components/AddonMoreInfo/index.js:262
 msgid "Version History"
-msgstr ""
+msgstr "Historial de versions"
 
 #: src/amo/components/AddonMoreInfo/index.js:272
 msgid "Usage Statistics"
@@ -285,19 +285,19 @@ msgstr "Més informació"
 
 #: src/amo/components/AddonMoreInfo/index.js:62 src/amo/pages/UserProfile/index.js:357 src/amo/pages/UserProfile/index.js:359 src/amo/pages/UserProfileEdit/index.js:673
 msgid "Homepage"
-msgstr ""
+msgstr "Pàgina d'inici"
 
 #: src/amo/components/AddonMoreInfo/index.js:73
 msgid "Support site"
-msgstr ""
+msgstr "Lloc d'assistència"
 
 #: src/amo/components/AddonMoreInfo/index.js:87
 msgid "Support Email"
-msgstr ""
+msgstr "Adreça electrònica d’assistència"
 
 #: src/amo/components/AddonRecommendations/index.js:133
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "Altres usuaris que també tenen l'extensió instal·lada"
 
 #: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other popular extensions"
