@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-04 17:26+0000\n"
+"PO-Revision-Date: 2019-12-04 20:44+0000\n"
 "Last-Translator: hello <hello@awordz.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -565,23 +565,23 @@ msgstr "Publicada el %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:185 src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "Complements per al Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:189 src/amo/components/HeadMetaTags/index.js:73
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – Complements per al Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:197 src/amo/components/HeadMetaTags/index.js:78
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "Complements per al Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:201 src/amo/components/HeadMetaTags/index.js:72
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – Complements per al Firefox Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:216
 msgid "Loading"
-msgstr ""
+msgstr "S’està carregant"
 
 #: src/amo/components/AutoSearchInput/index.js:312
 msgid "Find add-ons"
