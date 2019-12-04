@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-04 20:44+0000\n"
+"PO-Revision-Date: 2019-12-04 22:28+0000\n"
 "Last-Translator: hello <hello@awordz.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -585,99 +585,99 @@ msgstr "S’està carregant"
 
 #: src/amo/components/AutoSearchInput/index.js:312
 msgid "Find add-ons"
-msgstr ""
+msgstr "Cerca els complements"
 
 #: src/amo/components/AutoSearchInput/index.js:337 src/amo/components/AutoSearchInput/index.js:365
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
 #: src/amo/components/Categories/index.js:128
 msgid "No categories found."
-msgstr ""
+msgstr "No s’ha trobat cap categoria."
 
 #: src/amo/components/Categories/index.js:135
 msgid "Categories"
-msgstr ""
+msgstr "Categories"
 
 #: src/amo/components/Categories/index.js:140
 msgid "Loading categories."
-msgstr ""
+msgstr "S’estan carregant les categories."
 
 #: src/amo/components/CollectionAddAddon/index.js:159
 msgid "Added to collection"
-msgstr ""
+msgstr "S'ha afegit a la col·lecció"
 
 #: src/amo/components/CollectionAddAddon/index.js:160
 msgid "Removed from collection"
-msgstr ""
+msgstr "S'ha suprimit de la col·lecció"
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Cerca un complement per incloure'l en aquesta col·lecció"
 
 #: src/amo/components/CollectionDetails/index.js:103
 msgid "Edit this collection"
-msgstr ""
+msgstr "Edita aquesta col·lecció"
 
 #: src/amo/components/CollectionDetails/index.js:114
 msgid "Edit collection details"
-msgstr ""
+msgstr "Edita els detalls de la col·lecció"
 
 #: src/amo/components/CollectionDetails/index.js:126
 msgid "Back to collection"
-msgstr ""
+msgstr "Torna a la col·lecció"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:48
 msgid "Add-ons"
-msgstr ""
+msgstr "Complements"
 
 #: src/amo/components/CollectionDetails/index.js:83
 msgid "Creator"
-msgstr ""
+msgstr "Creador"
 
 #: src/amo/components/CollectionManager/index.js:240
 msgid "Create collection"
-msgstr ""
+msgstr "Crea una col·lecció"
 
 #: src/amo/components/CollectionManager/index.js:241
 msgid "Save changes"
-msgstr ""
+msgstr "Desa els canvis"
 
 #: src/amo/components/CollectionManager/index.js:250
 msgid "Collection name"
-msgstr ""
+msgstr "Nom de la col·lecció"
 
 #: src/amo/components/CollectionManager/index.js:264
 msgid "Description"
-msgstr ""
+msgstr "Descripció"
 
 #: src/amo/components/CollectionManager/index.js:276
 msgid "Custom URL"
-msgstr ""
+msgstr "URL personalitzat"
 
 #: src/amo/components/CollectionSort/index.js:104
 msgid "Sort add-ons by"
-msgstr ""
+msgstr "Ordena els complements per"
 
 #: src/amo/components/CollectionSort/index.js:80
 msgid "Newest first"
-msgstr ""
+msgstr "Primer els més recents"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Oldest first"
-msgstr ""
+msgstr "Primer els més antics"
 
 #: src/amo/components/CollectionSort/index.js:88
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: src/amo/components/CollectionSort/index.js:92
 msgid "Popularity"
-msgstr ""
+msgstr "Popularitat"
 
 #: src/amo/components/ContributeCard/index.js:108
 msgid "Contribute now"
-msgstr ""
+msgstr "Contribuïu-hi ara"
 
 #: src/amo/components/ContributeCard/index.js:45
 msgid "Support this developer"
@@ -689,11 +689,11 @@ msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:50
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "El desenvolupador d'aquesta extensió us demana que l'ajudeu a continuar amb el seu desenvolupament fent una petita donació."
 
 #: src/amo/components/ContributeCard/index.js:52
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Els desenvolupadors d'aquesta extensió us demana que l'ajudeu a continuar amb el seu desenvolupament fent una petita donació."
 
 #: src/amo/components/ContributeCard/index.js:59
 msgid "Support this artist"
