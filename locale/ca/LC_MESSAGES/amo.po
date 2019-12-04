@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-04 17:10+0000\n"
+"PO-Revision-Date: 2019-12-04 17:26+0000\n"
 "Last-Translator: hello <hello@awordz.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -225,7 +225,7 @@ msgstr "Tauler d'estadístiques de visita"
 
 #: src/amo/components/AddonMoreInfo/index.js:120
 msgid "Custom License"
-msgstr "Llicència particular"
+msgstr "Llicència personalitzada"
 
 #: src/amo/components/AddonMoreInfo/index.js:145
 msgid "%(timeFromNow)s (%(date)s)"
@@ -404,39 +404,39 @@ msgstr "Escriu una ressenya"
 
 #: src/amo/components/AddonReviewManager/index.js:111
 msgid "Write about your experience with this add-on."
-msgstr ""
+msgstr "Escriviu sobre la vostra experiència amb aquest complement."
 
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Submit review"
-msgstr ""
+msgstr "Envia la ressenya"
 
 #: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submitting review"
-msgstr ""
+msgstr "S'està enviant la ressenya"
 
 #: src/amo/components/AddonReviewManager/index.js:120
 msgid "Update review"
-msgstr ""
+msgstr "Actualitza la ressenya"
 
 #: src/amo/components/AddonReviewManager/index.js:123
 msgid "Updating review"
-msgstr ""
+msgstr "S'està actualitzant la ressenya"
 
 #: src/amo/components/AddonReviewManager/index.js:144
 msgid "Saving"
-msgstr ""
+msgstr "S'està desant"
 
 #: src/amo/components/AddonReviewManager/index.js:145
 msgid "Saved"
-msgstr ""
+msgstr "S'ha desat"
 
 #: src/amo/components/AddonReviewManager/index.js:89
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "Seguiu la nostra %(linkStart)sGuia per a fer ressenyes%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "La vostra puntuació:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
@@ -472,19 +472,19 @@ msgstr "Extensions d'aquests desenvolupadors"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by %(author)s"
-msgstr "Més paquets de llengua de %(author)s"
+msgstr "Més paquets d'idioma de %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:287
 msgid "More language packs by these translators"
-msgstr "Més paquets de llengua d'aquests traductors"
+msgstr "Més paquets d'idioma d'aquests traductors"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:291
 msgid "Language packs by %(author)s"
-msgstr "Paquets de llengua de %(author)s"
+msgstr "Paquets d'idioma de %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:294
 msgid "Language packs by these translators"
-msgstr "Paquets de llengua d'aquests traductors"
+msgstr "Paquets d'idioma d'aquests traductors"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:301
 msgid "More themes by %(author)s"
@@ -526,42 +526,42 @@ msgstr "Icona del complement"
 #: src/amo/components/AddonSummaryCard/index.js:63
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(rating)s estrella de 5"
+msgstr[1] "%(rating)s estrelles de 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:42
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:77 src/amo/components/AddonTitle/index.js:81
 msgid "by"
-msgstr ""
+msgstr "per"
 
 #: src/amo/components/AddonVersionCard/index.js:103
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr ""
+msgstr "El codi font s'ha publicat a l'empara de la llicència %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
-msgstr ""
+msgstr "El codi font s'ha publicat a l'empara d'una %(linkStart)sllicència personalitzada%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:141
 msgid "Source code released under %(licenseName)s"
-msgstr ""
+msgstr "El codi font s'ha publicat a l'empara de la llicència %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:51
 msgid "No version found"
-msgstr ""
+msgstr "No s'ha trobat cap versió"
 
 #: src/amo/components/AddonVersionCard/index.js:59
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Versió %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:83
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Publicada el %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:185 src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
