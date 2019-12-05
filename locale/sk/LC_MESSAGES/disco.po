@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-12 18:11+0000\n"
-"PO-Revision-Date: 2019-08-30 23:48+0000\n"
+"PO-Revision-Date: 2019-12-05 22:29+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -24,7 +24,7 @@ msgstr "Toto rozšírenie Mozilla nemonitoruje. Pred jeho inštaláciou sa uisti
 
 #: src/amo/components/InstallWarning/index.js:170
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr ""
+msgstr "Toto nie je odporúčané rozšírenie. Pred jeho inštaláciou sa uistite, že mu dôverujete."
 
 #: src/core/components/AMInstallButton/index.js:232
 msgid "Enable"
