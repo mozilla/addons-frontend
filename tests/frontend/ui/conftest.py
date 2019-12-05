@@ -2,7 +2,6 @@ import os
 
 import pytest
 
-from pages.desktop.devhub import DevHub
 
 # Window resolutions
 DESKTOP = (1080, 1920)
@@ -93,24 +92,3 @@ def fxa_account(request):
                 'Skipping test because no fxa account was found.'
                 ' Are FXA_EMAIL and FXA_PASSWORD environment variables set?')
     return fxa_account
-
-
-@pytest.fixture
-def devhub_login(selenium, base_url, fxa_account):
-    """Log into the devhub."""
-    selenium.get('{}/developers'.format(base_url))
-    devhub = DevHub(selenium, base_url)
-    return devhub.login(fxa_account.email, fxa_account.password)
-
-
-@pytest.fixture
-def devhub_upload(devhub_login):
-    """Upload addon to devhub.
-
-    This uses a webextension fixture within addons-server to
-    upload as a new addon.
-
-    """
-    devhub = devhub_login
-    addon = devhub.upload_addon('ui-test_devhub_ext-1.0.zip')
-    return addon.fill_addon_submission_form()
