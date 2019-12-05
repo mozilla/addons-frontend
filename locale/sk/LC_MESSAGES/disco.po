@@ -1,4 +1,4 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
@@ -19,21 +19,12 @@ msgid "Learn more"
 msgstr "Ďalšie informácie"
 
 #: src/amo/components/InstallWarning/index.js:168
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
-"Toto rozšírenie Mozilla nemonitoruje. Pred jeho inštaláciou sa uistite, že "
-"mu dôverujete."
+msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
+msgstr "Toto rozšírenie Mozilla nemonitoruje. Pred jeho inštaláciou sa uistite, že mu dôverujete."
 
 #: src/amo/components/InstallWarning/index.js:170
-#, fuzzy
-msgid ""
-"This is not a Recommended Extension. Make sure you trust it before "
-"installing."
+msgid "This is not a Recommended Extension. Make sure you trust it before installing."
 msgstr ""
-"Toto rozšírenie Mozilla nemonitoruje. Pred jeho inštaláciou sa uistite, že "
-"mu dôverujete."
 
 #: src/core/components/AMInstallButton/index.js:232
 msgid "Enable"
@@ -72,15 +63,10 @@ msgid "Server Error"
 msgstr "Chyba servera"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Ospravedlňujeme sa, ale počas spracovávania vašej požiadavky došlo k chybe. "
-"Chybu sme zaznamenali a budeme sa jej venovať."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Ospravedlňujeme sa, ale počas spracovávania vašej požiadavky došlo k chybe. Chybu sme zaznamenali a budeme sa jej venovať."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Kód chyby: %(status)s."
 
@@ -141,8 +127,7 @@ msgstr "Funguje s: %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
-"Inštalácia bola predčasne ukončená, pretože doplnok je zrejme poškodený."
+msgstr "Inštalácia bola predčasne ukončená, pretože doplnok je zrejme poškodený."
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
@@ -198,17 +183,12 @@ msgstr "Prispôsobte si svoj Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
 "Existujú tisíce doplnkov, ktoré vytvárajú tisíce vývojárov po celom svete.\n"
-"Tieto doplnky vám umožnia Firefox vylepšiť podľa vlastnej potreby - od "
-"zábavných tém \n"
-"až po výkonné nástroje, ktoré spravia vaše prehliadanie rýchlejšie a "
-"bezpečnejšie.\n"
+"Tieto doplnky vám umožnia Firefox vylepšiť podľa vlastnej potreby - od zábavných tém \n"
+"až po výkonné nástroje, ktoré spravia vaše prehliadanie rýchlejšie a bezpečnejšie.\n"
 "Tu je niekoľko velikánov, čo stoja za vyskúšanie."
 
 #: src/disco/pages/DiscoPane/index.js:207
@@ -216,13 +196,8 @@ msgid "Learn More"
 msgstr "Ďalšie informácie"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
-"Niektoré z týchto odporúčaní sú vám prispôsobené. Sú založené na "
-"rozšíreniach, ktoré už máte nainštalované, nastaveniach profilu a "
-"štatistikách používania."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgstr "Niektoré z týchto odporúčaní sú vám prispôsobené. Sú založené na rozšíreniach, ktoré už máte nainštalované, nastaveniach profilu a štatistikách používania."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -251,8 +226,7 @@ msgstr "Náhľad témy %(title)s"
 #~ msgstr "Inštalovanie doplnku %(name)s."
 
 #~ msgid "%(name)s is installed and enabled. Click to uninstall."
-#~ msgstr ""
-#~ "Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
+#~ msgstr "Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
 
 #~ msgid "%(name)s is disabled. Click to enable."
 #~ msgstr "Doplnok %(name)s je zakázaný. Kliknutím ho povolíte."
@@ -279,8 +253,7 @@ msgstr "Náhľad témy %(title)s"
 #~ msgstr "Teraz môžete pristupovať k %(name)s z panela nástrojov."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "Prejdite myšou pre náhľad alebo kliknite pre inštaláciu doplnku %(name)s"
+#~ msgstr "Prejdite myšou pre náhľad alebo kliknite pre inštaláciu doplnku %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Pre náhľad prejdite na obrázok myšou"
