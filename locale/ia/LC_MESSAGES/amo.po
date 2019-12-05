@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-04 03:13+0000\n"
+"PO-Revision-Date: 2019-12-05 22:05+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -781,11 +781,11 @@ msgstr "Ups! Nos non pote trovar ille pagina"
 
 #: src/amo/components/Errors/NotFound/index.js:85
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr "Si tu ha sequite un ligamine ab un altere sito pro un extension o thema, ille elemento non es plus disponibile. Iste poterea ser perque:"
+msgstr "Si tu ha sequite un ligamine de un altere sito a un extension o thema, iste additivo non es plus disponibile. Isto poterea esser perque:"
 
 #: src/amo/components/Errors/NotFound/index.js:91
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr "Le disveloppator lo ha removite. Le disveloppatores communmente facer isto perque illes non plus supporta le extension o thema, o ha supplantate illo."
+msgstr "Le disveloppator lo ha removite. Le disveloppatores communmente face isto perque illes non plus supporta le extension o thema, o lo ha reimplaciate."
 
 #: src/amo/components/Errors/NotFound/index.js:96
 msgid ""
