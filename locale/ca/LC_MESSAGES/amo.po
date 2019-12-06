@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-05 17:24+0000\n"
-"Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
+"PO-Revision-Date: 2019-12-06 13:31+0000\n"
+"Last-Translator: hello <hello@awordz.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -1041,7 +1041,7 @@ msgstr "Organitza les pestanyes i les adreces d'interès"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
 msgid "Enhance Your Media Experience"
-msgstr ""
+msgstr "Millora l'experiència multimèdia"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
@@ -1081,83 +1081,83 @@ msgstr "Més informació sobre els permisos"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Read and modify bookmarks"
-msgstr "Llegeix i modifica les adreces d'interès"
+msgstr "Llegir i modificar les adreces d'interès"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read and modify browser settings"
-msgstr "Llegeix i modifica la configuració del navegador"
+msgstr "Llegir i modificar els paràmetres del navegador"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr "Esborra l'historial de navegació recent, les galetes i dades relacionades"
+msgstr "Esborrar l'historial de navegació recent, les galetes i dades relacionades"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
-msgstr "Obtén les dades del porta-retalls"
+msgstr "Obtenir les dades del porta-retalls"
 
 #: src/amo/components/PermissionsCard/permissions.js:37
 msgid "Input data to the clipboard"
-msgstr "Afegeix les dades al porta-retalls"
+msgstr "Afegir dades al porta-retalls"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Ampliar les eines per a desenvolupadors per accedir a les vostres dades de les pestanyes obertes"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
-msgstr "Baixa els fitxers i modifica l'historial de baixades del navegador"
+msgstr "Baixar els fitxers i modificar l'historial de baixades del navegador"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "Obrir els fitxers que heu baixat a l'ordinador"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "Llegir el text de totes les pestanyes obertes"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access your location"
-msgstr ""
+msgstr "Accedir a la vostra ubicació"
 
 #: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
 msgid "Access browsing history"
-msgstr ""
+msgstr "Accedir a l'historial de navegació"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "Supervisar l'ús d'extensions i gestionar els temes"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Intercanviar missatges amb altres programes que no són el Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Mostrar-vos notificacions"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Proporcionar serveis d'autenticació criptogràfica"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "Controlar els paràmetres de servidor intermediari del navegador"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Llegir i modificar els paràmetres de privadesa"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Accedir a les pestanyes tancades recentment"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser tabs"
-msgstr ""
+msgstr "Accedir a les pestanyes del navegador"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "Amagar i mostrar pestanyes del navegador"
 
 #: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Store unlimited amount of client-side data"
