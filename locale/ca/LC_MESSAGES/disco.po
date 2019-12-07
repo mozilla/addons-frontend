@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-12 18:11+0000\n"
-"PO-Revision-Date: 2019-12-04 00:02+0000\n"
-"Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
+"PO-Revision-Date: 2019-12-07 20:28+0000\n"
+"Last-Translator: hello <hello@awordz.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -20,11 +20,11 @@ msgstr "Més informació"
 
 #: src/amo/components/InstallWarning/index.js:168
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr ""
+msgstr "Mozilla no controla aquesta extensió. Assegureu-vos que confieu en l’extensió abans d’instal·lar-la."
 
 #: src/amo/components/InstallWarning/index.js:170
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr ""
+msgstr "Aquesta no és una extensió recomanada. Assegureu-vos que hi confieu abans d’instal·lar-la."
 
 #: src/core/components/AMInstallButton/index.js:232
 msgid "Enable"
@@ -155,15 +155,15 @@ msgstr "Tanca"
 
 #: src/disco/components/AddonCompatibilityError/index.js:30
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Actualment, el Firefox per a iOS no és compatible amb els complements."
 
 #: src/disco/components/AddonCompatibilityError/index.js:34
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
+msgstr "Aquest complement no és compatible amb la vostra versió del Firefox."
 
 #: src/disco/components/AddonCompatibilityError/index.js:40
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "Aquest complement no és compatible amb el vostre navegador."
 
 #: src/disco/components/App/index.js:43
 msgid "Discover Add-ons"
@@ -186,6 +186,9 @@ msgid ""
 "There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
 "and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
+"Hi ha milers de complements gratuïts, creats per desenvolupadors de tot el món, que podeu instal·lar per personalitzar el vostre Firefox. Els complements fan que el vostre navegador sigui vostre, "
+"des de temes visuals divertits fins a eines potents que fan que la navegació sigui més ràpida i segura. Per ajudar-vos a començar, a continuació us presentem alguns dels que us recomanem pel seu "
+"rendiment i funcionalitat destacats."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
@@ -193,7 +196,7 @@ msgstr "Més informació"
 
 #: src/disco/pages/DiscoPane/index.js:211
 msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
+msgstr "Algunes d’aquestes recomanacions són personalitzades. Es basen en altres extensions que heu instal·lat, preferències del perfil i estadístiques d’ús."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
