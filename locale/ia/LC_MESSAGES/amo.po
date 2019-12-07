@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-05 22:05+0000\n"
+"PO-Revision-Date: 2019-12-07 23:27+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1898,7 +1898,7 @@ msgstr "Le extensiones pote adjutar te a organisar tu interesses online. Le gest
 
 #: src/amo/pages/Guides/index.js:165
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-msgstr "Si tu ha plure plicas de marcapaginas, gaude un maniera melior pro los organisar."
+msgstr "Gaude de un maniera plus efficiente de organisar tu marcapaginas si tu los mantene in plure dossiers."
 
 #: src/amo/pages/Guides/index.js:168
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
