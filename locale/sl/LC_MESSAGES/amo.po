@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-07 20:50+0000\n"
+"PO-Revision-Date: 2019-12-07 20:58+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1659,11 +1659,11 @@ msgstr "Izberi sliko ..."
 
 #: src/amo/components/WrongPlatformWarning/index.js:62
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "Poiščite dodatke, združljive s Firefoxom za Android, na <a href=\"%(newLocation)s\">našem mobilnem spletnem mestu</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:69
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr ""
+msgstr "Poiščite dodatke, združljive s Firefoxom za namizja, na <a href=\"%(newLocation)s\">našem namiznem spletnem mestu</a>."
 
 #: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
@@ -1727,11 +1727,11 @@ msgstr "Metapodatki o razširitvi"
 
 #: src/amo/pages/Addon/index.js:481
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
+msgstr "Ta dodatek ni namenjen tej platformi. <a href=\"%(newLocation)s\">Prebrskajte dodatke za Firefox za Android</a>."
 
 #: src/amo/pages/Addon/index.js:485
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
+msgstr "Ta dodatek ni namenjen tej platformi. <a href=\"%(newLocation)s\">Prebrskajte dodatke za namizni Firefox</a>."
 
 #: src/amo/pages/Addon/index.js:505
 msgid "Screenshots"
