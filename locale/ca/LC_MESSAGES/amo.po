@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-06 13:35+0000\n"
+"PO-Revision-Date: 2019-12-07 13:43+0000\n"
 "Last-Translator: hello <hello@awordz.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -1237,103 +1237,105 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:120
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Hem rebut el vostre informe. Gràcies per fer-nos saber les vostres preocupacions amb aquest complement."
 
 #: src/amo/components/ReportAbuseButton/index.js:127 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "No podem respondre a tots els informes d’abús, però examinarem aquest problema."
 
 #: src/amo/components/ReportAbuseButton/index.js:137
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Si creieu que aquest complement incompleix les %(linkTagStart)spolítiques de complements de Mozilla%(linkTagEnd)s o té problemes de seguretat o privadesa, informeu d’aquests problemes a Mozilla "
+"mitjançant aquest formulari."
 
 #: src/amo/components/ReportAbuseButton/index.js:153
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "Informeu d'aquest complement per abús"
 
 #: src/amo/components/ReportAbuseButton/index.js:183
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "No utilitzeu aquest formulari per informar d’errors o sol·licitar funcions addicionals; aquest informe s’enviarà a Mozilla i no al desenvolupador del complement."
 
 #: src/amo/components/ReportAbuseButton/index.js:196 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
-msgstr ""
+msgstr "Envia l'informe d'abús"
 
 #: src/amo/components/ReportAbuseButton/index.js:197 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
-msgstr ""
+msgstr "S'està enviant l'informe d'abús"
 
 #: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Dismiss"
-msgstr ""
+msgstr "Descarta"
 
 #: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Expliqueu com aquest complement incompleix les nostres polítiques."
 
 #: src/amo/components/ReportUserAbuse/index.js:106 src/amo/components/ReportUserAbuse/index.js:99
 msgid "Report this user for abuse"
-msgstr ""
+msgstr "Denuncia aquest usuari per abús"
 
 #: src/amo/components/ReportUserAbuse/index.js:113
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
+msgstr "Si creieu que aquest usuari incompleix les %(linkTagStart)spolítiques de complements de Mozilla%(linkTagEnd)s, denuncieu aquest usuari a Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:129
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr ""
+msgstr "No utilitzeu aquest formulari per informar d’errors o contactar amb aquest usuari; el vostre informe només s’enviarà a Mozilla i no a aquest usuari."
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
-msgstr ""
+msgstr "Expliqueu com aquest usuari incompleix les nostres polítiques."
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "You reported this user for abuse"
-msgstr ""
+msgstr "Heu denunciat aquest usuari per abús"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr ""
+msgstr "Hem rebut el vostre informe. Gràcies per fer-nos saber les vostres preocupacions amb aquest usuari."
 
 #: src/amo/components/Search/index.js:116 src/amo/components/SearchResults/index.js:68
 msgid "Search results"
-msgstr ""
+msgstr "Resultats de la cerca"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:272 src/amo/pages/LandingPage/index.js:123
 msgid "Recommended extensions"
-msgstr ""
+msgstr "Extensions recomanades"
 
 #: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:335 src/amo/pages/LandingPage/index.js:155
 msgid "Recommended themes"
-msgstr ""
+msgstr "Temes recomanats"
 
 #: src/amo/components/Search/index.js:127
 msgid "Recommended add-ons"
-msgstr ""
+msgstr "Complements recomanats"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:348 src/amo/pages/LandingPage/index.js:133
 msgid "Trending extensions"
-msgstr ""
+msgstr "Extensions populars"
 
 #: src/amo/components/Search/index.js:137 src/amo/pages/LandingPage/index.js:165
 msgid "Trending themes"
-msgstr ""
+msgstr "Temes populars"
 
 #: src/amo/components/Search/index.js:140
 msgid "Trending add-ons"
-msgstr ""
+msgstr "Complements populars"
 
 #: src/amo/components/Search/index.js:146 src/amo/pages/LandingPage/index.js:143
 msgid "Top rated extensions"
-msgstr ""
+msgstr "Extensions amb millor puntuació"
 
 #: src/amo/components/Search/index.js:149 src/amo/pages/LandingPage/index.js:174
 msgid "Top rated themes"
-msgstr ""
+msgstr "Temes amb millor puntuació"
 
 #: src/amo/components/Search/index.js:152
 msgid "Top rated add-ons"
-msgstr ""
+msgstr "Complements amb millor puntuació"
 
 #: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:308
 msgid "Popular extensions"
