@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-07 07:50+0000\n"
+"PO-Revision-Date: 2019-12-07 07:51+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -1060,9 +1060,8 @@ msgid "This extension isn’t monitored by Mozilla. Make sure you trust the exte
 msgstr "Esta extensão não é monitorizada pela Mozilla. Certifique-se que confia na extensão antes de a instalar."
 
 #: src/amo/components/InstallWarning/index.js:170
-#, fuzzy
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr "Esta extensão não é monitorizada pela Mozilla. Certifique-se que confia na extensão antes de a instalar."
+msgstr "Esta extensão não é uma extensão recomendada. Certifique-se que confia na mesma antes de a instalar."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -2486,14 +2485,12 @@ msgid "Log in to edit the profile"
 msgstr "Iniciar sessão para editar o perfil"
 
 #: src/amo/pages/UserProfileEdit/index.js:512
-#, fuzzy
 msgid "Creating your profile…"
-msgstr "A atualizar o seu perfil…"
+msgstr "A criar o seu perfil…"
 
 #: src/amo/pages/UserProfileEdit/index.js:513
-#, fuzzy
 msgid "Create My Profile"
-msgstr "Atualizar o meu perfil"
+msgstr "Criar o meu perfil"
 
 #: src/amo/pages/UserProfileEdit/index.js:517
 msgid "Updating your profile…"
