@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-07 13:43+0000\n"
+"PO-Revision-Date: 2019-12-07 13:53+0000\n"
 "Last-Translator: hello <hello@awordz.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -1315,15 +1315,15 @@ msgstr "Complements recomanats"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:348 src/amo/pages/LandingPage/index.js:133
 msgid "Trending extensions"
-msgstr "Extensions populars"
+msgstr "Extensions de moda"
 
 #: src/amo/components/Search/index.js:137 src/amo/pages/LandingPage/index.js:165
 msgid "Trending themes"
-msgstr "Temes populars"
+msgstr "Temes de moda"
 
 #: src/amo/components/Search/index.js:140
 msgid "Trending add-ons"
-msgstr "Complements populars"
+msgstr "Complements de moda"
 
 #: src/amo/components/Search/index.js:146 src/amo/pages/LandingPage/index.js:143
 msgid "Top rated extensions"
@@ -1339,19 +1339,19 @@ msgstr "Complements amb millor puntuació"
 
 #: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:308
 msgid "Popular extensions"
-msgstr ""
+msgstr "Extensions populars"
 
 #: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:289
 msgid "Popular themes"
-msgstr ""
+msgstr "Temes populars"
 
 #: src/amo/components/Search/index.js:164
 msgid "Popular add-ons"
-msgstr ""
+msgstr "Complements populars"
 
 #: src/amo/components/Search/index.js:170
 msgid "Search results for \"%(query)s\""
-msgstr ""
+msgstr "Resultats de la cerca \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:108
 msgid "%(count)s Search Tool found"
