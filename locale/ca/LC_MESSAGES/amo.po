@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-07 20:25+0000\n"
-"Last-Translator: hello <hello@awordz.com>\n"
+"PO-Revision-Date: 2019-12-08 21:25+0000\n"
+"Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -1351,7 +1351,7 @@ msgstr "Complements populars"
 
 #: src/amo/components/Search/index.js:170
 msgid "Search results for \"%(query)s\""
-msgstr "Resultats de la cerca \"%(query)s\""
+msgstr "Resultats de la cerca de «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:108
 msgid "%(count)s Search Tool found"
