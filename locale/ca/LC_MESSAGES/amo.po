@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-08 21:25+0000\n"
+"PO-Revision-Date: 2019-12-08 22:09+0000\n"
 "Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -127,7 +127,7 @@ msgstr "%(addonName)s – Obteniu aquesta extensió per al 🦊 Firefox (%(local
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:105
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – Obteniu aquest paquet d'idiomes per al Firefox (%(locale)s)"
+msgstr "%(addonName)s – Obteniu aquest paquet d'idiomes per al 🦊 Firefox (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:110
@@ -1637,7 +1637,7 @@ msgstr "Previsualització de %(title)s"
 
 #: src/amo/pages/Addon/index.js:205
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr "Aquest complement no es pot classificar perquè encara no s'ha publicat cap versió."
+msgstr "Aquest complement no es pot valorar perquè encara no s'ha publicat cap versió."
 
 #: src/amo/pages/Addon/index.js:216
 msgid "Read %(count)s review"
@@ -1647,7 +1647,7 @@ msgstr[1] "Llegiu %(count)s ressenyes"
 
 #: src/amo/pages/Addon/index.js:234
 msgid "No reviews yet"
-msgstr "No hi ha ressenyes encara"
+msgstr "Encara no hi ha ressenyes"
 
 #: src/amo/pages/Addon/index.js:244
 msgid "Rate your experience"
