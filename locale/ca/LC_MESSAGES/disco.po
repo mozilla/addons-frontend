@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-12 18:11+0000\n"
-"PO-Revision-Date: 2019-12-07 20:28+0000\n"
+"PO-Revision-Date: 2019-12-09 23:31+0000\n"
 "Last-Translator: hello <hello@awordz.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -56,7 +56,7 @@ msgstr "Instal·la el tema"
 
 #: src/core/components/AMInstallButton/index.js:252
 msgid "Add to Firefox"
-msgstr "Afegir al Firefox"
+msgstr "Afegeix al Firefox"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -80,7 +80,7 @@ msgstr "Ens sap greu, però no podem trobar res a l’URL que heu introduït."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr "%(strongStart)s%(name)s%(strongEnd)s s'ha afegit"
+msgstr "s'ha afegit %(strongStart)s%(name)s%(strongEnd)s"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
@@ -167,7 +167,7 @@ msgstr "Aquest complement no és compatible amb el vostre navegador."
 
 #: src/disco/components/App/index.js:43
 msgid "Discover Add-ons"
-msgstr "Descobreix més complements"
+msgstr "Descobriu més complements"
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"

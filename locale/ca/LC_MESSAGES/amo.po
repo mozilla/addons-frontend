@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-09 23:11+0000\n"
+"PO-Revision-Date: 2019-12-09 23:25+0000\n"
 "Last-Translator: hello <hello@awordz.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -233,11 +233,11 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:158
 msgid "Read the privacy policy for this add-on"
-msgstr "Llegeix la política de privadesa d'aquest complement"
+msgstr "Llegiu la política de privadesa d'aquest complement"
 
 #: src/amo/components/AddonMoreInfo/index.js:166
 msgid "Read the license agreement for this add-on"
-msgstr "Llegeix l'acord de llicència d'aquest complement"
+msgstr "Llegiu l'acord de llicència d'aquest complement"
 
 #: src/amo/components/AddonMoreInfo/index.js:175
 msgid "See all versions"
@@ -1605,7 +1605,7 @@ msgstr "Pàgina d'inici dels complements"
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
-msgstr "Segur que voleu suprimir aquesta imatge?"
+msgstr "Esteu segur que voleu suprimir aquesta imatge?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:109
 msgid "Delete This Picture"
@@ -1787,7 +1787,7 @@ msgstr "Totes les categories de temes"
 
 #: src/amo/pages/Collection/index.js:392
 msgid "Do you really want to delete this collection?"
-msgstr "Segur que voleu suprimir aquesta col·lecció?"
+msgstr "Esteu segur que voleu suprimir aquesta col·lecció?"
 
 #: src/amo/pages/Collection/index.js:395
 msgid "Delete this collection"
@@ -2347,7 +2347,7 @@ msgstr "Quines funcions us ha agradat més? I quines menys?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
-msgstr "Us va ser últil?"
+msgstr "Us ha estat últil?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Was it easy to use?"
@@ -2863,7 +2863,7 @@ msgstr[1] "Accediu a les vostres dades a %(param)s altres dominis"
 
 #: src/ui/components/HostPermissions/index.js:67
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "Accediu a les vostres dades en el lloc del %(param)s domini"
+msgstr "Accediu a les vostres dades en el lloc del domini %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
@@ -2873,7 +2873,7 @@ msgstr[1] "Accediu a les vostres dades a %(param)s altres llocs"
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
-msgstr "Accediu a les dades per a %(param)s"
+msgstr "Accediu a les dades de %(param)s"
 
 #: src/ui/components/Notice/index.js:153
 msgid "Dismiss this notice"
@@ -2885,11 +2885,11 @@ msgstr "Actualitzeu la valoració a %(starRating)s sobre 5"
 
 #: src/ui/components/Rating/index.js:106
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Puntueu aquest complement %(starRating)s sobre 5"
+msgstr "Valoreu aquest complement %(starRating)s sobre 5"
 
 #: src/ui/components/Rating/index.js:83 src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
-msgstr "Valorat %(rating)s sobre 5"
+msgstr "S'ha valorat amb %(rating)s sobre 5"
 
 #: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
