@@ -43,7 +43,7 @@
 
 .HeroRecommendation-info {
   display: flex;
-  flex: 1 1 0px;
+  flex: 1 1 0;
   flex-direction: column;
 
   @include respond-to(medium) {
@@ -62,7 +62,7 @@
 }
 
 .HeroRecommendation-image-container {
-  flex: 1 1 0px;
+  flex: 1 1 0;
 
   @include respond-to(extraLarge) {
     flex: 0 1 auto;
