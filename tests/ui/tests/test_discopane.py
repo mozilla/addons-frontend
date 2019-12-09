@@ -13,13 +13,6 @@ def incorrect_disco_url(firefox_options):
 
 
 @pytest.mark.nondestructive
-def test_discopane_error_loads(incorrect_disco_url, selenium, open_discopane):
-    """Test that the error alert shows."""
-    discovery_pane = open_discopane
-    assert discovery_pane.is_error_alert_displayed
-
-
-@pytest.mark.nondestructive
 def test_discopane_loads(discovery_pane):
     """Test that discovery pane loads."""
     assert discovery_pane.is_header_displayed
