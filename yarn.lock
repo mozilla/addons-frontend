@@ -1287,10 +1287,10 @@
   dependencies:
     mkdirp "^0.5.1"
 
-"@mozilla-protocol/tokens@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@mozilla-protocol/tokens/-/tokens-4.0.0.tgz#5fa859f5e8ba5476a8182ad4fbb4fcca292d16de"
-  integrity sha512-n62nDBRVcX4zHOM8ZYOecMocLs0gG9MYE9XMEtJGYA9Sw+3W9z5gZ05VRgCFd4BhUVIcRG+M+i26zmH2pJ2UJg==
+"@mozilla-protocol/tokens@5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@mozilla-protocol/tokens/-/tokens-5.0.1.tgz#40a20dc2d2df9e4faad202094201906438d63dd1"
+  integrity sha512-NShRDWTy6EFfgJGxxNNR9lUgCELDD+L/cGmJ6aEDaGXKPclUio9Pk7YOo1F3kYgHfPeEfgZFdllLsAcgd1xQ2w==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
