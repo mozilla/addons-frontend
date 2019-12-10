@@ -228,7 +228,9 @@ export default class ServerHtml extends Component {
           <div id="react-view" dangerouslySetInnerHTML={{ __html: content }} />
 
           <script
-            dangerouslySetInnerHTML={{ __html: serialize(appState) }}
+            dangerouslySetInnerHTML={{
+              __html: serialize(appState, { isJSON: true }),
+            }}
             type="application/json"
             id="redux-store-state"
           />
