@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-06-09 07:42+0000\n"
-"Last-Translator: Muhen Belkacem <taqbaylitassa@gmail.com>\n"
+"PO-Revision-Date: 2019-12-10 18:21+0000\n"
+"Last-Translator: Linda DIB <lynda.dib@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
@@ -39,8 +39,7 @@ msgstr "Ittwarna ɣer %(collectionName)s"
 msgid "Add to…"
 msgstr "Rnu ɣer…"
 
-#: src/amo/components/AddAddonToCollection/index.js:263
-#: src/amo/components/CollectionAddAddon/index.js:173
+#: src/amo/components/AddAddonToCollection/index.js:263 src/amo/components/CollectionAddAddon/index.js:173
 msgid "Add to collection"
 msgstr "Rnu ar tegrumma"
 
@@ -97,11 +96,8 @@ msgid "Your version of Firefox does not support search plugins."
 msgstr "Lqem-ik n Freifox ur isefrak ara izegrar n unadi."
 
 #: src/amo/components/AddonCompatibilityError/index.js:127
-msgid ""
-"Your version of Firefox does not support this add-on because it requires a "
-"restart."
-msgstr ""
-"Lqem-ik n Firefox ur yessefrak ara azegrir-a acku yesra ad yales tanekra."
+msgid "Your version of Firefox does not support this add-on because it requires a restart."
+msgstr "Lqem-ik n Firefox ur yessefrak ara azegrir-a acku yesra ad yales tanekra."
 
 #: src/amo/components/AddonCompatibilityError/index.js:130
 msgid "Firefox for iOS does not currently support add-ons."
@@ -117,20 +113,12 @@ msgid "This add-on is not available on your platform."
 msgstr "Azegrir-agi ur yelli ara i telɣubliṭ inek."
 
 #: src/amo/components/AddonCompatibilityError/index.js:142
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"Azegrir-agi yesra <a href=\"%(downloadUrl)s\">lqem amaynut n Firefox</a> "
-"(xaṛsum lqem %(minVersion)s). Aql-ak tseqdaceḍ Firefox %(yourVersion)s."
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Azegrir-agi yesra <a href=\"%(downloadUrl)s\">lqem amaynut n Firefox</a> (xaṛsum lqem %(minVersion)s). Aql-ak tseqdaceḍ Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:159
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"Iminig-ik ur isefrak ara izegrar. Tzemreḍ <a href=\"%(downloadUrl)s\">ad "
-"tsidreḍ Firefox</a> akken ad tesbeddeḍ azerir-agi."
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Iminig-ik ur isefrak ara izegrar. Tzemreḍ <a href=\"%(downloadUrl)s\">ad tsidreḍ Firefox</a> akken ad tesbeddeḍ azerir-agi."
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
@@ -169,8 +157,7 @@ msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s
 msgstr "%(addonName)s – Awi asiɣzef-a i 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:72
-msgid ""
-"%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
+msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
 msgstr "%(addonName)s – Awi akemmus-a utlayan i 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:77
@@ -266,10 +253,9 @@ msgstr "Lqem"
 
 #: src/amo/components/AddonMoreInfo/index.js:222
 msgid "Size"
-msgstr ""
+msgstr "Teɣzi"
 
-#: src/amo/components/AddonMoreInfo/index.js:230
-#: src/amo/components/CollectionDetails/index.js:89
+#: src/amo/components/AddonMoreInfo/index.js:230 src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Aleqqem aneggaru"
 
@@ -297,10 +283,7 @@ msgstr "Tidaddanin n useqdec"
 msgid "More information"
 msgstr "Ugar n telɣut"
 
-#: src/amo/components/AddonMoreInfo/index.js:62
-#: src/amo/pages/UserProfile/index.js:357
-#: src/amo/pages/UserProfile/index.js:359
-#: src/amo/pages/UserProfileEdit/index.js:673
+#: src/amo/components/AddonMoreInfo/index.js:62 src/amo/pages/UserProfile/index.js:357 src/amo/pages/UserProfile/index.js:359 src/amo/pages/UserProfileEdit/index.js:673
 msgid "Homepage"
 msgstr "Asebter agejdan"
 
@@ -328,18 +311,15 @@ msgstr "Ẓreg tiririt"
 msgid "Edit review"
 msgstr "Aru acegger-iw"
 
-#: src/amo/components/AddonReviewCard/index.js:205
-#: src/amo/components/AddonReviewCard/index.js:237
+#: src/amo/components/AddonReviewCard/index.js:205 src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
 msgstr "Kkes tiririt"
 
-#: src/amo/components/AddonReviewCard/index.js:209
-#: src/amo/components/AddonReviewCard/index.js:241
+#: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
 msgstr "Kkes tazmilt"
 
-#: src/amo/components/AddonReviewCard/index.js:212
-#: src/amo/components/AddonReviewCard/index.js:244
+#: src/amo/components/AddonReviewCard/index.js:212 src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
 msgstr "Kkes aceggir"
 
@@ -355,17 +335,12 @@ msgstr "Tebγiḍ s tidet ad tekseḍ tazmilt-agi?"
 msgid "Do you really want to delete this review?"
 msgstr "Tebγiḍ s tidet ad tekseḍ aceggir-agi?"
 
-#: src/amo/components/AddonReviewCard/index.js:233
-#: src/ui/components/DismissibleTextForm/index.js:224
+#: src/amo/components/AddonReviewCard/index.js:233 src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "Kkes"
 
-#: src/amo/components/AddonReviewCard/index.js:251
-#: src/amo/components/AddonReviewManager/index.js:151
-#: src/amo/components/CollectionManager/index.js:316
-#: src/amo/pages/UserProfileEdit/index.js:913
-#: src/ui/components/ConfirmationDialog/index.js:60
-#: src/ui/components/DismissibleTextForm/index.js:209
+#: src/amo/components/AddonReviewCard/index.js:251 src/amo/components/AddonReviewManager/index.js:151 src/amo/components/CollectionManager/index.js:316 src/amo/pages/UserProfileEdit/index.js:913
+#: src/ui/components/ConfirmationDialog/index.js:60 src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
 msgstr "Sefsex"
 
@@ -387,8 +362,7 @@ msgstr "Aru acegger-iw"
 msgid "Write a reply to this review."
 msgstr "Aru tiririt γef ucegger-agi."
 
-#: src/amo/components/AddonReviewCard/index.js:301
-#: src/amo/components/AddonReviewManager/index.js:119
+#: src/amo/components/AddonReviewCard/index.js:301 src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
 msgstr "Snifel tiririt"
 
@@ -396,8 +370,7 @@ msgstr "Snifel tiririt"
 msgid "Publish reply"
 msgstr "Suffeɣ tiririt"
 
-#: src/amo/components/AddonReviewCard/index.js:306
-#: src/amo/components/AddonReviewManager/index.js:122
+#: src/amo/components/AddonReviewCard/index.js:306 src/amo/components/AddonReviewManager/index.js:122
 msgid "Updating reply"
 msgstr "Snifel tiririt"
 
@@ -424,9 +397,7 @@ msgid "Reply to this review"
 msgstr "Err i ucegger-agi"
 
 #: src/amo/components/AddonReviewCard/index.js:503
-msgid ""
-"This rating or review has been deleted. You are only seeing it because of "
-"elevated permissions."
+msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
 msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:549
@@ -469,9 +440,7 @@ msgstr "Sekles"
 #: src/amo/components/AddonReviewManager/index.js:89
 #, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
-"Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s "
-"ilugan-nneɣ n usuffeɣ %(linkEnd)s."
+msgstr "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s ilugan-nneɣ n usuffeɣ %(linkEnd)s."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
@@ -574,10 +543,9 @@ msgid ","
 msgstr ""
 
 # Example: add-on "by" some authors
-#: src/amo/components/AddonTitle/index.js:77
-#: src/amo/components/AddonTitle/index.js:81
+#: src/amo/components/AddonTitle/index.js:77 src/amo/components/AddonTitle/index.js:81
 msgid "by"
-msgstr ""
+msgstr "sγur"
 
 #: src/amo/components/AddonVersionCard/index.js:103
 #, fuzzy
@@ -601,32 +569,28 @@ msgstr "Ulac iseγzaf"
 
 #: src/amo/components/AddonVersionCard/index.js:59
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Lqem %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:83
 msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr ""
 
-#: src/amo/components/App/index.js:185
-#: src/amo/components/HeadMetaTags/index.js:79
+#: src/amo/components/App/index.js:185 src/amo/components/HeadMetaTags/index.js:79
 #, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
 msgstr "Izegrar i Firefox"
 
-#: src/amo/components/App/index.js:189
-#: src/amo/components/HeadMetaTags/index.js:73
+#: src/amo/components/App/index.js:189 src/amo/components/HeadMetaTags/index.js:73
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
 msgstr "%s - Izegrar i Firefox"
 
-#: src/amo/components/App/index.js:197
-#: src/amo/components/HeadMetaTags/index.js:78
+#: src/amo/components/App/index.js:197 src/amo/components/HeadMetaTags/index.js:78
 #, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
 msgstr "Izegrar i Firefox"
 
-#: src/amo/components/App/index.js:201
-#: src/amo/components/HeadMetaTags/index.js:72
+#: src/amo/components/App/index.js:201 src/amo/components/HeadMetaTags/index.js:72
 #, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
 msgstr "%s - Izegrar i Firefox"
@@ -639,8 +603,7 @@ msgstr "Asali"
 msgid "Find add-ons"
 msgstr "Nadi isiɣzaf"
 
-#: src/amo/components/AutoSearchInput/index.js:337
-#: src/amo/components/AutoSearchInput/index.js:365
+#: src/amo/components/AutoSearchInput/index.js:337 src/amo/components/AutoSearchInput/index.js:365
 msgid "Search"
 msgstr "Nadi"
 
@@ -683,8 +646,7 @@ msgstr "Inig akk taggayt"
 msgid "Back to collection"
 msgstr "Rnu ar tegrumma"
 
-#: src/amo/components/CollectionDetails/index.js:79
-#: src/amo/components/Footer/index.js:48
+#: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:48
 msgid "Add-ons"
 msgstr "Izegrar"
 
@@ -745,20 +707,12 @@ msgid "Support these developers"
 msgstr "Mudd afus i yineflayen-agi"
 
 #: src/amo/components/ContributeCard/index.js:50
-msgid ""
-"The developer of this extension asks that you help support its continued "
-"development by making a small contribution."
-msgstr ""
-"Aneflay n usiɣzef-agi isutur-ak-d tallelt akken ad iseddu taneflit ines "
-"ticki tmuddeḍ-as cwiṭ n tewsa."
+msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
+msgstr "Aneflay n usiɣzef-agi isutur-ak-d tallelt akken ad iseddu taneflit ines ticki tmuddeḍ-as cwiṭ n tewsa."
 
 #: src/amo/components/ContributeCard/index.js:52
-msgid ""
-"The developers of this extension ask that you help support its continued "
-"development by making a small contribution."
-msgstr ""
-"Ineflayen n usiɣzef-agi suturen-ak-d tallelt akken ad seddun taneflit-nse "
-"ticki tmuddeḍ-asen cwiṭ n tewsa."
+msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
+msgstr "Ineflayen n usiɣzef-agi suturen-ak-d tallelt akken ad seddun taneflit-nse ticki tmuddeḍ-asen cwiṭ n tewsa."
 
 #: src/amo/components/ContributeCard/index.js:59
 msgid "Support this artist"
@@ -769,20 +723,12 @@ msgid "Support these artists"
 msgstr "Mudd afis i yinaẓuren-agi"
 
 #: src/amo/components/ContributeCard/index.js:64
-msgid ""
-"The artist of this theme asks that you help support its continued creation "
-"by making a small contribution."
-msgstr ""
-"Anazuṛ n usentel-agi isutur-ak-d tallelt akken ad iseddu asnulfu ines ticki "
-"tmuddeḍ-as cwiṭ n tewsa."
+msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
+msgstr "Anazuṛ n usentel-agi isutur-ak-d tallelt akken ad iseddu asnulfu ines ticki tmuddeḍ-as cwiṭ n tewsa."
 
 #: src/amo/components/ContributeCard/index.js:66
-msgid ""
-"The artists of this theme ask that you help support its continued creation "
-"by making a small contribution."
-msgstr ""
-"Inazuṛen n usentel-agi suturen-ak-d tallelt akken ad seddun asnulfu-nsen "
-"ticki tmuddeḍ-asen cwiṭ n tewsa."
+msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
+msgstr "Inazuṛen n usentel-agi suturen-ak-d tallelt akken ad seddun asnulfu-nsen ticki tmuddeḍ-asen cwiṭ n tewsa."
 
 #: src/amo/components/ContributeCard/index.js:73
 msgid "Support this author"
@@ -793,28 +739,18 @@ msgid "Support these authors"
 msgstr "Mudd afis i yimeskaren-agi"
 
 #: src/amo/components/ContributeCard/index.js:78
-msgid ""
-"The author of this add-on asks that you help support its continued work by "
-"making a small contribution."
-msgstr ""
-"Ameskar n uzegrir-agi isutur-ak-d tallelt akken ad iseddu amahil-is ticki "
-"tmuddeḍ-as cwiṭ n tewsa."
+msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
+msgstr "Ameskar n uzegrir-agi isutur-ak-d tallelt akken ad iseddu amahil-is ticki tmuddeḍ-as cwiṭ n tewsa."
 
 #: src/amo/components/ContributeCard/index.js:80
-msgid ""
-"The authors of this add-on ask that you help support its continued work by "
-"making a small contribution."
-msgstr ""
-"Imeskaren n uzegrir-agi suturen-ak-d tallelt akken ad isseddun amahil-nsen "
-"ticki tmuddeḍ-asen cwiṭ n tewsa."
+msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
+msgstr "Imeskaren n uzegrir-agi suturen-ak-d tallelt akken ad isseddun amahil-nsen ticki tmuddeḍ-asen cwiṭ n tewsa."
 
-#: src/amo/components/EditableCollectionAddon/index.js:133
-#: src/amo/components/EditableCollectionAddon/index.js:151
+#: src/amo/components/EditableCollectionAddon/index.js:133 src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Leave a note"
 msgstr "Eǧǧ-d tamawt"
 
-#: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:235
+#: src/amo/components/EditableCollectionAddon/index.js:143 src/core/components/AMInstallButton/index.js:235
 msgid "Remove"
 msgstr "Kkes"
 
@@ -836,34 +772,21 @@ msgid "Edit"
 msgstr "Ẓreg"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:26
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
-msgstr ""
-"Ma tkecmeḍ udiɣ tɣileḍ d akken izen-agi d tuccḍa, ma ulac aɣilif, <a href="
-"\"%(url)s\">azen-d ugur</a>. Ini-yaɣ-d ansa i d-kkiḍ udiɣ ayen tettaɛraḍeḍ "
-"ad twaliḍ, sakin ad nefru ugur."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgstr "Ma tkecmeḍ udiɣ tɣileḍ d akken izen-agi d tuccḍa, ma ulac aɣilif, <a href=\"%(url)s\">azen-d ugur</a>. Ini-yaɣ-d ansa i d-kkiḍ udiɣ ayen tettaɛraḍeḍ ad twaliḍ, sakin ad nefru ugur."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:40
 msgid "Not Authorized"
 msgstr "Ur ittwasireg ara"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:43
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"Suref-aɣ, acku ur ɣur-k ara tasiregt akken ad tkecmeḍ ar usebter-agi. Ma "
-"yella ur teqqineḍ ara, ɛreḍ ad tesqedceḍ aseɣwen n tagara n usebter."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "Suref-aɣ, acku ur ɣur-k ara tasiregt akken ad tkecmeḍ ar usebter-agi. Ma yella ur teqqineḍ ara, ɛreḍ ad tesqedceḍ aseɣwen n tagara n usebter."
 
 #: src/amo/components/Errors/NotFound/index.js:28
 msgid ""
-"Try visiting the page later, as the theme or extension may become available "
-"again. Alternatively, you may be able to find what you’re looking for in one "
-"of the available %(extensionStart)sextensions%(extensionEnd)s or "
-"%(themeStart)sthemes%(themeEnd)s, or by asking for help on our "
-"%(communityStart)scommunity forums%(communityEnd)s."
+"Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
+"%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
 
 #: src/amo/components/Errors/NotFound/index.js:82
@@ -871,48 +794,34 @@ msgid "Oops! We can’t find that page"
 msgstr ""
 
 #: src/amo/components/Errors/NotFound/index.js:85
-msgid ""
-"If you’ve followed a link from another site for an extension or theme, that "
-"item is no longer available. This could be because:"
+msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
 msgstr ""
 
 #: src/amo/components/Errors/NotFound/index.js:91
-msgid ""
-"The developer removed it. Developers commonly do this because they no longer "
-"support the extension or theme, or have replaced it."
+msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
 msgstr ""
 
 #: src/amo/components/Errors/NotFound/index.js:96
 msgid ""
-"Mozilla removed it. This can happen when issues are found during the review "
-"of the extension or theme, or the extension or theme has been abusing the "
-"terms and conditions for addons.mozilla.org. The developer has the "
-"opportunity to resolve the issues and make the add-on available again."
+"Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
+" developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
 
 #: src/amo/components/Errors/ServerError/index.js:21
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
-"MA ɣur-k ugar n telɣut izemren aɣ-d-yefk afus tzmred ad  <a href=\"https://"
-"github.com/mozilla/addons-frontend/issues/new/\">tazneḍ abug</a>. Ini-yaɣ-d "
-"amek twxedmeḍ imi d-ḍra tuccḍa-agi sakin ad nwali amek ad tt-nseɣti."
+"MA ɣur-k ugar n telɣut izemren aɣ-d-yefk afus tzmred ad  <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">tazneḍ abug</a>. Ini-yaɣ-d amek twxedmeḍ imi d-ḍra tuccḍa-agi sakin ad "
+"nwali amek ad tt-nseɣti."
 
-#: src/amo/components/Errors/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/Errors/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "Tuccḍa deg usenkez"
 
 #: src/amo/components/Errors/ServerError/index.js:35
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"Suref-aɣ, teḍra-d tuccḍadeg uqeddac-nneɣ ihi ur nezmir ara ad d-nerr i "
-"usuter-ik. Nsekles tuccḍa-agi akken ad nnadi tifrat."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Suref-aɣ, teḍra-d tuccḍadeg uqeddac-nneɣ ihi ur nezmir ara ad d-nerr i usuter-ik. Nsekles tuccḍa-agi akken ad nnadi tifrat."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 #, fuzzy
@@ -988,8 +897,7 @@ msgstr "Yettwacreḍ i yir awal"
 msgid "Site Status"
 msgstr "Addad n usmel"
 
-#: src/amo/components/Footer/index.js:117
-#: src/amo/components/GetFirefoxButton/index.js:74
+#: src/amo/components/Footer/index.js:117 src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
 msgstr "Sider Firefox"
 
@@ -1027,13 +935,11 @@ msgstr "Usḍif"
 
 #: src/amo/components/Footer/index.js:197
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
-"this site is licensed under the %(startLicenseLink)sCreative Commons "
-"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
+" or any later version."
 msgstr ""
-"Ala %(startNotedLink)s ma yettwammel akken-nniḍen%(endNotedLink)s, agbur n "
-"usmel-agi yella ddaw n turagt %(startLicenseLink)sCreative Commons "
-"Attribution Share-Alike v3.0%(endLicenseLink)s neɣ ileqman imaynuten."
+"Ala %(startNotedLink)s ma yettwammel akken-nniḍen%(endNotedLink)s, agbur n usmel-agi yella ddaw n turagt %(startLicenseLink)sCreative Commons Attribution Share-Alike v3.0%(endLicenseLink)s neɣ "
+"ileqman imaynuten."
 
 #: src/amo/components/Footer/index.js:27
 msgid "Go to Mozilla's homepage"
@@ -1090,13 +996,11 @@ msgstr "Amiḍan-iw"
 msgid "View My Collections"
 msgstr "Wali Tilkensiyin-iw"
 
-#: src/amo/components/Header/index.js:134
-#: src/amo/pages/UserProfileEdit/index.js:548
+#: src/amo/components/Header/index.js:134 src/amo/pages/UserProfileEdit/index.js:548
 msgid "View My Profile"
 msgstr "Sken amaɣnu-iw"
 
-#: src/amo/components/Header/index.js:142
-#: src/amo/pages/UserProfileEdit/index.js:554
+#: src/amo/components/Header/index.js:142 src/amo/pages/UserProfileEdit/index.js:554
 msgid "Edit My Profile"
 msgstr "Ẓreg amaɣnu-iw"
 
@@ -1120,14 +1024,11 @@ msgstr "Mhel isumeren-iw"
 msgid "Reviewer Tools"
 msgstr "Ifecka n umcegger"
 
-#: src/amo/components/Header/index.js:191
-#: src/core/components/AuthenticateButton/index.js:90
-msgid ""
-"This action is currently unavailable. Please reload the page in a moment."
+#: src/amo/components/Header/index.js:191 src/core/components/AuthenticateButton/index.js:90
+msgid "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
 
-#: src/amo/components/Header/index.js:196
-#: src/core/components/AuthenticateButton/index.js:86
+#: src/amo/components/Header/index.js:196 src/core/components/AuthenticateButton/index.js:86
 msgid "Log out"
 msgstr "Tufɣa"
 
@@ -1151,19 +1052,16 @@ msgstr "Isiɣzaf yettwaszemlen"
 msgid "RECOMMENDED"
 msgstr ""
 
-#: src/amo/components/HomeHeroGuides/index.js:34
-#: src/amo/pages/Guides/index.js:267
+#: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
 msgstr ""
 
-#: src/amo/components/HomeHeroGuides/index.js:39
-#: src/amo/pages/Guides/index.js:280
+#: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:280
 #, fuzzy
 msgid "Organize Tabs & Bookmarks"
 msgstr "Ticraḍ n isebtar"
 
-#: src/amo/components/HomeHeroGuides/index.js:44
-#: src/amo/pages/Guides/index.js:293
+#: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
 #, fuzzy
 msgid "Enhance Your Media Experience"
 msgstr "Sezmel tarmit-ik"
@@ -1173,25 +1071,19 @@ msgid "Extensions are like apps for your browser."
 msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:60
-msgid ""
-"They add features to Firefox to make browsing faster, smarter, or just plain "
-"fun."
+msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
 msgstr ""
 
 #: src/amo/components/InstallWarning/index.js:159
 msgid "Learn more"
-msgstr ""
+msgstr "Issin ugar"
 
 #: src/amo/components/InstallWarning/index.js:168
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
+msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
 msgstr ""
 
 #: src/amo/components/InstallWarning/index.js:170
-msgid ""
-"This is not a Recommended Extension. Make sure you trust it before "
-"installing."
+msgid "This is not a Recommended Extension. Make sure you trust it before installing."
 msgstr ""
 
 #: src/amo/components/LanguagePicker/index.js:52
@@ -1220,8 +1112,7 @@ msgstr "Γer sakin beddel iɣewwaṛen n yiminig"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
-"Sfeḍ amazray aneggaru n tunigin, inagan n tuqqna, akked yisefka icudden ɣur-s"
+msgstr "Sfeḍ amazray aneggaru n tunigin, inagan n tuqqna, akked yisefka icudden ɣur-s"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
@@ -1251,8 +1142,7 @@ msgstr "Γer aḍris n waccaren akk yeldin"
 msgid "Access your location"
 msgstr "Kcem ɣer wadig-ik"
 
-#: src/amo/components/PermissionsCard/permissions.js:47
-#: src/amo/components/PermissionsCard/permissions.js:61
+#: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
 msgid "Access browsing history"
 msgstr "Kcem ar umazray n tunigin"
 
@@ -1375,45 +1265,30 @@ msgid "You reported this add-on for abuse"
 msgstr "Tuzneḍ-d yir aseqdec n uzegrir-agi"
 
 #: src/amo/components/ReportAbuseButton/index.js:120
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this add-on."
+msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
 msgstr "Nermes-d aneqqis-ik. Tanemmirt imi i aɣ-d-mliḍ ugur s uzegrir-a."
 
-#: src/amo/components/ReportAbuseButton/index.js:127
-#: src/amo/components/ReportUserAbuse/index.js:164
+#: src/amo/components/ReportAbuseButton/index.js:127 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr "Ur nezmir ara ad d-nerr i tummliwin meṛṛa, acu kan, ad nali ugur-a."
 
 #: src/amo/components/ReportAbuseButton/index.js:137
-msgid ""
-"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
-"%(linkTagEnd)s or has security or privacy issues, please report these issues "
-"to Mozilla using this form."
-msgstr ""
-"Ma tɣileḍ azizgrir-a yeṛza  %(linkTagStart)sMozilla's tasertit n yizegrar"
-"%(linkTagEnd)s  neɣ ɣur-s ugur n tɣellist neɣ n tbaḍnit, azen-d ma ulac "
-"aɣlif ugur ar Mozilla s useqdec n tfelwit-a."
+msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
+msgstr "Ma tɣileḍ azizgrir-a yeṛza  %(linkTagStart)sMozilla's tasertit n yizegrar%(linkTagEnd)s  neɣ ɣur-s ugur n tɣellist neɣ n tbaḍnit, azen-d ma ulac aɣlif ugur ar Mozilla s useqdec n tfelwit-a."
 
 #: src/amo/components/ReportAbuseButton/index.js:153
 msgid "Report this add-on for abuse"
 msgstr "Azen yir aseqdec n uzegrir-agi"
 
 #: src/amo/components/ReportAbuseButton/index.js:183
-msgid ""
-"Please don't use this form to report bugs or request add-on features; this "
-"report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
-"Ur seqdac ara tafelwit-a akken ad tazneḍ ibugen neɣ asuter n tmahilin n "
-"uzegrir; aneqqis-a ad yettwazen i Mozilla, mačči i uneflay n uzegrir."
+msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
+msgstr "Ur seqdac ara tafelwit-a akken ad tazneḍ ibugen neɣ asuter n tmahilin n uzegrir; aneqqis-a ad yettwazen i Mozilla, mačči i uneflay n uzegrir."
 
-#: src/amo/components/ReportAbuseButton/index.js:196
-#: src/amo/components/ReportUserAbuse/index.js:144
+#: src/amo/components/ReportAbuseButton/index.js:196 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
 msgstr "Azen n uneqqis n yir aseqdec"
 
-#: src/amo/components/ReportAbuseButton/index.js:197
-#: src/amo/components/ReportUserAbuse/index.js:145
+#: src/amo/components/ReportAbuseButton/index.js:197 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
 msgstr "Tuzzna n uneqqis n yir aseqdec"
 
@@ -1425,26 +1300,17 @@ msgstr "Zgel"
 msgid "Explain how this add-on is violating our policies."
 msgstr "Segzi-d amek azegrir-a yettṛuzu tasertit-nneɣ."
 
-#: src/amo/components/ReportUserAbuse/index.js:106
-#: src/amo/components/ReportUserAbuse/index.js:99
+#: src/amo/components/ReportUserAbuse/index.js:106 src/amo/components/ReportUserAbuse/index.js:99
 msgid "Report this user for abuse"
 msgstr "Mmel-d aseqdec-agi ɣef yir asemres"
 
 #: src/amo/components/ReportUserAbuse/index.js:113
-msgid ""
-"If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies"
-"%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"MA tɣileḍ aseqdac-a yerẓa %(linkTagStart)s tasertit n yizegrar n Mozilla"
-"%(linkTagEnd)s. Azen-d aneqqis ɣef useqdac-a i Mozilla."
+msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
+msgstr "MA tɣileḍ aseqdac-a yerẓa %(linkTagStart)s tasertit n yizegrar n Mozilla%(linkTagEnd)s. Azen-d aneqqis ɣef useqdac-a i Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:129
-msgid ""
-"Please don't use this form to report bugs or contact this user; your report "
-"will only be sent to Mozilla and not to this user."
-msgstr ""
-"Ur seqdac ara tafelwit-a akken ad tazneḍ ibugen neɣ ad tnermseḍ aseqdac; "
-"aneqqis-a ad yettwazen i Mozilla, mačči i useqdac-a."
+msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
+msgstr "Ur seqdac ara tafelwit-a akken ad tazneḍ ibugen neɣ ad tnermseḍ aseqdac; aneqqis-a ad yettwazen i Mozilla, mačči i useqdac-a."
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
@@ -1455,24 +1321,19 @@ msgid "You reported this user for abuse"
 msgstr "Temmliḍ aseqdac-agi ɣef yir asemres"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this user."
+msgid "We have received your report. Thanks for letting us know about your concerns with this user."
 msgstr "Nermes-d aneqqis-ik. Tanemmirt imi i aɣ-d-mliḍ ugur akked useqdac-a."
 
-#: src/amo/components/Search/index.js:116
-#: src/amo/components/SearchResults/index.js:68
+#: src/amo/components/Search/index.js:116 src/amo/components/SearchResults/index.js:68
 msgid "Search results"
 msgstr "Igmaḍ n unadi"
 
-#: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:272
-#: src/amo/pages/LandingPage/index.js:123
+#: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:272 src/amo/pages/LandingPage/index.js:123
 #, fuzzy
 msgid "Recommended extensions"
 msgstr "Aff isiɣzaf"
 
-#: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:335
-#: src/amo/pages/LandingPage/index.js:155
+#: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:335 src/amo/pages/LandingPage/index.js:155
 #, fuzzy
 msgid "Recommended themes"
 msgstr "Isental n unebdu"
@@ -1482,13 +1343,11 @@ msgstr "Isental n unebdu"
 msgid "Recommended add-ons"
 msgstr "Nadi isiɣzaf"
 
-#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:348
-#: src/amo/pages/LandingPage/index.js:133
+#: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:348 src/amo/pages/LandingPage/index.js:133
 msgid "Trending extensions"
 msgstr "Isiɣzaf itran"
 
-#: src/amo/components/Search/index.js:137
-#: src/amo/pages/LandingPage/index.js:165
+#: src/amo/components/Search/index.js:137 src/amo/pages/LandingPage/index.js:165
 msgid "Trending themes"
 msgstr "Isental itran"
 
@@ -1496,13 +1355,11 @@ msgstr "Isental itran"
 msgid "Trending add-ons"
 msgstr "Izegrar iɣerfanen"
 
-#: src/amo/components/Search/index.js:146
-#: src/amo/pages/LandingPage/index.js:143
+#: src/amo/components/Search/index.js:146 src/amo/pages/LandingPage/index.js:143
 msgid "Top rated extensions"
 msgstr "Isiɣzaf yettwaszemlen aṭas"
 
-#: src/amo/components/Search/index.js:149
-#: src/amo/pages/LandingPage/index.js:174
+#: src/amo/components/Search/index.js:149 src/amo/pages/LandingPage/index.js:174
 msgid "Top rated themes"
 msgstr "Isental yettwaszemlen aṭas"
 
@@ -1616,8 +1473,7 @@ msgid_plural "%(count)s Search Tools found for \"%(query)s\""
 msgstr[0] "%(count)s n ugmud yettwaf i \"%(query)s\""
 msgstr[1] "%(count)s n igmaḍ ttwafen \"%(query)s\""
 
-#: src/amo/components/SearchFilters/index.js:135
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:135 src/amo/components/SearchFilters/index.js:159
 msgid "All"
 msgstr "Akk"
 
@@ -1726,8 +1582,7 @@ msgstr "Ulac tiffin i \"%(query)s\"."
 msgid "No results were found."
 msgstr "Ulac igmad yettwafen."
 
-#: src/amo/components/SearchSuggestion/index.js:52
-#: src/ui/components/RecommendedBadge/index.js:28
+#: src/amo/components/SearchSuggestion/index.js:52 src/ui/components/RecommendedBadge/index.js:28
 #, fuzzy
 msgid "Recommended"
 msgstr "Awennit n useqdac"
@@ -1736,13 +1591,11 @@ msgstr "Awennit n useqdac"
 msgid "Explore"
 msgstr "Snirem"
 
-#: src/amo/components/SectionLinks/index.js:127
-#: src/amo/pages/LandingPage/index.js:230
+#: src/amo/components/SectionLinks/index.js:127 src/amo/pages/LandingPage/index.js:230
 msgid "Extensions"
 msgstr "Isiɣzaf"
 
-#: src/amo/components/SectionLinks/index.js:142
-#: src/amo/pages/LandingPage/index.js:229
+#: src/amo/components/SectionLinks/index.js:142 src/amo/pages/LandingPage/index.js:229
 msgid "Themes"
 msgstr "Isental"
 
@@ -1774,8 +1627,7 @@ msgstr "i Android"
 msgid "Dictionaries & Language Packs"
 msgstr "Imawalen & ikemmusen n tutlayin"
 
-#: src/amo/components/SectionLinks/index.js:98
-#: src/amo/pages/SearchTools/index.js:76
+#: src/amo/components/SectionLinks/index.js:98 src/amo/pages/SearchTools/index.js:76
 msgid "Search Tools"
 msgstr "Ifecka n unadi"
 
@@ -1816,15 +1668,11 @@ msgid "Choose Photo…"
 msgstr "Fren tawlaft…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:62
-msgid ""
-"To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s"
-"\">visit our mobile site</a>."
+msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
 msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:69
-msgid ""
-"To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
-"\">visit our desktop site</a>."
+msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
 msgstr ""
 
 #: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:31
@@ -1878,9 +1726,7 @@ msgid "Release notes for %(addonVersion)s"
 msgstr "Tizmilin n tuffɣa n %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:448
-msgid ""
-"This is not a public listing. You are only seeing it because of elevated "
-"permissions."
+msgid "This is not a public listing. You are only seeing it because of elevated permissions."
 msgstr ""
 
 #: src/amo/pages/Addon/index.js:476
@@ -1888,15 +1734,11 @@ msgid "Extension Metadata"
 msgstr "Asiɣzef aɣefisefka"
 
 #: src/amo/pages/Addon/index.js:481
-msgid ""
-"This listing is not intended for this platform. <a href=\"%(newLocation)s"
-"\">Browse add-ons for Firefox on Android</a>."
+msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
 msgstr ""
 
 #: src/amo/pages/Addon/index.js:485
-msgid ""
-"This listing is not intended for this platform. <a href=\"%(newLocation)s"
-"\">Browse add-ons for Firefox on desktop</a>."
+msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
 msgstr ""
 
 #: src/amo/pages/Addon/index.js:505
@@ -1919,9 +1761,7 @@ msgid "Privacy policy for %(addonName)s"
 msgstr "Iceggiren i %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:198
-msgid ""
-"Reviews and ratings for %(addonName)s. Find out what other users think about "
-"%(addonName)s and add it to your Firefox Browser."
+msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:230
@@ -1977,9 +1817,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/amo/pages/AddonVersions/index.js:176
-msgid ""
-"Be careful with old versions! These versions are displayed for testing and "
-"reference purposes."
+msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
 msgstr ""
 
 #: src/amo/pages/AddonVersions/index.js:181
@@ -2024,24 +1862,18 @@ msgstr "Qqen akken ad tbeddleḍ tagrumma-agi"
 
 #: src/amo/pages/Collection/index.js:448
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
-"Di tazwara, rnu tagrumma-ik, sakin ad tizmireḍ ad ternuḍ isiɣzaf akked "
-"isental."
+msgstr "Di tazwara, rnu tagrumma-ik, sakin ad tizmireḍ ad ternuḍ isiɣzaf akked isental."
 
 #: src/amo/pages/Collection/index.js:451
 msgid "Search for extensions and themes to add to your collection."
 msgstr "Nadi isiɣzaf akked isental ara ternuḍ ar tegrumma-ik."
 
 #: src/amo/pages/Collection/index.js:513
-msgid ""
-"Download and create Firefox collections to keep track of favorite extensions "
-"and themes. Explore the %(collectionName)s—%(collectionDescription)s."
+msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
 msgstr ""
 
 #: src/amo/pages/Collection/index.js:516
-msgid ""
-"Download and create Firefox collections to keep track of favorite extensions "
-"and themes. Explore the %(collectionName)s."
+msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
 msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:114
@@ -2053,12 +1885,8 @@ msgid "Log in to view your collections"
 msgstr "Qqen akken ad twalid tigrummiwin-ik"
 
 #: src/amo/pages/CollectionList/index.js:124
-msgid ""
-"Collections make it easy to keep track of favorite add-ons and share your "
-"perfectly customized browser with others."
-msgstr ""
-"Tigrummiwin ttaǧant lǧeṛṛat s wudem fessusen n izegrar-ik inuraf daɣen ad "
-"bḍun iminig-ik udmawan akked yemdanen-nniḍen."
+msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
+msgstr "Tigrummiwin ttaǧant lǧeṛṛat s wudem fessusen n izegrar-ik inuraf daɣen ad bḍun iminig-ik udmawan akked yemdanen-nniḍen."
 
 #: src/amo/pages/CollectionList/index.js:134
 msgid "Create a collection"
@@ -2073,43 +1901,30 @@ msgid "My collections"
 msgstr "Tigrummiwin-iw"
 
 #: src/amo/pages/Guides/index.js:105
-msgid ""
-"Lightweight, highly effective ad blocker. uBlock Origin enforces thousands "
-"of content filters without chewing up a bunch of memory."
+msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:109
 #, fuzzy
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr ""
-"Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s "
-"ilugan-nneɣ n usuffeɣ %(linkEnd)s."
+msgstr "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s ilugan-nneɣ n usuffeɣ %(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:117
 msgid "Stop online trackers from stalking you"
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:118
-msgid ""
-"Online advertisers can track your activity from one website to the next, "
-"gathering information about you and your interests. Extensions can help "
-"cover your digital trail."
+msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:123
-msgid ""
-"Isolate your Facebook identity into a separate “container” to stop Facebook "
-"from tracking your activity outside of its social platform."
+msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:127
 #, fuzzy
-msgid ""
-"Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s "
-"extensions."
-msgstr ""
-"Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s "
-"ilugan-nneɣ n usuffeɣ %(linkEnd)s."
+msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
+msgstr "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s ilugan-nneɣ n usuffeɣ %(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
@@ -2117,83 +1932,59 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:139
 msgid ""
-"If you typically work with a lot of open tabs, you’re probably familiar with "
-"the frustration of searching through a row of unidentifiable tabs looking "
-"for just the one you need. Extensions can offer creative solutions for "
-"streamlining tab management."
+"If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
+" creative solutions for streamlining tab management."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:145
-msgid ""
-"Arrange and visualize your tabs in a cascading “tree” style format in "
-"Firefox’s sidebar."
+msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
 #, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr ""
-"Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s "
-"ilugan-nneɣ n usuffeɣ %(linkEnd)s."
+msgstr "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s ilugan-nneɣ n usuffeɣ %(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:161
-msgid ""
-"Extensions can help you organize your online interests. Bookmark managers "
-"are ideal for folks with a lot of content to track."
+msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:165
-msgid ""
-"Enjoy a better way to organize your bookmarks if you maintain multiple "
-"bookmark folders."
+msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:168
 #, fuzzy
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr ""
-"Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s "
-"ilugan-nneɣ n usuffeɣ %(linkEnd)s."
+msgstr "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s ilugan-nneɣ n usuffeɣ %(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a fresh new tab experience"
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:180
-msgid ""
-"Start each browsing session tailored just for you by customizing your new "
-"tab experience."
+msgid "Start each browsing session tailored just for you by customizing your new tab experience."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:184
 #, fuzzy
-msgid ""
-"Enjoy a beautiful new page with customizable backgrounds, local weather "
-"info, and more."
-msgstr ""
-"Faṛes tagnit seg usebter n yiccer amaynut s igilalen udmawanen, tagnawt "
-"tadigant & wayen-nniḍen"
+msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
+msgstr "Faṛes tagnit seg usebter n yiccer amaynut s igilalen udmawanen, tagnawt tadigant & wayen-nniḍen"
 
 #: src/amo/pages/Guides/index.js:202
 msgid "Improve videos"
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:203
-msgid ""
-"If you enjoy video content, extensions offer a number of ways to optimize "
-"your experience, including customizing YouTube to your taste and playing "
-"videos in theater mode."
+msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:208
-msgid ""
-"Add a control bar to all YouTube video pages so you can easily adjust "
-"volume, playback speed, video player size, advertising and annotation "
-"blocking, and other features."
+msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:217
@@ -2201,17 +1992,13 @@ msgid "Get more out of media"
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:218
-msgid ""
-"Extensions can address a wide variety of niche media needs and interests, "
-"like image searching, download management, and text readers, to name a few."
+msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:223
 msgid ""
-"Have you ever stumbled upon an intriguing image on the web and want to learn "
-"more about it, like who’s the person in the pic? Are there related images? "
-"This extension lets you perform quick and easy reverse image searches "
-"through a variety of engines."
+"Have you ever stumbled upon an intriguing image on the web and want to learn more about it, like who’s the person in the pic? Are there related images? This extension lets you perform quick and easy"
+" reverse image searches through a variety of engines."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:233
@@ -2219,36 +2006,27 @@ msgid "Bring media right into the browser"
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:234
-msgid ""
-"Extensions can turn Firefox into your very own entertainment hub that gives "
-"you instant access to music, image capturing, gaming, and more."
+msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:239
-msgid ""
-"Access 30,000+ radio stations from all over the globe, always just a click "
-"away."
+msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:268
 msgid ""
-"The web is a wonderful but wild place. Your personal data can be used "
-"without your consent, your activities spied upon, and your passwords stolen. "
-"Fortunately, extensions can help fortify your online privacy and security."
+"The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
+"online privacy and security."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:281
 msgid ""
-"Do you deal with too many open tabs or a dizzying number of bookmarks? "
-"Extensions can help! From organization assistance to providing fun new "
-"features, extensions can dramatically change the way you deal with tabs and "
-"bookmarks."
+"Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
+" deal with tabs and bookmarks."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:294
-msgid ""
-"Extensions can augment online media in all sorts of interesting ways, from "
-"watching videos to handling images, music, and more."
+msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:80
@@ -2256,24 +2034,17 @@ msgid "Create and manage strong passwords"
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:81
-msgid ""
-"Password managers can help you create secure passwords, store your passwords "
-"(safely) in one place, and give you easy access to your login credentials "
-"wherever you are."
+msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:86
-msgid ""
-"Fully encrypted password protection. Store your data securely and access "
-"logins across devices."
+msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:90
 #, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr ""
-"Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s "
-"ilugan-nneɣ n usuffeɣ %(linkEnd)s."
+msgstr "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s ilugan-nneɣ n usuffeɣ %(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:98
 #, fuzzy
@@ -2282,9 +2053,7 @@ msgstr "Sewḥel adellel"
 
 #: src/amo/pages/Guides/index.js:99
 msgid ""
-"Today’s web is tangled up with unwanted advertisements that get in your way "
-"and slow you down. Ad-blocking extensions can block or filter those ads so "
-"you can get back to distraction-free browsing."
+"Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
 
 #: src/amo/pages/Home/index.js:138
@@ -2316,10 +2085,7 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Snifel amek id-ittban Firefox s isental."
 
 #: src/amo/pages/Home/index.js:234
-msgid ""
-"Download Firefox extensions and themes. They’re like apps for your browser. "
-"They can block annoying ads, protect passwords, change browser appearance, "
-"and more."
+msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
 msgstr ""
 
 #: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
@@ -2378,34 +2144,20 @@ msgid "See more top rated themes"
 msgstr "Ugar n yisental yettwaszemlen aṭas"
 
 #: src/amo/pages/LandingPage/index.js:206
-msgid ""
-"Download themes to change how Firefox looks. Tailor your experience to your "
-"tastes. Cute critters, evil robots, beautiful landscapes—thousands of "
-"options."
+msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:211
-msgid ""
-"Download Firefox Extensions to add features that customize browsing. Protect "
-"passwords, find deals, enhance video, and block annoying ads with browser "
-"apps."
+msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:233
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Snifel udem n iminig-ik. Fren seg agimen n isental akken ad tmudded udem "
-"tebɣiḍ i Firefox."
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Snifel udem n iminig-ik. Fren seg agimen n isental akken ad tmudded udem tebɣiḍ i Firefox."
 
 #: src/amo/pages/LandingPage/index.js:235
-msgid ""
-"Explore powerful tools and features to customize Firefox and make the "
-"browser all your own."
-msgstr ""
-"Wali ifecka ifazen akked timahil akken ad tmuddeḍ i Firefox am akken i "
-"tebɣiḍ-t."
+msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
+msgstr "Wali ifecka ifazen akked timahil akken ad tmuddeḍ i Firefox am akken i tebɣiḍ-t."
 
 #: src/amo/pages/LandingPage/index.js:275
 msgid "Explore all categories"
@@ -2420,27 +2172,16 @@ msgid "Dictionaries and Language Packs"
 msgstr "Imawalen & ikemmusen n tutlayin"
 
 #: src/amo/pages/LanguageTools/index.js:158
-msgid ""
-"Download Firefox dictionaries and language pack extensions. Add a new "
-"language option to your browser spell-checker, or change the browser's "
-"interface language."
+msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
 msgstr ""
 
 #: src/amo/pages/LanguageTools/index.js:169
-msgid ""
-"Installing a dictionary add-on will add a new language option to your spell-"
-"checker, which checks your spelling as you type in Firefox."
-msgstr ""
-"Asebeddi n uzegrir n umawal, ad yernu afran n tutlayt tamaynut ar yimseɣti-"
-"ik, ayen ara yesneqden tira ticki tettaruḍ di Firefox."
+msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
+msgstr "Asebeddi n uzegrir n umawal, ad yernu afran n tutlayt tamaynut ar yimseɣti-ik, ayen ara yesneqden tira ticki tettaruḍ di Firefox."
 
 #: src/amo/pages/LanguageTools/index.js:174
-msgid ""
-"Language packs change your browser's interface language, including menu "
-"options and settings."
-msgstr ""
-"Ikemmusen utlayanen ttbeddilen tutlayt n ugrudem n yiminig, ayen igebren "
-"daɣen iɣewwaṛen n wumuɣen akked isefran."
+msgid "Language packs change your browser's interface language, including menu options and settings."
+msgstr "Ikemmusen utlayanen ttbeddilen tutlayt n ugrudem n yiminig, ayen igebren daɣen iɣewwaṛen n wumuɣen akked isefran."
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "All Locales"
@@ -2459,59 +2200,35 @@ msgid "Dictionaries"
 msgstr "Imawalen"
 
 #: src/amo/pages/SearchTools/index.js:73
-msgid ""
-"Download Firefox extensions to customize the way you search—everything from "
-"privacy-enhanced searching to website-specific searches, image searching, "
-"and more."
+msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
 msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
-"Want to interact with addons.mozilla.org (AMO) programmatically? Check out "
-"the %(startAddonsServerDocumentation)sAdd-ons Servers documentation"
-"%(endAddonsServerDocumentation)s for details about the APIs used by AMO and "
-"the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
+"Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
+"APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:140
-msgid ""
-"If you want to contribute but are not quite as technical, there are still "
-"ways to help:"
-msgstr ""
-"Ma tebɣiḍ ad ttekkiḍ acu kan ur tessineḍ ara tatiknikit, yella amek aɣ-d-"
-"muddeḍ afus:"
+msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
+msgstr "Ma tebɣiḍ ad ttekkiḍ acu kan ur tessineḍ ara tatiknikit, yella amek aɣ-d-muddeḍ afus:"
 
 #: src/amo/pages/StaticPages/About/index.js:149
 msgid "Participate in our %(startLink)sforum%(endLink)s."
 msgstr "Tteki deg %(startLink)sanmager%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:162
-msgid ""
-"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
-"improve their add-ons and create new ones when they know people appreciate "
-"their work."
-msgstr ""
-"Eǧǧ-d tikti ɣef uzegrir-ik anurif. Imeskaren n uzegrir beqqun ad snernin "
-"azegrir-nsen daɣen ad arun wiyaḍ ticki ẓran d akken axeddim-nsen ḥemmlent "
-"medden."
+msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
+msgstr "Eǧǧ-d tikti ɣef uzegrir-ik anurif. Imeskaren n uzegrir beqqun ad snernin azegrir-nsen daɣen ad arun wiyaḍ ticki ẓran d akken axeddim-nsen ḥemmlent medden."
 
 #: src/amo/pages/StaticPages/About/index.js:167
-msgid ""
-"Tell your friends and family that Firefox is a fast, secure browser that "
-"protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
-"Ini i yidukal akked twacult-ik d akken Firefox d iminig arurad, aɣelsan i "
-"yesseḥbibiren ɣef isefka udmawanen, daɣen zemren ad erren d ayla-nsen s "
-"useqdec n yizegrar!"
+msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
+msgstr "Ini i yidukal akked twacult-ik d akken Firefox d iminig arurad, aɣelsan i yesseḥbibiren ɣef isefka udmawanen, daɣen zemren ad erren d ayla-nsen s useqdec n yizegrar!"
 
 #: src/amo/pages/StaticPages/About/index.js:175
 #, fuzzy
-msgid ""
-"To see more ways you can contribute to the add-on community, please visit "
-"our %(startLink)swiki%(endLink)s."
-msgstr ""
-"Akken ad tafeḍ amek ara tmuddeḍ afus i terbaɛt ixeddmen ɣef izegrar, rzu ar "
-"%(startLink)swiki%(endLink)s-nneɣ"
+msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
+msgstr "Akken ad tafeḍ amek ara tmuddeḍ afus i terbaɛt ixeddmen ɣef izegrar, rzu ar %(startLink)swiki%(endLink)s-nneɣ"
 
 #: src/amo/pages/StaticPages/About/index.js:189
 msgid "Get support"
@@ -2523,54 +2240,32 @@ msgstr "Γef Izegrar Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or "
-"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
-"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
-"%(startForumLink)sask on our community forum%(endForumLink)s."
+"If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
+"answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"Ma tebɣiḍ ad tissineḍ ugar ɣef usefrek n yizegrar di Firefox, neɣ tesriḍ ad "
-"tafeḍ tallelt tamatut n Firefox, rzu ma ulac aɣilif ar  "
-"%(startSUMOLink)sTallelt%(endSUMOLink)s n Mozilla. Ma yella ur tufiḍ ara "
-"tiririt din-a, Tzemreḍ  ad %(startForumLink)stesteqsiḍ deg unmager n terbaɛt-"
-"nneɣ%(endForumLink)s."
+"Ma tebɣiḍ ad tissineḍ ugar ɣef usefrek n yizegrar di Firefox, neɣ tesriḍ ad tafeḍ tallelt tamatut n Firefox, rzu ma ulac aɣilif ar  %(startSUMOLink)sTallelt%(endSUMOLink)s n Mozilla. Ma yella ur "
+"tufiḍ ara tiririt din-a, Tzemreḍ  ad %(startForumLink)stesteqsiḍ deg unmager n terbaɛt-nneɣ%(endForumLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:20
-msgid ""
-"The official Mozilla site for downloading Firefox extensions and themes. Add "
-"new features and change the browser’s appearance to customize your web "
-"experience."
+msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
 msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:215
-msgid ""
-"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
-"found here%(endLink)s."
-msgstr ""
-"%(startLink)s Talɣut n unermes n terbaɛt n yizegrar n Mozilla ad tettwaf "
-"dagi %(endLink)s."
+msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
+msgstr "%(startLink)s Talɣut n unermes n terbaɛt n yizegrar n Mozilla ad tettwaf dagi %(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:27
 msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
-"installing add-ons for the Firefox browser. Add-ons help you modify and "
-"personalize your browsing experience by adding new features to Firefox, "
-"enhancing your interactions with Web content, and changing the way your "
-"browser looks."
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
+"features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
-"Addons.mozilla.org (AMO), d asmel unṣib n Mozilla ittwaxedmen i usebded n "
-"izegrar i yiminig fireox. Izegrar ad ak-n-fken taggnit i usigen n iming s "
-"tmerna n tmahaltin timaynutin ɣer Fireox, sakin daɣ aqaεed n tunigin ɣer "
-"ugbur Web, aya ad ibeddel tamuɣli-inek ɣef tunigin."
+"Addons.mozilla.org (AMO), d asmel unṣib n Mozilla ittwaxedmen i usebded n izegrar i yiminig fireox. Izegrar ad ak-n-fken taggnit i usigen n iming s tmerna n tmahaltin timaynutin ɣer Fireox, sakin "
+"daɣ aqaεed n tunigin ɣer ugbur Web, aya ad ibeddel tamuɣli-inek ɣef tunigin."
 
 #: src/amo/pages/StaticPages/About/index.js:37
 #, fuzzy
-msgid ""
-"If you are looking for add-ons for Thunderbird or SeaMonkey, please visit "
-"%(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons."
-"thunderbird.net/seamonkey%(endSMLink)s."
-msgstr ""
-"Seqdec AMO akken ad d-tafeḍ izegrar i Mozilla %(startTBLink)sThunderbird"
-"%(endTBLink)s akk d %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
+msgstr "Seqdec AMO akken ad d-tafeḍ izegrar i Mozilla %(startTBLink)sThunderbird%(endTBLink)s akk d %(startSMLink)sSeaMonkey%(endSMLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
@@ -2579,16 +2274,11 @@ msgstr "Tabaɛt n yimenulfuyen"
 #: src/amo/pages/StaticPages/About/index.js:56
 #, fuzzy
 msgid ""
-"The add-ons listed here are created by thousands of developers and theme "
-"designers from all over the world, ranging from individual hobbyists to "
-"large corporations. Some add-ons listed on AMO have been automatically "
-"published and may be subject to review by a team of editors once publicly "
-"listed."
+"The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
+"been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
-"Izegrar i d-ittwabedren dagi ttwarnan-d sɣur waṭas n ineflayen seg umaḍal "
-"meṛra, ama d imdanen neɣ d tikebbaniyen, kra n izegrar deg AMO fɣen-d s "
-"widem awurman ɣef aya zemren ad ttwazren i tikkelt-nnuḍen sɣur tarbaεt n "
-"imaẓragen."
+"Izegrar i d-ittwabedren dagi ttwarnan-d sɣur waṭas n ineflayen seg umaḍal meṛra, ama d imdanen neɣ d tikebbaniyen, kra n izegrar deg AMO fɣen-d s widem awurman ɣef aya zemren ad ttwazren i tikkelt-"
+"nnuḍen sɣur tarbaεt n imaẓragen."
 
 #: src/amo/pages/StaticPages/About/index.js:65
 msgid "Get involved"
@@ -2596,46 +2286,25 @@ msgstr "Ttekki"
 
 #: src/amo/pages/StaticPages/About/index.js:67
 msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
-"keep it healthy, open and accessible. Add-ons support user choice and "
-"customization in Firefox, and you can contribute in the following ways:"
-msgstr ""
-"Mozilla d aqeṛṛu n Internet ur ittnadin ara adrim, Nsuffeɣ-d Firefox akken "
-"ad nmud tallelt, tazmert akked anekcum. Izegrar qeblen asigen n iseqdac deg "
-"Firefox, tzemred ad tetekkiḍ s ubrid:"
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
+"the following ways:"
+msgstr "Mozilla d aqeṛṛu n Internet ur ittnadin ara adrim, Nsuffeɣ-d Firefox akken ad nmud tallelt, tazmert akked anekcum. Izegrar qeblen asigen n iseqdac deg Firefox, tzemred ad tetekkiḍ s ubrid:"
 
 #: src/amo/pages/StaticPages/About/index.js:77
-msgid ""
-"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
-"update services and can help you reach a large audience of users."
-msgstr ""
-"%(startLink)sSnefli azegrir-inek%(endLink)s. Nettmuddu amezlu n tnezduɣt "
-"akked uleqqem baṭel, daɣen nezmer ad ak-d-nefk tallelt akken ad tawḍeḍ ddeqs "
-"n yemdanen."
+msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
+msgstr "%(startLink)sSnefli azegrir-inek%(endLink)s. Nettmuddu amezlu n tnezduɣt akked uleqqem baṭel, daɣen nezmer ad ak-d-nefk tallelt akken ad tawḍeḍ ddeqs n yemdanen."
 
 #: src/amo/pages/StaticPages/About/index.js:93
 msgid ""
-"Help improve this website. It's open source, and you can file bugs and "
-"submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
-"first bug%(endGoodFirstBugLink)s or view all open issues for AMO’s "
-"%(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and "
-"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on "
-"Github."
+"Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
+"issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
-"Tekki deg usnerni n usmel web. Yeldi daɣen tzemreḍ ad teldiḍ ibugen, neɣ ad "
-"tazneḍ aseɣti. Tzemreḍ ad tebduḍ s %(startGoodFirstBugLink)ss ubug meẓẓiyen"
-"%(endGoodFirstBugLink)s neɣ ad twaliḍ uguren n AMO ama "
-"%(startAddonsServerRepoLink)sd aqeddac%(endAddonsServerRepoLink)s neɣ "
-"l’%(startAddonsFrontendRepoLink)s d agrudem %(endAddonsFrontendRepoLink)s di "
-"GitHub."
+"Tekki deg usnerni n usmel web. Yeldi daɣen tzemreḍ ad teldiḍ ibugen, neɣ ad tazneḍ aseɣti. Tzemreḍ ad tebduḍ s %(startGoodFirstBugLink)ss ubug meẓẓiyen%(endGoodFirstBugLink)s neɣ ad twaliḍ uguren n "
+"AMO ama %(startAddonsServerRepoLink)sd aqeddac%(endAddonsServerRepoLink)s neɣ l’%(startAddonsFrontendRepoLink)s d agrudem %(endAddonsFrontendRepoLink)s di GitHub."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
-msgid ""
-"Include your own or anyone else’s email, phone number, or other personal "
-"details."
-msgstr ""
-"Mmel-d tansa-ik imayl neɣ tin n wid-nniḍen, uṭṭun n tiliɣri neɣ talɣut-"
-"nniḍen tudmawant."
+msgid "Include your own or anyone else’s email, phone number, or other personal details."
+msgstr "Mmel-d tansa-ik imayl neɣ tin n wid-nniḍen, uṭṭun n tiliɣri neɣ talɣut-nniḍen tudmawant."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
@@ -2643,13 +2312,9 @@ msgstr "Azen aceggir ɣef uzegrir i terirniḍ neq win terna tkebbaniy-ik."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
-"Criticize an add-on for something it’s intended to do. For example, leaving "
-"a negative review of an add-on for displaying ads or requiring data "
-"gathering, when that is the intended purpose of the add-on, or the add-on "
-"requires gathering data to function."
-msgstr ""
-"Asenqed n izegrar ittwaxdem akken ad nexdem kra. Amedya, tuzna n usenqed, "
-"askan n ilɣuten, γef izegrar."
+"Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
+"add-on, or the add-on requires gathering data to function."
+msgstr "Asenqed n izegrar ittwaxdem akken ad nexdem kra. Amedya, tuzna n usenqed, askan n ilɣuten, γef izegrar."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
@@ -2661,65 +2326,41 @@ msgstr "Amek ara d-mleɣ acegger ur nemɛin ara?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:124
 msgid ""
-"Please report or flag any questionable reviews by clicking the \"Report this "
-"review\" and it will be submitted to the site for moderation. Our moderation "
-"team will use the Review Guidelines to evaluate whether or not to delete the "
-"review or restore it back to the site."
-msgstr ""
-"ttxil-k azen-d asteqsi neɣ asuter s usened ɣef \" Cegger asenqed-a\" sakin "
-"asenqed ad aɣ-d-yawweḍ. Tarbaεt-nneɣ ad twali asenqed sakin ad nẓer ma ad "
-"ten-kkes neɣ ad t-id-nner ɣer usmel."
+"Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
+"evaluate whether or not to delete the review or restore it back to the site."
+msgstr "ttxil-k azen-d asteqsi neɣ asuter s usened ɣef \" Cegger asenqed-a\" sakin asenqed ad aɣ-d-yawweḍ. Tarbaεt-nneɣ ad twali asenqed sakin ad nẓer ma ad ten-kkes neɣ ad t-id-nner ɣer usmel."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
 msgstr "Nek d ameskar n uzegrir, zemreɣ ad rreɣ i iceggiren?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
-msgid ""
-"Yes, add-on authors can provide a single response to a review. You can set "
-"up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
-"additional discussion or follow-up."
-msgstr ""
-"Ih, bab n uzegrir izmer ad immud yiwet n tiririt ɣef usenqed. Tzemred ad "
-"tesbaduḍ adiwenni deg %(startLink)s texxamt n udiwenni-nneɣ %(endLink)s i "
-"useqerdec n temsal."
+msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
+msgstr "Ih, bab n uzegrir izmer ad immud yiwet n tiririt ɣef usenqed. Tzemred ad tesbaduḍ adiwenni deg %(startLink)s texxamt n udiwenni-nneɣ %(endLink)s i useqerdec n temsal."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
-"Nek d ameskar n uzegrir, zemreɣ ad kkseɣ iwenniten neɣ tizmilin ur yeddan "
-"ara akked uzegrir?"
+msgstr "Nek d ameskar n uzegrir, zemreɣ ad kkseɣ iwenniten neɣ tizmilin ur yeddan ara akked uzegrir?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
-"In general, no. But if the review did not meet the review guidelines "
-"outlined above, you can click \"Report this review\" and have it moderated. "
-"If a review included a complaint that is no longer valid due to a new "
-"release of your add-on, we may consider deleting the review."
-msgstr ""
-"S wwudem amatu, ala. Maca asenqed ur isεi ara tiwtilin n ussawen, tzemreḍ ad "
-"tsended ɣef \" Cegger asenqed-a\" sakin qaεed-it. ma yella asenqed deg-s "
-"acetki ur ɣezzifet ara, nezmer ad ten-kkes."
+"In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
+"valid due to a new release of your add-on, we may consider deleting the review."
+msgstr "S wwudem amatu, ala. Maca asenqed ur isεi ara tiwtilin n ussawen, tzemreḍ ad tsended ɣef \" Cegger asenqed-a\" sakin qaεed-it. ma yella asenqed deg-s acetki ur ɣezzifet ara, nezmer ad ten-kkes."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
 msgstr "Amnir n ucegger"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
-msgid ""
-"Guidelines, tips, and Frequently Asked Questions to leave a review for the "
-"extensions and themes you’ve downloaded and used on Firefox."
+msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
 msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
-"Add-on reviews are a way for you to share your opinions about the add-ons "
-"you’ve installed and used. Our review moderation team reserves the right to "
-"refuse or remove any review that does not comply with these guidelines."
-msgstr ""
-"Asenqed n izegrar d abrid akken ad tebḍuḍ tamupvli-inekɣef izegrar i "
-"tesqedceḍ. tarbaεt-nneγ tesεa azref ad tekkes asnqed ur ittqadaren ara "
-"tiwtilin-nneγ."
+"Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
+" with these guidelines."
+msgstr "Asenqed n izegrar d abrid akken ad tebḍuḍ tamupvli-inekɣef izegrar i tesqedceḍ. tarbaεt-nneγ tesεa azref ad tekkes asnqed ur ittqadaren ara tiwtilin-nneγ."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
@@ -2730,8 +2371,7 @@ msgid "Do:"
 msgstr "Eg:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:37
-msgid ""
-"Write like you are telling a friend about your experience with the add-on."
+msgid "Write like you are telling a friend about your experience with the add-on."
 msgstr "Aru am akken tettemslayeḍ akked umdakkel ɣef useqdec n uzegrir."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
@@ -2763,10 +2403,8 @@ msgid "Will you continue to use this add-on?"
 msgstr "Ad tkemleḍ aseqdec n uzegrir-agi?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:63
-msgid ""
-"Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
-"Awi kra n wakud akken ad teɣreḍ acegger-ik send tuzna-is i kra n yibeddile."
+msgid "Take a moment to read your review before submitting it to minimize typos."
+msgstr "Awi kra n wakud akken ad teɣreḍ acegger-ik send tuzna-is i kra n yibeddile."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:68
 msgid "Don't:"
@@ -2774,66 +2412,46 @@ msgstr "Ur teg ara:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:71
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
-"Azen iceggiren n yowawen n wawal am \"Igerrez!\", \" d afellaq\",  neɣ \"dir-"
-"it\"."
+msgstr "Azen iceggiren n yowawen n wawal am \"Igerrez!\", \" d afellaq\",  neɣ \"dir-it\"."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:76
 msgid ""
-"Post technical issues, support requests, or feature suggestions. Use the "
-"available support options for each add-on, if available. You can find them "
-"in the \"More information\" section in the sidebar on the add-on's detail "
-"page."
+"Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
+" on the add-on's detail page."
 msgstr ""
-"Ur seqdac ara asenqed akken ad temmleḍ ugir atiknikan, suter tallelt neɣ "
-"sumer timahilin. Seqdec timahilin yettwagen deg yal azegrir, ma llant. Ad "
-"tafeḍ deg tgezmi \"Ugar n yisallen\", def ugalis adisan n usebter n teqayt n "
-"uzegrir."
+"Ur seqdac ara asenqed akken ad temmleḍ ugir atiknikan, suter tallelt neɣ sumer timahilin. Seqdec timahilin yettwagen deg yal azegrir, ma llant. Ad tafeḍ deg tgezmi \"Ugar n yisallen\", def ugalis "
+"adisan n usebter n teqayt n uzegrir."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr "Aru asenqed ɣef izegrar i  tesqedceḍ yakan."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:86
-msgid ""
-"Use profanity, sexual language or language that can be construed as hateful."
+msgid "Use profanity, sexual language or language that can be construed as hateful."
 msgstr "Iseqdac rregmat, awalen n tuzzuft neɣ awalen n karuh."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:91
-msgid ""
-"Include HTML, links, source code or code snippets. Reviews are meant to be "
-"text only."
-msgstr ""
-"Tzemred ad tessedduḍ HTML, iseɣwan, tangalt aɣbalu neq kran n yeḥricen n "
-"tengalt. Iwenniten ttwasnen d akken d aḍris kan."
+msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
+msgstr "Tzemred ad tessedduḍ HTML, iseɣwan, tangalt aɣbalu neq kran n yeḥricen n tengalt. Iwenniten ttwasnen d akken d aḍris kan."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
-msgid ""
-"Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
-"Ittawi-d talɣut n tkerkas, isefcal tazmert n ineflayen neɣ ireggem-iten."
+msgid "Make false statements, disparage add-on authors or personally insult them."
+msgstr "Ittawi-d talɣut n tkerkas, isefcal tazmert n ineflayen neɣ ireggem-iten."
 
 #: src/amo/pages/UserProfile/index.js:241
 msgid "My reviews"
 msgstr "Iceggiren-iw"
 
 #: src/amo/pages/UserProfile/index.js:269
-msgid ""
-"The profile of %(user)s, a Firefox extension and theme author. Find other "
-"apps by %(user)s, including average ratings, tenure, and the option to "
-"report issues."
+msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:273
-msgid ""
-"The profile of %(user)s, Firefox extension author. Find other extensions by "
-"%(user)s, including average ratings, tenure, and the option to report issues."
+msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:277
-msgid ""
-"The profile of %(user)s, Firefox theme author. Find other themes by "
-"%(user)s, including average ratings, tenure, and the option to report issues."
+msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:316
@@ -2844,8 +2462,7 @@ msgstr "Aneflay n yizegrar"
 msgid "Theme artist"
 msgstr "Anaẓuṛ n usentel"
 
-#: src/amo/pages/UserProfile/index.js:336
-#: src/amo/pages/UserProfileEdit/index.js:536
+#: src/amo/pages/UserProfile/index.js:336 src/amo/pages/UserProfileEdit/index.js:536
 msgid "User Profile for %(user)s"
 msgstr "Amaɣnu n useqdac i %(user)s"
 
@@ -2854,13 +2471,11 @@ msgstr "Amaɣnu n useqdac i %(user)s"
 msgid "User Profile"
 msgstr "Leqqem amaɣnu"
 
-#: src/amo/pages/UserProfile/index.js:365
-#: src/amo/pages/UserProfileEdit/index.js:690
+#: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:690
 msgid "Location"
 msgstr "Tansa"
 
-#: src/amo/pages/UserProfile/index.js:373
-#: src/amo/pages/UserProfileEdit/index.js:705
+#: src/amo/pages/UserProfile/index.js:373 src/amo/pages/UserProfileEdit/index.js:705
 msgid "Occupation"
 msgstr "Axeddim"
 
@@ -2876,8 +2491,7 @@ msgstr "Amḍan n yizegrar"
 msgid "Average rating of developer’s add-ons"
 msgstr "Talemmast n tezmilin n yizegrar n uneflay"
 
-#: src/amo/pages/UserProfile/index.js:411
-#: src/amo/pages/UserProfileEdit/index.js:727
+#: src/amo/pages/UserProfile/index.js:411 src/amo/pages/UserProfileEdit/index.js:727
 msgid "Biography"
 msgstr "Tabyugrafit"
 
@@ -2896,22 +2510,13 @@ msgstr "Tawlaft tettwakkes akken iwata"
 
 #: src/amo/pages/UserProfileEdit/index.js:443
 #, fuzzy
-msgid ""
-"Tell users a bit more information about yourself. Most fields are optional, "
-"but they'll help other users get to know you better."
-msgstr ""
-"Meslay i yiseqdacen cwiṭ fell-ak. Akk urtan-a zemren ad ilin, acu kan ad "
-"mlen i yiseqdacen-nniḍen ayen tebɣiḍ akken ad k-issinen ugar."
+msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
+msgstr "Meslay i yiseqdacen cwiṭ fell-ak. Akk urtan-a zemren ad ilin, acu kan ad mlen i yiseqdacen-nniḍen ayen tebɣiḍ akken ad k-issinen ugar."
 
 #: src/amo/pages/UserProfileEdit/index.js:447
 #, fuzzy
-msgid ""
-"Tell users a bit more information about this user. Most fields are optional, "
-"but they'll help other users get to know %(userName)s better."
-msgstr ""
-"Meslay i yiseqdacen cwiṭ ɣef useqdac-agi. Akk urtan-a zemren ad ilin, acu "
-"kan ad mlen i yiseqdacen-nniḍen ayen tebɣiḍ akken ad k-issinen ugar "
-"%(username)s."
+msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
+msgstr "Meslay i yiseqdacen cwiṭ ɣef useqdac-agi. Akk urtan-a zemren ad ilin, acu kan ad mlen i yiseqdacen-nniḍen ayen tebɣiḍ akken ad k-issinen ugar %(username)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:462
 msgid "Introduce yourself to the community if you like"
@@ -2978,12 +2583,8 @@ msgid "Email address cannot be changed here"
 msgstr "Tansa imayl ur tezmir ara ad tettwabeddel dagi"
 
 #: src/amo/pages/UserProfileEdit/index.js:599
-msgid ""
-"You can change your email address on Firefox Accounts. %(startLink)sNeed "
-"help?%(endLink)s"
-msgstr ""
-"Tzemreḍ ad tbeddleḍ tansa-ik n yimayl di Firefox Accounts. %(startLink)s "
-"Teriḍ tallelt? %(endLink)s"
+msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
+msgstr "Tzemreḍ ad tbeddleḍ tansa-ik n yimayl di Firefox Accounts. %(startLink)s Teriḍ tallelt? %(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:616
 msgid "Manage Firefox Accounts…"
@@ -3020,35 +2621,22 @@ msgid "Notifications"
 msgstr "Ilɣa"
 
 #: src/amo/pages/UserProfileEdit/index.js:770
-msgid ""
-"From time to time, Mozilla may send you email about upcoming releases and "
-"add-on events. Please select the topics you are interested in."
-msgstr ""
-"Si sya ar da, Mozilla tezmer ak-d-azen imayl ɣef tuffɣiwin d-iteddun neɣ "
-"tidyanin ɣef izegrar. Tanemmirt ma temlid-d isental i tḥemleḍ."
+msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
+msgstr "Si sya ar da, Mozilla tezmer ak-d-azen imayl ɣef tuffɣiwin d-iteddun neɣ tidyanin ɣef izegrar. Tanemmirt ma temlid-d isental i tḥemleḍ."
 
 #: src/amo/pages/UserProfileEdit/index.js:775
-msgid ""
-"From time to time, Mozilla may send this user email about upcoming releases "
-"and add-on events. Please select the topics this user may be interested in."
-msgstr ""
-"Si sya ar da, Mozilla tezmer ak-d-azen i useqdac-a imayl ɣef tuffɣiwin d-"
-"iteddun neɣ tidyanin ɣef izegrar. Tanemmirt ma temlid-d isental i tḥemleḍ."
+msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
+msgstr "Si sya ar da, Mozilla tezmer ak-d-azen i useqdac-a imayl ɣef tuffɣiwin d-iteddun neɣ tidyanin ɣef izegrar. Tanemmirt ma temlid-d isental i tḥemleḍ."
 
 #: src/amo/pages/UserProfileEdit/index.js:790
-msgid ""
-"Mozilla reserves the right to contact you individually about specific "
-"concerns with your hosted add-ons."
-msgstr ""
-"Mozilla ad k-id-inermes ɣef uguren icudden ar izegrar inek izedɣen ɣur-s."
+msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
+msgstr "Mozilla ad k-id-inermes ɣef uguren icudden ar izegrar inek izedɣen ɣur-s."
 
-#: src/amo/pages/UserProfileEdit/index.js:816
-#: src/amo/pages/UserProfileEdit/index.js:905
+#: src/amo/pages/UserProfileEdit/index.js:816 src/amo/pages/UserProfileEdit/index.js:905
 msgid "Delete My Profile"
 msgstr "Kkes amaɣnu-iw"
 
-#: src/amo/pages/UserProfileEdit/index.js:817
-#: src/amo/pages/UserProfileEdit/index.js:906
+#: src/amo/pages/UserProfileEdit/index.js:817 src/amo/pages/UserProfileEdit/index.js:906
 msgid "Delete Profile"
 msgstr "Kkes amaɣnu"
 
@@ -3062,58 +2650,35 @@ msgstr "IMPORTANT: Ma tekseḍ izegrar n Firefox-agi, aya ad yili i lebda."
 
 #: src/amo/pages/UserProfileEdit/index.js:841
 msgid ""
-"Your data will be permanently removed, including profile details (picture, "
-"user name, display name, location, home page, biography, occupation) and "
-"notification preferences. Your reviews and ratings will be anonymised and no "
-"longer editable."
+"Your data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Your reviews and ratings"
+" will be anonymised and no longer editable."
 msgstr ""
-"Isefka-ik ad ttwaksen i lebda, ula d talqayt n umaɣnu (tugna, isem n "
-"useqdec, isem ittwaseknen, adig, asebter agejdan, tabiugrafit, axeddim) "
-"akked isemnyifen n yilɣa. Iceggiren-ik akked usezmel ad uɣalen d udrigen, "
-"wurgin ad ttwabeddlen."
+"Isefka-ik ad ttwaksen i lebda, ula d talqayt n umaɣnu (tugna, isem n useqdec, isem ittwaseknen, adig, asebter agejdan, tabiugrafit, axeddim) akked isemnyifen n yilɣa. Iceggiren-ik akked usezmel ad "
+"uɣalen d udrigen, wurgin ad ttwabeddlen."
 
 #: src/amo/pages/UserProfileEdit/index.js:848
 msgid ""
-"The user’s data will be permanently removed, including profile details "
-"(picture, user name, display name, location, home page, biography, "
-"occupation) and notification preferences. Reviews and ratings will be "
-"anonymised and no longer editable."
+"The user’s data will be permanently removed, including profile details (picture, user name, display name, location, home page, biography, occupation) and notification preferences. Reviews and "
+"ratings will be anonymised and no longer editable."
 msgstr ""
-"Isefka n useqdac ad ttwaksen i lebda, ula d talqayt n umaɣnu (tugna, isem n "
-"useqdec, isem ittwaseknen, adig, asebter agejdan, tabiugrafit, axeddim) "
-"akked isemnyifen n yilɣa. Iceggiren-ik akked usezmel ad uɣalen d udrigen, "
-"wurgin ad ttwabeddlen."
+"Isefka n useqdac ad ttwaksen i lebda, ula d talqayt n umaɣnu (tugna, isem n useqdec, isem ittwaseknen, adig, asebter agejdan, tabiugrafit, axeddim) akked isemnyifen n yilɣa. Iceggiren-ik akked "
+"usezmel ad uɣalen d udrigen, wurgin ad ttwabeddlen."
 
 #: src/amo/pages/UserProfileEdit/index.js:858
-msgid ""
-"When you use this email address to log in again to addons.mozilla.org, you "
-"will create a new Firefox Add-ons profile that is in no way associated with "
-"the profile you deleted."
-msgstr ""
-"Ticki tesqedceḍ tansa-agi imayl i tuqna tikelt-nniḍen ɣer izegrar.mozilla."
-"org, ad d-teslaleḍ amaɣnu amaynut n izegrar Firefox ur yettilin ara cudden "
-"ɣer umaɣnu i tsefḍeḍ."
+msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
+msgstr "Ticki tesqedceḍ tansa-agi imayl i tuqna tikelt-nniḍen ɣer izegrar.mozilla.org, ad d-teslaleḍ amaɣnu amaynut n izegrar Firefox ur yettilin ara cudden ɣer umaɣnu i tsefḍeḍ."
 
 #: src/amo/pages/UserProfileEdit/index.js:871
 msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are "
-"the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must "
-"%(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the add-ons "
-"before you can delete your profile."
+"%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
+" add-ons before you can delete your profile."
 msgstr ""
-"%(strongStart)sNOTE:%(strongEnd)s Ur tezmireḍ ara ad tekkseḍ amiḍan-ik ma "
-"yella kečč d %(linkStart)sameskar n walbaɛḍ n yizegrar%(linkEnd)s. Yessefk "
-"%(docLinkStart)sad tmuddeḍ ayla %(docLinkEnd)s neɣ ad tekkseḍ izegrar send "
-"ad tizmireḍ ad tekkseḍ amiḍan-ik."
+"%(strongStart)sNOTE:%(strongEnd)s Ur tezmireḍ ara ad tekkseḍ amiḍan-ik ma yella kečč d %(linkStart)sameskar n walbaɛḍ n yizegrar%(linkEnd)s. Yessefk %(docLinkStart)sad tmuddeḍ ayla %(docLinkEnd)s "
+"neɣ ad tekkseḍ izegrar send ad tizmireḍ ad tekkseḍ amiḍan-ik."
 
 #: src/amo/pages/UserProfileEdit/index.js:878
-msgid ""
-"%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the "
-"user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
-"%(strongStart)sNOTE:%(strongEnd)s Ur tezmireḍ ara ad tekkseḍ amiḍan n "
-"useqdac ma yella aseqdac d %(linkStart)sameskar n walbaɛḍ n yizegrar"
-"%(linkEnd)s."
+msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
+msgstr "%(strongStart)sNOTE:%(strongEnd)s Ur tezmireḍ ara ad tekkseḍ amiḍan n useqdac ma yella aseqdac d %(linkStart)sameskar n walbaɛḍ n yizegrar%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 #, fuzzy
@@ -3122,28 +2687,20 @@ msgstr "Tawlaft tettwakkes akken iwata"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:121
-msgid ""
-"The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get "
-"messages when:"
+msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
 msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:79
-msgid ""
-"You can edit your notification settings by %(linkStart)sediting your profile"
-"%(linkEnd)s."
+msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
 msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Ffeɣ seg ujerred"
 
 #: src/amo/utils/notifications.js:10
-msgid ""
-"stay up-to-date with news and events relevant to add-on developers "
-"(including the about:addons newsletter)"
-msgstr ""
-"Qqim d yisallen ɣef tidyanin icudden ar ineflayen n yizegrar (rmes daɣen "
-"tabratt n yisallen about:addons newsletter)"
+msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
+msgstr "Qqim d yisallen ɣef tidyanin icudden ar ineflayen n yizegrar (rmes daɣen tabratt n yisallen about:addons newsletter)"
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
@@ -3175,11 +2732,11 @@ msgstr "amṣda n uzegrir-inu yettwalqem akken iwata"
 
 #: src/core/components/AMInstallButton/index.js:232
 msgid "Enable"
-msgstr ""
+msgstr "Rmed"
 
 #: src/core/components/AMInstallButton/index.js:237
 msgid "Enabling"
-msgstr ""
+msgstr "Rmed"
 
 #: src/core/components/AMInstallButton/index.js:239
 #, fuzzy
@@ -3209,15 +2766,10 @@ msgid "Register or Log in"
 msgstr "Jerred neγ kcem"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Suref-aɣ, teḍra-d tuccḍa ihi ur nezmir ara ad d-nerr i usuter-ik. Nsekles "
-"tuccḍa-agi akken ad nnadi tifrat."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Suref-aɣ, teḍra-d tuccḍa ihi ur nezmir ara ad d-nerr i usuter-ik. Nsekles tuccḍa-agi akken ad nnadi tifrat."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Tangalt n tuccḍa: %(status)s."
 
@@ -3255,9 +2807,7 @@ msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Asebter %(currentPage)s seg %(totalPages)s"
 
 #: src/core/components/SiteNotices/index.js:56
-msgid ""
-"Some features are temporarily disabled while we perform website maintenance. "
-"We'll be back to full capacity shortly."
+msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
 msgstr ""
 
 #: src/core/components/SurveyNotice/index.js:131
@@ -3265,12 +2815,8 @@ msgid "Take short survey"
 msgstr "Ekki deg uḥetc"
 
 #: src/core/components/SurveyNotice/index.js:139
-msgid ""
-"Thanks for visiting this site! Please take a minute or two to tell Firefox "
-"about your experience."
-msgstr ""
-"Tanemirt ɣef tirza-inek ɣer usmel-agi! Ttxil-k fkaɣ dqiqa naɣ snat iwakken "
-"ad d-tefkeḍ awal i Firefox ɣef tirmi-ik"
+msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
+msgstr "Tanemirt ɣef tirza-inek ɣer usmel-agi! Ttxil-k fkaɣ dqiqa naɣ snat iwakken ad d-tefkeḍ awal i Firefox ɣef tirmi-ik"
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -3305,7 +2851,7 @@ msgstr ""
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Iteddu d %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
@@ -3313,7 +2859,7 @@ msgstr ""
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Asebded ur yeddi ara. Ma ulac aqilif, ɛreḍ tikelt nniḍen."
 
 #: src/core/utils/addons.js:36
 msgid "Download failed. Please check your connection."
@@ -3411,9 +2957,7 @@ msgid "There are no ratings yet"
 msgstr "Ulac tazmilt akka tura"
 
 #: src/ui/components/RecommendedBadge/index.js:43
-msgid ""
-"Firefox only recommends extensions that meet our standards for security and "
-"performance."
+msgid "Firefox only recommends extensions that meet our standards for security and performance."
 msgstr ""
 
 #: src/ui/components/ShowMoreCard/index.js:126
@@ -3434,15 +2978,10 @@ msgstr[1] "%(total)s n yizegrar"
 msgid "Developer response"
 msgstr "Tiririt n ineflayen"
 
-#, fuzzy
 #~ msgid ""
-#~ "If you’ve followed a link on this site, you’ve have found a mistake. Help "
-#~ "us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where "
-#~ "you came from and what you were looking for, and we'll get it sorted."
-#~ msgstr ""
-#~ "Ma tḍefreḍ-d aseɣwen-agi seg allaɛḍ n imeḍqan, <a href=\"%(url)s\">azen-d "
-#~ "ugur</a>. Iniyaɣ-d ansa i d-yekka akked wayen tettnadiḍ, sakin ad nwali "
-#~ "ayen nezmer akken ad t-nseɣti."
+#~ "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
+#~ "we'll get it sorted."
+#~ msgstr "Ma tḍefreḍ-d aseɣwen-agi seg allaɛḍ n imeḍqan, <a href=\"%(url)s\">azen-d ugur</a>. Iniyaɣ-d ansa i d-yekka akked wayen tettnadiḍ, sakin ad nwali ayen nezmer akken ad t-nseɣti."
 
 #~ msgid "Featured Extension"
 #~ msgstr "Isiɣzaf yettwaszemlen"
@@ -3480,45 +3019,37 @@ msgstr "Tiririt n ineflayen"
 #~ msgid "Ad blockers"
 #~ msgstr "Imsewḥal n udellel"
 
-#, fuzzy
 #~ msgid "Smarter shopping"
 #~ msgstr "Tiɣin srid"
 
 #~ msgid "Productivity"
 #~ msgstr "Tiffurest"
 
-#, fuzzy
 #~ msgid "Watching videos"
 #~ msgstr "Wali tividyutin"
 
-#~ msgid ""
-#~ "Customize the way Firefox works with extensions. Are you interested in…"
+#~ msgid "Customize the way Firefox works with extensions. Are you interested in…"
 #~ msgstr "Mudd udem i tiddin n Firefox s useqdec n yizegrir. Ahat tḥemmleḍ…"
 
-#, fuzzy
 #~ msgid "See more productivity extensions"
 #~ msgstr "Isiɣzaf yettwasnen aṭas"
 
-#, fuzzy
 #~ msgid "Productivity extensions"
 #~ msgstr "Isiɣzaf yettwasnen aṭas"
 
 #~ msgid "See more YouTube extensions"
 #~ msgstr "Wali ugar n yisiɣzaf n yicceṛ"
 
-#, fuzzy
 #~ msgid "See more feed readers"
 #~ msgstr "Ugar n yisental yettwasersen d imezwura"
 
-#, fuzzy
 #~ msgid "Feed readers"
 #~ msgstr "Ugar n yisental yettwasersen d imezwura"
 
 #~ msgid "%(categoryName)s"
 #~ msgstr "Taggayin"
 
-#~ msgid ""
-#~ "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
+#~ msgid "Source code released under %(linkStart)san unidentified license%(linkEnd)s"
 #~ msgstr "sγur %(timestamp)s"
 
 #~ msgid "See more VPN solutions"
@@ -3558,8 +3089,7 @@ msgstr "Tiririt n ineflayen"
 #~ msgstr "Nadi"
 
 #~ msgid "Highlight text on any webpage to easily search the term"
-#~ msgstr ""
-#~ "Sebrureq aḍris n yal asebter web akken ad ldiḍ umuɣ n unadi fessusen"
+#~ msgstr "Sebrureq aḍris n yal asebter web akken ad ldiḍ umuɣ n unadi fessusen"
 
 #~ msgid "Stylus"
 #~ msgstr "Stylus"
@@ -3648,20 +3178,14 @@ msgstr "Tiririt n ineflayen"
 #~ msgid "Multi-Account Containers"
 #~ msgstr "Multi-Account Containers"
 
-#~ msgid ""
-#~ "Keep different parts of your online life—work, personal, etc.—separated "
-#~ "by color-coded tabs"
-#~ msgstr ""
-#~ "Semgired gar timagiyin-ik deg We (amahil, tudert tudmawant, atg) s "
-#~ "useqdec n yiccaren umniḍen s yini"
+#~ msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
+#~ msgstr "Semgired gar timagiyin-ik deg We (amahil, tudert tudmawant, atg) s useqdec n yiccaren umniḍen s yini"
 
 #~ msgid "Tree Style Tab"
 #~ msgstr "Tree Style Tab"
 
 #~ msgid "Have a ton of open tabs? Organize them in a tidy sidebar"
-#~ msgstr ""
-#~ "Sɛu yiwen n ṭun n yiccaren yeldin? Suddes-iten deg yiwen n ugalis adisan "
-#~ "yemsawin"
+#~ msgstr "Sɛu yiwen n ṭun n yiccaren yeldin? Suddes-iten deg yiwen n ugalis adisan yemsawin"
 
 #~ msgid "Imagus"
 #~ msgstr "Imagus"
@@ -3741,33 +3265,19 @@ msgstr "Tiririt n ineflayen"
 #~ msgid "Social media customization"
 #~ msgstr "Amuddu n wudem i yiẓedwa n tmetti"
 
-#~ msgid ""
-#~ "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install "
-#~ "this add-on."
-#~ msgstr ""
-#~ "Tesrid <a href=\"%(downloadUrl)s\">asider n Firefox</a> akken ad "
-#~ "tesbeddeḍ azegrir-ik."
+#~ msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+#~ msgstr "Tesrid <a href=\"%(downloadUrl)s\">asider n Firefox</a> akken ad tesbeddeḍ azegrir-ik."
 
-#~ msgid ""
-#~ "Tell the world why you think this extension is fantastic! Please follow "
-#~ "our %(linkStart)sreview guidelines%(linkEnd)s."
-#~ msgstr ""
-#~ "Ini-d i medden ayɣer asiɣzef-agi ifaz. Ma ulac aɣilif, qaddeṛ "
-#~ "%(linkStart)silugan n teẓrigt%(linkEnd)s."
+#~ msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+#~ msgstr "Ini-d i medden ayɣer asiɣzef-agi ifaz. Ma ulac aɣilif, qaddeṛ %(linkStart)silugan n teẓrigt%(linkEnd)s."
 
 #~ msgid "Tell us what you love about this extension. Be specific and concise."
 #~ msgstr "Mmel-aɣ-d ayen i tḥemleḍ deg uzegrir-agi. Frez awal-ik."
 
-#~ msgid ""
-#~ "Tell the world about this extension. Please follow our "
-#~ "%(linkStart)sreview guidelines%(linkEnd)s."
-#~ msgstr ""
-#~ "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s "
-#~ "ilugan-nneɣ n usuffeɣ %(linkEnd)s."
+#~ msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+#~ msgstr "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s ilugan-nneɣ n usuffeɣ %(linkEnd)s."
 
-#~ msgid ""
-#~ "Tell us about your experience with this extension. Be specific and "
-#~ "concise."
+#~ msgid "Tell us about your experience with this extension. Be specific and concise."
 #~ msgstr "Mmel-aɣ-d ɣef termit-ik akked usiɣzef-agi. Frez awal-ik."
 
 #~ msgid "Review text"
@@ -3824,12 +3334,8 @@ msgstr "Tiririt n ineflayen"
 #~ msgid "IP Address and Domain Information"
 #~ msgstr "IP Address and Domain Information"
 
-#~ msgid ""
-#~ "See detailed info about every website you visit—IP address, location, "
-#~ "provider & more"
-#~ msgstr ""
-#~ "Wali ugar n isallen s telqey n yal asmel web ɣef i terziḍ—tansa IP, adeg, "
-#~ "imefki & wugar"
+#~ msgid "See detailed info about every website you visit—IP address, location, provider & more"
+#~ msgstr "Wali ugar n isallen s telqey n yal asmel web ɣef i terziḍ—tansa IP, adeg, imefki & wugar"
 
 #~ msgid "Transparent Standalone Images"
 #~ msgstr "Transparent Standalone Images"
@@ -3912,8 +3418,7 @@ msgstr "Tiririt n ineflayen"
 #~ msgstr "Forget Me Not"
 
 #~ msgid "Make Firefox forget website data like cookies & local storage"
-#~ msgstr ""
-#~ "Err Firefox ad yettu isefla n usmel am inagan n tuqqna & usekles adigan"
+#~ msgstr "Err Firefox ad yettu isefla n usmel am inagan n tuqqna & usekles adigan"
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "Azegrir-ik ihegga"
@@ -3922,8 +3427,7 @@ msgstr "Tiririt n ineflayen"
 #~ msgstr "Tzemreḍ tura ad tkecmeḍ %(name)s seg ufeggag n ifecka."
 
 #~ msgid "A powerful way to find archived versions of older web pages"
-#~ msgstr ""
-#~ "Abrid uzmir akken ad tafeḍ ileqman yettwaskelsen n yisebtar web iqbuṛen"
+#~ msgstr "Abrid uzmir akken ad tafeḍ ileqman yettwaskelsen n yisebtar web iqbuṛen"
 
 #~ msgid "uBlock Origin"
 #~ msgstr "uBlock Origin"
@@ -3935,16 +3439,13 @@ msgstr "Tiririt n ineflayen"
 #~ msgstr "Ghostery"
 
 #~ msgid "Popular anti-tracking extension now has ad blocking ability"
-#~ msgstr ""
-#~ "Asiɣzef aɣerfan n usewḥel n ineḍfaṛen ad yeǧǧ sya d afella ad tesweḥleḍ "
-#~ "adellel"
+#~ msgstr "Asiɣzef aɣerfan n usewḥel n ineḍfaṛen ad yeǧǧ sya d afella ad tesweḥleḍ adellel"
 
 #~ msgid "Share Backported"
 #~ msgstr "Share Backported"
 
 #~ msgid "Put a social media ‘Share’ button into Firefox toolbar"
-#~ msgstr ""
-#~ "Sers afaylu amidya n tmetti n tqeffalt 'Bḍu' deg ufeggag n yifecka Firefox"
+#~ msgstr "Sers afaylu amidya n tmetti n tqeffalt 'Bḍu' deg ufeggag n yifecka Firefox"
 
 #~ msgid "View Page Archive & Cache"
 #~ msgstr "View Page Archive & Cache"
@@ -3976,8 +3477,7 @@ msgstr "Tiririt n ineflayen"
 #~ msgid "Black Menu for Google"
 #~ msgstr "Umuɣ aberkan i Google"
 
-#~ msgid ""
-#~ "Easy drop-down menu access to Google services like Search and Translate"
+#~ msgid "Easy drop-down menu access to Google services like Search and Translate"
 #~ msgstr "Ticki tettinigeḍ di internet ma tesriḍ amcic yekkaten s Laser"
 
 #~ msgid "Image Search Options"
@@ -4004,9 +3504,7 @@ msgstr "Tiririt n ineflayen"
 #~ msgid "Worldwide Radio"
 #~ msgstr "Worldwide Radio"
 
-#~ msgid ""
-#~ "Quantum Extensions Challenge winner! Listen to live radio from around the "
-#~ "world"
+#~ msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
 #~ msgstr "Quantum Extensions Challenge winner! Sɣed srid i Ṛṛadyu deg umaḍal"
 
 #~ msgid "Update user's profile"
@@ -4021,19 +3519,11 @@ msgstr "Tiririt n ineflayen"
 #~ msgid "Attention: You are about to delete a profile. Are you sure?"
 #~ msgstr "Ɣur-k: Aql-ak tettedduḍ ad tekkseḍ amaɣnu. S tidet?"
 
-#~ msgid ""
-#~ "Important: if you own add-ons, you have to transfer them to other users "
-#~ "or to delete them before you can delete your profile."
-#~ msgstr ""
-#~ "Awelleh: ma telliḍ d bab n izegrar, ilaq ad tent-azneḍ ɣeer iseqdacen-"
-#~ "nniḍen neɣ kkes-iten send ad tekkseḍ amaɣnu-inek."
+#~ msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
+#~ msgstr "Awelleh: ma telliḍ d bab n izegrar, ilaq ad tent-azneḍ ɣeer iseqdacen-nniḍen neɣ kkes-iten send ad tekkseḍ amaɣnu-inek."
 
-#~ msgid ""
-#~ "Important: a user profile can only be deleted if the user does not own "
-#~ "any add-ons."
-#~ msgstr ""
-#~ "Awelleh: Amaɣnu n useqdac izmer ad ittwakkes ma yella aseqdac ur yisεi "
-#~ "ula d yiwen uzegrir."
+#~ msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
+#~ msgstr "Awelleh: Amaɣnu n useqdac izmer ad ittwakkes ma yella aseqdac ur yisεi ula d yiwen uzegrir."
 
 #~ msgid "Yes, delete my profile"
 #~ msgstr "Ih, Kkes amaɣnu-iw"
@@ -4047,18 +3537,13 @@ msgstr "Tiririt n ineflayen"
 #~ msgid "Envify"
 #~ msgstr "Envify"
 
-#~ msgid ""
-#~ "Quantum Extensions Challenge winner! Different tab colors for different "
-#~ "dev environments"
-#~ msgstr ""
-#~ "Quantum Extensions Challenge winner! Initen n yiccaren yemgaraden i "
-#~ "twennaḍin n tneflit yemgaraden"
+#~ msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
+#~ msgstr "Quantum Extensions Challenge winner! Initen n yiccaren yemgaraden i twennaḍin n tneflit yemgaraden"
 
 #~ msgid "Laser Cat"
 #~ msgstr "Laser Cat"
 
-#~ msgid ""
-#~ "For moments on the internet when you need to fire lasers out of a cat"
+#~ msgid "For moments on the internet when you need to fire lasers out of a cat"
 #~ msgstr "Ticki tettinigeḍ di internet ticki tesriḍ amcic yekkaten s Laser"
 
 #~ msgid "Manage downloads from a tidy status bar"
@@ -4157,13 +3642,8 @@ msgstr "Tiririt n ineflayen"
 #~ msgid "All written reviews"
 #~ msgstr "Akk iceggiren yettwarun"
 
-#~ msgid ""
-#~ "Sorry, but we can't find anything at the address you entered. If you "
-#~ "followed a link to an add-on, it's possible that add-on has been removed "
-#~ "by its author."
-#~ msgstr ""
-#~ "Suref-aɣ, ur nezmir ara ad naf tansa i d-muddeḍ. Ma tḍefṛeḍ-d aseɣwen ar "
-#~ "uzegrir, ahat azegrir-agi yekkes-it umeskar-is."
+#~ msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+#~ msgstr "Suref-aɣ, ur nezmir ara ad naf tansa i d-muddeḍ. Ma tḍefṛeḍ-d aseɣwen ar uzegrir, ahat azegrir-agi yekkes-it umeskar-is."
 
 #~ msgid "Manage API Keys"
 #~ msgstr "Sefrek tisura API"
@@ -4171,12 +3651,8 @@ msgstr "Tiririt n ineflayen"
 #~ msgid "Themes change how Firefox looks"
 #~ msgstr "Tzemred ad tesnifleḍ amek ara yeddu Firefox…"
 
-#~ msgid ""
-#~ "This ID is useful for debugging and identifying your add-on to site "
-#~ "administrators."
-#~ msgstr ""
-#~ "Asulay-agi ID yettwaseqdac i temsaɣtayt akked usulu n uzegrir-ik i "
-#~ "yinedbalen n yismal."
+#~ msgid "This ID is useful for debugging and identifying your add-on to site administrators."
+#~ msgstr "Asulay-agi ID yettwaseqdac i temsaɣtayt akked usulu n uzegrir-ik i yinedbalen n yismal."
 
 #~ msgid "Site Identifier"
 #~ msgstr "Asulay n usmel"
@@ -4214,12 +3690,8 @@ msgstr "Tiririt n ineflayen"
 #~ msgid "…or what it looks like"
 #~ msgstr "…neɣ ayen icuban aya"
 
-#~ msgid ""
-#~ "Install powerful tools that make browsing faster and safer, add-ons make "
-#~ "your browser yours."
-#~ msgstr ""
-#~ "Sebded ifecka uzmiren ara yerren tunigin d taruraṭ, d taɣelsant, izegrar "
-#~ "ad erren iminig-ik d ayla-k."
+#~ msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+#~ msgstr "Sebded ifecka uzmiren ara yerren tunigin d taruraṭ, d taɣelsant, izegrar ad erren iminig-ik d ayla-k."
 
 #~ msgid "Browse in your language"
 #~ msgstr "Inig s tutlayt-ik"
@@ -4233,12 +3705,8 @@ msgstr "Tiririt n ineflayen"
 #~ msgid "Browse by category"
 #~ msgstr "Snirem s taggayin"
 
-#~ msgid ""
-#~ "Extensions are special features you can add to Firefox. Themes let you "
-#~ "change your browser's appearance."
-#~ msgstr ""
-#~ "Isiɣzaf d timahilin izaden i tzemreḍ ad ternuḍ i Firefox. Isental ad k-"
-#~ "eǧǧen ad tesnifleḍ udem n iming-ik."
+#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+#~ msgstr "Isiɣzaf d timahilin izaden i tzemreḍ ad ternuḍ i Firefox. Isental ad k-eǧǧen ad tesnifleḍ udem n iming-ik."
 
 #~ msgid "Fashionable"
 #~ msgstr "Atrar"
