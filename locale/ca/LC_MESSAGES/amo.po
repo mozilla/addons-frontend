@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-10 23:14+0000\n"
+"PO-Revision-Date: 2019-12-10 23:40+0000\n"
 "Last-Translator: hello <hello@awordz.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -333,7 +333,7 @@ msgstr "Segur que voleu suprimir aquesta valoració?"
 
 #: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
-msgstr "Esteu segur que voleu suprimir aquesta ressenya?"
+msgstr "Segur que voleu suprimir aquesta ressenya?"
 
 #: src/amo/components/AddonReviewCard/index.js:233 src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
@@ -1193,11 +1193,11 @@ msgstr "Inicieu la sessió per puntuar aquest complement"
 
 #: src/amo/components/RatingManager/index.js:176
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Esteu segur que voleu suprimir la vostra ressenya de %(addonName)s?"
+msgstr "Segur que voleu suprimir la vostra ressenya de %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:181
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "Esteu segur que voleu suprimir la vostra puntuació de %(addonName)s?"
+msgstr "Segur que voleu suprimir la vostra puntuació de %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:186
 msgid "How are you enjoying %(addonName)s?"
@@ -1545,7 +1545,7 @@ msgstr "Recomanat"
 
 #: src/amo/components/SectionLinks/index.js:117
 msgid "Explore"
-msgstr "Exploreu"
+msgstr "Explora"
 
 #: src/amo/components/SectionLinks/index.js:127 src/amo/pages/LandingPage/index.js:230
 msgid "Extensions"
@@ -1605,7 +1605,7 @@ msgstr "Pàgina d'inici dels complements"
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
-msgstr "Esteu segur que voleu suprimir aquesta imatge?"
+msgstr "Segur que voleu suprimir aquesta imatge?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:109
 msgid "Delete This Picture"
@@ -1787,7 +1787,7 @@ msgstr "Totes les categories de temes"
 
 #: src/amo/pages/Collection/index.js:392
 msgid "Do you really want to delete this collection?"
-msgstr "Esteu segur que voleu suprimir aquesta col·lecció?"
+msgstr "Segur que voleu suprimir aquesta col·lecció?"
 
 #: src/amo/pages/Collection/index.js:395
 msgid "Delete this collection"
