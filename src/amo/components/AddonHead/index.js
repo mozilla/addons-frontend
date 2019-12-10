@@ -160,7 +160,9 @@ export class AddonHeadBase extends React.Component<InternalProps> {
           <title>{this.getPageTitle()}</title>
 
           <script type="application/ld+json">
-            {serialize(_getAddonJsonLinkedData({ addon, currentVersion }))}
+            {serialize(_getAddonJsonLinkedData({ addon, currentVersion }), {
+              isJSON: true,
+            })}
           </script>
         </Helmet>
 
