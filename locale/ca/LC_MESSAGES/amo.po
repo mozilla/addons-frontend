@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-11 15:29+0000\n"
+"PO-Revision-Date: 2019-12-11 15:44+0000\n"
 "Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -790,7 +790,7 @@ msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
-"Mozilla l'ha suprimit. Això pot succeir quan es troben problemes durant la revisió de l’extensió o el tema, o si l’extensió o el tema incompleixen els termes i condicions de addons.mozilla.org. El "
+"Mozilla l'ha suprimit. Això succeeix quan es troben problemes durant la revisió de l’extensió o el tema, o si l’extensió o el tema incompleixen els termes i condicions de addons.mozilla.org. El "
 "desenvolupador té l'oportunitat de resoldre els problemes i tornar a publicar el complement."
 
 #: src/amo/components/Errors/ServerError/index.js:21
@@ -1815,7 +1815,7 @@ msgstr "Baixeu-vos i creeu col·leccions del Firefox per fer un seguiment de les
 
 #: src/amo/pages/Collection/index.js:516
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr "Baixeu-vos i creeu col·leccions de Firefox per fer un seguiment de les extensions i temes preferits. Exploreu %(collectionName)s."
+msgstr "Baixeu i creeu col·leccions del Firefox per fer un seguiment de les extensions i temes preferits. Exploreu %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:114
 msgid "Collections"
@@ -2101,7 +2101,7 @@ msgstr "Canvieu l'aparença del navegador. Gràcies als temes podeu fer que el v
 
 #: src/amo/pages/LandingPage/index.js:235
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr "Exploreu eines i funcions potents per personalitzar el Firefox i que el navegador us representi."
+msgstr "Descobriu eines i funcions potents per personalitzar el Firefox i que el navegador us representi."
 
 #: src/amo/pages/LandingPage/index.js:275
 msgid "Explore all categories"
