@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-11 22:26+0000\n"
+"PO-Revision-Date: 2019-12-11 22:40+0000\n"
 "Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -117,7 +117,7 @@ msgstr "Aquest complement requereix una <a href=\"%(downloadUrl)s\">versió més
 
 #: src/amo/components/AddonCompatibilityError/index.js:159
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "El vostre navegador no és compatible amb els complements. Podeu <a href=\"%(downloadUrl)s\">descarregar el Firefox</a> per instal·lar aquest complement."
+msgstr "El vostre navegador no és compatible amb els complements. Podeu <a href=\"%(downloadUrl)s\">baixar el Firefox</a> per instal·lar aquest complement."
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
@@ -432,7 +432,7 @@ msgstr "S'ha desat"
 
 #: src/amo/components/AddonReviewManager/index.js:89
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Seguiu la nostra %(linkStart)sGuia per a fer ressenyes%(linkEnd)s."
+msgstr "Seguiu la nostra %(linkStart)sDirectrius per a fer ressenyes%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
@@ -959,7 +959,7 @@ msgstr "Informa d’un problema"
 
 #: src/amo/components/Footer/index.js:99
 msgid "Review Guide"
-msgstr "Guia de revisió"
+msgstr "Guia per a fer ressenyes"
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
@@ -2250,18 +2250,18 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr "Afegiu la vostra adreça de correu electrònic o la d'una altra persona, el número de telèfon o cap altra dada personal."
+msgstr "Afegir cap adreça de correu electrònic pesonal o d'una altra persona, el número de telèfon o cap altra dada personal."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr "Publiqueu ressenyes dels complements que heu creat o representeu."
+msgstr "Publicar ressenyes dels complements que heu creat o representeu."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
-"Critiqueu un complement per la seva funció. Per exemple, deixeu una ressenya negativa sobre un complement per incloure publicitat o sol·licitar dades, quan aquest és l'objectiu del complement o "
+"Criticar un complement per la seva funció. Per exemple, deixeu una ressenya negativa sobre un complement per incloure publicitat o sol·licitar dades, quan aquest és l'objectiu del complement o "
 "necessita aquesta informació per executar-se."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
@@ -2277,8 +2277,8 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
-"Notifiqueu o marqueu qualsevol ressenya qüestionable fent clic a «Informeu sobre aquesta ressenya» i s'investigarà. L'equip de moderació utilitzarà les directrius de revisió per avaluar si esborra o"
-" no la ressenya o tornar a publicar-la."
+"Notifiqueu o marqueu qualsevol ressenya qüestionable fent clic a «Informeu sobre aquesta ressenya» i s'investigarà. L'equip de moderació utilitzarà les Directrius per a fer ressenyes per avaluar si "
+"l'esborra o no, o tornar a publicar-la."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
@@ -2298,12 +2298,12 @@ msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
-"En general, no. Però si la revisió no compleix les directrius de revisió esmentades anteriorment, pots fer clic a «Informar sobre aquesta ressenya» i s'investigarà. Si una ressenya inclou una queixa"
-" que ja no sigui vàlida a causa d’una nova publicació del vostre complement, potser podrem suprimir la revisió."
+"En general, no. Però si la revisió no compleix les Directrius per a fer ressenyes esmentades anteriorment, pots fer clic a «Informar sobre aquesta ressenya» i s'investigarà. Si una ressenya inclou "
+"una queixa que ja no sigui vàlida a causa d’una nova publicació del vostre complement, potser podrem suprimir la revisió."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
-msgstr "Guia per a fer ressenyes"
+msgstr "Directrius per a fer ressenyes"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
