@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-11 22:40+0000\n"
-"Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
+"PO-Revision-Date: 2019-12-11 23:29+0000\n"
+"Last-Translator: hello <hello@awordz.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -440,7 +440,7 @@ msgstr "La vostra valoració:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
-msgstr "Més diccionaris de %(author)s"
+msgstr "Més diccionaris de: %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:250
 msgid "More dictionaries by these translators"
@@ -448,7 +448,7 @@ msgstr "Més diccionaris d'aquests traductors"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:254
 msgid "Dictionaries by %(author)s"
-msgstr "Diccionaris de %(author)s"
+msgstr "Diccionaris de: %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:257
 msgid "Dictionaries by these translators"
@@ -456,7 +456,7 @@ msgstr "Diccionaris d'aquests traductors"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:264
 msgid "More extensions by %(author)s"
-msgstr "Més extensions de %(author)s"
+msgstr "Més extensions de: %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:267
 msgid "More extensions by these developers"
@@ -464,7 +464,7 @@ msgstr "Més extensions d'aquests desenvolupadors"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:271
 msgid "Extensions by %(author)s"
-msgstr "Extensions de %(author)s"
+msgstr "Extensions de: %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:274
 msgid "Extensions by these developers"
@@ -472,7 +472,7 @@ msgstr "Extensions d'aquests desenvolupadors"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by %(author)s"
-msgstr "Més paquets d'idioma de %(author)s"
+msgstr "Més paquets d'idioma de: %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:287
 msgid "More language packs by these translators"
@@ -480,7 +480,7 @@ msgstr "Més paquets d'idioma d'aquests traductors"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:291
 msgid "Language packs by %(author)s"
-msgstr "Paquets d'idioma de %(author)s"
+msgstr "Paquets d'idioma de: %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:294
 msgid "Language packs by these translators"
@@ -488,7 +488,7 @@ msgstr "Paquets d'idioma d'aquests traductors"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:301
 msgid "More themes by %(author)s"
-msgstr "Més temes de %(author)s"
+msgstr "Més temes de: %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:304
 msgid "More themes by these artists"
@@ -496,7 +496,7 @@ msgstr "Més temes d'aquests artistes"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "Themes by %(author)s"
-msgstr "Temes de %(author)s"
+msgstr "Temes de: %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:311
 msgid "Themes by these artists"
@@ -504,7 +504,7 @@ msgstr "Temes d'aquests artistes"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:318
 msgid "More add-ons by %(author)s"
-msgstr "Més complements de %(author)s"
+msgstr "Més complements de: %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:321
 msgid "More add-ons by these developers"
@@ -512,7 +512,7 @@ msgstr "Més complements d'aquests desenvolupadors"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:325
 msgid "Add-ons by %(author)s"
-msgstr "Complements de %(author)s"
+msgstr "Complements de: %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:328
 msgid "Add-ons by these developers"
@@ -811,11 +811,11 @@ msgstr "Ens sap greu, però s'ha produït un error amb el servidor i no hem pogu
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
-msgstr "Resposta de %(userName)s"
+msgstr "Resposta de: %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
 msgid "Review by %(userName)s"
-msgstr "Ressenya de %(userName)s"
+msgstr "Ressenya de: %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
@@ -1351,7 +1351,7 @@ msgstr "Complements populars"
 
 #: src/amo/components/Search/index.js:170
 msgid "Search results for \"%(query)s\""
-msgstr "Resultats de la cerca de «%(query)s»"
+msgstr "Resultats de la cerca «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:108
 msgid "%(count)s Search Tool found"
@@ -2182,7 +2182,7 @@ msgstr "Obteniu ajuda"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
-msgstr "Quant als complements de Firefox"
+msgstr "Quant als complements del Firefox"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid ""
@@ -2520,7 +2520,7 @@ msgstr "Compte"
 
 #: src/amo/pages/UserProfileEdit/index.js:574
 msgid "Account for %(userName)s"
-msgstr "Compte de %(userName)s"
+msgstr "Compte de: %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:581
 msgid "Email Address"
