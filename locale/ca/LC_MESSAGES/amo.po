@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-11 10:34+0000\n"
-"Last-Translator: hello <hello@awordz.com>\n"
+"PO-Revision-Date: 2019-12-11 14:50+0000\n"
+"Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -1101,7 +1101,7 @@ msgstr "Afegir dades al porta-retalls"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
-msgstr "Ampliar les eines per a desenvolupadors per accedir a les vostres dades de les pestanyes obertes"
+msgstr "Ampliar les eines per a desenvolupadors per accedir a les dades de les pestanyes obertes"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
@@ -1237,7 +1237,7 @@ msgstr "Heu informat d'aquest complement per abús"
 
 #: src/amo/components/ReportAbuseButton/index.js:120
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr "Hem rebut el vostre informe. Gràcies per fer-nos saber les vostres preocupacions amb aquest complement."
+msgstr "Hem rebut l'informe. Gràcies per fer-nos saber les vostres preocupacions amb aquest complement."
 
 #: src/amo/components/ReportAbuseButton/index.js:127 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
@@ -1295,7 +1295,7 @@ msgstr "Heu denunciat aquest usuari per abús"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Hem rebut el vostre informe. Gràcies per fer-nos saber les vostres preocupacions amb aquest usuari."
+msgstr "Hem rebut l'informe. Gràcies per fer-nos saber les vostres preocupacions amb aquest usuari."
 
 #: src/amo/components/Search/index.js:116 src/amo/components/SearchResults/index.js:68
 msgid "Search results"
@@ -1892,7 +1892,7 @@ msgstr "Una millor navegació amb adreces d'interès millorades"
 
 #: src/amo/pages/Guides/index.js:161
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr "Organitzeu els vostres interessos en línia gràcies a les extensions. Els gestors d'adreces d'interès són molt útils per a qui tingui molt de contingut a controlar."
+msgstr "Organitzeu-vos els interessos en línia gràcies a les extensions. Els gestors d'adreces d'interès són molt útils per a qui tingui molt de contingut a controlar."
 
 #: src/amo/pages/Guides/index.js:165
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
@@ -1964,8 +1964,8 @@ msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
 msgstr ""
-"El web és un lloc meravellós i alhora salvatge. Les vostres dades personals poden ser emprades sense el vostre consentiment, les activitats espiades i les contrasenyes robades. Per sort, les "
-"extensions reforcen la privadesa i seguretat en línia."
+"El web és un lloc meravellós i alhora salvatge. Les vostres dades personals poden ser emprades sense consentiment, les activitats espiades i les contrasenyes robades. Per sort, les extensions "
+"reforcen la privadesa i seguretat en línia."
 
 #: src/amo/pages/Guides/index.js:281
 msgid ""
