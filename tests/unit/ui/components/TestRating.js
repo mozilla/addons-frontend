@@ -433,6 +433,11 @@ describe(__filename, () => {
       expect(star).toHaveProp('yellow');
       expect(star).toHaveProp('readOnly', true);
     });
+
+    it("hides multiple redundant title for accessibility when it's readOnly", () => {
+      const root = render({ readOnly: true });
+      expect(root).toHaveProp('aria-hidden', 'true');
+    });
   });
 
   describe('rating counts', () => {

@@ -140,6 +140,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
         thisRating - rating > 0.25 && thisRating - rating <= 0.75;
 
       const props = {
+        'aria-hidden': readOnly,
         className: makeClassName('Rating-star', `Rating-rating-${thisRating}`, {
           'Rating-selected-star': isSelected,
           'Rating-half-star': halfStar,
@@ -225,6 +226,7 @@ export class RatingBase extends React.Component<InternalProps, StateType> {
 
     return (
       <div
+        aria-hidden="true"
         className={allClassNames}
         title={description}
         onMouseLeave={this.stopHovering}
