@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-11 15:04+0000\n"
+"PO-Revision-Date: 2019-12-11 15:29+0000\n"
 "Last-Translator: LluísQ <lluisquevedo4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -146,7 +146,7 @@ msgstr "%(addonName)s – Obteniu aquest complement per al 🦊 Firefox (%(local
 
 #: src/amo/components/AddonHead/index.js:134
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr "Baixa el complement %(addonName)s per al Firefox. %(summary)s"
+msgstr "Baixeu el complement %(addonName)s per al Firefox. %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:62
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
@@ -1041,7 +1041,7 @@ msgstr "Organitza les pestanyes i les adreces d'interès"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
 msgid "Enhance Your Media Experience"
-msgstr "Millora l'experiència multimèdia"
+msgstr "Milloreu l'experiència multimèdia"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
@@ -1479,7 +1479,7 @@ msgstr "Millor valorat"
 
 #: src/amo/components/SearchFilters/index.js:177
 msgid "Trending"
-msgstr "Tendència"
+msgstr "Tendències"
 
 #: src/amo/components/SearchFilters/index.js:195
 msgid "Filter results"
