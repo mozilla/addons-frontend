@@ -104,9 +104,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "iOS کے لئے Firefox فی الحال ایڈاون کی حمایت نہیں کرتا ہے۔"
 
 #: src/amo/components/AddonCompatibilityError/index.js:134
-#, fuzzy
 msgid "Firefox Preview does not currently support add-ons."
-msgstr "iOS کے لئے Firefox فی الحال ایڈاون کی حمایت نہیں کرتا ہے۔"
+msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:138
 msgid "This add-on is not available on your platform."
@@ -136,9 +135,8 @@ msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:115
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr "Firefox میں شامل کریں"
+msgstr ""
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:120
@@ -150,34 +148,28 @@ msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr ""
 
 #: src/amo/components/AddonHead/index.js:62
-#, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "Firefox میں شامل کریں"
+msgstr ""
 
 #: src/amo/components/AddonHead/index.js:67
-#, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "Firefox میں شامل کریں"
+msgstr ""
 
 #: src/amo/components/AddonHead/index.js:72
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "Firefox میں شامل کریں"
+msgstr ""
 
 #: src/amo/components/AddonHead/index.js:77
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "Firefox میں شامل کریں"
+msgstr ""
 
 #: src/amo/components/AddonHead/index.js:83
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "Firefox میں شامل کریں"
+msgstr ""
 
 #: src/amo/components/AddonHead/index.js:88
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "Firefox میں شامل کریں"
+msgstr ""
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:95
@@ -191,9 +183,8 @@ msgstr[0] "%(total)s ستارے"
 msgstr[1] "%(total)s ستارے"
 
 #: src/amo/components/AddonMeta/index.js:125
-#, fuzzy
 msgid "Not rated yet"
-msgstr "اب تک کوئی جائزہ نہیں ہے"
+msgstr ""
 
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Users"
@@ -232,9 +223,8 @@ msgid "Visit stats dashboard"
 msgstr "اعداد و شمار ڈیش بورڈ ملاحظہ کریں"
 
 #: src/amo/components/AddonMoreInfo/index.js:120
-#, fuzzy
 msgid "Custom License"
-msgstr "لائسنس"
+msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:145
 msgid "%(timeFromNow)s (%(date)s)"
@@ -297,9 +287,8 @@ msgid "Homepage"
 msgstr "ابتدائی صفحہ"
 
 #: src/amo/components/AddonMoreInfo/index.js:73
-#, fuzzy
 msgid "Support site"
-msgstr "معاونت کار سائٹ"
+msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:87
 msgid "Support Email"
@@ -314,9 +303,8 @@ msgid "Other popular extensions"
 msgstr "دیگر مقبول توسیعات"
 
 #: src/amo/components/AddonReviewCard/index.js:195
-#, fuzzy
 msgid "Edit reply"
-msgstr "میرے جواب کی تدوین کریں"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
@@ -327,9 +315,8 @@ msgid "Delete reply"
 msgstr "میرا جواب کو حزف کریں"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
-#, fuzzy
 msgid "Delete rating"
-msgstr "ایک جائزہ لکھیں"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:212 src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
@@ -357,19 +344,16 @@ msgid "Cancel"
 msgstr "منسوخ کریں"
 
 #: src/amo/components/AddonReviewCard/index.js:255
-#, fuzzy
 msgid "Keep reply"
-msgstr "میرا جواب کی حزف کریں"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:259
-#, fuzzy
 msgid "Keep rating"
-msgstr "ایک جائزہ لکھیں"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:262
-#, fuzzy
 msgid "Keep review"
-msgstr "ایک جائزہ لکھیں"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
@@ -392,23 +376,20 @@ msgid "Publishing reply"
 msgstr "جواب شائع ہو رہا ہے"
 
 #: src/amo/components/AddonReviewCard/index.js:349
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "پوسٹ کیا گیا %(timestamp)s"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:351
-#, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "%(timestamp)s، %(authorName)s کی طرف سے"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:442
 msgid "Deleting…"
 msgstr "حزف کر رہا ہے…"
 
 #: src/amo/components/AddonReviewCard/index.js:473
-#, fuzzy
 msgid "Reply to this review"
-msgstr "پیش منظر کے ؛لیئے تھپتپائیں"
+msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:503
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
