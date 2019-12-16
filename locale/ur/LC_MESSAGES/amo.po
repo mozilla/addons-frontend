@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-15 13:55+0000\n"
+"PO-Revision-Date: 2019-12-16 17:25+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -408,9 +408,8 @@ msgid "Submit review"
 msgstr "جائزہ داخل کریں"
 
 #: src/amo/components/AddonReviewManager/index.js:116
-#, fuzzy
 msgid "Submitting review"
-msgstr "جائزہ داخل کریں"
+msgstr "جائزہ پیش کرنا"
 
 #: src/amo/components/AddonReviewManager/index.js:120
 #, fuzzy
@@ -560,9 +559,8 @@ msgid "Source code released under %(licenseName)s"
 msgstr "پوسٹ کیا گیا %(timestamp)s"
 
 #: src/amo/components/AddonVersionCard/index.js:51
-#, fuzzy
 msgid "No version found"
-msgstr "کوئی زمرہ جات نہیں ملے۔"
+msgstr "کوئی ورژن نہیں ملا"
 
 #: src/amo/components/AddonVersionCard/index.js:59
 msgid "Version %(versionNumber)s"
@@ -722,9 +720,8 @@ msgid "Support this artist"
 msgstr "معاونت کار سائٹ"
 
 #: src/amo/components/ContributeCard/index.js:60
-#, fuzzy
 msgid "Support these artists"
-msgstr "معاونت کار سائٹ"
+msgstr "ان فنکاروں کی حمایت کریں"
 
 #: src/amo/components/ContributeCard/index.js:64
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
@@ -735,14 +732,12 @@ msgid "The artists of this theme ask that you help support its continued creatio
 msgstr "اس خیالہ کے فنکار اس آپ سے درخواست کرتے ہے کہ آپ اس کی جاری تکمیل کاری کو کچھ مدد دے کر اس کی معاونت کریں۔"
 
 #: src/amo/components/ContributeCard/index.js:73
-#, fuzzy
 msgid "Support this author"
-msgstr "معاونت کار سائٹ"
+msgstr "اس مصنف کی حمایت کریں"
 
 #: src/amo/components/ContributeCard/index.js:74
-#, fuzzy
 msgid "Support these authors"
-msgstr "معاونت کار سائٹ"
+msgstr "ان مصنفین کی حمایت کریں"
 
 #: src/amo/components/ContributeCard/index.js:78
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
@@ -753,9 +748,8 @@ msgid "The authors of this add-on ask that you help support its continued work b
 msgstr "اس ایڈ اون کے مصنف آپ سے درخواست کرتے ہے کہ آپ اس کی جاری تکمیل کاری کو کچھ مدد دے کر اس کی معاونت کریں۔"
 
 #: src/amo/components/EditableCollectionAddon/index.js:133 src/amo/components/EditableCollectionAddon/index.js:151
-#, fuzzy
 msgid "Leave a note"
-msgstr "قانونی نوٹس"
+msgstr "ایک نوٹ چھوڑ دی‏ں"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143 src/core/components/AMInstallButton/index.js:235
 msgid "Remove"
