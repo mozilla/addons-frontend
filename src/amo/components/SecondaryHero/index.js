@@ -82,7 +82,7 @@ export const SecondaryHeroBase = ({
             {...getLinkProps(module.cta)}
           >
             <span className="SecondaryHero-module-linkText">
-              {module.cta.text}
+              {module.cta && module.cta.text}
             </span>
           </Link>
         )}
