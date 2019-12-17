@@ -171,8 +171,5 @@ workflows:
             tags:
               ignore: /.*/
       - integration-test:
-          filters:
-            branches:
-              only: master
             tags:
               ignore: /.*/
