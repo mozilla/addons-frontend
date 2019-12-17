@@ -4,6 +4,7 @@ module.exports = {
   proxyApiHost: 'http://olympia.test',
   proxyPort: 3000,
   proxyEnabled: true,
+  mozillaUserId: 10968,
 
   CSP: false,
 
