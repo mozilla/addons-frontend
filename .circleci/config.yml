@@ -151,7 +151,7 @@ jobs:
           environment:
             MOZ_HEADLESS: 1
             PYTEST_ADDOPTS: -n 4 --reruns 1
-          command: tests/frontend/run-integration-tests.sh
+          command: ./tests/frontend/run-integration-tests.sh
       - store_artifacts:
           path: addons-server/ui-test.html
 workflows:
