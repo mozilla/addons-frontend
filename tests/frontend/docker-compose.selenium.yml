@@ -19,6 +19,9 @@ x-env-mapping: &env
     - PYTEST_ADDOPTS=${PYTEST_ADDOPTS}
 
 services:
+  addons-frontend:
+    image: addons-frontend
+    build: ../.
   selenium-firefox:
     <<: *env
     image: b4handjr/selenium-firefox:python3-latest

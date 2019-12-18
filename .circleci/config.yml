@@ -150,6 +150,7 @@ jobs:
           name: Run tests
           environment:
             MOZ_HEADLESS: 1
+            # pytest options for running 4 tests in parallel, and rerunning a test once
             PYTEST_ADDOPTS: -n 4 --reruns 1
           command: ./tests/frontend/run-integration-test.sh
       - store_artifacts:
