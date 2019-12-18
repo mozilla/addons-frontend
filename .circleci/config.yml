@@ -150,8 +150,9 @@ jobs:
           name: Run tests
           environment:
             MOZ_HEADLESS: 1
-            PYTEST_ADDOPTS: -k "test_search or test_home" -n 4 --reruns 1
-          command: ./tests/ui/run-functional-tests.sh
+            # pytest options for running 4 tests in parallel, and rerunning a test once
+            PYTEST_ADDOPTS: -n 4 --reruns 1
+          command: ./tests/frontend/run-integration-test.sh
       - store_artifacts:
           path: addons-server/ui-test.html
 workflows:
