@@ -171,4 +171,9 @@ workflows:
               only: master
             tags:
               ignore: /.*/
-      - integration-test
+      - integration-test:
+        filters:
+          branches:
+            only: master
+          tags:
+            ignore: /.*/

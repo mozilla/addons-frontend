@@ -21,4 +21,4 @@ docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-comp
 sudo chown -R  $USER:$USER .
 docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml exec selenium-firefox pip3 install --user --no-deps -r tests/frontend/requirements.txt
 docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml up -d
-docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml exec selenium-firefox python3 -m pytest tests/frontend --driver Firefox
+docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml exec selenium-firefox python3 -m pytest tests/frontend --driver Firefox -vv
