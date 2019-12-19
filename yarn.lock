@@ -7352,10 +7352,10 @@ hosted-git-info@^2.1.4:
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.5.tgz#759cfcf2c4d156ade59b0b2dfabddc42a6b9c70c"
   integrity sha512-kssjab8CvdXfcXMXVcvsXum4Hwdq9XGtRD3TteMEvEbq0LXyiNQr6AprqKqfeaDXze7SxWvRxdpwE6ku7ikLkg==
 
-hot-shots@6.8.3:
-  version "6.8.3"
-  resolved "https://registry.yarnpkg.com/hot-shots/-/hot-shots-6.8.3.tgz#9c829c59d6f5d83d8a64795f53f99830e8acbb0a"
-  integrity sha512-cI6NV4WfDKqzK7odSNG9BnT3MZ78SHsC1HLLmpsTjzOSI6qwjX80Sab+q2y2KTrAX3AdA5BLC81HM7yc9TTYjA==
+hot-shots@6.8.4:
+  version "6.8.4"
+  resolved "https://registry.yarnpkg.com/hot-shots/-/hot-shots-6.8.4.tgz#5cba3e2996f73bf99bec7b89123a16c6a44cfc6e"
+  integrity sha512-vK6ol78PpG5VkCkytsjj/KGWl1rortWQhRXr+wLQ5gjBKaGeD4LBKHZqT3Mc8iepD3fdGEvVo21tC/Nrkh8sCw==
   optionalDependencies:
     unix-dgram "2.0.x"
 
