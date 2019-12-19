@@ -41,12 +41,24 @@
   }
 }
 
+.HeroRecommendation-image-wrapper {
+  @include respond-to(medium) {
+    flex: 40%;
+  }
+
+  @include respond-to(extraExtraLarge) {
+    flex: initial;
+  }
+}
+
 .HeroRecommendation-info {
   display: flex;
   flex-direction: column;
 
   @include respond-to(medium) {
     @include margin-start(24px);
+
+    flex: 60%;
   }
 
   @include respond-to(extraLarge) {
@@ -55,6 +67,8 @@
 
   @include respond-to(extraExtraLarge) {
     @include margin-start(132px);
+
+    flex: initial;
   }
 }
 

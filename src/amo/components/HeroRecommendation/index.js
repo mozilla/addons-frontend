@@ -164,7 +164,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
 
           <div className="HeroRecommendation-content">
             {featuredImage && (
-              <div>
+              <div className="HeroRecommendation-image-wrapper">
                 <img
                   className="HeroRecommendation-image"
                   alt=""
