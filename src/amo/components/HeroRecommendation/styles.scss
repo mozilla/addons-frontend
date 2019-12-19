@@ -41,31 +41,34 @@
   }
 }
 
+.HeroRecommendation-image-wrapper {
+  @include respond-to(medium) {
+    flex: 40%;
+  }
+
+  @include respond-to(extraExtraLarge) {
+    flex: initial;
+  }
+}
+
 .HeroRecommendation-info {
   display: flex;
-  flex: 1 1 0;
   flex-direction: column;
 
   @include respond-to(medium) {
     @include margin-start(24px);
+
+    flex: 60%;
   }
 
   @include respond-to(extraLarge) {
     @include margin-start(96px);
-
-    flex: 1;
   }
 
   @include respond-to(extraExtraLarge) {
     @include margin-start(132px);
-  }
-}
 
-.HeroRecommendation-image-container {
-  flex: 1 1 0;
-
-  @include respond-to(extraLarge) {
-    flex: 0 1 auto;
+    flex: initial;
   }
 }
 
