@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-21 13:45+0000\n"
+"PO-Revision-Date: 2019-12-21 14:26+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -702,9 +702,8 @@ msgid "Support this developer"
 msgstr "اس کے ڈویلپر کی حمایت کریں"
 
 #: src/amo/components/ContributeCard/index.js:46
-#, fuzzy
 msgid "Support these developers"
-msgstr "ان تخلیقار کی جانبسے مزید توسیعات"
+msgstr "ان ڈویلپرز کی حمایت کریں"
 
 #: src/amo/components/ContributeCard/index.js:50
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -715,9 +714,8 @@ msgid "The developers of this extension ask that you help support its continued 
 msgstr "اس توسیع کے ڈیولپر آپ سے درخواست کرتے ہے کہ آپ اس کی جاری تکمیل کاری کو کچھ مدد دے کر اس کی معاونت کریں۔"
 
 #: src/amo/components/ContributeCard/index.js:59
-#, fuzzy
 msgid "Support this artist"
-msgstr "معاونت کار سائٹ"
+msgstr "اس فنکاروں کی حمایت کریں"
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support these artists"
@@ -1033,9 +1031,8 @@ msgid "Log out"
 msgstr "لاگ آؤٹ"
 
 #: src/amo/components/Header/index.js:63
-#, fuzzy
 msgid "Firefox Browser Add-ons"
-msgstr "Firefox اظافہ حات"
+msgstr "Firefox براؤزر ایڈ اون"
 
 #: src/amo/components/Header/index.js:94
 #, fuzzy
@@ -1056,14 +1053,12 @@ msgid "Stay Safe Online"
 msgstr "آن لائن محفوظ رہیں"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:280
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "نشانیاں"
+msgstr "ٹیبز اور بُک مارکس کو منظم کریں"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "اپنے تجربے کی شرح کاری کریں"
+msgstr "اپنے میڈیا کے تجربے کو بہتر بنائیں"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
@@ -1325,9 +1320,8 @@ msgid "We have received your report. Thanks for letting us know about your conce
 msgstr ""
 
 #: src/amo/components/Search/index.js:116 src/amo/components/SearchResults/index.js:68
-#, fuzzy
 msgid "Search results"
-msgstr "خیالہ تلاش کریں"
+msgstr "تلاش کے نتائج"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:272 src/amo/pages/LandingPage/index.js:123
 msgid "Recommended extensions"
