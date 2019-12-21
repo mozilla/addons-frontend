@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-12 18:11+0000\n"
-"PO-Revision-Date: 2019-12-21 13:27+0000\n"
+"PO-Revision-Date: 2019-12-21 13:41+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -104,7 +104,7 @@ msgstr ""
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
@@ -143,11 +143,11 @@ msgstr "تنصیب کے دوران ایک غیر متوقع نقص پہش آیا
 
 #: src/core/utils/addons.js:40
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "ان انسٹال کے دوران ایک غیر متوقع نقص پیش آیا ہے۔"
 
 #: src/core/utils/addons.js:45
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "ایک غیرمتوقع نقص پیش آگیا ہے۔"
 
 #: src/disco/components/Addon/index.js:85
 msgid "Close"

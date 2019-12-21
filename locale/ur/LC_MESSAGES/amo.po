@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-21 13:32+0000\n"
+"PO-Revision-Date: 2019-12-21 13:45+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -16,11 +16,11 @@ msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:176
 msgid "Loading…"
-msgstr "لوڈ ہو رہا ہے…"
+msgstr "لوڈ کر رہا ہے…"
 
 #: src/amo/components/AddAddonToCollection/index.js:178
 msgid "Adding…"
-msgstr "اضافہ ہو رہا ہے…"
+msgstr "اضافہ کر رہا ہے…"
 
 #: src/amo/components/AddAddonToCollection/index.js:194
 msgid "Select a collection…"
@@ -389,7 +389,7 @@ msgstr "حزف کر رہا ہے…"
 
 #: src/amo/components/AddonReviewCard/index.js:473
 msgid "Reply to this review"
-msgstr ""
+msgstr "اس جائزے کا جواب دیں"
 
 #: src/amo/components/AddonReviewCard/index.js:503
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
@@ -1587,9 +1587,8 @@ msgid "No results were found."
 msgstr "کوئى نتائج نہيں ملے تھے۔"
 
 #: src/amo/components/SearchSuggestion/index.js:52 src/ui/components/RecommendedBadge/index.js:28
-#, fuzzy
 msgid "Recommended"
-msgstr "‏‏صارف کی رائے"
+msgstr "تجویز کردہ"
 
 #: src/amo/components/SectionLinks/index.js:117
 msgid "Explore"
@@ -1735,7 +1734,7 @@ msgstr "%(addonVersion)s کے لئے ریلیز نوٹ"
 
 #: src/amo/pages/Addon/index.js:448
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "یہ عوامی فہرست نہیں ہے۔ آپ اسے صرف اعلی درجے کی اجازت ہونے کی وجہ سے دیکھ رہے ہیں۔"
 
 #: src/amo/pages/Addon/index.js:476
 msgid "Extension Metadata"
@@ -1832,14 +1831,12 @@ msgid "You should always use the latest version of an add-on."
 msgstr "آپ کو ہمیشہ ایڈ اون کا تازہ ترین ورژن استعمال کرنا چاہئے۔"
 
 #: src/amo/pages/AddonVersions/index.js:190
-#, fuzzy
 msgid "Latest version"
-msgstr "بیٹا ورژن"
+msgstr "تازہ ترین ورژن"
 
 #: src/amo/pages/AddonVersions/index.js:199
-#, fuzzy
 msgid "Older versions"
-msgstr "تمام ورژن دیکھیں"
+msgstr "پرانے ورژن"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 #, fuzzy
@@ -2537,9 +2534,8 @@ msgid "Introduce %(userName)s to the community"
 msgstr "کمیونٹی کو %(username)s سے متعارف کروائیں"
 
 #: src/amo/pages/UserProfileEdit/index.js:490
-#, fuzzy
 msgid "Log in to edit the profile"
-msgstr "تمام توسیعات براؤز کریں"
+msgstr "پروفائل میں تدوین کرنے کے لئے لاگ ان کریں"
 
 #: src/amo/pages/UserProfileEdit/index.js:512
 #, fuzzy
@@ -2547,29 +2543,24 @@ msgid "Creating your profile…"
 msgstr "صارف کی پروفائل کی تدوین کریں دیکھیں"
 
 #: src/amo/pages/UserProfileEdit/index.js:513
-#, fuzzy
 msgid "Create My Profile"
-msgstr "ایک جائزہ لکھیں"
+msgstr "میری پروفائل بنائیں"
 
 #: src/amo/pages/UserProfileEdit/index.js:517
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "صارف کی پروفائل کی تدوین کریں دیکھیں"
+msgstr "آُپ کی پروفائل کی تازہ کاری کر رہے ہیں…"
 
 #: src/amo/pages/UserProfileEdit/index.js:518
-#, fuzzy
 msgid "Update My Profile"
-msgstr "ایک جائزہ لکھیں"
+msgstr "میری پروفائل کی تازہ کاری کریں"
 
 #: src/amo/pages/UserProfileEdit/index.js:521
-#, fuzzy
 msgid "Updating profile…"
-msgstr "ایک جائزہ لکھیں"
+msgstr "پروفائل کی تازہ کاری کر رہے ہیں…"
 
 #: src/amo/pages/UserProfileEdit/index.js:522
-#, fuzzy
 msgid "Update Profile"
-msgstr "ایک جائزہ لکھیں"
+msgstr "پروفائل کی تازہ کاری کریں"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "View user's profile"
