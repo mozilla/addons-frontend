@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-04 03:09+0000\n"
+"PO-Revision-Date: 2019-12-21 02:50+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -1089,11 +1089,11 @@ msgstr "輸入資料到剪貼簿"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
-msgstr "讓開發者工具可存取您在已開啟分頁中的資料"
+msgstr "讓開發者工具可存取您在開啟分頁中的資料"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
-msgstr "下載檔案，並讀取或修改瀏覽器的下載紀錄"
+msgstr "下載檔案、讀取或修改瀏覽器的下載紀錄"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
@@ -1105,11 +1105,11 @@ msgstr "讀取所有開啟分頁當中的文字內容"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access your location"
-msgstr "存取您的所在位置"
+msgstr "取得您的所在位置"
 
 #: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
 msgid "Access browsing history"
-msgstr "存取瀏覽紀錄"
+msgstr "取得瀏覽紀錄"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
@@ -1133,11 +1133,11 @@ msgstr "控制瀏覽器代理伺服器設定"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Read and modify privacy settings"
-msgstr "讀取並修改隱私設定"
+msgstr "讀取或修改隱私設定"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access recently closed tabs"
-msgstr "存取瀏覽器最近關閉的分頁"
+msgstr "取得最近關閉的分頁"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser tabs"
