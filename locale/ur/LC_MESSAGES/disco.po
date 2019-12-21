@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-12 18:11+0000\n"
-"PO-Revision-Date: 2019-07-10 08:34+0000\n"
+"PO-Revision-Date: 2019-12-21 13:27+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -15,20 +15,15 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/InstallWarning/index.js:159
-#, fuzzy
 msgid "Learn more"
 msgstr "مزید سیکھیں"
 
 #: src/amo/components/InstallWarning/index.js:168
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
+msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
 msgstr ""
 
 #: src/amo/components/InstallWarning/index.js:170
-msgid ""
-"This is not a Recommended Extension. Make sure you trust it before "
-"installing."
+msgid "This is not a Recommended Extension. Make sure you trust it before installing."
 msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:232
@@ -44,14 +39,12 @@ msgid "Enabling"
 msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:239
-#, fuzzy
 msgid "Downloading"
-msgstr "%(name)s ڈائونلوڈ ہو رہا ہے۔"
+msgstr "ڈائونلوڈ ہو رہا ہے۔"
 
 #: src/core/components/AMInstallButton/index.js:241
-#, fuzzy
 msgid "Installing"
-msgstr "%(name)s تنصِب کر رہا ہے۔"
+msgstr "تنصیب کر رہا ہے"
 
 #: src/core/components/AMInstallButton/index.js:243
 msgid "Uninstalling"
@@ -70,13 +63,10 @@ msgid "Server Error"
 msgstr "پیش کار کا نقص"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr ""
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr ""
 
@@ -184,9 +174,8 @@ msgid "Privacy Policy"
 msgstr "رازداری پالیسی"
 
 #: src/disco/pages/DiscoPane/index.js:166
-#, fuzzy
 msgid "Find more add-ons"
-msgstr "ایڈ-اون کے متعلق مزید جاننے کے لیئے"
+msgstr "ایڈ-اون کے متعلق مزید جاننیے"
 
 #: src/disco/pages/DiscoPane/index.js:188
 msgid "Personalize Your Firefox"
@@ -194,11 +183,8 @@ msgstr "اپنے Firefox کو ذاتی بنایں"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
 
 #: src/disco/pages/DiscoPane/index.js:207
@@ -206,9 +192,7 @@ msgid "Learn More"
 msgstr "مزید سیکھیں"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
 msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
@@ -238,9 +222,7 @@ msgstr ""
 #~ msgstr "%(name)s تنصِب کر رہا ہے۔"
 
 #~ msgid "Please restart Firefox to use this add-on."
-#~ msgstr ""
-#~ "براہ مہربانی اس ایڈ-اون کو استعمال کرنے کے لیئے Firefox کو دوبارہ شروع "
-#~ "کریں۔"
+#~ msgstr "براہ مہربانی اس ایڈ-اون کو استعمال کرنے کے لیئے Firefox کو دوبارہ شروع کریں۔"
 
 #~ msgid "Your add-on is ready"
 #~ msgstr "آپ کا ایڈ-ان تیار ہے"

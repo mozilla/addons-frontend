@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-16 17:25+0000\n"
+"PO-Revision-Date: 2019-12-21 13:32+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -105,7 +105,7 @@ msgstr "iOS کے لئے Firefox فی الحال ایڈاون کی حمایت ن�
 
 #: src/amo/components/AddonCompatibilityError/index.js:134
 msgid "Firefox Preview does not currently support add-ons."
-msgstr ""
+msgstr "Preview Firefox فی الحال ایڈاون کی حمایت نہیں کرتا ہے۔"
 
 #: src/amo/components/AddonCompatibilityError/index.js:138
 msgid "This add-on is not available on your platform."
@@ -304,7 +304,7 @@ msgstr "دیگر مقبول توسیعات"
 
 #: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit reply"
-msgstr ""
+msgstr "جواب میں تدوین کریں"
 
 #: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
@@ -316,7 +316,7 @@ msgstr "میرا جواب کو حزف کریں"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
-msgstr ""
+msgstr "درجہ بندی کو حذف کریں"
 
 #: src/amo/components/AddonReviewCard/index.js:212 src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
@@ -349,7 +349,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep rating"
-msgstr ""
+msgstr "درجہ بندی رکھیں"
 
 #: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep review"
@@ -436,7 +436,7 @@ msgstr "اس توسیع کے بارے میں دنیا کو بتائیں۔ برا
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "آپ کی ستارہ کی درجہ بندی:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
@@ -541,7 +541,7 @@ msgstr ","
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:77 src/amo/components/AddonTitle/index.js:81
 msgid "by"
-msgstr ""
+msgstr "کی جانب سے"
 
 #: src/amo/components/AddonVersionCard/index.js:103
 #, fuzzy
@@ -564,7 +564,7 @@ msgstr "کوئی ورژن نہیں ملا"
 
 #: src/amo/components/AddonVersionCard/index.js:59
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "ورژن  %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:83
 msgid "Released %(dateReleased)s - %(fileSize)s"
@@ -1043,9 +1043,8 @@ msgid "Learn how to create extensions and themes"
 msgstr "زیادہ مقبول توسیعات"
 
 #: src/amo/components/HeroRecommendation/index.js:107
-#, fuzzy
 msgid "Get the extension"
-msgstr "نمایاں توسیعات"
+msgstr "ایکسٹینشن حاصل کریں"
 
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:180
@@ -1068,11 +1067,11 @@ msgstr "اپنے تجربے کی شرح کاری کریں"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
-msgstr ""
+msgstr "ایکسٹینشنز آپ کے براؤزر کی ایپس کی طرح ہیں۔"
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "وہ براؤزنگ کو تیز ، تیز ، یا محض سادہ تفریح کرنے کے لئے Firefox میں خصوصیات شامل کرتے ہیں۔"
 
 #: src/amo/components/InstallWarning/index.js:159
 msgid "Learn more"
@@ -1144,9 +1143,8 @@ msgid "Access your location"
 msgstr "اپنے محل وقوع تک رسائی کریں"
 
 #: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
-#, fuzzy
 msgid "Access browsing history"
-msgstr "ورژن سابقات"
+msgstr "برائوزنگ سابقات تک رسائی"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
@@ -1300,7 +1298,7 @@ msgstr "برخاست کریں"
 
 #: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "وضاحت کریں کہ یہ ایڈ اون کس طرح ہماری پالیسیوں کی خلاف ورزی کر رہا ہے۔"
 
 #: src/amo/components/ReportUserAbuse/index.js:106 src/amo/components/ReportUserAbuse/index.js:99
 msgid "Report this user for abuse"
@@ -1316,7 +1314,7 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
-msgstr ""
+msgstr "وضاحت کریں کہ یہ صارف ہماری پالیسیوں کی کس طرح خلاف ورزی کررہا ہے۔"
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "You reported this user for abuse"
@@ -1332,14 +1330,12 @@ msgid "Search results"
 msgstr "خیالہ تلاش کریں"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:272 src/amo/pages/LandingPage/index.js:123
-#, fuzzy
 msgid "Recommended extensions"
-msgstr "توسیعات"
+msgstr "تجویز کردہ ایکسٹنشن"
 
 #: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:335 src/amo/pages/LandingPage/index.js:155
-#, fuzzy
 msgid "Recommended themes"
-msgstr "سب سے زیادہ مقبول خیالیے"
+msgstr "تجویز کردہ تھیمز"
 
 #: src/amo/components/Search/index.js:127
 #, fuzzy
@@ -1833,7 +1829,7 @@ msgstr ""
 
 #: src/amo/pages/AddonVersions/index.js:181
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "آپ کو ہمیشہ ایڈ اون کا تازہ ترین ورژن استعمال کرنا چاہئے۔"
 
 #: src/amo/pages/AddonVersions/index.js:190
 #, fuzzy
@@ -1966,7 +1962,7 @@ msgstr "اس توسیع کے بارے میں دنیا کو بتائیں۔ برا
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "بہتر بک مارکس کے ساتھ بہتر براؤزنگ"
 
 #: src/amo/pages/Guides/index.js:161
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
@@ -1983,7 +1979,7 @@ msgstr "اس توسیع کے بارے میں دنیا کو بتائیں۔ برا
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "تازہ ترین نئے ٹیب کے تجربے سے لطف اٹھائیں"
 
 #: src/amo/pages/Guides/index.js:180
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
