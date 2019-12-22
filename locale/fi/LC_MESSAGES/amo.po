@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-22 14:30+0000\n"
+"PO-Revision-Date: 2019-12-22 14:34+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -1630,7 +1630,7 @@ msgstr "Näet Firefoxin Android-version kanssa yhteensopivat lisäosat käymäll
 
 #: src/amo/components/WrongPlatformWarning/index.js:69
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr ""
+msgstr "Löydät Firefoxin työpöytäversion kanssa yhteensopivat lisäosat <a href=\"%(newLocation)s\">käymällä työpöytäsivustollamme</a>."
 
 #: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
@@ -1757,11 +1757,10 @@ msgid "There are no reviews"
 msgstr "Ei arvioita"
 
 #: src/amo/pages/AddonVersions/index.js:128
-#, fuzzy
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "Lisäosan %(addonName)s versiohistoria - %(total)s versio"
-msgstr[1] "Lisäosan %(addonName)s versiohistoria - %(total)s versiota"
+msgstr[1] ""
 
 #: src/amo/pages/AddonVersions/index.js:176
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
@@ -2463,9 +2462,8 @@ msgid "Tell users a bit more information about yourself. Most fields are optiona
 msgstr "Kerro muille tietoja itsestäsi. Nämä kentät ovat valinnaisia, mutta niiden avulla muut oppivat tuntemaan sinut aiempaa paremmin."
 
 #: src/amo/pages/UserProfileEdit/index.js:447
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Kerro muille käyttäjille hieman lisää tästä käyttäjästä. Nämä kentät ovat valinnaisia, mutta niiden avulla muut käyttäjät oppivat tuntemaan käyttäjän %(username)s aiempaa paremmin."
+msgstr "Kerro muille käyttäjille hieman lisää tästä käyttäjästä. Nämä kentät ovat valinnaisia, mutta niiden avulla muut käyttäjät oppivat tuntemaan käyttäjän %(userName)s aiempaa paremmin."
 
 #: src/amo/pages/UserProfileEdit/index.js:462
 msgid "Introduce yourself to the community if you like"
