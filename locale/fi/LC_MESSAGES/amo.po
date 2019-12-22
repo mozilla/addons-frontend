@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-06 12:45+0000\n"
-"Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
+"PO-Revision-Date: 2019-12-22 14:30+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -1059,9 +1059,8 @@ msgid "This extension isn’t monitored by Mozilla. Make sure you trust the exte
 msgstr "Mozilla ei tarkkaile tätä laajennusta. Varmistu laajennuksen luotettavuudesta, ennen kuin asennat sen."
 
 #: src/amo/components/InstallWarning/index.js:170
-#, fuzzy
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr "Mozilla ei tarkkaile tätä laajennusta. Varmistu laajennuksen luotettavuudesta, ennen kuin asennat sen."
+msgstr "Tämä ei ole suositeltu laajennus. Varmistu laajennuksen luotettavuudesta, ennen kuin asennat sen."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1500,7 +1499,6 @@ msgid "Operating System"
 msgstr "Käyttöjärjestelmä"
 
 #: src/amo/components/SearchFilters/index.js:268
-#, fuzzy
 msgid "Recommended add-ons only"
 msgstr "Vain suositellut lisäosat"
 
@@ -2474,9 +2472,8 @@ msgid "Introduce yourself to the community if you like"
 msgstr "Esittele itsesi yhteisölle, jos haluat"
 
 #: src/amo/pages/UserProfileEdit/index.js:463
-#, fuzzy
 msgid "Introduce %(userName)s to the community"
-msgstr "Esittele %(username)s yhteisölle"
+msgstr "Esittele %(userName)s yhteisölle"
 
 #: src/amo/pages/UserProfileEdit/index.js:490
 msgid "Log in to edit the profile"
