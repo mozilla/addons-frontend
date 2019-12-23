@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-23 15:02+0000\n"
+"PO-Revision-Date: 2019-12-23 15:16+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -772,6 +772,8 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
+"ਪੇਜ ਨੂੰ ਬਾਅਦ ਵਿਚ ਦੇਖਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ, ਕਿਉਂਕਿ ਥੀਮ ਜਾਂ ਵਿਸਥਾਰ ਦੁਬਾਰਾ ਉਪਲਬਧ ਹੋ ਸਕਦਾ ਹੈ। ਵਿਕਲਪਿਕ ਤੌਰ ਤੇ, ਤੁਸੀਂ ਉਹ ਲੱਭਣ ਦੇ ਯੋਗ ਹੋ ਸਕਦੇ ਹੋ ਜੋ ਤੁਸੀਂ ਉਪਲਬਧ %(extensionStart)sਐਕਸਟੈਂਸ਼ਨਾਂ%(extensionEnd)s ਜਾਂ "
+"%(themeStart)sਥੀਮ%(themeEnd)s ਵਿਚ ਲੱਭ ਸਕਦੇ ਹੋ, ਜਾਂ ਸਾਡੇ%(communityStart)sਕਮਿਊਨਿਟੀ ਫੋਰਮ%(communityEnd)s।"
 
 #: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
@@ -1625,7 +1627,7 @@ msgstr "ਫੋਟੋ ਚੁਣੋ…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:62
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "ਐਂਡਰਾਇਡ ਤੇ ਫਾਇਰਫਾਕਸ ਦੇ ਅਨੁਕੂਲ ਐਡ-ਆਨ ਲੱਭਣ ਲਈ, <a href=\"%(newLocation)s\">ਸਾਡੀ ਮੋਬਾਈਲ ਸਾਈਟ ਤੇ ਜਾਓ</a>।"
 
 #: src/amo/components/WrongPlatformWarning/index.js:69
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
@@ -1691,7 +1693,7 @@ msgstr "ਇਕਸਟੈਨਸ਼ਨ ਮੈਟਾਡੇਟਾ"
 
 #: src/amo/pages/Addon/index.js:481
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
+msgstr "ਇਹ ਸੂਚੀ ਇਸ ਪਲੇਟਫਾਰਮ ਲਈ ਨਹੀਂ ਹੈ। <a href=\"%(newLocation)s\">ਐਂਡਰਾਇਡ ਤੇ ਫਾਇਰਫਾਕਸ ਲਈ ਐਡ-ਆਨ ਬਰਾਊਜ਼ਰ ਕਰੋ </a>।"
 
 #: src/amo/pages/Addon/index.js:485
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
