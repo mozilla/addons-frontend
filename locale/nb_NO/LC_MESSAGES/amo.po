@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-23 00:07+0000\n"
+"PO-Revision-Date: 2019-12-23 00:39+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -460,7 +460,7 @@ msgstr "Lagrer"
 
 #: src/amo/components/AddonReviewManager/index.js:145
 msgid "Saved"
-msgstr ""
+msgstr "Lagret"
 
 #: src/amo/components/AddonReviewManager/index.js:89
 #, fuzzy
@@ -469,7 +469,7 @@ msgstr "Fortell verden hvorfor du synes denne utvidelsen er fantastisk!"
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "Din vurdering:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
@@ -575,12 +575,12 @@ msgstr[1] "Vurdert %(rating)s ut av 5"
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:42
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:77 src/amo/components/AddonTitle/index.js:81
 msgid "by"
-msgstr ""
+msgstr "av"
 
 #: src/amo/components/AddonVersionCard/index.js:103
 #, fuzzy
@@ -604,11 +604,11 @@ msgstr "Fant ingen utvidelser"
 
 #: src/amo/components/AddonVersionCard/index.js:59
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Versjon %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:83
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Utgitt %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:185 src/amo/components/HeadMetaTags/index.js:79
 #, fuzzy
@@ -666,7 +666,7 @@ msgstr "Bla gjennom alle utvidelser"
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Finn en utvidelse å inkludere i denne samlingen"
 
 #: src/amo/components/CollectionDetails/index.js:103
 #, fuzzy
@@ -698,7 +698,7 @@ msgstr "Bla gjennom alle utvidelser"
 
 #: src/amo/components/CollectionManager/index.js:241
 msgid "Save changes"
-msgstr ""
+msgstr "Lagre endringer"
 
 #: src/amo/components/CollectionManager/index.js:250
 msgid "Collection name"
@@ -710,7 +710,7 @@ msgstr "Beskrivelse"
 
 #: src/amo/components/CollectionManager/index.js:276
 msgid "Custom URL"
-msgstr ""
+msgstr "Tilpasset URL"
 
 #: src/amo/components/CollectionSort/index.js:104
 #, fuzzy
@@ -719,15 +719,15 @@ msgstr "Høyest vurderte utvidelser"
 
 #: src/amo/components/CollectionSort/index.js:80
 msgid "Newest first"
-msgstr ""
+msgstr "Nyeste først"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Oldest first"
-msgstr ""
+msgstr "Eldste først"
 
 #: src/amo/components/CollectionSort/index.js:88
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 #: src/amo/components/CollectionSort/index.js:92
 #, fuzzy
