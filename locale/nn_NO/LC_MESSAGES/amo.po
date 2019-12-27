@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-22 18:56+0000\n"
+"PO-Revision-Date: 2019-12-27 17:44+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1023,7 +1023,7 @@ msgstr "Last ned utvidinga"
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "RECOMMENDED"
-msgstr ""
+msgstr "TILRÅDDE"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
@@ -1047,7 +1047,7 @@ msgstr "Dei legg til funksjonar i Firefox for å gjere surfinga raskare, smartar
 
 #: src/amo/components/InstallWarning/index.js:159
 msgid "Learn more"
-msgstr ""
+msgstr "Les meir"
 
 #: src/amo/components/InstallWarning/index.js:168
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
@@ -1623,7 +1623,7 @@ msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:69
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr ""
+msgstr "For å finne tillegg som er kompatible med Firefox for datamaskiner, <a href=\"%(newLocation)s\">gå til sida vår for datamaskiner</a>."
 
 #: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
@@ -2546,11 +2546,11 @@ msgstr "Slett profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:829
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "VIKTIG: Sletting av Firefox-tilleggsprofilen din kan ikkje angrast."
 
 #: src/amo/pages/UserProfileEdit/index.js:832
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "VIKTIG: Sletting av Firefox-tilleggsprofilen din kan ikkje angrast."
 
 #: src/amo/pages/UserProfileEdit/index.js:841
 msgid ""
@@ -2852,7 +2852,7 @@ msgstr ""
 
 #: src/ui/components/ShowMoreCard/index.js:126
 msgid "Expand to read more"
-msgstr ""
+msgstr "Utvid for å lese meir"
 
 #: src/ui/components/ShowMoreCard/index.js:131
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
