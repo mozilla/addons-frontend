@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-26 19:59+0000\n"
+"PO-Revision-Date: 2019-12-29 10:23+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -2166,9 +2166,8 @@ msgid "Tell your friends and family that Firefox is a fast, secure browser that 
 msgstr "Kerro kavereillesi ja perheellesi, että Firefox on nopea ja turvallinen selain; se suojelee yksityisyyttä, ja sen voi muokata mieleisekseen lisäosilla!"
 
 #: src/amo/pages/StaticPages/About/index.js:175
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "Muita tapoja osallistua lisäosayhteisön toimintaan on lueteltu %(startLink)swikissä%(endLink)s"
+msgstr "Muita tapoja osallistua lisäosayhteisön toimintaan on lueteltu %(startLink)swikissä%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:189
 msgid "Get support"
