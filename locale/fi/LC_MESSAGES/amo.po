@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-30 17:29+0000\n"
+"PO-Revision-Date: 2019-12-30 19:16+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -44,24 +44,20 @@ msgid "Add to collection"
 msgstr "Lisää kokoelmaan"
 
 #: src/amo/components/AddonAdminLinks/index.js:100
-#, fuzzy
 msgid "Admin add-on"
-msgstr "Etsi lisäosia"
+msgstr "Ylläpidon lisäosa"
 
 #: src/amo/components/AddonAdminLinks/index.js:112
-#, fuzzy
 msgid "Content review add-on"
-msgstr "joku kirjoittaa arvion lisäosastani"
+msgstr "Sisältökatselmoi lisäosa"
 
 #: src/amo/components/AddonAdminLinks/index.js:119
-#, fuzzy
 msgid "Review theme"
-msgstr "Tarkista teksti"
+msgstr "Katselmoi teema"
 
 #: src/amo/components/AddonAdminLinks/index.js:121
-#, fuzzy
 msgid "Review add-on code"
-msgstr "Arviot lisäosalle %(addonName)s"
+msgstr "Katselmoi lisäosan koodi"
 
 #: src/amo/components/AddonAdminLinks/index.js:141
 msgid "Admin Links"
@@ -72,9 +68,8 @@ msgid "Edit add-on"
 msgstr "Muokkaa lisäosaa"
 
 #: src/amo/components/AddonAdminLinks/index.js:87
-#, fuzzy
 msgid "Admin add-on status"
-msgstr "Ladataan lisäosia"
+msgstr "Ylläpidon lisäosan tila"
 
 #: src/amo/components/AddonBadges/index.js:47
 msgid "Restart Required"
@@ -765,13 +760,12 @@ msgid "Sorry, but you aren't authorized to access this page. If you aren't signe
 msgstr "Valitettavasti valtuutesi eivät riitä tämän sivun näkemiseen. Jos et ole kirjautunut sisään, kirjaudu sisään sivun yläosassa olevan kirjautumislinkin kautta."
 
 #: src/amo/components/Errors/NotFound/index.js:28
-#, fuzzy
 msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Kokeile käydä sivulla myöhemmin, sillä teema tai laajennus saattaa tulla uudelleen saataville. Voit vaihtoehtoisesti löytää etsimäsi saatavilla olevista %(linkStart)slaajennuksista%(linkEnd)s tai "
-"%(secondLinkStart)steemoista%(secondLinkEnd)s."
+"Kokeile käydä sivulla myöhemmin, sillä teema tai laajennus saattaa tulla uudelleen saataville. Voit vaihtoehtoisesti löytää etsimäsi saatavilla olevista "
+"%(extensionStart)sslaajennuksista%(extensionEnd)s tai %(themeStart)steemoista%(themeEnd)s, tai pyytämällä apua %(communityStart)syhteisön keskustelualueilla%(communityEnd)s."
 
 #: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
