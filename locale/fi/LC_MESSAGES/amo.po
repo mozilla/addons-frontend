@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-29 10:23+0000\n"
+"PO-Revision-Date: 2019-12-30 17:29+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -1358,11 +1358,10 @@ msgstr[0] "%(count)s hakutyökalu löytyi"
 msgstr[1] "%(count)s hakutyökalua löytyi"
 
 #: src/amo/components/SearchContextCard/index.js:121
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s teema löytyi haulla \"%(query)s\""
-msgstr[1] "%(count)s teemaa löytyi haulla \"%(query)s\""
+msgstr[0] "%(count)s teema löytyi haulla \"%(query)s\" luokasta %(categoryName)s"
+msgstr[1] "%(count)s teemaa löytyi haulla \"%(query)s\" luokasta %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:130
 msgid "%(count)s theme found in %(categoryName)s"
@@ -1403,18 +1402,16 @@ msgid "Searching for add-ons"
 msgstr "Etsitään lisäosia"
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s laajennus löytyi haulla \"%(query)s\""
-msgstr[1] "%(count)s laajennusta löytyi haulla \"%(query)s\""
+msgstr[0] "%(count)s laajennus löytyi haulla \"%(query)s\" luokasta %(categoryName)s"
+msgstr[1] "%(count)s laajennusta löytyi haulla \"%(query)s\" luokasta %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(count)s laajennus löytyi haulla \"%(query)s\""
-msgstr[1] "%(count)s laajennusta löytyi haulla \"%(query)s\""
+msgstr[0] "%(count)s laajennus löytyi luokasta %(categoryName)s"
+msgstr[1] "%(count)s laajennusta löytyi luokasta %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1760,7 +1757,7 @@ msgstr "Ei arvioita"
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
 msgstr[0] "Lisäosan %(addonName)s versiohistoria - %(total)s versio"
-msgstr[1] ""
+msgstr[1] "Lisäosan %(addonName)s versiohistoria - %(total)s versiota"
 
 #: src/amo/pages/AddonVersions/index.js:176
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
@@ -2148,6 +2145,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Haluatko olla vuorovaikutuksessa addons.mozilla.org-sivuston (AMO) kanssa ohjelmallisesti? Tutustu %(startAddonsServerDocumentation)slisäosapalvelimien "
+"dokumentaatioon%(endAddonsServerDocumentation)s saadaksesi lisätietoja AMO:n ja %(startAddonsManager)sLisäosien hallinnan%(endAddonsManager)s käyttämistä rajapinnoista."
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
