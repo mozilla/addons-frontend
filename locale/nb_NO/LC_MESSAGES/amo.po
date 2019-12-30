@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-23 00:39+0000\n"
+"PO-Revision-Date: 2019-12-30 21:11+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -750,11 +750,11 @@ msgstr "Flere utvidelser fra disse utviklerne"
 
 #: src/amo/components/ContributeCard/index.js:50
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Utvikleren av denne utvidelsen spør om du kan hjelpe til med å støtte den videre utviklingen ved å gi et lite bidrag."
 
 #: src/amo/components/ContributeCard/index.js:52
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Utviklerene av denne utvidelsen spør om du kan hjelpe til med å støtte den videre utviklingen ved å gi et lite bidrag."
 
 #: src/amo/components/ContributeCard/index.js:59
 #, fuzzy
@@ -768,11 +768,11 @@ msgstr "Flere temaer av disse artistene"
 
 #: src/amo/components/ContributeCard/index.js:64
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Artisten bak dette temaet spør om du kan hjelpe til med å støtte en videreutvikling av temaet ved å gi et lite bidrag."
 
 #: src/amo/components/ContributeCard/index.js:66
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Artistene bak dette temaet spør om du kan hjelpe til med å støtte en videreutvikling av temaet ved å gi et lite bidrag."
 
 #: src/amo/components/ContributeCard/index.js:73
 #, fuzzy
@@ -786,11 +786,11 @@ msgstr "Flere temaer av %(author)s"
 
 #: src/amo/components/ContributeCard/index.js:78
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Utvikleren av denne utvidelsen spør om du kan hjelpe til med å støtte en videreutvikling ved å gi et lite bidrag."
 
 #: src/amo/components/ContributeCard/index.js:80
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Utviklerene av denne utvidelsen spør om du kan hjelpe til med å støtte en videreutvikling ved å gi et lite bidrag."
 
 #: src/amo/components/EditableCollectionAddon/index.js:133 src/amo/components/EditableCollectionAddon/index.js:151
 #, fuzzy
@@ -799,7 +799,7 @@ msgstr "Juridiske merknader"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143 src/core/components/AMInstallButton/index.js:235
 msgid "Remove"
-msgstr ""
+msgstr "Fjern"
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
 #, fuzzy
@@ -813,11 +813,11 @@ msgstr "Om denne %(addonType)s"
 
 #: src/amo/components/EditableCollectionAddon/index.js:168
 msgid "Save"
-msgstr ""
+msgstr "Lagre"
 
 #: src/amo/components/EditableCollectionAddon/index.js:189
 msgid "Edit"
-msgstr ""
+msgstr "Rediger"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:26
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -840,11 +840,11 @@ msgstr ""
 
 #: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Ups! Vi kan ikke finne den siden"
 
 #: src/amo/components/Errors/NotFound/index.js:85
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Hvis du har fulgt en link fra en annen nettside til en utvidelse eller tema, er den ikke lenger tilgjengelig. Dette kan skyldes:"
 
 #: src/amo/components/Errors/NotFound/index.js:91
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
