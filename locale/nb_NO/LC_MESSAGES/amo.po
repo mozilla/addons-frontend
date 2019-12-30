@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-30 21:11+0000\n"
+"PO-Revision-Date: 2019-12-30 21:29+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -848,13 +848,15 @@ msgstr "Hvis du har fulgt en link fra en annen nettside til en utvidelse eller t
 
 #: src/amo/components/Errors/NotFound/index.js:91
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "Utvikleren fjernet utvidelsen eller temaer. Utviklere gjør det vanligvis fordi de ikke lenger støtter utvidelsen eller temaet, eller fordi de ha laget en erstatning."
 
 #: src/amo/components/Errors/NotFound/index.js:96
 msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla fjernet det. Dette kan hende når et problem blir oppdaget under gjenomgangen av utvidelsen eller temaet, eller utvidelsen eller temaet har misbrukt vilkårene for addons.mozilla.org. "
+"Utvikleren har mulighet til å løse problemene og gjøre tillegget tilgjengelig igjen."
 
 #: src/amo/components/Errors/ServerError/index.js:21
 msgid ""
@@ -888,19 +890,19 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:103
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Dette er en feilrapport eller et brukerstøttespørsmål"
 
 #: src/amo/components/FlagReviewMenu/index.js:106
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Rapportert som feilrapport eller brukerstøttespørsmål"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
-msgstr ""
+msgstr "Flagget"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
-msgstr ""
+msgstr "Flagg"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 #, fuzzy
@@ -924,11 +926,11 @@ msgstr "Logg inn for å vurdere dette temaet"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Du kan ikke flagge ditt eget svar"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Du kan ikke flagge din egen vurdering"
 
 #: src/amo/components/FlagReviewMenu/index.js:78
 msgid "This is spam"
@@ -936,15 +938,15 @@ msgstr "Dette er spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:79
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Flagget som spam (søppel)"
 
 #: src/amo/components/FlagReviewMenu/index.js:89
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Dette inneholder upassende språkbruk"
 
 #: src/amo/components/FlagReviewMenu/index.js:90
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Flagget på grunn av upassende språkbruk"
 
 #: src/amo/components/Footer/index.js:104
 msgid "Site Status"
@@ -1035,11 +1037,11 @@ msgstr "Vurderingstekst"
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
-msgstr ""
+msgstr "Bare med Firefox — Få Firefox nå"
 
 #: src/amo/components/Header/index.js:104
 msgid "Submit and manage extensions and themes"
-msgstr ""
+msgstr "Send inn og håndter utvidelser og temaer"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1073,7 +1075,7 @@ msgstr "Send inn et nytt tema"
 
 #: src/amo/components/Header/index.js:169
 msgid "Manage My Submissions"
-msgstr ""
+msgstr "Håndter mine bidrag"
 
 #: src/amo/components/Header/index.js:179
 #, fuzzy
@@ -1106,11 +1108,11 @@ msgstr "Utvalgte utvidelser"
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "RECOMMENDED"
-msgstr ""
+msgstr "ANBEFALT"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
-msgstr ""
+msgstr "Surf sikkert på nettet"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:280
 #, fuzzy
@@ -1124,23 +1126,23 @@ msgstr "Vurder din opplevelse"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
-msgstr ""
+msgstr "Utvidelser er som apper for nettleseren din."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "De legger til funksjoner i Firefox for å gjøre nettsurfing raskere, smartere eller rett og slett morsommere."
 
 #: src/amo/components/InstallWarning/index.js:159
 msgid "Learn more"
-msgstr ""
+msgstr "Les mer"
 
 #: src/amo/components/InstallWarning/index.js:168
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr ""
+msgstr "Denne utvidelsen overvåkes ikke av Mozilla. Sørg for at du stoler på utvidelsen før du installerer den."
 
 #: src/amo/components/InstallWarning/index.js:170
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr ""
+msgstr "Dette er ikke en anbefalt utvidelse. Sørg for at du stoler på den før du installerer."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1162,23 +1164,23 @@ msgstr "Lær mer om tillatelser"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "Lese og endre bokmerker"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Lese og endre nettleserinnstillinger"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Fjern nylig nettleserhistorikk, infokapsler og relaterte data"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Hente data fra utklippstavlen"
 
 #: src/amo/components/PermissionsCard/permissions.js:37
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Sett data inn på utklippstavlen"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
