@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-09 17:27+0000\n"
+"PO-Revision-Date: 2019-12-31 22:33+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -131,17 +131,17 @@ msgstr "لا يدعم متصفحك الإضافات. يمكنك <a href=\"%(down
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – نزّل هذا الامتداد لمتصفّح  ‎🦊 Firefox ‏(%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:105
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – نزّل حزمة اللغة هذه لمتصفّح  ‎🦊 Firefox ‏(%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:110
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – نزّل هذه السمة لمتصفّح  ‎🦊 Firefox ‏(%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:115
 #, fuzzy
@@ -151,11 +151,11 @@ msgstr "%s – إضافات فَيَرفُكس"
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:120
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – نزّل هذه الإضافة لمتصفّح  ‎🦊 Firefox ‏(%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:134
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "نزّل %(addonName)s لمتصفّح Firefox. ‏%(summary)s"
 
 #: src/amo/components/AddonHead/index.js:62
 #, fuzzy
@@ -190,7 +190,7 @@ msgstr "%s – إضافات فَيَرفُكس"
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:95
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – نزّل هذا القاموس لمتصفّح  ‎🦊 Firefox ‏(%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:116
 msgid "%(total)s Star"
@@ -605,11 +605,11 @@ msgstr "لم يُعثر على إضافات"
 
 #: src/amo/components/AddonVersionCard/index.js:59
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "إصدارة %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:83
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "صدرت في %(dateReleased)s - ‏%(fileSize)s"
 
 #: src/amo/components/App/index.js:185 src/amo/components/HeadMetaTags/index.js:79
 #, fuzzy
@@ -824,7 +824,7 @@ msgstr ""
 
 #: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "آخ! لم نجد هذه الصفحة"
 
 #: src/amo/components/Errors/NotFound/index.js:85
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -1101,15 +1101,15 @@ msgstr "قيّم تجربتك"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
-msgstr ""
+msgstr "تُشبه الامتدادات التطبيقات، ولكنّها للمتصفّح."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "وهي تُضيف مزايا على متصفّح Firefox فيصير أسرع وأذكى أو حتّى أمتع."
 
 #: src/amo/components/InstallWarning/index.js:159
 msgid "Learn more"
-msgstr ""
+msgstr "اطّلع على المزيد"
 
 #: src/amo/components/InstallWarning/index.js:168
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
@@ -1755,7 +1755,7 @@ msgstr "اختر صورة…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:62
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "<a href=\"%(newLocation)s\">زُر موقعنا بنسخة المحمول</a> لتعرف الإضافات المتوافقة مع Firefox على أندرويد."
 
 #: src/amo/components/WrongPlatformWarning/index.js:69
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
