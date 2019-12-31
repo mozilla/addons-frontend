@@ -1759,7 +1759,7 @@ msgstr "<a href=\"%(newLocation)s\">زُر موقعنا بنسخة المحمو�
 
 #: src/amo/components/WrongPlatformWarning/index.js:69
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr ""
+msgstr "<a href=\"%(newLocation)s\">زُر موقعنا بنسخة سطح المكتب</a> لتعرف الإضافات المتوافقة مع Firefox على سطح المكتب."
 
 #: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
