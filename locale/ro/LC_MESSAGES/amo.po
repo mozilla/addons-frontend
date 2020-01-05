@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2017-12-19 02:15+0000\n"
+"PO-Revision-Date: 2020-01-05 23:14+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1641,11 +1641,11 @@ msgstr "Alege o fotografie…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:62
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "Pentru a găsi suplimente compatibile cu Firefox pentru Android, <a href=\"%(newLocation)s\">vizitează site-ul nostru pentru dispozitive mobile</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:69
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr ""
+msgstr "Pentru a găsi suplimente compatibile cu Firefox pentru desktop, <a href=\"%(newLocation)s\">vizitează site-ul nostru pentru desktop</a>."
 
 #: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
