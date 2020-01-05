@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-05 04:34+0000\n"
+"PO-Revision-Date: 2020-01-05 05:44+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -16,11 +16,11 @@ msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:176
 msgid "Loading…"
-msgstr "لوڈ کر رہا ہے…"
+msgstr "لوڈ ہو رہا ہے…"
 
 #: src/amo/components/AddAddonToCollection/index.js:178
 msgid "Adding…"
-msgstr "اضافہ کر رہا ہے…"
+msgstr "شامل ہو رہا ہے…"
 
 #: src/amo/components/AddAddonToCollection/index.js:194
 msgid "Select a collection…"
@@ -385,7 +385,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewCard/index.js:442
 msgid "Deleting…"
-msgstr "حزف کر رہا ہے…"
+msgstr "حزف ہو رہا ہے…"
 
 #: src/amo/components/AddonReviewCard/index.js:473
 msgid "Reply to this review"
@@ -423,7 +423,7 @@ msgstr "جواب اپ ڈیٹ ہو رہا ہے"
 
 #: src/amo/components/AddonReviewManager/index.js:144
 msgid "Saving"
-msgstr "محفوظ کر رہا ہے"
+msgstr "محفوظ ہو رہا ہے"
 
 #: src/amo/components/AddonReviewManager/index.js:145
 msgid "Saved"
@@ -592,7 +592,7 @@ msgstr "Firefox میں شامل کریں"
 
 #: src/amo/components/AutoSearchInput/index.js:216
 msgid "Loading"
-msgstr "لوڈ کر رہا ہے"
+msgstr "لوڈ ہو رہا ہے"
 
 #: src/amo/components/AutoSearchInput/index.js:312
 msgid "Find add-ons"
@@ -612,7 +612,7 @@ msgstr "زمرہ جات"
 
 #: src/amo/components/Categories/index.js:140
 msgid "Loading categories."
-msgstr "زمرہ جات لوڈ کر رہا ہے۔"
+msgstr "زمرہ جات لوڈ ہو رہا ہے۔"
 
 #: src/amo/components/CollectionAddAddon/index.js:159
 #, fuzzy
@@ -1570,7 +1570,7 @@ msgstr[1] "%(total)s صارفین"
 
 #: src/amo/components/SearchResults/index.js:42
 msgid "Searching…"
-msgstr "تلاش کر رہا ہے ..."
+msgstr "تلاش ہو رہا ہے…"
 
 #: src/amo/components/SearchResults/index.js:47
 msgid "No results were found for \"%(query)s\"."
@@ -2731,7 +2731,7 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:239
 msgid "Downloading"
-msgstr "ڈاؤن لوڈ کر رہا ہے"
+msgstr "ڈاؤن لوڈ ہو رہا ہے"
 
 #: src/core/components/AMInstallButton/index.js:241
 #, fuzzy
