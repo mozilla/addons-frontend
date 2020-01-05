@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-22 16:55+0000\n"
-"Last-Translator: Shahbaz - محمد شہباز عالم <shahbazalam17feb@gmail.com>\n"
+"PO-Revision-Date: 2020-01-05 04:34+0000\n"
+"Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
 "MIME-Version: 1.0\n"
@@ -1892,9 +1892,8 @@ msgid "Collections make it easy to keep track of favorite add-ons and share your
 msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:134
-#, fuzzy
 msgid "Create a collection"
-msgstr "تمام توسیعات براؤز کریں"
+msgstr "ایک مجموعہ بنائیں"
 
 #: src/amo/pages/CollectionList/index.js:62
 #, fuzzy
@@ -2674,9 +2673,8 @@ msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if
 msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
-#, fuzzy
 msgid "You are successfully unsubscribed!"
-msgstr "تصویر حذف کردی گئی"
+msgstr "آپ کی کامیابی کے ساتھ رکنیت ختم کردی گئی!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:121
