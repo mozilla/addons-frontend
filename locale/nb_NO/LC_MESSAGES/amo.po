@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-30 21:29+0000\n"
+"PO-Revision-Date: 2020-01-06 12:37+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1184,19 +1184,19 @@ msgstr "Sett data inn på utklippstavlen"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Utvid utviklerverktøyene til å få tilgang til dine data i åpne faner"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Last ned filer, samt lese og modifisere nettleserens nedlastingshistorikk"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "Åpne filer som er lastet ned til datamaskinen din"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "Lese teksten i alle åpne faner"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access your location"
@@ -1209,47 +1209,47 @@ msgstr "Versjonshistorikk"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "Overvåke bruk av utvidelser og behandle temaer"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Utveksle meldinger med andre program enn Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:54
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Vise deg varsler"
 
 #: src/amo/components/PermissionsCard/permissions.js:55
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Tilby kryptografiske godkjenningstjenester"
 
 #: src/amo/components/PermissionsCard/permissions.js:56
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "Kontrollere proxy-innstillinger for nettleser"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Lese og endre personverninnstillinger"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Tilgang til nylig lukkede faner"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser tabs"
-msgstr ""
+msgstr "Tilgang til faner"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "Skjul og vis nettleserfaner"
 
 #: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "Lagre ubegrenset mengde klientsidedata"
 
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "Tilgang til nettleseraktivitet under navigering"
 
 #: src/amo/components/RatingManager/index.js:119
 msgid "Log in to rate this dictionary"
@@ -1599,7 +1599,7 @@ msgstr "Høyest vurdert"
 
 #: src/amo/components/SearchFilters/index.js:177
 msgid "Trending"
-msgstr ""
+msgstr "Populære"
 
 #: src/amo/components/SearchFilters/index.js:195
 msgid "Filter results"
@@ -1730,7 +1730,7 @@ msgstr "Hjemmeside for utvidelser"
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "Vil du virkelig slette dette bildet?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:109
 #, fuzzy
@@ -1749,7 +1749,7 @@ msgstr "Vis profil"
 
 #: src/amo/components/UserProfileEditPicture/index.js:97
 msgid "Choose Photo…"
-msgstr ""
+msgstr "Velg bilde…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:62
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
