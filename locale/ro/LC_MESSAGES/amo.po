@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-05 23:14+0000\n"
+"PO-Revision-Date: 2020-01-06 00:11+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1708,11 +1708,11 @@ msgstr "Metadate extensie"
 
 #: src/amo/pages/Addon/index.js:481
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
+msgstr "Această listare nu este destinată acestei platforme. <a href=\"%(newLocation)s\">Răsfoiește suplimente de Firefox pentru Android</a>."
 
 #: src/amo/pages/Addon/index.js:485
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
+msgstr "Această listare nu este destinată acestei platforme. <a href=\"%(newLocation)s\">Răsfoiește suplimente de Firefox pentru desktop</a>."
 
 #: src/amo/pages/Addon/index.js:505
 msgid "Screenshots"
