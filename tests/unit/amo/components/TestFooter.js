@@ -34,7 +34,7 @@ describe(__filename, () => {
     expect(root.find('.Footer-cookies-link')).toHaveText('Cookies');
     expect(root.find('.Footer-cookies-link')).toHaveProp(
       'href',
-      'https://www.mozilla.org/privacy/websites/#cookies',
+      'https://www.mozilla.org/privacy/websites/',
     );
     expect(root.find('.Footer-legal-link')).toHaveText('Legal');
     expect(root.find('.Footer-legal-link')).toHaveProp(
