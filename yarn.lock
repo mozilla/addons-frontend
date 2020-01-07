@@ -12351,10 +12351,10 @@ react-clientside-effect@^1.2.0:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-react-cookie@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-4.0.1.tgz#c21b2c30a5cacf320b45338fa3dcaf76d9fe9c2c"
-  integrity sha512-h61qAtSXvfjNa81h3XCFdFoyFaF+nb7gjK0cxQuTiCPMPAe50D950FjLCFhaIfSpAesQFAmkxf5XFpWoEVBDAA==
+react-cookie@4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-4.0.3.tgz#ba8e5ea0047c916516e1181a3ad394c9b7580b56"
+  integrity sha512-cmi6IpdVgTSvjqssqIEvo779Gfqc4uPGHRrKMEdHcqkmGtPmxolGfsyKj95bhdLEKqMdbX8MLBCwezlnhkHK0g==
   dependencies:
     "@types/hoist-non-react-statics" "^3.0.1"
     hoist-non-react-statics "^3.0.0"
@@ -15235,10 +15235,10 @@ unist-util-visit@^1.1.0:
   dependencies:
     unist-util-visit-parents "^2.0.0"
 
-universal-cookie-express@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-4.0.1.tgz#b4d2c5953607b9d5e741bffa09cec366f17bb76c"
-  integrity sha512-XbyGQiZLU7TcFs5s4yI17wq2g4djnAmcJbrd1FJQjIcwoXPzRRSzRO+mcCccocE9Xl2wyAX393truwFElmk+Qg==
+universal-cookie-express@4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-4.0.3.tgz#07e871d5a6e2c157690aa5c77654d82d5a34f509"
+  integrity sha512-hDZW9UsRpFMdbtC0JjgTMfwEp42gGWLD5Q9qkS72cogLAqX6SyWK9klWAZWsNSNkInZZrPlRQhQie79qFugZSQ==
   dependencies:
     universal-cookie "^4.0.0"
 
