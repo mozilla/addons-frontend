@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-06 00:11+0000\n"
-"Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
+"PO-Revision-Date: 2020-01-08 05:58+0000\n"
+"Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -1008,7 +1008,7 @@ msgstr "Unelte pentru recenzenți"
 
 #: src/amo/components/Header/index.js:191 src/core/components/AuthenticateButton/index.js:90
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "Această acțiune nu este disponibilă momentan. Reîncarcă pagina peste câteva secunde."
 
 #: src/amo/components/Header/index.js:196 src/core/components/AuthenticateButton/index.js:86
 msgid "Log out"
@@ -2776,7 +2776,7 @@ msgstr "Pagina %(currentPage)s din %(totalPages)s"
 
 #: src/core/components/SiteNotices/index.js:56
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
-msgstr ""
+msgstr "Unele funcționalități sunt temporar dezactivate în timp ce efectuăm întreținerea site-ului web. Vom reveni în curând la capacitate maximă."
 
 #: src/core/components/SurveyNotice/index.js:131
 msgid "Take short survey"
