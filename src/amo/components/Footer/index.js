@@ -174,7 +174,7 @@ export class FooterBase extends React.Component {
             <li>
               <a
                 className="Footer-cookies-link"
-                href="https://www.mozilla.org/privacy/websites/#cookies"
+                href="https://www.mozilla.org/privacy/websites/"
               >
                 {i18n.gettext('Cookies')}
               </a>
