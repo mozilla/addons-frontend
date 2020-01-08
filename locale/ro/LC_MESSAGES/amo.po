@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-08 05:58+0000\n"
+"PO-Revision-Date: 2020-01-08 06:59+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -766,13 +766,12 @@ msgid "Sorry, but you aren't authorized to access this page. If you aren't signe
 msgstr "Ne pare rău, dar nu ești autorizat(ă) să accesezi această pagină. Dacă nu ești autentificat(ă), încearcă să o faci folosind linkul din partea de sus a paginii."
 
 #: src/amo/components/Errors/NotFound/index.js:28
-#, fuzzy
 msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Încearcă să intri pe pagină mai târziu, pentru că tema sau extensia poate deveni disponibilă din nou. Alternativ, este posibil să găsești ce cauți într-una dintre %(linkStart)sextensiile%(linkEnd)s "
-"sau %(secondLinkStart)stemele%(secondLinkEnd)s disponibile."
+"Încearcă să intri pe pagină mai târziu, pentru că tema sau extensia poate deveni disponibilă din nou. Alternativ, este posibil să găsești ce cauți într-una dintre "
+"%(extensionStart)sextensiile%(extensionEnd)s%(extensionEnd)s sau %(themeStart)stemele%(themeEnd)s sau cerând ajutor pe %(communityStart)sforumurile comunității%(communityEnd)s."
 
 #: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
@@ -1015,9 +1014,8 @@ msgid "Log out"
 msgstr "Deconectează-te"
 
 #: src/amo/components/Header/index.js:63
-#, fuzzy
 msgid "Firefox Browser Add-ons"
-msgstr "Suplimente Firefox"
+msgstr "Suplimente pentru Firefox"
 
 #: src/amo/components/Header/index.js:94
 msgid "Learn how to create extensions and themes"
@@ -1061,9 +1059,8 @@ msgid "This extension isn’t monitored by Mozilla. Make sure you trust the exte
 msgstr "Această extensie nu este monitorizată de Mozilla. Asigură-te că ai încredere în extensie înainte de a o instala."
 
 #: src/amo/components/InstallWarning/index.js:170
-#, fuzzy
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr "Această extensie nu este monitorizată de Mozilla. Asigură-te că ai încredere în extensie înainte de a o instala."
+msgstr "Nu este o extensie recomandată. Asigură-te dacă ai încredere în ea înainte de instalare."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -2505,14 +2502,12 @@ msgid "Log in to edit the profile"
 msgstr "Autentifică-te pentru a edita profilul"
 
 #: src/amo/pages/UserProfileEdit/index.js:512
-#, fuzzy
 msgid "Creating your profile…"
-msgstr "Se actualizează profilul…"
+msgstr "Ți se creează profilul…"
 
 #: src/amo/pages/UserProfileEdit/index.js:513
-#, fuzzy
 msgid "Create My Profile"
-msgstr "Actualizează-mi profilul"
+msgstr "Creează-mi profilul"
 
 #: src/amo/pages/UserProfileEdit/index.js:517
 msgid "Updating your profile…"
