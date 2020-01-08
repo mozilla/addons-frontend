@@ -33,6 +33,9 @@ export class DropdownMenuBase extends React.Component<Props, State> {
 
     if (this.state.setByHover) {
       this.setState({ setByHover: false });
+      this.setState((previousState) => ({
+        buttonIsActive: !previousState.buttonIsActive,
+      }));
       return;
     }
 
