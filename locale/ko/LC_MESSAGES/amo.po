@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-09 20:05+0000\n"
+"PO-Revision-Date: 2020-01-09 20:30+0000\n"
 "Last-Translator: Kim Young-Cheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -410,7 +410,7 @@ msgstr "이 리뷰에 답변"
 
 #: src/amo/components/AddonReviewCard/index.js:503
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "이 별점이나 리뷰는 삭제되었습니다. 높은 권한으로 인해서 보고 계신 것 뿐입니다."
 
 #: src/amo/components/AddonReviewCard/index.js:549
 msgid "Write a review"
@@ -565,7 +565,7 @@ msgstr ","
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:77 src/amo/components/AddonTitle/index.js:81
 msgid "by"
-msgstr ""
+msgstr "제작: "
 
 #: src/amo/components/AddonVersionCard/index.js:103
 #, fuzzy
@@ -649,7 +649,7 @@ msgstr "콜렉션에서 제거됨"
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "이 모음집에 포함할 부가 기능 찾기"
 
 #: src/amo/components/CollectionDetails/index.js:103
 msgid "Edit this collection"
@@ -684,7 +684,7 @@ msgstr "변경사항 저장"
 
 #: src/amo/components/CollectionManager/index.js:250
 msgid "Collection name"
-msgstr ""
+msgstr "모음집 이름"
 
 #: src/amo/components/CollectionManager/index.js:264
 msgid "Description"
@@ -894,7 +894,7 @@ msgstr "로그인하여 이 테마의 평점을 남겨주세요"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "본인의 리뷰에 플래그를 지정할 수 없습니다"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
@@ -1100,7 +1100,7 @@ msgstr ""
 
 #: src/amo/components/InstallWarning/index.js:159
 msgid "Learn more"
-msgstr ""
+msgstr "더 알아보기"
 
 #: src/amo/components/InstallWarning/index.js:168
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
@@ -1259,15 +1259,15 @@ msgstr "%(addonName)s 부가 기능을 어떻게 사용하셨나요?"
 
 #: src/amo/components/RatingManager/index.js:229
 msgid "Saving star rating"
-msgstr ""
+msgstr "별점 저장중"
 
 #: src/amo/components/RatingManager/index.js:230
 msgid "Star rating saved"
-msgstr ""
+msgstr "별점 저장됨"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "5 별점 리뷰 모두 보기"
 
 #: src/amo/components/RatingsByStar/index.js:93
 #, fuzzy
@@ -1276,7 +1276,7 @@ msgstr "%(count)s개의 리뷰 보기"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "3 별점 리뷰 모두 보기"
 
 #: src/amo/components/RatingsByStar/index.js:95
 #, fuzzy
@@ -1899,11 +1899,11 @@ msgstr "이 콜렉션을 수정하려면 로그인 하세요"
 
 #: src/amo/pages/Collection/index.js:448
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
+msgstr "첫째, 모음집을 만듭니다. 이후 확장 기능과 테마를 추가할 수 있습니다."
 
 #: src/amo/pages/Collection/index.js:451
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "확장 기능과 테마를 검색하여 모음집에 추가하세요."
 
 #: src/amo/pages/Collection/index.js:513
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -2072,7 +2072,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:80
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "강력한 비밀번호 생성 및 관리"
 
 #: src/amo/pages/Guides/index.js:81
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
@@ -2103,7 +2103,7 @@ msgstr "추상적인"
 
 #: src/amo/pages/Home/index.js:143
 msgid "Nature"
-msgstr ""
+msgstr "자연"
 
 #: src/amo/pages/Home/index.js:148
 msgid "Film & TV"
@@ -2120,7 +2120,7 @@ msgstr "음악"
 
 #: src/amo/pages/Home/index.js:163
 msgid "Seasonal"
-msgstr ""
+msgstr "계절"
 
 #: src/amo/pages/Home/index.js:201
 msgid "Change the way Firefox looks with themes."
@@ -2276,7 +2276,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:189
 msgid "Get support"
-msgstr ""
+msgstr "지원 받기"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 #, fuzzy
@@ -2309,7 +2309,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
-msgstr ""
+msgstr "제작자 커뮤니티"
 
 #: src/amo/pages/StaticPages/About/index.js:56
 msgid ""
@@ -2399,11 +2399,11 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "훌륭한 리뷰를 쓰기 위한 몇 가지 팁"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Do:"
-msgstr ""
+msgstr "하세요:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid "Write like you are telling a friend about your experience with the add-on."
@@ -2419,19 +2419,19 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "부가 기능이 의도한 대로 작동하는지?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "좋아하는 기능과 싫어하는 기능은 어떤 것인지?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
-msgstr ""
+msgstr "쓸만했는지?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "사용하기 쉬웠는지?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:58
 #, fuzzy
@@ -2444,7 +2444,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:68
 msgid "Don't:"
-msgstr ""
+msgstr "하지 마세요:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:71
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
@@ -2511,11 +2511,11 @@ msgstr "댓글 수정"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:690
 msgid "Location"
-msgstr ""
+msgstr "위치"
 
 #: src/amo/pages/UserProfile/index.js:373 src/amo/pages/UserProfileEdit/index.js:705
 msgid "Occupation"
-msgstr ""
+msgstr "직업"
 
 #: src/amo/pages/UserProfile/index.js:380
 #, fuzzy
@@ -2529,11 +2529,11 @@ msgstr "카테고리를 불러오는데 실패했습니다."
 
 #: src/amo/pages/UserProfile/index.js:396
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "이 개발자가 개발한 부가 기능들의 평균 별점"
 
 #: src/amo/pages/UserProfile/index.js:411 src/amo/pages/UserProfileEdit/index.js:727
 msgid "Biography"
-msgstr ""
+msgstr "소개"
 
 #: src/amo/pages/UserProfile/index.js:435
 #, fuzzy
@@ -2547,7 +2547,7 @@ msgstr "부가 기능 링크"
 
 #: src/amo/pages/UserProfileEdit/index.js:198
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "사진이 성공적으로 삭제되었습니다"
 
 #: src/amo/pages/UserProfileEdit/index.js:443
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
@@ -2895,7 +2895,7 @@ msgstr ""
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "%(listOfApplicatonsAndVersions)s에서 작동"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
