@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-09 20:30+0000\n"
+"PO-Revision-Date: 2020-01-09 20:49+0000\n"
 "Last-Translator: Kim Young-Cheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -552,10 +552,9 @@ msgid "Add-on icon"
 msgstr "추가 기능 아이콘"
 
 #: src/amo/components/AddonSummaryCard/index.js:63
-#, fuzzy
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] "5점 만점에 %(rating)s점"
+msgstr[0] "%(rating)s / 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:42
@@ -568,19 +567,16 @@ msgid "by"
 msgstr "제작: "
 
 #: src/amo/components/AddonVersionCard/index.js:103
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "%(timestamp)s에 작성됨"
+msgstr "%(linkStart)s%(licenseName)s%(linkEnd)s에 따라 릴리스된 소스 코드"
 
 #: src/amo/components/AddonVersionCard/index.js:114
-#, fuzzy
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
-msgstr "%(timestamp)s에 작성됨"
+msgstr "%(linkStart)sCustom License%(linkEnd)s에 따라 릴리스된 소스 코드"
 
 #: src/amo/components/AddonVersionCard/index.js:141
-#, fuzzy
 msgid "Source code released under %(licenseName)s"
-msgstr "%(timestamp)s에 작성됨"
+msgstr "%(licenseName)s에 따라 릴리스된 소스 코드"
 
 #: src/amo/components/AddonVersionCard/index.js:51
 #, fuzzy
@@ -1270,23 +1266,20 @@ msgid "Read all five-star reviews"
 msgstr "5 별점 리뷰 모두 보기"
 
 #: src/amo/components/RatingsByStar/index.js:93
-#, fuzzy
 msgid "Read all four-star reviews"
-msgstr "%(count)s개의 리뷰 보기"
+msgstr "4 별점 리뷰 모두 보기"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
 msgstr "3 별점 리뷰 모두 보기"
 
 #: src/amo/components/RatingsByStar/index.js:95
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "이 리뷰에 답변"
+msgstr "2 별점 리뷰 모두 보기"
 
 #: src/amo/components/RatingsByStar/index.js:96
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "%(count)s개의 리뷰 보기"
+msgstr "1 별점 리뷰 모두 보기"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 #, fuzzy
@@ -1724,7 +1717,7 @@ msgstr "배포된 버전이 없으므로 이 부가기능에 점수를 줄 수 �
 #: src/amo/pages/Addon/index.js:216
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] "%(count)s개의 리뷰 보기"
+msgstr[0] "모든 %(count)s개의 리뷰 보기"
 
 #: src/amo/pages/Addon/index.js:234
 msgid "No reviews yet"
@@ -2885,7 +2878,7 @@ msgstr ""
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s 이상"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
