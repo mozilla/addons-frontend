@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-09 20:49+0000\n"
+"PO-Revision-Date: 2020-01-09 21:03+0000\n"
 "Last-Translator: Kim Young-Cheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1112,14 +1112,12 @@ msgid "Change language"
 msgstr "로그인하여 이 언어 팩의 평점을 남겨주세요"
 
 #: src/amo/components/PermissionsCard/index.js:48
-#, fuzzy
 msgid "Permissions"
-msgstr "버전"
+msgstr "권한"
 
 #: src/amo/components/PermissionsCard/index.js:50
-#, fuzzy
 msgid "This add-on can:"
-msgstr "이 부가 기능 정보"
+msgstr "이 부가 기능이 할 수 있는 것:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
@@ -1249,7 +1247,6 @@ msgid "Are you sure you want to delete your rating of %(addonName)s?"
 msgstr "이 콜렉션 수정"
 
 #: src/amo/components/RatingManager/index.js:186
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
 msgstr "%(addonName)s 부가 기능을 어떻게 사용하셨나요?"
 
@@ -1717,7 +1714,7 @@ msgstr "배포된 버전이 없으므로 이 부가기능에 점수를 줄 수 �
 #: src/amo/pages/Addon/index.js:216
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] "모든 %(count)s개의 리뷰 보기"
+msgstr[0] "%(count)s개의 리뷰 보기"
 
 #: src/amo/pages/Addon/index.js:234
 msgid "No reviews yet"
@@ -1800,29 +1797,24 @@ msgid "Show all reviews"
 msgstr "평가"
 
 #: src/amo/pages/AddonReviewList/index.js:232
-#, fuzzy
 msgid "Show only five-star reviews"
-msgstr "%(count)s개의 리뷰 보기"
+msgstr "5 별점 리뷰만 보기"
 
 #: src/amo/pages/AddonReviewList/index.js:233
-#, fuzzy
 msgid "Show only four-star reviews"
-msgstr "%(count)s개의 리뷰 보기"
+msgstr "4 별점 리뷰만 보기"
 
 #: src/amo/pages/AddonReviewList/index.js:235
-#, fuzzy
 msgid "Show only three-star reviews"
-msgstr "%(count)s개의 리뷰 보기"
+msgstr "3 별점 리뷰만 보기"
 
 #: src/amo/pages/AddonReviewList/index.js:237
-#, fuzzy
 msgid "Show only two-star reviews"
-msgstr "이 리뷰에 답변"
+msgstr "2 별점 리뷰만 보기"
 
 #: src/amo/pages/AddonReviewList/index.js:238
-#, fuzzy
 msgid "Show only one-star reviews"
-msgstr "%(count)s개의 리뷰 보기"
+msgstr "1 별점 리뷰만 보기"
 
 #: src/amo/pages/AddonReviewList/index.js:278
 msgid "Reviews for %(addonName)s"
@@ -2952,7 +2944,7 @@ msgstr ""
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "모든 웹사이트에서 사용자의 데이터에 접근"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
