@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-09 22:11+0000\n"
+"PO-Revision-Date: 2020-01-09 22:32+0000\n"
 "Last-Translator: Kim Young-Cheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -313,7 +313,7 @@ msgstr "내 댓글 수정"
 
 #: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
-msgstr "내 리뷰 수정"
+msgstr "리뷰 수정"
 
 #: src/amo/components/AddonReviewCard/index.js:205 src/amo/components/AddonReviewCard/index.js:237
 #, fuzzy
@@ -326,9 +326,8 @@ msgid "Delete rating"
 msgstr "내 리뷰 수정"
 
 #: src/amo/components/AddonReviewCard/index.js:212 src/amo/components/AddonReviewCard/index.js:244
-#, fuzzy
 msgid "Delete review"
-msgstr "내 리뷰 수정"
+msgstr "리뷰 삭제"
 
 #: src/amo/components/AddonReviewCard/index.js:219
 #, fuzzy
@@ -857,7 +856,7 @@ msgstr "버그 신고나 지원 요청입니다"
 
 #: src/amo/components/FlagReviewMenu/index.js:106
 msgid "Flagged as a bug report or support request"
-msgstr "버그 신고 또는 지원 요청으로 표시됨"
+msgstr "버그 신고 또는 지원 요청으로 플래그 지정됨"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
@@ -865,12 +864,11 @@ msgstr "표시됨"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
-msgstr "플래그"
+msgstr "플래그 지정"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "개발자 허브"
+msgstr "이 개발자 답변 플래그"
 
 #: src/amo/components/FlagReviewMenu/index.js:124
 #, fuzzy
@@ -1013,14 +1011,12 @@ msgid "View My Collections"
 msgstr "내 콜렉션 보기"
 
 #: src/amo/components/Header/index.js:134 src/amo/pages/UserProfileEdit/index.js:548
-#, fuzzy
 msgid "View My Profile"
-msgstr "프로필 보기"
+msgstr "내 프로필 보기"
 
 #: src/amo/components/Header/index.js:142 src/amo/pages/UserProfileEdit/index.js:554
-#, fuzzy
 msgid "Edit My Profile"
-msgstr "프로필 수정"
+msgstr "내 프로필 수정"
 
 #: src/amo/components/Header/index.js:146
 msgid "Tools"
@@ -1681,14 +1677,12 @@ msgid "Delete This Picture"
 msgstr "이 콜렉션 수정"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr "%(name)s님의 프로필 사진"
 
 #: src/amo/components/UserProfileEditPicture/index.js:68
-#, fuzzy
 msgid "Profile photo"
-msgstr "프로필 보기"
+msgstr "프로필 사진"
 
 #: src/amo/components/UserProfileEditPicture/index.js:97
 msgid "Choose Photo…"
@@ -1791,9 +1785,8 @@ msgid "Reviews and ratings for %(addonName)s. Find out what other users think ab
 msgstr ""
 
 #: src/amo/pages/AddonReviewList/index.js:230
-#, fuzzy
 msgid "Show all reviews"
-msgstr "평가"
+msgstr "모든 리뷰 보기"
 
 #: src/amo/pages/AddonReviewList/index.js:232
 msgid "Show only five-star reviews"
@@ -2484,14 +2477,12 @@ msgid "Theme artist"
 msgstr "이 아티스트들의 테마 더보기"
 
 #: src/amo/pages/UserProfile/index.js:336 src/amo/pages/UserProfileEdit/index.js:536
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr "%(user)s님의 사용자 프로필"
 
 #: src/amo/pages/UserProfile/index.js:339
-#, fuzzy
 msgid "User Profile"
-msgstr "댓글 수정"
+msgstr "사용자 프로필"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:690
 msgid "Location"
@@ -2520,7 +2511,6 @@ msgid "Biography"
 msgstr "소개"
 
 #: src/amo/pages/UserProfile/index.js:435
-#, fuzzy
 msgid "Edit profile"
 msgstr "프로필 수정"
 
@@ -2550,49 +2540,40 @@ msgid "Introduce %(userName)s to the community"
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:490
-#, fuzzy
 msgid "Log in to edit the profile"
-msgstr "이 콜렉션 수정"
+msgstr "프로필을 편집하려면 로그인하세요"
 
 #: src/amo/pages/UserProfileEdit/index.js:512
-#, fuzzy
 msgid "Creating your profile…"
-msgstr "댓글 수정 중"
+msgstr "프로필을 만드는 중…"
 
 #: src/amo/pages/UserProfileEdit/index.js:513
-#, fuzzy
 msgid "Create My Profile"
-msgstr "댓글 수정"
+msgstr "내 프로필 만들기"
 
 #: src/amo/pages/UserProfileEdit/index.js:517
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "댓글 수정 중"
+msgstr "프로필 업데이트 중…"
 
 #: src/amo/pages/UserProfileEdit/index.js:518
-#, fuzzy
 msgid "Update My Profile"
-msgstr "댓글 수정"
+msgstr "내 프로필 업데이트"
 
 #: src/amo/pages/UserProfileEdit/index.js:521
-#, fuzzy
 msgid "Updating profile…"
-msgstr "댓글 수정"
+msgstr "프로필 업데이트 중…"
 
 #: src/amo/pages/UserProfileEdit/index.js:522
-#, fuzzy
 msgid "Update Profile"
-msgstr "댓글 수정"
+msgstr "프로필 업데이트"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
-#, fuzzy
 msgid "View user's profile"
-msgstr "프로필 보기"
+msgstr "사용자 프로필 보기"
 
 #: src/amo/pages/UserProfileEdit/index.js:555
-#, fuzzy
 msgid "Edit user's profile"
-msgstr "프로필 수정"
+msgstr "사용자 프로필 수정"
 
 #: src/amo/pages/UserProfileEdit/index.js:573
 #, fuzzy
@@ -2622,9 +2603,8 @@ msgid "Manage Firefox Accounts…"
 msgstr "댓글 수정 중"
 
 #: src/amo/pages/UserProfileEdit/index.js:624
-#, fuzzy
 msgid "Profile"
-msgstr "프로필 보기"
+msgstr "프로필"
 
 #: src/amo/pages/UserProfileEdit/index.js:633
 msgid "This field is required"
@@ -2665,14 +2645,12 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:816 src/amo/pages/UserProfileEdit/index.js:905
-#, fuzzy
 msgid "Delete My Profile"
-msgstr "댓글 수정"
+msgstr "내 프로필 삭제"
 
 #: src/amo/pages/UserProfileEdit/index.js:817 src/amo/pages/UserProfileEdit/index.js:906
-#, fuzzy
 msgid "Delete Profile"
-msgstr "댓글 수정"
+msgstr "프로필 삭제"
 
 #: src/amo/pages/UserProfileEdit/index.js:829
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
