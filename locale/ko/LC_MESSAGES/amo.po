@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-09 22:32+0000\n"
+"PO-Revision-Date: 2020-01-09 22:50+0000\n"
 "Last-Translator: Kim Young-Cheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -340,9 +340,8 @@ msgid "Do you really want to delete this rating?"
 msgstr "이 콜렉션 수정"
 
 #: src/amo/components/AddonReviewCard/index.js:226
-#, fuzzy
 msgid "Do you really want to delete this review?"
-msgstr "이 콜렉션 수정"
+msgstr "이 리뷰를 삭제 하시겠습니까?"
 
 #: src/amo/components/AddonReviewCard/index.js:233 src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
@@ -860,7 +859,7 @@ msgstr "버그 신고 또는 지원 요청으로 플래그 지정됨"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
-msgstr "표시됨"
+msgstr "플래그 지정됨"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
@@ -868,22 +867,19 @@ msgstr "플래그 지정"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
-msgstr "이 개발자 답변 플래그"
+msgstr "이 개발자 답변을 플래그 지정하기"
 
 #: src/amo/components/FlagReviewMenu/index.js:124
-#, fuzzy
 msgid "Flag this review"
-msgstr "탭하여 미리보기"
+msgstr "이 리뷰에 플래그 지정하기"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "로그인하여 이 확장 기능의 평점을 남겨주세요"
+msgstr "이 답변에 플래그를 지정하시려면 로그인하세요"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "로그인하여 이 테마의 평점을 남겨주세요"
+msgstr "이 리뷰에 플래그를 지정하시려면 로그인하세요"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -891,7 +887,7 @@ msgstr "본인의 리뷰에 플래그를 지정할 수 없습니다"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr "본인의 리뷰에 플래그를 지정할 수 없음"
+msgstr "본인의 리뷰에 플래그를 지정할 수 없습니다"
 
 #: src/amo/components/FlagReviewMenu/index.js:78
 msgid "This is spam"
@@ -899,7 +895,7 @@ msgstr "스팸입니다"
 
 #: src/amo/components/FlagReviewMenu/index.js:79
 msgid "Flagged as spam"
-msgstr "스팸으로 표시됨"
+msgstr "스팸으로 플래그 지정됨"
 
 #: src/amo/components/FlagReviewMenu/index.js:89
 msgid "This contains inappropriate language"
@@ -907,7 +903,7 @@ msgstr "부적절한 언어가 포함되어 있습니다"
 
 #: src/amo/components/FlagReviewMenu/index.js:90
 msgid "Flagged for inappropriate language"
-msgstr "부적절한 언어로 표시"
+msgstr "부적절한 언어로 플래그 지정됨"
 
 #: src/amo/components/Footer/index.js:104
 msgid "Site Status"
@@ -1232,9 +1228,8 @@ msgid "Log in to rate this add-on"
 msgstr "로그인하여 이 부가 기능의 평점을 남겨주세요"
 
 #: src/amo/components/RatingManager/index.js:176
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "이 콜렉션 수정"
+msgstr "%(addonName)s에 대한 리뷰를 삭제 하시겠습니까?"
 
 #: src/amo/components/RatingManager/index.js:181
 #, fuzzy
@@ -1341,9 +1336,8 @@ msgid "We have received your report. Thanks for letting us know about your conce
 msgstr "보고서가 접수되었습니다. 이 사용자와 관련된 우려 사항을 알려주셔서 감사합니다."
 
 #: src/amo/components/Search/index.js:116 src/amo/components/SearchResults/index.js:68
-#, fuzzy
 msgid "Search results"
-msgstr "테마 검색"
+msgstr "검색 결과"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:272 src/amo/pages/LandingPage/index.js:123
 #, fuzzy
@@ -1401,15 +1395,13 @@ msgid "Popular add-ons"
 msgstr "카테고리를 불러오는데 실패했습니다."
 
 #: src/amo/components/Search/index.js:170
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr "\"%(query)s\"에 대한 검색 결과"
 
 #: src/amo/components/SearchContextCard/index.js:108
-#, fuzzy
 msgid "%(count)s Search Tool found"
 msgid_plural "%(count)s Search Tools found"
-msgstr[0] "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr[0] "%(count)s개의 검색 도구를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:121
 #, fuzzy
@@ -1482,10 +1474,9 @@ msgid_plural "%(count)s extensions found"
 msgstr[0] "카테고리가 없습니다."
 
 #: src/amo/components/SearchContextCard/index.js:99
-#, fuzzy
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr[0] "\"%(query)s\"에 대한 %(count)s개의 검색 도구를 찾았습니다"
 
 #: src/amo/components/SearchFilters/index.js:135 src/amo/components/SearchFilters/index.js:159
 msgid "All"
@@ -1634,9 +1625,8 @@ msgid "Add-ons for Firefox"
 msgstr "Firefox 부가 기능"
 
 #: src/amo/components/SectionLinks/index.js:70
-#, fuzzy
 msgid "for Firefox"
-msgstr "Firefox 부가 기능"
+msgstr "Firefox용"
 
 #: src/amo/components/SectionLinks/index.js:72
 msgid "for Android"
@@ -1647,9 +1637,8 @@ msgid "Dictionaries & Language Packs"
 msgstr "사전과 언어 팩"
 
 #: src/amo/components/SectionLinks/index.js:98 src/amo/pages/SearchTools/index.js:76
-#, fuzzy
 msgid "Search Tools"
-msgstr "테마 검색"
+msgstr "검색 도구"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
