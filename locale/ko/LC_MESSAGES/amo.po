@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-09 23:10+0000\n"
+"PO-Revision-Date: 2020-01-09 23:20+0000\n"
 "Last-Translator: Kim Young-Cheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -964,18 +964,16 @@ msgid "Blog"
 msgstr "블로그"
 
 #: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:96
-#, fuzzy
 msgid "Extension Workshop"
-msgstr "확장 기능"
+msgstr "확장기능 워크샵"
 
 #: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:106
 msgid "Developer Hub"
 msgstr "개발자 허브"
 
 #: src/amo/components/Footer/index.js:81
-#, fuzzy
 msgid "Developer Policies"
-msgstr "개발자 응답"
+msgstr "개발자 정책"
 
 #: src/amo/components/Footer/index.js:86
 msgid "Forum"
@@ -986,9 +984,8 @@ msgid "Report a bug"
 msgstr "오류 보고"
 
 #: src/amo/components/Footer/index.js:99
-#, fuzzy
 msgid "Review Guide"
-msgstr "리뷰 내용"
+msgstr "리뷰 지침사항"
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
@@ -1098,9 +1095,8 @@ msgid "This is not a Recommended Extension. Make sure you trust it before instal
 msgstr "추천하는 확장기능이 아닙니다. 설치하기 전에 신뢰할 수 있는지 확인하십시오."
 
 #: src/amo/components/LanguagePicker/index.js:52
-#, fuzzy
 msgid "Change language"
-msgstr "로그인하여 이 언어 팩의 평점을 남겨주세요"
+msgstr "언어 변경"
 
 #: src/amo/components/PermissionsCard/index.js:48
 msgid "Permissions"
@@ -1513,7 +1509,7 @@ msgstr "최근 업데이트됨"
 
 #: src/amo/components/SearchFilters/index.js:175
 msgid "Most Users"
-msgstr "많이 씀"
+msgstr "사용자 많음"
 
 #: src/amo/components/SearchFilters/index.js:176
 msgid "Top Rated"
@@ -2783,9 +2779,8 @@ msgid "Next"
 msgstr "다음"
 
 #: src/core/components/Paginate/index.js:160
-#, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "%(totalPages)s 페이지 중 %(currentPage)s 번째 페이지"
+msgstr "%(currentPage)s / %(totalPages)s"
 
 #: src/core/components/SiteNotices/index.js:56
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
