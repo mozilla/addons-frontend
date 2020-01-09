@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-09 22:50+0000\n"
+"PO-Revision-Date: 2020-01-09 23:10+0000\n"
 "Last-Translator: Kim Young-Cheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1061,7 +1061,7 @@ msgstr "추천 확장 기능"
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "RECOMMENDED"
-msgstr ""
+msgstr "추천"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
@@ -1095,7 +1095,7 @@ msgstr ""
 
 #: src/amo/components/InstallWarning/index.js:170
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr ""
+msgstr "추천하는 확장기능이 아닙니다. 설치하기 전에 신뢰할 수 있는지 확인하십시오."
 
 #: src/amo/components/LanguagePicker/index.js:52
 #, fuzzy
@@ -1340,19 +1340,16 @@ msgid "Search results"
 msgstr "검색 결과"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:272 src/amo/pages/LandingPage/index.js:123
-#, fuzzy
 msgid "Recommended extensions"
 msgstr "추천 확장 기능"
 
 #: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:335 src/amo/pages/LandingPage/index.js:155
-#, fuzzy
 msgid "Recommended themes"
-msgstr "가장 인기있는 테마"
+msgstr "추천 테마"
 
 #: src/amo/components/Search/index.js:127
-#, fuzzy
 msgid "Recommended add-ons"
-msgstr "부가 기능 찾기"
+msgstr "추천 부가 기능"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:348 src/amo/pages/LandingPage/index.js:133
 msgid "Trending extensions"
@@ -1428,10 +1425,9 @@ msgid_plural "%(count)s themes found"
 msgstr[0] "카테고리가 없습니다."
 
 #: src/amo/components/SearchContextCard/index.js:161
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr[0] "\"%(query)s\"에 대한 %(count)s개의 결과를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:170
 #, fuzzy
@@ -1528,28 +1524,24 @@ msgid "Trending"
 msgstr "인기"
 
 #: src/amo/components/SearchFilters/index.js:195
-#, fuzzy
 msgid "Filter results"
-msgstr "테마 검색"
+msgstr "필터 결과"
 
 #: src/amo/components/SearchFilters/index.js:200
-#, fuzzy
 msgid "Sort by"
-msgstr "정렬"
+msgstr "정렬 방식"
 
 #: src/amo/components/SearchFilters/index.js:222
-#, fuzzy
 msgid "Add-on Type"
-msgstr "Firefox 부가 기능"
+msgstr "부가 기능 종류"
 
 #: src/amo/components/SearchFilters/index.js:242
 msgid "Operating System"
 msgstr "운영체제"
 
 #: src/amo/components/SearchFilters/index.js:268
-#, fuzzy
 msgid "Recommended add-ons only"
-msgstr "Firefox 부가 기능"
+msgstr "추천 부가 기능만"
 
 #: src/amo/components/SearchForm/index.js:61
 #, fuzzy
@@ -1592,9 +1584,8 @@ msgid "No results were found."
 msgstr "검색 결과가 없습니다."
 
 #: src/amo/components/SearchSuggestion/index.js:52 src/ui/components/RecommendedBadge/index.js:28
-#, fuzzy
 msgid "Recommended"
-msgstr "사용자 의견"
+msgstr "추천"
 
 #: src/amo/components/SectionLinks/index.js:117
 msgid "Explore"
@@ -1930,9 +1921,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:127
-#, fuzzy
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "이 확장 기능에 대해서 공유해 주세요. %(linkStart)s리뷰 가이드라인%(linkEnd)s을 참고해 주세요."
+msgstr "더 권장되는 %(linkStart)s개인 정보 및 보안%(linkEnd)s 확장기능을 탐색하십시오."
 
 #: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
@@ -2097,9 +2087,8 @@ msgid "Download Firefox extensions and themes. They’re like apps for your brow
 msgstr ""
 
 #: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
-#, fuzzy
 msgid "See more recommended extensions"
-msgstr "유행하는 확장 기능 더보기"
+msgstr "추천하는 확장 기능 더보기"
 
 #: src/amo/pages/Home/index.js:290
 msgid "See more popular themes"
@@ -2111,9 +2100,8 @@ msgid "See more popular extensions"
 msgstr "가장 평점이 높은 확장 기능 더보기"
 
 #: src/amo/pages/Home/index.js:326 src/amo/pages/LandingPage/index.js:164
-#, fuzzy
 msgid "See more recommended themes"
-msgstr "유행하는 테마 더보기"
+msgstr "추천하는 테마 더보기"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:142
 msgid "See more trending extensions"
@@ -2130,14 +2118,12 @@ msgid "Enhanced privacy extensions"
 msgstr "가장 평점이 높은 확장 기능"
 
 #: src/amo/pages/Home/index.js:64
-#, fuzzy
 msgid "See more recommended password managers"
-msgstr "유행하는 테마 더보기"
+msgstr "추천하는 비밀번호 관리자 더보기"
 
 #: src/amo/pages/Home/index.js:65
-#, fuzzy
 msgid "Recommended password managers"
-msgstr "암호 관리자"
+msgstr "추천하는 비밀번호 관리자"
 
 #: src/amo/pages/LandingPage/index.js:152
 msgid "See more top rated extensions"
@@ -2955,7 +2941,7 @@ msgstr ""
 
 #: src/ui/components/RecommendedBadge/index.js:43
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "Firefox는 보안 및 성능 표준을 충족하는 확장 기능만 추천합니다."
 
 #: src/ui/components/ShowMoreCard/index.js:126
 msgid "Expand to read more"
