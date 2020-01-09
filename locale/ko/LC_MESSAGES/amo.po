@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-09 21:03+0000\n"
+"PO-Revision-Date: 2020-01-09 22:11+0000\n"
 "Last-Translator: Kim Young-Cheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -390,9 +390,8 @@ msgid "Publishing reply"
 msgstr "댓글 배포중"
 
 #: src/amo/components/AddonReviewCard/index.js:349
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "%(timestamp)s에 작성됨"
+msgstr "%(linkStart)s%(timestamp)s%(linkEnd)s에 게시됨"
 
 #: src/amo/components/AddonReviewCard/index.js:351
 #, fuzzy
@@ -866,7 +865,7 @@ msgstr "표시됨"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
-msgstr "표시하기"
+msgstr "플래그"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 #, fuzzy
@@ -2791,7 +2790,7 @@ msgstr "Firefox에 추가"
 
 #: src/core/components/AuthenticateButton/index.js:87
 msgid "Register or Log in"
-msgstr ""
+msgstr "회원가입 또는 로그인"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
