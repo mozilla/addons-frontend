@@ -255,19 +255,14 @@ describe(__filename, () => {
     ).toContain('Firefox for iOS does not currently support add-ons.');
   });
 
-  it('renders a notice for Fenix users', () => {
+  it('renders nothing if the browser is Fenix', () => {
     const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       reason: INCOMPATIBLE_FIREFOX_FENIX,
     });
 
     const root = render({ _getClientCompatibility });
 
-    expect(
-      root
-        .find('.AddonCompatibilityError')
-        .childAt(0)
-        .html(),
-    ).toContain('Firefox Preview does not currently support add-ons.');
+    expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
   });
 
   it('renders a notice for browsers that do not support OpenSearch', () => {
