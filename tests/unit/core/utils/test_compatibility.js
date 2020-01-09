@@ -27,6 +27,7 @@ import {
   getCompatibleVersions,
   getClientCompatibility,
   isCompatibleWithUserAgent,
+  isFenix,
   isFirefox,
   isQuantumCompatible,
   correctedLocationForPlatform,
@@ -1081,5 +1082,55 @@ describe(__filename, () => {
         ).toEqual(null);
       },
     );
+  });
+
+  describe('isFenix', () => {
+    it('returns true for Firefox Fenix', () => {
+      userAgents.fenix.forEach((userAgent) => {
+        expect(isFenix(UAParser(userAgent))).toEqual(true);
+      });
+    });
+
+    it('returns false for Android/webkit', () => {
+      userAgents.androidWebkit.forEach((userAgent) => {
+        expect(isFenix(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Chrome Android', () => {
+      userAgents.chromeAndroid.forEach((userAgent) => {
+        expect(isFenix(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Chrome desktop', () => {
+      userAgents.chrome.forEach((userAgent) => {
+        expect(isFenix(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Firefox desktop', () => {
+      userAgents.firefox.forEach((userAgent) => {
+        expect(isFenix(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Firefox Android', () => {
+      userAgents.firefoxAndroid.forEach((userAgent) => {
+        expect(isFenix(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Firefox OS', () => {
+      userAgents.firefoxOS.forEach((userAgent) => {
+        expect(isFenix(UAParser(userAgent))).toEqual(false);
+      });
+    });
+
+    it('returns false for Firefox iOS', () => {
+      userAgents.firefoxIOS.forEach((userAgent) => {
+        expect(isFenix(UAParser(userAgent))).toEqual(false);
+      });
+    });
   });
 });
