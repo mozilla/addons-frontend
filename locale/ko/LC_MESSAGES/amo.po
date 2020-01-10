@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-10 01:51+0000\n"
+"PO-Revision-Date: 2020-01-10 01:53+0000\n"
 "Last-Translator: Kim Young-Cheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1106,7 +1106,7 @@ msgstr "이 부가 기능이 할 수 있는 것:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr "권한에 대해 자세히 알아보기"
+msgstr "권한에 대해 더 알아보기"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Read and modify bookmarks"
