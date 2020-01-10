@@ -17,7 +17,7 @@ RUN buildDeps=' \
     ' && \
     # `apt-transport-https` is required to use https deb repositories
     apt-get update -y && \
-    apt-get install -y --no-install-recommends apt-transport-https && \
+    apt-get install -y --no-install-recommends gnupg ca-certificates apt-transport-https && \
     # configure Yarn repository, see: https://yarnpkg.com/en/docs/install#linux-tab
     apt-key add /etc/pki/yarnpkg.gpg.key && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list && \
