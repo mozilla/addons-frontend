@@ -683,6 +683,8 @@ export const userAgentsByPlatform = {
       Gecko/40.0 Firefox/40.0`,
     firefox40Tablet: oneLine`Mozilla/5.0 (Android; Tablet; rv:40.0)
       Gecko/40.0 Firefox/40.0`,
+    firefox68: oneLine`Mozilla/5.0 (Android 9; Mobile; rv:68.0) Gecko/68.0
+      Firefox/68.0`,
   },
   fenix: {
     firefox69: oneLine`Mozilla/5.0 (Android 9; Mobile; rv:69.0) Gecko/69.0

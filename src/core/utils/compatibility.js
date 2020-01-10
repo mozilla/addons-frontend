@@ -89,6 +89,22 @@ export const isFirefox = ({
   return userAgentInfo.browser.name === 'Firefox';
 };
 
+export const isFenix = (userAgentInfo: UserAgentInfoType): boolean => {
+  // If the userAgent is false there was likely a programming error.
+  invariant(userAgentInfo, 'userAgentInfo is required');
+
+  const { browser, os } = userAgentInfo;
+
+  if (
+    isFirefox({ userAgentInfo }) &&
+    os.name === USER_AGENT_OS_ANDROID &&
+    mozCompare(browser.version, '69.0') >= 0
+  ) {
+    return true;
+  }
+  return false;
+};
+
 export type IsCompatibleWithUserAgentParams = {|
   _findInstallURL?: typeof findInstallURL,
   _log?: typeof log,
@@ -140,10 +156,7 @@ export function isCompatibleWithUserAgent({
   // Fenix does not support add-ons (yet?).
   // See: https://github.com/mozilla-mobile/fenix/issues/1134
   // See also: https://github.com/mozilla/addons-frontend/issues/7963
-  if (
-    os.name === USER_AGENT_OS_ANDROID &&
-    mozCompare(browser.version, '69.0') >= 0
-  ) {
+  if (isFenix(userAgentInfo)) {
     return { compatible: false, reason: INCOMPATIBLE_FIREFOX_FENIX };
   }
 
