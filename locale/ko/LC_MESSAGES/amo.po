@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-09 23:20+0000\n"
+"PO-Revision-Date: 2020-01-10 01:51+0000\n"
 "Last-Translator: Kim Young-Cheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -474,21 +474,19 @@ msgstr "이 번역자들의 사전 더보기"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:264
 msgid "More extensions by %(author)s"
-msgstr "%(author)s의 확장 기능 더보기"
+msgstr "%(author)s 님의 확장 기능 더보기"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:267
 msgid "More extensions by these developers"
 msgstr "이 개발자의 확장 기능 더보기"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:271
-#, fuzzy
 msgid "Extensions by %(author)s"
-msgstr "%(author)s의 확장 기능 더보기"
+msgstr "%(author)s 님의 확장 기능"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:274
-#, fuzzy
 msgid "Extensions by these developers"
-msgstr "이 개발자의 확장 기능 더보기"
+msgstr "이 개발자의 확장 기능"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by %(author)s"
@@ -1283,7 +1281,7 @@ msgstr "이 부가 기능이 %(linkTagStart)sMozilla의 부가 기능 정책%(li
 
 #: src/amo/components/ReportAbuseButton/index.js:153
 msgid "Report this add-on for abuse"
-msgstr "이 부가 기능을 정책 위반으로 신고하기"
+msgstr "이 부가 기능을 신고하기"
 
 #: src/amo/components/ReportAbuseButton/index.js:183
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -1691,7 +1689,7 @@ msgstr "작성된 리뷰 없음"
 
 #: src/amo/pages/Addon/index.js:244
 msgid "Rate your experience"
-msgstr "앱을 평가해주세요"
+msgstr "평가"
 
 #: src/amo/pages/Addon/index.js:263
 msgid "About this dictionary"
@@ -1719,7 +1717,7 @@ msgstr "이 부가 기능 정보"
 
 #: src/amo/pages/Addon/index.js:317
 msgid "Release notes for %(addonVersion)s"
-msgstr "%(addonVersion)s에 대한 출시 정보"
+msgstr "버전 %(addonVersion)s의 출시 정보"
 
 #: src/amo/pages/Addon/index.js:448
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
@@ -1802,7 +1800,7 @@ msgstr "리뷰 작성"
 #: src/amo/pages/AddonVersions/index.js:128
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] "%(addonName)s 버전 기록 - 총 %(total)s개 버전"
+msgstr[0] "%(addonName)s의 버전 기록 - 총 %(total)s개 버전"
 
 #: src/amo/pages/AddonVersions/index.js:176
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
@@ -1813,14 +1811,12 @@ msgid "You should always use the latest version of an add-on."
 msgstr "항상 최신 버전의 부가 기능을 사용해야 합니다."
 
 #: src/amo/pages/AddonVersions/index.js:190
-#, fuzzy
 msgid "Latest version"
-msgstr "버전"
+msgstr "최신 버전"
 
 #: src/amo/pages/AddonVersions/index.js:199
-#, fuzzy
 msgid "Older versions"
-msgstr "모든 버전 보기"
+msgstr "이전 버전"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 #, fuzzy
