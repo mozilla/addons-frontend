@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-10 01:53+0000\n"
+"PO-Revision-Date: 2020-01-11 05:30+0000\n"
 "Last-Translator: Kim Young-Cheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -392,9 +392,8 @@ msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "%(linkStart)s%(timestamp)s%(linkEnd)s에 게시됨"
 
 #: src/amo/components/AddonReviewCard/index.js:351
-#, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "%(authorName)s, %(timestamp)s"
+msgstr "%(authorName)s 님, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:442
 #, fuzzy
@@ -456,21 +455,19 @@ msgstr "당신의 별점:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
-msgstr "%(author)s의 사전 더보기"
+msgstr "%(author)s 님의 사전 더보기"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:250
 msgid "More dictionaries by these translators"
 msgstr "이 번역자들의 사전 더보기"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:254
-#, fuzzy
 msgid "Dictionaries by %(author)s"
-msgstr "%(author)s의 사전 더보기"
+msgstr "%(author)s 님의 사전"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:257
-#, fuzzy
 msgid "Dictionaries by these translators"
-msgstr "이 번역자들의 사전 더보기"
+msgstr "이 번역자들의 사전"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:264
 msgid "More extensions by %(author)s"
@@ -490,57 +487,51 @@ msgstr "이 개발자의 확장 기능"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by %(author)s"
-msgstr "%(author)s의 언어 팩 더보기"
+msgstr "%(author)s 님의 언어 팩 더보기"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:287
 msgid "More language packs by these translators"
 msgstr "이 번역자들의 언어 팩 더보기"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:291
-#, fuzzy
 msgid "Language packs by %(author)s"
-msgstr "%(author)s의 언어 팩 더보기"
+msgstr "%(author)s 님의 언어 팩"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:294
-#, fuzzy
 msgid "Language packs by these translators"
-msgstr "이 번역자들의 언어 팩 더보기"
+msgstr "이 번역자들의 언어 팩"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:301
 msgid "More themes by %(author)s"
-msgstr "%(author)s의 테마 더보기"
+msgstr "%(author)s 님의 테마 더보기"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:304
 msgid "More themes by these artists"
 msgstr "이 아티스트들의 테마 더보기"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:308
-#, fuzzy
 msgid "Themes by %(author)s"
-msgstr "%(author)s의 테마 더보기"
+msgstr "%(author)s 님의 테마"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:311
-#, fuzzy
 msgid "Themes by these artists"
-msgstr "이 아티스트들의 테마 더보기"
+msgstr "이 아티스트들의 테마"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:318
 msgid "More add-ons by %(author)s"
-msgstr "%(author)s의 부가 기능 더보기"
+msgstr "%(author)s 님의 부가 기능 더보기"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:321
 msgid "More add-ons by these developers"
 msgstr "이 개발자의 부가 기능 더보기"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:325
-#, fuzzy
 msgid "Add-ons by %(author)s"
-msgstr "%(author)s의 부가 기능 더보기"
+msgstr "%(author)s 님의 부가 기능"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:328
-#, fuzzy
 msgid "Add-ons by these developers"
-msgstr "이 개발자의 부가 기능 더보기"
+msgstr "이 개발자의 부가 기능"
 
 #: src/amo/components/AddonSummaryCard/index.js:41
 msgid "Add-on icon"
