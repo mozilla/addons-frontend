@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-11 05:30+0000\n"
+"PO-Revision-Date: 2020-01-11 05:44+0000\n"
 "Last-Translator: Kim Young-Cheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -550,7 +550,7 @@ msgstr ","
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:77 src/amo/components/AddonTitle/index.js:81
 msgid "by"
-msgstr "제작: "
+msgstr "제작자:"
 
 #: src/amo/components/AddonVersionCard/index.js:103
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
@@ -678,7 +678,7 @@ msgstr "사용자 정의 URL"
 
 #: src/amo/components/CollectionSort/index.js:104
 msgid "Sort add-ons by"
-msgstr "부가 기능 정렬"
+msgstr "부가 기능 정렬 기준"
 
 #: src/amo/components/CollectionSort/index.js:80
 msgid "Newest first"
@@ -825,14 +825,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "죄송합니다. 서버에 오류가 발생해 요청하신 작업을 수행하지 못했습니다. 발생한 오류는 빠르게 처리하겠습니다."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "%(addonName)s에 대한 리뷰"
+msgstr "%(userName)s 님의 응답"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "%(addonName)s에 대한 리뷰"
+msgstr "%(userName)s 님의 리뷰"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
@@ -1514,7 +1512,7 @@ msgstr "필터 결과"
 
 #: src/amo/components/SearchFilters/index.js:200
 msgid "Sort by"
-msgstr "정렬 방식"
+msgstr "정렬 기준"
 
 #: src/amo/components/SearchFilters/index.js:222
 msgid "Add-on Type"
