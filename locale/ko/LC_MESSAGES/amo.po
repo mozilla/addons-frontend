@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-11 05:44+0000\n"
-"Last-Translator: Kim Young-Cheon <circcc@gmail.com>\n"
+"PO-Revision-Date: 2020-01-12 04:36+0000\n"
+"Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1075,11 +1075,11 @@ msgstr "더 알아보기"
 
 #: src/amo/components/InstallWarning/index.js:168
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr ""
+msgstr "이 확장 기능은 Mozilla에서 모니터링하지 않습니다. 설치하기 전에 신뢰할 수 있는지 확인하십시오."
 
 #: src/amo/components/InstallWarning/index.js:170
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr "추천하는 확장기능이 아닙니다. 설치하기 전에 신뢰할 수 있는지 확인하십시오."
+msgstr "이것은 추천하는 확장기능이 아닙니다. 설치하기 전에 신뢰할 수 있는지 확인하십시오."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
