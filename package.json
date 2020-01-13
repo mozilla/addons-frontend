@@ -208,8 +208,8 @@
   },
   "homepage": "https://github.com/mozilla/addons-frontend#readme",
   "dependencies": {
-    "@loadable/component": "5.11.0",
-    "@loadable/server": "5.11.0",
+    "@loadable/component": "5.12.0",
+    "@loadable/server": "5.12.0",
     "@mozilla-protocol/tokens": "5.0.2",
     "@willdurand/isomorphic-formdata": "1.2.0",
     "base62": "2.0.1",
