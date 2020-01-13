@@ -220,7 +220,8 @@ describe(__filename, () => {
     expect(root.find('button.ReportAbuseButton-send-report')).toHaveLength(0);
   });
 
-  it('disables the "Report this add-on for abuse" button if a report is in progress', () => {
+  it('does not disable the "Report this add-on for abuse" button if a report is in progress', () => {
+    // See https://github.com/mozilla/addons-frontend/issues/9086.
     const { store } = dispatchClientMetadata();
 
     store.dispatch(initiateAddonAbuseReportViaFirefox({ addon: fakeAddon }));
@@ -228,7 +229,7 @@ describe(__filename, () => {
 
     expect(root.find('.ReportAbuseButton-show-more')).toHaveProp(
       'disabled',
-      true,
+      false,
     );
   });
 

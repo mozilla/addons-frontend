@@ -191,7 +191,6 @@ export default function abuseReducer(
         loading: false,
       };
     }
-    case INITIATE_ADDON_ABUSE_REPORT_VIA_FIREFOX:
     case SEND_ADDON_ABUSE_REPORT:
       return { ...state, loading: true };
     case SHOW_ADDON_ABUSE_REPORT_UI: {

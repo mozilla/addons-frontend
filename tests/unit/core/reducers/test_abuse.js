@@ -172,16 +172,14 @@ describe(__filename, () => {
   });
 
   describe('initiateAddonAbuseReportViaFirefox', () => {
-    it('sets the loading state to true', () => {
+    it('does not set the loading state to true', () => {
+      // See https://github.com/mozilla/addons-frontend/issues/9086.
       const state = abuseReducer(
         initialState,
         initiateAddonAbuseReportViaFirefox({ addon: fakeAddon }),
       );
 
-      expect(state).toEqual({
-        ...initialState,
-        loading: true,
-      });
+      expect(state).toEqual(initialState);
     });
   });
 
