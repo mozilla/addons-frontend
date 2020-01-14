@@ -20,8 +20,8 @@ import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
-// TODO: Update this to the correct SUMO article.
-export const FENIX_LINK_DESTINATION = 'https://support.mozilla.org/kb/';
+export const FENIX_LINK_DESTINATION =
+  'https://support.mozilla.org/kb/add-compatibility-firefox-preview/';
 
 type Props = {|
   className?: string,
@@ -63,7 +63,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
       message = i18n.sprintf(
         this.props.fixFenixLinkMessage ||
           i18n.gettext(
-            `To find add-ons compatible with Firefox on Android,
+            `To find add-ons compatible with Firefox for Android,
                <a href="%(newLocation)s">click here</a>.`,
           ),
         { newLocation: FENIX_LINK_DESTINATION },
