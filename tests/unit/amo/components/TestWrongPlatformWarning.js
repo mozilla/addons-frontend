@@ -184,7 +184,7 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find('.WrongPlatformWarning-message').html()).toContain(
-      'To find add-ons compatible with Firefox for Android,',
+      'To learn about add-ons compatible with Firefox for Android,',
     );
     expect(root.find('.WrongPlatformWarning-message').html()).toContain(
       'click here',

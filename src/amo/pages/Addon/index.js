@@ -488,7 +488,7 @@ export class AddonBase extends React.Component {
                 )}
                 fixFenixLinkMessage={i18n.gettext(
                   `This add-on is not compatible with Firefox for Android.
-                    <a href="%(newLocation)s">Browse compatible add-ons</a>.`,
+                    <a href="%(newLocation)s">Learn more</a>.`,
                 )}
               />
               {addon && <InstallWarning addon={addon} />}

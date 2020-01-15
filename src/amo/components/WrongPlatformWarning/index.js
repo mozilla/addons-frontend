@@ -63,7 +63,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
       message = i18n.sprintf(
         this.props.fixFenixLinkMessage ||
           i18n.gettext(
-            `To find add-ons compatible with Firefox for Android,
+            `To learn about add-ons compatible with Firefox for Android,
                <a href="%(newLocation)s">click here</a>.`,
           ),
         { newLocation: FENIX_LINK_DESTINATION },
