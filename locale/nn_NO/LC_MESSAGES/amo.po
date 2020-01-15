@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-15 10:52+0000\n"
+"PO-Revision-Date: 2020-01-15 10:56+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1051,7 +1051,7 @@ msgstr "Les meir"
 
 #: src/amo/components/InstallWarning/index.js:168
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr ""
+msgstr "Denne utvidinga er ikkje overvaka av Mozilla. Sjå til at du stolar på utvidinga før du installerer henne."
 
 #: src/amo/components/InstallWarning/index.js:170
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
@@ -1099,7 +1099,7 @@ msgstr "Utvid utviklarverktøya for å få tilgang til dine data i opne faner"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Laste ned filer, samt lese og modifisere nedlastingshistorikken til nettlesaren"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
@@ -1619,7 +1619,7 @@ msgstr "Vel bilde…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:62
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "For å finne tillegg som er kompatible med Firefox for Android, <a href=\"%(newLocation)s\">gå til nettsida vår for vår mobilar</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:69
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
@@ -2514,7 +2514,7 @@ msgstr "Namn på vurderar"
 
 #: src/amo/pages/UserProfileEdit/index.js:685
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Denne URL-en vil berre vere synleg for brukarar som er utviklarar."
 
 #: src/amo/pages/UserProfileEdit/index.js:742
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
