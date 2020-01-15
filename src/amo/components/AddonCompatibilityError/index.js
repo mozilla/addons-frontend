@@ -92,6 +92,11 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
       return null;
     }
 
+    if (reason === INCOMPATIBLE_FIREFOX_FENIX) {
+      // Do not display a message for Fenix, it is dealt with elsewhere.
+      return null;
+    }
+
     if (
       reason === INCOMPATIBLE_ANDROID_UNSUPPORTED &&
       clientApp === CLIENT_APP_FIREFOX
@@ -129,10 +134,6 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
     } else if (reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
       message = i18n.gettext(
         'Firefox for iOS does not currently support add-ons.',
-      );
-    } else if (reason === INCOMPATIBLE_FIREFOX_FENIX) {
-      message = i18n.gettext(
-        'Firefox Preview does not currently support add-ons.',
       );
     } else if (reason === INCOMPATIBLE_UNSUPPORTED_PLATFORM) {
       message = i18n.gettext('This add-on is not available on your platform.');

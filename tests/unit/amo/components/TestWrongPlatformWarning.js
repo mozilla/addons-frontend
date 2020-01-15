@@ -2,6 +2,7 @@ import * as React from 'react';
 import UAParser from 'ua-parser-js';
 
 import WrongPlatformWarning, {
+  FENIX_LINK_DESTINATION,
   WrongPlatformWarningBase,
 } from 'amo/components/WrongPlatformWarning';
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
@@ -16,10 +17,12 @@ import {
 
 describe(__filename, () => {
   let _correctedLocationForPlatform;
+  let _isFenix;
   let store;
 
   beforeEach(() => {
     _correctedLocationForPlatform = sinon.stub();
+    _isFenix = sinon.stub();
     store = dispatchClientMetadata().store;
   });
 
@@ -34,6 +37,7 @@ describe(__filename, () => {
   const render = ({ location = createFakeLocation(), ...customProps } = {}) => {
     const props = {
       _correctedLocationForPlatform,
+      _isFenix,
       i18n: fakeI18n(),
       store,
       ...customProps,
@@ -48,8 +52,9 @@ describe(__filename, () => {
     );
   };
 
-  it('returns nothing if no location correction is required', () => {
+  it('returns nothing if not Fenix and no location correction is required', () => {
     _correctedLocationForPlatform.returns(null);
+    _isFenix.returns(false);
     const root = render();
 
     expect(root.find('.WrongPlatformWarning')).toHaveLength(0);
@@ -64,7 +69,32 @@ describe(__filename, () => {
     expect(root).toHaveClassName(className);
   });
 
-  it('calls _correctedLocationForPlatform with clientApp, location and userAgentInfo', () => {
+  it('calls _isFenix to check for Fenix user agent', () => {
+    const clientApp = CLIENT_APP_ANDROID;
+    const userAgent = userAgentsByPlatform.mac.firefox57;
+    const parsedUserAgent = UAParser(userAgent);
+    _dispatchClientMetadata({ clientApp, userAgent });
+
+    render();
+
+    sinon.assert.calledWith(
+      _isFenix,
+      sinon.match({
+        browser: sinon.match(parsedUserAgent.browser),
+        os: sinon.match(parsedUserAgent.os),
+      }),
+    );
+  });
+
+  it('does not call _correctedLocationForPlatform when user agent is Fenix', () => {
+    _isFenix.returns(true);
+    render();
+
+    sinon.assert.notCalled(_correctedLocationForPlatform);
+  });
+
+  it('calls _correctedLocationForPlatform with clientApp, location and userAgentInfo when not Fenix', () => {
+    _isFenix.returns(false);
     const clientApp = CLIENT_APP_ANDROID;
     const userAgent = userAgentsByPlatform.mac.firefox57;
     const parsedUserAgent = UAParser(userAgent);
@@ -101,10 +131,11 @@ describe(__filename, () => {
       ],
     ],
   ])(
-    'generates the expected message when clientApp is %s',
+    'generates the expected message when clientApp is %s and not Fenix',
     (clientApp, expectedText) => {
       const newLocation = '/some/location/';
       _correctedLocationForPlatform.returns(newLocation);
+      _isFenix.returns(false);
       _dispatchClientMetadata({ clientApp });
       const root = render();
 
@@ -120,22 +151,64 @@ describe(__filename, () => {
   );
 
   it.each([CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX])(
-    'can display a custom message when clientApp is %s',
+    'can display a custom message when clientApp is %s and not Fenix',
     (clientApp) => {
       const newLocation = '/some/location/';
       _correctedLocationForPlatform.returns(newLocation);
+      _isFenix.returns(false);
       _dispatchClientMetadata({ clientApp });
-      const fixAndroidLinkMessage =
-        'A message to show when clientApp is firefox';
-      const fixFirefoxLinkMessage =
-        'A message to show when clientApp is android';
+      const androidMessageText = 'A message to show when clientApp is firefox';
+      const androidLinkText = 'click here for Android';
+      const firefoxMessageText = 'A message to show when clientApp is android';
+      const firefoxLinkText = 'click here for Firefox';
+      const fixAndroidLinkMessage = `${androidMessageText}<a href="%(newLocation)s">${androidLinkText}</a>.`;
+      const fixFirefoxLinkMessage = `${firefoxMessageText}<a href="%(newLocation)s">${firefoxLinkText}</a>.`;
       const root = render({ fixAndroidLinkMessage, fixFirefoxLinkMessage });
 
       expect(root.find('.WrongPlatformWarning-message').html()).toContain(
         clientApp === CLIENT_APP_ANDROID
-          ? fixFirefoxLinkMessage
-          : fixAndroidLinkMessage,
+          ? firefoxMessageText
+          : androidMessageText,
+      );
+      expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+        clientApp === CLIENT_APP_ANDROID ? firefoxLinkText : androidLinkText,
+      );
+      expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+        `<a href="${newLocation}">`,
       );
     },
   );
+
+  it('generates the expected message when user agent is Fenix', () => {
+    _isFenix.returns(true);
+    const root = render();
+
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      'To learn about add-ons compatible with Firefox for Android,',
+    );
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      'click here',
+    );
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      `<a href="${FENIX_LINK_DESTINATION}">`,
+    );
+  });
+
+  it('can display a custom message when user agent is Fenix', () => {
+    _isFenix.returns(true);
+    const messageText = 'A custom message.';
+    const linkText = 'click here';
+    const fixFenixLinkMessage = `${messageText}<a href="%(newLocation)s">${linkText}</a>.`;
+    const root = render({ fixFenixLinkMessage });
+
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      messageText,
+    );
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      linkText,
+    );
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      `<a href="${FENIX_LINK_DESTINATION}">`,
+    );
+  });
 });

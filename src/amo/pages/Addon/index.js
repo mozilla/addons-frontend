@@ -486,6 +486,10 @@ export class AddonBase extends React.Component {
                   `This listing is not intended for this platform.
                     <a href="%(newLocation)s">Browse add-ons for Firefox on desktop</a>.`,
                 )}
+                fixFenixLinkMessage={i18n.gettext(
+                  `This add-on is not compatible with Firefox for Android.
+                    <a href="%(newLocation)s">Learn more</a>.`,
+                )}
               />
               {addon && <InstallWarning addon={addon} />}
             </Card>
