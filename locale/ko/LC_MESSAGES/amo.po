@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-16 20:30+0000\n"
+"PO-Revision-Date: 2020-01-16 20:49+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -184,9 +184,8 @@ msgid_plural "%(total)s Stars"
 msgstr[0] "%(total)s 별점"
 
 #: src/amo/components/AddonMeta/index.js:125
-#, fuzzy
 msgid "Not rated yet"
-msgstr "평가되지 않음"
+msgstr "아직 평가 안 됨"
 
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Users"
@@ -289,9 +288,8 @@ msgid "Homepage"
 msgstr "홈 페이지"
 
 #: src/amo/components/AddonMoreInfo/index.js:73
-#, fuzzy
 msgid "Support site"
-msgstr "도움말 사이트"
+msgstr "지원 사이트"
 
 #: src/amo/components/AddonMoreInfo/index.js:87
 msgid "Support Email"
@@ -711,11 +709,11 @@ msgstr "이 개발자 지원"
 
 #: src/amo/components/ContributeCard/index.js:50
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr "이 확장 기능의 개발자가 작은 기여로 지속적인 개발을 지원해 줄 것을 요청합니다."
+msgstr "이 확장 기능의 개발자가 여러분이 작은 기여로 지속적인 개발을 지원해 줄 것을 요청합니다."
 
 #: src/amo/components/ContributeCard/index.js:52
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr "이 확장 기능의 개발자가 작은 기여로 지속적인 개발을 지원해 줄 것을 요청합니다."
+msgstr "이 확장 기능의 개발자가 여러분이 작은 기여로 지속적인 개발을 지원해 줄 것을 요청합니다."
 
 #: src/amo/components/ContributeCard/index.js:59
 msgid "Support this artist"
@@ -1355,9 +1353,8 @@ msgid "Top rated themes"
 msgstr "가장 평점이 높은 테마"
 
 #: src/amo/components/Search/index.js:152
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "가장 평점이 높은 확장 기능"
+msgstr "가장 평점이 높은 부가 기능"
 
 #: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:308
 msgid "Popular extensions"
@@ -1598,7 +1595,7 @@ msgstr "Android 용"
 
 #: src/amo/components/SectionLinks/index.js:87
 msgid "Dictionaries & Language Packs"
-msgstr "사전과 언어 팩"
+msgstr "사전 및 언어 팩"
 
 #: src/amo/components/SectionLinks/index.js:98 src/amo/pages/SearchTools/index.js:76
 msgid "Search Tools"
@@ -2901,7 +2898,6 @@ msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "5점 만점에 %(rating)s점"
 
 #: src/ui/components/Rating/index.js:83 src/ui/components/Rating/index.js:94
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "5점 만점에 %(rating)s점"
 
