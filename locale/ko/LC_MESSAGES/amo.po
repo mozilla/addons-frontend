@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-16 21:06+0000\n"
+"PO-Revision-Date: 2020-01-16 22:32+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -105,9 +105,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "iOS 용 Firefox는 현재 부가 기능을 지원하지 않습니다."
 
 #: src/amo/components/AddonCompatibilityError/index.js:134
-#, fuzzy
 msgid "Firefox Preview does not currently support add-ons."
-msgstr "iOS 용 Firefox는 현재 부가 기능을 지원하지 않습니다."
+msgstr "Firefox Preview는 현재 부가 기능을 지원하지 않습니다."
 
 #: src/amo/components/AddonCompatibilityError/index.js:138
 msgid "This add-on is not available on your platform."
@@ -201,18 +200,17 @@ msgid "No Users"
 msgstr "사용자 없음"
 
 #: src/amo/components/AddonMeta/index.js:60
-#, fuzzy
 msgid "Reviews"
-msgstr "평가"
+msgstr "리뷰"
 
 #: src/amo/components/AddonMeta/index.js:63
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] "평가"
+msgstr[0] "리뷰"
 
 #: src/amo/components/AddonMeta/index.js:65
 msgid "No Reviews"
-msgstr "평가 없음"
+msgstr "리뷰 없음"
 
 #: src/amo/components/AddonMeta/index.js:89
 msgid "Used by"
@@ -361,9 +359,8 @@ msgid "Keep rating"
 msgstr "내 리뷰 수정"
 
 #: src/amo/components/AddonReviewCard/index.js:262
-#, fuzzy
 msgid "Keep review"
-msgstr "내 리뷰 수정"
+msgstr "리뷰 유지"
 
 #: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
@@ -420,19 +417,16 @@ msgid "Submit review"
 msgstr "리뷰 제출"
 
 #: src/amo/components/AddonReviewManager/index.js:116
-#, fuzzy
 msgid "Submitting review"
-msgstr "리뷰 제출"
+msgstr "리뷰 제출 중"
 
 #: src/amo/components/AddonReviewManager/index.js:120
-#, fuzzy
 msgid "Update review"
-msgstr "댓글 수정"
+msgstr "리뷰 업데이트"
 
 #: src/amo/components/AddonReviewManager/index.js:123
-#, fuzzy
 msgid "Updating review"
-msgstr "댓글 수정 중"
+msgstr "리뷰 업데이트 중"
 
 #: src/amo/components/AddonReviewManager/index.js:144
 msgid "Saving"
@@ -443,9 +437,8 @@ msgid "Saved"
 msgstr "저장됨"
 
 #: src/amo/components/AddonReviewManager/index.js:89
-#, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "이 확장 기능에 대해서 공유해 주세요. %(linkStart)s리뷰 가이드라인%(linkEnd)s을 참고해 주세요."
+msgstr "%(linkStart)s리뷰 지침사항%(linkEnd)s을 따라 주세요."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
@@ -1009,9 +1002,8 @@ msgid "Manage My Submissions"
 msgstr "제출 내역 관리하기"
 
 #: src/amo/components/Header/index.js:179
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "평가"
+msgstr "리뷰어 도구"
 
 #: src/amo/components/Header/index.js:191 src/core/components/AuthenticateButton/index.js:90
 msgid "This action is currently unavailable. Please reload the page in a moment."
@@ -1758,15 +1750,13 @@ msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s에 대한 리뷰"
 
 #: src/amo/pages/AddonReviewList/index.js:288
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s명의 사용자"
+msgstr[0] "%(total)s개의 리뷰"
 
 #: src/amo/pages/AddonReviewList/index.js:386
-#, fuzzy
 msgid "There are no reviews"
-msgstr "리뷰 작성"
+msgstr "리뷰가 없습니다"
 
 #: src/amo/pages/AddonVersions/index.js:128
 msgid "%(addonName)s version history - %(total)s version"
