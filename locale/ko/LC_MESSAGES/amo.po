@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-16 20:49+0000\n"
+"PO-Revision-Date: 2020-01-16 21:06+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -576,24 +576,20 @@ msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "%(dateReleased)s에 출시 - %(fileSize)s"
 
 #: src/amo/components/App/index.js:185 src/amo/components/HeadMetaTags/index.js:79
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Firefox 부가 기능"
+msgstr "Firefox 용 부가 기능 (%(locale)s)"
 
 #: src/amo/components/App/index.js:189 src/amo/components/HeadMetaTags/index.js:73
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s – Firefox 부가 기능"
+msgstr "%(title)s – Firefox 용 부가 기능 (%(locale)s)"
 
 #: src/amo/components/App/index.js:197 src/amo/components/HeadMetaTags/index.js:78
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Firefox 부가 기능"
+msgstr "Firefox Android 용 부가 기능 (%(locale)s)"
 
 #: src/amo/components/App/index.js:201 src/amo/components/HeadMetaTags/index.js:72
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%s – Firefox 부가 기능"
+msgstr "%(title)s – Firefox Android 용 부가 기능 (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:216
 msgid "Loading"
@@ -1519,9 +1515,8 @@ msgid "Firefox Add-ons (%(locale)s)"
 msgstr "Firefox 부가 기능"
 
 #: src/amo/components/SearchForm/index.js:67
-#, fuzzy
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr "Android 부가 기능"
+msgstr "Android 용 Firefox 부가기능 (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
@@ -1587,7 +1582,7 @@ msgstr "Firefox 부가 기능"
 
 #: src/amo/components/SectionLinks/index.js:70
 msgid "for Firefox"
-msgstr "Firefox용"
+msgstr "Firefox 용"
 
 #: src/amo/components/SectionLinks/index.js:72
 msgid "for Android"
