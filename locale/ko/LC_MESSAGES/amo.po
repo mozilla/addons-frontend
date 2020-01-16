@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-16 20:09+0000\n"
+"PO-Revision-Date: 2020-01-16 20:30+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1033,9 +1033,8 @@ msgid "Firefox Browser Add-ons"
 msgstr "Firefox 부가 기능"
 
 #: src/amo/components/Header/index.js:94
-#, fuzzy
 msgid "Learn how to create extensions and themes"
-msgstr "가장 평점이 높은 확장 기능 더보기"
+msgstr "확장 기능 및 테마를 만드는 방법 알아보기"
 
 #: src/amo/components/HeroRecommendation/index.js:107
 #, fuzzy
@@ -1381,31 +1380,27 @@ msgstr "\"%(query)s\"에 대한 검색 결과"
 #: src/amo/components/SearchContextCard/index.js:108
 msgid "%(count)s Search Tool found"
 msgid_plural "%(count)s Search Tools found"
-msgstr[0] "%(count)s개의 검색 도구를 찾았습니다"
+msgstr[0] "%(count)s개 검색 도구를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:121
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr[0] "\"%(query)s\"에 대해 %(categoryName)s에서 %(count)s개 테마를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:130
-#, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr[0] "%(categoryName)s에서 %(count)s개 테마를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:140
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr[0] "\"%(query)s\"에 대해 %(count)s개 테마를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:149
-#, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "카테고리가 없습니다."
+msgstr[0] "%(count)s개 테마를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s result found for \"%(query)s\""
@@ -1429,33 +1424,29 @@ msgid "Searching for add-ons"
 msgstr "카테고리를 불러오는데 실패했습니다."
 
 #: src/amo/components/SearchContextCard/index.js:59
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr[0] "\"%(query)s\"에 대해 %(categoryName)s에서 %(count)s개 확장 기능을 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:68
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr[0] "%(categoryName)s에서 %(count)s개 확장 기능을 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:78
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr[0] "\"%(query)s\"에 대해 %(count)s개 확장 기능을 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:87
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "카테고리가 없습니다."
+msgstr[0] "%(count)s개 확장 기능을 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:99
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] "\"%(query)s\"에 대한 %(count)s개의 검색 도구를 찾았습니다"
+msgstr[0] "\"%(query)s\"에 대해 %(count)s개 검색 도구를 찾았습니다"
 
 #: src/amo/components/SearchFilters/index.js:135 src/amo/components/SearchFilters/index.js:159
 msgid "All"
@@ -1466,9 +1457,8 @@ msgid "Extension"
 msgstr "확장 기능"
 
 #: src/amo/components/SearchFilters/index.js:142
-#, fuzzy
 msgid "Search Tool"
-msgstr "테마 검색"
+msgstr "검색 도구"
 
 #: src/amo/components/SearchFilters/index.js:148
 msgid "Theme"
