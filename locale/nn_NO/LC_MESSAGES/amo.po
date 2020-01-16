@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-15 10:56+0000\n"
+"PO-Revision-Date: 2020-01-16 10:18+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1856,9 +1856,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:127
-#, fuzzy
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "Utforsk fleire %(linkStart)sannonseblokkerarar%(linkEnd)s utvalde av personalet."
+msgstr "Utforsk fleire tilrådde %(linkStart)spersonvern- og sikkerheits-utvidingar%(linkEnd)s extensions."
 
 #: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
@@ -1875,9 +1874,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
-#, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "Utforsk fleire %(linkStart)sannonseblokkerarar%(linkEnd)s utvalde av personalet."
+msgstr "Utforsk fleire %(linkStart)sfaneutvidingar%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
@@ -1892,9 +1890,8 @@ msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bo
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:168
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "Utforsk fleire %(linkStart)sannonseblokkerarar%(linkEnd)s utvalde av personalet."
+msgstr "Utforsk fleire %(linkStart)sbokmerkeutvidingar%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a fresh new tab experience"
@@ -1975,9 +1972,8 @@ msgid "Fully encrypted password protection. Store your data securely and access 
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:90
-#, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "Utforsk fleire %(linkStart)sannonseblokkerarar%(linkEnd)s utvalde av personalet."
+msgstr "Utforsk fleire bra %(linkStart)spassordhandterarar%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:98
 msgid "Block annoying ads"
