@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-06 14:20+0000\n"
+"PO-Revision-Date: 2020-01-16 21:13+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1819,7 +1819,7 @@ msgstr "Metadata for utvidelser"
 
 #: src/amo/pages/Addon/index.js:481
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
+msgstr "Denne oppføringen er ikke beregnet for denne plattformen. <a href=\"%(newLocation)s\">Se gjennom tillegg for Firefox på Android</a>."
 
 #: src/amo/pages/Addon/index.js:485
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
