@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-16 22:32+0000\n"
+"PO-Revision-Date: 2020-01-16 22:49+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -438,7 +438,7 @@ msgstr "저장됨"
 
 #: src/amo/components/AddonReviewManager/index.js:89
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "%(linkStart)s리뷰 지침사항%(linkEnd)s을 따라 주세요."
+msgstr "%(linkStart)s리뷰 가이드라인%(linkEnd)s을 따라 주세요."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
@@ -813,7 +813,7 @@ msgstr "죄송합니다. 서버에 오류가 발생해 요청하신 작업을 �
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
-msgstr "%(userName)s 님의 응답"
+msgstr "%(userName)s 님의 답변"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
 msgid "Review by %(userName)s"
@@ -959,7 +959,7 @@ msgstr "오류 보고"
 
 #: src/amo/components/Footer/index.js:99
 msgid "Review Guide"
-msgstr "리뷰 지침사항"
+msgstr "리뷰 가이드"
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
@@ -1197,7 +1197,7 @@ msgstr "로그인하여 이 부가 기능의 평점을 남겨주세요"
 
 #: src/amo/components/RatingManager/index.js:176
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "%(addonName)s에 대한 리뷰를 삭제 하시겠습니까?"
+msgstr "%(addonName)s에 대한 리뷰를 삭제하시겠습니까?"
 
 #: src/amo/components/RatingManager/index.js:181
 #, fuzzy
@@ -1648,7 +1648,7 @@ msgstr[0] "%(count)s개의 리뷰 보기"
 
 #: src/amo/pages/Addon/index.js:234
 msgid "No reviews yet"
-msgstr "작성된 리뷰 없음"
+msgstr "아직 리뷰 없음"
 
 #: src/amo/pages/Addon/index.js:244
 msgid "Rate your experience"
@@ -2258,7 +2258,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "리뷰에 대한 자주 묻는 질문"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:122
 msgid "How can I report a problematic review?"
@@ -2290,7 +2290,7 @@ msgstr "일반적으로, 불가능합니다. 하지만 리뷰가 가이드라인
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
-msgstr "가이드라인 검토"
+msgstr "리뷰 가이드라인"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
@@ -2378,9 +2378,8 @@ msgid "Make false statements, disparage add-on authors or personally insult them
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:241
-#, fuzzy
 msgid "My reviews"
-msgstr "평가"
+msgstr "내 리뷰"
 
 #: src/amo/pages/UserProfile/index.js:269
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
@@ -2544,9 +2543,8 @@ msgid "Display Name *"
 msgstr "게임하기"
 
 #: src/amo/pages/UserProfileEdit/index.js:652
-#, fuzzy
 msgid "Reviewer Name"
-msgstr "테마 검토"
+msgstr "리뷰어 이름"
 
 #: src/amo/pages/UserProfileEdit/index.js:685
 msgid "This URL will only be visible for users who are developers."
@@ -2910,7 +2908,7 @@ msgstr[0] "카테고리가 없습니다."
 
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
-msgstr "개발자 응답"
+msgstr "개발자 답변"
 
 #~ msgid ""
 #~ "If you’ve followed a link on this site, you’ve have found a mistake. Help us fix the link by <a href=\"%(url)s\">filing an issue</a>. Tell us where you came from and what you were looking for, and "
