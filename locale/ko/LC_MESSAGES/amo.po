@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-15 00:42+0000\n"
+"PO-Revision-Date: 2020-01-16 20:09+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -550,7 +550,7 @@ msgstr ","
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:77 src/amo/components/AddonTitle/index.js:81
 msgid "by"
-msgstr "제작자:"
+msgstr "제작:"
 
 #: src/amo/components/AddonVersionCard/index.js:103
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
