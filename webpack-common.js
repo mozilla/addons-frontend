@@ -143,7 +143,7 @@ export function getPlugins({
     // This replaces the config with a new module that has sensitive,
     // server-only keys removed.
     new webpack.NormalModuleReplacementPlugin(
-      /config$/,
+      /^config$/,
       'core/client/config.js',
     ),
     // This swaps the server side window object with a standard browser window.
