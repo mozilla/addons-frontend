@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-16 22:49+0000\n"
+"PO-Revision-Date: 2020-01-17 03:16+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -317,9 +317,8 @@ msgid "Delete reply"
 msgstr "내 댓글 수정"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
-#, fuzzy
 msgid "Delete rating"
-msgstr "내 리뷰 수정"
+msgstr "평점 삭제"
 
 #: src/amo/components/AddonReviewCard/index.js:212 src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
@@ -331,9 +330,8 @@ msgid "Do you really want to delete this reply?"
 msgstr "이 콜렉션 수정"
 
 #: src/amo/components/AddonReviewCard/index.js:223
-#, fuzzy
 msgid "Do you really want to delete this rating?"
-msgstr "이 콜렉션 수정"
+msgstr "이 평점을 삭제하시겠습니까?"
 
 #: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
@@ -1200,9 +1198,8 @@ msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr "%(addonName)s에 대한 리뷰를 삭제하시겠습니까?"
 
 #: src/amo/components/RatingManager/index.js:181
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "이 콜렉션 수정"
+msgstr "%(addonName)s의 평점을 삭제하시겠습니까?"
 
 #: src/amo/components/RatingManager/index.js:186
 msgid "How are you enjoying %(addonName)s?"
@@ -2824,9 +2821,8 @@ msgid "Submit"
 msgstr "제출"
 
 #: src/ui/components/DismissibleTextForm/index.js:190
-#, fuzzy
 msgid "Submitting"
-msgstr "제출"
+msgstr "제출 중"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
