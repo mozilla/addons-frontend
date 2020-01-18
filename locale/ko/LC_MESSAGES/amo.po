@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-17 04:58+0000\n"
+"PO-Revision-Date: 2020-01-18 21:04+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -184,7 +184,7 @@ msgstr[0] "%(total)s 별점"
 
 #: src/amo/components/AddonMeta/index.js:125
 msgid "Not rated yet"
-msgstr "아직 평가 안 됨"
+msgstr "별점 없음"
 
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Users"
@@ -1762,7 +1762,7 @@ msgstr[0] "%(addonName)s의 버전 기록 - 총 %(total)s개 버전"
 
 #: src/amo/pages/AddonVersions/index.js:176
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr "이전 버전의 사용에 주의하세요! 이 버전들은 테스트 및 참조 용도로만 표시되는 것입니다."
+msgstr "이전 버전의 사용에 주의하십시오! 이 버전들은 테스트 및 참조 용도로만 표시되는 것입니다."
 
 #: src/amo/pages/AddonVersions/index.js:181
 msgid "You should always use the latest version of an add-on."
