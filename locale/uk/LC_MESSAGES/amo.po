@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2019-12-05 08:46+0000\n"
+"PO-Revision-Date: 2020-01-18 11:38+0000\n"
 "Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1119,7 +1119,7 @@ msgstr "Відкривати файли, завантажені на ваш ко
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Read the text of all open tabs"
-msgstr "Читати текст у всіх відкритих вкладах"
+msgstr "Читати текст у всіх відкритих вкладках"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access your location"
