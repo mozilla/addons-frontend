@@ -64,35 +64,38 @@ describe(__filename, () => {
   it('renders the heading', () => {
     const root = render();
 
-    expect(root.find('.SearchResult-link').children()).toIncludeText(
+    expect(root.find('.SearchResult-title').children()).toIncludeText(
       'A search result',
     );
   });
 
-  it('links the heading to the detail page', () => {
+  it('links the card to the detail page', () => {
     const slug = 'some-addon-slug';
     const addon = createInternalAddon({ ...fakeAddon, slug });
 
     const root = render({ addon });
 
-    expect(root.find('.SearchResult-link')).toHaveProp('to', getAddonURL(slug));
+    expect(root.find('.SearchResult-wrapper')).toHaveProp(
+      'to',
+      getAddonURL(slug),
+    );
   });
 
-  it('stops propagation when clicking on the add-on name', () => {
+  it('stops propagation when clicking on the card', () => {
     const root = render();
 
     const clickEvent = createFakeEvent();
-    root.find('.SearchResult-link').simulate('click', clickEvent);
+    root.find('.SearchResult-wrapper').simulate('click', clickEvent);
 
     sinon.assert.called(clickEvent.stopPropagation);
   });
 
-  it('links the heading to the detail page with a source', () => {
+  it('links the card to the detail page with a source', () => {
     const addonInstallSource = 'home-page-featured';
 
     const root = render({ addonInstallSource });
 
-    const link = root.find('.SearchResult-link');
+    const link = root.find('.SearchResult-wrapper');
     expect(url.parse(link.prop('to'), true).query).toMatchObject({
       src: addonInstallSource,
     });
@@ -151,25 +154,6 @@ describe(__filename, () => {
     });
 
     expect(root.find('.SearchResult-users')).toIncludeText('1 user');
-  });
-
-  it('links the li element to the detail page', () => {
-    const slug = 'some-addon-slug';
-    const addon = createInternalAddon({ ...fakeAddon, slug });
-    const clientApp = CLIENT_APP_FIREFOX;
-    const lang = 'fr';
-    const history = createFakeHistory();
-    const { store } = dispatchClientMetadata({ clientApp, lang });
-
-    const root = render({ addon, history, store });
-
-    const onClick = root.find('.SearchResult').prop('onClick');
-    onClick();
-
-    sinon.assert.calledWith(
-      history.push,
-      `/${lang}/${clientApp}${getAddonURL(slug)}`,
-    );
   });
 
   it('renders the star ratings', () => {
