@@ -38,7 +38,9 @@
       .SearchResult-wrapper {
         display: inline-block;
         height: 100%;
+        outline: none;
         padding: 12px 24px;
+        text-decoration: none;
         transition: background-color $transition-short ease-in-out;
         width: 100%;
       }
@@ -95,7 +97,6 @@
         // stylelint-enable max-nesting-depth
       }
 
-      .SearchResult-wrapper:focus,
       .SearchResult-wrapper:hover {
         background-color: $grey-10;
         border-radius: $border-radius-default;

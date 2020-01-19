@@ -72,6 +72,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
       showRecommendedBadge,
       showSummary,
       useThemePlaceholder,
+      history,
     } = this.props;
 
     const averageDailyUsers = addon ? addon.average_daily_users : null;
@@ -83,15 +84,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
     let addonTitle = <LoadingText />;
 
     if (addon) {
-      addonTitle = (
-        <Link
-          className="SearchResult-link"
-          to={this.getAddonLink(addon, addonInstallSource)}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {addon.name}
-        </Link>
-      );
+      addonTitle = <span className="SearchResult-title">{addon.name}</span>;
     }
 
     if (addon && addon.type === ADDON_TYPE_STATIC_THEME) {
@@ -132,7 +125,15 @@ export class SearchResultBase extends React.Component<InternalProps> {
     }
 
     return (
-      <div className="SearchResult-wrapper">
+      <Link
+        to={
+          addon
+            ? this.getAddonLink(addon, addonInstallSource)
+            : history.location.pathname
+        }
+        className="SearchResult-wrapper"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="SearchResult-result">
           <div className={iconWrapperClassnames}>
             {(addon && imageURL) || (!addon && !useThemePlaceholder) ? (
@@ -216,19 +217,9 @@ export class SearchResultBase extends React.Component<InternalProps> {
             </h3>
           ) : null}
         </div>
-      </div>
+      </Link>
     );
   }
-
-  onClickResult = () => {
-    const { addon, addonInstallSource, clientApp, history, lang } = this.props;
-
-    if (addon) {
-      history.push(
-        `/${lang}/${clientApp}${this.getAddonLink(addon, addonInstallSource)}`,
-      );
-    }
-  };
 
   render() {
     const { addon, useThemePlaceholder } = this.props;
@@ -245,9 +236,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
       // added an actual link to the h2 tag.
       // eslint-disable-next-line max-len
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
-      <li onClick={this.onClickResult} className={resultClassnames}>
-        {result}
-      </li>
+      <li className={resultClassnames}>{result}</li>
     );
   }
 }
