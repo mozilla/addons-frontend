@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-20 10:12+0000\n"
+"PO-Revision-Date: 2020-01-20 10:21+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -623,14 +623,12 @@ msgid "Edit this collection"
 msgstr "이 컬렉션 수정"
 
 #: src/amo/components/CollectionDetails/index.js:114
-#, fuzzy
 msgid "Edit collection details"
-msgstr "이 콜렉션 수정"
+msgstr "컬렉션 세부 사항 수정"
 
 #: src/amo/components/CollectionDetails/index.js:126
-#, fuzzy
 msgid "Back to collection"
-msgstr "콜렉션에 추가"
+msgstr "컬렉션으로 돌아가기"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:48
 msgid "Add-ons"
@@ -641,9 +639,8 @@ msgid "Creator"
 msgstr "제작자"
 
 #: src/amo/components/CollectionManager/index.js:240
-#, fuzzy
 msgid "Create collection"
-msgstr "이 콜렉션 수정"
+msgstr "컬렉션 생성"
 
 #: src/amo/components/CollectionManager/index.js:241
 msgid "Save changes"
@@ -651,7 +648,7 @@ msgstr "변경사항 저장"
 
 #: src/amo/components/CollectionManager/index.js:250
 msgid "Collection name"
-msgstr "모음집 이름"
+msgstr "컬렉션 이름"
 
 #: src/amo/components/CollectionManager/index.js:264
 msgid "Description"
@@ -973,7 +970,7 @@ msgstr "내 계정"
 
 #: src/amo/components/Header/index.js:126
 msgid "View My Collections"
-msgstr "내 콜렉션 보기"
+msgstr "내 컬렉션 보기"
 
 #: src/amo/components/Header/index.js:134 src/amo/pages/UserProfileEdit/index.js:548
 msgid "View My Profile"
@@ -1787,30 +1784,28 @@ msgid "All theme categories"
 msgstr "카테고리를 불러오는데 실패했습니다."
 
 #: src/amo/pages/Collection/index.js:392
-#, fuzzy
 msgid "Do you really want to delete this collection?"
-msgstr "이 콜렉션 수정"
+msgstr "이 컬렉션을 삭제하시겠습니까?"
 
 #: src/amo/pages/Collection/index.js:395
-#, fuzzy
 msgid "Delete this collection"
-msgstr "이 콜렉션 수정"
+msgstr "이 컬렉션 삭제"
 
 #: src/amo/pages/Collection/index.js:414
 msgid "Log in to create a collection"
-msgstr "콜렉션을 생성하려면 로그인 하세요"
+msgstr "컬렉션을 생성하려면 로그인 하세요"
 
 #: src/amo/pages/Collection/index.js:415
 msgid "Log in to edit this collection"
-msgstr "이 콜렉션을 수정하려면 로그인 하세요"
+msgstr "이 컬렉션을 수정하려면 로그인 하세요"
 
 #: src/amo/pages/Collection/index.js:448
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr "첫째, 모음집을 만듭니다. 이후 확장 기능과 테마를 추가할 수 있습니다."
+msgstr "첫째, 컬렉션을 만듭니다. 이후 확장 기능과 테마를 추가할 수 있습니다."
 
 #: src/amo/pages/Collection/index.js:451
 msgid "Search for extensions and themes to add to your collection."
-msgstr "확장 기능과 테마를 검색하여 모음집에 추가하세요."
+msgstr "컬렉션에 추가 할 확장 기능 및 테마를 검색하세요."
 
 #: src/amo/pages/Collection/index.js:513
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -1821,33 +1816,28 @@ msgid "Download and create Firefox collections to keep track of favorite extensi
 msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:114
-#, fuzzy
 msgid "Collections"
-msgstr "내 콜렉션 보기"
+msgstr "컬렉션"
 
 #: src/amo/pages/CollectionList/index.js:119
-#, fuzzy
 msgid "Log in to view your collections"
-msgstr "이 콜렉션 수정"
+msgstr "컬렉션을 보려면 로그인 하세요"
 
 #: src/amo/pages/CollectionList/index.js:124
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
 msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:134
-#, fuzzy
 msgid "Create a collection"
-msgstr "이 콜렉션 수정"
+msgstr "컬렉션 생성"
 
 #: src/amo/pages/CollectionList/index.js:62
-#, fuzzy
 msgid "You do not have any collections."
-msgstr "이 콜렉션 수정"
+msgstr "컬렉션이 없습니다."
 
 #: src/amo/pages/CollectionList/index.js:96
-#, fuzzy
 msgid "My collections"
-msgstr "내 콜렉션 보기"
+msgstr "내 컬렉션"
 
 #: src/amo/pages/Guides/index.js:105
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
