@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-18 21:04+0000\n"
+"PO-Revision-Date: 2020-01-20 10:12+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -24,11 +24,11 @@ msgstr "추가하는 중…"
 
 #: src/amo/components/AddAddonToCollection/index.js:194
 msgid "Select a collection…"
-msgstr "콜렉션 선택…"
+msgstr "컬렉션 선택…"
 
 #: src/amo/components/AddAddonToCollection/index.js:201
 msgid "Create new collection"
-msgstr "새 콜렉션 생성"
+msgstr "새 컬렉션 생성"
 
 #: src/amo/components/AddAddonToCollection/index.js:242
 msgid "Added to %(collectionName)s"
@@ -41,7 +41,7 @@ msgstr "추가하기…"
 
 #: src/amo/components/AddAddonToCollection/index.js:263 src/amo/components/CollectionAddAddon/index.js:173
 msgid "Add to collection"
-msgstr "콜렉션에 추가"
+msgstr "컬렉션에 추가"
 
 #: src/amo/components/AddonAdminLinks/index.js:100
 msgid "Admin add-on"
@@ -608,19 +608,19 @@ msgstr "카테고리를 불러오는 중."
 
 #: src/amo/components/CollectionAddAddon/index.js:159
 msgid "Added to collection"
-msgstr "콜렉션에 추가됨"
+msgstr "컬렉션에 추가됨"
 
 #: src/amo/components/CollectionAddAddon/index.js:160
 msgid "Removed from collection"
-msgstr "콜렉션에서 제거됨"
+msgstr "컬렉션에서 제거됨"
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Find an add-on to include in this collection"
-msgstr "이 모음집에 포함할 부가 기능 찾기"
+msgstr "이 컬렉션에 포함할 부가 기능 찾기"
 
 #: src/amo/components/CollectionDetails/index.js:103
 msgid "Edit this collection"
-msgstr "이 콜렉션 수정"
+msgstr "이 컬렉션 수정"
 
 #: src/amo/components/CollectionDetails/index.js:114
 #, fuzzy
