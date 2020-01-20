@@ -72,7 +72,6 @@ export class SearchResultBase extends React.Component<InternalProps> {
       showRecommendedBadge,
       showSummary,
       useThemePlaceholder,
-      history,
     } = this.props;
 
     const averageDailyUsers = addon ? addon.average_daily_users : null;
@@ -126,11 +125,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
     return (
       <Link
-        to={
-          addon
-            ? this.getAddonLink(addon, addonInstallSource)
-            : history.location.pathname
-        }
+        href={addon ? this.getAddonLink(addon, addonInstallSource) : '#'}
         className="SearchResult-wrapper"
         onClick={(e) => e.stopPropagation()}
       >

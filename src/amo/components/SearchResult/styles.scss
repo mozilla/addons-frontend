@@ -7,6 +7,11 @@ $icon-default-size: 32px;
 .SearchResult {
   list-style-type: none;
   margin: 0 0 1px;
+
+  .SearchResult-wrapper {
+    outline: none;
+    text-decoration: none;
+  }
 }
 
 .SearchResult-title {
