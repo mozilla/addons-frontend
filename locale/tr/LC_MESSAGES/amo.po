@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-20 15:52+0000\n"
+"PO-Revision-Date: 2020-01-20 15:54+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -959,7 +959,7 @@ msgstr "Yalnızca Firefox’ta: Firefox’u hemen indirin"
 
 #: src/amo/components/Header/index.js:104
 msgid "Submit and manage extensions and themes"
-msgstr ""
+msgstr "Eklentileri ve temaları gönderme ve yönetme"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -1353,7 +1353,7 @@ msgstr[1] "%(count)s arama aracı bulundu"
 #: src/amo/components/SearchContextCard/index.js:121
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
+msgstr[0] "%(categoryName)s kategorisinde \"%(query)s\" için %(count)s tema bulundu"
 msgstr[1] "%(categoryName)s kategorisinde \"%(query)s\" için %(count)s tema bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:130
@@ -1864,7 +1864,7 @@ msgstr "Sekme yönetimini baştan yaratın"
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
-msgstr ""
+msgstr "Genelde çok sayıda açık sekmeyle çalışıyorsanız ihtiyacınız olanı arayıp bulmanın bazen zorlaştığını bilirsiniz. Eklentiler, sekme yönetimini kolaylaştırmak için yaratıcı çözümler sunabilir."
 
 #: src/amo/pages/Guides/index.js:145
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
