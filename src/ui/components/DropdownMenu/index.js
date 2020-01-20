@@ -18,23 +18,17 @@ type Props = {|
 
 type State = {|
   buttonIsActive: boolean,
-  setByHover: boolean,
 |};
 
 export class DropdownMenuBase extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
-    this.state = { buttonIsActive: false, setByHover: false };
+    this.state = { buttonIsActive: false };
   }
 
   handleOnClick = (event: SyntheticEvent<any>) => {
     event.preventDefault();
-
-    if (this.state.setByHover) {
-      this.setState({ setByHover: false });
-      return;
-    }
 
     this.setState((previousState) => ({
       buttonIsActive: !previousState.buttonIsActive,
@@ -47,20 +41,20 @@ export class DropdownMenuBase extends React.Component<Props, State> {
     if (event.target && event.target.tagName === 'A') {
       log.debug(oneLine`Setting state of DropdownMenu to buttonIsActive to
         false, because a link inside the menu was clicked.`);
-      this.setState({ buttonIsActive: false, setByHover: false });
+      this.setState({ buttonIsActive: false });
     }
   };
 
   handleClickOutside = () => {
-    this.setState({ buttonIsActive: false, setByHover: false });
+    this.setState({ buttonIsActive: false });
   };
 
   handleOnMouseEnter = () => {
-    this.setState({ buttonIsActive: true, setByHover: true });
+    this.setState({ buttonIsActive: true });
   };
 
   handleOnMouseLeave = () => {
-    this.setState({ buttonIsActive: false, setByHover: false });
+    this.setState({ buttonIsActive: false });
   };
 
   render() {
