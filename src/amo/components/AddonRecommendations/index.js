@@ -71,6 +71,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
       addon: newAddon,
       recommendations: newRecommendations,
       tracking,
+      errorHandler,
     } = this.props;
 
     // Fetch recommendations when the add-on changes.
@@ -85,7 +86,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     if (newRecommendations && oldRecommendations !== newRecommendations) {
       const { fallbackReason, loading, outcome } = newRecommendations;
 
-      if (loading || this.props.errorHandler.hasError()) {
+      if (loading || errorHandler.hasError()) {
         return;
       }
 
@@ -116,9 +117,16 @@ export class AddonRecommendationsBase extends React.Component<Props> {
   render() {
     const { className, i18n, recommendations, errorHandler } = this.props;
 
-    if (!recommendations || errorHandler.hasError()) {
+    if (!recommendations) {
       log.debug(
         'No recommendations, hiding the AddonRecommendations component.',
+      );
+      return null;
+    }
+
+    if (errorHandler.hasError()) {
+      log.debug(
+        'Error in fetching recommendations, hiding the AddonRecommendations component.',
       );
       return null;
     }
