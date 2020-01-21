@@ -125,7 +125,9 @@ export class SearchResultBase extends React.Component<InternalProps> {
 
     return (
       <Link
-        href={addon ? this.getAddonLink(addon, addonInstallSource) : '#'}
+        {...(addon
+          ? { to: this.getAddonLink(addon, addonInstallSource) }
+          : { href: '#' })}
         className="SearchResult-wrapper"
         onClick={(e) => e.stopPropagation()}
       >
