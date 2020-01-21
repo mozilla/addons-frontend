@@ -76,7 +76,7 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find('.SearchResult-wrapper')).toHaveProp(
-      'href',
+      'to',
       getAddonURL(slug),
     );
   });
@@ -102,7 +102,7 @@ describe(__filename, () => {
     const root = render({ addonInstallSource });
 
     const link = root.find('.SearchResult-wrapper');
-    expect(url.parse(link.prop('href'), true).query).toMatchObject({
+    expect(url.parse(link.prop('to'), true).query).toMatchObject({
       src: addonInstallSource,
     });
   });
