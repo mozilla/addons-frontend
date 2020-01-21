@@ -85,7 +85,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     if (newRecommendations && oldRecommendations !== newRecommendations) {
       const { fallbackReason, loading, outcome } = newRecommendations;
 
-      if (loading) {
+      if (loading || this.props.errorHandler.hasError()) {
         return;
       }
 
@@ -114,9 +114,9 @@ export class AddonRecommendationsBase extends React.Component<Props> {
   }
 
   render() {
-    const { className, i18n, recommendations } = this.props;
+    const { className, i18n, recommendations, errorHandler } = this.props;
 
-    if (!recommendations) {
+    if (!recommendations || errorHandler.hasError()) {
       log.debug(
         'No recommendations, hiding the AddonRecommendations component.',
       );
