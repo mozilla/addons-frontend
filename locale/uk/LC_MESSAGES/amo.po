@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-12-03 17:17+0000\n"
-"PO-Revision-Date: 2020-01-18 11:38+0000\n"
-"Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
+"PO-Revision-Date: 2020-01-19 18:03+0000\n"
+"Last-Translator: Ігор <igor.ck.ua@pm.me>\n"
 "Language-Team: none\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -1877,11 +1877,11 @@ msgstr "Зупиніть стеження за вами в інтернеті"
 
 #: src/amo/pages/Guides/index.js:118
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr "Рекламодавці можуть стежити за вашою активністю в інтернеті на різних веб-сайтах, збираючи інформацію про вас і ваші зацікавлення. Розширення можуть допомогти замести ваші цифрові сліди."
+msgstr "Рекламодавці можуть стежити за вашою активністю в інтернеті на різних вебсайтах, збираючи інформацію про вас і ваші зацікавлення. Розширення можуть допомогти замести ваші цифрові сліди."
 
 #: src/amo/pages/Guides/index.js:123
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr "Ізолюйте свій ідентифікатор Facebook в окремому контейнері, щоб не дозволяти Facebook стежити за вашою діяльністю поза межами його веб-сайту."
+msgstr "Ізолюйте свій ідентифікатор Facebook в окремому контейнері, щоб не дозволяти Facebook стежити за вашою діяльністю поза межами його вебсайту."
 
 #: src/amo/pages/Guides/index.js:127
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
@@ -2001,7 +2001,7 @@ msgstr "Створюйте надійні паролі та керуйте ни�
 
 #: src/amo/pages/Guides/index.js:81
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
-msgstr "Менеджери паролів можуть допомогти вам створити надійні паролі, зберігати їх у захищеному сховищі, а також автоматично заповнювати форми входу на веб-сайтах."
+msgstr "Менеджери паролів можуть допомогти вам створити надійні паролі, зберігати їх у захищеному сховищі, а також автоматично заповнювати форми входу на вебсайтах."
 
 #: src/amo/pages/Guides/index.js:86
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
@@ -2019,7 +2019,7 @@ msgstr "Блокуйте надокучливу рекламу"
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
-"Сучасний Інтернет переповнений небажаними рекламними оголошеннями, що перешкоджають вам і сповільнюють веб-сайти. Розширення для блокування реклами можуть блокувати чи фільтрувати надокучливу "
+"Сучасний Інтернет переповнений небажаними рекламними оголошеннями, що перешкоджають вам і сповільнюють вебсайти. Розширення для блокування реклами можуть блокувати чи фільтрувати надокучливу "
 "рекламу, що відволікає вас."
 
 #: src/amo/pages/Home/index.js:138
@@ -2160,7 +2160,7 @@ msgstr "Словники"
 
 #: src/amo/pages/SearchTools/index.js:73
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr "Завантажуйте розширення для Firefox, щоб змінювати спосіб пошуку — від приватного пошуку до пошуку на веб-сайтах, пошуку зображень та іншого."
+msgstr "Завантажуйте розширення для Firefox, щоб змінювати спосіб пошуку — від приватного пошуку до пошуку на вебсайтах, пошуку зображень та іншого."
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2208,7 +2208,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr "Офіційний веб-сайт Mozilla для завантаження розширень і тем для Firefox. Додавайте нові функції та змінюйте вигляд браузера, щоб підлаштувати браузер для своїх потреб."
+msgstr "Офіційний вебсайт Mozilla для завантаження розширень і тем для Firefox. Додавайте нові функції та змінюйте вигляд браузера, щоб підлаштувати браузер для своїх потреб."
 
 #: src/amo/pages/StaticPages/About/index.js:215
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
@@ -2259,7 +2259,7 @@ msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
-"Допоможіть покращити цей веб-сайт. Він має відкритий код і ви можете повідомляти про проблеми і надсилати виправлення. Ви можете почати з %(startGoodFirstBugLink)sкорисного першого "
+"Допоможіть покращити цей вебсайт. Він має відкритий код і ви можете повідомляти про проблеми та надсилати виправлення. Ви можете почати з %(startGoodFirstBugLink)sкорисного першого "
 "звіту%(endGoodFirstBugLink)s, або переглянути всі відкриті звіти для %(startAddonsServerRepoLink)sсервера%(endAddonsServerRepoLink)s та "
 "%(startAddonsFrontendRepoLink)sінтерфейсу%(endAddonsFrontendRepoLink)s AMO на Github."
 
@@ -2868,7 +2868,7 @@ msgstr "Перемкнути зміст"
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
-msgstr "Отримувати доступ до ваших даних для всіх веб-сайтів"
+msgstr "Отримувати доступ до ваших даних для всіх вебсайтів"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
@@ -2879,7 +2879,7 @@ msgstr[2] "Отримувати доступ до ваших даних у ще 
 
 #: src/ui/components/HostPermissions/index.js:67
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "Отримувати доступ до ваших даних для веб-сайтів у домені %(param)s"
+msgstr "Отримувати доступ до ваших даних для вебсайтів у домені %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
