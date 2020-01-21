@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-12-03 17:17+0000\n"
+"POT-Creation-Date: 2020-01-21 17:40+0000\n"
 "PO-Revision-Date: 2019-11-08 07:05+0000\n"
 "Last-Translator: Tanha Islam <pink.devil.tanha@hotmail.com>\n"
 "Language-Team: none\n"
@@ -88,33 +88,29 @@ msgstr "Firefox Quantum এর সাথে সামঞ্জস্যপূর
 msgid "Some features may require payment"
 msgstr "কিছু ফিচারের জন্য পরিশোধ করার প্রয়োজন হতে পারে"
 
-#: src/amo/components/AddonCompatibilityError/index.js:120
+#: src/amo/components/AddonCompatibilityError/index.js:125
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "এই অ্যাড-অন আপনার Firefox সংস্করণের সাথে সামঞ্জস্যপূর্ণ নয়।"
 
-#: src/amo/components/AddonCompatibilityError/index.js:123
+#: src/amo/components/AddonCompatibilityError/index.js:128
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Firefox এই সংস্করণ সার্চ প্লাগিন সাপোর্ট করে না।"
 
-#: src/amo/components/AddonCompatibilityError/index.js:127
+#: src/amo/components/AddonCompatibilityError/index.js:132
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:130
+#: src/amo/components/AddonCompatibilityError/index.js:135
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "iOS এর জন্যৈ Firefox বর্তমানে অ্যাড-অন সমর্থন করে না।"
 
-#: src/amo/components/AddonCompatibilityError/index.js:134
-msgid "Firefox Preview does not currently support add-ons."
-msgstr ""
-
-#: src/amo/components/AddonCompatibilityError/index.js:138
+#: src/amo/components/AddonCompatibilityError/index.js:139
 msgid "This add-on is not available on your platform."
 msgstr "এই অ্যাড-অনটি আপনার প্ল্যাটফর্মে উপলব্ধ নয়।"
 
-#: src/amo/components/AddonCompatibilityError/index.js:142
+#: src/amo/components/AddonCompatibilityError/index.js:143
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -123,7 +119,7 @@ msgstr ""
 "(অন্তত %(minVersion)s সংস্করণ প্রয়োজন)। আপনি ব্যবহার করছেন Firefox "
 "%(yourVersion)s।"
 
-#: src/amo/components/AddonCompatibilityError/index.js:159
+#: src/amo/components/AddonCompatibilityError/index.js:160
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -1748,13 +1744,19 @@ msgstr ""
 msgid "Choose Photo…"
 msgstr "ছবি নির্বাচন করুন…"
 
-#: src/amo/components/WrongPlatformWarning/index.js:62
+#: src/amo/components/WrongPlatformWarning/index.js:65
+msgid ""
+"To learn about add-ons compatible with Firefox for Android, <a href="
+"\"%(newLocation)s\">click here</a>."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:84
 msgid ""
 "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s"
 "\">visit our mobile site</a>."
 msgstr ""
 
-#: src/amo/components/WrongPlatformWarning/index.js:69
+#: src/amo/components/WrongPlatformWarning/index.js:91
 msgid ""
 "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
 "\">visit our desktop site</a>."
@@ -1832,7 +1834,14 @@ msgid ""
 "\">Browse add-ons for Firefox on desktop</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:505
+#: src/amo/pages/Addon/index.js:489
+#, fuzzy
+msgid ""
+"This add-on is not compatible with Firefox for Android. <a href="
+"\"%(newLocation)s\">Learn more</a>."
+msgstr "এই অ্যাড-অন আপনার Firefox সংস্করণের সাথে সামঞ্জস্যপূর্ণ নয়।"
+
+#: src/amo/pages/Addon/index.js:509
 msgid "Screenshots"
 msgstr "স্ক্রীনশট"
 
