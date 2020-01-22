@@ -1693,9 +1693,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Αυτή η καταχώρηση δεν προορίζεται για αυτή την πλατφόρμα. <a href=\"%(newLocation)s\">Περιηγηθείτε στα πρόσθετα για το Firefox για υπολογιστές</a>."
 
 #: src/amo/pages/Addon/index.js:489
-#, fuzzy
 msgid "This add-on is not compatible with Firefox for Android. <a href=\"%(newLocation)s\">Learn more</a>."
-msgstr "Για να βρείτε πρόσθετα που είναι συμβατά με το Firefox για Android, <a href=\"%(newLocation)s\">επισκεφθείτε την ιστοσελίδα μας για κινητά</a>."
+msgstr "Αυτό το πρόσθετο δεν είναι συμβατό με το Firefox για Android. <a href=\"%(newLocation)s\">Μάθετε περισσότερα</a>."
 
 #: src/amo/pages/Addon/index.js:509
 msgid "Screenshots"
