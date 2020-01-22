@@ -770,8 +770,11 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
-"Încearcă să intri pe pagină mai târziu, pentru că tema sau extensia poate deveni disponibilă din nou. Alternativ, este posibil să găsești ce cauți într-una dintre "
-"%(extensionStart)sextensiile%(extensionEnd)s%(extensionEnd)s sau %(themeStart)stemele%(themeEnd)s sau cerând ajutor pe %(communityStart)sforumurile comunității%(communityEnd)s."
+"Încearcă să intri pe pagină mai târziu, pentru că tema sau extensia poate "
+"deveni disponibilă din nou. Alternativ, este posibil să găsești ce cauți "
+"într-una dintre %(extensionStart)sextensiile%(extensionEnd)s "
+"sau %(themeStart)stemele%(themeEnd)s sau cerând ajutor pe "
+"%(communityStart)sforumurile comunității%(communityEnd)s."
 
 #: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
