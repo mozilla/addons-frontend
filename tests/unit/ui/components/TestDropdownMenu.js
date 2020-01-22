@@ -116,39 +116,6 @@ describe(__filename, () => {
     expect(getMenu()).not.toHaveClassName('DropdownMenu--active');
   });
 
-  it('allows the user to hover then click without dismissing the menu', () => {
-    const root = mount(<DropdownMenu text="Menu" />);
-    const getMenu = () => root.find('.DropdownMenu');
-
-    // User hovers on the menu.
-    getMenu().simulate('mouseEnter', createFakeEvent());
-    expect(getMenu()).toHaveClassName('DropdownMenu--active');
-
-    // User clicks the menu's main button once, which should not hide it.
-    getMenu()
-      .find('.DropdownMenu-button')
-      .simulate('click', createFakeEvent());
-    expect(getMenu()).toHaveClassName('DropdownMenu--active');
-  });
-
-  it('allows the user to hover, then dismiss the menu with a click', () => {
-    const root = mount(<DropdownMenu text="Menu" />);
-    const getMenu = () => root.find('.DropdownMenu');
-
-    // User hovers on the menu.
-    getMenu().simulate('mouseEnter', createFakeEvent());
-    expect(getMenu()).toHaveClassName('DropdownMenu--active');
-
-    // User clicks the menu's main button twice, which will dismiss it.
-    getMenu()
-      .find('.DropdownMenu-button')
-      .simulate('click', createFakeEvent());
-    getMenu()
-      .find('.DropdownMenu-button')
-      .simulate('click', createFakeEvent());
-    expect(getMenu()).not.toHaveClassName('DropdownMenu--active');
-  });
-
   it('optionally takes a class name', () => {
     const menu = renderComponent(
       <DropdownMenu text="Menu" className="my-class" />,
