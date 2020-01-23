@@ -178,16 +178,10 @@ describe(__filename, () => {
     ).toHaveLength(0);
   });
 
-  it('shows Android name and hides link in header on Android', () => {
+  it('hides link to the Android version of the site when client is Android', () => {
     _store.dispatch(setClientApp(CLIENT_APP_ANDROID));
     const root = render();
 
-    expect(
-      root
-        .find('.SectionLinks-subheader')
-        .at(0)
-        .children(),
-    ).toIncludeText('for Android');
     expect(
       root.find(`.SectionLinks-clientApp-${CLIENT_APP_ANDROID}`),
     ).toHaveLength(0);

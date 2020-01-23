@@ -374,7 +374,7 @@ module.exports = {
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
 
   // See: https://github.com/mozilla/addons-frontend/issues/8680
-  enableFeatureRemoveSearchTools: false,
+  enableFeatureRemoveSearchTools: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 
