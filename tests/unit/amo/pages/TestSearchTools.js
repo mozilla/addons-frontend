@@ -69,10 +69,4 @@ describe(__filename, () => {
     );
     sinon.assert.callCount(fakeDispatch, 1);
   });
-
-  it('does not send a server redirect to support old search tool URLs', () => {
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-
-    sinon.assert.notCalled(fakeDispatch);
-  });
 });
