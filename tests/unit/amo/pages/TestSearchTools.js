@@ -57,7 +57,8 @@ describe(__filename, () => {
 
   it('sends a server redirect to support old search tool URLs', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
-
+    render();
+    
     sinon.assert.calledWith(
       fakeDispatch,
       sendServerRedirect({
