@@ -18,7 +18,6 @@ import {
   createFakeHistory,
   dispatchClientMetadata,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import DropdownMenu from 'ui/components/DropdownMenu';
@@ -73,45 +72,6 @@ describe(__filename, () => {
         return element.prop('to') === '/language-tools/';
       }),
     ).toHaveProp('children', 'Dictionaries & Language Packs');
-  });
-
-  it('renders a link to the Search Tools page', () => {
-    const _config = getFakeConfig({ enableFeatureRemoveSearchTools: false });
-
-    const root = render({ _config, viewContext: ADDON_TYPE_EXTENSION });
-
-    expect(
-      root.find('.SectionLinks-dropdownlink').findWhere((element) => {
-        return element.prop('to') === '/search-tools/';
-      }),
-    ).toHaveProp('children', 'Search Tools');
-  });
-
-  it('does not render a link to the Search Tools page when feature flag is active', () => {
-    const _config = getFakeConfig({ enableFeatureRemoveSearchTools: true });
-
-    const root = render({ _config, viewContext: ADDON_TYPE_EXTENSION });
-
-    expect(
-      root.find('.SectionLinks-dropdownlink').findWhere((element) => {
-        return element.prop('to') === '/search-tools/';
-      }),
-    ).toHaveLength(0);
-  });
-
-  it('does not render the "for Android" section when there is no link for it', () => {
-    // There should be no "for Android" section because:
-    // 1. we browse the "android" version of the website
-    _store.dispatch(setClientApp(CLIENT_APP_ANDROID));
-    // 2. the "remove search tools" feature is enabled
-    const _config = getFakeConfig({ enableFeatureRemoveSearchTools: true });
-
-    const root = render({ _config });
-
-    expect(root.find('.SectionLinks-subheader')).toHaveLength(1);
-    expect(root.find('.SectionLinks-subheader').children()).not.toIncludeText(
-      'for Android',
-    );
   });
 
   it('renders Explore active on homepage', () => {

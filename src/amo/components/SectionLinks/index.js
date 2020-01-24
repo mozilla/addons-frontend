@@ -4,7 +4,6 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import config from 'config';
 
 import Link from 'amo/components/Link';
 import { setClientApp } from 'core/actions';
@@ -38,16 +37,9 @@ type Props = {|
   viewContext: ViewContextType,
 |};
 
-type InternalProps = {
-  ...Props,
-  _config: typeof config,
-};
+type InternalProps = { ...Props };
 
 export class SectionLinksBase extends React.Component<InternalProps> {
-  static defaultProps = {
-    _config: config,
-  };
-
   setClientApp = (event: Object) => {
     event.preventDefault();
 
@@ -60,7 +52,7 @@ export class SectionLinksBase extends React.Component<InternalProps> {
   };
 
   render() {
-    const { _config, className, clientApp, i18n, viewContext } = this.props;
+    const { className, clientApp, i18n, viewContext } = this.props;
     const isExploring = [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(
       viewContext,
     );
@@ -85,17 +77,6 @@ export class SectionLinksBase extends React.Component<InternalProps> {
             to="/language-tools/"
           >
             {i18n.gettext('Dictionaries & Language Packs')}
-          </Link>
-        </DropdownMenuItem>,
-      );
-    }
-
-    // See: https://github.com/mozilla/addons-frontend/issues/8680
-    if (!_config.get('enableFeatureRemoveSearchTools')) {
-      sectionsForBrowser.push(
-        <DropdownMenuItem key="search-tools">
-          <Link className="SectionLinks-dropdownlink" to="/search-tools/">
-            {i18n.gettext('Search Tools')}
           </Link>
         </DropdownMenuItem>,
       );

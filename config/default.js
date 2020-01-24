@@ -119,7 +119,6 @@ module.exports = {
     'enableDevTools',
     'enableFeatureDiscoTaar',
     'enableFeatureExperienceSurvey',
-    'enableFeatureRemoveSearchTools',
     'enableRequestID',
     'enableStrictMode',
     'experiments',
@@ -372,9 +371,6 @@ module.exports = {
 
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
-
-  // See: https://github.com/mozilla/addons-frontend/issues/8680
-  enableFeatureRemoveSearchTools: true,
 
   extensionWorkshopUrl: 'https://extensionworkshop.com',
 
