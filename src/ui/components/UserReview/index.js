@@ -11,6 +11,7 @@ import LoadingText from 'ui/components/LoadingText';
 import UserRating from 'ui/components/UserRating';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { I18nType } from 'core/types/i18n';
+import ShowMoreCard from 'ui/components/ShowMoreCard';
 
 import './styles.scss';
 
@@ -27,22 +28,24 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
+  id: String,
 |};
 
 function reviewBody({
   content,
   html,
+  id,
 }: {|
   content?: React.Node | string,
   html?: React.Node,
+  id: string,
 |}) {
   invariant(
-    content !== undefined || html !== undefined,
-    'content or html is required',
+    content !== undefined || html !== undefined || id !== undefined,
+    'content or html or id is required',
   );
 
   const bodyAttr = {};
-
   if (content) {
     bodyAttr.children = content;
   } else {
@@ -50,13 +53,15 @@ function reviewBody({
   }
 
   return (
-    <div
+    <ShowMoreCard
+      id={id}
       className={makeClassName('UserReview-body', {
         // Add an extra class if the content is an empty string.
         'UserReview-emptyBody': !content && !html,
       })}
-      {...bodyAttr}
-    />
+    >
+      <div {...bodyAttr} />
+    </ShowMoreCard>
   );
 }
 
@@ -72,15 +77,17 @@ export const UserReviewBase = (props: InternalProps) => {
     showRating = false,
   } = props;
 
-  let body = reviewBody({ content: <LoadingText /> });
+  const showMoreCardId = review && review.id ? `${review.id}` : 'loading-text';
+  let body = reviewBody({ content: <LoadingText />, id: showMoreCardId });
 
   if (review) {
     if (review.body) {
       body = reviewBody({
         html: sanitizeHTML(nl2br(review.body), ['br']),
+        id: showMoreCardId,
       });
     } else {
-      body = reviewBody({ content: '' });
+      body = reviewBody({ content: '', id: showMoreCardId });
     }
   }
 

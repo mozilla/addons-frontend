@@ -16,6 +16,11 @@
   .TooltipMenu {
     width: fit-content;
   }
+
+  .Card-contents {
+    background: transparent;
+    padding: 0;
+  }
 }
 
 .UserReview-review-header {
@@ -25,10 +30,11 @@
 
 .UserReview-body {
   font-size: $font-size-default;
+  margin: 0 !important;
   word-wrap: break-word;
 
   &:not(.UserReview-emptyBody) {
-    margin: 4px 0 6px;
+    margin: 4px 0 6px !important;
   }
 }
 
