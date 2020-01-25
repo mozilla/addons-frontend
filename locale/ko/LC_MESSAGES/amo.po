@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-01-21 17:40+0000\n"
-"PO-Revision-Date: 2020-01-24 14:02+0000\n"
+"PO-Revision-Date: 2020-01-25 07:53+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1354,27 +1354,27 @@ msgstr "\"%(query)s\"에 대한 검색 결과"
 #: src/amo/components/SearchContextCard/index.js:108
 msgid "%(count)s Search Tool found"
 msgid_plural "%(count)s Search Tools found"
-msgstr[0] "%(count)s개 검색 도구를 찾았습니다"
+msgstr[0] "%(count)s개의 검색 도구를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:121
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "\"%(query)s\"에 대해 %(categoryName)s에서 %(count)s개 테마를 찾았습니다"
+msgstr[0] "\"%(query)s\"에 대해 %(categoryName)s에서 %(count)s개의 테마를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:130
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "%(categoryName)s에서 %(count)s개 테마를 찾았습니다"
+msgstr[0] "%(categoryName)s에서 %(count)s개의 테마를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:140
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "\"%(query)s\"에 대해 %(count)s개 테마를 찾았습니다"
+msgstr[0] "\"%(query)s\"에 대해 %(count)s개의 테마를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:149
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "%(count)s개 테마를 찾았습니다"
+msgstr[0] "%(count)s개의 테마를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s result found for \"%(query)s\""
@@ -1400,27 +1400,27 @@ msgstr "카테고리를 불러오는데 실패했습니다."
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "\"%(query)s\"에 대해 %(categoryName)s에서 %(count)s개 확장 기능을 찾았습니다"
+msgstr[0] "\"%(query)s\"에 대해 %(categoryName)s에서 %(count)s개의 확장 기능을 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(categoryName)s에서 %(count)s개 확장 기능을 찾았습니다"
+msgstr[0] "%(categoryName)s에서 %(count)s개의 확장 기능을 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "\"%(query)s\"에 대해 %(count)s개 확장 기능을 찾았습니다"
+msgstr[0] "\"%(query)s\"에 대해 %(count)s개의 확장 기능을 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:87
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "%(count)s개 확장 기능을 찾았습니다"
+msgstr[0] "%(count)s개의 확장 기능을 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:99
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] "\"%(query)s\"에 대해 %(count)s개 검색 도구를 찾았습니다"
+msgstr[0] "\"%(query)s\"에 대해 %(count)s개의 검색 도구를 찾았습니다"
 
 #: src/amo/components/SearchFilters/index.js:135 src/amo/components/SearchFilters/index.js:159
 msgid "All"
