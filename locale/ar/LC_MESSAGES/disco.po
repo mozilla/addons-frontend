@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-12 18:11+0000\n"
-"PO-Revision-Date: 2019-12-09 17:27+0000\n"
+"PO-Revision-Date: 2020-01-25 16:57+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -16,11 +16,11 @@ msgstr ""
 
 #: src/amo/components/InstallWarning/index.js:159
 msgid "Learn more"
-msgstr ""
+msgstr "اطّلع على المزيد"
 
 #: src/amo/components/InstallWarning/index.js:168
 msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr ""
+msgstr "لا تُراقب Mozilla هذا الامتداد. قبل أن تثبّته، تأكّد بأنّه هو الذي تريد كما وأنّك تثق به."
 
 #: src/amo/components/InstallWarning/index.js:170
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
@@ -39,14 +39,12 @@ msgid "Enabling"
 msgstr "يُفعّل"
 
 #: src/core/components/AMInstallButton/index.js:239
-#, fuzzy
 msgid "Downloading"
-msgstr "يُنزّل %(name)s."
+msgstr "يُنزّل"
 
 #: src/core/components/AMInstallButton/index.js:241
-#, fuzzy
 msgid "Installing"
-msgstr "يُثبّت %(name)s."
+msgstr "يُثبّت"
 
 #: src/core/components/AMInstallButton/index.js:243
 msgid "Uninstalling"
