@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-01-21 17:40+0000\n"
-"PO-Revision-Date: 2020-01-25 07:53+0000\n"
+"PO-Revision-Date: 2020-01-26 14:27+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -439,11 +439,11 @@ msgstr "당신의 별점:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
-msgstr "%(author)s 님의 사전 더보기"
+msgstr "%(author)s 님의 다른 사전"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:250
 msgid "More dictionaries by these translators"
-msgstr "이 번역자들의 사전 더보기"
+msgstr "이 번역자들의 다른 사전"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:254
 msgid "Dictionaries by %(author)s"
@@ -455,11 +455,11 @@ msgstr "이 번역자들의 사전"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:264
 msgid "More extensions by %(author)s"
-msgstr "%(author)s 님의 확장 기능 더보기"
+msgstr "%(author)s 님의 다른 확장 기능"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:267
 msgid "More extensions by these developers"
-msgstr "이 개발자의 확장 기능 더보기"
+msgstr "이 개발자들의 다른 확장 기능"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:271
 msgid "Extensions by %(author)s"
@@ -471,11 +471,11 @@ msgstr "이 개발자의 확장 기능"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by %(author)s"
-msgstr "%(author)s 님의 언어 팩 더보기"
+msgstr "%(author)s 님의 다른 언어 팩"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:287
 msgid "More language packs by these translators"
-msgstr "이 번역자들의 언어 팩 더보기"
+msgstr "이 번역자들의 다른 언어 팩"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:291
 msgid "Language packs by %(author)s"
@@ -487,11 +487,11 @@ msgstr "이 번역자들의 언어 팩"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:301
 msgid "More themes by %(author)s"
-msgstr "%(author)s 님의 테마 더보기"
+msgstr "%(author)s 님의 다른 테마"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:304
 msgid "More themes by these artists"
-msgstr "이 아티스트들의 테마 더보기"
+msgstr "이 아티스트들의 다른 테마"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "Themes by %(author)s"
@@ -503,11 +503,11 @@ msgstr "이 아티스트들의 테마"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:318
 msgid "More add-ons by %(author)s"
-msgstr "%(author)s 님의 부가 기능 더보기"
+msgstr "%(author)s 님의 다른 부가 기능"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:321
 msgid "More add-ons by these developers"
-msgstr "이 개발자의 부가 기능 더보기"
+msgstr "이 개발자들의 다른 부가 기능"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:325
 msgid "Add-ons by %(author)s"
