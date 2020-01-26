@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-12 18:11+0000\n"
-"PO-Revision-Date: 2020-01-25 16:57+0000\n"
+"PO-Revision-Date: 2020-01-26 16:20+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -24,7 +24,7 @@ msgstr "لا تُراقب Mozilla هذا الامتداد. قبل أن تثبّ�
 
 #: src/amo/components/InstallWarning/index.js:170
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr ""
+msgstr "هذا الامتداد ليس من الامتدادات الموصى بها. لا تثبّته إلّا لو كنت تثق به."
 
 #: src/core/components/AMInstallButton/index.js:232
 msgid "Enable"
@@ -194,7 +194,7 @@ msgstr "اطّلع على المزيد"
 
 #: src/disco/pages/DiscoPane/index.js:211
 msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
+msgstr "بعض هذه التوصيات مخصّصة لك، إذ تعتمد على الامتدادات التي ثبّتها وتفضيلات الملف الشخصي وإحصاءات الاستخدام."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -210,7 +210,7 @@ msgstr "أعِد التحميل للمتابعة"
 
 #: src/ui/components/Notice/index.js:153
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "أهمِل هذا الإشعار"
 
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
