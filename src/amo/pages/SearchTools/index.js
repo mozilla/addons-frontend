@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import config from 'config';
 
 import Search from 'amo/components/Search';
 import HeadLinks from 'amo/components/HeadLinks';
@@ -29,7 +28,6 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  _config: typeof config,
   clientApp: string,
   dispatch: DispatchFunc,
   i18n: I18nType,
@@ -37,31 +35,24 @@ type InternalProps = {|
 |};
 
 export class SearchToolsBase extends React.Component<InternalProps> {
-  static defaultProps = {
-    _config: config,
-  };
-
   constructor(props: InternalProps) {
     super(props);
 
-    // See: https://github.com/mozilla/addons-frontend/issues/8679
-    if (props._config.get('enableFeatureRemoveSearchTools')) {
-      const { clientApp, dispatch, lang } = props;
+    const { clientApp, dispatch, lang } = props;
 
-      const queryString = makeQueryString(
-        getCategoryResultsQuery({
-          addonType: ADDON_TYPE_EXTENSION,
-          slug: 'search-tools',
-        }),
-      );
+    const queryString = makeQueryString(
+      getCategoryResultsQuery({
+        addonType: ADDON_TYPE_EXTENSION,
+        slug: 'search-tools',
+      }),
+    );
 
-      dispatch(
-        sendServerRedirect({
-          status: 301,
-          url: `/${lang}/${clientApp}/search/${queryString}`,
-        }),
-      );
-    }
+    dispatch(
+      sendServerRedirect({
+        status: 301,
+        url: `/${lang}/${clientApp}/search/${queryString}`,
+      }),
+    );
   }
 
   render() {

@@ -9,7 +9,6 @@ import { sendServerRedirect } from 'core/reducers/redirectTo';
 import {
   dispatchClientMetadata,
   fakeI18n,
-  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -56,32 +55,18 @@ describe(__filename, () => {
     expect(root.find(HeadLinks)).toHaveLength(1);
   });
 
-  describe('enableFeatureRemoveSearchTools = true', () => {
-    it('sends a server redirect', () => {
-      const _config = getFakeConfig({ enableFeatureRemoveSearchTools: true });
-      const fakeDispatch = sinon.spy(store, 'dispatch');
+  it('sends a server redirect to support old search tool URLs', () => {
+    const fakeDispatch = sinon.spy(store, 'dispatch');
 
-      render({ _config });
+    render();
 
-      sinon.assert.calledWith(
-        fakeDispatch,
-        sendServerRedirect({
-          status: 301,
-          url: sinon.match('/en-US/android/search/?category=search-tools'),
-        }),
-      );
-      sinon.assert.callCount(fakeDispatch, 1);
-    });
-  });
-
-  describe('enableFeatureRemoveSearchTools = false', () => {
-    it('does not send a server redirect', () => {
-      const _config = getFakeConfig({ enableFeatureRemoveSearchTools: false });
-      const fakeDispatch = sinon.spy(store, 'dispatch');
-
-      render({ _config });
-
-      sinon.assert.notCalled(fakeDispatch);
-    });
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: sinon.match('/en-US/android/search/?category=search-tools'),
+      }),
+    );
+    sinon.assert.callCount(fakeDispatch, 1);
   });
 });
