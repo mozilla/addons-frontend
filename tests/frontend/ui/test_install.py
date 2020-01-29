@@ -4,6 +4,7 @@ import pytest
 from pages.desktop.details import Detail
 
 
+@pytest.mark.serial
 @pytest.mark.nondestructive
 def test_addon_install(base_url, selenium, firefox, firefox_notifications):
     """Test that navigates to an addon and installs it."""
