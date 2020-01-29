@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-01-21 17:40+0000\n"
-"PO-Revision-Date: 2020-01-29 22:39+0000\n"
+"PO-Revision-Date: 2020-01-29 22:43+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -291,7 +291,7 @@ msgstr "지원 이메일"
 
 #: src/amo/components/AddonRecommendations/index.js:133
 msgid "Other users with this extension also installed"
-msgstr "이 확장 기능을 사용하는 다른 사용자가 같이 설치한 확장 기능"
+msgstr "이 확장 기능 사용자가 같이 설치한 확장 기능"
 
 #: src/amo/components/AddonRecommendations/index.js:134
 msgid "Other popular extensions"
