@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-01-21 17:40+0000\n"
-"PO-Revision-Date: 2019-04-15 10:05+0000\n"
-"Last-Translator: 종이상자 <lego37yoon@outlook.com>\n"
+"PO-Revision-Date: 2020-01-29 22:39+0000\n"
+"Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1266,9 +1266,8 @@ msgid "Explain how this add-on is violating our policies."
 msgstr "이 부가 기능이 어떻게 정책을 위반하는지 알려주세요."
 
 #: src/amo/components/ReportUserAbuse/index.js:106 src/amo/components/ReportUserAbuse/index.js:99
-#, fuzzy
 msgid "Report this user for abuse"
-msgstr "로그인하여 이 부가 기능의 평점을 남겨주세요"
+msgstr "이 사용자를 신고하기"
 
 #: src/amo/components/ReportUserAbuse/index.js:113
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
@@ -2384,9 +2383,8 @@ msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(use
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:316
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "이 개발자의 부가 기능 더보기"
+msgstr "부가 기능 개발자"
 
 #: src/amo/pages/UserProfile/index.js:322
 #, fuzzy
@@ -2403,21 +2401,19 @@ msgstr "사용자 프로필"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:690
 msgid "Location"
-msgstr "위치"
+msgstr "지역"
 
 #: src/amo/pages/UserProfile/index.js:373 src/amo/pages/UserProfileEdit/index.js:705
 msgid "Occupation"
 msgstr "직업"
 
 #: src/amo/pages/UserProfile/index.js:380
-#, fuzzy
 msgid "User since"
-msgstr "사용자"
+msgstr "가입한 날짜"
 
 #: src/amo/pages/UserProfile/index.js:390
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "카테고리를 불러오는데 실패했습니다."
+msgstr "부가기능 갯수"
 
 #: src/amo/pages/UserProfile/index.js:396
 msgid "Average rating of developer’s add-ons"
