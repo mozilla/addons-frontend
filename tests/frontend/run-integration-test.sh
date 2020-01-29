@@ -15,10 +15,10 @@ docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-comp
 docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml exec selenium-firefox sudo usermod -u 1001 seluser
 docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml exec web make setup-ui-tests
 # This is done because cirlceci has permissions to not allow the user `circleci` to remove or add files created by the root, even if it is part of the root group.
-# sudo chown -R  $USER:$USER .
+sudo chown -R  $USER:$USER .
 docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml up -d
 docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml exec selenium-firefox sudo chown -R seluser:seluser .
-# sudo chown -R  $USER:$USER .
+sudo chown -R  $USER:$USER .
 docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml exec selenium-firefox pip3 install --user --no-deps -r tests/frontend/requirements.txt
 docker-compose -f addons-server/docker-compose.yml -f tests/frontend/docker-compose.selenium.yml up -d
 # Switch back to addons-frontend
