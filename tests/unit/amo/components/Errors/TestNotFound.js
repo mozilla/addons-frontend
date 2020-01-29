@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { oneLine } from 'common-tags';
 
+import ErrorComponent from 'amo/components/Errors/ErrorComponent';
 import NotFound, { NotFoundBase } from 'amo/components/Errors/NotFound';
 import Link from 'amo/components/Link';
 import { createApiError } from 'core/api';
@@ -32,7 +33,8 @@ describe(__filename, () => {
   it('renders a not found error', () => {
     const root = render();
 
-    expect(root.find('.Errors')).toHaveProp(
+    expect(root.find(ErrorComponent)).toHaveProp('code', 404);
+    expect(root.find(ErrorComponent)).toHaveProp(
       'header',
       'Oops! We can’t find that page',
     );
