@@ -49,6 +49,10 @@ def test_title_routes_to_home(base_url, selenium):
     assert home.hero_banner.is_displayed()
 
 
+@pytest.mark.skip(
+    reason="https://bugzilla.mozilla.org/show_bug.cgi?id=1453779"
+)
+@pytest.mark.serial
 @pytest.mark.parametrize(
     'i, page_url',
     enumerate(['language-tools', 'android']))
