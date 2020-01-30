@@ -10,14 +10,8 @@ import { withRouter } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import {
-  EXPERIMENT_CATEGORY_CLICK,
-  EXPERIMENT_CONFIG,
-} from 'amo/components/InstallWarning';
-import {
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
-  CLIENT_APP_FIREFOX,
   DISABLED,
   DOWNLOADING,
   ENABLED,
@@ -38,7 +32,6 @@ import tracking, {
   getAddonEventCategory,
 } from 'core/tracking';
 import { isFirefox } from 'core/utils/compatibility';
-import { withExperiment } from 'core/withExperiment';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 import type { AddonVersionType } from 'core/reducers/versions';
@@ -48,7 +41,6 @@ import type { UserAgentInfoType } from 'core/reducers/api';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterLocationType } from 'core/types/router';
-import type { WithExperimentInjectedProps } from 'core/withExperiment';
 import type { ButtonType } from 'ui/components/Button';
 
 import './styles.scss';
@@ -67,12 +59,10 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  ...WithExperimentInjectedProps,
   _config: typeof config,
   _log: typeof log,
   _tracking: typeof tracking,
   _window: typeof window,
-  clientApp: string,
   i18n: I18nType,
   location: ReactRouterLocationType,
   userAgentInfo: UserAgentInfoType,
@@ -124,34 +114,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
   };
 
   installExtension = async (event: SyntheticEvent<HTMLAnchorElement>) => {
-    const {
-      _tracking,
-      addon,
-      clientApp,
-      enable,
-      install,
-      isAddonEnabled,
-      isExperimentEnabled,
-      isUserInExperiment,
-      variant,
-    } = this.props;
-
-    if (
-      addon.type === ADDON_TYPE_EXTENSION &&
-      clientApp === CLIENT_APP_FIREFOX &&
-      variant &&
-      isExperimentEnabled &&
-      isUserInExperiment
-    ) {
-      const category = `${EXPERIMENT_CATEGORY_CLICK}-${
-        !addon.is_recommended ? 'not_' : ''
-      }recommended`;
-      _tracking.sendEvent({
-        action: variant,
-        category,
-        label: addon.name,
-      });
-    }
+    const { addon, enable, install, isAddonEnabled } = this.props;
 
     event.preventDefault();
     event.stopPropagation();
@@ -386,7 +349,6 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
 
 export function mapStateToProps(state: AppState) {
   return {
-    clientApp: state.api.clientApp,
     userAgentInfo: state.api.userAgentInfo,
   };
 }
@@ -395,7 +357,6 @@ const AMInstallButton: React.ComponentType<Props> = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
-  withExperiment(EXPERIMENT_CONFIG),
 )(AMInstallButtonBase);
 
 export default AMInstallButton;
