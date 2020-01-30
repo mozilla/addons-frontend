@@ -79,18 +79,14 @@ describe(__filename, () => {
       'to',
       getAddonURL(slug),
     );
-    expect(root.find('.SearchResult-wrapper')).not.toHaveProp('href', '#');
+    expect(root.find('.SearchResult-wrapper')).not.toHaveProp('href');
   });
 
   it('links the card to do nothing when addon is null', () => {
-    const slug = 'some-addon-slug';
     const root = render({ addon: null });
 
     expect(root.find('.SearchResult-wrapper')).toHaveProp('href', '#');
-    expect(root.find('.SearchResult-wrapper')).not.toHaveProp(
-      'to',
-      getAddonURL(slug),
-    );
+    expect(root.find('.SearchResult-wrapper')).not.toHaveProp('to');
   });
 
   it('stops propagation when clicking on the card', () => {
