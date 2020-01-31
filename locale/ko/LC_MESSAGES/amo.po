@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-01-21 17:40+0000\n"
-"PO-Revision-Date: 2020-01-31 22:21+0000\n"
+"PO-Revision-Date: 2020-01-31 22:31+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -842,7 +842,7 @@ msgstr "이 리뷰에 플래그를 지정하시려면 로그인하세요"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr "본인의 리뷰에 플래그를 지정할 수 없습니다"
+msgstr "본인의 답변에 플래그를 지정할 수 없습니다"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
@@ -1331,9 +1331,8 @@ msgid "Popular extensions"
 msgstr "인기 확장 기능"
 
 #: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:289
-#, fuzzy
 msgid "Popular themes"
-msgstr "가장 인기있는 테마"
+msgstr "인기 테마"
 
 #: src/amo/components/Search/index.js:164
 #, fuzzy
@@ -2037,7 +2036,7 @@ msgstr "인기 확장 기능 더보기"
 
 #: src/amo/pages/Home/index.js:326 src/amo/pages/LandingPage/index.js:164
 msgid "See more recommended themes"
-msgstr "추천하는 테마 더보기"
+msgstr "추천 테마 더보기"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:142
 msgid "See more trending extensions"
@@ -2257,7 +2256,7 @@ msgstr "부가 기능 제작자인데 리뷰에 답변을 달 수 있나요?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr "네, 부가 기능 제작자는 리뷰에 답 하나를 제공할 수 있습니다. %(startLink)s포럼%(endLink)s에서 추가적인 토론이나 내용을 제공할 수도 있습니다."
+msgstr "네, 부가 기능 제작자는 리뷰에 답변 하나를 제공할 수 있습니다. %(startLink)s포럼%(endLink)s에서 추가적인 토론이나 내용을 제공할 수도 있습니다."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
