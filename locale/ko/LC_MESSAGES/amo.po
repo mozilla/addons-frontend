@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-01-21 17:40+0000\n"
-"PO-Revision-Date: 2020-01-31 22:04+0000\n"
+"PO-Revision-Date: 2020-01-31 22:10+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -2048,14 +2048,12 @@ msgid "See more trending extensions"
 msgstr "유행하는 확장 기능 더보기"
 
 #: src/amo/pages/Home/index.js:58
-#, fuzzy
 msgid "See more enhanced privacy extensions"
-msgstr "추천 확장 기능 더보기"
+msgstr "향상된 개인 정보 보호 확장 기능 더보기"
 
 #: src/amo/pages/Home/index.js:59
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "가장 평점이 높은 확장 기능"
+msgstr "향상된 개인 정보 보호 확장 기능"
 
 #: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
