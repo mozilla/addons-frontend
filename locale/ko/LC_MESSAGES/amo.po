@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-01-21 17:40+0000\n"
-"PO-Revision-Date: 2020-01-31 22:31+0000\n"
+"PO-Revision-Date: 2020-01-31 22:39+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -2016,7 +2016,7 @@ msgstr "계절"
 
 #: src/amo/pages/Home/index.js:201
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "테마로 Firefox 외양을 바꿔보세요."
 
 #: src/amo/pages/Home/index.js:234
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
@@ -2024,7 +2024,7 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
 msgid "See more recommended extensions"
-msgstr "추천하는 확장 기능 더보기"
+msgstr "추천 확장 기능 더보기"
 
 #: src/amo/pages/Home/index.js:290
 msgid "See more popular themes"
@@ -2052,11 +2052,11 @@ msgstr "향상된 개인 정보 보호 확장 기능"
 
 #: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
-msgstr "추천하는 비밀번호 관리자 더보기"
+msgstr "추천 비밀번호 관리자 더보기"
 
 #: src/amo/pages/Home/index.js:65
 msgid "Recommended password managers"
-msgstr "추천하는 비밀번호 관리자"
+msgstr "추천 비밀번호 관리자"
 
 #: src/amo/pages/LandingPage/index.js:152
 msgid "See more top rated extensions"
