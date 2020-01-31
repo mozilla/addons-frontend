@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-01-21 17:40+0000\n"
-"PO-Revision-Date: 2020-01-31 22:10+0000\n"
+"PO-Revision-Date: 2020-01-31 22:21+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -298,18 +298,16 @@ msgid "Other popular extensions"
 msgstr "인기있는 다른 확장 기능"
 
 #: src/amo/components/AddonReviewCard/index.js:195
-#, fuzzy
 msgid "Edit reply"
-msgstr "내 댓글 수정"
+msgstr "댓글 수정"
 
 #: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
 msgstr "리뷰 수정"
 
 #: src/amo/components/AddonReviewCard/index.js:205 src/amo/components/AddonReviewCard/index.js:237
-#, fuzzy
 msgid "Delete reply"
-msgstr "내 댓글 수정"
+msgstr "댓글 삭제"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
@@ -320,9 +318,8 @@ msgid "Delete review"
 msgstr "리뷰 삭제"
 
 #: src/amo/components/AddonReviewCard/index.js:219
-#, fuzzy
 msgid "Do you really want to delete this reply?"
-msgstr "이 콜렉션 수정"
+msgstr "이 댓글을 삭제하시겠습니까?"
 
 #: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this rating?"
@@ -342,9 +339,8 @@ msgid "Cancel"
 msgstr "취소"
 
 #: src/amo/components/AddonReviewCard/index.js:255
-#, fuzzy
 msgid "Keep reply"
-msgstr "내 댓글 수정"
+msgstr "댓글 유지"
 
 #: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep rating"
@@ -356,23 +352,23 @@ msgstr "리뷰 유지"
 
 #: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
-msgstr "이 리뷰에 답변을 작성해 주세요."
+msgstr "이 리뷰에 댓글을 작성해 주세요."
 
 #: src/amo/components/AddonReviewCard/index.js:301 src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
-msgstr "댓글 수정"
+msgstr "댓글 갱신"
 
 #: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
-msgstr "댓글 배포"
+msgstr "댓글 게시"
 
 #: src/amo/components/AddonReviewCard/index.js:306 src/amo/components/AddonReviewManager/index.js:122
 msgid "Updating reply"
-msgstr "댓글 수정 중"
+msgstr "댓글 갱신 중"
 
 #: src/amo/components/AddonReviewCard/index.js:307
 msgid "Publishing reply"
-msgstr "댓글 배포중"
+msgstr "댓글 게시 중"
 
 #: src/amo/components/AddonReviewCard/index.js:349
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -389,7 +385,7 @@ msgstr "검색중…"
 
 #: src/amo/components/AddonReviewCard/index.js:473
 msgid "Reply to this review"
-msgstr "이 리뷰에 답변"
+msgstr "이 리뷰에 댓글"
 
 #: src/amo/components/AddonReviewCard/index.js:503
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
