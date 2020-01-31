@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-01-21 17:40+0000\n"
-"PO-Revision-Date: 2020-01-31 22:39+0000\n"
+"PO-Revision-Date: 2020-01-31 22:46+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1991,7 +1991,7 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:138
 msgid "Abstract"
-msgstr "추상적인"
+msgstr "추상"
 
 #: src/amo/pages/Home/index.js:143
 msgid "Nature"
@@ -2002,9 +2002,8 @@ msgid "Film & TV"
 msgstr "영화와 TV"
 
 #: src/amo/pages/Home/index.js:153
-#, fuzzy
 msgid "Scenery"
-msgstr "경치가 좋은"
+msgstr "풍경"
 
 #: src/amo/pages/Home/index.js:158
 msgid "Music"
