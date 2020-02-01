@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-01-21 17:40+0000\n"
-"PO-Revision-Date: 2020-01-31 22:46+0000\n"
+"PO-Revision-Date: 2020-02-01 19:00+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1220,9 +1220,8 @@ msgid "Read all one-star reviews"
 msgstr "1 별점 리뷰 모두 보기"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
-#, fuzzy
 msgid "You reported this add-on for abuse"
-msgstr "로그인하여 이 부가 기능의 평점을 남겨주세요"
+msgstr "이 부가 기능을 신고하셨습니다"
 
 #: src/amo/components/ReportAbuseButton/index.js:120
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -1277,9 +1276,8 @@ msgid "Explain how this user is violating our policies."
 msgstr "이 사용자가 정책을 어떻게 위반하는지 설명해주십시오."
 
 #: src/amo/components/ReportUserAbuse/index.js:153
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "로그인하여 이 부가 기능의 평점을 남겨주세요"
+msgstr "이 사용자를 신고하셨습니다"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -2095,9 +2093,8 @@ msgid "Available for your locale"
 msgstr "한글판 있음"
 
 #: src/amo/pages/LanguageTools/index.js:148
-#, fuzzy
 msgid "Dictionaries and Language Packs"
-msgstr "로그인하여 이 언어 팩의 평점을 남겨주세요"
+msgstr "사전 및 언어 팩"
 
 #: src/amo/pages/LanguageTools/index.js:158
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
@@ -2120,9 +2117,8 @@ msgid "Locale Name"
 msgstr "지역명"
 
 #: src/amo/pages/LanguageTools/index.js:191
-#, fuzzy
 msgid "Language Packs"
-msgstr "로그인하여 이 언어 팩의 평점을 남겨주세요"
+msgstr "언어 팩"
 
 #: src/amo/pages/LanguageTools/index.js:194
 msgid "Dictionaries"
@@ -2318,9 +2314,8 @@ msgid "Was it easy to use?"
 msgstr "사용하기 쉬웠는지?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:58
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "로그인하여 이 부가 기능의 평점을 남겨주세요"
+msgstr "이 부가 기능을 계속 사용하시겠습니까?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:63
 msgid "Take a moment to read your review before submitting it to minimize typos."
