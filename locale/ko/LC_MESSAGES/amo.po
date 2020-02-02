@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-01-21 17:40+0000\n"
-"PO-Revision-Date: 2020-02-01 19:00+0000\n"
+"PO-Revision-Date: 2020-02-02 06:21+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -356,7 +356,7 @@ msgstr "이 리뷰에 댓글을 작성해 주세요."
 
 #: src/amo/components/AddonReviewCard/index.js:301 src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
-msgstr "댓글 갱신"
+msgstr "댓글 수정"
 
 #: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
@@ -410,7 +410,7 @@ msgstr "리뷰 제출 중"
 
 #: src/amo/components/AddonReviewManager/index.js:120
 msgid "Update review"
-msgstr "리뷰 업데이트"
+msgstr "리뷰 수정"
 
 #: src/amo/components/AddonReviewManager/index.js:123
 msgid "Updating review"
@@ -2455,7 +2455,7 @@ msgstr "프로필 업데이트 중…"
 
 #: src/amo/pages/UserProfileEdit/index.js:518
 msgid "Update My Profile"
-msgstr "내 프로필 업데이트"
+msgstr "내 프로필 수정"
 
 #: src/amo/pages/UserProfileEdit/index.js:521
 msgid "Updating profile…"
@@ -2463,7 +2463,7 @@ msgstr "프로필 업데이트 중…"
 
 #: src/amo/pages/UserProfileEdit/index.js:522
 msgid "Update Profile"
-msgstr "프로필 업데이트"
+msgstr "프로필 수정"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "View user's profile"
@@ -2841,14 +2841,12 @@ msgid "Dismiss this notice"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:100
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr "5점 만점에 %(rating)s점"
+msgstr "5점 만점에 %(starRating)s점으로 수정"
 
 #: src/ui/components/Rating/index.js:106
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "5점 만점에 %(rating)s점"
+msgstr "이 부가 기능을 5점 만점에 %(starRating)s점으로 평가"
 
 #: src/ui/components/Rating/index.js:83 src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
