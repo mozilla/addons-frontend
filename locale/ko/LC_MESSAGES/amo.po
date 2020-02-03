@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-01-21 17:40+0000\n"
-"PO-Revision-Date: 2020-02-02 06:21+0000\n"
+"PO-Revision-Date: 2020-02-03 06:01+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -251,7 +251,7 @@ msgstr "크기"
 
 #: src/amo/components/AddonMoreInfo/index.js:230 src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
-msgstr "최신 버전"
+msgstr "마지막 업데이트"
 
 #: src/amo/components/AddonMoreInfo/index.js:238
 msgid "License"
