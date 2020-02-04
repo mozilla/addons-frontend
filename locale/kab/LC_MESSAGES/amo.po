@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-01-21 17:40+0000\n"
+"POT-Creation-Date: 2020-02-04 20:54+0000\n"
 "PO-Revision-Date: 2019-12-10 18:21+0000\n"
 "Last-Translator: Linda DIB <lynda.dib@gmail.com>\n"
 "Language-Team: none\n"
@@ -809,7 +809,7 @@ msgid "Leave a note"
 msgstr "Eǧǧ-d tamawt"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Remove"
 msgstr "Kkes"
 
@@ -1173,17 +1173,11 @@ msgid ""
 "fun."
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:159
+#: src/amo/components/InstallWarning/index.js:81
 msgid "Learn more"
 msgstr "Issin ugar"
 
-#: src/amo/components/InstallWarning/index.js:168
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
-
-#: src/amo/components/InstallWarning/index.js:170
+#: src/amo/components/InstallWarning/index.js:85
 msgid ""
 "This is not a Recommended Extension. Make sure you trust it before "
 "installing."
@@ -1611,72 +1605,68 @@ msgid_plural "%(count)s Search Tools found for \"%(query)s\""
 msgstr[0] "%(count)s n ugmud yettwaf i \"%(query)s\""
 msgstr[1] "%(count)s n igmaḍ ttwafen \"%(query)s\""
 
-#: src/amo/components/SearchFilters/index.js:135
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:128
+#: src/amo/components/SearchFilters/index.js:144
 msgid "All"
 msgstr "Akk"
 
-#: src/amo/components/SearchFilters/index.js:136
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Extension"
 msgstr "Asiɣzef"
 
-#: src/amo/components/SearchFilters/index.js:142
-msgid "Search Tool"
-msgstr "Afecku n unadi"
-
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:133
 msgid "Theme"
 msgstr "Asentel"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:145
 msgid "Windows"
 msgstr "Isfuyla"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:146
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:162
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Relevance"
 msgstr "Amsami"
 
-#: src/amo/components/SearchFilters/index.js:172
+#: src/amo/components/SearchFilters/index.js:157
 msgid "Recently Updated"
 msgstr "Ttwaleqmen melmi kan"
 
-#: src/amo/components/SearchFilters/index.js:175
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Most Users"
 msgstr "Yettwaseqdac aṭas"
 
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:161
 msgid "Top Rated"
 msgstr "Yettwasezmel aṭas"
 
-#: src/amo/components/SearchFilters/index.js:177
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Trending"
 msgstr "Tiddin"
 
-#: src/amo/components/SearchFilters/index.js:195
+#: src/amo/components/SearchFilters/index.js:180
 msgid "Filter results"
 msgstr "Sizdeg igmaḍ n unadi"
 
-#: src/amo/components/SearchFilters/index.js:200
+#: src/amo/components/SearchFilters/index.js:185
 msgid "Sort by"
 msgstr "Smizzwer"
 
-#: src/amo/components/SearchFilters/index.js:222
+#: src/amo/components/SearchFilters/index.js:207
 msgid "Add-on Type"
 msgstr "Anaw n uzegrir"
 
-#: src/amo/components/SearchFilters/index.js:242
+#: src/amo/components/SearchFilters/index.js:227
 msgid "Operating System"
 msgstr "Anagraw n wammud"
 
-#: src/amo/components/SearchFilters/index.js:268
+#: src/amo/components/SearchFilters/index.js:253
 #, fuzzy
 msgid "Recommended add-ons only"
 msgstr "Izegrrar itran kan"
@@ -1727,52 +1717,47 @@ msgstr "Ulac igmad yettwafen."
 msgid "Recommended"
 msgstr "Awennit n useqdac"
 
-#: src/amo/components/SectionLinks/index.js:117
-msgid "Explore"
-msgstr "Snirem"
-
-#: src/amo/components/SectionLinks/index.js:127
+#: src/amo/components/SectionLinks/index.js:108
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Extensions"
 msgstr "Isiɣzaf"
 
-#: src/amo/components/SectionLinks/index.js:142
+#: src/amo/components/SectionLinks/index.js:123
 #: src/amo/pages/LandingPage/index.js:229
 msgid "Themes"
 msgstr "Isental"
 
-#: src/amo/components/SectionLinks/index.js:148
+#: src/amo/components/SectionLinks/index.js:129
 msgid "More…"
 msgstr "Ugar…"
 
-#: src/amo/components/SectionLinks/index.js:158
+#: src/amo/components/SectionLinks/index.js:139
 msgid "Other Browser Sites"
 msgstr "Ismal nniḍen n tunigin"
 
-#: src/amo/components/SectionLinks/index.js:169
+#: src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Android"
 msgstr "Izegrar i Android"
 
-#: src/amo/components/SectionLinks/index.js:182
+#: src/amo/components/SectionLinks/index.js:163
 msgid "Add-ons for Firefox"
 msgstr "Izegrar i Firefox"
 
-#: src/amo/components/SectionLinks/index.js:70
+#: src/amo/components/SectionLinks/index.js:62
 msgid "for Firefox"
 msgstr "I Firefox"
 
-#: src/amo/components/SectionLinks/index.js:72
+#: src/amo/components/SectionLinks/index.js:64
 msgid "for Android"
 msgstr "i Android"
 
-#: src/amo/components/SectionLinks/index.js:87
+#: src/amo/components/SectionLinks/index.js:79
 msgid "Dictionaries & Language Packs"
 msgstr "Imawalen & ikemmusen n tutlayin"
 
 #: src/amo/components/SectionLinks/index.js:98
-#: src/amo/pages/SearchTools/index.js:76
-msgid "Search Tools"
-msgstr "Ifecka n unadi"
+msgid "Explore"
+msgstr "Snirem"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
@@ -2466,12 +2451,16 @@ msgstr "Akemmus utlayan"
 msgid "Dictionaries"
 msgstr "Imawalen"
 
-#: src/amo/pages/SearchTools/index.js:73
+#: src/amo/pages/SearchTools/index.js:64
 msgid ""
 "Download Firefox extensions to customize the way you search—everything from "
 "privacy-enhanced searching to website-specific searches, image searching, "
 "and more."
 msgstr ""
+
+#: src/amo/pages/SearchTools/index.js:67
+msgid "Search Tools"
+msgstr "Ifecka n unadi"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -3181,34 +3170,34 @@ msgstr "amṣada n uzegrir-inu ur yettwalqem ara"
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "amṣda n uzegrir-inu yettwalqem akken iwata"
 
-#: src/core/components/AMInstallButton/index.js:232
+#: src/core/components/AMInstallButton/index.js:195
 msgid "Enable"
 msgstr "Rmed"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:200
 msgid "Enabling"
 msgstr "Rmed"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:202
 #, fuzzy
 msgid "Downloading"
 msgstr "Assali n %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:204
 #, fuzzy
 msgid "Installing"
 msgstr "Asbeddi n %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:206
 #, fuzzy
 msgid "Uninstalling"
 msgstr "Asbeddi n %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:251
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Install Theme"
 msgstr "Asebded n usentel"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Add to Firefox"
 msgstr "Rnu ɣer Firefox"
 
@@ -3441,6 +3430,9 @@ msgstr[1] "%(total)s n yizegrar"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Tiririt n ineflayen"
+
+#~ msgid "Search Tool"
+#~ msgstr "Afecku n unadi"
 
 #, fuzzy
 #~ msgid "Firefox Preview does not currently support add-ons."

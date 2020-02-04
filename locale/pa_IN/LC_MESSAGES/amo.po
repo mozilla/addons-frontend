@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-01-21 17:40+0000\n"
+"POT-Creation-Date: 2020-02-04 20:54+0000\n"
 "PO-Revision-Date: 2019-12-23 15:16+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -795,7 +795,7 @@ msgid "Leave a note"
 msgstr "ਇੱਕ ਨੋਟ ਛੱਡੋ"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Remove"
 msgstr "ਹਟਾਓ"
 
@@ -1161,19 +1161,11 @@ msgid ""
 msgstr ""
 "ਤੇਜ਼, ਚੁਸਤ, ਜਾਂ ਸਿਰਫ਼ ਸਾਦਾ ਮਜ਼ੇਦਾਰ ਬ੍ਰਾਉਜ਼ ਕਰਨ ਲਈ ਉਹ ਫਾਇਰਫਾਕਸ ਲਈ ਫੀਚਰ ਸ਼ਾਮਲ ਕਰਦੇ ਹਨ।"
 
-#: src/amo/components/InstallWarning/index.js:159
+#: src/amo/components/InstallWarning/index.js:81
 msgid "Learn more"
 msgstr "ਹੋਰ ਜਾਣੋ"
 
-#: src/amo/components/InstallWarning/index.js:168
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
-"ਇਸ ਵਿਸਥਾਰ ਦੀ ਮੋਜ਼ੀਲਾ ਦੁਆਰਾ ਨਿਗਰਾਨੀ ਨਹੀਂ ਕੀਤੀ ਜਾਂਦੀ। ਇਹ ਪੱਕਾ ਕਰੋ ਕਿ ਤੁਸੀਂ ਇਸਨੂੰ ਸਥਾਪਤ "
-"ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਐਕਸਟੈਂਸ਼ਨ ਤੇ ਭਰੋਸਾ ਕਰਦੇ ਹੋ।"
-
-#: src/amo/components/InstallWarning/index.js:170
+#: src/amo/components/InstallWarning/index.js:85
 msgid ""
 "This is not a Recommended Extension. Make sure you trust it before "
 "installing."
@@ -1585,72 +1577,68 @@ msgid_plural "%(count)s Search Tools found for \"%(query)s\""
 msgstr[0] "%(count)s ਖੋਜ ਸੰਦ \"%(query)s\" ਲਈ ਲੱਭਿਆ ਹੈ"
 msgstr[1] "%(count)s ਲਈ ਲੱਭੇ ਗਏ \"%(query)s\" ਖੋਜ ਟੂਲ"
 
-#: src/amo/components/SearchFilters/index.js:135
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:128
+#: src/amo/components/SearchFilters/index.js:144
 msgid "All"
 msgstr "ਸਾਰੇ"
 
-#: src/amo/components/SearchFilters/index.js:136
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Extension"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ"
 
-#: src/amo/components/SearchFilters/index.js:142
-msgid "Search Tool"
-msgstr "ਖੋਜ ਸੰਦ"
-
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:133
 msgid "Theme"
 msgstr "ਥੀਮ"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:145
 msgid "Windows"
 msgstr "ਵਿੰਡੋਜ਼"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:146
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:162
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Linux"
 msgstr "ਲੀਨਕਸ"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Relevance"
 msgstr "ਢੁੱਕਵਾਂਪਣ"
 
-#: src/amo/components/SearchFilters/index.js:172
+#: src/amo/components/SearchFilters/index.js:157
 msgid "Recently Updated"
 msgstr "ਹਾਲ ਹੀ ਵਿੱਚ ਅੱਪਡੇਟ ਕੀਤੇ"
 
-#: src/amo/components/SearchFilters/index.js:175
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Most Users"
 msgstr "ਬਹੁਤੇ ਵਰਤੋਂਕਾਰ"
 
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:161
 msgid "Top Rated"
 msgstr "ਚੋਟੀ ਦਾ ਦਰਜਾ"
 
-#: src/amo/components/SearchFilters/index.js:177
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Trending"
 msgstr "ਰੁਝਾਨ"
 
-#: src/amo/components/SearchFilters/index.js:195
+#: src/amo/components/SearchFilters/index.js:180
 msgid "Filter results"
 msgstr "ਨਤੀਜੇ ਛਾਂਟੋ"
 
-#: src/amo/components/SearchFilters/index.js:200
+#: src/amo/components/SearchFilters/index.js:185
 msgid "Sort by"
 msgstr "ਲੜੀਬੱਧ"
 
-#: src/amo/components/SearchFilters/index.js:222
+#: src/amo/components/SearchFilters/index.js:207
 msgid "Add-on Type"
 msgstr "ਐਡ-ਆਨ ਕਿਸਮ"
 
-#: src/amo/components/SearchFilters/index.js:242
+#: src/amo/components/SearchFilters/index.js:227
 msgid "Operating System"
 msgstr "ਓਪਰੇਟਿੰਗ ਸਿਸਟਮ"
 
-#: src/amo/components/SearchFilters/index.js:268
+#: src/amo/components/SearchFilters/index.js:253
 msgid "Recommended add-ons only"
 msgstr "ਸਿਰਫ ਸਿਫਾਰਸ਼ੀ ਐਡ-ਆਨ"
 
@@ -1697,52 +1685,47 @@ msgstr "ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਮਿਲਿਆ।"
 msgid "Recommended"
 msgstr "ਸਿਫ਼ਾਰਸ਼ੀ"
 
-#: src/amo/components/SectionLinks/index.js:117
-msgid "Explore"
-msgstr "ਪੜਚੋਲ"
-
-#: src/amo/components/SectionLinks/index.js:127
+#: src/amo/components/SectionLinks/index.js:108
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Extensions"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ"
 
-#: src/amo/components/SectionLinks/index.js:142
+#: src/amo/components/SectionLinks/index.js:123
 #: src/amo/pages/LandingPage/index.js:229
 msgid "Themes"
 msgstr "ਥੀਮ"
 
-#: src/amo/components/SectionLinks/index.js:148
+#: src/amo/components/SectionLinks/index.js:129
 msgid "More…"
 msgstr "…ਹੋਰ"
 
-#: src/amo/components/SectionLinks/index.js:158
+#: src/amo/components/SectionLinks/index.js:139
 msgid "Other Browser Sites"
 msgstr "ਹੋਰ ਬ੍ਰਾਉਜ਼ਰ ਸਾਈਟਾਂ"
 
-#: src/amo/components/SectionLinks/index.js:169
+#: src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Android"
 msgstr "ਐਂਡਰਾਇਡ ਲਈ ਐਡ-ਆਨ"
 
-#: src/amo/components/SectionLinks/index.js:182
+#: src/amo/components/SectionLinks/index.js:163
 msgid "Add-ons for Firefox"
 msgstr "ਫਾਇਰਫਾਕਸ ਲਈ ਐਡ-ਆਨ"
 
-#: src/amo/components/SectionLinks/index.js:70
+#: src/amo/components/SectionLinks/index.js:62
 msgid "for Firefox"
 msgstr "ਫਾਇਰਫਾਕਸ ਲਈ"
 
-#: src/amo/components/SectionLinks/index.js:72
+#: src/amo/components/SectionLinks/index.js:64
 msgid "for Android"
 msgstr "ਛੁਪਾਓ ਲਈ"
 
-#: src/amo/components/SectionLinks/index.js:87
+#: src/amo/components/SectionLinks/index.js:79
 msgid "Dictionaries & Language Packs"
 msgstr "ਸ਼ਬਦ-ਕੋਸ਼ ਅਤੇ ਭਾਸ਼ਾ ਪੈਕ"
 
 #: src/amo/components/SectionLinks/index.js:98
-#: src/amo/pages/SearchTools/index.js:76
-msgid "Search Tools"
-msgstr "ਖੋਜ ਸੰਦ"
+msgid "Explore"
+msgstr "ਪੜਚੋਲ"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
@@ -2471,7 +2454,7 @@ msgstr "ਭਾਸ਼ਾ ਪੈਕ"
 msgid "Dictionaries"
 msgstr "ਸ਼ਬਦ-ਕੋਸ਼"
 
-#: src/amo/pages/SearchTools/index.js:73
+#: src/amo/pages/SearchTools/index.js:64
 msgid ""
 "Download Firefox extensions to customize the way you search—everything from "
 "privacy-enhanced searching to website-specific searches, image searching, "
@@ -2479,6 +2462,10 @@ msgid ""
 msgstr ""
 "ਤੁਹਾਡੀ ਖੋਜ ਦੇ ਤਰੀਕੇ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰਨ ਲਈ ਫਾਇਰਫਾਕਸ ਐਕਸਟੈਂਸ਼ਨਾਂ ਨੂੰ ਡਾਊਨਲੋਡ ਕਰੋ—ਹਰ ਚੀਜ਼, ਗੋਪਨੀਯਤਾ-"
 "ਵਧੀਕ ਖੋਜਾਂ ਤੋਂ ਵੈਬਸਾਈਟ-ਵਿਸ਼ੇਸ਼ ਖੋਜਾਂ, ਚਿੱਤਰ ਖੋਜ ਅਤੇ ਹੋਰ ਲਈ।"
+
+#: src/amo/pages/SearchTools/index.js:67
+msgid "Search Tools"
+msgstr "ਖੋਜ ਸੰਦ"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -3175,31 +3162,31 @@ msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਅੱਪਗ�
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "ਮੇਰੇ ਐਡ-ਆਨ ਦੀ ਅਨੁਕੂਲਤਾ ਸਫ਼ਲਤਾਪੂਰਨ ਅੱਪਗਰੇਡ ਹੋਈ"
 
-#: src/core/components/AMInstallButton/index.js:232
+#: src/core/components/AMInstallButton/index.js:195
 msgid "Enable"
 msgstr "ਸਮਰੱਥ"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:200
 msgid "Enabling"
 msgstr "ਸਮਰੱਥ ਬਣਾਉਣਾ"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:202
 msgid "Downloading"
 msgstr "ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:204
 msgid "Installing"
 msgstr "ਇੰਸਟਾਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Uninstalling"
 msgstr "ਅਣ-ਇੰਸਟਾਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/core/components/AMInstallButton/index.js:251
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Install Theme"
 msgstr "ਥੀਮ ਇੰਸਟਾਲ ਕਰੋ"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Add to Firefox"
 msgstr "ਫ਼ਾਇਰਫ਼ਾਕਸ ਵਿੱਚ ਜੋੜੋ"
 
@@ -3431,6 +3418,16 @@ msgstr[1] "%(total)s ਐਡ-ਆਨ"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "ਵਿਕਾਸਕਾਰ ਜਵਾਬ"
+
+#~ msgid ""
+#~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
+#~ "extension before you install it."
+#~ msgstr ""
+#~ "ਇਸ ਵਿਸਥਾਰ ਦੀ ਮੋਜ਼ੀਲਾ ਦੁਆਰਾ ਨਿਗਰਾਨੀ ਨਹੀਂ ਕੀਤੀ ਜਾਂਦੀ। ਇਹ ਪੱਕਾ ਕਰੋ ਕਿ ਤੁਸੀਂ ਇਸਨੂੰ ਸਥਾਪਤ "
+#~ "ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਐਕਸਟੈਂਸ਼ਨ ਤੇ ਭਰੋਸਾ ਕਰਦੇ ਹੋ।"
+
+#~ msgid "Search Tool"
+#~ msgstr "ਖੋਜ ਸੰਦ"
 
 #~ msgid "Firefox Preview does not currently support add-ons."
 #~ msgstr "ਫਾਇਰਫਾਕਸ ਪੂਰਵ ਦਰਸ਼ਨ ਇਸ ਸਮੇਂ ਐਡ-ਆਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾਾ।"
