@@ -126,8 +126,11 @@ module.exports = {
   // The withExperiment HOC relies on this config to enable/disable A/B
   // experiments on AMO.
   experiments: {
-    installButtonWarning: false,
-    // See https://github.com/mozilla/addons-frontend/issues/8760.
-    installButtonWarning2: true,
+    // The id of the experiment should be added below, in the form of
+    // YYYYMMDD_experimentName, with a value of `true` for an enabled experiment
+    // or `false` for a disabled experiment.
+    // See: https://github.com/mozilla/addons-frontend/pull/9125#issuecomment-580683288
+    //
+    // e.g., 20200204_installWarning: true,
  },
 };

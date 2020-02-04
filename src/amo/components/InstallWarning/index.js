@@ -8,19 +8,15 @@ import { compose } from 'redux';
 import type { AppState } from 'amo/store';
 import { ADDON_TYPE_EXTENSION, CLIENT_APP_FIREFOX } from 'core/constants';
 import translate from 'core/i18n/translate';
-import log from 'core/logger';
-import tracking from 'core/tracking';
 import {
   correctedLocationForPlatform,
   isFirefox,
 } from 'core/utils/compatibility';
-import { NOT_IN_EXPERIMENT, withExperiment } from 'core/withExperiment';
-import Notice, { genericWarningType, warningType } from 'ui/components/Notice';
+import Notice, { genericWarningType } from 'ui/components/Notice';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterLocationType } from 'core/types/router';
-import type { WithExperimentInjectedProps } from 'core/withExperiment';
 
 import './styles.scss';
 
@@ -30,11 +26,8 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  ...WithExperimentInjectedProps,
   _correctedLocationForPlatform: typeof correctedLocationForPlatform,
   _couldShowWarning?: () => boolean,
-  _log: typeof log,
-  _tracking: typeof tracking,
   clientApp: string,
   className?: string,
   i18n: I18nType,
@@ -42,34 +35,13 @@ type InternalProps = {|
   userAgentInfo: UserAgentInfoType,
 |};
 
-export const EXPERIMENT_CATEGORY_CLICK =
-  'AMO Install Button Warning Experiment - Click';
-export const EXPERIMENT_CATEGORY_DISPLAY =
-  'AMO Install Button Warning Experiment - Display';
-export const EXPERIMENT_ID = 'installButtonWarning2';
-// We use dimension6 because that is a custom GA dimension added for this
-// particular experiment.
-export const INSTALL_WARNING_EXPERIMENT_DIMENSION = 'dimension6';
-export const VARIANT_INCLUDE_WARNING_CURRENT = 'includeWarning-current';
 export const VARIANT_INCLUDE_WARNING_PROPOSED = 'includeWarning-proposed';
-export const VARIANT_EXCLUDE_WARNING = 'excludeWarning';
-export const EXPERIMENT_CONFIG = {
-  id: EXPERIMENT_ID,
-  variants: [
-    { id: VARIANT_INCLUDE_WARNING_CURRENT, percentage: 0.2 },
-    { id: VARIANT_INCLUDE_WARNING_PROPOSED, percentage: 0.2 },
-    { id: VARIANT_EXCLUDE_WARNING, percentage: 0.2 },
-    { id: NOT_IN_EXPERIMENT, percentage: 0.4 },
-  ],
-};
 const WARNING_LINK_DESTINATION =
   'https://support.mozilla.org/kb/recommended-extensions-program#w_what-are-the-risks-of-installing-non-recommended-extensions';
 
 export class InstallWarningBase extends React.Component<InternalProps> {
   static defaultProps = {
     _correctedLocationForPlatform: correctedLocationForPlatform,
-    _log: log,
-    _tracking: tracking,
   };
 
   couldShowWarning = () => {
@@ -78,8 +50,6 @@ export class InstallWarningBase extends React.Component<InternalProps> {
       _couldShowWarning,
       addon,
       clientApp,
-      isExperimentEnabled,
-      isUserInExperiment,
       location,
       userAgentInfo,
     } = this.props;
@@ -97,79 +67,24 @@ export class InstallWarningBase extends React.Component<InternalProps> {
           isFirefox({ userAgentInfo }) &&
           clientApp === CLIENT_APP_FIREFOX &&
           addon.type === ADDON_TYPE_EXTENSION &&
-          !addon.is_recommended &&
-          isExperimentEnabled &&
-          isUserInExperiment;
+          !addon.is_recommended;
   };
-
-  maybeSendDisplayTrackingEvent = () => {
-    const { _tracking, addon, variant } = this.props;
-
-    if (this.couldShowWarning() && variant) {
-      _tracking.sendEvent({
-        action: variant,
-        category: EXPERIMENT_CATEGORY_DISPLAY,
-        label: addon.name,
-      });
-    }
-  };
-
-  componentDidMount() {
-    const {
-      _log,
-      _tracking,
-      clientApp,
-      isUserInExperiment,
-      variant,
-    } = this.props;
-
-    if (!variant) {
-      _log.debug(`No variant set for experiment "${EXPERIMENT_ID}"`);
-      return;
-    }
-    if (!isUserInExperiment) {
-      _log.debug(`User not enrolled in experiment "${EXPERIMENT_ID}"`);
-      return;
-    }
-
-    if (clientApp === CLIENT_APP_FIREFOX) {
-      _tracking.setDimension({
-        dimension: INSTALL_WARNING_EXPERIMENT_DIMENSION,
-        value: variant,
-      });
-    }
-
-    this.maybeSendDisplayTrackingEvent();
-  }
 
   render() {
-    const { className, i18n, variant } = this.props;
+    const { className, i18n } = this.props;
 
-    if (
-      this.couldShowWarning() &&
-      [
-        VARIANT_INCLUDE_WARNING_CURRENT,
-        VARIANT_INCLUDE_WARNING_PROPOSED,
-      ].includes(variant)
-    ) {
+    if (this.couldShowWarning()) {
       return (
         <Notice
           actionHref={WARNING_LINK_DESTINATION}
           actionTarget="_blank"
           actionText={i18n.gettext('Learn more')}
           className={makeClassName('InstallWarning', className)}
-          type={
-            variant === VARIANT_INCLUDE_WARNING_CURRENT
-              ? warningType
-              : genericWarningType
-          }
+          type={genericWarningType}
         >
-          {variant === VARIANT_INCLUDE_WARNING_CURRENT
-            ? i18n.gettext(`This extension isn’t monitored by Mozilla. Make sure you trust the
-            extension before you install it.`)
-            : i18n.gettext(
-                `This is not a Recommended Extension. Make sure you trust it before installing.`,
-              )}
+          {i18n.gettext(
+            `This is not a Recommended Extension. Make sure you trust it before installing.`,
+          )}
         </Notice>
       );
     }
@@ -188,7 +103,6 @@ const InstallWarning: React.ComponentType<Props> = compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
-  withExperiment(EXPERIMENT_CONFIG),
 )(InstallWarningBase);
 
 export default InstallWarning;
