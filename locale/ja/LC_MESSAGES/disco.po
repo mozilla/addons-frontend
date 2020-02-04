@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-12 18:11+0000\n"
+"POT-Creation-Date: 2020-02-04 20:57+0000\n"
 "PO-Revision-Date: 2020-01-03 06:28+0000\n"
 "Last-Translator: marsf <chimantaea_mirabilis@yahoo.co.jp>\n"
 "Language-Team: none\n"
@@ -14,47 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/InstallWarning/index.js:159
-msgid "Learn more"
-msgstr "詳細情報"
-
-#: src/amo/components/InstallWarning/index.js:168
-msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr ""
-
-#: src/amo/components/InstallWarning/index.js:170
-msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr ""
-
-#: src/core/components/AMInstallButton/index.js:232
+#: src/core/components/AMInstallButton/index.js:195
 msgid "Enable"
 msgstr "有効にする"
 
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Remove"
 msgstr "削除"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:200
 msgid "Enabling"
 msgstr "有効にしています"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:202
 msgid "Downloading"
 msgstr "ダウンロード中"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:204
 msgid "Installing"
 msgstr "インストール中"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Uninstalling"
 msgstr "アンインストール中"
 
-#: src/core/components/AMInstallButton/index.js:251
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Install Theme"
 msgstr "テーマをインストール"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Add to Firefox"
 msgstr "Firefox へ追加"
 
@@ -63,10 +51,15 @@ msgid "Server Error"
 msgstr "サーバーエラー"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "申し訳ありませんが、エラーが発生したため、あなたのリクエストを完了することができませんでした。私たちはこのエラーを記録しており、今後調査を行います。"
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"申し訳ありませんが、エラーが発生したため、あなたのリクエストを完了することが"
+"できませんでした。私たちはこのエラーを記録しており、今後調査を行います。"
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "エラーコード: %(status)s"
 
@@ -183,17 +176,29 @@ msgstr "Firefox をパーソナライズしよう"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
-msgstr "インストールして Firefox をパーソナライズできる無料のアドオンが、世界中の開発者によって何千種類も作られています。楽しいデザインのテーマから、ブラウジングをより早くより安全にするパワフルなツールや機能まで、アドオンを使ってお使いのブラウザーを自分だけのものにしましょう。手始めに、パフォーマンスや機能が優れているおすすめのアドオンをいくつか紹介します。"
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
+msgstr ""
+"インストールして Firefox をパーソナライズできる無料のアドオンが、世界中の開発"
+"者によって何千種類も作られています。楽しいデザインのテーマから、ブラウジング"
+"をより早くより安全にするパワフルなツールや機能まで、アドオンを使ってお使いの"
+"ブラウザーを自分だけのものにしましょう。手始めに、パフォーマンスや機能が優れ"
+"ているおすすめのアドオンをいくつか紹介します。"
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "詳しく学ぶ"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr "このおすすめの一部はパーソナライズされています。おすすめは、インストールされた他の拡張機能やプロファイル設定、利用状況に基づいています。"
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"このおすすめの一部はパーソナライズされています。おすすめは、インストールされ"
+"た他の拡張機能やプロファイル設定、利用状況に基づいています。"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -215,6 +220,9 @@ msgstr "このお知らせを閉じる"
 msgid "Preview of %(title)s"
 msgstr "%(title)s のプレビュー"
 
+#~ msgid "Learn more"
+#~ msgstr "詳細情報"
+
 #~ msgid "Downloading %(name)s."
 #~ msgstr "%(name)s をダウンロードしています。"
 
@@ -222,7 +230,8 @@ msgstr "%(title)s のプレビュー"
 #~ msgstr "%(name)s をインストールしています。"
 
 #~ msgid "%(name)s is installed and enabled. Click to uninstall."
-#~ msgstr "%(name)s はインストール、有効化されています。削除するにはここをクリック。"
+#~ msgstr ""
+#~ "%(name)s はインストール、有効化されています。削除するにはここをクリック。"
 
 #~ msgid "%(name)s is disabled. Click to enable."
 #~ msgstr "%(name)s は無効化されています。有効化するにはここをクリック。"
@@ -249,7 +258,8 @@ msgstr "%(title)s のプレビュー"
 #~ msgstr "今後はツールバーから %(name)s にアクセスできます"
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
+#~ msgstr ""
+#~ "%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "画像にマウスオーバーしてプレビュー"

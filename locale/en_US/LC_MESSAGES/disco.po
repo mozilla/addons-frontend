@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-12 18:11+0000\n"
+"POT-Creation-Date: 2020-02-04 20:57+0000\n"
 "PO-Revision-Date: 2016-05-20 11:26+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -12,55 +12,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/amo/components/InstallWarning/index.js:159
-msgid "Learn more"
-msgstr ""
-
-#: src/amo/components/InstallWarning/index.js:168
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
-
-#: src/amo/components/InstallWarning/index.js:170
-msgid ""
-"This is not a Recommended Extension. Make sure you trust it before "
-"installing."
-msgstr ""
-
-#: src/core/components/AMInstallButton/index.js:232
+#: src/core/components/AMInstallButton/index.js:195
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Remove"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:200
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:202
 #, fuzzy
 msgid "Downloading"
 msgstr "Downloading %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:204
 #, fuzzy
 msgid "Installing"
 msgstr "Installing %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:206
 #, fuzzy
 msgid "Uninstalling"
 msgstr "Uninstalling %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:251
+#: src/core/components/AMInstallButton/index.js:214
 #, fuzzy
 msgid "Install Theme"
 msgstr "Installing %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Add to Firefox"
 msgstr ""
 

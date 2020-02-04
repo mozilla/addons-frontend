@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-12 18:11+0000\n"
+"POT-Creation-Date: 2020-02-04 20:57+0000\n"
 "PO-Revision-Date: 2020-01-12 04:38+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,50 +14,38 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/InstallWarning/index.js:159
-msgid "Learn more"
-msgstr "더 알아보기"
-
-#: src/amo/components/InstallWarning/index.js:168
-msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr "이 확장 기능은 Mozilla에서 모니터링하지 않습니다. 설치하기 전에 신뢰할 수 있는지 확인하십시오."
-
-#: src/amo/components/InstallWarning/index.js:170
-msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr "이것은 추천하는 확장기능이 아닙니다. 설치하기 전에 신뢰할 수 있는지 확인하십시오."
-
-#: src/core/components/AMInstallButton/index.js:232
+#: src/core/components/AMInstallButton/index.js:195
 msgid "Enable"
 msgstr "사용함"
 
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Remove"
 msgstr "제거"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:200
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:202
 #, fuzzy
 msgid "Downloading"
 msgstr "%(name)s를 다운로드 중입니다."
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:204
 #, fuzzy
 msgid "Installing"
 msgstr "%(name)s를 설치 중입니다."
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:206
 #, fuzzy
 msgid "Uninstalling"
 msgstr "%(name)s를 제거하는 중입니다."
 
-#: src/core/components/AMInstallButton/index.js:251
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Install Theme"
 msgstr "테마 설치"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Add to Firefox"
 msgstr "Firefox에 추가"
 
@@ -66,10 +54,15 @@ msgid "Server Error"
 msgstr "서버 오류"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "죄송합니다. 오류가 발생해 요청하신 작업을 수행하지 못했습니다. 발생한 오류는 빠르게 처리하겠습니다."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"죄송합니다. 오류가 발생해 요청하신 작업을 수행하지 못했습니다. 발생한 오류는 "
+"빠르게 처리하겠습니다."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "오류 코드 : %(status)s."
 
@@ -188,16 +181,25 @@ msgstr "Firefox 개인화하기"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
-msgstr "전세계의 개발자들이 만든 Firefox를 나만의 것으로 만들 수 있는 수천개의 부가기능이 있습니다. 재미있고 멋진 테마부터 강력한 도구와 기능에 이르기까지 브라우징을 빠로그 안전하게 만들어 줍니다. 시작 하기 전에 훌륭한 성능과 기능을 가지고 있는 저희가 추천드리는 몇가지 부가기능이 있습니다."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
+msgstr ""
+"전세계의 개발자들이 만든 Firefox를 나만의 것으로 만들 수 있는 수천개의 부가기"
+"능이 있습니다. 재미있고 멋진 테마부터 강력한 도구와 기능에 이르기까지 브라우"
+"징을 빠로그 안전하게 만들어 줍니다. 시작 하기 전에 훌륭한 성능과 기능을 가지"
+"고 있는 저희가 추천드리는 몇가지 부가기능이 있습니다."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "더 알아보기"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
 msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
@@ -220,6 +222,23 @@ msgstr ""
 #, fuzzy
 msgid "Preview of %(title)s"
 msgstr "%(name)s 미리보기"
+
+#~ msgid "Learn more"
+#~ msgstr "더 알아보기"
+
+#~ msgid ""
+#~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
+#~ "extension before you install it."
+#~ msgstr ""
+#~ "이 확장 기능은 Mozilla에서 모니터링하지 않습니다. 설치하기 전에 신뢰할 수 "
+#~ "있는지 확인하십시오."
+
+#~ msgid ""
+#~ "This is not a Recommended Extension. Make sure you trust it before "
+#~ "installing."
+#~ msgstr ""
+#~ "이것은 추천하는 확장기능이 아닙니다. 설치하기 전에 신뢰할 수 있는지 확인하"
+#~ "십시오."
 
 #~ msgid "Downloading %(name)s."
 #~ msgstr "%(name)s를 다운로드 중입니다."

@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-12 18:11+0000\n"
+"POT-Creation-Date: 2020-02-04 20:57+0000\n"
 "PO-Revision-Date: 2019-11-17 02:10+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,47 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/InstallWarning/index.js:159
-msgid "Learn more"
-msgstr "იხილეთ ვრცლად"
-
-#: src/amo/components/InstallWarning/index.js:168
-msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr "ამ გაფართოებას მუდმივად არ ამოწმებს Mozilla. დარწმუნდით მის სანდოობაში, დაყენებამდე."
-
-#: src/amo/components/InstallWarning/index.js:170
-msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr "ეს არაა სასურველი გაფართოება. დარწმუნდით მის სანდოობაში, დაყენებამდე."
-
-#: src/core/components/AMInstallButton/index.js:232
+#: src/core/components/AMInstallButton/index.js:195
 msgid "Enable"
 msgstr "ჩართვა"
 
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Remove"
 msgstr "მოცილება"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:200
 msgid "Enabling"
 msgstr "ირთვება"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:202
 msgid "Downloading"
 msgstr "მიმდინარეობს ჩამოტვირთვა"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:204
 msgid "Installing"
 msgstr "მიმდინარეობს დაყენება"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Uninstalling"
 msgstr "იშლება"
 
-#: src/core/components/AMInstallButton/index.js:251
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Install Theme"
 msgstr "თემის ჩადგმა"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Add to Firefox"
 msgstr "Firefox-ზე დამატება"
 
@@ -63,10 +51,15 @@ msgid "Server Error"
 msgstr "შეცდომა სერვერზე"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "ვწუხვართ, მაგრამ მოხდა გაურკვეველი შეცდომა და თქვენი მოთხოვნის შესრულება ვერ მოხერხდა. ჩვენ აღვრიცხავთ ამ შეცდომას და აუცილებლად გამოვიკვლევთ."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"ვწუხვართ, მაგრამ მოხდა გაურკვეველი შეცდომა და თქვენი მოთხოვნის შესრულება ვერ "
+"მოხერხდა. ჩვენ აღვრიცხავთ ამ შეცდომას და აუცილებლად გამოვიკვლევთ."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "შეცდომის კოდი: %(status)s."
 
@@ -183,20 +176,30 @@ msgstr "მოირგეთ თქვენი Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"აქ შეგიძლიათ მოიძიოთ ათასობით უფასო დამატება, შექმნილი შემმუშავებლების მიერ მთელი მსოფლიოდან, რომელთა საშუალებითაც შეძლებთ უკეთ მოირგოთ Firefox. მხიარული თემებით დაწყებული, მძლავრი ხელსაწყოების "
-"ჩათვლით, დაგეხმარებათ გვერდების მოხერხებულად და უსაფრთხოდ მონახულებაში და ბრაუზერს გახდის უფრო მეტად თქვენებურს. დასაწყისისთვის, აქვე გთავაზობთ რამდენიმე რჩეულ დამატებას, ბრაუზერის წარმადობისა და "
-"შესაძლებლობების გასაუმჯობესებლად."
+"აქ შეგიძლიათ მოიძიოთ ათასობით უფასო დამატება, შექმნილი შემმუშავებლების მიერ "
+"მთელი მსოფლიოდან, რომელთა საშუალებითაც შეძლებთ უკეთ მოირგოთ Firefox. "
+"მხიარული თემებით დაწყებული, მძლავრი ხელსაწყოების ჩათვლით, დაგეხმარებათ "
+"გვერდების მოხერხებულად და უსაფრთხოდ მონახულებაში და ბრაუზერს გახდის უფრო "
+"მეტად თქვენებურს. დასაწყისისთვის, აქვე გთავაზობთ რამდენიმე რჩეულ დამატებას, "
+"ბრაუზერის წარმადობისა და შესაძლებლობების გასაუმჯობესებლად."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "იხილეთ ვრცლად"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr "შემოთავაზებების ნაწილი თქვენს მოთხოვნებზეა მორგებული. ეფუძნება თქვენ მიერ ჩადგმულ სხვა გაფართოებებს, პროფილის პარამეტრებსა და გამოყენების სტატისტიკას."
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"შემოთავაზებების ნაწილი თქვენს მოთხოვნებზეა მორგებული. ეფუძნება თქვენ მიერ "
+"ჩადგმულ სხვა გაფართოებებს, პროფილის პარამეტრებსა და გამოყენების სტატისტიკას."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -217,6 +220,22 @@ msgstr "ამ შეტყობინების დამალვა"
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "%(title)s – შეთვალიერება"
+
+#~ msgid "Learn more"
+#~ msgstr "იხილეთ ვრცლად"
+
+#~ msgid ""
+#~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
+#~ "extension before you install it."
+#~ msgstr ""
+#~ "ამ გაფართოებას მუდმივად არ ამოწმებს Mozilla. დარწმუნდით მის სანდოობაში, "
+#~ "დაყენებამდე."
+
+#~ msgid ""
+#~ "This is not a Recommended Extension. Make sure you trust it before "
+#~ "installing."
+#~ msgstr ""
+#~ "ეს არაა სასურველი გაფართოება. დარწმუნდით მის სანდოობაში, დაყენებამდე."
 
 #~ msgid "Downloading %(name)s."
 #~ msgstr "%(name)s მიმდინარეობს ჩამოტვირთვა."
@@ -252,7 +271,8 @@ msgstr "%(title)s – შეთვალიერება"
 #~ msgstr "%(name)s დამატებასთან წვდომა გექნებათ ხელსაწყოთა ზოლიდან."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr "შესათვალიერებლად გადაატარეთ მაჩვენებელი, ან დააწკაპეთ დაყენებას %(name)s"
+#~ msgstr ""
+#~ "შესათვალიერებლად გადაატარეთ მაჩვენებელი, ან დააწკაპეთ დაყენებას %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "გადაატარეთ სურათზე მაჩვენებელი, თემის შესათვალიერებლად"

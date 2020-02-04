@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-12 18:11+0000\n"
+"POT-Creation-Date: 2020-02-04 20:57+0000\n"
 "PO-Revision-Date: 2019-08-27 17:53+0000\n"
 "Last-Translator: Sahithi <sahithi@swecha.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,47 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/InstallWarning/index.js:159
-msgid "Learn more"
-msgstr "ఇంకా తెలుసుకోండి"
-
-#: src/amo/components/InstallWarning/index.js:168
-msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr ""
-
-#: src/amo/components/InstallWarning/index.js:170
-msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr ""
-
-#: src/core/components/AMInstallButton/index.js:232
+#: src/core/components/AMInstallButton/index.js:195
 msgid "Enable"
 msgstr "చేతనించు"
 
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Remove"
 msgstr "తొలగించు"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:200
 msgid "Enabling"
 msgstr "చేతనపరచు"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:202
 msgid "Downloading"
 msgstr "దింపుకుంటోంది"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:204
 msgid "Installing"
 msgstr "స్థాపిస్తోంది"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Uninstalling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:251
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Install Theme"
 msgstr "అలంకారాన్ని స్థాపించు"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Add to Firefox"
 msgstr "Firefoxకు చేర్చు"
 
@@ -63,10 +51,13 @@ msgid "Server Error"
 msgstr "సర్వర్ దోషం"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
 msgstr ""
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "కోడ్ లోపం: %(status)s."
 
@@ -183,8 +174,11 @@ msgstr "మీ Firefox ని వ్యక్తిగతీకరించం�
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
 
 #: src/disco/pages/DiscoPane/index.js:207
@@ -192,7 +186,9 @@ msgid "Learn More"
 msgstr "ఇంకా తెలుసుకోండి"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
 msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
@@ -214,6 +210,9 @@ msgstr "ఈ గమనికను తీసేయి"
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "%(title)s మునుజూపు"
+
+#~ msgid "Learn more"
+#~ msgstr "ఇంకా తెలుసుకోండి"
 
 #~ msgid "Downloading %(name)s."
 #~ msgstr "%(name)s దింపుకుంటోంది."
