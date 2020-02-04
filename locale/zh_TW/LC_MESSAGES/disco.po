@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-12 18:11+0000\n"
+"POT-Creation-Date: 2020-02-04 20:57+0000\n"
 "PO-Revision-Date: 2019-11-13 00:35+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -14,47 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/InstallWarning/index.js:159
-msgid "Learn more"
-msgstr "了解更多"
-
-#: src/amo/components/InstallWarning/index.js:168
-msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
-msgstr "此擴充套件內容並未由 Mozilla 審查過，請確定您信任此套件再安裝。"
-
-#: src/amo/components/InstallWarning/index.js:170
-msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr "這不是推薦的擴充套件，請確定您信任此套件再安裝。"
-
-#: src/core/components/AMInstallButton/index.js:232
+#: src/core/components/AMInstallButton/index.js:195
 msgid "Enable"
 msgstr "啟用"
 
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Remove"
 msgstr "移除"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:200
 msgid "Enabling"
 msgstr "啟用中"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:202
 msgid "Downloading"
 msgstr "下載中"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:204
 msgid "Installing"
 msgstr "安裝中"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Uninstalling"
 msgstr "移除中"
 
-#: src/core/components/AMInstallButton/index.js:251
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Install Theme"
 msgstr "安裝佈景主題"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Add to Firefox"
 msgstr "新增至 Firefox"
 
@@ -63,10 +51,13 @@ msgid "Server Error"
 msgstr "伺服器發生錯誤"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
 msgstr "抱歉，有錯誤發生，無法完成請求。我們已經記錄下此錯誤，將再行修復。"
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "錯誤代碼: %(status)s。"
 
@@ -183,17 +174,26 @@ msgstr "個人化您的 Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
-msgstr "全球各地的開發者打造了數以千計的附加元件，這些附加元件可讓您把 Firefox 變得有您的樣子。不論是漂亮的佈景主題、讓您瀏覽時更快，還是加上更安全的工具與功能。為了幫助您開始使用，以下是一些我們推薦的，效能與功能都很傑出的附加元件。"
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
+msgstr ""
+"全球各地的開發者打造了數以千計的附加元件，這些附加元件可讓您把 Firefox 變得有"
+"您的樣子。不論是漂亮的佈景主題、讓您瀏覽時更快，還是加上更安全的工具與功能。"
+"為了幫助您開始使用，以下是一些我們推薦的，效能與功能都很傑出的附加元件。"
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "了解更多"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr "某些建議是根據您安裝的其他擴充套件、偏好設定、使用統計推導而出的個人化建議。"
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"某些建議是根據您安裝的其他擴充套件、偏好設定、使用統計推導而出的個人化建議。"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -214,6 +214,19 @@ msgstr "忽略此通知"
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr "%(title)s 預覽"
+
+#~ msgid "Learn more"
+#~ msgstr "了解更多"
+
+#~ msgid ""
+#~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
+#~ "extension before you install it."
+#~ msgstr "此擴充套件內容並未由 Mozilla 審查過，請確定您信任此套件再安裝。"
+
+#~ msgid ""
+#~ "This is not a Recommended Extension. Make sure you trust it before "
+#~ "installing."
+#~ msgstr "這不是推薦的擴充套件，請確定您信任此套件再安裝。"
 
 #~ msgid "Downloading %(name)s."
 #~ msgstr "正在下載 %(name)s。"
