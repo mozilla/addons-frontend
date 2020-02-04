@@ -29,6 +29,9 @@ export type Props = {|
   defaultInstallSource: string,
   getFirefoxButtonType: GetFirefoxButtonTypeType,
   puffy?: boolean,
+  // TODO: this is a false positive since eslint-react-plugin >= 7.18.0 (it was
+  // working fine with 7.17.0)
+  // eslint-disable-next-line react/no-unused-prop-types
   version?: AddonVersionType | null,
 |};
 
