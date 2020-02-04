@@ -26,6 +26,7 @@ import {
   fakeRecommendations,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
+import { ErrorHandler } from 'core/errorHandler';
 import LoadingText from 'ui/components/LoadingText';
 
 describe(__filename, () => {
@@ -74,6 +75,18 @@ describe(__filename, () => {
 
   it('renders nothing without an addon', () => {
     const root = render({ addon: null });
+    expect(root).not.toHaveClassName('AddonRecommendations');
+  });
+
+  it('renders nothing if there is an error', () => {
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(new Error('some unexpected error'));
+    store.dispatch(doLoadRecommendations({}));
+
+    const root = render({ errorHandler });
     expect(root).not.toHaveClassName('AddonRecommendations');
   });
 
@@ -279,6 +292,19 @@ describe(__filename, () => {
         loading: true,
       },
     });
+
+    sinon.assert.notCalled(fakeTracking.sendEvent);
+  });
+
+  it('should not send a GA ping when there an error', () => {
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(new Error('some unexpected error'));
+    const root = render({ tracking: fakeTracking });
+
+    root.setProps({ errorHandler });
 
     sinon.assert.notCalled(fakeTracking.sendEvent);
   });
