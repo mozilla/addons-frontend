@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-01-21 17:40+0000\n"
+"POT-Creation-Date: 2020-02-04 20:54+0000\n"
 "PO-Revision-Date: 2018-06-01 14:56+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -858,7 +858,7 @@ msgid "Leave a note"
 msgstr "نکات حقوقی"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Remove"
 msgstr ""
 
@@ -1226,17 +1226,11 @@ msgid ""
 "fun."
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:159
+#: src/amo/components/InstallWarning/index.js:81
 msgid "Learn more"
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:168
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
-
-#: src/amo/components/InstallWarning/index.js:170
+#: src/amo/components/InstallWarning/index.js:85
 msgid ""
 "This is not a Recommended Extension. Make sure you trust it before "
 "installing."
@@ -1679,73 +1673,68 @@ msgid_plural "%(count)s Search Tools found for \"%(query)s\""
 msgstr[0] "%(count)s نتیجه برای «%(query)s» پیدا شد"
 msgstr[1] "%(count)s نتیجه برای «%(query)s» پیدا شد"
 
-#: src/amo/components/SearchFilters/index.js:135
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:128
+#: src/amo/components/SearchFilters/index.js:144
 msgid "All"
 msgstr "همه"
 
-#: src/amo/components/SearchFilters/index.js:136
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Extension"
 msgstr "افزونه‌"
 
-#: src/amo/components/SearchFilters/index.js:142
-#, fuzzy
-msgid "Search Tool"
-msgstr "ابزار جست‌وجو"
-
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:133
 msgid "Theme"
 msgstr "زمینه‌"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:145
 msgid "Windows"
 msgstr "ویندوز"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:146
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:162
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Linux"
 msgstr "لینوکس"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Relevance"
 msgstr "مرتبط"
 
-#: src/amo/components/SearchFilters/index.js:172
+#: src/amo/components/SearchFilters/index.js:157
 msgid "Recently Updated"
 msgstr "بروزرسانی‌های اخیر"
 
-#: src/amo/components/SearchFilters/index.js:175
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Most Users"
 msgstr "بیشترین کاربر"
 
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:161
 msgid "Top Rated"
 msgstr "بیشترین رای"
 
-#: src/amo/components/SearchFilters/index.js:177
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Trending"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:195
+#: src/amo/components/SearchFilters/index.js:180
 msgid "Filter results"
 msgstr "فیلتر نتایج"
 
-#: src/amo/components/SearchFilters/index.js:200
+#: src/amo/components/SearchFilters/index.js:185
 msgid "Sort by"
 msgstr "مرتب‌سازی براساس"
 
-#: src/amo/components/SearchFilters/index.js:222
+#: src/amo/components/SearchFilters/index.js:207
 msgid "Add-on Type"
 msgstr "نوع افزونه‌"
 
-#: src/amo/components/SearchFilters/index.js:242
+#: src/amo/components/SearchFilters/index.js:227
 msgid "Operating System"
 msgstr "سیستم‌عامل"
 
-#: src/amo/components/SearchFilters/index.js:268
+#: src/amo/components/SearchFilters/index.js:253
 #, fuzzy
 msgid "Recommended add-ons only"
 msgstr "فقط افزونه‌های منتخب"
@@ -1797,52 +1786,47 @@ msgstr "هیچ نتیجه‌ای پیدا نشد."
 msgid "Recommended"
 msgstr "کاربرها"
 
-#: src/amo/components/SectionLinks/index.js:117
-msgid "Explore"
-msgstr "کشف کنید"
-
-#: src/amo/components/SectionLinks/index.js:127
+#: src/amo/components/SectionLinks/index.js:108
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Extensions"
 msgstr "افزونه‌ها"
 
-#: src/amo/components/SectionLinks/index.js:142
+#: src/amo/components/SectionLinks/index.js:123
 #: src/amo/pages/LandingPage/index.js:229
 msgid "Themes"
 msgstr "قالب‌ها"
 
-#: src/amo/components/SectionLinks/index.js:148
+#: src/amo/components/SectionLinks/index.js:129
 msgid "More…"
 msgstr "بیشتر…"
 
-#: src/amo/components/SectionLinks/index.js:158
+#: src/amo/components/SectionLinks/index.js:139
 msgid "Other Browser Sites"
 msgstr "سایر سایت‌های مرورگر"
 
-#: src/amo/components/SectionLinks/index.js:169
+#: src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Android"
 msgstr "افزونه‌های اندروید"
 
-#: src/amo/components/SectionLinks/index.js:182
+#: src/amo/components/SectionLinks/index.js:163
 msgid "Add-ons for Firefox"
 msgstr "افزونه‌های فایرفاکس"
 
-#: src/amo/components/SectionLinks/index.js:70
+#: src/amo/components/SectionLinks/index.js:62
 msgid "for Firefox"
 msgstr "برای فایرفاکس"
 
-#: src/amo/components/SectionLinks/index.js:72
+#: src/amo/components/SectionLinks/index.js:64
 msgid "for Android"
 msgstr "برای اندروید"
 
-#: src/amo/components/SectionLinks/index.js:87
+#: src/amo/components/SectionLinks/index.js:79
 msgid "Dictionaries & Language Packs"
 msgstr "لغت‌نامه‌ها و بسته‌های زبان"
 
 #: src/amo/components/SectionLinks/index.js:98
-#: src/amo/pages/SearchTools/index.js:76
-msgid "Search Tools"
-msgstr "ابزار جست‌وجو"
+msgid "Explore"
+msgstr "کشف کنید"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
@@ -2538,12 +2522,16 @@ msgstr "بسته‌های زبان"
 msgid "Dictionaries"
 msgstr ""
 
-#: src/amo/pages/SearchTools/index.js:73
+#: src/amo/pages/SearchTools/index.js:64
 msgid ""
 "Download Firefox extensions to customize the way you search—everything from "
 "privacy-enhanced searching to website-specific searches, image searching, "
 "and more."
 msgstr ""
+
+#: src/amo/pages/SearchTools/index.js:67
+msgid "Search Tools"
+msgstr "ابزار جست‌وجو"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -3167,34 +3155,34 @@ msgstr ""
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:232
+#: src/core/components/AMInstallButton/index.js:195
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:200
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:202
 #, fuzzy
 msgid "Downloading"
 msgstr "در حال دریافت %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:204
 #, fuzzy
 msgid "Installing"
 msgstr "در حال نصب %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:206
 #, fuzzy
 msgid "Uninstalling"
 msgstr "در حال حذف %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:251
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Install Theme"
 msgstr "نصب پوسته"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Add to Firefox"
 msgstr "افزودن به فایرفاکس"
 
@@ -3430,6 +3418,10 @@ msgstr[1] "%(count)s افزونه یافت شد"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "پاسخ توسعه‌دهنده"
+
+#, fuzzy
+#~ msgid "Search Tool"
+#~ msgstr "ابزار جست‌وجو"
 
 #, fuzzy
 #~ msgid "Firefox Preview does not currently support add-ons."

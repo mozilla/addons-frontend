@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-01-21 17:40+0000\n"
+"POT-Creation-Date: 2020-02-04 20:54+0000\n"
 "PO-Revision-Date: 2019-10-10 09:09+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
@@ -824,7 +824,7 @@ msgid "Leave a note"
 msgstr "Оставете бележка"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Remove"
 msgstr "Премахване"
 
@@ -1190,17 +1190,11 @@ msgstr ""
 "Те добавят възможности към Firefox, за да направят разглеждането по-бързо, "
 "по-интелигентно или просто забавно"
 
-#: src/amo/components/InstallWarning/index.js:159
+#: src/amo/components/InstallWarning/index.js:81
 msgid "Learn more"
 msgstr ""
 
-#: src/amo/components/InstallWarning/index.js:168
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
-
-#: src/amo/components/InstallWarning/index.js:170
+#: src/amo/components/InstallWarning/index.js:85
 msgid ""
 "This is not a Recommended Extension. Make sure you trust it before "
 "installing."
@@ -1634,72 +1628,68 @@ msgid_plural "%(count)s Search Tools found for \"%(query)s\""
 msgstr[0] "%(count)s резултат за „%(query)s“"
 msgstr[1] "%(count)s резултата за „%(query)s“"
 
-#: src/amo/components/SearchFilters/index.js:135
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:128
+#: src/amo/components/SearchFilters/index.js:144
 msgid "All"
 msgstr "Всички"
 
-#: src/amo/components/SearchFilters/index.js:136
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Extension"
 msgstr "Разширение"
 
-#: src/amo/components/SearchFilters/index.js:142
-msgid "Search Tool"
-msgstr "Инструменти за търсене"
-
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:133
 msgid "Theme"
 msgstr "Тема"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:145
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:146
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:162
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Relevance"
 msgstr "Съответствие"
 
-#: src/amo/components/SearchFilters/index.js:172
+#: src/amo/components/SearchFilters/index.js:157
 msgid "Recently Updated"
 msgstr "Скоро обновени"
 
-#: src/amo/components/SearchFilters/index.js:175
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Most Users"
 msgstr "Най-много потребители"
 
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:161
 msgid "Top Rated"
 msgstr "Най-високо оценени"
 
-#: src/amo/components/SearchFilters/index.js:177
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Trending"
 msgstr "Популярност"
 
-#: src/amo/components/SearchFilters/index.js:195
+#: src/amo/components/SearchFilters/index.js:180
 msgid "Filter results"
 msgstr "Филтриране на резултатите"
 
-#: src/amo/components/SearchFilters/index.js:200
+#: src/amo/components/SearchFilters/index.js:185
 msgid "Sort by"
 msgstr "Подреждане по"
 
-#: src/amo/components/SearchFilters/index.js:222
+#: src/amo/components/SearchFilters/index.js:207
 msgid "Add-on Type"
 msgstr "Вид на добавката"
 
-#: src/amo/components/SearchFilters/index.js:242
+#: src/amo/components/SearchFilters/index.js:227
 msgid "Operating System"
 msgstr "Операционна система"
 
-#: src/amo/components/SearchFilters/index.js:268
+#: src/amo/components/SearchFilters/index.js:253
 #, fuzzy
 msgid "Recommended add-ons only"
 msgstr "Само препоръчани добавки"
@@ -1751,52 +1741,47 @@ msgstr "Няма резултати."
 msgid "Recommended"
 msgstr "Коментар от потребителя"
 
-#: src/amo/components/SectionLinks/index.js:117
-msgid "Explore"
-msgstr "Разглеждане"
-
-#: src/amo/components/SectionLinks/index.js:127
+#: src/amo/components/SectionLinks/index.js:108
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Extensions"
 msgstr "Разширения"
 
-#: src/amo/components/SectionLinks/index.js:142
+#: src/amo/components/SectionLinks/index.js:123
 #: src/amo/pages/LandingPage/index.js:229
 msgid "Themes"
 msgstr "Теми"
 
-#: src/amo/components/SectionLinks/index.js:148
+#: src/amo/components/SectionLinks/index.js:129
 msgid "More…"
 msgstr "Други…"
 
-#: src/amo/components/SectionLinks/index.js:158
+#: src/amo/components/SectionLinks/index.js:139
 msgid "Other Browser Sites"
 msgstr "За други мрежови четци"
 
-#: src/amo/components/SectionLinks/index.js:169
+#: src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Android"
 msgstr "Добавки за Android"
 
-#: src/amo/components/SectionLinks/index.js:182
+#: src/amo/components/SectionLinks/index.js:163
 msgid "Add-ons for Firefox"
 msgstr "Добавки за Firefox"
 
-#: src/amo/components/SectionLinks/index.js:70
+#: src/amo/components/SectionLinks/index.js:62
 msgid "for Firefox"
 msgstr "за Firefox"
 
-#: src/amo/components/SectionLinks/index.js:72
+#: src/amo/components/SectionLinks/index.js:64
 msgid "for Android"
 msgstr "за Android"
 
-#: src/amo/components/SectionLinks/index.js:87
+#: src/amo/components/SectionLinks/index.js:79
 msgid "Dictionaries & Language Packs"
 msgstr "Речници и езикови пакети"
 
 #: src/amo/components/SectionLinks/index.js:98
-#: src/amo/pages/SearchTools/index.js:76
-msgid "Search Tools"
-msgstr "Инструменти за търсене"
+msgid "Explore"
+msgstr "Разглеждане"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
@@ -2482,12 +2467,16 @@ msgstr "Езикови пакети"
 msgid "Dictionaries"
 msgstr "Речници"
 
-#: src/amo/pages/SearchTools/index.js:73
+#: src/amo/pages/SearchTools/index.js:64
 msgid ""
 "Download Firefox extensions to customize the way you search—everything from "
 "privacy-enhanced searching to website-specific searches, image searching, "
 "and more."
 msgstr ""
+
+#: src/amo/pages/SearchTools/index.js:67
+msgid "Search Tools"
+msgstr "Инструменти за търсене"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -3129,34 +3118,34 @@ msgstr ""
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:232
+#: src/core/components/AMInstallButton/index.js:195
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:200
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:202
 #, fuzzy
 msgid "Downloading"
 msgstr "Изтегляне на %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:204
 #, fuzzy
 msgid "Installing"
 msgstr "Инсталиране на %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:206
 #, fuzzy
 msgid "Uninstalling"
 msgstr "Премахване на %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:251
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Install Theme"
 msgstr "Инсталиране на темата"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Add to Firefox"
 msgstr "Добавяне към Firefox"
 
@@ -3389,6 +3378,9 @@ msgstr[1] "намерени %(count)s добавки"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Отговор от разработчика"
+
+#~ msgid "Search Tool"
+#~ msgstr "Инструменти за търсене"
 
 #, fuzzy
 #~ msgid "Firefox Preview does not currently support add-ons."

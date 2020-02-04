@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-01-21 17:40+0000\n"
+"POT-Creation-Date: 2020-02-04 20:54+0000\n"
 "PO-Revision-Date: 2019-12-22 18:01+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
@@ -801,7 +801,7 @@ msgid "Leave a note"
 msgstr "Dejar una nota"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:235
+#: src/core/components/AMInstallButton/index.js:198
 msgid "Remove"
 msgstr "Eliminar"
 
@@ -1174,19 +1174,11 @@ msgstr ""
 "Agregan funciones a Firefox para que navegues más rápido, más fácil o "
 "simplemente de forma más divertida."
 
-#: src/amo/components/InstallWarning/index.js:159
+#: src/amo/components/InstallWarning/index.js:81
 msgid "Learn more"
 msgstr "Saber más"
 
-#: src/amo/components/InstallWarning/index.js:168
-msgid ""
-"This extension isn’t monitored by Mozilla. Make sure you trust the extension "
-"before you install it."
-msgstr ""
-"Mozilla no supervisa esta extensión. Asegúrate de que confías en ella antes "
-"de instalarla."
-
-#: src/amo/components/InstallWarning/index.js:170
+#: src/amo/components/InstallWarning/index.js:85
 msgid ""
 "This is not a Recommended Extension. Make sure you trust it before "
 "installing."
@@ -1610,72 +1602,68 @@ msgid_plural "%(count)s Search Tools found for \"%(query)s\""
 msgstr[0] "%(count)s herramienta de búsqueda encontrada para \"%(query)s\""
 msgstr[1] "%(count)s herramientas de búsqueda encontradas para \"%(query)s\""
 
-#: src/amo/components/SearchFilters/index.js:135
-#: src/amo/components/SearchFilters/index.js:159
+#: src/amo/components/SearchFilters/index.js:128
+#: src/amo/components/SearchFilters/index.js:144
 msgid "All"
 msgstr "Todos"
 
-#: src/amo/components/SearchFilters/index.js:136
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Extension"
 msgstr "Extensión"
 
-#: src/amo/components/SearchFilters/index.js:142
-msgid "Search Tool"
-msgstr "Herramienta de búsqueda"
-
-#: src/amo/components/SearchFilters/index.js:148
+#: src/amo/components/SearchFilters/index.js:133
 msgid "Theme"
 msgstr "Tema"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:145
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:161
+#: src/amo/components/SearchFilters/index.js:146
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:162
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:170
+#: src/amo/components/SearchFilters/index.js:155
 msgid "Relevance"
 msgstr "Importancia"
 
-#: src/amo/components/SearchFilters/index.js:172
+#: src/amo/components/SearchFilters/index.js:157
 msgid "Recently Updated"
 msgstr "Actualizados recientemente"
 
-#: src/amo/components/SearchFilters/index.js:175
+#: src/amo/components/SearchFilters/index.js:160
 msgid "Most Users"
 msgstr "Más usuarios"
 
-#: src/amo/components/SearchFilters/index.js:176
+#: src/amo/components/SearchFilters/index.js:161
 msgid "Top Rated"
 msgstr "Mejor valorados"
 
-#: src/amo/components/SearchFilters/index.js:177
+#: src/amo/components/SearchFilters/index.js:162
 msgid "Trending"
 msgstr "Más popular"
 
-#: src/amo/components/SearchFilters/index.js:195
+#: src/amo/components/SearchFilters/index.js:180
 msgid "Filter results"
 msgstr "Filtrar resultados"
 
-#: src/amo/components/SearchFilters/index.js:200
+#: src/amo/components/SearchFilters/index.js:185
 msgid "Sort by"
 msgstr "Ordenar por"
 
-#: src/amo/components/SearchFilters/index.js:222
+#: src/amo/components/SearchFilters/index.js:207
 msgid "Add-on Type"
 msgstr "Tipo de complemento"
 
-#: src/amo/components/SearchFilters/index.js:242
+#: src/amo/components/SearchFilters/index.js:227
 msgid "Operating System"
 msgstr "Sistema operativo"
 
-#: src/amo/components/SearchFilters/index.js:268
+#: src/amo/components/SearchFilters/index.js:253
 msgid "Recommended add-ons only"
 msgstr "Solo complementos recomendados"
 
@@ -1722,52 +1710,47 @@ msgstr "No se encontró ningún resultado."
 msgid "Recommended"
 msgstr "Recomendados"
 
-#: src/amo/components/SectionLinks/index.js:117
-msgid "Explore"
-msgstr "Explorar"
-
-#: src/amo/components/SectionLinks/index.js:127
+#: src/amo/components/SectionLinks/index.js:108
 #: src/amo/pages/LandingPage/index.js:230
 msgid "Extensions"
 msgstr "Extensiones"
 
-#: src/amo/components/SectionLinks/index.js:142
+#: src/amo/components/SectionLinks/index.js:123
 #: src/amo/pages/LandingPage/index.js:229
 msgid "Themes"
 msgstr "Temas"
 
-#: src/amo/components/SectionLinks/index.js:148
+#: src/amo/components/SectionLinks/index.js:129
 msgid "More…"
 msgstr "Más..."
 
-#: src/amo/components/SectionLinks/index.js:158
+#: src/amo/components/SectionLinks/index.js:139
 msgid "Other Browser Sites"
 msgstr "Otros sitios de navegadores"
 
-#: src/amo/components/SectionLinks/index.js:169
+#: src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Android"
 msgstr "Complementos para Android"
 
-#: src/amo/components/SectionLinks/index.js:182
+#: src/amo/components/SectionLinks/index.js:163
 msgid "Add-ons for Firefox"
 msgstr "Complementos para Firefox"
 
-#: src/amo/components/SectionLinks/index.js:70
+#: src/amo/components/SectionLinks/index.js:62
 msgid "for Firefox"
 msgstr "para Firefox"
 
-#: src/amo/components/SectionLinks/index.js:72
+#: src/amo/components/SectionLinks/index.js:64
 msgid "for Android"
 msgstr "para Android"
 
-#: src/amo/components/SectionLinks/index.js:87
+#: src/amo/components/SectionLinks/index.js:79
 msgid "Dictionaries & Language Packs"
 msgstr "Diccionarios y paquetes de idiomas"
 
 #: src/amo/components/SectionLinks/index.js:98
-#: src/amo/pages/SearchTools/index.js:76
-msgid "Search Tools"
-msgstr "Herramientas de búsqueda"
+msgid "Explore"
+msgstr "Explorar"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
@@ -2520,7 +2503,7 @@ msgstr "Paquetes de idioma"
 msgid "Dictionaries"
 msgstr "Diccionarios"
 
-#: src/amo/pages/SearchTools/index.js:73
+#: src/amo/pages/SearchTools/index.js:64
 msgid ""
 "Download Firefox extensions to customize the way you search—everything from "
 "privacy-enhanced searching to website-specific searches, image searching, "
@@ -2529,6 +2512,10 @@ msgstr ""
 "Descarga extensiones de Firefox para personalizar tus búsquedas: desde "
 "búsquedas mejoradas a búsquedas específicas en sitios web, búsqueda de "
 "imágenes y mucho más."
+
+#: src/amo/pages/SearchTools/index.js:67
+msgid "Search Tools"
+msgstr "Herramientas de búsqueda"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -3268,31 +3255,31 @@ msgstr "no se puede actualizar la compatibilidad de mi complemento"
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr "se ha actualizado correctamente la compatibilidad de mi complemento"
 
-#: src/core/components/AMInstallButton/index.js:232
+#: src/core/components/AMInstallButton/index.js:195
 msgid "Enable"
 msgstr "Habilitar"
 
-#: src/core/components/AMInstallButton/index.js:237
+#: src/core/components/AMInstallButton/index.js:200
 msgid "Enabling"
 msgstr "Habilitando"
 
-#: src/core/components/AMInstallButton/index.js:239
+#: src/core/components/AMInstallButton/index.js:202
 msgid "Downloading"
 msgstr "Descargando"
 
-#: src/core/components/AMInstallButton/index.js:241
+#: src/core/components/AMInstallButton/index.js:204
 msgid "Installing"
 msgstr "Instalando"
 
-#: src/core/components/AMInstallButton/index.js:243
+#: src/core/components/AMInstallButton/index.js:206
 msgid "Uninstalling"
 msgstr "Desinstalando"
 
-#: src/core/components/AMInstallButton/index.js:251
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Install Theme"
 msgstr "Instalar tema"
 
-#: src/core/components/AMInstallButton/index.js:252
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Add to Firefox"
 msgstr "Agregar a Firefox"
 
@@ -3527,6 +3514,16 @@ msgstr[1] "%(total)s complementos"
 #: src/ui/components/UserReview/index.js:96
 msgid "Developer response"
 msgstr "Respuesta del desarrollador"
+
+#~ msgid ""
+#~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
+#~ "extension before you install it."
+#~ msgstr ""
+#~ "Mozilla no supervisa esta extensión. Asegúrate de que confías en ella "
+#~ "antes de instalarla."
+
+#~ msgid "Search Tool"
+#~ msgstr "Herramienta de búsqueda"
 
 #~ msgid "Firefox Preview does not currently support add-ons."
 #~ msgstr "Actualmente, Firefox Preview no es compatible con los complementos."
