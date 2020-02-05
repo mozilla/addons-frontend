@@ -21,6 +21,10 @@
     background: transparent;
     padding: 0;
   }
+
+  .Card.ShowMoreCard.UserReview-body.UserReview-emptyBody {
+    margin: 0;
+  }
 }
 
 .UserReview-review-header {
@@ -28,13 +32,13 @@
   padding: 0;
 }
 
-.UserReview-body {
+.UserReview-body.ShowMoreCard {
   font-size: $font-size-default;
-  margin: 0 !important;
+  margin: 0 ;
   word-wrap: break-word;
 
   &:not(.UserReview-emptyBody) {
-    margin: 4px 0 6px !important;
+    margin: 4px 0 6px 
   }
 }
 

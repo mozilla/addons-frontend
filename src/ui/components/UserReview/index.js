@@ -28,7 +28,6 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
-  id: String,
 |};
 
 function reviewBody({
@@ -77,7 +76,7 @@ export const UserReviewBase = (props: InternalProps) => {
     showRating = false,
   } = props;
 
-  const showMoreCardId = review && review.id ? `${review.id}` : 'loading-text';
+  const showMoreCardId = review && review.id ? String(review.id) : 'loading-text';
   let body = reviewBody({ content: <LoadingText />, id: showMoreCardId });
 
   if (review) {
