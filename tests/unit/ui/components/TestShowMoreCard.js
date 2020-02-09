@@ -24,11 +24,16 @@ describe(__filename, () => {
     };
   };
 
-  function render({ children = 'some text', ...otherProps } = {}) {
+  function render({
+    children = 'some text',
+    shallowOptions,
+    ...otherProps
+  } = {}) {
     const props = getProps(otherProps);
     return shallowUntilTarget(
       <ShowMoreCard {...props}>{children}</ShowMoreCard>,
       ShowMoreCardBase,
+      { shallowOptions },
     );
   }
 
@@ -54,10 +59,27 @@ describe(__filename, () => {
     expect(root).toHaveClassName('ShowMoreCard--expanded');
   });
 
-  it('is expanded by default', () => {
+  it('is expanded by default if content is not too long', () => {
     const root = render();
 
     expect(root).toHaveClassName('ShowMoreCard--expanded');
+  });
+
+  it('is truncate by default if content is too long', () => {
+    const { store } = dispatchClientMetadata();
+
+    const root = render({
+      store,
+      shallowOptions: { disableLifecycleMethods: true },
+    });
+
+    root.instance().contents = { clientHeight: MAX_HEIGHT + 1 };
+
+    root.instance().componentDidMount();
+
+    applyUIStateChanges({ root, store });
+
+    expect(root).not.toHaveClassName('ShowMoreCard--expanded');
   });
 
   it('truncates the contents if they are too long', () => {

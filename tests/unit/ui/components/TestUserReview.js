@@ -49,11 +49,7 @@ describe(__filename, () => {
     });
     const root = render({ review, showRating: true });
 
-    expect(
-      root
-        .find('.UserReview-body div')
-        .html(),
-    ).toContain(fakeReview.body);
+    expect(root.find('.UserReview-body div').html()).toContain(fakeReview.body);
 
     const rating = root.find(UserRating);
     expect(rating).toHaveProp('readOnly', true);
@@ -83,9 +79,7 @@ describe(__filename, () => {
       review: _setReview({ ...fakeReview, body: undefined }),
     });
 
-    expect(
-      root.find('.UserReview-body div'),
-    ).toHaveText('');
+    expect(root.find('.UserReview-body div')).toHaveText('');
   });
 
   it('adds UserReview-emptyBody for an empty body', () => {

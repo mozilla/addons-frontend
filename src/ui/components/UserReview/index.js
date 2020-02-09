@@ -76,7 +76,8 @@ export const UserReviewBase = (props: InternalProps) => {
     showRating = false,
   } = props;
 
-  const showMoreCardId = review && review.id ? String(review.id) : 'loading-text';
+  const showMoreCardId =
+    review && review.id ? String(review.id) : 'loading-text';
   let body = reviewBody({ content: <LoadingText />, id: showMoreCardId });
 
   if (review) {
