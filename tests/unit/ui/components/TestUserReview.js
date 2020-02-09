@@ -1,8 +1,5 @@
 import * as React from 'react';
-import { Provider } from 'react-redux';
-import { mount } from 'enzyme';
 
-import I18nProvider from 'core/i18n/Provider';
 import { createInternalReview, setReview } from 'amo/actions/reviews';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
@@ -33,23 +30,6 @@ describe(__filename, () => {
     return shallowUntilTarget(<UserReview {...props} />, UserReviewBase);
   };
 
-  const renderAndMount = (otherProps = {}) => {
-    const props = {
-      byLine: null,
-      i18n: fakeI18n(),
-      review: fakeReview,
-      ...otherProps,
-    };
-
-    return mount(
-      <Provider store={store}>
-        <I18nProvider i18n={props.i18n}>
-          <UserReview {...props} />
-        </I18nProvider>
-      </Provider>,
-    );
-  };
-
   const _setReview = (externalReview) => {
     store.dispatch(setReview(externalReview));
     return createInternalReview(externalReview);
@@ -67,11 +47,11 @@ describe(__filename, () => {
       id: 1,
       rating: 2,
     });
-    const root = renderAndMount({ review, showRating: true });
+    const root = render({ review, showRating: true });
 
     expect(
       root
-        .find('.UserReview-body .ShowMoreCard .ShowMoreCard-contents div')
+        .find('.UserReview-body div')
         .html(),
     ).toContain(fakeReview.body);
 
@@ -86,25 +66,25 @@ describe(__filename, () => {
       ...fakeReview,
       body: "It's awesome \n isn't it?",
     };
-    const root = renderAndMount({
+    const root = render({
       review: _setReview(fakeReviewWithNewLine),
     });
 
     expect(
       root
-        .find('.UserReview-body .ShowMoreCard .ShowMoreCard-contents div')
+        .find('.UserReview-body div')
         .render()
         .find('br'),
     ).toHaveLength(1);
   });
 
   it('does not render an empty review body', () => {
-    const root = renderAndMount({
+    const root = render({
       review: _setReview({ ...fakeReview, body: undefined }),
     });
 
     expect(
-      root.find('.UserReview-body .ShowMoreCard .ShowMoreCard-contents div'),
+      root.find('.UserReview-body div'),
     ).toHaveText('');
   });
 
