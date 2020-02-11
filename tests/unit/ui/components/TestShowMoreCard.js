@@ -65,7 +65,7 @@ describe(__filename, () => {
     expect(root).toHaveClassName('ShowMoreCard--expanded');
   });
 
-  it('is truncate by default if content is too long', () => {
+  it('is truncates by default if content is too long', () => {
     const { store } = dispatchClientMetadata();
 
     const root = render({
