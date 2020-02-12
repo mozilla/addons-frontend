@@ -41,16 +41,9 @@ $icon-default-size: 32px;
     }
   }
 
-  &:focus,
   &:hover {
     .SearchResult-title {
       color: $link-color;
-    }
-  }
-
-  &:focus {
-    .SearchResult-title {
-      outline: 1px dotted $link-color;
     }
   }
 }
