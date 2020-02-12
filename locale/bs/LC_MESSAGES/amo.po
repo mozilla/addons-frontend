@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-04 20:54+0000\n"
+"POT-Creation-Date: 2020-02-12 12:13+0000\n"
 "PO-Revision-Date: 2018-07-02 12:25+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -331,11 +331,11 @@ msgstr "Stranica podrške"
 msgid "Support Email"
 msgstr "Email podrške"
 
-#: src/amo/components/AddonRecommendations/index.js:133
+#: src/amo/components/AddonRecommendations/index.js:141
 msgid "Other users with this extension also installed"
 msgstr "Ostali korisnici koju su također instalirali ovo proširenje"
 
-#: src/amo/components/AddonRecommendations/index.js:134
+#: src/amo/components/AddonRecommendations/index.js:142
 msgid "Other popular extensions"
 msgstr "Ostala popularna proširenja"
 
@@ -1749,16 +1749,16 @@ msgstr "Dodaci za Android"
 msgid "Go to the add-on page"
 msgstr "Idite na stranicu dodatka"
 
-#: src/amo/components/SearchResult/index.js:148
+#: src/amo/components/SearchResult/index.js:146
 msgid "No theme preview available"
 msgstr "Nije dostupan pregled teme"
 
-#: src/amo/components/SearchResult/index.js:185
+#: src/amo/components/SearchResult/index.js:183
 #, fuzzy
 msgid "Add-on note"
 msgstr "Ikona dodatka"
 
-#: src/amo/components/SearchResult/index.js:205
+#: src/amo/components/SearchResult/index.js:203
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s korisnik"

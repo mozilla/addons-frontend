@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-04 20:54+0000\n"
+"POT-Creation-Date: 2020-02-12 12:13+0000\n"
 "PO-Revision-Date: 2019-12-14 07:41+0000\n"
 "Last-Translator: Ringgo <armen.ringgo@yahoo.de>\n"
 "Language-Team: none\n"
@@ -317,11 +317,11 @@ msgstr "Situs dukungan"
 msgid "Support Email"
 msgstr "Surel Dukungan"
 
-#: src/amo/components/AddonRecommendations/index.js:133
+#: src/amo/components/AddonRecommendations/index.js:141
 msgid "Other users with this extension also installed"
 msgstr "Pengguna lain dengan ekstensi ini juga memasang"
 
-#: src/amo/components/AddonRecommendations/index.js:134
+#: src/amo/components/AddonRecommendations/index.js:142
 msgid "Other popular extensions"
 msgstr "Ekstensi populer lainnya"
 
@@ -1641,15 +1641,15 @@ msgstr "Pengaya Firefox untuk Android (%(locale)s)"
 msgid "Go to the add-on page"
 msgstr "Menuju laman pengaya"
 
-#: src/amo/components/SearchResult/index.js:148
+#: src/amo/components/SearchResult/index.js:146
 msgid "No theme preview available"
 msgstr "Pratampil tema tak tersedia"
 
-#: src/amo/components/SearchResult/index.js:185
+#: src/amo/components/SearchResult/index.js:183
 msgid "Add-on note"
 msgstr "Catatan pengaya"
 
-#: src/amo/components/SearchResult/index.js:205
+#: src/amo/components/SearchResult/index.js:203
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s pengguna"

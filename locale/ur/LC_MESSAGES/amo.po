@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-04 20:54+0000\n"
+"POT-Creation-Date: 2020-02-12 12:13+0000\n"
 "PO-Revision-Date: 2020-01-05 05:44+0000\n"
 "Last-Translator: عمر <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -304,11 +304,11 @@ msgstr ""
 msgid "Support Email"
 msgstr "معاونت کار ای میل"
 
-#: src/amo/components/AddonRecommendations/index.js:133
+#: src/amo/components/AddonRecommendations/index.js:141
 msgid "Other users with this extension also installed"
 msgstr "اس توسیع کے ساتھ دوسرے صارفین بھی انسٹال ہیں"
 
-#: src/amo/components/AddonRecommendations/index.js:134
+#: src/amo/components/AddonRecommendations/index.js:142
 msgid "Other popular extensions"
 msgstr "دیگر مقبول توسیعات"
 
@@ -1672,16 +1672,16 @@ msgstr "کوئی زمرہ جات نہیں ملے۔"
 msgid "Go to the add-on page"
 msgstr "اضافہ جات کے صفحہ پر جائیں"
 
-#: src/amo/components/SearchResult/index.js:148
+#: src/amo/components/SearchResult/index.js:146
 msgid "No theme preview available"
 msgstr "خیالیہ کا کوئی بھی پیش منظر دستیاب نہیں"
 
-#: src/amo/components/SearchResult/index.js:185
+#: src/amo/components/SearchResult/index.js:183
 #, fuzzy
 msgid "Add-on note"
 msgstr "ایڈ ان آئکن"
 
-#: src/amo/components/SearchResult/index.js:205
+#: src/amo/components/SearchResult/index.js:203
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s صارف"

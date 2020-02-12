@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-04 20:54+0000\n"
+"POT-Creation-Date: 2020-02-12 12:13+0000\n"
 "PO-Revision-Date: 2019-12-17 23:22+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -311,11 +311,11 @@ msgstr "Stránka podpory"
 msgid "Support Email"
 msgstr "E-mail podpory"
 
-#: src/amo/components/AddonRecommendations/index.js:133
+#: src/amo/components/AddonRecommendations/index.js:141
 msgid "Other users with this extension also installed"
 msgstr "Ostatní používatelia tohto rozšírenia si taktiež nainštalovali"
 
-#: src/amo/components/AddonRecommendations/index.js:134
+#: src/amo/components/AddonRecommendations/index.js:142
 msgid "Other popular extensions"
 msgstr "Ďalšie populárne rozšírenia"
 
@@ -1677,15 +1677,15 @@ msgstr "Doplnky pre Firefox pre Android (%(locale)s)"
 msgid "Go to the add-on page"
 msgstr "Prejsť na stránku doplnku"
 
-#: src/amo/components/SearchResult/index.js:148
+#: src/amo/components/SearchResult/index.js:146
 msgid "No theme preview available"
 msgstr "Žiadna ukážka témy vzhľadu nie je dostupná"
 
-#: src/amo/components/SearchResult/index.js:185
+#: src/amo/components/SearchResult/index.js:183
 msgid "Add-on note"
 msgstr "Poznámka k doplnku"
 
-#: src/amo/components/SearchResult/index.js:205
+#: src/amo/components/SearchResult/index.js:203
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s používateľ"

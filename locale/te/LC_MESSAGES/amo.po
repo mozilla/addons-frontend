@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-04 20:54+0000\n"
+"POT-Creation-Date: 2020-02-12 12:13+0000\n"
 "PO-Revision-Date: 2019-08-16 18:01+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -305,11 +305,11 @@ msgstr "తోడ్పాటు సైటు"
 msgid "Support Email"
 msgstr "ఇమెయిల్ మద్దతు"
 
-#: src/amo/components/AddonRecommendations/index.js:133
+#: src/amo/components/AddonRecommendations/index.js:141
 msgid "Other users with this extension also installed"
 msgstr "ఈ పొడగింత ఉన్న వాడుకరులు వీటిని కూడా స్థాపించుకున్నారు"
 
-#: src/amo/components/AddonRecommendations/index.js:134
+#: src/amo/components/AddonRecommendations/index.js:142
 msgid "Other popular extensions"
 msgstr "ఇతర ప్రాచుర్య పొడిగింతలు"
 
@@ -1603,15 +1603,15 @@ msgstr ""
 msgid "Go to the add-on page"
 msgstr "యాడ్-ఆన్ పేజీకి వెళ్లండి"
 
-#: src/amo/components/SearchResult/index.js:148
+#: src/amo/components/SearchResult/index.js:146
 msgid "No theme preview available"
 msgstr "అలంకాలపు మునుజూపు అందుబాటులో లేదు"
 
-#: src/amo/components/SearchResult/index.js:185
+#: src/amo/components/SearchResult/index.js:183
 msgid "Add-on note"
 msgstr "యాడ్-ఆన్ గమనిక"
 
-#: src/amo/components/SearchResult/index.js:205
+#: src/amo/components/SearchResult/index.js:203
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s వాడుకరి"

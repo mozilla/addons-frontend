@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-04 20:54+0000\n"
+"POT-Creation-Date: 2020-02-12 12:13+0000\n"
 "PO-Revision-Date: 2019-11-13 18:49+0000\n"
 "Last-Translator: Wannaphong Phatthiyaphaibun <wannaphong@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -303,11 +303,11 @@ msgstr "ไซต์สนับสนุน"
 msgid "Support Email"
 msgstr "อีเมลสนับสนุน"
 
-#: src/amo/components/AddonRecommendations/index.js:133
+#: src/amo/components/AddonRecommendations/index.js:141
 msgid "Other users with this extension also installed"
 msgstr "ผู้ใช้อื่น ๆ ที่มีส่วนขยายนี้ยังได้ติดตั้ง"
 
-#: src/amo/components/AddonRecommendations/index.js:134
+#: src/amo/components/AddonRecommendations/index.js:142
 msgid "Other popular extensions"
 msgstr "ส่วนขยายยอดนิยมอื่น ๆ"
 
@@ -1618,16 +1618,16 @@ msgstr "ส่วนเสริม Firefox สำหรับ Android (%(locale
 msgid "Go to the add-on page"
 msgstr "ไปยังหน้าของส่วนเสริม"
 
-#: src/amo/components/SearchResult/index.js:148
+#: src/amo/components/SearchResult/index.js:146
 msgid "No theme preview available"
 msgstr "ไม่มีตัวอย่างชุดตกแต่ง"
 
-#: src/amo/components/SearchResult/index.js:185
+#: src/amo/components/SearchResult/index.js:183
 #, fuzzy
 msgid "Add-on note"
 msgstr "ไอคอนส่วนเสริม"
 
-#: src/amo/components/SearchResult/index.js:205
+#: src/amo/components/SearchResult/index.js:203
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s ผู้ใช้"
