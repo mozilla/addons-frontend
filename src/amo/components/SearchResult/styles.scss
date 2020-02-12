@@ -8,18 +8,33 @@ $icon-default-size: 32px;
   list-style-type: none;
   margin: 0 0 1px;
 
-  .SearchResult-wrapper {
-    outline: none;
-    text-decoration: none;
+  &:hover {
+    cursor: pointer;
+
+    .SearchResult-link {
+      color: $link-color;
+    }
   }
 }
 
-.SearchResult-title {
+.SearchResult-link {
   // This margin gives the recommended badge some space.
   @include margin-end(8px);
 
   text-decoration: none;
   word-wrap: anywhere;
+
+  &,
+  &:active,
+  &:link,
+  &:visited {
+    color: $text-color-default;
+  }
+
+  &:focus,
+  &:hover {
+    color: $link-color;
+  }
 }
 
 .SearchResult-result {
@@ -29,23 +44,6 @@ $icon-default-size: 32px;
   max-width: $theme-width-default;
   padding: 0;
   width: 100%;
-}
-
-.SearchResult-wrapper {
-  &,
-  &:active,
-  &:link,
-  &:visited {
-    .SearchResult-title {
-      color: $text-color-default;
-    }
-  }
-
-  &:hover {
-    .SearchResult-title {
-      color: $link-color;
-    }
-  }
 }
 
 .SearchResult-icon-wrapper {
