@@ -16,6 +16,15 @@
   .TooltipMenu {
     width: fit-content;
   }
+
+  .Card-contents {
+    background: transparent;
+    padding: 0;
+  }
+
+  .ShowMoreCard.UserReview-emptyBody {
+    margin: 0;
+  }
 }
 
 .UserReview-review-header {
@@ -23,8 +32,9 @@
   padding: 0;
 }
 
-.UserReview-body {
+.UserReview-body.ShowMoreCard {
   font-size: $font-size-default;
+  margin: 0;
   word-wrap: break-word;
 
   &:not(.UserReview-emptyBody) {
