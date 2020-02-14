@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-02-12 12:13+0000\n"
-"PO-Revision-Date: 2020-02-14 02:08+0000\n"
+"PO-Revision-Date: 2020-02-14 02:19+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
 "Language: ast\n"
@@ -560,7 +560,7 @@ msgstr ""
 
 #: src/amo/components/App/index.js:185 src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "Complementos pa Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:189 src/amo/components/HeadMetaTags/index.js:73
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
@@ -592,7 +592,7 @@ msgstr ""
 
 #: src/amo/components/Categories/index.js:135
 msgid "Categories"
-msgstr ""
+msgstr "Estayes"
 
 #: src/amo/components/Categories/index.js:140
 msgid "Loading categories."
@@ -1281,7 +1281,7 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:272 src/amo/pages/LandingPage/index.js:123
 msgid "Recommended extensions"
-msgstr ""
+msgstr "Estensiones aconseyaes"
 
 #: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:335 src/amo/pages/LandingPage/index.js:155
 msgid "Recommended themes"
@@ -1321,7 +1321,7 @@ msgstr "Estensiones populares"
 
 #: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:289
 msgid "Popular themes"
-msgstr ""
+msgstr "Estilos populares"
 
 #: src/amo/components/Search/index.js:164
 msgid "Popular add-ons"
@@ -1523,7 +1523,7 @@ msgstr "Estensiones"
 
 #: src/amo/components/SectionLinks/index.js:123 src/amo/pages/LandingPage/index.js:229
 msgid "Themes"
-msgstr ""
+msgstr "Estilos"
 
 #: src/amo/components/SectionLinks/index.js:129
 msgid "More…"
@@ -1535,15 +1535,15 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Android"
-msgstr ""
+msgstr "Complementos p'Android"
 
 #: src/amo/components/SectionLinks/index.js:163
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Complementos pa Firefox"
 
 #: src/amo/components/SectionLinks/index.js:62
 msgid "for Firefox"
-msgstr ""
+msgstr "pa Firefox"
 
 #: src/amo/components/SectionLinks/index.js:64
 msgid "for Android"
@@ -2002,19 +2002,19 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
 msgid "See more recommended extensions"
-msgstr ""
+msgstr "Ver más estensiones aconseyaes"
 
 #: src/amo/pages/Home/index.js:290
 msgid "See more popular themes"
-msgstr ""
+msgstr "Ver más estilos populares"
 
 #: src/amo/pages/Home/index.js:309
 msgid "See more popular extensions"
-msgstr ""
+msgstr "Ver más estensiones populares"
 
 #: src/amo/pages/Home/index.js:326 src/amo/pages/LandingPage/index.js:164
 msgid "See more recommended themes"
-msgstr ""
+msgstr "Ver más estilos aconseyaos"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:142
 msgid "See more trending extensions"
@@ -2030,11 +2030,11 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
-msgstr ""
+msgstr "Ver más xestores de contraseñes aconseyaos"
 
 #: src/amo/pages/Home/index.js:65
 msgid "Recommended password managers"
-msgstr ""
+msgstr "Xestores de contraseñes aconseyaos"
 
 #: src/amo/pages/LandingPage/index.js:152
 msgid "See more top rated extensions"
