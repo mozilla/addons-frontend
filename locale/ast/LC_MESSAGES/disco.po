@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-02-04 20:57+0000\n"
-"PO-Revision-Date: 2018-09-15 17:10+0000\n"
+"PO-Revision-Date: 2020-02-14 02:11+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ast\n"
@@ -40,7 +40,7 @@ msgstr "Desinstalando"
 
 #: src/core/components/AMInstallButton/index.js:214
 msgid "Install Theme"
-msgstr "Instalar tema"
+msgstr "Instalar l'estilu"
 
 #: src/core/components/AMInstallButton/index.js:215
 msgid "Add to Firefox"
@@ -51,15 +51,10 @@ msgid "Server Error"
 msgstr "Fallu del sirvidor"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Perdona pero hebo un fallu y nun pudimos completar la solicitú. Rexistremos "
-"esti fallu y vamos investigalu."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Perdona pero hebo un fallu y nun pudimos completar la solicitú. Rexistremos esti fallu y vamos investigalu."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Códigu del fallu: %(status)s."
 
@@ -77,7 +72,7 @@ msgstr "%(strongStart)s%(name)s%(strongEnd)s amestóse"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr "Xestiona los tos complementos faciendo clic nel menú de Complementos."
+msgstr "Xestiona los tos complementos calcando nel menú de Complementos."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -85,23 +80,23 @@ msgstr "Aceutar"
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
@@ -116,11 +111,11 @@ msgstr ""
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Funciona con %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "Albortóse la instalación porque'l complementu paez tar toyíu."
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
@@ -176,26 +171,18 @@ msgstr "Personaliza Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Hai milenta complementos, creaos por desendolcadores de tol mundu, que pues "
-"instalar pa personalizar Firefox. Dende temes visuales divertíos hasta "
-"ferramientes potentes pa facer el restolar más rápidu y seguru, los "
-"complementos faen el restolador de to. P'ayudate a entamar, equí hai "
-"dalgunos qu'aconseyamos pol so rindimientu y funcionalidá."
+"Hai milenta complementos, creaos por desendolcadores de tol mundu, que pues instalar pa personalizar Firefox. Dende estilos visuales divertíos hasta ferramientes potentes pa facer el restolar más "
+"rápidu y seguru, los complementos faen el restolador de to. P'ayudate a entamar, equí hai dalgunos qu'aconseyamos pol so rindimientu y funcionalidá."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr ""
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
 msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
