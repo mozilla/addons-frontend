@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-02-12 12:13+0000\n"
-"PO-Revision-Date: 2020-02-14 02:19+0000\n"
+"PO-Revision-Date: 2020-02-14 02:25+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
 "Language: ast\n"
@@ -249,7 +249,7 @@ msgstr "Versión"
 
 #: src/amo/components/AddonMoreInfo/index.js:222
 msgid "Size"
-msgstr ""
+msgstr "Tamañu"
 
 #: src/amo/components/AddonMoreInfo/index.js:230 src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
@@ -1029,7 +1029,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
-msgstr ""
+msgstr "Les estensiones son como aplicaciones pal restolador."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
@@ -1633,7 +1633,7 @@ msgstr "Tocante a esti diccionariu"
 
 #: src/amo/pages/Addon/index.js:266
 msgid "About this extension"
-msgstr "Tocante a esta estesión"
+msgstr "Tocante a esta estensión"
 
 #: src/amo/pages/Addon/index.js:269
 msgid "About this language pack"
@@ -2696,23 +2696,23 @@ msgstr ""
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
