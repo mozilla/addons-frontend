@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-02-12 12:13+0000\n"
-"PO-Revision-Date: 2020-02-16 00:43+0000\n"
+"PO-Revision-Date: 2020-02-16 00:50+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1333,15 +1333,15 @@ msgstr "ਸਿਖਰ ਤੇ ਐਡ-ਆਨ ਸ਼ਾਮਲ"
 
 #: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:308
 msgid "Popular extensions"
-msgstr "ਪ੍ਰਸਿੱਧ ਇਕਸਟੈਨਸ਼ਨਾਂ"
+msgstr "ਹਰਮਨਪਿਆਰੀਆਂ ਇਕਸਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:289
 msgid "Popular themes"
-msgstr "ਪ੍ਰਸਿੱਧ ਥੀਮ"
+msgstr "ਹਰਮਨਪਿਆਰੇ ਥੀਮ"
 
 #: src/amo/components/Search/index.js:164
 msgid "Popular add-ons"
-msgstr "ਪ੍ਰਸਿੱਧ ਐਡ-ਆਨ"
+msgstr "ਹਰਮਨਪਿਆਰੀਆਂ ਐਡ-ਆਨ"
 
 #: src/amo/components/Search/index.js:170
 msgid "Search results for \"%(query)s\""
@@ -1400,32 +1400,32 @@ msgstr "ਐਡ-ਆਨ ਲੱਭ ਰਿਹਾ ਹੈ"
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਐਕਸਟੈਂਸ਼ਨ ਮਿਲੀ ਹੈ"
-msgstr[1] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦੇ ਐਕਸਟੈਂਸ਼ਨ ਮਿਲੇ ਹਨ"
+msgstr[0] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀ ਹੈ"
+msgstr[1] "%(categoryName)s ਵਿੱਚ \"%(query)s\" ਲਈ %(count)s ਦੇ ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀਆਂ"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(count)s ਦਾ ਐਕਸਟੈਂਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭਿਆ ਹੈ"
-msgstr[1] "%(count)s ਦੇ ਐਕਸਟੈਨਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭੇ ਹਨ"
+msgstr[0] "%(count)s ਦਾ ਇਕਸਟੈਨਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭਿਆ ਹੈ"
+msgstr[1] "%(count)s ਦੇ ਇਕਟੈਨਸ਼ਨ %(categoryName)s ਵਿੱਚ ਲੱਭੇ ਹਨ"
 
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "\"%(query)s\" ਲਈ %(count)s ਦੀ ਐਕਸਟੈਂਸ਼ਨ ਮਿਲੀ"
-msgstr[1] "\"%(query)s\" ਲਈ %(count)s ਦੇ ਐਕਸਟੈਂਸ਼ਨ ਮਿਲੇ ਹਨ"
+msgstr[0] "\"%(query)s\" ਲਈ %(count)s ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀ"
+msgstr[1] "\"%(query)s\" ਲਈ %(count)s ਇਕਸਟੈਨਸ਼ਨ ਮਿਲੀਆਂ"
 
 #: src/amo/components/SearchContextCard/index.js:87
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "%(count)s ਦਾ ਐਕਸਟੈਂਸ਼ਨ ਲੱਭਿਆ"
-msgstr[1] "%(count)s ਦੇ ਐਕਸਟੈਨਸ਼ਨ ਮਿਲੇ"
+msgstr[0] "%(count)s ਇਕਸਟੈਨਸ਼ਨ ਲੱਭੀ"
+msgstr[1] "%(count)s ਇਕਸਟੈਨਸ਼ਨ ਲੱਭੀਆਂ"
 
 #: src/amo/components/SearchContextCard/index.js:99
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] "%(count)s ਖੋਜ ਸੰਦ \"%(query)s\" ਲਈ ਲੱਭਿਆ ਹੈ"
-msgstr[1] "%(count)s ਲਈ ਲੱਭੇ ਗਏ \"%(query)s\" ਖੋਜ ਟੂਲ"
+msgstr[0] "\"%(query)s\" ਲਈ %(count)s ਖੋਜ ਸੰਦ ਲੱਭਿਆ"
+msgstr[1] "\"%(query)s\" ਲਈ %(count)s ਖੋਜ ਸੰਦ ਲੱਭੇ"
 
 #: src/amo/components/SearchFilters/index.js:128 src/amo/components/SearchFilters/index.js:144
 msgid "All"
@@ -1505,7 +1505,7 @@ msgstr "ਐਡ-ਆਨ ਪੇਜ ਤੇ ਜਾਓ"
 
 #: src/amo/components/SearchResult/index.js:146
 msgid "No theme preview available"
-msgstr "ਕੋਈ ਥੀਮ ਪ੍ਰੀਵਿਊ ਉਪਲਬਧ ਨਹੀਂ"
+msgstr "ਕੋਈ ਥੀਮ ਝਲਕ ਨਹੀਂ ਹੈ"
 
 #: src/amo/components/SearchResult/index.js:183
 msgid "Add-on note"
@@ -1547,7 +1547,7 @@ msgstr "…ਹੋਰ"
 
 #: src/amo/components/SectionLinks/index.js:139
 msgid "Other Browser Sites"
-msgstr "ਹੋਰ ਬ੍ਰਾਉਜ਼ਰ ਸਾਈਟਾਂ"
+msgstr "ਹੋਰ ਬਰਾਊਜ਼ਰ ਸਾਈਟਾਂ"
 
 #: src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Android"
@@ -1563,7 +1563,7 @@ msgstr "ਫਾਇਰਫਾਕਸ ਲਈ"
 
 #: src/amo/components/SectionLinks/index.js:64
 msgid "for Android"
-msgstr "ਛੁਪਾਓ ਲਈ"
+msgstr "ਐਂਡਰਾਈਡ ਲਈ"
 
 #: src/amo/components/SectionLinks/index.js:79
 msgid "Dictionaries & Language Packs"
@@ -1583,7 +1583,7 @@ msgstr "ਸਾਰੇ ਐਡ-ਆਨਾਂ ਦੀ ਝਲਕ ਵੇਖੋ"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
-msgstr "ਸਾਰੇ ਥੀਮਾੰ ਦੀ ਝਲਕ ਵੇਖੋ"
+msgstr "ਸਾਰੇ ਥੀਮਾਂ ਦੀ ਝਲਕ ਵੇਖੋ"
 
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
@@ -1595,7 +1595,7 @@ msgstr "ਕੀ ਤੁਸੀਂ ਅਸਲ ਵਿੱਚ ਇਸ ਤਸਵੀਰ ਨ
 
 #: src/amo/components/UserProfileEditPicture/index.js:109
 msgid "Delete This Picture"
-msgstr "ਇਹ ਤਸਵੀਰ ਮਿਟਾਓ"
+msgstr "ਇਹ ਤਸਵੀਰ ਹਟਾਓ"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
 msgid "Profile picture for %(name)s"
@@ -1623,7 +1623,7 @@ msgstr "ਡੈਸਕਟਾਪ ਉੱਤੇ ਫਾਇਰਫਾਕਸ ਦੇ ਅ�
 
 #: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
-msgstr "%(title)s ਦਾ ਪੂਰਵਦਰਸ਼ਨ"
+msgstr "%(title)s ਦੀ ਝਲਕ"
 
 #: src/amo/pages/Addon/index.js:205
 msgid "This add-on cannot be rated because no versions have been published."
@@ -1705,11 +1705,11 @@ msgstr "%(addonName)s ਲਈ ਐਂਡ-ਯੂਜ਼ਰ ਲਸੰਸ ਸਮਝੌ
 
 #: src/amo/pages/AddonInfo/index.js:165
 msgid "Privacy policy for %(addonName)s"
-msgstr "%(addonName)s ਲਈ ਪ੍ਰਾਈਵੇਸੀ ਨੀਤੀ"
+msgstr "%(addonName)s ਲਈ ਪਰਦੇਦਾਰੀ ਨੀਤੀ"
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr "%(addonName)s ਲਈ ਸਮੀਖਿਆ ਅਤੇ ਰੇਟਿੰਗ। ਪਤਾ ਕਰੋ ਕਿ ਹੋਰ ਉਪਭੋਗਤਾ %(addonName)s ਬਾਰੇ ਕੀ ਸੋਚਦੇ ਹਨ ਅਤੇ ਇਸ ਨੂੰ ਆਪਣੇ ਫਾਇਰਫਾਕਸ ਬਰਾਊਜ਼ਰ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ।"
+msgstr "%(addonName)s ਲਈ ਸਮੀਖਿਆ ਅਤੇ ਰੇਟਿੰਗ। ਪਤਾ ਕਰੋ ਕਿ ਹੋਰ ਵਰਤੋਂਕਾਰ %(addonName)s ਬਾਰੇ ਕੀ ਸੋਚਦੇ ਹਨ ਅਤੇ ਇਸ ਨੂੰ ਆਪਣੇ ਫਾਇਰਫਾਕਸ ਬਰਾਊਜ਼ਰ ਵਿੱਚ ਜੋੜੋ।"
 
 #: src/amo/pages/AddonReviewList/index.js:230
 msgid "Show all reviews"
@@ -1789,11 +1789,11 @@ msgstr "ਇਸ ਸੰਗ੍ਰਹਿ ਨੂੰ ਮਿਟਾਓ"
 
 #: src/amo/pages/Collection/index.js:414
 msgid "Log in to create a collection"
-msgstr "ਇੱਕ ਸੰਗ੍ਰਹਿ ਬਣਾਉਣ ਲਈ ਲੌਗਇਨ ਕਰੋ"
+msgstr "ਇੱਕ ਸੰਗ੍ਰਹਿ ਬਣਾਉਣ ਲਈ ਲਾਗਇਨ ਕਰੋ"
 
 #: src/amo/pages/Collection/index.js:415
 msgid "Log in to edit this collection"
-msgstr "ਇਸ ਭੰਡਾਰ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਲਈ ਲੌਗਿਨ ਕਰੋ"
+msgstr "ਇਸ ਭੰਡਾਰ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਲਈ ਲਾਗਇਨ ਕਰੋ"
 
 #: src/amo/pages/Collection/index.js:448
 msgid "First, create your collection. Then you can add extensions and themes."
@@ -1910,7 +1910,7 @@ msgstr "ਅਨੁਕੂਲ ਬੈਕਗਰਾਊਂਡ, ਸਥਾਨਕ ਮੌ�
 
 #: src/amo/pages/Guides/index.js:202
 msgid "Improve videos"
-msgstr "ਵੀਡੀਓਜ਼ ਨੂੰ ਸੁਧਾਰੋ"
+msgstr "ਵੀਡੀਓ ਨੂੰ ਸੁਧਾਰੋ"
 
 #: src/amo/pages/Guides/index.js:203
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
