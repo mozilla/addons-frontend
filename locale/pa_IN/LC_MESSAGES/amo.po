@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-02-12 12:13+0000\n"
-"PO-Revision-Date: 2020-02-16 00:50+0000\n"
+"PO-Revision-Date: 2020-02-16 00:56+0000\n"
 "Last-Translator: Aman Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -2032,7 +2032,7 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
 msgid "See more recommended extensions"
-msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਐਕਸਟੈਂਸ਼ਨਾਂ ਵੇਖੋ"
+msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ੀ ਇਕਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
 
 #: src/amo/pages/Home/index.js:290
 msgid "See more popular themes"
@@ -2040,7 +2040,7 @@ msgstr "ਵਧੇਰੇ ਪ੍ਰਸਿੱਧ ਥੀਮ ਵੇਖੋ"
 
 #: src/amo/pages/Home/index.js:309
 msgid "See more popular extensions"
-msgstr "ਹੋਰ ਪ੍ਰਸਿੱਧ ਐਕਸਟੈਂਸ਼ਨਾਂ ਵੇਖੋ"
+msgstr "ਹੋਰ ਹਰਮਨਪਿਆਰੀਆਂ ਇਕਸਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
 
 #: src/amo/pages/Home/index.js:326 src/amo/pages/LandingPage/index.js:164
 msgid "See more recommended themes"
@@ -2048,27 +2048,27 @@ msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਥੀਮ ਵੇਖੋ"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:142
 msgid "See more trending extensions"
-msgstr "ਵਧੇਰੇ ਟ੍ਰੈਂਡਿੰਗ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੇਖੋ"
+msgstr "ਵੱਧ ਰੁਝਾਨ ਵਾਲੀਆਂ ਇਕਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
 
 #: src/amo/pages/Home/index.js:58
 msgid "See more enhanced privacy extensions"
-msgstr "ਹੋਰ ਵਧਾਈ ਗਈ ਗੋਪਨੀਯਤਾ ਐਕਸਟੈਂਸ਼ਨਾਂ ਵੇਖੋ"
+msgstr "ਹੋਰ ਵਾਧਾ ਕੀਤੀਆਂ ਪਰਦੇਦਾਰੀ ਇਕਟੈਨਸ਼ਨਾਂ ਵੇਖੋ"
 
 #: src/amo/pages/Home/index.js:59
 msgid "Enhanced privacy extensions"
-msgstr "ਸੁਧਾਰਿਆ ਗਿਆ ਗੋਪਨੀਯਤਾ ਵਧਾਉਣਾ"
+msgstr "ਵਾਧਾ ਕੀਤੀਆਂ ਪਰਦੇਦਾਰੀ ਇਕਟੈਨਸ਼ਨਾਂ"
 
 #: src/amo/pages/Home/index.js:64
 msgid "See more recommended password managers"
-msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਪਾਸਵਰਡ ਪ੍ਰਬੰਧਕ ਵੇਖੋ"
+msgstr "ਹੋਰ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਪਾਸਵਰਡ ਮੈਨੇਜਰ ਵੇਖੋ"
 
 #: src/amo/pages/Home/index.js:65
 msgid "Recommended password managers"
-msgstr "ਸਿਫਾਰਸ਼ੀ ਪਾਸਵਰਡ ਪ੍ਰਬੰਧਕ"
+msgstr "ਸਿਫਾਰਸ਼ੀ ਪਾਸਵਰਡ ਮੈਨੇਜਰ"
 
 #: src/amo/pages/LandingPage/index.js:152
 msgid "See more top rated extensions"
-msgstr "ਵਧੇਰੇ ਉੱਚ ਰੇਟ ਦਿੱਤੇ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੇਖੋ"
+msgstr "ਵਧੇਰੇ ਉੱਚ ਰੇਟ ਦਿੱਤੀਆਂ ਇਕਟੈਨਸ਼ਨਾਂ ਦੇਖੋ"
 
 #: src/amo/pages/LandingPage/index.js:173
 msgid "See more trending themes"
@@ -2430,7 +2430,7 @@ msgstr "ਕਿੱਤਾ"
 
 #: src/amo/pages/UserProfile/index.js:380
 msgid "User since"
-msgstr "ਤੋਂ ਉਪਭੋਗੀ"
+msgstr "ਵਰਤੋਂਕਾਰ"
 
 #: src/amo/pages/UserProfile/index.js:390
 msgid "Number of add-ons"
@@ -2451,19 +2451,19 @@ msgstr "ਪਰੋਫਾਇਲ ਸੋਧ"
 # This action allows an admin to maintain a user.
 #: src/amo/pages/UserProfile/index.js:447
 msgid "Admin user"
-msgstr "ਐਡਮਿਨ ਯੂਜਰ"
+msgstr "ਐਡਮਿਨ ਵਰਤੋਂਕਾਰ"
 
 #: src/amo/pages/UserProfileEdit/index.js:198
 msgid "Picture successfully deleted"
-msgstr "ਤਸਵੀਰ ਸਫਲਤਾਪੂਰਵਕ ਮਿਟਾ ਦਿੱਤੀ ਗਈ"
+msgstr "ਤਸਵੀਰ ਕਾਮਯਾਬੀ ਨਾਲ ਹਟਾਈ"
 
 #: src/amo/pages/UserProfileEdit/index.js:443
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ ਆਪਣੇ ਬਾਰੇ ਕੁਝ ਹੋਰ ਜਾਣਕਾਰੀ ਦੱਸੋ। ਜ਼ਿਆਦਾਤਰ ਖੇਤਰ ਅਖ਼ਤਿਆਰੀ ਹਨ, ਪਰ ਉਹ ਹੋਰ ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ ਤੁਹਾਡੀ ਬਿਹਤਰ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰਨ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਨਗੇ।"
+msgstr "ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਆਪਣੇ ਬਾਰੇ ਕੁਝ ਹੋਰ ਜਾਣਕਾਰੀ ਦੱਸੋ। ਜ਼ਿਆਦਾਤਰ ਖੇਤਰ ਅਖ਼ਤਿਆਰੀ ਹਨ, ਪਰ ਉਹ ਹੋਰ ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਤੁਹਾਡੀ ਬਿਹਤਰ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰਨ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਨਗੇ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:447
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ ਇਸ ਉਪਭੋਗਤਾ ਬਾਰੇ ਕੁਝ ਹੋਰ ਜਾਣਕਾਰੀ ਦੱਸੋ। ਜ਼ਿਆਦਾਤਰ ਖੇਤਰ ਅਖ਼ਤਿਆਰੀ ਹਨ, ਪਰ ਉਹ ਹੋਰ ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ %(userName)s ਦੀ ਬਿਹਤਰ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰਨਗੇ।"
+msgstr "ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਇਸ ਵਰਤੋਂਕਾਰ ਬਾਰੇ ਕੁਝ ਹੋਰ ਜਾਣਕਾਰੀ ਦੱਸੋ। ਜ਼ਿਆਦਾਤਰ ਖੇਤਰ ਅਖ਼ਤਿਆਰੀ ਹਨ, ਪਰ ਉਹ ਹੋਰ ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ %(userName)s ਦੀ ਬਿਹਤਰ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰਨਗੇ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:462
 msgid "Introduce yourself to the community if you like"
@@ -2503,11 +2503,11 @@ msgstr "ਅੱਪਡੇਟ ਪਰੋਫਾਇਲ"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "View user's profile"
-msgstr "ਉਪਭੋਗਤਾ ਦਾ ਪ੍ਰੋਫ਼ਾਈਲ ਵੇਖੋ"
+msgstr "ਵਰਤੋਂਕਾਰ ਦਾ ਪ੍ਰੋਫ਼ਾਈਲ ਵੇਖੋ"
 
 #: src/amo/pages/UserProfileEdit/index.js:555
 msgid "Edit user's profile"
-msgstr "ਯੂਜਰ ਪਰੋਫਾਇਲ ਸੋਧੋ"
+msgstr "ਵਰਤੋਂਕਾਰ ਪਰੋਫਾਇਲ ਸੋਧੋ"
 
 #: src/amo/pages/UserProfileEdit/index.js:573
 msgid "Account"
@@ -2531,11 +2531,11 @@ msgstr "ਤੁਸੀਂ ਫਾਇਰਫਾਕਸ ਅਕਾਊਂਟ ਤੇ ਆ�
 
 #: src/amo/pages/UserProfileEdit/index.js:616
 msgid "Manage Firefox Accounts…"
-msgstr "ਫਾਇਰਫਾਕਸ ਖਾਤੇ ਪ੍ਰਬੰਧਿਤ ਕਰੋ…"
+msgstr "ਫਾਇਰਫਾਕਸ ਖਾਤੇ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰੋ…"
 
 #: src/amo/pages/UserProfileEdit/index.js:624
 msgid "Profile"
-msgstr "ਪ੍ਰੋਫਾਈਲ"
+msgstr "ਪਰੋਫਾਇਲ"
 
 #: src/amo/pages/UserProfileEdit/index.js:633
 msgid "This field is required"
@@ -2553,7 +2553,7 @@ msgstr "ਪੜਤਾਲ ਕਰਤਾ ਦਾ ਨਾਂ"
 
 #: src/amo/pages/UserProfileEdit/index.js:685
 msgid "This URL will only be visible for users who are developers."
-msgstr "ਇਹ URL ਸਿਰਫ ਉਨ੍ਹਾਂ ਉਪਭੋਗਤਾਵਾਂ ਲਈ ਦਿਖਾਈ ਦੇਵੇਗੀ ਜੋ ਵਿਕਾਸ ਕਰਤਾ ਹਨ।"
+msgstr "ਇਹ URL ਸਿਰਫ ਉਨ੍ਹਾਂ ਵਰਤੋਂਕਾਰਾਂ ਲਈ ਦਿਖਾਈ ਦੇਵੇਗੀ ਜੋ ਡਿਵੈਲਪਰ ਹਨ।"
 
 #: src/amo/pages/UserProfileEdit/index.js:742
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
@@ -2626,7 +2626,7 @@ msgstr "%(strongStart)sNOTE:%(strongEnd)s ਤੁਸੀਂ ਉਪਭੋਗਤਾ 
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
-msgstr "ਤੁਹਾਡੀ ਗਾਹਕੀ ਸਫ਼ਲਤਾਪੂਰਨ ਰੱਦ ਹੋਈ!"
+msgstr "ਤੁਹਾਡੀ ਮੈਂਬਰੀ ਕਾਮਯਾਬੀ ਨਾਲ ਹਟਾਈ ਗਈ\\"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:121
