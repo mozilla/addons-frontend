@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-12 12:13+0000\n"
+"POT-Creation-Date: 2020-02-18 20:46+0000\n"
 "PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -1816,16 +1816,16 @@ msgstr "Breiseáin Firefox"
 msgid "Go to the add-on page"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:146
+#: src/amo/components/SearchResult/index.js:148
 msgid "No theme preview available"
 msgstr "Níl réamhamharc ar an téama seo le fáil"
 
-#: src/amo/components/SearchResult/index.js:183
+#: src/amo/components/SearchResult/index.js:185
 #, fuzzy
 msgid "Add-on note"
 msgstr "Deilbhín an bhreiseáin"
 
-#: src/amo/components/SearchResult/index.js:203
+#: src/amo/components/SearchResult/index.js:205
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s úsáideoir"
@@ -3488,11 +3488,11 @@ msgid ""
 "performance."
 msgstr ""
 
-#: src/ui/components/ShowMoreCard/index.js:126
+#: src/ui/components/ShowMoreCard/index.js:133
 msgid "Expand to read more"
 msgstr ""
 
-#: src/ui/components/ShowMoreCard/index.js:131
+#: src/ui/components/ShowMoreCard/index.js:138
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 "<span class=\"visually-hidden\">Leathnaigh</span> chun tuilleadh a léamhh"
@@ -3507,7 +3507,7 @@ msgstr[2] "Níor aimsíodh aon chatagóirí."
 msgstr[3] "Níor aimsíodh aon chatagóirí."
 msgstr[4] "Níor aimsíodh aon chatagóirí."
 
-#: src/ui/components/UserReview/index.js:96
+#: src/ui/components/UserReview/index.js:103
 #, fuzzy
 msgid "Developer response"
 msgstr "Lárionad na bhForbróirí"

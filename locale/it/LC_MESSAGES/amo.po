@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-12 12:13+0000\n"
+"POT-Creation-Date: 2020-02-18 20:46+0000\n"
 "PO-Revision-Date: 2020-01-31 13:23+0000\n"
 "Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
@@ -1700,15 +1700,15 @@ msgstr "Componenti aggiuntivi Firefox per Android (%(locale)s)"
 msgid "Go to the add-on page"
 msgstr "Vai alla pagina del componente aggiuntivo"
 
-#: src/amo/components/SearchResult/index.js:146
+#: src/amo/components/SearchResult/index.js:148
 msgid "No theme preview available"
 msgstr "Anteprima del tema non disponibile"
 
-#: src/amo/components/SearchResult/index.js:183
+#: src/amo/components/SearchResult/index.js:185
 msgid "Add-on note"
 msgstr "Nota per il componente aggiuntivo"
 
-#: src/amo/components/SearchResult/index.js:203
+#: src/amo/components/SearchResult/index.js:205
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s utente"
@@ -3545,11 +3545,11 @@ msgstr ""
 "Firefox consiglia solo estensioni che soddisfano i nostri standard di "
 "sicurezza e prestazioni."
 
-#: src/ui/components/ShowMoreCard/index.js:126
+#: src/ui/components/ShowMoreCard/index.js:133
 msgid "Expand to read more"
 msgstr "Espandi per continuare a leggere"
 
-#: src/ui/components/ShowMoreCard/index.js:131
+#: src/ui/components/ShowMoreCard/index.js:138
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 "<span class=\"visually-hidden\">Espandi per visualizzare</span> Ulteriori "
@@ -3561,7 +3561,7 @@ msgid_plural "%(total)s add-ons"
 msgstr[0] "%(total)s componente aggiuntivo"
 msgstr[1] "%(total)s componenti aggiuntivi"
 
-#: src/ui/components/UserReview/index.js:96
+#: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Replica dello sviluppatore"
 
