@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-12 12:13+0000\n"
+"POT-Creation-Date: 2020-02-18 20:46+0000\n"
 "PO-Revision-Date: 2020-02-08 18:41+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
@@ -1707,15 +1707,15 @@ msgstr "Дополнения для Firefox для Android (%(locale)s)"
 msgid "Go to the add-on page"
 msgstr "Перейти на страницу дополнения"
 
-#: src/amo/components/SearchResult/index.js:146
+#: src/amo/components/SearchResult/index.js:148
 msgid "No theme preview available"
 msgstr "Предпросмотр тем недоступен"
 
-#: src/amo/components/SearchResult/index.js:183
+#: src/amo/components/SearchResult/index.js:185
 msgid "Add-on note"
 msgstr "Замечание к дополнению"
 
-#: src/amo/components/SearchResult/index.js:203
+#: src/amo/components/SearchResult/index.js:205
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s пользователь"
@@ -3531,11 +3531,11 @@ msgstr ""
 "Firefox рекомендует только те расширения, которые соответствуют нашим "
 "стандартам по безопасности и производительности."
 
-#: src/ui/components/ShowMoreCard/index.js:126
+#: src/ui/components/ShowMoreCard/index.js:133
 msgid "Expand to read more"
 msgstr "Разверните, чтобы узнать больше"
 
-#: src/ui/components/ShowMoreCard/index.js:131
+#: src/ui/components/ShowMoreCard/index.js:138
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 "<span class=\"visually-hidden\">Разверните, чтобы</span> прочитать больше"
@@ -3547,7 +3547,7 @@ msgstr[0] "%(total)s дополнение"
 msgstr[1] "%(total)s дополнения"
 msgstr[2] "%(total)s дополнений"
 
-#: src/ui/components/UserReview/index.js:96
+#: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Ответ разработчика"
 

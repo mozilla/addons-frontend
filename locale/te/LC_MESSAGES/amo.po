@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-12 12:13+0000\n"
+"POT-Creation-Date: 2020-02-18 20:46+0000\n"
 "PO-Revision-Date: 2019-08-16 18:01+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1603,15 +1603,15 @@ msgstr ""
 msgid "Go to the add-on page"
 msgstr "యాడ్-ఆన్ పేజీకి వెళ్లండి"
 
-#: src/amo/components/SearchResult/index.js:146
+#: src/amo/components/SearchResult/index.js:148
 msgid "No theme preview available"
 msgstr "అలంకాలపు మునుజూపు అందుబాటులో లేదు"
 
-#: src/amo/components/SearchResult/index.js:183
+#: src/amo/components/SearchResult/index.js:185
 msgid "Add-on note"
 msgstr "యాడ్-ఆన్ గమనిక"
 
-#: src/amo/components/SearchResult/index.js:203
+#: src/amo/components/SearchResult/index.js:205
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s వాడుకరి"
@@ -3177,11 +3177,11 @@ msgid ""
 "performance."
 msgstr ""
 
-#: src/ui/components/ShowMoreCard/index.js:126
+#: src/ui/components/ShowMoreCard/index.js:133
 msgid "Expand to read more"
 msgstr ""
 
-#: src/ui/components/ShowMoreCard/index.js:131
+#: src/ui/components/ShowMoreCard/index.js:138
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 
@@ -3191,7 +3191,7 @@ msgid_plural "%(total)s add-ons"
 msgstr[0] "%(total)s యాడాన్"
 msgstr[1] "%(total)s యాడాన్లు"
 
-#: src/ui/components/UserReview/index.js:96
+#: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "డెవలపర్ స్పందన"
 

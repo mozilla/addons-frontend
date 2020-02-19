@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-12 12:13+0000\n"
+"POT-Creation-Date: 2020-02-18 20:46+0000\n"
 "PO-Revision-Date: 2020-01-20 15:54+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1663,15 +1663,15 @@ msgstr "Android için Firefox Eklentileri (%(locale)s)"
 msgid "Go to the add-on page"
 msgstr "Eklentinin sayfasına git"
 
-#: src/amo/components/SearchResult/index.js:146
+#: src/amo/components/SearchResult/index.js:148
 msgid "No theme preview available"
 msgstr "Tema ön izlemesi yok"
 
-#: src/amo/components/SearchResult/index.js:183
+#: src/amo/components/SearchResult/index.js:185
 msgid "Add-on note"
 msgstr "Eklenti notu"
 
-#: src/amo/components/SearchResult/index.js:203
+#: src/amo/components/SearchResult/index.js:205
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s kullanıcı"
@@ -3434,11 +3434,11 @@ msgstr ""
 "Firefox yalnızca güvenlik ve performans standartlarımızı karşılayan "
 "eklentileri önerir."
 
-#: src/ui/components/ShowMoreCard/index.js:126
+#: src/ui/components/ShowMoreCard/index.js:133
 msgid "Expand to read more"
 msgstr "Devamını okumak için genişlet"
 
-#: src/ui/components/ShowMoreCard/index.js:131
+#: src/ui/components/ShowMoreCard/index.js:138
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "Devamını okumak için <span class=\"visually-hidden\">genişletin</span>"
 
@@ -3448,7 +3448,7 @@ msgid_plural "%(total)s add-ons"
 msgstr[0] "%(total)s eklenti"
 msgstr[1] "%(total)s eklenti"
 
-#: src/ui/components/UserReview/index.js:96
+#: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Geliştiricinin yanıtı"
 

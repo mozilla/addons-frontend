@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-12 12:13+0000\n"
+"POT-Creation-Date: 2020-02-18 20:46+0000\n"
 "PO-Revision-Date: 2020-01-21 18:59+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
@@ -1728,15 +1728,15 @@ msgstr "Dodanki za Firefox za Android (%(locale)s)"
 msgid "Go to the add-on page"
 msgstr "K bokoju dodanka"
 
-#: src/amo/components/SearchResult/index.js:146
+#: src/amo/components/SearchResult/index.js:148
 msgid "No theme preview available"
 msgstr "Pśeglěd drastwy njejo k dispoziciji"
 
-#: src/amo/components/SearchResult/index.js:183
+#: src/amo/components/SearchResult/index.js:185
 msgid "Add-on note"
 msgstr "Dodankowa notica"
 
-#: src/amo/components/SearchResult/index.js:203
+#: src/amo/components/SearchResult/index.js:205
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s wužywaŕ"
@@ -3545,11 +3545,11 @@ msgstr ""
 "Firefox jano rozšyrjenja dopórucujo, kótarež našym standardam za wěstotu a "
 "wugbaśe wótpowěduju."
 
-#: src/ui/components/ShowMoreCard/index.js:126
+#: src/ui/components/ShowMoreCard/index.js:133
 msgid "Expand to read more"
 msgstr "Wócyńśo, aby wěcej cytał"
 
-#: src/ui/components/ShowMoreCard/index.js:131
+#: src/ui/components/ShowMoreCard/index.js:138
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Pokazaś</span> Wěcej cytaś"
 
@@ -3561,7 +3561,7 @@ msgstr[1] "%(total)s dodanka"
 msgstr[2] "%(total)s dodanki"
 msgstr[3] "%(total)s dodankow"
 
-#: src/ui/components/UserReview/index.js:96
+#: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Wótegrono wuwijarja"
 

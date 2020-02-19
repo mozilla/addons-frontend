@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-12 12:13+0000\n"
+"POT-Creation-Date: 2020-02-18 20:46+0000\n"
 "PO-Revision-Date: 2020-02-07 16:33+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -1685,15 +1685,15 @@ msgstr "Shtesa Firefox për Android (%(locale)s)"
 msgid "Go to the add-on page"
 msgstr "Shko te faqja e shtesës"
 
-#: src/amo/components/SearchResult/index.js:146
+#: src/amo/components/SearchResult/index.js:148
 msgid "No theme preview available"
 msgstr "S’ka paraparje teme"
 
-#: src/amo/components/SearchResult/index.js:183
+#: src/amo/components/SearchResult/index.js:185
 msgid "Add-on note"
 msgstr "Shënim shtese"
 
-#: src/amo/components/SearchResult/index.js:203
+#: src/amo/components/SearchResult/index.js:205
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s përdorues"
@@ -3507,11 +3507,11 @@ msgstr ""
 "Firefox-i rekomandon vetëm zgjerime që pajtohen me standarde tona për "
 "sigurinë dhe punimin."
 
-#: src/ui/components/ShowMoreCard/index.js:126
+#: src/ui/components/ShowMoreCard/index.js:133
 msgid "Expand to read more"
 msgstr "Zgjerojeni që të lexoni më tepër"
 
-#: src/ui/components/ShowMoreCard/index.js:131
+#: src/ui/components/ShowMoreCard/index.js:138
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Zgjeroje te</span> Lexoni më tepër"
 
@@ -3521,7 +3521,7 @@ msgid_plural "%(total)s add-ons"
 msgstr[0] "%(total)s shtesë"
 msgstr[1] "%(total)s shtesa"
 
-#: src/ui/components/UserReview/index.js:96
+#: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "Përgjigje zhvilluesi"
 
