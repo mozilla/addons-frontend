@@ -6974,10 +6974,10 @@ fstream@^1.0.0, fstream@^1.0.12:
     mkdirp ">=0.5 0"
     rimraf "2"
 
-full-icu@1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/full-icu/-/full-icu-1.3.0.tgz#1fb4d60050103ad9dcf53735c000e4a03d80c574"
-  integrity sha512-LGLpSsbkHUT0T+EKrIJltYoejYzUqg1eW+n6wm/FTte1pDiYjeKTxO0uJvrE3jgv6V9eBzMAjF6A8jH16C0+eQ==
+full-icu@1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/full-icu/-/full-icu-1.3.1.tgz#e67fdf58523f1d1e0d9143b1542fe2024c1c8997"
+  integrity sha512-VMtK//85QJomhk3cXOCksNwOYaw1KWnYTS37GYGgyf7A3ajdBoPGhaJuJWAH2S2kq8GZeXkdKn+3Mfmgy11cVw==
 
 function-bind@^1.1.1:
   version "1.1.1"
