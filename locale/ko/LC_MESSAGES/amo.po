@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-02-18 20:46+0000\n"
-"PO-Revision-Date: 2020-02-20 23:38+0000\n"
+"PO-Revision-Date: 2020-02-24 04:21+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -176,7 +176,7 @@ msgstr "%(addonName)s – 🦊 Firefox 용 사전(%(locale)s)"
 #: src/amo/components/AddonMeta/index.js:116
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
-msgstr[0] "%(total)s 별점"
+msgstr[0] "별점 %(total)s"
 
 #: src/amo/components/AddonMeta/index.js:125
 msgid "Not rated yet"
@@ -1044,7 +1044,7 @@ msgstr "더 알아보기"
 
 #: src/amo/components/InstallWarning/index.js:85
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr "이것은 추천하는 확장기능이 아닙니다. 설치하기 전에 신뢰할 수 있는지 확인하십시오."
+msgstr "추천하는 확장기능이 아닙니다. 설치하기 전에 신뢰할 수 있는지 확인하십시오."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1497,7 +1497,7 @@ msgstr "추가 기능 아이콘"
 #: src/amo/components/SearchResult/index.js:205
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(total)s명의 사용자"
+msgstr[0] "사용자 %(total)s명"
 
 #: src/amo/components/SearchResults/index.js:42
 msgid "Searching…"
@@ -1615,7 +1615,7 @@ msgstr "배포된 버전이 없으므로 이 부가기능에 점수를 줄 수 �
 #: src/amo/pages/Addon/index.js:216
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] "%(count)s개의 리뷰 보기"
+msgstr[0] "모든 리뷰 %(count)s개 읽기"
 
 #: src/amo/pages/Addon/index.js:234
 msgid "No reviews yet"
@@ -1631,7 +1631,7 @@ msgstr "이 사전 정보"
 
 #: src/amo/pages/Addon/index.js:266
 msgid "About this extension"
-msgstr "이 확장 기능 정보"
+msgstr "정보"
 
 #: src/amo/pages/Addon/index.js:269
 msgid "About this language pack"
@@ -1728,7 +1728,7 @@ msgstr "%(addonName)s에 대한 리뷰"
 #: src/amo/pages/AddonReviewList/index.js:288
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s개의 리뷰"
+msgstr[0] "리뷰 %(total)s개"
 
 #: src/amo/pages/AddonReviewList/index.js:386
 msgid "There are no reviews"
@@ -1737,7 +1737,7 @@ msgstr "리뷰가 없습니다"
 #: src/amo/pages/AddonVersions/index.js:128
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] "%(addonName)s의 버전 기록 - 총 %(total)s개 버전"
+msgstr[0] "%(addonName)s의 버전 기록 - %(total)s개 버전"
 
 #: src/amo/pages/AddonVersions/index.js:176
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
@@ -2861,10 +2861,9 @@ msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">눌러서</span> 더보기"
 
 #: src/ui/components/UserCollection/index.js:46
-#, fuzzy
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] "카테고리가 없습니다."
+msgstr[0] "부가 기능 %(total)s개"
 
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
