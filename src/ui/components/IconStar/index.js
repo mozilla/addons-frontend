@@ -2,7 +2,7 @@
 import * as React from 'react';
 import makeClassName from 'classnames';
 import photon from 'photon-colors';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 import Icon from 'ui/components/Icon';
 import type { Props as IconProps } from 'ui/components/Icon';

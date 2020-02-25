@@ -1,6 +1,6 @@
 /* @flow */
 import httpContext from 'express-http-context';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import type { $Request, $Response, NextFunction, Middleware } from 'express';
 
 import { AMO_REQUEST_ID_HEADER } from 'core/constants';
