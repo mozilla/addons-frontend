@@ -6,7 +6,7 @@ chardet==3.0.4
 execnet==1.7.1
 FoxPuppet==1.0.3
 funcsigs==1.0.2
-idna==2.8
+idna==2.9
 importlib-metadata==1.5.0
 more-itertools==8.2.0
 pathlib2==2.3.5
@@ -25,12 +25,12 @@ pytest-selenium==1.17.0
 pytest-variables==1.9.0
 pytest-xdist==1.31.0
 atomicwrites==1.3.0
-requests==2.22.0
+requests==2.23.0
 scandir==1.10.0
 selenium==3.141.0
 six==1.14.0
 urllib3==1.25.8
-zipp==2.1.0
+zipp==3.0.0
 zope.component==4.6
 zope.deferredimport==4.3.1
 zope.event==4.4
