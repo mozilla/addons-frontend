@@ -5,16 +5,22 @@ import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { CLIENT_APP_ANDROID } from 'core/constants';
+import {
+  CLIENT_APP_ANDROID,
+  INCOMPATIBLE_ANDROID_UNSUPPORTED,
+} from 'core/constants';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import {
   correctedLocationForPlatform,
+  getClientCompatibility,
   isFenix,
 } from 'core/utils/compatibility';
 import Notice, { warningInfoType } from 'ui/components/Notice';
 import type { AppState } from 'amo/store';
+import type { AddonType } from 'core/types/addons';
 import type { UserAgentInfoType } from 'core/reducers/api';
+import type { AddonVersionType } from 'core/reducers/versions';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterLocationType } from 'core/types/router';
 
@@ -24,7 +30,9 @@ export const FENIX_LINK_DESTINATION =
   'https://support.mozilla.org/kb/add-compatibility-firefox-preview/';
 
 type Props = {|
+  addon?: AddonType | null,
   className?: string,
+  currentVersion?: AddonVersionType | null,
   fixAndroidLinkMessage?: string,
   fixFirefoxLinkMessage?: string,
   fixFenixLinkMessage?: string,
@@ -33,6 +41,7 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   _correctedLocationForPlatform: typeof correctedLocationForPlatform,
+  _getClientCompatibility: typeof getClientCompatibility,
   _isFenix: typeof isFenix,
   clientApp: string,
   i18n: I18nType,
@@ -43,21 +52,31 @@ type InternalProps = {|
 export class WrongPlatformWarningBase extends React.Component<InternalProps> {
   static defaultProps = {
     _correctedLocationForPlatform: correctedLocationForPlatform,
+    _getClientCompatibility: getClientCompatibility,
     _isFenix: isFenix,
   };
 
   render() {
     const {
       _correctedLocationForPlatform,
+      _getClientCompatibility,
       _isFenix,
+      addon,
       className,
       clientApp,
+      currentVersion,
       i18n,
       location,
       userAgentInfo,
     } = this.props;
 
     let message;
+
+    const newLocation = _correctedLocationForPlatform({
+      clientApp,
+      location,
+      userAgentInfo,
+    });
 
     if (_isFenix(userAgentInfo)) {
       message = i18n.sprintf(
@@ -68,17 +87,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
           ),
         { newLocation: FENIX_LINK_DESTINATION },
       );
-    } else {
-      const newLocation = _correctedLocationForPlatform({
-        clientApp,
-        location,
-        userAgentInfo,
-      });
-
-      if (!newLocation) {
-        return null;
-      }
-
+    } else if (newLocation) {
       const fixAndroidLinkMessage =
         this.props.fixAndroidLinkMessage ||
         i18n.gettext(
@@ -99,7 +108,26 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
           : i18n.sprintf(fixAndroidLinkMessage, { newLocation });
     }
 
-    return (
+    // Check for an add-on that is incompatible on Android.
+    if (addon && currentVersion) {
+      const compatibility = _getClientCompatibility({
+        addon,
+        clientApp,
+        currentVersion,
+        userAgentInfo,
+      });
+      if (compatibility.reason === INCOMPATIBLE_ANDROID_UNSUPPORTED) {
+        message = i18n.sprintf(
+          i18n.gettext(
+            `Not available on Firefox for Android. You can use this add-on with Firefox for Desktop, 
+              or look for similar <a href="%(newLocation)s">Android add-ons</a>.`,
+          ),
+          { newLocation: '/android/' },
+        );
+      }
+    }
+
+    return message ? (
       <div className={makeClassName('WrongPlatformWarning', className)}>
         <Notice id="WrongPlatformWarning-Notice" type={warningInfoType}>
           <span
@@ -109,7 +137,7 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
           />
         </Notice>
       </div>
-    );
+    ) : null;
   }
 }
 

@@ -5,23 +5,34 @@ import WrongPlatformWarning, {
   FENIX_LINK_DESTINATION,
   WrongPlatformWarningBase,
 } from 'amo/components/WrongPlatformWarning';
-import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
+import {
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+  INCOMPATIBLE_ANDROID_UNSUPPORTED,
+  INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+} from 'core/constants';
+import { createInternalAddon } from 'core/reducers/addons';
+import { createInternalVersion } from 'core/reducers/versions';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
   dispatchClientMetadata,
+  fakeAddon,
   fakeI18n,
+  fakeVersion,
   shallowUntilTarget,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let _correctedLocationForPlatform;
+  let _getClientCompatibility;
   let _isFenix;
   let store;
 
   beforeEach(() => {
     _correctedLocationForPlatform = sinon.stub();
+    _getClientCompatibility = sinon.stub().returns({});
     _isFenix = sinon.stub();
     store = dispatchClientMetadata().store;
   });
@@ -37,6 +48,7 @@ describe(__filename, () => {
   const render = ({ location = createFakeLocation(), ...customProps } = {}) => {
     const props = {
       _correctedLocationForPlatform,
+      _getClientCompatibility,
       _isFenix,
       i18n: fakeI18n(),
       store,
@@ -51,14 +63,6 @@ describe(__filename, () => {
       },
     );
   };
-
-  it('returns nothing if not Fenix and no location correction is required', () => {
-    _correctedLocationForPlatform.returns(null);
-    _isFenix.returns(false);
-    const root = render();
-
-    expect(root.find('.WrongPlatformWarning')).toHaveLength(0);
-  });
 
   it('can add a custom className', () => {
     _correctedLocationForPlatform.returns('/some/location/');
@@ -86,14 +90,7 @@ describe(__filename, () => {
     );
   });
 
-  it('does not call _correctedLocationForPlatform when user agent is Fenix', () => {
-    _isFenix.returns(true);
-    render();
-
-    sinon.assert.notCalled(_correctedLocationForPlatform);
-  });
-
-  it('calls _correctedLocationForPlatform with clientApp, location and userAgentInfo when not Fenix', () => {
+  it('calls _correctedLocationForPlatform with clientApp, location and userAgentInfo', () => {
     _isFenix.returns(false);
     const clientApp = CLIENT_APP_ANDROID;
     const userAgent = userAgentsByPlatform.mac.firefox57;
@@ -209,6 +206,103 @@ describe(__filename, () => {
     );
     expect(root.find('.WrongPlatformWarning-message').html()).toContain(
       `<a href="${FENIX_LINK_DESTINATION}">`,
+    );
+  });
+
+  it('calls _getClientCompatibility when an addon and currentVersion exist', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const currentVersion = createInternalVersion(fakeVersion);
+    const clientApp = CLIENT_APP_ANDROID;
+    const userAgent = userAgentsByPlatform.mac.firefox57;
+    const parsedUserAgent = UAParser(userAgent);
+    _dispatchClientMetadata({ clientApp, userAgent });
+
+    render({ addon, currentVersion });
+
+    sinon.assert.calledWith(_getClientCompatibility, {
+      addon,
+      clientApp,
+      currentVersion,
+      userAgentInfo: sinon.match({
+        browser: sinon.match(parsedUserAgent.browser),
+        os: sinon.match(parsedUserAgent.os),
+      }),
+    });
+  });
+
+  it('does not call _getClientCompatibility when an addon does not exist', () => {
+    render({ currentVersion: createInternalVersion(fakeVersion) });
+    sinon.assert.notCalled(_getClientCompatibility);
+  });
+
+  it('does not call _getClientCompatibility when a currentVersion does not exist', () => {
+    render({ addon: createInternalAddon(fakeAddon) });
+    sinon.assert.notCalled(_getClientCompatibility);
+  });
+
+  it('returns nothing if not Fenix, no location correction is required, and no addon info', () => {
+    _correctedLocationForPlatform.returns(null);
+    _isFenix.returns(false);
+    const root = render();
+
+    expect(root.find('.WrongPlatformWarning')).toHaveLength(0);
+  });
+
+  it('returns nothing if not Fenix, no location correction is required, and not Android incompatible', () => {
+    _correctedLocationForPlatform.returns(null);
+    _isFenix.returns(false);
+    _getClientCompatibility.returns({
+      reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+    });
+    const root = render({
+      addon: createInternalAddon(fakeAddon),
+      currentVersion: createInternalVersion(fakeVersion),
+    });
+
+    expect(root.find('.WrongPlatformWarning')).toHaveLength(0);
+  });
+
+  it('generates the expected message when add-on is not compatible with Android', () => {
+    _getClientCompatibility.returns({
+      reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
+    });
+    const root = render({
+      addon: createInternalAddon(fakeAddon),
+      currentVersion: createInternalVersion(fakeVersion),
+    });
+
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      'Not available on Firefox for Android.',
+    );
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      'You can use this add-on with Firefox for Desktop,',
+    );
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      'or look for similar',
+    );
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      'Android add-ons',
+    );
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      '<a href="/android/">',
+    );
+  });
+
+  it('generates the expected message when add-on is not compatible with Android, even when wrong platform', () => {
+    _correctedLocationForPlatform.returns('/some/location/');
+    _getClientCompatibility.returns({
+      reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
+    });
+    const root = render({
+      addon: createInternalAddon(fakeAddon),
+      currentVersion: createInternalVersion(fakeVersion),
+    });
+
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      'You can use this add-on with Firefox for Desktop,',
+    );
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      '<a href="/android/">',
     );
   });
 });

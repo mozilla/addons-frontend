@@ -7,6 +7,7 @@ import AddonCompatibilityError, {
 import { DOWNLOAD_FIREFOX_BASE_URL } from 'amo/constants';
 import {
   CLIENT_APP_FIREFOX,
+  CLIENT_APP_ANDROID,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
   INCOMPATIBLE_FIREFOX_FENIX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
@@ -174,19 +175,22 @@ describe(__filename, () => {
     expect(root.find('.AddonCompatibilityError')).toHaveLength(1);
   });
 
-  it('renders nothing if the add-on is not compatible with Android and clientApp is `firefox`', () => {
-    _dispatchClientMetadata({
-      clientApp: CLIENT_APP_FIREFOX,
-    });
+  it.each([CLIENT_APP_FIREFOX, CLIENT_APP_ANDROID])(
+    'renders nothing if the add-on is not compatible with Android and clientApp is %s',
+    (clientApp) => {
+      _dispatchClientMetadata({
+        clientApp,
+      });
 
-    const root = render({
-      _getClientCompatibility: makeGetClientCompatibilityIncompatible({
-        reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
-      }),
-    });
+      const root = render({
+        _getClientCompatibility: makeGetClientCompatibilityIncompatible({
+          reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
+        }),
+      });
 
-    expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
-  });
+      expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
+    },
+  );
 
   it('renders nothing if the add-on is compatible', () => {
     const root = render({
