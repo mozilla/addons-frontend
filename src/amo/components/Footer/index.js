@@ -107,10 +107,8 @@ export class FooterBase extends React.Component {
             </ul>
           </section>
 
-          <section className="Footer-firefox-links">
-            <h4 className="Footer-links-header">
-              <a href="https://www.mozilla.org/firefox/">Firefox</a>
-            </h4>
+          <section className="Footer-browser-links">
+            <h4 className="Footer-links-header">{i18n.gettext('Browser')}</h4>
             <ul className="Footer-links">
               <li>
                 <a href="https://www.mozilla.org/firefox/new/?utm_source=addons.mozilla.org&utm_campaign=footer&utm_medium=referral">
@@ -128,11 +126,6 @@ export class FooterBase extends React.Component {
                 </a>
               </li>
               <li>
-                <a href="https://www.mozilla.org/firefox/focus/?utm_source=addons.mozilla.org&utm_campaign=footer&utm_medium=referral">
-                  {i18n.gettext('Focus Browser')}
-                </a>
-              </li>
-              <li>
                 <a href="https://www.mozilla.org/firefox/desktop/?utm_source=addons.mozilla.org&utm_campaign=footer&utm_medium=referral">
                   {i18n.gettext('Desktop Browser')}
                 </a>
@@ -140,6 +133,81 @@ export class FooterBase extends React.Component {
               <li>
                 <a href="https://www.mozilla.org/firefox/channel/desktop/?utm_source=addons.mozilla.org&utm_campaign=footer&utm_medium=referral">
                   {i18n.gettext('Beta, Nightly, Developer Edition')}
+                </a>
+              </li>
+            </ul>
+          </section>
+
+          <section className="Footer-product-links">
+            <h4 className="Footer-links-header">{i18n.gettext('Products')}</h4>
+            <ul className="Footer-links">
+              <li>
+                <a
+                  className="Footer-lockwise-link"
+                  href={`https://www.mozilla.org/firefox/lockwise/${makeQueryStringWithUTM(
+                    {
+                      utm_source: 'addons.mozilla.org',
+                      utm_medium: 'referral',
+                      utm_content: 'footer-link',
+                      utm_campaign: null,
+                    },
+                  )}`}
+                >
+                  Lockwise
+                </a>
+              </li>
+              <li>
+                <a
+                  className="Footer-monitor-link"
+                  href={`https://monitor.firefox.com/${makeQueryStringWithUTM({
+                    utm_source: 'addons.mozilla.org',
+                    utm_medium: 'referral',
+                    utm_content: 'footer-link',
+                    utm_campaign: null,
+                  })}`}
+                >
+                  Monitor
+                </a>
+              </li>
+              <li>
+                <a
+                  className="Footer-send-link"
+                  href={`https://send.firefox.com${makeQueryStringWithUTM({
+                    utm_source: 'addons.mozilla.org',
+                    utm_medium: 'referral',
+                    utm_content: 'footer-link',
+                    utm_campaign: null,
+                  })}`}
+                >
+                  Send
+                </a>
+              </li>
+              <li>
+                <a
+                  className="Footer-browsers-link"
+                  href={`https://www.mozilla.org/firefox/browsers/${makeQueryStringWithUTM(
+                    {
+                      utm_source: 'addons.mozilla.org',
+                      utm_medium: 'referral',
+                      utm_content: 'footer-link',
+                      utm_campaign: null,
+                    },
+                  )}`}
+                >
+                  Browsers
+                </a>
+              </li>
+              <li>
+                <a
+                  className="Footer-pocket-link"
+                  href={`https://getpocket.com${makeQueryStringWithUTM({
+                    utm_source: 'addons.mozilla.org',
+                    utm_medium: 'referral',
+                    utm_content: 'footer-link',
+                    utm_campaign: null,
+                  })}`}
+                >
+                  Pocket
                 </a>
               </li>
             </ul>
