@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-02-18 20:46+0000\n"
-"PO-Revision-Date: 2020-02-25 13:26+0000\n"
+"PO-Revision-Date: 2020-02-29 12:12+0000\n"
 "Last-Translator: Shahbaz - محمد شہباز عالم <shahbazalam17feb@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -922,7 +922,7 @@ msgstr "رازداری"
 
 #: src/amo/components/Footer/index.js:179
 msgid "Cookies"
-msgstr "کوکیس"
+msgstr "کوکیز"
 
 #: src/amo/components/Footer/index.js:187
 msgid "Legal"
@@ -1099,7 +1099,7 @@ msgstr "براؤزر کی ترتیبات پڑھیں اور ترمیم کریں"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr "حالیہ برائوزنگ سابقات، کوکیس اور اس متعلقہ کوائف صاف کریں"
+msgstr "حالیہ برائوزنگ سابقات، کوکیز اور اس متعلقہ کوائف صاف کریں"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
@@ -1115,7 +1115,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
-msgstr "مسل کو ڈاؤن لوڈ کریں اور پڑھیں اور براؤزر کے ڈاؤن لوڈ کی تاریخ میں ترمیم کریں‪"
+msgstr "مسل کو ڈاؤن لوڈ کریں اور پڑھیں اور براؤزر کے ڈاؤن لوڈ کی سابقات میں ترمیم کریں‪"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
