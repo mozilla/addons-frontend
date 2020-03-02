@@ -9,6 +9,7 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
+  INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
@@ -243,7 +244,7 @@ describe(__filename, () => {
   it('returns nothing if not Fenix, no location correction is required, and no addon info', () => {
     _correctedLocationForPlatform.returns(null);
     _isFenix.returns(false);
-    const root = render();
+    const root = render({ addon: null, currentVersion: null });
 
     expect(root.find('.WrongPlatformWarning')).toHaveLength(0);
   });
@@ -303,6 +304,20 @@ describe(__filename, () => {
     );
     expect(root.find('.WrongPlatformWarning-message').html()).toContain(
       '<a href="/android/">',
+    );
+  });
+
+  it('generates the expected message when user is on iOS', () => {
+    _getClientCompatibility.returns({
+      reason: INCOMPATIBLE_FIREFOX_FOR_IOS,
+    });
+    const root = render({
+      addon: createInternalAddon(fakeAddon),
+      currentVersion: createInternalVersion(fakeVersion),
+    });
+
+    expect(root.find('.WrongPlatformWarning-message').html()).toContain(
+      'This add-on is not compatible with this browser. Try installing it on Firefox for desktop.',
     );
   });
 });

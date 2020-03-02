@@ -244,19 +244,14 @@ describe(__filename, () => {
     expect(text).toContain('You are using Firefox 33.0');
   });
 
-  it('renders a notice for iOS users', () => {
+  it('renders nothing for iOS users', () => {
     const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       reason: INCOMPATIBLE_FIREFOX_FOR_IOS,
     });
 
     const root = render({ _getClientCompatibility });
 
-    expect(
-      root
-        .find('.AddonCompatibilityError')
-        .childAt(0)
-        .html(),
-    ).toContain('Firefox for iOS does not currently support add-ons.');
+    expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
   });
 
   it('renders nothing if the browser is Fenix', () => {
