@@ -31,6 +31,9 @@ import {
   ADDON_TYPE_STATIC_THEME,
   ADMIN_TOOLS,
   USERS_EDIT,
+  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TOP_RATED,
+  SEARCH_SORT_UPDATED,
 } from 'core/constants';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -52,11 +55,17 @@ import type { DispatchFunc } from 'core/types/redux';
 import type {
   ReactRouterLocationType,
   ReactRouterMatchType,
+  ReactRouterHistoryType,
 } from 'core/types/router';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
+import { convertFiltersToQueryParams, paramsToFilter } from 'core/searchUtils';
+import Select from 'ui/components/Select';
+import type { CollectionFilters } from 'amo/reducers/collections';
 
 import './styles.scss';
+
+const sortSelectName = paramsToFilter.sort;
 
 type Props = {|
   location: ReactRouterLocationType,
@@ -64,6 +73,7 @@ type Props = {|
     ...ReactRouterMatchType,
     params: {| userId: string |},
   |},
+  filters: CollectionFilters,
 |};
 
 type InternalProps = {|
@@ -74,6 +84,7 @@ type InternalProps = {|
   currentUser: UserType | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
+  history: ReactRouterHistoryType,
   i18n: I18nType,
   isOwner: boolean,
   lang: string,
@@ -100,7 +111,6 @@ export class UserProfileBase extends React.Component<InternalProps> {
       shouldRedirect,
       user,
     } = props;
-
     if (shouldRedirect && user) {
       dispatch(
         sendServerRedirect({
@@ -138,6 +148,60 @@ export class UserProfileBase extends React.Component<InternalProps> {
       );
     }
   }
+
+  onSelectElementChange = (event: SyntheticEvent<HTMLSelectElement>) => {
+    const newFilters = {};
+    event.preventDefault();
+
+    // const { filters } = this.props;
+    // const newFilters = { ...filters };
+
+    // // Get the filter we're supposed to change and set it.
+    const filterName = event.currentTarget.getAttribute('name');
+    const filterValue = event.currentTarget.value;
+
+    // // If we are currently filtering by category, and the filter to change is 'sort',
+    // // force recommendations to the top.
+    // // See https://github.com/mozilla/addons-frontend/issues/8084
+    // if (
+    //   newFilters.category &&
+    //   filterName === sortSelectName &&
+    //   filterValue !== SEARCH_SORT_RECOMMENDED
+    // ) {
+    if (filterName) {
+      newFilters[filterName] = filterValue;
+    } else {
+      return false;
+    }
+    // } else {
+    //   newFilters[filterName] = filterValue;
+    // }
+
+    // // If the filters haven't changed we're not going to change the URL.
+    // if (newFilters[filterName] === filters[filterName]) {
+    //   log.debug(oneLine`onSelectElementChange() called in SearchFilters but
+    //     the filter ${filterName} did not change–not changing route.`);
+    //   return false;
+    // }
+
+    // if (newFilters[filterName] === NO_FILTER) {
+    //   delete newFilters[filterName];
+    // }
+    const { clientApp, lang, history } = this.props;
+
+    if (newFilters.page) {
+      // Since it's now a new search, reset the page.
+      // eslint-disable-next-line
+      newFilters.page = '1';
+    }
+    const pathname = `/${lang}/${clientApp}/user/${this.getUserId()}/`;
+    history.push({
+      pathname,
+      query: convertFiltersToQueryParams(newFilters),
+    });
+
+    return true;
+  };
 
   componentDidUpdate(prevProps: InternalProps) {
     const {
@@ -202,6 +266,19 @@ export class UserProfileBase extends React.Component<InternalProps> {
     }
 
     return `${this.getURL()}edit/`;
+  }
+
+  sortOptions() {
+    const { i18n } = this.props;
+
+    return [
+      { children: i18n.gettext('Most Users'), value: SEARCH_SORT_POPULAR },
+      {
+        children: i18n.gettext('Recently Updated'),
+        value: SEARCH_SORT_UPDATED,
+      },
+      { children: i18n.gettext('Top Rated'), value: SEARCH_SORT_TOP_RATED },
+    ];
   }
 
   getReviewsPage(location: ReactRouterLocationType): string {
@@ -291,8 +368,15 @@ export class UserProfileBase extends React.Component<InternalProps> {
       errorHandler,
       i18n,
       isOwner,
+      location,
       user,
     } = this.props;
+    let selectedSort = SEARCH_SORT_POPULAR;
+    if (location.query.sort) {
+      selectedSort = location.query.sort;
+    } else {
+      selectedSort = SEARCH_SORT_POPULAR;
+    }
 
     let errorMessage;
     if (errorHandler.hasError()) {
@@ -331,7 +415,6 @@ export class UserProfileBase extends React.Component<InternalProps> {
         </h1>
       </div>
     );
-
     const userProfileTitle = user
       ? i18n.sprintf(i18n.gettext('User Profile for %(user)s'), {
           user: user.name,
@@ -417,7 +500,19 @@ export class UserProfileBase extends React.Component<InternalProps> {
                   </Definition>
                 ) : null}
               </DefinitionList>
-
+              <form autoComplete="off">
+                <Select
+                  className="SearchFilters-Sort SearchFilters-select"
+                  id="SearchFilters-Sort"
+                  name={sortSelectName}
+                  onChange={this.onSelectElementChange}
+                  value={selectedSort || SEARCH_SORT_POPULAR}
+                >
+                  {this.sortOptions().map((option) => {
+                    return <option key={option.value} {...option} />;
+                  })}
+                </Select>
+              </form>
               {!isOwner && (
                 <ReportUserAbuse
                   className="UserProfile-abuse-button"
@@ -460,6 +555,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 paginate
                 pathname={this.getURL()}
                 showMore={false}
+                filters={selectedSort}
                 showSummary
                 type="vertical"
               />
@@ -471,6 +567,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
                 errorHandler={errorHandler}
                 numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
                 pageParam="page_t"
+                filters={selectedSort}
                 paginate
                 pathname={this.getURL()}
                 showMore={false}

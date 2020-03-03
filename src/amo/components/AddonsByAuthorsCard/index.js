@@ -23,6 +23,8 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_STATIC_THEME,
   SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TOP_RATED,
+  SEARCH_SORT_UPDATED,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -49,6 +51,7 @@ type Props = {|
   paginate: boolean,
   pathname?: string,
   showMore?: boolean,
+  filters?: string,
 
   // AddonsCard accepts these props which are drilled in.
   showSummary?: boolean,
@@ -224,7 +227,66 @@ export class AddonsByAuthorsCardBase extends React.Component<InternalProps> {
       showMore,
       showSummary,
       type,
+      filters,
     } = this.props;
+    if (filters) {
+      if (authorIds) {
+        if (addonType === ADDON_TYPE_STATIC_THEME) {
+          if (addons !== null) {
+            if (filters === SEARCH_SORT_UPDATED) {
+              addons.sort((d1, d2) => {
+                if (d2.created > d1.created) {
+                  return 1;
+                }
+                return -1;
+              });
+            } else if (filters === SEARCH_SORT_POPULAR) {
+              addons.sort((d1, d2) => {
+                if (d2.average_daily_users && d1.average_daily_users) {
+                  if (d2.average_daily_users > d1.average_daily_users) {
+                    return 1;
+                  }
+                } else if (d2.average_daily_users) {
+                  return 1;
+                } else if (d1.average_daily_users) {
+                  return -1;
+                }
+                return -1;
+              });
+            } else if (filters === SEARCH_SORT_TOP_RATED) {
+              addons.sort((d1, d2) => {
+                if (d2.ratings && d1.ratings) {
+                  if (d2.ratings.average && d1.ratings.average) {
+                    if (d2.ratings.average > d1.ratings.average) {
+                      return 1;
+                    }
+                  } else if (d2.ratings.average) {
+                    return 1;
+                  } else if (d1.ratings.average) {
+                    return -1;
+                  }
+                } else if (d2.ratings) {
+                  if (d2.ratings.average) {
+                    return 1;
+                  }
+                  return -1;
+                } else if (d1.ratings) {
+                  return -1;
+                }
+                return -1;
+              });
+            } else {
+              addons.sort((d1, d2) => {
+                if (d2.created > d1.created) {
+                  return 1;
+                }
+                return -1;
+              });
+            }
+          }
+        }
+      }
+    }
 
     invariant(errorHandler, 'errorHandler is required');
 
