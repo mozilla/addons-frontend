@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-18 20:46+0000\n"
+"POT-Creation-Date: 2020-03-03 21:28+0000\n"
 "PO-Revision-Date: 2020-01-21 20:48+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -89,15 +89,15 @@ msgstr "Niezgodne z Firefoksem Quantum"
 msgid "Some features may require payment"
 msgstr "Część funkcji może wymagać płatności"
 
-#: src/amo/components/AddonCompatibilityError/index.js:125
+#: src/amo/components/AddonCompatibilityError/index.js:123
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Ten dodatek nie jest zgodny z tą wersją Firefoksa."
 
-#: src/amo/components/AddonCompatibilityError/index.js:128
+#: src/amo/components/AddonCompatibilityError/index.js:126
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Ta wersja Firefoksa nie obsługuje wtyczek z wyszukiwarkami."
 
-#: src/amo/components/AddonCompatibilityError/index.js:132
+#: src/amo/components/AddonCompatibilityError/index.js:130
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -105,15 +105,11 @@ msgstr ""
 "Ta wersja Firefoksa nie obsługuje tego dodatku, ponieważ wymaga on ponownego "
 "uruchomienia."
 
-#: src/amo/components/AddonCompatibilityError/index.js:135
-msgid "Firefox for iOS does not currently support add-ons."
-msgstr "Firefox na iOS obecnie nie obsługuje dodatków."
-
-#: src/amo/components/AddonCompatibilityError/index.js:139
+#: src/amo/components/AddonCompatibilityError/index.js:133
 msgid "This add-on is not available on your platform."
 msgstr "Ten dodatek nie jest dostępny dla tej platformy."
 
-#: src/amo/components/AddonCompatibilityError/index.js:143
+#: src/amo/components/AddonCompatibilityError/index.js:137
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -121,7 +117,7 @@ msgstr ""
 "Ten dodatek wymaga <a href=\"%(downloadUrl)s\">nowszej wersji Firefoksa</a> "
 "(co najmniej wersji %(minVersion)s). Używany jest Firefox %(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:160
+#: src/amo/components/AddonCompatibilityError/index.js:154
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -996,44 +992,50 @@ msgstr "Zgłoszono za nieodpowiedni język"
 msgid "Site Status"
 msgstr "Stan strony"
 
-#: src/amo/components/Footer/index.js:117
+#: src/amo/components/Footer/index.js:111
+#, fuzzy
+msgid "Browser"
+msgstr "Przeglądarka na iOS"
+
+#: src/amo/components/Footer/index.js:115
 #: src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
 msgstr "Pobierz Firefoksa"
 
-#: src/amo/components/Footer/index.js:122
+#: src/amo/components/Footer/index.js:120
 msgid "Android Browser"
 msgstr "Przeglądarka na Androida"
 
-#: src/amo/components/Footer/index.js:127
+#: src/amo/components/Footer/index.js:125
 msgid "iOS Browser"
 msgstr "Przeglądarka na iOS"
 
-#: src/amo/components/Footer/index.js:132
-msgid "Focus Browser"
-msgstr "Przeglądarka Focus"
-
-#: src/amo/components/Footer/index.js:137
+#: src/amo/components/Footer/index.js:130
 msgid "Desktop Browser"
 msgstr "Przeglądarka na komputery"
 
-#: src/amo/components/Footer/index.js:142
+#: src/amo/components/Footer/index.js:135
 msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Developer Edition"
 
-#: src/amo/components/Footer/index.js:171
+#: src/amo/components/Footer/index.js:142
+#, fuzzy
+msgid "Products"
+msgstr "Praca biurowa"
+
+#: src/amo/components/Footer/index.js:239
 msgid "Privacy"
 msgstr "Prywatność"
 
-#: src/amo/components/Footer/index.js:179
+#: src/amo/components/Footer/index.js:247
 msgid "Cookies"
 msgstr "Ciasteczka"
 
-#: src/amo/components/Footer/index.js:187
+#: src/amo/components/Footer/index.js:255
 msgid "Legal"
 msgstr "Kwestie prawne"
 
-#: src/amo/components/Footer/index.js:197
+#: src/amo/components/Footer/index.js:265
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1820,7 +1822,29 @@ msgstr "Zdjęcie profilu"
 msgid "Choose Photo…"
 msgstr "Wybierz zdjęcie…"
 
-#: src/amo/components/WrongPlatformWarning/index.js:65
+#: src/amo/components/WrongPlatformWarning/index.js:101
+msgid ""
+"To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
+"\">visit our desktop site</a>."
+msgstr ""
+"Aby znaleźć dodatki zgodne z Firefoksem na komputery, <a href="
+"\"%(newLocation)s\">odwiedź naszą stronę dla komputerów</a>."
+
+#: src/amo/components/WrongPlatformWarning/index.js:122
+msgid ""
+"Not available on Firefox for Android. You can use this add-on with Firefox "
+"for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-"
+"ons</a>."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:129
+#, fuzzy
+msgid ""
+"This add-on is not compatible with this browser. Try installing it on "
+"Firefox for desktop."
+msgstr "Ten dodatek nie jest zgodny z tą wersją Firefoksa."
+
+#: src/amo/components/WrongPlatformWarning/index.js:85
 msgid ""
 "To learn about add-ons compatible with Firefox for Android, <a href="
 "\"%(newLocation)s\">click here</a>."
@@ -1828,21 +1852,13 @@ msgstr ""
 "Aby poznać dodatki zgodne z Firefoksem na Androida, <a href=\"%(newLocation)s"
 "\">kliknij tutaj</a>."
 
-#: src/amo/components/WrongPlatformWarning/index.js:84
+#: src/amo/components/WrongPlatformWarning/index.js:94
 msgid ""
 "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s"
 "\">visit our mobile site</a>."
 msgstr ""
 "Aby znaleźć dodatki zgodne z Firefoksem na Androida, <a href="
 "\"%(newLocation)s\">odwiedź naszą stronę mobilną</a>."
-
-#: src/amo/components/WrongPlatformWarning/index.js:91
-msgid ""
-"To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
-"\">visit our desktop site</a>."
-msgstr ""
-"Aby znaleźć dodatki zgodne z Firefoksem na komputery, <a href="
-"\"%(newLocation)s\">odwiedź naszą stronę dla komputerów</a>."
 
 #: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
@@ -1909,7 +1925,7 @@ msgstr ""
 msgid "Extension Metadata"
 msgstr "Metadane rozszerzenia"
 
-#: src/amo/pages/Addon/index.js:481
+#: src/amo/pages/Addon/index.js:483
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
@@ -1917,7 +1933,7 @@ msgstr ""
 "Ta lista nie jest przeznaczona dla tej platformy. <a href=\"%(newLocation)s"
 "\">Przeglądaj dodatki do Firefoksa na Androida</a>."
 
-#: src/amo/pages/Addon/index.js:485
+#: src/amo/pages/Addon/index.js:487
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
@@ -1925,15 +1941,14 @@ msgstr ""
 "Ta lista nie jest przeznaczona dla tej platformy. <a href=\"%(newLocation)s"
 "\">Przeglądaj dodatki do Firefoksa na komputery</a>."
 
-#: src/amo/pages/Addon/index.js:489
+#: src/amo/pages/Addon/index.js:491
 msgid ""
-"This add-on is not compatible with Firefox for Android. <a href="
-"\"%(newLocation)s\">Learn more</a>."
+"Not available on Firefox for Android. You can use this add-on with Firefox "
+"for Desktop.  Learn more about <a href=\"%(newLocation)s\">add-ons for "
+"Android</a>."
 msgstr ""
-"Ten dodatek nie jest zgodny z Firefoksem na Androida. <a href="
-"\"%(newLocation)s\">Więcej informacji</a>."
 
-#: src/amo/pages/Addon/index.js:509
+#: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
 msgstr "Zrzuty ekranu"
 
@@ -3527,6 +3542,19 @@ msgstr[2] "%(total)s dodatków"
 msgid "Developer response"
 msgstr "Odpowiedź autora"
 
+#~ msgid "Firefox for iOS does not currently support add-ons."
+#~ msgstr "Firefox na iOS obecnie nie obsługuje dodatków."
+
+#~ msgid "Focus Browser"
+#~ msgstr "Przeglądarka Focus"
+
+#~ msgid ""
+#~ "This add-on is not compatible with Firefox for Android. <a href="
+#~ "\"%(newLocation)s\">Learn more</a>."
+#~ msgstr ""
+#~ "Ten dodatek nie jest zgodny z Firefoksem na Androida. <a href="
+#~ "\"%(newLocation)s\">Więcej informacji</a>."
+
 #~ msgid ""
 #~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
 #~ "extension before you install it."
@@ -3635,9 +3663,6 @@ msgstr "Odpowiedź autora"
 
 #~ msgid "Smarter shopping"
 #~ msgstr "Sprytniejsze zakupy"
-
-#~ msgid "Productivity"
-#~ msgstr "Praca biurowa"
 
 #~ msgid "Watching videos"
 #~ msgstr "Oglądanie filmów"

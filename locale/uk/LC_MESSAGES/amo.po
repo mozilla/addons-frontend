@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-18 20:46+0000\n"
+"POT-Creation-Date: 2020-03-03 21:28+0000\n"
 "PO-Revision-Date: 2020-01-22 07:28+0000\n"
 "Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: none\n"
@@ -89,15 +89,15 @@ msgstr "Не сумісно з Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "Деякі функції можуть потребувати оплати"
 
-#: src/amo/components/AddonCompatibilityError/index.js:125
+#: src/amo/components/AddonCompatibilityError/index.js:123
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Цей додаток несумісний з вашою версією Firefox."
 
-#: src/amo/components/AddonCompatibilityError/index.js:128
+#: src/amo/components/AddonCompatibilityError/index.js:126
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Ваша версія Firefox не підтримує пошукові плагіни."
 
-#: src/amo/components/AddonCompatibilityError/index.js:132
+#: src/amo/components/AddonCompatibilityError/index.js:130
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -105,15 +105,11 @@ msgstr ""
 "Ваша версія Firefox не підтримує цей додаток, тому що він потребує "
 "перезапуску."
 
-#: src/amo/components/AddonCompatibilityError/index.js:135
-msgid "Firefox for iOS does not currently support add-ons."
-msgstr "Firefox для iOS поки що не підтримує додатки."
-
-#: src/amo/components/AddonCompatibilityError/index.js:139
+#: src/amo/components/AddonCompatibilityError/index.js:133
 msgid "This add-on is not available on your platform."
 msgstr "Цей додаток недоступний на вашій платформі."
 
-#: src/amo/components/AddonCompatibilityError/index.js:143
+#: src/amo/components/AddonCompatibilityError/index.js:137
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -122,7 +118,7 @@ msgstr ""
 "(щонайменше, версію %(minVersion)s). Ви використовуєте Firefox "
 "%(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:160
+#: src/amo/components/AddonCompatibilityError/index.js:154
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -997,44 +993,50 @@ msgstr "Позначено таким, що містить ненорматив�
 msgid "Site Status"
 msgstr "Статус сайту"
 
-#: src/amo/components/Footer/index.js:117
+#: src/amo/components/Footer/index.js:111
+#, fuzzy
+msgid "Browser"
+msgstr "Браузер для iOS"
+
+#: src/amo/components/Footer/index.js:115
 #: src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
 msgstr "Завантажити Firefox"
 
-#: src/amo/components/Footer/index.js:122
+#: src/amo/components/Footer/index.js:120
 msgid "Android Browser"
 msgstr "Браузер для Android"
 
-#: src/amo/components/Footer/index.js:127
+#: src/amo/components/Footer/index.js:125
 msgid "iOS Browser"
 msgstr "Браузер для iOS"
 
-#: src/amo/components/Footer/index.js:132
-msgid "Focus Browser"
-msgstr "Браузер Focus"
-
-#: src/amo/components/Footer/index.js:137
+#: src/amo/components/Footer/index.js:130
 msgid "Desktop Browser"
 msgstr "Браузер для комп'ютера"
 
-#: src/amo/components/Footer/index.js:142
+#: src/amo/components/Footer/index.js:135
 msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Developer Edition"
 
-#: src/amo/components/Footer/index.js:171
+#: src/amo/components/Footer/index.js:142
+#, fuzzy
+msgid "Products"
+msgstr "Продуктивність"
+
+#: src/amo/components/Footer/index.js:239
 msgid "Privacy"
 msgstr "Приватність"
 
-#: src/amo/components/Footer/index.js:179
+#: src/amo/components/Footer/index.js:247
 msgid "Cookies"
 msgstr "Куки"
 
-#: src/amo/components/Footer/index.js:187
+#: src/amo/components/Footer/index.js:255
 msgid "Legal"
 msgstr "Юридична інформація"
 
-#: src/amo/components/Footer/index.js:197
+#: src/amo/components/Footer/index.js:265
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1814,7 +1816,29 @@ msgstr "Фотографія профілю"
 msgid "Choose Photo…"
 msgstr "Оберіть фото…"
 
-#: src/amo/components/WrongPlatformWarning/index.js:65
+#: src/amo/components/WrongPlatformWarning/index.js:101
+msgid ""
+"To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
+"\">visit our desktop site</a>."
+msgstr ""
+"Щоб знайти додатки, сумісні з Firefox для комп'ютера, <a href="
+"\"%(newLocation)s\">відвідайте наш сайт</a>."
+
+#: src/amo/components/WrongPlatformWarning/index.js:122
+msgid ""
+"Not available on Firefox for Android. You can use this add-on with Firefox "
+"for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-"
+"ons</a>."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:129
+#, fuzzy
+msgid ""
+"This add-on is not compatible with this browser. Try installing it on "
+"Firefox for desktop."
+msgstr "Цей додаток несумісний з вашою версією Firefox."
+
+#: src/amo/components/WrongPlatformWarning/index.js:85
 msgid ""
 "To learn about add-ons compatible with Firefox for Android, <a href="
 "\"%(newLocation)s\">click here</a>."
@@ -1822,21 +1846,13 @@ msgstr ""
 "Щоб ознайомитися з додатками, сумісними з Firefox для Android, <a href="
 "\"%(newLocation)s\">клацніть тут</a>."
 
-#: src/amo/components/WrongPlatformWarning/index.js:84
+#: src/amo/components/WrongPlatformWarning/index.js:94
 msgid ""
 "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s"
 "\">visit our mobile site</a>."
 msgstr ""
 "Щоб знайти додатки, сумісні з Firefox для Android, <a href=\"%(newLocation)s"
 "\">відвідайте наш сайт для мобільного</a>."
-
-#: src/amo/components/WrongPlatformWarning/index.js:91
-msgid ""
-"To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
-"\">visit our desktop site</a>."
-msgstr ""
-"Щоб знайти додатки, сумісні з Firefox для комп'ютера, <a href="
-"\"%(newLocation)s\">відвідайте наш сайт</a>."
 
 #: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
@@ -1900,7 +1916,7 @@ msgstr ""
 msgid "Extension Metadata"
 msgstr "Метадані розширення"
 
-#: src/amo/pages/Addon/index.js:481
+#: src/amo/pages/Addon/index.js:483
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
@@ -1908,7 +1924,7 @@ msgstr ""
 "Цей опис не призначений для цієї платформи. <a href=\"%(newLocation)s"
 "\">Перегляньте додатки для Firefox на Android</a>."
 
-#: src/amo/pages/Addon/index.js:485
+#: src/amo/pages/Addon/index.js:487
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
@@ -1916,15 +1932,14 @@ msgstr ""
 "Цей опис не призначений для цієї платформи. <a href=\"%(newLocation)s"
 "\">Перегляньте додатки для Firefox на комп'ютері</a>."
 
-#: src/amo/pages/Addon/index.js:489
+#: src/amo/pages/Addon/index.js:491
 msgid ""
-"This add-on is not compatible with Firefox for Android. <a href="
-"\"%(newLocation)s\">Learn more</a>."
+"Not available on Firefox for Android. You can use this add-on with Firefox "
+"for Desktop.  Learn more about <a href=\"%(newLocation)s\">add-ons for "
+"Android</a>."
 msgstr ""
-"Цей додаток несумісний з Firefox для Android. <a href=\"%(newLocation)s"
-"\">Докладніше</a>."
 
-#: src/amo/pages/Addon/index.js:509
+#: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
 msgstr "Знімки екрану"
 
@@ -3534,6 +3549,19 @@ msgstr[2] "%(total)s додатків"
 msgid "Developer response"
 msgstr "Відповідь розробника"
 
+#~ msgid "Firefox for iOS does not currently support add-ons."
+#~ msgstr "Firefox для iOS поки що не підтримує додатки."
+
+#~ msgid "Focus Browser"
+#~ msgstr "Браузер Focus"
+
+#~ msgid ""
+#~ "This add-on is not compatible with Firefox for Android. <a href="
+#~ "\"%(newLocation)s\">Learn more</a>."
+#~ msgstr ""
+#~ "Цей додаток несумісний з Firefox для Android. <a href=\"%(newLocation)s"
+#~ "\">Докладніше</a>."
+
 #~ msgid ""
 #~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
 #~ "extension before you install it."
@@ -3639,9 +3667,6 @@ msgstr "Відповідь розробника"
 
 #~ msgid "Smarter shopping"
 #~ msgstr "Розумніші покупки"
-
-#~ msgid "Productivity"
-#~ msgstr "Продуктивність"
 
 #~ msgid "Watching videos"
 #~ msgstr "Перегляд відео"
