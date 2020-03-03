@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import {
   CLIENT_APP_ANDROID,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
+  INCOMPATIBLE_FIREFOX_FOR_IOS,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
@@ -123,6 +124,10 @@ export class WrongPlatformWarningBase extends React.Component<InternalProps> {
               or look for similar <a href="%(newLocation)s">Android add-ons</a>.`,
           ),
           { newLocation: '/android/' },
+        );
+      } else if (compatibility.reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
+        message = i18n.gettext(
+          `This add-on is not compatible with this browser. Try installing it on Firefox for desktop.`,
         );
       }
     }

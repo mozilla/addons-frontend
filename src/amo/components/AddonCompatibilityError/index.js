@@ -91,15 +91,16 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
       return null;
     }
 
-    if (reason === INCOMPATIBLE_FIREFOX_FENIX) {
-      // Do not display a message for Fenix, it is dealt with elsewhere.
-      return null;
-    }
-
-    if (reason === INCOMPATIBLE_ANDROID_UNSUPPORTED) {
-      // This message has been moved into the WrongPlatformWarning, so should
-      // not render an AddonCompatibilityError.
-      // See https://github.com/mozilla/addons-frontend/issues/9171
+    // Each of these reasons will display a warning using the
+    // WrongPlatformWarning, so we do not want to display this compatibility
+    // error.
+    if (
+      [
+        INCOMPATIBLE_FIREFOX_FENIX,
+        INCOMPATIBLE_FIREFOX_FOR_IOS,
+        INCOMPATIBLE_ANDROID_UNSUPPORTED,
+      ].includes(reason)
+    ) {
       _log.info(
         'Not rendering incompatibility error along with "wrong platform" warning',
       );
@@ -128,10 +129,6 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
     } else if (reason === INCOMPATIBLE_NON_RESTARTLESS_ADDON) {
       message = i18n.gettext(`Your version of Firefox does not support this
           add-on because it requires a restart.`);
-    } else if (reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
-      message = i18n.gettext(
-        'Firefox for iOS does not currently support add-ons.',
-      );
     } else if (reason === INCOMPATIBLE_UNSUPPORTED_PLATFORM) {
       message = i18n.gettext('This add-on is not available on your platform.');
     } else if (reason === INCOMPATIBLE_UNDER_MIN_VERSION) {
