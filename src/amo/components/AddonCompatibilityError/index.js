@@ -91,20 +91,16 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
       return null;
     }
 
-    if (reason === INCOMPATIBLE_FIREFOX_FENIX) {
-      // Do not display a message for Fenix, it is dealt with elsewhere.
-      return null;
-    }
-
-    if (reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
-      // Do not display a message for iOS, it is dealt with elsewhere.
-      return null;
-    }
-
-    if (reason === INCOMPATIBLE_ANDROID_UNSUPPORTED) {
-      // This message has been moved into the WrongPlatformWarning, so should
-      // not render an AddonCompatibilityError.
-      // See https://github.com/mozilla/addons-frontend/issues/9171
+    // Each of these reasons will display a warning using the
+    // WrongPlatformWarning, so we do not want to display this compatibility
+    // error. display a message for Fenix, it is dealt with elsewhere.
+    if (
+      [
+        INCOMPATIBLE_FIREFOX_FENIX,
+        INCOMPATIBLE_FIREFOX_FOR_IOS,
+        INCOMPATIBLE_ANDROID_UNSUPPORTED,
+      ].includes(reason)
+    ) {
       _log.info(
         'Not rendering incompatibility error along with "wrong platform" warning',
       );
