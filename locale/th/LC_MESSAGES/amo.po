@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-02-18 20:46+0000\n"
-"PO-Revision-Date: 2020-03-03 18:31+0000\n"
+"PO-Revision-Date: 2020-03-03 18:35+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -2238,6 +2238,8 @@ msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"โดยทั่วไปนั้นไม่ได้ แต่หากบทวิจารณ์ดังกล่าวไม่สอดคล้องกับหลักเกณฑ์การวิจารณ์ที่ระบุข้างต้น คุณสามารถคลิก \"รายงานบทวิจารณ์นี้\" เพื่อให้เราทำการตรวจสอบได้ "
+"หากบทวิจารณ์มีคำร้องเรียนที่ไม่มีผลอีกต่อไปเนื่องจากมีการออกรุ่นใหม่ของส่วนเสริมของคุณ เราอาจพิจารณาลบบทวิจารณ์ดังกล่าว"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
@@ -2255,7 +2257,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "เคล็ดลับในการเขียนบทวิจารณ์ที่ยอดเยี่ยม"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Do:"
@@ -2275,11 +2277,11 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "ส่วนเสริมนี้ทำงานอย่างที่คุณคาดหวังหรือไม่?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "คุณลักษณะไหนที่คุณชอบหรือไม่ชอบ?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
@@ -2639,7 +2641,7 @@ msgstr "ลงทะเบียนหรือเข้าสู่ระบบ
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "ขออภัย มีข้อผิดพลาดและเราไม่สามารถทำตามคำขอของคุณให้เสร็จสมบูรณ์ได้ เราได้บันทึกข้อผิดพลาดนี้ไว้แล้วและเราจะตรวจสอบข้อผิดพลาดดังกล่าว"
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
@@ -2651,7 +2653,7 @@ msgstr "ไม่พบหน้า"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "ขออภัย เราไม่พบอะไรเลยใน URL ที่คุณป้อน"
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
