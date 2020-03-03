@@ -477,7 +477,9 @@ export class AddonBase extends React.Component {
                 </h2>
               </header>
               <WrongPlatformWarning
+                addon={addon}
                 className="Addon-WrongPlatformWarning"
+                currentVersion={currentVersion}
                 fixAndroidLinkMessage={i18n.gettext(
                   `This listing is not intended for this platform.
                     <a href="%(newLocation)s">Browse add-ons for Firefox on Android</a>.`,
@@ -487,8 +489,8 @@ export class AddonBase extends React.Component {
                     <a href="%(newLocation)s">Browse add-ons for Firefox on desktop</a>.`,
                 )}
                 fixFenixLinkMessage={i18n.gettext(
-                  `This add-on is not compatible with Firefox for Android.
-                    <a href="%(newLocation)s">Learn more</a>.`,
+                  `Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. 
+                    Learn more about <a href="%(newLocation)s">add-ons for Android</a>.`,
                 )}
               />
               {addon && <InstallWarning addon={addon} />}

@@ -800,6 +800,26 @@ describe(__filename, () => {
         reason: null,
       });
     });
+
+    it('returns correct reason when add-on is incompatible with android', () => {
+      const { browser, os } = UAParser(
+        userAgentsByPlatform.android.firefox40Mobile,
+      );
+      const userAgentInfo = { browser, os };
+
+      expect(
+        _getClientCompatibility({
+          clientApp: CLIENT_APP_ANDROID,
+          currentVersion: createInternalVersion({
+            ...fakeVersion,
+            compatibility: {},
+          }),
+          userAgentInfo,
+        }),
+      ).toMatchObject({
+        reason: INCOMPATIBLE_ANDROID_UNSUPPORTED,
+      });
+    });
   });
 
   describe('isQuantumCompatible', () => {

@@ -250,10 +250,21 @@ describe(__filename, () => {
   });
 
   it('renders a WrongPlatformWarning component', () => {
-    const root = shallowRender();
+    const addon = createInternalAddon(fakeAddon);
+    const currentVersion = createInternalVersion(fakeVersion);
+    const root = shallowRender({
+      addon,
+      currentVersion,
+    });
+
     expect(root.find(WrongPlatformWarning)).toHaveLength(1);
     expect(root.find(WrongPlatformWarning)).toHaveProp('fixAndroidLinkMessage');
     expect(root.find(WrongPlatformWarning)).toHaveProp('fixFirefoxLinkMessage');
+    expect(root.find(WrongPlatformWarning)).toHaveProp('addon', addon);
+    expect(root.find(WrongPlatformWarning)).toHaveProp(
+      'currentVersion',
+      currentVersion,
+    );
   });
 
   it('renders without an add-on', () => {

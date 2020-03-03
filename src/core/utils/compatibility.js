@@ -281,11 +281,9 @@ export function getClientCompatibility({
     _window,
   });
 
-  let reason;
-  if (!supportsClientApp) {
+  let { reason } = agent;
+  if (!supportsClientApp && !reason) {
     reason = INCOMPATIBLE_UNSUPPORTED_PLATFORM;
-  } else {
-    reason = agent.reason;
   }
 
   let downloadUrl;
