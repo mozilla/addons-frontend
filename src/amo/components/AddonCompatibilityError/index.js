@@ -93,7 +93,7 @@ export class AddonCompatibilityErrorBase extends React.Component<InternalProps> 
 
     // Each of these reasons will display a warning using the
     // WrongPlatformWarning, so we do not want to display this compatibility
-    // error. display a message for Fenix, it is dealt with elsewhere.
+    // error.
     if (
       [
         INCOMPATIBLE_FIREFOX_FENIX,
