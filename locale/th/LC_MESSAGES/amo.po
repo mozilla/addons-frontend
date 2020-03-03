@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-02-18 20:46+0000\n"
-"PO-Revision-Date: 2020-02-23 09:32+0000\n"
-"Last-Translator: aefgh39622 <aefgh39622@gmail.com>\n"
+"PO-Revision-Date: 2020-03-03 18:31+0000\n"
+"Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
@@ -2209,7 +2209,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "คำถามที่พบบ่อยเกี่ยวกับบทวิจารณ์"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:122
 msgid "How can I report a problematic review?"
@@ -2223,15 +2223,15 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "ฉันเป็นผู้สร้างส่วนเสริม ฉันสามารถตอบกลับบทวิจารณ์ได้หรือไม่?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "ใช่ ผู้สร้างส่วนเสริมสามารถให้คำตอบกับบทวิจารณ์แต่ละบทได้ คุณสามารถตั้งหัวข้ออภิปรายใน%(startLink)sฟอรัม%(endLink)sของเราเพื่อมีส่วนร่วมในการอภิปรายเพิ่มเติมหรือที่กำลังตามมา"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "ฉันเป็นผู้สร้างส่วนเสริม ฉันสามารถลบบทวิจารณ์หรือการจัดอันดับที่ไม่พึงประสงค์ได้หรือไม่?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
