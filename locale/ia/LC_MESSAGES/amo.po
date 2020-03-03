@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-18 20:46+0000\n"
+"POT-Creation-Date: 2020-03-03 21:28+0000\n"
 "PO-Revision-Date: 2020-01-23 13:35+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,15 +88,15 @@ msgstr "Non compatibile con Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "Alcun functiones pote requirer pagamento"
 
-#: src/amo/components/AddonCompatibilityError/index.js:125
+#: src/amo/components/AddonCompatibilityError/index.js:123
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Iste additivo non es compatibile con le version in uso de Firefox."
 
-#: src/amo/components/AddonCompatibilityError/index.js:128
+#: src/amo/components/AddonCompatibilityError/index.js:126
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Tu version de Firefox non supporta plugin de recerca."
 
-#: src/amo/components/AddonCompatibilityError/index.js:132
+#: src/amo/components/AddonCompatibilityError/index.js:130
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
@@ -104,15 +104,11 @@ msgstr ""
 "Tu version de Firefox non supporta iste additivo proque illo require un "
 "reinitio."
 
-#: src/amo/components/AddonCompatibilityError/index.js:135
-msgid "Firefox for iOS does not currently support add-ons."
-msgstr "Firefox pro iOS non supporta actualmente additivos."
-
-#: src/amo/components/AddonCompatibilityError/index.js:139
+#: src/amo/components/AddonCompatibilityError/index.js:133
 msgid "This add-on is not available on your platform."
 msgstr "Iste additivo non es disponibile sur tu systema operative."
 
-#: src/amo/components/AddonCompatibilityError/index.js:143
+#: src/amo/components/AddonCompatibilityError/index.js:137
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -121,7 +117,7 @@ msgstr ""
 "Firefox</a> (al minus version %(minVersion)s). Tu usa Firefox "
 "%(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:160
+#: src/amo/components/AddonCompatibilityError/index.js:154
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -994,44 +990,50 @@ msgstr "Signalate pro linguage inappropriate"
 msgid "Site Status"
 msgstr "Stato del sito"
 
-#: src/amo/components/Footer/index.js:117
+#: src/amo/components/Footer/index.js:111
+#, fuzzy
+msgid "Browser"
+msgstr "Navigator pro iOS"
+
+#: src/amo/components/Footer/index.js:115
 #: src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
 msgstr "Discargar Firefox"
 
-#: src/amo/components/Footer/index.js:122
+#: src/amo/components/Footer/index.js:120
 msgid "Android Browser"
 msgstr "Navigator pro Android"
 
-#: src/amo/components/Footer/index.js:127
+#: src/amo/components/Footer/index.js:125
 msgid "iOS Browser"
 msgstr "Navigator pro iOS"
 
-#: src/amo/components/Footer/index.js:132
-msgid "Focus Browser"
-msgstr "Navigator Focus"
-
-#: src/amo/components/Footer/index.js:137
+#: src/amo/components/Footer/index.js:130
 msgid "Desktop Browser"
 msgstr "Navigator pro scriptorio"
 
-#: src/amo/components/Footer/index.js:142
+#: src/amo/components/Footer/index.js:135
 msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Edition de disveloppatores"
 
-#: src/amo/components/Footer/index.js:171
+#: src/amo/components/Footer/index.js:142
+#, fuzzy
+msgid "Products"
+msgstr "Productivitate"
+
+#: src/amo/components/Footer/index.js:239
 msgid "Privacy"
 msgstr "Confidentialitate"
 
-#: src/amo/components/Footer/index.js:179
+#: src/amo/components/Footer/index.js:247
 msgid "Cookies"
 msgstr "Cookies"
 
-#: src/amo/components/Footer/index.js:187
+#: src/amo/components/Footer/index.js:255
 msgid "Legal"
 msgstr "Legal"
 
-#: src/amo/components/Footer/index.js:197
+#: src/amo/components/Footer/index.js:265
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1795,7 +1797,29 @@ msgstr "Photo del profilo"
 msgid "Choose Photo…"
 msgstr "Elige photo…"
 
-#: src/amo/components/WrongPlatformWarning/index.js:65
+#: src/amo/components/WrongPlatformWarning/index.js:101
+msgid ""
+"To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
+"\">visit our desktop site</a>."
+msgstr ""
+"Pro trovar additivos compatibile con Firefox pro scriptorio, <a href="
+"\"%(newLocation)s\">visitar nostre sito scriptorio</a>."
+
+#: src/amo/components/WrongPlatformWarning/index.js:122
+msgid ""
+"Not available on Firefox for Android. You can use this add-on with Firefox "
+"for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-"
+"ons</a>."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:129
+#, fuzzy
+msgid ""
+"This add-on is not compatible with this browser. Try installing it on "
+"Firefox for desktop."
+msgstr "Iste additivo non es compatibile con le version in uso de Firefox."
+
+#: src/amo/components/WrongPlatformWarning/index.js:85
 msgid ""
 "To learn about add-ons compatible with Firefox for Android, <a href="
 "\"%(newLocation)s\">click here</a>."
@@ -1803,21 +1827,13 @@ msgstr ""
 "Pro saper plus re additivos compatibile con Firefox pro Android, <a href="
 "\"%(newLocation)s\">facer clic hic</a>."
 
-#: src/amo/components/WrongPlatformWarning/index.js:84
+#: src/amo/components/WrongPlatformWarning/index.js:94
 msgid ""
 "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s"
 "\">visit our mobile site</a>."
 msgstr ""
 "Pro trovar additivos compatibile con Firefox pro Android, <a href="
 "\"%(newLocation)s\">visitar nostre sito mobile</a>."
-
-#: src/amo/components/WrongPlatformWarning/index.js:91
-msgid ""
-"To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
-"\">visit our desktop site</a>."
-msgstr ""
-"Pro trovar additivos compatibile con Firefox pro scriptorio, <a href="
-"\"%(newLocation)s\">visitar nostre sito scriptorio</a>."
 
 #: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
@@ -1883,7 +1899,7 @@ msgstr ""
 msgid "Extension Metadata"
 msgstr "Metadatos del extension"
 
-#: src/amo/pages/Addon/index.js:481
+#: src/amo/pages/Addon/index.js:483
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
@@ -1891,7 +1907,7 @@ msgstr ""
 "Iste lista de presentation non es destinate pro iste systema operative. <a "
 "href=\"%(newLocation)s\">Folietta le additivos de Firefox pro Android</a>."
 
-#: src/amo/pages/Addon/index.js:485
+#: src/amo/pages/Addon/index.js:487
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
@@ -1899,15 +1915,14 @@ msgstr ""
 "Iste lista de presentation non es destinate pro iste systema operative. <a "
 "href=\"%(newLocation)s\">Folietta le additivos de Firefox pro scriptorio</a>."
 
-#: src/amo/pages/Addon/index.js:489
+#: src/amo/pages/Addon/index.js:491
 msgid ""
-"This add-on is not compatible with Firefox for Android. <a href="
-"\"%(newLocation)s\">Learn more</a>."
+"Not available on Firefox for Android. You can use this add-on with Firefox "
+"for Desktop.  Learn more about <a href=\"%(newLocation)s\">add-ons for "
+"Android</a>."
 msgstr ""
-"Iste additivo non es compatibile con Firefox pro Android. <a href="
-"\"%(newLocation)s\">Saper plus</a>."
 
-#: src/amo/pages/Addon/index.js:509
+#: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
 msgstr "Capturas de schermo"
 
@@ -3517,6 +3532,19 @@ msgstr[1] "%(total)s additivos"
 msgid "Developer response"
 msgstr "Responsa de disveloppator"
 
+#~ msgid "Firefox for iOS does not currently support add-ons."
+#~ msgstr "Firefox pro iOS non supporta actualmente additivos."
+
+#~ msgid "Focus Browser"
+#~ msgstr "Navigator Focus"
+
+#~ msgid ""
+#~ "This add-on is not compatible with Firefox for Android. <a href="
+#~ "\"%(newLocation)s\">Learn more</a>."
+#~ msgstr ""
+#~ "Iste additivo non es compatibile con Firefox pro Android. <a href="
+#~ "\"%(newLocation)s\">Saper plus</a>."
+
 #~ msgid ""
 #~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
 #~ "extension before you install it."
@@ -3625,9 +3653,6 @@ msgstr "Responsa de disveloppator"
 
 #~ msgid "Smarter shopping"
 #~ msgstr "Compras plus intelligente"
-
-#~ msgid "Productivity"
-#~ msgstr "Productivitate"
 
 #~ msgid "Watching videos"
 #~ msgstr "Spectar videos"

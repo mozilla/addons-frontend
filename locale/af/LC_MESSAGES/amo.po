@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-18 20:46+0000\n"
+"POT-Creation-Date: 2020-03-03 21:28+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -86,35 +86,31 @@ msgstr ""
 msgid "Some features may require payment"
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:125
+#: src/amo/components/AddonCompatibilityError/index.js:123
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:128
+#: src/amo/components/AddonCompatibilityError/index.js:126
 msgid "Your version of Firefox does not support search plugins."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:132
+#: src/amo/components/AddonCompatibilityError/index.js:130
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:135
-msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
-
-#: src/amo/components/AddonCompatibilityError/index.js:139
+#: src/amo/components/AddonCompatibilityError/index.js:133
 msgid "This add-on is not available on your platform."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:143
+#: src/amo/components/AddonCompatibilityError/index.js:137
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:160
+#: src/amo/components/AddonCompatibilityError/index.js:154
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -931,44 +927,48 @@ msgstr ""
 msgid "Site Status"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:117
+#: src/amo/components/Footer/index.js:111
+msgid "Browser"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:115
 #: src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:122
+#: src/amo/components/Footer/index.js:120
 msgid "Android Browser"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:127
+#: src/amo/components/Footer/index.js:125
 msgid "iOS Browser"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:132
-msgid "Focus Browser"
-msgstr ""
-
-#: src/amo/components/Footer/index.js:137
+#: src/amo/components/Footer/index.js:130
 msgid "Desktop Browser"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:142
+#: src/amo/components/Footer/index.js:135
 msgid "Beta, Nightly, Developer Edition"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:171
+#: src/amo/components/Footer/index.js:142
+msgid "Products"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:239
 msgid "Privacy"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:179
+#: src/amo/components/Footer/index.js:247
 msgid "Cookies"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:187
+#: src/amo/components/Footer/index.js:255
 msgid "Legal"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:197
+#: src/amo/components/Footer/index.js:265
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -1700,22 +1700,35 @@ msgstr ""
 msgid "Choose Photo…"
 msgstr ""
 
-#: src/amo/components/WrongPlatformWarning/index.js:65
+#: src/amo/components/WrongPlatformWarning/index.js:101
+msgid ""
+"To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
+"\">visit our desktop site</a>."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:122
+msgid ""
+"Not available on Firefox for Android. You can use this add-on with Firefox "
+"for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-"
+"ons</a>."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:129
+msgid ""
+"This add-on is not compatible with this browser. Try installing it on "
+"Firefox for desktop."
+msgstr ""
+
+#: src/amo/components/WrongPlatformWarning/index.js:85
 msgid ""
 "To learn about add-ons compatible with Firefox for Android, <a href="
 "\"%(newLocation)s\">click here</a>."
 msgstr ""
 
-#: src/amo/components/WrongPlatformWarning/index.js:84
+#: src/amo/components/WrongPlatformWarning/index.js:94
 msgid ""
 "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s"
 "\">visit our mobile site</a>."
-msgstr ""
-
-#: src/amo/components/WrongPlatformWarning/index.js:91
-msgid ""
-"To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s"
-"\">visit our desktop site</a>."
 msgstr ""
 
 #: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:31
@@ -1778,25 +1791,26 @@ msgstr ""
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:481
+#: src/amo/pages/Addon/index.js:483
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:485
+#: src/amo/pages/Addon/index.js:487
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:489
+#: src/amo/pages/Addon/index.js:491
 msgid ""
-"This add-on is not compatible with Firefox for Android. <a href="
-"\"%(newLocation)s\">Learn more</a>."
+"Not available on Firefox for Android. You can use this add-on with Firefox "
+"for Desktop.  Learn more about <a href=\"%(newLocation)s\">add-ons for "
+"Android</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:509
+#: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
 msgstr ""
 
