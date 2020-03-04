@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-04 14:19+0000\n"
+"PO-Revision-Date: 2020-03-04 14:25+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -885,9 +885,8 @@ msgid "Site Status"
 msgstr "Sydłowy status"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browser"
-msgstr "Wobhladowak za iOS"
+msgstr "Wobhladowak"
 
 #: src/amo/components/Footer/index.js:115 src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
@@ -910,9 +909,8 @@ msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:142
-#, fuzzy
 msgid "Products"
-msgstr "Produktiwita"
+msgstr "Produkty"
 
 #: src/amo/components/Footer/index.js:239
 msgid "Privacy"
@@ -1654,9 +1652,8 @@ msgid "Not available on Firefox for Android. You can use this add-on with Firefo
 msgstr "Za Firefox za Android k dispoziciji njeje. Móžeće tutón přidatk z Firefox za Desktop wužiwać, abo pytajće za podobnymi <a href=\"%(newLocation)s\">přidatkami za Android</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
-#, fuzzy
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr "Tutón přidatk z wašej wersiju Firefox kompatibelny njeje."
+msgstr "Tutón přidatk z tutym wobhladowakom kompatibelny njeje. Spytajće jón do Firefox za desktop instalować."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
