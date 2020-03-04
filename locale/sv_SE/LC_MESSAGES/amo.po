@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-03 22:21+0000\n"
-"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
+"PO-Revision-Date: 2020-03-04 02:03+0000\n"
+"Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -1615,12 +1615,11 @@ msgstr "För att hitta tillägg som är kompatibla med Firefox för datorer, <a 
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-msgstr ""
+msgstr "Inte tillgängligt på Firefox för Android. Du kan använda detta tillägg med Firefox för datorer eller leta efter liknande <a href=\"%(newLocation)s\">Android-tillägg</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
-#, fuzzy
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr "Detta tillägg är inte kompatibel med din version av Firefox."
+msgstr "Detta tillägg är inte kompatibelt med den här webbläsaren. Prova att installera det på Firefox för datorer."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
@@ -1698,7 +1697,7 @@ msgstr "Den här listan är inte avsedd för den här plattformen. <a href=\"%(n
 
 #: src/amo/pages/Addon/index.js:491
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+msgstr "Inte tillgängligt på Firefox för Android. Du kan använda detta tillägg med Firefox för datorer. Läs mer om <a href=\"%(newLocation)s\">tillägg för Android</a>."
 
 #: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
