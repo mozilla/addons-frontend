@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-04 01:25+0000\n"
+"PO-Revision-Date: 2020-03-04 01:49+0000\n"
 "Last-Translator: passionforlife <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1586,7 +1586,7 @@ msgstr "若要寻找兼容于桌面版 Firefox 的附加组件，<a href=\"%(new
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-msgstr ""
+msgstr "不适用于 Android 版 Firefox。您可以在桌面版 Firefox 使用此附加组件。  或寻找类似的 <a href=\"%(newLocation)s\">Android 附加组件</a>。"
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
@@ -1667,7 +1667,7 @@ msgstr "此列表非适用于本平台。<a href=\"%(newLocation)s\">浏览桌�
 
 #: src/amo/pages/Addon/index.js:491
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+msgstr "不适用于 Android 版 Firefox。您可以在桌面版 Firefox 使用此附加组件。  详细了解<a href=\"%(newLocation)s\">适用于 Android 的附加组件</a>的更多信息。"
 
 #: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
