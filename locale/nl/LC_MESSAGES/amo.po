@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-04 09:25+0000\n"
+"PO-Revision-Date: 2020-03-04 09:24+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -1614,7 +1614,7 @@ msgstr "<a href=\"%(newLocation)s\">Bezoek onze desktopwebsite</a> om add-ons te
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-msgstr ""
+msgstr "Niet beschikbaar in Firefox voor Android. U kunt deze add-on met Firefox voor Desktop gebruiken, of naar vergelijkbare <a href=\"%(newLocation)s\">Android-add-ons</a> zoeken."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 #, fuzzy
@@ -1697,7 +1697,7 @@ msgstr "Deze lijst is niet bedoeld voor dit platform. <a href=\"%(newLocation)s\
 
 #: src/amo/pages/Addon/index.js:491
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+msgstr "Niet beschikbaar in Firefox voor Android. U kunt deze add-on met Firefox voor Desktop gebruiken. Meer info over <a href=\"%(newLocation)s\">add-ons voor Android</a>."
 
 #: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
