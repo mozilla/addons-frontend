@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-04 16:33+0000\n"
+"PO-Revision-Date: 2020-03-04 20:47+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1624,7 +1624,7 @@ msgstr "Doplňky kompatibilní s Firefoxem pro počítač najdete ve <a href=\"%
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-msgstr ""
+msgstr "Tento doplněk není dostupný pro Firefox pro Android, ale můžete ho používat ve Firefoxu pro počítač. Nebo se podívejte po podobném <a href=\"%(newLocation)s\">doplňku pro Android</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
@@ -1707,7 +1707,7 @@ msgstr "Tento seznam není určen pro platformu na vašem zařízení. <a href=\
 
 #: src/amo/pages/Addon/index.js:491
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+msgstr "Tento doplněk není dostupný pro Firefox pro Android, ale můžete ho používat ve Firefoxu pro počítač. Zjistěte více o <a href=\"%(newLocation)s\">doplňích pro Android</a>."
 
 #: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
