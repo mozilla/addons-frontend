@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-04 18:36+0000\n"
+"PO-Revision-Date: 2020-03-04 18:37+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -902,7 +902,7 @@ msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:142
 msgid "Products"
-msgstr ""
+msgstr "Produits"
 
 #: src/amo/components/Footer/index.js:239
 msgid "Privacy"
@@ -1621,7 +1621,7 @@ msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr ""
+msgstr "Ce module complémentaire n’est pas compatible avec ce navigateur. Essayez de l’installer sur Firefox pour ordinateur."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
