@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-04 09:24+0000\n"
+"PO-Revision-Date: 2020-03-04 09:26+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -1617,9 +1617,8 @@ msgid "Not available on Firefox for Android. You can use this add-on with Firefo
 msgstr "Niet beschikbaar in Firefox voor Android. U kunt deze add-on met Firefox voor Desktop gebruiken, of naar vergelijkbare <a href=\"%(newLocation)s\">Android-add-ons</a> zoeken."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
-#, fuzzy
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr "Deze add-on is niet compatibel met uw versie van Firefox."
+msgstr "Deze add-on is niet compatibel met deze browser. Probeer hem in Firefox voor desktop te installeren."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
