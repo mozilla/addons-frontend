@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-04 09:04+0000\n"
+"PO-Revision-Date: 2020-03-04 10:23+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -874,9 +874,8 @@ msgid "Site Status"
 msgstr "Starea site-ului"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browser"
-msgstr "Browser pentru iOS"
+msgstr "Browser"
 
 #: src/amo/components/Footer/index.js:115 src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
@@ -899,9 +898,8 @@ msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:142
-#, fuzzy
 msgid "Products"
-msgstr "Productivitate"
+msgstr "Produse"
 
 #: src/amo/components/Footer/index.js:239
 msgid "Privacy"
@@ -1631,9 +1629,8 @@ msgid "Not available on Firefox for Android. You can use this add-on with Firefo
 msgstr "Nu este disponibil pe Firefox pentru Android. Poți utiliza acest supliment cu Firefox pentru calculator sau caută <a href=\"%(newLocation)s\">suplimente Android</a> similare."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
-#, fuzzy
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr "Acest supliment nu este compatibil cu versiunea ta de Firefox."
+msgstr "Suplimentul nu este compatibil cu acest browser. Încearcă să-l instalezi pe Firefox pentru calculator."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
