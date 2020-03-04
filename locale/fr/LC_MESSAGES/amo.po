@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-04 18:37+0000\n"
+"PO-Revision-Date: 2020-03-04 18:34+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1700,6 +1700,8 @@ msgstr "Cette ressource n’est pas prévue pour cette plateforme. <a href=\"%(n
 #: src/amo/pages/Addon/index.js:491
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
 msgstr ""
+"Non disponible sur Firefox pour Android. Vous pouvez utiliser ce module complémentaire avec Firefox pour ordinateur de bureau. En savoir plus sur les <a href=\"%(newLocation)s\">modules "
+"complémentaires pour Android</a>."
 
 #: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
