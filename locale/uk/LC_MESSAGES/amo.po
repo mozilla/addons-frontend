@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-05 06:21+0000\n"
+"PO-Revision-Date: 2020-03-05 06:23+0000\n"
 "Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1715,7 +1715,7 @@ msgstr "Цей опис не призначений для цієї платфо
 
 #: src/amo/pages/Addon/index.js:491
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+msgstr "Недоступно в Firefox для Android. Ви можете використовувати цей додаток з Firefox для комп'ютера.  Дізнайтеся більше про <a href=\"%(newLocation)s\">додатки для Android</a>."
 
 #: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
