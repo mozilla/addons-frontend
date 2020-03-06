@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-06 04:38+0000\n"
+"PO-Revision-Date: 2020-03-06 04:52+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -377,7 +377,7 @@ msgstr "Publicante responsa"
 
 #: src/amo/components/AddonReviewCard/index.js:349
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "postate %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "publicate %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:351
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -405,11 +405,11 @@ msgstr "Describe tu experientia con iste additivo."
 
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Submit review"
-msgstr "Inviar revision"
+msgstr "Inviar recension"
 
 #: src/amo/components/AddonReviewManager/index.js:116
 msgid "Submitting review"
-msgstr "Invio del revision"
+msgstr "Invio de recension in curso"
 
 #: src/amo/components/AddonReviewManager/index.js:120
 msgid "Update review"
