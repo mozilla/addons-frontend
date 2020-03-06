@@ -173,7 +173,7 @@ class Footer(Region):
 
     _root_locator = (By.CSS_SELECTOR, '.Footer-wrapper')
     _footer_amo_links = (By.CSS_SELECTOR, '.Footer-amo-links')
-    _footer_firefox_links = (By.CSS_SELECTOR, '.Footer-browser-links')
+    _footer_browsers_links = (By.CSS_SELECTOR, '.Footer-browsers-links')
     _footer_links = (By.CSS_SELECTOR, '.Footer-links li a')
 
     @property
@@ -183,5 +183,5 @@ class Footer(Region):
 
     @property
     def firefox_links(self):
-        header = self.find_element(*self._footer_firefox_links)
+        header = self.find_element(*self._footer_browsers_links)
         return header.find_elements(*self._footer_links)

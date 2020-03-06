@@ -38,7 +38,7 @@
   @include respond-to(large) {
     display: grid;
     grid-template-areas:
-      'logo amo-links browser-links product-links'
+      'logo amo-links browsers-links product-links'
       'legal-links legal-links legal-links legal-links'
       'copyright copyright language language';
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -52,8 +52,8 @@
   grid-area: amo-links;
 }
 
-.Footer-browser-links {
-  grid-area: browser-links;
+.Footer-browsers-links {
+  grid-area: browsers-links;
 }
 
 .Footer-product-links {
