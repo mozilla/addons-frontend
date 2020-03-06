@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-06 04:33+0000\n"
+"PO-Revision-Date: 2020-03-06 04:38+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -2286,18 +2286,16 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
-"Per favor reporta o signala omne recension problematic con le button \"Reportar iste recension\" e illo essera submittite al attention del moderatores. Nostre equipa de moderation usara le Lineas "
+"Per favor reporta o signala omne recension problematic con le button \"Signalar iste recension\" e illo essera submittite al attention del moderatores. Nostre equipa de moderation usara le Lineas "
 "Guida pro Recensiones pro determinar si deler o restaurar le recension sur le sito."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr "Io es un autor de additivos, pote io responder al revisiones?"
+msgstr "Io es le un autor de un additivo, pote io responder al recensiones?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
-"Si, le autores de additivos pote fornir un singule responsa a un revision. Tu pote altiar un argumento de discussion in nostre %(startLink)sforo%(endLink)s pro ingagiar te o sequer altere "
-"discussiones."
+msgstr "Si, le autores de additivos pote fornir un sol responsa a un recension. Tu pote aperir un topico in nostre %(startLink)sforo%(endLink)s pro continuar le discussion."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
