@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-03 22:28+0000\n"
+"PO-Revision-Date: 2020-03-09 00:19+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -865,9 +865,8 @@ msgid "Site Status"
 msgstr "사이트 상태"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browser"
-msgstr "iOS 브라우저"
+msgstr "브라우저"
 
 #: src/amo/components/Footer/index.js:115 src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
@@ -890,9 +889,8 @@ msgid "Beta, Nightly, Developer Edition"
 msgstr "베타, 나이틀리, 개발자 버전"
 
 #: src/amo/components/Footer/index.js:142
-#, fuzzy
 msgid "Products"
-msgstr "생산성"
+msgstr "제품"
 
 #: src/amo/components/Footer/index.js:239
 msgid "Privacy"
@@ -1001,9 +999,8 @@ msgid "Log out"
 msgstr "로그아웃"
 
 #: src/amo/components/Header/index.js:63
-#, fuzzy
 msgid "Firefox Browser Add-ons"
-msgstr "Firefox 부가 기능"
+msgstr "Firefox 브라우저 부가 기능"
 
 #: src/amo/components/Header/index.js:94
 msgid "Learn how to create extensions and themes"
