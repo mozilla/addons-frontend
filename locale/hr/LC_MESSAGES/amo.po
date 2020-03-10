@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 15:11+0000\n"
+"PO-Revision-Date: 2020-03-10 15:22+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1855,15 +1855,15 @@ msgstr "Moje zbirke"
 
 #: src/amo/pages/Guides/index.js:105
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
-msgstr ""
+msgstr "Mali, vrlo učinkovit blokator oglasa. uBlock Origin koristi tisuće filtera sadržaja bez pretjerane potrošnje memorije."
 
 #: src/amo/pages/Guides/index.js:109
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr ""
+msgstr "Istraži daljnje izvrsne %(linkStart)sblokatore oglasa%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:117
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "Zabrani programima za praćenje da te prate"
 
 #: src/amo/pages/Guides/index.js:118
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
