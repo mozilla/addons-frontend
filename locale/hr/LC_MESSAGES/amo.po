@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 17:33+0000\n"
+"PO-Revision-Date: 2020-03-10 17:42+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -144,31 +144,31 @@ msgstr "Preuzmi %(addonName)s za Firefox. %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:62
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Nabavi ovaj rječnik za 🦊 Firefox za Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:67
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Nabavi ovo proširenje za 🦊 Firefox za Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:72
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Nabavi ovaj jezični paket za 🦊 Firefox za Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:77
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Nabavi ovaj motiv za 🦊 Firefox za Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:83
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Nabavi ovaj alata za pretraživanje za 🦊 Firefox za Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:88
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Nabavi ovaj dodatak za 🦊 Firefox za Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:95
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Nabavi ovaj rječnik za 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:116
 msgid "%(total)s Star"
@@ -687,11 +687,11 @@ msgstr "Podrži ove programere"
 
 #: src/amo/components/ContributeCard/index.js:50
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Programer ovog proširenja te moli, da pomoću male donacije podržiš daljnji razvoj proširenja."
 
 #: src/amo/components/ContributeCard/index.js:52
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Programer ovog proširenja te moli, da pomoću male donacije podržiš daljnji razvoj proširenja."
 
 #: src/amo/components/ContributeCard/index.js:59
 msgid "Support this artist"
@@ -755,11 +755,11 @@ msgstr "Ako si prijavljen/a i misliš da je ova poruka greška, <a href=\"%(url)
 
 #: src/amo/components/Errors/NotAuthorized/index.js:40
 msgid "Not Authorized"
-msgstr ""
+msgstr "Nisi autoriziran/a"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:43
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "Nažalost, nisi autoriziran/a pristupiti ovoj stranici. Ako nisi prijavljen/a, pokušaj se prijaviti pomoću poveznice na vrhu stranice."
 
 #: src/amo/components/Errors/NotFound/index.js:28
 msgid ""
