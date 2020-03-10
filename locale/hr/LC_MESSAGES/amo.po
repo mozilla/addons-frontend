@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 15:05+0000\n"
+"PO-Revision-Date: 2020-03-10 15:11+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1823,35 +1823,35 @@ msgstr "Potraži proširenja i motive koje želiš dodati u zbirku."
 
 #: src/amo/pages/Collection/index.js:513
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr "Preuzmi i stvori Firefox zbirke za praćenje omiljenih proširenja i motiva. Istraži %(collectionName)s – %(collectionDescription)s"
+msgstr "Preuzmi i stvori Firefox zbirke za praćenje omiljenih proširenja i motiva. Istraži zbirku %(collectionName)s – %(collectionDescription)s"
 
 #: src/amo/pages/Collection/index.js:516
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Preuzmi i stvori Firefox zbirke za praćenje omiljenih proširenja i motiva. Istraži zbirku %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:114
 msgid "Collections"
-msgstr ""
+msgstr "Zbirke"
 
 #: src/amo/pages/CollectionList/index.js:119
 msgid "Log in to view your collections"
-msgstr ""
+msgstr "Prijavi se za prikaz tvojih zbirki"
 
 #: src/amo/pages/CollectionList/index.js:124
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "Zbirke olakšavaju praćenje omiljenih dodataka i dijeljenje savršeno prilagođenog preglednika s drugima."
 
 #: src/amo/pages/CollectionList/index.js:134
 msgid "Create a collection"
-msgstr ""
+msgstr "Stvori zbirku"
 
 #: src/amo/pages/CollectionList/index.js:62
 msgid "You do not have any collections."
-msgstr ""
+msgstr "Nemaš nijednu zbirku."
 
 #: src/amo/pages/CollectionList/index.js:96
 msgid "My collections"
-msgstr ""
+msgstr "Moje zbirke"
 
 #: src/amo/pages/Guides/index.js:105
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
@@ -1879,7 +1879,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
-msgstr ""
+msgstr "Nova rješenja za upravljanje karticama"
 
 #: src/amo/pages/Guides/index.js:139
 msgid ""
