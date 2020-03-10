@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 01:32+0000\n"
+"PO-Revision-Date: 2020-03-10 01:40+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -2750,12 +2750,12 @@ msgstr "%(localizedSize)s TB"
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr "%(application)s %(minVersion)s i novije"
+msgstr "%(application)s %(minVersion)s i novije verzije"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s do %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
@@ -2788,23 +2788,23 @@ msgstr ""
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
-msgstr ""
+msgstr "Potvrdi"
 
 #: src/ui/components/DismissibleTextForm/index.js:187
 msgid "Enter text."
-msgstr ""
+msgstr "Upiši tekst."
 
 #: src/ui/components/DismissibleTextForm/index.js:188
 msgid "Submit"
-msgstr ""
+msgstr "Pošalji"
 
 #: src/ui/components/DismissibleTextForm/index.js:190
 msgid "Submitting"
-msgstr ""
+msgstr "Slanje …"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "Tvoja sesija je istekla"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
@@ -2879,10 +2879,10 @@ msgstr ""
 #: src/ui/components/UserCollection/index.js:46
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(total)s dodatak"
+msgstr[1] "%(total)s dodatka"
+msgstr[2] "%(total)s dodataka"
 
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
-msgstr ""
+msgstr "Odgovor programera"
