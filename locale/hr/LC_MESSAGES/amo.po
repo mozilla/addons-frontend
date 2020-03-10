@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 15:42+0000\n"
+"PO-Revision-Date: 2020-03-10 15:52+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -2116,35 +2116,35 @@ msgstr "Preuzmi Firefox rječnike i proširenja jezičnih paketa. Dodaj novu opc
 
 #: src/amo/pages/LanguageTools/index.js:169
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "Instaliranjem dodatka za rječnik, dodaje se nova jezična opcija za provjeru pravopisa prilikom tipkanja u Firefoxu."
 
 #: src/amo/pages/LanguageTools/index.js:174
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Jezični paketi mijenjaju jezik sučelja preglednika, uključujući opcije i postavke izbornika."
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "All Locales"
-msgstr ""
+msgstr "Svi jezici"
 
 #: src/amo/pages/LanguageTools/index.js:188
 msgid "Locale Name"
-msgstr ""
+msgstr "Jezik"
 
 #: src/amo/pages/LanguageTools/index.js:191
 msgid "Language Packs"
-msgstr ""
+msgstr "Jezični paket"
 
 #: src/amo/pages/LanguageTools/index.js:194
 msgid "Dictionaries"
-msgstr ""
+msgstr "Rječnici"
 
 #: src/amo/pages/SearchTools/index.js:64
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "Preuzmi Firefox proširenja za prilagođavanje načina pretraživanja – za bolje privatno pretraživanje, za pretraživanja specifičnih web-stranica, za pretraživanja slika i za još mnogo toga."
 
 #: src/amo/pages/SearchTools/index.js:67
 msgid "Search Tools"
-msgstr ""
+msgstr "Alati za pretraživanje"
 
 #: src/amo/pages/StaticPages/About/index.js:119
 msgid ""
@@ -2282,11 +2282,11 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Priručnik za recenziranje"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Smjernice, savjeti i često postavljena pitanja za pisanje recenzija za proširenja i motive, koje si preuzeo/la i koje koristiš u Firefoxu."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
