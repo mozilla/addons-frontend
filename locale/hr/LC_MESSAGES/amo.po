@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 00:15+0000\n"
+"PO-Revision-Date: 2020-03-10 00:33+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -429,15 +429,15 @@ msgstr "Spremljeno"
 
 #: src/amo/components/AddonReviewManager/index.js:89
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "Slijedi naše %(linkStart)ssmjernice za recenziranje%(linkEnd)s"
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "Tvoja ocjena:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "Ostali rječnici od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:250
 msgid "More dictionaries by these translators"
