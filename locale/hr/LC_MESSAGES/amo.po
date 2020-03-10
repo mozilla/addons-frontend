@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 01:40+0000\n"
+"PO-Revision-Date: 2020-03-10 01:52+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -539,43 +539,43 @@ msgstr "od"
 
 #: src/amo/components/AddonVersionCard/index.js:103
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr ""
+msgstr "Izvorni kod je objavljen pod licencom %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:114
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
-msgstr ""
+msgstr "Izvorni kod je objavljen pod %(linkStart)sprilagođenom licencom%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:141
 msgid "Source code released under %(licenseName)s"
-msgstr ""
+msgstr "Izvorni kod je objavljen pod %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:51
 msgid "No version found"
-msgstr ""
+msgstr "Nijedna verzija nije pronađena"
 
 #: src/amo/components/AddonVersionCard/index.js:59
 msgid "Version %(versionNumber)s"
-msgstr ""
+msgstr "Verzija %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:83
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Objavljeno  %(dateReleased)s – %(fileSize)s"
 
 #: src/amo/components/App/index.js:185 src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "Dodaci za Firefox (%(locale)s"
 
 #: src/amo/components/App/index.js:189 src/amo/components/HeadMetaTags/index.js:73
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(title)s  – dodaci za Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:197 src/amo/components/HeadMetaTags/index.js:78
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "Dodaci za Firefox za Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:201 src/amo/components/HeadMetaTags/index.js:72
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr ""
+msgstr "%(title)s – dodaci za Firefox za Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:216
 msgid "Loading"
@@ -967,27 +967,27 @@ msgstr "Moj račun"
 
 #: src/amo/components/Header/index.js:126
 msgid "View My Collections"
-msgstr ""
+msgstr "Prikaži moje zbirke"
 
 #: src/amo/components/Header/index.js:134 src/amo/pages/UserProfileEdit/index.js:548
 msgid "View My Profile"
-msgstr ""
+msgstr "Prikaži moj profil"
 
 #: src/amo/components/Header/index.js:142 src/amo/pages/UserProfileEdit/index.js:554
 msgid "Edit My Profile"
-msgstr ""
+msgstr "Uredi moj profil"
 
 #: src/amo/components/Header/index.js:146
 msgid "Tools"
-msgstr ""
+msgstr "Alati"
 
 #: src/amo/components/Header/index.js:152
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Pošalji novi dodatak"
 
 #: src/amo/components/Header/index.js:160
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Pošalji novi motiv"
 
 #: src/amo/components/Header/index.js:169
 msgid "Manage My Submissions"
