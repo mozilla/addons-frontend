@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 16:34+0000\n"
+"PO-Revision-Date: 2020-03-10 16:41+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -2447,96 +2447,96 @@ msgstr "Napiši nešto o sebi. Većina polja nije obavezna, ali će pomoći drug
 
 #: src/amo/pages/UserProfileEdit/index.js:447
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr ""
+msgstr "Napiši nešto o ovom korisniku. Većina polja nije obavezna, ali će pomoći drugim korisnicima da bolje upoznaju %(userName)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:462
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Ako hoćeš, predstavi se zajednici"
 
 #: src/amo/pages/UserProfileEdit/index.js:463
 msgid "Introduce %(userName)s to the community"
-msgstr ""
+msgstr "Predstavi korisnika %(userName)s zajednici"
 
 #: src/amo/pages/UserProfileEdit/index.js:490
 msgid "Log in to edit the profile"
-msgstr ""
+msgstr "Prijavi se za uređivanje profila"
 
 #: src/amo/pages/UserProfileEdit/index.js:512
 msgid "Creating your profile…"
-msgstr ""
+msgstr "Stvaranje tvog profila …"
 
 #: src/amo/pages/UserProfileEdit/index.js:513
 msgid "Create My Profile"
-msgstr ""
+msgstr "Stvori moj profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:517
 msgid "Updating your profile…"
-msgstr ""
+msgstr "Aktualiziranje tvog profila …"
 
 #: src/amo/pages/UserProfileEdit/index.js:518
 msgid "Update My Profile"
-msgstr ""
+msgstr "Aktualiziraj moj profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:521
 msgid "Updating profile…"
-msgstr ""
+msgstr "Aktualiziranje profila …"
 
 #: src/amo/pages/UserProfileEdit/index.js:522
 msgid "Update Profile"
-msgstr ""
+msgstr "Aktualiziraj profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
 msgid "View user's profile"
-msgstr ""
+msgstr "Pogledaj profil korisnika"
 
 #: src/amo/pages/UserProfileEdit/index.js:555
 msgid "Edit user's profile"
-msgstr ""
+msgstr "Uredi profil korisnika"
 
 #: src/amo/pages/UserProfileEdit/index.js:573
 msgid "Account"
-msgstr ""
+msgstr "Račun"
 
 #: src/amo/pages/UserProfileEdit/index.js:574
 msgid "Account for %(userName)s"
-msgstr ""
+msgstr "Račun za %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:581
 msgid "Email Address"
-msgstr ""
+msgstr "Adresa e-pošte"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "Ovdje se ne može promijeniti adresa e-pošte"
 
 #: src/amo/pages/UserProfileEdit/index.js:599
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Adresu e-pošte možeš promijeniti na Firefox računima. %(startLink)sTrebaš pomoć?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:616
 msgid "Manage Firefox Accounts…"
-msgstr ""
+msgstr "Upravljanje Firefox računima …"
 
 #: src/amo/pages/UserProfileEdit/index.js:624
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:633
 msgid "This field is required"
-msgstr ""
+msgstr "Ovo je obavezno polje."
 
 # the star is used to indicate a required field
 #: src/amo/pages/UserProfileEdit/index.js:636
 msgid "Display Name *"
-msgstr ""
+msgstr "Prikazano ime *"
 
 #: src/amo/pages/UserProfileEdit/index.js:652
 msgid "Reviewer Name"
-msgstr ""
+msgstr "Ime recenzenta"
 
 #: src/amo/pages/UserProfileEdit/index.js:685
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Ovaj će URL biti vidljiv samo korisnicima koji su programeri."
 
 #: src/amo/pages/UserProfileEdit/index.js:742
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
