@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 14:44+0000\n"
+"PO-Revision-Date: 2020-03-10 14:52+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1626,74 +1626,74 @@ msgstr "Nije dostupno za Firefox za Android. Ovaj dodatak možeš koristiti s Fi
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr ""
+msgstr "Ovaj dodatak nije kompatibilan s ovim preglednikom. Pokušaj ga instalirati u Firefoxu za računalo."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr ""
+msgstr "Saznaj više o dodacima koji su kompatibilni s Firefoxom za Android <a href=\"%(newLocation)s\">ovdje</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:94
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "Pronađi dodatke koji su kompatibilni s Firefoxom za Android <a href=\"%(newLocation)s\">ovdje</a>."
 
 #: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Pregled za %(title)s"
 
 #: src/amo/pages/Addon/index.js:205
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
+msgstr "Ovaj se dodatak ne može ocijeniti, jer nije objavljena nijedna verzija."
 
 #: src/amo/pages/Addon/index.js:216
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pročitaj %(count)s recenziju"
+msgstr[1] "Pročitaj %(count)s recenzije"
+msgstr[2] "Pročitaj %(count)s recenzija"
 
 #: src/amo/pages/Addon/index.js:234
 msgid "No reviews yet"
-msgstr ""
+msgstr "Još nema recenzija"
 
 #: src/amo/pages/Addon/index.js:244
 msgid "Rate your experience"
-msgstr ""
+msgstr "Ocijeni svoje iskustvo"
 
 #: src/amo/pages/Addon/index.js:263
 msgid "About this dictionary"
-msgstr ""
+msgstr "Informacije o ovom rječniku"
 
 #: src/amo/pages/Addon/index.js:266
 msgid "About this extension"
-msgstr ""
+msgstr "Informacije o ovom proširenju"
 
 #: src/amo/pages/Addon/index.js:269
 msgid "About this language pack"
-msgstr ""
+msgstr "Informacije o ovom jezičnom paketu"
 
 #: src/amo/pages/Addon/index.js:272
 msgid "About this search plugin"
-msgstr ""
+msgstr "Informacije o ovom dodatku za pretraživanje"
 
 #: src/amo/pages/Addon/index.js:275
 msgid "About this theme"
-msgstr ""
+msgstr "Informacije o ovom motivu"
 
 #: src/amo/pages/Addon/index.js:278
 msgid "About this add-on"
-msgstr ""
+msgstr "Informacije o ovom dodatku"
 
 #: src/amo/pages/Addon/index.js:317
 msgid "Release notes for %(addonVersion)s"
-msgstr ""
+msgstr "Napomene o izdanju za %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:448
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Ovo nije javni popis. Vidiš ih samo zbog povlaštenih dozvola."
 
 #: src/amo/pages/Addon/index.js:476
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Metapodaci proširenja"
 
 #: src/amo/pages/Addon/index.js:483
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
