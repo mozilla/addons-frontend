@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-09 23:51+0000\n"
+"PO-Revision-Date: 2020-03-10 00:08+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -270,92 +270,92 @@ msgstr "Licencni ugovor za krajnjeg korisnika"
 
 #: src/amo/components/AddonMoreInfo/index.js:262
 msgid "Version History"
-msgstr ""
+msgstr "Povijest verzija"
 
 #: src/amo/components/AddonMoreInfo/index.js:272
 msgid "Usage Statistics"
-msgstr ""
+msgstr "Statistika korištenja"
 
 #: src/amo/components/AddonMoreInfo/index.js:287
 msgid "More information"
-msgstr ""
+msgstr "Daljnje informacije"
 
 #: src/amo/components/AddonMoreInfo/index.js:62 src/amo/pages/UserProfile/index.js:357 src/amo/pages/UserProfile/index.js:359 src/amo/pages/UserProfileEdit/index.js:673
 msgid "Homepage"
-msgstr ""
+msgstr "Početna web-stranica"
 
 #: src/amo/components/AddonMoreInfo/index.js:73
 msgid "Support site"
-msgstr ""
+msgstr "Web-stranica podrške"
 
 #: src/amo/components/AddonMoreInfo/index.js:87
 msgid "Support Email"
-msgstr ""
+msgstr "E-adresa podrške"
 
 #: src/amo/components/AddonRecommendations/index.js:141
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "Korisnici, koji su instalirali ovo proširenje, također su instalirali"
 
 #: src/amo/components/AddonRecommendations/index.js:142
 msgid "Other popular extensions"
-msgstr ""
+msgstr "Ostala popularna proširenja"
 
 #: src/amo/components/AddonReviewCard/index.js:195
 msgid "Edit reply"
-msgstr ""
+msgstr "Uredi odgovor"
 
 #: src/amo/components/AddonReviewCard/index.js:198
 msgid "Edit review"
-msgstr ""
+msgstr "Uredi recenziju"
 
 #: src/amo/components/AddonReviewCard/index.js:205 src/amo/components/AddonReviewCard/index.js:237
 msgid "Delete reply"
-msgstr ""
+msgstr "Izbriši odgovor"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete rating"
-msgstr ""
+msgstr "Izbriši ocjenu"
 
 #: src/amo/components/AddonReviewCard/index.js:212 src/amo/components/AddonReviewCard/index.js:244
 msgid "Delete review"
-msgstr ""
+msgstr "Izbriši recenziju"
 
 #: src/amo/components/AddonReviewCard/index.js:219
 msgid "Do you really want to delete this reply?"
-msgstr ""
+msgstr "Stvarno želiš izbrisati ovaj odgovor?"
 
 #: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this rating?"
-msgstr ""
+msgstr "Stvarno želiš izbrisati ovu ocjenu?"
 
 #: src/amo/components/AddonReviewCard/index.js:226
 msgid "Do you really want to delete this review?"
-msgstr ""
+msgstr "Stvarno želiš izbrisati ovu recenziju?"
 
 #: src/amo/components/AddonReviewCard/index.js:233 src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
-msgstr ""
+msgstr "Izbriši"
 
 #: src/amo/components/AddonReviewCard/index.js:251 src/amo/components/AddonReviewManager/index.js:151 src/amo/components/CollectionManager/index.js:316 src/amo/pages/UserProfileEdit/index.js:913
 #: src/ui/components/ConfirmationDialog/index.js:60 src/ui/components/DismissibleTextForm/index.js:209
 msgid "Cancel"
-msgstr ""
+msgstr "Odustani"
 
 #: src/amo/components/AddonReviewCard/index.js:255
 msgid "Keep reply"
-msgstr ""
+msgstr "Zadrži odgovor"
 
 #: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep rating"
-msgstr ""
+msgstr "Zadrži ocjenu"
 
 #: src/amo/components/AddonReviewCard/index.js:262
 msgid "Keep review"
-msgstr ""
+msgstr "Zadrži recenziju"
 
 #: src/amo/components/AddonReviewCard/index.js:298
 msgid "Write a reply to this review."
-msgstr ""
+msgstr "Napiši odgovor na ovu recenziju."
 
 #: src/amo/components/AddonReviewCard/index.js:301 src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
