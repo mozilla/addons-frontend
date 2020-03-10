@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 15:52+0000\n"
+"PO-Revision-Date: 2020-03-10 16:06+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -2293,58 +2293,60 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Recenzije za dodatke omogućuju dijeliti vlastito mišljenje o instaliranim i korištenim dodacima. Naš tim za moderiranje recenzija zadržava pravo odbiti ili ukloniti bilo koju recenziju, koja nije u "
+"skladu s ovim smjernicama."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Savjeti za pisanje recenzije"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Do:"
-msgstr ""
+msgstr "Ovako da:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:37
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "Piši na način, kao da prijatelju pričaš o svom iskustvu s dodatkom."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Piši kratko i razumljivo."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:45
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Navedi konkretne i korisne detalje. Na primjer:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Je li dodatak funkcionira onako kako očekuješ?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Koje funkcije ti se sviđaju ili ne sviđaju?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
-msgstr ""
+msgstr "Je li dodatak koristan?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Je li se dodatak jednostavno koristi?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:58
 msgid "Will you continue to use this add-on?"
-msgstr ""
+msgstr "Hoćeš li i dalje koristiti ovaj dodatak?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:63
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Pregledaj recenziju prije nego što je pošalješ."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:68
 msgid "Don't:"
-msgstr ""
+msgstr "Ovako ne:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:71
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Slati recenzije koje se sastoje od jedne riječi, poput „Sjajno!”, „Divno” ili „Loše”."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:76
 msgid ""
