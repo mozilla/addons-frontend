@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-02-04 20:57+0000\n"
-"PO-Revision-Date: 2020-03-10 17:21+0000\n"
+"PO-Revision-Date: 2020-03-10 17:24+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -177,7 +177,7 @@ msgstr ""
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
-msgstr ""
+msgstr "Saznaj više"
 
 #: src/disco/pages/DiscoPane/index.js:211
 msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
@@ -185,20 +185,20 @@ msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "Tvoja je sesija istekla"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Dogodila se neočekivana greška"
 
 #: src/ui/components/ErrorList/index.js:59
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Učitaj ponovo za nastavljanje"
 
 #: src/ui/components/Notice/index.js:153
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Odbaci ovu obavijest"
 
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Pregled za %(title)s"

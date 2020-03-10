@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 17:22+0000\n"
+"PO-Revision-Date: 2020-03-10 17:33+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -80,67 +80,67 @@ msgstr ""
 
 #: src/amo/components/AddonBadges/index.js:47
 msgid "Restart Required"
-msgstr ""
+msgstr "Potrebno je ponovno pokretanje"
 
 #: src/amo/components/AddonBadges/index.js:51
 msgid "Experimental"
-msgstr ""
+msgstr "Eksperimentalno"
 
 #: src/amo/components/AddonBadges/index.js:56
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "Nije kompatibilno s Firefox Quantumom"
 
 #: src/amo/components/AddonBadges/index.js:62
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Neke funkcije mogu zahtijevati plaćanje"
 
 #: src/amo/components/AddonCompatibilityError/index.js:123
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
+msgstr "Ovaj dodatak nije kompatibilan s tvojom Firefox verzijom."
 
 #: src/amo/components/AddonCompatibilityError/index.js:126
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "Tvoja Firefox verzija ne podržava dodatke za pretraživanje."
 
 #: src/amo/components/AddonCompatibilityError/index.js:130
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr ""
+msgstr "Tvoja Firefox verzija ne podržava ovaj dodatak, jer zahtijeva ponovno pokretanje."
 
 #: src/amo/components/AddonCompatibilityError/index.js:133
 msgid "This add-on is not available on your platform."
-msgstr ""
+msgstr "Ovaj dodatak nije dostupan za tvoju platformu."
 
 #: src/amo/components/AddonCompatibilityError/index.js:137
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
+msgstr "Ovaj dodatak zahtijeva <a href=\"%(downloadUrl)s\">noviju verziju Firefoxa</a> (barem verziju %(minVersion)s). Tvoja Firefox verzija je %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:154
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Tvoj preglednik ne podržava dodatke. Možeš <a href=\"%(downloadUrl)s\">preuzeti Firefox</a> za instaliranje ovog dodatka."
 
 #: src/amo/components/AddonHead/index.js:100
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Nabavi ovo proširenje za 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:105
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Nabavi ovaj jezični paket za 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:110
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Nabavi ovaj motiv za 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:115
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Nabavi ovaj alat za pretraživanje za 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:120
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr ""
+msgstr "%(addonName)s – Nabavi ovaj dodatak za 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:134
 msgid "Download %(addonName)s for Firefox. %(summary)s"
-msgstr ""
+msgstr "Preuzmi %(addonName)s za Firefox. %(summary)s"
 
 #: src/amo/components/AddonHead/index.js:62
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
