@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 00:42+0000\n"
+"PO-Revision-Date: 2020-03-10 00:52+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -505,15 +505,15 @@ msgstr "Daljnji dodatci od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:321
 msgid "More add-ons by these developers"
-msgstr "Daljnja proširenja ovih programera"
+msgstr "Daljnji dodatci ovih programera"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:325
 msgid "Add-ons by %(author)s"
-msgstr "Proširenja od %(author)s"
+msgstr "Dodatci od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:328
 msgid "Add-ons by these developers"
-msgstr "Proširenja ovih programera"
+msgstr "Dodatci ovih programera"
 
 #: src/amo/components/AddonSummaryCard/index.js:41
 msgid "Add-on icon"
@@ -523,19 +523,19 @@ msgstr "Ikona dodatka"
 #: src/amo/components/AddonSummaryCard/index.js:63
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(rating)s zvjezdica od 5"
+msgstr[1] "%(rating)s zvjezdice od 5"
+msgstr[2] "%(rating)s zvjezdica od 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:42
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:77 src/amo/components/AddonTitle/index.js:81
 msgid "by"
-msgstr ""
+msgstr "od"
 
 #: src/amo/components/AddonVersionCard/index.js:103
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
@@ -579,35 +579,35 @@ msgstr ""
 
 #: src/amo/components/AutoSearchInput/index.js:216
 msgid "Loading"
-msgstr ""
+msgstr "Učitavanje"
 
 #: src/amo/components/AutoSearchInput/index.js:312
 msgid "Find add-ons"
-msgstr ""
+msgstr "Pronađi dodatke"
 
 #: src/amo/components/AutoSearchInput/index.js:337 src/amo/components/AutoSearchInput/index.js:365
 msgid "Search"
-msgstr ""
+msgstr "Traži"
 
 #: src/amo/components/Categories/index.js:128
 msgid "No categories found."
-msgstr ""
+msgstr "Nema kategorija."
 
 #: src/amo/components/Categories/index.js:135
 msgid "Categories"
-msgstr ""
+msgstr "Kategorije"
 
 #: src/amo/components/Categories/index.js:140
 msgid "Loading categories."
-msgstr ""
+msgstr "Učitavanje kategorija."
 
 #: src/amo/components/CollectionAddAddon/index.js:159
 msgid "Added to collection"
-msgstr ""
+msgstr "Dodano u zbirku"
 
 #: src/amo/components/CollectionAddAddon/index.js:160
 msgid "Removed from collection"
-msgstr ""
+msgstr "Uklonjeno iz zbirke"
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Find an add-on to include in this collection"
