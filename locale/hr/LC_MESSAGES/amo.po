@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 16:41+0000\n"
+"PO-Revision-Date: 2020-03-10 16:52+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -2540,39 +2540,39 @@ msgstr "Ovaj će URL biti vidljiv samo korisnicima koji su programeri."
 
 #: src/amo/pages/UserProfileEdit/index.js:742
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Podržane su neke HTML oznake: %(htmlTags)s. Poveznice se ne smiju koristiti."
 
 #: src/amo/pages/UserProfileEdit/index.js:766
 msgid "Notifications"
-msgstr ""
+msgstr "Obavijesti"
 
 #: src/amo/pages/UserProfileEdit/index.js:770
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Mozilla ti povremeno šalje mailove o nadolazećim izdanjima i dodacima. Odaberi teme, koje te zanimaju."
 
 #: src/amo/pages/UserProfileEdit/index.js:775
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "Mozilla povremeno šalje mailove o nadolazećim izdanjima i dodacima na ovu e-adresu. Odaberi teme, koje zanimaju ovog korisnika."
 
 #: src/amo/pages/UserProfileEdit/index.js:790
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla si zadržava pravo da te kontaktira u vezi s određenim problemima s tvojim dodacima."
 
 #: src/amo/pages/UserProfileEdit/index.js:816 src/amo/pages/UserProfileEdit/index.js:905
 msgid "Delete My Profile"
-msgstr ""
+msgstr "Izbriši moj profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:817 src/amo/pages/UserProfileEdit/index.js:906
 msgid "Delete Profile"
-msgstr ""
+msgstr "Izbriši profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:829
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "VAŽNO: Brisanje tvog profila u Firefox dodacima je nepovratna radnja."
 
 #: src/amo/pages/UserProfileEdit/index.js:832
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "VAŽNO: Brisanje ovog profila u Firefox dodacima je nepovratna radnja."
 
 #: src/amo/pages/UserProfileEdit/index.js:841
 msgid ""
@@ -2651,39 +2651,39 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:195
 msgid "Enable"
-msgstr ""
+msgstr "Aktiviraj"
 
 #: src/core/components/AMInstallButton/index.js:200
 msgid "Enabling"
-msgstr ""
+msgstr "Aktiviranje"
 
 #: src/core/components/AMInstallButton/index.js:202
 msgid "Downloading"
-msgstr ""
+msgstr "Preuzimanje"
 
 #: src/core/components/AMInstallButton/index.js:204
 msgid "Installing"
-msgstr ""
+msgstr "Instaliranje"
 
 #: src/core/components/AMInstallButton/index.js:206
 msgid "Uninstalling"
-msgstr ""
+msgstr "Deinstaliranje"
 
 #: src/core/components/AMInstallButton/index.js:214
 msgid "Install Theme"
-msgstr ""
+msgstr "Instaliraj motiv"
 
 #: src/core/components/AMInstallButton/index.js:215
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Dodaj u Firefox"
 
 #: src/core/components/AuthenticateButton/index.js:87
 msgid "Register or Log in"
-msgstr ""
+msgstr "Registriraj se ili se prijavi"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Nažalost, došlo je do greške i nismo uspjeli dovršiti tvoj zahtjev. Zabilježili smo ovu grešku i istražit ćemo je."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
