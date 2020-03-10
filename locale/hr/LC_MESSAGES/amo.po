@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 00:33+0000\n"
+"PO-Revision-Date: 2020-03-10 00:42+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -437,87 +437,87 @@ msgstr "Tvoja ocjena:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
-msgstr "Ostali rječnici od %(author)s"
+msgstr "Daljnji rječnici od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:250
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "Daljnji rječnici ovih prevodioca"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:254
 msgid "Dictionaries by %(author)s"
-msgstr ""
+msgstr "Rječnici od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:257
 msgid "Dictionaries by these translators"
-msgstr ""
+msgstr "Rječnici ovih prevodioca"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:264
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "Daljnja proširenja od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:267
 msgid "More extensions by these developers"
-msgstr ""
+msgstr "Daljnja proširenja ovih programera"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:271
 msgid "Extensions by %(author)s"
-msgstr ""
+msgstr "Proširenja od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:274
 msgid "Extensions by these developers"
-msgstr ""
+msgstr "Proširenja ovih programera"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "Daljnji jezični paketi od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:287
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Daljnji jezični paketi ovih prevodioca"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:291
 msgid "Language packs by %(author)s"
-msgstr ""
+msgstr "Jezični paketi od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:294
 msgid "Language packs by these translators"
-msgstr ""
+msgstr "Jezični paketi ovih prevodioca"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:301
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "Daljnji motivi od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:304
 msgid "More themes by these artists"
-msgstr ""
+msgstr "Daljnji motivi ovih umjetnika"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "Themes by %(author)s"
-msgstr ""
+msgstr "Motivi od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:311
 msgid "Themes by these artists"
-msgstr ""
+msgstr "Motivi ovih umjetnika"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:318
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "Daljnji dodatci od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:321
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Daljnja proširenja ovih programera"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:325
 msgid "Add-ons by %(author)s"
-msgstr ""
+msgstr "Proširenja od %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:328
 msgid "Add-ons by these developers"
-msgstr ""
+msgstr "Proširenja ovih programera"
 
 #: src/amo/components/AddonSummaryCard/index.js:41
 msgid "Add-on icon"
-msgstr ""
+msgstr "Ikona dodatka"
 
 # roundedAverage is a number rounded to one digit, such as 4.5 in English or ٤٫٧ in Arabic.
 #: src/amo/components/AddonSummaryCard/index.js:63
