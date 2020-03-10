@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 01:12+0000\n"
+"PO-Revision-Date: 2020-03-10 01:23+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -817,75 +817,75 @@ msgstr "Ovo je izvještaj o grešci ili zahtjev za podršku"
 
 #: src/amo/components/FlagReviewMenu/index.js:106
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Označeno kao izvještaj o grešci ili zahtjev za podršku"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
-msgstr ""
+msgstr "Označeno"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flag"
-msgstr ""
+msgstr "Oznaka"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
-msgstr ""
+msgstr "Označi ovaj odgovor programera"
 
 #: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this review"
-msgstr ""
+msgstr "Označi ovu recenziju"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
 msgid "Log in to flag this response"
-msgstr ""
+msgstr "Prijavi se za označivanje ovog  odgovora"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
 msgid "Log in to flag this review"
-msgstr ""
+msgstr "Prijavi se za označivanje ove recenzije"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Ne možeš označiti vlastiti odgovor"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Ne možeš označiti vlastitu recenziju"
 
 #: src/amo/components/FlagReviewMenu/index.js:78
 msgid "This is spam"
-msgstr ""
+msgstr "Ovo je neželjeno"
 
 #: src/amo/components/FlagReviewMenu/index.js:79
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Označeno kao neželjeno"
 
 #: src/amo/components/FlagReviewMenu/index.js:89
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Sadrži neprikladan jezik"
 
 #: src/amo/components/FlagReviewMenu/index.js:90
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Označeno za neprikladan jezik"
 
 #: src/amo/components/Footer/index.js:104
 msgid "Site Status"
-msgstr ""
+msgstr "Stanje stranice"
 
 #: src/amo/components/Footer/index.js:111
 msgid "Browser"
-msgstr ""
+msgstr "Preglednik"
 
 #: src/amo/components/Footer/index.js:115 src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
-msgstr ""
+msgstr "Preuzmi Firefox"
 
 #: src/amo/components/Footer/index.js:120
 msgid "Android Browser"
-msgstr ""
+msgstr "Android preglednik"
 
 #: src/amo/components/Footer/index.js:125
 msgid "iOS Browser"
-msgstr ""
+msgstr "iOS preglednik"
 
 #: src/amo/components/Footer/index.js:130
 msgid "Desktop Browser"
