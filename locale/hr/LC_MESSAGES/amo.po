@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 00:52+0000\n"
+"PO-Revision-Date: 2020-03-10 01:04+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -611,67 +611,67 @@ msgstr "Uklonjeno iz zbirke"
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Nađi dodatak za dodavanje u ovu zbirku"
 
 #: src/amo/components/CollectionDetails/index.js:103
 msgid "Edit this collection"
-msgstr ""
+msgstr "Uredi ovu zbirku"
 
 #: src/amo/components/CollectionDetails/index.js:114
 msgid "Edit collection details"
-msgstr ""
+msgstr "Uredi detalje zbirke"
 
 #: src/amo/components/CollectionDetails/index.js:126
 msgid "Back to collection"
-msgstr ""
+msgstr "Natrag na zbirku"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:48
 msgid "Add-ons"
-msgstr ""
+msgstr "Dodatak"
 
 #: src/amo/components/CollectionDetails/index.js:83
 msgid "Creator"
-msgstr ""
+msgstr "Autor"
 
 #: src/amo/components/CollectionManager/index.js:240
 msgid "Create collection"
-msgstr ""
+msgstr "Stvori zbirku"
 
 #: src/amo/components/CollectionManager/index.js:241
 msgid "Save changes"
-msgstr ""
+msgstr "Spremi promjene"
 
 #: src/amo/components/CollectionManager/index.js:250
 msgid "Collection name"
-msgstr ""
+msgstr "Ime zbirke"
 
 #: src/amo/components/CollectionManager/index.js:264
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 #: src/amo/components/CollectionManager/index.js:276
 msgid "Custom URL"
-msgstr ""
+msgstr "Prilagođeni URL"
 
 #: src/amo/components/CollectionSort/index.js:104
 msgid "Sort add-ons by"
-msgstr ""
+msgstr "Redoslijed dodataka"
 
 #: src/amo/components/CollectionSort/index.js:80
 msgid "Newest first"
-msgstr ""
+msgstr "Najprije najnovije"
 
 #: src/amo/components/CollectionSort/index.js:84
 msgid "Oldest first"
-msgstr ""
+msgstr "Najprije najstarije"
 
 #: src/amo/components/CollectionSort/index.js:88
 msgid "Name"
-msgstr ""
+msgstr "Ime"
 
 #: src/amo/components/CollectionSort/index.js:92
 msgid "Popularity"
-msgstr ""
+msgstr "Omiljenost"
 
 #: src/amo/components/ContributeCard/index.js:108
 msgid "Contribute now"
