@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 13:53+0000\n"
+"PO-Revision-Date: 2020-03-10 14:17+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1483,31 +1483,31 @@ msgstr "Filtriraj rezultate"
 
 #: src/amo/components/SearchFilters/index.js:185
 msgid "Sort by"
-msgstr ""
+msgstr "Razvrstaj po:"
 
 #: src/amo/components/SearchFilters/index.js:207
 msgid "Add-on Type"
-msgstr ""
+msgstr "Vrsta dodatka"
 
 #: src/amo/components/SearchFilters/index.js:227
 msgid "Operating System"
-msgstr ""
+msgstr "Operacijski sustav"
 
 #: src/amo/components/SearchFilters/index.js:253
 msgid "Recommended add-ons only"
-msgstr ""
+msgstr "Samo preporučeni dodaci"
 
 #: src/amo/components/SearchForm/index.js:61
 msgid "Firefox Add-ons (%(locale)s)"
-msgstr ""
+msgstr "Firefox dodaci (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr ""
+msgstr "Firefox dodaci za Android (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "Idi na stranicu s dodacima"
 
 #: src/amo/components/SearchResult/index.js:148
 msgid "No theme preview available"
