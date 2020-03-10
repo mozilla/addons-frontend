@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 18:52+0000\n"
+"PO-Revision-Date: 2020-03-10 19:05+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1888,6 +1888,8 @@ msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Ako često radiš s puno otvorenih kartica, vjerojatno poznaš frustraciju prilikom traženja određene kartice u nizu neidentificirajućih kartica. Proširenja mogu ponuditi kreativna rješenja za "
+"jednostavno upravljanja karticama."
 
 #: src/amo/pages/Guides/index.js:145
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
@@ -1903,11 +1905,11 @@ msgstr "Bolje pregledavanje s poboljšanim zabilješkama"
 
 #: src/amo/pages/Guides/index.js:161
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "Proširenja mogu pomoći u organizaciji internetskih interesa. Upravljači oznaka idealni su za ljude, koji prate mnoge sadržaje."
 
 #: src/amo/pages/Guides/index.js:165
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-msgstr ""
+msgstr "Uživaj u boljem načinu organiziranja svojih zabilješki, ako održavaš više mape sa zabilješkama."
 
 #: src/amo/pages/Guides/index.js:168
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
@@ -1927,7 +1929,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:202
 msgid "Improve videos"
-msgstr ""
+msgstr "Poboljšaj upravljanje videozapisima"
 
 #: src/amo/pages/Guides/index.js:203
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
@@ -1939,7 +1941,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:217
 msgid "Get more out of media"
-msgstr ""
+msgstr "Poboljšaj rad s medijima"
 
 #: src/amo/pages/Guides/index.js:218
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
