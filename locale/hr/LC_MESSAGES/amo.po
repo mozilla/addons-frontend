@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 13:05+0000\n"
+"PO-Revision-Date: 2020-03-10 13:14+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1043,7 +1043,7 @@ msgstr "Proširenja su poput programa za tvoj preglednik."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "Firefoxu dodaju funkcije, kako bi pregledavanje bilo brže, pametnije ili jednostavno samo zabavno."
 
 #: src/amo/components/InstallWarning/index.js:81
 msgid "Learn more"
@@ -1051,7 +1051,7 @@ msgstr "Saznaj više"
 
 #: src/amo/components/InstallWarning/index.js:85
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr ""
+msgstr "Ovo nije preporučeno proširenje. Prije instaliranja provjeri je li joj vjeruješ."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1063,39 +1063,39 @@ msgstr "Dozvole"
 
 #: src/amo/components/PermissionsCard/index.js:50
 msgid "This add-on can:"
-msgstr ""
+msgstr "Ovaj dodatak može:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "Saznaj više o dozvolama"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "Pročitaj i promijeni zabilješke"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Pročitaj i promijeni postavke preglednika"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Isprazni nedavnu povijest pregledavanja, kolačiće i povezane podatke"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Dohvati podatke iz međuspremnika"
 
 #: src/amo/components/PermissionsCard/permissions.js:37
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Unesi podatke u međuspremnik"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Rasklopi programerske alate za pristupanje podacima u otvorenim karticama"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Preuzmi datoteke i pročitaj i promijeni povijest preuzimanja preglednika"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Open files downloaded to your computer"
