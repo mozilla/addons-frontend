@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 13:35+0000\n"
+"PO-Revision-Date: 2020-03-10 13:43+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1339,47 +1339,47 @@ msgstr "Popularni dodaci"
 
 #: src/amo/components/Search/index.js:170
 msgid "Search results for \"%(query)s\""
-msgstr ""
+msgstr "Rezultati pretrage za „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:108
 msgid "%(count)s Search Tool found"
 msgid_plural "%(count)s Search Tools found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pronađen je %(count)s alat za pretraživanje"
+msgstr[1] "Pronađea su %(count)s alata za pretraživanje"
+msgstr[2] "Pronađeno je %(count)s alata za pretraživanje"
 
 #: src/amo/components/SearchContextCard/index.js:121
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pronađen je %(count)s motiv za „%(query)s” u kategoriji %(categoryName)s"
+msgstr[1] "Pronađena su %(count)s motiva za „%(query)s” u kategoriji %(categoryName)s"
+msgstr[2] "Pronađeno je %(count)s motiva za „%(query)s” u kategoriji %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:130
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pronađen je %(count)s motiv u kategoriji %(categoryName)s"
+msgstr[1] "Pronađena su %(count)s motiva u kategoriji %(categoryName)s"
+msgstr[2] "Pronađeno je %(count)s motiva u kategoriji %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:140
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pronađen je %(count)s motiv za „%(query)s”"
+msgstr[1] "Pronađena su %(count)s motiva za „%(query)s”"
+msgstr[2] "Pronađeno je %(count)s motiva za „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:149
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pronađen je %(count)s motiv"
+msgstr[1] "Pronađena su %(count)s motiva"
+msgstr[2] "Pronađeno je %(count)s motiva"
 
 #: src/amo/components/SearchContextCard/index.js:161
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] ""
+msgstr[0] "Pronađen je %(count)s rezultat za „%(query)s”"
 msgstr[1] ""
 msgstr[2] ""
 
