@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 12:35+0000\n"
+"PO-Revision-Date: 2020-03-10 12:54+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -916,6 +916,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Sadržaj ove stranice licenciran je pod licencom %(startLicenseLink)sCreative Commons Imenovanje dijeli pod istim uvjetima verzija 3.0%(endLicenseLink)s ili novijoj, osim gdje je "
+"%(startNotedLink)snavedeno%(endNotedLink)s drugačije."
 
 #: src/amo/components/Footer/index.js:27
 msgid "Go to Mozilla's homepage"
@@ -931,15 +933,15 @@ msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:96
 msgid "Extension Workshop"
-msgstr ""
+msgstr "Radionica proširenja"
 
 #: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:106
 msgid "Developer Hub"
-msgstr ""
+msgstr "Centar za programere"
 
 #: src/amo/components/Footer/index.js:81
 msgid "Developer Policies"
-msgstr "Politika za programe"
+msgstr "Pravila za programere"
 
 #: src/amo/components/Footer/index.js:86
 msgid "Forum"
@@ -999,20 +1001,20 @@ msgstr "Alati recenzenta"
 
 #: src/amo/components/Header/index.js:191 src/core/components/AuthenticateButton/index.js:90
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "Ova je radnja trenutačno nedostupna. Pričekaj trenutak i ponovo učitaj stranicu."
 
 #: src/amo/components/Header/index.js:196 src/core/components/AuthenticateButton/index.js:86
 msgid "Log out"
-msgstr ""
+msgstr "Odjava"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:63
 msgid "Firefox Browser Add-ons"
-msgstr ""
+msgstr "Dodaci za preglednik Firefox"
 
 #: src/amo/components/Header/index.js:94
 msgid "Learn how to create extensions and themes"
-msgstr ""
+msgstr "Saznaj kako stvarati proširenja i motive"
 
 #: src/amo/components/HeroRecommendation/index.js:107
 msgid "Get the extension"
