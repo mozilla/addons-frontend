@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 01:57+0000\n"
+"PO-Revision-Date: 2020-03-10 12:32+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -703,11 +703,11 @@ msgstr "Podrži ove umjetnike"
 
 #: src/amo/components/ContributeCard/index.js:64
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Umjetnik/ca ovog motiva te moli, da pomoću male donacije podržiš razvoj daljnjih kreacija."
 
 #: src/amo/components/ContributeCard/index.js:66
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Umjetnici ovog motiva te mole, da pomoću male donacije podržiš razvoj daljnjih kreacija."
 
 #: src/amo/components/ContributeCard/index.js:73
 msgid "Support this author"
@@ -719,11 +719,11 @@ msgstr "Podrži ove umjetnike"
 
 #: src/amo/components/ContributeCard/index.js:78
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Autor/ica ovog dodatka te moli, da pomoću male donacije podržiš daljnji razvoj dodataka."
 
 #: src/amo/components/ContributeCard/index.js:80
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Autori ovog dodatka te mole, da pomoću male donacije podržiš daljnji razvoj dodataka."
 
 #: src/amo/components/EditableCollectionAddon/index.js:133 src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Leave a note"
