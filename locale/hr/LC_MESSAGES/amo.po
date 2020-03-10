@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 15:22+0000\n"
+"PO-Revision-Date: 2020-03-10 15:33+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1875,7 +1875,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:127
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr ""
+msgstr "Istraži daljnja preporučena proširenja za %(linkStart)sprivatnost i sigurnost%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
@@ -1893,11 +1893,11 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr ""
+msgstr "Istraži daljnja proširenja za %(linkStart)skartice%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Bolje pregledavanje s poboljšanim zabilješkama"
 
 #: src/amo/pages/Guides/index.js:161
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
@@ -1909,11 +1909,11 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:168
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr ""
+msgstr "Istraži daljnja proširenja za %(linkStart)szabilješke%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Uživaj u novom iskustvu s karticama"
 
 #: src/amo/pages/Guides/index.js:180
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
@@ -2004,47 +2004,47 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:138
 msgid "Abstract"
-msgstr ""
+msgstr "Abstraktno"
 
 #: src/amo/pages/Home/index.js:143
 msgid "Nature"
-msgstr ""
+msgstr "Priroda"
 
 #: src/amo/pages/Home/index.js:148
 msgid "Film & TV"
-msgstr ""
+msgstr "Film i TV"
 
 #: src/amo/pages/Home/index.js:153
 msgid "Scenery"
-msgstr ""
+msgstr "Pejzaž"
 
 #: src/amo/pages/Home/index.js:158
 msgid "Music"
-msgstr ""
+msgstr "Muzika"
 
 #: src/amo/pages/Home/index.js:163
 msgid "Seasonal"
-msgstr ""
+msgstr "Sezonsko"
 
 #: src/amo/pages/Home/index.js:201
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Promijeni izgled Firefoxa s motivima."
 
 #: src/amo/pages/Home/index.js:234
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "Preuzmi Firefox proširenja i motive. Oni su poput programa za preglednik. Mogu blokirati dosadne oglase, zaštititi lozinke, promijeniti izgled preglednika i još mnogo toga."
 
 #: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
 msgid "See more recommended extensions"
-msgstr ""
+msgstr "Pogledaj daljnja preporučena proširenja"
 
 #: src/amo/pages/Home/index.js:290
 msgid "See more popular themes"
-msgstr ""
+msgstr "Pogledaj daljnje popularne motive"
 
 #: src/amo/pages/Home/index.js:309
 msgid "See more popular extensions"
-msgstr ""
+msgstr "Pogledaj daljnja popularna proširenja"
 
 #: src/amo/pages/Home/index.js:326 src/amo/pages/LandingPage/index.js:164
 msgid "See more recommended themes"
