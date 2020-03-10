@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 17:05+0000\n"
+"PO-Revision-Date: 2020-03-10 17:14+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -2822,53 +2822,53 @@ msgstr "Učitaj ponovo za nastavljanje"
 
 #: src/ui/components/ExpandableCard/index.js:57
 msgid "Toggle contents"
-msgstr ""
+msgstr "Uključi/isključi sadržaj"
 
 #: src/ui/components/HostPermissions/index.js:54
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Pristupi tvojim podacima za sve web-stranice"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pristupi tvojim podacima na %(param)s drugoj domeni"
+msgstr[1] "Pristupi tvojim podacima na %(param)s druge domene"
+msgstr[2] "Pristupi tvojim podacima na %(param)s drugih domena"
 
 #: src/ui/components/HostPermissions/index.js:67
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "Pristupi tvojim podacima za web-stranice na %(param)s domeni"
 
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pristupi tvojim podacima na %(param)s drugom web-mjestu"
+msgstr[1] "Pristupi tvojim podacima na %(param)s druga web-mjesta"
+msgstr[2] "Pristupi tvojim podacima na %(param)s drugih web-mjesta"
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "Pristupi tvojim podacima za %(param)s"
 
 #: src/ui/components/Notice/index.js:153
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Odbaci ovu obavijest"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr ""
+msgstr "Aktualiziraj tvoju ocjenu na %(starRating)s od 5"
 
 #: src/ui/components/Rating/index.js:106
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr ""
+msgstr "Ocijeni ovaj dodatak s %(starRating)s od 5"
 
 #: src/ui/components/Rating/index.js:83 src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "Ocijenjeno s %(rating)s od 5"
 
 #: src/ui/components/Rating/index.js:87
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "Još nema ocjena"
 
 #: src/ui/components/RecommendedBadge/index.js:43
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
