@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 14:33+0000\n"
+"PO-Revision-Date: 2020-03-10 14:44+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1521,108 +1521,108 @@ msgstr "Napomena za dodatak"
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s korisnik"
-msgstr[1] ""
-msgstr[2] ""
+msgstr[1] "%(total)s korisnika"
+msgstr[2] "%(total)s korisnika"
 
 #: src/amo/components/SearchResults/index.js:42
 msgid "Searching…"
-msgstr ""
+msgstr "Pretraživanje …"
 
 #: src/amo/components/SearchResults/index.js:47
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Nema rezultata za „%(query)s”."
 
 #: src/amo/components/SearchResults/index.js:53
 msgid "No results were found."
-msgstr ""
+msgstr "Nema rezultata."
 
 #: src/amo/components/SearchSuggestion/index.js:52 src/ui/components/RecommendedBadge/index.js:28
 msgid "Recommended"
-msgstr ""
+msgstr "Preporučeno"
 
 #: src/amo/components/SectionLinks/index.js:108 src/amo/pages/LandingPage/index.js:230
 msgid "Extensions"
-msgstr ""
+msgstr "Proširenja"
 
 #: src/amo/components/SectionLinks/index.js:123 src/amo/pages/LandingPage/index.js:229
 msgid "Themes"
-msgstr ""
+msgstr "Motivi"
 
 #: src/amo/components/SectionLinks/index.js:129
 msgid "More…"
-msgstr ""
+msgstr "Više …"
 
 #: src/amo/components/SectionLinks/index.js:139
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "Ostale web-stranice preglednika"
 
 #: src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Android"
-msgstr ""
+msgstr "Dodaci za Android"
 
 #: src/amo/components/SectionLinks/index.js:163
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Dodaci za Firefox"
 
 #: src/amo/components/SectionLinks/index.js:62
 msgid "for Firefox"
-msgstr ""
+msgstr "za Firefox"
 
 #: src/amo/components/SectionLinks/index.js:64
 msgid "for Android"
-msgstr ""
+msgstr "za Android"
 
 #: src/amo/components/SectionLinks/index.js:79
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "Rječnici i jezični paketi"
 
 #: src/amo/components/SectionLinks/index.js:98
 msgid "Explore"
-msgstr ""
+msgstr "Istraži"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Predložene stranice"
 
 #: src/amo/components/SuggestedPages/index.js:29
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Pregledaj sve dodatke"
 
 #: src/amo/components/SuggestedPages/index.js:34
 msgid "Browse all themes"
-msgstr ""
+msgstr "Pregledaj sve motive"
 
 #: src/amo/components/SuggestedPages/index.js:38
 msgid "Add-ons Home Page"
-msgstr ""
+msgstr "Početna stranica dodataka"
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "Stvarno želiš izbrisati ovu sliku?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:109
 msgid "Delete This Picture"
-msgstr ""
+msgstr "Izbriši ovu sliku"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
 msgid "Profile picture for %(name)s"
-msgstr ""
+msgstr "Slika profila za %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:68
 msgid "Profile photo"
-msgstr ""
+msgstr "Slika profila"
 
 #: src/amo/components/UserProfileEditPicture/index.js:97
 msgid "Choose Photo…"
-msgstr ""
+msgstr "Odaberi sliku …"
 
 #: src/amo/components/WrongPlatformWarning/index.js:101
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr ""
+msgstr "Za dodatke koji su kompatibilni s Firefoxom za računalo, <a href=\"%(newLocation)s\">posjeti našu web-stranicu</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-msgstr ""
+msgstr "Nije dostupno za Firefox za Android. Ovaj dodatak možeš koristiti s Firefoxom za računalo ili potraži slične <a href=\"%(newLocation)s\">dodatke za Android</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
