@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 01:04+0000\n"
+"PO-Revision-Date: 2020-03-10 01:12+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -675,15 +675,15 @@ msgstr "Omiljenost"
 
 #: src/amo/components/ContributeCard/index.js:108
 msgid "Contribute now"
-msgstr ""
+msgstr "Doprinesi sada"
 
 #: src/amo/components/ContributeCard/index.js:45
 msgid "Support this developer"
-msgstr ""
+msgstr "Podrži ovog programera"
 
 #: src/amo/components/ContributeCard/index.js:46
 msgid "Support these developers"
-msgstr ""
+msgstr "Podrži ove programere"
 
 #: src/amo/components/ContributeCard/index.js:50
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -695,11 +695,11 @@ msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:59
 msgid "Support this artist"
-msgstr ""
+msgstr "Podrži ovog umjetnika"
 
 #: src/amo/components/ContributeCard/index.js:60
 msgid "Support these artists"
-msgstr ""
+msgstr "Podrži ove umjetnike"
 
 #: src/amo/components/ContributeCard/index.js:64
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
@@ -711,11 +711,11 @@ msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:73
 msgid "Support this author"
-msgstr ""
+msgstr "Podrži ovog autora"
 
 #: src/amo/components/ContributeCard/index.js:74
 msgid "Support these authors"
-msgstr ""
+msgstr "Podrži ove umjetnike"
 
 #: src/amo/components/ContributeCard/index.js:78
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
@@ -727,27 +727,27 @@ msgstr ""
 
 #: src/amo/components/EditableCollectionAddon/index.js:133 src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Leave a note"
-msgstr ""
+msgstr "Zapiši bilješku"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143 src/core/components/AMInstallButton/index.js:198
 msgid "Remove"
-msgstr ""
+msgstr "Ukloni"
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
 msgid "Collector's note"
-msgstr ""
+msgstr "Bilješka kolekcionara"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
-msgstr ""
+msgstr "Dodaj komentar o ovom dodatku."
 
 #: src/amo/components/EditableCollectionAddon/index.js:168
 msgid "Save"
-msgstr ""
+msgstr "Spremi"
 
 #: src/amo/components/EditableCollectionAddon/index.js:189
 msgid "Edit"
-msgstr ""
+msgstr "Uredi"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:26
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -793,7 +793,7 @@ msgstr ""
 
 #: src/amo/components/Errors/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr ""
+msgstr "Greška poslužitelja"
 
 #: src/amo/components/Errors/ServerError/index.js:35
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -801,19 +801,19 @@ msgstr ""
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
-msgstr ""
+msgstr "Odgovor od %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
 msgid "Review by %(userName)s"
-msgstr ""
+msgstr "Recenzija od %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
-msgstr ""
+msgstr "Recenzija nije pronađena."
 
 #: src/amo/components/FlagReviewMenu/index.js:103
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Ovo je izvještaj o grešci ili zahtjev za podršku"
 
 #: src/amo/components/FlagReviewMenu/index.js:106
 msgid "Flagged as a bug report or support request"
