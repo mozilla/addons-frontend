@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 13:43+0000\n"
+"PO-Revision-Date: 2020-03-10 13:53+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1380,106 +1380,106 @@ msgstr[2] "Pronađeno je %(count)s motiva"
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "Pronađen je %(count)s rezultat za „%(query)s”"
-msgstr[1] ""
-msgstr[2] ""
+msgstr[1] "Pronađena su %(count)s rezultata za „%(query)s”"
+msgstr[2] "Pronađeno je %(count)s rezultata za „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:170
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pronađen je %(count)s rezultat"
+msgstr[1] "Pronađena su %(count)s rezultata"
+msgstr[2] "Pronađeno je %(count)s rezultata"
 
 #: src/amo/components/SearchContextCard/index.js:181
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "Traži se „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:185
 msgid "Searching for add-ons"
-msgstr ""
+msgstr "Traže se dodaci"
 
 #: src/amo/components/SearchContextCard/index.js:59
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pronađeno je %(count)s proširenje za „%(query)s” u kategoriji %(categoryName)s"
+msgstr[1] "Pronađena su %(count)s proširenja za „%(query)s” u kategoriji %(categoryName)s"
+msgstr[2] "Pronađeno je %(count)s proširenja za „%(query)s” u kategoriji %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:68
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pronađeno je %(count)s proširenje u kategoriji %(categoryName)s"
+msgstr[1] "Pronađena su %(count)s proširenja u kategoriji %(categoryName)s"
+msgstr[2] "Pronađeno je %(count)s proširenja u kategoriji %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:78
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pronađeno je %(count)s proširenje za „%(query)s”"
+msgstr[1] "Pronađena su %(count)s proširenja za „%(query)s”"
+msgstr[2] "Pronađeno je %(count)s proširenja za „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:87
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pronađeno je %(count)s proširenje"
+msgstr[1] "Pronađena su %(count)s proširenja"
+msgstr[2] "Pronađeno je %(count)s proširenja"
 
 #: src/amo/components/SearchContextCard/index.js:99
 msgid "%(count)s Search Tool found for \"%(query)s\""
 msgid_plural "%(count)s Search Tools found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pronađen je %(count)s alat za pretraživanje za „%(query)s”"
+msgstr[1] "Pronađena su %(count)s alata za pretraživanje za „%(query)s”"
+msgstr[2] "Pronađeno je %(count)s alata za pretraživanje za „%(query)s”"
 
 #: src/amo/components/SearchFilters/index.js:128 src/amo/components/SearchFilters/index.js:144
 msgid "All"
-msgstr ""
+msgstr "Sve"
 
 #: src/amo/components/SearchFilters/index.js:129
 msgid "Extension"
-msgstr ""
+msgstr "Proširenje"
 
 #: src/amo/components/SearchFilters/index.js:133
 msgid "Theme"
-msgstr ""
+msgstr "Motiv"
 
 #: src/amo/components/SearchFilters/index.js:145
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #: src/amo/components/SearchFilters/index.js:146
 msgid "macOS"
-msgstr ""
+msgstr "macOS"
 
 #: src/amo/components/SearchFilters/index.js:147
 msgid "Linux"
-msgstr ""
+msgstr "Linux"
 
 #: src/amo/components/SearchFilters/index.js:155
 msgid "Relevance"
-msgstr ""
+msgstr "Važnost"
 
 #: src/amo/components/SearchFilters/index.js:157
 msgid "Recently Updated"
-msgstr ""
+msgstr "Nedavno aktualizirano"
 
 #: src/amo/components/SearchFilters/index.js:160
 msgid "Most Users"
-msgstr ""
+msgstr "Najveći broj korisnika"
 
 #: src/amo/components/SearchFilters/index.js:161
 msgid "Top Rated"
-msgstr ""
+msgstr "Najbolje ocijenjeno"
 
 #: src/amo/components/SearchFilters/index.js:162
 msgid "Trending"
-msgstr ""
+msgstr "U trendu"
 
 #: src/amo/components/SearchFilters/index.js:180
 msgid "Filter results"
-msgstr ""
+msgstr "Filtriraj rezultate"
 
 #: src/amo/components/SearchFilters/index.js:185
 msgid "Sort by"
