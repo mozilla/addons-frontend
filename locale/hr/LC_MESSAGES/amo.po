@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 13:24+0000\n"
+"PO-Revision-Date: 2020-03-10 13:35+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -1183,43 +1183,43 @@ msgstr "Prijavi se i ocijeni ovaj dodatak"
 
 #: src/amo/components/RatingManager/index.js:176
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr ""
+msgstr "Zaista želiš izbrisati tvoju recenziju za %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:181
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr ""
+msgstr "Zaista želiš izbrisati tvoju ocjenu za %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:186
 msgid "How are you enjoying %(addonName)s?"
-msgstr ""
+msgstr "Kako ti se sviđa %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:229
 msgid "Saving star rating"
-msgstr ""
+msgstr "Spremanje ocjene"
 
 #: src/amo/components/RatingManager/index.js:230
 msgid "Star rating saved"
-msgstr ""
+msgstr "Ocjena je spremljena"
 
 #: src/amo/components/RatingsByStar/index.js:92
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Pročitaj sve recenzije s pet zvjezdica"
 
 #: src/amo/components/RatingsByStar/index.js:93
 msgid "Read all four-star reviews"
-msgstr ""
+msgstr "Pročitaj sve recenzije s četiri zvjezdice"
 
 #: src/amo/components/RatingsByStar/index.js:94
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "Pročitaj sve recenzije s tri zvjezdice"
 
 #: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all two-star reviews"
-msgstr ""
+msgstr "Pročitaj sve recenzije s dvije zvjezdice"
 
 #: src/amo/components/RatingsByStar/index.js:96
 msgid "Read all one-star reviews"
-msgstr ""
+msgstr "Pročitaj sve recenzije s jednom zvjezdicom"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -1303,39 +1303,39 @@ msgstr "Preporučeni dodaci"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:348 src/amo/pages/LandingPage/index.js:133
 msgid "Trending extensions"
-msgstr ""
+msgstr "Proširenja u trendu"
 
 #: src/amo/components/Search/index.js:137 src/amo/pages/LandingPage/index.js:165
 msgid "Trending themes"
-msgstr ""
+msgstr "Motivi u trendu"
 
 #: src/amo/components/Search/index.js:140
 msgid "Trending add-ons"
-msgstr ""
+msgstr "Dodaci u trendu"
 
 #: src/amo/components/Search/index.js:146 src/amo/pages/LandingPage/index.js:143
 msgid "Top rated extensions"
-msgstr ""
+msgstr "Proširenja s najboljom ocjenom"
 
 #: src/amo/components/Search/index.js:149 src/amo/pages/LandingPage/index.js:174
 msgid "Top rated themes"
-msgstr ""
+msgstr "Motivi s najboljom ocjenom"
 
 #: src/amo/components/Search/index.js:152
 msgid "Top rated add-ons"
-msgstr ""
+msgstr "Dodaci s najboljom ocjenom"
 
 #: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:308
 msgid "Popular extensions"
-msgstr ""
+msgstr "Popularna proširenja"
 
 #: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:289
 msgid "Popular themes"
-msgstr ""
+msgstr "Popularni motivi"
 
 #: src/amo/components/Search/index.js:164
 msgid "Popular add-ons"
-msgstr ""
+msgstr "Popularni dodaci"
 
 #: src/amo/components/Search/index.js:170
 msgid "Search results for \"%(query)s\""
