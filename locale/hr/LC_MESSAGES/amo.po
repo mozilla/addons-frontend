@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 00:08+0000\n"
+"PO-Revision-Date: 2020-03-10 00:13+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -359,45 +359,45 @@ msgstr "Napiši odgovor na ovu recenziju."
 
 #: src/amo/components/AddonReviewCard/index.js:301 src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
-msgstr ""
+msgstr "Aktualiziraj odgovor"
 
 #: src/amo/components/AddonReviewCard/index.js:302
 msgid "Publish reply"
-msgstr ""
+msgstr "Objavi odgovor"
 
 #: src/amo/components/AddonReviewCard/index.js:306 src/amo/components/AddonReviewManager/index.js:122
 msgid "Updating reply"
-msgstr ""
+msgstr "Aktualiziranje odgovora"
 
 #: src/amo/components/AddonReviewCard/index.js:307
 msgid "Publishing reply"
-msgstr ""
+msgstr "Objavljivanje odgovora"
 
 # Example in English: "posted last week"
 #: src/amo/components/AddonReviewCard/index.js:349
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "objavljeno %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 # Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:351
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "%(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:442
 msgid "Deleting…"
-msgstr ""
+msgstr "Brisanje …"
 
 #: src/amo/components/AddonReviewCard/index.js:473
 msgid "Reply to this review"
-msgstr ""
+msgstr "Odgovori na ovu recenziju"
 
 #: src/amo/components/AddonReviewCard/index.js:503
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Ova ocjena ili recenzija je izbrisana. Vidiš ih samo zbog povlaštenih dozvola."
 
 #: src/amo/components/AddonReviewCard/index.js:549
 msgid "Write a review"
-msgstr ""
+msgstr "Napiši recenziju"
 
 #: src/amo/components/AddonReviewManager/index.js:111
 msgid "Write about your experience with this add-on."
