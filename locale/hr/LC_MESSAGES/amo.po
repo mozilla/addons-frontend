@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 17:42+0000\n"
+"PO-Revision-Date: 2020-03-10 18:52+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -766,10 +766,12 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
+"Pokušaj posjetiti stranicu kasnije, kad bi motiv ili proširenje ponovo mogli biti dostupni. Alternativno, potraži ih u jednom od dostupnih %(extensionStart)sproširenja%(extensionEnd)s ili "
+"%(themeStart)smotiva%(themeEnd)s ili zatraži pomoć na našem %(communityStart)sforumu zajednice%(communityEnd)s."
 
 #: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Ups! Ne možemo pronaći tu stranicu"
 
 #: src/amo/components/Errors/NotFound/index.js:85
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
@@ -797,7 +799,7 @@ msgstr "Greška poslužitelja"
 
 #: src/amo/components/Errors/ServerError/index.js:35
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Nažalost, došlo je do greške s našim poslužiteljem i nismo uspjeli dovršiti tvoj zahtjev. Zabilježili smo ovu grešku i istražit ćemo je."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
@@ -1867,11 +1869,11 @@ msgstr "Zabrani programima za praćenje da te prate"
 
 #: src/amo/pages/Guides/index.js:118
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr ""
+msgstr "Internetski oglašivači mogu pratiti tvoje aktivnosti s jedne web-stranice na drugu i prikupljati podatke o tebi i tvojim interesima. Proširenja mogu pomoći sakriti tvoje digitalne tragove."
 
 #: src/amo/pages/Guides/index.js:123
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Izoliraj svoj Facebook identitet u poseban „kontejner”, kako bi se spriječilo, da Facebook prati tvoje aktivnosti izvan svoje društvene platforme."
 
 #: src/amo/pages/Guides/index.js:127
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
@@ -1889,7 +1891,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:145
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Rasporedi i vizualiziraj kartice u obliku „stabla“ na Firefoxovoj bočnoj traci."
 
 #: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
