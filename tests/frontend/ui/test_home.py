@@ -92,7 +92,6 @@ def test_add_ons_footer_links(base_url, selenium, i, links):
         'firefox/new',
         'firefox/mobile',
         'firefox/mobile',
-        'firefox/mobile',
         'firefox',
         'firefox/channel/desktop',
     ])
