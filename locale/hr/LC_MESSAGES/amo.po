@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 01:23+0000\n"
+"PO-Revision-Date: 2020-03-10 01:32+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -889,27 +889,27 @@ msgstr "iOS preglednik"
 
 #: src/amo/components/Footer/index.js:130
 msgid "Desktop Browser"
-msgstr ""
+msgstr "Preglednik za računala"
 
 #: src/amo/components/Footer/index.js:135
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "Beta, Nightly, razvojno izdanje"
 
 #: src/amo/components/Footer/index.js:142
 msgid "Products"
-msgstr ""
+msgstr "Proizvodi"
 
 #: src/amo/components/Footer/index.js:239
 msgid "Privacy"
-msgstr ""
+msgstr "Privatnost"
 
 #: src/amo/components/Footer/index.js:247
 msgid "Cookies"
-msgstr ""
+msgstr "Kolačići"
 
 #: src/amo/components/Footer/index.js:255
 msgid "Legal"
-msgstr ""
+msgstr "Pravne informacije"
 
 #: src/amo/components/Footer/index.js:265
 msgid ""
@@ -919,15 +919,15 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:27
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "Idi na početnu stranicu Mozille"
 
 #: src/amo/components/Footer/index.js:53
 msgid "About"
-msgstr ""
+msgstr "Informacije"
 
 #: src/amo/components/Footer/index.js:58
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:96
 msgid "Extension Workshop"
@@ -939,31 +939,31 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:81
 msgid "Developer Policies"
-msgstr ""
+msgstr "Politika za programe"
 
 #: src/amo/components/Footer/index.js:86
 msgid "Forum"
-msgstr ""
+msgstr "Forum"
 
 #: src/amo/components/Footer/index.js:94
 msgid "Report a bug"
-msgstr ""
+msgstr "Prijavi grešku"
 
 #: src/amo/components/Footer/index.js:99
 msgid "Review Guide"
-msgstr ""
+msgstr "Priručnik za recenziranje"
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
-msgstr ""
+msgstr "Samo s Firefoxom – nabavi Firefox sada"
 
 #: src/amo/components/Header/index.js:104
 msgid "Submit and manage extensions and themes"
-msgstr ""
+msgstr "Pošalji i upravljaj proširenjima i motivima"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
-msgstr ""
+msgstr "Moj račun"
 
 #: src/amo/components/Header/index.js:126
 msgid "View My Collections"
@@ -2701,19 +2701,19 @@ msgstr ""
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
-msgstr ""
+msgstr "U redu"
 
 #: src/core/components/Paginate/index.js:137
 msgid "Previous"
-msgstr ""
+msgstr "Prethodna"
 
 #: src/core/components/Paginate/index.js:154
 msgid "Next"
-msgstr ""
+msgstr "Sljedeća"
 
 #: src/core/components/Paginate/index.js:160
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Stranica %(currentPage)s od %(totalPages)s"
 
 #: src/core/components/SiteNotices/index.js:56
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
@@ -2729,28 +2729,28 @@ msgstr ""
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s KB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s i novije"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
