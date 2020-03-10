@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-02-04 20:57+0000\n"
-"PO-Revision-Date: 2020-03-10 01:42+0000\n"
+"PO-Revision-Date: 2020-03-10 17:21+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -52,27 +52,27 @@ msgstr "Greška poslužitelja"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Nažalost, došlo je do greške i nismo uspjeli dovršiti tvoj zahtjev. Zabilježili smo ovu grešku i istražit ćemo je."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Kȏd greške: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
-msgstr ""
+msgstr "Stranica nije pronađena"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Nažalost, za upisani URL ne možemo ništa pronaći."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "Ime %(strongStart)s%(name)s%(strongEnd)s je dodano"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Upravljaj dodacima, pritiskom na „Dodaci” u izborniku."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -106,68 +106,68 @@ msgstr "i%(application)s %(minVersion)s i novije verzije"
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s do %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Radi s %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:30
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "Instaliranje je prekinuto, jer se čini da je dodatak oštećen."
 
 #: src/core/utils/addons.js:34
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Neuspjelo instaliranje. Pokušaj ponovo."
 
 #: src/core/utils/addons.js:36
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Neuspjelo preuzimanje. Provjeri svoju vezu."
 
 #: src/core/utils/addons.js:38
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "Tijekom instaliranja se dogodila neočekivana greška."
 
 #: src/core/utils/addons.js:40
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "Tijekom deinstaliranja se dogodila neočekivana greška."
 
 #: src/core/utils/addons.js:45
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "Dogodila se neočekivana greška."
 
 #: src/disco/components/Addon/index.js:85
 msgid "Close"
-msgstr ""
+msgstr "Zatvori"
 
 #: src/disco/components/AddonCompatibilityError/index.js:30
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox za iOS trenutačno ne podržava dodatke."
 
 #: src/disco/components/AddonCompatibilityError/index.js:34
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
+msgstr "Ovaj dodatak ne podržava tvoju Firefox verziju."
 
 #: src/disco/components/AddonCompatibilityError/index.js:40
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "Ovaj dodatak ne podržava tvoj preglednik."
 
 #: src/disco/components/App/index.js:43
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "Otkrij dodatke"
 
 #: src/disco/components/Footer/index.js:30
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Politika privatnosti"
 
 #: src/disco/pages/DiscoPane/index.js:166
 msgid "Find more add-ons"
-msgstr ""
+msgstr "Nađi još dodataka"
 
 #: src/disco/pages/DiscoPane/index.js:188
 msgid "Personalize Your Firefox"
-msgstr ""
+msgstr "Prilagodi svoj Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
