@@ -47,7 +47,7 @@ import {
 describe(__filename, () => {
   function defaultUserProps(props = {}) {
     return {
-      name: 'Matt MacTofu',
+      display_name: 'Matt MacTofu',
       userId: 500,
       ...props,
     };
