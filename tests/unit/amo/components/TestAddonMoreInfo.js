@@ -14,6 +14,8 @@ import {
 import { createInternalAddon } from 'core/reducers/addons';
 import { formatFilesize } from 'core/i18n/utils';
 import {
+  createContextWithFakeRouter,
+  createFakeLocation,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
@@ -31,7 +33,7 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store;
   });
 
-  function render(props = {}) {
+  function render({ location, ...props } = {}) {
     return shallowUntilTarget(
       <AddonMoreInfo
         addon={props.addon || createInternalAddon(fakeAddon)}
@@ -40,6 +42,9 @@ describe(__filename, () => {
         {...props}
       />,
       AddonMoreInfoBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ location }),
+      },
     );
   }
 
@@ -316,6 +321,22 @@ describe(__filename, () => {
     expect(link).toHaveProp('to', '/addon/chill-out/privacy/');
   });
 
+  it('adds the `src` query parameter to the privacy policy link if available in the location', () => {
+    const src = 'some-src';
+
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      has_privacy_policy: true,
+    });
+    const root = render({
+      addon,
+      location: createFakeLocation({ query: { src } }),
+    });
+    const link = root.find('.AddonMoreInfo-privacy-policy').find(Link);
+
+    expect(link).toHaveProp('to', `/addon/chill-out/privacy/?src=${src}`);
+  });
+
   it('does not render a EULA if none exists', () => {
     const addon = createInternalAddon({ ...fakeAddon, has_eula: false });
     const root = render({ addon });
@@ -340,6 +361,21 @@ describe(__filename, () => {
     expect(root.find('.AddonMoreInfo-eula').find(Link)).toHaveProp(
       'to',
       '/addon/chill-out/eula/',
+    );
+  });
+
+  it('adds the `src` query parameter to the EULA link if available in the location', () => {
+    const src = 'some-src';
+
+    const addon = createInternalAddon({ ...fakeAddon, has_eula: true });
+    const root = render({
+      addon,
+      location: createFakeLocation({ query: { src } }),
+    });
+
+    expect(root.find('.AddonMoreInfo-eula').find(Link)).toHaveProp(
+      'to',
+      `/addon/chill-out/eula/?src=${src}`,
     );
   });
 
@@ -440,6 +476,27 @@ describe(__filename, () => {
     expect(history.find(Link)).toHaveProp(
       'to',
       `/addon/${addon.slug}/versions/`,
+    );
+  });
+
+  it('adds a `src` query parameter to the version history link if available in the location', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_EXTENSION,
+    });
+    const src = 'some-src';
+
+    const root = render({
+      addon,
+      location: createFakeLocation({ query: { src } }),
+    });
+
+    const history = root.find('.AddonMoreInfo-version-history');
+
+    expect(history).toHaveProp('term', 'Version History');
+    expect(history.find(Link)).toHaveProp(
+      'to',
+      `/addon/${addon.slug}/versions/?src=${src}`,
     );
   });
 

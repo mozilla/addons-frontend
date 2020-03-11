@@ -58,7 +58,7 @@ export const AddonSummaryCardBase = ({
         <h1 className="visually-hidden">{headerText}</h1>
         {/* We override the add-on URL so that it contains the `src` parameter
         (if provided) but only in this case.  */}
-        <AddonTitle addon={addon} linkToAddon linkTo={addonUrl} />
+        <AddonTitle addon={addon} linkToAddon linkSource={location.query.src} />
       </div>
     </div>
   );
