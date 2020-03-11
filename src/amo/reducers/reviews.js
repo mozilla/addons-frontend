@@ -32,6 +32,7 @@ import {
   UPDATE_RATING_COUNTS,
   createInternalReview,
 } from 'amo/actions/reviews';
+import { addQueryParams } from 'core/utils/url';
 import type {
   BeginDeleteAddonReviewAction,
   CancelDeleteAddonReviewAction,
@@ -77,23 +78,9 @@ export function reviewListURL({
   src?: string,
 |}) {
   invariant(addonSlug, 'addonSlug is required');
-  let path = `/addon/${addonSlug}/reviews/${id ? `${id}/` : ''}`;
+  const path = `/addon/${addonSlug}/reviews/${id ? `${id}/` : ''}`;
 
-  const queryParams = [];
-
-  if (score) {
-    queryParams.push(`score=${score}`);
-  }
-
-  if (src) {
-    queryParams.push(`src=${src}`);
-  }
-
-  if (queryParams.length) {
-    path = `${path}?${queryParams.join('&')}`;
-  }
-
-  return path;
+  return addQueryParams(path, { src, score });
 }
 
 type ReviewsById = {

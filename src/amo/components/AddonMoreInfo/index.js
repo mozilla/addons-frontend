@@ -19,7 +19,7 @@ import {
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
-import { addQueryParams } from 'core/utils';
+import { addQueryParams } from 'core/utils/url';
 import type { AppState } from 'amo/store';
 import type { AddonVersionType, VersionInfoType } from 'core/reducers/versions';
 import type { I18nType } from 'core/types/i18n';

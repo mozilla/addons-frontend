@@ -8,7 +8,7 @@ import Link from 'amo/components/Link';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import translate from 'core/i18n/translate';
 import { getAddonIconUrl } from 'core/imageUtils';
-import { addQueryParams } from 'core/utils';
+import { addQueryParams } from 'core/utils/url';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';

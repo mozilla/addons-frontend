@@ -420,12 +420,18 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
       resolve(installURL);
     })
       .then((installURL) => {
-        const hash =
-          installURL &&
-          getFileHash({ addon, installURL, version: currentVersion });
+        if (!installURL) {
+          throw new Error('installURL is invalid (empty or undefined)');
+        }
+
+        const hash = getFileHash({
+          addon,
+          installURL,
+          version: currentVersion,
+        });
 
         return _addonManager.install(
-          installURL,
+          installURL || '',
           makeProgressHandler({
             _tracking,
             dispatch,
