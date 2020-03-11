@@ -4,6 +4,7 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 import Link from 'amo/components/Link';
 import { fetchGroupedRatings } from 'amo/actions/reviews';
@@ -12,7 +13,6 @@ import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import LoadingText from 'ui/components/LoadingText';
 import IconStar from 'ui/components/IconStar';
-import { withRouter } from 'react-router-dom';
 import type { GroupedRatingsType } from 'amo/api/reviews';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'core/types/addons';

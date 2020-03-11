@@ -10,6 +10,7 @@ import { reviewListURL } from 'amo/reducers/reviews';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
+  createContextWithFakeRouter,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -36,7 +37,9 @@ describe(__filename, () => {
   const render = (customProps = {}) => {
     const props = getProps(customProps);
 
-    return shallowUntilTarget(<RatingsByStar {...props} />, RatingsByStarBase);
+    return shallowUntilTarget(<RatingsByStar {...props} />, RatingsByStarBase, {
+      shallowOptions: createContextWithFakeRouter(),
+    });
   };
 
   const addonForGrouping = (grouping, addonParams = {}) => {
