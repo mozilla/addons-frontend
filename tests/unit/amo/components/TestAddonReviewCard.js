@@ -1088,6 +1088,7 @@ describe(__filename, () => {
         reviewListURL({ addonSlug: slug, id: review.id, src }),
       );
     });
+
     it('uses the addonId for the byLine link when the reviewAddon has an empty slug', () => {
       // See https://github.com/mozilla/addons-frontend/issues/7322 for
       // the reason this test was added.
