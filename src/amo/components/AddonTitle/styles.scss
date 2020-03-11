@@ -9,7 +9,6 @@
   line-height: 1.1;
   margin: 0 0 $padding-page-l;
   width: 100%;
-  word-wrap: break-word;
 
   @include respond-to(medium) {
     font-size: $font-size-xl;
@@ -20,7 +19,6 @@
 
     display: block;
     padding-top: 3px;
-    word-wrap: break-word;
 
     &,
     a,

@@ -99,17 +99,12 @@
 .Addon-summary {
   font-size: $font-size-m-smaller;
   overflow-x: auto;
-  word-wrap: break-word;
 
   @include respond-to(medium) {
     @include margin-end(24px);
 
     max-width: 550px;
   }
-}
-
-.AddonDescription-contents {
-  word-wrap: break-word;
 }
 
 .Addon .AMInstallButton {

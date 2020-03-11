@@ -43,7 +43,6 @@
   font-size: $font-size-hero-message-headline;
   line-height: 1.333;
   margin: 0;
-  overflow-wrap: anywhere;
 
   .LoadingText {
     height: 1em;
@@ -51,7 +50,6 @@
 }
 
 .SecondaryHero-message-description {
-  overflow-wrap: anywhere;
   padding: $padding-page 0;
 
   @include respond-to(large) {
@@ -109,7 +107,6 @@
 .SecondaryHero-message-link,
 .SecondaryHero-module-description,
 .SecondaryHero-module-link {
-  overflow-wrap: anywhere;
   width: 100%;
 
   .LoadingText {

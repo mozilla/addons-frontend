@@ -1,8 +1,6 @@
 @import '~ui/css/styles';
 
 .UserReview {
-  word-wrap: break-word;
-
   .Rating {
     margin: 0;
 
@@ -35,7 +33,6 @@
 .UserReview-body.ShowMoreCard {
   font-size: $font-size-default;
   margin: 0;
-  word-wrap: break-word;
 
   &:not(.UserReview-emptyBody) {
     margin: 4px 0 6px;

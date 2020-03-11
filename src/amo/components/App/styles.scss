@@ -31,7 +31,7 @@ textarea {
 *::before,
 *::after {
   box-sizing: inherit;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 body {
