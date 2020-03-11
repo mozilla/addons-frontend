@@ -433,7 +433,7 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
             name,
             type,
           }),
-          { src: defaultInstallSource, hash },
+          { defaultInstallSource, hash },
         );
       })
       .then(() => {
