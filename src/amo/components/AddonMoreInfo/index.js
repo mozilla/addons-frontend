@@ -105,7 +105,9 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       statsLink = (
         <Link
           className="AddonMoreInfo-stats-link"
-          href={`/addon/${addon.slug}/statistics/`}
+          href={addQueryParams(`/addon/${addon.slug}/statistics/`, {
+            src: location.query.src,
+          })}
         >
           {i18n.gettext('Visit stats dashboard')}
         </Link>
