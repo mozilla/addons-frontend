@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-06 05:37+0000\n"
+"PO-Revision-Date: 2020-03-11 17:51+0000\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1057,7 +1057,7 @@ msgstr "Saper plus"
 
 #: src/amo/components/InstallWarning/index.js:85
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr "Isto non es un extension recommendate. Verifica que tu te pote fider a illo ante lo installar."
+msgstr "Isto non es un Extension Recommendate. Assecura te que illo es digne de fide ante de installar lo."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
