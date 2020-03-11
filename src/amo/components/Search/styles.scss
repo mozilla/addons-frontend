@@ -59,7 +59,7 @@
     border-bottom-right-radius: $border-radius-default;
     margin-top: 0;
     padding: 20px;
-    word-wrap: break-word;
+    @include longStringHandler($word: true)
   }
 
   .ErrorList {

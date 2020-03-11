@@ -20,7 +20,7 @@ $addon-padding: 20px;
     color: $header-copy-font-color;
     font-size: 12px;
     margin: 0.75em 0;
-    overflow-wrap: anywhere;
+    @include longStringHandler($word: false)
 
     a:link,
     a:visited,
@@ -79,7 +79,7 @@ $addon-padding: 20px;
     font-weight: medium;
     line-height: 1.2;
     margin: 0;
-    overflow-wrap: anywhere;
+    @include longStringHandler($word: false)
 
     a:link,
     a:visited,
@@ -127,7 +127,7 @@ $addon-padding: 20px;
     .copy {
       flex-grow: 1;
       padding: 20px 20px 15px;
-      word-wrap: break-word;
+      @include longStringHandler($word: true)
 
       // Remove the bottom margin of the last element.
       & :last-child {

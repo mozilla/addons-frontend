@@ -130,7 +130,7 @@ $icon-default-size: 32px;
   padding: 0;
   text-decoration: none;
   width: 100%;
-  word-wrap: break-word;
+  @include longStringHandler($word: true)
 
   .RecommendedBadge {
     justify-content: flex-start;
@@ -163,7 +163,7 @@ $icon-default-size: 32px;
     margin: 0;
     max-width: 465px;
     width: 100%;
-    word-wrap: break-word;
+    @include longStringHandler($word: true)
   }
 }
 

@@ -27,7 +27,7 @@
   font-size: $font-size-default;
   margin: 0;
   width: 100%;
-  word-wrap: break-word;
+  @include longStringHandler($word: true)
 
   .UserCollection-link:active &,
   .UserCollection-link:focus &,

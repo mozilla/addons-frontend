@@ -108,7 +108,7 @@ $avatar-size: 64px;
 }
 
 .UserProfile-biography {
-  word-wrap: break-word;
+  @include longStringHandler($word: true)
 
   & > p {
     margin-top: 0;

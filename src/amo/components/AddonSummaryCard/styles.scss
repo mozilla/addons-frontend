@@ -48,7 +48,7 @@
     line-height: $default-line-height;
     margin: 0;
     padding: 0;
-    word-wrap: break-word;
+    @include longStringHandler($word: true)
 
     a,
     a:link {

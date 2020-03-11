@@ -3,7 +3,7 @@
 .SearchContextCard-header {
   font-size: $font-size-m;
   margin: 0;
-  word-wrap: break-word;
+  @include longStringHandler($word: true)
 
   @include respond-to(large) {
     font-size: $font-size-l;

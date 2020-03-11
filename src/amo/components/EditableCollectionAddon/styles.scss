@@ -50,7 +50,7 @@ $icon-size: 32px;
   font-size: $font-size-m-smaller;
   hyphens: auto;
   margin: 0;
-  word-wrap: break-word;
+  @include longStringHandler($word: true)
 
   @include respond-to(extraLarge) {
     align-items: center;

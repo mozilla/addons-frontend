@@ -107,7 +107,7 @@
   font-size: $font-size-l;
   line-height: 1.188;
   margin: 14px 0 0 0;
-  overflow-wrap: anywhere;
+  @include longStringHandler($word: false)
 
   @include respond-to(extraExtraLarge) {
     font-size: $font-size-hero-heading;

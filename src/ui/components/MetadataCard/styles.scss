@@ -19,7 +19,7 @@
   hyphens: auto;
   margin: 12px;
   max-width: 25%;
-  word-wrap: break-word;
+  @include longStringHandler($word: true)
 
   dd {
     line-height: 1.4;

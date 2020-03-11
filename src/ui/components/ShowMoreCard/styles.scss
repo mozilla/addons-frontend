@@ -25,7 +25,7 @@
   max-height: 150px;
   overflow: hidden;
   position: relative;
-  word-wrap: break-word;
+  @include longStringHandler($word: true)
 
   .ShowMoreCard--expanded & {
     &::after {

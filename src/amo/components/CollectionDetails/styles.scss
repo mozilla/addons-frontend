@@ -13,13 +13,13 @@
 
   font-size: $font-size-l;
   hyphens: auto;
-  word-wrap: break-word;
+  @include longStringHandler($word: true)
 }
 
 .CollectionDetails-description {
   font-size: $font-size-s;
   hyphens: auto;
-  word-wrap: break-word;
+  @include longStringHandler($word: true)
 }
 
 .CollectionDetails-edit-button,

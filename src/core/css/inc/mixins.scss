@@ -201,3 +201,11 @@
     padding: 15px 36px;
   }
 }
+
+@mixin longStringHandler($word) {
+  @if $word {
+    @include longStringHandler($word: true)
+  } @else {
+    overflow-wrap: anywhere;
+  }
+}

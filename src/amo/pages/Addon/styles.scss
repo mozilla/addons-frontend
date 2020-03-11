@@ -99,7 +99,7 @@
 .Addon-summary {
   font-size: $font-size-m-smaller;
   overflow-x: auto;
-  word-wrap: break-word;
+  @include longStringHandler($word: true)
 
   @include respond-to(medium) {
     @include margin-end(24px);
@@ -109,7 +109,7 @@
 }
 
 .AddonDescription-contents {
-  word-wrap: break-word;
+  @include longStringHandler($word: true)
 }
 
 .Addon .AMInstallButton {
