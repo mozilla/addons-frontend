@@ -1,12 +1,14 @@
 /* @flow */
 import * as React from 'react';
 import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 import AddonTitle from 'amo/components/AddonTitle';
 import Link from 'amo/components/Link';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import translate from 'core/i18n/translate';
 import { getAddonIconUrl } from 'core/imageUtils';
+import { addQueryParams } from 'core/utils';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
@@ -14,6 +16,7 @@ import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 import { roundToOneDigit } from 'amo/components/AddonMeta';
 import { getAddonURL } from 'amo/utils';
+import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
@@ -25,14 +28,18 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
+  location: ReactRouterLocationType,
 |};
 
 export const AddonSummaryCardBase = ({
   addon,
   headerText,
   i18n,
+  location,
 }: InternalProps) => {
-  const addonUrl = addon ? getAddonURL(addon.slug) : '';
+  const addonUrl = addon
+    ? addQueryParams(getAddonURL(addon.slug), { src: location.query.src })
+    : '';
   const iconUrl = getAddonIconUrl(addon);
   const iconImage = (
     <img
@@ -49,7 +56,9 @@ export const AddonSummaryCardBase = ({
       </div>
       <div className="AddonSummaryCard-header-text">
         <h1 className="visually-hidden">{headerText}</h1>
-        <AddonTitle addon={addon} linkToAddon />
+        {/* We override the add-on URL so that it contains the `src` parameter
+        (if provided) but only in this case.  */}
+        <AddonTitle addon={addon} linkToAddon linkTo={addonUrl} />
       </div>
     </div>
   );
@@ -86,8 +95,9 @@ export const AddonSummaryCardBase = ({
   );
 };
 
-const AddonSummaryCard: React.ComponentType<Props> = compose(translate())(
-  AddonSummaryCardBase,
-);
+const AddonSummaryCard: React.ComponentType<Props> = compose(
+  withRouter,
+  translate(),
+)(AddonSummaryCardBase);
 
 export default AddonSummaryCard;

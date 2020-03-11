@@ -18,6 +18,7 @@ type Props = {|
   as?: string,
   addon: AddonType | null,
   linkToAddon?: boolean,
+  linkTo?: string,
 |};
 
 type InternalProps = {|
@@ -32,6 +33,7 @@ export const AddonTitleBase = ({
   i18n,
   isRTL,
   linkToAddon = false,
+  linkTo,
 }: InternalProps) => {
   const authors = [];
 
@@ -64,7 +66,7 @@ export const AddonTitleBase = ({
       {addon ? (
         <>
           {linkToAddon ? (
-            <Link to={getAddonURL(addon.slug)}>{addon.name}</Link>
+            <Link to={linkTo || getAddonURL(addon.slug)}>{addon.name}</Link>
           ) : (
             addon.name
           )}

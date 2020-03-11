@@ -69,16 +69,30 @@ export function reviewListURL({
   addonSlug,
   id,
   score,
+  src,
 }: {|
   addonSlug: string,
   id?: number,
   score?: number | string,
+  src?: string,
 |}) {
   invariant(addonSlug, 'addonSlug is required');
   let path = `/addon/${addonSlug}/reviews/${id ? `${id}/` : ''}`;
+
+  const queryParams = [];
+
   if (score) {
-    path = `${path}?score=${score}`;
+    queryParams.push(`score=${score}`);
   }
+
+  if (src) {
+    queryParams.push(`src=${src}`);
+  }
+
+  if (queryParams.length) {
+    path = `${path}?${queryParams.join('&')}`;
+  }
+
   return path;
 }
 

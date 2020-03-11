@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
 import Link from 'amo/components/Link';
@@ -18,9 +19,11 @@ import {
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
+import { addQueryParams } from 'core/utils';
 import type { AppState } from 'amo/store';
 import type { AddonVersionType, VersionInfoType } from 'core/reducers/versions';
 import type { I18nType } from 'core/types/i18n';
+import type { ReactRouterLocationType } from 'core/types/router';
 
 type Props = {|
   addon: AddonType | null,
@@ -30,20 +33,21 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   hasStatsPermission: boolean,
-  i18n: I18nType,
   userId: number | null,
   currentVersion: AddonVersionType | null,
   versionInfo: VersionInfoType | null,
+  location: ReactRouterLocationType,
 |};
 
 export class AddonMoreInfoBase extends React.Component<InternalProps> {
   listContent() {
     const {
       addon,
+      currentVersion,
       hasStatsPermission,
       i18n,
+      location,
       userId,
-      currentVersion,
       versionInfo,
     } = this.props;
 
@@ -153,7 +157,9 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       privacyPolicyLink: addon.has_privacy_policy ? (
         <Link
           className="AddonMoreInfo-privacy-policy-link"
-          to={`/addon/${addon.slug}/privacy/`}
+          to={addQueryParams(`/addon/${addon.slug}/privacy/`, {
+            src: location.query.src,
+          })}
         >
           {i18n.gettext('Read the privacy policy for this add-on')}
         </Link>
@@ -161,7 +167,9 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       eulaLink: addon.has_eula ? (
         <Link
           className="AddonMoreInfo-eula-link"
-          to={`/addon/${addon.slug}/eula/`}
+          to={addQueryParams(`/addon/${addon.slug}/eula/`, {
+            src: location.query.src,
+          })}
         >
           {i18n.gettext('Read the license agreement for this add-on')}
         </Link>
@@ -170,7 +178,9 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
         <li>
           <Link
             className="AddonMoreInfo-version-history-link"
-            to={`/addon/${addon.slug}/versions/`}
+            to={addQueryParams(`/addon/${addon.slug}/versions/`, {
+              src: location.query.src,
+            })}
           >
             {i18n.gettext('See all versions')}
           </Link>
@@ -321,6 +331,7 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
 };
 
 const AddonMoreInfo: React.ComponentType<Props> = compose(
+  withRouter,
   translate(),
   connect(mapStateToProps),
 )(AddonMoreInfoBase);

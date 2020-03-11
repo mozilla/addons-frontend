@@ -1,6 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 import Link from 'amo/components/Link';
 import { reviewListURL } from 'amo/reducers/reviews';
@@ -11,6 +12,7 @@ import MetadataCard from 'ui/components/MetadataCard';
 import Rating from 'ui/components/Rating';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import type { I18nType } from 'core/types/i18n';
+import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
@@ -21,6 +23,7 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
+  location: ReactRouterLocationType,
 |};
 
 export const roundToOneDigit = (value: number | null): number => {
@@ -29,7 +32,8 @@ export const roundToOneDigit = (value: number | null): number => {
 
 export class AddonMetaBase extends React.Component<InternalProps> {
   render() {
-    const { addon, i18n } = this.props;
+    const { addon, i18n, location } = this.props;
+
     let averageRating;
     if (addon) {
       averageRating = addon.ratings ? addon.ratings.average : null;
@@ -66,7 +70,9 @@ export class AddonMetaBase extends React.Component<InternalProps> {
     }
 
     const reviewsLink =
-      addon && reviewCount ? reviewListURL({ addonSlug: addon.slug }) : null;
+      addon && reviewCount
+        ? reviewListURL({ addonSlug: addon.slug, src: location.query.src })
+        : null;
 
     const reviewsContent = reviewsLink ? (
       <Link className="AddonMeta-reviews-content-link" to={reviewsLink}>
@@ -134,8 +140,9 @@ export class AddonMetaBase extends React.Component<InternalProps> {
   }
 }
 
-const AddonMeta: React.ComponentType<Props> = compose(translate())(
-  AddonMetaBase,
-);
+const AddonMeta: React.ComponentType<Props> = compose(
+  withRouter,
+  translate(),
+)(AddonMetaBase);
 
 export default AddonMeta;

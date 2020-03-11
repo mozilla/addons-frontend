@@ -48,6 +48,7 @@ import {
   USER_AGENT_OS_WINDOWS,
 } from 'core/reducers/api';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
+import { removeUndefinedProps } from 'core/utils';
 
 export function getClientConfig(_config) {
   const clientConfig = {};
@@ -167,7 +168,7 @@ export function addQueryParams(urlString, queryParams = {}) {
   // Clear search, since query object will only be used if search
   // property doesn't exist.
   urlObj.search = undefined;
-  urlObj.query = { ...urlObj.query, ...queryParams };
+  urlObj.query = removeUndefinedProps({ ...urlObj.query, ...queryParams });
   return url.format(urlObj);
 }
 
