@@ -4,7 +4,7 @@ import invariant from 'invariant';
 import {
   ADDONS_CONTENTREVIEW,
   ADDONS_EDIT,
-  ADDONS_POSTREVIEW,
+  ADDONS_POST_REVIEW,
   ADDONS_RECOMMENDED_REVIEW,
   ADDONS_REVIEW,
   ADDONS_REVIEWUNLISTED,
@@ -508,7 +508,7 @@ export const hasAnyReviewerRelatedPermission = (state: AppState): boolean => {
   return (
     permissions.includes(ADDONS_CONTENTREVIEW) ||
     permissions.includes(ADDONS_EDIT) ||
-    permissions.includes(ADDONS_POSTREVIEW) ||
+    permissions.includes(ADDONS_POST_REVIEW) ||
     permissions.includes(ADDONS_RECOMMENDED_REVIEW) ||
     permissions.includes(ADDONS_REVIEW) ||
     permissions.includes(ADDONS_REVIEWUNLISTED) ||

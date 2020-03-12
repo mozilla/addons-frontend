@@ -22,7 +22,7 @@ import reducer, {
 } from 'amo/reducers/users';
 import {
   ADDONS_CONTENTREVIEW,
-  ADDONS_POSTREVIEW,
+  ADDONS_POST_REVIEW,
   ADDONS_REVIEW,
   ADDONS_RECOMMENDED_REVIEW,
   REVIEWER_TOOLS_VIEW,
@@ -338,8 +338,8 @@ describe(__filename, () => {
   });
 
   describe('hasAnyReviewerRelatedPermission selector', () => {
-    it('returns `true` when user has ADDONS_POSTREVIEW', () => {
-      const permissions = [ADDONS_POSTREVIEW, STATS_VIEW];
+    it('returns `true` when user has ADDONS_POST_REVIEW', () => {
+      const permissions = [ADDONS_POST_REVIEW, STATS_VIEW];
       const { state } = dispatchSignInActions({ userProps: { permissions } });
 
       expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);

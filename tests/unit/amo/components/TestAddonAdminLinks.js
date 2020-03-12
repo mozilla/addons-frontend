@@ -6,7 +6,7 @@ import AddonAdminLinks, {
 import {
   ADDONS_CONTENTREVIEW,
   ADDONS_EDIT,
-  ADDONS_POSTREVIEW,
+  ADDONS_POST_REVIEW,
   ADDON_TYPE_STATIC_THEME,
   ADMIN_TOOLS_VIEW,
   THEMES_REVIEW,
@@ -165,7 +165,7 @@ describe(__filename, () => {
   });
 
   it('shows a code review link for an extension if the user has permission', () => {
-    const root = renderWithPermissions({ permissions: ADDONS_POSTREVIEW });
+    const root = renderWithPermissions({ permissions: ADDONS_POST_REVIEW });
 
     expect(root.find('.AddonAdminLinks-codeReview-link')).toHaveProp(
       'href',

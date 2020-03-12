@@ -284,7 +284,7 @@ export const FEATURED_THEMES_COLLECTION_EDIT = 'Collections:Contribute';
 // The slug for the special Featured Themes collection.
 export const FEATURED_THEMES_COLLECTION_SLUG = 'featured-personas';
 // Can confirm approval of automatically approved add-ons.
-export const ADDONS_POSTREVIEW = 'Addons:PostReview';
+export const ADDONS_POST_REVIEW = 'Addons:PostReview';
 // Can approve add-ons content.
 export const ADDONS_CONTENTREVIEW = 'Addons:ContentReview';
 // Can review unlisted add-ons.
