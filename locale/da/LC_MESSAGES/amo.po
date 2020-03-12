@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2019-10-29 18:35+0000\n"
+"PO-Revision-Date: 2020-03-07 19:18+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -880,7 +880,7 @@ msgstr "Status for websted"
 
 #: src/amo/components/Footer/index.js:111
 msgid "Browser"
-msgstr ""
+msgstr "Browser"
 
 #: src/amo/components/Footer/index.js:115 src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
@@ -904,7 +904,7 @@ msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:142
 msgid "Products"
-msgstr ""
+msgstr "Produkter"
 
 #: src/amo/components/Footer/index.js:239
 msgid "Privacy"
@@ -1018,7 +1018,7 @@ msgstr "Log ud"
 
 #: src/amo/components/Header/index.js:63
 msgid "Firefox Browser Add-ons"
-msgstr ""
+msgstr "Tilføjelser til Firefox Browser"
 
 #: src/amo/components/Header/index.js:94
 msgid "Learn how to create extensions and themes"
@@ -1623,7 +1623,7 @@ msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr ""
+msgstr "Denne tilføjelse er ikke kompatibel med denne browser. Prøv at installere den i Firefox til computer."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
