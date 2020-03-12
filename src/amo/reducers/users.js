@@ -11,6 +11,7 @@ import {
   ALL_SUPER_POWERS,
   RATINGS_MODERATE,
   REVIEWER_TOOLS_VIEW,
+  STATIC_THEMES_REVIEW,
   THEMES_REVIEW,
 } from 'core/constants';
 import type { AppState } from 'amo/store';
@@ -514,6 +515,7 @@ export const hasAnyReviewerRelatedPermission = (state: AppState): boolean => {
     permissions.includes(ADDONS_REVIEW_UNLISTED) ||
     permissions.includes(RATINGS_MODERATE) ||
     permissions.includes(REVIEWER_TOOLS_VIEW) ||
+    permissions.includes(STATIC_THEMES_REVIEW) ||
     permissions.includes(THEMES_REVIEW)
   );
 };

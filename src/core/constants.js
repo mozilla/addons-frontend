@@ -301,6 +301,8 @@ export const ALL_SUPER_POWERS = '*:*';
 export const REVIEWER_TOOLS_VIEW = 'ReviewerTools:View';
 // Can review recommend(ed|able) add-ons.
 export const ADDONS_RECOMMENDED_REVIEW = 'Addons:RecommendedReview';
+// Can review a static theme.
+export const STATIC_THEMES_REVIEW = 'Addons:ThemeReview';
 
 export const RTL = 'rtl';
 export const LTR = 'ltr';

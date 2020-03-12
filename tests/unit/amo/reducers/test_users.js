@@ -23,11 +23,12 @@ import reducer, {
 import {
   ADDONS_CONTENT_REVIEW,
   ADDONS_POST_REVIEW,
-  ADDONS_REVIEW,
   ADDONS_RECOMMENDED_REVIEW,
-  REVIEWER_TOOLS_VIEW,
+  ADDONS_REVIEW,
   ADMIN_TOOLS_VIEW,
   ALL_SUPER_POWERS,
+  REVIEWER_TOOLS_VIEW,
+  STATIC_THEMES_REVIEW,
   STATS_VIEW,
   THEMES_REVIEW,
 } from 'core/constants';
@@ -354,6 +355,13 @@ describe(__filename, () => {
 
     it('returns `true` when user has ADDONS_REVIEW', () => {
       const permissions = [ADDONS_REVIEW];
+      const { state } = dispatchSignInActions({ userProps: { permissions } });
+
+      expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
+    });
+
+    it('returns `true` when user has STATIC_THEMES_REVIEW', () => {
+      const permissions = [STATS_VIEW, STATIC_THEMES_REVIEW];
       const { state } = dispatchSignInActions({ userProps: { permissions } });
 
       expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
