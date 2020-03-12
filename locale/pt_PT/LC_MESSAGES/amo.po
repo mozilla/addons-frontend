@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-08 22:44+0000\n"
+"PO-Revision-Date: 2020-03-12 00:50+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -2402,7 +2402,7 @@ msgstr "Fazer afirmações falsas, menosprezar ou insultar os autores do extra."
 
 #: src/amo/pages/UserProfile/index.js:241
 msgid "My reviews"
-msgstr "Minhas análises"
+msgstr "As minhas análises"
 
 #: src/amo/pages/UserProfile/index.js:269
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
