@@ -24,6 +24,8 @@ import {
   ADDONS_CONTENTREVIEW,
   ADDONS_POSTREVIEW,
   ADDONS_REVIEW,
+  ADDONS_RECOMMENDED_REVIEW,
+  REVIEWER_TOOLS_VIEW,
   ADMIN_TOOLS_VIEW,
   ALL_SUPER_POWERS,
   STATS_VIEW,
@@ -352,6 +354,20 @@ describe(__filename, () => {
 
     it('returns `true` when user has ADDONS_REVIEW', () => {
       const permissions = [ADDONS_REVIEW];
+      const { state } = dispatchSignInActions({ userProps: { permissions } });
+
+      expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
+    });
+
+    it('returns `true` when user has ADDONS_RECOMMENDED_REVIEW', () => {
+      const permissions = [ADDONS_RECOMMENDED_REVIEW];
+      const { state } = dispatchSignInActions({ userProps: { permissions } });
+
+      expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
+    });
+
+    it('returns `true` when user has REVIEWER_TOOLS_VIEW', () => {
+      const permissions = [REVIEWER_TOOLS_VIEW];
       const { state } = dispatchSignInActions({ userProps: { permissions } });
 
       expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);

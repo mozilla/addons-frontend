@@ -297,6 +297,10 @@ export const USERS_EDIT = 'Users:Edit';
 export const ADMIN_TOOLS = 'Admin:Tools';
 // Super powers. It means absolutely all permissions.
 export const ALL_SUPER_POWERS = '*:*';
+// Can view only the reviewer tools.
+export const REVIEWER_TOOLS_VIEW = 'ReviewerTools:View';
+// Can review recommend(ed|able) add-ons.
+export const ADDONS_RECOMMENDED_REVIEW = 'Addons:RecommendedReview';
 
 export const RTL = 'rtl';
 export const LTR = 'ltr';
