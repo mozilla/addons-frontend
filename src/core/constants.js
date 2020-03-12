@@ -286,7 +286,7 @@ export const FEATURED_THEMES_COLLECTION_SLUG = 'featured-personas';
 // Can confirm approval of automatically approved add-ons.
 export const ADDONS_POST_REVIEW = 'Addons:PostReview';
 // Can approve add-ons content.
-export const ADDONS_CONTENTREVIEW = 'Addons:ContentReview';
+export const ADDONS_CONTENT_REVIEW = 'Addons:ContentReview';
 // Can review unlisted add-ons.
 export const ADDONS_REVIEWUNLISTED = 'Addons:ReviewUnlisted';
 // Can moderate user ratings on add-ons.

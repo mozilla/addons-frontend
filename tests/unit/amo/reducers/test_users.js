@@ -21,7 +21,7 @@ import reducer, {
   updateUserAccount,
 } from 'amo/reducers/users';
 import {
-  ADDONS_CONTENTREVIEW,
+  ADDONS_CONTENT_REVIEW,
   ADDONS_POST_REVIEW,
   ADDONS_REVIEW,
   ADDONS_RECOMMENDED_REVIEW,
@@ -345,8 +345,8 @@ describe(__filename, () => {
       expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
     });
 
-    it('returns `true` when user has ADDONS_CONTENTREVIEW', () => {
-      const permissions = [STATS_VIEW, ADDONS_CONTENTREVIEW];
+    it('returns `true` when user has ADDONS_CONTENT_REVIEW', () => {
+      const permissions = [STATS_VIEW, ADDONS_CONTENT_REVIEW];
       const { state } = dispatchSignInActions({ userProps: { permissions } });
 
       expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
