@@ -288,7 +288,7 @@ export const ADDONS_POST_REVIEW = 'Addons:PostReview';
 // Can approve add-ons content.
 export const ADDONS_CONTENT_REVIEW = 'Addons:ContentReview';
 // Can review unlisted add-ons.
-export const ADDONS_REVIEWUNLISTED = 'Addons:ReviewUnlisted';
+export const ADDONS_REVIEW_UNLISTED = 'Addons:ReviewUnlisted';
 // Can moderate user ratings on add-ons.
 export const RATINGS_MODERATE = 'Ratings:Moderate';
 // Can edit user accounts.
