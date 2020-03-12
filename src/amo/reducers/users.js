@@ -2,13 +2,16 @@
 import invariant from 'invariant';
 
 import {
-  ADDONS_CONTENTREVIEW,
+  ADDONS_CONTENT_REVIEW,
   ADDONS_EDIT,
-  ADDONS_POSTREVIEW,
+  ADDONS_POST_REVIEW,
+  ADDONS_RECOMMENDED_REVIEW,
   ADDONS_REVIEW,
-  ADDONS_REVIEWUNLISTED,
+  ADDONS_REVIEW_UNLISTED,
   ALL_SUPER_POWERS,
   RATINGS_MODERATE,
+  REVIEWER_TOOLS_VIEW,
+  STATIC_THEMES_REVIEW,
   THEMES_REVIEW,
 } from 'core/constants';
 import type { AppState } from 'amo/store';
@@ -504,13 +507,16 @@ export const hasAnyReviewerRelatedPermission = (state: AppState): boolean => {
   }
 
   return (
-    permissions.includes(ADDONS_POSTREVIEW) ||
-    permissions.includes(ADDONS_CONTENTREVIEW) ||
+    permissions.includes(ADDONS_CONTENT_REVIEW) ||
+    permissions.includes(ADDONS_EDIT) ||
+    permissions.includes(ADDONS_POST_REVIEW) ||
+    permissions.includes(ADDONS_RECOMMENDED_REVIEW) ||
     permissions.includes(ADDONS_REVIEW) ||
+    permissions.includes(ADDONS_REVIEW_UNLISTED) ||
     permissions.includes(RATINGS_MODERATE) ||
-    permissions.includes(THEMES_REVIEW) ||
-    permissions.includes(ADDONS_REVIEWUNLISTED) ||
-    permissions.includes(ADDONS_EDIT)
+    permissions.includes(REVIEWER_TOOLS_VIEW) ||
+    permissions.includes(STATIC_THEMES_REVIEW) ||
+    permissions.includes(THEMES_REVIEW)
   );
 };
 
