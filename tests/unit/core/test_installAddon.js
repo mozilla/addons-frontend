@@ -1098,7 +1098,7 @@ describe(__filename, () => {
             fakeAddonManager.install,
             `${installURL}?src=${defaultInstallSource}`,
             sinon.match.func,
-            { src: defaultInstallSource, hash },
+            { defaultInstallSource, hash },
           );
         });
       });
@@ -1146,7 +1146,7 @@ describe(__filename, () => {
             fakeAddonManager.install,
             `${versionInstallURL}?src=${defaultInstallSource}`,
             sinon.match.func,
-            { src: defaultInstallSource, hash: versionHash },
+            { defaultInstallSource, hash: versionHash },
           );
         });
       });
@@ -1177,7 +1177,7 @@ describe(__filename, () => {
             fakeAddonManager.install,
             undefined,
             sinon.match.func,
-            { src: defaultInstallSource, hash: undefined },
+            { defaultInstallSource, hash: undefined },
           );
         });
       });

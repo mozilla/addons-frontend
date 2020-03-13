@@ -1,4 +1,6 @@
 /* @flow */
+import urllib from 'url';
+
 /* global window */
 import log from 'core/logger';
 import {
@@ -129,7 +131,7 @@ type OptionalInstallParams = {|
   _log?: typeof log,
   hash?: string | null,
   onIgnoredRejection?: () => void,
-  src: string,
+  defaultInstallSource: string,
 |};
 
 export function install(
@@ -140,9 +142,14 @@ export function install(
     _mozAddonManager = window.navigator.mozAddonManager,
     hash,
     onIgnoredRejection = () => {},
-    src,
+    defaultInstallSource,
   }: OptionalInstallParams = {},
 ) {
+  const parseQuery = true;
+  const urlParts = _url && urllib.parse(_url, parseQuery);
+  const srcInInstallURL = urlParts && urlParts.query && urlParts.query.src;
+  const src = srcInInstallURL || defaultInstallSource;
+
   if (src === undefined) {
     return Promise.reject(new Error('No src for add-on install'));
   }
