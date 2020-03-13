@@ -14,7 +14,7 @@ import {
   addVersionCompatibilityToFilters,
   convertFiltersToQueryParams,
 } from 'core/searchUtils';
-import { addQueryParams } from 'core/utils';
+import { addQueryParams } from 'core/utils/url';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiState } from 'core/reducers/api';
 import type { LocalizedString, PaginatedApiResponse } from 'core/types/api';

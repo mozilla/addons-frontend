@@ -14,7 +14,7 @@ import {
   SET_ENABLE_NOT_AVAILABLE,
   ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
-import { addQueryParams } from 'core/utils';
+import { addQueryParams } from 'core/utils/url';
 
 // This is the representation of an add-on in Firefox.
 type FirefoxAddon = {|
@@ -135,7 +135,7 @@ type OptionalInstallParams = {|
 |};
 
 export function install(
-  _url: string | void,
+  _url: string,
   eventCallback: Function,
   {
     _log = log,

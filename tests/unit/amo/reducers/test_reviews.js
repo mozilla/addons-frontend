@@ -1904,5 +1904,22 @@ describe(__filename, () => {
         `/addon/${addonSlug}/reviews/${id}/?score=${score}`,
       );
     });
+
+    it('returns a URL with a src query parameter', () => {
+      const addonSlug = 'adblock-plus';
+      const src = 'some-src';
+      expect(reviewListURL({ addonSlug, src })).toEqual(
+        `/addon/${addonSlug}/reviews/?src=${src}`,
+      );
+    });
+
+    it('returns a URL with score and src in the query string', () => {
+      const addonSlug = 'adblock-plus';
+      const score = 5;
+      const src = 'some-src';
+      expect(reviewListURL({ addonSlug, score, src })).toEqual(
+        `/addon/${addonSlug}/reviews/?src=${src}&score=${score}`,
+      );
+    });
   });
 });

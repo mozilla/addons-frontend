@@ -11,6 +11,8 @@ import { reviewListURL } from 'amo/reducers/reviews';
 import { ADDON_TYPE_OPENSEARCH } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
+  createContextWithFakeRouter,
+  createFakeLocation,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -23,11 +25,15 @@ describe(__filename, () => {
   function render({
     addon = createInternalAddon(fakeAddon),
     store = dispatchClientMetadata().store,
+    location,
     ...props
   } = {}) {
     return shallowUntilTarget(
       <AddonMeta addon={addon} i18n={fakeI18n()} store={store} {...props} />,
       AddonMetaBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ location }),
+      },
     );
   }
 
@@ -156,6 +162,29 @@ describe(__filename, () => {
 
       expect(reviewCountLink).toHaveProp('to', listURL);
       expect(reviewCountLink.children()).toHaveText(ratingsCount.toString());
+    });
+
+    it('renders links with `src` query parameters when the location has one', () => {
+      const slug = 'some-slug';
+      const src = 'some-src';
+      const location = createFakeLocation({ query: { src } });
+
+      const root = render({
+        addon: createInternalAddon({
+          ...fakeAddon,
+          ratings: { text_count: 3, count: 123 },
+          slug,
+        }),
+        location,
+      });
+
+      const reviewTitleLink = getReviewTitle(root).find(Link);
+      const reviewCountLink = getReviewCount(root).find(Link);
+
+      const listURL = reviewListURL({ addonSlug: slug, src });
+
+      expect(reviewTitleLink).toHaveProp('to', listURL);
+      expect(reviewCountLink).toHaveProp('to', listURL);
     });
 
     it('renders a count of one review', () => {

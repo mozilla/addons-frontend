@@ -4,6 +4,7 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 import Link from 'amo/components/Link';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
@@ -41,6 +42,7 @@ import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
 import type { I18nType } from 'core/types/i18n';
+import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
@@ -74,6 +76,7 @@ type InternalProps = {|
   siteUser: UserType | null,
   siteUserCanManageReplies: boolean,
   submittingReply: boolean,
+  location: ReactRouterLocationType,
 |};
 
 export class AddonReviewCardBase extends React.Component<InternalProps> {
@@ -330,6 +333,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       errorHandler,
       flaggable,
       i18n,
+      location,
       replyingToReview,
       review,
       shortByLine,
@@ -388,6 +392,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
                   to={reviewListURL({
                     addonSlug: String(slugForReviewLink),
                     id: review.id,
+                    src: location.query.src,
                   })}
                 >
                   {text}
@@ -585,6 +590,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
 }
 
 const AddonReviewCard: React.ComponentType<Props> = compose(
+  withRouter,
   connect(mapStateToProps),
   withErrorHandler({ name: 'AddonReviewCard' }),
   translate(),

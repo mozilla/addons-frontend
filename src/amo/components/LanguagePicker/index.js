@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 
 import languages from 'core/languages';
 import translate from 'core/i18n/translate';
-import { addQueryParams } from 'core/utils';
+import { addQueryParams } from 'core/utils/url';
 
 import './styles.scss';
 

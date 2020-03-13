@@ -13,7 +13,8 @@ import {
   CLIENT_APP_ANDROID,
   ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
-import { addQueryParams, nl2br, sanitizeHTML } from 'core/utils';
+import { nl2br, sanitizeHTML } from 'core/utils';
+import { addQueryParams } from 'core/utils/url';
 import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
