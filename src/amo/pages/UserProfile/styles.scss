@@ -4,8 +4,8 @@ $avatar-size: 64px;
 
 .UserAvatar-image {
   height: 100%;
-  min-width: 100%;
   left: 50%;
+  min-width: 100%;
   position: relative;
   transform: translateX(-50%);
 }
