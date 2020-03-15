@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-15 16:13+0000\n"
+"PO-Revision-Date: 2020-03-15 16:14+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -2202,9 +2202,10 @@ msgstr ""
 "etkileşimlerinizi geliştirerek ve tarayıcınızın görünümünü değiştirerek gezinti deneyiminizi değiştirmenizi ve kişiselleştirmenizi sağlar."
 
 #: src/amo/pages/StaticPages/About/index.js:37
-#, fuzzy
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "Mozilla %(startTBLink)sThunderbird%(endTBLink)s ve %(startSMLink)sSeaMonkey%(endSMLink)s eklentilerini bulmak için de AMO'yu kullanabilirsiniz."
+msgstr ""
+"Thunderbird veya SeaMonkey eklentilerini arıyorsanız lütfen %(startTBLink)saddons.thunderbird.net%(endTBLink)s veya %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s adresini ziyaret "
+"edin."
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
