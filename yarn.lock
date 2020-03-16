@@ -13085,10 +13085,10 @@ rc-animate@^2.10.2:
     rc-util "^4.15.3"
     react-lifecycles-compat "^3.0.4"
 
-rc-tooltip@4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/rc-tooltip/-/rc-tooltip-4.0.2.tgz#919afa7284ecfd1ff4f1ec49294ffbbce3d1182f"
-  integrity sha512-Ko56IK1U/CD2rSbfQsaVwOK/wHRGbCGpXEThUvsa3KZqe8ShAB/psMj0woR6IUxRBgYO8ZYS1n2KTm7qLLXnjQ==
+rc-tooltip@4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/rc-tooltip/-/rc-tooltip-4.0.3.tgz#728b760863643ec2e85827a2e7fb28d961b3b759"
+  integrity sha512-HNyBh9/fPdds0DXja8JQX0XTIHmZapB3lLzbdn74aNSxXG1KUkt+GK4X1aOTRY5X9mqm4uUKdeFrn7j273H8gw==
   dependencies:
     rc-trigger "^4.0.0"
 
