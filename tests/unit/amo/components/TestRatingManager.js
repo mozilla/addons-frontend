@@ -6,7 +6,6 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
 import { selectReview } from 'amo/reducers/reviews';
@@ -327,11 +326,6 @@ describe(__filename, () => {
     it('renders a login prompt for the language pack', () => {
       const prompt = getAuthPromptForType(ADDON_TYPE_LANG);
       expect(prompt).toContain('language pack');
-    });
-
-    it('renders a login prompt for the search plugin', () => {
-      const prompt = getAuthPromptForType(ADDON_TYPE_OPENSEARCH);
-      expect(prompt).toContain('search plugin');
     });
 
     it('renders a login prompt for static themes', () => {

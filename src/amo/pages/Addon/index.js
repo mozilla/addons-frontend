@@ -45,7 +45,6 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   INSTALL_SOURCE_DETAIL_PAGE,
 } from 'core/constants';
@@ -267,9 +266,6 @@ export class AddonBase extends React.Component {
           break;
         case ADDON_TYPE_LANG:
           title = i18n.gettext('About this language pack');
-          break;
-        case ADDON_TYPE_OPENSEARCH:
-          title = i18n.gettext('About this search plugin');
           break;
         case ADDON_TYPE_STATIC_THEME:
           title = i18n.gettext('About this theme');

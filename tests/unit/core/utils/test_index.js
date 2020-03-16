@@ -4,10 +4,7 @@ import config from 'config';
 import UAParser from 'ua-parser-js';
 
 import {
-  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_LANG,
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -58,47 +55,10 @@ import {
 
 describe(__filename, () => {
   describe('addonHasVersionHistory', () => {
-    function createAddonWithType(type) {
-      return createInternalAddon({ ...fakeAddon, type });
-    }
-
     it('requires an addon', () => {
       expect(() => {
         addonHasVersionHistory();
       }).toThrow('addon is required');
-    });
-
-    it('returns true for dictionary', () => {
-      const addon = createAddonWithType(ADDON_TYPE_DICT);
-
-      expect(addonHasVersionHistory(addon)).toEqual(true);
-    });
-
-    it('returns true for extension', () => {
-      const addon = createAddonWithType(ADDON_TYPE_EXTENSION);
-
-      expect(addonHasVersionHistory(addon)).toEqual(true);
-    });
-
-    it('returns true for language pack', () => {
-      const addon = createAddonWithType(ADDON_TYPE_LANG);
-
-      expect(addonHasVersionHistory(addon)).toEqual(true);
-    });
-
-    it('returns false for search tool', () => {
-      // Search plugins only have one listed version so showing their
-      // version history is useless. It's best to just say they don't
-      // have a history.
-      const addon = createAddonWithType(ADDON_TYPE_OPENSEARCH);
-
-      expect(addonHasVersionHistory(addon)).toEqual(false);
-    });
-
-    it('returns true for static theme', () => {
-      const addon = createAddonWithType(ADDON_TYPE_STATIC_THEME);
-
-      expect(addonHasVersionHistory(addon)).toEqual(true);
     });
   });
 

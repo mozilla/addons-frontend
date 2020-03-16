@@ -7,11 +7,7 @@ import Search from 'amo/components/Search';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
 import Page from 'amo/components/Page';
-import {
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_OPENSEARCH,
-  SEARCH_SORT_TOP_RATED,
-} from 'core/constants';
+import { ADDON_TYPE_EXTENSION, SEARCH_SORT_TOP_RATED } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import { makeQueryString } from 'core/api';
@@ -81,7 +77,6 @@ export class SearchToolsBase extends React.Component<InternalProps> {
 
 export function mapStateToProps(state: AppState) {
   const filters = {
-    addonType: ADDON_TYPE_OPENSEARCH,
     sort: SEARCH_SORT_TOP_RATED,
   };
 

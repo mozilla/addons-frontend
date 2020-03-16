@@ -9,7 +9,6 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   CLICK_CATEGORY,
   DISCO_NAVIGATION_CATEGORY,
@@ -205,12 +204,6 @@ describe(__filename, () => {
   describe('getAddonTypeForTracking', () => {
     it('returns addon for TYPE_EXTENSION', () => {
       expect(getAddonTypeForTracking(ADDON_TYPE_EXTENSION)).toEqual(
-        TRACKING_TYPE_EXTENSION,
-      );
-    });
-
-    it('returns addon for TYPE_OPENSEARCH', () => {
-      expect(getAddonTypeForTracking(ADDON_TYPE_OPENSEARCH)).toEqual(
         TRACKING_TYPE_EXTENSION,
       );
     });

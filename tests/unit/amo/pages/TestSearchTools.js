@@ -4,7 +4,6 @@ import SearchTools, { SearchToolsBase } from 'amo/pages/SearchTools';
 import Search from 'amo/components/Search';
 import HeadLinks from 'amo/components/HeadLinks';
 import HeadMetaTags from 'amo/components/HeadMetaTags';
-import { ADDON_TYPE_OPENSEARCH, SEARCH_SORT_TOP_RATED } from 'core/constants';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import {
   dispatchClientMetadata,
@@ -31,19 +30,10 @@ describe(__filename, () => {
     expect(root.find(Search)).toHaveLength(1);
   });
 
-  it('search component should have `search` props', () => {
-    const root = render();
-    expect(root.find(Search)).toHaveProp('filters', {
-      addonType: ADDON_TYPE_OPENSEARCH,
-      sort: SEARCH_SORT_TOP_RATED,
-    });
-  });
-
   it('renders a HeadMetaTags component', () => {
     const root = render();
 
     expect(root.find(HeadMetaTags)).toHaveLength(1);
-    expect(root.find(HeadMetaTags).prop('title')).toEqual('Search Tools');
     expect(root.find(HeadMetaTags).prop('description')).toMatch(
       /Download Firefox extensions to customize/,
     );

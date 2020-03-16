@@ -13,7 +13,6 @@ import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
-  INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
@@ -26,7 +25,6 @@ import {
   fakeAddon,
   fakeI18n,
   fakeVersion,
-  getFakeConfig,
   getFakeLogger,
   shallowUntilTarget,
   userAgentsByPlatform,
@@ -264,22 +262,6 @@ describe(__filename, () => {
     expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
   });
 
-  it('renders a notice for browsers that do not support OpenSearch', () => {
-    const _config = getFakeConfig({ server: false });
-    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
-      reason: INCOMPATIBLE_NO_OPENSEARCH,
-    });
-
-    const root = render({ _config, _getClientCompatibility });
-
-    expect(
-      root
-        .find('.AddonCompatibilityError')
-        .childAt(0)
-        .html(),
-    ).toContain('Your version of Firefox does not support search plugins.');
-  });
-
   it('renders a notice if add-on is incompatible with the platform', () => {
     const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
       reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
@@ -330,16 +312,5 @@ describe(__filename, () => {
         .childAt(0)
         .html(),
     ).toContain('Your browser does not support add-ons.');
-  });
-
-  it('does not render an incompatibility banner for opensearch add-ons on the server', () => {
-    const _config = getFakeConfig({ server: true });
-    const _getClientCompatibility = makeGetClientCompatibilityIncompatible({
-      reason: INCOMPATIBLE_NO_OPENSEARCH,
-    });
-
-    const root = render({ _config, _getClientCompatibility });
-
-    expect(root.find('.AddonCompatibilityError')).toHaveLength(0);
   });
 });

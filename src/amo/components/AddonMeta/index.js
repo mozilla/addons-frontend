@@ -4,7 +4,6 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import { reviewListURL } from 'amo/reducers/reviews';
-import { ADDON_TYPE_OPENSEARCH } from 'core/constants';
 import translate from 'core/i18n/translate';
 import type { AddonType } from 'core/types/addons';
 import MetadataCard from 'ui/components/MetadataCard';
@@ -44,8 +43,6 @@ export class AddonMetaBase extends React.Component<InternalProps> {
     if (!addon) {
       userCount = null;
       userTitle = i18n.gettext('Users');
-    } else if (addon.type === ADDON_TYPE_OPENSEARCH) {
-      userTitle = null;
     } else if (averageDailyUsers) {
       userCount = i18n.formatNumber(averageDailyUsers);
       userTitle = i18n.ngettext('User', 'Users', averageDailyUsers);

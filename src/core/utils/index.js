@@ -8,7 +8,6 @@ import qhistory from 'qhistory';
 import { stringify, parse } from 'qs';
 
 import {
-  ADDON_TYPE_OPENSEARCH,
   API_ADDON_TYPES_MAPPING,
   OS_ALL,
   OS_ANDROID,
@@ -247,7 +246,7 @@ export function addonHasVersionHistory(addon) {
     throw new Error('addon is required');
   }
 
-  return ![ADDON_TYPE_OPENSEARCH].includes(addon.type);
+  return addon.type;
 }
 
 /*

@@ -8,7 +8,6 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
 import {
@@ -167,7 +166,7 @@ describe(__filename, () => {
     },
   );
 
-  it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG, ADDON_TYPE_OPENSEARCH])(
+  it.each([ADDON_TYPE_DICT, ADDON_TYPE_LANG])(
     'does not initiate an abuse report via Firefox when add-on type is %s',
     (addonType) => {
       const _hasAbuseReportPanelEnabled = sinon.stub().returns(true);

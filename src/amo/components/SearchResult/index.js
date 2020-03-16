@@ -8,11 +8,7 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import { getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
-import {
-  ADDON_TYPE_OPENSEARCH,
-  CLIENT_APP_ANDROID,
-  ADDON_TYPE_STATIC_THEME,
-} from 'core/constants';
+import { CLIENT_APP_ANDROID, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { addQueryParams, nl2br, sanitizeHTML } from 'core/utils';
 import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
 import Icon from 'ui/components/Icon';
@@ -195,7 +191,7 @@ export class SearchResultBase extends React.Component<InternalProps> {
             )}
           </div>
 
-          {!addon || (addon && addon.type !== ADDON_TYPE_OPENSEARCH) ? (
+          {!addon ? (
             <h3 className="SearchResult-users SearchResult--meta-section">
               <Icon className="SearchResult-users-icon" name="user-fill" />
               <span className="SearchResult-users-text">
