@@ -121,7 +121,11 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 
     if (license) {
       const linkProps = license.isCustom
-        ? { to: `/addon/${addon.slug}/license/` }
+        ? {
+            to: addQueryParams(`/addon/${addon.slug}/license/`, {
+              src: location.query.src,
+            }),
+          }
         : { href: license.url, prependClientApp: false, prependLang: false };
       const licenseName = license.name || i18n.gettext('Custom License');
 

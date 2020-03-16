@@ -379,6 +379,26 @@ describe(__filename, () => {
     );
   });
 
+  it('adds the `src` query parameter to a custom license link if available in the location', () => {
+    const addon = createInternalAddon(fakeAddon);
+    _loadVersions({
+      license: {
+        is_custom: true,
+        name: 'some name',
+        url: 'http://license.com/',
+      },
+    });
+    const src = 'some-src';
+
+    const root = render({
+      addon,
+      location: createFakeLocation({ query: { src } }),
+    });
+    const link = root.find('.AddonMoreInfo-license-link');
+
+    expect(link).toHaveProp('to', `/addon/${addon.slug}/license/?src=${src}`);
+  });
+
   it('does not link to stats if user is not author of the add-on', () => {
     const authorUserId = 11;
     const addon = createInternalAddon({
