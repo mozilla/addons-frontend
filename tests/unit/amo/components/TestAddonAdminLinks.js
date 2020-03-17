@@ -4,9 +4,9 @@ import AddonAdminLinks, {
   AddonAdminLinksBase,
 } from 'amo/components/AddonAdminLinks';
 import {
-  ADDONS_CONTENTREVIEW,
+  ADDONS_CONTENT_REVIEW,
   ADDONS_EDIT,
-  ADDONS_POSTREVIEW,
+  ADDONS_POST_REVIEW,
   ADDON_TYPE_STATIC_THEME,
   ADMIN_TOOLS_VIEW,
   THEMES_REVIEW,
@@ -137,7 +137,7 @@ describe(__filename, () => {
   );
 
   it('shows a content review link if the user has permission', () => {
-    const root = renderWithPermissions({ permissions: ADDONS_CONTENTREVIEW });
+    const root = renderWithPermissions({ permissions: ADDONS_CONTENT_REVIEW });
 
     expect(root.find('.AddonAdminLinks-contentReview-link')).toHaveProp(
       'href',
@@ -157,7 +157,7 @@ describe(__filename, () => {
       addon: createInternalAddon({
         ...fakeTheme,
       }),
-      permissions: [ADDONS_CONTENTREVIEW, ADDONS_EDIT],
+      permissions: [ADDONS_CONTENT_REVIEW, ADDONS_EDIT],
     });
 
     expect(root.find('.AddonAdminLinks')).toHaveLength(1);
@@ -165,7 +165,7 @@ describe(__filename, () => {
   });
 
   it('shows a code review link for an extension if the user has permission', () => {
-    const root = renderWithPermissions({ permissions: ADDONS_POSTREVIEW });
+    const root = renderWithPermissions({ permissions: ADDONS_POST_REVIEW });
 
     expect(root.find('.AddonAdminLinks-codeReview-link')).toHaveProp(
       'href',

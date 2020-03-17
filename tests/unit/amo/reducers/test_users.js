@@ -21,11 +21,14 @@ import reducer, {
   updateUserAccount,
 } from 'amo/reducers/users';
 import {
-  ADDONS_CONTENTREVIEW,
-  ADDONS_POSTREVIEW,
+  ADDONS_CONTENT_REVIEW,
+  ADDONS_POST_REVIEW,
+  ADDONS_RECOMMENDED_REVIEW,
   ADDONS_REVIEW,
   ADMIN_TOOLS_VIEW,
   ALL_SUPER_POWERS,
+  REVIEWER_TOOLS_VIEW,
+  STATIC_THEMES_REVIEW,
   STATS_VIEW,
   THEMES_REVIEW,
 } from 'core/constants';
@@ -336,15 +339,15 @@ describe(__filename, () => {
   });
 
   describe('hasAnyReviewerRelatedPermission selector', () => {
-    it('returns `true` when user has ADDONS_POSTREVIEW', () => {
-      const permissions = [ADDONS_POSTREVIEW, STATS_VIEW];
+    it('returns `true` when user has ADDONS_POST_REVIEW', () => {
+      const permissions = [ADDONS_POST_REVIEW, STATS_VIEW];
       const { state } = dispatchSignInActions({ userProps: { permissions } });
 
       expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
     });
 
-    it('returns `true` when user has ADDONS_CONTENTREVIEW', () => {
-      const permissions = [STATS_VIEW, ADDONS_CONTENTREVIEW];
+    it('returns `true` when user has ADDONS_CONTENT_REVIEW', () => {
+      const permissions = [STATS_VIEW, ADDONS_CONTENT_REVIEW];
       const { state } = dispatchSignInActions({ userProps: { permissions } });
 
       expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
@@ -352,6 +355,27 @@ describe(__filename, () => {
 
     it('returns `true` when user has ADDONS_REVIEW', () => {
       const permissions = [ADDONS_REVIEW];
+      const { state } = dispatchSignInActions({ userProps: { permissions } });
+
+      expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
+    });
+
+    it('returns `true` when user has STATIC_THEMES_REVIEW', () => {
+      const permissions = [STATS_VIEW, STATIC_THEMES_REVIEW];
+      const { state } = dispatchSignInActions({ userProps: { permissions } });
+
+      expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
+    });
+
+    it('returns `true` when user has ADDONS_RECOMMENDED_REVIEW', () => {
+      const permissions = [ADDONS_RECOMMENDED_REVIEW];
+      const { state } = dispatchSignInActions({ userProps: { permissions } });
+
+      expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
+    });
+
+    it('returns `true` when user has REVIEWER_TOOLS_VIEW', () => {
+      const permissions = [REVIEWER_TOOLS_VIEW];
       const { state } = dispatchSignInActions({ userProps: { permissions } });
 
       expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);

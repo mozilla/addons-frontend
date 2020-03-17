@@ -1098,7 +1098,7 @@ describe(__filename, () => {
             fakeAddonManager.install,
             `${installURL}?src=${defaultInstallSource}`,
             sinon.match.func,
-            { src: defaultInstallSource, hash },
+            { defaultInstallSource, hash },
           );
         });
       });
@@ -1146,12 +1146,12 @@ describe(__filename, () => {
             fakeAddonManager.install,
             `${versionInstallURL}?src=${defaultInstallSource}`,
             sinon.match.func,
-            { src: defaultInstallSource, hash: versionHash },
+            { defaultInstallSource, hash: versionHash },
           );
         });
       });
 
-      it('passes an undefined hash when installURL is not found', () => {
+      it('rejects when installURL is not found', () => {
         _loadVersions({
           store,
           versionProps: {
@@ -1164,20 +1164,23 @@ describe(__filename, () => {
           },
         });
 
+        const addon = createInternalAddon(fakeAddon);
         const fakeAddonManager = getFakeAddonManagerWrapper();
-        const { root } = renderWithInstallHelpers({
+        const { root, dispatch } = renderWithInstallHelpers({
           _addonManager: fakeAddonManager,
-          defaultInstallSource,
+          addon,
           store,
         });
         const { install } = root.instance().props;
 
         return install().then(() => {
+          sinon.assert.notCalled(fakeAddonManager.install);
           sinon.assert.calledWith(
-            fakeAddonManager.install,
-            undefined,
-            sinon.match.func,
-            { src: defaultInstallSource, hash: undefined },
+            dispatch,
+            setInstallError({
+              guid: addon.guid,
+              error: FATAL_INSTALL_ERROR,
+            }),
           );
         });
       });

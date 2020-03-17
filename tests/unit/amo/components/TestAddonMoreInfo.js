@@ -13,6 +13,8 @@ import {
 import { createInternalAddon } from 'core/reducers/addons';
 import { formatFilesize } from 'core/i18n/utils';
 import {
+  createContextWithFakeRouter,
+  createFakeLocation,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
@@ -30,7 +32,7 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store;
   });
 
-  function render(props = {}) {
+  function render({ location, ...props } = {}) {
     return shallowUntilTarget(
       <AddonMoreInfo
         addon={props.addon || createInternalAddon(fakeAddon)}
@@ -39,6 +41,9 @@ describe(__filename, () => {
         {...props}
       />,
       AddonMoreInfoBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ location }),
+      },
     );
   }
 
@@ -315,6 +320,22 @@ describe(__filename, () => {
     expect(link).toHaveProp('to', '/addon/chill-out/privacy/');
   });
 
+  it('adds the `src` query parameter to the privacy policy link if available in the location', () => {
+    const src = 'some-src';
+
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      has_privacy_policy: true,
+    });
+    const root = render({
+      addon,
+      location: createFakeLocation({ query: { src } }),
+    });
+    const link = root.find('.AddonMoreInfo-privacy-policy').find(Link);
+
+    expect(link).toHaveProp('to', `/addon/chill-out/privacy/?src=${src}`);
+  });
+
   it('does not render a EULA if none exists', () => {
     const addon = createInternalAddon({ ...fakeAddon, has_eula: false });
     const root = render({ addon });
@@ -340,6 +361,41 @@ describe(__filename, () => {
       'to',
       '/addon/chill-out/eula/',
     );
+  });
+
+  it('adds the `src` query parameter to the EULA link if available in the location', () => {
+    const src = 'some-src';
+
+    const addon = createInternalAddon({ ...fakeAddon, has_eula: true });
+    const root = render({
+      addon,
+      location: createFakeLocation({ query: { src } }),
+    });
+
+    expect(root.find('.AddonMoreInfo-eula').find(Link)).toHaveProp(
+      'to',
+      `/addon/chill-out/eula/?src=${src}`,
+    );
+  });
+
+  it('adds the `src` query parameter to a custom license link if available in the location', () => {
+    const addon = createInternalAddon(fakeAddon);
+    _loadVersions({
+      license: {
+        is_custom: true,
+        name: 'some name',
+        url: 'http://license.com/',
+      },
+    });
+    const src = 'some-src';
+
+    const root = render({
+      addon,
+      location: createFakeLocation({ query: { src } }),
+    });
+    const link = root.find('.AddonMoreInfo-license-link');
+
+    expect(link).toHaveProp('to', `/addon/${addon.slug}/license/?src=${src}`);
   });
 
   it('does not link to stats if user is not author of the add-on', () => {
@@ -410,6 +466,36 @@ describe(__filename, () => {
     expect(statsLink).toHaveProp('href', '/addon/coolio/statistics/');
   });
 
+  it('adds a `src` query parameter to the stats link if available in the location', () => {
+    const src = 'some-src';
+    const authorUserId = 11;
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      slug: 'coolio',
+      authors: [
+        {
+          ...fakeAddon.authors[0],
+          id: authorUserId,
+          name: 'tofumatt',
+          picture_url: 'http://cdn.a.m.o/myphoto.jpg',
+          url: 'http://a.m.o/en-GB/firefox/user/tofumatt/',
+          username: 'tofumatt',
+        },
+      ],
+    });
+    const root = render({
+      addon,
+      store: dispatchSignInActions({ userId: authorUserId }).store,
+      location: createFakeLocation({ query: { src } }),
+    });
+
+    const statsLink = root.find('.AddonMoreInfo-stats-link');
+    expect(statsLink).toHaveProp(
+      'href',
+      `/addon/coolio/statistics/?src=${src}`,
+    );
+  });
+
   it('links to stats if user has STATS_VIEW permission', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
@@ -439,6 +525,27 @@ describe(__filename, () => {
     expect(history.find(Link)).toHaveProp(
       'to',
       `/addon/${addon.slug}/versions/`,
+    );
+  });
+
+  it('adds a `src` query parameter to the version history link if available in the location', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_EXTENSION,
+    });
+    const src = 'some-src';
+
+    const root = render({
+      addon,
+      location: createFakeLocation({ query: { src } }),
+    });
+
+    const history = root.find('.AddonMoreInfo-version-history');
+
+    expect(history).toHaveProp('term', 'Version History');
+    expect(history.find(Link)).toHaveProp(
+      'to',
+      `/addon/${addon.slug}/versions/?src=${src}`,
     );
   });
 

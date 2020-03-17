@@ -836,6 +836,26 @@ describe(__filename, () => {
         expect(paginator).toHaveProp('pathname', reviewListURL({ addonSlug }));
       });
 
+      it('adds a `src` query parameter to the reviews URL when available in the location', () => {
+        const src = 'some-src';
+        const location = createFakeLocation({ query: { src } });
+        const addonSlug = 'adblock-plus';
+        const addon = { ...fakeAddon, id: 8765, slug: addonSlug };
+        loadAddon(addon);
+        const root = renderWithPagination({
+          addon,
+          params: { addonSlug },
+          location,
+        });
+
+        const paginator = renderFooter(root);
+
+        expect(paginator).toHaveProp(
+          'pathname',
+          reviewListURL({ addonSlug, src }),
+        );
+      });
+
       it('configures a paginator with the right Link', () => {
         const root = renderWithPagination();
 

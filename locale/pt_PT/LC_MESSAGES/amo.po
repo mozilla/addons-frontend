@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-04 00:27+0000\n"
+"PO-Revision-Date: 2020-03-12 00:50+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -875,9 +875,8 @@ msgid "Site Status"
 msgstr "Estado do site"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browser"
-msgstr "Navegador para iOS"
+msgstr "Navegador"
 
 #: src/amo/components/Footer/index.js:115 src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
@@ -900,9 +899,8 @@ msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:142
-#, fuzzy
 msgid "Products"
-msgstr "Produtividade"
+msgstr "Produtos"
 
 #: src/amo/components/Footer/index.js:239
 msgid "Privacy"
@@ -1618,9 +1616,8 @@ msgid "Not available on Firefox for Android. You can use this add-on with Firefo
 msgstr "Não disponível no Firefox para Android. Pode utilizar este extra com o Firefox para computadores ou procurar <a href=\"%(newLocation)s\">extras semelhantes para o Android</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
-#, fuzzy
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr "Este extra não é compatível com a sua versão do Firefox."
+msgstr "Este extra não é compatível com com este navegador. Tente instalar o mesmo no Firefox para computador."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
@@ -2405,7 +2402,7 @@ msgstr "Fazer afirmações falsas, menosprezar ou insultar os autores do extra."
 
 #: src/amo/pages/UserProfile/index.js:241
 msgid "My reviews"
-msgstr "Minhas análises"
+msgstr "As minhas análises"
 
 #: src/amo/pages/UserProfile/index.js:269
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."

@@ -6,14 +6,22 @@ import AddonSummaryCard, {
   AddonSummaryCardBase,
 } from 'amo/components/AddonSummaryCard';
 import RatingsByStar from 'amo/components/RatingsByStar';
+import Link from 'amo/components/Link';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon, fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  createContextWithFakeRouter,
+  createFakeLocation,
+  fakeAddon,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
+import { getAddonURL } from 'amo/utils';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 
 describe(__filename, () => {
-  const render = ({ addon, headerText }) => {
+  const render = ({ addon, headerText, location }) => {
     return shallowUntilTarget(
       <AddonSummaryCard
         addon={addon ? createInternalAddon(addon) : addon}
@@ -21,6 +29,9 @@ describe(__filename, () => {
         i18n={fakeI18n()}
       />,
       AddonSummaryCardBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ location }),
+      },
     );
   };
 
@@ -28,8 +39,9 @@ describe(__filename, () => {
     return shallow(root.find('.AddonSummaryCard').prop('header'));
   };
 
-  const renderAddonHeader = ({ addon, headerText }) => {
-    const root = render({ addon, headerText });
+  const renderAddonHeader = (props = {}) => {
+    const root = render(props);
+
     return getAddonHeader(root);
   };
 
@@ -49,6 +61,30 @@ describe(__filename, () => {
       const img = header.find('.AddonSummaryCard-header-icon img');
 
       expect(img).toHaveProp('src', addon.icon_url);
+    });
+
+    it('adds a link on the icon when there is an add-on', () => {
+      const addon = fakeAddon;
+
+      const header = renderAddonHeader({ addon });
+
+      expect(header.find(Link)).toHaveLength(1);
+      expect(header.find(Link)).toHaveProp('to', getAddonURL(addon.slug));
+    });
+
+    it('adds a `src` query parameter to the link on the icon when there is an add-on', () => {
+      const src = 'some-src';
+      const addon = fakeAddon;
+
+      const header = renderAddonHeader({
+        addon,
+        location: createFakeLocation({ query: { src } }),
+      });
+
+      expect(header.find(Link)).toHaveProp(
+        'to',
+        `${getAddonURL(addon.slug)}?src=${src}`,
+      );
     });
 
     it('renders the fallback icon if the origin is not allowed', () => {
@@ -72,11 +108,25 @@ describe(__filename, () => {
 
     it('renders an AddonTitle', () => {
       const addon = fakeAddon;
+
       const header = renderAddonHeader({ addon });
+
       expect(header.find(AddonTitle)).toHaveProp(
         'addon',
         createInternalAddon(addon),
       );
+      expect(header.find(AddonTitle)).toHaveProp('linkSource', undefined);
+    });
+
+    it('sets the linkSource to the value of `location.query.src`', () => {
+      const src = 'some-src';
+
+      const header = renderAddonHeader({
+        addon: fakeAddon,
+        location: createFakeLocation({ query: { src } }),
+      });
+
+      expect(header.find(AddonTitle)).toHaveProp('linkSource', src);
     });
   });
 

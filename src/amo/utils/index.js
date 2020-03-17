@@ -6,7 +6,7 @@ import base62 from 'base62';
 import config from 'config';
 
 import { makeQueryString } from 'core/api';
-import { addQueryParams } from 'core/utils';
+import { addQueryParams } from 'core/utils/url';
 
 /*
  * Return a base62 object that encodes/decodes just like how Django does it

@@ -8,6 +8,7 @@ import { getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import { isRtlLang } from 'core/i18n/utils';
 import LoadingText from 'ui/components/LoadingText';
+import { addQueryParams } from 'core/utils/url';
 import type { AppState } from 'amo/store';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
@@ -18,6 +19,7 @@ type Props = {|
   as?: string,
   addon: AddonType | null,
   linkToAddon?: boolean,
+  linkSource?: string,
 |};
 
 type InternalProps = {|
@@ -32,6 +34,7 @@ export const AddonTitleBase = ({
   i18n,
   isRTL,
   linkToAddon = false,
+  linkSource,
 }: InternalProps) => {
   const authors = [];
 
@@ -64,7 +67,11 @@ export const AddonTitleBase = ({
       {addon ? (
         <>
           {linkToAddon ? (
-            <Link to={getAddonURL(addon.slug)}>{addon.name}</Link>
+            <Link
+              to={addQueryParams(getAddonURL(addon.slug), { src: linkSource })}
+            >
+              {addon.name}
+            </Link>
           ) : (
             addon.name
           )}

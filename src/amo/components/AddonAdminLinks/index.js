@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import {
-  ADDONS_CONTENTREVIEW,
+  ADDONS_CONTENT_REVIEW,
   ADDONS_EDIT,
-  ADDONS_POSTREVIEW,
+  ADDONS_POST_REVIEW,
   ADMIN_TOOLS_VIEW,
   THEMES_REVIEW,
   ADDON_TYPE_STATIC_THEME,
@@ -157,8 +157,8 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
 export const mapStateToProps = (state: AppState) => {
   return {
     hasAdminPermission: hasPermission(state, ADMIN_TOOLS_VIEW),
-    hasCodeReviewPermission: hasPermission(state, ADDONS_POSTREVIEW),
-    hasContentReviewPermission: hasPermission(state, ADDONS_CONTENTREVIEW),
+    hasCodeReviewPermission: hasPermission(state, ADDONS_POST_REVIEW),
+    hasContentReviewPermission: hasPermission(state, ADDONS_CONTENT_REVIEW),
     hasEditPermission: hasPermission(state, ADDONS_EDIT),
     hasThemeReviewPermission: hasPermission(state, THEMES_REVIEW),
   };

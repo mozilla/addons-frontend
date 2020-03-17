@@ -16,7 +16,6 @@ import {
   getAddonJsonLinkedData,
   getErrorMessage,
   getFileHash,
-  removeUndefinedProps,
 } from 'core/utils/addons';
 
 describe(__filename, () => {
@@ -190,28 +189,6 @@ describe(__filename, () => {
       expect(
         getAddonJsonLinkedData({ addon, ratingThreshold: 4 }),
       ).not.toHaveProperty('aggregateRating');
-    });
-  });
-
-  describe('removeUndefinedProps', () => {
-    it('removes undefined properties', () => {
-      expect(removeUndefinedProps({ thing: undefined })).toEqual({});
-    });
-
-    it('preserves falsy properties', () => {
-      expect(removeUndefinedProps({ thing: false })).toEqual({ thing: false });
-    });
-
-    it('preserves other properties', () => {
-      expect(removeUndefinedProps({ thing: 'thing' })).toEqual({
-        thing: 'thing',
-      });
-    });
-
-    it('does not modify the original object', () => {
-      const example = { thing: undefined };
-      removeUndefinedProps(example);
-      expect(example).toEqual({ thing: undefined });
     });
   });
 });

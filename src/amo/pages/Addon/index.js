@@ -224,7 +224,7 @@ export class AddonBase extends React.Component {
       content = (
         <Link
           className="Addon-all-reviews-link"
-          to={reviewListURL({ addonSlug: addon.slug })}
+          to={reviewListURL({ addonSlug: addon.slug, src: location.query.src })}
         >
           {linkText}
         </Link>
@@ -485,7 +485,7 @@ export class AddonBase extends React.Component {
                     <a href="%(newLocation)s">Browse add-ons for Firefox on desktop</a>.`,
                 )}
                 fixFenixLinkMessage={i18n.gettext(
-                  `Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. 
+                  `Not available on Firefox for Android. You can use this add-on with Firefox for Desktop.
                     Learn more about <a href="%(newLocation)s">add-ons for Android</a>.`,
                 )}
               />

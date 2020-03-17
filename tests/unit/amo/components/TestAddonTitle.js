@@ -196,4 +196,16 @@ describe(__filename, () => {
     expect(root.find('h1')).toHaveLength(0);
     expect(root.find('span.AddonTitle')).toHaveLength(1);
   });
+
+  it('accepts a linkSource prop to append to the add-on URL', () => {
+    const linkSource = 'some-src';
+    const addon = createInternalAddon(fakeAddon);
+
+    const root = render({ addon, linkToAddon: true, linkSource });
+
+    expect(root.find(Link).at(0)).toHaveProp(
+      'to',
+      `${getAddonURL(addon.slug)}?src=${linkSource}`,
+    );
+  });
 });

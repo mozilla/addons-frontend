@@ -202,7 +202,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
   }
 
   onSelectOption = (event: ElementEvent<HTMLSelectElement>) => {
-    const { addon, clientApp, history, lang } = this.props;
+    const { addon, clientApp, history, lang, location } = this.props;
     invariant(addon, 'addon is required');
 
     event.preventDefault();
@@ -211,6 +211,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
     const listURL = reviewListURL({
       addonSlug: addon.slug,
       score: value === SHOW_ALL_REVIEWS ? undefined : value,
+      src: location.query.src,
     });
 
     history.push(`/${lang || ''}/${clientApp || ''}${listURL}`);
@@ -327,6 +328,7 @@ export class AddonReviewListBase extends React.Component<InternalProps> {
           pathname={reviewListURL({
             addonSlug: addon.slug,
             score: location.query.score,
+            src: location.query.src,
           })}
           perPage={Number(pageSize)}
         />

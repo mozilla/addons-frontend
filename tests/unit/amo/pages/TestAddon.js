@@ -1119,6 +1119,21 @@ describe(__filename, () => {
       expect(link).toHaveLength(1);
       expect(link).toHaveProp('to', reviewListURL({ addonSlug }));
     });
+
+    it('adds a `src` query parameter to the all reviews link when available in the location', () => {
+      const src = 'some-src';
+      const location = createFakeLocation({ query: { src } });
+      const addonSlug = 'adblock-plus';
+      const card = readReviewsCard({
+        addonSlug,
+        ratingsCount: 2,
+        location,
+      });
+
+      const link = allReviewsLink(card);
+
+      expect(link).toHaveProp('to', reviewListURL({ addonSlug, src }));
+    });
   });
 
   describe('version release notes', () => {
