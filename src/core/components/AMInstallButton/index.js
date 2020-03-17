@@ -10,7 +10,6 @@ import { withRouter } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import {
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   DISABLED,
   DOWNLOADING,
@@ -232,9 +231,6 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
 
   render() {
     const {
-      _config,
-      _log,
-      addon,
       className,
       currentVersion,
       defaultInstallSource,
@@ -246,11 +242,6 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     } = this.props;
 
     if (!isFirefox({ userAgentInfo })) {
-      return null;
-    }
-
-    if (addon.type === ADDON_TYPE_OPENSEARCH && _config.get('server')) {
-      _log.info('Not rendering opensearch install button on the server');
       return null;
     }
 
@@ -266,9 +257,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     const buttonIsDisabled =
       disabled === true || !installURL
         ? true
-        : hasAddonManager &&
-          status === UNKNOWN &&
-          addon.type !== ADDON_TYPE_OPENSEARCH;
+        : hasAddonManager && status === UNKNOWN;
 
     invariant(this.props.puffy !== undefined, 'puffy prop is required');
     const buttonProps: ButtonProps = {
@@ -302,8 +291,6 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
           buttonProps.className,
           'AMInstallButton-button--enable',
         );
-      } else if (addon.type === ADDON_TYPE_OPENSEARCH) {
-        buttonProps.onClick = this.installOpenSearch;
       } else if (hasAddonManager) {
         buttonProps.onClick = this.installExtension;
       }
