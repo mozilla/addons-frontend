@@ -209,10 +209,40 @@ describe(__filename, () => {
   });
 
   describe('install()', () => {
+    // See: https://github.com/mozilla/addons-frontend/issues/9202
+    it('uses the `src` query parameter in the URL when provided', async () => {
+      const url = 'http://example.com/path/to/file.xpi?src=src-in-install-url';
+
+      await addonManager.install(url, fakeCallback, {
+        _mozAddonManager: fakeMozAddonManager,
+        defaultInstallSource: 'default-src',
+      });
+
+      sinon.assert.calledWith(fakeMozAddonManager.createInstall, {
+        url,
+        hash: undefined,
+      });
+    });
+
+    it('uses the default install source when the URL does not have a `src` query parameter', async () => {
+      const url = 'http://example.com/path/to/file.xpi';
+      const defaultInstallSource = 'default-src';
+
+      await addonManager.install(url, fakeCallback, {
+        _mozAddonManager: fakeMozAddonManager,
+        defaultInstallSource,
+      });
+
+      sinon.assert.calledWith(fakeMozAddonManager.createInstall, {
+        url: `${url}?src=${defaultInstallSource}`,
+        hash: undefined,
+      });
+    });
+
     it('should call mozAddonManager.createInstall() with url', async () => {
       await addonManager.install(fakeInstallUrl, fakeCallback, {
         _mozAddonManager: fakeMozAddonManager,
-        src: 'home',
+        defaultInstallSource: 'home',
       });
 
       sinon.assert.calledWith(fakeMozAddonManager.createInstall, {
@@ -226,7 +256,7 @@ describe(__filename, () => {
 
       await addonManager.install(fakeInstallUrl, fakeCallback, {
         _mozAddonManager: fakeMozAddonManager,
-        src: 'home',
+        defaultInstallSource: 'home',
         hash,
       });
 
@@ -239,7 +269,7 @@ describe(__filename, () => {
     it('should call installObj.addEventListener to setup events', async () => {
       await addonManager.install(fakeInstallUrl, fakeCallback, {
         _mozAddonManager: fakeMozAddonManager,
-        src: 'home',
+        defaultInstallSource: 'home',
       });
 
       // It registers an extra onInstallFailed and onInstallEnded listener.
@@ -252,7 +282,7 @@ describe(__filename, () => {
     it('should call installObj.install()', async () => {
       await addonManager.install(fakeInstallUrl, fakeCallback, {
         _mozAddonManager: fakeMozAddonManager,
-        src: 'home',
+        defaultInstallSource: 'home',
       });
 
       sinon.assert.called(fakeInstallObj.install);
@@ -267,7 +297,7 @@ describe(__filename, () => {
         addonManager
           .install(fakeInstallUrl, fakeCallback, {
             _mozAddonManager: fakeMozAddonManager,
-            src: 'home',
+            defaultInstallSource: 'home',
           })
           // The second argument is the reject function.
           .then(unexpectedSuccess, () => {
@@ -292,7 +322,7 @@ describe(__filename, () => {
         _log,
         _mozAddonManager: fakeMozAddonManager,
         onIgnoredRejection: () => finishInstall(),
-        src: 'home',
+        defaultInstallSource: 'home',
       });
 
       await installToFinish;
@@ -304,7 +334,7 @@ describe(__filename, () => {
 
       await addonManager.install(fakeInstallUrl, fakeCallback, {
         _mozAddonManager: fakeMozAddonManager,
-        src: 'home',
+        defaultInstallSource: 'home',
       });
 
       fakeInstallObj.onDownloadProgressListener(fakeEvent);

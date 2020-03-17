@@ -1,5 +1,3 @@
-import url from 'url';
-
 import config from 'config';
 import UAParser from 'ua-parser-js';
 
@@ -17,9 +15,7 @@ import {
   OS_WINDOWS,
 } from 'core/constants';
 import {
-  addQueryParams,
   addQueryParamsToHistory,
-  addonHasVersionHistory,
   apiAddonType,
   apiAddonTypeIsValid,
   convertBoolean,
@@ -54,14 +50,6 @@ import {
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
-  describe('addonHasVersionHistory', () => {
-    it('requires an addon', () => {
-      expect(() => {
-        addonHasVersionHistory();
-      }).toThrow('addon is required');
-    });
-  });
-
   describe('apiAddonType', () => {
     it('maps plural/visible addonTypes to internal types', () => {
       expect(apiAddonType('extensions')).toEqual(ADDON_TYPE_EXTENSION);
@@ -372,52 +360,6 @@ describe(__filename, () => {
       expect(isAllowedOrigin('https://foo.com', { allowedOrigins })).toEqual(
         true,
       );
-    });
-  });
-
-  describe('addQueryParams', () => {
-    it('adds a query param to a plain url', () => {
-      const output = addQueryParams('http://whatever.com/', { foo: 'bar' });
-      expect(url.parse(output, true).query).toEqual({ foo: 'bar' });
-    });
-
-    it('adds more than one query param to a plain url', () => {
-      const output = addQueryParams('http://whatever.com/', {
-        foo: 'bar',
-        test: 1,
-      });
-      expect(url.parse(output, true).query).toEqual({ foo: 'bar', test: '1' });
-    });
-
-    it('overrides an existing parameter', () => {
-      const output = addQueryParams('http://whatever.com/?foo=1', {
-        foo: 'bar',
-      });
-      expect(url.parse(output, true).query).toEqual({ foo: 'bar' });
-    });
-
-    it('overrides multiple existing parameters', () => {
-      const output = addQueryParams('http://whatever.com/?foo=1&bar=2', {
-        foo: 'bar',
-        bar: 'baz',
-      });
-      expect(url.parse(output, true).query).toEqual({ foo: 'bar', bar: 'baz' });
-    });
-
-    it('leaves other params intact', () => {
-      const output = addQueryParams('http://whatever.com/?foo=1&bar=2', {
-        bar: 'updated',
-      });
-      expect(url.parse(output, true).query).toEqual({
-        foo: '1',
-        bar: 'updated',
-      });
-    });
-
-    it('handles relative URLs', () => {
-      const output = addQueryParams('/relative/path/?one=1', { two: '2' });
-      expect(output).toMatch(/^\/relative\/path\//);
-      expect(url.parse(output, true).query).toEqual({ one: '1', two: '2' });
     });
   });
 

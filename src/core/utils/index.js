@@ -156,20 +156,6 @@ export function isAllowedOrigin(
   return allowedOrigins.includes(`${parsedURL.protocol}//${parsedURL.host}`);
 }
 
-/*
- * Returns a new URL with query params appended to `urlString`.
- *
- * `urlString` can be a relative or absolute URL.
- */
-export function addQueryParams(urlString, queryParams = {}) {
-  const urlObj = url.parse(urlString, true);
-  // Clear search, since query object will only be used if search
-  // property doesn't exist.
-  urlObj.search = undefined;
-  urlObj.query = { ...urlObj.query, ...queryParams };
-  return url.format(urlObj);
-}
-
 export function apiAddonTypeIsValid(addonType) {
   return Object.prototype.hasOwnProperty.call(
     API_ADDON_TYPES_MAPPING,
@@ -239,14 +225,6 @@ export function trimAndAddProtocolToUrl(urlToCheck) {
     urlToReturn = `http://${urlToReturn}`;
   }
   return urlToReturn;
-}
-
-export function addonHasVersionHistory(addon) {
-  if (!addon) {
-    throw new Error('addon is required');
-  }
-
-  return addon.type;
 }
 
 /*

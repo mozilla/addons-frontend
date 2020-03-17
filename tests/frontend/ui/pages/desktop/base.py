@@ -173,7 +173,7 @@ class Footer(Region):
 
     _root_locator = (By.CSS_SELECTOR, '.Footer-wrapper')
     _footer_amo_links = (By.CSS_SELECTOR, '.Footer-amo-links')
-    _footer_firefox_links = (By.CSS_SELECTOR, '.Footer-firefox-links')
+    _footer_firefox_links = (By.CSS_SELECTOR, '.Footer-browser-links')
     _footer_links = (By.CSS_SELECTOR, '.Footer-links li a')
 
     @property

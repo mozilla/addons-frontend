@@ -184,15 +184,13 @@ describe(__filename, () => {
   });
 
   it("renders the user's name", () => {
-    const displayName = 'some-user-name';
-    const { params, store } = signInUserWithProps({
-      display_name: displayName,
-    });
+    const name = 'some-user-name';
+    const { params, store } = signInUserWithProps({ name });
 
     const root = renderUserProfile({ params, store });
     const header = getHeaderPropComponent(root);
 
-    expect(header.find('.UserProfile-name')).toHaveText(displayName);
+    expect(header.find('.UserProfile-name')).toHaveText(name);
   });
 
   it('does not render any tag if user is not a developer or artist', () => {
@@ -916,10 +914,7 @@ describe(__filename, () => {
   it('renders a user profile when URL contains a user ID', () => {
     const userId = 100;
     const name = 'some user name';
-    const { params, store } = signInUserWithProps({
-      userId,
-      display_name: name,
-    });
+    const { params, store } = signInUserWithProps({ userId, name });
 
     const reviews = Array(DEFAULT_API_PAGE_SIZE).fill(fakeReview);
     _setUserReviews({
@@ -955,9 +950,9 @@ describe(__filename, () => {
   });
 
   it('renders a UserProfileHead component when user is a developer', () => {
-    const displayName = 'John Doe';
+    const name = 'John Doe';
     const { params, store } = signInUserWithProps({
-      display_name: displayName,
+      name,
       is_addon_developer: true,
       is_artist: false,
     });
@@ -966,17 +961,17 @@ describe(__filename, () => {
 
     expect(root.find(UserProfileHead)).toHaveLength(1);
     expect(root.find(UserProfileHead).prop('description')).toMatch(
-      new RegExp(`The profile of ${displayName}, Firefox extension author.`),
+      new RegExp(`The profile of ${name}, Firefox extension author.`),
     );
     expect(root.find(UserProfileHead).prop('description')).toMatch(
-      new RegExp(`by ${displayName}`),
+      new RegExp(`by ${name}`),
     );
   });
 
   it('renders a UserProfileHead component when user is an artist', () => {
-    const displayName = 'John Doe';
+    const name = 'John Doe';
     const { params, store } = signInUserWithProps({
-      display_name: displayName,
+      name,
       is_addon_developer: false,
       is_artist: true,
     });
@@ -985,17 +980,17 @@ describe(__filename, () => {
 
     expect(root.find(UserProfileHead)).toHaveLength(1);
     expect(root.find(UserProfileHead).prop('description')).toMatch(
-      new RegExp(`The profile of ${displayName}, Firefox theme author.`),
+      new RegExp(`The profile of ${name}, Firefox theme author.`),
     );
     expect(root.find(UserProfileHead).prop('description')).toMatch(
-      new RegExp(`by ${displayName}`),
+      new RegExp(`by ${name}`),
     );
   });
 
   it('renders a UserProfileHead component when user is a developer and an artist', () => {
-    const displayName = 'John Doe';
+    const name = 'John Doe';
     const { params, store } = signInUserWithProps({
-      display_name: displayName,
+      name,
       is_addon_developer: true,
       is_artist: true,
     });
@@ -1005,18 +1000,18 @@ describe(__filename, () => {
     expect(root.find(UserProfileHead)).toHaveLength(1);
     expect(root.find(UserProfileHead).prop('description')).toMatch(
       new RegExp(
-        `The profile of ${displayName}, a Firefox extension and theme author`,
+        `The profile of ${name}, a Firefox extension and theme author`,
       ),
     );
     expect(root.find(UserProfileHead).prop('description')).toMatch(
-      new RegExp(`by ${displayName}`),
+      new RegExp(`by ${name}`),
     );
   });
 
   it('sets the description to `null` to UserProfileHead when user is neither a developer nor an artist', () => {
-    const displayName = 'John Doe';
+    const name = 'John Doe';
     const { params, store } = signInUserWithProps({
-      display_name: displayName,
+      name,
       is_addon_developer: false,
       is_artist: false,
     });

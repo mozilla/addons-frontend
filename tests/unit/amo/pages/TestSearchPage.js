@@ -125,6 +125,42 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
+  it('dispatches a server redirect when `atype` parameter is "4"', () => {
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({
+      location: createFakeLocation({ query: { atype: 4 } }),
+      store,
+    });
+
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: '/en-US/android/search/?type=search',
+      }),
+    );
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
+  it('dispatches a server redirect when `atype` parameter is "5"', () => {
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({
+      location: createFakeLocation({ query: { atype: 5 } }),
+      store,
+    });
+
+    sinon.assert.calledWith(
+      fakeDispatch,
+      sendServerRedirect({
+        status: 301,
+        url: '/en-US/android/search/?type=language',
+      }),
+    );
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
   it('does not dispatch a server redirect when `atype` has no mapping', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 

@@ -280,11 +280,11 @@ export const FEATURED_THEMES_COLLECTION_EDIT = 'Collections:Contribute';
 // The slug for the special Featured Themes collection.
 export const FEATURED_THEMES_COLLECTION_SLUG = 'featured-personas';
 // Can confirm approval of automatically approved add-ons.
-export const ADDONS_POSTREVIEW = 'Addons:PostReview';
+export const ADDONS_POST_REVIEW = 'Addons:PostReview';
 // Can approve add-ons content.
-export const ADDONS_CONTENTREVIEW = 'Addons:ContentReview';
+export const ADDONS_CONTENT_REVIEW = 'Addons:ContentReview';
 // Can review unlisted add-ons.
-export const ADDONS_REVIEWUNLISTED = 'Addons:ReviewUnlisted';
+export const ADDONS_REVIEW_UNLISTED = 'Addons:ReviewUnlisted';
 // Can moderate user ratings on add-ons.
 export const RATINGS_MODERATE = 'Ratings:Moderate';
 // Can edit user accounts.
@@ -293,6 +293,12 @@ export const USERS_EDIT = 'Users:Edit';
 export const ADMIN_TOOLS = 'Admin:Tools';
 // Super powers. It means absolutely all permissions.
 export const ALL_SUPER_POWERS = '*:*';
+// Can view only the reviewer tools.
+export const REVIEWER_TOOLS_VIEW = 'ReviewerTools:View';
+// Can review recommend(ed|able) add-ons.
+export const ADDONS_RECOMMENDED_REVIEW = 'Addons:RecommendedReview';
+// Can review a static theme.
+export const STATIC_THEMES_REVIEW = 'Addons:ThemeReview';
 
 export const RTL = 'rtl';
 export const LTR = 'ltr';

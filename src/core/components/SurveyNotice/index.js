@@ -14,7 +14,7 @@ import {
   SURVEY_CATEGORY,
 } from 'core/constants';
 import tracking from 'core/tracking';
-import { addQueryParams } from 'core/utils';
+import { addQueryParams } from 'core/utils/url';
 import Notice from 'ui/components/Notice';
 import type { ReactRouterLocationType } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';

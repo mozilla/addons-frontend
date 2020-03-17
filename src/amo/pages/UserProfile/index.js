@@ -281,7 +281,7 @@ export class UserProfileBase extends React.Component<InternalProps> {
       return null;
     }
 
-    return i18n.sprintf(description, { user: user.display_name });
+    return i18n.sprintf(description, { user: user.name });
   }
 
   render() {

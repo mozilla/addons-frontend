@@ -88,9 +88,9 @@ def test_add_ons_footer_links(base_url, selenium, i, links):
 @pytest.mark.desktop_only
 @pytest.mark.parametrize(
     'i, links',
+    # We enumerate the links in the "Browser" section of the footer.
     enumerate([
         'firefox/new',
-        'firefox/mobile',
         'firefox/mobile',
         'firefox/mobile',
         'firefox',

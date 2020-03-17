@@ -10,6 +10,8 @@ import { reviewListURL } from 'amo/reducers/reviews';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
+  createContextWithFakeRouter,
+  createFakeLocation,
   dispatchClientMetadata,
   fakeAddon,
   fakeI18n,
@@ -33,10 +35,12 @@ describe(__filename, () => {
     return { addon, i18n: fakeI18n(), store, ...customProps };
   };
 
-  const render = (customProps = {}) => {
+  const render = ({ location, ...customProps } = {}) => {
     const props = getProps(customProps);
 
-    return shallowUntilTarget(<RatingsByStar {...props} />, RatingsByStarBase);
+    return shallowUntilTarget(<RatingsByStar {...props} />, RatingsByStarBase, {
+      shallowOptions: createContextWithFakeRouter({ location }),
+    });
   };
 
   const addonForGrouping = (grouping, addonParams = {}) => {
@@ -197,6 +201,37 @@ describe(__filename, () => {
     validateLink(counts.at(2), '3', 'Read all three-star reviews');
     validateLink(counts.at(3), '2', 'Read all two-star reviews');
     validateLink(counts.at(4), '1', 'Read all one-star reviews');
+  });
+
+  it('adds a `src` query parameter to the review links when available in the location', () => {
+    const src = 'some-src';
+    const grouping = {
+      5: 964,
+      4: 821,
+      3: 543,
+      2: 22,
+      1: 0,
+    };
+    const addon = addonForGrouping(grouping);
+    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
+    const root = render({
+      addon,
+      location: createFakeLocation({ query: { src } }),
+    });
+    const counts = root.find('.RatingsByStar-count').find(Link);
+
+    function validateLink(link, score) {
+      expect(link).toHaveProp(
+        'to',
+        reviewListURL({ addonSlug: addon.slug, score, src }),
+      );
+    }
+
+    validateLink(counts.at(0), '5');
+    validateLink(counts.at(1), '4');
+    validateLink(counts.at(2), '3');
+    validateLink(counts.at(3), '2');
+    validateLink(counts.at(4), '1');
   });
 
   it('renders IconStar', () => {

@@ -4,6 +4,7 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 import Link from 'amo/components/Link';
 import { fetchGroupedRatings } from 'amo/actions/reviews';
@@ -18,6 +19,7 @@ import type { AddonType } from 'core/types/addons';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
+import type { ReactRouterLocationType } from 'core/types/router';
 
 import './styles.scss';
 
@@ -31,6 +33,7 @@ type InternalProps = {|
   errorHandler: ErrorHandlerType,
   groupedRatings?: GroupedRatingsType,
   i18n: I18nType,
+  location: ReactRouterLocationType,
 |};
 
 export class RatingsByStarBase extends React.Component<InternalProps> {
@@ -84,7 +87,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { addon, errorHandler, i18n, groupedRatings } = this.props;
+    const { addon, errorHandler, i18n, groupedRatings, location } = this.props;
     const loading = (!addon || !groupedRatings) && !errorHandler.hasError();
 
     const linkTitles = {
@@ -114,6 +117,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
                   to={reviewListURL({
                     addonSlug: addon.slug,
                     score: star,
+                    src: location.query.src,
                   })}
                 >
                   {text}
@@ -182,6 +186,7 @@ export const extractId = (props: Props) => {
 };
 
 const RatingsByStar: React.ComponentType<Props> = compose(
+  withRouter,
   translate(),
   connect(mapStateToProps),
   withFixedErrorHandler({ fileName: __filename, extractId }),

@@ -12,6 +12,7 @@ import {
 } from 'core/constants';
 import log from 'core/logger';
 import { getPreviewImage } from 'core/imageUtils';
+import { removeUndefinedProps } from 'core/utils/url';
 import type { AddonVersionType } from 'core/reducers/versions';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
@@ -70,16 +71,6 @@ export const getFileHash = ({
 
   return undefined;
 };
-
-export function removeUndefinedProps(object: Object): Object {
-  const newObject = {};
-  Object.keys(object).forEach((key) => {
-    if (typeof object[key] !== 'undefined') {
-      newObject[key] = object[key];
-    }
-  });
-  return newObject;
-}
 
 export const getAddonJsonLinkedData = ({
   addon,

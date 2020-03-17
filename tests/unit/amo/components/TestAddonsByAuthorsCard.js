@@ -365,6 +365,38 @@ describe(__filename, () => {
     );
   });
 
+  it('should dispatch a fetch action if addonType is updated', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+    const numberOfAddons = 6;
+
+    const root = render({
+      addonType: ADDON_TYPE_EXTENSION,
+      authorIds: [randomAuthorId2],
+      errorHandler,
+      numberOfAddons,
+      store,
+    });
+
+    dispatchSpy.resetHistory();
+
+    root.setProps({
+      addonType: ADDON_TYPE_STATIC_THEME,
+      authorIds: [randomAuthorId2],
+    });
+
+    sinon.assert.calledWith(
+      dispatchSpy,
+      fetchAddonsByAuthors({
+        addonType: ADDON_TYPE_STATIC_THEME,
+        authorIds: [randomAuthorId2],
+        errorHandlerId: errorHandler.id,
+        pageSize: String(numberOfAddons),
+      }),
+    );
+  });
+
   it('should dispatch a fetch action if forAddonSlug is updated', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -646,6 +678,56 @@ describe(__filename, () => {
     expect(root.find(AddonsCard)).toHaveProp(
       'header',
       'Themes by these artists',
+    );
+  });
+
+  it('shows add-ons in header if no specific addonType translation found', () => {
+    const root = renderAddonsWithType({
+      addonType: 'unknown-type',
+      multipleAuthors: false,
+    });
+
+    expect(root.find(AddonsCard)).toHaveProp(
+      'header',
+      `More add-ons by ${fakeAuthor.name}`,
+    );
+  });
+
+  it('shows add-ons in header if no specific addonType translation found without More text', () => {
+    const root = renderAddonsWithType({
+      addonType: 'unknown-type',
+      showMore: false,
+      multipleAuthors: false,
+    });
+
+    expect(root.find(AddonsCard)).toHaveProp(
+      'header',
+      `Add-ons by ${fakeAuthor.name}`,
+    );
+  });
+
+  it('shows add-ons in header if no specific addonType found with multiple authors', () => {
+    const root = renderAddonsWithType({
+      addonType: 'unknown-type',
+      multipleAuthors: true,
+    });
+
+    expect(root.find(AddonsCard)).toHaveProp(
+      'header',
+      'More add-ons by these developers',
+    );
+  });
+
+  it('shows add-ons in header if no specific addonType found with multiple authors and without More text', () => {
+    const root = renderAddonsWithType({
+      addonType: 'unknown-type',
+      showMore: false,
+      multipleAuthors: true,
+    });
+
+    expect(root.find(AddonsCard)).toHaveProp(
+      'header',
+      'Add-ons by these developers',
     );
   });
 

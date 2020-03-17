@@ -5,7 +5,7 @@ import {
   UNLOAD_ADDON_REVIEWS,
   UPDATE_RATING_COUNTS,
 } from 'amo/actions/reviews';
-import { removeUndefinedProps } from 'core/utils/addons';
+import { removeUndefinedProps } from 'core/utils/url';
 import type {
   UnloadAddonReviewsAction,
   UpdateRatingCountsAction,

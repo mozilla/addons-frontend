@@ -25,7 +25,9 @@ import { ALL_SUPER_POWERS } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
+  createContextWithFakeRouter,
   createFakeEvent,
+  createFakeLocation,
   createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -54,7 +56,7 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store;
   });
 
-  const render = (customProps = {}) => {
+  const render = ({ location, ...customProps } = {}) => {
     const props = {
       addon: createInternalAddon(fakeAddon),
       i18n: fakeI18n(),
@@ -65,6 +67,9 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <AddonReviewCard {...props} />,
       AddonReviewCardBase,
+      {
+        shallowOptions: createContextWithFakeRouter({ location }),
+      },
     );
   };
 
@@ -1063,6 +1068,25 @@ describe(__filename, () => {
         to: reviewListURL({ addonSlug: slug, id: review.id }),
         title: i18n.moment(review.created).format('lll'),
       });
+    });
+
+    it('adds a `src` query parameter to the link in the byLine if available in the location', () => {
+      const slug = 'some-slug';
+      const review = signInAndDispatchSavedReview({
+        externalReview: { ...fakeReview, addon: { ...fakeReview.addon, slug } },
+      });
+      const src = 'some-src';
+
+      const root = render({
+        review,
+        store,
+        location: createFakeLocation({ query: { src } }),
+      });
+
+      expect(renderByLine(root).find(Link)).toHaveProp(
+        'to',
+        reviewListURL({ addonSlug: slug, id: review.id, src }),
+      );
     });
 
     it('uses the addonId for the byLine link when the reviewAddon has an empty slug', () => {
