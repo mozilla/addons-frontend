@@ -58,4 +58,22 @@ describe(__filename, () => {
       expect(root.find({ path })).toHaveProp('component', NotFoundPage);
     });
   });
+
+  describe('Block page', () => {
+    const path = '/:lang/:application/blocked/:guid/';
+
+    it('declares a route for the new Block page if feature is enabled', () => {
+      const _config = getFakeConfig({ enableBlockPage: true });
+      const root = render({ _config });
+
+      expect(root.find({ path })).toHaveLength(1);
+    });
+
+    it('does not declare a route for the new Block page if feature is disabled', () => {
+      const _config = getFakeConfig({ enableBlockPage: false });
+      const root = render({ _config });
+
+      expect(root.find({ path })).toHaveLength(0);
+    });
+  });
 });
