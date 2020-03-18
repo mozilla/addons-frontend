@@ -1,5 +1,5 @@
 /* global Headers, Response */
-import url from 'url';
+import urllib from 'url';
 
 import { LOCATION_CHANGE } from 'connected-react-router';
 import PropTypes from 'prop-types';
@@ -984,7 +984,7 @@ export const getFakeConfig = (
  */
 export const urlWithTheseParams = (params) => {
   return sinon.match((urlString) => {
-    const { query } = url.parse(urlString, true);
+    const { query } = urllib.parse(urlString, true);
 
     for (const param in params) {
       if (
@@ -1297,3 +1297,20 @@ export function normalizeSpaces(text) {
   // https://www.fileformat.info/info/unicode/char/202f/index.htm
   return text ? text.replace(/\s/g, ' ') : text;
 }
+
+export const createFakeBlockResult = ({
+  guid = 'some-guid',
+  reason = 'some reason',
+  url = null,
+} = {}) => {
+  return {
+    id: 123,
+    created: '2020-01-22T10:09:01Z',
+    modified: '2020-01-22T10:09:01Z',
+    guid,
+    min_version: '0',
+    max_version: '*',
+    reason,
+    url,
+  };
+};
