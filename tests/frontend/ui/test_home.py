@@ -94,7 +94,6 @@ def test_add_ons_footer_links(base_url, selenium, i, links):
         'firefox/mobile',
         'mixedreality.mozilla.org',
         'firefox',
-        'firefox/channel/desktop',
     ])
 )
 @pytest.mark.nondestructive
