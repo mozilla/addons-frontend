@@ -182,6 +182,6 @@ class Footer(Region):
         return header.find_elements(*self._footer_links)
 
     @property
-    def firefox_links(self):
+    def browsers_links(self):
         header = self.find_element(*self._footer_browsers_links)
         return header.find_elements(*self._footer_links)

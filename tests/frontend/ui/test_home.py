@@ -92,13 +92,13 @@ def test_add_ons_footer_links(base_url, selenium, i, links):
     enumerate([
         'firefox/new',
         'firefox/mobile',
-        'firefox/mobile',
+        'mixedreality.mozilla.org',
         'firefox',
         'firefox/channel/desktop',
     ])
 )
 @pytest.mark.nondestructive
-def test_firefox_footer_links(base_url, selenium, i, links):
+def test_browsers_footer_links(base_url, selenium, i, links):
     page = Home(selenium, base_url).open()
-    page.footer.firefox_links[i].click()
+    page.footer.browsers_links[i].click()
     assert links in selenium.current_url
