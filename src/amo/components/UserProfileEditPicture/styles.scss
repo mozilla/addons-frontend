@@ -10,7 +10,9 @@ $picture-size: 128px;
     width: $picture-size;
 
     .UserAvatar-image {
+      height: auto;
       margin-bottom: 4px;
+      width: 100%;
     }
 
     .Icon {
