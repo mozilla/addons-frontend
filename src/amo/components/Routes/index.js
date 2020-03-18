@@ -20,6 +20,7 @@ import NotAuthorizedPage from 'amo/pages/ErrorPages/NotAuthorizedPage';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
 import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import Guides from 'amo/pages/Guides';
+import Block from 'amo/pages/Block';
 import Home from 'amo/pages/Home';
 import LandingPage from 'amo/pages/LandingPage';
 import LanguageTools from 'amo/pages/LanguageTools';
@@ -77,6 +78,8 @@ const Routes = ({ _config = config }: Props = {}) => (
     <Route exact path="/:lang/:application/addon/:slug/" component={Addon} />
 
     <Route exact path="/:lang/:application/guides/:slug/" component={Guides} />
+
+    <Route exact path="/:lang/:application/blocked/:guid/" component={Block} />
 
     <Route
       exact
