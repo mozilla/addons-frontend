@@ -107,32 +107,59 @@ export class FooterBase extends React.Component {
             </ul>
           </section>
 
-          <section className="Footer-browser-links">
-            <h4 className="Footer-links-header">{i18n.gettext('Browser')}</h4>
+          <section className="Footer-browsers-links">
+            <h4 className="Footer-links-header">{i18n.gettext('Browsers')}</h4>
             <ul className="Footer-links">
               <li>
-                <a href="https://www.mozilla.org/firefox/new/?utm_source=addons.mozilla.org&utm_campaign=footer&utm_medium=referral">
-                  {i18n.gettext('Download Firefox')}
+                <a
+                  className="Footer-desktop-link"
+                  href={`https://www.mozilla.org/firefox/new/${makeQueryStringWithUTM(
+                    {
+                      utm_content: 'footer-link',
+                      utm_campaign: null,
+                    },
+                  )}`}
+                >
+                  Desktop
                 </a>
               </li>
               <li>
-                <a href="https://www.mozilla.org/firefox/android/?utm_source=addons.mozilla.org&utm_campaign=footer&utm_medium=referral">
-                  {i18n.gettext('Android Browser')}
+                <a
+                  className="Footer-mobile-link"
+                  href={`https://www.mozilla.org/firefox/mobile/${makeQueryStringWithUTM(
+                    {
+                      utm_content: 'footer-link',
+                      utm_campaign: null,
+                    },
+                  )}`}
+                >
+                  Mobile
                 </a>
               </li>
               <li>
-                <a href="https://www.mozilla.org/firefox/ios/?utm_source=addons.mozilla.org&utm_campaign=footer&utm_medium=referral">
-                  {i18n.gettext('iOS Browser')}
+                <a
+                  className="Footer-reality-link"
+                  href={`https://mixedreality.mozilla.org/${makeQueryStringWithUTM(
+                    {
+                      utm_content: 'footer-link',
+                      utm_campaign: null,
+                    },
+                  )}`}
+                >
+                  Reality
                 </a>
               </li>
               <li>
-                <a href="https://www.mozilla.org/firefox/desktop/?utm_source=addons.mozilla.org&utm_campaign=footer&utm_medium=referral">
-                  {i18n.gettext('Desktop Browser')}
-                </a>
-              </li>
-              <li>
-                <a href="https://www.mozilla.org/firefox/channel/desktop/?utm_source=addons.mozilla.org&utm_campaign=footer&utm_medium=referral">
-                  {i18n.gettext('Beta, Nightly, Developer Edition')}
+                <a
+                  className="Footer-enterprise-link"
+                  href={`https://www.mozilla.org/firefox/enterprise/${makeQueryStringWithUTM(
+                    {
+                      utm_content: 'footer-link',
+                      utm_campaign: null,
+                    },
+                  )}`}
+                >
+                  Enterprise
                 </a>
               </li>
             </ul>

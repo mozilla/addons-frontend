@@ -115,5 +115,41 @@ describe(__filename, () => {
         utm_campaign: null,
       })}`,
     );
+
+    expect(root.find('.Footer-desktop-link')).toHaveText('Desktop');
+    expect(root.find('.Footer-desktop-link')).toHaveProp(
+      'href',
+      `https://www.mozilla.org/firefox/new/${makeQueryStringWithUTM({
+        utm_content: 'footer-link',
+        utm_campaign: null,
+      })}`,
+    );
+
+    expect(root.find('.Footer-mobile-link')).toHaveText('Mobile');
+    expect(root.find('.Footer-mobile-link')).toHaveProp(
+      'href',
+      `https://www.mozilla.org/firefox/mobile/${makeQueryStringWithUTM({
+        utm_content: 'footer-link',
+        utm_campaign: null,
+      })}`,
+    );
+
+    expect(root.find('.Footer-reality-link')).toHaveText('Reality');
+    expect(root.find('.Footer-reality-link')).toHaveProp(
+      'href',
+      `https://mixedreality.mozilla.org/${makeQueryStringWithUTM({
+        utm_content: 'footer-link',
+        utm_campaign: null,
+      })}`,
+    );
+
+    expect(root.find('.Footer-enterprise-link')).toHaveText('Enterprise');
+    expect(root.find('.Footer-enterprise-link')).toHaveProp(
+      'href',
+      `https://www.mozilla.org/firefox/enterprise/${makeQueryStringWithUTM({
+        utm_content: 'footer-link',
+        utm_campaign: null,
+      })}`,
+    );
   });
 });
