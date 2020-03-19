@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-19 21:00+0000\n"
+"PO-Revision-Date: 2020-03-19 22:21+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -422,7 +422,7 @@ msgstr "저장됨"
 
 #: src/amo/components/AddonReviewManager/index.js:89
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "%(linkStart)s리뷰 가이드라인%(linkEnd)s을 따라 주세요."
+msgstr "%(linkStart)s리뷰 지침%(linkEnd)s을 따라 주세요."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
@@ -2264,7 +2264,7 @@ msgstr "일반적으로, 불가능합니다. 하지만 리뷰가 가이드라인
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
-msgstr "리뷰 가이드라인"
+msgstr "리뷰 지침"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
