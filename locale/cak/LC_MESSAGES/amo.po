@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-19 00:06+0000\n"
+"PO-Revision-Date: 2020-03-19 00:13+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -151,24 +151,20 @@ msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s
 msgstr "%(addonName)s – Tak'ulu' re K'amal re' richin 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:72
-#, fuzzy
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Kitz'aqat Firefox"
+msgstr "%(addonName)s – Tak'ulu' re Rupisaj Ch'ab'äl re' richin 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:77
-#, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Kitz'aqat Firefox"
+msgstr "%(addonName)s – Tak'ulu' re Wachinel re' richin 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:83
-#, fuzzy
 msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Kitz'aqat Firefox"
+msgstr "%(addonName)s – Tak'ulu' re Kanonel Samajib'äl re' richin 🦊 Firefox Android (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:88
-#, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%s – Kitz'aqat Firefox"
+msgstr "%(addonName)s – Tak'ulu' re Tz'aqat re' richin 🦊 Firefox Android (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:95
@@ -176,16 +172,14 @@ msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
 msgstr "%(addonName)s – Tak'ulu' re Soltzij re' richin 🦊 Firefox (%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:116
-#, fuzzy
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
-msgstr[0] "%(total)s okisanel"
-msgstr[1] "%(total)s okisanela'"
+msgstr[0] "%(total)s Ch'umil"
+msgstr[1] "%(total)s Taq ch'umil"
 
 #: src/amo/components/AddonMeta/index.js:125
-#, fuzzy
 msgid "Not rated yet"
-msgstr "K'a majun nik'oxïk"
+msgstr "K'a majun rajilab'al"
 
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Users"
@@ -202,9 +196,8 @@ msgid "No Users"
 msgstr "Majun okisanela'"
 
 #: src/amo/components/AddonMeta/index.js:60
-#, fuzzy
 msgid "Reviews"
-msgstr "Tzijoxïk"
+msgstr "Taq tzijoxïk"
 
 #: src/amo/components/AddonMeta/index.js:63
 msgid "Review"
@@ -225,9 +218,8 @@ msgid "Visit stats dashboard"
 msgstr "Titz'et ri kipas molob'a'"
 
 #: src/amo/components/AddonMoreInfo/index.js:120
-#, fuzzy
 msgid "Custom License"
-msgstr "Ya'oj q'ij"
+msgstr "Ichinan Ya'oj Q'ij"
 
 # This will output, in English:
 #: src/amo/components/AddonMoreInfo/index.js:145
@@ -291,9 +283,8 @@ msgid "Homepage"
 msgstr "Tikirib'äl ruxaq"
 
 #: src/amo/components/AddonMoreInfo/index.js:73
-#, fuzzy
 msgid "Support site"
-msgstr "Ruxaq Kik'amaya'l To'ïk"
+msgstr "Ruxaq kik'amaya'l to'ïk"
 
 #: src/amo/components/AddonMoreInfo/index.js:87
 msgid "Support Email"
@@ -304,34 +295,28 @@ msgid "Other users with this extension also installed"
 msgstr "Juley taq okisanela' kiyakon chuqa' re k'amal re'"
 
 #: src/amo/components/AddonRecommendations/index.js:142
-#, fuzzy
 msgid "Other popular extensions"
-msgstr "K'ïy kiwinaq taq k'amal"
+msgstr "Ch'aqa' k'ïy kiwinaq taq k'amal"
 
 #: src/amo/components/AddonReviewCard/index.js:195
-#, fuzzy
 msgid "Edit reply"
-msgstr "Tinuk' tzolin nutzij"
+msgstr "Tinuk' tzolin tzij"
 
 #: src/amo/components/AddonReviewCard/index.js:198
-#, fuzzy
 msgid "Edit review"
-msgstr "Tinuk' nutzijoxik"
+msgstr "Tinuk' tzijoxïk"
 
 #: src/amo/components/AddonReviewCard/index.js:205 src/amo/components/AddonReviewCard/index.js:237
-#, fuzzy
 msgid "Delete reply"
-msgstr "Tinuk' tzolin nutzij"
+msgstr "Tiyuj tzolin tzij"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
-#, fuzzy
 msgid "Delete rating"
-msgstr "Tinuk' nutzijoxik"
+msgstr "Tiyuj rajilab'al"
 
 #: src/amo/components/AddonReviewCard/index.js:212 src/amo/components/AddonReviewCard/index.js:244
-#, fuzzy
 msgid "Delete review"
-msgstr "Tinuk' nutzijoxik"
+msgstr "Tiyuj tzijoxïk"
 
 #: src/amo/components/AddonReviewCard/index.js:219
 #, fuzzy
@@ -439,9 +424,8 @@ msgid "Update review"
 msgstr "Tik'ex ri tzolin tzij"
 
 #: src/amo/components/AddonReviewManager/index.js:123
-#, fuzzy
 msgid "Updating review"
-msgstr "Nik'ex ri tzolin tzij"
+msgstr "Nik'ex tzijoxïk"
 
 #: src/amo/components/AddonReviewManager/index.js:144
 msgid "Saving"
@@ -469,14 +453,12 @@ msgid "More dictionaries by these translators"
 msgstr "Ch'aqa' chik taq soltzij kuma re taq tzalq'omanela' re'"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:254
-#, fuzzy
 msgid "Dictionaries by %(author)s"
-msgstr "Ch'aqa' chik taq soltzij richin %(author)s"
+msgstr "Taq rusoltzij %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:257
-#, fuzzy
 msgid "Dictionaries by these translators"
-msgstr "Ch'aqa' chik taq soltzij kuma re taq tzalq'omanela' re'"
+msgstr "Taq kisoltzij re taq tzalq'omanela' re'"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:264
 msgid "More extensions by %(author)s"
