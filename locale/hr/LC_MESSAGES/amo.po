@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-10 19:09+0000\n"
+"PO-Revision-Date: 2020-03-19 23:52+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -61,7 +61,7 @@ msgstr ""
 # This action allows a reviewer to perform a review of an add-on's code.
 #: src/amo/components/AddonAdminLinks/index.js:121
 msgid "Review add-on code"
-msgstr ""
+msgstr "Pregledaj kȏd dodatka"
 
 # This is a list of links to administrative functions.
 #: src/amo/components/AddonAdminLinks/index.js:141
@@ -71,7 +71,7 @@ msgstr ""
 # This action allows the add-on developer or an admin to edit an add-on's properties.
 #: src/amo/components/AddonAdminLinks/index.js:75
 msgid "Edit add-on"
-msgstr ""
+msgstr "Uredi dodatak"
 
 # This action allows an admin to edit the status of an add-on.
 #: src/amo/components/AddonAdminLinks/index.js:87
@@ -1257,7 +1257,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Dismiss"
-msgstr ""
+msgstr "Odbaci"
 
 #: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
@@ -2254,7 +2254,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Često postavljena pitanja o recenzijama"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:122
 msgid "How can I report a problematic review?"
