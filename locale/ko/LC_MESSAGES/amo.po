@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-19 20:53+0000\n"
+"PO-Revision-Date: 2020-03-19 21:00+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -98,7 +98,7 @@ msgstr "사용중인 Firefox 버전에서는 검색 플러그인을 지원하지
 
 #: src/amo/components/AddonCompatibilityError/index.js:130
 msgid "Your version of Firefox does not support this add-on because it requires a restart."
-msgstr "재시작이 필요하기 때문에 사용하고 계신 Firefox 버전은 이 부가기능을 지원하지 않습니다."
+msgstr "재시작이 필요하기 때문에 사용하고 계신 Firefox 버전은 이 부가 기능을 지원하지 않습니다."
 
 #: src/amo/components/AddonCompatibilityError/index.js:133
 msgid "This add-on is not available on your platform."
@@ -115,7 +115,7 @@ msgstr "사용하는 브라우저는 부가 기능을 지원하지 않습니다.
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:100
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – 🦊 Firefox 용 확장기능(%(locale)s)"
+msgstr "%(addonName)s – 🦊 Firefox 용 확장 기능 (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:105
@@ -134,7 +134,7 @@ msgstr "%(addonName)s – 🦊 Firefox 용 검색 도구(%(locale)s)"
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:120
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – 🦊 Firefox 용 부가기능(%(locale)s)"
+msgstr "%(addonName)s – 🦊 Firefox 용 부가 기능 (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:134
 msgid "Download %(addonName)s for Firefox. %(summary)s"
@@ -732,7 +732,7 @@ msgstr "내 콜렉션 보기"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
-msgstr "이 부가기능에 의견을 남겨주세요."
+msgstr "이 부가 기능에 의견을 남겨주세요."
 
 #: src/amo/components/EditableCollectionAddon/index.js:168
 msgid "Save"
@@ -924,7 +924,7 @@ msgstr "블로그"
 
 #: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:96
 msgid "Extension Workshop"
-msgstr "확장기능 워크샵"
+msgstr "확장 기능 워크샵"
 
 #: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:106
 msgid "Developer Hub"
@@ -1043,7 +1043,7 @@ msgstr "더 알아보기"
 
 #: src/amo/components/InstallWarning/index.js:85
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr "추천하는 확장기능이 아닙니다. 설치하기 전에 신뢰할 수 있는지 확인하십시오."
+msgstr "추천하는 확장 기능이 아닙니다. 설치하기 전에 신뢰할 수 있는지 확인하십시오."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1108,7 +1108,7 @@ msgstr "버전 목록"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
-msgstr "확장기능 사용 확인과 테마 관리"
+msgstr "확장 기능 사용 확인과 테마 관리"
 
 #: src/amo/components/PermissionsCard/permissions.js:51
 msgid "Exchange messages with programs other than Firefox"
@@ -1478,7 +1478,7 @@ msgstr "Firefox 부가 기능"
 
 #: src/amo/components/SearchForm/index.js:67
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr "Android 용 Firefox 부가기능 (%(locale)s)"
+msgstr "Android 용 Firefox 부가 기능 (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
@@ -1618,7 +1618,7 @@ msgstr "%(title)s 미리보기"
 
 #: src/amo/pages/Addon/index.js:205
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr "배포된 버전이 없으므로 이 부가기능에 점수를 줄 수 없습니다."
+msgstr "배포된 버전이 없으므로 이 부가 기능에 점수를 줄 수 없습니다."
 
 #: src/amo/pages/Addon/index.js:216
 msgid "Read %(count)s review"
@@ -1851,7 +1851,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:127
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "더 권장되는 %(linkStart)s개인 정보 및 보안%(linkEnd)s 확장기능을 탐색하십시오."
+msgstr "더 권장되는 %(linkStart)s개인 정보 및 보안%(linkEnd)s 확장 기능을 탐색하십시오."
 
 #: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
@@ -2397,7 +2397,7 @@ msgstr "가입한 날짜"
 
 #: src/amo/pages/UserProfile/index.js:390
 msgid "Number of add-ons"
-msgstr "부가기능 갯수"
+msgstr "부가 기능 갯수"
 
 #: src/amo/pages/UserProfile/index.js:396
 msgid "Average rating of developer’s add-ons"
@@ -2820,7 +2820,7 @@ msgstr "모든 웹사이트에서 사용자의 데이터에 접근"
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] ""
+msgstr[0] "%(param)s 다른 도메인에서 사용자의 데이터에 접근"
 
 #: src/ui/components/HostPermissions/index.js:67
 msgid "Access your data for sites in the %(param)s domain"
@@ -2829,7 +2829,7 @@ msgstr "%(param)s 도메인의 사이트에서 사용자의 데이터에 접근"
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] ""
+msgstr[0] "%(param)s 다른 사이트에서 사용자의 데이터에 접근"
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
