@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-19 00:13+0000\n"
+"PO-Revision-Date: 2020-03-19 00:18+0000\n"
 "Last-Translator: Juan Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -469,14 +469,12 @@ msgid "More extensions by these developers"
 msgstr "Ch'aqa' chik taq k'amal kichin re b'anonela' re'"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:271
-#, fuzzy
 msgid "Extensions by %(author)s"
-msgstr "Ch'aqa' chik taq k'amal richin %(author)s"
+msgstr "Taq kik'amal %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:274
-#, fuzzy
 msgid "Extensions by these developers"
-msgstr "Ch'aqa' chik taq k'amal kichin re b'anonela' re'"
+msgstr "Taq kik'amal re b'anonela' re'"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by %(author)s"
@@ -487,14 +485,12 @@ msgid "More language packs by these translators"
 msgstr "Ch'aqa' chik pison ch'ab'äl kuma re tzalq'omanela' re'"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:291
-#, fuzzy
 msgid "Language packs by %(author)s"
-msgstr "Ch'aqa' chik pison ch'ab'äl kuma %(author)s"
+msgstr "Pison taq kich'ab'äl %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:294
-#, fuzzy
 msgid "Language packs by these translators"
-msgstr "Ch'aqa' chik pison ch'ab'äl kuma re tzalq'omanela' re'"
+msgstr "Pison taq kich'ab'äl re tzalq'omanela' re'"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:301
 msgid "More themes by %(author)s"
@@ -505,14 +501,12 @@ msgid "More themes by these artists"
 msgstr "Ch'aqa' chik taq na'oj kuma re b'anöl re'"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:308
-#, fuzzy
 msgid "Themes by %(author)s"
-msgstr "Ch'aqa' chik taq na'oj richin %(author)s"
+msgstr "Taq kiwachinel %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:311
-#, fuzzy
 msgid "Themes by these artists"
-msgstr "Ch'aqa' chik taq na'oj kuma re b'anöl re'"
+msgstr "Taq kiwachinel re taq b'anöl re'"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:318
 msgid "More add-ons by %(author)s"
@@ -523,14 +517,12 @@ msgid "More add-ons by these developers"
 msgstr "Ch'aqa' chik taq tz'aqat kichin re b'anonela' re'"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:325
-#, fuzzy
 msgid "Add-ons by %(author)s"
-msgstr "Ch'aqa' chik taq tz'aqat richin %(author)s"
+msgstr "Taq kitz'aqat %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:328
-#, fuzzy
 msgid "Add-ons by these developers"
-msgstr "Ch'aqa' chik taq tz'aqat kichin re b'anonela' re'"
+msgstr "Taq kitz'aqat re b'anonela' re'"
 
 #: src/amo/components/AddonSummaryCard/index.js:41
 msgid "Add-on icon"
