@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-19 22:21+0000\n"
+"PO-Revision-Date: 2020-03-19 23:50+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -794,7 +794,7 @@ msgstr "죄송합니다. 서버에 오류가 발생해 요청하신 작업을 �
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
 msgid "Response by %(userName)s"
-msgstr "%(userName)s 님의 답변"
+msgstr "%(userName)s 님의 답글"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
 msgid "Review by %(userName)s"
@@ -822,7 +822,7 @@ msgstr "플래그 지정"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
-msgstr "이 개발자 답변을 플래그 지정하기"
+msgstr "이 개발자 답글을 플래그 지정하기"
 
 #: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this review"
@@ -830,7 +830,7 @@ msgstr "이 리뷰에 플래그 지정하기"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
 msgid "Log in to flag this response"
-msgstr "이 답변에 플래그를 지정하시려면 로그인하세요"
+msgstr "이 답글에 플래그를 지정하시려면 로그인하세요"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
 msgid "Log in to flag this review"
@@ -838,7 +838,7 @@ msgstr "이 리뷰에 플래그를 지정하시려면 로그인하세요"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr "본인의 답변에 플래그를 지정할 수 없습니다"
+msgstr "본인의 답글에 플래그를 지정할 수 없습니다"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
@@ -2250,7 +2250,7 @@ msgstr "부가 기능 제작자인데 리뷰에 답변을 달 수 있나요?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr "네, 부가 기능 제작자는 리뷰에 답변 하나를 제공할 수 있습니다. %(startLink)s포럼%(endLink)s에서 추가적인 토론이나 내용을 제공할 수도 있습니다."
+msgstr "네, 부가 기능 제작자는 리뷰에 답글 하나를 제공할 수 있습니다. %(startLink)s포럼%(endLink)s에서 추가적인 토론이나 내용을 제공할 수도 있습니다."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -2874,7 +2874,7 @@ msgstr[0] "부가 기능 %(total)s개"
 
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
-msgstr "개발자 답변"
+msgstr "개발자 답글"
 
 #~ msgid "Firefox for iOS does not currently support add-ons."
 #~ msgstr "iOS 용 Firefox는 현재 부가 기능을 지원하지 않습니다."
