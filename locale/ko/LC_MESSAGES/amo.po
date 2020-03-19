@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-09 00:19+0000\n"
+"PO-Revision-Date: 2020-03-19 20:53+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -2824,7 +2824,7 @@ msgstr[0] ""
 
 #: src/ui/components/HostPermissions/index.js:67
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "%(param)s 도메인의 사이트에서 사용자의 데이터에 접근"
 
 #: src/ui/components/HostPermissions/index.js:73
 msgid "Access your data on %(param)s other site"
@@ -2833,7 +2833,7 @@ msgstr[0] ""
 
 #: src/ui/components/HostPermissions/index.js:81
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "%(param)s에서 사용자의 데이터에 접근"
 
 #: src/ui/components/Notice/index.js:153
 msgid "Dismiss this notice"
