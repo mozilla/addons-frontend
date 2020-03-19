@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-17 17:55+0000\n"
-"Last-Translator: Jasmine <bangerjasmine9@gmail.com>\n"
+"PO-Revision-Date: 2020-03-19 06:08+0000\n"
+"Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
 "MIME-Version: 1.0\n"
@@ -1615,11 +1615,11 @@ msgstr "ਡੈਸਕਟਾਪ ਉੱਤੇ ਫਾਇਰਫਾਕਸ ਦੇ ਅ�
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-msgstr ""
+msgstr "ਐਂਡਰਾਇਡ ਲਈ ਫਾਇਰਫਾਕਸ ਉੱਤੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਤੁਸੀਂ ਇਸ ਐਡ-ਆਨ ਨੂੰ ਡੈਸਕਟੌਪ ਲਈ ਫਾਇਰਫਾਕਸ ਨਾਲ ਇਸਤੇਮਾਲ ਕਰ ਸਕਦੇ ਹੋ,  ਜਾਂ ਇਸ ਤਰਾਂ ਦੇ <a href=\"%(newLocation)s\">ਐਡਰਾਇਡ ਐਡ-ਆਨ</a> ਦੀ ਭਾਲ ਕਰ ਸਕਦੇ ਹੋ।"
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr ""
+msgstr "ਇਹ ਐਡ-ਆਨ ਇਸ ਬਰਾਊਜ਼ਰ ਦੇ ਅਨੁਕੂਲ ਨਹੀਂ ਹੈ। ਇਸਨੂੰ ਡੈਸਕਟਾਪ ਲਈ ਫਾਇਰਫਾਕਸ ਉੱਤੇ ਸਥਾਪਤ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
@@ -1697,7 +1697,7 @@ msgstr "ਇਹ ਸੂਚੀ ਇਸ ਪਲੇਟਫਾਰਮ ਲਈ ਨਹੀਂ 
 
 #: src/amo/pages/Addon/index.js:491
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop.  Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+msgstr "ਐਂਡਰਾਇਡ ਲਈ ਫਾਇਰਫਾਕਸ ਉੱਤੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਤੁਸੀਂ ਇਸ ਐਡ-ਆਨ ਦੀ ਵਰਤੋਂ ਫਾਇਰਫਾਕਸ ਡੈਸਕਟਾਪ ਲਈ ਕਰ ਸਕਦੇ ਹੋ।  <a href=\"%(newLocation)s\">ਐਂਡਰਾਇਡ ਲਈ ਐਡ-ਆਨ</a> ਬਾਰੇ ਹੋਰ ਜਾਣੋ।"
 
 #: src/amo/pages/Addon/index.js:511
 msgid "Screenshots"
