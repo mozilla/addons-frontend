@@ -19,6 +19,7 @@ import {
   fakeI18n,
   fakePreview,
   fakeTheme,
+  normalizeSpaces,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import Icon from 'ui/components/Icon';
@@ -123,6 +124,53 @@ describe(__filename, () => {
     );
   });
 
+  it('renders the user count', () => {
+    const root = render({ addon: { ...baseAddon, average_daily_users: 6233 } });
+
+    expect(root.find('.SearchResult-users')).toIncludeText('6,233 users');
+  });
+
+  it('localises the user count', () => {
+    const root = render({
+      addon: { ...baseAddon, average_daily_users: 6233 },
+      lang: 'fr',
+    });
+
+    expect(
+      normalizeSpaces(root.find('.SearchResult-users-text').text()),
+    ).toContain('6 233');
+  });
+
+  it('renders the user count as singular', () => {
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        average_daily_users: 1,
+      }),
+    });
+
+    expect(root.find('.SearchResult-users')).toIncludeText('1 user');
+  });
+
+  it('links the li element to the detail page', () => {
+    const slug = 'some-addon-slug';
+    const addon = createInternalAddon({ ...fakeAddon, slug });
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'fr';
+    const history = createFakeHistory();
+    const { store } = dispatchClientMetadata({ clientApp, lang });
+
+    const root = render({ addon, history, store });
+
+    const onClick = root.find('.SearchResult').prop('onClick');
+    onClick();
+
+    sinon.assert.calledWith(
+      history.push,
+      `/${lang}/${clientApp}${getAddonURL(slug)}`,
+    );
+  });
+
   it('renders the star ratings', () => {
     const root = render();
 
@@ -135,12 +183,29 @@ describe(__filename, () => {
     expect(root.find('.SearchResult-summary')).toHaveLength(1);
   });
 
+  it('renders the metadata', () => {
+    const root = render();
+
+    expect(root.find('.SearchResult-metadata')).toHaveLength(1);
+  });
+
   it('displays a placeholder if the icon is malformed', () => {
     const addon = createInternalAddon({ ...fakeAddon, icon_url: 'whatevs' });
     const root = render({ addon });
 
     // image `require` calls in jest return the filename
     expect(root.find('.SearchResult-icon')).toHaveProp('src', 'default-64.png');
+  });
+
+  it('adds a theme-specific class', () => {
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+      }),
+    });
+
+    expect(root).toHaveClassName('SearchResult--theme');
   });
 
   it('adds a theme-specific class when useThemePlaceholder is true and it is loading', () => {
