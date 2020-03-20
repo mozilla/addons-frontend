@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-19 23:56+0000\n"
+"PO-Revision-Date: 2020-03-20 01:42+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -2611,11 +2611,11 @@ msgstr "Uspješno si odjavljen/a!"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:121
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr "E-adresa %(strongStart)s%(email)s%(strongEnd)s više neće primati poruke, kad:"
+msgstr "E-adresa %(strongStart)s%(email)s%(strongEnd)s više neće primati poruke u sljedećim prilikama:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Postavke obavijesti možeš urediti %(linkStart)suređivanjem svog profila%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
