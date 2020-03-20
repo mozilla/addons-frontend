@@ -8,11 +8,7 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import { getAddonURL } from 'amo/utils';
 import translate from 'core/i18n/translate';
-import {
-  ADDON_TYPE_OPENSEARCH,
-  CLIENT_APP_ANDROID,
-  ADDON_TYPE_STATIC_THEME,
-} from 'core/constants';
+import { CLIENT_APP_ANDROID, ADDON_TYPE_STATIC_THEME } from 'core/constants';
 import { nl2br, sanitizeHTML } from 'core/utils';
 import { addQueryParams } from 'core/utils/url';
 import { getAddonIconUrl, getPreviewImage } from 'core/imageUtils';
@@ -196,26 +192,23 @@ export class SearchResultBase extends React.Component<InternalProps> {
             )}
           </div>
 
-          {!addon || (addon && addon.type !== ADDON_TYPE_OPENSEARCH) ? (
-            <h3 className="SearchResult-users SearchResult--meta-section">
-              <Icon className="SearchResult-users-icon" name="user-fill" />
-              <span className="SearchResult-users-text">
-                {averageDailyUsers !== null &&
-                averageDailyUsers !== undefined ? (
-                  i18n.sprintf(
-                    i18n.ngettext(
-                      '%(total)s user',
-                      '%(total)s users',
-                      averageDailyUsers,
-                    ),
-                    { total: i18n.formatNumber(averageDailyUsers) },
-                  )
-                ) : (
-                  <LoadingText width={90} />
-                )}
-              </span>
-            </h3>
-          ) : null}
+          <h3 className="SearchResult-users SearchResult--meta-section">
+            <Icon className="SearchResult-users-icon" name="user-fill" />
+            <span className="SearchResult-users-text">
+              {averageDailyUsers !== null && averageDailyUsers !== undefined ? (
+                i18n.sprintf(
+                  i18n.ngettext(
+                    '%(total)s user',
+                    '%(total)s users',
+                    averageDailyUsers,
+                  ),
+                  { total: i18n.formatNumber(averageDailyUsers) },
+                )
+              ) : (
+                <LoadingText width={90} />
+              )}
+            </span>
+          </h3>
         </div>
       </div>
     );

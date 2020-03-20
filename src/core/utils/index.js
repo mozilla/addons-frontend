@@ -8,7 +8,6 @@ import qhistory from 'qhistory';
 import { stringify, parse } from 'qs';
 
 import {
-  ADDON_TYPE_OPENSEARCH,
   API_ADDON_TYPES_MAPPING,
   OS_ALL,
   OS_ANDROID,
@@ -226,14 +225,6 @@ export function trimAndAddProtocolToUrl(urlToCheck) {
     urlToReturn = `http://${urlToReturn}`;
   }
   return urlToReturn;
-}
-
-export function addonHasVersionHistory(addon) {
-  if (!addon) {
-    throw new Error('addon is required');
-  }
-
-  return ![ADDON_TYPE_OPENSEARCH].includes(addon.type);
 }
 
 /*

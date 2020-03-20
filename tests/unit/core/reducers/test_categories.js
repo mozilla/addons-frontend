@@ -2,7 +2,6 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -194,7 +193,6 @@ describe(__filename, () => {
             },
           },
           [ADDON_TYPE_LANG]: {},
-          [ADDON_TYPE_OPENSEARCH]: {},
           [ADDON_TYPE_STATIC_THEME]: {
             anime: {
               ...fakeCategory,
@@ -245,7 +243,6 @@ describe(__filename, () => {
             },
           },
           [ADDON_TYPE_LANG]: {},
-          [ADDON_TYPE_OPENSEARCH]: {},
           [ADDON_TYPE_STATIC_THEME]: {
             painting: {
               ...fakeCategory,
@@ -286,7 +283,6 @@ describe(__filename, () => {
         initialState,
         fetchCategories({ errorHandlerId: 'some-handler' }),
       );
-      expect(state.categories).toEqual(null);
       expect(state.loading).toEqual(true);
     });
   });

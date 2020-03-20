@@ -43,7 +43,6 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   FATAL_ERROR,
@@ -719,18 +718,6 @@ describe(__filename, () => {
     );
   });
 
-  it('sets a title for the description of a search plugin', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_OPENSEARCH,
-      }),
-    });
-    expect(root.find('.AddonDescription').prop('header')).toContain(
-      'About this search plugin',
-    );
-  });
-
   it('sets a title for the description of a generic add-on', () => {
     const root = shallowRender({
       addon: createInternalAddon({
@@ -800,20 +787,6 @@ describe(__filename, () => {
       addon: createInternalAddon({
         ...fakeAddon,
         type: ADDON_TYPE_EXTENSION,
-        summary,
-        description: null,
-      }),
-    });
-
-    expect(root.find('.AddonDescription')).toHaveLength(0);
-  });
-
-  it('does not display anything when the search plugin has no description', () => {
-    const summary = 'my theme is very cool';
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_OPENSEARCH,
         summary,
         description: null,
       }),
@@ -1059,7 +1032,6 @@ describe(__filename, () => {
     for (const addonType of [
       ADDON_TYPE_DICT,
       ADDON_TYPE_LANG,
-      ADDON_TYPE_OPENSEARCH,
       ADDON_TYPE_STATIC_THEME,
     ]) {
       const addon = createInternalAddon({

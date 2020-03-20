@@ -48,21 +48,18 @@ export const CLIENT_APP_FIREFOX = 'firefox';
 export const ADDON_TYPE_DICT = 'dictionary';
 export const ADDON_TYPE_EXTENSION = 'extension';
 export const ADDON_TYPE_LANG = 'language';
-export const ADDON_TYPE_OPENSEARCH = 'search';
 export const ADDON_TYPE_STATIC_THEME = 'statictheme';
 
 export type AddonTypeType =
   | typeof ADDON_TYPE_DICT
   | typeof ADDON_TYPE_EXTENSION
   | typeof ADDON_TYPE_LANG
-  | typeof ADDON_TYPE_OPENSEARCH
   | typeof ADDON_TYPE_STATIC_THEME;
 
 export const validAddonTypes = [
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
 ];
 // Mapping of the add-on types we show in URLs, etc. and what they map
@@ -88,7 +85,6 @@ export const VISIBLE_ADDON_TYPES_MAPPING = Object.keys(
 // Incompatibility codes for clients that can't install an add-on.
 export const INCOMPATIBLE_FIREFOX_FOR_IOS = 'INCOMPATIBLE_FIREFOX_FOR_IOS';
 export const INCOMPATIBLE_OVER_MAX_VERSION = 'INCOMPATIBLE_OVER_MAX_VERSION';
-export const INCOMPATIBLE_NO_OPENSEARCH = 'INCOMPATIBLE_NO_OPENSEARCH';
 export const INCOMPATIBLE_NOT_FIREFOX = 'INCOMPATIBLE_NOT_FIREFOX';
 export const INCOMPATIBLE_UNDER_MIN_VERSION = 'INCOMPATIBLE_UNDER_MIN_VERSION';
 export const INCOMPATIBLE_UNSUPPORTED_PLATFORM =

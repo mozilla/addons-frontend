@@ -16,7 +16,6 @@ import {
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -506,41 +505,6 @@ describe(__filename, () => {
 
     expect(root.find('.SearchContextCard-header').text()).toEqual(
       '0 results found',
-    );
-  });
-
-  it('should render singular form when only one result is found with addonType ADDON_TYPE_OPENSEARCH', () => {
-    const query = 'test';
-    dispatchSearchResults({
-      store: _store,
-      addons: { [fakeAddon.slug]: fakeAddon },
-      filters: {
-        addonType: ADDON_TYPE_OPENSEARCH,
-        query,
-      },
-    });
-
-    const root = render();
-
-    expect(root.find('.SearchContextCard-header')).toIncludeText(
-      `1 Search Tool found for "${query}"`,
-    );
-  });
-
-  it('should render plural form when multiple results are found with addonType ADDON_TYPE_OPENSEARCH', () => {
-    const query = 'test';
-    dispatchSearchResults({
-      store: _store,
-      filters: {
-        addonType: ADDON_TYPE_OPENSEARCH,
-        query,
-      },
-    });
-
-    const root = render();
-
-    expect(root.find('.SearchContextCard-header')).toIncludeText(
-      `2 Search Tools found for "${query}"`,
     );
   });
 });

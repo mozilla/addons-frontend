@@ -8,7 +8,6 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_OPENSEARCH,
   STATS_VIEW,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
@@ -19,8 +18,8 @@ import {
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
-  fakeI18n,
   fakeTheme,
+  fakeI18n,
   fakeVersion,
   fakePlatformFile,
   shallowUntilTarget,
@@ -580,28 +579,6 @@ describe(__filename, () => {
       'to',
       `/addon/${addon.slug}/versions/`,
     );
-  });
-
-  it('omits version history for search plugins', () => {
-    // Search plugins only have one listed version so showing their
-    // version history is useless–we just omit it.
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      type: ADDON_TYPE_OPENSEARCH,
-    });
-    const root = render({ addon });
-
-    expect(root.find('.AddonMoreInfo-version-history')).toHaveLength(0);
-  });
-
-  it('omits version history for search tool', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      type: ADDON_TYPE_OPENSEARCH,
-    });
-    const root = render({ addon });
-
-    expect(root.find('.AddonMoreInfo-version-history')).toHaveLength(0);
   });
 
   it('links to version history if add-on is a theme', () => {

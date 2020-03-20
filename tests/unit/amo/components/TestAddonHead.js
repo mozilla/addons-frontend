@@ -8,7 +8,6 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -44,7 +43,6 @@ describe(__filename, () => {
     [ADDON_TYPE_DICT, 'Dictionary'],
     [ADDON_TYPE_EXTENSION, 'Extension'],
     [ADDON_TYPE_LANG, 'Language Pack'],
-    [ADDON_TYPE_OPENSEARCH, 'Search Tool'],
     [ADDON_TYPE_STATIC_THEME, 'Theme'],
   ])('renders an HTML title for Firefox (add-on type: %s)', (type, name) => {
     const lang = 'fr';
@@ -64,7 +62,6 @@ describe(__filename, () => {
     [ADDON_TYPE_DICT, 'Dictionary'],
     [ADDON_TYPE_EXTENSION, 'Extension'],
     [ADDON_TYPE_LANG, 'Language Pack'],
-    [ADDON_TYPE_OPENSEARCH, 'Search Tool'],
     [ADDON_TYPE_STATIC_THEME, 'Theme'],
   ])('renders an HTML title for Android (add-on type: %s)', (type, name) => {
     const lang = 'fr';

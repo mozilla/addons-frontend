@@ -9,7 +9,6 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_OPENSEARCH,
 } from 'core/constants';
 import { makeQueryString } from 'core/api';
 import log from 'core/logger';
@@ -67,9 +66,6 @@ export class SearchPageBase extends React.Component<InternalProps> {
           break;
         case '3':
           newFilters.addonType = ADDON_TYPE_DICT;
-          break;
-        case '4':
-          newFilters.addonType = ADDON_TYPE_OPENSEARCH;
           break;
         case '5':
           newFilters.addonType = ADDON_TYPE_LANG;

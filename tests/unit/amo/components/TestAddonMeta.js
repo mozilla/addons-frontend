@@ -8,7 +8,6 @@ import AddonMeta, {
 import Link from 'amo/components/Link';
 import RatingsByStar from 'amo/components/RatingsByStar';
 import { reviewListURL } from 'amo/reducers/reviews';
-import { ADDON_TYPE_OPENSEARCH } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   createContextWithFakeRouter,
@@ -47,19 +46,6 @@ describe(__filename, () => {
     function getUserCount(root) {
       return root.find(MetadataCard).prop('metadata')[0];
     }
-
-    it(`doesn't render users for search plugins`, () => {
-      const root = render({
-        addon: createInternalAddon({
-          ...fakeAddon,
-          type: ADDON_TYPE_OPENSEARCH,
-          average_daily_users: 0,
-        }),
-      });
-
-      expect(getUserCount(root).content).toEqual('');
-      expect(getUserCount(root).title).toEqual(null);
-    });
 
     it('renders the user count', () => {
       const root = render({

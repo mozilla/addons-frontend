@@ -5,7 +5,6 @@ import * as React from 'react';
 import SearchResult, { SearchResultBase } from 'amo/components/SearchResult';
 import { getAddonURL } from 'amo/utils';
 import {
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -394,17 +393,6 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find('.SearchResult-note')).toHaveLength(0);
-  });
-
-  it(`doesn't render the number of users for search plugins`, () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      type: ADDON_TYPE_OPENSEARCH,
-    });
-
-    const root = render({ addon });
-
-    expect(root.find('.SearchResult-users')).toHaveLength(0);
   });
 
   it('displays a recommended badge when an add-on is recommended', () => {

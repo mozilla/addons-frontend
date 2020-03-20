@@ -1,7 +1,6 @@
 import UAParser from 'ua-parser-js';
 
 import {
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -10,7 +9,6 @@ import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
-  INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
@@ -35,7 +33,6 @@ import {
 import {
   createFakeAddon,
   createFakeLocation,
-  createFakeMozWindow,
   fakeAddon,
   fakeVersion,
   getFakeLogger,
@@ -163,56 +160,6 @@ describe(__filename, () => {
           userAgentInfo,
         }),
       ).toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
-    });
-
-    it('should mark Firefox without window.external as incompatible', () => {
-      const userAgentInfo = {
-        browser: { name: 'Firefox' },
-        os: { name: 'Windows' },
-      };
-      const fakeOpenSearchAddon = createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_OPENSEARCH,
-      });
-      const fakeWindow = {};
-
-      expect(
-        _isCompatibleWithUserAgent({
-          _window: fakeWindow,
-          addon: fakeOpenSearchAddon,
-          userAgentInfo,
-        }),
-      ).toEqual({ compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH });
-    });
-
-    it('should mark Firefox without OpenSearch support as incompatible', () => {
-      const fakeOpenSearchAddon = createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_OPENSEARCH,
-      });
-      const fakeWindow = { external: {} };
-
-      expect(
-        _isCompatibleWithUserAgent({
-          _window: fakeWindow,
-          addon: fakeOpenSearchAddon,
-        }),
-      ).toEqual({ compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH });
-    });
-
-    it('should mark Firefox with OpenSearch support as compatible', () => {
-      const fakeOpenSearchAddon = createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_OPENSEARCH,
-      });
-      const fakeWindow = createFakeMozWindow();
-
-      expect(
-        _isCompatibleWithUserAgent({
-          _window: fakeWindow,
-          addon: fakeOpenSearchAddon,
-        }),
-      ).toEqual({ compatible: true, reason: null });
     });
 
     it('should mark non-Firefox UAs as incompatible', () => {

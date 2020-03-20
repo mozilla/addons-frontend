@@ -18,7 +18,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_DICT,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   SEARCH_SORT_POPULAR,
 } from 'core/constants';
@@ -383,14 +382,14 @@ describe(__filename, () => {
     dispatchSpy.resetHistory();
 
     root.setProps({
-      addonType: ADDON_TYPE_OPENSEARCH,
+      addonType: ADDON_TYPE_STATIC_THEME,
       authorIds: [randomAuthorId2],
     });
 
     sinon.assert.calledWith(
       dispatchSpy,
       fetchAddonsByAuthors({
-        addonType: ADDON_TYPE_OPENSEARCH,
+        addonType: ADDON_TYPE_STATIC_THEME,
         authorIds: [randomAuthorId2],
         errorHandlerId: errorHandler.id,
         pageSize: String(numberOfAddons),
@@ -684,7 +683,7 @@ describe(__filename, () => {
 
   it('shows add-ons in header if no specific addonType translation found', () => {
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_OPENSEARCH,
+      addonType: 'unknown-type',
       multipleAuthors: false,
     });
 
@@ -696,7 +695,7 @@ describe(__filename, () => {
 
   it('shows add-ons in header if no specific addonType translation found without More text', () => {
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_OPENSEARCH,
+      addonType: 'unknown-type',
       showMore: false,
       multipleAuthors: false,
     });
@@ -709,7 +708,7 @@ describe(__filename, () => {
 
   it('shows add-ons in header if no specific addonType found with multiple authors', () => {
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_OPENSEARCH,
+      addonType: 'unknown-type',
       multipleAuthors: true,
     });
 
@@ -721,7 +720,7 @@ describe(__filename, () => {
 
   it('shows add-ons in header if no specific addonType found with multiple authors and without More text', () => {
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_OPENSEARCH,
+      addonType: 'unknown-type',
       showMore: false,
       multipleAuthors: true,
     });

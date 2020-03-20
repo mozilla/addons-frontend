@@ -11,11 +11,7 @@ import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { hasPermission } from 'amo/reducers/users';
 import type { AddonType } from 'core/types/addons';
-import {
-  addonHasVersionHistory,
-  isAddonAuthor,
-  trimAndAddProtocolToUrl,
-} from 'core/utils';
+import { isAddonAuthor, trimAndAddProtocolToUrl } from 'core/utils';
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
@@ -143,10 +139,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       supportUrl,
       supportEmail,
       statsLink,
-      version:
-        currentVersion && addonHasVersionHistory(addon)
-          ? currentVersion.version
-          : null,
+      version: currentVersion ? currentVersion.version : null,
       filesize: versionInfo && versionInfo.filesize,
       versionLastUpdated: lastUpdated
         ? i18n.sprintf(
@@ -180,7 +173,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           {i18n.gettext('Read the license agreement for this add-on')}
         </Link>
       ) : null,
-      versionHistoryLink: addonHasVersionHistory(addon) ? (
+      versionHistoryLink: (
         <li>
           <Link
             className="AddonMoreInfo-version-history-link"
@@ -191,7 +184,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
             {i18n.gettext('See all versions')}
           </Link>
         </li>
-      ) : null,
+      ),
     });
   }
 

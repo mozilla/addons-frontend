@@ -5,7 +5,6 @@ import AMInstallButton, {
   AMInstallButtonBase,
 } from 'core/components/AMInstallButton';
 import {
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   DISABLED,
@@ -15,8 +14,6 @@ import {
   INACTIVE,
   INSTALLED,
   INSTALLING,
-  INSTALL_ACTION,
-  INSTALL_STARTED_ACTION,
   OS_ALL,
   UNINSTALLED,
   UNINSTALLING,
@@ -24,13 +21,10 @@ import {
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import { createInternalVersion } from 'core/reducers/versions';
-import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
 import Icon from 'ui/components/Icon';
 import {
   createContextWithFakeRouter,
   createFakeEvent,
-  createFakeMozWindow,
-  createFakeTracking,
   dispatchClientMetadata,
   fakeAddon,
   fakeCookies,
@@ -38,8 +32,6 @@ import {
   fakeTheme,
   fakeVersion,
   createFakeLocation,
-  getFakeConfig,
-  getFakeLogger,
   shallowUntilTarget,
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
@@ -105,20 +97,6 @@ describe(__filename, () => {
     );
   };
 
-  const renderOpenSearch = (customProps = {}) => {
-    const props = {
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_OPENSEARCH,
-      }),
-      // Install buttons for opensearch add-ons are not rendered on the server.
-      _config: getFakeConfig({ server: false }),
-      ...customProps,
-    };
-
-    return render(props);
-  };
-
   it('does not render anything when the browser is not Firefox', () => {
     const root = render({
       store: dispatchClientMetadata({
@@ -166,24 +144,6 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find(Button).childAt(1)).toHaveText('Install Theme');
-  });
-
-  it('configures a different install method for search providers', () => {
-    const root = renderOpenSearch();
-
-    expect(root.find(Button)).toHaveProp(
-      'onClick',
-      root.instance().installOpenSearch,
-    );
-  });
-
-  it('configures a different install method for search providers even without addon manager', () => {
-    const root = renderOpenSearch({ hasAddonManager: false });
-
-    expect(root.find(Button)).toHaveProp(
-      'onClick',
-      root.instance().installOpenSearch,
-    );
   });
 
   it('uses router location to create install URLs', () => {
@@ -250,86 +210,6 @@ describe(__filename, () => {
       'href',
       `${installURL}?src=${defaultInstallSource}`,
     );
-  });
-
-  it('adds defaultInstallSource to search provider buttons', () => {
-    const installURL = 'https://addons.mozilla.org/download';
-    const defaultInstallSource = 'homepage';
-    const root = renderOpenSearch({
-      currentVersion: createInternalVersionWithInstallURL({ installURL }),
-      defaultInstallSource,
-    });
-
-    expect(root.find(Button)).toHaveProp(
-      'href',
-      `${installURL}?src=${defaultInstallSource}`,
-    );
-  });
-
-  it('calls `window.external.AddSearchProvider` to install a search provider', () => {
-    const fakeLog = getFakeLogger();
-    const fakeWindow = createFakeMozWindow();
-    const installURL = 'https://a.m.o/files/addon.xpi';
-
-    const root = renderOpenSearch({
-      currentVersion: createInternalVersionWithInstallURL({ installURL }),
-      _log: fakeLog,
-      _window: fakeWindow,
-    });
-
-    const installButton = root.find('.AMInstallButton-button');
-    expect(installButton.childAt(1)).toHaveText('Add to Firefox');
-
-    const clickEvent = createFakeEventWithURL({ url: installURL });
-    installButton.simulate('click', clickEvent);
-
-    sinon.assert.calledOnce(clickEvent.preventDefault);
-    sinon.assert.calledOnce(clickEvent.stopPropagation);
-
-    sinon.assert.calledWith(fakeLog.info, 'Adding OpenSearch Provider');
-    sinon.assert.calledWith(fakeWindow.external.AddSearchProvider, installURL);
-  });
-
-  it('does not render anything on the server when add-on is a search provider', () => {
-    const root = renderOpenSearch({
-      _config: getFakeConfig({ server: true }),
-    });
-
-    expect(root.find('.AMInstallButton-button')).toHaveLength(0);
-  });
-
-  it('tracks install analytics when installing a search provider', () => {
-    const _tracking = createFakeTracking();
-    const _window = createFakeMozWindow();
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      name: 'some-search-provider',
-      type: ADDON_TYPE_OPENSEARCH,
-    });
-
-    const root = renderOpenSearch({
-      addon,
-      _tracking,
-      _window,
-    });
-
-    const installButton = root.find('.AMInstallButton-button');
-    installButton.simulate('click', createFakeEvent());
-
-    sinon.assert.calledWith(_tracking.sendEvent, {
-      action: getAddonTypeForTracking(ADDON_TYPE_OPENSEARCH),
-      category: getAddonEventCategory(
-        ADDON_TYPE_OPENSEARCH,
-        INSTALL_STARTED_ACTION,
-      ),
-      label: addon.name,
-    });
-    sinon.assert.calledWith(_tracking.sendEvent, {
-      action: getAddonTypeForTracking(ADDON_TYPE_OPENSEARCH),
-      category: getAddonEventCategory(ADDON_TYPE_OPENSEARCH, INSTALL_ACTION),
-      label: addon.name,
-    });
-    sinon.assert.calledTwice(_tracking.sendEvent);
   });
 
   it('calls the `install` helper to install an extension', async () => {
@@ -580,11 +460,5 @@ describe(__filename, () => {
 
     expect(root).toHaveClassName('AMInstallButton');
     expect(root).toHaveClassName(className);
-  });
-
-  it('is not disabled when it is an opensearch add-on', () => {
-    const root = renderOpenSearch({ status: UNKNOWN });
-
-    expect(root.find(Button)).toHaveProp('disabled', false);
   });
 });

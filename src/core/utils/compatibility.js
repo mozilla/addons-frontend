@@ -11,7 +11,6 @@ import {
 } from 'core/reducers/api';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_OPENSEARCH,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   INCOMPATIBLE_ANDROID_UNSUPPORTED,
@@ -19,7 +18,6 @@ import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NON_RESTARTLESS_ADDON,
   INCOMPATIBLE_NOT_FIREFOX,
-  INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
@@ -124,7 +122,6 @@ export type UserAgentCompatibilityType = {|
 export function isCompatibleWithUserAgent({
   _findInstallURL = findInstallURL,
   _log = log,
-  _window = typeof window !== 'undefined' ? window : {},
   addon,
   currentVersion,
   maxVersion,
@@ -140,13 +137,6 @@ export function isCompatibleWithUserAgent({
   // not currently support add-ons).
   if (browser.name === 'Firefox' && os.name === 'iOS') {
     return { compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS };
-  }
-
-  if (
-    addon.type === ADDON_TYPE_OPENSEARCH &&
-    !(_window.external && 'AddSearchProvider' in _window.external)
-  ) {
-    return { compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH };
   }
 
   if (!isFirefox({ userAgentInfo })) {
