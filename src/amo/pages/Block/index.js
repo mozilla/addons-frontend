@@ -7,11 +7,13 @@ import { connect } from 'react-redux';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
+import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import Page from 'amo/components/Page';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import { fetchBlock } from 'amo/reducers/blocks';
+import log from 'core/logger';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
@@ -101,10 +103,16 @@ export class BlockBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { block, i18n } = this.props;
+    const { block, errorHandler, i18n } = this.props;
 
-    if (block === null) {
-      return <NotFoundPage />;
+    if (errorHandler.hasError()) {
+      log.warn(`Captured API Error: ${errorHandler.capturedError.messages}`);
+
+      if (errorHandler.capturedError.responseStatusCode === 404) {
+        return <NotFoundPage />;
+      }
+
+      return <ServerErrorPage />;
     }
 
     const title = i18n.gettext(`This add-on has been blocked for your

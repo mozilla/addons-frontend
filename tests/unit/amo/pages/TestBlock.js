@@ -3,10 +3,13 @@ import * as React from 'react';
 
 import Block, { extractId, BlockBase } from 'amo/pages/Block';
 import NotFoundPage from 'amo/pages/ErrorPages/NotFoundPage';
+import ServerErrorPage from 'amo/pages/ErrorPages/ServerErrorPage';
 import Page from 'amo/components/Page';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import { abortFetchBlock, fetchBlock, loadBlock } from 'amo/reducers/blocks';
+import { ErrorHandler } from 'core/errorHandler';
+import { createApiError } from 'core/api';
 import {
   createFakeBlockResult,
   createStubErrorHandler,
@@ -94,11 +97,43 @@ describe(__filename, () => {
   it('renders a NotFoundPage when the block was not found', () => {
     const guid = 'some-guid';
     const { store } = dispatchClientMetadata();
+    const errorHandler = new ErrorHandler({
+      id: 'some-error-handler-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(
+      createApiError({
+        response: { status: 404 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'not found' },
+      }),
+    );
     store.dispatch(abortFetchBlock({ guid }));
 
-    const root = render({ store, guid });
+    const root = render({ errorHandler, store, guid });
 
     expect(root.find(NotFoundPage)).toHaveLength(1);
+  });
+
+  it('renders a ServerErrorPage when there is a non-404 error', () => {
+    const guid = 'some-guid';
+    const { store } = dispatchClientMetadata();
+    const errorHandler = new ErrorHandler({
+      id: 'some-error-handler-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(
+      createApiError({
+        response: { status: 500 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'not found' },
+      }),
+    );
+    store.dispatch(abortFetchBlock({ guid }));
+
+    const root = render({ errorHandler, store, guid });
+
+    expect(root.find(ServerErrorPage)).toHaveLength(1);
   });
 
   it('renders a page with loading indicators when a block has not been loaded yet', () => {
