@@ -115,8 +115,15 @@ export class BlockBase extends React.Component<InternalProps> {
       return <ServerErrorPage />;
     }
 
-    const title = i18n.gettext(`This add-on has been blocked for your
-      protection.`);
+    const title =
+      block && block.addon_name
+        ? i18n.sprintf(
+            i18n.gettext(`%(addonName)s has been blocked for your protection.`),
+            {
+              addonName: block.addon_name,
+            },
+          )
+        : i18n.gettext(`This add-on has been blocked for your protection.`);
 
     return (
       <Page>

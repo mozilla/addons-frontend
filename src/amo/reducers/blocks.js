@@ -6,12 +6,13 @@ export const ABORT_FETCH_BLOCK: 'ABORT_FETCH_BLOCK' = 'ABORT_FETCH_BLOCK';
 export const LOAD_BLOCK: 'LOAD_BLOCK' = 'LOAD_BLOCK';
 
 export type ExternalBlockType = {|
-  id: number,
+  addon_name: string | null,
   created: string,
-  modified: string,
   guid: string,
-  min_version: string,
+  id: number,
   max_version: string,
+  min_version: string,
+  modified: string,
   reason: string | null,
   url: string | null,
 |};
