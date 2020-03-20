@@ -6,6 +6,7 @@ import { connectRouter, routerMiddleware } from 'connected-react-router';
 
 import addonsByAuthors from 'amo/reducers/addonsByAuthors';
 import collections from 'amo/reducers/collections';
+import blocks from 'amo/reducers/blocks';
 import home from 'amo/reducers/home';
 import landing from 'amo/reducers/landing';
 import recommendations from 'amo/reducers/recommendations';
@@ -34,6 +35,7 @@ import uiState from 'core/reducers/uiState';
 import versions from 'core/reducers/versions';
 import { middleware } from 'core/store';
 import type { AddonsByAuthorsState } from 'amo/reducers/addonsByAuthors';
+import type { BlocksState } from 'amo/reducers/blocks';
 import type { CollectionsState } from 'amo/reducers/collections';
 import type { GuidesState } from 'amo/reducers/guides';
 import type { HomeState } from 'amo/reducers/home';
@@ -68,6 +70,7 @@ type InternalAppState = {|
   addonsByAuthors: AddonsByAuthorsState,
   api: ApiState,
   autocomplete: AutocompleteState,
+  blocks: BlocksState,
   categories: CategoriesState,
   collections: CollectionsState,
   errorPage: ErrorPageState,
@@ -126,6 +129,7 @@ export const reducers: AppReducersType = {
   addonsByAuthors,
   api,
   autocomplete,
+  blocks,
   categories,
   collections,
   errors,
