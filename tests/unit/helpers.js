@@ -1293,6 +1293,7 @@ export function normalizeSpaces(text) {
 }
 
 export const createFakeBlockResult = ({
+  addonName = 'some-addon-name',
   guid = 'some-guid',
   reason = 'some reason',
   url = null,
@@ -1305,6 +1306,7 @@ export const createFakeBlockResult = ({
     guid,
     min_version: '0',
     max_version: '*',
+    addon_name: addonName,
     reason,
     url,
     ...others,

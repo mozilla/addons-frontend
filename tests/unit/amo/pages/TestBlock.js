@@ -155,6 +155,39 @@ describe(__filename, () => {
     expect(root.find('.Block-metadata').find(LoadingText)).toHaveLength(2);
   });
 
+  it('renders a generic header/title when the block has no add-on name', () => {
+    const guid = 'some-guid';
+    const addonName = null;
+    const block = createFakeBlockResult({ guid, addonName });
+    const partialTitle = `This add-on has been`;
+    const { store } = dispatchClientMetadata();
+    store.dispatch(loadBlock({ block }));
+
+    const root = render({ store, guid });
+
+    expect(root.find('title')).toIncludeText(partialTitle);
+    expect(root.find(Card)).toHaveProp(
+      'header',
+      expect.stringMatching(partialTitle),
+    );
+  });
+
+  it('renders the name of the add-on in the title/header when the block has one', () => {
+    const guid = 'some-guid';
+    const addonName = 'some-addon-name';
+    const block = createFakeBlockResult({ guid, addonName });
+
+    const { store } = dispatchClientMetadata();
+    store.dispatch(loadBlock({ block }));
+
+    const root = render({ store, guid });
+
+    expect(root.find(Card)).toHaveProp(
+      'header',
+      expect.stringMatching(`${addonName} has been`),
+    );
+  });
+
   it('renders a paragraph with the reason when the block has one', () => {
     const guid = 'some-guid';
     const reason = 'this is a reason for a block';
