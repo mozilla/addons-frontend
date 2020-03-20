@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-19 23:52+0000\n"
+"PO-Revision-Date: 2020-03-19 23:56+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -2606,12 +2606,12 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
-msgstr ""
+msgstr "Uspješno si odjavljen/a!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:121
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "E-adresa %(strongStart)s%(email)s%(strongEnd)s više neće primati poruke, kad:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
@@ -2619,7 +2619,7 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Odjavi pretplatu"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2627,7 +2627,7 @@ msgstr ""
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla me mora kontaktirati u vezi s mojim osobnim dodatkom"
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
