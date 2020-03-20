@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-20 01:42+0000\n"
+"PO-Revision-Date: 2020-03-20 01:47+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -2210,7 +2210,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
-msgstr ""
+msgstr "Zajednica stvaralaca"
 
 #: src/amo/pages/StaticPages/About/index.js:56
 msgid ""
@@ -2220,7 +2220,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:65
 msgid "Get involved"
-msgstr ""
+msgstr "Uključi se"
 
 #: src/amo/pages/StaticPages/About/index.js:67
 msgid ""
@@ -2631,27 +2631,27 @@ msgstr "Mozilla me mora kontaktirati u vezi s mojim osobnim dodatkom"
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "dostupni su novi dodaci ili funkcije Firefoxa"
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "netko piše recenziju za moj dodatak"
 
 #: src/amo/utils/notifications.js:20
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "programer dodataka odgovara na moju recenziju"
 
 #: src/amo/utils/notifications.js:22
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "moj dodatak pregledava recenzent"
 
 #: src/amo/utils/notifications.js:24
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "kompatibilnost mog dodatka ne može se nadograditi"
 
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "kompatibilnost mog dodatka uspješno je nadograđena"
 
 #: src/core/components/AMInstallButton/index.js:195
 msgid "Enable"
