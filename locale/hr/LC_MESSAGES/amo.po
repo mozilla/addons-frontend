@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-20 12:20+0000\n"
+"PO-Revision-Date: 2020-03-20 12:29+0000\n"
 "Last-Translator: Mikeyy <mihovil@miho.im>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -786,12 +786,16 @@ msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla ju je uklonila. do ovoga može doći ukoliko su pronađeni problemi prilikom procesa odobravanja dodatka ili teme, ili ukoliko je došlo do kršenja addons.mozilla.org uvjeta. Programer ima "
+"mogućnost riješiti problem i ponovno učiniti dodatak dostupnim."
 
 #: src/amo/components/Errors/ServerError/index.js:21
 msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"Ukoliko imate dodatnih informacija koje nam mogu pomoći možete <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">otvoriti upit</a>. Recite nam koje ste korake poduzeli, a koji su "
+"doveli do greške i učinit ćemo sve u našoj moći da ispravimo grešku."
 
 #: src/amo/components/Errors/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -1225,35 +1229,35 @@ msgstr "Pročitaj sve recenzije s jednom zvjezdicom"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "Prijavili ste ovaj dodatak zbog zloupotrebe"
 
 #: src/amo/components/ReportAbuseButton/index.js:120
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Primili smo vašu prijavu. Zahvaljujemo što ste nas obavijestili o problemima s ovim dodatkom."
 
 #: src/amo/components/ReportAbuseButton/index.js:127 src/amo/components/ReportUserAbuse/index.js:164
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "Ne možemo odgovoriti na svaku prijavu, ali ćemo istražiti vaš problem."
 
 #: src/amo/components/ReportAbuseButton/index.js:137
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
-msgstr ""
+msgstr "Ukoliko smatrate da ovaj dodatak krši %(linkTagStart)s Mozilla politiku dodataka%(linkTagEnd)s ili sigurnost i privatnost korisnika, prijavite ove probleme koristeći slijedeći obrazac."
 
 #: src/amo/components/ReportAbuseButton/index.js:153
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "Prijavi ovaj dodatak zbog zloupotrebe"
 
 #: src/amo/components/ReportAbuseButton/index.js:183
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Nemojte koristiti ovaj obrazac za prijavu greški ili za traženje novih mogućnosti; ova prijava će biti poslana Mozilli, ne programeru dodatka."
 
 #: src/amo/components/ReportAbuseButton/index.js:196 src/amo/components/ReportUserAbuse/index.js:144
 msgid "Send abuse report"
-msgstr ""
+msgstr "Pošalji prijavu zloupotrebe"
 
 #: src/amo/components/ReportAbuseButton/index.js:197 src/amo/components/ReportUserAbuse/index.js:145
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Slanje prijave zloupotrebe"
 
 #: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Dismiss"
@@ -1261,11 +1265,11 @@ msgstr "Odbaci"
 
 #: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Objasnite kako ovaj dodatak krši našu politiku."
 
 #: src/amo/components/ReportUserAbuse/index.js:106 src/amo/components/ReportUserAbuse/index.js:99
 msgid "Report this user for abuse"
-msgstr ""
+msgstr "Prijavite ovog korisnika za zloupotrebu"
 
 #: src/amo/components/ReportUserAbuse/index.js:113
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
