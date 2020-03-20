@@ -325,7 +325,7 @@ export class AddonBase extends React.Component {
         <div className="AddonDevelopersComments-contents" {...commentsProps} />
       </ShowMoreCard>
     ) : null;
-  }
+  };
 
   renderVersionReleaseNotes() {
     const { addon, i18n, currentVersion } = this.props;
