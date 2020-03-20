@@ -2,10 +2,11 @@
 
 .AppBanner {
   padding: $padding-page;
-  // Split the top padding in half so that we can put optional content
-  // in there when needed.
-  padding-bottom: $padding-page / 2;
-  padding-top: $padding-page / 2;
+  // When the div contains no child
+  &:empty {
+    padding: 0;
+    padding-bottom: $padding-page;
+  }
 
   & > *:not(:last-child) {
     margin-bottom: $padding-page / 2;
