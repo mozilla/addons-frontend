@@ -160,6 +160,7 @@ export function createInternalAddon(
     created: apiAddon.created,
     default_locale: apiAddon.default_locale,
     description: apiAddon.description,
+    developer_comments: apiAddon.developer_comments,
     edit_url: apiAddon.edit_url,
     guid: apiAddon.guid,
     has_eula: apiAddon.has_eula,

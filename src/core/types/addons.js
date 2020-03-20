@@ -63,6 +63,7 @@ export type ExternalAddonType = {|
   current_version?: ExternalAddonVersionType | PartialExternalAddonVersionType,
   default_locale: string,
   description?: string,
+  developer_comments?: string,
   edit_url?: string,
   guid: string,
   has_eula?: boolean,
