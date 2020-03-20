@@ -1,0 +1,5 @@
+@import '~amo/css/styles';
+
+.Block-page {
+  @include page-padding();
+}

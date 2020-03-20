@@ -1296,6 +1296,7 @@ export const createFakeBlockResult = ({
   guid = 'some-guid',
   reason = 'some reason',
   url = null,
+  ...others
 } = {}) => {
   return {
     id: 123,
@@ -1306,5 +1307,6 @@ export const createFakeBlockResult = ({
     max_version: '*',
     reason,
     url,
+    ...others,
   };
 };
