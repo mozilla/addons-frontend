@@ -9,9 +9,11 @@ import Link from 'amo/components/Link';
 import { getVersionById, getVersionInfo } from 'core/reducers/versions';
 import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
+import { categoryResultsLinkTo } from 'amo/components/Categories';
 import { hasPermission } from 'amo/reducers/users';
 import type { AddonType } from 'core/types/addons';
 import { isAddonAuthor, trimAndAddProtocolToUrl } from 'core/utils';
+import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
@@ -20,6 +22,8 @@ import type { AppState } from 'amo/store';
 import type { AddonVersionType, VersionInfoType } from 'core/reducers/versions';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterLocationType } from 'core/types/router';
+
+import './styles.scss';
 
 type Props = {|
   addon: AddonType | null,
@@ -33,6 +37,7 @@ type InternalProps = {|
   currentVersion: AddonVersionType | null,
   versionInfo: VersionInfoType | null,
   location: ReactRouterLocationType,
+  clientApp: string | null
 |};
 
 export class AddonMoreInfoBase extends React.Component<InternalProps> {
@@ -45,6 +50,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       location,
       userId,
       versionInfo,
+      clientApp,
     } = this.props;
 
     if (!addon) {
@@ -110,6 +116,8 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       );
     }
 
+    const addonType = addon.type;
+
     const lastUpdated = versionInfo && versionInfo.created;
 
     const license = currentVersion && currentVersion.license;
@@ -173,6 +181,23 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           {i18n.gettext('Read the license agreement for this add-on')}
         </Link>
       ) : null,
+      relatedCategories: addon.categories && addon.categories[clientApp].length > 0 ? (
+        <ul className="Categories-list Categories-list--justify-content">
+          {addon.categories[clientApp].map((category, index) => {
+              return (
+                <li className="Categories-item" key={category}>
+                  <Button
+                    className={`Categories-link
+                      Categories--category-color-${(index % 12) + 1}`}
+                    to={categoryResultsLinkTo({ addonType, category })}
+                  >
+                    {i18n.gettext(category)}
+                  </Button>
+                </li>
+              );
+          })}
+        </ul>
+      ) : null,
       versionHistoryLink: (
         <li>
           <Link
@@ -196,6 +221,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     privacyPolicyLink = null,
     eulaLink = null,
     filesize = null,
+    relatedCategories = null,
     version = null,
     versionLastUpdated,
     versionLicenseLink = null,
@@ -275,6 +301,14 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
               </ul>
             </Definition>
           )}
+          {relatedCategories && (
+            <Definition
+              className="AddonMoreInfo-related-categories"
+              term={i18n.gettext('Related Categories')}
+            >
+              {relatedCategories}
+            </Definition>
+          )}
           {statsLink && (
             <Definition
               className="AddonMoreInfo-stats"
@@ -326,6 +360,7 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
     versionInfo,
     hasStatsPermission: hasPermission(state, STATS_VIEW),
     userId: state.users.currentUserID,
+    clientApp: state.api.clientApp,
   };
 };
 
