@@ -81,6 +81,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
             'RatingsByStar-partialBar': width < 100,
           },
         )}
+        tabIndex="-1"
         style={{ width: `${width}%` }}
       />
     );
@@ -108,7 +109,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
             let starCount;
             let starCountNode;
 
-            function createLink(text) {
+            function createLink(text, tab = true) {
               invariant(addon, 'addon was unexpectedly empty');
 
               return (
@@ -119,6 +120,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
                     score: star,
                     src: location.query.src,
                   })}
+                  tabIndex={tab ? null : '-1'}
                 >
                   {text}
                 </Link>
@@ -143,7 +145,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
                   {loading ? (
                     <LoadingText minWidth={95} />
                   ) : (
-                    createLink(i18n.formatNumber(star))
+                    createLink(i18n.formatNumber(star), false)
                   )}
                   <IconStar selected />
                 </div>
@@ -157,6 +159,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
                           ? this.renderBarValue(starCount)
                           : null}
                       </div>,
+                      false,
                     )
                   )}
                 </div>
