@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-04 02:02+0000\n"
+"PO-Revision-Date: 2020-03-21 05:28+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -1461,7 +1461,7 @@ msgstr "作業系統"
 
 #: src/amo/components/SearchFilters/index.js:253
 msgid "Recommended add-ons only"
-msgstr "僅推薦的附加元件"
+msgstr "僅顯示推薦的附加元件"
 
 #: src/amo/components/SearchForm/index.js:61
 msgid "Firefox Add-ons (%(locale)s)"
