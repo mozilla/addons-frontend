@@ -300,7 +300,7 @@ export class AddonBase extends React.Component {
   }
 
   renderDevCommentsCard = () => {
-    const { addon } = this.props;
+    const { addon, i18n } = this.props;
     const commentsProps = {};
     let showComments = true;
     let comments;
@@ -319,7 +319,7 @@ export class AddonBase extends React.Component {
     return showComments ? (
       <ShowMoreCard
         className={showMoreCardName}
-        header={`Developer's comments`}
+        header={i18n.gettext(`Developer's comments`)}
         id={showMoreCardName}
       >
         <div className="AddonDevelopersComments-contents" {...commentsProps} />
