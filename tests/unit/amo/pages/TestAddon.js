@@ -883,6 +883,15 @@ describe(__filename, () => {
     ).toContain('<a>placeholder</a>');
   });
 
+  it('hides developers comments if null', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      developer_comments: null,
+    });
+    const root = renderAsDOMNode({ addon });
+    expect(root.find('.AddonDevelopersComments')).toHaveLength(0);
+  });
+
   it('configures the overall ratings section', () => {
     const location = createFakeLocation();
     const addon = createInternalAddon(fakeAddon);
