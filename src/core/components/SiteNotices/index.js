@@ -41,7 +41,12 @@ export class SiteNoticesBase extends React.Component<InternalProps> {
 
     if (siteNotice) {
       notices.push(
-        <Notice className="SiteNotices" id="amo-site-notice" type="warning">
+        <Notice
+          className="SiteNotices"
+          id="amo-site-notice"
+          type="warning"
+          key="amo-site-notice"
+        >
           <span
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={sanitizeNoticeHTML(siteNotice)}
@@ -52,7 +57,12 @@ export class SiteNoticesBase extends React.Component<InternalProps> {
 
     if (siteIsReadOnly) {
       notices.push(
-        <Notice className="SiteNotices" id="amo-site-read-only" type="warning">
+        <Notice
+          className="SiteNotices"
+          id="amo-site-read-only"
+          type="warning"
+          key="amo-site-read-only"
+        >
           {i18n.gettext(`Some features are temporarily disabled while we
             perform website maintenance. We'll be back to full capacity
             shortly.`)}
