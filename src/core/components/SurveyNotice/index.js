@@ -116,10 +116,7 @@ export class SurveyNoticeBase extends React.Component<InternalProps> {
     const surveyUrl = addQueryParams(
       'https://qsurvey.mozilla.com/s3/addons-mozilla-org-survey',
       {
-        source: location.pathname
-          .split('/')
-          .slice(2)
-          .join('/'),
+        source: location.pathname.split('/').slice(2).join('/'),
       },
     );
 

@@ -140,10 +140,7 @@ describe(__filename, () => {
     it('dispatches an error', async () => {
       const error = new Error('some API error maybe');
 
-      mockApi
-        .expects('getAddonInfo')
-        .once()
-        .rejects(error);
+      mockApi.expects('getAddonInfo').once().rejects(error);
 
       _fetchAddonInfo();
 

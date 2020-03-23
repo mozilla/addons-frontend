@@ -608,12 +608,9 @@ describe(__filename, () => {
       params: { slug },
     });
 
-    expect(
-      root
-        .find('.AddonInfo-info-html')
-        .render()
-        .find('br'),
-    ).toHaveLength(1);
+    expect(root.find('.AddonInfo-info-html').render().find('br')).toHaveLength(
+      1,
+    );
   });
 
   it('allows some HTML tags', () => {

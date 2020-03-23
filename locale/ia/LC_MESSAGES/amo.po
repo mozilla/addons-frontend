@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-03 21:28+0000\n"
-"PO-Revision-Date: 2020-03-11 17:51+0000\n"
-"Last-Translator: Martijn Dekker <martijn@inlv.org>\n"
+"PO-Revision-Date: 2020-03-21 16:28+0000\n"
+"Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
@@ -876,9 +876,8 @@ msgid "Site Status"
 msgstr "Stato del sito"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browser"
-msgstr "Navigator pro iOS"
+msgstr "Navigator"
 
 #: src/amo/components/Footer/index.js:115 src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
@@ -901,9 +900,8 @@ msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Edition de disveloppatores"
 
 #: src/amo/components/Footer/index.js:142
-#, fuzzy
 msgid "Products"
-msgstr "Productivitate"
+msgstr "Productos"
 
 #: src/amo/components/Footer/index.js:239
 msgid "Privacy"
@@ -1620,9 +1618,8 @@ msgid "Not available on Firefox for Android. You can use this add-on with Firefo
 msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
-#, fuzzy
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr "Iste additivo non es compatibile con le version in uso de Firefox."
+msgstr "Iste additivo non es compatibile con iste navigator. Proba installar lo sur Firefox pro scriptorio."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."

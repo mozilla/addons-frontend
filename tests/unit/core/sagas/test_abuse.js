@@ -56,10 +56,7 @@ describe(__filename, () => {
       const message = 'I would prefer the add-on be green';
       const response = createFakeAddonAbuseReport({ addon, message });
 
-      mockApi
-        .expects('reportAddon')
-        .once()
-        .returns(Promise.resolve(response));
+      mockApi.expects('reportAddon').once().returns(Promise.resolve(response));
 
       _sendAddonAbuseReport({ addonSlug: addon.slug, message });
 

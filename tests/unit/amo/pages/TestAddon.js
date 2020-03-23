@@ -292,10 +292,7 @@ describe(__filename, () => {
     ).toHaveLength(1);
     expect(root.find('.Addon-summary').find(LoadingText)).toHaveLength(1);
     expect(
-      root
-        .find('.Addon-overall-rating')
-        .shallow()
-        .find(LoadingText),
+      root.find('.Addon-overall-rating').shallow().find(LoadingText),
     ).toHaveLength(1);
 
     // These should render with an empty addon (they will show their own
@@ -648,12 +645,7 @@ describe(__filename, () => {
       }),
     });
 
-    expect(
-      root
-        .find('.Addon-summary')
-        .render()
-        .find('br'),
-    ).toHaveLength(1);
+    expect(root.find('.Addon-summary').render().find('br')).toHaveLength(1);
   });
 
   it('sanitizes bad description HTML', () => {
@@ -875,12 +867,9 @@ describe(__filename, () => {
       }),
     });
 
-    expect(
-      root
-        .find('.AddonDescription')
-        .at(0)
-        .html(),
-    ).toContain('<a>placeholder</a>');
+    expect(root.find('.AddonDescription').at(0).html()).toContain(
+      '<a>placeholder</a>',
+    );
   });
 
   it('hides developers comments if null', () => {

@@ -1126,11 +1126,9 @@ describe(__filename, () => {
       const review = signInAndDispatchSavedReview();
       const root = render({ i18n, review });
 
-      expect(
-        renderByLine(root)
-          .find(Link)
-          .children(),
-      ).toHaveText(i18n.moment(review.created).fromNow());
+      expect(renderByLine(root).find(Link).children()).toHaveText(
+        i18n.moment(review.created).fromNow(),
+      );
     });
 
     it('renders a byLine with an author by default', () => {
@@ -1141,9 +1139,7 @@ describe(__filename, () => {
       const root = render({ review });
 
       expect(
-        renderByLine(root)
-          .find('.AddonReviewCard-authorByLine')
-          .text(),
+        renderByLine(root).find('.AddonReviewCard-authorByLine').text(),
       ).toContain(`by ${name},`);
     });
 

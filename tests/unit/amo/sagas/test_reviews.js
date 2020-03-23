@@ -989,10 +989,7 @@ describe(__filename, () => {
       const reviewId = 12345;
       const isReplyToReviewId = 98765;
 
-      mockApi
-        .expects('deleteReview')
-        .once()
-        .returns(Promise.resolve());
+      mockApi.expects('deleteReview').once().returns(Promise.resolve());
 
       _deleteAddonReview({ addonId, isReplyToReviewId, reviewId });
 
@@ -1011,10 +1008,7 @@ describe(__filename, () => {
       const reviewId = 12345;
       const isReplyToReviewId = 98765;
 
-      mockApi
-        .expects('deleteReview')
-        .once()
-        .returns(Promise.resolve());
+      mockApi.expects('deleteReview').once().returns(Promise.resolve());
 
       _deleteAddonReview({ isReplyToReviewId, reviewId });
 

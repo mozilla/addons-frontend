@@ -102,10 +102,7 @@ describe(__filename, () => {
     it('calls the API to fetch user', async () => {
       const user = createUserAccountResponse();
 
-      mockApi
-        .expects('userAccount')
-        .once()
-        .returns(Promise.resolve(user));
+      mockApi.expects('userAccount').once().returns(Promise.resolve(user));
 
       sagaTester.dispatch(
         fetchUserAccount({

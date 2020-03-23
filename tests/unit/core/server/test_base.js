@@ -145,9 +145,7 @@ describe(__filename, () => {
 
   describe('app', () => {
     it('varies on DNT', async () => {
-      const response = await testClient()
-        .get('/en-US/firefox/')
-        .end();
+      const response = await testClient().get('/en-US/firefox/').end();
 
       expect(response.headers).toMatchObject({ vary: 'DNT' });
       expect(response.statusCode).toEqual(200);

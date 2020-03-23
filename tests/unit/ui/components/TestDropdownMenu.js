@@ -55,19 +55,14 @@ describe(__filename, () => {
     const getMenu = () => root.find('.DropdownMenu');
 
     // User clicks the menu main button.
-    getMenu()
-      .find('.DropdownMenu-button')
-      .simulate('click', createFakeEvent());
+    getMenu().find('.DropdownMenu-button').simulate('click', createFakeEvent());
     expect(getMenu()).toHaveClassName('DropdownMenu--active');
 
     // User clicks somewhere else.
     // The first `instance()` call is Enzyme API, the second `getInstance()`
     // call is react-onclickoutside API. See:
     // https://github.com/Pomax/react-onclickoutside#but-how-can-i-access-my-component-it-has-an-api-that-i-rely-on
-    root
-      .instance()
-      .getInstance()
-      .handleClickOutside();
+    root.instance().getInstance().handleClickOutside();
     // When using `mount`, Enzyme 3+ requires to `.update()` when we manually
     // make changes, like above.
     root.update();
@@ -89,15 +84,11 @@ describe(__filename, () => {
     const getMenu = () => root.find('.DropdownMenu');
 
     // User clicks the menu main button to open it.
-    getMenu()
-      .find('.DropdownMenu-button')
-      .simulate('click', createFakeEvent());
+    getMenu().find('.DropdownMenu-button').simulate('click', createFakeEvent());
     expect(getMenu()).toHaveClassName('DropdownMenu--active');
 
     // User clicks a link.
-    getMenu()
-      .find('.TestLink')
-      .simulate('click', createFakeEvent());
+    getMenu().find('.TestLink').simulate('click', createFakeEvent());
     expect(getMenu()).not.toHaveClassName('DropdownMenu--active');
   });
 

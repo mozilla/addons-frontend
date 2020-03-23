@@ -49,12 +49,9 @@ describe(__filename, () => {
     });
     const root = render({ review, showRating: true });
 
-    expect(
-      root
-        .find('.UserReview-body')
-        .children()
-        .html(),
-    ).toContain(fakeReview.body);
+    expect(root.find('.UserReview-body').children().html()).toContain(
+      fakeReview.body,
+    );
 
     const rating = root.find(UserRating);
     expect(rating).toHaveProp('readOnly', true);
@@ -72,11 +69,7 @@ describe(__filename, () => {
     });
 
     expect(
-      root
-        .find('.UserReview-body')
-        .children()
-        .render()
-        .find('br'),
+      root.find('.UserReview-body').children().render().find('br'),
     ).toHaveLength(1);
   });
 
