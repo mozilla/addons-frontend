@@ -313,7 +313,7 @@ export class AddonBase extends React.Component {
     return (
       <ShowMoreCard
         className={showMoreCardName}
-        header={i18n.gettext(`Developer's comments`)}
+        header={i18n.gettext('Developer comments')}
         id={showMoreCardName}
       >
         <div dangerouslySetInnerHTML={devComments} />

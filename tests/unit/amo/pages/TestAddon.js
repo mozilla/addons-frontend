@@ -872,7 +872,7 @@ describe(__filename, () => {
     );
   });
 
-  it(`hides developer's comments if null`, () => {
+  it('hides developer comments if null', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       developer_comments: null,
@@ -881,7 +881,7 @@ describe(__filename, () => {
     expect(root.find('.Addon-developer-comments')).toHaveLength(0);
   });
 
-  it(`displays developer's comments`, () => {
+  it('displays developer comments', () => {
     const developerComments = 'some awesome developers comments';
     const root = shallowRender({
       addon: createInternalAddon({
@@ -894,7 +894,7 @@ describe(__filename, () => {
     );
   });
 
-  it(`allows some HTML tags in the developer's comments`, () => {
+  it('allows some HTML tags in the developer comments', () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
