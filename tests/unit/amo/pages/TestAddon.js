@@ -872,7 +872,7 @@ describe(__filename, () => {
     );
   });
 
-  it('hides developers comments if null', () => {
+  it(`hides developer's comments if null`, () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       developer_comments: null,
@@ -881,7 +881,7 @@ describe(__filename, () => {
     expect(root.find('.Addon-developer-comments')).toHaveLength(0);
   });
 
-  it('displays developers comments', () => {
+  it(`displays developer's comments`, () => {
     const developerComments = 'some awesome developers comments';
     const root = shallowRender({
       addon: createInternalAddon({
@@ -889,8 +889,21 @@ describe(__filename, () => {
         developer_comments: developerComments,
       }),
     });
-    const devComments = root.find('.Addon-developer-comments div');
-    expect(devComments.html()).toContain(developerComments);
+    expect(root.find('.Addon-developer-comments').childAt(0).html()).toContain(
+      developerComments,
+    );
+  });
+
+  it(`allows some HTML tags in the developer's comments`, () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        developer_comments: '<b>super</b> <i>cool</i> <blink>comments</blink>',
+      }),
+    });
+    expect(root.find('.Addon-developer-comments').childAt(0).html()).toMatch(
+      new RegExp('<b>super</b> <i>cool</i> comments'),
+    );
   });
 
   it('configures the overall ratings section', () => {

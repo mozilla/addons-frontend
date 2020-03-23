@@ -302,7 +302,9 @@ export class AddonBase extends React.Component {
   renderDevCommentsCard = () => {
     const { addon, i18n } = this.props;
 
-    if (!addon || !addon.developer_comments) return null;
+    if (!addon || !addon.developer_comments) {
+      return null;
+    }
 
     const devComments = sanitizeUserHTML(addon.developer_comments);
     const showMoreCardName = 'Addon-developer-comments';
