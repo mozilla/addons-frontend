@@ -31,18 +31,10 @@ describe(__filename, () => {
 
       expect(root.find('.DefinitionList').find(Definition)).toHaveLength(2);
       expect(
-        root
-          .find('.DefinitionList')
-          .find(Definition)
-          .at(0)
-          .children(),
+        root.find('.DefinitionList').find(Definition).at(0).children(),
       ).toHaveText('Snow');
       expect(
-        root
-          .find('.DefinitionList')
-          .find(Definition)
-          .at(1)
-          .children(),
+        root.find('.DefinitionList').find(Definition).at(1).children(),
       ).toHaveText('Beach');
     });
   });

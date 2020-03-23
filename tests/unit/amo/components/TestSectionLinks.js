@@ -124,12 +124,9 @@ describe(__filename, () => {
     _store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
     const root = render();
 
-    expect(
-      root
-        .find('.SectionLinks-subheader')
-        .at(0)
-        .children(),
-    ).toIncludeText('for Firefox');
+    expect(root.find('.SectionLinks-subheader').at(0).children()).toIncludeText(
+      'for Firefox',
+    );
     expect(
       root.find(`.SectionLinks-clientApp-${CLIENT_APP_ANDROID}`),
     ).toHaveLength(1);

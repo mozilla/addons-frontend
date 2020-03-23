@@ -1380,12 +1380,9 @@ describe(__filename, () => {
       be anonymised and no longer editable.`,
     );
 
-    expect(
-      modal
-        .find('p')
-        .at(1)
-        .text(),
-    ).toContain('When you use this email address to log in again to');
+    expect(modal.find('p').at(1).text()).toContain(
+      'When you use this email address to log in again to',
+    );
 
     expect(modal.find('p').at(2)).toHaveHTML(
       oneLine`<p><strong>NOTE:</strong> You cannot delete your profile if you
@@ -1438,12 +1435,8 @@ describe(__filename, () => {
       'IMPORTANT: Deleting this Firefox Add-ons profile is irreversible.',
     );
 
-    expect(
-      root
-        .find('.UserProfileEdit-deletion-modal')
-        .find('p')
-        .at(1),
-    ).toHaveHTML(oneLine`<p><strong>NOTE:</strong> You cannot delete a user’s
+    expect(root.find('.UserProfileEdit-deletion-modal').find('p').at(1))
+      .toHaveHTML(oneLine`<p><strong>NOTE:</strong> You cannot delete a user’s
     profile if the user is the <a href="/user/${params.userId}/">author of any
     add-ons</a>.</p>`);
 

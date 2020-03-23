@@ -83,10 +83,7 @@ describe(__filename, () => {
     it('dispatches an error', async () => {
       const error = new Error('some API error maybe');
 
-      mockApi
-        .expects('getVersions')
-        .once()
-        .rejects(error);
+      mockApi.expects('getVersions').once().rejects(error);
 
       _fetchVersions({ page, slug });
 
@@ -142,10 +139,7 @@ describe(__filename, () => {
     it('dispatches an error', async () => {
       const error = new Error('some API error maybe');
 
-      mockApi
-        .expects('getVersion')
-        .once()
-        .rejects(error);
+      mockApi.expects('getVersion').once().rejects(error);
 
       _fetchVersion({ slug, versionId });
 

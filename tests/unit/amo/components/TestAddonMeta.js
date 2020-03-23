@@ -176,27 +176,15 @@ describe(__filename, () => {
     it('renders a count of one review', () => {
       const root = renderRatings({ count: 1 });
 
-      expect(
-        getReviewCount(root)
-          .find(Link)
-          .children(),
-      ).toHaveText('1');
-      expect(
-        getReviewTitle(root)
-          .find(Link)
-          .children(),
-      ).toHaveText('Review');
+      expect(getReviewCount(root).find(Link).children()).toHaveText('1');
+      expect(getReviewTitle(root).find(Link).children()).toHaveText('Review');
     });
 
     it('localizes review count', () => {
       const i18n = fakeI18n({ lang: 'de' });
       const root = renderRatings({ count: 1000 }, { i18n });
 
-      expect(
-        getReviewCount(root)
-          .find(Link)
-          .children(),
-      ).toHaveText('1.000');
+      expect(getReviewCount(root).find(Link).children()).toHaveText('1.000');
     });
 
     it('handles no addon', () => {

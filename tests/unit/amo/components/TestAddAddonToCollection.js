@@ -345,10 +345,7 @@ describe(__filename, () => {
 
       const notice = root.find(Notice);
       const text = (index) => {
-        return notice
-          .at(index)
-          .childAt(0)
-          .text();
+        return notice.at(index).childAt(0).text();
       };
       expect(text(0)).toContain(`Added to ${firstCollection.name}`);
       expect(text(1)).toContain(`Added to ${secondCollection.name}`);

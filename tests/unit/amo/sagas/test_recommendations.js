@@ -89,10 +89,7 @@ describe(__filename, () => {
   it('dispatches an error and aborts the fetching', async () => {
     const error = new Error('some API error maybe');
 
-    mockApi
-      .expects('getRecommendations')
-      .once()
-      .returns(Promise.reject(error));
+    mockApi.expects('getRecommendations').once().returns(Promise.reject(error));
 
     _fetchRecommendations({ guid });
 

@@ -143,10 +143,7 @@ function showErrorPage({
   store.dispatch(loadErrorPage({ error: apiError }));
 
   const HTML = renderHTML({ pageProps, store });
-  return res
-    .status(adjustedStatus)
-    .send(`<!DOCTYPE html>\n${HTML}`)
-    .end();
+  return res.status(adjustedStatus).send(`<!DOCTYPE html>\n${HTML}`).end();
 }
 
 function sendHTML({ res, html }) {

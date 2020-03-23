@@ -51,10 +51,7 @@ describe(__filename, () => {
     const message = 'I would prefer the user be XUL';
     const response = createFakeUserAbuseReport({ message, userId });
 
-    mockApi
-      .expects('reportUser')
-      .once()
-      .returns(Promise.resolve(response));
+    mockApi.expects('reportUser').once().returns(Promise.resolve(response));
 
     _sendUserAbuseReport({ message, userId });
 
@@ -79,10 +76,7 @@ describe(__filename, () => {
       userId,
     });
 
-    mockApi
-      .expects('reportUser')
-      .once()
-      .returns(Promise.resolve(response));
+    mockApi.expects('reportUser').once().returns(Promise.resolve(response));
 
     _sendUserAbuseReport({ message, userId });
 

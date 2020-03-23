@@ -38,12 +38,7 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice)).toHaveProp('id', 'amo-site-notice');
-    expect(
-      root
-        .find(Notice)
-        .find('span')
-        .html(),
-    ).toContain(notice);
+    expect(root.find(Notice).find('span').html()).toContain(notice);
   });
 
   it('renders a site notice with HTML tags', () => {
@@ -53,12 +48,7 @@ describe(__filename, () => {
 
     const root = render({ store });
 
-    expect(
-      root
-        .find(Notice)
-        .find('span')
-        .html(),
-    ).toContain(notice);
+    expect(root.find(Notice).find('span').html()).toContain(notice);
   });
 
   it('renders nothing when the site is not in read only mode and there is no site notice configured', () => {

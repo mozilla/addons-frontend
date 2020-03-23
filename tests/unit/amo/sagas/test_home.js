@@ -381,10 +381,7 @@ describe(__filename, () => {
 
       const error = new Error('some API error maybe');
 
-      mockSearchApi
-        .expects('search')
-        .exactly(5)
-        .rejects(error);
+      mockSearchApi.expects('search').exactly(5).rejects(error);
 
       _fetchHomeData({ collectionsToFetch: [{ slug, userId }] });
 

@@ -154,10 +154,7 @@ describe(__filename, () => {
 
     it('dispatches an error', async () => {
       const error = new Error('some API error maybe');
-      mockSearchApi
-        .expects('search')
-        .exactly(3)
-        .returns(Promise.reject(error));
+      mockSearchApi.expects('search').exactly(3).returns(Promise.reject(error));
 
       _getLanding();
 

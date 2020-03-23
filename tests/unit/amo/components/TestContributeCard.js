@@ -63,12 +63,7 @@ describe(__filename, () => {
     const root = render();
     expect(root.find(Button)).toHaveLength(1);
     expect(root.find(Button)).toHaveProp('href', 'https://paypal.me/babar');
-    expect(
-      root
-        .find(Button)
-        .children()
-        .at(1),
-    ).toHaveText('Contribute now');
+    expect(root.find(Button).children().at(1)).toHaveText('Contribute now');
     expect(root.find(Button)).toHaveProp('target', '_blank');
   });
 

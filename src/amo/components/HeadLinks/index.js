@@ -38,10 +38,7 @@ export class HeadLinksBase extends React.PureComponent<InternalProps> {
       queryString,
     } = this.props;
 
-    const pathWithoutLocale = locationPathname
-      .split('/')
-      .slice(2)
-      .join('/');
+    const pathWithoutLocale = locationPathname.split('/').slice(2).join('/');
     const canonicalURL = `/${lang}/${pathWithoutLocale}${queryString || ''}`;
 
     const hrefLangsMap = _config.get('hrefLangsMap');

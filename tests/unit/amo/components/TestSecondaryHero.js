@@ -210,10 +210,7 @@ describe(__filename, () => {
         currentTarget: { href: module1.cta.url },
       });
 
-      root
-        .find('.SecondaryHero-module-link')
-        .at(0)
-        .simulate('click', event);
+      root.find('.SecondaryHero-module-link').at(0).simulate('click', event);
 
       sinon.assert.calledWith(_tracking.sendEvent, {
         action: event.currentTarget.href,

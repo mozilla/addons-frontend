@@ -746,19 +746,13 @@ describe(__filename, () => {
     it('produces an addon URL', () => {
       const addon = fakeAddon;
       loadAddon(addon);
-      expect(
-        render()
-          .instance()
-          .addonURL(),
-      ).toEqual(getAddonURL(addon.slug));
+      expect(render().instance().addonURL()).toEqual(getAddonURL(addon.slug));
     });
 
     it('requires an addon prop to produce a URL', () => {
-      expect(() =>
-        render({ addon: null })
-          .instance()
-          .addonURL(),
-      ).toThrowError(/cannot access addonURL/);
+      expect(() => render({ addon: null }).instance().addonURL()).toThrowError(
+        /cannot access addonURL/,
+      );
     });
 
     it('configures CardList with a count of review results', () => {
