@@ -877,8 +877,20 @@ describe(__filename, () => {
       ...fakeAddon,
       developer_comments: null,
     });
-    const root = renderAsDOMNode({ addon });
-    expect(root.find('.AddonDevelopersComments')).toHaveLength(0);
+    const root = renderComponent({ addon });
+    expect(root.find('.Addon-developer-comments')).toHaveLength(0);
+  });
+
+  it('displays developers comments', () => {
+    const developerComments = 'some awesome developers comments';
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        developer_comments: developerComments,
+      }),
+    });
+    const devComments = root.find('.Addon-developer-comments div');
+    expect(devComments.html()).toContain(developerComments);
   });
 
   it('configures the overall ratings section', () => {

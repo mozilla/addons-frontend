@@ -301,28 +301,21 @@ export class AddonBase extends React.Component {
 
   renderDevCommentsCard = () => {
     const { addon, i18n } = this.props;
-    let comments;
 
-    if (addon && addon.developer_comments) {
-      comments = addon.developer_comments;
-    }
+    if (!addon || !addon.developer_comments) return null;
 
-    if (!comments) {
-      return null;
-    }
-    const devComments = sanitizeUserHTML(comments);
-
-    const showMoreCardName = 'AddonDevelopersComments';
+    const devComments = sanitizeUserHTML(addon.developer_comments);
+    const cardName = 'Addon-developer-comments';
 
     /* eslint-disable react/no-danger */
     return (
-      <ShowMoreCard
-        className={showMoreCardName}
+      <Card
+        className={cardName}
         header={i18n.gettext(`Developer's comments`)}
-        id={showMoreCardName}
+        id={cardName}
       >
         <div dangerouslySetInnerHTML={devComments} />
-      </ShowMoreCard>
+      </Card>
     );
     /* eslint-enable react/no-danger */
   };
