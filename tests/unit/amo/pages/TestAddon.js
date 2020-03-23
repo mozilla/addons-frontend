@@ -872,6 +872,40 @@ describe(__filename, () => {
     );
   });
 
+  it('hides developer comments if null', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      developer_comments: null,
+    });
+    const root = renderComponent({ addon });
+    expect(root.find('.Addon-developer-comments')).toHaveLength(0);
+  });
+
+  it('displays developer comments', () => {
+    const developerComments = 'some awesome developers comments';
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        developer_comments: developerComments,
+      }),
+    });
+    expect(root.find('.Addon-developer-comments').childAt(0).html()).toContain(
+      developerComments,
+    );
+  });
+
+  it('allows some HTML tags in the developer comments', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        developer_comments: '<b>super</b> <i>cool</i> <blink>comments</blink>',
+      }),
+    });
+    expect(root.find('.Addon-developer-comments').childAt(0).html()).toMatch(
+      new RegExp('<b>super</b> <i>cool</i> comments'),
+    );
+  });
+
   it('configures the overall ratings section', () => {
     const location = createFakeLocation();
     const addon = createInternalAddon(fakeAddon);

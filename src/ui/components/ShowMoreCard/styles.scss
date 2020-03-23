@@ -36,7 +36,8 @@
   }
 }
 
-.AddonDescription {
+.AddonDescription,
+.Addon-developer-comments {
   .ShowMoreCard-contents {
     @include respond-to(large) {
       &::after {

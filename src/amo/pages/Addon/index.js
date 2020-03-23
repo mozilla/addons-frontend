@@ -299,6 +299,29 @@ export class AddonBase extends React.Component {
     ) : null;
   }
 
+  renderDevCommentsCard = () => {
+    const { addon, i18n } = this.props;
+
+    if (!addon || !addon.developer_comments) {
+      return null;
+    }
+
+    const devComments = sanitizeUserHTML(addon.developer_comments);
+    const showMoreCardName = 'Addon-developer-comments';
+
+    /* eslint-disable react/no-danger */
+    return (
+      <ShowMoreCard
+        className={showMoreCardName}
+        header={i18n.gettext('Developer comments')}
+        id={showMoreCardName}
+      >
+        <div dangerouslySetInnerHTML={devComments} />
+      </ShowMoreCard>
+    );
+    /* eslint-enable react/no-danger */
+  };
+
   renderVersionReleaseNotes() {
     const { addon, i18n, currentVersion } = this.props;
     if (!addon) {
@@ -511,6 +534,8 @@ export class AddonBase extends React.Component {
               ) : null}
 
               {this.renderShowMoreCard()}
+
+              {this.renderDevCommentsCard()}
 
               {addonType === ADDON_TYPE_EXTENSION && (
                 <AddonRecommendations addon={addon} />
