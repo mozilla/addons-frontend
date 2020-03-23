@@ -305,17 +305,17 @@ export class AddonBase extends React.Component {
     if (!addon || !addon.developer_comments) return null;
 
     const devComments = sanitizeUserHTML(addon.developer_comments);
-    const cardName = 'Addon-developer-comments';
+    const showMoreCardName = 'Addon-developer-comments';
 
     /* eslint-disable react/no-danger */
     return (
-      <Card
-        className={cardName}
+      <ShowMoreCard
+        className={showMoreCardName}
         header={i18n.gettext(`Developer's comments`)}
-        id={cardName}
+        id={showMoreCardName}
       >
         <div dangerouslySetInnerHTML={devComments} />
-      </Card>
+      </ShowMoreCard>
     );
     /* eslint-enable react/no-danger */
   };
