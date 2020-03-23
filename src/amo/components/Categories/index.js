@@ -32,7 +32,7 @@ type CategoryType = {|
   weight: number,
 |};
 
-type CategoriesStateType = {|
+export type CategoriesStateType = {|
   categories: {
     [clientApp: string]: void | {
       [addonType: string]: void | { [categorySlug: string]: CategoryType },
