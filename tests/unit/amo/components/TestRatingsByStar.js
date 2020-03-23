@@ -324,11 +324,7 @@ describe(__filename, () => {
     const root = render({ addon, i18n: fakeI18n({ lang: 'de' }) });
 
     expect(
-      root
-        .find('.RatingsByStar-count')
-        .at(0)
-        .find(Link)
-        .children(),
+      root.find('.RatingsByStar-count').at(0).find(Link).children(),
     ).toHaveText('1.000');
   });
 

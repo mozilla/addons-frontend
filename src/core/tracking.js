@@ -120,7 +120,7 @@ export class Tracking {
       // Snippet from Google UA docs: http://bit.ly/1O6Dsdh
       window.ga =
         window.ga ||
-        function() {
+        function () {
           (ga.q = ga.q || []).push(arguments);
         };
       ga.l = +new Date();

@@ -205,12 +205,9 @@ describe(__filename, () => {
 
     const root = render({ _getClientCompatibility });
 
-    expect(
-      root
-        .find('.AddonCompatibilityError')
-        .childAt(0)
-        .html(),
-    ).toContain('This add-on is not compatible with your version of Firefox');
+    expect(root.find('.AddonCompatibilityError').childAt(0).html()).toContain(
+      'This add-on is not compatible with your version of Firefox',
+    );
   });
 
   it('renders a notice for old versions of Firefox', () => {
@@ -224,10 +221,7 @@ describe(__filename, () => {
 
     const root = render({ _getClientCompatibility });
 
-    const text = root
-      .find('.AddonCompatibilityError')
-      .childAt(0)
-      .html();
+    const text = root.find('.AddonCompatibilityError').childAt(0).html();
 
     expect(
       root
@@ -269,12 +263,9 @@ describe(__filename, () => {
 
     const root = render({ _getClientCompatibility });
 
-    expect(
-      root
-        .find('.AddonCompatibilityError')
-        .childAt(0)
-        .html(),
-    ).toContain('This add-on is not available on your platform.');
+    expect(root.find('.AddonCompatibilityError').childAt(0).html()).toContain(
+      'This add-on is not available on your platform.',
+    );
   });
 
   it('renders a notice if add-on is non-restartless', () => {
@@ -284,12 +275,8 @@ describe(__filename, () => {
 
     const root = render({ _getClientCompatibility });
 
-    expect(
-      root
-        .find('.AddonCompatibilityError')
-        .childAt(0)
-        .html(),
-    ).toContain(oneLine`Your version of Firefox does not support this add-on
+    expect(root.find('.AddonCompatibilityError').childAt(0).html())
+      .toContain(oneLine`Your version of Firefox does not support this add-on
       because it requires a restart.`);
   });
 
@@ -306,11 +293,8 @@ describe(__filename, () => {
       fakeLog.warn,
       `Unknown reason code supplied to AddonCompatibilityError: ${reason}`,
     );
-    expect(
-      root
-        .find('.AddonCompatibilityError')
-        .childAt(0)
-        .html(),
-    ).toContain('Your browser does not support add-ons.');
+    expect(root.find('.AddonCompatibilityError').childAt(0).html()).toContain(
+      'Your browser does not support add-ons.',
+    );
   });
 });

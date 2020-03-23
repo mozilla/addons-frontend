@@ -9,9 +9,7 @@ import { normalizeFileNameId } from 'core/utils';
 import ErrorList from 'ui/components/ErrorList';
 
 function generateHandlerId({ name = '' } = {}) {
-  return `${name}-${Math.random()
-    .toString(36)
-    .substr(2, 9)}`;
+  return `${name}-${Math.random().toString(36).substr(2, 9)}`;
 }
 
 /*

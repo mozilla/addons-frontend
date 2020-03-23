@@ -180,18 +180,14 @@ describe(__filename, () => {
       addonType: ADDON_TYPE_EXTENSION,
     });
 
-    expect(
-      root
-        .find('.Categories-list')
-        .childAt(0)
-        .find(Button),
-    ).toHaveProp('children', 'Games');
-    expect(
-      root
-        .find('.Categories-list')
-        .childAt(1)
-        .find(Button),
-    ).toHaveProp('children', 'Travel');
+    expect(root.find('.Categories-list').childAt(0).find(Button)).toHaveProp(
+      'children',
+      'Games',
+    );
+    expect(root.find('.Categories-list').childAt(1).find(Button)).toHaveProp(
+      'children',
+      'Travel',
+    );
   });
 
   it('generates an expected link for a category', () => {
@@ -259,30 +255,22 @@ describe(__filename, () => {
       addonType: ADDON_TYPE_EXTENSION,
     });
 
-    expect(
-      root
-        .find('.Categories-list')
-        .childAt(0)
-        .find(Button),
-    ).toHaveProp('children', 'Games');
-    expect(
-      root
-        .find('.Categories-list')
-        .childAt(1)
-        .find(Button),
-    ).toHaveProp('children', 'Music');
-    expect(
-      root
-        .find('.Categories-list')
-        .childAt(2)
-        .find(Button),
-    ).toHaveProp('children', 'Nature');
-    expect(
-      root
-        .find('.Categories-list')
-        .childAt(3)
-        .find(Button),
-    ).toHaveProp('children', 'Travel');
+    expect(root.find('.Categories-list').childAt(0).find(Button)).toHaveProp(
+      'children',
+      'Games',
+    );
+    expect(root.find('.Categories-list').childAt(1).find(Button)).toHaveProp(
+      'children',
+      'Music',
+    );
+    expect(root.find('.Categories-list').childAt(2).find(Button)).toHaveProp(
+      'children',
+      'Nature',
+    );
+    expect(root.find('.Categories-list').childAt(3).find(Button)).toHaveProp(
+      'children',
+      'Travel',
+    );
   });
 
   it('renders a no categories found message', () => {

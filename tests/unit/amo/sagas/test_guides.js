@@ -82,10 +82,7 @@ describe(__filename, () => {
     it('dispatches an error', async () => {
       const error = new Error('some API error');
 
-      mockApi
-        .expects('search')
-        .once()
-        .rejects(error);
+      mockApi.expects('search').once().rejects(error);
 
       _fetchGuidesAddons({ guids });
 

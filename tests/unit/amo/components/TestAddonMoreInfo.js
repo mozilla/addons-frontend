@@ -351,12 +351,9 @@ describe(__filename, () => {
       'term',
       'End-User License Agreement',
     );
-    expect(
-      root
-        .find('.AddonMoreInfo-eula')
-        .find(Link)
-        .children(),
-    ).toHaveText('Read the license agreement for this add-on');
+    expect(root.find('.AddonMoreInfo-eula').find(Link).children()).toHaveText(
+      'Read the license agreement for this add-on',
+    );
     expect(root.find('.AddonMoreInfo-eula').find(Link)).toHaveProp(
       'to',
       '/addon/chill-out/eula/',

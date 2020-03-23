@@ -1249,9 +1249,9 @@ export async function matchingSagaAction(
 
       ${isMatch}
 
-      The saga dispatched these action types: ${calledActions
-        .map((action) => action.type)
-        .join(', ') || '(none at all)'}`,
+      The saga dispatched these action types: ${
+        calledActions.map((action) => action.type).join(', ') || '(none at all)'
+      }`,
     );
   }
   return foundAction;

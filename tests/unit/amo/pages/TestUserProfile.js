@@ -391,12 +391,9 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfile-biography')).toHaveLength(1);
     expect(root.find('.UserProfile-biography')).toHaveProp('term', 'Biography');
-    expect(
-      root
-        .find('.UserProfile-biography')
-        .find('div')
-        .html(),
-    ).toContain(biography);
+    expect(root.find('.UserProfile-biography').find('div').html()).toContain(
+      biography,
+    );
   });
 
   it('omits a null biography', () => {

@@ -152,10 +152,7 @@ describe(__filename, () => {
 
   it('dispatches an error', async () => {
     const error = new Error('some API error maybe');
-    mockApi
-      .expects('search')
-      .once()
-      .returns(Promise.reject(error));
+    mockApi.expects('search').once().returns(Promise.reject(error));
 
     _fetchAddonsByAuthors({
       authorIds: [],
