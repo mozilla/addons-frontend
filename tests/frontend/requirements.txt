@@ -118,8 +118,9 @@ pytest-fxa==1.4.0 \
 wcwidth==0.1.9 \
     --hash=sha256:cafe2186b3c009a04067022ce1dcd79cb38d8d65ee4f4791b8888d6599d1bbe1 \
     --hash=sha256:ee73862862a156bf77ff92b09034fc4825dd3af9cf81bc5b360668d425f3c5f1
-zope.component==4.6 \
-    --hash=sha256:ec2afc5bbe611dcace98bb39822c122d44743d635dafc7315b9aef25097db9e6
+zope.component==4.6.1 \
+    --hash=sha256:bfbe55d4a93e70a78b10edc3aad4de31bb8860919b7cbd8d66f717f7d7b279ac \
+    --hash=sha256:d9c7c27673d787faff8a83797ce34d6ebcae26a370e25bddb465ac2182766aca
 zope.deferredimport==4.3.1 \
     --hash=sha256:57b2345e7b5eef47efcd4f634ff16c93e4265de3dcf325afc7315ade48d909e1 \
     --hash=sha256:9a0c211df44aa95f1c4e6d2626f90b400f56989180d3ef96032d708da3d23e0a
