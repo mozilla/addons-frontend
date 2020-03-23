@@ -63,10 +63,7 @@ export const getAllLanguageTools = (
 ): Array<LanguageToolType> => {
   const { byID } = state.languageTools;
 
-  // TODO: one day, Flow will get `Object.values()` right but for now... we
-  // have to deal with it.
-  // See: https://github.com/facebook/flow/issues/2221.
-  return Object.keys(byID).map((key) => byID[key]);
+  return Object.values(byID);
 };
 
 type Action = FetchLanguageToolsAction | LoadLanguageToolsAction;
