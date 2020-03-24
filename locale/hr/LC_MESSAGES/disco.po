@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-04 20:57+0000\n"
+"POT-Creation-Date: 2020-03-24 18:38+0000\n"
 "PO-Revision-Date: 2020-03-10 20:48+0000\n"
 "Last-Translator: Mikeyy <mihovil@miho.im>\n"
 "Language-Team: none\n"
@@ -11,38 +11,39 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:195
+#: src/core/components/AMInstallButton/index.js:194
 msgid "Enable"
 msgstr "Aktiviraj"
 
-#: src/core/components/AMInstallButton/index.js:198
+#: src/core/components/AMInstallButton/index.js:197
 msgid "Remove"
 msgstr "Ukloni"
 
-#: src/core/components/AMInstallButton/index.js:200
+#: src/core/components/AMInstallButton/index.js:199
 msgid "Enabling"
 msgstr "Aktiviranje"
 
-#: src/core/components/AMInstallButton/index.js:202
+#: src/core/components/AMInstallButton/index.js:201
 msgid "Downloading"
 msgstr "Preuzimanje je u tijeku"
 
-#: src/core/components/AMInstallButton/index.js:204
+#: src/core/components/AMInstallButton/index.js:203
 msgid "Installing"
 msgstr "Instaliranje"
 
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Uninstalling"
 msgstr "Deinstaliranje"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Install Theme"
 msgstr "Instaliraj motiv"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Add to Firefox"
 msgstr "Dodaj u Firefox"
 
@@ -51,10 +52,15 @@ msgid "Server Error"
 msgstr "Greška poslužitelja"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Nažalost, došlo je do greške i nismo uspjeli dovršiti tvoj zahtjev. Zabilježili smo ovu grešku i istražit ćemo je."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Nažalost, došlo je do greške i nismo uspjeli dovršiti tvoj zahtjev. "
+"Zabilježili smo ovu grešku i istražit ćemo je."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Kȏd greške: %(status)s."
 
@@ -113,27 +119,27 @@ msgstr "%(application)s %(minVersion)s do %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Radi s %(listOfApplicatonsAndVersions)s"
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:31
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "Instaliranje je prekinuto, jer se čini da je dodatak oštećen."
 
-#: src/core/utils/addons.js:34
+#: src/core/utils/addons.js:35
 msgid "Installation failed. Please try again."
 msgstr "Neuspjelo instaliranje. Pokušaj ponovo."
 
-#: src/core/utils/addons.js:36
+#: src/core/utils/addons.js:37
 msgid "Download failed. Please check your connection."
 msgstr "Neuspjelo preuzimanje. Provjeri svoju vezu."
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 msgid "An unexpected error occurred during installation."
 msgstr "Tijekom instaliranja se dogodila neočekivana greška."
 
-#: src/core/utils/addons.js:40
+#: src/core/utils/addons.js:41
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Tijekom deinstaliranja se dogodila neočekivana greška."
 
-#: src/core/utils/addons.js:45
+#: src/core/utils/addons.js:46
 msgid "An unexpected error occurred."
 msgstr "Dogodila se neočekivana greška."
 
@@ -171,20 +177,30 @@ msgstr "Prilagodi svoj Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Postoje tisuće besplatnih dodataka, napisanih od strane programera diljem svijeta, koje možete instalirati kako biste personalizirali svoj Firefox. Od zabavnih vizualnih tema do moćnih alata koji "
-"olakšavaju i ubrzavaju pretraživanje, dodaci prilagođavaju preglednik vašim potrebama. Kako biste lakše počeli, ovdje smo nabrojali neke od dodataka koje zbog visokih performanski i funkcijonalnosti"
-" preporučujemo."
+"Postoje tisuće besplatnih dodataka, napisanih od strane programera diljem "
+"svijeta, koje možete instalirati kako biste personalizirali svoj Firefox. Od "
+"zabavnih vizualnih tema do moćnih alata koji olakšavaju i ubrzavaju "
+"pretraživanje, dodaci prilagođavaju preglednik vašim potrebama. Kako biste "
+"lakše počeli, ovdje smo nabrojali neke od dodataka koje zbog visokih "
+"performanski i funkcijonalnosti preporučujemo."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Saznaj više"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr "Neki prijedlozi su personalizirani. Bazirani su na drugim dodacima koje ste već instalirali, postavkama profila ili statistici korištenja."
+msgid ""
+"Some of these recommendations are personalized. They are based on other "
+"extensions you've installed, profile preferences, and usage statistics."
+msgstr ""
+"Neki prijedlozi su personalizirani. Bazirani su na drugim dodacima koje ste "
+"već instalirali, postavkama profila ili statistici korištenja."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
