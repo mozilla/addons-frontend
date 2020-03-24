@@ -316,7 +316,10 @@ export class AddonBase extends React.Component {
         header={i18n.gettext('Developer comments')}
         id={showMoreCardName}
       >
-        <div dangerouslySetInnerHTML={devComments} />
+        <div
+          className="Addon-developer-comments-contents"
+          dangerouslySetInnerHTML={devComments}
+        />
       </ShowMoreCard>
     );
     /* eslint-enable react/no-danger */
