@@ -8,8 +8,9 @@ import {
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
+  fakeI18n,
+  shallowUntilTarget,
 } from 'tests/unit/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let store;
