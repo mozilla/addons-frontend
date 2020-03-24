@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-03-03 21:28+0000\n"
+"POT-Creation-Date: 2020-03-24 18:36+0000\n"
 "PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -100,26 +100,22 @@ msgstr ""
 msgid "Some features may require payment"
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:123
+#: src/amo/components/AddonCompatibilityError/index.js:113
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:126
-msgid "Your version of Firefox does not support search plugins."
-msgstr "Ní thacaíonn an leagan de Firefox atá agat le breiseáin chuardaigh."
-
-#: src/amo/components/AddonCompatibilityError/index.js:130
+#: src/amo/components/AddonCompatibilityError/index.js:116
 #, fuzzy
 msgid ""
 "Your version of Firefox does not support this add-on because it requires a "
 "restart."
 msgstr "Ní thacaíonn an leagan de Firefox atá agat le breiseáin chuardaigh."
 
-#: src/amo/components/AddonCompatibilityError/index.js:133
+#: src/amo/components/AddonCompatibilityError/index.js:119
 msgid "This add-on is not available on your platform."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:137
+#: src/amo/components/AddonCompatibilityError/index.js:123
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -128,7 +124,7 @@ msgstr ""
 "shuiteáil chun an breiseán seo a úsáid (leagan %(minVersion)s ar a laghad). "
 "Tá Firefox %(yourVersion)s agat faoi láthair."
 
-#: src/amo/components/AddonCompatibilityError/index.js:154
+#: src/amo/components/AddonCompatibilityError/index.js:140
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -137,71 +133,61 @@ msgstr ""
 "\"%(downloadUrl)s\">Firefox a íoslódáil</a> chun an breiseán seo a shuiteáil."
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:100
-msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr ""
-
-# please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:105
-msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr ""
-
-# please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:110
+#: src/amo/components/AddonHead/index.js:104
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
-#: src/amo/components/AddonHead/index.js:115
-#, fuzzy
-msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
-msgstr "Breiseáin Firefox"
-
 # please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:120
+#: src/amo/components/AddonHead/index.js:109
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
-#: src/amo/components/AddonHead/index.js:134
+#: src/amo/components/AddonHead/index.js:123
 msgid "Download %(addonName)s for Firefox. %(summary)s"
 msgstr ""
 
-#: src/amo/components/AddonHead/index.js:62
+#: src/amo/components/AddonHead/index.js:61
 #, fuzzy
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/AddonHead/index.js:67
+#: src/amo/components/AddonHead/index.js:66
 #, fuzzy
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/AddonHead/index.js:72
+#: src/amo/components/AddonHead/index.js:71
 #, fuzzy
 msgid ""
 "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/AddonHead/index.js:77
+#: src/amo/components/AddonHead/index.js:76
 #, fuzzy
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/AddonHead/index.js:83
-#, fuzzy
-msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
-msgstr "Breiseáin Firefox"
-
-#: src/amo/components/AddonHead/index.js:88
+#: src/amo/components/AddonHead/index.js:82
 #, fuzzy
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
 msgstr "Breiseáin Firefox"
 
 # please keep the fox emoji next to "Firefox".
-#: src/amo/components/AddonHead/index.js:95
+#: src/amo/components/AddonHead/index.js:89
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
 msgstr ""
 
-#: src/amo/components/AddonMeta/index.js:116
+# please keep the fox emoji next to "Firefox".
+#: src/amo/components/AddonHead/index.js:94
+msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
+msgstr ""
+
+# please keep the fox emoji next to "Firefox".
+#: src/amo/components/AddonHead/index.js:99
+msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
+msgstr ""
+
+#: src/amo/components/AddonMeta/index.js:119
 #, fuzzy
 msgid "%(total)s Star"
 msgid_plural "%(total)s Stars"
@@ -211,17 +197,17 @@ msgstr[2] "%(total)s úsáideoir"
 msgstr[3] "%(total)s n-úsáideoir"
 msgstr[4] "%(total)s úsáideoir"
 
-#: src/amo/components/AddonMeta/index.js:125
+#: src/amo/components/AddonMeta/index.js:128
 #, fuzzy
 msgid "Not rated yet"
 msgstr "Níl aon léirmheas ann"
 
-#: src/amo/components/AddonMeta/index.js:46
+#: src/amo/components/AddonMeta/index.js:49
 #, fuzzy
 msgid "Users"
 msgstr "Líon is mó úsáideoirí"
 
-#: src/amo/components/AddonMeta/index.js:51
+#: src/amo/components/AddonMeta/index.js:52
 msgid "User"
 msgid_plural "Users"
 msgstr[0] ""
@@ -230,17 +216,17 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 
-#: src/amo/components/AddonMeta/index.js:53
+#: src/amo/components/AddonMeta/index.js:54
 #, fuzzy
 msgid "No Users"
 msgstr "Líon is mó úsáideoirí"
 
-#: src/amo/components/AddonMeta/index.js:60
+#: src/amo/components/AddonMeta/index.js:61
 #, fuzzy
 msgid "Reviews"
 msgstr "Téacs an léirmheasa"
 
-#: src/amo/components/AddonMeta/index.js:63
+#: src/amo/components/AddonMeta/index.js:64
 #, fuzzy
 msgid "Review"
 msgid_plural "Reviews"
@@ -250,80 +236,80 @@ msgstr[2] "Téacs an léirmheasa"
 msgstr[3] "Téacs an léirmheasa"
 msgstr[4] "Téacs an léirmheasa"
 
-#: src/amo/components/AddonMeta/index.js:65
+#: src/amo/components/AddonMeta/index.js:66
 #, fuzzy
 msgid "No Reviews"
 msgstr "Níl aon léirmheas ann"
 
-#: src/amo/components/AddonMeta/index.js:89
+#: src/amo/components/AddonMeta/index.js:92
 msgid "Used by"
 msgstr "Úsáidte ag"
 
-#: src/amo/components/AddonMoreInfo/index.js:106
+#: src/amo/components/AddonMoreInfo/index.js:108
 msgid "Visit stats dashboard"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:120
+#: src/amo/components/AddonMoreInfo/index.js:126
 #, fuzzy
 msgid "Custom License"
 msgstr "Ceadúnas"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:148
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:158
+#: src/amo/components/AddonMoreInfo/index.js:163
 msgid "Read the privacy policy for this add-on"
 msgstr "Léigh an polasaí príobháideachais don bhreiseán seo"
 
-#: src/amo/components/AddonMoreInfo/index.js:166
+#: src/amo/components/AddonMoreInfo/index.js:173
 msgid "Read the license agreement for this add-on"
 msgstr "Léigh ceadúnas an bhreiseáin seo"
 
-#: src/amo/components/AddonMoreInfo/index.js:175
+#: src/amo/components/AddonMoreInfo/index.js:184
 #, fuzzy
 msgid "See all versions"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/AddonMoreInfo/index.js:202
+#: src/amo/components/AddonMoreInfo/index.js:211
 msgid "Add-on Links"
 msgstr "Nascanna an Bhreiseáin"
 
-#: src/amo/components/AddonMoreInfo/index.js:214
+#: src/amo/components/AddonMoreInfo/index.js:223
 msgid "Version"
 msgstr "Leagan"
 
-#: src/amo/components/AddonMoreInfo/index.js:222
+#: src/amo/components/AddonMoreInfo/index.js:231
 msgid "Size"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:230
+#: src/amo/components/AddonMoreInfo/index.js:239
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "Nuashonrú is déanaí"
 
-#: src/amo/components/AddonMoreInfo/index.js:238
+#: src/amo/components/AddonMoreInfo/index.js:247
 msgid "License"
 msgstr "Ceadúnas"
 
-#: src/amo/components/AddonMoreInfo/index.js:246
+#: src/amo/components/AddonMoreInfo/index.js:255
 msgid "Privacy Policy"
 msgstr "Polasaí Príobháideachais"
 
-#: src/amo/components/AddonMoreInfo/index.js:254
+#: src/amo/components/AddonMoreInfo/index.js:263
 msgid "End-User License Agreement"
 msgstr "Comhaontú Ceadúnais an Úsáideora Deiridh"
 
-#: src/amo/components/AddonMoreInfo/index.js:262
+#: src/amo/components/AddonMoreInfo/index.js:271
 #, fuzzy
 msgid "Version History"
 msgstr "Leagan"
 
-#: src/amo/components/AddonMoreInfo/index.js:272
+#: src/amo/components/AddonMoreInfo/index.js:281
 msgid "Usage Statistics"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:287
+#: src/amo/components/AddonMoreInfo/index.js:296
 msgid "More information"
 msgstr "Tuilleadh eolais"
 
@@ -353,55 +339,55 @@ msgstr ""
 msgid "Other popular extensions"
 msgstr "Tuilleadh eisínteachtaí a bhfuil tóir orthu"
 
-#: src/amo/components/AddonReviewCard/index.js:195
+#: src/amo/components/AddonReviewCard/index.js:198
 #, fuzzy
 msgid "Edit reply"
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:198
+#: src/amo/components/AddonReviewCard/index.js:201
 #, fuzzy
 msgid "Edit review"
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:205
-#: src/amo/components/AddonReviewCard/index.js:237
+#: src/amo/components/AddonReviewCard/index.js:208
+#: src/amo/components/AddonReviewCard/index.js:240
 #, fuzzy
 msgid "Delete reply"
-msgstr "Scríobh léirmheas"
-
-#: src/amo/components/AddonReviewCard/index.js:209
-#: src/amo/components/AddonReviewCard/index.js:241
-#, fuzzy
-msgid "Delete rating"
 msgstr "Scríobh léirmheas"
 
 #: src/amo/components/AddonReviewCard/index.js:212
 #: src/amo/components/AddonReviewCard/index.js:244
 #, fuzzy
+msgid "Delete rating"
+msgstr "Scríobh léirmheas"
+
+#: src/amo/components/AddonReviewCard/index.js:215
+#: src/amo/components/AddonReviewCard/index.js:247
+#, fuzzy
 msgid "Delete review"
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:219
+#: src/amo/components/AddonReviewCard/index.js:222
 #, fuzzy
 msgid "Do you really want to delete this reply?"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/AddonReviewCard/index.js:223
+#: src/amo/components/AddonReviewCard/index.js:226
 #, fuzzy
 msgid "Do you really want to delete this rating?"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/AddonReviewCard/index.js:226
+#: src/amo/components/AddonReviewCard/index.js:229
 #, fuzzy
 msgid "Do you really want to delete this review?"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/AddonReviewCard/index.js:233
+#: src/amo/components/AddonReviewCard/index.js:236
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:251
+#: src/amo/components/AddonReviewCard/index.js:254
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:316
 #: src/amo/pages/UserProfileEdit/index.js:913
@@ -411,71 +397,71 @@ msgstr ""
 msgid "Cancel"
 msgstr "Cealaigh an réamhamharc"
 
-#: src/amo/components/AddonReviewCard/index.js:255
+#: src/amo/components/AddonReviewCard/index.js:258
 #, fuzzy
 msgid "Keep reply"
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:259
+#: src/amo/components/AddonReviewCard/index.js:262
 #, fuzzy
 msgid "Keep rating"
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:262
+#: src/amo/components/AddonReviewCard/index.js:265
 #, fuzzy
 msgid "Keep review"
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:298
+#: src/amo/components/AddonReviewCard/index.js:301
 #, fuzzy
 msgid "Write a reply to this review."
 msgstr "Scríobh léirmheas"
 
-#: src/amo/components/AddonReviewCard/index.js:301
+#: src/amo/components/AddonReviewCard/index.js:304
 #: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:302
+#: src/amo/components/AddonReviewCard/index.js:305
 msgid "Publish reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:306
+#: src/amo/components/AddonReviewCard/index.js:309
 #: src/amo/components/AddonReviewManager/index.js:122
 msgid "Updating reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:307
+#: src/amo/components/AddonReviewCard/index.js:310
 msgid "Publishing reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:349
+#: src/amo/components/AddonReviewCard/index.js:353
 #, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "ó %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:351
+#: src/amo/components/AddonReviewCard/index.js:355
 #, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "ó %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewCard/index.js:442
+#: src/amo/components/AddonReviewCard/index.js:447
 #, fuzzy
 msgid "Deleting…"
 msgstr "Ag cuardach…"
 
-#: src/amo/components/AddonReviewCard/index.js:473
+#: src/amo/components/AddonReviewCard/index.js:478
 #, fuzzy
 msgid "Reply to this review"
 msgstr "Tapáil le haghaidh réamhamhairc"
 
-#: src/amo/components/AddonReviewCard/index.js:503
+#: src/amo/components/AddonReviewCard/index.js:508
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:549
+#: src/amo/components/AddonReviewCard/index.js:554
 msgid "Write a review"
 msgstr "Scríobh léirmheas"
 
@@ -612,11 +598,11 @@ msgstr "ó %(authorName)s, %(timestamp)s"
 msgid "Add-ons by these developers"
 msgstr "Cuardaigh eisínteachtaí agus téamaí"
 
-#: src/amo/components/AddonSummaryCard/index.js:41
+#: src/amo/components/AddonSummaryCard/index.js:48
 msgid "Add-on icon"
 msgstr "Deilbhín an bhreiseáin"
 
-#: src/amo/components/AddonSummaryCard/index.js:63
+#: src/amo/components/AddonSummaryCard/index.js:70
 #, fuzzy
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
@@ -627,13 +613,13 @@ msgstr[3] "Rátáil: %(rating)s as 5"
 msgstr[4] "Rátáil: %(rating)s as 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
-#: src/amo/components/AddonTitle/index.js:42
+#: src/amo/components/AddonTitle/index.js:45
 msgid ","
 msgstr ""
 
 # Example: add-on "by" some authors
-#: src/amo/components/AddonTitle/index.js:77
-#: src/amo/components/AddonTitle/index.js:81
+#: src/amo/components/AddonTitle/index.js:84
+#: src/amo/components/AddonTitle/index.js:88
 msgid "by"
 msgstr ""
 
@@ -876,7 +862,7 @@ msgid "Leave a note"
 msgstr "Fógraí dlí"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143
-#: src/core/components/AMInstallButton/index.js:198
+#: src/core/components/AMInstallButton/index.js:197
 msgid "Remove"
 msgstr ""
 
@@ -1059,59 +1045,38 @@ msgid "Site Status"
 msgstr ""
 
 #: src/amo/components/Footer/index.js:111
-msgid "Browser"
-msgstr ""
-
-#: src/amo/components/Footer/index.js:115
-#: src/amo/components/GetFirefoxButton/index.js:74
 #, fuzzy
-msgid "Download Firefox"
-msgstr "Breiseáin Firefox"
+msgid "Browsers"
+msgstr "Líon is mó úsáideoirí"
 
-#: src/amo/components/Footer/index.js:120
-msgid "Android Browser"
-msgstr ""
-
-#: src/amo/components/Footer/index.js:125
-msgid "iOS Browser"
-msgstr ""
-
-#: src/amo/components/Footer/index.js:130
-msgid "Desktop Browser"
-msgstr ""
-
-#: src/amo/components/Footer/index.js:135
-msgid "Beta, Nightly, Developer Edition"
-msgstr ""
-
-#: src/amo/components/Footer/index.js:142
+#: src/amo/components/Footer/index.js:169
 #, fuzzy
 msgid "Products"
 msgstr "Na heisínteachtaí is mó a bhfuil tóir orthu"
 
-#: src/amo/components/Footer/index.js:239
+#: src/amo/components/Footer/index.js:266
 #, fuzzy
 msgid "Privacy"
 msgstr "Polasaí Príobháideachais"
 
-#: src/amo/components/Footer/index.js:247
+#: src/amo/components/Footer/index.js:27
+msgid "Go to Mozilla's homepage"
+msgstr "Leathanach Baile Mozilla"
+
+#: src/amo/components/Footer/index.js:274
 msgid "Cookies"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:255
+#: src/amo/components/Footer/index.js:282
 msgid "Legal"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:265
+#: src/amo/components/Footer/index.js:292
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
 "Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
 msgstr ""
-
-#: src/amo/components/Footer/index.js:27
-msgid "Go to Mozilla's homepage"
-msgstr "Leathanach Baile Mozilla"
 
 #: src/amo/components/Footer/index.js:53
 msgid "About"
@@ -1151,6 +1116,11 @@ msgstr "Téacs an léirmheasa"
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
 msgstr ""
+
+#: src/amo/components/GetFirefoxButton/index.js:74
+#, fuzzy
+msgid "Download Firefox"
+msgstr "Breiseáin Firefox"
 
 #: src/amo/components/Header/index.js:104
 msgid "Submit and manage extensions and themes"
@@ -1373,72 +1343,68 @@ msgstr ""
 msgid "Access browser activity during navigation"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:119
+#: src/amo/components/RatingManager/index.js:118
 msgid "Log in to rate this dictionary"
 msgstr "Logáil isteach chun an foclóir seo a rátáil"
 
-#: src/amo/components/RatingManager/index.js:121
+#: src/amo/components/RatingManager/index.js:120
 msgid "Log in to rate this language pack"
 msgstr "Logáil isteach chun an pacáiste teanga seo a rátáil"
 
-#: src/amo/components/RatingManager/index.js:123
-msgid "Log in to rate this search plugin"
-msgstr "Logáil isteach chun an breiseán cuardaigh seo a rátáil"
-
-#: src/amo/components/RatingManager/index.js:125
+#: src/amo/components/RatingManager/index.js:122
 msgid "Log in to rate this theme"
 msgstr "Logáil isteach chun an téama seo a rátáil"
 
-#: src/amo/components/RatingManager/index.js:127
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this extension"
 msgstr "Logáil isteach chun an eisínteacht seo a rátáil"
 
-#: src/amo/components/RatingManager/index.js:135
+#: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this add-on"
 msgstr "Logáil isteach chun an breiseán seo a rátáil"
 
-#: src/amo/components/RatingManager/index.js:176
+#: src/amo/components/RatingManager/index.js:173
 #, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/RatingManager/index.js:181
+#: src/amo/components/RatingManager/index.js:178
 #, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/RatingManager/index.js:186
+#: src/amo/components/RatingManager/index.js:183
 #, fuzzy
 msgid "How are you enjoying %(addonName)s?"
 msgstr "An dtaitníonn %(addonName)s leat?"
 
-#: src/amo/components/RatingManager/index.js:229
+#: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:230
+#: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
 msgstr ""
 
-#: src/amo/components/RatingsByStar/index.js:92
+#: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all five-star reviews"
 msgstr ""
 
-#: src/amo/components/RatingsByStar/index.js:93
+#: src/amo/components/RatingsByStar/index.js:96
 #, fuzzy
 msgid "Read all four-star reviews"
 msgstr "Léigh %(count)s léirmheas"
 
-#: src/amo/components/RatingsByStar/index.js:94
+#: src/amo/components/RatingsByStar/index.js:97
 msgid "Read all three-star reviews"
 msgstr ""
 
-#: src/amo/components/RatingsByStar/index.js:95
+#: src/amo/components/RatingsByStar/index.js:98
 #, fuzzy
 msgid "Read all two-star reviews"
 msgstr "Tapáil le haghaidh réamhamhairc"
 
-#: src/amo/components/RatingsByStar/index.js:96
+#: src/amo/components/RatingsByStar/index.js:99
 #, fuzzy
 msgid "Read all one-star reviews"
 msgstr "Léigh %(count)s léirmheas"
@@ -1602,27 +1568,7 @@ msgstr "Catagóirí á lódáil."
 msgid "Search results for \"%(query)s\""
 msgstr "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:108
-#, fuzzy
-msgid "%(count)s Search Tool found"
-msgid_plural "%(count)s Search Tools found"
-msgstr[0] "Gan torthaí ar \"%(query)s\"."
-msgstr[1] "Gan torthaí ar \"%(query)s\"."
-msgstr[2] "Gan torthaí ar \"%(query)s\"."
-msgstr[3] "Gan torthaí ar \"%(query)s\"."
-msgstr[4] "Gan torthaí ar \"%(query)s\"."
-
-#: src/amo/components/SearchContextCard/index.js:121
-#, fuzzy
-msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
-msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "Gan torthaí ar \"%(query)s\"."
-msgstr[1] "Gan torthaí ar \"%(query)s\"."
-msgstr[2] "Gan torthaí ar \"%(query)s\"."
-msgstr[3] "Gan torthaí ar \"%(query)s\"."
-msgstr[4] "Gan torthaí ar \"%(query)s\"."
-
-#: src/amo/components/SearchContextCard/index.js:130
+#: src/amo/components/SearchContextCard/index.js:105
 #, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
@@ -1632,7 +1578,7 @@ msgstr[2] "Gan torthaí ar \"%(query)s\"."
 msgstr[3] "Gan torthaí ar \"%(query)s\"."
 msgstr[4] "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:140
+#: src/amo/components/SearchContextCard/index.js:115
 #, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
@@ -1642,7 +1588,7 @@ msgstr[2] "Gan torthaí ar \"%(query)s\"."
 msgstr[3] "Gan torthaí ar \"%(query)s\"."
 msgstr[4] "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:149
+#: src/amo/components/SearchContextCard/index.js:124
 #, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
@@ -1652,7 +1598,7 @@ msgstr[2] "Níor aimsíodh aon chatagóirí."
 msgstr[3] "Níor aimsíodh aon chatagóirí."
 msgstr[4] "Níor aimsíodh aon chatagóirí."
 
-#: src/amo/components/SearchContextCard/index.js:161
+#: src/amo/components/SearchContextCard/index.js:136
 #, fuzzy
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
@@ -1662,7 +1608,7 @@ msgstr[2] "Gan torthaí ar \"%(query)s\"."
 msgstr[3] "Gan torthaí ar \"%(query)s\"."
 msgstr[4] "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:170
+#: src/amo/components/SearchContextCard/index.js:145
 #, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
@@ -1672,17 +1618,17 @@ msgstr[2] "Gan torthaí ar \"%(query)s\"."
 msgstr[3] "Gan torthaí ar \"%(query)s\"."
 msgstr[4] "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:181
+#: src/amo/components/SearchContextCard/index.js:156
 #, fuzzy
 msgid "Searching for \"%(query)s\""
 msgstr "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:185
+#: src/amo/components/SearchContextCard/index.js:160
 #, fuzzy
 msgid "Searching for add-ons"
 msgstr "Catagóirí á lódáil."
 
-#: src/amo/components/SearchContextCard/index.js:59
+#: src/amo/components/SearchContextCard/index.js:55
 #, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
@@ -1692,7 +1638,7 @@ msgstr[2] "Gan torthaí ar \"%(query)s\"."
 msgstr[3] "Gan torthaí ar \"%(query)s\"."
 msgstr[4] "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:68
+#: src/amo/components/SearchContextCard/index.js:64
 #, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
@@ -1702,7 +1648,7 @@ msgstr[2] "Gan torthaí ar \"%(query)s\"."
 msgstr[3] "Gan torthaí ar \"%(query)s\"."
 msgstr[4] "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:78
+#: src/amo/components/SearchContextCard/index.js:74
 #, fuzzy
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
@@ -1712,7 +1658,7 @@ msgstr[2] "Gan torthaí ar \"%(query)s\"."
 msgstr[3] "Gan torthaí ar \"%(query)s\"."
 msgstr[4] "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchContextCard/index.js:87
+#: src/amo/components/SearchContextCard/index.js:83
 #, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
@@ -1722,10 +1668,10 @@ msgstr[2] "Níor aimsíodh aon chatagóirí."
 msgstr[3] "Níor aimsíodh aon chatagóirí."
 msgstr[4] "Níor aimsíodh aon chatagóirí."
 
-#: src/amo/components/SearchContextCard/index.js:99
+#: src/amo/components/SearchContextCard/index.js:96
 #, fuzzy
-msgid "%(count)s Search Tool found for \"%(query)s\""
-msgid_plural "%(count)s Search Tools found for \"%(query)s\""
+msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
+msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
 msgstr[0] "Gan torthaí ar \"%(query)s\"."
 msgstr[1] "Gan torthaí ar \"%(query)s\"."
 msgstr[2] "Gan torthaí ar \"%(query)s\"."
@@ -1817,16 +1763,16 @@ msgstr "Breiseáin Firefox"
 msgid "Go to the add-on page"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:148
+#: src/amo/components/SearchResult/index.js:145
 msgid "No theme preview available"
 msgstr "Níl réamhamharc ar an téama seo le fáil"
 
-#: src/amo/components/SearchResult/index.js:185
+#: src/amo/components/SearchResult/index.js:182
 #, fuzzy
 msgid "Add-on note"
 msgstr "Deilbhín an bhreiseáin"
 
-#: src/amo/components/SearchResult/index.js:205
+#: src/amo/components/SearchResult/index.js:200
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s úsáideoir"
@@ -1966,15 +1912,15 @@ msgid ""
 "\">visit our mobile site</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:170 src/ui/components/ThemeImage/index.js:31
+#: src/amo/pages/Addon/index.js:169 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:205
+#: src/amo/pages/Addon/index.js:204
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:216
+#: src/amo/pages/Addon/index.js:215
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Léigh %(count)s léirmheas"
@@ -1983,79 +1929,79 @@ msgstr[2] "Léigh na %(count)s léirmheas"
 msgstr[3] "Léigh na %(count)s léirmheas"
 msgstr[4] "Léigh na %(count)s léirmheas"
 
-#: src/amo/pages/Addon/index.js:234
+#: src/amo/pages/Addon/index.js:233
 msgid "No reviews yet"
 msgstr "Níl aon léirmheas ann"
 
-#: src/amo/pages/Addon/index.js:244
+#: src/amo/pages/Addon/index.js:243
 msgid "Rate your experience"
 msgstr "Rátáil d'eispéireas"
 
-#: src/amo/pages/Addon/index.js:263
+#: src/amo/pages/Addon/index.js:262
 #, fuzzy
 msgid "About this dictionary"
 msgstr "Logáil isteach chun an foclóir seo a rátáil"
 
-#: src/amo/pages/Addon/index.js:266
+#: src/amo/pages/Addon/index.js:265
 #, fuzzy
 msgid "About this extension"
 msgstr "Logáil isteach chun an eisínteacht seo a rátáil"
 
-#: src/amo/pages/Addon/index.js:269
+#: src/amo/pages/Addon/index.js:268
 #, fuzzy
 msgid "About this language pack"
 msgstr "Logáil isteach chun an pacáiste teanga seo a rátáil"
 
-#: src/amo/pages/Addon/index.js:272
-#, fuzzy
-msgid "About this search plugin"
-msgstr "Logáil isteach chun an breiseán cuardaigh seo a rátáil"
-
-#: src/amo/pages/Addon/index.js:275
+#: src/amo/pages/Addon/index.js:271
 #, fuzzy
 msgid "About this theme"
 msgstr "Logáil isteach chun an téama seo a rátáil"
 
-#: src/amo/pages/Addon/index.js:278
+#: src/amo/pages/Addon/index.js:274
 #, fuzzy
 msgid "About this add-on"
 msgstr "Maidir leis an %(addonType)s seo"
 
-#: src/amo/pages/Addon/index.js:317
+#: src/amo/pages/Addon/index.js:316
+#, fuzzy
+msgid "Developer comments"
+msgstr "Lárionad na bhForbróirí"
+
+#: src/amo/pages/Addon/index.js:336
 #, fuzzy
 msgid "Release notes for %(addonVersion)s"
 msgstr "Léirmheasanna ar %(addonName)s"
 
-#: src/amo/pages/Addon/index.js:448
+#: src/amo/pages/Addon/index.js:467
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:476
+#: src/amo/pages/Addon/index.js:495
 msgid "Extension Metadata"
 msgstr "Meiteashonraí na hEisínteachta"
 
-#: src/amo/pages/Addon/index.js:483
+#: src/amo/pages/Addon/index.js:502
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:487
+#: src/amo/pages/Addon/index.js:506
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:491
+#: src/amo/pages/Addon/index.js:510
 msgid ""
 "Not available on Firefox for Android. You can use this add-on with Firefox "
-"for Desktop.  Learn more about <a href=\"%(newLocation)s\">add-ons for "
+"for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
 "Android</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:511
+#: src/amo/pages/Addon/index.js:530
 msgid "Screenshots"
 msgstr "Seatanna den scáileán"
 
@@ -2080,41 +2026,41 @@ msgid ""
 "%(addonName)s and add it to your Firefox Browser."
 msgstr ""
 
-#: src/amo/pages/AddonReviewList/index.js:230
+#: src/amo/pages/AddonReviewList/index.js:231
 #, fuzzy
 msgid "Show all reviews"
 msgstr "Níl aon léirmheas ann"
 
-#: src/amo/pages/AddonReviewList/index.js:232
+#: src/amo/pages/AddonReviewList/index.js:233
 #, fuzzy
 msgid "Show only five-star reviews"
 msgstr "Léigh %(count)s léirmheas"
 
-#: src/amo/pages/AddonReviewList/index.js:233
+#: src/amo/pages/AddonReviewList/index.js:234
 #, fuzzy
 msgid "Show only four-star reviews"
 msgstr "Léigh %(count)s léirmheas"
 
-#: src/amo/pages/AddonReviewList/index.js:235
+#: src/amo/pages/AddonReviewList/index.js:236
 #, fuzzy
 msgid "Show only three-star reviews"
 msgstr "Léigh %(count)s léirmheas"
 
-#: src/amo/pages/AddonReviewList/index.js:237
+#: src/amo/pages/AddonReviewList/index.js:238
 #, fuzzy
 msgid "Show only two-star reviews"
 msgstr "Tapáil le haghaidh réamhamhairc"
 
-#: src/amo/pages/AddonReviewList/index.js:238
+#: src/amo/pages/AddonReviewList/index.js:239
 #, fuzzy
 msgid "Show only one-star reviews"
 msgstr "Léigh %(count)s léirmheas"
 
-#: src/amo/pages/AddonReviewList/index.js:278
+#: src/amo/pages/AddonReviewList/index.js:279
 msgid "Reviews for %(addonName)s"
 msgstr "Léirmheasanna ar %(addonName)s"
 
-#: src/amo/pages/AddonReviewList/index.js:288
+#: src/amo/pages/AddonReviewList/index.js:289
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
@@ -2124,7 +2070,7 @@ msgstr[2] "%(total)s úsáideoir"
 msgstr[3] "%(total)s n-úsáideoir"
 msgstr[4] "%(total)s úsáideoir"
 
-#: src/amo/pages/AddonReviewList/index.js:386
+#: src/amo/pages/AddonReviewList/index.js:388
 #, fuzzy
 msgid "There are no reviews"
 msgstr "Scríobh léirmheas"
@@ -2157,6 +2103,60 @@ msgstr "Leagan"
 #, fuzzy
 msgid "Older versions"
 msgstr "Brabhsáil na heisínteachtaí go léir"
+
+#: src/amo/pages/Block/index.js:113
+#, fuzzy
+msgid "Versions blocked: all versions."
+msgstr "Brabhsáil na heisínteachtaí go léir"
+
+#: src/amo/pages/Block/index.js:116
+msgid "Versions blocked: %(min)s to %(max)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:138
+msgid "%(addonName)s has been blocked for your protection."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:143
+#, fuzzy
+msgid "This add-on has been blocked for your protection."
+msgstr "Maidir leis an %(addonType)s seo"
+
+#: src/amo/pages/Block/index.js:153
+msgid "Why was it blocked?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:158
+msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:170
+msgid "What does this mean?"
+msgstr ""
+
+#: src/amo/pages/Block/index.js:172
+msgid ""
+"The problematic add-on or plugin will be automatically disabled and no "
+"longer usable."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:179
+msgid ""
+"When Mozilla becomes aware of add-ons, plugins, or other third-party "
+"software that seriously compromises Firefox security, stability, or "
+"performance and meets %(criteriaStartLink)scertain criteria"
+"%(criteriaEndLink)s, the software may be blocked from general use. For more "
+"information, please read %(supportStartLink)sthis support article"
+"%(supportEndLink)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:87
+msgid "Blocked on %(date)s."
+msgstr ""
+
+#: src/amo/pages/Block/index.js:96
+msgid "View block request"
+msgstr ""
 
 #: src/amo/pages/CategoriesPage/index.js:35
 #, fuzzy
@@ -2620,14 +2620,14 @@ msgstr "Logáil isteach chun an pacáiste teanga seo a rátáil"
 msgid "Dictionaries"
 msgstr ""
 
-#: src/amo/pages/SearchTools/index.js:64
+#: src/amo/pages/SearchTools/index.js:60
 msgid ""
 "Download Firefox extensions to customize the way you search—everything from "
 "privacy-enhanced searching to website-specific searches, image searching, "
 "and more."
 msgstr ""
 
-#: src/amo/pages/SearchTools/index.js:67
+#: src/amo/pages/SearchTools/index.js:63
 #, fuzzy
 msgid "Search Tools"
 msgstr "Cuardaigh na téamaí"
@@ -3249,34 +3249,34 @@ msgstr ""
 msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:195
+#: src/core/components/AMInstallButton/index.js:194
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:200
+#: src/core/components/AMInstallButton/index.js:199
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:202
+#: src/core/components/AMInstallButton/index.js:201
 #, fuzzy
 msgid "Downloading"
 msgstr "%(name)s á íoslódáil."
 
-#: src/core/components/AMInstallButton/index.js:204
+#: src/core/components/AMInstallButton/index.js:203
 #, fuzzy
 msgid "Installing"
 msgstr "%(name)s á shuiteáil."
 
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:205
 #, fuzzy
 msgid "Uninstalling"
 msgstr "%(name)s á dhíshuiteáil."
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Install Theme"
 msgstr "Suiteáil an Téama"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Add to Firefox"
 msgstr "Cuir le Firefox é"
 
@@ -3333,17 +3333,17 @@ msgstr "Ar Aghaidh"
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Leathanach %(currentPage)s as %(totalPages)s"
 
-#: src/core/components/SiteNotices/index.js:56
+#: src/core/components/SiteNotices/index.js:66
 msgid ""
 "Some features are temporarily disabled while we perform website maintenance. "
 "We'll be back to full capacity shortly."
 msgstr ""
 
-#: src/core/components/SurveyNotice/index.js:131
+#: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
 msgstr ""
 
-#: src/core/components/SurveyNotice/index.js:139
+#: src/core/components/SurveyNotice/index.js:136
 msgid ""
 "Thanks for visiting this site! Please take a minute or two to tell Firefox "
 "about your experience."
@@ -3384,29 +3384,29 @@ msgstr ""
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr ""
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:31
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr ""
 
-#: src/core/utils/addons.js:34
+#: src/core/utils/addons.js:35
 msgid "Installation failed. Please try again."
 msgstr ""
 
-#: src/core/utils/addons.js:36
+#: src/core/utils/addons.js:37
 msgid "Download failed. Please check your connection."
 msgstr ""
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 #, fuzzy
 msgid "An unexpected error occurred during installation."
 msgstr "Tharla earráid gan choinne"
 
-#: src/core/utils/addons.js:40
+#: src/core/utils/addons.js:41
 #, fuzzy
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Tharla earráid gan choinne"
 
-#: src/core/utils/addons.js:45
+#: src/core/utils/addons.js:46
 #, fuzzy
 msgid "An unexpected error occurred."
 msgstr "Tharla earráid gan choinne"
@@ -3526,6 +3526,43 @@ msgstr[4] "Níor aimsíodh aon chatagóirí."
 #, fuzzy
 msgid "Developer response"
 msgstr "Lárionad na bhForbróirí"
+
+#~ msgid "Your version of Firefox does not support search plugins."
+#~ msgstr "Ní thacaíonn an leagan de Firefox atá agat le breiseáin chuardaigh."
+
+#, fuzzy
+#~ msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
+#~ msgstr "Breiseáin Firefox"
+
+#, fuzzy
+#~ msgid ""
+#~ "%(addonName)s – Get this Search Tool for 🦊 Firefox Android (%(locale)s)"
+#~ msgstr "Breiseáin Firefox"
+
+#~ msgid "Log in to rate this search plugin"
+#~ msgstr "Logáil isteach chun an breiseán cuardaigh seo a rátáil"
+
+#, fuzzy
+#~ msgid "%(count)s Search Tool found"
+#~ msgid_plural "%(count)s Search Tools found"
+#~ msgstr[0] "Gan torthaí ar \"%(query)s\"."
+#~ msgstr[1] "Gan torthaí ar \"%(query)s\"."
+#~ msgstr[2] "Gan torthaí ar \"%(query)s\"."
+#~ msgstr[3] "Gan torthaí ar \"%(query)s\"."
+#~ msgstr[4] "Gan torthaí ar \"%(query)s\"."
+
+#, fuzzy
+#~ msgid "%(count)s Search Tool found for \"%(query)s\""
+#~ msgid_plural "%(count)s Search Tools found for \"%(query)s\""
+#~ msgstr[0] "Gan torthaí ar \"%(query)s\"."
+#~ msgstr[1] "Gan torthaí ar \"%(query)s\"."
+#~ msgstr[2] "Gan torthaí ar \"%(query)s\"."
+#~ msgstr[3] "Gan torthaí ar \"%(query)s\"."
+#~ msgstr[4] "Gan torthaí ar \"%(query)s\"."
+
+#, fuzzy
+#~ msgid "About this search plugin"
+#~ msgstr "Logáil isteach chun an breiseán cuardaigh seo a rátáil"
 
 #~ msgid "Firefox for iOS does not currently support add-ons."
 #~ msgstr "Ní thacaíonn Firefox ar iOS le breiseáin faoi láthair."
@@ -3932,10 +3969,6 @@ msgstr "Lárionad na bhForbróirí"
 #, fuzzy
 #~ msgid "“Extensions Challenge” honorees"
 #~ msgstr "Is féidir leat an chaoi a bhfeidhmíonn Firefox a athrú…"
-
-#, fuzzy
-#~ msgid "This add-on has not been rated yet."
-#~ msgstr "Maidir leis an %(addonType)s seo"
 
 #, fuzzy
 #~ msgid "See all beta versions"
