@@ -28,8 +28,9 @@
   display: inline-block;
   height: 1rem;
   line-height: 1;
-  margin: 0;
+  margin-left: 300px; // added new nisamova
   vertical-align: middle;
+  
 }
 
 @for $delay from 1 through 3 {
