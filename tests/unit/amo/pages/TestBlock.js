@@ -213,7 +213,7 @@ describe(__filename, () => {
     expect(root.find('.Block-reason')).toHaveLength(0);
   });
 
-  it('renders the min/max versions if min is 0 and max is *', () => {
+  it('renders "all versions" when min is 0 and max is *', () => {
     const guid = 'some-guid';
     const min_version = '0';
     const max_version = '*';

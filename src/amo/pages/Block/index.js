@@ -102,7 +102,7 @@ export class BlockBase extends React.Component<InternalProps> {
     return content;
   }
 
-  renderBlockData() {
+  renderVersions() {
     const { block, i18n } = this.props;
 
     if (!block) {
@@ -194,7 +194,7 @@ export class BlockBase extends React.Component<InternalProps> {
               )}
             />
             <p className="Block-metadata">
-              {this.renderBlockData()}
+              {this.renderVersions()}
               <br />
               {this.renderDateAndURL()}
             </p>
