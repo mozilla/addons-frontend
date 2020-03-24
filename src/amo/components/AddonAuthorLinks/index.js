@@ -17,20 +17,24 @@ type Props = {|
 type InternalProps = {|
   ...Props,
   i18n: I18nType,
-  userId: number | null,
+  currentUserID: number | null,
 |};
 
 export class AddonAuthorLinksBase extends React.Component<InternalProps> {
   render() {
-    const { addon, i18n, userId } = this.props;
+    const { addon, i18n, currentUserID } = this.props;
 
     if (addon === null) {
       return null;
     }
 
-    const isAuthor = isAddonAuthor({ addon, userId });
+    const isAuthor = isAddonAuthor({ addon, userId: currentUserID });
 
-    const editLink = isAuthor ? (
+    if (!isAuthor) {
+      return null;
+    }
+
+    const editLink = (
       <li>
         <a
           className="AddonAuthorLinks-edit-link"
@@ -41,7 +45,7 @@ export class AddonAuthorLinksBase extends React.Component<InternalProps> {
           i18n.gettext('Edit add-on')}
         </a>
       </li>
-    ) : null;
+    );
 
     return (
       <DefinitionList className="AddonAuthorLinks">
@@ -60,7 +64,7 @@ export class AddonAuthorLinksBase extends React.Component<InternalProps> {
 
 export const mapStateToProps = (state: AppState) => {
   return {
-    userId: state.users.currentUserID,
+    currentUserID: state.users.currentUserID,
   };
 };
 
