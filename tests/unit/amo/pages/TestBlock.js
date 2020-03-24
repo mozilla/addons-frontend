@@ -213,7 +213,22 @@ describe(__filename, () => {
     expect(root.find('.Block-reason')).toHaveLength(0);
   });
 
-  it('renders the min/max versions', () => {
+  it('renders "all versions" when min is 0 and max is *', () => {
+    const guid = 'some-guid';
+    const min_version = '0';
+    const max_version = '*';
+    const block = createFakeBlockResult({ guid, min_version, max_version });
+    const { store } = dispatchClientMetadata();
+    store.dispatch(loadBlock({ block }));
+
+    const root = render({ store, guid });
+
+    expect(root.find('.Block-metadata')).toIncludeText(
+      `Versions blocked: all versions.`,
+    );
+  });
+
+  it('renders the min/max versions if min is not 0 and max is not *', () => {
     const guid = 'some-guid';
     const min_version = '12';
     const max_version = '34';

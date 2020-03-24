@@ -102,6 +102,23 @@ export class BlockBase extends React.Component<InternalProps> {
     return content;
   }
 
+  renderVersions() {
+    const { block, i18n } = this.props;
+
+    if (!block) {
+      return <LoadingText />;
+    }
+
+    if (block.min_version === '0' && block.max_version === '*') {
+      return i18n.gettext('Versions blocked: all versions.');
+    }
+
+    return i18n.sprintf(i18n.gettext('Versions blocked: %(min)s to %(max)s.'), {
+      min: block.min_version,
+      max: block.max_version,
+    });
+  }
+
   render() {
     const { block, errorHandler, i18n } = this.props;
 
@@ -177,17 +194,7 @@ export class BlockBase extends React.Component<InternalProps> {
               )}
             />
             <p className="Block-metadata">
-              {block ? (
-                i18n.sprintf(
-                  i18n.gettext('Versions blocked: %(min)s to %(max)s.'),
-                  {
-                    min: block.min_version,
-                    max: block.max_version,
-                  },
-                )
-              ) : (
-                <LoadingText />
-              )}
+              {this.renderVersions()}
               <br />
               {this.renderDateAndURL()}
             </p>
