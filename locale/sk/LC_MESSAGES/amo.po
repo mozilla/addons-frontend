@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-24 21:43+0000\n"
+"PO-Revision-Date: 2020-03-24 21:46+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1753,7 +1753,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:138
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "Doplnok %(addonName)s bol kvôli vašej ochrane zablokovaný."
 
 #: src/amo/pages/Block/index.js:143
 msgid "This add-on has been blocked for your protection."
@@ -1761,7 +1761,7 @@ msgstr "Tento doplnok bol pre vašu ochranu zakázaný."
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Prečo bol zablokovaný?"
 
 #: src/amo/pages/Block/index.js:158
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
@@ -1769,25 +1769,27 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:170
 msgid "What does this mean?"
-msgstr ""
+msgstr "Čo to znamená?"
 
 #: src/amo/pages/Block/index.js:172
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "Problematický doplnok alebo zásuvný modul bude automaticky zakázaný a nebude už dostupný."
 
 #: src/amo/pages/Block/index.js:179
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Ak Mozilla zistí, že doplnok, zásuvný modul či softvér tretej strany spôsobuje vážne problémy v otázkach bezpečnosti, stability a výkonu Firefoxu a zároveň spĺňa %(criteriaStartLink)sdané "
+"kritériá%(criteriaEndLink)s, môže byť takýto softvér zablokovaný. Ďalšie informácie nájdete v %(supportStartLink)stomto článku podpory%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:87
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "Zablokované dňa %(date)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
-msgstr ""
+msgstr "Zobraziť požiadavku na zablokovanie"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
