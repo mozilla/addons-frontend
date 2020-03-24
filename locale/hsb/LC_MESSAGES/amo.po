@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-24 22:23+0000\n"
+"PO-Revision-Date: 2020-03-24 22:31+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -871,9 +871,8 @@ msgid "Site Status"
 msgstr "Sydłowy status"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browsers"
-msgstr "Wobhladowak"
+msgstr "Wobhladowaki"
 
 #: src/amo/components/Footer/index.js:169
 msgid "Products"
@@ -1659,9 +1658,8 @@ msgid "About this add-on"
 msgstr "Wo tutym přidatku"
 
 #: src/amo/pages/Addon/index.js:316
-#, fuzzy
 msgid "Developer comments"
-msgstr "Wuwiwarske prawidła"
+msgstr "Wuwiwarske komentary"
 
 #: src/amo/pages/Addon/index.js:336
 msgid "Release notes for %(addonVersion)s"
@@ -1684,7 +1682,6 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Tutón zapisk njeje mysleny za tutu platformu. <a href=\"%(newLocation)s\">Přepytajće přidatki za Firefox za desktop.</a>."
 
 #: src/amo/pages/Addon/index.js:510
-#, fuzzy
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
 msgstr "Za Firefox za Android k dispoziciji njeje. Móžeće tutón přidatk z Firefox za Desktop wužiwać. Zhońće wjace wo <a href=\"%(newLocation)s\">přidatkach za Android</a>."
 
@@ -1773,9 +1770,8 @@ msgid "Older versions"
 msgstr "Starše wersije"
 
 #: src/amo/pages/Block/index.js:113
-#, fuzzy
 msgid "Versions blocked: all versions."
-msgstr "Wšě wersije pokazać"
+msgstr "Zablokowane wersije: wšě wersije."
 
 #: src/amo/pages/Block/index.js:116
 msgid "Versions blocked: %(min)s to %(max)s."
@@ -1786,9 +1782,8 @@ msgid "%(addonName)s has been blocked for your protection."
 msgstr "%(addonName)s je so za waš škit zablokował."
 
 #: src/amo/pages/Block/index.js:143
-#, fuzzy
 msgid "This add-on has been blocked for your protection."
-msgstr "Tutón přidatk je so wot swojeho awtora wotstronił."
+msgstr "Tutón přidatk je so za waš škit zablokował."
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"
@@ -1820,7 +1815,7 @@ msgstr "Dnja %(date)s zablokowany."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
-msgstr ""
+msgstr "Blokowe požadanje pokazać"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
