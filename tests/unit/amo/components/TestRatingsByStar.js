@@ -160,11 +160,31 @@ describe(__filename, () => {
     }
 
     it.each([[counts], [bars]], (links) => {
-      validateLink(links.at(0), '5', 'Read all five-star reviews');
-      validateLink(links.at(1), '4', 'Read all four-star reviews');
-      validateLink(links.at(2), '3', 'Read all three-star reviews');
-      validateLink(links.at(3), '2', 'Read all two-star reviews');
-      validateLink(links.at(4), '1', 'Read all one-star reviews');
+      validateLink(
+        links.at(0),
+        '5',
+        `Read all ${grouping['5']} five-star reviews`,
+      );
+      validateLink(
+        links.at(1),
+        '4',
+        `Read all ${grouping['4']} four-star reviews`,
+      );
+      validateLink(
+        links.at(2),
+        '3',
+        `Read all ${grouping['3']} three-star reviews`,
+      );
+      validateLink(
+        links.at(3),
+        '2',
+        `Read all ${grouping['2']} two-star reviews`,
+      );
+      validateLink(
+        links.at(4),
+        '1',
+        `Read all ${grouping['1']} one-star reviews`,
+      );
     });
 
     expect(counts.at(0).children()).toHaveText('5');
@@ -196,11 +216,31 @@ describe(__filename, () => {
       expect(link).toHaveProp('title', expectedTitle);
     }
 
-    validateLink(counts.at(0), '5', 'Read all five-star reviews');
-    validateLink(counts.at(1), '4', 'Read all four-star reviews');
-    validateLink(counts.at(2), '3', 'Read all three-star reviews');
-    validateLink(counts.at(3), '2', 'Read all two-star reviews');
-    validateLink(counts.at(4), '1', 'Read all one-star reviews');
+    validateLink(
+      counts.at(0),
+      '5',
+      `Read all ${grouping['5']} five-star reviews`,
+    );
+    validateLink(
+      counts.at(1),
+      '4',
+      `Read all ${grouping['4']} four-star reviews`,
+    );
+    validateLink(
+      counts.at(2),
+      '3',
+      `Read all ${grouping['3']} three-star reviews`,
+    );
+    validateLink(
+      counts.at(3),
+      '2',
+      `Read all ${grouping['2']} two-star reviews`,
+    );
+    validateLink(
+      counts.at(4),
+      '1',
+      `Read all ${grouping['1']} one-star reviews`,
+    );
   });
 
   it('adds a `src` query parameter to the review links when available in the location', () => {
@@ -324,11 +364,7 @@ describe(__filename, () => {
     const root = render({ addon, i18n: fakeI18n({ lang: 'de' }) });
 
     expect(
-      root
-        .find('.RatingsByStar-count')
-        .at(0)
-        .find(Link)
-        .children(),
+      root.find('.RatingsByStar-count').at(0).find(Link).children(),
     ).toHaveText('1.000');
   });
 

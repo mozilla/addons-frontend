@@ -91,14 +91,21 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
     const { addon, errorHandler, i18n, groupedRatings, location } = this.props;
     const loading = (!addon || !groupedRatings) && !errorHandler.hasError();
 
-    const linkTitles = {
-      /* eslint-disable quote-props */
-      '5': i18n.gettext('Read all five-star reviews'),
-      '4': i18n.gettext('Read all four-star reviews'),
-      '3': i18n.gettext('Read all three-star reviews'),
-      '2': i18n.gettext('Read all two-star reviews'),
-      '1': i18n.gettext('Read all one-star reviews'),
-      /* eslint-enable quote-props */
+    const getLinkTitle = (star, count = '') => {
+      switch (star) {
+        case '5':
+          return i18n.gettext(`Read all ${count} five-star reviews`);
+        case '4':
+          return i18n.gettext(`Read all ${count} four-star reviews`);
+        case '3':
+          return i18n.gettext(`Read all ${count} three-star reviews`);
+        case '2':
+          return i18n.gettext(`Read all ${count} two-star reviews`);
+        case '1':
+          return i18n.gettext(`Read all ${count} one-star reviews`);
+        default:
+          return '';
+      }
     };
 
     return (
@@ -109,17 +116,18 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
             let starCount;
             let starCountNode;
 
-            function createLink(text, tab = true) {
+            function createLink(text, count, tab = true) {
               invariant(addon, 'addon was unexpectedly empty');
 
               return (
                 <Link
-                  title={linkTitles[star] || ''}
+                  title={getLinkTitle(star, count) || ''}
                   to={reviewListURL({
                     addonSlug: addon.slug,
                     score: star,
                     src: location.query.src,
                   })}
+                  aria-hidden={!tab}
                   tabIndex={tab ? null : '-1'}
                 >
                   {text}
@@ -135,7 +143,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
               starCountNode = loading ? (
                 <LoadingText minWidth={95} />
               ) : (
-                createLink(i18n.formatNumber(starCount || 0))
+                createLink(i18n.formatNumber(starCount || 0), starCount)
               );
             }
 
@@ -145,7 +153,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
                   {loading ? (
                     <LoadingText minWidth={95} />
                   ) : (
-                    createLink(i18n.formatNumber(star), false)
+                    createLink(i18n.formatNumber(star), starCount, false)
                   )}
                   <IconStar selected />
                 </div>
@@ -159,6 +167,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
                           ? this.renderBarValue(starCount)
                           : null}
                       </div>,
+                      starCount,
                       false,
                     )
                   )}
