@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-04 20:57+0000\n"
+"POT-Creation-Date: 2020-03-24 18:38+0000\n"
 "PO-Revision-Date: 2019-11-13 06:44+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:195
+#: src/core/components/AMInstallButton/index.js:194
 msgid "Enable"
 msgstr "Inschakelen"
 
-#: src/core/components/AMInstallButton/index.js:198
+#: src/core/components/AMInstallButton/index.js:197
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: src/core/components/AMInstallButton/index.js:200
+#: src/core/components/AMInstallButton/index.js:199
 msgid "Enabling"
 msgstr "Inschakelen"
 
-#: src/core/components/AMInstallButton/index.js:202
+#: src/core/components/AMInstallButton/index.js:201
 msgid "Downloading"
 msgstr "Downloaden"
 
-#: src/core/components/AMInstallButton/index.js:204
+#: src/core/components/AMInstallButton/index.js:203
 msgid "Installing"
 msgstr "Installeren"
 
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Uninstalling"
 msgstr "Verwijderen"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Install Theme"
 msgstr "Thema installeren"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Add to Firefox"
 msgstr "Toevoegen aan Firefox"
 
@@ -118,27 +118,27 @@ msgstr "%(application)s %(minVersion)s tot %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Werkt met %(listOfApplicatonsAndVersions)s"
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:31
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "Installatie afgebroken omdat de add-on beschadigd lijkt te zijn."
 
-#: src/core/utils/addons.js:34
+#: src/core/utils/addons.js:35
 msgid "Installation failed. Please try again."
 msgstr "Installatie mislukt. Probeer het opnieuw."
 
-#: src/core/utils/addons.js:36
+#: src/core/utils/addons.js:37
 msgid "Download failed. Please check your connection."
 msgstr "Downloaden mislukt. Controleer uw verbinding."
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 msgid "An unexpected error occurred during installation."
 msgstr "Er is een onverwachte fout opgetreden tijdens het installeren."
 
-#: src/core/utils/addons.js:40
+#: src/core/utils/addons.js:41
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Er is een onverwachte fout opgetreden tijdens het verwijderen."
 
-#: src/core/utils/addons.js:45
+#: src/core/utils/addons.js:46
 msgid "An unexpected error occurred."
 msgstr "Er is een onverwachte fout opgetreden."
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-04 20:57+0000\n"
+"POT-Creation-Date: 2020-03-24 18:38+0000\n"
 "PO-Revision-Date: 2019-11-12 20:12+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:195
+#: src/core/components/AMInstallButton/index.js:194
 msgid "Enable"
 msgstr "Aktivieren"
 
-#: src/core/components/AMInstallButton/index.js:198
+#: src/core/components/AMInstallButton/index.js:197
 msgid "Remove"
 msgstr "Entfernen"
 
-#: src/core/components/AMInstallButton/index.js:200
+#: src/core/components/AMInstallButton/index.js:199
 msgid "Enabling"
 msgstr "Wird aktiviert"
 
-#: src/core/components/AMInstallButton/index.js:202
+#: src/core/components/AMInstallButton/index.js:201
 msgid "Downloading"
 msgstr "Wird heruntergeladen"
 
-#: src/core/components/AMInstallButton/index.js:204
+#: src/core/components/AMInstallButton/index.js:203
 msgid "Installing"
 msgstr "Wird installiert"
 
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Uninstalling"
 msgstr "Wird deinstalliert"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Install Theme"
 msgstr "Theme installieren"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Add to Firefox"
 msgstr "Zu Firefox hinzufügen"
 
@@ -121,28 +121,28 @@ msgstr "%(application)s %(minVersion)s bis %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Funktioniert mit %(listOfApplicatonsAndVersions)s"
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:31
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr ""
 "Die Installation wurde abgebrochen, da das Add-on beschädigt zu sein scheint."
 
-#: src/core/utils/addons.js:34
+#: src/core/utils/addons.js:35
 msgid "Installation failed. Please try again."
 msgstr "Installation fehlgeschlagen. Bitte versuchen Sie es erneut."
 
-#: src/core/utils/addons.js:36
+#: src/core/utils/addons.js:37
 msgid "Download failed. Please check your connection."
 msgstr "Download fehlgeschlagen. Bitte überprüfen Sie Ihre Verbindung."
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 msgid "An unexpected error occurred during installation."
 msgstr "Bei der Installation ist ein unerwarteter Fehler aufgetreten."
 
-#: src/core/utils/addons.js:40
+#: src/core/utils/addons.js:41
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Bei der Deinstallation ist ein unerwarteter Fehler aufgetreten."
 
-#: src/core/utils/addons.js:45
+#: src/core/utils/addons.js:46
 msgid "An unexpected error occurred."
 msgstr "Ein unerwarteter Fehler ist aufgetreten."
 

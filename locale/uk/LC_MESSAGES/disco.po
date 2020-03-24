@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-04 20:57+0000\n"
+"POT-Creation-Date: 2020-03-24 18:38+0000\n"
 "PO-Revision-Date: 2019-11-13 15:07+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
@@ -15,35 +15,35 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:195
+#: src/core/components/AMInstallButton/index.js:194
 msgid "Enable"
 msgstr "Увімкнути"
 
-#: src/core/components/AMInstallButton/index.js:198
+#: src/core/components/AMInstallButton/index.js:197
 msgid "Remove"
 msgstr "Вилучити"
 
-#: src/core/components/AMInstallButton/index.js:200
+#: src/core/components/AMInstallButton/index.js:199
 msgid "Enabling"
 msgstr "Увімкнення"
 
-#: src/core/components/AMInstallButton/index.js:202
+#: src/core/components/AMInstallButton/index.js:201
 msgid "Downloading"
 msgstr "Завантаження"
 
-#: src/core/components/AMInstallButton/index.js:204
+#: src/core/components/AMInstallButton/index.js:203
 msgid "Installing"
 msgstr "Встановлення"
 
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Uninstalling"
 msgstr "Видалення"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Install Theme"
 msgstr "Встановити тему"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Add to Firefox"
 msgstr "Додати до Firefox"
 
@@ -119,27 +119,27 @@ msgstr "%(application)s від %(minVersion)s до %(maxVersion)s"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "Працює з %(listOfApplicatonsAndVersions)s"
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:31
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "Встановлення скасовано, оскільки, схоже, що додаток пошкоджений."
 
-#: src/core/utils/addons.js:34
+#: src/core/utils/addons.js:35
 msgid "Installation failed. Please try again."
 msgstr "Не вдалося встановити. Повторіть спробу."
 
-#: src/core/utils/addons.js:36
+#: src/core/utils/addons.js:37
 msgid "Download failed. Please check your connection."
 msgstr "Не вдалося завантажити. Будь ласка, перевірте підключення."
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 msgid "An unexpected error occurred during installation."
 msgstr "Сталася неочікувана помилка під час встановлення."
 
-#: src/core/utils/addons.js:40
+#: src/core/utils/addons.js:41
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Сталася неочікувана помилка під час видалення."
 
-#: src/core/utils/addons.js:45
+#: src/core/utils/addons.js:46
 msgid "An unexpected error occurred."
 msgstr "Сталася неочікувана помилка."
 

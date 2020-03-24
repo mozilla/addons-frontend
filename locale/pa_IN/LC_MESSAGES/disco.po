@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-04 20:57+0000\n"
+"POT-Creation-Date: 2020-03-24 18:38+0000\n"
 "PO-Revision-Date: 2019-12-23 14:53+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,35 +14,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:195
+#: src/core/components/AMInstallButton/index.js:194
 msgid "Enable"
 msgstr "ਸਮਰੱਥ ਕਰੋ"
 
-#: src/core/components/AMInstallButton/index.js:198
+#: src/core/components/AMInstallButton/index.js:197
 msgid "Remove"
 msgstr "ਹਟਾਓ"
 
-#: src/core/components/AMInstallButton/index.js:200
+#: src/core/components/AMInstallButton/index.js:199
 msgid "Enabling"
 msgstr "ਸਮਰੱਥ ਬਣਾਉਣਾ"
 
-#: src/core/components/AMInstallButton/index.js:202
+#: src/core/components/AMInstallButton/index.js:201
 msgid "Downloading"
 msgstr "ਡਾਉਨਲੋਡ ਜਾਰੀ"
 
-#: src/core/components/AMInstallButton/index.js:204
+#: src/core/components/AMInstallButton/index.js:203
 msgid "Installing"
 msgstr "ਇੰਸਟਾਲ ਹੋ ਰਿਹਾ ਹੈ"
 
-#: src/core/components/AMInstallButton/index.js:206
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Uninstalling"
 msgstr "ਅਣ-ਇੰਸਟਾਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Install Theme"
 msgstr "ਥੀਮ ਇੰਸਟਾਲ ਕਰੋ"
 
-#: src/core/components/AMInstallButton/index.js:215
+#: src/core/components/AMInstallButton/index.js:214
 msgid "Add to Firefox"
 msgstr "ਫਾਇਰਫਾਕਸ ਵਿੱਚ ਜੋੜੋ"
 
@@ -118,27 +118,27 @@ msgstr "%(application)s %(minVersion)s ਤੋਂ %(maxVersion)s ਤੱਕ"
 msgid "Works with %(listOfApplicatonsAndVersions)s"
 msgstr "%(listOfApplicatonsAndVersions)s ਨਾਲ ਕੰਮ ਕਰਦਾ ਹੈ"
 
-#: src/core/utils/addons.js:30
+#: src/core/utils/addons.js:31
 msgid "Installation aborted because the add-on appears to be corrupt."
 msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਅਸਫਲ ਕੀਤੀ ਗਈ ਕਿਉਂਕਿ ਐਡ-ਆਨ ਭ੍ਰਿਸ਼ਟ ਜਾਪਦੀ ਹੈ।"
 
-#: src/core/utils/addons.js:34
+#: src/core/utils/addons.js:35
 msgid "Installation failed. Please try again."
 msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਅਸਫਲ। ਮੁੜ ਕੋਸ਼ਿਸ ਕਰੋ ਜੀ।"
 
-#: src/core/utils/addons.js:36
+#: src/core/utils/addons.js:37
 msgid "Download failed. Please check your connection."
 msgstr "ਡਾਊਨਲੋਡ ਅਸਫਲ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ।"
 
-#: src/core/utils/addons.js:38
+#: src/core/utils/addons.js:39
 msgid "An unexpected error occurred during installation."
 msgstr "ਇੰਸਟੌਲੇਸ਼ਨ ਦੇ ਦੌਰਾਨ ਇੱਕ ਅਚਾਨਕ ਤਰੁੱਟੀ ਪੈਦਾ ਹੋਈ।"
 
-#: src/core/utils/addons.js:40
+#: src/core/utils/addons.js:41
 msgid "An unexpected error occurred during uninstallation."
 msgstr "ਅਨ ਸਥਾਪਿਤ ਹੋਣ ਦੇ ਦੌਰਾਨ ਇੱਕ ਅਚਾਨਕ ਤਰੁੱਟੀ ਉਤਪੰਨ ਹੋਈ।"
 
-#: src/core/utils/addons.js:45
+#: src/core/utils/addons.js:46
 msgid "An unexpected error occurred."
 msgstr "ਅਚਾਨਕ ਗਲਤੀ ਆਈ ਹੈ।"
 
