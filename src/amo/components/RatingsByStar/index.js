@@ -119,6 +119,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
             function createLink(text, count, tab = true) {
               invariant(addon, 'addon was unexpectedly empty');
 
+              const attributes = tab ? {} : { 'aria-hidden': true };
               return (
                 <Link
                   title={getLinkTitle(star, count) || ''}
@@ -127,7 +128,7 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
                     score: star,
                     src: location.query.src,
                   })}
-                  aria-hidden={!tab}
+                  {...attributes}
                   tabIndex={tab ? null : '-1'}
                 >
                   {text}
