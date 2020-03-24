@@ -82,7 +82,7 @@ const Routes = ({ _config = config }: Props = {}) => (
     {_config.get('enableBlockPage') && (
       <Route
         exact
-        path="/:lang/:application/blocked/:guid/"
+        path="/:lang/:application/(addon-)?blocked/:guid/"
         component={Block}
       />
     )}
