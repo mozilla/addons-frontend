@@ -58,13 +58,13 @@ export class SearchFormBase extends React.Component<Props> {
     };
 
     let openSearchTitle = i18n.sprintf(
-      i18n.gettext('Firefox Add-ons (%(locale)s)'),
+      i18n.gettext('Firefox Add-ons'),
       i18nValues,
     );
 
     if (clientApp === CLIENT_APP_ANDROID) {
       openSearchTitle = i18n.sprintf(
-        i18n.gettext('Firefox Add-ons for Android (%(locale)s)'),
+        i18n.gettext('Firefox Add-ons for Android'),
         i18nValues,
       );
     }
