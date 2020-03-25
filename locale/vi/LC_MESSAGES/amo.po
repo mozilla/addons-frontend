@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-25 01:11+0000\n"
+"PO-Revision-Date: 2020-03-25 01:15+0000\n"
 "Last-Translator: Quế Tùng <best.cloney.1301@gmail.com>\n"
 "Language-Team: none\n"
 "Language: vi\n"
@@ -1717,11 +1717,11 @@ msgstr "Phiên bản bị chặn: tất cả các phiên bản."
 
 #: src/amo/pages/Block/index.js:116
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "Các phiên bản bị chặn: từ %(min)s đến %(max)s."
 
 #: src/amo/pages/Block/index.js:138
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "%(addonName)s đã bị chặn để bảo vệ bạn."
 
 #: src/amo/pages/Block/index.js:143
 msgid "This add-on has been blocked for your protection."
@@ -1729,33 +1729,35 @@ msgstr "Tiện ích này đã bị chặn để bảo vệ bạn."
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Tại sao nó bị chặn?"
 
 #: src/amo/pages/Block/index.js:158
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Tiện ích này vi phạm %(startLink)schính sách tiện ích của Mozilla%(endLink)s."
 
 #: src/amo/pages/Block/index.js:170
 msgid "What does this mean?"
-msgstr ""
+msgstr "Điều này có nghĩa là gì?"
 
 #: src/amo/pages/Block/index.js:172
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "Tiện ích hoặc phần bổ trợ có vấn đề sẽ tự động bị vô hiệu hóa và không còn sử dụng được nữa."
 
 #: src/amo/pages/Block/index.js:179
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Khi Mozilla nhận thức được các tiện ích, phần bổ trợ hoặc phần mềm của bên thứ ba khác làm tổn hại nghiêm trọng đến bảo mật, tính ổn định hoặc hiệu suất của Firefox và đáp ứng "
+"%(criteriaStartLink)scác tiêu chí chính xác%(criteriaEndLink)s, phần mềm có thể bị chặn sử dụng. Để biết thêm thông tin, xin vui lòng đọc %(supportStartLink)sbài viết hỗ trợ này%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:87
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "Bị chặn vào %(date)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
-msgstr ""
+msgstr "Xem yêu cầu chặn"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
