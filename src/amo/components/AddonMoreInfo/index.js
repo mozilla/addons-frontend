@@ -5,6 +5,7 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 
 import AddonAdminLinks from 'amo/components/AddonAdminLinks';
+import AddonAuthorLinks from 'amo/components/AddonAuthorLinks';
 import Link from 'amo/components/Link';
 import { getVersionById, getVersionInfo } from 'core/reducers/versions';
 import { STATS_VIEW } from 'core/constants';
@@ -285,6 +286,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
           )}
         </DefinitionList>
         <AddonAdminLinks addon={addon} />
+        <AddonAuthorLinks addon={addon} />
       </>
     );
   }
