@@ -52,23 +52,10 @@ export class SearchFormBase extends React.Component<Props> {
 
   render() {
     const { className, i18n, apiLang, clientApp } = this.props;
-
-    const i18nValues = {
-      locale: apiLang,
-    };
-
-    let openSearchTitle = i18n.sprintf(
-      i18n.gettext('Firefox Add-ons (%(locale)s)'),
-      i18nValues,
-    );
-
-    if (clientApp === CLIENT_APP_ANDROID) {
-      openSearchTitle = i18n.sprintf(
-        i18n.gettext('Firefox Add-ons for Android (%(locale)s)'),
-        i18nValues,
-      );
-    }
-
+    const openSearchTitle =
+      clientApp === CLIENT_APP_ANDROID
+        ? i18n.gettext('Firefox Add-ons for Android')
+        : i18n.gettext('Firefox Add-ons');
     return (
       <>
         <Helmet>
