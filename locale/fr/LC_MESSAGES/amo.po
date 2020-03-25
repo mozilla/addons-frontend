@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-24 18:55+0000\n"
+"PO-Revision-Date: 2020-03-24 18:58+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -864,7 +864,7 @@ msgstr "État du site"
 
 #: src/amo/components/Footer/index.js:111
 msgid "Browsers"
-msgstr ""
+msgstr "Navigateurs"
 
 #: src/amo/components/Footer/index.js:169
 msgid "Products"
@@ -1751,7 +1751,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:143
 msgid "This add-on has been blocked for your protection."
-msgstr ""
+msgstr "Ce module complémentaire a été bloqué par mesure de sécurité."
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"
