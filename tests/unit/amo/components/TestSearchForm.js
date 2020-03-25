@@ -173,7 +173,6 @@ describe(__filename, () => {
 
     const link = root.find('link');
     expect(link).toHaveProp('href', `/${lang}/${clientApp}/opensearch.xml`);
-    expect(link).toHaveProp('title', `Firefox Add-ons for Android (${lang})`);
   });
 
   it('renders an opensearch link for Firefox', () => {
@@ -186,6 +185,5 @@ describe(__filename, () => {
 
     const link = root.find('link');
     expect(link).toHaveProp('href', `/${lang}/${clientApp}/opensearch.xml`);
-    expect(link).toHaveProp('title', `Firefox Add-ons (${lang})`);
   });
 });
