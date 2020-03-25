@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-25 01:02+0000\n"
+"PO-Revision-Date: 2020-03-25 03:39+0000\n"
 "Last-Translator: passionforlife <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1705,49 +1705,49 @@ msgstr "较早版本"
 
 #: src/amo/pages/Block/index.js:113
 msgid "Versions blocked: all versions."
-msgstr ""
+msgstr "被屏蔽的版本：所有版本。"
 
 #: src/amo/pages/Block/index.js:116
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "被屏蔽的版本：%(min)s 到 %(max)s。"
 
 #: src/amo/pages/Block/index.js:138
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "为了保护您，已屏蔽 %(addonName)s 。"
 
 #: src/amo/pages/Block/index.js:143
 msgid "This add-on has been blocked for your protection."
-msgstr ""
+msgstr "为了保护您，已屏蔽此附加组件。"
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "为什么它被屏蔽了？"
 
 #: src/amo/pages/Block/index.js:158
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "此附加组件违反了 %(startLink)sMozilla 的附加组件政策%(endLink)s。"
 
 #: src/amo/pages/Block/index.js:170
 msgid "What does this mean?"
-msgstr ""
+msgstr "这是什么意思？"
 
 #: src/amo/pages/Block/index.js:172
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "有问题的附加组件或插件将自动被禁用且不再可用。"
 
 #: src/amo/pages/Block/index.js:179
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
-msgstr ""
+msgstr "当 Mozilla 发现某个附加组件、插件或第三方软件严重威胁 Firefox 的安全性、稳定性或性能，并且符合%(criteriaStartLink)s特定标准%(criteriaEndLink)s时，该软件可能被阻止正常使用。更多信息请阅读%(supportStartLink)s这篇支持文章%(supportEndLink)s。"
 
 #: src/amo/pages/Block/index.js:87
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "屏蔽于 %(date)s。"
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
-msgstr ""
+msgstr "查看屏蔽请求"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
