@@ -53,7 +53,7 @@ describe(__filename, () => {
   };
 
   it('returns nothing if the user is not logged in', () => {
-    const root = renderWithSignedUser({});
+    const root = render();
 
     expect(root.find('.AddonAuthorLinks')).toHaveLength(0);
     expect(root.find('.AddonAuthorLinks-edit-link')).toHaveLength(0);
