@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-24 18:54+0000\n"
+"PO-Revision-Date: 2020-03-25 06:40+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -1626,7 +1626,7 @@ msgstr "Over deze add-on"
 
 #: src/amo/pages/Addon/index.js:316
 msgid "Developer comments"
-msgstr ""
+msgstr "Ontwikkelaarsopmerkingen"
 
 #: src/amo/pages/Addon/index.js:336
 msgid "Release notes for %(addonVersion)s"
@@ -1734,49 +1734,52 @@ msgstr "Oudere versies"
 
 #: src/amo/pages/Block/index.js:113
 msgid "Versions blocked: all versions."
-msgstr ""
+msgstr "Geblokkeerde versies: alle versies."
 
 #: src/amo/pages/Block/index.js:116
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "Geblokkeerde versies: %(min)s tot %(max)s."
 
 #: src/amo/pages/Block/index.js:138
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "%(addonName)s is geblokkeerd voor uw bescherming."
 
 #: src/amo/pages/Block/index.js:143
 msgid "This add-on has been blocked for your protection."
-msgstr ""
+msgstr "Deze add-on is geblokkeerd voor uw bescherming."
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Waarom is deze geblokkeerd?"
 
 #: src/amo/pages/Block/index.js:158
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Deze add-on schendt %(startLink)sMozilla’s add-onbeleid%(endLink)s."
 
 #: src/amo/pages/Block/index.js:170
 msgid "What does this mean?"
-msgstr ""
+msgstr "Wat betekent dit?"
 
 #: src/amo/pages/Block/index.js:172
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "De problematische add-on of plug-in wordt automatisch uitgeschakeld en kan niet meer worden gebruikt."
 
 #: src/amo/pages/Block/index.js:179
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Wanneer Mozilla kennis neemt van add-ons, plug-ins of andere software van derden die een serieuze bedreiging vormt voor de veiligheid, stabiliteit of prestaties van Firefox en aan "
+"%(criteriaStartLink)sbepaalde criteria%(criteriaEndLink)s voldoet, kan de software voor algemeen gebruik worden geblokkeerd. Lees voor meer informatie %(supportStartLink)sdit "
+"ondersteuningsartikel%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:87
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "Geblokkeerd op %(date)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
-msgstr ""
+msgstr "Blokkeringsverzoek bekijken"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
