@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-25 15:35+0000\n"
+"PO-Revision-Date: 2020-03-25 15:42+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -856,9 +856,8 @@ msgid "Site Status"
 msgstr "Status do site"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browsers"
-msgstr "Navegador"
+msgstr "Navegadores"
 
 #: src/amo/components/Footer/index.js:169
 msgid "Products"
@@ -1620,9 +1619,8 @@ msgid "About this add-on"
 msgstr "Sobre esta extensão"
 
 #: src/amo/pages/Addon/index.js:316
-#, fuzzy
 msgid "Developer comments"
-msgstr "Políticas para desenvolvedor"
+msgstr "Comentários do desenvolvedor"
 
 #: src/amo/pages/Addon/index.js:336
 msgid "Release notes for %(addonVersion)s"
@@ -1645,7 +1643,6 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Esta listagem não se destina a esta plataforma. <a href=\"%(newLocation)s\">Veja extensões para Firefox no computador</a>."
 
 #: src/amo/pages/Addon/index.js:510
-#, fuzzy
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
 msgstr "Não disponível no Firefox para Android. Você pode usar esta extensão no Firefox de computador. Saiba mais sobre <a href=\"%(newLocation)s\">extensões para Android</a>."
 
@@ -1730,9 +1727,8 @@ msgid "Older versions"
 msgstr "Versões mais antigas"
 
 #: src/amo/pages/Block/index.js:113
-#, fuzzy
 msgid "Versions blocked: all versions."
-msgstr "Ver todas as versões"
+msgstr "Versões bloqueadas: todas as versões."
 
 #: src/amo/pages/Block/index.js:116
 msgid "Versions blocked: %(min)s to %(max)s."
@@ -1740,28 +1736,27 @@ msgstr "Versões bloqueadas: %(min)s até %(max)s."
 
 #: src/amo/pages/Block/index.js:138
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "%(addonName)s foi bloqueado para sua proteção."
 
 #: src/amo/pages/Block/index.js:143
-#, fuzzy
 msgid "This add-on has been blocked for your protection."
-msgstr "Esta extensão foi removida pelo autor."
+msgstr "Esta extensão foi bloqueada para sua proteção."
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Por que foi bloqueado?"
 
 #: src/amo/pages/Block/index.js:158
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Esta extensão viola %(startLink)sdiretrizes de extensões da Mozilla%(endLink)s."
 
 #: src/amo/pages/Block/index.js:170
 msgid "What does this mean?"
-msgstr ""
+msgstr "O que isso significa?"
 
 #: src/amo/pages/Block/index.js:172
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "A extensão ou plugin problemático será automaticamente desativado e não poderá mais ser usado."
 
 #: src/amo/pages/Block/index.js:179
 msgid ""
@@ -1771,11 +1766,11 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:87
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "Bloqueado em %(date)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
-msgstr ""
+msgstr "Ver solicitação de bloqueio"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
