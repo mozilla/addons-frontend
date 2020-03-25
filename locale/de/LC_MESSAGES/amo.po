@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-24 21:21+0000\n"
-"Last-Translator: Philipp Fischbeck <pfischbeck@googlemail.com>\n"
+"PO-Revision-Date: 2020-03-25 11:23+0000\n"
+"Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -1739,11 +1739,11 @@ msgstr "Blockierte Versionen: alle Versionen."
 
 #: src/amo/pages/Block/index.js:116
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "Gesperrte Versionen: %(min)s bis %(max)s."
 
 #: src/amo/pages/Block/index.js:138
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "%(addonName)s wurde zu Ihrem Schutz gesperrt."
 
 #: src/amo/pages/Block/index.js:143
 msgid "This add-on has been blocked for your protection."
@@ -1751,33 +1751,35 @@ msgstr "Dieses Add-on wurde zu Ihrem Schutz blockiert."
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Warum wurde es gesperrt?"
 
 #: src/amo/pages/Block/index.js:158
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Dieses Add-on verstößt gegen %(startLink)sMozillas Add-on-Richtlinien%(endLink)s."
 
 #: src/amo/pages/Block/index.js:170
 msgid "What does this mean?"
-msgstr ""
+msgstr "Was bedeutet das?"
 
 #: src/amo/pages/Block/index.js:172
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "Das problematische Add-on oder Plugin wird automatisch deaktiviert und ist dann nicht mehr benutzbar."
 
 #: src/amo/pages/Block/index.js:179
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Wenn Mozilla von Add-ons, Plugins oder anderer Drittsoftware erfährt, die wesentlich die Sicherheit, Stabilität und Leistung von Firefox beeinträchtigt und %(criteriaStartLink)sgewisse "
+"Kriterien%(criteriaEndLink)s erfüllt, kann die Software von der Verwendung ausgeschlossen werden. Weitere Informationen finden Sie in %(supportStartLink)sdiesem Hilfeartikel%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:87
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "Gesperrt am %(date)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
-msgstr ""
+msgstr "Sperranforderung anzeigen"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
