@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -1805,7 +1805,7 @@ msgid ""
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
 "Ko Mozilla izve, da kak dodatek, vtičnik ali druga tuja programska oprema resno ogroža varnost, zanesljivost ali zmogljivost Firefoxa ter izpolnjuje %(criteriaStartLink)sdoločena "
-"merila%(criteriaEndLink)s, lahko programsko opremo onemogoči za splošno rabo. Za več informacij preberite <a href=\"%(support)s\"> ta članek za podporo</a>."
+"merila%(criteriaEndLink)s, lahko programsko opremo onemogoči za splošno rabo. Za več informacij preberite %(supportStartLink)sta članek za podporo%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:87
 msgid "Blocked on %(date)s."
