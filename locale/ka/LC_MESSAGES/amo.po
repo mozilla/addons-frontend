@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 21:41+0000\n"
+"PO-Revision-Date: 2020-03-26 21:49+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -867,9 +867,8 @@ msgid "Site Status"
 msgstr "საიტის მდგომარეობა"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browsers"
-msgstr "ბრაუზერი"
+msgstr "ბრაუზერები"
 
 #: src/amo/components/Footer/index.js:169
 msgid "Products"
@@ -1636,9 +1635,8 @@ msgid "About this add-on"
 msgstr "დამატების შესახებ"
 
 #: src/amo/pages/Addon/index.js:316
-#, fuzzy
 msgid "Developer comments"
-msgstr "შემმუშავებლის დებულებები"
+msgstr "შემქმნელის შენიშვნები"
 
 #: src/amo/pages/Addon/index.js:336
 msgid "Release notes for %(addonVersion)s"
@@ -1661,9 +1659,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "ეს ჩამონათვალი არ არის განკუთვნილი ამ პლატფორმისთვის. <a href=\"%(newLocation)s\">მონახეთ დამატებები სამაგიდო Firefox-ისთვის</a>."
 
 #: src/amo/pages/Addon/index.js:510
-#, fuzzy
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "არაა ხელმისაწვდომი Firefox-ისთვის Android-ზე. ეს დამატება არის Firefox-ისთვის კომპიუტერზე.  ვრცლად, იხილეთ <a href=\"%(newLocation)s\">დამატებები Android-ისთვის</a>."
+msgstr "არაა ხელმისაწვდომი Firefox-ისთვის Android-ზე. ამ დამატების გამოყენება შეგიძლიათ Firefox-ისთვის კომპიუტერზე. ვრცლად, იხილეთ <a href=\"%(newLocation)s\">დამატებები Android-ისთვის</a>."
 
 #: src/amo/pages/Addon/index.js:530
 msgid "Screenshots"
@@ -1746,9 +1743,8 @@ msgid "Older versions"
 msgstr "ადრინდელი ვერსიები"
 
 #: src/amo/pages/Block/index.js:113
-#, fuzzy
 msgid "Versions blocked: all versions."
-msgstr "ყველა ვერსიის ნახვა"
+msgstr "შეზღუდული ვერსიები: ყველა ვერსია."
 
 #: src/amo/pages/Block/index.js:116
 msgid "Versions blocked: %(min)s to %(max)s."
@@ -1759,9 +1755,8 @@ msgid "%(addonName)s has been blocked for your protection."
 msgstr "%(addonName)s შეზღუდულია თქვენი უსაფრთხოებისთვის."
 
 #: src/amo/pages/Block/index.js:143
-#, fuzzy
 msgid "This add-on has been blocked for your protection."
-msgstr "ეს დამატება წაშლილია ავტორის მიერ."
+msgstr "ეს დამატება შეზღუდულია თქვენი უსაფრთხოებისთვის."
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"
@@ -1784,6 +1779,8 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"როცა Mozilla წააწყდება დამატებებს, მოდულებს ან გარეშე პროგრამას, რომელიც საფრთხეს უქმნის Firefox-ის უსაფრთხოებას, მდგრადობას ან წარმადობას და აკმაყოფილებს %(criteriaStartLink)sგარკვეულ "
+"პირობებს%(criteriaEndLink)s, ეს პროგრამა შესაძლოა შეიზღუდოს საერთო გამოყენებისგან. ვრცლად, გთხოვთ გაეცნოთ %(supportStartLink)sსტატიას მხარდაჭერის გვერდზე%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:87
 msgid "Blocked on %(date)s."
