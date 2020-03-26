@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-24 19:51+0000\n"
+"PO-Revision-Date: 2020-03-25 00:58+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1782,21 +1782,23 @@ msgstr "Що це значить?"
 
 #: src/amo/pages/Block/index.js:172
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "Проблемний додаток чи плагін буде автоматично відключено і надалі ним не можна буде скористатися."
 
 #: src/amo/pages/Block/index.js:179
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Коли Mozilla стає відомо про додатки, плагіни чи інші сторонні програми, які становлять загрозу безпеці, стабільності чи продуктивності та відповідають %(criteriaStartLink)sпевним "
+"критеріям%(criteriaEndLink)s, використання цих програм може бути заблоковане. Для отримання додаткової інформації, будь ласка, ознайомтеся з %(supportStartLink)sціею статтею%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:87
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "Заблоковано %(date)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
-msgstr ""
+msgstr "Переглянути запит на блокування"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
