@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 12:12+0000\n"
+"PO-Revision-Date: 2020-03-26 12:21+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -377,7 +377,7 @@ msgstr "Err i ucegger-agi"
 
 #: src/amo/components/AddonReviewCard/index.js:508
 msgid "This rating or review has been deleted. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Aktazal-a neɣ asenqed-a yettwakkes. Ad tettawalid-t acku ɣur-k tisirag meqqren."
 
 #: src/amo/components/AddonReviewCard/index.js:554
 msgid "Write a review"
@@ -423,7 +423,7 @@ msgstr "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStar
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
-msgstr ""
+msgstr "Aktazal-ik:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
@@ -519,7 +519,7 @@ msgstr[1] "Yettwasezmel %(rating)s ɣef 5"
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:45
 msgid ","
-msgstr ""
+msgstr ","
 
 # Example: add-on "by" some authors
 #: src/amo/components/AddonTitle/index.js:84 src/amo/components/AddonTitle/index.js:88
@@ -552,7 +552,7 @@ msgstr "Lqem %(versionNumber)s"
 
 #: src/amo/components/AddonVersionCard/index.js:83
 msgid "Released %(dateReleased)s - %(fileSize)s"
-msgstr ""
+msgstr "Yeffeɣ-d deg %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:185 src/amo/components/HeadMetaTags/index.js:79
 #, fuzzy
@@ -767,18 +767,20 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
+"Uɣal-d ɣer usebter-a ɣer zdat, asentel neɣ asiɣzef izmer ad yili. Tzemreḍ daɣen ad tafeḍ ayen i tettnadiḍ gar %(extensionStart)sisiɣzaf%(extensionEnd)s neɣ %(themeStart)sisental%(themeEnd)s, neɣ s "
+"usuter n tallelt deg %(communityStart)strebbaɛ n yinmagaren-nneɣ%(communityEnd)s."
 
 #: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
-msgstr ""
+msgstr "Ihuh! Ur nezmir ara ad d-naf asebter-a"
 
 #: src/amo/components/Errors/NotFound/index.js:85
 msgid "If you’ve followed a link from another site for an extension or theme, that item is no longer available. This could be because:"
-msgstr ""
+msgstr "Ma yella tḍefred-d aseɣwer seg usmel-nniḍen i usiɣzef neɣ asentel, aferdis-a ur ǧǧin yella. A-t-a iwacu:"
 
 #: src/amo/components/Errors/NotFound/index.js:91
 msgid "The developer removed it. Developers commonly do this because they no longer support the extension or theme, or have replaced it."
-msgstr ""
+msgstr "Aneflay yekkes-it. Ineflayen xeddmen aya tikkwal acku ur ttbeddan ara ɣef usiɣzef neɣ asentel, neɣ ahat beddlen azegrir."
 
 #: src/amo/components/Errors/NotFound/index.js:96
 msgid ""
@@ -1192,15 +1194,15 @@ msgstr "Amek tettwaliḍ aseqdec n %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
-msgstr ""
+msgstr "Asekles n umḍan n yitran"
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
-msgstr ""
+msgstr "Amḍan n yitran yettwasekles"
 
 #: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Ɣer meṛṛa tikta n xemsa n yitran"
 
 #: src/amo/components/RatingsByStar/index.js:96
 #, fuzzy
@@ -1209,7 +1211,7 @@ msgstr "Ɣeṛ %(count)s n ucegger"
 
 #: src/amo/components/RatingsByStar/index.js:97
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "Ɣer meṛṛa tikta n kraḍ n yitran"
 
 #: src/amo/components/RatingsByStar/index.js:98
 #, fuzzy
@@ -1608,7 +1610,7 @@ msgstr "Fren tawlaft…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:101
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
-msgstr ""
+msgstr "Akken ad tafeḍ izegrar imṣadan akked Firefox i uselkim, <a href=\"%(newLocation)s\">rzu ɣer usebter-nneɣ n tnarit</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
