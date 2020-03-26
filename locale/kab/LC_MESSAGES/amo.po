@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 12:21+0000\n"
+"PO-Revision-Date: 2020-03-26 14:05+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1614,7 +1614,7 @@ msgstr "Akken ad tafeḍ izegrar imṣadan akked Firefox i uselkim, <a href=\"%(
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-msgstr ""
+msgstr "Ulac-it deg Firefox i Android. Tzemreḍ ad tesqedceḍ azegrir-a s Firefox i uselkim,  neɣ nadi <a href=\"%(newLocation)s\">Izegrar Android</a> icuban ɣur-s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 #, fuzzy
@@ -1623,11 +1623,11 @@ msgstr "Asentel-agi ur imsada ara akked ulqem-inek n Firefox."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr ""
+msgstr "Akken ad tissineḍ ugar ɣef yizegrar yemṣadan d Firefox i Android, <a href=\"%(newLocation)s\">tekki dagi</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:94
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
-msgstr ""
+msgstr "Akken ad tafeḍ izegrar imṣadan akked Firefox i A,droid, <a href=\"%(newLocation)s\">rzu ɣer usmel-nneɣ azirazt</a>."
 
 #: src/amo/pages/Addon/index.js:169 src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
@@ -1682,7 +1682,7 @@ msgstr "Tizmilin n tuffɣa n %(addonVersion)s"
 
 #: src/amo/pages/Addon/index.js:467
 msgid "This is not a public listing. You are only seeing it because of elevated permissions."
-msgstr ""
+msgstr "Aktazal-a ur yelli d azayaz. Tettawalid-t acku ɣur-k tisirag meqqren."
 
 #: src/amo/pages/Addon/index.js:495
 msgid "Extension Metadata"
@@ -1690,15 +1690,15 @@ msgstr "Asiɣzef aɣefisefka"
 
 #: src/amo/pages/Addon/index.js:502
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
+msgstr "Taɣbalut-a ur tettuheggi ara i unagraw-a. <a href=\"%(newLocation)s\">Snirem izegrar n Firefox i Android</a>."
 
 #: src/amo/pages/Addon/index.js:506
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
-msgstr ""
+msgstr "Taɣbalut-a ur tettuheggi ara i unagraw-a. <a href=\"%(newLocation)s\">Snirem izegrar n Firefox i uselkim</a>."
 
 #: src/amo/pages/Addon/index.js:510
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+msgstr "Ulac-it deg Firefox i Android. Tzemreḍ ad tesqedceḍ azegrir-a i Firefox i uselkim,  issin ugar deg <a href=\"%(newLocation)s\">Izegrar Android</a> icuban ɣur-s."
 
 #: src/amo/pages/Addon/index.js:530
 msgid "Screenshots"
@@ -1721,7 +1721,7 @@ msgstr "Iceggiren i %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Asenqed d yiktazalen n %(addonName)s. Wali ayen i ttxemmimen iseqdacen-nniḍen ɣef %(addonName)s daɣen rnu tikti-ik ɣer yiminig-ik Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:231
 #, fuzzy
@@ -1772,8 +1772,8 @@ msgstr "Ulac tazmilt akka tura"
 #: src/amo/pages/AddonVersions/index.js:128
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(addonName)s azray n lqem - %(total)s azray"
+msgstr[1] "%(addonName)s azray n lqem - %(total)s ileqman"
 
 #: src/amo/pages/AddonVersions/index.js:176
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
