@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 15:54+0000\n"
+"PO-Revision-Date: 2020-03-26 16:24+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -997,14 +997,12 @@ msgid "Stay Safe Online"
 msgstr "Qqim d aɣelsan srid"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:280
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "Ticraḍ n isebtar"
+msgstr "Suddes iccaren-ik & ticraḍ n yisebtar"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "Sezmel tarmit-ik"
+msgstr "Snerni tamrmit-ik agetmidya"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
@@ -1147,19 +1145,16 @@ msgid "Log in to rate this add-on"
 msgstr "Qqen akken ad ternud tazmilt i uzegrir-agi"
 
 #: src/amo/components/RatingManager/index.js:173
-#, fuzzy
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Tebγiḍ s tidet ad tekseḍ tugna-agi?"
+msgstr "Tebɣiḍ ad tekkseḍ aceggir-ik n %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:178
-#, fuzzy
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "Tebγiḍ s tidet ad tekseḍ tugna-agi?"
+msgstr "Tebɣiḍ ad tekkseḍ tazmilt-ik n %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:183
-#, fuzzy
 msgid "How are you enjoying %(addonName)s?"
-msgstr "Amek tettwaliḍ aseqdec n %(addonName)s?"
+msgstr "Ahat %(addonName)s yeɛǧeb-ak?"
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
@@ -1174,23 +1169,20 @@ msgid "Read all five-star reviews"
 msgstr "Ɣer meṛṛa tikta n xemsa n yitran"
 
 #: src/amo/components/RatingsByStar/index.js:96
-#, fuzzy
 msgid "Read all four-star reviews"
-msgstr "Ɣeṛ %(count)s n ucegger"
+msgstr "Ɣer meṛṛa tikta n kuẓ n yitran"
 
 #: src/amo/components/RatingsByStar/index.js:97
 msgid "Read all three-star reviews"
 msgstr "Ɣer meṛṛa tikta n kraḍ n yitran"
 
 #: src/amo/components/RatingsByStar/index.js:98
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "Err i ucegger-agi"
+msgstr "Ɣer meṛṛa tikta n sin n yitran"
 
 #: src/amo/components/RatingsByStar/index.js:99
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "Ɣeṛ %(count)s n ucegger"
+msgstr "Ɣer meṛṛa tikta n yiwen n yitri"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
@@ -1261,19 +1253,16 @@ msgid "Search results"
 msgstr "Igmaḍ n unadi"
 
 #: src/amo/components/Search/index.js:121 src/amo/pages/Home/index.js:272 src/amo/pages/LandingPage/index.js:123
-#, fuzzy
 msgid "Recommended extensions"
-msgstr "Aff isiɣzaf"
+msgstr "Isiɣzaf yelhan"
 
 #: src/amo/components/Search/index.js:124 src/amo/pages/Home/index.js:335 src/amo/pages/LandingPage/index.js:155
-#, fuzzy
 msgid "Recommended themes"
-msgstr "Isental n unebdu"
+msgstr "Isental yelhan"
 
 #: src/amo/components/Search/index.js:127
-#, fuzzy
 msgid "Recommended add-ons"
-msgstr "Nadi isiɣzaf"
+msgstr "Izegrar yelhan"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:348 src/amo/pages/LandingPage/index.js:133
 msgid "Trending extensions"
@@ -1316,11 +1305,10 @@ msgid "Search results for \"%(query)s\""
 msgstr "Anadi γef usuter \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:105
-#, fuzzy
 msgid "%(count)s theme found in %(categoryName)s"
 msgid_plural "%(count)s themes found in %(categoryName)s"
-msgstr[0] "%(count)s n usentel yettwaf i \"%(query)s\""
-msgstr[1] "%(count)s n isental ttwafen i \"%(query)s\""
+msgstr[0] "%(count)s n usentel yettwaf deg %(categoryName)s"
+msgstr[1] "%(count)s n isental ttwafen deg %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:115
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1329,11 +1317,10 @@ msgstr[0] "%(count)s n usentel yettwaf i \"%(query)s\""
 msgstr[1] "%(count)s n isental ttwafen i \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:124
-#, fuzzy
 msgid "%(count)s theme found"
 msgid_plural "%(count)s themes found"
-msgstr[0] "%(count)s n usiɣzef yellan"
-msgstr[1] "%(count)s n isiγzaf yellan"
+msgstr[0] "%(count)s n usentel i yellan"
+msgstr[1] "%(count)s n yisental i yellan"
 
 #: src/amo/components/SearchContextCard/index.js:136
 msgid "%(count)s result found for \"%(query)s\""
