@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 17:01+0000\n"
+"PO-Revision-Date: 2020-03-26 17:12+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1869,10 +1869,12 @@ msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Ma txeddmeḍ s umata s ddeqs n yiccaren, teẓriḍ acḥal yewɛeṛ unadi gar uqettun n yiccarren ur nesɛi isem akken ad d-tafeḍ win tebɣiḍ. Isiɣzaf zemren ad ak-d-mudden tifrat akken ad tissineḍ ugar ad "
+"tesqedceḍ iccaren."
 
 #: src/amo/pages/Guides/index.js:145
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Ṣeggem daɣen wali iccaren-ik s wudem n useklu s udabder, deg ugalis adisan n Firefox."
 
 #: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
@@ -1880,11 +1882,11 @@ msgstr "Snirem ugar n yiziɣzaf ɣef %(linkStart)swaccaren%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Inig akken iwata ugar s ticraḍ n yisebtar yennernan"
 
 #: src/amo/pages/Guides/index.js:161
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
-msgstr ""
+msgstr "Isiɣzaf zemren ad ak-d-mudden tallelt deg usuddes n wayen i tḥemmleḍ srid. Imsefraken n tecraḍ n yisebtar lhan nezzeh i yimdanen i iṭṭafaṛen aṭas agbur."
 
 #: src/amo/pages/Guides/index.js:165
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
