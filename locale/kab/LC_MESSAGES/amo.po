@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 16:24+0000\n"
+"PO-Revision-Date: 2020-03-26 16:29+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1329,34 +1329,30 @@ msgstr[0] "%(count)s n ugmud yettwaf i \"%(query)s\""
 msgstr[1] "%(count)s n igmaḍ ttwafen \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:145
-#, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "%(count)s tiffin i \"%(query)s\""
-msgstr[1] "%(count)s tiffin i \"%(query)s\""
+msgstr[0] "%(count)s n ugmuḍ yettwaf"
+msgstr[1] "%(count)s n yigmaḍ ttwafen"
 
 #: src/amo/components/SearchContextCard/index.js:156
 msgid "Searching for \"%(query)s\""
 msgstr "Anadi γef usuter \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:160
-#, fuzzy
 msgid "Searching for add-ons"
-msgstr "Asali n iseγzaf"
+msgstr "Anadi n yizegrar"
 
 #: src/amo/components/SearchContextCard/index.js:55
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s n usiɣef yettwaf i \"%(query)s\""
-msgstr[1] "%(count)s n isiɣzaf ttwafen i \"%(query)s\""
+msgstr[0] "%(count)s n usentel yettwaf i \"%(query)s\" deg %(categoryName)s"
+msgstr[1] "%(count)s n yisental ttwafeni \"%(query)s\" deg %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:64
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(count)s n usiɣef yettwaf i \"%(query)s\""
-msgstr[1] "%(count)s n isiɣzaf ttwafen i \"%(query)s\""
+msgstr[0] "%(count)s n siɣzef yettwaf deg %(categoryName)s"
+msgstr[1] "%(count)s n yisiɣzaf ttwafen deg %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:74
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1365,18 +1361,16 @@ msgstr[0] "%(count)s n usiɣef yettwaf i \"%(query)s\""
 msgstr[1] "%(count)s n isiɣzaf ttwafen i \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:83
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
-msgstr[0] "%(count)s n usiɣzef yellan"
-msgstr[1] "%(count)s n isiγzaf yellan"
+msgstr[0] "%(count)s n usiɣzef yattwaf"
+msgstr[1] "%(count)s n isiγzaf ttwafen"
 
 #: src/amo/components/SearchContextCard/index.js:96
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s n usentel yettwaf i \"%(query)s\""
-msgstr[1] "%(count)s n isental ttwafen i \"%(query)s\""
+msgstr[0] "%(count)s n usentel yettwaf i \"%(query)s\" deg %(categoryName)s"
+msgstr[1] "%(count)s n usentel yettwaf i \"%(query)s\" deg %(categoryName)s"
 
 #: src/amo/components/SearchFilters/index.js:128 src/amo/components/SearchFilters/index.js:144
 msgid "All"
@@ -1439,19 +1433,16 @@ msgid "Operating System"
 msgstr "Anagraw n wammud"
 
 #: src/amo/components/SearchFilters/index.js:253
-#, fuzzy
 msgid "Recommended add-ons only"
-msgstr "Izegrrar itran kan"
+msgstr "Izegrar kan yelhan"
 
 #: src/amo/components/SearchForm/index.js:61
-#, fuzzy
 msgid "Firefox Add-ons (%(locale)s)"
-msgstr "Izegrar i Firefox"
+msgstr "Izegrar Firefox (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:67
-#, fuzzy
 msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr "Izegrar i Android"
+msgstr "Izegrar Firefox i Android (%(locale)s)"
 
 #: src/amo/components/SearchForm/index.js:94
 msgid "Go to the add-on page"
@@ -1484,9 +1475,8 @@ msgid "No results were found."
 msgstr "Ulac igmad yettwafen."
 
 #: src/amo/components/SearchSuggestion/index.js:52 src/ui/components/RecommendedBadge/index.js:28
-#, fuzzy
 msgid "Recommended"
-msgstr "Awennit n useqdac"
+msgstr "Yelha"
 
 #: src/amo/components/SectionLinks/index.js:108 src/amo/pages/LandingPage/index.js:230
 msgid "Extensions"
