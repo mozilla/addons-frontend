@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 15:53+0000\n"
+"PO-Revision-Date: 2020-03-26 15:54+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -896,18 +896,16 @@ msgid "Blog"
 msgstr "Ablug"
 
 #: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:96
-#, fuzzy
 msgid "Extension Workshop"
-msgstr "Isiɣzaf"
+msgstr "Tanemselt ɣef usiɣzef"
 
 #: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:106
 msgid "Developer Hub"
 msgstr "Tarbaɛt n ineflayen"
 
 #: src/amo/components/Footer/index.js:81
-#, fuzzy
 msgid "Developer Policies"
-msgstr "Tiririt n ineflayen"
+msgstr "Tasertit i yineflayen"
 
 #: src/amo/components/Footer/index.js:86
 msgid "Forum"
@@ -930,9 +928,8 @@ msgid "Download Firefox"
 msgstr "Sider Firefox"
 
 #: src/amo/components/Header/index.js:104
-#, fuzzy
 msgid "Submit and manage extensions and themes"
-msgstr "Ɛas aseqdec n usiɣzef n ugdil daɣen sefrek isental"
+msgstr "Azen daɣen sefrek isiɣzaf akked isental"
 
 #: src/amo/components/Header/index.js:119
 msgid "My Account"
@@ -979,19 +976,16 @@ msgid "Log out"
 msgstr "Tufɣa"
 
 #: src/amo/components/Header/index.js:63
-#, fuzzy
 msgid "Firefox Browser Add-ons"
-msgstr "Izegrar Firefox"
+msgstr "Izegrar i yiminig Firefox"
 
 #: src/amo/components/Header/index.js:94
-#, fuzzy
 msgid "Learn how to create extensions and themes"
-msgstr "Ɛas aseqdec n usiɣzef n ugdil daɣen sefrek isental"
+msgstr "Issin ad ternuḍ isiɣzaf akked isental"
 
 #: src/amo/components/HeroRecommendation/index.js:107
-#, fuzzy
 msgid "Get the extension"
-msgstr "Isiɣzaf yettwaszemlen"
+msgstr "Sbedd asiɣzef"
 
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:180
