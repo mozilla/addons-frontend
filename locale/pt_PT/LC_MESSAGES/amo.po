@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 23:02+0000\n"
+"PO-Revision-Date: 2020-03-26 23:20+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -861,9 +861,8 @@ msgid "Site Status"
 msgstr "Estado do site"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browsers"
-msgstr "Navegador"
+msgstr "Navegadores"
 
 #: src/amo/components/Footer/index.js:169
 msgid "Products"
@@ -1625,9 +1624,8 @@ msgid "About this add-on"
 msgstr "Acerca deste extra"
 
 #: src/amo/pages/Addon/index.js:316
-#, fuzzy
 msgid "Developer comments"
-msgstr "Políticas de programador"
+msgstr "Comentários do programador"
 
 #: src/amo/pages/Addon/index.js:336
 msgid "Release notes for %(addonVersion)s"
@@ -1650,9 +1648,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Este catálogo não é vocacionado para esta plataforma. <a href=\"%(newLocation)s\">Navegue nos extras para o Firefox para computadores</a>."
 
 #: src/amo/pages/Addon/index.js:510
-#, fuzzy
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "Não disponível no Firefox para Android. Pode utilizar este extra com o Firefox para computadores. Saber mais sobre <a href=\"%(newLocation)s\">extras para o Android</a>."
+msgstr "Não disponível no Firefox para Android. Pode utilizar este extra no Firefox para computadores. Saber mais sobre <a href=\"%(newLocation)s\">extras para o Android</a>."
 
 #: src/amo/pages/Addon/index.js:530
 msgid "Screenshots"
@@ -1735,9 +1732,8 @@ msgid "Older versions"
 msgstr "Versões antigas"
 
 #: src/amo/pages/Block/index.js:113
-#, fuzzy
 msgid "Versions blocked: all versions."
-msgstr "Ver todas as versões"
+msgstr "Versões bloqueadas: todas as versões."
 
 #: src/amo/pages/Block/index.js:116
 msgid "Versions blocked: %(min)s to %(max)s."
@@ -1748,9 +1744,8 @@ msgid "%(addonName)s has been blocked for your protection."
 msgstr "%(addonName)s foi bloqueado para a sua proteção."
 
 #: src/amo/pages/Block/index.js:143
-#, fuzzy
 msgid "This add-on has been blocked for your protection."
-msgstr "Este extra foi removido pelo autor."
+msgstr "Para sua proteção, este extra foi bloqueado."
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"
@@ -1758,29 +1753,32 @@ msgstr "Porque foi bloqueado?"
 
 #: src/amo/pages/Block/index.js:158
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Este extra viola as %(startLink)spolíticas de extras da Mozilla%(endLink)s."
 
 #: src/amo/pages/Block/index.js:170
 msgid "What does this mean?"
-msgstr ""
+msgstr "O que isto significa?"
 
 #: src/amo/pages/Block/index.js:172
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "Os extras ou plugins problemáticos serão automaticamente desativados e deixarão ser utilizáveis."
 
 #: src/amo/pages/Block/index.js:179
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Quando a Mozilla toma conhecimento de extras, plugins, ou software de terceiros que comprometem seriamente a segurança, estabilidade ou desempenho do Firefox e que reúnam "
+"%(criteriaStartLink)sdeterminados critérios%(criteriaEndLink)s, a utilização geral do software pode ser impedida. Para obter mais informações, por favor consulte %(supportStartLink)seste artigo de "
+"apoio%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:87
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "Bloqueado a %(date)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
-msgstr ""
+msgstr "Ver pedido de bloqueio"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
