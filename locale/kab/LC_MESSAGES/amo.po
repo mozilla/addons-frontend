@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 15:21+0000\n"
+"PO-Revision-Date: 2020-03-26 15:44+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -328,9 +328,8 @@ msgid "Keep reply"
 msgstr "Eǧǧ tiririt"
 
 #: src/amo/components/AddonReviewCard/index.js:262
-#, fuzzy
 msgid "Keep rating"
-msgstr "Aru acegger-iw"
+msgstr "Eǧǧ tazmilt"
 
 #: src/amo/components/AddonReviewCard/index.js:265
 #, fuzzy
