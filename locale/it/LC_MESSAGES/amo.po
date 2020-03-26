@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-24 18:55+0000\n"
-"Last-Translator: Francesco Lodolo <flod+pontoon@mozilla.com>\n"
+"PO-Revision-Date: 2020-03-26 10:54+0000\n"
+"Last-Translator: Michele Rodaro <michele.rodaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -865,7 +865,6 @@ msgid "Site Status"
 msgstr "Stato del sito"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browsers"
 msgstr "Browser"
 
@@ -1632,7 +1631,7 @@ msgstr "Informazioni sul componente aggiuntivo"
 
 #: src/amo/pages/Addon/index.js:316
 msgid "Developer comments"
-msgstr ""
+msgstr "Commenti dello sviluppatore"
 
 #: src/amo/pages/Addon/index.js:336
 msgid "Release notes for %(addonVersion)s"
@@ -1742,31 +1741,31 @@ msgstr "Versioni precedenti"
 
 #: src/amo/pages/Block/index.js:113
 msgid "Versions blocked: all versions."
-msgstr ""
+msgstr "Versioni bloccate: tutte le versioni."
 
 #: src/amo/pages/Block/index.js:116
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "Versioni bloccate: da %(min)s a %(max)s."
 
 #: src/amo/pages/Block/index.js:138
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "%(addonName)s è stato bloccato per motivi di sicurezza."
 
 #: src/amo/pages/Block/index.js:143
 msgid "This add-on has been blocked for your protection."
-msgstr ""
+msgstr "Questo componente aggiuntivo è stato bloccato per motivi di sicurezza."
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Perché è stato bloccato?"
 
 #: src/amo/pages/Block/index.js:158
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Questo componente aggiuntivo viola le %(startLink)spolitiche Mozilla sui componenti aggiuntivi%(endLink)s."
 
 #: src/amo/pages/Block/index.js:170
 msgid "What does this mean?"
-msgstr ""
+msgstr "Che cosa significa?"
 
 #: src/amo/pages/Block/index.js:172
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
@@ -1780,11 +1779,11 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:87
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "Bloccato il %(date)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
-msgstr ""
+msgstr "Visualizza la richiesta di blocco"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
