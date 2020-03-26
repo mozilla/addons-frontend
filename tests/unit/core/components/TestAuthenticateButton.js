@@ -182,6 +182,24 @@ describe(__filename, () => {
   });
 
   describe('createHandleLogOutFunction()', () => {
+    it('logs out a signed-in user on the client side even if the API returns an error', () => {
+      const error = api.createApiError({ response: { status: 401 } });
+      sinon.stub(api, 'logOutFromServer').returns(Promise.reject(error));
+
+      const { store, state } = dispatchSignInActions();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const handleLogOut = createHandleLogOutFunction(dispatchSpy);
+      const apiState = state.api;
+      // This makes sure the state contains a token because user is logged in.
+      expect(apiState.token).toBeTruthy();
+
+      return handleLogOut({ api: apiState }).then(() => {
+        sinon.assert.calledWith(api.logOutFromServer, { api: apiState });
+        sinon.assert.calledWith(dispatchSpy, logOutUser());
+      });
+    });
+
     it('logs out a signed-in user on the server and client sides', () => {
       sinon.stub(api, 'logOutFromServer').returns(Promise.resolve());
 
