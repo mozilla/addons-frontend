@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 16:52+0000\n"
+"PO-Revision-Date: 2020-03-26 17:01+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1908,7 +1908,7 @@ msgstr "Faṛes tagnit n usebter amaynut s ugilal udmawan, talɣut ɣef tegnawt 
 
 #: src/amo/pages/Guides/index.js:202
 msgid "Improve videos"
-msgstr ""
+msgstr "Snerni tividyutin"
 
 #: src/amo/pages/Guides/index.js:203
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
@@ -1920,7 +1920,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:217
 msgid "Get more out of media"
-msgstr ""
+msgstr "Faṛes tagnit seg yimidyaten ifazen"
 
 #: src/amo/pages/Guides/index.js:218
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
@@ -2188,22 +2188,20 @@ msgstr ""
 "daɣ aqaεed n tunigin ɣer ugbur Web, aya ad ibeddel tamuɣli-inek ɣef tunigin."
 
 #: src/amo/pages/StaticPages/About/index.js:37
-#, fuzzy
 msgid "If you are looking for add-ons for Thunderbird or SeaMonkey, please visit %(startTBLink)saddons.thunderbird.net%(endTBLink)s or %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
-msgstr "Seqdec AMO akken ad d-tafeḍ izegrar i Mozilla %(startTBLink)sThunderbird%(endTBLink)s akk d %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgstr "Ma tettnadiḍ izegrar i thunderbird neɣ SeaMonkey, rzu ma ulac aɣilif ɣer %(startTBLink)saddons.thunderbird.net%(endTBLink)s neɣ %(startSMLink)saddons.thunderbird.net/seamonkey%(endSMLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
 msgstr "Tabaɛt n yimenulfuyen"
 
 #: src/amo/pages/StaticPages/About/index.js:56
-#, fuzzy
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
 "Izegrar i d-ittwabedren dagi ttwarnan-d sɣur waṭas n ineflayen seg umaḍal meṛra, ama d imdanen neɣ d tikebbaniyen, kra n izegrar deg AMO fɣen-d s widem awurman ɣef aya zemren ad ttwazren i tikkelt-"
-"nnuḍen sɣur tarbaεt n imaẓragen."
+"nniḍen sɣur tarbaεt n yimaẓragen."
 
 #: src/amo/pages/StaticPages/About/index.js:65
 msgid "Get involved"
@@ -2392,9 +2390,8 @@ msgid "User Profile for %(user)s"
 msgstr "Amaɣnu n useqdac i %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:339
-#, fuzzy
 msgid "User Profile"
-msgstr "Leqqem amaɣnu"
+msgstr "Amaɣnu n useqdac"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:690
 msgid "Location"
@@ -2425,46 +2422,40 @@ msgid "Edit profile"
 msgstr "Ẓreg amaɣnu"
 
 #: src/amo/pages/UserProfile/index.js:447
-#, fuzzy
 msgid "Admin user"
-msgstr "TigIseɣwan n uzegrir"
+msgstr "Aseqdac anedbal"
 
 #: src/amo/pages/UserProfileEdit/index.js:198
 msgid "Picture successfully deleted"
 msgstr "Tawlaft tettwakkes akken iwata"
 
 #: src/amo/pages/UserProfileEdit/index.js:443
-#, fuzzy
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr "Meslay i yiseqdacen cwiṭ fell-ak. Akk urtan-a zemren ad ilin, acu kan ad mlen i yiseqdacen-nniḍen ayen tebɣiḍ akken ad k-issinen ugar."
+msgstr "Mmeslay i yiseqdacen cwiṭ fell-ak. Tuget n wurtan-a zemren ad ilin, maca ad mmlen i yiseqdacen-nniḍen ayen tebɣiḍ akken ad k-issinen ugar."
 
 #: src/amo/pages/UserProfileEdit/index.js:447
-#, fuzzy
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr "Meslay i yiseqdacen cwiṭ ɣef useqdac-agi. Akk urtan-a zemren ad ilin, acu kan ad mlen i yiseqdacen-nniḍen ayen tebɣiḍ akken ad k-issinen ugar %(username)s."
+msgstr "Meslay i yiseqdacen cwiṭ ɣef useqdac-agi. Akk urtan-a zemren ad ilin, acu kan ad mlen i yiseqdacen-nniḍen ayen tebɣiḍ akken ad k-issinen ugar %(userName)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:462
 msgid "Introduce yourself to the community if you like"
 msgstr "Qeddem iman-ik ar terbaɛt i tebɣiḍ"
 
 #: src/amo/pages/UserProfileEdit/index.js:463
-#, fuzzy
 msgid "Introduce %(userName)s to the community"
-msgstr "Qeddem %(username)s ar terbaɛt"
+msgstr "Mmeslay ɣef %(userName)s  i terbaɛt"
 
 #: src/amo/pages/UserProfileEdit/index.js:490
 msgid "Log in to edit the profile"
 msgstr "Qqen akken ad tẓergeḍ amaɣnu"
 
 #: src/amo/pages/UserProfileEdit/index.js:512
-#, fuzzy
 msgid "Creating your profile…"
-msgstr "Aleqqem n umiḍan-ik…"
+msgstr "Timerna n umaɣnu-ik…"
 
 #: src/amo/pages/UserProfileEdit/index.js:513
-#, fuzzy
 msgid "Create My Profile"
-msgstr "Ẓreg amaɣnu-iw"
+msgstr "Rnu amaɣnu-iw"
 
 #: src/amo/pages/UserProfileEdit/index.js:517
 msgid "Updating your profile…"
@@ -2495,9 +2486,8 @@ msgid "Account"
 msgstr "Amiḍan"
 
 #: src/amo/pages/UserProfileEdit/index.js:574
-#, fuzzy
 msgid "Account for %(userName)s"
-msgstr "Amiḍan i %(username)s"
+msgstr "Amiḍan i %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:581
 msgid "Email Address"
@@ -2524,14 +2514,12 @@ msgid "This field is required"
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:636
-#, fuzzy
 msgid "Display Name *"
-msgstr "Isem n uskan"
+msgstr "Isem n uskan *"
 
 #: src/amo/pages/UserProfileEdit/index.js:652
-#, fuzzy
 msgid "Reviewer Name"
-msgstr "Aḍris n ucegger"
+msgstr "Isem n umcegger"
 
 #: src/amo/pages/UserProfileEdit/index.js:685
 msgid "This URL will only be visible for users who are developers."
@@ -2606,9 +2594,8 @@ msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if
 msgstr "%(strongStart)sNOTE:%(strongEnd)s Ur tezmireḍ ara ad tekkseḍ amiḍan n useqdac ma yella aseqdac d %(linkStart)sameskar n walbaɛḍ n yizegrar%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
-#, fuzzy
 msgid "You are successfully unsubscribed!"
-msgstr "Tawlaft tettwakkes akken iwata"
+msgstr "Tuffɣa seg ujerred tedda!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:121
@@ -2664,19 +2651,16 @@ msgid "Enabling"
 msgstr "Rmed"
 
 #: src/core/components/AMInstallButton/index.js:201
-#, fuzzy
 msgid "Downloading"
-msgstr "Assali n %(name)s."
+msgstr "Asader"
 
 #: src/core/components/AMInstallButton/index.js:203
-#, fuzzy
 msgid "Installing"
-msgstr "Asbeddi n %(name)s."
+msgstr "Asbeddi"
 
 #: src/core/components/AMInstallButton/index.js:205
-#, fuzzy
 msgid "Uninstalling"
-msgstr "Asbeddi n %(name)s."
+msgstr "Tukksa n usebeddi"
 
 #: src/core/components/AMInstallButton/index.js:213
 msgid "Install Theme"
@@ -2708,16 +2692,15 @@ msgstr "Suref-aɣ, ur nezmir ara ad d-naf ayen tebɣiḍ di tensa URL i d-mudded
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s yettwarna"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Sefrek izegrar-ik s utekki ɣef Izegrar deg umuɣ."
 
 #: src/core/components/InfoDialog/index.js:88
-#, fuzzy
 msgid "OK"
-msgstr "IH!"
+msgstr "IH"
 
 #: src/core/components/Paginate/index.js:137
 msgid "Previous"
@@ -2733,7 +2716,7 @@ msgstr "Asebter %(currentPage)s seg %(totalPages)s"
 
 #: src/core/components/SiteNotices/index.js:66
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
-msgstr ""
+msgstr "Kra n tmahilin nsant akka tura skudd nettṣeggim asmel-nneɣ. Ad d-nuɣal akka kra n wakud."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
@@ -2791,19 +2774,16 @@ msgid "Download failed. Please check your connection."
 msgstr ""
 
 #: src/core/utils/addons.js:39
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Teḍra-d tuccḍa tarussint"
+msgstr "Teḍra-d tuccḍa tarussint deg usbeddi."
 
 #: src/core/utils/addons.js:41
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Teḍra-d tuccḍa tarussint"
+msgstr "Teḍra-d tuccḍa tarussint deg tukksa n usbeddi."
 
 #: src/core/utils/addons.js:46
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Teḍra-d tuccḍa tarussint"
+msgstr "Teḍra-d tuccḍa."
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"

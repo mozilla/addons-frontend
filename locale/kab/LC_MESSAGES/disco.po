@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:38+0000\n"
-"PO-Revision-Date: 2020-03-26 16:36+0000\n"
+"PO-Revision-Date: 2020-03-26 16:59+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: kab\n"
@@ -27,19 +27,16 @@ msgid "Enabling"
 msgstr "Armad iteddu"
 
 #: src/core/components/AMInstallButton/index.js:201
-#, fuzzy
 msgid "Downloading"
-msgstr "Asider n %(name)s."
+msgstr "Asader"
 
 #: src/core/components/AMInstallButton/index.js:203
-#, fuzzy
 msgid "Installing"
-msgstr "Asebded n %(name)s."
+msgstr "Asebded iteddu"
 
 #: src/core/components/AMInstallButton/index.js:205
-#, fuzzy
 msgid "Uninstalling"
-msgstr "Tukksa n %(name)s."
+msgstr "Tukksa n usbeddi"
 
 #: src/core/components/AMInstallButton/index.js:213
 msgid "Install Theme"
@@ -78,9 +75,8 @@ msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr "Sefrek izegrar-ik s utekki ɣef Izegrar deg umuɣ."
 
 #: src/core/components/InfoDialog/index.js:88
-#, fuzzy
 msgid "OK"
-msgstr "IH!"
+msgstr "IH"
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -206,9 +202,8 @@ msgid "Dismiss this notice"
 msgstr "Sɛuzẓeg i walɣu-agi"
 
 #: src/ui/components/ThemeImage/index.js:31
-#, fuzzy
 msgid "Preview of %(title)s"
-msgstr "Taskant n %(name)s"
+msgstr "Taskant n %(title)s"
 
 #~ msgid "Downloading %(name)s."
 #~ msgstr "Asider n %(name)s."
