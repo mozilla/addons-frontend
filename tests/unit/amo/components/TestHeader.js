@@ -5,7 +5,7 @@ import Link from 'amo/components/Link';
 import { makeQueryStringWithUTM } from 'amo/utils';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import DropdownMenu from 'ui/components/DropdownMenu';
-import { loadSiteStatus } from 'core/reducers/site';
+import { loadSiteStatus, loadedPageIsAnonymous } from 'core/reducers/site';
 import {
   createFakeEvent,
   createFakeLocation,
@@ -203,5 +203,23 @@ describe(__filename, () => {
 
     expect(root.find('.Header-logout-button')).toHaveProp('disabled', false);
     expect(root.find('.Header-logout-button')).toHaveProp('title', null);
+  });
+
+  it('does not render a menu when the loaded page is anonymous and user is logged in', () => {
+    const { store } = dispatchSignInActions();
+    store.dispatch(loadedPageIsAnonymous());
+
+    const root = renderHeader({ store });
+
+    expect(root.find(DropdownMenu)).toHaveLength(0);
+  });
+
+  it('does not render a menu when the loaded page is anonymous and user is logged out', () => {
+    const { store } = dispatchClientMetadata();
+    store.dispatch(loadedPageIsAnonymous());
+
+    const root = renderHeader({ store });
+
+    expect(root.find(AuthenticateButton)).toHaveLength(0);
   });
 });

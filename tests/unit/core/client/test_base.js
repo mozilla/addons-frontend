@@ -1,7 +1,11 @@
+import { createBrowserHistory } from 'history';
+import serialize from 'serialize-javascript';
+
 import createAmoStore from 'amo/store';
 import { setRequestId } from 'core/actions';
 import createClient from 'core/client/base';
 import { getSentryRelease } from 'core/utils/sentry';
+import { loadedPageIsAnonymous } from 'core/reducers/site';
 import { getFakeConfig, createFakeTracking } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -128,6 +132,31 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(_tracking.setPage, pathname);
       sinon.assert.calledWith(_tracking.pageView, { title: '' });
+    });
+
+    it('creates a browser history', async () => {
+      const _createBrowserHistory = sinon.spy(createBrowserHistory);
+
+      await _createClient({ _createBrowserHistory });
+
+      sinon.assert.calledWith(_createBrowserHistory, { forceRefresh: false });
+    });
+
+    it('reads the initial state when creating a browser history', async () => {
+      const _createBrowserHistory = sinon.spy(createBrowserHistory);
+      const { store } = createAmoStore();
+      store.dispatch(loadedPageIsAnonymous());
+      // This simulates what the `ServerHtml` component would do (i.e.
+      // serializing the server redux state in the HTML).
+      document.body.innerHTML = `
+        <script type="application/json" id="redux-store-state">
+          ${serialize(store.getState(), { isJSON: true })}
+        </script>
+      `;
+
+      await _createClient({ _createBrowserHistory });
+
+      sinon.assert.calledWith(_createBrowserHistory, { forceRefresh: true });
     });
   });
 });

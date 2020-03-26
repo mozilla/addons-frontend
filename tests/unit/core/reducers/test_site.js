@@ -1,4 +1,8 @@
-import reducer, { initialState, loadSiteStatus } from 'core/reducers/site';
+import reducer, {
+  initialState,
+  loadSiteStatus,
+  loadedPageIsAnonymous,
+} from 'core/reducers/site';
 
 describe(__filename, () => {
   describe('reducer', () => {
@@ -14,7 +18,15 @@ describe(__filename, () => {
 
       const state = reducer(undefined, loadSiteStatus({ readOnly, notice }));
 
-      expect(state).toMatchObject({ readOnly, notice });
+      expect(state).toEqual(expect.objectContaining({ readOnly, notice }));
+    });
+
+    it('marks the loaded page as anonymous', () => {
+      const state = reducer(undefined, loadedPageIsAnonymous());
+
+      expect(state).toEqual(
+        expect.objectContaining({ loadedPageIsAnonymous: true }),
+      );
     });
   });
 });
