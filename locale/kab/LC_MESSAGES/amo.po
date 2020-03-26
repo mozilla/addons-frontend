@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 18:17+0000\n"
+"PO-Revision-Date: 2020-03-26 18:32+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1975,6 +1975,8 @@ msgstr "Rnu daɣen sefrek awalen uffiren iǧehden."
 #: src/amo/pages/Guides/index.js:81
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
 msgstr ""
+"Imsefraken n wawalen uffiren zemren ad ak-d-mudden tallelt ad ternuḍ awalen uffiren iɣelsanen, ad teskelseḍ awalen-ik uffiren (s wudem aɣelsan) deg yiwen n umḍiq daɣen ad tkecmeḍ ɣur-sen s wudem "
+"fessusen, sekra wanida telliḍ."
 
 #: src/amo/pages/Guides/index.js:86
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
@@ -2519,7 +2521,7 @@ msgstr "Amɣnu"
 
 #: src/amo/pages/UserProfileEdit/index.js:633
 msgid "This field is required"
-msgstr ""
+msgstr "Urti agi ilaq ad yili"
 
 #: src/amo/pages/UserProfileEdit/index.js:636
 msgid "Display Name *"
@@ -2608,7 +2610,7 @@ msgstr "Tuffɣa seg ujerred tedda!"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:121
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "Tansa n yimayl %(strongStart)s%(email)s%(strongEnd)s will no longer get messages whenur d-tremmes ara iznan ticki:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:38+0000\n"
-"PO-Revision-Date: 2020-03-26 16:59+0000\n"
+"PO-Revision-Date: 2020-03-26 18:32+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: kab\n"
@@ -115,7 +115,7 @@ msgstr "Iteddu d %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:31
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "Asbeddi yefsex, acku azegrir yettban yexṣer."
 
 #: src/core/utils/addons.js:35
 msgid "Installation failed. Please try again."
