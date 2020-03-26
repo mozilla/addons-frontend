@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 18:38+0000\n"
+"PO-Revision-Date: 2020-03-26 18:54+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1980,7 +1980,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:86
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
-msgstr ""
+msgstr "Ammesten s wawal uffir awgelhan meṛṛa. Sekles isefka-ik s wudem aɣelsan daɣen kcem ɣer yinekcam-ik seg yibenk ɣer wayeḍ."
 
 #: src/amo/pages/Guides/index.js:90
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
@@ -1994,6 +1994,8 @@ msgstr "Sewḥel adellel udhim"
 msgid ""
 "Today’s web is tangled up with unwanted advertisements that get in your way and slow you down. Ad-blocking extensions can block or filter those ads so you can get back to distraction-free browsing."
 msgstr ""
+"Ass-a, Web ulint-t tsellufin s udellel ur nelhi ara i isluɣuyen lxaṭer daɣen isaẓẓay tunigin. Kra n yisiɣzaf zemren ad sweḥlen neɣ ad sizdegen adellel-a akken ad k-yeǧǧ ad tuɣaleḍ ɣer tunigin s war "
+"adegger n wakud."
 
 #: src/amo/pages/Home/index.js:138
 msgid "Abstract"
@@ -2379,15 +2381,15 @@ msgstr "Iceggiren-iw"
 
 #: src/amo/pages/UserProfile/index.js:269
 msgid "The profile of %(user)s, a Firefox extension and theme author. Find other apps by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Amaɣnu n %(user)s, ameskar n yiziɣzaf akked isental i Firefox. Af-d isnasen-nniḍen n %(user)s, tazmilt-is talemmast, azemz n ujerred-is akked tummla n wuguren."
 
 #: src/amo/pages/UserProfile/index.js:273
 msgid "The profile of %(user)s, Firefox extension author. Find other extensions by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Amaɣnu n %(user)s, ameskar n yiziɣzaf Firefox. Af-d isiɣzaf-nniḍen n %(user)s, tazmilt-is talemmast, azemz n ujerred-is akked tummla n wuguren."
 
 #: src/amo/pages/UserProfile/index.js:277
 msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(user)s, including average ratings, tenure, and the option to report issues."
-msgstr ""
+msgstr "Amaɣnu n %(user)s, ameskar n yisental n Firefox. Af-d isental-nniḍen n %(user)s, tazmilt-is talemmast, azemz n ujerred-is akked tummla n wuguren."
 
 #: src/amo/pages/UserProfile/index.js:316
 msgid "Add-ons developer"
