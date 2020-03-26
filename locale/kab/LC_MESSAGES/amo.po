@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 17:27+0000\n"
+"PO-Revision-Date: 2020-03-26 17:53+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1918,7 +1918,7 @@ msgstr "Ma tḥemmleḍ igburen n uvidyu, isiɣzaf ad ak-ǧǧen ad tesnerniḍ t
 
 #: src/amo/pages/Guides/index.js:208
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
-msgstr ""
+msgstr "Rnu afeggag n usenqed i yisebtar-ik n Youtube akken ad tizmireḍ s wudem fessusen ad tṣeggmeḍ ableɣ, tasɣiwelt n tquri, teɣzi n umeɣri n uvidyu, asewḥel n udellel akked iwenniten, atg."
 
 #: src/amo/pages/Guides/index.js:217
 msgid "Get more out of media"
@@ -2606,7 +2606,7 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Tzemreḍ ad tbeddleḍ iɣewwaren-ik n yilɣa %(linkStart)ss ubeddel n umaɣnu-ik%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
@@ -2765,7 +2765,7 @@ msgstr "Iteddu d %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:31
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "Asbeddi yefsex, acku azegrir yettban yexṣer."
 
 #: src/core/utils/addons.js:35
 msgid "Installation failed. Please try again."
@@ -2865,7 +2865,7 @@ msgstr "Ulac tazmilt akka tura"
 
 #: src/ui/components/RecommendedBadge/index.js:43
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "Firefox ur ittwelleh ala isiɣzaf yemṣadan d yilugan-nneɣ icudden ɣer tɣellist akked timellit."
 
 #: src/ui/components/ShowMoreCard/index.js:133
 msgid "Expand to read more"
