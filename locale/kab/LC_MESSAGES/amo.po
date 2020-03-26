@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 14:05+0000\n"
+"PO-Revision-Date: 2020-03-26 14:12+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -787,6 +787,8 @@ msgid ""
 "Mozilla removed it. This can happen when issues are found during the review of the extension or theme, or the extension or theme has been abusing the terms and conditions for addons.mozilla.org. The"
 " developer has the opportunity to resolve the issues and make the add-on available again."
 msgstr ""
+"Mozilla tekkes-it. Aya yezmer ad d-yeḍru ticki uguren ttwafen deg lqem n uzegrir neɣ n usentel, neɣ ma yella asiɣzef neɣ asentel ur iqudeṛ ara ilugan n addons.mozilla.org. Aneflay ɣur-s tagnit akken"
+" ad yefru uguren-a, sakin ad d-yerr azegrir."
 
 #: src/amo/components/Errors/ServerError/index.js:21
 msgid ""
@@ -816,7 +818,7 @@ msgstr "Iceggiren i %(addonName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
-msgstr ""
+msgstr "Tikti ur tettwaf ara."
 
 #: src/amo/components/FlagReviewMenu/index.js:103
 msgid "This is a bug report or support request"
@@ -1777,11 +1779,11 @@ msgstr[1] "%(addonName)s azray n lqem - %(total)s ileqman"
 
 #: src/amo/pages/AddonVersions/index.js:176
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "Ɣur-k ɣef yileqman yezrin! TTwaseknen-d kan i usekyed akked umuqel."
 
 #: src/amo/pages/AddonVersions/index.js:181
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "Yessefk yal tikkelt ad tesqedceḍ lqem aneggaru n uzegrir."
 
 #: src/amo/pages/AddonVersions/index.js:190
 #, fuzzy
@@ -1800,11 +1802,11 @@ msgstr "Wali akk ileqman"
 
 #: src/amo/pages/Block/index.js:116
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "Ileqman iweḥlen: %(min)s ɣer %(max)s."
 
 #: src/amo/pages/Block/index.js:138
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "%(addonName)s yewḥel ɣef sebba n tɣellist."
 
 #: src/amo/pages/Block/index.js:143
 #, fuzzy
@@ -1813,15 +1815,15 @@ msgstr "Azegrir-agi yekkes-it umeskar-is."
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Acuɣer yewḥel?"
 
 #: src/amo/pages/Block/index.js:158
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Izegra-a ur ttqadaṛen ara %(startLink)s ilugan n Mozilla deg yizegrar%(endLink)s."
 
 #: src/amo/pages/Block/index.js:170
 msgid "What does this mean?"
-msgstr ""
+msgstr "D acu yebɣa ad d-yini waya?"
 
 #: src/amo/pages/Block/index.js:172
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
