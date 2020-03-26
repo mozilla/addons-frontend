@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 18:32+0000\n"
+"PO-Revision-Date: 2020-03-26 18:38+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -2144,6 +2144,8 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Tebɣiḍ asihel n temyigawt d addons.mozilla.org (AMO)? Wali %(startAddonsServerDocumentation)stasemlit n yiqaddacen n yizegrar %(endAddonsServerDocumentation)s ɣef wugar n yisallen ɣef yisnasen APIs "
+"i yesseqdac AMO akked %(startAddonsManager)sumsefrak n yizegrar%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -2183,7 +2185,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Asmel unṣib n Mozilla i usader n yisiɣzaf akked isental n Firefox. Rnu timahilin timaynutin daɣen beddel udem n yiminig-ik akken ad tesɛut tarmit web tudmawant."
 
 #: src/amo/pages/StaticPages/About/index.js:215
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
@@ -2287,7 +2289,7 @@ msgstr "Amnir n ucegger"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Iwellihen, tixbula akked isteqisyen i d-yettuɣalen s waṭas akken ad teǧǧeḍ awennit ɣef yiziɣzaf akked isental i d-tessadreḍ daɣen i tesqedceḍ deg Firefox."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
