@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 11:13+0000\n"
+"PO-Revision-Date: 2020-03-26 11:14+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -1648,7 +1648,6 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Ez a felsorolás nem erre a platformra szól. <a href=\"%(newLocation)s\">Böngéssze az asztali Firefox kiegészítőket</a>."
 
 #: src/amo/pages/Addon/index.js:510
-#, fuzzy
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
 msgstr "A Firefox for Androidhoz nem érhető el. Ezt a kiegészítőt az asztali Firefoxszal használhatja. Tudjon meg többet az <a href=\"%(newLocation)s\">androidos kiegészítőkről</a>."
 
@@ -1775,11 +1774,11 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:87
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "Blokkolás ideje: %(date)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
-msgstr ""
+msgstr "Blokkolási kérés megtekintése"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
