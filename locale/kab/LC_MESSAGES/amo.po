@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 15:44+0000\n"
+"PO-Revision-Date: 2020-03-26 15:53+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -332,9 +332,8 @@ msgid "Keep rating"
 msgstr "Eǧǧ tazmilt"
 
 #: src/amo/components/AddonReviewCard/index.js:265
-#, fuzzy
 msgid "Keep review"
-msgstr "Aru acegger-iw"
+msgstr "Eǧǧ aceggir"
 
 #: src/amo/components/AddonReviewCard/index.js:301
 msgid "Write a reply to this review."
@@ -357,14 +356,12 @@ msgid "Publishing reply"
 msgstr "Asuffeɣ n tririt"
 
 #: src/amo/components/AddonReviewCard/index.js:353
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "sγur %(timestamp)s"
+msgstr "yeffeɣ-d deg %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:355
-#, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "sγur %(authorName)s, %(timestamp)s"
+msgstr "sɣur %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:447
 msgid "Deleting…"
@@ -383,42 +380,36 @@ msgid "Write a review"
 msgstr "Aru acegger"
 
 #: src/amo/components/AddonReviewManager/index.js:111
-#, fuzzy
 msgid "Write about your experience with this add-on."
-msgstr "Aru am akken tettemslayeḍ akked umdakkel ɣef useqdec n uzegrir."
+msgstr "Aru-d qef termit-ik akked uzegrir-a."
 
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Submit review"
 msgstr "Azen acegger"
 
 #: src/amo/components/AddonReviewManager/index.js:116
-#, fuzzy
 msgid "Submitting review"
-msgstr "Azen acegger"
+msgstr "Azen aceggir"
 
 #: src/amo/components/AddonReviewManager/index.js:120
-#, fuzzy
 msgid "Update review"
-msgstr "Leqqem amaɣnu"
+msgstr "Beddel tikti"
 
 #: src/amo/components/AddonReviewManager/index.js:123
-#, fuzzy
 msgid "Updating review"
-msgstr "Snifel tiririt"
+msgstr "Abeddel n tikti"
 
 #: src/amo/components/AddonReviewManager/index.js:144
 msgid "Saving"
 msgstr "Aklas"
 
 #: src/amo/components/AddonReviewManager/index.js:145
-#, fuzzy
 msgid "Saved"
-msgstr "Sekles"
+msgstr "Yettwasekles"
 
 #: src/amo/components/AddonReviewManager/index.js:89
-#, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s ilugan-nneɣ n usuffeɣ %(linkEnd)s."
+msgstr "Ma ulac aɣilif, ḍfeṛ %(linkStart)samnir n ucegger%(linkEnd)s-nneɣ."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
@@ -509,11 +500,10 @@ msgid "Add-on icon"
 msgstr "Tignit n uzegrir"
 
 #: src/amo/components/AddonSummaryCard/index.js:70
-#, fuzzy
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] "Yettwasezmel %(rating)s ɣef 5"
-msgstr[1] "Yettwasezmel %(rating)s ɣef 5"
+msgstr[0] "%(rating)s n yitri ɣef 5"
+msgstr[1] "%(rating)s n yitran ɣef 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:45
@@ -526,24 +516,20 @@ msgid "by"
 msgstr "sγur"
 
 #: src/amo/components/AddonVersionCard/index.js:103
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "sγur %(timestamp)s"
+msgstr "Tangalt taɣbalut teffeɣ-d s turagt %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:114
-#, fuzzy
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
-msgstr "sγur %(timestamp)s"
+msgstr "Tangalt taɣbalut teffeɣ-d s %(linkStart)s Turagt tudmawant%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:141
-#, fuzzy
 msgid "Source code released under %(licenseName)s"
-msgstr "sγur %(timestamp)s"
+msgstr "Tangalt taɣbalut teffeɣ-d s turagt %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:51
-#, fuzzy
 msgid "No version found"
-msgstr "Ulac iseγzaf"
+msgstr "Ulac lqem yettwafen"
 
 #: src/amo/components/AddonVersionCard/index.js:59
 msgid "Version %(versionNumber)s"
@@ -554,24 +540,20 @@ msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Yeffeɣ-d deg %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:185 src/amo/components/HeadMetaTags/index.js:79
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Izegrar i Firefox"
+msgstr "Izegrar i Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:189 src/amo/components/HeadMetaTags/index.js:73
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%s - Izegrar i Firefox"
+msgstr "%(title)s – Izegrar i Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:197 src/amo/components/HeadMetaTags/index.js:78
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Izegrar i Firefox"
+msgstr "Izegrar i Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:201 src/amo/components/HeadMetaTags/index.js:72
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%s - Izegrar i Firefox"
+msgstr "%(title)s – Izegrar i Firefox Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:216
 msgid "Loading"
@@ -602,9 +584,8 @@ msgid "Added to collection"
 msgstr "Yerna ar tegrumma"
 
 #: src/amo/components/CollectionAddAddon/index.js:160
-#, fuzzy
 msgid "Removed from collection"
-msgstr "Yerna ar tegrumma"
+msgstr "Kkes seg tgrumma"
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Find an add-on to include in this collection"
@@ -615,14 +596,12 @@ msgid "Edit this collection"
 msgstr "Ẓreg tagrumma-agi"
 
 #: src/amo/components/CollectionDetails/index.js:114
-#, fuzzy
 msgid "Edit collection details"
-msgstr "Inig akk taggayt"
+msgstr "Ẓreg talqayt n tegrumma"
 
 #: src/amo/components/CollectionDetails/index.js:126
-#, fuzzy
 msgid "Back to collection"
-msgstr "Rnu ar tegrumma"
+msgstr "Uɣal ɣer tegrumma"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:48
 msgid "Add-ons"
@@ -733,9 +712,8 @@ msgid "Remove"
 msgstr "Kkes"
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
-#, fuzzy
 msgid "Collector's note"
-msgstr "Isem n tegrumma"
+msgstr "Tazmilt n tegrumma"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
@@ -806,14 +784,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Suref-aɣ, teḍra-d tuccḍadeg uqeddac-nneɣ ihi ur nezmir ara ad d-nerr i usuter-ik. Nsekles tuccḍa-agi akken ad nnadi tifrat."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "Iceggiren i %(addonName)s"
+msgstr "Tiririt sɣur %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "Iceggiren i %(addonName)s"
+msgstr "Icegger-it %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
@@ -880,14 +856,12 @@ msgid "Site Status"
 msgstr "Addad n usmel"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browsers"
-msgstr "Iminig iOS"
+msgstr "Iminigen"
 
 #: src/amo/components/Footer/index.js:169
-#, fuzzy
 msgid "Products"
-msgstr "Tiffurest"
+msgstr "Ifarisen"
 
 #: src/amo/components/Footer/index.js:266
 msgid "Privacy"
