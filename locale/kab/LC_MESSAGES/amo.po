@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 16:40+0000\n"
+"PO-Revision-Date: 2020-03-26 16:52+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1693,16 +1693,14 @@ msgid "Reviews for %(addonName)s"
 msgstr "Iceggiren i %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:289
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s aseqdac"
-msgstr[1] "%(total)s iseqdacen"
+msgstr[0] "%(total)s n ucegger"
+msgstr[1] "%(total)s n yiceggiren"
 
 #: src/amo/pages/AddonReviewList/index.js:388
-#, fuzzy
 msgid "There are no reviews"
-msgstr "Ulac tazmilt akka tura"
+msgstr "Ulac iceggiren akka tura"
 
 #: src/amo/pages/AddonVersions/index.js:128
 msgid "%(addonName)s version history - %(total)s version"
@@ -1719,19 +1717,16 @@ msgid "You should always use the latest version of an add-on."
 msgstr "Yessefk yal tikkelt ad tesqedceḍ lqem aneggaru n uzegrir."
 
 #: src/amo/pages/AddonVersions/index.js:190
-#, fuzzy
 msgid "Latest version"
-msgstr "Ileqman Beta"
+msgstr "Lqem aneggaru"
 
 #: src/amo/pages/AddonVersions/index.js:199
-#, fuzzy
 msgid "Older versions"
-msgstr "Wali akk ileqman"
+msgstr "Ileqman iqbuṛen"
 
 #: src/amo/pages/Block/index.js:113
-#, fuzzy
 msgid "Versions blocked: all versions."
-msgstr "Wali akk ileqman"
+msgstr "Ileqman i iweḥlen: meṛṛa ileqman."
 
 #: src/amo/pages/Block/index.js:116
 msgid "Versions blocked: %(min)s to %(max)s."
@@ -1742,9 +1737,8 @@ msgid "%(addonName)s has been blocked for your protection."
 msgstr "%(addonName)s yewḥel ɣef sebba n tɣellist."
 
 #: src/amo/pages/Block/index.js:143
-#, fuzzy
 msgid "This add-on has been blocked for your protection."
-msgstr "Azegrir-agi yekkes-it umeskar-is."
+msgstr "Azegrir-a yewḥel ɣef sebba n tɣellist."
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"
@@ -1779,14 +1773,12 @@ msgid "View block request"
 msgstr "Sken asuter n usewḥel"
 
 #: src/amo/pages/CategoriesPage/index.js:35
-#, fuzzy
 msgid "All extension categories"
-msgstr "Inig γer akk isiɣzaf di taggayt-ag."
+msgstr "Akk taggayin n yisiɣzaf"
 
 #: src/amo/pages/CategoriesPage/index.js:37
-#, fuzzy
 msgid "All theme categories"
-msgstr "Wali akk taggayin"
+msgstr "Akk taggayin n yisental"
 
 #: src/amo/pages/Collection/index.js:392
 msgid "Do you really want to delete this collection?"
@@ -1849,9 +1841,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr "Amsewḥal n udellel afessas, maca ixeddem ccɣel-is. uBlock Origin, isemras agimen n yimsizdigen n ugbur maca yettaṭṭaf drus n tkatut."
 
 #: src/amo/pages/Guides/index.js:109
-#, fuzzy
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s ilugan-nneɣ n usuffeɣ %(linkEnd)s."
+msgstr "Snirem ugar n %(linkStart)syimsewḥal n udellel%(linkEnd)s igerrzen."
 
 #: src/amo/pages/Guides/index.js:117
 msgid "Stop online trackers from stalking you"
@@ -1866,9 +1857,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr "Ɛzel timagit-ik Facebook deg “umagbar” imgaraden ad tesweḥleḍ Facebook akken ur yeṭṭafaṛ ara armud-ik beṛṛa n uẓeṭṭa-is."
 
 #: src/amo/pages/Guides/index.js:127
-#, fuzzy
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s ilugan-nneɣ n usuffeɣ %(linkEnd)s."
+msgstr "Snirem ugar n yiziɣzaf igerrzen ɣef %(linkStart)stbadnit & tɣellist%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
@@ -1885,9 +1875,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
-#, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s ilugan-nneɣ n usuffeɣ %(linkEnd)s."
+msgstr "Snirem ugar n yiziɣzaf ɣef %(linkStart)swaccaren%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
@@ -1902,9 +1891,8 @@ msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bo
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:168
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s ilugan-nneɣ n usuffeɣ %(linkEnd)s."
+msgstr "Snirem ugar n yisiɣzaf ɣef %(linkStart)sticraḍ n yisebtar%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a fresh new tab experience"
@@ -1915,9 +1903,8 @@ msgid "Start each browsing session tailored just for you by customizing your new
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:184
-#, fuzzy
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-msgstr "Faṛes tagnit seg usebter n yiccer amaynut s igilalen udmawanen, tagnawt tadigant & wayen-nniḍen"
+msgstr "Faṛes tagnit n usebter amaynut s ugilal udmawan, talɣut ɣef tegnawt tadigant d ayen-nniḍen."
 
 #: src/amo/pages/Guides/index.js:202
 msgid "Improve videos"
@@ -1986,14 +1973,12 @@ msgid "Fully encrypted password protection. Store your data securely and access 
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:90
-#, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStart)s ilugan-nneɣ n usuffeɣ %(linkEnd)s."
+msgstr "Snirem ugar %(linkStart)syimsefraken n wawalen uffiren%(linkEnd)s igerrzen."
 
 #: src/amo/pages/Guides/index.js:98
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "Sewḥel adellel"
+msgstr "Sewḥel adellel udhim"
 
 #: src/amo/pages/Guides/index.js:99
 msgid ""
@@ -2033,47 +2018,40 @@ msgid "Download Firefox extensions and themes. They’re like apps for your brow
 msgstr ""
 
 #: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
-#, fuzzy
 msgid "See more recommended extensions"
-msgstr "Ugar n yisiɣzaf itran"
+msgstr "Wali ugar n yisiɣzaf yelhan"
 
 #: src/amo/pages/Home/index.js:290
 msgid "See more popular themes"
 msgstr "Isiɣzaf yettwasnen aṭas"
 
 #: src/amo/pages/Home/index.js:309
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Wali isiɣzaft gar wid yettwaszemlen aṭas"
+msgstr "Wali ugar n yisiɣzaf iɣerfanen"
 
 #: src/amo/pages/Home/index.js:326 src/amo/pages/LandingPage/index.js:164
-#, fuzzy
 msgid "See more recommended themes"
-msgstr "Ugar n yisental itran"
+msgstr "Wali ugar n yisental yelhan"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:142
 msgid "See more trending extensions"
 msgstr "Ugar n yisiɣzaf itran"
 
 #: src/amo/pages/Home/index.js:58
-#, fuzzy
 msgid "See more enhanced privacy extensions"
-msgstr "Ugar n yisiɣzaf yettwasersen d imezwura"
+msgstr "Wali ugar n yisiɣzaf n tbaḍnit yufraren"
 
 #: src/amo/pages/Home/index.js:59
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "Isiɣzaf yettwaszemlen aṭas"
+msgstr "Isiɣzaf n tbaḍnit yennernan"
 
 #: src/amo/pages/Home/index.js:64
-#, fuzzy
 msgid "See more recommended password managers"
-msgstr "Ugar n yisental itran"
+msgstr "Wali ugar n yimsefraken n wawalen uffiren yelhan"
 
 #: src/amo/pages/Home/index.js:65
-#, fuzzy
 msgid "Recommended password managers"
-msgstr "Imsefrak n wawal uffir"
+msgstr "Imsefraken n wawalen uffiren yelhan"
 
 #: src/amo/pages/LandingPage/index.js:152
 msgid "See more top rated extensions"
@@ -2174,9 +2152,8 @@ msgid "Tell your friends and family that Firefox is a fast, secure browser that 
 msgstr "Ini i yidukal akked twacult-ik d akken Firefox d iminig arurad, aɣelsan i yesseḥbibiren ɣef isefka udmawanen, daɣen zemren ad erren d ayla-nsen s useqdec n yizegrar!"
 
 #: src/amo/pages/StaticPages/About/index.js:175
-#, fuzzy
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
-msgstr "Akken ad tafeḍ amek ara tmuddeḍ afus i terbaɛt ixeddmen ɣef izegrar, rzu ar %(startLink)swiki%(endLink)s-nneɣ"
+msgstr "Akken ad tafeḍ amek ara tmuddeḍ afus i terbaɛt ixeddmen ɣef izegrar, rzu ar %(startLink)swiki%(endLink)s-nneɣ."
 
 #: src/amo/pages/StaticPages/About/index.js:189
 msgid "Get support"
