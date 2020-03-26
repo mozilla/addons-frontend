@@ -243,6 +243,21 @@ describe(__filename, () => {
     );
   });
 
+  it('renders the reason with HTML tags removed', () => {
+    const guid = 'some-guid';
+    const reason = '<a>this is a reason for a block</a>';
+    const block = createFakeBlockResult({ guid, reason });
+    const { store } = dispatchClientMetadata();
+    store.dispatch(loadBlock({ block }));
+
+    const root = render({ store, guid });
+
+    expect(root.find('.Block-reason')).toHaveLength(1);
+    expect(root.find('.Block-reason')).toHaveText(
+      'this is a reason for a block',
+    );
+  });
+
   it('renders the block date', () => {
     const guid = 'some-guid';
     const created = '2020-01-29T11:10:02Z';
