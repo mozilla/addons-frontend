@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:38+0000\n"
-"PO-Revision-Date: 2018-08-11 12:01+0000\n"
-"Last-Translator: Slimane AMIRI <slimane.amiri@gmail.com>\n"
+"PO-Revision-Date: 2020-03-26 15:21+0000\n"
+"Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
@@ -16,15 +16,15 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:194
 msgid "Enable"
-msgstr ""
+msgstr "Rmed"
 
 #: src/core/components/AMInstallButton/index.js:197
 msgid "Remove"
-msgstr ""
+msgstr "Kkes"
 
 #: src/core/components/AMInstallButton/index.js:199
 msgid "Enabling"
-msgstr ""
+msgstr "Armad iteddu"
 
 #: src/core/components/AMInstallButton/index.js:201
 #, fuzzy
@@ -54,15 +54,10 @@ msgid "Server Error"
 msgstr "Sekles tuccḍa"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Suref-aɣ, teḍra-d tuccḍa ihi ur nezmir ara ad d-nerr i usuter-ik. Nsekles "
-"tuccḍa-agi akken ad nnadi tifrat."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Suref-aɣ, teḍra-d tuccḍa ihi ur nezmir ara ad d-nerr i usuter-ik. Nsekles tuccḍa-agi akken ad nnadi tifrat."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Tangalt n tuccḍa: %(status)s."
 
@@ -76,7 +71,7 @@ msgstr "Suref-aɣ, ur nezmir ara ad d-naf ayen tebɣiḍ di tensa URL i d-mudded
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s yettwarna"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
@@ -180,26 +175,18 @@ msgstr "Sagen Firefox inek"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Llan deqs n wagimen n izegrar n baṭel, rnan-ten ineflayen n umaḍal, i "
-"tzemreḍ ad tesbeddeḍ i waggan n Firefox. Seg Isental icebḥen arma d ifecka "
-"uzmiren ara yerren tunigin inek d taruraṭ, d taɣelsant, izegrar ad sirgen "
-"aggan n tunigin inek imeṛṛa. Akken ad tebduḍ, nefren-d kra akken tella "
-"tmellit nsen neɣ timahilin nsen."
+"Llan deqs n wagimen n izegrar n baṭel, rnan-ten ineflayen n umaḍal, i tzemreḍ ad tesbeddeḍ i waggan n Firefox. Seg Isental icebḥen arma d ifecka uzmiren ara yerren tunigin inek d taruraṭ, d "
+"taɣelsant, izegrar ad sirgen aggan n tunigin inek imeṛṛa. Akken ad tebduḍ, nefren-d kra akken tella tmellit nsen neɣ timahilin nsen."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr ""
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
 msgstr ""
 
 #: src/ui/components/ErrorList/index.js:44
@@ -257,9 +244,7 @@ msgstr "Taskant n %(name)s"
 #~ msgstr "Tura tzemreḍ ad kecmeḍ ɣer %(name)s seg ufeggag n ifecka."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "Sers taɣerdayt s ufella akken ad twaliḍ neɣ sit akken ad tesbeddeḍ "
-#~ "%(name)s"
+#~ msgstr "Sers taɣerdayt s ufella akken ad twaliḍ neɣ sit akken ad tesbeddeḍ %(name)s"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Sers taɣeṛdayt ɣef tugna akken ad twaliḍ"
