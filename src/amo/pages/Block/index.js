@@ -71,10 +71,8 @@ export class BlockBase extends React.Component<InternalProps> {
       return null;
     }
 
-    const { __html = '' } = sanitizeHTML(block.reason);
-
     return (
-      <p className="Block-reason">{block ? __html : <LoadingText />}</p>
+      <p className="Block-reason">{block ? sanitizeHTML(block.reason).__html : <LoadingText />}</p>
     );
   }
 
