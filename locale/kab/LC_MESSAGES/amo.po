@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 16:29+0000\n"
+"PO-Revision-Date: 2020-03-26 16:40+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1563,9 +1563,8 @@ msgid "Not available on Firefox for Android. You can use this add-on with Firefo
 msgstr "Ulac-it deg Firefox i Android. Tzemreḍ ad tesqedceḍ azegrir-a s Firefox i uselkim,  neɣ nadi <a href=\"%(newLocation)s\">Izegrar Android</a> icuban ɣur-s."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
-#, fuzzy
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr "Asentel-agi ur imsada ara akked ulqem-inek n Firefox."
+msgstr "Azegrir-a ur imṣada ara akked yiminig-ik. Ɛreḍ ad tesbeddeḍ-t ɣef Firefox i uselkim."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
@@ -1618,9 +1617,8 @@ msgid "About this add-on"
 msgstr "Ɣef uzegrir-agi"
 
 #: src/amo/pages/Addon/index.js:316
-#, fuzzy
 msgid "Developer comments"
-msgstr "Tiririt n ineflayen"
+msgstr "Iwenniten n uneflay"
 
 #: src/amo/pages/Addon/index.js:336
 msgid "Release notes for %(addonVersion)s"
@@ -1651,53 +1649,44 @@ msgid "Screenshots"
 msgstr "Tuṭṭfiwin n wegdil"
 
 #: src/amo/pages/AddonInfo/index.js:154
-#, fuzzy
 msgid "Custom License for %(addonName)s"
-msgstr "Iceggiren i %(addonName)s"
+msgstr "Turagt tudmawant i %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:161
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Amtawa n uselkin n useqdac aneggaru"
+msgstr "Agatu n turagt n useqdac aneggaru i %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:165
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "Iceggiren i %(addonName)s"
+msgstr "Tasertit tabaḍnit i %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
 msgstr "Asenqed d yiktazalen n %(addonName)s. Wali ayen i ttxemmimen iseqdacen-nniḍen ɣef %(addonName)s daɣen rnu tikti-ik ɣer yiminig-ik Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:231
-#, fuzzy
 msgid "Show all reviews"
-msgstr "Iceggiren-iw"
+msgstr "Sken meṛṛa tiktiwin"
 
 #: src/amo/pages/AddonReviewList/index.js:233
-#, fuzzy
 msgid "Show only five-star reviews"
-msgstr "Ɣeṛ %(count)s n ucegger"
+msgstr "Sken kan tiktiwin s xemsa n yitran"
 
 #: src/amo/pages/AddonReviewList/index.js:234
-#, fuzzy
 msgid "Show only four-star reviews"
-msgstr "Ɣeṛ %(count)s n ucegger"
+msgstr "Sken kan tiktiwin s kuẓ n yitran"
 
 #: src/amo/pages/AddonReviewList/index.js:236
-#, fuzzy
 msgid "Show only three-star reviews"
-msgstr "Ɣeṛ %(count)s n ucegger"
+msgstr "Sken kan tiktiwin s kraḍ n yitran"
 
 #: src/amo/pages/AddonReviewList/index.js:238
-#, fuzzy
 msgid "Show only two-star reviews"
-msgstr "Err i ucegger-agi"
+msgstr "Sken kan tiktiwin s sin n yitran"
 
 #: src/amo/pages/AddonReviewList/index.js:239
-#, fuzzy
 msgid "Show only one-star reviews"
-msgstr "Ɣeṛ %(count)s n ucegger"
+msgstr "Sken kan tiktiwin s yiwen n yitri"
 
 #: src/amo/pages/AddonReviewList/index.js:279
 msgid "Reviews for %(addonName)s"
