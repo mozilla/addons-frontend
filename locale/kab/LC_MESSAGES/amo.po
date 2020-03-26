@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 14:12+0000\n"
+"PO-Revision-Date: 2020-03-26 14:22+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -999,7 +999,7 @@ msgstr "Ifecka n umcegger"
 
 #: src/amo/components/Header/index.js:191 src/core/components/AuthenticateButton/index.js:90
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "Tigawt-a ulac-itt tura. Ma ulac aɣilif, ales asali n usebter ticki."
 
 #: src/amo/components/Header/index.js:196 src/core/components/AuthenticateButton/index.js:86
 msgid "Log out"
@@ -1023,11 +1023,11 @@ msgstr "Isiɣzaf yettwaszemlen"
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "RECOMMENDED"
-msgstr ""
+msgstr "YELHA"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
-msgstr ""
+msgstr "Qqim d aɣelsan srid"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:280
 #, fuzzy
@@ -1041,11 +1041,11 @@ msgstr "Sezmel tarmit-ik"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
-msgstr ""
+msgstr "Isiɣzaf am yisnasen i uselkim-ik."
 
 #: src/amo/components/HomeHeroGuides/index.js:60
 msgid "They add features to Firefox to make browsing faster, smarter, or just plain fun."
-msgstr ""
+msgstr "Rennun timahilin i Firefox akken ad erren tunigt d tuzribt ugar, teḥrec, neɣ daɣen d tazehwant."
 
 #: src/amo/components/InstallWarning/index.js:81
 msgid "Learn more"
@@ -1053,7 +1053,7 @@ msgstr "Issin ugar"
 
 #: src/amo/components/InstallWarning/index.js:85
 msgid "This is not a Recommended Extension. Make sure you trust it before installing."
-msgstr ""
+msgstr "Asiɣzef-a ur yettwawelleh ara. Wali ma tzemreḍ ad tgeḍ deg-s laman uqbel ad tesbeddeḍ-t."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1827,21 +1827,23 @@ msgstr "D acu yebɣa ad d-yini waya?"
 
 #: src/amo/pages/Block/index.js:172
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "Azegrir neɣ asiɣzef yesɛan ugur ad yens s wudem awurman, ihi ur ittuɣal ara ad yettwaseqdec."
 
 #: src/amo/pages/Block/index.js:179
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Ticki Mozilla tuffa-d azegrir neɣ asiɣzef, neɣ yal aseɣẓan-nniḍen wis kraḍ i yezmren ad d-yeglun s usexseṛ n tɣellist, arkad neɣ timellit n Firefox  daɣen ahat llan deg-s %(criteriaStartLink)skra n "
+"isebdaden</a>, aseɣẓan yezmer ad iwḥel.  I wugar n yisallen, ddu ma ulac aɣilif ɣer %(supportStartLink)sumagrad-a n tallelt</a>."
 
 #: src/amo/pages/Block/index.js:87
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "Yewḥel deg %(date)s"
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
-msgstr ""
+msgstr "Sken asuter n usewḥel"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 #, fuzzy
@@ -1879,11 +1881,11 @@ msgstr "Nadi isiɣzaf akked isental ara ternuḍ ar tegrumma-ik."
 
 #: src/amo/pages/Collection/index.js:513
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Sader daɣen rnu tigrummiwin Firefox akken ad tefreḍ isiɣzaf akked isental inurifen. Snirem %(collectionName)s—%(collectionDescription)s"
 
 #: src/amo/pages/Collection/index.js:516
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Sader daɣen rnu tigrummiwin Firefox akken ad tefreḍ isiɣzaf akked isental inurifen. Snirem %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:114
 msgid "Collections"
