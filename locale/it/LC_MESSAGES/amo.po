@@ -1631,9 +1631,8 @@ msgid "About this add-on"
 msgstr "Informazioni sul componente aggiuntivo"
 
 #: src/amo/pages/Addon/index.js:316
-#, fuzzy
 msgid "Developer comments"
-msgstr "Criteri per sviluppatori"
+msgstr ""
 
 #: src/amo/pages/Addon/index.js:336
 msgid "Release notes for %(addonVersion)s"
@@ -1742,9 +1741,8 @@ msgid "Older versions"
 msgstr "Versioni precedenti"
 
 #: src/amo/pages/Block/index.js:113
-#, fuzzy
 msgid "Versions blocked: all versions."
-msgstr "Visualizza tutte le versioni"
+msgstr ""
 
 #: src/amo/pages/Block/index.js:116
 msgid "Versions blocked: %(min)s to %(max)s."
@@ -1755,9 +1753,8 @@ msgid "%(addonName)s has been blocked for your protection."
 msgstr ""
 
 #: src/amo/pages/Block/index.js:143
-#, fuzzy
 msgid "This add-on has been blocked for your protection."
-msgstr "Questo componente aggiuntivo è stato rimosso dall’autore."
+msgstr ""
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"
