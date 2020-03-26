@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-26 17:12+0000\n"
+"PO-Revision-Date: 2020-03-26 17:27+0000\n"
 "Last-Translator: Muhend Belkacem <taqbaylitassa@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1890,7 +1890,7 @@ msgstr "Isiɣzaf zemren ad ak-d-mudden tallelt deg usuddes n wayen i tḥemmle�
 
 #: src/amo/pages/Guides/index.js:165
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-msgstr ""
+msgstr "Sefrek akken iwata ticraḍ-ik n yisebtar ma tesseqdaceḍ ddeqs n yikaramen n ticraḍ n yisebtar."
 
 #: src/amo/pages/Guides/index.js:168
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
@@ -1898,11 +1898,11 @@ msgstr "Snirem ugar n yisiɣzaf ɣef %(linkStart)sticraḍ n yisebtar%(linkEnd)s
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Eg tarmit s tarrayt tamaynut i usefrek n yiccaren-ik"
 
 #: src/amo/pages/Guides/index.js:180
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "Bdu yal tiɣimit n tunigin iefeṣṣlen akken iwata i kečč, s umuddu n wudem i usebter-ik n yiccer amaynut."
 
 #: src/amo/pages/Guides/index.js:184
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
@@ -1914,7 +1914,7 @@ msgstr "Snerni tividyutin"
 
 #: src/amo/pages/Guides/index.js:203
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
-msgstr ""
+msgstr "Ma tḥemmleḍ igburen n uvidyu, isiɣzaf ad ak-ǧǧen ad tesnerniḍ tarmit-ik, amedya, amuddu n wudem i Youtube neɣ taɣuri n tvidyutin s uskar am sinima."
 
 #: src/amo/pages/Guides/index.js:208
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
@@ -2773,7 +2773,7 @@ msgstr "Asebded ur yeddi ara. Ma ulac aqilif, ɛreḍ tikelt nniḍen."
 
 #: src/core/utils/addons.js:37
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Asader yecceḍ. Ma ulac aɣilif wali tuqqna-ik."
 
 #: src/core/utils/addons.js:39
 msgid "An unexpected error occurred during installation."
@@ -2869,7 +2869,7 @@ msgstr ""
 
 #: src/ui/components/ShowMoreCard/index.js:133
 msgid "Expand to read more"
-msgstr ""
+msgstr "Snefli akken ad teɣreḍ ugar"
 
 #: src/ui/components/ShowMoreCard/index.js:138
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
