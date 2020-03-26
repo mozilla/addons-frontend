@@ -11,6 +11,7 @@ import { getCurrentUser, logOutUser } from 'amo/reducers/users';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
+import log from 'core/logger';
 import type { AppState } from 'amo/store';
 import type { ApiState } from 'core/reducers/api';
 import type { UserType } from 'amo/reducers/users';
@@ -138,7 +139,15 @@ export const createHandleLogOutFunction = (
   dispatch: DispatchFunc,
 ): HandleLogOutFunction => {
   return ({ api }) => {
-    return logOutFromServer({ api }).then(() => dispatch(logOutUser()));
+    return (
+      logOutFromServer({ api })
+        // We want to force a logout on the client, even if the API returned an
+        // error. See: https://github.com/mozilla/addons-frontend/issues/9260
+        .catch((error) => {
+          log.warn(`Received error from the API while logging out: ${error}`);
+        })
+        .then(() => dispatch(logOutUser()))
+    );
   };
 };
 
