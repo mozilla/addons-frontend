@@ -31,6 +31,16 @@ type CategoryMapType = {
   },
 };
 
+type CategorySlugType = {
+  [addonSlug: string]: ExternalCategory,
+};
+
+type AddonCategories = {
+  [appName: string]: Array<string>,
+};
+
+type CategoriesNames = Array<string>;
+
 export type CategoriesState = {|
   categories: null | CategoryMapType,
   loading: boolean,
@@ -94,6 +104,47 @@ export function createEmptyCategoryList(): EmptyCategoryListType {
       }, {}),
     };
   }, {});
+}
+
+export const getCategories = (
+  categoriesState: CategoryMapType,
+  appName: string,
+  addonType: string,
+): CategorySlugType | null => {
+  invariant(categoriesState, 'categories can be empty!');
+  invariant(appName, 'app name can not be empty!');
+  invariant(addonType, 'addon type can not be empty!');
+  if (
+    categoriesState &&
+    categoriesState[appName] &&
+    categoriesState[appName][addonType]
+  ) {
+    return Object.keys(categoriesState[appName][addonType]).map(
+      (key) => categoriesState[appName][addonType][key],
+    );
+  }
+  return null;
+};
+
+export function getCategoryNames(
+  categories: CategorySlugType,
+  addonCategories: AddonCategories,
+  appName: string,
+): CategoriesNames | null {
+  invariant(categories, 'categories can be empty!');
+  invariant(addonCategories, 'slugs can not be empty!');
+
+  const relatedCategories = [];
+
+  if (addonCategories && addonCategories[appName]) {
+    categories.forEach((r) => {
+      if (addonCategories[appName].includes(r.slug)) {
+        relatedCategories.push(r.name);
+      }
+    });
+    return relatedCategories;
+  }
+  return null;
 }
 
 type Action = FetchCategoriesAction | LoadCategoriesAction;

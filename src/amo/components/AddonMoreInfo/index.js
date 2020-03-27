@@ -9,14 +9,17 @@ import Link from 'amo/components/Link';
 import { getVersionById, getVersionInfo } from 'core/reducers/versions';
 import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { fetchCategories } from 'core/reducers/categories';
+import {
+  fetchCategories,
+  getCategoryNames,
+  getCategories,
+} from 'core/reducers/categories';
 import { hasPermission } from 'amo/reducers/users';
 import { isAddonAuthor, trimAndAddProtocolToUrl } from 'core/utils';
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
 import { addQueryParams } from 'core/utils/url';
-import type { CategoriesStateType } from 'amo/components/Categories';
 import type { AppState } from 'amo/store';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonVersionType, VersionInfoType } from 'core/reducers/versions';
@@ -25,8 +28,6 @@ import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocationType } from 'core/types/router';
 
-import './styles.scss';
-
 type Props = {|
   addon: AddonType | null,
   i18n: I18nType,
@@ -34,14 +35,13 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
-  categoriesState: $PropertyType<CategoriesStateType, 'categories'>,
-  clientApp: string | null,
+  categoriesLoading: boolean,
   currentVersion: AddonVersionType | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   hasStatsPermission: boolean,
-  loading: boolean,
   location: ReactRouterLocationType,
+  relatedCategories: Array<string> | null,
   userId: number | null,
   versionInfo: VersionInfoType | null,
 |};
@@ -49,9 +49,14 @@ type InternalProps = {|
 export class AddonMoreInfoBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
     super(props);
-    const { categoriesState, dispatch, errorHandler, loading } = props;
+    const {
+      dispatch,
+      errorHandler,
+      categoriesLoading,
+      relatedCategories,
+    } = props;
 
-    if (!loading && !categoriesState) {
+    if (!categoriesLoading && relatedCategories === null) {
       dispatch(fetchCategories({ errorHandlerId: errorHandler.id }));
     }
   }
@@ -65,10 +70,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
       location,
       userId,
       versionInfo,
-      clientApp,
-      categoriesState,
-      errorHandler,
-      loading,
+      relatedCategories,
     } = this.props;
 
     if (!addon) {
@@ -76,38 +78,6 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
         versionLastUpdated: <LoadingText minWidth={20} />,
         versionLicense: <LoadingText minWidth={20} />,
       });
-    }
-
-    const addonType = addon.type;
-
-    let categories = [];
-
-    const reledCategories = [];
-
-    if (
-      categoriesState &&
-      categoriesState[clientApp] &&
-      categoriesState[clientApp][addonType]
-    ) {
-      categories = Object.keys(categoriesState[clientApp][addonType]).map(
-        (key) => categoriesState[clientApp][addonType][key],
-      );
-
-      categories.forEach((r) => {
-        if (addon.categories && addon.categories[clientApp].includes(r.slug)) {
-          reledCategories.push(r.name);
-        }
-      });
-    }
-
-    if (!errorHandler.hasError() && !loading && !categories.length) {
-      return (
-        <Card>
-          <p className="Categories-none-loaded-message">
-            {i18n.gettext('No categories found.')}
-          </p>
-        </Card>
-      );
     }
 
     let homepage = trimAndAddProtocolToUrl(addon.homepage);
@@ -230,8 +200,8 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
         </Link>
       ) : null,
       relatedCategories:
-        reledCategories && reledCategories.length > 0
-          ? i18n.gettext(reledCategories.join(', '))
+        relatedCategories && relatedCategories.length > 0
+          ? i18n.gettext(relatedCategories.join(', '))
           : null,
       versionHistoryLink: (
         <li>
@@ -371,6 +341,22 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 
 export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const { addon, i18n } = ownProps;
+  const categoriesState = state.categories.categories;
+  const appName = state.api.clientApp;
+
+  let relatedCategories = null;
+
+  if (categoriesState && appName && addon && addon.type && addon.categories) {
+    const categories = getCategories(categoriesState, appName, addon.type);
+    if (categories) {
+      relatedCategories = getCategoryNames(
+        categories,
+        ownProps.addon.categories,
+        appName,
+      );
+    }
+  }
+
   let currentVersion = null;
   let versionInfo = null;
 
@@ -395,9 +381,8 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
     versionInfo,
     hasStatsPermission: hasPermission(state, STATS_VIEW),
     userId: state.users.currentUserID,
-    clientApp: state.api.clientApp,
-    loading: state.categories.loading,
-    categoriesState: state.categories.categories,
+    categoriesLoading: state.categories.loading,
+    relatedCategories,
   };
 };
 
