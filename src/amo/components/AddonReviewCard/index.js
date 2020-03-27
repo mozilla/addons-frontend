@@ -397,8 +397,8 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
                 text
               : (
                 <Link
-                  key={review.id}
-                  to={review.userUrl}
+                  key={review.userName}
+                  to={`/${review.userUrl}`}
                 >
                   {text}
                 </Link>
