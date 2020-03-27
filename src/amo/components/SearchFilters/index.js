@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
+import type { UserAgentInfoType } from 'core/reducers/api';
 
 import {
   ADDON_TYPE_EXTENSION,
@@ -22,7 +23,11 @@ import {
 import { withErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
-import { convertFiltersToQueryParams, paramsToFilter } from 'core/searchUtils';
+import {
+  convertFiltersToQueryParams,
+  paramsToFilter,
+  convertOSToFilterValue,
+} from 'core/searchUtils';
 import ExpandableCard from 'ui/components/ExpandableCard';
 import Select from 'ui/components/Select';
 
@@ -164,7 +169,7 @@ export class SearchFiltersBase extends React.Component {
   }
 
   render() {
-    const { filters, i18n } = this.props;
+    const { filters, i18n, userAgentInfo } = this.props;
 
     const expandableCardName = 'SearchFilters';
     const selectedSortFields = filters.sort
@@ -231,7 +236,7 @@ export class SearchFiltersBase extends React.Component {
             id="SearchFilters-OperatingSystem"
             name="operatingSystem"
             onChange={this.onSelectElementChange}
-            value={filters.operatingSystem || NO_FILTER}
+            value={convertOSToFilterValue(userAgentInfo.os.name)}
           >
             {this.operatingSystemOptions().map((option) => {
               return <option key={option.value} {...option} />;
@@ -263,6 +268,7 @@ export function mapStateToProps(state) {
     clientApp: state.api.clientApp,
     filters: state.search.filters,
     lang: state.api.lang,
+    userAgentInfo: state.api.userAgentInfo,
   };
 }
 

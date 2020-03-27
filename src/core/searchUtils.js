@@ -4,6 +4,7 @@ import defaultConfig from 'config';
 import log from 'core/logger';
 
 export const operatingSystems = {
+  Ubuntu: 'linux',
   Linux: 'linux',
   'Mac OS': 'mac',
   Windows: 'windows',
