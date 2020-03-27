@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-27 18:01+0000\n"
+"PO-Revision-Date: 2020-03-27 19:08+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -1752,7 +1752,7 @@ msgstr "Miksi se estettiin?"
 
 #: src/amo/pages/Block/index.js:158
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Tämä lisäosa rikkoo %(startLink)sMozillan lisäosakäytäntöjä%(endLink)s."
 
 #: src/amo/pages/Block/index.js:170
 msgid "What does this mean?"
@@ -1760,7 +1760,7 @@ msgstr "Mitä tämä tarkoittaa?"
 
 #: src/amo/pages/Block/index.js:172
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "Ongelmainen lisäosa tai liitännäinen poistetaan automaattisesti käytöstä, eikä se ole enää käytettävissä."
 
 #: src/amo/pages/Block/index.js:179
 msgid ""
