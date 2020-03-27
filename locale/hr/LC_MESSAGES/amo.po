@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-27 08:58+0000\n"
-"Last-Translator: Hmxhmx <hmxhmx.at.wiki@gmail.com>\n"
+"PO-Revision-Date: 2020-03-27 11:21+0000\n"
+"Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -1209,7 +1209,7 @@ msgstr "Ne možemo odgovoriti na svaku prijavu, ali ćemo istražiti vaš proble
 
 #: src/amo/components/ReportAbuseButton/index.js:137
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
-msgstr "Ukoliko smatrate da ovaj dodatak krši %(linkTagStart)s Mozilla politiku dodataka%(linkTagEnd)s ili sigurnost i privatnost korisnika, prijavite ove probleme koristeći slijedeći obrazac."
+msgstr "Ukoliko smatraš da ovaj dodatak krši %(linkTagStart)s Mozillinu politiku dodataka%(linkTagEnd)s ili sigurnost i privatnost korisnika, prijavi ove probleme koristeći slijedeći obrazac."
 
 #: src/amo/components/ReportAbuseButton/index.js:153
 msgid "Report this add-on for abuse"
@@ -1237,7 +1237,7 @@ msgstr "Objasnite kako ovaj dodatak krši našu politiku."
 
 #: src/amo/components/ReportUserAbuse/index.js:106 src/amo/components/ReportUserAbuse/index.js:99
 msgid "Report this user for abuse"
-msgstr "Prijavite ovog korisnika za zloupotrebu"
+msgstr "Prijavi ovog korisnika za zloupotrebu"
 
 #: src/amo/components/ReportUserAbuse/index.js:113
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
