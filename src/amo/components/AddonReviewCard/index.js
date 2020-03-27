@@ -385,10 +385,26 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           // `<Link />` using `replaceStringsWithJSX`.
           linkEnd: '%(linkEnd)s',
           linkStart: '%(linkStart)s',
-          urlEnd: '</a>',
-          urlStart: `<a href="${review.userUrl}">`,
+          urlEnd: '%(urlEnd)s',
+          urlStart: '%(urlStart)s',
         }),
         replacements: [
+          [
+            'urlStart',
+            'urlEnd',
+            (text) => {
+              return !review.userUrl ?
+                text
+              : (
+                <Link
+                  key={review.id}
+                  to={review.userUrl}
+                >
+                  {text}
+                </Link>
+                );
+            },
+          ],
           [
             'linkStart',
             'linkEnd',
