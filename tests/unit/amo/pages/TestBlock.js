@@ -252,7 +252,6 @@ describe(__filename, () => {
 
     const root = render({ store, guid });
 
-    expect(root.find('.Block-reason')).toHaveLength(1);
     expect(root.find('.Block-reason')).toHaveText(
       'this is a reason for a block',
     );
