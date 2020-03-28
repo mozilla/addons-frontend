@@ -14,7 +14,7 @@ import { ADDONS_EDIT } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import { normalizeFileNameId } from 'core/utils';
+import { normalizeFileNameId, sanitizeHTML } from 'core/utils';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import {
   beginDeleteAddonReview,
@@ -348,19 +348,10 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     const noAuthor = shortByLine || this.isReply();
 
     if (review) {
-      const withAuthor = !review.userUrl
-        ? // translators: Example in English: "by UserName123, last week"
-        i18n.gettext(
-            'by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
-          )
-        : i18n.gettext(
-            'by %(urlStart)s%(authorName)s%(urlEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
-        );
-
-      const byLineString = noAuthor
-        ? // translators: Example in English: "posted last week"
-        i18n.gettext('posted %(linkStart)s%(timestamp)s%(linkEnd)s')
-        : withAuthor;
+      // translators: Example in English: "posted last week"
+      const byLineString = i18n.gettext(
+        'posted %(linkStart)s%(timestamp)s%(linkEnd)s',
+      );
 
       // See https://github.com/mozilla/addons-frontend/issues/7322 for why we
       // need this code.
@@ -377,34 +368,16 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         );
       }
 
-      const byLineLink = replaceStringsWithJSX({
+      const byLineTimestamp = replaceStringsWithJSX({
         text: i18n.sprintf(byLineString, {
-          authorName: review.userName,
+          // authorName: review.userName,
           timestamp: i18n.moment(review.created).fromNow(),
           // Keep the link placeholders so that we can use them to inject a
           // `<Link />` using `replaceStringsWithJSX`.
           linkEnd: '%(linkEnd)s',
           linkStart: '%(linkStart)s',
-          urlEnd: '%(urlEnd)s',
-          urlStart: '%(urlStart)s',
         }),
         replacements: [
-          [
-            'urlStart',
-            'urlEnd',
-            (text) => {
-              return !review.userUrl ?
-                text
-              : (
-                <Link
-                  key={review.userName}
-                  to={`/${review.userUrl}`}
-                >
-                  {text}
-                </Link>
-                );
-            },
-          ],
           [
             'linkStart',
             'linkEnd',
@@ -428,6 +401,43 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           ],
         ],
       });
+
+      const byAuthorOnly = i18n.sprintf(i18n.gettext('by %(authorName)s'), {
+        authorName: review.userName,
+      });
+
+      const byAuthorLink = replaceStringsWithJSX({
+        text: i18n.sprintf(
+          i18n.gettext('by %(urlStart)s%(authorName)s%(urlEnd)s'),
+          {
+            authorName: review.userName,
+            urlStart: '%(urlStart)s',
+            urlEnd: '%(urlEnd)s',
+          },
+        ),
+        replacements: [
+          [
+            'urlStart',
+            'urlEnd',
+            (text) => (
+              <Link key={review.userName} to={`/user/${review.userId}`}>
+                <span>{text}</span>,{' '}
+              </Link>
+            ),
+          ],
+        ],
+      });
+
+      const byAuthor = !review.userUrl ? byAuthorOnly : byAuthorLink;
+
+      const byLineLink = noAuthor ? (
+        byLineTimestamp
+      ) : (
+        <>
+          <span>{byAuthor}</span>
+          <span>{byLineTimestamp}</span>
+        </>
+      );
 
       byLine = (
         <span
