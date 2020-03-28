@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-28 11:42+0000\n"
+"PO-Revision-Date: 2020-03-28 11:44+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -1153,15 +1153,15 @@ msgstr "Zaloguj się, aby ocenić ten dodatek"
 
 #: src/amo/components/RatingManager/index.js:173
 msgid "Are you sure you want to delete your review of %(addonName)s?"
-msgstr "Czy na pewno usunąć recenzję dodatku „%(addonName)s”?"
+msgstr "Czy na pewno usunąć recenzję dodatku %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:178
 msgid "Are you sure you want to delete your rating of %(addonName)s?"
-msgstr "Czy na pewno usunąć ocenę dodatku „%(addonName)s”?"
+msgstr "Czy na pewno usunąć ocenę dodatku %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:183
 msgid "How are you enjoying %(addonName)s?"
-msgstr "Jak oceniasz dodatek „%(addonName)s”?"
+msgstr "Jak oceniasz dodatek %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
@@ -1670,19 +1670,19 @@ msgstr "Zrzuty ekranu"
 
 #: src/amo/pages/AddonInfo/index.js:154
 msgid "Custom License for %(addonName)s"
-msgstr "Niestandardowa licencja dodatku „%(addonName)s”"
+msgstr "Niestandardowa licencja dodatku %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:161
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Licencja użytkownika dodatku „%(addonName)s”"
+msgstr "Licencja użytkownika dodatku %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:165
 msgid "Privacy policy for %(addonName)s"
-msgstr "Zasady ochrony prywatności dodatku „%(addonName)s”"
+msgstr "Zasady ochrony prywatności dodatku %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr "Recenzje i oceny dodatku „%(addonName)s”. Dowiedz się, co inni użytkownicy o nim myślą i dodaj go do swojej przeglądarki Firefox."
+msgstr "Recenzje i oceny dodatku %(addonName)s. Dowiedz się, co inni użytkownicy o nim myślą i dodaj go do swojej przeglądarki Firefox."
 
 #: src/amo/pages/AddonReviewList/index.js:231
 msgid "Show all reviews"
@@ -1710,7 +1710,7 @@ msgstr "Tylko jednogwiazdkowe recenzje"
 
 #: src/amo/pages/AddonReviewList/index.js:279
 msgid "Reviews for %(addonName)s"
-msgstr "Recenzje dodatku „%(addonName)s”"
+msgstr "Recenzje dodatku %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:289
 msgid "%(total)s review"
@@ -1788,11 +1788,11 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:87
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "Zablokowano w dniu %(date)s."
 
 #: src/amo/pages/Block/index.js:96
 msgid "View block request"
-msgstr ""
+msgstr "Wyświetl żądanie zablokowania"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
