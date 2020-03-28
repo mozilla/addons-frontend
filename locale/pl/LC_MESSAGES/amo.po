@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-28 11:35+0000\n"
+"PO-Revision-Date: 2020-03-28 11:42+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -1637,9 +1637,8 @@ msgid "About this add-on"
 msgstr "O tym dodatku"
 
 #: src/amo/pages/Addon/index.js:316
-#, fuzzy
 msgid "Developer comments"
-msgstr "Zasady programistów"
+msgstr "Komentarze autora"
 
 #: src/amo/pages/Addon/index.js:336
 msgid "Release notes for %(addonVersion)s"
@@ -1662,7 +1661,6 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Ta lista nie jest przeznaczona dla tej platformy. <a href=\"%(newLocation)s\">Przeglądaj dodatki do Firefoksa na komputery</a>."
 
 #: src/amo/pages/Addon/index.js:510
-#, fuzzy
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
 msgstr "Niedostępne w Firefoksie na Androida. Można używać tego dodatku w Firefoksie na komputery. <a href=\"%(newLocation)s\">Więcej informacji o dodatkach na Androida</a>."
 
@@ -1749,44 +1747,44 @@ msgid "Older versions"
 msgstr "Poprzednie wersje"
 
 #: src/amo/pages/Block/index.js:113
-#, fuzzy
 msgid "Versions blocked: all versions."
-msgstr "Wszystkie wersje"
+msgstr "Zablokowane wersje: wszystkie."
 
 #: src/amo/pages/Block/index.js:116
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "Zablokowane wersje: %(min)s do %(max)s."
 
 #: src/amo/pages/Block/index.js:138
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "Dodatek %(addonName)s został zablokowany z przyczyn bezpieczeństwa."
 
 #: src/amo/pages/Block/index.js:143
-#, fuzzy
 msgid "This add-on has been blocked for your protection."
-msgstr "Ten dodatek został usunięty przez jego autora."
+msgstr "Ten dodatek został zablokowany z przyczyn bezpieczeństwa."
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Dlaczego został zablokowany?"
 
 #: src/amo/pages/Block/index.js:158
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Ten dodatek narusza %(startLink)szasady dodatków Mozilli%(endLink)s."
 
 #: src/amo/pages/Block/index.js:170
 msgid "What does this mean?"
-msgstr ""
+msgstr "Co to oznacza?"
 
 #: src/amo/pages/Block/index.js:172
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "Problematyczny dodatek lub wtyczka zostaną automatycznie wyłączone i nie będzie można ich używać."
 
 #: src/amo/pages/Block/index.js:179
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Kiedy Mozilla zostaje poinformowana o dodatkach, wtyczkach lub innym oprogramowaniu firmy trzeciej, które poważnie zagrażają bezpieczeństwu, stabilności lub wydajności Firefoksa i spełniają "
+"%(criteriaStartLink)sokreślone kryteria%(criteriaEndLink)s, to oprogramowanie może zostać zablokowane do ogólnego użytku. %(supportStartLink)sTen artykuł%(supportEndLink)s zawiera więcej informacji."
 
 #: src/amo/pages/Block/index.js:87
 msgid "Blocked on %(date)s."
