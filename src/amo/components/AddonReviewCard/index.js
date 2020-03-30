@@ -10,7 +10,7 @@ import Link from 'amo/components/Link';
 import AddonReviewManager from 'amo/components/AddonReviewManager';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
 import { reviewListURL } from 'amo/reducers/reviews';
-import { ADDONS_EDIT } from 'core/constants';
+import { ADDONS_EDIT, ADMIN_TOOLS_VIEW } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -71,6 +71,7 @@ type InternalProps = {|
   dispatch: DispatchFunc,
   editingReview: boolean,
   errorHandler: ErrorHandlerType,
+  hasAdminPermission: boolean,
   i18n: I18nType,
   replyingToReview: boolean,
   siteUser: UserType | null,
@@ -332,6 +333,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       editingReview,
       errorHandler,
       flaggable,
+      hasAdminPermission,
       i18n,
       location,
       replyingToReview,
@@ -348,11 +350,16 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
     const noAuthor = shortByLine || this.isReply();
 
     if (review) {
+      // eslint-disable-next-line no-nested-ternary
       const byLineString = noAuthor
         ? // translators: Example in English: "posted last week"
           i18n.gettext('posted %(linkStart)s%(timestamp)s%(linkEnd)s')
         : // translators: Example in English: "by UserName123, last week"
-          i18n.gettext(
+        !noAuthor && hasAdminPermission
+        ? i18n.gettext(
+            'by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
+          )
+        : i18n.gettext(
             'by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
           );
 
@@ -582,6 +589,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
     beginningToDeleteReview,
     deletingReview,
     editingReview,
+    hasAdminPermission: hasPermission(state, ADMIN_TOOLS_VIEW),
     replyingToReview,
     siteUser: getCurrentUser(state.users),
     siteUserCanManageReplies: ownProps.siteUserCanReply || siteUserHasReplyPerm,
