@@ -81,9 +81,13 @@ export default async function createClient(
       // When `forceRefresh` is `true`, client side navigation is disabled and
       // all links will trigger a full page reload. This is what we want when
       // the server has loaded an anoynmous page.
-      forceRefresh: initialState
-        ? initialState.site.loadedPageIsAnonymous
-        : false,
+      //
+      // Note: we check the presence of the `site` state because the `disco`
+      // app uses the same code but does not use this state.
+      forceRefresh:
+        initialState && initialState.site
+          ? initialState.site.loadedPageIsAnonymous
+          : false,
     }),
   });
 
