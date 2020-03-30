@@ -378,6 +378,53 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         );
       }
 
+      const arrReplacements = [
+        [
+          'linkStart',
+          'linkEnd',
+          (text) => {
+            return slugForReviewLink ? (
+              <Link
+                title={i18n.moment(review.created).format('lll')}
+                key={review.id}
+                to={reviewListURL({
+                  addonSlug: String(slugForReviewLink),
+                  id: review.id,
+                  src: location.query.src,
+                })}
+              >
+                {text}
+              </Link>
+            ) : (
+              text
+            );
+          },
+        ],
+      ];
+
+      const getReplacements = () => {
+        if (hasAdminPermission) {
+          arrReplacements.push([
+            'linkUserProfileStart',
+            'linkUserProfileEnd',
+            (text) => {
+              return !noAuthor && hasAdminPermission ? (
+                <Link
+                  key={`${review.id}-${review.userId}`}
+                  to={`/user/${review.userId}/`}
+                  className="AddonReviewCard-author"
+                >
+                  {text}
+                </Link>
+              ) : (
+                text
+              );
+            },
+          ]);
+        }
+        return arrReplacements;
+      };
+
       const byLineLink = replaceStringsWithJSX({
         text: i18n.sprintf(byLineString, {
           authorName: review.userName,
@@ -386,30 +433,12 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           // `<Link />` using `replaceStringsWithJSX`.
           linkEnd: '%(linkEnd)s',
           linkStart: '%(linkStart)s',
+          linkUserProfileStart:
+            !noAuthor && hasAdminPermission ? '%(linkUserProfileStart)s' : null,
+          linkUserProfileEnd:
+            !noAuthor && hasAdminPermission ? '%(linkUserProfileEnd)s' : null,
         }),
-        replacements: [
-          [
-            'linkStart',
-            'linkEnd',
-            (text) => {
-              return slugForReviewLink ? (
-                <Link
-                  title={i18n.moment(review.created).format('lll')}
-                  key={review.id}
-                  to={reviewListURL({
-                    addonSlug: String(slugForReviewLink),
-                    id: review.id,
-                    src: location.query.src,
-                  })}
-                >
-                  {text}
-                </Link>
-              ) : (
-                text
-              );
-            },
-          ],
-        ],
+        replacements: getReplacements(),
       });
 
       byLine = (
