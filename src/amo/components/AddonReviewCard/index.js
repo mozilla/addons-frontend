@@ -412,7 +412,6 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
                 <Link
                   key={`${review.id}-${review.userId}`}
                   to={`/user/${review.userId}/`}
-                  className="AddonReviewCard-author"
                 >
                   {text}
                 </Link>
