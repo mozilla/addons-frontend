@@ -142,7 +142,7 @@ describe(__filename, () => {
       sinon.assert.calledWith(_createBrowserHistory, { forceRefresh: false });
     });
 
-    it('reads the initial state when creating a browser history', async () => {
+    it('reads the initial state when creating a browser history and sets `forceRefresh` to the value of the loadedPageIsAnonymous prop', async () => {
       const _createBrowserHistory = sinon.spy(createBrowserHistory);
       const { store } = createAmoStore();
       store.dispatch(loadedPageIsAnonymous());
