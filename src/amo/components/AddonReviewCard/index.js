@@ -408,18 +408,14 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           replacements.push([
             'linkUserProfileStart',
             'linkUserProfileEnd',
-            (text) => {
-              return showUserProfileLink ? (
-                <Link
-                  key={`${review.id}-${review.userId}`}
-                  to={`/user/${review.userId}/`}
-                >
-                  {text}
-                </Link>
-              ) : (
-                text
-              );
-            },
+            (text) => (
+              <Link
+                key={`${review.id}-${review.userId}`}
+                to={`/user/${review.userId}/`}
+              >
+                {text}
+              </Link>
+            ),
           ]);
         }
         return replacements;
