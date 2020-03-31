@@ -15,7 +15,7 @@ import './styles.scss';
 
 // This refers to height of `Card-contents` CSS class,
 // beyond which it will add read more link.
-export const MAX_HEIGHT = 150;
+export const DEFAULT_MAX_HEIGHT = 150;
 
 type UIStateType = {|
   showAllContent: boolean,
@@ -27,6 +27,7 @@ type Props = {|
   className?: string,
   header?: React.Element<any> | string,
   id: string,
+  maxHeight?: number,
 |};
 
 type InternalProps = {|
@@ -99,11 +100,14 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
   }
 
   truncateToMaxHeight = (contents: HTMLElement | null) => {
-    const { uiState } = this.props;
+    const { maxHeight, uiState } = this.props;
     if (contents) {
       // If the contents are short enough they don't need a "show more" link; the
       // contents are expanded by default.
-      if (uiState.showAllContent && contents.clientHeight >= MAX_HEIGHT) {
+      if (
+        uiState.showAllContent &&
+        contents.clientHeight >= (maxHeight || DEFAULT_MAX_HEIGHT)
+      ) {
         this.props.setUIState({
           ...uiState,
           showAllContent: false,

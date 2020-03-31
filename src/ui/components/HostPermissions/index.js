@@ -98,7 +98,7 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
     messageType,
   }: GenerateHostPermissionsParams): Array<React.Element<typeof Permission>> {
     const hostPermissions = [];
-    for (const item of permissions.slice(0, 4)) {
+    for (const item of permissions) {
       // Add individual Permission components for the first 4 host permissions.
       hostPermissions.push(
         <Permission
@@ -106,20 +106,6 @@ export class HostPermissionsBase extends React.Component<InternalProps> {
           description={this.getPermissionString({ messageType, param: item })}
           key={item}
         />,
-      );
-    }
-    if (permissions.length > 4) {
-      // Replace the final individual permission with a "too many" permission.
-      hostPermissions[3] = (
-        <Permission
-          type="hostPermission"
-          description={this.getPermissionString({
-            messageType,
-            param: permissions.length - 3,
-            multiple: true,
-          })}
-          key={messageType}
-        />
       );
     }
     return hostPermissions;

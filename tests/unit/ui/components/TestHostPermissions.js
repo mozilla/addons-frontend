@@ -34,7 +34,7 @@ describe(__filename, () => {
       '*://*.mozilla.co.uk/*',
     ];
     const root = render({ permissions });
-    expect(root.find(Permission)).toHaveLength(4);
+    expect(root.find(Permission)).toHaveLength(6);
     expectPermission(
       root.childAt(0),
       'Access your data for sites in the mozilla.org domain',
@@ -47,7 +47,18 @@ describe(__filename, () => {
       root.childAt(2),
       'Access your data for sites in the mozilla.ca domain',
     );
-    expectPermission(root.childAt(3), 'Access your data in 3 other domains');
+    expectPermission(
+      root.childAt(3),
+      'Access your data for sites in the mozilla.us domain',
+    );
+    expectPermission(
+      root.childAt(4),
+      'Access your data for sites in the mozilla.co.nz domain',
+    );
+    expectPermission(
+      root.childAt(5),
+      'Access your data for sites in the mozilla.co.uk domain',
+    );
   });
 
   it('formats site permissions', () => {
@@ -59,7 +70,7 @@ describe(__filename, () => {
       '*://awesome.mozilla.org/*',
     ];
     const root = render({ permissions });
-    expect(root.find(Permission)).toHaveLength(4);
+    expect(root.find(Permission)).toHaveLength(5);
     expectPermission(
       root.childAt(0),
       'Access your data for developer.mozilla.org',
@@ -69,7 +80,14 @@ describe(__filename, () => {
       'Access your data for addons.mozilla.org',
     );
     expectPermission(root.childAt(2), 'Access your data for www.mozilla.org');
-    expectPermission(root.childAt(3), 'Access your data on 2 other sites');
+    expectPermission(
+      root.childAt(3),
+      'Access your data for testing.mozilla.org',
+    );
+    expectPermission(
+      root.childAt(4),
+      'Access your data for awesome.mozilla.org',
+    );
   });
 
   it('returns a single host permission for all urls', () => {
@@ -111,7 +129,7 @@ describe(__filename, () => {
       '*://*.mozilla.co.uk/*',
     ];
     const root = render({ permissions });
-    expect(root.find(Permission)).toHaveLength(5);
+    expect(root.find(Permission)).toHaveLength(8);
     expectPermission(
       root.childAt(0),
       'Access your data for sites in the okta.com domain',
@@ -124,7 +142,22 @@ describe(__filename, () => {
       root.childAt(2),
       'Access your data for sites in the mozilla.com domain',
     );
-    expectPermission(root.childAt(3), 'Access your data in 4 other domains');
-    expectPermission(root.childAt(4), 'Access your data for trishulgoel.com');
+    expectPermission(
+      root.childAt(3),
+      'Access your data for sites in the mozilla.ca domain',
+    );
+    expectPermission(
+      root.childAt(4),
+      'Access your data for sites in the mozilla.us domain',
+    );
+    expectPermission(
+      root.childAt(5),
+      'Access your data for sites in the mozilla.co.nz domain',
+    );
+    expectPermission(
+      root.childAt(6),
+      'Access your data for sites in the mozilla.co.uk domain',
+    );
+    expectPermission(root.childAt(7), 'Access your data for trishulgoel.com');
   });
 });
