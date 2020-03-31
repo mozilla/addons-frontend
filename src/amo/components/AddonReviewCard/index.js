@@ -378,7 +378,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         );
       }
 
-      const arrReplacements = [
+      const replacements = [
         [
           'linkStart',
           'linkEnd',
@@ -404,7 +404,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
       const getReplacements = () => {
         if (hasAdminPermission) {
-          arrReplacements.push([
+          replacements.push([
             'linkUserProfileStart',
             'linkUserProfileEnd',
             (text) => {
@@ -421,7 +421,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             },
           ]);
         }
-        return arrReplacements;
+        return replacements;
       };
 
       const byLineLink = replaceStringsWithJSX({
