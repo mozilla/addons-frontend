@@ -76,20 +76,22 @@ describe(__filename, () => {
 
     const authors = root.find('.AddonTitle-author');
 
-    // First child should be the "by"
-    expect(authors.childAt(0).text()).toEqual('by');
+    // First child should be a whitespace
+    expect(authors.childAt(0).text()).toEqual(' ');
+    // Second child should be the "by"
+    expect(authors.childAt(1).text()).toEqual('by');
     // Then it should be the empty space between "by" and the links
-    expect(authors.childAt(1).text()).toEqual(' ');
+    expect(authors.childAt(2).text()).toEqual(' ');
     // Then it should be a Link
-    expect(authors.childAt(2)).toHaveProp('to');
-    expect(authors.childAt(2)).toHaveProp('children', author1.name);
-    expect(authors.childAt(2)).toHaveProp('to', `/user/${author1.id}/`);
+    expect(authors.childAt(3)).toHaveProp('to');
+    expect(authors.childAt(3)).toHaveProp('children', author1.name);
+    expect(authors.childAt(3)).toHaveProp('to', `/user/${author1.id}/`);
     // Then, it should be a separator (comma)
-    expect(authors.childAt(3).text()).toEqual(', ');
+    expect(authors.childAt(4).text()).toEqual(', ');
     // Then, it should be the second Link
-    expect(authors.childAt(4)).toHaveProp('to');
-    expect(authors.childAt(4)).toHaveProp('children', author2.name);
-    expect(authors.childAt(4)).toHaveProp('to', `/user/${author2.id}/`);
+    expect(authors.childAt(5)).toHaveProp('to');
+    expect(authors.childAt(5)).toHaveProp('children', author2.name);
+    expect(authors.childAt(5)).toHaveProp('to', `/user/${author2.id}/`);
   });
 
   it('renders without authors', () => {
@@ -154,18 +156,20 @@ describe(__filename, () => {
 
     const authors = root.find('.AddonTitle-author');
 
-    // First child should be a Link
-    expect(authors.childAt(0)).toHaveProp('children', author1.name);
-    expect(authors.childAt(0)).toHaveProp('to', `/user/${author1.id}/`);
+    // First child should be a whitespace
+    expect(authors.childAt(0).text()).toEqual(' ');
+    // Second child should be a Link
+    expect(authors.childAt(1)).toHaveProp('children', author1.name);
+    expect(authors.childAt(1)).toHaveProp('to', `/user/${author1.id}/`);
     // Then, it should be a separator (comma)
-    expect(authors.childAt(1).text()).toEqual(' ,');
+    expect(authors.childAt(2).text()).toEqual(' ,');
     // Then it should be a second Link
-    expect(authors.childAt(2)).toHaveProp('children', author2.name);
-    expect(authors.childAt(2)).toHaveProp('to', `/user/${author2.id}/`);
+    expect(authors.childAt(3)).toHaveProp('children', author2.name);
+    expect(authors.childAt(3)).toHaveProp('to', `/user/${author2.id}/`);
     // Then it should be the empty space between "by" and the links
-    expect(authors.childAt(3).text()).toEqual(' ');
+    expect(authors.childAt(4).text()).toEqual(' ');
     // Finally, it should be the "by"
-    expect(authors.childAt(4).text()).toEqual('by');
+    expect(authors.childAt(5).text()).toEqual('by');
   });
 
   it('does not link to the add-on detail page when the "linkToAddon" prop is false', () => {
