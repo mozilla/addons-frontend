@@ -77,6 +77,7 @@ export const AddonTitleBase = ({
           )}
           {authors.length > 0 && (
             <span className="AddonTitle-author">
+              {' '}
               {isRTL ? (
                 <>
                   {authors}{' '}
