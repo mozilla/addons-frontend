@@ -198,7 +198,7 @@ describe(__filename, () => {
       const { api } = store.getState();
 
       expect(response.statusCode).toEqual(200);
-      expect(api.token).toBe(null);
+      expect(api.token).toEqual(null);
     });
 
     it('dispatches setAuthToken() if cookie is present', async () => {
@@ -506,6 +506,49 @@ describe(__filename, () => {
         _log.error,
         sinon.match(/Additionally, the error handler caught an error:/),
       );
+    });
+
+    it('handles requests slightly differently when app is amo and loaded page is anonymous', async () => {
+      const url = '/en-US/firefox/';
+      const config = getFakeConfig({ anonymousPagePatterns: [url] });
+      const token = userAuthToken();
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      const response = await testClient({
+        appInstanceName: 'amo',
+        config,
+        store,
+        sagaMiddleware,
+      })
+        .get(url)
+        .set('cookie', `${config.get('cookieName')}="${token}"`)
+        .end();
+
+      const { api, site } = store.getState();
+      // It should not dispatch `setAuthToken()`.
+      expect(response.statusCode).toEqual(200);
+      expect(api.token).toEqual(null);
+      // This means `loadedPageIsAnonymous()` has been dispatched.
+      expect(site.loadedPageIsAnonymous).toEqual(true);
+    });
+
+    it('does not dispatch loadedPageIsAnonymous() when loaded page is not anoynmous', async () => {
+      const config = getFakeConfig({ anonymousPagePatterns: [] });
+      const token = userAuthToken();
+      const { store, sagaMiddleware } = createStoreAndSagas();
+
+      await testClient({
+        appInstanceName: 'amo',
+        config,
+        store,
+        sagaMiddleware,
+      })
+        .get('/en-US/firefox/')
+        .set('cookie', `${config.get('cookieName')}="${token}"`)
+        .end();
+
+      const { site } = store.getState();
+      expect(site.loadedPageIsAnonymous).toEqual(false);
     });
   });
 

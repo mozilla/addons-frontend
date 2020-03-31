@@ -95,6 +95,13 @@ module.exports = {
   // client caching.
   faviconVersion: 2,
 
+  // URL patterns of anonymous/stateless pages. These pages won't authenticate
+  // the logged in user (if any) and should not contain any non-public data (so
+  // that we can cache them).
+  anonymousPagePatterns: [
+    '/blocked-addon/',
+  ],
+
   // The keys listed here will be exposed on the client.
   // Since by definition client-side code is public these config keys
   // must not contain sensitive data.

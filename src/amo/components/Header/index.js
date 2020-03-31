@@ -32,6 +32,7 @@ export class HeaderBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     isHomePage: PropTypes.bool.isRequired,
     isReviewer: PropTypes.bool.isRequired,
+    loadedPageIsAnonymous: PropTypes.bool.isRequired,
     location: PropTypes.object.isRequired,
     siteIsReadOnly: PropTypes.bool.isRequired,
     siteUser: PropTypes.object,
@@ -45,16 +46,113 @@ export class HeaderBase extends React.Component {
     this.props.handleLogOut({ api: this.props.api });
   };
 
-  render() {
+  renderMenuOrAuthButton() {
     const {
-      _config,
       i18n,
-      isHomePage,
       isReviewer,
-      location,
+      loadedPageIsAnonymous,
       siteIsReadOnly,
       siteUser,
     } = this.props;
+
+    if (loadedPageIsAnonymous) {
+      // The server has loaded a page that is marked as anonymous so we do not
+      // want to render any menu or authentication button here so that
+      // logged-in users are not confused.
+      return null;
+    }
+
+    return siteUser ? (
+      <DropdownMenu
+        text={siteUser.name}
+        className="Header-authenticate-button Header-button"
+      >
+        <DropdownMenuItem>{i18n.gettext('My Account')}</DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link
+            className="Header-user-menu-collections-link"
+            to="/collections/"
+          >
+            {i18n.gettext('View My Collections')}
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link
+            className="Header-user-menu-view-profile-link"
+            to={siteUser ? `/user/${siteUser.id}/` : null}
+          >
+            {i18n.gettext('View My Profile')}
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link
+            className="Header-user-menu-edit-profile-link"
+            to={siteUser ? '/users/edit' : null}
+          >
+            {i18n.gettext('Edit My Profile')}
+          </Link>
+        </DropdownMenuItem>
+
+        <DropdownMenuItem>{i18n.gettext('Tools')}</DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link
+            href="/developers/addon/submit/distribution"
+            prependClientApp={false}
+          >
+            {i18n.gettext('Submit a New Add-on')}
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link href="/developers/theme/submit" prependClientApp={false}>
+            {i18n.gettext('Submit a New Theme')}
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link
+            className="Header-user-menu-developers-submissions-link"
+            href="/developers/addons/"
+            prependClientApp={false}
+          >
+            {i18n.gettext('Manage My Submissions')}
+          </Link>
+        </DropdownMenuItem>
+        {isReviewer && (
+          <DropdownMenuItem>
+            <Link
+              className="Header-user-menu-reviewer-tools-link"
+              href="/reviewers/"
+              prependClientApp={false}
+            >
+              {i18n.gettext('Reviewer Tools')}
+            </Link>
+          </DropdownMenuItem>
+        )}
+
+        <DropdownMenuItem
+          className="Header-logout-button"
+          detached
+          disabled={siteIsReadOnly}
+          onClick={this.handleLogOut}
+          title={
+            siteIsReadOnly
+              ? i18n.gettext(`This action is currently unavailable.
+                          Please reload the page in a moment.`)
+              : null
+          }
+        >
+          {i18n.gettext('Log out')}
+        </DropdownMenuItem>
+      </DropdownMenu>
+    ) : (
+      <AuthenticateButton
+        className="Header-authenticate-button Header-button"
+        noIcon
+      />
+    );
+  }
+
+  render() {
+    const { _config, i18n, isHomePage, location } = this.props;
 
     const headerLink = (
       <Link className="Header-title" to="/">
@@ -110,98 +208,7 @@ export class HeaderBase extends React.Component {
               className="Header-download-button Header-button"
             />
 
-            {siteUser ? (
-              <DropdownMenu
-                text={siteUser.name}
-                className="Header-authenticate-button Header-button"
-              >
-                <DropdownMenuItem>
-                  {i18n.gettext('My Account')}
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link
-                    className="Header-user-menu-collections-link"
-                    to="/collections/"
-                  >
-                    {i18n.gettext('View My Collections')}
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link
-                    className="Header-user-menu-view-profile-link"
-                    to={siteUser ? `/user/${siteUser.id}/` : null}
-                  >
-                    {i18n.gettext('View My Profile')}
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link
-                    className="Header-user-menu-edit-profile-link"
-                    to={siteUser ? '/users/edit' : null}
-                  >
-                    {i18n.gettext('Edit My Profile')}
-                  </Link>
-                </DropdownMenuItem>
-
-                <DropdownMenuItem>{i18n.gettext('Tools')}</DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link
-                    href="/developers/addon/submit/distribution"
-                    prependClientApp={false}
-                  >
-                    {i18n.gettext('Submit a New Add-on')}
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link
-                    href="/developers/theme/submit"
-                    prependClientApp={false}
-                  >
-                    {i18n.gettext('Submit a New Theme')}
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link
-                    className="Header-user-menu-developers-submissions-link"
-                    href="/developers/addons/"
-                    prependClientApp={false}
-                  >
-                    {i18n.gettext('Manage My Submissions')}
-                  </Link>
-                </DropdownMenuItem>
-                {isReviewer && (
-                  <DropdownMenuItem>
-                    <Link
-                      className="Header-user-menu-reviewer-tools-link"
-                      href="/reviewers/"
-                      prependClientApp={false}
-                    >
-                      {i18n.gettext('Reviewer Tools')}
-                    </Link>
-                  </DropdownMenuItem>
-                )}
-
-                <DropdownMenuItem
-                  className="Header-logout-button"
-                  detached
-                  disabled={siteIsReadOnly}
-                  onClick={this.handleLogOut}
-                  title={
-                    siteIsReadOnly
-                      ? i18n.gettext(`This action is currently unavailable.
-                          Please reload the page in a moment.`)
-                      : null
-                  }
-                >
-                  {i18n.gettext('Log out')}
-                </DropdownMenuItem>
-              </DropdownMenu>
-            ) : (
-              <AuthenticateButton
-                className="Header-authenticate-button Header-button"
-                noIcon
-              />
-            )}
+            {this.renderMenuOrAuthButton()}
           </div>
 
           <SearchForm className="Header-search-form" pathname="/search/" />
@@ -215,6 +222,7 @@ export const mapStateToProps = (state) => {
   return {
     api: state.api,
     isReviewer: hasAnyReviewerRelatedPermission(state),
+    loadedPageIsAnonymous: state.site.loadedPageIsAnonymous,
     siteIsReadOnly: state.site.readOnly,
     siteUser: getCurrentUser(state.users),
   };

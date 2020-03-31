@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:36+0000\n"
-"PO-Revision-Date: 2020-03-27 19:08+0000\n"
+"PO-Revision-Date: 2020-03-28 19:28+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -856,9 +856,8 @@ msgid "Site Status"
 msgstr "Sivuston tila"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browsers"
-msgstr "Selain"
+msgstr "Selaimet"
 
 #: src/amo/components/Footer/index.js:169
 msgid "Products"
@@ -1620,9 +1619,8 @@ msgid "About this add-on"
 msgstr "Tietoja tästä lisäosasta"
 
 #: src/amo/pages/Addon/index.js:316
-#, fuzzy
 msgid "Developer comments"
-msgstr "Kehittäjäkäytännöt"
+msgstr "Kehittäjän kommentit"
 
 #: src/amo/pages/Addon/index.js:336
 msgid "Release notes for %(addonVersion)s"
@@ -1729,9 +1727,8 @@ msgid "Older versions"
 msgstr "Vanhemmat versiot"
 
 #: src/amo/pages/Block/index.js:113
-#, fuzzy
 msgid "Versions blocked: all versions."
-msgstr "Näytä kaikki versiot"
+msgstr "Estetyt versiot: kaikki versiot."
 
 #: src/amo/pages/Block/index.js:116
 msgid "Versions blocked: %(min)s to %(max)s."
@@ -1742,9 +1739,8 @@ msgid "%(addonName)s has been blocked for your protection."
 msgstr "%(addonName)s on estetty turvallisuussyistä."
 
 #: src/amo/pages/Block/index.js:143
-#, fuzzy
 msgid "This add-on has been blocked for your protection."
-msgstr "Tämän lisäosan tekijä on poistanut lisäosan."
+msgstr "Tämä lisäosa on estetty turvallisuussyistä."
 
 #: src/amo/pages/Block/index.js:153
 msgid "Why was it blocked?"

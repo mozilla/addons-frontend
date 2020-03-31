@@ -22,6 +22,7 @@ export default async function createClient(
     _FastClick = FastClick,
     _RavenJs = RavenJs,
     _config = config,
+    _createBrowserHistory = createBrowserHistory,
     _tracking = tracking,
     sagas = null,
   } = {},
@@ -76,7 +77,18 @@ export default async function createClient(
   }
 
   const history = addQueryParamsToHistory({
-    history: createBrowserHistory(),
+    history: _createBrowserHistory({
+      // When `forceRefresh` is `true`, client side navigation is disabled and
+      // all links will trigger a full page reload. This is what we want when
+      // the server has loaded an anoynmous page.
+      //
+      // Note: we check the presence of the `site` state because the `disco`
+      // app uses the same code but does not use this state.
+      forceRefresh:
+        initialState && initialState.site
+          ? initialState.site.loadedPageIsAnonymous
+          : false,
+    }),
   });
 
   // See: https://github.com/mozilla/addons-frontend/issues/8647

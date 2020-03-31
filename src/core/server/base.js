@@ -48,7 +48,7 @@ import {
 import { setHashedClientId } from 'disco/reducers/telemetry';
 import { getDeploymentVersion } from 'core/utils/build';
 import { getSentryRelease } from 'core/utils/sentry';
-import { fetchSiteStatus } from 'core/reducers/site';
+import { fetchSiteStatus, loadedPageIsAnonymous } from 'core/reducers/site';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
 
@@ -288,6 +288,13 @@ function baseServer(
         webpackIsomorphicTools.refresh();
       }
 
+      const isAnonymousPage =
+        appName === 'amo' &&
+        config
+          .get('anonymousPagePatterns')
+          .filter((pattern) => new RegExp(pattern).test(req.originalUrl))
+          .length !== 0;
+
       // Make sure the initial page does not get stored. Specifically, we
       // don't want the auth token in Redux state to hang around.
       // See https://github.com/mozilla/addons-frontend/issues/6217
@@ -296,7 +303,7 @@ function baseServer(
       // only affect how the browser loads the page when clicking
       // the back button.
       //
-      const cacheControl = ['no-store'];
+      const cacheControl = isAnonymousPage ? ['public'] : ['no-store'];
 
       const cacheAllResponsesFor = config.get('cacheAllResponsesFor');
       if (cacheAllResponsesFor) {
@@ -341,16 +348,20 @@ function baseServer(
         }
         runningSagas = sagaMiddleware.run(sagas);
 
-        // TODO: synchronize cookies with Redux store more automatically.
-        // See https://github.com/mozilla/addons-frontend/issues/5617
-        const token = req.universalCookies.get(config.get('cookieName'));
-        if (token) {
-          store.dispatch(setAuthToken(token));
+        if (isAnonymousPage) {
+          store.dispatch(loadedPageIsAnonymous());
         } else {
-          // We only need to do this without a token because the user login
-          // saga already sets the site status (the Users API returns site
-          // status in its response).
-          store.dispatch(fetchSiteStatus());
+          // TODO: synchronize cookies with Redux store more automatically.
+          // See https://github.com/mozilla/addons-frontend/issues/5617
+          const token = req.universalCookies.get(config.get('cookieName'));
+          if (token) {
+            store.dispatch(setAuthToken(token));
+          } else {
+            // We only need to do this without a token because the user login
+            // saga already sets the site status (the Users API returns site
+            // status in its response).
+            store.dispatch(fetchSiteStatus());
+          }
         }
 
         if (
