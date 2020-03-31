@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
-import type { UserAgentInfoType } from 'core/reducers/api';
 
 import {
   ADDON_TYPE_EXTENSION,
@@ -44,6 +43,7 @@ export class SearchFiltersBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     lang: PropTypes.string.isRequired,
     pathname: PropTypes.string.isRequired,
+    userAgentInfo: PropTypes.object.isRequired,
   };
 
   onSelectElementChange = (event) => {
