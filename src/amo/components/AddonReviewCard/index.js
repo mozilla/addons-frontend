@@ -403,9 +403,8 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         ],
       ];
 
-      const getReplacements = () => {
-        if (showUserProfileLink) {
-          replacements.push([
+      const getReplacements = showUserProfileLink
+        ? (replacements.push([
             'linkUserProfileStart',
             'linkUserProfileEnd',
             (text) => (
@@ -416,10 +415,9 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
                 {text}
               </Link>
             ),
-          ]);
-        }
-        return replacements;
-      };
+          ]),
+          replacements)
+        : replacements;
 
       const byLineLink = replaceStringsWithJSX({
         text: i18n.sprintf(byLineString, {
@@ -436,7 +434,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             ? '%(linkUserProfileEnd)s'
             : undefined,
         }),
-        replacements: getReplacements(),
+        replacements: getReplacements,
       });
 
       byLine = (
