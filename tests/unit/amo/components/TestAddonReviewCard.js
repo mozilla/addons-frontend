@@ -1189,6 +1189,28 @@ describe(__filename, () => {
         i18n.moment(review.created).fromNow(),
       );
     });
+
+    it('linkifies username if current user is an admin', () => {
+      dispatchSignInActions({
+        store,
+        userProps: { permissions: [ALL_SUPER_POWERS] },
+      });
+
+      const review = _setReview(fakeReview);
+      const root = render({ review });
+
+      const authorLinks = renderByLine(root).find(Link);
+      expect(authorLinks).toHaveLength(2);
+      expect(authorLinks.at(0)).toHaveProp('to', `/user/${review.userId}/`);
+    });
+
+    it('does not linkify username if current user is not an admin', () => {
+      const review = _setReview(fakeReview);
+      const root = render({ review });
+
+      const authorLink = renderByLine(root).find(Link);
+      expect(authorLink).toHaveLength(1);
+    });
   });
 
   describe('Developer reply to a review', () => {
