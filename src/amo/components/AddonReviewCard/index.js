@@ -348,6 +348,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
 
     let byLine;
     const noAuthor = shortByLine || this.isReply();
+    const showUserProfileLink = !noAuthor && hasAdminPermission;
 
     if (review) {
       // eslint-disable-next-line no-nested-ternary
@@ -355,7 +356,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         ? // translators: Example in English: "posted last week"
           i18n.gettext('posted %(linkStart)s%(timestamp)s%(linkEnd)s')
         : // translators: Example in English: "by UserName123, last week"
-        !noAuthor && hasAdminPermission
+        showUserProfileLink
         ? i18n.gettext(
             'by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s',
           )
@@ -403,12 +404,12 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       ];
 
       const getReplacements = () => {
-        if (!noAuthor && hasAdminPermission) {
+        if (showUserProfileLink) {
           replacements.push([
             'linkUserProfileStart',
             'linkUserProfileEnd',
             (text) => {
-              return !noAuthor && hasAdminPermission ? (
+              return showUserProfileLink ? (
                 <Link
                   key={`${review.id}-${review.userId}`}
                   to={`/user/${review.userId}/`}
@@ -432,10 +433,12 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
           // `<Link />` using `replaceStringsWithJSX`.
           linkEnd: '%(linkEnd)s',
           linkStart: '%(linkStart)s',
-          linkUserProfileStart:
-            !noAuthor && hasAdminPermission ? '%(linkUserProfileStart)s' : null,
-          linkUserProfileEnd:
-            !noAuthor && hasAdminPermission ? '%(linkUserProfileEnd)s' : null,
+          linkUserProfileStart: showUserProfileLink
+            ? '%(linkUserProfileStart)s'
+            : undefined,
+          linkUserProfileEnd: showUserProfileLink
+            ? '%(linkUserProfileEnd)s'
+            : undefined,
         }),
         replacements: getReplacements(),
       });
