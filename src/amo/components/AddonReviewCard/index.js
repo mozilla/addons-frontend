@@ -403,21 +403,20 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
         ],
       ];
 
-      const getReplacements = showUserProfileLink
-        ? (replacements.push([
-            'linkUserProfileStart',
-            'linkUserProfileEnd',
-            (text) => (
-              <Link
-                key={`${review.id}-${review.userId}`}
-                to={`/user/${review.userId}/`}
-              >
-                {text}
-              </Link>
-            ),
-          ]),
-          replacements)
-        : replacements;
+      if (showUserProfileLink) {
+        replacements.push([
+          'linkUserProfileStart',
+          'linkUserProfileEnd',
+          (text) => (
+            <Link
+              key={`${review.id}-${review.userId}`}
+              to={`/user/${review.userId}/`}
+            >
+              {text}
+            </Link>
+          ),
+        ]);
+      }
 
       const byLineLink = replaceStringsWithJSX({
         text: i18n.sprintf(byLineString, {
@@ -434,7 +433,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
             ? '%(linkUserProfileEnd)s'
             : undefined,
         }),
-        replacements: getReplacements,
+        replacements,
       });
 
       byLine = (
