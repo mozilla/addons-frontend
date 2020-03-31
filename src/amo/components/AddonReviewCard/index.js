@@ -403,7 +403,7 @@ export class AddonReviewCardBase extends React.Component<InternalProps> {
       ];
 
       const getReplacements = () => {
-        if (hasAdminPermission) {
+        if (!noAuthor && hasAdminPermission) {
           replacements.push([
             'linkUserProfileStart',
             'linkUserProfileEnd',
