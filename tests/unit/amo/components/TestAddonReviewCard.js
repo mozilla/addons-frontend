@@ -1204,7 +1204,7 @@ describe(__filename, () => {
       expect(authorLinks.at(0)).toHaveProp('to', `/user/${review.userId}/`);
     });
 
-    it('checks that username is not linkified if current user is not an admin', () => {
+    it('does not linkify username if current user is not an admin', () => {
       const review = _setReview(fakeReview);
       const root = render({ review });
 
