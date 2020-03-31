@@ -8,7 +8,7 @@ import { compose } from 'redux';
 import { setViewContext } from 'amo/actions/viewContext';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { fetchCategories } from 'core/reducers/categories';
+import { fetchCategories, getCategories } from 'core/reducers/categories';
 import { getCategoryResultsQuery } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
@@ -112,13 +112,11 @@ export class CategoriesBase extends React.Component<InternalProps> {
     invariant(addonType, 'addonType is undefined');
 
     let categories = [];
-    if (
-      categoriesState &&
-      categoriesState[clientApp] &&
-      categoriesState[clientApp][addonType]
-    ) {
-      categories = Object.values(categoriesState[clientApp][addonType]);
+
+    if (categoriesState && clientApp && addonType) {
+      categories = getCategories(categoriesState, clientApp, addonType);
     }
+
     const classNameProp = classnames('Categories', className);
 
     if (!errorHandler.hasError() && !loading && !categories.length) {

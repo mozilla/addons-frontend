@@ -9,11 +9,7 @@ import Link from 'amo/components/Link';
 import { getVersionById, getVersionInfo } from 'core/reducers/versions';
 import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
-import {
-  fetchCategories,
-  getCategoryNames,
-  getCategories,
-} from 'core/reducers/categories';
+import { fetchCategories, getCategoryNames } from 'core/reducers/categories';
 import { hasPermission } from 'amo/reducers/users';
 import { isAddonAuthor, trimAndAddProtocolToUrl } from 'core/utils';
 import Card from 'ui/components/Card';
@@ -232,10 +228,9 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
     versionLicenseLink = null,
     versionHistoryLink = null,
   }: Object) {
-    const { addon, i18n, errorHandler } = this.props;
+    const { addon, i18n } = this.props;
     return (
       <>
-        {errorHandler.renderErrorIfPresent()}
         <DefinitionList className="AddonMoreInfo-dl">
           {(homepage || supportUrl || supportEmail) && (
             <Definition
@@ -347,14 +342,12 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
   let relatedCategories = null;
 
   if (categoriesState && appName && addon && addon.type && addon.categories) {
-    const categories = getCategories(categoriesState, appName, addon.type);
-    if (categories) {
-      relatedCategories = getCategoryNames(
-        categories,
-        ownProps.addon.categories,
-        appName,
-      );
-    }
+    relatedCategories = getCategoryNames(
+      categoriesState,
+      ownProps.addon.categories,
+      appName,
+      addon.type,
+    );
   }
 
   let currentVersion = null;

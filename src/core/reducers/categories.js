@@ -31,7 +31,7 @@ type CategoryMapType = {
   },
 };
 
-type CategorySlugType = {
+export type CategorySlugType = {
   [addonSlug: string]: ExternalCategory,
 };
 
@@ -111,7 +111,7 @@ export const getCategories = (
   appName: string,
   addonType: string,
 ): CategorySlugType | null => {
-  invariant(categoriesState, 'categories can be empty!');
+  invariant(categoriesState, 'categories state can not be empty!');
   invariant(appName, 'app name can not be empty!');
   invariant(addonType, 'addon type can not be empty!');
   if (
@@ -127,16 +127,19 @@ export const getCategories = (
 };
 
 export function getCategoryNames(
-  categories: CategorySlugType,
+  categoriesState: CategoryMapType,
   addonCategories: AddonCategories,
   appName: string,
+  addonType: string,
 ): CategoriesNames | null {
-  invariant(categories, 'categories can be empty!');
+  invariant(categoriesState, 'categories state can not be empty!');
   invariant(addonCategories, 'slugs can not be empty!');
+
+  const categories = getCategories(categoriesState, appName, addonType);
 
   const relatedCategories = [];
 
-  if (addonCategories && addonCategories[appName]) {
+  if (categories && addonCategories && addonCategories[appName]) {
     categories.forEach((r) => {
       if (addonCategories[appName].includes(r.slug)) {
         relatedCategories.push(r.name);
