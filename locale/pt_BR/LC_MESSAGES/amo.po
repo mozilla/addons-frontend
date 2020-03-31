@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-31 19:55+0000\n"
-"PO-Revision-Date: 2020-03-31 22:05+0000\n"
+"PO-Revision-Date: 2020-03-31 22:06+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -364,9 +364,8 @@ msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "publicado %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:360
-#, fuzzy
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "por %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "por %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:363
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -1448,14 +1447,12 @@ msgid "Recommended add-ons only"
 msgstr "Somente extensões recomendadas"
 
 #: src/amo/components/SearchForm/index.js:57
-#, fuzzy
 msgid "Firefox Add-ons for Android"
-msgstr "Extensões para Android"
+msgstr "Extensões do Firefox para Android"
 
 #: src/amo/components/SearchForm/index.js:58
-#, fuzzy
 msgid "Firefox Add-ons"
-msgstr "Sobre extensões do Firefox"
+msgstr "Extensões do Firefox"
 
 #: src/amo/components/SearchForm/index.js:81
 msgid "Go to the add-on page"
