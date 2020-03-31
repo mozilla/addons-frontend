@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-03-24 18:36+0000\n"
+"POT-Creation-Date: 2020-03-31 19:55+0000\n"
 "PO-Revision-Date: 2019-08-16 18:01+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,6 +67,7 @@ msgstr "నిర్వహణ లంకెలు"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/AddonAdminLinks/index.js:75
+#: src/amo/components/AddonAuthorLinks/index.js:45
 msgid "Edit add-on"
 msgstr "పొడిగింత నిర్వహణ"
 
@@ -74,6 +75,11 @@ msgstr "పొడిగింత నిర్వహణ"
 #: src/amo/components/AddonAdminLinks/index.js:87
 msgid "Admin add-on status"
 msgstr "నిర్వహణ పొడగింత స్థితి"
+
+#: src/amo/components/AddonAuthorLinks/index.js:55
+#, fuzzy
+msgid "Author Links"
+msgstr "పొడిగింత లంకెలు"
 
 #: src/amo/components/AddonBadges/index.js:47
 msgid "Restart Required"
@@ -209,83 +215,83 @@ msgstr "సమీక్షలు లేవు"
 msgid "Used by"
 msgstr "వాడినది"
 
-#: src/amo/components/AddonMoreInfo/index.js:108
+#: src/amo/components/AddonMoreInfo/index.js:109
 msgid "Visit stats dashboard"
 msgstr "గణాంకాల డాష్‌బోర్డును చూడండి"
 
-#: src/amo/components/AddonMoreInfo/index.js:126
+#: src/amo/components/AddonMoreInfo/index.js:127
 msgid "Custom License"
 msgstr "అభిమత లైసెన్సు"
 
-#: src/amo/components/AddonMoreInfo/index.js:148
+#: src/amo/components/AddonMoreInfo/index.js:149
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:163
+#: src/amo/components/AddonMoreInfo/index.js:164
 msgid "Read the privacy policy for this add-on"
 msgstr "ఈ పొడిగింత కోసం ఈ గోప్యతా విధానం చదవండి"
 
-#: src/amo/components/AddonMoreInfo/index.js:173
+#: src/amo/components/AddonMoreInfo/index.js:174
 msgid "Read the license agreement for this add-on"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:184
+#: src/amo/components/AddonMoreInfo/index.js:185
 msgid "See all versions"
 msgstr "వెర్షనులన్నీ చూడండి"
 
-#: src/amo/components/AddonMoreInfo/index.js:211
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Add-on Links"
 msgstr "పొడిగింత లంకెలు"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "Version"
 msgstr "వెర్షన్"
 
-#: src/amo/components/AddonMoreInfo/index.js:231
+#: src/amo/components/AddonMoreInfo/index.js:232
 msgid "Size"
 msgstr "పరిమాణము"
 
-#: src/amo/components/AddonMoreInfo/index.js:239
+#: src/amo/components/AddonMoreInfo/index.js:240
 #: src/amo/components/CollectionDetails/index.js:89
 msgid "Last updated"
 msgstr "చివరిగా నవీకరించినది"
 
-#: src/amo/components/AddonMoreInfo/index.js:247
+#: src/amo/components/AddonMoreInfo/index.js:248
 msgid "License"
 msgstr "లైసెన్స్"
 
-#: src/amo/components/AddonMoreInfo/index.js:255
+#: src/amo/components/AddonMoreInfo/index.js:256
 msgid "Privacy Policy"
 msgstr "గోప్యతా విధానం"
 
-#: src/amo/components/AddonMoreInfo/index.js:263
+#: src/amo/components/AddonMoreInfo/index.js:264
 msgid "End-User License Agreement"
 msgstr "అంతిమ-వాడుకరి లైసెన్సు ఒప్పందపత్రం"
 
-#: src/amo/components/AddonMoreInfo/index.js:271
+#: src/amo/components/AddonMoreInfo/index.js:272
 msgid "Version History"
 msgstr "వెర్షన్ చరిత్ర"
 
-#: src/amo/components/AddonMoreInfo/index.js:281
+#: src/amo/components/AddonMoreInfo/index.js:282
 msgid "Usage Statistics"
 msgstr "వాడుక గణాంకాలు"
 
-#: src/amo/components/AddonMoreInfo/index.js:296
+#: src/amo/components/AddonMoreInfo/index.js:298
 msgid "More information"
 msgstr "మరింత సమాచారం"
 
-#: src/amo/components/AddonMoreInfo/index.js:62
+#: src/amo/components/AddonMoreInfo/index.js:63
 #: src/amo/pages/UserProfile/index.js:357
 #: src/amo/pages/UserProfile/index.js:359
 #: src/amo/pages/UserProfileEdit/index.js:673
 msgid "Homepage"
 msgstr "ముంగిలిపేజీ"
 
-#: src/amo/components/AddonMoreInfo/index.js:73
+#: src/amo/components/AddonMoreInfo/index.js:74
 msgid "Support site"
 msgstr "తోడ్పాటు సైటు"
 
-#: src/amo/components/AddonMoreInfo/index.js:87
+#: src/amo/components/AddonMoreInfo/index.js:88
 msgid "Support Email"
 msgstr "ఇమెయిల్ మద్దతు"
 
@@ -297,47 +303,47 @@ msgstr "ఈ పొడగింత ఉన్న వాడుకరులు వ�
 msgid "Other popular extensions"
 msgstr "ఇతర ప్రాచుర్య పొడిగింతలు"
 
-#: src/amo/components/AddonReviewCard/index.js:198
+#: src/amo/components/AddonReviewCard/index.js:199
 msgid "Edit reply"
 msgstr "స్పందనను సవరించు"
 
-#: src/amo/components/AddonReviewCard/index.js:201
+#: src/amo/components/AddonReviewCard/index.js:202
 msgid "Edit review"
 msgstr "సమీక్షను సవరించు"
 
-#: src/amo/components/AddonReviewCard/index.js:208
-#: src/amo/components/AddonReviewCard/index.js:240
+#: src/amo/components/AddonReviewCard/index.js:209
+#: src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete reply"
 msgstr "స్పందనను తొలగించు"
 
-#: src/amo/components/AddonReviewCard/index.js:212
-#: src/amo/components/AddonReviewCard/index.js:244
+#: src/amo/components/AddonReviewCard/index.js:213
+#: src/amo/components/AddonReviewCard/index.js:245
 msgid "Delete rating"
 msgstr "రేటింగును తొలగించు"
 
-#: src/amo/components/AddonReviewCard/index.js:215
-#: src/amo/components/AddonReviewCard/index.js:247
+#: src/amo/components/AddonReviewCard/index.js:216
+#: src/amo/components/AddonReviewCard/index.js:248
 msgid "Delete review"
 msgstr "సమీక్షను తొలగించు"
 
-#: src/amo/components/AddonReviewCard/index.js:222
+#: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this reply?"
 msgstr "మీరు నిజంగానే ఈ స్పందనను తొలగించాలని అనుకుంటున్నారా?"
 
-#: src/amo/components/AddonReviewCard/index.js:226
+#: src/amo/components/AddonReviewCard/index.js:227
 msgid "Do you really want to delete this rating?"
 msgstr "మీరు నిజంగానే ఈ రేటింగును తొలగించాలని అనుకుంటున్నారా?"
 
-#: src/amo/components/AddonReviewCard/index.js:229
+#: src/amo/components/AddonReviewCard/index.js:230
 msgid "Do you really want to delete this review?"
 msgstr "మీరు నిజంగానే ఈ సమీక్షను తొలగించాలని అనుకుంటున్నారా?"
 
-#: src/amo/components/AddonReviewCard/index.js:236
+#: src/amo/components/AddonReviewCard/index.js:237
 #: src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
 msgstr "తొలగించు"
 
-#: src/amo/components/AddonReviewCard/index.js:254
+#: src/amo/components/AddonReviewCard/index.js:255
 #: src/amo/components/AddonReviewManager/index.js:151
 #: src/amo/components/CollectionManager/index.js:316
 #: src/amo/pages/UserProfileEdit/index.js:913
@@ -346,63 +352,70 @@ msgstr "తొలగించు"
 msgid "Cancel"
 msgstr "రద్దుచేయి"
 
-#: src/amo/components/AddonReviewCard/index.js:258
+#: src/amo/components/AddonReviewCard/index.js:259
 msgid "Keep reply"
 msgstr "స్పందనను ఉంచు"
 
-#: src/amo/components/AddonReviewCard/index.js:262
+#: src/amo/components/AddonReviewCard/index.js:263
 msgid "Keep rating"
 msgstr "రేటింగ్ చేయండి"
 
-#: src/amo/components/AddonReviewCard/index.js:265
+#: src/amo/components/AddonReviewCard/index.js:266
 msgid "Keep review"
 msgstr "సమీక్షను ఉంచు"
 
-#: src/amo/components/AddonReviewCard/index.js:301
+#: src/amo/components/AddonReviewCard/index.js:302
 msgid "Write a reply to this review."
 msgstr "ఈ సమీక్షకి స్పందించండి."
 
-#: src/amo/components/AddonReviewCard/index.js:304
+#: src/amo/components/AddonReviewCard/index.js:305
 #: src/amo/components/AddonReviewManager/index.js:119
 msgid "Update reply"
 msgstr "ప్రత్యుత్తరం నవీకరణ"
 
-#: src/amo/components/AddonReviewCard/index.js:305
+#: src/amo/components/AddonReviewCard/index.js:306
 msgid "Publish reply"
 msgstr "ప్రత్యుత్తరం ప్రచురించండి"
 
-#: src/amo/components/AddonReviewCard/index.js:309
+#: src/amo/components/AddonReviewCard/index.js:310
 #: src/amo/components/AddonReviewManager/index.js:122
 msgid "Updating reply"
 msgstr "ప్రత్యుత్తరం నవీకరిస్తోంది"
 
-#: src/amo/components/AddonReviewCard/index.js:310
+#: src/amo/components/AddonReviewCard/index.js:311
 msgid "Publishing reply"
 msgstr "ప్రత్యుత్తరం ప్రచురించబడుతొంధి"
 
-#: src/amo/components/AddonReviewCard/index.js:353
+#: src/amo/components/AddonReviewCard/index.js:357
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:355
+#: src/amo/components/AddonReviewCard/index.js:360
+#, fuzzy
+msgid ""
+"by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, "
+"%(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "%(authorName)s చే, %(linkStart)s%(timestamp)s%(linkEnd)s"
+
+#: src/amo/components/AddonReviewCard/index.js:363
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "%(authorName)s చే, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
-#: src/amo/components/AddonReviewCard/index.js:447
+#: src/amo/components/AddonReviewCard/index.js:478
 msgid "Deleting…"
 msgstr "తొలగిస్తోంది…"
 
-#: src/amo/components/AddonReviewCard/index.js:478
+#: src/amo/components/AddonReviewCard/index.js:509
 msgid "Reply to this review"
 msgstr "ఈ సమీక్షకి స్పందించు"
 
-#: src/amo/components/AddonReviewCard/index.js:508
+#: src/amo/components/AddonReviewCard/index.js:539
 msgid ""
 "This rating or review has been deleted. You are only seeing it because of "
 "elevated permissions."
 msgstr ""
 
-#: src/amo/components/AddonReviewCard/index.js:554
+#: src/amo/components/AddonReviewCard/index.js:585
 msgid "Write a review"
 msgstr "సమీక్షను వ్రాయండి"
 
@@ -539,8 +552,8 @@ msgid ","
 msgstr ","
 
 # Example: add-on "by" some authors
-#: src/amo/components/AddonTitle/index.js:84
-#: src/amo/components/AddonTitle/index.js:88
+#: src/amo/components/AddonTitle/index.js:85
+#: src/amo/components/AddonTitle/index.js:89
 msgid "by"
 msgstr "ద్వారా"
 
@@ -960,11 +973,11 @@ msgstr "గురించి"
 msgid "Blog"
 msgstr "బ్లాగు"
 
-#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:96
+#: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:194
 msgid "Extension Workshop"
 msgstr "పొడగింతల కార్యశాల"
 
-#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:106
+#: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:204
 msgid "Developer Hub"
 msgstr "డెవలపర్ కేంద్రం"
 
@@ -992,68 +1005,68 @@ msgstr "Firefoxతో మాత్రమే—ఇప్పుడే Firefoxన�
 msgid "Download Firefox"
 msgstr "Firefoxను దింపుకోండి"
 
-#: src/amo/components/Header/index.js:104
-msgid "Submit and manage extensions and themes"
-msgstr "పొడగింతలు, అలంకారాల దాఖలు, నిర్వహణ"
-
-#: src/amo/components/Header/index.js:119
-msgid "My Account"
-msgstr "నా ఖాతా"
-
-#: src/amo/components/Header/index.js:126
-msgid "View My Collections"
-msgstr "నా సేకరణలను చూడు"
-
-#: src/amo/components/Header/index.js:134
-#: src/amo/pages/UserProfileEdit/index.js:548
-msgid "View My Profile"
-msgstr "నా ప్రొఫైలును చూడు"
-
-#: src/amo/components/Header/index.js:142
-#: src/amo/pages/UserProfileEdit/index.js:554
-msgid "Edit My Profile"
-msgstr "ప్రొఫైలును సవరించు"
-
-#: src/amo/components/Header/index.js:146
-msgid "Tools"
-msgstr "పనిముట్లు"
-
-#: src/amo/components/Header/index.js:152
+#: src/amo/components/Header/index.js:102
 msgid "Submit a New Add-on"
 msgstr "కొత్త పొడగింతను సమర్పించండి"
 
-#: src/amo/components/Header/index.js:160
+#: src/amo/components/Header/index.js:107
 msgid "Submit a New Theme"
 msgstr "కొత్త అలంకారాన్ని సమర్పించండి"
 
-#: src/amo/components/Header/index.js:169
+#: src/amo/components/Header/index.js:116
 msgid "Manage My Submissions"
 msgstr ""
 
-#: src/amo/components/Header/index.js:179
+#: src/amo/components/Header/index.js:126
 msgid "Reviewer Tools"
 msgstr "సమీక్షకుల పనిముట్లు"
 
-#: src/amo/components/Header/index.js:191
-#: src/core/components/AuthenticateButton/index.js:90
+#: src/amo/components/Header/index.js:138
+#: src/core/components/AuthenticateButton/index.js:91
 msgid ""
 "This action is currently unavailable. Please reload the page in a moment."
 msgstr ""
 
-#: src/amo/components/Header/index.js:196
-#: src/core/components/AuthenticateButton/index.js:86
+#: src/amo/components/Header/index.js:143
+#: src/core/components/AuthenticateButton/index.js:87
 msgid "Log out"
 msgstr "లాగ్ అవుట్"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Header/index.js:63
+#: src/amo/components/Header/index.js:161
 #, fuzzy
 msgid "Firefox Browser Add-ons"
 msgstr "Firefox పొడిగింతలు"
 
-#: src/amo/components/Header/index.js:94
+#: src/amo/components/Header/index.js:192
 msgid "Learn how to create extensions and themes"
 msgstr "పొడగింతలను, అలంకారాలను ఎలా తయారుచేయాలో తెలుసుకోండి"
+
+#: src/amo/components/Header/index.js:202
+msgid "Submit and manage extensions and themes"
+msgstr "పొడగింతలు, అలంకారాల దాఖలు, నిర్వహణ"
+
+#: src/amo/components/Header/index.js:70
+msgid "My Account"
+msgstr "నా ఖాతా"
+
+#: src/amo/components/Header/index.js:76
+msgid "View My Collections"
+msgstr "నా సేకరణలను చూడు"
+
+#: src/amo/components/Header/index.js:84
+#: src/amo/pages/UserProfileEdit/index.js:548
+msgid "View My Profile"
+msgstr "నా ప్రొఫైలును చూడు"
+
+#: src/amo/components/Header/index.js:92
+#: src/amo/pages/UserProfileEdit/index.js:554
+msgid "Edit My Profile"
+msgstr "ప్రొఫైలును సవరించు"
+
+#: src/amo/components/Header/index.js:96
+msgid "Tools"
+msgstr "పనిముట్లు"
 
 #: src/amo/components/HeroRecommendation/index.js:107
 #, fuzzy
@@ -1548,15 +1561,18 @@ msgstr "ఆపరేటింగ్ సిస్టమ్"
 msgid "Recommended add-ons only"
 msgstr ""
 
-#: src/amo/components/SearchForm/index.js:61
-msgid "Firefox Add-ons (%(locale)s)"
-msgstr "Firefox పొడిగింతలు (%(locale)s)"
+#: src/amo/components/SearchForm/index.js:57
+#, fuzzy
+msgid "Firefox Add-ons for Android"
+msgstr "Android యొక్క పొడిగింతలు"
 
-#: src/amo/components/SearchForm/index.js:67
-msgid "Firefox Add-ons for Android (%(locale)s)"
-msgstr ""
+# "Firefox" should not be translated. :-)
+#: src/amo/components/SearchForm/index.js:58
+#, fuzzy
+msgid "Firefox Add-ons"
+msgstr "Firefox పొడగింతల గురించి"
 
-#: src/amo/components/SearchForm/index.js:94
+#: src/amo/components/SearchForm/index.js:81
 msgid "Go to the add-on page"
 msgstr "యాడ్-ఆన్ పేజీకి వెళ్లండి"
 
@@ -1747,40 +1763,40 @@ msgstr "ఈ పొడిగింత గురించి"
 msgid "Developer comments"
 msgstr "డెవలపర్ విధానాలు"
 
-#: src/amo/pages/Addon/index.js:336
+#: src/amo/pages/Addon/index.js:339
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s కోసం విడుదల గమనికలు"
 
-#: src/amo/pages/Addon/index.js:467
+#: src/amo/pages/Addon/index.js:470
 msgid ""
 "This is not a public listing. You are only seeing it because of elevated "
 "permissions."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:495
+#: src/amo/pages/Addon/index.js:498
 msgid "Extension Metadata"
 msgstr "పొడిగింత మెటాడేటా"
 
-#: src/amo/pages/Addon/index.js:502
+#: src/amo/pages/Addon/index.js:505
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on Android</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:506
+#: src/amo/pages/Addon/index.js:509
 msgid ""
 "This listing is not intended for this platform. <a href=\"%(newLocation)s"
 "\">Browse add-ons for Firefox on desktop</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:510
+#: src/amo/pages/Addon/index.js:513
 msgid ""
 "Not available on Firefox for Android. You can use this add-on with Firefox "
 "for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for "
 "Android</a>."
 msgstr ""
 
-#: src/amo/pages/Addon/index.js:530
+#: src/amo/pages/Addon/index.js:533
 msgid "Screenshots"
 msgstr "తెరపట్లు"
 
@@ -1864,43 +1880,43 @@ msgstr "కొత్త వెర్షను"
 msgid "Older versions"
 msgstr "పాత వెర్షనులు"
 
-#: src/amo/pages/Block/index.js:113
+#: src/amo/pages/Block/index.js:115
 #, fuzzy
 msgid "Versions blocked: all versions."
 msgstr "వెర్షనులన్నీ చూడండి"
 
-#: src/amo/pages/Block/index.js:116
+#: src/amo/pages/Block/index.js:118
 msgid "Versions blocked: %(min)s to %(max)s."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:138
+#: src/amo/pages/Block/index.js:140
 msgid "%(addonName)s has been blocked for your protection."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:143
+#: src/amo/pages/Block/index.js:145
 #, fuzzy
 msgid "This add-on has been blocked for your protection."
 msgstr "ఈ పొడిగింత గురించి"
 
-#: src/amo/pages/Block/index.js:153
+#: src/amo/pages/Block/index.js:155
 msgid "Why was it blocked?"
 msgstr ""
 
-#: src/amo/pages/Block/index.js:158
+#: src/amo/pages/Block/index.js:160
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:170
+#: src/amo/pages/Block/index.js:172
 msgid "What does this mean?"
 msgstr ""
 
-#: src/amo/pages/Block/index.js:172
+#: src/amo/pages/Block/index.js:174
 msgid ""
 "The problematic add-on or plugin will be automatically disabled and no "
 "longer usable."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:179
+#: src/amo/pages/Block/index.js:181
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party "
 "software that seriously compromises Firefox security, stability, or "
@@ -1910,11 +1926,11 @@ msgid ""
 "%(supportEndLink)s."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:87
+#: src/amo/pages/Block/index.js:89
 msgid "Blocked on %(date)s."
 msgstr ""
 
-#: src/amo/pages/Block/index.js:96
+#: src/amo/pages/Block/index.js:98
 msgid "View block request"
 msgstr ""
 
@@ -2999,7 +3015,7 @@ msgstr "అలంకారాన్ని స్థాపించు"
 msgid "Add to Firefox"
 msgstr "Firefoxకు చేర్చు"
 
-#: src/core/components/AuthenticateButton/index.js:87
+#: src/core/components/AuthenticateButton/index.js:88
 msgid "Register or Log in"
 msgstr "నమోదవ్వండి లేదా ప్రవేశించండి"
 
@@ -3220,6 +3236,9 @@ msgstr[1] "%(total)s యాడాన్లు"
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
 msgstr "డెవలపర్ స్పందన"
+
+#~ msgid "Firefox Add-ons (%(locale)s)"
+#~ msgstr "Firefox పొడిగింతలు (%(locale)s)"
 
 #~ msgid "%(addonName)s – Get this Search Tool for 🦊 Firefox (%(locale)s)"
 #~ msgstr "%(addonName)s – ఈ వెతుకుడు పనిమిట్టును 🦊 Firefox (%(locale)s)కి పొందండి"
