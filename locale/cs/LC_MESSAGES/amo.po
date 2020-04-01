@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-31 19:55+0000\n"
-"PO-Revision-Date: 2020-04-01 15:10+0000\n"
+"PO-Revision-Date: 2020-04-01 20:20+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -73,7 +73,7 @@ msgstr "Stav správy doplňku"
 
 #: src/amo/components/AddonAuthorLinks/index.js:55
 msgid "Author Links"
-msgstr ""
+msgstr "Odkazy autora"
 
 #: src/amo/components/AddonBadges/index.js:47
 msgid "Restart Required"
