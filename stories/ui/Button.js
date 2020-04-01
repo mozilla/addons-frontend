@@ -21,6 +21,7 @@ const buttonTypes = [
   'action',
   'cancel',
   'confirm',
+  'readmore',
 ];
 
 function createPropsMatrix(chapter): Array<Props> {
@@ -84,6 +85,13 @@ function createPropsMatrix(chapter): Array<Props> {
         externalDark: true,
         micro: true,
         href: 'http://www.example.com',
+      },
+    },
+    {
+      props: {
+        ...Button.defaultProps,
+        buttonType: chapter,
+        puffy: true,
       },
     },
   ];
