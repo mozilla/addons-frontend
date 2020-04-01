@@ -57,6 +57,9 @@
 
 .AddonReviewCard-reply {
   footer {
-    background: rgba(10, 132, 255, 0);
+    background-color: transparentize($blue-50, 0.99);
+  }
+  .ShowMoreCard-contents::after {
+    background: linear-gradient(rgba(255, 255, 255, 0), #F4F9FF);
   }
 }
