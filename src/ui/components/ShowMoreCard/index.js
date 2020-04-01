@@ -8,6 +8,7 @@ import { compose } from 'redux';
 import translate from 'core/i18n/translate';
 import withUIState from 'core/withUIState';
 import { sanitizeHTML } from 'core/utils';
+import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import type { I18nType } from 'core/types/i18n';
 
@@ -129,21 +130,26 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     invariant(id, 'The id property is required');
 
     const readMoreLink = (
-      <a
-        aria-label={i18n.gettext('Expand to read more')}
+      <Button
+        ariaLabel={i18n.gettext('Expand to read more')}
+        buttonType="readmore"
         className="ShowMoreCard-expand-link"
         href="#show-more"
         onClick={this.onClick}
-        dangerouslySetInnerHTML={sanitizeHTML(
-          i18n.gettext(
-            // l10n: The "Expand to" text is for screenreaders so the link
-            // makes sense out of context. The HTML makes it hidden from
-            // non-screenreaders and must stay.
-            '<span class="visually-hidden">Expand to</span> Read more',
-          ),
-          ['span'],
-        )}
-      />
+        puffy
+      >
+        <p
+          dangerouslySetInnerHTML={sanitizeHTML(
+            i18n.gettext(
+              // l10n: The "Expand to" text is for screenreaders so the link
+              // makes sense out of context. The HTML makes it hidden from
+              // non-screenreaders and must stay.
+              '<span class="visually-hidden">Expand to</span> Read more',
+            ),
+            ['span'],
+          )}
+        />
+      </Button>
     );
 
     return (
