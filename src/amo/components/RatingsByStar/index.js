@@ -37,7 +37,7 @@ type InternalProps = {|
   history: ReactRouterHistoryType,
   i18n: I18nType,
   location: ReactRouterLocationType,
-  siteLang: ?string,
+  siteLang: string,
 |};
 
 export class RatingsByStarBase extends React.Component<InternalProps> {
@@ -94,7 +94,9 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
     const { addon, location, history, clientApp, siteLang } = this.props;
     history.push({
       pathname: `/${siteLang}/${clientApp}/addon/${addon.slug}/reviews/`,
-      search: `?score=${star}&src=${location.query.src}`,
+      search: `?score=${star}&${
+        location.query.src ? `src=${location.query.src}` : ''
+      }`,
     });
   }
 
@@ -130,11 +132,27 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
               let starCountNode;
 
               function createLink(body) {
+                if (loading) {
+                  return (
+                    <tr>
+                      <td className="RatingsByStar-star">
+                        <LoadingText width={100} />
+                      </td>
+                      <td className="RatingsByStar-barContainer">
+                        <div className="RatingsByStar-bar RatingsByStar-barFrame" />
+                      </td>
+                      <td className="RatingsByStar-count">
+                        <LoadingText width={100} />
+                      </td>
+                    </tr>
+                  );
+                }
+
                 invariant(addon, 'addon was unexpectedly empty');
 
                 return (
                   <tr
-                    title={getLinkTitle(star, starCount) || ''}
+                    title={getLinkTitle(star, starCount)}
                     onClick={() => self.handleRouting(star)}
                     className="RatingByStar-table-row"
                   >
@@ -153,35 +171,21 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
 
               return (
                 <React.Fragment key={star}>
-                  {loading ? (
-                    <tr>
-                      <th className="RatingsByStar-star">
-                        <LoadingText width={100} />
-                      </th>
-                      <th className="RatingsByStar-barContainer">
-                        <div className="RatingsByStar-bar RatingsByStar-barFrame" />
-                      </th>
-                      <th className="RatingsByStar-count">
-                        <LoadingText width={100} />
-                      </th>
-                    </tr>
-                  ) : (
-                    createLink(
-                      <>
-                        <th className="RatingsByStar-star">
-                          {i18n.formatNumber(star)}
-                          <IconStar selected />
-                        </th>
-                        <th className="RatingsByStar-barContainer">
-                          <div className="RatingsByStar-bar RatingsByStar-barFrame">
-                            {starCount !== undefined
-                              ? this.renderBarValue(starCount)
-                              : null}
-                          </div>
-                        </th>
-                        <th className="RatingsByStar-count">{starCountNode}</th>
-                      </>,
-                    )
+                  {createLink(
+                    <>
+                      <td className="RatingsByStar-star">
+                        {i18n.formatNumber(star)}
+                        <IconStar selected />
+                      </td>
+                      <td className="RatingsByStar-barContainer">
+                        <div className="RatingsByStar-bar RatingsByStar-barFrame">
+                          {starCount !== undefined
+                            ? this.renderBarValue(starCount)
+                            : null}
+                        </div>
+                      </td>
+                      <td className="RatingsByStar-count">{starCountNode}</td>
+                    </>,
                   )}
                 </React.Fragment>
               );
