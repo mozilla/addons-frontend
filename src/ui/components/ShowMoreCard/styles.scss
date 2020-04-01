@@ -59,6 +59,7 @@
   footer {
     background-color: transparentize($blue-50, 0.99);
   }
+
   .ShowMoreCard-contents::after {
     background: linear-gradient(rgba(255, 255, 255, 0), #f4f9ff);
   }

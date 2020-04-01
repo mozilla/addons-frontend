@@ -27,6 +27,16 @@
   legend {
     word-wrap: break-word;
   }
+
+  .AddonReviewCard-container {
+    footer {
+      background-color: transparentize($blue-50, 0.99);
+    }
+
+    .ShowMoreCard-contents::after {
+      background: linear-gradient(rgba(255, 255, 255, 0), #f4f9ff);
+    }
+  }
 }
 
 .RatingManager-UserRating {
@@ -40,16 +50,4 @@
 .RatingManager-AddonReviewManagerRating {
   margin: 12px 0;
   width: 100%;
-}
-
-.RatingManager {
-  .AddonReviewCard-container {
-    footer {
-      background-color: transparentize($blue-50, 0.99);
-    }
-
-    .ShowMoreCard-contents::after {
-      background: linear-gradient(rgba(255, 255, 255, 0), #f4f9ff);
-    }
-  }
 }
