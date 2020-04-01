@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-31 19:55+0000\n"
-"PO-Revision-Date: 2020-04-01 14:24+0000\n"
+"PO-Revision-Date: 2020-04-01 14:29+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -1670,7 +1670,6 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "Această listare nu este destinată acestei platforme. <a href=\"%(newLocation)s\">Răsfoiește suplimente de Firefox pentru desktop</a>."
 
 #: src/amo/pages/Addon/index.js:513
-#, fuzzy
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
 msgstr "Nu este disponibil pe Firefox pentru Android. Poți utiliza acest supliment cu Firefox pentru calculator. Află mai multe despre <a href=\"%(newLocation)s\">suplimentele pentru Android</a>."
 
@@ -1757,52 +1756,52 @@ msgid "Older versions"
 msgstr "Versiuni mai vechi"
 
 #: src/amo/pages/Block/index.js:115
-#, fuzzy
 msgid "Versions blocked: all versions."
-msgstr "Vezi toate versiunile"
+msgstr "Versiuni blocate: toate versiunile."
 
 #: src/amo/pages/Block/index.js:118
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "Versiuni blocate: %(min)s până la %(max)s."
 
 #: src/amo/pages/Block/index.js:140
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "%(addonName)s a fost blocat pentru a te proteja."
 
 #: src/amo/pages/Block/index.js:145
-#, fuzzy
 msgid "This add-on has been blocked for your protection."
-msgstr "Acest supliment a fost eliminat de autorul său."
+msgstr "Acest supliment a fost blocat pentru a te proteja."
 
 #: src/amo/pages/Block/index.js:155
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "De ce a fost blocat?"
 
 #: src/amo/pages/Block/index.js:160
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Acest supliment încalcă %(startLink)sPoliticile Mozilla pentru suplimente%(endLink)s."
 
 #: src/amo/pages/Block/index.js:172
 msgid "What does this mean?"
-msgstr ""
+msgstr "Ce înseamnă?"
 
 #: src/amo/pages/Block/index.js:174
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "Suplimentul sau pluginul problematic va fi dezactivat automat și nu va mai fi utilizabil."
 
 #: src/amo/pages/Block/index.js:181
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Când Mozilla ia cunoștință de suplimente, pluginuri sau alte programe de la terți care pot compromite grav securitatea, stabilitatea sau performanța Firefox și întrunesc %(criteriaStartLink)sanumite"
+" criterii%(criteriaEndLink)s, software-ul poate fi blocat de la uz general. Pentru mai multe informații, citește %(supportStartLink)sacest articol de asistență%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:89
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "Blocat pe %(date)s."
 
 #: src/amo/pages/Block/index.js:98
 msgid "View block request"
-msgstr ""
+msgstr "Vezi cererea blocată"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
