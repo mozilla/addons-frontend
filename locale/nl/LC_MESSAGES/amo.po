@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-31 19:55+0000\n"
-"PO-Revision-Date: 2020-03-25 10:21+0000\n"
+"PO-Revision-Date: 2020-04-01 05:44+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -73,7 +73,7 @@ msgstr "Add-onstatus beheren"
 
 #: src/amo/components/AddonAuthorLinks/index.js:55
 msgid "Author Links"
-msgstr ""
+msgstr "Auteurskoppelingen"
 
 #: src/amo/components/AddonBadges/index.js:47
 msgid "Restart Required"
@@ -370,7 +370,7 @@ msgstr "%(linkStart)s%(timestamp)s%(linkEnd)s geplaatst"
 
 #: src/amo/components/AddonReviewCard/index.js:360
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr ""
+msgstr "door %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:363
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -1454,11 +1454,11 @@ msgstr "Alleen aanbevolen add-ons"
 
 #: src/amo/components/SearchForm/index.js:57
 msgid "Firefox Add-ons for Android"
-msgstr ""
+msgstr "Firefox Add-ons voor Android"
 
 #: src/amo/components/SearchForm/index.js:58
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Firefox Add-ons"
 
 #: src/amo/components/SearchForm/index.js:81
 msgid "Go to the add-on page"
