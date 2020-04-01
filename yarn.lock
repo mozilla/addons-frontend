@@ -998,10 +998,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@hapi/bourne@^1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@hapi/bourne/-/bourne-1.3.2.tgz#0a7095adea067243ce3283e1b56b8a8f453b242a"
-  integrity sha512-1dVNHT76Uu5N3eJNTYcvxee+jzX4Z9lfciqRRHCU27ihbUcYi+iSc2iml5Ke1LXe1SyJCLA0+14Jh4tXJgOppA==
+"@hapi/bourne@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@hapi/bourne/-/bourne-2.0.0.tgz#5bb2193eb685c0007540ca61d166d4e1edaf918d"
+  integrity sha512-WEezM1FWztfbzqIUbsDzFRVMxSoLy3HugVcux6KDDtTqzPsLE8NDRHfXvev66aH1i2oOKKar3/XDjbvh/OUBdg==
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.0.0"
@@ -12148,20 +12148,20 @@ pino-mozlog@2.0.0:
     split2 "^2.2.0"
     through2 "^2.0.3"
 
-pino-pretty@^3.0.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/pino-pretty/-/pino-pretty-3.5.0.tgz#5e88003fdbaef9d541393eac4498ac9b97c1683b"
-  integrity sha512-3sg6s7nI5vgjrEBKhLckAfLPjgjm1U/Fw0C6jhoWnIU2D6QqCpF8eAqL+E1A6bBglCGR/APCx8VuxchBxtuMjA==
+pino-pretty@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/pino-pretty/-/pino-pretty-4.0.0.tgz#afbff81f946342b9d6eabc434942fe490e02faa9"
+  integrity sha512-YLy/n3dMXYWOodSm530gelkSAJGmEp29L9pqiycInlIae5FEJPWAkMRO3JFMbIFtjD2Ve4SH2aBcz2aRreGpBQ==
   dependencies:
-    "@hapi/bourne" "^1.3.2"
+    "@hapi/bourne" "^2.0.0"
     args "^5.0.1"
-    chalk "^2.4.2"
+    chalk "^3.0.0"
     dateformat "^3.0.3"
     fast-safe-stringify "^2.0.7"
     jmespath "^0.15.0"
     joycon "^2.2.5"
     pump "^3.0.0"
-    readable-stream "^3.4.0"
+    readable-stream "^3.6.0"
     split2 "^3.1.1"
     strip-json-comments "^3.0.1"
 
@@ -13767,10 +13767,19 @@ read-pkg@^5.2.0:
     string_decoder "~1.1.1"
     util-deprecate "~1.0.1"
 
-readable-stream@^3.0.0, readable-stream@^3.0.1, readable-stream@^3.1.1, readable-stream@^3.4.0:
+readable-stream@^3.0.0, readable-stream@^3.0.1, readable-stream@^3.1.1:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.5.0.tgz#465d70e6d1087f6162d079cd0b5db7fbebfd1606"
   integrity sha512-gSz026xs2LfxBPudDuI41V1lka8cxg64E66SGe78zJlsUofOg/yqwezdIcdfwik6B4h8LFmWPA9ef9X3FiNFLA==
+  dependencies:
+    inherits "^2.0.3"
+    string_decoder "^1.1.1"
+    util-deprecate "^1.0.1"
+
+readable-stream@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.6.0.tgz#337bbda3adc0706bd3e024426a286d4b4b2c9198"
+  integrity sha512-BViHy7LKeTz4oNnkcLJ+lVSL6vpiFeX6/d3oSH8zCW7UxP2onchk+vTGB143xuFjHS3deTgkKoXXymXqymiIdA==
   dependencies:
     inherits "^2.0.3"
     string_decoder "^1.1.1"
