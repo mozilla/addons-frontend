@@ -9,12 +9,15 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   STATS_VIEW,
+  CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
+import { getCategoryNames } from 'core/reducers/categories';
 import { formatFilesize } from 'core/i18n/utils';
 import {
   createContextWithFakeRouter,
   createFakeLocation,
+  createStubErrorHandler,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
@@ -33,11 +36,14 @@ describe(__filename, () => {
   });
 
   function render({ location, ...props } = {}) {
+    const errorHandler = createStubErrorHandler();
+
     return shallowUntilTarget(
       <AddonMoreInfo
         addon={props.addon || createInternalAddon(fakeAddon)}
         i18n={fakeI18n()}
         store={store}
+        errorHandler={errorHandler}
         {...props}
       />,
       AddonMoreInfoBase,
@@ -351,12 +357,9 @@ describe(__filename, () => {
       'term',
       'End-User License Agreement',
     );
-    expect(
-      root
-        .find('.AddonMoreInfo-eula')
-        .find(Link)
-        .children(),
-    ).toHaveText('Read the license agreement for this add-on');
+    expect(root.find('.AddonMoreInfo-eula').find(Link).children()).toHaveText(
+      'Read the license agreement for this add-on',
+    );
     expect(root.find('.AddonMoreInfo-eula').find(Link)).toHaveProp(
       'to',
       '/addon/chill-out/eula/',
@@ -510,6 +513,58 @@ describe(__filename, () => {
 
     const statsLink = root.find('.AddonMoreInfo-stats-link');
     expect(statsLink).toHaveLength(1);
+  });
+
+  it('render related categories of the addon if existed', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      categories: {
+        firefox: ['other', 'testing'],
+      },
+    });
+
+    const fakeCategoryState = {
+      firefox: {
+        extension: {
+          other: {
+            application: CLIENT_APP_FIREFOX,
+            description: 'I am a cool category for doing things',
+            id: 1,
+            misc: false,
+            name: 'Testing category',
+            slug: 'other',
+            type: ADDON_TYPE_EXTENSION,
+            weight: 1,
+          },
+          testing: {
+            application: CLIENT_APP_FIREFOX,
+            description: 'I am a cool category for doing things',
+            id: 2,
+            misc: false,
+            name: 'Another Testing category',
+            slug: 'testing',
+            type: ADDON_TYPE_EXTENSION,
+            weight: 1,
+          },
+        },
+      },
+    };
+
+    const relatedCategories = getCategoryNames(
+      fakeCategoryState,
+      addon.categories,
+      CLIENT_APP_FIREFOX,
+      addon.type,
+    );
+
+    const root = render({
+      addon,
+      relatedCategories,
+    });
+
+    expect(root.find('AddonMoreInfo-related-categories')).toHaveText(
+      'Testing category, Another Testing category',
+    );
   });
 
   it('links to version history if add-on is extension', () => {
