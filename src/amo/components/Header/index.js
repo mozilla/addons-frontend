@@ -172,7 +172,7 @@ export class HeaderBase extends React.Component {
 
     return (
       <header
-        className={makeClassName('classHeader', {
+        className={makeClassName('Header', {
           'Header--loaded-page-is-anonymous': loadedPageIsAnonymous,
         })}
       >
