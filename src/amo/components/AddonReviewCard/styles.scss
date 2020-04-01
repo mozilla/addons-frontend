@@ -123,6 +123,14 @@
 
     @include margin-start(12px);
   }
+
+  .ShowMoreCard-contents::after {
+    background: linear-gradient(rgba(255, 255, 255, 0), #f4f9ff);
+  }
+
+  footer {
+    background-color: transparent;
+  }
 }
 
 .AddonReviewCard-non-public-notice {
@@ -205,6 +213,10 @@
 
     @include respond-to(medium) {
       padding: 12px 24px 12px 24px;
+    }
+
+    footer {
+      background-color: transparent;
     }
   }
 }
