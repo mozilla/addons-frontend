@@ -135,7 +135,7 @@ export default class Button extends React.Component<Props> {
         };
       }
       return (
-        <Link aria-label={props.ariaLabel} {...props}>
+        <Link aria-label={ariaLabel} {...props}>
           {children}
         </Link>
       );
