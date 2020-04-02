@@ -1,4 +1,5 @@
 import * as React from 'react';
+import UAParser from 'ua-parser-js';
 
 import SearchFilters, { SearchFiltersBase } from 'amo/components/SearchFilters';
 import {
@@ -11,7 +12,10 @@ import {
   SEARCH_SORT_TRENDING,
 } from 'core/constants';
 import { searchStart } from 'core/reducers/search';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
+import {
+  convertFiltersToQueryParams,
+  convertOSToFilterValue,
+} from 'core/searchUtils';
 import Select from 'ui/components/Select';
 import {
   createContextWithFakeRouter,
@@ -22,6 +26,7 @@ import {
   dispatchClientMetadata,
   fakeI18n,
   shallowUntilTarget,
+  userAgentsByPlatform,
 } from 'tests/unit/helpers';
 
 describe(__filename, () => {
@@ -108,16 +113,45 @@ describe(__filename, () => {
     });
   });
 
-  it('checks value when there is no operatingSystem filter', () => {
-    const root = render();
+  it('checks value when there is no operatingSystem filter and OS is Mac', () => {
+    const userAgent = userAgentsByPlatform.mac.firefox57;
+    const parsedUserAgent = UAParser(userAgent);
+    const osValue = convertOSToFilterValue(parsedUserAgent.os.name);
+    const root = render({ store: dispatchClientMetadata({ userAgent }).store });
 
-    expect(root.find('.SearchFilters-OperatingSystem')).toHaveProp('value', '');
+    expect(root.find('.SearchFilters-OperatingSystem')).toHaveProp(
+      'defaultValue',
+      osValue,
+    );
+  });
+
+  it('checks value when there is no operatingSystem filter and OS is Linux', () => {
+    const userAgent = userAgentsByPlatform.linux.firefox10;
+    const parsedUserAgent = UAParser(userAgent);
+    const osValue = convertOSToFilterValue(parsedUserAgent.os.name);
+    const root = render({ store: dispatchClientMetadata({ userAgent }).store });
+
+    expect(root.find('.SearchFilters-OperatingSystem')).toHaveProp(
+      'defaultValue',
+      osValue,
+    );
   });
 
   it('checks value when there is a operatingSystem filter', () => {
-    const root = render({ filters: { operatingSystem: 'windows' } });
+    const userAgent = userAgentsByPlatform.linux.firefox10;
+    const root = render({
+      filters: { operatingSystem: 'windows' },
+      store: dispatchClientMetadata({ userAgent }).store,
+    });
 
-    expect(root.find('.SearchFilters-OperatingSystem')).toHaveProp('value', 'windows');
+    expect(root.find('.SearchFilters-OperatingSystem')).toHaveProp(
+      'value',
+      'windows',
+    );
+    expect(root.find('.SearchFilters-OperatingSystem')).toHaveProp(
+      'defaultValue',
+      'linux',
+    );
   });
 
   it('changes the URL when a new sort filter is selected', () => {
