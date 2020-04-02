@@ -7,6 +7,7 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 
 import { fetchGroupedRatings } from 'amo/actions/reviews';
+import { reviewListURL } from 'amo/reducers/reviews';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import LoadingText from 'ui/components/LoadingText';
@@ -92,12 +93,16 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
 
   handleRouting(star: string) {
     const { addon, location, history, clientApp, siteLang } = this.props;
-    history.push({
-      pathname: `/${siteLang}/${clientApp}/addon/${addon.slug}/reviews/`,
-      search: `?score=${star}&${
-        location.query.src ? `src=${location.query.src}` : ''
-      }`,
-    });
+
+    invariant(addon, 'addon was unexpectedly empty');
+
+    history.push(
+      `/${siteLang}/${clientApp}${reviewListURL({
+        addonSlug: addon.slug,
+        score: star,
+        src: location.query.src,
+      })}`,
+    );
   }
 
   render() {
@@ -134,9 +139,10 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
               function createLink(body) {
                 if (loading) {
                   return (
-                    <tr>
+                    <tr className="RatingByStar-table-row">
                       <td className="RatingsByStar-star">
                         <LoadingText width={100} />
+                        <IconStar selected />
                       </td>
                       <td className="RatingsByStar-barContainer">
                         <div className="RatingsByStar-bar RatingsByStar-barFrame" />

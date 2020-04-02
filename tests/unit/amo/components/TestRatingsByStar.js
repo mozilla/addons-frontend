@@ -1,16 +1,18 @@
 import * as React from 'react';
 
-import Link from 'amo/components/Link';
 import { fetchGroupedRatings, setGroupedRatings } from 'amo/actions/reviews';
 import RatingsByStar, {
   extractId,
   RatingsByStarBase,
 } from 'amo/components/RatingsByStar';
 import { reviewListURL } from 'amo/reducers/reviews';
+import { CLIENT_APP_ANDROID } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   createContextWithFakeRouter,
+  createFakeEvent,
+  createFakeHistory,
   createFakeLocation,
   dispatchClientMetadata,
   fakeAddon,
@@ -23,9 +25,11 @@ import LoadingText from 'ui/components/LoadingText';
 
 describe(__filename, () => {
   let store;
+  let fakeHistory;
 
   beforeEach(() => {
     store = dispatchClientMetadata().store;
+    fakeHistory = createFakeHistory();
   });
 
   const getProps = ({
@@ -39,7 +43,10 @@ describe(__filename, () => {
     const props = getProps(customProps);
 
     return shallowUntilTarget(<RatingsByStar {...props} />, RatingsByStarBase, {
-      shallowOptions: createContextWithFakeRouter({ location }),
+      shallowOptions: createContextWithFakeRouter({
+        history: fakeHistory,
+        location,
+      }),
     });
   };
 
@@ -148,30 +155,59 @@ describe(__filename, () => {
     const addon = addonForGrouping(grouping);
     store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
     const root = render({ addon });
-    const counts = root.find('.RatingsByStar-star').find(Link);
-    const bars = root.find('.RatingsByStar-barContainer').find(Link);
 
-    function validateLink(link, score, expectedTitle) {
-      expect(link).toHaveProp(
-        'to',
-        reviewListURL({ addonSlug: addon.slug, score }),
+    const tableRow = root.find('.RatingByStar-table-row');
+
+    function validateLink(row, score, expectedTitle) {
+      const clientApp = CLIENT_APP_ANDROID;
+      const lang = 'en-US';
+
+      expect(row).toHaveProp('onClick');
+
+      row.simulate('click', createFakeEvent({}));
+
+      sinon.assert.calledWithExactly(
+        fakeHistory.push,
+        `/${lang}/${clientApp}${reviewListURL({
+          addonSlug: addon.slug,
+          score,
+        })}`,
       );
-      expect(link).toHaveProp('title', expectedTitle);
+
+      expect(row).toHaveProp('title', expectedTitle);
+
+      const count = row.find('.RatingsByStar-star');
+
+      expect(count.children()).toHaveText(score);
     }
 
-    it.each([[counts], [bars]], (links) => {
-      validateLink(links.at(0), '5', 'Read all five-star reviews');
-      validateLink(links.at(1), '4', 'Read all four-star reviews');
-      validateLink(links.at(2), '3', 'Read all three-star reviews');
-      validateLink(links.at(3), '2', 'Read all two-star reviews');
-      validateLink(links.at(4), '1', 'Read all one-star reviews');
+    it.each([[tableRow]], (row) => {
+      validateLink(
+        row.at(0),
+        '5',
+        `Read all ${grouping['5']} five-star reviews`,
+      );
+      validateLink(
+        row.at(1),
+        '4',
+        `Read all ${grouping['4']} four-star reviews`,
+      );
+      validateLink(
+        row.at(2),
+        '3',
+        `Read all ${grouping['3']} three-star reviews`,
+      );
+      validateLink(
+        row.at(3),
+        '2',
+        `Read all ${grouping['2']} two-star reviews`,
+      );
+      validateLink(
+        row.at(4),
+        '1',
+        `Read all ${grouping['1']} one-star reviews`,
+      );
     });
-
-    expect(counts.at(0).children()).toHaveText('5');
-    expect(counts.at(1).children()).toHaveText('4');
-    expect(counts.at(2).children()).toHaveText('3');
-    expect(counts.at(3).children()).toHaveText('2');
-    expect(counts.at(4).children()).toHaveText('1');
   });
 
   it('renders star counts', () => {
@@ -185,22 +221,14 @@ describe(__filename, () => {
     const addon = addonForGrouping(grouping);
     store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
     const root = render({ addon });
-    const counts = root.find('.RatingsByStar-count').find(Link);
+    const tableRow = root.find('.RatingByStar-table-row');
+    const counts = tableRow.find('.RatingsByStar-count');
 
-    function validateLink(link, score, expectedTitle) {
-      expect(link.children()).toHaveText(grouping[score].toString());
-      expect(link).toHaveProp(
-        'to',
-        reviewListURL({ addonSlug: addon.slug, score }),
-      );
-      expect(link).toHaveProp('title', expectedTitle);
-    }
-
-    validateLink(counts.at(0), '5', 'Read all five-star reviews');
-    validateLink(counts.at(1), '4', 'Read all four-star reviews');
-    validateLink(counts.at(2), '3', 'Read all three-star reviews');
-    validateLink(counts.at(3), '2', 'Read all two-star reviews');
-    validateLink(counts.at(4), '1', 'Read all one-star reviews');
+    expect(counts.at(0).children()).toHaveText(grouping['5'].toString());
+    expect(counts.at(1).children()).toHaveText(grouping['4'].toString());
+    expect(counts.at(2).children()).toHaveText(grouping['3'].toString());
+    expect(counts.at(3).children()).toHaveText(grouping['2'].toString());
+    expect(counts.at(4).children()).toHaveText(grouping['1'].toString());
   });
 
   it('adds a `src` query parameter to the review links when available in the location', () => {
@@ -218,25 +246,38 @@ describe(__filename, () => {
       addon,
       location: createFakeLocation({ query: { src } }),
     });
-    const counts = root.find('.RatingsByStar-count').find(Link);
+    const tableRow = root.find('.RatingByStar-table-row');
 
-    function validateLink(link, score) {
-      expect(link).toHaveProp(
-        'to',
-        reviewListURL({ addonSlug: addon.slug, score, src }),
+    const clientApp = CLIENT_APP_ANDROID;
+    const lang = 'en-US';
+
+    function validateLink(row, score) {
+      expect(row).toHaveProp('onClick');
+
+      row.simulate('click', createFakeEvent({}));
+
+      sinon.assert.calledWithExactly(
+        fakeHistory.push,
+        `/${lang}/${clientApp}${reviewListURL({
+          addonSlug: addon.slug,
+          score,
+          src,
+        })}`,
       );
     }
 
-    validateLink(counts.at(0), '5');
-    validateLink(counts.at(1), '4');
-    validateLink(counts.at(2), '3');
-    validateLink(counts.at(3), '2');
-    validateLink(counts.at(4), '1');
+    validateLink(tableRow.at(0), '5');
+    validateLink(tableRow.at(1), '4');
+    validateLink(tableRow.at(2), '3');
+    validateLink(tableRow.at(3), '2');
+    validateLink(tableRow.at(4), '1');
   });
 
   it('renders IconStar', () => {
     const root = render();
-    const star = root.find(IconStar).at(0);
+    const tableRow = root.find('.RatingByStar-table-row').at(0);
+    const star = tableRow.find('.RatingsByStar-star').find(IconStar);
+
     expect(star).toHaveLength(1);
     expect(star).toHaveProp('selected');
   });
@@ -322,10 +363,11 @@ describe(__filename, () => {
     const addon = addonForGrouping(grouping);
     store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
     const root = render({ addon, i18n: fakeI18n({ lang: 'de' }) });
+    const tableRow = root.find('.RatingByStar-table-row');
 
-    expect(
-      root.find('.RatingsByStar-count').at(0).find(Link).children(),
-    ).toHaveText('1.000');
+    expect(tableRow.at(0).find('.RatingsByStar-count').children()).toHaveText(
+      '1.000',
+    );
   });
 
   it('renders errors', () => {
