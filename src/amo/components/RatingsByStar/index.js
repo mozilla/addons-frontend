@@ -127,72 +127,59 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
       }
     };
 
+    const createTableRow = (star) => {
+      let starCount;
+      let starCountNode;
+
+      if (!errorHandler.hasError()) {
+        if (groupedRatings) {
+          starCount = groupedRatings[star];
+        }
+
+        starCountNode = i18n.formatNumber(starCount || 0);
+      }
+
+      const rowProps =
+        loading || !addon
+          ? {}
+          : {
+              onClick: () => self.handleRouting(star),
+              title: getLinkTitle(star, starCount),
+            };
+
+      return (
+        <tr className="RatingByStar-table-row" {...rowProps}>
+          <td className="RatingsByStar-star">
+            {!loading ? i18n.formatNumber(star) : <LoadingText width={100} />}
+            <IconStar selected />
+          </td>
+          <td className="RatingsByStar-barContainer">
+            {loading ? (
+              <div className="RatingsByStar-bar RatingsByStar-barFrame" />
+            ) : (
+              <div className="RatingsByStar-bar RatingsByStar-barFrame">
+                {starCount !== undefined
+                  ? this.renderBarValue(starCount)
+                  : null}
+              </div>
+            )}
+          </td>
+          <td className="RatingsByStar-count">
+            {loading ? <LoadingText width={100} /> : starCountNode}
+          </td>
+        </tr>
+      );
+    };
+
     return (
       <div className="RatingsByStar">
         {errorHandler.renderErrorIfPresent()}
         <table className="RatingsByStar-graph">
           <tbody>
             {['5', '4', '3', '2', '1'].map((star) => {
-              let starCount;
-              let starCountNode;
-
-              function createLink(body) {
-                if (loading) {
-                  return (
-                    <tr className="RatingByStar-table-row">
-                      <td className="RatingsByStar-star">
-                        <LoadingText width={100} />
-                        <IconStar selected />
-                      </td>
-                      <td className="RatingsByStar-barContainer">
-                        <div className="RatingsByStar-bar RatingsByStar-barFrame" />
-                      </td>
-                      <td className="RatingsByStar-count">
-                        <LoadingText width={100} />
-                      </td>
-                    </tr>
-                  );
-                }
-
-                invariant(addon, 'addon was unexpectedly empty');
-
-                return (
-                  <tr
-                    title={getLinkTitle(star, starCount)}
-                    onClick={() => self.handleRouting(star)}
-                    className="RatingByStar-table-row"
-                  >
-                    {body}
-                  </tr>
-                );
-              }
-
-              if (!errorHandler.hasError()) {
-                if (groupedRatings) {
-                  starCount = groupedRatings[star];
-                }
-
-                starCountNode = i18n.formatNumber(starCount || 0);
-              }
-
               return (
                 <React.Fragment key={star}>
-                  {createLink(
-                    <>
-                      <td className="RatingsByStar-star">
-                        {i18n.formatNumber(star)}
-                        <IconStar selected />
-                      </td>
-                      <td className="RatingsByStar-barContainer">
-                        <div className="RatingsByStar-bar RatingsByStar-barFrame">
-                          {starCount !== undefined
-                            ? this.renderBarValue(starCount)
-                            : null}
-                        </div>
-                      </td>
-                      <td className="RatingsByStar-count">{starCountNode}</td>
-                    </>,
-                  )}
+                  {createTableRow(star)}
                 </React.Fragment>
               );
             })}
