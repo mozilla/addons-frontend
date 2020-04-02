@@ -300,6 +300,21 @@ describe(__filename, () => {
     );
   });
 
+  it('renders a robots meta tag', () => {
+    const guid = 'some-guid';
+    const block = createFakeBlockResult({ guid });
+    const { store } = dispatchClientMetadata();
+    store.dispatch(loadBlock({ block }));
+
+    const root = render({ store, guid });
+
+    expect(root.find('meta[name="robots"]')).toHaveLength(1);
+    expect(root.find('meta[name="robots"]')).toHaveProp(
+      'content',
+      'noindex, follow',
+    );
+  });
+
   describe('extractId', () => {
     it('returns a unique ID based on the GUID', () => {
       const guid = 'this-is-not-a-guid';

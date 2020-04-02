@@ -149,6 +149,7 @@ export class BlockBase extends React.Component<InternalProps> {
         <div className="Block-page">
           <Helmet>
             <title>{title}</title>
+            <meta name="robots" content="noindex, follow" />
           </Helmet>
 
           <Card className="Block-content" header={title}>
