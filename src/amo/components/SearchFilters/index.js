@@ -233,10 +233,11 @@ export class SearchFiltersBase extends React.Component {
           </label>
           <Select
             className="SearchFilters-OperatingSystem SearchFilters-select"
+            defaultValue={convertOSToFilterValue(userAgentInfo.os.name)}
             id="SearchFilters-OperatingSystem"
             name="operatingSystem"
             onChange={this.onSelectElementChange}
-            value={convertOSToFilterValue(userAgentInfo.os.name)}
+            value={filters.operatingSystem || NO_FILTER}
           >
             {this.operatingSystemOptions().map((option) => {
               return <option key={option.value} {...option} />;

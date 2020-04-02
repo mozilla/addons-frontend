@@ -108,6 +108,18 @@ describe(__filename, () => {
     });
   });
 
+  it('checks value when there is no operatingSystem filter', () => {
+    const root = render();
+
+    expect(root.find('.SearchFilters-OperatingSystem')).toHaveProp('value', '');
+  });
+
+  it('checks value when there is a operatingSystem filter', () => {
+    const root = render({ filters: { operatingSystem: 'windows' } });
+
+    expect(root.find('.SearchFilters-OperatingSystem')).toHaveProp('value', 'windows');
+  });
+
   it('changes the URL when a new sort filter is selected', () => {
     const root = render({ filters: { query: 'Music player' } });
 
