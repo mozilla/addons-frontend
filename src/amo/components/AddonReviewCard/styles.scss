@@ -125,7 +125,7 @@
   }
 
   .ShowMoreCard-contents::after {
-    background: linear-gradient(rgba(255, 255, 255, 0), #f4f9ff);
+    background: linear-gradient(rgba(255, 255, 255, 0), $gradient-color);
   }
 
   footer {
