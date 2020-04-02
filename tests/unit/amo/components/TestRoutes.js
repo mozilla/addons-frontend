@@ -60,7 +60,7 @@ describe(__filename, () => {
   });
 
   describe('Block page', () => {
-    const path = '/:lang/:application/blocked-addon/:guid/';
+    const path = '/:lang/:application/blocked-addon/:guid/:versionId?/';
 
     it('declares a route for the new Block page if feature is enabled', () => {
       const _config = getFakeConfig({ enableBlockPage: true });

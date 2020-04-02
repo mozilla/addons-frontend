@@ -26,7 +26,7 @@ import './styles.scss';
 type Props = {|
   match: {
     ...ReactRouterMatchType,
-    params: {| guid: string |},
+    params: {| guid: string, versionId?: string |},
   },
 |};
 
