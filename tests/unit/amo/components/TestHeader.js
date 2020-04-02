@@ -36,6 +36,7 @@ describe(__filename, () => {
   it('renders an <h1> when isHomepage is true', () => {
     const root = renderHeader({ isHomePage: true });
 
+    expect(root).not.toHaveClassName('Header--loaded-page-is-anonymous');
     expect(root.find('.Header-title-wrapper')).toHaveTagName('h1');
     expect(root.find('.Header-title').type()).toEqual(Link);
     expect(root.find('.Header-title .visually-hidden').childAt(0)).toHaveText(
@@ -211,6 +212,7 @@ describe(__filename, () => {
 
     const root = renderHeader({ store });
 
+    expect(root).toHaveClassName('Header--loaded-page-is-anonymous');
     expect(root.find(DropdownMenu)).toHaveLength(0);
   });
 
@@ -220,6 +222,7 @@ describe(__filename, () => {
 
     const root = renderHeader({ store });
 
+    expect(root).toHaveClassName('Header--loaded-page-is-anonymous');
     expect(root.find(AuthenticateButton)).toHaveLength(0);
   });
 });

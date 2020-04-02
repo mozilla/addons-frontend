@@ -36,12 +36,21 @@
   width: 100%;
   z-index: 4;
 
+  .Header--loaded-page-is-anonymous & {
+    margin-top: 39px;
+  }
+
   @include respond-to(medium) {
     @include text-align-start();
 
     align-self: end;
     grid-row: 1 / 2;
     margin: 48px 0 0;
+
+    &,
+    .Header--loaded-page-is-anonymous & {
+      margin: 48px 0 0;
+    }
   }
 
   @include respond-to(extraLarge) {
@@ -50,7 +59,11 @@
     align-self: center;
     grid-column: 1;
     grid-row: 2 / 2;
-    margin-top: 0;
+
+    &,
+    .Header--loaded-page-is-anonymous & {
+      margin-top: 0;
+    }
   }
 }
 

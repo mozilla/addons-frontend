@@ -26,7 +26,7 @@ import './styles.scss';
 type Props = {|
   match: {
     ...ReactRouterMatchType,
-    params: {| guid: string |},
+    params: {| guid: string, versionId?: string |},
   },
 |};
 
@@ -149,6 +149,7 @@ export class BlockBase extends React.Component<InternalProps> {
         <div className="Block-page">
           <Helmet>
             <title>{title}</title>
+            <meta name="robots" content="noindex, follow" />
           </Helmet>
 
           <Card className="Block-content" header={title}>

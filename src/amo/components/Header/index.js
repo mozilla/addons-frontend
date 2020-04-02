@@ -3,6 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import config from 'config';
+import makeClassName from 'classnames';
 
 import GetFirefoxButton, {
   GET_FIREFOX_BUTTON_TYPE_HEADER,
@@ -152,7 +153,13 @@ export class HeaderBase extends React.Component {
   }
 
   render() {
-    const { _config, i18n, isHomePage, location } = this.props;
+    const {
+      _config,
+      i18n,
+      isHomePage,
+      loadedPageIsAnonymous,
+      location,
+    } = this.props;
 
     const headerLink = (
       <Link className="Header-title" to="/">
@@ -164,7 +171,11 @@ export class HeaderBase extends React.Component {
     );
 
     return (
-      <header className="Header">
+      <header
+        className={makeClassName('Header', {
+          'Header--loaded-page-is-anonymous': loadedPageIsAnonymous,
+        })}
+      >
         <div className="Header-wrapper">
           <div className="Header-content">
             {isHomePage ? (
