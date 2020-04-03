@@ -175,4 +175,20 @@ describe(__filename, () => {
 
     expect(root).toHaveClassName('Notice-light');
   });
+
+  it('can render a multiline notice', () => {
+    const root = render({ multiline: true });
+
+    expect(root.find('.Notice-content')).toHaveClassName(
+      'Notice-content--multiline',
+    );
+  });
+
+  it('does not render a multiline notice by default', () => {
+    const root = render();
+
+    expect(root.find('.Notice-content')).not.toHaveClassName(
+      'Notice-content--multiline',
+    );
+  });
 });

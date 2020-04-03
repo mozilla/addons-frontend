@@ -58,6 +58,7 @@ type Props = {|
   dismissible?: boolean,
   id?: string,
   light?: boolean,
+  multiline?: boolean,
   onDismiss?: (SyntheticEvent<any>) => void,
   type: NoticeType,
 |};
@@ -95,6 +96,7 @@ export class NoticeBase extends React.Component<InternalProps> {
       dismissible,
       i18n,
       light,
+      multiline,
       type,
       uiState,
     } = this.props;
@@ -137,7 +139,11 @@ export class NoticeBase extends React.Component<InternalProps> {
       <div className={finalClass}>
         <div className="Notice-icon" />
         <div className="Notice-column">
-          <div className="Notice-content">
+          <div
+            className={makeClassName('Notice-content', {
+              'Notice-content--multiline': multiline,
+            })}
+          >
             <p className="Notice-text">{children}</p>
             {actionButton}
           </div>

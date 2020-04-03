@@ -7,7 +7,6 @@
   font-size: $font-size-s;
   grid-gap: 4px;
   grid-template-columns: min-content auto;
-  line-height: 1.1;
   padding: 4px;
 
   &.Notice-light {
@@ -76,6 +75,11 @@
   @include padding-end(8px);
 }
 
+.Notice-content--multiline {
+  display: flex;
+  flex-direction: column;
+}
+
 @mixin notice_button() {
   &,
   &.Button--micro,
@@ -84,6 +88,8 @@
     font-size: $font-size-s;
     line-height: 1.1;
     padding: 6px;
+    margin-bottom: 4px;
+    margin-top: 4px;
     text-shadow: none;
     width: max-content;
 

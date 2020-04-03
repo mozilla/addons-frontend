@@ -80,11 +80,15 @@ export class InstallWarningBase extends React.Component<InternalProps> {
           actionTarget="_blank"
           actionText={i18n.gettext('Learn more')}
           className={makeClassName('InstallWarning', className)}
+          multiline
           type={genericWarningType}
         >
-          {i18n.gettext(
-            `This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing.`,
-          )}
+          <div>
+            {i18n.gettext(
+              `This is not monitored for security through Mozilla's Recommended Extensions program.`,
+            )}
+          </div>
+          <div>{i18n.gettext(`Make sure you trust it before installing.`)}</div>
         </Notice>
       );
     }
