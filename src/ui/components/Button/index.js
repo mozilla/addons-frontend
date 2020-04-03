@@ -15,11 +15,9 @@ export type ButtonType =
   | 'cancel'
   | 'confirm'
   | 'alert'
-  | 'readmore'
   | 'none';
 
 export type Props = {|
-  ariaLabel?: string,
   buttonType: ButtonType,
   children?: React.Node,
   className?: string,
@@ -45,7 +43,6 @@ const BUTTON_TYPES = [
   'cancel',
   'confirm',
   'alert',
-  'readmore',
   'none',
 ];
 
@@ -60,7 +57,6 @@ export default class Button extends React.Component<Props> {
 
   render() {
     const {
-      ariaLabel,
       buttonType,
       children,
       className,
@@ -81,7 +77,6 @@ export default class Button extends React.Component<Props> {
           puffy: boolean,
         |},
       >,
-      ariaLabel?: string,
       prependClientApp?: boolean,
       prependLang?: boolean,
     |} = { ...rest };
@@ -134,11 +129,7 @@ export default class Button extends React.Component<Props> {
             ${props.href || props.to} because it is disabled`);
         };
       }
-      return (
-        <Link aria-label={ariaLabel} {...props}>
-          {children}
-        </Link>
-      );
+      return <Link {...props}>{children}</Link>;
     }
 
     return (

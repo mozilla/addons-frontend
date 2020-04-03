@@ -181,12 +181,3 @@ $default-font-size: 13px;
     $color: $black
   );
 }
-
-.Button--readmore {
-  @include button(
-    $background: transparent,
-    $background-active: transparent,
-    $background-hover: transparent,
-    $color: #0060df
-  );
-}
