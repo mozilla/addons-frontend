@@ -83,7 +83,7 @@ export class InstallWarningBase extends React.Component<InternalProps> {
           type={genericWarningType}
         >
           {i18n.gettext(
-            `This is not a Recommended Extension. Make sure you trust it before installing.`,
+            `This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing.`,
           )}
         </Notice>
       );
