@@ -6,7 +6,7 @@ import RatingsByStar, {
   RatingsByStarBase,
 } from 'amo/components/RatingsByStar';
 import { reviewListURL } from 'amo/reducers/reviews';
-import { CLIENT_APP_ANDROID } from 'core/constants';
+import { CLIENT_APP_FIREFOX } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -144,7 +144,7 @@ describe(__filename, () => {
     expect(root.find('.RatingsByStar-count').find(LoadingText)).toHaveLength(5);
   });
 
-  it('renders star labels, bars and links', () => {
+  it('renders star labels, star counts and links', () => {
     const grouping = {
       5: 964,
       4: 821,
@@ -153,20 +153,21 @@ describe(__filename, () => {
       1: 0,
     };
     const addon = addonForGrouping(grouping);
-    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
-    const root = render({ addon });
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'en-US';
+
+    const customStore = dispatchClientMetadata({ clientApp, lang }).store;
+    customStore.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
+
+    const root = render({ addon, history: fakeHistory, store: customStore });
 
     const tableRow = root.find('.RatingByStar-table-row');
 
     function validateLink(row, score, expectedTitle) {
-      const clientApp = CLIENT_APP_ANDROID;
-      const lang = 'en-US';
-
       expect(row).toHaveProp('onClick');
 
-      row.simulate('click', createFakeEvent({}));
-
-      sinon.assert.calledWithExactly(
+      row.simulate('click', createFakeEvent());
+      sinon.assert.calledWith(
         fakeHistory.push,
         `/${lang}/${clientApp}${reviewListURL({
           addonSlug: addon.slug,
@@ -177,8 +178,12 @@ describe(__filename, () => {
       expect(row).toHaveProp('title', expectedTitle);
 
       const count = row.find('.RatingsByStar-star');
+      const starCounts = row.find('.RatingsByStar-count');
 
       expect(count.children()).toHaveText(score);
+      expect(starCounts.at(0).children()).toHaveText(
+        grouping[score].toString(),
+      );
     }
 
     it.each([[tableRow]], (row) => {
@@ -210,27 +215,6 @@ describe(__filename, () => {
     });
   });
 
-  it('renders star counts', () => {
-    const grouping = {
-      5: 964,
-      4: 821,
-      3: 543,
-      2: 22,
-      1: 0,
-    };
-    const addon = addonForGrouping(grouping);
-    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
-    const root = render({ addon });
-    const tableRow = root.find('.RatingByStar-table-row');
-    const counts = tableRow.find('.RatingsByStar-count');
-
-    expect(counts.at(0).children()).toHaveText(grouping['5'].toString());
-    expect(counts.at(1).children()).toHaveText(grouping['4'].toString());
-    expect(counts.at(2).children()).toHaveText(grouping['3'].toString());
-    expect(counts.at(3).children()).toHaveText(grouping['2'].toString());
-    expect(counts.at(4).children()).toHaveText(grouping['1'].toString());
-  });
-
   it('adds a `src` query parameter to the review links when available in the location', () => {
     const src = 'some-src';
     const grouping = {
@@ -241,22 +225,24 @@ describe(__filename, () => {
       1: 0,
     };
     const addon = addonForGrouping(grouping);
-    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'en-US';
+
+    const customStore = dispatchClientMetadata({ clientApp, lang }).store;
+    customStore.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
+
     const root = render({
       addon,
+      history: fakeHistory,
       location: createFakeLocation({ query: { src } }),
+      store: customStore,
     });
     const tableRow = root.find('.RatingByStar-table-row');
 
-    const clientApp = CLIENT_APP_ANDROID;
-    const lang = 'en-US';
-
     function validateLink(row, score) {
-      expect(row).toHaveProp('onClick');
+      row.simulate('click', createFakeEvent());
 
-      row.simulate('click', createFakeEvent({}));
-
-      sinon.assert.calledWithExactly(
+      sinon.assert.calledWith(
         fakeHistory.push,
         `/${lang}/${clientApp}${reviewListURL({
           addonSlug: addon.slug,
@@ -275,8 +261,7 @@ describe(__filename, () => {
 
   it('renders IconStar', () => {
     const root = render();
-    const tableRow = root.find('.RatingByStar-table-row').at(0);
-    const star = tableRow.find('.RatingsByStar-star').find(IconStar);
+    const star = root.find(IconStar).at(0);
 
     expect(star).toHaveLength(1);
     expect(star).toHaveProp('selected');

@@ -3,11 +3,7 @@
 .RatingsByStar-graph {
   border-spacing: 0 6px;
   color: $grey-50;
-  // display: grid;
   font-size: $font-size-default;
-  // grid-gap: 12px;
-  // grid-template-columns: max-content auto max-content;
-  // This controls whitespace and should also match the bar height.
   line-height: 16px;
   width: 100%;
 }
