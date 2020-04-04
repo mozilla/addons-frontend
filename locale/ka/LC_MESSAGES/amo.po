@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-31 19:55+0000\n"
-"PO-Revision-Date: 2020-04-04 16:33+0000\n"
+"PO-Revision-Date: 2020-04-04 16:34+0000\n"
 "Last-Translator: G12r <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -371,9 +371,8 @@ msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "თარიღი %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:360
-#, fuzzy
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "ავტორი %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "შემქმნელი %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:363
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -1464,15 +1463,13 @@ msgid "Recommended add-ons only"
 msgstr "მხოლოდ სასურველი დამატებები"
 
 #: src/amo/components/SearchForm/index.js:57
-#, fuzzy
 msgid "Firefox Add-ons for Android"
-msgstr "დამატებები Android-ისთვის"
+msgstr "Firefox-დამატებები Android-ისთვის"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/SearchForm/index.js:58
-#, fuzzy
 msgid "Firefox Add-ons"
-msgstr "Firefox დამატებების შესახებ"
+msgstr "Firefox-დამატებები"
 
 #: src/amo/components/SearchForm/index.js:81
 msgid "Go to the add-on page"
