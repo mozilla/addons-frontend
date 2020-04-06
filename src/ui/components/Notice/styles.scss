@@ -75,11 +75,6 @@
   @include padding-end(8px);
 }
 
-.Notice-content--multiline {
-  display: flex;
-  flex-direction: column;
-}
-
 @mixin notice_button() {
   &,
   &.Button--micro,
