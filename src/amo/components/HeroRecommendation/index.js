@@ -24,6 +24,11 @@ import './styles.scss';
 export const PRIMARY_HERO_CLICK_CATEGORY = 'AMO Primary Hero Clicks';
 export const PRIMARY_HERO_SRC = 'homepage-primary-hero';
 
+const LoadingHeroText = {
+  display: 'flex',
+  paddingLeft: '50%',
+};
+
 type Props = {|
   errorHandler: ErrorHandlerType,
   shelfData?: PrimaryHeroShelfType,
@@ -179,11 +184,17 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
                   // change it to lowercase. This is used as a secondary heading.
                   i18n.gettext('RECOMMENDED')
                 ) : (
-                  <LoadingText width={20} />
+                  <div style={LoadingHeroText}>
+                    <LoadingText width={20} />
+                  </div>
                 )}
               </div>
               <h2 className="HeroRecommendation-heading">
-                {heading || <LoadingText width={60} />}
+                {heading || (
+                  <div style={LoadingHeroText}>
+                    <LoadingText width={60} />{' '}
+                  </div>
+                )}
               </h2>
               {description ? (
                 <div
@@ -194,9 +205,14 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
               ) : (
                 <div className="HeroRecommendation-body">
                   <>
-                    <LoadingText width={100} />
+                    <div style={LoadingHeroText}>
+                      <LoadingText width={100} />
+                    </div>
                     <br />
-                    <LoadingText width={80} />
+                    <div style={LoadingHeroText}>
+                      {' '}
+                      <LoadingText width={80} />{' '}
+                    </div>
                   </>
                 </div>
               )}
