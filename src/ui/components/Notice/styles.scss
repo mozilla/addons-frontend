@@ -7,7 +7,6 @@
   font-size: $font-size-s;
   grid-gap: 4px;
   grid-template-columns: min-content auto;
-  line-height: 1.1;
   padding: 4px;
 
   &.Notice-light {
@@ -83,6 +82,8 @@
     border: none;
     font-size: $font-size-s;
     line-height: 1.1;
+    margin-bottom: 4px;
+    margin-top: 4px;
     padding: 6px;
     text-shadow: none;
     width: max-content;
