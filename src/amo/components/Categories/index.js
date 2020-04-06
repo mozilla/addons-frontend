@@ -151,27 +151,28 @@ export class CategoriesBase extends React.Component<InternalProps> {
           </div>
         ) : (
           <ul className="Categories-list">
-            {categories.map((category, index) => {
-              // Flow cannot figure out CategoryType in this case.
-              // See https://github.com/facebook/flow/issues/2174
-              // and https://github.com/facebook/flow/issues/2221
-              // $FLOW_IGNORE
-              const { name, slug } = category;
+            {categories &&
+              categories.map((category, index) => {
+                // Flow cannot figure out CategoryType in this case.
+                // See https://github.com/facebook/flow/issues/2174
+                // and https://github.com/facebook/flow/issues/2221
+                // $FLOW_IGNORE
+                const { name, slug } = category;
 
-              return (
-                <li className="Categories-item" key={name}>
-                  <Button
-                    // `12` is the number of colors declared in
-                    // "$category-colors".
-                    className={`Categories-link
+                return (
+                  <li className="Categories-item" key={name}>
+                    <Button
+                      // `12` is the number of colors declared in
+                      // "$category-colors".
+                      className={`Categories-link
                       Categories--category-color-${(index % 12) + 1}`}
-                    to={categoryResultsLinkTo({ addonType, slug })}
-                  >
-                    {name}
-                  </Button>
-                </li>
-              );
-            })}
+                      to={categoryResultsLinkTo({ addonType, slug })}
+                    >
+                      {name}
+                    </Button>
+                  </li>
+                );
+              })}
           </ul>
         )}
       </Card>

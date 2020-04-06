@@ -39,8 +39,6 @@ type AddonCategories = {
   [appName: string]: Array<string>,
 };
 
-type CategoriesNames = Array<string>;
-
 export type CategoriesState = {|
   categories: null | CategoryMapType,
   loading: boolean,
@@ -110,18 +108,13 @@ export const getCategories = (
   categoriesState: CategoryMapType,
   appName: string,
   addonType: string,
-): CategorySlugType | null => {
-  invariant(categoriesState, 'categories state can not be empty!');
-  invariant(appName, 'app name can not be empty!');
-  invariant(addonType, 'addon type can not be empty!');
+): Array<mixed> | null => {
   if (
     categoriesState &&
     categoriesState[appName] &&
     categoriesState[appName][addonType]
   ) {
-    return Object.keys(categoriesState[appName][addonType]).map(
-      (key) => categoriesState[appName][addonType][key],
-    );
+    return Object.values(categoriesState[appName][addonType]);
   }
   return null;
 };
@@ -131,9 +124,11 @@ export function getCategoryNames(
   addonCategories: AddonCategories,
   appName: string,
   addonType: string,
-): CategoriesNames | null {
+): Array<mixed> | null {
   invariant(categoriesState, 'categories state can not be empty!');
   invariant(addonCategories, 'slugs can not be empty!');
+  invariant(appName, 'app name can not be empty!');
+  invariant(addonType, 'addon type can not be empty!');
 
   const categories = getCategories(categoriesState, appName, addonType);
 
@@ -141,7 +136,7 @@ export function getCategoryNames(
 
   if (categories && addonCategories && addonCategories[appName]) {
     categories.forEach((r) => {
-      if (addonCategories[appName].includes(r.slug)) {
+      if (r && r.name && r.slug && addonCategories[appName].includes(r.slug)) {
         relatedCategories.push(r.name);
       }
     });

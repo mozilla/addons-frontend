@@ -344,7 +344,7 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
   if (categoriesState && appName && addon && addon.type && addon.categories) {
     relatedCategories = getCategoryNames(
       categoriesState,
-      ownProps.addon.categories,
+      addon.categories,
       appName,
       addon.type,
     );
