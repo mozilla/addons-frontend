@@ -105,21 +105,21 @@ describe(__filename, () => {
       const result = permissionUtils.formatPermissions(testPermissions);
       expect(result).toHaveLength(4);
 
-      // HostPermissions component.
-      expect(result[0].props.permissions).toHaveLength(2);
-      expect(result[0].props.permissions).toEqual([
-        hostPermissionA,
-        hostPermissionB,
-      ]);
       // Native messaging next.
       expectPermission(
-        result[1],
+        result[0],
         'nativeMessaging',
         'Exchange messages with programs other than Firefox',
       );
       // Named permissions in alphabetical order.
-      expectPermission(result[2], 'bookmarks', 'Read and modify bookmarks');
-      expectPermission(result[3], 'tabs', 'Access browser tabs');
+      expectPermission(result[1], 'bookmarks', 'Read and modify bookmarks');
+      expectPermission(result[2], 'tabs', 'Access browser tabs');
+      // HostPermissions component.
+      expect(result[3].props.permissions).toHaveLength(2);
+      expect(result[3].props.permissions).toEqual([
+        hostPermissionA,
+        hostPermissionB,
+      ]);
     });
   });
 });
