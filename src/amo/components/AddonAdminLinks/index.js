@@ -70,9 +70,11 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
           className="AddonAdminLinks-edit-link"
           href={`/developers/addon/${addon.slug}/edit`}
         >
-          {// eslint-disable-next-line max-len
-          // translators: This action allows the add-on developer or an admin to edit an add-on's properties.
-          i18n.gettext('Edit add-on')}
+          {
+            // eslint-disable-next-line max-len
+            // translators: This action allows the add-on developer or an admin to edit an add-on's properties.
+            i18n.gettext('Edit add-on')
+          }
         </a>
       </li>
     ) : null;
@@ -83,8 +85,10 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
           className="AddonAdminLinks-admin-status-link"
           href={`/admin/addon/manage/${addon.slug}/`}
         >
-          {// translators: This action allows an admin to edit the status of an add-on.
-          i18n.gettext('Admin add-on status')}
+          {
+            // translators: This action allows an admin to edit the status of an add-on.
+            i18n.gettext('Admin add-on status')
+          }
         </a>
       </li>
     ) : null;
@@ -96,8 +100,10 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
             className="AddonAdminLinks-admin-link"
             href={`/admin/models/addons/addon/${addon.id}`}
           >
-            {// translators: This action allows an admin to maintain an add-on.
-            i18n.gettext('Admin add-on')}
+            {
+              // translators: This action allows an admin to maintain an add-on.
+              i18n.gettext('Admin add-on')
+            }
           </a>
         </li>
       ) : null;
@@ -108,8 +114,10 @@ export class AddonAdminLinksBase extends React.Component<InternalProps> {
           className="AddonAdminLinks-contentReview-link"
           href={`/reviewers/review-content/${addon.slug}`}
         >
-          {// translators: This action allows a reviewer to perform a content review of an add-on.
-          i18n.gettext('Content review add-on')}
+          {
+            // translators: This action allows a reviewer to perform a content review of an add-on.
+            i18n.gettext('Content review add-on')
+          }
         </a>
       </li>
     ) : null;

@@ -40,9 +40,11 @@ export class AddonAuthorLinksBase extends React.Component<InternalProps> {
           className="AddonAuthorLinks-edit-link"
           href={`/developers/addon/${addon.slug}/edit`}
         >
-          {// eslint-disable-next-line max-len
-          // translators: This action allows the add-on developer to edit an add-on's properties.
-          i18n.gettext('Edit add-on')}
+          {
+            // eslint-disable-next-line max-len
+            // translators: This action allows the add-on developer to edit an add-on's properties.
+            i18n.gettext('Edit add-on')
+          }
         </a>
       </li>
     );
