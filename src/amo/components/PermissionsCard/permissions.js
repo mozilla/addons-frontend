@@ -114,13 +114,6 @@ export class PermissionUtils {
       permissions[type].push(value);
     }
 
-    // Add the host permissions.
-    if (permissions.hosts.length) {
-      permissionsToDisplay.push(
-        <HostPermissions permissions={permissions.hosts} />,
-      );
-    }
-
     // Next, show the native messaging permission if it is present.
     const nativeMessagingPermission = 'nativeMessaging';
     if (permissions.permissions.includes(nativeMessagingPermission)) {
@@ -133,7 +126,7 @@ export class PermissionUtils {
       );
     }
 
-    // Finally, show remaining permissions, sorted alphabetically by the
+    // Next, show remaining permissions, sorted alphabetically by the
     // permission string to match Firefox.
     const permissionsCopy = permissions.permissions.slice(0);
     for (const permission of permissionsCopy.sort()) {
@@ -153,6 +146,14 @@ export class PermissionUtils {
         );
       }
     }
+
+    // Finally, Add the host permissions.
+    if (permissions.hosts.length) {
+      permissionsToDisplay.push(
+        <HostPermissions permissions={permissions.hosts} />,
+      );
+    }
+
     return permissionsToDisplay;
   }
 }

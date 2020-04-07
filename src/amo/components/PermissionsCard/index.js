@@ -5,7 +5,7 @@ import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
-import Card from 'ui/components/Card';
+import ShowMoreCard from 'ui/components/ShowMoreCard';
 import type { AppState } from 'amo/store';
 import type { AddonVersionType } from 'core/reducers/versions';
 import type { UserAgentInfoType } from 'core/reducers/api';
@@ -45,7 +45,12 @@ export class PermissionsCardBase extends React.Component<Props> {
     }
 
     return (
-      <Card header={i18n.gettext('Permissions')} className="PermissionsCard">
+      <ShowMoreCard
+        header={i18n.gettext('Permissions')}
+        className="PermissionsCard"
+        id="AddonDescription-permissions-card"
+        maxHeight={300}
+      >
         <p className="PermissionsCard-subhead">
           {i18n.gettext('This add-on can:')}
         </p>
@@ -60,7 +65,7 @@ export class PermissionsCardBase extends React.Component<Props> {
         >
           {i18n.gettext('Learn more about permissions')}
         </Button>
-      </Card>
+      </ShowMoreCard>
     );
   }
 }

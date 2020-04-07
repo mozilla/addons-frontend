@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import ShowMoreCard, {
   extractId,
   ShowMoreCardBase,
-  MAX_HEIGHT,
+  DEFAULT_MAX_HEIGHT,
 } from 'ui/components/ShowMoreCard';
 import {
   applyUIStateChanges,
@@ -42,7 +42,9 @@ describe(__filename, () => {
     const root = render({ store });
 
     // We are simulating the truncate method call.
-    root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
+    root
+      .instance()
+      .truncateToMaxHeight({ clientHeight: DEFAULT_MAX_HEIGHT + 1 });
 
     applyUIStateChanges({ root, store });
 
@@ -73,7 +75,7 @@ describe(__filename, () => {
       shallowOptions: { disableLifecycleMethods: true },
     });
 
-    root.instance().contents = { clientHeight: MAX_HEIGHT + 1 };
+    root.instance().contents = { clientHeight: DEFAULT_MAX_HEIGHT + 1 };
 
     root.instance().componentDidMount();
 
@@ -82,12 +84,32 @@ describe(__filename, () => {
     expect(root).not.toHaveClassName('ShowMoreCard--expanded');
   });
 
+  it('does not dispatch any setUIState if the content height is smaller than the maxHeight prop', () => {
+    const { store } = dispatchClientMetadata();
+
+    const root = render({
+      store,
+      shallowOptions: { disableLifecycleMethods: true },
+      maxHeight: DEFAULT_MAX_HEIGHT + 10,
+    });
+
+    root.instance().contents = { clientHeight: DEFAULT_MAX_HEIGHT + 1 };
+
+    root.instance().componentDidMount();
+
+    expect(() => applyUIStateChanges({ root, store })).toThrowError(
+      /not dispatched any setUIState/,
+    );
+  });
+
   it('truncates the contents if they are too long', () => {
     const { store } = dispatchClientMetadata();
     const root = render({ store });
 
     // We are simulating the truncate method call.
-    root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
+    root
+      .instance()
+      .truncateToMaxHeight({ clientHeight: DEFAULT_MAX_HEIGHT + 1 });
 
     applyUIStateChanges({ root, store });
 
@@ -200,7 +222,9 @@ describe(__filename, () => {
     const root = render({ store });
 
     // We are simulating the truncate method call.
-    root.instance().truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
+    root
+      .instance()
+      .truncateToMaxHeight({ clientHeight: DEFAULT_MAX_HEIGHT + 1 });
 
     applyUIStateChanges({ root, store });
 

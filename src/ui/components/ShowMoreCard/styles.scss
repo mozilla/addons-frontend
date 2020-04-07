@@ -54,3 +54,17 @@
     }
   }
 }
+
+.PermissionsCard {
+  .Card-contents {
+    border-radius: 0;
+  }
+
+  .ShowMoreCard-contents {
+    max-height: 300px;
+  }
+
+  &.ShowMoreCard--expanded .ShowMoreCard-contents {
+    max-height: none;
+  }
+}
