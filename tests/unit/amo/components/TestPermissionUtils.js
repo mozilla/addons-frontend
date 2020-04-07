@@ -115,7 +115,6 @@ describe(__filename, () => {
       expectPermission(result[1], 'bookmarks', 'Read and modify bookmarks');
       expectPermission(result[2], 'tabs', 'Access browser tabs');
       // HostPermissions component.
-      expect(result[3].props.permissions).toHaveLength(2);
       expect(result[3].props.permissions).toEqual([
         hostPermissionA,
         hostPermissionB,

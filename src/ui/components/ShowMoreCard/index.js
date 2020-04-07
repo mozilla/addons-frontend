@@ -27,7 +27,7 @@ type Props = {|
   className?: string,
   header?: React.Element<any> | string,
   id: string,
-  maxHeight?: number,
+  maxHeight: number,
 |};
 
 type InternalProps = {|
@@ -44,6 +44,10 @@ const initialUIState: UIStateType = {
 
 export class ShowMoreCardBase extends React.Component<InternalProps> {
   contents: HTMLElement | null;
+
+  static defaultProps = {
+    maxHeight: DEFAULT_MAX_HEIGHT,
+  };
 
   componentDidMount() {
     const { uiState } = this.props;
@@ -104,10 +108,7 @@ export class ShowMoreCardBase extends React.Component<InternalProps> {
     if (contents) {
       // If the contents are short enough they don't need a "show more" link; the
       // contents are expanded by default.
-      if (
-        uiState.showAllContent &&
-        contents.clientHeight >= (maxHeight || DEFAULT_MAX_HEIGHT)
-      ) {
+      if (uiState.showAllContent && contents.clientHeight >= maxHeight) {
         this.props.setUIState({
           ...uiState,
           showAllContent: false,
