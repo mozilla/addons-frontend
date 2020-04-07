@@ -48,9 +48,11 @@ export const PageBase = ({
             'Page-no-hero-promo': clientApp === CLIENT_APP_ANDROID,
           })}
         >
-          {// Exclude the AppBanner from the home page, but include it on the
-          // Android home page.
-          (!isHomePage || clientApp === CLIENT_APP_ANDROID) && <AppBanner />}
+          {
+            // Exclude the AppBanner from the home page, but include it on the
+            // Android home page.
+            (!isHomePage || clientApp === CLIENT_APP_ANDROID) && <AppBanner />
+          }
           {showWrongPlatformWarning && <WrongPlatformWarning />}
           {children}
         </div>

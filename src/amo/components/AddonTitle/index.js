@@ -81,8 +81,10 @@ export const AddonTitleBase = ({
               {isRTL ? (
                 <>
                   {authors}{' '}
-                  {// translators: Example: add-on "by" some authors
-                  i18n.gettext('by')}
+                  {
+                    // translators: Example: add-on "by" some authors
+                    i18n.gettext('by')
+                  }
                 </>
               ) : (
                 <>

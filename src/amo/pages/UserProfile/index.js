@@ -443,8 +443,10 @@ export class UserProfileBase extends React.Component<InternalProps> {
                   href={`/admin/models/users/userprofile/${user.id}/`}
                   puffy
                 >
-                  {// translators: This action allows an admin to maintain a user.
-                  i18n.gettext('Admin user')}
+                  {
+                    // translators: This action allows an admin to maintain a user.
+                    i18n.gettext('Admin user')
+                  }
                 </Button>
               ) : null}
             </Card>
