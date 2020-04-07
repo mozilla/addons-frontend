@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-03-31 21:36+0000\n"
+"PO-Revision-Date: 2020-04-07 22:20+0000\n"
 "Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1037,7 +1037,7 @@ msgstr "Докладніше"
 
 #: src/amo/components/InstallWarning/index.js:85
 msgid "This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing."
-msgstr ""
+msgstr "Безпечність цього розширення не перевірена за програмою рекомендованих розширень Mozilla. Переконайтеся, що ви йому довіряєте, перш ніж встановлювати."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
