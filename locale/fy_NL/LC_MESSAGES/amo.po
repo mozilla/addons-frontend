@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-07 20:24+0000\n"
+"PO-Revision-Date: 2020-04-08 08:34+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1031,7 +1031,9 @@ msgstr "Mear ynfo"
 
 #: src/amo/components/InstallWarning/index.js:85
 msgid "This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing."
-msgstr "Dit is net in oanrekommandearre útwreiding. Soargje derfoar dat jo it fertrouwe foardat jo dizze ynstallearje."
+msgstr ""
+"Dizze útwreiding wurdt net kontrolearre op befeiligingsproblemen fia it programma fan Oanrekommandearre útwreidingen fan Mozilla. Soargje derfoar dat jo de útwreiding fertrouwe eardat jo dizze "
+"ynstallearje."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
