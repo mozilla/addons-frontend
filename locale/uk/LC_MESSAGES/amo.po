@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-07 22:20+0000\n"
-"Last-Translator: Іhor Hordiichuk <igor_ck@outlook.com>\n"
+"PO-Revision-Date: 2020-04-08 08:45+0000\n"
+"Last-Translator: Whoops <taras.datsuk@gmail.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -1719,7 +1719,7 @@ msgstr "Показати лише відгуки з оцінкою 2 зірки"
 
 #: src/amo/pages/AddonReviewList/index.js:239
 msgid "Show only one-star reviews"
-msgstr "Показати лише відгуки з оцінкою 2 зірки"
+msgstr "Показати лише відгуки з оцінкою 1 зірка"
 
 #: src/amo/pages/AddonReviewList/index.js:279
 msgid "Reviews for %(addonName)s"
