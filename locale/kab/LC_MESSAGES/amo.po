@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2017-11-23 22:43+0000\n"
-"Last-Translator: Nonor <nonoratmess@yahoo.com>\n"
+"PO-Revision-Date: 2020-04-08 05:06+0000\n"
+"Last-Translator: ZiriSut <rgebbid@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
@@ -280,7 +280,7 @@ msgstr "Imayl n tallelt"
 
 #: src/amo/components/AddonRecommendations/index.js:141
 msgid "Other users with this extension also installed"
-msgstr "ISeqdacen-nniden n usiɣzef sbedden daɣen"
+msgstr "ISeqdacen-nniden n usiɣzef ttusbedden daɣen"
 
 #: src/amo/components/AddonRecommendations/index.js:142
 msgid "Other popular extensions"
@@ -417,7 +417,7 @@ msgstr "Yettwasekles"
 
 #: src/amo/components/AddonReviewManager/index.js:89
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Ma ulac aɣilif, ḍfeṛ %(linkStart)samnir n ucegger%(linkEnd)s-nneɣ."
+msgstr "Ma ulac aɣilif, ḍfer %(linkStart)samnir n ucegger%(linkEnd)s-nneɣ."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
@@ -425,7 +425,7 @@ msgstr "Aktazal-ik:"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:247
 msgid "More dictionaries by %(author)s"
-msgstr "Ugar n imawalen sɣur %(author)s"
+msgstr "Ugar n yimawalen sɣur %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:250
 msgid "More dictionaries by these translators"
