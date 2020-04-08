@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-01 05:44+0000\n"
+"PO-Revision-Date: 2020-04-08 07:20+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -1032,7 +1032,7 @@ msgstr "Meer info"
 
 #: src/amo/components/InstallWarning/index.js:85
 msgid "This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing."
-msgstr ""
+msgstr "Deze extensie wordt niet gecontroleerd op beveiligingsproblemen via het programma van Aanbevolen extensies van Mozilla. Zorg ervoor dat u de extensie vertrouwt voordat u deze installeert."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
