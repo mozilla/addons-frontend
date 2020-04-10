@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-10 12:47+0000\n"
+"PO-Revision-Date: 2020-04-10 13:04+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1306,9 +1306,8 @@ msgid "Popular themes"
 msgstr "인기 테마"
 
 #: src/amo/components/Search/index.js:164
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "카테고리를 불러오는데 실패했습니다."
+msgstr "인기 부가 기능"
 
 #: src/amo/components/Search/index.js:170
 msgid "Search results for \"%(query)s\""
@@ -1335,20 +1334,17 @@ msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "\"%(query)s\"에 대한 %(count)s개의 결과를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:145
-#, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr[0] "%(count)s개 결과를 찾았습니다"
 
 #: src/amo/components/SearchContextCard/index.js:156
-#, fuzzy
 msgid "Searching for \"%(query)s\""
-msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr "\"%(query)s\" 검색 중"
 
 #: src/amo/components/SearchContextCard/index.js:160
-#, fuzzy
 msgid "Searching for add-ons"
-msgstr "카테고리를 불러오는데 실패했습니다."
+msgstr "부가 기능 검색 중"
 
 #: src/amo/components/SearchContextCard/index.js:55
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
@@ -1440,12 +1436,10 @@ msgid "Recommended add-ons only"
 msgstr "추천 부가 기능만"
 
 #: src/amo/components/SearchForm/index.js:57
-#, fuzzy
 msgid "Firefox Add-ons for Android"
-msgstr "Android 부가 기능"
+msgstr "Android 용 Firefox"
 
 #: src/amo/components/SearchForm/index.js:58
-#, fuzzy
 msgid "Firefox Add-ons"
 msgstr "Firefox 부가 기능"
 
@@ -1458,9 +1452,8 @@ msgid "No theme preview available"
 msgstr "테마 미리보기가 없습니다"
 
 #: src/amo/components/SearchResult/index.js:182
-#, fuzzy
 msgid "Add-on note"
-msgstr "추가 기능 아이콘"
+msgstr "부가 기능 노트"
 
 #: src/amo/components/SearchResult/index.js:200
 msgid "%(total)s user"
@@ -1469,7 +1462,7 @@ msgstr[0] "사용자 %(total)s명"
 
 #: src/amo/components/SearchResults/index.js:42
 msgid "Searching…"
-msgstr "검색중…"
+msgstr "검색 중…"
 
 #: src/amo/components/SearchResults/index.js:47
 msgid "No results were found for \"%(query)s\"."
@@ -1544,9 +1537,8 @@ msgid "Do you really want to delete this picture?"
 msgstr "이 사진을 정말로 삭제하시겠습니까?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:109
-#, fuzzy
 msgid "Delete This Picture"
-msgstr "이 콜렉션 수정"
+msgstr "사진 삭제"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
 msgid "Profile picture for %(name)s"
@@ -2526,9 +2518,8 @@ msgid "This field is required"
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:637
-#, fuzzy
 msgid "Display Name *"
-msgstr "게임하기"
+msgstr "표시 이름 *"
 
 #: src/amo/pages/UserProfileEdit/index.js:654
 msgid "Reviewer Name"
@@ -2658,19 +2649,16 @@ msgid "Enabling"
 msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:201
-#, fuzzy
 msgid "Downloading"
-msgstr "%(name)s를 다운로드하는 중입니다."
+msgstr "다운로드 중"
 
 #: src/core/components/AMInstallButton/index.js:203
-#, fuzzy
 msgid "Installing"
-msgstr "%(name)s를 설치하는 중입니다."
+msgstr "설치 중"
 
 #: src/core/components/AMInstallButton/index.js:205
-#, fuzzy
 msgid "Uninstalling"
-msgstr "%(name)s를 제거하는중입니다."
+msgstr "제거 중"
 
 #: src/core/components/AMInstallButton/index.js:213
 msgid "Install Theme"
@@ -2709,9 +2697,8 @@ msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr ""
 
 #: src/core/components/InfoDialog/index.js:88
-#, fuzzy
 msgid "OK"
-msgstr "OK!"
+msgstr "확인"
 
 #: src/core/components/Paginate/index.js:137
 msgid "Previous"
@@ -2785,19 +2772,16 @@ msgid "Download failed. Please check your connection."
 msgstr ""
 
 #: src/core/utils/addons.js:39
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "예기치 못한 오류 발생됨"
+msgstr "설치 중에 예기치 못한 오류 발생됨"
 
 #: src/core/utils/addons.js:41
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "예기치 못한 오류 발생됨"
+msgstr "제거 중에 예기치 못한 오류 발생됨"
 
 #: src/core/utils/addons.js:46
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "예기치 못한 오류 발생됨"
+msgstr "예기치 못한 오류 발생됨."
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
