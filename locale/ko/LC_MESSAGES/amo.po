@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-10 13:27+0000\n"
+"PO-Revision-Date: 2020-04-10 13:35+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -362,9 +362,8 @@ msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "%(linkStart)s%(timestamp)s%(linkEnd)s에 게시됨"
 
 #: src/amo/components/AddonReviewCard/index.js:360
-#, fuzzy
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "%(authorName)s 님, %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "%(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s 님, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:363
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
