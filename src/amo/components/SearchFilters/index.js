@@ -32,7 +32,7 @@ import Select from 'ui/components/Select';
 
 import './styles.scss';
 
-const NO_FILTER = '';
+const NO_FILTER = 'all';
 const sortSelectName = paramsToFilter.sort;
 
 export class SearchFiltersBase extends React.Component {
@@ -153,6 +153,25 @@ export class SearchFiltersBase extends React.Component {
     ];
   }
 
+  operatingSystemValue() {
+    const { filters, userAgentInfo } = this.props;
+    if (filters.operatingSystem === '') {
+      filters.operatingSystem = convertOSToFilterValue(userAgentInfo.os.name);
+    }
+    if (typeof filters.operatingSystem === 'undefined') {
+      return undefined;
+    }
+    return filters.operatingSystem;
+  }
+
+  operatingSystemDefaultValue() {
+    const { filters, userAgentInfo } = this.props;
+    if (typeof filters.operatingSystem === 'undefined') {
+      return convertOSToFilterValue(userAgentInfo.os.name);
+    }
+    return undefined;
+  }
+
   sortOptions() {
     const { i18n } = this.props;
 
@@ -169,7 +188,7 @@ export class SearchFiltersBase extends React.Component {
   }
 
   render() {
-    const { filters, i18n, userAgentInfo } = this.props;
+    const { filters, i18n } = this.props;
 
     const expandableCardName = 'SearchFilters';
     const selectedSortFields = filters.sort
@@ -233,11 +252,11 @@ export class SearchFiltersBase extends React.Component {
           </label>
           <Select
             className="SearchFilters-OperatingSystem SearchFilters-select"
-            defaultValue={convertOSToFilterValue(userAgentInfo.os.name)}
+            defaultValue={this.operatingSystemDefaultValue()}
             id="SearchFilters-OperatingSystem"
             name="operatingSystem"
             onChange={this.onSelectElementChange}
-            value={filters.operatingSystem || NO_FILTER}
+            value={this.operatingSystemValue()}
           >
             {this.operatingSystemOptions().map((option) => {
               return <option key={option.value} {...option} />;

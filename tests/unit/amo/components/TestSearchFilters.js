@@ -113,7 +113,7 @@ describe(__filename, () => {
     });
   });
 
-  it('checks value when there is no operatingSystem filter and OS is Mac', () => {
+  it('checks defaultValue when there is no operatingSystem filter and OS is Mac', () => {
     const userAgent = userAgentsByPlatform.mac.firefox57;
     const parsedUserAgent = UAParser(userAgent);
     const osValue = convertOSToFilterValue(parsedUserAgent.os.name);
@@ -123,9 +123,14 @@ describe(__filename, () => {
       'defaultValue',
       osValue,
     );
+
+    expect(root.find('.SearchFilters-OperatingSystem')).toHaveProp(
+      'value',
+      undefined,
+    );
   });
 
-  it('checks value when there is no operatingSystem filter and OS is Linux', () => {
+  it('checks defaultValue when there is no operatingSystem filter and OS is Linux', () => {
     const userAgent = userAgentsByPlatform.linux.firefox10;
     const parsedUserAgent = UAParser(userAgent);
     const osValue = convertOSToFilterValue(parsedUserAgent.os.name);
@@ -134,6 +139,11 @@ describe(__filename, () => {
     expect(root.find('.SearchFilters-OperatingSystem')).toHaveProp(
       'defaultValue',
       osValue,
+    );
+
+    expect(root.find('.SearchFilters-OperatingSystem')).toHaveProp(
+      'value',
+      undefined,
     );
   });
 
@@ -145,12 +155,13 @@ describe(__filename, () => {
     });
 
     expect(root.find('.SearchFilters-OperatingSystem')).toHaveProp(
+      'defaultValue',
+      undefined,
+    );
+
+    expect(root.find('.SearchFilters-OperatingSystem')).toHaveProp(
       'value',
       'windows',
-    );
-    expect(root.find('.SearchFilters-OperatingSystem')).toHaveProp(
-      'defaultValue',
-      'linux',
     );
   });
 
