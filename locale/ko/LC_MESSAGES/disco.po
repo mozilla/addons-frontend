@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:38+0000\n"
-"PO-Revision-Date: 2020-04-10 12:51+0000\n"
+"PO-Revision-Date: 2020-04-10 13:12+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -200,9 +200,8 @@ msgid "Dismiss this notice"
 msgstr ""
 
 #: src/ui/components/ThemeImage/index.js:31
-#, fuzzy
 msgid "Preview of %(title)s"
-msgstr "%(name)s 미리보기"
+msgstr "%(title)s 미리보기"
 
 #~ msgid "Learn more"
 #~ msgstr "더 알아보기"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-10 13:04+0000\n"
+"PO-Revision-Date: 2020-04-10 13:12+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -659,9 +659,8 @@ msgid "Name"
 msgstr "이름"
 
 #: src/amo/components/CollectionSort/index.js:92
-#, fuzzy
 msgid "Popularity"
-msgstr "가장 인기있는 테마"
+msgstr "인기"
 
 #: src/amo/components/ContributeCard/index.js:108
 msgid "Contribute now"
@@ -1002,9 +1001,8 @@ msgid "Stay Safe Online"
 msgstr "더 안전한 서비스"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:280
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "북마크"
+msgstr "탭 및 북마크 구성"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
 #, fuzzy
@@ -1084,9 +1082,8 @@ msgid "Access your location"
 msgstr "현재 위치에 접근"
 
 #: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
-#, fuzzy
 msgid "Access browsing history"
-msgstr "버전 목록"
+msgstr "방문 기록에 접근"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
@@ -1281,9 +1278,8 @@ msgid "Trending themes"
 msgstr "유행하는 테마"
 
 #: src/amo/components/Search/index.js:140
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "카테고리를 불러오는데 실패했습니다."
+msgstr "유행하는 부가 기능"
 
 #: src/amo/components/Search/index.js:146 src/amo/pages/LandingPage/index.js:143
 msgid "Top rated extensions"
@@ -1983,9 +1979,8 @@ msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
 msgstr "이 확장 기능에 대해서 공유해 주세요. %(linkStart)s리뷰 가이드라인%(linkEnd)s을 참고해 주세요."
 
 #: src/amo/pages/Guides/index.js:98
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "광고 차단"
+msgstr "성가신 광고 차단"
 
 #: src/amo/pages/Guides/index.js:99
 msgid ""
@@ -2089,9 +2084,8 @@ msgid "Explore powerful tools and features to customize Firefox and make the bro
 msgstr ""
 
 #: src/amo/pages/LandingPage/index.js:275
-#, fuzzy
 msgid "Explore all categories"
-msgstr "카테고리를 불러오는데 실패했습니다."
+msgstr "모든 카테고리 탐색"
 
 #: src/amo/pages/LanguageTools/index.js:110
 msgid "Available for your locale"
@@ -2168,9 +2162,8 @@ msgid "Get support"
 msgstr "지원 받기"
 
 #: src/amo/pages/StaticPages/About/index.js:19
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Firefox 부가 기능"
+msgstr "Firefox 부가 기능 정보"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid ""
@@ -2381,9 +2374,8 @@ msgid "Add-ons developer"
 msgstr "부가 기능 개발자"
 
 #: src/amo/pages/UserProfile/index.js:322
-#, fuzzy
 msgid "Theme artist"
-msgstr "이 아티스트들의 테마 더보기"
+msgstr "테마 아티스트"
 
 #: src/amo/pages/UserProfile/index.js:336 src/amo/pages/UserProfileEdit/index.js:536
 msgid "User Profile for %(user)s"
@@ -2422,9 +2414,8 @@ msgid "Edit profile"
 msgstr "프로필 수정"
 
 #: src/amo/pages/UserProfile/index.js:448
-#, fuzzy
 msgid "Admin user"
-msgstr "부가 기능 링크"
+msgstr "관리자 사용자"
 
 #: src/amo/pages/UserProfileEdit/index.js:198
 msgid "Picture successfully deleted"
@@ -2483,14 +2474,12 @@ msgid "Edit user's profile"
 msgstr "사용자 프로필 수정"
 
 #: src/amo/pages/UserProfileEdit/index.js:573
-#, fuzzy
 msgid "Account"
-msgstr "내 계정"
+msgstr "계정"
 
 #: src/amo/pages/UserProfileEdit/index.js:574
-#, fuzzy
 msgid "Account for %(userName)s"
-msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr "%(userName)s 계정"
 
 #: src/amo/pages/UserProfileEdit/index.js:581
 msgid "Email Address"
@@ -2505,9 +2494,8 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:616
-#, fuzzy
 msgid "Manage Firefox Accounts…"
-msgstr "댓글 수정 중"
+msgstr "Firefox 계정 관리…"
 
 #: src/amo/pages/UserProfileEdit/index.js:624
 msgid "Profile"
