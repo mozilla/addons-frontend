@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-10 13:12+0000\n"
+"PO-Revision-Date: 2020-04-10 13:20+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -73,9 +73,8 @@ msgid "Admin add-on status"
 msgstr "관리자 부가 기능 상태"
 
 #: src/amo/components/AddonAuthorLinks/index.js:57
-#, fuzzy
 msgid "Author Links"
-msgstr "부가 기능 링크"
+msgstr "제작자 링크"
 
 #: src/amo/components/AddonBadges/index.js:47
 msgid "Restart Required"
@@ -206,9 +205,8 @@ msgid "Visit stats dashboard"
 msgstr "통계 대시보드 방문"
 
 #: src/amo/components/AddonMoreInfo/index.js:127
-#, fuzzy
 msgid "Custom License"
-msgstr "라이센스"
+msgstr "사용자 지정 라이선스"
 
 #: src/amo/components/AddonMoreInfo/index.js:149
 msgid "%(timeFromNow)s (%(date)s)"
@@ -373,9 +371,8 @@ msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "%(authorName)s 님, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:478
-#, fuzzy
 msgid "Deleting…"
-msgstr "검색중…"
+msgstr "삭제하는 중…"
 
 #: src/amo/components/AddonReviewCard/index.js:509
 msgid "Reply to this review"
@@ -1611,9 +1608,8 @@ msgid "About this add-on"
 msgstr "이 부가 기능 정보"
 
 #: src/amo/pages/Addon/index.js:316
-#, fuzzy
 msgid "Developer comments"
-msgstr "개발자 정책"
+msgstr "개발자 의견"
 
 #: src/amo/pages/Addon/index.js:339
 msgid "Release notes for %(addonVersion)s"
@@ -1644,9 +1640,8 @@ msgid "Screenshots"
 msgstr "스크린샷"
 
 #: src/amo/pages/AddonInfo/index.js:154
-#, fuzzy
 msgid "Custom License for %(addonName)s"
-msgstr "%(addonName)s에 대한 리뷰"
+msgstr "%(addonName)s에 대한 사용자 지정 라이선스"
 
 #: src/amo/pages/AddonInfo/index.js:161
 #, fuzzy
@@ -1721,9 +1716,8 @@ msgid "Older versions"
 msgstr "이전 버전"
 
 #: src/amo/pages/Block/index.js:115
-#, fuzzy
 msgid "Versions blocked: all versions."
-msgstr "모든 버전 보기"
+msgstr "차단된 버전: 모든 버전."
 
 #: src/amo/pages/Block/index.js:118
 msgid "Versions blocked: %(min)s to %(max)s."
@@ -1769,14 +1763,12 @@ msgid "View block request"
 msgstr ""
 
 #: src/amo/pages/CategoriesPage/index.js:35
-#, fuzzy
 msgid "All extension categories"
-msgstr "이 카테고리의 모든 확장 기능 탐색하기."
+msgstr "모든 확장 기능 카테고리"
 
 #: src/amo/pages/CategoriesPage/index.js:37
-#, fuzzy
 msgid "All theme categories"
-msgstr "카테고리를 불러오는데 실패했습니다."
+msgstr "모든 테마 카테고리"
 
 #: src/amo/pages/Collection/index.js:392
 msgid "Do you really want to delete this collection?"
