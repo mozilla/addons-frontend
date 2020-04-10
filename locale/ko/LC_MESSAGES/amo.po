@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-10 13:20+0000\n"
+"PO-Revision-Date: 2020-04-10 13:27+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1554,9 +1554,8 @@ msgid "Not available on Firefox for Android. You can use this add-on with Firefo
 msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
-#, fuzzy
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr "이 부가 기능은 현재 사용중인 Firefox 버전과 호환되지 않습니다."
+msgstr "이 부가 기능은 이 브라우저와 호환되지 않습니다. 데스크톱용 Firefox에 설치하십시오."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
@@ -1644,14 +1643,12 @@ msgid "Custom License for %(addonName)s"
 msgstr "%(addonName)s에 대한 사용자 지정 라이선스"
 
 #: src/amo/pages/AddonInfo/index.js:161
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "사용자 라이선스 동의서"
+msgstr "%(addonName)s에 대한 최종 사용자 라이선스 계약"
 
 #: src/amo/pages/AddonInfo/index.js:165
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "%(addonName)s에 대한 리뷰"
+msgstr "%(addonName)s에 대한 개인 정보 보호 정책"
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -1728,9 +1725,8 @@ msgid "%(addonName)s has been blocked for your protection."
 msgstr ""
 
 #: src/amo/pages/Block/index.js:145
-#, fuzzy
 msgid "This add-on has been blocked for your protection."
-msgstr "이 부가 기능은 제작자에 의해 삭제되었습니다."
+msgstr "이 부가 기능은 사용자 보호를 위해 차단되었습니다."
 
 #: src/amo/pages/Block/index.js:156
 msgid "Why was it blocked?"
