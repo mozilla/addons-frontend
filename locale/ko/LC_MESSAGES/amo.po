@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-10 13:35+0000\n"
+"PO-Revision-Date: 2020-04-11 02:44+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -115,12 +115,12 @@ msgstr "사용하는 브라우저는 부가 기능을 지원하지 않습니다.
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:104
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – 🦊 Firefox 용 테마(%(locale)s)"
+msgstr "%(addonName)s – 🦊 Firefox용 테마(%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:109
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – 🦊 Firefox 용 부가 기능 (%(locale)s)"
+msgstr "%(addonName)s – 🦊 Firefox용 부가 기능 (%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:123
 msgid "Download %(addonName)s for Firefox. %(summary)s"
@@ -128,38 +128,38 @@ msgstr "Firefox용 %(addonName)s 부가 기능을 내려받으세요. %(summary)
 
 #: src/amo/components/AddonHead/index.js:61
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – 🦊 Firefox Android 용 사전(%(locale)s)"
+msgstr "%(addonName)s – 🦊 Firefox Android용 사전(%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:66
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – 🦊 Firefox Android 용 확장 기능(%(locale)s)"
+msgstr "%(addonName)s – 🦊 Firefox Android용 확장 기능(%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:71
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – 🦊 Firefox Android 용 언어팩(%(locale)s)"
+msgstr "%(addonName)s – 🦊 Firefox Android용 언어팩(%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:76
 msgid "%(addonName)s – Get this Theme for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – 🦊 Firefox Android 용 테마(%(locale)s)"
+msgstr "%(addonName)s – 🦊 Firefox Android용 테마(%(locale)s)"
 
 #: src/amo/components/AddonHead/index.js:82
 msgid "%(addonName)s – Get this Add-on for 🦊 Firefox Android (%(locale)s)"
-msgstr "%(addonName)s – 🦊 Firefox Android 용 부가 기능(%(locale)s)"
+msgstr "%(addonName)s – 🦊 Firefox Android용 부가 기능(%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:89
 msgid "%(addonName)s – Get this Dictionary for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – 🦊 Firefox 용 사전(%(locale)s)"
+msgstr "%(addonName)s – 🦊 Firefox용 사전(%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:94
 msgid "%(addonName)s – Get this Extension for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – 🦊 Firefox 용 확장 기능 (%(locale)s)"
+msgstr "%(addonName)s – 🦊 Firefox용 확장 기능 (%(locale)s)"
 
 # please keep the fox emoji next to "Firefox".
 #: src/amo/components/AddonHead/index.js:99
 msgid "%(addonName)s – Get this Language Pack for 🦊 Firefox (%(locale)s)"
-msgstr "%(addonName)s – 🦊 Firefox 용 언어팩(%(locale)s)"
+msgstr "%(addonName)s – 🦊 Firefox용 언어팩(%(locale)s)"
 
 #: src/amo/components/AddonMeta/index.js:119
 msgid "%(total)s Star"
@@ -548,19 +548,19 @@ msgstr "%(dateReleased)s에 출시 - %(fileSize)s"
 
 #: src/amo/components/App/index.js:185 src/amo/components/HeadMetaTags/index.js:79
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Firefox 용 부가 기능 (%(locale)s)"
+msgstr "Firefox용 부가 기능 (%(locale)s)"
 
 #: src/amo/components/App/index.js:189 src/amo/components/HeadMetaTags/index.js:73
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "%(title)s – Firefox 용 부가 기능 (%(locale)s)"
+msgstr "%(title)s – Firefox용 부가 기능 (%(locale)s)"
 
 #: src/amo/components/App/index.js:197 src/amo/components/HeadMetaTags/index.js:78
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Firefox Android 용 부가 기능 (%(locale)s)"
+msgstr "Firefox Android용 부가 기능 (%(locale)s)"
 
 #: src/amo/components/App/index.js:201 src/amo/components/HeadMetaTags/index.js:72
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "%(title)s – Firefox Android 용 부가 기능 (%(locale)s)"
+msgstr "%(title)s – Firefox Android용 부가 기능 (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:216
 msgid "Loading"
@@ -1429,7 +1429,7 @@ msgstr "추천 부가 기능만"
 
 #: src/amo/components/SearchForm/index.js:57
 msgid "Firefox Add-ons for Android"
-msgstr "Android 용 Firefox"
+msgstr "Android용 Firefox"
 
 #: src/amo/components/SearchForm/index.js:58
 msgid "Firefox Add-ons"
@@ -1494,11 +1494,11 @@ msgstr "Firefox 부가 기능"
 
 #: src/amo/components/SectionLinks/index.js:62
 msgid "for Firefox"
-msgstr "Firefox 용"
+msgstr "Firefox용"
 
 #: src/amo/components/SectionLinks/index.js:64
 msgid "for Android"
-msgstr "Android 용"
+msgstr "Android용"
 
 #: src/amo/components/SectionLinks/index.js:79
 msgid "Dictionaries & Language Packs"

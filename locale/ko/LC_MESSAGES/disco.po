@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-03-24 18:38+0000\n"
-"PO-Revision-Date: 2020-04-10 13:12+0000\n"
+"PO-Revision-Date: 2020-04-11 02:44+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -143,7 +143,7 @@ msgstr "닫기"
 
 #: src/disco/components/AddonCompatibilityError/index.js:30
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr "iOS 용 Firefox는 현재 부가 기능을 지원하지 않습니다."
+msgstr "iOS용 Firefox는 현재 부가 기능을 지원하지 않습니다."
 
 #: src/disco/components/AddonCompatibilityError/index.js:34
 msgid "This add-on does not support your version of Firefox."
