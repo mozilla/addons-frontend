@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-11 06:49+0000\n"
+"PO-Revision-Date: 2020-04-11 07:04+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -386,9 +386,8 @@ msgid "Write a review"
 msgstr "리뷰 작성"
 
 #: src/amo/components/AddonReviewManager/index.js:111
-#, fuzzy
 msgid "Write about your experience with this add-on."
-msgstr "이 확장 기능에 대한 여러분의 경험을 말해주세요. 구체적이고 간결하면 좋습니다."
+msgstr "이 부가 기능에 대한 여러분의 경험을 말해주세요."
 
 #: src/amo/components/AddonReviewManager/index.js:115
 msgid "Submit review"
@@ -718,9 +717,8 @@ msgid "Remove"
 msgstr "삭제"
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
-#, fuzzy
 msgid "Collector's note"
-msgstr "내 콜렉션 보기"
+msgstr "컬렉터의 노트"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
@@ -1000,9 +998,8 @@ msgid "Organize Tabs & Bookmarks"
 msgstr "탭 및 북마크 구성"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
-#, fuzzy
 msgid "Enhance Your Media Experience"
-msgstr "앱을 평가해주세요"
+msgstr "미디어 경험 향상"
 
 #: src/amo/components/HomeHeroGuides/index.js:57
 msgid "Extensions are like apps for your browser."
@@ -1716,7 +1713,7 @@ msgstr "차단된 버전: 모든 버전."
 
 #: src/amo/pages/Block/index.js:118
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "차단된 버전: %(min)s ~ %(max)s."
 
 #: src/amo/pages/Block/index.js:140
 msgid "%(addonName)s has been blocked for your protection."
@@ -1843,7 +1840,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:127
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "더 권장되는 %(linkStart)s개인 정보 및 보안%(linkEnd)s 확장 기능을 탐색하십시오."
+msgstr "더 많은 권장되는 %(linkStart)s개인 정보 및 보안%(linkEnd)s 확장 기능을 탐색하세요."
 
 #: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
@@ -2389,7 +2386,7 @@ msgstr "부가 기능 갯수"
 
 #: src/amo/pages/UserProfile/index.js:396
 msgid "Average rating of developer’s add-ons"
-msgstr "이 개발자가 개발한 부가 기능들의 평균 별점"
+msgstr "개발자 부가 기능의 평균 별점"
 
 #: src/amo/pages/UserProfile/index.js:411 src/amo/pages/UserProfileEdit/index.js:729
 msgid "Biography"
