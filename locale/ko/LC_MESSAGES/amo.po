@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-11 07:04+0000\n"
+"PO-Revision-Date: 2020-04-11 07:10+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1822,9 +1822,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:109
-#, fuzzy
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "이 확장 기능에 대해서 공유해 주세요. %(linkStart)s리뷰 가이드라인%(linkEnd)s을 참고해 주세요."
+msgstr "더 많은 우수한 %(linkStart)s광고 차단기%(linkEnd)s를 탐색하세요."
 
 #: src/amo/pages/Guides/index.js:117
 msgid "Stop online trackers from stalking you"
@@ -1857,9 +1856,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
-#, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "이 확장 기능에 대해서 공유해 주세요. %(linkStart)s리뷰 가이드라인%(linkEnd)s을 참고해 주세요."
+msgstr "더 많은 %(linkStart)s탭%(linkEnd)s 확장 기능을 탐색하세요."
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
@@ -1874,9 +1872,8 @@ msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bo
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:168
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "이 확장 기능에 대해서 공유해 주세요. %(linkStart)s리뷰 가이드라인%(linkEnd)s을 참고해 주세요."
+msgstr "더 많은 %(linkStart)s북마크%(linkEnd)s 확장 기능을 탐색하세요."
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a fresh new tab experience"
@@ -1957,9 +1954,8 @@ msgid "Fully encrypted password protection. Store your data securely and access 
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:90
-#, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "이 확장 기능에 대해서 공유해 주세요. %(linkStart)s리뷰 가이드라인%(linkEnd)s을 참고해 주세요."
+msgstr "더 많은 우수한 %(linkStart)s비밀번호 관리자%(linkEnd)s 확장 기능을 탐색하세요."
 
 #: src/amo/pages/Guides/index.js:98
 msgid "Block annoying ads"
