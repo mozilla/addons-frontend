@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-12 20:29+0000\n"
+"PO-Revision-Date: 2020-04-12 20:42+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -28,7 +28,7 @@ msgstr "컬렉션 선택…"
 
 #: src/amo/components/AddAddonToCollection/index.js:201
 msgid "Create new collection"
-msgstr "새 컬렉션 생성"
+msgstr "새 컬렉션 만들기"
 
 #: src/amo/components/AddAddonToCollection/index.js:242
 msgid "Added to %(collectionName)s"
@@ -722,7 +722,7 @@ msgstr "컬렉터의 메모"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
-msgstr "이 부가 기능에 의견을 남겨주세요."
+msgstr "이 부가 기능에 대한 메모를 남겨주세요."
 
 #: src/amo/components/EditableCollectionAddon/index.js:168
 msgid "Save"
@@ -1803,7 +1803,7 @@ msgstr "컬렉션을 보려면 로그인 하세요"
 
 #: src/amo/pages/CollectionList/index.js:124
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "컬렉션은 좋아하는 부가 기능을 쉽게 추적하고 완벽하게 사용자 지정된 브라우저를 다른 사용자와 공유할 수 있게 해줍니다."
 
 #: src/amo/pages/CollectionList/index.js:134
 msgid "Create a collection"
@@ -2752,7 +2752,7 @@ msgstr "예기치 못한 오류 발생됨."
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
-msgstr ""
+msgstr "확인"
 
 #: src/ui/components/DismissibleTextForm/index.js:187
 msgid "Enter text."
