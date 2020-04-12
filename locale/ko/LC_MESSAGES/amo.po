@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-11 07:10+0000\n"
+"PO-Revision-Date: 2020-04-12 20:29+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -710,7 +710,7 @@ msgstr "이 부가 기능의 제작자가 여러분이 작은 기여로 지속�
 
 #: src/amo/components/EditableCollectionAddon/index.js:133 src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Leave a note"
-msgstr "노트 남기기"
+msgstr "메모 남기기"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143 src/core/components/AMInstallButton/index.js:197
 msgid "Remove"
@@ -718,7 +718,7 @@ msgstr "삭제"
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
 msgid "Collector's note"
-msgstr "컬렉터의 노트"
+msgstr "컬렉터의 메모"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
@@ -1441,7 +1441,7 @@ msgstr "테마 미리보기가 없습니다"
 
 #: src/amo/components/SearchResult/index.js:182
 msgid "Add-on note"
-msgstr "부가 기능 노트"
+msgstr "부가 기능 메모"
 
 #: src/amo/components/SearchResult/index.js:200
 msgid "%(total)s user"
