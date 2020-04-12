@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-08 06:02+0000\n"
-"Last-Translator: passionforlife <eloli@foxmail.com>\n"
+"PO-Revision-Date: 2020-04-12 11:26+0000\n"
+"Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -1019,7 +1019,7 @@ msgstr "详细了解"
 
 #: src/amo/components/InstallWarning/index.js:85
 msgid "This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing."
-msgstr "尚未通过“Mozilla 推荐性扩展”安全认证，安装前请确认您信任该扩展。"
+msgstr "该扩展未列入“Mozilla 扩展推荐计划”进行安全审计，安装前请确认您信任该扩展。"
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
