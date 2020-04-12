@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-12 21:00+0000\n"
+"PO-Revision-Date: 2020-04-12 21:15+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1421,7 +1421,7 @@ msgstr "운영체제"
 
 #: src/amo/components/SearchFilters/index.js:253
 msgid "Recommended add-ons only"
-msgstr "추천 부가 기능만"
+msgstr "추천 부가 기능만 보기"
 
 #: src/amo/components/SearchForm/index.js:57
 msgid "Firefox Add-ons for Android"
