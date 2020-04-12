@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-12 20:42+0000\n"
+"PO-Revision-Date: 2020-04-12 20:51+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -618,7 +618,7 @@ msgstr "제작자"
 
 #: src/amo/components/CollectionManager/index.js:240
 msgid "Create collection"
-msgstr "컬렉션 생성"
+msgstr "컬렉션 만들기"
 
 #: src/amo/components/CollectionManager/index.js:241
 msgid "Save changes"
@@ -934,7 +934,7 @@ msgstr "새 테마 등록"
 
 #: src/amo/components/Header/index.js:117
 msgid "Manage My Submissions"
-msgstr "제출 내역 관리하기"
+msgstr "내 제출물 관리"
 
 #: src/amo/components/Header/index.js:127
 msgid "Reviewer Tools"
@@ -1783,7 +1783,7 @@ msgstr "첫째, 컬렉션을 만듭니다. 이후 확장 기능과 테마를 추
 
 #: src/amo/pages/Collection/index.js:451
 msgid "Search for extensions and themes to add to your collection."
-msgstr "컬렉션에 추가 할 확장 기능 및 테마를 검색하세요."
+msgstr "컬렉션에 추가할 확장 기능 및 테마를 검색하세요."
 
 #: src/amo/pages/Collection/index.js:513
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
@@ -1807,7 +1807,7 @@ msgstr "컬렉션은 좋아하는 부가 기능을 쉽게 추적하고 완벽하
 
 #: src/amo/pages/CollectionList/index.js:134
 msgid "Create a collection"
-msgstr "컬렉션 생성"
+msgstr "컬렉션 만들기"
 
 #: src/amo/pages/CollectionList/index.js:62
 msgid "You do not have any collections."
