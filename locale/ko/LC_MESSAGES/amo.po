@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-12 20:51+0000\n"
+"PO-Revision-Date: 2020-04-12 21:00+0000\n"
 "Last-Translator: Kim YoungCheon <circcc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -1385,7 +1385,7 @@ msgstr "Linux"
 
 #: src/amo/components/SearchFilters/index.js:155
 msgid "Relevance"
-msgstr "관련성 높음"
+msgstr "관련성"
 
 #: src/amo/components/SearchFilters/index.js:157
 msgid "Recently Updated"
