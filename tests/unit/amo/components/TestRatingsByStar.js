@@ -130,7 +130,9 @@ describe(__filename, () => {
 
   it('renders a loading state without an add-on', () => {
     const root = render({ addon: null });
+    const tableRow = root.find('.RatingByStar-table-row');
 
+    expect(tableRow.at(0)).not.toHaveProp('onClick');
     expect(root.find('.RatingsByStar-count').find(LoadingText)).toHaveLength(5);
     expect(root.find('.RatingsByStar-barContainer')).toHaveLength(5);
     expect(root.find('.RatingsByStar-barFrame')).toHaveLength(5);
@@ -156,10 +158,10 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const lang = 'en-US';
 
-    const customStore = dispatchClientMetadata({ clientApp, lang }).store;
-    customStore.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
+    dispatchClientMetadata({ clientApp, lang, store });
+    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
 
-    const root = render({ addon, history: fakeHistory, store: customStore });
+    const root = render({ addon, history: fakeHistory, store });
 
     const tableRow = root.find('.RatingByStar-table-row');
 
@@ -228,14 +230,14 @@ describe(__filename, () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const lang = 'en-US';
 
-    const customStore = dispatchClientMetadata({ clientApp, lang }).store;
-    customStore.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
+    dispatchClientMetadata({ clientApp, lang, store });
+    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
 
     const root = render({
       addon,
       history: fakeHistory,
       location: createFakeLocation({ query: { src } }),
-      store: customStore,
+      store,
     });
     const tableRow = root.find('.RatingByStar-table-row');
 
@@ -265,6 +267,23 @@ describe(__filename, () => {
 
     expect(star).toHaveLength(1);
     expect(star).toHaveProp('selected');
+  });
+
+  it('renders when star count is undefined', () => {
+    let fiveStarCount;
+    const grouping = {
+      5: fiveStarCount,
+      4: 1,
+      3: 0,
+      2: 0,
+      1: 0,
+    };
+    const addon = addonForGrouping(grouping);
+    store.dispatch(setGroupedRatings({ addonId: addon.id, grouping }));
+    const root = render({ addon });
+    const bar = root.find('.RatingsByStar-bar');
+
+    expect(bar.at(0).children()).toHaveLength(0);
   });
 
   it('renders bar value widths based on total ratings', () => {
