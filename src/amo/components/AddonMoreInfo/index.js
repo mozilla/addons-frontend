@@ -27,6 +27,7 @@ import type { ReactRouterLocationType } from 'core/types/router';
 type Props = {|
   addon: AddonType | null,
   i18n: I18nType,
+  relatedCategories: Array<string> | null,
 |};
 
 type InternalProps = {|
@@ -335,14 +336,14 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 }
 
 export const mapStateToProps = (state: AppState, ownProps: Props) => {
-  const { addon, i18n } = ownProps;
+  const { addon, i18n, relatedCategories } = ownProps;
   const categoriesState = state.categories.categories;
   const appName = state.api.clientApp;
 
-  let relatedCategories = null;
+  let relatedCategoriesObj = relatedCategories || null;
 
   if (categoriesState && appName && addon && addon.type && addon.categories) {
-    relatedCategories = getCategoryNames(
+    relatedCategoriesObj = getCategoryNames(
       categoriesState,
       addon.categories,
       appName,
@@ -375,7 +376,7 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
     hasStatsPermission: hasPermission(state, STATS_VIEW),
     userId: state.users.currentUserID,
     categoriesLoading: state.categories.loading,
-    relatedCategories,
+    relatedCategories: relatedCategoriesObj,
   };
 };
 

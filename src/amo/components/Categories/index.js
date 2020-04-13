@@ -48,8 +48,8 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  categories: Array<string>,
   categoriesState: $PropertyType<CategoriesStateType, 'categories'>,
-  clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
@@ -102,20 +102,13 @@ export class CategoriesBase extends React.Component<InternalProps> {
     /* eslint-disable react/no-array-index-key */
     const {
       addonType,
-      categoriesState,
+      categories,
       className,
-      clientApp,
       errorHandler,
       i18n,
       loading,
     } = this.props;
     invariant(addonType, 'addonType is undefined');
-
-    let categories = [];
-
-    if (categoriesState && clientApp && addonType) {
-      categories = getCategories(categoriesState, clientApp, addonType);
-    }
 
     const classNameProp = classnames('Categories', className);
 
@@ -180,11 +173,17 @@ export class CategoriesBase extends React.Component<InternalProps> {
   }
 }
 
-export function mapStateToProps(state: AppState) {
+export function mapStateToProps(state: AppState, ownProps: Props) {
+  const { addonType } = ownProps;
+  const { categories, api } = state;
+
   return {
-    categoriesState: state.categories.categories,
-    clientApp: state.api.clientApp,
-    loading: state.categories.loading,
+    categories:
+      api.clientApp && categories.categories
+        ? getCategories(categories.categories, api.clientApp, addonType)
+        : [],
+    categoriesState: categories.categories,
+    loading: categories.loading,
   };
 }
 

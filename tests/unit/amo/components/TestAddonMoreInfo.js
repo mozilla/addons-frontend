@@ -562,9 +562,9 @@ describe(__filename, () => {
       relatedCategories,
     });
 
-    expect(root.find('AddonMoreInfo-related-categories')).toHaveText(
-      'Testing category, Another Testing category',
-    );
+    expect(
+      root.find('.AddonMoreInfo-related-categories').children(),
+    ).toHaveText('Testing category, Another testing category');
   });
 
   it('links to version history if add-on is extension', () => {
