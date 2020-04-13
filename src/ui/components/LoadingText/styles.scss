@@ -39,5 +39,9 @@
       1.5}s
       infinite
       cubic-bezier(0.65, 0.05, 0.36, 1);
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
   }
 }

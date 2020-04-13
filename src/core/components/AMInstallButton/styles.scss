@@ -104,6 +104,13 @@
       [dir='rtl'] & {
         animation-name: move-rtl;
       }
+
+      // Center the blue ball when we disable animations.
+      @media (prefers-reduced-motion: reduce) {
+        @include margin-start(14px);
+
+        animation: none;
+      }
     }
 
     .AMInstallButton-loader-ball {
@@ -112,6 +119,10 @@
       border-radius: 50%;
       height: $height;
       width: $width;
+
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
     }
   }
 
@@ -124,6 +135,11 @@
 
     .AMInstallButton-loader-container {
       @include margin-start(16px);
+
+      // Center the blue ball when we disable animations.
+      @media (prefers-reduced-motion: reduce) {
+        @include margin-start(22px);
+      }
     }
   }
 }
