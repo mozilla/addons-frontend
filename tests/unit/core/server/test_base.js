@@ -2,7 +2,7 @@
 import { all, fork } from 'redux-saga/effects';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import * as React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { Route } from 'react-router-dom';
 import { createStore, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';

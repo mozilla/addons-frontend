@@ -1,7 +1,7 @@
 /* @flow */
 /* eslint camelcase: 0 */
 import * as React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 
 import HeadLinks from 'amo/components/HeadLinks';

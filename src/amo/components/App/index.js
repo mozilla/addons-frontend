@@ -3,7 +3,7 @@
 import config from 'config';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import NestedStatus from 'react-nested-status';

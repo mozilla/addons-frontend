@@ -2,7 +2,7 @@ import { createMemoryHistory } from 'history';
 import * as React from 'react';
 import { shallow } from 'enzyme';
 import NestedStatus from 'react-nested-status';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import App, { AppBase } from 'disco/components/App';
 import Footer from 'disco/components/Footer';

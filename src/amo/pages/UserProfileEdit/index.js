@@ -3,7 +3,7 @@
 import invariant from 'invariant';
 import * as React from 'react';
 import Textarea from 'react-textarea-autosize';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 

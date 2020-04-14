@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import Categories from 'amo/components/Categories';
 import HeadLinks from 'amo/components/HeadLinks';
