@@ -133,6 +133,7 @@ describe(__filename, () => {
     const tableRow = root.find('.RatingByStar-table-row');
 
     expect(tableRow.at(0)).not.toHaveProp('onClick');
+    expect(tableRow.at(0)).not.toHaveProp('title');
     expect(root.find('.RatingsByStar-count').find(LoadingText)).toHaveLength(5);
     expect(root.find('.RatingsByStar-barContainer')).toHaveLength(5);
     expect(root.find('.RatingsByStar-barFrame')).toHaveLength(5);
@@ -270,9 +271,8 @@ describe(__filename, () => {
   });
 
   it('renders when star count is undefined', () => {
-    let fiveStarCount;
     const grouping = {
-      5: fiveStarCount,
+      5: undefined,
       4: 1,
       3: 0,
       2: 0,
@@ -284,6 +284,7 @@ describe(__filename, () => {
     const bar = root.find('.RatingsByStar-bar');
 
     expect(bar.at(0).children()).toHaveLength(0);
+    expect(bar.at(1).children()).toHaveLength(1);
   });
 
   it('renders bar value widths based on total ratings', () => {

@@ -1,16 +1,14 @@
 @import '~amo/css/styles';
 
 .RatingsByStar-graph {
-  border-spacing: 0 6px;
   color: $grey-50;
   font-size: $font-size-default;
   line-height: 16px;
   width: 100%;
+  border-spacing: 0 8px;
 }
 
 .RatingByStar-table-row {
-  padding: 12px 0;
-
   &:hover {
     cursor: pointer;
   }
@@ -67,7 +65,7 @@
   display: flex;
   font-weight: normal;
   justify-content: flex-end;
-  min-width: 30px;
+  min-width: 15px;
   text-decoration: underline;
 }
 
