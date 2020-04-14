@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import SearchForm, { SearchFormBase } from 'amo/components/SearchForm';

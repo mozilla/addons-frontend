@@ -1,5 +1,5 @@
 /* @flow */
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';

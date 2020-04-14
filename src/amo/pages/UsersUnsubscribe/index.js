@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { compose } from 'redux';
 import base64url from 'base64url';
 import { connect } from 'react-redux';

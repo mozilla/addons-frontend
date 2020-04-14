@@ -3,7 +3,7 @@ import { oneLine } from 'common-tags';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 
 import { getLanding } from 'amo/reducers/landing';
