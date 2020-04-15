@@ -6,6 +6,7 @@ import './setup/styles.scss';
 
 // Components
 import './amo/HeroRecommendation';
+import './core/AMInstallButton';
 import './ui/Badge';
 import './ui/Button';
 import './ui/IconRecommendedBadge';

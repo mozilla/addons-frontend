@@ -12,6 +12,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import {
   ADDON_TYPE_STATIC_THEME,
   DISABLED,
+  DISABLING,
   DOWNLOADING,
   ENABLED,
   ENABLING,
@@ -183,7 +184,13 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
       return true;
     }
 
-    return [DOWNLOADING, ENABLING, INSTALLING, UNINSTALLING].includes(status);
+    return [
+      DISABLING,
+      DOWNLOADING,
+      ENABLING,
+      INSTALLING,
+      UNINSTALLING,
+    ].includes(status);
   }
 
   getButtonText() {
@@ -197,6 +204,8 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
         return i18n.gettext('Remove');
       case ENABLING:
         return i18n.gettext('Enabling');
+      case DISABLING:
+        return i18n.gettext('Disabling');
       case DOWNLOADING:
         return i18n.gettext('Downloading');
       case INSTALLING:

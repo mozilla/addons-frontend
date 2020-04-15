@@ -18,7 +18,6 @@ export const validInstallStates = [
   DISABLING,
   DOWNLOADING,
   ENABLED,
-  ENABLED,
   ENABLING,
   ERROR,
   INACTIVE,
