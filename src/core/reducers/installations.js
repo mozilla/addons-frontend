@@ -1,4 +1,6 @@
 /* @flow */
+import invariant from 'invariant';
+
 import {
   DOWNLOAD_PROGRESS,
   DOWNLOADING,
@@ -35,13 +37,47 @@ export type InstalledAddon = {
   url?: $PropertyType<AddonType, 'url'>,
 };
 
+export type InstallationsState = {
+  [guid: $PropertyType<AddonType, 'guid'>]: InstalledAddon,
+};
+
 export type InstallationAction = {|
   payload: InstalledAddon,
   type: string,
 |};
 
-export type InstallationsState = {
-  [guid: $PropertyType<AddonType, 'guid'>]: InstalledAddon,
+export function setInstallState(
+  installation: InstalledAddon,
+): InstallationAction {
+  return {
+    type: INSTALL_STATE,
+    payload: installation,
+  };
+}
+
+type SetInstallErrorParams = {|
+  guid: string,
+  error: string,
+|};
+
+type SetInstallErrorAction = {|
+  type: typeof INSTALL_ERROR,
+  payload: SetInstallErrorParams,
+|};
+
+export const setInstallError = ({
+  guid,
+  error,
+}: SetInstallErrorParams): SetInstallErrorAction => {
+  invariant(guid, 'guid is required');
+
+  return {
+    type: INSTALL_ERROR,
+    payload: {
+      guid,
+      error,
+    },
+  };
 };
 
 export default function installations(
@@ -56,6 +92,7 @@ export default function installations(
         `Cannot reduce type ${type}; no add-on with guid ${guid} found.`,
       );
     }
+
     return {
       ...addon,
       ...newProps,
@@ -67,12 +104,12 @@ export default function installations(
       return {
         ...state,
         [payload.guid]: {
-          guid: payload.guid,
-          url: payload.url,
-          error: payload.error,
           downloadProgress: 0,
-          status: payload.status,
+          error: payload.error,
+          guid: payload.guid,
           needsRestart: payload.needsRestart || false,
+          status: payload.status,
+          url: payload.url,
         },
       };
     case START_DOWNLOAD:

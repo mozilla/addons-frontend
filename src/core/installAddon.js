@@ -7,7 +7,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { getAddonIconUrl } from 'core/imageUtils';
-import { setInstallError, setInstallState } from 'core/actions/installations';
+import { setInstallError, setInstallState } from 'core/reducers/installations';
 import log from 'core/logger';
 import tracking, {
   getAddonTypeForTracking,

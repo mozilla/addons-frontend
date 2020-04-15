@@ -2,7 +2,7 @@ import { oneLine } from 'common-tags';
 import * as React from 'react';
 
 import Addon, { AddonBase } from 'disco/components/Addon';
-import { setInstallError, setInstallState } from 'core/actions/installations';
+import { setInstallError, setInstallState } from 'core/reducers/installations';
 import AMInstallButton from 'core/components/AMInstallButton';
 import {
   ADDON_TYPE_EXTENSION,
