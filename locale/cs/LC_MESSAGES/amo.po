@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-07 20:36+0000\n"
-"Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
+"PO-Revision-Date: 2020-04-15 20:05+0000\n"
+"Last-Translator: Jirka Soukeník <soucet@centrum.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -2774,7 +2774,7 @@ msgstr "Stránka %(currentPage)s z %(totalPages)s"
 
 #: src/core/components/SiteNotices/index.js:66
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
-msgstr "Některá funkčnost je v průběhu údržby webu dočasně nedostupná. Brzy opět poběžíme naplno."
+msgstr "Některá funkčnost je během údržby webu dočasně nedostupná. Brzy opět poběžíme naplno."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
