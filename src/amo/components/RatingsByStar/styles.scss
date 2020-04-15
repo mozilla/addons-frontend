@@ -1,11 +1,11 @@
 @import '~amo/css/styles';
 
 .RatingsByStar-graph {
+  border-spacing: 0 8px;
   color: $grey-50;
   font-size: $font-size-default;
   line-height: 16px;
   width: 100%;
-  border-spacing: 0 8px;
 }
 
 .RatingByStar-table-row {
