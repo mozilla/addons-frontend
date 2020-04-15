@@ -8,6 +8,7 @@ import {
   ADDON_TYPE_STATIC_THEME,
   CLIENT_APP_FIREFOX,
   DISABLED,
+  DISABLING,
   DOWNLOADING,
   ENABLED,
   ENABLING,
@@ -343,7 +344,7 @@ describe(__filename, () => {
     expect(button.childAt(1)).toHaveText(defaultButtonText);
   });
 
-  it.each([DOWNLOADING, ENABLING, INSTALLING, UNINSTALLING])(
+  it.each([DOWNLOADING, DISABLING, ENABLING, INSTALLING, UNINSTALLING])(
     'renders a loading Icon when add-on is %s',
     (status) => {
       const root = render({ status });

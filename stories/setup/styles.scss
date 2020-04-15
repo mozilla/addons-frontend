@@ -36,3 +36,8 @@ body {
 .chapter-h3 {
   margin-top: 48px;
 }
+
+// This is needed to mimic the style in `src/amo/pages/Addon/styles.scss`.
+.AMInstallButton--storybook .AMInstallButton-loading-button {
+  width: 48px;
+}
