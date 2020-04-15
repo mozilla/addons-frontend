@@ -54,6 +54,7 @@ type InternalProps = {|
   _getClientCompatibility: typeof getClientCompatibility,
   _tracking: typeof tracking,
   addon: AddonType,
+  canUninstall: $PropertyType<InstalledAddon, 'canUninstall'>,
   clientApp: string,
   currentVersion: AddonVersionType,
   error: string | void,
@@ -191,6 +192,7 @@ export class AddonBase extends React.Component<InternalProps> {
     const {
       _getClientCompatibility,
       addon,
+      canUninstall,
       clientApp,
       currentVersion,
       defaultInstallSource,
@@ -265,6 +267,7 @@ export class AddonBase extends React.Component<InternalProps> {
 
           <AMInstallButton
             addon={addon}
+            canUninstall={canUninstall}
             className="Addon-install-button"
             currentVersion={currentVersion}
             defaultInstallSource={defaultInstallSource}
@@ -302,6 +305,7 @@ function mapStateToProps(state: AppState, ownProps: Props) {
   }
 
   return {
+    canUninstall: installation.canUninstall,
     clientApp: state.api.clientApp,
     currentVersion,
     error: installation.error,

@@ -442,6 +442,7 @@ describe(__filename, () => {
           sinon.assert.calledWith(
             dispatch,
             setInstallState({
+              canUninstall: undefined,
               guid: addon.guid,
               status: ENABLED,
               url: installURL,
@@ -468,6 +469,7 @@ describe(__filename, () => {
           sinon.assert.calledWith(
             dispatch,
             setInstallState({
+              canUninstall: undefined,
               guid: addon.guid,
               status: ENABLED,
               url: installURL,
@@ -498,6 +500,7 @@ describe(__filename, () => {
           sinon.assert.calledWith(
             dispatch,
             setInstallState({
+              canUninstall: undefined,
               guid: addon.guid,
               status: DISABLED,
               url: installURL,
@@ -528,6 +531,7 @@ describe(__filename, () => {
           sinon.assert.calledWith(
             dispatch,
             setInstallState({
+              canUninstall: undefined,
               guid: addon.guid,
               status: DISABLED,
               url: installURL,
@@ -558,6 +562,7 @@ describe(__filename, () => {
           sinon.assert.calledWith(
             dispatch,
             setInstallState({
+              canUninstall: undefined,
               guid: addon.guid,
               status: INACTIVE,
               url: installURL,
@@ -589,6 +594,7 @@ describe(__filename, () => {
           sinon.assert.calledWith(
             dispatch,
             setInstallState({
+              canUninstall: undefined,
               guid: addon.guid,
               status: ENABLED,
               url: installURL,
@@ -620,6 +626,7 @@ describe(__filename, () => {
           sinon.assert.calledWith(
             dispatch,
             setInstallState({
+              canUninstall: undefined,
               guid: addon.guid,
               status: DISABLED,
               url: installURL,
@@ -651,6 +658,7 @@ describe(__filename, () => {
           sinon.assert.calledWith(
             dispatch,
             setInstallState({
+              canUninstall: undefined,
               guid: addon.guid,
               status: DISABLED,
               url: installURL,
@@ -730,6 +738,7 @@ describe(__filename, () => {
           sinon.assert.calledWith(
             dispatch,
             setInstallState({
+              canUninstall: undefined,
               guid: addon.guid,
               status: ENABLED,
               url: `${installURL}?src=${defaultInstallSource}`,
@@ -760,6 +769,39 @@ describe(__filename, () => {
           _log.debug,
           'no currentVersion, aborting setCurrentStatus()',
         );
+      });
+
+      it('sets the canUninstall prop', () => {
+        const installURL = 'http://the.url/';
+        const addon = getAddon();
+        loadVersionWithInstallUrl(installURL);
+
+        const canUninstall = false;
+        const { root, dispatch } = renderWithInstallHelpers({
+          _addonManager: getFakeAddonManagerWrapper({
+            getAddon: Promise.resolve({
+              canUninstall,
+              isActive: true,
+              isEnabled: true,
+            }),
+          }),
+          addon,
+          defaultInstallSource: null,
+          store,
+        });
+        const { setCurrentStatus } = root.instance().props;
+
+        return setCurrentStatus().then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              canUninstall,
+              guid: addon.guid,
+              status: ENABLED,
+              url: installURL,
+            }),
+          );
+        });
       });
     });
 

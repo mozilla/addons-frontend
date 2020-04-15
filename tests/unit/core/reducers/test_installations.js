@@ -41,6 +41,7 @@ describe(__filename, () => {
       ),
     ).toEqual({
       [guid]: {
+        canUninstall: true, // The default value should be `true`.
         downloadProgress: 0,
         error: undefined,
         guid,
@@ -49,6 +50,34 @@ describe(__filename, () => {
         url: 'https://cdn.amo/download/my-addon.xpi',
       },
     });
+  });
+
+  it('passes down canUninstall when defined', () => {
+    const guid = 'my-addon@me.com';
+    let canUninstall = true;
+
+    expect(
+      installations(
+        undefined,
+        setInstallState({
+          ...fakeInstalledAddon,
+          guid,
+          canUninstall,
+        }),
+      ),
+    ).toMatchObject({ [guid]: { canUninstall } });
+
+    canUninstall = false;
+    expect(
+      installations(
+        undefined,
+        setInstallState({
+          ...fakeInstalledAddon,
+          guid,
+          canUninstall,
+        }),
+      ),
+    ).toMatchObject({ [guid]: { canUninstall } });
   });
 
   it('passes down needsRestart=true', () => {

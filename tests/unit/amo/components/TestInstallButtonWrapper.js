@@ -251,6 +251,25 @@ describe(__filename, () => {
     expect(root.find(AMInstallButton)).toHaveProp('status', INSTALLED);
   });
 
+  it('passes the canUninstall prop from the installation state to AMInstallButton', () => {
+    const addon = fakeAddon;
+    const canUninstall = true;
+
+    store.dispatch(
+      setInstallState({
+        ...fakeInstalledAddon,
+        guid: addon.guid,
+        canUninstall,
+      }),
+    );
+
+    const root = render({
+      addon: createInternalAddon(addon),
+    });
+
+    expect(root.find(AMInstallButton)).toHaveProp('canUninstall', canUninstall);
+  });
+
   it('passes the expected status to AMInstallButton when the add-on is not installed', () => {
     const root = render();
 

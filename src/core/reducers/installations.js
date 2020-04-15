@@ -17,6 +17,7 @@ import {
 import type { AddonType } from 'core/types/addons';
 
 export type InstalledAddon = {
+  canUninstall?: boolean,
   downloadProgress?: number,
   error?: string,
   guid: $PropertyType<AddonType, 'guid'>,
@@ -104,6 +105,11 @@ export default function installations(
       return {
         ...state,
         [payload.guid]: {
+          // By default, we should be able to uninstall an add-on.
+          canUninstall:
+            typeof payload.canUninstall !== 'undefined'
+              ? payload.canUninstall
+              : true,
           downloadProgress: 0,
           error: payload.error,
           guid: payload.guid,

@@ -48,6 +48,7 @@ import './styles.scss';
 type Props = {|
   ...WithInstallHelpersInjectedProps,
   addon: AddonType,
+  canUninstall: boolean | void,
   className?: string,
   currentVersion: AddonVersionType | null,
   defaultButtonText?: string,
@@ -240,6 +241,7 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
 
   render() {
     const {
+      canUninstall,
       className,
       currentVersion,
       defaultInstallSource,
@@ -288,11 +290,16 @@ export class AMInstallButtonBase extends React.Component<InternalProps> {
     if (!buttonIsDisabled) {
       if ([ENABLED, INSTALLED].includes(status)) {
         buttonProps.buttonType = 'neutral';
-        buttonProps.onClick = this.uninstallAddon;
         buttonProps.className = makeClassName(
           buttonProps.className,
           'AMInstallButton-button--uninstall',
         );
+
+        if (canUninstall === false) {
+          buttonProps.disabled = true;
+        } else {
+          buttonProps.onClick = this.uninstallAddon;
+        }
       } else if (status === DISABLED) {
         buttonProps.buttonType = 'neutral';
         buttonProps.onClick = this.enableAddon;
