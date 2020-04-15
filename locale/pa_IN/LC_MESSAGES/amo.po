@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-15 16:20+0000\n"
+"PO-Revision-Date: 2020-04-15 16:29+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1750,11 +1750,11 @@ msgstr "ਵਰਜਨ ਬਲੌਕ ਕੀਤੇ: ਸਾਰੇ ਸੰਸਕਰਣ�
 
 #: src/amo/pages/Block/index.js:118
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "ਵਰਜਨ ਬਲੌਕ ਕੀਤੇ: %(min)s ਤੋਂ %(max)s।"
 
 #: src/amo/pages/Block/index.js:140
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "ਤੁਹਾਡੀ ਸੁਰੱਖਿਆ ਲਈ %(addonName)s ਬਲਾਕ ਕੀਤਾ ਗਿਆ।"
 
 #: src/amo/pages/Block/index.js:145
 msgid "This add-on has been blocked for your protection."
@@ -1766,7 +1766,7 @@ msgstr "ਇਹ ਬਲਾਕ ਕਿਉਂ ਕੀਤਾ ਗਿਆ?"
 
 #: src/amo/pages/Block/index.js:161
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "ਇਹ ਐਡ-ਆਨ %(startLink)s ਮੋਜ਼ੀਲਾ ਦੀਆਂ ਐਡ-ਆਨ ਨੀਤੀਆਂ%(endLink)s ਦੀ ਉਲੰਘਣਾ ਕਰਦੀ ਹੈੋ।"
 
 #: src/amo/pages/Block/index.js:173
 msgid "What does this mean?"
@@ -1774,13 +1774,15 @@ msgstr "ਇਸ ਦਾ ਕੀ ਮਤਲਬ ਹੈ?"
 
 #: src/amo/pages/Block/index.js:175
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "ਸਮੱਸਿਆ ਵਾਲੇ ਐਡ-ਆਨ ਜਾਂ ਪਲੱਗਇਨ ਆਪਣੇ ਆਪ ਹੀ ਅਯੋਗ ਹੋ ਜਾਣਗੇ ਅਤੇ ਹੁਣ ਵਰਤਣਯੋਗ ਨਹੀਂ ਰਹਿਣਗੇ।"
 
 #: src/amo/pages/Block/index.js:182
 msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"ਜਦੋਂ ਮੋਜ਼ੀਲਾ ਐਡ-ਆਨ, ਪਲੱਗਇਨਾਂ, ਜਾਂ ਹੋਰ ਤੀਜੀ-ਧਿਰ ਸਾੱਫਟਵੇਅਰ ਬਾਰੇ ਜਾਣੂ ਹੋ ਜਾਂਦਾ ਹੈ ਜੋ ਫਾਇਰਫਾਕਸ ਸੁਰੱਖਿਆ, ਸਥਿਰਤਾ, ਜਾਂ ਪ੍ਰਦਰਸ਼ਨ ਨਾਲ ਗੰਭੀਰਤਾ ਨਾਲ ਸਮਝੌਤਾ ਕਰਦਾ ਹੈ ਅਤੇ %(criteriaStartLink)s ਖੋਜ ਮਾਪਦੰਡ "
+"%(criteriaEndLink)s ਨੂੰ ਪੂਰਾ ਕਰਦਾ ਹੈ, ਤਾਂ ਸਾੱਫਟਵੇਅਰ ਨੂੰ ਆਮ ਵਰਤੋਂ ਤੋਂ ਰੋਕਿਆ ਜਾ ਸਕਦਾ ਹੈੋ। ਵਧੇਰੇ ਜਾਣਕਾਰੀ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ %(supportStartLink)s ਇਹ ਸਹਾਇਤਾ ਲੇਖ%(supportEndLink)s ਪੜ੍ਹੋੋ।"
 
 #: src/amo/pages/Block/index.js:89
 msgid "Blocked on %(date)s."
