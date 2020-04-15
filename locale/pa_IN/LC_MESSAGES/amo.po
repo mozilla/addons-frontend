@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-14 21:33+0000\n"
+"PO-Revision-Date: 2020-04-15 13:44+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -369,9 +369,8 @@ msgstr "%(linkStart)s%(timestamp)s%(linkEnd)s ਨੂੰ ਪੋਸਟ ਕੀਤ�
 
 # Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:360
-#, fuzzy
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "%(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s ਵਲੋਂ"
+msgstr "%(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s%(linkStart)s%(timestamp)s%(linkEnd)s ਵਲੋਂ"
 
 # Example in English: "by UserName123, last week"
 #: src/amo/components/AddonReviewCard/index.js:363
@@ -1036,9 +1035,8 @@ msgid "Learn more"
 msgstr "ਹੋਰ ਜਾਣੋ"
 
 #: src/amo/components/InstallWarning/index.js:85
-#, fuzzy
 msgid "This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing."
-msgstr "ਇਹ ਸਿਫਾਰਸ਼ੀ ਇਕਟੈਨਸ਼ਨ ਨਹੀਂ ਹੈ। ਇਹ ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ ਸਥਾਪਤ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਇਸ ਉੱਤੇ ਭਰੋਸਾ ਕੀਤਾ ਹੈ।"
+msgstr "ਮੋਜ਼ੀਲਾ ਦੇ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਐਕਸਟੈਂਸ਼ਨਜ਼ ਪ੍ਰੋਗਰਾਮ ਰਾਹੀਂ ਸੁਰੱਖਿਆ ਲਈ ਇਸ ਦੀ ਨਿਗਰਾਨੀ ਨਹੀਂ ਕੀਤੀ ਜਾਂਦੀੈ। ਇਹ ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ ਸਥਾਪਤ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਇਸ ਤੇ ਭਰੋਸਾ ਕੀਤਾ ਹੈੈ।"
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1663,9 +1661,8 @@ msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s
 msgstr "ਇਹ ਸੂਚੀ ਇਸ ਪਲੇਟਫਾਰਮ ਲਈ ਨਹੀਂ ਹੈ। <a href=\"%(newLocation)s\">ਡੈਸਕਟਾਪ ਉੱਤੇ ਫਾਇਰਫਾਕਸ ਲਈ ਐਡ-ਆਨ ਬਰਾਊਜ਼ਰ ਕਰੋ </a>।"
 
 #: src/amo/pages/Addon/index.js:513
-#, fuzzy
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr "ਐਂਡਰਾਇਡ ਲਈ ਫਾਇਰਫਾਕਸ ਉੱਤੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਤੁਸੀਂ ਇਸ ਐਡ-ਆਨ ਦੀ ਵਰਤੋਂ ਫਾਇਰਫਾਕਸ ਡੈਸਕਟਾਪ ਲਈ ਕਰ ਸਕਦੇ ਹੋ।  <a href=\"%(newLocation)s\">ਐਂਡਰਾਇਡ ਲਈ ਐਡ-ਆਨ</a> ਬਾਰੇ ਹੋਰ ਜਾਣੋ।"
+msgstr "ਐਂਡਰਾਇਡ ਲਈ ਫਾਇਰਫਾਕਸ ਉੱਤੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਤੁਸੀਂ ਇਸ ਐਡ-ਆਨ ਦੀ ਵਰਤੋਂ ਫਾਇਰਫਾਕਸ ਡੈਸਕਟਾਪ ਲਈ ਕਰ ਸਕਦੇ ਹੋ। <a href=\"%(newLocation)s\">ਐਂਡਰਾਇਡ ਲਈ ਐਡ-ਆਨ</a> ਬਾਰੇ ਹੋਰ ਜਾਣੋ।"
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Screenshots"
