@@ -6,12 +6,7 @@ import AMInstallButton from 'core/components/AMInstallButton';
 import { createInternalAddon } from 'core/reducers/addons';
 import { createInternalVersion } from 'core/reducers/versions';
 import { validInstallStates } from 'core/constants';
-import {
-  dispatchClientMetadata,
-  fakeAddon,
-  fakeVersion,
-  fakeI18n,
-} from 'tests/unit/helpers';
+import { fakeAddon, fakeVersion } from 'tests/unit/helpers';
 
 import Provider from '../setup/Provider';
 
