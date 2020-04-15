@@ -8,7 +8,7 @@ import GuidesAddonCard, {
 } from 'amo/components/GuidesAddonCard';
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import InstallWarning from 'amo/components/InstallWarning';
-import { setInstallError, setInstallState } from 'core/actions/installations';
+import { setInstallError, setInstallState } from 'core/reducers/installations';
 import { FATAL_ERROR, INSTALLING, UNKNOWN } from 'core/constants';
 import { createInternalAddon, loadAddonResults } from 'core/reducers/addons';
 import {

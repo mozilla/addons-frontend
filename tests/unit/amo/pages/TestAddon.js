@@ -37,7 +37,7 @@ import {
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import { setError } from 'core/actions/errors';
-import { setInstallError, setInstallState } from 'core/actions/installations';
+import { setInstallError, setInstallState } from 'core/reducers/installations';
 import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_DICT,

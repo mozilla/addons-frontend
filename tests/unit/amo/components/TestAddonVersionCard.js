@@ -8,7 +8,7 @@ import AddonVersionCard, {
 import InstallButtonWrapper from 'amo/components/InstallButtonWrapper';
 import InstallWarning from 'amo/components/InstallWarning';
 import Link from 'amo/components/Link';
-import { setInstallError, setInstallState } from 'core/actions/installations';
+import { setInstallError, setInstallState } from 'core/reducers/installations';
 import { FATAL_ERROR, INSTALLING } from 'core/constants';
 import { formatFilesize } from 'core/i18n/utils';
 import { createInternalAddon } from 'core/reducers/addons';

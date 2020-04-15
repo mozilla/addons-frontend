@@ -1,4 +1,3 @@
-import { setInstallState } from 'core/actions/installations';
 import {
   DISABLED,
   DOWNLOADING,
@@ -15,7 +14,7 @@ import {
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
-import installations from 'core/reducers/installations';
+import installations, { setInstallState } from 'core/reducers/installations';
 import { fakeInstalledAddon } from 'tests/unit/helpers';
 
 describe(__filename, () => {

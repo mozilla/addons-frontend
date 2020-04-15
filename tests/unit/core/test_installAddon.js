@@ -5,7 +5,7 @@ import { compose } from 'redux';
 import UAParser from 'ua-parser-js';
 
 import { createInternalVersion, loadVersions } from 'core/reducers/versions';
-import { setInstallError, setInstallState } from 'core/actions/installations';
+import { setInstallError, setInstallState } from 'core/reducers/installations';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_STATIC_THEME,

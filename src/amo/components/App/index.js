@@ -26,7 +26,7 @@ import { getDjangoBase62 } from 'amo/utils';
 import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import { addChangeListeners } from 'core/addonManager';
 import { setUserAgent as setUserAgentAction } from 'core/actions';
-import { setInstallState } from 'core/actions/installations';
+import { setInstallState } from 'core/reducers/installations';
 import { CLIENT_APP_ANDROID, maximumSetTimeoutDelay } from 'core/constants';
 import ErrorPage from 'core/components/ErrorPage';
 import translate from 'core/i18n/translate';
