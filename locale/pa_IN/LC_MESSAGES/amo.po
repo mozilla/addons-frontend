@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-15 16:12+0000\n"
+"PO-Revision-Date: 2020-04-15 16:20+0000\n"
 "Last-Translator: Sonia <soniasingla.1812@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pa_IN\n"
@@ -1770,7 +1770,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:173
 msgid "What does this mean?"
-msgstr ""
+msgstr "ਇਸ ਦਾ ਕੀ ਮਤਲਬ ਹੈ?"
 
 #: src/amo/pages/Block/index.js:175
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
@@ -1784,11 +1784,11 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:89
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "%(date)s ਨੂੰ ਬਲਾਕ ਕੀਤਾ।"
 
 #: src/amo/pages/Block/index.js:98
 msgid "View block request"
-msgstr ""
+msgstr "ਬਲਾਕ ਬੇਨਤੀ ਵੇਖੋ"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
