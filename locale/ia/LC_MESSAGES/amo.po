@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-07 20:04+0000\n"
-"PO-Revision-Date: 2020-04-08 01:48+0000\n"
+"PO-Revision-Date: 2020-04-17 18:24+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1032,9 +1032,8 @@ msgid "Learn more"
 msgstr "Saper plus"
 
 #: src/amo/components/InstallWarning/index.js:85
-#, fuzzy
 msgid "This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing."
-msgstr "Isto non es un Extension Recommendate. Assecura te que illo es digne de fide ante de installar lo."
+msgstr "Isto non es surveliate pro securitate per le  programma del extensiones recommendate de Mozilla. Assecura te que illo es digne de fide ante de installar lo."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
