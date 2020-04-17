@@ -312,7 +312,13 @@ export class WithInstallHelpers extends React.Component<WithInstallHelpersIntern
             type,
           });
 
-          dispatch(setInstallState({ ...payload, status }));
+          dispatch(
+            setInstallState({
+              ...payload,
+              status,
+              canUninstall: clientAddon.canUninstall,
+            }),
+          );
         },
         (error) => {
           _log.info(oneLine`Add-on "${guid}" not found so setting status to

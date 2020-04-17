@@ -298,6 +298,7 @@ describe(__filename, () => {
       expect(button).toHaveLength(1);
       expect(button).toHaveProp('buttonType', 'neutral');
       expect(button).toHaveProp('onClick', root.instance().uninstallAddon);
+      expect(button).toHaveProp('disabled', false);
       expect(button).toHaveClassName('AMInstallButton-button');
       expect(button).toHaveClassName('AMInstallButton-button--uninstall');
 
@@ -306,6 +307,42 @@ describe(__filename, () => {
       expect(icon).toHaveProp('name', 'delete');
 
       expect(root.find('.AMInstallButton-loading-button')).toHaveLength(0);
+    },
+  );
+
+  it.each([ENABLED, INSTALLED])(
+    'allows to uninstall an add-on when canUninstall is undefined and add-on is %s',
+    (status) => {
+      const root = render({ status, canUninstall: undefined });
+
+      const button = root.find(Button);
+      expect(button).toHaveLength(1);
+      expect(button).toHaveProp('onClick', root.instance().uninstallAddon);
+      expect(button).toHaveProp('disabled', false);
+    },
+  );
+
+  it.each([ENABLED, INSTALLED])(
+    'allows to uninstall an add-on when canUninstall is true and add-on is %s',
+    (status) => {
+      const root = render({ status, canUninstall: true });
+
+      const button = root.find(Button);
+      expect(button).toHaveLength(1);
+      expect(button).toHaveProp('onClick', root.instance().uninstallAddon);
+      expect(button).toHaveProp('disabled', false);
+    },
+  );
+
+  it.each([ENABLED, INSTALLED])(
+    'does not allow to uninstall an add-on when canUninstall is false and add-on is %s',
+    (status) => {
+      const root = render({ status, canUninstall: false });
+
+      const button = root.find(Button);
+      expect(button).toHaveLength(1);
+      expect(button).not.toHaveProp('onClick', root.instance().uninstallAddon);
+      expect(button).toHaveProp('disabled', true);
     },
   );
 

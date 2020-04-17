@@ -13,6 +13,7 @@ import Provider from '../setup/Provider';
 const render = (otherProps) => {
   const props = {
     addon: createInternalAddon(fakeAddon),
+    canUninstall: true,
     currentVersion: createInternalVersion(fakeVersion),
     defaultInstallSource: 'storybook',
     disabled: false,
@@ -41,6 +42,12 @@ const createChapters = ({ puffy }) => [
     sections: validInstallStates.map((status) => ({
       title: `disabled state with installation status = ${status}`,
       sectionFn: () => render({ puffy, status, disabled: true }),
+    })),
+  },
+  {
+    sections: validInstallStates.map((status) => ({
+      title: `canUninstall = false and installation status = ${status}`,
+      sectionFn: () => render({ puffy, status, canUninstall: false }),
     })),
   },
 ];

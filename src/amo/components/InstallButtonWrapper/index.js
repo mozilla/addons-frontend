@@ -38,6 +38,7 @@ export type Props = {|
 type InternalProps = {|
   ...Props,
   ...WithInstallHelpersInjectedProps,
+  canUninstall: $PropertyType<InstalledAddon, 'canUninstall'>,
   clientApp: string,
   currentVersion: AddonVersionType | null,
   installStatus: $PropertyType<InstalledAddon, 'status'>,
@@ -48,6 +49,7 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
   const {
     _getClientCompatibility = getClientCompatibility,
     addon,
+    canUninstall,
     className,
     clientApp,
     currentVersion,
@@ -56,11 +58,11 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
     enable,
     getFirefoxButtonType,
     hasAddonManager,
-    isAddonEnabled,
     install,
     installStatus,
-    setCurrentStatus,
+    isAddonEnabled,
     puffy,
+    setCurrentStatus,
     uninstall,
     userAgentInfo,
   } = props;
@@ -86,6 +88,7 @@ export const InstallButtonWrapperBase = (props: InternalProps) => {
       >
         <AMInstallButton
           addon={addon}
+          canUninstall={canUninstall}
           className={className ? `AMInstallButton--${className}` : ''}
           currentVersion={currentVersion}
           defaultButtonText={defaultButtonText}
@@ -124,6 +127,7 @@ export function mapStateToProps(state: AppState, ownProps: InternalProps) {
   }
 
   return {
+    canUninstall: installedAddon.canUninstall,
     clientApp: state.api.clientApp,
     currentVersion,
     installStatus: installedAddon.status || UNKNOWN,
