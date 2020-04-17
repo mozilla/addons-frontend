@@ -27,7 +27,6 @@ import type { ReactRouterLocationType } from 'core/types/router';
 type Props = {|
   addon: AddonType | null,
   i18n: I18nType,
-  relatedCategories: Array<string> | null,
 |};
 
 type InternalProps = {|
@@ -197,8 +196,8 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
         </Link>
       ) : null,
       relatedCategories:
-        relatedCategories && relatedCategories.length > 0
-          ? i18n.gettext(relatedCategories.join(', '))
+        relatedCategories && relatedCategories.length
+          ? relatedCategories.join(', ')
           : null,
       versionHistoryLink: (
         <li>
@@ -327,6 +326,7 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 
   render() {
     const { i18n } = this.props;
+
     return (
       <Card className="AddonMoreInfo" header={i18n.gettext('More information')}>
         {this.listContent()}
@@ -336,11 +336,11 @@ export class AddonMoreInfoBase extends React.Component<InternalProps> {
 }
 
 export const mapStateToProps = (state: AppState, ownProps: Props) => {
-  const { addon, i18n, relatedCategories } = ownProps;
+  const { addon, i18n } = ownProps;
   const categoriesState = state.categories.categories;
   const appName = state.api.clientApp;
 
-  let relatedCategoriesObj = relatedCategories || null;
+  let relatedCategoriesObj = null;
 
   if (categoriesState && appName && addon && addon.type && addon.categories) {
     relatedCategoriesObj = getCategoryNames(
