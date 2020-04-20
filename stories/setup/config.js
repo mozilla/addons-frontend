@@ -45,7 +45,7 @@ setAddon(chaptersAddon);
 
 function loadStories() {
   /* eslint-disable global-require */
-  require('./../index');
+  require('../index');
 }
 
 initializeRTL();
