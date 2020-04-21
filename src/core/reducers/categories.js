@@ -129,7 +129,7 @@ export function getCategoryNames(
 
   const relatedCategories = [];
 
-  if (categories && addonCategories && addonCategories[appName]) {
+  if (categories && addonCategories[appName]) {
     categories.forEach((category) => {
       if (
         category &&

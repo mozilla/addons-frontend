@@ -12,7 +12,7 @@ import {
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { getCategoryNames } from 'core/reducers/categories';
+import { loadCategories } from 'core/reducers/categories';
 import { formatFilesize } from 'core/i18n/utils';
 import {
   createContextWithFakeRouter,
@@ -21,6 +21,7 @@ import {
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
+  fakeCategory,
   fakeTheme,
   fakeI18n,
   fakeVersion,
@@ -516,55 +517,38 @@ describe(__filename, () => {
   });
 
   it('render related categories of the addon if existed', () => {
+    const category1 = {
+      ...fakeCategory,
+      type: ADDON_TYPE_EXTENSION,
+      name: 'Category 1',
+      slug: 'category-1',
+    };
+    const category2 = {
+      ...fakeCategory,
+      type: ADDON_TYPE_EXTENSION,
+      name: 'Category 2',
+      slug: 'category-2',
+    };
+
     const addon = createInternalAddon({
       ...fakeAddon,
+      type: ADDON_TYPE_EXTENSION,
       categories: {
-        firefox: ['other', 'testing'],
+        [CLIENT_APP_FIREFOX]: [category1.slug, category2.slug],
       },
     });
 
-    const fakeCategoryState = {
-      firefox: {
-        extension: {
-          other: {
-            id: 1,
-            name: 'Testing category',
-            slug: 'other',
-            application: CLIENT_APP_FIREFOX,
-            misc: false,
-            type: ADDON_TYPE_EXTENSION,
-            weight: 1,
-            description: 'I am a cool category for doing things',
-          },
-          testing: {
-            id: 2,
-            name: 'Another testing category',
-            slug: 'testing',
-            application: CLIENT_APP_FIREFOX,
-            misc: false,
-            type: ADDON_TYPE_EXTENSION,
-            weight: 1,
-            description: 'I am a cool category for doing things',
-          },
-        },
-      },
-    };
-
-    const relatedCategories = getCategoryNames(
-      fakeCategoryState,
-      addon.categories,
-      CLIENT_APP_FIREFOX,
-      addon.type,
-    );
+    dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX, store });
+    store.dispatch(loadCategories({ results: [category1, category2] }));
 
     const root = render({
       addon,
-      relatedCategories,
+      store,
     });
 
     expect(
       root.find('.AddonMoreInfo-related-categories').children(),
-    ).toHaveText('Testing category, Another testing category');
+    ).toHaveText(`${category1.name}, ${category2.name}`);
   });
 
   it('links to version history if add-on is extension', () => {

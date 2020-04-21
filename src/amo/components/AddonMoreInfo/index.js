@@ -340,10 +340,10 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
   const categoriesState = state.categories.categories;
   const appName = state.api.clientApp;
 
-  let relatedCategoriesObj = null;
+  let relatedCategories = null;
 
   if (categoriesState && appName && addon && addon.type && addon.categories) {
-    relatedCategoriesObj = getCategoryNames(
+    relatedCategories = getCategoryNames(
       categoriesState,
       addon.categories,
       appName,
@@ -376,7 +376,7 @@ export const mapStateToProps = (state: AppState, ownProps: Props) => {
     hasStatsPermission: hasPermission(state, STATS_VIEW),
     userId: state.users.currentUserID,
     categoriesLoading: state.categories.loading,
-    relatedCategories: relatedCategoriesObj,
+    relatedCategories,
   };
 };
 
