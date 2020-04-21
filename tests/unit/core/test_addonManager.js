@@ -3,13 +3,15 @@ import {
   GLOBAL_EVENTS,
   GLOBAL_EVENT_STATUS_MAP,
   INSTALL_EVENT_LIST,
+  ON_INSTALLING_EVENT,
   ON_OPERATION_CANCELLED_EVENT,
+  ON_UNINSTALLED_EVENT,
   SET_ENABLE_NOT_AVAILABLE,
 } from 'core/constants';
 import { getFakeLogger, unexpectedSuccess } from 'tests/unit/helpers';
 
 const fakeClientAddon = (overrides = {}) => ({
-  canUninstall: false,
+  canUninstall: true,
   description: 'some desc',
   id: 'some@guid',
   isActive: true,
@@ -407,13 +409,28 @@ describe(__filename, () => {
     });
 
     describe('global events', () => {
-      const handleChangeEvent = addonManager.addChangeListeners(
-        fakeEventCallback,
-        fakeMozAddonManager,
-      );
+      let handleChangeEvent;
+      const fakeAddon = fakeClientAddon({ canUninstall: false });
+
+      beforeEach(() => {
+        fakeMozAddonManager.getAddonByID.resolves(fakeAddon);
+
+        handleChangeEvent = addonManager.addChangeListeners(
+          fakeEventCallback,
+          fakeMozAddonManager,
+        );
+      });
 
       GLOBAL_EVENTS.forEach((event) => {
         const status = GLOBAL_EVENT_STATUS_MAP[event];
+        // For these events, we cannot read the value of `canUninstall` because
+        // `getAddonByID()` cannot retrieve an add-on (this is expected).
+        const canUninstall = [
+          ON_INSTALLING_EVENT,
+          ON_UNINSTALLED_EVENT,
+        ].includes(event)
+          ? true
+          : fakeAddon.canUninstall;
 
         it(`calls callback with status ${status}`, async () => {
           const id = 'foo@whatever';
@@ -425,6 +442,7 @@ describe(__filename, () => {
             guid: id,
             needsRestart,
             status,
+            canUninstall,
           });
         });
       });
@@ -452,7 +470,8 @@ describe(__filename, () => {
 
     it('calls the callback when onOperationCancelled is received', async () => {
       const _log = getFakeLogger();
-      const fakeAddon = fakeClientAddon();
+      const canUninstall = false;
+      const fakeAddon = fakeClientAddon({ canUninstall });
       fakeMozAddonManager.getAddonByID.resolves(fakeAddon);
 
       const handleChangeEvent = addonManager.addChangeListeners(
@@ -474,6 +493,7 @@ describe(__filename, () => {
         guid,
         needsRestart,
         status: addonManager.getAddonStatus({ addon: fakeAddon }),
+        canUninstall,
       });
       sinon.assert.notCalled(_log.error);
     });
