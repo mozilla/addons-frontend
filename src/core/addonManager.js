@@ -4,15 +4,17 @@ import urllib from 'url';
 /* global window */
 import log from 'core/logger';
 import {
+  ADDON_TYPE_STATIC_THEME,
   DISABLED,
   ENABLED,
   GLOBAL_EVENTS,
   GLOBAL_EVENT_STATUS_MAP,
   INACTIVE,
   INSTALL_EVENT_LIST,
+  ON_INSTALLING_EVENT,
   ON_OPERATION_CANCELLED_EVENT,
+  ON_UNINSTALLED_EVENT,
   SET_ENABLE_NOT_AVAILABLE,
-  ADDON_TYPE_STATIC_THEME,
 } from 'core/constants';
 import { addQueryParams } from 'core/utils/url';
 
@@ -207,6 +209,7 @@ export function addChangeListeners(
     guid: string,
     status: $Values<typeof GLOBAL_EVENT_STATUS_MAP>,
     needsRestart: boolean,
+    canUninstall: boolean,
   |}) => void,
   mozAddonManager: MozAddonManagerType,
   { _log = log }: {| _log: typeof log |} = {},
@@ -227,6 +230,7 @@ export function addChangeListeners(
             guid,
             status,
             needsRestart,
+            canUninstall: addon.canUninstall,
           });
         })
         .catch((error) => {
@@ -238,13 +242,30 @@ export function addChangeListeners(
         });
     }
 
-    // eslint-disable-next-line no-prototype-builtins
-    if (GLOBAL_EVENT_STATUS_MAP.hasOwnProperty(type)) {
+    // We cannot retrieve an add-on when it is not yet installed or already
+    // uninstalled.
+    if ([ON_INSTALLING_EVENT, ON_UNINSTALLED_EVENT].includes(type)) {
       return callback({
         guid,
         status: GLOBAL_EVENT_STATUS_MAP[type],
         needsRestart,
+        // We assume that an add-on can be uninstalled by default.
+        canUninstall: true,
       });
+    }
+
+    // eslint-disable-next-line no-prototype-builtins
+    if (GLOBAL_EVENT_STATUS_MAP.hasOwnProperty(type)) {
+      return getAddon(guid, { _mozAddonManager: mozAddonManager }).then(
+        (addon) => {
+          return callback({
+            guid,
+            status: GLOBAL_EVENT_STATUS_MAP[type],
+            needsRestart,
+            canUninstall: addon.canUninstall,
+          });
+        },
+      );
     }
 
     throw new Error(`Unknown global event: ${type}`);

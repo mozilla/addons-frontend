@@ -236,7 +236,9 @@ export const GLOBAL_EVENT_STATUS_MAP = {
   onDisabling: DISABLING,
 };
 // This mozAddonManager event has no one-to-one mapping.
+export const ON_INSTALLING_EVENT = 'onInstalling';
 export const ON_OPERATION_CANCELLED_EVENT = 'onOperationCancelled';
+export const ON_UNINSTALLED_EVENT = 'onUninstalled';
 
 // The events here are set directly on mozAddonManager
 // they will be fired by addons and themes.
