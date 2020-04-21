@@ -470,7 +470,8 @@ describe(__filename, () => {
 
     it('calls the callback when onOperationCancelled is received', async () => {
       const _log = getFakeLogger();
-      const fakeAddon = fakeClientAddon();
+      const canUninstall = false;
+      const fakeAddon = fakeClientAddon({ canUninstall });
       fakeMozAddonManager.getAddonByID.resolves(fakeAddon);
 
       const handleChangeEvent = addonManager.addChangeListeners(
@@ -492,7 +493,7 @@ describe(__filename, () => {
         guid,
         needsRestart,
         status: addonManager.getAddonStatus({ addon: fakeAddon }),
-        canUninstall: true,
+        canUninstall,
       });
       sinon.assert.notCalled(_log.error);
     });
