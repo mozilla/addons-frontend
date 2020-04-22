@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:36+0000\n"
-"PO-Revision-Date: 2020-04-22 13:06+0000\n"
+"PO-Revision-Date: 2020-04-22 13:41+0000\n"
 "Last-Translator: passionforlife <eloli@foxmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -28,7 +28,7 @@ msgstr "正在启用"
 
 #: src/core/components/AMInstallButton/index.js:209
 msgid "Disabling"
-msgstr "正在禁用"
+msgstr "禁用中"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
