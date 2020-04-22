@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-03-24 18:38+0000\n"
+"POT-Creation-Date: 2020-04-22 12:36+0000\n"
 "PO-Revision-Date: 2019-11-13 12:45+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,35 +14,40 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:194
+#: src/core/components/AMInstallButton/index.js:202
 msgid "Enable"
 msgstr "Activer"
 
-#: src/core/components/AMInstallButton/index.js:197
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Remove"
 msgstr "Supprimer"
 
-#: src/core/components/AMInstallButton/index.js:199
+#: src/core/components/AMInstallButton/index.js:207
 msgid "Enabling"
 msgstr "Activation en cours"
 
-#: src/core/components/AMInstallButton/index.js:201
+#: src/core/components/AMInstallButton/index.js:209
+#, fuzzy
+msgid "Disabling"
+msgstr "Activation en cours"
+
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
 msgstr "Téléchargement en cours"
 
-#: src/core/components/AMInstallButton/index.js:203
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Installing"
 msgstr "Installation en cours"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Uninstalling"
 msgstr "Désinstallation en cours"
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:223
 msgid "Install Theme"
 msgstr "Installer le thème"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:224
 msgid "Add to Firefox"
 msgstr "Ajouter à Firefox"
 
@@ -144,7 +149,7 @@ msgstr "Une erreur inattendue s’est produite pendant la désinstallation."
 msgid "An unexpected error occurred."
 msgstr "Une erreur inattendue s’est produite."
 
-#: src/disco/components/Addon/index.js:85
+#: src/disco/components/Addon/index.js:86
 msgid "Close"
 msgstr "Fermer"
 

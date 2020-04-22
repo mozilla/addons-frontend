@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-03-24 18:38+0000\n"
+"POT-Creation-Date: 2020-04-22 12:36+0000\n"
 "PO-Revision-Date: 2019-08-27 17:53+0000\n"
 "Last-Translator: Sahithi <sahithi@swecha.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,35 +14,40 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:194
+#: src/core/components/AMInstallButton/index.js:202
 msgid "Enable"
 msgstr "చేతనించు"
 
-#: src/core/components/AMInstallButton/index.js:197
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Remove"
 msgstr "తొలగించు"
 
-#: src/core/components/AMInstallButton/index.js:199
+#: src/core/components/AMInstallButton/index.js:207
 msgid "Enabling"
 msgstr "చేతనపరచు"
 
-#: src/core/components/AMInstallButton/index.js:201
+#: src/core/components/AMInstallButton/index.js:209
+#, fuzzy
+msgid "Disabling"
+msgstr "చేతనపరచు"
+
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
 msgstr "దింపుకుంటోంది"
 
-#: src/core/components/AMInstallButton/index.js:203
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Installing"
 msgstr "స్థాపిస్తోంది"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Uninstalling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:223
 msgid "Install Theme"
 msgstr "అలంకారాన్ని స్థాపించు"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:224
 msgid "Add to Firefox"
 msgstr "Firefoxకు చేర్చు"
 
@@ -140,7 +145,7 @@ msgstr "నిర్మూలించే సమయంలో ఊహించన�
 msgid "An unexpected error occurred."
 msgstr "అనుకోని లోపం సంభవించింది."
 
-#: src/disco/components/Addon/index.js:85
+#: src/disco/components/Addon/index.js:86
 msgid "Close"
 msgstr "మూసివేయి"
 

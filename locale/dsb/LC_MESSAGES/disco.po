@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-03-24 18:38+0000\n"
+"POT-Creation-Date: 2020-04-22 12:36+0000\n"
 "PO-Revision-Date: 2019-11-14 20:32+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,35 +15,40 @@ msgstr ""
 "%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:194
+#: src/core/components/AMInstallButton/index.js:202
 msgid "Enable"
 msgstr "Zmóžniś"
 
-#: src/core/components/AMInstallButton/index.js:197
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Remove"
 msgstr "Wótwónoźeś"
 
-#: src/core/components/AMInstallButton/index.js:199
+#: src/core/components/AMInstallButton/index.js:207
 msgid "Enabling"
 msgstr "Zmóžnja se"
 
-#: src/core/components/AMInstallButton/index.js:201
+#: src/core/components/AMInstallButton/index.js:209
+#, fuzzy
+msgid "Disabling"
+msgstr "Zmóžnja se"
+
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
 msgstr "Se ześěgujo"
 
-#: src/core/components/AMInstallButton/index.js:203
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Installing"
 msgstr "Se instalěrujo"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Uninstalling"
 msgstr "Se wótinstalěrujo"
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:223
 msgid "Install Theme"
 msgstr "Drastwu instalěrowaś"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:224
 msgid "Add to Firefox"
 msgstr "Programoju Firefox pśidaś"
 
@@ -143,7 +148,7 @@ msgstr "Njewótcakana zmólka jo pśi wótinstalěrowanju nastała."
 msgid "An unexpected error occurred."
 msgstr "Njewótcakana zmólka jo nastała."
 
-#: src/disco/components/Addon/index.js:85
+#: src/disco/components/Addon/index.js:86
 msgid "Close"
 msgstr "Zacyniś"
 
