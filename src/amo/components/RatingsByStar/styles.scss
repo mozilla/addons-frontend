@@ -1,22 +1,51 @@
 @import '~amo/css/styles';
 
 .RatingsByStar-graph {
+  border-spacing: 0 8px;
   color: $grey-50;
-  display: grid;
   font-size: $font-size-default;
-  grid-gap: 12px;
-  grid-template-columns: max-content auto max-content;
-  // This controls whitespace and should also match the bar height.
   line-height: 16px;
+  width: 100%;
+}
+
+.RatingsByStar-table {
+  display: table;
+}
+
+.RatingsByStar-table a {
+  color: $grey-50;
+  text-decoration: underline;
+}
+
+.RatingByStar-table-row {
+  display: table-row;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.RatingsByStar-table-cell {
+  display: table-cell;
 }
 
 .RatingsByStar-star {
   align-items: center;
   display: flex;
+  font-weight: normal;
+  min-width: 30px;
+  text-decoration: underline;
+  width: fit-content;
 
   .Icon {
     @include margin-start(6px);
   }
+}
+
+.RatingsByStar-barContainer {
+  margin: auto;
+  padding: 0 10px;
+  width: 100%;
 }
 
 .RatingsByStar-bar {
@@ -49,8 +78,10 @@
 
 .RatingsByStar-count {
   display: flex;
+  font-weight: normal;
   justify-content: flex-end;
-  min-width: 12px;
+  min-width: 15px;
+  text-decoration: underline;
 }
 
 .RatingsByStar-star,

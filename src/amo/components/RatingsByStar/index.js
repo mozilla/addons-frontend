@@ -4,9 +4,8 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-import Link from 'amo/components/Link';
 import { fetchGroupedRatings } from 'amo/actions/reviews';
 import { reviewListURL } from 'amo/reducers/reviews';
 import { withFixedErrorHandler } from 'core/errorHandler';
@@ -29,12 +28,36 @@ type Props = {|
 
 type InternalProps = {|
   ...Props,
+  clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   groupedRatings?: GroupedRatingsType,
   i18n: I18nType,
   location: ReactRouterLocationType,
+  siteLang: string,
 |};
+
+type WrappingLinkProps = {|
+  styleClass: string,
+  children: React.Node,
+  rowProps: {
+    title: string,
+    link: string,
+  },
+|};
+
+function WrappingLink(props: WrappingLinkProps) {
+  const { styleClass, children, rowProps } = props;
+
+  if (Object.keys(rowProps).length > 0) {
+    return (
+      <Link to={rowProps.link} className={styleClass} title={rowProps.title}>
+        {children}
+      </Link>
+    );
+  }
+  return <div className={styleClass}>{children}</div>;
+}
 
 export class RatingsByStarBase extends React.Component<InternalProps> {
   constructor(props: InternalProps) {
@@ -87,81 +110,89 @@ export class RatingsByStarBase extends React.Component<InternalProps> {
   }
 
   render() {
-    const { addon, errorHandler, i18n, groupedRatings, location } = this.props;
+    const {
+      addon,
+      errorHandler,
+      i18n,
+      groupedRatings,
+      location,
+      siteLang,
+      clientApp,
+    } = this.props;
     const loading = (!addon || !groupedRatings) && !errorHandler.hasError();
 
-    const linkTitles = {
-      /* eslint-disable quote-props */
-      '5': i18n.gettext('Read all five-star reviews'),
-      '4': i18n.gettext('Read all four-star reviews'),
-      '3': i18n.gettext('Read all three-star reviews'),
-      '2': i18n.gettext('Read all two-star reviews'),
-      '1': i18n.gettext('Read all one-star reviews'),
-      /* eslint-enable quote-props */
+    const getLinkTitle = (star, count = '') => {
+      switch (star) {
+        case '5':
+          return i18n.gettext(`Read all ${count} five-star reviews`);
+        case '4':
+          return i18n.gettext(`Read all ${count} four-star reviews`);
+        case '3':
+          return i18n.gettext(`Read all ${count} three-star reviews`);
+        case '2':
+          return i18n.gettext(`Read all ${count} two-star reviews`);
+        case '1':
+          return i18n.gettext(`Read all ${count} one-star reviews`);
+        default:
+          return '';
+      }
+    };
+
+    const createTableRow = (star) => {
+      let starCount;
+      let starCountNode;
+
+      if (!errorHandler.hasError()) {
+        if (groupedRatings) {
+          starCount = groupedRatings[star];
+        }
+
+        starCountNode = i18n.formatNumber(starCount || 0);
+      }
+
+      const rowProps =
+        loading || !addon
+          ? {}
+          : {
+              link: `/${siteLang}/${clientApp}${reviewListURL({
+                addonSlug: addon.slug,
+                score: star,
+                src: location.query.src,
+              })}`,
+              title: getLinkTitle(star, starCount),
+            };
+
+      return (
+        <WrappingLink styleClass="RatingByStar-table-row" rowProps={rowProps}>
+          <div className="RatingsByStar-star RatingsByStar-table-cell">
+            {!loading ? i18n.formatNumber(star) : <LoadingText width={100} />}
+            <IconStar selected />
+          </div>
+          <div className="RatingsByStar-barContainer RatingsByStar-table-cell">
+            {loading ? (
+              <div className="RatingsByStar-bar RatingsByStar-barFrame" />
+            ) : (
+              <div className="RatingsByStar-bar RatingsByStar-barFrame">
+                {starCount !== undefined
+                  ? this.renderBarValue(starCount)
+                  : null}
+              </div>
+            )}
+          </div>
+          <div className="RatingsByStar-count RatingsByStar-table-cell">
+            {loading ? <LoadingText width={100} /> : starCountNode}
+          </div>
+        </WrappingLink>
+      );
     };
 
     return (
       <div className="RatingsByStar">
         {errorHandler.renderErrorIfPresent()}
-        <div className="RatingsByStar-graph">
+        <div className="RatingsByStar-graph RatingsByStar-table">
           {['5', '4', '3', '2', '1'].map((star) => {
-            let starCount;
-            let starCountNode;
-
-            function createLink(text) {
-              invariant(addon, 'addon was unexpectedly empty');
-
-              return (
-                <Link
-                  title={linkTitles[star] || ''}
-                  to={reviewListURL({
-                    addonSlug: addon.slug,
-                    score: star,
-                    src: location.query.src,
-                  })}
-                >
-                  {text}
-                </Link>
-              );
-            }
-
-            if (!errorHandler.hasError()) {
-              if (groupedRatings) {
-                starCount = groupedRatings[star];
-              }
-
-              starCountNode = loading ? (
-                <LoadingText minWidth={95} />
-              ) : (
-                createLink(i18n.formatNumber(starCount || 0))
-              );
-            }
-
             return (
-              <React.Fragment key={star}>
-                <div className="RatingsByStar-star">
-                  {loading ? (
-                    <LoadingText minWidth={95} />
-                  ) : (
-                    createLink(i18n.formatNumber(star))
-                  )}
-                  <IconStar selected />
-                </div>
-                <div className="RatingsByStar-barContainer">
-                  {loading ? (
-                    <div className="RatingsByStar-bar RatingsByStar-barFrame" />
-                  ) : (
-                    createLink(
-                      <div className="RatingsByStar-bar RatingsByStar-barFrame">
-                        {starCount !== undefined
-                          ? this.renderBarValue(starCount)
-                          : null}
-                      </div>,
-                    )
-                  )}
-                </div>
-                <div className="RatingsByStar-count">{starCountNode}</div>
-              </React.Fragment>
+              <React.Fragment key={star}>{createTableRow(star)}</React.Fragment>
             );
           })}
         </div>
@@ -177,6 +208,8 @@ const mapStateToProps = (state: AppState, ownProps: Props) => {
   }
   return {
     groupedRatings,
+    clientApp: state.api.clientApp,
+    siteLang: state.api.lang,
   };
 };
 
