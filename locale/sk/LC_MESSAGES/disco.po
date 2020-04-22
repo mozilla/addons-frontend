@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-03-24 18:38+0000\n"
+"POT-Creation-Date: 2020-04-22 12:36+0000\n"
 "PO-Revision-Date: 2019-12-05 22:29+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,35 +14,40 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:194
+#: src/core/components/AMInstallButton/index.js:202
 msgid "Enable"
 msgstr "Povoliť"
 
-#: src/core/components/AMInstallButton/index.js:197
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Remove"
 msgstr "Odstrániť"
 
-#: src/core/components/AMInstallButton/index.js:199
+#: src/core/components/AMInstallButton/index.js:207
 msgid "Enabling"
 msgstr "Povoľuje sa"
 
-#: src/core/components/AMInstallButton/index.js:201
+#: src/core/components/AMInstallButton/index.js:209
+#, fuzzy
+msgid "Disabling"
+msgstr "Povoľuje sa"
+
+#: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
 msgstr "Preberá sa"
 
-#: src/core/components/AMInstallButton/index.js:203
+#: src/core/components/AMInstallButton/index.js:213
 msgid "Installing"
 msgstr "Inštaluje sa"
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:215
 msgid "Uninstalling"
 msgstr "Odinštalovanie"
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:223
 msgid "Install Theme"
 msgstr "Nainštalovať tému vzhľadu"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:224
 msgid "Add to Firefox"
 msgstr "Pridať do Firefoxu"
 
@@ -143,7 +148,7 @@ msgstr "Počas odinštalovania nastala neočakávaná chyba."
 msgid "An unexpected error occurred."
 msgstr "Nastala neočakávaná chyba."
 
-#: src/disco/components/Addon/index.js:85
+#: src/disco/components/Addon/index.js:86
 msgid "Close"
 msgstr "Zavrieť"
 

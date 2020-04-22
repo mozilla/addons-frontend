@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-03-24 18:38+0000\n"
+"POT-Creation-Date: 2020-04-22 12:36+0000\n"
 "PO-Revision-Date: 2017-08-25 08:27+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,38 +14,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/AMInstallButton/index.js:194
+#: src/core/components/AMInstallButton/index.js:202
 msgid "Enable"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:197
+#: src/core/components/AMInstallButton/index.js:205
 msgid "Remove"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:199
+#: src/core/components/AMInstallButton/index.js:207
 msgid "Enabling"
 msgstr ""
 
-#: src/core/components/AMInstallButton/index.js:201
+#: src/core/components/AMInstallButton/index.js:209
+#, fuzzy
+msgid "Disabling"
+msgstr "Avinstallerer %(name)s."
+
+#: src/core/components/AMInstallButton/index.js:211
 #, fuzzy
 msgid "Downloading"
 msgstr "Laster ned %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:203
+#: src/core/components/AMInstallButton/index.js:213
 #, fuzzy
 msgid "Installing"
 msgstr "Installerer %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:205
+#: src/core/components/AMInstallButton/index.js:215
 #, fuzzy
 msgid "Uninstalling"
 msgstr "Avinstallerer %(name)s."
 
-#: src/core/components/AMInstallButton/index.js:213
+#: src/core/components/AMInstallButton/index.js:223
 msgid "Install Theme"
 msgstr "Installer tema"
 
-#: src/core/components/AMInstallButton/index.js:214
+#: src/core/components/AMInstallButton/index.js:224
 msgid "Add to Firefox"
 msgstr "Legg til i Firefox"
 
@@ -146,7 +151,7 @@ msgstr "Det oppstod en uventet feil under avinstalleringen."
 msgid "An unexpected error occurred."
 msgstr "Det oppstod en uventet feil."
 
-#: src/disco/components/Addon/index.js:85
+#: src/disco/components/Addon/index.js:86
 msgid "Close"
 msgstr "Lukk"
 
