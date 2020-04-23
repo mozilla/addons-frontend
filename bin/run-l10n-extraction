@@ -8,6 +8,7 @@ set -o pipefail
 set -u
 
 INITIAL_GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+GIT_CHANGES=$(git status --porcelain)
 DIFF_WITH_ONE_LINE_CHANGE="1 file changed, 1 insertion(+), 1 deletion(-)"
 GIT_REMOTE="git@github.com:mozilla/addons-frontend.git"
 
@@ -30,8 +31,14 @@ run_l10n_extraction() {
   local app="$1"
   local branch="$app-locales"
 
+  # Detect local (uncommitted) changes.
+  if [[ ! -z "$GIT_CHANGES" ]]; then
+    error "You have local changes, therefore this script cannot continue."
+  fi
+
+  # Switch to the `master` branch if we are not on it already.
   if [[ "$INITIAL_GIT_BRANCH" != "master" ]]; then
-    error "Please make sure you are on the 'master' branch."
+    git checkout master
   fi
 
   # Make sure the 'master' branch is up-to-date.
