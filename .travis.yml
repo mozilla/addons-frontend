@@ -68,8 +68,7 @@ jobs:
         # This is required by `mkcert` to interact with Firefox
         - sudo apt-get -y install libnss3-tools
         # Get `mkcert`
-        # This is unfortunately needed because of https://github.com/FiloSottile/mkcert/issues/192
-        - wget https://github.com/rfay/mkcert/releases/download/v1.4.1-alpha1/mkcert-v1.4.1-alpha1-linux-amd64 -O mkcert
+        - wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.1/mkcert-v1.4.1-linux-amd64 -O mkcert
         - chmod +x mkcert
         - ./mkcert -install
         # Generate certificate for example.com
