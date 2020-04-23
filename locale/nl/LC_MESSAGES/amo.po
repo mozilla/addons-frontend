@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:32+0000\n"
-"PO-Revision-Date: 2020-04-08 07:20+0000\n"
+"PO-Revision-Date: 2020-04-22 13:01+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -2700,7 +2700,7 @@ msgstr "Inschakelen"
 
 #: src/core/components/AMInstallButton/index.js:209
 msgid "Disabling"
-msgstr ""
+msgstr "Uitschakelen"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
