@@ -9,6 +9,7 @@ set -u
 
 INITIAL_GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 DIFF_WITH_ONE_LINE_CHANGE="1 file changed, 1 insertion(+), 1 deletion(-)"
+GIT_REMOTE="git@github.com:mozilla/addons-frontend.git"
 
 info() {
   local message="$1"
@@ -34,7 +35,7 @@ run_l10n_extraction() {
   fi
 
   # Make sure the 'master' branch is up-to-date.
-  git pull origin master
+  git pull "$GIT_REMOTE" master
 
   # Ensure the branch to extract the locales is clean.
   if [[ $(git branch --list "$branch") ]]; then
@@ -64,7 +65,8 @@ run_l10n_extraction() {
 
   git commit -a -m "Merge $app locales"
 
-  git push origin "$branch"
+  # We use force-push in case the branch already exists.
+  git push -f "$GIT_REMOTE" "$branch"
 
   git checkout "$INITIAL_GIT_BRANCH"
   git branch -D "$branch"
