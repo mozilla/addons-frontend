@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:36+0000\n"
-"PO-Revision-Date: 2019-11-14 12:39+0000\n"
+"PO-Revision-Date: 2020-04-24 13:19+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
 #: src/core/components/AMInstallButton/index.js:202
@@ -28,9 +27,8 @@ msgid "Enabling"
 msgstr "Włączanie"
 
 #: src/core/components/AMInstallButton/index.js:209
-#, fuzzy
 msgid "Disabling"
-msgstr "Włączanie"
+msgstr "Wyłączanie"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
@@ -57,15 +55,10 @@ msgid "Server Error"
 msgstr "Błąd serwera"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Wystąpił błąd i nie można ukończyć żądania. Zapisaliśmy ten błąd i postaramy "
-"się go naprawić."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Wystąpił błąd i nie można ukończyć żądania. Zapisaliśmy ten błąd i postaramy się go naprawić."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Kod błędu: %(status)s."
 
@@ -182,29 +175,19 @@ msgstr "Dostosuj Firefoksa"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Tysiące darmowych dodatków tworzonych przez programistów z całego świata "
-"umożliwia dostosowanie przeglądarki do własnych upodobań: od zabawnych "
-"motywów do niezawodnych narzędzi sprawiających, że przeglądanie Internetu "
-"jest szybsze i bezpieczniejsze. Na początek polecamy poniższe dodatki "
-"z uwagi na ich wyróżniającą się wydajność i funkcjonalność."
+"Tysiące darmowych dodatków tworzonych przez programistów z całego świata umożliwia dostosowanie przeglądarki do własnych upodobań: od zabawnych motywów do niezawodnych narzędzi sprawiających, że "
+"przeglądanie Internetu jest szybsze i bezpieczniejsze. Na początek polecamy poniższe dodatki z uwagi na ich wyróżniającą się wydajność i funkcjonalność."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Więcej informacji"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
-"Część tych poleceń jest spersonalizowanych na podstawie pozostałych "
-"zainstalowanych rozszerzeń, preferencji profilu i statystyk użytkowania."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgstr "Część tych poleceń jest spersonalizowanych na podstawie pozostałych zainstalowanych rozszerzeń, preferencji profilu i statystyk użytkowania."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
@@ -229,19 +212,11 @@ msgstr "Podgląd „%(title)s”"
 #~ msgid "Learn more"
 #~ msgstr "Więcej informacji"
 
-#~ msgid ""
-#~ "This extension isn’t monitored by Mozilla. Make sure you trust the "
-#~ "extension before you install it."
-#~ msgstr ""
-#~ "To rozszerzenie nie jest monitorowane przez Mozillę. Przed instalacją "
-#~ "upewnij się, że mu ufasz."
+#~ msgid "This extension isn’t monitored by Mozilla. Make sure you trust the extension before you install it."
+#~ msgstr "To rozszerzenie nie jest monitorowane przez Mozillę. Przed instalacją upewnij się, że mu ufasz."
 
-#~ msgid ""
-#~ "This is not a Recommended Extension. Make sure you trust it before "
-#~ "installing."
-#~ msgstr ""
-#~ "To nie jest polecane rozszerzenie. Przed instalacją upewnij się, że mu "
-#~ "ufasz."
+#~ msgid "This is not a Recommended Extension. Make sure you trust it before installing."
+#~ msgstr "To nie jest polecane rozszerzenie. Przed instalacją upewnij się, że mu ufasz."
 
 #~ msgid "Downloading %(name)s."
 #~ msgstr "Pobieranie dodatku „%(name)s”."
@@ -250,9 +225,7 @@ msgstr "Podgląd „%(title)s”"
 #~ msgstr "Instalowanie dodatku „%(name)s”."
 
 #~ msgid "%(name)s is installed and enabled. Click to uninstall."
-#~ msgstr ""
-#~ "Dodatek „%(name)s” jest zainstalowany i włączony. Kliknij, aby "
-#~ "odinstalować."
+#~ msgstr "Dodatek „%(name)s” jest zainstalowany i włączony. Kliknij, aby odinstalować."
 
 #~ msgid "%(name)s is disabled. Click to enable."
 #~ msgstr "Dodatek „%(name)s” jest wyłączony. Kliknij, aby włączyć."
@@ -267,8 +240,7 @@ msgstr "Podgląd „%(title)s”"
 #~ msgstr "Stan instalacji dodatku „%(name)s” jest nieznany."
 
 #~ msgid "This add-on will be uninstalled after you restart Firefox."
-#~ msgstr ""
-#~ "Ten dodatek zostanie odinstalowany po ponownym uruchomieniu Firefoksa."
+#~ msgstr "Ten dodatek zostanie odinstalowany po ponownym uruchomieniu Firefoksa."
 
 #~ msgid "Please restart Firefox to use this add-on."
 #~ msgstr "Proszę ponownie uruchomić Firefoksa, aby użyć tego dodatku."
@@ -280,9 +252,7 @@ msgstr "Podgląd „%(title)s”"
 #~ msgstr "Można używać dodatku „%(name)s” z ikony na pasku narzędzi."
 
 #~ msgid "Hover to preview or click to install %(name)s"
-#~ msgstr ""
-#~ "Najedź, aby wyświetlić podgląd lub kliknij, aby zainstalować dodatek "
-#~ "„%(name)s”"
+#~ msgstr "Najedź, aby wyświetlić podgląd lub kliknij, aby zainstalować dodatek „%(name)s”"
 
 #~ msgid "Hover over the image to preview"
 #~ msgstr "Najedź na obraz, aby wyświetlić podgląd"
