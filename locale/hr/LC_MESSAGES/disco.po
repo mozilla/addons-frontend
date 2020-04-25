@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:36+0000\n"
-"PO-Revision-Date: 2020-03-10 20:48+0000\n"
-"Last-Translator: Mikeyy <mihovil@miho.im>\n"
+"PO-Revision-Date: 2020-04-25 00:41+0000\n"
+"Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
 #: src/core/components/AMInstallButton/index.js:202
@@ -28,9 +27,8 @@ msgid "Enabling"
 msgstr "Aktiviranje"
 
 #: src/core/components/AMInstallButton/index.js:209
-#, fuzzy
 msgid "Disabling"
-msgstr "Aktiviranje"
+msgstr "Deaktiviranje"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
@@ -57,15 +55,10 @@ msgid "Server Error"
 msgstr "Greška poslužitelja"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Nažalost, došlo je do greške i nismo uspjeli dovršiti tvoj zahtjev. "
-"Zabilježili smo ovu grešku i istražit ćemo je."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Nažalost, došlo je do greške i nismo uspjeli dovršiti tvoj zahtjev. Zabilježili smo ovu grešku i istražit ćemo je."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:35
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:35
 msgid "Error code: %(status)s."
 msgstr "Kȏd greške: %(status)s."
 
@@ -182,30 +175,20 @@ msgstr "Prilagodi svoj Firefox"
 
 #: src/disco/pages/DiscoPane/index.js:190
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Postoje tisuće besplatnih dodataka, napisanih od strane programera diljem "
-"svijeta, koje možete instalirati kako biste personalizirali svoj Firefox. Od "
-"zabavnih vizualnih tema do moćnih alata koji olakšavaju i ubrzavaju "
-"pretraživanje, dodaci prilagođavaju preglednik vašim potrebama. Kako biste "
-"lakše počeli, ovdje smo nabrojali neke od dodataka koje zbog visokih "
-"performanski i funkcijonalnosti preporučujemo."
+"Postoje tisuće besplatnih dodataka, napisanih od strane programera diljem svijeta, koje možete instalirati kako biste personalizirali svoj Firefox. Od zabavnih vizualnih tema do moćnih alata koji "
+"olakšavaju i ubrzavaju pretraživanje, dodaci prilagođavaju preglednik vašim potrebama. Kako biste lakše počeli, ovdje smo nabrojali neke od dodataka koje zbog visokih performanski i funkcijonalnosti"
+" preporučujemo."
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
 msgstr "Saznaj više"
 
 #: src/disco/pages/DiscoPane/index.js:211
-msgid ""
-"Some of these recommendations are personalized. They are based on other "
-"extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
-"Neki prijedlozi su personalizirani. Bazirani su na drugim dodacima koje ste "
-"već instalirali, postavkama profila ili statistici korištenja."
+msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
+msgstr "Neki prijedlozi su personalizirani. Bazirani su na drugim dodacima koje ste već instalirali, postavkama profila ili statistici korištenja."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
