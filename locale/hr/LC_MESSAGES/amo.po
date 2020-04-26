@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:32+0000\n"
-"PO-Revision-Date: 2020-04-25 00:41+0000\n"
+"PO-Revision-Date: 2020-04-26 11:09+0000\n"
 "Last-Translator: Milo <mail@milotype.de>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -748,7 +748,7 @@ msgstr "Uredi"
 
 #: src/amo/components/Errors/NotAuthorized/index.js:26
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
-msgstr "Ako si prijavljen/a i misliš da je ova poruka greška, <a href=\"%(url)s\">prijavi problem</a>. Reci nam odakle si došao/la, čemu pokušavaš pristupiti i mi ćemo riješiti problem."
+msgstr "Ako si prijavljen/a i misliš da je ova poruka greška, <a href=\"%(url)s\">prijavi problem</a>. Reci nam s koje stranice dolaziš i čemu pokušavaš pristupiti, a mi ćemo riješiti problem."
 
 #: src/amo/components/Errors/NotAuthorized/index.js:40
 msgid "Not Authorized"
@@ -2303,7 +2303,7 @@ msgstr "Priručnik za recenziranje"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr "Smjernice, savjeti i često postavljena pitanja za pisanje recenzija za proširenja i motive, koje si preuzeo/la i koje koristiš u Firefoxu."
+msgstr "Smjernice, savjeti i često postavljena pitanja za pisanje recenzija za preuzeta proširenja i motive koje koristiš u Firefoxu."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
@@ -2431,7 +2431,7 @@ msgstr "Zanimanje"
 
 #: src/amo/pages/UserProfile/index.js:380
 msgid "User since"
-msgstr "Pridružio/la se"
+msgstr "Korisnik od"
 
 #: src/amo/pages/UserProfile/index.js:390
 msgid "Number of add-ons"
