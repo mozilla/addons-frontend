@@ -12563,14 +12563,16 @@ react-addons-create-fragment@^15.6.2:
     loose-envify "^1.3.1"
     object-assign "^4.1.0"
 
-react-autosuggest@10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/react-autosuggest/-/react-autosuggest-10.0.0.tgz#49c69a5053d7b98b14f28716875883d11c95e945"
-  integrity sha512-WFCeRuYv6YCY9Ch4BodXPASWJXDh32ehQQHA2eLNhOBhu3Xcank+5W4wcEN+oqdAX1fvKROZRQRF2fpNZaZaxA==
+react-autosuggest@10.0.1:
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/react-autosuggest/-/react-autosuggest-10.0.1.tgz#620fab9f203821d407246b74e557cc0605061eda"
+  integrity sha512-Y3vsgN2KKV0pwcKYiIwf2LPzfFxkShebJon9G4yeXE7ToZEY7MDmCNSEI9eKbZzeUAE3mcSpZy5Ho0NTU5NzrA==
   dependencies:
     es6-promise "^4.2.8"
     prop-types "^15.7.2"
     react-autowhatever "^10.2.1"
+    react-themeable "^1.1.0"
+    section-iterator "^2.0.0"
     shallow-equal "^1.2.1"
 
 react-autowhatever@^10.2.1:
