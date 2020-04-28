@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -1770,7 +1770,7 @@ msgid ""
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
 "Ticki Mozilla tuffa-d azegrir neɣ asiɣzef, neɣ yal aseɣẓan-nniḍen wis kraḍ i yezmren ad d-yeglun s usexseṛ n tɣellist, arkad neɣ timellit n Firefox  daɣen ahat llan deg-s %(criteriaStartLink)skra n "
-"isebdaden</a>, aseɣẓan yezmer ad iwḥel.  I wugar n yisallen, ddu ma ulac aɣilif ɣer %(supportStartLink)sumagrad-a n tallelt</a>."
+"isebdaden%(criteriaEndLink)s, aseɣẓan yezmer ad iwḥel.  I wugar n yisallen, ddu ma ulac aɣilif ɣer %(supportStartLink)sumagrad-a n tallelt%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:89
 msgid "Blocked on %(date)s."
