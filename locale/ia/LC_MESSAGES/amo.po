@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:32+0000\n"
-"PO-Revision-Date: 2020-04-26 20:32+0000\n"
+"PO-Revision-Date: 2020-04-28 07:27+0000\n"
 "Last-Translator: Melo46 <melo@carmu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ia\n"
@@ -1577,7 +1577,7 @@ msgstr "Pro trovar additivos compatibile con Firefox pro scriptorio, <a href=\"%
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-msgstr ""
+msgstr "Non disponibile sur Firefox pro Android. Tu pote usar iste additivo con Firefox pro scriptorio, o cercar <a href=\"%(newLocation)s\">additivos Android</a> simile."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
@@ -1659,7 +1659,7 @@ msgstr "Iste lista de presentation non es destinate pro iste systema operative. 
 
 #: src/amo/pages/Addon/index.js:513
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+msgstr "Non disponibile sur Firefox pro Android. Tu pote usar iste additivo con Firefox pro scriptorio. Saper plus re <a href=\"%(newLocation)s\">additivos pro Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Screenshots"
