@@ -63,7 +63,7 @@ run_l10n_extraction() {
     git checkout -- .
     git checkout "$INITIAL_GIT_BRANCH"
     git branch -d "$branch"
-    exit 0
+    return
   fi
 
   git commit -a -m "Extract $app locales"
