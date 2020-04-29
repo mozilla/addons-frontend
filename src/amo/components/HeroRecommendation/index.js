@@ -100,7 +100,7 @@ export class HeroRecommendationBase extends React.Component<InternalProps> {
 
     if (shelfData) {
       gradientsClassName = `HeroRecommendation-${gradient.start}-${gradient.end}`;
-      log.info(
+      log.debug(
         `className ${gradientsClassName} generated from the API response. This should match a selector in styles.scss`,
       );
 

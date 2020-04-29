@@ -47,8 +47,8 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   let prependedOrMovedApplication = false;
 
   if (hasValidLocaleException) {
-    log.info(oneLine`Second part of URL is a locale exception (${URLPathParts[1]});
-      make sure the clientApp is valid`);
+    log.debug(oneLine`Second part of URL is a locale exception
+      (${URLPathParts[1]}); make sure the clientApp is valid`);
 
     // Normally we look for a clientApp in the second part of a URL, but URLs
     // that match a locale exception don't have a locale so we look for the
@@ -67,16 +67,16 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     // * It's valid and we've mapped it e.g: pt -> pt-PT.
     // * The lang is invalid but we have a valid application
     //   e.g. /bogus/firefox/.
-    log.info(`Replacing lang in URL ${URLPathParts[0]} -> ${lang}`);
+    log.debug(`Replacing lang in URL ${URLPathParts[0]} -> ${lang}`);
     URLPathParts[0] = lang;
   } else if (isValidLocaleUrlException(URLPathParts[0], { _config })) {
-    log.info(`Prepending clientApp to URL: ${application}`);
+    log.debug(`Prepending clientApp to URL: ${application}`);
     URLPathParts.splice(0, 0, application);
     isApplicationFromHeader = true;
     prependedOrMovedApplication = true;
   } else if (!hasValidLang) {
     // If lang wasn't valid or was missing prepend one.
-    log.info(`Prepending lang to URL: ${lang}`);
+    log.debug(`Prepending lang to URL: ${lang}`);
     URLPathParts.splice(0, 0, lang);
     // If we've prepended the lang to the URL we need to re-check our
     // URL exception and make sure it's valid.
@@ -91,9 +91,9 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   if (!hasValidClientApp && isValidClientApp(URLPathParts[1], { _config })) {
     // We skip prepending an app if we'd previously prepended a lang and the
     // 2nd part of the URL is now a valid app.
-    log.info('Application in URL is valid following prepending a lang.');
+    log.debug('Application in URL is valid following prepending a lang.');
   } else if (prependedOrMovedApplication) {
-    log.info(
+    log.debug(
       'URL is valid because we added/changed the first part to a clientApp.',
     );
   } else if (hasValidLocaleException || hasValidClientAppUrlException) {
@@ -101,17 +101,17 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
       clientAppRoutes.includes(URLPathParts[1]) === false &&
       (hasValidLang || hasValidLocaleException)
     ) {
-      log.info('Exception in URL found; we fallback to addons-server.');
+      log.debug('Exception in URL found; we fallback to addons-server.');
       // TODO: Remove this once upgraded to react-router 4.
       res.status(404).end(oneLine`This page does not exist in addons-frontend.
         Returning 404; this error should trigger upstream (usually
         addons-server) to return a valid response.`);
       return next();
     }
-    log.info('Exception in URL found; prepending lang to URL.');
+    log.debug('Exception in URL found; prepending lang to URL.');
   } else if (!hasValidClientApp) {
     // If the app supplied is not valid we need to prepend one.
-    log.info(`Prepending application to URL: ${application}`);
+    log.debug(`Prepending application to URL: ${application}`);
     URLPathParts.splice(1, 0, application);
     isApplicationFromHeader = true;
   }

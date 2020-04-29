@@ -326,10 +326,10 @@ export function makeI18n(
     typeof _Intl === 'object' &&
     Object.prototype.hasOwnProperty.call(_Intl, 'NumberFormat')
   ) {
-    log.info('Intl.NumberFormat exists');
+    log.debug('Intl.NumberFormat exists');
     i18n.numberFormat = new _Intl.NumberFormat(lang);
   } else {
-    log.info('Intl.NumberFormat does NOT exist');
+    log.debug('Intl.NumberFormat does NOT exist');
   }
 
   i18n.formatNumber = (number) => {
