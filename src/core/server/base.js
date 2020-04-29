@@ -92,7 +92,7 @@ export function getPageProps({ store, req, res, config }) {
   if (res.locals.userAgent) {
     store.dispatch(setUserAgent(res.locals.userAgent));
   } else {
-    log.info('No userAgent found in request headers.');
+    log.debug('No userAgent found in request headers.');
   }
 
   return {
@@ -394,7 +394,7 @@ function baseServer(
           return hydrateOnClient({ res, pageProps, store });
         }
       } catch (preLoadError) {
-        _log.info(`Caught an error before rendering: ${preLoadError}`);
+        _log.error(`Caught an error before rendering: ${preLoadError}`);
         return next(preLoadError);
       }
 
@@ -433,7 +433,7 @@ function baseServer(
 
       // We need to render once because it will force components to
       // dispatch data loading actions which get processed by sagas.
-      _log.info('First component render to dispatch loading actions');
+      _log.debug('First component render to dispatch loading actions');
       renderHTML({ props, pageProps, store });
 
       // Send the redux-saga END action to stop sagas from running
@@ -443,14 +443,14 @@ function baseServer(
       try {
         // Once all sagas have completed, we load the page.
         await runningSagas.done;
-        _log.info('Second component render after sagas have finished');
+        _log.debug('Second component render after sagas have finished');
 
         const finalHTML = renderHTML({ props, pageProps, store });
 
         // A redirection has been requested, let's do it.
         const { redirectTo } = store.getState();
         if (redirectTo && redirectTo.url) {
-          _log.info(oneLine`Redirection requested:
+          _log.debug(oneLine`Redirection requested:
             url=${redirectTo.url} status=${redirectTo.status}`);
           return res.redirect(redirectTo.status, redirectTo.url);
         }
@@ -560,7 +560,7 @@ export function runServer({
               };
               server = https.createServer(options, server);
             } else {
-              log.info(
+              log.debug(
                 `To use the HTTPS server you must serve the site at example.com (host was "${host}")`,
               );
             }
@@ -586,16 +586,16 @@ export function runServer({
             );
             if (proxyEnabled) {
               const proxyPort = config.get('proxyPort');
-              log.info(
+              log.debug(
                 `🚦 Proxy detected, frontend running at http://${host}:${port}.`,
               );
-              log.info(
+              log.debug(
                 `👁  Open your browser at http${
                   useHttpsForDev ? 's' : ''
                 }://${host}:${proxyPort} to view it.`,
               );
             } else {
-              log.info(
+              log.debug(
                 `👁  Open your browser at http${
                   useHttpsForDev ? 's' : ''
                 }://${host}:${port} to view it.`,
