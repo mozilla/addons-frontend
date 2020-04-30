@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:32+0000\n"
-"PO-Revision-Date: 2020-04-30 05:40+0000\n"
+"PO-Revision-Date: 2020-04-30 06:33+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -311,11 +311,11 @@ msgstr "Șterge recenzia"
 
 #: src/amo/components/AddonReviewCard/index.js:223
 msgid "Do you really want to delete this reply?"
-msgstr "Chiar vrei să ștergi acest răspuns?"
+msgstr "Sigur vrei să ștergi acest răspuns?"
 
 #: src/amo/components/AddonReviewCard/index.js:227
 msgid "Do you really want to delete this rating?"
-msgstr "Chiar vrei să ștergi această evaluare?"
+msgstr "Sigur vrei să ștergi această evaluare?"
 
 #: src/amo/components/AddonReviewCard/index.js:230
 msgid "Do you really want to delete this review?"
