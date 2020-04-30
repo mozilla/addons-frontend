@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:32+0000\n"
-"PO-Revision-Date: 2020-04-30 06:33+0000\n"
+"PO-Revision-Date: 2020-04-30 06:42+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -319,7 +319,7 @@ msgstr "Sigur vrei să ștergi această evaluare?"
 
 #: src/amo/components/AddonReviewCard/index.js:230
 msgid "Do you really want to delete this review?"
-msgstr "Chiar vrei să ștergi această recenzie?"
+msgstr "Sigur vrei să ștergi această recenzie?"
 
 #: src/amo/components/AddonReviewCard/index.js:237 src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
@@ -2365,7 +2365,7 @@ msgstr "Scrie ca și când i-ai povesti unui prieten experiența ta cu supliment
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr "Fii concis(ă) și redactează recenzii ușor de înțeles."
+msgstr "Fii concis(ă) și scrie recenzii ușor de înțeles."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:45
 msgid "Give specific and helpful details. For example:"
