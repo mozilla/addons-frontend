@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:32+0000\n"
-"PO-Revision-Date: 2020-05-02 06:54+0000\n"
+"PO-Revision-Date: 2020-05-04 05:10+0000\n"
 "Last-Translator: robbp <robbpaun@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -963,7 +963,7 @@ msgstr "Această acțiune nu este disponibilă momentan. Reîncarcă pagina pest
 
 #: src/amo/components/Header/index.js:144 src/core/components/AuthenticateButton/index.js:87
 msgid "Log out"
-msgstr "Deconectează-te"
+msgstr "Deconectare"
 
 #: src/amo/components/Header/index.js:169
 msgid "Firefox Browser Add-ons"
