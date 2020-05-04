@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:32+0000\n"
-"PO-Revision-Date: 2020-04-22 12:54+0000\n"
+"PO-Revision-Date: 2020-05-04 13:04+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -1021,7 +1021,7 @@ msgstr "Wóstańśo wěsty online"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:280
 msgid "Organize Tabs & Bookmarks"
-msgstr "Rejtarki a cytańske znamjenja organizěrowaś"
+msgstr "Rejtariki a cytańske znamjenja organizěrowaś"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
 msgid "Enhance Your Media Experience"
@@ -1081,7 +1081,7 @@ msgstr "Daty do mjazywótkłada kopěrowaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Extend developer tools to access your data in open tabs"
-msgstr "Rozšyŕśo wuwijarske rědy, aby pśistup k swójim datam we wócynjonych rejtarkach měł"
+msgstr "Rozšyŕśo wuwijarske rědy, aby pśistup k swójim datam we wócynjonych rejtarikach měł"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Download files and read and modify the browser’s download history"
@@ -1093,7 +1093,7 @@ msgstr "Dataje wócyniś, kótarež su se na wašom licadle ześěgnuli"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Read the text of all open tabs"
-msgstr "Tekst wšych wócynjonych rejtarkow cytaś"
+msgstr "Tekst wšych wócynjonych rejtarikow cytaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access your location"
@@ -1129,15 +1129,15 @@ msgstr "Nastajenja priwatnosći cytaś a změniś"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access recently closed tabs"
-msgstr "Mějśo pśistup k njedawno zacynjonym rejtarkam"
+msgstr "Mějśo pśistup k njedawno zacynjonym rejtarikam"
 
 #: src/amo/components/PermissionsCard/permissions.js:59
 msgid "Access browser tabs"
-msgstr "Pśistup k rejtarkam wobglědowaka měś"
+msgstr "Pśistup k rejtarikam wobglědowaka měś"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Hide and show browser tabs"
-msgstr "Rejtarki wobglědowaka schowaś a pokazaś"
+msgstr "Rejtariki wobglědowaka schowaś a pokazaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:62
 msgid "Store unlimited amount of client-side data"
@@ -1915,23 +1915,23 @@ msgstr "Wuslěźćo dalšne dopórucone rozšyrjenja za %(linkStart)spriwatnosć
 
 #: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
-msgstr "Wobmyslujśo zastojanje rejtarkow znowego"
+msgstr "Wobmyslujśo zastojanje rejtarikow znowego"
 
 #: src/amo/pages/Guides/index.js:139
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
-"Jolic zwětšego z wjele wócynjonymi rejtarkami źěłaśo, znajośo nejskerjej derje problem, gaž ceły rěd njeidentificěrujobnych rejtarkow jano za tym rejtarkom pśepytujośo, kótaryž trjebaśo. Rozšyrjenja"
-" mógu wam kreatiwne rozwězanja za zjadnorjanje zastojanja rejtarkow póbitowaś."
+"Jolic zwětšego z wjele wócynjonymi rejtarikami źěłaśo, znajośo nejskerjej derje problem, gaž ceły rěd njeidentificěrujobnych rejtarikow jano za tym rejtarikom pśepytujośo, kótaryž trjebaśo. "
+"Rozšyrjenja mógu wam kreatiwne rozwězanja za zjadnorjanje zastojanja rejtarikow póbitowaś."
 
 #: src/amo/pages/Guides/index.js:145
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr "Rědujśo a wizualizěrujśo swóje rejtarki w kaskaděrujucem “bomowem” formaśe w bocnicy Firefox."
+msgstr "Rědujśo a wizualizěrujśo swóje rejtariki w kaskaděrujucem “bomowem” formaśe w bocnicy Firefox."
 
 #: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "Wuslěźćo dalšne rozšyrjenja za %(linkStart)srejtarki%(linkEnd)s."
+msgstr "Wuslěźćo dalšne rozšyrjenja za %(linkStart)srejtariki%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
