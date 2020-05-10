@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:32+0000\n"
-"PO-Revision-Date: 2020-05-10 04:23+0000\n"
+"PO-Revision-Date: 2020-05-10 04:30+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1312,7 +1312,7 @@ msgstr "Extensões populares"
 
 #: src/amo/components/Search/index.js:170
 msgid "Search results for \"%(query)s\""
-msgstr "Resultados para \"%(query)s\""
+msgstr "Resultados da pesquisa de \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:105
 msgid "%(count)s theme found in %(categoryName)s"
@@ -1346,7 +1346,7 @@ msgstr[1] "%(count)s resultados encontrados"
 
 #: src/amo/components/SearchContextCard/index.js:156
 msgid "Searching for \"%(query)s\""
-msgstr "Pesquisando por \"%(query)s\""
+msgstr "Pesquisando \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:160
 msgid "Searching for add-ons"
@@ -1546,19 +1546,19 @@ msgstr "Página inicial das extensões"
 
 #: src/amo/components/UserProfileEditPicture/index.js:106
 msgid "Do you really want to delete this picture?"
-msgstr "Você deseja realmente excluir esta imagem?"
+msgstr "Você quer mesmo excluir esta figura?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:109
 msgid "Delete This Picture"
-msgstr "Excluir esta foto"
+msgstr "Excluir esta figura"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
 msgid "Profile picture for %(name)s"
-msgstr "Fotos de perfil de %(name)s"
+msgstr "Figura de perfil de %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:68
 msgid "Profile photo"
-msgstr "Foto de perfil"
+msgstr "Figura de perfil"
 
 #: src/amo/components/UserProfileEditPicture/index.js:97
 msgid "Choose Photo…"
