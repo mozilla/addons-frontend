@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:32+0000\n"
-"PO-Revision-Date: 2020-04-22 14:56+0000\n"
+"PO-Revision-Date: 2020-05-10 03:49+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -977,7 +977,7 @@ msgstr "Minha conta"
 
 #: src/amo/components/Header/index.js:77
 msgid "View My Collections"
-msgstr "Ver as minhas coleções"
+msgstr "Ver minhas coleções"
 
 #: src/amo/components/Header/index.js:85 src/amo/pages/UserProfileEdit/index.js:548
 msgid "View My Profile"
