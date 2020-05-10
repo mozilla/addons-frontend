@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:32+0000\n"
-"PO-Revision-Date: 2020-05-10 04:11+0000\n"
+"PO-Revision-Date: 2020-05-10 04:23+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -497,7 +497,7 @@ msgstr "Mais extensões destes desenvolvedores"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:325
 msgid "Add-ons by %(author)s"
-msgstr "Extensões por %(author)s"
+msgstr "Extensões de %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:328
 msgid "Add-ons by these developers"
@@ -641,7 +641,7 @@ msgstr "URL personalizada"
 
 #: src/amo/components/CollectionSort/index.js:104
 msgid "Sort add-ons by"
-msgstr "Organizar as extensões por"
+msgstr "Ordenar extensões por"
 
 #: src/amo/components/CollectionSort/index.js:80
 msgid "Newest first"
@@ -713,7 +713,7 @@ msgstr "Os autores desta extensão pedem que você ajude a apoiar o seu trabalho
 
 #: src/amo/components/EditableCollectionAddon/index.js:133 src/amo/components/EditableCollectionAddon/index.js:151
 msgid "Leave a note"
-msgstr "Deixar um recado"
+msgstr "Deixar uma nota"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143 src/core/components/AMInstallButton/index.js:205
 msgid "Remove"
@@ -721,7 +721,7 @@ msgstr "Remover"
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
 msgid "Collector's note"
-msgstr "Nome do colecionador"
+msgstr "Nota do colecionador"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
@@ -821,7 +821,7 @@ msgstr "Sinalizar"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
-msgstr "Sinalize essa resposta do desenvolvedor"
+msgstr "Sinalizar essa resposta do desenvolvedor"
 
 #: src/amo/components/FlagReviewMenu/index.js:124
 msgid "Flag this review"
@@ -913,7 +913,7 @@ msgstr "Central do desenvolvedor"
 
 #: src/amo/components/Footer/index.js:81
 msgid "Developer Policies"
-msgstr "Políticas para desenvolvedor"
+msgstr "Diretivas do desenvolvedor"
 
 #: src/amo/components/Footer/index.js:86
 msgid "Forum"
@@ -929,7 +929,7 @@ msgstr "Guia de análise"
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
-msgstr "Apenas no Firefox—Instale o Firefox agora"
+msgstr "Apenas no Firefox — Instale o Firefox agora"
 
 #: src/amo/components/GetFirefoxButton/index.js:74
 msgid "Download Firefox"
@@ -965,11 +965,11 @@ msgstr "Extensões do Navegador Firefox"
 
 #: src/amo/components/Header/index.js:205
 msgid "Learn how to create extensions and themes"
-msgstr "Saiba como criar extensões e senhas"
+msgstr "Saiba como criar extensões e temas"
 
 #: src/amo/components/Header/index.js:215
 msgid "Submit and manage extensions and themes"
-msgstr "Enviar e gerenciar extensões e temas"
+msgstr "Envie e gerencie extensões e temas"
 
 #: src/amo/components/Header/index.js:71
 msgid "My Account"
@@ -1240,15 +1240,15 @@ msgstr "Denunciar este usuário por abuso"
 
 #: src/amo/components/ReportUserAbuse/index.js:113
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr "Se você acha que este usuário está violando as %(linkTagStart)spolíticas de extensão da Mozilla%(linkTagEnd)s, por favor, denuncie-o à Mozilla."
+msgstr "Se você acha que este usuário está violando as %(linkTagStart)sdiretrizes de extensões da Mozilla%(linkTagEnd)s, denuncie à Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:129
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Não use este formulário para denunciar erros ou entrar em contato com este usuário; este formulário será enviado apenas para a Mozilla e não para este usuário."
+msgstr "Não use este formulário para relatar erros ou entrar em contato com este usuário; seu relato será enviado apenas para a Mozilla e não para este usuário."
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
-msgstr "Explique como este usuário está violando nossas políticas."
+msgstr "Explique como este usuário está violando nossas diretrizes."
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "You reported this user for abuse"
