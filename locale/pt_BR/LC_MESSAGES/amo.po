@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:32+0000\n"
-"PO-Revision-Date: 2020-05-10 05:15+0000\n"
+"PO-Revision-Date: 2020-05-10 06:06+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -721,7 +721,7 @@ msgstr "Remover"
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
 msgid "Collector's note"
-msgstr "Nota do colecionador"
+msgstr "Nota do dono da coleção"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
