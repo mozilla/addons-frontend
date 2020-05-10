@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:32+0000\n"
-"PO-Revision-Date: 2019-07-23 22:49+0000\n"
+"PO-Revision-Date: 2020-05-10 04:11+0000\n"
 "Last-Translator: Marcelo Ghelman <marcelo.ghelman@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -256,7 +256,7 @@ msgstr "Contrato de licença de usuário final"
 
 #: src/amo/components/AddonMoreInfo/index.js:272
 msgid "Version History"
-msgstr "Histórico de versão"
+msgstr "Histórico de versões"
 
 #: src/amo/components/AddonMoreInfo/index.js:282
 msgid "Usage Statistics"
@@ -433,7 +433,7 @@ msgstr "Mais dicionários destes tradutores"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:254
 msgid "Dictionaries by %(author)s"
-msgstr "Dicionários por %(author)s"
+msgstr "Dicionários de %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:257
 msgid "Dictionaries by these translators"
@@ -449,7 +449,7 @@ msgstr "Mais extensões destes desenvolvedores"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:271
 msgid "Extensions by %(author)s"
-msgstr "Extensões por %(author)s"
+msgstr "Extensões de %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:274
 msgid "Extensions by these developers"
@@ -465,7 +465,7 @@ msgstr "Mais pacotes de idioma destes tradutores"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:291
 msgid "Language packs by %(author)s"
-msgstr "Pacotes de idioma por %(author)s"
+msgstr "Pacotes de idioma de %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:294
 msgid "Language packs by these translators"
@@ -481,7 +481,7 @@ msgstr "Mais temas destes artistas"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:308
 msgid "Themes by %(author)s"
-msgstr "Temas por %(author)s"
+msgstr "Temas de %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:311
 msgid "Themes by these artists"
