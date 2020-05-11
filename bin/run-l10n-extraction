@@ -10,7 +10,7 @@ set -u
 INITIAL_GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 GIT_CHANGES=$(git status --porcelain)
 DIFF_WITH_ONE_LINE_CHANGE="1 file changed, 1 insertion(+), 1 deletion(-)"
-GIT_REMOTE="git@github.com:mozilla/addons-frontend.git"
+GIT_REMOTE="${GIT_REMOTE:-git@github.com:mozilla/addons-frontend.git}"
 
 info() {
   local message="$1"
