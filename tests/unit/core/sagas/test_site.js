@@ -1,4 +1,5 @@
 import SagaTester from 'redux-saga-tester';
+import { END } from 'redux-saga';
 
 import * as api from 'core/api/site';
 import apiReducer from 'core/reducers/api';
@@ -47,20 +48,16 @@ describe(__filename, () => {
       mockApi.verify();
     });
 
-    it('allows exceptions to be thrown', () => {
-      const expectedError = new Error('this error should be thrown');
-      mockApi.expects('getSiteStatus').returns(Promise.reject(expectedError));
+    it('ignores exceptions', () => {
+      const apiError = new Error('this error should be ignored');
+      mockApi.expects('getSiteStatus').returns(Promise.reject(apiError));
 
       sagaTester.dispatch(fetchSiteStatus());
+      sagaTester.dispatch(END); // stop the saga.
 
-      return rootTask.done
-        .then(() => {
-          throw new Error('unexpected success');
-        })
-        .catch((error) => {
-          mockApi.verify();
-          expect(error).toBe(expectedError);
-        });
+      return rootTask.done.then(() => {
+        mockApi.verify();
+      });
     });
   });
 });

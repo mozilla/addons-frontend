@@ -339,6 +339,24 @@ describe(__filename, () => {
       mockUsersApi.verify();
     });
 
+    it('gracefully handles site status API errors', async () => {
+      mockSiteApi
+        .expects('getSiteStatus')
+        .once()
+        .rejects(new Error('Oh no, an API error'));
+
+      function* appSagas() {
+        yield all([fork(usersSaga), fork(siteSaga)]);
+      }
+
+      const response = await testClient({ appSagas })
+        .get('/en-US/firefox/')
+        .end();
+
+      expect(response.statusCode).toEqual(200);
+      mockSiteApi.verify();
+    });
+
     it('returns a 500 error page when retrieving the user profile fails', async () => {
       mockUsersApi
         .expects('currentUserAccount')
