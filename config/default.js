@@ -123,7 +123,7 @@ module.exports = {
     'cookieSecure',
     'defaultLang',
     'dismissedExperienceSurveyCookieName',
-    'enableBlockPage',
+    'enableFeatureBlockPage',
     'enableDevTools',
     'enableFeatureDiscoTaar',
     'enableFeatureExperienceSurvey',
@@ -370,14 +370,12 @@ module.exports = {
 
 
   // Feature flags.
-  //
+  // Please use the `enableFeature` prefix, see:
+  // https://github.com/mozilla/addons-frontend/issues/6362.
 
   enableFeatureDiscoTaar: false,
 
-  enableBlockPage: false,
-
-  // Please use the `enableFeature` prefix, see:
-  // https://github.com/mozilla/addons-frontend/issues/6362.
+  enableFeatureBlockPage: false,
 
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',

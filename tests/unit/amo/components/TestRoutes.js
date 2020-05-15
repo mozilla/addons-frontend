@@ -63,14 +63,14 @@ describe(__filename, () => {
     const path = '/:lang/:application/blocked-addon/:guid/:versionId?/';
 
     it('declares a route for the new Block page if feature is enabled', () => {
-      const _config = getFakeConfig({ enableBlockPage: true });
+      const _config = getFakeConfig({ enableFeatureBlockPage: true });
       const root = render({ _config });
 
       expect(root.find({ path })).toHaveLength(1);
     });
 
     it('does not declare a route for the new Block page if feature is disabled', () => {
-      const _config = getFakeConfig({ enableBlockPage: false });
+      const _config = getFakeConfig({ enableFeatureBlockPage: false });
       const root = render({ _config });
 
       expect(root.find({ path })).toHaveLength(0);

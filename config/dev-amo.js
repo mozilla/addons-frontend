@@ -32,5 +32,5 @@ module.exports = {
 
   extensionWorkshopUrl: 'https://extensionworkshop-dev.allizom.org',
 
-  enableBlockPage: true,
+  enableFeatureBlockPage: true,
 };
