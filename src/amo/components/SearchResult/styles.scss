@@ -21,8 +21,8 @@ $icon-default-size: 32px;
   // This margin gives the recommended badge some space.
   @include margin-end(8px);
 
+  overflow-wrap: anywhere;
   text-decoration: none;
-  word-wrap: anywhere;
 
   &,
   &:active,
@@ -130,7 +130,6 @@ $icon-default-size: 32px;
   padding: 0;
   text-decoration: none;
   width: 100%;
-  word-wrap: break-word;
 
   .RecommendedBadge {
     justify-content: flex-start;
@@ -163,7 +162,6 @@ $icon-default-size: 32px;
     margin: 0;
     max-width: 465px;
     width: 100%;
-    word-wrap: break-word;
   }
 }
 

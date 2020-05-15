@@ -126,8 +126,8 @@ $addon-padding: 20px;
 
     .copy {
       flex-grow: 1;
+      overflow-wrap: break-word;
       padding: 20px 20px 15px;
-      word-wrap: break-word;
 
       // Remove the bottom margin of the last element.
       & :last-child {

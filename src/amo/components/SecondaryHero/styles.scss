@@ -43,6 +43,8 @@
   font-size: $font-size-hero-message-headline;
   line-height: 1.333;
   margin: 0;
+  // TODO: maybe remove the rule below, see:
+  // https://github.com/mozilla/addons-frontend/issues/9423
   overflow-wrap: anywhere;
 
   .LoadingText {
@@ -51,6 +53,8 @@
 }
 
 .SecondaryHero-message-description {
+  // TODO: maybe remove the rule below, see:
+  // https://github.com/mozilla/addons-frontend/issues/9423
   overflow-wrap: anywhere;
   padding: $padding-page 0;
 
@@ -109,6 +113,8 @@
 .SecondaryHero-message-link,
 .SecondaryHero-module-description,
 .SecondaryHero-module-link {
+  // TODO: maybe remove the rule below, see:
+  // https://github.com/mozilla/addons-frontend/issues/9423
   overflow-wrap: anywhere;
   width: 100%;
 

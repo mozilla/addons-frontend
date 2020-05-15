@@ -25,7 +25,6 @@
   max-height: 150px;
   overflow: hidden;
   position: relative;
-  word-wrap: break-word;
 
   .ShowMoreCard--expanded & {
     &::after {
