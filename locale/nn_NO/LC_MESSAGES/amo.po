@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-12 20:13+0000\n"
-"PO-Revision-Date: 2020-05-17 22:41+0000\n"
+"PO-Revision-Date: 2020-05-19 19:09+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1026,9 +1026,8 @@ msgid "Learn more"
 msgstr "Les meir"
 
 #: src/amo/components/InstallWarning/index.js:85
-#, fuzzy
 msgid "This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing."
-msgstr "Dette er ikkje ei tilrådd utviding. Sjå til at du stolar på henne før du installerer."
+msgstr "Denna er ikkje tryggingsovervaka av Mozillas tilrådde program for utvidingar. Pass på at du stolar på henne før du installerer."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1579,9 +1578,8 @@ msgid "This add-on is not compatible with this browser. Try installing it on Fir
 msgstr "Dette tillegget er ikkje kompatibelt med denne nettlesaren. Prøv å installere det på Firefox for datamaskiner."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
-#, fuzzy
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr "For å finne tillegg som er kompatible med Firefox for Android, <a href=\"%(newLocation)s\">gå til nettsida vår for vår mobilar</a>."
+msgstr "For å lære om tillegg som er kompatible med Firefox for Android, <a href=\"%(newLocation)s\">klikk her</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:94
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."
