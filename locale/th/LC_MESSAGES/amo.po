@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-05-12 20:13+0000\n"
+"POT-Creation-Date: 2020-05-19 18:21+0000\n"
 "PO-Revision-Date: 2020-04-10 17:48+0000\n"
 "Last-Translator: aefgh39622@gmail.com <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -888,12 +888,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "ตั้งค่าสถานะว่าเป็นการรายงานข้อบกพร่องหรือขอความช่วยเหลือ"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "ตั้งค่าสถานะ"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "ตั้งค่าสถานะแล้ว"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "ตั้งค่าสถานะ"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"

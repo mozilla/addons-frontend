@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-05-12 20:13+0000\n"
+"POT-Creation-Date: 2020-05-19 18:21+0000\n"
 "PO-Revision-Date: 2020-04-22 13:04+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -898,12 +898,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "已標示為臭蟲回報或技術支援請求"
 
 #: src/amo/components/FlagReviewMenu/index.js:120
-msgid "Flag"
-msgstr "標示"
-
-#: src/amo/components/FlagReviewMenu/index.js:120
 msgid "Flagged"
 msgstr "已標示"
+
+#: src/amo/components/FlagReviewMenu/index.js:120
+msgid "Flag"
+msgstr "標示"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
 msgid "Flag this developer response"
