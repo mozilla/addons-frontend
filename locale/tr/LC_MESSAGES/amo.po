@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-12 20:13+0000\n"
-"PO-Revision-Date: 2020-05-14 14:01+0000\n"
+"PO-Revision-Date: 2020-05-20 11:40+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -72,9 +72,8 @@ msgid "Admin add-on status"
 msgstr "Yönetici eklentisi durumu"
 
 #: src/amo/components/AddonAuthorLinks/index.js:57
-#, fuzzy
 msgid "Author Links"
-msgstr "Eklenti bağlantıları"
+msgstr "Yazar bağlantıları"
 
 #: src/amo/components/AddonBadges/index.js:47
 msgid "Restart Required"
@@ -365,9 +364,8 @@ msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
 msgstr "gönderilme: %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:360
-#, fuzzy
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "yazan: %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
+msgstr "yazan: %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:363
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
@@ -754,6 +752,8 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
+"Tema veya eklenti ileride yeniden kullanılabilir hale gelebileceğinden, sayfayı daha sonra ziyaret etmeyi deneyebilirsiniz. Alternatif olarak, mevcut %(extensionStart)seklentilerden%(extensionEnd)s "
+"veya %(themeStart)stemalardan%(themeEnd)s birisi de ihtiyacınız karşılayabilir veya %(communityStart)stopluluk forumlarımızdan%(communityEnd)s yardım isteyebilirsiniz."
 
 #: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
@@ -864,9 +864,8 @@ msgid "Site Status"
 msgstr "Site durumu"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browsers"
-msgstr "Tarayıcı"
+msgstr "Tarayıcılar"
 
 #: src/amo/components/Footer/index.js:169
 msgid "Products"
@@ -1026,9 +1025,8 @@ msgid "Learn more"
 msgstr "Daha fazla bilgi al"
 
 #: src/amo/components/InstallWarning/index.js:85
-#, fuzzy
 msgid "This is not monitored for security through Mozilla's Recommended Extensions program. Make sure you trust it before installing."
-msgstr "Bu önerilen bir eklenti değil. Yalnızca güvendiğiniz eklentileri yüklemenizi öneririz."
+msgstr "Bu eklentinin güvenliği Mozilla’nın Önerilen Eklentiler programı tarafından izlenmemektedir. Yalnızca güvendiğiniz eklentileri yüklemenizi öneririz."
 
 #: src/amo/components/LanguagePicker/index.js:52
 msgid "Change language"
@@ -1449,14 +1447,12 @@ msgid "Recommended add-ons only"
 msgstr "Yalnızca önerilen eklentiler"
 
 #: src/amo/components/SearchForm/index.js:57
-#, fuzzy
 msgid "Firefox Add-ons for Android"
-msgstr "Android eklentileri"
+msgstr "Android için Firefox Eklentileri"
 
 #: src/amo/components/SearchForm/index.js:58
-#, fuzzy
 msgid "Firefox Add-ons"
-msgstr "Firefox Eklentileri Hakkında"
+msgstr "Firefox Eklentileri"
 
 #: src/amo/components/SearchForm/index.js:81
 msgid "Go to the add-on page"
@@ -1631,9 +1627,8 @@ msgid "About this add-on"
 msgstr "Bu eklenti hakkında"
 
 #: src/amo/pages/Addon/index.js:316
-#, fuzzy
 msgid "Developer comments"
-msgstr "Geliştirici Politikaları"
+msgstr "Geliştirici yorumları"
 
 #: src/amo/pages/Addon/index.js:339
 msgid "Release notes for %(addonVersion)s"
@@ -1657,7 +1652,7 @@ msgstr "Bu eklenti bu platform için tasarlanmamıştır. <a href=\"%(newLocatio
 
 #: src/amo/pages/Addon/index.js:513
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+msgstr "Android için Firefox'ta kullanılamaz. Bu eklentiyi Firefox'un bilgisayar sürümünde kullanabilirsiniz. <a href=\"%(newLocation)s\">Android eklentileri</a> hakkında bilgi alın."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Screenshots"
@@ -1740,9 +1735,8 @@ msgid "Older versions"
 msgstr "Eski sürümler"
 
 #: src/amo/pages/Block/index.js:115
-#, fuzzy
 msgid "Versions blocked: all versions."
-msgstr "Tüm sürümleri göster"
+msgstr "Engellenen sürümler: tüm sürümler."
 
 #: src/amo/pages/Block/index.js:118
 msgid "Versions blocked: %(min)s to %(max)s."
@@ -1753,9 +1747,8 @@ msgid "%(addonName)s has been blocked for your protection."
 msgstr "%(addonName)s güvenliğiniz için engellendi."
 
 #: src/amo/pages/Block/index.js:145
-#, fuzzy
 msgid "This add-on has been blocked for your protection."
-msgstr "Bu eklenti geliştiricisi tarafından kaldırılmıştır."
+msgstr "Güvenliğiniz için bu eklenti engellenmiştir."
 
 #: src/amo/pages/Block/index.js:156
 msgid "Why was it blocked?"
@@ -1981,7 +1974,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:294
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "Eklentiler; video izleme, resimleri ve müzikleri yönetme deneyiminizi farklı şekillerde geliştirilebilir."
 
 #: src/amo/pages/Guides/index.js:80
 msgid "Create and manage strong passwords"
@@ -2696,9 +2689,8 @@ msgid "Enabling"
 msgstr "Etkinleştiriliyor"
 
 #: src/core/components/AMInstallButton/index.js:209
-#, fuzzy
 msgid "Disabling"
-msgstr "Etkinleştiriliyor"
+msgstr "Devre dışı bırakılıyor"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
