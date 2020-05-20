@@ -26,6 +26,8 @@ The easiest way to manage multiple node versions in development is to use [nvm](
 
 ## Get started
 
+If you are on Windows, please make sure to follow [windows guidelines](docs/windows.md#windows) too.
+
 - type `yarn` to install all dependencies
 - type `yarn amo:stage` to start a local server that connects to a hosted staging server
 
