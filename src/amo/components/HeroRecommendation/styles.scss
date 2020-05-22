@@ -107,9 +107,6 @@
   font-size: $font-size-l;
   line-height: 1.188;
   margin: 14px 0 0 0;
-  // TODO: maybe remove the rule below, see:
-  // https://github.com/mozilla/addons-frontend/issues/9423
-  overflow-wrap: anywhere;
 
   @include respond-to(extraExtraLarge) {
     font-size: $font-size-hero-heading;

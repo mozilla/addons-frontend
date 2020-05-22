@@ -31,7 +31,9 @@ textarea {
 *::before,
 *::after {
   box-sizing: inherit;
-  overflow-wrap: break-word;
+  // We use `anywhere` instead of `break-word` so that it works even when the
+  // container does not have a well-defined width.
+  overflow-wrap: anywhere;
 }
 
 body {
