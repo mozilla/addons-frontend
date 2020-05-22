@@ -21,7 +21,6 @@ $icon-default-size: 32px;
   // This margin gives the recommended badge some space.
   @include margin-end(8px);
 
-  overflow-wrap: anywhere;
   text-decoration: none;
 
   &,
