@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-24 12:41+0000\n"
-"Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
+"PO-Revision-Date: 2020-05-24 19:59+0000\n"
+"Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
 "MIME-Version: 1.0\n"
@@ -500,7 +500,7 @@ msgstr "Fleire utvidingar av desse utviklarane"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:325
 msgid "Add-ons by %(author)s"
-msgstr "Utvidingar av %(author)s"
+msgstr "Tillegg av %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:328
 msgid "Add-ons by these developers"
@@ -1241,7 +1241,7 @@ msgstr "Rapporter brukar for misbruk"
 
 #: src/amo/components/ReportUserAbuse/index.js:113
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr "Viss du meiner at denne utvidinga bryt med %(linkTagStart)sMozillas retningslinjer for utvidingar%(linkTagEnd)s, oppmodar vi deg til å rapportere problemet til Mozilla."
+msgstr "Dersom du meiner at denne personen bryt med %(linkTagStart)sMozillas retningslinjer for utvidingar%(linkTagEnd)s, ober vi deg om å rapportere problemet til Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:129
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
