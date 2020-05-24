@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-24 12:16+0000\n"
+"PO-Revision-Date: 2020-05-24 12:33+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -435,9 +435,8 @@ msgid "Saved"
 msgstr "Lagret"
 
 #: src/amo/components/AddonReviewManager/index.js:89
-#, fuzzy
 msgid "Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Fortell verden hvorfor du synes denne utvidelsen er fantastisk!"
+msgstr "Følg %(linkStart)sretningslinjene våre for vurderinger%(linkEnd)s."
 
 #: src/amo/components/AddonReviewManagerRating/index.js:35
 msgid "Your star rating:"
@@ -452,14 +451,12 @@ msgid "More dictionaries by these translators"
 msgstr "Flere ordbøker av disse oversetterne"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:254
-#, fuzzy
 msgid "Dictionaries by %(author)s"
-msgstr "Flere ordbøker av %(author)s"
+msgstr "Ordbøker av %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:257
-#, fuzzy
 msgid "Dictionaries by these translators"
-msgstr "Flere ordbøker av disse oversetterne"
+msgstr "Ordbøker av disse oversetterne"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:264
 msgid "More extensions by %(author)s"
@@ -470,14 +467,12 @@ msgid "More extensions by these developers"
 msgstr "Flere utvidelser av disse utviklerne"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:271
-#, fuzzy
 msgid "Extensions by %(author)s"
-msgstr "Flere utvidelser av %(author)s"
+msgstr "Utvidelser av %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:274
-#, fuzzy
 msgid "Extensions by these developers"
-msgstr "Flere utvidelser av disse utviklerne"
+msgstr "Utvidelser av disse utviklerne"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:282
 msgid "More language packs by %(author)s"
@@ -488,14 +483,12 @@ msgid "More language packs by these translators"
 msgstr "Flere språkpakker av disse oversetterne"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:291
-#, fuzzy
 msgid "Language packs by %(author)s"
-msgstr "Flere språkpakker av %(author)s"
+msgstr "Språkpakker av %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:294
-#, fuzzy
 msgid "Language packs by these translators"
-msgstr "Flere språkpakker av disse oversetterne"
+msgstr "Språkpakker av disse oversetterne"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:301
 msgid "More themes by %(author)s"
@@ -506,14 +499,12 @@ msgid "More themes by these artists"
 msgstr "Flere temaer av disse artistene"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:308
-#, fuzzy
 msgid "Themes by %(author)s"
-msgstr "Flere temaer av %(author)s"
+msgstr "Temaer av %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:311
-#, fuzzy
 msgid "Themes by these artists"
-msgstr "Flere temaer av disse artistene"
+msgstr "Temaer av disse artistene"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:318
 msgid "More add-ons by %(author)s"
@@ -524,14 +515,12 @@ msgid "More add-ons by these developers"
 msgstr "Flere utvidelser fra disse utviklerne"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:325
-#, fuzzy
 msgid "Add-ons by %(author)s"
-msgstr "Flere utvidelser %(author)s"
+msgstr "Tillegg av %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:328
-#, fuzzy
 msgid "Add-ons by these developers"
-msgstr "Flere utvidelser fra disse utviklerne"
+msgstr "Tillegg fra disse utviklerne"
 
 #: src/amo/components/AddonSummaryCard/index.js:48
 msgid "Add-on icon"
@@ -627,33 +616,28 @@ msgid "Loading categories."
 msgstr "Laster kategorier."
 
 #: src/amo/components/CollectionAddAddon/index.js:159
-#, fuzzy
 msgid "Added to collection"
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Lagt til i samling"
 
 #: src/amo/components/CollectionAddAddon/index.js:160
-#, fuzzy
 msgid "Removed from collection"
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Fjernet fra samling"
 
 #: src/amo/components/CollectionAddAddon/index.js:169
 msgid "Find an add-on to include in this collection"
 msgstr "Finn en utvidelse å inkludere i denne samlingen"
 
 #: src/amo/components/CollectionDetails/index.js:103
-#, fuzzy
 msgid "Edit this collection"
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Rediger denne samlingen"
 
 #: src/amo/components/CollectionDetails/index.js:114
-#, fuzzy
 msgid "Edit collection details"
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Rediger detaljer for samling"
 
 #: src/amo/components/CollectionDetails/index.js:126
-#, fuzzy
 msgid "Back to collection"
-msgstr "Legg til i samling"
+msgstr "Tilbake til samling"
 
 #: src/amo/components/CollectionDetails/index.js:79 src/amo/components/Footer/index.js:48
 msgid "Add-ons"
@@ -664,9 +648,8 @@ msgid "Creator"
 msgstr "Laget av"
 
 #: src/amo/components/CollectionManager/index.js:240
-#, fuzzy
 msgid "Create collection"
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Lag en samling"
 
 #: src/amo/components/CollectionManager/index.js:241
 msgid "Save changes"
@@ -685,9 +668,8 @@ msgid "Custom URL"
 msgstr "Tilpasset URL"
 
 #: src/amo/components/CollectionSort/index.js:104
-#, fuzzy
 msgid "Sort add-ons by"
-msgstr "Høyest vurderte utvidelser"
+msgstr "Sorter tillegg etter"
 
 #: src/amo/components/CollectionSort/index.js:80
 msgid "Newest first"
@@ -702,23 +684,20 @@ msgid "Name"
 msgstr "Navn"
 
 #: src/amo/components/CollectionSort/index.js:92
-#, fuzzy
 msgid "Popularity"
-msgstr "Mest populære tema"
+msgstr "Popularitet"
 
 #: src/amo/components/ContributeCard/index.js:108
 msgid "Contribute now"
 msgstr "Bidra nå"
 
 #: src/amo/components/ContributeCard/index.js:45
-#, fuzzy
 msgid "Support this developer"
-msgstr "Utvikler-knutepunkt"
+msgstr "Støtt denne utvikleren"
 
 #: src/amo/components/ContributeCard/index.js:46
-#, fuzzy
 msgid "Support these developers"
-msgstr "Flere utvidelser fra disse utviklerne"
+msgstr "Støtt disse utviklerne"
 
 #: src/amo/components/ContributeCard/index.js:50
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -729,14 +708,12 @@ msgid "The developers of this extension ask that you help support its continued 
 msgstr "Utviklerene av denne utvidelsen spør om du kan hjelpe til med å støtte den videre utviklingen ved å gi et lite bidrag."
 
 #: src/amo/components/ContributeCard/index.js:59
-#, fuzzy
 msgid "Support this artist"
-msgstr "Brukerstøtteside"
+msgstr "Støtt denne artisten"
 
 #: src/amo/components/ContributeCard/index.js:60
-#, fuzzy
 msgid "Support these artists"
-msgstr "Flere temaer av disse artistene"
+msgstr "Støtt disse artistene"
 
 #: src/amo/components/ContributeCard/index.js:64
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
@@ -747,14 +724,12 @@ msgid "The artists of this theme ask that you help support its continued creatio
 msgstr "Artistene bak dette temaet spør om du kan hjelpe til med å støtte en videreutvikling av temaet ved å gi et lite bidrag."
 
 #: src/amo/components/ContributeCard/index.js:73
-#, fuzzy
 msgid "Support this author"
-msgstr "Brukerstøtteside"
+msgstr "Støtt denne utvikleren"
 
 #: src/amo/components/ContributeCard/index.js:74
-#, fuzzy
 msgid "Support these authors"
-msgstr "Flere temaer av %(author)s"
+msgstr "Støtt disse utviklerne"
 
 #: src/amo/components/ContributeCard/index.js:78
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
@@ -765,9 +740,8 @@ msgid "The authors of this add-on ask that you help support its continued work b
 msgstr "Utviklerene av denne utvidelsen spør om du kan hjelpe til med å støtte en videreutvikling ved å gi et lite bidrag."
 
 #: src/amo/components/EditableCollectionAddon/index.js:133 src/amo/components/EditableCollectionAddon/index.js:151
-#, fuzzy
 msgid "Leave a note"
-msgstr "Juridiske merknader"
+msgstr "Legg igjen en kommentar"
 
 #: src/amo/components/EditableCollectionAddon/index.js:143 src/core/components/AMInstallButton/index.js:205
 msgid "Remove"
@@ -779,9 +753,8 @@ msgid "Collector's note"
 msgstr "Samlingsnavn"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
-#, fuzzy
 msgid "Add a comment about this add-on."
-msgstr "Om denne %(addonType)s"
+msgstr "Legg igjen en kommentar om dette tillegget."
 
 #: src/amo/components/EditableCollectionAddon/index.js:168
 msgid "Save"
@@ -858,7 +831,7 @@ msgstr "Vurderinger for %(addonName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
-msgstr ""
+msgstr "Fant ikke vurderingen."
 
 #: src/amo/components/FlagReviewMenu/index.js:103
 msgid "This is a bug report or support request"
@@ -877,14 +850,12 @@ msgid "Flag"
 msgstr "Flagg"
 
 #: src/amo/components/FlagReviewMenu/index.js:123
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "Utvikler-knutepunkt"
+msgstr "Rapporter dette svaret fra utvikleren"
 
 #: src/amo/components/FlagReviewMenu/index.js:124
-#, fuzzy
 msgid "Flag this review"
-msgstr "Trykk for en forhåndsvisning"
+msgstr "Rapporter denne vurderingen"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
 #, fuzzy
