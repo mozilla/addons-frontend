@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-24 12:43+0000\n"
+"PO-Revision-Date: 2020-05-24 12:50+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1614,14 +1614,12 @@ msgid "Delete This Picture"
 msgstr "Slett dette bildet"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "Søker etter «%(query)s»"
+msgstr "Profilbilde for %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:68
-#, fuzzy
 msgid "Profile photo"
-msgstr "Vis profil"
+msgstr "Profilbilde"
 
 #: src/amo/components/UserProfileEditPicture/index.js:97
 msgid "Choose Photo…"
@@ -1741,7 +1739,7 @@ msgstr "Vurderinger for %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
-msgstr ""
+msgstr "Vurderinger og rangeringer for %(addonName)s. Finn ut hva andre brukere tenker om %(addonName)s og legg det til i Firefox-nettleseren din."
 
 #: src/amo/pages/AddonReviewList/index.js:231
 #, fuzzy
@@ -1792,16 +1790,16 @@ msgstr "Skriv en omtale"
 #: src/amo/pages/AddonVersions/index.js:128
 msgid "%(addonName)s version history - %(total)s version"
 msgid_plural "%(addonName)s version history - %(total)s versions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(addonName)s versjonshistorikk - %(total)s versjon"
+msgstr[1] "%(addonName)s versjonshistorikk - %(total)s versjoner"
 
 #: src/amo/pages/AddonVersions/index.js:176
 msgid "Be careful with old versions! These versions are displayed for testing and reference purposes."
-msgstr ""
+msgstr "Vær forsiktig med eldre versjoner! Disse versjonene er vist som referanse og til testformål."
 
 #: src/amo/pages/AddonVersions/index.js:181
 msgid "You should always use the latest version of an add-on."
-msgstr ""
+msgstr "Du burde alltid bruke den siste versjonen av et tillegg."
 
 #: src/amo/pages/AddonVersions/index.js:190
 #, fuzzy
@@ -1872,69 +1870,60 @@ msgid "All theme categories"
 msgstr "Utforsk alle kategorier"
 
 #: src/amo/pages/Collection/index.js:392
-#, fuzzy
 msgid "Do you really want to delete this collection?"
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Vil du virkelig slette denne samlingen?"
 
 #: src/amo/pages/Collection/index.js:395
-#, fuzzy
 msgid "Delete this collection"
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Slett denne samlingen"
 
 #: src/amo/pages/Collection/index.js:414
-#, fuzzy
 msgid "Log in to create a collection"
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Logg inn for å lage en samling"
 
 #: src/amo/pages/Collection/index.js:415
-#, fuzzy
 msgid "Log in to edit this collection"
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Logg inn for å redigere denne samlingen"
 
 #: src/amo/pages/Collection/index.js:448
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
+msgstr "Lag først samlingen din. Deretter kan du legge til utvidelser og tema."
 
 #: src/amo/pages/Collection/index.js:451
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "Søk etter utvidelser og temaer som du kan legge til i samlingen din."
 
 #: src/amo/pages/Collection/index.js:513
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s—%(collectionDescription)s."
-msgstr ""
+msgstr "Last ned og opprett samlinger for Firefox, og hold styr på dine favorittutvidelser og -tema. Utforsk %(collectionName)s—%(collectionDescription)s."
 
 #: src/amo/pages/Collection/index.js:516
 msgid "Download and create Firefox collections to keep track of favorite extensions and themes. Explore the %(collectionName)s."
-msgstr ""
+msgstr "Last ned og opprett samlinger for Firefox, og hold styr på dine favorittutvidelser og -tema. Utforsk %(collectionName)s."
 
 #: src/amo/pages/CollectionList/index.js:114
-#, fuzzy
 msgid "Collections"
-msgstr "Samlingsnavn"
+msgstr "Samlinger"
 
 #: src/amo/pages/CollectionList/index.js:119
-#, fuzzy
 msgid "Log in to view your collections"
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Logg inn for å se dine samlinger"
 
 #: src/amo/pages/CollectionList/index.js:124
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
 msgstr ""
 
 #: src/amo/pages/CollectionList/index.js:134
-#, fuzzy
 msgid "Create a collection"
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Lag en samling"
 
 #: src/amo/pages/CollectionList/index.js:62
-#, fuzzy
 msgid "You do not have any collections."
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Du har ingen samlinger."
 
 #: src/amo/pages/CollectionList/index.js:96
-#, fuzzy
 msgid "My collections"
-msgstr "Vis mine samlinger"
+msgstr "Mine samlinger"
 
 #: src/amo/pages/Guides/index.js:105
 msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousands of content filters without chewing up a bunch of memory."
