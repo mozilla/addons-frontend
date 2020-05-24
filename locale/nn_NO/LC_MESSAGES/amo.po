@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-24 19:59+0000\n"
+"PO-Revision-Date: 2020-05-24 20:06+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -492,7 +492,7 @@ msgstr "Tema av desse kunstnarane"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:318
 msgid "More add-ons by %(author)s"
-msgstr "Fleire utvidingar av %(author)s"
+msgstr "Fleire tillegg av %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:321
 msgid "More add-ons by these developers"
@@ -1249,7 +1249,7 @@ msgstr "Bruk ikkje dette formularet til feilrapportar eller å kontakte denne br
 
 #: src/amo/components/ReportUserAbuse/index.js:141
 msgid "Explain how this user is violating our policies."
-msgstr "Forklar korleis denne utvidinga bryt med retningslinjene våre."
+msgstr "Forklar korleis denne brukaren bryt med retningslinjene våre."
 
 #: src/amo/components/ReportUserAbuse/index.js:153
 msgid "You reported this user for abuse"
