@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-24 13:12+0000\n"
+"PO-Revision-Date: 2020-05-24 13:13+0000\n"
 "Last-Translator: Jordi Serratosa <jordis@softcatala.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -72,9 +72,8 @@ msgid "Admin add-on status"
 msgstr "Estat del complement d'administrador"
 
 #: src/amo/components/AddonAuthorLinks/index.js:57
-#, fuzzy
 msgid "Author Links"
-msgstr "Enllaços del complement"
+msgstr "Enllaços d'autor"
 
 #: src/amo/components/AddonBadges/index.js:47
 msgid "Restart Required"
