@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-24 12:33+0000\n"
+"PO-Revision-Date: 2020-05-24 12:43+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -858,14 +858,12 @@ msgid "Flag this review"
 msgstr "Rapporter denne vurderingen"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "Logg inn for å vurdere denne utvidelsen"
+msgstr "Logg inn for å rapportere dette svaret"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "Logg inn for å vurdere dette temaet"
+msgstr "Logg inn for å rapportere denne vurderingen"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -960,9 +958,8 @@ msgid "Report a bug"
 msgstr "Rapporter en feil"
 
 #: src/amo/components/Footer/index.js:99
-#, fuzzy
 msgid "Review Guide"
-msgstr "Vurderingstekst"
+msgstr "Retningsliner for vurderinger"
 
 #: src/amo/components/GetFirefoxButton/index.js:68
 msgid "Only with Firefox—Get Firefox Now"
@@ -985,9 +982,8 @@ msgid "Manage My Submissions"
 msgstr "Håndter mine bidrag"
 
 #: src/amo/components/Header/index.js:127
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "Ingen vurderinger"
+msgstr "Vurderingsverktøy"
 
 #: src/amo/components/Header/index.js:139 src/core/components/AuthenticateButton/index.js:91
 msgid "This action is currently unavailable. Please reload the page in a moment."
@@ -1020,14 +1016,12 @@ msgid "View My Collections"
 msgstr "Vis mine samlinger"
 
 #: src/amo/components/Header/index.js:85 src/amo/pages/UserProfileEdit/index.js:548
-#, fuzzy
 msgid "View My Profile"
-msgstr "Vis profil"
+msgstr "Vis profilen min"
 
 #: src/amo/components/Header/index.js:93 src/amo/pages/UserProfileEdit/index.js:554
-#, fuzzy
 msgid "Edit My Profile"
-msgstr "Rediger profil"
+msgstr "Rediger profilen min"
 
 #: src/amo/components/Header/index.js:97
 msgid "Tools"
@@ -1079,14 +1073,12 @@ msgid "Change language"
 msgstr "Endre språk"
 
 #: src/amo/components/PermissionsCard/index.js:49
-#, fuzzy
 msgid "Permissions"
-msgstr "Versjon"
+msgstr "Tillatelser"
 
 #: src/amo/components/PermissionsCard/index.js:55
-#, fuzzy
 msgid "This add-on can:"
-msgstr "Om denne %(addonType)s"
+msgstr "Dette tillegget kan:"
 
 #: src/amo/components/PermissionsCard/index.js:66
 msgid "Learn more about permissions"
@@ -1133,9 +1125,8 @@ msgid "Access your location"
 msgstr "Få tilgang til din posisjon"
 
 #: src/amo/components/PermissionsCard/permissions.js:47 src/amo/components/PermissionsCard/permissions.js:61
-#, fuzzy
 msgid "Access browsing history"
-msgstr "Versjonshistorikk"
+msgstr "Tilgang til nettleserhistorikken"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Monitor extension usage and manage themes"
@@ -1218,15 +1209,15 @@ msgstr "Hva synes du om %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:226
 msgid "Saving star rating"
-msgstr ""
+msgstr "Lagrer stjernevurdering"
 
 #: src/amo/components/RatingManager/index.js:227
 msgid "Star rating saved"
-msgstr ""
+msgstr "Stjernevurdering lagret"
 
 #: src/amo/components/RatingsByStar/index.js:95
 msgid "Read all five-star reviews"
-msgstr ""
+msgstr "Les alle vurderinger med fem stjerner"
 
 #: src/amo/components/RatingsByStar/index.js:96
 #, fuzzy
@@ -1235,7 +1226,7 @@ msgstr "Les %(count)s vurdering"
 
 #: src/amo/components/RatingsByStar/index.js:97
 msgid "Read all three-star reviews"
-msgstr ""
+msgstr "Les alle vurderinger med tre stjerner"
 
 #: src/amo/components/RatingsByStar/index.js:98
 #, fuzzy
@@ -1290,36 +1281,28 @@ msgid "Explain how this add-on is violating our policies."
 msgstr "Forklar hvordan denne utvidelsen krenker våre retningslinjer."
 
 #: src/amo/components/ReportUserAbuse/index.js:106 src/amo/components/ReportUserAbuse/index.js:99
-#, fuzzy
 msgid "Report this user for abuse"
-msgstr "Rapporter denne utvidelsen for misbruk"
+msgstr "Rapporter denne brukeren for misbruk"
 
 #: src/amo/components/ReportUserAbuse/index.js:113
-#, fuzzy
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"Hvis du mener at denne utvidelsen krenker %(linkTagStart)sMozilla sine retningslinjer for utvidelser%(linkTagEnd)s, privatlivets fred eller utgjør et sikkerhetsproblem, ber vi deg at du rapporterer "
-"problemene til Mozilla ved hjelp av dette formularet."
+msgstr "Hvis du mener at denne brukeren bryter med %(linkTagStart)sMozilla sine retningslinjer for utvidelser%(linkTagEnd)s, ber vi deg om at du rapporterer denne brukeren til Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:129
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Bruk ikke dette formularet til feilrapporter eller forslag til funksjoner. Denne rapporten vi bli sendt til Mozilla - Ikke til utvikleren som har laget utvidelsen."
+msgstr "Bruk ikke dette formularet til feilrapporter eller for å kontakte brukeren. Denne rapporten vi bli sendt til Mozilla og ikke til denne brukeren."
 
 #: src/amo/components/ReportUserAbuse/index.js:141
-#, fuzzy
 msgid "Explain how this user is violating our policies."
-msgstr "Forklar hvordan denne utvidelsen krenker våre retningslinjer."
+msgstr "Forklar hvordan denne brukeren krenker våre retningslinjer."
 
 #: src/amo/components/ReportUserAbuse/index.js:153
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "Du rapporterte denne utvidelsen for misbruk"
+msgstr "Du rapporterte denne brukeren for misbruk"
 
 #: src/amo/components/ReportUserAbuse/index.js:157
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Vi har mottatt din rapport. Takk fordi du deler dine bekymringer vedrørende denne utvidelsen med oss."
+msgstr "Vi har mottatt din rapport. Takk fordi du deler dine bekymringer vedrørende denne brukeren med oss."
 
 #: src/amo/components/Search/index.js:116 src/amo/components/SearchResults/index.js:68
 msgid "Search results"
@@ -1341,19 +1324,16 @@ msgid "Recommended add-ons"
 msgstr "Finn utvidelser"
 
 #: src/amo/components/Search/index.js:134 src/amo/pages/Home/index.js:348 src/amo/pages/LandingPage/index.js:133
-#, fuzzy
 msgid "Trending extensions"
-msgstr "Høyest vurderte utvidelser"
+msgstr "Populære utvidelser"
 
 #: src/amo/components/Search/index.js:137 src/amo/pages/LandingPage/index.js:165
-#, fuzzy
 msgid "Trending themes"
-msgstr "Høyest vurderte tema"
+msgstr "Populære temaer"
 
 #: src/amo/components/Search/index.js:140
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Laster utvidelser"
+msgstr "Populære tillegg"
 
 #: src/amo/components/Search/index.js:146 src/amo/pages/LandingPage/index.js:143
 msgid "Top rated extensions"
@@ -1364,29 +1344,24 @@ msgid "Top rated themes"
 msgstr "Høyest vurderte tema"
 
 #: src/amo/components/Search/index.js:152
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Høyest vurderte utvidelser"
+msgstr "Høyest vurderte tillegg"
 
 #: src/amo/components/Search/index.js:158 src/amo/pages/Home/index.js:308
-#, fuzzy
 msgid "Popular extensions"
-msgstr "Mest populære utvidelser"
+msgstr "Populære utvidelser"
 
 #: src/amo/components/Search/index.js:161 src/amo/pages/Home/index.js:289
-#, fuzzy
 msgid "Popular themes"
-msgstr "Mest populære tema"
+msgstr "Populære temaer"
 
 #: src/amo/components/Search/index.js:164
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "Laster utvidelser"
+msgstr "Populære tillegg"
 
 #: src/amo/components/Search/index.js:170
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "Søker etter «%(query)s»"
+msgstr "Søkeresultater for «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:105
 #, fuzzy
@@ -1548,9 +1523,8 @@ msgid "No theme preview available"
 msgstr "Ingen temaforhåndsvisning tilgjengelig"
 
 #: src/amo/components/SearchResult/index.js:182
-#, fuzzy
 msgid "Add-on note"
-msgstr "Utvidelses-ikon"
+msgstr "Tilleggsmerknad"
 
 #: src/amo/components/SearchResult/index.js:200
 msgid "%(total)s user"
@@ -1636,9 +1610,8 @@ msgid "Do you really want to delete this picture?"
 msgstr "Vil du virkelig slette dette bildet?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:109
-#, fuzzy
 msgid "Delete This Picture"
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Slett dette bildet"
 
 #: src/amo/components/UserProfileEditPicture/index.js:58
 #, fuzzy
