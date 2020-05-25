@@ -6055,14 +6055,14 @@ eslint-config-airbnb@18.1.0:
     object.assign "^4.1.0"
     object.entries "^1.1.1"
 
-eslint-config-amo@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-amo/-/eslint-config-amo-2.0.0.tgz#0ab65c760cfca9f5af71d2a8e4987d77c9f83d6e"
-  integrity sha512-/3uXfCGO63d+tA/RhwwI2ZIZoZCA1rIG2+yB8vdLKzdR/eKPZnVXxQ43bqMlQ8feH8f7OhlCGQtpoan/jlccTA==
+eslint-config-amo@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-amo/-/eslint-config-amo-3.0.0.tgz#0379da231a07adb7560cd896ceaaa39b9634130b"
+  integrity sha512-EUbArgEMA354Va2J0yOgc8iIriFjQUybrni7YcRX/tjacug2naN2lV/uKlDRq2HizloDPOOF45mSyVrg6pOEEw==
   dependencies:
     eslint-config-airbnb "18.1.0"
     eslint-plugin-import "2.20.2"
-    eslint-plugin-jest "23.11.0"
+    eslint-plugin-jest "23.13.1"
     eslint-plugin-jsx-a11y "6.2.3"
     eslint-plugin-react "7.20.0"
 
@@ -6108,10 +6108,10 @@ eslint-plugin-import@2.20.2:
     read-pkg-up "^2.0.0"
     resolve "^1.12.0"
 
-eslint-plugin-jest@23.11.0:
-  version "23.11.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-23.11.0.tgz#6e01d83ea74c1eefd60811655bbc288bd8ab2e7d"
-  integrity sha512-qedvh6mcMgoLFHjITtG40yKOCu5Fa1GMYesDOclU30ZvtVkf+DaH0fnCn1ysOX/QMdk2SGhQvxvYLowcLaM0GA==
+eslint-plugin-jest@23.13.1:
+  version "23.13.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-23.13.1.tgz#b2ce83f76064ad8ba1f1f26f322b86a86e44148e"
+  integrity sha512-TRLJH6M6EDvGocD98a7yVThrAOCK9WJfo9phuUb0MJptcrOYZeCKzC9aOzZCD93sxXCsiJVZywaTHdI/mAi0FQ==
   dependencies:
     "@typescript-eslint/experimental-utils" "^2.5.0"
 
