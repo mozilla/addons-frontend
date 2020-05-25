@@ -12434,7 +12434,7 @@ raw-loader@^3.1.0:
     loader-utils "^1.1.0"
     schema-utils "^2.0.1"
 
-rc-align@^3.0.0-rc.0:
+rc-align@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/rc-align/-/rc-align-3.0.0.tgz#5b0510aaa12dfef7b8d79877d39e43de5ef831bc"
   integrity sha512-/T/4LOlKJLFe8EwsORuc3pFWOJ8caUpj2vtKIHWea4PhakoleM7KDQsx0n1WDQENIeSfrP9P1FowVxAdvhjsvw==
@@ -12454,21 +12454,21 @@ rc-animate@^3.0.0:
     raf "^3.4.0"
     rc-util "^4.15.3"
 
-rc-tooltip@4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/rc-tooltip/-/rc-tooltip-4.0.3.tgz#728b760863643ec2e85827a2e7fb28d961b3b759"
-  integrity sha512-HNyBh9/fPdds0DXja8JQX0XTIHmZapB3lLzbdn74aNSxXG1KUkt+GK4X1aOTRY5X9mqm4uUKdeFrn7j273H8gw==
+rc-tooltip@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/rc-tooltip/-/rc-tooltip-4.2.0.tgz#614235c94874861b7a473793992956fb666e2ba2"
+  integrity sha512-Ehf7nTQkn+2Y5J1awYIH8RmMTzHEBj+V7VpLLgCjMVMbigJLdW6pcB2XK6oSGUKl9VGzONdWqya+OKHIPd3D1Q==
   dependencies:
-    rc-trigger "^4.0.0"
+    rc-trigger "^4.2.1"
 
-rc-trigger@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/rc-trigger/-/rc-trigger-4.1.0.tgz#6b13a41161716d6353e6324a01055efacb07cf71"
-  integrity sha512-EyQjO6aHDAPRvJeyPmg/yVL/8Bp7oA6Lf+4Ay2OyOwhZLzHHN8m+F2XrVWKpjg04eBXbuGBNiucIqv1d/ddE3w==
+rc-trigger@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/rc-trigger/-/rc-trigger-4.2.1.tgz#e30271c703d3a470fd47e75b7432102c7d0c9449"
+  integrity sha512-iFQ+/FbzDvYDrTS3jXbdk4MgVNU0R/A8UAAQkspXSr4Q6jTcR6p+lfNhSS0JJgJuXtfjoInC0+8jXK8HUShQ0g==
   dependencies:
     classnames "^2.2.6"
     raf "^3.4.1"
-    rc-align "^3.0.0-rc.0"
+    rc-align "^3.0.0"
     rc-animate "^3.0.0"
     rc-util "^4.20.0"
 
