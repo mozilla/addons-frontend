@@ -13,7 +13,6 @@ describe(__filename, () => {
   it('renders an ErrorComponent', () => {
     const root = render();
 
-    expect(root.find(NestedStatus)).toHaveProp('code', 400);
     expect(root.find(Card)).toHaveClassName('Errors');
   });
 
