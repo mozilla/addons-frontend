@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-26 22:33+0000\n"
+"PO-Revision-Date: 2020-05-26 22:41+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -2507,14 +2507,12 @@ msgid "Edit user's profile"
 msgstr "Rediger brukerprofil"
 
 #: src/amo/pages/UserProfileEdit/index.js:573
-#, fuzzy
 msgid "Account"
-msgstr "Min konto"
+msgstr "Konto"
 
 #: src/amo/pages/UserProfileEdit/index.js:574
-#, fuzzy
 msgid "Account for %(userName)s"
-msgstr "%(count)s resultat for \"%(query)s\""
+msgstr "Konto for %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:581
 msgid "Email Address"
@@ -2533,18 +2531,16 @@ msgid "Manage Firefox Accounts…"
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:624
-#, fuzzy
 msgid "Profile"
-msgstr "Vis profil"
+msgstr "Profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:633
 msgid "This field is required"
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:637
-#, fuzzy
 msgid "Display Name *"
-msgstr "Spill spill"
+msgstr "Visningsnavn *"
 
 #: src/amo/pages/UserProfileEdit/index.js:654
 msgid "Reviewer Name"
@@ -2575,14 +2571,12 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:818 src/amo/pages/UserProfileEdit/index.js:907
-#, fuzzy
 msgid "Delete My Profile"
-msgstr "Rediger profil"
+msgstr "Slett profilen min"
 
 #: src/amo/pages/UserProfileEdit/index.js:819 src/amo/pages/UserProfileEdit/index.js:908
-#, fuzzy
 msgid "Delete Profile"
-msgstr "Rediger profil"
+msgstr "Slett profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:831
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
@@ -2680,24 +2674,20 @@ msgid "Enabling"
 msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:209
-#, fuzzy
 msgid "Disabling"
-msgstr "Avinstallerer %(name)s."
+msgstr "Slår av"
 
 #: src/core/components/AMInstallButton/index.js:211
-#, fuzzy
 msgid "Downloading"
-msgstr "Laster ned %(name)s."
+msgstr "Laster ned"
 
 #: src/core/components/AMInstallButton/index.js:213
-#, fuzzy
 msgid "Installing"
-msgstr "Installerer %(name)s."
+msgstr "Installerer"
 
 #: src/core/components/AMInstallButton/index.js:215
-#, fuzzy
 msgid "Uninstalling"
-msgstr "Avinstallerer %(name)s."
+msgstr "Avinstallerer"
 
 #: src/core/components/AMInstallButton/index.js:223
 msgid "Install Theme"
@@ -2736,9 +2726,8 @@ msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr ""
 
 #: src/core/components/InfoDialog/index.js:88
-#, fuzzy
 msgid "OK"
-msgstr "OK!"
+msgstr "OK"
 
 #: src/core/components/Paginate/index.js:137
 msgid "Previous"
@@ -2749,7 +2738,6 @@ msgid "Next"
 msgstr "Neste"
 
 #: src/core/components/Paginate/index.js:160
-#, fuzzy
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Side %(currentPage)s av %(totalPages)s"
 
@@ -2813,19 +2801,16 @@ msgid "Download failed. Please check your connection."
 msgstr ""
 
 #: src/core/utils/addons.js:39
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "En uventet feil oppstod"
+msgstr "Det oppstod en uventet feil under installasjonen."
 
 #: src/core/utils/addons.js:41
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "En uventet feil oppstod"
+msgstr "Det oppstod en uventet feil under avinstallasjonen."
 
 #: src/core/utils/addons.js:46
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "En uventet feil oppstod"
+msgstr "Det oppstod en uventet feil."
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
@@ -2904,11 +2889,10 @@ msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Utvid for å</span> lese mer"
 
 #: src/ui/components/UserCollection/index.js:46
-#, fuzzy
 msgid "%(total)s add-on"
 msgid_plural "%(total)s add-ons"
-msgstr[0] "%(count)s utvidelse funnet"
-msgstr[1] "%(count)s utvidelser funnet"
+msgstr[0] "%(total)s tillegg"
+msgstr[1] "%(total)s tillegg"
 
 #: src/ui/components/UserReview/index.js:103
 msgid "Developer response"
