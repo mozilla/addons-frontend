@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-26 22:13+0000\n"
+"PO-Revision-Date: 2020-05-26 22:22+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1864,9 +1864,8 @@ msgid "Lightweight, highly effective ad blocker. uBlock Origin enforces thousand
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:109
-#, fuzzy
 msgid "Explore more excellent %(linkStart)sad blockers%(linkEnd)s."
-msgstr "Fortell verden hvorfor du synes denne utvidelsen er fantastisk!"
+msgstr "Utforsk flere %(linkStart)sannonseblokkerere%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:117
 msgid "Stop online trackers from stalking you"
@@ -1881,9 +1880,8 @@ msgid "Isolate your Facebook identity into a separate “container” to stop Fa
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:127
-#, fuzzy
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
-msgstr "Fortell verden hvorfor du synes denne utvidelsen er fantastisk!"
+msgstr "Utforsk flere anbefalte %(linkStart)spersonvern- og sikkerhetsutvidelser%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
@@ -1900,9 +1898,8 @@ msgid "Arrange and visualize your tabs in a cascading “tree” style format in
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
-#, fuzzy
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
-msgstr "Fortell verden hvorfor du synes denne utvidelsen er fantastisk!"
+msgstr "Utforsk flere %(linkStart)sfaneutvidelser%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
@@ -1917,9 +1914,8 @@ msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bo
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:168
-#, fuzzy
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
-msgstr "Fortell verden hvorfor du synes denne utvidelsen er fantastisk!"
+msgstr "Utforsk flere %(linkStart)sbokmerkeutvidelser%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a fresh new tab experience"
@@ -2000,14 +1996,12 @@ msgid "Fully encrypted password protection. Store your data securely and access 
 msgstr ""
 
 #: src/amo/pages/Guides/index.js:90
-#, fuzzy
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
-msgstr "Fortell verden hvorfor du synes denne utvidelsen er fantastisk!"
+msgstr "Utforsk flere flotte %(linkStart)spassordbehandlere%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:98
-#, fuzzy
 msgid "Block annoying ads"
-msgstr "Blokker reklame"
+msgstr "Blokker irriterende reklame"
 
 #: src/amo/pages/Guides/index.js:99
 msgid ""
@@ -2047,48 +2041,40 @@ msgid "Download Firefox extensions and themes. They’re like apps for your brow
 msgstr ""
 
 #: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
-#, fuzzy
 msgid "See more recommended extensions"
-msgstr "Flere utvalgte utvidelser"
+msgstr "Se flere anbefalte utvidelser"
 
 #: src/amo/pages/Home/index.js:290
 msgid "See more popular themes"
 msgstr "Flere populære utvidelser"
 
 #: src/amo/pages/Home/index.js:309
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Høyest vurderte utvidelser"
+msgstr "Se flere populære utvidelser"
 
 #: src/amo/pages/Home/index.js:326 src/amo/pages/LandingPage/index.js:164
-#, fuzzy
 msgid "See more recommended themes"
-msgstr "Flere utvalgte tema"
+msgstr "Se flere anbefalte tema"
 
 #: src/amo/pages/Home/index.js:349 src/amo/pages/LandingPage/index.js:142
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "Flere utvalgte utvidelser"
+msgstr "Se flere populære utvidelser"
 
 #: src/amo/pages/Home/index.js:58
-#, fuzzy
 msgid "See more enhanced privacy extensions"
-msgstr "Flere utvalgte utvidelser"
+msgstr "Se flere forbedret personvernutvidelser"
 
 #: src/amo/pages/Home/index.js:59
-#, fuzzy
 msgid "Enhanced privacy extensions"
-msgstr "Høyest vurderte utvidelser"
+msgstr "Forbedret personvernutvidelser"
 
 #: src/amo/pages/Home/index.js:64
-#, fuzzy
 msgid "See more recommended password managers"
-msgstr "Flere utvalgte tema"
+msgstr "Se flere anbefalte passordbehandlere"
 
 #: src/amo/pages/Home/index.js:65
-#, fuzzy
 msgid "Recommended password managers"
-msgstr "Passordbehandlere"
+msgstr "Anbefalte passordbehandlere"
 
 #: src/amo/pages/LandingPage/index.js:152
 #, fuzzy
