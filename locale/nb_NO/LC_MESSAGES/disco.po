@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:36+0000\n"
-"PO-Revision-Date: 2020-05-26 22:45+0000\n"
+"PO-Revision-Date: 2020-05-26 23:14+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -16,11 +16,11 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:202
 msgid "Enable"
-msgstr ""
+msgstr "Slå på"
 
 #: src/core/components/AMInstallButton/index.js:205
 msgid "Remove"
-msgstr ""
+msgstr "Fjern"
 
 #: src/core/components/AMInstallButton/index.js:207
 msgid "Enabling"

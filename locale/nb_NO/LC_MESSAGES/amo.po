@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-26 23:04+0000\n"
+"PO-Revision-Date: 2020-05-26 23:14+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -2511,7 +2511,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:616
 msgid "Manage Firefox Accounts…"
-msgstr ""
+msgstr "Behandle Firefox-kontoer…"
 
 #: src/amo/pages/UserProfileEdit/index.js:624
 msgid "Profile"
@@ -2519,7 +2519,7 @@ msgstr "Profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:633
 msgid "This field is required"
-msgstr ""
+msgstr "Dette feltet er obligatorisk"
 
 #: src/amo/pages/UserProfileEdit/index.js:637
 msgid "Display Name *"
@@ -2535,11 +2535,11 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:744
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Noe HTML støttes: %(htmlTags)s. Lenker er ikke tillatt."
 
 #: src/amo/pages/UserProfileEdit/index.js:768
 msgid "Notifications"
-msgstr ""
+msgstr "Varsler"
 
 #: src/amo/pages/UserProfileEdit/index.js:772
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
@@ -2650,11 +2650,11 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:202
 msgid "Enable"
-msgstr ""
+msgstr "Slå på"
 
 #: src/core/components/AMInstallButton/index.js:207
 msgid "Enabling"
-msgstr ""
+msgstr "Slår på"
 
 #: src/core/components/AMInstallButton/index.js:209
 msgid "Disabling"
@@ -2702,11 +2702,11 @@ msgstr "Beklager, men vi kunne ikke finne noe på adressen du skrev inn."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s er lagt til"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Håndter dine tillegg ved å klikke på Tillegg i menyen."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -2730,7 +2730,7 @@ msgstr ""
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
-msgstr ""
+msgstr "Delta i en kort undersøkelse"
 
 #: src/core/components/SurveyNotice/index.js:136
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
@@ -2738,50 +2738,50 @@ msgstr ""
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s kB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s og nyere"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s til %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Fungerer med %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:31
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "Installasjonen ble avbrutt fordi tillegget ser ut til å være skadet."
 
 #: src/core/utils/addons.js:35
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Installasjon mislyktes. Prøv igjen."
 
 #: src/core/utils/addons.js:37
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Nedlastning mislyktes. Kontroller tilkoblingen din."
 
 #: src/core/utils/addons.js:39
 msgid "An unexpected error occurred during installation."
@@ -2797,7 +2797,7 @@ msgstr "Det oppstod en uventet feil."
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
-msgstr ""
+msgstr "Bekreft"
 
 #: src/ui/components/DismissibleTextForm/index.js:187
 msgid "Enter text."
@@ -2829,19 +2829,19 @@ msgstr "Skift innhold"
 
 #: src/ui/components/HostPermissions/index.js:50
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Få tilgang til dine data fra alle nettsteder"
 
 #: src/ui/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "Få tilgang til din informasjon for nettsteder på domenet %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:57
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "Få tilgang til dine data for %(param)s"
 
 #: src/ui/components/Notice/index.js:153
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Avvis denne meldingen"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Update your rating to %(starRating)s out of 5"
@@ -2861,11 +2861,11 @@ msgstr "Det er ingen vurderinger ennå"
 
 #: src/ui/components/RecommendedBadge/index.js:43
 msgid "Firefox only recommends extensions that meet our standards for security and performance."
-msgstr ""
+msgstr "Firefox anbefaler bare utvidelser som oppfyller våre standarder for sikkerhet og ytelse."
 
 #: src/ui/components/ShowMoreCard/index.js:138
 msgid "Expand to read more"
-msgstr ""
+msgstr "Utvid for å lese mer"
 
 #: src/ui/components/ShowMoreCard/index.js:143
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
