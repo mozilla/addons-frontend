@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-26 17:21+0000\n"
+"PO-Revision-Date: 2020-05-26 17:35+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1724,25 +1724,22 @@ msgid "Show only two-star reviews"
 msgstr "Vis bare tostjerners omtaler"
 
 #: src/amo/pages/AddonReviewList/index.js:239
-#, fuzzy
 msgid "Show only one-star reviews"
-msgstr "Les %(count)s vurdering"
+msgstr "Vis bare én-stjerners omtaler"
 
 #: src/amo/pages/AddonReviewList/index.js:279
 msgid "Reviews for %(addonName)s"
-msgstr "Vurderinger for %(addonName)s"
+msgstr "Omtaler for %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:289
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s bruker"
-msgstr[1] "%(total)s brukere"
+msgstr[0] "%(total)s omtale"
+msgstr[1] "%(total)s omtaler"
 
 #: src/amo/pages/AddonReviewList/index.js:388
-#, fuzzy
 msgid "There are no reviews"
-msgstr "Skriv en omtale"
+msgstr "Det er ingen omtaler"
 
 #: src/amo/pages/AddonVersions/index.js:128
 msgid "%(addonName)s version history - %(total)s version"
@@ -2262,6 +2259,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publicly listed."
 msgstr ""
+"Tilleggene som er oppført her er laget av tusenvis av utviklere og temadesignere fra hele verden, alt fra individuelle hobbyister til store selskaper. Noen tilleggsprogrammer som er oppført på AMO, "
+"er automatisk publisert og kan bli gjenstand for gjennomgang av et redaktørteam når de først er oppført."
 
 #: src/amo/pages/StaticPages/About/index.js:65
 msgid "Get involved"
@@ -2289,63 +2288,72 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Å legge ut omtaler for en utvidelse som du eller firmaet ditt skrev eller representerer."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:111
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Å kritisere en utvidelse for noe som den er ment å gjøre. For eksempel å legge ut en negativ omtale av en utvidelse for å vise reklamer eller å kreve datainnsamling, når det er det uttrykte formålet"
+" til utvidelsen, eller når utvidelsen krever innsamling av data for å fungere."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:120
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Ofte stilte spørsmål om omtaler"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:122
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Hvordan kan jeg rapportere inn en problematisk omtale?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:124
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Rapporter eller flagg enhver tvilsom omtale ved å klikke på «Rapporter denne omtalen», og den vil bli sendt inn til nettstedet for moderering. Vårt moderatorlag vil bruke retningslinjer for omtaler "
+"for å evaluere om omtalen skal slettes eller gjenopprettes."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:131
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "Jeg er en utvidelsesutvikler, kan jeg svare på omtaler?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:137
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
 msgstr ""
+"Ja, utvidelsesutviklere kan skrive ett enkelt svar til en omtale. Du kan sette opp et diskusjonstema i vårt %(startLink)sforum%(endLink)s for å engasjere til ytterligere diskusjon eller oppfølging."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:151
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Jeg er en utvidelsesutvikler, kan jeg slette negative omtaler eller vurderinger?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:156
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"Som utgangspunkt, nei. Men hvis omtalen ikker overholder våre retningslinjer, som angitt ovenfor, kan du klikke på «Rapporter denne omtalen» for å få en moderator til å se på den. Hvis en omtale "
+"inneholder en klage over en feil, som er blitt rettet i en ny versjon, vil vi vurdere å slette denne omtalen."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:19
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Retningslinjer for omtaler"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Retningslinjer, tips og ofte stilte spørsmål for å gi en omtale av utvidelsene og temaene du har lastet ned og brukt på Firefox."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Omtaler av tillegg er en måte for deg å dele dine meninger om tilleggene som du har installert og brukt. Vårt moderatorlag for omtaler forbeholder seg retten til å avslå eller fjerne enhver omtale "
+"som ikke samsvarer med disse retningslinjene."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:33
 msgid "Tips for writing a great review"
-msgstr "Tips for å skrive en god anmeldelse"
+msgstr "Tips for å skrive en god omtale"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:34
 msgid "Do:"
