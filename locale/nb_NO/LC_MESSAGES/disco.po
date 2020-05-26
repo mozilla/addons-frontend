@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:36+0000\n"
-"PO-Revision-Date: 2020-05-26 23:14+0000\n"
+"PO-Revision-Date: 2020-05-26 23:17+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -24,7 +24,7 @@ msgstr "Fjern"
 
 #: src/core/components/AMInstallButton/index.js:207
 msgid "Enabling"
-msgstr ""
+msgstr "Slår på"
 
 #: src/core/components/AMInstallButton/index.js:209
 msgid "Disabling"
@@ -72,11 +72,11 @@ msgstr "Beklager, men vi kan ikke finne noe på nettadressen du skrev inn."
 
 #: src/core/components/InfoDialog/index.js:64
 msgid "%(strongStart)s%(name)s%(strongEnd)s has been added"
-msgstr ""
+msgstr "%(strongStart)s%(name)s%(strongEnd)s har blitt lagt til"
 
 #: src/core/components/InfoDialog/index.js:77
 msgid "Manage your add-ons by clicking Add-ons in the menu."
-msgstr ""
+msgstr "Behandle tilleggene dine ved å klikke på Tillegg i menyen."
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
@@ -84,42 +84,42 @@ msgstr "OK"
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
-msgstr ""
+msgstr "%(localizedSize)s B"
 
 #: src/core/i18n/utils.js:256
 msgid "%(localizedSize)s KB"
-msgstr ""
+msgstr "%(localizedSize)s kB"
 
 #: src/core/i18n/utils.js:258
 msgid "%(localizedSize)s MB"
-msgstr ""
+msgstr "%(localizedSize)s MB"
 
 #: src/core/i18n/utils.js:260
 msgid "%(localizedSize)s GB"
-msgstr ""
+msgstr "%(localizedSize)s GB"
 
 #: src/core/i18n/utils.js:262
 msgid "%(localizedSize)s TB"
-msgstr ""
+msgstr "%(localizedSize)s TB"
 
 # This is application compatibility information, such as "firefox 41 and later"
 #: src/core/reducers/versions.js:334
 msgid "%(application)s %(minVersion)s and later"
-msgstr ""
+msgstr "%(application)s %(minVersion)s og nyere"
 
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s til %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
 msgid "Works with %(listOfApplicatonsAndVersions)s"
-msgstr ""
+msgstr "Fungerer med %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:31
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "Installasjonen avbrutt fordi tillegget ser ut til å være skadet."
 
 #: src/core/utils/addons.js:35
 msgid "Installation failed. Please try again."
@@ -183,7 +183,7 @@ msgstr ""
 
 #: src/disco/pages/DiscoPane/index.js:207
 msgid "Learn More"
-msgstr ""
+msgstr "Les mer"
 
 #: src/disco/pages/DiscoPane/index.js:211
 msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
@@ -203,7 +203,7 @@ msgstr "Oppdater for å fortsette"
 
 #: src/ui/components/Notice/index.js:153
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "Avvis denne meldingen"
 
 #: src/ui/components/ThemeImage/index.js:31
 msgid "Preview of %(title)s"
