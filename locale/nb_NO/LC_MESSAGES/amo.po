@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-26 16:44+0000\n"
+"PO-Revision-Date: 2020-05-26 16:49+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -538,24 +538,20 @@ msgid "by"
 msgstr "av"
 
 #: src/amo/components/AddonVersionCard/index.js:103
-#, fuzzy
 msgid "Source code released under %(linkStart)s%(licenseName)s%(linkEnd)s"
-msgstr "lagt ut den %(timestamp)s"
+msgstr "Kildekode utgitt under %(linkStart)s%(licenseName)s%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:114
-#, fuzzy
 msgid "Source code released under %(linkStart)sCustom License%(linkEnd)s"
-msgstr "lagt ut den %(timestamp)s"
+msgstr "Kildekode utgitt under %(linkStart)stilpasset lisens%(linkEnd)s"
 
 #: src/amo/components/AddonVersionCard/index.js:141
-#, fuzzy
 msgid "Source code released under %(licenseName)s"
-msgstr "lagt ut den %(timestamp)s"
+msgstr "Kildekode utgitt under %(licenseName)s"
 
 #: src/amo/components/AddonVersionCard/index.js:51
-#, fuzzy
 msgid "No version found"
-msgstr "Fant ingen utvidelser"
+msgstr "Ingen versjoner funnet"
 
 #: src/amo/components/AddonVersionCard/index.js:59
 msgid "Version %(versionNumber)s"
@@ -566,24 +562,20 @@ msgid "Released %(dateReleased)s - %(fileSize)s"
 msgstr "Utgitt %(dateReleased)s - %(fileSize)s"
 
 #: src/amo/components/App/index.js:185 src/amo/components/HeadMetaTags/index.js:79
-#, fuzzy
 msgid "Add-ons for Firefox (%(locale)s)"
-msgstr "Utvidelser for Firefox"
+msgstr "Tillegg for Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:189 src/amo/components/HeadMetaTags/index.js:73
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox (%(locale)s)"
-msgstr "Utvidelser for Firefox"
+msgstr "%(title)s – Tillegg for Firefox (%(locale)s)"
 
 #: src/amo/components/App/index.js:197 src/amo/components/HeadMetaTags/index.js:78
-#, fuzzy
 msgid "Add-ons for Firefox Android (%(locale)s)"
-msgstr "Utvidelser for Firefox"
+msgstr "Tillegg for Firefox Android (%(locale)s)"
 
 #: src/amo/components/App/index.js:201 src/amo/components/HeadMetaTags/index.js:72
-#, fuzzy
 msgid "%(title)s – Add-ons for Firefox Android (%(locale)s)"
-msgstr "Utvidelser for Firefox"
+msgstr "%(title)s – Tillegg for Firefox Android (%(locale)s)"
 
 #: src/amo/components/AutoSearchInput/index.js:216
 msgid "Loading"
@@ -742,9 +734,8 @@ msgid "Remove"
 msgstr "Fjern"
 
 #: src/amo/components/EditableCollectionAddon/index.js:152
-#, fuzzy
 msgid "Collector's note"
-msgstr "Samlingsnavn"
+msgstr "Samlerens kommentar"
 
 #: src/amo/components/EditableCollectionAddon/index.js:167
 msgid "Add a comment about this add-on."
@@ -814,14 +805,12 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr "Beklager, men det oppstod en feil med serveren vår og vi kunne ikke fullføre forespørselen din. Vi har logget denne feilen og kommer til å undersøke den."
 
 #: src/amo/components/FeaturedAddonReview/index.js:83
-#, fuzzy
 msgid "Response by %(userName)s"
-msgstr "Vurderinger for %(addonName)s"
+msgstr "Svar fra %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:84
-#, fuzzy
 msgid "Review by %(userName)s"
-msgstr "Vurderinger for %(addonName)s"
+msgstr "Vurdering av %(userName)s"
 
 #: src/amo/components/FeaturedAddonReview/index.js:96
 msgid "The review was not found."
@@ -888,14 +877,12 @@ msgid "Site Status"
 msgstr "Status for nettsted"
 
 #: src/amo/components/Footer/index.js:111
-#, fuzzy
 msgid "Browsers"
-msgstr "Nettleser til iOS"
+msgstr "Nettlesere"
 
 #: src/amo/components/Footer/index.js:169
-#, fuzzy
 msgid "Products"
-msgstr "Produktivitet"
+msgstr "Produkter"
 
 #: src/amo/components/Footer/index.js:266
 msgid "Privacy"
@@ -930,18 +917,16 @@ msgid "Blog"
 msgstr "Blogg"
 
 #: src/amo/components/Footer/index.js:71 src/amo/components/Header/index.js:207
-#, fuzzy
 msgid "Extension Workshop"
-msgstr "Utvidelser"
+msgstr "Utvidelsesverksted"
 
 #: src/amo/components/Footer/index.js:76 src/amo/components/Header/index.js:217
 msgid "Developer Hub"
 msgstr "Utvikler-knutepunkt"
 
 #: src/amo/components/Footer/index.js:81
-#, fuzzy
 msgid "Developer Policies"
-msgstr "Utviklerrespons"
+msgstr "Utviklerpraksis"
 
 #: src/amo/components/Footer/index.js:86
 msgid "Forum"
@@ -988,14 +973,12 @@ msgid "Log out"
 msgstr "Logg ut"
 
 #: src/amo/components/Header/index.js:169
-#, fuzzy
 msgid "Firefox Browser Add-ons"
-msgstr "Firefox-utvidelser"
+msgstr "Tillegg for Firefox-nettleser"
 
 #: src/amo/components/Header/index.js:205
-#, fuzzy
 msgid "Learn how to create extensions and themes"
-msgstr "Høyest vurderte utvidelser"
+msgstr "Les om hvordan du lager utvidelser og tema"
 
 #: src/amo/components/Header/index.js:215
 msgid "Submit and manage extensions and themes"
@@ -1022,9 +1005,8 @@ msgid "Tools"
 msgstr "Verktøy"
 
 #: src/amo/components/HeroRecommendation/index.js:107
-#, fuzzy
 msgid "Get the extension"
-msgstr "Utvalgte utvidelser"
+msgstr "Last ned utvidelsen"
 
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:180
@@ -1036,9 +1018,8 @@ msgid "Stay Safe Online"
 msgstr "Surf sikkert på nettet"
 
 #: src/amo/components/HomeHeroGuides/index.js:39 src/amo/pages/Guides/index.js:280
-#, fuzzy
 msgid "Organize Tabs & Bookmarks"
-msgstr "Bokmerker"
+msgstr "Organiser faner og bokmerker"
 
 #: src/amo/components/HomeHeroGuides/index.js:44 src/amo/pages/Guides/index.js:293
 #, fuzzy
