@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-26 22:41+0000\n"
+"PO-Revision-Date: 2020-05-26 22:52+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -72,9 +72,8 @@ msgid "Admin add-on status"
 msgstr "Administrerende tilleggstatus"
 
 #: src/amo/components/AddonAuthorLinks/index.js:57
-#, fuzzy
 msgid "Author Links"
-msgstr "Lenker for utvidelser"
+msgstr "Lenker for tillegg"
 
 #: src/amo/components/AddonBadges/index.js:47
 msgid "Restart Required"
@@ -308,9 +307,8 @@ msgid "Delete review"
 msgstr "Slett omtale"
 
 #: src/amo/components/AddonReviewCard/index.js:223
-#, fuzzy
 msgid "Do you really want to delete this reply?"
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Vil du slette dette svaret?"
 
 #: src/amo/components/AddonReviewCard/index.js:227
 msgid "Do you really want to delete this rating?"
@@ -330,9 +328,8 @@ msgid "Cancel"
 msgstr "Avbryt"
 
 #: src/amo/components/AddonReviewCard/index.js:259
-#, fuzzy
 msgid "Keep reply"
-msgstr "Rediger mitt svar"
+msgstr "Behold svaret"
 
 #: src/amo/components/AddonReviewCard/index.js:263
 msgid "Keep rating"
@@ -363,19 +360,16 @@ msgid "Publishing reply"
 msgstr "Publiserer svar"
 
 #: src/amo/components/AddonReviewCard/index.js:357
-#, fuzzy
 msgid "posted %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "lagt ut den %(timestamp)s"
+msgstr "postet %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:360
-#, fuzzy
 msgid "by %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "av %(authorName)s, %(timestamp)s"
+msgstr "av %(linkUserProfileStart)s%(authorName)s%(linkUserProfileEnd)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:363
-#, fuzzy
 msgid "by %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
-msgstr "av %(authorName)s, %(timestamp)s"
+msgstr "av %(authorName)s, %(linkStart)s%(timestamp)s%(linkEnd)s"
 
 #: src/amo/components/AddonReviewCard/index.js:478
 msgid "Deleting…"
@@ -1344,34 +1338,30 @@ msgstr[0] "%(count)s resultat funnet for «%(query)s»"
 msgstr[1] "%(count)s resultat for \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:145
-#, fuzzy
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
-msgstr[0] "%(count)s resultat for \"%(query)s\""
-msgstr[1] "%(count)s resultat for \"%(query)s\""
+msgstr[0] "Fant %(count)s treff"
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:156
 msgid "Searching for \"%(query)s\""
 msgstr "Søker etter «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:160
-#, fuzzy
 msgid "Searching for add-ons"
-msgstr "Laster utvidelser"
+msgstr "Søker etter tillegg"
 
 #: src/amo/components/SearchContextCard/index.js:55
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s extensions found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s utvidelse funnet for «%(query)s»"
-msgstr[1] "%(count)s utvidelser funnet for «%(query)s»"
+msgstr[0] "%(count)s utvidelse funnet for «%(query)s» i %(categoryName)s"
+msgstr[1] "%(count)s utvidelser funnet for «%(query)s» i %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:64
-#, fuzzy
 msgid "%(count)s extension found in %(categoryName)s"
 msgid_plural "%(count)s extensions found in %(categoryName)s"
-msgstr[0] "%(count)s utvidelse funnet for «%(query)s»"
-msgstr[1] "%(count)s utvidelser funnet for «%(query)s»"
+msgstr[0] "%(count)s utvidelse funnet i %(categoryName)s"
+msgstr[1] "%(count)s utvidelser funnet i %(categoryName)s"
 
 #: src/amo/components/SearchContextCard/index.js:74
 msgid "%(count)s extension found for \"%(query)s\""
@@ -1380,18 +1370,16 @@ msgstr[0] "%(count)s utvidelse funnet for «%(query)s»"
 msgstr[1] "%(count)s utvidelser funnet for «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:83
-#, fuzzy
 msgid "%(count)s extension found"
 msgid_plural "%(count)s extensions found"
 msgstr[0] "%(count)s utvidelse funnet"
 msgstr[1] "%(count)s utvidelser funnet"
 
 #: src/amo/components/SearchContextCard/index.js:96
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\" in %(categoryName)s"
 msgid_plural "%(count)s themes found for \"%(query)s\" in %(categoryName)s"
-msgstr[0] "%(count)s tema funnet for «%(query)s»"
-msgstr[1] "%(count)s resultat for \"%(query)s\""
+msgstr[0] "%(count)s tema funnet for «%(query)s» i %(categoryName)s"
+msgstr[1] "%(count)s tema funnet for «%(query)s» i %(categoryName)s"
 
 #: src/amo/components/SearchFilters/index.js:128 src/amo/components/SearchFilters/index.js:144
 msgid "All"
@@ -1454,14 +1442,12 @@ msgid "Operating System"
 msgstr "Operativsystem"
 
 #: src/amo/components/SearchFilters/index.js:253
-#, fuzzy
 msgid "Recommended add-ons only"
-msgstr "Utvalgt utvidelse"
+msgstr "Bare anbefalte tillegg"
 
 #: src/amo/components/SearchForm/index.js:57
-#, fuzzy
 msgid "Firefox Add-ons for Android"
-msgstr "Utvidelser for Android"
+msgstr "Firefox-tillegg for Android"
 
 #: src/amo/components/SearchForm/index.js:58
 msgid "Firefox Add-ons"
@@ -1586,14 +1572,12 @@ msgid "Not available on Firefox for Android. You can use this add-on with Firefo
 msgstr ""
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
-#, fuzzy
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
-msgstr "Denne utvidelsen er ikke kompatibel med din versjon av Firefox."
+msgstr "Dette tillegget er ikke kompatibelt med denne nettleseren. Prøv å installere den på Firefox for datamaskiner."
 
 #: src/amo/components/WrongPlatformWarning/index.js:85
-#, fuzzy
 msgid "To learn about add-ons compatible with Firefox for Android, <a href=\"%(newLocation)s\">click here</a>."
-msgstr "For å finne tillegg som er kompatible med Firefox for Android, <a href=\"%(newLocation)s\">gå til nettsiden vår for vår mobiler</a>."
+msgstr "For å lære om tillegg som er kompatible med Firefox for Android, <a href=\"%(newLocation)s\">klikk her</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:94
 msgid "To find add-ons compatible with Firefox on Android, <a href=\"%(newLocation)s\">visit our mobile site</a>."

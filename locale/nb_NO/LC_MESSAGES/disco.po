@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:36+0000\n"
-"PO-Revision-Date: 2020-05-26 22:41+0000\n"
+"PO-Revision-Date: 2020-05-26 22:45+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -31,19 +31,16 @@ msgid "Disabling"
 msgstr "Slår av"
 
 #: src/core/components/AMInstallButton/index.js:211
-#, fuzzy
 msgid "Downloading"
-msgstr "Laster ned %(name)s."
+msgstr "Laster ned"
 
 #: src/core/components/AMInstallButton/index.js:213
-#, fuzzy
 msgid "Installing"
-msgstr "Installerer %(name)s."
+msgstr "Installerer"
 
 #: src/core/components/AMInstallButton/index.js:215
-#, fuzzy
 msgid "Uninstalling"
-msgstr "Avinstallerer %(name)s."
+msgstr "Avinstallerer"
 
 #: src/core/components/AMInstallButton/index.js:223
 msgid "Install Theme"
@@ -82,9 +79,8 @@ msgid "Manage your add-ons by clicking Add-ons in the menu."
 msgstr ""
 
 #: src/core/components/InfoDialog/index.js:88
-#, fuzzy
 msgid "OK"
-msgstr "OK!"
+msgstr "OK"
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -170,9 +166,8 @@ msgid "Privacy Policy"
 msgstr "Personvernbestemmelser"
 
 #: src/disco/pages/DiscoPane/index.js:166
-#, fuzzy
 msgid "Find more add-ons"
-msgstr "Se flere utvidelser!"
+msgstr "Finn flere tillegg"
 
 #: src/disco/pages/DiscoPane/index.js:188
 msgid "Personalize Your Firefox"
