@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-26 19:06+0000\n"
+"PO-Revision-Date: 2020-05-26 22:13+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1800,9 +1800,8 @@ msgid "All extension categories"
 msgstr "Alle utvidelseskategorier"
 
 #: src/amo/pages/CategoriesPage/index.js:37
-#, fuzzy
 msgid "All theme categories"
-msgstr "Utforsk alle kategorier"
+msgstr "Alle temakategorier"
 
 #: src/amo/pages/Collection/index.js:392
 msgid "Do you really want to delete this collection?"
