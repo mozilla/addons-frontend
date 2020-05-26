@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-26 22:52+0000\n"
+"PO-Revision-Date: 2020-05-26 23:04+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1751,7 +1751,7 @@ msgstr "Dette tillegget er blokkert for å beskytte deg."
 
 #: src/amo/pages/Block/index.js:156
 msgid "Why was it blocked?"
-msgstr ""
+msgstr "Hvorfor ble den blokkert?"
 
 #: src/amo/pages/Block/index.js:161
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
@@ -1759,7 +1759,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:173
 msgid "What does this mean?"
-msgstr ""
+msgstr "Hva betyr dette?"
 
 #: src/amo/pages/Block/index.js:175
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
@@ -1773,7 +1773,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:89
 msgid "Blocked on %(date)s."
-msgstr ""
+msgstr "Blokkert den %(date)s."
 
 #: src/amo/pages/Block/index.js:98
 msgid "View block request"
@@ -1829,7 +1829,7 @@ msgstr "Logg inn for å se dine samlinger"
 
 #: src/amo/pages/CollectionList/index.js:124
 msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
+msgstr "Samlinger gjør det lett å holde følge med favorittillegg og dele din perfekt tilpassede nettleser med andre."
 
 #: src/amo/pages/CollectionList/index.js:134
 msgid "Create a collection"
@@ -1915,7 +1915,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:202
 msgid "Improve videos"
-msgstr ""
+msgstr "Forbedre videoer"
 
 #: src/amo/pages/Guides/index.js:203
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
@@ -1927,7 +1927,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:217
 msgid "Get more out of media"
-msgstr ""
+msgstr "Få mer ut av media"
 
 #: src/amo/pages/Guides/index.js:218
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
@@ -1941,7 +1941,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:233
 msgid "Bring media right into the browser"
-msgstr ""
+msgstr "Ta media rett inn i nettleseren"
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
@@ -1969,11 +1969,11 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:80
 msgid "Create and manage strong passwords"
-msgstr ""
+msgstr "Lag og behandle sterke passord"
 
 #: src/amo/pages/Guides/index.js:81
 msgid "Password managers can help you create secure passwords, store your passwords (safely) in one place, and give you easy access to your login credentials wherever you are."
-msgstr ""
+msgstr "Passordbehandlere kan hjelpe deg med å lage sikre passord, lagre passordene dine (trygt) på ett sted, og gi deg enkel tilgang til innloggingsinformasjonen din uansett hvor du er."
 
 #: src/amo/pages/Guides/index.js:86
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
@@ -2014,7 +2014,7 @@ msgstr "Musikk"
 
 #: src/amo/pages/Home/index.js:163
 msgid "Seasonal"
-msgstr ""
+msgstr "Sesongbestemt"
 
 #: src/amo/pages/Home/index.js:201
 msgid "Change the way Firefox looks with themes."
@@ -2304,9 +2304,8 @@ msgid "Do:"
 msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:37
-#, fuzzy
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Vi har mottatt din rapport. Takk fordi du deler dine bekymringer vedrørende denne utvidelsen med oss."
+msgstr "Skriv som om du forteller en venn om erfaringene dine med dette tillegget."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -2404,11 +2403,11 @@ msgstr "Brukerprofil"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:692
 msgid "Location"
-msgstr ""
+msgstr "Sted"
 
 #: src/amo/pages/UserProfile/index.js:373 src/amo/pages/UserProfileEdit/index.js:707
 msgid "Occupation"
-msgstr ""
+msgstr "Yrke"
 
 #: src/amo/pages/UserProfile/index.js:380
 msgid "User since"
@@ -2424,7 +2423,7 @@ msgstr "Gjennomsnittlig vurdering av utviklerens utvidelser"
 
 #: src/amo/pages/UserProfile/index.js:411 src/amo/pages/UserProfileEdit/index.js:729
 msgid "Biography"
-msgstr ""
+msgstr "Biografi"
 
 #: src/amo/pages/UserProfile/index.js:435
 msgid "Edit profile"
@@ -2436,7 +2435,7 @@ msgstr "Adminbruker"
 
 #: src/amo/pages/UserProfileEdit/index.js:198
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "Bildet er slettet"
 
 #: src/amo/pages/UserProfileEdit/index.js:443
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
