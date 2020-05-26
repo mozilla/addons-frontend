@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-26 17:05+0000\n"
+"PO-Revision-Date: 2020-05-26 17:13+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -53,11 +53,11 @@ msgstr "Innholdsvurdering av utvidelse"
 
 #: src/amo/components/AddonAdminLinks/index.js:127
 msgid "Review theme"
-msgstr "Vurder tema"
+msgstr "Legg til omtale av tema"
 
 #: src/amo/components/AddonAdminLinks/index.js:129
 msgid "Review add-on code"
-msgstr "Vurder utvidelseskode"
+msgstr "Legg til omtale av utvidelseskode"
 
 #: src/amo/components/AddonAdminLinks/index.js:149
 msgid "Admin Links"
@@ -187,17 +187,17 @@ msgstr "Ingen brukere"
 
 #: src/amo/components/AddonMeta/index.js:61
 msgid "Reviews"
-msgstr "Vurderinger"
+msgstr "Omtaler"
 
 #: src/amo/components/AddonMeta/index.js:64
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] "Vurdering"
-msgstr[1] "Vurderinger"
+msgstr[0] "Omtale"
+msgstr[1] "Omtaler"
 
 #: src/amo/components/AddonMeta/index.js:66
 msgid "No Reviews"
-msgstr "Ingen vurderinger"
+msgstr "Ingen omtaler"
 
 #: src/amo/components/AddonMeta/index.js:92
 msgid "Used by"
@@ -293,7 +293,7 @@ msgstr "Rediger svar"
 
 #: src/amo/components/AddonReviewCard/index.js:202
 msgid "Edit review"
-msgstr "Rediger vurdering"
+msgstr "Rediger omtale"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
 msgid "Delete reply"
@@ -306,7 +306,7 @@ msgstr "Rediger min omtale"
 
 #: src/amo/components/AddonReviewCard/index.js:216 src/amo/components/AddonReviewCard/index.js:248
 msgid "Delete review"
-msgstr "Slett vurdering"
+msgstr "Slett omtale"
 
 #: src/amo/components/AddonReviewCard/index.js:223
 #, fuzzy
@@ -320,7 +320,7 @@ msgstr "Bla gjennom alle utvidelser"
 
 #: src/amo/components/AddonReviewCard/index.js:230
 msgid "Do you really want to delete this review?"
-msgstr "Vil du virkelig slette denne vurderingen?"
+msgstr "Vil du virkelig slette denne omtalen?"
 
 #: src/amo/components/AddonReviewCard/index.js:237 src/ui/components/DismissibleTextForm/index.js:224
 msgid "Delete"
@@ -1185,23 +1185,20 @@ msgid "Read all five-star reviews"
 msgstr "Les alle vurderinger med fem stjerner"
 
 #: src/amo/components/RatingsByStar/index.js:96
-#, fuzzy
 msgid "Read all four-star reviews"
-msgstr "Les %(count)s vurdering"
+msgstr "Les alle omtaler med fire stjerner"
 
 #: src/amo/components/RatingsByStar/index.js:97
 msgid "Read all three-star reviews"
 msgstr "Les alle vurderinger med tre stjerner"
 
 #: src/amo/components/RatingsByStar/index.js:98
-#, fuzzy
 msgid "Read all two-star reviews"
-msgstr "Svar på denne anmeldelsen"
+msgstr "Les alle omtaler med to stjerner"
 
 #: src/amo/components/RatingsByStar/index.js:99
-#, fuzzy
 msgid "Read all one-star reviews"
-msgstr "Les %(count)s vurdering"
+msgstr "Les alle omtaler med en stjerne"
 
 #: src/amo/components/ReportAbuseButton/index.js:116
 msgid "You reported this add-on for abuse"
