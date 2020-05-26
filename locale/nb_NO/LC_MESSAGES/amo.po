@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-26 22:22+0000\n"
+"PO-Revision-Date: 2020-05-26 22:33+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -2077,19 +2077,16 @@ msgid "Recommended password managers"
 msgstr "Anbefalte passordbehandlere"
 
 #: src/amo/pages/LandingPage/index.js:152
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "Høyest vurderte utvidelser"
+msgstr "Se flere høyest vurderte utvidelser"
 
 #: src/amo/pages/LandingPage/index.js:173
-#, fuzzy
 msgid "See more trending themes"
-msgstr "Flere utvalgte tema"
+msgstr "Se flere populære tema"
 
 #: src/amo/pages/LandingPage/index.js:182
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "Høyest vurderte tema"
+msgstr "Se flere høyest vurderte tema"
 
 #: src/amo/pages/LandingPage/index.js:206
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
@@ -2116,9 +2113,8 @@ msgid "Available for your locale"
 msgstr "Tilgjenglig på ditt språk"
 
 #: src/amo/pages/LanguageTools/index.js:148
-#, fuzzy
 msgid "Dictionaries and Language Packs"
-msgstr "Ordbøker og språkpakker"
+msgstr "Ordliste og språkpakker"
 
 #: src/amo/pages/LanguageTools/index.js:158
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
@@ -2141,9 +2137,8 @@ msgid "Locale Name"
 msgstr "Språknavn"
 
 #: src/amo/pages/LanguageTools/index.js:191
-#, fuzzy
 msgid "Language Packs"
-msgstr "Finn språkpakke"
+msgstr "Språkpakker"
 
 #: src/amo/pages/LanguageTools/index.js:194
 msgid "Dictionaries"
@@ -2188,9 +2183,8 @@ msgid "Get support"
 msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:19
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Firefox-utvidelser"
+msgstr "Om Firefox-tillegg"
 
 #: src/amo/pages/StaticPages/About/index.js:194
 msgid ""
@@ -2355,9 +2349,8 @@ msgid "Was it easy to use?"
 msgstr "Var det enkelt å bruke?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:58
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Logg inn for å vurdere denne utvidelsen"
+msgstr "Vil du fortsette å bruke dette tillegget?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:63
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -2410,23 +2403,20 @@ msgid "The profile of %(user)s, Firefox theme author. Find other themes by %(use
 msgstr "Profilen til %(user)s, en temautvikler. Finn andre apper av %(user)s, inkludert gjennomsnittlig vurdering, medlemsskapsperiode og muligheten til å rapportere problemer."
 
 #: src/amo/pages/UserProfile/index.js:316
-#, fuzzy
 msgid "Add-ons developer"
-msgstr "Flere utvidelser fra disse utviklerne"
+msgstr "Tilleggsutvikler"
 
 #: src/amo/pages/UserProfile/index.js:322
-#, fuzzy
 msgid "Theme artist"
-msgstr "Flere temaer av disse artistene"
+msgstr "Tema-artist"
 
 #: src/amo/pages/UserProfile/index.js:336 src/amo/pages/UserProfileEdit/index.js:536
 msgid "User Profile for %(user)s"
 msgstr "Brukerprofilen til %(user)s"
 
 #: src/amo/pages/UserProfile/index.js:339
-#, fuzzy
 msgid "User Profile"
-msgstr "Rediger profil"
+msgstr "Brukerprofil"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:692
 msgid "Location"
@@ -2453,14 +2443,12 @@ msgid "Biography"
 msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:435
-#, fuzzy
 msgid "Edit profile"
 msgstr "Rediger profil"
 
 #: src/amo/pages/UserProfile/index.js:448
-#, fuzzy
 msgid "Admin user"
-msgstr "Lenker for utvidelser"
+msgstr "Adminbruker"
 
 #: src/amo/pages/UserProfileEdit/index.js:198
 msgid "Picture successfully deleted"
@@ -2483,49 +2471,40 @@ msgid "Introduce %(userName)s to the community"
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:490
-#, fuzzy
 msgid "Log in to edit the profile"
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Logg inn for å redigere profilen"
 
 #: src/amo/pages/UserProfileEdit/index.js:512
-#, fuzzy
 msgid "Creating your profile…"
-msgstr "Rediger profil"
+msgstr "Oppretter profilen din…"
 
 #: src/amo/pages/UserProfileEdit/index.js:513
-#, fuzzy
 msgid "Create My Profile"
-msgstr "Rediger profil"
+msgstr "Opprett profilen min"
 
 #: src/amo/pages/UserProfileEdit/index.js:517
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Rediger profil"
+msgstr "Oppdaterer profilen din…"
 
 #: src/amo/pages/UserProfileEdit/index.js:518
-#, fuzzy
 msgid "Update My Profile"
-msgstr "Rediger profil"
+msgstr "Oppdater profilen min"
 
 #: src/amo/pages/UserProfileEdit/index.js:521
-#, fuzzy
 msgid "Updating profile…"
-msgstr "Rediger profil"
+msgstr "Oppdaterer profil…"
 
 #: src/amo/pages/UserProfileEdit/index.js:522
-#, fuzzy
 msgid "Update Profile"
-msgstr "Rediger profil"
+msgstr "Oppdater profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:549
-#, fuzzy
 msgid "View user's profile"
-msgstr "Vis profil"
+msgstr "Vis brukerprofil"
 
 #: src/amo/pages/UserProfileEdit/index.js:555
-#, fuzzy
 msgid "Edit user's profile"
-msgstr "Rediger profil"
+msgstr "Rediger brukerprofil"
 
 #: src/amo/pages/UserProfileEdit/index.js:573
 #, fuzzy
