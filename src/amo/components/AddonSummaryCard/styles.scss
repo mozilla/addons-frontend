@@ -13,7 +13,6 @@
 
 .AddonSummaryCard {
   @include respond-to(large) {
-    min-width: 300px;
     width: 35%;
   }
 }
