@@ -20,8 +20,6 @@ export default class ErrorComponent extends React.Component<Props> {
     const { children, className, code, header } = this.props;
     const validCodes = [400, 401, 404, 500];
 
-    invariant(children, 'children is required');
-    invariant(header, 'header is required');
     invariant(validCodes.includes(code), 'a valid error code is required');
 
     return (

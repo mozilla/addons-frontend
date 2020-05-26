@@ -10,31 +10,17 @@ describe(__filename, () => {
     return shallow(<ErrorComponent {...props} />);
   }
 
-  it('renders an ErrorComponent', () => {
-    const root = render();
+  it('renders an ErrorComponent when code, header and children is supplied', () => {
+    const children = 'hello';
+    const code = 500;
+    const header = 'foo';
+
+    const root = render({ children, code, header });
 
     expect(root.find(Card)).toHaveClassName('Errors');
-  });
-
-  it('renders header when header is available', () => {
-    const header = 'foo';
-    const root = render({ header });
-
     expect(root.find(Card)).toHaveProp('header', header);
-  });
-
-  it('renders code when code is supplied', () => {
-    const code = 500;
-    const root = render({ code });
-
-    expect(root.find(NestedStatus)).toHaveProp('code', code);
-  });
-
-  it('renders children', () => {
-    const children = 'hello';
-    const root = render({ children });
-
     expect(root.find(Card).childAt(0).text()).toContain(children);
+    expect(root.find(NestedStatus)).toHaveProp('code', code);
   });
 
   it('shows NotAuthorized class when error code is 401', () => {
