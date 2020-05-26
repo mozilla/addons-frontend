@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-26 17:57+0000\n"
+"PO-Revision-Date: 2020-05-26 18:05+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1464,9 +1464,8 @@ msgid "Firefox Add-ons for Android"
 msgstr "Utvidelser for Android"
 
 #: src/amo/components/SearchForm/index.js:58
-#, fuzzy
 msgid "Firefox Add-ons"
-msgstr "Firefox-utvidelser"
+msgstr "Firefox-tillegg"
 
 #: src/amo/components/SearchForm/index.js:81
 msgid "Go to the add-on page"
@@ -1499,9 +1498,8 @@ msgid "No results were found."
 msgstr "Fant ingen resultat."
 
 #: src/amo/components/SearchSuggestion/index.js:52 src/ui/components/RecommendedBadge/index.js:28
-#, fuzzy
 msgid "Recommended"
-msgstr "Flest brukere"
+msgstr "Anbefalt"
 
 #: src/amo/components/SectionLinks/index.js:108 src/amo/pages/LandingPage/index.js:230
 msgid "Extensions"
@@ -1644,9 +1642,8 @@ msgid "About this add-on"
 msgstr "Om denne utvidelsen"
 
 #: src/amo/pages/Addon/index.js:316
-#, fuzzy
 msgid "Developer comments"
-msgstr "Utviklerrespons"
+msgstr "Utviklerkommentarer"
 
 #: src/amo/pages/Addon/index.js:339
 msgid "Release notes for %(addonVersion)s"
@@ -1677,14 +1674,12 @@ msgid "Screenshots"
 msgstr "Skjermbilder"
 
 #: src/amo/pages/AddonInfo/index.js:154
-#, fuzzy
 msgid "Custom License for %(addonName)s"
-msgstr "Vurderinger for %(addonName)s"
+msgstr "Tilpasset lisens for %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:161
-#, fuzzy
 msgid "End-User License Agreement for %(addonName)s"
-msgstr "Lisensavtale for sluttbrukere"
+msgstr "Sluttbrukerlisensavtale for %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:165
 #, fuzzy
