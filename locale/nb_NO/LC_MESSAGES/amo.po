@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-24 12:50+0000\n"
+"PO-Revision-Date: 2020-05-26 16:44+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -208,9 +208,8 @@ msgid "Visit stats dashboard"
 msgstr "Gå til statistikkoversikten"
 
 #: src/amo/components/AddonMoreInfo/index.js:127
-#, fuzzy
 msgid "Custom License"
-msgstr "Lisens"
+msgstr "Egen lisens"
 
 #: src/amo/components/AddonMoreInfo/index.js:149
 msgid "%(timeFromNow)s (%(date)s)"
@@ -273,9 +272,8 @@ msgid "Homepage"
 msgstr "Hjemmeside"
 
 #: src/amo/components/AddonMoreInfo/index.js:74
-#, fuzzy
 msgid "Support site"
-msgstr "Brukerstøtteside"
+msgstr "Brukerstøttenettsted"
 
 #: src/amo/components/AddonMoreInfo/index.js:88
 msgid "Support Email"
@@ -290,19 +288,16 @@ msgid "Other popular extensions"
 msgstr "Andre populære utvidelser"
 
 #: src/amo/components/AddonReviewCard/index.js:199
-#, fuzzy
 msgid "Edit reply"
-msgstr "Rediger mitt svar"
+msgstr "Rediger svar"
 
 #: src/amo/components/AddonReviewCard/index.js:202
-#, fuzzy
 msgid "Edit review"
-msgstr "Rediger min omtale"
+msgstr "Rediger omtale"
 
 #: src/amo/components/AddonReviewCard/index.js:209 src/amo/components/AddonReviewCard/index.js:241
-#, fuzzy
 msgid "Delete reply"
-msgstr "Rediger mitt svar"
+msgstr "Slett svar"
 
 #: src/amo/components/AddonReviewCard/index.js:213 src/amo/components/AddonReviewCard/index.js:245
 #, fuzzy
@@ -527,11 +522,10 @@ msgid "Add-on icon"
 msgstr "Utvidelses-ikon"
 
 #: src/amo/components/AddonSummaryCard/index.js:70
-#, fuzzy
 msgid "%(rating)s Star out of 5"
 msgid_plural "%(rating)s Stars out of 5"
-msgstr[0] "Vurdert %(rating)s ut av 5"
-msgstr[1] "Vurdert %(rating)s ut av 5"
+msgstr[0] "%(rating)s stjerne av 5"
+msgstr[1] "%(rating)s stjerner av 5"
 
 # A comma, used in a list of authors: a1, a2, a3.
 #: src/amo/components/AddonTitle/index.js:45
