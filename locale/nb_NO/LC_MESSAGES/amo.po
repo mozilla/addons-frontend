@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-26 18:05+0000\n"
+"PO-Revision-Date: 2020-05-26 19:06+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1682,9 +1682,8 @@ msgid "End-User License Agreement for %(addonName)s"
 msgstr "Sluttbrukerlisensavtale for %(addonName)s"
 
 #: src/amo/pages/AddonInfo/index.js:165
-#, fuzzy
 msgid "Privacy policy for %(addonName)s"
-msgstr "Vurderinger for %(addonName)s"
+msgstr "Personvernerklæring for %(addonName)s"
 
 #: src/amo/pages/AddonReviewList/index.js:198
 msgid "Reviews and ratings for %(addonName)s. Find out what other users think about %(addonName)s and add it to your Firefox Browser."
@@ -1743,19 +1742,16 @@ msgid "You should always use the latest version of an add-on."
 msgstr "Du burde alltid bruke den siste versjonen av et tillegg."
 
 #: src/amo/pages/AddonVersions/index.js:190
-#, fuzzy
 msgid "Latest version"
-msgstr "Beta-versjoner"
+msgstr "Siste versjon"
 
 #: src/amo/pages/AddonVersions/index.js:199
-#, fuzzy
 msgid "Older versions"
-msgstr "Se alle versjoner"
+msgstr "Eldre versjoner"
 
 #: src/amo/pages/Block/index.js:115
-#, fuzzy
 msgid "Versions blocked: all versions."
-msgstr "Se alle versjoner"
+msgstr "Versjoner blokkerte: alle versjoner."
 
 #: src/amo/pages/Block/index.js:118
 msgid "Versions blocked: %(min)s to %(max)s."
@@ -1766,9 +1762,8 @@ msgid "%(addonName)s has been blocked for your protection."
 msgstr ""
 
 #: src/amo/pages/Block/index.js:145
-#, fuzzy
 msgid "This add-on has been blocked for your protection."
-msgstr "Om denne %(addonType)s"
+msgstr "Dette tillegget er blokkert for å beskytte deg."
 
 #: src/amo/pages/Block/index.js:156
 msgid "Why was it blocked?"
@@ -1801,9 +1796,8 @@ msgid "View block request"
 msgstr ""
 
 #: src/amo/pages/CategoriesPage/index.js:35
-#, fuzzy
 msgid "All extension categories"
-msgstr "Bla gjennom alle utvidelser i denne kategori."
+msgstr "Alle utvidelseskategorier"
 
 #: src/amo/pages/CategoriesPage/index.js:37
 #, fuzzy
