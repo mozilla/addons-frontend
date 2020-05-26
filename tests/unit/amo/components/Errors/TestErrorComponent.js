@@ -24,7 +24,11 @@ describe(__filename, () => {
   });
 
   it('shows NotAuthorized class when error code is 401', () => {
-    const root = render({ code: 401 });
+    const root = render({
+      header: 'foo',
+      children: 'bar',
+      code: 401,
+    });
 
     expect(root.find('.Errors')).toHaveClassName('NotAuthorized');
     expect(root.find('.Errors')).not.toHaveClassName('NotFound');
@@ -32,7 +36,11 @@ describe(__filename, () => {
   });
 
   it('shows NotFound class when error code is 404', () => {
-    const root = render({ code: 404 });
+    const root = render({
+      header: 'foo',
+      children: 'bar',
+      code: 404,
+    });
 
     expect(root.find('.Errors')).toHaveClassName('NotFound');
     expect(root.find('.Errors')).not.toHaveClassName('NotAuthorized');
@@ -40,7 +48,11 @@ describe(__filename, () => {
   });
 
   it('shows ServerError class when error code is 500', () => {
-    const root = render({ code: 500 });
+    const root = render({
+      header: 'foo',
+      children: 'bar',
+      code: 500,
+    });
 
     expect(root.find('.Errors')).toHaveClassName('ServerError');
     expect(root.find('.Errors')).not.toHaveClassName('NotFound');
