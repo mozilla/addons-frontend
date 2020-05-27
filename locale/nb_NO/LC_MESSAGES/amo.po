@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-27 21:25+0000\n"
+"PO-Revision-Date: 2020-05-27 21:36+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -2644,11 +2644,11 @@ msgstr "mitt tillegg er blitt gjennomgått av en redaktør"
 
 #: src/amo/utils/notifications.js:24
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "mitt tilleggs kompatibilitet kan ikke oppgraderes"
 
 #: src/amo/utils/notifications.js:26
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "mitt tilleggs kompatibilitet har blitt oppgradert"
 
 #: src/core/components/AMInstallButton/index.js:202
 msgid "Enable"
@@ -2728,7 +2728,7 @@ msgstr "Side %(currentPage)s av %(totalPages)s"
 
 #: src/core/components/SiteNotices/index.js:66
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
-msgstr ""
+msgstr "Noen funksjoner er midlertidig utilgjengelig mens vi utfører rutinemessig vedlikehold. Vi kommer tilbake med full kapasitet om kort tid."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
@@ -2736,7 +2736,7 @@ msgstr "Delta i en kort undersøkelse"
 
 #: src/core/components/SurveyNotice/index.js:136
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Takk for at du besøker dette nettstedet! Bruk et minutt eller to for å fortelle Firefox om din opplevelse."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
