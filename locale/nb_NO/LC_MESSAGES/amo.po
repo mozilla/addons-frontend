@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-27 07:25+0000\n"
+"PO-Revision-Date: 2020-05-27 07:49+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1853,7 +1853,7 @@ msgstr "Utforsk flere %(linkStart)sannonseblokkerere%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:117
 msgid "Stop online trackers from stalking you"
-msgstr ""
+msgstr "Stopp sporere fra å følge etter deg på nettet"
 
 #: src/amo/pages/Guides/index.js:118
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
@@ -1887,7 +1887,7 @@ msgstr "Utforsk flere %(linkStart)sfaneutvidelser%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:160
 msgid "Better browsing with improved bookmarks"
-msgstr ""
+msgstr "Bedre surfing med forbedrede bokmerker"
 
 #: src/amo/pages/Guides/index.js:161
 msgid "Extensions can help you organize your online interests. Bookmark managers are ideal for folks with a lot of content to track."
