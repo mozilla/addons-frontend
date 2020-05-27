@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-27 08:09+0000\n"
+"PO-Revision-Date: 2020-05-27 08:32+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1895,7 +1895,7 @@ msgstr "Utvidelser kan hjelpe deg med å organisere interessene dine på nettet.
 
 #: src/amo/pages/Guides/index.js:165
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-msgstr ""
+msgstr "Nyt en bedre måte å organisere bokmerkene på, hvis du har flere bokmerkemapper."
 
 #: src/amo/pages/Guides/index.js:168
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
@@ -1903,7 +1903,7 @@ msgstr "Utforsk flere %(linkStart)sbokmerkeutvidelser%(linkEnd)s."
 
 #: src/amo/pages/Guides/index.js:179
 msgid "Enjoy a fresh new tab experience"
-msgstr ""
+msgstr "Nyt en fersk ny faneopplevelse"
 
 #: src/amo/pages/Guides/index.js:180
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
@@ -2148,11 +2148,11 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:149
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "Delta i vårt %(startLink)sforum%(endLink)s."
 
 #: src/amo/pages/StaticPages/About/index.js:162
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr ""
+msgstr "Legg igjen tilbakemeldinger om dine foretrukne tillegg. Utviklere av tillegg er mer tilbøyelige til å forbedre deres tillegg og lage nye, når de vet at deres arbeid er verdsatt."
 
 #: src/amo/pages/StaticPages/About/index.js:167
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
@@ -2164,7 +2164,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:189
 msgid "Get support"
-msgstr ""
+msgstr "Få hjelp"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
@@ -2196,7 +2196,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
-msgstr ""
+msgstr "Et fellesskap av utviklere"
 
 #: src/amo/pages/StaticPages/About/index.js:56
 msgid ""
