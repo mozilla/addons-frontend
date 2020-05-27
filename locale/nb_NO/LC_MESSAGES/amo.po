@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-27 20:40+0000\n"
+"PO-Revision-Date: 2020-05-27 21:17+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1869,13 +1869,15 @@ msgstr "Utforsk flere anbefalte %(linkStart)spersonvern- og sikkerhetsutvidelser
 
 #: src/amo/pages/Guides/index.js:138
 msgid "Reimagine tab management"
-msgstr ""
+msgstr "Nye måter å behandle faner på"
 
 #: src/amo/pages/Guides/index.js:139
 msgid ""
 "If you typically work with a lot of open tabs, you’re probably familiar with the frustration of searching through a row of unidentifiable tabs looking for just the one you need. Extensions can offer"
 " creative solutions for streamlining tab management."
 msgstr ""
+"Hvis du vanligvis jobber med mange åpne faner, er du sannsynligvis kjent med frustrasjonen over å søke gjennom en rad med uidentifiserbare faner på jakt etter akkurat den du trenger. Utvidelser kan "
+"tilby kreative løsninger for effektivisering av fanehåndtering."
 
 #: src/amo/pages/Guides/index.js:145
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
@@ -2499,15 +2501,15 @@ msgstr "Konto for %(userName)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:581
 msgid "Email Address"
-msgstr ""
+msgstr "E-postadresse"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "E-postadressen kan ikke endres her"
 
 #: src/amo/pages/UserProfileEdit/index.js:599
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Du kan forandre din e-postadresse på din Firefox-konto. %(startLink)sTrenger du hjelp?%(endLink)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:616
 msgid "Manage Firefox Accounts…"
@@ -2531,7 +2533,7 @@ msgstr "Omtalerens navn"
 
 #: src/amo/pages/UserProfileEdit/index.js:687
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Denne URL-en vil bare vises for brukere som er utviklere."
 
 #: src/amo/pages/UserProfileEdit/index.js:744
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
@@ -2543,15 +2545,15 @@ msgstr "Varsler"
 
 #: src/amo/pages/UserProfileEdit/index.js:772
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Fra tid til annen kan Mozilla sende deg en e-post om kommende utgivelser og arrangementer vedrørende tillegg. Velg emner som du er interessert i."
 
 #: src/amo/pages/UserProfileEdit/index.js:777
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "Fra tid til annen kan Mozilla sende denne brukeren en e-post om kommende utgivelser og arrangementer vedrørende tillegg. Velg emner som denne brukeren kan være interessert i."
 
 #: src/amo/pages/UserProfileEdit/index.js:792
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla reserverer seg retten til å kontakte deg individuelt vedrørende dine tilleg som er lastet opp her."
 
 #: src/amo/pages/UserProfileEdit/index.js:818 src/amo/pages/UserProfileEdit/index.js:907
 msgid "Delete My Profile"
@@ -2563,11 +2565,11 @@ msgstr "Slett profil"
 
 #: src/amo/pages/UserProfileEdit/index.js:831
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "VIKTIG: Sletting av Firefox-tilleggsprofilen din kan ikke reverseres."
 
 #: src/amo/pages/UserProfileEdit/index.js:834
 msgid "IMPORTANT: Deleting this Firefox Add-ons profile is irreversible."
-msgstr ""
+msgstr "VIKTIG: Sletting av denne Firefox-tilleggsprofilen kan ikke reverseres."
 
 #: src/amo/pages/UserProfileEdit/index.js:843
 msgid ""
@@ -2601,12 +2603,12 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
-msgstr ""
+msgstr "Du har avsluttet abonnementet!"
 
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:121
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "E-postadressen %(strongStart)s%(email)s%(strongEnd)s vill ikke lenger motta meldinger når:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
@@ -2614,19 +2616,19 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Avslutt abonnement"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "hold deg oppdatert med nyheter og hendelser som er relevant for tilleggsutviklere (inkludert nyhetsbrevet about:addons)"
 
 #: src/amo/utils/notifications.js:13
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla trenger å kontakte meg om mitt tillegget mitt"
 
 #: src/amo/utils/notifications.js:16
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "nye tillegg eller Firefox-funksjoner er tilgjengelig"
 
 #: src/amo/utils/notifications.js:18
 msgid "someone writes a review of my add-on"
