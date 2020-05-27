@@ -1,0 +1,42 @@
+/* @flow */
+import * as React from 'react';
+import invariant from 'invariant';
+import makeClassName from 'classnames';
+import NestedStatus from 'react-nested-status';
+
+import Card from 'ui/components/Card';
+
+import './styles.scss';
+
+type Props = {|
+  children: React.Node,
+  className?: string,
+  code: 400 | 401 | 404 | 500,
+  header: React.Element<any> | string,
+|};
+
+export default class ErrorComponent extends React.Component<Props> {
+  render() {
+    const { children, className, code, header } = this.props;
+    const validCodes = [400, 401, 404, 500];
+
+    invariant(children, 'children is required');
+    invariant(header, 'header is required');
+    invariant(validCodes.includes(code), 'a valid error code is required');
+
+    return (
+      <NestedStatus code={code}>
+        <Card
+          className={makeClassName('Errors', className, {
+            NotAuthorized: code === 401,
+            NotFound: code === 404,
+            ServerError: code === 500,
+          })}
+          header={header}
+        >
+          {children}
+        </Card>
+      </NestedStatus>
+    );
+  }
+}

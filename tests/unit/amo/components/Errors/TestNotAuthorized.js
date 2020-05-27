@@ -1,11 +1,11 @@
 import * as React from 'react';
 
+import ErrorComponent from 'amo/components/Errors/ErrorComponent';
 import NotAuthorized, {
   NotAuthorizedBase,
 } from 'amo/components/Errors/NotAuthorized';
 import { createApiError } from 'core/api';
 import { loadErrorPage } from 'core/reducers/errorPage';
-import Card from 'ui/components/Card';
 import {
   dispatchSignInActions,
   fakeI18n,
@@ -31,6 +31,7 @@ describe(__filename, () => {
   it('renders a not authorized error', () => {
     const root = render();
 
-    expect(root.find(Card)).toHaveProp('header', 'Not Authorized');
+    expect(root.find(ErrorComponent)).toHaveProp('code', 401);
+    expect(root.find(ErrorComponent)).toHaveProp('header', 'Not Authorized');
   });
 });

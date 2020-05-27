@@ -1,20 +1,21 @@
-import PropTypes from 'prop-types';
+/* @flow */
 import * as React from 'react';
-import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
 
+import ErrorComponent from 'amo/components/Errors/ErrorComponent';
 import SuggestedPages from 'amo/components/SuggestedPages';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
-import Card from 'ui/components/Card';
+import type { I18nType } from 'core/types/i18n';
 
-import '../styles.scss';
+type Props = {||};
 
-export class ServerErrorBase extends React.Component {
-  static propTypes = {
-    i18n: PropTypes.object.isRequired,
-  };
+type InternalProps = {|
+  ...Props,
+  i18n: I18nType,
+|};
 
+export class ServerErrorBase extends React.Component<InternalProps> {
   render() {
     const { i18n } = this.props;
 
@@ -26,26 +27,25 @@ export class ServerErrorBase extends React.Component {
 
     /* eslint-disable react/no-danger */
     return (
-      <NestedStatus code={500}>
-        <Card
-          className="Errors ServerError"
-          header={i18n.gettext('Server Error')}
-        >
-          <p>
-            {i18n.gettext(`
-              Sorry, but there was an error with our server and we couldn't
-              complete your request. We have logged this error and will
-              investigate it.`)}
-          </p>
+      <ErrorComponent code={500} header={i18n.gettext('Server Error')}>
+        <p>
+          {i18n.gettext(`
+            Sorry, but there was an error with our server and we couldn't
+            complete your request. We have logged this error and will
+            investigate it.`)}
+        </p>
 
-          <SuggestedPages />
+        <SuggestedPages />
 
-          <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
-        </Card>
-      </NestedStatus>
+        <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
+      </ErrorComponent>
     );
     /* eslint-enable react/no-danger */
   }
 }
 
-export default compose(translate())(ServerErrorBase);
+const ServerError: React.ComponentType<Props> = compose(translate())(
+  ServerErrorBase,
+);
+
+export default ServerError;

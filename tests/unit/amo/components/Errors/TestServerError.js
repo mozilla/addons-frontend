@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import ErrorComponent from 'amo/components/Errors/ErrorComponent';
 import ServerError, {
   ServerErrorBase,
 } from 'amo/components/Errors/ServerError';
@@ -29,6 +30,9 @@ describe(__filename, () => {
 
   it('renders a server error', () => {
     const root = render();
+
+    expect(root.find(ErrorComponent)).toHaveProp('code', 500);
+    expect(root.find(ErrorComponent)).toHaveProp('header', 'Server Error');
 
     expect(root.find('p').at(0)).toIncludeText(
       'but there was an error with our server and',
