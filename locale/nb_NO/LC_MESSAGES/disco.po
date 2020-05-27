@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:36+0000\n"
-"PO-Revision-Date: 2020-05-26 23:17+0000\n"
+"PO-Revision-Date: 2020-05-27 07:24+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -187,7 +187,7 @@ msgstr "Les mer"
 
 #: src/disco/pages/DiscoPane/index.js:211
 msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
+msgstr "Noen av disse anbefalingene er personlig. De er basert på andre utvidelser du har installert, profilinnstillinger og brukerstatistikk."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
