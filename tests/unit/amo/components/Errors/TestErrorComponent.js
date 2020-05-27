@@ -1,8 +1,6 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
-import NestedStatus from 'react-nested-status';
 
-import Card from 'ui/components/Card';
 import ErrorComponent from 'amo/components/Errors/ErrorComponent';
 
 describe(__filename, () => {
