@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-27 08:49+0000\n"
+"PO-Revision-Date: 2020-05-27 20:32+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -952,7 +952,7 @@ msgstr "Omtalingsverktøy"
 
 #: src/amo/components/Header/index.js:139 src/core/components/AuthenticateButton/index.js:91
 msgid "This action is currently unavailable. Please reload the page in a moment."
-msgstr ""
+msgstr "Denne handlingen er for øyeblikket ikke tilgjengelig. Last siden på nytt om en stund."
 
 #: src/amo/components/Header/index.js:144 src/core/components/AuthenticateButton/index.js:87
 msgid "Log out"
@@ -1341,7 +1341,7 @@ msgstr[1] "%(count)s resultat for \"%(query)s\""
 msgid "%(count)s result found"
 msgid_plural "%(count)s results found"
 msgstr[0] "Fant %(count)s treff"
-msgstr[1] ""
+msgstr[1] "Fant %(count)s treff"
 
 #: src/amo/components/SearchContextCard/index.js:156
 msgid "Searching for \"%(query)s\""
@@ -1569,7 +1569,7 @@ msgstr "For å finne tillegg som er kompatible med Firefox for datamaskiner, <a 
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-msgstr ""
+msgstr "Ikke tilgjengelig på Firefox for Android. Du kan bruke dette tillegget med Firefox for datamaskiner,  eller se etter lignende <a href=\"%(newLocation)s\">Android-tillegg</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
@@ -1651,7 +1651,7 @@ msgstr "Denne oppføringen er ikke beregnet for denne plattformen. <a href=\"%(n
 
 #: src/amo/pages/Addon/index.js:513
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop. Learn more about <a href=\"%(newLocation)s\">add-ons for Android</a>."
-msgstr ""
+msgstr "Ikke tilgjengelig på Firefox for Android. Du kan bruke dette tillegget med Firefox for datamaskiner. Les mer om <a href=\"%(newLocation)s\">tillegg for Android</a>."
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Screenshots"
@@ -1739,11 +1739,11 @@ msgstr "Versjoner blokkerte: alle versjoner."
 
 #: src/amo/pages/Block/index.js:118
 msgid "Versions blocked: %(min)s to %(max)s."
-msgstr ""
+msgstr "Versjoner blokkerte: %(min)s til %(max)s."
 
 #: src/amo/pages/Block/index.js:140
 msgid "%(addonName)s has been blocked for your protection."
-msgstr ""
+msgstr "%(addonName)s har blitt blokkert for å beskytte deg."
 
 #: src/amo/pages/Block/index.js:145
 msgid "This add-on has been blocked for your protection."
