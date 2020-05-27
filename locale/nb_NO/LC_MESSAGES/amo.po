@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-27 20:32+0000\n"
+"PO-Revision-Date: 2020-05-27 20:40+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1755,7 +1755,7 @@ msgstr "Hvorfor ble den blokkert?"
 
 #: src/amo/pages/Block/index.js:161
 msgid "This add-on violates %(startLink)sMozilla's Add-on Policies%(endLink)s."
-msgstr ""
+msgstr "Dette tillegget bryter med %(startLink)sMozilla sine retningslinjer for utvidelser%(endLink)s."
 
 #: src/amo/pages/Block/index.js:173
 msgid "What does this mean?"
@@ -1763,7 +1763,7 @@ msgstr "Hva betyr dette?"
 
 #: src/amo/pages/Block/index.js:175
 msgid "The problematic add-on or plugin will be automatically disabled and no longer usable."
-msgstr ""
+msgstr "Den problematiske tillegget eller programtillegget vil automatisk slås av, og ikke lenger være brukbar."
 
 #: src/amo/pages/Block/index.js:182
 msgid ""
@@ -1777,7 +1777,7 @@ msgstr "Blokkert den %(date)s."
 
 #: src/amo/pages/Block/index.js:98
 msgid "View block request"
-msgstr ""
+msgstr "Vis blokkeringsforespørsel"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
@@ -1857,11 +1857,11 @@ msgstr "Stopp sporere fra å følge etter deg på nettet"
 
 #: src/amo/pages/Guides/index.js:118
 msgid "Online advertisers can track your activity from one website to the next, gathering information about you and your interests. Extensions can help cover your digital trail."
-msgstr ""
+msgstr "Annonsører på nettet kan spore aktiviteten din fra det ene nettstedet til det neste, og samle informasjon om deg og interessene dine. Utvidelser kan hjelpe deg med å skjule din digitale spor."
 
 #: src/amo/pages/Guides/index.js:123
 msgid "Isolate your Facebook identity into a separate “container” to stop Facebook from tracking your activity outside of its social platform."
-msgstr ""
+msgstr "Isoler Facebook-identiteten din i en egen «beholder» for å hindre Facebook i å spore aktiviteten din utenfor den sosiale plattformen."
 
 #: src/amo/pages/Guides/index.js:127
 msgid "Explore more recommended %(linkStart)sprivacy & security%(linkEnd)s extensions."
