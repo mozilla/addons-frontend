@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-28 07:22+0000\n"
+"PO-Revision-Date: 2020-05-28 07:26+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -2592,16 +2592,19 @@ msgstr ""
 #: src/amo/pages/UserProfileEdit/index.js:860
 msgid "When you use this email address to log in again to addons.mozilla.org, you will create a new Firefox Add-ons profile that is in no way associated with the profile you deleted."
 msgstr ""
+"Når du bruker denne e-postadressen for å logge inn igjen på addons.mozilla.org, vil du få opprettet en helt ny profil på nettstedet. Den vil ikke inneholde opplysninger fra den gamle profilen."
 
 #: src/amo/pages/UserProfileEdit/index.js:873
 msgid ""
 "%(strongStart)sNOTE:%(strongEnd)s You cannot delete your profile if you are the %(linkStart)sauthor of any add-ons%(linkEnd)s. You must %(docLinkStart)stransfer ownership%(docLinkEnd)s or delete the"
 " add-ons before you can delete your profile."
 msgstr ""
+"%(strongStart)sMERK:%(strongEnd)s Du kan ikke slette din profil hvis du står %(linkStart)ssom eier av noen tillegg%(linkEnd)s. Du må %(docLinkStart)soverføre eierskapet%(docLinkEnd)s eller slette "
+"dette tillegget før du kan slette din profil."
 
 #: src/amo/pages/UserProfileEdit/index.js:880
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr ""
+msgstr "%(strongStart)sMERK:%(strongEnd)s Du kan ikke slette en brukers profil hvis brukeren er en %(linkStart)sstår som eier av noen tillegg%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
