@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-27 22:15+0000\n"
+"PO-Revision-Date: 2020-05-28 07:07+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -2143,10 +2143,12 @@ msgid ""
 "Want to interact with addons.mozilla.org (AMO) programmatically? Check out the %(startAddonsServerDocumentation)sAdd-ons Servers documentation%(endAddonsServerDocumentation)s for details about the "
 "APIs used by AMO and the %(startAddonsManager)sAdd-ons Manager%(endAddonsManager)s."
 msgstr ""
+"Vil du kommunisere med addons.mozilla.org (AMO) programmatisk? Sjekk ut %(startAddonsServerDocumentation)sserver-dokumentasjonen for tillegg%(endAddonsServerDocumentation)s for detaljer om bruken av"
+" API-er som brukes av AMO og %(startAddonsManager)stilleggsbehandlerenr%(endAddonsManager)s."
 
 #: src/amo/pages/StaticPages/About/index.js:140
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Hvis du vil bidra, men ikke er så teknisk anlagt, er det fortsatt mulig å hjelpe:"
 
 #: src/amo/pages/StaticPages/About/index.js:149
 msgid "Participate in our %(startLink)sforum%(endLink)s."
