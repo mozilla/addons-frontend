@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-28 07:26+0000\n"
+"PO-Revision-Date: 2020-05-28 07:43+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -2447,7 +2447,7 @@ msgstr "Fortell brukerne litt mer om deg selv. De fleste felt er valgfrie, men d
 
 #: src/amo/pages/UserProfileEdit/index.js:447
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
-msgstr ""
+msgstr "Fortell andre brukere litt mer om denne brukeren. De fleste felt er valgfrie, men de vil hjelpe andre brukere å bli bedre kjent med %(userName)s."
 
 #: src/amo/pages/UserProfileEdit/index.js:462
 msgid "Introduce yourself to the community if you like"
@@ -2604,7 +2604,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:880
 msgid "%(strongStart)sNOTE:%(strongEnd)s You cannot delete a user’s profile if the user is the %(linkStart)sauthor of any add-ons%(linkEnd)s."
-msgstr "%(strongStart)sMERK:%(strongEnd)s Du kan ikke slette en brukers profil hvis brukeren er en %(linkStart)sstår som eier av noen tillegg%(linkEnd)s."
+msgstr "%(strongStart)sMERK:%(strongEnd)s Du kan ikke slette en brukers profil hvis brukeren%(linkStart)sstår som eier av noen tillegg%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:108
 msgid "You are successfully unsubscribed!"
