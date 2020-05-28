@@ -375,7 +375,7 @@ module.exports = {
 
   enableFeatureDiscoTaar: false,
 
-  enableFeatureBlockPage: false,
+  enableFeatureBlockPage: true,
 
   enableFeatureExperienceSurvey: false,
   dismissedExperienceSurveyCookieName: 'dismissedExperienceSurvey',
