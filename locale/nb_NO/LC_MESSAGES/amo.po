@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-28 07:12+0000\n"
+"PO-Revision-Date: 2020-05-28 07:22+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1881,7 +1881,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:145
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Arranger og visualiser fanene dine i et kaskaderende «tre»-format i sidestolpen til Firefox."
 
 #: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
@@ -1951,7 +1951,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:239
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
-msgstr ""
+msgstr "Få tilgang til over 30 000 radiostasjoner fra hele verden, kun et klikk unna."
 
 #: src/amo/pages/Guides/index.js:268
 msgid ""
@@ -2232,7 +2232,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Inkludere din egen eller noen andres e-postadresse, telefonnummer, eller andre personlige detaljer."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:106
 msgid "Post reviews for an add-on you or your organization wrote or represent."
@@ -2317,15 +2317,15 @@ msgstr "Skriv kortfattet og rett frem."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:45
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Gi spesifikke og nyttige detaljer. For eksempel:"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:50
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Fungerte tillegget som forventet?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:53
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Hvilke egenskaper likte eller mislikte du med den?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
@@ -2371,7 +2371,7 @@ msgstr "Inkluder HTML, lenker, kildekode eller kodeutdrag. Omtaler er ment å ba
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:96
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Gi falske uttalelser, nedverdige utviklere av tillegg eller fornærme dem personlig."
 
 #: src/amo/pages/UserProfile/index.js:241
 msgid "My reviews"
@@ -2443,7 +2443,7 @@ msgstr "Bildet er slettet"
 
 #: src/amo/pages/UserProfileEdit/index.js:443
 msgid "Tell users a bit more information about yourself. Most fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Fortell brukerne litt mer om deg selv. De fleste felt er valgfrie, men det vil hjelpe andre brukere å bli bedre kjent med deg."
 
 #: src/amo/pages/UserProfileEdit/index.js:447
 msgid "Tell users a bit more information about this user. Most fields are optional, but they'll help other users get to know %(userName)s better."
@@ -2451,11 +2451,11 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:462
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Presenter deg selv for fellesskapet, om du vil"
 
 #: src/amo/pages/UserProfileEdit/index.js:463
 msgid "Introduce %(userName)s to the community"
-msgstr ""
+msgstr "Presenter %(userName)s for fellesskapet"
 
 #: src/amo/pages/UserProfileEdit/index.js:490
 msgid "Log in to edit the profile"
