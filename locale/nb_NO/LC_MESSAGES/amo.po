@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-28 07:07+0000\n"
+"PO-Revision-Date: 2020-05-28 07:12+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -2104,11 +2104,11 @@ msgstr "Ordliste og språkpakker"
 
 #: src/amo/pages/LanguageTools/index.js:158
 msgid "Download Firefox dictionaries and language pack extensions. Add a new language option to your browser spell-checker, or change the browser's interface language."
-msgstr ""
+msgstr "Last ned Firefox-ordlister og språkpakkeutvidelser. Legg til et nytt språkalternativ i nettleserens stavekontroll, eller endre nettleserens grensesnittspråk."
 
 #: src/amo/pages/LanguageTools/index.js:169
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "Installering av en ordliste legger til et nytt språkalternativ til stavekontrollen din, som kontrollerer stavingen din mens du skriver i Firefox."
 
 #: src/amo/pages/LanguageTools/index.js:174
 msgid "Language packs change your browser's interface language, including menu options and settings."
@@ -2363,7 +2363,7 @@ msgstr "Skrive omtaler for utvidelser som du ikke har brukt selv."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:86
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Bruke banning, seksuelt språk eller språk som kan tolkes som hatefullt."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:91
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
