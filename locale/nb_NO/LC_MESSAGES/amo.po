@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-29 19:46+0000\n"
+"PO-Revision-Date: 2020-05-29 20:03+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1938,7 +1938,7 @@ msgstr "Få mer ut av media"
 
 #: src/amo/pages/Guides/index.js:218
 msgid "Extensions can address a wide variety of niche media needs and interests, like image searching, download management, and text readers, to name a few."
-msgstr ""
+msgstr "Utvidelser kan adressere et bredt utvalg av nisje mediebehov og interesser, for eksempel bildesøk, nedlastningsbehandling og tekstlesere, for å nevne noen."
 
 #: src/amo/pages/Guides/index.js:223
 msgid ""
@@ -1952,7 +1952,7 @@ msgstr "Ta media rett inn i nettleseren"
 
 #: src/amo/pages/Guides/index.js:234
 msgid "Extensions can turn Firefox into your very own entertainment hub that gives you instant access to music, image capturing, gaming, and more."
-msgstr ""
+msgstr "Utvidelser kan gjøre Firefox til ditt helt eget underholdningssenter som gir deg øyeblikkelig tilgang til musikk, bildefangst, spill og mer."
 
 #: src/amo/pages/Guides/index.js:239
 msgid "Access 30,000+ radio stations from all over the globe, always just a click away."
@@ -2369,6 +2369,8 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Skriv om tekniske problemer, be om hjelp, eller foreslå funksjoner. Bruk de tilgjengelige brukerstøttemulighetene for individuelle tillegg, dersom de er tilgjengelig. Du kan finne dem i «Mer "
+"informasjon»-seksjonen i sidestolpen på siden med detaljer om tillegget."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:81
 msgid "Write reviews for add-ons which you have not personally used."
