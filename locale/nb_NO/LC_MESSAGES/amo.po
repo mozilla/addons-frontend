@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-29 19:10+0000\n"
+"PO-Revision-Date: 2020-05-29 19:19+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1770,6 +1770,9 @@ msgid ""
 "When Mozilla becomes aware of add-ons, plugins, or other third-party software that seriously compromises Firefox security, stability, or performance and meets %(criteriaStartLink)scertain "
 "criteria%(criteriaEndLink)s, the software may be blocked from general use. For more information, please read %(supportStartLink)sthis support article%(supportEndLink)s."
 msgstr ""
+"Når Mozilla blir kjent med utvidelser, programtillegg eller annen tredjeparts programvare som kompromitterer Firefox sin sikkerhet, stabilitet eller ytelse, og samtidig er innenfor "
+"%(criteriaStartLink)sforskjellige kriterier%(criteriaEndLink)s, kan programmet bli blokkert fra generell bruk. For mer informasjon om dette, les %(supportStartLink)sdenne "
+"brukerstøtteartikkelen%(supportEndLink)s."
 
 #: src/amo/pages/Block/index.js:89
 msgid "Blocked on %(date)s."
@@ -2020,11 +2023,11 @@ msgstr "Sesongbestemt"
 
 #: src/amo/pages/Home/index.js:201
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Skift utseende på Firefox ved hjelp av tema."
 
 #: src/amo/pages/Home/index.js:234
 msgid "Download Firefox extensions and themes. They’re like apps for your browser. They can block annoying ads, protect passwords, change browser appearance, and more."
-msgstr ""
+msgstr "Last ned Firefox-utvidelser og -temaer. De er som apper for nettleseren din. De kan blokkere irriterende annonser, beskytte passord, endre utseende på nettleseren og mer."
 
 #: src/amo/pages/Home/index.js:273 src/amo/pages/LandingPage/index.js:132
 msgid "See more recommended extensions"
@@ -2076,11 +2079,11 @@ msgstr "Se flere høyest vurderte tema"
 
 #: src/amo/pages/LandingPage/index.js:206
 msgid "Download themes to change how Firefox looks. Tailor your experience to your tastes. Cute critters, evil robots, beautiful landscapes—thousands of options."
-msgstr ""
+msgstr "Last ned temaer for å endre hvordan Firefox ser ut. Skreddersy opplevelsen din etter din smak. Søte smådyr, onde roboter, vakre landskap — tusenvis av alternativer."
 
 #: src/amo/pages/LandingPage/index.js:211
 msgid "Download Firefox Extensions to add features that customize browsing. Protect passwords, find deals, enhance video, and block annoying ads with browser apps."
-msgstr ""
+msgstr "Last ned Firefox-utvidelser for å legge til funksjoner som tilpasser surfing. Beskytt passord, finne tilbud, forbedre video og blokker irriterende annonser med nettleser-apper."
 
 #: src/amo/pages/LandingPage/index.js:233
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -2223,6 +2226,8 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla, en ideell organisasjon, er en forkjemper for det åpne nettet, vi utvikler Firefox for å holde nettet sunt, åpent og tilgjengelig for alle. Tillegg støtter valgfrihet og tilpasning i "
+"Firefox, og du kan bidra på følgende måter:"
 
 #: src/amo/pages/StaticPages/About/index.js:77
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
