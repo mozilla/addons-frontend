@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-27 00:09+0000\n"
-"Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
+"PO-Revision-Date: 2020-05-26 16:55+0000\n"
+"Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
 "MIME-Version: 1.0\n"
@@ -315,7 +315,7 @@ msgstr "Vil du slette dette svaret?"
 
 #: src/amo/components/AddonReviewCard/index.js:227
 msgid "Do you really want to delete this rating?"
-msgstr "Vil du slette dette bildet?"
+msgstr "Vil du slette denne vurderinga?"
 
 #: src/amo/components/AddonReviewCard/index.js:230
 msgid "Do you really want to delete this review?"
