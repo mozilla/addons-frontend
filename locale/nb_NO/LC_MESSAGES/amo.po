@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-29 19:19+0000\n"
+"PO-Revision-Date: 2020-05-29 19:30+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -753,6 +753,8 @@ msgid ""
 "Try visiting the page later, as the theme or extension may become available again. Alternatively, you may be able to find what you’re looking for in one of the available "
 "%(extensionStart)sextensions%(extensionEnd)s or %(themeStart)sthemes%(themeEnd)s, or by asking for help on our %(communityStart)scommunity forums%(communityEnd)s."
 msgstr ""
+"Prøv å besøke siden senere, siden temaet eller utvidelsen kan bli tilgjengelig igjen. Alternativt kan du finne det du leter etter i en de tilgjengelige %(extensionStart)sutvidelsene%(extensionEnd)s "
+"eller %(extensionEnd)stema%(themeEnd)s, eller ved å be om hjelp i vårt %(communityStart)sforum for felleskapet%(communityEnd)s."
 
 #: src/amo/components/Errors/NotFound/index.js:82
 msgid "Oops! We can’t find that page"
@@ -1912,11 +1914,11 @@ msgstr "Nyt en fersk ny faneopplevelse"
 
 #: src/amo/pages/Guides/index.js:180
 msgid "Start each browsing session tailored just for you by customizing your new tab experience."
-msgstr ""
+msgstr "Start hver nettlesingsøkt som er skreddersydd for deg ved å tilpasse ny fane-opplevelsen din."
 
 #: src/amo/pages/Guides/index.js:184
 msgid "Enjoy a beautiful new page with customizable backgrounds, local weather info, and more."
-msgstr ""
+msgstr "Nyt en vakker ny side med tilpassbare bakgrunner, lokalt vær og mer."
 
 #: src/amo/pages/Guides/index.js:202
 msgid "Improve videos"
@@ -1924,11 +1926,11 @@ msgstr "Forbedre videoer"
 
 #: src/amo/pages/Guides/index.js:203
 msgid "If you enjoy video content, extensions offer a number of ways to optimize your experience, including customizing YouTube to your taste and playing videos in theater mode."
-msgstr ""
+msgstr "Hvis du liker videoinnhold, tilbyr utvidelser flere måter å optimalisere opplevelsen din, inkludert tilpasse YouTube etter din smak og spille av videoer i kinomodus."
 
 #: src/amo/pages/Guides/index.js:208
 msgid "Add a control bar to all YouTube video pages so you can easily adjust volume, playback speed, video player size, advertising and annotation blocking, and other features."
-msgstr ""
+msgstr "Legg til en kontrollfelt til alle YouTube-videosider slik at du enkelt kan justere volum, avspillingshastighet, videospillerstørrelse, annonse- og annoteringsblokkering og andre funksjoner."
 
 #: src/amo/pages/Guides/index.js:217
 msgid "Get more out of media"
@@ -1961,6 +1963,8 @@ msgid ""
 "The web is a wonderful but wild place. Your personal data can be used without your consent, your activities spied upon, and your passwords stolen. Fortunately, extensions can help fortify your "
 "online privacy and security."
 msgstr ""
+"Internett er et fantastisk, men vilt sted. Dine personopplysninger kan brukes uten ditt samtykke, dine aktiviteter spioneres på, og dine passord stjålet. Heldigvis kan utvidelser bidra til å styrke "
+"ditt personvern og sikkerhet på nettet."
 
 #: src/amo/pages/Guides/index.js:281
 msgid ""
@@ -1982,7 +1986,7 @@ msgstr "Passordbehandlere kan hjelpe deg med å lage sikre passord, lagre passor
 
 #: src/amo/pages/Guides/index.js:86
 msgid "Fully encrypted password protection. Store your data securely and access logins across devices."
-msgstr ""
+msgstr "Fullstendig kryptert passordbeskyttelse. Lagre dine data sikkert og få tilgang til innlogginger mellom enheter."
 
 #: src/amo/pages/Guides/index.js:90
 msgid "Explore more great %(linkStart)spassword managers%(linkEnd)s."
@@ -2163,7 +2167,7 @@ msgstr "Legg igjen tilbakemeldinger om dine foretrukne tillegg. Utviklere av til
 
 #: src/amo/pages/StaticPages/About/index.js:167
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "Fortell dine venner og familie at Firefox er en rask, sikker nettleser som beskytter deres privatliv, og at de kan tilpasse den med tillegg, slik at den oppfyller nettopp deres behov!"
 
 #: src/amo/pages/StaticPages/About/index.js:175
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s."
