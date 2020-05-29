@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-29 20:09+0000\n"
+"PO-Revision-Date: 2020-05-29 20:21+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -1976,7 +1976,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:294
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
-msgstr ""
+msgstr "Utvidelser kan forsterke media på nett på alle slags interessante måter, fra å se videoer til håndtering av bilder, musikk og mer."
 
 #: src/amo/pages/Guides/index.js:80
 msgid "Create and manage strong passwords"
@@ -2244,6 +2244,9 @@ msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Hjelp med å forbedre dette nettstedet. Koden er fritt tilgjengelig, og du kan opprette feilrapport og sende inn rettelser. Du kan starte med å sende inn %(startGoodFirstBugLink)sdin første "
+"feilrapport%(endGoodFirstBugLink)s eller du kan se igjennom alle eksisterende feilrapporter for AMO sin %(startAddonsServerRepoLink)server%(endAddonsServerRepoLink)s og "
+"%(startAddonsFrontendRepoLink)sgrensesnitt%(endAddonsFrontendRepoLink)s på Github."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:101
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
