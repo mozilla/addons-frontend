@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-30 09:12+0000\n"
+"PO-Revision-Date: 2020-05-30 09:19+0000\n"
 "Last-Translator: Goce Mitevski <goce.mitevski@nicer2.com>\n"
 "Language-Team: none\n"
 "Language: mk\n"
@@ -928,7 +928,7 @@ msgstr "Приватност"
 
 #: src/amo/components/Footer/index.js:27
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "Одете на почетната страница на Mozilla"
 
 #: src/amo/components/Footer/index.js:274
 msgid "Cookies"
@@ -936,7 +936,7 @@ msgstr "Колачиња"
 
 #: src/amo/components/Footer/index.js:282
 msgid "Legal"
-msgstr ""
+msgstr "Правна напомена"
 
 #: src/amo/components/Footer/index.js:292
 msgid ""
@@ -946,7 +946,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:53
 msgid "About"
-msgstr ""
+msgstr "За"
 
 #: src/amo/components/Footer/index.js:58
 msgid "Blog"
@@ -971,7 +971,7 @@ msgstr "Форум"
 
 #: src/amo/components/Footer/index.js:94
 msgid "Report a bug"
-msgstr ""
+msgstr "Пријавете грешка"
 
 #: src/amo/components/Footer/index.js:99
 msgid "Review Guide"
@@ -1043,7 +1043,7 @@ msgstr "Промени ја мојата критика"
 
 #: src/amo/components/Header/index.js:97
 msgid "Tools"
-msgstr ""
+msgstr "Алатки"
 
 #: src/amo/components/HeroRecommendation/index.js:107
 #, fuzzy
@@ -1053,7 +1053,7 @@ msgstr "Проширување"
 # If uppercase does not work in your locale, change it to lowercase.
 #: src/amo/components/HeroRecommendation/index.js:180
 msgid "RECOMMENDED"
-msgstr ""
+msgstr "ПРЕПОРАЧАНО"
 
 #: src/amo/components/HomeHeroGuides/index.js:34 src/amo/pages/Guides/index.js:267
 msgid "Stay Safe Online"
@@ -1479,7 +1479,7 @@ msgstr "Linux"
 
 #: src/amo/components/SearchFilters/index.js:155
 msgid "Relevance"
-msgstr ""
+msgstr "Значење"
 
 #: src/amo/components/SearchFilters/index.js:157
 msgid "Recently Updated"
@@ -1495,7 +1495,7 @@ msgstr "Најдобро оценети"
 
 #: src/amo/components/SearchFilters/index.js:162
 msgid "Trending"
-msgstr ""
+msgstr "Во тренд"
 
 #: src/amo/components/SearchFilters/index.js:180
 msgid "Filter results"
@@ -1561,11 +1561,11 @@ msgstr "Не беа најдени резултати."
 
 #: src/amo/components/SearchSuggestion/index.js:52 src/ui/components/RecommendedBadge/index.js:28
 msgid "Recommended"
-msgstr ""
+msgstr "Препорачано"
 
 #: src/amo/components/SectionLinks/index.js:108 src/amo/pages/LandingPage/index.js:230
 msgid "Extensions"
-msgstr ""
+msgstr "Проширувања"
 
 #: src/amo/components/SectionLinks/index.js:123 src/amo/pages/LandingPage/index.js:229
 msgid "Themes"
@@ -1573,7 +1573,7 @@ msgstr "Теми"
 
 #: src/amo/components/SectionLinks/index.js:129
 msgid "More…"
-msgstr ""
+msgstr "Повеќе…"
 
 #: src/amo/components/SectionLinks/index.js:139
 msgid "Other Browser Sites"
@@ -1589,11 +1589,11 @@ msgstr "Додатоци за Firefox"
 
 #: src/amo/components/SectionLinks/index.js:62
 msgid "for Firefox"
-msgstr ""
+msgstr "за Firefox"
 
 #: src/amo/components/SectionLinks/index.js:64
 msgid "for Android"
-msgstr ""
+msgstr "за Android"
 
 #: src/amo/components/SectionLinks/index.js:79
 msgid "Dictionaries & Language Packs"
@@ -1601,11 +1601,11 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:98
 msgid "Explore"
-msgstr ""
+msgstr "Истражи"
 
 #: src/amo/components/SuggestedPages/index.js:24
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Предложени страници"
 
 #: src/amo/components/SuggestedPages/index.js:29
 msgid "Browse all extensions"
@@ -1640,7 +1640,7 @@ msgstr "Видете профил"
 
 #: src/amo/components/UserProfileEditPicture/index.js:97
 msgid "Choose Photo…"
-msgstr ""
+msgstr "Изберете фотографија…"
 
 #: src/amo/components/WrongPlatformWarning/index.js:101
 msgid "To find add-ons compatible with Firefox on desktop, <a href=\"%(newLocation)s\">visit our desktop site</a>."
@@ -1686,11 +1686,11 @@ msgstr "Оценете го вашето искуство"
 
 #: src/amo/pages/Addon/index.js:262
 msgid "About this dictionary"
-msgstr ""
+msgstr "За овој речник"
 
 #: src/amo/pages/Addon/index.js:265
 msgid "About this extension"
-msgstr ""
+msgstr "За ова проширување"
 
 #: src/amo/pages/Addon/index.js:268
 msgid "About this language pack"
@@ -1734,7 +1734,7 @@ msgstr ""
 
 #: src/amo/pages/Addon/index.js:533
 msgid "Screenshots"
-msgstr ""
+msgstr "Слики од екран"
 
 #: src/amo/pages/AddonInfo/index.js:154
 #, fuzzy
@@ -2088,7 +2088,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:98
 msgid "Block annoying ads"
-msgstr ""
+msgstr "Блокирај здодевни реклами"
 
 #: src/amo/pages/Guides/index.js:99
 msgid ""
@@ -2101,11 +2101,11 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:143
 msgid "Nature"
-msgstr ""
+msgstr "Природа"
 
 #: src/amo/pages/Home/index.js:148
 msgid "Film & TV"
-msgstr ""
+msgstr "Филм и ТВ"
 
 #: src/amo/pages/Home/index.js:153
 msgid "Scenery"
@@ -2113,11 +2113,11 @@ msgstr ""
 
 #: src/amo/pages/Home/index.js:158
 msgid "Music"
-msgstr ""
+msgstr "Музика"
 
 #: src/amo/pages/Home/index.js:163
 msgid "Seasonal"
-msgstr ""
+msgstr "Сезонски"
 
 #: src/amo/pages/Home/index.js:201
 msgid "Change the way Firefox looks with themes."
@@ -2225,7 +2225,7 @@ msgstr ""
 
 #: src/amo/pages/LanguageTools/index.js:181
 msgid "All Locales"
-msgstr ""
+msgstr "Сите јазици"
 
 #: src/amo/pages/LanguageTools/index.js:188
 msgid "Locale Name"
@@ -2237,7 +2237,7 @@ msgstr ""
 
 #: src/amo/pages/LanguageTools/index.js:194
 msgid "Dictionaries"
-msgstr ""
+msgstr "Речници"
 
 #: src/amo/pages/SearchTools/index.js:60
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
@@ -2275,7 +2275,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:189
 msgid "Get support"
-msgstr ""
+msgstr "Добијте поддршка"
 
 #: src/amo/pages/StaticPages/About/index.js:19
 msgid "About Firefox Add-ons"
@@ -2307,7 +2307,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:54
 msgid "A community of creators"
-msgstr ""
+msgstr "Заедница на креатори"
 
 #: src/amo/pages/StaticPages/About/index.js:56
 msgid ""
@@ -2317,7 +2317,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:65
 msgid "Get involved"
-msgstr ""
+msgstr "Приклучете се"
 
 #: src/amo/pages/StaticPages/About/index.js:67
 msgid ""
@@ -2425,11 +2425,11 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:55
 msgid "Was it useful?"
-msgstr ""
+msgstr "Дали беше корисно?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:56
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Дали беше леснo за употреба?"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:58
 msgid "Will you continue to use this add-on?"
@@ -2508,11 +2508,11 @@ msgstr "Промени ја мојата критика"
 
 #: src/amo/pages/UserProfile/index.js:365 src/amo/pages/UserProfileEdit/index.js:692
 msgid "Location"
-msgstr ""
+msgstr "Местоположба"
 
 #: src/amo/pages/UserProfile/index.js:373 src/amo/pages/UserProfileEdit/index.js:707
 msgid "Occupation"
-msgstr ""
+msgstr "Занимање"
 
 #: src/amo/pages/UserProfile/index.js:380
 msgid "User since"
@@ -2529,7 +2529,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfile/index.js:411 src/amo/pages/UserProfileEdit/index.js:729
 msgid "Biography"
-msgstr ""
+msgstr "Биографија"
 
 #: src/amo/pages/UserProfile/index.js:435
 #, fuzzy
@@ -2616,7 +2616,7 @@ msgstr "Повеќе проширувања од %(author)s"
 
 #: src/amo/pages/UserProfileEdit/index.js:581
 msgid "Email Address"
-msgstr ""
+msgstr "Адреса за е-пошта"
 
 #: src/amo/pages/UserProfileEdit/index.js:588
 msgid "Email address cannot be changed here"
@@ -2637,12 +2637,12 @@ msgstr "Видете профил"
 
 #: src/amo/pages/UserProfileEdit/index.js:633
 msgid "This field is required"
-msgstr ""
+msgstr "Ова поле е задолжително"
 
 # the star is used to indicate a required field
 #: src/amo/pages/UserProfileEdit/index.js:637
 msgid "Display Name *"
-msgstr ""
+msgstr "Прикажано име *"
 
 #: src/amo/pages/UserProfileEdit/index.js:654
 #, fuzzy
@@ -2659,7 +2659,7 @@ msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:768
 msgid "Notifications"
-msgstr ""
+msgstr "Известувањa"
 
 #: src/amo/pages/UserProfileEdit/index.js:772
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
@@ -2674,9 +2674,8 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr ""
 
 #: src/amo/pages/UserProfileEdit/index.js:818 src/amo/pages/UserProfileEdit/index.js:907
-#, fuzzy
 msgid "Delete My Profile"
-msgstr "Видете профил"
+msgstr "Избриши ми го профилот"
 
 #: src/amo/pages/UserProfileEdit/index.js:819 src/amo/pages/UserProfileEdit/index.js:908
 #, fuzzy
