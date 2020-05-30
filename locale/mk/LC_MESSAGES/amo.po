@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-05-30 09:19+0000\n"
+"PO-Revision-Date: 2020-05-30 11:17+0000\n"
 "Last-Translator: Goce Mitevski <goce.mitevski@nicer2.com>\n"
 "Language-Team: none\n"
 "Language: mk\n"
@@ -2678,9 +2678,8 @@ msgid "Delete My Profile"
 msgstr "Избриши ми го профилот"
 
 #: src/amo/pages/UserProfileEdit/index.js:819 src/amo/pages/UserProfileEdit/index.js:908
-#, fuzzy
 msgid "Delete Profile"
-msgstr "Видете профил"
+msgstr "Бришење на профил"
 
 #: src/amo/pages/UserProfileEdit/index.js:831
 msgid "IMPORTANT: Deleting your Firefox Add-ons profile is irreversible."
@@ -2731,7 +2730,7 @@ msgstr ""
 
 #: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Откажи ја претплатата"
 
 #: src/amo/utils/notifications.js:10
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2767,20 +2766,19 @@ msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:202
 msgid "Enable"
-msgstr ""
+msgstr "Овозможи"
 
 #: src/core/components/AMInstallButton/index.js:207
 msgid "Enabling"
-msgstr ""
+msgstr "Се овозможува"
 
 #: src/core/components/AMInstallButton/index.js:209
 msgid "Disabling"
 msgstr ""
 
 #: src/core/components/AMInstallButton/index.js:211
-#, fuzzy
 msgid "Downloading"
-msgstr "Преземете Firefox"
+msgstr "Преземам"
 
 #: src/core/components/AMInstallButton/index.js:213
 msgid "Installing"
@@ -2828,7 +2826,7 @@ msgstr ""
 
 #: src/core/components/InfoDialog/index.js:88
 msgid "OK"
-msgstr ""
+msgstr "Во ред"
 
 #: src/core/components/Paginate/index.js:137
 msgid "Previous"
@@ -2840,7 +2838,7 @@ msgstr "Следна"
 
 #: src/core/components/Paginate/index.js:160
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Страница %(currentPage)s од %(totalPages)s"
 
 #: src/core/components/SiteNotices/index.js:66
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
@@ -2882,7 +2880,7 @@ msgstr ""
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s до %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
@@ -2915,15 +2913,15 @@ msgstr ""
 
 #: src/ui/components/ConfirmationDialog/index.js:52
 msgid "Confirm"
-msgstr ""
+msgstr "Потврди"
 
 #: src/ui/components/DismissibleTextForm/index.js:187
 msgid "Enter text."
-msgstr ""
+msgstr "Внесете текст."
 
 #: src/ui/components/DismissibleTextForm/index.js:188
 msgid "Submit"
-msgstr ""
+msgstr "Испрати"
 
 #: src/ui/components/DismissibleTextForm/index.js:190
 msgid "Submitting"
