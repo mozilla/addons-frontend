@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-04-22 12:36+0000\n"
-"PO-Revision-Date: 2020-06-02 03:51+0000\n"
+"PO-Revision-Date: 2020-06-02 04:01+0000\n"
 "Last-Translator: Lidya Christina <id.lidya@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -27,9 +27,8 @@ msgid "Enabling"
 msgstr "Mengizinkan"
 
 #: src/core/components/AMInstallButton/index.js:209
-#, fuzzy
 msgid "Disabling"
-msgstr "Mengizinkan"
+msgstr "Menonaktifkan"
 
 #: src/core/components/AMInstallButton/index.js:211
 msgid "Downloading"
@@ -111,7 +110,7 @@ msgstr "%(application)s %(minVersion)s dan setelahnya"
 # This is application compatibility information, such as "firefox 41 to 45"
 #: src/core/reducers/versions.js:338
 msgid "%(application)s %(minVersion)s to %(maxVersion)s"
-msgstr ""
+msgstr "%(application)s %(minVersion)s ke %(maxVersion)s"
 
 # This contains a comma-delimited list of applications and versions, such as "android 41 and later, firefox 42 and later"
 #: src/core/reducers/versions.js:358
@@ -191,7 +190,7 @@ msgstr "Pelajari Lebih Lanjut"
 
 #: src/disco/pages/DiscoPane/index.js:211
 msgid "Some of these recommendations are personalized. They are based on other extensions you've installed, profile preferences, and usage statistics."
-msgstr ""
+msgstr "Beberapa dari rekomendasi ini sudah dipersonalisasi. Rekomendasi tersebut didasarkan pada ekstensi lain yang Anda pasang, preferensi profil, dan statistik penggunaan."
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
