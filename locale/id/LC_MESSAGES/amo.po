@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-06-02 04:51+0000\n"
+"PO-Revision-Date: 2020-06-02 04:57+0000\n"
 "Last-Translator: Lidya Christina <id.lidya@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1776,7 +1776,7 @@ msgstr ""
 
 #: src/amo/pages/Block/index.js:98
 msgid "View block request"
-msgstr ""
+msgstr "Lihat permintaan blokir"
 
 #: src/amo/pages/CategoriesPage/index.js:35
 msgid "All extension categories"
@@ -1878,7 +1878,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:145
 msgid "Arrange and visualize your tabs in a cascading “tree” style format in Firefox’s sidebar."
-msgstr ""
+msgstr "Atur dan visualisasikan tab Anda dalam format gaya \"pohon\" yang mengalir di bilah samping Firefox."
 
 #: src/amo/pages/Guides/index.js:149 src/amo/pages/Guides/index.js:188
 msgid "Explore more %(linkStart)stab%(linkEnd)s extensions."
@@ -1894,7 +1894,7 @@ msgstr ""
 
 #: src/amo/pages/Guides/index.js:165
 msgid "Enjoy a better way to organize your bookmarks if you maintain multiple bookmark folders."
-msgstr ""
+msgstr "Nikmati cara yang lebih baik untuk mengatur markah jika Anda mengelola beberapa folder markah."
 
 #: src/amo/pages/Guides/index.js:168
 msgid "Explore more %(linkStart)sbookmark%(linkEnd)s extensions."
