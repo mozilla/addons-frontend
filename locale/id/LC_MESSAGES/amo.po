@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-06-02 04:20+0000\n"
+"PO-Revision-Date: 2020-06-02 04:51+0000\n"
 "Last-Translator: Lidya Christina <id.lidya@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1963,6 +1963,8 @@ msgid ""
 "Do you deal with too many open tabs or a dizzying number of bookmarks? Extensions can help! From organization assistance to providing fun new features, extensions can dramatically change the way you"
 " deal with tabs and bookmarks."
 msgstr ""
+"Apakah Anda berurusan dengan terlalu banyak tab terbuka atau jumlah markah yang memusingkan? Ekstensi dapat membantu! Dari bantuan organisasi hingga menyediakan fitur baru yang menyenangkan, "
+"ekstensi dapat mengubah cara Anda menangani tab dan markah secara dramatis."
 
 #: src/amo/pages/Guides/index.js:294
 msgid "Extensions can augment online media in all sorts of interesting ways, from watching videos to handling images, music, and more."
@@ -2133,7 +2135,7 @@ msgstr "Kamus"
 
 #: src/amo/pages/SearchTools/index.js:60
 msgid "Download Firefox extensions to customize the way you search—everything from privacy-enhanced searching to website-specific searches, image searching, and more."
-msgstr ""
+msgstr "Unduh ekstensi Firefox untuk menyesuaikan cara Anda mencari—mulai dari privasi-pencarian ke situs web yang ditungkatkan-pencarian tertentu, mencari gambar, dan banyak lagi."
 
 #: src/amo/pages/SearchTools/index.js:63
 msgid "Search Tools"
