@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-06-02 04:03+0000\n"
+"PO-Revision-Date: 2020-06-02 04:20+0000\n"
 "Last-Translator: Lidya Christina <id.lidya@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -2185,7 +2185,7 @@ msgstr ""
 
 #: src/amo/pages/StaticPages/About/index.js:20
 msgid "The official Mozilla site for downloading Firefox extensions and themes. Add new features and change the browser’s appearance to customize your web experience."
-msgstr ""
+msgstr "Situs resmi Mozilla untuk mengunduh ekstensi dan tema Firefox. Tambahkan fitur baru dan ubah tampilan peramban untuk menyesuaikan pengalaman web Anda."
 
 #: src/amo/pages/StaticPages/About/index.js:215
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
@@ -2299,7 +2299,7 @@ msgstr "Panduan Peninjauan"
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:20
 msgid "Guidelines, tips, and Frequently Asked Questions to leave a review for the extensions and themes you’ve downloaded and used on Firefox."
-msgstr ""
+msgstr "Pedoman, kiat, dan Daftar Pertanyaan Umum untuk memberikan ulasan tentang ekstensi dan tema yang telah Anda unduh dan gunakan di Firefox."
 
 #: src/amo/pages/StaticPages/ReviewGuide/index.js:28
 msgid ""
@@ -2625,11 +2625,11 @@ msgstr "Anda telah berhasil berhenti berlangganan!"
 # a list of notifications will be displayed under this prompt.
 #: src/amo/pages/UsersUnsubscribe/index.js:121
 msgid "The email address %(strongStart)s%(email)s%(strongEnd)s will no longer get messages when:"
-msgstr ""
+msgstr "Alamat surel %(strongStart)s%(email)s%(strongEnd)s tidak akan mendapatkan pesan  lagi saat:"
 
 #: src/amo/pages/UsersUnsubscribe/index.js:79
 msgid "You can edit your notification settings by %(linkStart)sediting your profile%(linkEnd)s."
-msgstr ""
+msgstr "Anda dapat mengedit pengaturan notifikasi Anda dengan %(linkStart)ssunting profil Anda%(linkEnd)s."
 
 #: src/amo/pages/UsersUnsubscribe/index.js:99
 msgid "Unsubscribe"
@@ -2746,7 +2746,7 @@ msgstr "Laman %(currentPage)s dari %(totalPages)s"
 
 #: src/core/components/SiteNotices/index.js:66
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
-msgstr ""
+msgstr "Beberapa fitur sedang dimatikan sementara karena kami sedang melakukan pemeliharaan situs web. Beberapa saat lagi kami akan kembali."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
