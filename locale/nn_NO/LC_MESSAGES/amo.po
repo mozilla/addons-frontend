@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-05-22 17:56+0000\n"
-"PO-Revision-Date: 2020-06-03 05:42+0000\n"
+"PO-Revision-Date: 2020-06-03 05:52+0000\n"
 "Last-Translator: Björn I. <bjorni.svindseth@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1575,7 +1575,7 @@ msgstr "For å finne tillegg som er kompatible med Firefox for datamaskiner, <a 
 
 #: src/amo/components/WrongPlatformWarning/index.js:122
 msgid "Not available on Firefox for Android. You can use this add-on with Firefox for Desktop,  or look for similar <a href=\"%(newLocation)s\">Android add-ons</a>."
-msgstr ""
+msgstr "Ikkje tilgjengeleg på Firefox for Android. Du kan bruke dette tillegget med Firefox for datamaskiner,  eller sjå etter liknande <a href=\"%(newLocation)s\">Android-tillegg</a>."
 
 #: src/amo/components/WrongPlatformWarning/index.js:129
 msgid "This add-on is not compatible with this browser. Try installing it on Firefox for desktop."
@@ -1649,7 +1649,7 @@ msgstr "Metadata for utvidingar"
 
 #: src/amo/pages/Addon/index.js:505
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on Android</a>."
-msgstr ""
+msgstr "Denne oppføringa er ikkje tiltenkt for denne plattforma. <a href=\"%(newLocation)s\">Sjå gjennom tillegg for Firefox på Android</a>."
 
 #: src/amo/pages/Addon/index.js:509
 msgid "This listing is not intended for this platform. <a href=\"%(newLocation)s\">Browse add-ons for Firefox on desktop</a>."
@@ -2721,7 +2721,7 @@ msgstr "Side %(currentPage)s av %(totalPages)s"
 
 #: src/core/components/SiteNotices/index.js:66
 msgid "Some features are temporarily disabled while we perform website maintenance. We'll be back to full capacity shortly."
-msgstr ""
+msgstr "Nokre funksjonar er kortvarig utilgjengelege medan vi utfører rutinemessig vedlikehald. Vi kjem tilbake med full kapasitet om kort tid."
 
 #: src/core/components/SurveyNotice/index.js:128
 msgid "Take short survey"
@@ -2729,7 +2729,7 @@ msgstr "Ver med på ei kort spørjeundersøking"
 
 #: src/core/components/SurveyNotice/index.js:136
 msgid "Thanks for visiting this site! Please take a minute or two to tell Firefox about your experience."
-msgstr ""
+msgstr "Takk for at du besøkjer denne nettstaden! Bruk eit minutt eller to for å fortelje Firefox om opplevinga di."
 
 #: src/core/i18n/utils.js:254
 msgid "%(localizedSize)s B"
@@ -2768,7 +2768,7 @@ msgstr "Fungerar med %(listOfApplicatonsAndVersions)s"
 
 #: src/core/utils/addons.js:31
 msgid "Installation aborted because the add-on appears to be corrupt."
-msgstr ""
+msgstr "Installasjonen vart avbroten fordi tillegget ser ut til å vere skada."
 
 #: src/core/utils/addons.js:35
 msgid "Installation failed. Please try again."
